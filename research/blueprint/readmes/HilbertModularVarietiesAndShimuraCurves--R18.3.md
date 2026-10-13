@@ -47,16 +47,29 @@ approximation for \(D^1\) at a split noncompact factor AA.4, and neat levels AA.
 The definite AA.5 example over \(\mathbb Q\) is not the general totally real
 theorem. AF.4 owns coefficient lattices, weights, duals and rational structures.
 AF.5 owns generic coefficient-function forms, evaluation, Hecke operators and
-change of level. It must include fixed central character modulo \(Z_f\), with
-effective stabilisers: its discrete rational centre hypothesis excludes fields
-with positive unit rank.
+change of level. Its existing `central-character-algebraic-modular-forms`
+target supplies the fixed central character modulo \(Z_f\), with effective
+stabilisers. This is the branch needed here: the separate discrete rational
+centre hypothesis excludes fields with positive unit rank.
 
 Mathlib supplies DoubleCoset.Quotient, DoubleCoset.eq, Representation,
 Representation.invariants, Module.Free, Module.Finite, MonoidAlgebra and
 LinearEquiv. Tau Ceti's QuaternionAlgebra.normForm_coe gives square scalar norm;
 NumberField.card_elementaryTwoQuotient_units supplies the unit square-class
-cardinality. Current Tau Ceti also supplies generic Hecke sums. None of these
-carriers or theories is reconstructed here. Integral semigroup coefficients and
+cardinality. At the same pin, `TauCeti.SU2.symPower`, `finrank_symPower`,
+`isIrreducible_symPower` and `existsUnique_nonempty_equiv_symPower` supply the
+actual complex symmetric powers, their dimensions, irreducibility and
+classification. Their modules are `TauCeti/RepresentationTheory/SU2/`:
+`SymmetricPower.lean`, `Irreducible.lean` and `Exhaustion.lean`.
+The classification retains finite dimension and continuity.
+
+Current Tau Ceti also supplies `HeckeCoset.heckeSum` and
+`heckeSum_eq_sum_of_rightCosets` in
+`TauCeti/NumberTheory/HeckeRing/Representation.lean`; representative
+independence requires the stated invariance of the map being summed.
+That file is a current-library supplement, absent at the old pin, and is
+not an import of the suggested file. None of these carriers or theories is
+reconstructed here. Integral semigroup coefficients and
 the fixed-central-character extension remain AF.5 supplier contracts.
 
 ## Class sets, coefficients and evaluation
@@ -100,6 +113,12 @@ Invariant values recover functions using rational invariance and the right
 transformation laws. Stabiliser invariance makes recovery well defined.
 This is a specialization of AF.5, not another generic form carrier.
 KW formula (5), pp.58–59, and Taylor pp.737–738 pin its conventions.
+Its API provides inverse evaluation and recovery maps, the invariance
+condition on values, and compatibility with representative transport and
+coefficient intertwiners, including identity and composition. Check unrestricted
+values when every effective stabiliser is trivial; zero integral versus full
+mod-two invariants for the sign action of \(C_2\); and unchanged recovery after
+replacing \(t\) by \(dtu z\) and transporting its coefficient value.
 
 **NeatnessBaseChange** assumes each \(|\Gamma_t|\) is a unit in \(\mathcal O\).
 Then \(S(U,\mathcal O)\) is finite free and
@@ -192,14 +211,19 @@ An unramified \(\kappa\circ\operatorname{Nrd}\) transfers to
 Use the actual split isomorphism at split places. SR supplies smooth/admissible
 representations, normalized induction, square-integrable representations and
 Steinberg, with the requested character/elliptic-orthogonality extension.
-Jacquet–Langlands Theorem 15.1, p.239, identifies the image; Theorems 14.2 and
-14.4, pp.232,238, give the character construction.
+Jacquet–Langlands Theorem 4.3(i),(v), p.66, supplies central-character and
+twist compatibility, and the degree-one special case on that page gives
+Steinberg. Proposition 15.5, pp.246–248, proves the opposite elliptic-character
+relation. Theorem 15.1, p.239, with its proof on p.248, identifies the image.
+Theorems 14.2 and 14.4 are global results and do not supply this local identity.
 Check a compact-fixed division character transfers to Steinberg; a generic
 unramified principal series is outside this classical division image.
 
 **realQuaternionWeightJL** matches the \(\mathrm{SU}(2)\)-type
 \(\operatorname{Sym}^{k_0-2}(\mathbb C^2)\) with real essentially discrete series
 of weight \(k_0\), retaining the norm twist needed to match central characters.
+The SU(2) type and its classification are the existing Tau Ceti declarations
+above; this target adds their real discrete-series comparison.
 The function realization uses the dual coefficient type prescribed by the
 inverse right transformation law. Badulescu–Renard Remark 9.6, pp.18–20, and
 §13.1, p.32, match the parameters; Taylor Lemma 1.3, pp.741–742, pins the
@@ -210,14 +234,19 @@ to weight four. Transport the algebraic \(p\)-adic norm factors when passing
 \(\psi\) to the complex central character.
 
 **quaternionicSpectralTransfer** supplies the characteristic-zero comparison
-used by DefiniteJl. The classical global comparison takes quaternionic
+used by DefiniteJl. For a global quaternion **division** algebra, the classical
+comparison takes quaternionic
 automorphic representations of dimension greater than one to cuspidal
 \(\mathrm{GL}_2\) representations essentially square-integrable at ramified
 places. Split components agree and multiplicity one is preserved. Its
 degree-two quaternionic statement also serves the early curve comparison.
+For the globally split algebra \(M_2(F)\), use identity on the cuspidal
+spectrum. Its Eisenstein representations show why dimension greater than one
+does not imply cuspidality without the division hypothesis.
 Use the lower-tier discrete spectrum and trace-formula comparison with matching
 functions at real and finite places, and the two local targets above.
-The matching contracts are explicitly requested from AS.4 and AS.6.
+The discrete-spectrum contracts are requested from AS.4, and the
+matching-function contracts from AS.6.
 
 Badulescu–Renard Theorem 18.1 and Proposition 18.2, author pp.44–45, give a
 proved global discrete transfer and its cuspidal classification with ramified
@@ -338,7 +367,10 @@ Their difference is a unit and separates the summands integrally.
 The selected-root map in the right-translation convention is
 \(\xi_v(f)=A_vf-R_{\operatorname{diag}(1,\varpi_v)}f\).
 Taylor Lemma 2.2, pp.746–747, and KW pp.65–66 give this formula and its
-degeneracy matrix. An arbitrary lift with no root identity cannot replace
+degeneracy matrix: on the old pair \((f,R_{\operatorname{diag}(1,\varpi_v)}f)\),
+\(U_v\) acts by \(\left(\begin{smallmatrix}T_v&q_vS_v\\-1&0\end{smallmatrix}\right)\).
+The vector \((A_v,-1)\) is an \(A_v\)-eigenvector precisely because
+\(A_v^2-T_vA_v+q_vS_v=0\). An arbitrary lift with no root identity cannot replace
 \(A_v\). Coincident residual roots do not give integral complementary projectors.
 For example, roots 1 and 2 in \(\mathbb F_3\) separate, while two roots 1 do not.
 
@@ -357,16 +389,27 @@ This does not realize an arbitrary abstract residual polynomial evaluation
 as an automorphic eigensystem.
 
 The construction must use early cohomology and spectral comparison before
-Taylor–Wiles control. In the finite-discrete-series case, extract the
-rank-two Hecke eigensummand from genuine quaternionic curve cohomology and
-apply Carayol Theorem A, §§0.3–0.7, pp.409–411, away from \(p\).
+Taylor–Wiles control. R18.4's `cohomological-eigenspaces` comparison is a
+direct prerequisite in addition to its `finite-cohomology` carrier. In the
+finite-discrete-series case, extract the Galois multiplicity factor from the
+genuine automorphic/cohomological isotypic component; Carayol's construction,
+§§0.3–0.11, pp.409–412, supplies its rank-two identification. Apply Theorem A
+away from \(p\). The whole fixed-level Hecke-isotypic cohomology need not have
+rank two: a two-dimensional automorphic factor tensored with a
+two-dimensional Galois factor has dimension four. The cohomological comparison
+itself uses no early Galois identification or Taylor–Wiles control.
 Translate its geometric Frobenius and contragredient convention (§0.5)
 to our arithmetic polynomial. At even degree Carayol requires a finite
 essentially square-integrable component. For even degree with no such
 component, Taylor's congruence/pseudorepresentation extension must supply
 the construction; its exact proof remains a source obligation.
-The \(v\mid p\) statement needs the precise PadicHodgeTheory geometric
-semistable comparison. Neither follows by deleting Carayol's hypotheses.
+The \(v\mid p\) statement needs PadicHodgeTheory's existing
+`proper-semistable-model-comparison` applied to an actual model and coefficient
+local system, compatibly with Hecke projectors. It also needs the computation
+of the eigenfactor's filtered \((\varphi,N)\)-module which identifies the special
+triangular local type and its unramified character. General semistability alone
+does not identify that type. Neither extension follows by deleting Carayol's
+hypotheses.
 KW Lemma 7.2 and the proof of Corollary 7.5, pp.60–61,66, identify these inputs.
 
 The supporting **steinberg_distinctResidualRoots_impossible** isolates the
@@ -458,7 +501,14 @@ when \(p=2\); take weight two in the dyadic case and require
 Local compatibility gives
 \(\left(\begin{smallmatrix}\varepsilon_p\gamma_{v,f}&*\\0&\gamma_{v,f}\end{smallmatrix}\right)\)
 with unramified \(\gamma_{v,f}\) and \(\gamma_{v,f}^2=\psi_v\).
-Its Frobenius value is the inverse division-uniformizer eigenvalue.
+In our arithmetic convention, its Frobenius value **equals** the eigenvalue
+\(\lambda_v\) of right translation by a division uniformizer \(\Pi\).
+At a full division factor, \(\lambda_v=r_v^{-1}\): Frobenius takes the inverse
+of the coefficient-action value, not the inverse of the right-action eigenvalue.
+Local Jacquet–Langlands sends the right-action character to the Steinberg
+twist \(\kappa\), with \(\kappa(\operatorname{Nrd}\Pi)=\lambda_v\).
+Taylor Lemma 1.7(1), pp.744–745, likewise identifies the arithmetic quotient
+character's value with the operator eigenvalue away from \(p\).
 
 For odd \(p\) and \(v\nmid p\), require either \(1+q_v\ne0\) in the residue
 field or that the common residual local representation is ramified.
@@ -559,8 +609,13 @@ An abstract residual representation does not supply that hypothesis.
 The API evaluates both generators, identifies the maximal kernel, and
 descends along the acting-algebra quotient under the explicit relation
 hypothesis. These operations use the generic AF.5 Hecke algebra and the
-existing quotient and residue-field algebra; the actual eigensystems in
-KW §7.4, pp.65–66, are the motivating application.
+existing `MvPolynomial.eval₂Hom`, `RingHom.ker` and
+`RingHom.ker_isMaximal_of_surjective`, whose statements were read at the pin.
+The actual eigensystems in KW §7.4, pp.65–66, motivate the application.
+CDN §§4.1.1–4.1.3, pp.47–49, also constructs an abstract polynomial kernel;
+its geometric reciprocity and central-character convention differ from ours.
+It supplies that construction pattern rather than an unchanged arithmetic
+normalization.
 
 Check over \(\mathbb F_7\) that \(q_v=3\) and determinant 6 give \(S_v=2\).
 The constant term is \(q_vS_v\), not \(S_v\). A map with nonsurjective
@@ -581,13 +636,19 @@ representations, essentially square-integrable and Steinberg modules,
 characters and elliptic character comparison. The normalized induction
 and Iwahori operators use SR.2. IntegralHeckeAlgebras supplies integral
 double-coset operators. AutomorphicFormsOnReductiveGroups AF.1 supplies
-adelic automorphic and cuspidal representations; AF.4 supplies rational
+real Harish–Chandra modules, and AF.3 supplies automorphic and cuspidal
+representations; AF.4 supplies rational
 models; AF.5 owns the generic fixed-central-character integral algebraic
-modular-form carrier. AutomorphicSpectralTheory AS.4 and AS.6 supply the
-degree-two global spectral comparison and multiplicity-one input.
+modular-form carrier. AutomorphicSpectralTheory AS.4 and AS.6 supply discrete
+spectrum and trace-formula machinery, with the precise matching-function extension
+requested in the packet. The degree-two global transfer and multiplicity-one
+conclusion are the R18.3 target proved using Badulescu–Renard.
 
-ArithmeticGaloisRepresentations R01.1–R01.2 must supply continuous rank-two
-representations, stable lattices, pseudorepresentations and specialization.
+ArithmeticGaloisRepresentations R01.1 supplies continuous representations,
+stable lattices, coefficient extension and lattice reduction; R01.2 supplies
+Weil–Deligne objects and Frobenius semisimplification. The packet cites their
+existing targets directly. The congruence/pseudorepresentation construction
+is part of the early eigenform target’s recorded obligation.
 PadicHodgeTheory R06.5 must supply the precise geometric semistable comparison
 at places above \(p\). These are lower-tier contracts. The minimum quaternionic
 transfer and early eigensystem results stated here supply the higher GL2
@@ -601,11 +662,46 @@ by NeatnessBaseChange; the projective neat-level argument does not prove its
 degree assertion. Supply the even-degree, no-finite-discrete-series early
 Galois construction beyond Carayol and the weight-two comparison above \(p\).
 Build the genuine integral adelic and local representation carriers in the
-owning supplier layers. Ensure the full prerequisite closure uses the owning supplier layers
-and the minimum quaternionic transfer and early Galois results stated here. Resolve the
-exceptional odd-prime ramified-sign inference before asserting the unrestricted
+owning supplier layers. Ensure the full prerequisite closure uses those layers
+and the minimum quaternionic transfer and early Galois results stated here.
+Resolve the exceptional odd-prime ramified-sign inference before asserting the unrestricted
 version of Lemma 7.2(i). These are explicit mathematical obligations, not
 claims of established or formalized results.
+
+The independent review accepts this corrected planning pass. Coverage is
+**planned** under Protocol section 0: every target is specified, and its
+prerequisites end in library declarations, supplier contracts or explicit gaps.
+The five precise obligations in the packet keep the layer from being closed.
+Assembly must apply both `dependencyReplacements` and `importRefinements` to the nineteen accepted targets. In particular, only
+\(p\)-subgroups inject through auxiliary reduction in the isotropy proof,
+the central-compatible roots define sign extensions at all specified division
+factors, and the square-norm result precedes the level-preserving norm twist.
+The early curve multiplicity comparison precedes Galois extraction and then
+localized Taylor–Wiles control. A walk through named target dependencies after
+these replacements found no reachable cycle; assembly must still expand stage
+contracts and complete all requested supplier extensions.
+
+## Independently checked source qualifications
+
+The review confirms `E-R18.3-1` as a gap in the local sign-identification
+inference described above. It does not exhibit a global automorphic
+counterexample. The corrected target retains the explicit identifiability
+hypothesis.
+
+The author-copy remark after KW Lemma 7.2, p.61, also needs an action-convention
+qualification (`E-R18.3-2`). Under the right action used here, inverting the
+uniformizer eigenvalue contradicts \(\gamma_v^2=\psi_v\) for a general central
+character. For example, \(\psi_v(\operatorname{Nrd}\Pi)=4\) and \(r=1/2\)
+give \(\lambda_v=2\) and \(\gamma_v(\mathrm{Frob}_v)=2\), with square 4.
+The inverse eigenvalue would have square \(1/4\). The inverse formula is
+appropriate for the coefficient-action value \(r\), which is a different
+specified action. This is a local normalization check, not a construction of
+a global eigenform with those data.
+
+Both findings concern the dated author copy actually read. The publisher's
+PDF was unavailable and its version of record was not collated. The packet
+records file hashes, exact versions, access attempts and searches for
+corrections. No claim is made about the published wording.
 
 The suggested Lean file states only elementary consequences on existing
 carriers: integer-valued character powers, cyclic torsion kernels, the image
@@ -623,12 +719,14 @@ twists, and residual Hecke ideals.
 - Taylor, *On the meromorphic continuation of degree two L-functions*,
   [Documenta Mathematica Extra Volume (2006)](https://ems.press/content/book-chapter-files/27484?nt=1),
   pp.729–779: Lemma 1.1 and Corollary 1.2, pp.738–739; Lemma 1.3,
-  pp.739–742; Lemma 1.6(2), pp.744–745; Lemmas 2.2–2.3 and Corollary 2.4,
+  pp.739–742; Lemmas 1.6(2) and 1.7(1), pp.744–745; arithmetic reciprocity,
+  p.731; Lemmas 2.2–2.3 and Corollary 2.4,
   pp.746–748.
 - Jacquet–Langlands, *Automorphic Forms on GL(2)*,
   [IAS monograph (1970)](https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2-rpl_1.pdf):
-  Theorem 14.2, p.232; Corollary 14.3 and Theorem 14.4, pp.237–238;
-  §15, Theorem 15.1, p.239; §16, Theorem 16.1, pp.252–254.
+  Theorem 4.3(i),(v) and the degree-one special case, p.66;
+  Theorem 15.1, p.239 and its proof, p.248; Proposition 15.5, pp.246–248;
+  global Theorem 14.4, p.238; §16, Theorem 16.1, pp.252–254.
 - Badulescu–Renard, *Unitary dual of GL(n) at Archimedean places and global
   Jacquet–Langlands correspondence*,
   [author preprint dated 16 November 2009](https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf),
@@ -644,3 +742,9 @@ twists, and residual Hecke ideals.
   second edition, Cambridge Studies in Advanced Mathematics 205 (2023):
   [§1.4.2](https://doi.org/10.1017/9781139017756.004), pp.31–33, equation (1.16).
   The cleared reference-library copy supplies the division valuation statement.
+- Colmez–Dospinescu–Nizioł, *Factorisation de la cohomologie étale p-adique
+  de la tour de Drinfeld*, [arXiv:2204.11214v2](https://arxiv.org/pdf/2204.11214v2),
+  Forum of Mathematics, Pi 11 (2023), e16: §§4.1.1–4.1.3, pp.47–49, especially
+  the abstract polynomial Hecke kernel on p.49. This checks the imported kernel
+  construction; its geometric Frobenius convention is not substituted for the
+  arithmetic normalization fixed here.

@@ -43,6 +43,16 @@ example :
 example : (divisionCharacterValue (1 : ℚˣ) 2 : ℚ) ≠ 1 / 4 := by
   norm_num [divisionCharacterValue]
 
+-- With coefficient root r=1/2, right translation and arithmetic Frobenius take r⁻¹=2.
+-- Their square is the central character value 4; inverting that right-action value fails.
+example :
+    ((divisionCharacterValue (Units.mk0 (1 / 2 : ℚ) (by norm_num)) 1 : ℚ)⁻¹) ^ 2 = 4 := by
+  norm_num [divisionCharacterValue]
+
+example :
+    (divisionCharacterValue (Units.mk0 (1 / 2 : ℚ) (by norm_num)) 1 : ℚ) ^ 2 ≠ 4 := by
+  norm_num [divisionCharacterValue]
+
 /-- The `N`-torsion kernel, not the subgroup of `N`th powers.
 For actual diagonal level groups the README constructs the quotient by this subgroup. -/
 def twDiagonalTorsion (N m : ℕ) : Set (ZMod m) := {x | N • x = 0}
@@ -67,6 +77,14 @@ example : ∃ x : ZMod 2, x ∈ twDiagonalTorsion 2 2 ∧
     ¬ ∃ y : ZMod 2, y + y = x := by
   change ∃ x : ZMod 2, 2 • x = 0 ∧ ¬ ∃ y : ZMod 2, y + y = x
   decide
+
+-- The old-pair U-matrix is [[T, qS], [-1, 0]]. For T=3, qS=2, root A=1,
+-- the selected vector (A,-1) has eigenvalue A; changing the degeneracy sign fails.
+example : (3 : ℚ) * 1 + 2 * (-1) = 1 * 1 ∧ -(1 : ℚ) = 1 * (-1) := by
+  norm_num
+
+example : (3 : ℚ) * 1 + 2 * 1 ≠ 1 * 1 := by
+  norm_num
 
 /-- The image of integral invariant coefficients under an actual additive reduction map.
 Its equality with the global reduction image is a README theorem about the AF.5 carrier. -/
