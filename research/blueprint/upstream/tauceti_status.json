@@ -194,6 +194,22 @@
         "date": "2026-10-12",
         "note": "maintainer: \"GPT found no issues; waiting on dependencies\"; head 85bd1be differs only by re-stacks on the parents | re-stacked on #817 b45e54c at 29f15fb"
       }
+    },
+    "ComplexComparisonPartII": {
+      "stage": "pr",
+      "pr": 848,
+      "head": "eafe802",
+      "depends_on": [
+        779
+      ],
+      "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 09:20Z; awaiting first review"
+      }
     }
   }
 }
