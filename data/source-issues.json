@@ -200317,6 +200317,25 @@
    "reviewReason": "Read at pp. 31–32: the proof displays the three rows and takes the long exact sequence without stating that the middle row (ω_{G^D}^∨)^{(p)} → E → ω_G^{(p)} is exact."
   },
   {
+   "id": "FreeGroupsAndLimitGroups/E1",
+   "kind": "misprint",
+   "locator": "§4.4, proof of Corollary 9, p. 26 (arXiv v2)",
+   "printed": "The proof of the positive-theory algorithm says it follows from ‘Proposition 4’ together with the decidability of equations with constraints.",
+   "correction": "The result used is Merzljakov's Theorem proved just before in §4.4; Proposition 4 of the paper appears only in §7 and concerns regular quadratic equations.",
+   "reason": "At this point of the paper no Proposition 4 has been stated; the argument needs exactly the existence of formal solutions in F[X], which is Merzljakov's Theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of math/0312509 (two versions, no erratum noted there)"
+   ],
+   "owner": "FreeGroupsAndLimitGroups",
+   "file": "research/blueprint/packets/FreeGroupsAndLimitGroups.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Implicit function theorem over free groups, J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2 (printed page numbers of the arXiv version cited)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FunctionFieldArithmetic/E1",
    "kind": "misprint",
    "locator": "arXiv:1011.3392v1, §2.2, p.9, displayed pairing; printed page image checked",
@@ -211994,6 +212013,49 @@
    "owner": "HilbertModularVarietiesAndShimuraCurves",
    "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
    "citation": "Sources of the blueprint of HilbertModularVarietiesAndShimuraCurves",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-01",
+   "kind": "misprint",
+   "locator": "Opening of §6, p.33, arXiv v2",
+   "printed": "The algebra is described as ramified at exactly one infinite place while being treated as the indefinite curve algebra.",
+   "correction": "Use an algebra split at exactly one real place, ramified at the other real places, with the total ramification set of even cardinality.",
+   "reason": "The §2.2 uniformization has one upper-half-plane factor precisely under this split-place condition. Over F=Q a real-ramified algebra is definite, so the printed condition cannot give the curve used in §6.",
+   "affects": "a stated result",
+   "known": "No correction located; the author and journal versions inspected retain this wording.",
+   "searched": [
+    "arXiv v2 of MS",
+    "Jack Shotton author PDF quaternion.pdf",
+    "2021 published PDF in the Max Planck repository",
+    "Search for an Ihara-lemma Manning–Shotton erratum/corrigendum, 2026-10-13"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
+   "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-02",
+   "kind": "misprint",
+   "locator": "§4.2, definition of the unframed fixed-determinant ring, p.23, arXiv v2",
+   "printed": "The unframed fixed-determinant functor uses determinant ψ, whereas the framed functor and local conditions use ψε⁻¹.",
+   "correction": "Both global functors use θ=ψε⁻¹, agreeing with §3’s fixed determinant and allowing the framed-to-unframed forgetful map.",
+   "reason": "Forgetting a frame cannot change the determinant of a lift. The two different determinant conditions would not define the asserted formally smooth forgetful map or its j=4|Σ|−1 relative dimension.",
+   "affects": "the proof",
+   "known": "No correction located in the versions consulted.",
+   "searched": [
+    "arXiv v2, §§3 and 4.2",
+    "Jack Shotton author page and published version",
+    "Search for a published correction, 2026-10-13"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
+   "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -230414,9 +230476,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E2",
@@ -230435,9 +230497,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E3",
@@ -230456,9 +230518,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E4",
@@ -230477,14 +230539,14 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E5",
    "kind": "error",
-   "locator": "Propositions 2.11 and 2.12, p. 17-19",
+   "locator": "Propositions 2.11 and 2.12, pp. 19–20 (arXiv v3)",
    "printed": "The integral specialization and kernel formulas are stated without requiring the proposed kernel generator to belong to the integral annular ring.",
    "correction": "The statements on A~_I hold only if [p~]/p - 1 (resp. [p~^{p^n}]/p - 1) belongs to A~_I; otherwise replace A~_I by B~_I.",
    "reason": "The kernel description uses the element [p~]/p - 1, which need not be integral on A~_I.",
@@ -230498,9 +230560,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E6",
@@ -230519,9 +230581,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E7",
@@ -230540,9 +230602,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E8",
@@ -230560,9 +230622,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. γ(π) = (1+π)^{χ(γ)} − 1 ≡ χ(γ)π mod π², and γ acts trivially on N(V)/πN(V) and on the coefficients modulo π, so γ(x) ≡ χ(γ)^j x mod π^{j+1} for x ∈ π^j B^+_{rig,F} ⊗ N(V); the printed exponent −j is a misprint."
   },
   {
    "id": "PadicHodgeTheory/E9",
@@ -230579,9 +230641,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E10",
@@ -230598,9 +230660,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E11",
@@ -230617,9 +230679,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Rejected. Théorème I.3.3(2), p.8, requires that B^{†,pr}_{rig,K} ⊗ D_r has a basis contained in φ(D_r). Writing that basis as φ(x_i) with x_i = Σ_j e_j X_{ji} in a basis e of D_r shows that the φ(e_j) generate the free rank-d module, hence form a basis, so Mat(φ) ∈ GL_d(B^{†,pr}_{rig,K}) already follows. Berger's 2026 errata (Section 4) only calls the generation condition preferable; the printed hypothesis is not weaker."
   },
   {
    "id": "PadicHodgeTheory/E12",
@@ -230639,9 +230701,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E13",
@@ -230659,9 +230721,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E14",
@@ -230679,9 +230741,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E15",
@@ -230698,9 +230760,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E16",
@@ -230717,9 +230779,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E17",
@@ -230736,9 +230798,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E18",
@@ -230755,9 +230817,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E19",
@@ -230775,9 +230837,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E20",
@@ -230795,9 +230857,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. The printed matrix has trace 0 and determinant −(p−1)² − (p+1)²i² = 4p, so its characteristic polynomial is X² + 4p, not X² − 4p (p.104); the roots still have valuation 1/2."
   },
   {
    "id": "PadicHodgeTheory/E21",
@@ -230815,9 +230877,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E22",
@@ -230835,9 +230897,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E23",
@@ -230856,9 +230918,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E24",
@@ -230876,9 +230938,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. Brinon–Conrad §6.3 (p.76) give Q_p(n) Hodge–Tate weight −n, so the example V′ = Q_p(r), r > 0, V″ = Q_p has V′ of weight −r < 0; the inequality on pp.78–79 is stated in the opposite convention."
   },
   {
    "id": "PadicHodgeTheory/E25",
@@ -230896,9 +230958,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E26",
@@ -230916,9 +230978,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E27",
@@ -230937,9 +230999,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E28",
@@ -230956,9 +231018,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E29",
@@ -230975,9 +231037,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E30",
@@ -230994,9 +231056,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E31",
@@ -231013,9 +231075,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E32",
@@ -231032,9 +231094,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. Corollaire III.2.5 (p.17) writes M′ = M(D′) by the essential-surjectivity statement of Théorème III.2.4, which rests on Théorème III.2.3 and through it on the monodromy statement III.2.1 (p.15); the proof of Théorème V.2.1 uses III.2.5 via Proposition IV.2.2, contrary to Remarque V.2.2."
   },
   {
    "id": "PadicHodgeTheory/E33",
@@ -231052,9 +231114,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E34",
@@ -231071,9 +231133,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E35",
@@ -231090,9 +231152,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E36",
@@ -231110,9 +231172,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E37",
@@ -231131,9 +231193,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. Fontaine–Ouyang take τ_k to be the geometric Frobenius with χ(τ_K) = q^{−1} (§1.2), so τ_k acts on E(−1) by q; the text on p.16 gives q^{−1}, which turns the Weil–Deligne relation into its inverse."
   },
   {
    "id": "PadicHodgeTheory/E38",
@@ -231151,9 +231213,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E39",
@@ -231170,9 +231232,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E40",
@@ -231191,9 +231253,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. By Brinon–Conrad Proposition 4.4.3(2) an element of ker θ generates iff its reduction in R has valuation 1; ε − 1 has valuation p/(p−1) = 2 at p = 2, and μ = ξ_ε φ^{-1}(μ) with φ^{-1}(μ) a nonunit."
   },
   {
    "id": "PadicHodgeTheory/E51",
@@ -231213,9 +231275,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E41",
@@ -231234,9 +231296,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E42",
@@ -231255,9 +231317,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E43",
@@ -231276,9 +231338,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E44",
@@ -231297,9 +231359,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. Berger (p.18) calls log_p(q/p^{v_p(q)}) canonically attached to V, but E_q and E_{q²} have isomorphic V while the number doubles; the isomorphism invariant is log_p(q)/v_p(q)."
   },
   {
    "id": "PadicHodgeTheory/E45",
@@ -231318,9 +231380,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E46",
@@ -231339,9 +231401,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. c_q is intrinsic to D (proof of Proposition 8.3.8), but −λ(q) is not invariant under q ↦ q² (isogenous Tate curves), and it vanishes for q = p with λ(p) = 0 although the text puts c_q in Q_p^×; the invariant is −λ(q)/ord_p(q)."
   },
   {
    "id": "PadicHodgeTheory/E47",
@@ -231359,15 +231421,15 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "R. Coleman and A. Iovita, The Frobenius and monodromy operators for curves and abelian varieties, arXiv:math/9701229v1 (2 Jan 1997), 22 pages: the Introduction and Chapter I only (Chapter II, with the proof of the good-reduction theorem, is not in this file); published in Duke Math. J. 97 (1999), 171–215 (not seen).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E52",
    "kind": "misprint",
    "locator": "Proposition B.4, p.35",
-   "printed": "The extension criterion uses a uniformizer symbol with the coefficient-field subscript in place of the local base-field subscript.",
+   "printed": "The criterion evaluates the algebraic character at a uniformizer written π_F, although no field F occurs in the statement.",
    "correction": "The unit character is extended using a uniformizer π_K of the local field K.",
    "reason": "The parameter is an element of the local multiplicative group in the Artin correspondence; the coefficient field need not even embed in K.",
    "affects": "nothing",
@@ -231378,14 +231440,14 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Brian Conrad, Lifting global representations with local properties, author copy, Appendix B, printed pp.32–36",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed with a corrected description. Proposition B.4(ii), p.35, evaluates the algebraic character at \"π_F\", and no field F occurs in the statement (the local field is L, the coefficient field K); the intended argument is a uniformizer π_L of the local field."
   },
   {
    "id": "PadicHodgeTheory/E53",
    "kind": "error",
-   "locator": "§5.1, definition of MT(ρ) following Lemma 5.1.2, pp.27–28",
+   "locator": "Definition 5.1 and footnote 14, p.32 (arXiv:2208.07195v3)",
    "printed": "The fiber-functor automorphism group is identified with the identity component of the algebraic image closure.",
    "correction": "For the full tensor subcategory generated by ρ, the automorphism group is the full algebraic image closure H. Its identity component H° is a distinct connected monodromy group; it can be recovered after an appropriate finite-index restriction.",
    "reason": "A nontrivial finite-image representation has H finite and nontrivial but H° trivial. The tensor category generated by it retains that finite image.",
@@ -231397,9 +231459,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Ian Gleason, Dong Gyu Lim, Yujie Xu, The connected components of affine Deligne–Lusztig varieties, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. The Tannakian group of the tensor subcategory generated by the realized representations of an abstract group is the Zariski closure H of the image, which can be disconnected (a nontrivial finite-image representation has H finite, H° trivial); footnote 14 on p.32 identifies it with MT = H°. Locator corrected: Definition 5.1 and footnote 14 are on p.32; there is no Lemma 5.1.2."
   },
   {
    "id": "PadicHodgeTheory/E54",
@@ -231416,9 +231478,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Duke Math. J. 174 (2025), 2203-2301. Read from the authors' copy CN5.pdf (61 pp., compiled 2024-11-24, sha256 bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a), which is textually identical, up to glyph rendering and line breaking, to arXiv:2108.12785v4 (25 Nov 2024, sha256 83c6afdc8a377e38dced9dd8b400cb3461a2d47de2664a094e81a04332051361); page numbers below are the printed folios of that 61-page preprint, not the Duke pagination. The published Duke version is paywalled and was not consulted.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. §5.1.2, p.32, prints deg = t_N − t_H, but the proof of Lemma 5.3 (shrinking the filtration lowers the degree) and Remark 5.5 (acyclic modules with nonnegative slopes) need deg = t_H − t_N; for φ = 1 and Fil^1 D = D the fundamental complex is onto, as acyclicity of slope +1 requires."
   },
   {
    "id": "PadicHodgeTheory/E55",
@@ -231435,9 +231497,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Lie Qian, Potential automorphy for GL_n, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Rejected as located. The recorded edition (NSF PAR copy of Invent. Math. 2022) has no Lemma 2.3.2 and no valuation maximum over an unbounded index; the nearest statement, Lemma 2.4 (= BLGHT Lemma 2.2), runs over i = 1, …, n. The accepted Qian extraction records no such item either. The finding cannot be reproduced at its locator."
   },
   {
    "id": "PadicHodgeTheory/E56",
@@ -231454,9 +231516,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Alexander Betts and Jakob Stix, Galois sections and p-adic period mappings, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E57",
@@ -231474,9 +231536,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: Foundations, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E58",
@@ -231493,9 +231555,9 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed at the locator in the recorded edition: the source text says what the entry records, and the correction is the one the surrounding argument requires."
   },
   {
    "id": "PadicHodgeTheory/E59",
@@ -231512,9 +231574,28 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory.json",
    "citation": "L. Alexander Betts and Jakob Stix, Galois sections and p-adic period mappings, version identified by sourceVersions; use the locators of the version read",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Confirmed. For a descending filtration the phrase \"bounded below in every degree\" admits two readings. With F^iA^0 = k for all i, A^{−1} = k in filtration 0 and d = id, the E_1 page has one nonzero term, yet H^0(F^1A) = k → H^0(F^0A) = 0 is not injective; the proof needs F^iA^n = 0 for i ≫ 0, as the correction states."
+  },
+  {
+   "id": "PadicHodgeTheory/E60",
+   "kind": "error",
+   "locator": "Example 6.3.6, side remark after the statement, p.79 (2009 preliminary version)",
+   "printed": "The side remark says that among the (1 + [K:Q_p])-dimensional space of extensions of Q_p by Q_p(1), only a one-dimensional space consists of semistable representations, namely those coming from Tate curves.",
+   "correction": "Every extension of Q_p by Q_p(1) is semistable; the crystalline ones form the hyperplane Q_p ⊗ Ô_K^× of H^1(K, Q_p(1)) ≅ Q_p ⊗ K̂^×. The Tate-curve extensions are the non-crystalline ones up to this hyperplane.",
+   "reason": "For q ∈ K^×, D_st(V(q)) has basis x, y with φ(x) = p^{−1}x, φ(y) = y, N(y) = v_p(q)x and Fil^0 = K(y + log_K(q)x) (Berger, survey II.4.3–II.4.4); these filtered modules realize every class (v_p(q), log_K(q)) ∈ Q_p ⊕ K, a space of dimension 1 + [K:Q_p]. The notes do not use the remark elsewhere.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad notes (math.stanford.edu/~conrad/papers/notes.pdf, 24 June 2009, the only version found), checked 2026-10-13; no errata page located."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeTheory",
+   "reviewReason": "Added by the reviewer: the statement contradicts Kummer theory and the explicit filtered modules recorded at PadicHodgeTheory:R06.6/plan/kummer-representations-semistable (d)."
   },
   {
    "id": "PadicMeasuresIwasawaAlgebras/E1",
