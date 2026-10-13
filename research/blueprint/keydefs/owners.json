@@ -7,7 +7,7 @@
     "DESIGN-ClassicalAdicEtaleCohomologyPartII",
     "DESIGN-PadicFamiliesPartII"
    ],
-   "items": 3,
+   "items": 2,
    "name": "Coherent dualizing complexes and exceptional inverse image",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the maintainer decided on SchemeAndStackFoundations",
@@ -15,7 +15,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 12
+   "unrouted": 13
   },
   "algebraicgeometry/equivariant-sheaf-cohomology": {
    "importers": [

@@ -9786,7 +9786,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FGLG.md",
-   "state": "pending"
+   "state": "done",
+   "finishedAt": "2026-10-13T21:17:26Z",
+   "note": "deliverables arrived from an external worker on issue #9461"
   },
   {
    "id": "REV-DESIGN-FGLG",
@@ -21892,8 +21894,8 @@
    "avoidAccountOf": "BP-AInfCohomology",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9377",
-   "finishedAt": "2026-10-13T18:28:11Z"
+   "finishedAt": "2026-10-13T18:28:11Z",
+   "note": "deliverables arrived from an external worker on issue #9377"
   },
   {
    "id": "BP-AbelianSchemesAndArithmeticModuli",
@@ -25886,8 +25888,8 @@
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9422",
-   "finishedAt": "2026-10-13T19:33:17Z"
+   "finishedAt": "2026-10-13T19:33:17Z",
+   "note": "deliverables arrived from an external worker on issue #9422"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.5",
@@ -25909,8 +25911,8 @@
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9393",
-   "finishedAt": "2026-10-13T20:21:21Z"
+   "finishedAt": "2026-10-13T20:21:21Z",
+   "note": "deliverables arrived from an external worker on issue #9393"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups",
@@ -27372,8 +27374,8 @@
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9427",
-   "finishedAt": "2026-10-13T18:28:16Z"
+   "finishedAt": "2026-10-13T18:28:16Z",
+   "note": "deliverables arrived from an external worker on issue #9427"
   },
   {
    "id": "REV-PadicHodgeTheory",
@@ -27395,8 +27397,8 @@
    "avoidAccountOf": "BP-PadicHodgeTheory",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9398",
-   "finishedAt": "2026-10-13T19:33:20Z"
+   "finishedAt": "2026-10-13T19:33:20Z",
+   "note": "deliverables arrived from an external worker on issue #9398"
   },
   {
    "id": "BP-PadicLocalLanglandsForGL2Qp",
@@ -28270,8 +28272,8 @@
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9431",
-   "finishedAt": "2026-10-13T19:12:19Z"
+   "finishedAt": "2026-10-13T19:12:19Z",
+   "note": "deliverables arrived from an external worker on issue #9431"
   },
   {
    "id": "REV-ShimuraCompactifications",
@@ -28293,8 +28295,8 @@
    "avoidAccountOf": "BP-ShimuraCompactifications",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9402",
-   "finishedAt": "2026-10-13T19:57:18Z"
+   "finishedAt": "2026-10-13T19:57:18Z",
+   "note": "deliverables arrived from an external worker on issue #9402"
   },
   {
    "id": "BP-ShimuraData",
@@ -28401,8 +28403,8 @@
    "avoidAccountOf": "BP-ShimuraVarieties",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9403",
-   "finishedAt": "2026-10-13T18:50:55Z"
+   "finishedAt": "2026-10-13T18:50:55Z",
+   "note": "deliverables arrived from an external worker on issue #9403"
   },
   {
    "id": "BP-SmallRamificationAndAbelianVarietyBaseCases",
@@ -32686,8 +32688,8 @@
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L0",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9248",
-   "finishedAt": "2026-10-13T19:57:20Z"
+   "finishedAt": "2026-10-13T19:57:20Z",
+   "note": "deliverables arrived from an external worker on issue #9248"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L1",
@@ -32734,8 +32736,8 @@
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L1",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9249",
-   "finishedAt": "2026-10-13T19:57:23Z"
+   "finishedAt": "2026-10-13T19:57:23Z",
+   "note": "deliverables arrived from an external worker on issue #9249"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L2",
@@ -35595,8 +35597,8 @@
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9420",
-   "finishedAt": "2026-10-13T19:12:21Z"
+   "finishedAt": "2026-10-13T19:12:21Z",
+   "note": "deliverables arrived from an external worker on issue #9420"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
@@ -35618,8 +35620,8 @@
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9391",
-   "finishedAt": "2026-10-13T19:57:26Z"
+   "finishedAt": "2026-10-13T19:57:26Z",
+   "note": "deliverables arrived from an external worker on issue #9391"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -35643,8 +35645,8 @@
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9421",
-   "finishedAt": "2026-10-13T19:33:24Z"
+   "finishedAt": "2026-10-13T19:33:24Z",
+   "note": "deliverables arrived from an external worker on issue #9421"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -35666,8 +35668,8 @@
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9392",
-   "finishedAt": "2026-10-13T20:21:26Z"
+   "finishedAt": "2026-10-13T20:21:26Z",
+   "note": "deliverables arrived from an external worker on issue #9392"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-2",
@@ -36626,8 +36628,8 @@
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4a",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4a.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9396",
-   "finishedAt": "2026-10-13T18:51:00Z"
+   "finishedAt": "2026-10-13T18:51:00Z",
+   "note": "deliverables arrived from an external worker on issue #9396"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.5d",
@@ -38147,8 +38149,8 @@
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.2",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9278",
-   "finishedAt": "2026-10-13T21:11:15Z"
+   "finishedAt": "2026-10-13T21:11:15Z",
+   "note": "deliverables arrived from an external worker on issue #9278"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.3",
@@ -38195,8 +38197,8 @@
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.3",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9279",
-   "finishedAt": "2026-10-13T19:57:29Z"
+   "finishedAt": "2026-10-13T19:57:29Z",
+   "note": "deliverables arrived from an external worker on issue #9279"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.4",
@@ -38243,8 +38245,8 @@
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.4",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9280",
-   "finishedAt": "2026-10-13T20:21:31Z"
+   "finishedAt": "2026-10-13T20:21:31Z",
+   "note": "deliverables arrived from an external worker on issue #9280"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.5",
@@ -47280,8 +47282,55 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #7921",
-   "finishedAt": "2026-10-13T19:57:31Z"
+   "finishedAt": "2026-10-13T19:57:31Z",
+   "note": "deliverables arrived from an external worker on issue #7921"
+  },
+  {
+   "id": "PKG-AutomorphicSpectralTheory~2",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "AutomorphicSpectralTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/AutomorphicSpectralTheory/README.md",
+    "research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean",
+    "research/blueprint/packages/AutomorphicSpectralTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-AutomorphicSpectralTheory~2.md"
+   ],
+   "after": [
+    "REV-PKG-AutomorphicSpectralTheory"
+   ],
+   "revisionOf": "PKG-AutomorphicSpectralTheory",
+   "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-AutomorphicSpectralTheory~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "AutomorphicSpectralTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-AutomorphicSpectralTheory~2.md",
+    "research/blueprint/packages/AutomorphicSpectralTheory/review.json",
+    "research/blueprint/packages/AutomorphicSpectralTheory/README.md",
+    "research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean",
+    "research/blueprint/packages/AutomorphicSpectralTheory/metadata.toml"
+   ],
+   "after": [
+    "PKG-AutomorphicSpectralTheory~2"
+   ],
+   "avoidAccountOf": "PKG-AutomorphicSpectralTheory~2",
+   "independentOf": [
+    "PKG-AutomorphicSpectralTheory",
+    "PKG-AutomorphicSpectralTheory~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory~2.md",
+   "state": "pending"
   },
   {
    "id": "PKG-ClassicalAdicEtaleCohomology",
@@ -48292,8 +48341,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondSixOperations.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9165",
-   "finishedAt": "2026-10-13T20:46:53Z"
+   "finishedAt": "2026-10-13T20:46:53Z",
+   "note": "deliverables arrived from an external worker on issue #9165"
   },
   {
    "id": "REV-PKG-DiamondSixOperations",
@@ -48584,8 +48633,8 @@
    "revisionOf": "PKG-EllipticCurveModularityImaginaryQuadratic",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9166",
-   "finishedAt": "2026-10-13T21:11:18Z"
+   "finishedAt": "2026-10-13T21:11:18Z",
+   "note": "deliverables arrived from an external worker on issue #9166"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic~3",
@@ -48612,7 +48661,8 @@
     "PKG-EllipticCurveModularityImaginaryQuadratic~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityImaginaryQuadratic~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9210"
   },
   {
    "id": "PKG-EllipticCurveModularityPartII",
@@ -49605,8 +49655,8 @@
    "revisionOf": "PKG-HabiroCohomologyFoundations",
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9174",
-   "finishedAt": "2026-10-13T21:11:25Z"
+   "finishedAt": "2026-10-13T21:11:25Z",
+   "note": "deliverables arrived from an external worker on issue #9174"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~3",
@@ -49633,7 +49683,8 @@
     "PKG-HabiroCohomologyFoundations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9218"
   },
   {
    "id": "PKG-HabiroCyclotomicCompletions",
@@ -50086,8 +50137,8 @@
    "revisionOf": "PKG-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9176",
-   "finishedAt": "2026-10-13T20:46:58Z"
+   "finishedAt": "2026-10-13T20:46:58Z",
+   "note": "deliverables arrived from an external worker on issue #9176"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII~2",
@@ -51149,8 +51200,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PELModuli.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9185",
-   "finishedAt": "2026-10-13T21:11:33Z"
+   "finishedAt": "2026-10-13T21:11:33Z",
+   "note": "deliverables arrived from an external worker on issue #9185"
   },
   {
    "id": "REV-PKG-PELModuli",
@@ -51175,7 +51226,8 @@
     "PKG-PELModuli"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PELModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9229"
   },
   {
    "id": "PKG-PerfectoidQuotients",
@@ -51653,8 +51705,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-RelativeFarguesFontaine.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9192",
-   "finishedAt": "2026-10-13T21:11:40Z"
+   "finishedAt": "2026-10-13T21:11:40Z",
+   "note": "deliverables arrived from an external worker on issue #9192"
   },
   {
    "id": "REV-PKG-RelativeFarguesFontaine",
@@ -51870,6 +51922,49 @@
    "state": "pending"
   },
   {
+   "id": "PKG-ShimuraCompactifications",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/packages/ShimuraCompactifications/README.md",
+    "research/blueprint/packages/ShimuraCompactifications/Suggested.lean",
+    "research/blueprint/packages/ShimuraCompactifications/metadata.toml",
+    "research/blueprint/handoff/PKG-ShimuraCompactifications.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-ShimuraCompactifications.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-ShimuraCompactifications",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ShimuraCompactifications.md",
+    "research/blueprint/packages/ShimuraCompactifications/review.json",
+    "research/blueprint/packages/ShimuraCompactifications/README.md",
+    "research/blueprint/packages/ShimuraCompactifications/Suggested.lean",
+    "research/blueprint/packages/ShimuraCompactifications/metadata.toml"
+   ],
+   "after": [
+    "PKG-ShimuraCompactifications"
+   ],
+   "avoidAccountOf": "PKG-ShimuraCompactifications",
+   "independentOf": [
+    "PKG-ShimuraCompactifications"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-ShimuraCompactifications.md",
+   "state": "pending"
+  },
+  {
    "id": "PKG-ShimuraVarieties",
    "kind": "package",
    "priority": 2,
@@ -51886,8 +51981,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9194",
-   "finishedAt": "2026-10-13T20:47:04Z"
+   "finishedAt": "2026-10-13T20:47:04Z",
+   "note": "deliverables arrived from an external worker on issue #9194"
   },
   {
    "id": "REV-PKG-ShimuraVarieties",
@@ -69058,6 +69153,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-AInfCohomology",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 714,
+   "name": "blueprint BP-AInfCohomology: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "target": "BP-AInfCohomology",
+   "roadmapIds": [
+    "AInfCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AInfCohomology.result.json",
+    "research/blueprint/redteam/RT-BP-AInfCohomology.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AInfCohomology",
+    "REV-AInfCohomology"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AInfCohomology.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AInfCohomology",
+   "kind": "review",
+   "priority": 2,
+   "order": 714,
+   "name": "blueprint BP-AInfCohomology: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
+   "roadmapIds": [
+    "AInfCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AInfCohomology.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AInfCohomology.md"
+   ],
+   "after": [
+    "RT-BP-AInfCohomology"
+   ],
+   "avoidAccountOf": "RT-BP-AInfCohomology",
+   "independentOf": [
+    "RT-BP-AInfCohomology",
+    "BP-AInfCohomology",
+    "REV-AInfCohomology"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AInfCohomology.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-AbelianSchemesAndArithmeticModuli",
    "kind": "redteam",
    "priority": 2,
@@ -70526,6 +70668,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 790,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.5: Hilbert Modular Varieties And Shimura Curves",
+   "target": "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.result.json",
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 790,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.5: Hilbert Modular Varieties And Shimura Curves",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md"
+   ],
+   "after": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5"
+   ],
+   "avoidAccountOf": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+   "independentOf": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-K2SymbolsBrauer--T.1",
    "kind": "redteam",
    "priority": 2,
@@ -70761,6 +70950,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-PadicHodgeTheory",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 818,
+   "name": "blueprint BP-PadicHodgeTheory: P-adic Hodge theory and geometric comparison",
+   "target": "BP-PadicHodgeTheory",
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicHodgeTheory.result.json",
+    "research/blueprint/redteam/RT-BP-PadicHodgeTheory.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicHodgeTheory",
+    "REV-PadicHodgeTheory"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicHodgeTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicHodgeTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 818,
+   "name": "blueprint BP-PadicHodgeTheory: P-adic Hodge theory and geometric comparison",
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicHodgeTheory.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicHodgeTheory.md"
+   ],
+   "after": [
+    "RT-BP-PadicHodgeTheory"
+   ],
+   "avoidAccountOf": "RT-BP-PadicHodgeTheory",
+   "independentOf": [
+    "RT-BP-PadicHodgeTheory",
+    "BP-PadicHodgeTheory",
+    "REV-PadicHodgeTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicHodgeTheory.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-PerfectoidQuotients",
    "kind": "redteam",
    "priority": 2,
@@ -70852,6 +71088,100 @@
     "REV-SelmerIwasawaCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SelmerIwasawaCohomology.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ShimuraCompactifications",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 835,
+   "name": "blueprint BP-ShimuraCompactifications: Toroidal compactifications and boundary geometry",
+   "target": "BP-ShimuraCompactifications",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraCompactifications.result.json",
+    "research/blueprint/redteam/RT-BP-ShimuraCompactifications.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ShimuraCompactifications",
+    "REV-ShimuraCompactifications"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ShimuraCompactifications.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ShimuraCompactifications",
+   "kind": "review",
+   "priority": 2,
+   "order": 835,
+   "name": "blueprint BP-ShimuraCompactifications: Toroidal compactifications and boundary geometry",
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraCompactifications.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ShimuraCompactifications.md"
+   ],
+   "after": [
+    "RT-BP-ShimuraCompactifications"
+   ],
+   "avoidAccountOf": "RT-BP-ShimuraCompactifications",
+   "independentOf": [
+    "RT-BP-ShimuraCompactifications",
+    "BP-ShimuraCompactifications",
+    "REV-ShimuraCompactifications"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraCompactifications.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ShimuraVarieties",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 837,
+   "name": "blueprint BP-ShimuraVarieties: Complex Shimura varieties and canonical models",
+   "target": "BP-ShimuraVarieties",
+   "roadmapIds": [
+    "ShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraVarieties.result.json",
+    "research/blueprint/redteam/RT-BP-ShimuraVarieties.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ShimuraVarieties",
+    "REV-ShimuraVarieties"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ShimuraVarieties.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ShimuraVarieties",
+   "kind": "review",
+   "priority": 2,
+   "order": 837,
+   "name": "blueprint BP-ShimuraVarieties: Complex Shimura varieties and canonical models",
+   "roadmapIds": [
+    "ShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ShimuraVarieties.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ShimuraVarieties.md"
+   ],
+   "after": [
+    "RT-BP-ShimuraVarieties"
+   ],
+   "avoidAccountOf": "RT-BP-ShimuraVarieties",
+   "independentOf": [
+    "RT-BP-ShimuraVarieties",
+    "BP-ShimuraVarieties",
+    "REV-ShimuraVarieties"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraVarieties.md",
    "state": "pending"
   },
   {
@@ -72497,6 +72827,100 @@
     "REV-HabiroCyclotomicCompletions--HC.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HabiroCyclotomicCompletions--HC.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-LocallyAnalyticDistributions--L0",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 920,
+   "name": "blueprint BP-LocallyAnalyticDistributions--L0: Locally analytic distributions, growth, and character spaces",
+   "target": "BP-LocallyAnalyticDistributions--L0",
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L0.result.json",
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L0.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-LocallyAnalyticDistributions--L0",
+    "REV-LocallyAnalyticDistributions--L0"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-LocallyAnalyticDistributions--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-LocallyAnalyticDistributions--L0",
+   "kind": "review",
+   "priority": 2,
+   "order": 920,
+   "name": "blueprint BP-LocallyAnalyticDistributions--L0: Locally analytic distributions, growth, and character spaces",
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L0.review.json",
+    "research/blueprint/reviews/REV-RT-BP-LocallyAnalyticDistributions--L0.md"
+   ],
+   "after": [
+    "RT-BP-LocallyAnalyticDistributions--L0"
+   ],
+   "avoidAccountOf": "RT-BP-LocallyAnalyticDistributions--L0",
+   "independentOf": [
+    "RT-BP-LocallyAnalyticDistributions--L0",
+    "BP-LocallyAnalyticDistributions--L0",
+    "REV-LocallyAnalyticDistributions--L0"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L0.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-LocallyAnalyticDistributions--L1",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 921,
+   "name": "blueprint BP-LocallyAnalyticDistributions--L1: Locally analytic distributions, growth, and character spaces",
+   "target": "BP-LocallyAnalyticDistributions--L1",
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L1.result.json",
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L1.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-LocallyAnalyticDistributions--L1",
+    "REV-LocallyAnalyticDistributions--L1"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-LocallyAnalyticDistributions--L1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-LocallyAnalyticDistributions--L1",
+   "kind": "review",
+   "priority": 2,
+   "order": 921,
+   "name": "blueprint BP-LocallyAnalyticDistributions--L1: Locally analytic distributions, growth, and character spaces",
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-LocallyAnalyticDistributions--L1.review.json",
+    "research/blueprint/reviews/REV-RT-BP-LocallyAnalyticDistributions--L1.md"
+   ],
+   "after": [
+    "RT-BP-LocallyAnalyticDistributions--L1"
+   ],
+   "avoidAccountOf": "RT-BP-LocallyAnalyticDistributions--L1",
+   "independentOf": [
+    "RT-BP-LocallyAnalyticDistributions--L1",
+    "BP-LocallyAnalyticDistributions--L1",
+    "REV-LocallyAnalyticDistributions--L1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L1.md",
    "state": "pending"
   },
   {
@@ -74338,6 +74762,100 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 982,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.3: Hilbert Modular Varieties And Shimura Curves",
+   "target": "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.result.json",
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 982,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.3: Hilbert Modular Varieties And Shimura Curves",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md"
+   ],
+   "after": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3"
+   ],
+   "avoidAccountOf": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "independentOf": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 983,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.4: Hilbert Modular Varieties And Shimura Curves",
+   "target": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.result.json",
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 983,
+   "name": "blueprint BP-HilbertModularVarietiesAndShimuraCurves--R18.4: Hilbert Modular Varieties And Shimura Curves",
+   "roadmapIds": [
+    "HilbertModularVarietiesAndShimuraCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md"
+   ],
+   "after": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4"
+   ],
+   "avoidAccountOf": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "independentOf": [
+    "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+    "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
+    "REV-HilbertModularVarietiesAndShimuraCurves--R18.4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-K2SymbolsBrauer--T.3",
    "kind": "redteam",
    "priority": 2,
@@ -74812,6 +75330,53 @@
     "REV-ModularCurvesPartII--R13.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ModularCurvesPartII--R13.4a",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1004,
+   "name": "blueprint BP-ModularCurvesPartII--R13.4a: Modular Curves PartII",
+   "target": "BP-ModularCurvesPartII--R13.4a",
+   "roadmapIds": [
+    "ModularCurvesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ModularCurvesPartII--R13.4a.result.json",
+    "research/blueprint/redteam/RT-BP-ModularCurvesPartII--R13.4a.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ModularCurvesPartII--R13.4a",
+    "REV-ModularCurvesPartII--R13.4a"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ModularCurvesPartII--R13.4a.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ModularCurvesPartII--R13.4a",
+   "kind": "review",
+   "priority": 2,
+   "order": 1004,
+   "name": "blueprint BP-ModularCurvesPartII--R13.4a: Modular Curves PartII",
+   "roadmapIds": [
+    "ModularCurvesPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ModularCurvesPartII--R13.4a.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ModularCurvesPartII--R13.4a.md"
+   ],
+   "after": [
+    "RT-BP-ModularCurvesPartII--R13.4a"
+   ],
+   "avoidAccountOf": "RT-BP-ModularCurvesPartII--R13.4a",
+   "independentOf": [
+    "RT-BP-ModularCurvesPartII--R13.4a",
+    "BP-ModularCurvesPartII--R13.4a",
+    "REV-ModularCurvesPartII--R13.4a"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4a.md",
    "state": "pending"
   },
   {
@@ -75423,6 +75988,147 @@
     "REV-DiophantineApproximationAndTranscendence--DT.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1037,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.2: Diophantine approximation and transcendence",
+   "target": "BP-DiophantineApproximationAndTranscendence--DT.2",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.2.result.json",
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DiophantineApproximationAndTranscendence--DT.2",
+    "REV-DiophantineApproximationAndTranscendence--DT.2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DiophantineApproximationAndTranscendence--DT.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1037,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.2: Diophantine approximation and transcendence",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.2.md"
+   ],
+   "after": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.2"
+   ],
+   "avoidAccountOf": "RT-BP-DiophantineApproximationAndTranscendence--DT.2",
+   "independentOf": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.2",
+    "BP-DiophantineApproximationAndTranscendence--DT.2",
+    "REV-DiophantineApproximationAndTranscendence--DT.2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1038,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.3: Diophantine approximation and transcendence",
+   "target": "BP-DiophantineApproximationAndTranscendence--DT.3",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.3.result.json",
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DiophantineApproximationAndTranscendence--DT.3",
+    "REV-DiophantineApproximationAndTranscendence--DT.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DiophantineApproximationAndTranscendence--DT.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1038,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.3: Diophantine approximation and transcendence",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.3.md"
+   ],
+   "after": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.3"
+   ],
+   "avoidAccountOf": "RT-BP-DiophantineApproximationAndTranscendence--DT.3",
+   "independentOf": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.3",
+    "BP-DiophantineApproximationAndTranscendence--DT.3",
+    "REV-DiophantineApproximationAndTranscendence--DT.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1039,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.4: Diophantine approximation and transcendence",
+   "target": "BP-DiophantineApproximationAndTranscendence--DT.4",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.4.result.json",
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DiophantineApproximationAndTranscendence--DT.4",
+    "REV-DiophantineApproximationAndTranscendence--DT.4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DiophantineApproximationAndTranscendence--DT.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1039,
+   "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.4: Diophantine approximation and transcendence",
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DiophantineApproximationAndTranscendence--DT.4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.4.md"
+   ],
+   "after": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.4"
+   ],
+   "avoidAccountOf": "RT-BP-DiophantineApproximationAndTranscendence--DT.4",
+   "independentOf": [
+    "RT-BP-DiophantineApproximationAndTranscendence--DT.4",
+    "BP-DiophantineApproximationAndTranscendence--DT.4",
+    "REV-DiophantineApproximationAndTranscendence--DT.4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DiophantineApproximationAndTranscendence--DT.4.md",
    "state": "pending"
   },
   {
@@ -86876,6 +87582,9 @@
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
     "research/blueprint/readmes/IntegralHeckeAndGaloisDeterminants.md",
     "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
@@ -86920,6 +87629,7 @@
     "research/blueprint/packets/AdelicAlgebraicGroups.json",
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
@@ -86931,6 +87641,7 @@
     "research/blueprint/suggested/AdelicAlgebraicGroups.lean",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
     "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
    ],
@@ -87140,6 +87851,9 @@
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
     "research/blueprint/handoff/BP-IntegralHeckeAndGaloisDeterminants~2.md",
     "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~2.md"
    ],
@@ -87184,6 +87898,7 @@
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/packets/CompletedCohomologyPartII.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean",
     "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
     "research/blueprint/suggested/AutomorphicLFunctionsAndLocalFactors.lean",
@@ -87198,7 +87913,8 @@
     "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.8.lean",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
     "research/blueprint/suggested/CompletedCohomologyPartII.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-automorphic-1~4"
@@ -87415,6 +88131,9 @@
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
     "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~2.md"
    ],
    "after": [
@@ -87456,6 +88175,7 @@
     "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
     "research/blueprint/packets/CompletedCohomologyPartII.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.3.lean",
     "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
     "research/blueprint/suggested/AutomorphicLFunctionsAndLocalFactors.lean",
@@ -87470,7 +88190,8 @@
     "research/blueprint/suggested/MetaplecticAutomorphicForms--MP.8.lean",
     "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
     "research/blueprint/suggested/CompletedCohomologyPartII.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-automorphic-1~6"
@@ -88506,9 +89227,15 @@
     "research/blueprint/packets/GlobalGaloisDeformations.json",
     "research/blueprint/readmes/GlobalGaloisDeformations.md",
     "research/blueprint/suggested/GlobalGaloisDeformations.lean",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2"
@@ -88546,7 +89273,9 @@
     "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
     "research/blueprint/packets/LocalGaloisDeformationRings.json",
     "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R23.1.lean",
@@ -88558,7 +89287,9 @@
     "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean",
     "research/blueprint/suggested/LocalGaloisDeformationRings.lean",
     "research/blueprint/suggested/GlobalGaloisDeformations.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~2"
@@ -88765,9 +89496,15 @@
     "research/blueprint/suggested/ModularCurvesPartII--R13.4b.lean",
     "research/blueprint/handoff/BP-WeightsInEtaleCohomology~2.md",
     "research/blueprint/handoff/BP-LocalGaloisDeformationRings~2.md",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~3"
@@ -88810,7 +89547,9 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/packets/ModularCurvesPartII--R13.4b.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R23.1.lean",
@@ -88827,7 +89566,9 @@
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
     "research/blueprint/suggested/ModularCurvesPartII--R13.4b.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~4"
@@ -89212,6 +89953,9 @@
     "research/blueprint/readmes/PELModuli.md",
     "research/blueprint/suggested/PELModuli.lean",
     "research/blueprint/handoff/BP-PELModuli~2.md",
+    "research/blueprint/packets/ShimuraCompactifications.json",
+    "research/blueprint/readmes/ShimuraCompactifications.md",
+    "research/blueprint/suggested/ShimuraCompactifications.lean",
     "research/blueprint/packets/ShimuraVarieties.json",
     "research/blueprint/readmes/ShimuraVarieties.md",
     "research/blueprint/suggested/ShimuraVarieties.lean",
@@ -89306,6 +90050,7 @@
     "research/blueprint/packets/ComplexComparisonPartII.json",
     "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
     "research/blueprint/packets/PELModuli.json",
+    "research/blueprint/packets/ShimuraCompactifications.json",
     "research/blueprint/packets/ShimuraVarieties.json",
     "research/blueprint/packets/FunctionFieldArithmetic.json",
     "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
@@ -89335,6 +90080,7 @@
     "research/blueprint/suggested/ComplexComparisonPartII.lean",
     "research/blueprint/suggested/ModularCurvesPartII--R12.1.lean",
     "research/blueprint/suggested/PELModuli.lean",
+    "research/blueprint/suggested/ShimuraCompactifications.lean",
     "research/blueprint/suggested/ShimuraVarieties.lean",
     "research/blueprint/suggested/FunctionFieldArithmetic.lean",
     "research/blueprint/suggested/AbelianSchemesAndArithmeticModuli.lean",
@@ -89419,6 +90165,9 @@
     "research/blueprint/readmes/PELModuli.md",
     "research/blueprint/suggested/PELModuli.lean",
     "research/blueprint/handoff/BP-PELModuli~2.md",
+    "research/blueprint/packets/ShimuraCompactifications.json",
+    "research/blueprint/readmes/ShimuraCompactifications.md",
+    "research/blueprint/suggested/ShimuraCompactifications.lean",
     "research/blueprint/packets/ShimuraVarieties.json",
     "research/blueprint/readmes/ShimuraVarieties.md",
     "research/blueprint/suggested/ShimuraVarieties.lean",
@@ -89511,6 +90260,7 @@
     "research/blueprint/packets/ComplexComparisonPartII.json",
     "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
     "research/blueprint/packets/PELModuli.json",
+    "research/blueprint/packets/ShimuraCompactifications.json",
     "research/blueprint/packets/ShimuraVarieties.json",
     "research/blueprint/packets/FunctionFieldArithmetic.json",
     "research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json",
@@ -89540,6 +90290,7 @@
     "research/blueprint/suggested/ComplexComparisonPartII.lean",
     "research/blueprint/suggested/ModularCurvesPartII--R12.1.lean",
     "research/blueprint/suggested/PELModuli.lean",
+    "research/blueprint/suggested/ShimuraCompactifications.lean",
     "research/blueprint/suggested/ShimuraVarieties.lean",
     "research/blueprint/suggested/FunctionFieldArithmetic.lean",
     "research/blueprint/suggested/AbelianSchemesAndArithmeticModuli.lean",
@@ -89704,6 +90455,9 @@
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/readmes/AInfCohomology.md",
     "research/blueprint/suggested/AInfCohomology.lean",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/packets/CohomologyComparisons.json",
     "research/blueprint/readmes/CohomologyComparisons.md",
     "research/blueprint/suggested/CohomologyComparisons.lean",
@@ -89717,7 +90471,10 @@
     "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--H0.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/packets/ShimuraCompactifications.json",
+    "research/blueprint/readmes/ShimuraCompactifications.md",
+    "research/blueprint/suggested/ShimuraCompactifications.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-1"
@@ -89754,10 +90511,12 @@
     "research/blueprint/packets/AdicSpacesPartII.json",
     "research/blueprint/packets/DiamondSixOperations.json",
     "research/blueprint/packets/AInfCohomology.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/CohomologyComparisons.json",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/packets/AlgebraicModularFormsAndSerreWeights.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
+    "research/blueprint/packets/ShimuraCompactifications.json",
     "research/blueprint/suggested/PerfectoidQuotients.lean",
     "research/blueprint/suggested/PerfectoidShimuraVarieties.lean",
     "research/blueprint/suggested/DiamondsAndVStacks.lean",
@@ -89767,10 +90526,12 @@
     "research/blueprint/suggested/AdicSpacesPartII.lean",
     "research/blueprint/suggested/DiamondSixOperations.lean",
     "research/blueprint/suggested/AInfCohomology.lean",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/CohomologyComparisons.lean",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
     "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
+    "research/blueprint/suggested/ShimuraCompactifications.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-1~2"
@@ -90065,7 +90826,13 @@
     "research/blueprint/handoff/BP-DiamondSixOperations~2.md",
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/readmes/AInfCohomology.md",
-    "research/blueprint/suggested/AInfCohomology.lean"
+    "research/blueprint/suggested/AInfCohomology.lean",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
+    "research/blueprint/packets/ShimuraCompactifications.json",
+    "research/blueprint/readmes/ShimuraCompactifications.md",
+    "research/blueprint/suggested/ShimuraCompactifications.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-1~3"
@@ -90115,6 +90882,8 @@
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/packets/ShimuraCompactifications--C6.json",
     "research/blueprint/packets/AInfCohomology.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/packets/ShimuraCompactifications.json",
     "research/blueprint/suggested/PerfectoidQuotients.lean",
     "research/blueprint/suggested/PerfectoidShimuraVarieties.lean",
     "research/blueprint/suggested/PerfectoidSpaces--P8.lean",
@@ -90138,7 +90907,9 @@
     "research/blueprint/suggested/AlgebraicModularFormsAndSerreWeights.lean",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
     "research/blueprint/suggested/ShimuraCompactifications--C6.lean",
-    "research/blueprint/suggested/AInfCohomology.lean"
+    "research/blueprint/suggested/AInfCohomology.lean",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
+    "research/blueprint/suggested/ShimuraCompactifications.lean"
    ],
    "after": [
     "FIX-RT-AREA-padic-1~4"
@@ -90266,6 +91037,9 @@
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
     "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/readmes/FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
@@ -90316,6 +91090,7 @@
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/packets/CohomologyComparisons.json",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
     "research/blueprint/packets/DerivedDeRhamCohomology.json",
@@ -90325,6 +91100,7 @@
     "research/blueprint/suggested/AInfCohomology.lean",
     "research/blueprint/suggested/CohomologyComparisons.lean",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
     "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
     "research/blueprint/suggested/DerivedDeRhamCohomology.lean",
@@ -90457,6 +91233,9 @@
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
     "research/blueprint/handoff/BP-IgusaVarietiesAndTorsionConcentration~2.md",
+    "research/blueprint/packets/PadicHodgeTheory.json",
+    "research/blueprint/readmes/PadicHodgeTheory.md",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/readmes/FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
@@ -90504,6 +91283,7 @@
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/packets/CohomologyComparisons.json",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
+    "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/packets/DerivedDeRhamCohomology.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
@@ -90514,6 +91294,7 @@
     "research/blueprint/suggested/AInfCohomology.lean",
     "research/blueprint/suggested/CohomologyComparisons.lean",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
+    "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
     "research/blueprint/suggested/DerivedDeRhamCohomology.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
@@ -94440,7 +95221,7 @@
    "id": "ERRATA-DESIGN-LV",
    "kind": "errata",
    "priority": 1,
-   "order": 740,
+   "order": 741,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
@@ -94458,7 +95239,7 @@
    "id": "REV-ERRATA-DESIGN-LV",
    "kind": "review",
    "priority": 1,
-   "order": 740,
+   "order": 741,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
@@ -94479,7 +95260,7 @@
    "id": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "kind": "errata",
    "priority": 1,
-   "order": 744,
+   "order": 745,
    "name": "Abelian Schemes And Arithmetic Moduli, Part II",
    "roadmapIds": [],
    "outputs": [
@@ -94495,7 +95276,7 @@
    "id": "REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "kind": "review",
    "priority": 1,
-   "order": 744,
+   "order": 745,
    "name": "Abelian Schemes And Arithmetic Moduli, Part II",
    "roadmapIds": [],
    "outputs": [
