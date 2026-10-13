@@ -32,6 +32,10 @@ def filtrationCutoff (p e : ℕ) : ℕ :=
 theorem filtrationCutoff_two (e : ℕ) : filtrationCutoff 2 e = 2 * e := by
   sorry
 
+/-- Zero ramification argument gives zero in the arithmetic specialization. -/
+example : filtrationCutoff 2 0 = 0 := by
+  sorry
+
 /-- Vanishing begins at the ceiling, not the floor, when the threshold is nonintegral. -/
 example : filtrationCutoff 3 1 = 2 := by
   sorry
@@ -64,6 +68,14 @@ example : variation (1 : Module.End R M) = 0 := by
 
 /-- The zero endomorphism has variation minus the identity. -/
 example : variation (0 : Module.End R M) = -1 := by
+  sorry
+
+/-- Noncommuting rank-two monodromies distinguish the order of the product term. -/
+example :
+    ((!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 0; 1, 1] - 1) =
+      !![1, 1; 1, 0] ∧
+    ((!![1, 0; 1, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 1; 0, 1] - 1) =
+      !![0, 1; 1, 1] := by
   sorry
 
 end Trait
@@ -194,35 +206,47 @@ end Radial
 
 /-
 Further definitions specified in README.md:
-Layer 1: EtaleSheaf, ProEtaleSheaf, EtaleDerived, derivedDirectImage, PseudoAdic,
-Support, PseudoAdicSupportSpace, locallyClosedExtensionByZero, IsTorsionLocalSystem, IsClassicallyConstructible,
-tateTwist, SupportedTildeLimit, EtaleDPlus, PseudoAdicSite, completedZp, LisseSheaf, IsLocallyConstant, IsConstructible.
-Layer 2: IsHenselianFadic, FadicHenselization, AffinoidHenselization, RationalHenselization,
-SpecialSubset, ProSpecialSubset, HenselizationAlongSupport, PseudoAdic.schemeFibreProduct,
-henselianComparison, PerfectoidNoetherianModel, Huber.Triple, PerfectoidHuberApproximation.
-Layer 3: PreadicIntegralLocalSystem, PreadicIsogenyLocalSystem, PreadicRationalLocalSystem,
-BoundedLattice, AnalyticEtaleCover, AnalyticCoveringFiber, AnalyticEtaleFundamentalGroup,
-AnalyticRationalLatticeCover, StrictAnalyticSpace, AnalyticTateQuotient, tautAdicBerkovichComparison, theta, IsTaut, IsOverconvergent.
-Layer 4: FormalEtale, FormalEtaleSite, lambda, FormalPair, PairEtaleSite,
-pairSpecialization, FormalStrictLocalization, CompletionComparisonData,
-completionComparisonMap, MicrobialClosedFibreSupport, SemistableFormalScheme,
-SemistableFormalNearbyCycles, FormalKummerSymbol, FormalBKHFiltration,
-FormalBKHZeroSymbol, FormalBKHPositiveSymbol, FormalNearbySymbol, FormalBKHZeroSymbolMaps,
-FormalBKHPositiveSymbolMaps, FormalScheme.StrictLocalisationSystem, FormalScheme.CompletionData,
-FormalScheme.MicrobialBase.
-Layer 5: ValuationQuadruple, ValuationQuadrupleHom, ValuationNearbyCycles,
-NearbyCyclesGaloisAction, nearbyCyclesBaseChangeMap, GaussExtension,
-AICGenericExtension, OrientedEtaleProduct, PlurinodalPresentation.
-Layer 6: ValuationInvarianceComparison.
-Layer 7: GeometricFieldPairExtension, PerfectoidFiniteTypeApproximation.
-Layer 8: IsCompactifiable, UniversalCompactification, SCompactifiableFormalCurve,
-LocallySCompactifiableFormalCurve, SemistableFormalCurveModel, RelativelyCompactRigidOpen,
-PartiallyProperLowerShriek, ProperSupportDirectImage, FlatQuasiFiniteTrace.
-Layer 9: SmoothAdicCurve, CurveTrace, BoundaryPretrace,
+Layer 1: AdicSpace.EtaleSheaf, AdicSpace.ProEtaleSheaf, AdicSpace.EtaleDPlus,
+AdicSpace.RGamma, AdicSpace.Rpushforward, AdicSpace.PseudoAdic, AdicSpace.PseudoAdicSite,
+AdicSpace.EtaleSheaf.extendByZero, locallyClosedExtensionByZero, Support,
+AdicSpace.EtaleSheaf.IsLocallyConstant, AdicSpace.TorsionLocalSystem,
+AdicSpace.EtaleSheaf.IsConstructible, AdicSpace.DbConstructible, AdicSpace.muN,
+AdicSpace.tateTwist, SupportedTildeLimit, ProEtaleSheaf.completedZp, LisseSheaf.
+Layer 2: Huber.IsHenselian, Huber.Henselization, Huber.Pair.rationalHenselization,
+Huber.specialSubset, Huber.IsSpecialSubset, Huber.IsProSpecialSubset, Huber.Triple,
+Huber.Pair.proSpecialHenselization, AdicSpace.PseudoAdic.schemeFibreProduct,
+AdicSpace.henselianComparison, PerfectoidHuberApproximation.
+Layer 3: AdicSpace.IsTaut, StrictAnalyticSpace, StrictAnalyticEtaleSite,
+AdicBerkovichToposMorphism, OverconvergentEtaleSheaf, PreadicSpace.ZpLocalSystem,
+PreadicSpace.IsogenyZpLocalSystem, PreadicSpace.QpLocalSystem, PreadicSpace.BoundedLattice,
+AdicSpace.AnalyticEtaleCover, AdicSpace.AnalyticCoverFiber,
+AdicSpace.AnalyticEtaleFundamentalGroup, AnalyticTateQuotient, AnalyticRationalLatticeCover.
+Layer 4: FormalScheme.Hom.IsEtale, FormalScheme.SmallEtale,
+FormalScheme.smallEtaleTopology, FormalScheme.specialisationFunctor, FormalScheme.Pair,
+FormalScheme.Pair.SmallEtale, FormalScheme.Pair.specialisationFunctor,
+FormalScheme.StrictLocalisationSystem, FormalScheme.CompletionData,
+FormalScheme.CompletionData.phi, FormalScheme.CompletionData.derivedComparison,
+FormalScheme.MicrobialBase, FormalScheme.IsSemistable, SemistableFormalNearbyCycles,
+FormalNearbySymbol, FormalBKHFiltration, FormalBKHZeroSymbolMaps, FormalBKHPositiveSymbolMaps.
+Layer 5: AlgebraicGeometry.ValuationQuadruple, AlgebraicGeometry.ValuationQuadruple.Hom,
+AlgebraicGeometry.ValuationQuadruple.nearbyCycles,
+AlgebraicGeometry.ValuationQuadruple.galoisAction,
+AlgebraicGeometry.ValuationQuadruple.nearbyCyclesBaseChange, Valuation.gaussPoly,
+Valuation.gauss, Valuation.gaussValuationSubring, OrientedEtaleProduct,
+PlurinodalPresentation, aicGenericExtensionEquivalence_functor,
+aicGenericExtensionEquivalence_inverse.
+Layer 6: AdicSpace.ValuationBase.invarianceMap.
+Layer 7: AdicSpace.GeometricFieldPair, AdicSpace.FiniteTypeApprox.
+Layer 8: AdicSpace.IsCompactifiable, AdicSpace.compactification,
+RelativelyCompactRigidOpen, SCompactifiableFormalCurve, LocallySCompactifiableFormalCurve,
+SemistableFormalCurveModel, FormalCurve.compactification_data,
+FormalCurve.local_compactification_at, AdicSpace.properSupportSections,
+AdicSpace.RProperSupportSections, AdicSpace.lowerShriek, AdicSpace.lowerShriekUnbounded,
+AdicSpace.compactCohomology, AdicSpace.quasiFiniteTrace.
+Layer 9: AdicSpace.IsSmoothCurve, AdicSpace.curveTrace, BoundaryPretrace,
 BoundaryResidueTrace, AnalyticLCICycleClass, AffineSpaceTrace, AnalyticFirstChernClass,
-SmoothRelativeTrace, GeneralAnalyticSmoothTrace, GeneralSmoothTrace, IntegralSmoothProperTrace.
+SmoothRelativeTrace, GeneralSmoothTrace, IntegralSmoothProperTrace.
 Layer 10: AnnulusKummerGenerator.
 Layer 11: BallExhaustion, radiusBall.
 -/
-
 end TauCetiRoadmap.ClassicalAdicEtaleCohomology
