@@ -274,6 +274,17 @@ example : Matrix.det (identityFrobenius (0 : ℤ) 0 0 0 0 0 0 0 0 1 1 1) =
 
 end IdentityChart
 
+section MinimalTypeControl
+
+/-- The matching formula for the minimal-type `γαγ` chart fixes the coefficient `-1-b+c`.
+At these constants the printed `1-b+c` instead gives a nonzero value. -/
+example :
+    (-1 - 24 + 0 : ZMod 79) * 1 * 1 - (-1 - 12 + 0) * 1 * 8 = 0 ∧
+    (-1 - 24 + 0 : ZMod 79) * 1 * 1 - (1 - 12 + 0) * 1 * 8 = 63 := by
+  decide
+
+end MinimalTypeControl
+
 section Eigenvalue
 
 variable {A : Type*} [CommRing A]
@@ -380,6 +391,23 @@ end NonreducedControl
 
 /-! ## Layer 8: Selected local conditions and global exports -/
 
+section TraceControl
+
+/-- In characteristic two scalar endomorphisms have trace zero, while trace on all
+endomorphisms is surjective. Scalar splitting cannot identify fixed-determinant strict
+classes with `H¹(ad⁰)` in this case. -/
+example : Matrix.trace (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 0 ∧
+    Matrix.trace (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 1 := by
+  decide
+
+/-- The two-scalar Taylor–Wiles inertia direction has determinant derivative zero;
+ramifying only the selected line has nonzero determinant derivative. -/
+example : Matrix.trace (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) (ZMod 5)) = 0 ∧
+    Matrix.trace (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 5)) = 1 := by
+  decide
+
+end TraceControl
+
 section NodalRing
 
 variable (A : Type*) [CommRing A]
@@ -412,5 +440,33 @@ example : ∃ x y : NodalRing ℚ 0 1, x ≠ 0 ∧ y ≠ 0 ∧ x * y = 0 := by
   sorry
 
 end NodalRing
+
+/-!
+The README also specifies the following constructions with their full geometric carriers.
+
+Layer 1: `heightLatticeFunctor`, `ordinaryWeightRing`, `universalInertialCharacter`,
+`ordinaryWeightRingTilde`, `FLDeformation`, `IsOrdinaryOfWeight`,
+`IsSemistableOrdinaryOfWeight`, `ordinaryFlagScheme`, `ordinaryFlagImage`, `CoeffRing`,
+`ArtinCat`, `liftFunctorΛ`, `GLift`, `GFramedRing`, `canonicalTorus`, `chiLambda`, `IsGOrdinary`,
+`PhiGamma.defRing`, `PhiGamma.triangulineDefRing`, `PhiGamma.deRhamDefRing`.
+
+Layer 2: `IsMinimallyRamified`, `SteinbergLifts`, `TameGroup`, `GSp4RamType`,
+`typeQuotient`, the symplectic `GSp4.exp₂` and `GSp4.log₂`, `𝒩(q)`, `ℳ(x,y;q)`,
+`LevelRaising.mix`, `LevelRaising.unr`, `LevelRaising.ram`, `InertialType`,
+`fixedTypeRing`, `IsRigidFor`, `TaylorWilesBlock`, `GSp4.MinimalAt`.
+
+Layer 3: `HodgeType`, `GaloisType`, `IsOfType`, `WDTypeRing`.
+Layer 4: `flatLiftingRing`, `flatDeformationRing`, `finiteFlatModels`,
+`flatHodgeTypeQuotient`, `flatResolution`.
+Layer 5: `kisinGroupoid`, `DyadicMinimal.lift`.
+Layer 6: `OrdinaryFixedInertia`, `DiscreteSeriesType`, `IsDiscreteSeriesLift`,
+`gOrdinaryFlagScheme`, `gOrdinaryRing`, `OrdinaryWithEigenvalue`, `GL3KisinChart`,
+`partitionRing`, `IsTorsionCrystalline`, `IsCrystallineIntegral`, `GSp4.SiegelOrdinary`,
+`rhoNM0`, `GSp4.IsPDistinguishedOrdinary`, `GSp4.BorelOrdinary`,
+`GSp4.ParabolicOrdinary`, `GL3.explicitRing`, `GL3.comparisonDiagram`,
+`GSp4.weightAlgebra`, `GSp4.ordinaryFlagScheme`, and the weak minimal patching functor.
+Layer 7: `detOrdTilde`, `detOrd`.
+Layer 8: `KWCondition`, `CategoryCondition`.
+-/
 
 end TauCetiRoadmap.LocalGaloisDeformationRings
