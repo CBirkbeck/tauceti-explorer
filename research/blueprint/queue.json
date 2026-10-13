@@ -27827,8 +27827,9 @@
    ],
    "avoidAccountOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9401"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9401",
+   "finishedAt": "2026-10-13T22:48:59Z"
   },
   {
    "id": "BP-RankZeroOneBSD--BSD.0",
@@ -46262,8 +46263,9 @@
     "PKG-AInfCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AInfCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9197"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9197",
+   "finishedAt": "2026-10-13T22:49:03Z"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuli",
@@ -47029,8 +47031,8 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7890"
+   "state": "external",
+   "note": "claimed on GitHub issue #7890"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~2",
@@ -47124,8 +47126,8 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7891"
+   "state": "external",
+   "note": "claimed on GitHub issue #7891"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~2",
@@ -47627,8 +47629,9 @@
     "PKG-CohomologyComparisons~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CohomologyComparisons~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9203"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9203",
+   "finishedAt": "2026-10-13T22:49:08Z"
   },
   {
    "id": "PKG-ColemanIntegration",
@@ -50303,8 +50306,9 @@
    ],
    "revisionOf": "PKG-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/PKG-IgusaVarietiesAndTorsionConcentration~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9177"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9177",
+   "finishedAt": "2026-10-13T22:49:11Z"
   },
   {
    "id": "REV-PKG-IgusaVarietiesAndTorsionConcentration~3",
@@ -50767,8 +50771,9 @@
    ],
    "revisionOf": "PKG-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7910"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7910",
+   "finishedAt": "2026-10-13T22:49:16Z"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings~2",
@@ -50945,7 +50950,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9182"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions",
@@ -51458,7 +51464,8 @@
    ],
    "revisionOf": "PKG-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/PKG-PotentialAutomorphyInfrastructure~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9187"
   },
   {
    "id": "REV-PKG-PotentialAutomorphyInfrastructure~3",
@@ -51553,7 +51560,8 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9188"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~2",
@@ -51711,7 +51719,8 @@
     "PKG-RankZeroOneBSD"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-RankZeroOneBSD.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9235"
   },
   {
    "id": "PKG-RelativeFarguesFontaine",
