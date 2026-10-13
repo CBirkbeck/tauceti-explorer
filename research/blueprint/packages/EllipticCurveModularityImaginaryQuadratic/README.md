@@ -185,6 +185,7 @@ extensions, rather than a stronger theorem inferred from a title.
 | `EffectiveDiophantineMethods:ED.4/relative-symmetric-chabauty`, `ED.4/symmetric-chabauty`, `ED.5/relative-symmetric-sieve` | General local differential criteria and the relative symmetric Mordell–Weil sieve; Layer 7 supplies its concrete curves, groups and finite sets. |
 | `ComputationalNumberTheory:CN.5` | Schemas for the Gaussian equation, eigenvalues, residual comparison fields and the exact Faltings–Serre test table. |
 | `ModularityAndLanglandsExtensions:ML.1` | The real-quadratic FLHS endpoint used in the all-quadratic genus-one and genus-two corollaries. |
+| `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6` | A non-CM Q-curve over a quadratic number field is modular in the Caraiani–Newton sense. The isogeny to its conjugate may be geometric; it need not be defined over that quadratic field. |
 
 Tau Ceti's elliptic and geometric roadmaps supply the following interfaces.
 These exact stage IDs are abbreviated to the displayed labels in each target's
@@ -422,7 +423,7 @@ The general CM dihedral 2-adic and ordinary odd-prime lifting theorems are impor
 
 **`seed_modular`** — Let K be imaginary CM and A/K elliptic with discriminant Δ from a chosen Weierstrass equation. Suppose: at each v|2, A is a Tate curve, Kv(√−1)/Kv is unramified, ordv Δ≡3 mod 6, and Δ/Δc is a square in Kv; at each v|3, A is a Tate curve, ordv Δ≡2 or 4 mod 6, and Δ/Δc is a cube in Kv; for M=K(ζ12,(Δ/Δc)^(1/6)), r̄A,3|GM is decomposed generic and its image on GM(ζ3) is conjugate to SL₂(𝔽3). Then A is modular. Here c is the CM involution; the choices of sixth root do not affect the field M. (AKT, §9, Proposition 9.12, p.79; Lemma 9.11, pp.78–79, and Corollary 9.4, p.73.)
 
-*Needs:* Layer 1 `Modular`, Layer 1 `modularity_transport`, Layer 2 `symplecticTwist`, `R01.4`, EC local reduction, `R12.4`.
+*Needs:* Layer 1 `Modular`, Layer 1 `modularity_transport`, Layer 2 `symplecticTwist`, `R01.4`, EC local reduction, `R12.4`, `R21.4` with the independent AKT CM lifting contracts stated above.
 
 No condition at places above 5 occurs; changing the 5-adic reduction does not affect this seed. The residue characteristic two hypothesis is dihedral, not nonsolvable; R22.6/R32.3 alone do not supply it.
 
@@ -708,7 +709,7 @@ Identify the models together with their j-maps and cusp divisors. The rational i
 
 The j-map and cusp divisor are transported along the coordinate changes; the Legendre equation alone does not supply them.
 
-**`quadratic_level_fifteen_torsion`** — Among quadratic number fields F, E15(F)tors strictly contains E15(ℚ) precisely for F=ℚ(i) or ℚ(√5); Es35(F)tors strictly contains Es35(ℚ) precisely for F=ℚ(√5). For the imaginary exception E15(ℚ(i)) has eight new torsion points beyond its eight rational points. Thus, under the rank-zero input for an imaginary F, Es35(F)=Es35(ℚ) and E15(F)=E15(ℚ) unless F=ℚ(i). No assertion of rank zero over an arbitrary F is part of this theorem. (CN, Corollary 7.1.2 proof, p.93, citing Kwon Theorem 1.)
+**`quadratic_level_fifteen_torsion`** — Among quadratic number fields F, E15(F)tors strictly contains E15(ℚ) precisely for F=ℚ(i) or ℚ(√5); Es35(F)tors strictly contains Es35(ℚ) precisely for F=ℚ(√5). For the imaginary exception E15(ℚ(i)) has eight new torsion points beyond its eight rational points. Thus, under the rank-zero input for an imaginary F, Es35(F)=Es35(ℚ) and E15(F)=E15(ℚ) unless F=ℚ(i). No assertion of rank zero over an arbitrary F is part of this theorem. (CN, Corollary 7.1.2 proof, p.93; Kwon, Theorem 1(iii), pp.144–145.)
 
 *Needs:* Layer 5 `level_fifteen_models`, EC torsion, `ED.3`, `ED.6`.
 
@@ -822,7 +823,7 @@ P=(1+2i,3+6i) on C/ℚ(i) is the nonrational-x case with xσ(x)=5.
 
 **`genus_one_points_modular`** — For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(ns3°,b5) is modular. In the imaginary case rational x gives rational j through the degree-two quotient. For a nonrational affine x the classification gives x(P)x(σP)=5, so the images of P and σP in X(ns3,b5) are related by its specified Fricke w5. The quotient moduli dictionary gives a geometric degree-5 isogeny between E and its conjugate and hence a Q-curve; the Q-curve modularity supplier applies. This does not assert σP=w5P for a chosen lift on the genus-one double cover. Infinite-coordinate points use the quotient/cusp dictionary. For real quadratic F use the imported FLHS modularity theorem. (CN, Corollary 7.2.5, p.97.)
 
-*Needs:* Layer 5 `genus_one_quadratic_points`, Layer 5 `genus_one_model`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`.
+*Needs:* Layer 5 `genus_one_quadratic_points`, Layer 5 `genus_one_model`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6`, `ML.1`.
 
 On the quartic h(x)=−3(x⁴+2x³−x²+10x+25), both (x,y)↦(5/x,±5y/x²) induce the same quotient action. The norm-five equation alone does not choose a sign. For P=(1+2i,3+6i), σP equals the plus lift and differs from the minus lift; this is a regression against an inference from x alone, not identification of the actual modular lift.
 
@@ -900,7 +901,7 @@ Containment in the nonsplit normalizer alone does not imply cyclotomic absolute 
 
 **`genus_two_points_modular`** — For every quadratic number field F, every elliptic E/F giving a noncuspidal point P of X(b3,ns5) is modular. For imaginary F first handle rational P, including both infinity points, by the rational j-map and rational modularity, base change and twisting. A nonrational affine P of exact degree two with rational x satisfies σP=w3P and gives a geometric degree-3 Q-curve. The ℚ(√−11) exceptions are covered by eleven_exceptional_modular. The real-quadratic branch uses the imported FLHS endpoint, not Proposition 7.3.3 outside its imaginary hypothesis. (CN, Corollary 7.3.4, p.98.)
 
-*Needs:* Layer 6 `genus_two_quadratic_points`, Layer 6 `genus_two_model`, Layer 6 `eleven_exceptional_modular`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`.
+*Needs:* Layer 6 `genus_two_quadratic_points`, Layer 6 `genus_two_model`, Layer 6 `eleven_exceptional_modular`, Layer 4 `cartanCurve`, Layer 1 `modularity_transport`, `R29.6/modularity-theorem`, `EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.6`, `ML.1`.
 
 At infinity t=1/x,v=y/x³ gives v=±3 at t=0. Each point is rational and Galois-fixed, while w3 exchanges them. The proof must use rational j there. For nonrational affine P with x∈ℚ, σ sends y to −y; do not apply this assertion to an arbitrary rational P in C(F).
 
@@ -1137,6 +1138,8 @@ Page locators for CN, AKT, FLHS, BOX and ZYW refer to the fixed PDFs linked here
 - **BOX**: Josha Box, [Quadratic points on modular curves with infinite Mordell–Weil group](https://warwick.ac.uk/fac/sci/maths/people/staff/box/quadratic_points_4.pdf). Author PDF, 17 July 2019.
 
 - **BF**: Nils Bruin and E. Victor Flynn, [Rational Divisors in Rational Divisor Classes](https://people.maths.ox.ac.uk/flynn/arts/art24.pdf). Author PDF; published in Algorithmic Number Theory, ANTS VI (2004), pp.132–139.
+
+- **Kwon**: Soonhak Kwon, [Torsion Subgroups of Elliptic Curves over Quadratic Extensions](https://www.researchgate.net/publication/238854907_Torsion_Subgroups_of_Elliptic_Curves_over_Quadratic_Extensions). Journal of Number Theory 62 (1997), pp.144–162, [doi:10.1006/jnth.1997.2036](https://doi.org/10.1006/jnth.1997.2036); Theorem 1(iii), pp.144–145.
 
 - **ZYW**: David Zywina, [Elliptic curves with maximal Galois action on their torsion points](https://pi.math.cornell.edu/~zywina/papers/MaximalGalois.pdf). Bulletin of the London Mathematical Society 42 (2010), 811–826, author PDF.
 
