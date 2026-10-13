@@ -46225,7 +46225,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AInfCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9154"
   },
   {
    "id": "REV-PKG-AInfCohomology",
@@ -48289,8 +48290,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondSixOperations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9165"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9165",
+   "finishedAt": "2026-10-13T20:46:53Z"
   },
   {
    "id": "REV-PKG-DiamondSixOperations",
@@ -48579,7 +48581,8 @@
    ],
    "revisionOf": "PKG-EllipticCurveModularityImaginaryQuadratic",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9166"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic~3",
@@ -49598,7 +49601,8 @@
    ],
    "revisionOf": "PKG-HabiroCohomologyFoundations",
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9174"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~3",
@@ -50077,8 +50081,9 @@
    ],
    "revisionOf": "PKG-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9176"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9176",
+   "finishedAt": "2026-10-13T20:46:58Z"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII~2",
@@ -51873,8 +51878,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9194"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9194",
+   "finishedAt": "2026-10-13T20:47:04Z"
   },
   {
    "id": "REV-PKG-ShimuraVarieties",
