@@ -200698,7 +200698,7 @@
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E201",
    "kind": "error",
-   "locator": "15.4.5 and Lemma 15.4.7, printed p.239, in the post-publication v1.0.7u (5 August 2026); the same statements are in the 2021 Springer edition",
+   "locator": "15.4.5 and Lemma 15.4.7, printed p.239 (physical p.259), post-publication v1.0.7u, 5 August 2026; no collation with the 2021 edition claimed.",
    "printed": "For projective R-lattices I ⊆ J in a quaternion algebra, 15.4.5 deduces discrd(I) = [J : I]·discrd(J), and Lemma 15.4.7 asserts disc(I) = discrd(I)² for every projective R-lattice I.",
    "correction": "Both hold for R-orders (more generally for lattices containing R·1 as a saturated direct summand, so that the index can be computed in B/F); for general lattices discrd(I)² = disc(I) fails. The packet states them for orders.",
    "reason": "For I = 2M₂(ℤ) ⊆ J = M₂(ℤ): m is trilinear, so discrd(I) = 2³discrd(J) = 8ℤ, while [J : I] = 2⁴ and disc(I) = 2⁸disc(J) = 256ℤ ≠ 64ℤ = discrd(I)². The proof of 15.4.7 uses m(α_1, α_2, α_3)² = −d(1, α_1, α_2, α_3), and the values d(1, α_1, α_2, α_3) generate disc(I) only when 1 ∈ I behaves as for an order.",
@@ -200710,10 +200710,124 @@
    ],
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
-   "citation": "John Voight, Quaternion algebras, Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 in Chapters 9–13 and physical − 28 in Chapters 14–15",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "John Voight, Quaternion algebras, Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 throughout the Chapter 9–15 passages used here.",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "Independently read the stated scope and computed I=2M₂(ℤ): ordinary discriminant 256ℤ, reduced discriminant 8ℤ and index 16ℤ, which disprove the unrestricted lattice identities. The order restriction restores the targets."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E202",
+   "kind": "error",
+   "locator": "Published Definition 7.1 and Lemma 7.2, pp.752–753; also arXiv v2 pp.44–45.",
+   "printed": "At p|Δ the definition checks divisibility of D by Δ and primitivity against Δ, but has no dyadic quotient-discriminant condition; Lemma 7.2 claims the represented-unit Hilbert value is well defined.",
+   "correction": "At p=2 dividing Δ additionally require D/Δ∈4ℤ₂∪(1+4ℤ₂), and set the character to zero off this support. At p∤Δ use the published characteristic function of L′_p.",
+   "reason": "For Δ=−4, p=2 and Q=[1,0,2], D=−8 satisfies the printed support conditions, but Q represents 1 and 3, with Hilbert symbols (1,−4)₂=1 and (3,−4)₂=−1. The quotient D/Δ=2 fails the missing condition. GKZ I.2 Proposition 1 explicitly includes the quotient-discriminant restriction.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "Jan Hendrik Bruinier, Stephan Ehlen, Tonghai Yang, CM values of higher automorphic Green functions for orthogonal groups, Published Invent. Math. 225 (2021), 693–785, 93 physical pages; printed = physical + 692. Independently collated with arXiv:1912.12084v2 at §7.1 and Corollary 7.18.",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "For Δ=−4, p=2 and Q=[1,0,2], D=−8 satisfies the printed support conditions, but Q represents 1 and 3, with Hilbert symbols (1,−4)₂=1 and (3,−4)₂=−1. The quotient D/Δ=2 fails the missing condition. GKZ I.2 Proposition 1 explicitly includes the quotient-discriminant restriction."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E203",
+   "kind": "error",
+   "locator": "arXiv:2206.07759v2, §6, pp.9–10, the three-orbit quadric-surface classification.",
+   "printed": "The classification is phrased for reduced irreducible quadric surfaces and lists only the cone and the two smooth types.",
+   "correction": "Require geometric irreducibility. A nonsplit binary norm equation gives another irreducible-over-𝔽_q surface of geometric rank two.",
+   "reason": "For odd q and nonsquare d, x²−dy² is irreducible in 𝔽_q[x,y,z,w], so it defines a reduced irreducible surface in ℙ³ over 𝔽_q. Over 𝔽_{q²} it is the union of two conjugate planes and is none of the three listed geometric types. The correction preserves the rank-three/four application.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "Jonas Bergström, Carel Faber, Sam Payne, Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves, arXiv:2206.07759v2, 31 pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "For odd q and nonsquare d, x²−dy² is irreducible in 𝔽_q[x,y,z,w], so it defines a reduced irreducible surface in ℙ³ over 𝔽_q. Over 𝔽_{q²} it is the union of two conjugate planes and is none of the three listed geometric types. The correction preserves the rank-three/four application."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E204",
+   "kind": "error",
+   "locator": "Published Proposition 2.9, p.500, and proof pp.500–502.",
+   "printed": "The hypothesis allows an arbitrary positive definite rank-two sublattice, while the proof starts with a primitive embedding and the conclusion is primitive.",
+   "correction": "Assume the initial embedding is primitive, as already recorded in PAPER-CHARLES-16/E2.",
+   "reason": "The sublattice diag(8,8) generated by 2h and 2(e+f) in Λ₂ has no primitive embedding into Λ₂. Modulo 2 a primitive embedding would give a two-dimensional zero subspace for q=x²+yz on 𝔽₂³. Its three nonzero zeros are (0,0,1),(0,1,0),(1,1,1), and the sum of any two is not a zero. Taking m=1 disproves the unrestricted target.",
+   "affects": "a stated result",
+   "known": "Already recorded and independently confirmed as PAPER-CHARLES-16/E2; this entry links the GN.2 dependency to that existing finding.",
+   "searched": [
+    "PAPER-CHARLES-16.result.json and the independently reviewed research/blueprint/errata/PAPER-CHARLES-16.json, E2; published Proposition 2.9 read directly."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "François Charles, Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture, Annals of Math. 184 (2016) 487–526, published PDF from the Annals site (printed = physical + 486)",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "The sublattice diag(8,8) generated by 2h and 2(e+f) in Λ₂ has no primitive embedding into Λ₂. Modulo 2 a primitive embedding would give a two-dimensional zero subspace for q=x²+yz on 𝔽₂³. Its three nonzero zeros are (0,0,1),(0,1,0),(1,1,1), and the sum of any two is not a zero. Taking m=1 disproves the unrestricted target."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E205",
+   "kind": "error",
+   "locator": "Example 9.6.5, printed p.144 (physical p.164), under the noetherian-domain hypotheses at the start of §9.6, p.143; v1.0.7u.",
+   "printed": "The scalar-index example gives [M:rM]_R=r^nR for a general lattice over the stated noetherian domain.",
+   "correction": "Require M projective (in particular R Dedekind), or retain [M:rM]_R=r^n[M:M]_R rather than identifying the self-index with R.",
+   "reason": "Take R=k[t²,t³], F=k(t), M=k[t] and r=1. M is generated over R by 1,t and spans F. Rank-one endomorphisms preserving M are multiplication by exactly k[t], so [M:M]_R=k[t]≠R.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: Voight v1.0.7u §9.6 including Proposition 9.6.8, which explicitly requires projectivity; existing atlas Voight source findings and searches for this example’s correction. No separate correction identified."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "John Voight, Quaternion algebras, Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 throughout the Chapter 9–15 passages used here.",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "Take R=k[t²,t³], F=k(t), M=k[t] and r=1. M is generated over R by 1,t and spans F. Rank-one endomorphisms preserving M are multiplication by exactly k[t], so [M:M]_R=k[t]≠R."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E206",
+   "kind": "misprint",
+   "locator": "Published proof of Corollary 7.18, p.768; arXiv v2 pp.56–57.",
+   "printed": "The proof counts the sign-selected fundamental-discriminant splittings by s, the number of distinct prime factors, and indexes all characters with that count.",
+   "correction": "The count and indexing bound are 2^{s−1}, equal to the genus quotient order and, under exponent two, the class number.",
+   "reason": "For D=−84, s=3 but the four genus characters correspond to the four sign-selected splittings. The proof’s own class-number formula gives 2^{s−1}; the count s is inconsistent.",
+   "affects": "the proof",
+   "known": "Already recorded and confirmed as PAPER-BRUINIER-EHLEN-YANG-21/E4.",
+   "searched": [
+    "Existing atlas PAPER-BRUINIER-EHLEN-YANG-21.result.json source issue E4 and its independent review; the published p.768 passage was read directly."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "Jan Hendrik Bruinier, Stephan Ehlen, Tonghai Yang, CM values of higher automorphic Green functions for orthogonal groups, Published Invent. Math. 225 (2021), 693–785, 93 physical pages; printed = physical + 692. Independently collated with arXiv:1912.12084v2 at §7.1 and Corollary 7.18.",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "For D=−84, s=3 but the four genus characters correspond to the four sign-selected splittings. The proof’s own class-number formula gives 2^{s−1}; the count s is inconsistent."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E207",
+   "kind": "error",
+   "locator": "arXiv:1107.1221, Proposition 2.1.2 and proof, pp.3–4.",
+   "printed": "The proposition lists lattice, integrality, Weil-root and semisimple-eigenvalue conditions without stating that φ preserves the pairing up to q^w, but its proof uses orthogonal primary summands.",
+   "correction": "Add (φx,φy)=q^w(x,y). Also interpret integral characteristic polynomial as one in ℤ[T] for the uniform finite-polynomial argument.",
+   "reason": "For any odd ℓ, let M=ℤ_ℓ² with pairing diag(1,−1), v=(1,1+ℓ), w=(0,1), and let φ act as +1 on v and −1 on w. This is an integral endomorphism since v,w form a basis; its characteristic polynomial X²−1 has Weil weight zero and semisimple eigenvalue 1. The ambient discriminant is a unit while the fixed-line discriminant is −ℓ(2+ℓ), of valuation 1. This violates the large-ℓ bound for arbitrarily large ℓ. It is not an isometry, exactly the missing condition.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "Max Lieblich, Davesh Maulik, Andrew Snowden, Finiteness of K3 surfaces and the Tate conjecture, arXiv:1107.1221, 20 pages (printed = physical); Ann. Sci. ÉNS 47 (2014) not collated",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+   "reviewReason": "For any odd ℓ, let M=ℤ_ℓ² with pairing diag(1,−1), v=(1,1+ℓ), w=(0,1), and let φ act as +1 on v and −1 on w. This is an integral endomorphism since v,w form a basis; its characteristic polynomial X²−1 has Weil weight zero and semisimple eigenvalue 1. The ambient discriminant is a unit while the fixed-line discriminant is −ℓ(2+ℓ), of valuation 1. This violates the large-ℓ bound for arbitrarily large ℓ. It is not an isometry, exactly the missing condition."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E301",
