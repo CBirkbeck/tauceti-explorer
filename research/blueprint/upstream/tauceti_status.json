@@ -48,13 +48,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "70542d8",
+      "head": "f68f3bc",
       "review": {
         "recommendation": "changes",
-        "head": "ef156f9",
+        "head": "70542d8",
         "current": false,
-        "date": "2026-10-12",
-        "note": "final-review repairs at 9c360bd; head 70542d8 differs only by the re-stack on #785"
+        "date": "2026-10-13",
+        "note": "maintainer (GPT-assisted) review at 70542d8: one finding (B1), repaired at f68f3bc and re-stacked on #785; awaiting re-review"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
