@@ -210,6 +210,41 @@
         "date": null,
         "note": "opened 2026-10-13 09:20Z; awaiting first review"
       }
+    },
+    "AbelianSchemesAndArithmeticModuli": {
+      "stage": "pr",
+      "pr": 849,
+      "head": "d0a1810",
+      "depends_on": [
+        779,
+        848
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 09:35Z; awaiting first review"
+      }
+    },
+    "InverseGaloisAndArithmeticFundamentalGroups": {
+      "stage": "pr",
+      "pr": 850,
+      "head": "08193c6",
+      "depends_on": [
+        779,
+        785,
+        848
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 09:35Z; awaiting first review"
+      }
     }
   }
 }
