@@ -21501,8 +21501,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9405"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra",
@@ -32628,8 +32629,9 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9291"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9291",
+   "finishedAt": "2026-10-13T14:03:55Z"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L1",
@@ -38408,8 +38410,9 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9282"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9282",
+   "finishedAt": "2026-10-13T14:04:05Z"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
@@ -48906,7 +48909,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9374"
   },
   {
    "id": "REV-PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
