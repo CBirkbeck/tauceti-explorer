@@ -218,6 +218,12 @@ Cᵢⱼ=λ(δᵢAⱼ−δⱼAᵢ)+AᵢAⱼ−AⱼAᵢ.
 
 Prove [Dᵢ,Dⱼ]s=Cᵢⱼs, Cᵢᵢ=0 and Cⱼᵢ=−Cᵢⱼ. Flatness is Cᵢⱼ=0 for every pair; it is equivalent to commutation of the operators, and every one-direction model is flat. Zero parameter curvature is exactly the matrix commutator. `JointNilpotent` requires a positive N such that every word of length N in the coefficient matrices vanishes; provide monotonicity, the zero-field bound 1, the bound-one criterion that all matrices vanish, and preservation of the exact bound under duality.
 
+**Checks.**
+
+- A zero matrix family has bound one, including on the rank-zero module.
+- The rank-one identity family over Q fails bound one.
+- Bound zero is excluded even at rank zero: its empty product is the identity, which equals zero on that module, so vanishing of ordered products alone would incorrectly admit zero as a bound.
+
 Fix the component convention s′=Gs for a matrix unit G. Then Aᵢ′=GAᵢG⁻¹−λδᵢ(G)G⁻¹ and D′(Gs)=GD(s). Prove composition, identity and curvature conjugation C′ᵢⱼ=GCᵢⱼG⁻¹; gauge therefore preserves and reflects flatness. Gauge of the zero model has coefficient −λδᵢ(G)G⁻¹. The coordinate tensor has Aᵢ⊗I+I⊗Bᵢ; the dual has −Aᵢᵗ and curvature −Cᵢⱼᵗ. Give elementary-tensor evaluation, curvature, dual involution and zero/one/rank-one comparisons. The same λ appears once in the tensor Leibniz rule. Invertible rescaling replaces Aᵢ by λ⁻¹Aᵢ, the operator by λ⁻¹Dᵢ and curvature by λ⁻²Cᵢⱼ, agreeing with the intrinsic construction.
 
 The determinant line has coefficient tr Aᵢ. Prove its curvature is tr Cᵢⱼ, hence flatness follows from that of E. Duality negates the determinant coefficient; tensoring ranks r,s gives s·tr Aᵢ+r·tr Bᵢ. Derive δ(det G) as the sum of determinants with one row differentiated, derive the trace identity for infinitesimal row action, and use the ColemanPowerSeries L1 matrix-unit identity to prove
@@ -383,6 +389,13 @@ Fix a smooth connected projective complex variety X, x∈X, an ample class H, r>
 
 For any group Γ, natural rank r and character δ:Γ→C×, define `BettiStableRepresentation` using the native matrix-valued representation with det ρ=δ and irreducibility of its associated native `Representation`. Finite order of δ is needed only in the geometric comparison. Provide `toRepresentation`, `det_eq`, extensionality, the rank-one constructor and equivalence between intertwining isomorphisms and matrix conjugacy. Define `BettiStableClasses` by those isomorphisms; give its constructor, equality criterion, invariant-function lift and uniqueness, and the one-element rank-one equivalence. This quotient has no scheme or topology until the representing construction supplies them. Source: [S94II], §6, representation scheme and Proposition 6.1, pp.11–12.
 
+**Checks for `BettiStableClasses`.**
+
+- For rank one and fixed δ, every representative is δ and the quotient is a singleton.
+- In rank zero the quotient is empty: the zero representation is not irreducible in the native sense.
+- For the free group on a,b, the matrices diag(1,−1) and [[0,1],[1,0]] define an irreducible rank-two representation with determinant character sending both generators to −1. Conjugation by diag(2,1) changes the second matrix to [[0,2],[1/2,0]] but leaves the class unchanged. Native intertwining equivalences identify the classes; literal matrix equality does not.
+- For commutative Γ the rank-two quotient is empty, since a finite-dimensional irreducible complex representation has dimension one.
+
 A stable object's automorphisms are C×. Preserving a determinant identification cuts this to μᵣ. Therefore the unframed coarse scheme does not represent families with an actual global universal bundle. Sources: [S94I], §3, scalar endomorphisms, p.90, and §4, Theorem 4.7(4), p.104. The determinant dictionary identifies finite characters with torsion lines equipped with their finite-monodromy connection. An mth-power trivialization induces that connection uniquely and constant rescaling does not change it. Merely specifying the underlying torsion line does not specify an arbitrary determinant connection. Sources: [EG20], Introduction, p.103, and §2.1, pp.108–109; [S92], §1, rank-one example, p.21.
 
 On the Betti carrier, `stable_automorphisms_betti` characterizes the matrices commuting with every ρ(γ) as unique scalar matrices c·Id with c∈C×. `determinant_rigidified_automorphisms_betti` adds det(g)=1 and characterizes them by cʳ=1. These statements use native `Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed`, `Matrix.GeneralLinearGroup.scalar` and `det_scalar`; they need neither finite presentation of Γ nor finite order of δ. Test rank-one rigidification, every scalar's preservation of the unrigidified representation, a nonidentity rank-one scalar's failure to preserve the determinant identification, and det(c·Id)=cʳ in every rank. The geometric stable-operator statement also needs projective coherent stability and its moduli comparison.
@@ -457,7 +470,7 @@ Construct Gr^W_k as a quotient local system with its induced connection and filt
 
 ### Admissibility and limiting structures
 
-For unipotent monodromy T on Δ*, write N=log T and s=exp(2πiz). The mixed variation is admissible when Ψ(s)=exp(−zN)F(z) extends to a flag with the original dimensions on each weight grade, and the relative monodromy filtration M(N,W) exists. Require NM_j⊆M_(j−2) and monodromy filtration centred at k on Gr^W_k. Nilpotence alone does not supply relative filtration existence. The limit (V_R,M,F_∞) is a mixed Hodge structure and N has type (−1,−1), equivalently a morphism to twist −1. This is a theorem from admissibility, rather than a third admissibility axiom. Sources: [SZ85], (3.13), pp.510–511 and Appendix A.9, pp.540–541; [Peters], Appendix A, Definition A.1, pp.51–53.
+For unipotent monodromy T on Δ*, write N=log T and s=exp(2πiz). The mixed variation is admissible when Ψ(s)=exp(−zN)F(z) extends to a flag with the original dimensions on each weight grade, and the relative monodromy filtration M(N,W) exists. Require NM_j⊆M_(j−2) and monodromy filtration centred at k on Gr^W_k. Nilpotence alone does not supply relative filtration existence. For a graded-polarizable real variation satisfying these conditions, the limit (V_R,M,F_∞) is a mixed Hodge structure and N has type (−1,−1), equivalently a morphism to twist −1. This is a theorem from graded polarizability and admissibility, rather than a third admissibility axiom. Sources: [SZ85], (3.13), pp.510–511 and Appendix A.9, pp.540–541; [Peters], Appendix A, Definition A.1, pp.51–53.
 
 For quasi-unipotent monodromy use a finite cyclic cover and prove cover independence. On a smooth quasiprojective S with SNC compactification, test every holomorphic disc with punctured image in S, including tangent arcs and arcs meeting several boundary components. Supply Kashiwara's compactification independence and pullback theorem. Closure under tensor, dual and internal Hom uses convolution W,F,M, tensor N=N_V⊗1+1⊗N_U and the dual/Hom commutator formulas; evaluation is a mixed morphism. LPV.1 supplies relative-filtration uniqueness, functoriality and tensor existence, not merely equations satisfied by a proposed filtration. Sources: [SZ85], Appendix A.4,A.10, pp.537–541; [Peters], Appendix A, pp.51–53.
 
@@ -485,7 +498,7 @@ For a projective curve C, reduced D and orthogonal real coefficients V_R on U=C\
 
 For a smooth proper family of pointed curves π:C→M, with disjoint sections D and smooth quasiprojective M, those fibre structures form a graded-polarizable real VMHS on R¹π°_*V_R. W₁=R¹π_*j_*V_R and F¹ is the image of π_*(Ebar⊗Ω¹_(C/M)(log D)). Quasi-unipotence on M's boundary makes this admissible in the finite-cover convention. Export the broader arbitrary-unitary conclusion only through the real-admissibility and real mixed-Hodge-module direct-image interfaces. In complex unitary coefficients the smooth bigrading is F¹∩W₁, conjugate F¹∩W₁ and F¹∩conjugate F¹, with types (1,0),(0,1),(1,1). Conjugation exchanges V with V∨; these summands are usually not flat. Sources: [LL24], Theorem 4.1.1 and Lemma 4.1.2, equations (4.1)–(4.2), pp.24–25.
 
-For an admissible mixed variation on an algebraic curve, Hⁱ(S,V) has functorial mixed Hodge structure and evaluation H⁰(S,V)→V_s is a mixed morphism. The logarithmic complex uses its corrected boundary weight filtration with cohomological shifts, not just the original coefficient W. In higher dimension, native monodromy invariants inherit W∩I and F∩I, constant under parallel transport, and form the largest constant mixed subvariation. Curve reduction must propagate all Deligne-splitting components, rather than only place the global invariant space inside a larger curve invariant space. Sources: [SZ85], Theorem 4.1 and Proposition 4.19, pp.513–517; [Katz72], §4.3.4.0, p.70; [Andre92], §5, pp.10–11. The filtered coefficient mixed-Hodge-complex and unitary harmonic-form engines are additional cohomological/analytic inputs.
+For a graded-polarizable admissible mixed K-variation, K=Q or R, on a smooth algebraic curve S, Hⁱ(S,V) has functorial mixed K-Hodge structure and evaluation H⁰(S,V)→V_s is a mixed morphism. The logarithmic complex uses its corrected boundary weight filtration with cohomological shifts, not just the original coefficient W. For a graded-polarizable admissible mixed variation on a connected smooth algebraic base of higher dimension, native monodromy invariants inherit W∩I and F∩I, constant under parallel transport, and form the largest constant mixed subvariation. Curve reduction must propagate all Deligne-splitting components, rather than only place the global invariant space inside a larger curve invariant space. Sources: [SZ85], Theorem 4.1 and Proposition 4.19, pp.513–517; [Katz72], §4.3.4.0, p.70; [Andre92], §5, pp.10–11. The filtered coefficient mixed-Hodge-complex and unitary harmonic-form engines are additional cohomological/analytic inputs.
 
 ### Fixed parts, constituents and algebraic monodromy
 
@@ -565,7 +578,13 @@ Fix a smooth proper connected complex curve C of genus g and a reduced divisor D
 
 `WeightedFlag(V)` is V=F₀⊋⋯⊋F_m=0 with 0≤α₀<⋯<α_(m−1)<1, assigning αᵢ to Fᵢ/Fᵢ₊₁. For V=0, m=0. Provide constructor, graded ranks with sum dim V, threshold filtration, transport, identity/composition and extensionality. A `ParabolicBundle` has an ordinary finite locally free bundle and such a flag on each actual fibre. Morphisms preserve every weight threshold. For a saturated subbundle, intersect flags and remove repeated steps; for a locally free quotient take image flags. The retained nonzero step receives the largest original weight with that intersection or image. Prove graded exactness. An injection with torsion quotient is not a saturated subbundle. Sources: [LL22], Definitions 2.1.1,2.2.3, §2.3 and Definition 3.3.1, pp.10–14,20; [LL24], §5.2.1, p.30.
 
-Define parDeg E=deg E+Σαᵢdim grᵢ and, for r>0, μ⋆=parDeg/r. The total numerical slope assigns zero to the zero object, while comparisons require positive rank. Prove additivity in induced saturated exact sequences, deg E≤parDeg E<deg E+nr when n>0, and equality with ordinary degree for n=0. Semistability means all nonzero proper saturated subbundles have slope ≤μ⋆E; the zero object is semistable. Prove equivalence with all positive-rank locally free quotient slopes ≥μ⋆E. Coparabolic degree and slope mean those of the antecedent parabolic object, not the degree of its zero lattice. Sources: [LL22], Definitions 2.1.2,2.2.9,2.4.1–2.4.2 and Lemma 2.4.5, pp.11–14; Lemma 6.3.3, p.40.
+Define parDeg E=deg E+Σαᵢdim grᵢ and, for r>0, μ⋆=parDeg/r. The total numerical slope assigns zero to the zero object, while comparisons require positive rank. Prove additivity in induced saturated exact sequences, deg E≤parDeg E for every rank, the strict upper bound parDeg E<deg E+nr when n>0 and r>0, and equality with ordinary degree for n=0. Semistability means all nonzero proper saturated subbundles have slope ≤μ⋆E; the zero object is semistable. Prove equivalence with all positive-rank locally free quotient slopes ≥μ⋆E. Coparabolic degree and slope mean those of the antecedent parabolic object, not the degree of its zero lattice. Sources: [LL22], Definitions 2.1.2,2.2.9,2.4.1–2.4.2 and Lemma 2.4.5, pp.11–14; Lemma 6.3.3, p.40.
+
+**Checks.**
+
+- The zero parabolic object has ordinary and parabolic degree zero even when n>0, so it fails the proposed strict inequality with upper bound zero.
+- A degree-zero line with one weight 1/2 has parabolic degree 1/2, strictly below one.
+- With no marked points, a positive-rank bundle has parabolic degree equal to its ordinary degree, so the strict upper bound is unavailable.
 
 For a logarithmic connection, build weighted flags from generalized residue eigenspaces with weights Re η−floor(Re η). The step at α contains the generalized eigenspaces with weight ≥α. On the canonical extension the weights are residue real parts; for unitary monodromy they are the real residue eigenvalues. Use generalized eigenspaces even for Jordan blocks. Source: [LL22], Definition 3.3.1, p.20; [LL24], Notation 5.1.1, pp.27–28.
 
@@ -643,6 +662,13 @@ The global equivariant product including nilpotents additionally requires the Is
 
 `ArithmeticModel` of (X,x,L,ι:L^d≃O) has integral S=Spec R with R⊂C finitely generated and S smooth over Z, smooth projective X_S with geometrically connected fibres, section x_S, the torsion line and trivialization, d invertible on S, and a comparison with the complex object. In the open case also spread the good compactification and relative SNC divisor. Prove existence, common domination, restriction to a nonempty principal open and spreading of finitely presented maps, sections and isomorphisms, with uniqueness after further shrinking. The chosen torsion trivialization supplies the canonical relative determinant connection. EGA limit and openness results are SF.0 inputs. Sources: [EG20], Lemma 3.1 and proof, p.122; [EG18], §3, p.6.
 
+**Checks for `ArithmeticModel`.**
+
+- With X=Pⁿ_C, x=[1:0:…:0], L=O and d=1, the family Pⁿ_Z over Spec Z is a model and its complex fibre is X.
+- For transcendental λ, the Legendre elliptic family y²=x(x−1)(x−λ), with its section at infinity and trivial determinant, is smooth over Z[λ,1/(2λ(1−λ))]. Keeping the discriminant inverted is essential.
+- The projective model y²z=x³−xz² over Z is singular in characteristic two, so it fails the smooth-family condition until 2 is inverted.
+- Restricting a model to Spec R[1/f], f≠0, retains the same complex fibre, section and determinant trivialization; inverting zero gives an empty base and fails the model condition.
+
 Construct relative connection, Higgs and parameter moduli over S from the full split almost-polynomial crystalline differential-operator algebra, not only an order-one truncation. The schemes are finite type and quasiprojective, with Gieseker semistable S-equivalence points and universally corepresenting stable opens. Fixed determinant is the actual determinant-section fibre. For locally Noetherian base change T, give the comparison map, geometric-point bijection and isomorphism on stable opens; the complex stable fibre recovers H.1. Langer's mixed/positive-characteristic boundedness and integral GIT are required. No positive-characteristic harmonic homeomorphism is asserted. Source: [Langer14], Theorem 1.1, p.4; [EG20], §3.1, p.122.
 
 Spread the finitely many rigid objects of rank ≤r simultaneously, then shrink so they remain geometrically stable, their Higgs fields satisfy the ordered rank bound, and their sections lie in the relative rigid loci. After further shrinking these sections are disjoint and exhaust the underlying rigid loci, retaining local lengths. Use a finite reduced compactification: every horizontal component is the closure of a generic section, while the remaining vertical components have closed image missing the generic point. Remove those images. The image of an open complement need not be closed merely because the map is finite. Take rigid loci inside stable opens, excluding isolated strictly polystable points such as [O²,d] on P¹. Sources: [EG20], Proposition 3.3 and proof, pp.123–125.
@@ -683,7 +709,15 @@ Use H.1 for moduli and the correspondence, H.2 for variation and monodromy inter
 
 ### Semistable logarithmic realization
 
-`SemistableLogModel` is a proper holomorphic f:X→Δ_ρ with smooth total space, smooth punctured fibres, reduced SNC central fibre and charts f=x₁⋯x_r. Choose ρ to exclude all other singular fibres. Use CR.5's divisor log structures and the central log point 1↦0. In a chart of total dimension d the relative one-forms are
+`SemistableLogModel` is a proper holomorphic f:X→Δ_ρ with smooth total space, smooth punctured fibres, reduced SNC central fibre and charts f=x₁⋯x_r. Choose ρ to exclude all other singular fibres. Use CR.5's divisor log structures and the central log point 1↦0. Give `localMap`, its product equation, extensionality for the marked chart data, restriction to a smaller positive radius and composition of restrictions. Sources: [Illusie], Exposé I, §2.2.1, p.18; [Qian], §4, pp.21–23.
+
+**Checks for the semistable chart.**
+
+- With r=1 and d=2, the chart polynomial sends (a,b) to a; the unused smooth coordinate does not enter the product.
+- With r=d=2, it sends (a,b) to ab and vanishes along both coordinate axes.
+- At (1,1) this polynomial has value 1, whereas the sum of divisor coordinates has value 2. This is a calculation of the chart polynomial, not a claim that this point lies in every chosen analytic chart.
+
+In a chart of total dimension d the relative one-forms are
 
 (⊕_(i≤r)O·dlog xᵢ ⊕ ⊕_(j>r)O·dxⱼ)/O·Σ_(i≤r)dlog xᵢ,
 
@@ -743,7 +777,7 @@ Exterior powers satisfy the same estimates with summed centered labels and squar
 
 ### One-variable horospherical control
 
-For L≠0, choose Schmid's rational SL₂ basepoint, a maximal rational split torus containing its diagonal torus, compatible positive roots, minimal rational parabolic P=R·T·M and the unique maximal compact K containing isotropy. The period lift factors r·t·m·k·o. As y→∞, r has a continuous bounded-width x-limit, exp(log(y)dψ(Y)/2)t→1, m→1 and k→1 uniformly on bounded x. The r,m,k factors remain compact and positive roots of t have lower bounds. For L=0 use extension into D and relative compactness on a bounded-width strip. This gives a Schmid Siegel set containing {|x|≤C,y≥η}. Sources: [SCHMID], (5.20)–(5.26), pp.242–244, Corollary 5.29, p.245 and supporting §§9.60–9.68, pp.313–316.
+For L≠0, choose Schmid's rational SL₂ basepoint, a maximal rational split torus containing its diagonal torus, compatible positive roots, minimal rational parabolic P=R·T·M and the unique maximal compact K containing isotropy. The period lift factors r·t·m·k·o. As y→∞, r has a continuous bounded-width x-limit, exp(log(y)dψ(Y)/2)t→1, m→1 and k→1 uniformly on bounded x. The r,m,k factors remain compact and positive roots of t have lower bounds. For L=0 use extension into D and relative compactness on a bounded-width strip. This gives a Schmid Siegel set containing {|x|≤C,y≥η}. Sources: [SCHMID], (5.20)–(5.26), pp.242–244, Corollary 5.29, p.245 and supporting §§9.60–9.68, pp.311–316.
 
 AA.3 and H.7 instead use the split component stable under the Cartan involution of the fixed canonical K. Schmid's rational torus need not be Cartan stable; general Schmid-shaped sets need not fit in finitely many of those K-Siegel sets. The required comparison must be proved along the period lift using its SL₂ asymptotics. It remains a prerequisite of the fixed-K consumer form and curve test. Sources: [BKT23], §§1.1–1.2,1.5–1.6.1, pp.1–4.
 
