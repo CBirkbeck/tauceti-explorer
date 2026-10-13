@@ -21891,8 +21891,9 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9377"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9377",
+   "finishedAt": "2026-10-13T18:28:11Z"
   },
   {
    "id": "BP-AbelianSchemesAndArithmeticModuli",
@@ -27365,9 +27366,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9427"
+   "note": "deliverables arrived from an external worker on issue #9427",
+   "finishedAt": "2026-10-13T18:28:16Z"
   },
   {
    "id": "REV-PadicHodgeTheory",
@@ -35578,7 +35580,8 @@
    ],
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9420"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
@@ -35622,7 +35625,8 @@
    ],
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9421"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
