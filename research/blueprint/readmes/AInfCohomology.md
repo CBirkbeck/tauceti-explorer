@@ -1,6 +1,6 @@
 # Integral A_inf cohomology and Breuil–Kisin–Fargues structures
 
-This roadmap connects integral perfectoid coefficients to smooth and semistable cohomology, its canonical de Rham lattices, and Breuil–Kisin descent. The full specification below has 226 targets: 197 stable targets imported from the accepted AI.0 and AI.6 parts, with 29 additional coefficient, sheaf, infinitesimal and trace inputs. Every target, hypothesis, API, definition test and comparison-map check is stated here in original mathematical prose. All ten layers are planned; the supplier extensions and proof gaps at the end keep them from being closed.
+This roadmap connects integral perfectoid coefficients to smooth and semistable cohomology, its canonical de Rham lattices, and Breuil–Kisin descent. The full specification below has 226 targets: 197 targets imported from the accepted AI.0 and AI.6 parts, with 29 additional coefficient, sheaf, infinitesimal and trace inputs. Every target, hypothesis, API, definition test and comparison-map check is stated here in original mathematical prose. All ten layers are planned; the supplier extensions and proof gaps at the end keep them from being closed.
 
 The coefficient, module and integral-sheaf targets use the pinned Mathlib/Tau Ceti carriers. The current upstream AdicSpaces and AlgebraicVectorBundles roadmaps are reused. The companion suggested file contains ten light definitions, nine coefficient milestone statements and seven examples on existing carriers. The geometric, enhanced and spectral targets below remain fully specified in this reader; elaboration of the companion file verifies their coefficient signatures, not the roadmap’s mathematical implementation.
 
@@ -44,7 +44,7 @@ The primary chains are coefficient/Witt inputs → décalage and generic module 
 | AI.6 | 55 | Semistable AΩ complex; Log Hodge–Tate comparison; Log de Rham comparison; Log crystalline comparison; Semistable B_dR⁺ comparison; Functorial de Rham lattice | planned |
 | AI.7 | 26 | Breuil–Kisin coefficient normalization; Breuil–Kisin cohomology; Frobenius-twisted trace complex; Breuil–Kisin Frobenius descent; Breuil–Kisin A_inf comparison; Comparison-map agreement | planned |
 
-Dependencies below use stable node IDs. Imported targets retain their accepted mathematical statements; the whole-roadmap packet’s explicit imported prerequisite lists replace broad internal-stage and higher-owner requests. Lower-owner Part II contracts remain visible in the supplier section.
+Dependencies below use stable node IDs. Import the hash-pinned historical targets, then apply importedNodeCorrections and importedPrerequisites as authoritative field replacements. The corrected target specifications below include those replacements. Lower-owner Part II contracts remain visible in the supplier section.
 
 ## AI.0 — Period-ring interfaces and normalization
 
@@ -150,7 +150,7 @@ Target `AInfCohomology:AI.0/theta-witt-family` (construction).
 
 **Check.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
-**Source.** bms1-v3, Lemmas 3.2–3.4, printed pp.19–21; Definition 3.5, p.21; Lemmas 3.12–3.13, pp.23–24.
+**Source.** bms1-v3, Lemmas 3.2–3.4, printed pp.19–21; Definition 3.5, p.21; Lemmas 3.12–3.13, pp.23–24; Lemma 3.9(v), printed pp.21–22 (surjectivity).
 
 ### witt-kernel-generators — Finite Witt kernel generators
 
@@ -398,13 +398,13 @@ Target `AInfCohomology:AI.0/artin-rees-bounded-isogeny` (lemma).
 
 Target `AInfCohomology:AI.0/local-power-series-flatness` (theorem).
 
-**Statement.** For j≥0, the continuous map Z_p[[T]]→A_inf, T↦[ε^(1/p^j)]−1, is faithfully flat. More generally the BMS1 Remark 4.31 criterion proves flatness for a local map of complete local rings when the source parameters give a regular sequence in the target and the residue-level map is flat. Only the displayed cyclotomic maps are exported here; this is not a claim that all maps of perfectoid rings are flat.
+**Statement.** For j≥0, the continuous map Z_p[[T]]→A_inf, T↦[ε^(1/p^j)]−1, is faithfully flat. The criterion used is BMS1 Remark 4.31: a map A→B of p-adically complete p-torsion-free rings is flat when A is noetherian and A/p→B/p is flat. Only the displayed cyclotomic maps are exported here; this is not a claim that all maps of perfectoid rings are flat.
 
 **Hypotheses.** p prime; C a complete algebraically closed nonarchimedean extension of Q_p; O_C its valuation ring. A_inf=W(O_C^flat), theta, phi, xi, mu and tilde-xi have the normalization of AI.0. No noetherianity of O_C or A_inf is assumed. A compatible primitive system ε is fixed. Completeness on A_inf is for (p,[ε^(1/p^j)]−1).
 
 **Dependencies.** `AInfCohomology:AI.0/period-regularity`; `mathlib:PowerSeries`; `mathlib:Module.FaithfullyFlat.lTensor_bijective_iff_bijective`.
 
-**Proof or construction.** Modulo p, use the injective map F_p[[T]]→O_C^flat and torsion-freeness over the DVR F_p[[T]]. The image of T is a nonzero nonunit. Apply the complete local flatness criterion using regularity of (p,T) in A_inf. The map is local, so flatness is faithful.
+**Proof or construction.** Modulo p, use the injective map F_p[[T]]→O_C^flat and torsion-freeness over the DVR F_p[[T]]. The image of T is a nonzero nonunit. Z_p[[T]] is noetherian, and it and A_inf are p-adically complete and p-torsion-free. Apply BMS1 Remark 4.31 to the flat map modulo p. The map is local, so flatness is faithful.
 
 **Check.** For j=0 the map sends T to mu, and p,T remain a regular sequence. Use faithful flatness for descent of an isomorphism, not for replacing derived scalar extension by an arbitrary degreewise tensor.
 
@@ -581,7 +581,7 @@ Target `AInfCohomology:AI.0:period-comparison/bdr-finite-level-compatibility` (t
 
 **Check.** At n=1 the quotient is C, while the ξ-adic inverse limit is B_dR⁺. Completing first for (p,ξ) and then inverting p is not silently substituted for the ξ-adic topology after p-inversion.
 
-**Source.** CK, §6.1, printed p.59; §6.2, pp.59–61; bms1-v3, §13.1 before Lemma 13.4, printed p.105.
+**Source.** CK, §6.1, printed p.60; §6.2, pp.60–61; bms1-v3, §13.1 before Lemma 13.4, printed p.105.
 
 ## AI.1 — The derived décalage operator
 
@@ -1279,7 +1279,7 @@ Target `AInfCohomology:AI.1/bockstein-map-surjectivity` (lemma).
 
 **Check.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
-**Source.** bms1-v3, Proposition 6.12 proof, surjectivity argument; printed p.52.
+**Source.** bms1-v3, Proposition 6.12 proof, surjectivity argument; printed p.53.
 
 ### flat-and-nonflat-base-change — Base-change criterion for décalage
 
@@ -2427,7 +2427,7 @@ Target `AInfCohomology:AI.4/fv-precomplex` (construction).
 - `TauCeti.AOmega.wittPre_term` (projection): W_r^n(D)_pre=H^n(D/tilde-xi_r).
 - `TauCeti.AOmega.wittPre_d` (characterisation): The differential is the coefficient Bockstein.
 - `TauCeti.AOmega.wittPre_FVR` (compatibility): RF=FR, RV=VR, FV=p, FdV=d; VF uses V(1), not automatically p.
-- `TauCeti.AOmega.wittPre_lambda` (universal-property): A family lambda_r:W_r(B)→W_r^0(D)_pre preserving the unit, multiplication and coefficient maps, compatible with F,V,R and satisfying F(d lambda_r([b]))=lambda_(r-1)([b^(p-1)]) d lambda_(r-1)([b]), induces a unique compatible family of relative de Rham–Witt maps. Require odd squares to vanish when using the relative F-V-procomplex universal property; this is a genuine extra condition for the unimproved precomplex.
+- `TauCeti.AOmega.wittPre_lambda` (universal-property): A family lambda_r:W_r(B)→W_r^0(D)_pre preserving the unit, multiplication and coefficient maps, compatible with F,V,R and satisfying F(d lambda_(r+1)([b]))=lambda_r([b])^(p−1) d lambda_r([b]) for every r≥1, induces a unique compatible family of relative de Rham–Witt maps. Require odd squares to vanish when using the relative F-V-procomplex universal property; this is a genuine extra condition for the unimproved precomplex.
 
 **Definition tests.**
 
@@ -2437,7 +2437,7 @@ Target `AInfCohomology:AI.4/fv-precomplex` (construction).
 
 **Check.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
-**Source.** bms1-v3, Proposition 11.2 and §11.1.1; printed p.86.
+**Source.** bms1-v3, Definition 10.5, printed p.81; Proposition 11.2 and §11.1.1, printed p.86.
 
 ### fv-improved-complex — Improved Witt Bockstein complex
 
@@ -2493,13 +2493,13 @@ Target `AInfCohomology:AI.4/torus-witt-realization` (comparison).
 
 Target `AInfCohomology:AI.4/relative-witt-comparison` (theorem).
 
-**Statement.** The universal F-V-procomplex maps give H^i(tilde-W_r-Omega_R)≅W_r Omega^i_(R/O_C),cont{−i} for i≥0. For r≥1,s≥0, the Bockstein complex after the correct W_r(O_C)/p^s base change agrees with the relative Witt dga in Proposition 11.17. The relative Witt objects and their Cartier theory are imported from CR.4.
+**Statement.** The universal F-V-procomplex maps give H^i(tilde-W_r-Omega_R)≅W_r Omega^i_(R/O_C),cont{−i} for i≥0. For r≥1,s≥0, Proposition 11.17 instead uses the restriction map W_(r+s)(O_C)→W_r(O_C): H^i(Lη_([ζ_(p^(r+s))]−1) RΓ_proet(X,W_r(Ô⁺))) identifies, through the source φ^s scalar twist, with H^i(tilde-W_(r+s)-Omega_R tensor^L_(W_(r+s)(O_C)) W_r(O_C)), and hence with (W_(r+s) Omega^i_(R/O_C),cont / V^r W_s Omega^i_(R/O_C),cont){−i}. This is a finite-Witt restriction comparison of cohomology groups, not reduction modulo p^s of W_r(O_C). The relative Witt objects and their Cartier theory are imported from CR.4.
 
 **Hypotheses.** Small smooth p-complete R; r≥1; source finite-level Tor-independence and ordinary p-completion of the continuous relative Witt terms.
 
 **Dependencies.** `AInfCohomology:AI.4/torus-witt-realization`; `AInfCohomology:AI.0/witt-etale-base-change`; `CrystallineCohomology:CR.4/perfectoid-base-change`; `CrystallineCohomology:CR.4/continuous-relative-witt`; `AInfCohomology:AI.4/finite-witt-specialization`.
 
-**Proof or construction.** Extend the torus comparison by étale base change. Use the source completed coefficient exchange and Bockstein compatibility. Descend as sheaves, retaining all twists.
+**Proof or construction.** Extend the torus comparison by étale base change. Use the source completed coefficient exchange and Bockstein compatibility. Descend as sheaves, retaining all twists. For the variant, apply Lemma 9.18 with E=W_r(O_C) as a W_(r+s)(O_C)-module via restriction and use Lemma 3.13. The exact coefficient triangle and injectivity of V^r, from p-torsion-freeness and F^r V^r=p^r, give the stated quotient; retain the φ^s identification and the Breuil–Kisin twist.
 
 **Check.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -2631,7 +2631,7 @@ Target `AInfCohomology:AI.4/mu-inverted-etale` (theorem).
 
 **Check.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
-**Source.** bms1-v3, Theorem 1.10, printed pp.7–8; §9, pp.69–79; Theorem 14.3, pp.119–120.
+**Source.** bms1-v3, Definition 9.1, printed p.69; Theorem 14.1(iv) and Remark 14.2, printed p.118.
 
 ## AI.5 — Proper A_inf cohomology and torsion control
 
@@ -3919,7 +3919,7 @@ Target `AInfCohomology:AI.6/nodal-conic` (application).
 
 **Dependencies.** `AInfCohomology:AI.6/chart-ring`; `AInfCohomology:AI.6/divisorial-log`; `AInfCohomology:AI.6/degreewise-specializations`; `AInfCohomology:AI.6/freeness-criterion`; `AInfCohomology:AI.6/model-independent-lattice`; `AInfCohomology:AI.6/de-rham-lattice-functor`; `AInfCohomology:AI.2/bkf-module`; `AInfCohomology:AI.2/bkf-valid-operations`; `AInfCohomology:AI.2/bkf-etale-realization`; `AInfCohomology:AI.2/fargues-classification`; `AInfCohomology:AI.0:integral/breuil-kisin-line`; `CrystallineCohomology:CR.5`.
 
-**Proof or construction.** Check the node chart x y=π on Z≠0 and the two smooth charts at infinity using chart-ring/divisorial-log. Compute the log de Rham cohomology directly. Ω¹_log of 𝔛₀ over O_K is an invertible sheaf, generated at the node by dlog x=−dlog y and on the two smooth charts by the differential of the coordinate; it is the relative dualizing sheaf ω (CR.5). The special fibre is the union of two lines L₁, L₂ over k₀ meeting in one point: the sequence 0→O→O_{L₁}⊕O_{L₂}→k₀→0 gives H⁰(O)=k₀ and H¹(O)=0, and ω restricts to O(−1) on each line, so H⁰(ω)=0 and, by duality, H¹(ω)=k₀. The generic fibre is P¹_K and has the same dimensions, so by cohomology and base change for the proper flat curve H⁰(O)=O_K, H¹(O)=0, H⁰(ω)=0 and H¹(ω)≅O_K. The Hodge–de Rham spectral sequence then has E₁^{0,1}=E₁^{1,0}=0, and the log de Rham groups are O_K, 0, O_K in degrees 0, 1, 2. The inputs of this step (Čech cohomology on the two-chart cover, cohomology and base change, the identification of Ω¹_log with ω) have no supplier among the prerequisites. Apply freeness-criterion and degreewise-specializations for the freeness and the ranks of the A_inf groups. Apply model-independent-lattice, (8.7.3), in degrees 0 and 2, and the cases M(Z_p)=A_inf and M(Z_p(−1))=A_inf{−1} of de-rham-lattice-functor (its trivial and Tate-twist computations; A_inf{−1} is AI.2’s Tate twist) to identify the Breuil–Kisin–Fargues structures; degree 3 vanishes, so the hypothesis on degree i+1 holds for i=2. The common lattices are L⁰_dR(P¹_K)=O_K and L²_dR(P¹_K)=L_dR(Z_p(−1))=O_K·(t⊗ε^∨).
+**Proof or construction.** Check the node chart x y=π on Z≠0 and the two smooth charts at infinity using chart-ring/divisorial-log. Compute the log de Rham cohomology directly. Ω¹_log of 𝔛₀ over O_K is an invertible sheaf, generated at the node by dlog x=−dlog y and on the two smooth charts by the differential of the coordinate; it is the relative dualizing sheaf ω (CR.5). The special fibre is the union of two lines L₁, L₂ over k₀ meeting in one point: the sequence 0→O→O_{L₁}⊕O_{L₂}→k₀→0 gives H⁰(O)=k₀ and H¹(O)=0, and ω restricts to O(−1) on each line, so H⁰(ω)=0 and, by duality, H¹(ω)=k₀. The generic fibre is P¹_K and has the same dimensions, so by cohomology and base change for the proper flat curve H⁰(O)=O_K, H¹(O)=0, H⁰(ω)=0 and H¹(ω)≅O_K. The Hodge–de Rham spectral sequence then has E₁^{0,1}=E₁^{1,0}=0, and the log de Rham groups are O_K, 0, O_K in degrees 0, 1, 2. The inputs of this step (the normalization exact sequence for the two components, Serre duality, cohomology and base change, and the identification of Ω¹_log with ω) have no supplier among the prerequisites. Apply freeness-criterion and degreewise-specializations for the freeness and the ranks of the A_inf groups. Apply model-independent-lattice, (8.7.3), in degrees 0 and 2, and the cases M(Z_p)=A_inf and M(Z_p(−1))=A_inf{−1} of de-rham-lattice-functor (its trivial and Tate-twist computations; A_inf{−1} is AI.2’s Tate twist) to identify the Breuil–Kisin–Fargues structures; degree 3 vanishes, so the hypothesis on degree i+1 holds for i=2. The common lattices are L⁰_dR(P¹_K)=O_K and L²_dR(P¹_K)=L_dR(Z_p(−1))=O_K·(t⊗ε^∨).
 
 **Check.** The H¹ group is zero despite the special-fibre node; no nonzero monodromy is inferred merely from singular reduction.
 
@@ -3939,7 +3939,7 @@ Target `AInfCohomology:AI.6/bdr-tate-thickenings` (theorem).
 
 **Check.** n=1 recovers the finite-type Tate C-algebra theorem. Noetherianity is asserted for the rational finite-level Tate rings, not for A_inf or O_C.
 
-**Source.** bms1-v3, Lemma 13.4(i–iv) and proof, printed pp.105–106; CK, §6.2, p.59, application of BMS1 Lemma 13.4(ii).
+**Source.** bms1-v3, Lemma 13.4(i–iv) and proof, printed pp.105–106; CK, §6.2, p.60, application of BMS1 Lemma 13.4(ii).
 
 ### bdr-infinitesimal-envelope — Infinitesimal envelope of a very small affinoid
 
@@ -3996,9 +3996,9 @@ Target `AInfCohomology:AI.6/bdr-envelope-normal-form` (theorem).
 
 Target `AInfCohomology:AI.6/bdr-envelope-contraction` (theorem).
 
-**Statement.** The natural maps Ω^•_{D_Σ(R)/B_dR⁺}⊗^L C→Ω^•_{D̃_Σ(R)/C}←Ω^{•,cont}_{R/C} are quasi-isomorphisms, where D̃_Σ(R) completes (D_Σ(R)/ξ)⊗̂_C R at its augmentation to R. For a smooth lift R_A the analogous common-envelope maps identify Ω^•_{D_Σ(R)/B_dR⁺} with Ω^{•,cont}_{R_A/A}⊗̂_A B_dR⁺. Consequently every enlargement Σ⊂Σ′ induces a quasi-isomorphism of the envelope de Rham complexes. The comparison for two different lifts uses a common further envelope; it does not make the normal-form isomorphism canonical.
+**Statement.** The natural maps Ω^•_{D_Σ(R)/B_dR⁺}⊗^L C→Ω^•_{D̃_Σ(R)/C}←Ω^{•,cont}_{R/C} are quasi-isomorphisms, where D̃_Σ(R) completes (D_Σ(R)/ξ)⊗̂_C R at its augmentation to R. For a smooth lift R_A the analogous common-envelope maps identify Ω^•_{D_Σ(R)/B_dR⁺} with Ω^{•,cont}_{R_A/A}⊗̂_A B_dR⁺. Consequently an enlargement Σ⊂Σ′ of sufficiently large unit sets induces a quasi-isomorphism of the envelope de Rham complexes. The comparison for two different lifts uses a common further envelope; it does not make the normal-form isomorphism canonical.
 
-**Hypotheses.** p prime; C a complete algebraically closed nonarchimedean extension of Q_p; O_C its valuation ring. A_inf=W(O_C^flat), theta, phi, xi, mu and tilde-xi have the normalization of AI.0. No noetherianity of O_C or A_inf is assumed. Use the common B_dR⁺ complete DVR, uniformizer ξ, residue map to C and finite-quotient Tate topology; these come from R06.1 and AI.0:period-comparison. R is a smooth complete Tate C-algebra. It is very small: finite units T_1,…,T_d∈Σ⊂(R°)× give a surjection C⟨X_u^{±1}:u∈Σ⟩→R, and the T_i map to the torus factors as rational embeddings and a finite étale map. Σ may be enlarged. Use the lift and the ξ-torsion-free complete envelopes of bdr-envelope-normal-form.
+**Hypotheses.** p prime; C a complete algebraically closed nonarchimedean extension of Q_p; O_C its valuation ring. A_inf=W(O_C^flat), theta, phi, xi, mu and tilde-xi have the normalization of AI.0. No noetherianity of O_C or A_inf is assumed. Use the common B_dR⁺ complete DVR, uniformizer ξ, residue map to C and finite-quotient Tate topology; these come from R06.1 and AI.0:period-comparison. R is a smooth complete Tate C-algebra. It is very small: finite units T_1,…,T_d∈Σ⊂(R°)× give a surjection C⟨X_u^{±1}:u∈Σ⟩→R, and the T_i map to the torus factors as rational embeddings and a finite étale map. Σ may be enlarged. Use the lift and the ξ-torsion-free complete envelopes of bdr-envelope-normal-form; Σ and Σ′ are sufficiently large for Lemmas 13.12–13.13.
 
 **Dependencies.** `AInfCohomology:AI.6/bdr-envelope-normal-form`; `EnhancedDerivedSheaves:E4/mod-ideal-detection`; `DerivedDeRhamCohomology:DD.1/koszul-complex`.
 
@@ -4041,7 +4041,7 @@ Target `AInfCohomology:AI.6/canonical-bdr-deformation` (construction).
 
 **Check.** K_dR⁺(Spa(C,O_C))=B_dR⁺ in degree zero. Perfectness alone is not used as a proof that every cohomology group is free.
 
-**Source.** bms1-v3, Definitions 13.14 and 13.18, printed pp.112,114; CK, §6.2, (6.2.4)–(6.2.7), pp.59–61.
+**Source.** bms1-v3, Definitions 13.14 and 13.18, printed pp.112,114; CK, §6.2, (6.2.4)–(6.2.7), pp.60–61.
 
 ### proper-smooth-spreading — Proper smooth spreading out for the deformation
 
@@ -4114,7 +4114,7 @@ Target `AInfCohomology:AI.6/canonical-bdr-etale-map` (construction).
 
 Target `AInfCohomology:AI.6/canonical-bdr-etale-comparison` (theorem).
 
-**Statement.** For proper smooth X/C, the canonical map K_dR⁺(X)→RΓ_et(X,Z_p)⊗^L B_dR⁺ becomes an equivalence after ξ-inversion. In the descended K case of canonical-bdr-freeness, this B_dR comparison agrees with Scholze’s de Rham comparison through the common structural-period-sheaf envelope. The CK §6.7 use includes the filtered descended de Rham identification; the general filtered enhancement over C is left to the comparison assembly roadmap.
+**Statement.** For proper smooth X/C, the canonical map K_dR⁺(X)→RΓ_et(X,Z_p)⊗^L B_dR⁺ becomes an equivalence after ξ-inversion. In the descended K case of canonical-bdr-freeness, this B_dR comparison agrees with Scholze’s de Rham comparison through the common structural-period-sheaf envelope. The CK §6.7 use includes the filtered descended de Rham identification; the general filtered enhancement over C is left to the CohomologyComparisons roadmap.
 
 **Hypotheses.** p prime; C a complete algebraically closed nonarchimedean extension of Q_p; O_C its valuation ring. A_inf=W(O_C^flat), theta, phi, xi, mu and tilde-xi have the normalization of AI.0. No noetherianity of O_C or A_inf is assumed. Use the common B_dR⁺ complete DVR, uniformizer ξ, residue map to C and finite-quotient Tate topology; these come from R06.1 and AI.0:period-comparison. X proper smooth; descended comparison requires K complete discretely valued with perfect residue field. For the filtered descended statement use the early P8 structural de Rham comparison with its filtration.
 
@@ -4269,7 +4269,7 @@ Target `AInfCohomology:AI.7/cohomology` (construction).
 
 - `CohomologicalBK.cohomology.affine` (characterisation): For SpfR, the object is precisely Δ_{R/𝔖} in the shared enhancement.
 - `CohomologicalBK.cohomology.functorial` (functoriality): Pullback on eligible smooth formal schemes gives contravariant maps preserving products, with identity/composition.
-- `CohomologicalBK.cohomology.frobenius` (structure): The linearized φ_𝔖^*D→D is the imported prismatic Frobenius and becomes an isomorphism after E-inversion.
+- `CohomologicalBK.cohomology.frobenius` (structure): The sheaf has the imported prismatic Frobenius. For affine or quasi-compact quasi-separated 𝔛, its global linearization φ_𝔖^*D→D becomes an isomorphism after E-inversion; the inverse up to E^i on H^i has the direction stated in PR.3/image-of-frobenius.
 - `CohomologicalBK.cohomology.global` (compatibility): For every smooth 𝔛, RΓ_𝔖(𝔛)=RΓ(𝔛_ét,Δ_{𝔛/𝔖}), where Δ_{𝔛/𝔖} is PR.1’s étale sheaf with value Δ_{R/𝔖} on an affine open Spf R. No quasi-compactness is needed for this identification; it is needed for completed base change of global sections (ainf-base-change) and for the global Frobenius isogeny.
 
 **Definition tests.**
@@ -4292,7 +4292,7 @@ Target `AInfCohomology:AI.7/twisted-trace` (construction).
 
 **Dependencies.** `AInfCohomology:AI.7/relative-cyclotomic-traces`; `AInfCohomology:AI.7/absolute-perfectoid-trace-coefficients`; `AInfCohomology:AI.7/qrsp-trace-unfolding`; `AInfCohomology:AI.7/absolute-trace-aomega-comparison`; `AInfCohomology:AI.7/characteristic-p-trace-comparison`; `AInfCohomology:AI.7/relative-trace-base-change`; `AInfCohomology:AI.7/relative-trace-coefficients`; `AInfCohomology:AI.7/relative-qrsp-evenness`; `AInfCohomology:AI.7/relative-bott-frobenius`; `AInfCohomology:AI.7/coefficient-normalization`; `AInfCohomology:AI.7/flat-coefficient-extension`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
 
-**Proof or construction.** Import AI.7 relative traces’s relative THH/TC⁻/TP computation and its quasisyntomic descent, using the map z↦π: the cyclotomic structure on THH(−/𝕊[z]) (BMS2 Construction 11.5), the coefficient computation BMS2 Proposition 11.10, and evenness and the sheaf property on quasiregular semiperfectoid O_K-algebras, BMS2 Proposition 11.11, which rests on BMS2 Theorem 7.2. Apply BMS2 Corollary 11.12, with the relative TC⁻(−/𝕊[z];Z_p) and with gr⁰ of the filtration obtained by unfolding from quasiregular semiperfectoid algebras; on smooth algebras this is not π₀, and absolute TC⁻ carries no 𝔖-module structure. Its proof uses, besides §§11.1–11.2, the absolute results BMS2 Theorem 1.17 for part (2), Theorem 1.8 for part (1) and Theorem 1.10 for part (3), with BMS2 Corollary 11.8 and Lemma 11.6 for base change in 𝕊[z]; all belong to AI.7 relative traces. Part (4) is deduced from part (1) because 𝔖^(−1)→A_inf is a topological direct summand, which is flat-coefficient-extension applied to g.
+**Proof or construction.** Import the AI.7 relative trace targets’ relative THH/TC⁻/TP computation and its quasisyntomic descent, using the map z↦π: the cyclotomic structure on THH(−/𝕊[z]) (BMS2 Construction 11.5), the coefficient computation BMS2 Proposition 11.10, and evenness and the sheaf property on quasiregular semiperfectoid O_K-algebras, BMS2 Proposition 11.11, which rests on BMS2 Theorem 7.2. Apply BMS2 Corollary 11.12, with the relative TC⁻(−/𝕊[z];Z_p) and with gr⁰ of the filtration obtained by unfolding from quasiregular semiperfectoid algebras; on smooth algebras this is not π₀, and absolute TC⁻ carries no 𝔖-module structure. Its proof uses, besides §§11.1–11.2, the absolute results BMS2 Theorem 1.17 for part (2), Theorem 1.8 for part (1) and Theorem 1.10 for part (3), with BMS2 Corollary 11.8 and Lemma 11.6 for base change in 𝕊[z]; all belong to AI.7 relative traces. Part (4) is deduced from part (1) because 𝔖^(−1)→A_inf is a topological direct summand, which is flat-coefficient-extension applied to g.
 
 **Uses.**
 
@@ -4324,7 +4324,7 @@ Target `AInfCohomology:AI.7/trace-descent` (theorem).
 
 **Dependencies.** `AInfCohomology:AI.7/twisted-trace`; `AInfCohomology:AI.7/relative-cyclotomic-traces`; `AInfCohomology:AI.7/absolute-perfectoid-trace-coefficients`; `AInfCohomology:AI.7/qrsp-trace-unfolding`; `AInfCohomology:AI.7/absolute-trace-aomega-comparison`; `AInfCohomology:AI.7/characteristic-p-trace-comparison`; `AInfCohomology:AI.7/relative-trace-base-change`; `AInfCohomology:AI.7/relative-trace-coefficients`; `AInfCohomology:AI.7/relative-qrsp-evenness`; `AInfCohomology:AI.7/relative-bott-frobenius`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings`.
 
-**Proof or construction.** Use AI.7 relative traces’s evenness, acyclicity and cyclotomic extension in BMS2 Proposition 11.15, with Propositions 11.10 and 11.11 and, for the reduction modulo z^{1/p}, Lemma 11.6; the source’s Segal input Corollary 8.18 belongs to AI.7 relative traces. Apply the unfolding/descent of the proof of BMS2 Theorem 11.2, retaining its relative base and its canonical Frobenius composite; the first display of that proof must be read with TC⁻(A/𝕊[z];Z_p), as in Proposition 11.15 and in the composite display of the same proof. Compatibility with the Frobenius of D̂_tw, whose verification BMS2 leaves implicit: let Φ:D_𝔖^tr→gr⁰TP be the φ_𝔖-semilinear map of Proposition 11.15 and loc:gr⁰TC⁻→D_𝔖^tr the b-inversion. By construction Φ∘loc is the cyclotomic Frobenius φ^{hT}:gr⁰TC⁻→gr⁰TP. The semilinear descent Frobenius is F=loc∘can^{-1}∘Φ, so Φ∘F=φ^{hT}∘can^{-1}∘Φ, and φ^{hT}∘can^{-1} is the Frobenius endomorphism of gr⁰TP≃D̂_tw. Invertibility after E: the linearized Frobenius of D̂_tw is invertible after inverting φ_𝔖(E) (twisted-trace, BMS2 Corollary 11.12(4)); φ_𝔖 is finite free of rank p (R07.4/bk-coefficient-rings), hence faithfully flat, so the cone of the linearized Frobenius of D_𝔖^tr vanishes after inverting E.
+**Proof or construction.** Use the AI.7 relative trace targets’ evenness, acyclicity and cyclotomic extension in BMS2 Proposition 11.15, with Propositions 11.10 and 11.11 and, for the reduction modulo z^{1/p}, Lemma 11.6; the source’s Segal input Corollary 8.18 belongs to AI.7 relative traces. Apply the unfolding/descent of the proof of BMS2 Theorem 11.2, retaining its relative base and its canonical Frobenius composite; the first display of that proof must be read with TC⁻(A/𝕊[z];Z_p), as in Proposition 11.15 and in the composite display of the same proof. Compatibility with the Frobenius of D̂_tw, whose verification BMS2 leaves implicit: let Φ:D_𝔖^tr→gr⁰TP be the φ_𝔖-semilinear map of Proposition 11.15 and loc:gr⁰TC⁻→D_𝔖^tr the b-inversion. By construction Φ∘loc is the cyclotomic Frobenius φ^{hT}:gr⁰TC⁻→gr⁰TP. The semilinear descent Frobenius is F=loc∘can^{-1}∘Φ, so Φ∘F=φ^{hT}∘can^{-1}∘Φ, and φ^{hT}∘can^{-1} is the Frobenius endomorphism of gr⁰TP≃D̂_tw. Invertibility after E: the linearized Frobenius of D̂_tw is invertible after inverting φ_𝔖(E) (twisted-trace, BMS2 Corollary 11.12(4)); φ_𝔖 is finite free of rank p (R07.4/bk-coefficient-rings), hence faithfully flat, so the cone of the linearized Frobenius of D_𝔖^tr vanishes after inverting E.
 
 **Check.** For R=O_K: π_*(TC⁻(O_K/𝕊[z];Z_p)[1/b])=𝔖^(−1)[b^{±1}], because v=E·b⁻¹ once b is inverted; its degree-zero part is W(k₀)[[z]], in which nothing has been inverted. The class inverted is the degree-two class b (written u in BMS2), not the coefficient variable z. The first display of the proof of BMS2 Theorem 11.2 must be read with the relative TC⁻(A/𝕊[z];Z_p); with the absolute TC⁻(A;Z_p), as printed, the class b and the 𝔖-module structure are not defined. For R=O_K: D_𝔖^tr=𝔖, the map Φ is φ_𝔖:𝔖→𝔖^(−1), and the descent Frobenius is φ_𝔖.
 
@@ -4516,7 +4516,7 @@ Target `AInfCohomology:AI.7/comparison-diagram-agreement` (theorem).
 
 **Dependencies.** `PrismaticCohomology:PR.6/ainf-omega-comparison`; `PrismaticCohomology:PR.6/theta-theta-tilde-square`; `PrismaticCohomology:PR.6/comparison-uniqueness`; `PrismaticCohomology:PR.1/crystalline-comparison`; `PrismaticCohomology:PR.1/prismatic-base-change`; `AInfCohomology:AI.4/hodge-tate`; `AInfCohomology:AI.4/hodge-tate-cotangent`; `AInfCohomology:AI.4/de-rham`; `AInfCohomology:AI.4/bounded-pd-coefficients`; `AInfCohomology:AI.4/pd-toric-eta-comparison`; `AInfCohomology:AI.4/pd-logarithmic-coordinate`; `AInfCohomology:AI.4/absolute-crystalline-comparison`; `AInfCohomology:AI.4/mu-inverted-etale`; `AInfCohomology:AI.2/ainf-module-perfectness`; `AInfCohomology:AI.2/ainf-module-structure`; `AInfCohomology:AI.5/rational-crystalline-frobenius`; `AInfCohomology:AI.5/finite-level-length-bound`; `AInfCohomology:AI.5/specialization-rank-and-length`; `AInfCohomology:AI.5/adjacent-degree-freeness`; `AInfCohomology:AI.5/p-local-freeness-from-periods`; `AInfCohomology:AI.5/cohomology-finiteness-from-periods`; `AInfCohomology:AI.6/bdr-tate-thickenings`; `AInfCohomology:AI.6/bdr-infinitesimal-envelope`; `AInfCohomology:AI.6/bdr-envelope-normal-form`; `AInfCohomology:AI.6/bdr-envelope-contraction`; `AInfCohomology:AI.6/canonical-bdr-deformation`; `AInfCohomology:AI.6/proper-smooth-spreading`; `AInfCohomology:AI.6/canonical-bdr-freeness`; `AInfCohomology:AI.6/canonical-bdr-etale-map`; `AInfCohomology:AI.6/canonical-bdr-etale-comparison`; `AInfCohomology:AI.6/smooth-integral-bdr-agreement`; `AInfCohomology:AI.7/relative-cyclotomic-traces`; `AInfCohomology:AI.7/absolute-perfectoid-trace-coefficients`; `AInfCohomology:AI.7/qrsp-trace-unfolding`; `AInfCohomology:AI.7/absolute-trace-aomega-comparison`; `AInfCohomology:AI.7/characteristic-p-trace-comparison`; `AInfCohomology:AI.7/relative-trace-base-change`; `AInfCohomology:AI.7/relative-trace-coefficients`; `AInfCohomology:AI.7/relative-qrsp-evenness`; `AInfCohomology:AI.7/relative-bott-frobenius`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `AInfCohomology:AI.7/ainf-base-change`; `AInfCohomology:AI.7/trace-prismatic-agreement`; `AInfCohomology:AI.7/de-rham-base-change`; `AInfCohomology:AI.7/crystalline-base-change`.
 
-**Proof or construction.** (a) Import AΩ_R≃φ_A^*Δ_{R/A_inf} with its Frobenius compatibility from PR.6/ainf-omega-comparison (BS22 Theorem 17.2, Remark 17.3). The comparison map intertwines the two Hodge–Tate structure maps η; BS22 leaves the reduction to the completed torus R = O_C[x^{±1}]^∧ to the reader, and PR.6/theta-theta-tilde-square records it. By BS22 Lemma 17.4 a multiplicative map that intertwines the maps η induces an isomorphism of the cohomology algebras of the θ̃ reductions with their Bockstein differentials, both identified with (Ω^*_{R/O_C},d) through the universal property of the de Rham complex; so compatibility with dt on O_C⟨t⟩ and dlog t on O_C⟨t^{±1}⟩ is a consequence of compatibility on H⁰, not an additional condition. (a) Apply PR.6/comparison-uniqueness (BS22 Theorem 18.2) over the perfect A_inf prism (A_inf,(ξ̃)): the pair formed by prismatic cohomology and η has no nontrivial endomorphism among pairs (G,η) with G a symmetric monoidal functor on all p-completely smooth O_C-algebras; Frobenius compatibility is not an extra hypothesis of that uniqueness theorem. This step needs the comparison as a morphism of pairs (G,η) of symmetric monoidal functors, hence its naturality in R and its multiplicativity. (b) is not proved. A possible route: for the θ de Rham map, compare the two factorisations of Frobenius through Lη_{ξ̃} (that of AΩ in BMS1 and BS22 Theorem 15.3), noting that BMS1 Theorem 14.1 deduces its de Rham comparison from the A_cris comparison and mentions the route through Lη only as an alternative; for the crystalline maps use PR.1 crystalline/base change and AI.4’s actual PD maps and check on PD/Koszul generators; for the Breuil–Kisin and trace maps use ainf-base-change, trace-prismatic-agreement and the AI.7 relative traces relative map; AI.5 and AI.6 supplies the generic étale/B_dR square.
+**Proof or construction.** (a) Import AΩ_R≃φ_A^*Δ_{R/A_inf} with its Frobenius compatibility from PR.6/ainf-omega-comparison (BS22 Theorem 17.2, Remark 17.3). The comparison map intertwines the two Hodge–Tate structure maps η; BS22 leaves the reduction to the completed torus R = O_C[x^{±1}]^∧ to the reader, and PR.6/theta-theta-tilde-square records it. By BS22 Lemma 17.4 a multiplicative map that intertwines the maps η induces an isomorphism of the cohomology algebras of the θ̃ reductions with their Bockstein differentials, both identified with (Ω^*_{R/O_C},d) through the universal property of the de Rham complex; so compatibility with dt on O_C⟨t⟩ and dlog t on O_C⟨t^{±1}⟩ is a consequence of compatibility on H⁰, not an additional condition. (a) Apply PR.6/comparison-uniqueness (BS22 Theorem 18.2) over the perfect A_inf prism (A_inf,(ξ̃)): the pair formed by prismatic cohomology and η has no nontrivial endomorphism among pairs (G,η) with G a symmetric monoidal functor on all p-completely smooth O_C-algebras; Frobenius compatibility is not an extra hypothesis of that uniqueness theorem. This step needs the comparison as a morphism of pairs (G,η) of symmetric monoidal functors, hence its naturality in R and its multiplicativity. (b) is not proved. A possible route: for the θ de Rham map, compare the two factorisations of Frobenius through Lη_{ξ̃} (that of AΩ in BMS1 and BS22 Theorem 15.3), noting that BMS1 Theorem 14.1 deduces its de Rham comparison from the A_cris comparison and mentions the route through Lη only as an alternative; for the crystalline maps use PR.1 crystalline/base change and AI.4’s actual PD maps and check on PD/Koszul generators; for the Breuil–Kisin and trace maps use ainf-base-change, trace-prismatic-agreement and the AI.7 relative trace comparison map; AI.5 and AI.6 supply the generic étale/B_dR square.
 
 **Check.** On a torus, θ̃ H⁰ is R, whereas the θ de Rham H⁰ is O_C; the tests detect the omitted φ_A twist. The comparison datum is η on H⁰ of the θ̃ (Hodge–Tate) reduction, natural and multiplicative in R; the polynomial and torus tests check its consequences on dt and dlog t through the Bockstein differential. H⁰ of the θ de Rham reduction, which is O_C on a torus, tests nothing.
 
@@ -4579,7 +4579,7 @@ Target `AInfCohomology:AI.7/relative-cyclotomic-traces` (construction).
 
 Target `AInfCohomology:AI.7/absolute-perfectoid-trace-coefficients` (theorem).
 
-**Statement.** For an integral perfectoid R with A_inf(R), theta-kernel generator ξ and tilde-ξ=phi(ξ), suitable compatible degree-two generators give π_*THH(R;Z_p)=R[b], π_*TC⁻(R;Z_p)=A_inf(R)[b,v]/(bv−ξ), and π_*TP(R;Z_p)=A_inf(R)[σ^{±1}], with |b|=|σ|=2 and |v|=−2. can is A_inf-linear with b↦ξσ, v↦σ^−1; phi is semilinear for Witt Frobenius with b↦σ, v↦tilde-ξ σ^−1. For connective E∞-R-algebras A, quotient by v gives THH(A;Z_p), while the TP quotient by tilde-ξ gives THH(A;Z_p)^{tC_p}. The formulas depend on compatible choices of generators, not a canonical basis of a Tate line.
+**Statement.** For an integral perfectoid R with A_inf(R), one can choose a theta-kernel generator ξ and compatible degree-two generators, with tilde-ξ=phi(ξ), such that π_*THH(R;Z_p)=R[b], π_*TC⁻(R;Z_p)=A_inf(R)[b,v]/(bv−ξ), and π_*TP(R;Z_p)=A_inf(R)[σ^{±1}], with |b|=|σ|=2 and |v|=−2. can is A_inf-linear with b↦ξσ, v↦σ^−1; phi is semilinear for Witt Frobenius with b↦σ, v↦tilde-ξ σ^−1. For connective E∞-R-algebras A, quotient by v gives THH(A;Z_p), while the TP quotient by tilde-ξ gives THH(A;Z_p)^{tC_p}. These formulas use a compatible choice of ξ as well as the graded generators; they do not assert simultaneous normalization for an arbitrary preassigned ξ or a canonical basis of a Tate line.
 
 **Hypotheses.** p is prime. Work in the symmetric monoidal stable enhancement of spectra, with E∞-algebras, geometric realizations, circle actions, homotopy fixed points and Tate constructions supplied by the precise E5:abstract contract. All displayed trace invariants are p-completed; homotopy indices are homological, so the Bott generator has degree +2. R integral perfectoid, with its primitive theta-kernel generator and the coefficient identification from P1/PR.0.
 
@@ -4624,7 +4624,7 @@ Target `AInfCohomology:AI.7/qrsp-trace-unfolding` (construction).
 
 **Check.** On a quasiregular semiperfectoid basis object D̂ is discrete and agrees with π_0TP. On a smooth torus the unfolded object has higher cohomology and cannot be replaced by an unproved discrete π_0 object.
 
-**Source.** BMS2, Proposition 4.31, p.230; Theorems 7.1–7.2 and Construction 7.4, pp.253–257; Corollary 7.10, pp.258–259.
+**Source.** BMS2, Proposition 4.31, p.230; Theorems 7.1–7.2, Constructions 7.4 and 7.7, and Proposition 7.9, pp.254–257; Corollary 7.10, pp.258–259.
 
 ### absolute-trace-aomega-comparison — Absolute trace comparison with AΩ
 
@@ -4636,7 +4636,7 @@ Target `AInfCohomology:AI.7/absolute-trace-aomega-comparison` (comparison).
 
 **Dependencies.** `AInfCohomology:AI.7/qrsp-trace-unfolding`; `AInfCohomology:AI.3/aomega`; `AInfCohomology:AI.3/framing-independence-and-descent`; `AInfCohomology:AI.1/filtered-beilinson-description`; `PrismaticCohomology:PR.3`.
 
-**Proof or construction.** Evaluate on perfectoid algebras to obtain D̂_A→RΓ_proet(A,A_inf). Factor by the Frobenius/Nygaard criterion through Lη_mu, first in the almost category. Use topologically free quasiregular covers to remove the almost obstruction, then descend. Compare the Hodge–Tate reductions and completeness to prove equivalence.
+**Proof or construction.** Evaluate on perfectoid algebras to obtain D̂_A→RΓ_proet(A,A_inf). Factor by the Frobenius/Nygaard criterion through Lη_mu, first in the almost category. Use topologically free quasiregular covers to remove the almost obstruction, then descend. Compare the de Rham reductions modulo ξ. Claim 9.7 checks the identity in degree zero modulo (p,ξ); Lemma 9.9 uses the Bockstein to obtain the identity in every cohomological degree. Derived ξ-completeness proves equivalence.
 
 **Check.** At A=O_C the comparison is the normalized A_inf identity. The integral comparison requires the almost-to-integral repair and is not a formal consequence of equal reductions.
 
@@ -4960,7 +4960,7 @@ Named results that the proofs use and for which no stage of the atlas was found 
 
 ### G-11 — Coherent cohomology of the nodal conic
 
-The node nodal-conic computes the log de Rham groups O_K, 0, O_K of the completed conic XY=πZ² from H⁰(O)=O_K, H¹(O)=0, H⁰(ω)=0, H¹(ω)≅O_K, where ω=Ω¹_log is the relative dualizing sheaf. The computation is written out in the node; its inputs — Čech cohomology of O and ω on the two-chart cover of the special fibre, cohomology and base change for the proper flat curve, and the identification of Ω¹_log with the dualizing sheaf (requested from CR.5) — have no supplier node yet, so the example is not certified.
+The node nodal-conic computes the log de Rham groups O_K, 0, O_K of the completed conic XY=πZ² from H⁰(O)=O_K, H¹(O)=0, H⁰(ω)=0, H¹(ω)≅O_K, where ω=Ω¹_log is the relative dualizing sheaf. The computation is written out in the node; its inputs — the normalization exact sequence of the two special-fibre components and Serre duality for O and ω, cohomology and base change for the proper flat curve, and the identification of Ω¹_log with the dualizing sheaf (requested from CR.5) — have no supplier node yet, so the example is not certified.
 
 **Required for.** `AInfCohomology:AI.6/nodal-conic`.
 
@@ -5072,7 +5072,7 @@ All other targets retain their exact hypotheses above. In particular this file s
 
 ## Sources, editions and corrections
 
-Locators distinguish BMS1 v3 printed pages from published BMS1/BMS2 pagination. The accepted parts’ source readings and 21 reviewed source findings are retained as provenance. The additional reading checked the coefficient/sheaf distinctions, the full canonical deformation construction, semistable supporting lemmas and the required trace prefix on 2026-10-13. Only the material needed by the targets is planned; source passages are not reproduced.
+Locators distinguish BMS1 v3 printed pages from published BMS1/BMS2 pagination. The accepted parts’ source readings and 21 earlier findings are retained as provenance; independent review checked them and added four findings, for 25 in total. The additional reading checked the coefficient/sheaf distinctions, the full canonical deformation construction, semistable supporting lemmas and the required trace prefix on 2026-10-13. Only the material needed by the targets is planned; source passages are not reproduced.
 
 - **bms1-v3**: Bhargav Bhatt, Matthew Morrow, Peter Scholze, [Integral p-adic Hodge theory](https://arxiv.org/pdf/1602.03148v3), arXiv:1602.03148v3 (2019), 124 pages. SHA-256 `285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a`.
 - **bms1-published**: Bhargav Bhatt, Matthew Morrow, Peter Scholze, [Integral p-adic Hodge theory](https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), Publ. Math. IHES 128 (2018), 219–397; online January 2019. SHA-256 `a924d36c8ef92888d9739011f8cc6675f846544c88edb9f670c7ecf2052702bb`.
@@ -5093,6 +5093,10 @@ Locators distinguish BMS1 v3 printed pages from published BMS1/BMS2 pagination. 
 
 New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd`. CK uses arXiv v3, SHA-256 `47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57`. BMS1 v3 uses SHA-256 `285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a`. The version records separate inherited reading scopes from this pass’s direct reads.
 
+## Source issues
+
+All 25 findings below were checked independently at the stated locators. The inherited findings keep their earlier review history in the packet; the present verdict is by REV-AInfCohomology. Findings against an author copy or preprint remain scoped to that edition. No novelty claim is made for a finding merely because a recorded search found no separate erratum.
+
 ### AInfCohomology/E1 — error
 
 **Locator.** bms1-published, Lemma 6.9 proof, published p.292; also arXiv v3 printed p.51
@@ -5103,7 +5107,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** Take I=(2), n=1 and C=Z in degree0 with zero differential. The printed left quotient is Z/2, while H^1(C)[2]=0. The corrected boundary argument still constructs the lower-truncation comparison, so the theorem remains valid.
 
-**Status.** new; confirmed in the accepted part review. Confirmed in both the journal article and arXiv v3: the entire term quotient in the proof is false for C=Z concentrated in degree 0, I=(2), n=1. The corrected good-truncation boundary argument proves the unchanged theorem. Independently rechecked at this locator on 2026-10-10.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E2 — misprint
 
@@ -5115,7 +5119,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** B^n was defined as the image of d:X^(n−1)→X^n; a nonzero two-term differential has B^n nonzero and B^(n−1)=0.
 
-**Status.** new; confirmed in the accepted part review. Confirmed in the December 2019 author copy: the boundary is B^n by definition of d:X^(n-1)→X^n. No claim about the unavailable published interior. Independently rechecked at this locator on 2026-10-10.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E3 — misprint
 
@@ -5127,7 +5131,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** As printed the premise is satisfied by any map into a p-complete N. For M=0 and N=Z_p it would incorrectly say Lη_p Z_p completes zero; the proof uses the corrected premise.
 
-**Status.** new; confirmed in the accepted part review. Confirmed in the December 2019 author copy: the completion premise must refer to M. The printed premise admits M=0,N=Z_p, contradicting the conclusion. No claim about the unavailable published interior. Independently rechecked at this locator on 2026-10-10.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E4 — misprint
 
@@ -5139,7 +5143,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** For the p-power filtration of Z[1/p], taking the inverse direction cannot recover the underlying localization; the preceding definition and decreasing-filtration transitions already use minus infinity.
 
-**Status.** new; confirmed in the accepted part review. Confirmed in the December 2019 author copy: the decreasing filtration transitions and localization example require colimit toward minus infinity. No claim about the unavailable published interior. Independently rechecked at this locator on 2026-10-10.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E5 — misprint
 
@@ -5151,7 +5155,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The filtration is decreasing, so the printed quotient is not in that order. A filtered complex with two nonzero graded pieces shows that one graded quotient cannot be the truncation of the entire underlying M. The corrected formula follows term by term from the displayed F′ definition.
 
-**Status.** new; confirmed in the accepted part review. Confirmed in the December 2019 author copy by the displayed filtration formula: the quotient is F′k/F′(k+1), and good truncation applies to gr_F^k M. No claim about the unavailable published interior. Independently rechecked at this locator on 2026-10-10.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E6 — misprint
 
@@ -5163,7 +5167,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The following comparison E1 to E2 and Example 7.7 use the decalage of group cohomology; applying the functor to E1 itself would be circular.
 
-**Status.** PAPER-BHATT-MORROW-SCHOLZE-18/E6, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18; confirmed in the accepted part review. Both public PDFs retain the self-reference; Example 7.7 and the following map identify E2 as the intended input. The AI.3 mathematical contract already uses that corrected input.
+**Status.** PAPER-BHATT-MORROW-SCHOLZE-18/E6, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E7 — misprint
 
@@ -5175,19 +5179,19 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The second differential component has degree n; g*y has degree n-1. The differential displayed immediately before the tests and the intervening divisibility argument both use g*x.
 
-**Status.** PAPER-BHATT-MORROW-SCHOLZE-18/E7, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18; confirmed in the accepted part review. Both public PDFs have the wrong component in these two tests. The source differential and grading settle the correction; the Koszul target retains the corrected differential.
+**Status.** PAPER-BHATT-MORROW-SCHOLZE-18/E7, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-1 — misprint
 
 **Locator.** BMS1, Published §4.4 opening, p.280, immediately before Lemma 4.30
 
-**Issue.** The source equips S = W(k)[[T]] with ϕ, described as a Frobenius automorphism.
+**Issue.** The power-series coefficient Frobenius is described as invertible.
 
-**Correction.** Frobenius endomorphism of 𝔖=W(k)[[T]]: the Witt vector Frobenius on W(k) and T↦T^p (BMS1 writes T for the variable this packet calls u).
+**Correction.** Use an endomorphism: Witt Frobenius on W(k) and T↦T^p.
 
-**Reason.** The image of ϕ lies in W(k)[[T^p]], so T is not in it and ϕ is not surjective. BMS1 §4.1 (p.262) defines ϕ as 'the Frobenius on W(k), and sends T to T^p', and BMS2 Notation 11.1 calls it an endomorphism; nothing in §4.4 uses surjectivity.
+**Reason.** Every image series has exponents divisible by p, so T has no preimage. The earlier coefficient definition and BMS2 Notation 11.1 use this endomorphism, and §4.4 does not need surjectivity.
 
-**Status.** new; confirmed in the accepted part review. BMS1 §4.4, p.280 describes an automorphism, but reduction modulo p has image k[[T^p]], so T has no preimage. The coefficient Frobenius is bijective; the power-series substitution is only an endomorphism.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-2 — misprint
 
@@ -5199,7 +5203,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The referenced Proposition 11.15 is relative, and both the following Frobenius composite and the 𝔖-module structure require the same relative spectrum; absolute TC⁻ cannot supply that base.
 
-**Status.** new; confirmed in the accepted part review. BMS2 p.306 omits the relative base in the Bott-inverted definition. Proposition 11.15, p.305, and the composite in the same proof use TC⁻ relative to 𝕊[z]. This is the same omission already registered as PAPER-BHATT-MORROW-SCHOLZE-19/E12.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-3 — misprint
 
@@ -5211,7 +5215,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The ring concerned is D_{Ψ,Ξ,n}(A), defined two lines earlier as a quotient of B_dR⁺⟨(X_u^{±1})_{u∈Ψ},(X_a)_{a∈Ξ}⟩; Σ is the index set of the formal torus of §5.17 and does not occur in §6.3. In the typeset text the expression is (A_inf/ξⁿ)⟨(X_u^{±1})_{u∈Σ},(X_a)_{a∈Ξ}⟩; the text extraction drops the angle brackets.
 
-**Status.** new; confirmed in the accepted part review. CK §6.3, p.62 indexes the ring of definition by Σ, although the defining deformation algebra immediately above uses Ψ for the invertible-coordinate family. Replacing Σ by Ψ restores the declared generators.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-4 — misprint
 
@@ -5223,7 +5227,7 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** The relation T_0⋯T_r−p^q involves T_0, and the chart (6.3.1) on the same page has the variables T_0,…,T_r,T_{r+1}^{±1},…,T_d^{±1}. The overline on W(k) is lost in the text extraction.
 
-**Status.** new; confirmed in the accepted part review. CK footnote 18, p.61 starts the polynomial list at T₁ but its relation involves T₀. The surrounding chart (6.3.1) includes T₀, so it is a missing generator in the list.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-5 — misprint
 
@@ -5231,11 +5235,11 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Issue.** The source attributes the subsequent identifications to (2.3), (4.18.1), and (5.43.2).
 
-**Correction.** by (2.3.1), (4.18.1), and (5.43.2)
+**Correction.** Replace the reference (2.3) by (2.3.1); retain (4.18.1) and (5.43.2).
 
 **Reason.** The paper has no display numbered (2.3); the étale identification in the first line of (7.2.1) is display (2.3.1) of Theorem 2.3.
 
-**Status.** new; confirmed in the accepted part review. CK §7.2, p.68 refers to (2.3), while the étale specialization used in (7.2.1) is the display (2.3.1) of Theorem 2.3. The remaining two referenced displays match.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-6 — misprint
 
@@ -5247,19 +5251,19 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** Logarithmic crystalline cohomology over W(k) is that of the special fibre 𝔛_k everywhere else in §7 ((7.2.1), (7.6.4), (7.8.1), (7.9.1)), and the question is prompted by (7.8.1) and Theorems 7.9 and 7.12. In the extracted text '6=' stands for ≠.
 
-**Status.** new; confirmed in the accepted part review. CK Question 7.13, p.72 drops the special-fibre subscript. The crystalline complex throughout §7 is over 𝔛_k/W(k); the formal mixed-characteristic model itself is not the object of that crystalline specialization.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-7 — misprint
 
 **Locator.** CK, Proof of Proposition 3.33, first line of p.24, arXiv:1710.06145v3
 
-**Issue.** The source asserts that A_inf is flat over Z[[T]].
+**Issue.** The flat coefficient base is written with integer, rather than p-adic integer, power series.
 
-**Correction.** for which A_inf is Z_p[[T]]-flat
+**Correction.** The intended base in this step is Z_p[[T]].
 
-**Reason.** The morphism just defined is Z_p[[T]]→A_inf, T↦[ε]^{1/p^j}−1 (last line of p.23), and the flatness meant is the one invoked in the proof of Proposition 3.29 (p.21: by [BMS18, 4.31], A_inf is a faithfully flat Z_p[[T]]-algebra); the next sentence again writes Z_p[[T]]. The subscript p is missing in the PDF itself (checked on PDF p.24), not only in the extracted text.
+**Reason.** The morphism on p.23 has source Z_p[[T]], with T mapped to the cyclotomic coefficient. Proposition 3.29 on p.21 and the next sentence on p.24 use that same p-adic base; the missing subscript occurs in the rendered PDF.
 
-**Status.** new; confirmed in the accepted part review. CK p.24 drops the p from Z_p[[T]]. The coefficient morphism and Proposition 3.29, p.21 specify Z_p[[T]]; BMS1 Remark 4.31 supplies this completed coefficient-ring flatness.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-8 — misprint
 
@@ -5271,19 +5275,19 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** 𝒳 is introduced on p.29 as a proper flat scheme over the integral closure of W(k), which is not p-adically complete; Theorem 4.12 requires a proper finitely presented scheme over an a-adically complete valuation ring, and Ω¹_{𝒳/O_C} has no meaning for a scheme that is not over O_C. Remark 4.19 (p.31) writes 𝒳_{O_C} for the same object. Checked on PDF p.30. The intended meaning is clear and the argument is unaffected.
 
-**Status.** new; confirmed in the accepted part review. CK §4.15, p.30 uses the algebraic model over the integral closure of W(k), but the formal GAGA theorem and the displayed differentials require its base change to O_C. Remark 4.19 uses that base change explicitly. This is a notation correction in an otherwise valid argument.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-9 — misprint
 
 **Locator.** BS22, §15.2, last paragraph, p.105 (arXiv:1905.08229v4)
 
-**Issue.** The source refers to [BMS19, Proposition 11.5].
+**Issue.** The trace definition is attributed to a proposition numbered 11.5 in BMS2.
 
-**Correction.** cf. [BMS19, Proposition 11.15] (with the proof of Theorem 11.2 there).
+**Correction.** Refer to BMS2 Proposition 11.15 and the proof of Theorem 11.2.
 
-**Reason.** The sentence says 'This is how RΓ_𝔖(X) was defined in [BMS19]', through the Nygaard filtration found on the higher homotopy groups of TC⁻. In BMS2 that definition is Proposition 11.15 (the u-inverted gr⁰TC⁻(−/𝕊[z]; Z_p), p.305) together with the proof of Theorem 11.2 (p.306). Item 11.5 of BMS2 is 'Construction 11.5 (Construction of the cyclotomic structure on THH(−/𝕊[z]))', p.300: it is not a proposition and does not define RΓ_𝔖.
+**Reason.** BMS2 item 11.5, p.300, constructs a relative cyclotomic structure. The Bott-inverted degree-zero definition occurs in Proposition 11.15, p.305, and its use to define cohomology in Theorem 11.2, p.306.
 
-**Status.** new; confirmed in the accepted part review. BS22 §15.2, p.105 points to BMS2 Proposition 11.5. In the published BMS2, 11.5 is the relative cyclotomic construction on p.300; the Bott-inverted definition needed here is Proposition 11.15, p.305.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-10 — misprint
 
@@ -5291,23 +5295,23 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Issue.** The source takes K to be an extension of Qp with a discrete valuation and perfect residue field k.
 
-**Correction.** Let K be a complete discretely valued extension of Q_p with perfect residue field k.
+**Correction.** Add completeness to the discretely valued mixed-characteristic field hypothesis.
 
-**Reason.** The next sentence uses a surjection θ̃ : W(k)[[z]] → O_K, which requires O_K to be p-adically complete and to contain W(k): the maximal unramified extension of Q_p is a discretely valued extension of Q_p with perfect residue field whose ring of integers does not contain W(F̄_p). BMS1 §4.1 and BS22 Example 1.3(3) say 'complete discretely valued'.
+**Reason.** The coefficient-ring surjection requires a complete O_K containing W(k). The maximal unramified algebraic extension of Q_p has perfect residue field but is not complete and does not contain W(F̄_p). BMS1 §4.1 and BS22 Example 1.3(3) impose completeness.
 
-**Status.** new; confirmed in the accepted part review. BMS2 Notation 11.1, p.298 omits completeness. A discretely valued extension with perfect residue field need not admit the claimed W(k)[[z]] coefficient surjection: the maximal unramified algebraic extension of Q_p has perfect residue field but is not complete. The packet uses complete K, as in BMS1 §4.1 and BS22 Example 1.3(3).
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-11 — misprint
 
 **Locator.** BMS1, §4.1, paragraph before Theorem 4.4, p.265
 
-**Issue.** The source sends T to [π^♭]^p in a map 𝔖 → A_inf. It declares the square with 𝔖 → O on top and A_inf → O_C below to commute, with θ̃ labeling each horizontal arrow.
+**Issue.** The coefficient map specifies T↦[π^♭]^p and asserts compatibility with both shifted Fontaine maps, without specifying its action on W(k).
 
-**Correction.** We have a map 𝔖 → A_inf which sends T to [π^♭]^p and is the Frobenius on W(k).
+**Correction.** The map must act on W(k) through Witt Frobenius.
 
-**Reason.** The sentence continues '[π^♭]^p. Thus, the diagram … commutes', the diagram having θ̃ : 𝔖 → O on top and θ̃ : A_inf → O_C below. On A_inf, θ̃ = θ∘φ^{-1}; for a ∈ W(k) a W(k)-linear map would give θ̃(a) = φ^{-1}(a), which differs from a unless k = F_p, so the square commutes only for the map that is the Frobenius on W(k). The action on W(k) is not specified on p.265; it is specified in §4.4, pp.280–281 ('sends T to [π^♭]^p and is the Frobenius on W(k)').
+**Reason.** For a∈W(k), shifted theta applies φ_W⁻¹. A W(k)-linear assignment therefore gives φ_W⁻¹(a), whereas the upper shifted coefficient map gives a. Commutativity requires φ_W on coefficients, which BMS1 §4.4, pp.280–281 specifies.
 
-**Status.** new; confirmed in the accepted part review. BMS1 p.265 gives the image of T but omits the action on W(k). The θ̃-square forces Witt Frobenius on coefficients; a W(k)-linear assignment would send a coefficient through φ_W^{-1}. Section 4.4, pp.280–281 gives the normalized map explicitly.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-12 — gap
 
@@ -5319,19 +5323,19 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Reason.** For M=H^i_cont(Δ,R)⊕H^i_cont(Δ,M_∞) the quotient M/M[ζ_p−1] is the image of the first summand, whereas M/(ζ_p−1)M is H^i_cont(Δ,R)/(ζ_p−1) plus the whole second summand; a module without 𝔪-torsion always has M/M[f] without 𝔪-torsion, so the check made is not the hypothesis of the lemma. The theorem is correct.
 
-**Status.** new; confirmed in the accepted part review. CK Theorem 3.9, p.13 checks a quotient by f-torsion, whereas Lemma 3.4 and BMS1 Lemma 8.11(i), p.309 require the reduction M/fM. The missing hypothesis follows from the cohomology sequence for multiplication by f on R_∞ and Proposition 3.8 with b=f. The packet uses this repair.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-13 — gap
 
 **Locator.** BMS2, Remark 11.16, p.307 (Publ. math. IHÉS 129)
 
-**Issue.** The source claims globalization would give canonical descent of every smooth formal scheme X/O_K to W(k)[π^p] ⊂ O_K, the θ-image of 𝔖 → O_K. It calls this impossible, citing as a counterexample elliptic curves having good reduction and j invariant in O_K − W(k)[π^p].
+**Issue.** The obstruction to functorial Frobenius descent is illustrated for general K by an elliptic j-invariant outside W(k)[π^p].
 
 **Correction.** A descent along φ of the projection for A=O_K is a quotient 𝔖/J with φ(J)𝔖=(E). If no such J exists, which is so whenever p does not divide the degree e of E (in particular for K unramified, where moreover W(k)[π^p]=O_K and no elliptic curve as described exists), there is no descent already for A=O_K, for a different reason. If it exists, J=ker θ, 𝔖/J≅W(k)[π^p], O_K is free of rank p over it, and the elliptic-curve argument applies.
 
-**Reason.** K=Q_p, π=p, E=z−p: W(k)[π^p]=Z_p=O_K, so the set O_K−W(k)[π^p] is empty and the printed counterexample does not exist; and (z−p) is not generated by a power series in z^p, so the projection for A=O_K has no descent at all. For p∤e, e>1, O_K is not the base change along φ of any quotient of 𝔖, so 'descends to W(k)[π^p]' is not what a descent along φ would give. The conclusion of the remark, that no functorial descent exists, is true in every case.
+**Reason.** For K=Q_p and π=p, W(k)[π^p]=O_K, so the suggested j-invariant cannot exist. The ideal (z−p) cannot be extended from a series ideal in z^p. More generally p∤e obstructs coefficient-ideal descent already for O_K. The conclusion about absence of functorial descent survives with these separate cases.
 
-**Status.** new; confirmed in the accepted part review. BMS2 Remark 11.16, p.307 proposes an elliptic j-invariant outside W(k)[π^p] for general K. That subring equals O_K in the unramified case. The packet correctly separates the p∤e obstruction to descending the coefficient ideal from the ramified case where the elliptic argument applies.
+**Status.** new; independently confirmed by REV-AInfCohomology.
 
 ### AInfCohomology/E-AI6-14 — gap
 
@@ -5341,6 +5345,54 @@ New BMS2 trace citations use the published PDF with SHA-256 `6b43d1ff3c3f345db85
 
 **Correction.** BMS1 Lemma 4.30 and its proof give flatness only. Faithful flatness follows because the map is a flat local homomorphism of local rings. Topological freeness follows by lifting a basis of A_inf/(p,[π^♭]^p) over k that contains 1 and applying derived Nakayama for the regular sequence (p,z); this argument is in neither paper.
 
-**Reason.** BMS1 Lemma 4.30 (p.281) states 'The map 𝔖 → A_inf above is flat', and its proof shows that M⊗^L_𝔖 A_inf is concentrated in degree 0; neither faithful flatness nor a topological basis occurs in the statement or the proof. BMS2 uses topological freeness in the proof of Corollary 11.12(4) and in Remark 11.17.
+**Reason.** BMS1 Lemma 4.30, p.281, proves flatness by concentration of derived scalar extension in degree zero. It supplies neither the local-ring argument for faithful flatness nor a lifted topological basis. BMS2 Corollary 11.12(4) and Remark 11.17 use the stronger topological statement.
 
-**Status.** new; confirmed in the accepted part review. BMS2 Notation 11.1, p.298 cites BMS1 Lemma 4.30 and its proof for faithful flatness and topological freeness. The cited proof, p.281, establishes flatness only. The two stronger true conclusions need the additional local-ring and lifted-basis arguments recorded in flat-coefficient-extension.
+**Status.** new; independently confirmed by REV-AInfCohomology.
+
+### AInfCohomology/E8 — misprint
+
+**Locator.** BMS2, Definition 5.1 and following graded-piece convention, published p.233; arXiv v2 printed p.28
+
+**Issue.** The decreasing-filtration quotient uses the preceding index.
+
+**Correction.** Use gr^i(F)=cofib(F(i+1)→F(i)).
+
+**Reason.** A Z^op filtration has an arrow F(i+1)→F(i). The step filtration F(0)=A, F(1)=0 must have gr^0=A.
+
+**Status.** DerivedDeRhamCohomology/E5 and the corresponding PrismaticCohomology finding; independently confirmed by REV-AInfCohomology.
+
+### AInfCohomology/E9 — misprint
+
+**Locator.** BMS2, Proof of Corollary 5.10, third functor, published p.239; its verification on p.240; arXiv v2 printed p.33
+
+**Issue.** The third functor takes the positive-infinity limit of the filtration.
+
+**Correction.** Use F↦colim_(i→−∞)F(i)=F(−∞).
+
+**Reason.** Proposition 5.8 identifies the underlying object of the connective cover with Lη_I K. The next page proves monoidality for the negative-infinity colimit. A complete nonzero step filtration has positive-infinity limit zero, so that limit cannot return its underlying object.
+
+**Status.** No separate correction identified in the recorded search; novelty is not established.; independently confirmed by REV-AInfCohomology.
+
+### AInfCohomology/E10 — misprint
+
+**Locator.** BS22, Corollary 15.5, final cohomology display, arXiv:1905.08229v4 printed p.104
+
+**Issue.** The induced inverse-to-Frobenius map has the Frobenius direction after its source and target are interchanged.
+
+**Correction.** Use V_i:H^i(Δ)⊗I^i→H^i(Δ^(1)), inverse to φ up to I^i.
+
+**Reason.** Taking cohomology of the truncation map V_i in the opening sentence gives this direction. It agrees with Theorem 1.8(6), and the composites with φ are multiplication by I^i.
+
+**Status.** PrismaticCohomology:PR.3/image-of-frobenius; PAPER-BHATT-SCHOLZE-22/E25; independently confirmed by REV-AInfCohomology.
+
+### AInfCohomology/E11 — misprint
+
+**Locator.** BS22, Corollary 15.4, arXiv:1905.08229v4 printed p.104
+
+**Issue.** The de Rham target is indexed by an undeclared affine ring R in a statement about a formal scheme X.
+
+**Correction.** Use the sheaf de Rham complex Ω^•_(X/(A/I)).
+
+**Reason.** The corollary starts with X and states an equivalence of complexes on its étale site. Its affine formula is recovered on X=Spf R, rather than defining R for general X.
+
+**Status.** PrismaticCohomology:PR.3/de-rham-comparison-general; PAPER-BHATT-SCHOLZE-22/E1; independently confirmed by REV-AInfCohomology.
