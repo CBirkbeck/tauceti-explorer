@@ -15,7 +15,11 @@ The design choices made explicit here:
 * A finite flat group over an affine base `Spec R` is an object of Tau Ceti's
   `FiniteLocallyFreeCommAffineGroupSchemeCat`. Its order is the rank of its coordinate Hopf algebra,
   it is étale when that algebra is étale, of multiplicative type when its Cartier dual is étale, and
-  connected over a local base when the algebra is local.
+  connected over a henselian local base when the algebra is local. `Module.finrank` is the order
+  only over a base with connected spectrum, so the statements about `rank` assume a local base; over
+  a general base the order is Tau Ceti's locally constant rank function, which Cartier duality
+  preserves (`FiniteLocallyFreeCommAffineGroupSchemeCat.finrank_cartierDual` in the current
+  library).
 * A finite flat model of a generic group is a `Prolongation`: a model together with an isomorphism
   of its generic fibre, ordered by domination.
 * Dieudonné modules are contravariant: a Dieudonné module over a perfect field `k` is a
@@ -62,7 +66,10 @@ variable {R : Type u} [CommRing R]
 abbrev coord (G : FLF R) := FiniteLocallyFreeCommAffineGroupSchemeCat.coordinateHopfAlgebra R G
 
 /-- The order of `G`: the rank of its coordinate algebra. Over a local base, where the algebra is
-free, this is the order; over a general base the README uses the locally constant rank. -/
+free, this is the order. Over a base with disconnected spectrum `Module.finrank` is not the order
+(for `R = F₂ × F₂` and `G` trivial on one factor and `μ₂` on the other it is `1`), so the
+statements below assume `[IsLocalRing R]`; over a general base the README uses the locally
+constant rank. -/
 def rank (G : FLF R) : ℕ := Module.finrank R (coord G)
 
 /-- `G` is étale: its coordinate algebra is étale over `R`. -/
@@ -72,7 +79,9 @@ def IsEtale (G : FLF R) : Prop := Algebra.Etale R (coord G)
 def IsMultiplicative (G : FLF R) : Prop :=
   IsEtale (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G)
 
-/-- Over a local base, `G` is connected exactly when its finite coordinate algebra is local. -/
+/-- The coordinate algebra of `G` is local. Over a henselian local base this is exactly the
+connectedness of `G`; over a local base that is not henselian a connected `G` can have a non-local
+coordinate algebra. -/
 def IsConnectedLocal (G : FLF R) : Prop := IsLocalRing (coord G)
 
 /-- Cartier biduality (Tau Ceti, at the pin). -/
@@ -81,20 +90,16 @@ example (G : FLF R) :
       (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G) ≅ G :=
   (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso R G).symm
 
-/-- Cartier duality preserves the order (the finite-level case of the duality of Layer R07.1). Over
-a local base the coordinate algebra is free, so the order is its rank. -/
-theorem rank_cartierDual [IsLocalRing R] (G : FLF R) :
-    rank (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G) = rank G := sorry
-
 /-- `G` is multiplicative exactly when its Cartier dual is étale, and étale exactly when its dual
 is multiplicative (biduality). -/
 theorem isMultiplicative_cartierDual_iff (G : FLF R) :
     IsMultiplicative (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G) ↔ IsEtale G :=
   sorry
 
-/-- A finite flat group whose order is invertible on the base is étale (Layer R07.1, finite étale
-groups as Galois modules; Stix, Theorem 34). -/
-theorem isEtale_of_isUnit_rank (G : FLF R) (h : IsUnit (rank G : R)) : IsEtale G := sorry
+/-- Over a local base, a finite flat group whose order is invertible is étale (Layer R07.1, finite
+étale groups as Galois modules; Stix, Theorem 34). The local hypothesis makes `rank` the order. -/
+theorem isEtale_of_isUnit_rank [IsLocalRing R] (G : FLF R) (h : IsUnit (rank G : R)) :
+    IsEtale G := sorry
 
 /-- Over a local base, a group that is both étale and connected is trivial: the connected–étale
 dichotomy at the level of coordinate algebras. -/
@@ -120,10 +125,12 @@ variable {R : Type u} [CommRing R] [IsDomain R] (K : Type u) [Field K] [Algebra 
   [IsFractionRing R K]
 
 /-- Schematic closure over a Dedekind domain: a closed subgroup of the generic fibre is the generic
-fibre of a closed flat subgroup (Raynaud, §2.1). -/
+fibre of a closed flat subgroup, compatibly with the inclusions (Raynaud, §2.1). -/
 theorem schematicClosure_flat [IsDedekindDomain R] (G : FLF R) (H : FLF K)
     (ι : H ⟶ genericFibre K G) [Mono ι] :
-    ∃ (𝓗 : FLF R) (j : 𝓗 ⟶ G), Mono j ∧ Nonempty (genericFibre K 𝓗 ≅ H) := sorry
+    ∃ (𝓗 : FLF R) (j : 𝓗 ⟶ G) (e : genericFibre K 𝓗 ≅ H), Mono j ∧
+      e.hom ≫ ι = (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).map j :=
+  sorry
 
 /-- A finite flat model (prolongation) of a finite commutative `K`-group `G`. -/
 structure Prolongation (G : FLF K) where
@@ -165,12 +172,13 @@ def absRamificationIndex (R : Type u) [CommRing R] [IsDomain R] [IsDiscreteValua
 example (p : ℕ) [Fact p.Prime] : absRamificationIndex ℤ_[p] p = 1 := sorry
 
 /-- Raynaud's uniqueness theorem (Théorème 3.3.3): if `e < p − 1`, a finite commutative `K`-group
-of `p`-power order has at most one finite flat model. The milestone of the models part of
-Layer R07.1. -/
+of `p`-power order has at most one finite flat model up to unique isomorphism: any model dominates
+any other, so by `dominates_unique` the two dominating morphisms are mutually inverse. The
+milestone of the models part of Layer R07.1. -/
 theorem prolongation_unique_of_lt [IsDiscreteValuationRing R] [CharZero K] (p : ℕ)
     [Fact p.Prime] (he : absRamificationIndex R p < p - 1) (G : FLF K)
     (hG : ∃ n, rank G = p ^ n) (𝓖 𝓖' : Prolongation (R := R) K G) :
-    Nonempty (𝓖.model ≅ 𝓖'.model) := sorry
+    𝓖.Dominates 𝓖' := sorry
 
 /-- Raynaud, Corollaire 3.3.6: full faithfulness of the generic fibre for `e < p − 1`. -/
 theorem genericFibre_map_bijective [IsDiscreteValuationRing R] [CharZero K] (p : ℕ)
@@ -253,9 +261,22 @@ def qpZp : DieudonneModule p k where
   F := (WittVector.frobenius : WittVector p k →+* WittVector p k).toAddMonoidHom
   V := (p : WittVector p k) • ((WittVector.frobeniusEquiv p k).symm.toRingHom.toAddMonoidHom)
   F_smul a x := by simp [smul_eq_mul]
-  V_smul a x := sorry
-  F_V x := sorry
-  V_F x := sorry
+  V_smul a x := by
+    have h : (WittVector.frobeniusEquiv p k).symm (WittVector.frobenius a) = a :=
+      (WittVector.frobeniusEquiv p k).symm_apply_apply a
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      RingEquiv.toRingHom_eq_coe, RingEquiv.coe_toRingHom, smul_eq_mul, map_mul, h]
+    ring
+  F_V x := by
+    have h : WittVector.frobenius ((WittVector.frobeniusEquiv p k).symm x) = x :=
+      (WittVector.frobeniusEquiv p k).apply_symm_apply x
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      RingEquiv.toRingHom_eq_coe, RingEquiv.coe_toRingHom, smul_eq_mul, map_mul, map_natCast, h]
+  V_F x := by
+    have h : (WittVector.frobeniusEquiv p k).symm (WittVector.frobenius x) = x :=
+      (WittVector.frobeniusEquiv p k).symm_apply_apply x
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      RingEquiv.toRingHom_eq_coe, RingEquiv.coe_toRingHom, smul_eq_mul, h]
 
 /-- `M(μ_{p^∞}) = W(k)` with `F = p σ` and `V = σ⁻¹`. -/
 def muPInfty : DieudonneModule p k where
@@ -263,10 +284,25 @@ def muPInfty : DieudonneModule p k where
   F := (p : WittVector p k) •
     (WittVector.frobenius : WittVector p k →+* WittVector p k).toAddMonoidHom
   V := (WittVector.frobeniusEquiv p k).symm.toRingHom.toAddMonoidHom
-  F_smul a x := sorry
-  V_smul a x := sorry
-  F_V x := sorry
-  V_F x := sorry
+  F_smul a x := by
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      smul_eq_mul, map_mul]
+    ring
+  V_smul a x := by
+    have h : (WittVector.frobeniusEquiv p k).symm (WittVector.frobenius a) = a :=
+      (WittVector.frobeniusEquiv p k).symm_apply_apply a
+    simp only [RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe, RingEquiv.toRingHom_eq_coe,
+      RingEquiv.coe_toRingHom, smul_eq_mul, map_mul, h]
+  F_V x := by
+    have h : WittVector.frobenius ((WittVector.frobeniusEquiv p k).symm x) = x :=
+      (WittVector.frobeniusEquiv p k).apply_symm_apply x
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      RingEquiv.toRingHom_eq_coe, RingEquiv.coe_toRingHom, smul_eq_mul, h]
+  V_F x := by
+    have h : (WittVector.frobeniusEquiv p k).symm (WittVector.frobenius x) = x :=
+      (WittVector.frobeniusEquiv p k).symm_apply_apply x
+    simp only [AddMonoidHom.smul_apply, RingHom.toAddMonoidHom_eq_coe, AddMonoidHom.coe_coe,
+      RingEquiv.toRingHom_eq_coe, RingEquiv.coe_toRingHom, smul_eq_mul, map_mul, map_natCast, h]
 
 /-- The image of `F`, a `W(k)`-submodule because `σ` is surjective on `W(k)` for perfect `k`. -/
 def imageF (M : DieudonneModule p k) : Submodule (WittVector p k) M.M :=
@@ -486,17 +522,20 @@ theorem frob_X : frob p k PowerSeries.X = PowerSeries.X ^ p := sorry
 theorem frob_C (a : WittVector p k) :
     frob p k (PowerSeries.C a) = PowerSeries.C (WittVector.frobenius a) := sorry
 
-/-- An Eisenstein polynomial `E(u) ∈ W(k)[u]` (of a uniformiser of a totally ramified `K/K₀`). -/
+/-- An Eisenstein polynomial `E(u) ∈ W(k)[u]` (of a uniformiser of a totally ramified `K/K₀`). The
+degree condition is not part of Mathlib's `IsEisensteinAt`, which the constant `1` satisfies. -/
 structure Eisenstein where
   /-- The polynomial. -/
   E : Polynomial (WittVector p k)
   monic : E.Monic
+  natDegree_pos : 0 < E.natDegree
   isEisensteinAt : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)})
 
 /-- For `e = 1` and `π = p`, `E(u) = u − p`. -/
 def eisensteinUnramified : Eisenstein p k where
   E := Polynomial.X - Polynomial.C (p : WittVector p k)
   monic := Polynomial.monic_X_sub_C _
+  natDegree_pos := by rw [Polynomial.natDegree_X_sub_C]; exact Nat.one_pos
   isEisensteinAt := sorry
 
 /-- A Kisin module of finite `E`-height: a finite free `𝔖`-module with a `φ`-semilinear

@@ -215,26 +215,29 @@ the Colmez–Fontaine theorem from here.
   G[1/p]` as sheaves.
 - **Carriers at the pins.** `Suggested.lean` states the targets whose carriers exist at the pinned
   Mathlib and Tau Ceti. Layer R07.1 works over an affine base with `FLF R` (Tau Ceti's finite
-  locally free commutative group schemes over `Spec R`), its order `rank`, the predicates `IsEtale`,
-  `IsMultiplicative` (étale Cartier dual) and `IsConnectedLocal`, the generic fibre `genericFibre`,
-  finite flat models `Prolongation` with `Prolongation.Dominates`, and the ramification index
-  `absRamificationIndex`; the statements there are `rank_cartierDual` and
-  `isMultiplicative_cartierDual_iff` (§R07.1.7 at finite level), `isEtale_of_isUnit_rank`
-  (§R07.1.2), `rank_eq_one_of_isEtale_of_isConnectedLocal` (§R07.1.9 at finite level),
-  `rank_genericFibre`, `schematicClosure_flat` (§R07.1.20), `Prolongation.self` and
-  `Prolongation.dominates_unique` (§R07.1.24), `prolongation_unique_of_lt` and
-  `genericFibre_map_bijective` (§R07.1.30) and `isEtale_or_isMultiplicative_of_rank_eq` (§R07.1.34
-  over `ℤ_p`). Layer R07.2 has `DieudonneModule` with its category structure, the standard modules
-  `DieudonneModule.qpZp` and `DieudonneModule.muPInfty`, `DieudonneModule.imageF`, `frobeniusTwist`,
-  the category `PGroup` of finite commutative `p`-group schemes, `dieudonneEquivalenceFinite`
-  (§R07.2.8, stated as the existence of a fully faithful functor with the length, étaleness and
-  essential-image properties) and `padicConstants` with `frobenius_eq_self_iff` and
-  `exists_padic_charpoly`. Layer R07.3 has `FilteredPhiNModule` with
-  `FilteredPhiNModule.IsEffective` and `FilteredPhiNModule.tH`, and `FLModule` with
-  `FLModule.IsTorsion` and `FLModule.IsTorsionIn`. Layer R07.4 has `Sfrak`, `frob`, `Eisenstein`,
-  `KisinModule` with `KisinModule.HeightLE`, `KisinModule.rankOne` and `KisinModule.unit`, and
-  `SemilinearDescentData`. Layer R07.5 has `IsPeuRamifieeClass` (the case `L = ℚ_p`, `χ̄ = 1` of
-  §R07.5.13) and the labels `SerreWeights.Label` of the Serre weights of `GL₂(F_p)`.
+  locally free commutative group schemes over `Spec R`), its order `rank` (the order over a local
+  base), the predicates `IsEtale`, `IsMultiplicative` (étale Cartier dual) and `IsConnectedLocal`
+  (local coordinate algebra, which is connectedness over a henselian local base), the generic fibre
+  `genericFibre`, finite flat models `Prolongation` with `Prolongation.Dominates`, and the
+  ramification index `absRamificationIndex`; the statements there are
+  `isMultiplicative_cartierDual_iff` (§R07.1.7 at finite level; that duality preserves the order is
+  Tau Ceti's `FiniteLocallyFreeCommAffineGroupSchemeCat.finrank_cartierDual`),
+  `isEtale_of_isUnit_rank` (§R07.1.2, over a local base),
+  `rank_eq_one_of_isEtale_of_isConnectedLocal` (§R07.1.9 at finite level), `rank_genericFibre`,
+  `schematicClosure_flat` (§R07.1.20), `Prolongation.self` and `Prolongation.dominates_unique`
+  (§R07.1.24), `prolongation_unique_of_lt` and `genericFibre_map_bijective` (§R07.1.30) and
+  `isEtale_or_isMultiplicative_of_rank_eq` (§R07.1.34 over `ℤ_p`). Layer R07.2 has `DieudonneModule`
+  with its category structure, the standard modules `DieudonneModule.qpZp` and
+  `DieudonneModule.muPInfty`, `DieudonneModule.imageF`, `frobeniusTwist`, the category `PGroup` of
+  finite commutative `p`-group schemes, `dieudonneEquivalenceFinite` (§R07.2.8, stated as the
+  existence of a fully faithful functor with the length, étaleness and essential-image properties)
+  and `padicConstants` with `frobenius_eq_self_iff` and `exists_padic_charpoly`. Layer R07.3 has
+  `FilteredPhiNModule` with `FilteredPhiNModule.IsEffective` and `FilteredPhiNModule.tH`, and
+  `FLModule` with `FLModule.IsTorsion` and `FLModule.IsTorsionIn`. Layer R07.4 has `Sfrak`, `frob`,
+  `Eisenstein`, `KisinModule` with `KisinModule.HeightLE`, `KisinModule.rankOne` and
+  `KisinModule.unit`, and `SemilinearDescentData`. Layer R07.5 has `IsPeuRamifieeClass` (the case `L
+  = ℚ_p`, `χ̄ = 1` of §R07.5.13) and the labels `SerreWeights.Label` of the Serre weights of
+  `GL₂(F_p)`.
 - **Lean names.** Names are relative to the topic namespaces `FiniteFlat` (Layers R07.1, R07.5,
   R07.6), `Dieudonne` (R07.2), `FontaineLaffaille` (R07.3, with the filtered modules of
   §R07.3.1–§R07.3.3), `BreuilKisin` (R07.4) and `SerreWeights` (§R07.5.15), all inside
@@ -258,7 +261,8 @@ the group scheme), `WittVector.frobenius`, `WittVector.verschiebung`, `WittVecto
 `WittVector.map`, `WittVector.isDiscreteValuationRing`, and the isocrystals `WittVector.Isocrystal`,
 `WittVector.StandardOneDimIsocrystal` with `WittVector.isocrystal_classification` (rank one over an
 algebraically closed field). Perfectoid inputs: `PreTilt`, `WittVector.fontaineTheta`,
-`BDeRhamPlus`, `BDeRham`. Elliptic curves: `WeierstrassCurve.HasGoodReduction`.
+`BDeRhamPlus`, `BDeRham`. Elliptic curves: `WeierstrassCurve.HasGoodReduction`. Formal groups:
+`FormalGroup` (one-dimensional formal group laws) with `FormalGroup.IsComm`.
 
 ### From Tau Ceti (pinned, and current where stated)
 
@@ -267,9 +271,17 @@ algebraically closed field). Perfectoid inputs: `PreTilt`, `WittVector.fontaineT
 (`TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean`), and
 `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualBaseChangeIso`
 (`…/CartierDuality/BaseChange.lean`). `TauCeti.multiplicativeTypeCommHopfAlgProperty` (groups of
-multiplicative type over a field). In the current library: `TauCeti.inertiaTameCharacter`,
-`TauCeti.quotientWildInertiaSubgroupEquiv` (`NumberTheory/LocalField/Tame/Character.lean`), and the
-Cartier duals of constant and diagonalizable groups with rank preservation.
+multiplicative type over a field). `TauCeti.AlphaP.CoordinateRing` (the Hopf algebra `R[x]/(x^p)` of
+`α_p` in characteristic `p`) and `TauCeti.RootsOfUnityGroup.groupScheme` (`μ_n`). In the current
+library: `TauCeti.inertiaTameCharacter`, `TauCeti.quotientWildInertiaSubgroupEquiv`
+(`NumberTheory/LocalField/Tame/Character.lean`); the Cartier duals of constant and diagonalizable
+groups and rank preservation under duality
+(`TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.finrank_cartierDual`); the lower and upper
+ramification groups, Herbrand functions and different exponents of LocalFieldsRamification Layer 3
+(`LocalFieldsRamification.lowerRamificationGroup`, `LocalFieldsRamification.upperRamificationGroup`,
+`LocalFieldsRamification.herbrand`, `differentExponent`); and the Tate module `TauCeti.TateModule p
+A` of an abelian group `A` (`Algebra/Module/Torsion/TateModule.lean`), with `TauCeti.PadicTateTwist
+p K` for `ℤ_p(1)` (`RingTheory/RootsOfUnity/PadicTateTwist.lean`).
 
 ### From TauCetiRoadmap roadmaps
 
@@ -497,8 +509,8 @@ over the completed local ring by (ii) (Pilloni, Lemma 10.2.1, proof; BCGP 2021, 
 (Pilloni 2020, §9.1.1, proof of Lemma 9.1.1.1, pp. 54–55: unique extension of a homomorphism from a
 finite flat group into an étale group along a nilpotent thickening (citing Illusie, *Complexe
 cotangent et déformations II*, LNM 283, VII.4.2.5); Pilloni 2020, §10.2, proof of Lemma 10.2.1, p.
-58: openness by a support argument and closedness 'by the rigidity property of multiplicative
-groups'; BCGP 2021, §4.5.1 (pp. 99–100), §4.5.6 (p. 101) and the proof of Lemma 4.5.9 (p. 102),
+58: openness by a support argument, and closedness deduced from the rigidity of multiplicative
+groups; BCGP 2021, §4.5.1 (pp. 99–100), §4.5.6 (p. 101) and the proof of Lemma 4.5.9 (p. 102),
 arXiv:1812.09269v3: the same rigidity used without reference for the Hecke correspondences at p.)
 
 *Needs:* TauCetiRoadmap.ModularCurves Layer 0B; SchemeAndStackFoundations SF.0 §7 (topological
@@ -642,8 +654,12 @@ discrete system satisfies the axioms, hence is free of rank h over ℤ/p^v at le
 T_p(G) = lim G_v(K̄) is free of rank h over ℤ_p; Gal(K̄/K) acts through the finite quotients
 Gal(K(G_v(K̄))/K), so the action is continuous for the p-adic topology. Cartier duality G_v × G_v^D
 → μ_{p^v} gives compatible perfect pairings of the points and, in the limit, T_p(G) × T_p(G^D) →
-ℤ_p(1). (Stix 2012, §9.2(2)–(4) and (6), pp. 55–56: freeness of the levels of points; Stix 2012,
-§11.2.2 and Corollary 85, p. 70: the duality pairing, T_p(G^D) = Hom(T_p G, ℤ_p(1)).)
+ℤ_p(1). In the current Tau Ceti library T_p(G) is `TauCeti.TateModule p` of the torsion group
+colim_v G_v(K̄), whose p^v-torsion is G_v(K̄) by §R07.1.5, with the Galois action by functoriality
+(`TateModule.mapLinearMap`), and ℤ_p(1) is `TauCeti.PadicTateTwist p K̄`; this target adds the
+freeness of rank h and the duality pairing. (Stix 2012, §9.2(2)–(4) and (6), pp. 55–56: freeness of
+the levels of points; Stix 2012, §11.2.2 and Corollary 85, p. 70: the duality pairing, T_p(G^D) =
+Hom(T_p G, ℤ_p(1)).)
 
 The API:
 
@@ -814,12 +830,14 @@ TauCetiRoadmap.ModularCurves Layer 0B.
 
 ### R07.1.12 Commutative formal Lie groups, their dimension and p-divisibility
 
-Define `FormalLieGroup`. Let Λ be a complete noetherian local ring. A commutative formal Lie group
-of dimension n over Λ is Spf Λ⟦X_1, …, X_n⟧ with a group law given by an n-tuple of power series
-Φ(X, Y) ∈ Λ⟦X, Y⟧^n satisfying Φ(X, Φ(Y, Z)) = Φ(Φ(X, Y), Z), Φ(X, 0) = X = Φ(0, X) and Φ(X, Y) =
-Φ(Y, X); homomorphisms are n′-tuples of power series without constant term compatible with the laws.
-It is p-divisible if [p]^\* : Λ⟦X⟧ → Λ⟦X⟧ makes Λ⟦X⟧ a free module of finite rank over itself; the
-rank is then p^h, h the height.
+Define `FormalLieGroup`. Let Λ be a complete noetherian local ring and p a prime (p-divisibility is
+a nontrivial condition only when the residue characteristic of Λ is p). A commutative formal Lie
+group of dimension n over Λ is Spf Λ⟦X_1, …, X_n⟧ with a group law given by an n-tuple of power
+series Φ(X, Y) ∈ Λ⟦X, Y⟧^n satisfying Φ(X, Φ(Y, Z)) = Φ(Φ(X, Y), Z), Φ(X, 0) = X = Φ(0, X) and Φ(X,
+Y) = Φ(Y, X); homomorphisms are n′-tuples of power series without constant term compatible with the
+laws. It is p-divisible if [p]^\* : Λ⟦X⟧ → Λ⟦X⟧ makes Λ⟦X⟧ a free module of finite rank over itself;
+the rank is then p^h, h the height. For n = 1 the law is Mathlib's one-dimensional `FormalGroup Λ`
+with `FormalGroup.IsComm`, and the n-dimensional structure follows its conventions.
 
 *Construction.* Definition as displayed (Stix §10.2.2): connected and formally smooth with a unit
 section is equivalent to the coordinate ring being Λ⟦X_1, …, X_n⟧, and n is the rank of I/I² for the
@@ -1409,7 +1427,8 @@ Layer 0B.
 - `FVectorScheme.supersingular_E_p`: E[p] of a supersingular elliptic curve over W(𝔽̄_p) is an
   𝔽_{p²}-vector scheme (rank p²).
 - `FVectorScheme.not_of_rank`: ℤ/pℤ × ℤ/pℤ with the diagonal 𝔽_p-action is not an 𝔽_p-vector scheme
-  in Raynaud's sense (rank p² ≠ p; its eigen-sheaves have rank 2).
+  in Raynaud's sense (rank p² ≠ p): 𝔽_p^× acts freely on the p² − 1 nonzero points with p + 1
+  orbits, so each eigen-sheaf of the augmentation ideal has rank p + 1, not 1.
 - `FVectorScheme.cartierDual_zModP`: The Cartier dual of the 𝔽_p-vector scheme ℤ/pℤ is μ_p.
 - `FVectorScheme.fp_eq_order_p`: for F = 𝔽_p the F-vector schemes are exactly the group schemes of
   order p of Oort–Tate (§R07.1.34).
@@ -1510,16 +1529,17 @@ its generic splitting extend. (Raynaud 1974, §3.3, Théorème 3.3.3, p. 268: pa
 - `prolongation_unique_boundary`: the strict inequality is essential: at e = p − 1 (for instance
   ℤ_2, or ℤ_p[ζ_p]) μ_p and ℤ/pℤ are two models of one generic group (§R07.1.31).
 - `prolongation_unique_ext`: over `ℤ_p`, `p` odd, the extension classes of `ℤ/p` by `μ_p` inject
-  into those of the generic fibres; a nonsplit generic extension that is split integrally cannot
-  occur.
+  into those of the generic fibres: an extension of finite flat groups over `ℤ_p` that splits over
+  `ℚ_p` already splits over `ℤ_p`.
 
 ### R07.1.31 The boundary case e = p − 1: at most two models, étale and multiplicative
 
-Prove `prolongation_boundary`. Let R be a henselian DVR of mixed characteristic with e = p − 1, and
-G a simple finite commutative K-group scheme killed by p with a finite flat prolongation. Then
-either G has a unique prolongation, or it has exactly two, one étale and one multiplicative. More
-generally, for G killed by a power of p the biconnected part of a prolongation does not depend on
-the prolongation.
+Prove `prolongation_boundary`. Let R be a henselian DVR of mixed characteristic with e = p − 1, F a
+finite field with q elements, and G a simple K-scheme in F-vector spaces of rank q (§R07.1.27) with
+a finite flat prolongation. Then either G has a unique prolongation, or it has exactly two, one
+étale and one multiplicative; in both cases the prolongations are F-vector schemes. More generally,
+for G killed by a power of p the biconnected part of a prolongation does not depend on the
+prolongation.
 
 *Proof sketch.* In the analysis of Proposition 3.3.2: if the maximal and minimal prolongations
 differ, the case analysis with v(δ_i′) ≥ p − 1 = e forces v(α_i) = 1, v(δ_j) = 0 and v(δ_j′) = p − 1
@@ -1529,7 +1549,7 @@ on the special fibre, and in the latter case 𝒢 is multiplicative. Remark 3.3.
 → 𝒢⁻ induces an isomorphism on biconnected components. (Raynaud 1974, §3.3, Proposition 3.3.2 3°, p.
 267: the statement; Raynaud 1974, §3.3, Remarque 3.3.5, p. 268: the biconnected part.)
 
-*Needs:* §R07.1.24; §R07.1.28; Mathlib `HenselianLocalRing`.
+*Needs:* §R07.1.24; §R07.1.27; §R07.1.28; Mathlib `HenselianLocalRing`.
 
 **Checks.**
 
@@ -1913,7 +1933,8 @@ polynomials) make Dieudonné modules over finite fields usable for point counts.
 
 ### R07.2.1 The canonical decomposition of finite commutative group schemes over a perfect field
 
-Prove `canonicalDecomposition`. Let k be perfect and G a finite commutative group scheme over k.
+Prove `canonicalDecomposition`. Let k be a perfect field of characteristic p and G a finite
+commutative group scheme over k.
 Call G reduced (= étale) or local (= connected), and say G is of x–y type if G is x and its Cartier
 dual G\* is y. Then there is a unique and functorial decomposition G = G_rr ⊕ G_rl ⊕ G_lr ⊕ G_ll
 into summands of reduced–reduced, reduced–local, local–reduced and local–local type. If G has
@@ -2006,13 +2027,13 @@ subgroup.)
 
 ### R07.2.4 Finite Witt group schemes W_n^m
 
-Construct `wittGroup`. Let k be perfect. W_n is the additive group scheme of Witt vectors of length
-n over k (its R-points are the truncated Witt vectors W_n(R)), and W_n^m = ker(F^m : W_n → W_n).
-Truncation r : W_{n+1} ↠ W_n, Verschiebung v : W_n ↪ W_{n+1}, inclusion i : W_n^m ↪ W_n^{m+1} and
-Frobenius f : W_n^{m+1} ↠ W_n^m satisfy rv = vr = V and if = fi = F, with short exact sequences 0 →
-W_{n′}^m → W_{n+n′}^m → W_n^m → 0 and 0 → W_n^m → W_n^{m+m′} → W_n^{m′} → 0. The W_n^m form a direct
-system under v and i, and the Dieudonné ring acts on each W_n^m, ξ ∈ W(k) acting by σ^{−n}(ξ),
-compatibly with the system.
+Construct `wittGroup`. Let k be a perfect field of characteristic p and n, m ≥ 1. W_n is the
+additive group scheme of Witt vectors of length n over k (its R-points are the truncated Witt
+vectors W_n(R)), and W_n^m = ker(F^m : W_n → W_n). Truncation r : W_{n+1} ↠ W_n, Verschiebung v :
+W_n ↪ W_{n+1}, inclusion i : W_n^m ↪ W_n^{m+1} and Frobenius f : W_n^{m+1} ↠ W_n^m satisfy rv = vr =
+V and if = fi = F, with short exact sequences 0 → W_{n′}^m → W_{n+n′}^m → W_n^m → 0 and 0 → W_n^m →
+W_n^{m+m′} → W_n^{m′} → 0. The W_n^m form a direct system under v and i, and the Dieudonné ring acts
+on each W_n^m, ξ ∈ W(k) acting by σ^{−n}(ξ), compatibly with the system.
 
 *Construction.* W_n(R) = TruncatedWittVector p n R is functorial in k-algebras R and represented by
 an affine space; the group law is the Witt addition (Mathlib). The exact sequences: r^{n′} has the
@@ -2044,10 +2065,10 @@ Mathlib `WittVector.verschiebung`; §R07.1.1.
 ### R07.2.5 The Dieudonné ring
 
 Define `DieudonneRing`. Let k be perfect of characteristic p, W(k) its Witt vectors and σ the
-Frobenius of W(k). The Dieudonné ring E = D_k is the ring of noncommutative polynomials over W(k) in
-F and V with Fξ = σ(ξ)F, Vσ(ξ) = ξV (ξ ∈ W(k)) and FV = VF = p. A Dieudonné module is a left
-E-module; equivalently a W(k)-module M with a σ-linear F and a σ^{−1}-linear V such that FV = VF =
-p.
+Frobenius of W(k), an automorphism because k is perfect (Mathlib `WittVector.frobeniusEquiv`). The
+Dieudonné ring E = D_k is the ring of noncommutative polynomials over W(k) in F and V with Fξ =
+σ(ξ)F, Vσ(ξ) = ξV (ξ ∈ W(k)) and FV = VF = p. A Dieudonné module is a left E-module; equivalently a
+W(k)-module M with a σ-linear F and a σ^{−1}-linear V such that FV = VF = p.
 
 *Construction.* Definition as displayed (Pink §23; Yu Definition 1, where it is written A_k). E is a
 free left, and a free right, W(k)-module with basis {…, V², V, 1, F, F², …}, from the relations and
@@ -2116,11 +2137,11 @@ The API:
 
 Prove `dieudonneGaloisDescent`. Let k be perfect with algebraic closure k̄. (i) For a perfect
 extension K/k, M(G_K) ≅ W(K) ⊗_{W(k)} M(G) functorially, for finite commutative p-group schemes and
-for p-divisible groups. (ii) M(G) = M(G_{k̄})^{Gal(k̄/k)}, and G ↦ (M(G_{k̄}), its continuous
-σ-semilinear Gal(k̄/k)-action commuting with F and V) is an anti-equivalence onto finite-length
-W(k̄)-modules with such an action; so the forms over k of a group G₀ over k̄ correspond to the
-Galois-semilinear structures on M(G₀). (iii) Over k̄, a finite-length W(k̄)-module N with a
-bijective σ-linear F satisfies N ≅ W(k̄) ⊗_{ℤ_p} N^{F=1} (Lang).
+for p-divisible groups. (ii) M(G) = M(G_{k̄})^{Gal(k̄/k)}, and G ↦ (M(G_{k̄}), its σ-semilinear
+Gal(k̄/k)-action, continuous for the Krull topology and commuting with F and V) is an
+anti-equivalence onto finite-length W(k̄)-modules with such an action; so the forms over k of a
+group G₀ over k̄ correspond to the Galois-semilinear structures on M(G₀). (iii) Over k̄, a
+finite-length W(k̄)-module N with a bijective σ-linear F satisfies N ≅ W(k̄) ⊗_{ℤ_p} N^{F=1} (Lang).
 
 *Proof sketch.* (i) The functors lim Hom(−, W_n) and lim Hom(−, W_n^m) commute with perfect base
 change because W_n(K) = W(K) ⊗_{W(k)} W_n(k) for perfect K/k (Demazure via nLab; Yu Theorem 3 and
@@ -2145,12 +2166,12 @@ in the connected group Aut_{W(k̄)}(N) and apply Lang's theorem to write g = h^{
 
 ### R07.2.8 Dieudonné classification of finite commutative p-group schemes
 
-Prove `dieudonneEquivalenceFinite`. Let k be perfect. The functor M of §R07.2.6 is an
-anti-equivalence from finite commutative group schemes of p-power order over k to left E-modules of
-finite length over W(k); length_{W(k)} M(G) = log_p |G|, and M(G\*) ≅ M(G)\* functorially. Under it,
-G is étale iff F is bijective on M(G), of multiplicative type iff V is bijective, and local–local
-iff F and V are nilpotent; these match the unique decomposition M = M_rl ⊕ M_lr ⊕ M_ll of
-finite-length E-modules.
+Prove `dieudonneEquivalenceFinite`. Let k be a perfect field of characteristic p. The functor M of
+§R07.2.6 is an anti-equivalence from finite commutative group schemes of p-power order over k to
+left E-modules of finite length over W(k); length_{W(k)} M(G) = log_p |G|, and M(G\*) ≅ M(G)\*
+functorially. Under it, G is étale iff F is bijective on M(G), of multiplicative type iff V is
+bijective, and local–local iff F and V are nilpotent; these match the unique decomposition M = M_rl
+⊕ M_lr ⊕ M_ll of finite-length E-modules.
 
 *Proof sketch.* Local–local case (Pink Theorem 23.2): E_n^m := E/(EF^m + EV^n) ≅ End(W_n^m) ≅
 M(W_n^m) and length M(G) = log_p |G| (Proposition 23.3); every local–local G embeds in a sum of
@@ -2222,9 +2243,11 @@ p. 2: the theorem, with exactness, base change and the dual M^t.)
 - `dieudonnePDivisible_standard`: M(ℚ_p/ℤ_p) = W(k) with F = σ and V = pσ^{−1}; M(μ_{p^∞}) = W(k)
   with F = pσ and V = σ^{−1} (§R07.2.12).
 - `dieudonnePDivisible_rank`: the height is the rank: E[p^∞] has a rank-two module (§R07.2.14).
-- `dieudonnePDivisible_torsion_free`: `M(G)` is `W(k)`-free; the limit of the finite-length modules
-  `M(G_n)` taken along the wrong maps (the inclusions `G_n → G_{n+1}` give surjections `M(G_{n+1}) →
-  M(G_n)`, and the limit is along these) would not be finitely generated.
+- `dieudonnePDivisible_torsion_free`: `M(G)` is `W(k)`-free. The inverse limit is taken along the
+  surjections `M(G_{n+1}) ↠ M(G_n)` induced by the inclusions `G_n ↪ G_{n+1}`; for `G = ℚ_p/ℤ_p` it
+  is `W(k)`. The direct limit along the injections `M(G_n) ↪ M(G_{n+1})` induced by `p : G_{n+1} ↠
+  G_n` is `W(k)[1/p]/W(k)` instead, a torsion module that is not finitely generated, so a definition
+  using it fails the freeness test.
 
 ### R07.2.11 Lie algebra, dimension and height from the Dieudonné module
 
@@ -2499,16 +2522,16 @@ Dieudonné module; the ℤ_p-integrality of the characteristic polynomial is der
 
 ### R07.2.20 The covariant Dieudonné module and the comparison of conventions
 
-Construct `covariantModule`. Let k be perfect and G a p-divisible group over k with contravariant
-Dieudonné module M(G) (§R07.2.10). The covariant Dieudonné module is M_cov(G) := M(G^D), covariant
-in G. It is identified with the W-dual M(G)^t = Hom_W(M(G), W) with F(f) = σ∘f∘V and V(f) =
-σ^{−1}∘f∘F, has rank the height of G, and satisfies Lie(G) ≅ M_cov(G)/V M_cov(G) (while Lie(G) ≅
-Hom_k(M(G)/F M(G), k)). Normalisations: M_cov(μ_{p^∞}) = (W, F = σ) and M_cov(ℚ_p/ℤ_p) = (W, F =
-pσ); the covariant slopes are 1 minus the contravariant ones; the rational covariant module with φ =
-p^{−1}F (Caraiani–Scholze) has slopes in [−1, 0], with ℚ_p/ℤ_p of slope 0 and μ_{p^∞} of slope −1.
-Over the prime field k = F_p a different, linear-dual realization D^lin(G) = Hom_{ℤ_p}(M(G), ℤ_p)
-with F_D(φ) = φ∘F and V_D(φ) = φ∘V (transpose of F, not of V) is also used; it agrees with M_cov(G)
-only after exchanging F and V.
+Construct `covariantModule`. Let k be a perfect field of characteristic p and G a p-divisible group
+over k with contravariant Dieudonné module M(G) (§R07.2.10). The covariant Dieudonné module is
+M_cov(G) := M(G^D), covariant in G. It is identified with the W-dual M(G)^t = Hom_W(M(G), W) with
+F(f) = σ∘f∘V and V(f) = σ^{−1}∘f∘F, has rank the height of G, and satisfies Lie(G) ≅ M_cov(G)/V
+M_cov(G) (while Lie(G) ≅ Hom_k(M(G)/F M(G), k)). Normalisations: M_cov(μ_{p^∞}) = (W, F = σ) and
+M_cov(ℚ_p/ℤ_p) = (W, F = pσ); the covariant slopes are 1 minus the contravariant ones; the rational
+covariant module with φ = p^{−1}F (Caraiani–Scholze) has slopes in [−1, 0], with ℚ_p/ℤ_p of slope 0
+and μ_{p^∞} of slope −1. Over the prime field k = F_p a different, linear-dual realization D^lin(G)
+= Hom_{ℤ_p}(M(G), ℤ_p) with F_D(φ) = φ∘F and V_D(φ) = φ∘V (transpose of F, not of V) is also used;
+it agrees with M_cov(G) only after exchanging F and V.
 
 *Construction.* Define M_cov(G) = M(G^D); covariance follows from contravariance of M and of Cartier
 duality. M(G^D) ≅ M(G)^t with F(f) = σ f V and V(f) = σ^{−1} f F (Yu, §2.1, after Theorem 3); this
@@ -3191,7 +3214,8 @@ M^i, α^i, β^i, φ^i) with the displayed compatibilities (FL 1.11); MF is the f
 Construct `ringS`. Let C be the completion of K̄, R = lim_{x↦x^p} 𝒪_{K̄}/p, W(R) its Witt vectors
 with θ : W(R)[1/p] → C, and ξ a generator of ker θ. The ring S is W(R)[[x]/p] ⊆ W(R)[1/p] for any x
 ∈ R with v_R(x) = p (FL 2.7; equivalently the elements Σ p^n[u_n] with v_R(u_{−m}) ≥ mp for m > 0),
-filtered by Fil^i S = {x ∈ S : Φx ∈ p^i S} and with φ^i = p^{−i}Φ on Fil^i S. It is a filtered
+filtered by Fil^i S = (ker θ)^i ∩ {x ∈ S : Φx ∈ p^i S} for i ≥ 0 (the i-th power of the kernel of θ
+on W(R)[1/p]) and Fil^i S = S for i ≤ 0, with φ^i = p^{−i}Φ on Fil^i S. It is a filtered
 module over W(k), stable under Gal(K̄/K), whose Galois action commutes with Φ and preserves the
 filtration; its p-adic completion Ŝ = lim S/p^n S and S_K = K ⊗ S are the rings used for lattices
 and for rational representations.
@@ -3205,7 +3229,8 @@ Proposition 2.4). W_K(R) as a filtered module (FL 2.6) and the subring S with it
 (FL 2.7). The Galois group acts continuously on R, hence on W(R) and S, commuting with Φ and
 preserving Fil^i S (FL 3.1). S̄ := coker(p on S) in \widetilde{MF} and Ŝ = lim S/p^n S.
 (Fontaine–Laffaille 1982, §2.1, p. 559: the ring R; Fontaine–Laffaille 1982, §0.5, p. 550: the role
-of S; the construction is 2.7.)
+of S; Fontaine–Laffaille 1982, §§2.6–2.7, p. 561: the filtration of W_K(R) by the powers of ker θ,
+the ring S and its filtration.)
 
 The API:
 
@@ -3486,8 +3511,9 @@ Theorem 8.4, pp. 595–596: the identification.)
 
 **Checks.**
 
-- `flPeriodComparison_xi`: ξ = [p̃] − p (p̃ ∈ R with p̃^{(0)} = p) lies in Fil^1 S, since Φ(ξ) =
-  [p̃]^p − p ∈ pS, matching ξ ∈ Fil^1 B_dR.
+- `flPeriodComparison_xi`: ξ = [p̃] − p (p̃ ∈ R with p̃^{(0)} = p) lies in Fil^1 S, since θ(ξ) = 0
+  and Φ(ξ) = [p̃]^p − p ∈ pS, matching ξ ∈ Fil^1 B_dR; the element p lies in neither, although
+  Φ(p) = p ∈ pS, so the condition on Φ alone does not define the filtration.
 - `flPeriodComparison_frobenius`: the comparison respects Φ: Φ[x] = [x^p] on both sides, and
   [p̃]^p/p ∈ S lies in A_cris.
 
@@ -4570,8 +4596,11 @@ attributes the deduction to Breuil [Bre02, Theorem 3.4.3].)
 - `finiteFlatRestriction_muP`: H = H′ = μ_p: Hom_{G_{K∞}}(μ_p, μ_p) = Hom_{G_K}(μ_p, μ_p) = 𝔽_p.
 - `finiteFlatRestriction_needs_flat`: the finite flat hypothesis is needed: let μ_p ⊂ K and V the
   extension 0 → μ_p → V → ℤ/p → 0 given by the Kummer class of π. On G_{K∞} the class dies (π₁ ∈
-  K_∞), so V ≅ μ_p ⊕ ℤ/p there but not over G_K; consistently V is not finite flat, since the fppf
-  classes H¹(𝒪_K, μ_p) = 𝒪_K^×/(𝒪_K^×)^p do not contain the class of π.
+  K_∞), so V ≅ μ_p ⊕ ℤ/p there but not over G_K; consistently V is not finite flat: its splitting
+  field K(π^{1/p}) has its ramification break at u = pe/(p − 1) in Fontaine's numbering, which
+  Fontaine's bound excludes (§R07.6.5; the model with sub `μ_p` and quotient `ℤ/p` is excluded more
+  simply, since H¹_fppf(𝒪_K, μ_p) = 𝒪_K^×/(𝒪_K^×)^p does not contain the class of π, but for e ≥ p −
+  1 other models of the two factors exist).
 
 ### R07.4.25 Integral comparisons of the Breuil–Kisin module of a p-divisible group with its Dieudonné crystal
 
@@ -5459,7 +5488,7 @@ Equivalently, by Serre's Proposition 3, finite with det|_I = χ̄ is Serre's wei
 R15.4.
 
 p odd; ℚ_p has e = 1 < p − 1, so Raynaud's results apply. The p = 2 analogue in the reducible case
-is §R07.5.8; Serre treats p = 2 as 'analogous' without details.
+is §R07.5.8; Serre says the case p = 2 is similar and gives no details.
 
 *Proof sketch.* Only if: by Raynaud (§R07.1.32 (iii), Raynaud Corollary 3.4.4) the tame characters
 are ψ^{a+pb} with a, b ∈ {0, 1}; with ψψ′ = χ̄ this leaves (i) or {1, χ̄} (Serre 1987, §2.8). In the
@@ -5787,11 +5816,11 @@ c-Ind_{KZ}^G σ is the space of functions f : G → V_σ, compactly supported mo
 σ(k)f(g), with G acting by right translation. Its Hecke algebra End_G(I(σ)) is identified, by
 Frobenius reciprocity, with the convolution algebra of compactly supported (mod Z) functions φ : G →
 End(V_σ) with φ(k₁gk₂) = σ(k₁)φ(g)σ(k₂). Barthel–Livné: End_G(I(σ)) ≅ F̄_p[T] for the Hecke operator
-T supported on KZ diag(1, ϖ)^{±1} KZ, and I(σ) is a free F̄_p[T]-module (of infinite rank). For λ ∈
-F̄_p^× the quotient I(σ)/(T − λ) ⊗ (χ∘det) is irreducible unless (r, λ) ∈ {(0, ±1), (p − 1, ±1)},
-where it has length 2 with constituents a character and a twist of the Steinberg (special)
-representation; for F = ℚ_p and λ = 0, I(σ)/(T) is irreducible (Breuil), and these are the
-supersingular representations.
+T supported on KZ diag(1, ϖ)^{±1} KZ, and I(σ) is a free F̄_p[T]-module (of infinite rank). For F =
+ℚ_p, σ = Sym^r F̄_p² ⊗ det^s and λ ∈ F̄_p^×, the quotient I(σ)/(T − λ) ⊗ (χ∘det) is irreducible
+unless (r, λ) ∈ {(0, ±1), (p − 1, ±1)}, where it has length 2 with constituents a character and a
+twist of the Steinberg (special) representation; for F = ℚ_p and λ = 0, I(σ)/(T) is irreducible
+(Breuil), and these are the supersingular representations.
 
 F non-archimedean local with finite residue field of characteristic p; coefficients F̄_p; smooth
 means every vector has open stabiliser. Smooth representations and compact induction are
@@ -5908,7 +5937,10 @@ K is complete for a discrete valuation with perfect residue field k of character
 normalised by v_K(K^\*) = ℤ and extended to K̄; for L/K finite Galois with group G, e_{L/K} is its
 ramification index and a^m_{L/K} = {x ∈ O_L : v_K(x) ≥ m} (Fontaine 1985, §1). Serre's lower and
 upper numbering, Herbrand's functions, compatibility with quotients (Local Fields IV, Prop. 14) and
-v(𝒟) = Σ i_G(g) (Local Fields IV, Prop. 4) are TauCetiRoadmap.LocalFieldsRamification Layer 3's.
+v(𝒟) = Σ i_G(g) (Local Fields IV, Prop. 4) are TauCetiRoadmap.LocalFieldsRamification Layer 3's (in
+the current library `LocalFieldsRamification.lowerRamificationGroup`,
+`LocalFieldsRamification.upperRamificationGroup` and `LocalFieldsRamification.herbrand`); this
+target adds only Fontaine's shifted normalisation and the invariants u_{L/K}, i_{L/K}.
 
 *Construction.* Fontaine's i_{L/K}(g) is Serre's i_G(g) divided by e_{L/K} (v_K rather than v_L),
 which gives G_j = G_((j+1)/e_{L/K}); Herbrand's φ is rescaled the same way, giving G^v = G^(v+1)
@@ -5962,8 +5994,8 @@ force e_{L/K}·ψ(m) ∈ ℤ, while e_{L/K}ψ(m) = e_{L/K}u_{L/K} − d^{−1} w
 **Checks.**
 
 - `krasnerCriterion_trivial`: L = K: (P_m) holds for every m ≥ 0, and u_{L/K} = 0.
-- `krasnerCriterion_tame`: tame L/K of degree m′: (P_m) holds for m > 1 and fails for m = 1 − 1/m′
-  (the tame case of the proof of (ii)).
+- `krasnerCriterion_tame`: tame totally ramified L/K of degree m′ (so e_{L/K} = m′): (P_m) holds for
+  m > 1 and fails for m = 1 − 1/m′ (the tame case of the proof of (ii)).
 
 ### R07.6.4 Lifting through topologically nilpotent divided powers and the bound on u_{L/K}
 
@@ -6089,8 +6121,9 @@ F_q, with Fontaine–Laffaille module M (filtration jumps in {0, 1}). The tangen
 functor is Ext¹_{F_q}(H, H) computed among p-torsion finite flat F_q-modules, equal to Ext¹_{F_q}(M,
 M) in MF_tor^{[0,1]} with F_q-structure, which is Hom_{F_q}(M, M)/{[R, X_M] : R respects the
 filtration}, of dimension 4 − 3 + 1 = 2; and there are no obstructions, so the flat deformation ring
-is W(F_q)⟦T₁, T₂⟧. If moreover ρ̄ is irreducible, the full deformation ring is W(F_q)⟦T₁, …, T₅⟧ and
-the kernel of R(ρ̄) → R^fl(ρ̄) is generated by three elements.
+is W(F_q)⟦T₁, T₂⟧ when q = p (Ramakrishna, Theorem 3.1) or when ρ̄ is irreducible (Theorem 4.2). If
+moreover ρ̄ is irreducible, the full deformation ring is W(F_q)⟦T₁, …, T₅⟧ and the kernel of R(ρ̄) →
+R^fl(ρ̄) is generated by three elements.
 
 (i): Raynaud's closure under subobjects and quotients (§R07.1.20) and direct sums; Mazur's
 deformation functor of ρ̄ on Artinian W(F_q)-algebras with residue field F_q (the deformation rings
@@ -6240,12 +6273,8 @@ Layers R07.1–R07.4; AbelianSchemesAndArithmeticModuli Layer A3; DerivedDeRhamC
 TauCetiRoadmap.LocalFieldsRamification Layer 3; Mathlib `differentIdeal`, `IsKrasner.krasner`,
 `DividedPowers`, `KaehlerDifferential`, `WeierstrassCurve.HasGoodReduction`.
 
-
-
 ## Downstream consumers
-## References
-- **ACC 2023.** P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton, P. Scholze, R. Taylor, J. Thorne, *Potential automorphy over CM fields*, Ann. of Math. 197 (2023), no. 3. <https://annals.math.princeton.edu/2023/197-3/p02>
-- **AGHMP 2018.** Fabrizio Andreatta, Eyal Z. Goren, Benjamin Howard, Keerthi Madapusi Pera, *Faltings heights of abelian varieties with complex multiplication*, Ann. of Math. 187 (2018), no. 2. <https://arxiv.org/abs/1508.00178v3>
+
 - **AbelianSchemesAndArithmeticModuliPartII**, **NeronModelsAndSemistableAbelianVarietiesPartII** and the
   abelian-variety roadmaps use the `p`-divisible groups, Tate's theorems and Dieudonné modules of abelian
   varieties over perfect fields (R07.1, R07.2).
@@ -6275,6 +6304,10 @@ TauCetiRoadmap.LocalFieldsRamification Layer 3; Mathlib `differentIdeal`, `IsKra
 - **AInfCohomology**, **CohomologyComparisons** and **PrismaticCohomology** use Breuil–Kisin modules with
   torsion and the all-weight Kisin functor (§R07.4.15, §R07.4.16).
 
+## References
+
+- **ACC 2023.** P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton, P. Scholze, R. Taylor, J. Thorne, *Potential automorphy over CM fields*, Ann. of Math. 197 (2023), no. 3. <https://annals.math.princeton.edu/2023/197-3/p02>
+- **AGHMP 2018.** Fabrizio Andreatta, Eyal Z. Goren, Benjamin Howard, Keerthi Madapusi Pera, *Faltings heights of abelian varieties with complex multiplication*, Ann. of Math. 187 (2018), no. 2. <https://arxiv.org/abs/1508.00178v3>
 - **Anschütz–Le Bras 2023.** Johannes Anschütz, Arthur-César Le Bras, *Prismatic Dieudonné theory*,
   Forum Math. Pi 11 (2023). <https://arxiv.org/abs/1907.10525v4>
 - **BCGP 2021.** George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, *Abelian surfaces over
@@ -6375,7 +6408,7 @@ TauCetiRoadmap.LocalFieldsRamification Layer 3; Mathlib `differentIdeal`, `IsKra
   <https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0015/LOG_0024.pdf>
 - **Serre 1987.** Jean-Pierre Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)*,
   Duke Math. J. 54 (1987), 179–230.
-  <https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf>
+  <https://doi.org/10.1215/S0012-7094-87-05413-5>
 - **Stacks Project.** The Stacks project authors, *The Stacks project*, online.
   <https://stacks.math.columbia.edu/tag/0BNI>
 - **Stix 2012.** Jakob Stix, *A course on finite flat group schemes and p-divisible groups*, course
