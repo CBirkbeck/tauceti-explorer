@@ -165,6 +165,15 @@ theorem integral_ihara_reductions (varpi : O) (hvarpi : Irreducible varpi)
     ∀ n : ℕ, ∀ x : M, (∃ y : N, f x = varpi ^ n • y) → ∃ z : M, x = varpi ^ n • z := by
   sorry
 
+/-- A free DVR cokernel splits the injection. Tensoring this splitting preserves
+injectivity, including over O/(varpi^n); torsion-freeness over that Artinian ring
+is not part of the conclusion. The geometric instantiation stays in the reader. -/
+theorem integral_ihara_split (varpi : O) (hvarpi : Irreducible varpi)
+    (f : M →ₗ[O] N)
+    (hResidual : ∀ x : M, (∃ y : N, f x = varpi • y) → ∃ z : M, x = varpi • z) :
+    ∃ r : N →ₗ[O] M, r.comp f = LinearMap.id := by
+  sorry
+
 end Saturation
 
 section ExistingCoefficients
