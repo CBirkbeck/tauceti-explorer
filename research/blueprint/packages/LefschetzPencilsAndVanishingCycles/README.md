@@ -42,7 +42,7 @@ It uses, and does not redevelop:
 - étale sites, sheaves of modules, constructible sheaves, derived direct images, smooth and proper base change, local
   acyclicity, compact supports, ℓ-adic realization, the trace formula and Frobenius geometry from the TauCetiRoadmap
   family CohomologicalPointCounting (pull request #196), which explicitly leaves nearby cycles, `f^!`, Verdier duality
-  and perverse sheaves to its successors; SchemeAndStackFoundations Layer SF.2 is the atlas's interface to it;
+  and perverse sheaves to its successors; SchemeAndStackFoundations Layer SF.2 states the interface to it used here;
 - bounded derived categories with coefficients, `f^!`, Verdier duality, the smooth trace and relative purity, Gysin maps
   and cycle classes over a field, weak Lefschetz, projective bundles and blow-ups, perverse t-structures over a field
   with intermediate extension, and the adic, rational and complex realizations of these operations from
@@ -58,7 +58,9 @@ It uses, and does not redevelop:
   Layers 1 and 4; the Picard scheme of a semistable curve and Grothendieck's integral monodromy pairing from
   NeronModelsAndSemistableAbelianVarieties Layers 3–4;
 - closed subgroups of `ℓ`-adic Lie groups and their Lie algebras from TauCetiRoadmap AdelicAlgebraicGroups Layer 4, §4.2;
-  orthogonal groups over `ℚ_ℓ` from TauCetiRoadmap OrthogonalSpinGroups Layers 0 and 2; root systems, integral
+  orthogonal groups over `ℚ_ℓ` from TauCetiRoadmap OrthogonalSpinGroups Layers 0 and 2 (that roadmap identifies the centre
+  of the even Clifford algebra in dimensions four and six over fields of characteristic not two; 2.2 states it for every
+  even rank over any base, characteristic two included, as the discriminant cover of a quadric needs); root systems, integral
   lattices, character values and `𝔰𝔩₂`-modules from TauCetiRoadmap RepresentationTheory and Completed IntegralLattices;
   abelian Chebotarev from TauCetiRoadmap Chebotarev Layer 9; mixed Hodge structures and strictness from TauCetiRoadmap
   Completed HodgeStructures and the Tau Ceti library;
@@ -162,7 +164,7 @@ It leaves to other roadmaps:
   Layer 5 (classification of irreducible simply laced root systems).
 - **Completed IntegralLattices** Layer 1 and **Completed HodgeStructures** (mixed Hodge structures and strictness).
 
-### From the roadmaps of this bundle
+### From companion roadmaps
 
 - **EtaleDualityAndPerverseSheaves**: EDC.0 (bounded constructible categories with coefficients, cohomology with
   supports, Tate twists, coefficient change), EDC.1 (`f^!`, local cohomology, Verdier duality and biduality), EDC.2 (smooth
@@ -174,7 +176,7 @@ It leaves to other roadmaps:
 - **ClassicalAdicEtaleCohomology** Layer H1 (formal completion: Huber's comparison `i^*Rj_* ≅ Rb_*a^*` for torsion
   coefficients, and the inertia-equivariant identification of formal nearby cycles with `RΨ` of 0.5).
 
-### From lower-tier roadmaps
+### From other roadmaps
 
 - **SchemeAndStackFoundations** SF.0 (henselization and henselian pairs, excellent rings, smoothness, residue fields of
   closed points, limits of finitely presented data), SF.2 (the interface to CohomologicalPointCounting), SF.3 (Picard
@@ -244,9 +246,9 @@ special fibres of an `S`-scheme taken as Tau Ceti's `TauCeti.genericFiber` and
 `TauCeti.specialFiber`. Sheaves on `Spec k` are continuous `Gal(k^sep/k)`-sets, by the Galois
 description of CohomologicalPointCounting/ConstructibleEtale Layer 3.
 
-- `VanishingCycles.HenselianTrait`: A henselian trait S = Spec V with closed point s, generic point η, a geometric generic point η̄, the geometric closed point s̄ and S̄ = Spec of the normalisation of V in k(η̄).
+- `VanishingCycles.HenselianTrait`: A henselian trait S = Spec R with closed point s, generic point η, a geometric generic point η̄, the geometric closed point s̄ and S̄ = Spec of the normalisation of R in k(η̄).
 - `VanishingCycles.HenselianTrait.inertia`: I = ker(Gal(η̄/η) → Gal(s̄/s)), a closed normal subgroup.
-- `VanishingCycles.HenselianTrait.inertia_exact`: 1 → I → Gal(η̄/η) → Gal(s̄/s) → 1 is exact; surjectivity uses that V is henselian.
+- `VanishingCycles.HenselianTrait.inertia_exact`: 1 → I → Gal(η̄/η) → Gal(s̄/s) → 1 is exact; surjectivity uses that R is henselian.
 - `VanishingCycles.HenselianTrait.genericFiber`: The trait-indexed generic fibre is TauCeti.genericFiber, with its canonical pullback projection.
 - `VanishingCycles.HenselianTrait.specialFiber`: The trait-indexed closed fibre is TauCeti.specialFiber over the residue field.
 
@@ -259,10 +261,10 @@ p. 7; Illusie 2006, §1.1, pp. 1–2.)
 
 **Checks.**
 
-- `VanishingCycles.inertia_eq_top_of_strictlyHenselian`: If V is strictly henselian then Gal(s̄/s) = 1 and I = Gal(η̄/η).
-- `VanishingCycles.inertia_puiseux`: For V the henselisation of k[t] at (t), k algebraically closed of characteristic 0, I = Gal(η̄/η) ≅ Ẑ(1), acting on t^{1/n} through μ_n.
-- `VanishingCycles.inertia_eq_valuation_inertia`: I coincides with Mathlib's ValuationSubring.inertiaSubgroup for the valuation subring of k(η̄) over V, as a subgroup of the decomposition group, which here is all of Gal(η̄/η).
-- `VanishingCycles.wild_inertia_ne_bot`: For V = the henselisation of 𝔽̄_p[t] at (t), I is not procyclic: the Artin–Schreier extensions x^p − x = t^{-a} (p ∤ a) give infinitely many independent ℤ/p quotients.
+- `VanishingCycles.inertia_eq_top_of_strictlyHenselian`: If R is strictly henselian then Gal(s̄/s) = 1 and I = Gal(η̄/η).
+- `VanishingCycles.inertia_puiseux`: For R the henselisation of k[t] at (t), k algebraically closed of characteristic 0, I = Gal(η̄/η) ≅ Ẑ(1), acting on t^{1/n} through μ_n.
+- `VanishingCycles.inertia_eq_valuation_inertia`: I coincides with Mathlib's ValuationSubring.inertiaSubgroup for the valuation subring of k(η̄) over R, as a subgroup of the decomposition group, which here is all of Gal(η̄/η).
+- `VanishingCycles.wild_inertia_ne_bot`: For R the henselisation of 𝔽̄_p[t] at (t), I is not procyclic: the Artin–Schreier extensions x^p − x = t^{-a} (p ∤ a) give infinitely many independent ℤ/p quotients.
 - For Y = Spec k the equivalence recovers Gal(k̄/k)-sets.
 - For `X = S` the geometric nearby stalk is the generic representation, not its inertia
   invariants; using `j` in place of `j̄` changes the answer.
@@ -281,7 +283,9 @@ limit of the ℓ-power parts of the normalized characters `θ_{L,can}` of Stacks
 - `VanishingCycles.tameCharacter_conj`: `t_ℓ(gσg⁻¹) = g · t_ℓ(σ)` for `g ∈ Gal(η̄/η)` acting on
   `ℤ_ℓ(1)` through `Gal(s̄/s)` (Stacks 0BU5);
 - `VanishingCycles.tameCharacter_restrict`: for a finite extension of henselian traits with
-  ramification index `e` and inertia `I' ⊂ I`, `t_ℓ|_{I'} = e · t'_ℓ` (Stacks 0BU7);
+  ramification index `e` and inertia `I' ⊂ I`, `t_ℓ|_{I'} = e · t'_ℓ`: write `π = uπ'^e` with `u` a unit
+  and apply the Kummer description above, the roots of `u` being fixed by `I'` (the finite-level
+  characters are compatible in towers by Stacks 0BU7);
 - `VanishingCycles.tameCharacter_eq_inertiaTameCharacter`: when `R` is the valuation ring of a
   nonarchimedean local field, `t_ℓ` agrees with Tau Ceti's tame character of
   LocalFieldsRamification Layer 4 and ArithmeticGaloisRepresentations Layer 2, §2.3.
@@ -476,7 +480,7 @@ EnhancedDerivedSheaves Layer E0; CohomologicalPointCounting/EtaleBaseChange Laye
 
 - `VanishingCycles.RPhi_smooth`: For X → S smooth and K = Λ: RΦ(Λ) = 0 and RΨ_η(Λ) = Λ.
 - `VanishingCycles.RPsi_trait`: For X = S: RΨ_η(K) = K_η̄ with its Gal(η̄/η)-action.
-- `VanishingCycles.RPhi_node`: For X = Spec V[x, y]/(xy − π), π a uniformiser and S strictly henselian: R^iΦ(Λ) = 0 for i ≠ 1, and R^1Φ(Λ) is supported at the origin, free of rank 1 (XV 3.1.2 with n = 1).
+- `VanishingCycles.RPhi_node`: For X = Spec R[x, y]/(xy − π), π a uniformiser and S strictly henselian: R^iΦ(Λ) = 0 for i ≠ 1, and R^1Φ(Λ) is supported at the origin, free of rank 1 (XV 3.1.2 with n = 1).
 - `VanishingCycles.specialization_direction`: For f proper the triangle gives H^i(X_s, K) → H^i(X_η̄, K) → H^i(X_s, RΦ K) → H^{i+1}(X_s, K): specialisation runs from the special to the generic fibre, and the reversed arrow is not a morphism of the triangle.
 - For a smooth family with locally constant coefficients RΦ = 0 and sp^*i^*K ≅ RΨ_η(K_η).
 - For a disjoint union, RΨ is computed componentwise (functoriality in X); for a nodal curve over a trait the stalk formula at the node gives the cohomology of the Milnor fibre (an annulus), as in SGA 7 XV §2.
@@ -730,8 +734,9 @@ sum `Σ_{1≤j<d} (−1)^{j+1}(T − 1)^j/j` for `(T − 1)^d = 0`, independent 
 - `VanishingCycles.monodromyOperator_equivariant`: `N` is `G`-equivariant as a map `V → V(−1)`: for
   `g ∈ G`, after trivializing the twist, `ρ(g) N ρ(g)⁻¹ = χ_ℓ(g) N` with `χ_ℓ` the cyclotomic character. When
   `k = 𝔽_q` and `F` is a lift of the geometric Frobenius, `χ_ℓ(F) = q⁻¹` and this reads `N F = q F N`.
-- `VanishingCycles.monodromyOperator_generator`: changing the generator of `ℤ_ℓ(1)` used to write `N` as an
-  endomorphism by a unit `u` rescales the scalar matrix by `u⁻¹` and leaves the twisted map unchanged.
+- `VanishingCycles.monodromyOperator_generator`: replacing the generator `ζ` of `ℤ_ℓ(1)` used to write `N`
+  as an endomorphism by `uζ`, `u ∈ ℤ_ℓ^×`, multiplies the matrix of `N` by `u` and the coordinate of
+  `t_ℓ(σ)` by `u⁻¹`, and leaves the twisted map unchanged.
 - `VanishingCycles.monodromyOperator_restrict`: for a finite extension `K'/K` of ramification index `e`,
   `N_{K'} = e · N_K` relative to the respective tame characters (0.1, `tameCharacter_restrict`). Over
   `ℚ_ℓ` the nilpotency index, the monodromy filtration and the dimensions of primitive parts are
@@ -866,6 +871,9 @@ graded quotient and the previous subobject, and the uniqueness of 1.3 on each `g
 
 - For W pure of weight w the relative filtration is the ordinary filtration centered at w.
 - For N(e₁)=e₀, W_0=Qe₀ and W_1=Q², no relative M exists: the prescribed graded centers force N M_1⊂M_−1=0, contradicting N≠0.
+- For the same N with W_0=W_1=Qe₀ and W_2=Q² (graded pieces in weights 0 and 2), the relative filtration exists and is W itself:
+  M_−1=0, M_0=M_1=Qe₀, M_2=Q², and N M_2=Qe₀⊂M_0. Existence depends on the gap between the weights, which a definition
+  ignoring W would not see.
 
 ### 1.6 Maximal unipotence
 
@@ -914,7 +922,10 @@ p. 17; Illusie 1994, 1.5, pp. 12–13.) *Needs:* 0.4, 0.8, 1.2.
 
 **Checks.**
 
-- For `T = 1 + U` with `U² = 0`, `var` is `Var(σ)` divided by `t_ℓ(σ)`.
+- When `can ∘ Var(σ) = 0` (as at an ordinary quadratic point in odd relative dimension, where the forget-supports
+  map vanishes, 2.3), `T` acts trivially on `RΦK`, the polynomial factor is one, and `var` is `Var(σ)` divided by `t_ℓ(σ)`.
+- In that situation, with local equation `Q = b` for a uniformizer `b`, `Var(σ) = (−1)^{m+1} t_ℓ(σ)(·, δ)δ` (2.7), so `var = (−1)^{m+1}(·, δ)δ` for every `σ` with
+  `t_ℓ(σ) ≠ 0`; omitting the division by `t_ℓ(σ)` would make `var` depend on `σ`.
 - Both composites are checked; exchanging `Ψ` and `Φ` gives maps with the wrong source and target.
 
 ### 1.8 Tame restriction along a normal crossings divisor
@@ -1016,7 +1027,7 @@ subquotients of finite-inertia pieces, hence have finite inertia image; averagin
 inertia quotient in characteristic zero makes invariants exact, so the trace is unchanged under
 refinement. On graded inertia invariants, changing `F` by an inertia element acts trivially. Additivity
 factors through the Grothendieck group, and the cohomology sequence of a triangle gives the complex
-version. (Haines–Ngô 2002, §3.1, Lemma 8 and Corollary 9, pp. 127–128; Kisin–Pappas 2018, §4.7.1,
+version. (Haines–Ngô 2002, §3.1, Lemma 8 and Corollary 9, pp. 126–127; Kisin–Pappas 2018, §4.7.1,
 p. 212.) *Needs:* 1.1, 1.2; 0.8 (the nearby-cycle stalks it is applied to); EtaleDualityAndPerverseSheaves
 Layer EDC.0.
 
@@ -1098,7 +1109,7 @@ with the two characteristic-two checks as examples.
 - `Quadric.not_isOrdinary_sum_sq_char_two`: Characteristic 2, r = 2, Q = x² + y² = (x + y)²: Φ = 0 and the quadric is a double point, so Q is not ordinary.
 - `Quadric.isOrdinary_rank_one`: r = 1, Q = ax² with a a unit: the quadric is empty and Q is ordinary in every characteristic.
 - `Quadric.isOrdinary_iff_nondegenerate_test`: Over a field and for V ≠ 0, IsOrdinary Q agrees with Mathlib's QuadraticMap.Nondegenerate Q: in characteristic 2 the alternating Φ has kernel of dimension ≡ r mod 2, so rank ≤ 1 forces 0 or 1 according to the parity of r.
-- `Quadric.isOrdinary_zero_rank_excluded`: The zero form on Q⁰ is not ordinary: rank zero is excluded explicitly.
+- `Quadric.isOrdinary_zero_rank_excluded`: The zero form on the zero module is not ordinary: rank zero is excluded explicitly.
 - xy + z² in characteristic 2 is ordinary; x² + y² in characteristic 2 is not; ax² is ordinary.
 
 **Theorem (normal form).** Let `Q` be an ordinary quadratic form on a locally free `A`-module of rank
@@ -1217,7 +1228,7 @@ cycle classes) and EDC.4 (weak Lefschetz); CohomologicalPointCounting/TraceFormu
 **Checks.**
 
 - n = 2, X = P¹ × P¹: the two rulings have square 0 and product 1 (m = 1 odd); #X(𝔽_q) = (1 + q)² when split and 1 + q² for the nonsplit form (Weil restriction of P¹ from 𝔽_{q²}).
-- n = 0: two points, Tr(cℓ(α)²) = 1 (m = 0 even), #X(𝔽_q) = 1 + ε ∈ {0, 2}.
+- n = 0: two points, Tr(cl(α)²) = 1 (m = 0 even), #X(𝔽_q) = 1 + ε ∈ {0, 2}.
 
 **Theorem (affine quadrics and the vanishing class).** Let `X` be the smooth quadric over `S` of an
 ordinary form on `V` of rank `n + 2`, `H` a hyperplane meeting `X` transversally, `Y = X ∩ H` (a smooth
@@ -1278,7 +1289,7 @@ because `f` has no linear term, and ordinarity is invariant under both. Nondegen
 Exemple 1.2.4, p. 5.) *Needs:* 2.1; Mathlib `MvPowerSeries`; SchemeAndStackFoundations Layer SF.0
 (completed local rings). *Lean:* `Suggested.lean` declares `Quadric.quadraticSeries`, `Quadric.OrderAtLeastThree`,
 the field formal-germ form `Quadric.IsOrdinaryQuadraticGerm` and `isOrdinaryQuadraticGerm_cone`, with the
-`quadraticSeries_proj` check as an example.
+`quadraticSeries_proj` check (both the mixed and the diagonal case) as examples.
 
 **Checks.**
 
@@ -1317,7 +1328,7 @@ over henselian pairs).
 
 **Checks.**
 
-- p = 1, X : g(x) = 0 in 𝔸¹_S with g′(s) a unit (δ′ = (g′)): a root modulo I lifts to a root in A, which is Hensel's lemma.
+- N = c = 1, X : g(x) = 0 in 𝔸¹_A with g′(x̄) a unit (so δ′(x̄) = A): a root x̄ of g modulo 𝔞 lifts to a root in A congruent to x̄ modulo 𝔞, which is Hensel's lemma.
 
 **Theorem (canonical form up to henselization).** Let `y` be an ordinary quadratic point of a `k`-scheme
 `Y` and `k'` the separable closure of `k` in `k(y)`. There are a `k'`-scheme `Y_0 ⊂ 𝔸^{n+1}_{k'}` and a point
@@ -1436,8 +1447,6 @@ Lemma 2.1.8, as its use in 2.2.7 shows. *Proof sketch.* By the local diagram it 
 boundary maps for the closed subsets `{0}` and `Y` of `X_1`, whose complement is `X*`; the sign is the
 orientation reversal `−η` versus `η`. (SGA 7 II, Exposé XV, Lemme 2.1.8, p. 17.) *Needs:* the punctured-cone
 theorem.
-
-**Checks.**
 
 ### 2.6 Standard quadratic degenerations
 
@@ -1598,7 +1607,7 @@ character used when `p ≠ 2`. With rational coefficients (`ℓ ≠ 2`) the loca
 lifting before dividing by two. A nontrivial reflection occurs exactly where `ε_x(σ) = −1`. *Proof sketch.*
 Apply the even theorem and identify the separable quadratic extension of the Clifford centre, keeping the
 linear term `x_0` of the degenerate local model, whose discriminant extension is not the Kummer extension of
-a uniformizer. (Weil II, 4.2.1–4.2.3, pp. 220–221.) *Needs:* the even theorem, 2.2, 2.4, 0.1.
+a uniformizer. (Weil II, 4.2.1–4.2.3, pp. 219–220.) *Needs:* the even theorem, 2.2, 2.4, 0.1.
 
 **Checks.**
 
@@ -2014,13 +2023,14 @@ CohomologicalPointCounting/ConstructibleEtale Layer 3 and EtaleBaseChange Layer 
 bilinear form `( , )`, `(δ_s)_{s∈S}` a finite family in `V`, `E` its span, and `T_s(x) = x + c_s(x, δ_s)δ_s` with
 `c_s ∈ K^×` (Mathlib's `LinearMap.transvection` of the functional `c_s(·, δ_s)` and the vector `δ_s`: a transvection
 when `(δ_s, δ_s) = 0`, a reflection when `c_s(δ_s, δ_s) = −2`). Then `⋂_s Fix(T_s) = E^⊥`. If `δ_s = 0` then `T_s = id`
-and `δ_s` contributes nothing to `E`. Define `LefschetzPencil.fixedSpace_localTransvections` as this statement.
+and `δ_s` contributes nothing to `E`. State it as `LefschetzPencil.fixedSpace_localTransvections`.
 *Proof sketch.* `T_s x = x` iff `c_s(x, δ_s)δ_s = 0` (Mathlib `LinearEquiv.mem_fixedSubmodule_transvection_iff` for
 an isotropic `δ_s`, the same computation for a reflection), iff `(x, δ_s) = 0` when `δ_s ≠ 0`; intersecting gives
 `E^⊥` (Mathlib `LinearMap.BilinForm.orthogonal` of the span). (Weil I, §5, Proposition (5.3), p. 290.) *Needs:*
 Mathlib `LinearMap.transvection`, `LinearEquiv.transvection`,
 `LinearEquiv.mem_fixedSubmodule_transvection_iff`, `LinearMap.BilinForm.orthogonal`. *Lean:* `Suggested.lean` declares
-the operator `LefschetzPencil.localTransvection B c δ` and the lemma, with the reflection check as an example.
+the operator `LefschetzPencil.localTransvection B c δ` and the lemma, with the reflection check and the `A₂` trace check
+of 5.10 as examples.
 
 **Checks.**
 
@@ -2280,7 +2290,10 @@ pp. 293–294.) *Needs:* Mathlib `skewAdjointLieSubalgebra`, `LieModule.IsIrredu
 **Checks.**
 
 - dim V = 2 with ψ(e₁, e₂) = 1: N(e₁) = −E₁₂ and N(e₂) = E₂₁ generate sl₂ = sp(V, ψ), since their bracket is −H.
-- Hypothesis (i) is needed: the Lie algebra spanned by N(e₁) alone is one-dimensional, and V is not a simple module for it.
+- N(δ) is quadratic in δ, N(cδ) = c²N(δ), and lies in sp(V, ψ) with N(δ)² = 0, because ψ(x, δ)(ψ(δ, y) + ψ(y, δ)) = 0 and
+  ψ(δ, δ) = 0 for alternating ψ; for a symmetric form the same formula is not skew-adjoint, and a definition linear in δ
+  fails the first identity.
+- The simplicity hypothesis is needed: the Lie algebra spanned by N(e₁) alone is one-dimensional, and V is not a simple module for it.
 
 ### 5.7 Compact subgroups of `Sp(V)(ℚ_ℓ)` and `O(V)(ℚ_ℓ)`
 
@@ -2362,8 +2375,10 @@ group. *Proof sketch.* For the finite quotient `M`, the trace formula for all po
 (CohomologicalPointCounting/TraceFormula Layer 11) and Chebotarev density for the finite étale cover of `U`
 (ArithmeticGaloisRepresentations Layer 5, §5.13, `functionField_chebotarev`) compare the characters of `M` on `E` at
 all `ℓ ≠ p` (Weil II, Lemmas 4.4.6 and 4.4.7); removing trivial constituents gives a character with rational
-integer values, independent of `ℓ`. For two vanishing cycles, `a = Tr(s_δ s_{δ'}) − dim E + 2 = (δ, δ')²` is an integer
-with a square root in `ℚ_ℓ` for every `ℓ ≠ p`; abelian Chebotarev for `ℚ(√a)` (TauCetiRoadmap Chebotarev Layer 9)
+integer values, independent of `ℓ`. For two vanishing cycles, with `s_δ(x) = x − (x, δ)δ` and `P_δ = (·, δ)δ`,
+`Tr(s_δ s_{δ'}) = dim E − Tr P_δ − Tr P_{δ'} + Tr(P_δ P_{δ'}) = dim E − 4 + (δ, δ')²`, so
+`a = Tr(s_δ s_{δ'}) − dim E + 4 = (δ, δ')²` is an integer with a square root in `ℚ_ℓ` for every `ℓ ≠ p` (Weil II prints the
+constant as `2` in place of `4` on p. 230; the argument is unchanged); abelian Chebotarev for `ℚ(√a)` (TauCetiRoadmap Chebotarev Layer 9)
 makes `a` a square, so `(δ, δ') ∈ ℤ`. A rational basis of vanishing cycles gives the lattice (TauCetiRoadmap Completed
 IntegralLattices Layer 1); averaging a positive form over the finite group and absolute irreducibility make the
 invariant form positive definite; the roots form one conjugacy class, so the root system is irreducible and
@@ -2377,6 +2392,9 @@ RepresentationTheory/RootSystems Layer 5.
 **Checks.**
 
 - The conic-pencil root δ=(1,−1) gives A₁ and its order-two Weyl group.
+- Trace identity: for `δ' = δ`, `s_δ²` is the identity, of trace `dim E`, and `(δ, δ)² = 4`; for an `A₂` pair, `(δ, δ') = −1`
+  in `E = span(δ, δ')`, `s_δ s_{δ'}` is a rotation of order three with trace `−1 = 2 − 4 + 1`. The constant `2` printed in
+  Weil II would give `dim E + 2` and `1` in these two cases.
 - The lattice L is the integral span of the vanishing cycles after the rationality argument; an arbitrary ℤ_ℓ-lattice stable under M is not a substitute.
 
 ### 5.11 Frobenius polynomials of the fibres
@@ -2407,8 +2425,9 @@ group (Weil II, 4.3.10, p. 226), so the rational statements of this layer are no
   conclusion.
 - `no_common_eigenvalue_symplectic`: `Id` and `−Id` in `Sp(V)` have no common eigenvalue, so a coset of a group whose
   Zariski closure is `Sp(V)` has no common eigenvalue.
-- `integral_torsion_kernel`: replacing the hyperplane class `η` by `ℓη` (a different projective embedding) makes the
-  kernel of cup product with `η` contain all `ℓ`-torsion of `H^n(X, ℤ_ℓ)`, so the integral intersection can be nonzero.
+- `integral_torsion_kernel`: replacing the hyperplane class `η` by `ℓη` (the hyperplane class of the `ℓ`-uple Veronese
+  re-embedding) makes the kernel of cup product with it contain every class of `H^n(X, ℤ_ℓ)` killed by `ℓ`, so the integral
+  intersection is nonzero as soon as `H^n(X, ℤ_ℓ)` has torsion.
 
 ### Examples
 
@@ -2474,6 +2493,15 @@ field, this is the perversity of `Z`. Define `VanishingCycles.traitPerverseTStru
 following Corollaire 4.6, p. 48; SGA 4, Exposé XIV, 2.2.) *Needs:* EtaleDualityAndPerverseSheaves Layer EDC.5 (middle
 perverse t-structures over a field and gluing along a recollement).
 
+**Checks.**
+
+- For `X` smooth over `S` of relative dimension `d`, `Λ_X[d + 1]` is perverse, while `Λ_X[d]` is not: its generic restriction
+  `Λ_{X_η}[d]` is perverse on `X_η`, hence not in `ᵖD^{≤−1}(X_η)`. Gluing the unshifted t-structure of `X_η` would accept `Λ_X[d]`.
+- For `X = S` strictly henselian, `Λ_S[1]` and `K = Rj_*Λ_η[1]` are perverse, and `i^*K[−1] = Λ ⊕ Λ(−1)[−1]` has perverse
+  cohomology in degrees `0` and `1`.
+- The point `πx = 1` of `𝔸¹_S` is closed in `𝔸¹_S` and its closure misses the special fibre, so `δ(x) = 0 + 1 = 1`, the same
+  value as for a section of `𝔸¹_S → S`; this is the shift by one on the generic fibre.
+
 **Theorem (t-exactness of nearby cycles).** For `X` separated of finite type over a henselian trait with `ℓ` invertible,
 geometric nearby cycles carry middle perverse sheaves on the geometric generic fibre to perverse sheaves on
 the special fibre, and the induced functor between the perverse hearts is exact. Fibrewise, `RΨ` adds no shift.
@@ -2489,7 +2517,7 @@ vanishing).
 
 **Checks.**
 
-- For a smooth relative-d curve, Q_l[d] on each fibre is preserved with no extra fibrewise shift.
+- For a smooth family of relative dimension d, Q_l[d] on the geometric generic fibre goes to Q_l[d] on the special fibre, with no extra fibrewise shift.
 - For Q_l[d+1] on the smooth total trait space, ψ[−1] gives Q_l[d] on the special fibre.
 
 **Theorem (Gabber: vanishing cycles).** For a perverse complex `K` on `X` for the perversity of the definition above, `RΦK[−1]` is perverse on the special fibre, and its `can` and `var` maps (1.7) are morphisms of perverse
@@ -2822,8 +2850,8 @@ Layer 4, §§4.3–4.4; Mathlib `LinearMap.BilinForm`.
 
 **Theorem.** The comparison diagrams of 7a.2–7a.4 descend from the strict henselization, are equivariant for the
 residue Galois action permuting components and branches, and commute with coefficient extension; reorientation
-acts by signed edge permutations. Replacing a generator of `ℤ_ℓ(1)` by a unit rescales `log T` and the coordinate of `t_ℓ`
-together, so the twisted `N` is unchanged. Under a finite extension of the trait of ramification index `e`, with
+acts by signed edge permutations. Replacing a generator of `ℤ_ℓ(1)` by a unit multiple rescales the matrix of `N` and the coordinate of `t_ℓ(σ)`
+inversely, so `log T = t_ℓ(σ)N` and the twisted `N` are unchanged. Under a finite extension of the trait of ramification index `e`, with
 compatible tame identifications, `N_new = e · N_old`. An edge of thickness `n_e` becomes, in a regular semistable
 resolution, a chain of `e · n_e` unit-thickness edges (exceptional rational components contribute no `H^1`), and the summed
 edge pairing scales by `e`. *Proof sketch.* Use the trait base change of 0.6, the compatibility of the tame character with
@@ -2994,7 +3022,7 @@ obstruction for general pencils and the comparison of monodromy images on a gene
 global invariant-cycle theorems in the form in which every input except the theory of weights is supplied here: the
 local theorems assume that the Frobenius spectra of the two outer terms of the cross are disjoint, and the global
 theorem assumes local surjectivity at the singular members of a general pencil. Deligne's weight theory supplies
-exactly these hypotheses (Weil II, Lemmes 3.6.2–3.6.3 and Théorèmes 6.2.6–6.2.9); this roadmap does not develop
+exactly these hypotheses (Weil II, Lemmes 3.6.2–3.6.3, Proposition 6.2.6 and Théorème 6.2.9); this roadmap does not develop
 weights. The complex local invariant-cycle theorem is stated in the same conditional form for mixed Hodge
 structures. Throughout, `k` is algebraically closed, `ℓ` is invertible in `k`, and coefficients are `ℚ_ℓ` or `ℚ̄_ℓ`.
 
