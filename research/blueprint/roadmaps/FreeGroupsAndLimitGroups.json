@@ -1,0 +1,383 @@
+{
+ "id": "FreeGroupsAndLimitGroups",
+ "title": "Free groups, equations over groups, and limit groups",
+ "area": "grouptheory",
+ "parent": null,
+ "summary": "A library roadmap in combinatorial and geometric group theory and algebraic geometry over groups, built on Mathlib's FreeGroup, amalgams (Monoid.PushoutI), HNN extensions, first-order syntax and computability. It plans effective free-group algorithms on reduced words (word, conjugacy, roots, centralizers), Stallings graphs of finitely generated subgroups, an effective first-order syntax for groups with basis coefficients, Bass–Serre theory with induced splittings and Grushko decompositions, equations, radicals and coordinate groups with equational Noetherianity of free groups, surface groups and quadratic equations, generalised equations with a terminating solver for equations and inequations over free groups and Merzljakov–Makanin formal solutions for positive sentences, fully residually free and limit groups with NTQ towers, Lyndon length functions and infinite words, effective JSJ decompositions and Makanin–Razborov diagrams, and the implicit function theorems for regular quadratic and regular NTQ systems. Every algorithm is planned as an encoded procedure with its interpretation, computability, termination on its stated input class and correctness of both answers. The full first-order decision procedure for free groups is outside the roadmap.",
+ "readme": "The definitive document is research/blueprint/readmes/FreeGroupsAndLimitGroups.md.\n\n**Purpose.** A reusable library in combinatorial and geometric group theory and algebraic geometry over groups: effective free-group algorithms on Mathlib's FreeGroup, Stallings graphs, an effective first-order syntax for groups, Bass–Serre theory, equations and coordinate groups, surface groups and quadratic equations, generalised equations with a solver for equations and inequations over free groups and Merzljakov–Makanin formal solutions, fully residually free (limit) groups and NTQ towers, length functions and infinite words, effective JSJ decompositions and Makanin–Razborov diagrams, and the implicit function theorems for regular quadratic and regular NTQ systems.\n\n**Conventions.** Words are Mathlib's List (α × Bool); [x, y] = x⁻¹y⁻¹xy; G[X] = Monoid.Coprod G (FreeGroup X); in a graph of groups e ω_e(c) e⁻¹ = α_e(c); algorithms are encoded procedures on Primcodable data with separate interpretation, computability, termination and two-sided correctness statements, stated on explicit (promised) input classes; a classical DecidablePred is never the algorithmic endpoint.\n\n**Sources.** Serre's Trees; Kapovich–Weidmann–Myasnikov (foldings); Kapovich–Myasnikov (Stallings foldings); Baumslag–Myasnikov–Remeslennikov (algebraic geometry over groups I); Kharlampovich–Myasnikov (irreducible varieties I–II, implicit function theorem, lifting, effective JSJ, elementary theory); Makanin; Diekert–Jeż–Plandowski; Champetier–Guirardel; Guirardel–Levitt; Kharlampovich–Myasnikov–Remeslennikov–Serbin (subgroup algorithms, length functions); Myasnikov–Remeslennikov–Serbin (infinite words, F^{ℤ[t]}); Sela (Makanin–Razborov diagrams).\n\n**Layers.** FG1 free-group algorithms; FG2 Stallings graphs; FG3 effective first-order syntax; FG4 Bass–Serre theory; FG5 algebraic geometry over groups; FG6 surface groups and quadratic equations; FG7 generalised equations and the solver; FG8 limit groups and NTQ towers; FG9 length functions and infinite words; FG10 effective JSJ and Makanin–Razborov diagrams; FG11 regular implicit function theorems.\n\n**Non-goals.** The full first-order decision procedure for free groups; effective reduction of arbitrary formulas to Boolean combinations of two-block formulas; the existential–universal decision trees; MAX-equivalence and its algebraic-solution bounds; complete reducing systems of that procedure; induced-NTQ enlargement algorithms; tight envelopes; projective-image and configuration machinery; termination of the outer quantifier-elimination procedure; the parametrisation theorem for arbitrary NTQ systems with correcting embeddings; implicit function theorems for non-regular NTQ systems; classification of groups up to elementary equivalence.",
+ "prerequisites": [],
+ "stages": [
+  {
+   "key": "FG1",
+   "title": "Free-group words, normal forms, and elementary algorithms",
+   "description": "On Mathlib's FreeGroup α and its reduced words (toWord, reduce, IsReduced, IsCyclicallyReduced): a primitive-recursive encoding of FreeGroup α through reduced words; primitive recursiveness of reduction, multiplication, inversion, powers, word length and homomorphism evaluation, with Mathlib's word formulas as interpretation theorems; the word-problem procedure with correctness of both answers and computability; the conjugacy criterion (cyclic reductions agree up to rotation) and a conjugacy procedure returning a conjugator; proper powers and primitive elements as distinct predicates; maximal roots, computed by maxRoot with the identity handled explicitly (maxRoot 1 = (1, 0)); commuting elements are powers of a common element; centralizers of nontrivial elements are the cyclic groups of their maximal roots, with a computable generator; maximal cyclic subgroups are malnormal (free groups are CSA). Torsion-freeness and uniqueness of roots for a fixed exponent are Mathlib's IsMulTorsionFree instance.",
+   "requires": []
+  },
+  {
+   "key": "FG2",
+   "title": "Stallings graphs and finitely generated free subgroups",
+   "description": "Serre graphs (edge reversal without fixed points, loops and multiple edges allowed), paths, reduced paths, trees and maximal trees, and the freeness of π₁ of a graph with rank #E⁺ − #V + 1; α-labelled graphs with the subgroup accepted at a base vertex, folded graphs and core graphs; Stallings folds, their termination and preservation of the accepted subgroup; the Stallings graph of a finitely generated subgroup from a list of words; the Stallings correspondence (unique based folded core graph per subgroup, finite exactly for finitely generated subgroups, containment as based morphisms, conjugacy as isomorphism of unbased cores); explicit Nielsen bases and the isomorphism FreeGroup (E⁺ ∖ T) ≃* H; procedures for membership, intersections (product graphs; Howson property), index (complete graphs; the exact Schreier formula rank H − 1 = [F : H](rank F − 1)), subgroup conjugacy and conjugate containment, each with correctness of both answers and computability.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1"
+   ]
+  },
+  {
+   "key": "FG3",
+   "title": "Effective first-order group syntax and elementary logical transformations",
+   "description": "Using Mathlib's first-order syntax and semantics: the language of groups with constants for a basis A (L_A), and every group with c : A → G as an L_A-structure; primitive-recursive encodings of terms, bounded formulas and sentences with decode-encode round trips; primitive recursiveness and semantic correctness of substitution, renaming, bound-variable shifting and prenex normal form (capture-free by de Bruijn indexing; semantics in nonempty structures, which groups are); the term–word correspondence (terms of L_A ↔ words of FreeGroup (X ⊕ A), atomic formulas ↔ word equations); finite systems of equations and inequations with word coefficients and their solutions; the computable reduction of quantifier-free formulas to finite disjunctions of systems, and of existential and universal sentences to finitely many systems. No decision theorem for formulas with more than one quantifier block is a target.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1"
+   ]
+  },
+  {
+   "key": "FG4",
+   "title": "Bass–Serre theory and relative splittings",
+   "description": "Graphs of groups over Serre graphs; the fundamental group via 𝔸-paths and via a maximal tree, isomorphic, and independent of the maximal tree and base vertex; the normal form theorem and injectivity of vertex groups; compatibility of one-edge graphs of groups with Mathlib's Monoid.PushoutI and HNNExtension (Britton's lemma); G-trees (actions without inversions), elliptic and hyperbolic elements, (𝒜, ℋ)-trees, minimality, domination and deformation spaces; the Bass–Serre tree; the structure theorem for actions on trees; the elliptic–hyperbolic dichotomy and fixed points of finitely generated groups of elliptic elements; induced splittings of subgroups, finite when the subgroup is finitely generated; the Kurosh subgroup theorem, the Grushko–Neumann rank formula and Grushko decompositions with their uniqueness, also relative to a finite family of subgroups; collapses, standard refinements and the moves preserving a deformation space; Dehn twists of amalgams and HNN extensions by elements centralizing the edge group, with their action on vertex and edge groups.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1",
+    "FreeGroupsAndLimitGroups:FG2"
+   ]
+  },
+  {
+   "key": "FG5",
+   "title": "Equations, radicals, and algebraic geometry over groups",
+   "description": "For a coefficient group G: G-groups and G-homomorphisms; G[X] = G ∗ F(X) and evaluation of its elements at tuples; systems of equations, algebraic sets V_G(S), radicals Rad(S) and coordinate groups G_{R(S)} = G[X]/Rad(S), with the comparison ncl(S) ≤ Rad(S) and the surjection G_S → G_{R(S)}; points as G-homomorphisms (Hom_G(G_{R(S)}, G) ≃ V_G(S)) and the anti-equivalence between algebraic sets with word maps and coordinate groups with G-homomorphisms, including changes of coordinates by G-automorphisms of G[X]; G-separation and G-discrimination (residually and fully residually G) and their difference; domains, under which finite unions of algebraic sets are algebraic and algebraic sets are the closed sets of the Zariski topology; equational Noetherianity, proved for free groups of finite rank through their embedding in SL(2, ℤ) and the theorem for linear groups; the Noetherian Zariski topology, finite irredundant decompositions into irreducible components, unique up to order, and finite subsystems; irreducibility of an algebraic set over an equationally Noetherian domain as G-discrimination of its coordinate group by G. Noetherianity is not an algorithm; components are computed in FG10.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1",
+    "FreeGroupsAndLimitGroups:FG3"
+   ]
+  },
+  {
+   "key": "FG6",
+   "title": "Surface groups and quadratic equations",
+   "description": "Orientable and non-orientable surface groups of genus g with m boundary components given by their standard presentations, with boundary (peripheral) elements and Euler characteristic χ = 2 − 2g − m or 2 − g − m; surface groups with boundary are free of rank 1 − χ and closed surface groups are not free; cutting along a two-sided simple closed curve as a one-edge graph of groups; finite-index subgroups are surface groups of Euler characteristic multiplied by the index; quadratic and strictly quadratic words and equations over G, the standard forms and the effective reduction of a quadratic equation to standard form by a G-automorphism of G[X]; consistency, non-commutative solutions, the invariant κ(S) and regular standard quadratic equations; the radicals of standard quadratic equations over freely discriminated groups, with the low-genus exceptions; the coordinate group of a regular quadratic equation as a graph of groups with a surface vertex; quadratically hanging (QH) vertex groups with their peripheral data.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1",
+    "FreeGroupsAndLimitGroups:FG2",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG5"
+   ]
+  },
+  {
+   "key": "FG7",
+   "title": "Generalised equations, equation solving, and positive formal solutions",
+   "description": "Generalised equations (boundaries, items, bases with orientations and dual bases, constant bases labelled by A^{±1}, boundary connections, parameter sections), their solutions in F(A) and their coordinate groups; the effective reduction of a finite system of equations and inequations with word coefficients over F(A) to finitely many generalised equations, preserving solutions in both directions, with inequations encoded by nonempty items; elementary and derived transformations with their applicability hypotheses, forward and backward preservation of solutions and computability; the finiteness theorem for the transformation process (bounded exponent of periodicity of minimal solutions); a terminating procedure deciding systems of equations and inequations over a nonabelian free group of finite rank, returning a solution on satisfiable input and proving unsatisfiability otherwise, with alphabet (sub-basis) constraints on variables; the existential and universal fragment deciders through FG3; positive formulas and their reduction to single equations (Malcev's equation); Merzljakov's theorem on formal solutions with the quantifier dependence of the witnesses, and Makanin's decision procedure for positive sentences returning the formal witnesses.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG1",
+    "FreeGroupsAndLimitGroups:FG3",
+    "FreeGroupsAndLimitGroups:FG5"
+   ]
+  },
+  {
+   "key": "FG8",
+   "title": "Fully residually free groups, limit groups, and ordinary NTQ towers",
+   "description": "Residually free and fully residually free (freely discriminated) groups, and the F-versions for F-groups; subgroup and embedding invariance; torsion-freeness, commutation transitivity and the CSA property, abelian centralizers (not necessarily cyclic) and free abelian subgroups of finite rank; the space of marked groups, limit groups as limits of marked free groups, and the equivalence with finitely generated fully residually free groups; the identification with coordinate groups of irreducible algebraic sets over F, with coefficients explicit; extensions of centralizers and iterated extensions, fully residually free over a CSA base; the embedding theorems into iterated centralizer extensions and into F^{ℤ[x]}; finite presentability of finitely generated fully residually free groups (hence of their finitely generated subgroups); triangular quasi-quadratic and NTQ systems with quadratic, centralizer-extension, free-abelian and empty (free) levels, the NTQ group as the coordinate group, the level inclusions, retractions given by solutions and specialisations, and regular NTQ systems. No classification up to elementary equivalence is included.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7"
+   ]
+  },
+  {
+   "key": "FG9",
+   "title": "Length functions and infinite-word representations",
+   "description": "Lyndon length functions with values in an ordered abelian group Λ (axioms on the Gromov product), free and regular length functions as separate properties, and their correspondence with based Λ-tree actions; the lexicographically ordered ℤ^n and ℤ[t]; infinite words R(Λ, X) with partial multiplication, cyclic decompositions and the free Lyndon length function on CDR(Λ, X); Lyndon's group F^{ℤ[t]} represented by infinite ℤ[t]-words; embeddings of finitely generated fully residually free groups into F^{ℤ[t]} and the resulting free length functions in ℤ^n, with regularity obtained after an enlargement where the source requires one; (ℤ[t], X)-labelled graphs of finitely generated subgroups, U-folding, and the membership problem, with all computations on the finite data of the representation.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG2",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG8"
+   ]
+  },
+  {
+   "key": "FG10",
+   "title": "Effective structure and finite solution diagrams",
+   "description": "Relative abelian and cyclic JSJ theory for finitely generated fully residually free groups: the admissible splitting family, universally elliptic trees, JSJ trees and the JSJ deformation space, rigid and flexible vertices, existence for finitely presented groups and for torsion-free CSA groups, and the description of flexible vertices of limit groups as abelian or QH; promised-input algorithms (input: a finite presentation of a finitely generated fully residually free group, or the coordinate group of a finite system over F) computing the embedding into an iterated centralizer extension, the relative Grushko and abelian JSJ decompositions with explicit vertex groups, edge maps and embedding data, finite presentations of finitely generated subgroups, membership, intersection, centralizer and conjugacy algorithms, and tests of injectivity and surjectivity of given homomorphisms; Makanin–Razborov (Hom-) diagrams for finite systems over F, with the maps, modular automorphism groups and terminal free groups as data, soundness (every branch gives solutions) and completeness (every solution factors through a branch), and the effective list of irreducible components; equations with coefficients in a represented limit group as a separate target.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG2",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG9"
+   ]
+  },
+  {
+   "key": "FG11",
+   "title": "Regular implicit-function theorems over free groups",
+   "description": "Compatibility of an equation T(X, Y) = 1 with S(X) = 1 over G, S-lifts (formal solutions in the coordinate group), complete S-lifts (also for every compatible inequation), and generic families of solutions; the implicit function theorem for regular standard quadratic equations over F (complete lifts), the basic automorphisms and the generic families of solutions built from them, and the extension to finitely generated fully residually free coefficient groups; the implicit function theorem for regular NTQ systems with complete lifts; the effective version returning the formal solution; compatibility with substitution and changes of coordinates. The parametrisation theorem for arbitrary NTQ systems (with correcting embeddings) and lifts of ∀∃ formulas over arbitrary systems are not targets, and the claims are not extended to arbitrary NTQ systems.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG9",
+    "FreeGroupsAndLimitGroups:FG10"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "LEAN",
+   "title": "Mathlib (free groups, amalgams, HNN extensions, model theory, computability)",
+   "authors": "The Mathlib Community",
+   "edition": "Mathlib commit 082e2d37e8b0463410cdb532e111cd43d5a66174 (the Tau Ceti f790474 pin)",
+   "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "readSections": [
+    "Mathlib/GroupTheory/FreeGroup/{Basic,Reduce,CyclicallyReduced,IsFreeGroup,NielsenSchreier}.lean",
+    "Mathlib/GroupTheory/{HNNExtension,PushoutI,CoprodI,PresentedGroup,FinitelyPresentedGroup,Rank,Schreier}.lean",
+    "Mathlib/ModelTheory/{Basic,Syntax,Semantics,Complexity,Encoding,LanguageMap}.lean",
+    "Mathlib/Computability/{Primrec/Basic,Primrec/List,Partrec,RE}.lean"
+   ]
+  },
+  {
+   "id": "TREES",
+   "title": "Trees",
+   "authors": "Jean-Pierre Serre",
+   "edition": "Springer Monographs in Mathematics, corrected 2nd printing 2003 (translation of Arbres, amalgames, SL₂, Astérisque 46, 1977)",
+   "url": "https://link.springer.com/book/10.1007/978-3-642-61856-7",
+   "readSections": [
+    "Not available to this worker (not freely online and not in the cleared library); the locators of Chapter I §§1–6 are the standard ones and every claim citing TREES is also supported by FOLD §2 or GL-JSJ §1, which were read"
+   ]
+  },
+  {
+   "id": "FOLD",
+   "title": "Foldings, graphs of groups and the membership problem",
+   "authors": "Ilya Kapovich, Richard Weidmann, Alexei Myasnikov",
+   "edition": "Internat. J. Algebra Comput. 15 (2005), 95–128; arXiv:math/0302206v2 (PDF pages cited)",
+   "url": "https://arxiv.org/abs/math/0302206",
+   "readSections": [
+    "§1 (Theorem 1.1)",
+    "§2 (Convention 2.1, Definitions 2.2–2.3, 2.5, 2.8, Proposition 2.4, Proposition 2.6, Remark 2.7), pp. 5–8",
+    "§3 (Definition 3.1)",
+    "§6 (Definition 6.1, Theorem 6.2), pp. 27–29"
+   ]
+  },
+  {
+   "id": "KM02",
+   "title": "Stallings foldings and subgroups of free groups",
+   "authors": "Ilya Kapovich, Alexei Myasnikov",
+   "edition": "J. Algebra 248 (2002), 608–668; arXiv:math/0202285v1 (PDF pages cited)",
+   "url": "https://arxiv.org/abs/math/0202285",
+   "readSections": [
+    "§2 (Definitions 2.1, 2.3, 2.4, 2.7, Lemma 2.5), pp. 2–5",
+    "§3 (Proposition 3.1, Lemmas 3.2–3.4, 3.7, Proposition 3.8), pp. 6–8",
+    "§§4–5 (Lemmas 4.1–4.2, Proposition 4.3, Theorems 5.1–5.2, Lemma 5.4), pp. 9–12",
+    "§6 (Lemma 6.1, Proposition 6.7, Corollary 6.8), pp. 14–15",
+    "§7 (Propositions 7.1, 7.2, 7.7, Corollaries 7.8, 7.13, Lemma 7.12), pp. 16–20",
+    "§8 (Lemma 8.2, Proposition 8.3, Corollaries 8.4–8.5), pp. 20–21",
+    "§9 (Lemma 9.2, Proposition 9.4, Corollaries 9.5–9.6), pp. 25–26"
+   ]
+  },
+  {
+   "id": "ALG",
+   "title": "Algebraic geometry over groups I. Algebraic sets and ideal theory",
+   "authors": "Gilbert Baumslag, Alexei Myasnikov, Vladimir Remeslennikov",
+   "edition": "J. Algebra 219 (1999), 16–79; authors' copy from A. Myasnikov's publication page (58 pp.; PDF pages cited)",
+   "url": "https://web.stevens.edu/algebraic/alexeim/Publications/All_files_new/FINAL_AL_51_38.pdf",
+   "readSections": [
+    "Introduction (Theorems A–G as announced), pp. 1–8",
+    "§2.1 (domains, CSA, Proposition 1, Corollary 1), pp. 15–17",
+    "§2.2 (Theorem B1, Theorem 1), pp. 19–21",
+    "§3 (algebraic sets, Zariski topology, Lemmas 5–13, Theorem 3, Proposition 9, Corollary 8, Theorem 4), pp. 26–34",
+    "§4 (Theorem D1, Corollaries 10–11, Propositions 11–12, Theorem 5), pp. 34–40"
+   ]
+  },
+  {
+   "id": "VAR-I",
+   "title": "Irreducible affine varieties over a free group. I: Irreducibility of quadratic equations and Nullstellensatz",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 200 (1998), 472–516; authors' copy (46 pp.; PDF pages cited)",
+   "url": "https://web.stevens.edu/algebraic/alexeim/Publications/All_files_new/pp1_34.pdf",
+   "readSections": [
+    "§1 (Lemmas 1–5, Theorems 1–3, Corollary 1, Lemma 6), pp. 4–9",
+    "§2–3 (standard quadratic equations, Lemma 9, Propositions 1–8), pp. 10–27",
+    "Theorem 4 and the end of the proof, pp. 43–45"
+   ]
+  },
+  {
+   "id": "VAR-II",
+   "title": "Irreducible affine varieties over a free group. II: Systems in triangular quasi-quadratic form and description of residually free groups",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 200 (1998), 517–570; authors' copy (40 pp.; PDF pages cited)",
+   "url": "https://web.stevens.edu/algebraic/alexeim/Publications/All_files_new/pp_ff_35.pdf",
+   "readSections": [
+    "§0 (Definition 8, Theorems 1–7, Corollaries 1–7, Definitions 9–10), pp. 2–7",
+    "§§1–3 (generalised equations, Lemma 4), pp. 7–12"
+   ]
+  },
+  {
+   "id": "MAK",
+   "title": "Decidability of the universal and positive theories of a free group",
+   "authors": "G. S. Makanin",
+   "edition": "Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984), 735–749; English translation Math. USSR-Izv. 25 (1985), 75–88",
+   "url": "https://www.mathnet.ru/eng/im1489",
+   "readSections": [
+    "Not read: the Math-Net.ru page did not respond to this worker; its theorems are used in the form proved in IFT §4.4 (Merzljakov's theorem, Corollary 9) and recalled in VAR-II Definition 9"
+   ]
+  },
+  {
+   "id": "RECOMP",
+   "title": "Finding all solutions of equations in free groups and monoids with involution",
+   "authors": "Volker Diekert, Artur Jeż, Wojciech Plandowski",
+   "edition": "Inform. and Comput. 251 (2016), 263–286; arXiv:1405.5133v2",
+   "url": "https://arxiv.org/abs/1405.5133",
+   "readSections": [
+    "Abstract and §1 (main theorem: an EDT0L description of all solutions with rational constraints)"
+   ]
+  },
+  {
+   "id": "LIMITS",
+   "title": "Limit groups as limits of free groups",
+   "authors": "Christophe Champetier, Vincent Guirardel",
+   "edition": "Israel J. Math. 146 (2005), 1–75; arXiv:math/0401042v2",
+   "url": "https://arxiv.org/abs/math/0401042",
+   "readSections": [
+    "§1, Theorem 1.1 and the following remark, p. 4 (PDF pages cited)",
+    "§2.1–2.3, Definitions 2.1, 2.4, 2.5, pp. 8–12",
+    "§3.1, Proposition 3.1, p. 20",
+    "§3, Proposition 3.13, p. 23",
+    "§4, Theorem 4.2, p. 30"
+   ]
+  },
+  {
+   "id": "GL-JSJ",
+   "title": "JSJ decompositions of groups",
+   "authors": "Vincent Guirardel, Gilbert Levitt",
+   "edition": "Astérisque 395 (2017); arXiv:1602.05139v2 (PDF pages cited)",
+   "url": "https://arxiv.org/abs/1602.05139",
+   "readSections": [
+    "Introduction, pp. 1–12",
+    "§1.1 (Propositions 1.1–1.2), pp. 15–18",
+    "§2 (Definitions 2.1, 2.5, 2.7, 2.12, 2.14, Proposition 2.2, Theorem 2.16, Theorem 2.20), pp. 22–28",
+    "§3.2, p. 30",
+    "§5 (Definitions 5.1, 5.13, Proposition 5.4), pp. 42–48",
+    "§9 (Theorem 9.5), p. 91"
+   ]
+  },
+  {
+   "id": "JSJ",
+   "title": "Effective JSJ decompositions",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "Groups, Languages, Algorithms, Contemp. Math. 378 (2005), 87–212; arXiv:math/0407089v2 (PDF pages cited)",
+   "url": "https://arxiv.org/abs/math/0407089",
+   "readSections": [
+    "Introduction, pp. 88–95 (Theorems 1, 9.1, 10.1, 11.2–11.3, 12.6–12.7, 13.1, 14.1, 15.1)",
+    "§1.4–1.6, Theorems 1.2, 1.4–1.8, pp. 97–100",
+    "§2 (splittings), pp. 101–120",
+    "§3, Theorems 3.1–3.9, 3.20–3.23 and Corollary 3.8, pp. 121–125",
+    "§4, Lemma 4.7, pp. 125–132",
+    "§5.1–5.2, pp. 135–141",
+    "§§10–11, 13–14 as cited in the packet (printed page numbers)"
+   ]
+  },
+  {
+   "id": "SUBGROUPS",
+   "title": "Subgroups of fully residually free groups: algorithmic problems",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov, Vladimir Remeslennikov, Denis Serbin",
+   "edition": "Group theory, statistics, and cryptography, Contemp. Math. 360 (2004), 63–101; authors' copy (39 pp., internal page numbers 1–39 cited)",
+   "url": "https://web.stevens.edu/algebraic/alexeim/Publications/All_files_temp/KMRS_FRFG_AlgProb_65.pdf",
+   "readSections": [
+    "§2.3 (Theorems 1–3), p. 6",
+    "§2.4 and Proposition 5, pp. 6–10",
+    "§3 (Definitions 1–2, Theorems 4–6, Corollaries 1–4), pp. 10–16",
+    "§4 (Theorem 7, Corollaries 5–8), pp. 30–35",
+    "§5 (Lemmas 19–21, Theorems 8–9), pp. 36–37",
+    "§6 (Theorems 10–11), p. 38"
+   ]
+  },
+  {
+   "id": "LENGTH",
+   "title": "Groups with free regular length functions in Z^n",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov, Vladimir Remeslennikov, Denis Serbin",
+   "edition": "Trans. Amer. Math. Soc. 364 (2012), 2847–2882; arXiv:0907.2356v2",
+   "url": "https://arxiv.org/abs/0907.2356",
+   "readSections": [
+    "§1 (introduction), pp. 1–4",
+    "§2.1–2.3 (axioms (L1)–(L6), Example 1, Theorems 1–4, Corollary 1), pp. 4–9",
+    "§3, Proposition 1, p. 13",
+    "§4.3, Theorems 6–7, pp. 20–21",
+    "§5, Theorems 8–10, pp. 23–36"
+   ]
+  },
+  {
+   "id": "INFINITE-WORDS",
+   "title": "Fully residually free groups and graphs labeled by infinite words",
+   "authors": "Alexei Myasnikov, Vladimir Remeslennikov, Denis Serbin",
+   "edition": "Internat. J. Algebra Comput. 16 (2006), 689–737",
+   "url": "https://doi.org/10.1142/S0218196706003141",
+   "readSections": [
+    "Not read: not freely available to this worker; its results are used as stated in SUBGROUPS §2.4 (Proposition 5) and MRS-REGULAR"
+   ]
+  },
+  {
+   "id": "MRS-REGULAR",
+   "title": "Regular free length functions on Lyndon's free Z[t]-group F^{Z[t]}",
+   "authors": "Alexei Myasnikov, Vladimir Remeslennikov, Denis Serbin",
+   "edition": "Groups, Languages, Algorithms, Contemp. Math. 378 (2005), 37–77; authors' copy (40 pp.; internal page numbers cited)",
+   "url": "https://web.stevens.edu/algebraic/alexeim/Publications/All_files_new/conm_borovik2_MRSc_85.pdf",
+   "readSections": [
+    "§2 (Lyndon length functions, Λ-trees)",
+    "§3 (infinite words R(Λ, X), Lemma 3.8), pp. 9–14",
+    "§4 (the free length function on CDR(Λ, X)), pp. 14–16",
+    "§§5–8 (F^{Z[t]} as infinite words, regularity)"
+   ]
+  },
+  {
+   "id": "SELA-I",
+   "title": "Diophantine geometry over groups I: Makanin–Razborov diagrams",
+   "authors": "Zlil Sela",
+   "edition": "Publ. Math. IHÉS 93 (2001), 31–105 (Numdam)",
+   "url": "https://www.numdam.org/item/PMIHES_2001__93__31_0/",
+   "readSections": [
+    "Introduction, pp. 31–33 (printed pages)",
+    "§1 (Propositions 1.1–1.3, Theorem 1.5), pp. 35–38",
+    "§2 (Theorems 2.4–2.7), pp. 41–43",
+    "§3, Theorem 3.2, p. 44",
+    "§5, Proposition 5.6 and Theorem 5.7, p. 68"
+   ]
+  },
+  {
+   "id": "IFT",
+   "title": "Implicit function theorem over free groups",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2 (printed page numbers of the arXiv version cited)",
+   "url": "https://arxiv.org/abs/math/0312509",
+   "readSections": [
+    "§2 (preliminaries: G-groups, L_A, algebraic geometry, discrimination, quadratic equations, Theorems 1–2, Definition 6, Corollary 1), pp. 3–10",
+    "§3.1 (Lemmas 3–5, Corollaries 2–7), pp. 11–13",
+    "§4 (generalised equations, Lemmas 12–14, §4.4 Merzljakov's theorem, Corollary 9, Definition 13, Theorem 4), pp. 17–27",
+    "§5 (elementary transformations, the tree T(Ω), periodic structures, Proposition 1, Theorems 5–8), pp. 27–63",
+    "§6 (Definitions 26–27, Lemmas 36–40, Propositions 2–3), pp. 63–67",
+    "§7.4 (Theorem 9), p. 67 and pp. 109–136",
+    "§7.6 (NTQ systems, regular NTQ, Theorems 11–13), pp. 137–142"
+   ]
+  },
+  {
+   "id": "LIFT",
+   "title": "Algebraic geometry over free groups: lifting solutions into generic points",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "Groups, Languages, Algorithms, Contemp. Math. 378 (2005), 213–318; arXiv:math/0407110v4",
+   "url": "https://arxiv.org/abs/math/0407110",
+   "readSections": [
+    "§1 (Theorems A–D and Merzljakov's theorem), pp. 213–219 (printed pages)",
+    "§2, Propositions 2.5 and 2.8, pp. 224–226",
+    "§3, Theorem 3.4, p. 229",
+    "§4, Corollaries 4.22–4.37, pp. 256–264",
+    "§5, Propositions 5.1–5.2, pp. 266–270"
+   ]
+  },
+  {
+   "id": "KM06",
+   "title": "Elementary theory of free non-abelian groups",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 302 (2006), 451–552",
+   "url": "https://doi.org/10.1016/j.jalgebra.2006.03.033",
+   "readSections": [
+    "Not read: the publisher refused automated access; the FG10 target on equations over limit groups that the specification ties to its Theorem 32 is recorded as a gap"
+   ]
+  }
+ ],
+ "status": "draft"
+}
