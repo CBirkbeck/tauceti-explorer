@@ -42,10 +42,12 @@ v′_{C^r} (from the definition) and the Mahler valuation v_{C^r}(φ) = inf_n(v_
 (dμ)(f) = μ(f′), with Amice multiplier +log(1 + T), as in `L1/amice-derivative`. Colmez's wavelets are
 e_{i,k,r} = p^{[ℓ(i)r]}1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k. In several variables, V_r = ⊗̂_{π,j}C^{r_j}(ℤ_p, K) is the
 vector-order space of the predecessor plan, S(n) = ∏_j(n_j + p^{ℓ(n_j)}ℤ_p), and c_n(f) is the multivariable van der Put
-coefficient (2.E.2).
+coefficient (2.E.2). When explicit constants C_1 occur for tensor moments, use the projective norm induced by
+the Mahler norms and its dual; the predecessor's c₀ coefficient norm is equivalent, with a conversion constant.
 
-Native c₀ spaces are Mathlib's `ZeroAtInftyContinuousMap` on a discrete index set. Bounded measures are Mathlib's
-`AbstractMeasure X L L` (`D(X, L)`). Balls and boxes are fibres of `PadicInt.toZModPow`. The baseline is Mathlib
+Native c₀ spaces are Mathlib's `ZeroAtInftyContinuousMap` on a discrete index set. Order-zero duals identify algebraically with Mathlib's
+`AbstractMeasure X L L` (`D(X, L)`); this roadmap uses the dual operator norm, rather than identifying it with
+the type synonym's chosen topology. Balls and boxes are fibres of `PadicInt.toZModPow`. The baseline is Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Neither library,
 nor any roadmap of TauCetiRoadmap, has C^r spaces, wavelets or order-r distributions; the libraries supply Mahler's
 theorem, the Amice transform of bounded measures, locally constant functions, and orthogonality of additive and
@@ -58,9 +60,9 @@ proof outline, the API and unit tests for definitions and constructions, its use
 direct prerequisites (*Needs*) and its source locator. Locators are printed page numbers of the versions recorded in
 the packet; statements are in this roadmap's own words. Where a source is wrong, the corrected statement is used and
 the correction is listed at the end. The suggested Lean file `research/blueprint/suggested/LocallyAnalyticDistributions--L2.lean`
-gives real definitions for the balls, locally polynomial spaces, wavelets, the class C^r, the admissibility bound,
-boxes, van der Put coefficients and the order predicates, and signatures for the theorems that are statable at the
-pins.
+contains real-bodied light predicates and functions over carriers present at the pins, selected end theorem
+signatures, and a few examples. The normed C^r carriers, their duals, basis-coordinate constructions and completed
+tensors are README targets; the file does not introduce placeholder data or proxy normed spaces.
 
 ## 2.A. Functions of class C^r in one variable
 
@@ -92,13 +94,13 @@ For h ∈ ℕ and N ∈ ℕ, LP^{[0,N]}_h(ℤ_p, L) is the L-vector space of fun
 - `LocallyAnalyticTests.LP_zero_locallyConstant` (compatibility): LP^{[0,0]}(ℤ_p, L) coincides with Mathlib's LocallyConstant ℤ_p L as a set of functions.
 - `LocallyAnalyticTests.LP_square_not_linear` (non-example): x ↦ x² lies in no LP^{[0,1]}_h: on every ball it is a polynomial of degree exactly 2.
 
-*Uses.* Colmez, Theorem II.3.2: algebraic distributions of degree ≤ N are the linear forms on LP^{[0,N]}; Colmez, Proposition I.5.13: the Taylor truncations φ_h of a C^r function lie in LP^{[0,r]}_h; 2.C.1 `admissible-algebraic-distributions`: its domain; 2.D.3 `unit-character-determination`: the functions χ(x)x^j 1_{ℤ_p^×} span LP^{[0,N]} on ℤ_p^× level by level; ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness: the values of L_p on z^j·1_{a+p^nℤ_p} are values on LP^{[0,k]}.
+*Uses.* `Colmez, Theorem II.3.2`: algebraic distributions of degree ≤ N are the linear forms on LP^{[0,N]}; `Colmez, Proposition I.5.13`: the Taylor truncations φ_h of a C^r function lie in LP^{[0,r]}_h; 2.C.1 `admissible-algebraic-distributions`: its domain; 2.D.3 `unit-character-determination`: the functions χ(x)x^j 1_{ℤ_p^×} span LP^{[0,N]} on ℤ_p^× level by level; `ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness`: the values of L_p on z^j·1_{a+p^nℤ_p} are values on LP^{[0,k]}.
 
 *Acceptance.* x ↦ x lies in LP^{[0,1]}_0 and not in LC. 1_{pℤ_p} lies in LC_1 and not in LC_0. The function equal to x on pℤ_p and to 0 elsewhere lies in LP^{[0,1]}_1.
 
 *Needs:* Mathlib `LocallyConstant`; Mathlib `PadicInt.toZModPow`; Mathlib `PadicInt.ker_toZModPow`.
 
-*Source:* Colmez, §I.3.1, Proposition I.3.2 and its proof, printed pp. 9–10; §I.5.4, definition of LP^I_h and Proposition I.5.8, printed p. 21: I.3.2 gives the van der Put basis of LC_h and LC with its unitriangular change of basis; §I.5.4 defines the locally polynomial spaces with degrees in a set I and Proposition I.5.8 gives the local monomial bases of LP^{[0,r]}_h and LP^{[0,r]}.
+*Source:* Colmez (author PDF), §I.3.1, Proposition I.3.2 and its proof, printed pp. 9–10; §I.5.4, definition of LP^I_h and Proposition I.5.8, printed p. 21: I.3.2 gives the van der Put basis of LC_h and LC with its unitriangular change of basis; §I.5.4 defines the locally polynomial spaces with degrees in a set I and Proposition I.5.8 gives the local monomial bases of LP^{[0,r]}_h and LP^{[0,r]}.
 
 ### 2.A.2 Colmez's wavelets e_{i,k,r}
 
@@ -116,7 +118,7 @@ For r ≥ 0, i ∈ ℕ and k ∈ ℕ let e_{i,k,r}(x) = p^{[ℓ(i)r]}·1_{i+p^{�
 - `TauCeti.LocallyAnalytic.colmezWavelet_apply` (simp): colmezWavelet r i k x = p^{[ℓ(i)r]}·((x − i)/p^{ℓ(i)})^k if x ∈ i + p^{ℓ(i)}ℤ_p, and 0 otherwise.
 - `TauCeti.LocallyAnalytic.colmezWavelet_mem_LP` (data): colmezWavelet r i k ∈ LP k ℓ(i).
 - `TauCeti.LocallyAnalytic.colmezWavelet_basis` (characterisation): For each h, the e_{i,k,r} with i < p^h and k ≤ [r] form a basis of LP [r] h.
-- `TauCeti.LocallyAnalytic.amplitudeCoeff` (projection): amplitudeCoeff r i k : LPAll [r] →ₗ L, the coordinate b_{i,k}; amplitudeCoeff r i k (e_{i',k',r}) is 1 if (i, k) = (i', k') and 0 otherwise.
+- `TauCeti.LocallyAnalytic.amplitudeCoeff` (projection): For 0 ≤ k ≤ [r], amplitudeCoeff r i k : LPAll [r] →ₗ L is the coordinate b_{i,k}; for k′ ≤ [r], amplitudeCoeff r i k (e_{i′,k′,r}) is 1 if (i, k) = (i′, k′) and 0 otherwise.
 - `TauCeti.LocallyAnalytic.deriv_colmezWavelet` (relation): (d/dx)^j e_{i,k,r} = k!/(k − j)!·e_{i,k−j,r−j} for j ≤ k and j ≤ r.
 - `TauCeti.LocallyAnalytic.colmezWavelet_zero` (simp): colmezWavelet r 0 k x = x^k, since ℓ(0) = 0.
 
@@ -127,13 +129,13 @@ For r ≥ 0, i ∈ ℕ and k ∈ ℕ let e_{i,k,r}(x) = p^{[ℓ(i)r]}·1_{i+p^{�
 - `LocallyAnalyticTests.colmezWavelet_count` (computation): For p = 2, h = 2 and r = 1 there are 8 wavelets e_{i,k,1} with i < 4 and k ≤ 1, the dimension of LP^{[0,1]}_2(ℤ_2, L).
 - `LocallyAnalyticTests.colmezWavelet_scaling_needed` (non-example): The unscaled indicators 1_{i+p^{ℓ(i)}ℤ_p} are not bounded in C^{1/2}: v′_{C^{1/2}}(1_{p^mℤ_p}) = −(m − 1)/2 → −∞, so the factor p^{[ℓ(i)r]} cannot be dropped.
 
-*Uses.* Colmez, Theorem I.5.14: the e_{i,k,r} form a Banach basis of C^r; Colmez, proof of Theorem II.3.2(ii): the values μ(e_{i,k,r}) of an admissible algebraic distribution are bounded; Colmez, Proposition I.5.16: the derivative formula proves surjectivity of d/dx on C^r; 2.F.1 `tensor-function-realization`: products of wavelets in each coordinate are the tensor wavelets.
+*Uses.* `Colmez, Theorem I.5.14`: the e_{i,k,r} form a Banach basis of C^r; `Colmez, proof of Theorem II.3.2(ii)`: the values μ(e_{i,k,r}) of an admissible algebraic distribution are bounded; `Colmez, Proposition I.5.16`: the derivative formula proves surjectivity of d/dx on C^r; 2.F.1 `tensor-function-realization`: products of wavelets in each coordinate are the tensor wavelets.
 
 *Acceptance.* e_{0,0,r} = 1 for every r. e_{i,0,0} = 1_{i+p^{ℓ(i)}ℤ_p}, the van der Put basis vector.
 
 *Needs:* 2.A.1 `locally-polynomial-functions`.
 
-*Source:* Colmez, §I.5.4, definition of e_{i,k,r} before Lemma I.5.9 and Lemma I.5.9, printed p. 21; proof of Proposition I.5.16, printed p. 24: Defines the scaled local monomials e_{i,k,r} and states that for k ≤ r they are bases of LP^{[0,r]}_h and LP^{[0,r]}; the proof of I.5.16 records the derivative formula.
+*Source:* Colmez (author PDF), §I.5.4, definition of e_{i,k,r} before Lemma I.5.9 and Lemma I.5.9, printed p. 21; proof of Proposition I.5.16, printed p. 24: Defines the scaled local monomials e_{i,k,r} and states that for k ≤ r they are bases of LP^{[0,r]}_h and LP^{[0,r]}; the proof of I.5.16 records the derivative formula.
 
 ### 2.A.3 Coefficients of a polynomial are bounded by its values on a ball
 
@@ -149,7 +151,7 @@ Let N ∈ ℕ, C(N) = Σ_{n=1}^{N} v_p(n!), and a_0, …, a_N ∈ L. For every h
 
 *Needs:* Mathlib `fwdDiff_iter_eq_sum_shift`.
 
-*Source:* Colmez, Lemma I.5.3 and its proof, printed p. 19: States and proves this coefficient bound by the forward-difference formula and induction on N.
+*Source:* Colmez (author PDF), Lemma I.5.3 and its proof, printed p. 19: States and proves this coefficient bound by the forward-difference formula and induction on N.
 
 ### 2.A.4 Taylor coefficients of a C^r function are its derivatives
 
@@ -157,7 +159,7 @@ Let N ∈ ℕ, C(N) = Σ_{n=1}^{N} v_p(n!), and a_0, …, a_N ∈ L. For every h
 
 Let r ≥ 0 and φ ∈ C^r(ℤ_p, L) with Taylor data φ^{(j)}, 0 ≤ j ≤ [r]. Then the φ^{(j)} are uniquely determined by φ. If r ≥ 1, φ is differentiable at every point with φ′ = φ^{(1)} ∈ C^{r−1}(ℤ_p, L), and there is C_0(r) with v′_{C^{r−1}}(φ′) ≥ v′_{C^r}(φ) − C_0(r). More precisely, for 0 ≤ j ≤ [r], φ^{(j)} is the j-th derivative of φ, φ^{(j)} ∈ C^{r−j}(ℤ_p, L) with Taylor data (φ^{(j)})^{(k)} = φ^{(j+k)}, v′_{C^{r−j}}(φ^{(j)}) ≥ v′_{C^r}(φ) − C([r]) and C_{φ^{(j)}, r−j}(h) ≥ C_{φ,r}(h) − C([r]) for all h.
 
-*Standing hypotheses beyond the conventions.* C^r(ℤ_p, L), its remainder ε_{φ,r}(x, y) = φ(x + y) − Σ_{j≤[r]} φ^{(j)}(x)y^j/j!, the function C_{φ,r}(h) = inf_{x, y∈p^hℤ_p} v_p(ε_{φ,r}(x, y)) − rh and the valuation v′_{C^r} are those of LocallyAnalyticDistributions:L2/c-r-functions.
+*Hypotheses.* C^r(ℤ_p, L), its remainder ε_{φ,r}(x, y) = φ(x + y) − Σ_{j≤[r]} φ^{(j)}(x)y^j/j!, the function C_{φ,r}(h) = inf_{x, y∈p^hℤ_p} v_p(ε_{φ,r}(x, y)) − rh and the valuation v′_{C^r} are those of LocallyAnalyticDistributions:L2/c-r-functions.
 
 *Proof outline.*
 1. Expanding ε(x, y + z) − ε(x + y, z) gives, for v_p(y), v_p(z) ≥ h, a polynomial identity in z whose coefficients are φ^{(j)}(x + y) − Σ_{k≤[r]−j} φ^{(j+k)}(x)y^k/k!, of valuation ≥ rh + C_{φ,r}(h).
@@ -168,7 +170,7 @@ Let r ≥ 0 and φ ∈ C^r(ℤ_p, L) with Taylor data φ^{(j)}, 0 ≤ j ≤ [r].
 
 *Needs:* 2.A.3 `taylor-coefficient-bounds`; `L2/c-r-functions` (predecessor packet: Functions of class C^r).
 
-*Source:* Colmez, Proposition I.5.4 and Remark I.5.5, printed pp. 19–20: Proves that the Taylor data of a C^r function are its successive derivatives, lie in C^{r−j}, and records the bounds on v′_{C^{r−j}} and C_{φ^{(j)},r−j}.
+*Source:* Colmez (author PDF), Proposition I.5.4 and Remark I.5.5, printed pp. 19–20: Proves that the Taylor data of a C^r function are its successive derivatives, lie in C^{r−j}, and records the bounds on v′_{C^{r−j}} and C_{φ^{(j)},r−j}.
 
 ### 2.A.5 Locally analytic functions are C^r with explicit bounds
 
@@ -176,17 +178,17 @@ Let r ≥ 0 and φ ∈ C^r(ℤ_p, L) with Taylor data φ^{(j)}, 0 ≤ j ≤ [r].
 
 For h ∈ ℕ and r ≥ 0, LA_h(ℤ_p, L) ⊆ C^r(ℤ_p, L), with v′_{C^r}(φ) ≥ v_{LA_h}(φ) − rh. For the Mahler valuation v_{C^r}(φ) = inf_n(v_p(a_n(φ)) − rℓ(n)) there is a constant C_1(r), independent of h, with v_{C^r}(φ) ≥ v_{LA_h}(φ) − rh − C_1(r) for every φ ∈ LA_h. In particular the normalised local monomial φ_{a,n,k} = 1_{a+p^nℤ_p}((x − a)/p^n)^k has v_{LA_n}(φ_{a,n,k}) = 0 and v_{C^r}(φ_{a,n,k}) ≥ −rn − C_1(r).
 
-*Standing hypotheses beyond the conventions.* LA_h(ℤ_p, L) and v_{LA_h} are those of LocallyAnalyticDistributions:L0/locally-analytic-radius.
+*Hypotheses.* LA_h(ℤ_p, L) and v_{LA_h} are those of LocallyAnalyticDistributions:L0/locally-analytic-radius.
 
 *Proof outline.*
 1. For φ ∈ LA_h, v_p(φ^{(j)}(x)/j!) ≥ v_{LA_h}(φ) − hj; the remainder is the analytic tail for v_p(y) ≥ h and a difference of values otherwise, which gives v′_{C^r}(φ) ≥ v_{LA_h}(φ) − rh (Colmez Proposition I.5.7).
-2. For the Mahler valuation use Amice's orthonormal basis [n/p^h]!·binom(x, n) of LA_h and ℓ(k) ≤ log(k + 1)/log p + 1; minimise a/(p − 1) − (1 + r)log(a + 1)/log p − r over a ≥ 0 (Proposition I.5.19).
+2. For the Mahler valuation use Amice's orthonormal basis [n/p^h]!·binom(x, n) of LA_h and ℓ(k) ≤ log_p(k + 1) + 1. Put F_r(a) = a/(p − 1) − (1 + r)log_p(a + 1) − r. This function is bounded below on a ≥ 0, so C_1(r) = max(0, −inf_{a≥0}F_r(a)) gives the claimed lower bound. The final constant in the proof of Proposition I.5.19 has the opposite sign as printed (E13).
 
-*Acceptance.* Polynomials have v′_{C^r} ≥ v_{LA_0} for every r. For r = 0 the bound is v_{C^0}(φ) ≥ v_{LA_h}(φ) − C_1(0).
+*Acceptance.* Polynomials have v′_{C^r} ≥ v_{LA_0} for every r. For r = 0 the bound is v_{C^0}(φ) ≥ v_{LA_h}(φ) − C_1(0). For φ = 1 and h = 0 both valuations are 0, so any usable C_1(r) must be nonnegative; the printed choice in I.5.19 fails for r > 0.
 
-*Needs:* `L0/locally-analytic-radius` (Locally analytic functions of fixed radius); `L0/amice-mahler-basis` (Amice's theorem on Mahler coefficients); `L2/c-r-functions` (predecessor packet: Functions of class C^r).
+*Needs:* `L0/locally-analytic-radius` (predecessor packet: Locally analytic functions of fixed radius); `L0/amice-mahler-basis` (predecessor packet: Amice's theorem on Mahler coefficients); `L2/c-r-functions` (predecessor packet: Functions of class C^r).
 
-*Source:* Colmez, Proposition I.5.7, printed p. 20; Proposition I.5.19 and its proof, printed pp. 24–25: I.5.7 proves LA_h ⊂ C^r with the v′ bound; I.5.19 proves the Mahler-valuation bound with the explicit constant C_1(r).
+*Source:* Colmez (author PDF), Proposition I.5.7, printed p. 20; Proposition I.5.19 and its proof, printed pp. 24–25: I.5.7 proves LA_h ⊂ C^r with the v′ bound; I.5.19 proves the Mahler-valuation bound with the explicit constant C_1(r). The theorem is retained with the repaired constant in its proof (E13).
 
 ### 2.A.6 Norms of Colmez's wavelets
 
@@ -203,7 +205,7 @@ For r ≥ 0 and k ≤ r: v′_{C^r}(e_{0,k,r}) = 0 and, for i ≥ 1, v′_{C^r}(
 
 *Needs:* 2.A.2 `colmez-wavelets`; `L2/c-r-functions` (predecessor packet: Functions of class C^r).
 
-*Source:* Colmez, Lemma I.5.10 and its proof, printed pp. 21–22; first sentence of the proof of Theorem I.5.14, printed p. 23: Gives the lower bound for v′_{C^r}(e_{i,k,r}) and deduces continuity of the wavelet synthesis map on bounded null families.
+*Source:* Colmez (author PDF), Lemma I.5.10 and its proof, printed pp. 21–22; first sentence of the proof of Theorem I.5.14, printed p. 23: Gives the lower bound for v′_{C^r}(e_{i,k,r}) and deduces continuity of the wavelet synthesis map on bounded null families.
 
 ### 2.A.7 Amplitude coefficients are bounded by the C^r valuation
 
@@ -212,14 +214,14 @@ For r ≥ 0 and k ≤ r: v′_{C^r}(e_{0,k,r}) = 0 and, for i ≥ 1, v′_{C^r}(
 For r ≥ 0 there is a constant C′_0(r) such that every φ ∈ LP^{[0,r]}(ℤ_p, L) with amplitude coefficients b_{i,k}(φ) satisfies inf_{i,k} v_p(b_{i,k}(φ)) ≥ v′_{C^r}(φ) − C′_0(r). For locally constant φ = Σ_{i≤p^h−1} b_i e_{i,0,r}: inf_i v_p(b_i) ≥ v′_{C^r}(φ) − r.
 
 *Proof outline.*
-1. Locally constant case by induction on h: ε_{φ,r}(i, p^{h−1}) equals p^{[hr]}b_{i+p^{h−1}} for i < p^{h−1} and p^{[hr]}(b_{i+p^{h−1}} − b_i) for p^{h−1} ≤ i ≤ p^h − 1, which bounds the top-level coefficients; subtract the top level and use v′_{C^r}(e_{i,0,r}) ≥ [hr] − hr + r (Colmez Lemma I.5.11).
+1. For a locally constant function of level h, its top-level coordinates at ℓ(i) = h are b_i = p^{−[hr]}(φ(i) − φ(i⁻)), where i⁻ removes the leading digit. The step i − i⁻ has valuation h − 1 and the higher Taylor data of φ are zero, hence v_p(b_i) ≥ v′_{C^r}(φ) + r(h − 1) − [hr] ≥ v′_{C^r}(φ) − r. Subtract these top-level wavelets: wavelet-norm-bound gives v′_{C^r}(e_{i,0,r}) ≥ [hr] − hr + r, so the remaining level h − 1 function has valuation at least v′_{C^r}(φ). Induction, starting with the constant level h = 0, proves the bound without using the out-of-range indices printed in Lemma I.5.11 (E12).
 2. General case by induction on [r]: differentiate (cr-derivatives bounds v′_{C^{r−1}}(φ′)) to control the b_{i,k} with k ≥ 1 through deriv_colmezWavelet, then apply the locally constant case to φ − Σ_{k≥1} b_{i,k}e_{i,k,r}, using wavelet-norm-bound (Proposition I.5.12).
 
 *Acceptance.* For r = 0 the bound is the isometry of the van der Put expansion: inf v_p(b_i) = v_{C^0}(φ).
 
 *Needs:* 2.A.2 `colmez-wavelets`; 2.A.4 `cr-derivatives`; 2.A.6 `wavelet-norm-bound`.
 
-*Source:* Colmez, Lemma I.5.11 and Proposition I.5.12 with their proofs, printed p. 22: Bounds the amplitude coefficients of a locally polynomial function below by its C^r valuation, first for locally constant functions and then by induction on [r].
+*Source:* Colmez (author PDF), Lemma I.5.11 and Proposition I.5.12 with their proofs, printed p. 22: Bounds the amplitude coefficients of a locally polynomial function below by its C^r valuation, first for locally constant functions and then by induction on [r]. The top-level coefficient argument corrects the printed index range (E12).
 
 ### 2.A.8 Taylor truncations converge in C^r
 
@@ -236,11 +238,11 @@ Let r ≥ 0 and φ ∈ C^r(ℤ_p, L). For h ∈ ℕ let φ_h = Σ_{i=0}^{p^h−1
 
 *Needs:* 2.A.4 `cr-derivatives`; 2.A.5 `cr-locally-analytic-bound`; 2.A.1 `locally-polynomial-functions`.
 
-*Source:* Colmez, Proposition I.5.13 and its proof, printed p. 23: Defines the Taylor truncations φ_h, bounds their successive differences in LA_{h+1}, and proves convergence to φ in C^r, hence density of LP^{[0,r]}.
+*Source:* Colmez (author PDF), Proposition I.5.13 and its proof, printed p. 23: Defines the Taylor truncations φ_h, bounds their successive differences in LA_{h+1}, and proves convergence to φ in C^r, hence density of LP^{[0,r]}.
 
 ### 2.A.9 The wavelet basis of C^r(ℤ_p, L)
 
-`LocallyAnalyticDistributions:L2/cr-wavelet-basis` · Theorem. Planet: *Wavelet basis of C^r*.
+`LocallyAnalyticDistributions:L2/cr-wavelet-basis` · Theorem.
 
 For r ≥ 0 the family e_{i,k,r} (i ∈ ℕ, 0 ≤ k ≤ [r]) is a Banach basis of C^r(ℤ_p, L): the synthesis map c₀(ℕ × {0, …, [r]}, L) → C^r(ℤ_p, L), (b_{i,k}) ↦ Σ b_{i,k}e_{i,k,r}, is an isomorphism of L-Banach spaces, with inf v_p(b_{i,k}) − 1 ≤ v′_{C^r}(Σ b_{i,k}e_{i,k,r}) and v′_{C^r}(φ) − C′_0(r) ≤ inf v_p(b_{i,k}(φ)). The amplitude coefficients b_{i,k} extend to continuous linear forms on C^r. Dually, μ ↦ (μ(e_{i,k,r}))_{i,k} identifies D_r(ℤ_p, L) = C^r(ℤ_p, L)′ with the bounded families ℓ^∞(ℕ × {0, …, [r]}, L).
 
@@ -254,7 +256,7 @@ For r ≥ 0 the family e_{i,k,r} (i ∈ ℕ, 0 ≤ k ≤ [r]) is a Banach basis 
 
 *Needs:* 2.A.6 `wavelet-norm-bound`; 2.A.7 `amplitude-coefficient-bound`; 2.A.8 `taylor-truncation-density`; Mathlib `ZeroAtInftyContinuousMap`.
 
-*Source:* Colmez, Theorem I.5.14 with its proof and Definition I.5.15, printed pp. 23–24: The e_{i,k,r} form a Banach basis of C^r; the coordinates are the amplitude coefficients.
+*Source:* Colmez (author PDF), Theorem I.5.14 with its proof and Definition I.5.15, printed pp. 23–24: The e_{i,k,r} form a Banach basis of C^r; the coordinates are the amplitude coefficients.
 
 ### 2.A.10 The Mahler criterion for C^r
 
@@ -262,7 +264,7 @@ For r ≥ 0 the family e_{i,k,r} (i ∈ ℕ, 0 ≤ k ≤ [r]) is a Banach basis 
 
 Let r ≥ 0 and φ ∈ C(ℤ_p, L) with Mahler coefficients a_n(φ). Then φ ∈ C^r(ℤ_p, L) if and only if v_p(a_n(φ)) − rℓ(n) → +∞, and the Mahler valuation v_{C^r}(φ) = inf_n(v_p(a_n(φ)) − rℓ(n)) is equivalent to v′_{C^r}; the functions p^{[rℓ(n)]}binom(x, n), n ∈ ℕ, form a Banach basis of C^r(ℤ_p, L). Moreover, for a locally constant φ with van der Put coefficients b_i(φ): v_p(b_i(φ)) ≥ rℓ(i) + v_{C^r}(φ) if r < 1 and v_p(b_i(φ)) ≥ rℓ(i) + v_{C^r}(φ) − 1 if r ≥ 1.
 
-*Standing hypotheses beyond the conventions.* Mahler's theorem (the binom(x, n) are an orthonormal basis of C(ℤ_p, L), with a_n(φ) the n-th forward difference at 0) is Mathlib's PadicInt.mahlerEquiv.
+*Hypotheses.* Mahler's theorem (the binom(x, n) are an orthonormal basis of C(ℤ_p, L), with a_n(φ) the n-th forward difference at 0) is Mathlib's PadicInt.mahlerEquiv.
 
 *Proof outline.*
 1. One inequality: v_{C^r}(e_{i,k,r}) ≥ −1 − C_1(r) by cr-locally-analytic-bound, since v_{LA_{ℓ(i)}}(e_{i,k,r}) = [rℓ(i)], and the wavelets form a Banach basis (Colmez Corollary I.5.20).
@@ -271,9 +273,9 @@ Let r ≥ 0 and φ ∈ C(ℤ_p, L) with Mahler coefficients a_n(φ). Then φ ∈
 
 *Acceptance.* r = 0 is Mahler's theorem. At p = 3, r = 1 the function with a_{3^k} = 3^k and other coefficients 0 is continuous but not C¹: v_3(a_{3^k}) − ℓ(3^k) = −1 for every k.
 
-*Needs:* 2.A.9 `cr-wavelet-basis`; 2.A.5 `cr-locally-analytic-bound`; `L0/amice-mahler-basis` (Amice's theorem on Mahler coefficients); Mathlib `PadicInt.mahlerEquiv`.
+*Needs:* 2.A.9 `cr-wavelet-basis`; 2.A.5 `cr-locally-analytic-bound`; `L0/amice-mahler-basis` (predecessor packet: Amice's theorem on Mahler coefficients); Mathlib `PadicInt.mahlerEquiv`.
 
-*Source:* Colmez, Theorem I.5.17, Corollary I.5.18, Proposition I.5.19, Corollary I.5.20, Proposition I.5.21, Corollary I.5.22, Lemma I.5.23 and the end of the proof of I.5.17, printed pp. 24–27: Characterises C^r by the growth of Mahler coefficients and proves the two valuations equivalent.
+*Source:* Colmez (author PDF), Theorem I.5.17, Corollary I.5.18, Proposition I.5.19, Corollary I.5.20, Proposition I.5.21, Corollary I.5.22, Lemma I.5.23 and the end of the proof of I.5.17, printed pp. 24–27: Characterises C^r by the growth of Mahler coefficients and proves the two valuations equivalent.
 
 ### 2.A.11 Differentiation is surjective on C^r with locally polynomial kernel
 
@@ -290,7 +292,7 @@ Let j ≥ 1 and r ≥ j. Then (d/dx)^j : C^r(ℤ_p, L) → C^{r−j}(ℤ_p, L) i
 
 *Needs:* 2.A.9 `cr-wavelet-basis`; 2.A.2 `colmez-wavelets`; 2.A.4 `cr-derivatives`; Mathlib `ContinuousLinearEquiv.ofBijective`.
 
-*Source:* Colmez, Proposition I.5.16 and its proof, printed p. 24: (d/dx)^j : C^r → C^{r−j} is surjective with kernel the closure of LP^{[0,j−1]}, by the derivative formula on wavelets.
+*Source:* Colmez (author PDF), Proposition I.5.16 and its proof, printed p. 24: (d/dx)^j : C^r → C^{r−j} is surjective with kernel the closure of LP^{[0,j−1]}, by the derivative formula on wavelets.
 
 ### 2.A.12 C^r(ℤ_p, L) is a Banach algebra
 
@@ -298,7 +300,7 @@ Let j ≥ 1 and r ≥ j. Then (d/dx)^j : C^r(ℤ_p, L) → C^{r−j}(ℤ_p, L) i
 
 For r ≥ 0, C^r(ℤ_p, L) is an L-Banach algebra under pointwise multiplication: for φ, ψ ∈ C^r the product is in C^r with Taylor data (φψ)^{(k)} = Σ_{i+j=k} binom(k, i)φ^{(i)}ψ^{(j)} and v′_{C^r}(φψ) ≥ v′_{C^r}(φ) + v′_{C^r}(ψ). In particular, multiplication by a locally analytic function (for example x, z^x with v_p(z − 1) > 0, or the indicator 1_U of a compact open U ⊆ ℤ_p) is a continuous endomorphism of C^r(ℤ_p, L).
 
-*Standing hypotheses beyond the conventions.* De Ieso works on O_F with the norm sup(sup_{j,x}|φ^{(j)}(x)/j!|, sup_{x,y}|ε(x, y)|/|y|^r); for F = ℚ_p this is p^{−v′_{C^r}} and his Definition 2.1 is Colmez's definition of C^r.
+*Hypotheses.* De Ieso works on O_F with the norm sup(sup_{j,x}|φ^{(j)}(x)/j!|, sup_{x,y}|ε(x, y)|/|y|^r); for F = ℚ_p this is p^{−v′_{C^r}} and his Definition 2.1 is Colmez's definition of C^r.
 
 *Proof outline.*
 1. Expand the product of the two Taylor expansions; the remainder of φψ is a sum of terms each containing a remainder of φ or of ψ or a monomial of degree > [r] in y, which gives the norm inequality (De Ieso, proof of Lemma 2.9).
@@ -308,7 +310,7 @@ For r ≥ 0, C^r(ℤ_p, L) is an L-Banach algebra under pointwise multiplication
 
 *Needs:* 2.A.4 `cr-derivatives`; 2.A.5 `cr-locally-analytic-bound`; `L2/c-r-functions` (predecessor packet: Functions of class C^r).
 
-*Source:* De Ieso, Lemma 2.9 and its proof, printed pp. 10–12; Definition 2.1, printed p. 5: Proves that the space of C^r functions on O_F is a Banach algebra; with F = ℚ_p the definition is Colmez's. Colmez, §II.4.2, printed p. 34: Notes that an order-r distribution can be multiplied by a C^r function, which uses this algebra structure.
+*Source:* De Ieso, Lemma 2.9 and its proof, printed pp. 10–12; Definition 2.1, printed p. 5: Proves that the space of C^r functions on O_F is a Banach algebra; with F = ℚ_p the definition is Colmez's. Colmez (author PDF), §II.4.2, printed p. 34: Notes that an order-r distribution can be multiplied by a C^r function, which uses this algebra structure.
 
 ### 2.A.13 Composition with charts preserves C^r
 
@@ -319,7 +321,7 @@ Let r ≥ 0 and φ_1 : ℤ_p → ℤ_p. Assume one of: (a) r = 0 and φ_1 is con
 *Proof outline.*
 1. (a) Composition of continuous maps.
 2. (b) For φ_2 ∈ C^r with 0 < r < 1, v_p(φ_2(u) − φ_2(w)) − r·v_p(u − w) is bounded below and tends to +∞ as v_p(u − w) → ∞; substitute u − w = φ_1(x + y) − φ_1(x), of valuation ≥ v_p(y) − c.
-3. (c) Follow De Ieso's proof of Proposition 2.12 with F = ℚ_p: insert φ_2(φ_1(x) + Σ_{i≥1}φ_1^{(i)}(x)y^i/i!), bound the first difference by the Lipschitz constant of φ_2 ∈ C^1 times the remainder of φ_1, and expand φ_2's Taylor polynomial at φ_1(x) (cr-derivatives, cr-banach-algebra for the products).
+3. (c) Follow De Ieso's proof of Proposition 2.12 with F = ℚ_p: insert φ_2(φ_1(x) + Σ_{i≥1}φ_1^{(i)}(x)y^i/i!), bound the first difference by the Lipschitz constant of φ_2 ∈ C^1 times the remainder of φ_1, and expand φ_2's Taylor polynomial at φ_1(x) (cr-derivatives, cr-banach-algebra for the products). Here the Lipschitz constant comes from the full C^1 norm, including its remainder bound; the derivative supremum alone used in De Ieso (2.25) is insufficient (E14).
 4. Continuity: convergence in C^r implies uniform convergence, so the graph of φ_2 ↦ φ_2∘φ_1 is closed and the closed graph theorem applies.
 5. Counterexample: for v_p(y) ≥ h the digits of x and x + y agree below h, so v_p(d(x + y) − d(x)) ≥ ⌊2h/3⌋ ≥ h/2 + h/6 − 1, and d is C^{1/2}; but d(d(p^m)) − d(d(0)) = p^{⌊2⌊2m/3⌋/3⌋}, of valuation at most 4m/9, so C_{d∘d,1/2}(m) ≤ −m/18 → −∞.
 
@@ -327,7 +329,7 @@ Let r ≥ 0 and φ_1 : ℤ_p → ℤ_p. Assume one of: (a) r = 0 and φ_1 is con
 
 *Needs:* 2.A.4 `cr-derivatives`; 2.A.12 `cr-banach-algebra`; Mathlib `LinearMap.continuous_of_isClosed_graph`; `L2/c-r-functions` (predecessor packet: Functions of class C^r).
 
-*Source:* Colmez, Proposition I.5.6, printed p. 20 (page image checked): States that a composite of C^r maps is C^r for every r ≥ 0, with the proof referred to the archimedean case; the statement is false for 0 < r < 1 (E8) and is used here with the hypotheses above. De Ieso, Definition 2.10, Lemma 2.11, Proposition 2.12 and its proof, printed pp. 12–14 (pages 12–13 checked as images): Proves composition with continuity for [r] ≥ 1 and leaves [r] = 0 to the reader; that case is false for 0 < r < 1 (E9).
+*Source:* Colmez (author PDF), Proposition I.5.6, printed p. 20 (page image checked): States that a composite of C^r maps is C^r for every r ≥ 0, with the proof referred to the archimedean case; the statement is false for 0 < r < 1 (E8) and is used here with the hypotheses above. De Ieso, Definition 2.10, Lemma 2.11, Proposition 2.12 and its proof, printed pp. 12–14 (pages 12–13 checked as images): The Taylor-composition argument gives the result for [r] ≥ 1 after replacing the derivative-only estimate (2.25) by a full C^1 Lipschitz bound (E14); the case [r] = 0 left to the reader fails for 0 < r < 1 (E9).
 
 ## 2.B. Order on one-dimensional groups
 
@@ -337,12 +339,12 @@ The consumers apply order-h distributions on ℤ_p^× and on the cyclotomic grou
 
 `LocallyAnalyticDistributions:L2/order-on-one-dimensional-groups` · Definition.
 
-Let G be a compact abelian p-adic Lie group of dimension 1 and κ : ℤ_p → H a topological group isomorphism onto an open subgroup H ⊆ G (a chart; for example G = ℤ_p with κ = id, G = ℤ_p^× with H = 1 + pℤ_p and κ(x) = (1 + p)^x for p odd, or H = 1 + 4ℤ_2 and κ(x) = 5^x for p = 2). C^r(G, L) is the space of f : G → L such that x ↦ f(aκ(x)) lies in C^r(ℤ_p, L) for every a ∈ G, normed by the minimum of the finitely many coset valuations; D_r(G, L) = C^r(G, L)′. Its topology does not depend on (H, κ) (the norm does). For a compact open U ⊆ ℤ_p, C^r(U, L) is the space of restrictions of C^r(ℤ_p, L), and D_r(U, L) is the space of order-r distributions on ℤ_p supported in U, that is 1_U·D_r(ℤ_p, L). For r = 0, C^0(G, L) = C(G, L) and D_0(G, L) is the space of bounded measures, Mathlib's AbstractMeasure G L L. LA(G, L) is dense in C^r(G, L), so D_r(G, L) ⊆ D(G, L), and D_r ⊆ D_s for r ≤ s.
+Let G be a compact abelian p-adic Lie group of dimension 1 and κ : ℤ_p → H a topological group isomorphism onto an open subgroup H ⊆ G (a chart; for example G = ℤ_p with κ = id, G = ℤ_p^× with H = 1 + pℤ_p and κ(x) = (1 + p)^x for p odd, or H = 1 + 4ℤ_2 and κ(x) = 5^x for p = 2). C^r(G, L) is the space of f : G → L such that x ↦ f(aκ(x)) lies in C^r(ℤ_p, L) for every a ∈ G, normed by the minimum of the finitely many coset valuations; D_r(G, L) = C^r(G, L)′. Its topology does not depend on (H, κ) (the norm does). For a compact open U ⊆ ℤ_p, C^r(U, L) is the space of restrictions of C^r(ℤ_p, L), and D_r(U, L) is the space of order-r distributions on ℤ_p supported in U, that is 1_U·D_r(ℤ_p, L). For r = 0, C^0(G, L) = C(G, L) and D_0(G, L) identifies algebraically with the space of bounded measures, Mathlib's AbstractMeasure G L L. Use the continuous-dual operator norm on D_0; the type synonym AbstractMeasure has a separately chosen topology, so this identification does not assert agreement with that topology. LA(G, L) is dense in C^r(G, L), so D_r(G, L) ⊆ D(G, L), and D_r ⊆ D_s for r ≤ s.
 
 *Proof outline.*
 1. Two charts differ, on a common open subgroup p^mH, by a continuous isomorphism between open subgroups of ℤ_p, which is multiplication by some c ∈ ℚ_p^×, followed by translations between cosets; these affine maps preserve C^r continuously by cr-composition, with non-isometric constants (Loeffler, footnote 2).
 2. Restriction to a compact open U and extension by zero are continuous because 1_U ∈ LA ⊆ C^r and C^r is a Banach algebra (cr-banach-algebra).
-3. r = 0: C^0 = continuous functions (Colmez Remark I.5.1) and Mathlib's AbstractMeasure G L L is by definition the space of continuous linear forms on C(G, L).
+3. r = 0: C^0 = continuous functions (Colmez Remark I.5.1) and Mathlib's AbstractMeasure G L L is by definition the space of continuous linear forms on C(G, L). This is an algebraic identification of continuous linear forms; transfer the operator norm to the measure carrier when a Banach-space identification is wanted.
 4. Density of LA by taylor-truncation-density in each chart; D_r ⊆ D_s for r ≤ s by the Amice characterisation of LocallyAnalyticDistributions:L2/order-r-distributions.
 
 *API.*
@@ -350,19 +352,20 @@ Let G be a compact abelian p-adic Lie group of dimension 1 and κ : ℤ_p → H 
 - `TauCeti.LocallyAnalytic.CrOn_chart_independent` (characterisation): For two charts κ, κ′ onto open subgroups of a compact G, CrOn κ r = CrOn κ′ r; the two norms are equivalent (README).
 - `TauCeti.LocallyAnalytic.CrOn_zero_eq_continuous` (compatibility): For a chart onto an open subgroup of a compact G, f ∈ CrOn κ 0 iff f is continuous; the norm is equivalent to the sup norm (README).
 - `TauCeti.LocallyAnalytic.DistOrderOn` (constructor): DistOrderOn κ r = (CrOn κ r)′, the order-r distributions on G.
-- `TauCeti.LocallyAnalytic.DistOrderOn_zero_equiv_abstractMeasure` (compatibility): DistOrderOn κ 0 ≃ AbstractMeasure G L L (Mathlib's D(G, L)).
-- `TauCeti.LocallyAnalytic.DistOrderOn_restrict` (functoriality): For U ⊆ ℤ_p compact open, DistOrderOn U r ≃ {μ ∈ DistOrder r | μ = 1_U·μ}.
+- `TauCeti.LocallyAnalytic.DistOrderOn_zero_equiv_abstractMeasure` (compatibility): For r = 0, DistOrderOn κ 0 ≃ₗ[L] AbstractMeasure G L L as spaces of continuous linear forms; the Banach topology here is the dual operator norm, not an assertion about the type synonym's chosen topology.
+- `TauCeti.LocallyAnalytic.DistOrderOn_restrict` (functoriality): For compact open U ⊆ ℤ_p and r ≥ 0, the continuous dual of C^r(U, L) is continuously linearly equivalent to {μ ∈ D_r(ℤ_p, L) | μ = 1_U·μ}, by restriction and extension by zero. The κ parameter of DistOrderOn is reserved for group charts.
 - `TauCeti.LocallyAnalytic.DistOrderOn_translate` (functoriality): Translation by g ∈ G maps DistOrderOn κ r to itself continuously.
-- `TauCeti.LocallyAnalytic.DistOrderOn_mono` (relation): DistOrderOn κ r ⊆ DistOrderOn κ s inside D(G, L) for r ≤ s.
+- `TauCeti.LocallyAnalytic.DistOrderOn_mono` (relation): DistOrderOn κ r ⊆ DistOrderOn κ s inside D(G, L) for 0 ≤ r ≤ s.
+- `TauCeti.LocallyAnalytic.DistOrderOn_extLP` (extensionality): For μ, ν ∈ D_r(G, L), equality on all degree-≤[r] locally polynomial tests in every group chart implies μ = ν, by density. For U ⊆ ℤ_p compact open, use their extensions by zero.
 
 *Unit tests.*
 - `LocallyAnalyticTests.dirac_one_order_zero_units` (computation): δ_1 ∈ D_0(ℤ_p^×, L), while dδ_1 ∈ D_1(ℤ_p^×, L) and dδ_1 ∉ D_r(ℤ_p^×, L) for r < 1.
 - `LocallyAnalyticTests.CrOn_identity_chart` (degenerate): For G = ℤ_p and κ = id, CrOn κ r = C^r(ℤ_p, L) and DistOrderOn κ r = D_r(ℤ_p, L).
-- `LocallyAnalyticTests.DistOrderOn_zero_units` (compatibility): D_0(ℤ_p^×, L) is Mathlib's AbstractMeasure ℤ_[p]ˣ L L.
+- `LocallyAnalyticTests.DistOrderOn_zero_units` (compatibility): D_0(ℤ_p^×, L) is Mathlib's AbstractMeasure ℤ_[p]ˣ L L. This identifies the linear spaces of forms; the order-zero norm is the operator norm.
 - `LocallyAnalyticTests.chart_scaling_not_isometric` (characterisation): For p odd, r = 1/2 and the charts κ(x) = (1 + p)^x onto 1 + pℤ_p and κ′(x) = (1 + p)^{px} onto 1 + p²ℤ_p, the function 1_{1+p³ℤ_p} on ℤ_p^× transports to 1_{p²ℤ_p} and to 1_{pℤ_p}, with C^{1/2} valuations −1/2 and 0: the topology is chart-independent, the norm is not.
 - `LocallyAnalyticTests.digit_chart_rejected` (non-example): Pulling back along the digit map d of cr-composition does not preserve C^{1/2}; d is not a chart (it is not a group homomorphism and not Lipschitz).
 
-*Uses.* ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility: values of slope-h eigensymbols are h-admissible distributions on ℤ_p and ℤ_p^×; PadicHodgeRegulators:L3/growth: projections of the regulator are distributions of order h on the cyclotomic group; RJW, Theorem B.1: the analytic p-adic L-function is a distribution of order v_p(α_p) on ℤ_p^×; 2.D.3 `unit-character-determination`: its domain on ℤ_p^×.
+*Uses.* `ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility`: values of slope-h eigensymbols are h-admissible distributions on ℤ_p and ℤ_p^×; `PadicHodgeRegulators:L3/growth`: projections of the regulator are distributions of order h on the cyclotomic group; `RJW, Theorem B.1`: the analytic p-adic L-function is a distribution of order v_p(α_p) on ℤ_p^×; 2.D.3 `unit-character-determination`: its domain on ℤ_p^×.
 
 *Acceptance.* G = ℤ_p, κ = id recovers C^r(ℤ_p, L) and D_r(ℤ_p, L). On ℤ_p^×, the Dirac mass δ_1 has order 0, and dδ_1 (f ↦ f′(1)) has order 1 and no smaller order.
 
@@ -376,11 +379,11 @@ The stage asks for order-h admissibility defined by norm estimates on small ball
 
 ### 2.C.1 Admissible locally polynomial distributions
 
-`LocallyAnalyticDistributions:L2/admissible-algebraic-distributions` · Definition. Planet: *Admissible locally polynomial distributions*.
+`LocallyAnalyticDistributions:L2/admissible-algebraic-distributions` · Definition.
 
-For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms on LP^{[0,N]}(ℤ_p, L) (for N = ∞, on all locally polynomial functions). Equivalently, such a form is a family of values ∫_{a+p^nℤ_p} x^i μ (a ∈ ℤ_p, n ∈ ℕ, i ≤ N) depending on a only modulo p^n and additive under subdivision: ∫_{a+p^nℤ_p} x^i μ = Σ_{c=0}^{p−1} ∫_{a+cp^n+p^{n+1}ℤ_p} x^i μ. For r ≥ 0 with N ≥ [r] put v_{D_r,N}(μ) = inf_{a∈ℤ_p, k≤N, n∈ℕ}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) ∈ ℝ ∪ {±∞}. The r-admissible (order-r) algebraic distributions of degree ≤ N are D^{[0,N]}_r(ℤ_p, L) = {μ : v_{D_r,N}(μ) > −∞}, an L-Banach space for v_{D_r,N}. Restriction gives ι : D(ℤ_p, L) → D^{[0,N]}_alg(ℤ_p, L). When N is finite, v_{D_r,N} is equivalent on D^{[0,N]}_alg to the top-degree valuation v′_{D_r,N}(μ) = inf_{a,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^N μ) + rn).
+For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms on LP^{[0,N]}(ℤ_p, L) (for N = ∞, on all locally polynomial functions). Equivalently, such a form is a family of values ∫_{a+p^nℤ_p} x^i μ (a ∈ ℤ_p, n ∈ ℕ, i ≤ N) depending on a only modulo p^n and additive under subdivision: ∫_{a+p^nℤ_p} x^i μ = Σ_{c=0}^{p−1} ∫_{a+cp^n+p^{n+1}ℤ_p} x^i μ. For every r ≥ 0 put v_{D_r,N}(μ) = inf_{a∈ℤ_p, k≤N, n∈ℕ}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) ∈ ℝ ∪ {±∞}. The r-admissible (order-r) algebraic distributions of degree ≤ N are D^{[0,N]}_r(ℤ_p, L) = {μ : v_{D_r,N}(μ) > −∞}, an L-Banach space for v_{D_r,N}. Restriction gives ι : D(ℤ_p, L) → D^{[0,N]}_alg(ℤ_p, L). When N is finite, v_{D_r,N} is equivalent on D^{[0,N]}_alg to the top-degree valuation v′_{D_r,N}(μ) = inf_{a,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^N μ) + rn). The restriction N ≥ [r] is needed for the Amice–Vélu–Vishik isomorphism, not for defining admissibility; in particular the degree-0 Haar example at r = 1 is allowed.
 
-*Standing hypotheses beyond the conventions.* Pollack–Stevens' h-admissibility (‖μ‖ on balls of radius s is O(s^{−h})) is order h in this sense; see LocallyAnalyticDistributions:L2/order-r-distributions.
+*Hypotheses.* Pollack–Stevens' h-admissibility (‖μ‖ on balls of radius s is O(s^{−h})) is order h in this sense; see LocallyAnalyticDistributions:L2/order-r-distributions.
 
 *Proof outline.*
 1. Linear forms on LP^{[0,N]} correspond to compatible ball moments through the local monomial basis of locally-polynomial-functions.
@@ -389,14 +392,15 @@ For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms 
 
 *API.*
 - `TauCeti.LocallyAnalytic.AlgDist` (constructor): AlgDist N = (LPAll N →ₗ[L] L), the algebraic distributions of degree ≤ N.
-- `TauCeti.LocallyAnalytic.AlgDist.ofBallMoments` (constructor): Builds an algebraic distribution from ball moments m(a, n, i) that depend on a mod p^n and are additive under subdivision.
+- `TauCeti.LocallyAnalytic.AlgDist.ofBallMoments` (constructor): Builds an algebraic distribution from raw moments m(a, n, i) = μ(1_{a+p^nℤ_p}x^i), i ≤ N, depending on a mod p^n and additive under subdivision. Normalised moments require the corresponding binomial change of centre, rather than this raw additivity rule.
 - `TauCeti.LocallyAnalytic.localMonomial` (data): localMonomial a n k = 1_{a+p^nℤ_p}·((x − a)/p^n)^k ∈ LPAll k.
-- `TauCeti.LocallyAnalytic.admissibleNorm` (data): admissibleNorm r N μ = sup_{a,n,k≤N} |μ(localMonomial a n k)|·p^{−rn} = p^{−v_{D_r,N}(μ)}, the admissibility norm in multiplicative form.
+- `TauCeti.LocallyAnalytic.admissibleNorm` (data): admissibleNorm r N μ = sup_{a,n,k≤N} |μ(localMonomial a n k)|·p^{−rn} = p^{−v_{D_r,N}(μ)}, the admissibility norm in multiplicative form. On arbitrary AlgDist N this supremum is interpreted in ℝ≥0∞; its finite real value is the norm on AdmissibleAlgDist r N.
 - `TauCeti.LocallyAnalytic.IsAdmissible` (characterisation): IsAdmissible r N μ ↔ ∃ C, ∀ a n k, k ≤ N → ‖μ(localMonomial a n k)‖ ≤ C·p^{rn}, i.e. v_{D_r,N}(μ) > −∞.
 - `TauCeti.LocallyAnalytic.AdmissibleAlgDist` (constructor): The L-subspace D^{[0,N]}_r of AlgDist N cut out by IsAdmissible r N, normed by admissibleNorm.
 - `TauCeti.LocallyAnalytic.isAdmissible_mono` (relation): IsAdmissible r N μ → IsAdmissible s N μ for r ≤ s.
-- `TauCeti.LocallyAnalytic.isAdmissible_iff_topDegree` (characterisation): For finite N ≥ [r], IsAdmissible r N μ holds iff the bound holds for k = N alone.
+- `TauCeti.LocallyAnalytic.isAdmissible_iff_topDegree` (characterisation): For every finite N and r ≥ 0, IsAdmissible r N μ holds iff the bound holds for k = N alone.
 - `TauCeti.LocallyAnalytic.restrictAlg` (projection): ι : D(ℤ_p, L) → AlgDist N, restriction to locally polynomial functions; ι maps D_r into AdmissibleAlgDist r N.
+- `TauCeti.LocallyAnalytic.AlgDist.ext_ballMoments` (extensionality): Two elements of AlgDist N are equal if their raw moments μ(1_{a+p^nℤ_p}x^i) agree for every a, n and i ≤ N; this follows from the local monomial basis.
 
 *Unit tests.*
 - `LocallyAnalyticTests.admissible_dirac` (computation): For a ∈ ℤ_p, ι(δ_a) has v_{D_0,N}(ι δ_a) = 0: every normalised moment of δ_a is 0 or ((a − b)/p^n)^k with v_p ≥ 0, and the moment of 1_{ℤ_p} is 1.
@@ -405,13 +409,13 @@ For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms 
 - `LocallyAnalyticTests.admissible_restrict_compat` (compatibility): For μ ∈ D(ℤ_p, L), v_{D_r,∞}(ι μ) = inf_n(v_{LA_n}(μ) + rn), Colmez's v_{D_r}(μ) (Proposition II.3.3(i)).
 - `LocallyAnalyticTests.admissible_critical_restriction_zero` (non-example): ι(dδ_0) = 0 on LP^{[0,0]} although dδ_0 ≠ 0: restriction to LC is not injective on D_1, so values on LC cannot determine an order-1 distribution.
 
-*Uses.* Colmez, Theorem II.3.2: source and target of the Amice–Vélu–Vishik extension; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem): the hypothesis of the extension theorem is that μ ∈ D^{[0,N]}_r; ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility: the values of a slope-h eigensymbol are h-admissible in this sense; RJW, Theorem B.1: growth of order v_p(α_p) of the analytic p-adic L-function.
+*Uses.* `Colmez, Theorem II.3.2`: source and target of the Amice–Vélu–Vishik extension; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem): the hypothesis of the extension theorem is that μ ∈ D^{[0,N]}_r; `ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility`: the values of a slope-h eigensymbol are h-admissible in this sense; `RJW, Theorem B.1`: growth of order v_p(α_p) of the analytic p-adic L-function.
 
 *Acceptance.* The Dirac mass δ_a lies in D^{[0,N]}_0 for every N. The normalised Haar functional on LC lies in D^{[0,0]}_1 and in no D^{[0,0]}_r with r < 1.
 
 *Needs:* 2.A.1 `locally-polynomial-functions`.
 
-*Source:* Colmez, §II.3.3, definition of D^I_alg and the compatibility relations before Theorem II.3.2, printed p. 32; definition of D^{[0,N]}_r and v_{D_r,N} in the proof of Theorem II.3.2(ii), printed p. 33; Proposition II.3.3(iii) and its proof, printed pp. 33–34: Defines algebraic distributions as linear forms on LP^I, their ball-moment description, the admissibility valuation v_{D_r,N}, the subspace D^{[0,N]}_r, and the equivalent top-degree valuation.
+*Source:* Colmez (author PDF), §II.3.3, definition of D^I_alg and the compatibility relations before Theorem II.3.2, printed p. 32; definition of D^{[0,N]}_r and v_{D_r,N} in the proof of Theorem II.3.2(ii), printed p. 33; Proposition II.3.3(iii) and its proof, printed pp. 33–34: Defines algebraic distributions as linear forms on LP^I, their ball-moment description, the admissibility valuation v_{D_r,N}, the subspace D^{[0,N]}_r, and the equivalent top-degree valuation.
 
 ### 2.C.2 Order-r distributions satisfy the ball-moment bound
 
@@ -419,7 +423,7 @@ For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms 
 
 If μ ∈ D_r(ℤ_p, L), then for all a ∈ ℤ_p, k ∈ ℕ and n ∈ ℕ, v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ v′_{D_r}(μ) − C_1(r) − rn. Hence ι(μ) ∈ D^{[0,∞]}_r with v_{D_r,∞}(ι μ) ≥ v′_{D_r}(μ) − C_1(r); in particular ι(μ) ∈ D^{[0,N]}_r for every N.
 
-*Standing hypotheses beyond the conventions.* v′_{D_r} is the dual valuation of the Mahler valuation v_{C^r}, as in LocallyAnalyticDistributions:L2/order-r-distributions.
+*Hypotheses.* v′_{D_r} is the dual valuation of the Mahler valuation v_{C^r}, as in LocallyAnalyticDistributions:L2/order-r-distributions.
 
 *Proof outline.*
 1. The test function φ_{a,n,k} lies in LA_n with v_{LA_n}(φ_{a,n,k}) = 0, so v_{C^r}(φ_{a,n,k}) ≥ −rn − C_1(r) by cr-locally-analytic-bound.
@@ -429,7 +433,7 @@ If μ ∈ D_r(ℤ_p, L), then for all a ∈ ℤ_p, k ∈ ℕ and n ∈ ℕ, v_p(
 
 *Needs:* 2.A.5 `cr-locally-analytic-bound`; 2.C.1 `admissible-algebraic-distributions`; `L2/order-r-distributions` (predecessor packet: Distributions of order r (admissible distributions)).
 
-*Source:* Colmez, Theorem II.3.2(i) and its proof, printed p. 32: Proves the ball-moment bound for order-r distributions with C = v′_{D_r}(μ) − C_1(r).
+*Source:* Colmez (author PDF), Theorem II.3.2(i) and its proof, printed p. 32: Proves the ball-moment bound for order-r distributions with C = v′_{D_r}(μ) − C_1(r).
 
 ### 2.C.3 Bounded wavelet values of an admissible distribution
 
@@ -445,7 +449,7 @@ Let N ∈ ℕ ∪ {∞} with N ≥ [r] and μ ∈ D^{[0,N]}_r(ℤ_p, L). For i �
 
 *Needs:* 2.C.1 `admissible-algebraic-distributions`; 2.A.2 `colmez-wavelets`; 2.A.9 `cr-wavelet-basis`.
 
-*Source:* Colmez, Proof of Theorem II.3.2(ii), printed p. 33 (page image checked): Defines b_{i,k} as the value on e_{i,k,r}, bounds it by v_{D_r,N}(μ) − 1 and constructs μ̃ from the wavelet basis; the displayed integrand carries the wrong ball variables (E7).
+*Source:* Colmez (author PDF), Proof of Theorem II.3.2(ii), printed p. 33 (page image checked): Defines b_{i,k} as the value on e_{i,k,r}, bounds it by v_{D_r,N}(μ) − 1 and constructs μ̃ from the wavelet basis; the displayed integrand carries the wrong ball variables (E7).
 
 ### 2.C.4 An admissible distribution vanishing in low degree vanishes
 
@@ -462,26 +466,26 @@ Let N ∈ ℕ ∪ {∞} with N ≥ [r] and λ ∈ D^{[0,N]}_r(ℤ_p, L). If λ v
 
 *Needs:* 2.C.1 `admissible-algebraic-distributions`; 2.A.1 `locally-polynomial-functions`.
 
-*Source:* Colmez, Proof of Theorem II.3.2(ii), last paragraph, printed p. 33: Shows that λ = ι(μ̃) − μ, which vanishes on LP^{[0,r]} and has finite v_{D_r,N}, vanishes on LP^{[0,N]} by subdividing balls.
+*Source:* Colmez (author PDF), Proof of Theorem II.3.2(ii), last paragraph, printed p. 33: Shows that λ = ι(μ̃) − μ, which vanishes on LP^{[0,r]} and has finite v_{D_r,N}, vanishes on LP^{[0,N]} by subdividing balls.
 
 ### 2.C.5 Equivalent valuations on distributions of order r
 
 `LocallyAnalyticDistributions:L2/order-r-valuations` · Theorem.
 
-On D_r(ℤ_p, L): (i) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) = inf_{a,k,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) is a valuation equivalent to v′_{D_r}; (ii) for N ∈ ℕ with N ≥ [r], v_{D_r,N}∘ι is equivalent to v_{D_r}; (iii) the top-degree valuation v′_{D_r,N}∘ι is equivalent to v_{D_r,N}∘ι. Moreover ι : D_r(ℤ_p, L) → D^{[0,N]}_r(ℤ_p, L) is an isomorphism of Banach spaces for every N ∈ ℕ ∪ {∞} with N ≥ [r]. Consequently, for μ ∈ D(ℤ_p, L) the following are equivalent: μ has order r; ‖μ‖_{LA_n} = O(p^{rn}); the ball moments of degree ≤ N (or of degree exactly N) are O(p^{rn}).
+On D_r(ℤ_p, L): (i) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) = inf_{a,k,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) is a valuation equivalent to v′_{D_r}; (ii) for N ∈ ℕ with N ≥ [r], v_{D_r,N}∘ι is equivalent to v_{D_r}; (iii) the top-degree valuation v′_{D_r,N}∘ι is equivalent to v_{D_r,N}∘ι. Moreover ι : D_r(ℤ_p, L) → D^{[0,N]}_r(ℤ_p, L) is an isomorphism of Banach spaces for every N ∈ ℕ ∪ {∞} with N ≥ [r]. For an arbitrary μ ∈ D(ℤ_p, L), μ ∈ D_r is equivalent to ‖μ‖_{LA_n} = O(p^{rn}), or to a uniform O(p^{rn}) bound on the normalised ball moments in all degrees k ≥ 0. The finite-degree valuations in (ii)–(iii) are equivalent on the already known space D_r; a degree-≤N bound on the restriction of an arbitrary analytic distribution does not certify its order.
 
-*Standing hypotheses beyond the conventions.* v_{LA_n}(μ) is the dual valuation of LA_n; the LA_n-orthonormal basis of locally-analytic-radius makes it the infimum of the normalised moments on balls of radius p^{−n}.
+*Hypotheses.* v_{LA_n}(μ) is the dual valuation of LA_n; the LA_n-orthonormal basis of locally-analytic-radius makes it the infimum of the normalised moments on balls of radius p^{−n}.
 
 *Proof outline.*
 1. By moment-bound-necessity, wavelet-value-bound, higher-degree-vanishing and density of LP^{[0,N]} (taylor-truncation-density), ι is a continuous bijection D_r → D^{[0,N]}_r: this is the Amice–Vélu–Vishik theorem of LocallyAnalyticDistributions:L2/amice-velu-vishik.
-2. Both spaces are Banach, so the open mapping theorem makes ι an isomorphism, which gives (i) and (ii) (Colmez: 'conséquences du th. II.3.2 et du théorème de l'image ouverte').
+2. Both spaces are Banach, so the open mapping theorem makes ι an isomorphism. Applying this also at N = ∞ gives (i), and finite N gives (ii). The all-degree bound for an arbitrary analytic distribution supplies the order-r extension of its locally polynomial restriction; density in each LA_n identifies that extension with the original distribution.
 3. (iii) by the change of basis to top-degree monomials recorded in admissible-algebraic-distributions.
 
-*Acceptance.* Pollack–Stevens' h-admissibility ‖μ‖_s = O(s^{−h}) is v_{D_h}(μ) > −∞ with s = p^{−n}. For r = 0 and a bounded measure μ, v_{D_0}(μ) = inf_{a,n} v_p(μ(1_{a+p^nℤ_p})), the measure norm: the moments with k ≥ 1 integrate functions of sup norm ≤ 1.
+*Acceptance.* Pollack–Stevens' h-admissibility ‖μ‖_s = O(s^{−h}) is v_{D_h}(μ) > −∞ with s = p^{−n}. For r = 0 and a bounded measure μ, v_{D_0}(μ) = inf_{a,n} v_p(μ(1_{a+p^nℤ_p})), the measure norm: the moments with k ≥ 1 integrate functions of sup norm ≤ 1. For any finite N, μ = d^{N+1}δ_0 is nonzero of exact order N + 1 and kills every degree-≤N locally polynomial test. Thus even zero finite-degree moments do not imply μ ∈ D_r when r < N + 1.
 
-*Needs:* 2.C.2 `moment-bound-necessity`; 2.C.3 `wavelet-value-bound`; 2.C.4 `higher-degree-vanishing`; 2.A.8 `taylor-truncation-density`; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem); `L0/locally-analytic-radius` (Locally analytic functions of fixed radius); Mathlib `ContinuousLinearEquiv.ofBijective`.
+*Needs:* 2.C.2 `moment-bound-necessity`; 2.C.3 `wavelet-value-bound`; 2.C.4 `higher-degree-vanishing`; 2.A.8 `taylor-truncation-density`; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem); `L0/locally-analytic-radius` (predecessor packet: Locally analytic functions of fixed radius); Mathlib `ContinuousLinearEquiv.ofBijective`; 2.C.1 `admissible-algebraic-distributions`.
 
-*Source:* Colmez, Proposition II.3.3 and its proof, printed pp. 33–34; Theorem II.3.2, printed pp. 32–33: Defines v_{D_r}, v_{D_r,N}, v′_{D_r,N} and proves them equivalent to v′_{D_r} by Theorem II.3.2 and the open mapping theorem.
+*Source:* Colmez (author PDF), Proposition II.3.3 and its proof, printed pp. 33–34; Theorem II.3.2, printed pp. 32–33: Defines v_{D_r}, v_{D_r,N}, v′_{D_r,N} and proves them equivalent to v′_{D_r} by Theorem II.3.2 and the open mapping theorem.
 
 ### 2.C.6 Operations preserving the order of a distribution
 
@@ -489,7 +493,7 @@ On D_r(ℤ_p, L): (i) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) = inf_{a,k,n}(v_p(�
 
 Let r, s ≥ 0 and μ ∈ D_r(ℤ_p, L). (a) For f ∈ C^r(ℤ_p, L) — in particular f locally analytic, f = x, f = z^x with v_p(z − 1) > 0, or f = 1_U for U ⊆ ℤ_p compact open — the distribution fμ : φ ↦ μ(fφ) lies in D_r; so does Res_U(μ) = 1_U·μ. (b) Translation by b ∈ ℤ_p, σ_a for a ∈ ℤ_p^×, φ and ψ map D_r(ℤ_p, L) continuously into itself. (c) The derivative d : D_r → D_{r+1}, (dμ)(φ) = μ(φ′), is continuous. (d) If λ ∈ D_r and μ ∈ D_s then λ ∗ μ ∈ D_{r+s}. (e) D_r ⊆ D_s for r ≤ s.
 
-*Standing hypotheses beyond the conventions.* The operations on D(ℤ_p, L) and their Amice transforms are those of LocallyAnalyticDistributions:L1/distribution-operations; the transpose convention (dμ)(f) = μ(f′) is that of LocallyAnalyticDistributions:L1/amice-derivative.
+*Hypotheses.* The operations on D(ℤ_p, L) and their Amice transforms are those of LocallyAnalyticDistributions:L1/distribution-operations; the transpose convention (dμ)(f) = μ(f′) is that of LocallyAnalyticDistributions:L1/amice-derivative.
 
 *Proof outline.*
 1. (a) Multiplication by f is a continuous endomorphism of C^r (cr-banach-algebra); transpose it.
@@ -498,11 +502,11 @@ Let r, s ≥ 0 and μ ∈ D_r(ℤ_p, L). (a) For f ∈ C^r(ℤ_p, L) — in part
 4. (d) Amice transforms multiply under convolution, and orders add under products in R⁺ (Colmez Corollary II.1.2, Proposition II.4.3), with the Amice characterisation of LocallyAnalyticDistributions:L2/order-r-distributions.
 5. (e) The Amice characterisation: v_p(b_n) + rℓ(n) bounded below implies the same with s ≥ r.
 
-*Acceptance.* dδ_0 ∈ D_1 and dδ_0 ∉ D_r for r < 1 (LocallyAnalyticDistributions:L2/positive-order-nonmeasure): d raises the order by exactly 1 on δ_0. Res_{ℤ_p^×}(μ) = (1 − φψ)(μ) has the same order as μ.
+*Acceptance.* dδ_0 ∈ D_1 and dδ_0 ∉ D_r for r < 1 (LocallyAnalyticDistributions:L2/positive-order-nonmeasure): d raises the order by exactly 1 on δ_0. Res_{ℤ_p^×}(μ) = (1 − φψ)(μ) belongs to D_r whenever μ does. Minimal order may drop: δ_0 restricts to zero on ℤ_p^×.
 
-*Needs:* 2.A.12 `cr-banach-algebra`; 2.A.13 `cr-composition`; 2.A.4 `cr-derivatives`; `L2/order-r-distributions` (predecessor packet: Distributions of order r (admissible distributions)); `L1/distribution-operations` (Operations on distributions); `L1/amice-derivative` (The transpose derivative and logarithm).
+*Needs:* 2.A.12 `cr-banach-algebra`; 2.A.13 `cr-composition`; 2.A.4 `cr-derivatives`; `L2/order-r-distributions` (predecessor packet: Distributions of order r (admissible distributions)); `L1/distribution-operations` (predecessor packet: Operations on distributions); `L1/amice-derivative` (predecessor packet: The transpose derivative and logarithm).
 
-*Source:* Colmez, §II.4.2, printed p. 34 (multiplying an order-r distribution by a C^r function); Corollary II.1.2, printed p. 29; Proposition II.4.3, printed p. 37: Multiplication by C^r functions preserves order r; orders add under products of Amice transforms and under convolution. De Ieso, Lemma 2.9 and Proposition 2.12, printed pp. 10–14: Banach algebra structure and continuity of composition on C^r, transposed here (composition for r ≥ 1 or Lipschitz charts, see cr-composition).
+*Source:* Colmez (author PDF), §II.4.2, printed p. 34 (multiplying an order-r distribution by a C^r function); Corollary II.1.2, printed p. 29; Proposition II.4.3, printed p. 37: Multiplication by C^r functions preserves order r; orders add under products of Amice transforms and under convolution. De Ieso, Lemma 2.9 and Proposition 2.12, printed pp. 10–14: Banach algebra structure and continuity of composition on C^r, transposed here (composition for r ≥ 1 or Lipschitz charts, see cr-composition).
 
 ### 2.C.7 The kernel of restriction at and beyond the critical order
 
@@ -510,7 +514,7 @@ Let r, s ≥ 0 and μ ∈ D_r(ℤ_p, L). (a) For f ∈ C^r(ℤ_p, L) — in part
 
 Let N ∈ ℕ and r ≥ N + 1. An order-r distribution μ ∈ D_r(ℤ_p, L) vanishes on LP^{[0,N]}(ℤ_p, L) if and only if μ = d^{N+1}ν for some ν ∈ D_{r−N−1}(ℤ_p, L), and ν is then unique. Thus the kernel of ι : D_r → D^{[0,N]}_alg is d^{N+1}(D_{r−N−1}(ℤ_p, L)); at the critical order r = N + 1 it is d^{N+1} of the bounded measures, an infinite-dimensional space, so values on locally polynomial functions of degree ≤ N determine an order-(N + 1) distribution only modulo d^{N+1}D_0. For r < N + 1 the kernel is zero (LocallyAnalyticDistributions:L2/amice-velu-vishik). An order-r distribution supported at a point a is a linear combination of the d^iδ_a with i ≤ r.
 
-*Standing hypotheses beyond the conventions.* d is the transpose derivative (dμ)(f) = μ(f′) of LocallyAnalyticDistributions:L1/amice-derivative; d^{N+1}ν has Amice transform log(1 + T)^{N+1}A_ν.
+*Hypotheses.* d is the transpose derivative (dμ)(f) = μ(f′) of LocallyAnalyticDistributions:L1/amice-derivative; d^{N+1}ν has Amice transform log(1 + T)^{N+1}A_ν.
 
 *Proof outline.*
 1. If μ vanishes on LP^{[0,N]} it vanishes on its closure in C^r, which is the kernel of (d/dx)^{N+1} : C^r → C^{r−N−1} (cr-derivative-surjection).
@@ -520,9 +524,9 @@ Let N ∈ ℕ and r ≥ N + 1. An order-r distribution μ ∈ D_r(ℤ_p, L) vani
 
 *Acceptance.* N = 0, r = 1: dν kills LC for every bounded measure ν; this is Loeffler's statement that an extension from LC is unique only modulo ℓ_0·D_{r−1}, ℓ_0 = dδ_0. N = k, r = k + 1: the critical-slope non-uniqueness of ModularSymbolsPadicLFunctions:L3/critical-slope-non-uniqueness is an instance.
 
-*Needs:* 2.A.11 `cr-derivative-surjection`; 2.C.6 `order-r-operations`; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem); `L1/amice-derivative` (The transpose derivative and logarithm); Mathlib `ContinuousLinearEquiv.ofBijective`; Mathlib `Polynomial.iterate_derivative_eq_zero`.
+*Needs:* 2.A.11 `cr-derivative-surjection`; 2.C.6 `order-r-operations`; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem); `L1/amice-derivative` (predecessor packet: The transpose derivative and logarithm); Mathlib `ContinuousLinearEquiv.ofBijective`; Mathlib `Polynomial.iterate_derivative_eq_zero`.
 
-*Source:* Colmez, Proposition I.5.16(ii), printed p. 24; Proposition II.4.5 and its proof, printed p. 37: The kernel of (d/dx)^j on C^r is the closure of LP^{[0,j−1]}; order-r distributions supported at a point are combinations of derivatives of the Dirac mass. The description of the kernel of ι is derived from these, not printed. Loeffler v3, Remark 2.4, printed p. 3: For r ≥ 1 an extension of a locally constant distribution of growth r is unique only modulo ℓ_0·D_{r−1}(G, E), the case N = 0.
+*Source:* Colmez (author PDF), Proposition I.5.16(ii), printed p. 24; Proposition II.4.5 and its proof, printed p. 37: The kernel of (d/dx)^j on C^r is the closure of LP^{[0,j−1]}; order-r distributions supported at a point are combinations of derivatives of the Dirac mass. The description of the kernel of ι is derived from these, not printed. Loeffler v3, Remark 2.4, printed p. 3: For r ≥ 1 an extension of a locally constant distribution of growth r is unique only modulo ℓ_0·D_{r−1}(G, E), the case N = 0.
 
 ## 2.D. Characters and uniqueness on ℤ_p^×
 
@@ -534,7 +538,7 @@ The stage asks for uniqueness 'with precisely the available locally algebraic ch
 
 (a) Let m ∈ ℕ, g ≥ 1 and L′ a field of characteristic 0 containing a primitive p^m-th root of unity ζ. For b ∈ (ℤ/p^mℤ)^g let χ_b(x) = ζ^{b_1x_1 + ⋯ + b_gx_g}, a locally constant character of ℤ_p^g with values in L′. For a ∈ ℤ_p^g, 1_{B(a,(m,…,m))}(x) = p^{−mg} Σ_{b∈(ℤ/p^m)^g} χ_b(a)^{−1}χ_b(x); hence the χ_b form a basis of LC_m(ℤ_p^g, L′), and for a radius tuple m, 1_{B(a,m)} = ∏_j (p^{−m_j} Σ_{b_j mod p^{m_j}} ζ_{m_j}^{b_j(x_j − a_j)}) with ζ_{m_j} primitive p^{m_j}-th roots of unity. (b) Let n ≥ 1 and L′ a field of characteristic 0 containing a primitive e-th root of unity, e the exponent of (ℤ/p^nℤ)^×. For a ∈ ℤ_p^× and x ∈ ℤ_p, 1_{a+p^nℤ_p}(x) = φ(p^n)^{−1} Σ_χ χ(a)^{−1}χ(x), the sum over the Dirichlet characters χ modulo p^n with values in L′, viewed as functions on ℤ_p through reduction modulo p^n (χ(x) = 0 for x ∈ pℤ_p).
 
-*Standing hypotheses beyond the conventions.* Reduction ℤ_p → ℤ/p^nℤ is Mathlib's PadicInt.toZModPow, whose kernel is p^nℤ_p; the ball a + p^nℤ_p is its fibre over the residue of a.
+*Hypotheses.* Reduction ℤ_p → ℤ/p^nℤ is Mathlib's PadicInt.toZModPow, whose kernel is p^nℤ_p; the ball a + p^nℤ_p is its fibre over the residue of a.
 
 *Proof outline.*
 1. (a) For ψ = AddChar.zmodChar(p^m, ζ), which is primitive because ζ is a primitive p^m-th root of unity, Σ_{t∈ℤ/p^m} ψ(t·u) is p^m if u = 0 and 0 otherwise (AddChar.sum_mulShift). Apply this in each coordinate to u = x_j − a_j modulo p^{m_j} and multiply.
@@ -546,7 +550,7 @@ The stage asks for uniqueness 'with precisely the available locally algebraic ch
 
 *Needs:* Mathlib `AddChar.zmodChar`; Mathlib `AddChar.zmodChar_primitive_of_primitive_root`; Mathlib `AddChar.sum_mulShift`; Mathlib `DirichletCharacter.sum_char_inv_mul_char_eq`; Mathlib `HasEnoughRootsOfUnity.of_card_le`; Mathlib `IsPrimitiveRoot.card_rootsOfUnity`; Mathlib `IsCyclotomicExtension.zeta_spec`; Mathlib `PadicInt.toZModPow`; Mathlib `PadicInt.ker_toZModPow`.
 
-*Source:* Colmez, §I.3.2, Proposition I.3.4 and its proof, printed pp. 10–11; §II.4.3, printed p. 35: If L contains μ_{p^h}, the characters ζ^x form a basis of LC_h, with 1_{a+p^hℤ_p} = p^{−h}Σ_ζ ζ^{x−a}; restriction to a ball is written with the same roots-of-unity average. Loeffler v3, §2.3, Definition 2.14, printed p. 5: Growth on rectangular cosets a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g), whose indicators the product formula (a) expands into characters.
+*Source:* Colmez (author PDF), §I.3.2, Proposition I.3.4 and its proof, printed pp. 10–11; §II.4.3, printed p. 35: If L contains μ_{p^h}, the characters ζ^x form a basis of LC_h, with 1_{a+p^hℤ_p} = p^{−h}Σ_ζ ζ^{x−a}; restriction to a ball is written with the same roots-of-unity average. Loeffler v3, §2.3, Definition 2.14, printed p. 5: Growth on rectangular cosets a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g), whose indicators the product formula (a) expands into characters.
 
 ### 2.D.2 Finite extension of coefficients
 
@@ -561,30 +565,30 @@ Let L′/L be a finite extension of closed subfields of ℂ_p. (i) LP^{[0,N]}_h(
 
 *Acceptance.* L′ = L: the extension is the identity. For L′ = L(μ_{p^n}) this is the coefficient extension in which the finite Fourier inversion of finite-fourier-inversion is applied.
 
-*Needs:* 2.A.1 `locally-polynomial-functions`; 2.C.1 `admissible-algebraic-distributions`; 2.A.9 `cr-wavelet-basis`; Mathlib `Algebra.TensorProduct.includeLeft_injective`.
+*Needs:* 2.A.1 `locally-polynomial-functions`; 2.C.1 `admissible-algebraic-distributions`; 2.A.9 `cr-wavelet-basis`.
 
-*Source:* Colmez, Proposition I.3.4, printed p. 10 (hypothesis that L contains μ_{p^h}); Theorem I.5.14, printed p. 23 (a basis defined over ℚ_p): The character expansions need roots of unity in the coefficient field, and the wavelet basis is defined over ℚ_p, so coefficients can be extended; the extension statements are derived here. Loeffler v3, §2, opening paragraph, printed p. 2: The coefficient field E is any complete discretely valued subfield of ℂ_p, so finite extensions are allowed.
+*Source:* Colmez (author PDF), Proposition I.3.4, printed p. 10 (hypothesis that L contains μ_{p^h}); Theorem I.5.14, printed p. 23 (a basis defined over ℚ_p): The character expansions need roots of unity in the coefficient field, and the wavelet basis is defined over ℚ_p, so coefficients can be extended; the extension statements are derived here. Loeffler v3, §2, opening paragraph, printed p. 2: The coefficient field E is any complete discretely valued subfield of ℂ_p, so finite extensions are allowed.
 
 ### 2.D.3 Determination by locally algebraic characters on ℤ_p^×
 
-`LocallyAnalyticDistributions:L2/unit-character-determination` · Theorem. Planet: *Determination by locally algebraic characters*.
+`LocallyAnalyticDistributions:L2/unit-character-determination` · Theorem.
 
 Let N ∈ ℕ, 0 ≤ r < N + 1 and μ ∈ D_r(ℤ_p^×, L). For a finite-order character χ : ℤ_p^× → ℂ_p^× (equivalently a Dirichlet character of conductor p^n, n ≥ 0) and 0 ≤ j ≤ N, let μ(χx^j) = μ_{L(χ)}(χ(x)x^j·1_{ℤ_p^×}), computed after extending coefficients to the finite extension L(χ) generated by the values of χ. If μ(χx^j) = 0 for all such χ and j, then μ = 0. More precisely, for each n ≥ 1 the values μ(χx^j) with χ of conductor dividing p^n determine all ∫_{a+p^nℤ_p}x^jμ with a ∈ ℤ_p^×, j ≤ N. The hypotheses are sharp: (1) at r = N + 1, d^{N+1}ν is nonzero, of order N + 1, and vanishes at every χx^j with j ≤ N, for every nonzero bounded measure ν on ℤ_p^×; (2) for fixed n, the measure Σ_{i=0}^{N+1} c_iδ_{a+ip^{n+1}}, with (c_i) a nonzero solution of Σ_i c_i(a + ip^{n+1})^j = 0 for j ≤ N, is nonzero and vanishes at every χx^j with χ of conductor dividing p^n and j ≤ N.
 
-*Standing hypotheses beyond the conventions.* μ ∈ D_r(ℤ_p^×, L) is an order-r distribution on ℤ_p supported in ℤ_p^× (order-on-one-dimensional-groups).
+*Hypotheses.* μ ∈ D_r(ℤ_p^×, L) is an order-r distribution on ℤ_p supported in ℤ_p^× (order-on-one-dimensional-groups).
 
 *Proof outline.*
-1. Fix n ≥ 1 and let L′ contain a primitive e-th root of unity, e the exponent of (ℤ/p^n)^× (coefficient-extension). Characters of conductor dividing p^n are exactly the Dirichlet characters modulo p^n.
-2. By finite-fourier-inversion (b), for a ∈ ℤ_p^×, 1_{a+p^nℤ_p}·x^j = φ(p^n)^{−1}Σ_χ χ(a)^{−1}χ(x)x^j on ℤ_p, so ∫_{a+p^nℤ_p}x^jμ_{L′} = φ(p^n)^{−1}Σ_χ χ(a)^{−1}μ(χx^j) = 0.
-3. Since μ is supported in ℤ_p^×, μ_{L′} also vanishes on functions supported in pℤ_p; the balls a + p^nℤ_p with a ∈ ℤ_p^× and pℤ_p cover ℤ_p, so μ_{L′} vanishes on LP^{[0,N]}(ℤ_p, L′).
-4. The Amice–Vélu–Vishik uniqueness (LocallyAnalyticDistributions:L2/amice-velu-vishik, r < N + 1) gives μ_{L′} = 0, hence μ = 0 by coefficient-extension.
+1. For each n ≥ 1 choose a finite extension L_n/L containing a primitive e_n-th root of unity, where e_n is the exponent of (ℤ/p^n)^×. Characters of conductor dividing p^n are exactly the Dirichlet characters modulo p^n. This extension may depend on n; no single finite field containing all p-power roots is assumed.
+2. By finite-fourier-inversion (b), for a ∈ ℤ_p^× and j ≤ N, μ_{L_n}(1_{a+p^nℤ_p}x^j) = φ(p^n)^{−1}Σ_χ χ(a)^{−1}μ(χx^j) = 0. Each summand is mapped from L(χ) into L_n. The raw ball moment on the left is the image of an element of L, so injectivity of L → L_n gives μ(1_{a+p^nℤ_p}x^j) = 0 in L.
+3. Do this for every n. Since μ is supported in ℤ_p^×, it also kills tests supported in pℤ_p. Thus all raw ball moments of degree ≤ N vanish at every level over L; by the local monomial basis μ vanishes on LP^{[0,N]}(ℤ_p, L).
+4. Apply Amice–Vélu–Vishik uniqueness over L, with r < N + 1, to obtain μ = 0. No passage from a fixed conductor level to all polynomial levels is made.
 5. Sharpness (1) is critical-kernel; (2) is a Vandermonde count: N + 2 distinct points in one ball modulo p^n give N + 1 linear conditions on N + 2 unknowns, and every character of conductor dividing p^n is constant on that ball.
 
 *Acceptance.* RJW Theorem B.1: for v_p(α_p) < k + 1 the analytic p-adic L-function of f is the unique order-v_p(α_p) distribution on ℤ_p^× with the prescribed values at χ(x)x^j, 0 ≤ j ≤ k. At v_p(α_p) = k + 1 the values at χx^j, j ≤ k, do not determine the distribution (sharpness (1)).
 
 *Needs:* 2.D.1 `finite-fourier-inversion`; 2.D.2 `coefficient-extension`; 2.B.1 `order-on-one-dimensional-groups`; 2.C.7 `critical-kernel`; `L2/amice-velu-vishik` (predecessor packet: The Amice–Vélu–Vishik extension and uniqueness theorem); Mathlib `DirichletCharacter.sum_char_inv_mul_char_eq`.
 
-*Source:* Rodrigues Jacinto–Williams, Appendix B.2.1, Theorem B.1 and the paragraph after it, printed pp. 79–80: Existence and uniqueness of the order-v_p(α_p) distribution on ℤ_p^× interpolating L(f, χ, j + 1) for all Dirichlet characters of p-power conductor and 0 ≤ j ≤ k, when v_p(α_p) < k + 1; the critical case is excluded. Colmez, Proposition I.3.4, printed p. 10; Theorem II.3.2(ii), printed pp. 32–33: Characters span locally constant functions after adjoining roots of unity; distributions of order r < N + 1 are determined by their values on LP^{[0,N]}. Loeffler v3, §2.1, Theorem 2.3, printed pp. 2–3: Amice–Vélu–Vishik on one-dimensional groups such as ℤ_p^×.
+*Source:* Rodrigues Jacinto–Williams, Appendix B.2.1, Theorem B.1 and the paragraph after it, printed pp. 79–80: Existence and uniqueness of the order-v_p(α_p) distribution on ℤ_p^× interpolating L(f, χ, j + 1) for all Dirichlet characters of p-power conductor and 0 ≤ j ≤ k, when v_p(α_p) < k + 1; the critical case is excluded. Colmez (author PDF), Proposition I.3.4, printed p. 10; Theorem II.3.2(ii), printed pp. 32–33: Characters span locally constant functions after adjoining roots of unity; distributions of order r < N + 1 are determined by their values on LP^{[0,N]}. Loeffler v3, §2.1, Theorem 2.3, printed pp. 2–3: Amice–Vélu–Vishik on one-dimensional groups such as ℤ_p^×.
 
 ## 2.E. Several variables: boxes, van der Put coefficients and separate degree
 
@@ -617,13 +621,13 @@ For a ∈ ℤ_p^g and a radius tuple m ∈ ℕ^g, the box B(a, m) is the fibre o
 - `AnalyticDistributionTests.boxIndicator_eq_charFn` (compatibility): boxIndicator a m = LocallyConstant.charFn K (padicBox_isClopen a m); for g = 1 it is the indicator of a + p^mℤ_p.
 - `AnalyticDistributionTests.boxIndicator_radii_not_symmetric` (non-example): For g = 2, boxIndicator 0 (1, 0) ≠ boxIndicator 0 (0, 1): they differ at (0, 1).
 
-*Uses.* `L2/rectangular-growth` (predecessor packet: Rectangular growth for a locally constant functional): the growth bound is a bound on μ(boxIndicator a m); `L2/rectangular-extension` (predecessor packet: Extension of rectangular distributions): the extension is determined by box masses and their refinement relations; 2.D.1 `finite-fourier-inversion`: box indicators expand into products of additive characters; Loeffler, Theorem 2.15: growth bounded by (r_1, …, r_g) is a bound on rectangular coset masses.
+*Uses.* `L2/rectangular-growth` (predecessor packet: Rectangular growth for a locally constant functional): the growth bound is a bound on μ(boxIndicator a m); `L2/rectangular-extension` (predecessor packet: Extension of rectangular distributions): the extension is determined by box masses and their refinement relations; 2.D.1 `finite-fourier-inversion`: box indicators expand into products of additive characters; `Loeffler, Theorem 2.15`: growth bounded by (r_1, …, r_g) is a bound on rectangular coset masses.
 
 *Acceptance.* m = 0: B(a, 0) = ℤ_p^g and 1_{B(a,0)} = 1. For g = 1, 1_{B(a,m)} = 1_{a+p^mℤ_p}.
 
-*Needs:* Mathlib `PadicInt.toZModPow`; Mathlib `PadicInt.ker_toZModPow`; Mathlib `LocallyConstant.charFn`; Mathlib `LocallyConstant`; PadicMeasuresIwasawaAlgebras `L2/residue-fiber-clopen`.
+*Needs:* Mathlib `PadicInt.toZModPow`; Mathlib `PadicInt.ker_toZModPow`; Mathlib `LocallyConstant.charFn`; Mathlib `LocallyConstant`; `PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen`.
 
-*Source:* Loeffler v3, §2.2, Definition 2.8, printed p. 4; §2.3, Definition 2.14, printed p. 5: Growth conditions are bounds on the values of a locally constant distribution on the indicators of cosets a + p^mH and a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g). Colmez, §I.3.1, definition of LC_h and the paragraph before Lemma I.3.1, printed p. 9: Locally constant functions on the compact ℤ_p form the increasing union of the LC_h.
+*Source:* Loeffler v3, §2.2, Definition 2.8, printed p. 4; §2.3, Definition 2.14, printed p. 5: Growth conditions are bounds on the values of a locally constant distribution on the indicators of cosets a + p^mH and a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g). Colmez (author PDF), §I.3.1, definition of LC_h and the paragraph before Lemma I.3.1, printed p. 9: Locally constant functions on the compact ℤ_p form the increasing union of the LC_h.
 
 ### 2.E.2 The multivariable van der Put basis and mixed differences
 
@@ -640,7 +644,7 @@ For n ∈ ℕ^g let S(n) = B(n, (ℓ(n_1), …, ℓ(n_g))) = ∏_j (n_j + p^{ℓ
 
 *Needs:* 2.E.1 `box-indicators`; 2.A.1 `locally-polynomial-functions`.
 
-*Source:* Colmez, §I.3.1, Proposition I.3.2 and its proof, Definition I.3.3, printed pp. 9–10: The indicators 1_{i+p^{ℓ(i)}ℤ_p} are a basis of LC_h and LC and an orthonormal basis of C(ℤ_p, L), by a unitriangular change of basis. Loeffler v3, Proof of Theorem 2.9, printed p. 4: Uses the indicators of S(i_1, …, i_d) = (i_1 + p^{ℓ(i_1)}ℤ_p) × ⋯ × (i_d + p^{ℓ(i_d)}ℤ_p) as a wavelet basis of locally constant functions on ℤ_p^d.
+*Source:* Colmez (author PDF), §I.3.1, Proposition I.3.2 and its proof, Definition I.3.3, printed pp. 9–10: The indicators 1_{i+p^{ℓ(i)}ℤ_p} are a basis of LC_h and LC and an orthonormal basis of C(ℤ_p, L), by a unitriangular change of basis. Loeffler v3, Proof of Theorem 2.9, printed p. 4: Uses the indicators of S(i_1, …, i_d) = (i_1 + p^{ℓ(i_1)}ℤ_p) × ⋯ × (i_d + p^{ℓ(i_d)}ℤ_p) as a wavelet basis of locally constant functions on ℤ_p^d.
 
 ### 2.E.3 Locally polynomial functions of separate degree
 
@@ -673,7 +677,7 @@ For N ∈ ℕ^g and h ∈ ℕ, LP^N_h(ℤ_p^g, K) is the space of functions f : 
 
 *Needs:* 2.A.1 `locally-polynomial-functions`; 2.A.2 `colmez-wavelets`; 2.E.1 `box-indicators`.
 
-*Source:* Loeffler v3, §2.2, Remark 2.10, printed p. 4: Refers to locally polynomial distributions of degree k in several variables (De Ieso) and their growth. Colmez, Proposition I.5.8 and Lemma I.5.9, printed p. 21: One-variable bases of locally polynomial functions, whose products give the separate-degree bases.
+*Source:* Loeffler v3, §2.2, Remark 2.10, printed p. 4: Refers to locally polynomial distributions of degree k in several variables (De Ieso) and their growth. Colmez (author PDF), Proposition I.5.8 and Lemma I.5.9, printed p. 21: One-variable bases of locally polynomial functions, whose products give the separate-degree bases.
 
 ## 2.F. Vector order
 
@@ -683,52 +687,52 @@ The predecessor defines vector order as the completed projective tensor of the o
 
 `LocallyAnalyticDistributions:L2/tensor-function-realization` · Theorem.
 
-Let r ∈ ℝ_{≥0}^g and V_r = ⊗̂_{π,j} C^{r_j}(ℤ_p, K), the vector-order space of LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets. (i) The tensor wavelets e_{n,k,r} (n ∈ ℕ^g, k_j ≤ [r_j]) form a Banach basis of V_r: synthesis c₀(ℕ^g × ∏_j{0, …, [r_j]}, K) → V_r is an isomorphism. (ii) The realization R : V_r → C(ℤ_p^g, K), Σ b_{n,k}e_{n,k,r} ↦ (x ↦ Σ b_{n,k}∏_j e_{n_j,k_j,r_j}(x_j)), is well defined, continuous, injective, and sends ⊗_jφ_j to x ↦ ∏_jφ_j(x_j). (iii) R(V_r) contains LP^N(ℤ_p^g, K) for every N ∈ ℕ^g and the locally analytic functions LA(ℤ_p^g, K); LP^{[r]} is dense in V_r, hence so are LP^N for N ≥ [r] and LA. (iv) For r = 0, R is an isometric isomorphism V_0 ≅ C(ℤ_p^g, K). Through R, a continuous linear form on V_r is determined by its values on LP^{[r]}, and the coordinate forms of (i) are the tensor amplitude coefficients.
+Let r ∈ ℝ_{≥0}^g and V_r = ⊗̂_{π,j} C^{r_j}(ℤ_p, K), the vector-order space of LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets. (i) The tensor wavelets e_{n,k,r} (n ∈ ℕ^g, k_j ≤ [r_j]) form a Banach basis of V_r: synthesis c₀(ℕ^g × ∏_j{0, …, [r_j]}, K) → V_r is an isomorphism. (ii) The realization R : V_r → C(ℤ_p^g, K), Σ b_{n,k}e_{n,k,r} ↦ (x ↦ Σ b_{n,k}∏_j e_{n_j,k_j,r_j}(x_j)), is well defined, continuous, injective, and sends ⊗_jφ_j to x ↦ ∏_jφ_j(x_j). (iii) R(V_r) contains LP^N(ℤ_p^g, K) for every N ∈ ℕ^g and the locally analytic functions LA(ℤ_p^g, K); LP^{[r]} is dense in V_r, hence so are LP^N for N ≥ [r] and LA. (iv) For r = 0, R is an isometric isomorphism V_0 ≅ C(ℤ_p^g, K). Through R, a continuous linear form on V_r is determined by its values on LP^{[r]}, and the coordinate forms of (i) are the tensor amplitude coefficients. Norm convention: V_r may use the predecessor's c₀ coefficient norm or the equivalent projective norm v_π induced by the one-variable Mahler valuations. Explicit constants involving C_1(r_j) below use v_π and its dual v_π*, rather than silently identifying these equivalent norms.
 
 *Proof outline.*
 1. (i) Each factor has the Banach basis of cr-wavelet-basis; LocallyAnalyticDistributions:L0/product-analytic-tensor identifies the completed projective tensor of c₀ spaces with c₀ of the product index set.
-2. (ii) |e_{n_j,k_j,r_j}| ≤ 1 pointwise, so the series converges uniformly. Injectivity by induction on g: if R(F) = 0, fix x_2, …, x_g; the function of x_1 is the C^{r_1} function with wavelet coefficients Σ_{n′,k′} b_{(n_1,n′),(k_1,k′)}∏_{j≥2}e(x_j), which must all vanish by uniqueness of the one-variable expansion, and each such coefficient family is the realization in g − 1 variables of a null family.
+2. (ii) |e_{n_j,k_j,r_j}| ≤ 1 pointwise, so the series converges uniformly. Injectivity by induction on g: if R(F) = 0, fix x_2, …, x_g; the function of x_1 is the C^{r_1} function with wavelet coefficients Σ_{n′,k′} b_{(n_1,n′),(k_1,k′)}∏_{j≥2}e(x_j), which must all vanish by uniqueness of the one-variable expansion, and each such coefficient family is the realization in g − 1 variables of a null family. Cofinite nullity of the full coefficient family bounds each tail uniformly in the fixed other coordinates, so the aggregated coefficients tend to zero in the first index; for a fixed first index the remaining coefficient family is again null. This justifies both uses of one-variable uniqueness and the induction.
 3. (iii) A one-variable local polynomial lies in LA ⊆ C^{r_j} (cr-locally-analytic-bound), so LP^N consists of finite sums of pure tensors; a locally analytic function of radius h is a sum of local monomials on the boxes of radius (h, …, h) with coefficients tending to 0, and these monomials have V_r-norms bounded by p^{Σ_j(r_jh + C_1(r_j))}. Finite sums of tensor wavelets are dense in c₀.
 4. (iv) For r = 0 the tensor wavelets are the 1_{S(n)}, an orthonormal basis of C(ℤ_p^g, K) by multivariable-van-der-put.
 
 *Acceptance.* g = 1: R is the identity of C^{r_1}(ℤ_p, K). For r = (1/2, 0), 1 ⊗ 1_{pℤ_p} realizes to f(x_1, x_2) = 1_{pℤ_p}(x_2), an element of R(V_r) (contrast sourceIssues E3).
 
-*Needs:* 2.A.9 `cr-wavelet-basis`; 2.E.3 `separate-degree-polynomials`; 2.E.2 `multivariable-van-der-put`; 2.A.5 `cr-locally-analytic-bound`; `L2/anisotropic-tensor-wavelets` (predecessor packet: Tensor wavelets and vector order); `L0/product-analytic-tensor` (Products and completed analytic tensors).
+*Needs:* 2.A.9 `cr-wavelet-basis`; 2.E.3 `separate-degree-polynomials`; 2.E.2 `multivariable-van-der-put`; 2.A.5 `cr-locally-analytic-bound`; `L2/anisotropic-tensor-wavelets` (predecessor packet: Tensor wavelets and vector order); `L0/product-analytic-tensor` (predecessor packet: Products and completed analytic tensors).
 
-*Source:* Loeffler v3, Remark 2.13 and the proof of Theorem 2.15, printed p. 5: The completed tensor product of the one-variable spaces gives an explicit Banach basis of the vector-order space; its realization as functions and the injectivity are derived here. Colmez, Theorem I.5.14, printed p. 23: One-variable wavelet basis used in each factor.
+*Source:* Loeffler v3, Remark 2.13 and the proof of Theorem 2.15, printed p. 5: The completed tensor product of the one-variable spaces gives an explicit Banach basis of the vector-order space; its realization as functions and the injectivity are derived here. This uses the intended tensor construction, not the false first-difference definition (E3). Colmez (author PDF), Theorem I.5.14, printed p. 23; Proposition I.1.8, printed p. 6: One-variable wavelet basis used in each factor. I.1.8 identifies completed c₀ tensors with c₀ of the product index set.
 
 ### 2.F.2 Vector order by mixed van der Put differences
 
 `LocallyAnalyticDistributions:L2/vector-order-mixed-differences` · Comparison.
 
-Let 0 ≤ r_j < 1 for every j and let f : ℤ_p^g → K be continuous, with multivariable van der Put coefficients c_n(f). Then f ∈ R(V_r) if and only if v_p(c_n(f)) − Σ_j r_jℓ(n_j) → +∞ along the cofinite filter of ℕ^g, and the norm of V_r is equivalent to w_r(f) = inf_n(v_p(c_n(f)) − Σ_j r_jℓ(n_j)): the c₀ valuation v of f in the scaled tensor-wavelet basis satisfies w_r(f) ≤ v(f) < w_r(f) + g. Each c_n(f) is a mixed difference Δ_{y_{j_1}}⋯Δ_{y_{j_s}}f of f at a lattice point, with steps y_j of valuation ℓ(n_j) − 1 in the coordinates j ∈ J(n). This replaces the single-difference condition of Loeffler's Definition 2.12: the function 1_{pℤ_p}(x_2) has finitely many nonzero c_n, so it lies in R(V_r) for every r, whereas the printed condition excludes it for r = (1/2, 0) (sourceIssues E3).
+Let 0 ≤ r_j < 1 for every j and let f : ℤ_p^g → K be continuous, with multivariable van der Put coefficients c_n(f). Then f ∈ R(V_r) if and only if v_p(c_n(f)) − Σ_j r_jℓ(n_j) → +∞ along the cofinite filter of ℕ^g, and the norm of V_r is equivalent to w_r(f) = inf_n(v_p(c_n(f)) − Σ_j r_jℓ(n_j)): the c₀ valuation v of f in the scaled tensor-wavelet basis satisfies w_r(f) ≤ v(f) < w_r(f) + g for f ≠ 0; for f = 0 both valuations are +∞. Each c_n(f) is a mixed difference Δ_{y_{j_1}}⋯Δ_{y_{j_s}}f of f at a lattice point, with steps y_j of valuation ℓ(n_j) − 1 in the coordinates j ∈ J(n). This replaces the single-difference condition of Loeffler's Definition 2.12: the function 1_{pℤ_p}(x_2) has finitely many nonzero c_n, so it lies in R(V_r) for every r, whereas the printed condition excludes it for r = (1/2, 0) (sourceIssues E3).
 
 *Proof outline.*
 1. For r_j < 1 only k = 0 occurs, so V_r has the Banach basis e_{n,0,r} = p^{Σ_j⌊r_jℓ(n_j)⌋}1_{S(n)} (tensor-function-realization (i)).
-2. By injectivity of R and uniqueness of the van der Put expansion of a continuous function (multivariable-van-der-put (iii)), the coefficient of f on e_{n,0,r} is c_n(f)p^{−Σ_j⌊r_jℓ(n_j)⌋}; the c₀ condition is the stated limit, and Σ_j(r_jℓ(n_j) − ⌊r_jℓ(n_j)⌋) ∈ [0, g) gives w_r ≤ v < w_r + g.
+2. By injectivity of R and uniqueness of the van der Put expansion of a continuous function (multivariable-van-der-put (iii)), the coefficient of f on e_{n,0,r} is c_n(f)p^{−Σ_j⌊r_jℓ(n_j)⌋}; the c₀ condition is the stated limit, and Σ_j(r_jℓ(n_j) − ⌊r_jℓ(n_j)⌋) ∈ [0, g) gives w_r ≤ v ≤ w_r + g. For nonzero f the weighted-null condition makes the minimum defining w_r attained at some nonzero coefficient, where the floor loss is strictly less than g; hence v < w_r + g. The zero function has both valuations +∞.
 3. Möbius inversion in multivariable-van-der-put (ii) writes c_n(f) as an iterated difference in the coordinates of J(n).
 
-*Acceptance.* r = 0: the condition is c_n(f) → 0, which holds for every continuous f. For g = 1 and r < 1 the condition is v_p(b_i(φ)) − rℓ(i) → ∞, Colmez's wavelet description of C^r (cr-mahler-criterion).
+*Acceptance.* r = 0: the condition is c_n(f) → 0, which holds for every continuous f. For g = 1 and r < 1 the condition is v_p(b_i(φ)) − rℓ(i) → ∞, Colmez's wavelet description of C^r (cr-mahler-criterion). f = 0 satisfies the coefficient criterion and both valuations are +∞; no strict inequality involving +∞ is asserted.
 
 *Needs:* 2.F.1 `tensor-function-realization`; 2.E.2 `multivariable-van-der-put`.
 
-*Source:* Loeffler v3, Definition 2.12 and Remark 2.13, printed pp. 4–5 (page images checked by the parent review): Defines vector order by simultaneous first differences with a cofinite filter and identifies it with the completed tensor; the identification fails as printed (E3) and is replaced by this characterisation. Colmez, Proposition I.3.2, printed pp. 9–10; Theorem I.5.14, printed p. 23: One-variable van der Put basis and wavelet basis of C^r for r < 1.
+*Source:* Loeffler v3, Definition 2.12 and Remark 2.13, printed pp. 4–5 (page images checked by the parent review): Defines vector order by simultaneous first differences with a cofinite filter and identifies it with the completed tensor; the identification fails as printed (E3) and is replaced by this characterisation. Colmez (author PDF), Proposition I.3.2, printed pp. 9–10; Theorem I.5.14, printed p. 23: One-variable van der Put basis and wavelet basis of C^r for r < 1.
 
 ### 2.F.3 Multidegree moment bounds for the vector-order dual
 
 `LocallyAnalyticDistributions:L2/tensor-moment-necessity` · Lemma.
 
-Let r ∈ ℝ_{≥0}^g and μ a continuous linear form on V_r. There is C such that for every a ∈ ℤ_p^g, radius tuple m and k ∈ ℕ^g: v_p(μ(1_{B(a,m)}·∏_j((x_j − a_j)/p^{m_j})^{k_j})) ≥ C − Σ_j r_jm_j, with C = v(μ) − Σ_j C_1(r_j) for the dual valuation v(μ).
+Let r ∈ ℝ_{≥0}^g and μ a continuous linear form on V_r. There is C such that for every a ∈ ℤ_p^g, radius tuple m and k ∈ ℕ^g: v_p(μ(1_{B(a,m)}·∏_j((x_j − a_j)/p^{m_j})^{k_j})) ≥ C − Σ_j r_jm_j, with C = v_π*(μ) − Σ_j C_1(r_j), where v_π is induced by the one-variable Mahler valuations and v_π* is its dual operator valuation. For the equivalent c₀ coefficient norm the existence of C is unchanged, but its conversion constant must also be included.
 
 *Proof outline.*
 1. The test function is the realization of the pure tensor ⊗_jφ_{a_j,m_j,k_j}.
-2. The projective tensor norm is a cross norm, so its valuation is at least Σ_j v_{C^{r_j}}(φ_{a_j,m_j,k_j}) ≥ −Σ_j(r_jm_j + C_1(r_j)) by cr-locally-analytic-bound.
+2. The projective tensor norm induced by the Mahler norms is a cross norm, so its valuation is at least Σ_j v_{C^{r_j}}(φ_{a_j,m_j,k_j}) ≥ −Σ_j(r_jm_j + C_1(r_j)) by cr-locally-analytic-bound. Applying μ contributes v_π*(μ).
 
 *Acceptance.* g = 1: Colmez Theorem II.3.2(i). r = 0 and k = 0: bounded measures on ℤ_p^g have bounded box masses.
 
-*Needs:* 2.F.1 `tensor-function-realization`; 2.A.5 `cr-locally-analytic-bound`; `L0/product-analytic-tensor` (Products and completed analytic tensors).
+*Needs:* 2.F.1 `tensor-function-realization`; 2.A.5 `cr-locally-analytic-bound`; `L0/product-analytic-tensor` (predecessor packet: Products and completed analytic tensors).
 
-*Source:* Colmez, Theorem II.3.2(i) and its proof, printed p. 32: One-variable moment bound for order-r distributions, applied here in each tensor factor. Loeffler v3, Remark 2.13, printed p. 5: Identifies the vector-order space with the completed tensor product, whose cross norm gives the bound.
+*Source:* Colmez (author PDF), Theorem II.3.2(i) and its proof, printed p. 32: One-variable moment bound for order-r distributions, applied here in each tensor factor. Loeffler v3, Remark 2.13, printed p. 5: Identifies the vector-order space with the completed tensor product, whose cross norm gives the bound. Use the corrected tensor interpretation of this remark (E3).
 
 ### 2.F.4 Bounded tensor wavelet values from multidegree moment bounds
 
@@ -744,7 +748,7 @@ Let r ∈ ℝ_{≥0}^g, N ∈ ℕ^g with N_j ≥ [r_j], and μ a K-linear form o
 
 *Needs:* 2.F.1 `tensor-function-realization`; 2.E.3 `separate-degree-polynomials`.
 
-*Source:* Colmez, Proof of Theorem II.3.2(ii), printed p. 33: One-variable bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1, extended here factor by factor.
+*Source:* Colmez (author PDF), Proof of Theorem II.3.2(ii), printed p. 33: One-variable bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1, extended here factor by factor.
 
 ### 2.F.5 Vanishing in higher separate degree by coordinatewise subdivision
 
@@ -754,14 +758,14 @@ Let r ∈ ℝ_{≥0}^g, N ∈ ℕ^g with N_j ≥ [r_j], and λ a K-linear form o
 
 *Proof outline.*
 1. For 0 ≤ t ≤ g let T_t be the span of the tests 1_{B(a,m)}∏_jx_j^{k_j} with k_j ≤ [r_j] for j ≤ t and k_j ≤ N_j for j > t; T_g = LP^{[r]} lies in the kernel and T_0 = LP^N.
-2. Assume T_t ⊆ ker λ and take a test in T_{t−1} with exponent k_t ≤ N_t in coordinate t. Subdivide B(a, m) in coordinate t only, into the p^s boxes of radius m + se_t, and expand x_t^{k_t} binomially around their centres b: the terms with j ≤ [r_t] lie in T_t; a term with j > r_t is p^{j(m_t+s)} times a normalised moment, of valuation ≥ (j − r_t)(m_t + s) + C′ with C′ independent of s.
+2. Assume T_t ⊆ ker λ and take a test in T_{t−1} with exponent k_t ≤ N_t in coordinate t. Subdivide B(a, m) in coordinate t only, into the p^s boxes of radius m + se_t, and expand x_t^{k_t} binomially around their centres b: the terms with j ≤ [r_t] lie in T_t; a term with j > r_t is p^{j(m_t+s)} times a normalised moment, of valuation ≥ (j − r_t)(m_t + s) + C′ with C′ independent of s. More explicitly, rewrite every fixed other-coordinate raw power x_j^{k_j} as a finite sum of normalised powers ((x_j − a_j)/p^{m_j})^{u_j}, u_j ≤ k_j. Their binomial coefficients and p^{m_j u_j} factors depend only on the original test. The centre coefficients in coordinate t have valuation ≥ 0. The moment bound therefore yields a single C′ independent of the refinement s and its centres. The ultrametric bound on the finite subdivision sum has the same C′.
 3. Let s → ∞. Subdividing in all coordinates at once would fail, since coordinates with exponent below r_j contribute negative multiples of their radii; the induction refines one coordinate at a time.
 
 *Acceptance.* g = 1: Colmez's subdivision argument (higher-degree-vanishing). N = [r]: nothing to prove.
 
-*Needs:* 2.E.3 `separate-degree-polynomials`; 2.E.1 `box-indicators`.
+*Needs:* 2.E.3 `separate-degree-polynomials`; 2.E.1 `box-indicators`; 2.F.4 `tensor-wavelet-value-bound`.
 
-*Source:* Colmez, Proof of Theorem II.3.2(ii), last paragraph, printed p. 33: One-variable subdivision of balls; the coordinatewise induction for several variables is derived here.
+*Source:* Colmez (author PDF), Proof of Theorem II.3.2(ii), last paragraph, printed p. 33: One-variable subdivision of balls; the coordinatewise induction for several variables is derived here.
 
 ### 2.F.6 Chart changes on vector-order spaces
 
@@ -776,7 +780,7 @@ Let r ∈ ℝ_{≥0}^g, N ∈ ℕ^g with N_j ≥ [r_j], and λ a K-linear form o
 
 *Acceptance.* A swap of two coordinates with r_1 ≠ r_2 does not preserve V_r unless r is swapped too. For r = 0 every homeomorphism of ℤ_p^g acts isometrically on C(ℤ_p^g, K).
 
-*Needs:* 2.A.13 `cr-composition`; 2.A.12 `cr-banach-algebra`; 2.F.1 `tensor-function-realization`; 2.E.1 `box-indicators`; `L0/product-analytic-tensor` (Products and completed analytic tensors).
+*Needs:* 2.A.13 `cr-composition`; 2.A.12 `cr-banach-algebra`; 2.F.1 `tensor-function-realization`; 2.E.1 `box-indicators`; `L0/product-analytic-tensor` (predecessor packet: Products and completed analytic tensors).
 
 *Source:* Loeffler v3, §2.2, footnote 2, printed p. 3; Remark 2.13, printed p. 5: Pullback along scaling is continuous but not isometric; the vector-order spaces are invariant under automorphisms preserving the quasi-factorization. De Ieso, Proposition 2.12, printed pp. 12–14: Continuity of composition on C^r for [r] ≥ 1, applied in each factor.
 
@@ -788,11 +792,11 @@ Loeffler's quasi-factorizations allow summands of any dimension, and the ray cla
 
 `LocallyAnalyticDistributions:L2/isotropic-order-functions` · Definition.
 
-Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ put ε_m(f) = inf_{x∈ℤ_p^d, y∈p^mℤ_p^d} v_p(f(x + y) − f(x)). Then f is of (isotropic) order r if ε_m(f) − rm → +∞; these f form C^r_iso(ℤ_p^d, K), a K-Banach space for v_r(f) = min(inf_x v_p(f(x)), inf_m(ε_m(f) − rm)); D^r_iso(ℤ_p^d, K) is its dual. The definition uses only the subgroups p^mℤ_p^d, so every continuous automorphism of ℤ_p^d (translations and GL_d(ℤ_p)) acts isometrically; for a compact abelian p-adic Lie group G with an open subgroup H ≅ ℤ_p^d, C^r_iso(G, K) is defined on the cosets of H and its topology does not depend on H. For d = 1 it is Colmez's C^r(ℤ_p, K) with v′_{C^r}.
+Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ put ε_m(f) = inf_{x∈ℤ_p^d, y∈p^mℤ_p^d} v_p(f(x + y) − f(x)). Then f is of (isotropic) order r if ε_m(f) − rm → +∞; these f form C^r_iso(ℤ_p^d, K), a K-Banach space for v_r(f) = min(inf_x v_p(f(x)), inf_m(ε_m(f) − rm)); D^r_iso(ℤ_p^d, K) is its dual. The definition uses only the subgroups p^mℤ_p^d, so every affine map x ↦ a + Ax with A ∈ GL_d(ℤ_p) acts isometrically; for a compact abelian p-adic Lie group G with an open subgroup H ≅ ℤ_p^d, C^r_iso(G, K) is defined on the cosets of H and its topology does not depend on H. For d = 1 it is Colmez's C^r(ℤ_p, K) with v′_{C^r}.
 
 *Proof outline.*
 1. v_r is an ultrametric valuation and C^r_iso is complete (a uniform limit with uniform remainder bounds keeps the bounds).
-2. An automorphism A of ℤ_p^d maps p^mℤ_p^d onto itself, so ε_m(f∘A) = ε_m(f); two open subgroups H, H′ ≅ ℤ_p^d are commensurable, which shifts m by a bounded amount.
+2. A bicontinuous additive automorphism A of ℤ_p^d maps p^mℤ_p^d onto itself, so ε_m(f∘A) = ε_m(f); two open subgroups H, H′ ≅ ℤ_p^d are commensurable, which shifts m by a bounded amount.
 3. For d = 1 and r < 1, [r] = 0 and the definitions agree (Loeffler Remark 2.6).
 
 *API.*
@@ -800,8 +804,8 @@ Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ pu
 - `TauCeti.AnalyticDistributions.isoCr` (constructor): isoCr r : the K-subspace C^r_iso(ℤ_p^d, K) of continuous f with IsIsotropicCr r f; its valuation v_r is a README target.
 - `TauCeti.AnalyticDistributions.isoCr_one_dim` (compatibility): For d = 1 and 0 ≤ r < 1, f ∈ isoCr r iff f is of class C^r in Colmez's sense; moreover v_r = v′_{C^r} (README).
 - `TauCeti.AnalyticDistributions.isoCr_aut_invariant` (functoriality): f ↦ f∘A preserves isoCr r for every bicontinuous additive automorphism A of ℤ_p^d, isometrically for v_r (README).
-- `TauCeti.AnalyticDistributions.isoCr_locallyConstant_dense` (characterisation): For r < 1, every f ∈ isoCr r is approximated by locally constant φ: for each ε > 0 some φ has ‖f − φ‖_∞ ≤ ε and increments of f − φ bounded by ε·p^{−rm} on p^mℤ_p^d.
-- `TauCeti.AnalyticDistributions.isoCr_mono` (relation): isoCr s ⊆ isoCr r for r ≤ s (continuously, README).
+- `TauCeti.AnalyticDistributions.isoCr_locallyConstant_dense` (characterisation): For 0 ≤ r < 1, every f ∈ isoCr r is approximated by locally constant φ: for each ε > 0 some φ has ‖f − φ‖_∞ ≤ ε and increments of f − φ bounded by ε·p^{−rm} on p^mℤ_p^d. This follows from the weighted-null wavelet expansion in isotropic-wavelet-basis, rather than being assumed in its proof.
+- `TauCeti.AnalyticDistributions.isoCr_mono` (relation): isoCr s ⊆ isoCr r for 0 ≤ r ≤ s < 1 (continuously, README).
 - `TauCeti.AnalyticDistributions.isoCr_mul` (structure): isoCr r is closed under products, by ε_m(fg) ≥ min(ε_m(f) + inf v_p(g), inf v_p(f) + ε_m(g)); it is a Banach algebra for v_r.
 
 *Unit tests.*
@@ -810,7 +814,7 @@ Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ pu
 - `AnalyticDistributionTests.isoCr_order_zero` (degenerate): For r = 0, isoCr 0 = C(ℤ_p^d, K) with the sup valuation.
 - `AnalyticDistributionTests.isoCr_quarter_digit` (non-example): f(x_1, x_2) = Σ_n a_n(x_1)p^{⌊n/4⌋} has ε_m(f) = ⌊m/4⌋, so f is of isotropic order r exactly for r < 1/4.
 
-*Uses.* Loeffler, Theorem 2.9: the extension theorem for locally constant distributions of growth r < 1 on abelian p-adic groups; `L2/rayclass-growth-adapter` (predecessor packet: From conductor bounds to analytic ray-class distributions): the equal-radius case applies the isotropic extension theorem; 2.G.4 `block-vector-order`: the factor spaces of a quasi-factorization with summands of dimension > 1.
+*Uses.* `Loeffler, Theorem 2.9`: the extension theorem for locally constant distributions of growth r < 1 on abelian p-adic groups; `L2/rayclass-growth-adapter` (predecessor packet: From conductor bounds to analytic ray-class distributions): the equal-radius case applies the isotropic extension theorem; 2.G.4 `block-vector-order`: the factor spaces of a quasi-factorization with summands of dimension > 1.
 
 *Acceptance.* Locally constant functions have ε_m = +∞ for large m, so LC ⊆ C^r_iso for every r < 1. d = 0 (G finite): every function, Loeffler Remark 2.7.
 
@@ -822,18 +826,18 @@ Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ pu
 
 `LocallyAnalyticDistributions:L2/isotropic-wavelet-basis` · Theorem.
 
-For 0 ≤ r < 1 the functions e^{iso}_{n,r} = p^{⌊r·max_jℓ(n_j)⌋}1_{S(n)}, n ∈ ℕ^d, form a Banach basis of C^r_iso(ℤ_p^d, K): v_r(Σ b_ne^{iso}_{n,r}) ≥ inf_n v_p(b_n) − 1 for null families (b_n), and every f ∈ C^r_iso has van der Put coefficients with v_p(c_n(f)) ≥ v_r(f) + r(max_jℓ(n_j) − 1), so its coordinates b_n = c_n(f)p^{−⌊r·max_jℓ(n_j)⌋} satisfy inf v_p(b_n) ≥ v_r(f) − 1. Equivalently, a continuous f lies in C^r_iso iff v_p(c_n(f)) − r·max_jℓ(n_j) → +∞ along the cofinite filter of ℕ^d.
+For 0 ≤ r < 1 the functions e^{iso}_{n,r} = p^{⌊r·max_jℓ(n_j)⌋}1_{S(n)}, n ∈ ℕ^d, form a Banach basis of C^r_iso(ℤ_p^d, K): v_r(Σ b_ne^{iso}_{n,r}) ≥ inf_n v_p(b_n) − 1 for null families (b_n), and every f ∈ C^r_iso has van der Put coefficients with v_p(c_n(f)) ≥ v_r(f) + r(max_jℓ(n_j) − 1) for n ≠ 0, while c_0(f) = f(0) has v_p(c_0(f)) ≥ v_r(f), so its coordinates b_n = c_n(f)p^{−⌊r·max_jℓ(n_j)⌋} satisfy inf v_p(b_n) ≥ v_r(f) − 1. Equivalently, a continuous f lies in C^r_iso iff v_p(c_n(f)) − r·max_jℓ(n_j) → +∞ along the cofinite filter of ℕ^d.
 
 *Proof outline.*
-1. Let M = max_jℓ(n_j). 1_{S(n)} is invariant under p^Mℤ_p^d, so ε_m(1_{S(n)}) ≥ 0 for m < M and = +∞ for m ≥ M; hence v_r(1_{S(n)}) ≥ −r(M − 1) and v_r(e^{iso}_{n,r}) ≥ ⌊rM⌋ − rM + r > −1.
-2. By multivariable-van-der-put (ii), c_n(f) is an alternating sum of 2^{|J(n)|−1} differences f(z + y) − f(z) with y of valuation M − 1 in a coordinate where ℓ(n_j) = M; each has valuation ≥ ε_{M−1}(f) ≥ v_r(f) + r(M − 1).
-3. The two bounds and density of LC (isotropic-order-functions) make synthesis an isomorphism from c₀(ℕ^d, K).
+1. For n = 0, S(0) is the whole space, e^{iso}_{0,r} = 1, v_r(e^{iso}_{0,r}) = 0, and c_0(f) = f(0). For n ≠ 0 put M = max_jℓ(n_j) ≥ 1. The indicator 1_{S(n)} is invariant under p^Mℤ_p^d; hence v_r(1_{S(n)}) ≥ −r(M − 1) and v_r(e^{iso}_{n,r}) ≥ ⌊rM⌋ − rM + r > −1.
+2. For n ≠ 0, multivariable-van-der-put writes c_n(f) as an alternating sum of differences in a coordinate of length M, with step valuation M − 1; thus v_p(c_n(f)) ≥ ε_{M−1}(f) ≥ v_r(f) + r(M − 1). Also ε_{M−1}(f) − r(M − 1) → +∞. As only finitely many indices have bounded M, this proves weighted cofinite nullity of b_n = c_n(f)p^{−⌊rM⌋}.
+3. The uniform wavelet valuation bound makes synthesis of a null family converge in the complete C^r_iso space. For f ∈ C^r_iso its weighted-null coefficients synthesize a function with the same ordinary van der Put coefficients; uniqueness of that expansion identifies it with f. Conversely synthesis gives an isotropic function for every weighted-null family. These bounds prove the Banach-basis isomorphism directly; its finite sums are locally constant, so density of LC follows without circularity.
 
-*Acceptance.* d = 1: the basis is Colmez's e_{i,0,r} for r < 1. For d = 2, r = 1/2 and n = (p^m, p^m) the weight is p^{⌊(m+1)/2⌋}, not the p^{2⌊(m+1)/2⌋} of vector order (1/2, 1/2).
+*Acceptance.* d = 1: the basis is Colmez's e_{i,0,r} for r < 1. For d = 2, r = 1/2 and n = (p^m, p^m) the weight is p^{⌊(m+1)/2⌋}, not the p^{2⌊(m+1)/2⌋} of vector order (1/2, 1/2). The zero multi-index contributes the constant basis vector 1 with valuation 0 and coefficient f(0); no ε_{−1} is used.
 
 *Needs:* 2.G.1 `isotropic-order-functions`; 2.E.2 `multivariable-van-der-put`.
 
-*Source:* Loeffler v3, Proof of Theorem 2.9, printed p. 4: Asserts that p^{sup_j⌊rℓ(i_j)⌋}1_{S(i_1,…,i_d)} is a Banach basis of C^r(ℤ_p^d, E), with the verification left to the reader; the argument above supplies it. Colmez, Lemma I.5.11 and Theorem I.5.14, printed pp. 22–23: One-variable model: bounds on wavelet coefficients by differences at the top level.
+*Source:* Loeffler v3, Proof of Theorem 2.9, printed p. 4: Asserts that p^{sup_j⌊rℓ(i_j)⌋}1_{S(i_1,…,i_d)} is a Banach basis of C^r(ℤ_p^d, E), with the verification left to the reader; the argument above supplies it. Colmez (author PDF), Lemma I.5.11 and Theorem I.5.14, printed pp. 22–23: One-variable model: bounds on wavelet coefficients by differences at the top level.
 
 ### 2.G.3 Extension of locally constant distributions of growth r < 1
 
@@ -870,19 +874,19 @@ Let G be a compact abelian p-adic Lie group with a quasi-factorization Lie G = �
 - `TauCeti.AnalyticDistributions.mem_blockVectorOrderSpace_iff` (characterisation): f ∈ blockVectorOrderSpace b r ↔ f is continuous and v_p(c_n(f)) − Σ_i r_i·max_jℓ(n^{(i)}_j) → +∞ cofinitely.
 - `TauCeti.AnalyticDistributions.blockVectorOrderSpace_one_dim_blocks` (compatibility): For one-dimensional blocks (b = id), blockVectorOrderSpace b r is the vector-order space V_r of anisotropic-tensor-wavelets (vectorOrderSpace).
 - `TauCeti.AnalyticDistributions.blockVectorOrderSpace_single_block` (compatibility): For a single block and r < 1, blockVectorOrderSpace b r = isoCr r.
-- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_chart_independent` (functoriality): Translations and unit scalings x_j ↦ t_j + c_jx_j of the coordinates preserve blockVectorOrderSpace b r; changing the compatible subgroups gives the same space with an equivalent norm (README).
+- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_chart_independent` (functoriality): Translations and arbitrary GL_{d_i}(ℤ_p) changes within each block preserve blockVectorOrderSpace b r. Passing to commensurable compatible lattices in the same Lie summands gives the same space with an equivalent norm (README).
 
 *Unit tests.*
 - `AnalyticDistributionTests.blockVectorOrder_weight` (computation): For d = (2, 1), r = (1/2, 1/4) and n = (p², 1, p⁵): the block maxima are ℓ = 3 and 6, so the scaling is p^{⌊3/2⌋+⌊6/4⌋} = p².
 - `AnalyticDistributionTests.blockVectorOrder_order_zero` (degenerate): For r = 0, blockVectorOrderSpace d 0 = C(∏_iℤ_p^{d_i}, K).
 - `AnalyticDistributionTests.blockVectorOrder_one_dim_compat` (compatibility): For d = (1, 1) and r = (1/2, 0) the space contains 1_{pℤ_p}(x_2) and agrees with the realization of C^{1/2} ⊗̂ C⁰.
-- `AnalyticDistributionTests.blockVectorOrder_blocks_matter` (non-example): For r = 1/2 on ℤ_p², the single block d = (2) and the split d = (1, 1) with r = (1/2, 1/2) differ: at n = (p^m, p^m) the weights are p^{⌊(m+1)/2⌋} and p^{2⌊(m+1)/2⌋}.
+- `AnalyticDistributionTests.blockVectorOrder_blocks_matter` (non-example): On ℤ_p² let f = Σ_{m≥0} p^m·1_{S(p^m,p^m)}. The series converges uniformly and its only nonzero van der Put coefficients are c_{(p^m,p^m)} = p^m. For a single isotropic block of order 1/2 the adjusted valuations m − (m + 1)/2 tend to +∞; for split blocks of orders (1/2, 1/2) they equal −1. Thus f belongs to the single-block space and not the split-block space.
 
-*Uses.* Loeffler, Theorem 2.15: extension of locally constant distributions with growth bounded by (r_1, …, r_g) for general quasi-factorizations; Loeffler, §3.1, Definition 3.1 and Theorem 3.3: ray class groups of number fields, whose quasi-factorizations by primes above p have summands of dimension [K_𝔭 : ℚ_p]; `L2/rayclass-growth-adapter` (predecessor packet: From conductor bounds to analytic ray-class distributions): conductor growth bounds on compatible p-adic Lie factors; 2.G.5 `block-rectangular-extension`: its target space.
+*Uses.* `Loeffler, Theorem 2.15`: extension of locally constant distributions with growth bounded by (r_1, …, r_g) for general quasi-factorizations; `Loeffler, §3.1, Definition 3.1 and Theorem 3.3`: ray class groups of number fields, whose quasi-factorizations by primes above p have summands of dimension [K_𝔭 : ℚ_p]; `L2/rayclass-growth-adapter` (predecessor packet: From conductor bounds to analytic ray-class distributions): conductor growth bounds on compatible p-adic Lie factors; 2.G.5 `block-rectangular-extension`: its target space.
 
 *Acceptance.* d = (1, …, 1): the parent vector-order space. g = 1: C^{r_1}_iso(G, K).
 
-*Needs:* 2.G.2 `isotropic-wavelet-basis`; 2.F.1 `tensor-function-realization`; 2.F.6 `tensor-chart-pullback`; 2.F.2 `vector-order-mixed-differences`; `L2/anisotropic-tensor-wavelets` (predecessor packet: Tensor wavelets and vector order); `L0/product-analytic-tensor` (Products and completed analytic tensors).
+*Needs:* 2.G.2 `isotropic-wavelet-basis`; 2.F.1 `tensor-function-realization`; 2.F.6 `tensor-chart-pullback`; 2.F.2 `vector-order-mixed-differences`; `L2/anisotropic-tensor-wavelets` (predecessor packet: Tensor wavelets and vector order); `L0/product-analytic-tensor` (predecessor packet: Products and completed analytic tensors).
 
 *Source:* Loeffler v3, §2.3, Definitions 2.11–2.12 and Remark 2.13, printed pp. 4–5; §2.2, Definition 2.5, printed p. 3: Quasi-factorizations allow summands of any dimension, and the vector-order space is meant to be the completed tensor of the factor spaces; the factor spaces are those of Definition 2.5. Definition 2.12 is replaced by the tensor construction (E3).
 
@@ -919,6 +923,8 @@ class groups.
 
 ## Acceptance tests for the layer
 
+- Zero moments through finite degree N do not certify the order of an arbitrary analytic distribution:
+  d^{N+1}δ_0 has those moments zero and exact order N + 1 (2.C.5).
 - δ_a has order 0; dδ_0 has order exactly 1 and is not a measure; dδ_0 restricts to 0 on LC (2.C.1).
 - At p = 3, the wavelet e_{4,0,1/2} is 3·1_{4+9ℤ_3} (2.A.2).
 - The digit map d(x) = Σa_n(x)p^{⌊2n/3⌋} is C^{1/2}, but d∘d is not (2.A.13): composition needs a Lipschitz chart.
@@ -930,30 +936,31 @@ class groups.
   conductors are needed.
 - 1_{pℤ_p}(x_2) has finitely many van der Put coefficients, so it lies in every vector-order space, while Loeffler's
   printed condition excludes it for r = (1/2, 0) (2.F.2, E3, E11).
-- For r = 1/2 on ℤ_p², a single isotropic block and two one-dimensional blocks with r = (1/2, 1/2) weight n = (p^m, p^m)
-  by p^{⌊(m+1)/2⌋} and p^{2⌊(m+1)/2⌋} (2.G.4).
+- The continuous function Σ_{m≥0}p^m1_{S(p^m,p^m)} lies in isotropic order 1/2 on ℤ_p² and fails vector
+  order (1/2, 1/2), by its adjusted coefficient valuations (2.G.4).
 - A locally constant function on two disjoint balls, such as 1_{pℤ_p}, has derivative zero without being constant
   (2.A.11).
 
 ## Source corrections
 
-- **E7** (misprint, Colmez, proof of Theorem II.3.2(ii), p. 33). The display defining b_{i,k} integrates
-  ((x − a)/p^n)^k; it should be ((x − i)/p^{ℓ(i)})^k, the wavelet e_{i,k,r} on its ball (2.C.3).
-- **E8** (error, Colmez, Proposition I.5.6, p. 20). Composition of two C^r maps need not be C^r when 0 < r < 1: the
-  digit map d is a counterexample. The statement holds for r = 0, for r ≥ 1, and for 0 < r < 1 when the inner map is
-  Lipschitz (2.A.13).
-- **E9** (error, De Ieso, Proposition 2.12, pp. 12–13). The case [r] = 0 left to the reader fails in the same way for
-  0 < r < 1 and F = ℚ_p.
-- **E10** (misprint, De Ieso, Definition 2.10, p. 12). The remainder of h is printed with f(x + y) in place of h(x + y).
-- **E11** (known as E3; Loeffler v1 Definition 2.12, v2 Definition 12). The first-difference definition of vector
-  order fails in v1 and v2 as in v3. In v1 the filter is unnamed, and under the reading in which every m_i → ∞ the
-  stated valuation is −∞ on 1 ⊗ 1_{pℤ_p}. The accepted manuscript in the Warwick repository is not public and the
-  Springer chapter is paywalled, so the published text was not read.
+All eight entries were independently confirmed. Author-PDF page numbers for Colmez are used throughout the targets;
+the published locators below refer to the freely readable Numdam version and must be kept distinct. These descriptions
+and counterexamples state the findings in our own words.
+
+- **E7** (misprint; Proof of Theorem II.3.2(ii), the display defining b_{i,k}, printed p. 33 of the author PDF (page image checked); same passage in Astérisque 330, printed p. 44 (published page image checked)). The integrand is p^{[rℓ(i)]}((x − i)/p^{ℓ(i)})^k, that is b_{i,k} = ∫ e_{i,k,r} μ. At this point of the proof a and n are not bound. The first equality in the same display is b_{i,k} = ∫e_{i,k,r}μ, and e_{i,k,r} is p^{[ℓ(i)r]}1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k by its definition on p. 21; the bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1 that follows uses exactly this ball and variable. Recorded in LocallyAnalyticDistributions:L2/wavelet-value-bound.
+- **E8** (error; Proposition I.5.6 and its one-line proof, printed p. 20 of the author PDF (page image checked); same passage in Astérisque 330, printed p. 31 (published page image checked)). The statement holds for r = 0 and for r ≥ 1 (the Taylor-composition proof of De Ieso's Proposition 2.12 with F = ℚ_p, after repairing (2.25) as in E14), and for 0 < r < 1 when φ_1 is Lipschitz (v_p(φ_1(x) − φ_1(y)) ≥ v_p(x − y) − c), for example locally analytic or of class C^1. For 0 < r < 1 and φ_1 merely of class C^r it is false. LocallyAnalyticDistributions:L2/cr-composition states the corrected version. Take r = 1/2 and d(x) = Σ_n a_n(x)p^{⌊2n/3⌋} for x = Σ_n a_n(x)p^n with digits 0 ≤ a_n(x) < p. If v_p(y) ≥ h the digits of x and x + y agree below h, so v_p(d(x + y) − d(x)) ≥ ⌊2h/3⌋, and ⌊2h/3⌋ − h/2 → ∞: d is of class C^{1/2} (with d^{(0)} = d), with values in ℤ_p. But d(p^m) = p^{⌊2m/3⌋} and d(d(p^m)) − d(d(0)) = p^{⌊2⌊2m/3⌋/3⌋}, of valuation at most 4m/9, so inf_{x, y∈p^mℤ_p} v_p(d∘d(x + y) − d∘d(x)) − m/2 ≤ −m/18 → −∞ and d∘d is not of class C^{1/2}. The archimedean analogue fails in the same way: Hölder exponents multiply under composition.
+- **E9** (error; Proposition 2.12 (composition of functions), printed p. 12, and the first sentence of its proof, printed p. 13 (page images checked)). Restrict the case [r] = 0 to r = 0, or to 0 < r < 1 with h Lipschitz. For [r] ≥ 1 the statement holds after replacing the derivative-only estimate (2.25) by a full C^1 Lipschitz constant (E14). For F = ℚ_p (O_F = ℤ_p) and r = 1/2, the digit map d of LocallyAnalyticDistributions/E8 is of class C^{1/2,id} (its first differences on p^kℤ_p have valuation ≥ ⌊2k/3⌋, so the quantity C_{h,r}(k) of Definition 2.10 tends to 0), and f = d is of class C^{1/2}, but f∘h = d∘d is not.
+- **E10** (misprint; Definition 2.10, the display defining ε_{h,[r]}, printed p. 12 (page image checked)). The remainder is h(x + y) − Σ_{i≤[r]} h^{(i)}(x)y^i/i!. Definition 2.10 defines a property of h alone; f is the unrelated function of the preceding paragraph, and Lemma 2.11 and the norm ‖h‖_{C^{r,id}} on the same page use the remainder of h.
+- **E11** (error; arXiv:1304.4042v2, Definition 12 and Remark 13, printed p. 6; arXiv:1304.4042v1, Definition 2.12 and Remark 2.13, printed pp. 4–5). As for LocallyAnalyticDistributions/E3: use the completed projective tensor of the one-variable spaces, characterised by mixed van der Put differences (LocallyAnalyticDistributions:L2/vector-order-mixed-differences). In v2 the counterexample of E3 applies verbatim: for r = (1/2, 0), f(x_1, x_2) = 1_{pℤ_p}(x_2) has first-difference quantity 0 at every (m_1, 0), so the condition fails, though f = 1 ⊗ 1_{pℤ_p}. In v1, the cofinite reading fails the same way; under the reading in which every m_i tends to infinity the limit condition holds for f (the quantity is +∞ once m_2 ≥ 1), but the stated valuation includes the tuples (m_1, 0) and equals −∞, so the space is not normed by it. Either reading fails Remark 2.13. E11 records the same known defect as predecessor E3. The published Springer chapter was not read; its accepted manuscript was not publicly accessible in the recorded check.
+- **E12** (misprint; Lemma I.5.11 proof, author PDF p. 22 and published p. 33; both page images checked). The second branch ends at i < p^h − p^{h−1}, as the next infimum display already does. Alternatively use b_i = p^{−[hr]}(φ(i) − φ(i⁻)) for all top-level indices ℓ(i) = h. The coefficients were defined only for indices at most p^h − 1. The printed upper range asks for indices beyond that bound; for p = 2, h = 1 it asks for b_2 from a family b_0, b_1. The repaired predecessor formula proves the same bound in amplitude-coefficient-bound.
+- **E13** (error; Final sentence of proof of Proposition I.5.19, author PDF p. 25 and published p. 36; both page images checked). Choose C_1(r) = max(0, −inf_{a≥0}F_r(a)), or any larger constant; the theorem statement is unchanged. Since F_r(0) = −r, the printed choice is at most −r. For r > 0, φ = 1 at h = 0 has both valuations zero, so the claimed inequality would give 0 ≥ −C_1(r) > 0. The coefficient estimate instead yields the added term inf F_r, hence the minus sign in the corrected choice.
+- **E14** (error; Proof of Proposition 2.12, equation (2.25), arXiv:1203.6766v1, printed p. 13). Use a global Lipschitz constant of f supplied by the full C^1 norm, including the remainder bound. The composition result for r ≥ 1 is unchanged. For F = ℚ_p let q(x) = Σ_{n≥0} a_n(x)p^{2n} for the base-p digits of x. Equal digits below m imply v_p(q(x + y) − q(x)) ≥ 2m when v_p(y) ≥ m, uniformly in x; q is C^1 with derivative zero and takes values in ℤ_p. Put f = h = q and x = 0, y = p^m. The inner remainder is p^{2m}, and the left side of (2.25) is |q(p^{2m}) − q(0)| = |p^{4m}| > 0, while its derivative-only right side is zero, for every m. The full Lipschitz bound repairs the Taylor-composition argument in cr-composition.
 
 ## References
 
 - P. Colmez, *Fonctions d'une variable p-adique*, Astérisque 330 (2010); author PDF
-  https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf, §§I.3, I.5, II.1–II.4.
+  https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf, §§I.1, I.3, I.5, II.1–II.4. Published version:
+  https://www.numdam.org/article/AST_2010__330__13_0.pdf, printed pp. 13–59; relevant proof passages checked as listed above.
 - D. Loeffler, *P-adic integration on ray class groups and non-ordinary p-adic L-functions*, in Iwasawa 2012
   (Springer, 2014), 357–378; arXiv:1304.4042 v1, v2 and v3, §2.
 - M. De Ieso, *Espaces de fonctions de classe C^r sur O_F*, arXiv:1203.6766v1, §§1–2.
