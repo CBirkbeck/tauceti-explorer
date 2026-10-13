@@ -62,7 +62,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 8
 
 - **Merged package:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
-  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · cites outside the 94: FunctionFieldArithmetic (11)
+  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #858 open** · cites outside the 94: FunctionFieldArithmetic (11)
   - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 1/1 accepted · package not yet · CN needs 3/5 layers · cites outside the 94: IntegralIwasawaTheory (1)
 - **NeronModelsAndSemistableAbelianVarieties** — Néron models and semistable abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #852 open** · move down: PadicHodgeTheory (2) · cites outside the 94: NeronModelsAndSemistableAbelianVarietiesPartII (1)
 

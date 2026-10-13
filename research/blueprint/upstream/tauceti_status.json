@@ -375,6 +375,26 @@
         "date": null,
         "note": "opened 2026-10-13 11:50Z; awaiting first review"
       }
+    },
+    "ArithmeticGaloisDuality": {
+      "stage": "pr",
+      "pr": 858,
+      "head": "21649c7",
+      "depends_on": [
+        779,
+        856,
+        850,
+        849,
+        853
+      ],
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 11:55Z; awaiting first review"
+      }
     }
   }
 }
