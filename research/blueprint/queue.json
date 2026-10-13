@@ -39627,8 +39627,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9284"
+   "state": "external",
+   "note": "claimed on GitHub issue #9284"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
@@ -55307,8 +55307,9 @@
     "PKG-NeronModelsAndSemistableAbelianVarietiesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9228"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9228",
+   "finishedAt": "2026-10-13T11:24:31Z"
   },
   {
    "id": "PKG-PELModuli",
