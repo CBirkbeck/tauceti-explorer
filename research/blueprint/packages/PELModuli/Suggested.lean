@@ -1,6 +1,5 @@
 import Mathlib
 import TauCeti.LinearAlgebra.Matrix.SymplecticMultiplier
-import TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic
 
 /-!
 # PELModuli: representative target signatures
@@ -55,6 +54,10 @@ structure StarOrder where
   /-- The order spans `B` over `ℚ`. -/
   span_eq_top : Submodule.span ℚ (toSubring : Set B) = ⊤
 
+/-- The integer order contains `2` and excludes `1/2`; spanning over `ℚ` is not equality with `ℚ`. -/
+example : ∃ O : StarOrder ℚ, (2 : ℚ) ∈ O.toSubring ∧ (1 / 2 : ℚ) ∉ O.toSubring := by
+  sorry
+
 end PositiveInvolution
 
 /-- The identity is a positive involution of `ℚ` (Check `positiveInvolution_rat`). -/
@@ -108,17 +111,30 @@ theorem dualIndex_pos (S : SymplecticOLattice O L) : 0 < S.dualIndex := by
 noncomputable def realForm (S : SymplecticOLattice O L) : LinearMap.BilinForm ℝ (ℝ ⊗[ℤ] L) :=
   LinearMap.BilinForm.baseChange ℝ S.form
 
+/-- Zero rank has Gram determinant one, rather than zero. -/
+example : ∃ S : SymplecticOLattice ℤ (Fin 0 → ℤ), S.dualIndex = 1 := by
+  sorry
+
+/-- Scalar extension retains the integral pairing on pure tensors. -/
+example (S : SymplecticOLattice O L) (x y : L) :
+    S.realForm (1 ⊗ₜ[ℤ] x) (1 ⊗ₜ[ℤ] y) = (S.form x y : ℝ) := by
+  sorry
+
 end SymplecticOLattice
 
 /-- The action of `b ∈ O` on `ℝ ⊗ L`. -/
 noncomputable def realAction (b : O) : Module.End ℝ (ℝ ⊗[ℤ] L) :=
   ((DistribSMul.toAddMonoidHom L b).toIntLinearMap).baseChange ℝ
 
-/-- **Integral PEL datum** (M0.5). A symplectic `O`-lattice with an `O ⊗ ℝ`-linear complex structure
+/-- The scalar `−1` acts by negation after extension to `ℝ`, fixing the action convention. -/
+example : realAction O L (-1) = -1 := by
+  sorry
+
+/-- **Linear part of an integral PEL datum** (M0.5). A symplectic `O`-lattice with an `O ⊗ ℝ`-linear complex structure
 `J = h(√−1)` with `J² = −1`, preserving the real pairing, and with `ψ(x, J x) > 0` for `x ≠ 0` (Lan's
 Condition 1.2.1.2, pp. 46–47; Definition 1.2.1.3, p. 47). The positive involution on `O ⊗ ℚ` and the
 faithfulness used for rationalization are hypotheses of the README targets that use them. -/
-structure IntegralPELDatum where
+structure IntegralPELLinearDatum where
   /-- The symplectic `O`-lattice. -/
   lattice : SymplecticOLattice O L
   /-- The complex structure `h(√−1)` on `ℝ ⊗ L`. -/
@@ -132,6 +148,15 @@ structure IntegralPELDatum where
   /-- Positivity: `ψ(x, J x) > 0` for `x ≠ 0`. -/
   pos : ∀ x, x ≠ 0 → 0 < lattice.realForm x (J x)
 
+/-- The linear carrier admits rank zero, where positivity has no nonzero vector to test. -/
+example : Nonempty (IntegralPELLinearDatum ℤ (Fin 0 → ℤ)) := by
+  sorry
+
+/-- Reversing `J` reverses the positivity sign on every nonzero vector. -/
+example (D : IntegralPELLinearDatum O L) (x : ℝ ⊗[ℤ] L) (hx : x ≠ 0) :
+    D.lattice.realForm x (-D.J x) < 0 := by
+  sorry
+
 /-- **Similitude with multiplier** (M0.7). Over a commutative ring `R`, a pair `(g, r)` of an
 `O`-linear automorphism of `R ⊗ L` and a unit `r` with `⟨g x, g y⟩ = r ⟨x, y⟩`. The multiplier is data:
 over nonflat `R` it is not determined by `g` (Lan's thesis errata, p. 4). -/
@@ -142,6 +167,11 @@ def IsSimilitude (S : SymplecticOLattice O L) (R : Type*) [CommRing R]
         ((DistribSMul.toAddMonoidHom L b).toIntLinearMap.baseChange R) (g x)) ∧
     ∀ x y, LinearMap.BilinForm.baseChange R S.form (g x) (g y) =
       (r : R) * LinearMap.BilinForm.baseChange R S.form x y
+
+/-- The identity automorphism has multiplier one over every base ring. -/
+example (S : SymplecticOLattice O L) (R : Type*) [CommRing R] :
+    IsSimilitude O L S R (LinearEquiv.refl R _) 1 := by
+  sorry
 
 end SymplecticLattice
 
@@ -164,7 +194,7 @@ def badPrimeInteger (n Ibad disc dualIndex : ℕ) : ℕ := n * Ibad * disc * dua
 /-- A prime is **good** (M0.10) when it does not divide the bad-prime integer. Each factor is a
 separate condition; none follows from `p` being large. -/
 def IsGoodPrime (n Ibad disc dualIndex p : ℕ) : Prop :=
-  ¬ p ∣ badPrimeInteger n Ibad disc dualIndex
+  Nat.Prime p ∧ ¬ p ∣ badPrimeInteger n Ibad disc dualIndex
 
 /-- The Siegel datum of type `(1 | 6)` at level one has bad primes `2` and `3`
 (Check `goodPrime_type`). -/
@@ -174,6 +204,14 @@ example : ¬ IsGoodPrime 1 1 1 36 2 ∧ ¬ IsGoodPrime 1 1 1 36 3 ∧ IsGoodPrim
 /-- In type D, `I_bad = 2` makes `2` bad (Check `goodPrime_typeD_two`). -/
 example : ¬ IsGoodPrime 1 2 9 1 2 := by
   sorry
+
+/-- A composite number is never a good prime, even if it is coprime to the bad-prime integer. -/
+example : ¬ IsGoodPrime 1 1 1 1 4 := by
+  sorry
+
+/-- A zero factor makes every prime bad. -/
+example : badPrimeInteger 3 1 0 4 = 0 := by
+  rfl
 
 end BadPrimes
 
@@ -206,6 +244,13 @@ def SatisfiesDetCondition {M' : Type*} [AddCommGroup M'] [Module R M'] [Module.F
 
 end Determinant
 
+/-- A zero linear family has determinant zero in positive rank and one in rank zero.
+Thus the determinant condition separates those two cases. -/
+example {ι : Type*} [Fintype ι] [DecidableEq ι] (b : Module.Basis ι ℚ ℚ) :
+    ¬ SatisfiesDetCondition (0 : ℚ →ₗ[ℚ] Module.End ℚ ℚ)
+      (0 : ℚ →ₗ[ℚ] Module.End ℚ (Fin 0 → ℚ)) b := by
+  sorry
+
 /-- Traces do not detect the determinant in characteristic `3` (Check `detPoly_not_trace`): on `k³`
 with `i` acting by `±τ(i)`, both trace maps vanish while the determinants of `i` differ. -/
 example (k : Type*) [Field k] [CharP k 3] (t : k) (ht : t ^ 2 = -1) :
@@ -214,7 +259,7 @@ example (k : Type*) [Field k] [CharP k 3] (t : k) (ht : t ^ 2 = -1) :
 
 section CMTypes
 
-variable (K : Type*) [Field K] [NumberField K]
+variable (K : Type*) [Field K] [NumberField K] [NumberField.IsCMField K]
 
 /-- **Generalized CM type** of rank `N` (M0.25): a finitely supported `Ψ : (K →+* ℂ) →₀ ℕ` with
 `Ψ(τ) + Ψ(τ̄) = N` for every complex embedding (Liu–Tian–Xiao–Zhang–Zhu, Definition 3.3.1, p. 147). -/
@@ -228,30 +273,23 @@ def IsCMType (Φ : (K →+* ℂ) →₀ ℕ) : Prop := IsGeneralizedCMType K 1 �
 theorem IsCMType.le_one {Φ : (K →+* ℂ) →₀ ℕ} (h : IsCMType K Φ) (τ : K →+* ℂ) : Φ τ ≤ 1 := by
   sorry
 
+/-- The empty multiplicity function is the unique rank-zero generalized CM type. -/
+example : IsGeneralizedCMType K 0 0 := by
+  sorry
+
+/-- In rank one, selecting no embedding fails the conjugate-pair condition. -/
+example (τ : K →+* ℂ) : ¬ IsCMType K 0 := by
+  sorry
+
 end CMTypes
 
 /-! ## Layer M2: Representability and smooth good models -/
 
-section Neat
+/-- The ratio of two infinite-order rational eigenvalues can be torsion; the upstream rational
+neatness predicate tests the generated subgroup. The adelic Pink condition is a README target. -/
+example : (2 : ℂ)⁻¹ * (-2) = -1 := by
+  norm_num
 
-/-- **Neat element** (M2.2) of `GL_n(ℚ)`: the subgroup of `ℂ^×` generated by the eigenvalues contains
-no nontrivial root of unity. This is Pink's condition for a rational element; the README's adelic
-predicate intersects the analogous `p`-adic conditions over all `p ∉ □`. -/
-def IsNeatElement {n : ℕ} (g : Matrix (Fin n) (Fin n) ℚ) : Prop :=
-  ∀ ζ : ℂˣ, ζ ∈ Subgroup.closure
-      {u : ℂˣ | ((g.charpoly).map (algebraMap ℚ ℂ)).IsRoot (u : ℂ)} →
-    IsOfFinOrder ζ → ζ = 1
-
-/-- `−1` is not neat (Check `not_isNeat_minus_one`). -/
-example : ¬ IsNeatElement (-(1 : Matrix (Fin 2) (Fin 2) ℚ)) := by
-  sorry
-
-/-- `diag(2, −2)` is not neat: the ratio of its eigenvalues is `−1`, although each eigenvalue has
-infinite order (Check `not_isNeat_generated_ratio`). -/
-example : ¬ IsNeatElement (Matrix.diagonal ![(2 : ℚ), -2]) := by
-  sorry
-
-end Neat
 
 /-! ## Layer M5: Siegel, Hilbert and unitary examples -/
 
@@ -282,6 +320,10 @@ theorem siegelGram_det (d : Fin g → ℤ) : (siegelGram d).det = (∏ i, d i) ^
 example : (siegelGram ![(1 : ℤ), 2]).det = 4 := by
   sorry
 
+/-- The determinant of the genus-zero alternating form is one. -/
+example : (siegelGram (g := 0) (fun _ => (1 : ℤ))).det = 1 := by
+  sorry
+
 /-- `J² = −1` for the Siegel complex structure. -/
 theorem siegelJ_sq : (siegelJ : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℝ) * siegelJ = -1 := by
   sorry
@@ -295,6 +337,10 @@ theorem siegel_pos (x : Fin g ⊕ Fin g → ℝ) (hx : x ≠ 0) :
 /-- With `J` replaced by `−J` the form is negative definite (Check `IntegralPELDatum.wrong_sign`). -/
 theorem siegel_neg (x : Fin g ⊕ Fin g → ℝ) (hx : x ≠ 0) :
     x ⬝ᵥ ((siegelGram (fun _ : Fin g => (1 : ℤ))).map (Int.cast : ℤ → ℝ) *ᵥ ((-siegelJ) *ᵥ x)) < 0 := by
+  sorry
+
+/-- The two-term witness fixes `J e = f`, rather than `−f`. -/
+example : (siegelJ (g := 1)) *ᵥ (Pi.single (Sum.inl 0) 1) = Pi.single (Sum.inr 0) 1 := by
   sorry
 
 end Siegel
@@ -324,14 +370,19 @@ example :
       (NumberField.RingOfIntegers F)) F)) = 1 := by
   sorry
 
+/-- In the degree-one case the trace pairing has `ψ(e,f) = 1`. -/
+example : hilbertPairing ℚ (1, 0) (0, 1) = 1 := by
+  sorry
+
 end Hilbert
 
 section Unitary
 
 variable (K : Type*) [Field K] [NumberField K] [NumberField.IsCMField K]
 
-/-- The **unitary trace form** (M5.5): `⟨x, y⟩ = Tr_{K/ℚ}(δ H(x, y))` for a hermitian form `H` on `K^n`
-and an anti-invariant `δ`; it is alternating and `⟨a x, y⟩ = ⟨x, ā y⟩`. -/
+/-- The **unitary trace form** (M5.5): `⟨x, y⟩ = Tr_{K/ℚ}(δ H(x, y))` for a hermitian form `H` on `K`
+and an anti-invariant `δ`; it is alternating and `⟨a x, y⟩ = ⟨x, ā y⟩`. This signature is the rank-one
+specialization; the full finite-dimensional version is in the README. -/
 noncomputable def unitaryTraceForm (H : K → K → K) (δ : K) (x y : K) : ℚ :=
   Algebra.trace ℚ K (δ * H x y)
 
@@ -342,29 +393,12 @@ theorem unitaryTraceForm_one_not_alternating :
       (fun a b => a * NumberField.IsCMField.complexConj K b) 1 x x ≠ 0 := by
   sorry
 
+/-- An anti-invariant scalar gives an alternating rank-one trace form. -/
+example (δ : K) (hδ : NumberField.IsCMField.complexConj K δ = -δ) (x : K) :
+    unitaryTraceForm K (fun a b => a * NumberField.IsCMField.complexConj K b) δ x x = 0 := by
+  sorry
+
 end Unitary
-
-/-! ## Abelian varieties over a field with an order action -/
-
-section OverField
-
-open TauCeti.AlgebraicGeometry
-
-variable {k : Type*} [Field k]
-
-/-- An **action of an order on an abelian variety** over a field: a ring homomorphism to the
-endomorphism ring. Over a general base the relative version, with polarization, Rosati condition and
-determinant condition, is the PEL triple of M1.2 (README only). -/
-structure OrderAction (O : Type*) [Ring O] (A : AbelianVariety k) where
-  /-- The action. -/
-  toRingHom : O →+* AbelianVariety.End A
-
-/-- The trivial action of `ℤ` on any abelian variety: every abelian variety is a Siegel-type object
-for `O = ℤ`. -/
-noncomputable def OrderAction.ofInt (A : AbelianVariety k) : OrderAction ℤ A :=
-  ⟨Int.castRingHom _⟩
-
-end OverField
 
 /-!
 ## Targets stated in the README only
@@ -372,27 +406,42 @@ end OverField
 The following targets need carriers that are not at the pins (abelian schemes over a base and their
 duals, polarizations over a base, algebraic stacks and spaces, complex analytic spaces, Shimura data
 and Shimura varieties, crystalline and étale cohomology, displays) and are specified in `README.md`:
+the full `PositiveInvolution`, `IntegralPELDatum`, `RationalPELDatum`, and `PIntegralPELDatum`;
+`IntegralPELDatum.coordinate`, `IntegralPELDatum.coordinatePoints`,
+`IntegralPELDatum.isometryCoordinate`, `IntegralPELDatum.similitudePoints`;
+`PELDatum.multiplier`, `PELDatum.isometryGroup`, `PELDatum.similitudeGroup`;
+`RationalPELDatum.coordinate`, `RationalPELDatum.coordinatePoints`;
+`SymplecticOLattice.dual`, `IsSelfDualAt`, `multiRank`, `polarizationType`, `baseChange`;
+`Order.inverseDifferent`; `PELDatum.IsGoodSet`, `goodBase`, `principalCongruence`;
+`RationalPELDatum.domain`, `signature`, `reflexField`; `GeneralizedCMType` and its
+`reflexField`, `positiveImaginaryCone`; `HermitianSpace`, `HermitianSpace.unitaryGroup`,
+`HermitianSpace.sharp`, `HermitianSpace.toSkewHermitian`; `SkewHermitianSpace`, `Similitude`, `Similar`, `GU`, `HasCMType`;
+`tauField`, `diamondField`, `psiField`, `tauPart`, `tauSubmodule`, `frobeniusOnEmbeddings`;
 the Albert classification `albertTypes`; `Order.disc` and its maximality theorems; the similitude group
 scheme and its structure `similitudeGroupStructure`; Galois cohomology `galoisH1`, `ker1` and their
 finiteness and Hasse statements; `hodgeStructureOfDatum`; the Shimura datum `toShimuraDatum`;
 signatures; `detPoly_classifies`; the reflex field and `reflexField_eq_shimura`;
 `detCondition_splitting`; `selfDualLattice_unique`; `bpsSignatureConstancy`; hermitian and
 skew-hermitian spaces, `cmTorus`, `rankOneSkewHermitian_classification`; `CMField.reflexiveClosure`;
-`τ`-parts. Layer M1: `QuasiIsogeny`, `BoxPolarization`, `PELTriple`, unitary `O_F`-abelian schemes,
+`τ`-parts. Layer M1: `HasSignatureType`, `PELDatum.Hom`, `PELModuli.forgetLevel`,
+`heckeCorrespondence`, `mapOfDatumFunctor`, `toSiegelFunctor`; `QuasiIsogeny`, `BoxPolarization`, `PELTriple`, unitary `O_F`-abelian schemes,
 `symplecticIsomSheaf`, `PrincipalLevel`, `IntegralLevel`, `RelativeRationalLevel`, `moduliProblem`,
 `ratModuliProblem`, `adelicModuli`, `isoIsogenyComparison`, `changeOfLatticeAndPrimes`,
-`effectiveDescent`, `heckeTranslate`, `toSiegel_finite`. Layer M2: `rigidity`, `IsNeat`,
+`effectiveDescent`, `heckeTranslate`, `toSiegel_finite`. Layer M2: `rigidity`, `IsPinkNeatElement`, `IsNeat`,
 `noAutomorphisms_of_neat`, `isomScheme_finite`, `deformation_prorepresentable`, `formalSmoothness`,
 `effectivity`, `representability`, `universal`, `kodairaSpencer`, `properOfDivision`,
-`unitaryDeformation`, `dieudonne_coker_length`, `isogenyKernelRanks`, `Display`, `wedhornOrdinary`.
-Layer M3: `ker1Classification`, `hasseCases`, `arithmeticQuotient_structure`, `complexPoints`,
+`unitaryDeformation`, `isogenyDieudonne_coker_length`, `isogenyKernelRanks`, `Display`, `Display.deformationEndomorphism`, `polarizedDisplay_lifting`, `wedhornOrdinary`.
+Layer M3: `PELModuli.analyticFamily`, `ker1Classification`, `hasseCases`, `arithmeticQuotient_structure`, `complexPoints`,
 `uniformization`, `algebraization`, `typeDComparison`, `hermitianHomOfAbelianSchemes`,
-`siegelFineUniformization`. Layer M4: `cmReciprocity`, `twist`, `canonicalModel`,
+`siegelFineUniformization`. Layer M4: `cmReciprocity`, `twist`, `adelicTwist`, `canonicalModel`,
 `canonicalModel_functorial`, `normalizedModel`, `normalizedModel_finite_normal_flat`, `cmModuli`,
-`cmModuli_galois`, `torusTrace`. Layer M5: `siegelModuli`, `genusOneComparison`, `hilbertExample`,
+`cmModuli1`, `cmModuliAct`, `torusGroupoid`, `cmModuli_galois`,
+`torusInvariantCohomology`, `torusTrace`. Layer M5: `siegelIntegralDatum`,
+`siegelRationalDatum`, `hilbertIntegralDatum`, `unitaryRationalDatum`; `siegelModuli`, `genusOneComparison`, `hilbertExample`,
 `unitaryExamples`, `nonprincipalExample`. Layer M6: `levelForgetting_finiteEtale`,
 `arbitraryLevelStack`, `siegelStack`, `polarizedStackFiniteType`, `coarseModuli`, `fieldOfModuli`,
-`descentObstruction`, `boundedFieldOfDefinition`, `hodgeLine`, `classifyingMap`,
+`PELModuli.fieldOfModuliPEL`,
+the residual gerbe `𝒢_x`, `descentObstruction`, `boundedFieldOfDefinition`, `PELModuli.hodgeBundle`, `PELModuli.hodgeLine`, `classifyingMap`,
 `finiteFieldFiniteness`, `nonemptyExamples`.
 -/
 
