@@ -245,6 +245,23 @@
         "date": null,
         "note": "opened 2026-10-13 09:35Z; awaiting first review"
       }
+    },
+    "GeometryOfNumbersAndQuadraticArithmetic": {
+      "stage": "pr",
+      "pr": 851,
+      "head": "c8e327f",
+      "depends_on": [
+        792,
+        785
+      ],
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 09:55Z; awaiting first review"
+      }
     }
   }
 }
