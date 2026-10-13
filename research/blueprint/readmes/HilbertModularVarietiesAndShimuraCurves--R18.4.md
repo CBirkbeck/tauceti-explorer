@@ -28,7 +28,7 @@ The accepted [R18.2 packet](../packets/HilbertModularVarietiesAndShimuraCurves--
 | quaternion-purity | Rank-two Morita summand purity; the generalized coefficient projector is supplied here. |
 | finite-level-descent | Averaged invariants only when the effective covering order is invertible; Hochschild–Serre otherwise. |
 
-The H0 packet supplies earlier Hilbert geometry and the canonical quaternionic curve. It has no R18.4 coverage record. The nine imports and their remaining-work record are in R18.2, which is left unchanged.
+The H0 packet supplies earlier Hilbert geometry and the canonical quaternionic curve. It has no R18.4 coverage record. The nine imports and their remaining-work record are in R18.2, whose files are outside this review and unchanged. Packaging must replace the core eigenspace R17 prerequisites with ALS.5/AF.3/AF.4 and the early bridge below, and replace the core purity R34.5 back-edge with the Saito projector and coefficient-purity target here. The new targets do not inherit those backward edges.
 
 At the pins, TauCeti.LocalCoefficientSystem is already a fundamental-groupoid functor into ModuleCat; the constant functor, pullback and monodromy are implemented. Mathlib's Scheme.EllAdicCohomology is constant continuous Z_l pro-étale sheaf cohomology with an additive group structure. It does not supply algebraic local coefficient sheaves, integral duality or the comparison used here. The finite-torsion-free freeness theorem over a PID and the DVR class are imported rather than reproved.
 
@@ -53,12 +53,16 @@ For a sufficiently small level K of an indefinite quaternion division algebra D/
 - `R18Cohomology.components_T` (compatibility): T_v[e_c]=(q_v+1)[e_{c c_v}].
 - `R18Cohomology.components_S` (compatibility): S_v[e_c]=[e_{c c_v²}], so S_v is invertible.
 - `R18Cohomology.components_character` (compatibility): At χ the two roots are χ(c_v) and q_vχ(c_v).
+- `R18Cohomology.components_linearAction` (constructor): Extend the right permutation of the finite component torsor to A[C_K] by A-linearity; an equivariant identification of torsors induces the corresponding module isomorphism.
+- `R18Cohomology.components_ext` (extensionality): A-linear maps out of A[C_K] are equal if they agree on every component basis vector.
+- `R18Cohomology.components_translation_comp` (relation): Translation by 1 is the identity; translation by c then d is translation by cd, and translation by c⁻¹ is its inverse. The dual function model acts by f(xc).
+- `R18Cohomology.components_coeffMap` (functoriality): A→B sends each basis vector to the same indexed B-basis vector and commutes with T and S; identity and composite coefficient maps agree.
 
 **Definition checks.**
 
-- `R18Cohomology.component_trivial` (small-case): For C_K=1 and A=F_7, q_v=3, T_v=4 and S_v=1.
+- `R18Cohomology.component_trivial` (computation): For C_K=1 and A=F_7, q_v=3, T_v=4 and S_v=1.
 - `R18Cohomology.component_central` (non-example): For C_K cyclic of order 3 and c_v a generator, S_v is a nonidentity permutation.
-- `R18Cohomology.component_change_uniformizer` (invariance): Multiplying π_v by O_v× leaves both operators unchanged.
+- `R18Cohomology.component_change_uniformizer` (compatibility): Multiplying π_v by O_v× leaves both operators unchanged.
 
 **Construction or proof.**
 
@@ -86,7 +90,7 @@ Let L_k be the finite k-local system from a continuous finite-image K-representa
 2. Use existing ray-class reciprocity (with inverse arithmetic Artin map for the stipulated geometric convention) to realize each component character as η on G_F. Its two cohomological Frobenius roots give η⊕ε⁻¹η. Chebotarev density and semisimple reconstruction contradict absolute irreducibility for a character supported at m. This is Proposition 2.4’s argument, without assuming the level quotient semisimple.
 3. Use curve duality and the adjoint involution to transfer the degree-zero calculation for L_k∨(1) at m* to degree two for L_k at m.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/component-hecke-action`, `ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality`, `IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/component-hecke-action`, `ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality`, `IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Propositions 2.3–2.4, pp.9–10: Constant and finite local coefficient cohomology in degrees zero and two has Eisenstein support.
 
@@ -108,7 +112,7 @@ For finite free O-local coefficients on the compact curve, the integral Poincar�
 
 **Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/cohomology-pairing`, `HilbertModularVarietiesAndShimuraCurves:R18.4/integral-cohomology-control`, `HilbertModularVarietiesAndShimuraCurves:R18.4/residual-eisenstein-vanishing`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`.
 
-**Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), §2.7 and proof of Proposition 2.3, pp.8–10: The Hecke adjoint involution relates degrees zero and two. [Milne](https://www.jmilne.org/math/CourseNotes/LEC.pdf), Theorems 24.1–24.2, pp.144–145: Curve duality and the trace normalization are compatible.
+**Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), §2.7 and proof of Proposition 2.3, pp.8–10: The Hecke adjoint involution relates degrees zero and two. [Milne](https://www.jmilne.org/math/CourseNotes/LEC.pdf), Theorem 24.1 and Remark 24.2, pp.144–145: Curve duality and the trace normalization are compatible.
 
 **Acceptance.** A central character of order greater than two can have m*≠m; the target retains both factors. The degree-one pairing is integral only after the stated vanishings.
 
@@ -208,11 +212,14 @@ For a commutative Hecke coefficient algebra A acting on an A-module M, q∈N, T�
 - `R18Cohomology.gram_second` (compatibility): pr₂G(x,y)=Tx+(q+1)y.
 - `R18Cohomology.gram_adjugate` (compatibility): GJ=JG=Δ id.
 - `R18Cohomology.gram_baseChange` (compatibility): Extending scalars carries G, J and Δ to the same formulas over the new algebra.
+- `R18Cohomology.gram_linearMap` (constructor): For an A-module M, commuting scalars T∈A, S∈A× and q, construct G,J as A-linear product maps with the displayed entries, and Δ∈A.
+- `R18Cohomology.gram_ext` (extensionality): Two product-valued linear maps are equal exactly when their first and second component maps agree; the displayed entries therefore determine G uniquely.
+- `R18Cohomology.gram_moduleMap` (functoriality): Every A-linear f:M→N intertwines G_M with G_N and J_M with J_N under f×f; this includes identities and composites.
 
 **Definition checks.**
 
 - `R18Cohomology.gram_zero_hecke` (degenerate): With T=0 the matrix is (q+1) times identity, and Δ=(q+1)².
-- `R18Cohomology.gram_central_factor` (small-case): Over Q, q=2, T=3, S=2 gives G(0,1)=(3/2,3); removing S⁻¹ fails.
+- `R18Cohomology.gram_central_factor` (computation): Over Q, q=2, T=3, S=2 gives G(0,1)=(3/2,3); removing S⁻¹ fails.
 - `R18Cohomology.gram_level_raise` (non-example): For q=2,T=3,S=1 over Q, Δ=0 and G(1,−1)=0.
 
 **Construction or proof.**
@@ -323,6 +330,9 @@ For the auxiliary q, residual unramified J and fixed determinant θ=ψε⁻¹, c
 - `R18Cohomology.local_q_branches` (compatibility): R_nr=R_unip/(X) and R_N=R_unip/(Y), with these branch labels fixed.
 - `R18Cohomology.local_q_regular` (compatibility): R_ps is regular over the specified O; R_nr and R_N are formally smooth over O.
 - `R18Cohomology.local_l_pointCriterion` (compatibility): A characteristic-zero point factors through the v|l quotient exactly when it has determinant θ and becomes semistable with weights {0,1} over L′.
+- `R18Cohomology.local_q_lift` (universal-property): Continuous local O-algebra maps from R_ps to a complete separated local O-algebra B correspond to choices of X,Y₁,P,R in m_B satisfying X²Y₁=π; the analogous R_unip maps satisfy XY₂=0. Evaluation on these coordinates determines the map uniquely.
+- `R18Cohomology.local_framed_universal` (universal-property): The unrestricted framed fixed-θ ring represents continuous lifts in the chosen frame, naturally in Artinian O-algebras. The potentially semistable quotient construction and point criterion remain conditional on the recorded Kisin proof leaf.
+- `R18Cohomology.local_branch_quotient` (relation): The unramified and N branch projections kill X and Y₂ respectively, with their quotient universal properties; all smooth framing parameters survive these maps.
 
 **Definition checks.**
 
@@ -336,7 +346,7 @@ For the auxiliary q, residual unramified J and fixed determinant θ=ψε⁻¹, c
 2. At q impose the inertia characteristic polynomials and the unipotent level-raising relation of MS §3.3. In its coordinates eliminate the determinant variable δ. Propositions 3.5–3.7 give the four-variable presentations and the common residual coordinate.
 3. R_ps is regular because its defining equation has uniformizer term; R_nr and R_N are formal power-series rings. For v|l the precise quotient is the Zariski closure of the allowed characteristic-zero points. Its representability/dimension proof is retained as the local-deformation source gap, not inferred from a predicate on points.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-unipotent-prime`, `DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability`, `ArithmeticGaloisDuality:D7/local-coefficient-field-duality`, `PadicHodgeTheory:R06.2`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-unipotent-prime`, `DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability`, `ArithmeticGaloisDuality:D7/local-coefficient-field-duality`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.3`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), §§3.1–3.3, Remark 3.4 and Propositions 3.5–3.7, pp.13–17: Fixed determinant eliminates one coordinate and yields the regular principal-series and nodal unipotent models; §3.2 cites Kisin for the p-adic quotient.
 
@@ -392,12 +402,12 @@ For the compact quaternionic curve with constant weight-two coefficients, a non-
 
 **Construction or proof.**
 
-1. Decompose the characteristic-zero cohomology using the accepted eigenspace construction and the minimal Jacquet–Langlands bridge. Carayol’s geometric realization supplies prime-to-l local compatibility and the spherical polynomials.
+1. Use the lower-tier Betti/de Rham/relative Lie algebra comparison and the requested compact quaternionic Matsushima decomposition, with AF.3 spectral and AF.4 actual E-model inputs. The minimal Jacquet–Langlands bridge identifies the relevant automorphic factors. Carayol B-prime realizes their prime-to-l compatible systems. Do not import the older eigenspace node through its R17 prerequisites.
 2. Interpolate the two-dimensional determinants into the O-flat integral Hecke image using IHG.4/compact-determinant-gluing, then IHG.1/continuous-matrix-reconstruction at the split absolutely irreducible residue.
 3. Use finite-level p-adic compatibility to factor through the l-adic local quotients; this step does not follow from Carayol’s prime-to-l theorem and is recorded as an unresolved source proof input.
 4. The universal property supplies R^θ→T; it is surjective because the away Frobenius traces generate the Hecke image. Use Chebotarev for uniqueness and level compatibility.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/non-eisenstein-integral-control`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-jacquet-langlands-bridge`, `HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-eigenspaces`, `IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing`, `IntegralHeckeAndGaloisDeterminants:IHG.1/continuous-matrix-reconstruction`, `IntegralHeckeAndGaloisDeterminants:IHG.3/frobenius-conversion`, `HilbertModularVarietiesAndShimuraCurves:R18.4/taylor-wiles-prime-datum`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/non-eisenstein-integral-control`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-jacquet-langlands-bridge`, `IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing`, `IntegralHeckeAndGaloisDeterminants:IHG.1/continuous-matrix-reconstruction`, `IntegralHeckeAndGaloisDeterminants:IHG.3/frobenius-conversion`, `HilbertModularVarietiesAndShimuraCurves:R18.4/taylor-wiles-prime-datum`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison`, `ArithmeticLocallySymmetricSpaces:ALS.5`, `AutomorphicFormsOnReductiveGroups:AF.3`, `AutomorphicFormsOnReductiveGroups:AF.4`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Lemma 4.11, p.24, and §3.6, pp.17–18: The pre-patching global deformation ring acts through the localized Hecke algebra, with local conditions established before patching. [Carayol](https://www.numdam.org/item/10.24033/asens.1512.pdf), Theorems A, B-prime and §0.11, pp.410–412: Compact quaternionic cohomology realizes the prime-to-l compatible system.
 
@@ -407,21 +417,21 @@ For the compact quaternionic curve with constant weight-two coefficients, a non-
 
 Target `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness` (theorem).
 
-Let Γ_K=Z(A_f)/(Z(F)(K∩Z(A_f))) act effectively on the sufficiently small compact curve, and let A be a finite local Z_l-algebra. The localized dual cohomology H¹(X_K,A)∨_m and definite function module H⁰(Y_K,A)∨_m are injective A[Γ_K]-modules. Therefore their ψ-isotypical functor and corresponding homological character quotient are exact on the finite-level modules and filtrations under consideration, including when l divides |Γ_K|. This supplies the exact central-character steps used by the patching system.
+Let Γ_K=Z(A_f)/(Z(F)(K∩Z(A_f))) act freely at the sufficiently small effective level, and let A be a finite local Z_l-algebra. Put A∨=Hom_Z_l(A,Q_l/Z_l), with A acting by precomposition with multiplication. The modules H¹(X_K,A∨)_m and H⁰(Y_K,A∨)_m are injective A[Γ_K]-modules. Thus ψ-parts are exact on the particular cohomological sequences with these injective kernels, and Pontryagin duality gives the corresponding homological character quotients, with inverse characters under contragredient duality. This remains valid when l divides |Γ_K| and supplies the central-character steps in the patching filtration. The symbol A∨ denotes the coefficient Pontryagin dual, not Hom_A(A,A) or an unspecified dual of H¹.
 
-**Hypotheses.** m non-Eisenstein; ψ compatible with the central level and coefficients. Smallness makes the finite central quotient action free, not just an action of an ineffective center.
+**Hypotheses.** m non-Eisenstein; ψ compatible with the central level and coefficients. Smallness makes the finite central quotient action free, not just an action of an ineffective center. The definite clause uses the general-field constant-coefficient R18.3 Part II request, rather than the restricted KW specialisation.
 
 **Construction or proof.**
 
 1. Apply the finite-cover Hochschild–Serre sequence to the free central quotient action. Degrees zero and two vanish after non-Eisenstein localization.
-2. The resulting cohomological concentration proves the localized dual is injective over A[Γ_K], as in MS Lemma 2.5. The definite function module is obtained from free finite orbits.
-3. Use injectivity and the dual quotient functor to take ψ-parts of the particular sequences; use Nakayama in the finite central group algebra to remove the chosen character in the final Ihara argument.
+2. Apply the Hom_{A[Γ_K]}(-,H¹(X_K,A∨)_m) calculation in MS Lemma 2.5 to arbitrary finite A[Γ_K]-modules. Non-Eisenstein concentration makes this functor exact, proving injectivity. On the definite side the free finite orbits give a coinduced module with injective coefficient cogenerator A∨.
+3. Take ψ-parts only in the sequences to which this injectivity applies. Pontryagin duality converts them to the homological quotient sequences with the contragredient character. Use the finite central group algebra and the residual central-character block in the final Nakayama step.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/residual-eisenstein-vanishing`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre`, `HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/residual-eisenstein-vanishing`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre`, `HilbertModularVarietiesAndShimuraCurves:R18.3`.
 
-**Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), §2.12 and Lemma 2.5, pp.10–11; end of proof of Theorem 6.5, p.38: Central-character extraction is exact by injectivity, and the final character reduction is removed by Nakayama.
+**Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), §1.4, p.7; §2.12 and Lemma 2.5, pp.10–11; end of proof of Theorem 6.5, p.38: Central-character extraction is exact by injectivity, and the final character reduction is removed by Nakayama.
 
-**Acceptance.** A central quotient with l-torsion is allowed; the proof does not divide by its order. This statement concerns the localized arithmetic modules, not arbitrary A[Γ_K]-modules.
+**Acceptance.** A central quotient with l-torsion is allowed; the proof does not divide by its order. This statement concerns the localized arithmetic modules, not arbitrary A[Γ_K]-modules. For A=k[x,y]/(x,y)², the socle of A has dimension two, so A is not self-injective. Its k-dual is an injective cogenerator. Replacing the coefficient Pontryagin dual by A would invalidate the general finite-algebra statement.
 
 ### 18. Auxiliary-prime integral types
 
@@ -439,10 +449,13 @@ Let G_q=GL₂(k_q), B_q its upper Borel, q≡1 mod l, l>2 and O as in the local-
 - `R18Cohomology.type_ps_reduction` (compatibility): The specified lattice gives the exact nonsplit 0→1_k→σ_ps,k→St_k→0.
 - `R18Cohomology.type_inflate` (compatibility): Inflation has trivial principal-congruence action and the prescribed unramified central restriction.
 - `R18Cohomology.type_homothety` (compatibility): Changing the selected lattice by homothety gives an isomorphic integral type and the same extension orientation.
+- `R18Cohomology.type_iwahori_constructor` (constructor): Realize Ind_B^G 1 as O-valued functions on P¹(k_q), constants as the trivial summand and St_O as the kernel of the coordinate sum.
+- `R18Cohomology.type_iwahori_mean` (projection): Since q+1∈O×, the mean (q+1)⁻¹Σ_x f(x) is a G-equivariant retraction onto constants; its complement projects onto St_O. Both projections are idempotent and sum to the identity.
+- `R18Cohomology.type_ps_socle` (characterisation): The selected stable lattice in the E-model of σ_ps is characterized up to homothety by residual trivial socle; its quotient is St_k and the extension is nonsplit.
 
 **Definition checks.**
 
-- `R18Cohomology.type_q11_l5` (small-case): For q=11,l=5 the dimensions are 1,11,12 and 12 is a unit in O.
+- `R18Cohomology.type_q11_l5` (computation): For q=11,l=5 the dimensions are 1,11,12 and 12 is a unit in O.
 - `R18Cohomology.type_ps_not_split` (non-example): The residual principal-series lattice has trivial socle and a nonsplit Steinberg quotient; replacing it by 1⊕St fails.
 - `R18Cohomology.type_l2_excluded` (non-example): For l=2 and q odd, q+1 is not a unit; the splitting step is unavailable.
 
@@ -468,11 +481,11 @@ At the auxiliary q, the smooth proper hyperspecial integral model and regular Iw
 
 **Construction or proof.**
 
-1. Specialize the accepted regular-model tower at the new split q. The two components and finite étale/supersingular correspondence are MS Theorems 2.6 and 2.10.
+1. Specialize the accepted regular-model tower at the new split q. The two components and finite étale/supersingular correspondence are MS Theorems 2.6 and 2.10. Identify the definite supersingular function module using the general-field R18.3 Part II contract; the restricted KW coefficient specialisation is insufficient.
 2. Use the normalization and vanishing-cycle exact sequences and the degree-zero/degree-two vanishings to identify the remaining degree-one filtration. The proper curve specialization and nodal vanishing-cycle sequence are imported from LPV.7:semistable-curves.
 3. Use central-character-exactness and finite-dimensional duality to transfer the filtration to the actual homological modules with transition and degeneracy maps.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.2/regular-model-tower`, `HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model`, `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-unipotent-prime`, `HilbertModularVarietiesAndShimuraCurves:R18.4/residual-eisenstein-vanishing`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/normalization-etale-resolution`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-specialization-sequence`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.2/regular-model-tower`, `HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model`, `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-unipotent-prime`, `HilbertModularVarietiesAndShimuraCurves:R18.4/residual-eisenstein-vanishing`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.3`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/normalization-etale-resolution`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-specialization-sequence`, `LefschetzPencilsAndVanishingCycles:LPV.7:semistable-curves/curve-normalization-cohomology`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Theorems 2.6, 2.10 and 2.11, pp.11–13: Good and Iwahori models, supersingular identification and the N,M²,N filtration supply the geometric transfer.
 
@@ -494,6 +507,9 @@ Build the ordinary finite-level type functor σ↦M_∞(σ) from the full locali
 - `R18Cohomology.patch_type_exact` (compatibility): Finite type exact sequences give exact patched sequences under the MCM quotient criterion.
 - `R18Cohomology.patch_type_support` (compatibility): 1, St, σ_ps and definite N have respectively nr, unip, ps and N support.
 - `R18Cohomology.patch_filtration` (compatibility): The patched q-Iwahori module has graded pieces N_∞, M_∞², N_∞ and agrees with M_∞⊕M_∞(St) by the Iwahori splitting.
+- `R18Cohomology.patch_type_map` (functoriality): For a single fixed compatible patching datum and ultrafilter, maps of finite types induce R∞-linear maps of patched modules; identities and composites agree, naturally with augmentation and level maps.
+- `R18Cohomology.patch_integral_type` (constructor): For a free O-type, construct its patched module from the compatible finite σ/πⁿ systems and inverse limit. Reduction to each σ/πⁿ agrees under the stated cofinal/freeness hypotheses; a torsion Pontryagin dual is not declared O-free.
+- `R18Cohomology.patch_type_exact_criterion` (characterisation): Exactness is asserted for the admissible systems of MS Lemma 4.7, not every inverse system; multiplication by πⁿ can become zero after patching despite each finite-level map being injective.
 
 **Definition checks.**
 
@@ -504,11 +520,11 @@ Build the ordinary finite-level type functor σ↦M_∞(σ) from the full locali
 **Construction or proof.**
 
 1. Form the fine levels as kernels of the residue-field quotient at Q_n; localize U_v at the chosen residual eigenvalues and prove the O[Δ_n] freeness and augmentation isomorphisms from the finite-level cover action and non-Eisenstein concentration.
-2. Adjoin frame variables and apply the imported R03.5 patching datum, with the requested exactness extension. Equidimensional numerical equality and finite-level freeness produce MCM modules.
+2. Adjoin frame variables and apply the requested MS weak-patching contract from R03.5. Keep its noetherian, cofinal-ideal and uniform-generator hypotheses, finite-level freeness and numerical equality. No domain hypothesis is imposed on the reducible local tensor product; the existing domain Kisin criterion is not used as if it covered this case.
 3. For a finite type σ use the arithmetic local coefficient sheaf of σ∨ in cohomology, dualize and patch; pass compatibly through σ/πⁿ for integral free types.
 4. Patch the filtration using MCM residual graded quotients; use the early local type theorem to factor each action through R_nr, R_unip, R_ps or R_N.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/taylor-wiles-prime-datum`, `HilbertModularVarietiesAndShimuraCurves:R18.4/early-quaternionic-galois-hecke-support`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-local-types-and-support`, `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-prime-integral-types`, `HilbertModularVarietiesAndShimuraCurves:R18.4/supersingular-cohomology-filtration`, `DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patch-datum`, `DeformationAndDerivedPatchingAlgebra:R03.5/kisin-ring-module-patching`, `DeformationAndDerivedPatchingAlgebra:R03.5`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/taylor-wiles-prime-datum`, `HilbertModularVarietiesAndShimuraCurves:R18.4/early-quaternionic-galois-hecke-support`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-local-types-and-support`, `HilbertModularVarietiesAndShimuraCurves:R18.4/auxiliary-prime-integral-types`, `HilbertModularVarietiesAndShimuraCurves:R18.4/supersingular-cohomology-filtration`, `DeformationAndDerivedPatchingAlgebra:R03.5`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Lemma 4.7, p.21; Propositions 4.14 and 4.16, pp.26–27; Theorems 4.17 and 4.19, pp.28–29; Propositions 4.20–4.21, p.30: The finite-level systems patch with exactness, augmentation, MCM and local support under these hypotheses.
 
@@ -524,11 +540,11 @@ With the preceding finite-level patching datum, M_∞(1) is flat over R_nr, N_�
 
 **Construction or proof.**
 
-1. Apply R03.3/miracle-flatness-finite-modules to the regular local bases R_nr,R_N,R_ps, checking the relative dimension equality from the actual patched local tensor product.
-2. Use the requested MS Lemma 5.2 algebra: over A=k[[X,Y]]/(X²Y), an exact 0→L→M→N→0 with M A-flat, XL=0, XYN=0 yields N=M/(XY)M flat over B and N/XN≅L.
-3. Apply the requested Lemma 5.3 algebra to M=M_∞(St_k), L=M/XM, the Iwahori decomposition P=L⊕M and its N,L²,N filtration. Its hypotheses include N flat over B/(Y). Obtain the stated exact sequence modulo Y.
+1. Apply the requested MS Lemma 5.1 regular-base miracle flatness to R_nr,R_N,R_ps: A→R is local noetherian, A regular, M finite MCM over R and dim R=dim A+dim(R/m_A R). Verify these dimensions in the actual patched local tensor product, and treat M=0 separately.
+2. Use the requested MS Lemma 5.2 algebra: over A=k[[X,Y]]/(X²Y), an exact 0→L→M→N→0 with M A-flat, XL=0, XYN=0 yields N=M/(XY)M flat over B and N/XN≅L. For Proposition 6.11 use the residual ps patched ambient ring, on which M(σ_ps) acts, before passing to the unipotent quotient.
+3. Apply the requested Lemma 5.3 algebra to M=M_∞(St_k), L=M/XM, the Iwahori decomposition P=L⊕M and its N,L²,N filtration. Its hypotheses include N flat over B/(Y). Obtain the stated exact sequence modulo Y. For Proposition 6.12 use the residual unipotent patched ambient ring; the ps ring does not carry the coordinate-preserving B-algebra structure. This corrects the two swapped ambient rings printed on p.38.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-ihara-patching-functor`, `HilbertModularVarietiesAndShimuraCurves:R18.4/ihara-local-deformation-models`, `DeformationAndDerivedPatchingAlgebra:R03.3/miracle-flatness-finite-modules`, `DeformationAndDerivedPatchingAlgebra:R03.3`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-ihara-patching-functor`, `HilbertModularVarietiesAndShimuraCurves:R18.4/ihara-local-deformation-models`, `DeformationAndDerivedPatchingAlgebra:R03.3`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Lemmas 5.1–5.3, pp.31–33; Propositions 6.10–6.12, pp.37–38: Regular-base flatness and the two nodal transfer lemmas yield the Steinberg branch identities.
 
@@ -544,11 +560,11 @@ For constant residual coefficients and the large-image datum, the homological tr
 
 **Construction or proof.**
 
-1. Form the commuting two-row short exact diagram modulo Y with outer terms N_∞ and N_∞². Definite Ihara makes the two outer trace maps surjective after augmentation.
+1. Form the commuting two-row short exact diagram modulo Y with outer terms N_∞ and N_∞². Use the requested general-field definite Ihara theorem, MS Theorem 6.8, to make the two outer trace maps surjective after augmentation; the existing restricted KW definite-degeneracy node alone does not cover this F.
 2. The finite patched cokernels vanish by Nakayama; the short exact diagram then makes the middle map modulo Y surjective. Apply Nakayama again with Y in the maximal ideal to get the full Steinberg map surjective.
 3. Tensor with the unramified branch X=0, using patched-type-flatness, then specialize S_∞ to k. Remove the central character quotient by the finite central-algebra Nakayama argument.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/patched-type-flatness`, `HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-degeneracy`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.4/patched-type-flatness`, `HilbertModularVarietiesAndShimuraCurves:R18.3`, `HilbertModularVarietiesAndShimuraCurves:R18.4/central-character-exactness`, `HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-degeneracy`.
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Proof of Theorem 6.5, p.38: A compatible exact diagram transfers definite trace surjectivity to the curve through the two branch specializations.
 
@@ -578,7 +594,7 @@ Let l>2, D/F a quaternion division algebra split at exactly one real place, K su
 
 Target `HilbertModularVarietiesAndShimuraCurves:R18.4/integral-ihara-saturation` (theorem).
 
-Under residual-ihara-large-image, let L_O be a finite free O-lattice system with reduction Λ and coefficient action away from w. Then δ:H¹_et(X_K,L_O)_m²→H¹_et(X_(K_0(w)),L_O)_m is injective and its image is saturated; the cokernel is finite free over O. It remains so after extending O and after reduction to O/λⁿ. This is an integral consequence of the residual theorem and the established control isomorphisms; it is independent of Δ being a unit.
+Under residual-ihara-large-image, let L_O be a finite free O-lattice system with reduction Λ and coefficient action away from w. Then δ:H¹_et(X_K,L_O)_m²→H¹_et(X_(K_0(w)),L_O)_m is injective and its image is saturated; the cokernel is finite free over O. A finite extension of coefficient DVRs preserves injectivity, saturation and a finite-free cokernel. After reduction to O/λⁿ the map is a split injection with finite-free cokernel over O/λⁿ; no λ-torsion-freeness of this Artinian cokernel is asserted. This is an integral consequence of the residual theorem and the established control isomorphisms; it is independent of Δ being a unit.
 
 **Hypotheses.** The localized source and target have the finite-free and reduction statements of non-eisenstein-integral-control. All image, smallness and coefficient hypotheses of the residual theorem hold.
 
@@ -592,7 +608,7 @@ Under residual-ihara-large-image, let L_O be a finite free O-lattice system with
 
 **Sources.** [MS](https://arxiv.org/pdf/1907.06043v2), Theorem 6.5, p.34, with §2.10 and Lemma 6.4, pp.10,34: Residual injectivity and local coefficient control are the inputs; saturation is derived here by the stated DVR criterion.
 
-**Acceptance.** A level-raising ideal with Δ≡0 is still allowed by Ihara. The result is not asserted for arbitrary integral weights that act nontrivially at w.
+**Acceptance.** A level-raising ideal with Δ≡0 is still allowed by Ihara. The result is not asserted for arbitrary integral weights that act nontrivially at w. For the inclusion O→O², x↦(x,0), the reduced cokernel is O/λⁿ. It is free over O/λⁿ but has nonzero λ-torsion, so DVR saturation cannot be asserted after Artinian reduction.
 
 ### 25. Early quaternionic Jacquet–Langlands bridge
 
@@ -606,10 +622,10 @@ For quaternion inner forms of GL₂ over F, the non-character discrete automorph
 
 1. Use AF.3’s discrete cuspidal spectrum and the local discrete-series character correspondence. The required quaternion trace comparison is requested from AS.6, with matching orbital integrals at the ramified places.
 2. Apply BR Theorem 18.1 to obtain the global transfer, multiplicity one and common unramified factors. For GL₂ the only noncuspidal discrete alternatives are the excluded character transfers.
-3. At τ and q impose the two local compatibilities, then use the accepted definite and indefinite coefficient realizations and AF.4 rational models to compare E-multiplicity spaces.
+3. At τ and q impose the two local compatibilities. Use the general-field constant-coefficient definite realization requested from R18.3, the indefinite cohomology realization, and the actual common E-model input from AF.4 to compare E-multiplicity spaces. AF.4 supplies rationality under its stated cohomological hypotheses, not an unconditional integral comparison.
 4. For the kernel inclusion used in patching, tensor both finite torsion-free integral modules with E, obtain the inclusion by the common eigensystems, then descend the zero action by torsion-freeness.
 
-**Dependencies.** `AutomorphicFormsOnReductiveGroups:AF.3`, `AutomorphicFormsOnReductiveGroups:AF.4`, `AutomorphicSpectralTheory:AS.6`, `HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation`, `HilbertModularVarietiesAndShimuraCurves:R18.4/finite-cohomology`.
+**Dependencies.** `AutomorphicFormsOnReductiveGroups:AF.3`, `AutomorphicFormsOnReductiveGroups:AF.4`, `AutomorphicSpectralTheory:AS.6`, `HilbertModularVarietiesAndShimuraCurves:R18.3`, `HilbertModularVarietiesAndShimuraCurves:R18.4/finite-cohomology`.
 
 **Sources.** [BR](https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf), §1.5, pp.5–6; Theorem 18.1 and proof, pp.44–45: The global inner-form correspondence identifies the compatible discrete spectra and proves multiplicity one through trace comparison. [MS](https://arxiv.org/pdf/1907.06043v2), Lemma 4.12 and proof, pp.24–25: The definite Hecke action factors through the indefinite action at q-Iwahori level by Jacquet–Langlands and integral torsion-freeness.
 
@@ -621,7 +637,7 @@ Target `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-saito-project
 
 Let g=[F:Q], k=(k_i,w) with k_i≥2, all k_i≡w mod 2 and w≥max_i k_i. Use Saito’s actual CM/PEL bridge M×N→M″ and CM elliptic family A₀→N₀, not an elliptic family on M. After a splitting coefficient field L, the PEL endomorphism algebra is a product of two M₂(L) factors at each i; select the indicated second/conjugate factor and a rank-one matrix idempotent e_i. Its action on R¹a_*L_λ has rank two. Degree-one, Young/symmetric/determinant and CM projectors produce X=α*A^{g(w−2)}×β*A₀^{a}, a=(g−1)(w−2), and an L-linear algebraic correspondence e. Write q₀=(2g−1)(w−2). The only nonzero projected R^j c_* is j=q₀, with eR^q₀c_*=pr₁*F(k)⊗β*F(χ₀)^a. Here F(χ₀), after forgetting the torus action, has Tate type L_λ(−1). Leray yields eH^j(X_Ē,L_λ)≅H^{j−q₀}(M_F̄,F(k))⊗H⁰(N_Ē,F(χ₀)^a), G_E- and Hecke-equivariantly. Selecting an actual CM eigensummand L_λ(−a) identifies the selected degree-(q₀+1) factor with H¹(M,F(k))(−a).
 
-**Hypotheses.** Small compatible levels and stable lattices admit the stated PEL and CM abelian schemes and maps α,β; the effective descent is part of the accepted coefficient system. All determinant exponents (w−k_i)/2 are nonnegative; rational idempotents have denominators, so exclude their support for an integral action. At the good reduction prime p use the extension of the abelian schemes and prime-to-p correspondences in Saito Lemma 4; λ∤p. For the invoked semistable-model form of Saito Lemma 4, choose a further sufficiently small level with every geometric curve component of genus greater than one; at a good smooth model the same correspondence extension applies directly.
+**Hypotheses.** Small compatible levels and stable lattices admit the stated PEL and CM abelian schemes and maps α,β; the effective descent is part of the accepted coefficient system. All determinant exponents (w−k_i)/2 are nonnegative; rational idempotents have denominators, so exclude their support for an integral action. For the good-model comparison require Saito Lemma 4: p splits in the chosen imaginary quadratic E₀, the quaternion algebra is split at the distinguished p-place, K″ has the stated hyperspecial p-component, and compatible level changes retain the p-components (hence induce prime-to-p isogenies). The actual PEL and CM abelian schemes and correspondences extend under these hypotheses; λ∤p. For the invoked semistable-model form of Saito Lemma 4, choose a further sufficiently small level with every geometric curve component of genus greater than one; at a good smooth model the same correspondence extension applies directly.
 
 **Uses.** `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternionic-coefficient-purity`: Subtract the CM Tate correction from the smooth proper weight. `WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison`: Supply the quaternionic geometric projector previously assumed by the weights stage.
 
@@ -630,12 +646,15 @@ Let g=[F:Q], k=(k_i,w) with k_i≥2, all k_i≡w mod 2 and w≥max_i k_i. Use Sa
 - `R18Cohomology.saito_rank_two` (compatibility): Each selected e_iR¹ has rank two, and its symmetric/determinant projector has the advertised representation.
 - `R18Cohomology.saito_unique_row` (compatibility): eR^j c_*=0 for j≠q₀ and the j=q₀ row is F(k) tensored with the stated CM correction.
 - `R18Cohomology.saito_cohomology` (compatibility): The Leray comparison is G_E- and Hecke-equivariant in all degrees.
-- `R18Cohomology.saito_good_model` (compatibility): At a good model prime the correspondences extend and commute with smooth proper specialization; exclude projector denominators for integral actions.
+- `R18Cohomology.saito_good_model` (compatibility): Under the split-p, hyperspecial PEL and fixed-p-level hypotheses of Lemma 4, extend the actual abelian schemes and prime-to-p correspondences, compatibly with good-fibre specialization; exclude projector denominators for integral actions.
+- `R18Cohomology.saito_constructor` (constructor): From the actual α,β bridge, PEL powers, CM powers, chosen matrix idempotents and Young projectors, construct the rational algebraic correspondence e on X. The polynomial in multiplication-by-n isolates R¹, with n prime to p at a good model.
+- `R18Cohomology.saito_idempotent` (relation): The chosen rational correspondences satisfy e∘e=e and commute with the indicated endomorphism, Galois and Hecke actions; hence they define a direct summand in rational cohomology.
+- `R18Cohomology.saito_tame_levels` (functoriality): Compatible level maps with unchanged p-components give prime-to-p isogenies of the PEL/CM families, intertwine the projectors and satisfy identity/composition compatibility on their cohomological summands.
 
 **Definition checks.**
 
 - `R18Cohomology.saito_weight_two` (degenerate): For w=k_i=2, q₀=a=0 and the degree-one comparison returns constant weight-two curve cohomology.
-- `R18Cohomology.saito_g2_w4` (small-case): For g=2,w=4, q₀=6 and a=2: the selected degree is seven and the cohomology factor is H¹(F(k))(−2).
+- `R18Cohomology.saito_g2_w4` (computation): For g=2,w=4, q₀=6 and a=2: the selected degree is seven and the cohomology factor is H¹(F(k))(−2).
 - `R18Cohomology.saito_negative_determinant` (non-example): For k=(6,2),w=4 the exponent (w−6)/2 is negative; the direct tensor construction is excluded.
 - `R18Cohomology.saito_no_integral_saturation` (non-example): An idempotent containing 1/λ does not define an integral projector on an O-lattice.
 
@@ -646,9 +665,9 @@ Let g=[F:Q], k=(k_i,w) with k_i≥2, all k_i≡w mod 2 and w≥max_i k_i. Use Sa
 3. Apply the CM bridge and the a elliptic CM factors. Their selected rank-one R¹ has Tate type (−1), so the total selected direct-image degree is q₀, not the coefficient-system weight.
 4. Only one projected Leray row survives; Saito Lemma 3 gives the displayed comparison. Choose the actual CM eigensummand before extracting H¹(−a). Rational projection does not establish a saturated integral coefficient lattice.
 
-**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-local-systems`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-purity`, `PELModuli:M3`, `WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations`.
+**Dependencies.** `HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pel-instance`, `HilbertModularVarietiesAndShimuraCurves:R18.4/quaternion-local-systems`, `PELModuli:M3`, `WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations`.
 
-**Sources.** [Saito](https://arxiv.org/pdf/math/0612077v2), §§4–5, pp.18–22; §§6.1–6.3 and Lemma 3, pp.25–30; Lemma 4, pp.32–33: The coefficient projector uses higher-dimensional quaternionic PEL powers and a CM correction, with an explicit degree shift and good-model correspondence extension.
+**Sources.** [Saito](https://arxiv.org/pdf/math/0612077v2), §§4–5, pp.18–24; §§6.1–6.3 and Lemma 3, pp.25–30; Lemma 4, pp.32–33: The coefficient projector uses higher-dimensional quaternionic PEL powers and a CM correction, with an explicit degree shift and good-model correspondence extension.
 
 **Acceptance.** The raw PEL R¹, Morita summands and normalized F(k) are three distinct coefficient systems.
 
@@ -675,7 +694,7 @@ At a good proper model prime p, λ∤p, the rank-two Morita summands V_i of the 
 
 ## Worked acceptance cases
 
-For the compact curve, choose a non-Eisenstein maximal ideal and a coefficient lattice that descends at both levels. Residual degree-zero and degree-two vanishings give finite-free source and target, including the reduction isomorphisms. Residual Ihara then gives a finite-free cokernel, hence every reduction modulo λⁿ remains injective. This route requires the large-image conditions and the fulfilled source/supplier inputs. It also works at a level-raising ideal where Δ vanishes modulo λ. Conversely multiplication by λ on a free rank-one lattice is rationally injective with torsion cokernel; it must fail the residual test.
+For the compact curve, choose a non-Eisenstein maximal ideal and a coefficient lattice that descends at both levels. Residual degree-zero and degree-two vanishings give finite-free source and target, including the reduction isomorphisms. Residual Ihara then gives a finite-free cokernel, hence every reduction modulo λⁿ is a split injection with a finite-free O/λⁿ cokernel. For x↦(x,0) from O to O², that reduced cokernel is O/λⁿ: it has λ-torsion even though it is free over the reduced coefficient ring. This route requires the large-image conditions and the fulfilled source/supplier inputs. It also works at a level-raising ideal where Δ vanishes modulo λ. Conversely multiplication by λ on a free rank-one lattice is rationally injective with torsion cokernel; it must fail the residual test.
 
 For a good split place, take q=2,T=3,S=2 over Q. The Gram matrix is [[3,3/2],[3,3]]; the two central-normalized off-diagonal entries differ. With S=1 its vector (1,−1) lies in the kernel, demonstrating why the unit-discriminant criterion is a sufficient splitting condition and gives no general replacement for Ihara. The generic PGL₂ degeneracy target specializes S to one; this GL₂ calculation retains it.
 
@@ -685,28 +704,45 @@ For an open smooth Hilbert model, the two Deligne bounds meet on im(H_c^j→H^j)
 
 ## Supplier contracts and proof leaves
 
-- `PadicHodgeTheory:R06.2`: Period-functor characterization of potential semistability over a specified finite extension, parallel weight-{0,1} convention, coefficient change and Weil–Deligne descent data. This imports admissibility only, not an unbuilt deformation-ring theorem. Needed by `ihara-local-deformation-models`.
+- `PadicHodgeTheory:R06.2`: Period-functor characterization of potential semistability over a specified finite extension, parallel weight-{0,1} convention and coefficient change. This imports admissibility only, not the construction or dimension theorem for a deformation quotient. Needed by `ihara-local-deformation-models`.
+
 - `SelmerIwasawaCohomology:L2`: Part II: the adjoint Selmer/dual-Selmer Taylor–Wiles selection theorem over a totally real F under MS Lemma 4.10’s two image hypotheses; chosen distinct eigenvalues at r primes with Nv≡1 mod lⁿ, and the tangent/obstruction dimension calculation producing g and dim R_loc=r+j−g+1. Existing rational Selmer kernels alone do not supply this arithmetic selection. Needed by `taylor-wiles-prime-datum`.
+
 - `SmoothRepresentationsOfLocalGroups:SR.3`: Part II: the finite GL₂(k_q) order-l principal-series E-model/Schur-index descent and two residual factors 1,St when q≡1 mod l; the stable lattice with trivial socle from EGS Lemma 4.1.1, and the characteristic-zero local type/Weil–Deligne computations of MS Proposition 3.10. Include the nonsplit extension orientation and inflation, without citing a downstream local Langlands roadmap. Needed by `auxiliary-prime-integral-types`, `quaternionic-local-types-and-support`.
-- `DeformationAndDerivedPatchingAlgebra:R03.5`: Part II: MS Lemma 4.7’s exactness criterion for weak patching systems (MCM quotient, or residual systems with MCM residual quotient), the cofinal finite-quotient inverse-limit hypotheses, functorial type patching and augmentation. Existing free-module patching alone does not prove arbitrary exactness. Needed by `quaternionic-ihara-patching-functor`.
-- `DeformationAndDerivedPatchingAlgebra:R03.3`: Part II: MS Lemmas 5.2–5.3 with the exact hypotheses recorded in patched-type-flatness: the X²Y→XY transfer, then the N,L²,N filtration on L⊕M with M B-flat, L=M/XM and N flat over B/(Y). Require complete local noetherian R for the second lemma and preserve all commuting R-actions. Needed by `patched-type-flatness`.
+
+- `DeformationAndDerivedPatchingAlgebra:R03.5`: Part II: MS Definition 4.1 and Propositions 4.2–4.6, pp.19–21, for weak patching algebras/modules over local noetherian coefficient rings without a domain assumption; fixed ultrafilter/cofinal ideals, uniform finite generation, finite-level free S∞/I_n modules, augmentation and matched dimensions giving MCM. Include Lemma 4.7 exactness (MCM quotient, or residual systems with MCM residual quotient), Corollary 4.8 filtrations and Theorem 4.19 type functor/integral inverse limits. The existing Kisin patching datum requires a domain base and cannot be applied unchanged to R_unip or the reducible local tensor product. Needed by `quaternionic-ihara-patching-functor`.
+
+- `DeformationAndDerivedPatchingAlgebra:R03.3`: Part II: MS Lemma 5.1 regular-base miracle flatness for local noetherian A→R, A regular, M finite MCM over R and dim R=dim A+dim(R/m_A R), with zero modules separate. Then Lemmas 5.2–5.3 under the exact hypotheses in patched-type-flatness: the X²Y→XY transfer, followed by the N,L²,N filtration on L⊕M, with M B-flat, L=M/XM and N flat over B/(Y); complete local noetherian R in the second lemma and all commuting R-actions retained. The source is MS pp.31–33. Do not cite an unreviewed old miracle-flatness node as an accepted contract. Needed by `patched-type-flatness`.
+
 - `AutomorphicSpectralTheory:AS.6`: Part II: quaternion-inner-form matching of trace distributions in the GL₂ discrete spectrum used by BR Theorem 18.1, including ramified discrete-series local character matching and the exclusion of character transfers. The generic invariant trace identity without this comparison is insufficient. Needed by `quaternionic-jacquet-langlands-bridge`.
-- `AutomorphicFormsOnReductiveGroups:AF.3`: The existing AF.3 discrete cuspidal spectrum and finite-multiplicity contract, including the unitary central normalization used by the quaternionic inner-form correspondence. Needed by `quaternionic-jacquet-langlands-bridge`.
-- `AutomorphicFormsOnReductiveGroups:AF.4`: The existing algebraic coefficient and rational-model contract: a common field of definition and genuine E-multiplicity spaces for the cohomological quaternionic representations. Do not infer an integral comparison from complex eigensystems. Needed by `quaternionic-jacquet-langlands-bridge`.
+
+- `AutomorphicFormsOnReductiveGroups:AF.3`: The existing AF.3 discrete cuspidal spectrum and finite-multiplicity contract, including the unitary central normalization used by the quaternionic inner-form correspondence. Its packet currently has needs_changes review status; discharge that supplier review before proof closure. Needed by `quaternionic-jacquet-langlands-bridge`, `early-quaternionic-galois-hecke-support`.
+
+- `AutomorphicFormsOnReductiveGroups:AF.4`: The AF.4 algebraic coefficient/rational-model contract under its stated cohomological hypotheses, specialized to the compact quaternionic eigenspaces used here, with an actual common E-model after finite coefficient enlargement. AF.4 is a supplier plan awaiting correction, not an accepted library theorem; a common E-model remains an explicit input to the bridge. Neither a complex embedding nor complex eigensystem agreement gives an integral comparison. Needed by `quaternionic-jacquet-langlands-bridge`, `early-quaternionic-galois-hecke-support`.
+
 - `PELModuli:M3`: The existing complex-points/abelian-family contract specialized to the quaternionic CM bridge of Saito §§4–6, with actual α,β maps and compatible small levels. This uses the accepted quaternionic PEL instance rather than proposing a generic PEL moduli theory. Needed by `quaternionic-saito-projector`.
+
 - `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`: Import the existing twisted chain/cochain and cohomology construction. Current Tau Ceti already implements the Hom-variance carrier; only the arithmetic finite-free dual/bidual comparison is new here. Needed by `betti-coefficient-dual-adapter`.
-- `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`: Import infinitude of every Frobenius conjugacy class outside any finite set from the existing Chebotarev roadmap, not another plan of the density theorem. Needed by `auxiliary-unipotent-prime`.
+
+- `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`: Import infinitude of every Frobenius conjugacy class outside any finite set from the existing Chebotarev roadmap, not another plan of the density theorem. Needed by `auxiliary-unipotent-prime`, `residual-eisenstein-vanishing`, `early-quaternionic-galois-hecke-support`.
 
 - `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`: Import the existing admissible narrow ray-class character/Galois character correspondence and prime-values contract. The existing Artin map is arithmetic; invert it for the declared geometric reciprocity. This is needed to globalize the two component characters in the Eisenstein-vanishing proof, not to plan class field theory again. Needed by `residual-eisenstein-vanishing`.
 
-The stage stays planned because the following leaves are explicit.
+- `HilbertModularVarietiesAndShimuraCurves:R18.3`: Part II: the constant-coefficient definite quaternionic set, Hecke and effective central-quotient realization over any totally real F, and the residual definite Ihara theorem of MS Theorem 6.8 and its proof, pp.34–36. For l>2, sufficiently small K unramified at w and a non-Eisenstein maximal ideal, the two H⁰ degeneracy pullbacks are injective; dual trace maps are surjective. The proof must supply the SL₂-generation and reduced-norm strong-approximation Eisenstein alternative, compatible with central-character parts. The existing KW R18.3 nodes assume even [F:Q] and l unramified in F and therefore do not supply this general contract. No such restrictions are silently added to MS Theorem 6.5. Needed by `central-character-exactness`, `supersingular-cohomology-filtration`, `patched-degeneracy-surjectivity`, `quaternionic-jacquet-langlands-bridge`.
+
+- `ArithmeticLocallySymmetricSpaces:ALS.5`: Specialize the existing de-rham-comparison and cuspidal spectral formula to compact quaternionic curves with constant weight-two coefficients: a Hecke-equivariant characteristic-zero H¹ decomposition into the cohomological discrete-series factors, with all connected components and compatible levels. Import AF.3 discreteness and AF.4 actual E-rational coefficient/multiplicity models; norm-character factors contribute no degree-one relative Lie algebra cohomology. This is the compact Matsushima specialization needed before integral determinant interpolation, not a higher-tier R17 transfer. Needed by `early-quaternionic-galois-hecke-support`.
+
+- `PadicHodgeTheory:R06.3`: The Weil–Deligne functor of a potentially semistable representation, with finite-extension descent data, inertia/type comparison and coefficient change. Match the geometric reciprocity and fixed determinant θ in the MS K_v⁰ local condition. R06.2 semistable admissibility alone supplies no ramified WD descent. Needed by `ihara-local-deformation-models`.
+
+The stage stays planned because the following source proof leaves are explicit.
 
 - **Potentially semistable deformation quotient proof.** MS §3.2, p.14, states the fixed-determinant potentially semistable quotient and its dimension using Kisin, Potentially semi-stable deformation rings, JAMS 21 (2008), 513–546. The original proof was not obtained/read in this pass (publisher and author endpoints refused access). Read the original representability and component-dimension proof, match the determinant θ and HT convention, and attach its exact theorem locators before proof closure. This quotient remains a mathematical construction target, not a point-condition structure assumed to be a representing ring.
+
 - **Finite-level p-adic local compatibility for the early Hecke action.** MS Lemma 4.11 and §3.6 invoke EGS §6 and the finite-level p-adic compatibility input to enter the l-adic local quotient. Carayol Theorem A only covers places prime to the coefficient characteristic. Trace this weight-two finite-level compatibility proof and its semistable extension for every K_v⁰ type; do not use R22 or an R=T conclusion. The packet supplies the exact desired factorization, but this original proof chain is not closed.
 
 ## Suggested Lean and carrier omission ledger
 
-The [suggested file](../suggested/HilbertModularVarietiesAndShimuraCurves--R18.4.lean) has real-bodied component-function translation and spherical operators, the product-module Gram/adjugate/discriminant, their API statements and small examples. Its end signatures state unit-discriminant splitting and the DVR residual-injectivity criterion. For the base-change API the Lean signature exposes the discriminant scalar-specialization formula; the full module tensor base change of G and J stays in the reader API. The component-function model is the dual of the finite group-algebra model: pair f with the basis e_c by f(c). The declared translation acts by f(xc), adjoint to the declared right component permutation. The arithmetic identification of C_K is a reader target.
+The [suggested file](../suggested/HilbertModularVarietiesAndShimuraCurves--R18.4.lean) has real-bodied component-function translation and spherical operators, the product-module Gram/adjugate/discriminant, their API statements and small examples. Its end signatures state unit-discriminant splitting, the DVR residual-injectivity criterion and the resulting left inverse of the integral injection. Tensoring that left inverse explains the Artinian reduction statement; no reduced torsion-free claim is encoded. For the base-change API the Lean signature exposes the discriminant scalar-specialization formula; the full module tensor base change of G and J stays in the reader API. The component-function model is the dual of the finite group-algebra model: pair f with the basis e_c by f(c). The declared translation acts by f(xc), adjoint to the declared right component permutation. The arithmetic identification of C_K is a reader target.
 
 The arithmetic end statements whose carriers are absent from the pins remain here with their exact types; they are not encoded by proposition packages or unimplemented data constants.
 
@@ -732,16 +768,20 @@ The arithmetic end statements whose carriers are absent from the pins remain her
 - **BR**: Alexandru Ioan Badulescu; appendix by David Renard, [Unitary dual of GL(n) at archimedean places and global Jacquet–Langlands correspondence](https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf), Author preprint of Compositio Mathematica 146 (2010), 1115–1164; internal pages. Read 2026-10-13; exact PDF hash and sections read are in the packet.
 - **EGS**: Matthew Emerton, Toby Gee and David Savitt, [Lattices in the cohomology of Shimura curves](https://arxiv.org/pdf/1305.1594v3), arXiv:1305.1594v3, 19 November 2014; internal pages. Read 2026-10-13; exact PDF hash and sections read are in the packet.
 
-Every locator is attached to the target it supports, in paraphrase. The document follows the target dependencies rather than summarizing any source section by section.
+The independent review read every cited locator in the seven linked primary texts; their hashes match the packet. Source issues are scoped to arXiv v2: the version-of-record PDF could not be accessed by this reviewer, while the accessible author copy retains the four slips at the checked locators. Every locator is attached to the target it supports, in paraphrase. The document follows the target dependencies rather than summarizing any source section by section.
 
-**HilbertModularVarietiesAndShimuraCurves/E-R18.4-01**, Opening of §6, p.33, arXiv v2. The algebra is described as ramified at exactly one infinite place while being treated as the indefinite curve algebra. Use an algebra split at exactly one real place, ramified at the other real places, with the total ramification set of even cardinality. The §2.2 uniformization has one upper-half-plane factor precisely under this split-place condition. Over F=Q a real-ramified algebra is definite, so the printed condition cannot give the curve used in §6. No correction located; the author and journal versions inspected retain this wording.
+**HilbertModularVarietiesAndShimuraCurves/E-R18.4-01**, Opening of §6, p.33, arXiv v2. The algebra is described as ramified at exactly one infinite place while being treated as the indefinite curve algebra. Use an algebra split at exactly one real place, ramified at the other real places, with the total ramification set of even cardinality. The §2.2 uniformization has one upper-half-plane factor precisely under this split-place condition. Over F=Q a real-ramified algebra is definite, so the printed condition cannot give the curve used in §6. No correction located. The independent review confirms arXiv v2 and the accessible author copy at this locator; the published PDF was unavailable to the reviewer. Independent review: confirmed; The one upper-half-plane uniformization in §2.2 requires one split real place, as opposed to the ramification condition printed at the §6 locator.
 
-**HilbertModularVarietiesAndShimuraCurves/E-R18.4-02**, §4.2, definition of the unframed fixed-determinant ring, p.23, arXiv v2. The unframed fixed-determinant functor uses determinant ψ, whereas the framed functor and local conditions use ψε⁻¹. Both global functors use θ=ψε⁻¹, agreeing with §3’s fixed determinant and allowing the framed-to-unframed forgetful map. Forgetting a frame cannot change the determinant of a lift. The two different determinant conditions would not define the asserted formally smooth forgetful map or its j=4|Σ|−1 relative dimension. No correction located in the versions consulted.
+**HilbertModularVarietiesAndShimuraCurves/E-R18.4-02**, §4.2, definition of the unframed fixed-determinant ring, p.23, arXiv v2. The unframed fixed-determinant functor uses determinant ψ, whereas the framed functor and local conditions use ψε⁻¹. Both global functors use θ=ψε⁻¹, agreeing with §3’s fixed determinant and allowing the framed-to-unframed forgetful map. Forgetting a frame cannot change the determinant of a lift. The two different determinant conditions would not define the asserted formally smooth forgetful map or its j=4|Σ|−1 relative dimension. No correction located. The independent review confirms arXiv v2 and the accessible author copy at this locator; the published PDF was unavailable to the reviewer. Independent review: confirmed; The framed and unframed functors must impose the same θ=ψε⁻¹ determinant for their stated forgetful map. The p.23 definitions impose different determinants.
+
+**HilbertModularVarietiesAndShimuraCurves/E-R18.4-03**, Fixed-determinant local-ring displays before Proposition 6.11, p.37, arXiv v2. Both residual fixed-determinant rings are displayed with five variables X,Y,P,Q,R. Use the four coordinates X,Y,P,R of Propositions 3.5–3.7, retaining X²Y and XY respectively; no extra free Q occurs in this fixed-determinant local core. The earlier fixed-determinant presentations have four coordinates. Adding an independent Q raises the Krull dimension by one and contradicts the local dimension used in the patching equality. No correction located in the texts accessible to this reviewer; scoped to arXiv v2. Independent review: confirmed; Compared the p.37 displays with the four-variable fixed-determinant presentations in §3.3. The free Q cannot be present in both presentations of the same ring.
+
+**HilbertModularVarietiesAndShimuraCurves/E-R18.4-04**, Proofs of Propositions 6.11–6.12, p.38, arXiv v2. The proof of 6.11 chooses the residual unipotent patched ambient ring for the X²Y lemma; the proof of 6.12 chooses the residual ps patched ring for the XY lemma. Use residual R_ps,∞ for 6.11, before quotienting by XY; use residual R_unip,∞ for 6.12, on which the Steinberg module acts. M(σ_ps) has an R_ps action and need not factor through R_unip before the first flatness-transfer lemma. In the second step XY is nonzero in k[[X,Y]]/(X²Y), so the stated coordinate-preserving map from k[[X,Y]]/(XY) into the ps ring is not defined. Swapping the ambient labels restores both applications. No correction located in the texts accessible to this reviewer; scoped to arXiv v2. Independent review: confirmed; Read both nodal lemmas and both applications. Their module actions and required defining relations select R_ps first and R_unip second.
 
 ## Ownership and exit criteria
 
-This stage adds no generic local-system, cohomology, determinant-polynomial, duality, purity or module-patching theory. The finite-level quaternionic local deformation datum, weight-two Galois–Hecke input and minimal local/global transfer used by Ihara must precede R22 and the corresponding R08/R17/R19 consumers. They move to the targets named here; the generic extensions remain with their lower-tier owners through the explicit requests. The existing R18.2 imports are unchanged.
+This stage adds no generic local-system, cohomology, determinant-polynomial, duality, purity or module-patching theory. The finite-level quaternionic local deformation datum, weight-two Galois–Hecke input and minimal local/global transfer used by Ihara must precede R22 and the corresponding R08/R17/R19 consumers. They move to the targets named here; the generic extensions remain with their lower-tier owners through the explicit requests. The existing R18.2 files are unchanged; the two inherited core dependency replacements are required at packaging, as stated above.
 
 The six planets are component Hecke action, degeneracy Gram matrix, quaternionic patching functor, large-image Ihara lemma, integral Ihara saturation and Saito coefficient projector. Each is a mathematical target rather than a source locator.
 
-Acceptance requires all 27 new targets and nine imported core contracts to agree, all six owned definitions/constructions to pass their discriminating checks, the actual dual ideal and central normalization to be preserved, the source proof leaves and generic supplier requests to be discharged before proof closure, and the compiled suggestions to retain real-bodied light data only. The generalized weight assertion uses the actual CM shift and good models; the strongest Ihara statement keeps every image, prime and coefficient hypothesis stated above.
+The independent review accepts this finished planning pass with R18.4 planned. Proof closure requires the source proof leaves and supplier requests to be discharged; packaging must apply the inherited dependency replacements. All 27 new targets and nine core contracts must agree, all six owned definitions/constructions must pass their discriminating checks, and the suggested file must retain real-bodied light data only. The generalized weight assertion uses the actual CM shift and good models; the strongest Ihara statement keeps every image, prime and coefficient hypothesis stated above.
