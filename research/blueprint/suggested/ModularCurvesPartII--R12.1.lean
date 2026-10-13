@@ -1,92 +1,94 @@
-/-
-Suggested Lean prototypes for the roadmap "Modular Curves PartII" (ModularCurvesPartII), part R12.1 (stages
-R12.1–R13.2).
+import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
+import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import TauCeti.AlgebraicGeometry.IrreducibleOfConnectedDomainStalk
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/ModularCurvesPartII--R12.1.md` is definitive. The statements below suggest Lean forms so that
-contributors and reviewers converge on names and signatures. Every proof of a planned result that is not a short
-computation is `sorry`; nothing here is claimed to be formalised (implementationStatus = unchecked). Mathlib
-082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib is imported.
+/-!
+This file is not the roadmap and is not exhaustive. The companion roadmap
+README is definitive. These statements suggest Lean names and signatures
+so that contributors and reviewers can converge on them.
 
-Names are relative to the namespace `TauCeti.ModularCurves` and agree with the `api` and `tests` names of the packet
-`research/blueprint/packets/ModularCurvesPartII--R12.1.json`. Unit tests are `example`s whose docstring begins
-"Test `<name>`". Objects of other roadmaps are never invented here: semistable curves over a base, Artin stacks
-(AlgebraicModuliForArithmeticGeometry R09.5), elliptic curves over a base with their group law and Drinfeld level
-structures (Tau Ceti ModularCurves Layers 1 and 3) are not available at the pinned commits, so `DRSemistableGenusOne`,
-`neronPolygon`, `GeneralizedEllipticCurve`, `IsCyclicSubgroup`, the level structures and the moduli stacks are comments
-naming the missing object.
-
-What is prototyped is the arithmetic those objects carry: the nodal-cubic parametrisation of the 1-gon, the automorphism
-group of the n-gon, the rank of the scheme of generators, the admissibility condition on (N, n), and the ranks of the
-contraction maps.
+The 2026-10-12 WORKERS shape takes precedence over the earlier exhaustive
+prototype rule. Only native carriers and light definitions with real bodies
+appear here. Analytic spaces, generalized elliptic curves, coherent
+Γ₀ decontractions, integral moduli stacks and the geometric Hecke comparison
+are README targets, with their complete API and tests there. No invented
+carrier or data-valued placeholder stands in for those constructions.
 -/
 
-import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
-import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import Mathlib.NumberTheory.Padics.PadicVal.Basic
-import Mathlib.Tactic.Ring
+noncomputable section
 
 namespace TauCeti.ModularCurves
 
-/-! ## R13.1 — Néron polygons and generalized elliptic curves
-(`ModularCurvesPartII:R13.1/semistable-genus-one-curves-and-neron-polygons`, `…:R13.1/generalized-elliptic-curve`)
+/-! R12.1: Mathlib already owns the period pair, ℘ and its differential equation. -/
 
-`DRSemistableGenusOne`, `neronPolygon`, `GeneralizedEllipticCurve`, `aut_neronPolygon`: not stated (semistable curves over
-a base). -/
+def latticeWeierstrass (L : PeriodPair) : WeierstrassCurve ℂ where
+  a₁ := 0
+  a₂ := 0
+  a₃ := 0
+  a₄ := -L.g₂ / 4
+  a₆ := -L.g₃ / 4
 
-/-- Test `neronOneGon_nodal`: `t ↦ (t² + 1, t(t² + 1))` lands on the nodal cubic `y² = x³ − x²`. -/
-example {R : Type*} [CommRing R] (t : R) :
-    (t * (t ^ 2 + 1)) ^ 2 = (t ^ 2 + 1) ^ 3 - (t ^ 2 + 1) ^ 2 := by
+theorem latticeWeierstrass_discriminant (L : PeriodPair) :
+    (latticeWeierstrass L).Δ = L.g₂ ^ 3 - 27 * L.g₃ ^ 2 := by
+  sorry
+
+/-- This is the missing nonsingularity milestone, not a restatement of the ODE. -/
+theorem latticeWeierstrass_isElliptic (L : PeriodPair) :
+    (latticeWeierstrass L).IsElliptic := by
+  sorry
+
+-- The coordinate factor 1/2 is essential for the native five-coefficient model.
+-- Packet test: latticeWeierstrass_equation.
+example (L : PeriodPair) (z : ℂ) (hz : z ∉ L.lattice) :
+    (L.derivWeierstrassP z / 2) ^ 2 =
+      L.weierstrassP z ^ 3 - L.g₂ * L.weierstrassP z / 4 - L.g₃ / 4 := by
+  sorry
+
+-- The pole, square-lattice and collapsed-basis tests involve the analytic
+-- comparison and remain stated with their exact hypotheses in the README.
+
+/-! R13.1: the split integral one-gon equation, valid also in characteristic two. -/
+
+def splitOneGonEquation : WeierstrassCurve ℤ where
+  a₁ := 1
+  a₂ := 0
+  a₃ := 0
+  a₄ := 0
+  a₆ := 0
+
+-- Packet test: neronPolygon_one. This is the affine normalization equation.
+example (t : ℤ) :
+    (t ^ 2 * (t + 1)) ^ 2 + (t * (t + 1)) * (t ^ 2 * (t + 1)) =
+      (t * (t + 1)) ^ 3 := by
   ring
 
-/-- Test `aut_neronPolygon_order` (its group theory): `⟨inv⟩ ⋉ μ_n` over `k̄` with `char k ∤ n` is dihedral of order
-`2n`; for `n = 5` it has `10` elements. -/
-example : Fintype.card (DihedralGroup 5) = 10 := by
-  rw [DihedralGroup.card]
+-- A light equation record does not assert ellipticity or define the polygon stack.
+example : splitOneGonEquation.Δ = 0 := by
+  norm_num [splitOneGonEquation, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
-/-! ## R13.1 — cyclicity (`…:R13.1/drinfeld-structures-and-cyclicity`)
+-- Source issue E7: verify the native discriminant of the Tate normal form.
+example (a₁ a₃ : ℂ) :
+    (WeierstrassCurve.mk a₁ 0 a₃ 0 0).Δ = a₃ ^ 3 * (a₁ ^ 3 - 27 * a₃) := by
+  simp only [WeierstrassCurve.Δ, WeierstrassCurve.b₂, WeierstrassCurve.b₄,
+    WeierstrassCurve.b₆, WeierstrassCurve.b₈]
+  ring
 
-`IsCyclicSubgroup`, `generatorScheme`, `standardSubgroup`: not stated (finite locally free group schemes). -/
+/-! R13.2: use the native cyclotomic degree theorem for primitive-root bases. -/
 
-/-- Test `generatorScheme_mu` (its rank): `μ_N^× = Spec ℤ[T]/Φ_N(T)` has rank `deg Φ_N = φ(N)`; for `N = 6` it is `2`. -/
 example : (Polynomial.cyclotomic 6 ℤ).natDegree = 2 := by
   rw [Polynomial.natDegree_cyclotomic]
   decide
 
-/-! ## R13.2 — level structures (`…:R13.2/gamma-level-structures`) -/
+/-! R12.4: the final connected-to-irreducible implication already exists. -/
 
-/-- `AdmissibleLevel`: `(N, n)` is admissible for `Γ₁(N; n)` if `ord_p(n) ≤ ord_p(N)` for every prime `p ∣ gcd(N, n)`. -/
-def AdmissibleLevel (N n : ℕ) : Prop :=
-  ∀ p : ℕ, p.Prime → p ∣ Nat.gcd N n → padicValNat p n ≤ padicValNat p N
-
-/-- Test `admissibleLevel_N_one`: `(1, n)` is admissible for every `n` (the `Γ₀(n)` case). -/
-example (n : ℕ) : AdmissibleLevel 1 n := by
-  intro p hp hd
-  simp only [Nat.gcd_one_left, Nat.dvd_one] at hd
-  exact absurd hd hp.one_lt.ne'
-
-/-- Test `not_admissibleLevel_p_psq`: `(2, 4)` is not admissible, since `ord₂(4) = 2 > 1 = ord₂(2)`. -/
-example : ¬ AdmissibleLevel 2 4 := by
-  intro h
-  have := h 2 Nat.prime_two (by decide)
-  have h4 : padicValNat 2 4 = 2 := by
-    have : (4 : ℕ) = 2 ^ 2 := by norm_num
-    rw [this, padicValNat.prime_pow]
-  rw [h4, padicValNat_self] at this
-  omega
-
-/-! ## R13.2 — the moduli stacks and contraction maps (`…:R13.2/moduli-stacks-are-proper-flat-artin`,
-`…:R13.2/contraction-maps-between-levels`, `…:R13.2/agreement-with-katz-mazur-schemes`)
-
-The stacks `M_Γ` and their properties: not stated (Artin stacks, R09.5). The ranks of the contraction maps are below. -/
-
-/-- Acceptance (`…:R13.2/contraction-maps-between-levels` (1), `N = p`): the rank `p(p − 1)` is
-`|GL₂(𝔽_p)| / (p² − 1)`. -/
-example (p : ℤ) : (p ^ 2 - 1) * (p ^ 2 - p) = (p ^ 2 - 1) * (p * (p - 1)) := by
-  ring
-
-/-- Acceptance (`…:R13.2/contraction-maps-between-levels` (4), `N = p`): `M_{Γ₁(p)} → M_{Γ₀(p)}` has rank `φ(p) = p − 1`;
-for `p = 11` it is `10`. -/
-example : Nat.totient 11 = 10 := by decide
+open _root_.AlgebraicGeometry in
+example (X : Scheme) [IsLocallyNoetherian X] [ConnectedSpace X]
+    (hStalks : ∀ x : X.carrier, IsDomain (X.presheaf.stalk x)) :
+    IrreducibleSpace X := by
+  exact TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk X hStalks
 
 end TauCeti.ModularCurves
