@@ -25884,8 +25884,9 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9422"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.5",
@@ -27390,7 +27391,8 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeTheory",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9398"
   },
   {
    "id": "BP-PadicLocalLanglandsForGL2Qp",
@@ -28391,8 +28393,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraVarieties",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9403"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9403",
+   "finishedAt": "2026-10-13T18:50:55Z"
   },
   {
    "id": "BP-SmallRamificationAndAbelianVarietyBaseCases",
@@ -36605,8 +36608,9 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4a",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4a.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9396"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9396",
+   "finishedAt": "2026-10-13T18:51:00Z"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.5d",
