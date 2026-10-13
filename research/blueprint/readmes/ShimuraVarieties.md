@@ -45,7 +45,7 @@ For a datum morphism D→D′, E(D′)⊂E(D). The compositum appearing in Milne
 
 Names live in `TauCeti.Shimura`; names displayed without that prefix are relative to it. The conditional uniqueness foundations keep V8 parent-stage ownership but are stated after V4, before the V5–V6 existence arguments use them.
 
-The compact-open level category has an arrow K → L exactly for K ⊂ L and is cofiltered by intersections. Conjugation is C_g(K)=g⁻¹Kg, with C_h ∘ C_g=C_{gh}; the algebraic tower uses that actual category. Current AdelicAlgebraicGroups §5.2 fixes the second column for its K₁ convention. The modular dictionary here fixes the first generator of the row basis, so import that component computation through the basis-swap conjugation. Principal determinant representatives lie in GL₂(ℤ̂); an arbitrary determinant representative need only give a conjugate component group.
+The compact-open level category has an arrow K → L exactly for K ⊂ L and is cofiltered by intersections. Conjugation is C_g(K)=g⁻¹Kg, with C_h ∘ C_g=C_{gh}; the algebraic tower uses that actual category. Current AdelicAlgebraicGroups §5.2 fixes the second row covector for its K₁ convention (c≡0,d≡1). The modular dictionary here fixes the first column vector (a≡1,c≡0), retaining the first generator of the row basis. These compact opens have the same intersection Γ₁(N) with SL₂, which supplies the identity-component computation. Basis-swap conjugation does not identify them as full adelic levels. Principal determinant representatives lie in GL₂(ℤ̂); an arbitrary determinant representative need only give a conjugate component group.
 
 ## Sources and construction route
 
@@ -94,7 +94,7 @@ Hypotheses:
 
 Construction or proof:
 
-1. Import AA §3.4 and Reduction.levelArithmetic_commensurable_pair for arbitrary compact-open levels and adelic representatives. Identify one integral-model level with the faithful GL_n(Z) definition of arithmeticity; request that comparison and the algebraic-image/effective-kernel specialization from AA.3. The general pairwise commensurability theorem is already planned upstream.
+1. Import AA §3.4 and Reduction.levelArithmetic_commensurable for arbitrary compact-open levels and adelic representatives. Identify one integral-model level with the faithful GL_n(Z) definition of arithmeticity; request that comparison and the algebraic-image/effective-kernel specialization from AA.3. The general pairwise commensurability theorem is already planned upstream.
 2. Passing to the finite-index component stabilizer preserves arithmeticity. The algebraic image theorem (Milne 3.2) and removal of the compact ineffective factor give a discrete arithmetic domain image.
 3. Distinguish discreteness of Γ in all real group points from discreteness of its domain image: the latter is the input to D5/effective-free.
 
@@ -112,7 +112,7 @@ Acceptance checks:
 
 Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.2 and 5.13, pp.33,57–58. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
 
-Source: [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), §3.4; Suggested.lean, Reduction.levelArithmetic_commensurable_pair. Imports the current pairwise level commensurability target; the faithful-integral definition and effective arithmetic-image bridge are the remaining requested specialization.
+Source: [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), §3.4; Suggested.lean, Reduction.levelArithmetic_commensurable. Imports the current pairwise level commensurability target; the faithful-integral definition and effective arithmetic-image bridge are the remaining requested specialization.
 
 Atlas planet: **Arithmetic component stabilizers**.
 
@@ -132,7 +132,7 @@ Hypotheses:
 
 Construction or proof:
 
-1. Import Reduction.levelArithmetic_commensurable_pair for the two compact-open level arithmetic subgroups; intersect with the same finite-index rational component subgroup. This gives commensurability for arbitrary representatives, without assuming they lie in one double coset.
+1. Import Reduction.levelArithmetic_commensurable for the two compact-open level arithmetic subgroups; intersect with the same finite-index rational component subgroup. This gives commensurability for arbitrary representatives, without assuming they lie in one double coset.
 2. Compute the conjugation identity for b=qak, preserving the chosen component.
 
 Direct inputs: [`ShimuraVarieties:V0/plan/stabilizer-arithmetic`](#shimuravarieties-v0-plan-stabilizer-arithmetic), `ShimuraData:D5/component-subgroup`.
@@ -144,7 +144,7 @@ Acceptance checks:
 
 Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 5.13, pp.57–58. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
 
-Source: [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), §3.4; Suggested.lean, Reduction.levelArithmetic_commensurable_pair. Already specifies the arbitrary-representative, arbitrary-compact-open commensurability used here.
+Source: [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), §3.4; Suggested.lean, Reduction.levelArithmetic_commensurable. Already specifies the arbitrary-representative, arbitrary-compact-open commensurability used here.
 
 Remaining refinements: [Suggested signatures requiring absent mathematical carriers](#refinement-14).
 
@@ -178,7 +178,7 @@ Acceptance checks:
 - No assertion that all principal level 2 subgroups are neat.
 - For GL₂ principal N≥3 use D5/gl2-congruence-neat; N=2 retains −I.
 
-Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Theorem 3.5 and §5, pp.34,58. SVI gives the Shimura use of neat congruence subgroups. AA.4 owns existence; the local target imports it and identifies the D5 convention.
+Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 3.5 and §5, pp.34,58. SVI gives the Shimura use of neat congruence subgroups. AA.4 owns existence; the local target imports it and identifies the D5 convention.
 
 Source: [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-4-approximation-neat-levels-and-hecke-maps; corresponding current Suggested.lean targets. The upstream roadmap already owns the general supplier interfaces. Import them under their atlas dependency keys, applying only the stated Shimura specialization; no library implementation is claimed.
 
@@ -210,7 +210,7 @@ Acceptance checks:
 - Central totally real units survive neatness but disappear in Γ_a^eff.
 - At non-neat level elliptic fixed points remain; the quotient is an analytic space.
 
-Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.6, 3.11 and 5.13, pp.34,37,58. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
+Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.1, 3.6 and 5.13, pp.32,34–35,57–58. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
 
 Atlas planet: **Effective arithmetic action**.
 
@@ -2974,7 +2974,7 @@ Acceptance checks:
 
 - J is K intersect gKg^{-1}, not K intersect g^{-1}Kg.
 - For g=1, J=K and both legs are the identity.
-- For g = diag(p,1) the apex has index p+1, not p or p^2: J is K ∩ gKg^{-1}, the stabilizer of a line in F_p^2.
+- For G=GL₂, K=GL₂(ℤ̂) and g equal to diag(p,1) at p and the identity elsewhere, [K:J]=p+1: J=K ∩ gKg^{-1} is the preimage of the lower-triangular subgroup modulo p, which stabilizes the line spanned by e₂.
 
 Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 5.29, p.65; 13.6, p.118. Arithmetic descent of the two legs of the V1 Hecke correspondence.
 
@@ -3030,7 +3030,7 @@ Let T be a Q-torus, Y a nonempty finite set on which T(R) acts transitively thro
 Hypotheses:
 
 - T is a Q-torus; Y is a nonempty finite set with a transitive T(R)-action factoring through T(R)/T(R)^+ (Milne, zero-dimensional Shimura varieties, pp.62–63).
-- mu is a cocharacter of T_C defined over the number field E ⊂ C; r(T,mu) is the multiplicative reflex norm of V4 (Milne (60) with the product correction E5) and art_E is the Artin map in the V4 normalization.
+- mu is a cocharacter of T_C defined over the number field E ⊂ C; r(T,mu) is the multiplicative reflex norm of V4 (Milne (60) with the product correction E20) and art_E is the Artin map in the V4 normalization.
 - K ranges over compact open subgroups of T(A_f).
 
 Construction or proof:
@@ -3134,7 +3134,7 @@ Acceptance checks:
 - GL2 is the genus-one GSp case, supplied through V5/V6.
 - There is no dependency path from this node to V7.
 
-Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 14.15–14.16 and the paragraph after them, p.127; 13.7, p.119. Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof. The final connected-to-full reference on p.127 is 14.15 (E9); the quotient after 14.16(b) starts from Sh°(G1,X1), not Sh°(G2,X2) (E10). Both misprints also occur on p.356 of the published 2005 version.
+Source: [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 14.15–14.16 and the paragraph after them, p.127; 13.7, p.119. Specialize the conditional V8 results to V6, rather than replaying the V6 existence proof. The final connected-to-full reference on p.127 is 14.15 (E24); the quotient after 14.16(b) starts from Sh°(G1,X1), not Sh°(G2,X2) (E25). Both misprints also occur on p.356 of the published 2005 version.
 
 Remaining refinements: [Suggested signatures requiring absent mathematical carriers](#refinement-14).
 
@@ -3336,7 +3336,7 @@ Acceptance checks:
 
 - At N=4 a point of exact order four excludes the residual minus-one automorphism.
 - At N=1,2 the comparison cannot be labelled a fine universal elliptic scheme.
-- Current AdelicAlgebraicGroups §5.2 chooses a level fixing e2 (c=0,d=1), whereas this roadmap fixes e1 (a=1,c=0). Conjugate by the basis-swap matrix before importing its Gamma1 comparison; keep the pairing determinant transport.
+- Current AdelicAlgebraicGroups §5.2 uses c≡0,d≡1, the stabilizer of the second row covector. Here a≡1,c≡0 fixes the first column vector. The two intersections with SL₂ agree as Γ₁(N), so import the identity-component uniformization. For the full adelic moduli dictionary retain this roadmap’s first-column level; basis-swap conjugation does not identify these compact opens.
 
 Source: [Tau Ceti contributors, Tau Ceti roadmap: Modular curves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ModularCurves/README.md), Layer 5A: Tate normal form and Y1(N) for N>=4. Imports the actual fine-moduli qualification rather than extending it to levels two or three.
 
@@ -3662,7 +3662,7 @@ Needed by: [`ShimuraVarieties:V0/plan/effective-proper-action`](#shimuravarietie
 
 ### Arithmetic and effective-level supplier extensions
 
-AA §3.4 and Reduction.levelArithmetic_commensurable_pair already plan commensurability for arbitrary compact-open levels and representatives. The remaining AA.3 specialization identifies a faithful integral-model level with G(Q)∩GL_n(Z) and passes its arithmetic image through the compact ineffective kernel. AA.4 covering/freeness still has a real stabilizer compact-mod-A_G hypothesis; general Shimura central units need the effective-domain version. Requests retain those precise outputs, not a second pairwise-commensurability plan.
+AA §3.4 and Reduction.levelArithmetic_commensurable already plan commensurability for arbitrary compact-open levels and representatives. The remaining AA.3 specialization identifies a faithful integral-model level with G(Q)∩GL_n(Z) and passes its arithmetic image through the compact ineffective kernel. AA.4 covering/freeness still has a real stabilizer compact-mod-A_G hypothesis; general Shimura central units need the effective-domain version. Requests retain those precise outputs, not a second pairwise-commensurability plan.
 
 Needed by: [`ShimuraVarieties:V0/plan/stabilizer-arithmetic`](#shimuravarieties-v0-plan-stabilizer-arithmetic), [`ShimuraVarieties:V1/plan/holomorphic-level-maps`](#shimuravarieties-v1-plan-holomorphic-level-maps), [`ShimuraVarieties:V1/plan/holomorphic-hecke`](#shimuravarieties-v1-plan-holomorphic-hecke).
 
@@ -3808,7 +3808,7 @@ These requests import the stated owner’s existing targets and identify only th
 
 ### AdelicAlgebraicGroups:AA.3
 
-Import current AA §3.4 / Reduction.levelArithmetic_commensurable_pair for arbitrary compact-open levels and representatives. Expose the remaining bridge from an integral-model compact level to G(Q)∩GL_n(Z) for every faithful rational embedding, and arithmeticity of the effective domain image after removing compact ineffective factors. Preserve the finite-index rational component subgroup. Import class-number-finite separately; V0 does not replan reduction or pairwise commensurability.
+Import current AA §3.4 / Reduction.levelArithmetic_commensurable for arbitrary compact-open levels and representatives. Expose the remaining bridge from an integral-model compact level to G(Q)∩GL_n(Z) for every faithful rational embedding, and arithmeticity of the effective domain image after removing compact ineffective factors. Preserve the finite-index rational component subgroup. Import class-number-finite separately; V0 does not replan reduction or pairwise commensurability.
 
 Current upstream locator: `tauceti:TauCetiRoadmap/AdelicAlgebraicGroups#layer-3-reduction-and-arithmetic-quotients`.
 
@@ -4070,407 +4070,429 @@ The following existing declarations provide only the stated carriers and element
 
 ## Source corrections
 
-The 25 findings retain their attributed independent verdicts from the accepted parts (24 confirmed, one rejected). Global finding numbers below map to their original part-qualified identities. These verdicts concern the inherited findings; this combined revision still needs independent review. Statements above use the corrected mathematics.
+All 26 records were checked by REV-ShimuraVarieties on 13 October 2026: 25 confirmed and one rejected. E3, E4 and E10 preserve inherited IDs for the fuller records E20, E25 and E24 respectively; they are not additional distinct findings. Earlier independent verdicts remain in the packet’s review history.
 
 ### ShimuraVarieties/E1 — misprint
 
 Origin: `ShimuraVarieties/V0/E1`. Source `action`, Lemma 3.8, printed p.250, annotated 1983 author scan.
 
-Issue: H¹(k,G) → ∏_{v finite} H¹(k_v,G).
+Issue: H¹(k,G) → ∏_{v finite} H¹(k_v,G)
 
-Correction: Replace G by Z=Z(G) in both cohomology terms; preserve no A_n factor with n≥4..
+Correction: Replace G by Z=Z(G) in both cohomology terms; preserve no A_n factor with n≥4.
 
-Reason: The proof computes the finite centre and its Galois action and explicitly proves injectivity for H¹(k,Z). The displayed scan has the author’s handwritten Z corrections..
+Reason: The proof computes the finite centre and its Galois action and explicitly proves injectivity for H¹(k,Z). The displayed scan has the author’s handwritten Z corrections.
 
-Published or author correction: Author’s annotated scan, https://jmilne.org/math/articles/1983a.pdf; the V7 issue explicitly requires this correction..
+Published or author correction: Author’s annotated scan, https://jmilne.org/math/articles/1983a.pdf; the V7 issue explicitly requires this correction.
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The annotated p.250 display uses Z(G), and its proof computes the centre; the exclusion of Aₙ for n≥4 remains essential.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The annotated display and centre calculation on action p.250 use Z(G) throughout; the exclusion of A_n with n≥4 is unchanged.
 
 ### ShimuraVarieties/E2 — error
 
 Origin: `ShimuraVarieties/V0/E2`. Source `bkt`, Theorem 1.1(1)–(2), author manuscript pp.3–4; corrected by author erratum §§1.1–1.3.
 
-Issue: The source claims Ralg-definability for every morphism f : SΓ′,G′,M′ → SΓ,G,M between arithmetic quotients..
+Issue: The source claims Ralg-definability for every morphism f : SΓ′,G′,M′ → SΓ,G,M between arithmetic quotients.
 
-Correction: Fix maximal compact K for the definable structure; require the corrected morphism compatibility with K,K′ and preservation of the embedded Lie algebra by the target Cartan involution. Hodge manifolds and period maps retain their corrected canonical choice..
+Correction: Fix maximal compact K for the definable structure; require the corrected morphism compatibility with K,K′ and preservation of the embedded Lie algebra by the target Cartan involution. Hodge manifolds and period maps retain their corrected canonical choice.
 
-Reason: The erratum §1.6 gives distinct definable structures and morphisms without finite Siegel containment. The V3 alternative uses only the corrected symmetric/Hodge case..
+Reason: The erratum §1.6 gives distinct definable structures and morphisms without finite Siegel containment. The V3 alternative uses only the corrected symmetric/Hodge case.
 
-Published or author correction: Bakker–Klingler–Tsimerman, author erratum, https://benjamin-bakker.github.io/DefArithErr.pdf, Theorem 1.2..
+Published or author correction: Bakker–Klingler–Tsimerman, author erratum, https://benjamin-bakker.github.io/DefArithErr.pdf, Theorem 1.2.
 
 Effect: a stated result.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The full author erratum requires the chosen maximal compact and Cartan-compatible maps. The broad manuscript functoriality claim exceeds that corrected range.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The full BKT author erratum restricts the chosen maximal compact and the Cartan-compatible morphisms. Its pure period-map consequence, rather than the original unrestricted functoriality, is the V3 input.
 
 ### ShimuraVarieties/E3 — misprint
 
 Origin: `ShimuraVarieties/V0/E3`. Source `svi`, Formulas (60)–(61), p.114, SVI revised 16 September 2017.
 
-Issue: ∑ ρ(μx(a)).
+Issue: ∑ ρ(μx(a))
 
-Correction: Use the multiplicative product of the conjugate cocharacter values, not their sum..
+Correction: Use the multiplicative product of the conjugate cocharacter values, not their sum.
 
-Reason: The codomain is an arbitrary torus group, whose values admit multiplication, not addition. For G_m with μ(t)=tⁿ the Weil-restriction norm is ∏ρ ρ(a)ⁿ; summation is not a homomorphism and need not be invertible..
+Reason: The codomain is an arbitrary torus group, whose values admit multiplication, not addition. For G_m with μ(t)=tⁿ the Weil-restriction norm is ∏ρ ρ(a)ⁿ; summation is not a homomorphism and need not be invertible.
 
-Published or author correction: new.
+Published or author correction: Author xnotes errata, https://www.jmilne.org/math/xnotes/errata.html, SVI p.114; product correction credited to Ruida Di. See also Jungin Lee, https://www.jmilne.org/math/xnotes/SV_errata.pdf, for the embedding field.
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. SVI p.114 writes sums in a multiplicative torus. Weil restriction followed by norm is the product of conjugate cocharacter values, as the split G_m example checks.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The two torus expressions on SVI p.114 require multiplication. The official xnotes errata credit this correction to Ruida Di; E20 also records the corrected embedding field.
+
+Duplicate of `ShimuraVarieties/E20`; retained for provenance.
 
 ### ShimuraVarieties/E4 — misprint
 
 Origin: `ShimuraVarieties/V0/E4`. Source `svi`, Proposition 14.16(b), p.127, more-precisely paragraph, SVI revised 16 September 2017.
 
-Issue: The source describes the canonical model of Sh⁰(G₂,X₂) as a quotient of that same canonical model of Sh⁰(G₂,X₂)..
+Issue: The source describes the canonical model of Sh⁰(G₂,X₂) as a quotient of that same canonical model of Sh⁰(G₂,X₂).
 
-Correction: The second source model is Sh⁰(G₁,X₁); quotient it by the kernel of the completion map for G₁→G₂..
+Correction: The second source model is Sh⁰(G₁,X₁); quotient it by the kernel of the completion map for G₁→G₂.
 
-Reason: The preceding assertion assumes existence for G₁. The following kernel is explicitly that of the source-to-target map; quotienting the already-target model would assume the conclusion and give the wrong tower..
+Reason: The preceding assertion assumes existence for G₁. The following kernel is explicitly that of the source-to-target map; quotienting the already-target model would assume the conclusion and give the wrong tower.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. In SVI 14.16(b) the isogeny starts at G₁, so the quotient construction must start with its model. The repeated G₂ would assume the target model exists.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The kernel in SVI 14.16(b) maps the source completion to the target completion, so its quotient starts with the G1 model. Checked also on published 2005 p.356; E25 records the same correction.
+
+Duplicate of `ShimuraVarieties/E25`; retained for provenance.
 
 ### ShimuraVarieties/E5 — misprint
 
 Origin: `ShimuraVarieties/V0/E5`. Source `cm`, Remark 3.11(a), p.22, author article 2007c.
 
-Issue: rec(s) = σ|E*ab.
+Issue: rec(s) = σ|E*ab
 
-Correction: Use art_{E*}(s)=σ|E*ab, as in Theorem 3.10 and Lemma 3.9 immediately above..
+Correction: Use art_{E*}(s)=σ|E*ab, as in Theorem 3.10 and Lemma 3.9 immediately above.
 
-Reason: The article defines art as the inverse of rec. An automorphism of order greater than two detects the sign; the change-of-lift lemma and stated quasi-isogeny formula both use art..
+Reason: The article defines art as the inverse of rec. An automorphism of order greater than two detects the sign; the change-of-lift lemma and stated quasi-isogeny formula both use art.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The fixed-idele formula in 2007c Theorem 3.10 uses art, while Remark 3.11(a) changes the name to rec. An Artin class of order greater than two distinguishes these inverse maps.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. CM 3.10 and 3.9 fix the inverse-Artin convention; the symbol rec in 3.11(a) reverses that convention. A class of order greater than two detects the discrepancy.
 
 ### ShimuraVarieties/E6 — error
 
 Origin: `ShimuraVarieties/V0/E6`. Source `cm`, Theorem 2.1(b) proof pp.16–17, author article 2007c; public author correction.
 
-Issue: O_k.
+Issue: O_k
 
-Correction: In the integral eigenspace decomposition at the good unramified prime P use O_{k,P} throughout the first two proof paragraphs, not global O_k..
+Correction: In the integral eigenspace decomposition at the good unramified prime P use O_{k,P} throughout the first two proof paragraphs, not global O_k.
 
-Reason: Splitting E⊗k does not split O_E⊗O_k globally: conjugate roots can coincide modulo ramified primes. Localization at the unramified prime gives the needed étale eigenspaces. The V5 Frobenius proof requests this localized comparison..
+Reason: Splitting E⊗k does not split O_E⊗O_k globally: conjugate roots can coincide modulo ramified primes. Localization at the unramified prime gives the needed étale eigenspaces. The V5 Frobenius proof requests this localized comparison.
 
-Published or author correction: Author erratum https://www.jmilne.org/math/articles/2007c.html..
+Published or author correction: Author erratum https://www.jmilne.org/math/articles/2007c.html.
 
 Effect: the proof.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The author correction and the unramified local eigenspace argument require O_{k,P}. A global O_k decomposition would fail at other ramified primes.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The author correction to CM 2.1 and its local eigenspace argument require the good-prime localization. A global integral splitting fails at ramified primes.
 
 ### ShimuraVarieties/E7 — gap
 
 Origin: `ShimuraVarieties/V0/E7`. Source `descent`, Remark 1.3(c), p.2, 1999 author version, identifying Milne 1994 Lemma 3.23.
 
-Issue: The source says the continuity requirements are omitted..
+Issue: The source says the continuity requirements are omitted.
 
-Correction: Use the finitely generated splitting criterion of Theorem 1.1 and finite rigidifying-point Corollary 1.2. The canonical system must be shown continuous before effective descent..
+Correction: Use the finitely generated splitting criterion of Theorem 1.1 and finite rigidifying-point Corollary 1.2. The canonical system must be shown continuous before effective descent.
 
-Reason: Remark 1.3(a) exhibits noneffective noncontinuous systems; a cocycle law by itself does not imply effectivity. V7 separates cocycle, finite rigidification, continuity and descent..
+Reason: Remark 1.3(a) exhibits noneffective noncontinuous systems; a cocycle law by itself does not imply effectivity. V7 separates cocycle, finite rigidification, continuity and descent.
 
-Published or author correction: Milne, Descent for Shimura varieties (1999), Theorem 1.1 and Corollary 1.2 explicitly replace the older lemma..
+Published or author correction: Milne, Descent for Shimura varieties (1999), Theorem 1.1 and Corollary 1.2 explicitly replace the older lemma.
 
 Effect: the proof.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. Descent Remark 1.3(c) explicitly identifies the omitted continuity condition; Remark 1.3(a) shows that a cocycle alone does not give an effective model.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. Descent Remark 1.3(c) identifies the missing continuity hypothesis in the older lemma. Theorem 1.1 and Corollary 1.2 supply the replacement used by the planned descent route.
 
 ### ShimuraVarieties/E8 — error
 
 Origin: `ShimuraVarieties/V0/E8`. Source `svi`, Theorem 3.11, p.38, relative to the source’s geometrically-reduced definition of algebraic variety on pp.35–36.
 
-Issue: The source asserts that each projective complex analytic space admits exactly one projective algebraic variety structure..
+Issue: The source asserts that each projective complex analytic space admits exactly one projective algebraic variety structure.
 
-Correction: For analytic spaces with nilpotents use projective algebraic schemes. For the source’s geometrically-reduced varieties restrict the analytic space to be reduced. V2 uses normal reduced compactifications, so its statement is unaffected..
+Correction: For analytic spaces with nilpotents use projective algebraic schemes. For the source’s geometrically-reduced varieties restrict the analytic space to be reduced. V2 uses normal reduced compactifications, so its statement is unaffected.
 
-Reason: The projective analytic fat point with local ring C[ε]/(ε²) cannot analytify a geometrically-reduced variety. The CA.0 carrier must nevertheless include it for GAGA and general analytification..
+Reason: The projective analytic fat point with local ring C[ε]/(ε²) cannot analytify a geometrically-reduced variety. The CA.0 carrier must nevertheless include it for GAGA and general analytification.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: a stated result.
 
-Inherited independent verdict: **rejected**, REV-ShimuraVarieties--V0~2. SVI Remark 3.9 does not explicitly put nonreduced quotient local rings in its analytic category. The proposed fat point therefore does not establish an error within that convention. The broader CA.0 category still needs schemes and nilpotent GAGA.
+Independent verdict: **rejected**, REV-ShimuraVarieties. The source does not explicitly include quotient local rings with nilpotents in its analytic-space convention. A fat point therefore does not refute its reduced-variety theorem. The broader CA.0 scheme/analytic category is still needed independently.
 
 ### ShimuraVarieties/E9 — error
 
 Origin: `ShimuraVarieties/V0/E9`. Source `svi`, Proposition 10.5 proof, p.101, revised 16 September 2017 author copy.
 
-Issue: The source asserts the existence of a pro-p subgroup in I whose index is finite..
+Issue: The source asserts the existence of a pro-p subgroup in I whose index is finite.
 
-Correction: Absolute local inertia is not virtually pro-p. Either factor the abelian representation through local reciprocity, whose unit-group image is virtually pro-p, or use finite-extension semistable reduction and unipotent inertia. V5 uses the latter with the existing R11.3/R11.5 nodes..
+Correction: Absolute local inertia is not virtually pro-p. Either factor the abelian representation through local reciprocity, whose unit-group image is virtually pro-p, or use finite-extension semistable reduction and unipotent inertia. V5 uses the latter with the existing R11.3/R11.5 nodes.
 
-Reason: For residue characteristic p, tame inertia has quotient ∏_{ℓ≠p} Z_ℓ(1); its infinite pro-ℓ quotients exclude a finite-index pro-p subgroup. Rank-one CM inertia becomes trivial after semistable extension because E⊗Q_ℓ is reduced and (ρ(σ)−1)²=0. The theorem survives; the printed step fails..
+Reason: For residue characteristic p, tame inertia has quotient ∏_{ℓ≠p} Z_ℓ(1); its infinite pro-ℓ quotients exclude a finite-index pro-p subgroup. Rank-one CM inertia becomes trivial after semistable extension because E⊗Q_ℓ is reduced and (ρ(σ)−1)²=0. The theorem survives; the printed step fails.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: the proof.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. Absolute inertia has an infinite tame pro-ℓ quotient for every ℓ≠p, preventing a finite-index pro-p subgroup. The semistable square-zero inertia argument repairs potential good reduction.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. Absolute inertia has infinite tame pro-ell quotients for ell≠p, so it has no finite-index pro-p subgroup. Semistable square-zero inertia in a reduced CM algebra supplies the recorded repair.
 
 ### ShimuraVarieties/E10 — misprint
 
 Origin: `ShimuraVarieties/V0/E10`. Source `svi`, Final paragraph p.127, after Proposition 14.16, revised 16 September 2017 author copy.
 
-Issue: The source attributes to (14.16) an existence proof covering every Shimura variety of abelian type..
+Issue: The source attributes to (14.16) an existence proof covering every Shimura variety of abelian type.
 
-Correction: The final full/nonconnected reconstruction uses Theorem 14.15; Proposition 14.16 supplies products and isogenies only for connected data..
+Correction: The final full/nonconnected reconstruction uses Theorem 14.15; Proposition 14.16 supplies products and isogenies only for connected data.
 
-Reason: The previous sentence already obtains the connected abelian-type models by 14.16. Passing from them to the full tower is exactly the equivalence in 14.15. V6/abelian-canonical explicitly imports connected-full-equivalence..
+Reason: The previous sentence already obtains the connected abelian-type models by 14.16. Passing from them to the full tower is exactly the equivalence in 14.15. V6/abelian-canonical explicitly imports connected-full-equivalence.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The final p.127 step restores full models from connected canonical structures, which is Theorem 14.15. Proposition 14.16 only supplies connected products and isogenies.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The last full-model step on SVI p.127 is the connected-to-full equivalence 14.15, whereas 14.16 handles connected products and isogenies. E24 records this again for both versions.
+
+Duplicate of `ShimuraVarieties/E24`; retained for provenance.
 
 ### ShimuraVarieties/E11 — misprint
 
 Origin: `ShimuraVarieties/V0/E11`. Source `svi`, Proposition 10.5 proof, p.101, E-linear representation sentence, revised 16 September 2017 author copy.
 
-Issue: Gal(Qa/Q).
+Issue: Gal(Qa/Q)
 
-Correction: Use Gal(Qbar/K), after all E-endomorphisms are defined over K. A/K and its endomorphism action need not descend to Q..
+Correction: Use Gal(Qbar/K), after all E-endomorphisms are defined over K. A/K and its endomorphism action need not descend to Q.
 
-Reason: The Tate representation of the abelian variety defined over K is of Gal(Qbar/K); its commutation with the defined E-action is what places its image in (E⊗Q_ℓ)×. There is no corresponding absolute-Q representation of that A without descent data..
+Reason: The Tate representation of the abelian variety defined over K is of Gal(Qbar/K); its commutation with the defined E-action is what places its image in (E⊗Q_ℓ)×. There is no corresponding absolute-Q representation of that A without descent data.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The Tate representation of A/K is defined on Gal(Qbar/K). Its E-linearity requires the action to be defined over K and does not supply a representation over Q.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The Tate module of A/K carries Gal(Qbar/K); defining its CM endomorphisms over K gives E-linearity for that subgroup, not a representation descending to Q.
 
 ### ShimuraVarieties/E12 — error
 
 Origin: `ShimuraVarieties/V0/E12`. Source `action`, §3.10, p.252, sentence citing [16]; compare the reductive subgroup definition in §4, pp.253–254. Scoped to the public annotated 1983 author scan..
 
-Issue: The source rules out any normal subgroup of Hα(Q) that is non-central..
+Issue: The source rules out any normal subgroup of Hα(Q) that is non-central.
 
-Correction: The cited Platonov–Rapinchuk 1979 Theorem 1 proves perfection of the simply connected three-dimensional norm-one group when split at every finite place, not the printed simplicity claim for a full reductive group containing T. The central-adjustment proof must specify the semisimple factor and justify passage back to the marked torus. This review records that remaining proof gap rather than inventing the bridge..
+Correction: The cited Platonov–Rapinchuk 1979 Theorem 1 proves perfection of the simply connected three-dimensional norm-one group when split at every finite place, not the printed simplicity claim for a full reductive group containing T. The central-adjustment proof must specify the semisimple factor and justify passage back to the marked torus. This review records that remaining proof gap rather than inventing the bridge.
 
-Reason: In SU(4,1) over Q for Q(i)/Q with diagonal compact maximal torus, the noncompact ±α block subgroup Hα has derived SU(1,1)≅SL₂ and a positive-dimensional central torus. Its derived rational subgroup is normal, proper and noncentral, even though its semisimple factor is split at every finite place. Thus the literal assertion about this full reductive Hα is false. Independently, the primary 1979 Russian text states perfection in Theorem 1, p.279, and still calls simplicity modulo centre a conjecture on p.282. The central target is abelian, so perfection is the relevant weaker input, but the marked-torus passage is not supplied by citing it..
+Reason: In SU(4,1) over Q for Q(i)/Q with diagonal compact maximal torus, the noncompact ±α block subgroup Hα has derived SU(1,1)≅SL₂ and a positive-dimensional central torus. Its derived rational subgroup is normal, proper and noncentral, even though its semisimple factor is split at every finite place. Thus the literal assertion about this full reductive Hα is false. Independently, the primary 1979 Russian text states perfection in Theorem 1, p.279, and still calls simplicity modulo centre a conjecture on p.282. The central target is abelian, so perfection is the relevant weaker input, but the marked-torus passage is not supplied by citing it.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: the proof.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The full reductive root subgroup contains a central torus and has a proper noncentral derived normal subgroup in the stated SU(4,1) example. The cited 1979 theorem supplies semisimple perfection, and p.282 still discusses simplicity as a conjecture. The remaining marked-torus bridge is correctly a gap.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The full reductive root subgroup in the SU(4,1) example has a central torus and a proper noncentral derived normal subgroup. Platonov–Rapinchuk Theorem 1, p.279, proves perfection of the semisimple rank-one factor, and p.282 still discusses simplicity as a conjecture. Passing this input back to the marked torus remains an explicit proof gap.
 
 ### ShimuraVarieties/E13 — misprint
 
 Origin: `ShimuraVarieties/V0/E13`. Source `action`, Introduction, p.239, first reference to Langlands [8]; public annotated author scan.
 
-Issue: [8, pp.222–223].
+Issue: [8, pp.222–223]
 
-Correction: Replace the page reference by [8, pp.232–233]..
+Correction: Replace the page reference by [8, pp.232–233].
 
-Reason: The public author erratum specifies the corrected Corvallis pages. This fixes source navigation, without changing a mathematical target..
+Reason: The public author erratum specifies the corrected Corvallis pages. This fixes source navigation, without changing a mathematical target.
 
-Published or author correction: Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section).
+Published or author correction: Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section)
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The handwritten correction on the introduction and the public author erratum both give the Langlands reference as pp.232–233.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The annotation on action p.239 and the public author erratum both replace the Langlands page reference with pp.232–233.
 
 ### ShimuraVarieties/E14 — misprint
 
 Origin: `ShimuraVarieties/V0/E14`. Source `action`, Introduction, p.239, last displayed map; public annotated author scan.
 
-Issue: G′_{A^f}.G′_{A^f}.
+Issue: G′_{A^f}.G′_{A^f}
 
-Correction: Omit the second copy of G′_{A^f} in the displayed target..
+Correction: Omit the second copy of G′_{A^f} in the displayed target.
 
-Reason: The public author erratum removes this duplicate factor. The packet’s comparison target retains one finite-adelic group, consistently with Theorem 1.1..
+Reason: The public author erratum removes this duplicate factor. The packet’s comparison target retains one finite-adelic group, consistently with Theorem 1.1.
 
-Published or author correction: Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section).
+Published or author correction: Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section)
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The introduction displays a duplicated finite-adelic target factor, which the public author erratum deletes; the marked comparison has one such target.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The last display on action p.239 repeats the finite-adelic target factor; the public author erratum removes that repeat.
 
 ### ShimuraVarieties/E15 — misprint
 
 Origin: `ShimuraVarieties/V0/E15`. Source `cm`, Corollary 1.5, p.6, third commutant in the statement; author PDF dated 23 May 2007.
 
-Issue: F.
+Issue: F
 
-Correction: The rational-endomorphism commutant is E, the full CM algebra, rather than F..
+Correction: The rational-endomorphism commutant is E, the full CM algebra, rather than F.
 
-Reason: The hypotheses embed E in End⁰(A). The third paragraph of the proof bounds the commutant dimension using its prime-to-characteristic Tate realization and concludes that the commutant equals E. The printed F disagrees with that conclusion..
+Reason: The hypotheses embed E in End⁰(A). The third paragraph of the proof bounds the commutant dimension using its prime-to-characteristic Tate realization and concludes that the commutant equals E. The printed F disagrees with that conclusion.
 
-Published or author correction: new; the public author erratum at https://www.jmilne.org/math/articles/2007c.html records only the localized-base correction to Theorem 2.1..
+Published or author correction: new; the public author erratum at https://www.jmilne.org/math/articles/2007c.html records only the localized-base correction to Theorem 2.1.
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V0~2. The page image prints F as the third commutant, while the proof concludes C=E by the two dimension inequalities. The corrected Frobenius proof uses this E-centralizer calculation.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. CM Corollary 1.5, p.6 prints F for the rational commutant, while the dimension argument in its proof identifies E. The planned Frobenius argument uses the corrected CM centralizer.
 
 ### ShimuraVarieties/E16 — error
 
 Origin: `ShimuraVarieties/V8/E1`. Source `milne-mf`, Example 8.9, p.100, MF v1.31 (2017).
 
-Issue: The source identifies A¹ as the answer to its moduli question when N = 2..
+Issue: The source identifies A¹ as the answer to its moduli question when N = 2.
 
-Correction: The characteristic-zero coarse ordered level-two curve is the punctured lambda-line A¹ minus {0,1}. It is not a fine moduli scheme of all such families. The Legendre family is smooth only on the punctured line. Restrict the fine comparison in this packet to N >= 3..
+Correction: The characteristic-zero coarse ordered level-two curve is the punctured lambda-line A¹ minus {0,1}. It is not a fine moduli scheme of all such families. The Legendre family is smooth only on the punctured line. Restrict the fine comparison in this packet to N >= 3.
 
-Reason: The discriminant is 16 lambda²(1-lambda)². The automorphism [-1] fixes E[2]; nontrivial quadratic twists have the same geometric lambda invariant and obstruct the claimed universal property over arbitrary fields..
+Reason: The discriminant is 16 lambda²(1-lambda)². The automorphism [-1] fixes E[2]; nontrivial quadratic twists have the same geometric lambda invariant and obstruct the claimed universal property over arbitrary fields.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: a stated result.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. MF v1.31, Example 8.9, p.100 asserts both an unpunctured base and a universal family. The Legendre discriminant vanishes at lambda=0,1. For a generic lambda over Q, a nonsquare quadratic twist retains the ordered rational two-torsion but is not Q-isomorphic to the original curve, so the claimed fieldwise injectivity and fine universal property fail. The Course Notes errata checked on 2026-10-08 contain no entry for this example.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The Legendre discriminant vanishes at lambda=0,1, and generic nonsquare quadratic twists retain the ordered two-torsion while changing the field-isomorphism class. Thus MF Example 8.9 cannot give the stated unpunctured fine universal family. The course-note errata have no correction of this example.
 
 ### ShimuraVarieties/E17 — error
 
 Origin: `ShimuraVarieties/V8/E2`. Source `milne-mf`, Lemma 8.7, p.100, with its preceding arbitrary primitive-root convention, MF v1.31 (2017).
 
-Issue: With an arbitrary primitive Nth root fixed in the moduli condition, Lemma 8.7 uses the unchanged analytic basis (z/N,1/N)..
+Issue: With an arbitrary primitive Nth root fixed in the moduli condition, Lemma 8.7 uses the unchanged analytic basis (z/N,1/N).
 
-Correction: This reference basis has one fixed Weil-pairing root zeta_ref. For zeta = zeta_ref^u replace the first generator by u z/N (u a unit modulo N), or fix zeta=zeta_ref in the statement..
+Correction: This reference basis has one fixed Weil-pairing root zeta_ref. For zeta = zeta_ref^u replace the first generator by u z/N (u a unit modulo N), or fix zeta=zeta_ref in the statement.
 
-Reason: The ordered lattice/reference orientation fixes the pairing; the displayed generators do not vary with the arbitrary root in the preceding definition. Bilinearity gives the corrected exponent..
+Reason: The ordered lattice/reference orientation fixes the pairing; the displayed generators do not vary with the arbitrary root in the preceding definition. Bilinearity gives the corrected exponent.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: a stated result.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. MF v1.31, Lemma 8.7 and its preceding definition, p.100 use an arbitrary primitive root but a fixed analytic ordered basis. Its Weil pairing is constant as the upper-half-plane parameter varies, since the domain is connected and the values are discrete. Multiplying the first generator by a unit u changes the pairing by exponent u. This gives exactly the recorded calibration; the official errata have no corresponding entry.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The reference basis in MF 8.7 has a constant Weil-pairing value on the connected half-plane. Multiplying its first generator by a unit changes that value by the corresponding exponent; an arbitrary primitive root needs that adjustment. No entry for this occurs in the course-note errata.
 
 ### ShimuraVarieties/E18 — misprint
 
 Origin: `ShimuraVarieties/V8/E3`. Source `svi`, Proposition 6.3 proof, second paragraph, p.71, 2017 author copy.
 
-Issue: The proof selects isomorphisms directed a: V → W, together with a′: V → W′..
+Issue: The proof selects isomorphisms directed a: V → W, together with a′: V → W′.
 
-Correction: Use a: W → V and a′: W′ → V, consistent with the setup on p.70; with q absorbed into a′, the comparison isomorphism W → W′ is (a′)⁻¹ a. Also use the corrected primed h′ and eta′ where specified in Jungin Lee’s errata. In the first paragraph use s′ in place of t′, the correction on p.70 line -3 in Jungin Lee’s list..
+Correction: Use a: W → V and a′: W′ → V, consistent with the setup on p.70; with q absorbed into a′, the comparison isomorphism W → W′ is (a′)⁻¹ a. Also use the corrected primed h′ and eta′ where specified in Jungin Lee’s errata. In the first paragraph use s′ in place of t′, the correction on p.70 line -3 in Jungin Lee’s list.
 
-Reason: The printed directions make a h and a composed with eta ill-typed. The initial setup uses a: W → V, and the inverse expression for the comparison must have domain W..
+Reason: The printed directions make a h and a composed with eta ill-typed. The initial setup uses a: W → V, and the inverse expression for the comparison must have domain W.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: the proof.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. SVI 2017, Proposition 6.3, pp.70–71 fixes the rational comparison from W to V in the setup, then reverses both arrows in the proof. The composites with h and eta require the setup direction. With that direction the comparison from W to Wprime is (aprime)^(-1) composed with a. Jungin Lee corrects the nearby primes and s/t symbol but does not correct these reversed arrows.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The setup of SVI 6.3 gives maps W→V and Wprime→V. The proof composites require those directions and the comparison (aprime)^(-1) a. Jungin Lee corrects the adjacent primes and s/t variable, but not the two reversed arrows.
 
 ### ShimuraVarieties/E19 — misprint
 
 Origin: `ShimuraVarieties/V8/E4`. Source `svi`, Remark 5.29(a), p.65, 2017 author copy.
 
-Issue: The source calls the quotient morphism S_K′ → S_K immediate..
+Issue: The source calls the quotient morphism S_K′ → S_K immediate.
 
-Correction: For K contained in K′ the forgetful quotient map is S_K → S_K′..
+Correction: For K contained in K′ the forgetful quotient map is S_K → S_K′.
 
-Reason: Forgetting a finer level maps the smaller subgroup quotient to the larger subgroup quotient..
+Reason: Forgetting a finer level maps the smaller subgroup quotient to the larger subgroup quotient.
 
-Published or author correction: Jungin Lee, SV_errata.pdf, p.1: page 65 line -6..
+Published or author correction: Jungin Lee, SV_errata.pdf, p.1: page 65 line -6.
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. SVI 2017, Remark 5.29(a), p.65 reverses the forgetful map for K contained in Kprime. Passing from the finer quotient to the coarser quotient has source S_K. Jungin Lee explicitly records this correction at p.65 line -6.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. For K⊂Kprime the finer double quotient maps to the coarser one, so the map starts at S_K. Jungin Lee lists the same correction at SVI p.65.
 
 ### ShimuraVarieties/E20 — misprint
 
 Origin: `ShimuraVarieties/V8/E5`. Source `svi`, The homomorphism r_x, displayed formula (60) and the final formula before Definition 12.8, p.114, 2017 author copy.
 
-Issue: The displayed torus norm and special-point norm formulas aggregate conjugate cocharacter evaluations additively; the special-point formula indexes the embeddings by E..
+Issue: The displayed torus norm and special-point norm formulas aggregate conjugate cocharacter evaluations additively; the special-point formula indexes the embeddings by E.
 
-Correction: Replace the aggregation signs by products in these multiplicative torus formulas. In the r_x formula the embeddings are of E(x), the field of definition of μ_x, as specified in Jungin Lee’s errata. V8 uses the corrected V4 multiplicative reciprocity norm..
+Correction: Replace the aggregation signs by products in these multiplicative torus formulas. In the r_x formula the embeddings are of E(x), the field of definition of μ_x, as specified in Jungin Lee’s errata. V8 uses the corrected V4 multiplicative reciprocity norm.
 
-Reason: The target is the multiplicative torus; an additive sum does not define the asserted torus homomorphism. V8 imports the corrected V4 reciprocity norm..
+Reason: The target is the multiplicative torus; an additive sum does not define the asserted torus homomorphism. V8 imports the corrected V4 reciprocity norm.
 
-Published or author correction: Milne official xnotes errata, sums-to-products correction credited to Ruida Di, p.114; Jungin Lee SV_errata.pdf, embeddings indexed by E(x) in the r_x formula..
+Published or author correction: Milne official xnotes errata, sums-to-products correction credited to Ruida Di, p.114; Jungin Lee SV_errata.pdf, embeddings indexed by E(x) in the r_x formula.
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. SVI 2017, formula (60) and the subsequent special-point norm formula, p.114 use additive aggregation for a multiplicative torus. Multiplicative norm evaluation requires a product, and the special cocharacter is defined over E(x). The official errata credit the product correction to Ruida Di; Jungin Lee corrects the embedding index to E(x). Both entries were checked again.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The norm in SVI p.114 is the product of the conjugate cocharacter values. The author xnotes index credits Ruida Di for the product signs, and Jungin Lee supplies E(x) for the embedding index.
 
 ### ShimuraVarieties/E21 — error
 
 Origin: `ShimuraVarieties/V8/E6`. Source `deligne-1971`, 5.1.3, printed p.155, published Numdam copy (page image checked).
 
-Issue: The assertion covers every real open U ⊂ V(R) and every field extension F of E..
+Issue: The assertion covers every real open U ⊂ V(R) and every field extension F of E.
 
-Correction: Require U to be nonempty and F/E to be finite in the disjoint Hilbert-specialization assertion. These are precisely the hypotheses of its application in Theorem 5.1..
+Correction: Require U to be nonempty and F/E to be finite in the disjoint Hilbert-specialization assertion. These are precisely the hypotheses of its application in Theorem 5.1.
 
-Reason: An empty real open has no specialization. Without finiteness of F the result is false: over E=Q, take the degree-two cover s²=t of V=A¹ minus {0}, U=(1,2), and F=Qbar. A rational specialization either splits or is a nontrivial quadratic field, which cannot be linearly disjoint from Qbar over Q..
+Reason: An empty real open has no specialization. Without finiteness of F the result is false: over E=Q, take the degree-two cover s²=t of V=A¹ minus {0}, U=(1,2), and F=Qbar. A rational specialization either splits or is a nontrivial quadratic field, which cannot be linearly disjoint from Qbar over Q.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: a stated result.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. The published page image of Deligne p.155 leaves the real open and field extension unrestricted. Taking the real open empty rules out every specialization. For s²=t over the punctured affine line, a nonsplit rational fibre is a quadratic field inside Qbar and cannot be disjoint from Qbar; a split fibre is not a field. Finite F/E and nonempty U give the needed application in Theorem 5.1.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The actual Deligne p.155 lemma permits an empty real open and an unrestricted extension F/E. The empty-open case has no point; for s²=t over Q a field fibre cannot be disjoint from Qbar. Nonempty U and finite F/E are the hypotheses needed in its application.
 
 ### ShimuraVarieties/E22 — misprint
 
 Origin: `ShimuraVarieties/V8/E7`. Source `deligne-1971`, Lemma 5.1.2(b), printed p.154, published Numdam copy (page image checked).
 
-Issue: The source refers to maximal tori belonging to G_mC..
+Issue: The source refers to maximal tori belonging to G_mC.
 
-Correction: The maximal tori containing i(G_mC) are maximal tori of G_C, not of G_mC..
+Correction: The maximal tori containing i(G_mC) are maximal tori of G_C, not of G_mC.
 
-Reason: The centralizer and the surrounding incidence construction are in G_C; G_mC is the domain of i..
+Reason: The centralizer and the surrounding incidence construction are in G_C; G_mC is the domain of i.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. The published page image of Deligne p.154 places the maximal tori in the source G_mC rather than the ambient G_C. The centralizer argument and the incidence variety both concern maximal tori of G_C containing the image of i, so the ambient-group correction is forced.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. Deligne p.154 uses the wrong ambient group for the maximal tori. The incidence space and the connected-centralizer argument require maximal tori of G_C containing the image of the cocharacter.
 
 ### ShimuraVarieties/E23 — misprint
 
 Origin: `ShimuraVarieties/V8/E8`. Source `deligne-1971`, Hilbert specialization lemma (heading printed Lemme 5.13), p.154, and its proof p.155, published Numdam copy (page images checked).
 
-Issue: The heading labels the result Lemme 5.13, while the proof invokes the assumptions numbered 4.12..
+Issue: The heading labels the result Lemme 5.13, while the proof invokes the assumptions numbered 4.12.
 
-Correction: Read the inserted lemma as 5.1.3 (following 5.1.2), and refer in its proof to its own hypotheses, not to 4.12..
+Correction: Read the inserted lemma as 5.1.3 (following 5.1.2), and refer in its proof to its own hypotheses, not to 4.12.
 
-Reason: The proof base changes the immediately preceding incidence-cover hypotheses; 4.12 is not that lemma..
+Reason: The proof base changes the immediately preceding incidence-cover hypotheses; 4.12 is not that lemma.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. The published page images of Deligne pp.154–155 show the inserted lemma between 5.1.2 and 5.2, with heading 5.13. Its base-change proof uses the three hypotheses immediately preceding it; the reference to 4.12 must be replaced by this lemma. The corrected locator 5.1.3 is unambiguous.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. Deligne pp.154–155 place the lemma after 5.1.2 and before 5.2. Its proof uses its own three preceding hypotheses; the heading 5.13 and reference to 4.12 are misnumbered.
 
 ### ShimuraVarieties/E24 — misprint
 
 Origin: `ShimuraVarieties/V8/E9`. Source `svi`, Shimura varieties of abelian type, paragraph after Proposition 14.16, p.127, 2017 author copy; also published 2005 version, p.356.
 
-Issue: The source attributes canonical-model existence for connected Shimura varieties of abelian type to (14.16). It then cites (14.16) again for existence in the general, possibly disconnected, abelian-type case..
+Issue: The source attributes canonical-model existence for connected Shimura varieties of abelian type to (14.16). It then cites (14.16) again for existence in the general, possibly disconnected, abelian-type case.
 
-Correction: The second citation should be (14.15): passing from the connected Shimura varieties Sh°(G^der, X^+) to Sh(G,X) is Theorem 14.15 (Deligne 1979, 2.7.13), not Proposition 14.16..
+Correction: The second citation should be (14.15): passing from the connected Shimura varieties Sh°(G^der, X^+) to Sh(G,X) is Theorem 14.15 (Deligne 1979, 2.7.13), not Proposition 14.16.
 
-Reason: 14.16 concerns products and isogenies of connected Shimura data only; the statement for the non-connected Sh(G,X) of abelian type is the 'if' direction of 14.15..
+Reason: 14.16 concerns products and isogenies of connected Shimura data only; the statement for the non-connected Sh(G,X) of abelian type is the 'if' direction of 14.15.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. SVI 2017 p.127 and the published 2005 p.356 repeat the reference 14.16 for the final passage to the full abelian-type variety. Proposition 14.16 only treats connected products and isogenies; Theorem 14.15 supplies the connected-to-full equivalence. Neither the official errata nor Jungin Lee's list records this reference correction.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. SVI 2017 p.127 and published 2005 p.356 both use 14.16 for the final full-model step. The relevant result is 14.15; neither the author xnotes errata nor Jungin Lee lists this correction.
 
 ### ShimuraVarieties/E25 — misprint
 
 Origin: `ShimuraVarieties/V8/E10`. Source `svi`, Paragraph explaining Proposition 14.16(b), p.127 in the 2017 author copy; p.356 in the published 2005 version.
 
-Issue: The target model of Sh°(G2,X2) is described as a quotient of the model of Sh°(G2,X2) itself by the kernel of the map between the two congruence completions..
+Issue: The target model of Sh°(G2,X2) is described as a quotient of the model of Sh°(G2,X2) itself by the kernel of the map between the two congruence completions.
 
-Correction: The quotient starts from the canonical model of Sh°(G1,X1), the source of the isogeny; its quotient by that kernel is the canonical model of Sh°(G2,X2)..
+Correction: The quotient starts from the canonical model of Sh°(G1,X1), the source of the isogeny; its quotient by that kernel is the canonical model of Sh°(G2,X2).
 
-Reason: The setup only supplies a canonical model for the source. The first congruence completion acts on that source tower, and the kernel of its map to the second completion identifies precisely the points required for the target tower. Repeating the target index loses the source object whose quotient is being constructed..
+Reason: The setup only supplies a canonical model for the source. The first congruence completion acts on that source tower, and the kernel of its map to the second completion identifies precisely the points required for the target tower. Repeating the target index loses the source object whose quotient is being constructed.
 
-Published or author correction: new.
+Published or author correction: new
 
 Effect: nothing.
 
-Inherited independent verdict: **confirmed**, REV-ShimuraVarieties--V8~2. Independently added after checking both versions at the stated pages. Proposition 14.16(b) transfers a model from the source to the target through the indicated completion kernel, so the object being divided out must have index 1. The isogeny conclusion is unchanged.
+Independent verdict: **confirmed**, REV-ShimuraVarieties. Both SVI 2017 p.127 and published 2005 p.356 repeat G2 as the model being divided out. The source completion is G1, so that model must have index 1. The target-existence statement is unchanged.
+
+### ShimuraVarieties/E26 — misprint
+
+Source `action`, Corollary 5.4, first line of printed p.256, public annotated 1983 author scan.
+
+Issue: The marked torus is placed in the full domain X rather than its selected component X+ in the connected comparison.
+
+Correction: Use the selected component X+ for the marked embedding in this connected statement.
+
+Reason: Section 5 compares connected towers with a chosen special point. The author annotation and public erratum both give X+; V7 already retains that component.
+
+Published or author correction: Milne author erratum, https://www.jmilne.org/math/articles/1983a.html, p.256 first line; also corrected in the annotated author scan.
+
+Effect: nothing.
+
+Independent verdict: **confirmed**, REV-ShimuraVarieties. The annotated p.256 and the explicit author erratum specify X+. This is a connected marked comparison; the existing V7 hypotheses already use its chosen component.
 
 ## Source editions and reading limits
 
@@ -4499,3 +4521,5 @@ Node locators distinguish printed pages from PDF page indices. Source sections b
 - The publicly obtained Baily–Borel OCR is used only where legible; no convergence inequality is certified from damaged formulas.
 - The original Borel metric proof was not obtained; its multivariable proof remains a source refinement.
 - Connected Galois symmetry, exceptional uniformization and central adjustment remain explicit proof/supplier gaps.
+
+Independent review, REV-ShimuraVarieties (13 October 2026): all node locators and finding locators were checked in the identified public versions, with sixteen matching PDF hashes and the stated published Baily–Borel OCR reproduction. Current upstream interfaces were read at the recorded roadmap commit. The recorded proof and supplier refinements remain open; acceptance verifies the target-level plan and does not certify those missing proofs.
