@@ -15064,7 +15064,8 @@
    "avoidAccountOf": "DESIGN-AutomorphyLiftingBeyondTaylorWiles",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7104"
   },
   {
    "id": "DESIGN-CrystallineCohomologyPartII",
@@ -27800,9 +27801,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9430"
+   "note": "deliverables arrived from an external worker on issue #9430",
+   "finishedAt": "2026-10-13T22:03:03Z"
   },
   {
    "id": "REV-PrismaticCohomology",
@@ -46257,7 +46259,8 @@
     "PKG-AInfCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AInfCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9197"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuli",
@@ -47593,8 +47596,9 @@
    ],
    "revisionOf": "PKG-CohomologyComparisons",
    "prompt": "research/blueprint/prompts/PKG-CohomologyComparisons~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9160"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9160",
+   "finishedAt": "2026-10-13T22:03:04Z"
   },
   {
    "id": "REV-PKG-CohomologyComparisons~2",
@@ -48371,8 +48375,9 @@
     "PKG-DiamondSixOperations"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondSixOperations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9209"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9209",
+   "finishedAt": "2026-10-13T22:03:09Z"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -48665,8 +48670,9 @@
     "PKG-EllipticCurveModularityImaginaryQuadratic~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityImaginaryQuadratic~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9210"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9210",
+   "finishedAt": "2026-10-13T22:03:12Z"
   },
   {
    "id": "PKG-EllipticCurveModularityPartII",
@@ -49282,7 +49288,8 @@
    ],
    "revisionOf": "PKG-GeneralizedHeegnerCycles",
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9171"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles~2",
@@ -49514,7 +49521,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GrossZagierAndArithmeticHeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9173"
   },
   {
    "id": "REV-PKG-GrossZagierAndArithmeticHeights",
@@ -49687,8 +49695,9 @@
     "PKG-HabiroCohomologyFoundations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9218"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9218",
+   "finishedAt": "2026-10-13T22:03:15Z"
   },
   {
    "id": "PKG-HabiroCyclotomicCompletions",
@@ -50046,8 +50055,8 @@
    ],
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9175"
+   "state": "pending",
+   "note": "released on GitHub issue #9175"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~2",
@@ -50290,7 +50299,8 @@
    ],
    "revisionOf": "PKG-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/PKG-IgusaVarietiesAndTorsionConcentration~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9177"
   },
   {
    "id": "REV-PKG-IgusaVarietiesAndTorsionConcentration~3",
@@ -50753,8 +50763,8 @@
    ],
    "revisionOf": "PKG-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7910"
+   "state": "external",
+   "note": "claimed on GitHub issue #7910"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings~2",
@@ -51582,7 +51592,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9189"
   },
   {
    "id": "REV-PKG-PrismaticCohomology",
@@ -51739,8 +51750,9 @@
     "PKG-RelativeFarguesFontaine"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-RelativeFarguesFontaine.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9237"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9237",
+   "finishedAt": "2026-10-13T22:03:20Z"
   },
   {
    "id": "PKG-SelmerIwasawaCohomology",
