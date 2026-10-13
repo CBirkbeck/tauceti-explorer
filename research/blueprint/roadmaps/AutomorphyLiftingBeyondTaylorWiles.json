@@ -68,7 +68,7 @@
   {
    "key": "BT.2",
    "title": "Conjecture B as hypotheses",
-   "description": "Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual and integral Galois representations for T^an_{Q,ψ} (B^gal), local–global compatibility at p, at Taylor–Wiles primes and at R together with the added compatibility of diamond operators at Taylor–Wiles primes (B^lgc), vanishing outside [q_0, q_0 + l_0] and on the Borel–Serre boundary (B^van), and the Taylor–Wiles level comparison (B^tw); their bundle; dévissage; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} of O[Δ_Q]-algebras; and B^van(a) in small rank (imaginary quadratic GL_2 unconditionally; GL_3/ℚ and CM quartic GL_2 under the congruence subgroup property).",
+   "description": "Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual and integral Galois representations for T^an_{Q,ψ} (B^gal), local–global compatibility at p, at Taylor–Wiles primes and at R together with the added compatibility of diamond operators at Taylor–Wiles primes (B^lgc), vanishing outside [q_0, q_0 + l_0] and on the Borel–Serre boundary (B^van), and the Taylor–Wiles level comparison (B^tw); their bundle; dévissage; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} of O[Δ_Q]-algebras; and B^van(a) in small rank (imaginary quadratic GL_2 directly; GL_3/ℚ and CM quartic GL_2 through the congruence-kernel theorems and the localized H^0, H^1 vanishing of KTheoryLowDegrees U.4).",
    "requires": [
     "AutomorphyLiftingBeyondTaylorWiles:BT.0",
     "IntegralHeckeAndGaloisDeterminants:IHG.3",
@@ -87,7 +87,7 @@
   {
    "key": "BT.3",
    "title": "No new cohomology at Taylor–Wiles level",
-   "description": "Condition (5) of Conjecture B: for n = 2, Lemma 9.6 through the PSL_2 reduction, the S-arithmetic Ihara amalgam Γ^1 ∗_{Γ^1_0(x)} Γ^1, the operator U_{x²}, the Hecke-equivariant Lyndon sequence and localization at (m, U_x − α_x); for GL_n at primes with distinct Frobenius eigenvalues, the comparison e_α : H^*(X)_{m_∅} ≅ H^*(X_0(x))_m through the block category of SmoothRepresentationsOfLocalGroups SR.5, under local–global compatibility at x.",
+   "description": "Condition (5) of Conjecture B: for n = 2, Lemma 9.6 through the PSL_2 reduction, the S-arithmetic Ihara amalgam Γ^1 ∗_{Γ^1_0(x)} Γ^1, the operator U_{x²}, the Hecke-equivariant Lyndon sequence and localization at (m, U_x − α_x); for GL_n at primes with distinct Frobenius eigenvalues, the comparison e_α : H^*(X)_{m_∅} ≅ H^*(X_0(x))_m through the block category of SmoothRepresentationsOfLocalGroups SR.5, under local–global compatibility at x (its transfer to the Res_{F/ℚ}PGL_n quotients is a recorded gap).",
    "requires": [
     "ArithmeticLocallySymmetricSpaces:ALS.0",
     "ArithmeticLocallySymmetricSpaces:ALS.6",
@@ -185,6 +185,16 @@
     "§1, Theorems 1.1–1.2 and the discussion of Conjecture B, pp. 1–3",
     "§3.1, Lemma 3.1 and Theorem 3.2, pp. 4–6",
     "§4, proofs, pp. 7–8"
+   ]
+  },
+  {
+   "id": "KT17",
+   "title": "Potential automorphy and the Leopoldt conjecture",
+   "authors": "Chandrashekhar B. Khare and Jack A. Thorne",
+   "edition": "arXiv:1409.7007v2 (6 July 2016)",
+   "url": "https://arxiv.org/abs/1409.7007v2",
+   "readSections": [
+    "§6.6, Lemma 6.25 and Proposition 6.26, arXiv pp. 40–42 (read for the review, to check the citation in CGH20 Theorem 3.2)"
    ]
   }
  ],
