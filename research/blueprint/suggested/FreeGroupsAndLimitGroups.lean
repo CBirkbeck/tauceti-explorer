@@ -1,4 +1,23 @@
-import Mathlib
+import Mathlib.GroupTheory.FreeGroup.Reduce
+import Mathlib.GroupTheory.FreeGroup.CyclicallyReduced
+import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
+import Mathlib.Computability.Primrec.List
+import Mathlib.Computability.Partrec
+import Mathlib.Data.List.Rotate
+import Mathlib.GroupTheory.Schreier
+import Mathlib.GroupTheory.Rank
+import Mathlib.GroupTheory.HNNExtension
+import Mathlib.GroupTheory.Coprod.Basic
+import Mathlib.GroupTheory.PresentedGroup
+import Mathlib.GroupTheory.FinitelyPresentedGroup
+import Mathlib.ModelTheory.Semantics
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.Topology.Irreducible
+import Mathlib.Topology.Order
+import Mathlib.Topology.Constructions
+import Mathlib.Algebra.Order.Group.PiLex
+import Mathlib.Algebra.Group.Pi.Lemmas
+import Mathlib.SetTheory.Cardinal.Finite
 
 /-!
 # FreeGroupsAndLimitGroups: representative target signatures
@@ -98,6 +117,33 @@ not the negation of being a proper power. -/
 def IsPrimitive {G : Type u} [Group G] (x : G) : Prop :=
   ∃ (ι : Type u) (b : FreeGroupBasis ι G) (i : ι), b i = x
 
+/-- A malnormal subgroup: it meets its conjugate by any element outside it trivially (FG1.18). -/
+def IsMalnormal {G : Type*} [Group G] (M : Subgroup G) : Prop :=
+  ∀ g : G, g ∉ M → M.map (MulAut.conj g).toMonoidHom ⊓ M = ⊥
+
+/-- A subgroup any two of whose elements commute. -/
+def IsCommSubgroup {G : Type*} [Group G] (M : Subgroup G) : Prop :=
+  ∀ x ∈ M, ∀ y ∈ M, Commute x y
+
+/-- CSA groups: every maximal abelian subgroup is malnormal (FG1.18). -/
+def IsCSA (G : Type*) [Group G] : Prop :=
+  ∀ M : Subgroup G, IsCommSubgroup M →
+    (∀ N : Subgroup G, M ≤ N → IsCommSubgroup N → N = M) → IsMalnormal M
+
+/-- Commutation is transitive on nontrivial elements (FG1.18). -/
+def IsCommTransitive (G : Type*) [Group G] : Prop :=
+  ∀ x y z : G, y ≠ 1 → Commute x y → Commute y z → Commute x z
+
+/-- CSA groups are commutative transitive (FG1.18). -/
+theorem IsCSA.isCommTransitive {G : Type*} [Group G] (hG : IsCSA G) : IsCommTransitive G := by
+  sorry
+
+example : IsCSA (Multiplicative ℤ) := by
+  sorry
+
+example : ¬ IsCommTransitive (FreeGroup (Fin 2) × Multiplicative ℤ) := by
+  sorry
+
 section FG1roots
 
 variable {α : Type*} [DecidableEq α]
@@ -139,10 +185,13 @@ theorem centralizer_eq_zpowers (x : FreeGroup α) (hx : x ≠ 1) :
       Subgroup.centralizer {x} = Subgroup.zpowers r := by
   sorry
 
-/-- Maximal cyclic subgroups are malnormal (FG1.18). -/
-theorem zpowers_malnormal (u : FreeGroup α) (hu : u ≠ 1) (hu' : ¬ IsProperPower u)
-    (g : FreeGroup α) (hg : g ∉ Subgroup.zpowers u) :
-    (Subgroup.zpowers u).map (MulAut.conj g).toMonoidHom ⊓ Subgroup.zpowers u = ⊥ := by
+/-- Maximal cyclic subgroups are malnormal (FG1.19). -/
+theorem zpowers_malnormal (u : FreeGroup α) (hu : u ≠ 1) (hu' : ¬ IsProperPower u) :
+    IsMalnormal (Subgroup.zpowers u) := by
+  sorry
+
+/-- Free groups are CSA (FG1.19). -/
+theorem isCSA_freeGroup : IsCSA (FreeGroup α) := by
   sorry
 
 end FG1roots
@@ -201,10 +250,19 @@ def accepted (v : V) : Subgroup (FreeGroup α) :=
 def IsFolded : Prop :=
   ∀ e f : E, Γ.src e = Γ.src f → Γ.label e = Γ.label f → e = f
 
-/-- For folded graphs the accepted subgroup is exactly the set of labels of closed paths. -/
-theorem mem_accepted_iff (hΓ : Γ.IsFolded) (v : V) (g : FreeGroup α) :
+/-- The labels of closed paths at `v` already form a subgroup, so the closure adds nothing. -/
+theorem mem_accepted_iff (v : V) (g : FreeGroup α) :
     g ∈ Γ.accepted v ↔
       ∃ es : List E, Γ.toSerreGraph.IsPath v es v ∧ g = FreeGroup.mk (es.map Γ.label) := by
+  sorry
+
+/-- For folded graphs, a reduced word lies in the accepted subgroup iff it is the label of a
+reduced closed path at `v` (FG2.3; KM02 Lemma 3.2). -/
+theorem mem_accepted_iff_of_isFolded (hΓ : Γ.IsFolded) (v : V) (w : List (α × Bool))
+    (hw : FreeGroup.IsReduced w) :
+    FreeGroup.mk w ∈ Γ.accepted v ↔
+      ∃ es : List E, Γ.toSerreGraph.IsPath v es v ∧ Γ.toSerreGraph.IsReducedPath es ∧
+        es.map Γ.label = w := by
   sorry
 
 end LabelledGraph
@@ -597,7 +655,7 @@ theorem exists_lyndonLength_norm (α : Type*) [DecidableEq α] :
   sorry
 
 /-- Finitely generated fully residually free groups have free `ℤⁿ`-valued length functions for
-the lexicographic order (FG9.4). -/
+the lexicographic order (FG9.5). -/
 theorem exists_free_lyndonLength (G : Type) [Group G] [Group.FG G]
     (hG : IsFullyResiduallyFree G) :
     ∃ (n : ℕ) (L : LyndonLength G (Lex (Fin n → ℤ))), L.IsFree := by
@@ -644,7 +702,7 @@ syntax; graphs of groups, their fundamental groups, Bass–Serre trees, the stru
 induced splittings and Kurosh's theorem; QH vertices; generalised equations, elementary
 transformations and Makanin's finiteness theorem; the existential, universal and positive
 deciders; marked-group compactness; NTQ systems and NTQ groups; infinite words, `F^{ℤ[t]}` and
-graphs labelled by infinite words; JSJ trees and their existence, the promised-input algorithms
+graphs labelled by infinite words; Λ-metric spaces, Λ-trees and free actions on them; JSJ trees and their existence, the promised-input algorithms
 for limit groups, effective Grushko and JSJ decompositions, Makanin–Razborov diagrams and
 effective components, equations over represented limit groups; basic automorphisms, generic
 families, the implicit function theorem for regular NTQ systems and the effective lift.

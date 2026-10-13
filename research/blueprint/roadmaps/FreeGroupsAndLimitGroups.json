@@ -106,7 +106,7 @@
   {
    "key": "FG11",
    "title": "Regular implicit-function theorems over free groups",
-   "description": "Compatibility of an equation T(X, Y) = 1 with S(X) = 1 over G, S-lifts (formal solutions in the coordinate group), complete S-lifts (also for every compatible inequation), and generic families of solutions; the implicit function theorem for regular standard quadratic equations over F (complete lifts), the basic automorphisms and the generic families of solutions built from them, and the extension to finitely generated fully residually free coefficient groups; the implicit function theorem for regular NTQ systems with complete lifts; the effective version returning the formal solution; compatibility with substitution and changes of coordinates. The parametrisation theorem for arbitrary NTQ systems (with correcting embeddings) and lifts of ∀∃ formulas over arbitrary systems are not targets, and the claims are not extended to arbitrary NTQ systems.",
+   "description": "Compatibility of an equation T(X, Y) = 1 with S(X) = 1 over G, S-lifts (formal solutions in the coordinate group), complete S-lifts (also for every compatible inequation), and generic families of solutions; the implicit function theorem for regular standard quadratic equations over F (complete lifts), the basic automorphisms and the generic families of solutions built from them, including the discriminating families over finitely generated fully residually free coefficient groups that the NTQ case uses; the implicit function theorem for regular NTQ systems with complete lifts; the effective version returning the formal solution; compatibility with substitution and changes of coordinates. The parametrisation theorem for arbitrary NTQ systems (with correcting embeddings) and lifts of ∀∃ formulas over arbitrary systems are not targets, and the claims are not extended to arbitrary NTQ systems.",
    "requires": [
     "FreeGroupsAndLimitGroups:FG5",
     "FreeGroupsAndLimitGroups:FG6",
@@ -138,7 +138,7 @@
    "edition": "Springer Monographs in Mathematics, corrected 2nd printing 2003 (translation of Arbres, amalgames, SL₂, Astérisque 46, 1977)",
    "url": "https://link.springer.com/book/10.1007/978-3-642-61856-7",
    "readSections": [
-    "Not available to this worker (not freely online and not in the cleared library); the locators of Chapter I §§1–6 are the standard ones and every claim citing TREES is also supported by FOLD §2 or GL-JSJ §1, which were read"
+    "Not available to the designer or to the review (not freely online and not in the cleared library); the locators of Chapter I §§1–6 are the standard ones and are unverified. Every claim citing TREES is also supported by FOLD §2, KM02 or GL-JSJ §§1–2, which were read"
    ]
   },
   {
@@ -211,10 +211,28 @@
    "id": "MAK",
    "title": "Decidability of the universal and positive theories of a free group",
    "authors": "G. S. Makanin",
-   "edition": "Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984), 735–749; English translation Math. USSR-Izv. 25 (1985), 75–88",
+   "edition": "Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984), 735–749; English translation Math. USSR-Izv. 25 (1985), 75–88 (the translation's printed pages are cited)",
    "url": "https://www.mathnet.ru/eng/im1489",
    "readSections": [
-    "Not read: the Math-Net.ru page did not respond to this worker; its theorems are used in the form proved in IFT §4.4 (Merzljakov's theorem, Corollary 9) and recalled in VAR-II Definition 9"
+    "Read by the review REV-DESIGN-FGLG in the English translation served by Math-Net.ru (full-text link of the paper page; scanned PDF, printed page = PDF page + 74)",
+    "§2, Lemmas 1–2 (inequations and equations reduced to systems in a paired alphabet), pp. 76–78",
+    "§3, Theorem 1 (decidability of the universal theory), p. 78",
+    "§4, Lemma 3 (Mal'tsev's equation), Lemma 4 (Gurevich), Lemma 5 (Merzlyakov), pp. 78–79",
+    "§5, Theorem 2 (decidability of the positive theory) and the extension of the bounds of [Makanin 1982, Theorem 11.5] to unknowns with alphabet restrictions, pp. 79–80",
+    "§6, corrections to Makanin 1982 (transformations E.7 and E.11, 'solution' for 'minimal solution', new Lemmas 7.3 and 9.4 and a new proof of Theorem 10.3), pp. 80–88"
+   ]
+  },
+  {
+   "id": "MAK82",
+   "title": "Equations in a free group",
+   "authors": "G. S. Makanin",
+   "edition": "Izv. Akad. Nauk SSSR Ser. Mat. 46 (1982), 1199–1273; English translation Math. USSR-Izv. 21 (1983), 483–546 (the translation's printed pages are cited)",
+   "url": "https://www.mathnet.ru/eng/im1703",
+   "readSections": [
+    "Read by the review REV-DESIGN-FGLG in the English translation served by Math-Net.ru (paper id 1703; scanned PDF, printed page = PDF page + 482), at statement level",
+    "§1, Lemma 1.1 (equations in a free group and systems in a paired alphabet), p. 485; Lemma 1.4 (bound on the exponent of periodicity of minimal solutions), p. 487",
+    "§10, Theorem 10.3 (bound for normalized complete generalized equations; replaced by a new proof in MAK §6), p. 539",
+    "§11, Lemmas 11.1–11.4 and Theorem 11.5 (the bounding function for minimal solutions), pp. 545–546"
    ]
   },
   {
@@ -302,6 +320,19 @@
    ]
   },
   {
+   "id": "KMS-ACTIONS",
+   "title": "Actions, length functions, and non-archimedean words",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov, Denis Serbin",
+   "edition": "Internat. J. Algebra Comput. 23 (2013), 325–455; arXiv:1211.3207v2 (printed page numbers of the arXiv version cited)",
+   "url": "https://arxiv.org/abs/1211.3207",
+   "readSections": [
+    "Added by the review REV-DESIGN-FGLG as the free source for Λ-trees",
+    "§4.1 ordered abelian groups, pp. 23–24; §4.2 Λ-metric spaces and Λ-trees (axioms (M1)–(M4), segments, (T1)–(T3), Examples 9–10, Lemma 8), pp. 25–26",
+    "§4.3 elliptic, inversion and hyperbolic isometries, axes and translation length (Theorem 6), pp. 26–28; §4.4 Λ-free groups, p. 28",
+    "§5 Lyndon length functions and the based length function of an action, pp. 34–36"
+   ]
+  },
+  {
    "id": "INFINITE-WORDS",
    "title": "Fully residually free groups and graphs labeled by infinite words",
    "authors": "Alexei Myasnikov, Vladimir Remeslennikov, Denis Serbin",
@@ -375,7 +406,7 @@
    "edition": "J. Algebra 302 (2006), 451–552",
    "url": "https://doi.org/10.1016/j.jalgebra.2006.03.033",
    "readSections": [
-    "Not read: the publisher refused automated access; the FG10 target on equations over limit groups that the specification ties to its Theorem 32 is recorded as a gap"
+    "Not read: the publisher refused automated access and no author copy was found on A. Myasnikov's publication page (checked again by the review REV-DESIGN-FGLG); the FG10 target on equations over limit groups that the specification ties to its Theorem 32 is recorded as a gap"
    ]
   }
  ],
