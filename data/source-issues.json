@@ -188114,9 +188114,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Jan-Hendrik Evertse and Roberto G. Ferretti, A further improvement of the quantitative Subspace Theorem, Annals of Mathematics 177 (2013), 513–590, published version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed directly: the zero-sum vector (−2,1,1), normalized by its maximum, lies outside the asserted cube. The simplex discretization repairs the ε≤1/10 range actually used; no larger ε range is asserted."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E-DT2-2",
@@ -188135,16 +188135,16 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Jan-Hendrik Evertse, Hans Peter Schlickewei and Wolfgang M. Schmidt, Linear equations in variables which lie in a multiplicative group, arXiv math/0409604v1 author text; published Annals of Mathematics 155 (2002), 807–836",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed in the read author text: the coefficient in (11.19) is smaller than the stated conic perturbation budget. The repaired AV large/small argument and both numerical comparisons now supply the parent target."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E-DT2-3",
    "kind": "error",
    "locator": "Lemma 3.2(ii), printed p. 9",
    "printed": "The unweighted coefficient Euclidean norm on a symmetric power is treated as unitary-invariant.",
-   "correction": "Use the symmetric tensor metric with reciprocal multinomial weights on vectors and the dual multinomial weights on polynomial coefficients; use the corrected absolute-basis proof.",
+   "correction": "Use the invariant symmetric tensor metric: vector coordinates have reciprocal multinomial weights, while coordinates in the dual basis have multinomial weights. Ordinary polynomial coefficients of a dual functional have reciprocal multinomial weights after the evaluation conversion. The corrected absolute-basis proof remains a separate gap.",
    "reason": "A 45-degree rotation of x² gives coefficients (1/2,1,1/2), whose unweighted norm is sqrt(3/2), while the source vector has norm 1.",
    "affects": "the proof",
    "known": "Roy–Thunder, Addendum and erratum, J. reine angew. Math. 508 (1999), 47–51",
@@ -188156,9 +188156,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Damien Roy and Jeffrey L. Thunder, An absolute version of Siegel’s lemma, J. reine angew. Math. 476 (1996), 1–26, GDZ scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed by the original Lemma 3.2(ii) and the explicit 45-degree rotation. The replacement distinguishes dual-basis coordinates from polynomial coefficients. The full 1999 corrected-basis proof remains unread and is not inferred from the metric repair."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E-DT2-4",
@@ -188178,9 +188178,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Francesco Amoroso and Evelina Viada, On the zeros of linear recurrence sequences, Acta Arith. 147 (2011), 387–396, published IMPAN PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed against the published Proposition 2.5 and Schmidt’s original proposition: the evaluated values must be dependent to make the conjugate determinants vanish."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E-DT2-5",
@@ -188200,17 +188200,17 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Francesco Amoroso and Evelina Viada, On the zeros of linear recurrence sequences, Acta Arith. 147 (2011), 387–396, published IMPAN PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed against Schmidt’s conclusion on p. 630: the estimate is for m h(β)=h(β^m). It does not give the same bound for h(β) before restricting to a progression class."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E-DT2-6",
    "kind": "error",
    "locator": "Original relative regularity definition and local-cohomology comparison; author erratum entire page",
-   "printed": "The relative-regularity argument identifies the required condition through one Koszul complex.",
-   "correction": "Quantify the Koszul vanishing condition over all homogeneous parameter sequences as in the published erratum. Corollary 3 used by AV is preserved.",
-   "reason": "The authors’ erratum identifies the invalid equivalence and supplies the corrected regularity notion; AV’s isolated-component Hilbert estimate must use that correction.",
+   "printed": "The original claims the reverse implication `(**)′` ⇒ `(*)′` from the local-cohomology condition to the universally quantified Koszul condition. The original Koszul definition already quantifies over all homogeneous parameter sequences.",
+   "correction": "Retain the universally quantified Koszul definition and the valid one-way implication to local cohomology. For Proposition 2, append homogeneous elements in the annihilator of M to obtain a parameter sequence for the ambient ring; the direct-summand comparison preserves the vanishing. Corollary 3 used by AV remains valid.",
+   "reason": "The erratum’s rational-quartic example disproves the reverse implication. Its Remark A repairs Proposition 2 by adjoining annihilator parameters and comparing Koszul homology direct summands, preserving Corollary 3.",
    "affects": "the proof",
    "known": "Chardin–Philippon erratum, J. Algebraic Geom. 11 (2002), 599–600",
    "searched": [
@@ -188220,9 +188220,51 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
    "citation": "Marc Chardin and Patrice Philippon, Régularité et interpolation, Author preprint; J. Algebraic Geom. 8 (1999), 471–481",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "Confirmed against both the original and the entire erratum: `(**)′` ⇒ `(*)′` is false. The original already quantifies over all parameter sequences. Remark A uses additional annihilator parameters to preserve Proposition 2 and Corollary 3."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-7",
+   "kind": "error",
+   "locator": "Read author version §9, equation (9.6), p. 828",
+   "printed": "The full absolute logarithmic error sum is bounded by h(α)/q even though Ψ is half that sum.",
+   "correction": "Bound the error by 2h(α)/q. Use q=8n instead of 4n, propagate the cone count (16n²+4)^r and check the final AV budget.",
+   "reason": "By the definition Ψ=(1/2)Σ|g_jv|, summing the error in every coordinate introduces the factor two. This affects the weighted-height estimate; the larger final budget absorbs the corrected cone count.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals original article record and linked files",
+    "ESS arXiv version listing and author publication records",
+    "AV2009 Theorem 6.1 comparison proof"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Jan-Hendrik Evertse, Hans Peter Schlickewei and Wolfgang M. Schmidt, Linear equations in variables which lie in a multiplicative group, arXiv math/0409604v1 author text; published Annals of Mathematics 155 (2002), 807–836",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "The definitions and the formula in the p. 828 page image show the missing factor two. The corrected exponent calculation is ≤−1/(2n), including equality when n=2."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-8",
+   "kind": "error",
+   "locator": "Lemma 2.2 and proof, published p. 390",
+   "printed": "The proper-subspace cover inside the relation hyperplane is asserted for q>1 under a weak height inequality, including q=2 and projective height zero.",
+   "correction": "Use q≥3 for the proper relative cover. For q=2 positive homogeneous projective group height admits no solution under the factor 1/16; height-zero solutions are covered by the whole relation hyperplane as an ambient proper subspace.",
+   "reason": "For q=2 take Γ generated by (−1,1), x=(−1,1), y=(1,1). Both projective heights are zero and z=x satisfies z₁+z₂=0. A proper subspace of the one-dimensional relation hyperplane contains no such nonzero point. The proof explicitly assumes n=q−1≥2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published IMPAN article and journal record",
+    "Amoroso and Viada publication records and correction searches",
+    "Schmidt 1999 Lemma 5 predecessor proof"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Francesco Amoroso and Evelina Viada, On the zeros of linear recurrence sequences, Acta Arith. 147 (2011), 387–396, published IMPAN PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.2",
+   "reviewReason": "The counterexample satisfies every weak binary premise in the printed lemma, while its conclusion is impossible. The corrected packet uses the source homogeneous height and separates the binary case."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E601",
