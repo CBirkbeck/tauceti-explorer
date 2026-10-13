@@ -172,11 +172,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "6c21580",
       "review": {
-        "recommendation": "approve",
-        "head": "6c9b3ff",
+        "recommendation": "changes",
+        "head": "6c21580",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head 6c21580 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "PerfectoidTowers": {
