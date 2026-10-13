@@ -1,6 +1,7 @@
 import Mathlib.Analysis.SpecialFunctions.Elliptic.Weierstrass
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import TauCeti.AlgebraicGeometry.IrreducibleOfConnectedDomainStalk
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.NormNum
@@ -47,8 +48,20 @@ example (L : PeriodPair) (z : ℂ) (hz : z ∉ L.lattice) :
       L.weierstrassP z ^ 3 - L.g₂ * L.weierstrassP z / 4 - L.g₃ / 4 := by
   sorry
 
--- The pole, square-lattice and collapsed-basis tests involve the analytic
--- comparison and remain stated with their exact hypotheses in the README.
+-- Packet test: latticeWeierstrass_square (its g₃ half). The square lattice is stable
+-- under multiplication by i, so g₃ = 0; then j = 1728 by the discriminant formula.
+example (h : LinearIndependent ℝ ![(1 : ℂ), Complex.I]) :
+    (PeriodPair.mk 1 Complex.I h).g₃ = 0 := by
+  sorry
+
+-- Packet test: latticeWeierstrass_collapsed_basis. Periods 1 and 2 are real-linearly
+-- dependent, so they do not form a `PeriodPair`.
+example : ¬ LinearIndependent ℝ ![(1 : ℂ), 2] := by
+  intro h
+  have := LinearIndependent.pair_iff.mp h 2 (-1) (by norm_num)
+  norm_num at this
+
+-- The pole test involves the analytic comparison and remains stated in the README.
 
 /-! R13.1: the split integral one-gon equation, valid also in characteristic two. -/
 
@@ -70,12 +83,19 @@ example : splitOneGonEquation.Δ = 0 := by
   norm_num [splitOneGonEquation, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
     WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
--- Source issue E7: verify the native discriminant of the Tate normal form.
+-- Source issue E107: the discriminant of the level-three normal form y(y + a₁x + a₃) = x³.
 example (a₁ a₃ : ℂ) :
     (WeierstrassCurve.mk a₁ 0 a₃ 0 0).Δ = a₃ ^ 3 * (a₁ ^ 3 - 27 * a₃) := by
   simp only [WeierstrassCurve.Δ, WeierstrassCurve.b₂, WeierstrassCurve.b₄,
     WeierstrassCurve.b₆, WeierstrassCurve.b₈]
   ring
+
+/-! R12.5: the all-subgroup Hecke degree at n = 4 is σ₁(4) = 7; the cyclic degree is ψ(4) = 6. -/
+
+-- Packet test: charZeroHecke_degree_four (its all-subgroup half).
+example : ArithmeticFunction.sigma 1 4 = 7 := by
+  rw [ArithmeticFunction.sigma_one_apply]
+  decide
 
 /-! R13.2: use the native cyclotomic degree theorem for primitive-root bases. -/
 
