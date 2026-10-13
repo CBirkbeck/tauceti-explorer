@@ -301,11 +301,10 @@ theorem selmer_strict_le_le_relax (S : Set ι) [DecidablePred (· ∈ S)] :
 /-- The local quotient map from the larger Selmer condition to L'_v/L_v. -/
 def changeConditionMap {L L' : ∀ v, Submodule R (D.loc v)} (_h : ∀ v, L v ≤ L' v) :
     (D.withCond L').selmer →ₗ[R]
-      (∀ v, (L' v) ⧸ (L v).comap (L' v).subtype) where
-  toFun c v := ((L v).comap (L' v).subtype).mkQ
-    ⟨D.res v c.val, ((D.withCond L').mem_selmer c.val).mp c.property v⟩
-  map_add' := by sorry
-  map_smul' := by sorry
+      (∀ v, (L' v) ⧸ (L v).comap (L' v).subtype) :=
+  LinearMap.pi fun v => ((L v).comap (L' v).subtype).mkQ.comp
+    (LinearMap.codRestrict (L' v) ((D.res v).domRestrict (D.withCond L').selmer)
+      (fun c => ((D.withCond L').mem_selmer c.val).mp c.property v))
 
 /-- exactness at the larger Selmer module;
 there is no claim of surjectivity onto the local quotient. -/
@@ -597,37 +596,28 @@ def productConjugation {U : Type*} [AddCommGroup U] [Module ℂ U]
   toEquiv := {
     toFun := fun x => (ω.toEquiv x.1, ω'.toEquiv x.2)
     invFun := fun x => (ω.toEquiv.symm x.1, ω'.toEquiv.symm x.2)
-    left_inv := by sorry
-    right_inv := by sorry
-    map_add' := by sorry
-    map_smul' := by sorry }
-  involutive := by sorry
+    left_inv := by intro x; ext <;> simp
+    right_inv := by intro x; ext <;> simp
+    map_add' := by intro x y; ext <;> simp
+    map_smul' := by
+      intro r x
+      exact Prod.ext (LinearMap.map_smulₛₗ ω.toEquiv.toLinearMap r x.1)
+        (LinearMap.map_smulₛₗ ω'.toEquiv.toLinearMap r x.2) }
+  involutive := by intro x; ext <;> simp
 
-/-- Direct sum on the opposed-filtration carrier, extended by the two Betti involutions. -/
-def archRealization_sum {U : Type*} [AddCommGroup U] [Module ℂ U] [FiniteDimensional ℂ U]
+/-- Direct sum has the product Hodge filtration and the two actual Betti involutions. -/
+theorem archRealization_sum {U : Type*} [AddCommGroup U] [Module ℂ U] [FiniteDimensional ℂ U]
     {ω' : TauCeti.Hodge.Conjugation U} (A : ArchimedeanRealization W ω w)
     (B : ArchimedeanRealization U ω' w) :
-    ArchimedeanRealization (W × U) (productConjugation ω ω') w where
-  hodge := {
-    F := fun a => (A.hodge.F a).prod (B.hodge.F a)
-    F_antitone := by sorry
-    F_top := by sorry
-    opposed := by sorry }
-  FInfty := A.FInfty.prodCongr B.FInfty
-  involutive := by sorry
-  commute := by sorry
-  exchange := by sorry
+    ∃ C : ArchimedeanRealization (W × U) (productConjugation ω ω') w,
+      (∀ a, C.hodge.F a = (A.hodge.F a).prod (B.hodge.F a)) ∧
+      C.FInfty = A.FInfty.prodCongr B.FInfty := sorry
 
-/-- The underlying Hodge dual and Tate shift are existing library constructions. -/
-def archRealization_tateDual (A : ArchimedeanRealization W ω w) :
-    ArchimedeanRealization (Module.Dual ℂ W) ω.dual (2-w) where
-  hodge := by
-    have h : -w - 2 * (-1) = 2-w := by ring
-    exact h ▸ A.hodge.dual.tateTwist (-1)
-  FInfty := LinearEquiv.ofInvolutive (-A.FInfty.dualMap.toLinearMap) (by sorry)
-  involutive := by sorry
-  commute := by sorry
-  exchange := by sorry
+/-- The Tate dual uses the native Hodge dual/twist and the negative transpose, with no supplied dual factor list. -/
+theorem archRealization_tateDual (A : ArchimedeanRealization W ω w) :
+    ∃ D : ArchimedeanRealization (Module.Dual ℂ W) ω.dual (2-w),
+      HEq D.hodge (A.hodge.dual.tateTwist (-1)) ∧
+      D.FInfty.toLinearMap = -A.FInfty.dualMap.toLinearMap := sorry
 
 /-- Forget the Betti involution while retaining the native opposed Hodge filtration. -/
 def archRealization_hodgeCarrier (A : ArchimedeanRealization W ω w) := A.hodge
@@ -693,17 +683,42 @@ def tateHodge (n : ℤ) : TauCeti.Hodge.HodgeStructureOn ℂ standardConjugation
   have h : -2 * (-n) = 2*n := by ring
   exact h ▸ (TauCeti.Hodge.tate (-n))
 
+/-- The transported native Tate object has its sole Hodge type (n,n). -/
+theorem tateHodge_number (n a : ℤ) : (tateHodge n).hodgeNumber a = if a=n then 1 else 0 := sorry
+
 /-- Complex-linear multiplication by (-1)^n is the real Betti involution. -/
 def tateArchimedean (n : ℤ) : ArchimedeanRealization ℂ standardConjugation (2*n) where
   hodge := tateHodge n
   FInfty := LinearEquiv.ofInvolutive
-    (((-1 : ℂ) ^ n) • (LinearMap.id : ℂ →ₗ[ℂ] ℂ)) (by sorry)
-  involutive := by sorry
-  commute := by sorry
-  exchange := by sorry
-
-/-- The transported native Tate object has its sole Hodge type (n,n). -/
-theorem tateHodge_number (n a : ℤ) : (tateHodge n).hodgeNumber a = if a=n then 1 else 0 := sorry
+    (((-1 : ℂ) ^ n) • (LinearMap.id : ℂ →ₗ[ℂ] ℂ)) (by
+      intro x
+      simp [neg_one_zpow_eq_ite]
+      split <;> simp)
+  involutive := by
+    intro x
+    change (-1 : ℂ)^n • ((-1 : ℂ)^n • x) = x
+    simp [neg_one_zpow_eq_ite]
+    split <;> simp
+  commute := by
+    intro x
+    change (-1 : ℂ)^n • standardConjugation.toEquiv x =
+      standardConjugation.toEquiv ((-1 : ℂ)^n • x)
+    by_cases h : Even n <;> simp [neg_one_zpow_eq_ite, h]
+  exchange := by
+    intro a
+    change ((tateHodge n).piece a).map
+      (((-1 : ℂ)^n) • (LinearMap.id : ℂ →ₗ[ℂ] ℂ)) = (tateHodge n).piece (2*n-a)
+    rw [Submodule.map_smul _ _ _ (zpow_ne_zero n (by norm_num)), Submodule.map_id]
+    by_cases h : a = n
+    · subst a
+      congr 1
+      omega
+    · have h' : 2*n-a ≠ n := by omega
+      have ha : (tateHodge n).piece a = ⊥ := Submodule.finrank_eq_zero.mp (by
+        simpa [TauCeti.Hodge.HodgeStructureOn.hodgeNumber_def, h] using tateHodge_number n a)
+      have hb : (tateHodge n).piece (2*n-a) = ⊥ := Submodule.finrank_eq_zero.mp (by
+        simpa [TauCeti.Hodge.HodgeStructureOn.hodgeNumber_def, h'] using tateHodge_number n (2*n-a))
+      rw [ha, hb]
 
 /-- The L-function Tate convention produces Gammaℝ(s-n). -/
 theorem gamma_tate_factor (n : ℤ) (s : ℂ) :
@@ -712,9 +727,28 @@ theorem gamma_tate_factor (n : ℤ) (s : ℂ) :
 /-- The archimedean pole order at the Greenberg normalization point s=1. -/
 def poleOrderAtOne (A : ArchimedeanRealization W ω w) : ℕ := gammaPoleOrder (hodgeGammaFactors A) 1
 
-/-- Criticality is computed from a realization and its native Tate dual. -/
+/-- Compute the Tate-dual factors from the actual primal Hodge pieces and signs.
+An off-diagonal (a,b) with a<b dualizes to (1-b,1-a), and diagonal ε stays ε. -/
+def tateDualHodgeGammaFactors (A : ArchimedeanRealization W ω w) :
+    List (ShiftedGamma × ℕ) := by
+  classical
+  exact A.hodge.finite_setOf_hodgeNumber_ne_zero.toFinset.toList.flatMap fun a =>
+    if a < w-a then [(.complex (w-a-1), A.hodge.hodgeNumber a)]
+    else if 2*a = w then
+      [(.real (a-1), archRealization_diagonalMultiplicity A a 0),
+       (.real a, archRealization_diagonalMultiplicity A a 1)]
+    else []
+
+/-- The computed factors agree, up to order, with the genuine Tate-dual realization. -/
+theorem tateDualHodgeGammaFactors_eq (A : ArchimedeanRealization W ω w)
+    (D : ArchimedeanRealization (Module.Dual ℂ W) ω.dual (2-w))
+    (hH : HEq D.hodge (A.hodge.dual.tateTwist (-1)))
+    (hF : D.FInfty.toLinearMap = -A.FInfty.dualMap.toLinearMap) :
+    (hodgeGammaFactors D).Perm (tateDualHodgeGammaFactors A) := sorry
+
+/-- Criticality reads the realization and its computed canonical Tate-dual factors. -/
 def IsGreenbergCritical (A : ArchimedeanRealization W ω w) : Prop :=
-  poleOrderAtOne A = 0 ∧ poleOrderAtOne (archRealization_tateDual A) = 0
+  poleOrderAtOne A = 0 ∧ gammaPoleOrder (tateDualHodgeGammaFactors A) 1 = 0
 
 /-- Archimedean Gamma factor computed from the actual carrier. -/
 def gammaFactor (A : ArchimedeanRealization W ω w) (s : ℂ) : ℂ :=
@@ -758,10 +792,23 @@ end Tests
 def oppositeRealSign (A : ArchimedeanRealization W ω w) :
     ArchimedeanRealization W ω w where
   hodge := A.hodge
-  FInfty := LinearEquiv.ofInvolutive (-A.FInfty.toLinearMap) (by sorry)
-  involutive := by sorry
-  commute := by sorry
-  exchange := by sorry
+  FInfty := LinearEquiv.ofInvolutive (-A.FInfty.toLinearMap) (by
+    intro x
+    simp only [LinearMap.neg_apply, LinearEquiv.coe_coe, map_neg, neg_neg]
+    exact A.involutive x)
+  involutive := by
+    intro x
+    change -A.FInfty (-A.FInfty x) = x
+    simp only [map_neg, neg_neg]
+    exact A.involutive x
+  commute := by
+    intro x
+    change -A.FInfty (ω.toEquiv x) = ω.toEquiv (-A.FInfty x)
+    rw [map_neg, A.commute]
+  exchange := by
+    intro a
+    change (A.hodge.piece a).map (-A.FInfty.toLinearMap) = _
+    rw [Submodule.map_neg, A.exchange]
 
 namespace Tests
 /-- TauCeti.Selmer.arch_zero: this tests the actual carrier, not an empty input list. -/
@@ -801,12 +848,18 @@ example : standardConjugation.toEquiv (1 : ℂ) = 1 ∧
 example : archRealization_diagonalMultiplicity (tateArchimedean 0) 0 0 = 1 ∧
     archRealization_diagonalMultiplicity (tateArchimedean 0) 0 1 = 0 := sorry
 /-- The sum of two actual weight-zero Tate carriers has Hodge multiplicity two. -/
-example : (archRealization_sum (tateArchimedean 0) (tateArchimedean 0)).hodge.hodgeNumber 0 = 2 := sorry
+example (C : ArchimedeanRealization (ℂ × ℂ)
+    (productConjugation standardConjugation standardConjugation) 0)
+    (h : ∀ a, C.hodge.F a = ((tateHodge 0).F a).prod ((tateHodge 0).F a)) :
+    C.hodge.hodgeNumber 0 = 2 := sorry
 /-- Forgetting the Betti involution preserves the sole Hodge type. -/
 example (n : ℤ) : (archRealization_hodgeCarrier (tateArchimedean n)).hodgeNumber n = 1 := sorry
-/-- The Tate dual of twist two has Hodge type minus one, fixing both shift and sign. -/
-example : (archRealization_tateDual (tateArchimedean 2)).hodge.hodgeNumber (-1) = 1 ∧
-    poleOrderAtOne (archRealization_tateDual (tateArchimedean 0)) = 1 := sorry
+/-- The canonical dual factors of twists two and zero fix both shift and real sign. -/
+example : gammaPoleOrder (tateDualHodgeGammaFactors (tateArchimedean 2)) 1 = 0 ∧
+    gammaPoleOrder (tateDualHodgeGammaFactors (tateArchimedean 0)) 1 = 1 := sorry
+/-- Zero realization also gives zero Tate-dual pole order. -/
+example [Subsingleton W] (A : ArchimedeanRealization W ω w) :
+    gammaPoleOrder (tateDualHodgeGammaFactors A) 1 = 0 := sorry
 /-- The complex-place Tate realization contributes a complex factor, even for a real Tate line. -/
 example (s : ℂ) : hodgeGammaFactor (complexHodgeGammaFactors (tateHodge 0)) s =
     Complex.Gammaℂ s := sorry

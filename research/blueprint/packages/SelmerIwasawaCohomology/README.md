@@ -1708,6 +1708,8 @@ The named operations and identities are:
 - `ShiftedGamma` — Real or complex native Gamma function with its integral shift.
 - `complexHodgeGammaFactors` — One complex-place factor for every Hodge type, with shift −min(a,b).
 - `hodgeGammaFactors` — Finite multiset of shifted real and complex Gamma factors.
+- `tateDualHodgeGammaFactors` — Compute the dual multiset from the same primal Hodge pieces and Betti signs: for a<b=w−a the dual complex shift is b−1; for a diagonal piece the real shifts are a−1 and a with their original ε=0 and ε=1 multiplicities.
+- `tateDualHodgeGammaFactors_eq` — This computed list agrees up to permutation with the factors of the native Tate-dual Hodge realization equipped with the negative transpose Betti involution.
 - `hodgeGammaFactor` — Product of the existing Mathlib Gamma factors off their pole set.
 - `gammaPoleOrder` — Weighted integer pole count for the derived multiset.
 - `gammaFactor_sum` — Direct sum multiplies factors and adds pole orders.
@@ -1718,13 +1720,14 @@ The named operations and identities are:
 - Zero realization gives product 1 and pole order 0.
 - The Tate type (n,n), sign (-1)^n gives Γ_ℝ(s−n).
 - Weight-zero real sign + gives Γ_ℝ(s), sign − gives Γ_ℝ(s+1); their pole orders at 0 differ.
-- A real weight-one structure with h^(0,1)=h^(1,0)=1 gives Γ_ℂ(s), counted once rather than twice.
+- A real weight-one structure with h^(0,1)=h^(1,0)=1 gives Γ_ℂ(s), counted once rather than twice; its Tate dual gives the same factor.
+- The dual factors of the zero realization have no positive multiplicities. The dual of the type (0,0), sign + Tate line has Γ_ℝ(s−1) and a pole at one; the dual of the type (2,2), sign + line has Γ_ℝ(s+1) and no pole there.
 
 *Needs:* §4.13 (Archimedean realization on the existing Hodge carrier).
 
 ### 4.15 The Gamma factor, r_V and criticality
 
-For explicit archimedean realization data attached to L(V,s), define r_V=gammaPoleOrder(V,1) from §4.14. Define Greenberg criticality by r_V=r_(V*(1))=0, using the Tate-dual Hodge types and real signs from §4.13. For ℚ_p(n), r_V is one exactly for positive odd n, and the dual is ℚ_p(1−n); consequently the critical integers are positive even n or negative odd n. At n=0 the dual factor has a pole, so n=0 is not critical. Criticality is a computed predicate, not a supplied Boolean or Gamma factor.
+For explicit archimedean realization data attached to L(V,s), define r_V=gammaPoleOrder(V,1) from §4.14. Define Greenberg criticality by r_V=r_(V*(1))=0, using the Tate-dual Hodge types and real signs from §4.13. For ℚ_p(n), r_V is one exactly for positive odd n, and the dual is ℚ_p(1−n); consequently the critical integers are positive even n or negative odd n. At n=0 the dual factor has a pole, so n=0 is not critical. Criticality is a computed predicate, not a supplied Boolean or Gamma factor. The native representative signature calculates the second pole order through `tateDualHodgeGammaFactors`; the preceding comparison identifies it with the actual Tate-dual realization, without an independently supplied dual factor list.
 
 A finite-dimensional Hodge realization and its comparison to the chosen L-function convention, together with the compatible Tate-dual realization.
 

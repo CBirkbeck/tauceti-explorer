@@ -8,7 +8,7 @@ The three package files are written. This submission packages the accepted targe
 
 The README opens with Summary, scope, conventions and exact supplier contracts, then five layers, worked examples, downstream consumers and edition-specific references. All 95 accepted targets are accounted for: 94 numbered sections plus one imported Kummer coefficient-transition theorem. All 154 API names survive after removing the old namespace prefix; definition/construction sections have at least three discriminating checks. Added APIs/checks spell out passage from finite elliptic Selmer to p-infinity and the algebraic/archimedean adapters. The correction-cone target precedes derived control and depends on the ambient base-change hypothesis rather than creating a circular prerequisite.
 
-Suggested.lean is a compact file of real-bodied algebraic definitions, representative theorem signatures and 72 examples in 841 lines. Heavy arithmetic/derived carriers are README targets named in the closing comment. Proof fields and theorem proofs may use sorry; no data value is supplied by sorry. Finite pairing signatures use ZMod n, saturation has its explicitly scoped integer-module adapter, corank uses a supplied compact dual, and Fontaine–Laffaille's algebraic prototype does not assert a Witt-ring realization. metadata.toml is math.NT.
+Suggested.lean is a compact file of real-bodied algebraic definitions, representative theorem signatures and 73 examples in 894 lines. Heavy arithmetic/derived carriers are README targets named in the closing comment. Only theorem/example proofs use sorry; data definitions, including their proof fields, have complete bodies. The direct-sum and Tate-dual constructions are theorem signatures, with their filtration and Betti maps specified. Criticality computes the dual factors from the primal Hodge pieces/signs and includes an exact comparison with the genuine canonical dual. No arbitrary dual factor list or chosen sorry-backed data is used. Finite pairing signatures use ZMod n, saturation has its explicitly scoped integer-module adapter, corank uses a supplied compact dual, and Fontaine–Laffaille's algebraic prototype does not assert a Witt-ring realization. metadata.toml is math.NT.
 
 ## Current-library ownership and removals
 
@@ -61,9 +61,10 @@ Corrected Kato “Theorem 12.2” to §12.2, formulas (12.2.1)–(12.2.3), p. 22
 ## Validation
 
 - Accepted packet: scripts/check_blueprint.py reports 95 nodes, three inherited gaps, 20 requests, five planned stages, **0 errors, 0 warnings**. No packet edits.
-- `lean-check research/blueprint/packages/SelmerIwasawaCohomology/Suggested.lean`: **exit 0**, 102 declaration warnings, all `sorry`; no Lean errors or other Lean warnings. Used the existing shared pinned build.
+- `lean-check research/blueprint/packages/SelmerIwasawaCohomology/Suggested.lean`: **exit 0**, 100 declaration warnings, all `sorry`; no Lean errors or other Lean warnings. Used the existing shared pinned build.
 - `python3 research/blueprint/intake.py check-files` on the three package files and this handoff: **4 files, 0 problems**.
 - Target/API cross-check: 95 accepted targets mapped to 94 numbered sections and the imported current Kummer transition; all 154 API names present; every construction/definition section has at least three Checks.
+- `scripts/check_sorry_data.py` on Suggested.lean: **exit 0**, no offenders. The first CI submission check also rejected sorry in structure proof fields; the revision completes those fields or states constructions as theorem signatures.
 - Final staged `git diff --cached --check`: clean.
 
 ## Public source provenance
