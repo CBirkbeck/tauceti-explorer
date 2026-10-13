@@ -24487,7 +24487,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.7",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9382"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems",
@@ -34845,8 +34846,9 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.6",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9381"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9381",
+   "finishedAt": "2026-10-13T16:16:36Z"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.3",
