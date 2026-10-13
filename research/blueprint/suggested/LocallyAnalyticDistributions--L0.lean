@@ -28,14 +28,15 @@ convexity by open `O_K`-submodules, spherical completeness, discrete valuation, 
 compact maps, power series on a closed polydisc and their Gauss norm), the end theorems of the
 layer that are statable at the pins (Hahn–Banach over a spherically complete field, the `c₀`
 model of Banach spaces of countable type, complemented subspaces, the comparison of compactoid
-sets with total boundedness and of compact maps with `IsCompactOperator`, multiplicativity of
-the Gauss norm), and examples. Mathlib's `PolynormableSpace` admits non-ultrametric seminorms
+sets with total boundedness and of compact maps with `IsCompactOperator`), and examples.
+Scalar Gauss-norm multiplicativity is reused from current Tau Ceti instead of planned again. Mathlib's `PolynormableSpace` admits non-ultrametric seminorms
 and is strictly weaker than nonarchimedean local convexity (`lp_one_not_naLocallyConvex`).
 
 What stays a README target: limits, strong duals as locally convex spaces, the strict derived
 category and left heart, completed tensor products, spaces of compact type, nuclear spaces and
-their duality, analytic atlases, chart indices, the spaces `C^an(M, E)` and `D(M, K)`. Their
-carriers do not exist at the pins; the closing comment lists every remaining packet name.
+their duality, analytic-series compatibility for existing manifold atlases, chart indices,
+the spaces `C^an(M, E)` and `D(M, K)`. The new heavy carriers do not exist at the pins;
+Mathlib chart/manifold/analytic-map carriers are reused. The closing comments index packet names.
 
 Sources: Schneider, *Nonarchimedean Functional Analysis* (author notes) §§1, 4, 9, 10, 12, 16,
 17, 19; Schneider–Teitelbaum, arXiv:math/9912073 §§1–2; Schneider, *p-Adic Lie Groups* §§5, 10,
@@ -268,18 +269,13 @@ def gaussNormBall (ε : ℝ) {r : ℕ} (f : MvPowerSeries (Fin r) K) : ℝ :=
 
 variable {K}
 
-/-- Multiplicativity of the Gauss norm (Schneider, p-Adic Lie Groups, Proposition 5.3). -/
-theorem restrictedBall_norm_mul [IsUltrametricDist K] {ε : ℝ} (hε : 0 < ε) {r : ℕ}
-    {f g : MvPowerSeries (Fin r) K} (hf : f ∈ restrictedBall K ε r)
-    (hg : g ∈ restrictedBall K ε r) :
-    gaussNormBall K ε (f * g) = gaussNormBall K ε f * gaussNormBall K ε g := by
-  sorry
-
-/-- Products of series converging on the polydisc converge on it. -/
-theorem mul_mem_restrictedBall [IsUltrametricDist K] {ε : ℝ} (hε : 0 < ε) {r : ℕ}
+/-- Compatibility check using multiplication closure already at the Mathlib pin.
+The scalar normed-ring and multiplicativity infrastructure already exists in current Tau Ceti;
+upstream packaging reuses it. The light aliases above only express the older-pin carrier. -/
+example [IsUltrametricDist K] {ε : ℝ} {r : ℕ}
     {f g : MvPowerSeries (Fin r) K} (hf : f ∈ restrictedBall K ε r)
     (hg : g ∈ restrictedBall K ε r) : f * g ∈ restrictedBall K ε r := by
-  sorry
+  exact MvPowerSeries.isRestricted.mul (fun _ => ε) hf hg
 
 /-- `restrictedBall_monomial`: `‖X_i‖_ε = ε`. -/
 example (ε : ℝ) (hε : 0 < ε) {r : ℕ} (i : Fin r) :
@@ -311,13 +307,16 @@ end Functions
 
 end TauCeti.LocallyAnalytic
 
-/- The packet's other API and unit-test names. Their carriers (locally convex limits and strong
-duals as spaces, left hearts, completed tensors, compact type, nuclear spaces, analytic atlases,
-index stages, C^an(M, E), D(M, K)) are not at the pins, so they are README targets, listed here
-by node. Statements, hypotheses and sources are in the README and the packet. -/
+/- API and test index for the README targets. Heavy carriers are not developed in this file.
+Existing scalar Tate-algebra and manifold declarations are reused as the README specifies.
+For geometric targets L is the manifold base field and K the coefficient extension. -/
 
 /- LocallyAnalyticDistributions:L0/nonarchimedean-locally-convex-spaces
+TauCeti.NALocallyConvex.IsOKSubmodule
+TauCeti.NALocallyConvex.IsNALocallyConvex
+TauCeti.NALocallyConvex.isNALocallyConvex_iff_seminorms
 TauCeti.NALocallyConvex.gauge_isOpen_iff
+TauCeti.NALocallyConvex.IsNALocallyConvex.polynormableSpace
 TauCeti.NALocallyConvex.naKernel
 TauCeti.NALocallyConvex.naCokernel
 TauCeti.NALocallyConvex.haCokernel
@@ -325,8 +324,11 @@ TauCeti.NALocallyConvex.separate
 TauCeti.NALocallyConvex.separate_lift
 TauCeti.NALocallyConvex.separate_eq_self_iff
 TauCeti.NALocallyConvex.quotient_t2_iff
+NALocallyConvexTests.naTopology_line
 NALocallyConvexTests.naTopology_product
 NALocallyConvexTests.naCokernel_dense
+NALocallyConvexTests.lp_one_not_naLocallyConvex
+NALocallyConvexTests.quotient_finiteMax
 -/
 
 /- LocallyAnalyticDistributions:L0/locally-convex-limits
@@ -360,11 +362,23 @@ NALocallyConvexTests.bounded_normed
 -/
 
 /- LocallyAnalyticDistributions:L0/spherically-complete-fields
+TauCeti.NALocallyConvex.IsSphericallyComplete
 TauCeti.NALocallyConvex.isSphericallyComplete_iff_pairwise
+TauCeti.NALocallyConvex.IsSphericallyComplete.completeSpace
+TauCeti.NALocallyConvex.isSphericallyComplete_of_discrete
+TauCeti.NALocallyConvex.Padic.isSphericallyComplete
+TauCeti.NALocallyConvex.IsDiscretelyValued
+TauCeti.NALocallyConvex.Padic.isDiscretelyValued
 NALocallyConvexTests.sphericallyComplete_Qp
 NALocallyConvexTests.sphericallyComplete_complete
 NALocallyConvexTests.not_sphericallyComplete_Cp
 NALocallyConvexTests.sphericallyComplete_constant_radius
+-/
+
+/- LocallyAnalyticDistributions:L0/nonarchimedean-hahn-banach
+TauCeti.NALocallyConvex.exists_extension_of_le_seminorm
+TauCeti.NALocallyConvex.exists_extension_norm_eq
+TauCeti.NALocallyConvex.exists_dual_eq_one
 -/
 
 /- LocallyAnalyticDistributions:L0/strict-morphisms-quasi-abelian
@@ -402,6 +416,10 @@ NALocallyConvexTests.derived_split
 NALocallyConvexTests.heart_dense_diagonal
 -/
 
+/- LocallyAnalyticDistributions:L0/left-heart-classical-extensions
+
+-/
+
 /- LocallyAnalyticDistributions:L0/projective-tensor-product
 TauCeti.NALocallyConvex.projectiveTensor
 TauCeti.NALocallyConvex.projectiveTensor_tmul
@@ -415,6 +433,7 @@ TauCeti.NALocallyConvex.completedProjectiveTensor_dense
 NALocallyConvexTests.projectiveTensor_pure
 NALocallyConvexTests.projectiveTensor_zero
 NALocallyConvexTests.projectiveTensor_completion
+NALocallyConvexTests.scalarTensor_incomplete
 -/
 
 /- LocallyAnalyticDistributions:L0/inductive-tensor-product
@@ -430,14 +449,39 @@ NALocallyConvexTests.inductiveTensor_point
 NALocallyConvexTests.inductiveTensor_ne_projective
 -/
 
+/- LocallyAnalyticDistributions:L0/c0-completed-tensor
+
+-/
+
+/- LocallyAnalyticDistributions:L0/banach-c0-models
+TauCeti.NALocallyConvex.nonempty_equiv_c0_of_countableType
+-/
+
+/- LocallyAnalyticDistributions:L0/banach-open-mapping-lifts
+
+-/
+
+/- LocallyAnalyticDistributions:L0/banach-complemented-subspaces
+TauCeti.NALocallyConvex.closedComplemented_of_isDiscretelyValued
+TauCeti.NALocallyConvex.closedComplemented_of_countableType
+-/
+
 /- LocallyAnalyticDistributions:L0/compactoid-compact-maps
+TauCeti.NALocallyConvex.IsCompactoid
+TauCeti.NALocallyConvex.IsCompactoid.isVonNBounded
 TauCeti.NALocallyConvex.IsCompactoid.closure
+TauCeti.NALocallyConvex.IsCompactoid.image
 TauCeti.NALocallyConvex.IsCompactoid.add
 TauCeti.NALocallyConvex.IsCCompact
 TauCeti.NALocallyConvex.isCCompact_iff_isCompactoid
+TauCeti.NALocallyConvex.IsNACompactMap
 TauCeti.NALocallyConvex.IsNACompactMap.comp
 TauCeti.NALocallyConvex.isNACompactMap_dual_iff
+TauCeti.NALocallyConvex.isCompactoid_iff_totallyBounded
+TauCeti.NALocallyConvex.isNACompactMap_iff_isCompactOperator
+NALocallyConvexTests.compactoid_finiteDim
 NALocallyConvexTests.compactoid_decay
+NALocallyConvexTests.not_compactoid_unitBall
 NALocallyConvexTests.diagonal_compact
 -/
 
@@ -480,27 +524,56 @@ NALocallyConvexTests.not_nuclear_c0
 NALocallyConvexTests.nuclear_openDisc
 -/
 
+/- LocallyAnalyticDistributions:L0/compact-type-nuclear-duality
+
+-/
+
+/- LocallyAnalyticDistributions:L0/compact-type-tensor-products
+
+-/
+
+/- LocallyAnalyticDistributions:L0/nuclear-three-space
+
+-/
+
+/- LocallyAnalyticDistributions:L0/finite-rank-strict-splitting
+
+-/
+
+/- LocallyAnalyticDistributions:L0/compact-type-extension-duality
+
+-/
+
 /- LocallyAnalyticDistributions:L0/restricted-power-series-ball
+TauCeti.LocallyAnalytic.restrictedBall
+TauCeti.LocallyAnalytic.gaussNormBall
+MvPowerSeries.isRestricted.mul
 TauCeti.LocallyAnalytic.restrictedBall_norm_eq
 TauCeti.LocallyAnalytic.restrictedBall_iff_isRestricted
 TauCeti.LocallyAnalytic.restrictedBall_c0Equiv
 TauCeti.LocallyAnalytic.restrictedBall_eval
 TauCeti.LocallyAnalytic.restrictedBall_eval_injective
+MvPowerSeries.IsRestricted.gaussNorm_mul
 TauCeti.LocallyAnalytic.restrictedBall_reexpand
+TauCeti.LocallyAnalytic.restrictedBall_bilinearProduct
+TauCeti.LocallyAnalytic.restrictedBall_baseExtension
+LocallyAnalyticTests.restrictedBall_monomial
+LocallyAnalyticTests.restrictedBall_geometric
 LocallyAnalyticTests.restrictedBall_sup_not_K_points
 LocallyAnalyticTests.restrictedBall_mul
 LocallyAnalyticTests.restrictedBall_zero_vars
 -/
 
+/- LocallyAnalyticDistributions:L0/multivariate-substitution-bound
+
+-/
+
 /- LocallyAnalyticDistributions:L0/analytic-manifold-atlases
-TauCeti.LocallyAnalytic.AnalyticChart
-TauCeti.LocallyAnalytic.AnalyticChart.Compatible
-TauCeti.LocallyAnalytic.AnalyticAtlas
-TauCeti.LocallyAnalytic.AnalyticManifold
-TauCeti.LocallyAnalytic.LocallyAnalyticMap
-TauCeti.LocallyAnalytic.AnalyticManifold.prod
-TauCeti.LocallyAnalytic.AnalyticManifold.exists_finite_ball_partition
-TauCeti.LocallyAnalytic.analyticManifold_iff_isManifold
+TauCeti.LocallyAnalytic.chart_powerSeries_iff_contDiff
+TauCeti.LocallyAnalytic.compatible_chart_dimension
+TauCeti.LocallyAnalytic.exists_finite_ball_partition
+TauCeti.LocallyAnalytic.restrictScalars_OF_chart
+TauCeti.LocallyAnalytic.map_powerSeries_iff_contMDiff
 LocallyAnalyticTests.atlas_Zp_balls
 LocallyAnalyticTests.chart_square
 LocallyAnalyticTests.atlas_OF
@@ -520,6 +593,11 @@ LocallyAnalyticTests.indexStage_Zp
 LocallyAnalyticTests.indexStage_point_empty
 LocallyAnalyticTests.indexStage_not_embedding
 LocallyAnalyticTests.indexStage_refinement_norm
+LocallyAnalyticTests.indexStage_zeroCoefficients
+-/
+
+/- LocallyAnalyticDistributions:L0/relatively-compact-restriction
+
 -/
 
 /- LocallyAnalyticDistributions:L0/locally-analytic-function-space
@@ -535,6 +613,52 @@ TauCeti.LocallyAnalytic.locallyAnalytic_isCompactType
 TauCeti.LocallyAnalytic.locallyAnalytic_Zp_eq_LA
 LocallyAnalyticTests.locallyAnalytic_point_empty
 LocallyAnalyticTests.locallyAnalytic_disjoint
+LocallyAnalyticTests.locallyAnalytic_locallyConstant
 LocallyAnalyticTests.locallyAnalytic_not_uniform
 LocallyAnalyticTests.locallyAnalytic_exp_stage
+-/
+
+/- LocallyAnalyticDistributions:L0/locally-analytic-pullback
+
+-/
+
+/- LocallyAnalyticDistributions:L0/locally-analytic-product
+
+-/
+
+/- LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear
+
+-/
+
+/- LocallyAnalyticDistributions:L0/barrelled-banach-steinhaus
+TauCeti.NALocallyConvex.IsBarrelled
+TauCeti.NALocallyConvex.frechet_isBarrelled
+TauCeti.NALocallyConvex.inductiveLimit_isBarrelled
+TauCeti.NALocallyConvex.pointwiseBounded_equicontinuous
+TauCeti.NALocallyConvex.bidual_embedding
+NALocallyConvexTests.barrelled_coordinateFamily
+NALocallyConvexTests.barrelled_zero
+NALocallyConvexTests.not_barrelled_finiteSupport
+-/
+
+/- LocallyAnalyticDistributions:L0/pseudo-polar-duality
+TauCeti.NALocallyConvex.pseudoPolar
+TauCeti.NALocallyConvex.pseudoPolar_antitone
+TauCeti.NALocallyConvex.pseudoBipolar_eq_closure
+TauCeti.NALocallyConvex.pseudoPolar_isOpen_of_bounded
+NALocallyConvexTests.pseudoPolar_integerRing
+NALocallyConvexTests.pseudoPolar_zero
+NALocallyConvexTests.pseudoBipolar_dense
+-/
+
+/- LocallyAnalyticDistributions:L0/lb-frechet-factorisation
+
+-/
+
+/- LocallyAnalyticDistributions:L0/completed-tensor-operator-comparison
+
+-/
+
+/- LocallyAnalyticDistributions:L0/banach-completed-tensor-injective
+
 -/
