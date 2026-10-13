@@ -8,9 +8,9 @@ The full mathematical specification is here; [Suggested.lean](../suggested/Shimu
 
 L0–L5 of AnalyticToricGeometry supply the common lattice/cone, finite complex chart, finite analytic gluing, boundary and toric-map work. C0 changes coefficients, descends torsor algebras and adds arithmetic fan systems. C2 and C3 add controlled arithmetic quotients and descent. C4 imports local Raynaud theory from R11.3 and owns its relative cusp extension. The nonarchimedean Binda–Kato–Vezzani Part II imports the single C0 arbitrary-ring scheme result and starts its new work at formal, adic and perfectoid geometry.
 
-ShimuraCompactifications and AutomorphicBundles are mutually compatible suppliers. Generic algebraic/formal foundations, abelian schemes, PEL, Hilbert, Néron and finite-flat group inputs come from their existing owners. C4 supplies the semiabelian boundary Hasse comparison used by T0. R07.2 remains the generic Hasse/LF/Hodge–Tate owner. The AG2.4 cohomology theorem consumes C5’s good-boundary geometry and is not an upstream input.
+AutomorphicBundles is downstream of this roadmap: its layers B3–B5 require C3 and C6, and they import from here the Hodge bundle of a semi-abelian scheme (C4), the coherent refinement comparison (C3), the formally canonical coefficient interface and the Hodge-line Fourier–Jacobi constant term (C5). No node of this roadmap imports AutomorphicBundles. Generic algebraic/formal foundations, abelian schemes, PEL, Hilbert, Néron and finite-flat group inputs come from their existing owners. C4 supplies the semiabelian boundary Hasse comparison used by T0. R07.2 remains the generic Hasse/LF/Hodge–Tate owner. The AG2.4 cohomology theorem consumes C5’s good-boundary geometry and is not an upstream input.
 
-The construction separates early mixed-group input in C1 from its later cusp labels, and early C5 toroidal input from B5 constant terms and later C5 minimal models. The local R11.3 input must precede its relative C4 extension; the precise missing interface is stated below.
+C0 states its common and smooth projective refinements for an abstract arithmetic action with the finite-overlap property; C1 proves that property for Shimura boundary data, so C0 does not depend on C1. Two same-roadmap layer dependencies used by targets are not yet declared stage edges: C4 uses the C1 boundary torsor tower, and the compactified Klingen correspondence in C3 uses the C4 boundary level comparison. The local R11.3 input must precede its relative C4 extension; the precise missing interface is stated below.
 
 ## Conventions
 
@@ -39,7 +39,7 @@ The construction separates early mixed-group input in C1 from its later cusp lab
 | [ShimuraCompactifications:C5](#shimuracompactifications-c5) | Integral PEL compactifications |
 | [ShimuraCompactifications:C6](#shimuracompactifications-c6) | Hilbert and modular specializations |
 
-Read C1’s group and effective-action input before C0’s arithmetic fan compatibility; then use the chart, quotient and degeneration chains appropriate to the target. The C6 model chain is C0/C4 → formal gluing/H2 → toroidal properness → Hodge generation → section algebra/minimal contraction → boundary functions and cusp ideals. It does not pass through a good-prime C5 theorem at a ramified prime.
+C0’s refinement constructions assume the finite-overlap property of the arithmetic action, which C1 supplies for Shimura boundary data; then use the chart, quotient and degeneration chains appropriate to the target. The C6 model chain is C0/C4 → formal gluing/H2 → toroidal properness → Hodge generation → section algebra/minimal contraction → boundary functions and cusp ideals. It does not pass through a good-prime C5 theorem at a ramified prime.
 
 <a id="shimuracompactifications-c0"></a>
 ## Layer C0: Admissible fans and relative torus embeddings
@@ -120,7 +120,7 @@ Evaluate the coefficient restriction used in face-projection at the subtype elem
 
 - The formula also holds when R is zero or when the coefficient is nilpotent.
 
-*Needs:* [ShimuraCompactifications:C0/roadmap/face-projection](#shimuracompactifications-c0-roadmap-face-projection); `mathlib:MonoidAlgebra.comapDomain`.
+*Needs:* [ShimuraCompactifications:C0/roadmap/face-projection](#shimuracompactifications-c0-roadmap-face-projection); `mathlib:MonoidAlgebra.comapDomain`; `mathlib:Finsupp.comapDomain_apply`.
 
 Attribution: Makes the degreewise content of the source quotient explicit.
 
@@ -497,7 +497,7 @@ Keep the shared incidence fields of Fan, replacing only finite_cones by the arit
 
 Express support and local finiteness in the positivity domain. The origin lies in every cone and cannot have an ambient locally finite neighbourhood for an infinite arithmetic fan.
 
-Restriction to a boundary component preserves incidence and equivariance; separately check completeness and orbit finiteness, which Pink 6.6 does not grant automatically.
+Restriction to a boundary component preserves incidence and equivariance; separately check completeness and orbit finiteness, which restriction does not preserve in general (Pink 6.5(c)).
 
 This supplies [ShimuraCompactifications:C2](#shimuracompactifications-c2): Supplies cusp support and arithmetic finiteness for quotient gluing.
 
@@ -534,9 +534,11 @@ Both systems satisfy arithmetic-admissible-fan, and the maps send the source pos
 
 For the relative comparison, use the same cusp support or the inverse-image support appropriate to the specified map.
 
+The arithmetic action has the finite-overlap property: for any two cones σ and τ of the systems, only finitely many effective group elements γ make γσ meet τ inside the open positivity cone. This is a hypothesis on the abstract action in C0; for Shimura boundary data it is the theorem C1/roadmap/arithmetic-stabilizer (Pink 6.19), which consumers in C2, C3 and C6 cite when they instantiate this construction.
+
 Use target name `TauCeti.ShimuraCompactifications.C0.compatible_common_refinement` in `TauCeti/ShimuraCompactifications/C0`, namespace `TauCeti.ShimuraCompactifications`.
 
-Use finite cone representatives and Pink 6.19 finite-overlap reduction to check orbit finiteness for the intersection collection.
+Use finite cone representatives and the finite-overlap hypothesis (the conclusion of Pink 6.19 for Shimura data) to check orbit finiteness for the intersection collection.
 
 Intersections are rational polyhedral cones on the shared carrier; their faces and incidence are inherited. Verify the support identity and equivariance under the specified arithmetic maps.
 
@@ -560,7 +562,7 @@ Expose the following API under the same hypotheses:
 - Two refinements compare through a third without being literally equal.
 - For the quadrant and its diagonal subdivision, the common refinement is the diagonal subdivision.
 
-*Needs:* [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
+*Needs:* [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier).
 
 Attribution: Finite family of compatible morphisms and common refinements.
 
@@ -575,9 +577,11 @@ The arithmetic system and maps satisfy compatible-common-refinement. Use rationa
 
 A projective polarization is continuous, positive on nonzero points, homogeneous, arithmetic-invariant and integral on the lattice, with the required cusp restriction compatibility.
 
+The arithmetic action has the finite-overlap property of compatible-common-refinement; in particular every cone meeting the open positivity cone has a finite effective stabilizer. For Shimura boundary data this is C1/roadmap/arithmetic-stabilizer.
+
 Use target name `TauCeti.ShimuraCompactifications.C0.smooth_projective_refinement` in `TauCeti/ShimuraCompactifications/C0`, namespace `TauCeti.ShimuraCompactifications`.
 
-Pink 9.18–9.19 construct invariant rational piecewise-linear functions: perturb a common function on finitely many arithmetic cone representatives, average over finite effective cone stabilizers and extend over faces.
+Pink 9.18–9.19 construct invariant rational piecewise-linear functions: perturb a common function on finitely many arithmetic cone representatives, average over the finite effective cone stabilizers supplied by the finite-overlap hypothesis and extend over faces.
 
 Resolve singular cones by primitive integral subdivisions, retaining orbit and boundary compatibility; barycentrically refine when the separate no-self-identification property is requested.
 
@@ -588,7 +592,7 @@ Pink 9.21 and 9.23 give the complete smooth projective output and finite simulta
 - The cone generated by (1,0),(1,2) needs a genuine regular subdivision; simpliciality alone fails.
 - A prescribed finite Hecke span admits compatible refinements; an arbitrary universal fixed fan is not asserted.
 
-*Needs:* [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier).
+*Needs:* [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier).
 
 Attribution: Existence proof and simultaneous compatibility.
 
@@ -780,14 +784,14 @@ Attribution: The normalized chart comparison motivates the integral pullback-fan
 
 ### Dependencies
 
-Alongside the local target chain, this layer consumes `AdicSpacesPartII:F0`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `ShimuraVarieties:V2/rational-boundary`; `mathlib:AddMonoidAlgebra.lift`; `mathlib:AddMonoidAlgebra.lift_single`; `mathlib:AlgebraicGeometry.Spec`; `mathlib:AlgebraicGeometry.Spec.map`; `mathlib:Ideal.quotientKerAlgEquivOfRightInverse`; `mathlib:MonoidAlgebra.comapDomain`; `mathlib:MonoidAlgebra.domCongr`; `mathlib:MonoidAlgebra.mapDomainAlgHom`; `mathlib:MonoidAlgebra.mapRingHom`; `tauceti:TauCeti.SplitTorus.groupScheme`; `tauceti:TauCeti.Toric.Fan.ext`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness); [tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/ReductiveGroups/README.md#layer-7-structure-theory).
+Alongside the local target chain, this layer consumes `AdicSpacesPartII:F0`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `ShimuraVarieties:V2/rational-boundary`; `mathlib:AddMonoidAlgebra.lift`; `mathlib:AddMonoidAlgebra.lift_single`; `mathlib:AlgebraicGeometry.Spec`; `mathlib:AlgebraicGeometry.Spec.map`; `mathlib:Finsupp.comapDomain_apply`; `mathlib:Ideal.quotientKerAlgEquivOfRightInverse`; `mathlib:MonoidAlgebra.comapDomain`; `mathlib:MonoidAlgebra.domCongr`; `mathlib:MonoidAlgebra.mapDomainAlgHom`; `mathlib:MonoidAlgebra.mapRingHom`; `tauceti:TauCeti.SplitTorus.groupScheme`; `tauceti:TauCeti.Toric.Fan.ext`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness); [tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/ReductiveGroups/README.md#layer-7-structure-theory).
 
 <a id="shimuracompactifications-c1"></a>
 ## Layer C1: Rational boundary and mixed data
 
 Import the rational boundary component from V2 and enrich it by its mixed group, the central weight-minus-two subgroup, quotient, homogeneous cover and Hodge structure. Preserve the finite cover of the h-map image. The weight filtration is on Lie P₁: its three nontrivial levels are Lie U₁, Lie W₁ and Lie P₁. The quotient V₁=W₁/U₁ is not interchangeable with W₁.
 
-The pure quotient and torus/abelian torsors describe the boundary without assuming a universal abelian scheme for an arbitrary pure datum. Early mixed-group and effective-action exports precede C0 arithmetic fan compatibility; later cusp labels and incidence consume that compatibility. This ordering explains the proposed module split without changing any stage id.
+The pure quotient and torus/abelian torsors describe the boundary without assuming a universal abelian scheme for an arbitrary pure datum. The effective-stabilizer and finite-overlap theorem verifies, for Shimura boundary data, the hypothesis under which C0 builds common and smooth projective refinements; cusp labels and incidence then use the C0 cone systems.
 
 **Milestones.**
 
@@ -1173,7 +1177,7 @@ Attribution: Actual quotient/gluing construction.
 
 <!-- Contract: ShimuraCompactifications:C2/roadmap/normal-open-dense -->
 
-The actual analytic toroidal space is normal and contains Sh_K(C) as an open dense analytic subspace. Nonregular rational saturated monoid charts remain allowed. Normality comes from normal toric chart algebras and finite invariant quotients, not from assuming a smooth compactification exists. (Sources: [PINK-1990](#pink-1990) 6.7 and 6.24, printed pp. 98–99 and 112.)
+The actual analytic toroidal space is normal and contains Sh_K(C) as an open dense analytic subspace. Nonregular rational saturated monoid charts remain allowed. Normality comes from normal toric chart algebras and finite invariant quotients, not from assuming a smooth compactification exists. (Sources: [PINK-1990](#pink-1990) 6.6 and 6.24, printed pp. 98 and 112.)
 
 Fix a pure Shimura datum (G,X), compact open K and its actual arithmetic component quotients from V0. Cones and lattices are the common toric carriers; the fans are compatible arithmetic-admissible systems from C0. No universal abelian scheme is assumed for this datum.
 
@@ -1276,7 +1280,7 @@ For a non-neat level descend from a normal neat subgroup through a finite quotie
 - Projectivity records an actual ample line, not only compactness.
 - A nonprojective complete fan is not forced into a projective scheme.
 
-*Needs:* [ShimuraCompactifications:C2/roadmap/arithmetic-gluing](#shimuracompactifications-c2-roadmap-arithmetic-gluing); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); [ShimuraCompactifications:C2/roadmap/normal-open-dense](#shimuracompactifications-c2-roadmap-normal-open-dense); `ComplexComparisonPartII:C2`; `ComplexComparisonPartII:C4`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`; [ShimuraCompactifications:C2/roadmap/compactness-properness](#shimuracompactifications-c2-roadmap-compactness-properness).
+*Needs:* [ShimuraCompactifications:C2/roadmap/arithmetic-gluing](#shimuracompactifications-c2-roadmap-arithmetic-gluing); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); [ShimuraCompactifications:C2/roadmap/normal-open-dense](#shimuracompactifications-c2-roadmap-normal-open-dense); `ComplexComparisonPartII:C2`; `ComplexComparisonPartII:C4`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`; [ShimuraCompactifications:C2/roadmap/compactness-properness](#shimuracompactifications-c2-roadmap-compactness-properness); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
 
 Attribution: Scheme algebraization needs ample cover; algebraic spaces have the unconditional version.
 
@@ -1285,7 +1289,7 @@ Attribution: Scheme algebraization needs ample cover; algebraic spaces have the 
 
 <!-- Contract: ShimuraCompactifications:C2/roadmap/minimal-boundary-map -->
 
-Construct the continuous analytic comparison from the actual toroidal quotient to the already-owned minimal compactification. On each boundary cone stratum it is the map through the associated pure boundary quotient; its cone-stratum restriction is the specified torus/abelian-torsor quotient map. Preserve the cusp equivalence classes and incidence order; do not assume each entire boundary fibre or stratum is irreducible. Properness is a later consequence of compactness-properness for complete fans and a Hausdorff minimal target; its algebraic form is obtained after projective-algebraization. Neither conclusion is an input to constructing the continuous map. (Sources: [PINK-1990](#pink-1990) 6.21–6.24, printed pp. 109–112; 7.2–7.5, printed pp. 118–121.)
+Construct the continuous analytic comparison from the actual toroidal quotient to the already-owned minimal compactification. On each boundary cone stratum it is the map through the associated pure boundary quotient; its cone-stratum restriction is the specified torus/abelian-torsor quotient map. Preserve the cusp equivalence classes and incidence order; do not assume each entire boundary fibre or stratum is irreducible. Properness is a subsequent consequence of compactness-properness for complete fans and a Hausdorff minimal target; its algebraic form is obtained after projective-algebraization. Neither conclusion is an input to constructing the continuous map. (Sources: [PINK-1990](#pink-1990) 6.21–6.24, printed pp. 109–112; 7.2–7.5, printed pp. 118–121.)
 
 Fix a pure Shimura datum (G,X), compact open K and its actual arithmetic component quotients from V0. Cones and lattices are the common toric carriers; the fans are compatible arithmetic-admissible systems from C0. No universal abelian scheme is assumed for this datum.
 
@@ -1490,7 +1494,7 @@ Prove composition and normal-level quotient by local chart comparison plus dense
 - The Tate cusp map q↦q^p has boundary ramification even though its generic torus map is etale in characteristic zero.
 - A datum map carries the specified reflex-field base change.
 
-*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C1/roadmap/boundary-incidence](#shimuracompactifications-c1-roadmap-boundary-incidence); `ShimuraVarieties:V8`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness).
+*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C1/roadmap/boundary-incidence](#shimuracompactifications-c1-roadmap-boundary-incidence); `ShimuraVarieties:V8`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
 
 Attribution: Compatible fan maps, finite normal-level quotients and composition.
 
@@ -1531,7 +1535,7 @@ Expose the following API under the same hypotheses:
 - The order of the two arrows agrees with the open correspondence.
 - An incompatible fan is first refined.
 
-*Needs:* [ShimuraCompactifications:C3/roadmap/level-datum-functoriality](#shimuracompactifications-c3-roadmap-level-datum-functoriality); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); `ShimuraVarieties:V8/hecke-span`.
+*Needs:* [ShimuraCompactifications:C3/roadmap/level-datum-functoriality](#shimuracompactifications-c3-roadmap-level-datum-functoriality); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); `ShimuraVarieties:V8/hecke-span`; [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
 
 Attribution: Compatible finite family of morphisms supplies the toroidal span.
 
@@ -1558,7 +1562,7 @@ Use the resulting commutative diagrams for the sheaf comparison theorems, separa
 
 - A blow-up and its target differ as spaces but compare through the stated proper map.
 
-*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement).
+*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
 
 Attribution: Comparison through common compatible refinements.
 
@@ -1684,9 +1688,9 @@ Attribution: Use the corrected derived pushforward, not the printed pullback equ
 
 <!-- Contract: ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance -->
 
-For a canonical locally free coefficient E with the supplier comparison f*E=E′, refinement induces isomorphisms H^i(X,E)→H^i(X′,E′) and H^i(X,E tensor I_D)→H^i(X′,E′ tensor I_D′) for every i. Over the good integral base these remain valid for E0 tensor_B M for EVERY B-module M under Lan 7.1.1.4's Dedekind/field and the stated universal-chart hypotheses; M is not silently assumed flat. (Sources: [LAN-2021](#lan-2021) 7.1.1.4–7.1.1.5, printed pp. 532–533; [CG-2020](#cg-2020) 5.2, published pp. 821–822; A.3.2, pp. 886–888; [PILLONI-2020](#pilloni-2020) 5.3, author-copy p. 24.)
+For a same-level refinement f:X′→X of the actual toroidal models and every locally free sheaf E of finite rank on X, put E′=f*E. Then refinement induces isomorphisms H^i(X,E)→H^i(X′,E′) and H^i(X,E tensor I_D)→H^i(X′,E′ tensor I_D′) for every i. Over the good integral base these remain valid for E tensor_B M for EVERY B-module M under Lan 7.1.1.4's Dedekind/field and the stated universal-chart hypotheses; M is not silently assumed flat. Canonical and subcanonical automorphic extensions satisfy f*E^can=E′^can by AutomorphicBundles:B3, which imports this theorem; the theorem itself needs no automorphic input. (Sources: [LAN-2021](#lan-2021) 7.1.1.4–7.1.1.5, printed pp. 532–533; [CG-2020](#cg-2020) 5.2, published pp. 821–822; A.3.2, pp. 886–888; [PILLONI-2020](#pilloni-2020) 5.3, author-copy p. 24.)
 
-Canonical/subcanonical bundles and their refined comparison are supplied by AutomorphicBundles:B3/B4, with the requested integral formally-canonical extension. The geometric maps and O/I_D derived comparisons are independently available.
+E is any locally free sheaf of finite rank on X, and E′ is its pullback; no automorphic structure on E is used. The geometric maps and the O and I_D derived comparisons are those of the preceding C3 targets.
 
 For arbitrary modules use the exact coefficient argument: filtered colimits and finite generated module reduction over the Dedekind/field base, or universal integral chart exactness.
 
@@ -1703,7 +1707,7 @@ Compare two fans through a common refinement and prove functoriality of the coho
 - Take M=B/pi^n; the result must survive this nonflat coefficient change.
 - It applies to every degree, not just H0.
 
-*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C3/roadmap/choice-comparison](#shimuracompactifications-c3-roadmap-choice-comparison); `AutomorphicBundles:B3/refinement-canonical-extension`; `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.2`.
+*Needs:* [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C3/roadmap/choice-comparison](#shimuracompactifications-c3-roadmap-choice-comparison); `SchemeAndStackFoundations:SF.2`.
 
 Attribution: Arbitrary coefficient-module proof and canonical Hodge comparison.
 
@@ -1812,7 +1816,7 @@ Attribution: Asserted acyclicity; supporting boundary proof is explicitly open.
 
 ### Dependencies
 
-Alongside the local target chain, this layer consumes `AdicSpacesPartII:F0`; `AdicSpacesPartII:R3`; `AutomorphicBundles:B3/refinement-canonical-extension`; `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`; `ShimuraVarieties:V8`; `ShimuraVarieties:V8/hecke-span`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-3-finite-fan-analytic-gluing); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-4-torus-actions-strata-and-the-boundary); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness).
+Alongside the local target chain, this layer consumes `AdicSpacesPartII:F0`; `AdicSpacesPartII:R3`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`; `ShimuraVarieties:V8`; `ShimuraVarieties:V8/hecke-span`; [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-0-the-toric-compatible-algebraic-supplier); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-3-finite-fan-analytic-gluing); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-4-torus-actions-strata-and-the-boundary); [tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/AnalyticToricGeometry/README.md#layer-5-toric-maps-and-properness).
 
 <a id="shimuracompactifications-c3-general"></a>
 ## Layer C3.general: General-data map and correspondence interface
@@ -1881,7 +1885,7 @@ Mumford effectivity, universal cusp families, extension of homomorphisms/endomor
 
 <!-- Contract: ShimuraCompactifications:C4/roadmap/semi-abelian-scheme -->
 
-A semi-abelian scheme G over S is a separated smooth commutative group scheme whose geometric fibres are extensions of abelian varieties by tori. Keep the relative dimension and constructible character sheaf of the maximal fibrewise torus. A single global exact sequence by a torus exists under the additional locally constant toric-rank hypothesis; it is not part of the definition for a degenerating family. Smoothness supplies local finite presentation. When an application needs global finite presentation or finite type, retain that additional hypothesis in the application rather than inserting it into Lan's fibrewise definition. (Sources: [LAN-2021](#lan-2021) 3.3.1.1–3.3.1.4, printed pp. 191–192.)
+A semi-abelian scheme G over S is a separated smooth commutative group scheme whose geometric fibres are extensions of abelian varieties by tori. Keep the relative dimension and constructible character sheaf of the maximal fibrewise torus. A single global exact sequence by a torus exists under the additional locally constant toric-rank hypothesis; it is not part of the definition for a degenerating family. Smoothness supplies local finite presentation. When an application needs global finite presentation or finite type, retain that additional hypothesis in the application rather than inserting it into Lan's fibrewise definition. (Sources: [LAN-2021](#lan-2021) Definition 3.3.1.1 and Remarks 3.3.1.2–3.3.1.3, printed pp. 191–192; Theorem 3.3.1.9 and Corollary 3.3.1.10, printed p. 193.)
 
 Work over the scheme or algebraic-space bases supplied by SF.1, using the existing group-scheme and abelian-scheme carriers. For Lan character/extension theorems retain his locally Noetherian base hypotheses.
 
@@ -1897,6 +1901,8 @@ This supplies [ShimuraCompactifications:C4/roadmap/polarized-degeneration-data](
 
 This supplies [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space): Supplies the universal boundary extension.
 
+This supplies [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness): Its Hodge bundle and determinant line are the bundles whose positivity yields the minimal compactification.
+
 Expose the following API under the same hypotheses:
 
 - `SemiAbelianScheme.baseChange`: Every base change preserves the geometric-fibre condition and its smooth group structure, with identity/composition comparisons.
@@ -1905,6 +1911,7 @@ Expose the following API under the same hypotheses:
 - `SemiAbelianScheme.constantRankExtension`: Under the locally constant character-rank hypothesis the family is an extension of an abelian scheme by a torus.
 - `SemiAbelianScheme.ofGroup`: A genuine separated smooth commutative group scheme with the stated geometric-fibre torus-extension property gives a semi-abelian scheme, without choosing a global torus extension for a rank-jumping family.
 - `SemiAbelianScheme.ext`: On a fixed group-scheme carrier and structure maps, two semi-abelian structures agree because the smooth/separated and geometric-fibre requirements are properties; equality does not require equality of chosen local torus splittings.
+- `SemiAbelianScheme.hodgeBundle`: The Hodge bundle E=e^*Ω¹_{G/S} of invariant differentials along the identity section, locally free of rank the relative dimension, with its determinant ω=det E. Formation commutes with every base change, and for an extension 0→T→G→A→0 on a constant-rank stratum there is an exact sequence 0→e^*Ω¹_A→E→X(T)⊗O_S→0. This is the Hodge bundle used by C4, C5 and C6; AutomorphicBundles builds its coefficient bundles on it.
 
 **Checks.**
 
@@ -1924,9 +1931,9 @@ Attribution: Definition and constructible character data.
 
 <!-- Contract: ShimuraCompactifications:C4/roadmap/constructible-character-sheaf -->
 
-For a semi-abelian scheme G over a locally Noetherian base, construct its etale constructible character sheaf X(G), restricting to the free character lattice of the maximal torus in every geometric fibre. Identify morphisms from a torus T to G with the dual character-sheaf maps in Lan 3.3.1.9, with the exact sheaf direction and specializations retained. On the constant-rank locus this recovers the usual anti-equivalence for tori. (Sources: [LAN-2021](#lan-2021) 3.3.1.8–3.3.1.10, printed pp. 192–193; [FALTINGS-CHAI-1990](#faltings-chai-1990) Chapter I, Proposition 2.9, Theorem 2.10 and Corollary 2.11, printed pp. 11–13 / PDF pp. 23–25.)
+For a semi-abelian scheme G over an arbitrary base scheme S, construct its etale constructible character sheaf X(G), restricting to the free character lattice of the maximal torus in every geometric fibre. Identify morphisms from a torus T to G with the dual character-sheaf maps in Lan 3.3.1.9, with the exact sheaf direction and specializations retained. On the constant-rank locus this recovers the usual anti-equivalence for tori. (Sources: [LAN-2021](#lan-2021) 3.3.1.8–3.3.1.10, printed pp. 192–193; [FALTINGS-CHAI-1990](#faltings-chai-1990) Chapter I, Proposition 2.9, Theorem 2.10 and Corollary 2.11, printed pp. 11–13 / PDF pp. 23–25.)
 
-Use Lan's constructible etale sheaf setting; no locally constant character lattice is assumed across a rank jump.
+Use Lan's constructible etale sheaf setting. Lan Theorem 3.3.1.9 and Faltings–Chai I.2.10 need no normality or Noetherian hypothesis on S; normality enters only through the subtorus extension of Faltings–Chai I.2.9 used in the proof. No locally constant character lattice is assumed across a rank jump.
 
 Use target name `TauCeti.ShimuraCompactifications.C4.constructible_character_sheaf` in `TauCeti/ShimuraCompactifications/C4`, namespace `TauCeti.ShimuraCompactifications`.
 
@@ -2280,11 +2287,11 @@ Attribution: Relative degeneration construction; exact dimension-one model is im
 
 For the imported Tate family, its polarization and invariant Hodge line E, compute the Kodaira–Spencer comparison E^tensor2→Omega^1_base(log boundary) with the source's normalization: (du/u)^tensor2 maps to dq/q up to the explicitly fixed sign/unit convention. Under q↦q^p the base logarithmic differential pulls back to p dq/q. This is a Kodaira–Spencer isomorphism between the stated bundles, not an equality between the relative fibre differential sheaf and the base differential sheaf. (Sources: [LAN-2021](#lan-2021) 6.4.1.1(4), printed pp. 519–520.)
 
-Use the normalized polarization and Tate parameter of R13.1–R13.3 and the logarithmic Kodaira–Spencer supplier; retain characteristic and level conditions where p is not invertible.
+Use the normalized polarization and Tate parameter of R13.1–R13.3 and the interior Kodaira–Spencer map of PELModuli:M2/kodaira-spencer-dimension; retain characteristic and level conditions where p is not invertible.
 
 Use target name `TauCeti.ShimuraCompactifications.C4.tate_log_kodaira_spencer` in `TauCeti/ShimuraCompactifications/C4`, namespace `TauCeti.ShimuraCompactifications`.
 
-Import the dimension-one logarithmic Kodaira–Spencer construction and fix its sign using the chosen polarization and period.
+Start from the interior Kodaira–Spencer isomorphism of M2 for the elliptic family and extend it across the cusp by computing on the Tate curve; fix its sign using the chosen polarization and period.
 
 Compute the period derivative and the two isogeny pullbacks separately on the fibre and base coordinates.
 
@@ -2295,7 +2302,7 @@ Compare the higher-dimensional log-Kodaira–Spencer chart formula with this ran
 - du/u belongs to invariant relative differentials; dq/q belongs to base logarithmic differentials.
 - The ramification factor p appears in pullback of dq/q.
 
-*Needs:* [ShimuraCompactifications:C4/roadmap/tate-degeneration-comparison](#shimuracompactifications-c4-roadmap-tate-degeneration-comparison); `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.0`.
+*Needs:* [ShimuraCompactifications:C4/roadmap/tate-degeneration-comparison](#shimuracompactifications-c4-roadmap-tate-degeneration-comparison); `SchemeAndStackFoundations:SF.0`; `PELModuli:M2/kodaira-spencer-dimension`.
 
 Attribution: Logarithmic Kodaira–Spencer supplies the higher-dimensional comparison.
 
@@ -2372,7 +2379,7 @@ Import the abelian determinant identification from R07.2, then glue by the natur
 - For G=T×A the total Hasse determinant equals the toric unit times Ha(A), so a supersingular abelian factor still forces vanishing.
 - At a totally toric cusp the p-kernel has toric height g; treating it as an abelian BT₁ of height 2g fails the fibre test.
 
-*Needs:* [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); `AbelianSchemesAndArithmeticModuli:A0`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`; `AutomorphicBundles:B3`; `SchemeAndStackFoundations:SF.0`.
+*Needs:* [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); `AbelianSchemesAndArithmeticModuli:A0`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`; `SchemeAndStackFoundations:SF.0`.
 
 Attribution: The source uses boundary ordinarity and distinguishes natural from modified integral differentials. The general semiabelian determinant argument is supplied here by Frobenius descent, not attributed to Lemma 5.12 as its statement.
 
@@ -2385,14 +2392,14 @@ Attribution: The source uses boundary ordinarity and distinguishes natural from 
 
 ### Dependencies
 
-Alongside the local target chain, this layer consumes `AbelianSchemesAndArithmeticModuli:A0`; `AbelianSchemesAndArithmeticModuli:A2`; `AbelianSchemesAndArithmeticModuli:A3`; `AbelianSchemesAndArithmeticModuli:A4`; `AbelianSchemesAndArithmeticModuli:A5`; `ArithmeticGaloisDuality:R02.1`; `AutomorphicBundles:B3`; `AutomorphicBundles:B4`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`; `ModularCurvesPartII:R13.1`; `ModularCurvesPartII:R13.2`; `ModularCurvesPartII:R13.3`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `PELModuli:M1`; `PELModuli:M4/higher-level-normalization`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`; `tauceti:TauCeti.SplitTorus.groupScheme`.
+Alongside the local target chain, this layer consumes `AbelianSchemesAndArithmeticModuli:A0`; `AbelianSchemesAndArithmeticModuli:A2`; `AbelianSchemesAndArithmeticModuli:A3`; `AbelianSchemesAndArithmeticModuli:A4`; `AbelianSchemesAndArithmeticModuli:A5`; `ArithmeticGaloisDuality:R02.1`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`; `ModularCurvesPartII:R13.1`; `ModularCurvesPartII:R13.2`; `ModularCurvesPartII:R13.3`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `PELModuli:M1`; `PELModuli:M2/kodaira-spencer-dimension`; `PELModuli:M4/higher-level-normalization`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`; `tauceti:TauCeti.SplitTorus.groupScheme`.
 
 <a id="shimuracompactifications-c5"></a>
 ## Layer C5: Integral PEL compactifications
 
 The ordinary smooth construction starts over Lan’s good arithmetic base, with the order, pairing, polarization-defect, level and quaternionic p=2 restrictions. Formal cusp models acquire étale algebraic charts and a quotient relation. At neat level this gives an algebraic space; projective choices and ample descent give a scheme. Non-neat levels first give the specified quotient stack, and smoothness of the stack does not imply smoothness of its coarse space.
 
-Hodge generation, finite generation of the section algebra, its Proj/Stein contraction and the descended ample line give the integral minimal compactification. Five separate neat boundary-closure results prove geometric component detection. Higher-level finite normalizations retain their exact model and coefficient hypotheses. Lan’s more general projective normalized blow-up uses a different ramified interior/minimal supplier and is stated separately. Ordinary/formal Koecher, normalized coefficient extension and good-boundary geometry export keep their own hypotheses; downstream étale cohomology is not used as a supplier of C5 geometry.
+Hodge generation, finite generation of the section algebra, its Proj/Stein contraction and the descended ample line give the integral minimal compactification; its boundary strata are identified through the constant terms of Hodge-line Fourier–Jacobi expansions. Five separate neat boundary-closure results prove geometric component detection. Higher-level finite normalizations retain their exact model and coefficient hypotheses. Lan’s more general projective normalized blow-up uses a different ramified interior/minimal supplier and is stated separately. Ordinary/formal Koecher, the formally canonical coefficient interface and good-boundary geometry export keep their own hypotheses; downstream étale cohomology is not used as a supplier of C5 geometry.
 
 **Milestones.**
 
@@ -2483,7 +2490,7 @@ Attribution: Normalization of the interior relation, extended tautological isomo
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/integral-toroidal-space -->
 
-For the smooth compatible collection Sigma of Lan Definition 6.3.3.4, form M_H,Sigma^tor=[U_H/R_H] over the stated good base B with its descended semi-abelian PEL family and cusp/cone stratification. The quotient is a finite-type separated smooth algebraic stack; it is an algebraic space at neat level. Complete fans give properness through valuative-properness. Projective choices give a scheme through ample descent. Keep finite stabilizer quotients at non-neat level before taking any coarse space; this theorem does not assert smoothness of that coarse space. The ordinary construction here does not cover arbitrary nonsmooth fans; the normalized projective construction is separate. (Sources: [LAN-2021](#lan-2021) Definition 6.3.3.4, printed p. 509; Definition 6.3.3.15 and Remark 6.3.3.16, p. 518; Theorem 6.4.1.1, pp. 519–523.)
+For the smooth compatible collection Sigma of Lan Definition 6.3.3.4, form M_H,Sigma^tor=[U_H/R_H] over the stated good base B with its descended semi-abelian PEL family and cusp/cone stratification. The quotient is a finite-type separated smooth algebraic stack; it is an algebraic space at neat level. Complete fans give properness through valuative-properness. Projective choices give a scheme through ample descent. Keep finite stabilizer quotients at non-neat level before taking any coarse space; this theorem does not assert smoothness of that coarse space. The ordinary construction here does not cover arbitrary nonsmooth fans; the normalized projective construction is separate. (Sources: [LAN-2021](#lan-2021) Definition 6.3.3.4, printed p. 509; Definition 6.3.3.15 and Corollary 6.3.3.16, p. 518; Theorem 6.4.1.1, pp. 519–523.)
 
 Fix the PEL datum, its order, lattice, pairing and reflex field F0 from M1. Let B=Spec(O_F0,(S)) for a set S of good primes in Lan 1.4.1.1: no prime divides the level integer n, Ibad or Disc[L# : L]. Retain the order/unramifiedness, polarization-defect and quaternionic p=2 restrictions of M2; H has the specified prime-to-S level. No bad-prime smoothness is inferred.
 
@@ -2617,7 +2624,7 @@ Attribution: Only the absolute intersection criterion is compared; relative smoo
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/neat-boundary-open-fiberwise-dense -->
 
-For every geometric point b of B and every J, the open (D_J^o)_b is dense in (D_J)_b. In particular, it meets each nonempty geometric-fiber component of each open-and-closed subspace of D_J. (Sources: [LAN-2021](#lan-2021) 6.3.2.5 and 6.4.1.1(2)-(3), printed pp. 519–523.)
+For every geometric point b of B and every J, the open (D_J^o)_b is dense in (D_J)_b. In particular, it meets each nonempty geometric-fiber component of each open-and-closed subspace of D_J. (Sources: [LAN-2021](#lan-2021) Definition 6.3.2.5, printed p. 503; Theorem 6.4.1.1(2)–(3), printed pp. 519–520.)
 
 Work on the actual good-prime PEL toroidal algebraic space X=M_H,Sigma^tor of Lan 6.3.3.15, over the indicated regular Noetherian arithmetic base B=Spec R. H is neat; Sigma satisfies 6.3.3.4, including 6.2.5.25. Retain 1.4.3.10 and the good-prime/level hypotheses of 1.4.1.2 and M2. The source construction and its ordinary etale chart/stratification theorem are required inputs, not implemented objects or arbitrary smooth resolutions.
 
@@ -2788,7 +2795,7 @@ The level is neat, Sigma smooth, and the required no-self-identification conditi
 
 Use target name `TauCeti.ShimuraCompactifications.C5.log_kodaira_spencer` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
-Define the Hodge bundle via the identity section of the universal semi-abelian family.
+Define the Hodge bundle via the identity section of the universal semi-abelian family (C4 SemiAbelianScheme.hodgeBundle); on the interior the comparison is the Kodaira–Spencer isomorphism of PELModuli:M2/kodaira-spencer-dimension.
 
 Compute the period derivative on each universal formal degeneration chart, with ordinary logarithmic differentials dq_i/q_i.
 
@@ -2799,7 +2806,7 @@ Use the PEL relations and etale descent to glue the source's comparison. Check t
 - The Siegel rank-g Hodge bundle gives differential rank g(g+1)/2.
 - The rank-one logarithmic base differential is dq/q, distinct from the fibre differential du/u.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C4/roadmap/tate-log-kodaira-spencer](#shimuracompactifications-c4-roadmap-tate-log-kodaira-spencer); `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.0`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C4/roadmap/tate-log-kodaira-spencer](#shimuracompactifications-c4-roadmap-tate-log-kodaira-spencer); `SchemeAndStackFoundations:SF.0`; `PELModuli:M2/kodaira-spencer-dimension`.
 
 Attribution: PEL logarithmic comparison.
 
@@ -2827,7 +2834,7 @@ Faltings–Chai V.2.1, printed p. 149, was read: it reduces to Moret-Bailly IX.2
 - A uniform positive power is relatively generated.
 - Boundary contraction fibres can have Hodge degree zero.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C4/roadmap/degeneration-effectivity](#shimuracompactifications-c4-roadmap-degeneration-effectivity); `AutomorphicBundles:B4`; `AbelianSchemesAndArithmeticModuli:A5`; `SchemeAndStackFoundations:SF.2`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C4/roadmap/degeneration-effectivity](#shimuracompactifications-c4-roadmap-degeneration-effectivity); `AbelianSchemesAndArithmeticModuli:A5`; `SchemeAndStackFoundations:SF.2`; [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme).
 
 Attribution: Semiampleness and degree-zero/isotriviality criterion.
 
@@ -2844,7 +2851,7 @@ Fix the PEL datum, its order, lattice, pairing and reflex field F0 from M1. Let 
 
 Use the relatively generated positive power and the proper algebraic-space coherent finiteness theorem. Generic finite generation alone does not imply an integral finite-type section algebra.
 
-The preliminary Stein target for the generated positive power is flat over the Dedekind good base B, as required by Corollary 7.2.2.6. Use the smooth/flat toroidal source to show that its coherent Stein algebra is torsion-free over B, hence flat; this is independent of the later minimal-space construction.
+The preliminary Stein target for the generated positive power is flat over the Dedekind good base B, as required by Corollary 7.2.2.6. Use the smooth/flat toroidal source to show that its coherent Stein algebra is torsion-free over B, hence flat; this is independent of the subsequent minimal-space construction.
 
 Use target name `TauCeti.ShimuraCompactifications.C5.graded_section_finite_generation` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
@@ -2852,20 +2859,69 @@ Map by a generated positive power and take its finite Stein factor using SF.2. I
 
 Use coherent direct image under the ample line on the Stein target to show finite generation of every residue class of graded degrees.
 
-Combine the finitely many residue classes into S; apply the exact Noetherian argument of Lan 7.2.2.6. Import B5 only for subsequent boundary/constant-term identification.
+Combine the finitely many residue classes into S; apply the exact Noetherian argument of Lan 7.2.2.6. The boundary/constant-term identification is the separate integral-minimal-space step.
 
 **Checks.**
 
 - All nonnegative degrees occur, with a finite Veronese argument.
 - The result is over the good arithmetic base, not only over its fraction field.
-- The preliminary Stein target is proved flat before the finite-generation corollary is applied; the later minimal compactification is not used to justify that hypothesis.
+- The preliminary Stein target is proved flat before the finite-generation corollary is applied; the subsequent minimal compactification is not used to justify that hypothesis.
 
 *Needs:* [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); `SchemeAndStackFoundations:SF.2`; `SchemeAndStackFoundations:SF.3`.
 
 Attribution: Noetherian section-algebra argument and its compactification use.
 
+<a id="shimuracompactifications-c5-roadmap-hodge-line-fourier-jacobi-expansion"></a>
+### C5.15 Fourier–Jacobi expansions of Hodge-line sections
+
+<!-- Contract: ShimuraCompactifications:C5/roadmap/hodge-line-fourier-jacobi-expansion -->
+
+On the good-prime toroidal compactification M^tor_H of integral-toroidal-space, let ω^tor=det e^*Ω¹ of the universal semi-abelian family. For a cusp label [(Φ_H,δ_H)], with structural morphism p:C_(Φ_H,δ_H)→M^(Z_H) (an abelian-scheme torsor over a finite étale cover of the boundary moduli M^(Z_H)) and character lines Ψ(ℓ), and for every integer k≥0 and every O_F0,(S)-module M, construct the Fourier–Jacobi morphism FJ: Γ(M^tor_H,(ω^tor)^k tensor M)→[product over ℓ in P^∨_Φ of Γ(M^(Z_H), p_*Ψ(ℓ) tensor ((∧^top X) tensor ω_A)^k tensor M)]^(Γ_Φ) by restriction to the formal completion along a stratum Z_[(Φ_H,δ_H,σ)] and the canonical isomorphism of the pulled-back Hodge line with (∧^top X) tensor ω_A. It is independent of σ and of the cone decomposition. The restriction of a section to Z_[(Φ_H,δ_H,σ)] is determined by its constant term FJ^(0), a Γ_Φ-invariant section over M^(Z_H); in particular it is constant along the fibres of Z_[(Φ_H,δ_H,σ)]→M^(Z_H). This is the scalar Hodge-line case only; expansions of general automorphic coefficient bundles belong to AutomorphicBundles:B5, which specializes to this node. (Sources: [LAN-2021](#lan-2021) Definition 7.1.1.1, Lemma 7.1.1.5 and 7.1.2.1–7.1.2.13, printed pp. 532–538.)
+
+Fix the PEL datum, its order, lattice, pairing and reflex field F0 from M1. Let B=Spec(O_F0,(S)) for a set S of good primes in Lan 1.4.1.1: no prime divides the level integer n, Ibad or Disc[L# : L]. Retain the order/unramifiedness, polarization-defect and quaternionic p=2 restrictions of M2; H has the specified prime-to-S level. No bad-prime smoothness is inferred.
+
+Σ is a compatible choice of smooth admissible cone decompositions as in Lan Definition 6.3.3.4. P^∨_Φ is the semigroup of characters pairing nonnegatively with the positivity cone P_Φ; its nonzero elements are exactly the characters pairing strictly positively with P^+_Φ (Lan Corollary 7.1.2.12).
+
+M is an arbitrary O_F0,(S)-module; no flatness is assumed. The target is the full product of coefficient modules, not a completed tensor product.
+
+Use target name `TauCeti.ShimuraCompactifications.C5.hodge_line_fourier_jacobi_expansion` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
+
+By formal-completion, the completion of M^tor_H along the stratum is the formal torus embedding X_(Φ,δ,σ)/Γ_(Φ,σ) carrying the Mumford family. Its invariant differentials agree with those of the Raynaud extension of the abelian scheme A by the torus with character group X, so the pulled-back Hodge line is canonically (∧^top X) tensor ω_A (Lan Lemma 7.1.2.1).
+
+The completed structure sheaf is the completed direct sum of the character lines Ψ(ℓ), ℓ in σ^∨, with the stratum ideal given by the strict-positive characters (C0 relative torus embedding and stratum). Push forward along the proper smooth p to obtain the coefficient modules (Lan Definitions 7.1.2.2 and 7.1.2.4).
+
+Comparing cones through common faces shows the expansion is supported on P^∨_Φ and independent of σ; Γ_Φ-invariance comes from invariance of the Mumford family, and independence of the decomposition from the refinement comparison of coherent cohomology (Lan Propositions 7.1.2.8–7.1.2.9 and Lemma 7.1.1.5).
+
+Every nonzero ℓ in P^∨_Φ pairs strictly positively with σ⊂P^+_Φ (Lan Lemma 7.1.2.11 and Corollary 7.1.2.12), so it lies in the stratum ideal and only FJ^(0) survives along the stratum. Since the degree-zero coefficient sheaf is the pushforward of the structure sheaf of the finite étale cover M^(Φ_H) with quotient M^(Z_H), the restriction is pulled back from M^(Z_H) (Lan Proposition 7.1.2.13).
+
+This supplies [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space): Identifies the image of each toroidal boundary stratum in the minimal compactification through the constant term (Lan 7.2.3.5).
+
+This supplies `AutomorphicBundles:B5`: The general Fourier–Jacobi expansion of automorphic coefficient bundles specializes to this scalar Hodge-line case and imports it.
+
+Expose the following API under the same hypotheses:
+
+- `HodgeLineFJ.coeff`: For ℓ in P^∨_Φ, the degree-ℓ coefficient FJ^(ℓ)(f) in Γ(M^(Z_H), p_*Ψ(ℓ) tensor ((∧^top X) tensor ω_A)^k tensor M).
+- `HodgeLineFJ.indep_cone`: The expansion along (Φ_H,δ_H) equals the expansion along (Φ_H,δ_H,σ) for every cone σ⊂P^+_Φ of the chosen decomposition.
+- `HodgeLineFJ.indep_fan`: For a refinement of the cone decomposition the expansions agree through the refinement isomorphism of global sections.
+- `HodgeLineFJ.invariant`: The expansion is invariant under Γ_Φ.
+- `HodgeLineFJ.map_module`: For an O_F0,(S)-module map M→M′ the expansions commute with the induced coefficient maps, with identity and composition.
+- `HodgeLineFJ.restrict_stratum`: The restriction of f to Z_[(Φ_H,δ_H,σ)] is the pullback of FJ^(0)(f) from M^(Z_H).
+
+**Checks.**
+
+- `HodgeLineFJ.unit_test`: For k=0, M the base ring and f=1, FJ^(0)(1)=1 and every other coefficient vanishes.
+- `HodgeLineFJ.modular_test`: For a modular curve at a cusp of width w, the expansion of a weight-k form is its q-expansion Σ_{m≥0} a_m t^m in the cusp parameter t with t^w the Tate parameter, and the value at the cusp is a_0.
+- `HodgeLineFJ.refinement_test`: For a refinement Σ′ of Σ, the expansion of the pulled-back section on the Σ′ model equals the expansion on the Σ model.
+- `HodgeLineFJ.negative_test`: The weakly holomorphic expansion q^(−1)+O(1) is not the expansion of a section over M^tor_H: degrees pairing negatively with the positivity cone never occur.
+- For a modular curve the expansion is the Tate-curve q-expansion with exponents n≥0, and the value at the cusp is the constant coefficient.
+- Only degrees in P^∨_Φ occur; a coefficient in a degree pairing negatively with an interior positivity vector cannot come from a section over M^tor_H.
+
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C1/roadmap/cusp-label](#shimuracompactifications-c1-roadmap-cusp-label); [ShimuraCompactifications:C1/roadmap/boundary-incidence](#shimuracompactifications-c1-roadmap-boundary-incidence); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`.
+
+Attribution: Defines automorphic forms of naive parallel weight as Hodge-line sections, the Fourier–Jacobi morphism along a cusp label with its independence of the cone and of the decomposition, and proves that the value along a boundary stratum is determined by the constant term.
+
 <a id="shimuracompactifications-c5-roadmap-integral-minimal-space"></a>
-### C5.15 Integral minimal compactification
+### C5.16 Integral minimal compactification
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/integral-minimal-space -->
 
@@ -2873,7 +2929,7 @@ Construct M_H^min=Proj_B S from the Hodge section algebra, with its proper map p
 
 Fix the PEL datum, its order, lattice, pairing and reflex field F0 from M1. Let B=Spec(O_F0,(S)) for a set S of good primes in Lan 1.4.1.1: no prime divides the level integer n, Ibad or Disc[L# : L]. Retain the order/unramifiedness, polarization-defect and quaternionic p=2 restrictions of M2; H has the specified prime-to-S level. No bad-prime smoothness is inferred.
 
-Use Lan's PEL compactification hypotheses, the semiample Hodge line and the exact constant-term/positivity inputs from B5. The first construction of the proper toroidal source does not import B5.
+Use Lan's PEL compactification hypotheses, the semiample Hodge line and the Hodge-line Fourier–Jacobi constant terms of hodge-line-fourier-jacobi-expansion. No AutomorphicBundles input is used.
 
 Use target name `TauCeti.ShimuraCompactifications.C5.integral_minimal_space` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
@@ -2881,7 +2937,7 @@ Form Proj of the finitely generated section algebra using the supplied foundatio
 
 Use the Stein factor of the semiample Hodge morphism as in the construction preceding Lemma 7.2.3.1. Keep O_min≅pi_*O_tor as part of that construction; then establish normality, projectivity, open immersion and the prescribed arithmetic flatness.
 
-Identify images and fibres of boundary strata through the B5 constant-term decomposition and Lan 7.2.3.5–7.2.3.9; compare different fans through C3 and their section maps.
+Identify images and fibres of boundary strata through the Hodge-line constant term (Lan Proposition 7.1.2.13, the node hodge-line-fourier-jacobi-expansion) and Lan 7.2.3.5–7.2.3.9; compare different fans through C3 and their section maps.
 
 This supplies [ShimuraCompactifications:C5/roadmap/open-quasiprojectivity](#shimuracompactifications-c5-roadmap-open-quasiprojectivity): Realizes the open arithmetic moduli as an open in a projective scheme.
 
@@ -2903,16 +2959,16 @@ Expose the following API under the same hypotheses:
 - The map restricts to the prescribed identity on the open PEL moduli.
 - Different compatible fans produce the same minimal target.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); `AutomorphicBundles:B5`; `SchemeAndStackFoundations:SF.2`; `SchemeAndStackFoundations:SF.3`; `ShimuraVarieties:V2/baily-borel`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); `SchemeAndStackFoundations:SF.2`; `SchemeAndStackFoundations:SF.3`; `ShimuraVarieties:V2/baily-borel`; [ShimuraCompactifications:C5/roadmap/hodge-line-fourier-jacobi-expansion](#shimuracompactifications-c5-roadmap-hodge-line-fourier-jacobi-expansion).
 
 Attribution: Integral minimal construction, boundary images and independence.
 
 <a id="shimuracompactifications-c5-roadmap-minimal-hodge-ampleness"></a>
-### C5.16 Ample Hodge line on the minimal model
+### C5.17 Ample Hodge line on the minimal model
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness -->
 
-A specified positive power of the Hodge line descends to an ample invertible sheaf on the neat integral minimal compactification, whose pullback to the toroidal model is that power of omega. On coarse finite-level quotients record the descended Q-line/positive tensor power and stabilizer restrictions. For the Siegel coarse minimal variety this supplies the ample Hodge Q-line used by Yuan; it does not assert ampleness of omega on the toroidal source. (Sources: [LAN-2021](#lan-2021) 7.2.3 construction preceding Lemma 7.2.3.1 and 7.2.3.1–7.2.3.4, printed pp. 544–546; [YUAN-2024](#yuan-2024) 3.4, end; arXiv v4 printed pp. 55–56.)
+A specified positive power of the Hodge line descends to an ample invertible sheaf on the neat integral minimal compactification, whose pullback to the toroidal model is that power of omega. On coarse finite-level quotients record the descended Q-line/positive tensor power and stabilizer restrictions. For the Siegel coarse minimal variety this supplies the ample Hodge Q-line used by Yuan; it does not assert ampleness of omega on the toroidal source. (Sources: [LAN-2021](#lan-2021) Section 7.2.3, opening construction (finite map from the Stein factor to projective space pulling O(1) back to a power of ω), printed p. 544; [YUAN-2024](#yuan-2024) 3.4, end; arXiv v4 printed pp. 55–56.)
 
 Fix the PEL datum, its order, lattice, pairing and reflex field F0 from M1. Let B=Spec(O_F0,(S)) for a set S of good primes in Lan 1.4.1.1: no prime divides the level integer n, Ibad or Disc[L# : L]. Retain the order/unramifiedness, polarization-defect and quaternionic p=2 restrictions of M2; H has the specified prime-to-S level. No bad-prime smoothness is inferred.
 
@@ -2931,14 +2987,14 @@ Descend through the specified finite-level quotient to the ample Q-line statemen
 - The descended line is ample on the minimal model.
 - The toroidal pullback has the required positive power, without toroidal ampleness.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.3`; [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme).
 
 Attribution: The finite Stein-factor map to projective space and pullback of its ample O(1); ampleness is a deduction from finiteness.
 
 Attribution: Coarse Siegel minimal compactification and ample Hodge Q-line.
 
 <a id="shimuracompactifications-c5-roadmap-open-quasiprojectivity"></a>
-### C5.17 Quasi-projectivity of good-prime PEL moduli
+### C5.18 Quasi-projectivity of good-prime PEL moduli
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/open-quasiprojectivity -->
 
@@ -2966,7 +3022,7 @@ State the relative quasi-projectivity endpoint with its exact good-base PEL data
 Attribution: Precise arithmetic moduli endpoint.
 
 <a id="shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization"></a>
-### C5.18 Higher-level normalized toroidal models
+### C5.19 Higher-level normalized toroidal models
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization -->
 
@@ -3012,7 +3068,7 @@ Attribution: Lan's projective model is not defined merely by finite normalizatio
 Attribution: Routed normalization compactification, with moduli identification kept separate.
 
 <a id="shimuracompactifications-c5-roadmap-normalized-chart-finiteness"></a>
-### C5.19 Normalized chart finiteness and formal comparison
+### C5.20 Normalized chart finiteness and formal comparison
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/normalized-chart-finiteness -->
 
@@ -3038,35 +3094,39 @@ Verify overlap descent and the compatibility maps consumed by the tower. Lan's r
 Attribution: Normal formal torus-torsor charts; finite normalization maps require the separate same-fan argument.
 
 <a id="shimuracompactifications-c5-roadmap-integral-coefficient-extension"></a>
-### C5.20 Integral canonical and subcanonical coefficient charts
+### C5.21 Formally canonical coefficient sheaves on integral models
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/integral-coefficient-extension -->
 
-Instantiate B3/B4 canonical coefficient extensions on the actual good-prime and normalized toroidal models. The canonical extension has the prescribed character-line Fourier–Jacobi completion; its subcanonical extension is the canonical sheaf tensor the ordinary boundary ideal, not an incorrectly identified pullback line on every refinement. Identify the formally canonical/subcanonical conditions of Lan 2017 Definition 8.5, including its finite exhaustive coefficient filtration with finite R-module graded pieces. (Sources: [LAN-2017](#lan-2017) Definition 8.5, printed p. 34; [BPS-2016](#bps-2016) 5.1–5.2, printed pp. 1009–1010.)
+On the good-prime toroidal models of integral-toroidal-space and on the projective normalized-blowup models, use Lan 2017 Definition 8.5: a quasi-coherent sheaf over an O_F0,(p)-algebra R is formally canonical (resp. formally subcanonical) when, at each geometric point over a minimal-boundary stratum, its completion along every cone chart σ⊂P^+ is the completed sum over ℓ in σ^∨ (resp. over ℓ in σ^∨_+, the intersection of τ^∨_0 over the faces τ of σ) of the character line Ψ(ℓ) tensor a sheaf E_0 on the completed torsor base, and E_0 has a finite exhaustive filtration whose graded pieces are pulled back from finite R-modules. Prove that the structure sheaf, the Hodge bundle E=e^*Ω¹ of the universal semi-abelian family, its dual, and every tensor, symmetric, exterior and determinant construction of them (in particular ω^k and Sym^(a−b)E tensor (det E)^b), tensored with a finite R-module, are formally canonical, and that their tensor products with the reduced boundary ideal are formally subcanonical. On a normalized model the semi-abelian family is each tautological family of the lattice collection. Checking the condition for general automorphic canonical extensions belongs to AutomorphicBundles:B3, which imports this interface; the subcanonical sheaf is canonical tensor the boundary ideal, not an incorrectly identified pullback line on a refinement. (Sources: [LAN-2017](#lan-2017) Definition 8.5, printed p. 34; Proposition 5.1, printed p. 15; Theorem 6.1(3)–(4), printed pp. 22–23; [BPS-2016](#bps-2016) 5.1–5.2, printed pp. 1009–1010; [LAN-2021](#lan-2021) Lemma 7.1.2.1, printed p. 534.)
 
-Use the exact coefficient sheaf and finite-module filtration required by Definition 8.5, not an arbitrary boundary sheaf. Integral/normalized coefficients are requested from B3/B4 rather than inferred from their characteristic-zero construction.
+Use the exact coefficient sheaf and finite-module filtration required by Lan 2017 Definition 8.5, not an arbitrary boundary sheaf. The Hodge bundle is the one of C4 SemiAbelianScheme.hodgeBundle; no automorphic-bundle formalism is used.
 
 Use target name `TauCeti.ShimuraCompactifications.C5.integral_coefficient_extension` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
-Use the universal semi-abelian family to identify the B3/B4 coefficient functor on each boundary torsor chart.
+Completion along a boundary stratum is the formal torus embedding carrying the Mumford family (formal-completion; Lan 2017 Proposition 5.1 and Theorem 6.1(3)–(4) on normalized models).
 
-Compare its completion with the character-line sum and the base coefficient E0, retaining the finite filtration condition.
+The invariant differentials of the Mumford family agree with those of its Raynaud extension, which is pulled back from the torsor base; hence the completed Hodge bundle is the completed character-line sum tensor that pulled-back bundle (as in Lan Lemma 7.1.2.1). Completed at a geometric point the pulled-back bundle is free of finite rank, which gives the filtration condition.
 
-For subcanonical coefficients impose strictly boundary-positive degrees/ordinary boundary ideal; use the C3 derived ideal comparison on refinements.
+Tensor, symmetric, exterior and determinant constructions and tensor with a finite R-module preserve the completed character-line form and the filtration condition.
+
+On a regular chart the reduced boundary ideal is the strict-positive character sum, so multiplying by it gives the subcanonical form; use the C3 derived ideal comparison on refinements.
 
 **Checks.**
 
-- Canonical coefficients satisfy the exact formal condition used by Koecher.
+- The structure sheaf, ω^k and Sym^(a−b)E tensor (det E)^b satisfy the exact formal condition used by Koecher.
 - The subcanonical refinement map retains boundary multiplicities.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); `AutomorphicBundles:B3`; `AutomorphicBundles:B4`; [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup).
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration).
 
-Attribution: Exact completed coefficient form and finite-filtration hypothesis.
+Attribution: Definition 8.5 states the formally canonical and subcanonical conditions (completed character-line form and finite filtration); the formal charts and Mumford families are those of Proposition 5.1 and Theorem 6.1.
 
 Attribution: Routed automorphic extension on the normalization model.
 
+Attribution: On the formal completion along a stratum the Hodge line is canonically the top exterior power of the character group tensor the Hodge line of the abelian part; the same Raynaud-extension argument gives the Hodge bundle.
+
 <a id="shimuracompactifications-c5-roadmap-normalized-koecher"></a>
-### C5.21 Koecher principle on normalized PEL models
+### C5.22 Koecher principle on normalized PEL models
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/normalized-koecher -->
 
@@ -3076,7 +3136,7 @@ Use the projective normalized model and the exact Definition 8.5 completed chara
 
 Use target name `TauCeti.ShimuraCompactifications.C5.normalized_koecher` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
-Apply the positive Fourier–Jacobi rank/growth results of Lan 2017 Propositions 8.3–8.4 to the exact coefficient filtration.
+Apply Lan 2017 Lemma 8.1 and Propositions 8.3–8.4 (vanishing of higher direct images of the character lines Ψ(ℓ) for ℓ in P^∨,+, and of global sections for negative ℓ on positive-dimensional torsor fibres) to the graded pieces of the Definition 8.5 filtration. These are statements about the normalized model of projective-normalized-blowup, not imported expansion theory.
 
 Use the same formal extension argument as the source's cited Koecher theorem and glue over U_min.
 
@@ -3087,7 +3147,7 @@ Specialize to R=O/pi^n and the BPS normalization model after verifying the coeff
 - The theorem applies to arbitrary stated R, not merely its fraction field.
 - Dimension-one boundary poles are the genuine excluded case.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/integral-coefficient-extension](#shimuracompactifications-c5-roadmap-integral-coefficient-extension); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); `AutomorphicBundles:B5`; `SchemeAndStackFoundations:SF.2`; [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup).
+*Needs:* [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); `SchemeAndStackFoundations:SF.2`; [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup).
 
 Attribution: Exact normalized-model theorem, exception and boundary of higher variants.
 
@@ -3096,11 +3156,11 @@ Attribution: Routed mod pi^n theorem for normalization model.
 Attribution: The explicit dimension-one/nonempty-boundary exception to Koecher, already retained in the node.
 
 <a id="shimuracompactifications-c5-roadmap-siegel-koecher-arbitrary-coefficients"></a>
-### C5.22 Siegel Koecher with arbitrary coefficients
+### C5.23 Siegel Koecher with arbitrary coefficients
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/siegel-koecher-arbitrary-coefficients -->
 
-For the neat good-prime genus-two Siegel model, E of rank two and integers a>=b, set omega(a,b)=Sym^(a-b) E tensor (det E)^b using the B3/B4 coefficient construction. For EVERY O-module M, restriction H^0(X,omega(a,b) tensor_O M)→H^0(Y,omega(a,b) tensor_O M) is bijective. Derive the arbitrary-module assertion through finite modules and filtered colimits, preserving torsion; the result is independent of the chosen compatible toroidal model. (Sources: [CG-2020](#cg-2020) 5.2, published pp. 821–822; [LAN-2021](#lan-2021) 7.1.1.4–7.1.1.5, printed pp. 532–533.)
+For the neat good-prime genus-two Siegel model, E of rank two and integers a>=b, set omega(a,b)=Sym^(a-b) E tensor (det E)^b built from the Hodge bundle E of the universal semi-abelian family. For EVERY O-module M, restriction H^0(X,omega(a,b) tensor_O M)→H^0(Y,omega(a,b) tensor_O M) is bijective. Derive the arbitrary-module assertion through finite modules and filtered colimits, preserving torsion; the result is independent of the chosen compatible toroidal model. (Sources: [CG-2020](#cg-2020) 5.2, published pp. 821–822; [LAN-2021](#lan-2021) 7.1.1.4–7.1.1.5, printed pp. 532–533.)
 
 Use the precise smooth proper good-prime genus-two setup of Calegari–Geraghty 5.2. For higher normalized models instead invoke normalized-koecher with its exact coefficient hypotheses.
 
@@ -3117,14 +3177,14 @@ Compare fans via the common refinement; preserve the derived boundary-ideal dist
 - Torsion M=O/pi^n is included.
 - No equality of all open and compactified higher cohomology follows from H0 Koecher.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher); [ShimuraCompactifications:C5/roadmap/integral-coefficient-extension](#shimuracompactifications-c5-roadmap-integral-coefficient-extension); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); `SchemeAndStackFoundations:SF.2`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher); [ShimuraCompactifications:C5/roadmap/integral-coefficient-extension](#shimuracompactifications-c5-roadmap-integral-coefficient-extension); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); `SchemeAndStackFoundations:SF.2`; [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme).
 
 Attribution: H0 with arbitrary O-module coefficients.
 
 Attribution: Arbitrary coefficient-module reduction and fan independence.
 
 <a id="shimuracompactifications-c5-roadmap-ordinary-koecher"></a>
-### C5.23 Ordinary-locus Koecher principle
+### C5.24 Ordinary-locus Koecher principle
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/ordinary-koecher -->
 
@@ -3150,7 +3210,7 @@ Compare with the source's restriction map. Pilloni states this without proof/ref
 Attribution: Ordinary version asserted without a proof reference.
 
 <a id="shimuracompactifications-c5-roadmap-hilbert-siegel-boundary-codimension"></a>
-### C5.24 Codimension of genus-two Hilbert–Siegel boundary
+### C5.25 Codimension of genus-two Hilbert–Siegel boundary
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/hilbert-siegel-boundary-codimension -->
 
@@ -3176,7 +3236,7 @@ Verify the normal formal charts used for the Hartogs argument; do not transport 
 Attribution: Minimal boundary codimension and normal formal geometry.
 
 <a id="shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher"></a>
-### C5.25 Formal Hilbert–Siegel Koecher principle
+### C5.26 Formal Hilbert–Siegel Koecher principle
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher -->
 
@@ -3204,7 +3264,7 @@ Identify the source's H0 restriction. Record the formal Hartogs theorem and norm
 Attribution: Formal H0 extension on the specified normal model.
 
 <a id="shimuracompactifications-c5-roadmap-prime-q-subgroup-extension"></a>
-### C5.26 Prime-to-base cyclic level group at the boundary
+### C5.27 Prime-to-base cyclic level group at the boundary
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/prime-Q-subgroup-extension -->
 
@@ -3232,7 +3292,7 @@ Attribution: The open subgroup extends as a finite flat group scheme; the text d
 Attribution: The compactified cyclic level group used for the next finite-etale cover.
 
 <a id="shimuracompactifications-c5-roadmap-prime-q-generator-cover"></a>
-### C5.27 Toroidal generator cover of a cyclic subgroup
+### C5.28 Toroidal generator cover of a cyclic subgroup
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/prime-Q-generator-cover -->
 
@@ -3273,7 +3333,7 @@ Expose the following API under the same hypotheses:
 Attribution: Exact compactified generator-cover construction.
 
 <a id="shimuracompactifications-c5-roadmap-siegel-canonical-bundle"></a>
-### C5.28 Canonical bundle of a Siegel threefold
+### C5.29 Canonical bundle of a Siegel threefold
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle -->
 
@@ -3296,24 +3356,24 @@ Identify det Omega^1 with the relative dualizing line in the smooth setting and 
 - For a diagonal change of basis, Sym² has determinant (t1 t2)^3.
 - Removing the logarithmic poles contributes O(-D).
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); `AutomorphicBundles:B4`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.2`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.2`; [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme).
 
 Attribution: Canonical/subcanonical duality bundle identity.
 
 <a id="shimuracompactifications-c5-roadmap-good-boundary-cohomology-export"></a>
-### C5.29 Good-reduction boundary geometry for cohomology
+### C5.30 Good-reduction boundary geometry for cohomology
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/good-boundary-cohomology-export -->
 
 Export the exact good-prime toroidal family, smooth proper model, open Siegel moduli locus and normal-crossings boundary with the hyperspecial/tame level conditions used in BCGP 2025 Theorem 1.8.29. The cohomology owner must supply Lan–Stroh nearby-cycle/open comparison and duality to obtain the stated unramified cohomology conclusion. Smoothness of the nonproper open alone is not a proof of unramifiedness. (Sources: [BCGP-2025](#bcgp-2025) Theorem 1.8.29 and beginning of proof, arXiv v1 p. 17.)
 
-At ell distinct from p use the theorem's hyperspecial ell-level, prime-to-ell auxiliary level and exact automorphic coefficient system; export only the model satisfying those hypotheses.
+At ell distinct from p use the theorem's hyperspecial ell-level, prime-to-ell auxiliary level and the constant torsion coefficients Z/p^nZ of that theorem; export only the model satisfying those hypotheses.
 
 Use target name `TauCeti.ShimuraCompactifications.C5.good_boundary_cohomology_export` in `TauCeti/ShimuraCompactifications/C5`, namespace `TauCeti.ShimuraCompactifications`.
 
 Choose the compatible good-prime smooth projective toroidal model and its universal semi-abelian extension.
 
-Identify its interior, boundary and coefficient extension with the theorem's Siegel variety and local system inputs.
+Identify its interior and boundary with the theorem's Siegel threefold and its smooth model at the hyperspecial prime.
 
 Pass the geometry to the etale/cohomology supplier, naming the nearby-cycle/open comparison and duality separately. The cited Lan–Stroh Corollary 5.20 proof is not read and is not a new theorem in C5.
 
@@ -3322,12 +3382,12 @@ Pass the geometry to the etale/cohomology supplier, naming the nearby-cycle/open
 - The geometry retains hyperspecial good-reduction conditions.
 - No cohomological conclusion is inferred from smoothness of the open alone.
 
-*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); `AutomorphicBundles:B3`.
+*Needs:* [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer).
 
-Attribution: Boundary geometry supplied here; nearby cycles and duality supplied by the cohomology owner.
+Attribution: Theorem 1.8.29 is an Eichler–Shimura and unramifiedness statement for the cohomology of the Siegel threefold with constant torsion coefficients; its proof uses the smooth integral model at a hyperspecial prime and nearby cycles, and its footnote notes the simplification given by smooth toroidal compactifications with normal-crossings boundary. That geometry is what this node exports; nearby cycles, duality and the Eichler–Shimura relation belong to the cohomology owner.
 
 <a id="shimuracompactifications-c5-roadmap-projective-normalized-blowup"></a>
-### C5.30 Projective normalized-blowup compactification
+### C5.31 Projective normalized-blowup compactification
 
 <!-- Contract: ShimuraCompactifications:C5/roadmap/projective-normalized-blowup -->
 
@@ -3378,7 +3438,7 @@ Attribution: Normalized-blowup construction, local reflex base, projective compa
 
 ### Dependencies
 
-Alongside the local target chain, this layer consumes `AbelianSchemesAndArithmeticModuli:A5`; `AdicSpacesPartII:F0/formal-direct-image-comparison`; `AdicSpacesPartII:R2`; `AdicSpacesPartII:R3`; `AutomorphicBundles:B3`; `AutomorphicBundles:B4`; `AutomorphicBundles:B5`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `PELModuli:M2`; `PELModuli:M2/representability`; `PELModuli:M2/universal-family`; `PELModuli:M4`; `PELModuli:M4/higher-level-normalization`; `PELModuli:M4/normalization-finite-normal-flat`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`; `SchemeAndStackFoundations:SF.3`; `ShimuraVarieties:V2/baily-borel`; `ShimuraVarieties:V2/rational-boundary`.
+Alongside the local target chain, this layer consumes `AbelianSchemesAndArithmeticModuli:A5`; `AdicSpacesPartII:F0/formal-direct-image-comparison`; `AdicSpacesPartII:R2`; `AdicSpacesPartII:R3`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `PELModuli:M2`; `PELModuli:M2/kodaira-spencer-dimension`; `PELModuli:M2/representability`; `PELModuli:M2/universal-family`; `PELModuli:M4`; `PELModuli:M4/higher-level-normalization`; `PELModuli:M4/normalization-finite-normal-flat`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`; `SchemeAndStackFoundations:SF.3`; `ShimuraVarieties:V2/baily-borel`; `ShimuraVarieties:V2/rational-boundary`.
 
 <a id="shimuracompactifications-c6"></a>
 ## Layer C6: Hilbert and modular specializations
@@ -3484,7 +3544,7 @@ Attribution: Declaration-level expansion of the coefficient argument, with its n
 
 <!-- Contract: ShimuraCompactifications:C6/roadmap/coefficient-unit-orbit -->
 
-For a commutative ring R, a:F→R, multipliers c:U×F→R× and covariance a(u²ξ)=c(u,ξ)a(ξ), one has a(u²ξ)≠0 if and only if a(ξ)≠0. (Sources: [DIMITROV-AUTHOR](#dimitrov-author) Equation (5), author copy printed p. 546.)
+For a commutative ring R, a:F→R, multipliers c:U×F→R× and covariance a(u²ξ)=c(u,ξ)a(ξ), one has a(u²ξ)≠0 if and only if a(ξ)≠0. (Sources: [DIMITROV-AUTHOR](#dimitrov-author) Equation (5) and the definition of R_C^(κ)(R) following it, author copy printed p. 546.)
 
 F is a totally real number field; τ_w denotes its signed real embedding at infinite place w. The native InfinitePlace value w(x) is |τ_w(x)|. U is a subgroup of the integer units, not a subgroup of F× with an assumed finite index.
 
@@ -3786,12 +3846,14 @@ Use the lattice comparison and transport the signed positive cone.
 
 Match the C0 arithmetic admissibility conditions with Definition 7.1; retain finite orbit data, not a finite fan in the whole cone.
 
+The finite-overlap hypothesis of the C0 refinement constructions holds for the effective cusp-unit action on the totally positive cone; it is the Hilbert case of C1/roadmap/arithmetic-stabilizer.
+
 **Checks.**
 
 - In degree >1 finitely many unit orbits need not mean finitely many cones.
 - A fan regular for (cb²)* need not be regular for (cbb′)* at a level-ramified cusp (Remark 7.3).
 
-*Needs:* [ShimuraCompactifications:C6/roadmap/cusp-lattice-comparison](#shimuracompactifications-c6-roadmap-cusp-lattice-comparison); [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); `HilbertModularVarietiesAndShimuraCurves:H3`; [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement).
+*Needs:* [ShimuraCompactifications:C6/roadmap/cusp-lattice-comparison](#shimuracompactifications-c6-roadmap-cusp-lattice-comparison); [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); `HilbertModularVarietiesAndShimuraCurves:H3`; [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer).
 
 Attribution: Specialization to C6 of the stated source construction or comparison; generic objects are imported from their unique owners.
 
@@ -4163,7 +4225,7 @@ Attribution: Specialization to C6 of the stated source construction or compariso
 
 <!-- Contract: ShimuraCompactifications:C6/roadmap/hilbert-hodge-semiampleness -->
 
-A positive power of the determinant Hodge line λ=det_Z(e*Ω¹_G) on Mbar¹_Σ is generated by its global sections. (Sources: [DIMITROV-AUTHOR](#dimitrov-author) Theorem 8.6(i) and proof citing [9] IX.2.1 / [7] V.2.1, printed pp. 548–549.)
+A positive power of the determinant Hodge line λ=det_Z(e*Ω¹_G) on Mbar¹_Σ is generated by its global sections. (Sources: [DIMITROV-AUTHOR](#dimitrov-author) Theorem 8.6(i) and proof citing [9] IX.2.1 / [7] V.2.1, printed pp. 548–549; Remark 8.2(1), printed p. 546.)
 
 F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
@@ -4422,7 +4484,7 @@ Attribution: Specialization to C6 of the stated source construction or compariso
 
 <!-- Contract: ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective -->
 
-On the fixed smooth geometrically connected component over the Δ-inverted weight base A₀ (a localized number ring containing the character and cyclotomic values), completion at the chosen uniformized cusp detects sections of ωκ⊗_{A₀}N for every A₀-module N. The target consists of the actual completed coefficient-line expansions, not a tensor product identified with formal series without proof. (Sources: [DIMITROV-TILOUINE-AUTHOR](#dimitrov-tilouine-author) §7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586; [DIMITROV-AUTHOR](#dimitrov-author) Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7).)
+On the fixed smooth geometrically connected component over the Δ-inverted weight base A₀ (a localized number ring containing the character and cyclotomic values), completion at the chosen uniformized cusp detects sections of ωκ⊗_{A₀}N for every A₀-module N. The target consists of the actual completed coefficient-line expansions, not a tensor product identified with formal series without proof. (Sources: [DIMITROV-TILOUINE-AUTHOR](#dimitrov-tilouine-author) §7, Definition 7.2 and Proposition 7.3 proof, printed pp. 585–586; Remarque 7.4(1), printed p. 586; [DIMITROV-AUTHOR](#dimitrov-author) Proposition 8.5(i), printed p. 547 (proof delegated to [6], §7).)
 
 F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
@@ -4625,7 +4687,7 @@ Attribution: Specialization to C6 of the stated source construction or compariso
 
 <!-- Contract: ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model -->
 
-For 0≤ε<1 with |p|^ε in |L×|, the H2 admissible normalized blowup model of |Ha|≥|p|^ε on the compactified Hilbert model has generic fibre exactly BHW’s X*(ε). Locally its blowup chart before normalization is the p-torsion-free quotient of R⟨T⟩/(T Ha_lift−p^ε). It contains the entire boundary. (Sources: [BHW-2023](#bhw-2023) BHW §5.2, pp. 1746–1748; elliptic convention §2.1, p. 1721.)
+For 0≤ε<1 with |p|^ε in |L×|, the H2 admissible normalized blowup model of |Ha|≥|p|^ε on the compactified Hilbert model has generic fibre exactly BHW’s X*(ε). Locally its blowup chart before normalization is the p-torsion-free quotient of R⟨T⟩/(T Ha_lift−p^ε). It contains the entire boundary. (Sources: [BHW-2023](#bhw-2023) BHW §5.2, pp. 1746–1748; elliptic convention §2.1, pp. 1720–1721.)
 
 F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
@@ -4680,7 +4742,7 @@ Attribution: Specialization to C6 of the stated source construction or compariso
 
 <!-- Contract: ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison -->
 
-The forgetful and finite effective H4 level/polarization maps extend between the canonical Hilbert generic-fibre minimal compactifications (or the specified finite normalizations). For toroidal compactifications they extend after choosing fans compatible with the induced cusp lattice maps; a finite toroidal extension uses the pullback fan/finite normalization, while further refinements may give proper nonfinite maps. These maps agree on completed cusp data, including lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units. (Sources: [BHW-2023](#bhw-2023) BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1742–1745, 1768–1779.)
+The forgetful and finite effective H4 level/polarization maps extend between the canonical Hilbert generic-fibre minimal compactifications (or the specified finite normalizations). For toroidal compactifications they extend after choosing fans compatible with the induced cusp lattice maps; a finite toroidal extension uses the pullback fan/finite normalization, while further refinements may give proper nonfinite maps. These maps agree on completed cusp data, including lattice inclusions, root actions and determinant pairing. The full-level comparison passes through H4’s mixed G-level problem; it is not the quotient of X_{Γ*(p^n)} by all positive units. (Sources: [BHW-2023](#bhw-2023) BHW §5.1.1–5.1.2 and §8.2–8.4, pp. 1741–1745, 1768–1779.)
 
 F is totally real of degree g; O its integers, d its different; f*=f⁻¹d⁻¹. The tame ideal n is coprime to Δ_F and does not divide 2 or 3, as in Dimitrov’s introduction; c is prime to n. B=Z[1/N(n)]. Use the actual torsion-free moduli input H1, not an unrestricted level.
 
@@ -4874,6 +4936,7 @@ The representative signatures use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66
 | `tauceti:TauCeti.SplitTorus.groupScheme` | `TauCeti/Algebra/AlgebraicGroup/SplitTorus/Scheme.lean` | The actual finite-rank split torus over Spec R for any commutative ring, not just over a field. Relative torsors and toroidal boundary charts are additional constructions. |
 | `tauceti:TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk` | `TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean` | A locally Noetherian connected SCHEME with domain stalks is irreducible. This is a scheme-specialization input for the foundations owner, not the algebraic-space or geometric-fiber theorem needed below. |
 | `mathlib:MonoidAlgebra.comapDomain` | `Mathlib/Algebra/MonoidAlgebra/MapDomain.lean` | Coefficient restriction along an injective degree map, including its source-generated AddMonoidAlgebra version. The operation is additive, not an algebra homomorphism without the face condition proved in C0. |
+| `mathlib:Finsupp.comapDomain_apply` | `Mathlib/Data/Finsupp/Basic.lean` | The value of the coefficient restriction comapDomain f l at a point a is l (f a), for f injective on the preimage of the support. |
 | `mathlib:AddMonoidAlgebra.lift` | `Mathlib/Algebra/MonoidAlgebra/Basic.lean` | Equivalence between multiplicative maps from Multiplicative P to an R-algebra A and R-algebra homomorphisms from AddMonoidAlgebra R P. It packages the actual monomial-or-zero map once its multiplication law is established. |
 | `mathlib:AddMonoidAlgebra.lift_single` | `Mathlib/Algebra/MonoidAlgebra/Basic.lean` | The additive monoid-algebra lift evaluated on a coefficient monomial is the scalar multiple of the chosen monoid map. This checks the face-projection normalization. |
 | `mathlib:MonoidAlgebra.mapDomainAlgHom` | `Mathlib/Algebra/MonoidAlgebra/Basic.lean` | The algebra map induced by a degree-monoid homomorphism, with its source-generated AddMonoidAlgebra form. Used for the existing inclusion R[F] to R[P], not replanned. |
@@ -4889,7 +4952,7 @@ The representative signatures use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66
 | `mathlib:NumberField.Units.pos_at_place` | `Mathlib/NumberTheory/NumberField/Units/Basic.lean` | The absolute value of an integer unit at each infinite place is strictly positive. |
 | `mathlib:NumberField.IsTotallyReal.mult_eq` | `Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean` | Each infinite-place multiplicity is one in a totally real field. |
 | `mathlib:Subgroup.exists_pow_mem_of_index_ne_zero` | `Mathlib/GroupTheory/Index.lean` | A positive power of every group element belongs to a subgroup of nonzero index, with exponent at most its index. |
-| `tauceti:NumberField.isTotallyPositive_iff` | `TauCeti/NumberTheory/NumberField/TotallyPositive.lean` | The existing strict positivity predicate is positivity at every real infinite place. Zero is not totally positive in a totally real number field. |
+| `tauceti:NumberField.isTotallyPositive_iff` | `TauCeti/NumberTheory/NumberField/TotallyPositive.lean` | The existing strict positivity predicate is positivity at every real infinite place. |
 | `tauceti:NumberField.isTotallyPositive_sq` | `TauCeti/NumberTheory/NumberField/TotallyPositive.lean` | Every nonzero square is totally positive, including squares of integer units. |
 | `mathlib:tendsto_pow_atTop_atTop_of_one_lt` | `Mathlib/Analysis/SpecificLimits/Basic.lean` | Powers of a real number greater than one tend to positive infinity. |
 | `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one` | `Mathlib/Analysis/SpecificLimits/Basic.lean` | Powers of a nonnegative real number strictly below one tend to zero. |
@@ -4948,7 +5011,7 @@ Consumed by [ShimuraCompactifications:C1/roadmap/cusp-label](#shimuracompactific
 
 For the completed ordinary Igusa charts in BP 3.4.15–3.4.16, supply a basis of affine formal opens and the finite-thickening coherent sheaves, their local higher-cohomology vanishing and surjective/Mittag-Leffler transition maps. Apply F0/cohomology-of-mittag-leffler-limit only with ALL its local/global hypotheses; prove the comparison for the actual refinement before passing to completed cohomology. The formal-functions theorem alone does not imply chart acyclicity. Apply completion to the C0 product-boundary chart and its coefficient support comparison; completion and arbitrary ordinary tensor products are not interchangeable. Additional specialization interface: Formal completion, algebraization of the prescribed cusp étale relation and uniqueness from schematic density. On Noetherian models supply finite-pole presentation off an effective Cartier divisor, injectivity of completed coefficient description, detection of regularity/ideal membership, and formal functions for the proper contraction. Specify exactly when these commute with coefficient change; arbitrary completion/tensor interchange is not assumed. Supply the module-valued coefficient description and detection on the specified arithmetic thickenings, retaining torsion; no reduced-point test substitutes for this. Apply completion to the C0 product-boundary chart and its coefficient support comparison; completion and arbitrary ordinary tensor products are not interchangeable.
 
-Consumed by [ShimuraCompactifications:C3/roadmap/partial-ordinary-formal-invariance](#shimuracompactifications-c3-roadmap-partial-ordinary-formal-invariance); [ShimuraCompactifications:C0/roadmap/completed-regular-chart-support](#shimuracompactifications-c0-roadmap-completed-regular-chart-support); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-global-functions](#shimuracompactifications-c6-roadmap-hilbert-boundary-global-functions); [ShimuraCompactifications:C6/roadmap/meromorphic-cusp-support-bound](#shimuracompactifications-c6-roadmap-meromorphic-cusp-support-bound); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-boundary-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-etale-charts](#shimuracompactifications-c6-roadmap-hilbert-boundary-etale-charts); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-minimal-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-injective); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](#shimuracompactifications-c6-roadmap-hilbert-boundary-ideal-pushforward); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-model-comparison](#shimuracompactifications-c6-roadmap-hilbert-ordinary-model-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](#shimuracompactifications-c6-roadmap-hilbert-near-ordinary-model); [ShimuraCompactifications:C6/roadmap/hilbert-integral-differential-interface](#shimuracompactifications-c6-roadmap-hilbert-integral-differential-interface); [ShimuraCompactifications:C6/roadmap/modular-formal-cusp-comparison](#shimuracompactifications-c6-roadmap-modular-formal-cusp-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-comparison](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-comparison).
+Consumed by [ShimuraCompactifications:C3/roadmap/partial-ordinary-formal-invariance](#shimuracompactifications-c3-roadmap-partial-ordinary-formal-invariance); [ShimuraCompactifications:C0/roadmap/completed-regular-chart-support](#shimuracompactifications-c0-roadmap-completed-regular-chart-support); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-global-functions](#shimuracompactifications-c6-roadmap-hilbert-boundary-global-functions); [ShimuraCompactifications:C6/roadmap/meromorphic-cusp-support-bound](#shimuracompactifications-c6-roadmap-meromorphic-cusp-support-bound); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-boundary-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-etale-charts](#shimuracompactifications-c6-roadmap-hilbert-boundary-etale-charts); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-minimal-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](#shimuracompactifications-c6-roadmap-hilbert-boundary-ideal-pushforward); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-model-comparison](#shimuracompactifications-c6-roadmap-hilbert-ordinary-model-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](#shimuracompactifications-c6-roadmap-hilbert-near-ordinary-model); [ShimuraCompactifications:C6/roadmap/hilbert-integral-differential-interface](#shimuracompactifications-c6-roadmap-hilbert-integral-differential-interface); [ShimuraCompactifications:C6/roadmap/modular-formal-cusp-comparison](#shimuracompactifications-c6-roadmap-modular-formal-cusp-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-comparison](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-comparison).
 
 ### S7. AdicSpacesPartII:R2
 
@@ -4968,217 +5031,199 @@ Actual compact/profinite coefficient carrier, continuous Galois modules and exac
 
 Consumed by [ShimuraCompactifications:C4/roadmap/semiabelian-tate-module](#shimuracompactifications-c4-roadmap-semiabelian-tate-module).
 
-### S10. AutomorphicBundles:B3
-
-Integral good-prime and normalized canonical/subcanonical coefficient functors with their exact formal character-line form and finite coefficient filtration. The present characteristic-zero canonical-extension/refinement nodes supply that case only. Subcanonical pullback must use C3 derived boundary-ideal comparison.
-
-Consumed by [ShimuraCompactifications:C5/roadmap/integral-coefficient-extension](#shimuracompactifications-c5-roadmap-integral-coefficient-extension); [ShimuraCompactifications:C5/roadmap/good-boundary-cohomology-export](#shimuracompactifications-c5-roadmap-good-boundary-cohomology-export).
-
-### S11. AutomorphicBundles:B4
-
-Invariant Hodge bundle of the universal semi-abelian family, determinant line, Siegel rank-two coefficient functors, and normalized integral base change. The logarithmic Kodaira–Spencer and ample minimal-line instances belong to C4/C5, not a redefinition of the bundles.
-
-Consumed by [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); [ShimuraCompactifications:C4/roadmap/tate-log-kodaira-spencer](#shimuracompactifications-c4-roadmap-tate-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness); [ShimuraCompactifications:C5/roadmap/integral-coefficient-extension](#shimuracompactifications-c5-roadmap-integral-coefficient-extension); [ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle](#shimuracompactifications-c5-roadmap-siegel-canonical-bundle).
-
-### S12. AutomorphicBundles:B5
-
-Exact Fourier–Jacobi coefficient, positivity/constant-term and finite-growth inputs for minimal boundary identification and Koecher. Consume these only after the early toroidal/properness construction; no return import of all C5 to an early C5 node.
-
-Consumed by [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher).
-
-### S13. ComplexComparisonPartII:C2
+### S10. ComplexComparisonPartII:C2
 
 For an actual finite-type separated complex algebraic scheme or algebraic space, supply analytic properness/compactness equivalence with algebraic properness and compatibility with the nilpotent-preserving analytification carrier. For projective toroidal algebraization supply the compact analytic-space theorem with the actual positive/ample line, rather than assuming that every compact analytic space is algebraic. No matching C2 node was found, so these are requested interfaces, not verified existing results.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/compactness-properness](#shimuracompactifications-c2-roadmap-compactness-properness); [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization).
 
-### S14. ComplexComparisonPartII:C4
+### S11. ComplexComparisonPartII:C4
 
 Import C4/repair-proper-morphism-algebraicity for proper complex schemes and its planned algebraic-space version through C3/analytic-etale-descent and C3/proper-algebraic-space-gaga. This Hom comparison assumes an existing algebraic source; it does not construct an algebraization of an abstract compact analytic space. Supply the distinct Pink 12.4–12.5 existence theorem from compact toroidal charts/ample-cover data and the compatible mixed-boundary canonical descent. The supplier algebraic-space GAGA proof still records its own reconstruction gap.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization); [ShimuraCompactifications:C2/roadmap/minimal-boundary-map](#shimuracompactifications-c2-roadmap-minimal-boundary-map); [ShimuraCompactifications:C2/roadmap/canonical-toroidal-model](#shimuracompactifications-c2-roadmap-canonical-toroidal-model).
 
-### S15. ModularCurvesPartII:R13.1
+### S12. ModularCurvesPartII:R13.1
 
 The existing dimension-one generalized elliptic/Tate n-gon family, period q, invariant relative differential du/u, torsion and the actual isogeny/base-parameter maps. Also supply its normalized logarithmic Kodaira–Spencer comparison. The file named R13.3 currently contains only R14 targets, so no absent Tate node is invented.
 
 Consumed by [ShimuraCompactifications:C4/roadmap/boundary-level-comparison](#shimuracompactifications-c4-roadmap-boundary-level-comparison); [ShimuraCompactifications:C4/roadmap/tate-degeneration-comparison](#shimuracompactifications-c4-roadmap-tate-degeneration-comparison).
 
-### S16. ModularCurvesPartII:R13.2
+### S13. ModularCurvesPartII:R13.2
 
 The existing dimension-one generalized elliptic/Tate n-gon family, period q, invariant relative differential du/u, torsion and the actual isogeny/base-parameter maps. Also supply its normalized logarithmic Kodaira–Spencer comparison. The file named R13.3 currently contains only R14 targets, so no absent Tate node is invented.
 
 Consumed by [ShimuraCompactifications:C4/roadmap/boundary-level-comparison](#shimuracompactifications-c4-roadmap-boundary-level-comparison); [ShimuraCompactifications:C4/roadmap/tate-degeneration-comparison](#shimuracompactifications-c4-roadmap-tate-degeneration-comparison).
 
-### S17. ModularCurvesPartII:R13.3
+### S14. ModularCurvesPartII:R13.3
 
 The existing dimension-one generalized elliptic/Tate n-gon family, period q, invariant relative differential du/u, torsion and the actual isogeny/base-parameter maps. Also supply its normalized logarithmic Kodaira–Spencer comparison. The file named R13.3 currently contains only R14 targets, so no absent Tate node is invented.
 
 Consumed by [ShimuraCompactifications:C4/roadmap/boundary-level-comparison](#shimuracompactifications-c4-roadmap-boundary-level-comparison); [ShimuraCompactifications:C4/roadmap/tate-degeneration-comparison](#shimuracompactifications-c4-roadmap-tate-degeneration-comparison).
 
-### S18. NeronModelsAndSemistableAbelianVarieties:R11.3
+### S15. NeronModelsAndSemistableAbelianVarieties:R11.3
 
 Binding RS-32 local Raynaud/lattice uniformization and semistable reduction with the exact complete-DVR/polarization hypotheses. Its current raynaud-extension-comparison text verbally imports early C4; resolve that ownership interface to give an independently usable local supplier before the C4 relative extension. Do not close a C4→R11.3→C4 carrier cycle. Also supply: Binding RS-32 transfer: C4 imports the existing local polarized Raynaud/lattice uniformization construction and proves its relative cusp/effectivity extension using the same carriers. No duplicate local uniformization, and no inference that the local result already constructs the universal PEL charts. Additional specialization interface: Use the existing finite-separable-semistable-extension and positive-residue-characteristic rigid-uniformisation nodes. Additionally specify the split polarized period description needed for complete arithmetic valuation rings in the valuative proof, including equal/residue characteristic zero where the current rigid node does not apply; compatibility with C4 charts and uniqueness of the semiabelian extension remain explicit requests.
 
 Consumed by [ShimuraCompactifications:C4/roadmap/polarized-degeneration-data](#shimuracompactifications-c4-roadmap-polarized-degeneration-data); [ShimuraCompactifications:C4/roadmap/mumford-quotient](#shimuracompactifications-c4-roadmap-mumford-quotient); [ShimuraCompactifications:C4/roadmap/degeneration-effectivity](#shimuracompactifications-c4-roadmap-degeneration-effectivity); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/hilbert-semiabelian-extension](#shimuracompactifications-c6-roadmap-hilbert-semiabelian-extension); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-proper](#shimuracompactifications-c6-roadmap-hilbert-toroidal-proper).
 
-### S19. PELModuli:M1
+### S16. PELModuli:M1
 
 The existing PEL order, lattice, pairing, reflex field, endomorphism and Rosati data, with their compatibility on families. C4 constructs the universal degeneration; this request imports its PEL input rather than asking M1 to construct that degeneration again.
 
 Consumed by [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C4/roadmap/endomorphism-extension](#shimuracompactifications-c4-roadmap-endomorphism-extension).
 
-### S20. PELModuli:M2
+### S17. PELModuli:M2
 
 The actual good-prime moduli stack/algebraic-space and universal abelian family, including the unramified-order, lattice/polarization-defect, quaternionic p=2 and prime-to-p-level restrictions. Supply smoothness over the arithmetic base, including for the lower-dimensional cusp moduli. Do not assume integral scheme representability or quasi-projectivity before C5.
 
 Consumed by [ShimuraCompactifications:C5/roadmap/neat-boundary-intersection-smooth](#shimuracompactifications-c5-roadmap-neat-boundary-intersection-smooth).
 
-### S21. SchemeAndStackFoundations:SF.0
+### S18. SchemeAndStackFoundations:SF.0
 
 Relative Spec of graded quasi-coherent character-line algebras; ordinary localization/closed ideal and arbitrary coefficient base change; generic valuative properness and relative-affine morphism criteria; smooth/log differential coordinates, finite group order-invertible etaleness and schematic/fibrewise density. Native quotient/ideal arithmetic already in this owner is imported, not replanned. Also supply: Reuse generic coordinate-algebra quotients/localizations, relative Spec of quasi-coherent algebras with its universal property and base change, base change of closed intersections, smooth polynomial/Laurent charts, smooth composition and etale locality. Supply the local sheaf test for schematic density from injectivity of localization, and the open-map density argument. Existing monoid algebras and ideal quotients remain native carriers. No tensor/inverse-limit interchange is requested. Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already has CategoryTheory.CommMon.relativeSpec, CategoryTheory.CommMon.relativeSpecToBase and CategoryTheory.CommMon.relativeSpecIsoSpec (with the TauCeti.AlgebraicGeometry.relativeSpec functor on QuasicoherentAlgebra) in AlgebraicGeometry/RelativeSpec. Adopt those declarations through the existing owner, with graded subalgebra and arbitrary-base-change comparisons; never reconstruct relative Spec here. Those modules are absent at the f790474 pin. Supply the universal global-function theorem for proper flat finitely presented morphisms with geometrically reduced connected fibres, and coherent pushforward/projection formula with precisely permitted base changes. Additional specialization interface: Semiabelian/conormal and invertible-line boundary exact sequences, normal proper curve uniqueness, proper coherent pushforward and projection formula. For arbitrary coefficients supply H0 on qcqs finite-presentation models/lines commuting with filtered colimits of coefficient algebras; descend line, open immersion and section data to finitely generated subalgebras. This replaces invalid tensor/completion interchange. For q-expansion detection supply schematic density on prime-power thickenings of a smooth geometrically irreducible fibre, flat-line coefficient exactness and H0 on qcqs models commuting with filtered colimits of coefficient modules. Use directed unions of finitely generated submodules and the injective coefficient maps induced by an invertible line; full formal series need not commute with colimits. For the integral boundary-ideal comparison, supply O_C≅f_*O_D and coherent base change for proper flat finitely presented f:D→C with geometrically connected and geometrically reduced fibres; apply left exact pushforward to the boundary ideal sequence over B without inverting the discriminant. Supply the universal global-function theorem for proper flat finitely presented morphisms with geometrically reduced connected fibres, and coherent pushforward/projection formula with precisely permitted base changes.
 
-Consumed by [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-face-open](#shimuracompactifications-c0-roadmap-relative-face-open); [ShimuraCompactifications:C0/roadmap/relative-regular-coordinates](#shimuracompactifications-c0-roadmap-relative-regular-coordinates); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C0/roadmap/relative-boundary-coordinates](#shimuracompactifications-c0-roadmap-relative-boundary-coordinates); [ShimuraCompactifications:C0/roadmap/arbitrary-ring-toric-charts](#shimuracompactifications-c0-roadmap-arbitrary-ring-toric-charts); [ShimuraCompactifications:C0/roadmap/relative-fan-properness](#shimuracompactifications-c0-roadmap-relative-fan-properness); [ShimuraCompactifications:C2/roadmap/normal-open-dense](#shimuracompactifications-c2-roadmap-normal-open-dense); [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C4/roadmap/extended-isogeny-kernel](#shimuracompactifications-c4-roadmap-extended-isogeny-kernel); [ShimuraCompactifications:C4/roadmap/tate-log-kodaira-spencer](#shimuracompactifications-c4-roadmap-tate-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/neat-boundary-intersection-smooth](#shimuracompactifications-c5-roadmap-neat-boundary-intersection-smooth); [ShimuraCompactifications:C5/roadmap/neat-boundary-open-fiberwise-dense](#shimuracompactifications-c5-roadmap-neat-boundary-open-fiberwise-dense); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-proper](#shimuracompactifications-c5-roadmap-neat-stratum-closure-proper); [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher); [ShimuraCompactifications:C5/roadmap/prime-Q-subgroup-extension](#shimuracompactifications-c5-roadmap-prime-q-subgroup-extension); [ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle](#shimuracompactifications-c5-roadmap-siegel-canonical-bundle); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-global-functions](#shimuracompactifications-c6-roadmap-hilbert-boundary-global-functions); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-contraction](#shimuracompactifications-c6-roadmap-hilbert-minimal-contraction); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-boundary-fibres](#shimuracompactifications-c6-roadmap-hilbert-minimal-boundary-fibres); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-normal-projective](#shimuracompactifications-c6-roadmap-hilbert-minimal-normal-projective); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-weight-extension](#shimuracompactifications-c6-roadmap-hilbert-minimal-weight-extension); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-injective); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](#shimuracompactifications-c6-roadmap-hilbert-boundary-ideal-pushforward); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-coefficient-descent](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-coefficient-descent).
+Consumed by [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-face-open](#shimuracompactifications-c0-roadmap-relative-face-open); [ShimuraCompactifications:C0/roadmap/relative-regular-coordinates](#shimuracompactifications-c0-roadmap-relative-regular-coordinates); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C0/roadmap/relative-boundary-coordinates](#shimuracompactifications-c0-roadmap-relative-boundary-coordinates); [ShimuraCompactifications:C0/roadmap/arbitrary-ring-toric-charts](#shimuracompactifications-c0-roadmap-arbitrary-ring-toric-charts); [ShimuraCompactifications:C0/roadmap/relative-fan-properness](#shimuracompactifications-c0-roadmap-relative-fan-properness); [ShimuraCompactifications:C2/roadmap/normal-open-dense](#shimuracompactifications-c2-roadmap-normal-open-dense); [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C4/roadmap/extended-isogeny-kernel](#shimuracompactifications-c4-roadmap-extended-isogeny-kernel); [ShimuraCompactifications:C4/roadmap/tate-log-kodaira-spencer](#shimuracompactifications-c4-roadmap-tate-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/neat-boundary-intersection-smooth](#shimuracompactifications-c5-roadmap-neat-boundary-intersection-smooth); [ShimuraCompactifications:C5/roadmap/neat-boundary-open-fiberwise-dense](#shimuracompactifications-c5-roadmap-neat-boundary-open-fiberwise-dense); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-proper](#shimuracompactifications-c5-roadmap-neat-stratum-closure-proper); [ShimuraCompactifications:C5/roadmap/log-kodaira-spencer](#shimuracompactifications-c5-roadmap-log-kodaira-spencer); [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher); [ShimuraCompactifications:C5/roadmap/prime-Q-subgroup-extension](#shimuracompactifications-c5-roadmap-prime-q-subgroup-extension); [ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle](#shimuracompactifications-c5-roadmap-siegel-canonical-bundle); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-global-functions](#shimuracompactifications-c6-roadmap-hilbert-boundary-global-functions); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-contraction](#shimuracompactifications-c6-roadmap-hilbert-minimal-contraction); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-boundary-fibres](#shimuracompactifications-c6-roadmap-hilbert-minimal-boundary-fibres); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-normal-projective](#shimuracompactifications-c6-roadmap-hilbert-minimal-normal-projective); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-weight-extension](#shimuracompactifications-c6-roadmap-hilbert-minimal-weight-extension); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](#shimuracompactifications-c6-roadmap-hilbert-boundary-ideal-pushforward); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-coefficient-descent](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-coefficient-descent); [ShimuraCompactifications:C0/roadmap/regular-boundary-union](#shimuracompactifications-c0-roadmap-regular-boundary-union); [ShimuraCompactifications:C0/roadmap/integral-changed-lattice-comparison](#shimuracompactifications-c0-roadmap-integral-changed-lattice-comparison); [ShimuraCompactifications:C4/roadmap/semiabelian-hasse-boundary-comparison](#shimuracompactifications-c4-roadmap-semiabelian-hasse-boundary-comparison).
 
-### S22. SchemeAndStackFoundations:SF.1
+### S19. SchemeAndStackFoundations:SF.1
 
 Effective etale/fpqc descent for relative affine algebras, ideals and families; character-line grading of a split torus torsor with coherent multiplication and pushout along quotient tori; finite group quotients/stacks/coarse spaces and finite-etale group Isom torsors; separated/proper algebraic-space criteria. Its algebraic-space/atlas carrier nodes are imported; these additional torsor, quotient and descent APIs are not supplied by the carrier alone. Also supply: Actual algebraic-space etale atlases and effective descent for quasi-coherent algebras, affine relative schemes, closed ideals and their maps. For a split torus torsor, supply its character-line grading with inherited coherent multiplication and its equivalence with the actual torsor; include pushout along a split quotient torus and compatible local trivializations. This generic input precedes C0 and is not imported from the C4 consumer. Also retain the C5 stratified etale descent and connected-regular component topology; the scheme-only baseline is not already the algebraic-space theorem. Additional specialization interface: Effective étale and faithful-flat descent of the actual families, weight lines, ideals and sections; finite tame invariant quotients, including finite cyclotomic coefficient covers and normal projective coarse quotients. No exactness by division by a group order in a noninvertible integral coefficient ring.
 
-Consumed by [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-face-open](#shimuracompactifications-c0-roadmap-relative-face-open); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C0/roadmap/relative-boundary-coordinates](#shimuracompactifications-c0-roadmap-relative-boundary-coordinates); [ShimuraCompactifications:C0/roadmap/relative-fan-properness](#shimuracompactifications-c0-roadmap-relative-fan-properness); [ShimuraCompactifications:C1/roadmap/boundary-torsor-tower](#shimuracompactifications-c1-roadmap-boundary-torsor-tower); [ShimuraCompactifications:C2/roadmap/quotient-separation](#shimuracompactifications-c2-roadmap-quotient-separation); [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization); [ShimuraCompactifications:C2/roadmap/canonical-toroidal-model](#shimuracompactifications-c2-roadmap-canonical-toroidal-model); [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C4/roadmap/constructible-character-sheaf](#shimuracompactifications-c4-roadmap-constructible-character-sheaf); [ShimuraCompactifications:C4/roadmap/poincare-extension-classification](#shimuracompactifications-c4-roadmap-poincare-extension-classification); [ShimuraCompactifications:C4/roadmap/mumford-quotient](#shimuracompactifications-c4-roadmap-mumford-quotient); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C4/roadmap/homomorphism-extension](#shimuracompactifications-c4-roadmap-homomorphism-extension); [ShimuraCompactifications:C4/roadmap/extended-isogeny-kernel](#shimuracompactifications-c4-roadmap-extended-isogeny-kernel); [ShimuraCompactifications:C5/roadmap/good-algebraic-model](#shimuracompactifications-c5-roadmap-good-algebraic-model); [ShimuraCompactifications:C5/roadmap/etale-chart-relation](#shimuracompactifications-c5-roadmap-etale-chart-relation); [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C5/roadmap/neat-boundary-intersection-smooth](#shimuracompactifications-c5-roadmap-neat-boundary-intersection-smooth); [ShimuraCompactifications:C5/roadmap/neat-boundary-open-fiberwise-dense](#shimuracompactifications-c5-roadmap-neat-boundary-open-fiberwise-dense); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-component](#shimuracompactifications-c5-roadmap-neat-stratum-closure-component); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-proper](#shimuracompactifications-c5-roadmap-neat-stratum-closure-proper); [ShimuraCompactifications:C5/roadmap/nonneat-boundary-descent](#shimuracompactifications-c5-roadmap-nonneat-boundary-descent); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness); [ShimuraCompactifications:C5/roadmap/open-quasiprojectivity](#shimuracompactifications-c5-roadmap-open-quasiprojectivity); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/normalized-chart-finiteness](#shimuracompactifications-c5-roadmap-normalized-chart-finiteness); [ShimuraCompactifications:C5/roadmap/prime-Q-subgroup-extension](#shimuracompactifications-c5-roadmap-prime-q-subgroup-extension); [ShimuraCompactifications:C5/roadmap/prime-Q-generator-cover](#shimuracompactifications-c5-roadmap-prime-q-generator-cover); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/toroidal-polarization-quotient](#shimuracompactifications-c6-roadmap-toroidal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-semiabelian-extension](#shimuracompactifications-c6-roadmap-hilbert-semiabelian-extension); [ShimuraCompactifications:C6/roadmap/minimal-polarization-quotient](#shimuracompactifications-c6-roadmap-minimal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ordinary](#shimuracompactifications-c6-roadmap-hilbert-boundary-ordinary); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-polarization-quotient](#shimuracompactifications-c6-roadmap-hilbert-ordinary-polarization-quotient).
+Consumed by [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-face-open](#shimuracompactifications-c0-roadmap-relative-face-open); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C0/roadmap/relative-boundary-coordinates](#shimuracompactifications-c0-roadmap-relative-boundary-coordinates); [ShimuraCompactifications:C0/roadmap/relative-fan-properness](#shimuracompactifications-c0-roadmap-relative-fan-properness); [ShimuraCompactifications:C1/roadmap/boundary-torsor-tower](#shimuracompactifications-c1-roadmap-boundary-torsor-tower); [ShimuraCompactifications:C2/roadmap/quotient-separation](#shimuracompactifications-c2-roadmap-quotient-separation); [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization); [ShimuraCompactifications:C2/roadmap/canonical-toroidal-model](#shimuracompactifications-c2-roadmap-canonical-toroidal-model); [ShimuraCompactifications:C3/roadmap/refinement-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C4/roadmap/semi-abelian-scheme](#shimuracompactifications-c4-roadmap-semi-abelian-scheme); [ShimuraCompactifications:C4/roadmap/constructible-character-sheaf](#shimuracompactifications-c4-roadmap-constructible-character-sheaf); [ShimuraCompactifications:C4/roadmap/poincare-extension-classification](#shimuracompactifications-c4-roadmap-poincare-extension-classification); [ShimuraCompactifications:C4/roadmap/mumford-quotient](#shimuracompactifications-c4-roadmap-mumford-quotient); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C4/roadmap/homomorphism-extension](#shimuracompactifications-c4-roadmap-homomorphism-extension); [ShimuraCompactifications:C4/roadmap/extended-isogeny-kernel](#shimuracompactifications-c4-roadmap-extended-isogeny-kernel); [ShimuraCompactifications:C5/roadmap/good-algebraic-model](#shimuracompactifications-c5-roadmap-good-algebraic-model); [ShimuraCompactifications:C5/roadmap/etale-chart-relation](#shimuracompactifications-c5-roadmap-etale-chart-relation); [ShimuraCompactifications:C5/roadmap/integral-toroidal-space](#shimuracompactifications-c5-roadmap-integral-toroidal-space); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C5/roadmap/valuative-properness](#shimuracompactifications-c5-roadmap-valuative-properness); [ShimuraCompactifications:C5/roadmap/neat-boundary-intersection-smooth](#shimuracompactifications-c5-roadmap-neat-boundary-intersection-smooth); [ShimuraCompactifications:C5/roadmap/neat-boundary-open-fiberwise-dense](#shimuracompactifications-c5-roadmap-neat-boundary-open-fiberwise-dense); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-component](#shimuracompactifications-c5-roadmap-neat-stratum-closure-component); [ShimuraCompactifications:C5/roadmap/neat-stratum-closure-proper](#shimuracompactifications-c5-roadmap-neat-stratum-closure-proper); [ShimuraCompactifications:C5/roadmap/nonneat-boundary-descent](#shimuracompactifications-c5-roadmap-nonneat-boundary-descent); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness); [ShimuraCompactifications:C5/roadmap/open-quasiprojectivity](#shimuracompactifications-c5-roadmap-open-quasiprojectivity); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/normalized-chart-finiteness](#shimuracompactifications-c5-roadmap-normalized-chart-finiteness); [ShimuraCompactifications:C5/roadmap/prime-Q-subgroup-extension](#shimuracompactifications-c5-roadmap-prime-q-subgroup-extension); [ShimuraCompactifications:C5/roadmap/prime-Q-generator-cover](#shimuracompactifications-c5-roadmap-prime-q-generator-cover); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-constant](#shimuracompactifications-c6-roadmap-hilbert-boundary-constant); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/toroidal-polarization-quotient](#shimuracompactifications-c6-roadmap-toroidal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-semiabelian-extension](#shimuracompactifications-c6-roadmap-hilbert-semiabelian-extension); [ShimuraCompactifications:C6/roadmap/minimal-polarization-quotient](#shimuracompactifications-c6-roadmap-minimal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ordinary](#shimuracompactifications-c6-roadmap-hilbert-boundary-ordinary); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-polarization-quotient](#shimuracompactifications-c6-roadmap-hilbert-ordinary-polarization-quotient); [ShimuraCompactifications:C5/roadmap/hodge-line-fourier-jacobi-expansion](#shimuracompactifications-c5-roadmap-hodge-line-fourier-jacobi-expansion); [ShimuraCompactifications:C0/roadmap/integral-changed-lattice-comparison](#shimuracompactifications-c0-roadmap-integral-changed-lattice-comparison).
 
-### S23. SchemeAndStackFoundations:SF.2
+### S20. SchemeAndStackFoundations:SF.2
 
 Proper algebraic-space coherent finiteness, formal-functions/projection formula and coefficient/filtered-colimit comparisons with exact module hypotheses; finite etale Stein factor and geometric-component detector for smooth proper closures with fibrewise-dense stratum opens; finite-generation/Stein application for a semiample line. Formal Hartogs and special-fibre S2/normality must be provided for the exact formal models, separately from generic-fibre Hartogs. The cohomology of a nonproper open is not inferred from the proper theorem. Also supply: After SF.1 spaces/descent and proper coherent cohomology, implement the generic smooth-closure detector: for smooth proper X over a regular Noetherian base and smooth proper closed W_a with opens Z_a fiberwise dense, total-component detection by Z_a implies geometric-fiber detection. Use the finite etale Stein factor, clopen images of W_a, and density on its discrete fibers. It is one foundations theorem, not a reverse import of B5 or all SF.2 into early SF.1. For Lan Corollary 7.2.2.6 retain the flat preliminary Stein target hypothesis: over the Dedekind good base obtain it from the torsion-free coherent Stein algebra of the flat toroidal source, before defining the minimal Proj.
 
-Consumed by [ShimuraCompactifications:C3/roadmap/toric-structure-sheaf-vanishing](#shimuracompactifications-c3-roadmap-toric-structure-sheaf-vanishing); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); [ShimuraCompactifications:C3/roadmap/partial-ordinary-formal-invariance](#shimuracompactifications-c3-roadmap-partial-ordinary-formal-invariance); [ShimuraCompactifications:C3/roadmap/klingen-correspondence-acyclicity](#shimuracompactifications-c3-roadmap-klingen-correspondence-acyclicity); [ShimuraCompactifications:C5/roadmap/neat-strata-detect-geometric-components](#shimuracompactifications-c5-roadmap-neat-strata-detect-geometric-components); [ShimuraCompactifications:C5/roadmap/nonneat-boundary-descent](#shimuracompactifications-c5-roadmap-nonneat-boundary-descent); [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher); [ShimuraCompactifications:C5/roadmap/siegel-koecher-arbitrary-coefficients](#shimuracompactifications-c5-roadmap-siegel-koecher-arbitrary-coefficients); [ShimuraCompactifications:C5/roadmap/ordinary-koecher](#shimuracompactifications-c5-roadmap-ordinary-koecher); [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher); [ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle](#shimuracompactifications-c5-roadmap-siegel-canonical-bundle); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup).
+Consumed by [ShimuraCompactifications:C3/roadmap/toric-structure-sheaf-vanishing](#shimuracompactifications-c3-roadmap-toric-structure-sheaf-vanishing); [ShimuraCompactifications:C3/roadmap/refinement-higher-structure-sheaf](#shimuracompactifications-c3-roadmap-refinement-higher-structure-sheaf); [ShimuraCompactifications:C3/roadmap/refinement-boundary-ideal](#shimuracompactifications-c3-roadmap-refinement-boundary-ideal); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance); [ShimuraCompactifications:C3/roadmap/partial-ordinary-formal-invariance](#shimuracompactifications-c3-roadmap-partial-ordinary-formal-invariance); [ShimuraCompactifications:C3/roadmap/klingen-correspondence-acyclicity](#shimuracompactifications-c3-roadmap-klingen-correspondence-acyclicity); [ShimuraCompactifications:C5/roadmap/neat-strata-detect-geometric-components](#shimuracompactifications-c5-roadmap-neat-strata-detect-geometric-components); [ShimuraCompactifications:C5/roadmap/nonneat-boundary-descent](#shimuracompactifications-c5-roadmap-nonneat-boundary-descent); [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher); [ShimuraCompactifications:C5/roadmap/siegel-koecher-arbitrary-coefficients](#shimuracompactifications-c5-roadmap-siegel-koecher-arbitrary-coefficients); [ShimuraCompactifications:C5/roadmap/ordinary-koecher](#shimuracompactifications-c5-roadmap-ordinary-koecher); [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher); [ShimuraCompactifications:C5/roadmap/siegel-canonical-bundle](#shimuracompactifications-c5-roadmap-siegel-canonical-bundle); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup); [ShimuraCompactifications:C5/roadmap/hodge-line-fourier-jacobi-expansion](#shimuracompactifications-c5-roadmap-hodge-line-fourier-jacobi-expansion).
 
-### S24. SchemeAndStackFoundations:SF.3
+### S21. SchemeAndStackFoundations:SF.3
 
 Relative formal schemes and projective formal algebraization/effectivity over a complete Noetherian normal base; compatible completions and normalized finite chart comparison; Proj of the finite section algebra and ample line descent. Generic coherent duality/Proj infrastructure remains owned here, while the Shimura instance is in C5. For C6 supply arithmetic formal gluing with schematically dense interior, exact permitted-point relation and DVR/Artinian-thickening lifting as in Dimitrov 5.11, including uniqueness; proper coherent section-module finite generation for an ample projective polarization, finite Veronese decomposition, normalization/Stein/Proj comparison, and the stated coefficient base changes.
 
-Consumed by [ShimuraCompactifications:C1/roadmap/boundary-torsor-tower](#shimuracompactifications-c1-roadmap-boundary-torsor-tower); [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization); [ShimuraCompactifications:C4/roadmap/mumford-quotient](#shimuracompactifications-c4-roadmap-mumford-quotient); [ShimuraCompactifications:C4/roadmap/degeneration-effectivity](#shimuracompactifications-c4-roadmap-degeneration-effectivity); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C5/roadmap/good-algebraic-model](#shimuracompactifications-c5-roadmap-good-algebraic-model); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness); [ShimuraCompactifications:C5/roadmap/open-quasiprojectivity](#shimuracompactifications-c5-roadmap-open-quasiprojectivity); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/normalized-chart-finiteness](#shimuracompactifications-c5-roadmap-normalized-chart-finiteness); [ShimuraCompactifications:C5/roadmap/etale-chart-relation](#shimuracompactifications-c5-roadmap-etale-chart-relation); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-contraction](#shimuracompactifications-c6-roadmap-hilbert-minimal-contraction); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-finite-generation](#shimuracompactifications-c6-roadmap-hilbert-minimal-finite-generation); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-normal-projective](#shimuracompactifications-c6-roadmap-hilbert-minimal-normal-projective); [ShimuraCompactifications:C6/roadmap/minimal-polarization-quotient](#shimuracompactifications-c6-roadmap-minimal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-weight-extension](#shimuracompactifications-c6-roadmap-hilbert-minimal-weight-extension); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison).
+Consumed by [ShimuraCompactifications:C1/roadmap/boundary-torsor-tower](#shimuracompactifications-c1-roadmap-boundary-torsor-tower); [ShimuraCompactifications:C2/roadmap/projective-algebraization](#shimuracompactifications-c2-roadmap-projective-algebraization); [ShimuraCompactifications:C4/roadmap/mumford-quotient](#shimuracompactifications-c4-roadmap-mumford-quotient); [ShimuraCompactifications:C4/roadmap/degeneration-effectivity](#shimuracompactifications-c4-roadmap-degeneration-effectivity); [ShimuraCompactifications:C4/roadmap/formal-universal-degeneration](#shimuracompactifications-c4-roadmap-formal-universal-degeneration); [ShimuraCompactifications:C5/roadmap/good-algebraic-model](#shimuracompactifications-c5-roadmap-good-algebraic-model); [ShimuraCompactifications:C5/roadmap/formal-completion](#shimuracompactifications-c5-roadmap-formal-completion); [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness); [ShimuraCompactifications:C5/roadmap/open-quasiprojectivity](#shimuracompactifications-c5-roadmap-open-quasiprojectivity); [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization](#shimuracompactifications-c5-roadmap-higher-level-toroidal-normalization); [ShimuraCompactifications:C5/roadmap/normalized-chart-finiteness](#shimuracompactifications-c5-roadmap-normalized-chart-finiteness); [ShimuraCompactifications:C5/roadmap/etale-chart-relation](#shimuracompactifications-c5-roadmap-etale-chart-relation); [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-contraction](#shimuracompactifications-c6-roadmap-hilbert-minimal-contraction); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-finite-generation](#shimuracompactifications-c6-roadmap-hilbert-minimal-finite-generation); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-normal-projective](#shimuracompactifications-c6-roadmap-hilbert-minimal-normal-projective); [ShimuraCompactifications:C6/roadmap/minimal-polarization-quotient](#shimuracompactifications-c6-roadmap-minimal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-weight-extension](#shimuracompactifications-c6-roadmap-hilbert-minimal-weight-extension); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-hodge-semiampleness](#shimuracompactifications-c6-roadmap-hilbert-hodge-semiampleness).
 
-### S25. ShimuraData:D3
+### S22. ShimuraData:D3
 
 Existing polarizable Shimura variation and boundary representation input with the supplied Hodge carrier, not an assumed universal abelian scheme.
 
 Consumed by [ShimuraCompactifications:C1/roadmap/mixed-boundary-datum](#shimuracompactifications-c1-roadmap-mixed-boundary-datum).
 
-### S26. ShimuraData:D4
+### S23. ShimuraData:D4
 
 D4 supplies the AMBIENT pure Shimura datum and its algebraic morphisms (D4/shimura-datum and D4/datum-morphism). Its inspected nodes do not supply the rational boundary or mixed boundary datum: import the former from V2/rational-boundary and the parabolic/unipotent/Lie structure from ReductiveGroups Layer 7; C1 constructs the latter.
 
 Consumed by [ShimuraCompactifications:C1/roadmap/mixed-boundary-datum](#shimuracompactifications-c1-roadmap-mixed-boundary-datum).
 
-### S27. ShimuraVarieties:V8
+### S24. ShimuraVarieties:V8
 
 Actual pure canonical tower/model for the datum and reflex field; C2 additionally needs the special mixed-boundary torus/abelian-torsor canonical models and dense special points of Pink 12.13–12.17. Pure canonical models alone do not canonically descend arbitrary mixed spaces.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/canonical-toroidal-model](#shimuracompactifications-c2-roadmap-canonical-toroidal-model); [ShimuraCompactifications:C3/roadmap/level-datum-functoriality](#shimuracompactifications-c3-roadmap-level-datum-functoriality).
 
-### S28. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier
+### S25. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier
 
 The unchanged common cone/lattice/dual-monoid/regular-basis vocabulary, finite complex affine anchor, intrinsic dual-monoid equivalence for a regular cone and integral face-localization P_tau=P_sigma+N(-m). C0 adds arbitrary coefficient rings/torsors and arithmetic infinite cone collections; no second finite fan or cone definition. Also supply: Use the existing lattice/cone, primitive-ray, regular-basis, dual-monoid and finite-complex toric vocabulary. Require the intrinsic additive dual-monoid equivalence for a regular cone, and the integral supporting-character/face-localization identity P_tau=P_sigma+N(-m). The C0 extension changes the coefficient base and descends actual torus-torsor algebras; it does not define a second cone, lattice, finite fan or dual monoid. The arithmetic fan is not the finite Fan carrier, and admissible-refinement existence remains additional C0 work.
 
 Consumed by [ShimuraCompactifications:C0/roadmap/relative-torus-embedding](#shimuracompactifications-c0-roadmap-relative-torus-embedding); [ShimuraCompactifications:C0/roadmap/relative-face-open](#shimuracompactifications-c0-roadmap-relative-face-open); [ShimuraCompactifications:C0/roadmap/relative-regular-coordinates](#shimuracompactifications-c0-roadmap-relative-regular-coordinates); [ShimuraCompactifications:C0/roadmap/relative-stratum-quotient](#shimuracompactifications-c0-roadmap-relative-stratum-quotient); [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); [ShimuraCompactifications:C0/roadmap/compatible-common-refinement](#shimuracompactifications-c0-roadmap-compatible-common-refinement); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement); [ShimuraCompactifications:C0/roadmap/arbitrary-ring-toric-charts](#shimuracompactifications-c0-roadmap-arbitrary-ring-toric-charts); [ShimuraCompactifications:C1/roadmap/boundary-incidence](#shimuracompactifications-c1-roadmap-boundary-incidence); [ShimuraCompactifications:C2/roadmap/partial-boundary-charts](#shimuracompactifications-c2-roadmap-partial-boundary-charts); [ShimuraCompactifications:C2.general/roadmap/general-toroidal-descent](#shimuracompactifications-c2-general-roadmap-general-toroidal-descent); [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C3.general/roadmap/general-map-descent](#shimuracompactifications-c3-general-roadmap-general-map-descent).
 
-### S29. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones
+### S26. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-2-affine-analytic-charts-of-regular-cones
 
 Finite regular complex analytic affine toric charts and monomial face maps. Singular/nonreduced relative boundary instances additionally require the analytic-carrier supplier and separate chart extension, not an inferred manifold chart.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/partial-boundary-charts](#shimuracompactifications-c2-roadmap-partial-boundary-charts); [ShimuraCompactifications:C2.general/roadmap/general-toroidal-descent](#shimuracompactifications-c2-general-roadmap-general-toroidal-descent); [ShimuraCompactifications:C3.general/roadmap/general-map-descent](#shimuracompactifications-c3-general-roadmap-general-map-descent).
 
-### S30. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing
+### S27. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-3-finite-fan-analytic-gluing
 
 Finite complex fan gluing and its actual overlap cocycle; C2 adds arithmetic quotient gluing of these local charts, not another finite toric gluing theory.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/partial-boundary-charts](#shimuracompactifications-c2-roadmap-partial-boundary-charts); [ShimuraCompactifications:C2/roadmap/quotient-separation](#shimuracompactifications-c2-roadmap-quotient-separation); [ShimuraCompactifications:C2/roadmap/arithmetic-gluing](#shimuracompactifications-c2-roadmap-arithmetic-gluing); [ShimuraCompactifications:C2.general/roadmap/general-toroidal-descent](#shimuracompactifications-c2-general-roadmap-general-toroidal-descent); [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C3.general/roadmap/general-map-descent](#shimuracompactifications-c3-general-roadmap-general-map-descent).
 
-### S31. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary
+### S28. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary
 
 The finite regular complex torus actions, orbit strata and boundary comparison. C0/C2 use this as the complex specialization anchor; relative integral charts and finite arithmetic quotient strata retain their additional descent hypotheses. Also supply: Retain the finite regular complex orbit/coordinate-boundary comparison as a specialization anchor. Compare the new relative integral formulas after the specified trivialization and extension to C. This complex theorem alone is not the arithmetic quotient or geometric-fiber theorem.
 
 Consumed by [ShimuraCompactifications:C2/roadmap/partial-boundary-charts](#shimuracompactifications-c2-roadmap-partial-boundary-charts); [ShimuraCompactifications:C2/roadmap/smooth-normal-crossings](#shimuracompactifications-c2-roadmap-smooth-normal-crossings); [ShimuraCompactifications:C2.general/roadmap/general-toroidal-descent](#shimuracompactifications-c2-general-roadmap-general-toroidal-descent); [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C3.general/roadmap/general-map-descent](#shimuracompactifications-c3-general-roadmap-general-map-descent).
 
-### S32. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness
+### S29. tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness
 
-Finite regular complex toric maps and support-properness/refinement comparison. C0/C3 extend to arbitrary coefficients and arithmetic quotients; integral PEL properness still uses degeneration and the valuative construction. Also supply: Retain the finite regular complex support-properness and refinement-map supplier for C0/C3. The actual integral properness input in C5 comes from its degeneration/valuative construction, not from this special case.
+Finite regular complex toric maps and support-properness/refinement comparison. C0/C3 extend to arbitrary coefficients and arithmetic quotients; integral PEL properness still uses degeneration and the valuative construction. Also supply: Retain the RS-32 finite regular complex support-properness and refinement-map supplier for C0/C3. The actual integral properness input in C5 comes from its degeneration/valuative construction, not from this special case.
 
 Consumed by [ShimuraCompactifications:C0/roadmap/relative-fan-properness](#shimuracompactifications-c0-roadmap-relative-fan-properness); [ShimuraCompactifications:C3/roadmap/refinement-map](#shimuracompactifications-c3-roadmap-refinement-map); [ShimuraCompactifications:C3/roadmap/level-datum-functoriality](#shimuracompactifications-c3-roadmap-level-datum-functoriality); [ShimuraCompactifications:C3/roadmap/toric-structure-sheaf-vanishing](#shimuracompactifications-c3-roadmap-toric-structure-sheaf-vanishing); [ShimuraCompactifications:C3.general/roadmap/general-map-descent](#shimuracompactifications-c3-general-roadmap-general-map-descent); [ShimuraCompactifications:C0/roadmap/integral-changed-lattice-comparison](#shimuracompactifications-c0-roadmap-integral-changed-lattice-comparison).
 
-### S33. tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne
+### S30. tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne
 
 Existing native mixed Hodge carrier, strict morphisms, induced graded filtration and tensor/representation compatibility. C1 constructs boundary instances through h1 and preserves the supplied F; no second generic mixed Hodge structure.
 
 Consumed by [ShimuraCompactifications:C1/roadmap/mixed-boundary-datum](#shimuracompactifications-c1-roadmap-mixed-boundary-datum); [ShimuraCompactifications:C1/roadmap/boundary-mixed-hodge-structure](#shimuracompactifications-c1-roadmap-boundary-mixed-hodge-structure).
 
-### S34. tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
+### S31. tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
 Existing parabolic/unipotent/centralizer Lie and rational quotient-group structure needed for the mixed boundary group and its arithmetic action; C1 only enriches the existing rational boundary datum.
 
 Consumed by [ShimuraCompactifications:C0/roadmap/arithmetic-admissible-fan](#shimuracompactifications-c0-roadmap-arithmetic-admissible-fan); [ShimuraCompactifications:C1/roadmap/mixed-boundary-datum](#shimuracompactifications-c1-roadmap-mixed-boundary-datum); [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer); [ShimuraCompactifications:C1/roadmap/boundary-incidence](#shimuracompactifications-c1-roadmap-boundary-incidence).
 
-### S35. AdicSpacesPartII:F0/formal-direct-image-comparison
+### S32. AdicSpacesPartII:F0/formal-direct-image-comparison
 
 For the ACTUAL BCGP normal formal toroidal-to-minimal contraction, transfer O_min≅pi_*O_tor through proper completion and the specified normalized/ordinary restriction. Check the F0 node's proper locally-Noetherian SCHEME hypotheses, extend to algebraic spaces only through a separately supplied comparison, and establish any special-fibre transfer rather than using generic normality. Supply the projection formula for its specified invertible sheaf. This is not a fan-refinement morphism.
 
-Consumed by [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher).
+Consumed by [ShimuraCompactifications:C5/roadmap/formal-hilbert-siegel-koecher](#shimuracompactifications-c5-roadmap-formal-hilbert-siegel-koecher); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ideal-pushforward](#shimuracompactifications-c6-roadmap-hilbert-boundary-ideal-pushforward).
 
-### S36. PELModuli:M4
+### S33. PELModuli:M4
 
 Beyond the inspected good-prime higher-level-normalization node, provide Lan 2017 reference [18] Proposition 6.1 ramified p-integral normalized interior with its indexed lattice families and Proposition 6.4 projective normal minimal model over Spec O_(F0,(p)), for H with neat H^p and the exact Section 2 lattice collection. No moduli interpretation at parahoric level is assumed. The wider input is presently absent and is recorded as a gap.
 
 Consumed by [ShimuraCompactifications:C5/roadmap/projective-normalized-blowup](#shimuracompactifications-c5-roadmap-projective-normalized-blowup).
 
-### S37. HilbertModularVarietiesAndShimuraCurves:H1
+### S34. HilbertModularVarietiesAndShimuraCurves:H1
 
 The actual fine HBAV moduli scheme at the stated torsion-free tame level, its universal family, polarization module and trace/different convention f*=f⁻¹d⁻¹. Supply (R,n)-cusp data a,b,L,β, c=ab⁻¹, b′/b and X=cbb′; the latter is the level-image lattice, not cb² at every cusp. Identify the signed real trace pairing and elliptic moduli specialization at F=Q. Supply smoothness and geometric connectedness/irreducibility of the fixed c-component on the Δ-inverted weight base, as used by Dimitrov–Tilouine §7.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/positive-exponents-on-charts](#shimuracompactifications-c6-roadmap-positive-exponents-on-charts); [ShimuraCompactifications:C6/roadmap/meromorphic-cusp-support-bound](#shimuracompactifications-c6-roadmap-meromorphic-cusp-support-bound); [ShimuraCompactifications:C6/roadmap/hilbert-cusp-positive-support](#shimuracompactifications-c6-roadmap-hilbert-cusp-positive-support); [ShimuraCompactifications:C6/roadmap/cusp-lattice-comparison](#shimuracompactifications-c6-roadmap-cusp-lattice-comparison); [ShimuraCompactifications:C6/roadmap/uniformized-level-chart](#shimuracompactifications-c6-roadmap-uniformized-level-chart); [ShimuraCompactifications:C6/roadmap/hilbert-regular-refinement](#shimuracompactifications-c6-roadmap-hilbert-regular-refinement); [ShimuraCompactifications:C6/roadmap/hilbert-conormal-comparison](#shimuracompactifications-c6-roadmap-hilbert-conormal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-model-comparison](#shimuracompactifications-c6-roadmap-hilbert-ordinary-model-comparison); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective).
 
-### S38. HilbertModularVarietiesAndShimuraCurves:H2
+### S35. HilbertModularVarietiesAndShimuraCurves:H2
 
 Deligne–Pappas model and Rapoport/ordinary local model at all p prime to tame level, including ramification and p=2; intrinsic total Hasse ideal imported from R07.2 det(V*), compatible with conormal and polarization. Supply finite-presentation ordinary neighbourhoods, normalized admissible blowup with p-torsion removal, lift independence for ε<1, and exact permitted integral compactification comparisons. T3/T5 quantitative canonical subgroup and modified lattice results are not assumed here. Supply normality and flat finite presentation of the precise tame-level Deligne–Pappas model over B, plus the geometric cusp-fibre comparison needed by the C6 contraction; normality of the total space alone does not imply normality of every fibre.
 
-Consumed by [ShimuraCompactifications:C6/roadmap/hilbert-conormal-comparison](#shimuracompactifications-c6-roadmap-hilbert-conormal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-model-comparison](#shimuracompactifications-c6-roadmap-hilbert-ordinary-model-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-hasse-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-hasse-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ordinary](#shimuracompactifications-c6-roadmap-hilbert-boundary-ordinary); [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](#shimuracompactifications-c6-roadmap-hilbert-near-ordinary-model); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-integral-differential-interface](#shimuracompactifications-c6-roadmap-hilbert-integral-differential-interface).
+Consumed by [ShimuraCompactifications:C6/roadmap/hilbert-conormal-comparison](#shimuracompactifications-c6-roadmap-hilbert-conormal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-model-comparison](#shimuracompactifications-c6-roadmap-hilbert-ordinary-model-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-hasse-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-hasse-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-ordinary](#shimuracompactifications-c6-roadmap-hilbert-boundary-ordinary); [ShimuraCompactifications:C6/roadmap/hilbert-near-ordinary-model](#shimuracompactifications-c6-roadmap-hilbert-near-ordinary-model); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-integral-differential-interface](#shimuracompactifications-c6-roadmap-hilbert-integral-differential-interface); [ShimuraCompactifications:C6/roadmap/hilbert-toroidal-model](#shimuracompactifications-c6-roadmap-hilbert-toroidal-model).
 
-### S39. HilbertModularVarietiesAndShimuraCurves:H3
+### S36. HilbertModularVarietiesAndShimuraCurves:H3
 
 Full cusp stabilizer: 0→X*→stabilizer→U_C→1 with effective action u²ε; congruences u−1∈n b′b⁻¹ and uε−1∈bb′⁻¹, as verified in Proposition 3.3(iv). Supply enlarged component stabilizers, finite cyclotomic H_C and H_C,1, finite-index U_C,1⊂O×, weight/root covariance and line descent. Supply finite tame Δ(N), free toroidal action at torsion-free tame level and possibly stabilizing minimal action. Do not identify the full stabilizer with its finite cyclotomic image.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/meromorphic-cusp-support-bound](#shimuracompactifications-c6-roadmap-meromorphic-cusp-support-bound); [ShimuraCompactifications:C6/roadmap/hilbert-cusp-positive-support](#shimuracompactifications-c6-roadmap-hilbert-cusp-positive-support); [ShimuraCompactifications:C6/roadmap/arithmetic-koecher](#shimuracompactifications-c6-roadmap-arithmetic-koecher); [ShimuraCompactifications:C6/roadmap/cusp-lattice-comparison](#shimuracompactifications-c6-roadmap-cusp-lattice-comparison); [ShimuraCompactifications:C6/roadmap/admissible-fan-specialization](#shimuracompactifications-c6-roadmap-admissible-fan-specialization); [ShimuraCompactifications:C6/roadmap/uniformized-level-chart](#shimuracompactifications-c6-roadmap-uniformized-level-chart); [ShimuraCompactifications:C6/roadmap/toroidal-polarization-quotient](#shimuracompactifications-c6-roadmap-toroidal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-boundary-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-boundary-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-conormal-comparison](#shimuracompactifications-c6-roadmap-hilbert-conormal-comparison); [ShimuraCompactifications:C6/roadmap/minimal-polarization-quotient](#shimuracompactifications-c6-roadmap-minimal-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-cusps](#shimuracompactifications-c6-roadmap-hilbert-minimal-cusps); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-formal-comparison](#shimuracompactifications-c6-roadmap-hilbert-minimal-formal-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-minimal-weight-extension](#shimuracompactifications-c6-roadmap-hilbert-minimal-weight-extension); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-comparison](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-hasse-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-hasse-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-polarization-quotient](#shimuracompactifications-c6-roadmap-hilbert-ordinary-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison).
 
-### S40. HilbertModularVarietiesAndShimuraCurves:H4
+### S37. HilbertModularVarietiesAndShimuraCurves:H4
 
 Actual finite full/fixed-pairing/Γ1/Γ0 levels and mixed G-level problem; γ∨=det(γ)γ⁻¹ precomposition on dual level data, pairing components, effective finite groups and componentwise quotients. Supply finite period/character maps at cusps, and exactly the permitted integral models at wild levels; distinguish them from generic-fibre models and from the profinite infinite tower.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/hilbert-ordinary-polarization-quotient](#shimuracompactifications-c6-roadmap-hilbert-ordinary-polarization-quotient); [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-p-level-boundary-comparison); [ShimuraCompactifications:C6/roadmap/hilbert-integral-differential-interface](#shimuracompactifications-c6-roadmap-hilbert-integral-differential-interface); [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison).
 
-### S41. FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
+### S38. FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
 
-Supply the generic BT₁ invariant Ha(G)=det(V*) over F_p-schemes, LF and the BT₁ Hodge–Tate sequence; supply its abelian compatibility to H2. This is an additional requested interface to R07.2, not a claim that its current perfect-field Dieudonné description already proves it.
+As required by confirmed RT-AREA-padic-1/26, own the generic BT₁ invariant Ha(G)=det(V*) over F_p-schemes, LF and the BT₁ Hodge–Tate sequence; supply its abelian compatibility to H2. This is an additional requested interface to R07.2, not a claim that its current perfect-field Dieudonné description already proves it.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/hilbert-hasse-boundary-comparison](#shimuracompactifications-c6-roadmap-hilbert-hasse-boundary-comparison); [ShimuraCompactifications:C4/roadmap/semiabelian-hasse-boundary-comparison](#shimuracompactifications-c4-roadmap-semiabelian-hasse-boundary-comparison).
 
-### S42. ModularCurvesPartII:R13.4a
+### S39. ModularCurvesPartII:R13.4a
 
 Compactified coarse modular curves for full, fixed-pairing, Γ1 and refined Γ0 levels, with bases, normality/properness, cusps and moduli identification. Supply agreement with PR81 Layer 10 only for prime N≥5 diamond H≤(Z/N)×/{±1}, including finite normal j-line and schematic-density conditions.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/modular-toroidal-minimal-comparison](#shimuracompactifications-c6-roadmap-modular-toroidal-minimal-comparison); [ShimuraCompactifications:C6/roadmap/modular-formal-cusp-comparison](#shimuracompactifications-c6-roadmap-modular-formal-cusp-comparison); [ShimuraCompactifications:C6/roadmap/prime-diamond-pr81-comparison](#shimuracompactifications-c6-roadmap-prime-diamond-pr81-comparison).
 
-### S43. ModularCurvesPartII:R13.4b
+### S40. ModularCurvesPartII:R13.4b
 
 Generic-fibre analytic comparison for R13.4a curves with component, determinant and cusp fields and the Tate cusp width parameter. Supply degeneracy/correspondence compatibility with its Hecke normalization and applicable stack-to-coarse descent.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/modular-formal-cusp-comparison](#shimuracompactifications-c6-roadmap-modular-formal-cusp-comparison).
 
-### S44. tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering
+### S41. tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering
 
 Use the existing prime N≥5 diamond quotient construction, its cusp subscheme and normalization over the j-line, only through the agreement supplied by R13.4a. No upstream construction is re-planned.
 
 Consumed by [ShimuraCompactifications:C6/roadmap/prime-diamond-pr81-comparison](#shimuracompactifications-c6-roadmap-prime-diamond-pr81-comparison).
 
-### S45. AbelianSchemesAndArithmeticModuli:A0
+### S42. AbelianSchemesAndArithmeticModuli:A0
 
 For smooth commutative finite-presentation F_p-group schemes, supply the finite locally free relative Frobenius quotient, its p-killed kernel and fppf descent of [p] to Verschiebung, with invariant differential exactness for a torus/abelian extension. The semiabelian determinant extension is the C4 comparison.
 
@@ -5198,7 +5243,7 @@ Affects [ShimuraCompactifications:C2/roadmap/partial-boundary-charts](#shimuraco
 
 Pink 6.19 and 6.22 use AMRT reduction/controlled Satake-neighbourhood input. Those proof passages were not read; AA.3/V2 must supply finite cusp indexing, effective stabilizer control and the stated separated quotient-neighbourhood theorem. Finite cone orbits alone do not prove separatedness or finiteness of stabilizers.
 
-Affects [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer); [ShimuraCompactifications:C2/roadmap/quotient-separation](#shimuracompactifications-c2-roadmap-quotient-separation); [ShimuraCompactifications:C0/roadmap/smooth-projective-refinement](#shimuracompactifications-c0-roadmap-smooth-projective-refinement).
+Affects [ShimuraCompactifications:C1/roadmap/arithmetic-stabilizer](#shimuracompactifications-c1-roadmap-arithmetic-stabilizer); [ShimuraCompactifications:C2/roadmap/quotient-separation](#shimuracompactifications-c2-roadmap-quotient-separation).
 
 ### G3. Special mixed canonical boundary models
 
@@ -5244,7 +5289,7 @@ Affects [ShimuraCompactifications:C5/roadmap/nonneat-boundary-descent](#shimurac
 
 ### G10. Hodge theta generation and minimal constant terms
 
-Faltings–Chai V.2.1–2.8 and V.3.1–3.4, printed pp. 149–166, were read in the cleared copy. The theta proof removes the earlier uninspected V.3 leaf, but its cubical/theta machinery and the original Moret-Bailly IX.2.1 remain external proof inputs. Request the precise A5 normal-base Hodge generation/isotriviality theorem, SF.3 finite-generation/Stein interfaces and B5 constant terms. Coarse Hodge Q-line descent retains auxiliary-level/stabilizer checks.
+Faltings–Chai V.2.1–2.8 and V.3.1–3.4, printed pp. 149–166, were read in the cleared copy. The theta proof removes the earlier uninspected V.3 leaf, but its cubical/theta machinery and the original Moret-Bailly IX.2.1 remain external proof inputs. Request the precise A5 normal-base Hodge generation/isotriviality theorem, SF.3 finite-generation/Stein interfaces. The Hodge-line constant terms are the C5 node hodge-line-fourier-jacobi-expansion (Lan 7.1.2), not an AutomorphicBundles import. Coarse Hodge Q-line descent retains auxiliary-level/stabilizer checks.
 
 Affects [ShimuraCompactifications:C5/roadmap/hodge-semiampleness](#shimuracompactifications-c5-roadmap-hodge-semiampleness); [ShimuraCompactifications:C5/roadmap/graded-section-finite-generation](#shimuracompactifications-c5-roadmap-graded-section-finite-generation); [ShimuraCompactifications:C5/roadmap/integral-minimal-space](#shimuracompactifications-c5-roadmap-integral-minimal-space); [ShimuraCompactifications:C5/roadmap/minimal-hodge-ampleness](#shimuracompactifications-c5-roadmap-minimal-hodge-ampleness).
 
@@ -5256,7 +5301,7 @@ Affects [ShimuraCompactifications:C5/roadmap/higher-level-toroidal-normalization
 
 ### G12. Integral coefficient and Koecher positivity proof
 
-Provide B3/B4 normalized integral coefficient functors satisfying all of Lan 2017 Definition 8.5, and B5 positivity/finite-growth inputs in Propositions 8.3–8.4 plus Lan [17] Theorem 2.3 proof, not read in full. Theorem 8.7's simple-algebra and dimension-one exception are retained. Generic normal Hartogs does not prove torsion coefficient extension.
+Lan 2017 Lemma 8.1 and Propositions 8.3–8.4 were read; Theorem 8.7 defers to the proof of Lan, Higher Koecher's principle, Theorem 2.3 (reference [17] there), which was not read in full. Theorem 8.7's simple-algebra hypothesis and dimension-one exception are retained. Generic normal Hartogs does not prove torsion coefficient extension. Verifying Definition 8.5 for general automorphic canonical extensions belongs to AutomorphicBundles:B3, which imports the C5 interface.
 
 Affects [ShimuraCompactifications:C5/roadmap/normalized-koecher](#shimuracompactifications-c5-roadmap-normalized-koecher); [ShimuraCompactifications:C5/roadmap/siegel-koecher-arbitrary-coefficients](#shimuracompactifications-c5-roadmap-siegel-koecher-arbitrary-coefficients); [ShimuraCompactifications:C3/roadmap/coherent-cohomology-invariance](#shimuracompactifications-c3-roadmap-coherent-cohomology-invariance).
 
@@ -5316,7 +5361,7 @@ Affects [ShimuraCompactifications:C6/roadmap/hilbert-p-level-boundary-comparison
 
 ### G22. Version-of-record collation
 
-The accessible copies contain the corrected proof issues in the accessed preprint/author copies, with the narrowed zero-module interpretation of E-C6-2 and directed-union repair for E-C6-3. The main author copy has printed pagination differing from the published citation; publisher DOI access failed again. Version-of-record collation remains outstanding, and no result relies on an asserted publisher correction. Fresh public errata searches found no correction, which does not establish that none exists.
+Independent review confirms E-C6-1, E-C6-2 and E-C6-3 in the accessed preprint/author copies, with the narrowed zero-module interpretation of E-C6-2 and directed-union repair for E-C6-3. The main author copy has printed pagination differing from the published citation; publisher DOI access failed again. Version-of-record collation remains outstanding, and no result relies on an asserted publisher correction. Fresh public errata searches found no correction, which does not establish that none exists.
 
 Affects [ShimuraCompactifications:C6/roadmap/negative-cusp-exponent](#shimuracompactifications-c6-roadmap-negative-cusp-exponent); [ShimuraCompactifications:C6/roadmap/constant-term-vanishing](#shimuracompactifications-c6-roadmap-constant-term-vanishing); [ShimuraCompactifications:C6/roadmap/hilbert-q-expansion-module-injective](#shimuracompactifications-c6-roadmap-hilbert-q-expansion-module-injective).
 
