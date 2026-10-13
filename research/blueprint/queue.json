@@ -25884,9 +25884,10 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9422"
+   "note": "deliverables arrived from an external worker on issue #9422",
+   "finishedAt": "2026-10-13T19:33:17Z"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.5",
@@ -27391,8 +27392,9 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeTheory",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9398"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9398",
+   "finishedAt": "2026-10-13T19:33:20Z"
   },
   {
    "id": "BP-PadicLocalLanglandsForGL2Qp",
@@ -28288,7 +28290,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraCompactifications",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9402"
   },
   {
    "id": "BP-ShimuraData",
@@ -32679,7 +32682,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L0",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9248"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L1",
@@ -32725,7 +32729,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L1",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9249"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L2",
@@ -35607,7 +35612,8 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9391"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -35630,8 +35636,9 @@
    ],
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9421"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9421",
+   "finishedAt": "2026-10-13T19:33:24Z"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -47258,7 +47265,8 @@
     "PKG-AutomorphicSpectralTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7921"
   },
   {
    "id": "PKG-ClassicalAdicEtaleCohomology",
