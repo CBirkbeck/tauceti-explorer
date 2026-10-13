@@ -1245,6 +1245,203 @@ Record every change in research/blueprint/reviews/{JOB}.md, with a verdict of ac
 RULES: edit only the plan, the proposed roadmap definitions, your report and scratch files. Do not run git. No private paths in the repository.
 Finish with a summary under 250 words."""
 
+FGLG_BRIEF = """Topic: free groups, equations over groups, and limit groups, as a reusable library roadmap in combinatorial and geometric group theory, algebraic geometry over groups and effective mathematics (the maintainer's own scope specification follows; it is binding: keep its eleven milestones FG1–FG11 as the layers with keys FG1, …, FG11 and their titles, keep its exclusions as the non-goals, and use its source register as the roadmap's sources, pinning editions and theorem locators as you verify them). The final targets are the standalone endpoints of each milestone, in particular the regular implicit-function theorems over free groups (FG11) and the finite Makanin–Razborov solution diagrams and effective JSJ decompositions (FG10); the full first-order decidability theorem for free groups is excluded and must not be routed in as an oracle. Check the pinned Mathlib first for free groups (`FreeGroup`, reduced words and `FreeGroup.reduce`), first-order syntax and semantics (`FirstOrder.Language`), computability (`Computable`, `Primrec`, `Nat.Partrec`), group actions, graphs and `SimpleGraph`, and Tau Ceti for anything on free products, HNN extensions, Bass–Serre theory or surface groups, and cite whatever exists rather than planning it again; search the atlas for existing roadmaps on free groups, amalgams, graphs of groups, surface groups, model theory of groups and computability, and route overlaps to their owners. Where the specification says an algorithm is required, plan the encoded procedure, its interpretation theorem, computability, termination on the stated input class, and correctness of both answers, as separate nodes. Where it says a theorem must be proved in the precise form of the source (Merzljakov, Makanin, Kharlampovich–Myasnikov), state that form with every hypothesis.
+
+The maintainer's specification:
+
+# Free groups, equations over groups, and limit groups
+
+**Proposed roadmap area:** `FreeGroupsAndLimitGroups`
+**Subjects:** combinatorial and geometric group theory; algebraic geometry over groups; effective mathematics.
+**Status:** rough scope specification. Source-to-declaration tasks and existing-library ownership must be checked before implementation.
+
+## Purpose and scope
+
+Build a reusable library of free-group algorithms, finitely generated subgroups, Bass–Serre theory, equations and coordinate groups, surface groups and quadratic equations, finitely generated fully residually free groups, NTQ towers, solution diagrams, and regular implicit-function theorems.
+
+Every endpoint below is a standalone library target. The project is useful independently of any formalisation of the full first-order decidability theorem.
+
+**Excluded:** the full first-order decider; effective reduction of arbitrary formulas to Boolean combinations of two-block formulas; the specific existential–universal decision trees; MAX-equivalence and the associated algebraic-solution bounds; complete reducing systems specific to that procedure; induced-NTQ enlargement algorithms; tight envelopes; projective-image/configuration machinery; and termination of the outer quantifier-elimination procedure. Those are not targets or hidden prerequisites of this roadmap.
+
+Keep ordinary induced subgroup splittings in Bass–Serre theory, ordinary NTQ towers, Makanin–Razborov solution diagrams, and regular implicit-function theorems. These are distinct from the excluded specialised constructions.
+
+## Conventions and shared infrastructure
+
+Use Mathlib's existing abstract free groups, first-order syntax and semantics, homomorphisms, quotients, and computability framework. Before introducing a carrier, inspect existing Mathlib/Tau Ceti code and related roadmaps; adopt one shared definition rather than a private replacement. The documentation links below are starting points, not a completed inventory.
+
+State abstract mathematics at its natural generality. Restrict algorithms to finite, effectively encoded input data. For free-group computations use a finite basis, with coefficients supplied as words. For algorithms on finitely presented limit groups state the promised input class explicitly: a correctness/termination theorem on that class is not an algorithm recognising arbitrary finite presentations as limit groups.
+
+Each algorithm needs an encoded procedure, an interpretation theorem, computability, termination on its specified domain, and correctness of both positive and negative answers. Return witnesses where the statement requests them. A classically obtained `DecidablePred` is not the algorithmic endpoint.
+
+Do not impose a practical running-time or complexity-class target. Classical proofs may justify termination of a specified computable search; they must not silently supply noncomputable output data.
+
+## Milestones
+
+### FG1. Free-group words, normal forms, and elementary algorithms
+
+Develop reduced words and their connection with `FreeGroup`, including reduction, multiplication, inversion, powers, homomorphism evaluation, word length, and equality. Establish the corresponding computability results without replacing the abstract group by an incompatible carrier.
+
+Develop cyclic reduction and conjugacy, torsion-freeness, uniqueness of roots, centralizers of nonidentity elements, malnormality of maximal cyclic subgroups, and effective maximal-root extraction. Keep being a proper power distinct from failing to be primitive in a free basis. Handle identity explicitly in root and centralizer algorithms.
+
+**Endpoints:** word and conjugacy deciders with witnesses where applicable; computed roots and generators of nontrivial-element centralizers; normal-form and evaluation APIs usable without the later milestones.
+
+**Dependencies:** existing group and computability foundations.
+**Sources:** [LEAN], [TREES], and the combinatorial references collected in [KM06].
+
+### FG2. Stallings graphs and finitely generated free subgroups
+
+Construct finite labelled graphs with edge reversal, based paths, accepted words, cores, immersions, and folding. Prove that folding preserves the represented subgroup, terminates, and gives the required normal form for a based subgroup graph. Distinguish based equality from conjugacy when forgetting basepoints.
+
+Obtain finite bases, rank, membership, intersections, finite-index tests, and the subgroup-conjugacy/containment algorithms from finite generating lists. Recover explicit words and maps between the graph presentation and the subgroup of the ambient free group. Prove the finite-index rank formula with its precise rank hypotheses.
+
+**Endpoints:** a reusable finitely generated subgroup API, including constructive Nielsen–Schreier consequences, finite generation of intersections, and explicit embeddings.
+
+**Dependencies:** FG1 and finite graph/path infrastructure.
+**Sources:** [FOLD], [TREES]; [INFINITE-WORDS] for the later generalisation, not as a prerequisite for ordinary finite words.
+
+### FG3. Effective first-order group syntax and elementary logical transformations
+
+Using the shared first-order syntax, develop finite encodings of terms, formulas, sentences, and basis-word coefficients, with decoding and round-trip results. Prove computability of substitution, renaming, variable shifting, and evaluation of terms under finitely represented assignments.
+
+Prove capture-avoiding prenex and Boolean-normal-form transformations and the equivalence between group terms and word equations. Connect finite systems of equations and inequations with quantifier-free formulas. State any general logical transformations for effectively represented signatures under the hypotheses actually needed, including the nonempty-domain convention.
+
+**Endpoints:** computable syntax transformations with semantic correctness, and a reusable reduction of existential sentences to finitely many systems of equations and inequations. No higher-quantifier decision theorem is a target here.
+
+**Dependencies:** FG1 for the group-word interpretation; existing syntax, semantics, and computability foundations.
+**Sources:** [LEAN], [IFT], [MAK].
+
+### FG4. Bass–Serre theory and relative splittings
+
+Develop graphs of groups, their fundamental groups, amalgamated products, HNN extensions, normal forms and Britton's lemma, and the correspondence with actions on trees without inversions. The graph model must allow loops and multiple edges. Prove vertex-group injectivity and independence of auxiliary maximal-tree choices.
+
+Develop subgroup actions and their induced graph-of-groups decompositions, elliptic and hyperbolic elements, relative ellipticity for a finite family of subgroups, and free/Grushko decompositions with their uniqueness statements. Prove the invariance and mapping properties of the graph-of-groups transformations used later. Construct Dehn twists with precise coefficient/peripheral-subgroup preservation.
+
+**Endpoints:** an abstract Bass–Serre API, induced subgroup splittings, and structural relative decomposition theorems. Do not claim that an induced graph is finite without appropriate hypotheses. Effective relative JSJ construction is FG10, not an assumed consequence of these abstract results.
+
+**Dependencies:** FG1–FG2, graph/path and group-action foundations.
+**Sources:** [TREES], [FOLD], [GL-JSJ].
+
+### FG5. Equations, radicals, and algebraic geometry over groups
+
+For a coefficient group G, develop G[X], systems of equations, evaluations, solution sets, radicals, and coordinate groups. Prove the distinction and relationship between quotienting by the normal closure of the equations and quotienting by the radical. Establish the universal properties and the correspondence between word maps and coefficient-preserving homomorphisms, including changes of coordinates.
+
+Develop the Zariski topology, irreducibility, and finite-union properties with the necessary hypotheses on the coefficient group. Define equational Noetherianity and prove it for finite-rank free groups. Derive qualitative finite-subsystem results, finite irreducible decompositions, uniqueness of maximal components, and the appropriate descending-chain consequences.
+
+**Endpoints:** reusable group-algebraic geometry, with a precise distinction between residual and full residual properties. An arbitrary radical quotient is not automatically fully residually free. Noetherianity alone is not an algorithm for finding a finite subsystem. Algorithms constructing components are in FG10.
+
+**Dependencies:** FG1, FG3, free products/quotients, and general topological foundations.
+**Sources:** [ALG], [VAR-I], [VAR-II].
+
+### FG6. Surface groups and quadratic equations
+
+Develop orientable and non-orientable surface-group presentations, boundary subgroups, cutting/gluing descriptions, finite covers, and the required Euler-characteristic and finite-index formulas. Connect the geometric presentations to the graph-of-groups formalism rather than maintaining disconnected definitions of surface vertices.
+
+Develop quadratic words and equations, standard forms, coefficient-preserving changes of variables, solutions, and the precise notions of regularity and general position used in the lifting theorems. Prove the necessary low-genus exceptions and correct radical descriptions with consistency assumptions stated explicitly. Define quadratically hanging vertices and their peripheral data; reserve rigidity for the relevant relative splitting family, not merely a vertex's appearance in one arbitrary decomposition.
+
+**Endpoints:** the surface/quadratic-equation correspondence and a usable peripheral/QH API. No general quotient-lifting lemma or finite-index claim is assumed just because the original proof used it.
+
+**Dependencies:** FG1, FG4, FG5 and the required surface/covering foundations.
+**Sources:** [VAR-I], [IFT], [TREES], [GL-JSJ].
+
+### FG7. Generalised equations, equation solving, and positive formal solutions
+
+Develop finite cancellation descriptions and generalised equations with their bases, boundaries, orientations, constants, and parameter sections. Specify solution semantics and induced maps. For each transformation and branch, prove computability, the hypotheses for its application, and forward/backward solution preservation, retaining exceptional cases.
+
+Construct a terminating algorithm for finite systems of equations and inequations over a finite-rank nonabelian free group, with word coefficients. Return a solution on satisfiable input and prove correctness on unsatisfiable input. Use FG3 to obtain the existential and universal fragment deciders. Prove the positive-theory/formal-solution results of Merzljakov and Makanin in their precise forms, with quantifier dependence of the formal witnesses preserved.
+
+**Endpoints:** standalone existential, universal, and positive-fragment theorems, together with reusable generalised-equation transformations. A finite description of all solutions is a stronger endpoint, handled in FG10.
+
+The shared generalised-equation development is the chosen structural route. [RECOMP] is an independent equation-solving reference; two solver implementations are not required. A different implementation must still provide the interfaces actually used by consumers.
+
+**Dependencies:** FG1, FG3, FG5 and the required finite combinatorial infrastructure.
+**Sources:** [MAK], [IFT], [JSJ]; comparison [RECOMP].
+
+### FG8. Fully residually free groups, limit groups, and ordinary NTQ towers
+
+Define discrimination by a free group using finite sets of nonidentity elements, and separately define the coefficient-preserving version. Develop subgroup/embedding invariance and structural consequences, including torsion-freeness, commutation transitivity, and the correct abelian-centralizer statements. Do not transfer the cyclic-centralizer theorem for free groups to all limit groups.
+
+Connect finitely generated fully residually free groups to the relevant marked-limit formulation and to irreducible coordinate groups, with coefficient hypotheses explicit. Prove finite presentability, finite presentability of finitely generated subgroups, and the structural embedding results into the appropriate finite towers/iterated centralizer extensions.
+
+Construct ordinary triangular quasi-quadratic and NTQ systems, distinguishing quadratic, centralizer-extension, free-abelian, and free levels. Give genuine inclusion, retraction, and specialisation maps. State and prove the hypotheses under which a presentation agrees with the intended coordinate group. Define the particular regular subclasses used in FG11 rather than treating every NTQ group as elementarily equivalent to a free group.
+
+**Endpoints:** reusable limit-group and ordinary-tower theory. No induced-NTQ enlargement algorithm, tight envelope, or classification by elementary equivalence is included.
+
+**Dependencies:** FG4–FG7, plus the source-level structural prerequisites expanded within this milestone.
+**Sources:** [VAR-II], [LIMITS], [IFT], [LIFT].
+
+### FG9. Length functions and infinite-word representations
+
+Develop Lyndon length functions and the required ordered-group-valued tree actions, first at their natural abstract level and then for the ordered integer lattices used by the effective theory. Separate freeness of an action or length function from regularity; prove any implication only under its actual hypotheses.
+
+Develop infinite-word representations, operations, and labelled-graph constructions used for finitely generated subgroups. Establish the representation/embedding theorems for the classes of groups in FG8 in the exact form proved by the selected sources, including when an enlargement is necessary to obtain regularity.
+
+**Endpoints:** length-function and representation APIs, plus the subgroup machinery needed by the structural algorithms. Do not claim that arbitrary infinite words are finite algorithmic inputs: computations use the represented finite data specified by the constructions.
+
+**Dependencies:** FG4, FG8 and ordered-group/tree foundations.
+**Sources:** [LENGTH], [INFINITE-WORDS].
+
+### FG10. Effective structure and finite solution diagrams
+
+Develop relative cyclic/abelian JSJ theory for the intended finitely generated fully residually free groups. Define the admissible splitting family, relative subgroups, domination, universal ellipticity, and the relevant notion of equivalence of decompositions. Prove structural existence before implementing effective output; do not require literal uniqueness of a displayed graph.
+
+Implement the promised-input algorithms for relative Grushko/JSJ decompositions, finite presentations of finitely generated subgroups and images, word/membership/conjugacy problems, and testing injectivity or surjectivity of specified homomorphisms. Return explicit generators, relations, edge maps, and embedding data.
+
+Construct finite Makanin–Razborov/Hom-diagrams for finite systems over free groups. Include the maps, automorphism actions, terminal specialisations, and any branch restrictions in the represented data. Prove both that every represented specialisation is a solution and that every actual solution factors through an allowed branch. Derive effective irreducible-component descriptions where provided by this construction.
+
+Treat equations with coefficients in a represented limit group as a separate algorithmic target, with its own proof; the free-group solver does not already establish this extension. For this target, resolve the prerequisite proof cited by [KM06], Theorem 32, or supply a proved replacement route; do not turn a bibliographic citation into an assumed theorem.
+
+**Endpoints:** effective structural outputs and finite solution parametrisations, independent of the full first-order decision procedure. The specific first/second restrictions imposed by that later procedure are not targets unless required by the standalone diagram theorem being proved.
+
+**Dependencies:** FG2, FG4–FG9. Split effective-presentation, splitting, and diagram results into dependency-checked subpackages; do not use an effective JSJ algorithm to prove its own prerequisites.
+
+**Sources:** [JSJ], [FOLD], [SUBGROUPS], [INFINITE-WORDS], [SELA-I], [GL-JSJ]; [KM06] §8 for the algorithmic target list.
+
+### FG11. Regular implicit-function theorems over free groups
+
+For the explicitly defined regular quadratic and regular NTQ classes covered by [IFT] and [LIFT], prove the formal-solution theorem: compatible equations admit solutions in the appropriate coordinate group. Establish the complete-lift version for equations together with the allowed inequations, using the precise compatibility and regularity hypotheses of the source theorem.
+
+Construct the concrete generic families used in these results and prove their discriminating and lifting properties. When the theorem is effective, give the procedure returning the formal solution and prove its correctness. Include substitution and change-of-coordinates compatibility.
+
+**Endpoints:** regular quadratic/NTQ implicit-function theorems as standalone results in algebraic geometry over groups. Do not extend the claim to arbitrary NTQ systems. Generalised lifting for alternating-quantifier schemes, and the corrective/enveloping machinery of the full decision proof, are excluded.
+
+**Dependencies:** FG5–FG10, refined according to the actual source proofs.
+**Sources:** [IFT], [LIFT].
+
+## Completion standard and separate proof boundary
+
+A milestone is complete only when its mathematical endpoints are proved on the declared shared objects, not merely stated with an unproved assumption supplying the difficult theorem. Every new definition needs the basic API necessary for independent use. Algorithmic claims require explicit computability, interpretation, and termination theorems.
+
+Source statements and prerequisites must be checked at declaration level. This is a rough work-package ordering, not a certification that every prerequisite in the cited papers has already been resolved. When a theorem needs an additional general construction, add it explicitly to the supplying milestone; do not import any excluded full-decidability result as an oracle.
+
+The separate first-order decidability development may import this library. It owns the specialised induced/enveloping constructions, equivalence-class bounds, higher-quantifier decision trees, and global reduction/termination argument. Completion of this roadmap is not claimed to prove full first-order decidability or to include every proof-specific prerequisite.
+
+## Source register
+
+| Label | Source and link | Main use |
+|---|---|---|
+| [TREES] | Jean-Pierre Serre, *Trees*: https://link.springer.com/book/10.1007/978-3-642-61856-7 | Groups acting on trees; Bass–Serre theory. |
+| [FOLD] | Kapovich–Weidmann–Myasnikov, *Foldings, graphs of groups and the membership problem*: https://arxiv.org/abs/math/0302206 | Effective subgroup and graph-of-groups methods. |
+| [ALG] | Baumslag–Myasnikov–Remeslennikov, *Algebraic Geometry over Groups I*: https://doi.org/10.1006/jabr.1999.7881 | Algebraic sets, radicals, coordinate groups. |
+| [VAR-I] | Kharlampovich–Myasnikov, *Irreducible Affine Varieties over a Free Group I*: https://doi.org/10.1006/jabr.1997.7183 | Quadratic equations and irreducibility. |
+| [VAR-II] | Kharlampovich–Myasnikov, *Irreducible Affine Varieties over a Free Group II*: https://doi.org/10.1006/jabr.1997.7184 | Triangular systems and fully residually free groups. |
+| [MAK] | Makanin, *Decidability of the universal and positive theories of a free group*: https://www.mathnet.ru/eng/im1489 , https://doi.org/10.1070/IM1985v025n01ABEH001269 | Equation solving and the universal/positive fragments; expand the earlier equation-solving references. |
+| [RECOMP] | Diekert–Jeż–Plandowski, *Finding All Solutions of Equations in Free Groups and Monoids with Involution*: https://arxiv.org/abs/1405.5133 | Independent comparison for equation solving. |
+| [LIMITS] | Champetier–Guirardel, *Limit groups as limits of free groups*: https://arxiv.org/abs/math/0401042 | Structural and marked-limit viewpoint. |
+| [GL-JSJ] | Guirardel–Levitt, *JSJ decompositions of groups*: https://arxiv.org/abs/1602.05139 | Structural JSJ definitions and theorems; not an automatic effective algorithm. |
+| [JSJ] | Kharlampovich–Myasnikov, *Effective JSJ Decompositions*: https://arxiv.org/abs/math/0407089 | Effective decompositions, generalised equations, Hom-diagrams. |
+| [SUBGROUPS] | Kharlampovich–Myasnikov–Remeslennikov–Serbin, *Subgroups of fully residually free groups: algorithmic problems*: https://www.ams.org/books/conm/360/ | Algorithms for finitely generated subgroups. |
+| [LENGTH] | Kharlampovich–Myasnikov–Remeslennikov–Serbin, *Groups with free regular length functions in Z^n*: https://arxiv.org/abs/0907.2356 | Length functions and embeddings. |
+| [INFINITE-WORDS] | Myasnikov–Remeslennikov–Serbin, *Fully residually free groups and graphs labeled by infinite words*: https://doi.org/10.1142/S0218196706003141 | Infinite-word representations and subgroup algorithms. |
+| [SELA-I] | Sela, *Diophantine geometry over groups I: Makanin–Razborov diagrams*: https://www.numdam.org/item/PMIHES_2001__93__31_0/ | Independent structural solution-diagram reference; compare interfaces. |
+| [IFT] | Kharlampovich–Myasnikov, *Implicit function theorem over free groups*: https://arxiv.org/abs/math/0312509 | Generalised equations, formal solutions, regular lifting. |
+| [LIFT] | Kharlampovich–Myasnikov, *Lifting Solutions into Generic Points*: https://arxiv.org/abs/math/0407110 | Effective lifting and parametrisation. |
+| [KM06] | Kharlampovich–Myasnikov, *Elementary theory of free non-abelian groups*: https://doi.org/10.1016/j.jalgebra.2006.03.033 | Prerequisite map and standalone target list, not the excluded full decision procedure. |
+| [LEAN] | Mathlib: free groups (Mathlib/GroupTheory/FreeGroup/Basic.lean), first-order syntax (Mathlib/ModelTheory/Syntax.lean), semantics (Mathlib/ModelTheory/Semantics.lean), computability (Mathlib/Computability/) | Existing vocabulary and starting infrastructure; check the chosen code revision. |
+
+Higher-quantifier decidability papers are sources for the separate proof project, not additional endpoints of this library roadmap.
+
+"""
+
 LV_BRIEF = """Topic: the Mordell conjecture (Faltings's theorem) as proved by Brian Lawrence and Akshay Venkatesh, "Diophantine problems and p-adic period mappings", Invent. Math. 221 (2020), 893–999, arXiv:1807.02721 (fetch the arXiv version; record provenance). The final target: a smooth projective geometrically connected curve of genus at least 2 over a number field has finitely many rational points. Follow the paper's own route and its intermediate results: the S-unit equation as the first worked instance of the method; the Kodaira–Parshin family attached to the curve; Gauss–Manin connections, the complex and p-adic period maps on residue disks and their analytic properties; crystalline comparison and the Frobenius-semilinear structure on de Rham cohomology of the fibres; semisimplicity of the relevant Galois representations and Faltings's finiteness lemma for representations of bounded dimension, restricted ramification and fixed weights; the monodromy / Zariski-density input for the period map and the dimension estimate on Frobenius-centralizer orbits that makes the counting work; and the final assembly. Identify every place where the paper cites an outside result, and decide for each whether an existing roadmap supplies it (candidates include PadicHodgeTheory, CrystallineCohomology, CohomologyComparisons, DeligneWeightsAndPurity, FaltingsFinitenessAndIsogenyTheorems, HeightsRationalPointsAndObstructions, tauceti:TauCetiRoadmap/HodgeStructures, tauceti:TauCetiRoadmap/Chebotarev, tauceti:TauCetiRoadmap/AlgebraicCurves, AlgebraicModuliForArithmeticGeometry, LefschetzPencilsAndVanishingCycles, PadicDifferentialEquationsAndRigidCohomology) or must be a layer of this roadmap. Lawrence–Venkatesh is an alternative to Faltings's height-based proof; do not route through FaltingsFinitenessAndIsogenyTheorems' Mordell corollary."""
 
 ZAGIER_BRIEF = """Topic: Zagier's conjecture on special values of Dedekind zeta functions via polylogarithms, with the proved cases carried out in full. Layers should include:
@@ -1508,7 +1705,8 @@ def main():
             else:
                 calls.append((route, paper, origin))
     # Priority 1: the new roadmaps and the Zagier suppliers.
-    designs = [("DESIGN-LV", "MordellLawrenceVenkatesh", "arithmeticgeometry", LV_BRIEF, None),
+    designs = [("DESIGN-FGLG", "FreeGroupsAndLimitGroups", "grouptheory", FGLG_BRIEF, "Free groups, equations over groups, and limit groups"),
+               ("DESIGN-LV", "MordellLawrenceVenkatesh", "arithmeticgeometry", LV_BRIEF, None),
                ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "ktheory", ZAGIER_BRIEF, None),
                ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "langlands", BCGP18_BRIEF, None),
                ("DESIGN-BCGP25", "AbelianSurfacesModularity", "langlands", BCGP25_BRIEF, None),
