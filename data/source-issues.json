@@ -178031,6 +178031,69 @@
    "reviewReason": "Independent revision-2 check of the specified source version and locator. Independent page-image inspection and identity-Weyl substitution; the outer ρ sign must be negative in the stated compact-picture convention."
   },
   {
+   "id": "AutomorphyLiftingBeyondTaylorWiles/E1",
+   "kind": "gap",
+   "locator": "§9.5, proof of Theorem 9.19, published p. 427 (verification of condition (b)); Definition 9.1, p. 413",
+   "printed": "In our words: the proof says Conjecture B provides an action of the deformation ring on the cohomology of the intermediate covers Y_{Δ_N}(Q_M), but Definition 9.1 and Conjecture B concern only the Hecke algebra of Y_1(Q).",
+   "correction": "Either define T^an_{Q,ψ} on the direct sum of the cohomology of every level between L_Q and K_Q and state Conjecture B for that algebra (the choice made in BT.0/tw-hecke-algebra), or patch derived Hecke algebras with nilpotent error ideals as in ACC+ §6 (DeformationAndDerivedPatchingAlgebra P8/finite-level-patching-data).",
+   "reason": "An operator killing every H^k(Y_1(Q), O/ϖ^m) acts on H^k(Y_{Δ}(Q), O/ϖ^m) through the Hochschild–Serre spectral sequence H^i(Δ′, H^j(Y_1(Q))) ⇒ H^{i+j}(Y_Δ(Q)) (Δ′ = ker(Δ̃ → Δ) of p-power order), hence only nilpotently in general; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} then gives no action on the intermediate cohomology.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json sourceIssues E1–E230 and its review",
+    "Calegari–Geraghty, Correction, Invent. Math. 227 (2022), 855–856 (bracket items only)",
+    "arXiv:1207.4224v2"
+   ],
+   "owner": "AutomorphyLiftingBeyondTaylorWiles",
+   "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
+   "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphyLiftingBeyondTaylorWiles/E2",
+   "kind": "gap",
+   "locator": "Theorem 5.16(8a), published p. 383",
+   "printed": "In our words: hypothesis (8a) refers to the p-adic Galois representation of the cuspidal π_0 and asks that it be residually r̄ and satisfy condition (6).",
+   "correction": "Over an arbitrary number field the existence of such a Galois representation is not known; state (8a) through the Hecke eigenvalue congruence between π_0 and r̄ and Iwahori-sphericity of π_0 at the places where it ramifies (BT.5/maximal-ideal-from-hypothesis-8), which is all the proof uses.",
+   "reason": "The proof of Theorem 9.19 needs only a maximal ideal m with r̄_m ≅ r̄ at Iwahori level; Galois representations attached to cohomological cuspidal π are known for F totally real or CM, not for general F.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json sourceIssues E1–E230 and its review",
+    "Calegari–Geraghty, Correction, Invent. Math. 227 (2022), 855–856 (bracket items only)",
+    "arXiv:1207.4224v2"
+   ],
+   "owner": "AutomorphyLiftingBeyondTaylorWiles",
+   "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
+   "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AutomorphyLiftingBeyondTaylorWiles/E3",
+   "kind": "gap",
+   "locator": "Theorem 5.16 and the sentence after it, published pp. 383–384; §9.5, opening, p. 424",
+   "printed": "In our words: the source says Theorem 5.16 follows immediately from Theorem 9.19 and gives no argument for producing m, checking that r is of type S, or passing from near faithfulness to a cuspidal π; it also writes L(r, s) = L(π, s) without specifying the normalization.",
+   "correction": "Write the deduction (BT.5/theorem-5-16): produce m, check that r is of type S, use near faithfulness to place the eigensystem of r in H^{q_0}(Y, K)_m, and recognise it as cuspidal using boundary vanishing, the Franke–Schwermer realization and bigness to exclude residual Speh eigensystems (BT.5/cuspidal-recognition). The equality of L-functions holds for partial L-functions, with arithmetic Frobenius in the Euler factors of L(r, s) and the shift L^S(r, s) = L^S(π, s − (n − 1)/2).",
+   "reason": "Boundary vanishing alone does not exclude residual discrete-spectrum eigensystems in interior cohomology; the bigness argument is needed for that step.",
+   "affects": "the proof",
+   "known": "Noted in the brief of PAPER-CALEGARI-GERAGHTY-18 (item thm-5-16) as a missing deduction; the residual-spectrum point is new.",
+   "searched": [
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json sourceIssues E1–E230 and its review",
+    "Calegari–Geraghty, Correction, Invent. Math. 227 (2022), 855–856 (bracket items only)",
+    "arXiv:1207.4224v2"
+   ],
+   "owner": "AutomorphyLiftingBeyondTaylorWiles",
+   "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
+   "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "BorelRegulators/E1",
    "kind": "misprint",
    "locator": "Borel 1977 pp.616,627,628,632; 5.5(1),(4) and 6.2(5); corrected by the published Borel 1980 erratum p.373",
