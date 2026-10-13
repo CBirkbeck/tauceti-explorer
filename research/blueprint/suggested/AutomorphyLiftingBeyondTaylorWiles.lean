@@ -116,8 +116,10 @@ theorem patched_ring_dimension (q T d n l₀ : ℤ) :
   unfold twVariables
   ring
 
--- `F = ℚ(i)`, `n = 2`, `T = S_p` with one place, `q = 3`: `g = 3 + 1 - 1 - 2 - 1 = 0`.
+-- `F = ℚ(i)`, `n = 2`, `T = S_p` with one place (`p ≡ 3 mod 4`), `q = 3`: `g = q + |T| - 4 = 0`.
 example : twVariables 3 1 2 2 1 = 0 := by decide
+-- `F = ℚ(i)`, `n = 2`, `T = S_p` with two places (`p ≡ 1 mod 4`), `q = 3`: `g = q + |T| - 4 = 1`.
+example : twVariables 3 2 2 2 1 = 1 := by decide
 
 /-! ## The algebra behind Lemma 9.6 -/
 
@@ -170,13 +172,13 @@ roadmap document states each one precisely.
 * The local systems O(ψ) of Iwahori characters (`BT.0/iwahori-character-local-system`): `BeyondTW.iwahoriCharLocalSystem`, `BeyondTW.iwahoriCharLocalSystem_one`, `BeyondTW.iwahoriCharLocalSystem_mod_varpi`, `BeyondTW.iwahoriCharLocalSystem_dual`, `BeyondTW.iwahoriCharLocalSystem_pullback`, `iwahoriChar_trivial`, `iwahoriChar_needs_congruence`, `iwahoriChar_product_condition`, `iwahoriChar_residual`.
 * Hecke operators T_{α,k}, V_x and diamond operators at Taylor–Wiles level (`BT.0/tw-hecke-operators`): `BeyondTW.heckeOp`, `BeyondTW.heckeOp_comm`, `BeyondTW.diamond`, `BeyondTW.heckeOp_unit_eq_diamond`, `BeyondTW.heckeOp_central`, `BeyondTW.heckeOp_pullback`, `heckeOp_unnormalized_n2`, `heckeOp_identity`, `heckeOp_diamond_trivial_Q_empty`, `heckeOp_not_normalized`.
 * The Hecke algebras T^an_{Q,ψ} and T_{Q,ψ} (Definition 9.1) (`BT.0/tw-hecke-algebra`): `BeyondTW.heckeAlgebra`, `BeyondTW.heckeAlgebraFull`, `BeyondTW.heckeAlgebra_finite`, `BeyondTW.heckeAlgebra_localization_prod`, `BeyondTW.heckeAlgebra_restrict`, `BeyondTW.SameGaloisRep`, `BeyondTW.heckeAlgebra_empty`, `heckeAlgebra_level_one_Q`, `heckeAlgebra_finite_O`, `heckeAlgebra_not_flat`, `heckeAlgebra_intermediate_needed`.
-* The Taylor–Wiles maximal ideal m_Q and projector e_Q (`BT.0/tw-maximal-ideal-and-projector`): `BeyondTW.twMaximalIdeal`, `BeyondTW.twProjector`, `BeyondTW.twProjector_isIdempotent`, `BeyondTW.twProjector_range`, `BeyondTW.twProjector_indep`, `BeyondTW.twProjector_comm_diamond`, `twProjector_empty`, `twProjector_n2`, `twProjector_toy_operator`, `twProjector_needs_simple_root`.
+* The Taylor–Wiles maximal ideal m_Q and projector e_Q (`BT.0/tw-maximal-ideal-and-projector`): `BeyondTW.twMaximalIdeal`, `BeyondTW.twProjector`, `BeyondTW.twProjector_isIdempotent`, `BeyondTW.twProjector_range`, `BeyondTW.twProjector_indep`, `BeyondTW.twProjector_comm_diamond`, `twProjector_empty`, `twProjector_n2`, `twProjector_toy_operator`, `twProjector_needs_simple_root`, `twProjector_keeps_nonroot`.
 * Residual independence of the Iwahori character and the dual local system (`BT.0/residual-character-independence`): `BeyondTW.residual_character_independence`.
 * Serre modular of minimal level (`BT.0/serre-modular-minimal-level`): `BeyondTW.SerreModularMinimal`, `BeyondTW.SerreModularMinimal.maximalIdeal`, `BeyondTW.SerreModularMinimal.iff_cohomology`, `BeyondTW.SerreModularMinimal.extendScalars`, `serreModular_GL2_Q_weight2`, `serreModular_reducible_excluded`, `serreModular_unramified_level`, `serreModular_characteristic_zero_not_required`.
 
 ### BT.1 — needs absolute Galois groups of number fields with decomposition and inertia groups and Frobenius elements, continuous representations, and local and global deformation rings (ArithmeticGaloisRepresentations; LocalGaloisDeformationRings; GlobalGaloisDeformations)
 
-* Standing residual data with an Ihara-avoidance set (`BT.1/ihara-avoidance-data`): `BeyondTW.StandingData`, `BeyondTW.StandingData.S`, `BeyondTW.StandingData.framedPlaces`, `BeyondTW.StandingData.psi`, `BeyondTW.StandingData.unramified_outside`, `BeyondTW.StandingData.extendScalars`, `standingData_R_empty`, `standingData_tate_curve`, `standingData_nonscalar_excluded`, `standingData_chi_distinct`.
+* Standing residual data with an Ihara-avoidance set (`BT.1/ihara-avoidance-data`): `BeyondTW.StandingData`, `BeyondTW.StandingData.S`, `BeyondTW.StandingData.framedPlaces`, `BeyondTW.StandingData.psi`, `BeyondTW.StandingData.unramified_outside`, `BeyondTW.StandingData.extendScalars`, `standingData_R_empty`, `standingData_tate_curve`, `standingData_nonscalar_excluded`, `standingData_chi_distinct`, `standingData_trace_not_balanced`, `standingData_reg_no_congruence`.
 * The local deformation rings R^1_loc and R^χ_loc (`BT.1/cg-local-rings`): `BeyondTW.flLocalRing`, `BeyondTW.unipotentLocalRing`, `BeyondTW.chiLocalRing`, `BeyondTW.localRing`, `BeyondTW.localRing_mod_varpi`, `BeyondTW.unipotentLocalRing_reg_smooth`, `BeyondTW.localRing_point_criterion`, `localRing_R_empty_smooth`, `localRing_n2_steinberg`, `localRing_unipotent_not_flat`, `localRing_mod_varpi_equal`.
 * Lemma 8.2 in corrected form: the local rings for Ihara avoidance (`BT.1/local-ring-properties`): `BeyondTW.localRing_properties`.
 * The global deformation data S_Q and S^χ_Q (`BT.1/cg-global-deformation-data`): `BeyondTW.globalData`, `BeyondTW.globalRing`, `BeyondTW.framedGlobalRing`, `BeyondTW.globalRing_deltaAlgebra`, `BeyondTW.globalRing_augmentation`, `BeyondTW.globalRing_mod_varpi`, `BeyondTW.globalRing_traces`, `globalData_Q_empty`, `globalData_n2_TW_ring`, `globalData_deltaAction_trivial_unramified`, `globalData_unrestricted_not_TW`.
@@ -200,7 +202,7 @@ roadmap document states each one precisely.
 
 * Reduction from PGL_2 to PSL_2 arithmetic groups (`BT.3/psl2-reduction`): `BeyondTW.psl2_reduction`.
 * The S-arithmetic amalgam G = Γ^1 ∗_{Γ^1_0(x)} Γ^1 (`BT.3/global-ihara-amalgam`): `BeyondTW.iharaAmalgam`, `BeyondTW.iharaAmalgam.isPushout`, `BeyondTW.iharaAmalgam.isCongruence`, `BeyondTW.iharaAmalgam.mem_g`, `iharaAmalgam_Q`, `iharaAmalgam_edge_quotient`, `iharaAmalgam_not_PGL2`, `iharaAmalgam_degenerate_index`.
-* The operator U_{x²} on Γ^1_0(x)-cohomology (`BT.3/u-x-squared`): `BeyondTW.Ux2`, `BeyondTW.Ux2_on_amalgam`, `BeyondTW.Ux2_eq_sq`, `BeyondTW.Ux2_indep_scalar`, `Ux2_old_eigenvalues`, `Ux2_on_G_trivial`, `Ux2_unnormalized`, `Ux2_mod_p`.
+* The operator U_{x²} on Γ^1_0(x)-cohomology (`BT.3/u-x-squared`): `BeyondTW.Ux2`, `BeyondTW.Ux2_on_amalgam`, `BeyondTW.Ux2_eq_sq`, `BeyondTW.Ux2_indep_scalar`, `Ux2_old_eigenvalues`, `Ux2_on_G_scalar`, `Ux2_unnormalized`, `Ux2_mod_p`.
 * The Hecke-equivariant Lyndon sequence of the amalgam (`BT.3/lyndon-hecke-equivariance`): `BeyondTW.lyndon_hecke_equivariant`.
 * Lemma 9.6: condition (5) of Conjecture B for n = 2 (`BT.3/lemma-9-6`): `BeyondTW.lemma_9_6`.
 * No new cohomology at primes with distinct Frobenius eigenvalues (§9.4) (`BT.3/distinct-eigenvalue-comparison`): `BeyondTW.distinct_eigenvalue_comparison`.

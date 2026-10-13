@@ -4,19 +4,19 @@
 
 This roadmap starts where PotentialAutomorphyInfrastructure stops. The parent plans the unconditional argument of Allen et al. over CM fields: integral cohomology on complexes, degree shifting, derived Ihara avoidance, Taylor–Wiles primes and ultrapatching. Here we plan the conditional framework from which that argument grew: automorphy lifting for GL_n over an arbitrary number field F, where the cohomology of the locally symmetric spaces of Res_{F/ℚ}PGL_n localized at a non-Eisenstein maximal ideal occupies the l_0 + 1 degrees [q_0, q_0 + l_0], with l_0 = r_1⌊(n−1)/2⌋ + r_2(n − 1). The source is Part 2 of Calegari–Geraghty, *Modularity lifting beyond the Taylor–Wiles method* (Invent. Math. 211, 2018), together with the pieces of its conditional GL_n machinery that the Calegari–Geraghty–Harris appendix (Duke Math. J. 169, 2020) restates and uses.
 
-The end theorems are Theorem 9.19 — under Conjecture B, the dual of H^{q_0}(Y, K/O)_m is a nearly faithful module over the minimal global deformation ring R_S — and Theorem 5.16, conditional modularity lifting for n-dimensional crystalline representations of G_F with Hodge–Tate weights 0, …, n − 1. Both are planned in corrected form. The extraction of the paper recorded that Lemma 8.2 is false as printed, that Theorem 5.16 is stated under weaker hypotheses than Theorem 9.19 is proved, that Conjecture B lacks the compatibility of diamond operators at Taylor–Wiles primes, and many smaller slips; planning found three further points (sourceIssues E1–E3 of the packet). The statements below are the ones the planned proofs establish.
+The end theorems are Theorem 9.19 — under Conjecture B, the dual of H^{q_0}(Y, K/O)_m is a nearly faithful module over the minimal global deformation ring R_S — and Theorem 5.16, conditional modularity lifting for n-dimensional crystalline representations of G_F with Hodge–Tate weights 0, …, n − 1. Both are planned in corrected form. The extraction of the paper recorded that Lemma 8.2 is false as printed, that Theorem 5.16 is stated under weaker hypotheses than Theorem 9.19 is proved, that Conjecture B lacks the compatibility of diamond operators at Taylor–Wiles primes, and many smaller slips; planning found three further points and its review a fourth (sourceIssues E1–E4 of the packet). The statements below are the ones the planned proofs establish.
 
-**Boundaries.** Conjecture B is never asserted: it appears as four named propositions (B^gal, B^lgc, B^van, B^tw) and their bundle, assumed by the theorems that need them. What other roadmaps plan is imported: the commutative algebra of patching, including Calegari–Geraghty's Theorem 6.3, Lemma 6.2 and Theorem 6.4 (DeformationAndDerivedPatchingAlgebra P8, P9, R03.5, R03.6); local and global Galois deformation theory, including Taylor's Ihara-avoidance rings and the minimally ramified rings (LocalGaloisDeformationRings L7, R08.2; GlobalGaloisDeformations R04.x, G8); Greenberg–Wiles and the archimedean count behind l_0 (ArithmeticGaloisDuality R02.5–R02.6); arithmetic quotients, Taylor–Wiles levels, Hecke correspondences, degeneracy maps, boundary and duality (ArithmeticLocallySymmetricSpaces ALS.0–ALS.6); Hecke images, factorial-power projectors, Galois-type maximal ideals and the GL_n Hecke polynomial (IntegralHeckeAndGaloisDeterminants IHG.2–IHG.3, now a TauCetiRoadmap roadmap); the local block theory behind CG18 Theorem 9.16 (SmoothRepresentationsOfLocalGroups SR.5); the Lyndon sequence and Ihara's amalgam (ModularCurvesPartII R14.4, ReductiveGroupsPartII RG2.2); and l_0, q_0, Borel–Wallach and Clozel's purity lemma (AutomorphicFormsOnReductiveGroups AF.4). This roadmap owns what is specific to the Calegari–Geraghty argument: the Taylor–Wiles-level Hecke algebras of Res PGL_n with their projector, the Conjecture B predicates, Lemma 9.6, the instantiation of the local and global deformation data with the numerical coincidence, the complexes D̃_N, the two patching data and their verification, Theorems 9.19 and 5.16, and cuspidal recognition. Not in scope: the unconditional CM-field results (parent PA.3–PA.4 and CrystallineLocalGlobalCompatibilityCM), the coherent-cohomology complexes of CG18 §7.2 (IntegralCoherentHeckeComplexes), the defect-one GL_2 theory of weight-one and Bianchi forms (GL2ModularityLiftingDefectOne), and the deduction of CG18 Theorem 1.1, which ModularityAndLanglandsExtensions ML.2 assembles from Theorem 5.16 here. The appendix's own vanishing theorems and adjoint Selmer statements belong to AdjointSelmerGroupsFromModularityLifting, which imports the predicates of BT.2 and Theorem 5.16.
+**Boundaries.** Conjecture B is never asserted: it appears as four named propositions (B^gal, B^lgc, B^van, B^tw) and their bundle, assumed by the theorems that need them. What other roadmaps plan is imported: the commutative algebra of patching, including Calegari–Geraghty's Theorem 6.3, Lemma 6.2 and Theorem 6.4 (DeformationAndDerivedPatchingAlgebra P8, P9, R03.5, R03.6); local and global Galois deformation theory, including Taylor's Ihara-avoidance rings and the minimally ramified rings (LocalGaloisDeformationRings L7, R08.2; GlobalGaloisDeformations R04.x, G8); Greenberg–Wiles and the archimedean count behind l_0 (ArithmeticGaloisDuality R02.5–R02.6); arithmetic quotients, Taylor–Wiles levels, Hecke correspondences, degeneracy maps, boundary and duality (ArithmeticLocallySymmetricSpaces ALS.0–ALS.6); Hecke images, factorial-power projectors, Galois-type maximal ideals and the GL_n Hecke polynomial (IntegralHeckeAndGaloisDeterminants IHG.2–IHG.3, now a TauCetiRoadmap roadmap); the local block theory behind CG18 Theorem 9.16 (SmoothRepresentationsOfLocalGroups SR.5); the Lyndon sequence and Ihara's amalgam (ModularCurvesPartII R14.4, ReductiveGroupsPartII RG2.2); l_0, q_0, Borel–Wallach and Clozel's purity lemma (AutomorphicFormsOnReductiveGroups AF.4); and the congruence-kernel theorems with the localized vanishing of H^0 and H^1 for PGL_3 over ℚ and PGL_2 over CM quartic fields (KTheoryLowDegrees U.4). This roadmap owns what is specific to the Calegari–Geraghty argument: the Taylor–Wiles-level Hecke algebras of Res PGL_n with their projector, the Conjecture B predicates, Lemma 9.6, the instantiation of the local and global deformation data with the numerical coincidence, the complexes D̃_N, the two patching data and their verification, Theorems 9.19 and 5.16, and cuspidal recognition. Not in scope: the unconditional CM-field results (parent PA.3–PA.4 and CrystallineLocalGlobalCompatibilityCM), the coherent-cohomology complexes of CG18 §7.2 (IntegralCoherentHeckeComplexes), the defect-one GL_2 theory of weight-one and Bianchi forms (GL2ModularityLiftingDefectOne), and the deduction of CG18 Theorem 1.1, which ModularityAndLanglandsExtensions ML.2 assembles from Theorem 5.16 here. The appendix's own vanishing theorems and adjoint Selmer statements belong to AdjointSelmerGroupsFromModularityLifting, which imports the predicates of BT.2 and Theorem 5.16.
 
 ## Notation and conventions
 
-F is a number field of signature (r_1, r_2), n ≥ 2 (the case n = 1 is the example BT.1/gl1-defect-example), p > n a prime unramified in F, and O the ring of integers of a finite extension K/ℚ_p with uniformizer ϖ and residue field k, large enough that W(k)[1/p] contains every embedding of F; it is enlarged finitely when needed. G = Res_{F/ℚ}PGL_n and Y(K) = G(ℚ)\G(𝔸)/K^0_∞K, with orbifold cohomology at non-neat level. l_0 = r_1⌊(n − 1)/2⌋ + r_2(n − 1) and 2q_0 + l_0 = dim Y (AutomorphicFormsOnReductiveGroups AF.4/l0-q0-invariants). S_p is the set of places above p; R is a finite set of places prime to p with N(v) ≡ 1 mod p, split as R_triv ⊔ R_reg; S = S_p ⊔ R; T = S_p ∪ R is the set of framed places; Q is a set of Taylor–Wiles primes and S_Q = S ⊔ Q.
+F is a number field of signature (r_1, r_2), n ≥ 2 (the case n = 1 is the example BT.1/gl1-defect-example), p > n a prime unramified in F, and O the ring of integers of a finite extension K/ℚ_p with uniformizer ϖ and residue field k, large enough that W(k)[1/p] contains every embedding of F; it is enlarged finitely when needed. G = Res_{F/ℚ}PGL_n and Y(K) = G(ℚ)\G(𝔸)/K^0_∞K, with orbifold cohomology at non-neat level. l_0 = r_1⌊(n − 1)/2⌋ + r_2(n − 1) and 2q_0 + l_0 = dim Y (AutomorphicFormsOnReductiveGroups AF.4/l0-q0-invariants). S_p is the set of places above p; R is a finite set of places prime to p, split as R_triv ⊔ R_reg, with N(v) ≡ 1 mod p for v ∈ R_triv (r̄ trivial there) and r̄(σ_v) a single unipotent Jordan block for v ∈ R_reg; S = S_p ⊔ R; T = S_p ∪ R is the set of framed places; Q is a set of Taylor–Wiles primes and S_Q = S ⊔ Q.
 
 Frobenius elements are arithmetic, ε is the p-adic cyclotomic character with ε(Frob_λ) = N(λ), and ξ = ε^{n(n−1)/2}. Hecke operators are unnormalized: T_{λ,i} is the characteristic function of K diag(ϖ_λ^{(i)}, 1^{(n−i)}) K, and the Hecke polynomial is Σ_i (−1)^i N(λ)^{i(i−1)/2} T_{λ,i} X^{n−i} (IntegralHeckeAndGaloisDeterminants IHG.3/gln-hecke-polynomial); with this convention det r_m = ε^{n(n−1)/2}, matching the determinant of the lifts. Levels are hyperspecial at every place outside R ∪ Q, including the places above p, Iwahori at R, and the line stabilizer K_0(x) with its normal subgroup K_1(x) (quotient k_x^×) at x ∈ Q. Completed group and framing rings use power series: S_∞ = O⟦(ℤ_p)^q⟧, O^□ = O⟦z_1, …, z_j⟧. The homological side of every duality uses the dual local system O(χ^{-1}) and the dual maximal ideal m^*.
 
 ## How the plan is organized
 
-The roadmap is planned at target level: one node for each target and for each definition or key theorem on the way, with full API and unit tests for every definition. BT.0 is the Hecke side, BT.1 the Galois side, BT.2 Conjecture B, BT.3 the Taylor–Wiles level comparison (condition (5)), BT.4 the complexes and patching data, BT.5 the patching argument and the end theorems. The suggested Lean file (`research/blueprint/suggested/AutomorphyLiftingBeyondTaylorWiles.lean`) types what the pinned libraries can state — the invariants l_0 and q_0, the numerical coincidence, oddness, the Hecke polynomial, near faithfulness and the commutative-algebra shape of the patching conclusion — and lists the arithmetic statements that need carriers the pins do not yet have.
+The roadmap is planned at target level: one node for each target and for each definition or key theorem on the way, with full API and unit tests for every definition. BT.0 is the Hecke side, BT.1 the Galois side, BT.2 Conjecture B, BT.3 the Taylor–Wiles level comparison (condition (5)), BT.4 the complexes and patching data, BT.5 the patching argument and the end theorems. The suggested Lean file (`research/blueprint/suggested/AutomorphyLiftingBeyondTaylorWiles.lean`) types what the pinned libraries can state — the invariants l_0 and q_0, the archimedean count for balanced involutions, the numerical coincidence, the Gram determinant of the degeneracy maps behind Lemma 9.6 and the congruence behind cuspidal recognition — and lists the arithmetic statements that need carriers the pins do not yet have.
 
 
 ## BT.0. Hecke algebras at Taylor–Wiles level
@@ -86,7 +86,7 @@ Keep the notation of BT.0/iwahori-character-local-system, and let Q be a finite 
 
 - g trivial at R so that the correspondence preserves O(ψ)
 - No normalization by powers of N(λ) (sourceIssues E180 of PAPER-CALEGARI-GERAGHTY-18)
-- Δ̃_Q is identified with ∏ k_x^× by g ≡ (a ∗; 0 B) ↦ det(B)·a^{1−n} (ALS.0/standard-level-subgroups (iv))
+- Δ̃_Q is identified with ∏ k_x^× by g ≡ (a ∗; 0 B) ↦ det(B)·a^{1−n} (ALS.0/standard-level-subgroups (iii)–(iv) give K_0(x)/K_1(x) ≅ k_x^×; this explicit map is the one fixed in sourceIssues E181 of PAPER-CALEGARI-GERAGHTY-18)
 
 **Construction or proof.**
 
@@ -94,7 +94,7 @@ Keep the notation of BT.0/iwahori-character-local-system, and let Q be a finite 
 2. At λ ∉ S_Q the T_{λ,k} commute and generate the spherical Hecke algebra; IHG.3/gln-hecke-polynomial fixes the polynomial convention.
 3. For α ∈ ∏ O_x^× the element diag(α,1,…,1) lies in K_Q, so T_{α,1} is the deck transformation by its class; with the identification above that class is α^{1−n}, and since p > n the T_{α,1} run over the p-part of Δ̃_Q.
 
-**Uses.** CG18 Conjecture B, p. 414: the characteristic polynomial of r̄_m(Frob_λ) is written in the T_{λ,i}. CG18 §9.5 and §7.1, pp. 394, 425: V_x enters the Taylor–Wiles projector ∏_x Q_x(V_x)^{k!}. BT.1/conj-b-local-global clause (6): the T_{α,1}, α ∈ ∏O_x^×, are compared with inertia at x ∈ Q.
+**Uses.** CG18 Conjecture B, p. 414: the characteristic polynomial of r̄_m(Frob_λ) is written in the T_{λ,i}. CG18 §9.5 and §7.1, pp. 394, 425: V_x enters the Taylor–Wiles projector ∏_x Q_x(V_x)^{k!}. BT.2/conj-b-local-global clause (6): the T_{α,1}, α ∈ ∏O_x^×, are compared with inertia at x ∈ Q.
 
 **API.**
 
@@ -143,7 +143,7 @@ With Q and ψ as above, let 𝒦_Q be the set of levels K′ with L_Q ⊆ K′ �
 2. Finite algebras over the complete local ring O decompose as the product of their localizations at maximal ideals (IHG.2/finite-hecke-local-factors).
 3. The restriction of the action to a single level K′ gives the image algebra of that level as a quotient of T^an_{Q,ψ}; pullback and trace between levels are Hecke equivariant for operators prime to S_Q.
 
-**Uses.** BT.1/conj-b-galois-type: Conjecture B attaches r̄_m and r_m to its maximal ideals. CG18 §9.5, p. 427: R_{S_Q} acts on the cohomology of every Y_{Δ_N}(Q_M) through T^an_{Q,ψ,m}. CGH20 §3.1, Theorem 3.2 (appendix A.4): the localized cohomology at m_α of Y_1(Q) is taken for this algebra with U_x − α_x.
+**Uses.** BT.2/conj-b-galois-type: Conjecture B attaches r̄_m and r_m to its maximal ideals. CG18 §9.5, p. 427: R_{S_Q} acts on the cohomology of every Y_{Δ_N}(Q_M) through T^an_{Q,ψ,m}. CGH20 §3.1, Theorem 3.2 (appendix A.4): the localized cohomology at m_α of Y_1(Q) is taken for this algebra with U_x − α_x.
 
 **API.**
 
@@ -179,27 +179,27 @@ With Q and ψ as above, let 𝒦_Q be the set of levels K′ with L_Q ⊆ K′ �
 
 **Target:** `BeyondTW.twMaximalIdeal` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.0/tw-maximal-ideal-and-projector`; planet: *Taylor–Wiles projector*.
 
-Let m be a maximal ideal of T^an_{Q,ψ} with residue field k and r̄ : G_F → GL_n(k) as in BT.3/ihara-avoidance-data. For x ∈ Q suppose r̄|G_x ≅ s̄_x ⊕ ψ̄_x with ψ̄_x a one-dimensional generalized Frobenius eigenspace, α_x := ψ̄_x(Frob_x), and write the characteristic polynomial of r̄(Frob_x) as P_x(X) = (X − α_x)Q_x(X), so Q_x(α_x) ≠ 0. m_Q is the maximal ideal of T_{Q,ψ} generated by m and the V_x − α̃_x (x ∈ Q), for any lifts α̃_x ∈ O. The Taylor–Wiles projector is e_Q := lim_{k→∞} ∏_{x∈Q} Q̃_x(V_x)^{k!}, with Q̃_x any lift of Q_x to O[X]; on every finite T_{Q,ψ}-module it is the idempotent projecting onto the localization at the maximal ideals of T_{Q,ψ} above m at which every V_x is congruent to α_x.
+Let m be a maximal ideal of T^an_{Q,ψ} with residue field k. For each x ∈ Q fix a factorization P_x(X) = (X − α_x)Q_x(X) in k[X] of a monic polynomial of degree n with Q_x(α_x) ≠ 0. In the application P_x is the characteristic polynomial of r̄(Frob_x) for the residual representation r̄ of a standing datum (BT.1/ihara-avoidance-data), r̄|G_x ≅ s̄_x ⊕ ψ̄_x with ψ̄_x a one-dimensional generalized Frobenius eigenspace, and α_x := ψ̄_x(Frob_x). m_Q is the maximal ideal of T_{Q,ψ} generated by m and the V_x − α̃_x (x ∈ Q), for any lifts α̃_x ∈ O. The Taylor–Wiles projector is e_Q := lim_{k→∞} ∏_{x∈Q} Q̃_x(V_x)^{k!}, with Q̃_x any lift of Q_x to O[X]. On every finite T_{Q,ψ}-module M supported above m it is the idempotent projecting onto ⊕_𝔫 M_𝔫, the sum over the maximal ideals 𝔫 of T_{Q,ψ} above m at which no V_x is congruent to a root of Q_x; when the residual eigenvalues of every V_x on M are roots of P_x, this is the localization M_{m_Q}.
 
 **Hypotheses and conventions.**
 
-- One-dimensionality of the generalized eigenspace ψ̄_x (Taylor–Wiles primes, BT.3/numerical-coincidence)
+- α_x a simple root of P_x, as for the one-dimensional generalized eigenspace ψ̄_x at a Taylor–Wiles prime (BT.1/numerical-coincidence)
 - Limits are in the profinite topology of the finite O-algebra T_{Q,ψ,m}
 
 **Construction or proof.**
 
 1. By IHG.2/factorial-localizing-idempotent, for t ∈ T_{Q,ψ,m} the powers t^{k!} converge to the idempotent which is 1 on the local factors where t is a unit and 0 where t lies in the maximal ideal.
-2. Q̃_x(V_x) is a unit exactly on the local factors where V_x ≡ α_x, because the roots of Q_x differ from α_x and the eigenvalues of V_x on the m-part are roots of P_x (Conjecture B(2) and the Hecke relation at x).
-3. The product over x ∈ Q of these idempotents is the idempotent of the local factor m_Q; it commutes with diamond operators and the T^an_{Q,ψ}-action.
+2. Q̃_x(V_x) is a unit exactly on the local factors 𝔫 where V_x mod 𝔫 is not a root of Q_x. These include the factors where V_x ≡ α_x, since Q_x(α_x) ≠ 0, and they are exactly those factors when the residual eigenvalues of V_x are roots of P_x. For n = 2 at a Taylor–Wiles prime the m-part may a priori contain a factor with V_x ≡ ±1, which e_Q keeps; this is why Lemma 9.6 localizes at m̃ = (m, U_x − α_x) (E229 of PAPER-CALEGARI-GERAGHTY-18).
+3. The product over x ∈ Q of these commuting idempotents is the idempotent of the factors described in the statement (the m_Q-factor under the eigenvalue condition); it commutes with diamond operators and with the T^an_{Q,ψ}-action.
 
-**Uses.** BT.1/conj-b-tw-comparison: Conjecture B(5) is an isomorphism onto the m_Q-part via e_Q. BT.4/localized-tw-complexes: the complexes D̃_N compute e_Q-projected homology. BT.2/distinct-eigenvalue-comparison: e_α of §9.4 is the case Q = {x}.
+**Uses.** BT.2/conj-b-tw-comparison: Conjecture B(5) is an isomorphism onto the m_Q-part via e_Q followed by the projection to that part. BT.4/localized-tw-complexes: the complexes D̃_N compute e_Q-projected homology. BT.3/distinct-eigenvalue-comparison: e_α of §9.4 is the case Q = {x}.
 
 **API.**
 
 - `BeyondTW.twMaximalIdeal` (constructor): m_Q ⊂ T_{Q,ψ} from m and the choices α_x.
 - `BeyondTW.twProjector` (constructor): e_Q as an idempotent of T_{Q,ψ,m}.
 - `BeyondTW.twProjector_isIdempotent` (simp): e_Q² = e_Q.
-- `BeyondTW.twProjector_range` (characterisation): e_Q M = M_{m_Q} for every finite T_{Q,ψ}-module M supported above m.
+- `BeyondTW.twProjector_range` (characterisation): e_Q M = ⊕_𝔫 M_𝔫 over the maximal ideals 𝔫 of T_{Q,ψ} above m at which no V_x is congruent to a root of Q_x, for every finite T_{Q,ψ}-module M supported above m; this is M_{m_Q} when every residual eigenvalue of every V_x on M is a root of P_x.
 - `BeyondTW.twProjector_indep` (extensionality): e_Q does not depend on the lifts of α_x and Q_x.
 - `BeyondTW.twProjector_comm_diamond` (relation): e_Q commutes with diamond operators and with T^an_{Q,ψ}.
 
@@ -209,6 +209,7 @@ Let m be a maximal ideal of T^an_{Q,ψ} with residue field k and r̄ : G_F → G
 - `twProjector_n2` (computation): For n = 2 and Q = {x} with eigenvalues α_x ≠ β_x, e_Q = lim(V_x − β̃_x)^{k!} and it kills the generalized β_x-eigenspace of V_x.
 - `twProjector_toy_operator` (computation): On O² with V = diag(α̃, β̃), α̃ ≢ β̃ mod ϖ, the projector lim(V − β̃)^{k!} equals diag(1, 0).
 - `twProjector_needs_simple_root` (non-example): If α_x is a double root of P_x then Q_x(α_x) = 0 and lim Q_x(V_x)^{k!} kills the α_x-part instead of isolating it.
+- `twProjector_keeps_nonroot` (non-example): For n = 2 and Q = {x} with residual eigenvalues α_x, β_x ∉ {±1}, on O with V_x acting by 1 (a Steinberg-type eigenvalue), lim (V_x − β̃_x)^{k!} = 1, so e_Q keeps this line although it is not in the m_Q-part; e_Q cuts out M_{m_Q} only under the eigenvalue condition.
 
 **Acceptance.**
 
@@ -257,10 +258,11 @@ Let χ = (χ_v)_{v∈R} be an Iwahori character datum. (1) For every level K wit
 
 **Target:** `BeyondTW.SerreModularMinimal` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.0/serre-modular-minimal-level`; planet: *Serre modular of minimal level*.
 
-Let r̄ : G_F → GL_n(k) be continuous and absolutely irreducible, and let R(r̄) be the set of finite places v ∤ p at which r̄ is ramified. r̄ is Serre modular of minimal level if there is a maximal ideal m of T = T_{∅,1} at the level K_∅(R(r̄)) (hyperspecial outside R(r̄), Iwahori at R(r̄)) such that Conjecture B's residual representation r̄_m (BT.1/conj-b-galois-type) exists and r̄_m ≅ r̄ ⊗_k k(m). Equivalently, H^*(Y(K_∅(R(r̄))), k)_m ≠ 0 for a maximal ideal m whose Hecke polynomials at λ ∉ S are the characteristic polynomials of r̄(Frob_λ).
+Let r̄ : G_F → GL_n(k) be continuous and absolutely irreducible, and let R(r̄) be the set of finite places v ∤ p at which r̄ is ramified. r̄ is Serre modular of minimal level if there is a maximal ideal m of T = T_{∅,1} at the level K_∅(R(r̄)) (hyperspecial outside R(r̄), Iwahori at R(r̄)) such that m is of Galois type for the Hecke polynomial of BT.0/tw-hecke-operators (IntegralHeckeAndGaloisDeterminants IHG.3/galois-type-maximal-ideal; this is the residual part of B^gal, BT.2/conj-b-galois-type) with residual representation r̄_m ≅ r̄ ⊗_k k(m). Equivalently, H^*(Y(K_∅(R(r̄))), k)_m ≠ 0 for a maximal ideal m whose Hecke polynomials at λ ∉ S are the characteristic polynomials of r̄(Frob_λ).
 
 **Hypotheses and conventions.**
 
+- r̄ has at worst unipotent ramification away from p (the setting of CG18 §8.5), so that Iwahori level at R(r̄) is the minimal level; for other ramification Iwahori level is not minimal
 - The level at R(r̄) is Iwahori, which realizes the Serre conductor exponent n − 1 when r̄(σ_v) is a single unipotent Jordan block (the case BT.5/theorem-5-16 uses)
 - This is a statement about a mod p class only; no characteristic-zero lift is asserted
 
@@ -310,19 +312,19 @@ A standing datum (F, n, p, O, r̄, ξ = ε^{n(n−1)/2}, R = R_triv ⊔ R_reg, �
 
 **Target:** `BeyondTW.StandingData` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.1/ihara-avoidance-data`; planet: *Ihara-avoidance datum*.
 
-A standing datum consists of: a number field F of signature (r_1, r_2); an integer n ≥ 2; a prime p > n unramified in F; the ring of integers O of a finite extension K/ℚ_p whose residue field k contains the images of all embeddings F ↪ Q̄_p into W(k)[1/p]; a continuous absolutely irreducible r̄ : G_F → GL_n(k); the character ξ = ε^{n(n−1)/2} : G_F → O^× (ε the p-adic cyclotomic character, ε(Frob_λ) = N(λ) for arithmetic Frobenius); and a finite set R of finite places of F, disjoint from S_p, written R = R_triv ⊔ R_reg, together with characters χ = (χ_v)_{v∈R_triv}, χ_v = (χ_{v,1}, …, χ_{v,n}), χ_{v,i} : I_v → 1 + 𝔪_O pairwise distinct with ∏_i χ_{v,i} = 1. It is required that: (a) for every v | p, r̄|G_v is Fontaine–Laffaille with weights {0, 1, …, n − 1} for each embedding τ (LocalGaloisDeformationRings L7/fontaine-laffaille-deformation-condition); (b) N(v) ≡ 1 mod p for every v ∈ R; (c) r̄|G_v is trivial for v ∈ R_triv; (d) for v ∈ R_reg, r̄|I_v is unipotent and r̄(σ_v) is a single Jordan block, σ_v a generator of tame inertia; (e) r̄ is unramified outside S_p ∪ R; (f) r̄ is odd at every real place (ArithmeticGaloisRepresentations G7/oddness-at-real-places: trace of complex conjugation in {−1, 0, 1}); (g) det r̄ = ε̄^{n(n−1)/2}. Put S = S_p ⊔ R and T = S_p ∪ R (the framed places); the Iwahori character datum of BT.0 is ψ = 1 or ψ = χ, with χ extended by 1 on R_reg and transported to Iw(v)/Iw_1(v) through Art_v.
+A standing datum consists of: a number field F of signature (r_1, r_2); an integer n ≥ 2; a prime p > n unramified in F; the ring of integers O of a finite extension K/ℚ_p with residue field k such that W(k)[1/p] contains the images of all embeddings F ↪ Q̄_p; a continuous absolutely irreducible r̄ : G_F → GL_n(k); the character ξ = ε^{n(n−1)/2} : G_F → O^× (ε the p-adic cyclotomic character, ε(Frob_λ) = N(λ) for arithmetic Frobenius); and a finite set R of finite places of F, disjoint from S_p, written R = R_triv ⊔ R_reg, together with characters χ = (χ_v)_{v∈R_triv}, χ_v = (χ_{v,1}, …, χ_{v,n}), χ_{v,i} : k_v^× → 1 + 𝔪_O (equivalently, characters of O_{F_v}^× trivial on 1 + 𝔭_v) pairwise distinct with ∏_i χ_{v,i} = 1, evaluated on I_v through Art_v^{-1} (sourceIssues E168 of PAPER-CALEGARI-GERAGHTY-18). It is required that: (a) for every v | p, r̄|G_v is Fontaine–Laffaille with weights {0, 1, …, n − 1} for each embedding τ (LocalGaloisDeformationRings L7/fontaine-laffaille-deformation-condition); (b) N(v) ≡ 1 mod p for every v ∈ R_triv (no congruence is imposed on R_reg); (c) r̄|G_v is trivial for v ∈ R_triv; (d) for v ∈ R_reg, r̄|I_v is unipotent and r̄(σ_v) is a single Jordan block, σ_v a generator of tame inertia; (e) r̄ is unramified outside S_p ∪ R; (f) r̄ is odd (balanced) at every real place v: the ±1-eigenspaces of r̄(c_v) have dimensions differing by at most one (ArithmeticGaloisRepresentations G7/oddness-at-real-places (d)); in characteristic p > n this is the trace condition Tr r̄(c_v) ∈ {−1, 0, 1} except when n is even and p = n + 1 (sourceIssues E164); (g) det r̄ = ε̄^{n(n−1)/2}. Put S = S_p ⊔ R and T = S_p ∪ R (the framed places); the Iwahori character datum of BT.0 is ψ = 1 or ψ = χ, with χ extended by 1 on R_reg, viewed as a character of Iw(v)/Iw_1(v) ≅ (k_v^×)^n/k_v^×.
 
 **Hypotheses and conventions.**
 
-- The splitting R = R_triv ⊔ R_reg replaces the single set R of CG18 §8.5: Lemma 8.2 is false without (c) at the Ihara-avoidance places (sourceIssues E169, E203 of PAPER-CALEGARI-GERAGHTY-18), and (d) is the minimal-ramification case used by CGH20 §4(2)(a)
-- χ_{v,i} have p-power order since they take values in 1 + 𝔪_O; they are nontrivial only because N(v) ≡ 1 mod p
-- Oddness at a real place is the balanced-eigenspace condition of R02.6/archimedean-adjoint-dimensions
+- The splitting R = R_triv ⊔ R_reg replaces the single set R of CG18 §8.5: Lemma 8.2 is false without (c) at the Ihara-avoidance places (sourceIssues E169, E203 of PAPER-CALEGARI-GERAGHTY-18), and (d) is the minimal-ramification case used by CGH20 §4(2)(a); the congruence (b) is needed only where the characters χ_v live, so R_reg carries none, as in CGH20 Theorem 1.2 (A.2)
+- χ_{v,i} are characters of the finite group k_v^× with values in the pro-p group 1 + 𝔪_O, so they have p-power order and are nontrivial only because N(v) ≡ 1 mod p (E168: a character of I_v with values in 1 + 𝔪_O need not factor through k_v^×)
+- Oddness at a real place is the balanced-eigenspace condition of R02.6/archimedean-adjoint-dimensions (E164 of PAPER-CALEGARI-GERAGHTY-18: the trace criterion is not equivalent to it when n is even and p = n + 1)
 
 **Construction or proof.**
 
 1. Each condition is local except (e) and (g); (a) is meaningful because p > n and F_v/ℚ_p is unramified, so the weights lie in the Fontaine–Laffaille range [0, p − 2].
 2. Since R contains every ramified place of r̄ away from p, (c) and (d) say that at a ramified place r̄ is a single unipotent block, and at an unramified place of R it is trivial.
-3. χ extended by 1 on R_reg and composed with Art_v^{-1} on O_v^× gives the Iwahori character datum of BT.0/iwahori-character-local-system.
+3. χ_v extended by 1 on R_reg is a tuple of characters of (k_v^×)^n with trivial product, which is the Iwahori character datum of BT.0/iwahori-character-local-system; on inertia it acts through Art_v^{-1} and O_{F_v}^× ↠ k_v^×.
 
 **Uses.** BT.1/cg-local-rings: the local conditions are chosen place by place from this datum. BT.5/theorem-9-19: the standing hypotheses of §9.5 in corrected form. BT.5/theorem-5-16: the hypotheses of Theorem 5.16 produce such a datum.
 
@@ -338,14 +340,16 @@ A standing datum consists of: a number field F of signature (r_1, r_2); an integ
 **Unit tests.**
 
 - `standingData_R_empty` (degenerate): With R = ∅, S = S_p, T = S_p and the χ-datum is the trivial datum.
-- `standingData_tate_curve` (computation): For n = 2 and r̄ = E[p] with E having multiplicative reduction at v, p ∤ v(Δ_E) and N(v) ≡ 1 mod p, the place v belongs to R_reg (r̄(σ_v) = (1 1; 0 1)).
+- `standingData_tate_curve` (computation): For n = 2 and r̄ = E[p] with E having multiplicative reduction at v and p ∤ v(Δ_E), the place v belongs to R_reg (r̄(σ_v) conjugate to (1 1; 0 1)), with no condition on N(v) mod p.
 - `standingData_nonscalar_excluded` (non-example): If r̄|G_v is unramified with r̄(Frob_v) nonscalar, v can be neither in R_triv (not trivial) nor in R_reg (not ramified).
 - `standingData_chi_distinct` (characterisation): For v ∈ R_triv the χ_{v,i} are pairwise distinct; with χ_{v,1} = χ_{v,2} the ring R^χ_v is not irreducible in general and the datum is rejected.
+- `standingData_trace_not_balanced` (non-example): For n = 2 and p = 3, r̄(c_v) = 1 at a real place has trace 2 = −1 in 𝔽_3 but ±1-eigenspaces of dimensions 2 and 0, so it violates (f); a definition of oddness by the trace alone would accept it (E164).
+- `standingData_reg_no_congruence` (characterisation): A place v with r̄(σ_v) a single unipotent Jordan block may be put in R_reg for every N(v) prime to p, whereas a place of R_triv needs N(v) ≡ 1 mod p: otherwise every character k_v^× → 1 + 𝔪_O is trivial and the χ_{v,i} cannot be pairwise distinct.
 
 **Acceptance.**
 
 - R = ∅ is allowed; then r̄ is unramified outside p.
-- For n = 2 and E an elliptic curve with multiplicative reduction at v, p ∤ v(Δ_E), N(v) ≡ 1 mod p, r̄ = E[p] has v ∈ R_reg.
+- For n = 2 and E an elliptic curve with multiplicative reduction at v and p ∤ v(Δ_E), r̄ = E[p] has v ∈ R_reg, whatever N(v) is modulo p.
 - A place v with r̄|G_v unramified of nonscalar Frobenius cannot be put in R.
 
 **Direct prerequisites:** `LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition`; `ArithmeticGaloisRepresentations:G7/oddness-at-real-places`; `ArithmeticGaloisDuality:R02.6/archimedean-adjoint-dimensions`; [The local systems O(ψ) of Iwahori characters](#bt-bt-0-iwahori-character-local-system).
@@ -359,7 +363,7 @@ A standing datum consists of: a number field F of signature (r_1, r_2); an integ
 
 **Target:** `BeyondTW.flLocalRing` (construction); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.1/cg-local-rings`; planet: *Local deformation rings R^1_loc, R^χ_loc*.
 
-For a standing datum, let C_O be the category of complete Noetherian local O-algebras with residue field k. (i) For v | p, R_v is the framed Fontaine–Laffaille deformation ring of r̄|G_v with determinant ξ|G_v and τ-weights {0, …, n − 1}; it is formally smooth over O of relative dimension n² − 1 + [F_v : ℚ_p]n(n − 1)/2. (ii) For v ∈ R_triv, R^1_v (resp. R^{χ_v}_v) is the quotient of the framed determinant-ξ lifting ring of r̄|G_v by the condition that every σ ∈ I_v has characteristic polynomial (X − 1)^n (resp. ∏_i(X − χ_{v,i}(σ))). (iii) For v ∈ R_reg, R^1_v is the same unipotent quotient, which equals the minimally ramified ring and is formally smooth of relative dimension n² − 1. Put R^1_loc := (⊗̂_{v|p} R_v) ⊗̂ (⊗̂_{v∈R} R^1_v) and R^χ_loc := (⊗̂_{v|p} R_v) ⊗̂ (⊗̂_{v∈R_triv} R^{χ_v}_v) ⊗̂ (⊗̂_{v∈R_reg} R^1_v), completed tensor products over O. Write D_v, D^1_v, D^χ_v for the corresponding local deformation problems.
+For a standing datum, let C_O be the category of complete Noetherian local O-algebras with residue field k. (i) For v | p, R_v is the framed Fontaine–Laffaille deformation ring of r̄|G_v with determinant ξ|G_v and τ-weights {0, …, n − 1}; it is formally smooth over O of relative dimension n² − 1 + [F_v : ℚ_p]n(n − 1)/2. (ii) For v ∈ R_triv, R^1_v (resp. R^{χ_v}_v) is the quotient of the framed determinant-ξ lifting ring of r̄|G_v by the condition that every σ ∈ I_v has characteristic polynomial (X − 1)^n (resp. ∏_i(X − χ_{v,i}(Art_v^{-1}(σ)))). (iii) For v ∈ R_reg, R^1_v is the same unipotent quotient, which equals the minimally ramified ring and is formally smooth of relative dimension n² − 1. Put R^1_loc := (⊗̂_{v|p} R_v) ⊗̂ (⊗̂_{v∈R} R^1_v) and R^χ_loc := (⊗̂_{v|p} R_v) ⊗̂ (⊗̂_{v∈R_triv} R^{χ_v}_v) ⊗̂ (⊗̂_{v∈R_reg} R^1_v), completed tensor products over O. Write D_v, D^1_v, D^χ_v for the corresponding local deformation problems.
 
 **Hypotheses and conventions.**
 
@@ -390,7 +394,7 @@ For a standing datum, let C_O be the category of complete Noetherian local O-alg
 
 - `localRing_R_empty_smooth` (degenerate): For R = ∅, R^1_loc = R^χ_loc ≅ O⟦y_1, …, y_d⟧ with d = |S_p|(n² − 1) + [F:ℚ]n(n − 1)/2.
 - `localRing_n2_steinberg` (compatibility): For n = 2 and v ∈ R_reg, R^1_v is the Steinberg ring of R08.2/steinberg-ring-domain, a power series ring in 3 variables over O.
-- `localRing_unipotent_not_flat` (non-example): For v ∈ R_triv, R^1_v has nonzero p-torsion (the element p^{a−1}Y in O⟦X, a, b⟧[Y]/(Y², p^aY) for n = 2), so R^1_loc is not O-flat.
+- `localRing_unipotent_not_flat` (non-example): For n = 2 and v ∈ R_triv with q = N(v), write Φ = ρ(φ_v) and S = ρ(σ_v) − 1 for the universal lift over R^1_v; then (q − 1)·tr(ΦS) = 0 but tr(ΦS) ≠ 0, as the point Φ = diag(1 + X, δ/(1 + X)), Σ = diag(1 + α, 1 − α) with values in O⟦X⟧[α]/(α², (q − 1)α) shows (δ = ξ(φ_v)); so R^1_v and R^1_loc have nonzero p-torsion (E165).
 - `localRing_mod_varpi_equal` (computation): For n = 2 and v ∈ R_triv, both R^1_v/ϖ and R^{χ_v}_v/ϖ are the quotient of the lifting ring mod ϖ by tr(ρ(σ)) = 2, det ρ(σ) = 1 on inertia.
 
 **Acceptance.**
@@ -508,7 +512,7 @@ For a standing datum and Q as in BT.1/cg-global-deformation-data: (1) R_{S_Q} �
 **Acceptance.**
 
 - With Q = ∅ and R = ∅, (3) reads h¹_{∅,S_p}(ad⁰) = h¹_{⊥}(ad⁰(1)) − Σ_{v|p}h⁰(G_v, ad⁰) − Σ_{v|∞}h⁰(G_v, ad⁰) when h⁰(ad⁰) = h⁰(ad⁰(1)) = 0.
-- For n = 1 the count specializes to the rank-one Selmer numerics of R02.5/rank-one-selmer-numerics.
+- For n = 1, ad⁰ r̄ = 0 and (3) reads 0 = 0; the rank-one count of BT.1/gl1-defect-example uses ad r̄ = k instead (R02.5/rank-one-selmer-numerics).
 - (1) fails for T = ∅: the unframed ring is not a power series ring over itself in −1 variables.
 
 **Direct prerequisites:** [The global deformation data S_Q and S^χ_Q](#bt-bt-1-cg-global-deformation-data); `GlobalGaloisDeformations:R04.2/framed-unframed-comparison`; `GlobalGaloisDeformations:G8/variable-determinant-representability`; `GlobalGaloisDeformations:R04.3/local-to-global-presentation`; `GlobalGaloisDeformations:R04.3/relative-tangent-space`; `ArithmeticGaloisDuality:R02.5/greenberg-wiles-formula`.
@@ -538,7 +542,7 @@ For a standing datum with r̄(G_{F(ζ_p)}) big (CHT Definition 2.5.1) and F(ad�
 
 **Acceptance.**
 
-- For F imaginary quadratic and n = 2, l_0 = 1 and g = q + |T| − 2 − 1.
+- For F imaginary quadratic and n = 2, l_0 = 1, [F:ℚ]n(n − 1)/2 = 2 and g = q + |T| − 4.
 - For F totally real and n = 2, l_0 = 0, recovering the Taylor–Wiles–Kisin count g = q + |T| − 1 − [F:ℚ].
 - For n = 1 the formula gives l_0 = r_1 + r_2 − 1 only with the GL_1 conventions of BT.1/gl1-defect-example, not the PGL_n formula, which gives 0.
 
@@ -610,7 +614,7 @@ Let F be a number field with ζ_p ∉ F and r̄ : G_F → k^× the trivial chara
 
 ## BT.2. Conjecture B as hypotheses
 
-Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual and integral Galois representations for T^an_{Q,ψ} (B^gal), local–global compatibility at p, at Taylor–Wiles primes and at R together with the added compatibility of diamond operators at Taylor–Wiles primes (B^lgc), vanishing outside [q_0, q_0 + l_0] and on the Borel–Serre boundary (B^van), and the Taylor–Wiles level comparison (B^tw); their bundle; dévissage; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} of O[Δ_Q]-algebras; and B^van(a) in small rank (imaginary quadratic GL_2 unconditionally; GL_3/ℚ and CM quartic GL_2 under the congruence subgroup property).
+Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual and integral Galois representations for T^an_{Q,ψ} (B^gal), local–global compatibility at p, at Taylor–Wiles primes and at R together with the added compatibility of diamond operators at Taylor–Wiles primes (B^lgc), vanishing outside [q_0, q_0 + l_0] and on the Borel–Serre boundary (B^van), and the Taylor–Wiles level comparison (B^tw); their bundle; dévissage; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} of O[Δ_Q]-algebras; and B^van(a) in small rank (imaginary quadratic GL_2 directly; GL_3/ℚ and CM quartic GL_2 through the congruence-kernel theorems and the localized H^0, H^1 vanishing of KTheoryLowDegrees U.4).
 
 **Layer dependencies:** `AutomorphyLiftingBeyondTaylorWiles:BT.0`, `IntegralHeckeAndGaloisDeterminants:IHG.3`, `GlobalGaloisDeformations:R04.2`, `AutomorphyLiftingBeyondTaylorWiles:BT.1`, `LocalGaloisDeformationRings:R08.2`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`, `AutomorphicFormsOnReductiveGroups:AF.4`, `ArithmeticLocallySymmetricSpaces:ALS.2`, `ArithmeticLocallySymmetricSpaces:ALS.4`, `ArithmeticLocallySymmetricSpaces:ALS.1`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality`, `KTheoryLowDegrees:U.4`.
 
@@ -619,7 +623,7 @@ Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual an
 
 ### Conjecture B, residual and integral Galois representations (hypothesis)
 
-**Target:** `BeyondTW.ConjB.GaloisType` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conj-b-galois-type`; planet: *Conjecture B*.
+**Target:** `BeyondTW.ConjB.GaloisType` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conj-b-galois-type`.
 
 For Q, ψ as in BT.0 and a maximal ideal m of T^an_{Q,ψ}, the hypothesis B^gal(Q, ψ, m) is the conjunction of: (i) there is a continuous semisimple r̄_m : G_F → GL_n(T^an_{Q,ψ}/m), unramified outside S_Q, such that for every prime λ ∉ S_Q the characteristic polynomial of r̄_m(Frob_λ) (arithmetic Frobenius) is X^n − T_{λ,1}X^{n−1} + ⋯ + (−1)^i N(λ)^{i(i−1)/2}T_{λ,i}X^{n−i} + ⋯ + (−1)^n N(λ)^{n(n−1)/2}T_{λ,n} in (T^an_{Q,ψ}/m)[X], with the unnormalized T_{λ,i}; that is, m is of Galois type in the sense of IntegralHeckeAndGaloisDeterminants (IHG.3/galois-type-maximal-ideal) for this Hecke polynomial; (ii) if r̄_m is absolutely irreducible (m non-Eisenstein), there is a continuous lift r_m : G_F → GL_n(T^an_{Q,ψ,m}) of r̄_m, unramified outside S_Q, whose characteristic polynomials at Frob_λ, λ ∉ S_Q, are given by the same formula in T^an_{Q,ψ,m}[X]. It is a hypothesis: a named proposition assumed by the theorems of BT.5, never asserted.
 
@@ -760,7 +764,7 @@ For Q, ψ and a maximal ideal m of T^an_{Q,ψ}, B^van(Q, ψ, m) is the conjuncti
 
 **Target:** `BeyondTW.ConjB.TWComparison` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conj-b-tw-comparison`.
 
-For Q a set of Taylor–Wiles primes and m as in BT.0/tw-maximal-ideal-and-projector, B^tw(Q, ψ, m) asserts that for every m ≥ 1 the composite e_Q ∘ pr^* : H^*_ψ(Y, O/ϖ^m)_m → H^*_ψ(Y_0(Q), O/ϖ^m)_{m_Q} is an isomorphism, where pr : Y_0(Q) → Y is the natural projection and e_Q = lim_{k→∞} ∏_{x∈Q} Q_x(V_x)^{k!} is the Taylor–Wiles projector.
+For Q a set of Taylor–Wiles primes and m as in BT.0/tw-maximal-ideal-and-projector, B^tw(Q, ψ, m) asserts that for every m ≥ 1 the composite of pr^*, e_Q and the projection onto the m_Q-part, H^*_ψ(Y, O/ϖ^m)_m → H^*_ψ(Y_0(Q), O/ϖ^m)_{m_Q}, is an isomorphism, where pr : Y_0(Q) → Y is the natural projection and e_Q = lim_{k→∞} ∏_{x∈Q} Q_x(V_x)^{k!} is the Taylor–Wiles projector.
 
 **Hypotheses and conventions.**
 
@@ -777,7 +781,7 @@ For Q a set of Taylor–Wiles primes and m as in BT.0/tw-maximal-ideal-and-proje
 **API.**
 
 - `BeyondTW.ConjB.TWComparison` (constructor): The proposition B^tw(Q, ψ, m).
-- `BeyondTW.ConjB.TWComparison.map` (data): The map e_Q ∘ pr^*.
+- `BeyondTW.ConjB.TWComparison.map` (data): The map e_Q ∘ pr^* followed by the projection onto the m_Q-part.
 - `BeyondTW.ConjB.TWComparison.empty` (simp): For Q = ∅ the proposition holds.
 - `BeyondTW.ConjB.TWComparison.mono` (functoriality): If it holds for Q it holds for every subset of Q (by applying the projector one prime at a time).
 
@@ -792,7 +796,7 @@ For Q a set of Taylor–Wiles primes and m as in BT.0/tw-maximal-ideal-and-proje
 
 - For Q = ∅ the map is the identity.
 - For n = 2 the hypothesis holds at every Taylor–Wiles prime (Lemma 9.6, BT.3/lemma-9-6).
-- Under enormous image the GL(n) analogue holds at primes with distinct Frobenius eigenvalues (BT.3/distinct-eigenvalue-comparison).
+- Under local–global compatibility at x the GL(n) analogue holds at primes with distinct Frobenius eigenvalues (BT.3/distinct-eigenvalue-comparison); its transfer to the Res PGL_n quotients used here is a recorded gap.
 
 **Direct prerequisites:** [The Taylor–Wiles maximal ideal m_Q and projector e_Q](#bt-bt-0-tw-maximal-ideal-and-projector); [The Hecke algebras T^an_{Q,ψ} and T_{Q,ψ} (Definition 9.1)](#bt-bt-0-tw-hecke-algebra); `ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback`.
 
@@ -803,7 +807,7 @@ For Q a set of Taylor–Wiles primes and m as in BT.0/tw-maximal-ideal-and-proje
 
 ### Conjecture B for a standing datum (the hypothesis bundle)
 
-**Target:** `BeyondTW.ConjB` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conjecture-b`.
+**Target:** `BeyondTW.ConjB` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conjecture-b`; planet: *Conjecture B*.
 
 For a standing datum and a maximal ideal m of T at level K_∅(R) with r̄_m ≅ r̄, ConjB(Q, ψ, m) := B^gal ∧ B^lgc ∧ B^van ∧ B^tw at (Q, ψ, m). The hypothesis of BT.5/theorem-9-19 is ConjB(Q, ψ, m_Q) for Q = ∅ and for each set Q_N of the chosen Taylor–Wiles system, with ψ = 1 and ψ = χ. 'Conjecture B for F' means ConjB for every standing datum over F, every Taylor–Wiles set and both character data. The appendix CGH20 Theorem 1.2 assumes all clauses except B^van.
 
@@ -911,34 +915,35 @@ Let a standing datum be given, Q a Taylor–Wiles set, ψ ∈ {1, χ}, and m a m
 
 **Target:** `BeyondTW.ConjB.vanishing_small_rank` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.2/conj-b-small-rank`.
 
-Let m be a non-Eisenstein maximal ideal at which B^gal holds. (1) For F imaginary quadratic and n = 2 (dim Y = 3, l_0 = q_0 = 1), H^0(Y(K′), O/ϖ^m)_m = H^3(Y(K′), O/ϖ^m)_m = 0 for every level, so B^van(a) holds. (2) For n = 3, F = ℚ ((q_0, l_0) = (2, 1)) and for n = 2 with F a CM field of degree 4 ((q_0, l_0) = (2, 2)), suppose the arithmetic groups at the given level satisfy the congruence subgroup property (finite congruence kernel). Then (H^1)_m = 0 and, by duality applied to m and m^*, (H_c^{d−1})_m = 0 with d = 2q_0 + l_0 = dim Y; boundary vanishing then gives (H^{d−1})_m = 0, and B^van(a) holds.
+Let m be a non-Eisenstein maximal ideal at which B^gal and B^van(b) hold. (1) For F imaginary quadratic and n = 2 (dim Y = 3, l_0 = q_0 = 1), H^0(Y(K′), O/ϖ^m)_m = H^3(Y(K′), O/ϖ^m)_m = 0 for every level, so B^van(a) holds. (2) For n = 3, F = ℚ ((q_0, l_0) = (2, 1), d = dim Y = 5) and for n = 2 with F a CM field of degree 4 ((q_0, l_0) = (2, 2), d = 6), with p > n unramified in F as in the standing data, suppose also that B^gal holds at the dual maximal ideal m^∨ and that m^∨ is non-Eisenstein. Then H^i(Y(K′), O/ϖ^m)_m = 0 for i ∈ {0, 1, d − 1, d} and every level K′, so B^van(a) holds.
 
 **Hypotheses and conventions.**
 
-- Boundary vanishing at m for the step from H_c to H (B^van(b), or ALS.4/gln-boundary-eisenstein where Galois representations of the Levi are available)
-- For (2), the congruence subgroup property is a hypothesis of the statement: Bass–Milnor–Serre for SL_3(ℤ) and Serre (1970) for SL_2(O_F) with O_F^× infinite; neither is planned in the atlas (gap)
+- Boundary vanishing at m (B^van(b)) for the step from H_c to H, or ArithmeticLocallySymmetricSpaces ALS.4/gln-boundary-eisenstein where Galois representations of the Levi factors are available
+- For (2): p > n unramified in F, so p ∤ #μ(F); the congruence-kernel theorems behind the vanishing of H^0 and H^1 (Bass–Milnor–Serre for SL_3(ℤ), Serre 1970 for SL_2(O_F) with O_F^× infinite) are planned in KTheoryLowDegrees U.4 and enter through U.4/cg-localized-h1-vanishing
+- In both cases of (2), G(ℝ) = PGL_3(ℝ) or PGL_2(ℂ)² is connected, so Y(K′) is orientable and Poincaré duality needs no orientation twist
 
 **Construction or proof.**
 
 1. (1) H^0 at a non-Eisenstein m vanishes because H^0(Y, k) is spanned by component classes on which T_{λ,1} acts by a degree (Eisenstein eigenvalues); H^3 = H^3_c (boundary vanishing) is dual to H^0 at m^*.
-2. (2) By the congruence subgroup property every homomorphism from the arithmetic group to a finite abelian p-group factors through a congruence quotient, so H^1(Γ, k) is spanned by classes on which the Hecke operators act through degrees, which are Eisenstein: (H^1)_m = 0.
-3. Poincaré duality pairs H^1 at m^* with H_c^{d−1} at m; boundary vanishing identifies H_c^{d−1} and H^{d−1} after localization (ALS.5 finite-level duality, ALS.4 boundary triangle).
-4. The remaining degrees outside [q_0, q_0 + l_0] are 0, 1, d − 1, d, covered by the previous steps.
+2. (2) KTheoryLowDegrees U.4/cg-localized-h1-vanishing gives H^0(Y(K′), k)_m = H^1(Y(K′), k)_m = 0 at every level for a non-Eisenstein m, and likewise at m^∨: a finite central congruence kernel of order prime to p makes every mod-p character of the lattices congruence, and the finite-cover Hochschild–Serre sequence then places it in Eisenstein-supported H^0.
+3. Poincaré duality (ALS.5 verdier-poincare-duality, with hecke-adjoint-duality sending m to m^∨) identifies H_c^{d−i}(Y, k)_m with the dual of H^i(Y, k)_{m^∨}, which vanishes for i = 0, 1; boundary vanishing at m (ALS.4/boundary-triangle) identifies H_c^{d−i} and H^{d−i} after localization.
+4. The degrees outside [q_0, q_0 + l_0] are 0, 1, d − 1, d; dévissage (BT.2/conj-b-devissage) passes from k to O/ϖ^m.
 
 **Acceptance.**
 
-- For F imaginary quadratic the proof needs no congruence subgroup property (CG18 Lemma 5.9(1)).
-- The printed degree q_0 − 1 is d − 1 (E184); Serre's 1970 paper is the right citation for the CM quartic case (E185).
-- For n = 2 and F real quadratic, l_0 = 0 and q_0 = 1, which is not covered.
+- For F imaginary quadratic the proof needs no congruence subgroup property (CG18 Lemma 5.9(1)); H^1 and H^2 lie in the range [1, 2] there.
+- The printed degree q_0 − 1 is d − 1 (E184); Serre's 1970 paper is the right citation for the CM quartic case (E185); KTheoryLowDegrees U.4 leaves the degree d − 1 half of Remark 9.3 to this node.
+- For n = 2 and F real quadratic, l_0 = 0 and q_0 = 2 (Hilbert modular surfaces), which is not covered.
 
-**Direct prerequisites:** [Conjecture B(4): vanishing outside [q_0, q_0 + l_0] and on the boundary (hypothesis)](#bt-bt-2-conj-b-vanishing); `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`; `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`; `ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein`; `KTheoryLowDegrees:U.4/bass-milnor-serre`.
+**Direct prerequisites:** [Conjecture B(4): vanishing outside [q_0, q_0 + l_0] and on the boundary (hypothesis)](#bt-bt-2-conj-b-vanishing); `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`; `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`; `ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein`; `KTheoryLowDegrees:U.4/cg-localized-h1-vanishing`; `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality`; [Conjecture B, residual and integral Galois representations (hypothesis)](#bt-bt-2-conj-b-galois-type); [Dévissage for Conjecture B(4) and (5)](#bt-bt-2-conj-b-devissage).
 
-**Source:** CG18, §9.3, Remark 9.3, published p. 415: Part (4)(a) can be verified for GL(2) over CM fields of degree 2 or 4 and GL(3)/ℚ via the congruence subgroup property and duality, with the degree corrected to d − 1 (E184) and Serre's paper added (E185). CG18, §5.2, Lemma 5.9(1), published p. 376: The imaginary quadratic case: vanishing in degrees 0 and 3.
+**Source:** CG18, §9.3, Remark 9.3, published p. 415: Part (4)(a) can be verified for GL(2) over CM fields of degree 2 or 4 and GL(3)/ℚ; in the last two cases the congruence subgroup property gives vanishing of H^1 at m and, by duality at m and its dual, of H_c^{d−1}, hence of H^{d−1} by boundary vanishing (degree corrected to d − 1 by E184; Serre's paper added by E185). CG18, §5.2, Lemma 5.9(1), published p. 376: The imaginary quadratic case: vanishing in degrees 0 and 3.
 
 
 ## BT.3. No new cohomology at Taylor–Wiles level
 
-Condition (5) of Conjecture B: for n = 2, Lemma 9.6 through the PSL_2 reduction, the S-arithmetic Ihara amalgam Γ^1 ∗_{Γ^1_0(x)} Γ^1, the operator U_{x²}, the Hecke-equivariant Lyndon sequence and localization at (m, U_x − α_x); for GL_n at primes with distinct Frobenius eigenvalues, the comparison e_α : H^*(X)_{m_∅} ≅ H^*(X_0(x))_m through the block category of SmoothRepresentationsOfLocalGroups SR.5, under local–global compatibility at x.
+Condition (5) of Conjecture B: for n = 2, Lemma 9.6 through the PSL_2 reduction, the S-arithmetic Ihara amalgam Γ^1 ∗_{Γ^1_0(x)} Γ^1, the operator U_{x²}, the Hecke-equivariant Lyndon sequence and localization at (m, U_x − α_x); for GL_n at primes with distinct Frobenius eigenvalues, the comparison e_α : H^*(X)_{m_∅} ≅ H^*(X_0(x))_m through the block category of SmoothRepresentationsOfLocalGroups SR.5, under local–global compatibility at x (its transfer to the Res_{F/ℚ}PGL_n quotients is a recorded gap).
 
 **Layer dependencies:** `ArithmeticLocallySymmetricSpaces:ALS.0`, `ArithmeticLocallySymmetricSpaces:ALS.6`, `ReductiveGroupsPartII:RG2.2`, `AdelicAlgebraicGroups:AA.4`, `AutomorphyLiftingBeyondTaylorWiles:BT.0`, `ArithmeticLocallySymmetricSpaces:ALS.3`, `ModularCurvesPartII:R14.4`, `AutomorphyLiftingBeyondTaylorWiles:BT.2`, `SmoothRepresentationsOfLocalGroups:SR.5`.
 
@@ -979,7 +984,7 @@ Let n = 2, p odd, and Y = ⊔_i Γ_i\ℋ the decomposition of an arithmetic quot
 
 **Target:** `BeyondTW.iharaAmalgam` (construction); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.3/global-ihara-amalgam`.
 
-Let n = 2, x a Taylor–Wiles prime with K_x maximal, and assume x is trivial in the ray class group governing the components of Y, with π_x ∈ O_F a generator of x. For Γ^1 as in BT.3/psl2-reduction, with level maximal at x, let Γ^1_0(x) := Γ_0(x) ∩ Γ^1 and g := diag(π_x, π_x^{-1}) ∈ PSL_2(F). Then the subgroup G of PSL_2(O_F[1/x]) generated by Γ^1 and gΓ^1g^{-1} is a congruence subgroup with the same level as Γ^1 away from x, and G is the amalgamated product Γ^1 ∗_{Γ^1_0(x)} Γ^1 of Γ^1 with itself along Γ^1_0(x) (embedded in the second factor through conjugation by g). G acts on the Bruhat–Tits tree of PSL_2(F_x) without inversion with an edge as fundamental domain.
+Let n = 2, x a Taylor–Wiles prime with K_x maximal, and assume x is trivial in the ray class group governing the components of Y, with π_x ∈ O_F a generator of x. For Γ^1 as in BT.3/psl2-reduction, with level maximal at x, let Γ^1_0(x) := Γ_0(x) ∩ Γ^1, h := diag(1, π_x) ∈ PGL_2(F) and g := diag(π_x, π_x^{-1}) ∈ PSL_2(F). Then Γ^1 ∩ hΓ^1h^{-1} = Γ^1_0(x), Γ^1 and hΓ^1h^{-1} being the stabilizers of two adjacent vertices of the Bruhat–Tits tree of PSL_2(F_x); the subgroup G of PSL_2(O_F[1/x]) generated by Γ^1 and hΓ^1h^{-1} is a congruence subgroup with the same level as Γ^1 away from x and contains g; and G is the amalgamated product Γ^1 ∗_{Γ^1_0(x)} Γ^1 of Γ^1 with itself along Γ^1_0(x), embedded in the first factor by inclusion and in the second by γ ↦ h^{-1}γh. G acts on the tree without inversion with an edge as fundamental domain. Conjugation by g moves a vertex to one at distance two, so Γ^1 and gΓ^1g^{-1} do not form this amalgam.
 
 **Hypotheses and conventions.**
 
@@ -989,14 +994,14 @@ Let n = 2, x a Taylor–Wiles prime with K_x maximal, and assume x is trivial in
 **Construction or proof.**
 
 1. Local Ihara amalgam: PSL_2(F_x) is the amalgamated product of the stabilizers of two adjacent vertices of its tree over the Iwahori subgroup (ReductiveGroupsPartII RG2.2/ihara-amalgam).
-2. Strong approximation for SL_2 (AdelicAlgebraicGroups AA.4/strong-approximation-theorem) gives density of the S-arithmetic group in PSL_2(F_x) and identifies the quotient of the tree by G with one edge, whose vertex stabilizers are Γ^1 and gΓ^1g^{-1} and whose edge stabilizer is Γ^1_0(x).
+2. Strong approximation for SL_2 (AdelicAlgebraicGroups AA.4/strong-approximation-theorem) gives density of the S-arithmetic group in PSL_2(F_x) and identifies the quotient of the tree by G with one edge, whose vertex stabilizers are Γ^1 and hΓ^1h^{-1} and whose edge stabilizer is Γ^1_0(x); g lies in G because π_x is a unit congruent to 1 at the level away from x (the triviality of x in the ray class group).
 3. Serre's structure theorem for groups acting on trees with an edge as quotient gives the amalgam.
 
 **Uses.** BT.3/lyndon-hecke-equivariance: the Lyndon sequence of the amalgam. BT.3/lemma-9-6: U_{x²} acts on H^*(G) by a degree.
 
 **API.**
 
-- `BeyondTW.iharaAmalgam` (constructor): The group G ⊂ PSL_2(O_F[1/x]) with its two inclusions of Γ^1.
+- `BeyondTW.iharaAmalgam` (constructor): The group G ⊂ PSL_2(O_F[1/x]) with its two embeddings of Γ^1 (inclusion, and conjugation by h = diag(1, π_x)).
 - `BeyondTW.iharaAmalgam.isPushout` (universal-property): G is the pushout of Γ^1 ← Γ^1_0(x) → Γ^1 in groups.
 - `BeyondTW.iharaAmalgam.isCongruence` (characterisation): G is a congruence subgroup of PSL_2(O_F[1/x]) with level equal to that of Γ^1 away from x.
 - `BeyondTW.iharaAmalgam.mem_g` (simp): diag(π_x, π_x^{-1}) ∈ G.
@@ -1004,19 +1009,19 @@ Let n = 2, x a Taylor–Wiles prime with K_x maximal, and assume x is trivial in
 **Unit tests.**
 
 - `iharaAmalgam_Q` (compatibility): For F = ℚ, Γ^1 = PSL_2(ℤ) and x = ℓ, G = PSL_2(ℤ[1/ℓ]).
-- `iharaAmalgam_edge_quotient` (characterisation): G\(tree) is a single edge whose vertex stabilizers are Γ^1 and gΓ^1g^{-1}.
+- `iharaAmalgam_edge_quotient` (characterisation): G\(tree) is a single edge whose vertex stabilizers are Γ^1 and hΓ^1h^{-1}, h = diag(1, π_x); the vertices fixed by Γ^1 and by gΓ^1g^{-1} are at distance two.
 - `iharaAmalgam_not_PGL2` (non-example): PGL_2(ℤ[1/ℓ]) is not the amalgam of two copies of PGL_2(ℤ) over Γ_0(ℓ): it contains elements of odd valuation determinant, which invert the edge.
 - `iharaAmalgam_degenerate_index` (computation): [Γ^1 : Γ^1_0(x)] = N(x) + 1.
 
 **Acceptance.**
 
 - For F = ℚ and Γ^1 = PSL_2(ℤ), G = PSL_2(ℤ[1/x]) and the statement is Ihara's theorem.
-- G contains g, so the double coset of g acts on H^*(G) through the degree of the correspondence.
+- G contains g, so the double coset GgG = G acts on H^*(G) as the identity (sourceIssues E189 of PAPER-CALEGARI-GERAGHTY-18).
 - The amalgam does not exist for PGL_2 (only for the even-valuation subgroup).
 
 **Direct prerequisites:** [Reduction from PGL_2 to PSL_2 arithmetic groups](#bt-bt-3-psl2-reduction); `ReductiveGroupsPartII:RG2.2/ihara-amalgam`; `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem`.
 
-**Source:** CG18, §9.3, proof of Lemma 9.6 and Remark 9.7, published pp. 417–418: The amalgam G := Γ^1 ∗_{Γ^1_0(x)} Γ^1 is a congruence subgroup of PSL_2(O_F[1/x]); PSL_2(F_x) is an amalgam while PGL_2(F_x) is not.
+**Source:** CG18, §9.3, proof of Lemma 9.6 and Remark 9.7, published pp. 417–418: The amalgam G := Γ^1 ∗_{Γ^1_0(x)} Γ^1 is a congruence subgroup of PSL_2(O_F[1/x]); PSL_2(F_x) is an amalgam while PGL_2(F_x) is not; the gluing of the second factor, left implicit there, is conjugation by diag(1, π_x).
 
 
 <a id="bt-bt-3-u-x-squared"></a>
@@ -1025,7 +1030,7 @@ Let n = 2, x a Taylor–Wiles prime with K_x maximal, and assume x is trivial in
 
 **Target:** `BeyondTW.Ux2` (definition); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.3/u-x-squared`.
 
-With x, π_x as in BT.3/global-ihara-amalgam, U_{x²} is N(x)^{-2} times the double-coset operator of Γ^1_0(x) attached to diag(π_x², 1), equivalently (the operator depends on the matrix only up to scalars) to g = diag(π_x, π_x^{-1}). It acts on H^*(Γ^1_0(x), O/ϖ^m), on H^*(Y_0(x), O/ϖ^m) componentwise, and on H^*(G, O/ϖ^m) through the double coset GgG = G. On H^*(Y_0(x), O/ϖ^m), U_x² = U_{x²} for U_x normalized as N(x)^{-1} times the double coset of diag(π_x, 1); for the unnormalized V_x = T_{x,1}, V_x² = N(x)²U_{x²} ≡ U_{x²} mod p.
+With x, π_x as in BT.3/global-ihara-amalgam, U_{x²} is N(x)^{-2} times the double-coset operator of Γ^1_0(x) attached to diag(π_x², 1), equivalently (the operator depends on the matrix only up to scalars) to g = diag(π_x, π_x^{-1}). It acts on H^*(Γ^1_0(x), O/ϖ^m), on H^*(Y_0(x), O/ϖ^m) componentwise, and on H^*(G, O/ϖ^m) through the double coset GgG = G, where the unnormalized operator is the identity, so that U_{x²} acts on H^*(G) by the scalar N(x)^{-2} (not by 1 as printed; sourceIssues E189 of PAPER-CALEGARI-GERAGHTY-18). On H^*(Y_0(x), O/ϖ^m), U_x² = U_{x²} for U_x normalized as N(x)^{-1} times the double coset of diag(π_x, 1); for the unnormalized V_x = T_{x,1}, V_x² = N(x)²U_{x²} ≡ U_{x²} mod p.
 
 **Hypotheses and conventions.**
 
@@ -1034,7 +1039,7 @@ With x, π_x as in BT.3/global-ihara-amalgam, U_{x²} is N(x)^{-2} times the dou
 **Construction or proof.**
 
 1. The double-coset operator [Γ^1_0(x) g Γ^1_0(x)] is defined by restriction, conjugation and corestriction (ALS.3/hecke-operator-formula).
-2. Since g ∈ G, the induced endomorphism of H^*(G) is multiplication by the degree N(x)² of the correspondence on Γ^1_0(x), so U_{x²} acts on H^*(G) by a unit scalar congruent to 1 mod p (exactly 1 with the normalization above; the extraction's E189 records the variant N(x)^{-2}, equally harmless since N(x) ≡ 1 mod p).
+2. Since g ∈ G, the double coset GgG is the single coset G and the induced endomorphism of H^*(G) is the identity (conjugation by an element of G acts trivially on H^*(G)); it is also the map induced on H_0 of the Bruhat–Tits tree by the compatible endomorphism of its chain complex, whose augmentation is 1 (E189). So U_{x²} acts on H^*(G) by N(x)^{-2}, a unit ≡ 1 mod p. The printed argument, which multiplies by the degree N(x)², computes the operator on the restriction of a G-invariant class to Γ^1_0(x), not on H^*(G).
 3. The relation U_x² = U_{x²} is the composition of double cosets at a prime of level Γ_0(x) (ALS.3/hecke-composition).
 
 **Uses.** BT.3/lyndon-hecke-equivariance: equivariance of the Lyndon sequence. BT.3/lemma-9-6: localization at an ideal where U_{x²} − 1 is a unit.
@@ -1042,14 +1047,14 @@ With x, π_x as in BT.3/global-ihara-amalgam, U_{x²} is N(x)^{-2} times the dou
 **API.**
 
 - `BeyondTW.Ux2` (constructor): U_{x²} on H^*(Γ^1_0(x)), H^*(Y_0(x)) and H^*(G).
-- `BeyondTW.Ux2_on_amalgam` (characterisation): U_{x²} acts on H^*(G, O/ϖ^m) by the scalar N(x)^{-2}·deg = 1 (up to the unit N(x)^{±2} in the printed normalization).
+- `BeyondTW.Ux2_on_amalgam` (characterisation): U_{x²} acts on H^*(G, O/ϖ^m) by the scalar N(x)^{-2} (the unnormalized double coset GgG = G acts by 1); in particular U_{x²} − 1 acts by a scalar in pℤ_p.
 - `BeyondTW.Ux2_eq_sq` (relation): U_x² = U_{x²} on H^*(Y_0(x), O/ϖ^m).
 - `BeyondTW.Ux2_indep_scalar` (extensionality): The operator depends on the matrix only up to scalars.
 
 **Unit tests.**
 
 - `Ux2_old_eigenvalues` (computation): On the old part, U_{x²} has eigenvalues α_x² and β_x², reductions of the squares of the roots of X² − T_x X + N(x).
-- `Ux2_on_G_trivial` (characterisation): U_{x²} = 1 on H^0(G, O/ϖ^m) = O/ϖ^m.
+- `Ux2_on_G_scalar` (characterisation): U_{x²} acts on H^0(G, O/ϖ^m) = O/ϖ^m by N(x)^{-2}, which is ≡ 1 mod p but not 1 in general: for N(x) = 7, p = 3 and m = 2 it is multiplication by 7 on ℤ/9.
 - `Ux2_unnormalized` (non-example): The unnormalized double coset of diag(π_x², 1) acts on H^0(Γ^1_0(x)) by N(x)², not by 1.
 - `Ux2_mod_p` (compatibility): V_x² ≡ U_{x²} mod p, since N(x) ≡ 1 mod p.
 
@@ -1061,7 +1066,7 @@ With x, π_x as in BT.3/global-ihara-amalgam, U_{x²} is N(x)^{-2} times the dou
 
 **Direct prerequisites:** [The S-arithmetic amalgam G = Γ^1 ∗_{Γ^1_0(x)} Γ^1](#bt-bt-3-global-ihara-amalgam); [Hecke operators T_{α,k}, V_x and diamond operators at Taylor–Wiles level](#bt-bt-0-tw-hecke-operators); `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-operator-formula`; `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition`.
 
-**Source:** CG18, §9.3, proof of Lemma 9.6, published p. 418: U_{x²} is 1/N(x)² times the double coset operator for Γ^1_0(x) of diag(π_x², 1), equivalently of g = diag(π_x, π_x^{-1}) ∈ G; it acts on H^*(G) by 1, and U_x² = U_{x²} on H^*(Y_0(x)). CG18, §9.3, Remark 9.7, published p. 418: U_{x²} acts by +1 on H^*(G) (E192 reads U_{x²} for U_x²).
+**Source:** CG18, §9.3, proof of Lemma 9.6, published p. 418: U_{x²} is 1/N(x)² times the double coset operator for Γ^1_0(x) of diag(π_x², 1), equivalently of g = diag(π_x, π_x^{-1}) ∈ G; the source says it acts on H^*(G) by 1 (the correct value is N(x)^{-2}, E189), and U_x² = U_{x²} on H^*(Y_0(x)). CG18, §9.3, Remark 9.7, published p. 418: U_{x²} acts by +1 on H^*(G) (E192 reads U_{x²} for U_x²; by E189 the value is N(x)^{-2} ≡ 1 mod p).
 
 
 <a id="bt-bt-3-lyndon-hecke-equivariance"></a>
@@ -1081,8 +1086,8 @@ For the amalgam G = Γ^1 ∗_{Γ^1_0(x)} Γ^1 and every m ≥ 1 there is a long 
 
 1. Realize the Lyndon sequence as the Ext_G(−, O/ϖ^m) sequence of the chain complex 0 → C_1(𝒯) → C_0(𝒯) → ℤ → 0 of the Bruhat–Tits tree 𝒯 (ModularCurvesPartII R14.4/lyndon-exact-sequence for the exact sequence).
 2. U_{x²} on H^*(Γ^1_0(x)) is induced by the G-endomorphism of C_1(𝒯) = ℤ[G/Γ^1_0(x)] sending an edge to the sum of the N(x)² edges at distance two; it extends uniquely to a G-endomorphism of C_0(𝒯) compatible with the boundary, inducing the stated 2 × 2 Hecke matrix on the Γ^1-terms.
-3. On H^*(G) the induced endomorphism is multiplication by its degree on ℤ, as in BT.3/u-x-squared.
-4. U_{x²} − 1 acts on H^*(G, O/ϖ^m) by a scalar in 𝔪_O (zero in the source normalization), hence nilpotently; after localizing the sequence (exact, as a sequence of modules over the commutative algebra generated by U_{x²} and the operators prime to x) at an ideal where U_{x²} − 1 is a unit, the H^*(G) terms vanish and the middle map is an isomorphism.
+3. On H^*(G) the induced endomorphism is the one induced on H_0(𝒯) = ℤ, multiplication by the augmentation 1 of the unnormalized operator, so U_{x²} acts on H^*(G) by N(x)^{-2}, as in BT.3/u-x-squared.
+4. U_{x²} − 1 acts on H^*(G, O/ϖ^m) by the scalar N(x)^{-2} − 1 ∈ pℤ_p (the source claims 0; E189), hence nilpotently; after localizing the sequence (exact, as a sequence of modules over the commutative algebra generated by U_{x²} and the operators prime to x) at an ideal where U_{x²} − 1 is a unit, the H^*(G) terms vanish and the middle map is an isomorphism.
 
 **Acceptance.**
 
@@ -1101,7 +1106,7 @@ For the amalgam G = Γ^1 ∗_{Γ^1_0(x)} Γ^1 and every m ≥ 1 there is a long 
 
 **Target:** `BeyondTW.lemma_9_6` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.3/lemma-9-6`; planet: *Lemma 9.6 (condition (5) for n = 2)*.
 
-Let n = 2, p > 2, Q a set of Taylor–Wiles primes and m a maximal ideal of T^an_{Q,ψ} with B^gal and r̄_m ≅ r̄. For x ∈ Q let α_x, β_x be the two (distinct) eigenvalues of r̄(Frob_x), with α_x the eigenvalue on ψ̄_x. Then for every m ≥ 1 the map (lim_{k→∞}∏_{x∈Q}(V_x − β̃_x)^{k!}) ∘ pr^* : H^*_ψ(Y, O/ϖ^m)_m → H^*_ψ(Y_0(Q), O/ϖ^m)_{m_Q} is an isomorphism; that is, B^tw(Q, ψ, m) holds.
+Let n = 2, p > 2, Q a set of Taylor–Wiles primes and m a maximal ideal of T^an_{Q,ψ} with B^gal and r̄_m ≅ r̄. For x ∈ Q let α_x, β_x be the two (distinct) eigenvalues of r̄(Frob_x), with α_x the eigenvalue on ψ̄_x. Then for every m ≥ 1 the map (lim_{k→∞}∏_{x∈Q}(V_x − β̃_x)^{k!}) ∘ pr^* , followed by the projection onto the m_Q-part, is an isomorphism H^*_ψ(Y, O/ϖ^m)_m → H^*_ψ(Y_0(Q), O/ϖ^m)_{m_Q}; that is, B^tw(Q, ψ, m) holds.
 
 **Hypotheses and conventions.**
 
@@ -1133,24 +1138,24 @@ Let n = 2, p > 2, Q a set of Taylor–Wiles primes and m a maximal ideal of T^an
 
 **Target:** `BeyondTW.distinct_eigenvalue_comparison` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.3/distinct-eigenvalue-comparison`; planet: *Distinct-eigenvalue comparison*.
 
-Let G = GL_n over F with arithmetic quotients X, X_0(x) (level the line-stabilizer at x), x a prime with N(x) ≡ 1 mod p at which r̄(Frob_x) is unramified with n distinct eigenvalues, α one of them, m_∅ the Hecke ideal away from x and m = (m_∅, V − α) with V the double coset of diag(1, …, 1, ϖ_x). Assume local–global compatibility at x for the localized completed cohomology: every irreducible G(F_x)-subrepresentation of M_j[m_∅], M_j := lim_{m→∞}H^j(X(x^m), O/ϖ^n)_{m_∅}, is the unramified principal series attached to r̄|G_x. Then e_α := lim_k Q(V)^{k!} induces isomorphisms H^*(X, O/ϖ^n)_{m_∅} ≅ H^*(X_0(x), O/ϖ^n)_m, where P(T) = (T − α)Q(T) is the characteristic polynomial of r̄(Frob_x). The same holds with coefficients k for the PGL_n quotients of §9 (CGH20 Theorem 3.2 uses this form), giving B^tw at such primes.
+Let G = GL_n over F with arithmetic quotients X, X_0(x) (level the line-stabilizer at x), x a prime with N(x) ≡ 1 mod p at which r̄(Frob_x) is unramified with n distinct eigenvalues, α one of them, m_∅ the Hecke ideal away from x and m = (m_∅, V − α) with V the double coset of diag(1, …, 1, ϖ_x). Assume local–global compatibility at x for the localized completed cohomology: every irreducible G(F_x)-subrepresentation of M_j[m_∅], M_j := lim_{m→∞}H^j(X(x^m), O/ϖ^n)_{m_∅}, is the unramified principal series attached to r̄|G_x. Then e_α := lim_k Q(V)^{k!} induces isomorphisms H^*(X, O/ϖ^n)_{m_∅} ≅ H^*(X_0(x), O/ϖ^n)_m, where P(T) = (T − α)Q(T) is the characteristic polynomial of r̄(Frob_x). For the Res_{F/ℚ}PGL_n quotients of §9 the corresponding statement (B^tw at such primes, and the comparison H^i(Y_0(Q), k)_{m_α} ≅ H^i(Y, k)_m that CGH20 Theorem 3.2 uses) is not established here: CG18 only says it should follow from the GL_n case through the central torus fibrations (E194), and it is a recorded gap of this roadmap.
 
 **Hypotheses and conventions.**
 
 - Distinct eigenvalues of r̄(Frob_x) (enormous image supplies such Taylor–Wiles primes)
 - The local–global compatibility at x is a hypothesis; the source says only 'by assumption'
-- GL_n quotients are torus bundles (not circle bundles) over PGL_n quotients up to components (E194); the passage to PGL_n is through these fibrations
+- GL_n quotients are torus bundles (not circle bundles) over PGL_n quotients up to components (E194); the source's remark that the PGL_n case should be easy to deduce is not an argument, and the PGL_n version is the recorded gap 'Distinct-eigenvalue comparison for the Res_{F/ℚ}PGL_n quotients'
 
 **Construction or proof.**
 
 1. Each M_j is filtered by its m_∅-torsion, and the compatibility hypothesis with Ext-vanishing between the unramified principal series and other irreducibles (SmoothRepresentationsOfLocalGroups SR.5/cg-distinct-block) puts M_j in the block category 𝒞.
 2. Hochschild–Serre for the towers X(x^m) → X and X(x^m) → X_0(x) gives spectral sequences H^i(G(O_x), M_j) ⇒ H^{i+j}(X)_{m_∅} and e_αH^i(U_0(x), M_j) ⇒ H^{i+j}(X_0(x))_m (ArithmeticLocallySymmetricSpaces ALS.6/finite-cover-hochschild-serre and its tower version).
 3. The map ι_* : H^k(G(O_x), M) → e_αH^k(U_0(x), M) is an isomorphism on the block (SR.5/cg-derived-projector, CG18 Theorem 9.16), so the morphism of spectral sequences is an isomorphism on E_2 and hence on the abutments.
-4. For the PGL_n spaces, the fibrations by tori of dimension r_1 + r_2 − 1 (up to components) transport the statement, and for k-coefficients the lowest-degree version is CGH20 Theorem 3.2's step (also Khare–Thorne Lemma 6.25(4)).
+4. The comparison is equivariant for the Hecke operators away from x. The PGL_n version is not deduced: the torus fibrations of E194 relate the two cohomologies only through a Leray spectral sequence, and Khare–Thorne Lemma 6.25(4), which CGH20 cites, is a GL_n statement at Iwahori level for ordinary completed cohomology (see the gap and sourceIssues E4).
 
 **Acceptance.**
 
-- For n = 2 with distinct eigenvalues this gives another proof of B^tw at Taylor–Wiles primes, conditional on local–global compatibility.
+- For GL_2 with distinct eigenvalues this is the analogue of Lemma 9.6, conditional on local–global compatibility at x; for PGL_2, Lemma 9.6 (BT.3/lemma-9-6) gives B^tw without it.
 - Without distinct eigenvalues the category 𝒞 is not described by Corollary 9.13 and the argument does not apply.
 - The isomorphism is compatible with the Hecke operators prime to x.
 
@@ -1299,7 +1304,7 @@ Under ConjB(∅, ψ, m) for ψ = 1, χ: (1) R^1/ϖ = R_S/ϖ ≅ R_{S^χ}/ϖ = R^
 
 ### Verification of the hypotheses of the two-datum patching theorem
 
-**Target:** `BeyondTW.patching_hypotheses` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.4/patching-hypotheses-verified`; planet: *Patching hypotheses verified*.
+**Target:** `BeyondTW.patching_hypotheses` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.4/patching-hypotheses-verified`.
 
 For the data of BT.4/patching-input-data, assuming ConjB(Q, ψ, m) for Q = ∅ and Q = Q_N (N ≥ 1), ψ = 1, χ: each datum i satisfies the hypotheses of the Calegari–Geraghty patching theorem (DeformationAndDerivedPatchingAlgebra P8/patched-perfect-complexes-in-a-range-of-degrees, Theorem 6.3 with the corrections E132, E133, E134): dim R^i_∞ = 1 + j + q − l_0; H^i is a nonzero finite R^i-module; (a) D^i_N ⊗ S_N/𝔪 ≅ T; (b) for M ≥ N ≥ 0, M ≥ 1 and 1 ≤ n ≤ M, R^i_∞ acts on H^*((D^i_M)^□ ⊗_{S_M} S_N/ϖ^n), commuting with S^□_M and compatibly with reductions; (c) H^{l_0}((D^i_N)^□ ⊗ O/ϖ^n) ≅ H^i/ϖ^n for 1 ≤ n ≤ N, R^i_∞-linearly through φ^i_N; (d) the image of S^□_M lies in the image of R^i_∞, and the augmentation ideal of S^□_N maps into the image of ker φ^i_M. The comparisons of BT.4/mod-varpi-comparisons supply the additional hypotheses of the two-datum version (CG18 Proposition 6.6 with the compatibility condition of E142).
 
@@ -1337,7 +1342,7 @@ The patched complexes P^{i,□}_∞; near faithfulness on the χ side by depth a
 
 ### The patched complexes P^{1,□}_∞ and P^{2,□}_∞
 
-**Target:** `BeyondTW.patched_complexes` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.5/patched-complexes`.
+**Target:** `BeyondTW.patched_complexes` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.5/patched-complexes`; planet: *Patched complexes P_∞*.
 
 Under the hypotheses of BT.4/patching-hypotheses-verified there are perfect complexes P^{1,□}_∞, P^{2,□}_∞ of finitely generated S^□_∞-modules (S^□_∞ = S_∞ ⊗̂ O^□), concentrated in degrees 0, …, l_0, such that for i = 1, 2: (i) P^{i,□}_∞ is a projective resolution of minimal length of H^{l_0}(P^{i,□}_∞); (ii) R^i_∞ ⊗̂_O S^□_∞ acts on H^{l_0}(P^{i,□}_∞), extending the S^□_∞-action, and H^{l_0}(P^{i,□}_∞) is a finite R^i_∞-module; (iii) depth_{R^i_∞} H^{l_0}(P^{i,□}_∞) = 1 + j + q − l_0 = dim R^i_∞; (iv) there are a surjection φ^i_∞ : R^i_∞ ↠ R^i and an isomorphism H^{l_0}(P^{i,□}_∞)/𝔞 ≅ H^i of R^i_∞-modules, 𝔞 = ker(S^□_∞ → O), with the image of 𝔞 in End(H^{l_0}(P^{i,□}_∞)) contained in that of ker φ^i_∞. Moreover there is an isomorphism H^{l_0}(P^{1,□}_∞)/ϖ ≅ H^{l_0}(P^{2,□}_∞)/ϖ of R^1_∞/ϖ ≅ R^2_∞/ϖ-modules (linear over (R^i_∞ ⊗̂ S^□_∞)/ϖ) compatible with H^1/ϖ ≅ H^2/ϖ after reduction mod 𝔞.
 
@@ -1474,7 +1479,7 @@ In the situation of BT.5/theorem-9-19 suppose moreover R_triv = ∅ (every v ∈
 
 **Acceptance.**
 
-- This is the form used by CGH20 Theorem 1.2 (A.2), where the bad places have a single unipotent block.
+- This is the form used by CGH20 Theorem 1.2 (A.2), where the bad places have a single unipotent block and no congruence on N(v) is imposed; CGH20 normalizes det r = ε^{n(1−n)/2}, so the node applies to r^∨, which has the same adjoint representation.
 - Then T_m is a complete intersection.
 - If R_triv ≠ ∅ only near faithfulness is obtained.
 
@@ -1513,7 +1518,7 @@ Let m be a maximal ideal of T at level K_∅(R) at which B^gal and B^van hold fo
 
 **Direct prerequisites:** [Conjecture B, residual and integral Galois representations (hypothesis)](#bt-bt-2-conj-b-galois-type); [Conjecture B(4): vanishing outside [q_0, q_0 + l_0] and on the boundary (hypothesis)](#bt-bt-2-conj-b-vanishing); `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`; `ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison`; `AutomorphicSpectralTheory:AS.5/isobaric-realization`; `AutomorphicSpectralTheory:AS.5`; `AutomorphicSpectralTheory:AS.4`; `AutomorphicFormsOnReductiveGroups:AF.4/clozel-purity`; `AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range`; `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `ArithmeticGaloisRepresentations:G7`.
 
-**Source:** CG18, Theorem 5.16 and the sentence after it, published pp. 383–384: Modularity means a regular algebraic cusp form π with trivial infinitesimal character and L(r, s) = L(π, s); the deduction from Theorem 9.19 is not written. CG18, §9.3, Conjecture B(4)(b), published p. 414: Boundary vanishing after localization, the input the brief names for passing to a cuspidal π. CGH20, §3.1, proof of Lemma 3.1, arXiv p. 5: Eigenclasses in cohomology are realized by isobaric automorphic representations (Franke–Schwermer), and non-tempered ones are excluded by degree (Borel–Wallach).
+**Source:** CG18, Theorem 5.16 and the sentence after it, published pp. 383–384: Modularity means a regular algebraic cusp form π with trivial infinitesimal character and L(r, s) = L(π, s); the deduction from Theorem 9.19 is not written. CG18, §9.3, Conjecture B(4)(b), published p. 414: Boundary vanishing after localization, the input the brief names for passing to a cuspidal π. CGH20, §3.1, proof of Lemma 3.1, arXiv p. 5: Eigenclasses in cohomology are realized by isobaric automorphic representations (Franke's Theorem 2.3); a class outside the tempered range [q_0, q_0 + l_0] forces the representation to be non-tempered (Borel–Wallach and Clozel's Lemma 3.14), which strong multiplicity one then contradicts.
 
 
 <a id="bt-bt-5-maximal-ideal-from-hypothesis-8"></a>
@@ -1553,11 +1558,11 @@ Let r̄ be the residual representation of a standing datum. (a) If π_0 is a cus
 
 **Target:** `BeyondTW.theorem_5_16` (theorem); packet node `AutomorphyLiftingBeyondTaylorWiles:BT.5/theorem-5-16`; planet: *Theorem 5.16 (conditional automorphy lifting)*.
 
-Assume Conjecture B for F (BT.2/conjecture-b, with clause (6) and intermediate levels). Let F be a number field, n ≥ 2, p > n a prime unramified in F, O as in BT.1/ihara-avoidance-data, and r : G_F → GL_n(O) continuous and unramified outside a finite set, with reduction r̄. Suppose: (1) r|G_v is crystalline for v | p; (2) for v | p, gr^i(r ⊗_{ℤ_p} B_dR)^{G_v} is free of rank one over O ⊗_{ℤ_p} F_v for i ∈ {0, …, n − 1} and zero otherwise; (3) r̄|G_{F(ζ_p)} is absolutely irreducible and F(ad⁰r̄) ∌ ζ_p; (4) r̄(G_{F(ζ_p)}) is big (CHT Definition 2.5.1); (5) r is odd at every real place; (6′) for every finite place x ∤ p at which r or r̄ (or, in case (8a), π_0) is ramified: r|I_x is unipotent, N(x) ≡ 1 mod p, and either r̄|G_x is trivial or r̄|I_x is unipotent with r̄(σ_x) a single Jordan block; (7) det r = ε^{n(n−1)/2}; (8) either (a) there is π_0 as in BT.5/maximal-ideal-from-hypothesis-8(a) for R the set of places in (6′), or (b) r̄ is Serre modular of minimal level and r is ramified only at places where r̄ is ramified. Then r is modular: there is a cuspidal automorphic representation π of GL_n(𝔸_F) with trivial central character and trivial infinitesimal character such that, for every finite place λ ∤ p outside the set R of places in (6′), π_λ is unramified and the characteristic polynomial of r(Frob_λ) (arithmetic Frobenius) is Σ_i (−1)^i N(λ)^{i(i−1)/2} t_{λ,i}(π) X^{n−i}, t_{λ,i}(π) the unnormalized Hecke eigenvalues of π_λ; equivalently, with arithmetic Frobenius in the Euler factors of L(r, s), L^S(r, s) = L^S(π, s − (n − 1)/2) for S = S_p ∪ R.
+Assume Conjecture B for F (BT.2/conjecture-b, with clause (6) and intermediate levels). Let F be a number field, n ≥ 2, p > n a prime unramified in F, O as in BT.1/ihara-avoidance-data, and r : G_F → GL_n(O) continuous and unramified outside a finite set, with reduction r̄. Suppose: (1) r|G_v is crystalline for v | p; (2) for v | p, gr^i(r ⊗_{ℤ_p} B_dR)^{G_v} is free of rank one over O ⊗_{ℤ_p} F_v for i ∈ {0, …, n − 1} and zero otherwise; (3) r̄|G_{F(ζ_p)} is absolutely irreducible and F(ad⁰r̄) ∌ ζ_p; (4) r̄(G_{F(ζ_p)}) is big (CHT Definition 2.5.1); (5) r is odd at every real place; (6′) for every finite place x ∤ p at which r (or, in case (8a), π_0) is ramified: r|I_x is unipotent, and either r̄|G_x is trivial and N(x) ≡ 1 mod p, or r̄|I_x is unipotent with r̄(σ_x) a single Jordan block; (7) det r = ε^{n(n−1)/2}; (8) either (a) there is π_0 as in BT.5/maximal-ideal-from-hypothesis-8(a) for R the set of places in (6′), or (b) r̄ is Serre modular of minimal level and r is ramified only at places where r̄ is ramified. Then r is modular: there is a cuspidal automorphic representation π of GL_n(𝔸_F) with trivial central character and trivial infinitesimal character such that, for every finite place λ ∤ p outside the set R of places in (6′), π_λ is unramified and the characteristic polynomial of r(Frob_λ) (arithmetic Frobenius) is Σ_i (−1)^i N(λ)^{i(i−1)/2} t_{λ,i}(π) X^{n−i}, t_{λ,i}(π) the unnormalized Hecke eigenvalues of π_λ; equivalently, with arithmetic Frobenius in the Euler factors of L(r, s), L^S(r, s) = L^S(π, s − (n − 1)/2) for S = S_p ∪ R.
 
 **Hypotheses and conventions.**
 
-- (6′) corrects the printed (6) and (8a) (E125, E169, E203; E2 of this packet)
+- (6′) corrects the printed (6) and (8a) (E125, E169; E2 of this packet): where r̄ is unramified it adds that r̄|G_x is trivial (Taylor's Ihara avoidance), where r̄ is ramified it asks for a single Jordan block (the minimally ramified ring), and it keeps the printed proviso that N(x) ≡ 1 mod p is needed only where r̄ is unramified; the deletion of that proviso proposed in E203 is not needed once the ramified places of r̄ use the minimally ramified ring
 - (4) is bigness of r̄(G_{F(ζ_p)}) (E126)
 - Conjecture B is a hypothesis; for n = 2 its condition (5) holds by Lemma 9.6
 
@@ -1602,7 +1607,7 @@ Let F be imaginary quadratic and n = 2, so l_0 = 1, q_0 = 1 and dim Y = 3. Then 
 
 - l_0 = 1 for PGL_2 over an imaginary quadratic field.
 - For a non-CM elliptic curve over F with r̄ satisfying the hypotheses, the conclusion is modularity by a cuspidal cohomological π of PGL_2(𝔸_F), the statement whose unconditional proof (via degree shifting and local–global compatibility) is Caraiani–Newton's.
-- For F = ℚ(√−1) and n = 2: |T| = 1 + |R| and g = q + |T| − 3.
+- For F = ℚ(√−1) and n = 2: |T| = |S_p| + |R| with |S_p| = 2 if p ≡ 1 mod 4 and 1 if p ≡ 3 mod 4, and g = q + |T| − 4 (the suggested file checks twVariables 3 1 2 2 1 = 0).
 
 **Direct prerequisites:** [Theorem 5.16: conditional modularity lifting for GL_n over any number field](#bt-bt-5-theorem-5-16); [Lemma 9.6: condition (5) of Conjecture B for n = 2](#bt-bt-3-lemma-9-6); [Conjecture B(4)(a) in small rank (Remark 9.3)](#bt-bt-2-conj-b-small-rank).
 
@@ -1653,17 +1658,18 @@ Each request names the owning layer and the exact statement this roadmap uses; t
 
 ## Recorded gaps
 
-- **The congruence subgroup property for SL_3(ℤ) and for SL_2(O_F), F a CM quartic field.** Remark 9.3 of CG18 verifies Conjecture B(4)(a) for GL(3)/ℚ and GL(2) over CM quartic fields by the congruence subgroup property (Bass–Milnor–Serre 1967; Serre, Ann. of Math. 92 (1970)). No atlas layer plans the congruence subgroup property; KTheoryLowDegrees U.4/bass-milnor-serre plans only SK_1(O_{F,S}) = 0. Part (2) of BT.2/conj-b-small-rank therefore states the property as a hypothesis; part (1) (imaginary quadratic fields) does not need it. Needed by: [Conjecture B(4)(a) in small rank (Remark 9.3)](#bt-bt-2-conj-b-small-rank).
+- **Distinct-eigenvalue comparison for the Res_{F/ℚ}PGL_n quotients.** PAPER-CALEGARI-GERAGHTY-20 routes to this roadmap the comparison H^i(Y_0(Q), k)_{m_α} ≅ H^i(Y, k)_m for the Res_{F/ℚ}PGL_n quotients of CG18 §9, at sets Q of primes with N(x) ≡ 1 mod p and distinct eigenvalues of r̄(Frob_x) (CGH20 Theorem 3.2 = A.4, proof). CG18 §9.4 proves the analogue for GL_n arithmetic quotients under local–global compatibility at x (BT.3/distinct-eigenvalue-comparison) and only says that the PGL_n case should follow; Khare–Thorne Lemma 6.25(4), which CGH20 also cites, concerns GL_n over CM fields at Iwahori level and ordinary completed cohomology (sourceIssues E4). Two routes are open: rerun §9.4 for smooth PGL_n(F_x)-modules (GL_n(F_x)-modules with trivial central character) with the block theory of SmoothRepresentationsOfLocalGroups SR.5 and the derived comparison for the images of GL_n(O_x) and U_0(x) in PGL_n(F_x); or compare the GL_n and PGL_n cohomologies through the central torus fibrations (E194 of PAPER-CALEGARI-GERAGHTY-18) by a Leray argument after localization at a non-Eisenstein m. Neither is in the sources. The end theorems of this roadmap do not use it, because B^tw is a hypothesis of Theorem 9.19; its consumer is AdjointSelmerGroupsFromModularityLifting (CGH20 Theorem A.4). Needed by: [No new cohomology at primes with distinct Frobenius eigenvalues (§9.4)](#bt-bt-3-distinct-eigenvalue-comparison).
 
 ## Corrections of the sources used here
 
-The statements above use the corrected forms of the source. The corrections that change a statement are recorded in the extraction `research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json` (cited as E-numbers there) and, for the three found in planning, in this roadmap's packet:
+The statements above use the corrected forms of the source. The corrections that change a statement are recorded in the extraction `research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json` (cited as E-numbers there) and, for the four found in planning and review, in this roadmap's packet:
 
 - **E1** (gap; §9.5, proof of Theorem 9.19, published p. 427 (verification of condition (b)); Definition 9.1, p. 413). In our words: the proof says Conjecture B provides an action of the deformation ring on the cohomology of the intermediate covers Y_{Δ_N}(Q_M), but Definition 9.1 and Conjecture B concern only the Hecke algebra of Y_1(Q). Correction: Either define T^an_{Q,ψ} on the direct sum of the cohomology of every level between L_Q and K_Q and state Conjecture B for that algebra (the choice made in BT.0/tw-hecke-algebra), or patch derived Hecke algebras with nilpotent error ideals as in ACC+ §6 (DeformationAndDerivedPatchingAlgebra P8/finite-level-patching-data). Reason: An operator killing every H^k(Y_1(Q), O/ϖ^m) acts on H^k(Y_{Δ}(Q), O/ϖ^m) through the Hochschild–Serre spectral sequence H^i(Δ′, H^j(Y_1(Q))) ⇒ H^{i+j}(Y_Δ(Q)) (Δ′ = ker(Δ̃ → Δ) of p-power order), hence only nilpotently in general; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} then gives no action on the intermediate cohomology.
 - **E2** (gap; Theorem 5.16(8a), published p. 383). In our words: hypothesis (8a) refers to the p-adic Galois representation of the cuspidal π_0 and asks that it be residually r̄ and satisfy condition (6). Correction: Over an arbitrary number field the existence of such a Galois representation is not known; state (8a) through the Hecke eigenvalue congruence between π_0 and r̄ and Iwahori-sphericity of π_0 at the places where it ramifies (BT.5/maximal-ideal-from-hypothesis-8), which is all the proof uses. Reason: The proof of Theorem 9.19 needs only a maximal ideal m with r̄_m ≅ r̄ at Iwahori level; Galois representations attached to cohomological cuspidal π are known for F totally real or CM, not for general F.
 - **E3** (gap; Theorem 5.16 and the sentence after it, published pp. 383–384; §9.5, opening, p. 424). In our words: the source says Theorem 5.16 follows immediately from Theorem 9.19 and gives no argument for producing m, checking that r is of type S, or passing from near faithfulness to a cuspidal π; it also writes L(r, s) = L(π, s) without specifying the normalization. Correction: Write the deduction (BT.5/theorem-5-16): produce m, check that r is of type S, use near faithfulness to place the eigensystem of r in H^{q_0}(Y, K)_m, and recognise it as cuspidal using boundary vanishing, the Franke–Schwermer realization and bigness to exclude residual Speh eigensystems (BT.5/cuspidal-recognition). The equality of L-functions holds for partial L-functions, with arithmetic Frobenius in the Euler factors of L(r, s) and the shift L^S(r, s) = L^S(π, s − (n − 1)/2). Reason: Boundary vanishing alone does not exclude residual discrete-spectrum eigensystems in interior cohomology; the bigness argument is needed for that step.
+- **E4** (gap; CGH20, §3.1, proof of Theorem 3.2, arXiv v1 p. 6 (published appendix §A.3.1, proof of Theorem A.4, p. 886)). In our words: for the PGL_n arithmetic quotients Y, Y_0(Q) of CG18 §9 and the lowest degree i in which vanishing fails, the proof identifies H^i(Y_0(Q), k)_{m_α} with H^i(Y, k)_m by citing CG18 §9.4 and Khare–Thorne Lemma 6.25(4). Correction: Both cited results are GL_n statements: CG18 §9.4 is announced as an informal approach for GL_n, with the passage to PGL_n left as an expectation, and Khare–Thorne Lemma 6.25(4) concerns GL_n over CM fields, Iwahori level at the auxiliary prime and ordinary completed cohomology. The comparison for the PGL_n quotients at line-stabilizer level needs its own argument (see the gap of this packet); until then Theorem 3.2 should either be stated for GL_n quotients or take the comparison as a hypothesis. Reason: Read CG18 §9.4 (published pp. 419–424, arXiv v2 TeX) and Khare–Thorne arXiv:1409.7007v2 §6.6 (Lemma 6.25 and Proposition 6.26, pp. 40–42): the latter fixes G = GL_n, the Iwahori subgroup B at w and the ordinary complexes F^•_m over Λ. No version for Res_{F/ℚ}PGL_n or for the parahoric U_0(x) is stated in either source.
 
-The extraction's corrections used most often: E180 (unnormalized T_{λ,i} in Conjecture B), E181 (Taylor–Wiles compatibility of diamond operators), E165 and E169 (Lemma 8.2: characteristic-0 minimal primes instead of p-torsion freeness, and r̄|G_v trivial at the Ihara-avoidance places), E203 (Theorem 5.16 hypotheses), E208–E211 (indices and degrees in the proof of Theorem 9.19), E142 (compatibility in Proposition 6.6), E229 (Lemma 9.6 at m̃).
+The extraction's corrections used most often: E180 (unnormalized T_{λ,i} in Conjecture B), E181 (Taylor–Wiles compatibility of diamond operators), E165 and E169 (Lemma 8.2: characteristic-0 minimal primes instead of p-torsion freeness, and r̄|G_v trivial at the Ihara-avoidance places), E203 (Theorem 5.16 hypotheses; its deletion of the N(x) ≡ 1 proviso is not needed here, see BT.5/theorem-5-16), E164 (oddness as balanced eigenspaces), E168 (the characters χ_v live on k_v^×), E189 (U_{x²} acts on H^*(G) by N(x)^{-2}), E208–E211 (indices and degrees in the proof of Theorem 9.19), E142 (compatibility in Proposition 6.6), E229 (Lemma 9.6 at m̃).
 
 
 ## Structure
@@ -1675,3 +1681,4 @@ The extraction's corrections used most often: E180 (unnormalized T_{λ,i} in Con
 - **CG18**: Frank Calegari and David Geraghty, *Modularity lifting beyond the Taylor–Wiles method*, Inventiones mathematicae 211 (2018), 297–433, DOI 10.1007/s00222-017-0749-x; published layout, author-hosted copy (137 pp., created 27 July 2017); Correction, Invent. Math. 227 (2022), 855–856. <http://www.math.uchicago.edu/~fcale/papers/CG.pdf>. Read: Part 2: Theorem 5.16 and remarks, pp. 383–384; §6 (Lemmas 6.1–6.2, Theorems 6.3–6.4, Remark 6.5, Proposition 6.6), pp. 384–391; §7.1 (Lemmas 7.1–7.4 and the localizing operator), pp. 391–395; §8.1–8.6 (outline, GL_1 case, l_0 and q_0, deformation rings, Lemma 8.2, Lemma 8.3, Propositions 8.4–8.5), pp. 401–411; §9 (arithmetic quotients, Hecke operators, Definition 9.1, Conjecture B, Remarks 9.2–9.5, Lemma 9.6, Remarks 9.7–9.8, §9.4, §9.5 and Theorem 9.19), pp. 411–428; §10 (proof of Theorem 1.1), pp. 428–429; the source issues recorded for these pages in research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json (E12, E125–E126, E130, E132–E134, E142, E165, E169, E176, E180–E214, E229).
 - **CG18v2**: Frank Calegari and David Geraghty, *Modularity lifting beyond the Taylor–Wiles method (arXiv version)*, arXiv:1207.4224v2 (16 July 2017), the accepted version; §9 subsections numbered 9.1–9.3 there for published 9.3–9.5. <https://arxiv.org/abs/1207.4224v2>. Read: Table of contents and §9 section numbering, compared with the published version for locators.
 - **CGH20**: Frank Calegari, David Geraghty and Michael Harris, *Bloch–Kato conjectures for automorphic motives (published as the appendix to Calegari–Geraghty, Modularity lifting for non-regular symplectic representations, Duke Math. J. 169 (2020), pp. 881–889)*, arXiv:1907.08694v1 (19 July 2019); statement numbers of the arXiv version (Theorem 1.2 = published A.2, Lemma 3.1 = A.3, Theorem 3.2 = A.4). <https://arxiv.org/abs/1907.08694v1>. Read: §1, Theorems 1.1–1.2 and the discussion of Conjecture B, pp. 1–3; §3.1, Lemma 3.1 and Theorem 3.2, pp. 4–6; §4, proofs, pp. 7–8.
+- **KT17**: Chandrashekhar B. Khare and Jack A. Thorne, *Potential automorphy and the Leopoldt conjecture*, arXiv:1409.7007v2 (6 July 2016). <https://arxiv.org/abs/1409.7007v2>. Read: §6.6, Lemma 6.25 and Proposition 6.26, arXiv pp. 40–42 (read for the review, to check the citation in CGH20 Theorem 3.2).
