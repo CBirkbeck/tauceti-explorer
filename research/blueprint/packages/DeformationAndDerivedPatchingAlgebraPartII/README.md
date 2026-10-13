@@ -186,8 +186,11 @@ use them unchanged:
   generating `I` cover the blow-up) and `affineBlowupι_toSpecZero` (compatibility with the map to
   `Spec R`).
 
-`Suggested.lean` restates `R[I/a]` as `affineChart I a` with the same body, so that its chart
-statements can be typed at the pinned commit.
+`Suggested.lean` uses `affineChart I a` with the same body and the type synonym `ChartRing I a`,
+with its inclusion `ChartRing.toLocalization` and restricted action
+`ChartRing.moduleLocalizedModule` on `M[1/a]`, so that its chart statements can be typed at the
+pinned commit. These are compatibility notation for the supplied rings, rather than new
+definition targets.
 
 ### From TauCetiRoadmap roadmaps
 
@@ -243,7 +246,8 @@ the zero locus of the annihilator product through local duality.
 The depth induction of Layer K4 manipulates local cohomology with respect to one, two and three
 elements and with respect to a maximal ideal at the same time. The comparison of Mathlib's
 `localCohomology` with the extended Čech complex and with flat base change is imported from
-SchemeAndStackFoundations SF.2. Two further generic facts are targets of this layer.
+SchemeAndStackFoundations SF.2. Composite supports, restriction of scalars and filtered colimits
+are further targets of this layer.
 
 **Local cohomology with composite supports.** For a Noetherian ring `A`, ideals `I, J ⊆ A` and an
 `A`-module `N`, there is a convergent first-quadrant spectral sequence
@@ -267,12 +271,23 @@ over `A`, naturally in `N`. This is used to move local cohomology between a char
 ring over it and a localization of a quotient of that polynomial ring (Česnavičius, (3.14.2)).
 (Stacks, Lemma 47.9.2, tag 0BJB.) *Needs:* SchemeAndStackFoundations SF.2.
 
+**Filtered colimits.** For a Noetherian ring `A`, an ideal `J`, a filtered diagram of `A`-modules
+`N_λ` and `j ∈ ℕ`, prove `localCohomology.filteredColimitIso`:
+`colim_λ H^j_J(N_λ) ≅ H^j_J(colim_λ N_λ)`, naturally in the diagram. No finiteness hypothesis on
+the modules is needed. This supplies the passage from all quotients `N/rᵐN` to `H^1_{(r)}(N)` in
+K4.3. Choose finitely many generators of `J`; localization and finite sums in the extended Čech
+complex commute with filtered colimits, and filtered colimits of modules are exact, so its
+cohomology commutes with them. (Stacks, Lemma 47.9.1, tag 0A6R, and Lemma 47.10.1, tag 0955.)
+*Needs:* SchemeAndStackFoundations SF.2 (the module Čech comparison); Mathlib's filtered colimits
+of modules.
+
 **Local cohomology with respect to one and two elements.** For `A` Noetherian, `r, a, b ∈ A` and an
 `A`-module `N`:
 
-- `H^0_{(r)}(N) = N⟨r^∞⟩`, `H^1_{(r)}(N) = N[1/r]/image(N)` and `H^j_{(r)}(N) = 0` for `j ≥ 2`; if
-  `r` is regular on `N`, then `H^1_{(r)}(N) ≅ colim_{m>0} N/rᵐN`, with transition maps
-  multiplication by `r`; every `H^j_{(r)}` with `j ≥ 1` vanishes on a module killed by a power of
+- `H^0_{(r)}(N) = N⟨r^∞⟩`, `H^1_{(r)}(N) = N[1/r]/image(N)` and `H^j_{(r)}(N) = 0` for `j ≥ 2`;
+  `localCohomology.principalOneIsoColimit` gives `H^1_{(r)}(N) ≅ colim_{m>0} N/rᵐN`, with transition
+  maps multiplication by `r`, for arbitrary `N` (regularity of `r` is not required); every
+  `H^j_{(r)}` with `j ≥ 1` vanishes on a module killed by a power of
   `r`, so `H^1_{(r)}(N) = H^1_{(r)}(N/N⟨r^∞⟩)`;
 - `H^j_{(a,b)}(N) = 0` for `j ≥ 3`; if `a` or `b` is regular on `N`, then `H^0_{(a,b)}(N) = 0`;
 - if `b` is regular on `N`, then `H^1_{(a,b)}(N) ≅ H^0_{(a)}(H^1_{(b)}(N))` and
@@ -282,7 +297,11 @@ ring over it and a localization of a quotient of that polynomial ring (Česnavi�
 
 *Proof sketch.* Read each statement off the extended Čech complex on one or two generators, using
 the composite-support spectral sequence for the two-element identifications and
-`localCohomology.isoOfSameRadical` for the change of generators. (Stacks, Lemma 47.9.1, tag 0A6R;
+`localCohomology.isoOfSameRadical` for the change of generators. The colimit map sends the class
+of `x` modulo `rᵐN` to `x/rᵐ` modulo `image(N)`. If that class is zero, some positive power of `r`
+puts `x` in the required higher power of `rN`, so the class dies at a later stage; surjectivity is
+the fraction description of the localization. This works even when `r` has torsion on `N`.
+(Stacks, Lemma 47.9.1, tag 0A6R;
 Lemma 47.9.6, tag 0BJC.) *Needs:* the two targets above; SchemeAndStackFoundations SF.2; Mathlib
 `localCohomology.isoOfSameRadical`.
 
@@ -291,6 +310,8 @@ Lemma 47.9.6, tag 0BJC.) *Needs:* the two targets above; SchemeAndStackFoundatio
 - For `A = N = k⟦x⟧` and `r = x`: `H^0_{(x)}(A) = 0` and `H^1_{(x)}(A) = k((x))/k⟦x⟧ ≠ 0`; a statement
   that put the nonvanishing in degree `0` fails.
 - For `N = k = A/(x)` and `r = x`: `H^0_{(x)}(k) = k` and `H^1_{(x)}(k) = 0`, since `k[1/x] = 0`.
+  Every term of `colim_m k/xᵐk` is `k` but every transition map is zero, so the colimit is zero:
+  using identity transition maps would give the wrong answer.
 - For `A = k⟦x, y⟧`, `N = A`, `(a, b) = (x, y)`: `H^2_{(x,y)}(A) ≠ 0` while `H^0` and `H^1` vanish; with
   `b = y` regular, `H^2_{(x,y)}(A) = H^1_{(x)}(H^1_{(y)}(A))`.
 
@@ -337,6 +358,23 @@ p. 10; Lemma 3.6, p. 11.) *Needs:* Mathlib `localCohomology`, `Module.annihilato
   `a_𝔪(M, 2) = (xy, y²)`, while the intersection is `(y)`; `y ∉ (xy, y²)`.
 
 ### K0.3 Secant sequences
+
+**Prefix quotients.** For an arbitrary `R`-module `M` and a finite list `rs`, the notation
+`prefixQuotient M rs` means `M ⧸ (Ideal.ofList rs • ⊤)`. This is a specialization of Mathlib's
+module quotient, with no local or Noetherian hypothesis. Its notation API is
+`prefixQuotient_nil` (a linear equivalence with `M`), `prefixQuotient_append` (a linear equivalence
+between the quotient by `rs ++ qs` and the iterated quotient by `rs`, then `qs`), and
+`prefixQuotient_perm` (the equivalence induced by equality of the generated ideals under a
+permutation). Each equivalence commutes with the quotient maps from `M`; it is not an equality
+of carrier types. (Česnavičius, Definition 3.1 and Remark 3.2, pp. 9–10.) *Needs:* Mathlib
+`Ideal.ofList`, `Submodule.mkQ`, `Submodule.mapQ`.
+
+**Checks.**
+
+- The quotient of `ℤ` by the empty list is linearly equivalent to `ℤ`, not the zero module.
+- `prefixQuotient ℤ [2]` is `ℤ/2`, a nonzero module; it is not the submodule `2ℤ`.
+- `prefixQuotient ℤ [2, 3]` is zero because `(2, 3) = ℤ`; quotienting by the product instead would
+  give the nonzero module `ℤ/6`. The iterated quotient `(ℤ/2)/3(ℤ/2)` is zero too.
 
 **Secant sequences.** For a finite module `M` over a Noetherian local ring `(R, 𝔪)`, a list
 `r₁, …, rₛ` is secant for `M` when every `rᵢ` lies in `𝔪` and every step strictly lowers the support
@@ -405,7 +443,8 @@ SF.0 `IsLocalRing.depth_le_supportDim`.)
 - The zero module satisfies the condition (its support dimension is `⊥`).
 - `ℚ⟦X⟧` satisfies it: `H^0_𝔪(ℚ⟦X⟧) = 0` and the dimension is `1`.
 - `R = k⟦x, y⟧/(x², xy)` does not: it has dimension `1` and the class of `x` is a nonzero element
-  killed by `𝔪`, so `H^0_𝔪(R) ≠ 0`.
+  killed by `𝔪`, so `H^0_𝔪(R) ≠ 0`. Equivalently the same quotient as a module over
+  `k⟦x⟧⟦y⟧` fails `LowLocalCohomologyVanishes`; `Suggested.lean` pins this latter form for `k = ℚ`.
 
 **CM-secant sequences.** For a finite module `M` over a Noetherian local ring `(R, 𝔪)`, a list
 `r₁, …, rₛ` is CM-secant for `M` when it is secant for `M`, the terminal quotient `M/(r₁, …, rₛ)M` is
@@ -471,9 +510,9 @@ secant sequence for a Cohen–Macaulay module is regular. `Suggested.lean` decla
 *Hypotheses.* `R` Noetherian local, `M` finite and nonzero with `d = dim Supp M ∈ ℕ`, the list
 nonempty and secant (so its entries lie in `𝔪`).
 
-*Proof sketch.* The bound for the kernel of `rₛ` itself is Schenzel's theorem, which the source
-quotes and Kawasaki's 1996 note restates; the proof follows Schenzel's lecture notes (Schenzel 1982,
-2.4.2). For an element killed by `rₛⁿ` with `n > 0`, replace `rₛ` by `rₛⁿ`: the list stays secant
+*Proof sketch.* The bound for the kernel of `rₛ` itself is Schenzel's theorem in the form stated by
+Česnavičius and by Kawasaki's 1996 Lemma 2.4. Schenzel 1982, 2.4.2 is the historical proof reference
+given by Česnavičius. For an element killed by `rₛⁿ` with `n > 0`, replace `rₛ` by `rₛⁿ`: the list stays secant
 (K0.3, `IsSecant.pow`) and `a(M)` is unchanged, so the same ideal kills the union of the kernels of
 all positive powers. (Česnavičius, Remark 3.3, p. 10; Kawasaki 1996, Lemma 2.4, p. 42.) *Needs:* K0.2,
 K0.3, K0.1; SchemeAndStackFoundations SF.2.
@@ -534,12 +573,26 @@ H^j_𝔪(M) ≅ Hom_R(Ext^{-j}_R(M, ω), E).
 ```
 
 *Proof sketch.* Stacks' local duality gives `Ext^{-j}_R(M, ω)^∧ ≅ Hom_R(H^j_𝔪(M), E)` with `^∧` the
-`𝔪`-adic completion; apply `Hom_R(-, E)` and Matlis duality between finite `R̂`-modules and Artinian
-modules (`H^j_𝔪(M)` is Artinian), using `Hom_R(N^∧, E) = Hom_R(N, E)` for finite `N`. Over a complete
-ring this is Hartshorne's form, which the source quotes. (Stacks, Theorem 47.18.3, tag 0A84, and
+`𝔪`-adic completion. Put `N = Ext^{-j}_R(M, ω)`, a finite module. Local cohomology is
+`𝔪`-power torsion; the finite completed dual above implies it is Artinian (Stacks, Remark
+47.7.9). The injective hull `E` and `H^j_𝔪(M)` have their canonical `R̂`-actions; on these power-torsion modules an
+`R`-linear map is automatically `R̂`-linear. Apply `Hom_{R̂}(-, E)` to this isomorphism and Matlis
+biduality over the complete ring `R̂`. Finally
+`Hom_{R̂}(N^∧, E) ≅ Hom_R(N, E)`, by `N^∧ ≅ R̂ ⊗_R N` and restriction–extension adjunction.
+Here the first `Hom` is over `R̂`: replacing it by ordinary algebraic `Hom_R(N^∧, E)` is not
+valid over a noncomplete ring. Over a complete ring this is Hartshorne's form, which the source
+quotes. (Stacks, Theorem 47.18.3, tag 0A84, and
 Lemma 47.18.4, tag 0AAK; Section 47.7, tag 08Z1, for the injective hull and Matlis duality;
 Česnavičius, proof of Lemma 3.6(a), p. 11.) *Needs:* SchemeAndStackFoundations SF.2
 (`Coherent.NormalizedDualizing`); Mathlib `CategoryTheory.Injective`.
+
+**Check for completion.** For the noncomplete DVR `R = k[x]_{(x)}`, `ω = R[1]` and
+`E = k(x)/R`, local duality gives `H^1_𝔪(R) = E = Hom_R(R, E)` and
+`Hom_{R̂}(R̂, E) = E`, with `R̂ = k⟦x⟧`. Ordinary `Hom_R(R̂, E)` is larger: the nonzero module
+`R̂/R` has a nonzero map to `E`. To see this, send a nonzero cyclic submodule to the residue
+field inside `E`, then extend by injectivity. Thus the restriction map
+`Hom_R(R̂, E) → Hom_R(R, E)` has a nonzero kernel. This distinguishes the two scalar rings in
+the biduality argument without adding completeness to the theorem.
 
 **The Matlis annihilator lemma.** Let `R` be Noetherian local and `E` an injective `R`-module
 containing `κ` as an essential submodule (an injective hull of `κ`). For every finite `R`-module `N`,
@@ -558,8 +611,8 @@ quotient (Nakayama) and `κ ⊆ E`, so `Hom(N', E) = 0` forces `N' = 0`; applyin
 - `N = κ`: both annihilators are `𝔪` (here `Hom(κ, E) = κ`).
 - `N = 0`: both annihilators are `R`.
 - `N = R` with `R = k⟦x⟧`: `Ann R = 0` and `Hom(R, E) = E` is faithful, so `Ann E = 0`.
-- A variant claiming `Ann Hom(N, E) = 𝔪·Ann N` fails at `N = κ`, where it would give `𝔪²` instead of
-  `𝔪`.
+- A variant claiming `Ann Hom(N, E) = 𝔪·Ann N` fails for `R = k⟦x⟧` and `N = k`, where it would give
+  `(x²)` instead of `(x)`.
 
 **The local-duality annihilator identity.** For `(R, 𝔪)` Noetherian local with a normalized
 dualizing complex `ω`, every finite `M` and every `j ∈ ℤ`,
@@ -571,6 +624,11 @@ module `Ext^{-j}_R(M, ω)`. (Česnavičius, Lemma 3.6(a), p. 11.) *Needs:* the t
 
 **Checks.**
 
+- For the DVR `R = k⟦x⟧`, `ω = R[1]` and `M = R`, the two local-cohomology degrees are
+  `H^0_𝔪(R) = 0` and `H^1_𝔪(R) = k((x))/R = E`. The matching Ext groups are
+  `Ext^0(R, R[1]) = 0` and `Ext^{-1}(R, R[1]) = R`. Thus the index is `-j` and the normalized
+  complex is shifted by `+1`. At the generic prime `𝔭 = 0`, `δ(𝔭) = dim R = 1`, so the normalized
+  complex of `R_𝔭 = k((x))` is `ω_𝔭[-δ(𝔭)] = k((x))[0]`, fixing the localization shift too.
 - `R = k`, `ω = k[0]`, `M = k`: in degree `0` both annihilators are `0`; in every other degree both
   modules vanish and both annihilators are `R`.
 - With `ω[1]` in place of `ω` (not normalized) the identity fails in degree `0` for the same data.
@@ -716,7 +774,7 @@ equality.
 `z ∈ (Qᵢ :_M rᵢ) ∩ J^{n-1}M = Qᵢ ∩ J^{n-1}M` by the colon identity, and the case `n − 1` places `rᵢz` in
 `(r₁, …, r_{i-1})J^{n-1}M`. The case `n = 1` uses the base case rather than a colon identity at
 `n = 0`, which is false. (Česnavičius, Remark 3.10, second equality of (3.10.1) and its proof, p. 12;
-Kawasaki 2000, 2.2.) *Needs:* the colon identity; Mathlib `Ideal.ofList`.
+Kawasaki's 1999 author preprint, Proposition 3.2, p. 5.) *Needs:* the colon identity; Mathlib `Ideal.ofList`.
 
 **Checks.**
 
@@ -752,7 +810,8 @@ I_s = ∏_{0 ≤ i < s} (rs.take (i+1)) = (r₁)·(r₁, r₂)·⋯·(r₁, …,
 ```
 
 with `I₀ = R`. It is not the `s`-th power of `(r₁, …, rₛ)`. The definition is total in `s`; for `s > t`
-the extra factors repeat `(r₁, …, rₜ)`, and no theorem uses that range. `Suggested.lean` declares
+the extra factors repeat `(r₁, …, rₜ)`. The recurrence holds for every natural `s`, while the
+geometric statements use `s ≤ t`. `Suggested.lean` declares
 `prefixProduct` and `prefixProduct_succ`.
 
 The API:
@@ -762,7 +821,8 @@ The API:
   product-of-ideals identity for blowing-ups (K3.5).
 - `prefixProduct_one`: `I₁ = (r₁)` for a nonempty list.
 - `prefixProduct_take`: for `s ≤ length rs`, computing `I_s` from `rs.take s` gives the same ideal.
-- `prefixProduct_le`: for `0 < s`, `I_s ⊆ (r₁, …, rₛ)^s ⊆ (r₁, …, rₛ)`, and `I_s` contains `r₁ˢ`.
+- `prefixProduct_le`: for `0 < s`, `I_s ⊆ (rs.take s)^s ⊆ (rs.take s)`; when the list is nonempty,
+  `I_s` contains `r₁ˢ` (also for `s > length rs`).
 
 *Proof sketch.* Finite products over `Finset.range s`; `take (i+1) (take s rs) = take (i+1) rs` for
 `i < s`. (Česnavičius, Proposition 3.11, the ideals `I_j`, p. 12, and the proof of Theorem 3.14,
@@ -839,10 +899,17 @@ K0.3–K0.6, K1.1.
 and the `(r₁, …, rₛ)`-torsion of `M'/I_{s-1}ⁿM'` coincide. (README name
 `IsCMSecant.torsion_prefixProduct`.)
 
-*Proof sketch.* Kawasaki 2000, 3.2, in the case of `p`-standard sequences of type `d − 1`,
-which rests on the five-part induction of Kawasaki 2000, 3.1 (and its slightly more general form
-Kawasaki 2002, 3.6) on the difference `j − i`, with base case Kawasaki 2000, 2.9–2.10
-and the Goto–Yamagishi identities (K1.2); the bootstrapping technique is that of K1.2. The source
+*Proof sketch.* Extend to parameters (K0.6) and reverse the list, putting it in the
+`p`-standard case of type `d − 1`. Apply the five colon and intersection estimates proved together
+by induction on `j − i` in Kawasaki's 1999 author preprint, Theorem 3.6 (statement p. 6, proof
+pp. 6–13); its Proposition 3.2 (p. 5) supplies the Goto–Yamagishi base case, and Propositions
+3.4–3.5 (p. 5) supply the auxiliary-parameter and d-sequence steps. The estimates allow zero
+exponents, retaining the explicit positive exponent wherever a factor is removed. Translating
+the tail ideals `q_i` of the reversed system back gives the prefix products `I_j`; the resulting
+torsion identity is precisely Česnavičius's Proposition 3.11(ii). His proof cites Kawasaki 2000,
+3.2, through the corresponding five-part induction in 3.1, and Kawasaki 2002, 3.6 for the more
+general induction. These published locators are cited through Česnavičius. The bootstrapping
+technique is that of K1.2. Česnavičius
 lists five misprints in Kawasaki's text that the formal proof must take into account: in the proof of
 2.8 the last indices are `n_{s+1}, …, n_d`; before (3.1.5) and before the last display of Step 3
 of the proof of 3.1 the membership `y_u ∈ a(M/q_k M)` is to be read as `y_u ∈ a(M/q_k M)`
@@ -860,8 +927,11 @@ auxiliary element `r'_{s'}` is regular on `M'/(r₁, …, rₛ)M'`, then `r'_{s'
 `M'/I_sⁿM'` for every `n > 0`. The element is the last auxiliary element, not an element of the
 original sequence. (README name `IsCMSecant.isSMulRegular_prefixProduct`.)
 
-*Proof sketch.* Kawasaki 2000, 3.3, in the same special case and with the same induction
-and corrections as the previous target. (Česnavičius, Proposition 3.11(iii), pp. 12–13.) *Needs:* the
+*Proof sketch.* The same colon-estimate induction as the previous target, with a final auxiliary
+parameter regular on the terminal quotient. Use Kawasaki's 1999 author preprint, Theorem 3.6,
+pp. 6–13. The resulting regularity statement is Česnavičius's Proposition 3.11(iii); his proof
+attributes it to Kawasaki 2000, 3.3, with the corrections above.
+(Česnavičius, Proposition 3.11(iii), pp. 12–13.) *Needs:* the
 previous two targets.
 
 **Checks.**
@@ -967,14 +1037,10 @@ The API:
 
 ### K3.2 Chart modules
 
-The chart rings are Tau Ceti's affine blow-up algebras `R[I/a] = Ideal.affineBlowup I a R[1/a]`
-(`affineChart I a`, with the ring `ChartRing I a`, in `Suggested.lean`); for `a ∈ I` the extension of
-`I` to `R[I/a]` is the principal ideal `(a)` and `a` is regular on `R[I/a]`.
+The modules in this subsection live over the chart rings `R[I/a]` fixed in the supplier contracts.
 
 **Chart modules.** For an ideal `I`, `a ∈ R` and an `R`-module `M`, the chart module `M_(a)` is the
 `R[I/a]`-submodule of the localization `M[1/a]` spanned by the image of `M`. `Suggested.lean` declares
-`affineChart` (with the body of Tau Ceti's `Ideal.affineBlowup`), the ring `ChartRing I a` with its
-inclusion `ChartRing.toLocalization` and its action `ChartRing.moduleLocalizedModule` on `M[1/a]`, and
 `chartModule`, `chartModule_isSMulRegular` and `mem_annihilator_chartModule_iff`.
 
 *Hypotheses.* `R` any commutative ring and `M` any module for the definition and the first four API
@@ -1053,6 +1119,29 @@ The API:
   Cohen–Macaulay. The charts of all `a ∈ I` cover the blow-up (`iSup_opensRange_affineBlowupι`), the
   stalk at a point of a chart is the localization of the chart module, and the condition is
   checked on stalks.
+
+**Chartwise Cohen–Macaulayness.** The predicate `IsCMBlowupChartwise I M` means that at every prime
+of every chart of `a ∈ I`, the localized chart module has vanishing local cohomology below its
+support dimension. It is a light predicate over the existing chart rings and localized modules;
+its geometric comparison requires `R` Noetherian and `M` finite as above. Its API consists of
+`isCMBlowupChartwise_of_subsingleton` (zero modules), `isCMBlowupChartwise_zeroIdeal` (the empty
+blow-up), `isCMBlowupChartwise_unitIdeal_iff` (for finite modules over Noetherian rings, equivalence
+with Cohen–Macaulayness of `M_𝔭` at every prime of `R`), and the sheaf comparison
+`moduleBlowup.isCohenMacaulay_iff`. (Česnavičius, §3.13 and §1.14, pp. 13–14 and 4; the chart cover
+and stalk comparison above.)
+
+**Checks for the predicate.**
+
+- A zero module satisfies the predicate for every ideal, since all localized chart modules are
+  zero. This rejects a definition that requires nonzero stalks everywhere.
+- The zero ideal satisfies it for every module, including a non-Cohen–Macaulay one: its only
+  potential chart is `a = 0`, whose ring is zero and has no prime, and the blow-up is empty.
+  This rejects a definition that tests `M` on the base instead.
+- For the unit ideal it holds for `M = R = k⟦x⟧`, and fails for
+  `M = R = k⟦x, y⟧/(x², xy)` at its maximal ideal. The unit chart is the base, so the predicate
+  cannot merely test regularity of the exceptional chart element.
+- The Cohen–Macaulay ring of K4.6 fails the predicate for its maximal ideal: arbitrary centres
+  do not preserve Cohen–Macaulayness.
 
 *Proof sketch.* The construction is the sheaf of a graded module on `Proj` (Stacks, Constructions,
 Section 27.8, tag 01M3, Lemmas 27.8.4 and 27.8.7) applied to the Rees module; the chart description is
@@ -1147,7 +1236,12 @@ morphism. (Česnavičius, §3.13, (3.13.1)–(3.13.2), p. 14.) *Needs:* the prev
 
 - `I = R`: the identity is `Bl_J(M) = Bl_J(M)`.
 - For `I = (a)` with `a` regular on `R` and on `M`, `Bl_{(a)J}(M) = Bl_J(M)`: blowing up an invertible
-  ideal does nothing. For the prefix products this gives `Bl_{I₁}(M) = M` when `r₁` is `M`-regular.
+  ideal does nothing. If `r₁` is only `M`-regular, `Bl_{I₁}(M)` is the sheaf of `M` on
+  `Spec R/R⟨r₁^∞⟩`; its pushforward to `Spec R` is `tilde M`. Identifying the blow-up scheme itself
+  with `Spec R` requires `r₁` to be regular on `R` as well.
+- For `R = k⟦x, y⟧/(xy)`, `M = R/(y)` and `r₁ = x`, `x` is regular on `M` but not on `R`.
+  The first blow-up scheme is `Spec R/(y)`, and its module is `M ≅ k⟦x⟧`. This distinguishes
+  module regularity from ring regularity in the principal-stage identification.
 
 ### K3.6 Support and dimension
 
@@ -1236,8 +1330,8 @@ the length of the list, at closed points and through two-generator charts, gives
 
 ### K4.1 The regular-element reduction
 
-**Reduction by a regular element of the terminal quotient.** Let `rs` be secant for `M`, with every
-initial segment satisfying Kawasaki's conditions on `M`, and let `r' ∈ 𝔪` be regular on the terminal
+**Reduction by a regular element of the terminal quotient.** Let `M ≠ 0` and let `rs` be secant for
+`M`, with every initial segment satisfying Kawasaki's conditions on `M`, and let `r' ∈ 𝔪` be regular on the terminal
 quotient `M/(r₁, …, rₜ)M`. Then:
 
 - `r'` is secant for every prefix quotient `M/(r₁, …, r_j)M`, `j ≤ t`, and `rs` is secant for `M/r'M`;
@@ -1265,6 +1359,10 @@ K3.3; DeformationAndDerivedPatchingAlgebra R03.3; SchemeAndStackFoundations SF.0
 
 **Checks.**
 
+- Nonvanishing is necessary for this reduction: take `M = 0`, `rs = []` and `r' = 0`.
+  The empty list is secant and satisfies Kawasaki's conditions, and multiplication by `0` on
+  the terminal quotient `0` is injective. Nevertheless `[0]` is not secant for `0`, because
+  `⊥ < ⊥` fails. The final theorem handles `M = 0` separately by `Bl_I(0) = 0`.
 - For `M = R = k⟦x, y⟧`, `rs = [x]`, `r' = y`: `Bl_{(x)}(M) = M` and its quotient by `y` is
   `k⟦x⟧ = Bl_{(x)}(M/yM)`.
 - In degree zero the comparison is `M/r'M`, in degree `n` it is `I_tⁿM/r'I_tⁿM ≅ I_tⁿ(M/r'M)`; without
@@ -1281,7 +1379,8 @@ induction. (Česnavičius, proof of Theorem 3.14, p. 15.) *Needs:* K3.2 (`chartM
 **Checks.**
 
 - For `M = R = k⟦x, y⟧/(xy)` and `r₁ = x`, the first stage is `k⟦x⟧`, of depth one.
-- For a regular `r₁`, the first stage is `M` itself.
+- For `r₁` regular on `M`, the first stage is the sheaf of `M` over `Spec R/R⟨r₁^∞⟩`.
+  If `r₁` is also regular on `R`, this is `tilde M` on `Spec R`.
 
 **The two-generator chart.** Let `s ≥ 2`, let `x''` be a closed point of `Supp Bl_{I_s}(M)` lying over
 `𝔪`, and `x'` its image in `Bl_{I_{s-1}}(Spec R)` (a closed point over `𝔪`; `Bl_{I_s}(Spec R)` is the
@@ -1554,12 +1653,21 @@ TauCetiRoadmap StableReduction (Layer 4); Tau Ceti (current library charts).
   <https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/0964-3.pdf>. Used: Definition 2.1
   (p. 41), Lemma 2.4, Definition 2.5, Theorem 2.6 and Lemma 2.7 (p. 42).
 - [Kawasaki 2000] T. Kawasaki, *On Macaulayfication of Noetherian schemes*, Trans. Amer. Math. Soc. 352
-  (2000), 2517–2552. Used: 2.2, 2.8–2.10, 3.1–3.3 (proofs of K1.2 and K2.3), with the corrections listed in
-  Česnavičius, proof of Proposition 3.11.
+  (2000), 2517–2552, <https://doi.org/10.1090/S0002-9947-00-02603-9>. Historical proof references
+  cited through Česnavičius: 2.2, 2.8–2.10, 3.1–3.3, with his corrections in the proof of
+  Proposition 3.11. The statements used here are cited directly to Česnavičius and the induction
+  to the author preprint below.
 - [Kawasaki 2002] T. Kawasaki, *On arithmetic Macaulayfication of Noetherian rings*, Trans. Amer. Math.
-  Soc. 354 (2002), 123–149. Used: 3.6.
+  Soc. 354 (2002), 123–149, <https://doi.org/10.1090/S0002-9947-01-02817-3>.
+  Historical reference 3.6 cited through Česnavičius, proof of Proposition 3.11.
+- [Kawasaki 1999 preprint] T. Kawasaki, *On arithmetic Macaulayfication of local rings*,
+  author preprint dated 19 August 1999, available from
+  <https://tkawasaki.fpark.tmu.ac.jp/articles.html> as
+  <https://tkawasaki.fpark.tmu.ac.jp/dl/arith-CMfication.dvi.gz>.
+  Used: Propositions 3.2–3.5 (p. 5), Theorem 3.6 (p. 6; proof pp. 6–13).
 - [Schenzel 1982] P. Schenzel, *Dualisierende Komplexe in der lokalen Algebra und Buchsbaum-Ringe*,
-  Lecture Notes in Math. 907, Springer, 1982. Used: 2.4.2 (K0.5).
+  Lecture Notes in Math. 907, Springer, 1982. Historical reference 2.4.2 cited through Česnavičius,
+  Remark 3.3; the torsion bound used in K0.5 is also stated in Kawasaki 1996, Lemma 2.4 (p. 42).
 - [Huneke 1982] C. Huneke, *The theory of d-sequences and powers of ideals*, Adv. Math. 46 (1982),
   249–279 (origin of d-sequences, K1).
 - [HJLS] W. Heinzer, B. Johnston, D. Lantz and K. Shah, *Coefficient ideals in and blowups of a
