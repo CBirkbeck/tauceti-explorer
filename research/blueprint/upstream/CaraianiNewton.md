@@ -57,7 +57,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 7
 
-- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 8/8 accepted · package not yet · CN needs 6/7 layers · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
+- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 8/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #856 open** · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
 
 ## Tier 8
 

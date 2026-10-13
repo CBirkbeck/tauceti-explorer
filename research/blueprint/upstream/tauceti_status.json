@@ -333,6 +333,23 @@
         "date": null,
         "note": "opened 2026-10-13 11:00Z; awaiting first review"
       }
+    },
+    "ArithmeticGaloisRepresentations": {
+      "stage": "pr",
+      "pr": 856,
+      "head": "0636ba9",
+      "depends_on": [
+        789,
+        785
+      ],
+      "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 11:30Z; awaiting first review"
+      }
     }
   }
 }
