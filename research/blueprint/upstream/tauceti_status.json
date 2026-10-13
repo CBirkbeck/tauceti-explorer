@@ -70,7 +70,7 @@
         "head": "31d1353",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 31d1353: B1 and N1, repaired at dbe52a5 (re-stacked on #785); awaiting re-review"
+        "note": "maintainer (GPT-assisted) review at 31d1353: B1 and N1, repaired at dbe52a5 (re-stacked on #785); awaiting re-review | re-review 07:44Z: R2.1, R2.2 coefficient corrections, fix in progress"
       }
     },
     "IntegralHeckeAndGaloisDeterminants": {
@@ -125,13 +125,13 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "4a6c8e2",
+      "head": "48a865d",
       "review": {
         "recommendation": "changes",
-        "head": "9d958d1",
+        "head": "4a6c8e2",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer review repairs at 5255043; head 4a6c8e2 differs only by re-stacks on the parents | re-review 07:17Z: further findings, fix in progress"
+        "note": "maintainer re-review at 4a6c8e2: carrier/universe blocker, repaired at 48a865d (re-stacked on #818); awaiting re-review"
       }
     },
     "PerfectoidSpaces": {
