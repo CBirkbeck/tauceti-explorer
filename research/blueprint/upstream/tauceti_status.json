@@ -301,6 +301,24 @@
         "date": null,
         "note": "opened 2026-10-13 10:05Z; awaiting first review"
       }
+    },
+    "LocallyAnalyticDistributions": {
+      "stage": "pr",
+      "pr": 854,
+      "head": "513dd50",
+      "depends_on": [
+        780,
+        813,
+        785
+      ],
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 10:30Z; awaiting first review"
+      }
     }
   }
 }
