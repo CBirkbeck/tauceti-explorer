@@ -10,7 +10,7 @@ The datum, its Hermitian components, adjoint cocharacter class, reflex field, sp
 
 Structural reductive groups, root subgroups and Weil restriction belong to ReductiveGroups and ReductiveGroupsPartII. ComplexComparisonPartII owns the analytic locally ringed category, analytification, GAGA, Chow and the independent o-minimal comparison inputs. SchemeAndStackFoundations owns finite scheme and stack quotients. General scheme descent, closures and strict normal-crossing compactifications belong to AlgebraicModuliForArithmeticGeometry. ArithmeticLocallySymmetricSpaces owns effective properness, finite covolume and the ranked rigidity inputs. Each additional supplier obligation is stated below, separately from its existing output.
 
-PELModuli and this roadmap form a common build bundle. PELModuli M0–M3 supplies rational polarized moduli and analytic families before canonical existence; its M4 canonical comparisons use the CM theorem constructed here afterward. M5 supplies the genus-one moduli dictionary. AbelianSchemesAndArithmeticModuli supplies duals, torsion, realizations and the analytic weight-one equivalence; this roadmap owns the algebraization of that equivalence and its CM arithmetic application. NeronModelsAndSemistableAbelianVarieties supplies semistable inertia and Néron–Ogg–Shafarevich. CM types and their reflex constructions are imported only from ComplexMultiplicationAndExplicitReciprocity CM.0; its later CM applications are consumers of the theorem here.
+PELModuli and this roadmap form a common build bundle. PELModuli M0–M3 supplies rational polarized moduli and analytic families before canonical existence; its M4 canonical comparisons use the CM theorem constructed here afterward. M5 supplies the genus-one moduli dictionary. AbelianSchemesAndArithmeticModuli supplies duals, torsion, realizations and the analytic weight-one equivalence; this roadmap owns the algebraization of that equivalence and its CM arithmetic application. NeronModelsAndSemistableAbelianVarieties supplies semistable inertia and Néron–Ogg–Shafarevich. This roadmap also owns CM types of CM algebras, their reflex fields and their reflex norms (Section 5.1), which the CM theorem needs; ComplexMultiplicationAndExplicitReciprocity builds its explicit reciprocity applications on them and on the theorems of Layer 5.
 
 ModularCurves owns full ordered-basis, fixed-pairing, fine Γ₁ and coarse Γ₀ moduli. ModularCurvesPartII owns their analytic comparison and generalized-elliptic compactifications. ClassFieldTheory owns arithmetic reciprocity and the cyclic Hasse norm theorem. Completed/RestrictedProducts and the Tau Ceti restricted-product library supply adelic carriers; no second restricted-product construction is needed here. Current manifold gluing is also imported from Tau Ceti. General analytic spaces with nilpotents, invariant finite analytic quotients and holomorphic bundle descent require the additional analytic supplier contract.
 
@@ -28,7 +28,7 @@ Homology has Hodge types (−1,0),(0,−1). A full CM action may be by a product
 
 Canonical automorphic degree n means a tensor power of top differentials with the ambient Jacobian pullback. On ℍ this is classical weight 2n. At a genus-two Siegel boundary of genus one the ambient weight is 3n, rather than the intrinsic boundary weight 2n; at n=2 the retained weight is 6, the intrinsic elliptic degree is 3. Admissibility means the transported coefficients extend continuously to the Satake boundary and holomorphically on each stratum. It is not the cusp condition: E₄ at Γ(3) has canonical degree 2 and constant term 1; j has a pole and is inadmissible.
 
-The connected datum for a semisimple group is a Gᵃᵈ(ℝ)⁺-class of S→Gᵃᵈ_ℝ. It need not lift to the simply connected group. For SL₂ the fundamental PGL₂ cocharacter is not an integral SL₂ cocharacter. Connected canonical objects retain their congruence completion and adelic/Galois extension, not just their complex pro-variety. Identity conjugation is trivial; complex conjugation reverses the upper-half-plane marking even when the group twist remains split.
+The connected datum for a semisimple group is a Gᵃᵈ(ℝ)⁺-class of S→Gᵃᵈ_ℝ satisfying the connected Shimura conditions (C1)–(C3) (Milne 1983, Appendix, pp.262–263); this is the standing connected adjoint S-map convention of Layers 6–7. It need not lift to the simply connected group. For SL₂ the fundamental PGL₂ cocharacter is not an integral SL₂ cocharacter. Connected canonical objects retain their congruence completion and adelic/Galois extension, not just their complex pro-variety. Identity conjugation is trivial; complex conjugation reverses the upper-half-plane marking even when the group twist remains split.
 
 Full elliptic level uses a row (P,Q). Right multiplication by [[a,b],[c,d]] gives (aP+cQ,bP+dQ), with pairing raised to det. Thus [[1,1],[0,1]] sends (P,Q) to (P,P+Q), and [[0,1],[−1,0]] sends it to (−Q,P). Full fine level requires N≥3, fine Γ₁ requires N≥4, and Γ₀ is coarse at every positive N. Our K₁ fixes the first column e₁. AdelicAlgebraicGroups §5.2 fixes the second row covector instead; only their SL₂ intersections agree. These full compact opens are not related by basis-swap conjugation.
 
@@ -41,6 +41,8 @@ For GL₂ the determinant component datum uses Y=ℝˣ/ℝ_{>0}={±1}. At princi
 Use `MulAction.orbitRel`, `MulAction.orbitRel.Quotient` and `MulAction.stabilizer` from `Mathlib.GroupTheory.GroupAction.Defs` for the actual orbit relation and subgroup. They supply no quotient topology or analytic structure. The analytic point specialization in Suggested.lean retains the two coordinates through a genuine product-group action.
 
 Use `AlgebraicGeometry.Scheme`, its native morphisms, `AlgebraicGeometry.IsFinite`, `AlgebraicGeometry.IsProper` and `AlgebraicGeometry.IsOpenImmersion`. Finite means affine with finite ring maps; proper means separated, universally closed and locally of finite type. These predicates do not assert any Shimura comparison. `IntermediateField.LinearDisjoint` is the actual subalgebra-based field relation used in the disjoint-reflex-field argument.
+
+CM types use `NumberField.IsCMField` from `Mathlib.NumberTheory.NumberField.CMField` for the factors of a CM algebra, the conjugate embedding `NumberField.ComplexEmbedding.conjugate φ = star φ` (with `RingHom.involutiveStar`), and `IntermediateField.adjoin` and `IntermediateField.adjoin_le_iff` for the reflex field. `Algebra.norm` and `LinearMap.det` supply the determinants in the reflex norm.
 
 The canonical level tower is a `CategoryTheory.Functor` into `CategoryTheory.Over (Spec E)`. Base change is `CategoryTheory.Over.pullback` under its `HasPullbacksAlong` hypothesis, with `Over.pullbackId` and `Over.pullbackComp` as natural isomorphisms. The Hecke diagram is the native `CategoryTheory.Limits.span`; its ordered arrows are `WalkingSpan.Hom.fst` and `.snd`. `Limits.spanCompIso` supplies the natural comparison after applying a functor. These native category constructions are used directly.
 
@@ -68,7 +70,7 @@ The following contracts specify mathematical inputs, including the additional ou
 
 **[ArithmeticLocallySymmetricSpaces, `ALS.0`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md).** Properness of the symmetric-space isometry action, arithmetic finite covolume after compact ineffective factors, and the finite normalizer-index/finite automorphism theorem for torsion-free arithmetic Hermitian quotients. For weak conjugation additionally supply the precisely ranked S-arithmetic arithmeticity and superrigidity conclusions of Milne 1983 §§3.5–3.7; these additions are an additional supplier obligation, not already present ALS.0 outputs.
 
-**[ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).** Import the existing rational parabolic/root, maximal-torus, Weyl and reductive structural theory only. The rational real-density theorem, arithmetic images, restriction-of-scalars classification of Q-simple groups, real maximal-torus conjugacy, corrected finite-place H¹(k,Z) injectivity, adjoint Hasse principle, norm/weak-approximation assertions and root-centre identities require the specified ReductiveGroups Part II extension, a required construction. The adelic ν-image/class-set and simply connected torsor inputs are imported separately from AA.4; none is claimed as an existing upstream Layer 7 output. For the exceptional §3.10 adjustment, import the exact Platonov–Rapinchuk rank-one perfection result and prove its marked-torus/central comparison; do not attribute simplicity of the full reductive Hα to it.
+**[ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).** Import the existing rational parabolic/root, maximal-torus, Weyl and reductive structural theory only. The rational real-density theorem, arithmetic images, restriction-of-scalars classification of Q-simple groups, real maximal-torus conjugacy, corrected finite-place H¹(k,Z) injectivity, adjoint Hasse principle, norm/weak-approximation assertions and root-centre identities require the specified ReductiveGroups Part II extension, a required construction. The adelic ν-image/class-set and simply connected torsor inputs are imported separately from AA.4; none is claimed as an existing upstream Layer 7 output. For the exceptional §3.10 adjustment, import the exact Platonov–Rapinchuk rank-one perfection result and prove its marked-torus/central comparison; do not attribute simplicity of the full reductive Hα to it. Connected centralizers of cocharacters, conjugacy and geometry of maximal tori, regular semisimple Lie open and compact-mod-centre real tori. Import this structure theory; the incidence specialization belongs to the required IG.2/R09.2 contracts.
 
 **[ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md).** Import the existing ReductiveGroups Part II finite-free Weil restriction of affine group schemes and descent/splitting interfaces, applying them to field extensions here. The reflex norm uses its split character/cocharacter products, torus norm, base-change and diagonal-embedding compatibilities; expose any missing norm/cocharacter specialization at this owner, without planning the general Weil restriction construction again.
 
@@ -78,13 +80,13 @@ The following contracts specify mathematical inputs, including the additional ou
 
 **[ComplexComparisonPartII, `C4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md).** Chow for closed projective analytic subspaces and graph algebraicity between proper algebraic schemes; proper graph comparison after normal-crossing compactification. The added definable-graph route requires an independent arithmetic-to-algebraic definability comparison, polarized period-map definability and Peterzil–Starchenko o-minimal Chow; route those additions to a Complex Comparison Part II extension, requiring their independent proofs. For the alternative proof, expose KUY 1.9/4.1/4.2 with the exact complex cusp-chart/exponential compactness contract, BKT 1.3, and BKT 4.13; no ordinary Borel algebraicity or arithmetic toroidal model is used to certify that comparison.
 
-**[ModularCurves, layer 0 scheme theoretic prerequisites](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#layer-0-scheme-theoretic-prerequisites).** Import Layer 0D’s already specified equivalence between finite continuous absolute-Galois sets and finite étale field schemes, with products and morphisms. Import Layer 0C’s invariant affine quotient/free-action API through SF.1/finite-group-quotient. The general orbit-cover quotient construction is already planned by SF.1; only its descended ample-power/quasi-projectivity extension remains required there.
+**[ModularCurves, layer 0 scheme theoretic prerequisites](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#layer-0-scheme-theoretic-prerequisites).** Import Layer 0D’s already specified equivalence between finite continuous absolute-Galois sets and finite étale field schemes, with products and morphisms. Import Layer 0C’s invariant affine quotient/free-action API through SF.1/finite-group-quotient. The general orbit-cover quotient construction is SF.1's; only its descended ample-power/quasi-projectivity extension is additionally required there.
 
 **[ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity).** Import ClassFieldTheory Layer 11 arithmetic Artin reciprocity, continuity and kernel, norm/restriction compatibility, and Layers 12–13 ray class fields and generation by good primes. Invert its arithmetic Frobenius convention in geometricArtin. Import Layer 13 cyclicHasseNorm for the quadratic CM norm step; the extra global-unit topology contract above is separate. The CM norm-kernel deduction itself is constructed in Layer 5.
 
-**[AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md).** Faithful base change and effective continuous quasi-projective descent of schemes/morphisms, including Milne 1999 Theorem 1.1 under infinite transcendence degree and its finite rigidifying-point criterion. Descend invariant closed images and finite quotient towers with compatible maps. Ordinary finite-group quotient existence is imported from SF.1/finite-group-quotient, rather than required here.
+**[AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md).** Faithful base change and effective continuous quasi-projective descent of schemes/morphisms, including Milne 1999 Theorem 1.1 under infinite transcendence degree and its finite rigidifying-point criterion. Descend invariant closed images and finite quotient towers with compatible maps. Ordinary finite-group quotient existence is imported from SF.1/finite-group-quotient, rather than required here. Faithful field base change on morphisms; descent along C/E of morphisms fixed by Aut(C/E) (Milne 13.1) and of closed subschemes; effective polarized projective descent; flat base change of global sections of an invertible sheaf on a quasi-compact separated E-scheme; dense-open equality for reduced source and separated target.
 
-**[PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md).** Generic rational Siegel moduli with actual polarization and integral/adelic symplectic level, including the fine/neat and coarse/non-neat distinctions, its analytic family/uniformization and the moduli map used after Layer 3 to algebraize weight-one variations. This contract uses M0–M3 only; M4 canonical models are not an input to Layer 5.
+**[PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md).** Generic rational Siegel moduli with actual polarization and integral/adelic symplectic level, including the fine/neat and coarse/non-neat distinctions, its analytic family/uniformization and the moduli map used after Layer 3 to algebraize weight-one variations. This contract uses M0–M3 only; M4 canonical models are not an input to Layer 5. Genus-one fine full ordered-basis generic-fibre moduli scheme with N >= 3, homology/Tate comparison to the GL2/GSp2 complex double quotient.
 
 **[AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md).** Dual abelian schemes, rational polarizations and Rosati involutions, with E-conjugation compatibility and functorial alternating pairings. Separate positive rational similitudes from integral polarization degree.
 
@@ -100,13 +102,11 @@ The following contracts specify mathematical inputs, including the additional ou
 
 **[AlgebraicModuliForArithmeticGeometry, `R09.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md).** The relative cocharacter Hom scheme Hom(G_m,T) for the family of maximal tori T_v over the regular-semisimple locus V of Lie(G), and its locus where the cocharacter lies in the datum's geometric conjugacy class. This selected incidence locus is Deligne's finite étale cover W -> V (5.1, p.153), with its base change; the entire cocharacter Hom scheme need not be finite.
 
-**[AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md).** Faithful field base change on morphisms; descent along C/E of morphisms fixed by Aut(C/E) (Milne 13.1) and of closed subschemes; effective polarized projective descent; flat base change of global sections of an invertible sheaf on a quasi-compact separated E-scheme; dense-open equality for reduced source and separated target.
-
 **[AlgebraicModuliForArithmeticGeometry, `R09.5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md).** Finite quotients of quasi-projective schemes by finite group actions (effective quotients), descent of finite/surjective/étale properties, normal projective curve compactifications and finite correspondences, and scheme-theoretic closure compatible with extension of fields.
 
 **[InverseGaloisAndArithmeticFundamentalGroups, `IG.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/InverseGaloisAndArithmeticFundamentalGroups.md).** Hilbert irreducibility for a finite étale cover over a number field with geometrically irreducible total incidence variety, prescribed nonempty real open, and linear disjointness from a fixed finite extension. Existing elementary-polynomial statements do not state this.
 
-**[ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Uniformisation E(C) ≅ C/Lambda with H_1(E,Z) = Lambda, compatible with Tate modules and full level-N bases, and the analytic formula for the scheme-theoretic Weil pairing; in particular the reference root zeta_ref = e_N(tau/N, 1/N) on C/(Z tau + Z), Im tau > 0, is independent of tau (the calibration behind the corrected convention).
+**[ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Uniformisation E(C) ≅ C/Lambda with H_1(E,Z) = Lambda, compatible with Tate modules and full level-N bases, and the analytic formula for the scheme-theoretic Weil pairing; in particular the reference root zeta_ref = e_N(tau/N, 1/N) on C/(Z tau + Z), Im tau > 0, is independent of tau (this calibration fixes the root convention of Layer 8).
 
 **[ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Analytic uniformization of the full ordered level N >= 3, fixed-pairing, Gamma1 (N >= 4) and coarse Gamma0 (every N > 0) curves as isomorphisms, with the ordered-basis determinant identified with the chosen root of unity. Agreement with AA.5's adelic component calculation is AA.5's own target, since AA.5 consumes R12.2.
 
@@ -118,17 +118,13 @@ The following contracts specify mathematical inputs, including the additional ou
 
 **[ModularCurvesPartII, `R12.6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Compatibility of the analytic–algebraic comparison with level changes, diamond operators and complex conjugation; fields of definition of the components and of the canonical cusp. Residue fields of all cusps come from R13.4b.
 
-**[ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Characteristic-zero coarse compactifications for full/composite levels and finite quotients; do not substitute Layer-10 prime diamond quotients.
+**[ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Characteristic-zero coarse compactifications for full/composite levels and finite quotients; do not substitute the prime-level diamond quotients of ModularCurves Layer 10.
 
 **[ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md).** Normal proper generalized-elliptic compactification, boundary subscheme and formal Tate charts over actual cusp residue fields, compatible with the full/coarse open and all finite legs.
-
-**[PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md).** Genus-one fine full ordered-basis generic-fibre moduli scheme with N >= 3, homology/Tate comparison to the GL2/GSp2 complex double quotient.
 
 **[PELModuli, `M4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md).** Actual normalized CM action on genus-one full-level moduli and its agreement with the Layer 4 special-pair reciprocity condition, including all determinant components.
 
 **[PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md).** The genus-one Siegel moduli and its comparison with ModularCurves’ Y_full(N) (N >= 3), including the determinant/Weil-pairing convention, the basis-change determinant exponent and the cyclotomic target.
-
-**[ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).** Connected centralizers of cocharacters, conjugacy and geometry of maximal tori, regular semisimple Lie open and compact-mod-centre real tori. Import this structure theory; the incidence specialization belongs to the required IG.2/R09.2 contracts.
 
 **[ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing).** Existing full ordered-basis scheme for N >= 3 and its row-action/Weil-pairing convention; fixed-pairing model after cyclotomic base change. R12.1/R12.2 supply the analytic comparison.
 
@@ -142,7 +138,7 @@ The following contracts specify mathematical inputs, including the additional ou
 
 ## How to read the build
 
-Layers 0–3 construct arithmetic components, the complex tower, its minimal compactification and algebraicity. The extension of general datum maps, the codimension-one complex partial extension and its logarithmic section embedding follow the algebraization of maps and finite quotients in Layer 3. The earlier full-ring argument uses its own local cusp/logarithmic calculation on the separating projective realization; it does not invoke that later global linear-system theorem. Layer 4 fixes canonical reciprocity and proves the three foundational descent results—disjoint special reflex fields, descent of translations and uniqueness—conditionally on actual models. They precede the existence constructions, so inheritance and independence do not depend on the final tower theorem. Layer 5 constructs the CM and Siegel instance; Layer 6 gives the Hodge/abelian-type route. Layer 7 supplies a separate general-data route. Layer 8 applies conditional tower and compactification functoriality to whichever existence route supplied the models. Its abelian-type application does not use Layer 7; its auxiliary finite-domain models are explicit inputs. Suggested.lean records only real-bodied point and reciprocity interfaces available over native group carriers. Analytic topology, schemes and the remaining heavy constructions are developed through the targets below.
+Layers 0–3 construct arithmetic components, the complex tower, its minimal compactification and algebraicity. The extension of general datum maps, the codimension-one complex partial extension and its logarithmic section embedding follow the algebraization of maps and finite quotients in Layer 3. The earlier full-ring argument uses its own local cusp/logarithmic calculation on the separating projective realization; it does not invoke that later global linear-system theorem. Layer 4 fixes canonical reciprocity and proves the three foundational descent results—disjoint special reflex fields, descent of translations and uniqueness—conditionally on actual models. They precede the existence constructions, so inheritance and independence do not depend on the final tower theorem. Layer 5 constructs the CM and Siegel instance; Layer 6 gives the Hodge/abelian-type route. Layer 7 supplies a separate general-data route. Layer 8 applies conditional tower and compactification functoriality to whichever existence route supplied the models. Its abelian-type application does not use Layer 7; its auxiliary finite-domain models are explicit inputs. Suggested.lean records only the real-bodied point and reciprocity interfaces available over native group carriers and the CM types of Section 5.1 over Mathlib's complex embeddings. Analytic topology, schemes and the remaining heavy constructions are developed through the targets below.
 
 ## Layer 0: Arithmetic stabilizers and components
 
@@ -154,7 +150,7 @@ Import AA §3.4 and Reduction.levelArithmetic_commensurable for arbitrary compac
 
 Passing to the finite-index component stabilizer preserves arithmeticity. The algebraic image theorem (Milne 3.2) and removal of the compact ineffective factor give a discrete arithmetic domain image.
 
-Distinguish discreteness of Γ in all real group points from discreteness of its domain image: the latter is the input to ShimuraData 5/effective-free.
+Distinguish discreteness of Γ in all real group points from discreteness of its domain image: the latter is the input to ShimuraData `D5/effective-free`.
 
 **Checks.**
 
@@ -188,14 +184,14 @@ Prove `TauCeti.Shimura.neat_sublevels` as follows. Specialize AA.4/neat-level-ex
 
 Import AA.4/neat-level-exists, including its normality and finite-index conclusions; do not repeat its faithful-representation congruence proof.
 
-Use the checked AA.4 neat-level and D5 neat-level predicates: both require rational points in every adelic conjugate to be neat. Representation independence identifies their conventions.
+Use the AA.4 neat-level and D5 neat-level predicates: both require rational points in every adelic conjugate to be neat. Representation independence identifies their conventions.
 
 Apply the supplier to each prescribed compact open sublevel. Neatness is stable under subgroups, so these sublevels form a cofinal system for the tower.
 
 **Checks.**
 
 - No assertion that all principal level 2 subgroups are neat.
-- For GL₂ principal N≥3 use ShimuraData 5/gl2-congruence-neat; N=2 retains −I.
+- For GL₂ principal N≥3 use ShimuraData `D5/gl2-congruence-neat`; N=2 retains −I.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 3.5 and §5, pp.34,58; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-4-approximation-neat-levels-and-hecke-maps; corresponding current Suggested.lean targets.)
 
@@ -205,9 +201,9 @@ This uses [AdelicAlgebraicGroups, `AA.4/neat-level-exists`](https://github.com/T
 
 Prove `TauCeti.Shimura.effective_proper_action` as follows. The effective image Γ_a^eff acts properly discontinuously on X⁺; at rationally neat K it acts freely. Thus its orbit projection is a covering map locally biholomorphic once the holomorphic quotient carrier is supplied. No conclusion that Γ_a itself acts freely is drawn.
 
-Discreteness from stabilizer-arithmetic combines with the proper symmetric-space action supplied by ALS.0.
+Discreteness from §0.1 combines with the proper symmetric-space action supplied by ALS.0.
 
-Use ShimuraData 5/effective-free to exclude effective stabilizers at neat level. Descend charts through disjoint translates; manifold gluing is an explicit required supplier.
+Use ShimuraData `D5/effective-free` to exclude effective stabilizers at neat level. Descend charts through disjoint translates, using the manifold gluing of the Tau Ceti supplier contract.
 
 **Checks.**
 
@@ -233,7 +229,7 @@ For topology use open finite adelic cosets. For analytic compatibility use the e
 - For the GL₂ datum principal N≥3 yields φ(N) components, not φ(N)/2.
 - For a torus singleton domain the components are the finite torus double quotient.
 
-([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Lemmas 5.11–5.13, pp.57–58; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-3-reduction-and-arithmetic-quotients; corresponding current Suggested.lean targets.)
+([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Lemmas 5.11–5.13, pp.56–58; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-3-reduction-and-arithmetic-quotients; corresponding current Suggested.lean targets.)
 
 This uses [AdelicAlgebraicGroups, `AA.3/class-number-finite`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AdelicAlgebraicGroups, `AA.3/component-decomposition`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [0.2 Commensurability of stabilizers](#02-commensurability-of-stabilizers); [0.4 Proper effective arithmetic action](#04-proper-effective-arithmetic-action); [ShimuraData, `D2/hermitian-domain-components`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md), with the exact supplier contracts above.
 
@@ -245,7 +241,7 @@ Specialize AA.4/class-set-abelianization to the component stabilizer G(Q)_+. The
 
 Use SVI 5.18–5.20 and AA.4/hasse-principle-simply-connected to identify that image with T(Q)∩ν(Z(G)(R)). Finite-place torsors vanish by AA.4/kneser-local-torsor.
 
-Import AA §4.5 abelianization-integral-lifts and finite-adelic abelianization: smooth reductive models outside finitely many primes, connected-kernel residue-field surjectivity by Lang and integral lifting by Hensel are already planned. Restricted products then give adelic surjectivity; do not plan these inputs again. The positivity identity and local openness specialization remain the AA.4 request.
+Import AA §4.5 abelianization-integral-lifts and finite-adelic abelianization: smooth reductive models outside finitely many primes, connected-kernel residue-field surjectivity by Lang and integral lifting by Hensel. Restricted products then give adelic surjectivity. The positivity identity and the local openness specialization are the additional AA.4 contract stated above.
 
 Apply strong approximation to G^der, with noncompactness on each Q-simple real factor supplied by SV3, to make the fibres single connected arithmetic quotients. Local openness gives compact open ν(K).
 
@@ -325,7 +321,7 @@ Compute the kernel of K/K′ on all points; its effective image gives the finite
 **Checks.**
 
 - The quotient-action group is H=(K/K′)/ker(action); full deck-group equality is asserted only for an appropriate connected regular cover.
-- For the norm datum on G_m, principal K(3) gives one point and K(21) gives six points. The effective K(3)/K(21) action is the regular C₆ action; the full automorphism group over the one-point base is S₆.
+- For the one-point torus datum (G_m,{h}) with h(z)=z z̄ (the strict torus datum of the Conventions), principal K(3) gives one point and K(21) gives six points. The effective K(3)/K(21) action is the regular C₆ action; the full automorphism group over the one-point base is S₆.
 - A neat covering source does not remove ramification over elliptic points of a non-neat target.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §5, p.58; finite-level consequence of the arithmetic covering supplier; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-4-approximation-neat-levels-and-hecke-maps; corresponding current Suggested.lean targets.)
@@ -437,7 +433,7 @@ Earlier constructions used here are 0.3 Shimura specialization of cofinal neat l
 
 Prove `TauCeti.Shimura.rational_boundary` as follows. Let D be the effective Hermitian symmetric domain of a rational semisimple adjoint group. A boundary component F in its bounded realization is rational precisely when its normalizer N(F), viewed as an algebraic subgroup, is defined over Q. For a Q-simple noncompact factor these are the proper maximal rational parabolics; for products take products of boundary components, allowing an interior factor. The image Γ(F) of N(F)∩Γ in N(F)/Z(F), where Z(F) fixes F pointwise, is an arithmetic discontinuous group on the Hermitian domain F. Construct the standard unbounded realization S_F of D and the holomorphic projection π_F:D→F. In adapted coordinates the ambient Jacobian determinant of each normalizer element is constant on π_F-fibres and induces an equivariant boundary line factor. The rational extension D*=D∪⋃F uses just these rational components, with their bounded-realization closure incidence.
 
-Use BB §§3.5–3.7 to identify rationality by the Q-defined normalizer and to obtain Γ(F). Relative rational roots and parabolics are imported from the reductive supplier; the complete rational-boundary classification is a required supplier interface.
+Use BB §§3.5–3.7 to identify rationality by the Q-defined normalizer and to obtain Γ(F). Relative rational roots and parabolics are imported from the reductive supplier; the complete classification of rational boundary components is a required input of this target.
 
 Construct S_F and π_F by the adapted Cayley/Siegel realization. BB §§1.8–1.11 and 3.3(ii) show that normalizer Jacobians descend along π_F, and that compatible realization changes identify the induced factors.
 
@@ -463,21 +459,21 @@ This uses [2.1 Rational boundary components and incidence](#21-rational-boundary
 
 ### 2.3 Analytic automorphic graded ring
 
-Define `TauCeti.Shimura.AutomorphicRing` as follows. Let Γ be a torsion-free effective arithmetic group on D, with rational extension D* and Satake topology from rational-boundary and satake-compactness. For n≥0, A_n(Γ) consists of Γ-invariant holomorphic sections ω of K_D^⊗n satisfying the following boundary predicate. Write ω=f(z)(dz₁∧⋯∧dz_d)^⊗n in domain coordinates, so f(γz)det(Dγ_z)^n=f(z). For every rational boundary component F and every rational domain automorphism q carrying F to a standard component F_b, express the transported ω by its scalar coefficient f_{F,q} in the standard unbounded realization S_b of D. Require a holomorphic f^∂_{F,q}:F_b→C such that f_{F,q} on D and f^∂_{F,q} on F_b together define a continuous function on D∪F_b with its subspace Satake topology. Transport uses the canonical-section Jacobian rule, not the unchanged coefficient in a bounded chart. Equivalently, on every good neighborhood of x∈D*, an adapted coefficient extends continuously to the whole neighborhood and holomorphically on each rational stratum meeting it (BB §§8.3–8.5). For a product domain use adapted product realizations, with compact factors unchanged. The extension defines Φ_Fω in the n-th tensor power of the boundary factor ℰ_F induced from the ambient Jacobian along π_F, not in general K_F^⊗n. Define A(Γ)=⊕_{n≥0}A_n(Γ), with pointwise tensor product and constant unit. A cusp form has Φ_Fω=0 for every proper rational F, an additional condition. A positive common tensor power gives a Veronese ring; its projective comparison is proved after finite generation.
+Define `TauCeti.Shimura.AutomorphicRing` as follows. Let Γ be a torsion-free effective arithmetic group on D, with rational extension D* and Satake topology from §§2.1–2.2. For n≥0, A_n(Γ) consists of Γ-invariant holomorphic sections ω of K_D^⊗n satisfying the following boundary predicate. Write ω=f(z)(dz₁∧⋯∧dz_d)^⊗n in domain coordinates, so f(γz)det(Dγ_z)^n=f(z). For every rational boundary component F and every rational domain automorphism q carrying F to a standard component F_b, express the transported ω by its scalar coefficient f_{F,q} in the standard unbounded realization S_b of D. Require a holomorphic f^∂_{F,q}:F_b→C such that f_{F,q} on D and f^∂_{F,q} on F_b together define a continuous function on D∪F_b with its subspace Satake topology. Transport uses the canonical-section Jacobian rule, not the unchanged coefficient in a bounded chart. Equivalently, on every good neighborhood of x∈D*, an adapted coefficient extends continuously to the whole neighborhood and holomorphically on each rational stratum meeting it (BB §§8.3–8.5). For a product domain use adapted product realizations, with compact factors unchanged. The extension defines Φ_Fω in the n-th tensor power of the boundary factor ℰ_F induced from the ambient Jacobian along π_F, not in general K_F^⊗n. Define A(Γ)=⊕_{n≥0}A_n(Γ), with pointwise tensor product and constant unit. A cusp form has Φ_Fω=0 for every proper rational F, an additional condition. A positive common tensor power gives a Veronese ring; its projective comparison is proved after finite generation.
 
 Throughout this result, D has the rational semisimple effective presentation of Layer 0 and rational boundary data of Layer 2; Γ is arithmetic, effective and torsion-free. The Satake topology and adapted unbounded realizations are constructed before this definition. No analytic or algebraic structure on Γ\D* is assumed in its boundary predicate. The convention uses a left domain action and canonical-section pullback; coordinate changes of coefficients include their determinant to the n-th power.
 
-Use the derivative cocycle for K_D and the adapted π_F-fibre-constant determinants of rational-boundary to construct ℰ_F. BB §8.2 identifies this induced boundary factor under rational and nested realization changes.
+Use the derivative cocycle for K_D and the adapted π_F-fibre-constant determinants of §2.1 to construct ℰ_F. BB §8.2 identifies this induced boundary factor under rational and nested realization changes.
 
 Define admissibility by continuous extension in the subspace Satake topology and holomorphy on F. BB §8.3 proves independence of q and compatible unbounded coordinates; §§8.4–8.5 prove equivalence with the good-neighborhood predicate, including all incident strata.
 
 Uniqueness on the dense interior gives compatible restriction Φ_F. Multiplying the extended coefficient functions preserves continuity and stratum holomorphy, hence grading and product restriction. Pullback to finite-index arithmetic subgroups preserves the predicate.
 
-Use BB §8.9 to pass from Q-simple factors to their products and finite-index arithmetic groups, with compact factors unchanged. Once normal-analytic-compactification is proved, admissible degree-zero functions are holomorphic on a compact connected normal analytic space, hence constant.
+Use BB §8.9 to pass from Q-simple factors to their products and finite-index arithmetic groups, with compact factors unchanged. Once §2.5 is proved, admissible degree-zero functions are holomorphic on a compact connected normal analytic space, hence constant.
 
 Expose the following named operations and laws.
 
-- `TauCeti.Shimura.AutomorphicRing.degree`: The degree-n piece is exactly the admissible analytic section space A_n(Γ) defined by the boundary predicate. After normal-analytic-compactification, A_0=C on a connected quotient by compactness and the maximum principle.
+- `TauCeti.Shimura.AutomorphicRing.degree`: The degree-n piece is exactly the admissible analytic section space A_n(Γ) defined by the boundary predicate. After §2.5, A_0=C on a connected quotient by compactness and the maximum principle.
 - `TauCeti.Shimura.AutomorphicRing.mul`: Multiplication A_m×A_n→A_{m+n} is pointwise tensor product; unit and associativity hold.
 - `TauCeti.Shimura.AutomorphicRing.siegel`: For a rational F, Φ_F sends A_n(Γ) to (N(F)∩Γ)-invariant holomorphic sections of ℰ_F^⊗n, the factor induced by the ambient determinant along π_F. Retain the normalizer action on the factor; use the Γ(F) action when it descends, after a common tensor power if necessary to kill finite characters. It is complex-linear and Φ_F(ωη)=Φ_F(ω)Φ_F(η) in the induced grading. Transport and nested restriction commute under the specified factor isomorphisms; no equality with K_F^⊗n is asserted.
 - `TauCeti.Shimura.AutomorphicRing.level`: For Γ′⊂Γ, pullback embeds A_n(Γ) into A_n(Γ′); identity and composition hold.
@@ -497,7 +493,6 @@ Expose the following named operations and laws.
 - `TauCeti.Shimura.AutomorphicRing.induced_weight`: For the genus-two Siegel domain, det(Dγ_Z)=det(CZ+D)^−3, so canonical degree n has scalar weight 3n. Restriction to a genus-one rational boundary retains scalar weight 3n, whereas intrinsic boundary canonical degree n has weight 2n. At n=2 the induced weight is 6, corresponding to intrinsic boundary degree 3, not degree 2. A Φ_F API replacing ℰ_F^⊗n by K_F^⊗n fails this calculation.
 - The predicate quantifies over every rational boundary component and rational adapted chart, uses the previously constructed Satake topology, and is independent of the subsequent analytic/projective compactification.
 - Chart changes retain the canonical Jacobian factor; Φ_F has values in the ambient-induced boundary factor, with product compatibility. It need not preserve intrinsic boundary canonical weight.
-- Degree-zero constants, modular weight 2n, noncuspidal E₄ at Γ(3), a cusp pole, and genus-two boundary weight must satisfy the tests below.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.13(c), p.39; [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11), §§8.2–8.5, pp.509–511; §8.7, p.512; §8.9, pp.512–514.)
 
@@ -525,7 +520,7 @@ This uses [2.3 Analytic automorphic graded ring](#23-analytic-automorphic-graded
 
 Prove `TauCeti.Shimura.normal_analytic_compactification` as follows. On the compact Satake quotient Γ\D*, let O(U) be the continuous complex functions on U whose restrictions to every arithmetic Hermitian stratum are holomorphic. This sheaf makes Γ\D* a normal complex analytic space, with its original analytic open stratum Γ\D and the specified holomorphic stratum restriction maps. Its structure agrees with the projective realization by sufficiently high-weight integral automorphic sections.
 
-Define the sheaf by continuity and stratum holomorphy, before projective algebraization. Use local ratios of integral sections with nonzero denominator and the boundary interpolation from poincare-eisenstein.
+Define the sheaf by continuity and stratum holomorphy, before projective algebraization. Use local ratios of integral sections with nonzero denominator and the boundary interpolation of §2.4.
 
 Apply BB §9 analyticity criterion to obtain the normal local analytic models; §10.4 verifies its hypotheses for the Satake quotient. Supply the full local analyticity criterion and its normality interfaces.
 
@@ -545,7 +540,7 @@ BB §§10.9–10.11 construct a finitely generated integrally closed graded subr
 
 In the range with no three-dimensional Q-normal subgroup, BB Theorem 10.14 identifies the full holomorphic automorphic ring and proves finite generation via algebraic coherent sheaves on the projective realization. For modular-curve factors prove the corresponding identification with cusp-regular logarithmic canonical sections, then handle products and finite arithmetic quotients. Prove these full-ring identifications; existence of a finite separating subring alone does not establish them.
 
-Check Proj invariance under positive Veronese and finite arithmetic invariants, retaining the tensor and character conventions fixed in analytic-automorphic-ring.
+Check Proj invariance under positive Veronese and finite arithmetic invariants, retaining the tensor and character conventions fixed in §2.3.
 
 **Checks.**
 
@@ -700,7 +695,7 @@ Prove `TauCeti.Shimura.finite_quotient_algebraization` as follows. For neat norm
 
 At neat source algebraize translations by Borel into another neat source.
 
-Import SF.1/finite-group-quotient for scheme existence, invariant affine covers and the free finite étale torsor case. Since the source is quasi-projective over C, every finite orbit lies in an affine open. Request only the additional descended ample-power/quasi-projectivity API, and use C0 for the quotient analytic comparison.
+Import SF.1/finite-group-quotient for scheme existence, invariant affine covers and the free finite étale torsor case. Since the source is quasi-projective over C, every finite orbit lies in an affine open. Only the additional descended ample-power/quasi-projectivity output of the SF.1 contract above is needed; use C0 for the quotient analytic comparison.
 
 Normality is preserved by finite invariants; characterize normalization componentwise and use common refinement.
 
@@ -715,9 +710,9 @@ This uses [3.4 Algebraic maps of Shimura data](#34-algebraic-maps-of-shimura-dat
 
 ### 3.6 Definable comparison with the algebraic target
 
-Prove `TauCeti.Shimura.definable_target_comparison` as follows. For a torsion-free effective arithmetic Hermitian quotient Γ\D and a fixed maximal compact K∞ defining its symmetric realization, the R_an,exp structure extending its corrected arithmetic R_alg structure agrees through the Baily–Borel algebraization with the definable structure induced by the C-scheme. This comparison is certified independently of Borel algebraicity.
+Prove `TauCeti.Shimura.definable_target_comparison` as follows. For a torsion-free effective arithmetic Hermitian quotient Γ\D and a fixed maximal compact K∞ defining its symmetric realization, the R_an,exp structure extending its arithmetic R_alg structure, in the K∞-dependent form fixed by the BKT erratum, agrees through the Baily–Borel algebraization with the definable structure induced by the C-scheme. This comparison is certified independently of Borel algebraicity.
 
-Fix the maximal compact throughout, using the corrected BKT arithmetic definable atlas. Pass to a neat finite-index subgroup and remove compact ineffective factors using the existing AA contracts; transport back through the finite quotient.
+Fix the maximal compact throughout: by the BKT erratum the arithmetic definable atlas depends on K∞, and all Siegel sets are taken for the same K∞. Pass to a neat finite-index subgroup and remove compact ineffective factors using the existing AA contracts; transport back through the finite quotient.
 
 Apply KUY Theorem 4.1: cover a semialgebraic Siegel set by finitely many cusp regions in adapted coordinates (x,y,t). Lemma 4.2 makes these coordinates semialgebraic. The bounded real parts of x make exp(2 pi i Re x) restricted analytic, while exp(-2 pi Im x) uses R_exp. After this exponential map each region has compact closure in a complex toroidal chart, so its holomorphic map into the algebraic Baily–Borel compactification is R_an-definable.
 
@@ -728,7 +723,7 @@ The arithmetic quotient atlas and the algebraic-target atlas therefore have a de
 - The q=e^{2πiz} cusp comparison requires R_an,exp, not merely R_an.
 - Do not assert maximal-compact-independent functoriality for arbitrary G/M.
 
-([B. Bakker, B. Klingler, J. Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArith.pdf), §§1.1–1.2 and §4.6, pp.2–4,18; [B. Klingler, E. Ullmo, A. Yafaev, The hyperbolic Ax-Lindemann-Weierstrass conjecture](https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf), Theorem 1.9, pp.336–337; §4, Theorem 4.1 and Lemma 4.2, pp.343–346; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-3-reduction-and-arithmetic-quotients; corresponding current Suggested.lean targets.)
+([B. Bakker, B. Klingler, J. Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArith.pdf), §§1.1–1.2 and §4.6, pp.2–4,18; [B. Bakker, B. Klingler, J. Tsimerman, Erratum](https://benjamin-bakker.github.io/DefArithErr.pdf), §§1.1–1.2 and the corrected Theorem 1.1, pp.1–2; [B. Klingler, E. Ullmo, A. Yafaev, The hyperbolic Ax-Lindemann-Weierstrass conjecture](https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf), Theorem 1.9, pp.336–337; §4, Theorem 4.1 and Lemma 4.2, pp.343–346; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-3-reduction-and-arithmetic-quotients; corresponding current Suggested.lean targets.)
 
 This uses [2.7 Baily–Borel algebraization](#27-bailyborel-algebraization); [AdelicAlgebraicGroups, `AA.3/real-siegel-set`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AdelicAlgebraicGroups, `AA.3/orr-schnell-containment`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [ComplexComparisonPartII, `C4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
 
@@ -779,7 +774,7 @@ Prove `TauCeti.Shimura.codim_one_analytic_extension` as follows. For pure D=(G,X
 
 Retain Pink’s finite domain over the homomorphism class for the auxiliary data; a quotient need not be a strict one-point torus datum. The partial extension includes only the boundary strata associated to the chosen PGL2 factor. Glue the partial extensions over the common open to include all codimension-one strata. Levels and their images are chosen as in Pink 12.10; arithmetic canonical models of auxiliary data are separate Layer 8 hypotheses.
 
-Apply rational-boundary classification and the codimension calculation to identify the PGL2,Q factors.
+Apply the rational-boundary classification of §2.1 and the codimension calculation to identify the PGL2,Q factors.
 
 When the lift exists, the SL2 derived factor and connectedness of SL2(R) give the broader quotient datum and product embedding; boundary functoriality gives its closed extension at small levels.
 
@@ -858,7 +853,7 @@ This uses [ClassFieldTheory, layer 11 the global class formation and global arti
 
 ### 4.2 Reflex norm of a special torus
 
-Define `TauCeti.Shimura.ReflexNorm` as follows. For an actual special pair (T,h) with cocharacter μ_h defined over E=E(T,h), define r_h:Res_{E/Q}G_m→T by r_h=Norm_{E/Q}∘Res_{E/Q}(μ_h). Over a splitting field its value is the product ∏_{ρ:E→C}ρ(μ_h(s_ρ)); evaluate it on finite ideles to get r_h:A_{f,E}×→T(A_f). The product is multiplicative, never the sum misprinted in SVI (60),(61).
+Define `TauCeti.Shimura.ReflexNorm` as follows. For an actual special pair (T,h) with cocharacter μ_h defined over E=E(T,h), define r_h:Res_{E/Q}G_m→T by r_h=Norm_{E/Q}∘Res_{E/Q}(μ_h). Over a splitting field its value is the product ∏_{ρ:E→C}ρ(μ_h(s_ρ)); evaluate it on finite ideles to get r_h:A_{f,E}×→T(A_f). The map is the product of the conjugate cocharacters, not a sum; SVI (60)–(61) write this product with a summation sign.
 
 Construct restriction of scalars of the cocharacter and the torus norm using the supplier character/cocharacter lattice equivalence.
 
@@ -870,8 +865,7 @@ Expose the following named operations and laws.
 
 - `TauCeti.Shimura.ReflexNorm.apply_split`: In splitting coordinates r_h(s)=∏ρ ρ(μ_h(s_ρ)).
 - `TauCeti.Shimura.ReflexNorm.principal`: For b∈E×, r_h(b)∈T(Q), hence its action on every torus double quotient is trivial.
-- `TauCeti.Shimura.ReflexNorm.map`: For f:T0 -> T, mu=f composed with mu0 and E subset the corrected convention, f composed with r(T0,mu0)=r(T,mu) composed with Nm_{the corrected convention/E}; this holds on full ideles. The promoted map_full theorem proves it.
-- `TauCeti.Shimura.ReflexNorm.cm_type`: For the CM torus datum supplied by ShimuraData 5/cm-torus and CM.0, r_h agrees with the multiplicative reflex-type norm.
+- `TauCeti.Shimura.ReflexNorm.map`: For f:T0 -> T, mu=f composed with mu0, E0=E(mu0) and E=E(mu), so E is contained in E0, f composed with r(T0,mu0)=r(T,mu) composed with Nm_{E0/E}; this holds on full ideles, and its full statement is [4.9 Reflex norm under a torus morphism](#49-reflex-norm-under-a-torus-morphism).
 - `TauCeti.Shimura.ReflexNorm.continuous`: The finite-idelic map is a continuous group homomorphism.
 - `TauCeti.Shimura.ReflexNorm.ext`: Two rational torus homomorphisms Res_{E/Q}G_m→T agreeing on the split cocharacter formula after a splitting-field base change are equal.
 - `TauCeti.Shimura.ReflexNorm.mul`: The reflex norm sends 1 to 1 and r_h(st)=r_h(s)r_h(t), as an algebraic group morphism and on finite ideles.
@@ -882,7 +876,7 @@ Expose the following named operations and laws.
 - `TauCeti.Shimura.ReflexNorm.split_power`: For T=G_m, E=Q and μ(t)=t^n, r_h(s)=s^n, including n=0 and negative n.
 - `TauCeti.Shimura.ReflexNorm.aghmp`: For T=Res_{E/Q}G_m/ker(N_{F/Q}) in AGHMP §3.1 and its distinguished cocharacter, r_h is the natural quotient map Res_E G_m→T.
 
-([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §12, formulas (60)–(61), p.114, corrected from sums to products; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-1-adelic-points-of-algebraic-groups; corresponding current Suggested.lean targets; [Tau Ceti Project, Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), layer-rg20a-weil-restriction-and-the-deligne-torus; corresponding current Suggested.lean targets.)
+([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §12, formulas (60)–(61), p.114 (read multiplicatively); [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-1-adelic-points-of-algebraic-groups; corresponding current Suggested.lean targets; [Tau Ceti Project, Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), layer-rg20a-weil-restriction-and-the-deligne-torus; corresponding current Suggested.lean targets.)
 
 This uses [ShimuraData, `D4/special-pair`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D3/cocharacter-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [AdelicAlgebraicGroups, `AA.1/base-change-adelic`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), with the exact supplier contracts above.
 
@@ -910,7 +904,7 @@ Define `TauCeti.Shimura.CanonicalModel` as follows. A finite-level canonical mod
 
 Take the model over the actual cocharacter reflex field and the analytic comparison; quantify over actual torus subdata, not a free set of points.
 
-Use reciprocity-finite-action to make the formula independent of the lift.
+Use §4.3 to make the formula independent of the lift.
 
 Record finite-level and compatible-tower variants and compare them via sufficiently small levels.
 
@@ -929,7 +923,7 @@ Expose the following named operations and laws.
 
 - `TauCeti.Shimura.CanonicalModel.trivial`: The trivial datum has canonical model Spec Q with its one-point comparison.
 - `TauCeti.Shimura.CanonicalModel.torus_neat`: The finite étale torus model satisfies this condition using its constructed Galois action.
-- `TauCeti.Shimura.CanonicalModel.not_arbitrary_subset`: For T=G_m, h(z)=z zbar and principal K(5), the analytic quotient has two points (Z/5Z)×/{±1}. The split model Spec Q ⊔ Spec Q with any two-point comparison passes an empty-subset test but fails canonicity: an automorphism with cyclotomic character 2 modulo 5 must interchange the two classes by reciprocity, whereas the split model fixes both.
+- `TauCeti.Shimura.CanonicalModel.not_arbitrary_subset`: For T=G_m, h(z)=z zbar and principal K(5), the analytic quotient has two points (Z/5Z)×/{±1}. The split model Spec Q ⊔ Spec Q with any two-point comparison satisfies a condition imposed only on an arbitrary (for instance empty) set of special points, but fails canonicity: an automorphism with cyclotomic character 2 modulo 5 must interchange the two classes by reciprocity, whereas the split model fixes both.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Definition 12.8, p.114 and Definition 12.10, p.115.)
 
@@ -1020,11 +1014,11 @@ This uses [0.5 Finite analytic component decomposition](#05-finite-analytic-comp
 
 ### 4.9 Reflex norm under a torus morphism
 
-Prove `TauCeti.Shimura.ReflexNorm.map_full` as follows. Let f:T0 -> T be a morphism of Q-tori and let mu0 be a cocharacter with mu=f composed with mu0. Put the corrected convention=E(mu0), E=E(mu), so E is contained in the corrected convention. Then f composed with r(T0,mu0) equals r(T,mu) composed with Nm_{the corrected convention/E}, as Q-group morphisms Res_{the corrected convention/Q}G_m -> T and on full ideles, including the archimedean factor. Geometric Artin maps obey art_E(Nm s)=art_{the corrected convention}(s)|_{E^ab}. These identities give special-pair functoriality and the component reciprocity map with its real-domain action.
+Prove `TauCeti.Shimura.ReflexNorm.map_full` as follows. Let f:T0 -> T be a morphism of Q-tori and let mu0 be a cocharacter with mu=f composed with mu0. Put E0=E(mu0), E=E(mu), so E is contained in E0. Then f composed with r(T0,mu0) equals r(T,mu) composed with Nm_{E0/E}, as Q-group morphisms Res_{E0/Q}G_m -> T and on full ideles, including the archimedean factor. Geometric Artin maps obey art_E(Nm s)=art_{E0}(s)|_{E^ab}. These identities give special-pair functoriality and the component reciprocity map with its real-domain action.
 
-Throughout this result, the cocharacters and their fields of definition are actual ones, not arbitrary chosen fields. For special-pair application use ShimuraData 4/special-image; for zero-dimensional component application retain the full idele and finite real-domain action.
+Throughout this result, the cocharacters and their fields of definition are actual ones, not arbitrary chosen fields. For special-pair application use ShimuraData `D4/special-image`; for zero-dimensional component application retain the full idele and finite real-domain action.
 
-Galois equivariance of f makes the stabilizer of mu0 a subgroup of the stabilizer of mu, proving E subset the corrected convention.
+Galois equivariance of f makes the stabilizer of mu0 a subgroup of the stabilizer of mu, proving E subset E0.
 
 After a common splitting-field base change, group the factors of the product formula by embeddings of E; the product over embeddings extending one embedding is the field norm. Faithful descent proves equality of group morphisms.
 
@@ -1035,7 +1029,7 @@ Evaluate on all adelic points. Apply norm/restriction compatibility of arithmeti
 - For T0=T=G_m, mu0(z)=z^m and f(z)=z^n over Q, both sides send s to s^{mn}.
 - When mu is trivial but mu0 is not, its smaller reflex field must still appear through the norm; dropping that norm gives a wrongly typed formula.
 
-([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 12.3(c), p.112; corrected (60)–(61), p.114; 13.8 and (64), p.119; [Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), 5.4, pp.155–156; [Tau Ceti Project, Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), layer-rg20a-weil-restriction-and-the-deligne-torus; corresponding current Suggested.lean targets.)
+([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 12.3(c), p.112; (60)–(61), p.114, read multiplicatively; 13.8 and (64), p.119; [Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), 5.4, pp.155–156; [Tau Ceti Project, Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), layer-rg20a-weil-restriction-and-the-deligne-torus; corresponding current Suggested.lean targets.)
 
 This uses [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [ShimuraData, `D4/special-image`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity), with the exact supplier contracts above.
 
@@ -1056,7 +1050,7 @@ Apply Hilbert irreducibility with a real-open condition and linear-disjointness 
 - For GL2, take an imaginary quadratic field Q(sqrt(-p)) with p an odd prime unramified in L; ramification at p excludes its inclusion in L.
 - Do not infer the field-disjointness theorem from mere density of special points.
 
-([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 13.4, p.118; [Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), 5.1, 5.1.2, 5.1.3, pp.153–155 (page images checked).)
+([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 13.4, p.118; [Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), 5.1, 5.1.2, 5.1.3, pp.153–155.)
 
 This uses [ShimuraData, `D4/shimura-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-pair`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [InverseGaloisAndArithmeticFundamentalGroups, `IG.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/InverseGaloisAndArithmeticFundamentalGroups.md); [AlgebraicModuliForArithmeticGeometry, `R09.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); `IntermediateField.LinearDisjoint`, with the exact supplier contracts above.
 
@@ -1070,7 +1064,7 @@ Layer 1 gives the analytic map and Layer 3 its algebraicity over C. For a specia
 
 Layer 4 density of all Hecke translates of h identifies T_g with its sigma-conjugate as algebraic maps (source reduced, target separated).
 
-First descend through Aut(C/E(T,h)) for one special pair: this gives a finite algebraic field of definition of T_g, rather than assuming every complex morphism has one. Apply disjoint-special-reflex-fields to its finite normal closure over E. Descent through the second fixing subgroup and linear disjointness force the map to be defined over E; faithful base change gives uniqueness.
+First descend through Aut(C/E(T,h)) for one special pair: this gives a finite algebraic field of definition of T_g, rather than assuming every complex morphism has one. Apply §4.10 to its finite normal closure over E. Descent through the second fixing subgroup and linear disjointness force the map to be defined over E; faithful base change gives uniqueness.
 
 **Checks.**
 
@@ -1088,7 +1082,7 @@ Prove `CanonicalModel.unique_iso` as follows. Two canonical E-models of the same
 
 Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane.
 
-Repeat translation-descent with g=1, K=L and the two distinct specified model comparisons; the same special-pair action makes the complex identity descend.
+Repeat the argument of §4.11 with g=1, K=L and the two distinct specified model comparisons; the same special-pair action makes the complex identity descend.
 
 Descend its inverse and verify the inverse identities by faithful base change. Naturality follows by comparing after C-base change.
 
@@ -1112,7 +1106,65 @@ Earlier constructions used here are 0.5 Finite analytic component decomposition;
 
 ## Layer 5: Complex multiplication and Siegel existence
 
-### 5.1 Algebraization of polarized weight-one variations
+### 5.1 CM types, reflex fields and reflex norms
+
+Define `TauCeti.CM.CMType` as follows. A CM algebra is a finite product E=E₁×⋯×E_r of CM fields (`NumberField.IsCMField`), with the involution ι_E acting as complex conjugation on every factor; ι is complex conjugation on ℂ. A CM type on E is a subset Φ⊂Hom_{ℚ-alg}(E,ℂ) such that Hom(E,ℂ) is the disjoint union of Φ and ιΦ={ι∘φ : φ∈Φ}; equivalently its indicator function χ satisfies χ(φ)+χ(ι∘φ)=1 for every φ. Choosing Φ amounts to choosing one complex extension of each real embedding of the maximal totally real subalgebra, and gives E⊗_ℚℝ≅ℂ^Φ (Milne CM, Definition 1.8 and the paragraph after it, p.11). A type Φ₀ on a CM subalgebra E₀⊂E induces the type Φ={φ : φ|E₀∈Φ₀} on E. When E is a field, the pair (E,Φ) is primitive if Φ is induced from no proper CM subfield; every such pair is induced from a unique primitive pair, whose field is the fixed field of the right stabilizer of the extended type in a Galois CM closure (Milne CM, p.11, and Proposition 1.9, p.12). For σ∈Aut(ℂ), σΦ={σ∘φ : φ∈Φ} is again a CM type, because ι commutes with σ on the image of a CM field (Milne CM, p.13, footnote 3). In Suggested.lean the partition condition is imposed on ring maps E→ℂ for any commutative ring E, with ι∘φ written `star φ`; the results below assume that E is a CM algebra.
+
+Expose the following named operations and laws.
+
+- `TauCeti.CM.CMType.ext`: Two CM types with the same embedding set are equal.
+- `TauCeti.CM.CMType.mem_conjugate_iff`: φ∈ιΦ iff φ∉Φ; thus ιΦ is the CM type complementary to Φ.
+- `TauCeti.CM.CMType.conjugate_conjugate`: ι(ιΦ)=Φ.
+- `TauCeti.CM.CMType.card`: 2|Φ|=[E:ℚ].
+- `TauCeti.CM.CMType.galois`: σΦ is a CM type, (στ)Φ=σ(τΦ) and ι(σΦ)=σ(ιΦ).
+- `TauCeti.CM.CMType.induced_mem`: φ lies in the type induced from Φ₀ iff φ|E₀∈Φ₀.
+- `TauCeti.CM.CMType.induced_trans`: Inducing along E₀⊂E₁⊂E₂ in two steps equals inducing directly.
+- `TauCeti.CM.CMType.primitive_core_unique`: For a CM field E, the primitive pair inducing Φ is unique.
+
+**Checks.**
+
+- `TauCeti.CM.CMType.test_gaussian`: For E=ℚ(i), Hom(E,ℂ) consists of i↦i and i↦−i; each singleton is a CM type, of cardinal one.
+- `TauCeti.CM.CMType.test_not_full`: For E=ℚ(i) neither the full embedding set nor the empty set is a CM type, and ℚ has no CM type at all, since its only embedding is real. A condition asking only for at least one embedding from each conjugate pair would accept the full set.
+- `TauCeti.CM.CMType.test_product`: CM types on E₁×E₂ correspond to pairs of CM types, with |Φ|=|Φ₁|+|Φ₂|; on ℚ(i)×ℚ(√−3) every CM type has cardinal two.
+- `TauCeti.CM.CMType.test_zeta8_induced`: On ℚ(ζ₈) the type {ζ₈↦ζ₈, ζ₈↦ζ₈³} is induced from ℚ(√−2), since both embeddings send √−2=ζ₈+ζ₈³ to i√2; it is not primitive.
+
+Define `TauCeti.CM.CMType.reflexField` as follows. The type trace of (E,Φ) is typeTrace_Φ(a)=Σ_{φ∈Φ}φ(a). The reflex field E*⊂ℂ is the subfield generated by all typeTrace_Φ(a), a∈E. Equivalently, by Dedekind's independence of characters, σ∈Aut(ℂ) fixes E* pointwise iff σΦ=Φ (Milne CM, Proposition 1.16 and Definition 1.17, p.13). E* is a CM field of finite degree; the reflex field of a product of CM pairs is the compositum of their reflex fields; inducing a type does not change its reflex field (Milne CM, Proposition 1.18, p.14). For the CM torus datum (Res_{E/ℚ}G_m,h_Φ) of ShimuraData `D5/cm-torus`, whose cocharacter μ_Φ has exponent one at the embeddings in Φ and zero at those in ιΦ, the cocharacter reflex field E(T,h_Φ) of ShimuraData D3 is E* (SVI Example 12.4(b), p.112).
+
+Expose the following named operations and laws.
+
+- `TauCeti.CM.CMType.typeTrace`: typeTrace_Φ(a)=Σ_{φ∈Φ}φ(a); it is ℚ-linear in a.
+- `TauCeti.CM.CMType.reflexField_le_iff`: E*⊂F iff typeTrace_Φ(a)∈F for every a∈E.
+- `TauCeti.CM.CMType.reflexField_stabilizer`: σ∈Aut(ℂ) fixes E* pointwise iff σΦ=Φ.
+- `TauCeti.CM.CMType.reflexField_isCMField`: E* is a CM field.
+- `TauCeti.CM.CMType.typeTrace_conjugate`: typeTrace_{ιΦ}=ι∘typeTrace_Φ, so ιΦ has the same reflex field.
+- `TauCeti.CM.CMType.reflexField_prod`: The reflex field of a product of CM pairs is the compositum of their reflex fields.
+- `TauCeti.CM.CMType.reflexField_induced`: An induced type has the reflex field of the type it is induced from.
+- `TauCeti.CM.CMType.reflexField_generic`: E* equals the cocharacter reflex field of the CM torus datum, as subfields of ℂ.
+
+**Checks.**
+
+- `TauCeti.CM.CMType.test_reflex_quadratic`: For E=ℚ(i) and Φ={i↦i}, typeTrace_Φ(i)=i, so E*=ℚ(i)⊂ℂ.
+- `TauCeti.CM.CMType.test_reflex_not_Q`: The same computation gives E*≠ℚ. The full trace over all embeddings vanishes at i, so a definition using it would give ℚ.
+- `TauCeti.CM.CMType.test_reflex_induced`: The induced ℚ(ζ₈) type above has reflex field ℚ(√−2), of degree two; taking E* to be E would give ℚ(ζ₈), of degree four.
+
+Define `TauCeti.CM.CMType.reflexNorm` as follows. For a number field k⊂ℂ there is a finitely generated E⊗_ℚk-module V with Tr_k(a|V)=typeTrace_Φ(a) for all a∈E exactly when k⊇E*, and V is then unique up to isomorphism (Milne CM, Proposition 1.21, p.15, and Corollary 1.22, pp.15–16). For a ℚ-algebra R and a∈(k⊗_ℚR)^× put N_{k,Φ}(a)=det_{E⊗R}(a|V⊗_ℚR). This is a homomorphism (k⊗R)^×→(E⊗R)^×, functorial in R and independent of V, hence a morphism of tori Res_{k/ℚ}G_m→Res_{E/ℚ}G_m; write N_Φ when k=E*. Taking R to be the adeles gives the idelic map, and passing to fractional ideals gives the ideal map (Milne CM, p.16, and Remark 1.25, p.17).
+
+Prove `TauCeti.CM.CMType.typeNorm_identities` as follows. (a) For E*⊂k⊂ℂ, N_{k,Φ}=N_Φ∘Nm_{k/E*} (Milne CM, Proposition 1.23, p.16). (b) N_{k,Φ}(a)·ι_E(N_{k,Φ}(a))=Nm_{k⊗R/R}(a) for a∈(k⊗R)^×; hence N_{k,ιΦ}=ι_E∘N_{k,Φ}, and N_{k,Φ} factors through the subtorus of Res_{E/ℚ}G_m of elements x with xι_E(x)∈G_m (Milne CM, Remark 1.24(b), formulas (8)–(10), p.16, and Remark 1.25, p.17). (c) If k is a finite extension of E* containing all conjugates of E, then N_{k,Φ}(a)=∏_{φ∈Φ}φ^{−1}(Nm_{k/φE}a) for every nonzero element or fractional ideal a of k (Milne CM, Proposition 1.26, p.17). (d) When E is a field, choose L⊂ℂ Galois over ℚ and containing E, put Φ_L={σ∈Gal(L/ℚ) : σ|E∈Φ}, and write Φ_L^{−1} as a disjoint union of cosets ψ_jGal(L/E*). Then Φ*={ψ_j|E*} is the reflex type on E*, and a↦∏_{ψ∈Φ*}ψ(a) maps E* into E and equals N_Φ (Milne CM, Example 1.28, p.18). For a product CM algebra only (a)–(c) are asserted; no single reflex pair is claimed.
+
+Prove `TauCeti.Shimura.ReflexNorm.cm_type` as follows. For the CM torus datum (Res_{E/ℚ}G_m,h_Φ) of ShimuraData `D5/cm-torus`, so that E(T,h_Φ)=E*, the cocharacter reflex norm r_{h_Φ}:Res_{E*/ℚ}G_m→Res_{E/ℚ}G_m of [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus) equals N_Φ, as morphisms of tori and on finite ideles. In split coordinates both send a to the element whose φ-component is the product of ρ(a) over the embeddings ρ:E*→ℂ with ρ^{−1}∘φ∈Φ (SVI Example 12.4(b), p.112, and (60), p.114; Milne CM, Proposition 1.26, p.17).
+
+**Checks.**
+
+- `TauCeti.CM.CMType.test_typeNorm_gaussian`: For E=ℚ(i) and Φ={i↦i}, E*=ℚ(i) and N_Φ is the identity under the selected embedding; N_Φ(2+i)·ι(N_Φ(2+i))=(2+i)(2−i)=5=Nm(2+i).
+- `TauCeti.CM.CMType.test_typeNorm_conjugate`: For the same field, N_{ιΦ}(2+i)=2−i, not 2+i: conjugating the type conjugates the norm.
+- `TauCeti.CM.CMType.test_typeNorm_transitivity`: For k=ℚ(i,√2)⊃E*=ℚ(i), N_{k,Φ}(√2)=N_Φ(Nm_{k/E*}√2)=N_Φ(−2)=−2. Omitting the norm from k to E* gives √2, which is not in E.
+- `TauCeti.Shimura.ReflexNorm.test_cm_gaussian`: For E=ℚ(i) and Φ={φ}, the special-torus reflex norm r_{h_Φ} sends a∈(E*)^× to φ^{−1}(a), in agreement with N_Φ and not with its inverse or with N_{ιΦ}.
+
+([J. S. Milne, Complex Multiplication](https://www.jmilne.org/math/CourseNotes/CM.pdf), Definition 1.8, p.11; Proposition 1.9, p.12; Proposition 1.16 and Definition 1.17, p.13; Proposition 1.18, p.14; Proposition 1.21 and Corollary 1.22, pp.15–16; Proposition 1.23 and Remark 1.24, p.16; Remark 1.25 and Proposition 1.26, p.17; Example 1.28, p.18; [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Example 12.4(b), p.112, and (60), p.114.)
+
+This uses `NumberField.IsCMField`; `NumberField.ComplexEmbedding.conjugate`; `IntermediateField.adjoin`; `IntermediateField.adjoin_le_iff`; `LinearMap.det`; [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/cm-torus`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [AdelicAlgebraicGroups, `AA.1/base-change-adelic`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), with the exact supplier contracts above.
+
+### 5.2 Algebraization of polarized weight-one variations
 
 Prove `TauCeti.Shimura.weight_one_algebraization` as follows. Over a smooth finite-type C-scheme S, the relative analytic equivalence between polarized abelian families and polarizable integral variations of homological types (−1,0),(0,−1) algebraizes: every such variation gives an abelian scheme, and morphisms correspond to morphisms of variations. Polarization type and actual integral level are retained.
 
@@ -1131,20 +1183,20 @@ Algebraize homomorphisms via the relative moduli/rigidity and proper comparison,
 
 This uses [AbelianSchemesAndArithmeticModuli, `A5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [3.2 Borel algebraicity](#32-borel-algebraicity); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [ComplexComparisonPartII, `C4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
 
-### 5.2 CM abelian varieties with their algebra action
+### 5.3 CM abelian varieties with their algebra action
 
 Define `TauCeti.Shimura.CMAbelianVariety` as follows. For an abelian variety A/C of dimension g, a full CM action is an embedding i:E→End⁰(A) of a commutative finite étale CM Q-algebra of dimension 2g. Its H₁(A,Q) is rank one over E, its Lie eigenspaces specify the actual CM type Φ, and a polarization is retained with Rosati acting as complex conjugation on E when required. A product CM algebra is allowed; simplicity and maximal integral endomorphism order are separate hypotheses.
 
 Import actual abelian varieties and rational endomorphisms, then embed the full-degree commutative CM algebra.
 
-Identify the eigenspaces through A5 and apply CM.0 type definitions.
+Identify the eigenspaces through A5 and apply the CM types of [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms).
 
-Use Rosati positivity for the polarization compatibility; do not build a new CM-type carrier here.
+Use Rosati positivity for the polarization compatibility; the CM type is the carrier of [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms), not a second one.
 
 Expose the following named operations and laws.
 
 - `TauCeti.Shimura.CMAbelianVariety.action`: The injective E-action on the actual abelian variety is part of the data.
-- `TauCeti.Shimura.CMAbelianVariety.type`: The type is the subset of embeddings appearing in Lie(A), using the imported CM.0 definition.
+- `TauCeti.Shimura.CMAbelianVariety.type`: The type is the subset of embeddings appearing in Lie(A), a CM type in the sense of [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms).
 - `TauCeti.Shimura.CMAbelianVariety.homology`: H₁(A,Q) is free of rank one over E, with eigenspace decomposition Φ in Lie(A).
 - `TauCeti.Shimura.CMAbelianVariety.transport`: An E-linear quasi-isogeny transports the full action and type; identity/composition hold.
 - `TauCeti.Shimura.CMAbelianVariety.rosati`: A retained compatible polarization has Rosati restriction equal to the CM conjugation, with positive Riemann form.
@@ -1159,9 +1211,9 @@ Expose the following named operations and laws.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Definition 14.9, p.123; field case §10.)
 
-This uses [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/cm-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md), with the exact supplier contracts above.
+This uses [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms), with the exact supplier contracts above.
 
-### 5.3 Rank-one rational CM Tate module
+### 5.4 Rank-one rational CM Tate module
 
 Prove `TauCeti.Shimura.cm_tate_rank_one` as follows. For a full CM action (A,E), V_fA is free of rank one over E⊗_Q A_f, compatibly with H₁(A,Q)⊗A_f and with quasi-isogenies. If End(A)∩E=O_E, T_ℓA is free of rank one over O_E⊗Z_ℓ. For a nonmaximal order only the rational freeness is asserted without additional integral hypotheses. Quasi-isogenies act faithfully on V_fA.
 
@@ -1178,9 +1230,9 @@ Use injectivity of rational Hom on Tate modules for uniqueness of a quasi-isogen
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 10.5 proof, p.101; main CM proof p.109; integral order comparison 2007c §1.7.)
 
-This uses [5.2 CM abelian varieties with their algebra action](#52-cm-abelian-varieties-with-their-algebra-action); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
+This uses [5.3 CM abelian varieties with their algebra action](#53-cm-abelian-varieties-with-their-algebra-action); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
 
-### 5.4 Number-field models for full CM objects
+### 5.5 Number-field models for full CM objects
 
 Prove `TauCeti.Shimura.cm_number_field_model` as follows. A full CM abelian variety over C, with its finitely specified endomorphisms, polarization and finite level, admits a model over a number field after replacing its base by a finite extension. This establishes that CM reduction and arithmetic Frobenius arguments apply to actual complex points.
 
@@ -1188,7 +1240,7 @@ Use the fixed CM action/type locus and rigidity to show its moduli point is alge
 
 Extend the field to define the action/polarization/level. Do not assert that every arbitrary complex abelian variety has a number-field model.
 
-The detailed CM moduli rigidity/descent proof is a specific detailed proof, separated from the main theorem.
+The rigidity and descent argument for the CM locus is proved here, as a step separate from the main theorem.
 
 **Checks.**
 
@@ -1196,9 +1248,9 @@ The detailed CM moduli rigidity/descent proof is a specific detailed proof, sepa
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 10.3 and proof, pp.100–101.)
 
-This uses [5.2 CM abelian varieties with their algebra action](#52-cm-abelian-varieties-with-their-algebra-action); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/trace-reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md), with the exact supplier contracts above.
+This uses [5.3 CM abelian varieties with their algebra action](#53-cm-abelian-varieties-with-their-algebra-action); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md), with the exact supplier contracts above.
 
-### 5.5 Potential good reduction for CM varieties
+### 5.6 Potential good reduction for CM varieties
 
 Prove `TauCeti.Shimura.cm_potential_good_reduction` as follows. A full CM abelian variety over a number field has potentially good reduction at every finite place. With all E-endomorphisms defined, the inertia image on V_ℓA is finite for ℓ different from the residue characteristic, so a finite extension kills it and Néron–Ogg–Shafarevich supplies good reduction.
 
@@ -1217,9 +1269,9 @@ Compactness and the Rosati norm constraint alone do not imply finite inertia. In
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 10.5 and proof, p.101; [B. Conrad, Semistable reduction for abelian varieties](https://math.stanford.edu/~conrad/DarmonCM/2011Notes/SemistableReduction.pdf), Theorem 4.2, p.9; Remark 5.6, p.18; Proposition 6.5, pp.23–24.)
 
-This uses [5.4 Number-field models for full CM objects](#54-number-field-models-for-full-cm-objects); [5.3 Rank-one rational CM Tate module](#53-rank-one-rational-cm-tate-module); [NeronModelsAndSemistableAbelianVarieties, `R11.5/neron-ogg-shafarevich`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/finite-separable-semistable-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/inertia-square-zero`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md), with the exact supplier contracts above.
+This uses [5.5 Number-field models for full CM objects](#55-number-field-models-for-full-cm-objects); [5.4 Rank-one rational CM Tate module](#54-rank-one-rational-cm-tate-module); [NeronModelsAndSemistableAbelianVarieties, `R11.5/neron-ogg-shafarevich`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/finite-separable-semistable-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/inertia-square-zero`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md), with the exact supplier contracts above.
 
-### 5.6 CM Frobenius endomorphism
+### 5.7 CM Frobenius endomorphism
 
 Prove `TauCeti.Shimura.cm_frobenius` as follows. Let A/k have full CM by O_E with the action defined over k, let k/Q be Galois containing all conjugates of E, and let P be a good reduction prime of residue cardinality q. The q-power Frobenius of the reduction is represented by π∈O_E under the specialized CM action, with ππbar=q for a compatible polarization.
 
@@ -1235,9 +1287,9 @@ A6/characteristic-polynomial-on-tate-module makes the Frobenius endomorphism int
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Lemma 10.8 and Lemma 10.9 with proof, p.103; [J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Theorem 2.1(a) and proof, p.16; Corollary 1.5, p.6.)
 
-This uses [5.3 Rank-one rational CM Tate module](#53-rank-one-rational-cm-tate-module); [5.5 Potential good reduction for CM varieties](#55-potential-good-reduction-for-cm-varieties); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4/etale-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/relative-hom-and-normal-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/hom-is-free-of-finite-rank`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/characteristic-polynomial-on-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
+This uses [5.4 Rank-one rational CM Tate module](#54-rank-one-rational-cm-tate-module); [5.6 Potential good reduction for CM varieties](#56-potential-good-reduction-for-cm-varieties); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4/etale-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/relative-hom-and-normal-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/hom-is-free-of-finite-rank`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/characteristic-polynomial-on-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
 
-### 5.7 Shimura–Taniyama Frobenius calculation
+### 5.8 Shimura–Taniyama Frobenius calculation
 
 Prove `TauCeti.Shimura.shimura_taniyama` as follows. Under the preceding good-reduction/maximal-order/Galois-field hypotheses, for every v|p put H_v={φ:E→k:φ⁻¹P=v}. The Frobenius π satisfies ord_v(π)/ord_v(q)=|Φ∩H_v|/|H_v|. Equivalently the principal ideal (π) is the product over φ∈Φ of φ⁻¹(N_{k/φE}P), and agrees with the reflex norm of N_{k/E*}P. State the ramified-prime formula using normalized valuations; the clean unramified ideal proof suffices for the subsequent prime-generation argument.
 
@@ -1254,11 +1306,11 @@ Translate the product ideal through the reflex norm. For product algebras use th
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Theorem 10.10, p.103 and proof pp.104–105; 2007c Theorem 2.1.)
 
-This uses [5.6 CM Frobenius endomorphism](#56-cm-frobenius-endomorphism); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/cm-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/type-product-identities`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
+This uses [5.7 CM Frobenius endomorphism](#57-cm-frobenius-endomorphism); [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms); [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
 
-### 5.8 CM ideal reciprocity with prime generation
+### 5.9 CM ideal reciprocity with prime generation
 
-Prove `TauCeti.Shimura.cm_ideal_reciprocity` as follows. For A/C with CM by O_E and type Φ, integer m>0 and σ fixing E*, there is an ideal multiplication α:A→σA acting as σ on A[m]. Its ray ideal class is determined by σ on a sufficiently divisible reflex ray class field and is the reflex-norm ideal class of an ideal b whose arithmetic Artin symbol is σ. This ideal statement uses arithmetic Artin; [Layer 5](#layer-5-complex-multiplication-and-siegel-existence)CM converts to geometric art for ideles.
+Prove `TauCeti.Shimura.cm_ideal_reciprocity` as follows. For A/C with CM by O_E and type Φ, integer m>0 and σ fixing E*, there is an ideal multiplication α:A→σA acting as σ on A[m]. Its ray ideal class is determined by σ on a sufficiently divisible reflex ray class field and is the reflex-norm ideal class of an ideal b whose arithmetic Artin symbol is σ. This ideal statement uses arithmetic Artin; [5.10 Main theorem of complex multiplication](#510-main-theorem-of-complex-multiplication) converts it to geometric art for ideles.
 
 Same type gives an E-linear quasi-isogeny. Approximate its scalar at the finitely many primes dividing m to make it agree with σ on m-torsion.
 
@@ -1272,9 +1324,9 @@ At almost every suitable good unramified prime use Shimura–Taniyama. Dirichlet
 
 ([J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Theorem 3.2, pp.19–20.)
 
-This uses [5.4 Number-field models for full CM objects](#54-number-field-models-for-full-cm-objects); [5.7 Shimura–Taniyama Frobenius calculation](#57-shimurataniyama-frobenius-calculation); [5.3 Rank-one rational CM Tate module](#53-rank-one-rational-cm-tate-module); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/type-product-identities`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md), with the exact supplier contracts above.
+This uses [5.5 Number-field models for full CM objects](#55-number-field-models-for-full-cm-objects); [5.8 Shimura–Taniyama Frobenius calculation](#58-shimurataniyama-frobenius-calculation); [5.4 Rank-one rational CM Tate module](#54-rank-one-rational-cm-tate-module); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity); [5.1 CM types, reflex fields and reflex norms](#51-cm-types-reflex-fields-and-reflex-norms), with the exact supplier contracts above.
 
-### 5.9 Main theorem of complex multiplication
+### 5.10 Main theorem of complex multiplication
 
 Prove `TauCeti.Shimura.main_cm` as follows. Let (A,i:E→End⁰A) be full CM over C, allowing a CM product algebra, with type Φ and reflex field E*. For σ∈Aut(C/E*) and a finite idele s∈A_{f,E*}× with art_{E*}(s)=σ|E*ab, there is a unique E-linear quasi-isogeny α:A→σA satisfying α(r_Φ(s)x)=σx for every x∈V_fA. If s′ has the same Artin image and r_Φ(s′)=a r_Φ(s), a∈E×, replace α by α∘a⁻¹. The existence of this a is proved by the norm-kernel lemmas in the CM setting, not asserted for arbitrary tori.
 
@@ -1291,9 +1343,9 @@ Faithfulness on the rational Tate module gives uniqueness. Transport back throug
 
 ([J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Theorem 3.10 and Lemmas 3.6–3.12, pp.21–24.)
 
-This uses [5.8 CM ideal reciprocity with prime generation](#58-cm-ideal-reciprocity-with-prime-generation); [5.3 Rank-one rational CM Tate module](#53-rank-one-rational-cm-tate-module); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity), with the exact supplier contracts above.
+This uses [5.9 CM ideal reciprocity with prime generation](#59-cm-ideal-reciprocity-with-prime-generation); [5.4 Rank-one rational CM Tate module](#54-rank-one-rational-cm-tate-module); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [4.2 Reflex norm of a special torus](#42-reflex-norm-of-a-special-torus); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity), with the exact supplier contracts above.
 
-### 5.10 Polarization and level in CM reciprocity
+### 5.11 Polarization and level in CM reciprocity
 
 Prove `TauCeti.Shimura.cm_polarization_level` as follows. For α from the main CM theorem and a compatible polarization form ψ with Rosati conjugation, ψ_{σA}(αx,αy)=c ψ_A(x,y) where c=χ_cyc(σ)/N_{E*/Q}(s)∈Q_{>0}. The actual Tate twist in ψ:A_f×A_f→A_f(1) is retained. For an adelic symplectic level representative, σ transport equals the reflex-norm action modulo the chosen level and the E-linear quasi-isogeny.
 
@@ -1310,9 +1362,9 @@ Apply the formula to the actual symplectic Tate trivialization and its K-orbit, 
 
 ([J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Remark 3.11(c), pp.22–23.)
 
-This uses [5.9 Main theorem of complex multiplication](#59-main-theorem-of-complex-multiplication); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion), with the exact supplier contracts above.
+This uses [5.10 Main theorem of complex multiplication](#510-main-theorem-of-complex-multiplication); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion), with the exact supplier contracts above.
 
-### 5.11 Siegel special points are full CM
+### 5.12 Siegel special points are full CM
 
 Prove `TauCeti.Shimura.siegel_special_cm` as follows. For the Siegel datum, a complex abelian variety gives a special point precisely when it has full CM by a commutative CM algebra of degree 2g. Products are included, so all special points rather than only simple CM fields are covered.
 
@@ -1326,11 +1378,11 @@ By complete reducibility and positive Rosati involution, a torus Mumford–Tate 
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Definition 14.9, Proposition 14.10 and Corollary 14.11, pp.123–124.)
 
-This uses [5.2 CM abelian varieties with their algebra action](#52-cm-abelian-varieties-with-their-algebra-action); [ShimuraData, `D5/siegel-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-point`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
+This uses [5.3 CM abelian varieties with their algebra action](#53-cm-abelian-varieties-with-their-algebra-action); [ShimuraData, `D5/siegel-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-point`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md), with the exact supplier contracts above.
 
-### 5.12 The Siegel canonical model
+### 5.13 The Siegel canonical model
 
-Prove `TauCeti.Shimura.siegel_canonical` as follows. The rational polarized Siegel moduli model with the actual adelic symplectic level is a canonical model over the Siegel reflex field Q. Its complex uniformization is the Layer 1/Layer 3 Siegel variety; for every actual special point its Galois action is precisely Layer 4 reciprocity, including polarization, quasi-isogeny and level.
+Prove `TauCeti.Shimura.siegel_canonical` as follows. The rational polarized Siegel moduli model with the actual adelic symplectic level is a canonical model over the Siegel reflex field Q. Its complex uniformization is the Siegel variety of Layers 1 and 3; for every actual special point its Galois action is precisely Layer 4 reciprocity, including polarization, quasi-isogeny and level.
 
 Construct the rational generic Siegel moduli object from M0–M3 and its analytic family comparison.
 
@@ -1345,15 +1397,15 @@ Compare its scalar action with the special-pair cocharacter reflex norm. Extend 
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 14.12 and existence proof, pp.125–126.)
 
-This uses [5.1 Algebraization of polarized weight-one variations](#51-algebraization-of-polarized-weight-one-variations); [5.11 Siegel special points are full CM](#511-siegel-special-points-are-full-cm); [5.10 Polarization and level in CM reciprocity](#510-polarization-and-level-in-cm-reciprocity); [4.4 Canonical-model condition](#44-canonical-model-condition); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D5/siegel-reflex-dual`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md), with the exact supplier contracts above.
+This uses [5.2 Algebraization of polarized weight-one variations](#52-algebraization-of-polarized-weight-one-variations); [5.12 Siegel special points are full CM](#512-siegel-special-points-are-full-cm); [5.11 Polarization and level in CM reciprocity](#511-polarization-and-level-in-cm-reciprocity); [4.4 Canonical-model condition](#44-canonical-model-condition); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D5/siegel-reflex-dual`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md), with the exact supplier contracts above.
 
 ### Examples
 
-A product of two CM elliptic curves is full CM by the product algebra even when it is not simple. At an inert elliptic CM prime the Newton slope is 1/2; at a split prime the slopes are 0 and 1. In the square-zero inertia proof, x²=0 in the reduced algebra E⊗ℚ_ℓ forces x=0. A positive-dimensional scalar ℚ-action is not full CM. The g=0 Siegel datum is terminal and gives Spec ℚ separately from the positive-dimensional CM argument.
+For ℚ(i) with the type {i↦i}, the reflex field is ℚ(i) itself and the reflex norm is the identity, so N_Φ(2+i)·(2−i)=5; the conjugate type has reflex norm a↦ā. A product of two CM elliptic curves is full CM by the product algebra even when it is not simple. At an inert elliptic CM prime the Newton slope is 1/2; at a split prime the slopes are 0 and 1. In the square-zero inertia proof, x²=0 in the reduced algebra E⊗ℚ_ℓ forces x=0. A positive-dimensional scalar ℚ-action is not full CM. The g=0 Siegel datum is terminal and gives Spec ℚ separately from the positive-dimensional CM argument.
 
 ### Dependencies
 
-The external inputs are [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4/etale-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/characteristic-polynomial-on-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/hom-is-free-of-finite-rank`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/relative-hom-and-normal-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ComplexComparisonPartII, `C4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/cm-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/trace-reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [ComplexMultiplicationAndExplicitReciprocity, `CM.0/type-product-identities`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexMultiplicationAndExplicitReciprocity.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/finite-separable-semistable-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/inertia-square-zero`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.5/neron-ogg-shafarevich`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D4/special-point`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/siegel-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/siegel-reflex-dual`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity).
+The external inputs are [AbelianSchemesAndArithmeticModuli, `A2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A4/etale-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/characteristic-polynomial-on-tate-module`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/hom-is-free-of-finite-rank`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AbelianSchemesAndArithmeticModuli, `A6/relative-hom-and-normal-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AbelianSchemesAndArithmeticModuli.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ComplexComparisonPartII, `C4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/finite-separable-semistable-extension`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.3/inertia-square-zero`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [NeronModelsAndSemistableAbelianVarieties, `R11.5/neron-ogg-shafarevich`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/NeronModelsAndSemistableAbelianVarieties.md); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D4/special-point`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/siegel-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/siegel-reflex-dual`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity); `NumberField.IsCMField`; `NumberField.ComplexEmbedding.conjugate`; `IntermediateField.adjoin`; `LinearMap.det`; [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/cm-torus`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [AdelicAlgebraicGroups, `AA.1/base-change-adelic`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md).
 
 Earlier constructions used here are 3.2 Borel algebraicity; 4.1 Milne geometric Artin conversion; 4.2 Reflex norm of a special torus; 4.4 Canonical-model condition.
 
@@ -1384,7 +1436,7 @@ Prove `TauCeti.Shimura.hodge_canonical` as follows. Every Hodge-type datum of D4
 
 Choose the symplectic embedding supplied by the definition of Hodge type.
 
-Apply hodge-inheritance to the constructed Siegel model.
+Apply §6.1 to the constructed Siegel model.
 
 Use §4.12 uniqueness only after both candidate models satisfy the full Layer 4 condition; its proof requires actual models but no general-data existence theorem.
 
@@ -1394,7 +1446,7 @@ Use §4.12 uniqueness only after both candidate models satisfy the full Layer 4 
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Proposition 14.14, p.127.)
 
-This uses [ShimuraData, `D4/hodge-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [5.12 The Siegel canonical model](#512-the-siegel-canonical-model); [6.1 Inheritance by Shimura subdata](#61-inheritance-by-shimura-subdata); [4.12 Uniqueness of canonical models](#412-uniqueness-of-canonical-models), with the exact supplier contracts above.
+This uses [ShimuraData, `D4/hodge-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [5.13 The Siegel canonical model](#513-the-siegel-canonical-model); [6.1 Inheritance by Shimura subdata](#61-inheritance-by-shimura-subdata); [4.12 Uniqueness of canonical models](#412-uniqueness-of-canonical-models), with the exact supplier contracts above.
 
 ### 6.3 Connected Shimura tower with completed symmetry
 
@@ -1404,7 +1456,7 @@ Use the standing connected adjoint S-map convention, with a maximal special toru
 
 Construct the congruence-indexed inverse system and its compatible symmetry, as in the 1983 appendix.
 
-Use the Deligne completed-symmetry construction to define the connected canonical datum with actual Galois compatibility. Its exact extension/coherence source must be checked separately, a required construction.
+Use the Deligne completed-symmetry construction to define the connected canonical datum with actual Galois compatibility; its extension and coherence laws are constructed in the next paragraph.
 
 Construct the connected extension as Deligne's pullback of the adelic component extension along global reciprocity and the abelianization map of Gal(ℚ̄/E). Its kernel is the completion of Gᵃᵈ(ℚ)⁺ relative to the chosen derived cover. The extension acts continuously and semilinearly on the connected ℚ̄ model: the kernel acts ℚ̄-linearly and the quotient acts on the base field. A special adjoint torus gives the extension map whose image fixes its marked point. A change of finite base field pulls back the extension; a central quotient changes the completion kernel. Prove these action and compatibility laws rather than choosing an unsupported splitting. ([Deligne, Variétés de Shimura](https://www.math.ias.edu/sites/default/files/34_VarietesdeShimura.pdf), 2.5.1–2.5.10, pp.280–283; 2.7.10, pp.286–287.)
 
@@ -1479,7 +1531,7 @@ Construct the effective finite algebraic quotients and descend their Galois symm
 
 Verify reciprocity by central-isogeny compatibility of the cocharacter norm; compare the inverse systems.
 
-Central isogenies identify the adjoint groups and hence the S-maps of connected data; no algebraic lift S→G₁ is required. ShimuraData 4/central-isogeny-lift only treats a given lift of a full datum and does not supply such an existence assertion.
+Central isogenies identify the adjoint groups and hence the S-maps of connected data; no algebraic lift S→G₁ is required. ShimuraData `D4/central-isogeny-lift` only treats a given lift of a full datum and does not supply such an existence assertion.
 
 **Checks.**
 
@@ -1491,7 +1543,7 @@ This uses [6.3 Connected Shimura tower with completed symmetry](#63-connected-sh
 
 ### 6.7 Canonical models of abelian type
 
-Prove `TauCeti.Shimura.abelian_canonical` as follows. Every abelian-type datum as defined in D4 admits a canonical tower over its reflex field. Use the Hodge-type witness, products and central-isogeny descent for the connected derived datum, then connected-full-equivalence. The full components and reflex-field action are reconstructed rather than identified with those of the Hodge-type witness.
+Prove `TauCeti.Shimura.abelian_canonical` as follows. Every abelian-type datum as defined in D4 admits a canonical tower over its reflex field. Use the Hodge-type witness, products and central-isogeny descent for the connected derived datum, then §6.4. The full components and reflex-field action are reconstructed rather than identified with those of the Hodge-type witness.
 
 Apply the actual abelian-type central-isogeny relation to the derived connected data.
 
@@ -1515,7 +1567,7 @@ For GL₂ the connected derived tower is the effective congruence tower Γ\ℍ i
 
 The external inputs are [AdelicAlgebraicGroups, `AA.4/strong-approximation-theorem`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ShimuraData, `D4/abelian-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/adjoint-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/hodge-type`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/product-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
-Earlier constructions used here are 0.5 Finite analytic component decomposition; 1.2 Complex analytic structure of the tower; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 4.10 Disjoint special reflex fields; 4.12 Uniqueness of canonical models; 4.2 Reflex norm of a special torus; 4.4 Canonical-model condition; 4.5 Finite étale torus canonical models; 4.7 Existence and density of special points; 4.8 Density of Hecke translates; 5.12 The Siegel canonical model.
+Earlier constructions used here are 0.5 Finite analytic component decomposition; 1.2 Complex analytic structure of the tower; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 4.10 Disjoint special reflex fields; 4.12 Uniqueness of canonical models; 4.2 Reflex norm of a special torus; 4.4 Canonical-model condition; 4.5 Finite étale torus canonical models; 4.7 Existence and density of special points; 4.8 Density of Hecke translates; 5.13 The Siegel canonical model.
 
 ## Layer 7: Conjugation and general canonical existence
 
@@ -1569,7 +1621,7 @@ The quadratic CM involution exchanges α and −α, so the displayed Lie algebra
 
 Construct the reductive subgroup generated by T′ and the ±α root groups and descend it by quadratic Galois stability. Project the marked S-map to its adjoint group, then verify Hodge types and the Cartan condition. The semisimple cover carries the same adjoint S-map; do not use a full-datum lift existence assertion.
 
-Use the A₁ symplectic realization and Layer 5/Layer 6 to prove its marked conjugation comparison from CM, not just canonical-model existence. The precise A₁ comparison bridge is an explicit required proof input.
+Use the A₁ symplectic realization and Layers 5–6 to prove its marked conjugation comparison from CM, not just canonical-model existence. Prove that A₁ comparison here, with its functoriality for the inclusion (Milne 1983 Remark 1.5, p.242; Milne–Shih, Conjugates of Shimura varieties, §9); canonical-model existence for the A₁ datum alone does not give it.
 
 **Checks.**
 
@@ -1606,7 +1658,7 @@ Construct `TauCeti.Shimura.conjugatedDatum` as follows. Let G/Q be semisimple si
 
 Throughout this result, G is semisimple simply connected over Q; h:S→G^ad_R lies in X⁺ with the Appendix (C1)–(C3) conditions. The maximal special torus is read in the adjoint datum and pulled back to G. No lift h:S→G_R is assumed.
 
-Construct the Serre/Taniyama extension and its finite-adelic splitting from the corrected reciprocity class formation; this missing common CM supplier is explicitly required and a required construction.
+Take the Serre/Taniyama extension and its finite-adelic splitting from the shared CM arithmetic extension of the supplier contracts (marked conjugation paragraph), built on the global class formation.
 
 Form the contracted product for ρ_h:S→T^ad acting by conjugation. The pulled-back maximal torus T is unchanged because this action on T is trivial.
 
@@ -1651,7 +1703,7 @@ Prove that exceptional uniformization argument as an input to the weak compariso
 
 ([J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf), Theorem 3.2, p.246.)
 
-This uses [2.7 Baily–Borel algebraization](#27-bailyborel-algebraization); [3.3 Unique algebraization at neat level](#33-unique-algebraization-at-neat-level); [5.1 Algebraization of polarized weight-one variations](#51-algebraization-of-polarized-weight-one-variations); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ArithmeticLocallySymmetricSpaces, `ALS.0`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md), with the exact supplier contracts above.
+This uses [2.7 Baily–Borel algebraization](#27-bailyborel-algebraization); [3.3 Unique algebraization at neat level](#33-unique-algebraization-at-neat-level); [5.2 Algebraization of polarized weight-one variations](#52-algebraization-of-polarized-weight-one-variations); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ArithmeticLocallySymmetricSpaces, `ALS.0`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md), with the exact supplier contracts above.
 
 ### 7.7 Weak connected conjugation comparison
 
@@ -1663,12 +1715,12 @@ Lift the conjugated Hecke correspondences to the universal Hermitian cover to co
 
 Use the precise S-arithmetic arithmeticity and superrigidity results at sufficiently large S, with rank at least two, to recover G₁ and its compatible local maps (3.6–3.7).
 
-Handle the nonexceptional central obstruction using corrected 3.8. In the exceptional Aₙ cases §3.10 uses rank-one subgroups after a totally real extension making their semisimple forms isotropic at all finite places. Platonov–Rapinchuk 1979 Theorem 1 proves perfection of SL₁(D), not simplicity; it cannot be applied as a no-noncentral-normal-subgroup theorem to the full reductive Hα containing T. The exact passage from the semisimple perfection result to the central adjustment on the marked torus must be proved separately. Finite étale comparison rigidity in §§2.1–2.2 then gives the tower isomorphism once this adjustment is justified.
+Handle the nonexceptional central obstruction using Lemma 3.8 in its corrected form, which concerns H¹(k,Z(G)) (see the ReductiveGroups contract). In the exceptional Aₙ cases §3.10 uses rank-one subgroups after a totally real extension making their semisimple forms isotropic at all finite places. Platonov–Rapinchuk 1979 Theorem 1 proves perfection of SL₁(D), not simplicity; it cannot be applied as a no-noncentral-normal-subgroup theorem to the full reductive Hα containing T. The exact passage from the semisimple perfection result to the central adjustment on the marked torus must be proved separately. Finite étale comparison rigidity in §§2.1–2.2 then gives the tower isomorphism once this adjustment is justified.
 
 **Checks.**
 
 - The finite adelic map does not identify the real forms.
-- The corrected 3.8 concerns H¹(k,Z), not H¹(k,G).
+- Lemma 3.8, as corrected in the author's annotated copy, concerns H¹(k,Z), not H¹(k,G).
 - Do not infer simplicity or perfection of a full reductive rank-one group with a positive-dimensional centre from perfection of its simply connected semisimple factor.
 
 ([J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf), Proposition 3.1 and §§3.3–3.10, pp.245–252; [V. P. Platonov and A. S. Rapinchuk, On the group of rational points of three-dimensional groups](https://uva.theopenscholar.com/files/ixqrlw/files/doklady_r_247_8.pdf), Theorem 1, p.279; final discussion, p.282 (Russian published original); [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), layer-4-approximation-neat-levels-and-hecke-maps; corresponding current Suggested.lean targets.)
@@ -1704,9 +1756,9 @@ Use the standing connected adjoint S-map convention, with a maximal special toru
 
 Use the finite-base-extension functoriality of the completed groups as in Proposition 6.1 and MS §8.
 
-Prove the precise density and compatibility needed to extend equivariance continuously. The annotated scan deletes an extra proposed rank-one generator family; no such stronger generation claim is used.
+Prove the precise density and compatibility needed to extend equivariance continuously. The author's annotated copy of Milne 1983 withdraws an additional rank-one generation claim; it is not used.
 
-Compare finite levels to obtain the completed action identity. Its exact density statement/source decomposition is an required proof input.
+Compare finite levels to obtain the completed action identity. The precise density statement is a required proof input of this target.
 
 **Checks.**
 
@@ -1782,7 +1834,7 @@ Spread the variety and the finite rigidifying subset to a finitely generated fie
 
 For automorphisms fixing L the canonical comparisons and the split comparisons agree on Σ and hence agree globally.
 
-Invoke the corrected continuity criterion; do not cite the older 1994 lemma with this hypothesis omitted.
+Use the continuity criterion of Milne 1999 Theorem 1.1 and Corollary 1.2; Remark 1.3(c) there records that the earlier Lemma 3.23 of Milne 1994 omits the continuity condition.
 
 **Checks.**
 
@@ -1797,11 +1849,11 @@ This uses [7.12 Finite rigidifying special points](#712-finite-rigidifying-speci
 
 Prove `TauCeti.Shimura.general_canonical` as follows. Every pure Shimura datum admits a canonical tower over its reflex field, satisfying Layer 4 at every level and independent of the auxiliary extension and marked special point. Apply effective quasi-projective descent to the continuous cocycle constructed above, descend finite quotients and level actions, and verify special reciprocity by comparison over C.
 
-At neat level combine quasi-projectivity from Layer 2/Layer 3 with Milne 1999 Theorem 1.1 to obtain an E-scheme and complex comparison.
+At neat level combine quasi-projectivity from Layers 2–3 with Milne 1999 Theorem 1.1 to obtain an E-scheme and complex comparison.
 
 Descend all compatible finite-level maps using the constructed equivariant system; extend to non-neat levels by finite quotients.
 
-The established canonical descent action verifies the exact Layer 4 field of definition and geometric-Artin formula. Compare auxiliary choices through special-independence and specified analytic identity.
+The established canonical descent action verifies the exact Layer 4 field of definition and geometric-Artin formula. Compare auxiliary choices through §7.10 and the specified analytic identity.
 
 ([J. S. Milne, Descent for Shimura varieties](https://jmilne.org/math/articles/1999cP.pdf), Theorem 2.3 and Remark 2.4, pp.4–5; 1983 Theorem 7.2.)
 
@@ -1815,7 +1867,7 @@ For τ=id the marked twist, adelic map and cocycle comparisons are identities. F
 
 The external inputs are [AdelicAlgebraicGroups, `AA.4/strong-approximation-theorem`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ArithmeticLocallySymmetricSpaces, `ALS.0`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ArithmeticLocallySymmetricSpaces.md); [ReductiveGroupsPartII, `RG2.0a`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ShimuraData, `D3/cocharacter-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/adjoint-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/shimura-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-pair`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ReductiveGroups, layer 7 structure theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
-Earlier constructions used here are 2.7 Baily–Borel algebraization; 3.3 Unique algebraization at neat level; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 4.2 Reflex norm of a special torus; 4.3 Finite-level reciprocity and idele independence; 4.4 Canonical-model condition; 4.8 Density of Hecke translates; 5.1 Algebraization of polarized weight-one variations; 6.3 Connected Shimura tower with completed symmetry; 6.4 Connected and full canonical formulations; 6.5 Products of connected canonical models; 6.6 Central-isogeny descent of connected models; 6.7 Canonical models of abelian type.
+Earlier constructions used here are 2.7 Baily–Borel algebraization; 3.3 Unique algebraization at neat level; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 4.2 Reflex norm of a special torus; 4.3 Finite-level reciprocity and idele independence; 4.4 Canonical-model condition; 4.8 Density of Hecke translates; 5.2 Algebraization of polarized weight-one variations; 6.3 Connected Shimura tower with completed symmetry; 6.4 Connected and full canonical formulations; 6.5 Products of connected canonical models; 6.6 Central-isogeny descent of connected models; 6.7 Canonical models of abelian type.
 
 ## Layer 8: Arithmetic towers and minimal compactifications
 
@@ -1825,7 +1877,7 @@ Construct `CanonicalTower.ofLevelMaps` as follows. For actual canonical models M
 
 Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. The categorical assembly signature takes the already proved identity and composition laws for the descended transitions. These laws are obtained here by uniqueness, rather than assumed in the mathematical descent theorem.
 
-Apply translation-descent at g=1 to every inclusion.
+Apply §4.11 at g=1 to every inclusion.
 
 The identity and composition equations hold over C by Layer 1 and descend by uniqueness. Package these maps with the existing Functor constructor; retain the actual structure morphism in Over(Spec E).
 
@@ -1845,8 +1897,8 @@ Expose the following named operations and laws.
 - `CanonicalTower.test_nested_levels`: For K1 contained in K2 contained in K3, the constructor map of the composite inclusion equals pi_{K1,K2} followed by pi_{K2,K3}.
 - `CanonicalTower.test_preserves_supplied_arrow`: For a supplied arrow f and a morphism u distinct from t(f), the constructor map of f is not u; replacing transitions by zero or arbitrary maps fails this test.
 - `CanonicalTower.test_base_change`: The base-changed constructor map on f is exactly Over.pullback(b).map(t(f)).
-- `CanonicalTower.test_gl2_jline_degree`: For GL2 and N >= 3 the tower map from level K(N) to GL2(Zhat) is identified with the j-map Y_full(N)_Q -> A^1_Q (gl2-full-level, ModularCurves 9E); its degree is |GL2(Z/N)|/2 because -1 acts trivially, so 24 at N = 3, and |GL2(F_3)| = 48.
-- `CanonicalTower.test_not_constant`: The tower is not constant: for GL2, M_{K(N)} has phi(N) geometric connected components (component-reciprocity) while M_{GL2(Zhat)} is geometrically connected, so for N >= 3 the transition is not an isomorphism; phi(3) = 2.
+- `CanonicalTower.test_gl2_jline_degree`: For GL2 and N >= 3 the tower map from level K(N) to GL2(Zhat) is identified with the j-map Y_full(N)_Q -> A^1_Q (§8.10, ModularCurves 9E); its degree is |GL2(Z/N)|/2 because -1 acts trivially, so 24 at N = 3, and |GL2(F_3)| = 48.
+- `CanonicalTower.test_not_constant`: The tower is not constant: for GL2, M_{K(N)} has phi(N) geometric connected components (§8.7) while M_{GL2(Zhat)} is geometrically connected, so for N >= 3 the transition is not an isomorphism; phi(3) = 2.
 - All levels retain their given structure morphisms to Spec E.
 - A composite of three inclusions gives the same map for either parenthesization.
 
@@ -1899,9 +1951,9 @@ Construct `CanonicalHecke.span` as follows. For D, actual canonical models and g
 
 Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. g is a finite-adelic element and K is compact open.
 
-D5/Layer 1 supply J, conjugate levels and both inclusion witnesses.
+ShimuraData D5 and Layer 1 supply J, conjugate levels and both inclusion witnesses.
 
-Apply translation-descent and finite-level-maps to obtain the two E-morphisms.
+Apply §§4.11 and 8.3 to obtain the two E-morphisms.
 
 Use CategoryTheory.Limits.span, preserving the order of the two legs. The complex comparison is the Layer 1 correspondence; applying native spanCompIso to Over.pullback supplies its base-change isomorphism.
 
@@ -1918,10 +1970,9 @@ Expose the following named operations and laws.
 - `CanonicalHecke.test_native_span`: The constructed ordered diagram equals CategoryTheory.Limits.span(p1,p2) on the supplied legs.
 - `CanonicalHecke.test_distinct_legs`: For two endomorphisms p1,p2 of a supplied apex with p1 distinct from p2, the first-leg evaluation is not p2. A construction that swaps the two legs fails this test.
 - `CanonicalHecke.test_base_change`: After Over.pullback(b), evaluation at the first WalkingSpan arrow is Over.pullback(b).map(p1).
-- `CanonicalHecke.test_gl2_Tp_index`: For GL2, K = GL2(Zhat) and g = diag(p,1) at a prime p, J = K ∩ gKg^{-1} is the preimage of the lower-triangular subgroup mod p, of index p+1 = |P^1(F_p)| in K; both legs of the Hecke span have degree p+1 over the coarse j-line, the classical T_p.
+- `CanonicalHecke.test_gl2_Tp_index`: For GL2, K = GL2(Zhat) and g equal to diag(p,1) at a prime p and the identity elsewhere, J = K ∩ gKg^{-1} is the preimage of the lower-triangular subgroup mod p, which stabilizes the line spanned by e₂; its index in K is p+1 = |P^1(F_p)|, and both legs of the Hecke span have degree p+1 over the coarse j-line, the classical T_p.
 - J is K intersect gKg^{-1}, not K intersect g^{-1}Kg.
 - For g=1, J=K and both legs are the identity.
-- For G=GL₂, K=GL₂(ℤ̂) and g equal to diag(p,1) at p and the identity elsewhere, [K:J]=p+1: J=K ∩ gKg^{-1} is the preimage of the lower-triangular subgroup modulo p, which stabilizes the line spanned by e₂.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 5.29, p.65; 13.6, p.118.)
 
@@ -1935,14 +1986,14 @@ Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C
 
 Layer 3 gives the complex algebraic map; D4 sends special pairs to special pairs.
 
-Functoriality of Layer 4 reflex norms makes the map Galois equivariant on the dense Hecke orbit of each source special pair (special points map to special points by D4). Apply the disjoint-field argument of translation-descent over E(D), which contains E(Dprime).
+Functoriality of Layer 4 reflex norms makes the map Galois equivariant on the dense Hecke orbit of each source special pair (special points map to special points by D4). Apply the disjoint-field argument of §4.11 over E(D), which contains E(Dprime).
 
-Descend by A; identities, compositions and Hecke compatibility follow from their complex formulas and faithful base change.
+Descend the morphism along C/E(D) by R09.3; identities, compositions and Hecke compatibility follow from their complex formulas and faithful base change.
 
 **Checks.**
 
 - The identity datum map gives the identity scheme morphism.
-- For the strict determinant datum morphism GL2 -> Gm at principal level N >= 3, the Q-map agrees with the Layer 4 one-point torus model, whose geometric set is (Z/N)^×/{±1}. Under gl2-determinant-pairing it is the Weil-pairing map followed by the quotient zeta -> {zeta,zeta^(-1)} to the maximal-real cyclotomic model. The full component map to mu_N^prim uses component-reciprocity and Y={±1}.
+- For the strict determinant datum morphism GL2 -> Gm at principal level N >= 3, the Q-map agrees with the Layer 4 one-point torus model, whose geometric set is (Z/N)^×/{±1}. Under §8.11 it is the Weil-pairing map followed by the quotient zeta -> {zeta,zeta^(-1)} to the maximal-real cyclotomic model. The full component map to mu_N^prim uses §8.7 and Y={±1}.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 13.8, p.119; [Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), 5.4, pp.155–156; [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 12.3(c), p.112.)
 
@@ -1987,7 +2038,7 @@ This uses [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conve
 
 ### 8.7 Galois action on connected components
 
-Prove `CanonicalModel.component_map_defined_over_reflex` as follows. Let D=(G,X) be a pure Shimura datum with G^der simply connected, nu: G -> T = G/G^der, T(R)^† the image of Z(R) and Y = T(R)/T(R)^† (Milne (34)), and mu = nu∘mu_x, which is independent of x in X and defined over E = E(D). For actual canonical models M_K over E, the complex map Sh_K(G,X) -> Sh_{nu(K)}(T,Y), [x,a]_K -> [y(x), nu(a)], with y: pi_0(X) -> Y induced by nu, descends uniquely to an E-morphism M_K -> M_{nu(K)}(T,Y,mu) into the canonical model of zero-dimensional-shimura-variety. For K as in Milne 5.17 (in particular every K(N) for GL2) its geometric fibres are the connected components, so it identifies pi_0(M_K ⊗_E C) with Sh_{nu(K)}(T,Y) compatibly with the Galois action (64). It commutes with level maps and with right translation by g in G(A_f), acting on the target by nu(g).
+Prove `CanonicalModel.component_map_defined_over_reflex` as follows. Let D=(G,X) be a pure Shimura datum with G^der simply connected, nu: G -> T = G/G^der, T(R)^† the image of Z(R) and Y = T(R)/T(R)^† (Milne (34)), and mu = nu∘mu_x, which is independent of x in X and defined over E = E(D). For actual canonical models M_K over E, the complex map Sh_K(G,X) -> Sh_{nu(K)}(T,Y), [x,a]_K -> [y(x), nu(a)], with y: pi_0(X) -> Y induced by nu, descends uniquely to an E-morphism M_K -> M_{nu(K)}(T,Y,mu) into the canonical model of §8.6. For K as in Milne 5.17 (in particular every K(N) for GL2) its geometric fibres are the connected components, so it identifies pi_0(M_K ⊗_E C) with Sh_{nu(K)}(T,Y) compatibly with the Galois action (64). It commutes with level maps and with right translation by g in G(A_f), acting on the target by nu(g).
 
 Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. G^der is simply connected; for the pi_0 bijection K is as in Milne 5.17 (sufficiently small, or K(N) for GL2).
 
@@ -1995,11 +2046,11 @@ Over C the map is well defined and, for K as in Milne 5.17, induces a bijection 
 
 For a special pair (T0,x0) and sigma fixing E(x0), (62) gives sigma[x0,a] = [x0, r_{x0}(s′)a]. Functoriality of reflex norms (Layer 4) gives nu∘r(T0,mu_{x0}) = r(T,mu)∘Nm_{E(x0)/E}, compatible with the Artin maps; T0(R) fixes x0 (Milne 12.6), so the archimedean component of r(T,mu)(Nm s′) fixes y(x0). Hence the map commutes with sigma on the Hecke orbit of x0, which is dense (Milne 13.5): it is fixed by Aut(C/E(x0)) (Milne footnote 73).
 
-Take x1 with E(x1) linearly disjoint from the normal closure of E(x0) over E (disjoint-special-reflex-fields); as in translation-descent, the map is defined over E(x0) ∩ E(x1) = E, uniquely by faithful base change (R09.3). Compatibility with level maps and translations holds over C and descends.
+Take x1 with E(x1) linearly disjoint from the normal closure of E(x0) over E (§4.10); as in §4.11, the map is defined over E(x0) ∩ E(x1) = E, uniquely by faithful base change (R09.3). Compatibility with level maps and translations holds over C and descends.
 
 **Checks.**
 
-- For GL2 at K(N), N >= 3, the target has phi(N) points and the fibres are the fixed-pairing curves of gl2-fixed-pairing-fibre.
+- For GL2 at K(N), N >= 3, the target has phi(N) points and the fibres are the fixed-pairing curves of §8.12.
 - Complex conjugation interchanges the two components H^+ and H^- over a fixed level class: the target must use Y = {±1}, not the one-point torus datum.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §13, The Galois action on the connected components, (64) and footnote 73, p.119; [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), (34) and Theorem 5.17, p.59.)
@@ -2012,15 +2063,15 @@ Prove `CanonicalTower.abelian_type` as follows. Applying the preceding canonical
 
 Throughout this result, D is of abelian type in D4; Layer 6 supplies actual models satisfying Layer 4.
 
-Supply the Layer 6 construction to translation-descent and level-tower.
+Supply the Layer 6 construction to §§4.11 and 8.1.
 
-Use model-uniqueness to identify choices of Hodge-type covers and component descent.
+Use §4.12 to identify choices of Hodge-type covers and component descent.
 
 Use the same finite-level and datum-morphism statements; do not identify entire varieties merely because derived groups are isogenous.
 
 **Checks.**
 
-- GL2 is the genus-one GSp case, supplied through Layer 5/Layer 6.
+- GL2 is the genus-one GSp case, supplied through Layers 5–6.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 14.15–14.16 and the paragraph after them, p.127; 13.7, p.119.)
 
@@ -2045,15 +2096,15 @@ Apply Layer 4 Artin-convention conversion, including the field of definition of 
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 6.3, pp.70–71; 6.11, p.74; 14.12, p.125.)
 
-This uses [ShimuraData, `D5/gl2-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [4.4 Canonical-model condition](#44-canonical-model-condition); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [5.9 Main theorem of complex multiplication](#59-main-theorem-of-complex-multiplication); [5.10 Polarization and level in CM reciprocity](#510-polarization-and-level-in-cm-reciprocity); [5.11 Siegel special points are full CM](#511-siegel-special-points-are-full-cm); [5.12 The Siegel canonical model](#512-the-siegel-canonical-model); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing), with the exact supplier contracts above.
+This uses [ShimuraData, `D5/gl2-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [4.4 Canonical-model condition](#44-canonical-model-condition); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [5.10 Main theorem of complex multiplication](#510-main-theorem-of-complex-multiplication); [5.11 Polarization and level in CM reciprocity](#511-polarization-and-level-in-cm-reciprocity); [5.12 Siegel special points are full CM](#512-siegel-special-points-are-full-cm); [5.13 The Siegel canonical model](#513-the-siegel-canonical-model); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing), with the exact supplier contracts above.
 
 ### 8.10 Full-level modular curve comparison over Q
 
-Prove `GL2Modular.full_level_iso` as follows. For N>=3, there is a unique Q-isomorphism Sh_{K(N)}(GL2,H±) -> Y_full(N)_Q inducing the supplied complex uniformization. Here K(N)=ker(GL2(Zhat)->GL2(Z/N)). The source is the actual Layer 5/Layer 6 canonical model and the target is the ModularCurves fine full ordered-basis scheme.
+Prove `GL2Modular.full_level_iso` as follows. For N>=3, there is a unique Q-isomorphism Sh_{K(N)}(GL2,H±) -> Y_full(N)_Q inducing the supplied complex uniformization. Here K(N)=ker(GL2(Zhat)->GL2(Z/N)). The source is the actual Layers 5–6 canonical model and the target is the ModularCurves fine full ordered-basis scheme.
 
 Throughout this result, N>=3; full H± datum and principal adelic level; no chosen primitive root is incorporated into the Q-scheme.
 
-Use gl2-moduli-reciprocity and model-uniqueness to descend the complex moduli identification to a Q-isomorphism.
+Use §§8.9 and 4.12 to descend the complex moduli identification to a Q-isomorphism.
 
 Use the existing AA.5 principal-level component calculation and R12.2 comparison to identify its complex effect with the double-quotient formula.
 
@@ -2062,7 +2113,7 @@ Verify compatibility with the universal elliptic family/level interpretation thr
 **Checks.**
 
 - At N=3 the full curve has two geometric pairing components; it is not identified with a single Gamma(3) quotient.
-- At N=4 there are phi(4)=2 pairing components; composite levels are covered without Layer 10.
+- At N=4 there are phi(4)=2 pairing components; composite levels are covered without ModularCurves Layer 10.
 - Use determinant representatives in GL2(Zhat) to obtain literal Gamma(N) stabilizers, as in current AdelicAlgebraicGroups §5.2; arbitrary representatives require the specified conjugating maps.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 6.3, pp.70–71; 6.11, p.74; 13.7(a), p.119; [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 10.9, p.175; 12.9, p.200 (author-typeset version); [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), 52-gl₂-over-ℚ-and-principal-levels; corresponding current Suggested.lean targets.)
@@ -2071,11 +2122,11 @@ This uses [8.9 Canonical reciprocity for full elliptic level](#89-canonical-reci
 
 ### 8.11 Determinant is the Weil-pairing morphism
 
-Prove `GL2Modular.det_eq_weil_pairing` as follows. Let nu = det: GL2 -> G_m, T = G_m, Y = R^×/R_{>0} ≅ {±1} (Milne (34): T(R)^† = R_{>0}, T(Q)^† = Q_{>0}) and mu = det∘mu_x. Under full_level_iso, the Q-morphism of component-reciprocity, Sh_{K(N)}(GL2,H±) -> Sh_{det K(N)}(G_m,{±1}), is identified over Q with the ModularCurves determinant det_N: Y_full(N)_Q -> mu_N^prim, (E,P,Q) -> e_N(P,Q). Here det K(N) = ker(Zhat^× -> (Z/N)^×), Sh_{det K(N)}(G_m,{±1}) ≅ (Z/N)^× with Galois acting through the cyclotomic character, and its canonical Q-model is mu_N^prim = Spec Q[z]/Phi_N(z), not the constant disjoint union of phi(N) Q-points. The strict one-point torus datum (G_m,{det∘h}) of ShimuraData D5 is not the target: at this level its Shimura set is (Z/N)^×/{±1}, with model the spectrum of the real subfield of Q(zeta_N).
+Prove `GL2Modular.det_eq_weil_pairing` as follows. Let nu = det: GL2 -> G_m, T = G_m, Y = R^×/R_{>0} ≅ {±1} (Milne (34): T(R)^† = R_{>0}, T(Q)^† = Q_{>0}) and mu = det∘mu_x. Under `GL2Modular.full_level_iso`, the Q-morphism of §8.7, Sh_{K(N)}(GL2,H±) -> Sh_{det K(N)}(G_m,{±1}), is identified over Q with the ModularCurves determinant det_N: Y_full(N)_Q -> mu_N^prim, (E,P,Q) -> e_N(P,Q). Here det K(N) = ker(Zhat^× -> (Z/N)^×), Sh_{det K(N)}(G_m,{±1}) ≅ (Z/N)^× with Galois acting through the cyclotomic character, and its canonical Q-model is mu_N^prim = Spec Q[z]/Phi_N(z), not the constant disjoint union of phi(N) Q-points. The strict one-point torus datum (G_m,{det∘h}) of ShimuraData D5 is not the target: at this level its Shimura set is (Z/N)^×/{±1}, with model the spectrum of the real subfield of Q(zeta_N).
 
 Throughout this result, N>=3; choose the analytic reference basis so that its pairing is the reference primitive root calibrated by R12.1; use the Layer 4 normalization of the Artin map and reflex norm.
 
-component-reciprocity (G^der = SL2 is simply connected) gives the Q-morphism to the canonical model of Sh_{det K(N)}(G_m,{±1}); zero-dimensional-shimura-variety identifies that set with (Z/N)^× (Milne p.63) and its Galois action (64) with the cyclotomic character (Milne p.125), so the model is mu_N^prim. AA.5 supplies the determinant-indexed components.
+Section 8.7 (G^der = SL2 is simply connected) gives the Q-morphism to the canonical model of Sh_{det K(N)}(G_m,{±1}); §8.6 identifies that set with (Z/N)^× (Milne p.63) and its Galois action (64) with the cyclotomic character (Milne p.125), so the model is mu_N^prim. AA.5 supplies the determinant-indexed components.
 
 For a level eta, Milne 6.3 sends the moduli object to [ah, a∘eta]; the determinant records the multiplier of the alternating pairing. R12.1/R12.2 and PELModuli M5 identify that multiplier with the exponent of e_N(P,Q) relative to the calibrated reference root.
 
@@ -2088,17 +2139,17 @@ Both are Q-morphisms Y_full(N)_Q -> mu_N^prim agreeing on complex points; equali
 - With the one-point torus datum the N = 3 target would be a single Q-point, since (Z/3)^×/{±1} is trivial; the correct target has two geometric points.
 - Use determinant representatives in GL2(Zhat) to obtain literal Gamma(N) stabilizers, as in current AdelicAlgebraicGroups §5.2; arbitrary representatives require the specified conjugating maps.
 
-([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §13, The Galois action on the connected components, (64), p.119; §14, Siegel proof, p.125; [J. S. Milne, Modular Functions and Modular Forms](https://www.jmilne.org/math/CourseNotes/MF.pdf), 8.7, p.100 (root normalization corrected); [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §5, Zero-dimensional Shimura varieties, GL2 example, p.63; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), 52-gl₂-over-ℚ-and-principal-levels; corresponding current Suggested.lean targets.)
+([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §13, The Galois action on the connected components, (64), p.119; §14, Siegel proof, p.125; [J. S. Milne, Modular Functions and Modular Forms](https://www.jmilne.org/math/CourseNotes/MF.pdf), Lemma 8.7, p.100, read with the fixed reference root ζ_ref of R12.1; [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), §5, Zero-dimensional Shimura varieties, GL2 example, p.63; [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), 52-gl₂-over-ℚ-and-principal-levels; corresponding current Suggested.lean targets.)
 
 This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modular-curve-comparison-over-q); [8.7 Galois action on connected components](#87-galois-action-on-connected-components); [8.6 Zero-dimensional Shimura varieties and their canonical models](#86-zero-dimensional-shimura-varieties-and-their-canonical-models); [4.1 Milne geometric Artin conversion](#41-milne-geometric-artin-conversion); [AdelicAlgebraicGroups, `AA.5/gl2-principal-level`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md), with the exact supplier contracts above.
 
 ### 8.12 Fixed-pairing fibre over a primitive root
 
-Prove `GL2Modular.fixed_pairing_fibre_iso` as follows. For N>=3 and a primitive Nth root zeta in C, base change full_level_iso to Q(zeta) and take the scheme-theoretic fibre of its determinant/Weil-pairing map at zeta. This is an isomorphism to Y(N,zeta) over Q(zeta). Its complex analytification is Gamma(N)\H, and the fibre is geometrically connected and geometrically irreducible using the open comparison R12.4.
+Prove `GL2Modular.fixed_pairing_fibre_iso` as follows. For N>=3 and a primitive Nth root zeta in C, base change `GL2Modular.full_level_iso` to Q(zeta) and take the scheme-theoretic fibre of its determinant/Weil-pairing map at zeta. This is an isomorphism to Y(N,zeta) over Q(zeta). Its complex analytification is Gamma(N)\H, and the fibre is geometrically connected and geometrically irreducible using the open comparison R12.4.
 
 Throughout this result, the fibre is formed after cyclotomic base change; its scalar extension to C uses the chosen embedding Q(zeta)->C.
 
-Use gl2-determinant-pairing and the functoriality of fibre products to restrict full_level_iso.
+Use §8.11 and the functoriality of fibre products to restrict `GL2Modular.full_level_iso`.
 
 Apply R12.1/R12.2 fixed-pairing uniformization with the calibrated basis: if zeta=zeta_ref^u, replace the first standard torsion generator by u times it.
 
@@ -2111,11 +2162,11 @@ Import R12.4 open connectedness and smooth-curve irreducibility. This has no com
 
 ([J. S. Milne, Modular Functions and Modular Forms](https://www.jmilne.org/math/CourseNotes/MF.pdf), 8.7–8.8, p.100; [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 5.17, pp.59–61; connected components in section 13, p.119.)
 
-This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modular-curve-comparison-over-q); [8.11 Determinant is the Weil-pairing morphism](#811-determinant-is-the-weil-pairing-morphism); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C0/repair-analytification`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing); `CategoryTheory.Over.pullback`, with the exact supplier contracts above.
+This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modular-curve-comparison-over-q); [8.11 Determinant is the Weil-pairing morphism](#811-determinant-is-the-weil-pairing-morphism); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C0`, the shared analytification carrier](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing); `CategoryTheory.Over.pullback`, with the exact supplier contracts above.
 
 ### 8.13 Row-basis and adelic right actions
 
-Prove `GL2Modular.row_basis_right_translation` as follows. For N>=3 and u in GL2(Zhat) with reduction [[a,b],[c,d]], right translation [x,A]->[x,A u] corresponds under full_level_iso to (P,Q)->(aP+cQ,bP+dQ). The Weil pairing changes by exponent det(u mod N), so this map sends Y(N,zeta) to Y(N,zeta^{det u}). General finite-adelic g is compared through the two isogeny legs at the intersection level, not by pretending g has an integral reduction.
+Prove `GL2Modular.row_basis_right_translation` as follows. For N>=3 and u in GL2(Zhat) with reduction [[a,b],[c,d]], right translation [x,A]->[x,A u] corresponds under `GL2Modular.full_level_iso` to (P,Q)->(aP+cQ,bP+dQ). The Weil pairing changes by exponent det(u mod N), so this map sends Y(N,zeta) to Y(N,zeta^{det u}). General finite-adelic g is compared through the two isogeny legs at the intersection level, not by pretending g has an integral reduction.
 
 Throughout this result, the source K(N) is normalized by GL2(Zhat); full-level bases use the ModularCurves row convention.
 
@@ -2143,7 +2194,7 @@ Throughout this result, N>=4; K1 fixes e1 (first column), so the row convention 
 
 Choose a full principal level M divisible by N with M>=3 and pass to the finite quotient of its level problem by the stabilizer of the chosen N-point.
 
-Use finite-level-maps and the ModularCurves/R12.2 fine quotient comparison to descend full_level_iso. Exact moduli representability at N>=4 eliminates automorphisms.
+Use §8.3 and the ModularCurves/R12.2 fine quotient comparison to descend `GL2Modular.full_level_iso`. Exact moduli representability at N>=4 eliminates automorphisms.
 
 Use R12.5/R12.6 to match forgetful and diamond morphisms over Q.
 
@@ -2165,14 +2216,14 @@ Work on the characteristic-zero generic fibre with positive N. The cyclic-subgro
 
 Choose full M-level with N dividing M and M>=3; use the subgroup stabilizer and its finite coarse quotient.
 
-Compare this quotient with the canonical finite-level quotient from finite-level-maps, via gl2-full-level and the first-column convention.
+Compare this quotient with the canonical finite-level quotient from §8.3, via §8.10 and the first-column convention.
 
 Use ModularCurves 9E and R12.2/R12.6 to identify the coarse scheme and its analytic quotient.
 
 **Checks.**
 
 - For N=1 the j-line has elliptic objects with automorphisms; it is not a fine scheme with a universal elliptic curve.
-- For N=6 use the general coarse construction, not the prime diamond-quotient theorem of Layer 10.
+- For N=6 use the general coarse construction, not the prime diamond-quotient theorem of ModularCurves Layer 10.
 
 ([J. S. Milne, Modular Functions and Modular Forms](https://www.jmilne.org/math/CourseNotes/MF.pdf), 8.6, p.100; [Tau Ceti contributors, Tau Ceti roadmap: Modular curves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ModularCurves/README.md), Layer 9E: the coarse j-line and Y0(N).)
 
@@ -2180,7 +2231,7 @@ This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modu
 
 ### 8.16 Minimal compactification of the full modular curve
 
-Prove `GL2Modular.minimal_compact_iso` as follows. For N>=3 the independently constructed proper normal coarse compact curve X_full(N)_Q from R13.4a, with its specified open Y_full(N)_Q, is the E=Q-model of the complex Baily–Borel minimal compactification for the GL2 principal-level datum, via the open isomorphism full_level_iso. This is the genus-one arithmetic compactification base case, constructed without assuming the general minimal-descent theorem.
+Prove `GL2Modular.minimal_compact_iso` as follows. For N>=3 the independently constructed proper normal coarse compact curve X_full(N)_Q from R13.4a, with its specified open Y_full(N)_Q, is the E=Q-model of the complex Baily–Borel minimal compactification for the GL2 principal-level datum, via the open isomorphism `GL2Modular.full_level_iso`. This is the genus-one arithmetic compactification base case, constructed without assuming the general descent theorem of §8.18.
 
 Throughout this result, N>=3; the full and composite levels use the R13.4a construction. ModularCurves Layer 10 (prime N>=5 diamond quotients with H <= (Z/N)^×/{±1}) is not used here and supplies no full-level model.
 
@@ -2192,30 +2243,30 @@ Normal proper-curve extension gives uniqueness. R13.4b certifies the generic-fib
 
 **Checks.**
 
-- The level N=6 full compact model is supplied by R13.4a; prime-only Layer 10 cannot provide it.
+- The level N=6 full compact model is supplied by R13.4a; the prime-level ModularCurves Layer 10 cannot provide it.
 - Boundary is the scheme-theoretic complement, not a hand-selected set of complex cusp points.
 
 ([Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.9, p.200; [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 10.20–10.21, pp.183–184.)
 
-This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modular-curve-comparison-over-q); [2.7 Baily–Borel algebraization](#27-bailyborel-algebraization); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C4/repair-proper-morphism-algebraicity`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
+This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modular-curve-comparison-over-q); [2.7 Baily–Borel algebraization](#27-bailyborel-algebraization); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C4`, algebraic morphisms from proper sources](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
 
 ### 8.17 Arithmetic codimension-one partial compactification
 
-Prove `CanonicalModel.codim_one_extension` as follows. Let D=(G,X) be a pure Shimura datum with actual canonical models and K neat. Let M_K(C)^+ ⊂ M_K(C)^min be the union of M_K(C) with the boundary strata of codimension one (Pink 8.2): it is smooth, its boundary is a smooth divisor and its complement in M_K(C)^min has codimension at least two. Then M_K(C)^+ has a normal E(D)-model M_K^+ containing the canonical model M_K as a dense open subscheme, with a specified complex comparison extending the open comparison. It is unique up to the E-isomorphism inducing that specified complex comparison. The codimension-one strata come from the Q-simple factors of G^ad isomorphic to PGL2,Q, through surjections G -> PGL2,Q. When such a surjection lifts to a morphism (G,X) -> (GL2,H±), the corresponding partial extension is the scheme-theoretic closure of M_K in M_K′(G′,X′) ×_E (X_full(N)_Q ⊗ E) for (G′,X′) = (G,X)/SL2,Q (Pink 2.9), using gl2-compact-model; otherwise it is the quotient by a finite group of the corresponding extension for G̃ = G ×_{PGL2} GL2. The construction uses no torus torsor or mixed toroidal input (Pink 12.8 and ShimuraCompactifications C2 concern mixed data).
+Prove `CanonicalModel.codim_one_extension` as follows. Let D=(G,X) be a pure Shimura datum with actual canonical models and K neat. Let M_K(C)^+ ⊂ M_K(C)^min be the union of M_K(C) with the boundary strata of codimension one (Pink 8.2): it is smooth, its boundary is a smooth divisor and its complement in M_K(C)^min has codimension at least two. Then M_K(C)^+ has a normal E(D)-model M_K^+ containing the canonical model M_K as a dense open subscheme, with a specified complex comparison extending the open comparison. It is unique up to the E-isomorphism inducing that specified complex comparison. The codimension-one strata come from the Q-simple factors of G^ad isomorphic to PGL2,Q, through surjections G -> PGL2,Q. When such a surjection lifts to a morphism (G,X) -> (GL2,H±), the corresponding partial extension is the scheme-theoretic closure of M_K in M_K′(G′,X′) ×_E (X_full(N)_Q ⊗ E) for (G′,X′) = (G,X)/SL2,Q (Pink 2.9), using §8.16; otherwise it is the quotient by a finite group of the corresponding extension for G̃ = G ×_{PGL2} GL2. The construction uses no torus torsor or mixed toroidal input (Pink 12.8 and ShimuraCompactifications C2 concern mixed data).
 
-Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. The auxiliary data (G,X)/SL2,Q and (G̃,X̃) of Pink 12.10 also carry actual canonical models; in the abelian-type lane their membership in the Layer 5/Layer 6 class is an additional hypothesis requiring its own proof. K is neat and the auxiliary levels satisfy [3.9 Codimension-one boundary and auxiliary data](#39-codimension-one-boundary-and-auxiliary-data); auxiliary arithmetic models remain a separate requirement.
+Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. The auxiliary data (G,X)/SL2,Q and (G̃,X̃) of Pink 12.10 also carry actual canonical models; in the abelian-type lane their membership in the Layers 5–6 class is an additional hypothesis requiring its own proof. K is neat and the auxiliary levels satisfy [3.9 Codimension-one boundary and auxiliary data](#39-codimension-one-boundary-and-auxiliary-data); auxiliary arithmetic models remain a separate requirement.
 
 [3.9 Codimension-one boundary and auxiliary data](#39-codimension-one-boundary-and-auxiliary-data): the codimension-one boundary strata of M_K(C)^min belong to the rational boundary components whose parabolic is the preimage of a Borel subgroup under some G -> PGL2,Q; M_K(C)^+ is smooth with smooth boundary divisor (Pink 8.2). The strata of distinct factors are disjoint, so M_K^+ is glued along M_K from one partial extension per factor.
 
-Lifted case (Pink 12.10, first paragraph): PGL2,Q lifts to an almost direct factor SL2,Q of G^der and (G,X) embeds in (G′,X′) × (GL2,H±), with E(G,X) = E(G′,X′) because E(GL2,H±) = Q. The product of the canonical model of (G′,X′) with X_full(N)_E (gl2-compact-model) is an E-model of the corresponding product partial compactification. By the complex closed-immersion statement, M_K(C)^+ is the closure of M_K(C) there; take the scheme-theoretic closure over E of the image of the descended embedding (datum-functoriality); closure commutes with the flat base change E -> C (R09.5) and closed subschemes descend (R09.3).
+Lifted case (Pink 12.10, first paragraph): PGL2,Q lifts to an almost direct factor SL2,Q of G^der and (G,X) embeds in (G′,X′) × (GL2,H±), with E(G,X) = E(G′,X′) because E(GL2,H±) = Q. The product of the canonical model of (G′,X′) with X_full(N)_E (§8.16) is an E-model of the corresponding product partial compactification. By the complex closed-immersion statement, M_K(C)^+ is the closure of M_K(C) there; take the scheme-theoretic closure over E of the image of the descended embedding (§8.5); closure commutes with the flat base change E -> C (R09.5) and closed subschemes descend (R09.3).
 
-General case (Pink 12.10, second paragraph): G̃ = G ×_{PGL2} GL2 lifts, E(G̃,X̃) = E(G,X), and the complex map M_K̃(G̃,X̃)(C)^+ -> M_K(C)^+ is finite surjective (H^1(A,G_m) = 0); define M_K^+ as the finite quotient of the lifted extension (finite-level-maps, R09.5), which exists by quasi-projectivity. For uniqueness, use the specified complex comparison between two models of this same partial compactification. Its conjugates agree on M_K and hence on the whole reduced source with separated target. Descend this complex isomorphism and its inverse by R09.3 (Pink 12.6). Normality and a common dense open alone do not identify arbitrary compactifications.
+General case (Pink 12.10, second paragraph): G̃ = G ×_{PGL2} GL2 lifts, E(G̃,X̃) = E(G,X), and the complex map M_K̃(G̃,X̃)(C)^+ -> M_K(C)^+ is finite surjective (H^1(A,G_m) = 0); define M_K^+ as the finite quotient of the lifted extension (§8.3, R09.5), which exists by quasi-projectivity. For uniqueness, use the specified complex comparison between two models of this same partial compactification. Its conjugates agree on M_K and hence on the whole reduced source with separated target. Descend this complex isomorphism and its inverse by R09.3 (Pink 12.6). Normality and a common dense open alone do not identify arbitrary compactifications.
 
 **Checks.**
 
-- For G = GL2 itself, (G′,X′) is the two-point datum (G_m,{±1}) and M_K^+ = X_full(N)_Q, agreeing with gl2-compact-model.
+- For G = GL2 itself, (G′,X′) is the two-point datum (G_m,{±1}) and M_K^+ = X_full(N)_Q, agreeing with §8.16.
 - If no Q-simple factor of G^ad is PGL2,Q (for example Hilbert modular data over F ≠ Q), M_K^+ = M_K.
-- No prerequisite on ShimuraCompactifications:C0 torus embeddings or C2 is allowed.
+- No prerequisite on the torus embeddings of ShimuraCompactifications Layer C0 or on its Layer C2 is allowed.
 
 ([Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.10, pp.200–201 (author-typeset version); [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 8.2, p.132; [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.9, p.200.)
 
@@ -2225,21 +2276,21 @@ This uses [8.16 Minimal compactification of the full modular curve](#816-minimal
 
 Prove `CanonicalModel.minimal_defined_over_reflex` as follows. For a pure datum D with actual canonical open models, its normal projective complex Baily–Borel compactification M_K,C^min has a unique projective normal E(D)-model containing M_K and inducing the specified complex compactification. The theorem is for the same datum class as the supplied open models. Its construction must exhibit effective descent, not infer it solely from uniqueness of an open model.
 
-Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. [3.9 Codimension-one boundary and auxiliary data](#39-codimension-one-boundary-and-auxiliary-data) and [3.10 Logarithmic canonical section embedding](#310-logarithmic-canonical-section-embedding) apply; the actual auxiliary arithmetic models required by codim-one-extension are supplied.
+Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. [3.9 Codimension-one boundary and auxiliary data](#39-codimension-one-boundary-and-auxiliary-data) and [3.10 Logarithmic canonical section embedding](#310-logarithmic-canonical-section-embedding) apply; the actual auxiliary arithmetic models required by §8.17 are supplied.
 
-At neat level, codim-one-extension gives the normal E-model M_K^+ of M_K(C)^+: the open part with the codimension-one boundary strata, smooth with smooth boundary divisor and complement of codimension at least two in M_K(C)^min (Pink 8.2, 12.10).
+At neat level, §8.17 gives the normal E-model M_K^+ of M_K(C)^+: the open part with the codimension-one boundary strata, smooth with smooth boundary divisor and complement of codimension at least two in M_K(C)^min (Pink 8.2, 12.10).
 
 On M_K^+ the sheaf omega[dlog] of top differentials with logarithmic poles along the boundary divisor is defined over E, and its global sections commute with the flat base change E -> C (R09.3). Section 3.10 (Pink 8.2, Baily–Borel 10.11): for a positive sufficiently divisible n, omega[dlog]^n is generated by global sections on M_K(C)^+ and the induced map extends to a closed embedding of M_K(C)^min.
 
 Define M_K^min as the closure of M_K^+ in the projective space of the dual of Gamma(M_K^+, omega[dlog]^n) over E (Pink 12.12). Closure commutes with E -> C (R09.5), so its base change is M_K(C)^min; normality and projectivity descend.
 
-Remove neatness by finite quotients (finite-level-maps, R09.5; Pink 12.6). For uniqueness, the specified complex comparisons supply an isomorphism between the two models of the same Baily–Borel compactification. Its conjugates agree on the dense canonical open, hence on the reduced source with separated target. Descend the isomorphism and its inverse by R09.3; this does not claim uniqueness among arbitrary normal compactifications of M_K.
+Remove neatness by finite quotients (§8.3, R09.5; Pink 12.6). For uniqueness, the specified complex comparisons supply an isomorphism between the two models of the same Baily–Borel compactification. Its conjugates agree on the dense canonical open, hence on the reduced source with separated target. Descend the isomorphism and its inverse by R09.3; this does not claim uniqueness among arbitrary normal compactifications of M_K.
 
 **Checks.**
 
 - When no codimension-one boundary occurs, M_K^+ = M_K and Koecher's principle makes the sections those of automorphic forms without growth condition; the closure argument is unchanged.
-- For GL2 the construction agrees with gl2-compact-model.
-- No prerequisite on AutomorphicBundles:B1, ShimuraCompactifications:C0 torus embeddings or C2 is allowed.
+- For GL2 the construction agrees with §8.16.
+- No prerequisite on AutomorphicBundles Layer B1, on the torus embeddings of ShimuraCompactifications Layer C0 or on its Layer C2 is allowed.
 
 ([Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.3(a), p.197; 12.6–12.7, pp.198–199; 12.10, pp.200–201; 12.12, p.202; [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 8.2, pp.132–133.)
 
@@ -2249,9 +2300,9 @@ This uses [8.17 Arithmetic codimension-one partial compactification](#817-arithm
 
 Prove `CanonicalModel.minimal_map_extension` as follows. Every descended translation T_g and every admissible datum morphism has a unique extension between the corresponding minimal models over the same reflex field or specified compositum. The extensions preserve identity and composition and agree with complex Baily–Borel functoriality. In particular level maps and both Hecke legs extend. Extended level maps are finite where the complex finite-quotient theorem proves finiteness; no general étaleness across the boundary is asserted.
 
-Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. The complex extension theorem is supplied by Layer 2/Layer 3 with its applicable level/datum hypotheses.
+Throughout this result, D=(G,X) is a pure Shimura datum; E=E(D) is embedded in C. Each model M_K is an actual finite-type normal separated E-scheme with a specified complex comparison to Layer 3, satisfying the special-pair reciprocity condition of Layer 4. Existence is supplied by Layer 5 or Layer 6 in the abelian-type lane, or Layer 7 in the general lane. The complex extension theorem is supplied by Layers 2–3 with its applicable level/datum hypotheses.
 
-Use minimal-descent for the source and target and Layer 2/Layer 3 for the complex extension.
+Use §8.18 for the source and target and Layers 2–3 for the complex extension.
 
 On the schematically dense open, descent agrees with the known arithmetic map. Separatedness and reducedness give equality of conjugates on the whole source.
 
@@ -2285,25 +2336,25 @@ Use R12.1 normalization to identify the analytic exponential with the chosen Tat
 
 ([Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 10.21–10.22, pp.184–185; 12.9, p.200.)
 
-This uses [8.16 Minimal compactification of the full modular curve](#816-minimal-compactification-of-the-full-modular-curve); [8.14 Gamma-one modular curve comparison](#814-gamma-one-modular-curve-comparison); [8.15 Gamma-zero coarse modular curve comparison](#815-gamma-zero-coarse-modular-curve-comparison); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C0/repair-analytification`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
+This uses [8.16 Minimal compactification of the full modular curve](#816-minimal-compactification-of-the-full-modular-curve); [8.14 Gamma-one modular curve comparison](#814-gamma-one-modular-curve-comparison); [8.15 Gamma-zero coarse modular curve comparison](#815-gamma-zero-coarse-modular-curve-comparison); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ComplexComparisonPartII, `C0`, the shared analytification carrier](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md), with the exact supplier contracts above.
 
 ### 8.21 Compatibility of modular and canonical correspondences
 
-Prove `GL2Modular.tower_compatibility` as follows. The Q-isomorphisms for full, Gamma1 and Gamma0 levels commute with all admissible level maps and the ordered Hecke isogeny correspondences, with the Weil-pairing component transport dictated by row_basis_right_translation. Their compact extensions commute with the extended finite legs and the cusp/Tate charts. On coefficient sheaves, differential pullback and pull-push normalizations are precisely those of R12.5.
+Prove `GL2Modular.tower_compatibility` as follows. The Q-isomorphisms for full, Gamma1 and Gamma0 levels commute with all admissible level maps and the ordered Hecke isogeny correspondences, with the Weil-pairing component transport dictated by §8.13. Their compact extensions commute with the extended finite legs and the cusp/Tate charts. On coefficient sheaves, differential pullback and pull-push normalizations are precisely those of R12.5.
 
 Throughout this result, only the stated fine/coarse ranges and supplier's actual Hecke isogeny moduli are used; integral bad-prime models are not inferred.
 
-R12.5/R12.6 supply the analytic/level/isogeny identities; compare each leg using gl2-full-level, row-basis-dictionary and canonical functoriality.
+R12.5/R12.6 supply the analytic/level/isogeny identities; compare each leg using §§8.10, 8.13 and 8.5.
 
-Faithful C-base change gives equality over Q. Apply minimal-map-extension and uniqueness of dense-open extension for the compact diagram.
+Faithful C-base change gives equality over Q. Apply §8.19 and uniqueness of dense-open extension for the compact diagram.
 
-Identify cusp formal maps using gl2-cusps-tate and R13.4b. Import the supplier normalization for differentials rather than redefining the Hecke operator.
+Identify cusp formal maps using §8.20 and R13.4b. Import the supplier normalization for differentials rather than redefining the Hecke operator.
 
 **Checks.**
 
 - For an integral unipotent at principal level the first generator stays P and the second becomes P+Q.
 - For a nonintegral adelic prime isogeny, compare both legs rather than a putative automorphism of Y_full(N).
-- For prime N>=5 diamonds with H <= (Z/N)^×/{±1}, verify the Layer-10 quotient range; use R13.4a for full/composite compact levels.
+- For prime N>=5 diamonds with H <= (Z/N)^×/{±1}, verify the ModularCurves Layer 10 quotient range; use R13.4a for full/composite compact levels.
 
 ([J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 5.29, pp.65–66; 6.3, pp.70–71; 13.6–13.8, pp.118–119; [Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.3(b), p.197.)
 
@@ -2313,13 +2364,13 @@ This uses [8.10 Full-level modular curve comparison over Q](#810-full-level-modu
 
 Prove `CanonicalTower.general_data` as follows. For every pure Shimura datum D and every compact open K, supply the actual canonical models constructed by Layer 7 to Layer 8's conditional functoriality theorems. Obtain the same canonical E(D)-tower, right translations, finite level maps, effective quotients and ordered Hecke correspondences, independent, by the unique comparison of §4.12, of Layer 7's auxiliary extension and special point. For a datum morphism D -> D′, E(D′) is contained in E(D), so its map is defined over E(D), with the target model extended to that field.
 
-Throughout this result, Layer 7 has proved conjugation, cocycle, continuity and effective descent and has verified Layer 4 on the resulting models. No placeholder existence witness is substituted.
+Throughout this result, Layer 7 has proved conjugation, cocycle, continuity and effective descent and has verified Layer 4 on the resulting models. The models are the ones constructed in Layer 7; no existence hypothesis stands in for them.
 
 Apply the Layer 8 translation, tower and datum-map declarations to Layer 7's actual schemes and comparisons.
 
-Apply model-uniqueness to compare auxiliary choices; use its compatibility with maps to obtain the tower identification.
+Apply §4.12 to compare auxiliary choices; use its compatibility with maps to obtain the tower identification.
 
-Use finite-level-maps and hecke-span with the effective stabilizers from Layer 1. No second proof of canonical functoriality is introduced.
+Use §§8.3 and 8.4 with the effective stabilizers from Layer 1. No second proof of canonical functoriality is introduced.
 
 **Checks.**
 
@@ -2332,20 +2383,20 @@ This uses [7.14 Canonical models for every pure datum](#714-canonical-models-for
 
 ### 8.23 General-data minimal compactification interface
 
-Prove `CanonicalModel.general_minimal` as follows. Apply codim_one_extension, minimal_defined_over_reflex and minimal_map_extension to the Layer 7 models and the corresponding actual auxiliary pure models of Pink 12.10. This gives normal projective minimal compactifications and their functorial maps over reflex fields for all pure data; their open restriction is the general-data tower. Export these objects to C2.general and S0.general with the same auxiliary-model requirement exposed.
+Prove `CanonicalModel.general_minimal` as follows. Apply §§8.17–8.19 to the Layer 7 models and the corresponding actual auxiliary pure models of Pink 12.10. This gives normal projective minimal compactifications and their functorial maps over reflex fields for all pure data; their open restriction is the general-data tower. Export these objects to the general-data toroidal descent of ShimuraCompactifications (Layer C2) and the general infinite-level construction of PerfectoidShimuraVarieties (Layer S0), with the same auxiliary-model requirement exposed.
 
 Throughout this result, Layer 7 supplies the original and auxiliary strict pure-datum models. Models of any auxiliary data in Pink's broader sense are separately supplied as an additional auxiliary-model hypothesis; the two-point torus case is constructed here. Sections 3.8–3.10 supply the exact complex functoriality and logarithmic-section targets; their full proofs and analytic carriers are required.
 
-Instantiate codim-one-extension and minimal-descent with the Layer 7 schemes and all separately supplied broader auxiliary models; apply the existing argument, with no separate general compactification proof.
+Instantiate §§8.17–8.18 with the Layer 7 schemes and all separately supplied broader auxiliary models; apply the existing argument, with no separate general compactification proof.
 
-Instantiate minimal-map-extension and identify restrictions by general-tower and model-uniqueness.
+Instantiate §8.19 and identify restrictions by §§8.22 and 4.12.
 
-Supply only this arithmetic minimal/open interface to downstream C2.general and S0.general; toroidal existence and perfectoid limits remain their own targets.
+Supply only this arithmetic minimal/open interface to those two downstream consumers; toroidal existence and perfectoid limits remain their own targets.
 
 **Checks.**
 
-- The same construction agrees with the abelian lane via model-uniqueness.
-- No dependency imports the consuming C2.general toroidal model.
+- The same construction agrees with the abelian lane via §4.12.
+- No dependency imports the consuming toroidal model of ShimuraCompactifications.
 
 ([Richard Pink, Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), 12.3(a)–(b), p.197; 12.10–12.12, pp.200–202.)
 
@@ -2357,13 +2408,13 @@ At full N=3 the j-map has degree |GL₂(ℱ₃)|/2=24 and two geometric pairing 
 
 ### Dependencies
 
-The external inputs are [AdelicAlgebraicGroups, `AA.5/gl2-principal-level`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [AlgebraicModuliForArithmeticGeometry, `R09.5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ComplexComparisonPartII, `C0/repair-analytification`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ComplexComparisonPartII, `C4/repair-proper-morphism-algebraicity`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/datum-morphism`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-image`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-pair`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/gl2-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/neat-level`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/torus-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); `AlgebraicGeometry.IsFinite`; `AlgebraicGeometry.IsOpenImmersion`; `AlgebraicGeometry.IsProper`; `AlgebraicGeometry.Scheme`; `CategoryTheory.Functor`; `CategoryTheory.Limits.span`; `CategoryTheory.Limits.spanCompIso`; `CategoryTheory.Over`; `CategoryTheory.Over.pullback`; `CategoryTheory.Over.pullbackComp`; `CategoryTheory.Over.pullbackId`; [ModularCurves, 0d finite étale schemes and galois actions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#0d-finite-étale-schemes-and-galois-actions); [ModularCurves, 5a tate normal form and y₁n for n4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5a-tate-normal-form-and-y₁n-for-n4); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing); [ModularCurves, 9d coarse moduli schemes and finite quotients](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#9d-coarse-moduli-schemes-and-finite-quotients); [ModularCurves, 9e the coarse j line and y₀n](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#9e-the-coarse-j-line-and-y₀n).
+The external inputs are [AdelicAlgebraicGroups, `AA.5/gl2-principal-level`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md); [AlgebraicModuliForArithmeticGeometry, `R09.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [AlgebraicModuliForArithmeticGeometry, `R09.5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AlgebraicModuliForArithmeticGeometry.md); [ComplexComparisonPartII, `C0`, the shared analytification carrier](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ComplexComparisonPartII, `C4`, algebraic morphisms from proper sources](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ComplexComparisonPartII.md); [ModularCurvesPartII, `R12.1`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R12.6`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4a`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [ModularCurvesPartII, `R13.4b`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ModularCurvesPartII.md); [PELModuli, `M3`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [PELModuli, `M5`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/PELModuli.md); [ShimuraData, `D3/reflex-field`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/datum-morphism`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-image`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D4/special-pair`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/gl2-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/neat-level`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); [ShimuraData, `D5/torus-datum`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ShimuraData.md); `AlgebraicGeometry.IsFinite`; `AlgebraicGeometry.IsOpenImmersion`; `AlgebraicGeometry.IsProper`; `AlgebraicGeometry.Scheme`; `CategoryTheory.Functor`; `CategoryTheory.Limits.span`; `CategoryTheory.Limits.spanCompIso`; `CategoryTheory.Over`; `CategoryTheory.Over.pullback`; `CategoryTheory.Over.pullbackComp`; `CategoryTheory.Over.pullbackId`; [ModularCurves, 0d finite étale schemes and galois actions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#0d-finite-étale-schemes-and-galois-actions); [ModularCurves, 5a tate normal form and y₁n for n4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5a-tate-normal-form-and-y₁n-for-n4); [ModularCurves, 5b full ordered bases and fixed pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#5b-full-ordered-bases-and-fixed-pairing); [ModularCurves, 9d coarse moduli schemes and finite quotients](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#9d-coarse-moduli-schemes-and-finite-quotients); [ModularCurves, 9e the coarse j line and y₀n](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularCurves/README.md#9e-the-coarse-j-line-and-y₀n).
 
-Earlier constructions used here are 0.5 Finite analytic component decomposition; 0.6 Abelianized component formula; 1.3 Holomorphic finite level maps; 1.4 Holomorphic right translations; 1.5 Holomorphic Hecke correspondences; 1.7 Compact-open level category; 2.1 Rational boundary components and incidence; 2.7 Baily–Borel algebraization; 2.8 Koecher principle and boundary codimension; 2.9 Level maps on minimal compactifications; 3.10 Logarithmic canonical section embedding; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 3.8 Complex minimal compactification functoriality; 3.9 Codimension-one boundary and auxiliary data; 4.1 Milne geometric Artin conversion; 4.10 Disjoint special reflex fields; 4.11 Hecke translation over the reflex field; 4.12 Uniqueness of canonical models; 4.2 Reflex norm of a special torus; 4.3 Finite-level reciprocity and idele independence; 4.4 Canonical-model condition; 4.5 Finite étale torus canonical models; 4.8 Density of Hecke translates; 4.9 Reflex norm under a torus morphism; 5.10 Polarization and level in CM reciprocity; 5.11 Siegel special points are full CM; 5.12 The Siegel canonical model; 5.9 Main theorem of complex multiplication; 6.7 Canonical models of abelian type; 7.14 Canonical models for every pure datum.
+Earlier constructions used here are 0.5 Finite analytic component decomposition; 0.6 Abelianized component formula; 1.3 Holomorphic finite level maps; 1.4 Holomorphic right translations; 1.5 Holomorphic Hecke correspondences; 1.7 Compact-open level category; 2.1 Rational boundary components and incidence; 2.7 Baily–Borel algebraization; 2.8 Koecher principle and boundary codimension; 2.9 Level maps on minimal compactifications; 3.10 Logarithmic canonical section embedding; 3.4 Algebraic maps of Shimura data; 3.5 Algebraic finite quotients and normalization; 3.8 Complex minimal compactification functoriality; 3.9 Codimension-one boundary and auxiliary data; 4.1 Milne geometric Artin conversion; 4.10 Disjoint special reflex fields; 4.11 Hecke translation over the reflex field; 4.12 Uniqueness of canonical models; 4.2 Reflex norm of a special torus; 4.3 Finite-level reciprocity and idele independence; 4.4 Canonical-model condition; 4.5 Finite étale torus canonical models; 4.8 Density of Hecke translates; 4.9 Reflex norm under a torus morphism; 5.11 Polarization and level in CM reciprocity; 5.12 Siegel special points are full CM; 5.13 The Siegel canonical model; 5.10 Main theorem of complex multiplication; 6.7 Canonical models of abelian type; 7.14 Canonical models for every pure datum.
 
 ## Downstream consumers
 
-PELModuli M4 consumes the Siegel canonical condition and normalized CM reciprocity; M5 compares genus one. AutomorphicForms consumes the algebraic level tower and Hecke spans. ShimuraCompactifications consumes the canonical open, complex minimal boundary, arithmetic minimal model and extended finite legs to build toroidal models; it supplies no prerequisite to this construction. AutomorphicBundles uses the actual canonical tower for its descent. Arithmetic intersection and cohomology developments use normal projective minimal models, component fields and cusp comparisons. CM applications use the main theorem and polarization formula, and do not feed their later reciprocity applications back into Layer 5.
+PELModuli M4 consumes the Siegel canonical condition and normalized CM reciprocity; M5 compares genus one. HilbertModularVarietiesAndShimuraCurves specializes the canonical towers, datum functoriality, finite level maps and modular-curve comparisons of Layer 8. PerfectoidShimuraVarieties uses the component and stabilizer results of Layer 0, the analytic points and translations of Layer 1, the Baily–Borel compactification and the towers of Layer 8; HodgeTateAndCanonicalSubgroups uses the general-data minimal compactification. CompletedCohomologyPartII uses the canonical towers and Hecke correspondences of Layer 8, and HeegnerPointEulerSystems the CM theory of Layer 5. ShimuraCompactifications consumes the canonical open, complex minimal boundary, arithmetic minimal model and extended finite legs to build toroidal models; it supplies no prerequisite to this construction. AutomorphicBundles uses the actual canonical tower for its descent. Arithmetic intersection and cohomology developments use normal projective minimal models, component fields and cusp comparisons. ComplexMultiplicationAndExplicitReciprocity uses the CM types, reflex fields and reflex norms of Section 5.1, the main theorem and the polarization formula; its explicit reciprocity applications do not feed back into Layer 5.
 
 ## References
 
@@ -2371,6 +2422,7 @@ Page numbers below are those of the specified editions. The numbered claims abov
 
 - J. S. Milne, [Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Revised 16 September 2017.
 - J. S. Milne, [The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Author article 2007c.
+- J. S. Milne, [Complex Multiplication](https://www.jmilne.org/math/CourseNotes/CM.pdf), course notes, version of 14 July 2020; §1, pp.11–18.
 - J. S. Milne, [The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf), Progress in Mathematics 35 (1983), pp.239–265; annotated author scan.
 - J. S. Milne, [Descent for Shimura varieties](https://jmilne.org/math/articles/1999cP.pdf), Michigan Mathematical Journal 46 (1999); author version dated 22 September 1998.
 - B. Bakker, B. Klingler, J. Tsimerman, [Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArith.pdf), Author manuscript of JAMS (2020).
@@ -2381,11 +2433,11 @@ Page numbers below are those of the specified editions. The numbered claims abov
 - B. Conrad, [Semistable reduction for abelian varieties](https://math.stanford.edu/~conrad/DarmonCM/2011Notes/SemistableReduction.pdf), Public Darmon CM notes (2011 directory).
 - V. P. Platonov and A. S. Rapinchuk, [On the group of rational points of three-dimensional groups](https://uva.theopenscholar.com/files/ixqrlw/files/doklady_r_247_8.pdf), Dokl. Akad. Nauk SSSR 247:2 (1979), pp.279–282; Russian published original hosted by the coauthor.
 - W. L. Baily, Jr. and A. Borel, [Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11), Annals of Mathematics 84:3 (1966), pp.442–528; published article, OCR reproduction.
-- Tau Ceti Project, [Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), TauCetiRoadmap current main at 0d144d044dacebca17b654695b6f1ad58f159b27.
+- Tau Ceti Project, [Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AdelicAlgebraicGroups/README.md), TauCetiRoadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27.
 - J. S. Milne, [Modular Functions and Modular Forms](https://www.jmilne.org/math/CourseNotes/MF.pdf), Version 1.31, 22 March 2017.
 - Richard Pink, [Arithmetical Compactification of Mixed Shimura Varieties](https://people.math.ethz.ch/~pink/ftp/phd/PinkDissertation.pdf), Author-typeset dissertation; numbering/pages of this copy.
 - Pierre Deligne, [Travaux de Shimura, Séminaire Bourbaki, exposé 389](https://www.numdam.org/item/SB_1970-1971__13__123_0.pdf), Version of record, 1970–1971, pp.123–165.
-- Tau Ceti contributors, [Tau Ceti roadmap: Modular curves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ModularCurves/README.md), ModularCurves in current TauCetiRoadmap main at 0d144d044dacebca17b654695b6f1ad58f159b27.
+- Tau Ceti contributors, [Tau Ceti roadmap: Modular curves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ModularCurves/README.md), TauCetiRoadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27.
 - B. Klingler, E. Ullmo, A. Yafaev, [The hyperbolic Ax-Lindemann-Weierstrass conjecture](https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf), Publications mathematiques de l’IHES 123 (2016), pp.333–360.
-- Tau Ceti Project, [Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), TauCetiRoadmap current main at 0d144d044dacebca17b654695b6f1ad58f159b27.
+- Tau Ceti Project, [Reductive groups, Part II: local structure and integral Satake theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ReductiveGroupsPartII/README.md), TauCetiRoadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27.
 - Pierre Deligne, [Variétés de Shimura: interprétation modulaire, et techniques de construction de modèles canoniques](https://www.math.ias.edu/sites/default/files/34_VarietesdeShimura.pdf), Proceedings of Symposia in Pure Mathematics 33, part 2 (1979), pp.247–289; primary IAS scan.
