@@ -25908,8 +25908,9 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9393",
+   "finishedAt": "2026-10-13T20:21:21Z"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups",
@@ -35664,8 +35665,9 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9392"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9392",
+   "finishedAt": "2026-10-13T20:21:26Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-2",
@@ -38239,8 +38241,9 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.4",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9280"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9280",
+   "finishedAt": "2026-10-13T20:21:31Z"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.5",
@@ -50074,7 +50077,8 @@
    ],
    "revisionOf": "PKG-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9176"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII~2",
@@ -51134,7 +51138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PELModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9185"
   },
   {
    "id": "REV-PKG-PELModuli",
@@ -51636,7 +51641,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-RelativeFarguesFontaine.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9192"
   },
   {
    "id": "REV-PKG-RelativeFarguesFontaine",
