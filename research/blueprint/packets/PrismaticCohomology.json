@@ -1,0 +1,1706 @@
+{
+ "roadmapId": "PrismaticCohomology",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "PrismaticCohomology:PR.0",
+  "PrismaticCohomology:PR.1",
+  "PrismaticCohomology:PR.2",
+  "PrismaticCohomology:PR.3",
+  "PrismaticCohomology:PR.4",
+  "PrismaticCohomology:PR.5",
+  "PrismaticCohomology:PR.6",
+  "PrismaticCohomology:PR.7",
+  "PrismaticCohomology:PR.8"
+ ],
+ "status": "complete",
+ "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants",
+ "summary": "Whole-roadmap plan of prismatic cohomology: δ-rings and prisms (PR.0), the relative site and its comparisons (PR.1), derived prismatic cohomology and perfectoidization (PR.2), the Nygaard filtration and Breuil–Kisin twists (PR.3), syntomic complexes and the étale comparison (PR.4), absolute prismatic cohomology and the Cartier–Witt stack (PR.5), q-crystalline cohomology and the AΩ comparison (PR.6), prismatic F-crystals and crystalline lattices (PR.7) and logarithmic prismatic cohomology (PR.8). The two accepted parts (369 nodes) are imported unchanged. This packet adds the seven nodes the upstream order requires: the quasi-coherent complexes on prestacks with flat descent and affine direct image that PR.5 took from LanglandsParameterStacks, the framed q-automorphisms and q-de Rham Koszul complex that PR.6 took from QWittVectors, and two named inputs of PR.7 replacing citations of RefinedTraceMethods and VectorBundlesAndIsocrystals, with the re-pointings, dropped stage edges and the PR.8 stage-citation map recorded as restructuring.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:DerivedCategory",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+    "provides": "The derived category of an abelian category with its triangulated structure; for ModuleCat R it is the homotopy category against which D(Spec R) is tested.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:ModuleCat",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+    "provides": "The category of modules over a ring.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:Module.FaithfullyFlat",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+    "provides": "Faithfully flat modules and algebras, the hypothesis of flat descent.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:AlgEquiv",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Algebra/Equiv.lean",
+    "provides": "Algebra isomorphisms; the q-automorphisms γ_s are D-algebra automorphisms.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:Algebra.FormallyEtale",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Etale/Basic.lean",
+    "provides": "Formally étale algebras (unique infinitesimal lifting), the property along which γ_s extends.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:KaehlerDifferential",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+    "provides": "Kähler differentials Ω_{S/R}; the reduction of the q-de Rham complex modulo q − 1 is the de Rham complex built on them.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   },
+   {
+    "ref": "mathlib:ExteriorAlgebra",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
+    "provides": "The exterior algebra, giving the terms E ⊗ Λ^i of the Koszul complex.",
+    "checked": "declaration and statement read at the pinned commit in the lean-check tree (Mathlib 082e2d3)"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "SAG",
+   "title": "Spectral Algebraic Geometry",
+   "authors": "Jacob Lurie",
+   "edition": "Book manuscript, version of February 2018 (SAG-rootfile.pdf)",
+   "url": "https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf",
+   "accessDate": "2026-10-13",
+   "sha256": "515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d",
+   "readSections": [
+    "§6.2.2 (Definition 6.2.2.1 – Remark 6.2.2.7) and §6.2.3 (Proposition 6.2.3.1 – Proposition 6.2.3.4), statements and proofs",
+    "§6.3.4 opening, Proposition 6.3.4.1 (statement), Corollary 6.3.4.3 with proof",
+    "Appendix D.6.3: statements of Theorem D.6.3.1 – Theorem D.6.3.5"
+   ]
+  },
+  {
+   "id": "BL22",
+   "title": "Absolute prismatic cohomology",
+   "authors": "Bhargav Bhatt and Jacob Lurie",
+   "edition": "arXiv:2201.06120v1, 16 January 2022 (TeX source read)",
+   "url": "https://arxiv.org/abs/2201.06120v1",
+   "accessDate": "2026-10-06",
+   "readSections": [
+    "§3.3 complete (Definition 3.3.1 – Corollary 3.3.11), read in the arXiv v1 PDF on 2026-10-13 for the quasi-coherent complexes nodes; the other sections as recorded in the accepted part packet"
+   ],
+   "revisionReading": {
+    "date": "2026-10-09",
+    "version": "https://arxiv.org/pdf/2201.06120v1",
+    "format": "PDF",
+    "sha256": "0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269",
+    "scope": "Cited relative twists, Cartier–Witt constructions, absolute comparisons, Nygaard and syntomic arguments; new detailed reads of §§3.8, 4.2, Lemma 5.6.14 and the related perfect-prism proof, and Theorems 7.1.1 and 7.3.5, pp.167–170 and 176–177."
+   },
+   "historicalTeXSha256": "a268ac5312eade66c8975db1b04eaa79b59aba815db19971b7865831069527f0",
+   "sha256": "0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269"
+  },
+  {
+   "id": "BS22-v4",
+   "title": "Prisms and prismatic cohomology",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "arXiv:1905.08229v4, 12 January 2022, 125 pages; not a freshly acquired publisher PDF",
+   "url": "https://arxiv.org/pdf/1905.08229v4",
+   "readSections": [
+    "§16.3: Constructions 16.19 and 16.20 (framed algebras, the automorphisms γ_s and the q-de Rham complex), as recorded by the accepted part packet and rechecked for the two PR.6 nodes"
+   ],
+   "accessDate": "2026-09-26",
+   "accessNote": "Parsed passages read; printed p.14 (PDF index 13) visually inspected. Images for pp.13 and 15 failed. No local bytes, fresh SHA-256 or whole-paper certification. The source uses Z_(p)-algebras; this packet explicitly proves a broader polynomial prefix, not broader prismatic theorems.",
+   "revisionReading": {
+    "date": "2026-10-09",
+    "version": "https://arxiv.org/pdf/1905.08229v4",
+    "format": "PDF",
+    "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+    "scope": "Numbered statements and proof portions used by the corrections across §§2–18 and Appendix A; in particular §§2–3, 5–8, 12–15, Theorem 16.22 and §§17–18. Scoped reading of cited arguments, not a certification of every passage or the publisher version."
+   },
+   "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a"
+  },
+  {
+   "id": "SQDEF",
+   "title": "Canonical q-deformations in arithmetic geometry",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:1606.01796 (PDF of the current version); published in Ann. Fac. Sci. Toulouse Math. (6) 26 (2017), no. 5",
+   "url": "https://arxiv.org/abs/1606.01796",
+   "accessDate": "2026-10-13",
+   "sha256": "ce060b41e28fef16c011d3d3455c53a8bdc11cd8c98dc4dc6c2be178e1567273",
+   "readSections": [
+    "§3 q–de Rham cohomology, pp. 6–8, complete",
+    "§4 Known results, pp. 8–9 (the A_inf framing and Theorem 4.2)"
+   ]
+  },
+  {
+   "id": "AMMN22",
+   "title": "On the Beilinson fiber square",
+   "authors": "Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus",
+   "edition": "arXiv:2003.12541 (TeX source of the current arXiv version, file dated 29 September 2021, read); published in Duke Math. J. 171 (2022)",
+   "url": "https://arxiv.org/abs/2003.12541",
+   "accessDate": "2026-10-13",
+   "readSections": [
+    "§6.4: the paragraph before Theorem 6.17, Theorem 6.17 with proof, Proposition 6.18 (statement), Lemma 6.19 and Corollary 6.20 (statements), read in the arXiv PDF on 2026-10-13"
+   ],
+   "revisionReading": {
+    "date": "2026-10-09",
+    "version": "https://arxiv.org/pdf/2003.12541v2",
+    "format": "PDF",
+    "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd",
+    "scope": "Theorems 5.1–5.2, pp.25–26; the Nygaard, continuity and connectivity arguments of pp.33–39; Theorem 6.17 and the first part of its proof on p.44 as the exact RT.3b supplier contract. No claim of a trace-free proof follows from this reading."
+   },
+   "historicalTeXSha256": "289e0749087870768d471ca7dda1146dd896cdb0f88cef1e07215c08789462c0",
+   "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd"
+  },
+  {
+   "id": "BS23-FCRYS",
+   "title": "Prismatic F-crystals and crystalline Galois representations",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "arXiv:2106.14735v2 (TeX source read)",
+   "url": "https://arxiv.org/abs/2106.14735v2",
+   "accessDate": "2026-10-06",
+   "readSections": [
+    "Proposition 6.8 with proof and §6.4 (proof of essential surjectivity), as recorded by the accepted part packet; the two PR.7 named inputs restate the inputs those proofs cite"
+   ],
+   "revisionReading": {
+    "date": "2026-10-09",
+    "version": "https://arxiv.org/pdf/2106.14735v2",
+    "format": "PDF",
+    "sha256": "4cbfb297a15347c978f590cfc7b7dab3ab771509c588dc8fd928cff8b067ff59",
+    "scope": "The crystal/site definitions and cited proof steps in §§2–7, including Construction 6.5, Remark 6.6 and the Breuil–Kisin realization argument. Period and Fargues–Fontaine inputs are recorded through their owners."
+   },
+   "historicalTeXSha256": "3fc60f74e036f82e81d4ad8b03195a5431f248b26ddf34f7bf2a814e4a041fb7",
+   "sha256": "4cbfb297a15347c978f590cfc7b7dab3ab771509c588dc8fd928cff8b067ff59"
+  },
+  {
+   "id": "FF18",
+   "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+   "authors": "Laurent Fargues and Jean-Marc Fontaine",
+   "edition": "Astérisque 406 (2018); cited through the locators printed in Bhatt–Scholze, Prismatic F-crystals, §6.4 (the book itself was not reopened for this packet)",
+   "url": "https://webusers.imj-prg.fr/~laurent.fargues/Prepublications.html",
+   "accessDate": "2026-10-13",
+   "readSections": [
+    "Not reread: Corollary 11.2.22, Proposition 10.5.6 and Theorem 8.2.10 (1) are cited as Bhatt–Scholze, Prismatic F-crystals, §6.4 prints them, for a named input that this roadmap does not prove"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+   "parentStageId": "PrismaticCohomology:PR.5",
+   "realises": [
+    "PrismaticCohomology:PR.5"
+   ],
+   "title": "Quasi-coherent complexes on a prestack",
+   "kind": "construction",
+   "statement": "Let CRing be the category of commutative rings, and let X be a prestack: a functor from CRing to ∞-groupoids (for the uses here, to groupoids, such as Cart, WCart, WCart^HT, Spf A, BG for an affine group scheme G). Its category of points Pt(X) has objects the pairs (R, η) with η ∈ X(R), equivalently morphisms η : Spec R → X, and morphisms (R, η) → (R′, η′) the ring maps f : R → R′ with an identification X(f)(η) ≃ η′. Let D(R) be the derived ∞-category of R-modules with derived tensor product, and f^* = R′ ⊗^L_R (−) : D(R) → D(R′). The ∞-category of quasi-coherent complexes on X is the limit D(X) := lim_{(R, η) ∈ Pt(X)} D(R), formed in symmetric monoidal ∞-categories. An object F assigns to each point η a complex F_η ∈ D(R) and to each morphism an equivalence R′ ⊗^L_R F_η ≃ F_{η′}, with all higher coherences. Properties: (1) D(Spec R) ≃ D(R), F ↦ F_{id}; for the terminal prestack Spec Z, D(Spec Z) ≃ D(Z). (2) A morphism g : X → Y of prestacks induces a symmetric monoidal, exact, colimit-preserving pullback g^* : D(Y) → D(X), (g^*F)_η = F_{g∘η}, with id^* = id and (h∘g)^* ≃ g^* ∘ h^*. (3) D(X) is stable and admits small colimits, computed pointwise; it is presentable when X is a small colimit of corepresentable prestacks. (4) D sends small colimits of prestacks to limits: D(colim_i X_i) ≃ lim_i D(X_i). (5) A morphism of D(X) is an equivalence if and only if it is one at every point. (6) The unit O_X is (R, η) ↦ R; Perf(X) ⊂ D(X), the full subcategory of F with every F_η perfect, is exactly the subcategory of dualizable objects, and the invertible objects are those with every F_η invertible in D(R).",
+   "hypotheses": [
+    "Rings are ordinary commutative rings; X may take values in large groupoids, so D(X) is a large ∞-category in general (Lurie's convention of not necessarily small spaces).",
+    "The limit is a limit of ∞-categories, not of the triangulated homotopy categories: gluing data must include all higher coherences, and the homotopy category of D(X) is not the limit of the homotopy categories of the D(R).",
+    "For a functor X defined only on rings in which p is nilpotent (a formal prestack over Spf Z_p, such as WCart), Pt(X) is formed over those rings; this is the same as D of the extension of X by the empty groupoid on the other rings, since the empty prestack has D = 0 (test below)."
+   ],
+   "proofSteps": [
+    "Construction: apply the straightening of the coCartesian fibration of pairs (R, M ∈ D(R)) over CRing to Pt(X), and take the ∞-category of coCartesian sections; equivalently the right Kan extension of R ↦ D(R) along the Yoneda embedding (Lurie, SAG Definition 6.2.2.1 and Remark 6.2.2.2, with Remark 6.2.2.7 for the pointwise description). The limits of presentable symmetric monoidal ∞-categories used are those of EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories.",
+    "(1): Pt(Spec R) has the initial object (R, id), so the limit is evaluation there (SAG Remark 6.2.2.5); Spec Z is the terminal prestack because every ring receives a unique map from Z.",
+    "(2): precomposition of the limit diagram along Pt(X) → Pt(Y) (SAG Notation 6.2.2.6); (3): every D(R) is stable with colimits and every base change preserves them, so the limit is computed in the subcategory of stable ∞-categories with colimits and colimit-preserving functors (SAG Proposition 6.2.3.4 (1)–(3)).",
+    "(4): the right Kan extension of a functor turns colimits of presheaves into limits (SAG Lemma 6.2.1.12 as used in Proposition 6.2.3.1). (5): equivalences in a limit of ∞-categories are detected on the components.",
+    "(6): dualizability in a limit of symmetric monoidal ∞-categories along symmetric monoidal functors is detected on the components, and the dualizable objects of D(R) are the perfect complexes (Lurie, HA Proposition 7.2.4.4); invertibility likewise."
+   ],
+   "acceptance": [
+    "For X = Spec R the construction returns D(R), and pullback along Spec R′ → Spec R is derived base change.",
+    "For X = WCart it returns Bhatt–Lurie's D(WCart) of Definition 3.3.1 verbatim, with O_WCart the unit of Example 3.3.3.",
+    "For the classifying stack B(Z/2) over F_2 (the quotient of Spec F_2 by the trivial action of the constant group Z/2), Hom_{D(B(Z/2))}(O, O[1]) ≅ H^1(Z/2, F_2) = F_2, while the pullback to the atlas Spec F_2 kills it."
+   ],
+   "prerequisites": [
+    "EnhancedDerivedSheaves:E1/enhanced-derived-category",
+    "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
+    "EnhancedDerivedSheaves:E5:abstract/stable-infinity-category",
+    "EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories",
+    "EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change",
+    "EnhancedDerivedSheaves:E0/limits-colimits-and-slices",
+    "DiamondsAndVStacks:D0/stackification",
+    "mathlib:DerivedCategory",
+    "mathlib:ModuleCat"
+   ],
+   "sources": [
+    {
+     "sourceId": "SAG",
+     "locator": "Definition 6.2.2.1, Remarks 6.2.2.2, 6.2.2.5, 6.2.2.7, Notation 6.2.2.6 (§6.2.2, pp. 490–492 of the February 2018 version)",
+     "match": "Defines the ∞-category of quasi-coherent sheaves on an arbitrary functor from (connective E∞-)rings to spaces as a limit over its points, identifies it with module ∞-categories on corepresentable functors, describes its objects pointwise with base-change equivalences, and introduces pullback along a natural transformation."
+    },
+    {
+     "sourceId": "SAG",
+     "locator": "Proposition 6.2.3.4 (§6.2.3, pp. 492–493)",
+     "match": "Stability, colimits and presentability of the quasi-coherent ∞-category of a functor; pullback preserves colimits."
+    },
+    {
+     "sourceId": "BL22",
+     "locator": "Definition 3.3.1, Remark 3.3.2, Example 3.3.3 (§3.3, p. 43 of arXiv v1)",
+     "match": "The instance used in this roadmap: quasi-coherent complexes on the Cartier–Witt stack as the limit of D(R) over its points, with the structure sheaf as unit."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Bhatt–Lurie, Absolute prismatic cohomology, Definition 3.3.1 and Proposition 3.3.5",
+     "how": "D(WCart) is this construction for X = WCart, and Proposition 3.3.5 compares it with crystals on prisms (node PR.5/quasi-coherent-complexes-on-wcart)"
+    },
+    {
+     "where": "PR.5/hodge-tate-divisor and PR.5/sen-operator-classification",
+     "how": "complexes on WCart^HT ≅ BG_m^♯ are D of a classifying stack, computed on its atlas"
+    },
+    {
+     "where": "PR.5/generalized-cartier-divisor and PR.5/cartier-witt-stack",
+     "how": "the Hodge–Tate ideal sheaf and line bundles on Cart and WCart are invertible objects of D(X)"
+    },
+    {
+     "where": "PR.5/prismatic-crystals-on-wcart",
+     "how": "pullback along ρ_A and the limit property (4) over the Čech nerve"
+    }
+   ],
+   "api": [
+    {
+     "name": "QCohPrestack",
+     "role": "data",
+     "statement": "The ∞-category D(X) for a prestack X, with its symmetric monoidal structure."
+    },
+    {
+     "name": "QCohPrestack.eval",
+     "role": "projection",
+     "statement": "For a point η : Spec R → X, the evaluation functor F ↦ F_η = η^*F, D(X) → D(R), symmetric monoidal and exact."
+    },
+    {
+     "name": "QCohPrestack.ofPoints",
+     "role": "constructor",
+     "statement": "A family F_η ∈ D(R) with coherent base-change equivalences determines an object of D(X), and every object arises so (the defining limit)."
+    },
+    {
+     "name": "QCohPrestack.pullback",
+     "role": "functoriality",
+     "statement": "g^* : D(Y) → D(X) for g : X → Y, with pullback_id and pullback_comp : (h ∘ g)^* ≃ g^* ∘ h^*; eval_pullback : (g^*F)_η ≃ F_{g∘η}."
+    },
+    {
+     "name": "QCohPrestack.specEquiv",
+     "role": "equivalence",
+     "statement": "D(Spec R) ≃ D(R), natural in R, carrying pullback along Spec R′ → Spec R to derived base change."
+    },
+    {
+     "name": "QCohPrestack.limitOfColimit",
+     "role": "universal-property",
+     "statement": "For a small diagram X_i of prestacks, the pullbacks induce D(colim X_i) ≃ lim D(X_i)."
+    },
+    {
+     "name": "QCohPrestack.isEquiv_iff_eval",
+     "role": "extensionality",
+     "statement": "A morphism u in D(X) is an equivalence iff eval_η(u) is an equivalence for every point η."
+    },
+    {
+     "name": "QCohPrestack.unit_eval",
+     "role": "simp",
+     "statement": "(O_X)_η = R for every point η : Spec R → X."
+    },
+    {
+     "name": "QCohPrestack.isDualizable_iff_perfect",
+     "role": "characterisation",
+     "statement": "F is dualizable in D(X) iff F_η is perfect for every point; Perf(X) denotes this full subcategory, closed under tensor products and duals."
+    },
+    {
+     "name": "QCohPrestack.isInvertible_iff",
+     "role": "characterisation",
+     "statement": "F is invertible in D(X) iff each F_η is invertible in D(R)."
+    },
+    {
+     "name": "QCohPrestack.homotopyCategory_spec",
+     "role": "compatibility",
+     "statement": "For X = Spec R the homotopy category of D(X) is equivalent, as a triangulated category, to Mathlib's derived category of R-modules DerivedCategory (ModuleCat R)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "QCohPrestack.empty",
+     "kind": "degenerate",
+     "statement": "For the empty prestack (every X(R) empty) Pt(X) is empty and D(X) is the terminal ∞-category 0; consequently D(WCart) sees no ring in which p is not nilpotent."
+    },
+    {
+     "name": "QCohPrestack.terminal",
+     "kind": "computation",
+     "statement": "For the terminal prestack Spec Z, D(Spec Z) ≃ D(Z) and the unit is Z."
+    },
+    {
+     "name": "QCohPrestack.spec_homotopy",
+     "kind": "compatibility",
+     "statement": "For X = Spec R, the homotopy category of D(X) is equivalent to DerivedCategory (ModuleCat R), and Hom(O, O[i]) is R for i = 0 and 0 for i ≠ 0."
+    },
+    {
+     "name": "QCohPrestack.classifying_Z2",
+     "kind": "non-example",
+     "statement": "For X = B(Z/2) over F_2, Hom_{D(X)}(O, O[1]) = H^1(Z/2, F_2) = F_2 ≠ 0; so D(X) is not D(F_2) of the atlas Spec F_2 → X, and pullback to the atlas is not fully faithful."
+    },
+    {
+     "name": "QCohPrestack.dualizable_spec",
+     "kind": "characterisation",
+     "statement": "In D(Spec Z) the object Z ⊕ Z[3] is dualizable and Q is not (it is not perfect)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Stacks/QuasiCoherentComplexes",
+    "namespace": "TauCeti.QCohPrestack"
+   }
+  },
+  {
+   "id": "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
+   "parentStageId": "PrismaticCohomology:PR.5",
+   "realises": [
+    "PrismaticCohomology:PR.5"
+   ],
+   "title": "Faithfully flat descent for quasi-coherent complexes",
+   "kind": "theorem",
+   "statement": "(1) Let R → S be a faithfully flat map of commutative rings, with Čech nerve S^• (S^n = S ⊗_R ⋯ ⊗_R S, n + 1 factors). Base change gives an equivalence of symmetric monoidal ∞-categories D(R) ≃ Tot(D(S^•)) = lim_{[n] ∈ Δ} D(S^n). (2) Consequently, for a morphism of prestacks u : X′ → X that becomes an equivalence after fpqc sheafification (for example X′ → X its fpqc stackification), u^* : D(X) → D(X′) is an equivalence. (3) If X is an fpqc stack and U → X is a morphism of prestacks that is an effective epimorphism of fpqc sheaves (surjective fpqc-locally), with Čech nerve U_• (U_n the (n + 1)-fold fibre power over X), then D(X) ≃ Tot(D(U_•)); the same holds with the Zariski topology in place of the fpqc topology when U → X is a Zariski-local surjection. (4) On the hearts, (1) restricts to faithfully flat descent of modules.",
+   "hypotheses": [
+    "(1): R → S faithfully flat, so every S^n is a discrete ring and every coface map is flat; for non-flat R → S the statement is false (test: Z → F_p).",
+    "(3): X is an fpqc (respectively Zariski) stack of ∞-groupoids on commutative rings; the fibre powers U_n need not be affine.",
+    "Large prestacks are allowed, as in the construction node."
+   ],
+   "proofSteps": [
+    "(1) is the case of discrete rings and flat maps of Lurie's fpqc descent for module ∞-categories (SAG Corollary D.6.3.3); flatness keeps the Čech nerve discrete, so the relative tensor products agree with the ordinary ones.",
+    "(2): D sends colimits of prestacks to limits (PR.5/quasi-coherent-complexes-on-prestacks (4)); by (1) the functor Spec R ↦ D(R) is an fpqc sheaf of ∞-categories, so D factors through fpqc sheafification (the argument of SAG Proposition 6.2.3.1 and Remark 6.2.3.2).",
+    "(3): an effective epimorphism of sheaves is the geometric realization of its Čech nerve, so X ≃ |U_•| after sheafification; apply (2) and the limit property (4) of the construction node. This is the descent step of Bhatt–Lurie Lemma 3.3.10 (Zariski) and of the proof of Proposition 3.3.5 (flat).",
+    "(4): truncate to discrete objects and compare with SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent."
+   ],
+   "acceptance": [
+    "For X = WCart and the Zariski surjection Spf(A^0) → WCart with fibre powers Spf(A^n), (3) gives Bhatt–Lurie's equivalence D(WCart) ≃ Tot(D̂(A^•)) (Lemma 3.3.10).",
+    "For a finite Galois extension of fields K → L with group G, (1) and (3) give D(K) ≃ D(L)^{hG}, the ∞-categorical form of Galois descent.",
+    "Non-example: for Z → F_p (not flat), Tot(D(F_p^{⊗•})) is not D(Z); for instance Q is killed by base change."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+    "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+    "SchemeAndStackFoundations:SF.1/stackification",
+    "DiamondsAndVStacks:D0/stackification",
+    "EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories",
+    "mathlib:Module.FaithfullyFlat"
+   ],
+   "sources": [
+    {
+     "sourceId": "SAG",
+     "locator": "Corollary D.6.3.3 (Appendix D.6.3, p. 1943 of the February 2018 version)",
+     "match": "Module ∞-categories satisfy descent for the fpqc topology on E∞-rings; the discrete flat case is statement (1)."
+    },
+    {
+     "sourceId": "SAG",
+     "locator": "Proposition 6.2.3.1 and Remark 6.2.3.2 (§6.2.3, p. 492)",
+     "match": "The quasi-coherent ∞-category of a functor is unchanged by fpqc sheafification and turns limits of fpqc sheaves into limits."
+    },
+    {
+     "sourceId": "BL22",
+     "locator": "Lemma 3.3.10 with its proof, and the proof of Proposition 3.3.5 (§3.3, p. 44)",
+     "match": "Zariski and flat cohomological descent compute D(WCart) on the Čech nerve of the universal oriented prism."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PrismaticCohomology:PR.5/affine-direct-image-and-base-change",
+   "parentStageId": "PrismaticCohomology:PR.5",
+   "realises": [
+    "PrismaticCohomology:PR.5"
+   ],
+   "title": "Direct image along affine morphisms of prestacks, base change and projection formula",
+   "kind": "theorem",
+   "statement": "Let f : Y → X be an affine morphism of prestacks: for every point η : Spec R → X the fibre product Y ×_X Spec R is equivalent to Spec B_η for an R-algebra B_η, compatibly with base change. Then: (a) f^* : D(X) → D(Y) has a right adjoint f_* : D(Y) → D(X), computed pointwise, (f_*G)_η = G restricted to Spec B_η and regarded as an R-complex by restriction of scalars along R → B_η; (b) base change: for every g : X′ → X with pullback f′ : Y′ → X′ and g′ : Y′ → Y, the canonical map g^* f_* → f′_* g′^* is an equivalence; (c) f_* preserves small colimits and satisfies the projection formula F ⊗ f_*G ≃ f_*(f^*F ⊗ G) for F ∈ D(X), G ∈ D(Y); (d) for any prestack X the functor D(Z) → D(X), M ↦ M ⊗ O_X, has a right adjoint RΓ(X, −), and when X ≃ |U_•| with U_n = Spf or Spec of rings as in the descent node, RΓ(X, F) ≃ Tot(RΓ(U_•, F|U_•)).",
+   "hypotheses": [
+    "Affineness is the hypothesis of (a)–(c): for non-affine f the pointwise formula fails and f_* is in general not compatible with base change.",
+    "In (d) RΓ exists for every prestack because M ↦ M ⊗ O_X preserves colimits between presentable ∞-categories; presentability of D(X) uses that X is a small colimit of corepresentables, which holds for the stacks used here (they have Čech atlases by affine formal schemes)."
+   ],
+   "proofSteps": [
+    "(a), (b): for X = Spec R this is restriction of scalars along R → B, right adjoint to base change, and the base change map is the associativity equivalence R′ ⊗^L_R M ≃ (R′ ⊗^L_R B) ⊗^L_B M; in general define f_* pointwise and check, using base change for affine schemes, that the pointwise objects form a compatible family (Lurie, SAG Proposition 6.3.4.1, which treats the more general quasi-compact quasi-separated relative algebraic spaces).",
+    "(c): reduce by (b) to X = Spec R, where f_* is restriction of scalars and both claims are elementary (SAG Corollary 6.3.4.3).",
+    "(d): adjoint functor theorem for presentable ∞-categories; on a Čech atlas combine the descent node (3) with (a) for the affine maps U_n → X. This is Bhatt–Lurie Corollary 3.3.11 for WCart."
+   ],
+   "acceptance": [
+    "For ρ_A : Spf(A) → WCart of a bounded prism (affine by PR.5/wcart-fibre-products-of-prisms (2)), ρ_{A*} exists and commutes with base change along any point of WCart.",
+    "For X = WCart, RΓ(WCart, F) = Tot(F(A^•)) on the Čech nerve of the universal oriented prism, with values in derived p-complete complexes (Bhatt–Lurie Corollary 3.3.11).",
+    "Non-example: for the non-affine projection P^1_Z → Spec Z, the pointwise formula is wrong: H^1 contributions of O(−2) are invisible to restriction of scalars of global sections."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+    "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
+    "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+    "EnhancedDerivedSheaves:E5:presentability/presentable-categories"
+   ],
+   "sources": [
+    {
+     "sourceId": "SAG",
+     "locator": "Proposition 6.3.4.1 and Corollary 6.3.4.3 (§6.3.4, pp. 505–507)",
+     "match": "Existence of the direct image right adjoint, base change for quasi-compact quasi-separated relative algebraic spaces, colimit preservation and the projection formula."
+    },
+    {
+     "sourceId": "BL22",
+     "locator": "Corollary 3.3.11 (§3.3, p. 44)",
+     "match": "Global sections on the Cartier–Witt stack as right adjoint, computed as a totalization on the Čech nerve."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PrismaticCohomology:PR.6/framed-q-automorphisms",
+   "parentStageId": "PrismaticCohomology:PR.6",
+   "realises": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "title": "Framed algebras and their q-automorphisms",
+   "kind": "construction",
+   "statement": "Let D be a commutative ring with an element q, and let I = (q − 1) or I = (p, q − 1). Let P be a derived I-complete D-algebra and (X_s)_{s ∈ S} elements of P such that the framing □ : D[X_s : s ∈ S]^∧_I → P is I-completely ind-étale (an étale framing; a toric framing has the X_s units and D[X_s^{±1}]^∧_I as source). Assume P is (q − 1)-torsion-free and each X_s is a nonzerodivisor on P (as for the framed q-PD data of PR.6, where P is flat over Z_p[[q − 1]]). Then: (1) there are unique D-algebra automorphisms γ_s (s ∈ S) of P with γ_s(□(X_t)) = q^{δ_{st}} X_t and γ_s ≡ id modulo (q − 1); they commute pairwise, and γ_s(f) − f ∈ (q − 1)X_s P for every f ∈ P; (2) they are functorial for maps of framed algebras (P, S) → (P′, S′) given by a D-algebra map and an injective map S → S′ compatible with the coordinates; (3) if D is a δ-ring with δ(q) = 0, I = (p, q − 1), and D is p-torsion-free, there is a unique δ-D-algebra structure on P with δ(X_s) = 0 (Frobenius φ_□ with φ_□(X_s) = X_s^p), and φ_□ ∘ γ_s = γ_s ∘ φ_□.",
+   "hypotheses": [
+    "Completeness is for the I-adic topology with q − 1 ∈ I: the extension of γ_s uses that γ_s on D[X_s]^∧ is congruent to the identity modulo the topologically nilpotent q − 1; it fails for a framing that is only p-completely étale with I = (p) (source issue PrismaticCohomology/E65 of the accepted part records the same point for BS22 §16).",
+    "Nonzerodivisor hypotheses: (q − 1)X_s is a nonzerodivisor on P, so the quotients in the next node are unique.",
+    "(3) needs the Frobenius lift of D to fix q up to φ(q) = q^p, which δ(q) = 0 gives."
+   ],
+   "proofSteps": [
+    "Polynomial case: on D[X_s]^∧ define γ_s by X_s ↦ qX_s and X_t ↦ X_t; it is congruent to the identity modulo (q − 1) and γ_s(X^m) − X^m = (q^{m_s} − 1)X^m ∈ (q − 1)X_s D[X]^∧.",
+    "Extension: γ_s ∘ □ and □ agree modulo (q − 1); since □ is I-completely ind-étale and P is derived (q − 1)-complete (as q − 1 ∈ I), the map γ_s ∘ □ extends uniquely to an endomorphism of P lifting the identity modulo (q − 1) (Bhatt–Scholze Construction 16.19; Scholze, Canonical q-deformations §3, p. 6, for D = Z[[q − 1]] and §4, p. 8, for A_inf with q = [ε]); uniqueness gives γ_s γ_t = γ_t γ_s and invertibility (γ_s^{-1} is the extension of X_s ↦ q^{-1}X_s when q is a unit, which it is in the I-complete ring D).",
+    "Divisibility by (q − 1)X_s: the endomorphism f ↦ γ_s(f) − f is a γ_s-twisted derivation; it vanishes on the coordinates X_t (t ≠ s) and sends X_s to (q − 1)X_s, so on D[X]^∧ it takes values in (q − 1)X_s; on P use that γ_s and the identity induce two D[X]^∧-algebra maps P → P/(q − 1)X_sP that agree modulo q − 1, and uniqueness of lifts along the I-completely ind-étale framing (P being derived (q − 1)-complete) makes them equal (Bhatt–Scholze Construction 16.20 uses this divisibility to define the q-derivatives).",
+    "(3): extend δ(X_s) = 0 along the I-completely ind-étale framing (Bhatt–Scholze Lemma 2.18 through PR.0/delta-etale-extension); γ_s is a δ-map on D[X]^∧ since δ(qX_s) = 0, hence on P by uniqueness."
+   ],
+   "acceptance": [
+    "For P = D[X]^∧ with one coordinate, γ(X^m) = q^m X^m for m ≥ 0.",
+    "For the toric framing P = D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1} and γ(X^{-1}) − X^{-1} = −q^{-1}(q − 1)X^{-1}.",
+    "Modulo q − 1 every γ_s is the identity, so all structure collapses to the plain framed algebra P/(q − 1)."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.0/delta-etale-extension",
+    "PrismaticCohomology:PR.0/delta-ring-category",
+    "DerivedDeRhamCohomology:DD.1/derived-completeness",
+    "DerivedDeRhamCohomology:DD.1/complete-flatness",
+    "mathlib:AlgEquiv",
+    "mathlib:Algebra.FormallyEtale"
+   ],
+   "sources": [
+    {
+     "sourceId": "BS22-v4",
+     "locator": "Construction 16.19 (§16.3)",
+     "match": "For a framed algebra over a q-PD pair, the automorphisms scaling one coordinate by q extend uniquely along the completely étale framing and commute."
+    },
+    {
+     "sourceId": "SQDEF",
+     "locator": "§3, pp. 6–7, and §4, p. 8 (arXiv v2)",
+     "match": "Defines the automorphisms γ_i of the (q−1)-completed polynomial ring scaling T_i by q, lifts them along an étale framing using (q−1)-adic completeness, and does the same over A_inf with q = [ε]."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PR.6/framed-q-pd-datum",
+     "how": "the framed q-PD datum is a framed algebra with these γ_s and the δ-structure (3)"
+    },
+    {
+     "where": "PR.6/gamma-extension-to-q-pd-envelope",
+     "how": "extends these γ_s from P to the q-PD envelope"
+    },
+    {
+     "where": "PR.6/q-de-rham-prismatic-comparison-zp",
+     "how": "the comparison uses the framed Frobenius of (3)"
+    },
+    {
+     "where": "PR.8/log-q-de-rham-complex and HabiroCohomologyFoundations HQ.1, QWittVectors QW.6",
+     "how": "consumers that import the framed q-automorphisms from here"
+    }
+   ],
+   "api": [
+    {
+     "name": "FramedAlgebra",
+     "role": "structure",
+     "statement": "A derived I-complete D-algebra P with coordinates X : S → P whose framing D[X_s]^∧ → P is I-completely ind-étale (or toric)."
+    },
+    {
+     "name": "FramedAlgebra.gamma",
+     "role": "data",
+     "statement": "The automorphism γ_s of P for s ∈ S."
+    },
+    {
+     "name": "FramedAlgebra.gamma_X",
+     "role": "simp",
+     "statement": "γ_s(X_t) = q^{δ_st} X_t."
+    },
+    {
+     "name": "FramedAlgebra.gamma_comm",
+     "role": "relation",
+     "statement": "γ_s ∘ γ_t = γ_t ∘ γ_s."
+    },
+    {
+     "name": "FramedAlgebra.gamma_sub_mem",
+     "role": "characterisation",
+     "statement": "γ_s(f) − f ∈ (q − 1)X_s P for all f."
+    },
+    {
+     "name": "FramedAlgebra.gamma_unique",
+     "role": "extensionality",
+     "statement": "An endomorphism of P agreeing with γ_s on the coordinates and congruent to the identity modulo q − 1 equals γ_s."
+    },
+    {
+     "name": "FramedAlgebra.gamma_map",
+     "role": "functoriality",
+     "statement": "A map of framed algebras injective on coordinates commutes with γ_s for s in the source and with the identity in the target's other directions."
+    },
+    {
+     "name": "FramedAlgebra.frobenius",
+     "role": "data",
+     "statement": "When D is a p-torsion-free δ-ring with δ(q) = 0 and I = (p, q − 1): the framed Frobenius φ_□ with φ_□(X_s) = X_s^p, a δ-structure, commuting with every γ_s."
+    },
+    {
+     "name": "FramedAlgebra.gamma_mod",
+     "role": "compatibility",
+     "statement": "Reduction modulo q − 1 sends γ_s to the identity of P/(q − 1)."
+    },
+    {
+     "name": "FramedAlgebra.toQFraming",
+     "role": "data",
+     "statement": "The q-derivation datum (P, q, X, γ) of a framed algebra: the input of PR.6/q-derivations-and-their-koszul-complex."
+    }
+   ],
+   "tests": [
+    {
+     "name": "FramedAlgebra.gamma_pow",
+     "kind": "computation",
+     "statement": "For P = Z[q][X] (one coordinate, I = (q − 1), after completion) γ(X^3) = q^3X^3 and γ(X^3) − X^3 = (q − 1)X·(1 + q + q^2)X^2."
+    },
+    {
+     "name": "FramedAlgebra.gamma_at_one",
+     "kind": "degenerate",
+     "statement": "If q = 1 in D (for example D = F_p with I = (p)), every γ_s is the identity."
+    },
+    {
+     "name": "FramedAlgebra.gamma_toric_inv",
+     "kind": "computation",
+     "statement": "For the toric framing D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1}."
+    },
+    {
+     "name": "FramedAlgebra.not_p_complete_only",
+     "kind": "non-example",
+     "statement": "Over D = Z_p[[q − 1]] with only the p-adic topology, the p-completed localization P = D[X][1/(X − 1)]^∧_p is p-completely étale over D⟨X⟩, but X ↦ qX does not extend to P: it would send 1/(X − 1) to an inverse of qX − 1, and qX − 1 is not a unit of P (modulo p it generates the prime of F_p[[q − 1]][X, 1/(X − 1)] where X = q^{-1}, which does not contain X − 1). With the (p, q − 1)-adic completion qX − 1 = (X − 1)(1 + (q − 1)X/(X − 1)) is a unit and γ exists."
+    },
+    {
+     "name": "FramedAlgebra.frobenius_gamma",
+     "kind": "compatibility",
+     "statement": "For D = Z_p[[q − 1]] with φ(q) = q^p and P = D⟨X⟩, φ_□(γ(X)) = q^pX^p = γ(φ_□(X))."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/QDeRham/Framing",
+    "namespace": "TauCeti.FramedAlgebra"
+   }
+  },
+  {
+   "id": "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
+   "parentStageId": "PrismaticCohomology:PR.6",
+   "realises": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "title": "q-derivatives and the framed q-de Rham Koszul complex",
+   "kind": "construction",
+   "statement": "Let E be a commutative ring with an element q, elements X_s (s ∈ S) and pairwise commuting ring automorphisms γ_s with γ_s(X_t) = q^{δ_st}X_t, such that γ_s(f) − f ∈ (q − 1)X_s E for all f and every (q − 1)X_s is a nonzerodivisor (for instance E = P a framed algebra of the previous node, or its q-PD envelope). (1) The q-derivative ∇_{q,s}(f) is the unique element with (q − 1)X_s·∇_{q,s}(f) = γ_s(f) − f. It is additive, kills the elements fixed by γ_s, satisfies the twisted Leibniz rule ∇_{q,s}(fg) = ∇_{q,s}(f)g + γ_s(f)∇_{q,s}(g), ∇_{q,s}(X_s^n) = [n]_q X_s^{n−1} with [n]_q = 1 + q + ⋯ + q^{n−1}, and ∇_{q,s}∇_{q,t} = ∇_{q,t}∇_{q,s}. (2) The framed q-de Rham complex qΩ^{•,□}_E is the Koszul complex of the commuting endomorphisms (∇_{q,s})_{s ∈ S}: qΩ^i = E ⊗ Λ^i(⊕_s Z·dX_s) with differential f·ω ↦ Σ_s ∇_{q,s}(f) dX_s ∧ ω (completed when S is infinite); it is a complex of modules over the γ-invariants of E. (3) Functoriality for ring maps E → E′ commuting with the γ_s and carrying X_s to coordinates of E′ injectively. (4) Reduction: if E = P is a framed algebra over D, the complex modulo q − 1 is the completed de Rham complex Ω^•_{(P/(q−1))/(D/(q−1))}. (5) Toric form: if the X_s are units, qΩ^{•,□} is isomorphic to the Koszul complex of the logarithmic q-derivatives (γ_s − 1)/(q − 1), that is to η_{(q−1)} of the Koszul complex of the γ_s − 1. (6) Frobenius: if E carries an endomorphism φ commuting with the γ_s, with φ(X_s) = X_s^p and φ(q) = q^p, then ∇_{q,s} ∘ φ = [p]_q X_s^{p−1}·φ ∘ ∇_{q,s}.",
+   "hypotheses": [
+    "(q − 1)X_s is a nonzerodivisor on E for every s; without this ∇_{q,s} is not well defined.",
+    "(3) requires injectivity on coordinates: identifying two coordinates does not commute with q-derivatives (test below).",
+    "(4) uses that P is flat over D and D is (q − 1)-torsion-free, so reduction commutes with the Koszul construction."
+   ],
+   "proofSteps": [
+    "(1): uniqueness and existence from the divisibility hypothesis and the nonzerodivisor; the Leibniz rule from γ_s(fg) − fg = (γ_s(f) − f)g + γ_s(f)(γ_s(g) − g); the monomial formula from γ_s(X_s^n) − X_s^n = (q^n − 1)X_s^n; commutation from the symmetric formula (γ_sγ_t − γ_s − γ_t + 1)(f) = (q − 1)^2 X_s X_t ∇_{q,s}∇_{q,t}(f), using that γ_s fixes X_t for t ≠ s (Scholze, Canonical q-deformations §3, p. 6).",
+    "(2): the Koszul complex of commuting endomorphisms of a module (AInfCohomology:AI.1/koszul-products-and-cohomology), applied to the ∇_{q,s}.",
+    "(3): a map commuting with γ_s and preserving X_s commutes with ∇_{q,s} by uniqueness in (1).",
+    "(4): modulo q − 1, γ_s = 1 + (q − 1)X_s∇_{q,s} shows ∇_{q,s} reduces to a derivation with ∇(X_s) = 1, the partial derivative ∂/∂X_s, which on an étale framing is the de Rham differential (Scholze §3: the q-de Rham complex reduces to the de Rham complex).",
+    "(5): multiply the s-th operator by the unit X_s, then apply the décalage identity η_f Kos(g_s) ≅ Kos(g_s/f) (AInfCohomology:AI.1/ideal-decalage-complex). (6): apply φ to (q − 1)X_s∇_{q,s}(f) = γ_s(f) − f and cancel the nonzerodivisor (q − 1)X_s using φ((q − 1)X_s) = [p]_q (q − 1) X_s^p."
+   ],
+   "acceptance": [
+    "For E = Z[T^{±1}][[q − 1]] with γ(T) = qT: H^0 = Z[[q − 1]] and H^1 is Z[[q − 1]] (the class of T^{-1}dT) plus the (q − 1)-completed sum over n ∈ Z, n ≠ −1, of Z[[q − 1]]/[n + 1]_q (Scholze §3, p. 6).",
+    "Reduction modulo q − 1 of qΩ^{•,□}_{Z[[q−1]][X]} is the de Rham complex Z[X] → Z[X]dX.",
+    "The Frobenius identity (6) for f = X: ∇(X^p) = [p]_q X^{p−1}."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.6/framed-q-automorphisms",
+    "AInfCohomology:AI.1/koszul-products-and-cohomology",
+    "AInfCohomology:AI.1/ideal-decalage-complex",
+    "mathlib:KaehlerDifferential",
+    "mathlib:ExteriorAlgebra"
+   ],
+   "sources": [
+    {
+     "sourceId": "SQDEF",
+     "locator": "§3, pp. 6–7 (arXiv v2)",
+     "match": "Defines the q-derivative as the finite q-difference quotient (γ_i(f) − f)/(qT_i − T_i), computes it on monomials as the q-integer times the lower power, forms the framed q-de Rham complex, and records that it reduces modulo q − 1 to the de Rham complex."
+    },
+    {
+     "sourceId": "BS22-v4",
+     "locator": "Construction 16.20 (§16.3)",
+     "match": "The q-de Rham complex of a framed q-PD datum as the Koszul complex of the commuting q-derivations."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PR.6/framed-q-de-rham-complex",
+     "how": "this Koszul complex applied to the q-PD envelope D_{J,q}(P)"
+    },
+    {
+     "where": "PR.6/q-de-rham-prismatic-comparison-zp",
+     "how": "the framed q-de Rham complex of a smooth Z_p-algebra"
+    },
+    {
+     "where": "PR.8/log-q-de-rham-complex",
+     "how": "the logarithmic form (5)"
+    },
+    {
+     "where": "Bhatt–Scholze, Theorem 16.22 and Theorem 17.2",
+     "how": "the q-crystalline and A_inf comparisons are computed by this complex, with the Frobenius of (6)"
+    }
+   ],
+   "api": [
+    {
+     "name": "QFraming.qDeriv",
+     "role": "data",
+     "statement": "The q-derivative ∇_{q,s} : E → E."
+    },
+    {
+     "name": "QFraming.qDeriv_spec",
+     "role": "characterisation",
+     "statement": "(q − 1)X_s ∇_{q,s}(f) = γ_s(f) − f, and ∇_{q,s}(f) is the unique element with this property."
+    },
+    {
+     "name": "QFraming.qDeriv_add",
+     "role": "simp",
+     "statement": "∇_{q,s}(f + g) = ∇_{q,s}(f) + ∇_{q,s}(g); ∇_{q,s}(1) = 0."
+    },
+    {
+     "name": "QFraming.qDeriv_mul",
+     "role": "relation",
+     "statement": "Twisted Leibniz: ∇_{q,s}(fg) = ∇_{q,s}(f)g + γ_s(f)∇_{q,s}(g)."
+    },
+    {
+     "name": "QFraming.qDeriv_X_pow",
+     "role": "simp",
+     "statement": "∇_{q,s}(X_s^{n+1}) = [n + 1]_q X_s^n and ∇_{q,s}(X_t) = 0 for t ≠ s."
+    },
+    {
+     "name": "QFraming.qDeriv_comm",
+     "role": "relation",
+     "statement": "∇_{q,s}∇_{q,t} = ∇_{q,t}∇_{q,s}."
+    },
+    {
+     "name": "QFraming.qDeRhamComplex",
+     "role": "constructor",
+     "statement": "The Koszul complex of the commuting ∇_{q,s}."
+    },
+    {
+     "name": "QFraming.qDeRhamComplex_map",
+     "role": "functoriality",
+     "statement": "Maps commuting with γ and injective on coordinates induce maps of complexes."
+    },
+    {
+     "name": "QFraming.qDeRhamComplex_mod",
+     "role": "compatibility",
+     "statement": "Modulo q − 1 the complex is the completed de Rham complex of P/(q − 1) over D/(q − 1)."
+    },
+    {
+     "name": "QFraming.qDeRhamComplex_toric",
+     "role": "equivalence",
+     "statement": "For unit coordinates, the complex is η_{(q−1)} of the Koszul complex of the γ_s − 1."
+    },
+    {
+     "name": "QFraming.qDeriv_frobenius",
+     "role": "relation",
+     "statement": "∇_{q,s} ∘ φ = [p]_q X_s^{p−1} φ ∘ ∇_{q,s}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "QFraming.qDeriv_X_cube",
+     "kind": "computation",
+     "statement": "In Z[q][X], ∇_q(X^3) = (1 + q + q^2)X^2."
+    },
+    {
+     "name": "QFraming.qDeRham_empty",
+     "kind": "degenerate",
+     "statement": "For S empty there are no q-derivatives and the complex is E in degree 0; for one coordinate it has length one, E → E·dX."
+    },
+    {
+     "name": "QFraming.qDeriv_leibniz_check",
+     "kind": "computation",
+     "statement": "∇_q(X·X) = ∇_q(X)X + γ(X)∇_q(X) = X + qX = (1 + q)X, which is ∇_q(X^2)."
+    },
+    {
+     "name": "QFraming.qDeriv_not_untwisted",
+     "kind": "non-example",
+     "statement": "The untwisted Leibniz rule fails: ∇_q(X)X + X∇_q(X) = 2X ≠ (1 + q)X = ∇_q(X^2) in Z[q][X]."
+    },
+    {
+     "name": "QFraming.qDeRham_not_functorial_diagonal",
+     "kind": "non-example",
+     "statement": "The map D[X_0, X_1] → D[X] sending both coordinates to X (not injective on coordinates) does not commute with q-derivatives: ∇_{q,0}(X_0X_1) = X_1 and ∇_{q,1}(X_0X_1) = X_0, so the image of ∇_q(X_0X_1) is 2X dX, while ∇_q(X^2) = (1 + q)X dX."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/QDeRham/Koszul",
+    "namespace": "TauCeti.QFraming"
+   }
+  },
+  {
+   "id": "PrismaticCohomology:PR.7/beilinson-fibre-square-input",
+   "parentStageId": "PrismaticCohomology:PR.7",
+   "realises": [
+    "PrismaticCohomology:PR.7"
+   ],
+   "title": "The Beilinson fibre square on syntomic complexes (named input)",
+   "kind": "theorem",
+   "statement": "For a commutative ring R write Q_p(n)(R) = Z_p(n)(R)[1/p] for the syntomic complex of PR.4/syntomic-complex, LΩ_R for the p-completed derived de Rham cohomology of R over Z_p with its Hodge filtration LΩ_R^{≥n} (not Hodge-completed), and (−)_{Q_p} for p-completion followed by inverting p. (i) For every p-torsion-free quasisyntomic ring R and n ≥ 0 there are a natural map χ_n : Q_p(n)(R/p) → (LΩ_R)_{Q_p} and a functorial pullback square in D(Q_p) with top row Q_p(n)(R) → Q_p(n)(R/p), left column Q_p(n)(R) → (LΩ_R^{≥n})_{Q_p}, right column χ_n and bottom row (LΩ_R^{≥n})_{Q_p} → (LΩ_R)_{Q_p}; equivalently a fibre sequence Q_p(n)(R) → Q_p(n)(R/p) → (LΩ_R/LΩ_R^{≥n})_{Q_p}. (ii) For R quasiregular semiperfectoid and p-torsion-free and n > 0, χ_n is injective with image the φ = p^n eigenspace of A_crys(R/p)[1/p] = (LΩ_R)_{Q_p}; up to a nonzero scalar depending only on n it is the forgetful map Q_p(n)(R/p) → Δ_{R/p}[1/p] composed with Δ_{R/p} ≅ A_crys(R/p) ≅ LΩ_R. (iii) Check: for R = O_C the sequence on H^0 is 0 → Q_p(n) → (B_crys^+)^{φ = p^n} → B_dR^+/Fil^n → 0 for n ≥ 1. Within this roadmap the statement is a named input: its only consumer, PR.7/tate-twist-analytic-continuation, is proved from it, and its proof (through topological cyclic homology) lies outside the roadmaps this roadmap builds on.",
+   "hypotheses": [
+    "R p-torsion-free and quasisyntomic in (i); quasiregular semiperfectoid in (ii); n ≥ 0 in (i), n > 0 in (ii).",
+    "The order of operations in (−)_{Q_p} matters: complete first, then invert p.",
+    "This roadmap does not prove the statement: the proof constructs the square from the pullback square TC(R; Q_p) → TC(R/p; Q_p) over HC^-(R; Q_p) → HP(R; Q_p) and the motivic filtrations of Bhatt–Morrow–Scholze, which no roadmap below this one in the upstream order provides; the gap 'Trace-theoretic proof of the Beilinson fibre square' records it."
+   ],
+   "proofSteps": [
+    "Outline of the source proof, for the record of the named input: for R quasiregular semiperfectoid the bottom row of the TC/HC^-/HP square is even, so τ_{[2n−1, 2n]} of the square is again a pullback; by the definition of Z_p(n) through the motivic filtration and the description of π_{2n}HC^- and π_{2n}HP by Hodge-completed derived de Rham cohomology this gives a Hodge-completed version of the square; Hodge completion is removed by left Kan extension from polynomial algebras; general quasisyntomic R follows by unfolding (Antieau–Mathew–Morrow–Nikolaus, Theorem 6.17 with proof).",
+    "(ii): Proposition 6.18 of the same paper, using Corollary 6.20 and the Frobenius action of Lemma 6.19; the identification of their Z_p(n) (defined with topological cyclic homology) with the prismatic syntomic complex is Bhatt–Scholze Theorem 14.1 with Bhatt–Morrow–Scholze Theorem 1.12.",
+    "(iii): for R = O_C, Q_p(n)(O_C) = Q_p(n)[0] by the étale comparison PR.4/syntomic-etale-comparison, Q_p(n)(O_C/p) has H^0 = (A_crys(O_C/p)[1/p])^{φ = p^n} = (B_crys^+)^{φ = p^n} and LΩ_{O_C}/Fil^n ⊗ Q = B_dR^+/Fil^n (DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison)."
+   ],
+   "acceptance": [
+    "For R = O_C and n = 1: 0 → Q_p(1) → (B_crys^+)^{φ = p} → C → 0, the fundamental exact sequence.",
+    "For n = 0 the third term vanishes and the square says Q_p(0)(R) ≃ Q_p(0)(R/p).",
+    "Consumed exactly once: PR.7/tate-twist-analytic-continuation, steps 2–3."
+   ],
+   "prerequisites": [
+    "PrismaticCohomology:PR.4/syntomic-complex",
+    "PrismaticCohomology:PR.4/syntomic-etale-comparison",
+    "PrismaticCohomology:PR.2/qrsp-prism",
+    "DerivedDeRhamCohomology:DD.4/qrsp-pd-derham",
+    "DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison"
+   ],
+   "sources": [
+    {
+     "sourceId": "AMMN22",
+     "locator": "Theorem 6.17 with proof, Proposition 6.18, Lemma 6.19, Corollary 6.20 (§6, pp. 44–46 of the arXiv version)",
+     "match": "Constructs the natural map from the rationalized weight-n syntomic complex of R/p to rationalized derived de Rham cohomology and the pullback square on graded pieces, for p-torsion-free quasisyntomic R; identifies the image of that map for quasiregular semiperfectoid R as the Frobenius eigenspace of slope n."
+    },
+    {
+     "sourceId": "BS23-FCRYS",
+     "locator": "Proposition 6.8, proof",
+     "match": "Uses the fibre square of graded pieces and the description of the map as the input of the analytic continuation of Tate twists."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input",
+   "parentStageId": "PrismaticCohomology:PR.7",
+   "realises": [
+    "PrismaticCohomology:PR.7"
+   ],
+   "title": "Triviality of the slope-zero bundle of a weakly admissible module (named input)",
+   "kind": "theorem",
+   "statement": "Let C be a complete algebraically closed extension of Q_p, A_inf = W(O_C^♭), X_FF the Fargues–Fontaine curve of C^♭ (the adic curve of Tau Ceti's AdicSpaces roadmap, Layer 6) and ℛ the Robba ring of A_inf (the extended Robba ring of the Berkeley lectures). (i) The category of φ-modules over ℛ is equivalent to the category of vector bundles on X_FF, compatibly with tensor products and duals. (ii) For a weakly admissible filtered φ-module (D, φ_D, Fil^•) over a complete discretely valued K ⊂ C with perfect residue field, the bundle E(D, φ_D, Fil^•) obtained from E(D, φ_D) by modification at ∞ along the B_dR^+-lattice Fil^0(D_K ⊗_K B_dR) is semistable of slope 0. (iii) A semistable vector bundle of slope 0 on X_FF is trivial, i.e. isomorphic to O_X^r. Consequently the φ-module over ℛ attached to a weakly admissible (D, φ_D, Fil^•) is trivial: it has a φ-fixed basis. Within this roadmap the statement is a named input of PR.7/weakly-admissible-extension-over-ainf; its proof (the classification of vector bundles on X_FF) lies outside the roadmaps this roadmap builds on.",
+   "hypotheses": [
+    "C algebraically closed: (iii) fails over a non-algebraically-closed perfectoid field without Galois descent.",
+    "Weak admissibility in the sense of PadicHodgeTheory:R06.2/weak-admissibility, with the filtration on D ⊗_{W(k), φ} K as in the consumer.",
+    "This roadmap does not prove the statement; the gap 'Classification of vector bundles on the Fargues–Fontaine curve' records it."
+   ],
+   "proofSteps": [
+    "Outline of the source proofs, for the record of the named input: (i) by Fargues–Fontaine Corollary 11.2.22, gluing φ-modules over the Robba ring along the Frobenius quotient of the punctured open disc; (ii) by Proposition 10.5.6, computing degrees of sub-bundles through the Hodge and Newton polygons; (iii) by Theorem 8.2.10 (1), the slope-zero case of the classification of vector bundles by slopes.",
+    "Consequence: combine (i)–(iii); the φ-fixed basis of the trivial bundle is a φ-fixed basis of the φ-module."
+   ],
+   "acceptance": [
+    "For D = K_0 with φ_D = σ and the trivial filtration, the bundle is O_X and the φ-module is ℛ with its Frobenius: trivially trivial.",
+    "For D = D_cris(V) of a crystalline representation V (for instance V = Q_p(1), D = K_0 e with φ(e) = p^{-1}e and Fil^{-1} = D_K, Fil^0 = 0), the modified bundle is V ⊗_{Q_p} O_X, trivial of slope 0, as (ii)–(iii) predict.",
+    "Consumed exactly once: PR.7/weakly-admissible-extension-over-ainf, steps 1–2."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+    "PadicHodgeTheory:R06.2/weak-admissibility",
+    "PadicHodgeTheory:P7/extended-robba-ring-with-galois-action"
+   ],
+   "sources": [
+    {
+     "sourceId": "FF18",
+     "locator": "Corollary 11.2.22, Proposition 10.5.6, Theorem 8.2.10 (1), as cited in Bhatt–Scholze, Prismatic F-crystals, §6.4",
+     "match": "The φ-module/vector bundle dictionary over the Robba ring, the slope-zero semistability of the bundle of a weakly admissible filtered φ-module, and the triviality of semistable slope-zero bundles; the locators are those the F-crystals paper prints."
+    },
+    {
+     "sourceId": "BS23-FCRYS",
+     "locator": "Section 6.4, proof of essential surjectivity, second paragraph",
+     "match": "Applies the three results to show that the φ-module over the Robba ring attached to a weakly admissible module is trivial."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "imports": [
+  {
+   "packet": "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+   "scope": [
+    "PrismaticCohomology:PR.0",
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.2",
+    "PrismaticCohomology:PR.3",
+    "PrismaticCohomology:PR.4",
+    "PrismaticCohomology:PR.5",
+    "PrismaticCohomology:PR.6",
+    "PrismaticCohomology:PR.7"
+   ],
+   "review": "accepted independent-review-REV-PrismaticCohomology--PR.0~2 (2026-10-09)",
+   "nodeCount": 290,
+   "note": "All 290 accepted nodes of layers PR.0–PR.7, with their API, unit tests, planets (six per layer), requests, gaps and source issues, are part of this roadmap unchanged. Their node ids are the roadmap's ids. The prerequisite re-pointings listed under restructure (moves R1–R4) replace citations of roadmaps outside the Caraiani–Newton order by the new nodes of this packet."
+  },
+  {
+   "packet": "research/blueprint/packets/PrismaticCohomology--PR.8.json",
+   "scope": [
+    "PrismaticCohomology:PR.8"
+   ],
+   "review": "accepted independent-review-REV-PrismaticCohomology--PR.8~2 (2026-10-10)",
+   "nodeCount": 79,
+   "note": "All 79 accepted nodes of the logarithmic layer PR.8 are part of this roadmap unchanged. Its 39 bare citations of the stages PR.0–PR.7 are mapped to node ids in restructure (R6)."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "PrismaticCohomology:PR.0",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 92,
+   "remaining": [
+    "(accepted part) Refine the target-level prism and envelope proofs to the density of the retained lemma-level δ-ring prefix; the specified cofree Witt proof and étale algebraization inputs remain explicit gaps.",
+    "(accepted part) Formalize the explicit monomial module model and uniform filtration estimate in the corrected square-zero unbounded-torsion example; its mathematical regularity argument is now supplied in the proof sketch.",
+    "(accepted part) The complete derived-Frobenius classification of Remark 2.5 and perfectoid covers of regular local rings of Remark 3.11 have no consumer among these targets; the W₂ pullback square used by PR.2 is already included."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.1",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 27,
+   "remaining": [
+    "(accepted part) Produce global formal-scheme signatures from the requested SF.4 carrier, with SF.2 identifying X_ét through its special fibre; hyperdescent is a separate planned theorem.",
+    "(accepted part) Refine the compatibility of the two crystalline comparison maps for general PD ideals in BS22 Theorem 5.2 and the calculation of Lemma 5.4.",
+    "(accepted part) Resolve the recorded p-torsion-freeness gap for complete-flat modules over a general p-torsion-free bounded prism."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.2",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 29,
+   "remaining": [
+    "(accepted part) Refine the functorial simplicial cosimplicial δ-algebra model of Lemma 7.7, including its normalized derived carrier and geometric-realization coherence.",
+    "(accepted part) Calculate the map J/I→gr₁ of the conjugate filtration in BS22 Example 7.9 using a free resolution.",
+    "(accepted part) The fixed-base perfection is planned here; base independence, the perfect-prismatic-site comparison and arc consequences belong to the proposed PerfectoidQuotients Part II, with arc topology supplied once by ArcTopologyAndDescent.",
+    "(accepted part) Resolve the recorded P⁰, descendability, scheme-deformation and finite-projective-effectivity inputs."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.3",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 26,
+   "remaining": [
+    "(accepted part) Refine the E∞ enhancement of the filtered Frobenius, Bockstein comparison and Hodge triangle using the stated monoidal DD.1 and AI.1 extensions.",
+    "(accepted part) Identify the two de Rham comparison maps when the PR.1 Witt torsion-freeness hypothesis holds; no source identification is silently assumed.",
+    "(accepted part) Refine the q-factorial computations and transversal twist proofs. The joint Nygaard and (p,I)-adic continuity estimate is now a separate node.",
+    "(accepted part) Export the π₀TC⁻ and π₀TP identifications to RT.6; their trace-theoretic statements remain outside the prismatic prerequisite graph."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.4",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 33,
+   "remaining": [
+    "(accepted part) Supply the recorded algebraic connectivity and continuity argument for syntomic complexes without importing trace theory into PR.4.",
+    "(accepted part) Resolve the arc/perfectoidization, arbitrary generic-fibre site and flat Gₘ continuity gaps. The non-perfect-base comparison is planned after scalar extension and compares the resulting generic fibre.",
+    "(accepted part) Refine finite-level logarithmic de Rham–Witt exactness and the long crystalline logarithm proof; the latter and the crystalline first Chern class now have their own nodes.",
+    "(accepted part) The mixed-characteristic Fontaine–Messing comparison requires an owner downstream of PR.4 and RT.3b, as recorded in restructure. F-smooth integral comparison and purity refinements have no target consumer in this part; the required Bhatt–Mathew input is connectivity and left Kan extension."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.5",
+   "status": "planned",
+   "nodes": [
+    "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+    "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
+    "PrismaticCohomology:PR.5/affine-direct-image-and-base-change"
+   ],
+   "importedNodes": 31,
+   "remaining": [
+    "(accepted part) Resolve formal QCoh, infinite-group BG and formal-scheme globalization inputs with their stated owners.",
+    "(accepted part) Refine the cyclotomic Hodge–Tate chart and triangular Sen calculation; both are now explicit prerequisites of the perfect-prism Nygaard comparison.",
+    "(accepted part) Derive the Beilinson connective-cover and completion universal properties from the stated DD.1 extension. Completed Frobenius and its sifted-colimit characterization are included.",
+    "(accepted part) The Galois interpretation of Sen theory, integral uncompleted diffracted Hodge theory and exponentiation of the Sen operator have no consumer in these targets; twists are imported from PR.3 and syntomic complexes are owned by PR.4.",
+    "The ten nodes of the accepted part that cite LanglandsParameterStacks:LP1 are re-pointed to the three new nodes (restructure R1); the re-pointing is applied to the part packet when it is next revised."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.6",
+   "status": "planned",
+   "nodes": [
+    "PrismaticCohomology:PR.6/framed-q-automorphisms",
+    "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex"
+   ],
+   "importedNodes": 26,
+   "remaining": [
+    "(accepted part) Obtain acceptance of the QW.6 framing-prefix split and its extension to general complete δ-bases, including A_inf; this dependency is conditional and remains explicit.",
+    "(accepted part) Prove the E₁ multiplicativity of the toric q-de Rham comparison through the Čech–Koszul product; Remark 17.3 supplies an assertion, not the missing proof.",
+    "(accepted part) Refine the q-PD envelope, q-Poincaré and uniqueness proofs. Joyal’s Witt-coordinate operations and their triangular generator change are included.",
+    "(accepted part) Globalize the ringed q-crystalline site for non-affine formal schemes; give the explicit one-variable q-PD envelope presentation with its completeness hypotheses.",
+    "(accepted part) Supply arbitrary naturality of the AΩ comparison through a coherent family-indexed or intrinsic descent construction; the existing subset-indexed proof supplies only coordinate-injective naturality.",
+    "The four nodes of the accepted part that cite QWittVectors:QW.6 are re-pointed to the two new nodes (restructure R2), and the part's proposal to split a framing prefix out of QW.6 is withdrawn."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.7",
+   "status": "planned",
+   "nodes": [
+    "PrismaticCohomology:PR.7/beilinson-fibre-square-input",
+    "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input"
+   ],
+   "importedNodes": 26,
+   "remaining": [
+    "(accepted part) Resolve the exact arbitrary-localization Artin–Schreier, almost product, affinoid lisse comparison, filtered-bundle matching and arbitrary-perfect-residue-field period inputs recorded in gaps.",
+    "(accepted part) Refine the analytic continuation, bounded descent data and Breuil–Kisin realization proofs; preserve the existence-only weakly admissible extension and the negative-one filtration jump.",
+    "(accepted part) Reconcile the two overlapping R07.4 full-faithfulness statements under the recorded ownership proposal, with no duplicate implementation.",
+    "(accepted part) Gauss–Manin compatibility, derived Laurent crystal realization and logarithmic connections remain consistency checks or applications unless a new target requires their declaration-level expansion.",
+    "The named inputs beilinson-fibre-square-input and fargues-fontaine-slope-zero-input carry the gaps \"Trace-theoretic proof of the Beilinson fibre square\" and \"Classification of vector bundles on the Fargues–Fontaine curve\" (restructure R3, R4)."
+   ]
+  },
+  {
+   "stageId": "PrismaticCohomology:PR.8",
+   "status": "planned",
+   "nodes": [],
+   "importedNodes": 79,
+   "remaining": [
+    "(accepted part) The ownerless full bounded algebraic Witt-Frobenius Riemann–Hilbert/extension-by-zero input and arc-descent input remain the two exact mathematical routing gaps.",
+    "(accepted part) Complete the recorded supplier extensions for C0, non-fine CR.5/DD.6, CR.6 and AI.1/DD.1 before calling PR.8 closed.",
+    "(accepted part) Elaborated signatures use explicitly documented object fixtures and omitted higher/sheaf-level conditions under PROTOCOL §13; implementations must instantiate the definitive packet ranges and the supplier interfaces.",
+    "Rows 5 (prelog-prismatic-envelope, prismatic envelopes of non-regular ideals) of the stage-citation map in restructure R6 has no supplying node in PR.0; the PR.8 revision either restricts that node to the regular case of PR.0/regular-prismatic-envelopes (Bhatt–Scholze Proposition 3.13) or forms the derived envelope of an arbitrary ideal from PR.0/animated-delta-rings."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Trace-theoretic proof of the Beilinson fibre square",
+   "neededBy": [
+    "PrismaticCohomology:PR.7/beilinson-fibre-square-input"
+   ],
+   "detail": "Antieau–Mathew–Morrow–Nikolaus prove Theorem 6.17 and Proposition 6.18 through the pullback square TC → TC(R/p) over HC^- → HP and the motivic filtrations of Bhatt–Morrow–Scholze; in the atlas these belong to RefinedTraceMethods RT.3b and RT.6, which are not among the roadmaps this one may build on (they are outside the Caraiani–Newton order). No prismatic proof is known to this plan. The statement is therefore a named input of PR.7/tate-twist-analytic-continuation; RT.3b proves it, and imports the syntomic complexes of PR.4 to do so."
+  },
+  {
+   "title": "Classification of vector bundles on the Fargues–Fontaine curve",
+   "neededBy": [
+    "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input"
+   ],
+   "detail": "Fargues–Fontaine Corollary 11.2.22, Proposition 10.5.6 and Theorem 8.2.10 (1) are owned by VectorBundlesAndIsocrystals VB2:classification (outside the Caraiani–Newton order) and by FarguesFontaineDiamonds (a higher tier). Tau Ceti's AdicSpaces Layer 6 constructs the adic curve but not its vector bundles. The three statements are therefore a named input of PR.7/weakly-admissible-extension-over-ainf."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+   "need": "The adic Fargues–Fontaine curve X_FF of C^♭ as an adic space with its point ∞ (Layer 6 of the Tau Ceti roadmap), the space on which the bundles of the named input live. Nothing about its vector bundles is requested.",
+   "neededBy": [
+    "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input"
+   ]
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology",
+    "LanglandsParameterStacks"
+   ],
+   "detail": "R1. PR.5 cites LanglandsParameterStacks:LP1 ten times for quasi-coherent and perfect complexes on stacks, pullback, affine direct image and descent. LanglandsParameterStacks is outside the Caraiani–Newton order, so a tier-13 roadmap cannot build on it (WORKERS.md, Upstream tiers).",
+   "proposal": "PR.5 owns the generic notion: PR.5/quasi-coherent-complexes-on-prestacks, PR.5/flat-descent-for-quasi-coherent-complexes and PR.5/affine-direct-image-and-base-change. In the accepted part, replace LanglandsParameterStacks:LP1 by these three nodes in the prerequisites of PR.5/generalized-cartier-divisor, cartier-witt-stack, wcart-quotient-presentation, prism-point-of-wcart, wcart-fibre-products-of-prisms, quasi-coherent-complexes-on-wcart, prismatic-crystals-on-wcart, hodge-tate-divisor, sen-operator and sen-operator-classification, and drop the request to LP1. Groupoid stacks and stackification stay with DiamondsAndVStacks:D0 and SchemeAndStackFoundations:SF.1 (lower tiers). LP1 and LP4 import D(X) from PR.5.",
+   "repoint": {
+    "from": "LanglandsParameterStacks:LP1",
+    "to": [
+     "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+     "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
+     "PrismaticCohomology:PR.5/affine-direct-image-and-base-change"
+    ]
+   }
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology",
+    "QWittVectors",
+    "HabiroCohomologyFoundations"
+   ],
+   "detail": "R2. PR.6 cites QWittVectors:QW.6 four times for the framed q-automorphisms, q-derivatives and their Koszul complex (RT-AREA-etale/28 asked for one owner). QWittVectors is outside the Caraiani–Newton order.",
+   "proposal": "PR.6 is the single owner of the framed q-de Rham machinery, in the general form over I = (q − 1) or (p, q − 1): PR.6/framed-q-automorphisms and PR.6/q-derivations-and-their-koszul-complex. Replace QWittVectors:QW.6 by these nodes in PR.6/framed-q-pd-datum, gamma-extension-to-q-pd-envelope, framed-q-de-rham-complex and q-de-rham-prismatic-comparison-zp, and drop the request to QW.6. QWittVectors QW.6 (the Λ-ring case D = A[[q − 1]], I = (q − 1)) and HabiroCohomologyFoundations HQ.1 import from PR.6. This replaces the accepted part's proposal to split a framing prefix out of QW.6.",
+   "repoint": {
+    "from": "QWittVectors:QW.6",
+    "to": [
+     "PrismaticCohomology:PR.6/framed-q-automorphisms",
+     "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex"
+    ]
+   }
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology",
+    "RefinedTraceMethods"
+   ],
+   "detail": "R3. PR.7/tate-twist-analytic-continuation cites RefinedTraceMethods:RT.3b and RT.6 for the Beilinson fibre square, and the atlas draws the stage edges RT.3b → PR.7 and RT.6 → PR.7. RefinedTraceMethods is outside the Caraiani–Newton order, and its proof of the square needs topological cyclic homology.",
+   "proposal": "Replace both citations by the named input PR.7/beilinson-fibre-square-input (stated for the prismatic syntomic complexes of PR.4, with the gap recording the trace-theoretic proof), drop the two requests and remove the stage edges RT.3b → PR.7 and RT.6 → PR.7 from PR.7's requires. RT.3b proves the named input and imports PR.4's syntomic complexes for it.",
+   "repoint": {
+    "from": [
+     "RefinedTraceMethods:RT.3b",
+     "RefinedTraceMethods:RT.6"
+    ],
+    "to": [
+     "PrismaticCohomology:PR.7/beilinson-fibre-square-input"
+    ]
+   }
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology",
+    "VectorBundlesAndIsocrystals",
+    "FarguesFontaineDiamonds"
+   ],
+   "detail": "R4. PR.7/weakly-admissible-extension-over-ainf cites VectorBundlesAndIsocrystals:VB2:classification and its Dieudonné–Manin node for three Fargues–Fontaine results. VectorBundlesAndIsocrystals is outside the Caraiani–Newton order and FarguesFontaineDiamonds is a higher tier; Tau Ceti's AdicSpaces Layer 6 constructs only the curve.",
+   "proposal": "Replace both citations by the named input PR.7/fargues-fontaine-slope-zero-input, with the gap recording the classification of vector bundles on the curve, and drop the request to VB2:classification.",
+   "repoint": {
+    "from": [
+     "VectorBundlesAndIsocrystals:VB2:classification",
+     "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles"
+    ],
+    "to": [
+     "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input"
+    ]
+   }
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology",
+    "HodgeTateAndCanonicalSubgroups"
+   ],
+   "detail": "R5. The atlas draws the stage edge HodgeTateAndCanonicalSubgroups:T6:log-sites → PR.8 (tier 16 → tier 13). No node of the accepted PR.8 packet cites T6: its revision planned the noetherian fs log adic foundations it needs inside PR.8 (gap \"Supplier hypotheses and interface extensions\" of that packet).",
+   "proposal": "Remove T6:log-sites from PR.8's requires; T6:log-sites imports the log adic foundations from PR.8 instead."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology"
+   ],
+   "detail": "R6. The accepted PR.8 packet cites the stages PR.0–PR.7 by 39 bare stage ids, where protocol section 3 wants node ids wherever a node exists. Rows 1–40 are the assembly table (rows 37 and 40 are already resolved in the accepted revision), and row 41 adds the one citation that table missed. Every proposed replacement id exists in the accepted PR.0–PR.7 packet; rows 27 and 31 are decided here, and row 5 has no supplying node.",
+   "proposal": "Apply the map below to the prerequisites of the PR.8 nodes when the PR.8 packet is next revised.",
+   "map": [
+    {
+     "row": 1,
+     "node": "PrismaticCohomology:PR.8/delta-log-free",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/delta-ring-category",
+      "PrismaticCohomology:PR.0/free-delta-ring",
+      "PrismaticCohomology:PR.0/delta-localization-criterion",
+      "PrismaticCohomology:PR.0/delta-completion-unique-fg"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 2,
+     "node": "PrismaticCohomology:PR.8/delta-log-completion-etale",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/delta-etale-extension"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 3,
+     "node": "PrismaticCohomology:PR.8/prelog-prism",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/prism",
+      "PrismaticCohomology:PR.0/prism-category",
+      "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+      "PrismaticCohomology:PR.0/bounded-prism-complete-flatness"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 4,
+     "node": "PrismaticCohomology:PR.8/standard-log-prisms",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/prism-category",
+      "PrismaticCohomology:PR.0/ainf-prism",
+      "PrismaticCohomology:PR.0/perfect-prism-properties",
+      "PrismaticCohomology:PR.0/crystalline-prism",
+      "PrismaticCohomology:PR.0/breuil-kisin-prism",
+      "PrismaticCohomology:PR.0/rank-one-elements"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 5,
+     "node": "PrismaticCohomology:PR.8/prelog-prismatic-envelope",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/regular-prismatic-envelopes"
+     ],
+     "confidence": "none: no node of PR.0 states prismatic envelopes of non-regular ideals; see the PR.8 coverage record"
+    },
+    {
+     "row": 6,
+     "node": "PrismaticCohomology:PR.8/envelope-flatness-smooth",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "PrismaticCohomology:PR.0/complete-regular-sequence",
+      "PrismaticCohomology:PR.0/bounded-prism-complete-flatness"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 7,
+     "node": "PrismaticCohomology:PR.8/perfectoid-monoid",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/ainf-prism"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 8,
+     "node": "PrismaticCohomology:PR.8/perfect-log-prism",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/prism-category",
+      "PrismaticCohomology:PR.0/prism-perfection",
+      "PrismaticCohomology:PR.0/ainf-prism",
+      "PrismaticCohomology:PR.0/rank-one-elements"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 9,
+     "node": "PrismaticCohomology:PR.8/perfect-log-prisms-perfectoid",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+      "PrismaticCohomology:PR.0/ainf-prism",
+      "PrismaticCohomology:PR.0/perfect-delta-rings",
+      "PrismaticCohomology:PR.0/p-torsion-freeness-criteria"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 10,
+     "node": "PrismaticCohomology:PR.8/smooth-chart-covers",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "PrismaticCohomology:PR.0/bounded-prism-complete-flatness"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 11,
+     "node": "PrismaticCohomology:PR.8/hodge-tate-group-lemma",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/hodge-tate-comparison",
+      "PrismaticCohomology:PR.1/cech-alexander-computes-cohomology"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 12,
+     "node": "PrismaticCohomology:PR.8/hodge-tate-group-lemma",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+      "PrismaticCohomology:PR.0/bounded-prism-complete-flatness"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 13,
+     "node": "PrismaticCohomology:PR.8/delta-log-crystalline-vs-log-crystalline",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.0/pd-envelope-complete-flatness",
+      "PrismaticCohomology:PR.0/pd-envelope-as-delta-envelope"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 14,
+     "node": "PrismaticCohomology:PR.8/log-prismatic-site",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/relative-prismatic-site",
+      "PrismaticCohomology:PR.1/change-of-topology"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 15,
+     "node": "PrismaticCohomology:PR.8/log-prismatic-cohomology",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/prismatic-to-etale-morphism",
+      "PrismaticCohomology:PR.1/relative-prismatic-cohomology",
+      "PrismaticCohomology:PR.1/hodge-tate-cohomology",
+      "PrismaticCohomology:PR.1/frobenius-on-prismatic-cohomology"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 16,
+     "node": "PrismaticCohomology:PR.8/absolute-log-prismatic-site",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/prismatic-structure-sheaf",
+      "PrismaticCohomology:PR.5/absolute-prismatic-site"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 17,
+     "node": "PrismaticCohomology:PR.8/log-prismatic-weak-base-change",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/base-change-finite-tor-amplitude"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 18,
+     "node": "PrismaticCohomology:PR.8/log-prismatic-etale-localization",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/etale-localization"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 19,
+     "node": "PrismaticCohomology:PR.8/log-hodge-tate-map",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/hodge-tate-cohomology",
+      "PrismaticCohomology:PR.1/bockstein-differential",
+      "PrismaticCohomology:PR.1/hodge-tate-comparison-map"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 20,
+     "node": "PrismaticCohomology:PR.8/cartier-type-cosimplicial-frobenius",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 21,
+     "node": "PrismaticCohomology:PR.8/local-crystalline-comparison",
+     "stageCited": "PrismaticCohomology:PR.1",
+     "replaceBy": [
+      "PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma",
+      "PrismaticCohomology:PR.1/crystalline-comparison",
+      "PrismaticCohomology:PR.0/pd-envelope-as-delta-envelope"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 22,
+     "node": "PrismaticCohomology:PR.8/log-q-pd-triple",
+     "stageCited": "PrismaticCohomology:PR.6",
+     "replaceBy": [
+      "PrismaticCohomology:PR.6/q-divided-power-operation",
+      "PrismaticCohomology:PR.6/q-pd-pair",
+      "PrismaticCohomology:PR.6/q-pd-homological-properties",
+      "PrismaticCohomology:PR.6/q-pd-envelope",
+      "PrismaticCohomology:PR.6/q-pd-envelope-base-change",
+      "PrismaticCohomology:PR.6/ainf-q-pd-pair"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 23,
+     "node": "PrismaticCohomology:PR.8/log-q-crystalline-site",
+     "stageCited": "PrismaticCohomology:PR.6",
+     "replaceBy": [
+      "PrismaticCohomology:PR.6/q-crystalline-site",
+      "PrismaticCohomology:PR.6/q-crystalline-cech-alexander"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 24,
+     "node": "PrismaticCohomology:PR.8/log-q-crystalline-vs-crystalline",
+     "stageCited": "PrismaticCohomology:PR.6",
+     "replaceBy": [
+      "PrismaticCohomology:PR.6/q-pd-homological-properties",
+      "PrismaticCohomology:PR.6/q-crystalline-crystalline-comparison"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 25,
+     "node": "PrismaticCohomology:PR.8/log-q-de-rham-complex",
+     "stageCited": "PrismaticCohomology:PR.6",
+     "replaceBy": [
+      "PrismaticCohomology:PR.6/framed-q-pd-datum",
+      "PrismaticCohomology:PR.6/gamma-extension-to-q-pd-envelope",
+      "PrismaticCohomology:PR.6/framed-q-de-rham-complex",
+      "PrismaticCohomology:PR.6/q-de-rham-comparison"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 26,
+     "node": "PrismaticCohomology:PR.8/semistable-aomega-comparison",
+     "stageCited": "PrismaticCohomology:PR.6",
+     "replaceBy": [
+      "PrismaticCohomology:PR.6/ainf-q-pd-pair",
+      "PrismaticCohomology:PR.6/ainf-omega-comparison-map",
+      "PrismaticCohomology:PR.6/ainf-omega-comparison"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 27,
+     "node": "PrismaticCohomology:PR.8/log-qrsp",
+     "stageCited": "PrismaticCohomology:PR.2",
+     "replaceBy": [
+      "DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings"
+     ],
+     "confidence": "clear (quasiregular semiperfectoid rings are DD.5's, a lower tier)"
+    },
+    {
+     "row": 28,
+     "node": "PrismaticCohomology:PR.8/derived-log-prismatic",
+     "stageCited": "PrismaticCohomology:PR.2",
+     "replaceBy": [
+      "PrismaticCohomology:PR.2/derived-prismatic-cohomology",
+      "PrismaticCohomology:PR.2/conjugate-filtration",
+      "PrismaticCohomology:PR.2/derived-prismatic-etale-descent"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 29,
+     "node": "PrismaticCohomology:PR.8/derived-log-properties",
+     "stageCited": "PrismaticCohomology:PR.2",
+     "replaceBy": [
+      "PrismaticCohomology:PR.2/derived-prismatic-cohomology",
+      "PrismaticCohomology:PR.2/derived-hodge-tate-comparison",
+      "PrismaticCohomology:PR.2/derived-prismatic-base-change",
+      "PrismaticCohomology:PR.2/kunneth-formula"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 30,
+     "node": "PrismaticCohomology:PR.8/initial-log-prism-qrsp",
+     "stageCited": "PrismaticCohomology:PR.2",
+     "replaceBy": [
+      "PrismaticCohomology:PR.2/qrsp-prism",
+      "PrismaticCohomology:PR.2/perfectoidization-coconnective",
+      "PrismaticCohomology:PR.2/perfection-of-prismatic-cohomology",
+      "PrismaticCohomology:PR.2/connective-perfectoidization-perfectoid"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 31,
+     "node": "PrismaticCohomology:PR.8/initial-log-prism-qrsp",
+     "stageCited": "PrismaticCohomology:PR.0",
+     "replaceBy": [
+      "PrismaticCohomology:PR.2/qrsp-prism"
+     ],
+     "confidence": "clear (the initial prism of a quasiregular semiperfectoid ring, Bhatt–Scholze Proposition 7.2, is PR.2's; no envelope of PR.0 is used)"
+    },
+    {
+     "row": 32,
+     "node": "PrismaticCohomology:PR.8/log-nygaard-filtration",
+     "stageCited": "PrismaticCohomology:PR.3",
+     "replaceBy": [
+      "PrismaticCohomology:PR.3/relative-nygaard-large-quasisyntomic",
+      "PrismaticCohomology:PR.3/relative-nygaard-filtration",
+      "PrismaticCohomology:PR.3/nygaard-filtration"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 33,
+     "node": "PrismaticCohomology:PR.8/log-nygaard-graded",
+     "stageCited": "PrismaticCohomology:PR.3",
+     "replaceBy": [
+      "PrismaticCohomology:PR.3/relative-nygaard-graded-pieces",
+      "PrismaticCohomology:PR.3/relative-nygaard-large-quasisyntomic"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 34,
+     "node": "PrismaticCohomology:PR.8/nygaard-hodge-fiber-sequence",
+     "stageCited": "PrismaticCohomology:PR.5",
+     "replaceBy": [
+      "PrismaticCohomology:PR.3/nygaard-hodge-comparison",
+      "PrismaticCohomology:PR.3/nygaard-completeness"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 35,
+     "node": "PrismaticCohomology:PR.8/log-l-eta-factorization",
+     "stageCited": "PrismaticCohomology:PR.3",
+     "replaceBy": [
+      "PrismaticCohomology:PR.3/leta-frobenius-factorisation",
+      "PrismaticCohomology:PR.3/de-rham-comparison-general",
+      "PrismaticCohomology:PR.0/universal-oriented-prism",
+      "PrismaticCohomology:PR.1/crystallization-of-oriented-prism"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 36,
+     "node": "PrismaticCohomology:PR.8/log-frobenius-isogeny",
+     "stageCited": "PrismaticCohomology:PR.3",
+     "replaceBy": [
+      "PrismaticCohomology:PR.3/image-of-frobenius"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 37,
+     "node": "PrismaticCohomology:PR.8/affine-kummer-etale-comparison",
+     "stageCited": "PrismaticCohomology:PR.4",
+     "replaceBy": [
+      "PrismaticCohomology:PR.4/etale-comparison",
+      "PrismaticCohomology:PR.4/perfectoid-artin-schreier-witt",
+      "PrismaticCohomology:PR.4/frobenius-fixed-points"
+     ],
+     "confidence": "already resolved: the accepted PR.8 revision no longer cites this stage from this node"
+    },
+    {
+     "row": 38,
+     "node": "PrismaticCohomology:PR.8/global-etale-comparison",
+     "stageCited": "PrismaticCohomology:PR.4",
+     "replaceBy": [
+      "PrismaticCohomology:PR.4/etale-comparison-smooth",
+      "PrismaticCohomology:PR.4/etale-comparison-coefficients",
+      "PrismaticCohomology:PR.7/laurent-f-crystals-local-systems",
+      "PrismaticCohomology:PR.7/artin-schreier-riemann-hilbert"
+     ],
+     "confidence": "probable"
+    },
+    {
+     "row": 39,
+     "node": "PrismaticCohomology:PR.8/laurent-f-crystal",
+     "stageCited": "PrismaticCohomology:PR.7",
+     "replaceBy": [
+      "PrismaticCohomology:PR.7/prismatic-crystal",
+      "PrismaticCohomology:PR.7/laurent-f-crystal",
+      "PrismaticCohomology:PR.7/crystal-descent"
+     ],
+     "confidence": "clear"
+    },
+    {
+     "row": 40,
+     "node": "PrismaticCohomology:PR.8/laurent-f-crystals-local-systems",
+     "stageCited": "PrismaticCohomology:PR.7",
+     "replaceBy": [
+      "PrismaticCohomology:PR.7/laurent-f-crystals-local-systems",
+      "PrismaticCohomology:PR.7/crystal-descent",
+      "PrismaticCohomology:PR.7/artin-schreier-riemann-hilbert"
+     ],
+     "confidence": "already resolved: the accepted PR.8 revision no longer cites this stage from this node"
+    },
+    {
+     "row": 41,
+     "node": "PrismaticCohomology:PR.8/absolute-log-prismatic-site",
+     "stageCited": "PrismaticCohomology:PR.5",
+     "replaceBy": [
+      "PrismaticCohomology:PR.5/absolute-prismatic-site"
+     ],
+     "confidence": "clear (the second stage citation of the node in row 16, not in the assembly table)"
+    }
+   ]
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PrismaticCohomology"
+   ],
+   "detail": "R7. Intra-roadmap layer edges used by node prerequisites but not drawn in the atlas: PR.5 → PR.4, PR.6 → PR.4, PR.4 → PR.8, PR.5 → PR.8, PR.6 → PR.8, PR.7 → PR.8 (all acyclic, as the assembly checked).",
+   "proposal": "Declare these six edges in the stages' requires."
+  }
+ ],
+ "sourceIssues": [],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf",
+   "read": "2026-10-13",
+   "sha256": "515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2201.06120",
+   "read": "2026-10-13",
+   "sha256": "0b1beeb20c29424ed8e330c14a66b36c0edcc84255edf5caa0ff9e235139a269"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1606.01796",
+   "read": "2026-10-13",
+   "sha256": "ce060b41e28fef16c011d3d3455c53a8bdc11cd8c98dc4dc6c2be178e1567273"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2003.12541",
+   "read": "2026-10-13",
+   "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd"
+  }
+ ],
+ "maintainerSources": {
+  "note": "Every item the maintainer routed to this roadmap is planned by a node of the accepted part PR.0 (its routedItems); the map is repeated here for the whole roadmap.",
+  "items": {
+   "PAPER-BHATT-SCHOLZE-22/97": "PrismaticCohomology:PR.0/animated-delta-rings",
+   "PAPER-BHATT-SCHOLZE-22/111": "PrismaticCohomology:PR.0/perfectoid-tor-independence",
+   "PAPER-ANSCHUTZ-LEBRAS-23/11": "PrismaticCohomology:PR.0/transversal-prism-regular-sequences",
+   "PAPER-ANSCHUTZ-LEBRAS-23/127": "PrismaticCohomology:PR.0/prismatic-envelope-rank-one-presentation",
+   "PAPER-ANSCHUTZ-LEBRAS-23/155": "PrismaticCohomology:PR.0/unbounded-torsion-example",
+   "PAPER-ANSCHUTZ-LEBRAS-23/25": "PrismaticCohomology:PR.2/derived-crystalline-comparison and PrismaticCohomology:PR.2/qrsp-char-p-acrys (4) (the descent half; the syntomic half is PR.1's)",
+   "PAPER-ANSCHUTZ-LEBRAS-23/134": "PR.1/p-torsion-free-h0-syntomic (for H^0 of the site; complete for prisms with ((A/I^n)[p])_n pro-zero, with a recorded gap and source issue PrismaticCohomology/E14 for the general case).",
+   "PAPER-BHATT-SCHOLZE-22/48": "PrismaticCohomology:PR.2/perfection-descendable",
+   "PAPER-BHATT-SCHOLZE-22/52b": "PrismaticCohomology:PR.2/perfectoidization-symmetric-monoidal",
+   "PAPER-BHATT-SCHOLZE-22/52c": "PrismaticCohomology:PR.2/connective-perfectoidization-perfectoid",
+   "PAPER-BHATT-SCHOLZE-22/110": "PrismaticCohomology:PR.2/perfectoidization-coconnective",
+   "PAPER-ANSCHUTZ-LEBRAS-23/29": "PrismaticCohomology:PR.2/first-conjugate-piece-cotangent",
+   "PAPER-ANSCHUTZ-LEBRAS-23/31": "PrismaticCohomology:PR.2/conjugate-splitting-and-lifting",
+   "PAPER-ANSCHUTZ-LEBRAS-23/46": "PrismaticCohomology:PR.2/kunneth-formula",
+   "PAPER-ANSCHUTZ-LEBRAS-23/47": "PrismaticCohomology:PR.2/kunneth-formula-formal-schemes",
+   "PAPER-ANSCHUTZ-LEBRAS-23/152": "PrismaticCohomology:PR.2/finite-projective-modules-p-complete",
+   "PAPER-ANSCHUTZ-LEBRAS-23/154": "PrismaticCohomology:PR.2/finite-projective-descent-prisms",
+   "PAPER-ANSCHUTZ-LEBRAS-23/42": "PrismaticCohomology:PR.2/qrsp-prism (5)",
+   "PAPER-ANSCHUTZ-LEBRAS-23/43": "PrismaticCohomology:PR.2/qrsp-char-p-acrys",
+   "PAPER-ANSCHUTZ-LEBRAS-23/44": "PrismaticCohomology:PR.2/qrsp-char-p-acrys (2), (3) and PrismaticCohomology:PR.2/regular-semiperfectoid-example",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/098": "PrismaticCohomology:PR.6/nygaard-filtration-q-de-rham-coordinates (the q-de Rham instance, BMS2 Remark 9.11), applying the criterion PrismaticCohomology:PR.3/nygaard-filtration-in-coordinates",
+   "PAPER-ANSCHUTZ-LEBRAS-23/45": "PrismaticCohomology:PR.3/nygaard-graded-pieces (Theorem 3.4.4 = BS22 Theorem 12.2, with Δ_R/N^{≥1}Δ_R ≅ R as part (3))",
+   "PAPER-BHATT-SCHOLZE-22/53": "PrismaticCohomology:PR.4/etale-comparison (Theorem 9.1), PrismaticCohomology:PR.4/fixed-points-completed-colimits (Lemma 9.2), PrismaticCohomology:PR.4/etale-comparison-without-inverting-d (Remark 9.3), PrismaticCohomology:PR.4/etale-comparison-smooth (Theorem 1.8(4))",
+   "PAPER-BHATT-MATHEW-23/009": "PrismaticCohomology:PR.4/syntomic-connectivity (with a gap for the trace-free proof of rigidity); the left Kan extension statements also in PrismaticCohomology:PR.4/syntomic-cohomology-formal-schemes and PrismaticCohomology:PR.4/syntomic-cohomology-schemes",
+   "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B/in-syntomic": "PrismaticCohomology:PR.4/syntomic-cohomology-formal-schemes (the complex and its defining triangle), PrismaticCohomology:PR.4/syntomic-complex-char-p (crystalline and rational form in characteristic p), PrismaticCohomology:PR.4/syntomic-etale-comparison and PrismaticCohomology:PR.4/nearby-cycles-comparison (integral comparison with étale cohomology); the Hodge-filtered form in mixed characteristic is handed downstream (upstreamNotes, restructure)",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/069": "PrismaticCohomology:PR.4/syntomic-filtered-colimits",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/070": "PrismaticCohomology:PR.4/divided-frobenius-contraction",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/074": "PrismaticCohomology:PR.4/log-forms-divided-frobenius",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/087": "PrismaticCohomology:PR.4/acrys-divided-frobenius-surjective",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/088": "PrismaticCohomology:PR.4/syntomic-complex-char-p (corrected for i = 0, source issue PrismaticCohomology/E41)",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/102": "Planned at PR.4; its AΩ input is PrismaticCohomology:PR.6/ainf-omega-comparison, with the coordinate formula φ(d_q log T) = ξ̃ d_q log T from PrismaticCohomology:PR.6/framed-q-de-rham-complex (d).",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/103": "Planned at PR.4; its AΩ input is PrismaticCohomology:PR.6/ainf-omega-comparison.",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/104": "Planned at PR.4; its AΩ input is PrismaticCohomology:PR.6/ainf-omega-comparison.",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/012": "PrismaticCohomology:PR.4/syntomic-complex (the definition of Z_p(n) as a fibre and the divided Frobenius over a perfectoid base; the TC filtration and spectral sequence stay with RefinedTraceMethods:RT.6)",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/013": "PrismaticCohomology:PR.4/log-de-rham-witt-comparison",
+   "PAPER-BHATT-MORROW-SCHOLZE-19/014": "PrismaticCohomology:PR.4/nearby-cycles-comparison"
+  }
+ },
+ "redTeamFindings": [
+  {
+   "finding": "RT-AREA-padic-2/4",
+   "severity": "high",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.7"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/6",
+   "severity": "high",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.4"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/24",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.2",
+    "PrismaticCohomology:PR.4"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/25",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.4"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/26",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.1"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/27",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.3"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/28",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.3",
+    "PrismaticCohomology:PR.4",
+    "PrismaticCohomology:PR.5"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/29",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.5"
+   ]
+  },
+  {
+   "finding": "RT-AREA-padic-2/30",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.7"
+   ]
+  },
+  {
+   "finding": "RT-AREA-etale/28",
+   "severity": "medium",
+   "handledBy": "accepted part PR.0 (redTeamFindings record)",
+   "layers": [
+    "PrismaticCohomology:PR.6"
+   ]
+  }
+ ]
+}
