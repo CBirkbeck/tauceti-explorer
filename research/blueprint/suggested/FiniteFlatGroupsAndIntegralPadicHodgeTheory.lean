@@ -4,22 +4,13 @@ Released under Apache 2.0 license as described in the file LICENSE.
 -/
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Henselian
-import Mathlib.RingTheory.Valuation.Discrete.Basic
+import Mathlib.RingTheory.Etale.Basic
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
-import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.LinearAlgebra.FreeModule.Basic
 import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 import Mathlib.RingTheory.DedekindDomain.Basic
-import Mathlib.NumberTheory.NumberField.Basic
-import Mathlib.RingTheory.MvPowerSeries.Basic
-import Mathlib.RingTheory.AdicCompletion.Basic
-import Mathlib.RingTheory.Discriminant
-import Mathlib.RingTheory.Etale.Finite
-import Mathlib.RingTheory.QuasiFinite.Basic
-import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
-import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.CategoryTheory.Galois.Equivalence
 import Mathlib.RingTheory.WittVector.Frobenius
 import Mathlib.RingTheory.WittVector.Compare
 import Mathlib.RingTheory.WittVector.Identities
@@ -28,10 +19,7 @@ import Mathlib.RingTheory.WittVector.DiscreteValuationRing
 import Mathlib.RingTheory.Length
 import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.Algebra.Ring.Action.Basic
-import Mathlib.Algebra.Module.Equiv.Defs
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
@@ -41,39 +29,22 @@ import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
 and signatures. All proposed results are unproved prototypes at the pinned baseline
-(Mathlib 082e2d3, Tau Ceti f790474); the file elaborates there with `sorry` as its only warning.
-Objects owned by other roadmaps appear as `sorry`-bodied placeholders so that the statements have their
-final signatures; the targets that the pinned libraries cannot yet express are listed by name in the
-closing comment.
+(Mathlib 082e2d3, Tau Ceti f790474), proved by `sorry`.
 
-Layer covered: R07.1 (p-divisible groups of arbitrary height with duality, Tate modules and
-the connected–étale sequence; schematic closure and finite flat models; Raynaud's uniqueness
-theorem for `e < p - 1` and the boundary case; F-vector schemes, Raynaud's classification and
-tame inertia; the Oort–Tate classification, locally and over rings of integers; formal Lie
-groups, the dimension, Tate's Hodge–Tate and generic-fibre theorems; Raynaud's extension
-criterion; the finite part of a quasi-finite group; finite étale groups as Galois modules; gluing
-over a completion and a localisation; the Katz–Mazur groups).
+Only what the pinned libraries can carry is stated in Lean. Every predicate here has a real
+body, built from Tau Ceti's finite locally free group schemes over an affine base
+(`FiniteLocallyFreeCommAffineGroupSchemeCat`, with its coordinate Hopf algebra, Cartier duality
+and base change), Mathlib's Witt vectors, power series and Eisenstein polynomials. The roadmap's
+own constructions whose bodies are planned work (the Oort–Tate and Katz–Mazur groups, the
+supremum of two models, Frobenius and Verschiebung, the Dieudonné module) appear as signatures.
+Nothing owned by another roadmap is given a placeholder: statements that need multiplication by
+`n` and exactness of sequences of group schemes (ModularCurves 0B/0C), `p`-divisible groups
+built on them, period rings (PadicHodgeTheory R06.1), tame inertia (Tau Ceti
+LocalFieldsRamification Layer 4) or Galois cohomology are roadmap targets, and the closing
+comment lists the names of every API item and unit test of the plan that is not declared here.
 
-R07.2 is in `TauCeti.Dieudonne`, R07.3 in `TauCeti.FontaineLaffaille`, and R07.4 in
-`TauCeti.BreuilKisin` (Kisin modules over `𝔖 = W(k)⟦u⟧`, the functor `V_𝔖`, and Kisin's
-classification of p-divisible groups, with the period rings and Galois groups as placeholders).
-R07.5's tame inertia, fundamental characters and peu ramifiée Kummer classes are at the end of the
-file, back in `TauCeti.FiniteFlat`.
-
-Everything is stated over an affine base, on Tau Ceti's
-`FiniteLocallyFreeCommAffineGroupSchemeCat`, whose objects are finite, flat and of finite
-presentation. Objects imported from Tau Ceti's ModularCurves roadmap appear as placeholders
-named after their owners' planned declarations:
-
-* `rank`, `nsmulHom`, `IsLeftExact`, `IsShortExact` — ModularCurves 0B and 0C;
-* `connectedComponent`, `etaleQuotient`, `IsEtale`, `IsConnected`, `IsMultiplicative` —
-  ModularCurves 7E PD-2 (the finite-level connected–étale sequence over a henselian base);
-* `genericFibre`, `genericPoints` — generic fibres and their Galois modules (ModularCurves 0D
-  for the field case);
-* `muPow`, `constZModPow` — the groups `μ_{p^v}` and `ℤ/p^vℤ` of ModularCurves 0B;
-* `CK` — the completion of an algebraic closure of `K` (PadicHodgeTheory R06.1);
-* `IsUnramifiedOutside` — unramified Galois modules (InverseGaloisAndArithmeticFundamentalGroups
-  IG.0, via SGA 1 V.8.2).
+Namespaces: R07.1 and R07.5 in `TauCeti.FiniteFlat`, R07.2 in `TauCeti.Dieudonne`, R07.3 in
+`TauCeti.FontaineLaffaille`, R07.4 in `TauCeti.BreuilKisin`.
 -/
 
 set_option linter.overlappingInstances false
@@ -90,44 +61,37 @@ namespace TauCeti.FiniteFlat
 abbrev FLF (R : Type u) [CommRing R] :=
   FiniteLocallyFreeCommAffineGroupSchemeCat (CommRingCat.of R)
 
-/-! ## Imported objects (placeholders; owned elsewhere) -/
-
-section Placeholders
+section Basic
 
 variable {R : Type u} [CommRing R]
 
-/-- ModularCurves 0B: the rank of a finite locally free group of constant rank. -/
-def rank (G : FLF R) : ℕ := sorry
+/-- The coordinate Hopf algebra `A` of `G = Spec A`. -/
+abbrev coord (G : FLF R) := FiniteLocallyFreeCommAffineGroupSchemeCat.coordinateHopfAlgebra R G
 
-/-- ModularCurves 0B: multiplication by `n` on a commutative group scheme. -/
-def nsmulHom (G : FLF R) (n : ℕ) : G ⟶ G := sorry
+/-- The order (rank) of `G`, the rank of its coordinate algebra. Over a local base, where the
+algebra is free, this is the order; over a general base the planned API uses the locally
+constant rank function (current Tau Ceti `CartierDuality/Rank.lean`). -/
+def rank (G : FLF R) : ℕ := Module.finrank R (coord G)
 
-/-- ModularCurves 0B: `0 → A → B → C` is exact, i.e. `i` is the kernel of `f`. -/
-def IsLeftExact {A B C : FLF R} (i : A ⟶ B) (f : B ⟶ C) : Prop := sorry
+/-- `G` is étale: its coordinate algebra is étale over `R`. -/
+def IsEtale (G : FLF R) : Prop := Algebra.Etale R (coord G)
 
-/-- ModularCurves 0C: `0 → A → B → C → 0` is exact for the fppf topology. -/
-def IsShortExact {A B C : FLF R} (i : A ⟶ B) (f : B ⟶ C) : Prop := sorry
+/-- `G` is of multiplicative type: its Cartier dual is étale. -/
+def IsMultiplicative (G : FLF R) : Prop :=
+  IsEtale (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G)
 
-/-- ModularCurves 0B: `G` is étale over `R`. -/
-def IsEtale (G : FLF R) : Prop := sorry
+/-- Over a local base, `G` is connected exactly when its finite coordinate algebra is local. -/
+def IsConnectedLocal (G : FLF R) : Prop := IsLocalRing (coord G)
 
-/-- ModularCurves 0B: `G` is of multiplicative type (its Cartier dual is étale). -/
-def IsMultiplicative (G : FLF R) : Prop := sorry
+/-- Biduality (Tau Ceti, read at the pin). -/
+example (G : FLF R) :
+    FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R
+      (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G) ≅ G :=
+  (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualDualIso R G).symm
 
-/-- ModularCurves 7E PD-2: `G` is connected (over a local base). -/
-def IsConnected (G : FLF R) : Prop := sorry
-
-/-- ModularCurves 7E PD-2: the connected component `G⁰`. -/
-def connectedComponent [HenselianLocalRing R] (G : FLF R) : FLF R := sorry
-
-/-- ModularCurves 7E PD-2: the étale quotient `G^ét`. -/
-def etaleQuotient [HenselianLocalRing R] (G : FLF R) : FLF R := sorry
-
-/-- ModularCurves 0B: `μ_{p^v}`. -/
-def muPow (p v : ℕ) : FLF R := sorry
-
-/-- ModularCurves 0B: the constant group `ℤ/p^vℤ`. -/
-def constZModPow (p v : ℕ) : FLF R := sorry
+/-- R07.1/p-divisible-cartier-dual, at finite level: Cartier duality preserves the order. -/
+theorem rank_cartierDual (G : FLF R) :
+    rank (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G) = rank G := sorry
 
 variable (K : Type u) [Field K] [Algebra R K]
 
@@ -135,109 +99,12 @@ variable (K : Type u) [Field K] [Algebra R K]
 def genericFibre (G : FLF R) : FLF K :=
   (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).obj G
 
-/-- The Galois module `G(K̄)` of points of the generic fibre (ModularCurves 0D). -/
-def genericPoints (K : Type u) [Field K] [Algebra R K] (G : FLF R) : Type u := sorry
+/-- Base change preserves the order. -/
+theorem rank_genericFibre (G : FLF R) : rank (genericFibre K G) = rank G := sorry
 
-instance (G : FLF R) : AddCommGroup (genericPoints K G) := sorry
+end Basic
 
-instance (G : FLF R) :
-    DistribMulAction (Field.absoluteGaloisGroup K) (genericPoints K G) := sorry
-
-end Placeholders
-
-/-! ## p-divisible groups -/
-
-/-- A `p`-divisible group of height `h` over `R`: levels `G_v` of rank `p^(h v)` with
-`0 → G_v → G_{v+1} → G_{v+1}` exact, the second map being multiplication by `p^v`. -/
-structure PDivisibleGroup (R : Type u) [CommRing R] (p h : ℕ) where
-  level : ℕ → FLF R
-  incl : ∀ v, level v ⟶ level (v + 1)
-  rank_level : ∀ v, rank (level v) = p ^ (h * v)
-  exact : ∀ v, IsLeftExact (incl v) (nsmulHom (level (v + 1)) (p ^ v))
-
-namespace PDivisibleGroup
-
-variable {R : Type u} [CommRing R] {p h : ℕ}
-
-/-- Homomorphisms: compatible families of level maps. The heights may differ. -/
-@[ext]
-structure Hom {h' : ℕ} (G : PDivisibleGroup R p h) (H : PDivisibleGroup R p h') where
-  app : ∀ v, G.level v ⟶ H.level v
-  comm : ∀ v, G.incl v ≫ app (v + 1) = app v ≫ H.incl v
-
-/-- The height. -/
-def height (_G : PDivisibleGroup R p h) : ℕ := h
-
-/-- Base change along `R → S`, levelwise. -/
-def baseChange (S : Type u) [CommRing S] [Algebra R S] (G : PDivisibleGroup R p h) :
-    PDivisibleGroup S p h := sorry
-
-/-- `μ_{p^∞}`, of height one. -/
-def muPInfty (R : Type u) [CommRing R] (p : ℕ) : PDivisibleGroup R p 1 := sorry
-
-/-- `ℚ_p/ℤ_p`, constant, of height one. -/
-def constQpZp (R : Type u) [CommRing R] (p : ℕ) : PDivisibleGroup R p 1 := sorry
-
-theorem height_muPInfty : (muPInfty R p).height = 1 := rfl
-
-/-- R07.1/p-divisible-level-exactness: `0 → G_v → G_{v+t} → G_t → 0` is exact. -/
-theorem exact_levels [Fact p.Prime] (G : PDivisibleGroup R p h) (v t : ℕ) :
-    ∃ (i : G.level v ⟶ G.level (v + t)) (j : G.level (v + t) ⟶ G.level t),
-      IsShortExact i j := sorry
-
-/-- R07.1/p-divisible-cartier-dual: the levelwise Cartier dual, with the duals of the maps
-`G_{v+1} → G_v` induced by `p` as transitions. -/
-def cartierDual (G : PDivisibleGroup R p h) : PDivisibleGroup R p h := sorry
-
-theorem cartierDual_level (G : PDivisibleGroup R p h) (v : ℕ) :
-    (cartierDual G).level v =
-      FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R (G.level v) := sorry
-
-/-- Biduality. -/
-def cartierDualDual (G : PDivisibleGroup R p h) : Hom (cartierDual (cartierDual G)) G := sorry
-
-/-- `(ℚ_p/ℤ_p)^D ≅ μ_{p^∞}`. -/
-def cartierDual_constQpZp : Hom (cartierDual (constQpZp R p)) (muPInfty R p) := sorry
-
-section Tate
-
-variable [IsDomain R] (K : Type u) [Field K] [Algebra R K] [IsFractionRing R K]
-  [CharZero K]
-
-/-- R07.1/p-divisible-tate-module: `T_p(G) = lim_v G_v(K̄)`, with its Galois action. -/
-def tateModule (K : Type u) [Field K] [Algebra R K] (G : PDivisibleGroup R p h) : Type u := sorry
-
-instance (G : PDivisibleGroup R p h) : AddCommGroup (tateModule K G) := sorry
-
-instance [Fact p.Prime] (G : PDivisibleGroup R p h) : Module ℤ_[p] (tateModule K G) := sorry
-
-theorem tateModule_free [Fact p.Prime] (G : PDivisibleGroup R p h) :
-    Module.Free ℤ_[p] (tateModule K G) ∧ Module.finrank ℤ_[p] (tateModule K G) = h := sorry
-
-end Tate
-
-/-- R07.1/p-divisible-connected-etale: the connected and étale parts are `p`-divisible, with
-heights adding up, over a henselian local base. The sequence need not split over `R`. -/
-theorem connectedEtale_exact [HenselianLocalRing R] (G : PDivisibleGroup R p h) :
-    ∃ (h₀ h₁ : ℕ) (G₀ : PDivisibleGroup R p h₀) (G₁ : PDivisibleGroup R p h₁),
-      h₀ + h₁ = h ∧
-      (∀ v, G₀.level v = connectedComponent (G.level v)) ∧
-      (∀ v, G₁.level v = etaleQuotient (G.level v)) := sorry
-
-end PDivisibleGroup
-
-/-- Stix Proposition 40(4): an extension of a connected group by an étale one splits. -/
-theorem split_of_etale_sub_connected_quot {R : Type u} [CommRing R] [HenselianLocalRing R]
-    {E G C : FLF R} (i : E ⟶ G) (f : G ⟶ C) (hex : IsShortExact i f)
-    (hE : IsEtale E) (hC : IsConnected C) :
-    ∃ s : C ⟶ G, s ≫ f = 𝟙 C := sorry
-
-/-! ## Closures and finite flat models -/
-
-/-- R07.1/simple-finite-flat-groups (Deligne): a commutative group scheme of order `m` is
-killed by `m`. -/
-theorem nsmulHom_rank_eq_zero {R : Type u} [CommRing R] (G : FLF R) :
-    nsmulHom G (rank G) = 0 := sorry
+/-! ## R07.1: closures and finite flat models -/
 
 section Models
 
@@ -250,8 +117,7 @@ theorem exists_schematicClosure [IsDedekindDomain R] (G : FLF R) (H : FLF K)
     (ι : H ⟶ genericFibre K G) [Mono ι] :
     ∃ (𝓗 : FLF R) (j : 𝓗 ⟶ G), Mono j ∧ Nonempty (genericFibre K 𝓗 ≅ H) := sorry
 
-/-- R07.1/finite-flat-prolongations: a finite flat model of a finite commutative
-`K`-group. -/
+/-- R07.1/finite-flat-prolongations: a finite flat model of a finite commutative `K`-group. -/
 structure Prolongation (G : FLF K) where
   model : FLF R
   iso : genericFibre K model ≅ G
@@ -261,80 +127,61 @@ namespace Prolongation
 variable {K} {G : FLF K}
 
 /-- `𝓖 ≥ 𝓖'`: the identity of `G` extends to an `R`-morphism `𝓖 → 𝓖'`. -/
-def Dominates (𝓖 𝓖' : Prolongation (R := R) K G) : Prop := sorry
+def Dominates (𝓖 𝓖' : Prolongation (R := R) K G) : Prop :=
+  ∃ f : 𝓖.model ⟶ 𝓖'.model,
+    (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).map f ≫ 𝓖'.iso.hom =
+      𝓖.iso.hom
 
-/-- The supremum of two prolongations. -/
+/-- Test (`Prolongation.self`): every model dominates itself, through the identity. -/
+theorem self (𝓖 : Prolongation (R := R) K G) : 𝓖.Dominates 𝓖 := sorry
+
+/-- The extending morphism is unique (`Prolongation.Dominates`, uniqueness). -/
+theorem dominates_unique {𝓖 𝓖' : Prolongation (R := R) K G} (f g : 𝓖.model ⟶ 𝓖'.model)
+    (hf : (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).map f ≫ 𝓖'.iso.hom =
+      𝓖.iso.hom)
+    (hg : (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).map g ≫ 𝓖'.iso.hom =
+      𝓖.iso.hom) : f = g := sorry
+
+/-- The supremum of two models: the closure of the antidiagonal (construction of this roadmap). -/
 def sup (𝓖 𝓖' : Prolongation (R := R) K G) : Prolongation (R := R) K G := sorry
+
+theorem le_sup_left (𝓖 𝓖' : Prolongation (R := R) K G) : (sup 𝓖 𝓖').Dominates 𝓖 := sorry
 
 end Prolongation
 
-/-- The absolute ramification index `e = v(p)` of a mixed-characteristic DVR. -/
+/-- The absolute ramification index `e = v(p)` of a discrete valuation ring. -/
 def absRamificationIndex (R : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
-    (p : ℕ) : ℕ := sorry
+    (p : ℕ) : ℕ :=
+  (IsDiscreteValuationRing.addVal R (p : R)).toNat
 
-/-- R07.1/raynaud-uniqueness (Raynaud Theorem 3.3.3): if `e < p - 1` a finite commutative
-`K`-group killed by a power of `p` has at most one finite flat prolongation. -/
+/-- R07.1/raynaud-uniqueness (Raynaud Théorème 3.3.3): if `e < p - 1`, a finite commutative
+`K`-group of `p`-power order has at most one finite flat model. -/
 theorem prolongation_unique_of_lt [IsDiscreteValuationRing R] [CharZero K] (p : ℕ)
     [Fact p.Prime] (he : absRamificationIndex R p < p - 1) (G : FLF K)
-    (hG : ∃ n, nsmulHom G (p ^ n) = 0) (𝓖 𝓖' : Prolongation (R := R) K G) :
+    (hG : ∃ n, rank G = p ^ n) (𝓖 𝓖' : Prolongation (R := R) K G) :
     Nonempty (𝓖.model ≅ 𝓖'.model) := sorry
 
-/-- Raynaud Corollary 3.3.6(1): full faithfulness of the generic fibre for `e < p - 1`. -/
+/-- Raynaud Corollaire 3.3.6, 1°: full faithfulness of the generic fibre for `e < p - 1`. -/
 theorem genericFibre_map_bijective [IsDiscreteValuationRing R] [CharZero K] (p : ℕ)
     [Fact p.Prime] (he : absRamificationIndex R p < p - 1) (𝓖 𝓗 : FLF R)
-    (h𝓖 : ∃ n, nsmulHom 𝓖 (p ^ n) = 0) (h𝓗 : ∃ n, nsmulHom 𝓗 (p ^ n) = 0) :
+    (h𝓖 : ∃ n, rank 𝓖 = p ^ n) (h𝓗 : ∃ n, rank 𝓗 = p ^ n) :
     Function.Bijective
       ((FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).map (X := 𝓖) (Y := 𝓗)) :=
   sorry
 
 end Models
 
-/-! ## F-vector schemes and tame inertia -/
+/-! ## R07.1: groups of prime order and the Katz–Mazur groups -/
 
-/-- Raynaud's condition (**): the eigen-sheaves of the augmentation ideal for the fundamental
-characters of `F^×` are invertible. -/
-def SatisfiesStarStar {F : Type} [Field F] [Fintype F] {R : Type u} [CommRing R] (G : FLF R)
-    (act : F →* End G) : Prop := sorry
-
-/-- R07.1/f-vector-scheme: an `F`-vector scheme of rank `card F` satisfying (**). The base is
-an algebra over Raynaud's ring `D`. -/
-structure FVectorScheme (F : Type) [Field F] [Fintype F] (R : Type u) [CommRing R] where
-  G : FLF R
-  act : F →* End G
-  rank_eq : rank G = Fintype.card F
-  starStar : SatisfiesStarStar G act
-
-namespace FVectorScheme
-
-variable {F : Type} [Field F] [Fintype F] {R : Type u} [CommRing R] [IsDomain R]
-  [IsDiscreteValuationRing R] [HenselianLocalRing R]
-  [IsSepClosed (IsLocalRing.ResidueField R)] {p r : ℕ} [Fact p.Prime]
-
-/-- The exponents `n_i = v(δ_i)` of the equations `X_i^p = δ_i X_{i+1}` (Corollary 1.5.1). -/
-def exponents (hq : Fintype.card F = p ^ r) (G : FVectorScheme F R) : ZMod r → ℕ := sorry
-
-/-- R07.1/raynaud-classification (Corollary 1.5.2), bound: `0 ≤ n_i ≤ e`. -/
-theorem exponents_le (hq : Fintype.card F = p ^ r) (G : FVectorScheme F R) (i : ZMod r) :
-    exponents hq G i ≤ absRamificationIndex R p := sorry
-
-/-- Corollary 1.5.2, injectivity: the exponents determine the scheme up to isomorphism. -/
-theorem nonempty_iso_of_exponents_eq (hq : Fintype.card F = p ^ r) (G G' : FVectorScheme F R)
-    (h : exponents hq G = exponents hq G') : Nonempty (G.G ≅ G'.G) := sorry
-
-/-- Corollary 1.5.2, surjectivity: every family with `n_i ≤ e` occurs. -/
-theorem exists_exponents_eq (hq : Fintype.card F = p ^ r) (n : ZMod r → ℕ)
-    (hn : ∀ i, n i ≤ absRamificationIndex R p) :
-    ∃ G : FVectorScheme F R, exponents hq G = n := sorry
-
-end FVectorScheme
-
-/-! ## Groups of prime order -/
-
-/-- The Oort–Tate group `G_{a,b} = Spec R[X]/(X^p - aX)`, for `a b = w_p`. -/
+/-- The Oort–Tate group `G_{a,b} = Spec R[X]/(X^p - aX)`, for `a b = w_p` (construction of this
+roadmap; the comultiplication is Oort–Tate's). -/
 def oortTateGroup {R : Type u} [CommRing R] (p : ℕ) (a b : R) : FLF R := sorry
 
-/-- R07.1/oort-tate-classification (Stix Theorem 60 (2)): `G_{a,b} ≅ G_{c,d}` iff
-`(c, d) = (u^{p-1} a, u^{1-p} b)` for a unit `u`. -/
+theorem rank_oortTateGroup {R : Type u} [CommRing R] [Nontrivial R] (p : ℕ) [Fact p.Prime]
+    (a b : R) : rank (oortTateGroup p a b) = p := sorry
+
+/-- R07.1/oort-tate-classification (Oort–Tate Theorem 2; Stix Theorem 60): `G_{a,b} ≅ G_{c,d}`
+iff `(c, d) = (u^{p-1} a, u^{1-p} b)` for a unit `u`. -/
 theorem oortTateGroup_iso_iff {R : Type u} [CommRing R] (p : ℕ) [Fact p.Prime]
     (a b c d : R) :
     Nonempty (oortTateGroup p a b ≅ oortTateGroup p c d) ↔
@@ -345,224 +192,23 @@ theorem cartierDual_oortTateGroup {R : Type u} [CommRing R] (p : ℕ) (a b : R) 
     Nonempty (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R (oortTateGroup p a b) ≅
       oortTateGroup p b a) := sorry
 
-/-- R07.1/oort-tate-over-number-rings (Artin–Mazur): over `ℤ` every group of prime order `p`
-is `ℤ/pℤ` or `μ_p`. -/
-theorem group_of_order_p_over_int (p : ℕ) [Fact p.Prime] (G : FLF ℤ) (hG : rank G = p) :
-    Nonempty (G ≅ constZModPow p 1) ∨ Nonempty (G ≅ muPow p 1) := sorry
+/-- R07.1/oort-tate-classification: over `ℤ_p` a group of order `p` is étale or multiplicative
+(one of `a`, `b` is a unit, since `v(w_p) = 1`). -/
+theorem isEtale_or_isMultiplicative_of_rank_eq (p : ℕ) [Fact p.Prime] (G : FLF ℤ_[p])
+    (hG : rank G = p) : IsEtale G ∨ IsMultiplicative G := sorry
 
-/-! ## Formal Lie groups, dimension and Tate's theorems -/
-
-/-- R07.1/formal-lie-group: the axioms of an `n`-dimensional commutative formal group law
-`Φ(X, Y)`: associativity, `Φ(X, 0) = X = Φ(0, X)` and commutativity, by substitution. -/
-def IsCommFormalGroupLaw {Λ : Type u} [CommRing Λ] {n : ℕ}
-    (Φ : Fin n → MvPowerSeries (Fin n ⊕ Fin n) Λ) : Prop := sorry
-
-/-- R07.1/formal-lie-group: a commutative formal Lie group `Spf Λ⟦X_1, …, X_n⟧`. -/
-structure FormalLieGroup (Λ : Type u) [CommRing Λ] (n : ℕ) where
-  law : Fin n → MvPowerSeries (Fin n ⊕ Fin n) Λ
-  isLaw : IsCommFormalGroupLaw law
-
-namespace FormalLieGroup
-
-variable {Λ : Type u} [CommRing Λ] {n : ℕ}
-
-/-- The dimension. -/
-def dim (_𝒢 : FormalLieGroup Λ n) : ℕ := n
-
-/-- `[p]^*` makes `Λ⟦X⟧` a free module of finite rank over itself. -/
-def IsPDivisible (𝒢 : FormalLieGroup Λ n) (p : ℕ) : Prop := sorry
-
-/-- The height: `[p]^*` has rank `p ^ height`. -/
-def height (𝒢 : FormalLieGroup Λ n) (p : ℕ) : ℕ := sorry
-
-/-- `Ĝ_m`, with law `X + Y + XY`. -/
-def multiplicative (Λ : Type u) [CommRing Λ] : FormalLieGroup Λ 1 := sorry
-
-theorem height_multiplicative (p : ℕ) [Fact p.Prime] :
-    (multiplicative (ZMod p)).height p = 1 := sorry
-
-/-- R07.1/serre-tate-connected-p-divisible: the connected `p`-divisible group `𝒢[p^∞]`. -/
-def pDivisibleGroup (𝒢 : FormalLieGroup Λ n) (p : ℕ) (_hp : 𝒢.IsPDivisible p) :
-    PDivisibleGroup Λ p (𝒢.height p) := sorry
-
-end FormalLieGroup
-
-namespace PDivisibleGroup
-
-section Complete
-
-variable {R : Type u} [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
-  [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [HenselianLocalRing R] {p h : ℕ} [Fact p.Prime]
-
-/-- Serre–Tate (Tate Proposition 1, Stix Theorem 70): a connected `p`-divisible group over a
-complete noetherian local ring comes from a `p`-divisible formal Lie group. -/
-theorem exists_formalLieGroup (G : PDivisibleGroup R p h) (hG : ∀ v, IsConnected (G.level v)) :
-    ∃ (n : ℕ) (𝒢 : FormalLieGroup R n) (hp : 𝒢.IsPDivisible p) (f : Hom (𝒢.pDivisibleGroup p hp) G),
-      ∀ v, IsIso (f.app v) := sorry
-
-/-- R07.1/p-divisible-dimension: the dimension of the formal Lie group of `G⁰`. -/
-def dim (G : PDivisibleGroup R p h) : ℕ := sorry
-
-theorem dim_muPInfty : (muPInfty R p).dim = 1 := sorry
-
-theorem dim_constQpZp : (constQpZp R p).dim = 0 := sorry
-
-/-- R07.1/dimension-plus-dual-dimension (Tate Proposition 3). -/
-theorem dim_add_dim_cartierDual (G : PDivisibleGroup R p h) : G.dim + (cartierDual G).dim = h :=
-  sorry
-
-/-- R07.1/p-divisible-discriminant (Tate Proposition 2): the discriminant of the `v`-th level is
-generated by `p ^ (n v p^{h v})`. Stated through a placeholder for the discriminant ideal. -/
-theorem discr_level (discrIdeal : FLF R → Ideal R) (G : PDivisibleGroup R p h) (v : ℕ) :
-    discrIdeal (G.level v) = Ideal.span {(p : R) ^ (G.dim * v * p ^ (h * v))} := sorry
-
-end Complete
-
-section TateTheorems
-
-variable {R : Type u} [CommRing R] [IsDomain R] (K : Type u) [Field K] [Algebra R K]
-  [IsFractionRing R K] [CharZero K] {p : ℕ} [Fact p.Prime]
-
-instance {h : ℕ} (G : PDivisibleGroup R p h) :
-    DistribMulAction (Field.absoluteGaloisGroup K) (tateModule K G) := sorry
-
-/-- The homomorphism of generic fibres induced by `f`. -/
-def Hom.genericFibre {h h' : ℕ} {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'}
-    (f : Hom G H) : Hom (G.baseChange K) (H.baseChange K) := sorry
-
-/-- The `ℤ_p`-linear map of Tate modules induced by `f`. -/
-def Hom.tateModuleMap {h h' : ℕ} {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'}
-    (f : Hom G H) : tateModule K G →ₗ[ℤ_[p]] tateModule K H := sorry
-
-/-- R07.1/tate-generic-fibre-theorem (Tate Theorem 4): over an integrally closed noetherian domain
-with fraction field of characteristic zero, homomorphisms of generic fibres extend uniquely. -/
-theorem extend_genericFibre [IsIntegrallyClosed R] [IsNoetherianRing R] {h h' : ℕ}
-    (G : PDivisibleGroup R p h) (H : PDivisibleGroup R p h')
-    (f : Hom (G.baseChange K) (H.baseChange K)) :
-    ∃! g : Hom G H, g.genericFibre K = f := sorry
-
-/-- Tate Theorem 4, Corollary 2: a homomorphism that is an isomorphism generically is one. -/
-theorem isIso_of_isIso_genericFibre [IsIntegrallyClosed R] [IsNoetherianRing R] {h h' : ℕ}
-    {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'} (g : Hom G H)
-    (hg : ∀ v, IsIso ((g.genericFibre K).app v)) : ∀ v, IsIso (g.app v) := sorry
-
-/-- R07.1/closure-of-generic-p-divisible-subgroups (Tate Proposition 12): a Galois-stable
-direct summand of `T_p(F)` is the Tate module of a `p`-divisible group mapping to `F`. -/
-theorem exists_of_tateModule_summand [IsDiscreteValuationRing R] {h : ℕ}
-    (F : PDivisibleGroup R p h) (M : Submodule ℤ_[p] (tateModule K F))
-    (hsummand : ∃ M' : Submodule ℤ_[p] (tateModule K F), IsCompl M M')
-    (hstable : ∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ M, σ • x ∈ M) :
-    ∃ (h' : ℕ) (Γ : PDivisibleGroup R p h') (φ : Hom Γ F),
-      Function.Injective (φ.tateModuleMap K) ∧ LinearMap.range (φ.tateModuleMap K) = M := sorry
-
-/-- PadicHodgeTheory R06.1: `C`, the completion of an algebraic closure of `K`. -/
-def CK (K : Type u) [Field K] : Type u := sorry
-
-instance : Field (CK K) := sorry
-
-instance : Algebra K (CK K) := sorry
-
-/-- `Hom_{ℤ_p}(T_p(G), C)^{G_K}`, a `K`-vector space. -/
-def hodgeTateInvariants (K : Type u) [Field K] [Algebra R K] {h : ℕ} (G : PDivisibleGroup R p h) : Type u := sorry
-
-instance {h : ℕ} (G : PDivisibleGroup R p h) : AddCommGroup (hodgeTateInvariants K G) := sorry
-
-instance {h : ℕ} (G : PDivisibleGroup R p h) : Module K (hodgeTateInvariants K G) := sorry
-
-/-- R07.1/hodge-tate-p-divisible (Tate Theorem 3; Stix Corollary 92): `Hom(T_p G, C)^{G_K}` has
-dimension `dim G^D`, so `V_p(G)` is Hodge–Tate with weights `0` and `1`. -/
-theorem finrank_hodgeTateInvariants [IsLocalRing R] [IsNoetherianRing R]
-    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [HenselianLocalRing R]
-    [IsDiscreteValuationRing R] {h : ℕ} (G : PDivisibleGroup R p h) :
-    Module.finrank K (hodgeTateInvariants K G) = (cartierDual G).dim := sorry
-
-end TateTheorems
-
-end PDivisibleGroup
-
-/-- R07.1/raynaud-extension-of-generic-p-divisible (Raynaud Proposition 2.3.1): a `p`-divisible
-group over `K` whose levels all have finite flat models extends to one over `R`. -/
-theorem PDivisibleGroup.exists_extension_of_levels {R : Type u} [CommRing R] [IsDomain R]
-    [IsDiscreteValuationRing R] (K : Type u) [Field K] [Algebra R K] [IsFractionRing R K]
-    [CharZero K] {p h : ℕ} [Fact p.Prime] (G : PDivisibleGroup K p h)
-    (hG : ∀ v, Nonempty (Prolongation (R := R) K (G.level v))) :
-    ∃ (𝓖 : PDivisibleGroup R p h) (f : PDivisibleGroup.Hom (𝓖.baseChange K) G),
-      ∀ v, IsIso (f.app v) := sorry
-
-/-! ## Groups over rings of S-integers -/
-
-/-- A separated, quasi-finite, flat, finitely presented commutative group scheme over `R`
-(owned here; the carrier of R07.1/finite-part-of-quasi-finite-group). -/
-def QFGroup (R : Type u) [CommRing R] : Type (u + 1) := sorry
-
-/-- R07.1/finite-part-of-quasi-finite-group: the open and closed finite part `𝒢^f`. -/
-def QFGroup.finitePart {R : Type u} [CommRing R] [HenselianLocalRing R] (𝒢 : QFGroup R) :
-    FLF R := sorry
-
-/-- InverseGaloisAndArithmeticFundamentalGroups IG.0 / SGA 1 V.8.2: the `G_ℚ`-module `M` is
-unramified at every prime not dividing `N`. -/
-def IsUnramifiedOutside (N : ℕ) (M : Type) [AddCommGroup M]
-    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] : Prop := sorry
-
-section Etale
-
-variable (N : ℕ)
-
-/-- R07.1/etale-groups-as-galois-modules: the finite étale group scheme `V(ρ)` over `ℤ[1/N]`
-attached to a finite `G_ℚ`-module unramified outside `N∞`. -/
-def etaleGroupOfGaloisModule (M : Type) [AddCommGroup M] [Finite M]
-    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] (_hM : IsUnramifiedOutside N M) :
-    FLF (Localization.Away (N : ℤ)) := sorry
-
-theorem isEtale_etaleGroupOfGaloisModule (M : Type) [AddCommGroup M] [Finite M]
-    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] (hM : IsUnramifiedOutside N M) :
-    IsEtale (etaleGroupOfGaloisModule N M hM) := sorry
-
-/-- Every finite étale commutative group scheme over `ℤ[1/N]` arises this way. -/
-theorem exists_galoisModule_of_isEtale (G : FLF (Localization.Away (N : ℤ))) (hG : IsEtale G) :
-    ∃ (M : Type) (_ : AddCommGroup M) (_ : Finite M)
-      (_ : DistribMulAction (Field.absoluteGaloisGroup ℚ) M) (hM : IsUnramifiedOutside N M),
-      Nonempty (G ≅ etaleGroupOfGaloisModule N M hM) := sorry
-
-end Etale
-
-/-- R07.1/gluing-equivalence: a gluing datum `(G₁, G₂, θ)` over `R̂` and `R[1/p]`; the
-isomorphism `θ` over `R̂[1/p]` is recorded through the placeholder `GluingIso`. -/
-def GluingIso {R : Type u} [CommRing R] (p : R) (G₁ : FLF (AdicCompletion (Ideal.span {p}) R))
-    (G₂ : FLF (Localization.Away p)) : Type u := sorry
-
-structure GluingDatum (R : Type u) [CommRing R] (p : R) where
-  G₁ : FLF (AdicCompletion (Ideal.span {p}) R)
-  G₂ : FLF (Localization.Away p)
-  θ : GluingIso p G₁ G₂
-
-/-- The gluing datum of a finite flat `R`-group. -/
-def toGluingDatum {R : Type u} [CommRing R] (p : R) (G : FLF R) : GluingDatum R p := sorry
-
-/-- Schoof Proposition 2.3 (essential surjectivity): every gluing datum comes from a finite
-flat `R`-group, for `R` noetherian. -/
-theorem exists_of_gluingDatum {R : Type u} [CommRing R] [IsNoetherianRing R] (p : R)
-    (D : GluingDatum R p) :
-    ∃ (G : FLF R) (e₁ : (toGluingDatum p G).G₁ ≅ D.G₁), Nonempty ((toGluingDatum p G).G₂ ≅ D.G₂) :=
-  sorry
-
-/-- R07.1/katz-mazur-groups: `T_ε = Spec ⊕_{i<p} R[X_i]/(X_i^p - ε^i)`. -/
+/-- R07.1/katz-mazur-groups: `T_ε = Spec ⊕_{i<p} R[X_i]/(X_i^p - ε^i)` (construction of this
+roadmap). -/
 def katzMazur {R : Type u} [CommRing R] (p : ℕ) (ε : Rˣ) : FLF R := sorry
 
-theorem katzMazur_rank {R : Type u} [CommRing R] (p : ℕ) [Fact p.Prime] (ε : Rˣ) :
+theorem katzMazur_rank {R : Type u} [CommRing R] [Nontrivial R] (p : ℕ) [Fact p.Prime] (ε : Rˣ) :
     rank (katzMazur p ε) = p ^ 2 := sorry
-
-/-- `0 → μ_p → T_ε → ℤ/pℤ → 0`. -/
-theorem katzMazur_extension {R : Type u} [CommRing R] (p : ℕ) [Fact p.Prime] (ε : Rˣ) :
-    ∃ (i : muPow p 1 ⟶ katzMazur p ε) (j : katzMazur p ε ⟶ constZModPow p 1),
-      IsShortExact i j := sorry
 
 /-- `T_ε ≅ T_{ε u^p}`. -/
 def katzMazurIsoOfDiv {R : Type u} [CommRing R] (p : ℕ) (ε u : Rˣ) :
     katzMazur p ε ≅ katzMazur p (ε * u ^ p) := sorry
 
 end TauCeti.FiniteFlat
-
 
 /-! ## R07.2: Dieudonné theory over a perfect field
 
@@ -598,25 +244,62 @@ structure DieudonneModule.Hom (M N : DieudonneModule p k) where
   comm_F : ∀ x, toLinearMap (M.F x) = N.F (toLinearMap x)
   comm_V : ∀ x, toLinearMap (M.V x) = N.V (toLinearMap x)
 
-/-- R07.2/frobenius-verschiebung: the relative Frobenius `F_G : G → G^{(p)}` (its target, the
-Frobenius twist, is recorded through `frobeniusTwist`). -/
-def frobeniusTwist (p : ℕ) (k : Type u) [Field k] (G : FLF k) : FLF k := sorry
+/-- Test (`DieudonneModule.zero`): the zero module, the module of the trivial group. -/
+def DieudonneModule.zero : DieudonneModule p k where
+  M := PUnit
+  F := 0
+  V := 0
+  F_smul _ _ := Subsingleton.elim _ _
+  V_smul _ _ := Subsingleton.elim _ _
+  F_V _ := Subsingleton.elim _ _
+  V_F _ := Subsingleton.elim _ _
 
+/-- R07.2/standard-dieudonne-modules (i): `M(ℚ_p/ℤ_p) = 𝕎 k` with `F = σ`, `V = p σ⁻¹`. -/
+def dieudonneModuleQpZp : DieudonneModule p k where
+  M := WittVector p k
+  F := (WittVector.frobenius : WittVector p k →+* WittVector p k).toAddMonoidHom
+  V := (p : WittVector p k) • ((WittVector.frobeniusEquiv p k).symm.toRingHom.toAddMonoidHom)
+  F_smul a x := sorry
+  V_smul a x := sorry
+  F_V x := sorry
+  V_F x := sorry
+
+/-- R07.2/standard-dieudonne-modules (ii): `M(μ_{p^∞}) = 𝕎 k` with `F = p σ`, `V = σ⁻¹`. -/
+def dieudonneModuleMuPInfty : DieudonneModule p k where
+  M := WittVector p k
+  F := (p : WittVector p k) • (WittVector.frobenius : WittVector p k →+* WittVector p k).toAddMonoidHom
+  V := (WittVector.frobeniusEquiv p k).symm.toRingHom.toAddMonoidHom
+  F_smul a x := sorry
+  V_smul a x := sorry
+  F_V x := sorry
+  V_F x := sorry
+
+/-- The two standard modules are told apart by `F`: on `M(ℚ_p/ℤ_p)` it is bijective, on
+`M(μ_{p^∞})` its image lies in `p 𝕎 k` (slopes `0` and `1`). -/
+theorem frobenius_bijective_dieudonneModuleQpZp :
+    Function.Bijective (dieudonneModuleQpZp p k).F := sorry
+
+theorem not_frobenius_surjective_dieudonneModuleMuPInfty :
+    ¬ Function.Surjective (dieudonneModuleMuPInfty p k).F := sorry
+
+/-- The Frobenius twist `G^{(p)} = G ×_{k, Frob} k`. -/
+def frobeniusTwist (G : FLF k) : FLF k :=
+  letI : Algebra k k := (frobenius k p).toAlgebra
+  (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor k k).obj G
+
+/-- R07.2/frobenius-verschiebung: the relative Frobenius `F_G : G → G^{(p)}` and the
+Verschiebung `V_G : G^{(p)} → G` (constructions of this roadmap). -/
 def frobeniusHom (G : FLF k) : G ⟶ frobeniusTwist p k G := sorry
 
 def verschiebungHom (G : FLF k) : frobeniusTwist p k G ⟶ G := sorry
 
-/-- Pink Theorem 14.4: `V_G ∘ F_G = p`. -/
-theorem frobeniusHom_comp_verschiebungHom (G : FLF k) :
-    frobeniusHom p k G ≫ verschiebungHom p k G = nsmulHom G p := sorry
-
 /-- R07.2/dieudonne-module-finite: the contravariant Dieudonné module of a finite commutative
-`p`-group scheme. -/
-def dieudonneModuleFinite (G : FLF k) : DieudonneModule p k := sorry
+`p`-group scheme over `k` (construction of this roadmap). -/
+def dieudonneModule (G : FLF k) : DieudonneModule p k := sorry
 
 /-- Functoriality (contravariant). -/
 def dieudonneMap {G H : FLF k} (f : G ⟶ H) :
-    DieudonneModule.Hom p k (dieudonneModuleFinite p k H) (dieudonneModuleFinite p k G) := sorry
+    DieudonneModule.Hom p k (dieudonneModule p k H) (dieudonneModule p k G) := sorry
 
 /-- R07.2/dieudonne-equivalence-finite (Pink Theorem 28.3): full faithfulness. -/
 theorem dieudonneMap_bijective (G H : FLF k) (hG : ∃ n, rank G = p ^ n)
@@ -624,38 +307,22 @@ theorem dieudonneMap_bijective (G H : FLF k) (hG : ∃ n, rank G = p ^ n)
     Function.Bijective (dieudonneMap p k (G := G) (H := H)) := sorry
 
 /-- Pink Theorem 28.3: `length M(G) = log_p |G|`. -/
-theorem length_dieudonneModuleFinite (G : FLF k) (n : ℕ) (hG : rank G = p ^ n) :
-    Module.length (WittVector p k) (dieudonneModuleFinite p k G).M = n := sorry
+theorem length_dieudonneModule (G : FLF k) (n : ℕ) (hG : rank G = p ^ n) :
+    Module.length (WittVector p k) (dieudonneModule p k G).M = n := sorry
 
-/-- R07.2/dieudonne-p-divisible: the Dieudonné module `lim M(G_n)` of a `p`-divisible group. -/
-def dieudonneModulePDiv {h : ℕ} (G : PDivisibleGroup k p h) : DieudonneModule p k := sorry
-
-/-- Demazure III.8: `M(G)` is free of rank equal to the height. -/
-theorem dieudonneModulePDiv_free {h : ℕ} (G : PDivisibleGroup k p h) :
-    Module.Free (WittVector p k) (dieudonneModulePDiv p k G).M ∧
-      Module.finrank (WittVector p k) (dieudonneModulePDiv p k G).M = h := sorry
+/-- R07.2/dieudonne-equivalence-finite: `G` is étale iff `F` is bijective on `M(G)`. -/
+theorem isEtale_iff_bijective_F (G : FLF k) (hG : ∃ n, rank G = p ^ n) :
+    IsEtale G ↔ Function.Bijective (dieudonneModule p k G).F := sorry
 
 /-- The image of `F`, a `𝕎 k`-submodule because `σ` is surjective on `𝕎 k` for perfect `k`. -/
-def imageF (M : DieudonneModule p k) : Submodule (WittVector p k) M.M := sorry
+def imageF (M : DieudonneModule p k) : Submodule (WittVector p k) M.M :=
+  Submodule.span (WittVector p k) (Set.range M.F)
 
 theorem coe_imageF (M : DieudonneModule p k) : (imageF p k M : Set M.M) = Set.range M.F := sorry
 
-/-- R07.2/dieudonne-lie-algebra: `dim G = length_{𝕎 k} (M(G)/F M(G))` (Yu, p. 3). -/
-theorem length_coker_F_eq_dim [IsAdicComplete (IsLocalRing.maximalIdeal k) k]
-    [HenselianLocalRing k] {h : ℕ} (G : PDivisibleGroup k p h) :
-    Module.length (WittVector p k)
-      ((dieudonneModulePDiv p k G).M ⧸ imageF p k (dieudonneModulePDiv p k G)) = G.dim := sorry
-
 end
 
-/-- R07.2/standard-dieudonne-modules: rationally, `M(μ_{p^∞})` is Mathlib's standard isocrystal of
-slope one (and `M(ℚ_p/ℤ_p)` that of slope zero); the rational module is recorded through the
-placeholder `rationalIsocrystal`. -/
-def rationalIsocrystal (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
-    [PerfectRing k p] {h : ℕ} (_G : PDivisibleGroup k p h) : Type u := sorry
-
 end TauCeti.Dieudonne
-
 
 /-! ## R07.3: Fontaine–Laffaille theory at `e = 1`
 
@@ -684,22 +351,14 @@ structure FLModule where
 
 attribute [instance] FLModule.addCommGroup FLModule.module
 
-/-- `M ∈ MF_tor^{[a,b]}`: finite length, `Σ φ^i(Fil^i) = M`, `Fil^a = M`, `Fil^{b+1} = 0`. -/
-def FLModule.IsTorsionIn (M : FLModule p k) (a b : ℤ) : Prop :=
+/-- `M ∈ MF_tor`: finite length and `Σ φ^i(Fil^i) = M` (`FLModule.IsTorsion`). -/
+def FLModule.IsTorsion (M : FLModule p k) : Prop :=
   Module.length (WittVector p k) M.M < ⊤ ∧
-    (⨆ i, AddMonoidHom.range (M.phi i).toAddMonoidHom) = (⊤ : AddSubgroup M.M) ∧
-    M.fil a = ⊤ ∧ M.fil (b + 1) = ⊥
+    (⨆ i, AddMonoidHom.range (M.phi i).toAddMonoidHom) = (⊤ : AddSubgroup M.M)
 
-/-- R07.3/fl-functor-torsion: the `G_K`-module `U_S(M) = Ext¹(M, S)`, recorded as a type with a
-continuous Galois action (placeholder; the ring `S` is R07.3/fl-ring-S). -/
-def flFunctor (M : FLModule p k) : Type := sorry
-
-instance (M : FLModule p k) : AddCommGroup (flFunctor p k M) := sorry
-
-/-- R07.3/fl-exact-faithful (FL Theorem 3.3): `length_{ℤ_p} U_S(M) = length_{W(k)} M` on
-`MF_tor^{[0, p−1]}`. -/
-theorem length_flFunctor (M : FLModule p k) (hM : M.IsTorsionIn p k 0 (p - 1)) :
-    Module.length ℤ (flFunctor p k M) = Module.length (WittVector p k) M.M := sorry
+/-- `M ∈ MF_tor^{[a,b]}`: moreover `Fil^a = M` and `Fil^{b+1} = 0`. -/
+def FLModule.IsTorsionIn (M : FLModule p k) (a b : ℤ) : Prop :=
+  M.IsTorsion ∧ M.fil a = ⊤ ∧ M.fil (b + 1) = ⊥
 
 /-- Morphisms of Fontaine–Laffaille modules. -/
 structure FLModule.Hom (M N : FLModule p k) where
@@ -708,32 +367,38 @@ structure FLModule.Hom (M N : FLModule p k) where
   comm_phi : ∀ i (x : M.fil i), toLinearMap (M.phi i x) =
     N.phi i ⟨toLinearMap x, map_fil i ⟨x, x.2, rfl⟩⟩
 
-/-- The induced map on Galois modules (contravariant). -/
-def flMap {M N : FLModule p k} (f : FLModule.Hom p k M N) : flFunctor p k N →+ flFunctor p k M :=
-  sorry
+/-- Test (`FLModule.zero`): the zero module lies in every `MF_tor^{[a,b]}`. -/
+def FLModule.zero : FLModule p k where
+  M := PUnit
+  fil _ := ⊥
+  fil_antitone _ _ _ := le_rfl
+  fil_exhaustive := ⟨0, sorry⟩
+  fil_separated := ⟨0, rfl⟩
+  phi _ := 0
+  phi_succ _ _ := Subsingleton.elim _ _
 
-/-- R07.3/fl-full-faithfulness (FL Theorem 6.1): on the safe interval `[0, p − 2]` every
-`G_K`-equivariant map comes from a unique morphism. -/
-theorem flMap_bijective (M N : FLModule p k) (hM : M.IsTorsionIn p k 0 (p - 2))
-    (hN : N.IsTorsionIn p k 0 (p - 2)) :
-    Function.Bijective (fun f : FLModule.Hom p k M N => flMap p k f) := sorry
+theorem FLModule.zero_isTorsionIn (a b : ℤ) : (FLModule.zero p k).IsTorsionIn p k a b := sorry
+
+/-- The unit object of weight `j`: `W(k)/p` with `Fil^i = M` for `i ≤ j`, `0` above, and
+`φ^j = σ`; its torsion functor is `ω^j` on inertia (R07.3/fl-tame-inertia). Construction of this
+roadmap. -/
+def FLModule.unit (j : ℤ) : FLModule p k := sorry
+
+theorem FLModule.unit_isTorsionIn (j : ℤ) : (FLModule.unit p k j).IsTorsionIn p k j j := sorry
+
+/-- Test (`FLModule.not_strongly_divisible`): with `φ = 0` the sum condition fails, so a filtered
+module with zero Frobenius on a nonzero module is not in `MF_tor`. -/
+theorem FLModule.not_isTorsion_of_phi_eq_zero (M : FLModule p k) [Nontrivial M.M]
+    (h : ∀ i (x : M.fil i), M.phi i x = 0) : ¬ M.IsTorsion p k := sorry
 
 end
-
-/-- R07.3/strongly-divisible-lattices: `Σ_i p^{−i} Φ(M ∩ Fil^i D) = M` for a lattice `M` in a
-filtered `φ`-module `D` over `K₀` (recorded through placeholders for `D` and `M`). -/
-def IsStronglyDivisible (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
-    [PerfectRing k p] (D : Type u) [AddCommGroup D] (M : Set D) : Prop := sorry
 
 end TauCeti.FontaineLaffaille
 
 /-! ## R07.4: Breuil–Kisin modules
 
 Kisin's normalisation: `𝔖 = W(k)⟦u⟧` with `φ` the Witt vector Frobenius on coefficients and
-`u ↦ u^p`, and `E(u)` the Eisenstein polynomial of a fixed uniformiser `π` of `O = 𝒪_K`. The
-functors are contravariant and Hodge–Tate weights are taken with `HT(χ_cyc) = +1`. The period
-rings `𝒪_ℰ`, `𝔖^ur`, `S`, `A_cris`, the group `G_{K∞}` and the crystalline condition are
-placeholders for PadicHodgeTheory R06.1–R06.2 and PhiGammaModulesAndIwasawaCohomology PG.0–PG.1. -/
+`u ↦ u^p`, and `E(u)` the Eisenstein polynomial of a fixed uniformiser `π` of `O = 𝒪_K`. -/
 
 namespace TauCeti.BreuilKisin
 
@@ -742,20 +407,28 @@ variable (p : ℕ) [hp : Fact p.Prime] (k : Type u) [Field k] [CharP k p] [Perfe
 /-- R07.4/bk-coefficient-rings: `𝔖 = W(k)⟦u⟧`. -/
 abbrev Sfrak : Type u := PowerSeries (WittVector p k)
 
-/-- The Frobenius of `𝔖`: the Witt vector Frobenius on coefficients, then `u ↦ u^p`. -/
-noncomputable def frob : Sfrak p k →+* Sfrak p k :=
+/-- The Frobenius of `𝔖`: the Witt vector Frobenius on coefficients, then `u ↦ u^p`
+(`TauCeti.BreuilKisin.frob`). -/
+def frob : Sfrak p k →+* Sfrak p k :=
   (PowerSeries.expand p hp.out.ne_zero).toRingHom.comp (PowerSeries.map WittVector.frobenius)
 
+/-- Test (`frob_X`): `φ(u) = u^p`. -/
 theorem frob_X : frob p k PowerSeries.X = PowerSeries.X ^ p := sorry
 
 theorem frob_C (a : WittVector p k) :
     frob p k (PowerSeries.C a) = PowerSeries.C (WittVector.frobenius a) := sorry
 
-/-- An Eisenstein polynomial `E(u) ∈ W(k)[u]`, monic and Eisenstein at `(p)`. -/
+/-- An Eisenstein polynomial `E(u) ∈ W(k)[u]` (`TauCeti.BreuilKisin.eisenstein`). -/
 structure Eisenstein where
   E : Polynomial (WittVector p k)
   monic : E.Monic
   isEisensteinAt : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)})
+
+/-- Test (`eisenstein_unramified`): for `e = 1` and `π = p`, `E(u) = u - p`. -/
+def eisensteinUnramified : Eisenstein p k where
+  E := Polynomial.X - Polynomial.C (p : WittVector p k)
+  monic := Polynomial.monic_X_sub_C _
+  isEisensteinAt := sorry
 
 /-- R07.4/kisin-modules: a finite free `𝔖`-module with a `φ`-semilinear endomorphism whose
 linearisation `φ*𝔐 → 𝔐` has cokernel killed by a power of `E(u)`; the image of the
@@ -784,134 +457,37 @@ structure KisinModule.Hom {E : Eisenstein p k} (M N : KisinModule p k E) where
   toLinearMap : M.M →ₗ[Sfrak p k] N.M
   comm : ∀ m, toLinearMap (M.phi m) = N.phi (toLinearMap m)
 
-/-- The unit object `(𝔖, φ)`. -/
-noncomputable def KisinModule.unit (E : Eisenstein p k) : KisinModule p k E := sorry
+/-- The rank-one module `𝔖 e` with `φ(e) = c·e`, for `c ∈ 𝔖`. -/
+def KisinModule.rankOne (E : Eisenstein p k) (c : Sfrak p k)
+    (hc : ∃ h : ℕ, ∀ m : Sfrak p k, (E.E : Sfrak p k) ^ h * m ∈
+      Submodule.span (Sfrak p k) (Set.range fun x : Sfrak p k => c * frob p k x)) :
+    KisinModule p k E where
+  M := Sfrak p k
+  phi := c • (frob p k).toSemilinearMap
+  finiteHeight := hc
 
-theorem KisinModule.unit_heightLE_zero (E : Eisenstein p k) :
+/-- The unit object `(𝔖, φ)` (`KisinModule.unit`). -/
+def KisinModule.unit (E : Eisenstein p k) : KisinModule p k E :=
+  KisinModule.rankOne E 1 sorry
+
+/-- Test (`KisinModule.unit_height_zero`): `(𝔖, φ)` has `E`-height `0`. -/
+theorem KisinModule.unit_height_zero (E : Eisenstein p k) :
     (KisinModule.unit E).HeightLE 0 := sorry
 
-/-- Placeholder for `V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur)`, a `ℤ_p`-module with an action of `G_{K∞}`
-(R07.4/kummer-etale-phi-modules). -/
-def VSfrak {E : Eisenstein p k} (M : KisinModule p k E) : Type := sorry
+/-- Test (`KisinModule.eisenstein_height_one`): `𝔖 e` with `φ(e) = E(u) e` has `E`-height `1`
+and not `0`. -/
+theorem KisinModule.eisenstein_height_one (E : Eisenstein p k) :
+    (KisinModule.rankOne E (E.E : Sfrak p k) sorry).HeightLE 1 ∧
+      ¬ (KisinModule.rankOne E (E.E : Sfrak p k) sorry).HeightLE 0 := sorry
 
-instance {E : Eisenstein p k} (M : KisinModule p k E) : AddCommGroup (VSfrak M) := sorry
+/-- Test (`KisinModule.not_finite_height`): `φ(e) = p e` has no finite `E`-height, since
+`E(u) ≡ u^e` is not nilpotent modulo `p`. -/
+theorem KisinModule.not_finite_height (E : Eisenstein p k) :
+    ¬ ∃ h : ℕ, ∀ m : Sfrak p k, (E.E : Sfrak p k) ^ h * m ∈
+      Submodule.span (Sfrak p k)
+        (Set.range fun x : Sfrak p k => (p : Sfrak p k) * frob p k x) := sorry
 
-instance {E : Eisenstein p k} (M : KisinModule p k E) : Module ℤ_[p] (VSfrak M) := sorry
-
-/-- Kisin 2006, 2.1.4: `V_𝔖(𝔐)` is free over `ℤ_p` of rank `rk_𝔖 𝔐`. -/
-theorem VSfrak_free {E : Eisenstein p k} (M : KisinModule p k E) :
-    Module.Free ℤ_[p] (VSfrak M) ∧
-      Module.finrank ℤ_[p] (VSfrak M) = Module.finrank (Sfrak p k) M.M := sorry
-
-/-- The contravariant map on `V_𝔖`. -/
-def vMap {E : Eisenstein p k} {M N : KisinModule p k E} (f : KisinModule.Hom M N) :
-    VSfrak N →ₗ[ℤ_[p]] VSfrak M := sorry
-
-/-- Placeholder: a `ℤ_p`-linear map commutes with the `G_{K∞}`-actions. -/
-def IsEquivariant {E : Eisenstein p k} {M N : KisinModule p k E}
-    (g : VSfrak N →ₗ[ℤ_[p]] VSfrak M) : Prop := sorry
-
-/-- R07.4/kisin-etale-full-faithfulness (Kisin 2006, 2.1.12, with the repaired proof of
-Kisin 2008, Errata E.4): `V_𝔖` is faithful … -/
-theorem vMap_injective {E : Eisenstein p k} (M N : KisinModule p k E) :
-    Function.Injective (fun f : KisinModule.Hom M N => vMap f) := sorry
-
-/-- … and full on `G_{K∞}`-equivariant maps. -/
-theorem exists_hom_of_isEquivariant {E : Eisenstein p k} {M N : KisinModule p k E}
-    (g : VSfrak N →ₗ[ℤ_[p]] VSfrak M) (hg : IsEquivariant g) :
-    ∃ f : KisinModule.Hom M N, vMap f = g := sorry
-
-section PDivisible
-
-open TauCeti.FiniteFlat
-
-variable (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
-  [Algebra (WittVector p k) O] (π : O) (E : Eisenstein p k)
-
-/-- Placeholder for the Kisin module `𝔐(G)` of a `p`-divisible group over `O`, for `E` the
-Eisenstein polynomial of the uniformiser `π` (Kisin 2006, 2.2.7). -/
-noncomputable def kisinModuleOf {h : ℕ} (G : PDivisibleGroup O p h) : KisinModule p k E := sorry
-
-/-- `𝔐(G)` lies in `BT^φ_{/𝔖}`. -/
-theorem kisinModuleOf_heightLE_one (hπ : Polynomial.aeval π E.E = 0) {h : ℕ}
-    (G : PDivisibleGroup O p h) : (kisinModuleOf O E G).HeightLE 1 := sorry
-
-/-- R07.4/kisin-p-divisible-classification (Kisin 2006, 2.2.7), essential surjectivity for
-`p > 2`: every object of `BT^φ_{/𝔖}` is `𝔐(G)` up to isomorphism. For `p = 2` this is
-Kim's theorem (R07.4/dyadic-classification). -/
-theorem exists_pDivisible_of_heightLE_one (hπ : Polynomial.aeval π E.E = 0)
-    (M : KisinModule p k E) (hM : M.HeightLE 1) :
-    ∃ (h : ℕ) (G : PDivisibleGroup O p h) (f : KisinModule.Hom (kisinModuleOf O E G) M),
-      Function.Bijective f.toLinearMap := sorry
-
-/-- Full faithfulness of `G ↦ 𝔐(G)` (contravariant). -/
-def kisinMap {h h' : ℕ} {G : PDivisibleGroup O p h} {H : PDivisibleGroup O p h'}
-    (f : PDivisibleGroup.Hom G H) : KisinModule.Hom (kisinModuleOf O E H) (kisinModuleOf O E G) :=
-  sorry
-
-theorem kisinMap_bijective (hπ : Polynomial.aeval π E.E = 0) {h h' : ℕ}
-    (G : PDivisibleGroup O p h) (H : PDivisibleGroup O p h') :
-    Function.Bijective (fun f : PDivisibleGroup.Hom G H => kisinMap O E f) := sorry
-
-variable (K : Type u) [Field K] [Algebra O K] [IsFractionRing O K] [CharZero K]
-
-/-- Placeholder: `V` is a crystalline representation of `G_K` with Hodge–Tate weights in
-`{0, 1}` (PadicHodgeTheory R06.2, `HT(χ_cyc) = +1`). -/
-def IsCrystallineZeroOne (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
-    [DistribMulAction (Field.absoluteGaloisGroup K) V] : Prop := sorry
-
-/-- Placeholder: `V ≅ T_p(G) ⊗ ℚ_p` as `G_K`-representations. -/
-def IsRationalTateModule (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
-    [DistribMulAction (Field.absoluteGaloisGroup K) V] {h : ℕ} (G : PDivisibleGroup O p h) :
-    Prop := sorry
-
-/-- R07.4/crystalline-01-is-bt (Kisin 2006, 2.2.6), every `p` including `p = 2`: a crystalline
-representation with Hodge–Tate weights in `{0, 1}` is `V_p(G)` for a `p`-divisible group. -/
-theorem exists_pDivisible_of_crystalline (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
-    [DistribMulAction (Field.absoluteGaloisGroup K) V] (hV : IsCrystallineZeroOne (p := p) K V) :
-    ∃ (h : ℕ) (G : PDivisibleGroup O p h), IsRationalTateModule O K V G := sorry
-
-end PDivisible
-
-end TauCeti.BreuilKisin
-
-namespace TauCeti.FiniteFlat
-
-/-! ## R07.5: Local residual types -/
-
-/-- R07.5/tame-inertia-characters: the tame inertia group `I_t = I/I_p` of a `p`-adic field `K`
-(placeholder for the quotient of the inertia subgroup of `Field.absoluteGaloisGroup K` by its
-pro-`p` part). -/
-def tameInertia (K : Type u) [Field K] : Type u := sorry
-
-instance (K : Type u) [Field K] : Group (tameInertia K) := sorry
-
-/-- The fundamental character of level `n`, `θ_{p^n-1} : I_t → 𝔽_{p^n}^×` (Serre 1972, §1.7). -/
-def fundamentalCharacter (p n : ℕ) [Fact p.Prime] (K : Type u) [Field K] :
-    tameInertia K →* (GaloisField p n)ˣ := sorry
-
-/-- A fundamental character of level `n` takes values in the `(p^n - 1)`-th roots of unity. -/
-theorem fundamentalCharacter_pow_eq_one (p n : ℕ) [Fact p.Prime] (hn : n ≠ 0) (K : Type u)
-    [Field K] (s : tameInertia K) : (fundamentalCharacter p n K s) ^ (p ^ n - 1) = 1 := sorry
-
-/-- R07.5/peu-tres-ramifiee, on a single Kummer generator: a class `x ∈ K₀^×/K₀^{×p}` with
-`v_p(x) = v` is peu ramifiée iff `p ∣ v` (Serre 1987, (2.4.7)). -/
-def IsPeuRamifieeClass (p : ℕ) (v : ℤ) : Prop := (p : ℤ) ∣ v
-
-/-- `p = 2`, the class of `-1` (a unit): peu ramifiée. -/
-example : IsPeuRamifieeClass 2 0 := dvd_zero _
-
-/-- `p = 2`, the class of `2`: très ramifiée. -/
-example : ¬ IsPeuRamifieeClass 2 1 := by norm_num [IsPeuRamifieeClass]
-
-/-- The class of `q` for a Tate curve with `p ∣ v(q)` is peu ramifiée (R07.5/multiplicative-torsion-inertia). -/
-example (p : ℕ) (k : ℤ) : IsPeuRamifieeClass p (p * k) := dvd_mul_right _ _
-
-end TauCeti.FiniteFlat
-
-namespace TauCeti.BreuilKisin
-
-/-! ## R07.4: descent data in weight two (Savitt 2005, §§3–4) -/
+/-! ### Descent data in weight two (Savitt 2005, §§3–4) -/
 
 /-- R07.4/strongly-divisible-modules-descent-data: semilinear descent data on a module `M`
 over a ring `S` on which `Γ = Gal(F/F′)` acts by ring automorphisms `s ↦ ĝ(s)`: bijections
@@ -932,19 +508,46 @@ theorem SemilinearDescentData.act_mul_apply {Γ S M : Type*} [Group Γ] [CommRin
 
 end TauCeti.BreuilKisin
 
-namespace TauCeti.Dieudonne
+/-! ## R07.5: peu ramifiée Kummer classes over `ℚ_p` -/
+
+namespace TauCeti.FiniteFlat
+
+/-- R07.5/peu-tres-ramifiee and R07.5/peu-ramifie-classes for `K = ℚ_p` and trivial `χ̄`: the
+Kummer class of `x ∈ ℚ_p^×` is peu ramifiée exactly when `v_p(x) ≡ 0 mod p`, i.e. when it is
+represented by a unit (Serre 1987, (2.4.7); ACC §7.2.1). -/
+def IsPeuRamifieeClass (p : ℕ) [Fact p.Prime] (x : ℚ_[p]ˣ) : Prop :=
+  (p : ℤ) ∣ Padic.valuation (x : ℚ_[p])
+
+/-- Test (`isPeuRamifiee_of_unit`): the class of a unit is peu ramifiée. -/
+theorem isPeuRamifieeClass_of_valuation_eq_zero (p : ℕ) [Fact p.Prime] (x : ℚ_[p]ˣ)
+    (hx : Padic.valuation (x : ℚ_[p]) = 0) : IsPeuRamifieeClass p x := by
+  simp [IsPeuRamifieeClass, hx]
+
+/-- Test (`peuRamifieH1_uniformiser`): the class of `p` is très ramifiée. -/
+theorem not_isPeuRamifieeClass_p (p : ℕ) [Fact p.Prime] :
+    ¬ IsPeuRamifieeClass p (Units.mk0 (p : ℚ_[p]) (by exact_mod_cast (Fact.out : p.Prime).ne_zero)) :=
+  sorry
+
+/-- The class of `q` for a Tate curve with `p ∣ v(q)` is peu ramifiée
+(R07.5/multiplicative-torsion-inertia). -/
+theorem isPeuRamifieeClass_pow (p : ℕ) [Fact p.Prime] (x : ℚ_[p]ˣ) :
+    IsPeuRamifieeClass p (x ^ p) := sorry
+
+end TauCeti.FiniteFlat
 
 /-! ## R07.2: coefficients — Frobenius-fixed Witt vectors and characteristic polynomials
 
 These two statements make the coefficient recognition used with Dieudonné modules over finite
 fields explicit (R07.2/witt-frobenius-fixed-constants, R07.2/semilinear-charpoly-descent). -/
 
+namespace TauCeti.Dieudonne
+
 section Coefficients
 
 variable (p : ℕ) [Fact p.Prime] (k : Type*) [Field k] [CharP k p]
 
 /-- The canonical map `ℤ_p ≅ 𝕎(F_p) → 𝕎(k)` induced by `F_p ⊆ k`. -/
-noncomputable def padicConstants : ℤ_[p] →+* WittVector p k :=
+def padicConstants : ℤ_[p] →+* WittVector p k :=
   (WittVector.map (ZMod.castHom (dvd_refl p) k)).comp (WittVector.equiv p).symm.toRingHom
 
 /-- R07.2/witt-frobenius-fixed-constants: `ι_k` is injective. -/
@@ -983,39 +586,56 @@ end TauCeti.Dieudonne
 /-!
 ## Statements not typed at the pins
 
-The following API items and unit tests of the roadmap are stated in the roadmap document; their
-carriers (finite flat group schemes over general bases, crystals, period rings, Galois cohomology
-of local fields, Kisin modules, smooth representations of `GL₂`) are not available in the pinned
-libraries in a form that makes the statements meaningful, so they are listed by name only.
+The following API items and unit tests of the plan are stated in the roadmap document and the
+blueprint packet. Their carriers are not in the pinned libraries in a form that makes the
+statements meaningful, so they are listed by name only: `p`-divisible groups and their Tate
+modules need multiplication by `n` and exactness of sequences of finite locally free group
+schemes (ModularCurves 0B/0C, not at the pin); F-vector schemes need Raynaud's condition (**);
+formal Lie groups need the substitution axioms of a formal group law; the Witt group schemes, the
+crystals, the period rings (PadicHodgeTheory R06.1), the étale φ-modules and `V_𝔖`, Breuil's
+`S`-modules, tame inertia (Tau Ceti LocalFieldsRamification Layer 4), Galois cohomology of local
+fields and smooth representations of `GL₂` are likewise not available as carriers.
 
 R07.1:
+  TauCeti.FiniteFlat.FVectorScheme, TauCeti.FiniteFlat.FVectorScheme.cartierDual,
   TauCeti.FiniteFlat.FVectorScheme.cartierDual_zModP,
   TauCeti.FiniteFlat.FVectorScheme.not_of_rank,
-  TauCeti.FiniteFlat.FVectorScheme.of_generic_char_zero,
-  TauCeti.FiniteFlat.FVectorScheme.rank_eq, TauCeti.FiniteFlat.FVectorScheme.supersingular_E_p,
-  TauCeti.FiniteFlat.FVectorScheme.zModP, TauCeti.FiniteFlat.FormalLieGroup.dim_multiplicative,
-  TauCeti.FiniteFlat.FormalLieGroup.dim_zero, TauCeti.FiniteFlat.FormalLieGroup.height_elliptic,
-  TauCeti.FiniteFlat.FormalLieGroup.inv, TauCeti.FiniteFlat.FormalLieGroup.mulP,
-  TauCeti.FiniteFlat.FormalLieGroup.not_isPDivisible_additive,
+  TauCeti.FiniteFlat.FVectorScheme.of_generic_char_zero, TauCeti.FiniteFlat.FVectorScheme.rank_eq,
+  TauCeti.FiniteFlat.FVectorScheme.supersingular_E_p, TauCeti.FiniteFlat.FVectorScheme.zModP,
+  TauCeti.FiniteFlat.FormalLieGroup, TauCeti.FiniteFlat.FormalLieGroup.IsPDivisible,
+  TauCeti.FiniteFlat.FormalLieGroup.dim, TauCeti.FiniteFlat.FormalLieGroup.dim_multiplicative,
+  TauCeti.FiniteFlat.FormalLieGroup.dim_zero, TauCeti.FiniteFlat.FormalLieGroup.height,
+  TauCeti.FiniteFlat.FormalLieGroup.height_elliptic, TauCeti.FiniteFlat.FormalLieGroup.inv,
+  TauCeti.FiniteFlat.FormalLieGroup.mulP,
+  TauCeti.FiniteFlat.FormalLieGroup.not_isPDivisible_additive, TauCeti.FiniteFlat.PDivisibleGroup,
+  TauCeti.FiniteFlat.PDivisibleGroup.Hom, TauCeti.FiniteFlat.PDivisibleGroup.baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDualDual,
   TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_constQpZp,
   TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_height,
   TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_levels,
   TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_transition,
   TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.constQpZp,
   TauCeti.FiniteFlat.PDivisibleGroup.continuous_galoisAction,
-  TauCeti.FiniteFlat.PDivisibleGroup.dim_baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim, TauCeti.FiniteFlat.PDivisibleGroup.dim_baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_constQpZp,
   TauCeti.FiniteFlat.PDivisibleGroup.dim_height_zero,
   TauCeti.FiniteFlat.PDivisibleGroup.dim_le_height,
-  TauCeti.FiniteFlat.PDivisibleGroup.dim_supersingular,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_muPInfty,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_supersingular, TauCeti.FiniteFlat.PDivisibleGroup.height,
   TauCeti.FiniteFlat.PDivisibleGroup.height_abelianScheme,
   TauCeti.FiniteFlat.PDivisibleGroup.height_constQpZp,
-  TauCeti.FiniteFlat.PDivisibleGroup.height_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.height_muPInfty,
+  TauCeti.FiniteFlat.PDivisibleGroup.height_zero, TauCeti.FiniteFlat.PDivisibleGroup.muPInfty,
   TauCeti.FiniteFlat.PDivisibleGroup.not_of_constant_ZpZ,
   TauCeti.FiniteFlat.PDivisibleGroup.ordinary_nonsplit,
   TauCeti.FiniteFlat.PDivisibleGroup.supersingular_connected,
-  TauCeti.FiniteFlat.PDivisibleGroup.tangentSpace,
+  TauCeti.FiniteFlat.PDivisibleGroup.tangentSpace, TauCeti.FiniteFlat.PDivisibleGroup.tateModule,
   TauCeti.FiniteFlat.PDivisibleGroup.tateModulePairing,
   TauCeti.FiniteFlat.PDivisibleGroup.tateModule_constQpZp,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_free,
   TauCeti.FiniteFlat.PDivisibleGroup.tateModule_height_zero,
   TauCeti.FiniteFlat.PDivisibleGroup.tateModule_map,
   TauCeti.FiniteFlat.PDivisibleGroup.tateModule_muPInfty,
@@ -1033,42 +653,41 @@ R07.1:
   TauCeti.FiniteFlat.PDivisibleGroup.universalCover_zero,
   TauCeti.FiniteFlat.Prolongation.dyadic_two_models,
   TauCeti.FiniteFlat.Prolongation.exists_max_min, TauCeti.FiniteFlat.Prolongation.inf,
-  TauCeti.FiniteFlat.Prolongation.self, TauCeti.FiniteFlat.Prolongation.two_models_mu_p,
+  TauCeti.FiniteFlat.Prolongation.two_models_mu_p,
   TauCeti.FiniteFlat.Prolongation.unique_etale_Zp, TauCeti.FiniteFlat.TruncatedBT,
-  TauCeti.FiniteFlat.TruncatedBT.elliptic, TauCeti.FiniteFlat.TruncatedBT.mu,
+  TauCeti.FiniteFlat.TruncatedBT.cartierDual, TauCeti.FiniteFlat.TruncatedBT.elliptic,
+  TauCeti.FiniteFlat.TruncatedBT.height, TauCeti.FiniteFlat.TruncatedBT.mu,
   TauCeti.FiniteFlat.TruncatedBT.not_Zp2_level1, TauCeti.FiniteFlat.TruncatedBT.not_alpha,
   TauCeti.FiniteFlat.TruncatedBT.of_exact, TauCeti.FiniteFlat.TruncatedBT.restrict,
-  TauCeti.FiniteFlat.katzMazur_neg_one_two, TauCeti.FiniteFlat.katzMazur_not_split,
-  TauCeti.FiniteFlat.katzMazur_one
+  TauCeti.FiniteFlat.katzMazur_extension, TauCeti.FiniteFlat.katzMazur_neg_one_two,
+  TauCeti.FiniteFlat.katzMazur_not_split, TauCeti.FiniteFlat.katzMazur_one
 
 R07.2:
-  TauCeti.Dieudonne.DieudonneModule.zero, TauCeti.Dieudonne.DieudonneRing,
-  TauCeti.Dieudonne.DieudonneRing.F_mul, TauCeti.Dieudonne.DieudonneRing.F_mul_V,
-  TauCeti.Dieudonne.DieudonneRing.basis, TauCeti.Dieudonne.DieudonneRing.comm_of_Fp,
-  TauCeti.Dieudonne.DieudonneRing.mul_V, TauCeti.Dieudonne.DieudonneRing.not_comm,
-  TauCeti.Dieudonne.DieudonneRing.quot_F_V, TauCeti.Dieudonne.aNumber,
-  TauCeti.Dieudonne.aNumber_M1, TauCeti.Dieudonne.covariantModule,
+  TauCeti.Dieudonne.DieudonneRing, TauCeti.Dieudonne.DieudonneRing.F_mul,
+  TauCeti.Dieudonne.DieudonneRing.F_mul_V, TauCeti.Dieudonne.DieudonneRing.basis,
+  TauCeti.Dieudonne.DieudonneRing.comm_of_Fp, TauCeti.Dieudonne.DieudonneRing.mul_V,
+  TauCeti.Dieudonne.DieudonneRing.not_comm, TauCeti.Dieudonne.DieudonneRing.quot_F_V,
+  TauCeti.Dieudonne.aNumber, TauCeti.Dieudonne.aNumber_M1, TauCeti.Dieudonne.covariantModule,
   TauCeti.Dieudonne.covariantModule_equiv_dual, TauCeti.Dieudonne.covariantModule_lie,
   TauCeti.Dieudonne.covariantModule_lie_mu, TauCeti.Dieudonne.covariantModule_mu,
   TauCeti.Dieudonne.covariantModule_rank, TauCeti.Dieudonne.covariantModule_slope,
-  TauCeti.Dieudonne.covariantModule_zero, TauCeti.Dieudonne.dieudonneModule,
-  TauCeti.Dieudonne.dieudonneModule_F, TauCeti.Dieudonne.dieudonneModule_alphaP,
-  TauCeti.Dieudonne.dieudonneModule_muP, TauCeti.Dieudonne.dieudonneModule_not_covariant,
-  TauCeti.Dieudonne.dieudonneModule_prod, TauCeti.Dieudonne.dieudonneModule_trivial,
-  TauCeti.Dieudonne.dieudonneModule_zmodp, TauCeti.Dieudonne.dualModule,
-  TauCeti.Dieudonne.farguesLF, TauCeti.Dieudonne.frobeniusHom_naturality,
-  TauCeti.Dieudonne.frobenius_alphaP_zero, TauCeti.Dieudonne.frobenius_comp_verschiebung,
-  TauCeti.Dieudonne.frobenius_constZModP_iso, TauCeti.Dieudonne.hasseInvariant,
-  TauCeti.Dieudonne.hasseInvariant_baseChange, TauCeti.Dieudonne.hasseInvariant_dual,
-  TauCeti.Dieudonne.hasseInvariant_mu, TauCeti.Dieudonne.hasseInvariant_supersingular,
-  TauCeti.Dieudonne.hasseInvariant_weight, TauCeti.Dieudonne.hasseWitt,
-  TauCeti.Dieudonne.hodgeTateMap_exact, TauCeti.Dieudonne.isUnit_hasseInvariant_iff_ordinary,
-  TauCeti.Dieudonne.linearDualModule, TauCeti.Dieudonne.linearDual_ne_covariant,
-  TauCeti.Dieudonne.slopeSequence, TauCeti.Dieudonne.slopeSequence_baseChange,
-  TauCeti.Dieudonne.slopeSequence_dual, TauCeti.Dieudonne.slope_constQpZp,
-  TauCeti.Dieudonne.slope_muPInfty, TauCeti.Dieudonne.slope_out_of_range,
-  TauCeti.Dieudonne.slope_supersingular, TauCeti.Dieudonne.standardDieudonne,
-  TauCeti.Dieudonne.verschiebungHom_eq_cartierDual,
+  TauCeti.Dieudonne.covariantModule_zero, TauCeti.Dieudonne.dieudonneModule_F,
+  TauCeti.Dieudonne.dieudonneModule_alphaP, TauCeti.Dieudonne.dieudonneModule_muP,
+  TauCeti.Dieudonne.dieudonneModule_not_covariant, TauCeti.Dieudonne.dieudonneModule_prod,
+  TauCeti.Dieudonne.dieudonneModule_trivial, TauCeti.Dieudonne.dieudonneModule_zmodp,
+  TauCeti.Dieudonne.dualModule, TauCeti.Dieudonne.farguesLF,
+  TauCeti.Dieudonne.frobeniusHom_naturality, TauCeti.Dieudonne.frobenius_alphaP_zero,
+  TauCeti.Dieudonne.frobenius_comp_verschiebung, TauCeti.Dieudonne.frobenius_constZModP_iso,
+  TauCeti.Dieudonne.hasseInvariant, TauCeti.Dieudonne.hasseInvariant_baseChange,
+  TauCeti.Dieudonne.hasseInvariant_dual, TauCeti.Dieudonne.hasseInvariant_mu,
+  TauCeti.Dieudonne.hasseInvariant_supersingular, TauCeti.Dieudonne.hasseInvariant_weight,
+  TauCeti.Dieudonne.hasseWitt, TauCeti.Dieudonne.hodgeTateMap_exact,
+  TauCeti.Dieudonne.isUnit_hasseInvariant_iff_ordinary, TauCeti.Dieudonne.linearDualModule,
+  TauCeti.Dieudonne.linearDual_ne_covariant, TauCeti.Dieudonne.slopeSequence,
+  TauCeti.Dieudonne.slopeSequence_baseChange, TauCeti.Dieudonne.slopeSequence_dual,
+  TauCeti.Dieudonne.slope_constQpZp, TauCeti.Dieudonne.slope_muPInfty,
+  TauCeti.Dieudonne.slope_out_of_range, TauCeti.Dieudonne.slope_supersingular,
+  TauCeti.Dieudonne.standardDieudonne, TauCeti.Dieudonne.verschiebungHom_eq_cartierDual,
   TauCeti.Dieudonne.verschiebung_comp_frobenius, TauCeti.Dieudonne.verschiebung_muP_iso,
   TauCeti.Dieudonne.verschiebung_not_inverse, TauCeti.Dieudonne.wittGroup,
   TauCeti.Dieudonne.wittGroupKer, TauCeti.Dieudonne.wittGroupKer_dieudonneAction,
@@ -1077,12 +696,13 @@ R07.2:
   TauCeti.Dieudonne.wittGroup_one
 
 R07.3:
-  TauCeti.FontaineLaffaille.FLModule.IsTorsion, TauCeti.FontaineLaffaille.FLModule.isTorsion_iff,
+  TauCeti.FontaineLaffaille.FLModule.isTorsion_iff,
   TauCeti.FontaineLaffaille.FLModule.not_strongly_divisible,
   TauCeti.FontaineLaffaille.FLModule.twist, TauCeti.FontaineLaffaille.FLModule.weights,
-  TauCeti.FontaineLaffaille.FLModule.zero, TauCeti.FontaineLaffaille.StronglyDivisibleLattice,
+  TauCeti.FontaineLaffaille.IsStronglyDivisible,
+  TauCeti.FontaineLaffaille.StronglyDivisibleLattice,
   TauCeti.FontaineLaffaille.StronglyDivisibleLattice.toFLModule,
-  TauCeti.FontaineLaffaille.exists_stronglyDivisible_iff,
+  TauCeti.FontaineLaffaille.exists_stronglyDivisible_iff, TauCeti.FontaineLaffaille.flFunctor,
   TauCeti.FontaineLaffaille.flFunctor_eq_hom, TauCeti.FontaineLaffaille.flFunctor_map,
   TauCeti.FontaineLaffaille.flFunctor_not_covariant, TauCeti.FontaineLaffaille.flFunctor_unit,
   TauCeti.FontaineLaffaille.flFunctor_zero, TauCeti.FontaineLaffaille.ringS,
@@ -1097,16 +717,14 @@ R07.4:
   TauCeti.BreuilKisin.BreuilModule, TauCeti.BreuilKisin.BreuilModule.IsMaximal,
   TauCeti.BreuilKisin.BreuilModule.IsMinimal, TauCeti.BreuilKisin.BreuilModule.T0,
   TauCeti.BreuilKisin.BreuilModule.exists_hom_to_maximal,
-  TauCeti.BreuilKisin.BreuilModule.fil_quotient_free,
+  TauCeti.BreuilKisin.BreuilModule.fil_quotient_free, TauCeti.BreuilKisin.BreuilModule.frob,
   TauCeti.BreuilKisin.BreuilModule.not_surjective, TauCeti.BreuilKisin.BreuilModule.ofKisin,
   TauCeti.BreuilKisin.BreuilModule.ofKisin_unit, TauCeti.BreuilKisin.BreuilModule.ofPDivisible,
   TauCeti.BreuilKisin.BreuilModule.zero, TauCeti.BreuilKisin.FilteredPhiNModuleDD,
   TauCeti.BreuilKisin.FilteredPhiNModuleDD.IsWeaklyAdmissible,
   TauCeti.BreuilKisin.FilteredPhiNModuleDD.galoisAction,
   TauCeti.BreuilKisin.FilteredPhiNModuleDD.weilDeligne, TauCeti.BreuilKisin.KisinModule.category,
-  TauCeti.BreuilKisin.KisinModule.eisenstein_height_one,
-  TauCeti.BreuilKisin.KisinModule.not_finite_height,
-  TauCeti.BreuilKisin.KisinModule.unit_height_zero, TauCeti.BreuilKisin.KisinModuleCoeff,
+  TauCeti.BreuilKisin.KisinModuleCoeff, TauCeti.BreuilKisin.KisinModuleCoeff.baseChange,
   TauCeti.BreuilKisin.KisinModuleCoeff.coker_projective,
   TauCeti.BreuilKisin.KisinModuleCoeff.dual, TauCeti.BreuilKisin.KisinModuleCoeff.free_of_finite,
   TauCeti.BreuilKisin.OE, TauCeti.BreuilKisin.SUr, TauCeti.BreuilKisin.StronglyDivisibleModule,
@@ -1115,9 +733,12 @@ R07.4:
   TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible,
   TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible_antiequiv,
   TauCeti.BreuilKisin.StronglyDivisibleRModule,
+  TauCeti.BreuilKisin.StronglyDivisibleRModule.baseChange,
   TauCeti.BreuilKisin.StronglyDivisibleRModule.exists_of_lattice,
   TauCeti.BreuilKisin.StronglyDivisibleRModule.tst,
   TauCeti.BreuilKisin.StronglyDivisibleRModule.tst_free, TauCeti.BreuilKisin.TorsionKisinModule,
+  TauCeti.BreuilKisin.TorsionKisinModule.IsEtale,
+  TauCeti.BreuilKisin.TorsionKisinModule.IsMultiplicative,
   TauCeti.BreuilKisin.TorsionKisinModule.zero, TauCeti.BreuilKisin.breuilS,
   TauCeti.BreuilKisin.coeff_zp, TauCeti.BreuilKisin.dst_cyclotomic_teichmuller,
   TauCeti.BreuilKisin.dual_etale_multiplicative, TauCeti.BreuilKisin.eisenstein,
@@ -1135,10 +756,9 @@ R07.4:
 R07.5:
   TauCeti.FiniteFlat.IsPeuRamifiee, TauCeti.FiniteFlat.IsTresRamifiee,
   TauCeti.FiniteFlat.cyclotomic_restrict_ne_one,
-  TauCeti.FiniteFlat.cyclotomic_restrict_tameInertia,
+  TauCeti.FiniteFlat.cyclotomic_restrict_tameInertia, TauCeti.FiniteFlat.fundamentalCharacter,
   TauCeti.FiniteFlat.fundamentalCharacter_one_surjective,
-  TauCeti.FiniteFlat.fundamentalCharacter_pow_p,
-  TauCeti.FiniteFlat.fundamentalCharacter_two_norm,
+  TauCeti.FiniteFlat.fundamentalCharacter_pow_p, TauCeti.FiniteFlat.fundamentalCharacter_two_norm,
   TauCeti.FiniteFlat.isPeuRamifiee_iff_valuation, TauCeti.FiniteFlat.isPeuRamifiee_of_unit,
   TauCeti.FiniteFlat.isPeuRamifiee_sqrt_neg_one, TauCeti.FiniteFlat.isTresRamifiee_sqrt_two,
   TauCeti.FiniteFlat.kummerSubgroup, TauCeti.FiniteFlat.not_extension_sensitive,
@@ -1146,7 +766,8 @@ R07.5:
   TauCeti.FiniteFlat.peuRamifieH1_Ql_finrank, TauCeti.FiniteFlat.peuRamifieH1_eq_top,
   TauCeti.FiniteFlat.peuRamifieH1_iff_isPeuRamifiee, TauCeti.FiniteFlat.peuRamifieH1_nontrivial,
   TauCeti.FiniteFlat.peuRamifieH1_quotient, TauCeti.FiniteFlat.peuRamifieH1_uniformiser,
-  TauCeti.FiniteFlat.peuRamifieH1_unit, TauCeti.FiniteFlat.tameInertiaIso,
+  TauCeti.FiniteFlat.peuRamifieH1_unit, TauCeti.FiniteFlat.tameInertia,
+  TauCeti.FiniteFlat.tameInertiaIso, TauCeti.FiniteFlat.tameInertiaIso_eq_inertiaTameCharacter,
   TauCeti.FiniteFlat.tate_curve_tres, TauCeti.FiniteFlat.theta_one,
   TauCeti.SerreWeights.SerreWeight, TauCeti.SerreWeights.SerreWeight.sym,
   TauCeti.SerreWeights.compactInduction, TauCeti.SerreWeights.compactInduction_free,
@@ -1160,4 +781,5 @@ R07.6:
   TauCeti.FiniteFlat.fontaineUpper_eq_serreUpper, TauCeti.FiniteFlat.shift_non_example,
   TauCeti.FiniteFlat.tame_upper_break, TauCeti.FiniteFlat.unramified,
   TauCeti.FiniteFlat.valuation_different_eq
+
 -/
