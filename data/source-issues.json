@@ -198303,9 +198303,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "René Schoof, Abelian varieties over cyclotomic fields with good reduction everywhere, Math. Ann. 325 (2003), 413–448, author copy; errata note erratacyc.txt checked; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 420: the proof calls X and X′ \"extensions of H by G\" while the sequence concerns Ext¹(G, H), extensions 0 → H → X → G → 0, as the definition of δ (trivial extension H × G) shows."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E2",
@@ -198323,9 +198323,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Jean-Marc Fontaine and Guy Laffaille, Construction de représentations p-adiques, Ann. Sci. École Norm. Sup. (4) 15 (1982), no. 4, 547–608, Numdam copy (journal page = PDF page + 545); accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 584: §6.5 cites \"théorème 4.3\" for U_S; exactness and faithfulness are Theorem 3.3 (p. 562), as §0.6 also says."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E3",
@@ -198344,9 +198344,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Checked in the DVI font table: Theorem (0.1) prints msam10 character 54 (⩽) before 0, the following paragraph \"0 or −1\", and Theorem (0.3) \"0 or 1\"; the body ((2.1.14), (2.2.6)) uses non-negative weights. The two conventions are mixed in the introduction."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E4",
@@ -198365,9 +198365,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 27: \"we use (2.2.5) to give a classification\"; (2.2.5) is the remark on Breuil's computation, and the classification rests on (2.2.7)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E5",
@@ -198386,9 +198386,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 14: \"(4)\" is cited for the slope filtration while Theorem (1.3.2) has only parts (1) and (2), the slope filtration being (2)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E6",
@@ -198407,9 +198407,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read: Theorem (2.3.5) (p. 28) has no p > 2 hypothesis, Theorem (0.5) of the introduction (p. 3) has it, and the proof uses (2.2.7), which at p = 2 is an isogeny statement."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E7",
@@ -198427,9 +198427,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Moduli of finite flat group schemes, and modularity, Ann. of Math. (2) 170 (2009), no. 3, 1085–1180; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Checked in the DVI font table: the object 𝔐₁ (eufm) is placed in (Mod FI/S) with italic S (cmmi10 83), whereas (1.1.11) distinguishes Fraktur 𝔖 (eufm10 83) from S."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E8",
@@ -198446,9 +198446,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Kisin 2008, Errata (E.1), p. 33, states exactly this correction."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E9",
@@ -198465,9 +198465,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Kisin 2008, Errata (E.3), p. 34, states exactly this correction."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E10",
@@ -198484,9 +198484,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Kisin 2008, Errata (E.4), p. 34, records the gap and its repair."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E11",
@@ -198503,9 +198503,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Mark Kisin, Crystalline representations and F-crystals, Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Kisin 2008, Errata (E.5), p. 34: \"homotopies\" for \"homotopy equivalences\" in (2.3.3)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E12",
@@ -198524,9 +198524,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Jean-Pierre Serre, Sur les représentations modulaires de degré 2 de Gal(Q̄/Q), Duke Math. J. 54 (1987), 179–230; the Collège de France scan of the published article with its OCR text layer (printed page = PDF page + 178); accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 190: \"Raynaud [35], th. 2.4.3\"; Raynaud 1974 §2 contains only 2.1–2.3, and the prolongation criterion is Théorème 3.4.3 (p. 270)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E13",
@@ -198545,9 +198545,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor, Duke Math. J. 128 (2005), 141–197; read in arXiv:math/0404327v3 (45 pages, printed page = PDF page), which folds in the author's corrigendum to Theorem 6.12(4) (also Appendix A of Gee–Savitt, arXiv:0909.1278) and keeps the published numbering; §§2–5 were compared with arXiv v1 and v2. The published text on the author's site is behind a browser challenge and was not seen; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 12: Definition 3.1 indexes the maps by g ∈ Gal(F′/F) although F′ ⊆ F."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E14",
@@ -198566,9 +198566,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor, Duke Math. J. 128 (2005), 141–197; read in arXiv:math/0404327v3 (45 pages, printed page = PDF page), which folds in the author's corrigendum to Theorem 6.12(4) (also Appendix A of Gee–Savitt, arXiv:0909.1278) and keeps the published numbering; §§2–5 were compared with arXiv v1 and v2. The published text on the author's site is behind a browser challenge and was not seen; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 20: Lemma 3.13 states a (ϕ, N, F/F′, ℚ_p)-module and its proof ends with (ϕ, N, F/F′, ℤ_p)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E15",
@@ -198585,9 +198585,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Ann. of Math. 197 (2023), no. 1; arXiv:2004.07025v3, accessed 2026-10-13",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 14 (arXiv v3): the law is printed with + b ⊗ f₁ ⊗ f₂; with a = 1, b = 2, f = g = 1 it gives 4, which is not idempotent."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E16",
@@ -198604,9 +198604,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Fabrizio Andreatta, Eyal Z. Goren, Benjamin Howard, Keerthi Madapusi Pera, Faltings heights of abelian varieties with complex multiplication, Ann. of Math. 187 (2018), no. 2; arXiv:1508.00178v3, accessed 2026-10-13",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at p. 10: the first sentence states H ↦ M(T_p(H^∨)) and the abbreviation is M(H) := M(T_p(H)^∨); only the latter is compatible with items (1)–(3), whose reduction at u = 0 is the contravariant D(H)(W) = D_cris(T_p(H)^∨)."
   },
   {
    "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E17",
@@ -198623,9 +198623,9 @@
    "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
    "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Duke Math. J. 169 (2020); author's copy (cleared copy in the maintainer's library), read 2026-10-13",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "reviewReason": "Read at pp. 31–32: the proof displays the three rows and takes the long exact sequence without stating that the middle row (ω_{G^D}^∨)^{(p)} → E → ω_G^{(p)} is exact."
   },
   {
    "id": "FunctionFieldArithmetic/E1",
