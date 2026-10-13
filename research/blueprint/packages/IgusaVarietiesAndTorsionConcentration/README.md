@@ -19,7 +19,7 @@
 
 **Left to other roadmaps.** Restricted products, adelic points and the Hasse principle come from TauCetiRoadmap AdelicAlgebraicGroups (Layers 1 and 4). Smooth representations, Hecke algebras over rings, their anti-involution, the derived smooth category, unnormalized induction and the Satake isomorphism come from TauCetiRoadmap SmoothRepresentationsOfLocalGroups (Layers SR.0, SR.0d, SR.1, SR.2, SR.4). Determinants, Cayley–Hamilton reconstruction, Hecke-polynomial conventions and interpolation come from TauCetiRoadmap IntegralHeckeAndGaloisDeterminants (Layers 0, 1, 3a, 4). The global Artin map and its geometric normalization come from TauCetiRoadmap ClassFieldTheory (Layer 11) and local Tate duality from its Layer 5. Among the atlas roadmaps: PELModuli supplies integral PEL data, moduli and compactifications; FiniteFlatGroupsAndIntegralPadicHodgeTheory supplies p-divisible groups, universal covers, Dieudonné theory and the Dieudonné–Manin classification; AbelianSchemesAndArithmeticModuli the classical Serre–Tate theorem; ShimuraCompactifications the toroidal and minimal compactifications and their boundary charts; NeronModelsAndSemistableAbelianVarieties Raynaud extensions; SchemeAndStackFoundations formal schemes and étale Cartan–Leray descent; AdicSpacesPartII, AdicEtaleGeometry, PerfectoidSpaces and DiamondsAndVStacks the analytic geometry; ClassicalAdicEtaleCohomology, DiamondEtaleCohomology and DiamondSixOperations the étale cohomology of adic spaces and diamonds; EtaleDualityAndPerverseSheaves the finite-type perverse formalism and duality; LefschetzPencilsAndVanishingCycles nearby cycles; AdicCoefficientsAndComparisons the ℓ-adic tower comparisons; PadicHodgeTheory the primitive comparison theorem; PerfectoidShimuraVarieties the perfectoid Shimura varieties and the Hodge–Tate period map; HodgeTateAndCanonicalSubgroups the Hasse invariant, Scholze–Weinstein's classification over O_C and the comparison of global and local Hodge–Tate filtrations; ArithmeticLocallySymmetricSpaces Borel–Serre boundaries, finite-level duality and the unnormalized Satake transform; ArithmeticGaloisDuality local and global duality; EndoscopicTransferAndUnitaryTraceComparison the stable and twisted trace formulas, base change and local Langlands for inner forms of GL_m; AutomorphicGaloisRepresentationsPartII Galois representations of automorphic representations and the decomposed-genericity predicate; TorsionCohomologyInfrastructure Scholze's torsion Galois determinants and boundary induction for GL_n.
 
-The Fargues–Scholze geometry enters only through Koshikawa's argument, the flag Newton stratification and Mantovan's filtration: the classification of G-bundles on the Fargues–Fontaine curve (VectorBundlesAndIsocrystals VB2), the strata of Bun_G and their dualizing objects (BunGAndNewtonStrata BG2–BG3), the coefficient categories of those strata (VStackSheavesAndLisseCategories VS4), local Shimura varieties for products of GL_n (HeckeStacksAndLocalShtukas HS2) and the spectral action with its Fargues–Scholze parameters (ExcursionOperatorsAndSpectralAction ES3–ES7). Each is used exactly as stated in the supplier contracts below and is not planned again here.
+The Fargues–Scholze geometry enters only through Koshikawa's argument, the flag Newton stratification and Mantovan's filtration: the classification of G-bundles on the Fargues–Fontaine curve (BunGAndNewtonStrata BG2:uniformization, using VectorBundlesAndIsocrystals VB2 for vector bundles), the strata of Bun_G and their dualizing objects (BunGAndNewtonStrata BG2–BG3), the coefficient categories of those strata (VStackSheavesAndLisseCategories VS4), local Shimura varieties for products of GL_n (HeckeStacksAndLocalShtukas HS2) and the spectral action with its Fargues–Scholze parameters (ExcursionOperatorsAndSpectralAction ES3–ES7). Each is used exactly as stated in the supplier contracts below and is not planned again here.
 
 General boundary constructions, Cartan–Leray descent and the general theory of perverse sheaves belong to their own roadmaps; only their Igusa-specific applications are developed here. The mathematical specification in this README is definitive; [Suggested.lean](Suggested.lean) records the definitions and statements that can already be written against the pinned Mathlib and Tau Ceti, and is not exhaustive.
 
@@ -31,7 +31,7 @@ Write p for the geometric prime, ℓ ≠ p for the coefficient prime, k for an a
 
 $$d=[F^+:\mathbb Q]n^2,\qquad d_b=\langle2\rho,\nu_b\rangle.$$
 
-Here d is the complex dimension of the Shimura variety and d_b is the dimension of the central leaf and of the finite-level Igusa varieties of b. Use the covariant Dieudonné convention of Caraiani–Scholze for slopes: they lie in [−1, 0]. A Shimura Hodge cocharacter μ gives Newton classes in B(G, μ⁻¹). The ordinary class is maximal for the Newton order and its flag stratum has dimension zero. A cyclotomic completed base K_∞ is chosen once, before infinite-level local period fibres or the product formula are formed.
+Here d is the complex dimension of the Shimura variety and d_b is the dimension of the central leaf and of the finite-level Igusa varieties of b. Use the covariant Dieudonné convention of Caraiani–Scholze for Newton vectors: their slopes lie in [−1, 0]. Complete slope divisibility instead uses the nonnegative Frobenius slopes λ of IG.0.17. The two multisets are negatives of one another; reorder after negation when choosing a dominant vector. Thus μ_{p^∞} has Frobenius slope 1 and covariant Dieudonné slope −1, while ℚ_p/ℤ_p has slope 0 in both conventions. A Shimura Hodge cocharacter μ gives Newton classes in B(G, μ⁻¹), where the dominant representative of μ⁻¹ is −w₀μ. The nonnegative GL examples in IG.0.2 and Suggested.lean concern abstract isocrystals and dominance, rather than this negative Shimura normalization. The ordinary class is maximal for the Newton order and its flag stratum has dimension zero. A cyclotomic completed base K_∞ is chosen once, before infinite-level local period fibres or the product formula are formed.
 
 At finite level the Igusa maps are finite étale. The perfect Igusa variety trivializes the whole p-divisible group; Mantovan's tower trivializes liftable truncations of its slope-graded pieces. Mantovan's right action corresponds to the left quasi-isogeny action through inversion. Our left action is (j, h)·(ρ, η) = (jρ, ηh⁻¹). Scalar pairs act trivially, so the action is not asserted to be faithful. Cohomology with ℤ_ℓ coefficients takes the derived limit over the coefficients before the colimit over geometric levels. Smooth duals, derived coinvariants and the orientation character κ are kept in every equivariant formula.
 
@@ -98,7 +98,7 @@ The convolution ring structure `HeckeCosetModule.instRingHeckeRing` (`TauCeti/Nu
 
 ### From the Fargues–Scholze roadmaps
 
-- **VectorBundlesAndIsocrystals VB2.** Fargues' classification: G-bundles on the Fargues–Fontaine curve X_{C♭} correspond to B(G) (CS17 Theorem 3.2.9); G-Dieudonné modules over B⁺_cris(O_C/p) correspond to G-bundles on X_{C♭} and are determined up to isomorphism by their restriction to W(k)[1/p] (Fargues 2020, Théorèmes 5.1 and 5.6); p-divisible groups over O_C/p up to isogeny are classified by such bundles (CS17 Theorem 4.1.4). Used by IG.3 for the flag Newton stratification, period surjectivity and constancy modulo p^ε.
+- **BunGAndNewtonStrata BG2:uniformization, with VectorBundlesAndIsocrystals VB2 for vector bundles.** Fargues' classification: G-bundles on the Fargues–Fontaine curve X_{C♭} correspond to B(G) (CS17 Theorem 3.2.9); G-Dieudonné modules over B⁺_cris(O_C/p) correspond to G-bundles on X_{C♭} and are determined up to isomorphism by their restriction to W(k)[1/p] (Fargues 2020, Théorèmes 5.1 and 5.6); p-divisible groups over O_C/p up to isogeny are classified by such bundles (CS17 Theorem 4.1.4). Used by IG.3 for the flag Newton stratification, period surjectivity and constancy modulo p^ε. The geometric G-bundle classification is `points-are-B-of-G` in BG2:uniformization. **Additional comparison obligation.** Its stated geometric-point bijection does not itself give the crystalline G-Dieudonné comparison and the p-divisible-group compatibility just described; those require separate targets, beyond the vector-bundle classification of VB2.
 - **BunGAndNewtonStrata BG2–BG3.** The minuscule modification map q_K : [Fℓ/K_p] → Bun_G of Koshikawa Lemma 6.1 with ℓ-cohomological smoothness and smooth base change for the Newton-stratum maps, and the ordinary-stratum dualizing object κ⁻¹[−2d] of Koshikawa Lemma 9.1, with the character κ matching the one on the Igusa and local factors (Koshikawa Lemma 7.6). A dimension formula for the strata does not supply this orientation character.
 - **VStackSheavesAndLisseCategories VS4.** The coefficient equivalence D_ét(Bun_G^b, 𝔽_ℓ) ≃ D_sm(J_b(ℚ_p), 𝔽_ℓ), with its compatibility with q_K^b-pullback and the bounded admissible V_b of Koshikawa §9; for the positive connected automorphism group J̃_b^0 and its torsors, the equivariant dualizing identification Rπ_unip^!𝔽_ℓ ≅ 𝔽_ℓ(d_b)[2d_b] and the trace equivalence Rπ_{unip,!}Rπ_unip^! ≅ id, keeping the J_b(ℚ_p)-equivariant orientation character κ and its comparison under the universal-cover/bundle dictionary (Koshikawa Lemmas 7.4 and 7.6).
 - **HeckeStacksAndLocalShtukas HS2.** The minuscule local Shimura varieties M_{(G,b,μ),K} for products of GL_n over every finite F/ℚ_p, with reflex field, geometric base, hyperspecial levels and commuting actions, and an explicit dictionary between its μ versus μ⁻¹ and B(G, μ) conventions and the ones used here.
@@ -143,7 +143,7 @@ The API:
 
 <a id="ig-0-newton-kottwitz-admissible"></a>
 
-Let G be connected reductive over ℚ_p, with a splitting over ℚ̄_p fixed, cocharacter lattice X_*(G) and Galois group Γ = Gal(ℚ̄_p/ℚ_p). Define the Newton map ν : B(G) → (X_*(G) ⊗ ℚ)^Γ_dom, sending b to the conjugacy class of its slope homomorphism (for GL_n, the slope decomposition), and the Kottwitz map κ : B(G) → π₁(G)_Γ, the unique natural transformation of set-valued functors on connected reductive groups that is b ↦ val_p(det b) for GL_n. The two are compatible in π₁(G)_Γ ⊗ ℚ, and (ν, κ) : B(G) → (X_*(G) ⊗ ℚ)^Γ_dom × π₁(G)_Γ is injective. Order dominant rational cocharacters by ν ≼ ν′ when ν′ − ν is a nonnegative rational combination of positive coroots, and B(G) by b ≼ b′ when ν_b ≼ ν_{b′} and κ(b) = κ(b′). For a conjugacy class μ of cocharacters with Galois average μ̄ and image μ^♭ ∈ π₁(G)_Γ, the set of μ-admissible classes is B(G, μ) = {b : ν_b ≼ μ̄, κ(b) = μ^♭}. An element is basic when ν_b is central. Put d_b = ⟨2ρ, ν_b⟩. For the unitary datum of IG.0.3 at a prime p that splits completely in F, G_{ℚ_p} ≅ ∏_{w|𝔭} GL_{2n}(ℚ_p) × 𝔾_m (𝔭 the prime of F₀ chosen above p), and B(G_{ℚ_p}, μ⁻¹) consists of the tuples (ν_w)_w of Newton vectors of height 2n with ν_w dominated by the component μ⁻¹_w (in particular of the same total slope), together with the similitude component fixed by μ; its unique maximal element is the ordinary class ν_w = μ⁻¹_w for every w, and d_b = d exactly for the ordinary class, because ⟨2ρ, ·⟩ is strictly positive on nonzero sums of positive coroots.
+Let G be connected reductive over ℚ_p, with a maximal torus T and a Borel subgroup over ℚ̄_p fixed, cocharacter lattice X_*(T) and Galois group Γ = Gal(ℚ̄_p/ℚ_p), acting through the based root datum (the star action). Define the Newton map ν : B(G) → (X_*(T) ⊗ ℚ)^Γ_dom, sending b to the conjugacy class of its slope homomorphism (for GL_n, the slope decomposition), and the Kottwitz map κ : B(G) → π₁(G)_Γ, the unique natural transformation on connected reductive groups normalized by b ↦ val_p(det b) for GL_n. The two are compatible in π₁(G)_Γ ⊗ ℚ, and (ν, κ) : B(G) → (X_*(T) ⊗ ℚ)^Γ_dom × π₁(G)_Γ is injective. Order dominant rational cocharacters by ν ≼ ν′ when ν′ − ν is a nonnegative rational combination of positive coroots, and B(G) by b ≼ b′ when ν_b ≼ ν_{b′} and κ(b) = κ(b′). For a conjugacy class μ of cocharacters with Galois average μ̄ and image μ^♭ ∈ π₁(G)_Γ, the set of μ-admissible classes is B(G, μ) = {b : ν_b ≼ μ̄, κ(b) = μ^♭}. An element is basic when ν_b is central. Put d_b = ⟨2ρ, ν_b⟩. For the unitary datum of IG.0.3 at a prime p that splits completely in F, G_{ℚ_p} ≅ ∏_{w|𝔭} GL_{2n}(ℚ_p) × 𝔾_m (𝔭 the prime of F₀ chosen above p), and B(G_{ℚ_p}, μ⁻¹) consists of the tuples (ν_w)_w of Newton vectors of height 2n with ν_w dominated by the component μ⁻¹_w (in particular of the same total slope), together with the similitude component fixed by μ; its unique maximal element is the ordinary class ν_w = μ⁻¹_w for every w, and d_b = d exactly for the ordinary class, because ⟨2ρ, ·⟩ is strictly positive on nonzero sums of positive coroots.
 
 Here G is connected reductive over ℚ_p and μ is arbitrary (minuscule in all applications).
 
@@ -168,6 +168,8 @@ The API:
 - For imaginary quadratic F and n = 1 with p split, B(G_{ℚ_p}, μ⁻¹) has two elements, ordinary with d_b = 1 and basic with d_b = 0.
 - For GL_4 with μ = (1, 1, 0, 0), the ordinary class has ⟨2ρ, ν⟩ = 4 = ⟨2ρ, μ⟩ and the basic class (slopes 1/2 four times) has ⟨2ρ, ν⟩ = 0.
 
+- The empty GL_0 vector has ⟨2ρ,ν⟩ = 0. In the negative Shimura convention the dominant ordinary GL_2 vector is (0,−1), with ⟨2ρ,ν⟩ = 1; the unsorted vector (−1,0) gives −1 and is not dominant.
+
 ### IG.0.3 Quasi-split unitary similitude data
 
 <a id="ig-0-quasi-split-unitary-datum"></a>
@@ -178,7 +180,7 @@ For a commutative ℚ-algebra R the points are G(R) = {(g, c) ∈ GL_{2n}(F ⊗_
 
 The statement assumes that F is a CM field, n ≥ 1, L ⊂ V is a self-dual O_F-lattice for (·,·), and K ⊂ G(𝔸_f) is neat (K(N) with N ≥ 3 is neat).
 
-([CSnc](#ref-csnc), §2.1, pp. 10–11.)
+([CSnc](#ref-csnc), §2.1, p. 11.)
 
 The API:
 
@@ -198,6 +200,8 @@ The API:
 - G⁰(ℚ) ≠ G(ℚ): the scalar 2 ∈ ℚ^× ⊂ F^× lies in G(ℚ) with similitude factor c = 4 ≠ 1, so it is not in G⁰(ℚ).
 - For a ℚ-algebra R, G⁰(R) = {g ∈ GL_{2n}(F ⊗ R) : gᵀ J ḡ = J}, J the antidiagonal matrix of ⟨·,·⟩ (signature (n, n)); this is not Mathlib's Matrix.unitaryGroup, which preserves the identity form, and over ℤ the lattice L ⊗ R need not be free over O_F ⊗ R unless the different is principal.
 
+- For n=1 the matrix is [[0,1],[−1,0]]; in characteristic two it becomes [[0,1],[1,0]] without division by two. Rank zero gives the empty matrix but is excluded from UnitarySimilitudeDatum by n ≥ 1.
+
 ### IG.0.4 Spherical Hecke algebras of the datum
 
 <a id="ig-0-spherical-hecke-algebras"></a>
@@ -212,21 +216,21 @@ Fix an imaginary quadratic subfield F₀ ⊂ F and a finite set S of rational pr
 
 Prove: (a) 𝕋^S is the subring of 𝕋^S_full of functions supported on the elements whose similitude is a unit at every q; (b) restriction of functions to G⁰ is a ring isomorphism `heckeRestrict` : 𝕋^S → 𝕋^{0,S} with T_{i,v} ↦ T⁰_{i,v}; (c) for q ∈ Q_S let z_q be the central element of G(ℚ_q) with similitude q and identity coordinates in every GL_{2n}(F_w), and U_q = [K z_q K]; then U_q is a unit of 𝕋^S_full with inverse [K z_q⁻¹ K], and 𝕋^S_full is the Laurent polynomial ring 𝕋^S[U_q^{±1} : q ∈ Q_S]; (d) all three rings are commutative; (e) the inversion g ↦ g⁻¹ induces the involution ι of 𝕋^S_full, [KgK] ↦ [Kg⁻¹K]; ι preserves 𝕋^S, sends U_q to U_q⁻¹, satisfies heckeRestrict ∘ ι = ι⁰ ∘ heckeRestrict for the inversion ι⁰ of 𝕋^{0,S}, and ι(T_{i,v}) = T_{2n,v}⁻¹ T_{2n−i,v} (with T_{0,v} = 1). Restriction of functions on the whole of 𝕋^S_full is **not** a ring homomorphism, so every comparison with the unitary group goes through 𝕋^S.
 
-*Proof sketch.* The unit-similitude subgroup c⁻¹(ℤ_q^×) is the direct product G⁰(ℚ_q) × ℤ_q^×, and G(ℤ_q) = G⁰(ℤ_q) × ℤ_q^×. So a G(ℤ_q)-bi-invariant function supported there is determined by its restriction to G⁰(ℚ_q), convolution of two such functions is again supported there, and it is computed in G⁰; this gives (a) and (b), using that the T_{i,v} have unit similitude and the T⁰_{i,v} generate 𝕋^{0,S} (the inverse of T⁰_{2n,v} is the operator T⁰_{2n,v^c} at the conjugate place). Since c(z_q) = q generates ℚ_q^×/ℤ_q^× and z_q is central, G(ℚ_q) is the product of the unit-similitude subgroup and the cyclic group of z_q, which gives (c). Commutativity is the Satake isomorphism for GL_{2n}, or the anti-involution criterion with ι. The formula for ι(T_{i,v}) is the computation of the inverse double coset in GL_{2n}(F_v).
+*Proof sketch.* The unit-similitude subgroup c⁻¹(ℤ_q^×) is the direct product G⁰(ℚ_q) × ℤ_q^×, and G(ℤ_q) = G⁰(ℤ_q) × ℤ_q^×. So a G(ℤ_q)-bi-invariant function supported there is determined by its restriction to G⁰(ℚ_q), convolution of two such functions is again supported there, and it is computed in G⁰; this gives (a) and (b), using that the T_{i,v} have unit similitude and the T⁰_{i,v} generate 𝕋^{0,S} (the inverse of T⁰_{2n,v} is the operator T⁰_{2n,v^c} at the conjugate place). Since c(z_q) = q generates ℚ_q^×/ℤ_q^× and z_q is central, G(ℚ_q) is the product of the unit-similitude subgroup and the cyclic group of z_q, which gives (c). Commutativity follows from the Satake isomorphism for GL_{2n}. Alternatively, transpose on each GL factor is an anti-involution fixing each integral double coset; inversion ι itself does not fix those cosets. The formula for ι(T_{i,v}) is the computation of the inverse double coset in GL_{2n}(F_v).
 
-The hypotheses are that each q ∈ Q_S splits in F₀ and lies outside S; the operators T_{i,v} are not defined at other primes.
+The hypotheses are that each q ∈ Q_S splits in F₀ and lies outside S; the operators T_{i,v} are not defined at other primes. The split local Lean model assumes a finite set W of places. For W empty (or GL-rank zero) the unitary ring is ℤ and the full ring is ℤ[U_q^{±1}]. Finiteness is essential: for W = ℕ, rank 2 and g_w = diag(q, 1) at every w, the index of K ∩ gKg⁻¹ in K is infinite (already each factor contributes q + 1), so that unrestricted product is not a Hecke pair.
 
 ([CSnc](#ref-csnc), §2.1, pp. 11–12, for 𝕋^S, 𝕋^{0,S} and restriction; §5.1, p. 64, for the full algebra, the split decomposition and T_{i,v}; §2.8, proof of Theorem 1.1, p. 36, for ι; [acc23](#ref-acc23), §2.2.19, pp. 35–36, for the anti-involution.)
 
 The API:
 
 - `heckeFull`: 𝕋^S_full as `HeckeRing Δ K^S ℤ` for the restricted product, with `heckeFull_mul_comm`.
-- `heckeOperator`: The operators T_{i,v} for v above q ∈ Q_S.
+- `UnitarySimilitudeDatum.heckeOperator` (`heckeOperator`): The operators T_{i,v} for v above q ∈ Q_S.
 - `heckeOperatorSubring`: 𝕋^S, with `mem_heckeOperatorSubring_iff_support` (statement (a)).
 - `heckeUnitary`: 𝕋^{0,S} with its operators T⁰_{i,v}.
-- `heckeRestrict`: The ring isomorphism 𝕋^S ≃+* 𝕋^{0,S}, with `heckeRestrict_heckeOperator`.
+- `heckeRestrict`: The ring isomorphism 𝕋^S ≃+* 𝕋^{0,S}, with `UnitarySimilitudeDatum.heckeRestrict_heckeOperator` (`heckeRestrict_heckeOperator`).
 - `heckeSimilitudeUnit`: The units U_q, with `heckeFull_eq_laurent` (statement (c)).
-- `heckeInvolution`: ι on 𝕋^S_full, with `heckeInvolution_mem_operator`, `heckeInvolution_similitudeUnit` and `heckeRestrict_comp_involution`.
+- `heckeInvolution`: ι on 𝕋^S_full, with `heckeInvolution_involutive`, `heckeInvolution_T` (the inverse-double-coset formula above), `heckeInvolution_compat_tauceti` (agreement on basis elements with Tau Ceti's `HeckeAntiInvolution.onHeckeCoset`), `heckeInvolution_mem_operator`, `heckeInvolution_similitudeUnit` and `heckeRestrict_comp_involution`.
 
 At a prime q that splits completely in F the local factors can already be written at the pins, in the coordinates G(ℚ_q) = ∏_{w} GL_{2n}(ℚ_q) × ℚ_q^×: `SplitLocalGroup`, `SplitLocalUnitaryGroup`, `glIntegral`, `unitsIntegral`, `splitIntegralSubgroup`, `splitUnitaryIntegralSubgroup`, `unitSimilitudeSubgroup`, the rings `localHeckeFull` and `localHeckeUnitary` (native `HeckeRing`s), the operator subring `localHeckeOperatorSubring`, the elements `similitudeElement` and `localSimilitudeUnit` (U_q^k), the function `restrictValue` (restriction of functions to G⁰), and the statements `localHeckeFull_mul_comm`, `localSimilitudeUnit_mul_neg`, `localSimilitudeUnit_not_mem`, `localHeckeFull_eq_laurent`, `exists_heckeRestrict` (statement (b), with the isomorphism given by `restrictValue`) and `not_exists_ringHom_restrict_full` (no ring homomorphism on the full algebra restricts functions).
 
@@ -247,7 +251,7 @@ Call a 𝕋^S_full-module M locally finite if it is the union of its finite subm
 
 *Proof sketch.* Localization commutes with filtered colimits, so reduce to a finite module M. Then 𝕋^S_full/Ann(M) embeds in a finite product of copies of M, so it is a finite, hence Artinian, ring, and M is the direct sum of its localizations at the finitely many maximal ideals of its support (Stacks, Lemma 10.53.6). A finite residue field 𝕋^S_full/𝔐 contains 𝕋^S/(𝔐 ∩ 𝕋^S), a finite domain, hence a field. An element s ∈ 𝕋^S ∖ 𝔪 is a unit on M_𝔐 when 𝔐 ∩ 𝕋^S = 𝔪; when 𝔐 ∩ 𝕋^S = 𝔪′ ≠ 𝔪, an element of 𝔪′ ∖ 𝔪 acts nilpotently on M_𝔐, so inverting it kills M_𝔐. Statement (4) holds because ι preserves 𝕋^S and the T_{i,v} lie in 𝕋^S; statement (5) because heckeRestrict is an isomorphism.
 
-The hypothesis that M is a union of finite submodules is essential; it is satisfied by all the cohomology groups localized in Layers IG.4–IG.7.
+The hypothesis that M is a union of finite submodules is essential. At fixed tame level it holds for the torsion-coefficient cohomology used in Layers IG.4–IG.7: finite-level cohomology is finite and Hecke-stable, and every class comes from a finite level. This argument does not apply to ℤ_ℓ- or ℚ_ℓ-cohomology. Integral consequences are obtained through their finite torsion coefficients and the stated coefficient-limit arguments; the direct-sum comparison is not asserted for integral or rational modules.
 
 ([Stacks, Lemma 10.53.6](https://stacks.math.columbia.edu/tag/00JB); the comparison is the one used implicitly in [CSnc](#ref-csnc), §2.8, proof of Theorem 1.1, p. 36, where the operator-algebra ideal of §2.1 is fed into Corollary 5.1.3, p. 66, stated for the full algebra of §5.1.)
 
@@ -365,14 +369,14 @@ The API:
 - `LocalPELDatum.pdivOfB_unique`: Uniqueness up to structure-preserving quasi-isogeny.
 - `LocalPELDatum.ofGlobal`: The unramified type (A)/(C) hyperspecial global-to-local construction for b∈B(G,μ⁻¹).
 - `LocalPELDatum.J`: Self-quasi-isogenies J_b(ℚ_p), identified with the σ-centralizer `JGroup` of IG.0.1.
-- `LocalPELDatum.IntegralSlopeRepresentative`: An integral principal-polarized, determinant-compatible, completely slope divisible representative quasi-isogenous to X_b; its existence is supplied by FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2.
+- `LocalPELDatum.IntegralSlopeRepresentative`: An integral principal-polarized, determinant-compatible, completely slope divisible representative quasi-isogenous to X_b. **Proof obligation.** Dieudonné–Manin classification from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 gives the rational isocrystal; existence with all these integral PEL conditions requires a separate integral representative theorem.
 
 *Needs:* earlier targets of Layer IG.0; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2; PELModuli M0.
 
 **Checks.**
 
 - For the unitary datum at p split in F and b ordinary, X_b ≅ (μ_{p^∞} ⊕ ℚ_p/ℤ_p) ⊗_{ℤ_p} O_F^n ⊗ ℤ_p with the standard polarization.
-- For the quasi-split unitary datum and b basic, X_b is isoclinic of slope 1/2.
+- For the quasi-split unitary datum and b basic, X_b is isoclinic of Frobenius slope 1/2 (covariant Dieudonné slope −1/2).
 - An orthogonal datum (* of type D, G disconnected) is not an unramified local PEL datum in this sense.
 - J_b(ℚ_p) = Aut(X_b, extra structures) ⊗ ℚ equals the σ-centralizer of b of IG.0.1.
 
@@ -461,9 +465,9 @@ The hypotheses are: G, G′ isoclinic over a perfect field k.
 
 <a id="ig-0-completely-slope-divisible"></a>
 
-Let T be an 𝔽_p-scheme and 𝒢/T a p-divisible group with relative Frobenius Frob_𝒢. (1) 𝒢 is isoclinic and slope divisible of slope λ ∈ ℚ_{≥0} if one can write λ = r/s so that the quasi-isogeny p^{−r} Frob^s_𝒢 : 𝒢 → 𝒢^{(p^s)} is an isomorphism. (2) 𝒢 is slope divisible with respect to λ = r/s if p^{−r} Frob^s_𝒢 is an isogeny. (3) 𝒢 is completely slope divisible if there are rational numbers λ₁ > … > λ_r ≥ 0 and a filtration 0 = 𝒢₀ ⊂ 𝒢₁ ⊂ … ⊂ 𝒢_r = 𝒢 by p-divisible groups such that each 𝒢_i is slope divisible with respect to λ_i and 𝒢_i/𝒢_{i−1} is isoclinic and slope divisible of slope λ_i. Such a filtration is unique and its formation is fpqc local on T.
+Let T be an 𝔽_p-scheme and 𝒢/T a p-divisible group with relative Frobenius Frob_𝒢. (1) 𝒢 is isoclinic and slope divisible of slope λ ∈ ℚ_{≥0} if one can write λ = a/s with integers a ≥ 0 and s ≥ 1 so that the quasi-isogeny p^{−a} Frob^s_𝒢 : 𝒢 → 𝒢^{(p^s)} is an isomorphism. (2) 𝒢 is slope divisible with respect to λ = a/s (a ≥ 0, s ≥ 1) if p^{−a} Frob^s_𝒢 is an isogeny. (3) 𝒢 is completely slope divisible if there are rational numbers λ₁ > … > λ_r ≥ 0 and a filtration 0 = 𝒢₀ ⊂ 𝒢₁ ⊂ … ⊂ 𝒢_r = 𝒢 by p-divisible groups such that each 𝒢_i is slope divisible with respect to λ_i and 𝒢_i/𝒢_{i−1} is isoclinic and slope divisible of slope λ_i. Such a filtration is unique and its formation is fpqc local on T.
 
-The hypotheses are: T an 𝔽_p-scheme; slopes in the covariant normalization of CSnc §2.3.
+The hypotheses are: T an 𝔽_p-scheme; λ denotes a nonnegative Frobenius slope as in CSnc Definition 2.3.3, not the negative covariant Dieudonné slope used for Newton vectors. A nonzero isoclinic p-divisible group has λ ∈ [0, 1].
 
 ([CSnc](#ref-csnc), §2.3, Definition 2.3.3, p. 18; [CSnc](#ref-csnc), §2.3, Lemma 2.3.4, p. 19.)
 
@@ -663,9 +667,9 @@ The hypotheses are: Constant Newton polygon of G and H over Spec V (resp. Spec R
 
 <a id="ig-0-constant-newton-polygon-over-perfect-rings"></a>
 
-Let R be a strictly henselian perfect ring with residue field k. In the isogeny categories, reduction G ↦ G_k identifies the constant-Newton-polygon p-divisible groups over R with all p-divisible groups over k. Each object G on the R-side is isogenous to G₀ ×_{𝔽̄_p} R, with G₀ completely slope divisible over 𝔽̄_p. Moreover there is a constant c depending only on the heights such that for every homomorphism ψ_k : G_k → H_k of such groups, p^c ψ_k lifts uniquely to G → H. In particular all automorphisms of X_R for X over 𝔽̄_p are constant.
+Let R be a strictly henselian perfect 𝔽_p-algebra with residue field k, and choose an embedding 𝔽̄_p → R for the constant-object assertion. In the isogeny categories, reduction G ↦ G_k identifies the constant-Newton-polygon p-divisible groups over R with all p-divisible groups over k. Each object G on the R-side is isogenous to G₀ ×_{𝔽̄_p} R, with G₀ completely slope divisible over 𝔽̄_p. Moreover there is a constant c depending only on the heights such that for every homomorphism ψ_k : G_k → H_k of such groups, p^c ψ_k lifts uniquely to G → H. In particular all automorphisms of X_R for X over 𝔽̄_p are constant.
 
-The hypotheses are: R strictly henselian and perfect; constant Newton polygon.
+The hypotheses are: R strictly henselian, perfect and of characteristic p; constant Newton polygon; a chosen 𝔽̄_p-algebra structure for G₀ ×_{𝔽̄_p} R. Strict henselianity and perfectness allow such a choice, as in the proof of CS17 Lemma 4.3.15.
 
 ([CS17](#ref-cs17), §4.3, Lemma 4.3.15, p. 721; [CS17](#ref-cs17), §4.3, Remark 4.3.16, p. 721.)
 
@@ -689,7 +693,7 @@ The hypotheses are: All geometric fibres quasi-isogenous to X_b with extra struc
 
 In the setting of Li–Liu §§6–7 (a unitary Shimura variety of signature (1, n−1) at one archimedean place and (0, n) at the others, with Drinfeld level 𝔭^m at a place u of F⁺ split in F, of residue characteristic p), let 𝒳_m be the integral model at Drinfeld level m and Y_m = 𝒳_m ⊗ k. For 0 ≤ j ≤ n − 1 let Y_{m,j} ⊂ Y_m^{red} be the closed locus where the formal part of the one-dimensional O_{F_u}-divisible group A[u^{c,∞}] has height at least j + 1, and Y°_{m,j} = Y_{m,j} ∖ Y_{m,j+1}. Then Y°_{m,j} is smooth over k of pure dimension n − 1 − j, Y_{m,0} = Y_m^{red}, and the strata are stable under the prime-to-p Hecke action.
 
-The hypotheses are: Harris–Taylor type unitary datum with u split in F, Drinfeld level structure at u. The smoothness and dimension statements are those of Harris–Taylor [HT01, Cor. III.4.4] at Drinfeld level.
+The hypotheses are: Harris–Taylor type unitary datum with u split in F, Drinfeld level structure at u. The smoothness and dimension statements are those of Harris–Taylor [HT01, Cor. III.4.4] at Drinfeld level. Li–Liu gives the public formulation used here; the construction and deformation-theoretic proof of the Drinfeld-level model and its first-kind Igusa interface remain source obligations. Mantovan's public local models (IG.1.10) supply the refined closure-smoothness application, rather than a verification of every Harris–Taylor model statement.
 
 ([lil21](#ref-lil21), Proof of Lemma 7.3 and footnote 14, p. 34.)
 
@@ -700,7 +704,7 @@ The API: `DrinfeldStratum`, `DrinfeldStratum.closed`, `DrinfeldStratum.smooth`, 
 **Checks.**
 
 - For n=2 the j=1 locus is zero-dimensional and supersingular.
-- The j=0 locus is open and dense of dimension n−1.
+- The stratum Y°_{m,0} is open and dense of dimension n−1; the closed locus Y_{m,0} is all of Y_m^{red}.
 - For m≥1 the ambient Y_m can be nonreduced; the Newton strata use reduced structures.
 
 ### IG.0.32 Constructibility of isomorphism loci
@@ -856,7 +860,7 @@ The API: `IgusaTower.action`, `IgusaTower.stabilizer_open`, `IgusaTower.levelQuo
 
 <a id="ig-1-igusa-cohomology"></a>
 
-For ℓ ≠ p and Λ ∈ {ℤ/ℓ^n, 𝔽_ℓ, ℤ_ℓ, ℚ_ℓ, ℚ̄_ℓ}, define RΓ_c(Ig^b_∞, Λ) := colim_{K^p, m} RΓ_c(Ig^b_{Mant,K^p,m}, Λ) and RΓ(Ig^b_∞, Λ) := colim_{K^p, m} RΓ(Ig^b_{Mant,K^p,m}, Λ) (for ℤ_ℓ, ℚ_ℓ take the derived limit over n of the torsion coefficients at each finite level first), with transition maps the pullbacks along the finite étale transition maps. They are complexes of smooth Λ[J_b(ℚ_p) × G(𝔸_f^p)]-modules; at each finite level H^i_c(Ig^b_{Mant,K^p,m}, Λ) is finitely generated over Λ and vanishes outside [0, 2d_b]. Coefficient change holds: RΓ_c(·, ℤ/ℓ^n) ⊗^L_{ℤ/ℓ^n} 𝔽_ℓ ≅ RΓ_c(·, 𝔽_ℓ). The integral complex is defined by this colimit; no rational virtual-character formula enters its definition. The full algebra 𝕋^S_full of IG.0.4 (S ⊃ {p, ℓ} ∪ bad primes) acts through the G(𝔸_f^S)-action, hence so does the operator algebra 𝕋^S, and H^i(Ig^b, 𝔽_ℓ)_𝔪 denotes the localization at a maximal ideal 𝔪 of either ring at fixed tame level K^p(N). With torsion coefficients the cohomology at fixed tame level is the colimit over m of finite Hecke modules, so it is locally finite and IG.0.5 relates the two localizations.
+For ℓ ≠ p and Λ ∈ {ℤ/ℓ^n, 𝔽_ℓ, ℤ_ℓ, ℚ_ℓ, ℚ̄_ℓ}, define RΓ_c(Ig^b_∞, Λ) := colim_{K^p, m} RΓ_c(Ig^b_{Mant,K^p,m}, Λ) and RΓ(Ig^b_∞, Λ) := colim_{K^p, m} RΓ(Ig^b_{Mant,K^p,m}, Λ) (first define ℤ_ℓ-cohomology at each finite level by the derived limit over n of the torsion coefficients; for ℚ_ℓ then tensor with ℚ_ℓ, and for ℚ̄_ℓ extend scalars from ℚ_ℓ; finally take the geometric-level colimit), with transition maps the pullbacks along the finite étale transition maps. They are complexes of smooth Λ[J_b(ℚ_p) × G(𝔸_f^p)]-modules; at each finite level H^i_c(Ig^b_{Mant,K^p,m}, Λ) is finitely generated over Λ and vanishes outside [0, 2d_b]. Coefficient change holds: RΓ_c(·, ℤ/ℓ^n) ⊗^L_{ℤ/ℓ^n} 𝔽_ℓ ≅ RΓ_c(·, 𝔽_ℓ). The integral complex is defined by this colimit; no rational virtual-character formula enters its definition. The full algebra 𝕋^S_full of IG.0.4 (S ⊃ {p, ℓ} ∪ bad primes) acts through the G(𝔸_f^S)-action, hence so does the operator algebra 𝕋^S, and H^i(Ig^b, 𝔽_ℓ)_𝔪 denotes the localization at a maximal ideal 𝔪 of either ring at fixed tame level K^p(N). With torsion coefficients the cohomology at fixed tame level is the colimit over m of finite Hecke modules, so it is locally finite and IG.0.5 relates the two localizations.
 
 The map RΓ_c→RΓ is equivariant for the commuting actions and Hecke localization.
 
@@ -1107,7 +1111,7 @@ The hypotheses are: p split in F₀ (so G_{ℚ_p} ≅ ℚ_p^× × ∏_{v|𝔭} G
 
 <a id="ig-2-toroidal-isogeny-invariance"></a>
 
-Let φ : X → X′ be a quasi-isogeny of p-divisible groups with G-structure over k, with similitude factor in ℤ_p^×, inducing isomorphisms on étale and multiplicative parts. Then the isomorphism Ig^X ≅ Ig^{X′} induced by φ ([IG.1.2](#ig-1-igusa-isogeny-invariance)) extends uniquely to an isomorphism Ig^{X,tor} ≅ Ig^{X′,tor} over the correspondence of partial toroidal compactifications, equivariantly for the prime-to-p Hecke action. This is the unit-similitude extension theorem required for the transfer arguments below; its proof must construct a principally polarized boundary quotient and establish compatibility with the interior isomorphism.
+Let φ : X → X′ be a quasi-isogeny of p-divisible groups with G-structure over k, with similitude factor in ℤ_p^×, inducing isomorphisms on étale and multiplicative parts. Then the isomorphism Ig^X ≅ Ig^{X′} induced by φ ([IG.1.2](#ig-1-igusa-isogeny-invariance)) extends uniquely to an isomorphism Ig^{X,tor} ≅ Ig^{X′,tor} over the correspondence of partial toroidal compactifications, equivariantly for the prime-to-p Hecke action. This is the unit-similitude extension theorem required for the transfer arguments below. **Proof obligation.** CSnc Corollary 3.2.14 is printed for isogenies, whereas this target needs quasi-isogenies. Its boundary quotient argument does not by itself supply the required principal polarization or compatibility with the interior isomorphism. A proof of those assertions, or a separate extension argument for unit-similitude quasi-isogenies, is still required; multiplying φ by p^a does not preserve the isomorphisms on the outer slope pieces.
 
 Work in the smooth toroidal setting. The further hypotheses are: φ a G-quasi-isogeny with unit similitude, isomorphism on X^{ét} and X^μ.
 
@@ -1166,7 +1170,7 @@ The hypotheses are: PEL datum of type (A) or (C) unramified at p (Nie's results 
 
 <a id="ig-2-affineness-transfer-lemma"></a>
 
-Consider schemes X ← C → Y with maps π₁, π₂, and closed subschemes X₀ ⊂ X, C₀ ⊂ C, Y₀ ⊂ Y with C₀ topologically the preimage of both X₀ and Y₀. Assume X, X₀ and Y₀ are affine, and π₁, π₂ are proper, surjective and finite away from C₀. Then Y is affine.
+Consider schemes X ← C → Y with maps π₁, π₂, closed immersions i : X₀ → X, j : C₀ → C, k : Y₀ → Y, and maps π₁₀ : C₀ → X₀ and π₂₀ : C₀ → Y₀ satisfying j ≫ π₁ = π₁₀ ≫ i and j ≫ π₂ = π₂₀ ≫ k. Assume the underlying closed subset of C₀ is the preimage of both X₀ and Y₀; no scheme-theoretic fibre-product equality is required. Assume X, X₀ and Y₀ are affine, and π₁, π₂ are proper, surjective and finite away from C₀. Then Y is affine.
 
 The hypotheses are: π₁, π₂ proper surjective, finite away from C₀; X, X₀, Y₀ affine.
 
@@ -1212,7 +1216,7 @@ The API: `PerfectMinimalIgusa`, `PerfectMinimalIgusa.integral`, `PerfectMinimalI
 
 <a id="ig-2-minimal-igusa-compactification"></a>
 
-Fix b ∈ B(G_{ℚ_p}, μ^{−1}) and a completely slope divisible X_b with G-structure in the class b; when possible take X_b = X_w minimal for a fundamental w ([IG.2.14](#ig-2-fundamental-eo-stratum-in-newton-stratum)), which is completely slope divisible. Let C^b = C^{X_b} and Ig^b_m = Ig^{X_b}_{Mant,m}. Define Ig^{b,*}_m as the normalization of C^{b,*} in Ig^b_m and Ig^{b,*} := lim_m Ig^{b,*}_m. Then: (1) h^{b,*}_m : Ig^{b,*}_m → C^{b,*} is finite and surjective, so Ig^{b,*}_m is affine whenever C^{b,*} is; (2) Ig^b_m ↪ Ig^{b,*}_m is a dense open immersion and Ig^{b,*}_m is normal; (3) Ig^{b,*} → C^{b,*} is integral (not finite) and Ig^{b,*} is affine whenever C^{b,*} is; its perfection is Ig^{X_b,*} of [IG.2.17](#ig-2-perfect-minimal-igusa).
+Fix b ∈ B(G_{ℚ_p}, μ^{−1}) and a completely slope divisible X_b with G-structure in the class b; when possible take X_b = X_w minimal for a fundamental w ([IG.2.14](#ig-2-fundamental-eo-stratum-in-newton-stratum)). **Proof obligation for this choice.** One must show that this X_w, with its integral extra structure and principal polarization, is completely slope divisible. Oort's unstructured minimal groups are products of slope blocks ([Minimal p-divisible groups](https://annals.math.princeton.edu/wp-content/uploads/annals-v161-n2-p10.pdf), §1.1, pp.1022–1023), but the passage from a fundamental representative with unramified PEL structure to the required compatible slope decomposition is an additional step. [Viehmann–Wedhorn](https://arxiv.org/abs/1011.3230v4) §8.2, Remark 8.12 and Corollary 8.13, author-copy pp.36–37, identifies the relevant minimal notions in the split case; it does not alone settle this input for every unramified PEL datum. Let C^b = C^{X_b} and Ig^b_m = Ig^{X_b}_{Mant,m}. Define Ig^{b,*}_m as the normalization of C^{b,*} in Ig^b_m and Ig^{b,*} := lim_m Ig^{b,*}_m. Then: (1) h^{b,*}_m : Ig^{b,*}_m → C^{b,*} is finite and surjective, so Ig^{b,*}_m is affine whenever C^{b,*} is; (2) Ig^b_m ↪ Ig^{b,*}_m is a dense open immersion and Ig^{b,*}_m is normal; (3) Ig^{b,*} → C^{b,*} is integral (not finite) and Ig^{b,*} is affine whenever C^{b,*} is; its perfection is Ig^{X_b,*} of [IG.2.17](#ig-2-perfect-minimal-igusa).
 
 Extend prime-to-p Hecke correspondences and the level-changing Mantovan monoid maps through normalization.
 
@@ -1355,7 +1359,7 @@ The API:
 - `flagNewtonClass_lowerSemicontinuous`: Statement (3).
 - `flagNewtonStratum_isLocallyClosed`, `flagNewtonStratum_basic_isOpen`, `flagNewtonStratum_ge_isClosed`: Statement (4).
 
-*Needs:* Layer IG.0 (B(G) and B(G, μ)); PerfectoidShimuraVarieties S3 (the flag variety); VectorBundlesAndIsocrystals VB2 (Fargues' classification of G-bundles on X_{C♭} and the modification E(x)).
+*Needs:* Layer IG.0 (B(G) and B(G, μ)); PerfectoidShimuraVarieties S3 (the flag variety); BunGAndNewtonStrata BG2:uniformization (Fargues' classification of G-bundles on X_{C♭} and the modification E(x)), together with the crystalline comparison specified above.
 
 **Checks.**
 
@@ -1432,7 +1436,7 @@ The hypotheses are: Unramified local PEL datum of type (A) or (C).
 
 ([CS17](#ref-cs17), §4.2, Lemma 4.2.18, p. 711.)
 
-*Needs:* earlier targets of Layer IG.3; VectorBundlesAndIsocrystals VB2.
+*Needs:* earlier targets of Layer IG.3; BunGAndNewtonStrata BG2:uniformization and its additional crystalline comparison obligation.
 
 ### IG.3.10 Dimension of the adic automorphism group
 
@@ -1580,7 +1584,7 @@ Work in the valued-field fibre setting.
 
 ([CSnc](#ref-csnc), §4.3, Proposition 4.3.1, p. 54.)
 
-*Needs:* earlier targets of Layer IG.3; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2; VectorBundlesAndIsocrystals VB2.
+*Needs:* earlier targets of Layer IG.3; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2; BunGAndNewtonStrata BG2:uniformization and its additional crystalline comparison obligation.
 
 ### IG.3.21 The compactified Igusa-to-Shimura map
 
@@ -1688,7 +1692,7 @@ For GL_2 and μ = (1, 0) the flag variety is ℙ¹, the ordinary stratum ℙ¹(�
 
 ### Dependencies
 
-Layers IG.0–IG.2; PerfectoidShimuraVarieties S0–S4, S6; PerfectoidSpaces P0–P2, P7; DiamondsAndVStacks D5; AdicSpacesPartII F0, R2; AdicEtaleGeometry A1; ClassicalAdicEtaleCohomology H0, H1; DiamondEtaleCohomology C0, C4, C8; DiamondSixOperations S1–S4; HodgeTateAndCanonicalSubgroups T1, T2; PadicHodgeTheory P8; LefschetzPencilsAndVanishingCycles LPV.0; ShimuraCompactifications C4, C5; NeronModelsAndSemistableAbelianVarieties R11.3; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, R07.2, R07.6; AbelianSchemesAndArithmeticModuli A4; SchemeAndStackFoundations SF.4; TauCetiRoadmap SmoothRepresentationsOfLocalGroups SR.0, SR.0d, SR.1, SR.2; and, for the flag Newton stratification and Mantovan's filtration, VectorBundlesAndIsocrystals VB2, BunGAndNewtonStrata BG3, VStackSheavesAndLisseCategories VS4 and HeckeStacksAndLocalShtukas HS2.
+Layers IG.0–IG.2; PerfectoidShimuraVarieties S0–S4, S6; PerfectoidSpaces P0–P2, P7; DiamondsAndVStacks D5; AdicSpacesPartII F0, R2; AdicEtaleGeometry A1; ClassicalAdicEtaleCohomology H0, H1; DiamondEtaleCohomology C0, C4, C8; DiamondSixOperations S1–S4; HodgeTateAndCanonicalSubgroups T1, T2; PadicHodgeTheory P8; LefschetzPencilsAndVanishingCycles LPV.0; ShimuraCompactifications C4, C5; NeronModelsAndSemistableAbelianVarieties R11.3; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, R07.2, R07.6; AbelianSchemesAndArithmeticModuli A4; SchemeAndStackFoundations SF.4; TauCetiRoadmap SmoothRepresentationsOfLocalGroups SR.0, SR.0d, SR.1, SR.2; and, for the flag Newton stratification and Mantovan's filtration, BunGAndNewtonStrata BG2:uniformization, BG3, VStackSheavesAndLisseCategories VS4 and HeckeStacksAndLocalShtukas HS2.
 
 ## Layer IG.4: Nearby cycles, semiperversity and degree bounds
 
@@ -1829,6 +1833,8 @@ The API:
 The partial minimal compactification Ig^{b,*} is affine (Theorem 2.8.1); consequently, for every ℓ ≠ p, H^i_{c−∂}(Ig^b, 𝔽_ℓ) = H^i(Ig^{b,*}, j_!𝔽_ℓ) is nonzero only for i ≤ d_b = dim Ig^b.
 
 Work in the nearby-cycle setting.
+
+The geometric proof must resolve one of the two routes in Layer IG.2: a completely slope divisible fundamental representative as specified in IG.2.18, or the unit-similitude extension in IG.2.11 for transfer to the chosen representative. The Artin-vanishing deduction assumes that geometric affineness input; it does not close either proof obligation.
 
 ([CSnc](#ref-csnc), §2.8, Proposition 2.8.2, p. 34.)
 
@@ -2017,7 +2023,7 @@ The API: `boundaryComparison`, `igusaFactor`, `lsFactor`, `lsFactor_equivariant`
 
 <a id="ig-6-local-boundary-computation"></a>
 
-Decompose Ig^{b,*}_{∞,P} by Igusa cusp labels above P: finite projective O_F-modules X of rank r with X ⊗ ℤ̂^p ≅ O_F^r ⊗ ℤ̂^p and X ⊗ ℤ_p ≅ O_F^r ⊗ ℤ_p, giving ⊔_{X/≅} GL_{O_F}(X)\GL_{O_F}(X ⊗ ℤ̂) ≅ GL_r(F)\GL_r(𝔸_{F,f}), compatibly with f. For the closed subset Ig^{b,*}_{∞,Z̃} of a fixed label, the map RΓ_c(Ig^{b_P}_∞, 𝔽_ℓ) ⊗ colim_{Γ ⊂ GL_{O_F}(X)} RΓ(Γ, 𝔽_ℓ) → RΓ_c(Ig^{b,*}_{∞,Z̃}, i^*_{Z̃}Rj_*𝔽_ℓ) (Γ running over congruence subgroups) is an isomorphism. The same method proves Pink's original formula Hecke-equivariantly (alternative to Pink §4.8).
+Decompose Ig^{b,*}_{∞,P} by Igusa cusp labels above P: finite projective O_F-modules X of rank r with X ⊗ ℤ̂^p ≅ O_F^r ⊗ ℤ̂^p and X ⊗ ℤ_p ≅ O_F^r ⊗ ℤ_p, giving ⊔_{X/≅} GL_{O_F}(X)\GL_{O_F}(X ⊗ ℤ̂) ≅ GL_r(F)\GL_r(𝔸_{F,f}), compatibly with f. For the closed subset Ig^{b,*}_{∞,Z̃} of a fixed label, the map RΓ_c(Ig^{b_P}_∞, 𝔽_ℓ) ⊗ colim_{Γ ⊂ GL_{O_F}(X)} RΓ(Γ, 𝔽_ℓ) → RΓ_c(Ig^{b,*}_{∞,Z̃}, i^*_{Z̃}Rj_*𝔽_ℓ) (Γ running over congruence subgroups) is an isomorphism. The same method proves Pink's original formula Hecke-equivariantly (alternative to Pink §4.8). Lan–Stroh supplies the geometric framework, including Assumption 4.3.1, the stratification lemma and the compactification construction. Its Theorem 4.3.10 is stated with rational ℓ-adic coefficients; the torsion statement here is CSnc Proposition 6.3.1 and its proof, not a change of coefficients in that rational theorem.
 
 Work in the boundary tower setting.
 
@@ -2100,6 +2106,8 @@ The API:
 - A ρ̄_𝔪 with three or more Jordan–Hölder constituents (for instance a sum of three nonzero subrepresentations of GL_{2n}) is never CS-generic (condition (ii) fails), whatever its eigenvalues.
 - CS-generic does not imply non-Eisenstein: the reducible χ₁ ⊕ χ₂ of IsCSGeneric.reducible_ok is CS-generic and Eisenstein.
 - Repeated eigenvalues α_i = α_j are allowed when α_i ≠ pα_j (CSnc Remark 1.4).
+
+- An empty or singleton eigenvalue tuple satisfies both pairwise predicates. At q=1 repeated eigenvalues fail even weak genericity; for q=2 over 𝔽_5 the tuple (1,1) is weakly generic and fails strong genericity.
 
 ### IG.7.2 Cohomologically generic Hecke homomorphisms
 
@@ -2236,9 +2244,9 @@ The API: `koshikawaParameterIrrelevance`.
 
 <a id="ig-7-koshikawa-local-vanishing"></a>
 
-Let F/ℚ_p be finite with residue field 𝔽_q, (G, b, μ) a local Shimura datum with G = ∏_{i∈I} GL_{n_i}, K = ∏GL_{n_i}(O_F) and M_{(G,b,μ),K} the local Shimura variety, ℓ ≠ p. Let 𝔪 ⊂ ℤ_ℓ[K\G(F)/K] be a maximal ideal whose unramified L-parameter ρ̄_𝔪 is generic (the eigenvalues of ρ̄_𝔪(Frob_F) in each GL_{n_i} satisfy α_{j′}/α_j ≠ q for j ≠ j′). If J_b is not quasi-split, then H^i_c(M_{(G,b,μ),K}, 𝔽̄_ℓ)_𝔪 = 0 for every i (cohomology over the completed algebraic closure), and Koshikawa's integral form H^i_c(M_{(G,b,μ),K}, ℤ_ℓ)_𝔪 = 0 holds as well.
+Let F/ℚ_p be finite with residue field 𝔽_q, (G, b, μ) a local Shimura datum with G = ∏_{i∈I} GL_{n_i}, K = ∏GL_{n_i}(O_F) and M_{(G,b,μ),K} the local Shimura variety, ℓ ≠ p. Let 𝔪 ⊂ ℤ_ℓ[K\G(F)/K] be a maximal ideal whose unramified L-parameter ρ̄_𝔪 is generic (the eigenvalues of ρ̄_𝔪(Frob_F) in each GL_{n_i} satisfy α_{j′}/α_j ≠ q for j ≠ j′). If J_b is not quasi-split, then H^i_c(M_{(G,b,μ),K}, 𝔽̄_ℓ)_𝔪 = 0 for every i (cohomology over the completed algebraic closure). The additional integral target is H^i_c(M_{(G,b,μ),K}, ℤ_ℓ)_𝔪 = 0; the proof obligation for this target is stated below.
 
-*Proof sketch.* After adjoining q^{1/2}, the compactly supported cohomology is identified, up to shift and twist, with i^{b*}T_μ(i_{1!} c-Ind_K^{G(F)} Λ), Hecke-equivariantly, and each H^i_c is a finitely generated smooth J_b(F)-representation (FS IX.3.1); localization at 𝔪 commutes with these functors. The spectral Bernstein centre acts on c-Ind_K^{G(F)} Λ through End(c-Ind) = H_K^op, and after composing with the inversion [KhK] ↦ [Kh⁻¹K] of H_K this action is the one compatible with unramified parameters; on the 𝔪-localization it factors through the localization of the spectral centre at the parameter of 𝔪, and it commutes with excursion operators. Hence every irreducible subquotient π of the mod-ℓ localized cohomology has Fargues–Scholze parameter ρ̄_𝔪, which is generic, contradicting the parameter-irrelevance target; a nonzero finitely generated smooth representation has an irreducible subquotient, so the mod-ℓ localized cohomology vanishes. Only the 𝔽̄_ℓ form is used later in this roadmap (ordinary costalk–stalk comparison). Deducing the ℤ_ℓ form from the 𝔽̄_ℓ form needs a finiteness property of the 𝔪-localized integral cohomology that makes ℓ topologically nilpotent on it; finite generation as a smooth J_b(F)-representation alone does not give it (the cyclic smooth representation ℤ_ℓ[t^{±1}]/(t − ℓ) of ℚ_p^×, with t the class of p, is nonzero and ℓ-divisible). This step is open; no later target depends on it.
+*Proof sketch.* After adjoining q^{1/2}, the compactly supported cohomology is identified, up to shift and twist, with i^{b*}T_μ(i_{1!} c-Ind_K^{G(F)} Λ), Hecke-equivariantly, and each H^i_c is a finitely generated smooth J_b(F)-representation (FS IX.3.1); localization at 𝔪 commutes with these functors. The spectral Bernstein centre acts on c-Ind_K^{G(F)} Λ through End(c-Ind) = H_K^op, and after composing with the inversion [KhK] ↦ [Kh⁻¹K] of H_K this action is the one compatible with unramified parameters; on the 𝔪-localization it factors through the localization of the spectral centre at the parameter of 𝔪, and it commutes with excursion operators. Hence every irreducible subquotient π of the mod-ℓ localized cohomology has Fargues–Scholze parameter ρ̄_𝔪, which is generic, contradicting the parameter-irrelevance target; a nonzero smooth representation contains a nonzero cyclic subrepresentation, which has an irreducible quotient, so the mod-ℓ localized cohomology vanishes. Only the 𝔽̄_ℓ form is used later in this roadmap (ordinary costalk–stalk comparison). Deducing the ℤ_ℓ form from the 𝔽̄_ℓ form needs a finiteness property of the 𝔪-localized integral cohomology that makes ℓ topologically nilpotent on it; finite generation as a smooth J_b(F)-representation alone does not give it (the cyclic smooth representation ℤ_ℓ[t^{±1}]/(t − ℓ) of ℚ_p^×, with t the class of p, is nonzero and ℓ-divisible). This step is open; no later target depends on it.
 
 The hypotheses are G a product of GL_{n_i}, hyperspecial K, ℓ ≠ p and ρ̄_𝔪 generic in Koshikawa's sense.
 

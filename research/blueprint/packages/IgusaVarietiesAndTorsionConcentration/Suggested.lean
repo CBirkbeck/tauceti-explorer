@@ -93,6 +93,15 @@ theorem admissible_gl2_eq (ν : NewtonVector 2) (h : IsAdmissible ![1, 0] ν) :
 slope `1/2` would need even multiplicity. -/
 example : ¬ ∃ ν : NewtonVector 2, ν.slope = ![(1 / 2 : ℚ), 0] := sorry
 
+/-- The empty isocrystal has zero `2ρ` pairing. -/
+example : pairingTwoRho (fun i : Fin 0 => (i.elim0 : ℚ)) = 0 := by
+  simp [pairingTwoRho]
+
+/-- In the negative Shimura normalization the ordinary vector is `(0, -1)`, again of
+central-leaf dimension one; negation must be followed by reordering. -/
+example : pairingTwoRho ![(0 : ℚ), -1] = 1 := by
+  norm_num [pairingTwoRho, Fin.sum_univ_two]
+
 end NewtonVectors
 
 section SimilitudeGroup
@@ -140,6 +149,16 @@ example (n : ℕ) (hn : 0 < n) :
     ∃ g : similitudeGroup ℚ (RingHom.id ℚ) n, (similitude ℚ (RingHom.id ℚ) n g : ℚ) = 4 ∧
       g ∉ unitaryGroup ℚ (RingHom.id ℚ) n := sorry
 
+/-- The alternating matrix retains its meaning in characteristic two; no division by two
+is part of this model. -/
+example : skewHermMatrix (ZMod 2) 1 = !![0, 1; 1, 0] := by
+  decide
+
+/-- Rank zero gives the unique empty matrix. The Shimura datum separately requires `n > 0`. -/
+example : skewHermMatrix ℤ 0 = 0 := by
+  ext i
+  exact i.elim0
+
 end SimilitudeGroup
 
 section Datum
@@ -152,7 +171,7 @@ def splitTracePairing (F : Type) [Field F] [NumberField F] [NumberField.IsCMFiel
       x ⟨2 * n - 1 - i, by omega⟩ * NumberField.IsCMField.complexConj F (y ⟨i, by omega⟩)))
 
 /-- The quasi-split unitary similitude datum: a CM field `F`, an integer `n ≥ 1` and an
-`O_F`-lattice `L ⊂ F^{2n}` that is self-dual for the trace pairing (CSnc §2.1, p. 10). -/
+`O_F`-lattice `L ⊂ F^{2n}` that is self-dual for the trace pairing (CSnc §2.1, p. 11). -/
 structure UnitarySimilitudeDatum where
   /-- The CM field. -/
   F : Type
@@ -209,15 +228,18 @@ def splitUnitaryIntegralSubgroup : Subgroup (SplitLocalUnitaryGroup q W m) :=
 def unitSimilitudeSubgroup : Subgroup (SplitLocalGroup q W m) :=
   (⊤ : Subgroup (SplitLocalUnitaryGroup q W m)).prod (unitsIntegral q)
 
-/-- Commensurability of the hyperspecial subgroup with its conjugates. -/
-instance instIsHeckeTripleSplit :
+/-- Commensurability of the hyperspecial subgroup with its conjugates for a finite set of
+local factors. Infinite products need not be Hecke pairs. -/
+instance instIsHeckeTripleSplit [Finite W] :
     IsHeckeTriple (⊤ : Submonoid (SplitLocalGroup q W m)) (splitIntegralSubgroup q W m)
       (splitIntegralSubgroup q W m) := sorry
 
 /-- Commensurability for the unitary group. -/
-instance instIsHeckeTripleSplitUnitary :
+instance instIsHeckeTripleSplitUnitary [Finite W] :
     IsHeckeTriple (⊤ : Submonoid (SplitLocalUnitaryGroup q W m))
       (splitUnitaryIntegralSubgroup q W m) (splitUnitaryIntegralSubgroup q W m) := sorry
+
+variable [Finite W]
 
 /-- The full local similitude Hecke algebra `ℤ[G(ℚ_q)//G(ℤ_q)]`, the local factor of `𝕋^S_full`. -/
 abbrev localHeckeFull : Type :=
@@ -311,7 +333,10 @@ end Localization
 closed subschemes `X₀ ⊂ X`, `C₀ ⊂ C`, `Y₀ ⊂ Y` with `C₀` the preimage of both `X₀` and `Y₀`, both
 maps finite over the complements, and `X`, `X₀`, `Y₀` affine, the scheme `Y` is affine. -/
 theorem isAffine_of_transfer {X C Y X₀ C₀ Y₀ : Scheme.{u}} (π₁ : C ⟶ X) (π₂ : C ⟶ Y)
-    (i : X₀ ⟶ X) (j : C₀ ⟶ C) (k : Y₀ ⟶ Y) [IsClosedImmersion i] [IsClosedImmersion j]
+    (i : X₀ ⟶ X) (j : C₀ ⟶ C) (k : Y₀ ⟶ Y)
+    (π₁₀ : C₀ ⟶ X₀) (π₂₀ : C₀ ⟶ Y₀)
+    (hcomm₁ : j ≫ π₁ = π₁₀ ≫ i) (hcomm₂ : j ≫ π₂ = π₂₀ ≫ k)
+    [IsClosedImmersion i] [IsClosedImmersion j]
     [IsClosedImmersion k] [IsProper π₁] [IsProper π₂] [Surjective π₁] [Surjective π₂]
     (hj₁ : Set.range j.base = π₁.base ⁻¹' Set.range i.base)
     (hj₂ : Set.range j.base = π₂.base ⁻¹' Set.range k.base)
@@ -367,6 +392,17 @@ example : dualEigenvalues (7 : ZMod 11) ![1, 2] 0 = 7 ∧ dualEigenvalues (7 : Z
   · show (7 : ZMod 11) ^ (2 - 1) * (2 : ZMod 11)⁻¹ = 9
     rw [mul_inv_eq_iff_eq_mul₀ (by decide)]
     decide
+
+/-- Empty and singleton tuples impose no pairwise genericity conditions, even at `q = 1`. -/
+example : WeaklyGeneric (1 : ZMod 5) (fun i : Fin 0 => i.elim0) ∧
+    DecomposedGeneric (1 : ZMod 5) ![1] := by
+  unfold WeaklyGeneric DecomposedGeneric
+  decide
+
+/-- At `q = 1`, repeated eigenvalues fail even weak genericity. -/
+example : ¬ WeaklyGeneric (1 : ZMod 5) ![1, 1] := by
+  unfold WeaklyGeneric
+  decide
 
 end Genericity
 
