@@ -14992,8 +14992,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphyLiftingBeyondTaylorWiles.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #7060",
-   "finishedAt": "2026-10-13T00:01:00Z"
+   "finishedAt": "2026-10-13T00:01:00Z",
+   "note": "deliverables arrived from an external worker on issue #7060"
   },
   {
    "id": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
@@ -32030,8 +32030,8 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "deliverables arrived from an external worker on issue #1031",
-   "finishedAt": "2026-10-12T19:42:03Z"
+   "finishedAt": "2026-10-12T19:42:03Z",
+   "note": "deliverables arrived from an external worker on issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
@@ -35093,8 +35093,8 @@
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9292",
-   "finishedAt": "2026-10-12T20:37:07Z"
+   "finishedAt": "2026-10-12T20:37:07Z",
+   "note": "deliverables arrived from an external worker on issue #9292"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L2",
@@ -38768,6 +38768,314 @@
    "state": "pending"
   },
   {
+   "id": "BP-ClassicalArithmeticCompletion--CA.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.1.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.1"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.1",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.2.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.2"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.2",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.3.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.3"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.3",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.4.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.4"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.4",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.5.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.5"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.5",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.6.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.6"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.6",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.7",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.7.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.7",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.7.md",
+   "state": "pending"
+  },
+  {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.0",
    "kind": "blueprint",
    "priority": 3,
@@ -39245,8 +39553,8 @@
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9325",
-   "finishedAt": "2026-10-12T20:20:32Z"
+   "finishedAt": "2026-10-12T20:20:32Z",
+   "note": "deliverables arrived from an external worker on issue #9325"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
@@ -39268,8 +39576,8 @@
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9283",
-   "finishedAt": "2026-10-12T20:57:45Z"
+   "finishedAt": "2026-10-12T20:57:45Z",
+   "note": "deliverables arrived from an external worker on issue #9283"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
@@ -39293,8 +39601,8 @@
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9326",
-   "finishedAt": "2026-10-12T21:47:09Z"
+   "finishedAt": "2026-10-12T21:47:09Z",
+   "note": "deliverables arrived from an external worker on issue #9326"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
@@ -39340,8 +39648,8 @@
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9327",
-   "finishedAt": "2026-10-12T22:35:36Z"
+   "finishedAt": "2026-10-12T22:35:36Z",
+   "note": "deliverables arrived from an external worker on issue #9327"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
@@ -39363,8 +39671,8 @@
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9285",
-   "finishedAt": "2026-10-13T00:52:00Z"
+   "finishedAt": "2026-10-13T00:52:00Z",
+   "note": "deliverables arrived from an external worker on issue #9285"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
@@ -39432,8 +39740,8 @@
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9329",
-   "finishedAt": "2026-10-12T19:42:05Z"
+   "finishedAt": "2026-10-12T19:42:05Z",
+   "note": "deliverables arrived from an external worker on issue #9329"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
@@ -39455,8 +39763,8 @@
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9287",
-   "finishedAt": "2026-10-12T21:17:01Z"
+   "finishedAt": "2026-10-12T21:17:01Z",
+   "note": "deliverables arrived from an external worker on issue #9287"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -46313,8 +46621,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8898",
-   "finishedAt": "2026-10-12T17:59:44Z"
+   "finishedAt": "2026-10-12T17:59:44Z",
+   "note": "deliverables arrived from an external worker on issue #8898"
   },
   {
    "kind": "blueprint",
@@ -49143,6 +49451,40 @@
    "state": "pending"
   },
   {
+   "id": "ASM-ClassicalArithmeticCompletion",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/ClassicalArithmeticCompletion.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean",
+    "research/blueprint/handoff/ASM-ClassicalArithmeticCompletion.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion~3",
+    "REV-ClassicalArithmeticCompletion--CA.1",
+    "REV-ClassicalArithmeticCompletion--CA.2",
+    "REV-ClassicalArithmeticCompletion--CA.3",
+    "REV-ClassicalArithmeticCompletion--CA.4",
+    "REV-ClassicalArithmeticCompletion--CA.5",
+    "REV-ClassicalArithmeticCompletion--CA.6",
+    "REV-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-ClassicalArithmeticCompletion.md",
+   "state": "pending"
+  },
+  {
    "id": "ASM-DiophantineApproximationAndTranscendence",
    "kind": "assembly",
    "priority": 2,
@@ -50197,8 +50539,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianSchemesAndArithmeticModuli.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8893",
-   "finishedAt": "2026-10-12T18:18:11Z"
+   "finishedAt": "2026-10-12T18:18:11Z",
+   "note": "deliverables arrived from an external worker on issue #8893"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuliPartII",
@@ -50679,8 +51021,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticGaloisDuality.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8888",
-   "finishedAt": "2026-10-12T17:07:26Z"
+   "finishedAt": "2026-10-12T17:07:26Z",
+   "note": "deliverables arrived from an external worker on issue #8888"
   },
   {
    "id": "REV-PKG-ArithmeticGaloisDuality",
@@ -50706,8 +51048,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisDuality.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8894",
-   "finishedAt": "2026-10-12T18:38:34Z"
+   "finishedAt": "2026-10-12T18:38:34Z",
+   "note": "deliverables arrived from an external worker on issue #8894"
   },
   {
    "id": "PKG-ArithmeticLocallySymmetricSpaces",
@@ -51851,8 +52193,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineCohomology.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8890",
-   "finishedAt": "2026-10-12T18:57:32Z"
+   "finishedAt": "2026-10-12T18:57:32Z",
+   "note": "deliverables arrived from an external worker on issue #8890"
   },
   {
    "id": "REV-PKG-CrystallineCohomology",
@@ -54223,8 +54565,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-InverseGaloisAndArithmeticFundamentalGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #8896",
-   "finishedAt": "2026-10-12T17:41:25Z"
+   "finishedAt": "2026-10-12T17:41:25Z",
+   "note": "deliverables arrived from an external worker on issue #8896"
   },
   {
    "id": "PKG-JacobianChallengePartII",
@@ -81134,7 +81476,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1051,
+   "order": 1058,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.2: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.2",
    "roadmapIds": [
@@ -81156,7 +81498,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.2",
    "kind": "review",
    "priority": 2,
-   "order": 1051,
+   "order": 1058,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.2: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -81181,7 +81523,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1052,
+   "order": 1059,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "roadmapIds": [
@@ -81203,7 +81545,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "review",
    "priority": 2,
-   "order": 1052,
+   "order": 1059,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -81228,7 +81570,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1053,
+   "order": 1060,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.4: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.4",
    "roadmapIds": [
@@ -81250,7 +81592,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.4",
    "kind": "review",
    "priority": 2,
-   "order": 1053,
+   "order": 1060,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.4: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -81272,10 +81614,151 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1062,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.result.json",
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 1062,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.review.json",
+    "research/blueprint/reviews/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md"
+   ],
+   "after": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1"
+   ],
+   "avoidAccountOf": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "independentOf": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1064,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.result.json",
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1064,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md"
+   ],
+   "after": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3"
+   ],
+   "avoidAccountOf": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+   "independentOf": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1066,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.result.json",
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1066,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md"
+   ],
+   "after": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   ],
+   "avoidAccountOf": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "independentOf": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-ArithmeticStatistics--ST.0",
    "kind": "redteam",
    "priority": 2,
-   "order": 1061,
+   "order": 1068,
    "name": "blueprint BP-ArithmeticStatistics--ST.0: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.0",
    "roadmapIds": [
@@ -81297,7 +81780,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.0",
    "kind": "review",
    "priority": 2,
-   "order": 1061,
+   "order": 1068,
    "name": "blueprint BP-ArithmeticStatistics--ST.0: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81322,7 +81805,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.1",
    "kind": "redteam",
    "priority": 2,
-   "order": 1062,
+   "order": 1069,
    "name": "blueprint BP-ArithmeticStatistics--ST.1: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.1",
    "roadmapIds": [
@@ -81344,7 +81827,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.1",
    "kind": "review",
    "priority": 2,
-   "order": 1062,
+   "order": 1069,
    "name": "blueprint BP-ArithmeticStatistics--ST.1: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81369,7 +81852,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1063,
+   "order": 1070,
    "name": "blueprint BP-ArithmeticStatistics--ST.2: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.2",
    "roadmapIds": [
@@ -81391,7 +81874,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.2",
    "kind": "review",
    "priority": 2,
-   "order": 1063,
+   "order": 1070,
    "name": "blueprint BP-ArithmeticStatistics--ST.2: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81416,7 +81899,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1064,
+   "order": 1071,
    "name": "blueprint BP-ArithmeticStatistics--ST.3: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.3",
    "roadmapIds": [
@@ -81438,7 +81921,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.3",
    "kind": "review",
    "priority": 2,
-   "order": 1064,
+   "order": 1071,
    "name": "blueprint BP-ArithmeticStatistics--ST.3: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81463,7 +81946,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1065,
+   "order": 1072,
    "name": "blueprint BP-ArithmeticStatistics--ST.4: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.4",
    "roadmapIds": [
@@ -81485,7 +81968,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.4",
    "kind": "review",
    "priority": 2,
-   "order": 1065,
+   "order": 1072,
    "name": "blueprint BP-ArithmeticStatistics--ST.4: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81510,7 +81993,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.5",
    "kind": "redteam",
    "priority": 2,
-   "order": 1066,
+   "order": 1073,
    "name": "blueprint BP-ArithmeticStatistics--ST.5: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.5",
    "roadmapIds": [
@@ -81532,7 +82015,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.5",
    "kind": "review",
    "priority": 2,
-   "order": 1066,
+   "order": 1073,
    "name": "blueprint BP-ArithmeticStatistics--ST.5: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81557,7 +82040,7 @@
    "id": "RT-BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1067,
+   "order": 1074,
    "name": "blueprint BP-ProbabilisticAndMetricNumberTheory--PM.4: Probabilistic, metric and ergodic number theory",
    "target": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "roadmapIds": [
@@ -81579,7 +82062,7 @@
    "id": "REV-RT-BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "kind": "review",
    "priority": 2,
-   "order": 1067,
+   "order": 1074,
    "name": "blueprint BP-ProbabilisticAndMetricNumberTheory--PM.4: Probabilistic, metric and ergodic number theory",
    "roadmapIds": [
     "ProbabilisticAndMetricNumberTheory"
@@ -81604,7 +82087,7 @@
    "id": "RT-DESIGN-LV~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1068,
+   "order": 1075,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "target": "DESIGN-LV~2",
    "roadmapIds": [
@@ -81626,7 +82109,7 @@
    "id": "REV-RT-DESIGN-LV~2",
    "kind": "review",
    "priority": 2,
-   "order": 1068,
+   "order": 1075,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "roadmapIds": [
     "MordellLawrenceVenkatesh"
@@ -81651,7 +82134,7 @@
    "id": "RT-DESIGN-StableReductionPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1069,
+   "order": 1076,
    "name": "new roadmap DESIGN-StableReductionPartII~2: Stable reduction of curves and stable maps, Part II",
    "target": "DESIGN-StableReductionPartII~2",
    "roadmapIds": [
@@ -81673,7 +82156,7 @@
    "id": "REV-RT-DESIGN-StableReductionPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1069,
+   "order": 1076,
    "name": "new roadmap DESIGN-StableReductionPartII~2: Stable reduction of curves and stable maps, Part II",
    "roadmapIds": [
     "StableReductionPartII"
@@ -81698,7 +82181,7 @@
    "id": "RT-DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1071,
+   "order": 1078,
    "name": "new roadmap DESIGN-PotentialAutomorphyInfrastructurePartII~3: Reusable infrastructure for potential automorphy over CM fields, Part II",
    "target": "DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "roadmapIds": [
@@ -81720,7 +82203,7 @@
    "id": "REV-RT-DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "kind": "review",
    "priority": 2,
-   "order": 1071,
+   "order": 1078,
    "name": "new roadmap DESIGN-PotentialAutomorphyInfrastructurePartII~3: Reusable infrastructure for potential automorphy over CM fields, Part II",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructurePartII"
@@ -81745,7 +82228,7 @@
    "id": "RT-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1072,
+   "order": 1079,
    "name": "new roadmap DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2: Néron models and semistable abelian varieties, Part II",
    "target": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "roadmapIds": [
@@ -81767,7 +82250,7 @@
    "id": "REV-RT-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1072,
+   "order": 1079,
    "name": "new roadmap DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2: Néron models and semistable abelian varieties, Part II",
    "roadmapIds": [
     "NeronModelsAndSemistableAbelianVarietiesPartII"
@@ -81792,7 +82275,7 @@
    "id": "RT-DESIGN-EllipticCurveModularityPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1074,
+   "order": 1081,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartII~2: Modularity and modular parametrisations of elliptic curves over Q, Part II",
    "target": "DESIGN-EllipticCurveModularityPartII~2",
    "roadmapIds": [
@@ -81814,7 +82297,7 @@
    "id": "REV-RT-DESIGN-EllipticCurveModularityPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1074,
+   "order": 1081,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartII~2: Modularity and modular parametrisations of elliptic curves over Q, Part II",
    "roadmapIds": [
     "EllipticCurveModularityPartII"
@@ -81839,7 +82322,7 @@
    "id": "RT-DESIGN-FunctionFieldArithmeticPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1075,
+   "order": 1082,
    "name": "new roadmap DESIGN-FunctionFieldArithmeticPartII~2: Global function fields, reciprocity and automorphic foundations, Part II",
    "target": "DESIGN-FunctionFieldArithmeticPartII~2",
    "roadmapIds": [
@@ -81861,7 +82344,7 @@
    "id": "REV-RT-DESIGN-FunctionFieldArithmeticPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1075,
+   "order": 1082,
    "name": "new roadmap DESIGN-FunctionFieldArithmeticPartII~2: Global function fields, reciprocity and automorphic foundations, Part II",
    "roadmapIds": [
     "FunctionFieldArithmeticPartII"
@@ -81886,7 +82369,7 @@
    "id": "RT-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1077,
+   "order": 1084,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2: Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type",
    "target": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "roadmapIds": [
@@ -81908,7 +82391,7 @@
    "id": "REV-RT-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "kind": "review",
    "priority": 2,
-   "order": 1077,
+   "order": 1084,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2: Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type",
    "roadmapIds": [
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
@@ -81933,7 +82416,7 @@
    "id": "RT-BP-BorelRegulators~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1079,
+   "order": 1086,
    "name": "blueprint BP-BorelRegulators~2: Stable arithmetic cohomology and Borel regulators",
    "target": "BP-BorelRegulators~2",
    "roadmapIds": [
@@ -81955,7 +82438,7 @@
    "id": "REV-RT-BP-BorelRegulators~2",
    "kind": "review",
    "priority": 2,
-   "order": 1079,
+   "order": 1086,
    "name": "blueprint BP-BorelRegulators~2: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators"
@@ -81980,7 +82463,7 @@
    "id": "RT-BP-AInfCohomology--AI.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1081,
+   "order": 1088,
    "name": "blueprint BP-AInfCohomology--AI.0~2: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
    "target": "BP-AInfCohomology--AI.0~2",
    "roadmapIds": [
@@ -82002,7 +82485,7 @@
    "id": "REV-RT-BP-AInfCohomology--AI.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1081,
+   "order": 1088,
    "name": "blueprint BP-AInfCohomology--AI.0~2: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
    "roadmapIds": [
     "AInfCohomology"
@@ -82027,7 +82510,7 @@
    "id": "RT-BP-AInfCohomology--AI.6~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1082,
+   "order": 1089,
    "name": "blueprint BP-AInfCohomology--AI.6~2: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
    "target": "BP-AInfCohomology--AI.6~2",
    "roadmapIds": [
@@ -82049,7 +82532,7 @@
    "id": "REV-RT-BP-AInfCohomology--AI.6~2",
    "kind": "review",
    "priority": 2,
-   "order": 1082,
+   "order": 1089,
    "name": "blueprint BP-AInfCohomology--AI.6~2: Integral A_inf cohomology and Breuil–Kisin–Fargues structures",
    "roadmapIds": [
     "AInfCohomology"
@@ -82074,7 +82557,7 @@
    "id": "RT-BP-AdelicAlgebraicGroups~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1083,
+   "order": 1090,
    "name": "blueprint BP-AdelicAlgebraicGroups~2: Adelic algebraic groups and arithmetic quotients",
    "target": "BP-AdelicAlgebraicGroups~2",
    "roadmapIds": [
@@ -82096,7 +82579,7 @@
    "id": "REV-RT-BP-AdelicAlgebraicGroups~2",
    "kind": "review",
    "priority": 2,
-   "order": 1083,
+   "order": 1090,
    "name": "blueprint BP-AdelicAlgebraicGroups~2: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups"
@@ -82121,7 +82604,7 @@
    "id": "RT-BP-ArithmeticGaloisRepresentations~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1085,
+   "order": 1092,
    "name": "blueprint BP-ArithmeticGaloisRepresentations~3: Arithmetic Galois representations and conductors",
    "target": "BP-ArithmeticGaloisRepresentations~3",
    "roadmapIds": [
@@ -82143,7 +82626,7 @@
    "id": "REV-RT-BP-ArithmeticGaloisRepresentations~3",
    "kind": "review",
    "priority": 2,
-   "order": 1085,
+   "order": 1092,
    "name": "blueprint BP-ArithmeticGaloisRepresentations~3: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations"
@@ -82168,7 +82651,7 @@
    "id": "RT-BP-ArithmeticLocallySymmetricSpaces~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1086,
+   "order": 1093,
    "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
    "target": "BP-ArithmeticLocallySymmetricSpaces~2",
    "roadmapIds": [
@@ -82190,7 +82673,7 @@
    "id": "REV-RT-BP-ArithmeticLocallySymmetricSpaces~2",
    "kind": "review",
    "priority": 2,
-   "order": 1086,
+   "order": 1093,
    "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
    "roadmapIds": [
     "ArithmeticLocallySymmetricSpaces"
@@ -82215,7 +82698,7 @@
    "id": "RT-BP-AutomorphicGaloisRepresentations~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1089,
+   "order": 1096,
    "name": "blueprint BP-AutomorphicGaloisRepresentations~2: Galois representations attached to modular and Hilbert modular forms",
    "target": "BP-AutomorphicGaloisRepresentations~2",
    "roadmapIds": [
@@ -82237,7 +82720,7 @@
    "id": "REV-RT-BP-AutomorphicGaloisRepresentations~2",
    "kind": "review",
    "priority": 2,
-   "order": 1089,
+   "order": 1096,
    "name": "blueprint BP-AutomorphicGaloisRepresentations~2: Galois representations attached to modular and Hilbert modular forms",
    "roadmapIds": [
     "AutomorphicGaloisRepresentations"
@@ -82262,7 +82745,7 @@
    "id": "RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1090,
+   "order": 1097,
    "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2: Automorphic Galois Representations PartII",
    "target": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
    "roadmapIds": [
@@ -82284,7 +82767,7 @@
    "id": "REV-RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1090,
+   "order": 1097,
    "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2: Automorphic Galois Representations PartII",
    "roadmapIds": [
     "AutomorphicGaloisRepresentationsPartII"
@@ -82309,7 +82792,7 @@
    "id": "RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1091,
+   "order": 1098,
    "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2: Automorphic Galois Representations PartII",
    "target": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
    "roadmapIds": [
@@ -82331,7 +82814,7 @@
    "id": "REV-RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
    "kind": "review",
    "priority": 2,
-   "order": 1091,
+   "order": 1098,
    "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2: Automorphic Galois Representations PartII",
    "roadmapIds": [
     "AutomorphicGaloisRepresentationsPartII"
@@ -82356,7 +82839,7 @@
    "id": "RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1092,
+   "order": 1099,
    "name": "blueprint BP-AutomorphicLFunctionsAndLocalFactors~2: Automorphic L-functions and local factors",
    "target": "BP-AutomorphicLFunctionsAndLocalFactors~2",
    "roadmapIds": [
@@ -82378,7 +82861,7 @@
    "id": "REV-RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
    "kind": "review",
    "priority": 2,
-   "order": 1092,
+   "order": 1099,
    "name": "blueprint BP-AutomorphicLFunctionsAndLocalFactors~2: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors"
@@ -82403,7 +82886,7 @@
    "id": "RT-BP-AutomorphicSpectralTheory~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1093,
+   "order": 1100,
    "name": "blueprint BP-AutomorphicSpectralTheory~2: Automorphic spectral theory and trace distributions",
    "target": "BP-AutomorphicSpectralTheory~2",
    "roadmapIds": [
@@ -82425,7 +82908,7 @@
    "id": "REV-RT-BP-AutomorphicSpectralTheory~2",
    "kind": "review",
    "priority": 2,
-   "order": 1093,
+   "order": 1100,
    "name": "blueprint BP-AutomorphicSpectralTheory~2: Automorphic spectral theory and trace distributions",
    "roadmapIds": [
     "AutomorphicSpectralTheory"
@@ -82450,7 +82933,7 @@
    "id": "RT-BP-ClassicalSerreModularity--R26.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1096,
+   "order": 1103,
    "name": "blueprint BP-ClassicalSerreModularity--R26.1~2: Classical Serre Modularity",
    "target": "BP-ClassicalSerreModularity--R26.1~2",
    "roadmapIds": [
@@ -82472,7 +82955,7 @@
    "id": "REV-RT-BP-ClassicalSerreModularity--R26.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1096,
+   "order": 1103,
    "name": "blueprint BP-ClassicalSerreModularity--R26.1~2: Classical Serre Modularity",
    "roadmapIds": [
     "ClassicalSerreModularity"
@@ -82497,7 +82980,7 @@
    "id": "RT-BP-CohomologyComparisons~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1097,
+   "order": 1104,
    "name": "blueprint BP-CohomologyComparisons~2: Cohomology comparisons: integral diagrams and rational period realizations",
    "target": "BP-CohomologyComparisons~2",
    "roadmapIds": [
@@ -82519,7 +83002,7 @@
    "id": "REV-RT-BP-CohomologyComparisons~2",
    "kind": "review",
    "priority": 2,
-   "order": 1097,
+   "order": 1104,
    "name": "blueprint BP-CohomologyComparisons~2: Cohomology comparisons: integral diagrams and rational period realizations",
    "roadmapIds": [
     "CohomologyComparisons"
@@ -82544,7 +83027,7 @@
    "id": "RT-BP-CrystallineCohomology--CR.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1098,
+   "order": 1105,
    "name": "blueprint BP-CrystallineCohomology--CR.0~2: Crystalline cohomology, de Rham–Witt and logarithmic foundations",
    "target": "BP-CrystallineCohomology--CR.0~2",
    "roadmapIds": [
@@ -82566,7 +83049,7 @@
    "id": "REV-RT-BP-CrystallineCohomology--CR.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1098,
+   "order": 1105,
    "name": "blueprint BP-CrystallineCohomology--CR.0~2: Crystalline cohomology, de Rham–Witt and logarithmic foundations",
    "roadmapIds": [
     "CrystallineCohomology"
@@ -82591,7 +83074,7 @@
    "id": "RT-BP-CrystallineCohomology--CR.5~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1100,
+   "order": 1107,
    "name": "blueprint BP-CrystallineCohomology--CR.5~3: Crystalline cohomology, de Rham–Witt and logarithmic foundations",
    "target": "BP-CrystallineCohomology--CR.5~3",
    "roadmapIds": [
@@ -82613,7 +83096,7 @@
    "id": "REV-RT-BP-CrystallineCohomology--CR.5~3",
    "kind": "review",
    "priority": 2,
-   "order": 1100,
+   "order": 1107,
    "name": "blueprint BP-CrystallineCohomology--CR.5~3: Crystalline cohomology, de Rham–Witt and logarithmic foundations",
    "roadmapIds": [
     "CrystallineCohomology"
@@ -82638,7 +83121,7 @@
    "id": "RT-BP-DeligneWeightsAndPurity--DWP.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1101,
+   "order": 1108,
    "name": "blueprint BP-DeligneWeightsAndPurity--DWP.0~2: Deligne weights, purity and the Weil bounds",
    "target": "BP-DeligneWeightsAndPurity--DWP.0~2",
    "roadmapIds": [
@@ -82660,7 +83143,7 @@
    "id": "REV-RT-BP-DeligneWeightsAndPurity--DWP.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1101,
+   "order": 1108,
    "name": "blueprint BP-DeligneWeightsAndPurity--DWP.0~2: Deligne weights, purity and the Weil bounds",
    "roadmapIds": [
     "DeligneWeightsAndPurity"
@@ -82685,7 +83168,7 @@
    "id": "RT-BP-DerivedDeRhamCohomology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1102,
+   "order": 1109,
    "name": "blueprint BP-DerivedDeRhamCohomology~2: Derived de Rham cohomology and its algebraic foundations",
    "target": "BP-DerivedDeRhamCohomology~2",
    "roadmapIds": [
@@ -82707,7 +83190,7 @@
    "id": "REV-RT-BP-DerivedDeRhamCohomology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1102,
+   "order": 1109,
    "name": "blueprint BP-DerivedDeRhamCohomology~2: Derived de Rham cohomology and its algebraic foundations",
    "roadmapIds": [
     "DerivedDeRhamCohomology"
@@ -82732,7 +83215,7 @@
    "id": "RT-BP-DiamondSixOperations~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1103,
+   "order": 1110,
    "name": "blueprint BP-DiamondSixOperations~2: Six operations, cohomological smoothness and biduality",
    "target": "BP-DiamondSixOperations~2",
    "roadmapIds": [
@@ -82754,7 +83237,7 @@
    "id": "REV-RT-BP-DiamondSixOperations~2",
    "kind": "review",
    "priority": 2,
-   "order": 1103,
+   "order": 1110,
    "name": "blueprint BP-DiamondSixOperations~2: Six operations, cohomological smoothness and biduality",
    "roadmapIds": [
     "DiamondSixOperations"
@@ -82779,7 +83262,7 @@
    "id": "RT-BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1104,
+   "order": 1111,
    "name": "blueprint BP-EtaleDualityAndPerverseSheaves--EDC.0~2: Étale duality, cycle classes and perverse sheaves",
    "target": "BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "roadmapIds": [
@@ -82801,7 +83284,7 @@
    "id": "REV-RT-BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1104,
+   "order": 1111,
    "name": "blueprint BP-EtaleDualityAndPerverseSheaves--EDC.0~2: Étale duality, cycle classes and perverse sheaves",
    "roadmapIds": [
     "EtaleDualityAndPerverseSheaves"
@@ -82826,7 +83309,7 @@
    "id": "RT-BP-ExcursionOperatorsAndSpectralAction--ES5~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1111,
+   "order": 1118,
    "name": "blueprint BP-ExcursionOperatorsAndSpectralAction--ES5~2: Excursion operators and the spectral action",
    "target": "BP-ExcursionOperatorsAndSpectralAction--ES5~2",
    "roadmapIds": [
@@ -82848,7 +83331,7 @@
    "id": "REV-RT-BP-ExcursionOperatorsAndSpectralAction--ES5~2",
    "kind": "review",
    "priority": 2,
-   "order": 1111,
+   "order": 1118,
    "name": "blueprint BP-ExcursionOperatorsAndSpectralAction--ES5~2: Excursion operators and the spectral action",
    "roadmapIds": [
     "ExcursionOperatorsAndSpectralAction"
@@ -82873,7 +83356,7 @@
    "id": "RT-BP-ExcursionOperatorsAndSpectralAction--ES7~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1112,
+   "order": 1119,
    "name": "blueprint BP-ExcursionOperatorsAndSpectralAction--ES7~2: Excursion operators and the spectral action",
    "target": "BP-ExcursionOperatorsAndSpectralAction--ES7~2",
    "roadmapIds": [
@@ -82895,7 +83378,7 @@
    "id": "REV-RT-BP-ExcursionOperatorsAndSpectralAction--ES7~2",
    "kind": "review",
    "priority": 2,
-   "order": 1112,
+   "order": 1119,
    "name": "blueprint BP-ExcursionOperatorsAndSpectralAction--ES7~2: Excursion operators and the spectral action",
    "roadmapIds": [
     "ExcursionOperatorsAndSpectralAction"
@@ -82920,7 +83403,7 @@
    "id": "RT-BP-GL2ModularityLifting--R32.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1114,
+   "order": 1121,
    "name": "blueprint BP-GL2ModularityLifting--R32.3~2: GL₂ Modularity Lifting",
    "target": "BP-GL2ModularityLifting--R32.3~2",
    "roadmapIds": [
@@ -82942,7 +83425,7 @@
    "id": "REV-RT-BP-GL2ModularityLifting--R32.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1114,
+   "order": 1121,
    "name": "blueprint BP-GL2ModularityLifting--R32.3~2: GL₂ Modularity Lifting",
    "roadmapIds": [
     "GL2ModularityLifting"
@@ -82967,7 +83450,7 @@
    "id": "RT-BP-GeneralizedHeegnerCycles--GH.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1115,
+   "order": 1122,
    "name": "blueprint BP-GeneralizedHeegnerCycles--GH.0~2: Generalized Heegner cycles and their Iwasawa variation",
    "target": "BP-GeneralizedHeegnerCycles--GH.0~2",
    "roadmapIds": [
@@ -82989,7 +83472,7 @@
    "id": "REV-RT-BP-GeneralizedHeegnerCycles--GH.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1115,
+   "order": 1122,
    "name": "blueprint BP-GeneralizedHeegnerCycles--GH.0~2: Generalized Heegner cycles and their Iwasawa variation",
    "roadmapIds": [
     "GeneralizedHeegnerCycles"
@@ -83014,7 +83497,7 @@
    "id": "RT-BP-GeometricSatakeAndFusion--GS0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1116,
+   "order": 1123,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS0~2: Geometric Satake over the Fargues–Fontaine curve",
    "target": "BP-GeometricSatakeAndFusion--GS0~2",
    "roadmapIds": [
@@ -83036,7 +83519,7 @@
    "id": "REV-RT-BP-GeometricSatakeAndFusion--GS0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1116,
+   "order": 1123,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS0~2: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion"
@@ -83061,7 +83544,7 @@
    "id": "RT-BP-GeometricSatakeAndFusion--GS3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1117,
+   "order": 1124,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS3~2: Geometric Satake over the Fargues–Fontaine curve",
    "target": "BP-GeometricSatakeAndFusion--GS3~2",
    "roadmapIds": [
@@ -83083,7 +83566,7 @@
    "id": "REV-RT-BP-GeometricSatakeAndFusion--GS3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1117,
+   "order": 1124,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS3~2: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion"
@@ -83108,7 +83591,7 @@
    "id": "RT-BP-GrossZagierAndArithmeticHeights--GZ.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1118,
+   "order": 1125,
    "name": "blueprint BP-GrossZagierAndArithmeticHeights--GZ.0~2: Gross–Zagier formulas and arithmetic heights",
    "target": "BP-GrossZagierAndArithmeticHeights--GZ.0~2",
    "roadmapIds": [
@@ -83130,7 +83613,7 @@
    "id": "REV-RT-BP-GrossZagierAndArithmeticHeights--GZ.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1118,
+   "order": 1125,
    "name": "blueprint BP-GrossZagierAndArithmeticHeights--GZ.0~2: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights"
@@ -83155,7 +83638,7 @@
    "id": "RT-BP-GrossZagierAndArithmeticHeights--GZ.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1119,
+   "order": 1126,
    "name": "blueprint BP-GrossZagierAndArithmeticHeights--GZ.8~2: Gross–Zagier formulas and arithmetic heights",
    "target": "BP-GrossZagierAndArithmeticHeights--GZ.8~2",
    "roadmapIds": [
@@ -83177,7 +83660,7 @@
    "id": "REV-RT-BP-GrossZagierAndArithmeticHeights--GZ.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1119,
+   "order": 1126,
    "name": "blueprint BP-GrossZagierAndArithmeticHeights--GZ.8~2: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights"
@@ -83202,7 +83685,7 @@
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1120,
+   "order": 1127,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.8~2: Q-Hodge filtrations and Habiro cohomology",
    "target": "BP-HabiroCohomologyFoundations--HQ.8~2",
    "roadmapIds": [
@@ -83224,7 +83707,7 @@
    "id": "REV-RT-BP-HabiroCohomologyFoundations--HQ.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1120,
+   "order": 1127,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.8~2: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations"
@@ -83249,7 +83732,7 @@
    "id": "RT-BP-HeckeStacksAndLocalShtukas~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1121,
+   "order": 1128,
    "name": "blueprint BP-HeckeStacksAndLocalShtukas~2: Hecke correspondences and local shtuka cohomology",
    "target": "BP-HeckeStacksAndLocalShtukas~2",
    "roadmapIds": [
@@ -83271,7 +83754,7 @@
    "id": "REV-RT-BP-HeckeStacksAndLocalShtukas~2",
    "kind": "review",
    "priority": 2,
-   "order": 1121,
+   "order": 1128,
    "name": "blueprint BP-HeckeStacksAndLocalShtukas~2: Hecke correspondences and local shtuka cohomology",
    "roadmapIds": [
     "HeckeStacksAndLocalShtukas"
@@ -83296,7 +83779,7 @@
    "id": "RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1122,
+   "order": 1129,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "target": "BP-HeegnerPointEulerSystems--HE.0~2",
    "roadmapIds": [
@@ -83318,7 +83801,7 @@
    "id": "REV-RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1122,
+   "order": 1129,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "roadmapIds": [
     "HeegnerPointEulerSystems"
@@ -83343,7 +83826,7 @@
    "id": "RT-BP-HeegnerPointEulerSystems--HE.7s~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1123,
+   "order": 1130,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.7s~2: Heegner-point Euler systems and arithmetic descent",
    "target": "BP-HeegnerPointEulerSystems--HE.7s~2",
    "roadmapIds": [
@@ -83365,7 +83848,7 @@
    "id": "REV-RT-BP-HeegnerPointEulerSystems--HE.7s~2",
    "kind": "review",
    "priority": 2,
-   "order": 1123,
+   "order": 1130,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.7s~2: Heegner-point Euler systems and arithmetic descent",
    "roadmapIds": [
     "HeegnerPointEulerSystems"
@@ -83390,7 +83873,7 @@
    "id": "RT-BP-HodgeTateAndCanonicalSubgroups--T0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1124,
+   "order": 1131,
    "name": "blueprint BP-HodgeTateAndCanonicalSubgroups--T0~2: Hodge–Tate theory, canonical subgroups, and automorphic period maps",
    "target": "BP-HodgeTateAndCanonicalSubgroups--T0~2",
    "roadmapIds": [
@@ -83412,7 +83895,7 @@
    "id": "REV-RT-BP-HodgeTateAndCanonicalSubgroups--T0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1124,
+   "order": 1131,
    "name": "blueprint BP-HodgeTateAndCanonicalSubgroups--T0~2: Hodge–Tate theory, canonical subgroups, and automorphic period maps",
    "roadmapIds": [
     "HodgeTateAndCanonicalSubgroups"
@@ -83437,7 +83920,7 @@
    "id": "RT-BP-HodgeTateAndCanonicalSubgroups--T6~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1125,
+   "order": 1132,
    "name": "blueprint BP-HodgeTateAndCanonicalSubgroups--T6~2: Hodge–Tate theory, canonical subgroups, and automorphic period maps",
    "target": "BP-HodgeTateAndCanonicalSubgroups--T6~2",
    "roadmapIds": [
@@ -83459,7 +83942,7 @@
    "id": "REV-RT-BP-HodgeTateAndCanonicalSubgroups--T6~2",
    "kind": "review",
    "priority": 2,
-   "order": 1125,
+   "order": 1132,
    "name": "blueprint BP-HodgeTateAndCanonicalSubgroups--T6~2: Hodge–Tate theory, canonical subgroups, and automorphic period maps",
    "roadmapIds": [
     "HodgeTateAndCanonicalSubgroups"
@@ -83484,7 +83967,7 @@
    "id": "RT-BP-IgusaVarietiesAndTorsionConcentration~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1126,
+   "order": 1133,
    "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
    "target": "BP-IgusaVarietiesAndTorsionConcentration~2",
    "roadmapIds": [
@@ -83506,7 +83989,7 @@
    "id": "REV-RT-BP-IgusaVarietiesAndTorsionConcentration~2",
    "kind": "review",
    "priority": 2,
-   "order": 1126,
+   "order": 1133,
    "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
    "roadmapIds": [
     "IgusaVarietiesAndTorsionConcentration"
@@ -83531,7 +84014,7 @@
    "id": "RT-BP-IntegralHeckeAndGaloisDeterminants~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1127,
+   "order": 1134,
    "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
    "target": "BP-IntegralHeckeAndGaloisDeterminants~2",
    "roadmapIds": [
@@ -83553,7 +84036,7 @@
    "id": "REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2",
    "kind": "review",
    "priority": 2,
-   "order": 1127,
+   "order": 1134,
    "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
    "roadmapIds": [
     "IntegralHeckeAndGaloisDeterminants"
@@ -83578,7 +84061,7 @@
    "id": "RT-BP-KTheoryFiniteLocalFields~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1128,
+   "order": 1135,
    "name": "blueprint BP-KTheoryFiniteLocalFields~2: K-theory of finite and local fields",
    "target": "BP-KTheoryFiniteLocalFields~2",
    "roadmapIds": [
@@ -83600,7 +84083,7 @@
    "id": "REV-RT-BP-KTheoryFiniteLocalFields~2",
    "kind": "review",
    "priority": 2,
-   "order": 1128,
+   "order": 1135,
    "name": "blueprint BP-KTheoryFiniteLocalFields~2: K-theory of finite and local fields",
    "roadmapIds": [
     "KTheoryFiniteLocalFields"
@@ -83625,7 +84108,7 @@
    "id": "RT-BP-KTheoryLowDegrees--U.1~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1130,
+   "order": 1137,
    "name": "blueprint BP-KTheoryLowDegrees--U.1~3: Explicit K₀: projectives, rank and determinant",
    "target": "BP-KTheoryLowDegrees--U.1~3",
    "roadmapIds": [
@@ -83647,7 +84130,7 @@
    "id": "REV-RT-BP-KTheoryLowDegrees--U.1~3",
    "kind": "review",
    "priority": 2,
-   "order": 1130,
+   "order": 1137,
    "name": "blueprint BP-KTheoryLowDegrees--U.1~3: Explicit K₀: projectives, rank and determinant",
    "roadmapIds": [
     "KTheoryLowDegrees"
@@ -83672,7 +84155,7 @@
    "id": "RT-BP-KTheoryLowDegrees--Z.3~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1132,
+   "order": 1139,
    "name": "blueprint BP-KTheoryLowDegrees--Z.3~3: Explicit K₀: projectives, rank and determinant",
    "target": "BP-KTheoryLowDegrees--Z.3~3",
    "roadmapIds": [
@@ -83694,7 +84177,7 @@
    "id": "REV-RT-BP-KTheoryLowDegrees--Z.3~3",
    "kind": "review",
    "priority": 2,
-   "order": 1132,
+   "order": 1139,
    "name": "blueprint BP-KTheoryLowDegrees--Z.3~3: Explicit K₀: projectives, rank and determinant",
    "roadmapIds": [
     "KTheoryLowDegrees"
@@ -83719,7 +84202,7 @@
    "id": "RT-BP-KatoEulerSystems~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1133,
+   "order": 1140,
    "name": "blueprint BP-KatoEulerSystems~2: Kato classes and explicit reciprocity for modular forms",
    "target": "BP-KatoEulerSystems~2",
    "roadmapIds": [
@@ -83741,7 +84224,7 @@
    "id": "REV-RT-BP-KatoEulerSystems~2",
    "kind": "review",
    "priority": 2,
-   "order": 1133,
+   "order": 1140,
    "name": "blueprint BP-KatoEulerSystems~2: Kato classes and explicit reciprocity for modular forms",
    "roadmapIds": [
     "KatoEulerSystems"
@@ -83766,7 +84249,7 @@
    "id": "RT-BP-LanglandsParameterStacks~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1134,
+   "order": 1141,
    "name": "blueprint BP-LanglandsParameterStacks~2: Parameter stacks, invariant theory and spectral coefficients",
    "target": "BP-LanglandsParameterStacks~2",
    "roadmapIds": [
@@ -83788,7 +84271,7 @@
    "id": "REV-RT-BP-LanglandsParameterStacks~2",
    "kind": "review",
    "priority": 2,
-   "order": 1134,
+   "order": 1141,
    "name": "blueprint BP-LanglandsParameterStacks~2: Parameter stacks, invariant theory and spectral coefficients",
    "roadmapIds": [
     "LanglandsParameterStacks"
@@ -83813,7 +84296,7 @@
    "id": "RT-BP-LefschetzPencilsAndVanishingCycles--LPV.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1135,
+   "order": 1142,
    "name": "blueprint BP-LefschetzPencilsAndVanishingCycles--LPV.0~2: Lefschetz pencils, nearby cycles and vanishing cycles",
    "target": "BP-LefschetzPencilsAndVanishingCycles--LPV.0~2",
    "roadmapIds": [
@@ -83835,7 +84318,7 @@
    "id": "REV-RT-BP-LefschetzPencilsAndVanishingCycles--LPV.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1135,
+   "order": 1142,
    "name": "blueprint BP-LefschetzPencilsAndVanishingCycles--LPV.0~2: Lefschetz pencils, nearby cycles and vanishing cycles",
    "roadmapIds": [
     "LefschetzPencilsAndVanishingCycles"
@@ -83860,7 +84343,7 @@
    "id": "RT-BP-LocalGaloisDeformationRings~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1136,
+   "order": 1143,
    "name": "blueprint BP-LocalGaloisDeformationRings~2: Local Galois deformation rings and their components",
    "target": "BP-LocalGaloisDeformationRings~2",
    "roadmapIds": [
@@ -83884,7 +84367,7 @@
    "id": "REV-RT-BP-LocalGaloisDeformationRings~2",
    "kind": "review",
    "priority": 2,
-   "order": 1136,
+   "order": 1143,
    "name": "blueprint BP-LocalGaloisDeformationRings~2: Local Galois deformation rings and their components",
    "roadmapIds": [
     "LocalGaloisDeformationRings"
@@ -83909,7 +84392,7 @@
    "id": "RT-BP-MetaplecticAutomorphicForms--MP.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1137,
+   "order": 1144,
    "name": "blueprint BP-MetaplecticAutomorphicForms--MP.0~2: Metaplectic groups, Weil representations and automorphic theta kernels",
    "target": "BP-MetaplecticAutomorphicForms--MP.0~2",
    "roadmapIds": [
@@ -83931,7 +84414,7 @@
    "id": "REV-RT-BP-MetaplecticAutomorphicForms--MP.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1137,
+   "order": 1144,
    "name": "blueprint BP-MetaplecticAutomorphicForms--MP.0~2: Metaplectic groups, Weil representations and automorphic theta kernels",
    "roadmapIds": [
     "MetaplecticAutomorphicForms"
@@ -83956,7 +84439,7 @@
    "id": "RT-BP-MetaplecticAutomorphicForms--MP.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1138,
+   "order": 1145,
    "name": "blueprint BP-MetaplecticAutomorphicForms--MP.8~2: Metaplectic groups, Weil representations and automorphic theta kernels",
    "target": "BP-MetaplecticAutomorphicForms--MP.8~2",
    "roadmapIds": [
@@ -83978,7 +84461,7 @@
    "id": "REV-RT-BP-MetaplecticAutomorphicForms--MP.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1138,
+   "order": 1145,
    "name": "blueprint BP-MetaplecticAutomorphicForms--MP.8~2: Metaplectic groups, Weil representations and automorphic theta kernels",
    "roadmapIds": [
     "MetaplecticAutomorphicForms"
@@ -84003,7 +84486,7 @@
    "id": "RT-BP-MotivicEtaleKTheory--M.5d~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1139,
+   "order": 1146,
    "name": "blueprint BP-MotivicEtaleKTheory--M.5d~2: Motivic and étale methods for arithmetic K-theory",
    "target": "BP-MotivicEtaleKTheory--M.5d~2",
    "roadmapIds": [
@@ -84025,7 +84508,7 @@
    "id": "REV-RT-BP-MotivicEtaleKTheory--M.5d~2",
    "kind": "review",
    "priority": 2,
-   "order": 1139,
+   "order": 1146,
    "name": "blueprint BP-MotivicEtaleKTheory--M.5d~2: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory"
@@ -84050,7 +84533,7 @@
    "id": "RT-BP-PELModuli~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1140,
+   "order": 1147,
    "name": "blueprint BP-PELModuli~2: Siegel and PEL moduli problems",
    "target": "BP-PELModuli~2",
    "roadmapIds": [
@@ -84072,7 +84555,7 @@
    "id": "REV-RT-BP-PELModuli~2",
    "kind": "review",
    "priority": 2,
-   "order": 1140,
+   "order": 1147,
    "name": "blueprint BP-PELModuli~2: Siegel and PEL moduli problems",
    "roadmapIds": [
     "PELModuli"
@@ -84097,7 +84580,7 @@
    "id": "RT-BP-PadicHodgeRegulators--D.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1141,
+   "order": 1148,
    "name": "blueprint BP-PadicHodgeRegulators--D.1~2: P-adic regulators and the local K₃ calculation",
    "target": "BP-PadicHodgeRegulators--D.1~2",
    "roadmapIds": [
@@ -84119,7 +84602,7 @@
    "id": "REV-RT-BP-PadicHodgeRegulators--D.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1141,
+   "order": 1148,
    "name": "blueprint BP-PadicHodgeRegulators--D.1~2: P-adic regulators and the local K₃ calculation",
    "roadmapIds": [
     "PadicHodgeRegulators"
@@ -84144,7 +84627,7 @@
    "id": "RT-BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1144,
+   "order": 1151,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R23.1~2: Potential Modularity And Compatible Systems",
    "target": "BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "roadmapIds": [
@@ -84166,7 +84649,7 @@
    "id": "REV-RT-BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1144,
+   "order": 1151,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R23.1~2: Potential Modularity And Compatible Systems",
    "roadmapIds": [
     "PotentialModularityAndCompatibleSystems"
@@ -84191,7 +84674,7 @@
    "id": "RT-BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1145,
+   "order": 1152,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R24.3~2: Potential Modularity And Compatible Systems",
    "target": "BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "roadmapIds": [
@@ -84213,7 +84696,7 @@
    "id": "REV-RT-BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1145,
+   "order": 1152,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R24.3~2: Potential Modularity And Compatible Systems",
    "roadmapIds": [
     "PotentialModularityAndCompatibleSystems"
@@ -84238,7 +84721,7 @@
    "id": "RT-BP-PrismaticCohomology--PR.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1146,
+   "order": 1153,
    "name": "blueprint BP-PrismaticCohomology--PR.0~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
    "target": "BP-PrismaticCohomology--PR.0~2",
    "roadmapIds": [
@@ -84260,7 +84743,7 @@
    "id": "REV-RT-BP-PrismaticCohomology--PR.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1146,
+   "order": 1153,
    "name": "blueprint BP-PrismaticCohomology--PR.0~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
    "roadmapIds": [
     "PrismaticCohomology"
@@ -84285,7 +84768,7 @@
    "id": "RT-BP-PrismaticCohomology--PR.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1147,
+   "order": 1154,
    "name": "blueprint BP-PrismaticCohomology--PR.8~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
    "target": "BP-PrismaticCohomology--PR.8~2",
    "roadmapIds": [
@@ -84307,7 +84790,7 @@
    "id": "REV-RT-BP-PrismaticCohomology--PR.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1147,
+   "order": 1154,
    "name": "blueprint BP-PrismaticCohomology--PR.8~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
    "roadmapIds": [
     "PrismaticCohomology"
@@ -84332,7 +84815,7 @@
    "id": "RT-BP-RankZeroOneBSD--BSD.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1148,
+   "order": 1155,
    "name": "blueprint BP-RankZeroOneBSD--BSD.0~2: Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
    "target": "BP-RankZeroOneBSD--BSD.0~2",
    "roadmapIds": [
@@ -84354,7 +84837,7 @@
    "id": "REV-RT-BP-RankZeroOneBSD--BSD.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1148,
+   "order": 1155,
    "name": "blueprint BP-RankZeroOneBSD--BSD.0~2: Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
    "roadmapIds": [
     "RankZeroOneBSD"
@@ -84379,7 +84862,7 @@
    "id": "RT-BP-RefinedTraceMethods--RT.1~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1151,
+   "order": 1158,
    "name": "blueprint BP-RefinedTraceMethods--RT.1~3: Hochschild, cyclotomic and refined trace methods",
    "target": "BP-RefinedTraceMethods--RT.1~3",
    "roadmapIds": [
@@ -84401,7 +84884,7 @@
    "id": "REV-RT-BP-RefinedTraceMethods--RT.1~3",
    "kind": "review",
    "priority": 2,
-   "order": 1151,
+   "order": 1158,
    "name": "blueprint BP-RefinedTraceMethods--RT.1~3: Hochschild, cyclotomic and refined trace methods",
    "roadmapIds": [
     "RefinedTraceMethods"
@@ -84426,7 +84909,7 @@
    "id": "RT-BP-RefinedTraceMethods--RT.5~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1152,
+   "order": 1159,
    "name": "blueprint BP-RefinedTraceMethods--RT.5~2: Hochschild, cyclotomic and refined trace methods",
    "target": "BP-RefinedTraceMethods--RT.5~2",
    "roadmapIds": [
@@ -84448,7 +84931,7 @@
    "id": "REV-RT-BP-RefinedTraceMethods--RT.5~2",
    "kind": "review",
    "priority": 2,
-   "order": 1152,
+   "order": 1159,
    "name": "blueprint BP-RefinedTraceMethods--RT.5~2: Hochschild, cyclotomic and refined trace methods",
    "roadmapIds": [
     "RefinedTraceMethods"
@@ -84473,7 +84956,7 @@
    "id": "RT-BP-RelativeFarguesFontaine--RF0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1153,
+   "order": 1160,
    "name": "blueprint BP-RelativeFarguesFontaine--RF0~2: Relative Fargues–Fontaine curves and period geometry",
    "target": "BP-RelativeFarguesFontaine--RF0~2",
    "roadmapIds": [
@@ -84495,7 +84978,7 @@
    "id": "REV-RT-BP-RelativeFarguesFontaine--RF0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1153,
+   "order": 1160,
    "name": "blueprint BP-RelativeFarguesFontaine--RF0~2: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine"
@@ -84520,7 +85003,7 @@
    "id": "RT-BP-RelativeFarguesFontaine--RF4~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1154,
+   "order": 1161,
    "name": "blueprint BP-RelativeFarguesFontaine--RF4~2: Relative Fargues–Fontaine curves and period geometry",
    "target": "BP-RelativeFarguesFontaine--RF4~2",
    "roadmapIds": [
@@ -84542,7 +85025,7 @@
    "id": "REV-RT-BP-RelativeFarguesFontaine--RF4~2",
    "kind": "review",
    "priority": 2,
-   "order": 1154,
+   "order": 1161,
    "name": "blueprint BP-RelativeFarguesFontaine--RF4~2: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine"
@@ -84567,7 +85050,7 @@
    "id": "RT-BP-SchemeKTheoryOperations~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1156,
+   "order": 1163,
    "name": "blueprint BP-SchemeKTheoryOperations~3: K-theory of schemes, localisation and operations",
    "target": "BP-SchemeKTheoryOperations~3",
    "roadmapIds": [
@@ -84589,7 +85072,7 @@
    "id": "REV-RT-BP-SchemeKTheoryOperations~3",
    "kind": "review",
    "priority": 2,
-   "order": 1156,
+   "order": 1163,
    "name": "blueprint BP-SchemeKTheoryOperations~3: K-theory of schemes, localisation and operations",
    "roadmapIds": [
     "SchemeKTheoryOperations"
@@ -84614,7 +85097,7 @@
    "id": "RT-BP-ShimuraVarieties--V0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1160,
+   "order": 1167,
    "name": "blueprint BP-ShimuraVarieties--V0~2: Complex Shimura varieties and canonical models",
    "target": "BP-ShimuraVarieties--V0~2",
    "roadmapIds": [
@@ -84636,7 +85119,7 @@
    "id": "REV-RT-BP-ShimuraVarieties--V0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1160,
+   "order": 1167,
    "name": "blueprint BP-ShimuraVarieties--V0~2: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties"
@@ -84661,7 +85144,7 @@
    "id": "RT-BP-ShimuraVarieties--V8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1161,
+   "order": 1168,
    "name": "blueprint BP-ShimuraVarieties--V8~2: Complex Shimura varieties and canonical models",
    "target": "BP-ShimuraVarieties--V8~2",
    "roadmapIds": [
@@ -84683,7 +85166,7 @@
    "id": "REV-RT-BP-ShimuraVarieties--V8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1161,
+   "order": 1168,
    "name": "blueprint BP-ShimuraVarieties--V8~2: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties"
@@ -84708,7 +85191,7 @@
    "id": "RT-BP-SpecialValuesBirchTate~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1163,
+   "order": 1170,
    "name": "blueprint BP-SpecialValuesBirchTate~2: Birch–Tate and arithmetic special-value formulas",
    "target": "BP-SpecialValuesBirchTate~2",
    "roadmapIds": [
@@ -84730,7 +85213,7 @@
    "id": "REV-RT-BP-SpecialValuesBirchTate~2",
    "kind": "review",
    "priority": 2,
-   "order": 1163,
+   "order": 1170,
    "name": "blueprint BP-SpecialValuesBirchTate~2: Birch–Tate and arithmetic special-value formulas",
    "roadmapIds": [
     "SpecialValuesBirchTate"
@@ -84755,7 +85238,7 @@
    "id": "RT-BP-StableHomotopyKTheory~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1165,
+   "order": 1172,
    "name": "blueprint BP-StableHomotopyKTheory~3: Homotopy foundations for algebraic K-theory",
    "target": "BP-StableHomotopyKTheory~3",
    "roadmapIds": [
@@ -84777,7 +85260,7 @@
    "id": "REV-RT-BP-StableHomotopyKTheory~3",
    "kind": "review",
    "priority": 2,
-   "order": 1165,
+   "order": 1172,
    "name": "blueprint BP-StableHomotopyKTheory~3: Homotopy foundations for algebraic K-theory",
    "roadmapIds": [
     "StableHomotopyKTheory"
@@ -84802,7 +85285,7 @@
    "id": "RT-BP-VStackSheavesAndLisseCategories~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1166,
+   "order": 1173,
    "name": "blueprint BP-VStackSheavesAndLisseCategories~2: Artin v-stacks, solid and lisse coefficient categories",
    "target": "BP-VStackSheavesAndLisseCategories~2",
    "roadmapIds": [
@@ -84824,7 +85307,7 @@
    "id": "REV-RT-BP-VStackSheavesAndLisseCategories~2",
    "kind": "review",
    "priority": 2,
-   "order": 1166,
+   "order": 1173,
    "name": "blueprint BP-VStackSheavesAndLisseCategories~2: Artin v-stacks, solid and lisse coefficient categories",
    "roadmapIds": [
     "VStackSheavesAndLisseCategories"
@@ -84849,7 +85332,7 @@
    "id": "RT-BP-VectorBundlesAndIsocrystals--VB0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1167,
+   "order": 1174,
    "name": "blueprint BP-VectorBundlesAndIsocrystals--VB0~2: Isocrystals, vector bundles and Banach–Colmez spaces",
    "target": "BP-VectorBundlesAndIsocrystals--VB0~2",
    "roadmapIds": [
@@ -84871,7 +85354,7 @@
    "id": "REV-RT-BP-VectorBundlesAndIsocrystals--VB0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1167,
+   "order": 1174,
    "name": "blueprint BP-VectorBundlesAndIsocrystals--VB0~2: Isocrystals, vector bundles and Banach–Colmez spaces",
    "roadmapIds": [
     "VectorBundlesAndIsocrystals"
@@ -84896,7 +85379,7 @@
    "id": "RT-BP-VectorBundlesAndIsocrystals--VB3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1168,
+   "order": 1175,
    "name": "blueprint BP-VectorBundlesAndIsocrystals--VB3~2: Isocrystals, vector bundles and Banach–Colmez spaces",
    "target": "BP-VectorBundlesAndIsocrystals--VB3~2",
    "roadmapIds": [
@@ -84918,7 +85401,7 @@
    "id": "REV-RT-BP-VectorBundlesAndIsocrystals--VB3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1168,
+   "order": 1175,
    "name": "blueprint BP-VectorBundlesAndIsocrystals--VB3~2: Isocrystals, vector bundles and Banach–Colmez spaces",
    "roadmapIds": [
     "VectorBundlesAndIsocrystals"
@@ -84943,7 +85426,7 @@
    "id": "RT-BP-WeightsInEtaleCohomology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1169,
+   "order": 1176,
    "name": "blueprint BP-WeightsInEtaleCohomology~2: Weights and purity in étale cohomology",
    "target": "BP-WeightsInEtaleCohomology~2",
    "roadmapIds": [
@@ -84965,7 +85448,7 @@
    "id": "REV-RT-BP-WeightsInEtaleCohomology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1169,
+   "order": 1176,
    "name": "blueprint BP-WeightsInEtaleCohomology~2: Weights and purity in étale cohomology",
    "roadmapIds": [
     "WeightsInEtaleCohomology"
@@ -84990,7 +85473,7 @@
    "id": "RT-BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1170,
+   "order": 1177,
    "name": "blueprint BP-ComplexMultiplicationAndExplicitReciprocity~2: Complex multiplication and explicit reciprocity",
    "target": "BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "roadmapIds": [
@@ -85012,7 +85495,7 @@
    "id": "REV-RT-BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "kind": "review",
    "priority": 2,
-   "order": 1170,
+   "order": 1177,
    "name": "blueprint BP-ComplexMultiplicationAndExplicitReciprocity~2: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity"
@@ -85037,7 +85520,7 @@
    "id": "RT-BP-PotentialAutomorphyInfrastructure~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1174,
+   "order": 1181,
    "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
    "target": "BP-PotentialAutomorphyInfrastructure~2",
    "roadmapIds": [
@@ -85061,7 +85544,7 @@
    "id": "REV-RT-BP-PotentialAutomorphyInfrastructure~2",
    "kind": "review",
    "priority": 2,
-   "order": 1174,
+   "order": 1181,
    "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure"
@@ -85086,7 +85569,7 @@
    "id": "RT-BP-AnalyticNumberTheory--AN.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1175,
+   "order": 1182,
    "name": "blueprint BP-AnalyticNumberTheory--AN.0~2: Analytic number theory, zeta functions and prime distribution",
    "target": "BP-AnalyticNumberTheory--AN.0~2",
    "roadmapIds": [
@@ -85108,7 +85591,7 @@
    "id": "REV-RT-BP-AnalyticNumberTheory--AN.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1175,
+   "order": 1182,
    "name": "blueprint BP-AnalyticNumberTheory--AN.0~2: Analytic number theory, zeta functions and prime distribution",
    "roadmapIds": [
     "AnalyticNumberTheory"
@@ -85133,7 +85616,7 @@
    "id": "RT-BP-AnalyticNumberTheory--AN.8~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1176,
+   "order": 1183,
    "name": "blueprint BP-AnalyticNumberTheory--AN.8~2: Analytic number theory, zeta functions and prime distribution",
    "target": "BP-AnalyticNumberTheory--AN.8~2",
    "roadmapIds": [
@@ -85155,7 +85638,7 @@
    "id": "REV-RT-BP-AnalyticNumberTheory--AN.8~2",
    "kind": "review",
    "priority": 2,
-   "order": 1176,
+   "order": 1183,
    "name": "blueprint BP-AnalyticNumberTheory--AN.8~2: Analytic number theory, zeta functions and prime distribution",
    "roadmapIds": [
     "AnalyticNumberTheory"
@@ -85180,7 +85663,7 @@
    "id": "RT-BP-ArithmeticQuantumTopology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1177,
+   "order": 1184,
    "name": "blueprint BP-ArithmeticQuantumTopology~2: Arithmetic quantum topology, Habiro invariants and regulators",
    "target": "BP-ArithmeticQuantumTopology~2",
    "roadmapIds": [
@@ -85202,7 +85685,7 @@
    "id": "REV-RT-BP-ArithmeticQuantumTopology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1177,
+   "order": 1184,
    "name": "blueprint BP-ArithmeticQuantumTopology~2: Arithmetic quantum topology, Habiro invariants and regulators",
    "roadmapIds": [
     "ArithmeticQuantumTopology"
@@ -85224,10 +85707,57 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-ClassicalArithmeticCompletion~3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1186,
+   "name": "blueprint BP-ClassicalArithmeticCompletion~3: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion~3",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion~3.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion~3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion~3",
+    "REV-ClassicalArithmeticCompletion~3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion~3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion~3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1186,
+   "name": "blueprint BP-ClassicalArithmeticCompletion~3: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion~3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion~3.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion~3"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion~3",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion~3",
+    "BP-ClassicalArithmeticCompletion~3",
+    "REV-ClassicalArithmeticCompletion~3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion~3.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-DiophantineApproximationAndTranscendence~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1180,
+   "order": 1187,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence~2: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence~2",
    "roadmapIds": [
@@ -85249,7 +85779,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence~2",
    "kind": "review",
    "priority": 2,
-   "order": 1180,
+   "order": 1187,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence~2: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -85274,7 +85804,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1183,
+   "order": 1190,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "roadmapIds": [
@@ -85296,7 +85826,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "kind": "review",
    "priority": 2,
-   "order": 1183,
+   "order": 1190,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -85321,7 +85851,7 @@
    "id": "RT-BP-ModularityAndLanglandsExtensions~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1184,
+   "order": 1191,
    "name": "blueprint BP-ModularityAndLanglandsExtensions~2: Modularity, automorphy and Langlands endpoint extensions",
    "target": "BP-ModularityAndLanglandsExtensions~2",
    "roadmapIds": [
@@ -85343,7 +85873,7 @@
    "id": "REV-RT-BP-ModularityAndLanglandsExtensions~2",
    "kind": "review",
    "priority": 2,
-   "order": 1184,
+   "order": 1191,
    "name": "blueprint BP-ModularityAndLanglandsExtensions~2: Modularity, automorphy and Langlands endpoint extensions",
    "roadmapIds": [
     "ModularityAndLanglandsExtensions"
@@ -85368,7 +85898,7 @@
    "id": "RT-BP-Polylogarithms--P.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1186,
+   "order": 1193,
    "name": "blueprint BP-Polylogarithms--P.3~2: Polylogarithms, explicit regulators and Zagier statements",
    "target": "BP-Polylogarithms--P.3~2",
    "roadmapIds": [
@@ -85390,7 +85920,7 @@
    "id": "REV-RT-BP-Polylogarithms--P.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1186,
+   "order": 1193,
    "name": "blueprint BP-Polylogarithms--P.3~2: Polylogarithms, explicit regulators and Zagier statements",
    "roadmapIds": [
     "Polylogarithms"
@@ -85415,7 +85945,7 @@
    "id": "RT-BP-ArithmeticKTheory--N.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1194,
+   "order": 1201,
    "name": "blueprint BP-ArithmeticKTheory--N.3~2: K-theory of number fields and S-integers",
    "target": "BP-ArithmeticKTheory--N.3~2",
    "roadmapIds": [
@@ -85437,7 +85967,7 @@
    "id": "REV-RT-BP-ArithmeticKTheory--N.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1194,
+   "order": 1201,
    "name": "blueprint BP-ArithmeticKTheory--N.3~2: K-theory of number fields and S-integers",
    "roadmapIds": [
     "ArithmeticKTheory"
@@ -85462,7 +85992,7 @@
    "id": "RT-BP-ArithmeticKTheory--N.3-finite-generation~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1195,
+   "order": 1202,
    "name": "blueprint BP-ArithmeticKTheory--N.3-finite-generation~2: K-theory of number fields and S-integers",
    "target": "BP-ArithmeticKTheory--N.3-finite-generation~2",
    "roadmapIds": [
@@ -85484,7 +86014,7 @@
    "id": "REV-RT-BP-ArithmeticKTheory--N.3-finite-generation~2",
    "kind": "review",
    "priority": 2,
-   "order": 1195,
+   "order": 1202,
    "name": "blueprint BP-ArithmeticKTheory--N.3-finite-generation~2: K-theory of number fields and S-integers",
    "roadmapIds": [
     "ArithmeticKTheory"
@@ -85509,7 +86039,7 @@
    "id": "RT-BP-ArithmeticKTheory--N.6~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1196,
+   "order": 1203,
    "name": "blueprint BP-ArithmeticKTheory--N.6~2: K-theory of number fields and S-integers",
    "target": "BP-ArithmeticKTheory--N.6~2",
    "roadmapIds": [
@@ -85531,7 +86061,7 @@
    "id": "REV-RT-BP-ArithmeticKTheory--N.6~2",
    "kind": "review",
    "priority": 2,
-   "order": 1196,
+   "order": 1203,
    "name": "blueprint BP-ArithmeticKTheory--N.6~2: K-theory of number fields and S-integers",
    "roadmapIds": [
     "ArithmeticKTheory"
@@ -85556,7 +86086,7 @@
    "id": "RT-BP-EllipticRegulators--ER.7~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1197,
+   "order": 1204,
    "name": "blueprint BP-EllipticRegulators--ER.7~2: Elliptic regulators, explicit K₂ classes and L-values",
    "target": "BP-EllipticRegulators--ER.7~2",
    "roadmapIds": [
@@ -85578,7 +86108,7 @@
    "id": "REV-RT-BP-EllipticRegulators--ER.7~2",
    "kind": "review",
    "priority": 2,
-   "order": 1197,
+   "order": 1204,
    "name": "blueprint BP-EllipticRegulators--ER.7~2: Elliptic regulators, explicit K₂ classes and L-values",
    "roadmapIds": [
     "EllipticRegulators"
@@ -85603,7 +86133,7 @@
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1198,
+   "order": 1205,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.1-2~2: Q-Hodge filtrations and Habiro cohomology",
    "target": "BP-HabiroCohomologyFoundations--HQ.1-2~2",
    "roadmapIds": [
@@ -85625,7 +86155,7 @@
    "id": "REV-RT-BP-HabiroCohomologyFoundations--HQ.1-2~2",
    "kind": "review",
    "priority": 2,
-   "order": 1198,
+   "order": 1205,
    "name": "blueprint BP-HabiroCohomologyFoundations--HQ.1-2~2: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations"
@@ -85650,7 +86180,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1200,
+   "order": 1207,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.1~2: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "roadmapIds": [
@@ -85672,7 +86202,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1200,
+   "order": 1207,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.1~2: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -85697,7 +86227,7 @@
    "id": "RT-BP-EllipticKTheory--E.6",
    "kind": "redteam",
    "priority": 2,
-   "order": 1201,
+   "order": 1208,
    "name": "blueprint BP-EllipticKTheory--E.6: K-theory of curves and elliptic curves",
    "target": "BP-EllipticKTheory--E.6",
    "roadmapIds": [
@@ -85719,7 +86249,7 @@
    "id": "REV-RT-BP-EllipticKTheory--E.6",
    "kind": "review",
    "priority": 2,
-   "order": 1201,
+   "order": 1208,
    "name": "blueprint BP-EllipticKTheory--E.6: K-theory of curves and elliptic curves",
    "roadmapIds": [
     "EllipticKTheory"
@@ -85744,7 +86274,7 @@
    "id": "RT-BP-HabiroNumberFields--HB.1",
    "kind": "redteam",
    "priority": 2,
-   "order": 1202,
+   "order": 1209,
    "name": "blueprint BP-HabiroNumberFields--HB.1: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "target": "BP-HabiroNumberFields--HB.1",
    "roadmapIds": [
@@ -85766,7 +86296,7 @@
    "id": "REV-RT-BP-HabiroNumberFields--HB.1",
    "kind": "review",
    "priority": 2,
-   "order": 1202,
+   "order": 1209,
    "name": "blueprint BP-HabiroNumberFields--HB.1: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "roadmapIds": [
     "HabiroNumberFields"
@@ -85791,7 +86321,7 @@
    "id": "RT-BP-HabiroNumberFields--HB.6",
    "kind": "redteam",
    "priority": 2,
-   "order": 1204,
+   "order": 1211,
    "name": "blueprint BP-HabiroNumberFields--HB.6: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "target": "BP-HabiroNumberFields--HB.6",
    "roadmapIds": [
@@ -85813,7 +86343,7 @@
    "id": "REV-RT-BP-HabiroNumberFields--HB.6",
    "kind": "review",
    "priority": 2,
-   "order": 1204,
+   "order": 1211,
    "name": "blueprint BP-HabiroNumberFields--HB.6: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "roadmapIds": [
     "HabiroNumberFields"
@@ -85838,7 +86368,7 @@
    "id": "RT-BP-HabiroNumberFields--HB.7",
    "kind": "redteam",
    "priority": 2,
-   "order": 1205,
+   "order": 1212,
    "name": "blueprint BP-HabiroNumberFields--HB.7: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "target": "BP-HabiroNumberFields--HB.7",
    "roadmapIds": [
@@ -85860,7 +86390,7 @@
    "id": "REV-RT-BP-HabiroNumberFields--HB.7",
    "kind": "review",
    "priority": 2,
-   "order": 1205,
+   "order": 1212,
    "name": "blueprint BP-HabiroNumberFields--HB.7: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "roadmapIds": [
     "HabiroNumberFields"
@@ -85885,7 +86415,7 @@
    "id": "RT-BP-HabiroNumberFields--HB.2~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1206,
+   "order": 1213,
    "name": "blueprint BP-HabiroNumberFields--HB.2~2: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "target": "BP-HabiroNumberFields--HB.2~2",
    "roadmapIds": [
@@ -85907,7 +86437,7 @@
    "id": "REV-RT-BP-HabiroNumberFields--HB.2~2",
    "kind": "review",
    "priority": 2,
-   "order": 1206,
+   "order": 1213,
    "name": "blueprint BP-HabiroNumberFields--HB.2~2: Number-field Habiro rings, finite regulators and K₃-graded modules",
    "roadmapIds": [
     "HabiroNumberFields"
@@ -85932,7 +86462,7 @@
    "id": "RT-DESIGN-EllipticModularityEffectiveComparisons",
    "kind": "redteam",
    "priority": 2,
-   "order": 1214,
+   "order": 1221,
    "name": "new roadmap DESIGN-EllipticModularityEffectiveComparisons: Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
    "target": "DESIGN-EllipticModularityEffectiveComparisons",
    "roadmapIds": [
@@ -85954,7 +86484,7 @@
    "id": "REV-RT-DESIGN-EllipticModularityEffectiveComparisons",
    "kind": "review",
    "priority": 2,
-   "order": 1214,
+   "order": 1221,
    "name": "new roadmap DESIGN-EllipticModularityEffectiveComparisons: Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
    "roadmapIds": [
     "EllipticModularityEffectiveComparisons"
@@ -85979,7 +86509,7 @@
    "id": "RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "redteam",
    "priority": 2,
-   "order": 1215,
+   "order": 1222,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "target": "DESIGN-EllipticLegendreCharacterInterfaces",
    "roadmapIds": [
@@ -86001,7 +86531,7 @@
    "id": "REV-RT-DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "review",
    "priority": 2,
-   "order": 1215,
+   "order": 1222,
    "name": "new roadmap DESIGN-EllipticLegendreCharacterInterfaces: Elliptic curves, Part II: Legendre models, descent and character interfaces",
    "roadmapIds": [
     "EllipticLegendreCharacterInterfaces"
@@ -86026,7 +86556,7 @@
    "id": "RT-DESIGN-EffectiveBoundsCompactModels",
    "kind": "redteam",
    "priority": 2,
-   "order": 1216,
+   "order": 1223,
    "name": "new roadmap DESIGN-EffectiveBoundsCompactModels: Effective arithmetic bounds and geometry of numbers, Part II: compact models and degree-sensitive field counts",
    "target": "DESIGN-EffectiveBoundsCompactModels",
    "roadmapIds": [
@@ -86048,7 +86578,7 @@
    "id": "REV-RT-DESIGN-EffectiveBoundsCompactModels",
    "kind": "review",
    "priority": 2,
-   "order": 1216,
+   "order": 1223,
    "name": "new roadmap DESIGN-EffectiveBoundsCompactModels: Effective arithmetic bounds and geometry of numbers, Part II: compact models and degree-sensitive field counts",
    "roadmapIds": [
     "EffectiveBoundsCompactModels"
@@ -86073,7 +86603,7 @@
    "id": "RT-DESIGN-CongruenceSpectralGap",
    "kind": "redteam",
    "priority": 2,
-   "order": 1219,
+   "order": 1226,
    "name": "new roadmap DESIGN-CongruenceSpectralGap: Automorphic spectral theory and trace distributions, Part II: the congruence spectral gap",
    "target": "DESIGN-CongruenceSpectralGap",
    "roadmapIds": [
@@ -86095,7 +86625,7 @@
    "id": "REV-RT-DESIGN-CongruenceSpectralGap",
    "kind": "review",
    "priority": 2,
-   "order": 1219,
+   "order": 1226,
    "name": "new roadmap DESIGN-CongruenceSpectralGap: Automorphic spectral theory and trace distributions, Part II: the congruence spectral gap",
    "roadmapIds": [
     "CongruenceSpectralGap"
@@ -86120,7 +86650,7 @@
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 1332,
+   "order": 1339,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -86148,7 +86678,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 1332,
+   "order": 1339,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -86179,7 +86709,7 @@
    "id": "FIX-RT-AUDIT-01",
    "kind": "fix",
    "priority": 1,
-   "order": 1332,
+   "order": 1339,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -86203,7 +86733,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 1333,
+   "order": 1340,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -86231,7 +86761,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 1333,
+   "order": 1340,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -86262,7 +86792,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 1334,
+   "order": 1341,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -86290,7 +86820,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 1334,
+   "order": 1341,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -86321,7 +86851,7 @@
    "id": "FIX-RT-AUDIT-03",
    "kind": "fix",
    "priority": 1,
-   "order": 1334,
+   "order": 1341,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -86345,7 +86875,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 1335,
+   "order": 1342,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -86373,7 +86903,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 1335,
+   "order": 1342,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -86404,7 +86934,7 @@
    "id": "FIX-RT-AUDIT-04",
    "kind": "fix",
    "priority": 1,
-   "order": 1335,
+   "order": 1342,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -86428,7 +86958,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 1336,
+   "order": 1343,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -86456,7 +86986,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 1336,
+   "order": 1343,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -86487,7 +87017,7 @@
    "id": "FIX-RT-AUDIT-05",
    "kind": "fix",
    "priority": 1,
-   "order": 1336,
+   "order": 1343,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -86511,7 +87041,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 1337,
+   "order": 1344,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -86538,7 +87068,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 1337,
+   "order": 1344,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -86568,7 +87098,7 @@
    "id": "FIX-RT-AUDIT-06",
    "kind": "fix",
    "priority": 1,
-   "order": 1337,
+   "order": 1344,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -86591,7 +87121,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 1338,
+   "order": 1345,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -86619,7 +87149,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 1338,
+   "order": 1345,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -86650,7 +87180,7 @@
    "id": "FIX-RT-AUDIT-07",
    "kind": "fix",
    "priority": 1,
-   "order": 1338,
+   "order": 1345,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -86674,7 +87204,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 1339,
+   "order": 1346,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -86702,7 +87232,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 1339,
+   "order": 1346,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -86733,7 +87263,7 @@
    "id": "FIX-RT-AUDIT-08",
    "kind": "fix",
    "priority": 1,
-   "order": 1339,
+   "order": 1346,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -86757,7 +87287,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 1340,
+   "order": 1347,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -86785,7 +87315,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 1340,
+   "order": 1347,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -86816,7 +87346,7 @@
    "id": "FIX-RT-AUDIT-09",
    "kind": "fix",
    "priority": 1,
-   "order": 1340,
+   "order": 1347,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -86840,7 +87370,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 1341,
+   "order": 1348,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -86868,7 +87398,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 1341,
+   "order": 1348,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -86899,7 +87429,7 @@
    "id": "FIX-RT-AUDIT-10",
    "kind": "fix",
    "priority": 1,
-   "order": 1341,
+   "order": 1348,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -86923,7 +87453,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 1342,
+   "order": 1349,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -86950,7 +87480,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 1342,
+   "order": 1349,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -86980,7 +87510,7 @@
    "id": "FIX-RT-AUDIT-11",
    "kind": "fix",
    "priority": 1,
-   "order": 1342,
+   "order": 1349,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -87003,7 +87533,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 1343,
+   "order": 1350,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -87027,7 +87557,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 1343,
+   "order": 1350,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -87054,7 +87584,7 @@
    "id": "FIX-RT-AUDIT-12",
    "kind": "fix",
    "priority": 1,
-   "order": 1343,
+   "order": 1350,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -87074,7 +87604,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 1344,
+   "order": 1351,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -87102,7 +87632,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 1344,
+   "order": 1351,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -87133,7 +87663,7 @@
    "id": "FIX-RT-AUDIT-13",
    "kind": "fix",
    "priority": 1,
-   "order": 1344,
+   "order": 1351,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -87157,7 +87687,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 1345,
+   "order": 1352,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -87185,7 +87715,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 1345,
+   "order": 1352,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -87216,7 +87746,7 @@
    "id": "FIX-RT-AUDIT-14",
    "kind": "fix",
    "priority": 1,
-   "order": 1345,
+   "order": 1352,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -87240,7 +87770,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 1346,
+   "order": 1353,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -87268,7 +87798,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 1346,
+   "order": 1353,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -87299,7 +87829,7 @@
    "id": "FIX-RT-AUDIT-15",
    "kind": "fix",
    "priority": 1,
-   "order": 1346,
+   "order": 1353,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -87323,7 +87853,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 1347,
+   "order": 1354,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -87350,7 +87880,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 1347,
+   "order": 1354,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -87380,7 +87910,7 @@
    "id": "FIX-RT-AUDIT-16",
    "kind": "fix",
    "priority": 1,
-   "order": 1347,
+   "order": 1354,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -87403,7 +87933,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 1348,
+   "order": 1355,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -87431,7 +87961,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 1348,
+   "order": 1355,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -87462,7 +87992,7 @@
    "id": "FIX-RT-AUDIT-17",
    "kind": "fix",
    "priority": 1,
-   "order": 1348,
+   "order": 1355,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -87486,7 +88016,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 1349,
+   "order": 1356,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -87514,7 +88044,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 1349,
+   "order": 1356,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -87545,7 +88075,7 @@
    "id": "FIX-RT-AUDIT-18",
    "kind": "fix",
    "priority": 1,
-   "order": 1349,
+   "order": 1356,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -87569,7 +88099,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 1350,
+   "order": 1357,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -87597,7 +88127,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 1350,
+   "order": 1357,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -87628,7 +88158,7 @@
    "id": "FIX-RT-AUDIT-19",
    "kind": "fix",
    "priority": 1,
-   "order": 1350,
+   "order": 1357,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -87652,7 +88182,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 1351,
+   "order": 1358,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -87680,7 +88210,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 1351,
+   "order": 1358,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -87711,7 +88241,7 @@
    "id": "FIX-RT-AUDIT-20",
    "kind": "fix",
    "priority": 1,
-   "order": 1351,
+   "order": 1358,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -87735,7 +88265,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 1352,
+   "order": 1359,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -87763,7 +88293,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 1352,
+   "order": 1359,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -87794,7 +88324,7 @@
    "id": "FIX-RT-AUDIT-21",
    "kind": "fix",
    "priority": 1,
-   "order": 1352,
+   "order": 1359,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -87818,7 +88348,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 1353,
+   "order": 1360,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -87845,7 +88375,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 1353,
+   "order": 1360,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -87875,7 +88405,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 1354,
+   "order": 1361,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -87903,7 +88433,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 1354,
+   "order": 1361,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -87934,7 +88464,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 1355,
+   "order": 1362,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -87962,7 +88492,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 1355,
+   "order": 1362,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -87993,7 +88523,7 @@
    "id": "FIX-RT-AUDIT-24",
    "kind": "fix",
    "priority": 1,
-   "order": 1355,
+   "order": 1362,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -88017,7 +88547,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 1356,
+   "order": 1363,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -88045,7 +88575,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 1356,
+   "order": 1363,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -88076,7 +88606,7 @@
    "id": "FIX-RT-AUDIT-25",
    "kind": "fix",
    "priority": 1,
-   "order": 1356,
+   "order": 1363,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -88100,7 +88630,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 1357,
+   "order": 1364,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -88128,7 +88658,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 1357,
+   "order": 1364,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -88159,7 +88689,7 @@
    "id": "FIX-RT-AUDIT-26",
    "kind": "fix",
    "priority": 1,
-   "order": 1357,
+   "order": 1364,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -88183,7 +88713,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 1358,
+   "order": 1365,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -88211,7 +88741,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 1358,
+   "order": 1365,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -88242,7 +88772,7 @@
    "id": "FIX-RT-AUDIT-27",
    "kind": "fix",
    "priority": 1,
-   "order": 1358,
+   "order": 1365,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -88266,7 +88796,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 1359,
+   "order": 1366,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -88294,7 +88824,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 1359,
+   "order": 1366,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -88325,7 +88855,7 @@
    "id": "FIX-RT-AUDIT-28",
    "kind": "fix",
    "priority": 1,
-   "order": 1359,
+   "order": 1366,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -88349,7 +88879,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 1360,
+   "order": 1367,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -88376,7 +88906,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 1360,
+   "order": 1367,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -88406,7 +88936,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 1361,
+   "order": 1368,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -88434,7 +88964,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 1361,
+   "order": 1368,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -88465,7 +88995,7 @@
    "id": "FIX-RT-AUDIT-30",
    "kind": "fix",
    "priority": 1,
-   "order": 1361,
+   "order": 1368,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -88489,7 +89019,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 1362,
+   "order": 1369,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -88517,7 +89047,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 1362,
+   "order": 1369,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",
@@ -88548,7 +89078,7 @@
    "id": "FIX-RT-AUDIT-31",
    "kind": "fix",
    "priority": 1,
-   "order": 1362,
+   "order": 1369,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -88572,7 +89102,7 @@
    "id": "RT-AUDIT-34",
    "kind": "redteam",
    "priority": 2,
-   "order": 1365,
+   "order": 1372,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -88600,7 +89130,7 @@
    "id": "REV-RT-AUDIT-34",
    "kind": "review",
    "priority": 2,
-   "order": 1365,
+   "order": 1372,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure",
@@ -88631,7 +89161,7 @@
    "id": "FIX-RT-AUDIT-34",
    "kind": "fix",
    "priority": 1,
-   "order": 1365,
+   "order": 1372,
    "name": "library audit AUDIT-34: Reusable infrastructure for potential automorphy over CM fields",
    "target": "AUDIT-34",
    "roadmapIds": [
@@ -88655,7 +89185,7 @@
    "id": "RT-AUDIT-39",
    "kind": "redteam",
    "priority": 2,
-   "order": 1370,
+   "order": 1377,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -88682,7 +89212,7 @@
    "id": "REV-RT-AUDIT-39",
    "kind": "review",
    "priority": 2,
-   "order": 1370,
+   "order": 1377,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "roadmapIds": [
     "RelativeFarguesFontaine",
@@ -88712,7 +89242,7 @@
    "id": "FIX-RT-AUDIT-39",
    "kind": "fix",
    "priority": 1,
-   "order": 1370,
+   "order": 1377,
    "name": "library audit AUDIT-39: Relative Fargues–Fontaine curves and period geometry",
    "target": "AUDIT-39",
    "roadmapIds": [
@@ -89287,6 +89817,18 @@
     "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
     "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic.md",
     "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.1.lean",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.2.lean",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.3.lean",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
+    "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.5.lean",
     "research/blueprint/handoff/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md"
    ],
    "after": [
@@ -89313,7 +89855,15 @@
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicnt-1~2.md",
     "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json",
-    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean"
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+    "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic.lean",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.1.lean",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.2.lean",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.3.lean",
+    "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.5.lean"
    ],
    "after": [
     "FIX-RT-AREA-algebraicnt-1~2"
@@ -90702,6 +91252,9 @@
     "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.0.md",
     "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
     "research/blueprint/handoff/BP-GrossZagierAndArithmeticHeights--GZ.0~2.md",
+    "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+    "research/blueprint/readmes/HeightsRationalPointsAndObstructions.md",
+    "research/blueprint/suggested/HeightsRationalPointsAndObstructions.lean",
     "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
     "research/blueprint/readmes/RankZeroOneBSD--BSD.0.md",
     "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
@@ -90768,6 +91321,7 @@
     "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
     "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
     "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+    "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
     "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
     "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
     "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
@@ -90781,6 +91335,7 @@
     "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean",
     "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
     "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
+    "research/blueprint/suggested/HeightsRationalPointsAndObstructions.lean",
     "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
     "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean",
     "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",

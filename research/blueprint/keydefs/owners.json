@@ -171,7 +171,7 @@
     "DESIGN-SchemeAndStackFoundationsPartII",
     "DESIGN-SemisimpleAlgebrasPartII"
    ],
-   "items": 7,
+   "items": 3,
    "name": "Azumaya algebras and Brauer groups on schemes",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 5 queued jobs its items go to",
@@ -179,7 +179,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 7
+   "unrouted": 11
   }
  },
  "purpose": "Who plans each promoted key definition that no layer plans yet (PROTOCOL.md section 19), as research/blueprint/make_queue.py assigns it: the owner job plans it under the reserved node id, and the importers cite that id."
