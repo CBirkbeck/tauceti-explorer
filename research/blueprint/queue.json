@@ -9812,8 +9812,9 @@
    "avoidAccountOf": "DESIGN-FGLG",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FGLG.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9489"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9489",
+   "finishedAt": "2026-10-13T22:26:07Z"
   },
   {
    "id": "DESIGN-LV",
@@ -15064,8 +15065,9 @@
    "avoidAccountOf": "DESIGN-AutomorphyLiftingBeyondTaylorWiles",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7104"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7104",
+   "finishedAt": "2026-10-13T22:26:10Z"
   },
   {
    "id": "DESIGN-CrystallineCohomologyPartII",
@@ -27825,7 +27827,8 @@
    ],
    "avoidAccountOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9401"
   },
   {
    "id": "BP-RankZeroOneBSD--BSD.0",
@@ -47624,7 +47627,8 @@
     "PKG-CohomologyComparisons~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CohomologyComparisons~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9203"
   },
   {
    "id": "PKG-ColemanIntegration",
@@ -50055,8 +50059,8 @@
    ],
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9175"
+   "state": "external",
+   "note": "claimed on GitHub issue #9175"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~2",
@@ -51243,8 +51247,9 @@
     "PKG-PELModuli"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PELModuli.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9229"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9229",
+   "finishedAt": "2026-10-13T22:26:15Z"
   },
   {
    "id": "PKG-PerfectoidQuotients",
@@ -51679,8 +51684,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-RankZeroOneBSD.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9191"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9191",
+   "finishedAt": "2026-10-13T22:26:18Z"
   },
   {
    "id": "REV-PKG-RankZeroOneBSD",
