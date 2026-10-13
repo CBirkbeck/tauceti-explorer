@@ -201167,6 +201167,46 @@
    "reviewReason": "Added by the review after reading p.10."
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E401",
+   "kind": "gap",
+   "locator": "Proposition 2.5 and the paragraph after it, physical p.14 (arXiv v2)",
+   "printed": "The proposition asserts the lattice-point estimate for images R′ = uR of a bounded semialgebraic multiset under triangular unipotent u, with the error measured by projection volumes of R rather than of R′, and says Davenport's proof adapts without significant change.",
+   "correction": "Davenport's slicing argument applied to R′ produces projection volumes of R′, which can be much larger than those of R (a shear stretches the first-coordinate projection). The estimate as stated holds, but needs a reorganised induction: fibre along the coordinate sheared by the others, so each fibre of uR is a translate of a fibre of R, and count the main term through the superlevel sets of the fibre-length function; the error terms then integrate to projection volumes of R (unipotent-davenport-transfer). The superlevel sets need the interval condition uniformly, which holds for semialgebraic R (semialgebraic-interval-condition).",
+   "reason": "For R = [0, ε] × [0, T] and u(x, y) = (x + ay, y) the projection of R′ to the first axis has length ε + aT, unbounded in a, while the count of R′ ∩ ℤ² stays ≤ 2(⌊T⌋ + 1); so the statement is true but does not follow from Davenport's lemma applied to R′.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv versions v1–v2 of Bhargava–Shankar",
+    "the published Annals version is not freely served and was not collated",
+    "Bhargava–Shankar–Tsimerman (Invent. Math. 2013) Proposition 24, which restates the claim"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
+   "citation": "Manjul Bhargava, Arul Shankar, Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves, arXiv:1006.1002v2, 50 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E402",
+   "kind": "misprint",
+   "locator": "Theorem 3.2.9, printed p.103 (arXiv:math/0310402)",
+   "printed": "The limit of ∫φ(xg_t)ψ(x)dμ as t → ∞ is given as the product of the L² norms ‖φ‖₂‖ψ‖₂.",
+   "correction": "The limit is the product of the integrals (∫φ dμ)(∫ψ dμ), as Remark 3.2.8 (μ(Ag_t ∩ B) → μ(A)μ(B)) and the proof (reduction to the orthogonal complement of the constants) show.",
+   "reason": "For φ = ψ = 1_A with 0 < μ(A) < 1 mixing gives the limit μ(A)², while ‖φ‖₂‖ψ‖₂ = μ(A); for ψ = −φ the printed value is positive while the true limit −(∫φ)² is ≤ 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0310402 (the only version; the printed book was not collated and the author's errata page was not checked)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
+   "citation": "Dave Witte Morris, Ratner's theorems on unipotent flows, arXiv:math/0310402 (Chicago Lectures in Mathematics, 2005); printed = physical − 10",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "kind": "error",
    "locator": "§3, second paragraph, top of printed p. 5 (the paragraph begins on p. 4; arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
