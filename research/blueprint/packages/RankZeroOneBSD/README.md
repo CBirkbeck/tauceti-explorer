@@ -15,7 +15,7 @@ The foundational carriers and algorithms have existing owners:
 - TauCetiRoadmap **EllipticCurves** Layers 1–2 own isogenies, duals, invariant differentials, the point group, rational torsion and Tate modules. Layer 3 owns finite-field Frobenius and Hasse bounds; Layer 4 owns reduction, minimal models, Tate's algorithm, component groups and Tate-curve logarithms; Layer 5 owns quadratic twists and their Galois point equivalence. Layer 6 owns Mordell–Weil finite generation, canonical heights, regulator lattices, descent rank bounds and saturation. Layer 7 owns continuous Kummer/Selmer/Sha carriers, finite m-Selmer groups and Cassels' arithmetic isogeny comparison. Their conditional BSD statement does not prove the rank or leading-term assertions developed here.
 - The real period is EllipticCurves Layer 7's absolute full-component period of a global minimal long model. Writing (D_W(x)=(a_1x+a_3)^2+4(x^3+a_2x^2+a_4x+a_6)), its convention is (2∫_{D_W>0}dx/√D_W). This already includes every real component. Positivity and convergence are supplied with the period; the totalized value of an unproved integral is insufficient. The separate period over an imaginary quadratic field below uses the complex integration lattice and the Néron differential ideal.
 - **EllipticCurveModularity** R29.3 supplies the normalized rational-coefficient weight-two newform attached to the actual curve. R29.4 supplies all bad factors, the exact conductor and the Tate-module comparison; R29.5 supplies the modular parametrization; R29.6 supplies equality with the curve's coefficient series, its entire continuation and functional equation. This roadmap uses the entire function `ellipticL E` provided by that interface. Mathlib's existing `E.LSeries` is a totalized series and is used only where summability is proved. Tau Ceti's pinned `LSeries.HasEntireExtension` supplies existence and uniqueness interfaces, not the modularity proof for E.
-- **GrossZagierAndArithmeticHeights** GZ.0 owns the source convention dictionary, real components and integrated complex period lattice. At the pins Tau Ceti's canonical height is the limit of the x-height divided by (2·4^n), and its polarized pairing has self-pairing that canonical height. The BSD x-height pairing is twice this pairing, so `Reg_BSD = 2^r Reg_Tau`. GZ.3 owns parametrization/differential and integral period comparisons; GZ.8 owns the actual Gross–Zagier formula; GZ.9 owns the actual BDP reciprocity formulas, with the multiplicative and supersingular extensions specified below. The regulator itself and its rank-zero value one are already provided by Tau Ceti's `Affine.PointModTorsion`/`Regulator` development.
+- **GrossZagierAndArithmeticHeights** GZ.0 owns the source convention dictionary, real components and integrated complex period lattice. At the pins Tau Ceti's canonical height is the limit of the x-height divided by (2·4^n), and its polarized pairing has self-pairing that canonical height. With the same field-height normalization, the BSD x-height pairing is twice this pairing, so `Reg_BSD = 2^r Reg_Tau`. Current Tau Ceti at a91d3aaf instead uses the full x-height limit in `CanonicalHeight.Basic`; its regulator already has that BSD scaling, so the pinned factor two must not be applied again when using that revision. GZ.3 owns parametrization/differential and integral period comparisons; GZ.8 owns the actual Gross–Zagier formula; GZ.9 owns the actual BDP reciprocity formulas, with the multiplicative and supersingular extensions specified below. The regulator itself and its rank-zero value one are already provided by Tau Ceti's `Affine.PointModTorsion`/`Regulator` development.
 - The basic **11a3** curve (y^2+y=x^3-x^2), coefficient tuple ((0,-1,1,0,0)), discriminant (-11), and point ((0,0)) of order five are EllipticCurves' named torsion example. The **37a1** curve (y^2+y=x^3-x), tuple ((0,0,1,-1,0)), discriminant (37), and infinite-order point ((0,0)), with rank one by explicit descent, are its named rank example. Those constructions and elementary point-order calculations are imported. The new examples below add analytic enclosures, torsion-sensitive prime-part dispatch and complete BSD certificate obligations. The 32a2 model and its dyadic arithmetic comparison remain explicit targets here.
 - Mathlib already supplies `analyticOrderAt`, `analyticOrderNatAt`, iterated derivatives, fundamental discriminants, rational numerator/denominator normal forms, finite prime-factor sets and `padicValRat`. Tau Ceti supplies the quadratic twist point equivalence and `Affine.Point.exists_baseChange_eq_of_map_eq`. Their specializations below add the actual BSD comparisons, rather than a second analytic-order, factorization or Galois-descent theory.
 
@@ -25,17 +25,28 @@ The pinned statements used by Suggested.lean are Mathlib `082e2d37e8b0463410cdb5
 
 Use the motivic center (s=1). The unitary GL₂ center (1/2) is related by translation by (1/2). Write (r=ord_{s=1}L(E,s)) and (L^*(E,1)=L^{(r)}(E,1)/r!). At rank one this is (L'(E,1)). The completed convention here uses Γℂ(s)=2(2π)⁻ˢΓ(s), twice the conventional Mellin completion; its sign is unchanged. The analytic root number is the negative of the normalized weight-two Fricke eigenvalue.
 
-Use absolute number-field heights with the stated source conversion to the BSD pairing. Over a quadratic field, source relative heights introduce the degree-two scaling retained in the regulator comparison. Write (I_{free}=[E(K)/tors:ℤP̄]) and (I=[E(K):ℤP]=I_{free}#E(K)_{tors}). The height formula uses the free index. All periods refer to minimal Néron differentials; a parametrization or isogeny contributes its actual differential multiplier and local indices.
+Distinguish absolute heights from heights relative to the field. With the native number-field absolute values, Mathlib's `logHeight` is relative: its total weight is [K:ℚ]. Dividing by this weight gives the absolute normalization. The pinned Tau Ceti height uses half the relative x-height limit; twice that height is the relative BSD x-height used in the quadratic regulator and Heegner formulas below. Over ℚ the degree is one; over a quadratic field, heights of rational points acquire the degree-two scaling retained in the regulator comparison. Write (I_{free}=[E(K)/tors:ℤP̄]) and (I=[E(K):ℤP]=I_{free}#E(K)_{tors}). The height formula uses the free index. All periods refer to minimal Néron differentials; a parametrization or isogeny contributes its actual differential multiplier and local indices.
 
 An odd primary component means the p-primary group with **p an odd prime**. Whole Sha finiteness is a statement about the complete group. The integer valuation `padicValRat p q` is totalized at zero; zero and −1 are deliberate negative controls for reconstruction. Multiplicative/division valuation identities require all their rational factors to be nonzero. Strict positivity is a separate input to (q=1).
 
-For a coefficient DVR O with uniformizer ϖ and residue field of size (p^f), finite length is normalized by ϖ, and cardinality is (p^{fℓ_O(M)}). It is not automatically a ℤₚ length. Use Λ=O⟦Γ⟧, Λ[1/p] and Λ[1/p,1/(γ−1)] with their different meanings. `char` ignores finite pseudo-null modules; Fitting and augmentation control retain them. An ideal containment `(a) ⊆ (b)` means b divides a. A rational containment leaves the coefficient-prime error until an integral argument removes it.
+For a p-adic coefficient DVR O with uniformizer ϖ and finite residue field of size (p^f), finite length is normalized by ϖ, and cardinality is (p^{fℓ_O(M)}). It is not automatically a ℤₚ length. The arithmetic coefficient rings have characteristic zero; inverting p is not a rationalization operation over an equal-characteristic ring such as 𝔽_p⟦ϖ⟧. Use Λ=O⟦Γ⟧, Λ[1/p] and Λ[1/p,1/(γ−1)] with their different meanings. `char` ignores finite pseudo-null modules; Fitting and augmentation control retain them. An ideal containment `(a) ⊆ (b)` means b divides a. A rational containment leaves the coefficient-prime error until an integral argument removes it.
 
 When K is imaginary quadratic and p splits, fix both the embedding and the distinct primes v and v̄. Record the inverse Galois action on induced coefficients independently from the choice of arithmetic Frobenius in an Euler polynomial. The JSW and Eisenstein strict/relaxed conventions are compared by the stated conjugation map, not by matching place names. A BDP function in these characteristic-ideal equalities is the **squared** logarithm function; its square root has a different ideal and λ-invariant.
 
+**Normalization checks.**
+
+- At rank zero the empty height determinant is one. At rank one, a generator of pinned Tau Ceti height h over ℚ has BSD regulator 2h; replacing it by twice the generator multiplies either regulator by four. Over a quadratic field the restricted point's pinned relative height is 2h and its relative BSD height is 4h, while its absolute BSD height remains 2h.
+- At s=1, Γℂ(1)=1/π, so the completed central value is √N·L(E,1)/π. A Fricke eigenvalue +1 gives root number −1 and forces the central value to vanish; the rank-one parity is −1.
+- A unit Néron differential ideal and period-lattice covolume c>0 give Ω_{E/K}=4c. For a rectangular sublattice of index two, the product of its two generating lengths is 2c, fixing the direction of the index in the real/twist period comparison.
+- For an unramified quadratic coefficient extension of ℤ_p, the length-one residue module has cardinality p². For a totally ramified quadratic extension it has cardinality p. Uniformizer length one therefore cannot always be read as cardinality p or as ℤ_p length one.
+- Over a DVR, (ϖ²)⊆(ϖ) corresponds to quotient lengths two and one respectively. Over O⟦T⟧, multiplication by ϖ disappears after inverting p, while multiplication by T does not. The finite module O⟦T⟧/(ϖ,T) has unit characteristic ideal and Fitting ideal (ϖ,T).
+- If a square-root BDP series is T, its squared series is T², of λ-invariant two rather than one. At odd p, for a one-dimensional unramified Euler factor with Frobenius eigenvalue one at ℓ=2, substitution X=ℓ⁻¹γ gives 1−γ/2, fixing the substitution separately from the inverse induced action.
+- The discriminants −7 and −3 give χ(2)=+1 and −1 respectively. The dyadic character rule cannot be inferred from the odd-prime Legendre formula.
+- The quotients 2 and 1/4 have zero valuation at every odd prime but dyadic valuations one and −2. The values zero and −1 have all totalized valuations zero and fail strict positivity. A real identity reconstructed from A/B still requires B≠0.
+
 ## Exact supplier contracts
 
-Each contract identifies the existing owner and the extension needed by the stated consumer. An early class, a generic local interpolation formula, or a rational divisibility does not by itself supply an integral arithmetic endpoint. New ordinary BSTW work is routed to the present Kato L4 owner until its early L5 extension exists. The imaginary-quadratic elliptic-unit proof chain has no existing complete owner: it requires integral unit distributions and norm relations, Rubin's 1991/1994 CM main conjectures, Hida–Tilouine Theorem 0.3 (Invent. 117, 1994), and Hida's anticyclotomic Katz μ=0 theorem (Annals, 2010), with the exact characters, primes and coefficient rings used below. Katz interpolation alone does not satisfy that contract.
+Each contract identifies the existing owner and the extension needed by the stated consumer. An early class, a generic local interpolation formula, or a rational divisibility does not by itself supply an integral arithmetic endpoint. New ordinary BSTW work is routed to the present Kato L4 owner until its early L5 extension exists. The imaginary-quadratic elliptic-unit proof chain has no existing complete owner: it requires integral unit distributions and norm relations, Rubin's 1991/1994 CM main conjectures, Hida–Tilouine Theorem 0.3 (Invent. 117, 1994), and Hida's anticyclotomic Katz μ=0 theorem, with the exact characters, primes and coefficient rings used below. For the last input, [Hida's Theorem I](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf), Annals 172 (2010), p.45, assumes p>2, p unramified in the totally real field and split conductor support; its exceptional condition (V) must be excluded. In the imaginary-quadratic specialization over ℚ, the finite ramification of K excludes condition (M1), hence (V). Its proof uses the replacement for Lemma 3.17 in the author's [2022 addendum](https://www.math.ucla.edu/~hida/Addendam.pdf), p.1. The remaining Rubin/Hida–Tilouine source and integral comparison obligations are still open. Katz interpolation alone does not satisfy that contract.
 
 ### From Mathlib at the pin
 
@@ -475,7 +486,7 @@ Let E/ℚ be elliptic, K a quadratic field with character χ = χ_K and E^K := E
 
 Mathlib's localPolynomial is computed on minimal models (WeierstrassCurve.minimal); the comparison includes the change to a minimal model of the twist. ℓ = 2 is included in both (a) and (b).
 
-(a), ℓ odd: D_K is an ℓ-adic unit, so the twisted model has Δ ↦ D⁶Δ with the same valuation; minimality and the reduction type are preserved, and the reduction of E^K is the twist of the reduction of E by the class of D_K mod ℓ (finite-field-twist-trace). Multiplicative reduction: the tangent directions at the result are defined over 𝔽_ℓ(√(−c₆)); twisting multiplies −c₆ by D³, so splitness flips exactly when D_K is a nonsquare mod ℓ, i.e. χ(ℓ) = −1. (a), ℓ = 2 ∤ D_K: D_K ≡ 1 mod 4, and the twist is an Artin–Schreier twist over 𝔽₂ by x² − x + (1 − D_K)/4, whose trace is 1 exactly when D_K ≡ 5 mod 8, i.e. χ(2) = −1 (finite-field-twist-trace (ii)). (b): the Tate module of E^K is V_r(E) ⊗ χ as a G_ℚ-representation (Tau Ceti quadraticTwistPointEquiv twists the Galois action by the quadratic character). The Néron–Ogg–Shafarevich criterion and the Galois description of local factors (EllipticCurves Layer 4; EllipticCurveModularity R29.4/bad-euler-factors) give the local polynomial as the characteristic polynomial on inertia invariants. If V_r(E) is unramified or has unipotent inertia action, tensoring with the ramified χ_ℓ kills the invariants.
+(a), ℓ odd: D_K is an ℓ-adic unit, so the twisted model has Δ ↦ D⁶Δ with the same valuation; minimality and the reduction type are preserved, and the reduction of E^K is the twist of the reduction of E by the class of D_K mod ℓ (finite-field-twist-trace). Multiplicative reduction: the tangent directions at the singular point of the special fibre are defined over 𝔽_ℓ(√(−c₆)); twisting multiplies −c₆ by D³, so splitness flips exactly when D_K is a nonsquare mod ℓ, i.e. χ(ℓ) = −1. (a), ℓ = 2 ∤ D_K: D_K ≡ 1 mod 4, and the twist is an Artin–Schreier twist over 𝔽₂ by x² − x + (1 − D_K)/4, whose trace is 1 exactly when D_K ≡ 5 mod 8, i.e. χ(2) = −1 (finite-field-twist-trace (ii)). (b): the Tate module of E^K is V_r(E) ⊗ χ as a G_ℚ-representation (Tau Ceti quadraticTwistPointEquiv twists the Galois action by the quadratic character). The Néron–Ogg–Shafarevich criterion and the Galois description of local factors (EllipticCurves Layer 4; EllipticCurveModularity R29.4/bad-euler-factors) give the local polynomial as the characteristic polynomial on inertia invariants. If V_r(E) is unramified or has unipotent inertia action, tensoring with the ramified χ_ℓ kills the invariants.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Footnote 7, p. 42; [Christopher Skinner and Wei Zhang](https://arxiv.org/abs/1407.1099v1), §9.1, Corollary 9.2 and proof, p. 29.
 
@@ -560,7 +571,7 @@ Let E/ℚ be elliptic of conductor N and K a quadratic field with (D_K, N) = 1. 
 
 Twist the completed function: Λ(s, F_E ⊗ χ_K) with conductor N D_K² (twist-l-series). The twist of a newform of level N and sign ε by a primitive character χ of conductor D coprime to N has sign ε·χ(N)·τ(χ)²/D; for quadratic χ = χ_K, τ(χ_K)² = χ_K(−1)|D_K|, so the sign is ε·χ_K(−N). Equivalently, with local ε-factors (GL2AutomorphicRepresentationsAndTransfer R16.3) only the places ℓ | D_K change, together contributing χ_K(−N). Under the Heegner hypothesis χ_K(N) = ∏ χ_K(ℓ)^{v_ℓ(N)} = 1 and χ_K(−1) = −1.
 
-The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 543; [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 543.
+The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 543.
 
 *Needs:* §0.1 (the completed l-function and the root number); §0.7 (the l-series and conductor of a quadratic twist coprime to the conductor); §0.3 (the quadratic character of a quadratic field); GL2AutomorphicRepresentationsAndTransfer R16.3.
 
@@ -767,7 +778,7 @@ The intended declarations are:
 
 Let E/ℚ be elliptic, K quadratic, Λ = E(K)/tors, Λ₊ = image of res and Λ₋ = image of ι, r₊ = rank E(ℚ), r₋ = rank E^K(ℚ), r = r₊ + r₋. Then Λ₊ ⊥ Λ₋ for the Néron–Tate pairing over K, [Λ : Λ₊ ⊕ Λ₋] = 2^a with 0 ≤ a ≤ r, and with K-relative heights (⟨P, P⟩_K = [K:ℚ]·⟨P, P⟩_ℚ for P defined over ℚ) Reg_BSD(E/K) = 2^r · Reg_BSD(E/ℚ) · Reg_BSD(E^K/ℚ) / 4^a. In particular, if r₋ = 0 then Reg_BSD(E/K) = 2^{r₊} Reg_BSD(E/ℚ)/4^a and E(K)/tors contains res(E(ℚ)/tors) with index 2^a.
 
-Reg_BSD is the regulator of GrossZagierAndArithmeticHeights GZ.0 (x-height normalisation, Reg_BSD = 2^r · Tau Ceti regulator). Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. GZ.0 supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance.
+Reg_BSD is the regulator of GrossZagierAndArithmeticHeights GZ.0 (relative x-height normalisation, Reg_BSD = 2^r · pinned Tau Ceti regulator). Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. GZ.0 supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance.
 
 Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩. Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r. Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K. Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (native determinant and finite-index identities in the next step). Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so the Gram determinant comparison uses those pinned APIs. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; GZ.0 supplies the x-height/relative-height normalization transport.
 
@@ -848,7 +859,7 @@ The intended declarations are:
 
 Under the hypotheses listed here, the valuation of the rational nonzero BSD defect for E/K equals the sum of those for E and E^K. Thus if one of the two rational-curve p-parts is already known, the p-part over K is equivalent to the other. No conclusion about the separate vanishing of two arbitrary summands follows from their sum alone.
 
-p odd and split in K; (D_K,2N)=1. Assume matching analytic/algebraic ranks and rational nonzero normalized BSD quotients for E, E^K and E/K, with finite p-primary Sha; rank≤1 applications obtain these from Layer 5–5. The comparison itself does not assert general-rank rationality or finiteness.
+p odd and split in K; (D_K,2N)=1. Assume matching analytic/algebraic ranks and rational nonzero normalized BSD quotients for E, E^K and E/K, with finite p-primary Sha; rank≤1 applications obtain these from Layers 5–7. The comparison itself does not assert general-rank rationality or finiteness.
 
 L-values: L*(E/K,1) = L*(E,1)·L*(E^K,1) (§0.11). Regulators: quadratic-regulator-comparison; the powers of 2 are p-adic units. Periods: quadratic-period; |D_K|^{−1/2} in (7.1.a) cancels the |D|^{1/2} of the comparison. Tamagawa factors: tamagawa-base-change. Torsion: torsion-comparison. Sha: odd-selmer-sha-decomposition.
 
@@ -918,7 +929,7 @@ f a newform of even weight with trivial character (k = 2 for elliptic curves). T
 
 Import MP.8 two-variable polar combination, interchanges and the special-value coefficient identification. After twisting initially, BFH §9 reduces to ε=+1. BFH pp.614–615: choose σ₁,T₁,y₂ with F₁⁺(1/2,2)≠0 and τ₁(2)=0 using Proposition 3.12; independently choose σ₂,T₂,y₂ with τ₂(2)≠0 using Proposition 3.13. Subtract (9.4),(9.5) to obtain (9.6), with q=F₁⁺ τ₂ nonzero at (1/2,2). No assertion that all test values of one vector are simultaneously nonzero is used. Derivative branch, p.616: Z⁻(u,2)=0 by sign and Lemma 9.1; therefore p(1/2,2)=q(1/2,2). Differentiating (9.6), the double-pole coefficient is −(p+q) at the intersection, equal to −2q≠0. Value branch, p.617: a third vector from Proposition 3.15 has M₃(2)≠0 and τ₃(2)=0. Multiply (9.5) by M₃(2) and (9.10) by M₂(2), then subtract. After Z⁻(u,2)=0 the simple-pole coefficient is M₃(2)τ₂(2)≠0. Lemma 9.1 factors each coefficient as a holomorphic multiplier times L(s+k/2−2,f⊗χ_{D₀}); its derivative implication uses the central zero. Proposition 7.1 excludes a pole of this order from finitely many fundamental squareclasses. This proves the required infinitude, not just a nonzero series.
 
-The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 544; [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 544; [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), §9, printed pp.614–617, equations (9.4)–(9.10), Lemma 9.1.
+The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Introduction, p. 544; [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), §9, printed pp.614–617, equations (9.4)–(9.10), and the lemma on p.615 (called Lemma 9.1 on p.616).
 
 *Needs:* MetaplecticAutomorphicForms MP.8 / two-variable-polar-combination; MetaplecticAutomorphicForms MP.8 / fourier-residue-interchanges; MetaplecticAutomorphicForms MP.8 / two-variable-twist-series; MetaplecticAutomorphicForms MP.8 / bsd2-export; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-f; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-tau; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-m; MetaplecticAutomorphicForms MP.7; §3.1 (admissible discriminants with prescribed local conditions).
 
@@ -1030,7 +1041,7 @@ Establish this integral comparison before Heegner descent. It depends on charact
 
 Let g ∈ S₂(Γ₀(N)) be a newform with trivial character and Hecke field with ring O, 𝔭 | p ≥ 5 a prime of O with p ∤ N, ρ̄_{g,𝔭} : G_ℚ → GL₂(k₀) surjective, and N = N⁺N⁻ with N⁻ squarefree with an odd number of prime factors (the definite quaternion algebra of discriminant N⁻), satisfying Pollack–Weston's hypothesis CR (in particular ρ̄ ramified at every ℓ | N⁻ with ℓ ≡ ±1 mod p, and the nonsquarefree alternatives of Hypothesis ♥ when N is not squarefree). Let η_g(N) be the congruence number of g at full level and ξ_g(N⁺, N⁻) the self-pairing of a primitive integral eigenfunction on the definite quaternion algebra. Then ord_𝔭 (η_g(N)/ξ_g(N⁺, N⁻)) = Σ_{ℓ|N⁻} t_g(ℓ), where t_g(ℓ) = length_{O_𝔭} Φ(A_g/ℚ_ℓ)_𝔭 is the 𝔭-part of the Tamagawa (component-group) factor at ℓ.
 
-The hypotheses are those of HeegnerPointEulerSystems HE.6/ribet-takahashi-tamagawa-comparison, which consumes this result; its contract forbids HE.6, rank-zero BSD, Jochnowitz congruences and the final Heegner-index result as inputs. This is an early export (early layer Layer 4); it depends only on Néron-model character groups and the GL₂ transfer.
+The hypotheses are those of HeegnerPointEulerSystems HE.6/ribet-takahashi-tamagawa-comparison, which consumes this result; its contract forbids HE.6, rank-zero BSD, Jochnowitz congruences and the final Heegner-index result as inputs. This Layer 4 export depends only on Néron-model character groups and the GL₂ transfer.
 
 Character groups: for N₁N₂ with N₂ having an even number of primes, the character group X̂_r(J) of the Shimura curve Jacobian's toric part at r | N⁻ is free of rank one over the localised Hecke algebra under CR (Pollack–Weston Theorem 6.2, from NeronModelsAndSemistableAbelianVarieties R11.4/characters-graph-homology, R11.4/integral-monodromy-pairing). The monodromy pairing on X̂_r computes congruence numbers: ⟨g_r, g_r⟩ = η_g(N₁/r, rN₂) (Pollack–Weston Proposition 6.4) and the cokernel of the monodromy map is the component group (R11.4/component-cokernel). Ribet–Takahashi: comparing the pairings at successive levels gives ord_𝔭 η_g(aℓ, b) = t_g(ℓ) + ord_𝔭 η_g(a, ℓb) (Pollack–Weston (2)); degeneracy maps and their adjoints are R11.6/degeneracy-functoriality. Iterate over the primes of N⁻ and identify ξ_g(N⁺, N⁻) with η_g(N⁺, N⁻) by freeness (the GL₂ transfer of GL2AutomorphicRepresentationsAndTransfer R17.3 gives the Jacquet–Langlands eigenfunction).
 
@@ -1340,9 +1351,9 @@ The intended declarations are:
 
 ### 7.5 Rationality of L′(E,1)/(Ω_E Reg_E) in analytic rank one
 
-For every elliptic curve E/ℚ with analyticRank E = 1, L′(E, 1)/(Ω_E · Reg_BSD(E/ℚ)) ∈ ℚ_{>0}, where Reg_BSD is GZ.0's regulator in the x-height normalisation (twice Tau Ceti's regulator in rank one).
+For every elliptic curve E/ℚ with analyticRank E = 1, L′(E, 1)/(Ω_E · Reg_BSD(E/ℚ)) ∈ ℚ_{>0}, where Reg_BSD is GZ.0's regulator in the x-height normalisation (twice the pinned Tau Ceti regulator in rank one).
 
-analyticRank E = 1 (so rank E(ℚ) = 1 by §5.3). Normalisation: GZ.0/height-convention-dictionary; with Tau Ceti's regulator the quotient changes by the factor 2.
+analyticRank E = 1 (so rank E(ℚ) = 1 by §5.3). Normalisation: GZ.0/height-convention-dictionary; with the pinned Tau Ceti regulator the quotient changes by the factor 2.
 
 Choose K by §3.5 with L(E^K, 1) ≠ 0 and D_K odd. Gross–Zagier (GZ.8/elliptic-curve-heegner-height-formula): L′(E,1)·L(E^K,1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with C, u_K ∈ ℤ_{>0}. heegner-index-height-formula: ĥ_K(y_K) = (I_K^free)² · 2 · Reg_BSD(E/ℚ)/4^a. §2.5: ‖ω₀‖²/|D_K|^{1/2} = r·Ω_E·Ω_{E^K} with r ∈ ℚ^× (a power of 2 when (D_K, 2N) = 1). rank-zero-rationality for E^K: L(E^K, 1)/Ω_{E^K} ∈ ℚ^×. Dividing gives L′(E,1)/(Ω_E Reg_BSD) ∈ ℚ^×, positive by leading-term-positivity.
 
@@ -1427,8 +1438,8 @@ The intended declarations are:
 
 - bsdDefect (11a1) = 1 (L(E,1)/Ω_E = 1/5, #tors = 5, c₁₁ = 5, #Ш = 1).
 - If analyticRank E = 0 then Reg_BSD = 1 and bsdDefect E = L(E,1)·#tors²/(Ω_E·#Ш·∏c_ℓ).
-- For 37a1 (rank one) the quotient formed with Tau Ceti's halved regulator is 2, not 1: the regulator convention changes the answer.
-- bsdDefect (11a1) = bsdDefect (11a3) although their periods, torsion and Tamagawa numbers differ.
+- For 37a1 (rank one) the quotient formed with the pinned Tau Ceti halved regulator is 2, not 1: the regulator convention changes the answer.
+- bsdDefect (11a1) = bsdDefect (11a3) although their periods and Tamagawa numbers differ; both curves have rational torsion of order five.
 - 11a1: L(E,1)/Ω_E = 1/5, #tors = 5, c₁₁ = 5, Ш = 1 gives bsdDefect = (1/5)·25/5 = 1.
 
 ### 7.9 Isogeny invariance of the rational BSD defect
@@ -2969,7 +2980,7 @@ Actual isogeny and dual; exact finite local/global index calculations and the so
 
 Import EllipticCurves Layers 1/4/7’s differential, local Kummer and Cassels comparison APIs. Compute local cokernels and kernel orders on the actual models, with Néron differential pullback and full real components. Use defect-isogeny-invariance, which combines the arithmetic comparison with equality of all analytic local factors.
 
-The source comparison is [Christian Wüthrich](https://ems.press/content/serial-article-files/26230?nt=1), Lemma 17, p.398; Theorem 4 lattice construction.
+The source comparison is [Christian Wüthrich](https://ems.press/content/serial-article-files/26230?nt=1), Lemma 17, statement p.397 and proof p.398; Theorem 4, p.384, for the distinguished lattice.
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 7; §7.9 (isogeny invariance of the rational bsd defect).
 
@@ -3121,7 +3132,7 @@ For a specific E and a prime p excluded from the available named prime-part theo
 
 Actual positive rational defect and exact analytic rational quotient; certified whole-Sha p-primary data, torsion, free lattice and local invariants.
 
-At rank zero import Layer 7 modular-symbol rationality and its actual period comparison; at rank one import its Gross–Zagier/free-index rationality. Use sha-annihilator-adapter, mordell-weil-saturation-adapter and local-tamagawa-certificate-adapter, or an exact isogeny transfer with all indices verified. Apply torsion-square-valuation and exact integer factorization; produce a proof that the resulting integer is zero rather than a numerical approximation to the real leading term.
+At rank zero import Layer 1 modular-symbol rationality and its actual period comparison; at rank one import Layer 7's Gross–Zagier/free-index rationality. Use sha-annihilator-adapter, mordell-weil-saturation-adapter and local-tamagawa-certificate-adapter, or an exact isogeny transfer with all indices verified. Apply torsion-square-valuation and exact integer factorization; produce a proof that the resulting integer is zero rather than a numerical approximation to the real leading term.
 
 This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
 
@@ -3396,7 +3407,7 @@ The intended declarations are:
 
 ### 14.4 Concrete 32a2 Weierstrass model
 
-Define fixture32 as the actual Mathlib WeierstrassCurve over ℚ with coefficient tuple (0,0,0,−1,0). Its invariants are Δ=64, c₄=48 and j=1728. It is nonsingular and supplies the CM and additive dyadic reduction test. Labels are descriptive; changing the model changes the period and differential data.
+Define fixture32 as the actual Mathlib WeierstrassCurve over ℚ with coefficient tuple (0,0,0,−1,0). Its invariants are Δ=64, c₄=48 and j=1728. This rational model adds dyadic BSD data to the same equation's finite-field supersingularity test. It is nonsingular and supplies the CM and additive dyadic reduction test. Labels are descriptive; changing the model changes the period and differential data.
 
 Use the existing five-field Mathlib structure, its invariant polynomials and toAffine. Evaluate b₂,b₄,b₆,b₈,c₄,Δ by exact rational arithmetic; nonzero Δ gives IsElliptic. Evaluate the affine equation and partial derivatives at (0,0), proving Nonsingular rather than merely Equation.
 
@@ -3597,11 +3608,11 @@ The intended declarations are:
 
 Define point32 by the actual Mathlib Affine.Point.some constructor at (0,0), using fixture-32-elliptic. Its additive order is 2 (zero denotes infinite order). Addition gives 2P=O; the other nonzero rational 2-torsion points are (1,0),(−1,0).
 
-Construct Point.some from the Nonsingular proof; import the existing AddCommGroup law. Evaluate the Weierstrass chord/tangent law at the listed points, taking all denominator and exceptional cases into account. For 37 transport by X=4x,Y=8y+4 to the short integral model Y²=X³−16X+16 and use Lutz–Nagell on X(8P)=84/25; for 11 and 32 use the listed order and nonidentity tests.
+Construct Point.some from the Nonsingular proof; import the existing AddCommGroup law. At (0,0), the derivative of x³−x is −1 while the y derivative vanishes, so this is a nonsingular affine point. The negation formula fixes it; the vertical-tangent case of the group law gives twice the point equal to the identity. The affine constructor distinguishes it from the point at infinity.
 
 The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter3.pdf), §3.3 torsion tests and §3.5 generators.
 
-*Needs:* §14.9 (32a2 ellipticity and affine point domain); Mathlib `WeierstrassCurve.Affine.Point`; TauCetiRoadmap EllipticCurves Layer 2; Mathlib `orderOf`.
+*Needs:* §14.9 (32a2 ellipticity and affine point domain); Mathlib `WeierstrassCurve.Affine.Point`; TauCetiRoadmap EllipticCurves Layer 2; Mathlib `addOrderOf`.
 
 The intended declarations are:
 
@@ -3640,11 +3651,11 @@ The intended declarations are:
 
 For the actual point32, addOrderOf point32=2.
 
-Use the concrete multiples and nonidentity tests of point-32. For 37 first transport by X=4x,Y=8y+4 to Y²=X³−16X+16, then invoke Lutz–Nagell on X(8P)=84/25; for finite prime order, rule out order one.
+Use point32≠0 and point32+point32=0 from §14.14. The additive order divides two and cannot be one, hence is exactly two. The other roots (−1,0) and (1,0) give the remaining nonzero rational two-torsion points; point32 does not generate a cyclic group of order four.
 
 The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter3.pdf), §3.3 torsion tests and §3.5 generators.
 
-*Needs:* §14.14 (actual 32 fixture point); TauCetiRoadmap EllipticCurves Layer 2; Mathlib `orderOf`.
+*Needs:* §14.14 (actual 32 fixture point); TauCetiRoadmap EllipticCurves Layer 2; Mathlib `addOrderOf`.
 
 The intended declarations are:
 
@@ -3679,6 +3690,8 @@ Construct replayable arithmetic certificates for fixture11, fixture37 and fixtur
 Actual models and points; exact local traces, descent presentations, rank and saturation bounds; a proved whole-Sha exponent bound for any whole-Sha assertion.
 
 Use analytic-fixture-enclosures and Layer 6 for rank equality and whole-Sha finiteness, but not an effective exponent bound. Apply the Selmer-cardinality and Sha-annihilator adapters to each required p^n; finite Selmer computations with an unproved exponent do not finish this step. Replay local-tamagawa-certificate-adapter and the torsion/reduction computations; use mordell-weil-saturation-adapter on point37. Gross Theorem 1.3 bounds Sha by tI² with exceptional power of 2; retain that factor, and use actual 2-primary descent if necessary. Gross Conjecture 1.2 is not used as a theorem.
+
+For consistency with the imported infinite-order point on 37a1, the change X=4x,Y=8y+4 sends it to (0,4) on Y²=X³−16X+16. Exact addition gives 8P=(84/25,−52/125); the nonintegral coordinate excludes torsion by Lutz–Nagell. This check proves neither saturation nor any Sha order, which still require the certificates above.
 
 The source comparison is [Benedict H. Gross](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), Printed pp.235–239, Conjecture 1.2 versus Theorem 1.3.
 
@@ -3738,7 +3751,7 @@ For a proposed full proof on 32a2, deleting the dyadic valuation entry prevents 
 
 ### Dependencies
 
-Earlier comparisons: §0.1, §0.2, §1.1, §6.4, §12.8, §13.3, §13.4, §13.5, §13.6, §13.7, §13.11, §13.14, §13.15, §13.18, §13.19, §13.21. Supplier interfaces: ComplexMultiplicationAndExplicitReciprocity CM.1; ComputationalNumberTheory CN.4; EllipticCurveModularity R29.6, using the pinned entire-extension interface; EllipticCurves worked examples; Layers 1–2 and 6; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; Mathlib `Nat.Prime.dvd_iff_eq`; Mathlib `Nat.forall_prime_iff_two_and_odd`; Mathlib `WeierstrassCurve.Affine.Nonsingular`; Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.IsElliptic`; Mathlib `WeierstrassCurve.Δ`; Mathlib `WeierstrassCurve`; Mathlib `orderOf`; Mathlib `padicValNat.eq_zero_of_not_dvd`; Mathlib `padicValRat.of_nat`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 3; TauCetiRoadmap ModularForms Layer 7.
+Earlier comparisons: §0.1, §0.2, §1.1, §6.4, §12.8, §13.3, §13.4, §13.5, §13.6, §13.7, §13.11, §13.14, §13.15, §13.18, §13.19, §13.21. Supplier interfaces: ComplexMultiplicationAndExplicitReciprocity CM.1; ComputationalNumberTheory CN.4; EllipticCurveModularity R29.6, using the pinned entire-extension interface; EllipticCurves worked examples; Layers 1–2 and 6; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; Mathlib `Nat.Prime.dvd_iff_eq`; Mathlib `Nat.forall_prime_iff_two_and_odd`; Mathlib `WeierstrassCurve.Affine.Nonsingular`; Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.IsElliptic`; Mathlib `WeierstrassCurve.Δ`; Mathlib `WeierstrassCurve`; Mathlib `addOrderOf`; Mathlib `padicValNat.eq_zero_of_not_dvd`; Mathlib `padicValRat.of_nat`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 3; TauCetiRoadmap ModularForms Layer 7.
 
 ## Mathematical boundaries and refinements
 
@@ -3786,6 +3799,7 @@ Export the analytic-rank-at-most-one rank and whole-Sha theorem to arithmetic ap
 - Timo Keller, Mulun Yin, [On the anticyclotomic Iwasawa theory of newforms at Eisenstein primes of semistable reduction](https://arxiv.org/pdf/2402.12781v2). arXiv:2402.12781v2, 30 October 2024; preprint, not a verified published version.
 - Francesc Castella, Giada Grossi, Jaehoon Lee, Christopher Skinner, [On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes](https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf). Inventiones mathematicae 227 (2022), 517–580; published author PDF.
 - Christian Wüthrich, [On the integrality of modular symbols and Kato’s Euler system for elliptic curves](https://ems.press/content/serial-article-files/26230?nt=1). Documenta Mathematica 19 (2014), 381–402; DOI 10.4171/DM/450.
+- Haruzo Hida, [The Iwasawa μ-invariant of p-adic Hecke L-functions](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf). Annals of Mathematics 172 (2010), 41–137; Theorem I, p.45, with the author's [2022 addendum replacing Lemma 3.17](https://www.math.ucla.edu/~hida/Addendam.pdf), p.1.
 - John E. Cremona, [Algorithms for Modular Elliptic Curves: chapter2](https://johncremona.github.io/book/fulltext/chapter2.pdf). Second edition (1997), corrected author online edition.
 - John E. Cremona, [Algorithms for Modular Elliptic Curves: chapter3](https://johncremona.github.io/book/fulltext/chapter3.pdf). Second edition (1997), corrected author online edition.
 - John E. Cremona, [Algorithms for Modular Elliptic Curves: examples](https://johncremona.github.io/book/fulltext/examples.pdf). Second edition (1997), corrected author online edition.
