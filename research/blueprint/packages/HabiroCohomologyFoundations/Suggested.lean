@@ -67,33 +67,49 @@ example : uniformDenominator 2 = 64 := by
 
 end Jackson
 
+-- In the integral divided-power quotient x=2, the correction x^[2]−2 is killed by 2.
+-- This pins the relation in §1.3; it does not prove its nonvanishing or completion.
+example :
+    let D := DividedPowerAlgebra ℤ ℤ
+    let I : Ideal D := Ideal.span {DividedPowerAlgebra.dp ℤ 1 (1 : ℤ) - 2}
+    let y := Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 2 (1 : ℤ))
+    (2 : D ⧸ I) * (y - 2) = 0 := by
+  dsimp
+  let I : Ideal (DividedPowerAlgebra ℤ ℤ) := Ideal.span {DividedPowerAlgebra.dp ℤ 1 (1 : ℤ) - 2}
+  have hx : Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 1 (1 : ℤ)) = 2 := by
+    apply sub_eq_zero.mp
+    rw [← map_ofNat (Ideal.Quotient.mk I) 2, ← map_sub]
+    exact Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span (by simp))
+  have hmul := congrArg (Ideal.Quotient.mk I)
+    (DividedPowerAlgebra.dp_mul (R := ℤ) (n := 1) (p := 1) (m := (1 : ℤ)))
+  norm_num [map_mul, nsmul_eq_mul, map_ofNat, hx] at hmul
+  change (2 : (DividedPowerAlgebra ℤ ℤ) ⧸ I) *
+    (Ideal.Quotient.mk I (DividedPowerAlgebra.dp ℤ 2 (1 : ℤ)) - 2) = 0
+  linear_combination -hmul
+
 section Torus
 
 variable {B : Type u} [CommRing B] {d : ℕ}
 
-/-- The unit-valued character of the integer-coordinate scaling action.
-For lattice vectors a,m it is q raised to their integral dot product.
-This is the coefficient formula in the torus application of Sch §7, pp.15–16. -/
-def torusCharacter (q : Bˣ) (a m : Fin d → ℤ) : Bˣ :=
-  q ^ (∑ i, a i * m i)
-
 /-- On the existing Laurent torus carrier there is a unique coefficient-linear
 algebra automorphism with this monomial formula. This states its universal
-characterization without constructing a new algebra-equivalence carrier. -/
+characterization without constructing a new algebra-equivalence carrier.
+The exponent is the character value on the point with coordinates q^(a i);
+general character evaluation is supplied by Tau Ceti. -/
 theorem torusScale_exists_unique (q : Bˣ) (a : Fin d → ℤ) :
     ∃! e : AddMonoidAlgebra B (Fin d → ℤ) ≃ₐ[B]
         AddMonoidAlgebra B (Fin d → ℤ),
       ∀ m, e (AddMonoidAlgebra.single m (1 : B)) =
-        AddMonoidAlgebra.single m (torusCharacter q a m : B) := by
+        AddMonoidAlgebra.single m ((q ^ (∑ i, a i * m i) : Bˣ) : B) := by
   sorry
 
 -- Negative exponents require a unit-valued parameter.
-example (q : Bˣ) : torusCharacter q (fun _ : Fin 1 => 1) (fun _ => -1) = q⁻¹ := by
-  simp [torusCharacter]
+example (q : Bˣ) : q ^ (∑ _i : Fin 1, (1 : ℤ) * (-1)) = q⁻¹ := by
+  simp
 
 -- Rank zero has only the identity character.
-example (q : Bˣ) (a m : Fin 0 → ℤ) : torusCharacter q a m = 1 := by
-  simp [torusCharacter]
+example (q : Bˣ) (a m : Fin 0 → ℤ) : q ^ (∑ i, a i * m i) = 1 := by
+  simp
 
 end Torus
 
@@ -187,10 +203,18 @@ example : ((X : ℤ[X]) - 1) ^ 2 + C 3 * X = cyclotomic 3 ℤ := by
 end TauCetiRoadmap.HabiroCohomologyFoundations
 
 /-
-Heavy README-only definitions: universal PD/q-PD envelopes; qOmega, qdR;
-enhanced filtered cofibres and fibres, completion and animation; qWittOmega,
-qWittDR and Nygaard; QHodgeFiltration, partialDescent and qHabiroHodge;
-canonicalSmoothFiltration and its fixed framed comparison; static naive
-filtrations; scheme cohomology, trace pairs and the analytic comparison;
-the eight enhanced comparison squares and their canonical θ/Witt equalities.
+README-only definitions: universal PD/q-PD envelopes; qOmegaFramed, qdRLocal,
+qOmega, qOmegaDAlg, qOmegaEtale, FramedQConnection; torusScale,
+ModifiedQConnection, derivedModifiedQConnections and the quotient prestack;
+coefficientRing, filQuotient, combinedFiltration and qdR; enhanced filtered
+cofibres and fibres, completion and animation; QVSystem, TorsionFreeQVSystem,
+QFVSystem, qWittOmega, qWittDR, twistedQOmega, twistedQdR and Nygaard;
+FramedHabiroKoszul; QHodgeFiltration, PairsCat, qHodge, its conjugate filtration,
+filRescale, twistedQHodgeFil_pAdic, twistedQHodgeFil, partialDescent,
+qHabiroHodge, QHodgeBaseChange and HabiroHodgeBaseChange;
+truncateFil, truncateFilShriek, truncateFilRel, canonicalSmoothFiltration and
+its fixed framed comparison; SmoothDimInv; PerfectlyCoveredDelta, IsPQuasiLci,
+IsRelSemiperfect, PerfectRegularPresentation, ConditionR and naiveFiltration;
+algebraicHabiroCohomology, trace pairs and analyticComparisonProblem;
+AtlasSquare, the eight enhanced comparison squares and their θ/Witt equalities.
 -/

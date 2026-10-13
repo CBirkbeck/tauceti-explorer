@@ -24,14 +24,16 @@ The following ownership conventions keep the constructions reusable.
 | --- | --- |
 | HabiroRings HR.1 | Arithmetic Λ-rings, commuting Adams operations and perfect coverage. |
 | HabiroRings HR.2 | Derived Habiro completion, cyclotomic conservativity, completed tensor and its bounded-below solid version. |
+| HabiroRings HR.3 | Finite cyclotomic reconstruction and the coherent prime-edge mapping spaces. |
 | HabiroRings HR.4 | Relative q-Witt rings, degree-zero ghosts, Frobenius, Verschiebung and Teichmüller maps. |
 | HabiroRings HR.5 | Cyclotomic complete descent, Frobenius-glued relative Habiro rings and Taylor equalizers. |
 | QW.5 and QW.6:framings | Shared positive-degree q-Witt calculus and complete framed difference calculus. This roadmap constructs these interfaces in HQ.4 and HQ.1, respectively; QW.5 and QW.6:framings designate their common interface owners. Degree-zero q-Witt theory is imported from HR.4. |
 | DerivedDeRhamCohomology DD.1–DD.2 | Enhanced completion, fracture squares, animation, cotangent complexes, derived de Rham and filtered scalar extension. |
 | EnhancedDerivedSheaves E0, E1 and E5:abstract | Enhanced categories, affine/étale descent, fully faithful pushouts, and the dual-fibration description of oplax tensor functors. E4 reuses DD.1 completion rather than defining a second completion theory. |
 | AInfCohomology AI.1 | Generic Koszul complexes, Berthelot–Ogus décalage and its filtered and completion properties. |
-| PrismaticCohomology PR.0, PR.3, PR.6 | δ-rings and prisms; relative Frobenius and Nygaard; local q-crystalline sites, envelopes and framed comparisons. |
-| AInfCohomology AI.3–AI.5, CrystallineCohomology CR.2/CR.4 and CohomologyComparisons CP.1 | AΩ, canonical perfectoid specializations, the PD Poincaré lemma, ordinary de Rham–Witt/crystalline comparison and their normalization. |
+| PrismaticCohomology PR.0–PR.3, PR.6 and PerfectoidQuotients Q3 | δ-rings and prisms; derived prismatic animation and descent; relative Frobenius and Nygaard; local q-crystalline sites, envelopes and framed comparisons; the actual perfectoid quotient used in the explicit Nygaard calculation. |
+| AInfCohomology AI.3–AI.5, CrystallineCohomology CR.0/CR.2/CR.4 and CohomologyComparisons CP.1/CP.6 | AΩ, canonical perfectoid specializations, ordinary PD envelopes and the PD Poincaré lemma, ordinary de Rham–Witt/crystalline comparison and their normalization. |
+| HabiroCyclotomicCompletions HC.3 | Root evaluation, integral Taylor coefficients and convergent re-expansion for the framed comparison problem. |
 | RefinedTraceMethods RT.4:q-Hodge, RT.4:Habiro-comparison and RT.6 | Spherical-lift existence from TC and its arithmetic exports. Prismatic filtrations are constructed independently before trace comparisons. |
 | AnalyticHabiroStack HS.3 | The analytic coefficient ring and stack needed to state the open comparison. These do not enter the algebraic construction. |
 
@@ -61,6 +63,9 @@ algebras, cyclotomic polynomials and degree-zero Witt vectors. In particular:
   Its presence does not supply the enhanced derived completion used below.
   Ordinary `DerivedCategory` does not supply the coherent totalizations,
   homotopy fixed points and filtered enhanced categories required here.
+- `DividedPowerAlgebra.dp_mul` supplies the integral divided-power
+  multiplication relation used in the p=2 test of §1.3. This native algebra
+  does not supply the universal completed PD/q-PD envelopes below.
 - Cyclotomic association and `WittVector.fontaineTheta_teichmuller` support
   the native coefficient calculations in HQ.8. Their presence does not
   construct AΩ, a prismatic site or its comparison maps.
@@ -68,6 +73,17 @@ algebras, cyclotomic polynomials and degree-zero Witt vectors. In particular:
 HQ.4 precedes HQ.3 in construction order: its twisted q-Witt and Nygaard
 objects are inputs to the chosen-filtration descent, while its framed
 constructions do not use that descent.
+
+Current Tau Ceti supplies general split-torus character evaluation in
+`TauCeti/LinearAlgebra/Basis/DiagonalTorus/Basic.lean`:
+`TauCeti.torusCharacter`, `torusCharacter_add`, `torusCharacter_neg` and
+`torusCharacter_zsmul`. For the point with coordinates q^{a_i}, its value
+on m is q^{Σ_i a_i m_i}; no new character-evaluation theory is proposed.
+The torus application below instead constructs the associated algebra
+automorphisms and their coherent module descent. AlgebraicVectorBundles
+Layers L0B and L2B own ordinary finite locally free sheaves and their
+geometric total spaces; the lattice application uses that dictionary and
+adds its specified semilinear equivariance.
 
 ## Conventions
 
@@ -117,6 +133,13 @@ of cyclotomic reductions, coherent complete descent, completed tensor, and the
 relative Habiro ring with its Frobenius-glued Taylor maps. These are functors
 on the actual enhanced module categories of their coefficient rings.
 
+From **HR.3**, use the reconstruction equivalence between
+(q^m−1)-complete E∞-A[q]-algebras and their coherent cyclotomic completion
+diagram, for m≥1. Its inverse is the finite homotopy limit after the
+specified right Kan extension. Mapping spaces are the homotopy equalizer
+of singleton maps and prime-edge comparisons, including paths and higher
+homotopies; an ordinary equalizer of maps does not supply this contract.
+
 From **HR.4**, use the actual relative rings qW_m(R/A). They are the initial
 relative q-FV-system of QW Lemma 2.41 and Definition 2.42 (§2.5, p.30),
 constructed from qW_m(R)⊗_{qW_m(A)}A[q]/(q^m−1) by the Verschiebung
@@ -139,6 +162,14 @@ Rational h-completion has q↦1+h. This is the construction of QH Lemma A.4
 chosen rings do not satisfy this contract. From **PR.3**, use actual relative
 prismatic Frobenius and its Nygaard-divisibility/descent functors.
 
+From **PR.1/PR.2**, use prismatic cohomology for a bounded prism and its
+derived (p,I)-complete animation, conjugate filtration and quasisyntomic
+descent on the stated bounded-torsion, cotangent-amplitude domains. Source
+colimits are p-completed and target colimits (p,I)-completed. From
+**PerfectoidQuotients Q3**, use the actual perfectoid quotient, its perfect
+prism and distinguished generator ξ; the explicit Nygaard calculation
+requires δ(ξ) to be a unit and uses its canonical q-divided-power monomials.
+
 From **DerivedDeRhamCohomology DD.0–DD.4**, use animated algebras, the full
 cotangent complex and derived exterior powers, derived de Rham with its
 Hodge filtration, and enhanced completion, fracture and scalar-extension
@@ -149,21 +180,36 @@ coherences; ordinary flatness alone supplies no such exchange. From
 **AInfCohomology AI.1**, use the actual Koszul and Lη constructions with the
 stated regularity, filtration and completion properties.
 
+In particular, **DD.4** retains the torsion boundary for derived de Rham
+cohomology of 𝔽_p over ℤ_p. Its derived p-completed two-term divided-power
+model differs from crystalline cohomology over (ℤ_p,(p)) with its specified
+divided powers (Bhatt, Proposition 8.5 and Corollary 8.6, §8, p.32).
+
+From **HC.3**, use Taylor expansion in X=q−ζ with Hasse-derivative
+coefficients, without division by factorials. Re-expansion to ζ′ requires
+p-adic completeness and separatedness and (ζ′−ζ)^N∈pB for some N; a
+p-power-order ratio of the roots supplies this condition. Its coefficients
+are the convergent sums Σ_{k≥j} binom(k,j)(ζ′−ζ)^{k−j}a_k. Coefficient
+maps, root maps and re-expansion commute with the imported Taylor maps.
+
 From **EnhancedDerivedSheaves E0/E1/E2/E5**, use stable coherent diagrams,
 module-category enhancements, sheaves on an affine basis, extension from that
 basis and their enhanced limits; E5 supplies animation, presentability and
 monoidal transport. The affine module identifications and descent
 transformations must be natural and compatible with coefficient extension.
 For the infinite discrete lattice in Layer 1, construct its action-groupoid
-prestacks and the QCoh right Kan extension here, using E0 coherent limits and
-E1 affine modules: QCoh takes the groupoid realization to its totalization.
+prestacks, flat sheafification and the QCoh right Kan extension here, using
+E0 coherent limits and E1 affine modules and flat descent. Identify
+Mod_{HC} with the enhanced D(C) for the Eilenberg–Mac Lane ring HC. QCoh
+takes the groupoid realization to its totalization and is invariant under
+flat sheafification.
 This supplies the specific lattice application of DAG VIII Proposition 2.7.6,
 Definition 2.7.8 (p.71) and Proposition 2.7.14 (§2.7, p.72), including the
 pointwise t-structure and affine-local perfectness. A finite-group-only
 fixed-point interface is insufficient. General parameter-stack theory is not
 an input to this construction.
 
-From **AI.3–AI.5, CR.2/CR.4 and CohomologyComparisons CP.1**, use the specified
+From **AI.3–AI.5, CR.2/CR.4 and CohomologyComparisons CP.1/CP.6**, use the specified
 AΩ, Fontaine θ and Witt maps, PD Poincaré/de Rham–crystalline equivalences,
 and their normalization. From **RefinedTraceMethods RT.4/RT.6**, use trace
 existence on precisely its spherical-lift and resolution domains, including
@@ -241,7 +287,7 @@ Use the following named maps and laws:
 - For R = Â_p the value is Â_p⟦q−1⟧.
 - For R = Â_p⟨x⟩, the p-completed polynomial ring in one variable, the value is the completed two-term complex Â_p⟨x⟩⟦q−1⟧ → Â_p⟨x⟩⟦q−1⟧dx, x^n ↦ [n]_q x^{n−1}dx.
 - Modulo q−1 the value is the p-completed derived de Rham complex dR_{R/Â_p}; for R smooth, the p-completed de Rham complex.
-- For A = ℤ and R = 𝔽_p, the value modulo q−1 is dR_{𝔽_p/ℤ_p} ≃ ℤ_p, crystalline cohomology of 𝔽_p over ℤ_p, not 𝔽_p. The derived complex of a non-smooth quotient is not a q-de Rham complex of the quotient.
+- For A = ℤ and R = 𝔽_p, reduction by q−1 gives the derived p-completion of [ℤ_p⟨x⟩ —(x−p)→ ℤ_p⟨x⟩] in degrees −1,0, where ⟨x⟩ is the divided-power polynomial algebra. This is dR_{𝔽_p/ℤ_p}, not crystalline cohomology over the fixed PD base (ℤ_p,(p)). At p=2, the quotient contains the nonzero 2-torsion class x^[2]−2: 2x^[2]=x²=4, and x^[2] survives in the reduction modulo 2. Thus replacing this value by ℤ_2 already fails (Bhatt, Proposition 8.5 and Corollary 8.6, §8, p.32).
 
 ### 1.4 After rationalisation, derived q-de Rham cohomology is a base change of derived de Rham cohomology
 
@@ -468,14 +514,13 @@ Use the following named maps and laws:
 
 For a commutative B, unit q∈B× and C=B[ℤ^d], set σ_a(x^m)=q^⟨a,m⟩x^m for a,m∈ℤ^d, fixing B. Construct this B-algebra automorphism for every a, including negative coordinates, and prove σ_0=id, σ_{a+b}=σ_aσ_b and σ_{−a}=σ_a^(−1). This is the integer coordinate-scaling action, used for a quotient prestack rather than a coarse orbit space. It extends the framed action to Laurent coordinates and a unit parameter, with no smoothness or h-completion requirement.
 
-(See Sch Definition 7.3, §7, p.15.)
+(See Sch §8, p.16, coordinate torus action; §7, Definition 7.3, p.15, for the framed connection application.)
 
 This uses Mathlib AddMonoidAlgebra, Mathlib AlgEquiv, HQ.1.
 
 Use the following named maps and laws:
 
-- `torusCharacter`: For q∈B× and a,m:Fin d→ℤ, the unit q^{Σ_i a_i m_i}.
-- `torusScale_exists_unique`: There is exactly one native B-algebra equivalence of B[ℤ^d] sending each single monomial (m,1) to (m,torusCharacter q a m).
+- `torusScale_exists_unique`: There is exactly one native B-algebra equivalence of B[ℤ^d] sending each single monomial (m,1) to (m,q^{Σ_i a_i m_i}).
 - `torusScale`: The native B-algebra automorphism σ_a of AddMonoidAlgebra B (Fin d→Z).
 - `torusScale_single`: σ_a(single m r)=single m (r·q^{Σ_i a_i m_i}), with integer powers of the unit q.
 - `torusScale_zero`: σ_0 is the identity B-algebra equivalence.
@@ -494,7 +539,7 @@ Use the following named maps and laws:
 
 A modified connection on C=B[x_1^±1,…,x_d^±1] is a C-module with commuting invertible σ_i-semilinear Γ_i. Define ∇̃_i=x_i^(−1)(Γ_i−id); its rule is ∇̃_i(fm)=σ_i(f)∇̃_i(m)+x_i^(−1)(σ_i(f)−f)m. Tensor products use Γ_i⊗Γ_i. All modules give the descent heart and finite projectives give vector bundles. There is no congruence modulo h and no division by h. Recovering an ordinary q-connection from Γ_i=id+hx_i∇_i requires h-completeness, continuity, regularity and the divisibility congruence as additional assumptions.
 
-(See Sch Remark 7.4, §7, p.15.)
+(See Sch Definition 7.3 and Remark 7.4, §7, p.15, for the ordinary framed notion; the invertible semilinear variant here is the algebraic action used in the quotient construction below.)
 
 This uses HQ.1, Mathlib LinearEquiv.
 
@@ -517,7 +562,7 @@ Use the following named maps and laws:
 
 The ordinary equivariant-module category for the lattice action is the category of modified connections, equivalently modules over C⋊ℤ^d. Its enhanced analogue is QCoh([Spec C/ℤ^d])≃D(C)^{hℤ^d}. Here homotopy fixed points mean coherent descent, not commuting maps in the homotopy category. The action need not be free. The following two targets specify the enhanced import and its heart; this quotient comparison says nothing about analytic Habiro cohomology.
 
-(See Sch Conjecture 7.5, §7, p.16.)
+(See DAG VIII Proposition 2.7.6 and Definition 2.7.8, §2.7, p.71; Remark 2.7.10 and Proposition 2.7.14, §2.7, p.72, for the enhanced descent construction.)
 
 This uses HQ.1.
 
@@ -527,7 +572,7 @@ Define the derived modified-connection category using the coherent action F_a(M)
 
 (See DAG VIII Definition 2.7.8, §§2.6–2.7, pp.66–76.)
 
-This uses HQ.1, EnhancedDerivedSheaves E5:presentability, EnhancedDerivedSheaves E0/E1 and the lattice QCoh construction in §1.26.
+This uses the lattice action of §1.23, EnhancedDerivedSheaves E5:presentability and EnhancedDerivedSheaves E0/E1 coherent module-category limits.
 
 Use the following named maps and laws:
 
@@ -549,11 +594,17 @@ Use the following named maps and laws:
 
 ### 1.27 Derived torus quotient comparison
 
-For X=Spec C and the discrete lattice action, realize [X/ℤ^d] as the geometric realization of its action groupoid in prestacks and prove QCoh([X/ℤ^d])≃Tot QCoh(X×(ℤ^d)^•)≃D(C)^{hℤ^d}. QCoh is an enhanced right Kan extension from affines and sends colimits of prestacks to limits; each nerve term is a disjoint union of affines, giving a product indexed by lattice tuples. Do not invoke an affine, quasi-compact acting group theorem for the infinite discrete group. The comparison, its monoidality and its t-structure require E1's enhanced descent interface; ordinary groupoid sheaf descent is only the heart-level input.
+For X=Spec C and the discrete lattice action, form the geometric realization Q_pre of its action groupoid in prestacks, then its flat sheafification Q=[X/ℤ^d]. Prove QCoh(Q)≃QCoh(Q_pre)≃Tot QCoh(X×(ℤ^d)^•)≃D(C)^{hℤ^d}. QCoh is an enhanced right Kan extension from affines, sends colimits of prestacks to limits and is invariant under flat sheafification. Each nerve term is a disjoint union of affines, giving a product indexed by lattice tuples. Regard Spec C as the affine functor of HC and use Mod_{HC}≃D(C), compatibly with pullback and tensor. The map X→Q is a torsor under the infinite constant group; it need not be a quasi-compact fpqc cover. The comparison, its monoidality and its pointwise t-structure require the enhanced flat module-descent interface; ordinary groupoid sheaf descent is only the heart-level input. At q=1 retain the full stabilizer ℤ^d, and at a parameter of finite order N retain Nℤ^d.
 
-(See DAG VIII Proposition 2.7.6; Definition 2.7.8; Remark 2.7.10; Proposition 2.7.14; Remark 2.7.15, §§2.6–2.7, pp.66–76.)
+(See DAG VIII Proposition 2.7.6 and Definition 2.7.8, §2.7, p.71; Remark 2.7.10, Proposition 2.7.14 and Remark 2.7.15, §2.7, p.72.)
 
-This uses HQ.1, EnhancedDerivedSheaves E0/E1 and the lattice QCoh construction in §1.26, EnhancedDerivedSheaves E5:presentability.
+This uses the coherent action limit of §1.26, EnhancedDerivedSheaves E0/E1 affine modules and prestack right Kan extension, and EnhancedDerivedSheaves E5:presentability.
+
+**Checks.**
+
+- For d=0 the groupoid has only identity arrows, Q=Spec B and QCoh(Q)≃D(B). A nontrivial fixed-point factor would fail this case.
+- For B=ℚ, q=1 and d=1, Q=Spec ℚ[x^±1]×Bℤ; the stabilizer is ℤ. The degree-one self-maps of its unit are ℚ[x^±1], whereas a coarse quotient gives zero.
+- For B=ℚ, q=−1 and d=1, every geometric point has stabilizer 2ℤ. Replacing the acting lattice by ℤ/2 discards these stabilizers and gives a different quotient.
 
 ### 1.28 The heart, vector bundles and perfect complexes
 
@@ -561,7 +612,13 @@ Show that the descent t-structure has heart the modules with commuting invertibl
 
 (See Stacks Proposition 96.14.3, §96.14 (unpaginated HTML) · DAG VIII Definition 2.6.14; Proposition 2.6.15; Definition 2.7.8; Remark 2.7.12; Proposition 2.7.20; Example 2.7.23; Remark 2.7.24; Proposition 2.7.28, §§2.6–2.7, pp.66–76.)
 
-This uses HQ.1, EnhancedDerivedSheaves E0/E1 and the lattice QCoh construction in §1.26.
+This uses the quotient comparison of §1.27, EnhancedDerivedSheaves E0/E1, and AlgebraicVectorBundles L0B's affine finite-projective dictionary, with the specified lattice equivariance added here.
+
+**Checks.**
+
+- The tensor unit has underlying C and Γ_i=σ_i; it is a rank-one vector bundle. For q=2 over ℚ in rank one, Γ(x)=2x, so a C-linear identity action is not the unit descent datum.
+- The zero module with its unique action is in the heart and is a rank-zero vector bundle and a perfect complex. Requiring positive rank would exclude it incorrectly.
+- For q=1, B=ℚ and d=1, the regular representation C[ℤ] is compact in D(C[ℤ]) but is an infinite free C-module, hence is not perfect on Q. Compactness in the equivariant category therefore cannot replace affine-local perfectness.
 
 ### Examples
 
@@ -579,7 +636,7 @@ Fix the filtered coefficient conventions before extending qΩ by animation. The 
 
 Import stable enhanced modules, filtered/graded objects, derived completion and fracture squares from E1 and DD.1. Descending filtrations have F^{i+1}→F^i and gr^i=cofib(F^{i+1}→F^i); ascending ones have gr_i=cofib(F_{i−1}→F_i). Exhaustivity is colim_{i→−∞}F^i≃M and completeness is lim_{i→∞}F^i=0. Completion is lim_n cofib(F^{•+n}→F^•), with recovery by pullback along M→M̂. Day convolution requires tensor products preserving colimits separately. Fil(C)≃Mod_{1_Gr[t]}Gr(C), |t|=−1. Write M/f for a derived cofiber and M^*/f for cofib(M(i)→M) when |f|=i. Derived completion is lim_n M/(f_1^n,…,f_r^n). Ordinary quotients require Koszul regularity. Use the principal fracture square and complete conservativity, including its vanishing consequences.
 
-(See QH Paragraph 1.22(a), §1, p.10; Paragraph 1.22(c), §1, p.10; Paragraph 1.22(d), §1, p.10.)
+(See QH Paragraph 1.22(a), §1, pp.10–11; Paragraph 1.22(c), §1, pp.11–12; Paragraph 1.22(d), §1, p.12.)
 
 This uses EnhancedDerivedSheaves E1, DerivedDeRhamCohomology DD.1.
 
@@ -644,7 +701,7 @@ Use the following named maps and laws:
 
 Animate the global qΩ functor on finite polynomial A-algebras for a torsion-free Λ-base, taking sifted colimits in h-complete E∞-algebras. Thus qdR_R=(|qΩ_{P_•/A}|)^∧_h for a polynomial simplicial resolution, independently of the resolution. It inherits the derived commutative lift, qdR/h≃dR and (qdR_R)^∧_p≃qdR_{R̂_p/Â_p}. Its arithmetic pullback uses the prime product, rational dR[[h]] and the rationalization of the prime product, with the uniform-denominator gluing map. Its agreement with qΩ is prescribed on polynomial algebras, rather than on every smooth algebra.
 
-(See QH Paragraph 1.22(b), §1, p.10; Paragraph A.14, §A, p.76.)
+(See QH Paragraph 1.22(b), §1, p.11; Paragraph A.14, §A, p.76.)
 
 This uses HQ.1, EnhancedDerivedSheaves E5:animation, DerivedDeRhamCohomology DD.1, DerivedDeRhamCohomology DD.2, HabiroRings HR.1.
 
@@ -679,7 +736,7 @@ This uses HQ.2, HQ.1, DerivedDeRhamCohomology DD.2.
 
 For a Λ-map A→A′ between prime-by-prime torsion-free bases and any animated R, prove (qdR_{R/A}⊗^L_A A′)^∧_h≃qdR_{R⊗^L_A A′/A′}. No flatness of A′ is assumed. Both sides preserve the appropriate completed sifted colimits, so extend the polynomial base-change equivalence by animation. Reduction by h is derived de Rham base change. Keep the completed tensor even for R=A.
 
-(See QH Theorem A.1, §A, p.69; Paragraph 1.22(b), §1, p.10.)
+(See QH Theorem A.1, §A, p.69; Paragraph 1.22(b), §1, p.11.)
 
 This uses HQ.2, HQ.1, EnhancedDerivedSheaves E5:animation, DerivedDeRhamCohomology DD.2.
 
@@ -687,7 +744,7 @@ This uses HQ.2, HQ.1, EnhancedDerivedSheaves E5:animation, DerivedDeRhamCohomolo
 
 Define the combined Hodge/h-adic filtration by the h-completed Day tensor of fil_Hdg dR with h^•ℚ[q]. Its i-th piece is the h-completion of colim_{a+b≥i}fil_Hdg^a(dR⊗ℚ)⊗h^bℚ[q]. This is not Hodge completion. The p-completed version uses (dR)^∧_p[1/p] and Â_p[1/p]. Both are constant in degrees ≤0 and exist for every animated R. They are the rational targets of the q-Hodge axioms.
 
-(See QH Definition 3.2(c), §3, p.20; Proposition 3.47(a), §3, p.48.)
+(See QH Definition 3.2(c), §3, p.21; Proposition 3.47(a), §3, p.48.)
 
 This uses DerivedDeRhamCohomology DD.2, DerivedDeRhamCohomology DD.1, HQ.2.
 
@@ -852,7 +909,7 @@ This uses HQ.4, HabiroRings HR.4.
 
 ### 3.6 The comparison map from ordinary de Rham-Witt complexes, compatible with Frobenius and Verschiebung
 
-For a Λ-base that is also a ℤ_(p)-algebra and arbitrary R, use restriction-free ordinary FV initiality to construct W_{a+1}Ω_{R/A}→qW_{p^a}Ω_{R/A}, a≥0. Require Frobenius and Verschiebung compatibility with the displayed indexing. This is a comparison map, not an isomorphism; ordinary restriction compatibility is absent on the q-side.
+For a Λ-base that is also a ℤ_(p)-algebra and arbitrary R, use restriction-free ordinary FV initiality to construct W_{a+1}Ω_{R/A}→qW_{p^a}Ω_{R/A}, a≥0. Require Frobenius and Verschiebung compatibility with the displayed indexing. The source derives the map using absolute restriction-free initiality; its factorization through the relative ordinary complex still needs a proof that the differential of the image of W_{a+1}(A) is killed. This is a supplier obligation of CR.4, not a consequence of forgetting restriction maps alone. The resulting target is a comparison map, not an isomorphism; ordinary restriction compatibility is absent on the q-side.
 
 (See QW Remark 3.18, §3, p.42.)
 
@@ -937,7 +994,7 @@ Use the following named maps and laws:
 - `twistedQOmega.fractureSquare`: The arithmetic fracture pullback square.
 - `twistedQOmega.transition`: For n | m, the map from the (q^n-1)-completion of the m-th complex to the n-th, functorial in S.
 - `twistedQOmega.one`: For m = 1 it is the q-de Rham complex.
-- `twistedQOmega.pCompletion_primePower`: For m=p^a its p-completion is (qdR_{R/A} ⊗^L_{A[q],ψ^{p^a}} A[q])^∧_{(p,h)}, where ψ^{p^a} acts on A and sends q to q^{p^a}.
+- `twistedQOmega.pCompletion_primePower`: For smooth S and m=p^a its p-completion is (qΩ_{S/A} ⊗^L_{A[q],ψ^{p^a}} A[q])^∧_{(p,h)}, where ψ^{p^a} acts on A and sends q to q^{p^a}. The animated version uses qdR_{R/A} for animated R.
 - `twistedQdR`: The animation, a functor from animated A-algebras to (q^m-1)-complete E-infinity A[q]-algebras, agreeing with twistedQOmega on polynomial algebras (not on all smooth algebras).
 
 **Checks.**
@@ -1286,7 +1343,7 @@ Use the following named maps and laws:
 
 - For a = 0 the filtration is the p-completion of the given q-Hodge filtration.
 - Reducing modulo q^{p^a}-1 gives the stupid filtration on the p-completed q-de Rham-Witt complex; a construction producing the Nygaard filtration instead fails this already for S = A and a = 1, where the first Nygaard term is non-zero in degree zero.
-- Rescaling by Phi_p(q) is lax but not strong monoidal: it does not preserve the unit, since the rescaled unit filtration (A[q] in every non-negative degree with transition maps multiplication by Phi_p(q)) is not equivalent to the unit filtration (transition maps the identity), Phi_p(q) not being a unit of A[q].
+- Over A=ℤ, rescaling by Phi_p(q) is lax but not strong monoidal. The trivial unit filtration has ℤ[q] in degrees ≤0 and zero in degrees >0. Rescaling changes its transitions F^i→F^{i−1}, i≤0, from the identity to multiplication by Phi_p(q). Already F^0→F^{−1} is not an isomorphism, since Phi_p(q) is not a unit of ℤ[q], so this is not the unit filtration.
 - After inverting p and completing at Phi_{p^a}(q), the filtration is the combined Hodge and Phi_{p^a}(q)-adic filtration on the p-completion of dR_{R/A} base-changed along psi^{p^a}; for a = 0 this is clause (c_p).
 
 ### 4.10 After inverting p the p-adic twisted q-Hodge filtration is the combined Hodge and cyclotomic-adic filtration
@@ -1767,7 +1824,7 @@ Use the following named maps and laws:
 - For R étale over A, q-dR_{R/A} = R⟦q−1⟧ (p-completed) and the filtration is the (q−1)-adic filtration; its reduction modulo q−1 is the Hodge filtration (R in degree 0).
 - For A = Z_p{x}^∧_p and R = A/x, the filtration is not a q-deformation of the Hodge filtration.
 - For R = A/x^2, the element γ_q(x^2) − (u^{−1} − 1)δ(x^2) + u^{−2}(q−1)^{p−1}δ(x)^2, with [p]_q = pu + (q−1)^{p−1}, lies in fil^p and reduces to x^{2p}/p modulo q−1 (Example 4.24).
-- The derived pullback need not be static. Its H^1 is the cokernel of the map from qdR⊕C^1 to dR[1/p][[h]]. For an integral witness in which 1/p is outside the sum of those images, it gives a nonzero class; this test must verify that nonmembership in the chosen model. It is not a nonvanishing assertion when p is already invertible.
+- For A=R=ℤ_p, D=ℤ_p, Q=ℤ_p[[h]] and C^1=hℚ_p[[h]], the ordinary preimage is hℤ_p[[h]], hence static. The derived pullback instead has H^1=ℚ_p/ℤ_p: constant-coefficient evaluation identifies the cokernel of Q⊕C^1→ℚ_p[[h]] with this quotient, and 1/p represents a nonzero class. Thus the derived pullback does not define the static naive filtration.
 
 ### 5.18 The naive filtration is always injective modulo q−1
 
@@ -2042,7 +2099,7 @@ This uses HQ.8, HQ.1, PrismaticCohomology PR.6.
 
 For a q-PD pair (D,I) with D flat over ℤ_p[[h]], p-completely smooth R over D/I, and a surjection from a p-completely ind-smooth D-algebra with p-completely ind-étale framing X_s, import PR.6's unique extensions γ_s to the q-PD envelope, congruent to id modulo hX_s. The Koszul complex of (γ_s−id)/(hX_s) computes q-crystalline cohomology. In the special pair (Â_p[[h]],(h)), the coordinate-free and framed rational comparisons form HQ.1's commuting envelope square. Record: that q-PD base and framed presentation; p-completion, then rationalization, then h-completion; no Frobenius linearization, filtration or twist; the resulting equivalences hold after these operations. The framed models remain frame-dependent.
 
-(See BS §16.3, p.107; Lemma 16.21, §16, p.115; Theorem 16.22, §16, p.115 · QH Lemma A.10, §A, p.74.)
+(See BS §16.3, p.114; Lemma 16.21, §16, p.115; Theorem 16.22, §16, p.115 · QH Lemma A.10, §A, p.74.)
 
 This uses HQ.8, HQ.1, PrismaticCohomology PR.6.
 
@@ -2088,7 +2145,7 @@ This uses HQ.8, HQ.4, HQ.2, PrismaticCohomology PR.3.
 
 ### 9.11 The cyclotomic specialisation: q-de Rham-Witt against ordinary de Rham-Witt and crystalline cohomology
 
-For smooth S over perfectly covered A, the cyclotomic comparison combines H/(q^m−1)'s ascending q-Witt filtration, the smooth underived graded forms, and qΩ^(m)/(q^m−1)≃qW_mΩ. At p use the explicit Adams-twisted de Rham formula of HQ.4 for m=p^a and its prime-to-p product extension. If A is additionally a ℤ_(p)-algebra, retain W_{a+1}Ω→qW_{p^a}Ω as a Frobenius/Verschiebung-compatible map. Reach classical crystalline cohomology only via CR.4's ordinary de Rham–Witt comparison on the smooth special fiber over a perfect characteristic-p field and the required relative base reduction. Record: A[q]/(q^{p^a}−1); p-completion; no inversion; ψ^{p^a}; ascending q-Witt versus stupid filtrations; no extra Tate twist. The ordinary-to-q-Witt map is neither inverted nor equipped with restrictions on its target.
+For smooth S over perfectly covered A, the cyclotomic comparison combines H/(q^m−1)'s ascending q-Witt filtration, the smooth underived graded forms, and qΩ^(m)/(q^m−1)≃qW_mΩ. At p use the explicit Adams-twisted de Rham formula of HQ.4 for m=p^a and its prime-to-p product extension. If A is additionally a ℤ_(p)-algebra, retain W_{a+1}Ω→qW_{p^a}Ω as a Frobenius/Verschiebung-compatible map. Reach classical crystalline cohomology only via CR.4's ordinary de Rham–Witt comparison on the smooth special fiber over a perfect characteristic-p field and the required relative base reduction. The relative factorization obligation in §3.6 is part of this imported comparison; its map-level proof remains to be supplied by HQ.4/CR.4. Record: A[q]/(q^{p^a}−1); p-completion; no inversion; ψ^{p^a}; ascending q-Witt versus stupid filtrations; no extra Tate twist. The ordinary-to-q-Witt map is neither inverted nor equipped with restrictions on its target.
 
 (See QH Theorem 3.11(b), §3, p.25; Proposition 3.19, §3, p.31 · QW Proposition 4.2, §4, p.54; Remark 3.18, §3, p.42 · BMS1 Theorem 1.10(i), §1, p.6.)
 
@@ -2130,7 +2187,7 @@ This uses HQ.8, HQ.5-trace, RefinedTraceMethods RT.6, PrismaticCohomology PR.3.
 
 Check each square on its smallest informative input. For ℤ[x], use the Frobenius-twisted p-adic affine line, two framed envelope models, the completed A_inf base change and the coordinate h-décalage calculation. For S=A=ℤ, the prism-ideal décalage is ℤ_p[[h]] in degree zero and (qW_pΩ)^∧_p=ℤ_p[q]/(q^p−1). Check the first two degree-zero Nygaard steps, and the derived q=1 torsion sequence. Every example retains its coefficient, input, completion, inversion, Frobenius, filtration and twist record. The θ/Witt compatibility targets have their own map-equality tests and do not follow from these object examples.
 
-(See QH Remark 1.13, §1, p.7; Paragraph 1.10, §1, p.6 · Sch §2, pp.3–4 · BS Theorem 17.2, §17, p.117.)
+(See QH Remark 1.13, §1, p.7; Paragraph 1.10, §1, p.6 · Sch §2, p.4 · BS Theorem 17.2, §17, p.117.)
 
 This uses HQ.8.
 
@@ -2202,6 +2259,7 @@ statement number and stable tag instead of a page number.
 - **KU:** Ferdinand Wagner, [q-de Rham cohomology and topological Hochschild homology over ku](https://arxiv.org/pdf/2510.06057v1), v1, §§1, 3, 4 and 6.
 - **TC:** Samuel Meyer and Ferdinand Wagner, [q-Hodge complexes and refined TC⁻](https://arxiv.org/pdf/2410.23115v4), v4, §3.2.
 - **BS:** Bhargav Bhatt and Peter Scholze, [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4), v4, §§15–18 and the base-change theorem in §4.
+- **Bhatt:** Bhargav Bhatt, [p-adic derived de Rham cohomology](https://arxiv.org/pdf/1204.6560v1), v1, §8, Proposition 8.5 and Corollary 8.6, p.32.
 - **BMS1:** Bhargav Bhatt, Matthew Morrow and Peter Scholze, [Integral p-adic Hodge theory](https://arxiv.org/pdf/1602.03148v3), v3, §§6 and 14.
 - **BMS2:** The same authors, [Topological Hochschild homology and integral p-adic Hodge theory](https://arxiv.org/pdf/1802.03261v2), v2, §5 and Theorem 1.12.
 - **Sch:** Peter Scholze, [Canonical q-deformations in arithmetic geometry](https://arxiv.org/pdf/1606.01796v1), v1, §§2–4 and 7.
