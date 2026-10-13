@@ -188241,9 +188241,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The next-page zero-kernel calculation confirms the sign correction."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E602",
@@ -188262,9 +188262,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The homogeneous branch requires the direction-exclusion condition in Proposition 9.16."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E603",
@@ -188283,9 +188283,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The two displayed factors differ; M=1 bypasses the discrepancy exactly."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E604",
@@ -188304,9 +188304,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The criterion uses a weighted sum; pointwise bounds introduce m, and the stated rescaling pays m^(m+1). The sharp theorem is not refuted."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E605",
@@ -188325,9 +188325,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The published correction p.307 changes the prime-order subscript."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E606",
@@ -188346,9 +188346,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The published correction p.307 changes the product to an e-th power."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E607",
@@ -188367,9 +188367,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The published correction p.307 supplies all five corrected parameter ranges."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E608",
@@ -188388,9 +188388,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "Yu 1994 p.253 explicitly places the root in Cp."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E609",
@@ -188409,9 +188409,53 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
    "citation": "Kunrui Yu, Linear forms in p-adic logarithms. III, Compositio Mathematica 91 (1994), pp.241–276",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "The F8 to F64 example and unramified compositum law confirm the faulty step; the final numerical inequality remains a target."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E610",
+   "kind": "misprint",
+   "locator": "Author PDF, §9.2.3, proof of Lemma 9.17, Step 3, p.282; following tangent calculation p.283",
+   "printed": "The direction W for ∂X0+Y∂Y has its torus coordinate set to zero.",
+   "correction": "Use W=K·(1,0,…,0,1), retaining torus coordinate 1.",
+   "reason": "The invariant derivation attached to (1,0,…,0,0) is only ∂X0. The displayed operator includes Y∂Y, and the following tangent-space argument on p.283 itself uses final coordinate 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+    "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+    "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation",
+    "Web search for Waldschmidt Diophantine Approximation Linear Algebraic Groups errata 9.17 282 (2026-10-13); no correction located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "Read both adjacent proof pages and compared the direction to the invariant-derivation definition; the intended direction is unambiguous."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E611",
+   "kind": "error",
+   "locator": "Published Appendix, Lemma, pp.111–112; convention (0.20), p.21",
+   "printed": "The Appendix lemma gives residue degree max(fP0,2) after adjoining ζ3 at p=2 or i at p≡3 mod4, and its proof treats every fP0≥2 as a splitting case.",
+   "correction": "Replace this by lcm(fP0,2) in these cases. The quadratic residue polynomial splits precisely for even fP0, and for odd fP0 the residue degree doubles. The p≡1 mod4 case is unchanged.",
+   "reason": "A degree-two finite field embeds in F_(p^fP0) only when 2 divides fP0. At p=2 the unramified cubic example in E609 gives degree 6. At p=3 and fP0=3, F27 has multiplicative order 26, so it has no primitive fourth root; adjoining i gives residue field F729. The claimed Appendix lemma itself is false; this is not a counterexample to the final linear-form bounds.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1990__74_1_15_0/ and its erratum link (2026-10-13)",
+    "Published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf, p.307 (2026-10-13); its three entries do not correct the Appendix",
+    "Yu 1994 pp.247 and 271: actual-residue convention clarified but the dyadic max formula remains (E609)",
+    "Web search for Kunrui Yu linear forms p-adic logarithms II 1990 Appendix residue degree correction erratum (2026-10-13); no Appendix correction located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.3",
+   "reviewReason": "Read the rendered Appendix statement and both parity arguments. The finite-field embedding criterion and residue-order examples refute precisely its odd-degree branch."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E701",
@@ -212005,17 +212049,39 @@
    "correction": "Provide the missing sign-identification argument at unramified residual places with q_v≡−1 mod p, or impose a hypothesis such as 1+q_v nonzero or residual local ramification. The packet proves only the explicitly scoped interface pending this check.",
    "reason": "For p=3 and q_v≡−1, the unramified residual diagonal pairs (q_v·1,1) and (q_v·(−1),−1) are {−1,1} and {1,−1}, hence isomorphic. Opposite square roots are different but unordered residual data need not distinguish them. This shows the local inference alone is insufficient; no global automorphic counterexample is alleged.",
    "affects": "the proof",
-   "known": "Candidate gap; no correction located in the searches listed, requiring independent review.",
+   "known": "No correction located in the checked author version, author papers page or publisher article listing. Confirmed as a gap in the local inference, without a global automorphic counterexample; the publisher text was not obtained.",
    "searched": [
     "The author copy §7 opening and Lemma 7.2, pp.57–61, including the definition of the away-place Hecke algebra",
     "Public searches for Khare–Wintenberger Lemma 7.2 sign errata and Serre modularity II corrections on 2026-10-13"
    ],
    "owner": "HilbertModularVarietiesAndShimuraCurves",
    "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
-   "citation": "Sources of the blueprint of HilbertModularVarietiesAndShimuraCurves",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (II), Author copy proofs.pdf, 98 pages, dated 30 May 2009; published Inventiones 178 (2009), 505–586",
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "reviewReason": "Read the author-copy proof at p.61. At an unramified residual place with p=3 and q≡−1, the opposite choices yield the same unordered Frobenius roots. The source’s cited local residual independence alone does not select one sign. This verdict concerns that inference, not a false global theorem."
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.3-2",
+   "kind": "misprint",
+   "locator": "Author copy proofs.pdf dated 30 May 2009, remark following Lemma 7.2, p.61; compare the transformation law, pp.58–59, and γ²=ψ in the proof on p.61",
+   "printed": "In our own words: the remark identifies γ_v(Frob_v) with the inverse of the eigenvalue of a division uniformizer acting on the forms.",
+   "correction": "When the action is R_Π f(g)=f(gΠ) and reciprocity is arithmetic, γ_v(Frob_v) is the R_Π eigenvalue λ_v. It is the inverse of the coefficient-action value τ(Π), since λ_v=τ(Π)⁻¹. If the remark instead intended coefficient action, that interpretation must be specified.",
+   "reason": "For an unramified central character, ν_D(Π)=1 and ν_D(z)=2v(z). With coefficient root r²=ψ_v(Nrd Π)⁻¹, the right-action eigenvalue is λ=r⁻¹ and λ²=ψ_v(Nrd Π). Local JL gives the Steinberg twist κ with κ(Nrd Π)=λ, and arithmetic compatibility gives γ(Frob)=λ. Inverting λ would give square ψ⁻¹, contrary to γ²=ψ unless ψ²=1. The local example ψ=4, r=1/2 gives λ=γ(Frob)=2. Taylor Lemma 1.7(1), pp.744–745, has the direct arithmetic operator value.",
+   "affects": "a stated result",
+   "known": "New normalization correction scoped to the checked author copy. No correction was located in the searches below; the published text could not be obtained, so no claim is made about its wording.",
+   "searched": [
+    "Khare’s public papers page, https://www.math.ucla.edu/~shekhar/papers/papers.html, on 2026-10-13",
+    "Publisher article listing at DOI 10.1007/s00222-009-0206-6 and attempted publisher PDF access; only subscription preview was available",
+    "Public searches on 2026-10-13 for the title with erratum/corrigendum and for Lemma 7.2 uniformizer inversion",
+    "Taylor 2006, arithmetic reciprocity convention p.731 and Lemma 1.7(1), pp.744–745"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+   "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (II), Author copy proofs.pdf, 98 pages, dated 30 May 2009; published Inventiones 178 (2009), 505–586",
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
+   "reviewReason": "The square relation with the central character and the local JL twist identify the direct R_Π value. The opposite convention is valid for coefficient action, which the roadmap now distinguishes explicitly. Scope is the author-copy remark interpreted as the stated right action; no published-text collation or global automorphic counterexample is asserted."
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-01",
@@ -220917,7 +220983,7 @@
    "kind": "gap",
    "locator": "Appendix A, proof of Proposition A.4, printed p. 59 (author PDF; the same in arXiv:2108.12785v4)",
    "printed": "To see that the dual W* of the middle term is nuclear, the proof cites Dierolf–Roelcke, Proposition 3.8, for p-adic (nonarchimedean) nuclear Fréchet spaces.",
-   "correction": "Dierolf–Roelcke prove that nuclearity is a three-space property for real and complex locally convex spaces; the nonarchimedean case needs its own argument. It holds over every nonarchimedean field by the lattice proof of LocallyAnalyticDistributions:L0/nuclear-three-space.",
+   "correction": "Dierolf–Roelcke prove that nuclearity is a three-space property for real and complex locally convex spaces; the nonarchimedean case needs its own argument. It holds under the packet’s spherical-completeness convention (the lattice argument itself applies whenever nuclearity is characterized by compactoid lattice images) by the lattice proof of LocallyAnalyticDistributions:L0/nuclear-three-space.",
    "reason": "Dierolf–Roelcke's proof (printed p. 30) works with summable and absolutely summable sequences in the sense of Pietsch, i.e. the Grothendieck–Pietsch characterisation of nuclearity over ℝ or ℂ, and lifts summable sequences through the quotient using quotient seminorms; that characterisation is not available for nonarchimedean scalars as used. The nonarchimedean statement follows instead by choosing lattices M_A, L′, M_C as in the node and absorbing finitely many lifted vectors.",
    "affects": "the proof",
    "known": "new",
@@ -220931,16 +220997,16 @@
    "owner": "LocallyAnalyticDistributions",
    "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-LocallyAnalyticDistributions--L0",
+   "reviewReason": "Read Dierolf–Roelcke’s scalar convention on p. 14 and Proposition 3.8 on pp. 30–31: the theorem is over ℝ/ℂ. Read CN Appendix A and checked the nonarchimedean lattice repair independently."
   },
   {
    "id": "LocallyAnalyticDistributions/E102",
    "kind": "gap",
    "locator": "Appendix A, proof of Proposition A.4, printed p. 59 (author PDF; the same in arXiv:2108.12785v4)",
    "printed": "The proof passes to stereotype duals of 0 → W1 → W → W2 → 0 and asserts an exact sequence 0 → W2* → W* → W1* → Ext¹(W2, K) in LH(C_K); it then applies Proposition A.3 to conclude that W* is Fréchet, and finally compares W with its double dual by the five lemma in LH(C_K).",
-   "correction": "Exactness of the dual sequence as vector spaces follows from Hahn–Banach, but its exactness in LH(C_K), i.e. strictness for the stereotype (here equal to strong) topologies, is not justified when W is not yet known to be of compact type, and Proposition A.3 needs it; the final step also needs the canonical map W → W** to be continuous. A complete proof must supply (H1) strictness of the dual sequence and (H2) continuity of W → W**; with them the argument goes through (LocallyAnalyticDistributions:L0/compact-type-extension-duality).",
+   "correction": "Hahn–Banach gives vector-space exactness, but the source does not construct the claimed exact stereotype-dual sequence in the left heart or justify its strictness. Only the outer terms are already of compact type; equality of stereotype and strong dual topologies on W is not known at this step. The packet gives a sufficient repair using H1 (strict exactness of the strong-dual sequence) and H2 (continuity of strong biduality), and records both as a gap. These are explicit replacement inputs, not an identification of the source’s unknown stereotype topology with the strong topology.",
    "reason": "No derived Hom functor of C_K with values in LH(C_K) carrying the stereotype topology is constructed in the paper, and topological exactness of duals is not a formal consequence of strictness of the original sequence: the known case, a closed subspace of a space of compact type (Schneider–Teitelbaum 1999, Proposition 1.2(i)), is proved through the compact-type structure of the middle term, which is what Proposition A.4 is to establish.",
    "affects": "the proof",
    "known": "new",
@@ -220953,9 +221019,9 @@
    "owner": "LocallyAnalyticDistributions",
    "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-LocallyAnalyticDistributions--L0",
+   "reviewReason": "Read both recorded CN versions, Appendix A pp. 58–59, and ST99 1.2(i). The needed strictness and continuity are not supplied. Corrected the packet’s unjustified assertion that the unknown stereotype and strong dual topologies agree."
   },
   {
    "id": "LocallyAnalyticDistributions/E103",
@@ -220975,9 +221041,30 @@
    "owner": "LocallyAnalyticDistributions",
    "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-LocallyAnalyticDistributions--L0",
+   "reviewReason": "Read CN Remark A.2 and Schneider 10.1, 10.4, 10.5. The cited c₀ lifting proof supports discrete valuation or countable-type quotient, not all spherical-complete coefficient fields. This is a limitation of the available proof, not a counterexample to the larger claim."
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E104",
+   "kind": "error",
+   "locator": "Author lecture notes, Proposition 17.4(ii), printed pp. 112–113",
+   "printed": "The tensor-seminorm norm criterion is presented as an equivalence without a nonzero-factor qualification.",
+   "correction": "If both V and W are nonzero, p⊗q is a norm iff p and q are. If either space is zero, the tensor space is zero and its unique seminorm is a norm regardless of the other seminorm.",
+   "reason": "Take V = 0, W = K, and q identically zero. The tensor seminorm is a norm on the zero space, whereas q is not a norm. The converse proof using a nonzero pure tensor implicitly needs both factors nonzero.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author notes nfa.pdf, recorded SHA256, read 2026-10-13; Proposition 17.4(ii) and its proof on pp. 112–113",
+    "Author publication page and web search for NFA/Proposition 17.4 errata, 2026-10-13: no correction located",
+    "Repository errata register and source issue inventory: no matching correction found; not a claim about the unread published edition"
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
+   "citation": "Peter Schneider, Nonarchimedean Functional Analysis, Author's lecture notes, version 25.10.2005 (166 pages), the text of the Springer monograph (Springer Monographs in Mathematics, 2002). Printed page numbers are cited; in the recorded 166-page author PDF they equal the one-based PDF page numbers, not an offset from the Springer edition.",
+   "status": "confirmed",
+   "reviewedBy": "REV-LocallyAnalyticDistributions--L0",
+   "reviewReason": "Direct zero-factor counterexample; corrected criterion and added regression test. Scoped to the author notes that were actually read."
   },
   {
    "id": "LocallyAnalyticDistributions/E7",
@@ -248892,9 +248979,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Richard Pink, Arithmetical compactification of mixed Shimura varieties, Author-hosted dissertation text; publisher edition not compared",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read Pink Definition 2.1(v), printed p. 30 of the author-hosted dissertation (hash as recorded): the printed filtration puts the quotient Lie V at weight −1 and Lie W at weights ≥0. A filtration of Lie P needs subspaces of Lie P, and in the pure case W=1 the printed top step would be zero, so the intended steps are Lie U, Lie W, Lie P."
   },
   {
    "id": "ShimuraCompactifications/E2",
@@ -248912,9 +248999,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Kai-Wen Lan, Arithmetic compactifications of PEL-type Shimura varieties, Author-hosted thesis revision, 14 March 2021; publisher edition not inspected",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read Lan Lemma 6.1.2.6, printed p. 444, with Remark 6.1.2.2 (arbitrary base Z): the reduced complement is identified with Spec of the orthogonal-character algebra. Over Z=Spec(Z/4Z) with the positive ray the latter is Spec(Z/4Z) while the reduced complement is Spec(F_2), so the identification needs reducedness."
   },
   {
    "id": "ShimuraCompactifications/E3",
@@ -248932,9 +249019,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Kai-Wen Lan, Integral models of toroidal compactifications with projective cone decompositions, Author-hosted published-paper copy, IMRN 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read Lan 2017 Propositions 7.3 and 7.5, printed pp. 27–28: the map (7.2) goes from level H to level H′ with H⊂H′, yet the invariant clause takes H′ normal in H and the group H/H′. For a strict normal inclusion H⊂H′ the deck group is H′/H."
   },
   {
    "id": "ShimuraCompactifications/E-C6-1",
@@ -248955,9 +249042,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read the proof of Theorem 8.3 in the author copy, printed p. 547 (and Dimitrov–Tilouine Theorem 7.1 proof, p. 585): it takes ξ₀ not totally positive and asserts a strictly negative trace pairing, which fails for ξ₀=0. The theorem is unaffected once ξ₀≠0 is required."
   },
   {
    "id": "ShimuraCompactifications/E-C6-2",
@@ -248979,9 +249066,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read the sentence after Proposition 8.5, printed p. 548, and Dimitrov–Tilouine Proposition 7.3, pp. 585–586: the specialization to \"the zero ring\" is meaningful only as the zero coefficient module of the companion proof, which works with arbitrary abelian groups. Terminology only."
   },
   {
    "id": "ShimuraCompactifications/E-C6-3",
@@ -249003,9 +249090,9 @@
    "owner": "ShimuraCompactifications",
    "file": "research/blueprint/packets/ShimuraCompactifications.json",
    "citation": "Mladen Dimitrov and Jacques Tilouine, Variétés et formes modulaires de Hilbert arithmétiques pour Γ1(c,n), Author-hosted typeset copy, 58 physical pages, printed pp. 553–610; not certified as the publisher version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraCompactifications",
+   "reviewReason": "Read Dimitrov–Tilouine Proposition 7.3 proof, printed p. 586: it commutes both sides with inductive limits. For N_j=Z^j inside N=⊕Z the series with i-th coefficient the i-th basis vector lies in N[[q]] but in no N_j[[q]], so the formal-series side does not commute; the directed-union argument repairs the proof."
   },
   {
    "id": "ShimuraData/E1",
