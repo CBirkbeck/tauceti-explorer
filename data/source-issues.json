@@ -182381,6 +182381,94 @@
    "reviewReason": "The concluding proof of Theorem12.9 on p.183 labels the kernel μ_p. Constant norm-fixed units satisfy c^(p−1)=1, so it is μ_{p−1}; Remark12.4 and the theorem statement agree with this correction. The p=2 test excludes the tempting −1."
   },
   {
+   "id": "CompletedCohomologyPartII/E1",
+   "kind": "misprint",
+   "locator": "CE author PDF, Theorem1.1(3),p.3",
+   "printed": "The first duality sequence uses the E/O-dual of all of H̃_{n−1} in its left term.",
+   "correction": "Use Hom_cont,O(H̃_{n−1}[varpi^∞],E/O), not the dual of the entire module.",
+   "reason": "In the degree-p circle tower H̃₀=O and H̃₁=0, while H̃¹=0. The printed term Hom(O,E/O) is nonzero; the corrected torsion submodule is zero.",
+   "affects": "a stated result",
+   "known": "Known within the reviewed integrated decomposition; no published correction identified in the searched author version.",
+   "searched": [
+    "Author survey PDF fetched13October2026 and its exact statement locators.",
+    "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
+    "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
+    "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
+   ],
+   "owner": "CompletedCohomologyPartII",
+   "file": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "citation": "Sources of the blueprint of CompletedCohomologyPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CompletedCohomologyPartII/E2",
+   "kind": "error",
+   "locator": "CE author PDF, Lemma1.17 proof,p.14",
+   "printed": "The reduction of every Ext group modulo p is identified directly with Ext over Ω.",
+   "correction": "For p-torsion-free M use the Bockstein short exact sequence with adjacent Ext[p] term; establish grade equality by a separate Auslander purity argument.",
+   "reason": "For R=Z_p[[T]], M=(p,T), the resolution R→R²→M has Ext¹_R(M,R)=F_p. Thus the reduction map in degree zero has cokernel F_p. This invalidates the all-degree identification without asserting that the lemma’s grade equality is false.",
+   "affects": "the proof",
+   "known": "New in this pass; no published correction identified in the searched author indexes/version.",
+   "searched": [
+    "Author survey PDF fetched13October2026 and its exact statement locators.",
+    "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
+    "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
+    "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
+   ],
+   "owner": "CompletedCohomologyPartII",
+   "file": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "citation": "Sources of the blueprint of CompletedCohomologyPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CompletedCohomologyPartII/E3",
+   "kind": "error",
+   "locator": "CE author PDF, Theorem1.18,p.14",
+   "printed": "The δ/d exponent is claimed for any descending normal cofinal neighbourhood basis.",
+   "correction": "Use a regular uniform-power filtration U^{p^r}, with nonzero finite Ω-module and d>0; any broader filtration needs its own weighted growth statement.",
+   "reason": "Take U=Z_p², M=k[[T₁]] with T₂ acting as zero, δ=1,d=2, and U_r=p^rZ_p×p^{2r}Z_p. For V=D_k(M), dim V^{U_r}=p^r whereas [U:U_r]^{δ/d}=p^{3r/2}; their ratio tends to zero.",
+   "affects": "a stated result",
+   "known": "New in this pass; no published correction identified in the searched author indexes/version.",
+   "searched": [
+    "Author survey PDF fetched13October2026 and its exact statement locators.",
+    "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
+    "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
+    "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
+   ],
+   "owner": "CompletedCohomologyPartII",
+   "file": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "citation": "Sources of the blueprint of CompletedCohomologyPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CompletedCohomologyPartII/E4",
+   "kind": "error",
+   "locator": "CE author PDF, §1.3,p.6, Ext-functor amplitude sentence",
+   "printed": "The Iwasawa Ext functors are given amplitude at most dim(K_0) on finitely generated integral modules without a coefficient restriction.",
+   "correction": "For O[[U]] with torsion-free uniform U the unrestricted bound is dim(U)+1. A dim(U) bound requires O-torsion-free input and its additional coefficient argument.",
+   "reason": "For U={1} the ring is O and the finite module k has Ext¹_O(k,O)=k, although dim(U)=0. For positive d, k has top Ext in degree d+1 by regularity.",
+   "affects": "a stated result",
+   "known": "New in this pass; no published correction identified in the searched author indexes/version.",
+   "searched": [
+    "Author survey PDF fetched13October2026 and its exact statement locators.",
+    "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
+    "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
+    "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
+   ],
+   "owner": "CompletedCohomologyPartII",
+   "file": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "citation": "Sources of the blueprint of CompletedCohomologyPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ComplexComparisonPartII/E1",
    "kind": "error",
    "locator": "II1.23–1.24 and the proof of II4.1, in LNM163(1970)",
@@ -194672,9 +194760,9 @@
    "owner": "EtaleDualityAndPerverseSheaves",
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.5.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR (printed page = PDF page − 1), read 2026-10-13; statements checked on page images where the OCR is unclear",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.5",
+   "reviewReason": "Checked on the page image of the Numdam scan, p.103: the proof of Corollaire 4.1.3 justifies the right t-exactness of f_* by (4.1.7), which is the lemma on nonvanishing H^d of an affine open of a smooth affine variety (p.104); the statement needed is Théorème 4.1.1 (p.102). Intended meaning clear; nothing downstream affected."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E17",
@@ -194693,6 +194781,48 @@
    "owner": "EtaleDualityAndPerverseSheaves",
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.5.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR (printed page = PDF page − 1), read 2026-10-13; statements checked on page images where the OCR is unclear",
+   "status": "confirmed",
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.5",
+   "reviewReason": "Checked on the page image, p.113: the proofs of Lemme 4.3.3 and of 4.3.1 in 4.3.4 cite (1.4.2.5) for the absence of sub- and quotient objects supported on the boundary; §1.4 has no such number, and the characterisation used is Corollaire 1.4.25 (p.55). Misprint; nothing affected."
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E701",
+   "kind": "misprint",
+   "locator": "5.4.14, Preuve de 5.4.10 (i = 1), p. 147 (Numdam scan of Astérisque 100, 1982; checked on the page image, PDF page 148)",
+   "printed": "The proof says that the degree-zero perverse cohomology of the pushforward along the universal hyperplane section is semisimple and cites 5.3.7 for this.",
+   "correction": "The semisimplicity of a pure perverse sheaf over the algebraic closure is Théorème 5.3.8; 5.3.7 is the generic criterion for upper weights.",
+   "reason": "5.3.7 (p. 137) characterises weights ≤ w by generic cohomology sheaves and says nothing about semisimplicity; 5.3.8 (p. 138) is the geometric semisimplicity theorem, which is what the argument uses to match the largest subobject and the largest quotient coming from Y.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam scan of the 1982 edition (no erratum page)",
+    "the atlas errata register (data/source-issues.json) and the EDC packets' sourceIssues",
+    "the second edition (Astérisque 100, 2018) was not available to check"
+   ],
+   "owner": "EtaleDualityAndPerverseSheaves",
+   "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
+   "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), 5–171; Numdam scan (printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E702",
+   "kind": "misprint",
+   "locator": "Corollaire 5.3.11, p. 140 (Numdam scan; checked on the page image, PDF page 141)",
+   "printed": "The statement names the closed complement of the open U₀ by the same letter F₀ that denotes the pure perverse sheaf being decomposed.",
+   "correction": "Use a different letter for the closed complement, say i : Z₀ ↪ X₀.",
+   "reason": "The decomposition F₀ = j_!*F′₀ ⊕ i_*F″₀ then reads unambiguously; with the clash, 'i : F₀ ↪ X₀' and the perverse sheaf F₀ coincide in notation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam scan of the 1982 edition",
+    "the atlas errata register (data/source-issues.json)",
+    "the second edition (Astérisque 100, 2018) was not available to check"
+   ],
+   "owner": "EtaleDualityAndPerverseSheaves",
+   "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
+   "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), 5–171; Numdam scan (printed page = PDF page − 1)",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
