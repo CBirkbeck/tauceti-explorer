@@ -178568,9 +178568,9 @@
    "owner": "AutomorphyLiftingBeyondTaylorWiles",
    "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
    "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
+   "reviewReason": "Checked at the locator (published pp. 413 and 427; arXiv v2 TeX): Definition 9.1 takes the Hecke algebra on the cohomology of Y_1(Q) only, while the verification of condition (b) needs R_{S_{Q_M}} to act on the cohomology of the subcovers Y_{Δ_N}(Q_M). An operator killing H^*(Y_1(Q), O/ϖ^m) acts on H^*(Y_Δ(Q), O/ϖ^m) through the Hecke-equivariant Hochschild–Serre filtration for the p-part of the kernel of Δ̃ → Δ, hence only nilpotently in general; the gap is real and is not among the extraction’s entries (E211 is the index Q_N/Q_M only)."
   },
   {
    "id": "AutomorphyLiftingBeyondTaylorWiles/E2",
@@ -178589,9 +178589,9 @@
    "owner": "AutomorphyLiftingBeyondTaylorWiles",
    "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
    "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
+   "reviewReason": "Checked at Theorem 5.16(8)(a), published p. 383 and arXiv v2 TeX: the hypothesis is phrased through the p-adic representation r_p(π) of a cuspidal π_0 of GL_n(𝔸_F) for arbitrary F, whose existence is known only for F totally real or CM (Harris–Lan–Taylor–Thorne, Scholze); the proof uses only the maximal ideal of T it produces. The misprint π for π_0 is E127 of the extraction."
   },
   {
    "id": "AutomorphyLiftingBeyondTaylorWiles/E3",
@@ -178610,9 +178610,30 @@
    "owner": "AutomorphyLiftingBeyondTaylorWiles",
    "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
    "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
+   "reviewReason": "Checked at pp. 383–384 and 424 and in the arXiv v2 TeX: the paper says Theorem 5.16 follows immediately from Theorem 9.19 and writes no deduction. Boundary vanishing does not exclude residual eigensystems in interior cohomology; the bigness argument of BT.5/cuspidal-recognition does (a Speh(σ, k) eigensystem has every residual Frobenius eigenvalue of multiplicity at least k at primes with N(λ) ≡ 1 mod p). The L-function shift by (n − 1)/2 matches Hodge–Tate weights 0, …, n − 1 against a unitarily normalized π."
+  },
+  {
+   "id": "AutomorphyLiftingBeyondTaylorWiles/E4",
+   "kind": "gap",
+   "locator": "§3.1, proof of Theorem 3.2, arXiv v1 p. 6 (published appendix §A.3.1, proof of Theorem A.4, p. 886)",
+   "printed": "In our words: for the PGL_n arithmetic quotients Y, Y_0(Q) of CG18 §9 and the lowest degree i in which vanishing fails, the proof identifies H^i(Y_0(Q), k)_{m_α} with H^i(Y, k)_m by citing CG18 §9.4 and Khare–Thorne Lemma 6.25(4).",
+   "correction": "Both cited results are GL_n statements: CG18 §9.4 is announced as an informal approach for GL_n, with the passage to PGL_n left as an expectation, and Khare–Thorne Lemma 6.25(4) concerns GL_n over CM fields, Iwahori level at the auxiliary prime and ordinary completed cohomology. The comparison for the PGL_n quotients at line-stabilizer level needs its own argument (see the gap of this packet); until then Theorem 3.2 should either be stated for GL_n quotients or take the comparison as a hypothesis.",
+   "reason": "Read CG18 §9.4 (published pp. 419–424, arXiv v2 TeX) and Khare–Thorne arXiv:1409.7007v2 §6.6 (Lemma 6.25 and Proposition 6.26, pp. 40–42): the latter fixes G = GL_n, the Iwahori subgroup B at w and the ordinary complexes F^•_m over Λ. No version for Res_{F/ℚ}PGL_n or for the parahoric U_0(x) is stated in either source.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json sourceIssues (E140–E142 treat the boundary hypothesis and the Hochschild–Serre step of Theorem A.4, not the GL_n/PGL_n citation) and its review",
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json sourceIssues (E194 corrects circle to torus bundles only)",
+    "arXiv:1907.08694v1 and the published appendix (Duke Math. J. 169, pp. 881–889)"
+   ],
+   "owner": "AutomorphyLiftingBeyondTaylorWiles",
+   "file": "research/blueprint/packets/AutomorphyLiftingBeyondTaylorWiles.json",
+   "citation": "Sources of the blueprint of AutomorphyLiftingBeyondTaylorWiles",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
+   "reviewReason": "Found by this review. CG18 §9.4 opens as an informal approach for GL(n) and leaves PGL as an expectation; Khare–Thorne Lemma 6.25 and Proposition 6.26 are stated for GL_n over a CM field with the Iwahori subgroup B at w and the ordinary complexes over Λ. The published wording of the citation is quoted in PAPER-CALEGARI-GERAGHTY-20 E141–E142."
   },
   {
    "id": "BorelRegulators/E1",
@@ -200474,9 +200495,49 @@
    "owner": "FreeGroupsAndLimitGroups",
    "file": "research/blueprint/packets/FreeGroupsAndLimitGroups.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Implicit function theorem over free groups, J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2 (printed page numbers of the arXiv version cited)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGLG",
+   "reviewReason": "IFT arXiv v2, p. 26: the proof of Corollary 9 cites 'Proposition 4', but the only Proposition 4 of the paper is in §7.2 (p. 100) and concerns solutions of regular quadratic equations; the argument uses Merzljakov's Theorem stated and proved just before Corollary 9. (In the same display the corollary writes u for the equation S; also a slip that affects nothing.)"
+  },
+  {
+   "id": "FreeGroupsAndLimitGroups/E2",
+   "kind": "error",
+   "locator": "§3.2, Theorem 3, p. 32 of the authors' copy (J. Algebra 219 (1999), 16–79)",
+   "printed": "For every G-group H, the Zariski topology on H^n (closed sets: intersections of finite unions of algebraic sets over G) is said to be T1, i.e. all singletons are closed.",
+   "correction": "Singletons {v} are closed when each coordinate of v lies in (the image of) G, since then {v} = V({x_i v_i⁻¹}); in particular the topology is T1 when H = G (or ι_H is onto). For a G-group H with H ≠ G it need not be T1.",
+   "reason": "Take G = 1 and H = F(a, b), n = 1. Coefficient-free equations in one variable are x^k = 1, whose solution sets in the torsion-free group H are {1} (k ≠ 0) and H (k = 0); so the closed sets are ∅, {1}, H and finite unions, and the closure of {a} is H. With G = ⟨a⟩ < H = F(a, b) the automorphism of H fixing a and sending b to b a preserves every algebraic set over G, so b and b a have the same closure.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the authors' copy on A. Myasnikov's publication page (no erratum attached)",
+    "the account of the Zariski topology in IFT §2.4 (which works with H = G only)"
+   ],
+   "owner": "FreeGroupsAndLimitGroups",
+   "file": "research/blueprint/packets/FreeGroupsAndLimitGroups.json",
+   "citation": "Gilbert Baumslag, Alexei Myasnikov, Vladimir Remeslennikov, Algebraic geometry over groups I. Algebraic sets and ideal theory, J. Algebra 219 (1999), 16–79; authors' copy from A. Myasnikov's publication page (58 pp.; PDF pages cited)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGLG",
+   "reviewReason": "Found and checked by this review; the packet's FG5/zariski-topology now states T1 only when ι_H is onto."
+  },
+  {
+   "id": "FreeGroupsAndLimitGroups/E3",
+   "kind": "error",
+   "locator": "§2.7, Definition 6 and the remark following it, p. 9 (arXiv v2)",
+   "printed": "After defining regular standard quadratic equations (including the equation [x₁,y₁][x₂,y₂] = 1 explicitly), the paper says that equivalently S = 1 is regular iff κ(S) ≥ 4 and S has a non-commutative solution, or S is [x, y]d = 1; it then remarks that a consistent equation with κ(S) ≥ 4 and positive genus (orientable case) has a non-commutative solution and is therefore regular.",
+   "correction": "The equivalent formulation must also list [x₁,y₁][x₂,y₂] = 1, and the remark must exclude it: that equation has κ = 4 but no non-commutative solution.",
+   "reason": "For S = [x₁,y₁][x₂,y₂] (atoms r₁ = [x₁,y₁], r₂ = [x₂,y₂], no coefficient d) every solution φ satisfies r₂^φ = (r₁^φ)⁻¹, so [r₁^φ, r₂^φ] = 1: every solution is commutative in the sense of Definition 5. The paper itself acknowledges this on p. 99, where it notes that this equation has no solution in general position and treats it as [x₁,y₁] = [y₂,x₂] over G ∗ F(x₂,y₂).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page of math/0312509 (versions v1–v2)",
+    "LIFT §1 (arXiv:math/0407110v4), which recalls regular NTQ systems without the κ-formulation"
+   ],
+   "owner": "FreeGroupsAndLimitGroups",
+   "file": "research/blueprint/packets/FreeGroupsAndLimitGroups.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Implicit function theorem over free groups, J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2 (printed page numbers of the arXiv version cited)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGLG",
+   "reviewReason": "Found and checked by this review; FG6/regular-quadratic now states the corrected equivalence."
   },
   {
    "id": "FunctionFieldArithmetic/E1",
