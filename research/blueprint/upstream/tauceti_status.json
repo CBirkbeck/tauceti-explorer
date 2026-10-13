@@ -365,7 +365,8 @@
         820,
         853,
         849,
-        854
+        854,
+        868
       ],
       "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
       "review": {
@@ -394,6 +395,25 @@
         "current": false,
         "date": null,
         "note": "opened 2026-10-13 11:55Z; awaiting first review"
+      }
+    },
+    "DerivedDeRhamCohomology": {
+      "stage": "pr",
+      "pr": 868,
+      "head": "10a113c",
+      "depends_on": [
+        857,
+        818,
+        779,
+        789
+      ],
+      "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 12:35Z; awaiting first review"
       }
     }
   }
