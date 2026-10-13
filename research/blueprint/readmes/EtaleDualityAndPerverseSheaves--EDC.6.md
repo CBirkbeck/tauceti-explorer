@@ -11,7 +11,7 @@ The target-level planning pass is complete. EDC.6 is **planned**, with the four
 external gaps recorded below. The packet adds six theorem targets and one
 construction to the existing EDC.6 plan. All implementation statuses remain
 unchecked. This README is the full specification; the compact suggested Lean
-file states the categorical end milestone that is expressible at the pins.
+file states two categorical end milestones expressible at the pins.
 
 ## Owners, baseline and dependency boundary
 
@@ -28,13 +28,15 @@ pinned Mathlib sources are:
 
 These declarations provide neither constructible adic six operations nor a
 strong scheme/diamond exceptional-pullback comparison. Current Tau Ceti also
-has singular cochains, relative/twisted cohomology, cup/cap operations and a
-manifold orientation API. Their owners are consumed. Current
+has singular cochains, relative/twisted cohomology and cup/cap operations.
+These existing carriers and maps are consumed. Current
 TauCetiRoadmap main was checked separately from the pins:
 AlgebraicTopology owns relative cochains, products, local orientation and
 compact-manifold duality; DifferentialGeometry owns the orientation/degree API
-and noncompact **real de Rham** duality. AlgebraicVectorBundles owns algebraic
-Chern classes. The requested additional finite/integral supported and
+and noncompact **real de Rham** duality. AlgebraicVectorBundles supplies the
+vector-bundle infrastructure; its Chern-class discussion is successor-roadmap
+motivation, rather than a Chern-class target supplied by that roadmap.
+The requested additional finite/integral supported and
 noncompact topological interface does not replace any of those developments.
 
 The exact generic coefficient and comparison owners are
@@ -44,7 +46,10 @@ CohomologicalPointCounting/**EllAdicRealization** and
 `SchemeAndStackFoundations:SF.2` until their upstream layers have registered
 atlas ids. In particular, the arbitrary-discrete pro-étale comparison and the
 finite-free lisse-system comparison already in SF.2 do not by themselves
-supply the entire normalized constructible category.
+supply the entire normalized constructible category. EllAdicRealization at
+this head explicitly uses Z_ℓ/Q_ℓ. The finite O/E constructible and topological
+realizations, common-stratum enhanced equivalence and filtered algebraic-coefficient
+descent needed here require an exact extension of that owner through SF.2.
 
 The following ids already occur in
 [the EDC.4 packet](../packets/EtaleDualityAndPerverseSheaves--EDC.4.json).
@@ -92,8 +97,13 @@ K_n in the finite-Tor category over O_n, with specified equivalences
 K_m\otimes^L_{O_m}O_n\simeq K_n\qquad(m\ge n),
 \]
 
-identity and triple-reduction coherence in the **ambient unbounded** derived
-category, and compatible level morphisms. One ordinary cohomological interval,
+homotopy-coherent identity, triple-reduction and higher coherences in the
+enhancement of the **ambient unbounded** derived category. Morphisms use its
+mapping-complex homotopy limit. Merely compatible morphisms between levels in
+the homotopy categories do not capture the integral category when the Milnor
+lim¹ obstruction is nonzero. The enhanced realization is an exact part of the
+SF.2 extension request; this clarifies the inherited normalized-system interface
+without introducing a second category owner. One ordinary cohomological interval,
 one Tor interval, and one finite algebraic stratification must work at every
 level. Tor bounds are tested against all degree-zero ambient coefficient
 sheaves. On every stratum, all level cohomology sheaves are finite lisse.
@@ -123,10 +133,14 @@ EllAdicRealization Layers 0–2 own derived inverse limits, the Milnor sequence,
 Mittag–Leffler, scalar tensor comparisons and classical realization. Layers
 3–5 own finite étale/pro-étale comparison, the native constant sheaf comparison
 and constructible realization. Layer 6 supplies geometric finite generation
-and perfectness. Layers 7–9 supply rationalization, finite coefficient descent,
-Galois structures and operation comparisons. Layer 10 owns the corresponding
-normalized **topological** realization and adic Artin comparison. These
-constructions are imported, rather than reconstructed as EDC.6 definitions.
+and perfectness. Layers 7–9 supply rationalization, Galois structures and
+operation comparisons; Layer 10 owns normalized **topological** realization
+and adic Artin comparison. Those existing targets have Z_ℓ/Q_ℓ coefficients.
+The SF.2 request integrates them and extends EllAdicRealization in its own
+direction by the precise O/E enhanced constructible, mapping-limit and
+topological interfaces, with common strata/uniform bounds, and by filtered
+algebraic-coefficient object/morphism/finite-diagram descent. Layers 7–9 do
+not already state that full extension. EDC.6 imports the resulting interface.
 
 Bhatt–Scholze, Proposition 6.6.11, p.54 and §§6.7–6.8, pp.55–62, give the
 stratification and operation framework in this coefficient range. Repleteness
@@ -167,7 +181,7 @@ scalar/direct-image comparison; the pro-object comparison of 6.5.9 alone
 would not suffice. The relative cohomological bound is not an assertion that
 arithmetic global cohomology over arbitrary k is finite.
 
-Use compactification and 6.7.9–6.7.10, p.56 for Rf_!. This functor is not
+Use compactification and 6.7.6–6.7.10, p.56 for Rf_!. This functor is not
 obtained by deriving H^0f_! on the pro-étale site. For f^!, 6.7.18, pp.57–58
 locally factors the map into a closed immersion and a smooth morphism.
 Smooth purity handles the smooth factor. The closed factor uses localization
@@ -284,9 +298,13 @@ operation exchanges. Apply §1 along the cofinal tower. Compare adjunction
 units/counits and evaluation under these exchanges; their mates give the
 trace and duality identities. The finite-level EDC.3 construction supplies
 class compatibility. The resulting isomorphisms are independent of the basis.
-Bhatt–Scholze 6.8.2, p.58 and 6.8.14–6.8.15, pp.61–62 supply the coefficient
+Bhatt–Scholze 6.8.2, pp.58–59 and 6.8.14–6.8.15, pp.61–62 supply the coefficient
 categories and finite descent; BBD 2.2.18, p.73 and 6.1.2(C′), pp.150–151
 identify the rational constructible range.
+
+These canonical enhanced operation and mate identities hold over arbitrary
+k in the stated range. Their proof does not use the geometric Hom-limit
+uniqueness consequence of §2, which requires separably closed k.
 
 The algebraic-closure category is the imported filtered category over finite
 subextensions E′/E. Every specified bounded constructible object, morphism
@@ -348,6 +366,7 @@ coefficient extension in §3. The proposed API serves these uses:
 | Name | Mathematical interface |
 | --- | --- |
 | `tateOrientation_finite` | Expose θ_n and its value on ζ_n^(⊗d). |
+| `tateOrientation_ext` | Coefficient-sheaf maps from the Tate line agree if they agree on ζ_n^(⊗d) in every stalk; the prescribed local-generator map is unique. |
 | `tateOrientation_reduction` | Direct and repeated reductions of θ agree, including the triple-reduction coherence. |
 | `tateOrientation_etalePullback` | Étale pullback between smooth pure-d-dimensional schemes preserves θ, with identity/composition compatibility. |
 | `tateOrientation_product` | θ_(X×Y) is θ_X⊠θ_Y under the ordered real product orientation and Tate tensor identification. |
@@ -407,14 +426,21 @@ semi-purity and rational-equivalence hypotheses.
 **Proof spine.** Finite Artin comparison preserves the closed/open localization
 triangle and proper-support functor. BBD 6.1.2(A′–C′), pp.149–151 compares
 constructible categories and their operations in the finite-Tor range.
-The exceptional comparison uses the right adjoints of this constructible
-equivalence. Apply smooth purity and §4 to the absolute dualizing object.
+For exceptional pullback start at finite coefficients: locally factor into
+a closed immersion and a smooth map, use localization for the closed factor
+and purity for the smooth factor, as in the proof of 6.1.2 on p.151.
+Apply smooth purity and §4 to the absolute dualizing object.
 For a smooth pair, local normal coordinates reduce the class to the positive
 local generator of C^c. Glue through supported localization and the EDC.3
 fundamental-class construction. BBD 6.1.4, pp.151–152 compares the trace with
 local orientation integration; compatibility with cup/evaluation gives the
-derived duality square. Sections 1–3 transport these specified maps through
-integral limits and finite coefficient extension. The divisor calculation
+derived duality square. Pass the coherent finite-level exchanges through the
+requested normalized topological O-realization, using strict reduction and
+completeness; §2 verifies the specified integral maps over C. Rationalize and
+extend finite coefficients via §3. At E-level retain the stable-lattice Artin
+essential image of 6.1.2(C′). This argument does not require an equivalence with
+all analytic E-local systems or a right adjoint between arbitrary bounded
+restrictions. The divisor calculation
 uses the Kummer/exponential diagram before support is forgotten.
 
 **External input.** AlgebraicTopology Stage 6 supplies relative cochains,
@@ -445,7 +471,8 @@ category of topological six operations.
 **Node:** `analytic-smooth-trace-comparison`. Proposed declaration: `analytification_smoothTrace` in
 `TauCeti.EtaleDuality.Comparison`.
 
-Let k be complete nonarchimedean, f:X→Y separated finite type and smooth of
+Let k be complete, nontrivially rank-one valued and nonarchimedean,
+f:X→Y separated finite type and smooth of
 pure relative dimension d between finite-type k-schemes. Use the actual
 analytification over Spa(k,k°). Assume f^an is taut and its target is
 quasi-separated. For Λ=Z/n with n prime to the **residue characteristic**,
@@ -467,7 +494,7 @@ The all-dimensional smooth trace is **7.3.4**, pp.378–382: its local étale
 charts over affine space use the algebraic trace under the proper-support
 comparison, and its normalizations/base-change/composition make them glue.
 The curve trace 7.2.2 is not the locator for this dimension-d statement.
-Theorem 7.5.3 and Lemma 7.5.4(ii), pp.390–391 identify the trace with the
+Theorem 7.5.3 and Lemma 7.5.4(ii) and its proof, pp.390–392 identify the trace with the
 exceptional adjunction counit; taking its trace-normalized adjoint identifies
 smooth purity. For a smooth closed pair, apply transitivity of exceptional
 pullback to the two smooth structure maps and their purity formulas. The
@@ -479,9 +506,15 @@ Import the actual fibre-product analytification from
 `AdicSpacesPartII:R1/scheme-fibre-product-analytification`, and the nodes
 `ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2` and
 `ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1`.
-The existing H3 curve theory must be extended by its already proposed
-**H3:smooth-duality** suffix. The packet requests this exact suffix through
-the registered H3 stage; it does not cite an unregistered suffix as delivered.
+H3 already supplies `general-analytic-smooth-trace`, including chart
+independence, composition, pullback transformations and the P¹ normalization,
+and `analytic-first-chern-class`, including its scheme Kummer comparison.
+Import these exact nodes. The general shifted-constant trace exists in a
+broader coefficient range; it does not assert arbitrary-sheaf duality.
+The **H3:smooth-duality** request is narrowed to algebraic proper-support
+comparison, comparison with Huber's normalized trace, and the full D⁺ smooth
+adjunction of 7.5.3–7.5.4 in the stated prime-to-residue range. It passes through
+the registered H3 stage; the extra interface is not claimed to be delivered.
 
 Huber 3.7.2, pp.226–227 treats proper torsion comparison in a broader
 coefficient range. The finite-type field direct-image theorem 3.8.1,
@@ -573,8 +606,20 @@ prime-to-residue-characteristic** range. ECD 27.5–27.7, pp.166–168 supplies
 these statements. The characteristic-p and DVR constructions of (Spec k)◇
 have different plus-ring conventions; retain the supplier's actual base.
 Use the ambient adjunction and L6 to check the scheme unit on the particular
-bounded constructible objects A and f^!A. With the recovered constructible
-candidate, the triangle identities give the same counit/image test. Do not
+bounded constructible objects A and T=f^!A, with their actual constructibility
+and finite-Tor witnesses. Put B=(f◇)^!c_X^*A. The unit at A and β give a
+recovery isomorphism e:Rc_Y*B≃T. If the unit at T is invertible, the triangle
+identities give the precise criterion
+
+\[
+c_Y^*T\longrightarrow B\text{ is invertible}
+\quad\Longleftrightarrow\quad B\simeq c_Y^*T.
+\]
+
+This uses the **particular recovered candidate**, rather than membership in
+the image of an unspecified nonconstructible scheme object. The second Lean
+end milestone states this pointwise criterion without ambient full faithfulness.
+Do not
 postulate a right adjoint between restricted bounded constructible categories,
 or global ambient full faithfulness in mixed characteristic. The
 mixed-characteristic statement does not acquire arbitrary adic coefficients
@@ -610,11 +655,14 @@ and **Trace and fundamental class comparison**. Retain the two inherited
 planets **Normalized constructible adic systems** and **Comparison with complex-analytic
 sheaves**, using their original names/ids. The combined EDC.6 layer has six.
 
-The four requests are: SF.2's PR196 integration; AlgebraicTopology Stage 6
-with the additional supported/noncompact Part II interface; H3's specified
-all-dimensional smooth-duality suffix; and L3's additional geometric
+The four requests are: SF.2's PR196 integration and the precise
+**Ell-adic realization, Part II: finite coefficient fields and coherent
+constructible realization** extension; AlgebraicTopology Stage 6
+with the additional supported/noncompact Part II interface; H3's additional
+proper-support comparison/full D⁺ smooth-duality interface; and L3's geometric
 exceptional/internal-Hom image theorem. The four gaps are: unregistered
-PR196 interfaces, the additional topological interface, normalized analytic
+PR196 interfaces and their finite O/E extension, the topological interface,
+normalized analytic
 integral coefficients, and strong diamond image preservation. EDC.6 is
 planned with these precise inputs; it is not closed.
 
@@ -625,13 +673,19 @@ comparison routes. Changing atlas links is the maintainer's action.
 RT-AREA-etale/3 and /16 already have detailed Part II proposals in the EDC.0
 packet's first two restructuring entries. Preserve those owners: the stacks
 Part II owns enhanced six operations, perverse IC, DM decomposition and
-correspondence traces on Artin/DM stacks; the perfect-space Part II owns
+correspondence traces on Artin/DM stacks. No blanket preservation of bounded
+categories by all six operations on arbitrary Artin stacks is asserted:
+retain stabilizer, representability, coefficient and support hypotheses at
+each use. The perfect-space Part II owns
 model-independent perfect pfp transport, characteristic classes and
 finite-level equivariant perfection, importing GS0:Witt-geometry and L2.
-Common equivariant operations are imported from stacks. Scheme-level Braden
-hyperbolic localization belongs to that perfect/equivariant extension; EDC.7
+Common equivariant operations are imported from stacks. Model independence
+uses common finite-presentation models and canonical comparison maps;
+equivariant descent remains finite-level. Scheme-level Braden
+hyperbolic localization keeps its G_m-monodromic hypothesis and Zhu Appendix
+A.3 normalization/connected-kernel inputs, and belongs to that extension; EDC.7
 retains its finite-type inputs. These proposals route GS.1/GS.3, ET.2b,
-WC.6 DM purity, the EDC.8 Yun–Zhang and Lafforgue stack items,
+WC.6 DM purity, EDC.8 items YUN-ZHANG-17/35, YUN-ZHANG-19/120 and LAFFORGUE-18/48,
 ShtukaSpecialCyclesAndHigherSiegelWeil and RamifiedGeometricClassFieldTheory.
 This packet supplies scheme comparison inputs to them without a second plan.
 
@@ -644,13 +698,15 @@ specified editions:
   6.5.11 p.51; 6.6.2 p.52; 6.6.11 p.54; 6.7.1–6.7.19 pp.55–58;
   6.8.14–6.8.15 pp.61–62. Read the surrounding definitions and proofs.
 - BBD, [*Faisceaux pervers*, Astérisque 100](https://www.numdam.org/item/AST_1982__100__1_0.pdf):
-  2.2.16–2.2.18 p.73; 6.1.2–6.1.4 pp.149–152. Printed pages are one less
+  §2.2 derived coefficient Tor formula p.72; 2.2.16–2.2.18 p.73;
+  6.1.2–6.1.4 pp.149–152. Printed pages are one less
   than PDF pages in this scan.
 - Scholze, [*Étale cohomology of diamonds*](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf),
   manuscript dated 14 April 2026: 27.1–27.7 and proofs, pp.163–168.
 - Huber, [*Étale Cohomology of Rigid Analytic Varieties and Adic Spaces*](https://doi.org/10.1007/978-3-663-09991-8),
   Vieweg 1996: 3.7.1–3.8.1 pp.225–228; 5.7.1–5.7.5 pp.316–318;
-  7.3.4 and proof pp.378–382; 7.5.1–7.5.4 pp.389–391. The maintainer-cleared
+  7.3.4 and proof pp.378–382; 7.5.1–7.5.4 pp.389–392, including the proof of
+  the counit identification in 7.5.4(ii). The maintainer-cleared
   copy was read in place; no source passages or files accompany this job.
 - PR196 [EllAdicRealization](https://github.com/bwangpj/TauCetiRoadmap/blob/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/EllAdicRealization/README.md)
   Layers 0–10 and [ComplexComparison](https://github.com/bwangpj/TauCetiRoadmap/blob/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/ComplexComparison/README.md)
@@ -658,6 +714,6 @@ specified editions:
   specifications, not as implemented theorems. Accessed 2026-10-13.
 
 The blueprint checker reports zero errors and zero warnings. The suggested
-Lean file elaborates at the pinned Mathlib with only one unproved-theorem
-warning. It has one end theorem and three examples over native functors and
+Lean file elaborates at the pinned Mathlib with only two unproved-theorem
+warnings. It has two end theorems and five examples over native functors and
 adjunctions, no new definitions or stand-ins for unavailable carriers.
