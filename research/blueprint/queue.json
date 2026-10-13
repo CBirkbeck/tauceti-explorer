@@ -35920,7 +35920,8 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.2-symbols.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9310"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.2-symbols",
@@ -47031,8 +47032,9 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7890"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7890",
+   "finishedAt": "2026-10-13T23:15:21Z"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~2",
@@ -48072,8 +48074,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49528,8 +49530,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GrossZagierAndArithmeticHeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9173"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9173",
+   "finishedAt": "2026-10-13T23:15:26Z"
   },
   {
    "id": "REV-PKG-GrossZagierAndArithmeticHeights",
@@ -50062,8 +50065,9 @@
    ],
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9175"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9175",
+   "finishedAt": "2026-10-13T23:15:31Z"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~2",
@@ -50335,7 +50339,8 @@
     "PKG-IgusaVarietiesAndTorsionConcentration~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9221"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -50630,8 +50635,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -50799,7 +50804,8 @@
     "PKG-LocalGaloisDeformationRings~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LocalGaloisDeformationRings~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7938"
   },
   {
    "id": "PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers",
@@ -50950,8 +50956,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9182"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9182",
+   "finishedAt": "2026-10-13T23:15:36Z"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions",
@@ -51044,8 +51051,8 @@
    ],
    "revisionOf": "PKG-MordellLawrenceVenkatesh",
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7911"
+   "state": "external",
+   "note": "claimed on GitHub issue #7911"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh~2",
@@ -51464,8 +51471,9 @@
    ],
    "revisionOf": "PKG-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/PKG-PotentialAutomorphyInfrastructure~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9187"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9187",
+   "finishedAt": "2026-10-13T23:15:41Z"
   },
   {
    "id": "REV-PKG-PotentialAutomorphyInfrastructure~3",
@@ -51605,8 +51613,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9189"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9189",
+   "finishedAt": "2026-10-13T23:15:46Z"
   },
   {
    "id": "REV-PKG-PrismaticCohomology",
@@ -51719,8 +51728,9 @@
     "PKG-RankZeroOneBSD"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-RankZeroOneBSD.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9235"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9235",
+   "finishedAt": "2026-10-13T23:15:51Z"
   },
   {
    "id": "PKG-RelativeFarguesFontaine",
@@ -88634,8 +88644,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
