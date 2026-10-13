@@ -19,13 +19,13 @@
       "stage": "pr",
       "pr": 780,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "93d4bcc",
+      "head": "750be03",
       "review": {
         "recommendation": "changes",
-        "head": "b7712a0",
+        "head": "93d4bcc",
         "current": false,
-        "date": "2026-10-12",
-        "note": "Fable final deep review; repairs F01–F07 applied at 93d4bcc"
+        "date": "2026-10-13",
+        "note": "maintainer (GPT-assisted) review at 93d4bcc: two findings, repaired at 750be03; awaiting re-review"
       }
     },
     "ReductiveGroupsPartII": {
@@ -109,13 +109,13 @@
       "stage": "pr",
       "pr": 817,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "9fd29bb",
+      "head": "48ec6c1",
       "review": {
         "recommendation": "changes",
-        "head": "b4e4fc8",
+        "head": "9fd29bb",
         "current": false,
-        "date": "2026-10-12",
-        "note": "Fable final deep review; repairs F01–F06 applied at 9fd29bb"
+        "date": "2026-10-13",
+        "note": "maintainer (GPT-assisted) review at 9fd29bb: two findings (G01, G02), repaired at 48ec6c1; awaiting re-review"
       }
     },
     "DiamondsAndVStacks": {
