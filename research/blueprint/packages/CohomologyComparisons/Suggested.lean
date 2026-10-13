@@ -6,7 +6,7 @@ import Mathlib
 The roadmap is `README.md` in this directory; this file is not exhaustive. The statements here
 suggest Lean forms so that contributors and reviewers converge on names and signatures. The file
 records the definitions that can be given real bodies against the pinned Mathlib and Tau Ceti, and
-the statements whose carriers exist at the pins, proved by `sorry`.
+the statements whose carriers exist at the pins, proved by `sorry` unless a short proof exists.
 
 The comparison theorems of the roadmap concern A_inf, crystalline, prismatic, infinitesimal,
 Hyodo–Kato and pro-étale cohomology of formal schemes and rigid spaces, none of which exists at the
@@ -92,11 +92,17 @@ noncomputable def ainfToBdRPlus : Ainf O p →+* BDeRhamPlus O p :=
       (Localization.Away (p : Ainf O p)))).comp
     (algebraMap (Ainf O p) (Localization.Away (p : Ainf O p)))
 
+omit [IsAdicComplete (Ideal.span {(p : O)}) O] in
 /-- The geometric-sum normalization of `ξ`: `μ = ξ · φ⁻¹(μ)`, for every `ε`. This is the
 identity `[ε] - 1 = (∑_{i<p} [ε^{1/p}]^i)([ε^{1/p}] - 1)` (BMS1, Example 3.16, p.25). -/
 theorem muOf_eq_xiOf_mul (ε : PreTilt O p) :
     muOf O p ε = xiOf O p ε * (ainfFrobenius O p).symm (muOf O p ε) := by
-  sorry
+  have h1 : (ainfFrobenius O p).symm (teichmuller p ε) = teichmuller p (epsRoot O p ε) := by
+    simp [ainfFrobenius, WittVector.frobeniusEquiv_symm_apply, WittVector.map_teichmuller,
+      epsRoot]
+  have h2 : teichmuller p (epsRoot O p ε) ^ p = teichmuller p ε := by
+    rw [← map_pow, epsRoot, ← frobenius_def, frobenius_apply_frobeniusEquiv_symm]
+  rw [muOf, map_sub, map_one, h1, xiOf, geom_sum_mul, h2]
 
 /-- The trivial root system is a negative control: `μ = 0` at `ε = 1`, so no localization at
 `μ` maps to a nonzero period field. -/
@@ -135,7 +141,13 @@ theorem wittReduction_xiOf {ε : PreTilt O p} (hε : IsPrimitiveRootSystem O p �
 /-- The Witt reduction kills `μ`. -/
 theorem wittReduction_muOf {ε : PreTilt O p} (hε : IsPrimitiveRootSystem O p ε) :
     wittReduction O p (muOf O p ε) = 0 := by
-  sorry
+  have h : residueOfTilt O p ε = 1 := by
+    have h0 : (PreTilt.coeff 0 : PreTilt O p →+* ModP O p) ε = 1 := by
+      rw [← PreTilt.mk_untilt_eq_coeff_zero, hε.1, map_one]
+    unfold residueOfTilt
+    erw [RingHom.comp_apply, h0]
+    exact map_one _
+  simp [wittReduction, muOf, WittVector.map_teichmuller, h]
 
 /-- The Witt reduction intertwines the Frobenius of `A_inf` with the Witt vector Frobenius of
 `W(k)`. -/
@@ -329,8 +341,8 @@ noncomputable abbrev level (m : ℕ) : InfinitesimalEnvelope e →ₐ[P] P ⧸ R
   AdicCompletion.evalₐ (RingHom.ker e) m
 
 theorem level_of (m : ℕ) (a : P) :
-    level e m (of e a) = Ideal.Quotient.mk (RingHom.ker e ^ m) a := by
-  sorry
+    level e m (of e a) = Ideal.Quotient.mk (RingHom.ker e ^ m) a :=
+  AdicCompletion.evalₐ_of (RingHom.ker e) m a
 
 theorem ext {x y : InfinitesimalEnvelope e} (h : ∀ m, level e m x = level e m y) : x = y :=
   AdicCompletion.ext_evalₐ h
@@ -365,7 +377,14 @@ projection vanishes: the envelope is not the first quotient. -/
 example :
     level (Polynomial.evalRingHom (0 : ℚ)) 1 (of (Polynomial.evalRingHom (0 : ℚ)) X) = 0 ∧
       level (Polynomial.evalRingHom (0 : ℚ)) 2 (of (Polynomial.evalRingHom (0 : ℚ)) X) ≠ 0 := by
-  sorry
+  have hk : RingHom.ker (Polynomial.evalRingHom (0 : ℚ)) = Ideal.span {X} := by
+    simpa using Polynomial.ker_evalRingHom (0 : ℚ)
+  rw [level_of, level_of, Ne, Ideal.Quotient.eq_zero_iff_mem, Ideal.Quotient.eq_zero_iff_mem, hk,
+    Ideal.span_singleton_pow, Ideal.span_singleton_pow, Ideal.mem_span_singleton,
+    Ideal.mem_span_singleton, pow_one]
+  refine ⟨dvd_rfl, fun h => ?_⟩
+  have := Polynomial.natDegree_le_of_dvd h Polynomial.X_ne_zero
+  simp at this
 
 end InfinitesimalEnvelope
 
@@ -390,20 +409,32 @@ theorem monodromyTransport_zero_right (c : K) : monodromyTransport c (0 : A) = 1
 /-- The unit cocycle: transports along `c` and `d` compose to the transport along `c + d`. -/
 theorem monodromyTransport_add {N : A} (hN : IsNilpotent N) (c d : K) :
     monodromyTransport (c + d) N = monodromyTransport c N * monodromyTransport d N := by
-  sorry
+  rw [monodromyTransport, monodromyTransport, monodromyTransport, add_smul, neg_add,
+    IsNilpotent.exp_add_of_commute]
+  · exact ((Commute.refl N).smul_left c).smul_right d |>.neg_left.neg_right
+  · exact (hN.smul c).neg
+  · exact (hN.smul d).neg
 
 /-- The two-term witness: for `N e₁ = e₀`, `N e₀ = 0`, the transport sends `e₁` to `e₁ - c e₀`,
 fixing the sign and the direction of the coordinate change. -/
 example (c : ℚ) :
     (monodromyTransport c !![(0 : ℚ), 1; 0, 0]).mulVec ![0, 1] = ![-c, 1] := by
-  sorry
+  have hN : (-(c • !![(0 : ℚ), 1; 0, 0])) ^ 2 = 0 := by
+    ext i j; fin_cases i <;> fin_cases j <;> simp [sq, Matrix.mul_apply, Fin.sum_univ_two]
+  rw [monodromyTransport, IsNilpotent.exp_eq_sum hN]
+  ext i; fin_cases i <;> simp [Finset.sum_range_succ, Matrix.mulVec, dotProduct, Fin.sum_univ_two]
 
 /-- The Tate-curve `(φ, N)` witness: `φ = diag(1, p)` and `N e₁ = e₀` satisfy `Nφ = pφN` with
 `N ≠ 0`; the opposite relation `φN = pNφ` fails. -/
 example (p : ℚ) (hp1 : p * p ≠ 1) :
     !![(0 : ℚ), 1; 0, 0] * !![1, 0; 0, p] = p • (!![1, 0; 0, p] * !![(0 : ℚ), 1; 0, 0]) ∧
       !![1, 0; 0, p] * !![(0 : ℚ), 1; 0, 0] ≠ p • (!![(0 : ℚ), 1; 0, 0] * !![1, 0; 0, p]) := by
-  sorry
+  refine ⟨?_, ?_⟩
+  · ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+  · intro h
+    have := congrFun (congrFun h 0) 1
+    simp [Matrix.mul_apply, Fin.sum_univ_two] at this
+    exact hp1 (by linarith [this])
 
 end Monodromy
 
@@ -419,11 +450,17 @@ noncomputable def truncatedTorsionLength (R M : Type*) [CommRing R] [AddCommGrou
 /-- At `n = 0` the quotient is zero. -/
 theorem truncatedTorsionLength_zero (R M : Type*) [CommRing R] [AddCommGroup M] [Module R M]
     (π : R) : truncatedTorsionLength R M π 0 = 0 := by
-  sorry
+  rw [truncatedTorsionLength, pow_zero, Ideal.span_singleton_one, Submodule.top_smul]
+  exact Module.length_eq_zero
 
 /-- A torsion-free module has zero truncated torsion length. -/
 example (n : ℕ) : truncatedTorsionLength ℤ ℤ 2 n = 0 := by
-  sorry
+  have h : Submodule.torsion ℤ ℤ = ⊥ :=
+    Submodule.isTorsionFree_iff_torsion_eq_bot.mp inferInstance
+  rw [truncatedTorsionLength, Module.length_eq_zero_iff]
+  have : Subsingleton (Submodule.torsion ℤ ℤ) := by
+    rw [h]; infer_instance
+  infer_instance
 
 /-- The degenerating-group pair: `ℤ/p²` and `(ℤ/p)²` have truncated lengths `1` and `2` at
 `n = 1` and `2` and `2` at `n = 2`, although the second is killed by `p` and the first is not
@@ -438,7 +475,8 @@ example (p : ℕ) [Fact p.Prime] :
 /-! ## Layer 6: Relative, product and arithmetic comparisons -/
 
 /-- The quotient-line projective-bundle relation `∑_{i=0}^{n} (-1)^i c_i hⁿ⁻ⁱ` with `c₀ = 1`, as a
-polynomial in `h = c₁(O(1))` (Betts–Stix, Proposition 3.20(8), p.28). -/
+polynomial in `h = c₁(O(1))`: the relation by which Grothendieck's formalism defines Chern
+classes, to which the proof of Betts–Stix, Proposition 3.20(8), p.28, reduces. -/
 noncomputable def projectiveBundleRelation {R : Type*} [CommRing R] (n : ℕ) (c : ℕ → R) :
     R[X] :=
   ∑ i ∈ Finset.range (n + 1), C ((-1) ^ i * if i = 0 then 1 else c i) * X ^ (n - i)
@@ -455,27 +493,29 @@ example {R : Type*} [CommRing R] : projectiveBundleRelation 2 (fun _ => (0 : R))
 example {R : Type*} [CommRing R] (a b : R) :
     projectiveBundleRelation 2 (fun i => if i = 1 then a + b else a * b) =
       (X - C a) * (X - C b) := by
-  sorry
+  simp [projectiveBundleRelation, Finset.sum_range_succ, map_add, map_mul]
+  ring
 
 end TauCetiRoadmap.CohomologyComparisons
 
 /-
-README targets not declared here, because their carriers do not exist at the pins: the formal,
-analytic and crystalline dictionaries and site compatibilities of Layer 0; the A_inf input
-package and its de Rham, Hodge–Tate, Witt, A_cris, étale and prismatic specializations of
-Layer 1; the constructions `InfinitesimalEnvelope.map` and `InfinitesimalEnvelope.lift` realizing
+README targets not declared here, because their carriers do not exist at the pins or because they
+are constructions rather than light definitions: the formal, analytic and crystalline dictionaries
+and site compatibilities of Layer 0; the A_inf input package and its de Rham, Hodge–Tate, Witt,
+A_cris, étale and prismatic specializations of Layer 1; the constructions
+`InfinitesimalEnvelope.map` and `InfinitesimalEnvelope.lift` realizing
 `InfinitesimalEnvelope.exists_map` and `InfinitesimalEnvelope.existsUnique_lift`, with `map_of`,
 `map_id`, `map_comp`, `lift_of` and `lift_unique`; `CanonicalBdrCohomology`;
 `RelativeInfinitesimalSite` with `RelativeInfinitesimalSite.envelope`, `envelope_selfProduct`,
-`envelope_cech` and `envelope_framing`, and the comparisons of Layer 2; the
-rational crystalline comparisons, `gradedBeilinsonSquare` with `gradedBeilinsonSquare_map`,
-`gradedBeilinsonSquare_zero`, `gradedBeilinsonSquare_cartesian`, `gradedBeilinsonSquare_integral`
-and `gradedBeilinsonSquare_local`, and the nearby-cycle square of Layer 3; the semistable,
-Beilinson and proper rigid comparisons of Layer 4; the torsion inequalities, lattice recovery and
-counterexamples of Layer 5; `panLogPeriod` with `panLogPeriod_restrict`, `panLogPeriod_theta`,
-`panLogPeriod_local`, `panLogPeriod_connection` and `panLogPeriod_faltings`; `panBasis` with
-`panBasis_isBasis`, `panBasis_perfectoid`, `panBasis_finiteLevel` and `panBasis_inter`;
-`CP3.relative_filtered_prismatic_agreement` with its `_functorial` and `_canonical` forms; the
-trace period with `tracePeriod_spec`, `tracePeriod_unique` and `tracePeriod_pow_zero`; the cycle and
-Chern class comparisons; and the truncated period comparisons of Layer 6.
+`envelope_cech` and `envelope_framing`, and the comparisons of Layer 2; the rational crystalline
+comparisons, `gradedBeilinsonSquare` with `gradedBeilinsonSquare_map`, `gradedBeilinsonSquare_zero`,
+`gradedBeilinsonSquare_cartesian`, `gradedBeilinsonSquare_integral` and
+`gradedBeilinsonSquare_local`, and the nearby-cycle square of Layer 3; the semistable, Beilinson and
+proper rigid comparisons of Layer 4; the torsion inequalities, lattice recovery and counterexamples
+of Layer 5; `panLogPeriod` with `panLogPeriod_restrict`, `panLogPeriod_theta`, `panLogPeriod_local`,
+`panLogPeriod_connection` and `panLogPeriod_faltings`; `panBasis` with `panBasis_isBasis`,
+`panBasis_perfectoid`, `panBasis_finiteLevel` and `panBasis_inter`; `relativeFilteredComparison`
+with its `_functorial` and `_canonical` forms; the trace period with `tracePeriod_spec`,
+`tracePeriod_unique` and `tracePeriod_pow_zero`; the cycle and Chern class comparisons; and the
+truncated period comparisons of Layer 6.
 -/
