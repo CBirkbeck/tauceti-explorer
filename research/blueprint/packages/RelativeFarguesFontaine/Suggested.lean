@@ -3,11 +3,23 @@ import Mathlib
 /-!
 # RelativeFarguesFontaine: representative target signatures
 
-Read the accompanying README first; it is the detailed mathematical roadmap.
-This file suggests only light definitions and statements over available carriers.
-Proofs are omitted. Geometry whose carrier is unavailable is specified in the
-README and indexed in the closing comment. The scalar formulas here are the
-algebraic cores of the stated geometric interfaces, with their scope explicit.
+**This file is not the roadmap and it is not exhaustive.** The definitive specification is
+`README.md`. The declarations below suggest Lean forms for the definitions and statements that
+can be typed against the pinned Mathlib, so that contributors and reviewers converge on names
+and signatures; proving every item here does not by itself complete a layer.
+
+Design choices made explicit here:
+* the ramified ghost polynomials and their twisted variant are stated over an arbitrary
+  commutative coefficient ring, without constructing a ramified Witt ring;
+* the radius and the rank-one twist are recorded through their scalar cores (`periodRadiusValue`,
+  `twistMultiplier`, `IsTwistSection`), which fix the conventions `rad ∘ φ = q · rad` and
+  `O(n) ↔ π⁻ⁿφ`;
+* the linear patching of Layer 6 is algebraic: exact squares, glueing data, glueing pairs and
+  pole-bounded lattices are stated over actual rings, localizations and tensor products.
+
+The relative period spaces, the curve, the divisor moduli, the completed divisor rings and the
+group-valued modifications have no carriers at the pins; they are README targets only and are
+listed in the closing comment.
 -/
 
 noncomputable section
@@ -102,14 +114,14 @@ example : periodRadiusValue (1 / 2) (1 / 4) = 2 := by
 example : periodRadiusValue (1 / 2) ((1 / 4) ^ 3) = 6 := by
   sorry
 
-/-! ## Layer 2: relative Fargues–Fontaine curves
-The relative ringed quotient carrier remains a README target. -/
+/-! ## Layer 2: the relative curve and its diamond
+The relative ringed quotient has no carrier at the pins; see README Layer 2. -/
 
-/-! ## Layer 3: integral Cartier legs and completions
-These geometric carriers remain README targets. -/
+/-! ## Layer 3: effective divisors and ambient completions
+The divisor moduli and completed divisor rings have no carriers at the pins; see README Layer 3. -/
 
 /-! ## Layer 4: marked untilts and local de Rham geometry
-The completion comparisons require the marked geometric carriers in the README. -/
+The completion comparisons need the marked geometric carriers of README Layer 4. -/
 
 /-! ## Layer 5: rank-one twists and section charts -/
 
@@ -217,7 +229,9 @@ structure GlueingPair (R' : Type u) [CommRing R'] [Algebra R R'] (f : R) : Prop 
   torsion_bijOn : Set.BijOn (algebraMap R R') (fPowerTorsion f R)
     (fPowerTorsion (algebraMap R R' f) R')
 
-/-- The power-torsion form of glueability, under the separate glueing-pair hypothesis. -/
+/-- The power-torsion form of glueability: bijectivity of `M[f^∞] → (R' ⊗ M)[f^∞]`. It agrees with
+exactness of the glueing sequence whenever `R → R'` induces isomorphisms modulo every `f ^ n`
+(Stacks Lemma 15.92.10); for a glueing pair injectivity already suffices. -/
 def Glueable (R' : Type u) [CommRing R'] [Algebra R R'] (f : R)
     (M : Type u) [AddCommGroup M] [Module R M] : Prop :=
   Set.BijOn (fun m : M => (1 : R') ⊗ₜ[R] m) (fPowerTorsion f M)
@@ -299,7 +313,7 @@ example (ξ : A) : localModificationsBoundedBy ξ (Fin 0 → A) 0 = {⊥} := by
 end LocalModification
 
 /-! ## Layer 7: group-valued modifications
-These require the actual torsor/bundle carriers and BG0's exact tensor dictionary. -/
+These need G-bundles on the relative curve, which have no carrier at the pins; see README Layer 7. -/
 
 /-
 README-only definitions and constructions (with their APIs and Checks there):
@@ -319,11 +333,10 @@ and the marked geometric untilt/de Rham comparisons.
 Layer 5: isocrystalLineBundlesAndSign and gradedAlgebraAndAlgebraicCurveMap;
 sectionCoveredProjChartMap and lubinTateDivisorSection are geometric milestones.
 Layer 6: GlueingDatum.sections, GlueingDatum.sectionsCompare, GlueingDatum.can,
-GlueingDatum.Hom, ExactSquare.FiniteProjectiveSurjective, Modification,
-RelativeBe, RelativeBdRPlus, RelativeBdR and the analytic/formal comparison category.
+GlueingDatum.Hom, Modification,
+RelativeBe, RelativeBdRPlus, RelativeBdR and meromorphic bundles on the complement of a divisor.
 Layer 7: GModification and GBundleModification, with geometric tensor gluing,
 faithful-representation meromorphy and ordinary torsor descent.
-These names do not designate placeholder Lean carriers or data with omitted bodies.
 -/
 
 end TauCetiRoadmap.RelativeFarguesFontaine
