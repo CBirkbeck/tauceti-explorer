@@ -435,6 +435,59 @@
         "date": null,
         "note": "opened 2026-10-13 12:40Z; awaiting first review"
       }
+    },
+    "NeronModelsAndSemistableAbelianVarietiesPartII": {
+      "stage": "pr",
+      "pr": 870,
+      "head": "1dbb678",
+      "depends_on": [
+        852,
+        779,
+        785,
+        853
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split)",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 13:40Z; awaiting first review"
+      }
+    },
+    "ArithmeticLocallySymmetricSpaces": {
+      "stage": "pr",
+      "pr": 871,
+      "head": "92a5253",
+      "depends_on": [
+        792,
+        793,
+        785
+      ],
+      "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 13:45Z; awaiting first review"
+      }
+    },
+    "DeformationAndDerivedPatchingAlgebraPartII": {
+      "stage": "pr",
+      "pr": 872,
+      "head": "c7fa231",
+      "depends_on": [
+        779
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 13:45Z; awaiting first review"
+      }
     }
   }
 }
