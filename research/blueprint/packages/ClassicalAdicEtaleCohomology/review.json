@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-ClassicalAdicEtaleCohomology",
+    "date": "2026-10-13",
+    "notes": "Accepted with the fixing review applied. Corrected Huber's standing condition, constructible-colimit generality, support and nearby-cycle examples, higher-rank coefficient and numerical-duality scope, semistable and normal-crossing controls, dependency locators and Lean conventions. The report records the source sample, prerequisite and current-upstream audit, section-by-section adversarial pass and compiled signature checks. No unresolved defect requiring another package revision was identified. Heavy objects remain README targets rather than sorry-defined Lean carriers. Intrinsic support constructibility is corrected using Huber 2.7.2. lean-check exited 0 with 23 sorry warnings only; intake check-files reported 5 files and 0 problems."
+  }
+}
