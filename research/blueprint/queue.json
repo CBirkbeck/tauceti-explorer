@@ -25616,8 +25616,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "prompt": "research/blueprint/prompts/REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #408"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #408",
+   "finishedAt": "2026-10-13T11:41:49Z"
   },
   {
    "id": "BP-FunctionFieldArithmetic",
@@ -51149,7 +51150,8 @@
     "PKG-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9201"
   },
   {
    "id": "PKG-ArithmeticQuantumTopology",
@@ -54806,7 +54808,8 @@
     "PKG-LefschetzPencilsAndVanishingCycles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LefschetzPencilsAndVanishingCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9223"
   },
   {
    "id": "PKG-LocalGaloisDeformationRings",
