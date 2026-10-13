@@ -222547,21 +222547,22 @@
    "kind": "gap",
    "locator": "Chapter III, §1, the paragraph after (1.3), p.255; the stack defined on p.254; Invent. Math. 84 (1986), published version (MPIM scan)",
    "printed": "The stack used is that of cyclic N-isogenies of generalized elliptic curves whose kernel meets every component of each geometric fibre, cyclic in the Cartier-divisor sense; the source then asserts that at every geometric point the strict henselization of the coarse scheme X is the quotient of the strict henselization of this stack by Aut_k(x)/{±1}, with Aut_k(x) the group of automorphisms of the pair, and derives Proposition (1.4) from it.",
-   "correction": "For N divisible by p² this is the naive Γ₀(N) stack, which is not Deligne–Mumford at the cusps of residue characteristic p, so it has no étale strict henselization there and the group Aut_k(x) of k-points misses its infinitesimal automorphisms. The statement holds for Česnavičius's refined stack 𝒳₀(N), which is Deligne–Mumford and regular and has the same coarse space; with that stack, Proposition (1.4) follows as stated (its conclusion is also Česnavičius Theorem 6.7 and Edixhoven 1990 §1.2).",
+   "correction": "For N divisible by p² this is the naive Γ₀(N) stack, which is not Deligne–Mumford at the cusps of residue characteristic p, so it has no étale strict henselization there and the group Aut_k(x) of k-points misses its infinitesimal automorphisms. The statement holds for Česnavičius's refined stack 𝒳₀(N), which is Deligne–Mumford and regular and has the same coarse space; with that stack the argument for Proposition (1.4) goes through (Česnavičius Theorem 6.7 recovers the regularity away from the points with j=0 or 1728 in characteristics dividing N, and Česnavičius §6 reports that Edixhoven 1990 §1.2 computes the completions along the cusps).",
    "reason": "On the standard p-gon over 𝔽_p the infinitesimal μ_p of automorphisms fixing the identity component stabilises suitable ample cyclic subgroups of order N whose p-part is non-étale and disconnected, so the automorphism group scheme of that point is not étale (Česnavičius arXiv:1511.07475v2 §1.2, p.2; Conrad 2007 §1.1, p.1). The coarse spaces of the naive and refined stacks coincide (Česnavičius Proposition 6.9), so the coarse scheme X and the conclusion of (1.4) are unaffected.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "The atlas register research/errata/REGISTER.md, entries for Gross–Zagier 1986: none at p.255",
     "Česnavičius arXiv:1511.07475v2 §§1, 6: it cites Gross–Zagier Proposition III.1.4 for cusp regularity without discussing the stack used",
-    "The MPIM-hosted published scan read at pp.254–255; no erratum to the paper located by the earlier GrossZagierAndArithmeticHeights errata work for this passage"
+    "The MPIM-hosted published scan read at pp.254–255; no erratum to the paper located by the earlier GrossZagierAndArithmeticHeights errata work for this passage",
+    "Edixhoven 1990 1.1.1.1 and Conrad 2007 §1.1 (p.1) record that the naive Γ₀(N) stack is not Deligne–Mumford when p²|N, and Česnavičius 2017 §6 (p.62) calls Gross–Zagier Proposition III.1.4 an assertion; none of them says that the strict-henselization step at p.255 is affected"
    ],
    "owner": "ModularCurvesPartII",
    "file": "research/blueprint/packets/ModularCurvesPartII--R13.4a.json",
    "citation": "Benedict H. Gross and Don B. Zagier, Heegner points and derivatives of L-series, Published Invent. Math. 84 (1986), 225–320, MPIM author-hosted scan; journal pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularCurvesPartII--R13.4a",
+   "reviewReason": "Checked at Gross–Zagier pp.254–255 (MPIM scan): the stack is the naive stack of cyclic N-isogenies of generalized elliptic curves with ample kernel, and the strict-henselization description is stated for it with Aut_k(x) a group of points, citing Deligne–Rapoport p.172, which treats squarefree level. For p²|N this stack is not Deligne–Mumford at cusps of characteristic p (Conrad 2007 §1.1, p.1; Česnavičius 2017 §1.2, p.2), so the step needs the refined stack, whose coarse space is the same (Česnavičius Proposition 6.9). The correction was narrowed: Česnavičius Theorem 6.7 removes the points with j=0 or 1728 in characteristics dividing N, so it does not recover all of Proposition (1.4)."
   },
   {
    "id": "ModularCurvesPartII/E1",
@@ -249635,9 +249636,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points, Progress in Mathematics 35 (1983), pp.239–265; annotated author scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The annotated display and centre calculation on action p.250 use Z(G) throughout; the exclusion of A_n with n≥4 is unchanged."
   },
   {
    "id": "ShimuraVarieties/E2",
@@ -249654,9 +249655,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "B. Bakker, B. Klingler, J. Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci, Author manuscript of JAMS (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The full BKT author erratum restricts the chosen maximal compact and the Cartan-compatible morphisms. Its pure period-map consequence, rather than the original unrestricted functoriality, is the V3 input."
   },
   {
    "id": "ShimuraVarieties/E3",
@@ -249666,16 +249667,17 @@
    "correction": "Use the multiplicative product of the conjugate cocharacter values, not their sum.",
    "reason": "The codomain is an arbitrary torus group, whose values admit multiplication, not addition. For G_m with μ(t)=tⁿ the Weil-restriction norm is ∏ρ ρ(a)ⁿ; summation is not a homomorphism and need not be invertible.",
    "affects": "nothing",
-   "known": "new",
+   "known": "Author xnotes errata, https://www.jmilne.org/math/xnotes/errata.html, SVI p.114; product correction credited to Ruida Di. See also Jungin Lee, https://www.jmilne.org/math/xnotes/SV_errata.pdf, for the embedding field.",
    "searched": [
-    "SVI author version formulas (60)–(61), p.114; existing ShimuraVarieties--V8 sourceIssues (same correction recorded); author xnotes index searched."
+    "SVI author version formulas (60)–(61), p.114; existing ShimuraVarieties--V8 sourceIssues (same correction recorded); author xnotes index searched.",
+    "2026-10-13 independent review: author xnotes errata and Jungin Lee PDF opened; E20 is the fuller duplicate."
    ],
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The two torus expressions on SVI p.114 require multiplication. The official xnotes errata credit this correction to Ruida Di; E20 also records the corrected embedding field."
   },
   {
    "id": "ShimuraVarieties/E4",
@@ -249692,9 +249694,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The kernel in SVI 14.16(b) maps the source completion to the target completion, so its quotient starts with the G1 model. Checked also on published 2005 p.356; E25 records the same correction."
   },
   {
    "id": "ShimuraVarieties/E5",
@@ -249711,9 +249713,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The fundamental theorem of complex multiplication, Author article 2007c",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "CM 3.10 and 3.9 fix the inverse-Artin convention; the symbol rec in 3.11(a) reverses that convention. A class of order greater than two detects the discrepancy."
   },
   {
    "id": "ShimuraVarieties/E6",
@@ -249730,9 +249732,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The fundamental theorem of complex multiplication, Author article 2007c",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The author correction to CM 2.1 and its local eigenspace argument require the good-prime localization. A global integral splitting fails at ramified primes."
   },
   {
    "id": "ShimuraVarieties/E7",
@@ -249749,9 +249751,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Descent for Shimura varieties, Michigan Mathematical Journal 46 (1999); author version dated 22 September 1998",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "Descent Remark 1.3(c) identifies the missing continuity hypothesis in the older lemma. Theorem 1.1 and Corollary 1.2 supply the replacement used by the planned descent route."
   },
   {
    "id": "ShimuraVarieties/E8",
@@ -249768,9 +249770,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The source does not explicitly include quotient local rings with nilpotents in its analytic-space convention. A fat point therefore does not refute its reduced-variety theorem. The broader CA.0 scheme/analytic category is still needed independently."
   },
   {
    "id": "ShimuraVarieties/E9",
@@ -249787,9 +249789,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "Absolute inertia has infinite tame pro-ell quotients for ell≠p, so it has no finite-index pro-p subgroup. Semistable square-zero inertia in a reduced CM algebra supplies the recorded repair."
   },
   {
    "id": "ShimuraVarieties/E10",
@@ -249806,9 +249808,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The last full-model step on SVI p.127 is the connected-to-full equivalence 14.15, whereas 14.16 handles connected products and isogenies. E24 records this again for both versions."
   },
   {
    "id": "ShimuraVarieties/E11",
@@ -249825,9 +249827,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The Tate module of A/K carries Gal(Qbar/K); defining its CM endomorphisms over K gives E-linearity for that subgroup, not a representation descending to Q."
   },
   {
    "id": "ShimuraVarieties/E12",
@@ -249846,9 +249848,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points, Progress in Mathematics 35 (1983), pp.239–265; annotated author scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The full reductive root subgroup in the SU(4,1) example has a central torus and a proper noncentral derived normal subgroup. Platonov–Rapinchuk Theorem 1, p.279, proves perfection of the semisimple rank-one factor, and p.282 still discusses simplicity as a conjecture. Passing this input back to the marked torus remains an explicit proof gap."
   },
   {
    "id": "ShimuraVarieties/E13",
@@ -249865,9 +249867,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points, Progress in Mathematics 35 (1983), pp.239–265; annotated author scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The annotation on action p.239 and the public author erratum both replace the Langlands page reference with pp.232–233."
   },
   {
    "id": "ShimuraVarieties/E14",
@@ -249884,9 +249886,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points, Progress in Mathematics 35 (1983), pp.239–265; annotated author scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The last display on action p.239 repeats the finite-adelic target factor; the public author erratum removes that repeat."
   },
   {
    "id": "ShimuraVarieties/E15",
@@ -249903,9 +249905,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, The fundamental theorem of complex multiplication, Author article 2007c",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "CM Corollary 1.5, p.6 prints F for the rational commutant, while the dimension argument in its proof identifies E. The planned Frobenius argument uses the corrected CM centralizer."
   },
   {
    "id": "ShimuraVarieties/E16",
@@ -249924,9 +249926,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Modular Functions and Modular Forms, Version 1.31, 22 March 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The Legendre discriminant vanishes at lambda=0,1, and generic nonsquare quadratic twists retain the ordered two-torsion while changing the field-isomorphism class. Thus MF Example 8.9 cannot give the stated unpunctured fine universal family. The course-note errata have no correction of this example."
   },
   {
    "id": "ShimuraVarieties/E17",
@@ -249945,9 +249947,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Modular Functions and Modular Forms, Version 1.31, 22 March 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The reference basis in MF 8.7 has a constant Weil-pairing value on the connected half-plane. Multiplying its first generator by a unit changes that value by the corresponding exponent; an arbitrary primitive root needs that adjustment. No entry for this occurs in the course-note errata."
   },
   {
    "id": "ShimuraVarieties/E18",
@@ -249966,9 +249968,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The setup of SVI 6.3 gives maps W→V and Wprime→V. The proof composites require those directions and the comparison (aprime)^(-1) a. Jungin Lee corrects the adjacent primes and s/t variable, but not the two reversed arrows."
   },
   {
    "id": "ShimuraVarieties/E19",
@@ -249987,9 +249989,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "For K⊂Kprime the finer double quotient maps to the coarser one, so the map starts at S_K. Jungin Lee lists the same correction at SVI p.65."
   },
   {
    "id": "ShimuraVarieties/E20",
@@ -250008,9 +250010,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The norm in SVI p.114 is the product of the conjugate cocharacter values. The author xnotes index credits Ruida Di for the product signs, and Jungin Lee supplies E(x) for the embedding index."
   },
   {
    "id": "ShimuraVarieties/E21",
@@ -250029,9 +250031,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389, Version of record, 1970–1971, pp.123–165",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The actual Deligne p.155 lemma permits an empty real open and an unrestricted extension F/E. The empty-open case has no point; for s²=t over Q a field fibre cannot be disjoint from Qbar. Nonempty U and finite F/E are the hypotheses needed in its application."
   },
   {
    "id": "ShimuraVarieties/E22",
@@ -250050,9 +250052,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389, Version of record, 1970–1971, pp.123–165",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "Deligne p.154 uses the wrong ambient group for the maximal tori. The incidence space and the connected-centralizer argument require maximal tori of G_C containing the image of the cocharacter."
   },
   {
    "id": "ShimuraVarieties/E23",
@@ -250071,9 +250073,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "Pierre Deligne, Travaux de Shimura, Séminaire Bourbaki, exposé 389, Version of record, 1970–1971, pp.123–165",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "Deligne pp.154–155 place the lemma after 5.1.2 and before 5.2. Its proof uses its own three preceding hypotheses; the heading 5.13 and reference to 4.12 are misnumbered."
   },
   {
    "id": "ShimuraVarieties/E24",
@@ -250092,9 +250094,9 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "SVI 2017 p.127 and published 2005 p.356 both use 14.16 for the final full-model step. The relevant result is 14.15; neither the author xnotes errata nor Jungin Lee lists this correction."
   },
   {
    "id": "ShimuraVarieties/E25",
@@ -250114,9 +250116,28 @@
    "owner": "ShimuraVarieties",
    "file": "research/blueprint/packets/ShimuraVarieties.json",
    "citation": "J. S. Milne, Introduction to Shimura varieties, Revised 16 September 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "Both SVI 2017 p.127 and published 2005 p.356 repeat G2 as the model being divided out. The source completion is G1, so that model must have index 1. The target-existence statement is unchanged."
+  },
+  {
+   "id": "ShimuraVarieties/E26",
+   "kind": "misprint",
+   "locator": "Corollary 5.4, first line of printed p.256, public annotated 1983 author scan",
+   "printed": "The marked torus is placed in the full domain X rather than its selected component X+ in the connected comparison.",
+   "correction": "Use the selected component X+ for the marked embedding in this connected statement.",
+   "reason": "Section 5 compares connected towers with a chosen special point. The author annotation and public erratum both give X+; V7 already retains that component.",
+   "affects": "nothing",
+   "known": "Milne author erratum, https://www.jmilne.org/math/articles/1983a.html, p.256 first line; also corrected in the annotated author scan.",
+   "searched": [
+    "2026-10-13: annotated author page image p.256 and complete public 1983a comments/erratum page."
+   ],
+   "owner": "ShimuraVarieties",
+   "file": "research/blueprint/packets/ShimuraVarieties.json",
+   "citation": "J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points, Progress in Mathematics 35 (1983), pp.239–265; annotated author scan",
+   "status": "confirmed",
+   "reviewedBy": "REV-ShimuraVarieties",
+   "reviewReason": "The annotated p.256 and the explicit author erratum specify X+. This is a connected marked comparison; the existing V7 hypotheses already use its chosen component."
   },
   {
    "id": "SieveMethodsAndPrimePatterns/E1",
