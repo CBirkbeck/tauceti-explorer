@@ -24460,8 +24460,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.7.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9411"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
@@ -32584,8 +32585,9 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9290"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9290",
+   "finishedAt": "2026-10-13T14:27:32Z"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L0",
@@ -34763,7 +34765,8 @@
    ],
    "followUpOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9409"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.5",
@@ -34807,7 +34810,8 @@
    ],
    "followUpOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9410"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.6",
@@ -36455,7 +36459,8 @@
    ],
    "followUpOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9424"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4",
@@ -38061,8 +38066,9 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9321"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9321",
+   "finishedAt": "2026-10-13T14:27:35Z"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.3",
@@ -38106,8 +38112,9 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9322"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9322",
+   "finishedAt": "2026-10-13T14:27:39Z"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.4",
@@ -47157,8 +47164,9 @@
     "PKG-ClassicalAdicEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalAdicEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9202"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9202",
+   "finishedAt": "2026-10-13T14:27:41Z"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
