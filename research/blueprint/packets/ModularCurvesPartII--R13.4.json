@@ -43,7 +43,30 @@
   "nodes": [],
   "requests": [],
   "gaps": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "ModularCurvesPartII/E115",
+      "source": "conrad07",
+      "kind": "misprint",
+      "locator": "Author PDF dated 18 July 2006, Example 4.5.3, p.48; sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "printed": "The Fourier expansion of T_ℓ on arbitrary Katz modular forms is written with every displayed sum starting at n≥1, without a cusp-form hypothesis.",
+      "correction": "Start those sums at n≥0 for general modular forms. For ℓ∤N the constant term is a₀(f)+ℓ^(k−1)a₀(⟨ℓ⟩f); for ℓ∣N it is a₀(f). Alternatively retain n≥1 and restrict to cusp forms or explicitly to positive-index coefficients.",
+      "reason": "Take N=1, residual characteristic 5, k=4 and ℓ=2. The integral level-one E₄ has q-expansion 1+240·Σ_(n≥1)σ₃(n)qⁿ, so its reduction has constant coefficient 1. The normalized two-isogeny formula is 2³f(q²)+(f(q^(1/2))+f(−q^(1/2)))/2; its constant coefficient is 8+1=9≡4 mod 5. Sums starting at n≥1 give zero. Positive-index coefficients and cuspidal comparisons are unaffected.",
+      "affects": "a stated result",
+      "known": "new in this review; no correction was located in the checked primary listings. This finding concerns only the identified author copy; journal wording was unavailable.",
+      "searched": [
+        "Conrad author publication page https://math.stanford.edu/~conrad/ and its linked kmpaper.pdf inspected 2026-10-13; no associated correction listed.",
+        "Cambridge article page for DOI 10.1017/S1474748006000089 inspected 2026-10-13, and its citation_pdf_url requested: it returned HTML rather than journal PDF bytes; no published-text comparison is claimed.",
+        "Targeted title/erratum/corrigendum and Example 4.5.3 searches checked 2026-10-13; no correction to the constant-index omission found."
+      ],
+      "addedBy": "REV-ModularCurvesPartII--R13.4",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ModularCurvesPartII--R13.4",
+        "reason": "The rendered author-copy page confirms n≥1 and no cuspidal restriction. The level-one weight-four two-isogeny calculation in characteristic 5 detects the missing constant term. The journal version was not inspected."
+      }
+    }
+  ],
   "coverage": [
     {
       "stageId": "ModularCurvesPartII:R13.4",
@@ -79,7 +102,7 @@
     {
       "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
       "record": "Layer 9D and Layer 10 links to R13.4a",
-      "detail": "The reviewed links assign the affine coarse and prime-level normalization comparisons to R13.4a, not a third construction at R13.4."
+      "detail": "The recorded links assign the affine coarse and prime-level normalization comparisons to R13.4a. Their acceptance metadata is historical and explicitly does not review later edits. Ownership here is independently checked against current upstream Layers 9D/10 and the accepted R13.3 packet, not inferred from that historical status."
     }
   ],
   "importedTargets": [
@@ -158,12 +181,12 @@
     {
       "from": "ModularCurvesPartII:R13.4a",
       "to": "ModularCurvesPartII:R12.3",
-      "detail": "Use the algebraically constructed coarse curve. Do not require R13.4b or R12.6 to construct it or to start its analytic uniformization."
+      "detail": "R12.3 consumes R13.4a/integral-coarse-curves and R13.4a/coarse-normalization-comparisons. Do not require R13.4b or R12.6 to construct the curve or start its analytic uniformization. This edge does not require all R13.4a applications: split-cartan-quotient itself uses R14.1."
     },
     {
       "from": "ModularCurvesPartII:R12.3",
       "to": "ModularCurvesPartII:R12.6",
-      "detail": "The earlier analytic comparison and its component conventions supply the analytic Hecke theory."
+      "detail": "R12.3 supplies the analytic uniformization and cusp/component comparisons consumed by R12.6 generic-fibre descent. R12.6 checks compatibility with the imported Hecke action; it does not construct that action."
     },
     {
       "from": "ModularCurvesPartII:R13.4a",
@@ -173,7 +196,7 @@
     {
       "from": "ModularCurvesPartII:R12.6",
       "to": "ModularCurvesPartII:R13.4b",
-      "detail": "The late comparison checks generic-fibre components, compactified maps and Hecke normalization against the earlier analytic action."
+      "detail": "R12.6 supplies generic-fibre descent, component conventions and Hecke compatibility. R13.4b also consumes R14.1 correspondence and trace comparisons when checking compactified maps and Hecke normalization."
     }
   ],
   "interfaceChecks": [
@@ -183,7 +206,14 @@
         "ModularCurvesPartII:R13.4a/integral-coarse-curves",
         "ModularCurvesPartII:R13.4b/generic-component-comparison"
       ],
-      "check": "Use open H containing Γ(n); level one is H=GL₂(Ẑ). Honest full level 5 has four complex determinant components; fixed pairing selects one. Compare every component of the same algebraic object."
+      "check": "Use open H containing Γ(n); level one is H=GL₂(Ẑ). Honest full level 5 has four complex determinant components; fixed pairing selects one. Compare every component of the same algebraic object.",
+      "sources": [
+        {
+          "sourceId": "ces17",
+          "locator": "§6.1, p.62; Lemma 6.2 and Proposition 6.3, p.63",
+          "match": "For open H containing principal level, the compactified coarse curve is normal and projective with finite locally free j-map; its quotient and Katz–Mazur constructions agree. Full-level determinant labels are retained by the existing supplier, not replaced by fixed pairing."
+        }
+      ]
     },
     {
       "name": "existing-compactification-range",
@@ -201,7 +231,8 @@
       "sources": [
         {
           "sourceId": "ces17",
-          "locator": "Proposition 6.4, pp.63–64; Remark 6.6, p.64"
+          "locator": "Proposition 6.4, pp.63–64; Remark 6.6, p.64",
+          "match": "Smoothness holds after inverting n; arbitrary coarse-space base change holds after inverting gcd(6,n). Remark 6.6 excludes an unrestricted level-dividing characteristic-2 claim."
         }
       ]
     },
@@ -215,11 +246,13 @@
       "sources": [
         {
           "sourceId": "ces17",
-          "locator": "Theorem 6.7, pp.64–65; Proposition 6.9, p.65"
+          "locator": "Theorem 6.7, pp.64–65; Proposition 6.9, p.65",
+          "match": "The Γ₀ coarse curve is regular away from the stated exceptional interior points, hence at every cusp; contraction from the naive to the refined stack induces an isomorphism of coarse spaces."
         },
         {
           "sourceId": "conrad07",
-          "locator": "Theorem 4.4.3, pp.43–46"
+          "locator": "Theorem 4.4.3, pp.43–46",
+          "match": "The compactified degeneracy maps of stacks are representable finite flat; the extended isogeny induces a map on invariant differentials."
         }
       ]
     },
@@ -232,7 +265,8 @@
       "sources": [
         {
           "sourceId": "conrad07",
-          "locator": "Theorem 4.4.3 and boundary extension proof, pp.43–46"
+          "locator": "Theorem 4.4.3 and boundary extension proof, pp.43–46",
+          "match": "The boundary extension uses quotient/contraction and Tate charts to extend the two stack maps and the isogeny differential; this is additional data beyond a categorical coarse map."
         }
       ]
     },
@@ -241,11 +275,12 @@
       "imports": [
         "ModularCurvesPartII:R13.4b/hecke-normalization-comparison"
       ],
-      "check": "The coherent pullback-isogeny-trace construction gives pT_p. Division by p requires the local integral theorem; Picard and étale push–pull use their own integral conventions. In weight 2 with p∤N the normalized coefficient is a_(np)+p·a_(n/p)(⟨p⟩f), with the second term zero if p∤n.",
+      "check": "The coherent pullback-isogeny-trace construction gives pT_p. Division by p requires the local integral theorem; Picard and étale push–pull use their own integral conventions. For a prime p∤N, weight 2 and positive index n≥1, the normalized coefficient is a_(np)(f)+p·a_(n/p)(⟨p⟩f), with the second term zero if p∤n. Example 4.5.3 proves this for Katz forms over an algebraic closure of characteristic r∤N, allowing p=r, by lifting to characteristic zero. For general modular forms include n=0 as in E115.",
       "sources": [
         {
           "sourceId": "conrad07",
-          "locator": "equation (4.5.1), p.46; Theorem 4.5.1, pp.46–47; Example 4.5.3, p.48"
+          "locator": "equation (4.5.1), p.46; Theorem 4.5.1, pp.46–47; Example 4.5.3, p.48",
+          "match": "The coherent composite equals pT_p, and its divisibility by p is proved locally. Example 4.5.3 gives the positive-index coefficients in residual characteristic prime to N; its n=0 omission for noncuspidal forms is E115."
         }
       ]
     }
@@ -269,9 +304,10 @@
     "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "documentsRead": [
       "TauCetiRoadmap/ModularCurves/README.md",
-      "TauCetiRoadmap/JacobianChallenge/README.md"
+      "TauCetiRoadmap/JacobianChallenge/README.md",
+      "TauCetiRoadmap/FuchsianOrbifolds/README.md"
     ],
-    "statementScreen": "ModularCurves Suggested Layer 10 uses Mathlib relative normalization infrastructure; its modular compactification milestones remain in the README. The nine post-snapshot roadmaps and four Completed roadmaps supply no replacement owner for this modular coarse interface. Current Tau Ceti screening adds no modular coarse construction. These ownership checks are distinct from the pinned elaboration baseline."
+    "statementScreen": "ModularCurves Suggested Layer 10 uses Mathlib relative normalization infrastructure; its modular compactification milestones remain in the README. Current roadmap README/Suggested files, including post-snapshot additions and four Completed roadmaps, supply no replacement owner for this modular coarse interface. Current Tau Ceti has a formal Tate Weierstrass equation and analytic level-raising/Hecke compatibility, which do not construct generalized polygons, compactified level stacks or their coarse curves. These ownership checks are distinct from the pinned elaboration baseline."
   },
   "restructure": [
     {
@@ -282,5 +318,75 @@
       "detail": "The follow-up queue treats R13.4 as a mathematical blueprint stage although the reviewed audit marks it process-only and accepted RS-06 retains it only as an aggregate. A new construction here would duplicate the accepted R13.4a/R13.4b targets.",
       "proposal": "Remove R13.4 from separate mathematical planning and planet allocation, retaining its stable ID and interface links as required by accepted RS-06. R13.4a owns the algebraic coarse construction and upstream comparison; R13.4b owns the late generic-fibre/correspondence comparison. Preserve all supplier nodes, requests, gaps and mathematical coverage. R12.3 depends on R13.4a, not the combined interface. The maintainer applies queue or atlas changes; this packet changes none."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "conrad07",
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+      "read": "2026-10-13",
+      "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "citation": "Author PDF dated 18 July 2006; published J. Inst. Math. Jussieu 6 (2007), 209–278; locators use the author PDF’s printed pages.",
+      "publishedAccess": "The Cambridge article page and citation_pdf_url were opened on 2026-10-13. The PDF endpoint returned HTML rather than a PDF. E115 is scoped to the author copy."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ModularCurvesPartII--R13.4",
+    "date": "2026-10-13",
+    "notes": "Independent review by Codex session codex-Wgbzwi, which did none of the original blueprint. Zero owned nodes and zero baseline declaration citations; all ten imported references and six interface controls checked. Confirmed process-only closure from the reviewed audit and accepted RS-06/R13.3; mathematical suppliers remain planned. Corrected R12.6 supplier wording, component-scoped order, historical link-review provenance and Hecke source hypotheses. Added confirmed author-copy misprint E115 and sourceVersions. Reader aligned. Suggested Lean elaborates at the recorded pins without warnings. This accepts the aggregate interface and does not re-review or close the mathematical supplier packets.",
+    "checked": [],
+    "importedTargetsChecked": [
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+        "verdict": "verified",
+        "note": "Exact integral-coarse import and actual H/component convention verified; three supplier controls distinguish level one, full level five and absence of a descended universal family. No supplier node changed."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
+        "verdict": "verified",
+        "note": "Exact comparison import verified against current upstream Layers 9D/10 and pinned normalization infrastructure. Prime N≥5 and ℤ[1/N] bounds and finite/normal/dense-open obligations are retained."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+        "verdict": "verified",
+        "note": "Exact theorem import and Cesnavicius Proposition 6.4/Remark 6.6 interface verified, keeping smoothness, coarse base change and normalization base change distinct."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/coarse-cusp-regularity",
+        "verdict": "verified",
+        "note": "Exact theorem import verified; Cesnavicius Theorem 6.7 and Proposition 6.9 support cusp regularity and naive/refined coarse equality, without whole-fibre smoothness or stack equality."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/modular-polynomial",
+        "verdict": "verified",
+        "note": "Exact construction import and three supplier tests verified as interface controls: Φ₁ orientation, cyclic degree six at level four and non-normal plane image. Source-level mathematical acceptance remains with the accepted R13.3 supplier review."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient",
+        "verdict": "verified",
+        "note": "Exact construction import and three supplier controls verified: two determinant-square-class components at p=5, central inversion and rigidified orbifold orders. No fine-moduli inference is made."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/split-cartan-quotient",
+        "verdict": "verified",
+        "note": "Exact rational comparison import verified; its R14.1 prerequisite shows why the stage-order edge cannot mean all R13.4a must be completed before R12.3. No integral bad-level comparison is inferred."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+        "verdict": "verified",
+        "note": "Exact comparison import and R12.3/R12.6 component/cusp-field contracts read. R12.6 generic descent is distinguished from construction of the analytic Hecke action."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/compactified-map-comparison",
+        "verdict": "verified",
+        "note": "Exact comparison import and refined-stack finite-correspondence/flat descent contracts verified as retained supplier obligations. Conrad Theorem 4.4.3 is not treated as a coarse-space trace theorem."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/hecke-normalization-comparison",
+        "verdict": "verified",
+        "note": "Exact comparison import and R14.1 analytic/coherent/full-cyclic contracts verified. The pT_p normalization is checked directly; the local interface now specifies primes, residual characteristic and positive indices. Author-copy constant-term misprint E115 added."
+      }
+    ]
+  }
 }
