@@ -350,6 +350,31 @@
         "date": null,
         "note": "opened 2026-10-13 11:30Z; awaiting first review"
       }
+    },
+    "CrystallineCohomology": {
+      "stage": "pr",
+      "pr": 857,
+      "head": "15888a4",
+      "depends_on": [
+        779,
+        789,
+        813,
+        814,
+        815,
+        818,
+        820,
+        853,
+        849,
+        854
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 11:50Z; awaiting first review"
+      }
     }
   }
 }
