@@ -6,7 +6,7 @@
     "DiophantineApproximationAndTranscendence:DT.4"
   ],
   "status": "complete",
-  "summary": "Follow-up part for the layer DT.4 (effective applications). It decomposes the proofs that the first pass left as route paragraphs: Baker's theorem on superelliptic and hyperelliptic equations and the Schinzel–Tijdeman theorem, in the explicit form of Bérczes–Evertse–Győry (2013) over the S-integers of a number field, and Tijdeman's effective finiteness theorem for Catalan's equation. The superelliptic proof is planned on two tracks: an effective track that rests only on the unit-equation theorems already planned in DT.4 (Győry's theorem for finitely generated groups), Siegel's identity and the class-group, S-unit and Minkowski facts planned here, and the explicit track of BEG, which adds discriminant estimates for the auxiliary fields (BEG §3.1, §4), class number and regulator bounds, small representatives modulo powers of S-units, Baker-type bounds at an arbitrary place, and the explicit Thue and Pell bounds of Győry–Yu. It also supplies the interfaces the first review asked to split: S-unit rank and the kernel and lattice of the S-logarithmic map, principal generators of class-group powers, the extension of Yu's p-adic bound to an arbitrary number field (including one logarithm), and the superelliptic ideal-power and height estimates; and it answers ArithmeticStatistics' request for a uniform bound on the number of solutions of cubic Thue equations. BEG's estimate (5.19) omits a class-number factor; the corrected constant of their Theorem 2.3 is recorded and propagated to the ℤ-case statement.",
+  "summary": "Follow-up part for the layer DT.4 (effective applications). It decomposes the proofs that the first pass left as route paragraphs: Baker's theorem on superelliptic and hyperelliptic equations and the Schinzel–Tijdeman theorem, in the explicit form of Bérczes–Evertse–Győry (2013) over the S-integers of a number field, and Tijdeman's effective finiteness theorem for Catalan's equation. The superelliptic proof is planned on two tracks: an effective track that rests only on the unit-equation theorems already planned in DT.4 (Győry's theorem for finitely generated groups), Siegel's identity and the class-group, S-unit and Minkowski facts planned here, and the explicit track of BEG, which adds discriminant estimates for the auxiliary fields (BEG §3.1, §4), class number and regulator bounds, small representatives modulo powers of S-units, Baker-type bounds at an arbitrary place, and the explicit Thue and Pell bounds of Győry–Yu. It also supplies the interfaces the first review asked to split: S-unit rank and the kernel and lattice of the S-logarithmic map, principal generators of class-group powers, the extension of Yu's p-adic bound to an arbitrary number field (including one logarithm), and the superelliptic ideal-power and height estimates; and it answers ArithmeticStatistics' request for a uniform bound on the number of solutions of cubic Thue equations. BEG's estimate (5.19) omits a class-number factor and (5.12) loses n; the independent review repairs both, the infinite-place normalization and the nonvanishing argument, and recomputes the final absorption. The exact Győry–Yu inputs are now identified, including the Loher–Masser height-product theorem; the corrected constant of their Theorem 2.3 is recorded and propagated to the ℤ-case statement.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,497 +16,511 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/Discriminant.lean",
         "provides": "The discriminant of a family of elements of an algebra, the determinant of its trace matrix.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "For separable L/K the norm of x is the product of its images under the K-embeddings into an algebraically closed field.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Chebyshev.pi_le_log4_mul_div",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Chebyshev.lean",
         "provides": "For x > 1: π(⌊x⌋) ≤ log 4·x/log √x + √x.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:ClassGroup.mk0_eq_one_iff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
         "provides": "The class of a nonzero ideal of a Dedekind domain is trivial exactly when the ideal is principal.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Complex.exp_eq_exp_iff_exists_int",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
         "provides": "exp x = exp y iff x − y is an integer multiple of 2πi.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Complex.log",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
         "provides": "The principal complex logarithm (imaginary part in (−π, π]).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Complex.norm_log_one_add_half_le_self",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean",
         "provides": "For ‖z‖ ≤ 1/2: ‖log(1 + z)‖ ≤ (3/2)‖z‖.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:FractionalIdeal.absNorm",
         "kind": "def",
         "module": "Mathlib/RingTheory/FractionalIdeal/Norm.lean",
         "provides": "The absolute norm of a fractional ideal, multiplicative with values in ℚ.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Height.logHeight",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Height/Basic.lean",
         "provides": "The logarithmic (projective) height of a tuple of elements of a field with admissible absolute values.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Height.logHeight_nonneg",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Height/Basic.lean",
         "provides": "The logarithmic height of a tuple is nonnegative.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Ideal.absNorm_span_singleton",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
         "provides": "The absolute norm of a principal ideal (r) is |N(r)|.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Ideal.ramificationIdx",
         "kind": "def",
         "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
         "provides": "The ramification index of a prime over a prime.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Ideal.relNorm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
         "provides": "The relative norm of ideals of an extension of Dedekind domains, a multiplicative map to ideals of the base.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Ideal.sum_ramification_inertia",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/RamificationInertia/Basic.lean",
-        "provides": "Σ_{P∣p} e(P|p)f(P|p) = [L:K] for a nonzero maximal p.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "provides": "Σ_{P∣p} e(P|p)f(P|p) = [L:K] for a nonzero maximal p. This pinned theorem uses ramificationIdx′ and inertiaDeg′ and is deprecated since 2026-07-01; it remains available. Use the current RingTheory API at implementation.",
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Int.emultiplicity_pow_sub_pow",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Multiplicity.lean",
         "provides": "Lifting the exponent for an odd prime p: if p ∣ x − y and p ∤ x then v_p(x^n − y^n) = v_p(x − y) + v_p(n).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicAbv",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
-        "provides": "The absolute value at a finite place, normalised by the absolute norm of the prime.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "provides": "A prime-adic absolute value with an arbitrary real base b > 1; choose b = N𝔭 for the BEG normalization, or use NumberField.FinitePlace.mk.",
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:IsDedekindDomain.integer_empty",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "The S-integers for S = ∅ are the ring itself.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Nat.exists_prime_and_dvd",
         "kind": "theorem",
         "module": "Mathlib/Data/Nat/Prime/Defs.lean",
         "provides": "Every natural number different from 1 has a prime divisor.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Nat.factorization_lcmUpto",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Chebyshev.lean",
         "provides": "The exponent of a prime p in lcm(1, …, n) is ⌊log_p n⌋.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Nat.lcmUpto",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Chebyshev.lean",
         "provides": "lcm(1, …, n).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
         "provides": "An algebraic integer all of whose complex embeddings have absolute value 1 is a root of unity (Kronecker).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.FinitePlace.hasFiniteMulSupport",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
         "provides": "For x ≠ 0 the function w ↦ w(x) on finite places has finite multiplicative support.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.FinitePlace.mk",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean",
         "provides": "The finite place attached to a nonzero prime of 𝓞_K.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.mult",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "The multiplicity of an infinite place: 1 if real, 2 if complex.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.prod_eq_abs_norm",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "∏_w w(x)^{mult w} = |N_{K/ℚ}(x)|.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.InfinitePlace.sum_mult_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
         "provides": "Σ_w mult w = [K:ℚ].",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup",
         "kind": "instance",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "The class group of the ring of integers of a number field is finite.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.Units.fundSystem",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "A fundamental system of units of a number field, indexed by Fin (rank K).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.Units.rank",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "The unit rank, #(infinite places) − 1.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.Units.regulator",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
         "provides": "The regulator of a number field, as the covolume of the unit lattice.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.absLogHeight₁",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Height/NumberField.lean",
         "provides": "The absolute logarithmic Weil height of an algebraic number.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.classNumber",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "The class number of a number field.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.dedekindZeta_residue",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
         "provides": "The value 2^{r_1}(2π)^{r_2}R_K h_K/(w_K√|D_K|), the residue in the analytic class number formula.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.discr",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
         "provides": "The (signed) discriminant of a number field.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.exists_ne_zero_mem_ideal_of_norm_le_mul_sqrt_discr",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
         "provides": "Minkowski: every fractional ideal I contains a ≠ 0 with |N(a)| ≤ N(I)·(4/π)^{r_2}·d!/d^d·√|D_K|.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Height/NumberField.lean",
-        "provides": "Northcott: finitely many elements of a number field have logarithmic height at most B.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "provides": "Northcott finiteness in a fixed number field for its relative logarithmic height; DT.0/abs-mul-height-eq-rpow converts this to d times absolute logarithmic height.",
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:NumberField.prod_abs_eq_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/ProductFormula.lean",
         "provides": "The product formula ∏_w w(x)^{mult w}·∏ᶠ_v v(x) = 1 for x ≠ 0.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Content.lean",
         "provides": "A polynomial is primitive if its coefficients have no common non-unit divisor.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.IsPrimitive.mul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Content.lean",
         "provides": "Gauss's lemma: the product of primitive polynomials over a GCD domain is primitive.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.contentIdeal",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/ContentIdeal.lean",
         "provides": "The ideal generated by the coefficients of a polynomial.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.contentIdeal_mul_le_mul_contentIdeal",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/ContentIdeal.lean",
         "provides": "The content ideal of a product is contained in the product of the content ideals.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.discr",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
         "provides": "The discriminant of a polynomial (via the resultant with its derivative).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.mahlerMeasure",
         "kind": "def",
         "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
         "provides": "The Mahler measure of a complex polynomial.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.mahlerMeasure_X_sub_C",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
         "provides": "M(X − z) = max(1, |z|).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.mahlerMeasure_le_sqrt_sum_sq_norm_coeff",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
         "provides": "Landau's inequality: M(p) ≤ the ℓ²-norm of the coefficients.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.mahlerMeasure_mul",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
         "provides": "The Mahler measure is multiplicative.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.norm_coeff_le_choose_mul_mahlerMeasure",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
         "provides": "|coeff_k(p)| ≤ C(deg p, k)·M(p).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Polynomial.resultant",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
         "provides": "The resultant of two polynomials (Sylvester determinant).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Rat.mulHeight₁_eq_max",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Height/NumberField.lean",
         "provides": "The multiplicative height of a rational number is max(|numerator|, denominator).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Real.add_one_le_exp",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Exponential.lean",
         "provides": "x + 1 ≤ e^x for real x.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Real.finrank_eq_int_finrank_of_discrete",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
         "provides": "For a discrete subgroup generated by a set s of a real vector space, the real and integral ranks of s agree.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Real.log_le_sub_one_of_pos",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
         "provides": "log x ≤ x − 1 for x > 0.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Set.integer",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "The S-integers of a Dedekind domain's fraction field: valuation at most 1 outside S.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Set.integer_eq",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "The S-integers are the intersection of the valuation subrings outside S.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Set.unit",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "The S-units: valuation exactly 1 outside S.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Set.unitEquivUnitsInteger",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "The S-units are the units of the ring of S-integers.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:Subgroup.finiteIndex_range_powMonoidHom_of_fg",
         "kind": "lemma",
         "module": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
         "provides": "In a finitely generated abelian group the n-th powers have finite index (n ≠ 0).",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:UniqueFactorizationMonoid.fintypeSubtypeDvd",
         "kind": "def",
         "module": "Mathlib/RingTheory/UniqueFactorizationDomain/Finite.lean",
         "provides": "A nonzero element of a UFM with finitely many units has finitely many divisors.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:differentIdeal",
         "kind": "def",
         "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
         "provides": "The different ideal of an extension of Dedekind domains.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:exists_associated_pow_of_mul_eq_pow'",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PrincipalIdealDomain.lean",
         "provides": "If coprime a, b have product c^k then a is associated to a k-th power.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "mathlib:pow_card_eq_one'",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/OrderOfElement.lean",
         "provides": "x^{Nat.card G} = 1 in a group.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:NumberField.classNumber_le_bound",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/EffectiveBounds/ClassNumber/Basic.lean",
         "provides": "Elementary class number bound h_K ≤ |D_K|·4^{[K:ℚ]}.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Polynomial.Monic.discr_mul",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
         "provides": "For monic f, g: D(fg) = D(f)D(g)·Res(f, g)².",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Polynomial.discr_prod_X_sub_C",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
         "provides": "D(∏(X − r_i)) = ∏_{i<j}(r_i − r_j)².",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Set.unitEmptyEquivUnits",
         "kind": "def",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "The S-units for S = ∅ are the units of the Dedekind domain.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Set.unitValuation",
         "kind": "def",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "The valuation map from the S-units to ℤ^S.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Set.unitValuation_ker",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "The kernel of the valuation map on S-units is the group of ∅-units, i.e. the units.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:Set.unit_fg_of_units",
         "kind": "instance",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "For finite S and finitely generated units, the S-unit group is finitely generated.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:TauCeti.NumberField.relDiscr_int_ringOfIntegers",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Discriminant/Relative.lean",
         "provides": "relDiscr ℤ 𝓞_K is the ideal generated by the discriminant of K.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:TauCeti.relDiscr",
         "kind": "def",
         "module": "TauCeti/RingTheory/DedekindDomain/Discriminant/Basic.lean",
         "provides": "The relative discriminant ideal relNorm(differentIdeal A B) of an extension of Dedekind domains.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
       },
       {
         "ref": "tauceti:TauCeti.relDiscr_tower",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/DedekindDomain/Discriminant/Separable.lean",
         "provides": "Tower formula relDiscr A C = relDiscr A B^{[C:B]}·relNorm_A(relDiscr B C) for a separable tower.",
-        "checked": "statement read in the source file at the pinned commit (2026-10-13)"
+        "checked": "Declaration and statement independently read at the pinned commit, 2026-10-13."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+        "provides": "The ℤ-finrank of the additive unit group of 𝓞_K is Units.rank K; this is the Dirichlet rank theorem, not just the rank definition.",
+        "checked": "Declaration and full hypotheses independently read at the pinned commit, 2026-10-13."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation_liesOver",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/RamificationInertia/Valuation.lean",
+        "provides": "For Dedekind A,B with torsion-free algebra, compatible fraction fields K,L and primes w over v, v.valuation K x ^ ramificationIdx′(v,w) = w.valuation L (algebraMap K L x). Thus orders multiply by the ramification index.",
+        "checked": "Declaration and full hypotheses independently read at the pinned commit, 2026-10-13."
       }
     ]
   },
@@ -519,7 +533,7 @@
       "url": "https://arxiv.org/abs/1301.7168v1",
       "sha256": "6f0c3522bec1af5548ddd4fcb3bd7fc3bc02a2e4294276abc6219289ee94334c",
       "readSections": [
-        "§§1–5 completely (pp. 1–29), read 2026-10-13; page images of p. 28 checked for (5.19)"
+        "ArXiv v1 §§3–5, all locators cited by this packet, independently read 2026-10-13; published §§3–5 compared, with page images checked for the disputed formulas. Published pages equal arXiv pages plus 726. Earlier planner’s §§1–2 reading is inherited; Theorems 2.1–2.3 checked independently."
       ]
     },
     {
@@ -586,7 +600,7 @@
       "edition": "Izv. Math. 64 (2000) 1217–1269",
       "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=314&what=fullteng&option_lang=eng",
       "readSections": [
-        "Corollary 2.3 as recorded in DT.3/matveev-corollary-linear-form-bound (not re-read)"
+        "Corollary 2.3, p. 1219: independently checked the reviewed DT.3 supplier contract and its proof interface. Fresh publisher PDF retrieval failed (HTTP 503/403); primary passage not re-read in this review."
       ]
     },
     {
@@ -594,10 +608,11 @@
       "title": "Linear forms in p-adic logarithms III",
       "authors": "K. Yu",
       "edition": "Compositio Math. 91 (1994) 241–276",
-      "url": "http://archive.numdam.org/article/CM_1994__91_3_241_0.pdf",
+      "url": "https://www.numdam.org/article/CM_1994__91_3_241_0.pdf",
       "readSections": [
-        "§0.1 as recorded in DT.3/yu-explicit-p-adic-bound (not re-read)"
-      ]
+        "§§0.1–0.2, pp. 241–247; page image p. 242; arbitrary nonzero arguments and valuation convention checked independently 2026-10-13."
+      ],
+      "sha256": "caea575fec7e5abb1fc7c4397cbd7a5f0f76e2b81a30aeb275b7c60ad8a1d846"
     },
     {
       "id": "evertse-schlickewei-schmidt-linear-equations-2002",
@@ -606,8 +621,9 @@
       "edition": "Ann. of Math. 155 (2002); arXiv:math/0409604v1",
       "url": "https://arxiv.org/abs/math/0409604v1",
       "readSections": [
-        "Theorem 1.1 as recorded in DT.2/uniform-bound-nondegenerate-solutions (not re-read)"
-      ]
+        "Theorem 1.1, preprint pp. 1–2, read independently 2026-10-13."
+      ],
+      "sha256": "3c809fcadaddbc08f57045e4f55562c8a379b5fa33d7e83046b63a9c14766e8f"
     },
     {
       "id": "tzanakis-deweger-thue-mahler-1992",
@@ -616,18 +632,42 @@
       "edition": "Compositio Math. 84 (1992) 223–288",
       "url": "https://www.numdam.org/item/CM_1992__84_3_223_0.pdf",
       "readSections": [
-        "§§5–6 as recorded in DT.4/s-integral-divisor-representation (not re-read)"
-      ]
+        "§§5–6, printed pp. 230–234, read independently 2026-10-13 for the finite ideal representative reduction."
+      ],
+      "sha256": "28e5806fea4590b40267c0529a9f867440ee04403e863bc5ec7952e7f0ceffc8"
     },
     {
       "id": "gyory-yu-2006",
       "title": "Bounds for the solutions of S-unit equations and decomposable form equations",
       "authors": "K. Győry, K. Yu",
       "edition": "Acta Arith. 123 (2006) 9–41 (DOI 10.4064/aa123-1-2)",
-      "url": "https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/123/1/83173/bounds-for-the-solutions-of-s-unit-equations-and-decomposable-form-equations",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/83173",
       "readSections": [
-        "not read: not freely available (publisher download requires purchase); cited through BEG Propositions 3.11–3.12 and Lemma 3.8"
-      ]
+        "Theorems 1–3 and Corollary 3, pp. 11–16; Proposition 1 and Lemmas 2–3 with proofs, pp. 19–21; proof of Theorem 3, pp. 34–37; proof of Corollary 3, pp. 38–39. Publisher PDF read independently 2026-10-13."
+      ],
+      "sha256": "40ee488ceeffa7df33620238bc162f4dd222acc9f86a34d6ee6f6222b155bdcd"
+    },
+    {
+      "id": "loher-masser-2004",
+      "title": "Uniformly counting points of bounded height",
+      "authors": "T. Loher, D. Masser",
+      "edition": "Acta Arith. 111 (2004), 277–297",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/82907",
+      "readSections": [
+        "Theorems 1 and 3, pp. 278–280; §5, proof of Theorem 3, pp. 293–294, read 2026-10-13."
+      ],
+      "sha256": "a816179f3e38b99542f4c1eec546415eb610430261d36b896f9cd92c28748b97"
+    },
+    {
+      "id": "stark-1974",
+      "title": "Some effective cases of the Brauer–Siegel theorem",
+      "authors": "H. M. Stark",
+      "edition": "Invent. Math. 23 (1974), 135–152",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0023/PPN356556735_0023.pdf",
+      "readSections": [
+        "Lemma 6 and proof, printed p. 143 (PDF page 151 of the digitized journal volume), read from the page image 2026-10-13."
+      ],
+      "sha256": "d98fe83def66ce90801760710d21f34458637d32de6ac77d726698220ae25832"
     }
   ],
   "nodes": [
@@ -655,7 +695,7 @@
       "acceptance": [
         "For n = 1 the bound is |b_1 log a_1| > exp(−C(1)·A_1·log(eB)), consistent with the trivial bound |log a_1| ≥ log(1 + 1/H(a_1)).",
         "The hypothesis a_j ≠ 1 is needed: Matveev's corollary takes nonzero logarithms.",
-        "With a_1 = 2, a_2 = 3, b = (b_1, b_2) and B = max(|b_1|, |b_2|) it gives |b_1 log 2 + b_2 log 3| > exp(−C(2)·log 3·0.69·log(eB)), the shape used for |2^{b_1}3^{b_2} − 1|."
+        "With a_1 = 2, a_2 = 3, b = (b_1, b_2) and B = max(|b_1|, |b_2|) it gives |b_1 log 2 + b_2 log 3| > exp(−C(2)·log 3·log 2·log(eB)), the shape used for |2^{b_1}3^{b_2} − 1|."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound",
@@ -750,7 +790,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§2, Theorem 2.3, p. 4",
+          "locator": "§2, Theorem 2.3, p. 4 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The explicit Schinzel–Tijdeman bound for the exponent, whose printed value for K = ℚ, S = {∞}, n = 2 and ĥ = 0 is 40^{80} (40^{92} after the correction recorded in sourceIssues)."
         }
       ],
@@ -819,7 +859,8 @@
         "Case p > q: from (x − 1)^p < y^q + 1 < (y + 1)^q and the identity of the previous node, with |log(1 + a)| ≤ a (a > 0) and |log((1 − a)^q + a^q)| ≤ 2aq for 0 ≤ a ≤ 1/2, one gets 0 < |δ₁ p log p − δ₂ q log q + pq log(ρ/σ)| ≤ p/(p^{δ₁}ρ^q) + 2q/(q^{δ₂}σ^p) ≤ 3p²/ρ^q, using that p > q forces y > x and hence q^{δ₂}σ^p > p^{δ₁}ρ^q. The form is nonzero because it is the logarithm of (x − 1)^p/(y + 1)^q < 1.",
         "If q ≤ 10 log p there is nothing to prove. Otherwise ρ ≥ 2 gives ρ^{q/2} > p^{5 log 2} > 3p², so the form is < exp(−(q/2) log ρ) (Tijdeman (17)); this forces |log(ρ/σ)| ≤ 2 log p/q + 1 < 2 (Tijdeman (18)), hence σ < e²ρ < ρ⁴ and H(ρ/σ) ≤ ρ⁴.",
         "separated-height-logarithmic-form-bound with n ≤ 3, the rationals p, q, ρ/σ (dropping terms with zero coefficient), B = p² and A_1, A_2 ≤ log p, A_3 ≤ 4 log ρ gives a lower bound exp(−C·(log p)³·log ρ); comparing exponents yields q < c₁(log p)³.",
-        "The case q > p is the mirror image: x > y gives p^{δ₁}ρ^q ≥ q^{δ₂}σ^p − 1, the upper bound becomes ≤ 4q²/σ^p, and the same lower bound with the roles of (p, ρ) and (q, σ) exchanged gives p < c₁(log q)³. Tijdeman states only that this case is similar (sourceIssues)."
+        "The case q > p is the mirror image: x > y gives p^{δ₁}ρ^q ≥ q^{δ₂}σ^p − 1, the upper bound becomes ≤ 4q²/σ^p, and the same lower bound with the roles of (p, ρ) and (q, σ) exchanged gives p < c₁(log q)³. Tijdeman states only that this case is similar (sourceIssues).",
+        "Before using Matveev, remove every zero logarithm and every zero coefficient. The positive rational arguments then have chosen nonzero real logarithms. In the q > p case x > y gives x − 1 ≥ y ≥ (y + 1)/2; consequently the three-logarithm upper bound is at most 4q²/σ^p. Use A_i equal to the displayed admissible upper bounds, not merely bounded above by them."
       ],
       "acceptance": [
         "The bound is uniform: c₁, c₂ do not depend on x, y.",
@@ -855,11 +896,10 @@
         "x, y ≥ 2 integers with x^p − y^q = 1"
       ],
       "proofSteps": [
-        "Assume p > q (the other case is the mirror image) and p ≥ 32, p ≥ p₀ with p₀ chosen below. By cassels-type-factorisations σ ≥ 2, so Tijdeman's case (a), σ = 1, does not occur.",
-        "From the identity of cassels-type-factorisations, (p^{δ₁}ρ^q + 1)^p·q^{−δ₂q}σ^{−pq} = (1 − 1/(q^{δ₂}σ^p))^q + 1/(q^{δ₂q}σ^{pq}) < 1, and the estimate |log((1 − a)^q + a^q)| ≤ 2aq gives 0 < |δ₂ q log q − p log((p^{δ₁}ρ^q + 1)/σ^q)| ≤ 2q²/σ^p ≤ exp(−(p/2) log σ), since 2q² < 2p² < 2^{p/2} ≤ σ^{p/2} for p ≥ 32 (Tijdeman (20)).",
-        "With tijdeman-smaller-exponent-bound, |log((p^{δ₁}ρ^q + 1)/σ^q)| ≤ (q log q + 1)/p ≤ 2c₁²(log p)^{2c₂}/p ≤ 1 for p ≥ p₀, so the rational β := (p^{δ₁}ρ^q + 1)/σ^q has H(β) ≤ e·σ^q ≤ σ^{2q}.",
-        "separated-height-logarithmic-form-bound with n = 2, the rationals q and β, B = p, A_1 ≤ log q and A_2 ≤ 2q log σ ≤ 2c₁(log p)^{c₂} log σ gives the lower bound exp(−C·(log p)^{c₂+2}·log σ) (Tijdeman (21)).",
-        "Comparing with (20) gives p < 2C·(log p)^{c₂+2}, which bounds p by an absolute constant; then q < p is bounded too."
+        "For p > q use Tijdeman §5: a = (q^{δ₂}σ^p)⁻¹, β = (p^{δ₁}ρ^q + 1)/σ^q = x/σ^q. Then β^p q^{−δ₂q} = (1 − a)^q + a^q, so the logarithmic form is nonzero and negative. The small-exponent bound controls q by a power of log p; h(β) ≤ 2q log σ and |log β| ≤ 1 for large p. The separated-height bound on these two logarithms compared with the exponentially small upper bound controls p/log(p)^C.",
+        "For q > p carry out the following different normalization. Put a = (p^{δ₁}ρ^q)⁻¹ = 1/(x − 1) and β = (q^{δ₂}σ^p − 1)/ρ^p = y/ρ^p. The equation gives β^q p^{−δ₁p} = (1 + a)^p − a^p > 1. Hence 0 < q log β − δ₁p log p ≤ 2pa ≤ 2p²/ρ^q. For sufficiently large q, the small-exponent bound makes this at most exp(−(q/2) log ρ).",
+        "Also h(β) ≤ 2p log ρ and |log β| ≤ (p log p + 1)/q ≤ 1 for sufficiently large q. If δ₁ = 0, β > 1; if δ₁ = −1, q log β = −p log p + a positive exponentially small term, so β ≠ 1. Drop any zero coefficient and apply separated-height-logarithmic-form-bound to β and p. This yields a lower bound exp(−C(log q)^C′ log ρ), contradicting the upper bound when q is large.",
+        "All sufficiently-large thresholds are computable. The finitely many smaller exponent cases and the p > q case give one absolute computable upper bound; combine it with tijdeman-smaller-exponent-bound to bound both primes."
       ],
       "acceptance": [
         "The constant is absolute: it depends on neither x nor y.",
@@ -962,7 +1002,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Lemma 4.2(i), Gauss's lemma [f] = [a₀]∏[1, α_i], p. 17",
+          "locator": "§4, proof of Lemma 4.2(i), Gauss's lemma [f] = [a₀]∏[1, α_i], p. 17 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry use Gauss's lemma for the content ideals of the linear factors of a polynomial over a number field and compare the ideals generated by x − α_i with those generated by 1 and α_i."
         },
         {
@@ -992,7 +1032,7 @@
         "Some G_j of degree d ≥ 3: if G_j(1, 0) = 0 replace G_j by G_j(X, Y + kX) for some k with G_j(1, k) ≠ 0, a unimodular change of variables that preserves the number of solutions. Pick distinct zeros θ₁, θ₂, θ₃ of G_j(X, 1), M := ℚ(θ₁, θ₂, θ₃) (degree ≤ d(d − 1)(d − 2)) and one solution (x₀, y₀). By primitive-binary-form-linear-factor-ideal(iii) x − θ_i y = (x₀ − θ_i y₀)·ε_i with ε_i ∈ 𝓞_M^×.",
         "Siegel's identity (DT.4/siegel-identity) turns this into a·(ε₁/ε₃) + b·(ε₂/ε₃) = 1 with fixed a, b ∈ M^×; every solution of a two-term unit equation is non-degenerate, so by DT.2/uniform-bound-nondegenerate-solutions applied to Γ = (𝓞_M^×)², of rank ≤ 2(n(n − 1)(n − 2) − 1) (Dirichlet), there are at most A(2, 2r) pairs.",
         "Each pair determines λ = (x − θ₁y)/(x − θ₃y) and, for y ≠ 0, x/y = (θ₁ − λθ₃)/(1 − λ); a ratio determines the coprime solution up to the sign t = ±1 (t^d·G_j(x′, y′) = ±1); and y = 0 gives at most 2 solutions. Hence at most 2A + 2 solutions.",
-        "All G_j of degree ≤ 2 (then there are at least two non-proportional factors G₁, G₂): every solution satisfies G₁ = ε₁, G₂ = ε₂ with ε_i = ±1, so lies on the zero set of the nonzero form ε₂G₁ − ε₁G₂ of degree ≤ 2, a union of at most two lines through 0; on each line G₁ = ε₁ has at most two points. This gives at most 16 solutions."
+        "If all irreducible factors have degree at most two, select two distinct factors. Two linear equations G₁ = ±1, G₂ = ±1 give at most four points. A linear and an irreducible quadratic give at most two points on each of the four affine lines prescribed by the signs, hence at most eight: restriction of the quadratic cannot be constant, since its leading part would vanish on a rational direction and make the binary quadratic reducible. Two quadratics give, for each sign pair, the nonzero homogeneous quadratic ε₂G₁ − ε₁G₂ = 0, hence at most two lines through the origin and at most two points per line, giving sixteen. This handles mixed degrees without treating their difference as homogeneous."
       ],
       "acceptance": [
         "For n = 3 the bound is absolute, which is the request of ArithmeticStatistics:ST.1/fibres-of-the-embedding-are-uniformly-bounded.",
@@ -1004,7 +1044,8 @@
         "DiophantineApproximationAndTranscendence:DT.4/siegel-identity",
         "DiophantineApproximationAndTranscendence:DT.2/uniform-bound-nondegenerate-solutions",
         "mathlib:NumberField.Units.rank",
-        "mathlib:Polynomial.IsPrimitive"
+        "mathlib:Polynomial.IsPrimitive",
+        "mathlib:NumberField.Units.finrank_eq"
       ],
       "sources": [
         {
@@ -1036,7 +1077,8 @@
       "proofSteps": [
         "d = 1: α = u/w in lowest terms with α ≠ ±1, so max(|u|, |w|) ≥ 2 and h(α) = log max(|u|, |w|) ≥ log 2.",
         "d ≥ 2: Voutier proves log M(α) > (1/4)(log log d/log d)³ for d ≥ 2 by the determinant method of Cantor and Straus (Fermat's little theorem gives a nonzero integer lower bound, Hadamard's inequality an upper bound); Corollary 2 combines this with Smyth's theorem for non-reciprocal α and with Boyd's computations for d ≤ 20, and d·h(α) = log M(α).",
-        "The case d ≥ 2 is not decomposed into nodes here (gap 'Voutier's height lower bound'); only the case d = 1 is used for equations over ℤ."
+        "The case d ≥ 2 is not decomposed into nodes here (gap 'Voutier's height lower bound'); only the case d = 1 is used for equations over ℤ.",
+        "If α has degree e ≤ d, apply Voutier to e and use that e(log(3e))³ is increasing; degree-one elements have height at least log 2. Auxiliary root fields L_i generally have degree greater than one even when K = ℚ, so their units still require the higher-degree cutoff."
       ],
       "acceptance": [
         "For α = 2: h(2) = log 2 = m(1).",
@@ -1056,7 +1098,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.4, Lemma 3.9, p. 11",
+          "locator": "§3.4, Lemma 3.9, p. 11 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry quote Voutier's bound as m(d), with m(1) = log 2."
         }
       ],
@@ -1080,7 +1122,8 @@
         "Padding: for n = 1 adjoin α′_2 := p with exponent 0; Λ is unchanged, ℚ(α_1, p) = ℚ(α_1), h(p) = log p and |log p|/(10d₀) ≤ log p, so the admissible h_2 = log p does not depend on α_1.",
         "Apply DT.3/yu-explicit-p-adic-bound to (α′_j), b and the prime 𝔭₀ of the generated field K₀ (its hypothesis K = ℚ(α) is met by K₀); the condition b ≠ 0 holds because Λ ≠ 0 forces some b_j ≠ 0.",
         "Restriction: Λ ∈ K₀, and for x ∈ K₀^× one has ord_𝔓(x) = e(𝔓|𝔭₀)·ord_{𝔭₀}(x) (multiplicativity of ramification in towers); the residue degree in the bound is that of 𝔭₀ over p.",
-        "Conversion: log|Λ|_𝔓 = −ord_𝔓(Λ)·log N𝔓; with e(𝔓|𝔭₀) ≤ [K : K₀] and log(d₀B) ≤ log d_K + log 3 + log(e·max(1, max|b_j|)) one reads off C."
+        "Conversion: log|Λ|_𝔓 = −ord_𝔓(Λ)·log N𝔓; with e(𝔓|𝔭₀) ≤ [K : K₀] and log(d₀B) ≤ log d_K + log 3 + log(e·max(1, max|b_j|)) one reads off C.",
+        "For the field F generated by the logarithm arguments inside K, use valuation_liesOver for a prime of K above a prime of F: ord_𝔭(λ) = e(𝔭|𝔮) ord_𝔮(λ). Multiply by log N𝔭 for the normalized FinitePlace.mk absolute value. Yu 1994 permits arbitrary nonzero arguments, so padding a one-logarithm form by the rational prime with coefficient zero does not require that prime to be a local unit."
       ],
       "acceptance": [
         "For K = ℚ, n = 1, α_1 = 1 + p (p odd) and b_1 = b, the bound is consistent with the exact value ord_p((1 + p)^b − 1) = 1 + v_p(b) (DT.3/p-adic-valuation-of-power-minus-one).",
@@ -1092,7 +1135,8 @@
         "mathlib:Ideal.ramificationIdx",
         "mathlib:Ideal.sum_ramification_inertia",
         "mathlib:IsDedekindDomain.HeightOneSpectrum.adicAbv",
-        "mathlib:NumberField.absLogHeight₁"
+        "mathlib:NumberField.absLogHeight₁",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation_liesOver"
       ],
       "sources": [
         {
@@ -1128,9 +1172,10 @@
         "v a place of K"
       ],
       "proofSteps": [
-        "Infinite v: embed K ⊆ ℂ with |·|_v = |·|^{s(v)}; choose b₀ ∈ ℤ with |Im Ξ| ≤ π for Ξ := b_1 log α_1 + ⋯ + b_n log α_n + 2b₀ log(−1) (principal logarithms), so max(|2b₀|, |b_i|) ≤ 1 + nB. We may assume |Λ| ≤ 1/2, so |Ξ| = |log(1 + Λ)| ≤ 2|Λ|.",
-        "Matveev's bound (DT.3/matveev-corollary-linear-form-bound, with n + 1 logarithms including log(−1) = πi and A_i ≥ max(d·h(α_i), π)) gives log|Ξ| ≥ −s(v)^{−1}(e(n + 1)/2)^{s(v)}(n + 1)^{3/2}30^{n+4}d²·log(ed)·Ω·log(eB′) with Ω := π∏max(h(α_i), π) ≤ π^{n+1}m(d)^{−n}Θ; this is better than the claim.",
-        "Finite v = 𝔭: Yu's Main Theorem in the 2007 version (Forum Math. 19) gives ord_𝔭(Λ) ≤ (16ed)^{2n+2}n^{3/2}log(2nd)log(2d)·e_𝔭^n·N𝔭·(log N𝔭)^{−2}·Θ·log B, and log|Λ|_𝔭 = −ord_𝔭(Λ)·log N𝔭 with e_𝔭 ≤ d. This version of Yu's theorem is not planned in DT.3, which plans the 1994 version; with yu-bound-in-a-number-field one obtains a bound of the same shape with a different constant, so the constant c₁(n, d) at finite places rests on the gap 'Yu 2007 constant'."
+        "At an infinite place of multiplicity a = 1 or 2 embed K into ℂ. Put Ξ = Σ b_i log α_i + 2b₀ log(−1), with |Im Ξ| ≤ π and |2b₀| ≤ 1 + nB. If |Λ| ≤ 1/2, Ξ is the principal logarithm of 1 + Λ, so 0 < |Ξ| ≤ 2|Λ|. If |Λ| > 1/2 the claimed lower bound is immediate. Remove zero logarithms and zero coefficients before applying DT.3/matveev-corollary-linear-form-bound.",
+        "Choose the genuinely admissible Matveev parameters A_i = d h(α_i) + π and A₀ = π. Thus Ω ≤ π F(d)^n Θ, where F(d) = d + π/m(d). The supplier gives a constant at most 2^{6(n+1)+20}, and log(eB′) ≤ (n+2)log B for B′ ≤ 1+nB. Consequently log |Λ|_v ≥ −2π·2^{6n+26}(n+2)d²log(ed) F(d)^n Θ log B − 2log 2.",
+        "For d = 1, F(d) ≤ 6. For d ≥ 2, F(d) ≤ 3d³: use m(d) = 2/(d(log(3d))³) and the decreasing function log(3d)³/d² for d ≥ 2. Also log(ed)/(log* d)² ≤ 2. Comparing with c₁(n,d)·2/log 2 at n = 2 bounds the main-coefficient ratio by 0.6 for d = 1 and 0.3 for d ≥ 2; successive n only decrease it. The remaining slack absorbs 2log 2 because Θ ≥ m(d)^n and log B ≥ log 3. This supplies the claimed constant without discarding d from the height parameters.",
+        "At a finite place the exact BEG constant uses Yu 2007, whose main theorem is a recorded gap. The Yu 1994 adapter provides an effective lower bound with a different constant; do not identify it with c₁(n,d). Normalize the valuation by log N𝔭 as in FinitePlace.mk."
       ],
       "acceptance": [
         "The bound is uniform in the place: only N(v) enters.",
@@ -1149,7 +1194,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.5, Proposition 3.10 and its proof, pp. 11–12",
+          "locator": "§3.5, Proposition 3.10 and its proof, pp. 11–12 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The Baker-type lower bound for |α_1^{b_1}⋯α_n^{b_n} − 1|_v, from Matveev at infinite places and from Yu's 2007 p-adic theorem at finite places."
         },
         {
@@ -1289,7 +1334,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.2, definition of N_S and formulas (3.2)–(3.5), pp. 8–9",
+          "locator": "§3.2, definition of N_S and formulas (3.2)–(3.5), pp. 8–9 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The S-norm of a fractional ideal of the S-integers as the absolute norm of its part outside S, its value on principal ideals as the product of |x|_v over v ∈ S, and its behaviour in finite extensions."
         },
         {
@@ -1364,6 +1409,21 @@
           "name": "sRegulatorOf_pos",
           "kind": "characterisation",
           "statement": "0 < R_S for every fundamental system and admissible choice of places."
+        },
+        {
+          "kind": "degenerate",
+          "statement": "For K = ℚ or an imaginary quadratic field and S = ∅, the zero-dimensional determinant is 1, agreeing with R_K = 1.",
+          "name": "sRegulator_rank_zero"
+        },
+        {
+          "name": "isFundamentalSUnitSystem_rat_empty",
+          "kind": "degenerate",
+          "statement": "The empty system is fundamental for K = ℚ, S = ∅: every unit is ±1, hence torsion."
+        },
+        {
+          "name": "isFundamentalSUnitSystem_rat_prime_square",
+          "kind": "non-example",
+          "statement": "For K = ℚ and S = {(p)}, the single S-unit p² is not a fundamental system: p cannot be a torsion multiple of any integer power of p²."
         }
       ],
       "prerequisites": [
@@ -1373,7 +1433,9 @@
         "mathlib:NumberField.classNumber",
         "tauceti:Set.unit_fg_of_units",
         "mathlib:Set.unitEquivUnitsInteger",
-        "mathlib:NumberField.prod_abs_eq_one"
+        "mathlib:NumberField.prod_abs_eq_one",
+        "DiophantineApproximationAndTranscendence:DT.4/s-unit-rank",
+        "DiophantineApproximationAndTranscendence:DT.4/class-number-and-regulator-bounds"
       ],
       "api": [
         {
@@ -1410,6 +1472,16 @@
           "name": "sRegulatorOf_fundSystem",
           "role": "compatibility",
           "statement": "For S = ∅: R_∅ = NumberField.Units.regulator K."
+        },
+        {
+          "name": "isFundamentalSUnitSystem_rank",
+          "role": "relation",
+          "statement": "Any fundamental system has Units.rank K + #S entries."
+        },
+        {
+          "name": "isFundamentalSUnitSystem_reindex",
+          "role": "functoriality",
+          "statement": "Reindexing a fundamental system by an equivalence preserves the property."
         }
       ],
       "library": {
@@ -1424,7 +1496,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.3, formulas (3.8)–(3.9), p. 9",
+          "locator": "§3.3, formulas (3.8)–(3.9), p. 9 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry record R_S = h_S R_K ∏ log N𝔭_i and the resulting upper and lower bounds."
         }
       ],
@@ -1461,7 +1533,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.3, Lemma 3.5, p. 9",
+          "locator": "§3.3, Lemma 3.5, p. 9 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry quote Friedman's lower bound for the regulator and Louboutin's upper bound for the product of class number and regulator."
         },
         {
@@ -1487,11 +1559,10 @@
         "δ_K a lower bound as stated"
       ],
       "proofSteps": [
-        "Let v(η) := (log|η|_{v_1}, …, log|η|_{v_{s−1}}). The vectors v(η), η ∈ 𝓞_S^×, form a lattice Λ ⊂ ℝ^{s−1} of covolume R_S (s-regulator; discreteness from s-logarithmic-map-kernel-and-lattice).",
-        "For the ℓ¹ gauge F(x) = Σ|x_i| (volume 2^{s−1}/(s−1)!), Minkowski's second theorem (GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper) gives λ_1⋯λ_{s−1} ≤ (s − 1)!·R_S for the successive minima, attained by independent S-units η_i.",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/basis-from-minima gives a basis ε_i of Λ with F(v(ε_i)) ≤ max(1, i/2)·F(v(η_i)) in Cassels' form (the GN node gives the weaker (i + 1)λ_i, which only changes c_4).",
-        "For an S-unit, the product formula gives (1/(2d))·F(v(η)) ≤ h(η) ≤ (1/d)·F(v(η)); multiplying yields (i).",
-        "(ii) from (i) and h(ε_j) ≥ δ_K/d for j ≠ i; (iii) by Cramer's rule and Hadamard's inequality applied to the minors."
+        "Delete one coordinate from the S-logarithmic hyperplane and use the ℓ¹ gauge F in r = s−1 coordinates. The lattice covolume is R_S and the gauge ball has volume 2^r/r!. The successive-minimum witnesses and Minkowski upper bound give independent vectors v_i with ∏F(v_i) ≤ r! R_S.",
+        "To obtain the sharp basis factor, use the primitive flag Λ ∩ span(v₁,…,v_i) from GN.0/integral-rational-flag. In its rank-one quotient, write the image of v_i as m times a primitive generator. If |m| = 1, use ±v_i as the lift. If |m| ≥ 2, lift that generator as v_i/m plus a combination of the earlier v_j; subtract integer multiples of those v_j so each earlier coefficient has absolute value at most 1/2. This is still a primitive generator modulo the flag and has F-size at most iλ_i/2. These lifts form a lattice basis and satisfy F(ε_i) ≤ max(1,i/2)λ_i. This is a consumer proof of the sharp factor, rather than an assertion that the supplier’s weaker (i+1) factor preserves c₄.",
+        "For S-units the product formula gives F/(2d) ≤ h ≤ F/d. Multiplying the basis factors r!/2^{r−1} with the minima bound gives ∏h(ε_i) ≤ r!² R_S/(2^{r−1}d^r) = c₄R_S. Dividing by the height lower bounds for the other r−1 units gives (ii).",
+        "For (iii), expand each determinant minor. Its absolute value is bounded by the product of the ℓ¹ sizes of its rows; this follows directly by dropping the distinct-column restriction in the permutation sum. Divide by R_S, bound the product of all row sizes by d^r c₄R_S, and use F(ε_i) ≥ d h(ε_i) ≥ δ_K for the removed row. This gives c₆ and requires no unsupported Hadamard citation."
       ],
       "acceptance": [
         "For K = ℚ, S = {(p)} (s = 2): the system {p} has h(p) = log p = R_S, consistent with (i) since c_4 = 1/(d^{1}) = 1.",
@@ -1505,7 +1576,9 @@
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1/basis-from-minima",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
         "DiophantineApproximationAndTranscendence:DT.4/voutier-height-lower-bound",
-        "mathlib:NumberField.prod_abs_eq_one"
+        "mathlib:NumberField.prod_abs_eq_one",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/integral-rational-flag",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses"
       ],
       "sources": [
         {
@@ -1515,8 +1588,13 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§5, formula (5.1), pp. 22–23",
+          "locator": "§5, formula (5.1), pp. 22–23 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry use such a fundamental system of T_i-units, citing Lemma 2 of Győry–Yu and the Bugeaud–Győry papers."
+        },
+        {
+          "sourceId": "gyory-yu-2006",
+          "locator": "Proposition 1 and Lemma 2, p. 19",
+          "match": "The refined independent-height estimates supply the stated numerical constants."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1529,7 +1607,7 @@
       ],
       "title": "A representative of small height modulo m-th powers of S-units",
       "kind": "lemma",
-      "statement": "Let K be a number field of degree d, S a finite set of nonzero primes, η_1, …, η_{s−1} a fundamental system of S-units and ℓ(η) := (log|η|_v)_{v ∈ S ∪ S_∞} ∈ ℝ^s. Put c(η) := (1/2)·Σ_j ‖ℓ(η_j)‖_1. For every nonzero S-integer α and every integer m ≥ 1 there is an S-unit ε with h(αε^m) ≤ (1/d)·log N_S(α) + m·c(η)/d. With the fundamental system of fundamental-s-units-of-bounded-height this gives Bugeaud–Győry's Lemma 2 and Bérczes–Evertse–Győry's Lemma 3.8 (h(αη^m) ≤ (1/d)log N_S(α) + m(c·R_K + (h_K/d)·log Q_S) with c = 39d^{d+2}, Q_S := ∏_{𝔭∈S} N𝔭), up to the value of the constant.",
+      "statement": "Let K be a number field of degree d, S a finite set of nonzero primes, η_1, …, η_{s−1} a fundamental system of S-units and ℓ(η) := (log|η|_v)_{v ∈ S ∪ S_∞} ∈ ℝ^s. Put c(η) := (1/2)·Σ_j ‖ℓ(η_j)‖_1. For every nonzero S-integer α and every integer m ≥ 1 there is an S-unit ε with h(αε^m) ≤ (1/d)·log N_S(α) + m·c(η)/d. In addition, there is an S-unit ε with h(αε^m) ≤ d⁻¹log N_S(α) + m(39d^{d+2}R_K + (h_K/d)log Q_S), where Q_S = ∏_{𝔭∈S}N𝔭. This exact second form uses independent ordinary units and the Loher–Masser height-product bound, rather than the coarse full-S-unit basis estimate.",
       "hypotheses": [
         "K a number field, S finite set of finite places",
         "α ∈ 𝓞_S nonzero, m ≥ 1",
@@ -1538,7 +1616,9 @@
       "proofSteps": [
         "The vector u := ℓ(α) − (log N_S(α)/s)·(1, …, 1) lies in the hyperplane Σ_v x_v = 0, because the coordinates of ℓ(α) sum to log N_S(α) (s-norm); the S-unit lattice ℓ(𝓞_S^×) spans this hyperplane (s-unit-rank and s-logarithmic-map-kernel-and-lattice).",
         "Write u = Σ_j x_j ℓ(η_j) and x_j = m·b_j + ϱ_j with b_j ∈ ℤ, |ϱ_j| ≤ m/2; with ε := ∏ η_j^{−b_j} one gets ℓ(αε^m) − (log N_S(α)/s)·(1, …, 1) = Σ_j ϱ_j ℓ(η_j), of ℓ¹-norm at most (m/2)·Σ_j‖ℓ(η_j)‖_1 (as in the proof of Bugeaud–Győry Lemma 2 for S = S_∞ and of DT.4/unit-lattice-covering-bound).",
-        "Since αε^m is an S-integer, h(αε^m) = (1/d)·Σ_{v∈S∪S_∞} max(0, log|αε^m|_v) ≤ (1/d)(log N_S(α) + m·c(η)) after summing the s coordinates; the explicit versions follow by inserting the bounds of fundamental-s-units-of-bounded-height and s-regulator."
+        "Since αε^m is an S-integer, h(αε^m) = (1/d)·Σ_{v∈S∪S_∞} max(0, log|αε^m|_v) ≤ (1/d)(log N_S(α) + m·c(η)) after summing the s coordinates.",
+        "For the exact BEG constant, first balance an algebraic integer using independent ordinary units from the successive minima. Their product of heights is at most r!R_K/d^r. Applying the independent-height-product lower bound to each omitted (r−1)-tuple bounds the largest height by 29e√(r−1)r!log d·R_K for r ≥ 2. The rounding estimate then has constant c₃ = 29e r! r√(r−1)log d; for r = 1 take c₃ = 1/d, and for r = 0 take c₃ = 0. Since r ≤ d−1, c₃ ≤ 39d^{d+2}.",
+        "For a general S-integer choose a generator π_𝔭 of 𝔭^{h_K} at each finite prime of S. Multiply α by m-th powers of these S-units to put its orders at those primes in [0,mh_K), leaving an algebraic integer α′ with log |N(α′)| ≤ log N_S(α) + mh_K log Q_S. Apply the ordinary-unit bound to α′. This proves the stated exact constant subject to the recorded quantitative height-product gap."
       ],
       "acceptance": [
         "For S = ∅ and m = 1 this is the balanced-unit-multiple bound of DT.4/balanced-unit-multiple, read as a height bound.",
@@ -1552,7 +1632,10 @@
         "DiophantineApproximationAndTranscendence:DT.4/unit-lattice-covering-bound",
         "DiophantineApproximationAndTranscendence:DT.4/fundamental-s-units-of-bounded-height",
         "DiophantineApproximationAndTranscendence:DT.4/s-regulator",
-        "mathlib:NumberField.prod_abs_eq_one"
+        "mathlib:NumberField.prod_abs_eq_one",
+        "DiophantineApproximationAndTranscendence:DT.4/multiplicatively-independent-height-product-lower-bound",
+        "DiophantineApproximationAndTranscendence:DT.4/principal-generators-of-class-group-powers",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper"
       ],
       "sources": [
         {
@@ -1562,8 +1645,13 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.4, Lemma 3.8, p. 11",
+          "locator": "§3.4, Lemma 3.8, p. 11 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry quote this lemma from Győry–Yu (2006), Lemma 3, in the form used for (4.12) and (5.10)."
+        },
+        {
+          "sourceId": "gyory-yu-2006",
+          "locator": "Lemmas 2–3 and their proofs, pp. 19–21",
+          "match": "The refined independent-height estimates supply the stated numerical constants."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1599,7 +1687,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Lemma 4.2(ii), choice of ξ₁ and γ₁, pp. 17–18",
+          "locator": "§4, proof of Lemma 4.2(ii), choice of ξ₁ and γ₁, pp. 17–18 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry pick ξ₁ in the ideal with norm at most |D_L|^{1/2} times the norm of the ideal (citing Lang), so that (ξ₁) is the ideal times an ideal of small norm, and likewise for the factor 𝔆."
         }
       ],
@@ -1665,10 +1753,11 @@
         "S a finite set of finite places"
       ],
       "proofSteps": [
-        "(i): an element of nonpositive order at every prime lies in every localisation, hence in 𝓞_K (Set.integer_eq with S = ∅ and IsDedekindDomain.integer_empty).",
+        "(i): an element of nonnegative order at every prime lies in every localisation, hence in 𝓞_K (Set.integer_eq with S = ∅ and IsDedekindDomain.integer_empty).",
         "(ii): if ℓ(y) = 0 then |y|_𝔭 = 1 at all finite places, so y ∈ 𝓞_K by (i), and all conjugates have absolute value 1, so y is a root of unity (NumberField.Embeddings.pow_eq_one_of_norm_eq_one); conversely roots of unity have all absolute values 1.",
         "(iii): ‖ℓ(y)‖_∞ ≤ B bounds the height h(y) ≤ (s/d)·B; Northcott's finiteness (NumberField.finite_setOfPred_logHeight₁_le) gives finitely many such y. A subgroup of ℝ^s with finitely many points in every ball is discrete, hence a lattice in its span, which lies in the hyperplane Σ_v x_v = 0 by the product formula.",
-        "(iv): a ℤ-relation among the ℓ(γ_j) is a multiplicative relation modulo the kernel, i.e. modulo roots of unity; a discrete subgroup's ℚ-independence equals ℝ-independence (Real.finrank_eq_int_finrank_of_discrete)."
+        "(iv): a ℤ-relation among the ℓ(γ_j) is a multiplicative relation modulo the kernel, i.e. modulo roots of unity; a discrete subgroup's ℚ-independence equals ℝ-independence (Real.finrank_eq_int_finrank_of_discrete).",
+        "Mathlib’s finite_setOfPred_logHeight₁_le uses relative logarithmic height. DT.0/abs-mul-height-eq-rpow converts it to d times the absolute logarithmic height; the degree d is fixed here. The rank theorem then turns a discrete lattice in its real span into a full lattice in the (s−1)-dimensional hyperplane."
       ],
       "acceptance": [
         "For K = ℚ, S = {(2)}: ℓ(2^k·(−1)^e) = (k log 2, −k log 2), whose kernel is {±1}.",
@@ -1682,7 +1771,9 @@
         "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
         "mathlib:Real.finrank_eq_int_finrank_of_discrete",
         "mathlib:NumberField.prod_abs_eq_one",
-        "tauceti:Set.unit_fg_of_units"
+        "tauceti:Set.unit_fg_of_units",
+        "DiophantineApproximationAndTranscendence:DT.4/s-unit-rank",
+        "DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow"
       ],
       "sources": [
         {
@@ -1727,7 +1818,8 @@
         "tauceti:Set.unitEmptyEquivUnits",
         "tauceti:Set.unit_fg_of_units",
         "mathlib:NumberField.Units.rank",
-        "DiophantineApproximationAndTranscendence:DT.4/principal-generators-of-class-group-powers"
+        "DiophantineApproximationAndTranscendence:DT.4/principal-generators-of-class-group-powers",
+        "mathlib:NumberField.Units.finrank_eq"
       ],
       "sources": [
         {
@@ -1737,7 +1829,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.3, formula (3.8) and §5, p. 22",
+          "locator": "§3.3, formula (3.8) and §5, p. 22 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry use fundamental systems of T_i-units with t_i − 1 elements, t_i the number of places in T_i."
         }
       ],
@@ -1774,7 +1866,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.1, proof of Lemma 3.1, and §4, proof of Lemma 4.2, pp. 5–6 and 16–17",
+          "locator": "§3.1, proof of Lemma 3.1, and §4, proof of Lemma 4.2, pp. 5–6 and 16–17 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry use Gauss's lemma [f] = [g_1][g_2] for a factorisation of a polynomial over a number field and [f] = [a_0]∏[1, α_i] for its linear factors."
         }
       ],
@@ -1844,13 +1936,29 @@
           "name": "polyLogHeight_int_example",
           "kind": "compatibility",
           "statement": "For f ∈ ℤ[X] mapped to ℚ: h(f) = log max(1, max_i |a_i|) (an instance of polyLogHeight_int)."
+        },
+        {
+          "kind": "computation",
+          "statement": "Over ℚ, ĥ(2,X) = log 2.",
+          "name": "superellipticHeight_two_X"
+        },
+        {
+          "kind": "non-example",
+          "statement": "Over ℚ, ĥ(1/2,X) = log 2; the finite place cannot be omitted.",
+          "name": "superellipticHeight_half_X"
+        },
+        {
+          "kind": "degenerate",
+          "statement": "Over ℚ, ĥ(0,X^n) = 0.",
+          "name": "superellipticHeight_zero_X_pow"
         }
       ],
       "prerequisites": [
         "mathlib:Height.logHeight",
         "mathlib:Height.logHeight_nonneg",
         "mathlib:NumberField.absLogHeight₁",
-        "DiophantineApproximationAndTranscendence:DT.4/s-norm"
+        "DiophantineApproximationAndTranscendence:DT.4/s-norm",
+        "DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow"
       ],
       "api": [
         {
@@ -1892,6 +2000,21 @@
           "name": "polyLogHeight_X_sub_C",
           "role": "simp",
           "statement": "h(X − α) = h(α)."
+        },
+        {
+          "name": "superellipticHeight_nonneg",
+          "statement": "0 ≤ ĥ(b,f).",
+          "role": "relation"
+        },
+        {
+          "name": "superellipticHeight_map",
+          "statement": "ĥ(b,f) is unchanged by a number-field embedding applied to b and f.",
+          "role": "functoriality"
+        },
+        {
+          "name": "superellipticHeight_zero",
+          "statement": "ĥ(0,f) = h(f).",
+          "role": "compatibility"
         }
       ],
       "library": {
@@ -1901,7 +2024,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§2, definition of ĥ, p. 4, and §3.4, definition of h(f), p. 10",
+          "locator": "§2, definition of ĥ, p. 4, and §3.4, definition of h(f), p. 10 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry define the logarithmic height of a polynomial as the height of the point formed by 1 and its coefficients, and ĥ by including the coefficient b of the equation."
         }
       ],
@@ -1915,14 +2038,15 @@
       ],
       "title": "The height of a polynomial against the heights of its roots (BEG Lemma 3.6)",
       "kind": "lemma",
-      "statement": "For algebraic numbers α_1, …, α_n and f := (X − α_1)⋯(X − α_n): |h(f) − Σ_i h(α_i)| ≤ n·log 2.",
+      "statement": "For algebraic numbers α_1, …, α_n and f := (X − α_1)⋯(X − α_n): |h(f) − Σ_i h(α_i)| ≤ n·log 2. More generally, for a nonmonic polynomial f = a₀∏(X−α_i), a₀ ≠ 0, one has Σh(α_i) ≤ h(f) + n log 2. For evaluation, h(f(x)) ≤ h(f) + n h(x) + log(n+1).",
       "hypotheses": [
         "α_1, …, α_n ∈ ℚ̄"
       ],
       "proofSteps": [
         "Work in a number field containing the α_i. At a finite place the Gauss norm is multiplicative (content-ideal-gauss-lemma), so log max(1, |coefficients of f|_v) = Σ_i log max(1, |α_i|_v) exactly.",
         "At an infinite place, with σ the corresponding embedding, the Mahler measure satisfies M(σf) = ∏_i max(1, |σα_i|) (Polynomial.mahlerMeasure_mul, mahlerMeasure_X_sub_C); each coefficient is at most C(n, k)·M ≤ 2^n·M (norm_coeff_le_choose_mul_mahlerMeasure) and M ≤ √(n + 1)·max|coefficient| ≤ 2^n·max|coefficient| (Landau, mahlerMeasure_le_sqrt_sum_sq_norm_coeff).",
-        "Summing over the places with weights (the multiplicity of a complex place counts twice, matched by s(v)) and dividing by [K:ℚ] gives the claim; the leading coefficient 1 makes max(1, …) harmless."
+        "Summing over the places with weights (the multiplicity of a complex place counts twice, matched by s(v)) and dividing by [K:ℚ] gives the claim; the leading coefficient 1 makes max(1, …) harmless.",
+        "For a nonmonic polynomial use projective coefficient height first: the local Mahler measure of a₀∏(X−α_i) is |a₀| times the product of max(1,|α_i|). The product formula cancels the leading coefficient, and the projective coefficient height is bounded by the affine tuple height h(f). At an infinite place the coefficient maximum and Mahler measure differ by at most the factor 2^n; at finite places Gauss gives equality. Evaluation follows from the triangle inequality at infinity and the ultrametric inequality elsewhere, contributing log(n+1)."
       ],
       "acceptance": [
         "For f = X − α the two sides agree exactly.",
@@ -1940,7 +2064,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.4, Lemma 3.6, p. 10",
+          "locator": "§3.4, Lemma 3.6, p. 10 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry quote the comparison of the height of a monic polynomial with the sum of the heights of its roots from Bombieri–Gubler, Theorem 1.6.13."
         }
       ],
@@ -1954,10 +2078,11 @@
       ],
       "title": "Size of the discriminant of a polynomial (BEG Lemma 3.7)",
       "kind": "lemma",
-      "statement": "Let K be a number field and f = a_0X^n + ⋯ + a_n ∈ K[X] of degree n with discriminant D(f) ≠ 0. Then (i) |D(f)|_v ≤ n^{(2n−1)s(v)}·max(|a_0|_v, …, |a_n|_v)^{2n−2} for every place v, where s(v) = 1, 2, 0 for real, complex and finite v; (ii) h(D(f)) ≤ (2n − 1)·log n + (2n − 2)·h(f).",
+      "statement": "Assume n ≥ 1. Let K be a number field and f = a_0X^n + ⋯ + a_n ∈ K[X] of degree n with discriminant D(f) ≠ 0. Then (i) |D(f)|_v ≤ n^{(2n−1)s(v)}·max(|a_0|_v, …, |a_n|_v)^{2n−2} for every place v, where s(v) = 1, 2, 0 for real, complex and finite v; (ii) h(D(f)) ≤ (2n − 1)·log n + (2n − 2)·h(f).",
       "hypotheses": [
         "K a number field",
-        "f ∈ K[X] of degree n ≥ 1, D(f) ≠ 0"
+        "f ∈ K[X] of degree n ≥ 1, D(f) ≠ 0",
+        "n ≥ 1"
       ],
       "proofSteps": [
         "Finite v: D(f) (Mathlib's Polynomial.discr, a determinant in the coefficients) is a homogeneous polynomial of degree 2n − 2 in a_0, …, a_n with integer coefficients, so the ultrametric inequality gives (i) with s(v) = 0.",
@@ -1979,7 +2104,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.4, Lemma 3.7 and proof, pp. 10–11",
+          "locator": "§3.4, Lemma 3.7 and proof, pp. 10–11 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry bound the v-adic size of the discriminant by n^{(2n−1)s(v)} times the (2n−2)-th power of the largest coefficient, ultrametrically at finite places and by Lewis–Mahler at infinite places."
         }
       ],
@@ -2020,7 +2145,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Lemma 4.3, p. 19",
+          "locator": "§4, proof of Lemma 4.3, p. 19 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry use u(m) ≤ m^{π(m)} ≤ 4^m, citing Rosser–Schoenfeld, Corollary 1."
         }
       ],
@@ -2061,7 +2186,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.1, Lemma 3.1 and its proof, pp. 5–6",
+          "locator": "§3.1, Lemma 3.1 and its proof, pp. 5–6 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry prove that the relative discriminant ideal of K(α)/K contains the discriminant of any squarefree polynomial vanishing at α divided by the (2m−2)-th power of its content ideal, by the argument of Birch and Merriman."
         }
       ],
@@ -2081,7 +2206,7 @@
         "𝔭 a nonzero prime of 𝓞_K"
       ],
       "proofSteps": [
-        "ord_𝔭(relDiscr) = Σ_{P∣𝔭} f(P|𝔭)·ord_P(𝔡_{L/K}) (Tau Ceti NumberFieldArithmetic, Layer 5.10).",
+        "ord_𝔭(relDiscr) = Σ_{P∣𝔭} f(P|𝔭)·ord_P(𝔡_{L/K}) (Tau Ceti NumberFieldArithmetic, Layer 5.10). This exact dictionary is already implemented in current Tau Ceti as TauCeti.multiplicity_relDiscr; no duplicate target is planned. At the pinned baseline its verified NumberFieldArithmetic layer remains the supplier.",
         "ord_P(𝔡_{L/K}) ≤ e(P|𝔭) − 1 + ord_P(e(P|𝔭)) (tame and wild bound, NumberFieldArithmetic Layer 6.4), and ord_P(e) = e(P|𝔭)·ord_𝔭(e) ≤ e(P|𝔭)·ord_𝔭(u(n)) because e(P|𝔭) ≤ n divides u(n).",
         "Hence ord_𝔭(relDiscr) ≤ Σ_P f·e·(1 + ord_𝔭(u(n))) = n·(1 + ord_𝔭(u(n))) (Ideal.sum_ramification_inertia)."
       ],
@@ -2095,12 +2220,13 @@
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
         "mathlib:Ideal.sum_ramification_inertia",
-        "mathlib:Nat.lcmUpto"
+        "mathlib:Nat.lcmUpto",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.valuation_liesOver"
       ],
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.1, Lemma 3.2 and its proof, pp. 6–7",
+          "locator": "§3.1, Lemma 3.2 and its proof, pp. 6–7 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry bound the exponent of a prime in the relative discriminant by n(1 + ord(lcm(1, …, n))), from Neukirch's bound for the different."
         }
       ],
@@ -2119,9 +2245,8 @@
         "K ⊆ L_1, L_2 ⊆ M = L_1L_2 number fields"
       ],
       "proofSteps": [
-        "The different of M/L_2 divides the extension of the different of L_1/K: 𝓞_M contains 𝓞_{L_1}𝓞_{L_2}, whose trace dual over 𝓞_{L_2} is contained in the extension of the trace dual of 𝓞_{L_1} over 𝓞_K, hence 𝔡_{M/L_2} ∣ 𝔡_{L_1/K}𝓞_M.",
-        "Taking the relative norm to L_2 and then to K: N_{L_2/K}(relDiscr(𝓞_{L_2}, 𝓞_M)) ∣ N_{M/K}(𝔡_{L_1/K}𝓞_M) = relDiscr(𝓞_K, 𝓞_{L_1})^{[M:L_1]}.",
-        "The tower formula for K ⊆ L_2 ⊆ M (relDiscr_tower) gives the claim."
+        "For a compositum M = L₁L₂ over K use Stark Lemma 6: the different of M/L₁ divides the extension to M of the different of L₂/K. Locally at a prime of L₂ choose an integral primitive element α whose minimal-polynomial derivative has the exact different order. The minimal polynomial over L₁ divides the one over K, so its derivative at α divides the old derivative; the different of M/L₁ divides that derivative. This is the local monogenic-choice/derivative bridge recorded below, not a trace-dual identity proved by a formal manipulation.",
+        "Take relative norms to K and use the discriminant tower formula. The norm of an extended L₂-ideal has the exponent [M:L₂]; the L₁ tower contributes d_{L₁/K}^{[M:L₁]}. This gives d_{M/K} ∣ d_{L₁/K}^{[M:L₁]}d_{L₂/K}^{[M:L₂]}. Iterate for more factors, using the corresponding compositum degrees."
       ],
       "acceptance": [
         "For K = ℚ, L_1 = ℚ(i), L_2 = ℚ(√2), M = ℚ(ζ_8): disc M = 2^8 divides 4²·8² = 2^{10}.",
@@ -2137,8 +2262,13 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.1, Lemma 3.3 and its proof, p. 7",
+          "locator": "§3.1, Lemma 3.3 and its proof, p. 7 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry state the tower formula (from Neukirch III, Corollary 2.10) and the compositum inclusion (from Stark's Lemma 6 by taking norms)."
+        },
+        {
+          "sourceId": "stark-1974",
+          "locator": "Lemma 6 and proof, p. 143",
+          "match": "The divisibility of the different under arbitrary compositum base change, proved with locally chosen primitive elements and derivatives."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2174,7 +2304,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.1, Lemma 3.4 and its proof, p. 7",
+          "locator": "§3.1, Lemma 3.4 and its proof, p. 7 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry show that K(γ^{1/m})/K is unramified at primes not dividing m at which the order of γ is divisible by m."
         }
       ],
@@ -2217,7 +2347,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, Lemma 4.1 and its proof, formulas (4.1)–(4.4), pp. 14–15",
+          "locator": "§4, Lemma 4.1 and its proof, formulas (4.1)–(4.4), pp. 14–15 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry bound the discriminant of the field generated over K by k roots of f in terms of n, h(f), d and D_K."
         }
       ],
@@ -2261,7 +2391,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, Lemma 4.3 and its proof, formulas (4.16)–(4.22), pp. 19–20",
+          "locator": "§4, Lemma 4.3 and its proof, formulas (4.16)–(4.22), pp. 19–20 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry bound the discriminants of the fields generated by two (three) roots of f, an m-th root of γ_1/γ_2 (two square roots) and the m-th roots of unity."
         }
       ],
@@ -2285,7 +2415,8 @@
         "Write F = l_1⋯l_n with pairwise non-proportional linear forms l_i = λ_iX + μ_iY (disc F ≠ 0) and choose δ ∈ 𝓞_M nonzero with δλ_i, δμ_i, δ^nβ ∈ 𝓞_M. For a solution, the T-integers δl_i(x, y) have product δ^nβ, so each divides δ^nβ in 𝓞_T.",
         "After multiplying by an element of Γ := Γ_P (P := T; generated by 𝓞_M^× and generators of 𝔭^h, 𝔭 ∈ T) each δl_i(x, y) lies in 𝓞_M with ord_𝔮 ≤ ord_𝔮(δ^nβ) outside T, so DT.4/s-integral-divisor-representation (with its class-group step principal-generators-of-class-group-powers) gives δl_i(x, y) ∈ μ_iΓ with μ_i in an explicit finite set.",
         "Three of the forms satisfy c_1l_1 + c_2l_2 + c_3l_3 = 0 with all c_i ≠ 0 (three pairwise non-proportional forms in two variables; DT.4/siegel-identity for l_i = X − θ_iY); dividing by c_3l_3 gives a(γ_1/γ_3) + b(γ_2/γ_3) = 1 with γ_i ∈ Γ and (a, b) from a finite set.",
-        "DT.4/gyory-effective-finiteness bounds the exponents of γ_1/γ_3, γ_2/γ_3 explicitly, so l_1(x, y)/l_3(x, y) takes finitely many computable values; l_3(x, y) ≠ 0 because F(x, y) ≠ 0. Each value fixes the ratio x : y, and F(x, y) = β then fixes (x, y) up to an n-th root of unity in M."
+        "DT.4/gyory-effective-finiteness bounds the exponents of γ_1/γ_3, γ_2/γ_3 explicitly, so l_1(x, y)/l_3(x, y) takes finitely many computable values; l_3(x, y) ≠ 0 because F(x, y) ≠ 0. Each value fixes the ratio x : y, and F(x, y) = β then fixes (x, y) up to an n-th root of unity in M.",
+        "Coefficients of the linear factors need not be integral. Choose one nonzero denominator δ ∈ 𝓞_K so that all δl_i have S-integral coefficients, and replace the right-hand side by δ^{deg F}β. Apply the divisor-representative and unit-equation arguments to these integral values; undoing this fixed scaling only changes the computable bound."
       ],
       "acceptance": [
         "For M = ℚ, T = ∅ this is Thue's theorem (DT.4/thue-equation-effective-bound) with the content of F absorbed into δ.",
@@ -2332,14 +2463,14 @@
         "β ≠ 0, heights bounded by A and B"
       ],
       "proofSteps": [
-        "This is Győry–Yu (2006), Corollary 3, with their smaller constant 5d²n⁵·50(n − 1)·c_1c_3 replaced by c_1(s, d).",
-        "Their proof follows the reduction of thue-equation-over-s-integers-effective, but solves the resulting S-unit equations with explicit Baker–Matveev–Yu bounds (baker-bound-at-a-place) in a fundamental system of S-units of controlled height (fundamental-s-units-of-bounded-height) and with representatives of small height (small-representative-modulo-s-unit-powers), whence the factor P_S·R_S.",
-        "Győry–Yu (Acta Arith. 123 (2006) 9–41) is not freely available and was not read; the derivation of this bound rests on gap 'Explicit S-unit and decomposable-form bounds of Győry–Yu'."
+        "Read Győry–Yu Corollary 3, p. 16, and its proof, pp. 38–39. First choose δ ∈ 𝓞_K clearing the coefficients with h(δ) ≤ ndA. Their Lemma 3 balances δ^nβ by an ordinary unit; the resulting integral equation has coefficient and right-hand-side height bounds controlled by A, B, R_K and log Q_S. Apply their Theorem 3 for the split triangularly connected binary form, and undo the scaling. This is the explicit refinement of the effective unit-equation reduction.",
+        "Theorem 3 is proved on pp. 34–37 by connected chains of linear factors: every triangle gives a two-term S-unit equation, the explicit S-unit bound controls ratios after a common unit scaling, and Cramer’s rule for two independent factors recovers the coordinates. Its exact constants inherit the Yu 2007 gap and the independent-height-product gap.",
+        "The BEG contract above is retained as the source statement. Its short comparison with Győry–Yu needs separate care: Győry–Yu impose A ≥ 1 and define c₃ = 0 in unit rank zero, so a comparison simply multiplying by c₃ is not a proof. Record the low-height floor and rank-zero constant absorption as a precise gap. Applying the original theorem with max(1,A) and max(1,c₃) gives a sound explicit alternative; deriving BEG’s smaller displayed contract still needs that absorption."
       ],
       "acceptance": [
         "For K = ℚ, S = {∞}: s = 1, P_S = Q_S = 1, R_S = 1, and the bound reads max(h(x), h(y)) ≤ 2^{67}·n⁶·(1 + nA + B)·2.",
         "The bound is linear in A and B, as the S-unit method predicts.",
-        "Larger S only increases the bound (monotone in P_S, R_S, Q_S, s)."
+        "The S-regulator itself is not monotone in S: over ℚ, R_∅ = 1 whereas R_{(2)} = log 2 < 1. No monotonicity claim about the whole bound is used."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.4/thue-equation-over-s-integers-effective",
@@ -2352,12 +2483,12 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.6, Proposition 3.11 and its proof, p. 13",
+          "locator": "§3.6, Proposition 3.11 and its proof, p. 13 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry state the explicit height bound for the solutions of Thue equations over the S-integers with split binary form, as an easy consequence of Győry–Yu's Corollary 3."
         },
         {
           "sourceId": "gyory-yu-2006",
-          "locator": "p. 16, Corollary 3 (cited through BEG; not read)",
+          "locator": "p. 16, Corollary 3",
           "match": "Győry–Yu's explicit bound for Thue equations over the S-integers."
         }
       ],
@@ -2380,7 +2511,8 @@
       "proofSteps": [
         "Put κ_23 := κ_3/κ_2 (a square root of γ_2/γ_3) and β_23 := β_13 − β_12 ≠ 0. The six linear forms u_± := κ_2x_1 ± x_2, v_± := κ_3x_1 ± x_3, w_± := κ_23x_2 ± x_3 satisfy u_+u_− = β_12/γ_2, v_+v_− = β_13/γ_3 and w_+w_− = β_23/γ_3, so all six are nonzero and, as in thue-equation-over-s-integers-effective, each lies in μ·Γ_T with μ from an explicit finite set (DT.4/s-integral-divisor-representation).",
         "They satisfy the three-term identities κ_23u_+ − v_+ = w_− and κ_23u_− − v_− = −w_− (Evertse's Exercise 5.6 hint), so u_±/w_− and v_±/w_− solve two-term unit equations with coefficients from a finite set; DT.4/gyory-effective-finiteness gives finitely many values, explicitly.",
-        "Knowing the ratios u_+/w_−, u_−/w_− and the product u_+u_−, w_−² and hence w_− (up to sign), u_±, v_± are determined; then x_1 = (u_+ + u_−)/(2κ_2), x_2 = (u_+ − u_−)/2, x_3 = (v_+ − v_−)/2."
+        "Knowing the ratios u_+/w_−, u_−/w_− and the product u_+u_−, w_−² and hence w_− (up to sign), u_±, v_± are determined; then x_1 = (u_+ + u_−)/(2κ_2), x_2 = (u_+ − u_−)/2, x_3 = (v_+ − v_−)/2.",
+        "Coefficients of the linear factors need not be integral. Choose one nonzero denominator δ ∈ 𝓞_K so that all δl_i have S-integral coefficients, and replace the right-hand side by δ^{deg F}β. Apply the divisor-representative and unit-equation arguments to these integral values; undoing this fixed scaling only changes the computable bound."
       ],
       "acceptance": [
         "The system x_1² − 2x_2² = 1, x_1² − 3x_3² = 4 over ℤ needs √(1/2), √(1/3) ∈ M, so one works in M = ℚ(√2, √3) with T = ∅.",
@@ -2401,7 +2533,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.6, proof of Proposition 3.12, pp. 13–14",
+          "locator": "§3.6, proof of Proposition 3.12, pp. 13–14 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry multiply the three quadratic forms to a decomposable form of degree 6 whose linear factors form a connected graph under three-term relations."
         }
       ],
@@ -2421,14 +2553,14 @@
         "heights bounded by A and B"
       ],
       "proofSteps": [
-        "Every solution satisfies F(x_1, x_2, x_3) = β := β_12β_13β_23 for the decomposable form F := (γ_1X_1² − γ_2X_2²)(γ_1X_1² − γ_3X_3²)(γ_2X_2² − γ_3X_3²), β_23 := β_13 − β_12, which splits into six linear forms over K; the graph joining two forms when a third is a K-combination of them is connected, and the forms have rank 3.",
-        "Győry–Yu (2006), Theorem 3, bounds the solutions of such decomposable form equations with the constant 375·c_1c_3 ≤ c_1(s, d).",
-        "As for thue-equation-over-s-integers-explicit, Győry–Yu was not read (gap 'Explicit S-unit and decomposable-form bounds of Győry–Yu'); pell-system-over-s-integers-effective is the effective statement without their constants."
+        "Put u_i = √(γ_i/γ₁)X_i. The six factors u₁±u₂, u₁±u₃, u₂±u₃ have rank three and a connected triangle graph: for example (u₁−u₂)+(u₂−u₃)=u₁−u₃; analogous triangles connect both signs. Multiply by a common denominator to make all factors integral and apply Győry–Yu Theorem 3 with nonzero product right-hand side β₁₂β₁₃(β₁₃−β₁₂), then undo the fixed scalar and square-root changes of coordinates.",
+        "Győry–Yu Theorem 3 and proof, pp. 15–16 and 34–37, give the explicit coordinate bound from the triangle S-unit estimates. The coefficient heights are bounded in terms of A and the right-hand-side height by 4B+log 2; recovering the original coordinates adds at most the square-root coefficient heights.",
+        "As for the Thue bound, the exact BEG constant is a verified source contract whose comparison still has the recorded A < 1 and rank-zero c₃ gap. The two explicit S-unit inputs are the independent-height-product bound and the exact finite-place Yu 2007 bound; neither is replaced by an unproved assertion about the Yu 1994 constant."
       ],
       "acceptance": [
         "The bound is the Thue bound without the factor n⁶ and with n replaced by 1 in nA.",
         "β_12 ≠ β_13 is essential, as in the effective version.",
-        "For K = ℚ(√2, √3), S = {∞}, γ = (1, 2, 3) the system x_1² − 2x_2² = β_12, x_1² − 3x_3² = β_13 has solutions bounded by this formula."
+        "For K = ℚ(√2, √3), S the four infinite places (s = 4), γ = (1, 2, 3) the system x_1² − 2x_2² = β_12, x_1² − 3x_3² = β_13 has solutions bounded by this formula."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.4/pell-system-over-s-integers-effective",
@@ -2440,12 +2572,12 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§3.6, Proposition 3.12 and its proof, pp. 13–14",
+          "locator": "§3.6, Proposition 3.12 and its proof, pp. 13–14 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry derive the explicit bound for the system from Győry–Yu's theorem on decomposable form equations with a connected graph of linear factors."
         },
         {
           "sourceId": "gyory-yu-2006",
-          "locator": "Theorem 3 (cited through BEG; not read)",
+          "locator": "Theorem 3",
           "match": "Győry–Yu's explicit bound for decomposable form equations."
         }
       ],
@@ -2459,7 +2591,7 @@
       ],
       "title": "The two factors of f(x) are almost coprime (BEG (4.9)–(4.10))",
       "kind": "lemma",
-      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. Put α := α_1, L := L_1, T := T_1, g := (X − α_2)⋯(X − α_n) ∈ L[X], and write [·] for fractional ideals of 𝓞_T. For every x ∈ 𝓞_S: (i) [x − α][1, α]^{−1} + [g(x)][g]^{−1} ⊇ [D(f)][f]^{−(2n−2)}; (ii) if f(x) = b·y^m with y ∈ 𝓞_S, then [b][f]^{−1}[y]^m = ([x − α][1, α]^{−1})·([g(x)][g]^{−1}). All four ideals [x − α][1, α]^{−1}, [g(x)][g]^{−1}, [α − α_i][1, α]^{−1}[1, α_i]^{−1} and [D(f)][f]^{−(2n−2)} are integral.",
+      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. Put α := α_1, L := L_1, T := T_1, g := (X − α_2)⋯(X − α_n) ∈ L[X], and write [·] for fractional ideals of 𝓞_T. For every x ∈ 𝓞_S: (i) [x − α][1, α]^{−1} + [g(x)][g]^{−1} ⊇ [D(f)][f]^{−(2n−2)}; (ii) if f(x) = b·y^m with y ∈ 𝓞_S, then [b][f]^{−1}[y]^m = ([x − α][1, α]^{−1})·([g(x)][g]^{−1}). All four ideals [x − α][1, α]^{−1}, [g(x)][g]^{−1}, [α − α_i][1, α]^{−1}[1, α_i]^{−1} and [D(f)][f]^{−(2n−2)} are integral. The third ideal in the integrality list lives over the splitting field; the other three and the inclusions (i),(ii) are defined over L.",
       "hypotheses": [
         "the setting of BEG §4 (stated)",
         "x ∈ 𝓞_S"
@@ -2468,7 +2600,7 @@
         "Over the splitting field: α − α_i = (x − α_i)·1 − (x − α)·1 gives [α − α_i] ⊆ [x − α_i][1, α] + [x − α][1, α_i]; dividing by [1, α][1, α_i], [x − α][1, α]^{−1} + [x − α_i][1, α_i]^{−1} ⊇ [α − α_i][1, α]^{−1}[1, α_i]^{−1}.",
         "Multiplying over i = 2, …, n and using 𝔞 + ∏𝔟_i ⊇ ∏(𝔞 + 𝔟_i): the left side of (i) contains ∏_{i≥2}[α − α_i][1, α]^{−1}[1, α_i]^{−1}, which contains ∏_j∏_{i≠j}[α_j − α_i][1, α_j]^{−1}[1, α_i]^{−1} = [D(f)][f]^{−(2n−2)} by Gauss's lemma [f] = [a_0]∏[1, α_j] (content-ideal-gauss-lemma) and D(f) = ±a_0^{2n−2}∏_{i≠j}(α_i − α_j) (Tau Ceti Polynomial.discr_prod_X_sub_C).",
         "(ii): f(x) = a_0(x − α)g(x) and [f] = [a_0][1, α][g].",
-        "All ideals are generated by elements of L, so the inclusion descends from the splitting field to 𝓞_T (extension of fractional ideals to an integral extension of Dedekind domains is injective)."
+        "The two normalized factors, their sum and product, and the discriminant/content ideal are defined over L. Their inclusion descends from the splitting field because extension of fractional ideals along the integral Dedekind extension is injective. Do not descend the individual pairwise root ideals, whose other root need not lie in L."
       ],
       "acceptance": [
         "For K = ℚ, S = ∅, f = X² − 1, α = 1: (i) says (x − 1) + (x + 1) ⊇ (4) = (D(f)), consistent with gcd(x − 1, x + 1) ∣ 2.",
@@ -2484,7 +2616,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Lemma 4.2(i), formulas (4.9)–(4.10), pp. 16–17",
+          "locator": "§4, proof of Lemma 4.2(i), formulas (4.9)–(4.10), pp. 16–17 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry show that the ideals generated by x − α and g(x), normalised by the content ideals, have a sum containing the discriminant over the content power, and express b·y^m as their product."
         }
       ],
@@ -2520,7 +2652,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, Lemma 4.2(i) and its proof, pp. 16–17",
+          "locator": "§4, Lemma 4.2(i) and its proof, pp. 16–17 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry show that the ideal generated by a_0(x − α) is an m-th power times an ideal dividing (a_0bD(f))^{m−1}."
         }
       ],
@@ -2560,7 +2692,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Lemma 4.2(ii), pp. 17–18",
+          "locator": "§4, proof of Lemma 4.2(ii), pp. 17–18 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry write a_0(x − α) as γ_1γ_2^{−1}ξ_1^m with γ_1, γ_2 generating ideals of small norm and then normalise by m-th powers of T-units."
         },
         {
@@ -2607,7 +2739,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, Lemma 4.2(ii) and its proof, formulas (4.11)–(4.15), pp. 17–18",
+          "locator": "§4, Lemma 4.2(ii) and its proof, formulas (4.11)–(4.15), pp. 17–18 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry bound the height of γ in x − α = γξ^m explicitly in terms of m, n, d, ĥ, D_K and Q_S."
         }
       ],
@@ -2644,7 +2776,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Theorem 2.1, formula (4.23), pp. 20–21",
+          "locator": "§4, proof of Theorem 2.1, formula (4.23), pp. 20–21 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry subtract the decompositions of x − α_1 and x − α_2 to get a Thue equation of degree m over the T-integers of M, with split binary form of nonzero discriminant."
         }
       ],
@@ -2681,7 +2813,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§4, proof of Theorem 2.2, formula (4.30), p. 22; Lemma 4.3(ii), p. 19",
+          "locator": "§4, proof of Theorem 2.2, formula (4.30), p. 22; Lemma 4.3(ii), p. 19 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry reduce the hyperelliptic equation to a system of two equations of Pell type over the T-integers of M, of degree at most 4n³ over K."
         },
         {
@@ -2732,7 +2864,7 @@
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§1, p. 2; §4, pp. 16–22",
+          "locator": "§1, p. 2; §4, pp. 16–22 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry recall Baker's effective theorem and Trelina's and Brindza's extensions to S-integers, and prove explicit versions."
         }
       ],
@@ -2754,7 +2886,7 @@
       "proofSteps": [
         "y = 0 is trivial. Otherwise superelliptic-power-decomposition-height-bound gives x − α_i = γ_iξ_i^m with h(γ_i) bounded, and superelliptic-reduction-to-thue-equation a Thue equation over the T-integers of M.",
         "thue-equation-over-s-integers-explicit (BEG Proposition 3.11 over M, with #T ≤ m²n²s, [M:ℚ] ≤ m²n²d, P_T ≤ Q_T ≤ Q_S^{m²n²}) bounds h(ξ_1); the class number and regulator of M are bounded through discriminant-of-kummer-compositum-bound (C := the bound for |D_M|) and class-number-and-regulator-bounds, and R_T through s-regulator (BEG (4.24)–(4.28)).",
-        "h(x) ≤ log 2 + h(α_1) + h(γ_1) + m·h(ξ_1) and h(y) ≤ m^{−1}(h(b) + h(f) + n·h(x)) (polynomial-height-versus-roots for h(α_1) ≤ ĥ + (n + 1)log 2) give (4.29); substituting C gives the bound."
+        "Recover h(x) from the root-field variable with the nonmonic root-height estimate. Bound y by factorization, not an evaluation inequality missing log(n+1): m h(y) ≤ h(a₀)+h(b)+Σh(x−α_i) ≤ 3ĥ+n h(x)+2n log 2. The remaining constants are absorbed in the stated BEG bound as in §4, (4.28)–(4.30)."
       ],
       "acceptance": [
         "For K = ℚ, S = ∅ (s = 1, d = 1, D_K = 1, Q_S = 1) the bound is (6n)^{14m³n³}·e^{8m²n³ĥ}, the bound recorded in DT.4/baker-superelliptic-theorem.",
@@ -2777,7 +2909,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§2, Theorem 2.1, p. 4; §4, proof of Theorem 2.1, formulas (4.23)–(4.29), pp. 20–22",
+          "locator": "§2, Theorem 2.1, p. 4; §4, proof of Theorem 2.1, formulas (4.23)–(4.29), pp. 20–22 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The explicit height bound for the solutions of the superelliptic equation f(x) = by^m over the S-integers for m ≥ 3, and its proof through a Thue equation over the auxiliary field M."
         }
       ],
@@ -2819,7 +2951,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§2, Theorem 2.2, p. 4; §4, proof of Theorem 2.2, formula (4.30), p. 22",
+          "locator": "§2, Theorem 2.2, p. 4; §4, proof of Theorem 2.2, formula (4.30), p. 22 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The explicit height bound for the solutions of the hyperelliptic equation over the S-integers, through a system of two Pell equations over the auxiliary field M."
         }
       ],
@@ -2841,8 +2973,9 @@
       "proofSteps": [
         "As in superelliptic-factor-coprimality, [x − α] = 𝔆_1𝔆_2^{−1}𝔄^m with integral 𝔆_1, 𝔆_2 ⊇ [a_0bD(f)] (using [1, α]^{−1} ⊇ [a_0]).",
         "Raising to r := h_{L_1}h_{L_2} makes all three ideals principal (principal-generators-of-class-group-powers): (x − α)^r = γ_1γ_2^{−1}λ^m with [γ_k] ⊇ [a_0bD(f)]^r.",
-        "small-representative-modulo-s-unit-powers gives T-units ε_k with h(ε_kγ_k) ≤ (r/d_L)log N_T(a_0bD(f)) + cR_L + (h_L/d_L)log Q_T; write ε_2ε_1^{−1} = ζε^m∏_jη_j^{b_j} with |b_j| ≤ m/2 (reduce exponents modulo m in the fundamental system) and put γ := ζ^{−1}ε_1γ_1/(ε_2γ_2), ξ := ελ.",
-        "Bound h_L, R_L, r by class-number-and-regulator-bounds and discriminant-of-root-field-bound (BEG (5.3)), log N_T(a_0bD(f))/d_L by discriminant-size-bound and log Q_T/d_L ≤ s·log* P_S; this gives C_2 (BEG (5.10))."
+        "small-representative-modulo-s-unit-powers gives T-units ε_k with h(ε_kγ_k) ≤ (r/d_L)log N_T(a_0bD(f)) + cR_L + (h_L/d_L)log Q_T; write ε_2ε_1^{−1} = ζε^m∏_jη_j^{b_j} with |b_j| ≤ m/2 (reduce exponents modulo m in the fundamental system) and put γ := ζε_1γ_1/(ε_2γ_2), ξ := ελ.",
+        "Bound h_L, R_L, r by class-number-and-regulator-bounds and discriminant-of-root-field-bound (BEG (5.3)), log N_T(a_0bD(f))/d_L by discriminant-size-bound and log Q_T/d_L ≤ s·log* P_S; this gives C_2 (BEG (5.10)).",
+        "For the product and individual-height bounds C₁ use Győry–Yu Lemma 2(i),(ii), p. 19: the individual bound uses the independent-height-product theorem on each complementary tuple. The coarser individual bound from the single Voutier cutoff alone does not justify the same numerical C₁."
       ],
       "acceptance": [
         "The exponent r = h_{L_1}h_{L_2} is the same for i = 1, 2, so the quotient (x − α_1)^r/(x − α_2)^r has a decomposition of the same shape.",
@@ -2858,13 +2991,19 @@
         "DiophantineApproximationAndTranscendence:DT.4/discriminant-of-root-field-bound",
         "DiophantineApproximationAndTranscendence:DT.4/discriminant-size-bound",
         "DiophantineApproximationAndTranscendence:DT.4/s-regulator",
-        "DiophantineApproximationAndTranscendence:DT.4/s-norm"
+        "DiophantineApproximationAndTranscendence:DT.4/s-norm",
+        "DiophantineApproximationAndTranscendence:DT.4/multiplicatively-independent-height-product-lower-bound"
       ],
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§5, formulas (5.1)–(5.6) and Lemma 5.1 with its proof, pp. 22–25",
+          "locator": "§5, formulas (5.1)–(5.6) and Lemma 5.1 with its proof, pp. 22–25 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry write a fixed power of x − α_i as a product of fundamental T_i-units with exponents at most m/2, an element of bounded height and an m-th power. (BEG print L_i = ℚ(α_i) at the start of §5; it must be K(α_i), see sourceIssues.)"
+        },
+        {
+          "sourceId": "gyory-yu-2006",
+          "locator": "Proposition 1 and Lemma 2, p. 19",
+          "match": "The refined independent-height estimates supply the stated numerical constants."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2877,7 +3016,7 @@
       ],
       "title": "Some place makes (x − α_1)/(x − α_2) very close to 1 (BEG (5.11)–(5.17))",
       "kind": "lemma",
-      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. Let L := K(α_1, α_2), d_L := [L:ℚ], T the places of L above S, t := #T, r := h_{L_1}h_{L_2}, and let x, y ∈ 𝓞_S with b·y^m = f(x), m ≥ 3, y ≠ 0 not a root of unity. Put X := max_i h(x − α_i) and number the roots so that X = h(x − α_2). Then (a) m ≤ 2d(log 3d)³·(nX + 2ĥ); (b) if X > h(α_2) (which holds when X ≥ C_3), there is v_0 ∈ T with |1 − (x − α_1)/(x − α_2)|_{v_0} ≤ exp((n + 1)s(v_0)·log 2 + d_L·h(f) − X·d_L/t), where s(v_0) is 1, 2 or 0 for a real, complex or finite place; (c) if moreover X ≥ C_3 := (10n²s)^{37ns}·|D_K|^{6n}·P_S^{n²}·e^{11nd·ĥ}, then |1 − ((x − α_1)/(x − α_2))^r|_{v_0} ≤ exp(−X·d_L/(2t)).",
+      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. Let L := K(α_1, α_2), d_L := [L:ℚ], T the places of L above S, t := #T, r := h_{L_1}h_{L_2}, and let x, y ∈ 𝓞_S with b·y^m = f(x), m ≥ 3, y ≠ 0 not a root of unity. Put X := max_i h(x − α_i) and number the roots so that X = h(x − α_2). Then (a) m ≤ 2d(log 3d)³·(nX + 2ĥ); (b) if X > h(α_2) (which holds when X ≥ C_3), there is v_0 ∈ T with |1 − (x − α_1)/(x − α_2)|_{v_0} ≤ exp((n + 1)s(v_0)·log 2 + d_L·h(f) − X·d_L/t), where s(v_0) is 1, 2 or 0 for a real, complex or finite place; (c) if moreover X ≥ C_3 := (10n²s)^{37ns}·|D_K|^{6n}·P_S^{n²}·e^{11nd·ĥ}, then |1 − ((x − α_1)/(x − α_2))^r|_{v_0} ≤ exp(−X·d_L/(2t)). In particular, if X ≥ C₃ ≥ 2ĥ/n, then m ≤ 4nd(log 3d)³ X, equivalently X ≥ m/(4nd(log 3d)³). The factor n is required in this consequence of (a).",
       "hypotheses": [
         "the setting of BEG §5",
         "y ≠ 0, not a root of unity, m ≥ 3"
@@ -2885,7 +3024,8 @@
       "proofSteps": [
         "(a): m·h(y) = h(f(x)/b) ≤ h(a_0) + h(b) + Σ_i h(x − α_i) ≤ 2ĥ + nX, and h(y) ≥ m(d) ≥ 1/(2d(log 3d)³) by voutier-height-lower-bound (y ∈ K has degree ≤ d).",
         "(b): if |x − α_2|_v ≤ 1 for all v ∈ T then X ≤ h(α_2), excluded by hypothesis (and h(α_2) ≤ ĥ + (n + 1)log 2 by polynomial-height-versus-roots, so X ≥ C_3 suffices); otherwise choose v_0 ∈ T maximising |x − α_2|_v. Since x is an S-integer, X ≤ d_L^{−1}·log(|x − α_2|_{v_0}^t·∏_{v∉T}max(1, |α_2|_v)), so |x − α_2|_{v_0} is large, and 1 − (x − α_1)/(x − α_2) = (α_1 − α_2)/(x − α_2) with |α_1 − α_2|_{v_0}·∏_{v∉T}max(1, |α_2|_v)^{1/t} ≤ 2^{(n+1)s(v_0)}·exp(d_L·h(f)).",
-        "(c): for |1 − z|_v < 1 one has |1 − z^r|_v ≤ 2^{r·s(v)}|1 − z|_v (factor z^r − 1 = (z − 1)(z^{r−1} + ⋯ + 1)); with r bounded through class-number-and-regulator-bounds and X ≥ C_3 the error terms are absorbed, giving (5.17)."
+        "(c): for |1 − z|_v < 1 one has |1 − z^r|_v ≤ 2^{r·s(v)}|1 − z|_v (factor z^r − 1 = (z − 1)(z^{r−1} + ⋯ + 1)); with r bounded through class-number-and-regulator-bounds and X ≥ C_3 the error terms are absorbed, giving (5.17).",
+        "Since C₃ ≥ 2ĥ/n, (a) gives m ≤ 4nd(log 3d)³X. Keep this factor n in the height estimate for ξ₁/ξ₂; the stronger printed (5.12) does not follow from the preceding estimate. For part (c), use the correct compositum bounds d_L ≤ n(n−1)d and t ≤ n²s. After multiplying the error exponent by t/d_L, it is at most n²sH + 2n²s(r+n+1)log 2. The displayed C₃ dominates twice this quantity using the recorded bound for r, so the upper bound exp(−Xd_L/(2t)) follows. Do not use BEG’s root-field bounds nd, ns for this two-root compositum."
       ],
       "acceptance": [
         "For K = ℚ, S = ∅ the place v_0 is an archimedean place of L.",
@@ -2903,7 +3043,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§5, Completion of the proof of Theorem 2.3, formulas (5.11)–(5.17), pp. 25–27",
+          "locator": "§5, Completion of the proof of Theorem 2.3, formulas (5.11)–(5.17), pp. 25–27 (arXiv v1 pagination; published pagination adds 726).",
           "match": "Bérczes–Evertse–Győry show that if the exponent is large then x − α_2 is large at some place of T, so that the quotient (x − α_1)/(x − α_2) and its r-th power are exponentially close to 1 there."
         }
       ],
@@ -2917,16 +3057,20 @@
       ],
       "title": "Bérczes–Evertse–Győry's Schinzel–Tijdeman theorem over S-integers (Theorem 2.3, corrected constant)",
       "kind": "theorem",
-      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. If f(x) = b·y^m has a solution x, y ∈ 𝓞_S with y neither 0 nor a root of unity, then m is bounded by an explicit function of n, s, d, |D_K|, P_S and ĥ. BEG state m ≤ (10n²s)^{40ns}·|D_K|^{6n}·P_S^{n²}·e^{11nd·ĥ}; their estimate (5.19) omits the factor h_{L_1}h_{L_2} (sourceIssues), and restoring it, the same computation gives m ≤ (10n²s)^{46ns}·|D_K|^{8n}·P_S^{n²}·e^{15nd·ĥ}. For K = ℚ, S = ∅ this reads m ≤ (10n²)^{46n}·e^{15n·ĥ}, which corrects the explicit bound recorded in DT.4/schinzel-tijdeman-theorem.",
+      "statement": "Let K be a number field of degree d and discriminant D_K, S a finite set of nonzero primes of 𝓞_K (BEG's S also contains the infinite places; s := #S + #(infinite places)), 𝓞_S the S-integers, f = a_0X^n + ⋯ + a_n ∈ 𝓞_S[X] of degree n ≥ 2 with D(f) ≠ 0, b ∈ 𝓞_S ∖ {0}, m ≥ 2, ĥ := ĥ(b, f) (coefficient-height-of-polynomial), and f = a_0(X − α_1)⋯(X − α_n) over a splitting field; L_i := K(α_i) and T_i the primes of L_i above S. If f(x) = b·y^m has a solution x, y ∈ 𝓞_S with y neither 0 nor a root of unity, then m is bounded by an explicit function of n, s, d, |D_K|, P_S and ĥ. BEG state m ≤ (10n²s)^{40ns}·|D_K|^{6n}·P_S^{n²}·e^{11nd·ĥ}; their estimate (5.19) omits the factor h_{L_1}h_{L_2} (sourceIssues), and restoring it and correcting the degree factor and infinite-place normalization, the calculation below gives m ≤ (10n²s)^{46ns}·|D_K|^{8n}·P_S^{n²}·e^{15nd·ĥ}. For K = ℚ, S = ∅ this reads m ≤ (10n²)^{46n}·e^{15n·ĥ}, which corrects the explicit bound recorded in DT.4/schinzel-tijdeman-theorem.",
       "hypotheses": [
         "the setting of BEG §5",
         "a solution with y ≠ 0 not a root of unity"
       ],
       "proofSteps": [
-        "m ≤ 2 is trivial; assume m ≥ 3 and m larger than the bound, so that X ≥ C_3 (large-place-estimate-for-variable-exponent (a)), and let v_0 be the place of part (b).",
-        "superelliptic-variable-exponent-decomposition gives ((x − α_1)/(x − α_2))^r = (γ_1/γ_2)·∏η_{1j}^{b_1j}·∏η_{2j}^{−b_2j}·(ξ_1/ξ_2)^m with r = h_{L_1}h_{L_2}, a product of t_1 + t_2 factors with exponents at most m.",
-        "baker-bound-at-a-place (n = t_1 + t_2 terms, d_L ≤ 2n(n − 1)s, N(v_0) ≤ P_S^{n(n−1)}, B = m) bounds |1 − (…)^r|_{v_0} below by exp(−c_1(t_1 + t_2, d_L)·N(v_0)·Θ·log m); here Θ = max(h(ξ_1/ξ_2), m(d))·max(h(γ_1/γ_2), m(d))·∏h(η_{1j})∏h(η_{2j}) and, from the decomposition, h(ξ_1/ξ_2) ≤ (2/m)(rX + C_2) + ½(t_1 + t_2 − 2)C_1 (BEG print X in place of rX).",
-        "Comparing with the upper bound exp(−X·d_L/(2t)) of large-place-estimate-for-variable-exponent (c) and dividing by X gives m/log m ≤ 2n²s·r·C_4C_5·P_S^{n(n−1)}, with r ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n}, C_4, C_5 as in BEG (5.20)–(5.21); the inequalities (log X)^B ≤ (B/2ε)^B X^ε and X + 1 ≤ (e^{c−1}/c)e^{cX} give the stated bound."
+        "Write H = ĥ, D = |D_K|, P = P_S, L = log*P, k = ns ≥ 2 and A = 10n²s ≥ 40. Put M = A^{46k}D^{8n}P^{n²}exp(15ndH). Assume m > M. The inequality m ≤ 2d(log(3d))³(nX+2H) gives X ≥ C₃ and hence X ≥ 2C₂. It also gives m ≤ 4nd(log(3d))³X. Indeed M/(4nd(log(3d))³) ≥ C₃ follows from d ≤ 2s and the factor A^{9k}D^{2n}exp(4ndH).",
+        "Set z = (x−α₁)/(x−α₂) and r = h_{L₁}h_{L₂}. The Baker form 1−z^r is nonzero: otherwise z is a root of unity, and z ≠ 1 since α₁ ≠ α₂. Then h(1−z) ≤ log 2 and x−α₂ = (α₂−α₁)/(1−z) imply X ≤ h(α₁)+h(α₂)+log 4 ≤ h(f)+(n+2)log 2 < C₃, a contradiction.",
+        "The decomposition gives h(ξ₁/ξ₂) ≤ 2(rX+C₂)/m + ½(t₁+t₂−2)C₁. Here r ≤ r₀ = (2n³s)^{4k}D^{2n}exp(4ndH). Since t_i ≤ ns and d ≤ 2s, h(ξ₁/ξ₂) ≤ [2r+1+8n²s²(log(6s))³C₁]X/m ≤ r·4^{k+2}C₁X/m. For the last comparison, log(6s)³ ≤ 6s², and 3+48n²s⁴ ≤ 4^{ns+2}; verify the latter at n=2,s=1 and increase n and s, using their exponential growth. This retains the n lost in printed (5.12).",
+        "Use m(d_L), with d_L = [K(α₁,α₂):ℚ], as the height floor in Proposition 3.10. The previous bound is also at least this floor (m(d_L) ≤ 1 and C₁ is large enough after X/m ≥ 1/(4nd(log(3d))³)). Each fundamental unit has h(η_ij) ≥ m(d_L), by its own field’s degree bound; therefore their product contributes at most C₁². Also max(h(γ₁/γ₂),m(d_L)) ≤ 2C₂. Thus Θ ≤ r C₄X/m, where C₄ = 2·10⁷(4^{10}n^{45}s^{18})^kD^{5n}exp(10ndH)(H+1)L^{3k−2}. Substitution of C₁,C₂ gives the stated coefficient: the remaining ratio is at most 2764.8/4^{3k} ≤ 1.",
+        "The Baker coefficient is at most C₅ = (32en²s)^{6k+3}, since d_L ≤ 2n²s and t₁+t₂ ≤ 2ns. At every place, N(v)/log N(v) ≤ 3P^{n(n−1)}: for an infinite place it is 2/log 2 < 3, while a finite place lies above S and has norm at most P^{[L:K]}. Comparison with the upper bound exp(−Xd_L/(2t)) gives m/log m ≤ 6n²s·r C₄C₅P^{n(n−1)}, using t ≤ n²s. This covers P = 1 as well as finite S.",
+        "Bound the numerical part of C₄ by A^{(45/2)k}, C₅ by A^{(8/5)(6k+3)}, and 6n²s by A. The first comparison follows from s^{18} ≤ s^{22.5} and 2·10⁷(4^{10}/10^{22.5})^k ≤ 1. For the second use 32e/10 < 40^{3/5}. Their exponent sum 32.1k+5.8 is at most 35k for k ≥ 2. Also (2n³s)^{4k} ≤ A^{6k}. Consequently m/log m ≤ Q := A^{41k}D^{7n}P^{n²−n}exp(14ndH)(H+1)L^{3k−2}.",
+        "To remove the remaining logarithmic factors, H+1 ≤ exp(ndH/2) and L^{3k−2} ≤ A^{3k}P^{n/2}. For P ≥ e, maximize u^{3k−2}exp(−nu/2) at u=2(3k−2)/n; its value is at most (6s)^{3k} ≤ A^{3k}. For 1 ≤ P ≤ e, L=1 makes the same estimate immediate. Hence M/Q ≥ A^{2k}D^nP^{n/2}exp(ndH/2).",
+        "Finally log M = 46k log A + 8n log D + n² log P + 15ndH. Each term is at most one quarter of A^{2k}D^nP^{n/2}exp(ndH/2): use 46k log A ≤ A^{2k}/4; 8n log D ≤ (8/e)D^n; n² log P ≤ (2n/e)P^{n/2}; and 15ndH ≤ (30/e)exp(ndH/2), with A ≥ 40,k ≥ 2. Therefore Q ≤ M/log M. Since t/log t is strictly increasing for t > e, m > M contradicts m/log m ≤ Q. This proves the corrected constant, conditional on the explicitly recorded source-input gaps, without invoking an unspecified final absorption."
       ],
       "acceptance": [
         "For K = ℚ, S = ∅, f = T² + 1, b = 1: every solution of X^p = Y² + 1 with X ≥ 2 has p ≤ (40)^{92} by the corrected bound (BEG's printed constant gives 40^{80}).",
@@ -2947,7 +3091,7 @@
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§2, Theorem 2.3, p. 4; §5, proof of Theorem 2.3, formulas (5.18)–(5.21) and the final estimate, pp. 27–29",
+          "locator": "§2, Theorem 2.3, p. 4; §5, proof of Theorem 2.3, formulas (5.18)–(5.21) and the final estimate, pp. 27–29 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The explicit Schinzel–Tijdeman bound for the exponent of a solvable superelliptic equation over the S-integers, by comparing a Baker-type lower bound at a place with the upper bound from the large place."
         },
         {
@@ -2971,9 +3115,9 @@
         "the setting of BEG §5"
       ],
       "proofSteps": [
-        "Repeat the proof of beg-schinzel-tijdeman-bound with the actual class numbers h_{L_i}, the actual heights of a chosen fundamental system of T_i-units in place of C_1, and the elementary representative bound of small-representative-modulo-s-unit-powers in place of C_2.",
-        "The analytic bounds of class-number-and-regulator-bounds and the Győry–Yu constants are then not needed; only baker-bound-at-a-place (Matveev at infinite places, Yu at finite places), voutier-height-lower-bound (only the case d = 1 for K = ℚ) and the elementary height estimates enter.",
-        "For K = ℚ, S = ∅ this proves the effective content of DT.4/schinzel-tijdeman-theorem from Matveev's bound alone, since then T_i consists of infinite places."
+        "Repeat the structural ideal and unit-exponent reductions of Lemma 5.1 using computed class numbers and a chosen fundamental system, not its closed constants C₁,C₂. The generic covering bound gives a computable height bound for γ_i independent of m; the finitely many unit heights and the class-number product give the other fixed constants.",
+        "Use the elementary height estimate m h(y) ≤ nX+2ĥ and a positive computable lower cutoff for non-root-of-unity heights in the fixed fields. Voutier gives one such cutoff in every field involved, including auxiliary root fields of degree greater than one over a rational base; alternatively the coefficient-enumeration proof of Northcott below fixed multiplicative height 2 yields a field-specific positive minimum. That proof enumerates bounded-degree minimal polynomials with bounded integer coefficients; approximate the finitely many positive non-torsion logarithmic heights from below to obtain a certified positive cutoff.",
+        "At the large place use the Matveev comparison at infinity and the Yu 1994 adapter at finite places, with their actual constants. The same comparison gives m/log m bounded by a computable constant, and therefore a computable bound for m. Thus no analytic class-number bound or refined Győry–Yu closed constant is required. Over ℤ the logarithmic-form input is archimedean, alongside these height and unit-arithmetic inputs."
       ],
       "acceptance": [
         "For K = ℚ, S = ∅, f = T² − 1, b = 1 it bounds q in Y^q = X² − 1 (used by catalan-exponent-two-cases).",
@@ -2986,12 +3130,14 @@
         "DiophantineApproximationAndTranscendence:DT.4/baker-bound-at-a-place",
         "DiophantineApproximationAndTranscendence:DT.4/small-representative-modulo-s-unit-powers",
         "DiophantineApproximationAndTranscendence:DT.4/s-unit-rank",
-        "DiophantineApproximationAndTranscendence:DT.4/voutier-height-lower-bound"
+        "DiophantineApproximationAndTranscendence:DT.4/voutier-height-lower-bound",
+        "DiophantineApproximationAndTranscendence:DT.4/yu-bound-in-a-number-field",
+        "DiophantineApproximationAndTranscendence:DT.0/northcott-absolute-height"
       ],
       "sources": [
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
-          "locator": "§5, pp. 22–29",
+          "locator": "§5, pp. 22–29 (arXiv v1 pagination; published pagination adds 726).",
           "match": "The proof of Theorem 2.3, whose structure does not depend on the analytic bounds for class numbers and regulators except through the final explicit constant."
         },
         {
@@ -3001,6 +3147,46 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence:DT.4/multiplicatively-independent-height-product-lower-bound",
+      "parentStageId": "DiophantineApproximationAndTranscendence:DT.4",
+      "realises": [
+        "DiophantineApproximationAndTranscendence:DT.4"
+      ],
+      "title": "Loher–Masser lower bound for a product of independent heights",
+      "kind": "theorem",
+      "statement": "Let K have degree d and ω_K roots of unity. For n ≥ 1 and multiplicatively independent α₁,…,α_n ∈ Kˣ, 58(n!e^n/n^n)d^{n+1}log d · ∏h(α_i) ≥ ω_K if d ≥ 2. For d = 1 replace 58d^{n+1}log d by 17. Independence means that ∏α_i^{e_i} = 1 implies every integer e_i = 0.",
+      "hypotheses": [
+        "K a number field",
+        "n ≥ 1; the α_i are multiplicatively independent nonzero elements"
+      ],
+      "proofSteps": [
+        "Use Loher–Masser’s saturation lattice M of rational exponent vectors whose products are roots of unity times elements of K. Its covolume is 1/[M:ℤ^n]. Blichfeldt’s theorem applied to Σh(α_i)|x_i| < log H, whose volume is 2^n(log H)^n/(n!∏h(α_i)), produces enough distinct products in a shifted bounded-height set. Independence makes them distinct modulo the ω_K roots of unity.",
+        "Apply their shifted-height counting estimate (4.6), retaining both terms (d log d)(B′H^d+4CH^{2d}). Choose H = exp(n/(2d)); Lemma 5(e) gives B′/√e+4C < 58. The real-embedding estimate is stronger, and the rational case has counting bound 17H². Thus Theorem 3 yields ω_K[M:ℤ^n] ≤ 58(n!e^n/n^n)d^{n+1}log d∏h(α_i), or the stated rational variant. Drop the index, which is at least one, to obtain Győry–Yu Proposition 1. The shifted counting estimate, its numerical bound and the Blichfeldt/saturation argument remain a recorded gap; ordinary Northcott finiteness does not provide them."
+      ],
+      "acceptance": [
+        "For n = 1 and K = ℚ, 17e·log 2 ≥ 2 is consistent with α = 2 and ω_ℚ = 2.",
+        "A root of unity cannot occur in an independent family, so the left-hand side is positive.",
+        "The d = 1 exception is necessary: retaining log d would give a zero left-hand side."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.0/northcott-absolute-height"
+      ],
+      "sources": [
+        {
+          "sourceId": "loher-masser-2004",
+          "locator": "Theorem 3, p. 280; §5, proof, pp. 293–294; Theorem 1 for the counting constant",
+          "match": "Quantitative height counting supplies a lower bound for a product of heights of multiplicatively independent elements."
+        },
+        {
+          "sourceId": "gyory-yu-2006",
+          "locator": "Proposition 1 and inequality (18), p. 19",
+          "match": "The explicit constants 58 and 17 in the form used for independent unit systems."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DiophantineApproximationAndTranscendence--DT.4"
     }
   ],
   "requests": [
@@ -3013,10 +3199,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
-      "need": "Layer 5.10: v_𝔭(relDiscr(𝓞_K, 𝓞_L)) = Σ_{P∣𝔭} f(P|𝔭)·v_P(differentIdeal(𝓞_K, 𝓞_L)).",
+      "need": "No new planning request: NumberFieldArithmetic Layer 5.10 is now supplied in current Tau Ceti by TauCeti.multiplicity_relDiscr (TauCeti/RingTheory/DedekindDomain/Discriminant/Valuation.lean, current checkout a91d3aa). For a nonzero maximal p and nonzero differentIdeal, it gives multiplicity p (relDiscr A B) = Σ_{P over p} inertiaDeg(P/A)·multiplicity P (differentIdeal A B). This declaration postdates the pinned f790474 baseline; keep the existing roadmap-layer prerequisite at the pin and cite the landed declaration at upstream assembly.",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.4/relative-discriminant-exponent-bound"
-      ]
+      ],
+      "status": "supplied-current"
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
@@ -3032,12 +3219,12 @@
       "status": "planned",
       "remaining": [
         "Decompose the analytic inputs of class-number-and-regulator-bounds (Friedman, Louboutin) once a roadmap of tier ≤ 4 owns Dedekind zeta residue estimates, or move AN.4/louboutin-dedekind-residue-upper down (gap).",
-        "Read Győry–Yu (2006) for the explicit constants of thue-equation-over-s-integers-explicit and pell-system-over-s-integers-explicit (gap; source not freely available).",
         "Plan Yu's 2007 p-adic theorem in DT.3, or restate baker-bound-at-a-place at finite places with the Yu 1994 constant (gap).",
-        "Recompute BEG's final constants of Theorem 2.3 in full after the correction of (5.19) (sourceIssues E701); the corrected exponents given here follow BEG's absorption steps.",
-        "Assembly: the main-packet nodes DT.4/baker-superelliptic-theorem, DT.4/schinzel-tijdeman-theorem, DT.4/tijdeman-catalan-bound, DT.4/gyory-effective-finiteness, DT.4/exponent-height-bound-for-finitely-generated-groups and DT.4/s-integral-divisor-representation should take the corresponding nodes of this part as prerequisites (handoff note), and the explicit constant of DT.4/schinzel-tijdeman-theorem should be corrected to (10N²)^{46N}e^{15Nĥ}."
+        "Assembly: the main-packet nodes DT.4/baker-superelliptic-theorem, DT.4/schinzel-tijdeman-theorem, DT.4/tijdeman-catalan-bound, DT.4/gyory-effective-finiteness, DT.4/exponent-height-bound-for-finitely-generated-groups and DT.4/s-integral-divisor-representation should take the corresponding nodes of this part as prerequisites (handoff note), and the explicit constant of DT.4/schinzel-tijdeman-theorem should be corrected to (10N²)^{46N}e^{15Nĥ}.",
+        "Resolve the exact low-height and rank-zero constant comparison in BEG Propositions 3.11–3.12, as described in the gap.",
+        "Supply the quantitative independent-height-product input and the local compositum-different derivative bridge described in the gaps."
       ],
-      "notes": "Every target of the remaining list of the first pass is now a node: BEG §§3–5 (Theorems 2.1–2.3 and their lemmas), Tijdeman's Catalan theorem, the Yu adapter, the S-unit and class-group interfaces and the superelliptic ideal-power and height estimates. Effective statements close on DT.3 (Matveev, Yu 1994), DT.2 and the libraries; the explicit BEG constants rest on the recorded gaps."
+      "notes": "All targets of this follow-up have statements and direct dependency chains terminating in pinned libraries, verified lower-tier supplier contracts, three precise NumberFieldArithmetic supplier records, one already implemented in current Tau Ceti, or explicitly recorded gaps. This is a complete reviewable planning pass, not a claim that every explicit constant has a closed formal proof. The corrected Schinzel–Tijdeman constant is recomputed here conditional on its stated source-input gaps."
     }
   ],
   "gaps": [
@@ -3049,26 +3236,26 @@
       "detail": "BEG Lemma 3.5: Friedman's R_K ≥ 0.2 (Invent. Math. 98 (1989)) and Louboutin's bound h_KR_K ≤ |D_K|^{1/2}(log*|D_K|)^{d−1} (J. Number Theory 85 (2000)) are analytic (Dedekind zeta residues and explicit formulae) and are not decomposed. Louboutin's residue bound is planned at AnalyticNumberTheory:AN.4/louboutin-dedekind-residue-upper, a roadmap of a higher upstream tier, so it cannot be cited from DT.4 (WORKERS.md, Upstream tiers); Friedman's bound has no planned owner. Only the explicit constants of the BEG theorems depend on this gap: the effective theorems of this part use computed class numbers and fundamental units instead."
     },
     {
-      "title": "Explicit S-unit and decomposable-form bounds of Győry–Yu",
+      "title": "Exact Győry–Yu-to-BEG constant comparison at low height and unit rank zero",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.4/thue-equation-over-s-integers-explicit",
         "DiophantineApproximationAndTranscendence:DT.4/pell-system-over-s-integers-explicit"
       ],
-      "detail": "BEG Propositions 3.11 and 3.12 are quoted from Győry–Yu, Acta Arith. 123 (2006) 9–41, Corollary 3 and Theorem 3, whose proofs (explicit S-unit equation bounds with Matveev and Yu 2007) were not read: the paper is not freely available. The effective counterparts thue-equation-over-s-integers-effective and pell-system-over-s-integers-effective are closed from DT.4/gyory-effective-finiteness."
+      "detail": "Győry–Yu (2006) is publicly available and Theorem 3, Corollary 3 and their proofs have now been read. Their A ≥ 1 floor is absent from BEG Propositions 3.11–3.12, and c₃ = 0 at unit rank zero prevents the printed simple comparison by c₁c₃. The connected-forms reduction and denominator clearing are supplied here. A precise numerical absorption from max(1,A), max(1,c₃) to BEG’s displayed coefficient remains to be proved; preserve the BEG source contracts with this gap, rather than claiming their smaller coefficients were derived. Exact S-unit constants also inherit Yu 2007 and the quantitative independent-height gap."
     },
     {
       "title": "Yu 2007 constant at finite places",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.4/baker-bound-at-a-place"
       ],
-      "detail": "At a finite place BEG Proposition 3.10 uses Yu's 2007 theorem (Forum Math. 19 (2007) 187–280, main theorem p. 190), which DT.3 does not plan (it plans Yu 1994, DT.3/yu-explicit-p-adic-bound). yu-bound-in-a-number-field gives a bound of the same shape with a different constant; the stated constant c_1(n, d) at finite places, and hence BEG Theorem 2.3 for S with finite places, rests on this gap. For S = ∅ (equations over ℤ or over rings of integers) only infinite places occur and Matveev suffices."
+      "detail": "At a finite place BEG Proposition 3.10 uses Yu's 2007 theorem (Forum Math. 19 (2007) 187–280, main theorem p. 190), which DT.3 does not plan (it plans Yu 1994, DT.3/yu-explicit-p-adic-bound). yu-bound-in-a-number-field gives a bound of the same shape with a different constant; the stated constant c_1(n, d) at finite places, and hence BEG Theorem 2.3 for S with finite places, rests on this gap. For S = ∅ (equations over ℤ or over rings of integers) only infinite places occur; Matveev supplies the logarithmic-form input, alongside the separate height and unit-arithmetic inputs."
     },
     {
       "title": "Voutier's height lower bound",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.4/voutier-height-lower-bound"
       ],
-      "detail": "Voutier's Corollary 2 (h(α) > 2/(d(log 3d)³) for d ≥ 2) rests on his determinant (Cantor–Straus) argument for d ≥ 22, Smyth's theorem for non-reciprocal α and Boyd's computations for d ≤ 20; none is decomposed. Only d = 1 (trivial) is used for equations over ℤ."
+      "detail": "Voutier's Corollary 2 (h(α) > 2/(d(log 3d)³) for d ≥ 2) rests on his determinant (Cantor–Straus) argument for d ≥ 22, Smyth's theorem for non-reciprocal α and Boyd's computations for d ≤ 20; none is decomposed. Even over ℤ, the auxiliary root fields L_i can have degree greater than one and need their own cutoff. Effective bounds can instead use computed field-specific positive height minima; the closed constants require the stated Voutier estimate."
     },
     {
       "title": "Lewis–Mahler discriminant bound",
@@ -3083,6 +3270,20 @@
         "DiophantineApproximationAndTranscendence:DT.4/lcm-of-first-integers-bound"
       ],
       "detail": "u(m) = lcm(1, …, m) ≤ 4^m needs π(x) < 1.25506x/log x (Rosser–Schoenfeld 1962, Corollary 1), which is not planned in a roadmap of tier ≤ 4. Mathlib's Chebyshev.pi_le_log4_mul_div gives the weaker u(m) ≤ 16^m·m^{√m}, enough for all effective statements."
+    },
+    {
+      "title": "Quantitative independent-height product",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.4/multiplicatively-independent-height-product-lower-bound"
+      ],
+      "detail": "Loher–Masser Theorem 3 and Győry–Yu Proposition 1 were read. The missing input is the shifted-height counting estimate (4.6), its numerical Lemma 5(e) giving 58 after H = exp(n/(2d)) (rational counting bound 17H²), and the Blichfeldt/saturation-lattice argument on pp. 293–294. Ordinary Northcott finiteness alone does not yield these quantitative constants. This key node supplies the exact small-representative and variable-exponent unit estimates."
+    },
+    {
+      "title": "Local primitive-element derivative bridge for the compositum different",
+      "neededBy": [
+        "DiophantineApproximationAndTranscendence:DT.4/relative-discriminant-of-compositum"
+      ],
+      "detail": "Stark (1974), Lemma 6, p. 143, chooses an integral primitive element whose minimal-polynomial derivative attains the different order at a selected prime, then compares the factor minimal polynomial after base change. This local choice and derivative/different divisibility are not provided by the cited NumberFieldArithmetic statements. Plan them in NumberFieldArithmetic’s different direction or supply a precise local supplier; the norm/tower deduction is already given here."
     }
   ],
   "sourceIssues": [
@@ -3090,22 +3291,27 @@
       "id": "DiophantineApproximationAndTranscendence/E701",
       "source": "berczes-evertse-gyory-superelliptic-2013",
       "kind": "error",
-      "locator": "§5, completion of the proof of Theorem 2.3, estimate (5.19), p. 28 (arXiv v1)",
+      "locator": "§5, completion of the proof of Theorem 2.3, estimate (5.19), p. 28 (arXiv v1); also present in the published version (pagination adds 726).",
       "printed": "The height of ξ_1/ξ_2 is bounded by (2/m)(X + C_2) + ½(t_1 + t_2 − 2)C_1, with X = max_i h(x − α_i).",
-      "correction": "h(ξ_1/ξ_2) ≤ (2/m)(h_{L_1}h_{L_2}·X + C_2) + ½(t_1 + t_2 − 2)C_1. The extra factor r = h_{L_1}h_{L_2} ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n} then multiplies C_4 in (5.20), and BEG's final computation gives m ≤ (10n²s)^{46ns}|D_K|^{8n}P_S^{n²}e^{15ndĥ} instead of the printed (2.7).",
+      "correction": "h(ξ_1/ξ_2) ≤ (2/m)(h_{L_1}h_{L_2}·X + C_2) + ½(t_1 + t_2 − 2)C_1. The extra factor r = h_{L_1}h_{L_2} ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n} multiplies C₄ in (5.20). After also retaining the factor n from (5.12), using N(v)/log N(v) ≤ 3P_S^{n(n−1)}, and the full absorption proved in beg-schinzel-tijdeman-bound, this gives m ≤ (10n²s)^{46ns}|D_K|^{8n}P_S^{n²}e^{15ndĥ} instead of the printed (2.7).",
       "reason": "Lemma 5.1 decomposes (x − α_i)^{h_{L_1}h_{L_2}}, not x − α_i; so m·h(ξ_i) ≤ h_{L_1}h_{L_2}·h(x − α_i) + h(γ_i) + Σ_j|b_ij|h(η_ij), and the first term carries the class-number factor. Already for K = ℚ, S = ∅ the fields L_i = ℚ(α_i) can have class number > 1.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "arXiv abstract page of 1301.7168 (only v1, no replacement)",
         "Evertse's publication list, pub.math.leidenuniv.nl/~evertsejh/publications.shtml (lists the paper; no erratum or correction)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4",
+        "reason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E702",
       "source": "berczes-evertse-gyory-superelliptic-2013",
       "kind": "misprint",
-      "locator": "§5, first paragraph, p. 22 (arXiv v1)",
+      "locator": "§5, first paragraph, p. 22 (arXiv v1); also present in the published version (pagination adds 726).",
       "printed": "The fields of the roots are introduced as L_i = ℚ(α_i).",
       "correction": "L_i = K(α_i), as in §4.",
       "reason": "T_i is defined as the set of places of L_i above the places of S, which requires K ⊆ L_i; the degree bound d_{L_i} ≤ nd used in (5.3) is that of K(α_i).",
@@ -3113,13 +3319,18 @@
       "known": "new",
       "searched": [
         "arXiv abstract page of 1301.7168 (only v1)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4",
+        "reason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E703",
       "source": "berczes-evertse-gyory-superelliptic-2013",
       "kind": "misprint",
-      "locator": "§3.1, Lemma 3.4, p. 7 (arXiv v1)",
+      "locator": "§3.1, Lemma 3.4, p. 7 (arXiv v1); also present in the published version (pagination adds 726).",
       "printed": "The exponent of the Kummer extension is taken in ℤ_{≥0}.",
       "correction": "m ≥ 1 (in the applications m ≥ 2).",
       "reason": "For m = 0 neither γ^{1/m} nor the congruence modulo m makes sense.",
@@ -3127,13 +3338,18 @@
       "known": "new",
       "searched": [
         "arXiv abstract page of 1301.7168 (only v1)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4",
+        "reason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E704",
       "source": "berczes-evertse-gyory-superelliptic-2013",
       "kind": "misprint",
-      "locator": "§5, Lemma 5.1, p. 23 (arXiv v1)",
+      "locator": "§5, Lemma 5.1, p. 23 (arXiv v1); also present in the published version (pagination adds 726).",
       "printed": "The lemma provides integers b_{i1}, …, b_{i,t_i}.",
       "correction": "b_{i1}, …, b_{i,t_i−1}, one for each element of the fundamental system η_{i1}, …, η_{i,t_i−1}, as in formula (5.8).",
       "reason": "A fundamental system of T_i-units has t_i − 1 elements; (5.8) uses exactly these exponents.",
@@ -3141,7 +3357,12 @@
       "known": "new",
       "searched": [
         "arXiv abstract page of 1301.7168 (only v1)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4",
+        "reason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E705",
@@ -3156,7 +3377,69 @@
       "searched": [
         "the paper itself (no erratum in Acta Arith. 29–31 tables of contents)",
         "Evertse's lecture notes, Chapter 5 (reports the result only)"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4",
+        "reason": "The omitted mirror case is routine and does not invalidate Tijdeman’s assertion. The reviewed proof supplies both its three-logarithm comparison and its distinct two-logarithm normalization; this is a roadmap proof expansion, not a source error."
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E706",
+      "source": "berczes-evertse-gyory-superelliptic-2013",
+      "kind": "error",
+      "locator": "§5, (5.12), arXiv p. 25; published p. 751",
+      "printed": "The lower estimate for X uses m/(4d(log 3d)³).",
+      "correction": "Retain n: X ≥ m/(4nd(log 3d)³) once X ≥ 2ĥ/n.",
+      "reason": "The preceding bound is m ≤ 2d(log 3d)³(nX+2ĥ); replacing 2ĥ by nX leaves 4nd(log 3d)³X, not 4d(log 3d)³X.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding bound is m ≤ 2d(log 3d)³(nX+2ĥ); replacing 2ĥ by nX leaves 4nd(log 3d)³X, not 4d(log 3d)³X.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E707",
+      "source": "berczes-evertse-gyory-superelliptic-2013",
+      "kind": "error",
+      "locator": "§3.6, proofs of Propositions 3.11–3.12, arXiv pp. 13–14; published p. 739",
+      "printed": "The comparison uses the products c₁c₃ with Győry–Yu’s c₃.",
+      "correction": "Handle unit rank zero separately, or use max(1,c₃), and justify the remaining numerical absorption.",
+      "reason": "Győry–Yu define c₃ = 0 when the ordinary unit rank is zero (p. 11), so the printed comparison would give a zero coordinate bound. Their theorem retains other positive height terms. The BEG statement is preserved with a precise comparison gap.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Győry–Yu define c₃ = 0 when the ordinary unit rank is zero (p. 11), so the printed comparison would give a zero coordinate bound. Their theorem retains other positive height terms. The BEG statement is preserved with a precise comparison gap.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E708",
+      "source": "berczes-evertse-gyory-superelliptic-2013",
+      "kind": "error",
+      "locator": "§5, after (5.21), arXiv p. 28; published p. 753",
+      "printed": "N(v₀) is bounded by P_T and then by P_S^{[L:K]} without separating the infinite places.",
+      "correction": "Use N(v₀)/log N(v₀) ≤ 3P_S^{n(n−1)}, covering both infinite and finite places.",
+      "reason": "If S has no finite primes, P_T = P_S = 1 but N(v₀) = 2. The revised bound also retains the denominator log N(v₀); the final corrected constant absorbs the factor 3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "If S has no finite primes, P_T = P_S = 1 but N(v₀) = 2. The revised bound also retains the denominator log N(v₀); the final corrected constant absorbs the factor 3.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.4"
+      }
     }
   ],
   "sourceVersions": [
@@ -3164,7 +3447,7 @@
       "source": "berczes-evertse-gyory-superelliptic-2013",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1301.7168v1",
-      "citation": "arXiv:1301.7168v1; the only arXiv version. The published version (Publ. Math. Debrecen 82 (2013) 727–756) was not read.",
+      "citation": "arXiv:1301.7168v1; published version also independently read and compared in this review.",
       "read": "2026-10-13",
       "sha256": "6f0c3522bec1af5548ddd4fcb3bd7fc3bc02a2e4294276abc6219289ee94334c"
     },
@@ -3175,6 +3458,38 @@
       "citation": "R. Tijdeman, On the equation of Catalan, Acta Arith. 29 (1976) 197–209 (publisher scan via the Internet Archive; the publisher's host now answers non-browser clients with a bot challenge).",
       "read": "2026-10-13",
       "sha256": "236e391c7ecf38f96b15bedc3a4e1f85e4216302dfc40c2c00634462cba7627d"
+    },
+    {
+      "source": "berczes-evertse-gyory-superelliptic-2013",
+      "kind": "published",
+      "url": "https://publi.math.unideb.hu/paper/1797/download/10_5486_PMD_2013_5748.pdf",
+      "citation": "arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+      "read": "2026-10-13",
+      "sha256": "ca72086c6dc27557e37682123d89bf255a5d951273e1a279b081cdec9970e560"
+    },
+    {
+      "source": "gyory-yu-2006",
+      "kind": "published",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/83173",
+      "citation": "Acta Arith. 123 (2006) 9–41 (DOI 10.4064/aa123-1-2)",
+      "read": "2026-10-13",
+      "sha256": "40ee488ceeffa7df33620238bc162f4dd222acc9f86a34d6ee6f6222b155bdcd"
+    },
+    {
+      "source": "loher-masser-2004",
+      "kind": "published",
+      "url": "https://www.impan.pl/shop/en/publication/transaction/download/product/82907",
+      "citation": "Acta Arith. 111 (2004), 277–297",
+      "read": "2026-10-13",
+      "sha256": "a816179f3e38b99542f4c1eec546415eb610430261d36b896f9cd92c28748b97"
+    },
+    {
+      "source": "stark-1974",
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0023/PPN356556735_0023.pdf",
+      "citation": "Invent. Math. 23 (1974), 135–152",
+      "read": "2026-10-13",
+      "sha256": "d98fe83def66ce90801760710d21f34458637d32de6ac77d726698220ae25832"
     }
   ],
   "restructure": [
@@ -3186,5 +3501,263 @@
       "detail": "DT.4 now has 41 nodes in the first-pass packet and 51 here, with three distinct developments: unit, Thue and S-unit equations (Evertse Chapter 5), superelliptic and hyperelliptic equations over S-integers (BEG §§3–4), and variable exponents (Schinzel–Tijdeman, Catalan). Its planets exceed six.",
       "proposal": "Divide DT.4 into three sub-layers with DT.4 as parent: DT.4a 'Unit, Thue and S-unit equations' (the first-pass nodes, with thue-equation-over-s-integers-effective, thue-equation-over-s-integers-explicit, pell-system-over-s-integers-effective, pell-system-over-s-integers-explicit, uniform-bound-for-thue-equations, primitive-binary-form-linear-factor-ideal, s-norm, s-regulator, s-unit-rank, s-logarithmic-map-kernel-and-lattice, fundamental-s-units-of-bounded-height, small-representative-modulo-s-unit-powers, principal-generators-of-class-group-powers, minkowski-cofactor-for-ideals, yu-bound-in-a-number-field, baker-bound-at-a-place); DT.4b 'Superelliptic and hyperelliptic equations' (the discriminant, height and superelliptic nodes of this part and DT.4/baker-superelliptic-theorem, DT.4/superelliptic-example-reduction); DT.4c 'Variable exponents and Catalan's equation' (superelliptic-variable-exponent-decomposition, large-place-estimate-for-variable-exponent, beg-schinzel-tijdeman-bound, schinzel-tijdeman-effective-over-s-integers, the Catalan nodes, DT.4/schinzel-tijdeman-theorem, DT.4/tijdeman-catalan-bound, DT.4/pillai-*, DT.4/tijdeman-gap-theorem). Planets: DT.4a keeps the first-pass planets and adds 'Thue equations over S-integers'; DT.4b 'Superelliptic equations over S-integers' and 'Hyperelliptic equations over S-integers'; DT.4c 'Schinzel–Tijdeman theorem over S-integers' and 'Tijdeman's theorem on Catalan's equation'."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DiophantineApproximationAndTranscendence--DT.4",
+    "date": "2026-10-13",
+    "notes": "Independent review of all original 49 nodes, 71 pinned baseline interfaces, cross-roadmap suppliers, three supplier records (one now supplied in current Tau Ceti), definition APIs/tests, Lean forms and sourceIssues. Corrected mathematical proof and normalization errors, added one key independent-height theorem and two baseline interfaces, replaced the unavailable Győry–Yu claim with precise gaps, and independently recomputed the corrected exponent constant. Acceptance permits the recorded gaps and does not certify full mathematical implementation. See the review report for source-access limitations and validation.",
+    "checked": [
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/separated-height-logarithmic-form-bound",
+        "verdict": "corrected",
+        "note": "Replaced the insufficient cutoff 0.69 by log 2 and verified the nonzero rational logarithm parameters."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/catalan-reduction-to-prime-exponents",
+        "verdict": "verified",
+        "note": "Checked the source contract, hypotheses and proof route against its direct suppliers; no change needed. Recorded source-input gaps, when present, remain explicit."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/catalan-exponent-two-cases",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/cassels-type-factorisations",
+        "verdict": "verified",
+        "note": "Checked the source contract, hypotheses and proof route against its direct suppliers; no change needed. Recorded source-input gaps, when present, remain explicit."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/tijdeman-smaller-exponent-bound",
+        "verdict": "corrected",
+        "note": "Checked and corrected admissible logarithm parameters and the mirror-case comparison."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/tijdeman-larger-exponent-bound",
+        "verdict": "corrected",
+        "note": "Supplied the full q > p two-logarithm normalization, sign and nonvanishing argument rather than an unsupported symmetry assertion."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/tijdeman-catalan-effective-finiteness",
+        "verdict": "verified",
+        "note": "Checked the source contract, hypotheses and proof route against its direct suppliers; no change needed. Recorded source-input gaps, when present, remain explicit."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/primitive-binary-form-linear-factor-ideal",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/uniform-bound-for-thue-equations",
+        "verdict": "corrected",
+        "note": "Repaired the mixed linear/quadratic case and strengthened Lean cardinality bounds with explicit finiteness."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/voutier-height-lower-bound",
+        "verdict": "corrected",
+        "note": "Made the ambient-degree reduction explicit and removed the false claim that applications over ℤ need only the rational height cutoff."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/yu-bound-in-a-number-field",
+        "verdict": "corrected",
+        "note": "Added the actual valuation-transport theorem and checked the permitted nonunit padding against Yu 1994."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/baker-bound-at-a-place",
+        "verdict": "corrected",
+        "note": "Replaced the invalid Matveev parameter calculation with a degree-correct comparison; retained the separate Yu 2007 gap for the exact finite-place constant."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/s-norm",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/s-regulator",
+        "verdict": "corrected",
+        "note": "Added rank and analytic-lower-bound prerequisites and the empty-determinant test."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/class-number-and-regulator-bounds",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/fundamental-s-units-of-bounded-height",
+        "verdict": "corrected",
+        "note": "Supplied the sharp primitive-flag basis argument and elementary minor bound needed for the exact constants."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/small-representative-modulo-s-unit-powers",
+        "verdict": "corrected",
+        "note": "Separated the generic covering estimate from the exact BEG constant and supplied its ordinary-unit and finite-prime proof."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/minkowski-cofactor-for-ideals",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/principal-generators-of-class-group-powers",
+        "verdict": "verified",
+        "note": "Checked the source contract, hypotheses and proof route against its direct suppliers; no change needed. Recorded source-input gaps, when present, remain explicit."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/s-logarithmic-map-kernel-and-lattice",
+        "verdict": "corrected",
+        "note": "Corrected the valuation sign, absolute/relative Northcott conversion and full-span dependency."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/s-unit-rank",
+        "verdict": "corrected",
+        "note": "Replaced an inference from the rank definition with the actual Dirichlet finrank theorem."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/content-ideal-gauss-lemma",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/coefficient-height-of-polynomial",
+        "verdict": "corrected",
+        "note": "Added API and three independent tests for the second bundled height definition, and the absolute-height conversion dependency."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/polynomial-height-versus-roots",
+        "verdict": "corrected",
+        "note": "Added the nonmonic root-height estimate actually used by the consumers and a valid evaluation bound."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/discriminant-size-bound",
+        "verdict": "corrected",
+        "note": "Made the positive-degree domain of the local discriminant estimates explicit."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/lcm-of-first-integers-bound",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/polynomial-discriminant-in-relative-discriminant",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/relative-discriminant-exponent-bound",
+        "verdict": "corrected",
+        "note": "Added valuation_liesOver for orders; confirmed the current Tau Ceti implementation of the Layer 5.10 supplier and marked that request supplied rather than replanning it."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/relative-discriminant-of-compositum",
+        "verdict": "corrected",
+        "note": "Replaced the unsupported trace-dual proof with Stark’s local derivative proof and exposed its missing formal bridge."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/kummer-extension-unramified-criterion",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/discriminant-of-root-field-bound",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/discriminant-of-kummer-compositum-bound",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/thue-equation-over-s-integers-effective",
+        "verdict": "corrected",
+        "note": "Added the denominator-clearing step required to apply ideal divisor representatives."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/thue-equation-over-s-integers-explicit",
+        "verdict": "corrected",
+        "note": "Read the primary theorem and proof, supplied its reduction and replaced the unavailable-source gap by precise low-height and rank-zero constant gaps."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/pell-system-over-s-integers-effective",
+        "verdict": "corrected",
+        "note": "Added the denominator-clearing step required to apply ideal divisor representatives."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/pell-system-over-s-integers-explicit",
+        "verdict": "corrected",
+        "note": "Verified the connected rank-three factor graph, primary proof and corrected the real biquadratic place count; exposed the same constant-comparison gap."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-factor-coprimality",
+        "verdict": "corrected",
+        "note": "Distinguished splitting-field pair ideals from the symmetric product that descends to the root field."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-ideal-power-decomposition",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-power-decomposition",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-power-decomposition-height-bound",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-reduction-to-thue-equation",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/hyperelliptic-reduction-to-pell-system",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-effective-finiteness-over-s-integers",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/beg-superelliptic-height-bound",
+        "verdict": "corrected",
+        "note": "Repaired the height estimate for y using factorization and the nonmonic root bound."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/beg-hyperelliptic-height-bound",
+        "verdict": "corrected",
+        "note": "Statement and proof verified unchanged; corrected the source locator to identify the independently checked published BEG version."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/superelliptic-variable-exponent-decomposition",
+        "verdict": "corrected",
+        "note": "Corrected the torsion multiplier sign and specified the refined Győry–Yu input behind the individual height constant."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/large-place-estimate-for-variable-exponent",
+        "verdict": "corrected",
+        "note": "Corrected the missing degree factor n in the consequence of the basic exponent-height inequality."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/beg-schinzel-tijdeman-bound",
+        "verdict": "corrected",
+        "note": "Recomputed the corrected constant completely, including nonvanishing, the factor n, the auxiliary-field height floor and the infinite-place factor 3."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/schinzel-tijdeman-effective-over-s-integers",
+        "verdict": "corrected",
+        "note": "Separated computable structural data from the explicit constants and corrected the higher-degree height and logarithmic-form requirements."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.4/multiplicatively-independent-height-product-lower-bound",
+        "verdict": "added",
+        "note": "Verified Győry–Yu Proposition 1 and Loher–Masser Theorem 3; quantitative counting/Blichfeldt input is recorded as a precise gap."
+      }
+    ]
+  }
 }
