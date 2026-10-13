@@ -27835,8 +27835,9 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R12.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #450"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #450",
+   "finishedAt": "2026-10-13T13:01:25Z"
   },
   {
    "id": "BP-ModularCurvesPartII--R13.3",
@@ -27889,7 +27890,8 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.3",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #451"
   },
   {
    "id": "BP-ModularCurvesPartII--R14.3",
@@ -39128,7 +39130,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.0",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9277"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.2",
@@ -51554,8 +51557,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalAdicEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9159"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9159",
+   "finishedAt": "2026-10-13T13:01:31Z"
   },
   {
    "id": "REV-PKG-ClassicalAdicEtaleCohomology",
