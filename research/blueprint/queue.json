@@ -27835,7 +27835,8 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R12.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #450"
   },
   {
    "id": "BP-ModularCurvesPartII--R13.3",
@@ -39102,7 +39103,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9319"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.0",
@@ -39190,7 +39192,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9321"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.3",
@@ -39629,8 +39632,9 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9284"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9284",
+   "finishedAt": "2026-10-13T12:19:36Z"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
@@ -51151,8 +51155,9 @@
     "PKG-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9201"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9201",
+   "finishedAt": "2026-10-13T12:19:39Z"
   },
   {
    "id": "PKG-ArithmeticQuantumTopology",
