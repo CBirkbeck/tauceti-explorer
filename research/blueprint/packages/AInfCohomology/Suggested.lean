@@ -91,6 +91,9 @@ example (ε : S) :
 -- Non-example: `ε = 1` is not a primitive system; it gives `μ = 0` and `ξ = p`.
 example : mu p (1 : S) = 0 ∧ xi p (1 : S) = p := by sorry
 
+-- Characteristic two does not remove the integer 2 in the Witt ring.
+example : mu 2 (1 : ZMod 2) = 0 ∧ xi 2 (1 : ZMod 2) = 2 := by sorry
+
 /-- Residue specialization of the periods (Layer AI.0:integral): a ring map `ρ : S → k` to a
 perfect ring of characteristic `p` with `ρ ε = 1` sends `μ` to `0` and `ξ` to `p`. -/
 theorem map_mu_xi_of_eq_one {k : Type*} [CommRing k] [CharP k p] [PerfectRing k p]
@@ -115,6 +118,9 @@ theorem shiftedTheta_surjective (θ : A →+* O) (φ : A ≃+* A) (h : Function.
 theorem shiftedTheta_ker (θ : A →+* O) (φ : A ≃+* A) (x : A)
     (hx : RingHom.ker θ = Ideal.span {x}) :
     RingHom.ker (shiftedTheta θ φ) = Ideal.span {φ x} := by sorry
+
+-- The identity automorphism gives the original map.
+example (θ : A →+* O) : shiftedTheta θ (RingEquiv.refl A) = θ := by sorry
 
 end ShiftedTheta
 
@@ -198,6 +204,16 @@ example (C : CochainComplex (ModuleCat.{u} R) ℤ) (i : ℤ) : etaTerm C 1 i = �
 example (C : CochainComplex (ModuleCat.{u} R) ℤ) (i : ℤ) :
     etaTerm C 0 i = LinearMap.ker (C.d i (i + 1)).hom := by sorry
 
+-- A zero differential gives the entire divisibility submodule for every f.
+example (C : CochainComplex (ModuleCat.{u} R) ℤ) (f : R) (i : ℤ)
+    (hd : C.d i (i + 1) = 0) : etaTerm C f i = ⊤ := by sorry
+
+-- The cochain Koszul convention d⁰(m) = (xm, ym), d¹(a,b) = xb − ya has square zero.
+example (x y m : R) : x * (y * m) - y * (x * m) = 0 := by sorry
+
+-- In the ordered dual basis, d¹(e₁) = −y and d¹(e₂) = x, including characteristic two.
+example (x y : R) : x * 0 - y * 1 = -y ∧ x * 1 - y * 0 = x := by sorry
+
 end Decalage
 
 /-! ## Layer AI.3: Integral pro-étale period sheaves and AΩ -/
@@ -217,6 +233,9 @@ example (n : ℕ) : qInteger (1 : R) n = n := by sorry
 
 -- `d(T²) = (1 + q) T² dlog_q T`.
 example (q : R) : qInteger q 2 = 1 + q := by sorry
+
+-- The empty sum is zero; the divided-difference formula is defined at q = 1.
+example (q : R) : qInteger q 0 = 0 := by sorry
 
 end QInteger
 
@@ -253,6 +272,13 @@ example : crystallineCoefficient (RingHom.id R) = PowerSeries.constantCoeff (R :
 -- The variable `u` has degree zero and maps to zero.
 example (F : R →+* R) : crystallineCoefficient F PowerSeries.X = 0 := by sorry
 
+-- At p = 2 the coefficient at u is zero while u² has coefficient F(a).
+example (F : R →+* R) (a : R) :
+    PowerSeries.coeff 1 (coefficientFrobenius 2 (by decide) F
+      (PowerSeries.C a * PowerSeries.X)) = 0 ∧
+    PowerSeries.coeff 2 (coefficientFrobenius 2 (by decide) F
+      (PowerSeries.C a * PowerSeries.X)) = F a := by sorry
+
 end BreuilKisinCoefficient
 
 /-! ## Targets stated in README.md only
@@ -263,7 +289,8 @@ and log structures, B_dR⁺-envelopes, spectra with circle actions) are not avai
 
 Layer AI.0: `AInf.thetaWitt`.
 
-Layer AI.0:integral: `AInf.bkTwist`.
+Layer AI.0:integral: `AInf.bkTwist`; `AInf.residue` is Mathlib's Witt map specialized to the
+residue homomorphism, with its period calculation recorded above.
 
 Layer AI.1: `Decalage.etaDifferential`, `Decalage.etaComplex`, `Decalage.etaMap`,
 `Decalage.idealPow`, `Decalage.idealEta`, `Decalage.derivedEta`, `Decalage.etaTensor`,
@@ -274,9 +301,10 @@ Layer AI.2: `BKF.Module`, `BKF.LatticePair`, `BKF.etale`, `AInf.Yan`, `BKF.recon
 `AInf.MinusculeBKF`.
 
 Layer AI.3: `AInfSheaf.completedIntegral`, `AInfSheaf.tilt`, `AInf.classical_ainf_sheaf`,
-`AInfSheaf.ainf`, `AInf.nu`, `AOmega.local`, `AOmega.toricCover`.
+`AInfSheaf.ainf`, `AInf.nu`, `AOmega.local`, `AOmega.toricCover`, `AOmega.qModel`, `AInf.sqZero`.
 
-Layer AI.4: `AOmega.wittPre`, `AOmega.wittImproved`.
+Layer AI.4: `AOmega.wittPre`, `AOmega.wittImproved`, `AInf.boundedPD`
+(`AInf.bounded_pd_coefficients`).
 
 Layer AI.5: `AOmega.proper`.
 
@@ -289,7 +317,8 @@ Layer AI.6: `Semistable.chartRing`, `Semistable.divisorialLog`, `Semistable.mono
 `Semistable.bdrComparisonMap`, `AInf.normalized_valuation_length`,
 `Semistable.deRhamLatticeFunctor`.
 
-Layer AI.7: `AInf.Trace.tate`, `AInf.Trace.THH`, `AInf.relative_cyclotomic_traces`,
+Layer AI.7: `CohomologicalBK.coefficientNormalization`, `AInf.Trace.tate`, `AInf.Trace.THH`,
+`AInf.relative_cyclotomic_traces`,
 `AInf.qrsp_trace_unfolding`, `CohomologicalBK.cohomology`, `CohomologicalBK.twistedTrace`,
 `CohomologicalBK.choiceTransport`.
 

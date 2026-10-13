@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AInfCohomology",
+    "date": "2026-10-13",
+    "notes": "Completed independent review of issue #9197 against the 226 accepted targets and 38 added supplier targets. Applied corrections to cochain Koszul and trivial-group conventions, good truncation, nonflat quotient regularity, minuscule etale realization, infinite root towers, B_dR coefficient models and connections, circle Tate spectral sequences, source locators, current-library boundaries and the trace dependency order. Added missing Sq^0 and bounded PD APIs/Checks and seven Lean examples. All 67 API blocks have at least three Checks. Suggested.lean elaborates at the pins with exit 0 and 33 sorry-only warnings; sorry-data and intake checks pass. Two substantive gaps remain: G1 in AI.7.3 clause (b), identifying the trace/prismatic equivalence's actual A_inf, de Rham and crystalline specialization maps; G2 in AI.7.4 clause (b), agreement of the wider smooth de Rham, crystalline, etale, B_dR, Breuil-Kisin and trace comparison diagrams. Perfect-prism uniqueness does not establish these claims on the domains used. Both gaps are marked explicitly in the README and detailed in the review report."
+  }
+}
