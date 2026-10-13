@@ -27890,8 +27890,9 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.3",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #451"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #451",
+   "finishedAt": "2026-10-13T13:23:48Z"
   },
   {
    "id": "BP-ModularCurvesPartII--R14.3",
@@ -35014,7 +35015,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9290"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L0",
@@ -35058,7 +35060,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9291"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L1",
@@ -39130,8 +39133,9 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.0",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9277"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9277",
+   "finishedAt": "2026-10-13T13:23:52Z"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.2",
@@ -39244,7 +39248,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9322"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.4",
@@ -39524,8 +39529,9 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9324"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9324",
+   "finishedAt": "2026-10-13T13:23:56Z"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
@@ -51584,7 +51590,8 @@
     "PKG-ClassicalAdicEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalAdicEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9202"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
