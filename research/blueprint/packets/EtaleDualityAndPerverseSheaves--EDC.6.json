@@ -66,7 +66,7 @@
       "sha256": "b1e10440e13cb6bf307f74030b577e0cf5056e41b35ca56640dc2f0d2109b9e0",
       "accessed": "2026-10-13",
       "readSections": [
-        "2.2.16–2.2.18, p.73",
+        "§2.2 coefficient Tor formula, p.72; 2.2.16–2.2.18, p.73",
         "6.1.2–6.1.4, pp.149–152"
       ]
     },
@@ -93,7 +93,7 @@
         "3.7.1–3.8.1, pp.225–228",
         "5.7.1–5.7.5, pp.316–318",
         "7.3.4 and proof, pp.378–382",
-        "7.5.1–7.5.4, pp.389–391"
+        "7.5.1–7.5.4, pp.389–392 (smooth adjunction and counit identification, including proof of 7.5.4(ii))"
       ]
     },
     {
@@ -135,8 +135,8 @@
         "Internal Hom is sheaf internal Hom. A constructible object supported on a stratum need not be globally tensor-dualizable. Restrict bounded coefficient operations through actual finite-Tor witnesses."
       ],
       "proofSteps": [
-        "Import the normalized-system/pro-étale equivalence and coherent reduction functors from EllAdicRealization Layers 0–5 through SF.2 and the existing EDC.6 category nodes.",
-        "Apply Bhatt–Scholze 6.7.1 to obtain finite relative cohomological dimension and 6.5.11 for strict Rf_* reduction. Use a compactification, finite-level proper support and 6.7.9–6.7.10 for Rf_!; do not identify Rf_! with the right derived functor of H^0f_! on the pro-étale site.",
+        "Import the homotopy-coherent normalized-system/pro-étale equivalence and reduction functors from the existing EDC.6 category nodes through SF.2. EllAdicRealization Layers 0–6 supply Z_ℓ/Q_ℓ realization and geometric finiteness; the exact finite O/E extension of that owner is separately requested.",
+        "Apply Bhatt–Scholze 6.7.1 to obtain finite relative cohomological dimension and 6.5.11 for strict Rf_* reduction. Use a compactification, finite-level proper support and 6.7.6–6.7.10 for Rf_!; do not identify Rf_! with the right derived functor of H^0f_! on the pro-étale site.",
         "For f^!, use 6.7.18: locally factor f as a closed immersion followed by a smooth map. Smooth purity gives reduction on the smooth factor; the closed factor uses the localization triangle and direct-image scalar comparison for its open complement. Then 6.7.19 constructs the compatible limit and its adjunction.",
         "Apply 6.7.13 by stratified dévissage for internal Hom and use f=a_X for K_X. Reduce biduality to the finite-level EDC.1:biduality map and use conservativity on derived-complete objects.",
         "The noetherian stratification criterion 6.6.11 gives common strata; local perfect O-complexes give uniform Tor bounds for reductions. Coherence comes from the canonical exchange maps in the enhanced imported formalism."
@@ -159,13 +159,13 @@
       "sources": [
         {
           "sourceId": "BS-proetale-v2",
-          "locator": "Lemma 6.5.11, p.51; Proposition 6.6.11, p.54; 6.7.1–6.7.2, p.55; 6.7.9–6.7.13, pp.56–57; 6.7.18–6.7.19, pp.57–58",
+          "locator": "Lemma 6.5.11, p.51; Proposition 6.6.11, p.54; 6.7.1–6.7.2, p.55; 6.7.6–6.7.13, pp.56–57; 6.7.18–6.7.19, pp.57–58",
           "match": "Finite cohomological dimension upgrades a pro-system comparison to strict reduction. Stratification and local closed/smooth factorization give the exceptional-pullback and internal-Hom comparisons needed for integral duality."
         },
         {
           "sourceId": "PR196-EllAdic",
           "locator": "Layers 0–6 and 9",
-          "match": "The generic limit, normalized coefficient categories, realizations and finite-type bounds are imported targets of this owner."
+          "match": "The generic limit, Z_ℓ/Q_ℓ normalized coefficient realization and geometric finite-type bounds are imported targets of this owner. Common-stratum O/E constructible realization and its coherent categorical interface require the recorded extension, not a claim that PR196 already states them."
         }
       ],
       "implementationStatus": "unchecked",
@@ -193,7 +193,7 @@
         "Relative natural transformations are first supplied with enhanced compatibility/homotopies. The geometric Hom-limit consequence applies to each specified pair of objects; it is not a replacement for coherent functor-level data."
       ],
       "proofSteps": [
-        "Use the operation-reduction theorem for the internal-Hom reductions and EllAdicRealization Layers 0–2 and 6 for derived completeness and the global-section/limit comparison.",
+        "Use strict internal-Hom reduction and the homotopy-coherent normalized realization requested through SF.2. EllAdicRealization Layers 0–2 and 6 supply the generic derived-limit and geometric-finiteness inputs; retain the requested finite O/E coefficient extension.",
         "Apply the Milnor sequence to the derived mapping complex. Finite-level constructibility and geometric cohomological finiteness imply every shifted Hom group is finite; descending images in each finite group stabilize, proving Mittag–Leffler rather than assuming surjective transition maps.",
         "Lift the specified compatible finite-level morphisms through this mapping equivalence. Compare both sides of an identity by their coherent reductions and use the vanishing lim¹ term. For adjunction and purity use their canonical enhanced maps, not arbitrary choices of lifts.",
         "Import the integral derived Poincaré-duality statement and its Ext¹ sequence from EDC.2:pairings/adic-and-rational-poincare-duality. For a perfect O-complex C, retain 0→H^q(C)⊗O_n→H^q(C⊗^LO_n)→H^{q+1}(C)[λ^n]→0. Flat rationalization removes the torsion only after these integral statements have been established."
@@ -223,7 +223,7 @@
         },
         {
           "sourceId": "BBD-1982",
-          "locator": "2.2.16, p.73",
+          "locator": "§2.2, p.72 (derived coefficient Tor sequence); 2.2.16, p.73 (adic Hom/Milnor sequence)",
           "match": "The comparison of adic Hom with finite-level Hom has a lim¹ kernel; agreement at each level alone is not a general uniqueness theorem."
         },
         {
@@ -254,7 +254,8 @@
       "hypotheses": [
         "All scalar extensions here are finite free extensions of complete DVRs or finite coefficient-field extensions, followed by the specified filtered algebraic-extension category. An unrestricted category of all analytic Ebar-valued local systems is not used.",
         "Integral torsion objects are retained; derived reduction O→O/λ is distinct from the flat O→O′ and E→E′ operations and is not perverse t-exact.",
-        "For Hom base change in the rational constructible category use its actual mapping complexes. No assertion that a simple object remains simple after coefficient extension is made."
+        "For Hom base change in the rational constructible category use its actual mapping complexes. No assertion that a simple object remains simple after coefficient extension is made.",
+        "The operation and mate identities are canonical enhanced comparisons over arbitrary k in this range; their proof does not use the separably-closed-field Hom-limit uniqueness theorem."
       ],
       "proofSteps": [
         "Finite free extension is exact and can be computed by a finite direct sum after choosing a basis; canonical O-linear operation comparisons are isomorphisms by that calculation. Apply the operation-reduction result to the cofinal λ^nO′ tower and its ramification comparison.",
@@ -268,7 +269,6 @@
       ],
       "prerequisites": [
         "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
-        "EtaleDualityAndPerverseSheaves:EDC.6/mapping-limit-and-integral-class-transport",
         "EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension",
         "SchemeAndStackFoundations:SF.2",
         "EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change"
@@ -276,18 +276,18 @@
       "sources": [
         {
           "sourceId": "BS-proetale-v2",
-          "locator": "6.8.2, p.58; 6.8.14–6.8.15, pp.61–62",
+          "locator": "6.8.2, pp.58–59; 6.8.14–6.8.15, pp.61–62",
           "match": "Finite extension, rationalization and descent of constructible coefficients supply the scalar categories in which the operation comparisons are made."
         },
         {
           "sourceId": "BBD-1982",
           "locator": "2.2.18, p.73; 6.1.2(C′), pp.150–151",
-          "match": "Rational constructible categories and their perverse structures arise from integral lattices; their comparison retains finite coefficient descent."
+          "match": "Rationalization and rational Artin comparison retain the stable-lattice condition on analytic strata. Finite coefficient-subfield descent is supplied by Bhatt–Scholze 6.8.14, not by the rational Artin essential-image statement."
         },
         {
           "sourceId": "PR196-EllAdic",
-          "locator": "Layers 7 and 9",
-          "match": "Scalar extension and operation comparisons are imported, with EDC specifying compatibility of the duality and class morphisms."
+          "locator": "Layers 7 and 9; Z_ℓ/Q_ℓ scope in the opening conventions",
+          "match": "Import the existing rationalization and adic operation comparisons. General finite O/E extension and algebraic-closure finite-diagram descent need the recorded EllAdicRealization extension; Layers 7–9 do not already state that full interface."
         }
       ],
       "implementationStatus": "unchecked",
@@ -341,7 +341,7 @@
         {
           "sourceId": "PR196-EllAdic",
           "locator": "Layer 10",
-          "match": "Import the topological normalized-system realization and its integral/rational Artin comparison."
+          "match": "Import the Z_ℓ/Q_ℓ normalized topological realization and Artin comparison. Its finite O/E coefficient extension is part of the precise request to the same owner."
         }
       ],
       "implementationStatus": "unchecked",
@@ -371,6 +371,11 @@
           "name": "tateOrientation_finite",
           "role": "data",
           "statement": "Expose θ_{X,n} as an isomorphism of coefficient sheaves, with ζ_n^{⊗d} mapped to the positive local generator."
+        },
+        {
+          "name": "tateOrientation_ext",
+          "role": "extensionality",
+          "statement": "Two Z/ℓ^n-linear coefficient-sheaf maps from the analytic Tate line agree if their maps on every stalk agree on ζ_n^{⊗d}. In particular the map sending this generator to the positive local orientation generator is unique."
         },
         {
           "name": "tateOrientation_reduction",
@@ -442,9 +447,9 @@
         "Topological local orientation, relative cohomology and cup/cap are imported from AlgebraicTopology Stage 6 and its prerequisite stages. The additional supported Thom/Gysin and noncompact integral-duality interface is an exact Part II request, recorded as a gap rather than attributed to the compact-manifold scope of Stage 6."
       ],
       "proofSteps": [
-        "Finite-level Artin comparison commutes with the closed/open localization triangle and Rf_!. For exceptional pullback, use the right-adjoint comparison on the constructible equivalence of BBD 6.1.2, checking its finite-Tor restrictions; smooth purity and the orientation-line identification give the absolute dualizing object.",
+        "Start with finite-coefficient Artin comparison and its closed/open localization and Rf_! maps. BBD 6.1.2, pp.149–151 compares f^! by local closed/smooth factorization: closed support uses localization, and the smooth factor uses purity. Apply the orientation-line identification to the absolute dualizing object. This avoids assuming a right adjoint on an unrestricted rational analytic category.",
         "For the smooth closed immersion use local coordinates for the smooth pair and topological local orientation of C^c; complex orientation and the Kummer/exponential sequence give the same normal-coordinate generator. Glue using localization and the supported EDC.3 construction. This comparison is of specified purity maps, not just their one-dimensional cohomology groups.",
-        "Compare trace with local orientation integration using BBD 6.1.4. Compatibility with the evaluation morphism, cup and Rf_! identifies derived compact-support duality; use the mapping-limit result to pass all specified maps to O and then the finite-extension result to E.",
+        "Compare finite-level trace with local orientation integration using BBD 6.1.4. Cup/evaluation and Rf_! compatibility give derived compact-support duality. Pass the coherent finite-level comparisons through the requested normalized topological O-realization, using strict reduction and completeness; the geometric mapping-limit result verifies the specified integral maps. Rationalize and extend finite coefficients. At E-level retain the stable-lattice Artin essential image; do not invoke an equivalence with all analytic E-local systems.",
         "For a divisor compare its supported class and first Chern class using EDC.3 and the Kummer/exponential diagram. The equality follows with the positive convention; arbitrary units are accounted for by the orientation API."
       ],
       "acceptance": [
@@ -480,7 +485,7 @@
         {
           "sourceId": "PR196-EllAdic",
           "locator": "Layer 10",
-          "match": "The normalized integral/rational topological realization supplies the adic comparison through which the finite-level identities pass."
+          "match": "Import the normalized Z_ℓ/Q_ℓ topological realization, and request its finite O/E extension, through which the coherent finite-level identities pass."
         }
       ],
       "implementationStatus": "unchecked",
@@ -501,17 +506,17 @@
       ],
       "title": "Smooth trace comparison on algebraically realized analytic spaces",
       "kind": "theorem",
-      "statement": "Let k be a complete nonarchimedean field, f:X→Y a separated finite-type smooth morphism of pure relative dimension d between finite-type k-schemes, and f^an:X^an→Y^an its actual analytification over Spa(k,k°). Assume the analytic map is taut and its target quasi-separated, and n is prime to the residue characteristic. Under the imported comparison (Rf_!K)^an≃Rf^an_!(K^an), the analytified scheme trace Rf_!f^*L(d)[2d]→L equals Huber’s analytic smooth trace, and the trace-normalized purity/adjunction maps f^!L≃f^*L(d)[2d] compare with (f^an)^!L^an≃(f^an)^*L^an(d)[2d]. For a smooth pair i:Z→X, the corresponding supported smooth-pair fundamental class and Gysin map agree with their analytified maps. This transports the given algebraic model; it neither assigns models to arbitrary analytic spaces nor enlarges analytic duality to residue-characteristic torsion.",
+      "statement": "Let k be a complete nontrivially rank-one valued nonarchimedean field, f:X→Y a separated finite-type smooth morphism of pure relative dimension d between finite-type k-schemes, and f^an:X^an→Y^an its actual analytification over Spa(k,k°). Assume the analytic map is taut and its target quasi-separated, and n is prime to the residue characteristic. Under the imported comparison (Rf_!K)^an≃Rf^an_!(K^an), the analytified scheme trace Rf_!f^*L(d)[2d]→L equals Huber’s analytic smooth trace, and the trace-normalized purity/adjunction maps f^!L≃f^*L(d)[2d] compare with (f^an)^!L^an≃(f^an)^*L^an(d)[2d]. For a smooth pair i:Z→X, the corresponding supported smooth-pair fundamental class and Gysin map agree with their analytified maps. This transports the given algebraic model; it neither assigns models to arbitrary analytic spaces nor enlarges analytic duality to residue-characteristic torsion.",
       "hypotheses": [
-        "Λ=Z/n, n≥1 prime to residue characteristic, and L bounded below; for bounded constructible duality restrict to actual finite-Tor inputs and bounds. The all-dimensional analytic smooth-purity supplier is H3’s specified smooth-duality suffix.",
+        "Λ=Z/n, n≥1 prime to residue characteristic, and L bounded below; for bounded constructible duality restrict to actual finite-Tor inputs and bounds. H3/general-analytic-smooth-trace already supplies the shifted-constant trace, in a broader coefficient range. The requested H3 smooth-duality extension supplies the full D⁺ trace-normalized adjunction used here, in Huber’s narrower range.",
         "Use scheme-fibre-product analytification from AdicSpacesPartII and finite-dimensional, separated/taut analytic support hypotheses. General finite-type field direct-image comparison Huber 3.8.1 needs n prime to char(k) in positive characteristic; this weaker condition in characteristic zero does not extend the smooth-duality range.",
         "Integral analytic realization is not inferred from finite-coefficient comparison without a normalized analytic coefficient category and uniform bounds; its exact extension is recorded separately."
       ],
       "proofSteps": [
         "Import Huber 5.7.2’s proper-support comparison (and its pseudo-adic version 5.7.5) through the existing analytic owner. For proper maps use H5/proper-comparison-3-7-2 and for open embeddings use extension by zero; glue through the compactification comparison.",
-        "Huber 7.3.4 constructs the all-dimensional analytic trace on local étale charts over affine space from the algebraic trace by 5.7.5. Its base-change, composition and étale normalization ensure the chartwise comparison glues to the given algebraic model.",
+        "Import H3/general-analytic-smooth-trace and its chart, composition, pullback and P¹ normalization, rather than plan another trace. Huber 7.3.4 constructs the all-dimensional trace on local étale affine charts from the algebraic trace by 5.7.5; compare the chartwise normalized constructions and glue on the given algebraic model.",
         "Huber 7.5.3–7.5.4 identify that trace with the exceptional adjunction counit. Taking the trace-normalized adjoint gives the stated smooth-purity comparison.",
-        "For a smooth closed pair apply transitivity of exceptional pullback to the two smooth structure maps, then their trace-normalized purity formulas, to obtain codimension-c purity. The proper closed/open localization comparisons transport the supported EDC.3 class and its Gysin map. This is smooth-pair purity on an algebraic model; arbitrary regular analytic pairs are outside the claim."
+        "For a smooth closed pair apply transitivity of exceptional pullback to the two smooth structure maps, then their trace-normalized purity formulas, to obtain codimension-c purity. The proper closed/open localization comparisons transport the supported EDC.3 class and its Gysin map. This is smooth-pair purity on an algebraic model; arbitrary regular analytic pairs are outside the claim. Import H3/analytic-first-chern-class for the Kummer normalization already compared with schemes."
       ],
       "acceptance": [
         "P¹_k: the algebraic and analytic finite-level trace send c₁(O(1)) to 1; this is tested on the actual analytification.",
@@ -520,6 +525,8 @@
       ],
       "prerequisites": [
         "ClassicalAdicEtaleCohomology:H3",
+        "ClassicalAdicEtaleCohomology:H3/general-analytic-smooth-trace",
+        "ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class",
         "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
         "ClassicalAdicEtaleCohomology:H5/comparison-over-nonarchimedean-fields-3-8-1",
         "AdicSpacesPartII:R1/scheme-fibre-product-analytification",
@@ -536,7 +543,7 @@
         },
         {
           "sourceId": "Huber-1996",
-          "locator": "Theorem 7.3.4 and proof, pp.378–382; Theorem 7.5.3 and Lemma 7.5.4(ii), pp.390–391",
+          "locator": "Theorem 7.3.4 and proof, pp.378–382; Theorem 7.5.3 and Lemma 7.5.4(ii) and proof, pp.390–392",
           "match": "The trace is defined locally from the scheme trace in every dimension and identifies smooth purity with the adjunction counit. The residue-characteristic restriction is part of this result."
         }
       ],
@@ -558,20 +565,21 @@
       "statement": "Let f:Y→X be separated finite type between qcqs characteristic-p schemes (or the perfection of such a morphism), and take the eligible discrete prime-to-p or regular adic coefficients of AdicCoefficientsAndComparisons. Put F=Rf_!, F◇=Rf◇_!, and let c_X^*⊣Rc_X*, c_Y^*⊣Rc_Y*. The imported comparison α:c_X^*F≃F◇c_Y^* has right-adjoint mate β:f^!Rc_X*≃Rc_Y*(f◇)^!. These are compatible with the exceptional adjunction counits: for B on X◇, the map F f^!Rc_X*B→Rc_X*B recovered from the diamond counit F◇(f◇)^!B→B, using α’s right-adjoint mate and β, is the scheme counit. For a:Y→Spec k and B=c_k^*Λ this recovers K_Y and D_Y through Rc_Y* and recovers the trace/evaluation morphisms. Strong c_Y^*f^!A≃(f◇)^!c_X^*A follows precisely when that diamond exceptional object belongs to the essential image of c_Y^*; its comparison is the counit after β and the scheme unit. The same test applies to the internal-Hom object defining diamond duality. This node proves the mate compatibility and the conditional criterion, not the missing geometric essential-image assertion.",
       "hypotheses": [
         "The diamond map is compactifiable, representable in locally spatial diamonds and of finite dim.trg, as supplied by ECD 27.4. The dualizing complex is relative to B=(Spec k)◇, with its actual structure map.",
-        "For mixed-characteristic finite-type schemes over a complete DVR with perfect residue field, use L4/27.5 for α and β, and L6/27.7 only for the scheme unit on bounded constructible finite prime-to-residue-characteristic objects A and f^!A. Use the ambient adjunction and the recovered constructible candidate; do not assert global ambient full faithfulness or a right adjoint between restricted bounded constructible categories. Characteristic-p and DVR constructions of (Spec k)◇ have different plus-ring/base conventions.",
+        "For mixed-characteristic finite-type schemes over a complete DVR with perfect residue field, use L4/27.5 for α and β, and L6/27.7 only for the scheme unit on bounded constructible finite prime-to-residue-characteristic objects A and the recovered candidate T=f^!A, with explicit constructibility and finite-Tor witnesses. Use the ambient adjunction and the recovered constructible candidate; do not assert global ambient full faithfulness or a right adjoint between restricted bounded constructible categories. Characteristic-p and DVR constructions of (Spec k)◇ have different plus-ring/base conventions.",
         "Internal Hom and tensor are ambient derived operations; bounded constructible restrictions require their own witnesses. Neither full faithfulness of c^* nor right-adjoint recovery implies that every diamond object is in its essential image."
       ],
       "proofSteps": [
         "Use L3’s exact α, β and internal-Hom right-adjoint identity. Define δ_C:F Rc_Y*C→Rc_X*F◇C by adjunction from c_X*F Rc_Y*C→F◇c_Y*Rc_Y*C→F◇C using α and the c_Y counit. The mate/triangle identities give ε_scheme at Rc_X*B = (Rc_X*ε◇_B) ∘ δ_(f◇!B) ∘ F(β_B), with source F f^!Rc_X*B and target Rc_X*B. This proves compatibility of the actual counits.",
         "Use the full-faithfulness unit to recover a^!Λ and then apply Rc_Y* RHom(c_Y^*K,B)=RHom(K,Rc_Y*B) to recover scheme duality. This is the verified content of the existing diamond-transport-of-duality node.",
         "For a desired strong object comparison compose c_Y^* of β with the counit at the relevant diamond object. The pinned Mathlib counit/essential-image criterion makes the exact additional hypothesis explicit. Record the unresolved geometric preservation input as a gap, rather than deducing it from full faithfulness.",
-        "Apply the same mate calculation to L4’s α and β in their own base convention. Import L6’s direct-image/unit theorem only on its bounded constructible finite objects. For the recovered constructible candidate f^!A, pointwise unit and triangle identities yield the same invertible-counit/image test, without assuming an adjunction between bounded restrictions. This does not establish exceptional-pullback image preservation."
+        "Apply the same mate calculation to L4’s α and β in their own base convention. Import L6’s unit theorem only on the particular eligible finite constructible objects. Put T=f^!A and B=(f◇)^!c_X^*A; the scheme unit at A and β give e:Rc_Y*B≃T. If the unit at T is invertible, the canonical c_Y^*T→B is invertible exactly when B is isomorphic to c_Y^*T. This pointwise candidate criterion uses ambient adjunction triangle identities, not ambient full faithfulness or an adjunction between bounded restrictions. No exceptional-image preservation follows from 27.7."
       ],
       "acceptance": [
         "For f the identity, both mates and recovered counit are identities.",
         "For f étale, f^!=f^* and the known pullback comparison supplies the strong exceptional comparison in this restricted case.",
         "For P¹ in characteristic p, recover the scheme trace of c₁(O(1)) as 1 through Rc_*; do not replace this test by an unproved absolute diamond dualizing-object identity.",
-        "The inclusion of the zero-object category into vector spaces is fully faithful and has a right adjoint sending every vector space to the zero object. Its counit 0→V is not invertible for nonzero V. This concrete categorical check prevents inferring an image theorem from right-adjoint recovery."
+        "The inclusion of the zero-object category into vector spaces is fully faithful and has a right adjoint sending every vector space to the zero object. Its counit 0→V is not invertible for nonzero V. This concrete categorical check prevents inferring an image theorem from right-adjoint recovery.",
+        "In the DVR range, for T=f^!A with invertible unit and recovered B, test the criterion B≃c_Y^*T directly. Membership in the image of an unspecified nonconstructible scheme object is not substituted for this particular candidate."
       ],
       "prerequisites": [
         "EtaleDualityAndPerverseSheaves:EDC.6/scheme-adic-diamond-operation-comparisons-index",
@@ -600,13 +608,14 @@
         "namespace": "TauCeti.EtaleDuality.Comparison"
       },
       "declarationName": "TauCeti.EtaleDuality.Comparison.diamondComparison_traceMates",
-      "statableCompanion": "TauCetiRoadmap.EtaleDuality.Comparison.recoveredComparison_isIso_iff"
+      "statableCompanion": "TauCetiRoadmap.EtaleDuality.Comparison.recoveredComparison_isIso_iff",
+      "statablePointwiseCompanion": "TauCetiRoadmap.EtaleDuality.Comparison.recoveredComparison_isIso_iff_candidate"
     }
   ],
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Integrate the exact existing PR196 targets: EllAdicRealization Layers 0–2 derived mapping limits, Milnor/ML, scalar tensor comparison and normalization; Layers 3–6 classical/pro-étale equivalence of coherent normalized constructible finite-Tor towers with uniform ordinary/Tor bounds and common finite strata, geometric finite generation/perfectness over separably closed fields; Layers 7–9 finite coefficient extension, rationalization, finite-diagram descent and operation-reduction comparisons; Layer 10 normalized topological integral/rational realization. Import ComplexComparison Layers 7 and 10–12 for sheaf/singular, finite Artin, compact-support and relative comparison with ctf coefficients. These are imports of PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0, not new SF.2 constructions. SF.2/proetale-classical-comparison for arbitrary discrete coefficients and SF.2/proetale-lisse-sheaves for finite-free towers alone do not supply this entire interface.",
+      "need": "Integrate the existing Z_ℓ/Q_ℓ interfaces of PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0: EllAdicRealization Layers 0–2 for limits/Milnor/ML and realization, 3–6 for finite comparison, constant realization and geometric finiteness, 7–9 for rationalization/Galois/operation comparisons, and 10 for normalized topological realization. Import ComplexComparison Layers 7 and 10–12 for sheaf/singular, finite Artin, compact-support and relative comparison. Extend EllAdicRealization as Part II, through SF.2, to finite-extension integer rings O and fields E: a homotopy-coherent normalized constructible finite-Tor category equivalent to derived-complete pro-étale constructible coefficients, common finite strata and uniform ordinary/Tor bounds, mapping-complex derived limits, O/E topological realization, and filtered algebraic-coefficient categories with finite-object/morphism/diagram descent. PR196 explicitly starts with Z_ℓ/Q_ℓ and does not state all these extra targets. Use the inherited EDC.6 category/API ids for the consuming interface; never reconstruct the generic category in EDC.6. The existing SF.2 discrete and finite-free-lisse nodes alone do not supply it.",
       "neededBy": [
         "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
         "EtaleDualityAndPerverseSheaves:EDC.6/mapping-limit-and-integral-class-transport",
@@ -625,14 +634,14 @@
     },
     {
       "supplier": "ClassicalAdicEtaleCohomology:H3",
-      "need": "Supply the previously proposed H3:smooth-duality suffix: proper-support comparison Huber 5.7.2 and 5.7.5, pp.316–318, all-dimensional separated taut smooth trace of pure dimension d (Theorem 7.3.4 and proof, pp.378–382), transitivity/base change and trace-normalized exceptional adjunction/purity (7.5.3–7.5.4, pp.390–391), for n prime to residue characteristic and quasi-separated target. Use actual algebraic analytifications and restrict bounded constructible operations to finite-Tor input. The existing curve trace is not an all-dimensional supplier; correct the inherited suffix proposal locator 7.2.2 to 7.3.4 for this trace.",
+      "need": "Import H3/general-analytic-smooth-trace (all-dimensional shifted-constant trace, chart independence, composition and pullback transformations) and H3/analytic-first-chern-class rather than replan them. Supply only the still-needed H3 smooth-duality extension: algebraic proper-support comparison Huber 5.7.2/5.7.5, pp.316–318, compatibility of the existing trace with Huber 7.3.4, pp.378–382, and the full D⁺ trace-normalized smooth adjunction/purity of 7.5.3–7.5.4(ii), pp.390–392, for n prime to residue characteristic and quasi-separated target. For bounded constructible operations retain actual finite-Tor witnesses. The general trace exists in a broader coefficient range; that does not extend the full duality theorem. Correct the inherited suffix locator 7.2.2 to 7.3.4 for all-dimensional trace comparison.",
       "neededBy": [
         "EtaleDualityAndPerverseSheaves:EDC.6/analytic-smooth-trace-comparison"
       ]
     },
     {
       "supplier": "AdicCoefficientsAndComparisons:L3",
-      "need": "For strong c^* exceptional/duality transport, supplement the already imported 27.1–27.4 comparisons by an exact theorem that (f◇)^!c_X^*A and the internal-Hom object defining D◇c_Y^*K belong to the essential image of c_Y^*, with invertible counit and compatibility with their canonical comparisons, in the stated qcqs characteristic-p finite-dimensional coefficient range. Extend the owner as a Part II if this lies beyond its existing range. For a complete DVR base use L4/L6 in their distinct finite constructible prime-to-residue-characteristic range; do not infer this image theorem from 27.7 full faithfulness.",
+      "need": "For strong c^* exceptional/duality transport, supplement the already imported 27.1–27.4 comparisons by an exact theorem that (f◇)^!c_X^*A and the internal-Hom object defining D◇c_Y^*K belong to the essential image of c_Y^*, with invertible counit and compatibility with their canonical comparisons, in the stated qcqs characteristic-p finite-dimensional coefficient range. Extend the owner as a Part II if this lies beyond its existing range. For a complete DVR base use L4/L6 in their distinct finite constructible prime-to-residue-characteristic range; do not infer this image theorem from 27.7 full faithfulness. In the DVR range require the actual recovered candidate T=f^!A and its invertible unit, then B≃c_Y^*T; arbitrary ambient essential-image membership is not the substitute.",
       "neededBy": [
         "EtaleDualityAndPerverseSheaves:EDC.6/diamond-trace-mates-and-image-condition"
       ]
@@ -651,7 +660,7 @@
   ],
   "gaps": [
     {
-      "title": "Register and integrate the PR196 realization/comparison interfaces",
+      "title": "Register PR196 interfaces and extend their finite O/E coefficient scope",
       "neededBy": [
         "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
         "EtaleDualityAndPerverseSheaves:EDC.6/mapping-limit-and-integral-class-transport",
@@ -659,7 +668,7 @@
         "EtaleDualityAndPerverseSheaves:EDC.6/complex-tate-orientation-identification",
         "EtaleDualityAndPerverseSheaves:EDC.6/complex-supported-class-transport"
       ],
-      "detail": "The required upstream targets exist in PR196 at the recorded head and have been read, but its seven child roadmaps have no registered atlas stages. The exact SF.2 request and upstreamIntegration map are the import boundary; replacing them by invented UPSTREAM prerequisites would make the graph unresolvable. Implementers must consume these owners, retaining their own open inputs."
+      "detail": "The recorded PR196 head supplies the stated Z_ℓ/Q_ℓ generic realization/comparison targets, but its child roadmaps have no registered atlas stages. The common-stratum homotopy-coherent O/E constructible equivalence, O/E topological realization and filtered algebraic-coefficient finite-diagram descent need the exact extension in the SF.2 request; they are not all existing PR196 targets. Extend EllAdicRealization in its own direction, retaining the consuming inherited EDC.6 ids. The upstreamIntegration map is the import boundary; invented unregistered prerequisite ids would not resolve this gap."
     },
     {
       "title": "Supported Thom/Gysin and noncompact finite/integral topological duality interface",
@@ -680,7 +689,7 @@
       "neededBy": [
         "EtaleDualityAndPerverseSheaves:EDC.6/diamond-trace-mates-and-image-condition"
       ],
-      "detail": "For strong c^* exceptional/duality transport, supplement the already imported 27.1–27.4 comparisons by an exact theorem that (f◇)^!c_X^*A and the internal-Hom object defining D◇c_Y^*K belong to the essential image of c_Y^*, with invertible counit and compatibility with their canonical comparisons, in the stated qcqs characteristic-p finite-dimensional coefficient range. Extend the owner as a Part II if this lies beyond its existing range. For a complete DVR base use L4/L6 in their distinct finite constructible prime-to-residue-characteristic range; do not infer this image theorem from 27.7 full faithfulness. Right-adjoint recovery and the mate/counit equation are planned; strong geometric transport remains conditional. The inherited EDC.4 diamond acceptance examples must be interpreted under this hypothesis during assembly."
+      "detail": "For strong c^* exceptional/duality transport, supplement the already imported 27.1–27.4 comparisons by an exact theorem that (f◇)^!c_X^*A and the internal-Hom object defining D◇c_Y^*K belong to the essential image of c_Y^*, with invertible counit and compatibility with their canonical comparisons, in the stated qcqs characteristic-p finite-dimensional coefficient range. Extend the owner as a Part II if this lies beyond its existing range. For a complete DVR base use L4/L6 in their distinct finite constructible prime-to-residue-characteristic range; do not infer this image theorem from 27.7 full faithfulness. In the DVR range require the actual recovered candidate T=f^!A and its invertible unit, then B≃c_Y^*T; arbitrary ambient essential-image membership is not the substitute. Right-adjoint recovery and the mate/counit equation are planned; strong geometric transport remains conditional. The inherited EDC.4 diamond acceptance examples must be interpreted under this hypothesis during assembly."
     }
   ],
   "restructure": [
@@ -694,7 +703,7 @@
         "WeilConjectures"
       ],
       "detail": "RT-AREA-etale/3 and /16 already have detailed Part II proposals in EtaleDualityAndPerverseSheaves--EDC.0.json restructure entries 0 and 1. EDC.6 remains finite-type scheme transport; it supplies inputs to those extensions.",
-      "proposal": "Retain the inherited single-owner proposals: stacks six operations/perverse IC/DM decomposition/correspondence traces in the stacks Part II, consumed by GS.1, GS.3, ET.2b, WC.6 and the EDC.8 shtuka items (including LAFFORGUE-18/48), ShtukaSpecialCyclesAndHigherSiegelWeil and RamifiedGeometricClassFieldTheory; perfect pfp model-independent transport and finite-level equivariant perfection in the perfect-space Part II importing GS0:Witt-geometry and L2. Common equivariant six operations stay with stacks; scheme-level Braden belongs to the perfect/equivariant Part II. This references existing briefs and creates no second plan."
+      "proposal": "Retain the inherited single-owner proposals: stacks six operations/perverse IC/DM decomposition/correspondence traces in the stacks Part II, consumed by GS.1, GS.3, ET.2b, WC.6 and the EDC.8 shtuka items (including LAFFORGUE-18/48), ShtukaSpecialCyclesAndHigherSiegelWeil and RamifiedGeometricClassFieldTheory; perfect pfp model-independent transport and finite-level equivariant perfection in the perfect-space Part II importing GS0:Witt-geometry and L2. Common equivariant six operations stay with stacks; scheme-level Braden belongs to the perfect/equivariant Part II. This references existing briefs and creates no second plan. Retain the verified restrictions: no blanket bounded-category preservation for arbitrary Artin stacks; stabilizer, representability, coefficient and support hypotheses stay attached to each claim. Keep YUN-ZHANG-17/35 and YUN-ZHANG-19/120 with LAFFORGUE-18/48 at the stacks owner. Perfect pfp transport needs common finite presentation models and their canonical comparison maps; equivariant descent remains finite-level. Braden keeps G_m-monodromicity and Zhu Appendix A.3 normalization/connected-kernel inputs."
     },
     {
       "action": "rescope",
@@ -722,6 +731,16 @@
       ],
       "detail": "Passing algebraically realized analytic trace comparison from finite prime-to-residue-characteristic coefficients to integral/rational coefficients needs normalized analytic coefficient categories not supplied by a scheme/pro-étale realization.",
       "proposal": "Request Classical adic étale cohomology, Part II: normalized analytic coefficients and duality. Import its finite H3/H5 operations and the generic inverse-limit/coefficient machinery of EllAdicRealization; supply the exact analytic realization, common strata/uniform bounds and exceptional/direct-image reduction interface in the corresponding gap. EDC.6 then imports that extension to compare specified traces and Gysin classes on actual models."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/CohomologicalPointCounting/EllAdicRealization",
+        "SchemeAndStackFoundations",
+        "EtaleDualityAndPerverseSheaves"
+      ],
+      "detail": "The PR196 realization owner has explicit Z_ℓ/Q_ℓ scope, while EDC.6 consumes finite O/E enhanced constructible and topological realizations and algebraic-coefficient descent. The exact SF.2 request records this additional interface.",
+      "proposal": "Request Ell-adic realization, Part II: finite coefficient fields and coherent constructible realization. Extend the existing generic owner by the O/E common-stratum, uniform-bounds, homotopy-coherent normalized/pro-étale equivalence and mapping-complex interface; extend its topological realization and filtered algebraic-coefficient object/morphism/finite-diagram descent. Import the existing Z_ℓ/Q_ℓ targets unchanged through SF.2. Retain inherited EDC.6 consuming ids; EDC.6 owns comparison of duality/class maps, not a second generic coefficient theory."
     }
   ],
   "sourceIssues": [],
@@ -742,7 +761,7 @@
         "EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-uniform-bounds",
         "EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-common-strata"
       ],
-      "note": "Use the normalized category/API, operation index, perverse extension and comparison statements at their stated hypotheses. The old diamond node is consumed only for its stated Rc_* recovery; its strong-comparison acceptance examples require the separately recorded essential-image input. No nodes are copied or replaced in this job."
+      "note": "Use the normalized category/API, operation index, perverse extension and comparison statements at their stated hypotheses. The old diamond node is consumed only for its stated Rc_* recovery; its strong-comparison acceptance examples require the separately recorded essential-image input. No nodes are copied or replaced in this job. The normalized systems must be interpreted in the enhanced homotopy-coherent category, with mapping complexes, as specified in the SF.2 extension request. Compatible maps in homotopy categories alone do not define the integral category when lim¹ is nonzero."
     }
   ],
   "importsFromTauCetiRoadmaps": [
@@ -751,7 +770,8 @@
       "layers": "0–10",
       "interfaceOwner": "SchemeAndStackFoundations:SF.2",
       "head": "4bd72379658126cbe9be935656396f0c9dac4de0",
-      "status": "PR196 open, read at this head"
+      "status": "PR196 open, read at this head",
+      "note": "Existing Z_ℓ/Q_ℓ scope only. The finite O/E coherent constructible, topological and algebraic-coefficient descent extension is requested from this owner through SF.2."
     },
     {
       "roadmap": "CohomologicalPointCounting/ComplexComparison",
@@ -781,7 +801,7 @@
         }
       ],
       "via": "SchemeAndStackFoundations:SF.2",
-      "note": "Unregistered atlas layers; resolve through SF.2 integration until actual upstream stage ids are registered."
+      "note": "Unregistered atlas layers; resolve the existing Z_ℓ/Q_ℓ targets through SF.2 until actual upstream stages are registered. The broader finite O/E coherent category, topological realization and algebraic-coefficient descent require the exact extension request."
     },
     {
       "external": "UPSTREAM:CohomologicalPointCounting:ComplexComparison:10-12",
@@ -809,6 +829,12 @@
         "tauceti:TauCetiRoadmap/DifferentialGeometry"
       ],
       "note": "Current main was screened for duplication. AlgebraicTopology Stage 6 has local orientation, products and compact-manifold duality; DifferentialGeometry Layer 9 already has noncompact real de Rham duality. The Part II request here concerns the additional finite/integral supported and constructible interface, and must not replace either existing development."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles"
+      ],
+      "note": "Current main’s successor-motivation section discusses Chow and Chern classes; those are not targets supplied by AlgebraicVectorBundles itself. Consume its finite locally free/vector-bundle infrastructure without attributing a Chern-class realization theorem to it."
     }
   ],
   "targetCoverage": [
@@ -860,5 +886,48 @@
         "EtaleDualityAndPerverseSheaves:EDC.6/diamond-trace-mates-and-image-condition"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EtaleDualityAndPerverseSheaves--EDC.6",
+    "date": "2026-10-13",
+    "notes": "Independent complete target-level review; seven nodes corrected in place, four baseline declarations confirmed at Mathlib 082e2d3, no nodes added or removed. Checked all source locators, imported supplier statements, current roadmap/library ownership, eight orientation API items/four tests, four new plus two inherited planets and RT-AREA-etale/3,/16,/17 routing. Complete pass accepted as planned, not closed: four exact gaps and four requests remain. All implementation statuses stay unchecked. Reader and two categorical Lean end milestones agree with these boundaries.",
+    "checked": [
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "verdict": "corrected",
+        "note": "Read strict-reduction, constructibility, closed/smooth factorization and internal-Hom arguments at the BS locators. Corrected proper-support locator to 6.7.6–10 and the PR196 finite O/E enhanced-category supplier boundary; relative finiteness and finite-Tor restrictions preserved."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/mapping-limit-and-integral-class-transport",
+        "verdict": "corrected",
+        "note": "Verified derived mapping limit, geometric ML argument and lim¹ obstruction; added the coefficient Tor locator on BBD p.72 and made the homotopy-coherent finite O/E category request explicit. Separably closed k remains essential for the finite-Hom uniqueness consequence."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "verdict": "corrected",
+        "note": "Verified finite-free scalar extension, ramified cofinal reindexing and BS 6.8.14 descent. Corrected 6.8.2 pagination, the BBD stable-lattice match and PR196’s Z_ℓ/Q_ℓ boundary. Removed dependence on a separably-closed-field uniqueness theorem from this arbitrary-field canonical comparison."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/complex-tate-orientation-identification",
+        "verdict": "corrected",
+        "note": "Verified BBD 6.1.4 orientation, conjugation and root-change normalization and all four discriminating tests. Added stalk-generator extensionality, bringing the construction API to eight items; finite O/E topological realization is a precise owner request."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/complex-supported-class-transport",
+        "verdict": "corrected",
+        "note": "Verified smooth-pair supported normalization and compact-support trace examples. Replaced the unrestricted right-adjoint comparison argument by finite closed/smooth localization, followed by coherent normalized integral realization and rationalization with the stable-lattice image restriction. Extra topological Thom/Gysin/noncompact duality remains a recorded gap."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/analytic-smooth-trace-comparison",
+        "verdict": "corrected",
+        "note": "Read Huber proper-support and trace/adjunction locators and the H3/H5/R1 suppliers. Added nontrivial rank-one valuation, imported the existing H3 general trace and analytic Chern class, narrowed the request to missing support comparison/full D⁺ adjunction, and extended counit proof pagination through p.392. Finite prime-to-residue scope and the analytic integral gap remain."
+      },
+      {
+        "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/diamond-trace-mates-and-image-condition",
+        "verdict": "corrected",
+        "note": "Verified ECD 27.1–7 and every exact L3/L4/L6 supplier; checked mate/counit domains and the image counterexample. Made the DVR criterion depend on B≃c_Y^*T for the particular recovered eligible candidate T with invertible unit; added the pointwise Lean end milestone without ambient full faithfulness."
+      }
+    ]
+  }
 }
