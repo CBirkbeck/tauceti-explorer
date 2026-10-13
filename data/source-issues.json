@@ -211979,6 +211979,26 @@
    "reviewReason": "Checked on the page image of p.563: “Δ̄_0/O^1_{B,p} ⊂ Δ̄_0/O^1_{B,p}” is printed twice with both groups unprimed; the second must be Δ̄′_0, and the two are identified through G → G″."
   },
   {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.3-1",
+   "kind": "gap",
+   "locator": "Author copy proofs.pdf dated 30 May 2009, Lemma 7.2 proof (i), p.61",
+   "printed": "In our own words: the proof infers independence of the odd-prime unramified local character from independence of the residual Galois representation.",
+   "correction": "Provide the missing sign-identification argument at unramified residual places with q_v≡−1 mod p, or impose a hypothesis such as 1+q_v nonzero or residual local ramification. The packet proves only the explicitly scoped interface pending this check.",
+   "reason": "For p=3 and q_v≡−1, the unramified residual diagonal pairs (q_v·1,1) and (q_v·(−1),−1) are {−1,1} and {1,−1}, hence isomorphic. Opposite square roots are different but unordered residual data need not distinguish them. This shows the local inference alone is insufficient; no global automorphic counterexample is alleged.",
+   "affects": "the proof",
+   "known": "Candidate gap; no correction located in the searches listed, requiring independent review.",
+   "searched": [
+    "The author copy §7 opening and Lemma 7.2, pp.57–61, including the definition of the away-place Hecke algebra",
+    "Public searches for Khare–Wintenberger Lemma 7.2 sign errata and Serre modularity II corrections on 2026-10-13"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+   "citation": "Sources of the blueprint of HilbertModularVarietiesAndShimuraCurves",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HodgeStructuresPartII/EG20-E10-H1",
    "kind": "misprint",
    "locator": "§2.1, published p.108",
@@ -248774,6 +248794,137 @@
    "status": "confirmed",
    "reviewedBy": "REV-ShimuraCompactifications--C6",
    "reviewReason": "Confirmed in the companion author copy p. 586. For N_j=Z^j and N=⊕_i Z, the series with coefficient e_i at the ith positive multiple of one allowed exponent lies in N[[q]] but in no N_j[[q]]. Thus the full-series target does not commute with this colimit. The directed-union argument in the node needs only H0 colimit commutation and injective coefficient maps from the flat line."
+  },
+  {
+   "id": "ShimuraCompactifications/E1",
+   "kind": "misprint",
+   "locator": "Pink author-hosted dissertation, Definition 2.1(v), printed p. 30, PDF p. 31 (one-based); binary SHA-256 as PINK-1990. Publisher text not compared.",
+   "printed": "The source assigns Lie V to n = -1 and Lie W to n >= 0.",
+   "correction": "Use Lie W for n=-1 and Lie P for n>=0. The weight-minus-one graded quotient is Lie V=Lie W/Lie U.",
+   "reason": "The displayed filtration is on Lie P. For a pure datum W=1 and nonzero Lie P, its printed top step would be zero, contradicting exhaustivity. The printed middle line also places a quotient Lie V where a Lie P subspace is required. The surrounding weight convention gives the stated correction; the rendered author-copy p. 30 was inspected.",
+   "affects": "nothing",
+   "known": "New finding for the inspected author-hosted binary; no formal published correction located, and no error in an uninspected publisher edition is asserted.",
+   "searched": [
+    "Pink dissertation download and author dissertation bibliography at https://people.math.ethz.ch/~pink/dissertation.html, read 2026-10-06; no errata link found.",
+    "Search for Pink Definition 2.1 mixed Shimura Lie filtration errata; primary definitions use Lie W and Lie P. No author erratum found."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Richard Pink, Arithmetical compactification of mixed Shimura varieties, Author-hosted dissertation text; publisher edition not compared",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E2",
+   "kind": "error",
+   "locator": "Author-hosted revision dated 14 March 2021, Lemma 6.1.2.6, printed p. 444/PDF p. 472 (one-based); SHA-256 recorded as LAN-2021. Publisher edition uninspected.",
+   "printed": "The source identifies the closed complement, after reduction, with Spec of the orthogonal-character algebra without reduction, allowing arbitrary Z.",
+   "correction": "Use the scheme-theoretic off-face monomial quotient as the stratum. If a reduced stratum is wanted, reduce that quotient too; identifying it with the unreduced character algebra requires reducedness of the relevant base/chart.",
+   "reason": "Remark 6.1.2.2 explicitly permits arbitrary Z. For Z=Spec(Z/4Z), a trivial G_m-torsor and its positive ray, the displayed orthogonal quotient is Spec(Z/4Z) whereas the reduced closed complement of G_m in A1_Z is Spec(F2). The nonzero nilpotent 2 survives the monomial quotient and is killed by reduction. The packet's C0 quotient and nilpotent tests already use the scheme-theoretic version.",
+   "affects": "nothing",
+   "known": "New finding for the inspected hashed author revision; no corresponding correction was located in the author errata searched. No claim about an uninspected publisher edition.",
+   "searched": [
+    "The 14 March 2021 book errata at https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf was inspected, including its toroidal and stratum corrections; this arbitrary-base reduced-stratum discrepancy was not located.",
+    "The author bibliography https://www.kwlan.org/academic.html and its linked thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf were searched for the toroidal/reduced-stratum correction on 2026-10-06."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Kai-Wen Lan, Arithmetic compactifications of PEL-type Shimura varieties, Author-hosted thesis revision, 14 March 2021; publisher edition not inspected",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E3",
+   "kind": "misprint",
+   "locator": "Author-hosted cpt-ram-nbl.pdf, Proposition 7.5 invariant clause following (7.7), printed/PDF p. 28; compare Proposition 7.3, p. 27. SHA-256 recorded as LAN-2017. Publisher edition uncollated.",
+   "printed": "The invariant clause takes Hprime normal in H and gives the group H/Hprime for a map with source level H and target level Hprime.",
+   "correction": "For the finer-to-coarser map require H normal in Hprime and take Hprime/H-invariants of the source pushforwards, for both the structure sheaf and boundary ideal.",
+   "reason": "Proposition 7.3 takes Hprime containing H, and (7.6)–(7.7) push from the H model to the Hprime model. The deck action for a strict normal level cover is Hprime/H. The printed reversed inclusion can apply to such a cover only when the levels are equal, and its stated quotient is otherwise undefined. The surrounding source maps fix the intended direction.",
+   "affects": "nothing",
+   "known": "New finding for the inspected hashed author copy. No corresponding author erratum located; no statement about an uninspected publisher edition.",
+   "searched": [
+    "Author one-page errata at https://www.kwlan.org/articles/cpt-ram-nbl-err.pdf, items (1)–(3), read 2026-10-10; none concerns Proposition 7.5.",
+    "Author bibliography https://www.kwlan.org/academic.html and searches restricted to author-hosted correction material, checked 2026-10-10; no correction of this level-group direction located."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Kai-Wen Lan, Integral models of toroidal compactifications with projective cone decompositions, Author-hosted published-paper copy, IMRN 2017",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E-C6-1",
+   "kind": "misprint",
+   "locator": "Theorem 8.3 proof, arXiv v3 p. 24; same text in author copy printed p. 547",
+   "printed": "The source takes ξ₀ to be not totally positive.",
+   "correction": "Choose ξ₀ outside X_+∪{0}: explicitly require ξ₀≠0 before obtaining a strictly negative real embedding or trace pairing.",
+   "reason": "At ξ₀=0 all pairings are zero, so the displayed negative-trace conclusion is false. The preceding definition allows the zero exponent and the theorem retains constant terms. This corrects the proof wording, not the theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+    "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+    "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+    "Public title + errata/corrigendum search on 2026-09-26; no correction located.",
+    "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E-C6-2",
+   "kind": "misprint",
+   "locator": "Sentence after Proposition 8.5(iii), arXiv v3 p. 24; author copy printed p. 548",
+   "printed": "The source calls R = 0 the zero ring.",
+   "correction": "Read the zero object as the zero coefficient submodule in the additive-module descent argument: a section whose expansion is zero is zero. As a specialization of unital coefficient-ring inclusions, R=0 forces R′=0 and is vacuous; replacing R by C is not the intended inference.",
+   "reason": "Dimitrov–Tilouine §7, Proposition 7.3 proof, derives both assertions from injectivity with arbitrary abelian coefficient groups. This explains the intended zero-module case. The previous checkpoint’s proposed R=C correction is withdrawn; the only precision issue is calling that zero module a coefficient ring.",
+   "affects": "nothing",
+   "known": "Dimitrov–Tilouine author copy §7, Proposition 7.3 proof explains the intended additive-module argument; no publisher erratum verified.",
+   "searched": [
+    "https://arxiv.org/abs/math/0212071 (v3 is the final listed revision)",
+    "https://gitlabpages.univ-lille.fr/dimitrov/ (publication list and linked typeset author copy inspected)",
+    "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.1.527/html (HTTP 405 on full-page access)",
+    "Public title + errata/corrigendum search on 2026-09-26; no correction located.",
+    "Dimitrov–Tilouine author-hosted companion, printed pp. 585–586, read 2026-10-06.",
+    "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Mladen Dimitrov, Compactifications arithmétiques des variétés de Hilbert et formes modulaires de Hilbert pour Γ1(c,n), arXiv math/0212071v3, 7 November 2004, 28 physical pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ShimuraCompactifications/E-C6-3",
+   "kind": "error",
+   "locator": "Proposition 7.3 proof, author copy printed p. 586",
+   "printed": "The source argues that both sides commute with filtered colimits.",
+   "correction": "Use directed unions of finitely generated coefficient submodules and coefficientwise injectivity from the invertible coefficient line. Only H0 on the qcqs model needs the colimit theorem; do not claim colimit commutation for the entire formal-series target.",
+   "reason": "Let N_j=Z^j with the coordinate inclusions, N=the direct sum of countably many copies of Z. The series whose ith coefficient is the ith basis vector lies in N[[q]] but in no N_j[[q]]. Hence colim_j N_j[[q]]→N[[q]] is not surjective. The source’s conclusion is repaired by the directed-union argument: zero in N is detected already in each N_j because every coefficient map is injective.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "https://arxiv.org/abs/math/0212072 (final listed revision v3, 7 November 2004; metadata inspected 2026-10-06, not a fresh full reading of v3)",
+    "https://gitlabpages.univ-lille.fr/dimitrov/ (publication listing and linked author copy, inspected 2026-10-06)",
+    "https://www.math.univ-paris13.fr/~tilouine/publications.html (publication listing inspected 2026-10-06)",
+    "https://www.degruyterbrill.com/document/doi/10.1515/9783110198133.2.555/html (publisher full-page access failed)",
+    "Public title + errata/corrigendum search, 2026-10-06; no correction located.",
+    "Independent review, 2026-10-06: public title/author + errata/corrigendum queries, final arXiv revision metadata and author publication listing checked; no correction located. Publisher DOI access failed; this is not a version-of-record verification."
+   ],
+   "owner": "ShimuraCompactifications",
+   "file": "research/blueprint/packets/ShimuraCompactifications.json",
+   "citation": "Mladen Dimitrov and Jacques Tilouine, Variétés et formes modulaires de Hilbert arithmétiques pour Γ1(c,n), Author-hosted typeset copy, 58 physical pages, printed pp. 553–610; not certified as the publisher version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ShimuraData/E1",
