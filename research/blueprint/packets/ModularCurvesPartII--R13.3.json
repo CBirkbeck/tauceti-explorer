@@ -13,7 +13,7 @@
     "ModularCurvesPartII:R14.2"
   ],
   "status": "complete",
-  "summary": "Complete target-level pass for the eight stages R13.3–R14.2, continuing the ten checkpoint targets with their ids preserved. The algebraic coarse construction precedes analytic component comparison; current prime-level Layer 10, elliptic quotient/deformation, relative Picard, general stable-reduction, Néron and lower-tier étale results are imports. The packet covers composite cusp rings, bad-level local models, exact modular graphs, integral coherent/étale traces, cyclic versus full correspondences and faithful geometric Hecke realization. Explicit wild small-prime/relative-supplier gaps remain for independent review and follow-up; no formalization is claimed.",
+  "summary": "Complete target-level planning pass for R13.3–R14.2, independently reviewed in 46 preserved nodes. Corrected proper Tate power-map flatness, model component counts and root choices, source locators, and exact supplier ownership. Existing SF.4 polarized formal algebraization is imported rather than recorded as missing. Wild bad-level interior models at 2 and 3, the relative curve norm/polarization contract and the integral cuspidal-symbol comparison remain explicitly recorded gaps; all mathematical stages are planned, not closed or formalized.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,7 +23,7 @@
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/HeckeRing/GL2/Basic.lean",
         "provides": "For m,n:ℕ+ and Nat.Coprime(m:ℕ)(n:ℕ), HeckeRing.GL2.heckeT m * HeckeRing.GL2.heckeT n = HeckeRing.GL2.heckeT (m*n). This is the abstract full-subgroup integral GL₂ Hecke product, not the cyclic repeated-prime law.",
-        "checked": "Statement read in the shared pinned Lean source on 2026-10-13; the current upstream library ownership check is recorded separately."
+        "checked": "Independently confirmed by REV-ModularCurvesPartII--R13.3 on 2026-10-13 in the pinned Tau Ceti source, Basic.lean line 221, with m,n:ℕ+ and Nat.Coprime hypotheses. Its exact application elaborates in the suggested file. Current upstream ownership is checked separately."
       }
     ]
   },
@@ -45,7 +45,7 @@
       "id": "ces17",
       "title": "A modular description of X₀(n)",
       "authors": "Kęstutis Česnavičius",
-      "edition": "arXiv:1511.07475v2, header 5 October 2017, text dated 6 October 2017; printed pp.1–65.",
+      "edition": "arXiv:1511.07475v2, header 5 October 2017, text dated 6 October 2017; printed pp.1–67.",
       "readSections": [
         "Lemma 4.7.1 p.49; Theorem 5.13 pp.60–61; §6 pp.62–65"
       ],
@@ -75,7 +75,7 @@
       "readSections": [
         "§3.9 pp.44–46; §3.10.2 pp.47–48; Chapter 5 §§5.1–5.2 pp.63–73; §5.3 ordinary subgroup closure pp.77–79"
       ],
-      "url": "https://www.wstein.org/papers/serre/ribet-stein.pdf",
+      "url": "https://wstein.org/papers/serre/ribet-stein.pdf",
       "sha256": "e1bf2b5cd14de064bcb48c4ca843251198db74dd8bcfaad63c26f6773f63f604",
       "bytes": 866421,
       "accessed": "2026-10-13"
@@ -163,7 +163,8 @@
       "prerequisites": [
         "ModularCurvesPartII:R13.1/generalized-elliptic-curve",
         "ModularCurvesPartII:R13.1/semistable-genus-one-curves-and-neron-polygons",
-        "SchemeAndStackFoundations:SF.4"
+        "SchemeAndStackFoundations:SF.4/grothendieck-algebraization",
+        "SchemeAndStackFoundations:SF.4/algebraization-of-subschemes-and-morphisms"
       ],
       "sources": [
         {
@@ -252,26 +253,30 @@
       ],
       "title": "Power isogenies at the boundary",
       "kind": "construction",
-      "statement": "For m,n≥1 the formal power maps on each branch give a pointed finite flat degree-m morphism Tateₙ(t)→Tateₙ(tᵐ), with kernel μₘ in the identity component of the smooth locus and pullback du/u↦m du/u. The target is the base change t↦tᵐ of the n-gon family, so its node equation is XY=tᵐ; it need not have regular total space. Generic fibres are the map u↦uᵐ from Tate₁(tⁿ) to Tate₁(tⁿᵐ).",
+      "statement": "For m,n≥1 the branch power maps give a pointed finite morphism Tateₙ(t)→Tateₙ(tᵐ) of generic degree m. Its restriction to the smooth loci is finite locally free of rank m, with kernel μₘ in the identity component and pullback du/u↦m du/u. The proper morphism is not flat at the nodes for m>1: over a field, the completed target-to-source map is k[[t,X,Y]]/(XY−tᵐ) → k[[t,x,y]]/(xy−t), X↦xᵐ, Y↦yᵐ, and the fibre at the closed target node is k[x,y]/(xy,xᵐ,yᵐ) of length 2m−1. The target is the base change t↦tᵐ of the n-gon family and need not have regular total space. On generic fibres the map is u↦uᵐ from Tate₁(tⁿ) to Tate₁(tⁿᵐ).",
       "hypotheses": [],
       "prerequisites": [
         "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
-        "ModularCurvesPartII:R13.1/contraction-away-from-a-divisor"
+        "ModularCurvesPartII:R13.1/contraction-away-from-a-divisor",
+        "SchemeAndStackFoundations:SF.4/grothendieck-algebraization",
+        "SchemeAndStackFoundations:SF.4/algebraization-of-subschemes-and-morphisms"
       ],
       "sources": [
         {
           "sourceId": "conrad07",
           "locator": "Example 2.5.1, p.18; Theorem 4.4.3, pp.43–46",
-          "match": "Power maps are finite flat and extend the universal isogeny in the multiplicative boundary case."
+          "match": "The displayed branch maps and smooth-locus isogeny are used with the finite-flat assertion on the whole proper curve corrected by source issue E7. The finite-flat moduli maps of Theorem 4.4.3 are different morphisms."
         }
       ],
       "proofSteps": [
-        "Raise branch coordinates to the mth power, respecting the overlap and equations XY=t and XY=tᵐ.",
-        "Finite flatness is checked on the formal charts; use full faithfulness to obtain the algebraic map.",
-        "The smooth-locus power map gives kernel and differential, including the zero differential in characteristic dividing m."
+        "Raise branch coordinates to the mth power, respecting the overlap and equations xy=t and XY=tᵐ. Each branch coordinate is integral over its mth power, so these charts give a finite map.",
+        "Use SF.4 algebraization and full faithfulness for the proper formal maps. Generic degree m follows from the elliptic isogeny; smooth-locus flatness follows from the μₘ torsor on Gₘ, component by component.",
+        "At a target node set t=X=Y=0. The remaining monomials 1,x,…,x^(m−1),y,…,y^(m−1) form a basis of the fibre, giving length 2m−1. A finite flat map of generic rank m would have fibre length m, so the proper map is not flat for m>1.",
+        "The smooth-locus power map gives the kernel and differential, including the zero differential in characteristic dividing m."
       ],
       "acceptance": [
-        "For m=p in characteristic p, the geometric map is inseparable and the differential vanishes; its scheme degree remains p."
+        "For m=p in characteristic p the generic isogeny is inseparable of degree p, the smooth-locus kernel has rank p and the differential vanishes; this does not imply flatness of the proper power map.",
+        "For m=2 the target-node fibre has length 3, whereas the generic degree is 2. Reject a finite-flat assertion for the whole proper morphism."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -282,7 +287,7 @@
         {
           "name": "TauCeti.ModularCurves.tatePower",
           "role": "constructor",
-          "statement": "The pointed degree-m map with its source and target comparisons."
+          "statement": "The pointed finite map of generic degree m, with its source and target comparisons; no whole-curve flatness field."
         },
         {
           "name": "TauCeti.ModularCurves.tatePower_kernel",
@@ -298,6 +303,16 @@
           "name": "TauCeti.ModularCurves.tatePower_comp",
           "role": "functoriality",
           "statement": "Composition of the mth and rth power maps is the mrth power map with the necessary base changes."
+        },
+        {
+          "name": "TauCeti.ModularCurves.tatePower_smooth_flat",
+          "role": "compatibility",
+          "statement": "The restriction to the smooth loci is finite locally free of rank m, a μₘ torsor on each component."
+        },
+        {
+          "name": "TauCeti.ModularCurves.tatePower_node_fibre_length",
+          "role": "characterisation",
+          "statement": "At a geometric target node the fibre has length 2m−1; for m>1 the proper map is not flat."
         }
       ],
       "tests": [
@@ -315,6 +330,11 @@
           "name": "TauCeti.ModularCurves.tatePower_target_thickness",
           "kind": "non-example",
           "statement": "For m=2 the target node XY=t² has thickness 2; it is not the original regular smoothing."
+        },
+        {
+          "name": "TauCeti.ModularCurves.tatePower_node_fibre_two",
+          "kind": "non-example",
+          "statement": "For m=2 the node fibre has basis 1,x,y and length 3, not 2. The suggested nodePowerFibreMonomials enumeration checks this exponent list without constructing a geometric carrier."
         }
       ],
       "uses": [
@@ -342,7 +362,7 @@
         "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
         "ModularCurvesPartII:R13.1/drinfeld-structures-and-cyclicity",
         "ModularCurvesPartII:R13.2",
-        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation",
         "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering"
       ],
       "sources": [
@@ -601,7 +621,7 @@
         },
         {
           "sourceId": "ces17",
-          "locator": "Theorem 5.13, pp.60–61; Theorem 6.7, pp.63–64",
+          "locator": "Theorem 5.13, pp.60–62; Theorem 6.7, pp.64–65",
           "match": "The refined boundary is a relative Cartier divisor, and the coarse cusp locus is regular even at 2 and 3."
         }
       ],
@@ -654,7 +674,7 @@
         "Normality, projectivity and Cohen–Macaulayness in dimension two yield the finite locally free j-map, as in §6.1."
       ],
       "acceptance": [
-        "For trivial H the result is ℙ¹_j over ℤ.",
+        "For H=GL₂(Ẑ) (level 1) the result is ℙ¹_j over ℤ.",
         "A fixed Weil pairing changes the base; forgetting it is not a geometrically connected full-level curve over ℚ."
       ],
       "implementationStatus": "unchecked",
@@ -738,7 +758,7 @@
       "sources": [
         {
           "sourceId": "ces17",
-          "locator": "Lemma 6.2 and Proposition 6.3, p.62",
+          "locator": "Lemma 6.2 and Proposition 6.3, p.63",
           "match": "Finite quotient descriptions and KM comparison identify the same algebraic coarse curves."
         }
       ],
@@ -774,7 +794,7 @@
       "sources": [
         {
           "sourceId": "ces17",
-          "locator": "Proposition 6.4 and Remark 6.6, pp.62–63",
+          "locator": "Proposition 6.4, pp.63–64, and Remark 6.6, p.64",
           "match": "The base-change range includes non-tame primes not dividing level; the Γ₁(4) counterexample excludes a general claim."
         }
       ],
@@ -818,7 +838,7 @@
         },
         {
           "sourceId": "ces17",
-          "locator": "Theorem 6.7 and Proposition 6.9, pp.63–64",
+          "locator": "Theorem 6.7, pp.64–65, and Proposition 6.9, p.65",
           "match": "Coarse cusp regularity is uniform and naive/refined coarses agree."
         }
       ],
@@ -1249,7 +1269,7 @@
         "ModularCurvesPartII:R13.4a/integral-coarse-curves",
         "ModularCurvesPartII:R13.1/drinfeld-structures-and-cyclicity",
         "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
-        "AbelianSchemesAndArithmeticModuli:A3"
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups"
       ],
       "sources": [
         {
@@ -1571,7 +1591,8 @@
       "prerequisites": [
         "ModularCurvesPartII:R13.5/tame-regular-resolution",
         "ModularCurvesPartII:R13.5/igusa-components",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
       ],
       "sources": [
         {
@@ -1603,7 +1624,7 @@
         {
           "name": "TauCeti.ModularCurves.primeSquareModel_vertical",
           "role": "projection",
-          "statement": "Four outer and two middle components on the auxiliary rigidified presentation."
+          "statement": "Two outer and two middle components, four vertical components in total, on the auxiliary rigidified presentation."
         },
         {
           "name": "TauCeti.ModularCurves.primeSquareModel_horizontal",
@@ -1636,6 +1657,11 @@
           "name": "TauCeti.ModularCurves.primeSquareModel_generic",
           "kind": "compatibility",
           "statement": "The generic fibre remains X₀(p²M), with the original two j-invariant maps."
+        },
+        {
+          "name": "TauCeti.ModularCurves.primeSquareModel_vertical_count",
+          "kind": "computation",
+          "statement": "The auxiliary presentation has two outer and two middle vertical components, total four. A six-component vertical list is rejected."
         }
       ],
       "uses": [
@@ -1660,7 +1686,7 @@
       ],
       "title": "Split Cartan semistable fibres",
       "kind": "theorem",
-      "statement": "Let ℓ=12k+1 be prime and W=W(𝔽̄_ℓ). Over W[ϖ], ϖ^(12k(6k+1))=ℓ, X₀(ℓ²) has k horizontal curves u²=v^(ℓ+1)+1, and four vertical curves, two rational and two Ig(ℓ)/±1. Each horizontal meets each vertical once, with no other intersections. Fricke fixes each horizontal via (u,v)↦(u,−v), exchanges the rational verticals and preserves the two Igusa verticals. Its tame quotient is a proper nodal model of X_s(ℓ): k horizontals u²=v^(6k+1)+1 of genus 3k, one rational vertical and two Ig(ℓ)/C₄ verticals of genus (k−1)(3k−2)/2. Its dual graph is K_(k,3); hence b₁=2k−2 and g=6k²−3k. The equality ϖ^(ℓ²−1)=ℓ² is equivalent to the chosen equation and is not a different extension.",
+      "statement": "Let ℓ=12k+1 be prime and W=W(𝔽̄_ℓ). Over W[ϖ], ϖ^(12k(6k+1))=ℓ, X₀(ℓ²) has k horizontal curves u²=v^(ℓ+1)+1, and four vertical curves, two rational and two Ig(ℓ)/±1. Each horizontal meets each vertical once, with no other intersections. Fricke fixes each horizontal via (u,v)↦(u,−v), exchanges the rational verticals and preserves the two Igusa verticals. Its tame quotient is a proper nodal model of X_s(ℓ): k horizontals u²=v^(6k+1)+1 of genus 3k, one rational vertical and two Ig(ℓ)/C₄ verticals of genus (k−1)(3k−2)/2. Its dual graph is K_(k,3); hence b₁=2k−2 and g=6k²−3k. The chosen equation ϖ^((ℓ²−1)/2)=ℓ implies ϖ^(ℓ²−1)=ℓ². The squared equation alone also allows ϖ^((ℓ²−1)/2)=−ℓ; recover the chosen extension only with the specified root choice, not by treating the two polynomial equations as equivalent.",
       "hypotheses": [],
       "prerequisites": [
         "ModularCurvesPartII:R13.5/prime-square-semistable-model",
@@ -2404,7 +2430,7 @@
       "sources": [
         {
           "sourceId": "grosszagier",
-          "locator": "Chapter I §1, p.226",
+          "locator": "Chapter I §2, p.227",
           "match": "The full order-m subgroup correspondence has σ₁(m) degree."
         },
         {
@@ -2526,7 +2552,7 @@
       "sources": [
         {
           "sourceId": "grosszagier",
-          "locator": "Chapter I §1, p.226",
+          "locator": "Chapter I §2, p.227",
           "match": "The full subgroup correspondence convention determines the classical repeated-prime identity."
         },
         {
@@ -3115,13 +3141,13 @@
         "ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian",
         "ModularCurvesPartII:R14.1/atkin-lehner-involution",
         "ModularCurvesPartII:R14.1/diamond-operators",
-        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing",
         "ModularCurvesPartII:R14.1/integral-etale-trace"
       ],
       "sources": [
         {
           "sourceId": "ribetstein",
-          "locator": "Chapter 5 Theorem 5.2, Corollary 5.3, Lemma 5.7 and Theorem 5.8, pp.67–69",
+          "locator": "Chapter 5 Theorem 5.2 and Corollary 5.3, p.66; Lemma 5.7, pp.68–69; Theorem 5.8, p.69",
           "match": "Petersson adjoints, the negative cup/Weil sign and twisted self-adjointness fix all conventions."
         }
       ],
@@ -3161,7 +3187,7 @@
         "AbelianSchemesAndArithmeticModuli:A4/etale-tate-module",
         "AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank",
         "ModularCurvesPartII:R14.1/integral-etale-trace",
-        "ArithmeticGaloisRepresentations:R01.6"
+        "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization"
       ],
       "sources": [
         {
@@ -3298,8 +3324,10 @@
       ],
       "title": "Integral Hecke realization comparison",
       "kind": "comparison",
-      "statement": "With upper/lower transpose conventions fixed, identify the same integral image of the abstract Hecke algebra on J, Betti H¹(C(ℂ),ℤ), the corresponding modular-symbol lattice, and T_ℓJ for every ℓ. Equality of integral kernels uses the faithful Hom/Betti comparison and the supplied End⊗ℤ_ℓ injection; equality after tensoring with ℚ alone is insufficient to identify integral lattices. The cotangent/classical-form comparison is the lower action, and the upper action is its adjoint; the normalized coherent weight-two T_p comes from its separate local p-divisibility theorem, whereas the Jacobian/étale push–pull has no inverse-degree normalization. These are comparisons with ModularForms Layer 8’s existing integral Hecke algebra, not a new algebra or a rank-two eigenspace theorem.",
-      "hypotheses": [],
+      "statement": "With upper/lower transpose conventions fixed, identify the same integral image of the abstract Hecke algebra on J, Betti H¹(C(ℂ),ℤ), and T_ℓJ for every ℓ. Equality of integral kernels uses the faithful Hom/Betti comparison and the supplied End⊗ℤ_ℓ injection; equality after tensoring with ℚ alone does not identify integral lattices. The additional modular-symbol comparison requires a weight-two cuspidal carrier: the kernel of the boundary map in ModularForms Layer 8’s integral symbol module, with its torsion removed, and its actual integral comparison with compact-curve H₁ (or the correctly transposed dual H¹). This missing contract is recorded as a gap; the full symbol module with boundary/Eisenstein classes is not asserted to have the same Hecke kernel. The cotangent/classical-form comparison is the lower action, and the upper action is its adjoint. Normalized coherent weight-two T_p comes from the separate local p-divisibility theorem; Jacobian/étale push–pull has no inverse-degree normalization. These compare existing Hecke actions and their image quotients, not a new abstract algebra or a rank-two eigenspace theorem.",
+      "hypotheses": [
+        "For the modular-symbol realization, supply the recorded integral cuspidal-symbol comparison contract, preserving diamonds and bad-prime operators; no comparison with the entire uncut symbol module is assumed."
+      ],
       "prerequisites": [
         "ModularCurvesPartII:R14.2/integral-hecke-algebra",
         "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions",
@@ -3313,7 +3341,7 @@
         {
           "sourceId": "ribetstein",
           "locator": "Chapter 5 §5.1, pp.65–69; §5.2, pp.71–72",
-          "match": "The integral Betti/Jacobian action and its dual conventions give the realization comparison."
+          "match": "The appendix supplies the compact-curve integral Betti/Jacobian Hecke action and its dual conventions. It does not supply the claimed integral identification with the full modular-symbol module."
         },
         {
           "sourceId": "conrad07",
@@ -3324,11 +3352,12 @@
       "proofSteps": [
         "Use complex comparison to identify integral Betti and Tate lattices after the required choices, compatibly with both correspondence legs.",
         "An endomorphism acting as zero on the lattice is zero by the imported Hom injection, so all integral image kernels coincide.",
-        "Compare with the actual ModularForms modular-symbol carrier and its coefficient/diamond conventions, retaining the integral image lattice."
+        "Construct the weight-two cuspidal symbol boundary kernel and remove its torsion. Supply the integral Hecke-equivariant comparison with compact-curve H₁, or its correctly transposed dual H¹, with diamonds and bad-prime operators. This is the recorded missing integral comparison, not a consequence of Layer 8’s form-side quotient. Then equality of integral kernels follows from the comparison; boundary/Eisenstein symbols never enter this equality."
       ],
       "acceptance": [
         "For degree p+1 with ℓ∣p+1 the same-leg norm–pull still acts as [p+1] in every realization.",
-        "A rationally isomorphic but index-2 different Hecke lattice is not accepted as this integral comparison."
+        "A rationally isomorphic but index-2 different Hecke lattice is not accepted as this integral comparison.",
+        "At Γ₁(5), the compact curve has genus zero but the full weight-two symbol module has nonzero boundary classes (four cusps). The unit acts nontrivially on these symbols and trivially on the zero Jacobian; their integral image kernels differ. Cut to the cuspidal carrier before comparing."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3339,10 +3368,11 @@
   ],
   "requests": [
     {
-      "supplier": "SchemeAndStackFoundations:SF.4",
-      "need": "Algebraization of a proper adic formal curve over a Noetherian complete ring equipped with a relatively ample invertible sheaf; full faithfulness for morphisms and compatible group actions. Cohomological Grothendieck existence on an already algebraic curve alone is insufficient.",
+      "supplier": "SchemeAndStackFoundations:SF.4/grothendieck-algebraization",
+      "need": "Import the existing compatible proper thickenings with an ample invertible sheaf over a Noetherian complete ring and their effective polarized algebraization. SF.4/algebraization-of-subschemes-and-morphisms supplies full faithfulness for the resulting proper maps; uniqueness transports group actions and their identities. These exact targets exist in the SF.4 packet; cohomological Grothendieck existence alone is not the input.",
       "neededBy": [
-        "ModularCurvesPartII:R13.3/generalized-tate-n-gon"
+        "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
+        "ModularCurvesPartII:R13.3/tate-power-isogeny"
       ]
     },
     {
@@ -3355,8 +3385,8 @@
       ]
     },
     {
-      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6",
-      "need": "Completed-atlas comparisons and stabilizer actions for framed deformation groupoids; compare formal stack charts with coarse invariant completions only with the finite-inertia/quotient hypotheses, including non-tame stabilizers.",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation",
+      "need": "Import the existing identity-framed object/relation formal groupoid presentation of a smooth atlas, including its hypotheses. Residual automorphisms outside the identity relation completion must be retained separately; the finite-inertia coarse-invariant comparison is the R09.5 request, not a consequence of the single completed atlas chart. Invariant completions require the actual stabilizer action from R09.5 and the explicit local charts; they are not identified with the atlas ring itself.",
       "neededBy": [
         "ModularCurvesPartII:R13.3/formal-level-cusp-charts"
       ]
@@ -3429,11 +3459,10 @@
       ]
     },
     {
-      "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-      "need": "Relative Frobenius and Verschiebung, finite-flat kernels and their duality for elliptic schemes in characteristic p; quotients by finite locally free subgroups are the existing ModularCurves 2B interface.",
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+      "need": "Import the existing elliptic PD-3 target: relative Frobenius and Verschiebung in characteristic p with V∘F=[p]=F∘V, together with the PD-1 finite locally free torsion levels and Cartier duality from Layer 2E. Quotients remain the existing Layer 2B interface; these elliptic notions are not new A3 definitions.",
       "neededBy": [
-        "ModularCurvesPartII:R13.5/igusa-components",
-        "ModularCurvesPartII:R14.2/weil-pairing-adjointness"
+        "ModularCurvesPartII:R13.5/igusa-components"
       ]
     },
     {
@@ -3445,7 +3474,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
-      "need": "For a regular local ring finite over its invariant subring, a finite residue-trivial group of order invertible in the residue field has regular invariants exactly when its cotangent image is generated by pseudo-reflections. Use this tame quotient criterion only in the stated scope.",
+      "need": "For a regular local ring finite over its invariant subring, a finite residue-trivial group of order invertible in the residue field has regular invariants exactly when its cotangent image is generated by pseudo-reflections. Use this tame quotient criterion only in the stated scope. This is an additional supplier contract requested from the quotient owner, not an assertion that its current R09.5 packet already has a pseudo-reflection node. Current ModularCurves 9C supplies only its more restricted Katz–Mazur quotient criteria.",
       "neededBy": [
         "ModularCurvesPartII:R13.5/corrected-coarse-singular-locus"
       ]
@@ -3467,7 +3496,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
-      "need": "The existing semistable/stable reduction and stabilization of a proper nodal model with identified generic fibre; genus and marked stability hypotheses remain explicit.",
+      "need": "Import the existing semistable-reduction existence theorem with identified generic fibre. Canonical contraction to the unpointed stable model is a separate Layer 8 input, for genus at least two.",
       "neededBy": [
         "ModularCurvesPartII:R13.5/prime-square-semistable-model"
       ]
@@ -3540,14 +3569,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
-      "need": "Existing integral Hecke image acting on Betti/modular-symbol lattices, diamond/bad-prime conventions and rational coefficient-field comparison. This part proves agreement with the geometric Jacobian image, rather than planning another Hecke algebra.",
+      "need": "Import the existing integral symbol module 𝕄_N,k, its boundary map, diamond/bad-prime action, and the period-induced quotient onto the form-side Hecke image. Layer 8 proves ker(eval_𝕄)⊆ker(eval_S), not equality. The compact-curve/Jacobian image is compared only after the separate local R14.2 integral cuspidal-symbol contract recorded as a gap; no existing integral Betti isomorphism is attributed to Layer 8.",
       "neededBy": [
         "ModularCurvesPartII:R14.2/integral-hecke-algebra",
         "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison"
       ]
     },
     {
-      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "supplier": "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization",
       "need": "The prime-to-residue-characteristic good-reduction/unramified Tate-module criterion for an abelian variety; apply only the implication from the existing good abelian model, not a new isogeny or automorphic theorem.",
       "neededBy": [
         "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions"
@@ -3566,6 +3595,20 @@
       "neededBy": [
         "ModularCurvesPartII:R14.2/jacobian-and-functoriality"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "need": "Import the canonical contraction of a proper prestable family of genus g≥2, its uniqueness and coherent arbitrary base change. For marked stability use Layer 9 with 2g−2+r>0 instead; do not attribute stabilization to Layer 7.",
+      "neededBy": [
+        "ModularCurvesPartII:R13.5/prime-square-semistable-model"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing",
+      "need": "Import the existing finite-flat polarized Weil pairing, alternating also at even n and perfect for a principal polarization, with the pullback/dual-isogeny compatibility. Passing to the inverse limit gives the Tate pairing here.",
+      "neededBy": [
+        "ModularCurvesPartII:R14.2/weil-pairing-adjointness"
+      ]
     }
   ],
   "coverage": [
@@ -3573,7 +3616,7 @@
       "stageId": "ModularCurvesPartII:R13.3",
       "status": "planned",
       "remaining": [
-        "Resolve the polarized proper formal algebraization request and the exact R13.2 refined-stack boundary/decontraction interface."
+        "Supply the exact R13.2 refined-stack boundary/decontraction interface and discharge the imported SF.4 algebraization targets; effective polarized algebraization is already planned by its owner."
       ],
       "notes": "Every stage target is represented by a node, supplier contract or recorded gap. This is a complete planning pass, not a closed or formalized stage."
     },
@@ -3627,7 +3670,7 @@
       "stageId": "ModularCurvesPartII:R14.2",
       "status": "planned",
       "remaining": [
-        "Supply relative norm/principal polarization and the exact integral modular-symbol realization comparison; the rational coefficient pairing does not prove integral unimodularity."
+        "Supply the relative curve norm/principal polarization contract and the recorded integral cuspidal-symbol boundary-kernel/modulo-torsion comparison. Layer 8’s full-symbol period quotient and the rational coefficient pairing do not prove equality of integral kernels."
       ],
       "notes": "Every stage target is represented by a node, supplier contract or recorded gap. This is a complete planning pass, not a closed or formalized stage."
     }
@@ -3655,13 +3698,11 @@
       "detail": "JacobianChallenge D proves the field curve Jacobian. A0-extension supplies relative Picard space, lifting and a neutral-component criterion; it does not by itself supply the curve-specific relative canonical principal polarization/norm theorem over ℤ[1/N]. The request to A0-extension and AbelianSchemes A2 names this exact additional comparison. No fictional relative Jacobian carrier or field-only-to-relative inference is made."
     },
     {
-      "title": "Polarized proper formal algebraization contract",
+      "title": "Integral cuspidal-symbol realization contract",
       "neededBy": [
-        "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
-        "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
-        "ModularCurvesPartII:R13.3/gamma-one-twisted-tate-chart"
+        "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison"
       ],
-      "detail": "The gluing produces a proper formal n-gon with an ample orbit divisor. SF.4 Grothendieck existence on an already algebraic proper scheme alone does not algebraize this formal curve. The SF.4 request is effective algebraization of the polarized proper formal curve and full faithfulness for its maps/group action, in the Noetherian complete setting used by Conrad §2.5."
+      "detail": "Current ModularForms Layer 8 constructs the full Γ₁-coinvariant module Div⁰(P¹(ℚ))⊗Sym and a Hecke-equivariant period quotient onto the form-side image. It explicitly does not require an isomorphism of its whole module with S_k⊕conj(S_k); boundary/Eisenstein classes and integral torsion must be handled. The local R14.2 comparison target must construct the weight-two cuspidal boundary kernel modulo torsion and identify its integral Hecke action with compact-curve H₁, or the appropriately transposed dual H¹, retaining all diamond and bad-prime conventions. Determine exact kernels at the integral level, rather than inferring them from rational dimensions or period injectivity on forms. The J/Betti/Tate comparison remains separate and justified."
     }
   ],
   "sourceIssues": [
@@ -3677,12 +3718,17 @@
         "Published Gross–Zagier III §1 pp.254–255.",
         "Published Edixhoven §1.1 pp.34–36 and §1.3 pp.38–46."
       ],
-      "affects": "a stated result"
+      "affects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against GZ III Proposition (1.4), p.255, and Edixhoven §1.1.4–1.1.5, pp.35–36. The mixed ordinary order-2 example disproves the restricted locus; wild primes remain a separate gap.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     },
     {
       "id": "ModularCurvesPartII/E2",
       "kind": "error",
-      "locator": "Bakker–Tsimerman (2016), §2.1, pp.713–714, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The scalar-equivalence framing problem is described as fine.",
       "correction": "Use its coarse moduli curve or rigidify the ubiquitous central inversion; do not claim a universal elliptic family descends to the scalar quotient.",
       "reason": "[−1] acts as scalar −1 on E[p], fixes a projective framing and is a nonidentity automorphism of its unrigidified object.",
@@ -3692,7 +3738,12 @@
         "Annals article page and published PDF, read 2026-10-13.",
         "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the fine-moduli assertion on BT p.715: central inversion fixes a scalar framing. The corrected coarse/rigidified convention avoids descending a universal elliptic family.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     },
     {
       "id": "ModularCurvesPartII/E3",
@@ -3707,7 +3758,12 @@
         "Annals article page and published PDF, read 2026-10-13.",
         "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
       ],
-      "affects": "a stated result"
+      "affects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at BT §2.5, p.717. The m=4 HNF count is 7 full versus 6 cyclic; (2,2,0) is the excluded E[2] branch. The printed full boundary union needs the cyclicity filter.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     },
     {
       "id": "ModularCurvesPartII/E4",
@@ -3722,22 +3778,32 @@
         "Annals article page and published PDF, read 2026-10-13.",
         "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the two maps on BT pp.716–717. The auxiliary polygon has pm components and degree m²; the target power map has p components. The p-torsion identification is unchanged for p∤m.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     },
     {
       "id": "ModularCurvesPartII/E5",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The unrigidified stack of generalized p-gons is assigned cusp stabilizer order p.",
-      "correction": "Its raw pointed generalized-elliptic automorphism group is μ_p⋊{±1}, of order 2p in characteristic zero. Order p is the effective stabilizer after central inversion is rigidified; use that effective stack for the (2,3,p) orbifold.",
-      "reason": "The source itself gives the two factors of the p-gon automorphism group; inversion persists on the unframed object. Correspondingly the raw interior orders 4,6 become effective 2,3.",
+      "correction": "Its raw pointed generalized-elliptic automorphism group is μ_p×{±1}, of order 2p in characteristic zero. Order p is the effective stabilizer after central inversion is rigidified; use that effective stack for the (2,3,p) orbifold.",
+      "reason": "The source itself gives the two factors of the p-gon automorphism group; inversion persists on the unframed object. Correspondingly the raw interior orders 4,6 become effective 2,3. On Gₘ×ℤ/p, α_ζ(u,c)=(ζ^c u,c) and inversion ι(u,c)=(u⁻¹,−c) commute, so the pointed automorphism group may be written as a direct product. The order distinction is the finding.",
       "known": "new; the inspected metric erratum does not address this stack convention.",
       "searched": [
         "Bakker author publication page and its linked P.torsion.erratum.pdf, read 2026-10-13.",
         "Annals article page and published PDF, read 2026-10-13.",
         "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
       ],
-      "affects": "the proof"
+      "affects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against BT §2.2, p.715. Before rigidifying central inversion, the pointed p-gon automorphism group has order 2p; the effective order p belongs to the rigidified orbifold. The explicit actions commute.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     },
     {
       "id": "ModularCurvesPartII/E6",
@@ -3749,10 +3815,36 @@
       "known": "Known component overcount: Frederick Vu, 2023 UCLA dissertation A map in Sharifi’s conjecture for general non-exceptional characters and tame level, §3.2.2, discussion explicitly pointing out the error in Conrad Theorem 4.3.4 (eScholarship item 4th7g01n, indexed text inspected; PDF pagination unavailable through the access challenge). The related positive-lift uniqueness failure is checked here directly. Journal text was not accessible; this finding asserts the inspected author version only.",
       "searched": [
         "Conrad author publication page, its kmpaper.pdf and §4.3 proof pp.38–41 inspected 2026-10-13.",
-        "Cambridge DOI 10.1017/S1474748006000089 landing page inspected; article requires access, so no published-text comparison claimed.",
+        "Cambridge DOI 10.1017/S1474748006000089 access attempted; journal text unavailable in this run, so no published-text comparison is claimed.",
         "Targeted theorem/erratum search found Vu’s institutional dissertation https://escholarship.org/uc/item/4th7g01n; indexed correction text inspected 2026-10-13."
       ],
-      "affects": "a stated result"
+      "affects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the inspected Conrad author PDF: pp.38–41 give φ(d)/2 components after the unit and sign identifications, contradicting positive-divisor labels and uniqueness. Vu’s institutional indexed text supports the known-overcount attribution; published journal wording was not checked.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
+    },
+    {
+      "id": "ModularCurvesPartII/E7",
+      "kind": "error",
+      "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "printed": "In our words: The branchwise mth-power map between the proper formal Tate n-gon curves is asserted finite flat of degree m.",
+      "correction": "Keep a finite pointed morphism of generic degree m and finite locally free rank-m restriction on the smooth loci. For m>1 the proper map is not flat at the nodes.",
+      "reason": "After base change to a field the target node XY=tᵐ maps to xy=t via X=xᵐ,Y=yᵐ. Its closed-node fibre is k[x,y]/(xy,xᵐ,yᵐ), with basis 1,x,…,x^(m−1),y,…,y^(m−1) and length 2m−1. For m=2 this is 3, unlike generic rank 2. This obstruction is independent of the characteristic. The distinct moduli maps of Theorem 4.4.3 and the formal Gₘ power map used in §4.5 are unaffected.",
+      "known": "new in this review; the inspected author version is the claim under review. The journal article was not accessible, so no claim is made about its published wording.",
+      "searched": [
+        "Conrad’s primary author paper directory and kmpaper.pdf, Example 2.5.1 and §2.5, inspected 2026-10-13; no associated correction located there.",
+        "Targeted title, Example 2.5.1 and erratum searches, checked 2026-10-13; no correction to this whole-curve flatness assertion located.",
+        "Cambridge DOI 10.1017/S1474748006000089: journal text unavailable in this run; comparison remains limited to the author PDF."
+      ],
+      "affects": "a stated result",
+      "addedBy": "REV-ModularCurvesPartII--R13.3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly from the node equations displayed in Example 2.5.1, p.18. The closed fibre length 2m−1 contradicts flat rank m for m>1; the smooth-locus and generic-fibre statements remain valid.",
+        "by": "REV-ModularCurvesPartII--R13.3"
+      }
     }
   ],
   "sourceVersions": [
@@ -3770,7 +3862,7 @@
       "url": "https://arxiv.org/pdf/1511.07475",
       "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd",
       "accessed": "2026-10-13",
-      "citation": "arXiv:1511.07475v2, header 5 October 2017, text dated 6 October 2017; printed pp.1–65."
+      "citation": "arXiv:1511.07475v2, header 5 October 2017, text dated 6 October 2017; printed pp.1–67."
     },
     {
       "sourceId": "edix90",
@@ -3783,7 +3875,7 @@
     {
       "sourceId": "ribetstein",
       "kind": "author",
-      "url": "https://www.wstein.org/papers/serre/ribet-stein.pdf",
+      "url": "https://wstein.org/papers/serre/ribet-stein.pdf",
       "sha256": "e1bf2b5cd14de064bcb48c4ca843251198db74dd8bcfaad63c26f6773f63f604",
       "accessed": "2026-10-13",
       "citation": "Author PDF with internal printed pp.1–94 (printed page = PDF page − 4); published IAS/Park City Math. Ser. 9 (2001), 143–232. Locators here are internal, not publication pagination."
@@ -3839,7 +3931,20 @@
       "Current ModularCurves README/Suggested: Layers 2B/2E, 7F–7H, 8C and Layer 10, plus the reviewed atlas library audit.",
       "Nine post-snapshot roadmaps screened in their README/Suggested source for these targets; no missing modular geometry was attributed to them."
     ],
-    "currentTateBoundary": "Current TauCeti.tateCurve already owns integral Weierstrass coefficients, Δ=X times a unit with constant term 1, coefficient Δ₂=−24 and j=X⁻¹(1+744X+…). Its field specialization is ultrametric with unit q of norm <1. These are existing declarations, not nodes or pinned baseline claims here; the generalized proper n-gon family and modular boundary comparison are the new targets."
+    "currentTateBoundary": "Current TauCeti.tateCurve already owns integral Weierstrass coefficients, Δ=X times a unit with constant term 1, coefficient Δ₂=−24 and j=X⁻¹(1+744X+…). Its field specialization is ultrametric with unit q of norm <1. These are existing declarations, not nodes or pinned baseline claims here; the generalized proper n-gon family and modular boundary comparison are the new targets.",
+    "independentReview": {
+      "by": "REV-ModularCurvesPartII--R13.3",
+      "checked": "2026-10-13",
+      "supplierChecks": [
+        "Read every cited external node statement and scope; exact existing supplier targets replaced broad stage references where applicable.",
+        "SF.4 already has effective polarized algebraization and formal-map full faithfulness; its global partial/needs_changes status does not make these planning targets nonexistent.",
+        "StableReduction Layer 8, rather than Layer 7, owns canonical unpointed stabilization; Layer 9 owns marked stabilization.",
+        "ModularCurves 7E PD-3 owns elliptic Frobenius/Verschiebung; A3/polarized-weil-pairing owns the finite-flat polarized pairing.",
+        "R09.5 has no general pseudo-reflection node: the explicit request is a quotient-owner extension, not an already supplied theorem. R09.6/completed-atlas-presentation includes identity residual arrows only.",
+        "ModularForms Layer 8 supplies a full-symbol to form-image quotient; the missing integral cuspidal-symbol comparison is recorded locally in R14.2."
+      ],
+      "libraryChecks": "Read the reviewed atlas library audit, the pinned coprime Hecke baseline, and current elliptic TateModule Basic/Galois/WeilPairing/Determinant and Tate equation-level ownership. Screened all nine post-snapshot roadmaps, including the nested OperatorTheory Suggested files. They do not already supply the planned proper modular geometry."
+    }
   },
   "restructure": [
     {
@@ -3932,5 +4037,243 @@
       ],
       "consumer": "The explicit ramified nodal extension and BDMTV NC.5 use. No pⁿ,n>2 stable-model formula is inferred from the p² calculation."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ModularCurvesPartII--R13.3",
+    "date": "2026-10-13",
+    "notes": "Independent source, baseline, prerequisite/ownership, target-level API/test and coverage review of every one of the 46 nodes. All six original source findings confirmed; new confirmed E7 corrects proper Tate power-map flatness. Exact existing SF.4 targets discharge the alleged missing polarized-algebraization planning contract. Corrected source pages, component counts/root choice and supplier references, and recorded the absent integral cuspidal-symbol comparison rather than attributing it to ModularForms Layer 8. Accepted as a complete planning pass with three explicit gaps, seven mathematical stages planned and only the nonmathematical R13.4 aggregate closed; no formalization/closure claim. The separate reader is outside this review issue’s deliverables and must be regenerated from the reviewed packet before packaging.",
+    "checked": [
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
+        "verdict": "corrected",
+        "note": "Conrad §2.5, pp.16–18, supplies the glued proper n-gon, degeneracy ideal (t), formal Gₘ and identity-compatible generic comparison. Replaced the broad SF.4 prerequisite and removed the false missing-algebraization gap: the existing grothendieck-algebraization and algebraization-of-subschemes-and-morphisms targets provide exactly the polarized effectivity and map comparison."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/tate-power-isogeny",
+        "verdict": "corrected",
+        "note": "Corrected Conrad Example 2.5.1, p.18, at the proper nodes. The map is finite of generic degree m and flat only on the smooth loci; the closed-node fibre has length 2m−1. Added two API items, a detecting m=2 test, exact SF.4 dependencies and source issue E7. Coherent formal-Gₘ trace arguments and finite-flat moduli degeneracy legs are distinct."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
+        "verdict": "corrected",
+        "note": "Conrad §§4.3–4.4 distinguishes formal stack charts from coarse invariants. Replaced the broad R09.6 reference by completed-atlas-presentation and clarified that its identity relation completion omits other residual stabilizer arrows. Refined Γ₀ decontractions and current prime-level Layer 10 remain explicit inputs."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/gamma-one-integral-boundary",
+        "verdict": "verified",
+        "note": "Conrad Theorems 4.3.4–4.3.6, pp.38–40, with E6 corrected indexing: φ(d)/2 cyclotomic components for d>2, embedding units modulo N/d, and simultaneous sign identification. The exceptional d≤2 cases, nonreduced Cartier multiplicities and level-5/4 tests retain their proper scope."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/gamma-one-twisted-tate-chart",
+        "verdict": "verified",
+        "note": "Conrad Theorem 4.3.6 and proof, pp.39–41, support the marked twist −r(b′)⁻¹ and its invariant generator at d=2. Arbitrary residue lifts replace the incorrect positive-divisor uniqueness; the marked point prevents dropping the inverse factor."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/boundary-carriers-and-hodge-evaluation",
+        "verdict": "corrected",
+        "note": "Conrad Theorem 4.3.3 and §§4.4–4.5 supply Hodge/dualizing evaluation and boundary determination. Corrected Česnavičius locators to Theorem 5.13 pp.60–62 and Theorem 6.7 pp.64–65; Cartier boundary, reduced boundary and j-fibre widths stay distinct."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+        "verdict": "corrected",
+        "note": "Česnavičius §6.1–6.3, pp.62–63, proves normal projective coarse curves with finite locally free j-map for open H. Corrected the level-one test to H=GL₂(Ẑ); the trivial subgroup is not open. Determinant components and fixed-pairing bases are preserved."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
+        "verdict": "corrected",
+        "note": "Corrected the Česnavičius Lemma 6.2/Proposition 6.3 locator to p.63. The finite-normal generic comparison requires density on every component and the actual lower-level/Keel–Mori coarse interfaces; it does not identify arbitrary stacks from their coarse curves."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 6.4 to pp.63–64 and Remark 6.6 to p.64. Coarse base change over ℤ[1/gcd(6,n)] includes non-tame primes away from level, while Γ₁(4) at 2 is an explicit obstruction to unrestricted base change."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/coarse-cusp-regularity",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 6.7/Proposition 6.9 locators to pp.64–65/p.65. Coarse cusp regularity holds at all primes and is compatible with the naive/refined coarse agreement; it does not eliminate wild interior singularities."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/modular-polynomial",
+        "verdict": "verified",
+        "note": "GZ I §1 p.226 and Masser–Zannier pp.645–646 support the cyclic modular polynomial, integrality, symmetry and degree ψ(m). The oriented Φ₁=V−U case is separated from m≥2 symmetry; ψ(4)=6 excludes the full-subgroup degree 7."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient",
+        "verdict": "verified",
+        "note": "BT §2.1–2.2, pp.713–715, with E2/E5 corrections, gives scalar-framed coarse components and effective orbifold (2,3,p). Central inversion obstructs a fine universal family, and the raw cusp order is 2p; determinant square classes give the two components."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4a/split-cartan-quotient",
+        "verdict": "verified",
+        "note": "BDMTV §6.1–6.2, pp.926–929, identifies the unordered split-Cartan pair quotient with the Fricke quotient of X₀(ℓ²). The exact elliptic quotient/dual-isogeny inputs and the cyclic order-ℓ² condition are retained."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.3/gamma-zero-prime-power-cusp-rings",
+        "verdict": "verified",
+        "note": "Edixhoven §1.2, pp.36–38, gives the outer and mixed Γ₀(pⁿ) cusp completions, verified in the displayed scan. In the mixed range the root equation depends on whether a≥b; prime-to-p mixed-level gluing uses integral normalization, not an unnormalized tensor product."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+        "verdict": "verified",
+        "note": "Generic comparison imports R12.3/R12.6 and the newly constructed algebraic curves, with determinant components, scalar-framed versus full level, and fixed-pairing field explicit. It neither reconstructs current prime-level Layer 10 nor uses the R13.4 process aggregate as a theorem."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/compactified-map-comparison",
+        "verdict": "verified",
+        "note": "Conrad Theorem 4.4.3, pp.43–46, and Ribet–Stein pp.65,71–72 give the compactified correspondence maps and id/pz conventions. Finite-flat stack maps do not automatically descend as finite-flat coarse maps; the precise coarse descent contract is requested."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/hecke-normalization-comparison",
+        "verdict": "verified",
+        "note": "Conrad §4.5, pp.46–48, and the analytic appendix separate coherent raw p·T_p from normalized classical T_p. Jacobian/Picard/étale push–pull is integral without inverse-degree factors; weight-two and transpose conventions are explicit."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/igusa-components",
+        "verdict": "corrected",
+        "note": "Edixhoven §§1.1–1.2 supplies the compactified Igusa data. Replaced the misplaced A3 Frobenius/Verschiebung dependency by current ModularCurves 7E, PD-1/PD-3, with 2E Cartier duality and 7F deformation inputs. Generator rank before quotient is φ(pʳ), not pʳ."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/gamma-zero-prime-power-local-model",
+        "verdict": "verified",
+        "note": "Edixhoven §1.1.2–1.1.5, pp.34–36, gives the displayed supersingular product equation and ordinary factor with multiplicities. Read the scanned formula directly. The p>3 tame invariant scope is explicit, and wild 2/3 interior completions remain recorded as a gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/corrected-coarse-singular-locus",
+        "verdict": "verified",
+        "note": "Edixhoven pp.35–36 corrects GZ III Proposition (1.4), p.255: ordinary mixed extra-automorphism points also occur. The stabilizer is that of (E,C_M), not E alone. The requested R09.5 pseudo-reflection criterion is an additional contract, not an existing node in that packet or the more restrictive current ModularCurves 9C theorem."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/tame-regular-resolution",
+        "verdict": "verified",
+        "note": "Edixhoven §1.3, pp.38–48, gives the order-2 and order-3 quotient resolutions and exceptional intersections. Cotangent characters distinguish one −3 curve from the chain of two −2 curves; the ordinary mixed case is included. Current StableReduction 4 supplies blowups/contractions, and wild primes are excluded."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/one-factor-mixed-level-model",
+        "verdict": "verified",
+        "note": "Ribet–Stein §3.9, pp.44–46, plus current ModularCurves 8C gives the fine rigidified one-p-factor model with two lower-level components and uv=p nodes. Small coarse levels require stabilizer descent, not an automatic fine-to-coarse assertion."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/prime-square-semistable-model",
+        "verdict": "corrected",
+        "note": "Edixhoven §§2.1–2.4, pp.55–65, gives the extension and nodal model. Corrected the API from four outer plus two middle to two outer plus two middle verticals (four total), added a count test and the actual StableReduction Layer 8 contraction input. Stable contraction requires the appropriate genus/marking hypotheses."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/split-cartan-semistable-model",
+        "verdict": "corrected",
+        "note": "BDMTV Theorems 6.5–6.6, pp.928–929, gives the four-to-three vertical quotient, k horizontal genera and K_(k,3). Corrected the claimed equivalence of root equations: the chosen half-exponent root implies the squared equation; the converse needs its sign/root choice. The genus calculation remains 6k²−3k."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/split-cartan-thirteen-good-reduction",
+        "verdict": "verified",
+        "note": "BDMTV Corollary 6.7 and Baran model, pp.929–930, gives good reduction after the ramification-84 extension at ℓ=13. The three rational tails contract under the imported surface theory. The first quartic has the checked characteristic-two smoothness certificate; the alternative determinant-two coordinate model is not used there."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-dual-graphs",
+        "verdict": "verified",
+        "note": "Current StableReduction 1 owns the nodal multigraph with loops, parallel edges and genus formula. The modular nodes export only component genera, edges and thicknesses; nonreduced coarse fibres are not treated as reduced nodal curves."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-character-group-interface",
+        "verdict": "verified",
+        "note": "The read Néron R11.4 graph/Picard comparison identifies the character lattice with H₁ of the dual graph and the thickness-weighted pairing. This is distinct from H¹ graph cohomology and its dual; no second general graph or Néron theorem is planned."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-nearby-cycle-interface",
+        "verdict": "verified",
+        "note": "LPV.7 supplies the semistable normalization/specialization and monodromy interfaces. The modular export preserves H¹(Γ) and H₁(Γ)(−1), inertia, and multiplication of thickness by ramification; it assumes no canonical splitting of the filtration."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/degeneracy-on-components",
+        "verdict": "verified",
+        "note": "Ribet–Stein §5.3, pp.77–79, identifies Frobenius and the other ordinary branch with its multiplicity p and inverse diamond convention. The fine two-component calculation is explicit; arbitrary wild coarse graph maps wait for the recorded local-model gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence",
+        "verdict": "verified",
+        "note": "Conrad Theorem 4.4.3 and Česnavičius Lemma 4.7.1, p.49, supplies the cyclic disjoint-kernel correspondence and compactified maps. Degree is p+1 at p∤N, p at p∣N; bad-prime disjointness, contraction, and the separate coarse-flatness hypotheses are retained."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/diamond-operators",
+        "verdict": "verified",
+        "note": "Ribet–Stein §5.1, pp.64–66, gives the unit/diamond action. Coarse −1 acts trivially but Hodge sections retain the weight sign; nonunits are never declared diamonds, and the abstract algebra is imported from ModularForms."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/atkin-lehner-involution",
+        "verdict": "verified",
+        "note": "Ribet–Stein §§5.1–5.2, pp.64,71–72, gives w_ζ and its cyclotomic dependence, composition with diamond and Galois conjugation. Coarse involutivity does not erase the field of definition on Γ₁; the analytic shadow only concerns a chosen component."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/exact-divisor-atkin-lehner",
+        "verdict": "verified",
+        "note": "GZ I §2, p.227, supplies exact-divisor Atkin–Lehner maps and the product d·e/gcd(d,e)². The exact condition gcd(d,N/d)=1 excludes 2 and 6 at N=12; rational Γ₀ descent is separated from bad-model extensions."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/full-and-cyclic-correspondences",
+        "verdict": "corrected",
+        "note": "Corrected GZ full-subgroup degree/composition locator to I §2, p.227. σ₁(m) counts all HNF branches; gcd(a,d,b)=1 filters cyclic branches and yields ψ(m). The m=4 excluded scalar E[2] branch and diamond factors at squares are explicit."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/composition-relations-of-correspondences",
+        "verdict": "corrected",
+        "note": "Corrected GZ composition locator to I §2, p.227. The full law A_p²=A_(p²)+p⟨p⟩ and A_(p²)=C_(p²)+⟨p⟩ imply cyclic C_p²=C_(p²)+(p+1)⟨p⟩. Coprime abstract multiplication is the one confirmed baseline; bad U has no diamond p."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
+        "verdict": "verified",
+        "note": "Ribet–Stein §5.1, pp.65–66, and Conrad §4.5 identify the chosen-component analytic operators with the compactified maps. The id/pz legs, raw coherent p multiplier, upper/lower transpose and cyclotomic Fricke field are all retained."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/coherent-hecke-trace",
+        "verdict": "verified",
+        "note": "Conrad Lemma 4.5.2 and its proof, pp.46–48, proves the local coherent p-divisibility used for the integral normalized T_p. Mod-p² lifting independence and dense-boundary gluing are actual steps; for k≥1 the q formula has p^(k−1), and bad U lacks that term."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/integral-etale-trace",
+        "verdict": "verified",
+        "note": "EDC.2 trace/duality and EDC.6 complex-analytic/trace-orientation comparison supply integral finite-curve trace and cup compatibility. Prime ℓ may divide the map degree. Picard norm agrees with H¹(1); nodal special fibres use LPV rather than smooth duality."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/projective-boundary-hecke-and-degree",
+        "verdict": "verified",
+        "note": "BT §2.5, pp.716–717, and Proposition 26, p.736, need the corrected C_(pm) component domain and cyclicity filter. The auxiliary map has degree m² and is only a p-torsion identifier. SF.5 gives numerical projection/degree, not an unproved line-bundle isomorphism."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/jacobian-and-functoriality",
+        "verdict": "verified",
+        "note": "JacobianChallenge D is a field-curve theorem; A0 Picard representability/lifting/zero-criterion supplies only part of the relative construction. The curve norm and principal polarization over ℤ[1/N] remain an honest recorded contract, and singular bad fibres use Néron extension."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian",
+        "verdict": "verified",
+        "note": "Ribet–Stein §5.2, pp.71–73, identifies upper/lower Picard/Albanese operations, their duality and cotangent comparison. Geometric Hom maps extend over good abelian models; at bad primes use Néron models. The relative norm gap propagates explicitly."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/integral-hecke-algebra",
+        "verdict": "verified",
+        "note": "GZ V §1 p.306 and the geometric action give the faithful image algebra, finite free as a subgroup of End(J), including the zero ring at genus zero. ModularForms’ abstract algebra is imported; faithfulness is asserted only after quotienting by the actual action kernel."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/weil-pairing-adjointness",
+        "verdict": "corrected",
+        "note": "Corrected Ribet–Stein Theorem 5.2/Corollary 5.3 to p.66 and retained Lemma 5.7 pp.68–69/Theorem 5.8 p.69. Replaced broad A3 by its polarized-weil-pairing node. The negative cup/Weil sign, cyclotomic multiplier and nonalternating Fricke-twisted form are explicit."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions",
+        "verdict": "corrected",
+        "note": "Abelian A4/A6 and arithmetic good-reduction-specialization supply the free rank-2g Tate module, continuous Galois action and faithful integral Hom comparison. Replaced the broad R01.6 reference by that exact node. Current elliptic rank-two/determinant results are not replanned; no rank-two Hecke eigensummand is claimed."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
+        "verdict": "verified",
+        "note": "GZ V §1, p.306, gives the rational coefficient pairing using a_m(f)=a₁(T_m f) and q-expansion determination. The coefficient field and Γ₀ dimension assertion are scoped, and the result is not promoted to integral unimodularity."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the modular-symbol claim after reading current ModularForms Layer 8: its full-symbol period map gives a quotient, not equal kernels with cusp forms. Recorded the missing integral boundary-kernel/modulo-torsion cuspidal comparison and a Γ₁(5) genus-zero counterexample to full-symbol equality. The separately supplied J/Betti/Tate faithful comparison remains justified."
+      }
+    ]
+  }
 }
