@@ -38408,7 +38408,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9282"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
@@ -38575,8 +38576,9 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9328"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9328",
+   "finishedAt": "2026-10-13T13:42:29Z"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
