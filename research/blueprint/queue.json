@@ -25592,9 +25592,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #731"
+   "note": "claimed on GitHub issue #731"
   },
   {
    "id": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -32052,7 +32052,8 @@
    ],
    "avoidAccountOf": "BP-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/REV-HeightsRationalPointsAndObstructions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #539"
   },
   {
    "id": "BP-LogicAndDefinabilityInNumberTheory",
@@ -35115,8 +35116,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L2",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9250"
+   "state": "pending",
+   "note": "released on GitHub issue #9250"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L3",
@@ -39623,8 +39624,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9284"
+   "state": "pending",
+   "note": "released on GitHub issue #9284"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
@@ -52219,7 +52220,8 @@
     "PKG-CrystallineCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CrystallineCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9207"
   },
   {
    "id": "PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -52281,7 +52283,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9164"
   },
   {
    "id": "REV-PKG-DeformationAndDerivedPatchingAlgebraPartII",
@@ -55265,7 +55268,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9184"
   },
   {
    "id": "REV-PKG-NeronModelsAndSemistableAbelianVarietiesPartII",
