@@ -1014,9 +1014,9 @@ A package job (`PKG-<roadmap>`) writes `research/blueprint/packages/<Name>/`:
   programme's process: no packet names, job ids, reviews, checkpoints or
   coverage statuses. Every target, Check and worked example stays; size is
   whatever that needs (the 2026-10-12 shape section).
-- `Suggested.lean`: one SHORT file in the form of upstream's `Suggested.lean`
-  (at most about 1,500 lines, written short from the start — never a long
-  draft to be cut later; the submission check rejects a file over 1,600 lines
+- `Suggested.lean`: one file in the form of upstream's `Suggested.lean` that
+  states and does not develop (at most 5,000 lines; only things easily stated given what Tau Ceti and Mathlib provide at the pins: no development of theory in the Lean (no definitions beyond light real-bodied ones over carriers that exist at the pins, no chains of auxiliary lemmas, no constructions); a statement whose carriers are not at the pins is a README target, not a Lean declaration; written to that shape from the start, never a long
+  draft to be cut later; the submission check rejects a file over 5,000 lines
   or with a sorry'd data definition), following `PACKAGE_REVIEW.md`, "Shape of a
   roadmap (2026-10-12)": light definitions with real bodies, the end theorems
   and layer milestones statable at the pins (proved by `sorry`), one or two

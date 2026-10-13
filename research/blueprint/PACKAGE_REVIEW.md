@@ -58,16 +58,18 @@ under "Prerequisites and boundaries". Notions Tau Ceti already has (library or a
 that boundaries section as deferrals, never in layer summaries, the layer table or target lists; a kept variant states in
 one clause how it differs from the Tau Ceti statement.
 ## Shape of a roadmap (maintainer, 2026-10-12) — binding for packages, reviews and ports; overrides older size notes
-The README carries the full detail; the Suggested.lean is short, and it is written short from the start: a package never
-produces a long Lean draft to be cut at review or port time. The swarm submission check rejects a package Suggested.lean
-over 1,600 lines or containing a sorry'd data definition, and a reviewer returns "needs_changes" on either without
-further reading.
+The README carries the full detail; the Suggested.lean states, it does not develop. Length is secondary (at most 5,000
+lines, written to that shape from the start, never a long draft to be cut at review or port time); the rule is the
+content: only things easily stated given what Tau Ceti and Mathlib provide at the pins: no development of theory in the Lean (no definitions beyond light real-bodied ones over carriers that exist at the pins, no chains of auxiliary lemmas, no constructions); a statement whose carriers are not at the pins is a README target, not a Lean declaration. The swarm submission check rejects a package Suggested.lean over 5,000 lines or
+containing a sorry'd data definition, and a reviewer returns "needs_changes" on either, or on theory developed in the
+Lean, without further reading.
 - README.md: every target with its exact hypotheses and its source locator; every definition with its API list and its
   Checks (at least three discriminating unit tests, written in prose: the computed value, the degenerate case, agreement
   with the library notion, the non-example); worked examples; exact supplier contracts; an opening `**Summary.**`
   paragraph. Size is whatever that content needs (the thirteen tier 1–4 roadmaps run 4,000–15,000 lines). Own words,
   no process narrative, nothing dropped to look smaller.
-- Suggested.lean: at most about 1,500 lines (the thirteen run 1,000–1,200). It holds only (a) light definitions with REAL
+- Suggested.lean: at most 5,000 lines (the thirteen tier 1–4 roadmaps run 1,000–1,200; a longer file is fine only when every
+  extra line is a statement easily made at the pins). It holds only (a) light definitions with REAL
   bodies — predicates, structures bundling data that exists at the pins, specialisations of library notions; (b) the end
   theorems and the milestone of each layer, proved by `sorry`, and only when every carrier in the statement exists in
   Mathlib or Tau Ceti at the pins or is a kept real-bodied definition; (c) one or two discriminating `example`s per
