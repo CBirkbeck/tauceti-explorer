@@ -1,6 +1,6 @@
 # Roadmap: potential automorphy over CM fields, Part II
 
-This roadmap develops P-ordinary degree shifting, crystalline local–global compatibility and potentially Barsotti–Tate automorphy lifting over imaginary CM fields. It extends **PotentialAutomorphyInfrastructure** beyond its Fontaine–Laffaille and Borel-ordinary results. The first endpoint controls the local deformation conditions of Galois representations valued in integral and torsion Hecke algebras. The second applies that control to two-dimensional automorphy lifting. The crystalline argument allows small residue characteristic, ramification at p and regular weights outside a Fontaine–Laffaille interval.
+**Summary.** This roadmap develops P-ordinary degree shifting, crystalline local–global compatibility and potentially Barsotti–Tate automorphy lifting over imaginary CM fields. It extends **PotentialAutomorphyInfrastructure** beyond its Fontaine–Laffaille and Borel-ordinary results. The first endpoint controls the local deformation conditions of Galois representations valued in integral and torsion Hecke algebras. The second applies that control to two-dimensional automorphy lifting. The crystalline argument allows small residue characteristic, ramification at p and regular weights outside a Fontaine–Laffaille interval.
 
 The construction runs through integral Siegel parahorics and their rescaled coefficient actions, derived P-ordinary control, weight independence, Bruhat subquotients, a localized completed-boundary summand, and degree shifting into unitary middle degree. Characteristic-zero unitary eigensystems then supply crystalline Galois blocks. A separating twist and compatible constituent reconstruction carry the local information to torsion Hecke systems. For the lifting application, a pair of patched complexes with the same residual fiber propagates automorphic support between deformation components.
 
@@ -13,13 +13,13 @@ The potentially Barsotti–Tate endpoint has the explicit restriction
 
 This restriction is needed by the finite-image argument specified in Layer CL.9. It holds automatically at p=3 and p=5, the primes used by the elliptic-curve applications. The statement here makes no assertion about the unrestricted cubic-tetrahedral case.
 
-Suggested home: `TauCeti/NumberTheory/Automorphy/CrystallineCM/`. The companion [Suggested.lean](Suggested.lean) proposes declaration names and interfaces; the mathematical specification is this document.
+Suggested home: `TauCeti/NumberTheory/Automorphy/CrystallineCM/`. The companion [Suggested.lean](Suggested.lean) records representative definitions and milestone signatures over the available library carriers. This document states every target, including the arithmetic constructions and their required supplier interfaces.
 
 ## Scope and ownership
 
 The parent **PotentialAutomorphyInfrastructure** supplies its algebraic coefficient dictionary, CTG weight machinery, ordinary tower and Siegel-boundary infrastructure. This extension owns the integral P-ordinary comparison and arbitrary-prime degree-shifting argument, their crystalline and semistable-ordinary local–global consequences, and their two-component patching application. Its constructions retain the parent interfaces and the explicit extensions described below.
 
-Integral highest-weight theory, Weyl and dual-Weyl modules belong to **ReductiveGroupsIntegralRepresentationsPartII**. Reuse the general algebraic-induction carrier of the **IntegralHeckeAndGaloisDeterminants** roadmap, Layer 0, §0.7: `AlgebraicInduction.module` is the cotensor equalizer for a map of flat commutative Hopf algebras, with its comodule structure, Frobenius reciprocity and counit evaluation. Use its inversion comparison with the left-translation convention (Jantzen I.3.3–3.7, pp.38–41); the integral GL₂ examples and good-filtration theory of its §6.4 are separate specializations. **PotentialAutomorphyInfrastructure:PA.0** supplies the GL_n and unitary coefficient specialization: extension and reduction of scalars, the Levi evaluation map and the integral Levi-equivariant splitting. CL.0, CL.2 and CL.6 use these specialized maps with their prescribed weights and actions. The characteristic-zero Young-symmetrizer construction [`TauCeti.YoungTableau.weylModule`](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean#L114) requires a ℚ-algebra. It therefore supplies neither a dual-Weyl lattice over O nor its reduction over O/ϖ^m. Rational agreement alone does not provide the integral evaluation, kernel weights or splitting used in CN Lemma 2.1.12, pp.17–18, and Lemma 4.2.3, p.60.
+Integral highest-weight theory, Weyl and dual-Weyl modules belong to **ReductiveGroupsIntegralRepresentationsPartII**. Its integral lattice interface is an additional supplier requirement, separate from the arithmetic specializations **PotentialAutomorphyInfrastructure:PA.0/unitary-levi-weight-dictionary** and **PA.0/siegel-coefficient-retract**; they require that interface and do not establish the general highest-weight theory. Reuse the general algebraic-induction carrier of the **IntegralHeckeAndGaloisDeterminants** roadmap, Layer 0, §0.7: `AlgebraicInduction.module` is the cotensor equalizer for a map of flat commutative Hopf algebras, with its comodule structure, Frobenius reciprocity and counit evaluation. Use its inversion comparison with the left-translation convention (Jantzen I.3.3–3.7, pp.38–41); the integral GL₂ examples and good-filtration theory of its §6.4 are separate specializations. **PotentialAutomorphyInfrastructure:PA.0** specifies the GL_n and unitary coefficient specialization, with extension and reduction of scalars, the Levi evaluation map and the integral Levi-equivariant splitting. These contracts require the specified integral lattices and their reduction comparisons. CL.0, CL.2 and CL.6 use these specialized maps with their prescribed weights and actions. The characteristic-zero Young-symmetrizer construction [`TauCeti.YoungTableau.weylModule`](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/ClassicalGroups/WeylModule.lean#L114) requires a ℚ-algebra. It therefore supplies neither a dual-Weyl lattice over O nor its reduction over O/ϖ^m. Rational agreement alone does not provide the integral evaluation, kernel weights or splitting used in CN Lemma 2.1.12, pp.17–18, and Lemma 4.2.3, p.60.
 
 Arithmetic locally symmetric spaces, their Borel–Serre compactifications, finite-level local systems, cochain models and finite-cover descent belong to **ArithmeticLocallySymmetricSpaces**. **CompletedCohomologyPartII** owns assembly of those objects into arithmetic towers, their smooth level colimits, completion, completed equivariant chain models, continuous descent and the completed boundary triangle. Smooth representation categories, general induction, derived invariants and local Hecke algebras belong to **SmoothRepresentationsOfLocalGroups**. Continuous profinite cohomology belongs to Tau Ceti's **ProfiniteCohomology** roadmap. General Koszul complexes and the abstract derived patching and length arguments belong to **DeformationAndDerivedPatchingAlgebra**. These objects enter here through their supplier interfaces.
 
@@ -60,6 +60,7 @@ The starting libraries are Mathlib at `082e2d37e8b0463410cdb532e111cd43d5a66174`
 - [mathlib:AlgHom.mem_range](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Subalgebra/Basic.lean#L549) — Image membership iff existence of a preimage.
 - [mathlib:Ideal.exists_pow_inf_eq_pow_smul](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Filtration.lean#L388) — Artin–Rees with a uniform filtration shift for a submodule of a finite module over a Noetherian ring.
 - [tauceti:TauCeti.ArtinRees.exists_controlled_lift](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Ideal/ArtinRees.lean#L78) — One Artin–Rees shift serves all surjections onto the fixed submodule and all depths.
+- [mathlib:Matrix.ProjGenLinGroup.mk](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Projective.lean#L55) and `Matrix.GeneralLinearGroup.center_eq_range_scalar` — The native projective matrix quotient and its ambient scalar kernel, used for the determinant-kernel criterion of CL.9.
 - [mathlib:finAddFlip](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Logic/Equiv/Fin/Basic.lean#L307) — Existing equivalence Fin(m+n)≃Fin(n+m) exchanging the two blocks. CL.0 identifies this carrier with the relative Siegel Weyl element; it does not define a second block-permutation library.
 
 The finite Fitting decomposition assumes both Artinian and Noetherian module conditions. Over a p-adic field it distinguishes zero eigenvalues from nonzero eigenvalues; selecting valuation-zero eigenvalues is the separate PadicFamilies interface. Algebraic `Representation` has no continuity or smoothness condition. `DerivedCategory` requires an abelian category and its localization construction, and does not create the smooth or arithmetic coefficient category. An `AlgHom` range describes a Hecke image only after its actual action has been built. Artin–Rees controls a filtration shift, which permits increasing m to m′ in CL.3 and CL.6.
@@ -138,7 +139,7 @@ These interfaces are used in CN, §4.3, Theorem 4.3.1, p.73.
 
 These interfaces are used in CN, §2.3.1, Lemma 2.3.2, p.33.
 
-**PotentialAutomorphyInfrastructure:PA.0** (used in CL.0, CL.2, CL.5, CL.6). Integral algebraic induction/dual Weyl modules with coefficient extension and reduction, Levi evaluation onto V_{λ_τ̃}⊗V_{−w₀λ_{τ̃c}}, Schubert evaluation surjectivity after reduction and the positive-root weight description of its kernel. Reuse `AlgebraicInduction.module`, `moduleComodule`, `reciprocity` and `reciprocity_apply` from **tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-0-polynomial-laws-determinants-and-invariant-evaluations**, §0.7; those give the general cotensor construction and evaluation before the highest-weight specialization. The integral highest-weight owner supplies the necessary flat coordinate algebras, weight characters, coefficient base-change comparisons and Levi restriction theorem. The GL₂ induced modules of IHG §6.4 do not provide the GL_{2n} Siegel evaluation for arbitrary n≥2. Export the integral Levi-equivariant splitting V_{λ̃}=V_λ⊕W (NT16 Proposition 2.10); identify W⊗E=(1−U) V_{λ̃,E} (Cab84 proof of Proposition 2) to prove P(O)-stability before invoking the dual coefficient retract.
+**PotentialAutomorphyInfrastructure:PA.0/unitary-levi-weight-dictionary** and **PA.0/siegel-coefficient-retract** (used in CL.0, CL.2, CL.5, CL.6). The coefficient specialization requires integral algebraic induction/dual Weyl modules with coefficient extension and reduction, Levi evaluation onto V_{λ_τ̃}⊗V_{−w₀λ_{τ̃c}}, Schubert evaluation surjectivity after reduction and the positive-root weight description of its kernel. Reuse `AlgebraicInduction.module`, `moduleComodule`, `reciprocity` and `reciprocity_apply` from **tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-0-polynomial-laws-determinants-and-invariant-evaluations**, §0.7; those give the general cotensor construction and evaluation before the highest-weight specialization. The additional integral highest-weight interface must supply flat coordinate algebras, weight characters, coefficient base-change comparisons and Levi restriction; the general cotensor construction alone proves none of the finite-freeness or highest-weight assertions. The arithmetic retract is the named PA.0 target; the evaluation surjectivity in the present Siegel specialization remains the target of §0.2. The GL₂ induced modules of IHG §6.4 do not provide the GL_{2n} Siegel evaluation for arbitrary n≥2. Export the integral Levi-equivariant splitting V_{λ̃}=V_λ⊕W (NT16 Proposition 2.10); identify W⊗E=(1−U) V_{λ̃,E} (Cab84 proof of Proposition 2) to prove P(O)-stability before invoking the dual coefficient retract.
 
 These interfaces are used in CN, Lemma 2.1.12, pp.17–18.
 
@@ -152,7 +153,7 @@ These interfaces are used in CN, §2.3.16, pp.41–42; Lemma 2.3.17 on p.42.
 
 **ArithmeticLocallySymmetricSpaces:ALS.6** (used in CL.8, CL.9). AKT Theorem 5.11 / CN Proposition 5.5.3: at non-neat PGL₂ levels with p odd, ζ_p∈F, trivial mod-residue coefficients and absolutely irreducible residual Galois representation, cohomology above the real dimension vanishes and the localized complex is perfect over O or O/ϖ^m; explain finite stabilizer cohomology. Lowest-degree descent alone does not imply this. Perfectness requires bounded derived residue reduction and finite cohomology via the AKT Lemma 3.2 minimal-complex criterion; bounded cohomology alone over O/ϖ^m is insufficient. Include perfect O[Δ]-models at the finite abelian p-covers used in Lemma 5.6.4 and their derived augmentation identification with the base complex.
 
-These interfaces are used in CN, Proposition 5.5.3, p.81; AKT, Theorem 5.11, p.46; proof completed on pp.47–48.
+These interfaces are used in CN, Proposition 5.5.3, p.81; AKT, Theorem 5.11, pp.46–47, with the boundedness argument concluding in Proposition 5.18, pp.50–51.
 
 **ArithmeticLocallySymmetricSpaces:ALS.5** (used in CL.9). AKT Theorem 5.10 for PGL₂ over a CM field: a Galois-type non-Eisenstein maximal ideal has rational cohomology only in [D,2D], D=[F⁺:Q], and each characteristic-zero Hecke character is realized by a cuspidal regular-algebraic PGL₂ representation. Retain the weight/central-character descent and tame-level fixed-vector hypotheses. This supplies q₀=l₀=D, not the GL₂ range with l₀=2D−1.
 
@@ -188,6 +189,28 @@ These interfaces are used in CN, §3.2, Proposition 3.2.4(1–3) and proof, pp.4
 **GlobalGaloisDeformations:R04.5** (used in CL.9). AKT Appendix A.2–A.6 with no enormous-image assumption: for p odd and ρ̄|G_{F(ζ_p)} absolutely irreducible, with the stated p=5 PSL₂ exception excluded, prove Lemma A.5 finite-image detection of every nonzero dual-Selmer cocycle by a cyclotomic-kernel element with distinct eigenvalues, including the small p=3,5 cases. Apply Chebotarev to choose fixed-size degree-one Taylor–Wiles sets of level N, avoiding fixed bad places and satisfying the A.6 imaginary-quadratic split conditions. Export A.4 relative framed presentation for this exact CM fixed-determinant local datum: with T=S the number of generators is g=q−3[F⁺:Q]−1+|S|, and the selection kills the relevant dual Selmer group.
 
 These interfaces are used in AKT, Propositions A.4, A.6 and Lemma A.5, pp.86–87.
+
+**LocalGaloisDeformationRings:L7/semistable-ordinary-quotient** and **R08.3/fixed-determinant-pst-rings** (used in CL.7). The crystalline and semistable-ordinary quotients of the framed lifting ring are O-flat and reduced, characterized by maps to finite E-algebras with the specified Hodge type. The ordinary quotient selects the appropriate open-and-closed generic components of the semistable ring. For p∤n and a crystalline determinant character with the sum of the labelled weights, the fixed-determinant quotient has an unramified-character section, and adjoining one formal variable recovers the unfixed ring. The characterizing property concerns actual finite E-algebra lifts, including nonreduced coefficient algebras; testing only field-valued points does not replace it.
+
+These interfaces are used in CN, Lemma 3.3.2 and Theorem 3.3.3, pp.51–52; Lemma 3.3.6, pp.52–53; Corollary 4.2.16, p.72.
+
+**LocalGaloisDeformationRings:L7/snowden-ordinary-ring-trivial-residual** and **R08.4/bt-ring-unique-generalisation** (used in CL.8–CL.9). For p odd, trivial residual GL₂ representation and trivial residual cyclotomic character, the fixed inverse-cyclotomic semistable-ordinary ring has dimension [F_v:Q_p]+4, a crystalline component and an extension component whose points have shape (1,*;0,ε_p⁻¹). Each special-fibre generic point has a unique generic generalization. The fixed-determinant Barsotti–Tate ring has the same unique-generalization property; when the residual representation is trivial, the local residue field is larger than F_p and the ring is nonzero, it has exactly two components, distinguished by ordinary and nonordinary characteristic-zero points. Retain these hypotheses when forming completed tensor products and propagating patched support.
+
+These interfaces are used in CN, Proposition 5.3.2, pp.75–76; Lemmas 5.3.3–5.3.4, pp.76–77.
+
+The local deformation and p-adic Hodge suppliers use HT(ε_p)=+1, whereas this roadmap uses HT(ε_p⁻¹)=+1. Transport every labelled weight by negation, then reorder its increasing list. Thus the supplier's Barsotti–Tate multiset {0,−1} becomes {0,1} here, and its fixed-determinant sum is negated. This changes the weight dictionary, not the determinant character ε_p⁻¹ or the orientation of its extension. All local ring names above refer to the transported Hodge type.
+
+**IgusaVarietiesAndTorsionConcentration:IG.7/middle-degree-without-length-hypothesis** (used in CL.6). Under the stated CM, imaginary-quadratic, good-level and T hypotheses, decomposed genericity of the ambient 2n-dimensional residual representation supplies the injective map from integral unitary middle-degree cohomology to its rationalization and the surjection onto localized boundary cohomology. No lower bound on [F⁺:Q] or on the length of the residual representation is imposed. This is the exact concentration interface required by degree shifting; irreducibility of the Levi constituent alone does not supply ambient genericity.
+
+This interface is used in CN, Theorem 2.1.28, p.25, with the hypotheses of Theorem 2.1.26, p.24.
+
+**GlobalGaloisDeformations:R04.2/carayol-trace-theorem** (used in CL.8–CL.9). Over complete Noetherian local O-algebras with the fixed residue field and absolutely irreducible residual representation, equal traces identify lifts up to strict conjugacy. A lift with traces in a closed local coefficient subring descends to that subring, provided its maximal ideal is the intersection with the ambient maximal ideal. The universal deformation ring is topologically generated by traces. Apply this to the finite local Hecke images with their actual residue identifications and Frobenius coefficients; it supplies coefficient descent, while the arithmetic generation and local deformation conditions are separate obligations of CL.9.
+
+This interface is used in CN, Proposition 5.5.2, pp.80–81, and Propositions 5.6.2–5.6.3, pp.83–84 (Carayol's trace argument as in Gee, Lemma 3.7, pp.12–13, and Kisin, Lecture 1, Theorem 1.4.1, pp.3–4).
+
+**ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement** (used in CL.9). Classify finite subgroups of PGL₂ over an algebraic closure of characteristic p into point stabilizers, dihedral groups, exceptional A₄, S₄, A₅ groups and finite-field PSL₂/PGL₂ groups. The alternatives may overlap, and p may divide the exceptional orders. The determinant-kernel criterion here uses this classification with p odd, without assuming the original representation is irreducible. It retains the order-three tetrahedral exception; a Klein-four projective determinant kernel does not imply an invariant line.
+
+This interface is used in the qualified form of CN, Lemma 5.6.5, pp.85–86; the classification is DDT, Theorem 2.47(b), p.81 of the 2007 McGill copy.
 
 
 ## How to read the build
@@ -226,8 +249,6 @@ For PGL₂ over a CM field, the rational cohomology range is [D,2D], so q₀=l�
 ## Layer 0: Siegel parahorics and integral coefficient actions
 
 Fix the lower-right GL_n Levi of split U(n,n), descending dual Weyl weights and geometric Frobenius. Construct Siegel block exchange using existing finite permutations; define P(b,c) by C≡0 mod ϖ_v^c and A,D≡1 mod ϖ_v^b, c≥b≥0,c≥1; define positive central block cocharacters and the resulting positive parahoric monoid. Prove positivity and the commutative monoid-Hecke isomorphism. Define separate unitary and Levi lowest-weight characters using their respective longest Weyl elements and the action α(g)^{-1}ρ(g), prove lattice stability and surjective Levi coefficient evaluation, and identify the U_v residual determinant eigenvalue.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **IntegralHeckeAndGaloisDeterminants:IHG.3**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.4**.
 
 ### 0.1 Siegel block-exchange Weyl element
 
@@ -411,11 +432,17 @@ The source is CN, Lemma 2.1.17, p.20.
 
 *Needs:* **CL.0**: Rescaled actions of the monoids on coefficient lattices; **CL.0**: Surjectivity of evaluation at the identity; **PotentialAutomorphyInfrastructure:PA.0**.
 
+### Examples
+
+At n=2 the permutation sends (0,1,2,3) to (2,3,0,1). For two Levi blocks, (−1,−2) is positive while (0,1) is not. On GL₂ at weight (a,b), the cocharacter diag(π,1) has lowest-weight scalar π^b. Thus raw scalar action π and scalar character π give rescaled action 1. The single-embedding formula is `lowestWeightScalar`; its full unitary reversal is distinct from reversal within each Levi block.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **IntegralHeckeAndGaloisDeterminants:IHG.3**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.4**.
+
 ## Layer 1: P-ordinary functors and completed level control
 
 Construct P-ordinary finite-level cohomology using imported ordinary projectors. On smooth O/ϖ^m representations define finite-sum contracting transfer, exact monoid localization in ũ_n alone, and POrd=ord RΓ(U₀,−). Construct completed interior and boundary objects at fixed tame level. Prove that compact Levi derived invariants recover ordinary finite-level cohomology for c≥b≥0,c≥1; increasing c with b fixed is an isomorphism. Extend this control to Q⊂P parahorics without replacing POrd by full QOrd.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.6.5**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 ### 1.1 P-ordinary part of finite-level cohomology
 
@@ -605,11 +632,17 @@ The source is CN, Corollary 2.2.9, p.28.
 
 *Needs:* **CL.1**: Finite-level P-ordinary cohomology from completed cohomology; **ArithmeticLocallySymmetricSpaces:ALS.1** (level pullback).
 
+### Examples
+
+On a degree-zero F₃² complex with U=diag(1,0), the ordinary summand is the first coordinate. For U₀=Z_p and contraction z↦pz on trivial F_p coefficients, the transfer is p·id=0, although the raw operator is id. Localizing that transfer kills the module. This checks why derived ordinary parts use transfer before localization.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.6.5**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+
 ## Layer 2: Weight independence and dual ordinary parts
 
 Identify the GL_n coefficient tensor through the conjugate-dual Levi embedding. Prove ũ_n^m annihilates the evaluation kernel modulo ϖ^m, giving ordinary weight independence by removing selected weights and tensoring V_{w₀^Pλ}. Prove the boundary analogue. Construct dual ordinary parts using lower-congruence unipotents and ũ_n^{-1}, and establish the inverse-coset Hecke-equivariant level comparison.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **CL.0**; **CL.1**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.2**.
 
 ### 2.1 The Levi coefficient module as a tensor product over the two places
 
@@ -671,11 +704,17 @@ The source is CN, Lemma 2.2.19, p.32.
 
 *Needs:* **CL.2**: P-ordinary parts for dual coefficients; **CL.1**: P-ordinary parts at parahoric level with their Hecke actions.
 
+### Examples
+
+For n=1 the lower congruence group consists of matrices (1 0;c 1) with c∈π_L O_L. The dual ordinary comparison inverts the lower-side operator and then conjugates by ũ_n^{-1}w₀^P. At zero selected weight the kernel comparison removes no tensor factor, yet this lower-side normalization remains necessary.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **CL.0**; **CL.1**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.2**.
+
 ## Layer 3: Bruhat induction and deep unipotent cohomology
 
 Compare algebraic relative Bruhat closure with the local p-adic topology. Construct unnormalized induction on open length unions, individual strata and open cells, with exact extension/restriction filtration. Prove the cohomological short exact sequences and ordinary open/identity-cell subquotients, retaining the inverse determinant unit character χ and rank shift. In the abelian Siegel case split RΓ(U₀,O/ϖ^m) after sufficiently deep Levi restriction, at arbitrary p. Use the pinned Artin–Rees results to lift finite-module subquotients after increasing the coefficient exponent.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
 
 ### 3.1 Parabolic Bruhat decomposition and closure relations
 
@@ -730,7 +769,7 @@ Prove `CrystallineCM.subquotient_mod_p_pow`. Let N be a finitely generated Z_p-m
 
 Additional hypotheses and conventions: Here finite Z_p-module means finitely generated; choose a submodule N′ ⊆ N and a surjective Z_p-linear map f : N′ → M. This is a quotient of modules, with its chosen maps retained.
 
-**Canonical comparison and coefficient depth.** Put J=(p) ⊆ Z_p, write q_X,e : X → X/J^eX for the quotient map, and let T_e be the image of N′ → N/J^eN. The suggested signature chooses m′ ≥ m and a surjection g : T_m′ → M/J^mM satisfying g ∘ (q_N,m′ ∘ inclusion, with codomain restricted to its image) = q_M,m ∘ f. Thus the witness is the actual image of the chosen submodule, with the natural square; it is not an unrelated submodule that happens to have an isomorphic quotient. The private Lean abbreviations `adicSubmoduleImage` and `adicSubmoduleImageMap` reuse Mathlib's `LinearMap.range`, `rangeRestrict` and `Submodule.mkQ`; they introduce no new general quotient theory.
+**Canonical comparison and coefficient depth.** Put J=(p) ⊆ Z_p, write q_X,e : X → X/J^eX for the quotient map, and let T_e be the image of N′ → N/J^eN. Choose m′ ≥ m and a surjection g : T_m′ → M/J^mM satisfying g ∘ (q_N,m′ ∘ inclusion, with codomain restricted to its image) = q_M,m ∘ f. Thus the witness is the actual image of the chosen submodule, with the natural square; it is not an unrelated submodule that happens to have an isomorphic quotient. Mathlib's `LinearMap.range`, `rangeRestrict` and `Submodule.mkQ` give the image and its natural map; `adicSubmoduleImage` and `adicSubmoduleImageMap` denote these specializations.
 
 ### 3.6 Supplementary comparison API
 
@@ -746,7 +785,7 @@ The signatures `CrystallineCM.subquotient_mod_p_pow_unique` and `CrystallineCM.s
 - **Depth one fails for a proper submodule:** Take N=Z_p, N′=pZ_p, M=N′ and f=id, with m=1. The image T_1 in Z_p/pZ_p is zero, while N′/pN′ is nonzero. No map from T_1 can satisfy the required square. An abstract subquotient statement alone would miss this failure, since N′/pN′ is abstractly isomorphic to Z_p/pZ_p.
 - **Depth two repairs that example:** With the same N, N′ and f, the natural image T_2=pZ_p/p²Z_p maps bijectively to N′/pN′, and the square commutes. This distinguishes the ambient adic filtration from the intrinsic one on N′.
 
-The source is CN, Lemma 2.3.18 and its proof, p.43; consumer Proposition 4.2.6 and proof, pp.63–65. The three examples are authored tests, not examples attributed to CN. Proofs in the suggested file remain `sorry`.
+The source is CN, Lemma 2.3.18 and its proof, p.43; consumer Proposition 4.2.6 and proof, pp.63–65. The three examples are authored tests, not examples attributed to CN.
 
 *Needs:* `mathlib:Ideal.exists_pow_inf_eq_pow_smul`; `tauceti:TauCeti.ArtinRees.exists_controlled_lift`; Mathlib's module quotients and linear-map ranges. Reuse the pinned Tau Ceti import `TauCeti.RingTheory.Ideal.ArtinRees` for the general coefficient-depth control.
 
@@ -874,11 +913,17 @@ The source is CN, Corollary 2.3.12, p.39.
 
 *Needs:* **CL.3**: P-ordinary cohomology of a parabolic induction; **CL.2**: Dual P-ordinary parts at parahoric level; **CL.2**: P-ordinary parts for dual coefficients.
 
+### Examples
+
+For GL₂ with its Borel there are an identity cell and an open cell. The open-cell Levi action exchanges the two entries, while inflation from the identity cell contributes the shift by [L:Q_p] and χ. For L=Q_p and diag(a,d) with a/d a unit, χ=d/a; at diag(p,1), χ=1. The submodule pZ_p⊂Z_p has zero image modulo p, so its intrinsic reduction cannot be recovered at ambient depth one; the natural square becomes an isomorphism at depth two, as in §3.6.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
+
 ## Layer 4: Q-ordinary automorphic representations and Galois blocks
 
 Define rescaled partial Q-Hecke operators for partitions refining (n,n), their polynomial/Laurent algebra and the all-unit generalized-eigenvalue subspace. Define ι-Q-ordinary cuspidal representations by cohomological weight and a nonzero unit eigenvector. Prove Newton–Hodge partial-sum inequalities and the equality-induced Galois subrepresentation. Deduce crystalline diagonal blocks, increasing labelled Hodge–Tate weights, a one-dimensional ordinary line and partial determinant reciprocity formulas.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.5**; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **CL.0**; **PadicFamilies:L0a**; **PadicHodgeTheory:R06.2**; **PadicHodgeTheory:R06.3**; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.4**.
 
 ### 4.1 Q-ordinary Hecke operators Ũ^k_v
 
@@ -956,11 +1001,17 @@ The source is CN, Theorem 3.1.2, pp.43–44.
 
 *Needs:* **CL.4**: ι-Q_{v̄}-ordinary cuspidal representations; **CL.4**: Newton above Hodge for semistable representations, and its equality case; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.4**.
 
+### Examples
+
+For the partition (n,n), the partial operators are the Siegel and central operators. Refining to the Borel introduces every partial product. On an E-line with two commuting operators 1 and p, localization at the first operator is nonzero but the all-unit Q-ordinary subspace is zero. At n=2 and zero algebraic weight, the ordered Hodge–Tate list of the rank-four representation is (0,1,2,3); partitioning it into (2,2) yields block lists (0,1) and (2,3).
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.5**; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **CL.0**; **PadicFamilies:L0a**; **PadicHodgeTheory:R06.2**; **PadicHodgeTheory:R06.3**; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.4**.
+
 ## Layer 5: The localized completed Siegel boundary
 
 Construct the equivariant unipotent coefficient object V_U=RΓ(U₀,V/ϖ^m) and its homotopy inverse limit; retain the vanishing bound and the exact nonzero range for trivial selected weights. Identify the localized completed Siegel boundary with induced Levi cohomology, using non-Eisenstein boundary-stratum elimination, topological induction and unipotent descent. Prove the Hecke-equivariant completed boundary summand and its integral coefficient-evaluation retract, with zero weights on the complementary p-places.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **CompletedCohomologyPartII:CC.7**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 ### 5.1 The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces
 
@@ -1038,11 +1089,17 @@ The source is CN, Corollary 4.1.9, p.57.
 
 *Needs:* **CL.5**: A direct summand of completed boundary cohomology; **CL.2**: The Levi coefficient module as a tensor product over the two places; **PotentialAutomorphyInfrastructure:PA.0**.
 
+### Examples
+
+With zero selected weights and U₀≅Z_p^r, the coefficient cohomology in degree j has rank binomial(r,j) over R_m for 0≤j≤r. In rank one, H⁰=R_m and H¹=Hom_cts(Z_p,R_m), with inverse adjoint Levi action. When the selected set is empty, r=0 and the coefficient object is R_m in degree zero; the derived boundary summand still retains its Hecke localization.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **CompletedCohomologyPartII:CC.7**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+
 ## Layer 6: Degree shifting and nilpotent Hecke comparisons
 
 Construct ordinary twisted/dual Satake diagrams and the integral, torsion and unitary middle-degree Hecke images; define the two deep congruence level families. Under ambient decomposed genericity compare middle-degree unitary and Levi derived-coefficient images and their duals. If the complementary local degree sum is at least half [F⁺:Q], prove d−q≤n² times that sum for q≥floor(d/2). Produce the torsion degree-shifting squares modulo nilpotent ideals J with J^N=0, N depending only on n,[F⁺:Q], while the depth and exponent m′ may increase.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CL.3**; **CL.5**; **IgusaVarietiesAndTorsionConcentration:IG.7**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.4**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 ### 6.1 Q-ordinary Hecke algebras, the twisted Satake map and duality involutions
 
@@ -1193,7 +1250,7 @@ Define `CrystallineCM.HeckeImagesDual`. For S̄_p = S̄₁ ∪ S̄₂ ∪ S̄₃
 
 Construct each image from its actual dual-coefficient cohomology module and action, retaining the coefficient ring and localization. Coefficient duality takes place before cohomology. Over O, the module H^q(V^∨) cannot in general be replaced by Hom_O(H^q(V),O); duality can change the degree, supports and torsion terms. For example, Hom_ℤ(ℤ/3,ℤ)=0 although ℤ/3 is nonzero. The source's rational middle-degree Poincaré comparison supplies the particular perfect pairing used to compare the two image algebras.
 
-The algebraic descent of adjointness is explicit. Let H act on M and N by a and b, let ι be an involutive R-algebra automorphism of H, and let N≃Hom_R(M,R) be a perfect pairing that separates points of M. If ⟨a(h)x,y⟩=⟨x,b(ι(h))y⟩, then a(h)=0 exactly when b(ι(h))=0. This gives an isomorphism im(a)≃im(b) carrying a(h) to b(ι(h)). Apply it to the arithmetic pairing with its specified degree and support comparison; do not assert an integral pairing merely from the existence of a rational one. Mathlib's `Representation.dual` supplies the coefficient formula ρ^∨(g)φ=φ∘ρ(g⁻¹), and `Module.Dual.eval` supplies the comparison with the double dual without an unconditional reflexivity assertion.
+The algebraic descent of adjointness is explicit. Let a commutative R-algebra H act on M and N by a and b, let ι be an involutive R-algebra automorphism of H, and let N≃Hom_R(M,R) be a perfect pairing that separates points of M. If ⟨a(h)x,y⟩=⟨x,b(ι(h))y⟩, then a(h)=0 exactly when b(ι(h))=0. This gives an isomorphism im(a)≃im(b) carrying a(h) to b(ι(h)). Apply it to the arithmetic pairing with its specified degree and support comparison; do not assert an integral pairing merely from the existence of a rational one. Mathlib's `Representation.dual` supplies the coefficient formula ρ^∨(g)φ=φ∘ρ(g⁻¹), and `Module.Dual.eval` supplies the comparison with the double dual without an unconditional reflexivity assertion.
 
 Provide the following interface:
 
@@ -1227,7 +1284,7 @@ Provide the following interface:
 - `CrystallineCM.TorsionHeckeImage_test_scalar_mod`: For a scalar O-action on R_m, its torsion image is R_m.
 - `CrystallineCM.TorsionHeckeImage_test_new_torsion`: Torsion H^{q+1}(V) may contribute to H^q(V/ϖ^m); the definition cannot identify the latter image with A(K,λ,q)/ϖ^m without extra hypotheses.
 
-A concrete instance is the two-term complex O --ϖ--> O in degrees zero and one for a nonzero uniformizer in a DVR. Its integral H⁰ is zero and its H¹ is O/ϖ. After derived reduction modulo ϖ the differential is zero, so H⁰ becomes O/ϖ. Thus its scalar Hecke image in degree zero changes from zero to O/ϖ. There can be no unital map from that zero integral image to the nonzero torsion image. Equivariance of the coefficient map still compares operators on the image of integral H⁰, which is zero here; it does not identify the whole torsion cohomology with a reduction of integral H⁰. The suggested test uses O=ℤ₃, ϖ=3 and the residue homomorphism `PadicInt.toZMod`. It forms both degree-zero kernels and their actual scalar endomorphism images, asserts that the first image is a subsingleton and the second is nontrivial, and excludes every unital ℤ₃-algebra map between them. This tests the image-algebra obstruction as well as the change in cohomology.
+A concrete instance is the two-term complex O --ϖ--> O in degrees zero and one for a nonzero uniformizer in a DVR. Its integral H⁰ is zero and its H¹ is O/ϖ. After derived reduction modulo ϖ the differential is zero, so H⁰ becomes O/ϖ. Thus its scalar Hecke image in degree zero changes from zero to O/ϖ. There can be no unital map from that zero integral image to the nonzero torsion image. Equivariance of the coefficient map still compares operators on the image of integral H⁰, which is zero here; it does not identify the whole torsion cohomology with a reduction of integral H⁰. Specializing to O=ℤ₃ and ϖ=3, `PadicInt.toZMod` is the residue homomorphism. The degree-zero kernels and their scalar endomorphism images give a subsingleton integral image and a nontrivial residue image, so every unital ℤ₃-algebra map from the former to the latter is excluded. This tests the image-algebra obstruction as well as the change in cohomology.
 
 
 The source is CN, §4.2.1, p.61, for the integral and torsion image definitions. The two-term complex is an authored test of their distinction.
@@ -1274,11 +1331,17 @@ The source is CN, Proposition 4.2.8, pp.65–66.
 
 *Needs:* **CL.6**: Degree shifting for torsion coefficients at deep auxiliary level; **CL.6**: Dual Hecke images A^∨ and Ã^∨; **CL.6**: Degree shifting with dual coefficients.
 
+### Examples
+
+Take n=3,D=3,R=2 and q=⌊27/2⌋=13. Then d−q=14≤18=n²R: using floor(d/2) as the remaining degree would incorrectly give 13. For the deep unitary level at n=1, (1 1;0 1) remains present at every depth, distinguishing it from principal congruence. The two-term complex O —ϖ→ O in degrees zero and one has zero integral H⁰ but nonzero reduced H⁰; its image-algebra obstruction is worked out in §6.10.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CL.3**; **CL.5**; **IgusaVarietiesAndTorsionConcentration:IG.7**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.4**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+
 ## Layer 7: Crystalline local–global compatibility
 
 For all-unit Q-localized non-Eisenstein torsion Hecke systems, produce local finite-flat characteristic-zero lifts with crystalline blocks, labelled weights and determinant characters. Use CTG perturbation and a separating character twist, then import compatible local reconstruction. Assemble a global Hecke-valued representation modulo a uniformly nilpotent ideal factoring through crystalline/semistable-ordinary local deformation rings in the three specified partitions. Export fixed-determinant compatibility for p∤n and crystallinity of unramified characteristic-zero GL_n representations under residual irreducibility and decomposed genericity. Reuse IHG.1, §1.6, whose compatible local reconstruction allows a henselian local target with torsion. Supply its corner identifications and prove continuity of the resulting local lift. In the char-zero endpoint, choose a cyclic CM extension where the selected p-places split completely, so their local fields are unchanged.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.5**; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **CL.0**; **CL.4**; **CL.6**; **IntegralHeckeAndGaloisDeterminants:IHG.1**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **LocalGaloisDeformationRings:L7**; **LocalGaloisDeformationRings:R08.3**; **ModularityAndLanglandsExtensions:ML.5**; **PadicHodgeTheory:R06.2**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.5**; **PotentialModularityAndCompatibleSystems:R23.5**; **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence**.
 
 ### 7.1 Residual determinants of the blocks of a Q-ordinary Galois representation
 
@@ -1332,7 +1395,7 @@ The source is CN, Corollary 4.2.16, p.72.
 
 Prove `CrystallineCM.unramified_automorphic_crystallinity`. Let F be totally real or CM, π a cuspidal automorphic representation of GL_n(𝔸_F), regular algebraic of weight λ, v | p with π^{GL_n(O_{F_v})} ≠ 0 and π^{GL_n(O_{F_{v^c}})} ≠ 0 (v = v^c allowed), ι : Q̄_p ≅ C, and r_ι(π) : G_F → GL_n(Q̄_p) the representation of [HLTT16]. If the semisimplified residual reduction r̄_ι(π) is irreducible and decomposed generic, then r_ι(π)|_{G_{F_v}} and r_ι(π)|_{G_{F_{v^c}}} are crystalline with τ-labelled Hodge–Tate weights λ_{ιτ,n} < … < λ_{ιτ,1} + n − 1 for τ inducing v or v^c respectively.
 
-Additional hypotheses and conventions: For this characteristic-zero theorem F is totally real or CM (the imaginary-quadratic subfield condition is dropped); F⁺ is F in the totally real case, n≥2, p a prime; all places of F⁺ above p split in F when unitary parahorics are used. The coefficient field E/Q_p is finite and contains all relevant embeddings, O is its integer ring, k its residue field, and ϖ its uniformizer. Local uniformizers ϖ_v are distinct notation.
+For this characteristic-zero theorem F is totally real or CM, F⁺=F in the totally real case, n≥2 and p is any prime. No imaginary-quadratic subfield or splitting of all p-adic places is imposed on the original F. The proof passes to a cyclic CM extension with the unitary splitting hypotheses and with the selected places split completely, so their local fields are unchanged. A finite coefficient field E may be enlarged to contain the required embeddings; its uniformizer ϖ is distinct from the local uniformizers ϖ_v.
 
 The source is CN, §4.3, Theorem 4.3.1, p.73.
 
@@ -1340,13 +1403,15 @@ The source is CN, §4.3, Theorem 4.3.1, p.73.
 
 ### Examples
 
-For n=2 and λ_τ=(0,0), the ordered list h_{τ,i}=λ_{τ,n−i+1}+i−1 in §7.4 is (0,1), and its sum gives determinant weight 1. At p=3 or p=5 the condition p∤n in §7.6 holds. These numerical specializations still require the stated Hecke support, local splitting, residual genericity and deformation conditions.
+For n=2 and λ_τ=(0,0), the list h_{τ,i}=λ_{τ,n−i+1}+i−1 is (0,1), and its sum gives determinant weight 1. At p=3 or p=5, p∤n, so the fixed-determinant refinement applies when its remaining hypotheses hold. A local coefficient map O→O/ϖ illustrates that the torsion target need not be flat; finite flatness is required of the auxiliary lifting algebra.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.5**; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **CL.0**; **CL.4**; **CL.6**; **IntegralHeckeAndGaloisDeterminants:IHG.1**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **LocalGaloisDeformationRings:L7**; **LocalGaloisDeformationRings:R08.3**; **ModularityAndLanglandsExtensions:ML.5**; **PadicHodgeTheory:R06.2**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.5**; **PotentialModularityAndCompatibleSystems:R23.5**; **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence**.
 
 ## Layer 8: Two-component patching and PGL₂ cohomology
 
 Package common-residual perfect complexes, finite derived Hecke images modulo nilpotents, equidimensional local rings and unique generic generalizations. Prove two-system automorphic component propagation and pointwise augmentation support. Import exact BT and semistable-ordinary local component results from LocalGaloisDeformationRings. Construct non-neat PGL₂ equivariant cohomology by homotopy limits, identify it with the AKT complex, and obtain its finite Hecke Galois representation; under p odd, ζ_p∈F and trivial residual coefficients, prove localized vanishing and perfectness.
-
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.4**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:P8**; **DeformationAndDerivedPatchingAlgebra:P9**; **GlobalGaloisDeformations:R04.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.3**.
 
 ### 8.1 Cohomology of PGL₂ locally symmetric spaces at non-neat level
 
@@ -1428,11 +1493,17 @@ The source is CN, Proposition 5.5.3, p.81.
 
 *Needs:* **CL.8**: Galois representations for PGL₂ over CM fields; **CL.8**: Comparison with the Allen–Khare–Thorne complexes; **ArithmeticLocallySymmetricSpaces:ALS.6** (finite-level descent); **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.4**; **CompletedCohomologyPartII:CC.6**.
 
+### Examples
+
+At PGL₂ level, the scalar GL₂ Hecke coset acts as identity, giving X²−T_{v,1}X+q_v. For a finite p-stabilizer, positive-degree mod-p group cohomology can persist indefinitely before localization, so boundedness and perfectness require §8.7. In O[[x,y]]/(xy−ϖ²), (ϖ,x) and (ϖ,y) are special-fiber generic points, whereas (ϖ,x,y) is an intersection point and cannot replace either in the component relation.
+
+### Dependencies
+
+**ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.4**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:P8**; **DeformationAndDerivedPatchingAlgebra:P9**; **GlobalGaloisDeformations:R04.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.3**.
+
 ## Layer 9: Barsotti–Tate automorphy lifting and solvable descent
 
 State the fifteen prepared CM lifting hypotheses, define fixed-determinant χ-type and Taylor–Wiles deformation problems, and construct deformation-to-derived-Hecke surjections and diamond-compatible perfect complexes. Use AKT small-image Taylor–Wiles prime selection with its p=5 exception, check q₀=l₀=[F⁺:Q] and patch the two coefficient systems to prove prepared BT lifting. Prove solvable preparation and descent preserving the full residual/cyclotomic field. Export potentially BT automorphy under the original hypotheses plus d_cyc≠3 or projective residual image not A₄; retain the cubic-tetrahedral limitation of the finite-image argument. Construct the prepared PGL₂ level with pro-v Iwahori auxiliary components, choose the three unitary parabolic branches and the residual ordinary Hecke ideal. The non-enormous AKT Selmer-detection and CM relative generator-count inputs belong to GlobalGaloisDeformations:R04.5.
-
-**Layer prerequisites:** **ArithmeticGaloisRepresentations:R01.4**; **ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.5**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **CL.4**; **CL.7**; **CL.8**; **DeformationAndDerivedPatchingAlgebra:P8**; **GlobalGaloisDeformations:R04.2**; **GlobalGaloisDeformations:R04.3**; **GlobalGaloisDeformations:R04.5**; **LocalGaloisDeformationRings:L7**; **LocalGaloisDeformationRings:R08.3**; **LocalGaloisDeformationRings:R08.4**; **ModularityAndLanglandsExtensions:ML.5**; **PadicHodgeTheory:R06.3**; **PotentialAutomorphyInfrastructure:PA.5**; **PotentialModularityAndCompatibleSystems:R23.5**.
 
 ### 9.1 The data and hypotheses (1)–(15) of the special case of Theorem 5.2
 
@@ -1458,8 +1529,15 @@ The source is CN, §5.6, pp.81–82.
 
 Prove `CrystallineCM.determinant_kernel_reducible_except_tetrahedral`. Let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible, unless d = 3 and the projective image of ρ is A₄; in that case ρ|_{ker(det ρ)} has projective image Z/2 × Z/2 and is absolutely irreducible.
 
-Reducibility here means that the determinant kernel fixes a one-dimensional subspace of the two-dimensional vector space over the algebraically closed coefficient field. Realize the projective image as the range of conjugation by ρ on the ambient GL₂: the kernel of conjugation on GL₂ is exactly its scalar subgroup. Quotienting by the centre of ρ(G) would instead remove every element of an abelian image, including nonscalar projective elements, and would change the criterion. In the exceptional branch, the determinant image has order three, the projective image is A₄, the determinant kernel has projective image (Z/2)², and it fixes no line. The non-exceptional branch supplies a fixed line without assuming that ρ itself is irreducible.
+Reducibility here means that the determinant kernel fixes a one-dimensional subspace of the two-dimensional vector space over the algebraically closed coefficient field. Use Mathlib's `Matrix.ProjGenLinGroup.mk` to map the ambient GL₂ to PGL₂ and take the range of its composite with ρ, denoted `projectiveMatrixImage`. The kernel is the scalar subgroup of the ambient GL₂, as expressed by `Matrix.GeneralLinearGroup.center_eq_range_scalar`. The predicate `determinantKernelHasLine` asks for an invariant submodule of dimension one on the determinant kernel. Conjugation on the ambient GL₂ gives an equivalent description of the projective image. Quotienting by the centre of ρ(G) would instead remove every element of an abelian image, including nonscalar projective elements, and would change the criterion. In the exceptional branch, the determinant image has order three, the projective image is A₄, the determinant kernel has projective image (Z/2)², and it fixes no line. The non-exceptional branch supplies a fixed line without assuming that ρ itself is irreducible.
 
+The two light specializations also apply to a general group and field: `projectiveMatrixImage` is the range of the composite with the ambient projective quotient, and `determinantKernelHasLine` requires a rank-one invariant submodule. Their API consists of `projectiveMatrixImage_mem_iff` (membership has a preimage under ρ), `projectiveMatrixImage_scalar_kernel` (an element maps to identity precisely when its matrix is scalar), `projectiveMatrixImage_restrict_le` (restriction has image contained in the full projective image), `determinantKernelHasLine_fixed_line` (equivalence with a nonzero vector whose span is preserved by every determinant-one element), `determinantKernelHasLine_of_invariant_line` (a line invariant under the whole group is sufficient), and `determinantKernelHasLine_conjugate` (change of basis transports the line).
+
+**Checks.** These authored controls distinguish the projective quotient and the line predicate:
+
+- For the trivial representation on a two-dimensional space, the projective image has one element and the determinant kernel preserves a coordinate line. The zero submodule is insufficient because its dimension is zero.
+- For the inclusion of the cyclic diagonal subgroup generated by diag(2,1) over Q, the projective image is nontrivial, and a coordinate line is invariant. Quotienting by the subgroup's own centre would incorrectly give a trivial projective image.
+- For the characteristic-seven quaternion matrices i and j displayed in the references, i²=j²=−1 and ij=−ji. They have no common eigenline even after extending to an algebraic closure: two putative eigenvalues would be nonzero, while anticommutation would force their product to be its own negative. The determinant-kernel line predicate fails, and the projective quaternion image is Klein four.
 
 The source is CN, Lemma 5.6.5, pp.85–86.
 
@@ -1493,7 +1571,7 @@ Provide the following interface:
 
 The local-level formula takes the integral groups PGL₂(O_{F_v}) and their Iwahori and pro-v Iwahori subgroups as inputs. Its product is a subgroup of ∏_v PGL₂(O_{F_v}), the compact integral part of the adelic group. Membership is checked componentwise. A component outside S, or in S_p^{cr}, is the entire integral group; otherwise a component in R or S_p^{st} is Iwahori, and the remaining component is pro-v Iwahori. Keeping a proper pro-v Iwahori at an auxiliary place is essential to the specified level. This component calculation does not supply the neatness theorem or localized perfectness.
 
-For the unitary choice, put st=1 when ṽ∈S_p^{st} and stᶜ=1 when ṽᶜ∈S_p^{st}. The orientation policy is stᶜ≤st. Thus the admissible flags are (0,0), (1,0) and (1,1), giving respectively (2,2), (2,1,1) and (1,1,1,1). Every partition has total rank four and refines the two size-two Siegel blocks. In the mixed case the first block stays size two and the second becomes (1,1). The flags (0,1) violate the choice policy; switching the chosen place is required before using the mixed formula. The component and partition APIs in Suggested.lean express these formulas independently of the residual Hecke and derived-cohomology constructions.
+For the unitary choice, put st=1 when ṽ∈S_p^{st} and stᶜ=1 when ṽᶜ∈S_p^{st}. The orientation policy is stᶜ≤st. Thus the admissible flags are (0,0), (1,0) and (1,1), giving respectively (2,2), (2,1,1) and (1,1,1,1). Every partition has total rank four and refines the two size-two Siegel blocks. In the mixed case the first block stays size two and the second becomes (1,1). The flags (0,1) violate the choice policy; switching the chosen place is required before using the mixed formula. The formula `preparedUnitaryPartition` records these rank-four partitions. The subgroup, residual Hecke and derived-cohomology constructions retain the full requirements above.
 
 The source is CN, Proof of Proposition 5.6.1, pp.82–83; CN, Unitary parabolic cases and residual Hecke ideal, p.83.
 
@@ -1586,6 +1664,14 @@ Prove `CrystallineCM.potentially_barsotti_tate_lifting_qualified`. Let F be an i
 The source is CN, §5.1, Theorem 5.2, pp.73–74.
 
 *Needs:* **CL.9**: Automorphy lifting in the special case; **CL.9**: Reduction of Theorem 5.2 to Proposition 5.6.1 by solvable base change; **CL.9**: A reducibility criterion for mod-p representations (variant of DDT 4.11); **ModularityAndLanglandsExtensions:ML.5**.
+
+### Examples
+
+For the prepared local flags (st,stᶜ)=(1,0), the partition is (2,1,1); (0,0) gives (2,2), and (1,1) gives (1,1,1,1). At an auxiliary place the level is pro-v Iwahori. At p=3 or p=5, [F(ζ_p):F] divides p−1 and cannot equal three, so the extra cubic-tetrahedral restriction is automatic. The characteristic-seven quaternion matrices in the references provide the finite-group negative control; a cyclic diagonal subgroup generated by diag(2,1) also has a nontrivial projective image despite being abelian, which detects quotienting by the centre of the image rather than by ambient scalars.
+
+### Dependencies
+
+**ArithmeticGaloisRepresentations:R01.4**; **ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.5**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **CL.4**; **CL.7**; **CL.8**; **DeformationAndDerivedPatchingAlgebra:P8**; **GlobalGaloisDeformations:R04.2**; **GlobalGaloisDeformations:R04.3**; **GlobalGaloisDeformations:R04.5**; **LocalGaloisDeformationRings:L7**; **LocalGaloisDeformationRings:R08.3**; **LocalGaloisDeformationRings:R08.4**; **ModularityAndLanglandsExtensions:ML.5**; **PadicHodgeTheory:R06.3**; **PotentialAutomorphyInfrastructure:PA.5**; **PotentialModularityAndCompatibleSystems:R23.5**.
 
 ## Downstream consumers
 
