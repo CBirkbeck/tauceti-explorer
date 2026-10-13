@@ -131,10 +131,11 @@ example (G : (Matrix V V R)ˣ) (i : Fin d) :
       -lam • (G : Matrix V V R).map (F.delta i) * (↑G⁻¹ : Matrix V V R) := by
   sorry
 
-/-- Every ordered word of length N vanishes. This uses matrix multiplication,
-not symmetric projection of a tensor. -/
+/-- A positive bound for vanishing of every ordered word of length N.
+This uses matrix multiplication, not symmetric projection of a tensor;
+bound zero is excluded even on the zero module. -/
 def JointNilpotent (A : Fin d → Matrix V V R) (N : ℕ) : Prop :=
-  ∀ w : Fin N → Fin d, (List.ofFn (fun i => A (w i))).prod = 0
+  0 < N ∧ ∀ w : Fin N → Fin d, (List.ofFn (fun i => A (w i))).prod = 0
 
 /-- The tensor nilpotence bound is integral and needs no factorial denominators. -/
 theorem tensor_nilpotence {W : Type*} [Fintype W] [DecidableEq W]
@@ -150,6 +151,16 @@ example : JointNilpotent (fun _ : Fin 1 => (0 : Matrix (Fin 1) (Fin 1) ℚ)) 1 :
 
 example : ¬ JointNilpotent (fun _ : Fin 1 => (1 : Matrix (Fin 1) (Fin 1) ℚ)) 1 := by
   sorry
+
+/-- The rank-zero module still has positive bound one, rather than bound zero. -/
+example : JointNilpotent (fun _ : Fin 1 => (0 : Matrix (Fin 0) (Fin 0) ℚ)) 1 := by
+  constructor
+  · decide
+  · intro w
+    exact Subsingleton.elim _ _
+
+example : ¬ JointNilpotent (fun _ : Fin 1 => (0 : Matrix (Fin 0) (Fin 0) ℚ)) 0 := by
+  simp [JointNilpotent]
 
 /-- The nonzero supplied one-form module cannot be a quotient of Ω¹_(ℚ/ℚ). -/
 example (f : KaehlerDifferential ℚ ℚ →ₗ[ℚ] ℚ) : ¬ Function.Surjective f := by
