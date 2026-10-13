@@ -21501,9 +21501,10 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9405"
+   "note": "deliverables arrived from an external worker on issue #9405",
+   "finishedAt": "2026-10-13T16:37:27Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra",
@@ -21821,9 +21822,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9406"
+   "note": "deliverables arrived from an external worker on issue #9406",
+   "finishedAt": "2026-10-13T16:37:28Z"
   },
   {
    "id": "REV-AInfCohomology",
@@ -23438,7 +23440,8 @@
    ],
    "avoidAccountOf": "BP-CompletedCohomologyPartII",
    "prompt": "research/blueprint/prompts/REV-CompletedCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9378"
   },
   {
    "id": "BP-ComplexComparisonPartII",
@@ -28313,8 +28316,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9432"
   },
   {
    "id": "REV-ShimuraVarieties",
