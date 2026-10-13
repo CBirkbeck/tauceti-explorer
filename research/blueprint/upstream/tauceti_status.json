@@ -319,6 +319,20 @@
         "date": null,
         "note": "opened 2026-10-13 10:30Z; awaiting first review"
       }
+    },
+    "DiophantineApproximationAndTranscendence": {
+      "stage": "pr",
+      "pr": 855,
+      "head": "1a5785e",
+      "depends_on": [],
+      "note": "ported 2026-10-13 (Codex) with a Codex review pass before opening (21 corrections); Lean 3,045 lines (from 6,064), README 2,080 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 11:00Z; awaiting first review"
+      }
     }
   }
 }
