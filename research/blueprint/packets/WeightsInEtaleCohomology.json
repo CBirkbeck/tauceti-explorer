@@ -1952,145 +1952,153 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-WeightsInEtaleCohomology~2",
-    "date": "2026-10-08",
-    "notes": "Second independent target-level review: all 27 nodes checked (25 verified, two corrected), nine exact-pin baseline declarations confirmed, 83 distinct direct fine supplier statements inspected, all nine narrowed requests and six retained gaps checked, reader/packet/suggested parity checked, AUDIT-19/RS-17 and RT-AREA-langlands-2/10 boundaries confirmed. The prior reader synchronization is complete. Two curve proof routes now specialize C directly before the finite-field Jacobian comparison, avoiding an unlisted relative-Jacobian theorem. E1 is independently confirmed for the inspected Saito preprint. DFG’s already-recorded AGR/E3 exceptional-set misprint is independently checked without duplicating its finding. Structural validation passes; the unchanged suggested file elaborates at the exact Mathlib pin with only admitted-proof warnings. Accepted as a complete planning pass with six planned stages, nine requests, six gaps, no closed stages and no formalization claim.",
-    "checked": [
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
-        "verdict": "verified",
-        "note": "Weil I (1.15), p. 279, and Weil II (1.1.13), p. 152 fix the inverse convention. The six APIs cover inverse roots, conjugacy, inertia and intertwining; the supplied-element prototype is explicitly distinguished from the continuous arithmetic carrier."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
-        "verdict": "verified",
-        "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, supports separate algebraicity, all-embeddings purity and rational integer polynomials. Eleven APIs and five tests retain inertia, exceptional-set monotonicity, the chosen-embedding implication and rank-zero qualification."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
-        "verdict": "verified",
-        "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh §2.5, p. 13, support weight arithmetic. The middle representation must already be unramified; rationality is retained for integral subquotient polynomials."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
-        "verdict": "verified",
-        "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh Lemma 2.10, p. 14, agree with q raised to residue degree and the induction cyclic-block product. The independent R01.1/R01.2 fine suppliers provide the local representation inputs, with ramified places excluded."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic",
-        "verdict": "verified",
-        "note": "Weil II (1.2.3), (1.2.6), p. 154, motivates the distinction rather than supplying the explicit example. Compatible finite cyclic quotients give continuous finite-field characters for every prime, including 2; nonalgebraic units and the odd-prime scalar example have the claimed scope."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/purity-at-every-embedding-versus-a-chosen-embedding",
-        "verdict": "verified",
-        "note": "Weil II (1.2.6), p. 154, is consistent with the reciprocal-quartic pointwise finite-field counterexample. Irreducibility mod 2, the quadratic in x+x inverse, the unit condition and the rational-polynomial exception keep chosen and all-embeddings purity distinct."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
-        "verdict": "verified",
-        "note": "Milne II §1, pp. 75–76, and I Remark 12.5, p. 56, identify arithmetic Frobenius with the Tate endomorphism and geometric H¹ with its transpose. The finite-field R01.6 and A6 fine imports do not use the downstream good-reduction aggregate."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
-        "verdict": "corrected",
-        "note": "Corrected the curve proof to apply SF.2 smooth proper base change to C directly and DWP.1 weights-of-the-cohomology-of-curves to its residue curve. This removes an unlisted relative-Jacobian good-reduction assertion. Milne I 12.1/12.5, pp. 55–56, and II 1.5/1.6, p. 78, still justify exterior powers; the positive-dimension reciprocal Tate polynomial and zero-rank exception remain correct."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
-        "verdict": "verified",
-        "note": "Milne II Theorem 1.1 proof, p. 76, and the inspected DWP.1 count/Hasse suppliers give all-extension abelian counts. The F₅ example has eight points and trace −2; agreement with the upstream elliptic target is an implementation obligation, not a claim of a completed Hasse proof."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/representation-sheaf-weight-comparison",
-        "verdict": "verified",
-        "note": "Weil II (1.1.13), (1.2.2)–(1.2.3), pp. 152–154, matches the actual π₁/stalk comparison. The normal arithmetic model and factorization conditions are explicit; SF.2 must supply the named étale equivalence, not coherent duality."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-complex-weight-normalization",
-        "verdict": "verified",
-        "note": "Weil II (6.2.5)(b), p. 247, requires smooth support and lisse cohomology. The formula r+a−2b, degree-by-degree w+i criterion and dualizing twist agree, and this branch is absent from the early Tate/Faltings path."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions",
-        "verdict": "corrected",
-        "note": "Corrected the first proof step to specialize C directly, then compare H¹ of its special fibre with that fibre’s Jacobian. Weil I (1.5.1), p. 275, and (1.13)–(1.15), pp. 278–279, give the all-extension trace convention. The genus-zero and genus-one cases, including the F₂₅ recurrence, agree."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
-        "verdict": "verified",
-        "note": "Carayol §4.1–§4.3, pp. 423–424, gives compatible finite-level data and equivariant specialization. Current LPV.0 adic-realization targets and SF.2 requests explicitly retain actual-system uniform finiteness, finite Tor amplitude, derived completion and inverse-limit obligations; these are not claimed proved."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
-        "verdict": "verified",
-        "note": "Carayol §4.2–§4.5, pp. 423–425, and Saito Claim 5, pp. 37–38, support the stated filtration. The elementary graph sequences are restricted to constant coefficients; the general coefficient and cuspidal residual-term argument is separate. R13.5 supplies model geometry before the R13.6 consumer."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.3/arithmetic-picard-lefschetz-normalization",
-        "verdict": "verified",
-        "note": "Weil I (4.2)–(4.3), pp. 288–289, agrees with the inspected LPV.2 odd quadratic sign and Kummer-character target. Regular proper-flat models, isolated quadratic singularities, even-dimensional reflection and the characteristic-2 branch are retained. The unread Illusie proof interior stays a gap."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
-        "verdict": "verified",
-        "note": "Saito Lemma 4, pp. 32–34, and Claim 4, pp. 35–36, use a finite extension of the completed maximal unramified field. Genus, level, splitting and unchanged p/q components are retained. R18.2 owns the actual Hilbert model; finite-local/residue descent and CP.4 comparison hypotheses remain exact requests."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.4/finite-field-pencil-descent",
-        "verdict": "verified",
-        "note": "Weil I (5.6)–(5.7), pp. 291–292, and (6.1), pp. 294–295, support geometric pencil existence. A nonempty parameter open gives a finite-extension point, not necessarily an F_q point; incidence blowup and F^d/q^d comparisons are explicit supplier inputs."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.4/vanishing-quotient-parity-comparison",
-        "verdict": "verified",
-        "note": "Weil I (5.8)–(5.9), pp. 292–293, and current LPV.4/EDC fine statements support the radical quotient and parity. The radical is not assumed zero; arithmetic stability and the zero-cycle/skyscraper branch are preserved."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.4/original-coefficient-monodromy-hypotheses",
-        "verdict": "verified",
-        "note": "Weil I (3.1)–(3.2), pp. 283–284, and (5.10), p. 293, require the original Q_l symplectic group and rational local factors. The current DWP.2/DWP.3 and LPV.5 targets match these hypotheses; extending coefficients does not create open image in the larger coefficient-field points."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.5/parabolic-cohomology-weight-comparison",
-        "verdict": "verified",
-        "note": "Weil II (3.3.6), p. 206, and (3.7.1), p. 215, give weight r+1 for the parabolic image of Sym^r R¹. Deligne 1969 (5.1), (5.3), pp. 168–169, is conditional in its own context. The independent parabolic premotive fine import avoids the AGR aggregate return through purity."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison",
-        "verdict": "verified",
-        "note": "Deligne 1969 (5.2)–(5.4), pp. 168–170, and Saito Lemma 3, pp. 30–31, have different classical and Hilbert models/degrees. Existing AGR projector targets are reused; GH.0/R14.3 request the actual classical W_r geometry, while R18.2 owns q₀ and the auxiliary twist. The CM-product degree 2r+1 cannot replace degree r+1."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.5/weight-two-jacobian-weight-comparison",
-        "verdict": "verified",
-        "note": "DFG Lemma 5.7, pp. 58–59, and Milne I Remark 12.5, p. 56, agree with the k=2 Jacobian eigensummand: geometric H¹ has weight +1 and its Tate dual −1. A coefficient-field factor is not automatically a rational integer polynomial."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.5/arithmetic-hard-lefschetz-comparison",
-        "verdict": "verified",
-        "note": "Weil II (4.1.1), p. 217, suppresses geometric twists that the arithmetic η^a map must restore. Source and target then have weight d−a; restricting to an eigensummand needs a projector commuting with cup product. Absolute DWP.9 suffices."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
-        "verdict": "verified",
-        "note": "Deligne 1969 (5.1), (5.6), pp. 168, 170–171, and Weil II (3.7.1), p. 215, give the good-prime all-embeddings bound with the correct dual convention. The independent geometric Eichler/DFG normalization contract remains requested; weights do not imply a common polynomial."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility",
-        "verdict": "verified",
-        "note": "DFG §1.1–§1.3, pp. 6–13, and Lemma 5.7/§5.5, pp. 58–60, distinguish all-λ étale modules from restricted crystalline data and identify the finite-character normalization. The fixed-source common Hecke polynomial uses the existing R24.5 fine carrier/predicate boundary without claiming its additional Hodge or bad-place axioms."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport",
-        "verdict": "verified",
-        "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, and Weil II (1.2.5), p. 154, agree with equivariant realization/projector transport. Rationality for integer factor coefficients and independent semisimplicity are retained. Finite residue-degree power descent uses q>1."
-      },
-      {
-        "nodeId": "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export",
-        "verdict": "verified",
-        "note": "Saito Theorems 1–2, pp. 12–13, Lemma 3, pp. 30–31, and Claims 4–5/Proposition 1′, pp. 35–39, match the restricted g>1 Hilbert statement and q₀/twist identity. The inverse geometric WD relation and rank-two graded weights agree. The imported R06.6 crystalline argument on pp. 40–43 and actual-model descent remain explicit gaps, not new claims."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+    "date": "2026-10-11",
+    "notes": "Codex session codex-Mt7g2N, independent of FIX-RT-AREA-langlands-2~4. Follows independent-review-REV-WeightsInEtaleCohomology~2 (2026-10-08, accepted); its full review is retained in reviewHistory. Checked eigenspace purity as a consumer of the fixed-form geometric construction, without the aggregate compatible-system/purity dependency cycle. This is a bounded review of the forty confirmed findings and round-four fixes, not a new whole-packet source/proof-closure certification; existing coverage, open requests and gaps are retained. All baseline declarations were checked in the pinned Lean sources. The packet checker reports zero errors and zero warnings; its suggested Lean file was freshly elaborated serially with lean-check at the pins, with only expected proof-placeholder warnings. See REV-FIX-RT-AREA-langlands-2~4.md for source receipts, dependency checks, exact verdicts and limits."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-WeightsInEtaleCohomology~2",
+      "date": "2026-10-08",
+      "notes": "Second independent target-level review: all 27 nodes checked (25 verified, two corrected), nine exact-pin baseline declarations confirmed, 83 distinct direct fine supplier statements inspected, all nine narrowed requests and six retained gaps checked, reader/packet/suggested parity checked, AUDIT-19/RS-17 and RT-AREA-langlands-2/10 boundaries confirmed. The prior reader synchronization is complete. Two curve proof routes now specialize C directly before the finite-field Jacobian comparison, avoiding an unlisted relative-Jacobian theorem. E1 is independently confirmed for the inspected Saito preprint. DFG’s already-recorded AGR/E3 exceptional-set misprint is independently checked without duplicating its finding. Structural validation passes; the unchanged suggested file elaborates at the exact Mathlib pin with only admitted-proof warnings. Accepted as a complete planning pass with six planned stages, nine requests, six gaps, no closed stages and no formalization claim.",
+      "checked": [
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
+          "verdict": "verified",
+          "note": "Weil I (1.15), p. 279, and Weil II (1.1.13), p. 152 fix the inverse convention. The six APIs cover inverse roots, conjugacy, inertia and intertwining; the supplied-element prototype is explicitly distinguished from the continuous arithmetic carrier."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
+          "verdict": "verified",
+          "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, supports separate algebraicity, all-embeddings purity and rational integer polynomials. Eleven APIs and five tests retain inertia, exceptional-set monotonicity, the chosen-embedding implication and rank-zero qualification."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
+          "verdict": "verified",
+          "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh §2.5, p. 13, support weight arithmetic. The middle representation must already be unramified; rationality is retained for integral subquotient polynomials."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
+          "verdict": "verified",
+          "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh Lemma 2.10, p. 14, agree with q raised to residue degree and the induction cyclic-block product. The independent R01.1/R01.2 fine suppliers provide the local representation inputs, with ramified places excluded."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic",
+          "verdict": "verified",
+          "note": "Weil II (1.2.3), (1.2.6), p. 154, motivates the distinction rather than supplying the explicit example. Compatible finite cyclic quotients give continuous finite-field characters for every prime, including 2; nonalgebraic units and the odd-prime scalar example have the claimed scope."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/purity-at-every-embedding-versus-a-chosen-embedding",
+          "verdict": "verified",
+          "note": "Weil II (1.2.6), p. 154, is consistent with the reciprocal-quartic pointwise finite-field counterexample. Irreducibility mod 2, the quadratic in x+x inverse, the unit condition and the rational-polynomial exception keep chosen and all-embeddings purity distinct."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
+          "verdict": "verified",
+          "note": "Milne II §1, pp. 75–76, and I Remark 12.5, p. 56, identify arithmetic Frobenius with the Tate endomorphism and geometric H¹ with its transpose. The finite-field R01.6 and A6 fine imports do not use the downstream good-reduction aggregate."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
+          "verdict": "corrected",
+          "note": "Corrected the curve proof to apply SF.2 smooth proper base change to C directly and DWP.1 weights-of-the-cohomology-of-curves to its residue curve. This removes an unlisted relative-Jacobian good-reduction assertion. Milne I 12.1/12.5, pp. 55–56, and II 1.5/1.6, p. 78, still justify exterior powers; the positive-dimension reciprocal Tate polynomial and zero-rank exception remain correct."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
+          "verdict": "verified",
+          "note": "Milne II Theorem 1.1 proof, p. 76, and the inspected DWP.1 count/Hasse suppliers give all-extension abelian counts. The F₅ example has eight points and trace −2; agreement with the upstream elliptic target is an implementation obligation, not a claim of a completed Hasse proof."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/representation-sheaf-weight-comparison",
+          "verdict": "verified",
+          "note": "Weil II (1.1.13), (1.2.2)–(1.2.3), pp. 152–154, matches the actual π₁/stalk comparison. The normal arithmetic model and factorization conditions are explicit; SF.2 must supply the named étale equivalence, not coherent duality."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-complex-weight-normalization",
+          "verdict": "verified",
+          "note": "Weil II (6.2.5)(b), p. 247, requires smooth support and lisse cohomology. The formula r+a−2b, degree-by-degree w+i criterion and dualizing twist agree, and this branch is absent from the early Tate/Faltings path."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions",
+          "verdict": "corrected",
+          "note": "Corrected the first proof step to specialize C directly, then compare H¹ of its special fibre with that fibre’s Jacobian. Weil I (1.5.1), p. 275, and (1.13)–(1.15), pp. 278–279, give the all-extension trace convention. The genus-zero and genus-one cases, including the F₂₅ recurrence, agree."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
+          "verdict": "verified",
+          "note": "Carayol §4.1–§4.3, pp. 423–424, gives compatible finite-level data and equivariant specialization. Current LPV.0 adic-realization targets and SF.2 requests explicitly retain actual-system uniform finiteness, finite Tor amplitude, derived completion and inverse-limit obligations; these are not claimed proved."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
+          "verdict": "verified",
+          "note": "Carayol §4.2–§4.5, pp. 423–425, and Saito Claim 5, pp. 37–38, support the stated filtration. The elementary graph sequences are restricted to constant coefficients; the general coefficient and cuspidal residual-term argument is separate. R13.5 supplies model geometry before the R13.6 consumer."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.3/arithmetic-picard-lefschetz-normalization",
+          "verdict": "verified",
+          "note": "Weil I (4.2)–(4.3), pp. 288–289, agrees with the inspected LPV.2 odd quadratic sign and Kummer-character target. Regular proper-flat models, isolated quadratic singularities, even-dimensional reflection and the characteristic-2 branch are retained. The unread Illusie proof interior stays a gap."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
+          "verdict": "verified",
+          "note": "Saito Lemma 4, pp. 32–34, and Claim 4, pp. 35–36, use a finite extension of the completed maximal unramified field. Genus, level, splitting and unchanged p/q components are retained. R18.2 owns the actual Hilbert model; finite-local/residue descent and CP.4 comparison hypotheses remain exact requests."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.4/finite-field-pencil-descent",
+          "verdict": "verified",
+          "note": "Weil I (5.6)–(5.7), pp. 291–292, and (6.1), pp. 294–295, support geometric pencil existence. A nonempty parameter open gives a finite-extension point, not necessarily an F_q point; incidence blowup and F^d/q^d comparisons are explicit supplier inputs."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.4/vanishing-quotient-parity-comparison",
+          "verdict": "verified",
+          "note": "Weil I (5.8)–(5.9), pp. 292–293, and current LPV.4/EDC fine statements support the radical quotient and parity. The radical is not assumed zero; arithmetic stability and the zero-cycle/skyscraper branch are preserved."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.4/original-coefficient-monodromy-hypotheses",
+          "verdict": "verified",
+          "note": "Weil I (3.1)–(3.2), pp. 283–284, and (5.10), p. 293, require the original Q_l symplectic group and rational local factors. The current DWP.2/DWP.3 and LPV.5 targets match these hypotheses; extending coefficients does not create open image in the larger coefficient-field points."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.5/parabolic-cohomology-weight-comparison",
+          "verdict": "verified",
+          "note": "Weil II (3.3.6), p. 206, and (3.7.1), p. 215, give weight r+1 for the parabolic image of Sym^r R¹. Deligne 1969 (5.1), (5.3), pp. 168–169, is conditional in its own context. The independent parabolic premotive fine import avoids the AGR aggregate return through purity."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison",
+          "verdict": "verified",
+          "note": "Deligne 1969 (5.2)–(5.4), pp. 168–170, and Saito Lemma 3, pp. 30–31, have different classical and Hilbert models/degrees. Existing AGR projector targets are reused; GH.0/R14.3 request the actual classical W_r geometry, while R18.2 owns q₀ and the auxiliary twist. The CM-product degree 2r+1 cannot replace degree r+1."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.5/weight-two-jacobian-weight-comparison",
+          "verdict": "verified",
+          "note": "DFG Lemma 5.7, pp. 58–59, and Milne I Remark 12.5, p. 56, agree with the k=2 Jacobian eigensummand: geometric H¹ has weight +1 and its Tate dual −1. A coefficient-field factor is not automatically a rational integer polynomial."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.5/arithmetic-hard-lefschetz-comparison",
+          "verdict": "verified",
+          "note": "Weil II (4.1.1), p. 217, suppresses geometric twists that the arithmetic η^a map must restore. Source and target then have weight d−a; restricting to an eigensummand needs a projector commuting with cup product. Absolute DWP.9 suffices."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
+          "verdict": "verified",
+          "note": "Deligne 1969 (5.1), (5.6), pp. 168, 170–171, and Weil II (3.7.1), p. 215, give the good-prime all-embeddings bound with the correct dual convention. The independent geometric Eichler/DFG normalization contract remains requested; weights do not imply a common polynomial."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility",
+          "verdict": "verified",
+          "note": "DFG §1.1–§1.3, pp. 6–13, and Lemma 5.7/§5.5, pp. 58–60, distinguish all-λ étale modules from restricted crystalline data and identify the finite-character normalization. The fixed-source common Hecke polynomial uses the existing R24.5 fine carrier/predicate boundary without claiming its additional Hodge or bad-place axioms."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport",
+          "verdict": "verified",
+          "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, and Weil II (1.2.5), p. 154, agree with equivariant realization/projector transport. Rationality for integer factor coefficients and independent semisimplicity are retained. Finite residue-degree power descent uses q>1."
+        },
+        {
+          "nodeId": "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export",
+          "verdict": "verified",
+          "note": "Saito Theorems 1–2, pp. 12–13, Lemma 3, pp. 30–31, and Claims 4–5/Proposition 1′, pp. 35–39, match the restricted g>1 Hilbert statement and q₀/twist identity. The inverse geometric WD relation and rank-two graded weights agree. The imported R06.6 crystalline argument on pp. 40–43 and actual-model descent remain explicit gaps, not new claims."
+        }
+      ]
+    }
+  ]
 }

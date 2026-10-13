@@ -11680,796 +11680,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2",
-  "date": "2026-10-08",
-  "notes": "Independent target-level review of revision round 2: all 157 nodes read against their sources (public versions, hashes as recorded; published texts of Geraghty, Savitt, Kisin 2008 and the LTXZZ companion were not available and the versions read are named). 122 nodes corrected in place and 35 verified; no node added or removed. All 9 baseline declarations confirmed at the pinned commits. Main corrections: the fibre in Kisin's local-structure proposition (reduction modulo the uniformiser, not the fibre over the closed point); the GL₃ comparison diagram (the formally smooth maps start from the ring with framing and gauge basis) and the global input of LLHLM Theorem 3.5.3, now a recorded gap; the set-up of Kisin modules with tame descent; the parity hypothesis in the level-raising local model; the duality and Euler-characteristic step, kept only in nodes whose argument uses it; sign conventions for Hodge–Tate weights; dropped hypotheses in the Khare–Wintenberger, FKP, Booher and Calegari–Geraghty nodes. Source issues: E1–E3, E5–E7 confirmed, E4 rejected (a proof by reference, written out in the node), and E7–E10 added. The five red-team findings and the demands of the previous review were checked. The suggested Lean file elaborates at the pinned Mathlib with proof placeholders as its only warnings; the reader document was regenerated from the corrected packet. The field-by-field record is in REV-LocalGaloisDeformationRings~2.md. Implementation remains unchecked.",
-  "checked": [
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022, KISIN-LECTURES. Corrected: Typo."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022, KISIN-LECTURES. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/local-fixed-determinant",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/local-forget-framing",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-LECTURES, GEE-MLT-2022 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/archimedean-rings-p-odd",
-    "verdict": "corrected",
-    "note": "Checked against TUNG-2021. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The formal smoothness for odd p is stated in KW II Proposition 3.3, not in Tung's proposition."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/archimedean-odd-ring-p2",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against TUNG-2021 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/local-residue-field-change",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022, BLGGT-2014. Corrected: The cited place in Gee only fixes the setting."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/tame-splitting",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: The order condition is on inertia."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/unramified-lifting-ring",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022, CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/minimally-ramified-condition",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: T_q is ℤ_p ⋊ Ẑ."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/minimally-ramified-ring",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
-    "verdict": "corrected",
-    "note": "Checked against CHT08, GEE-MLT-2022, TUNG-2021, BLGGT-2014. Corrected: Reworded the duality step to state the dependency without a reference to the review process. Tung's lemma is for GL₂ with fixed determinant. Cited the general-n statement directly."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/inertial-type-quotient",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022, SHOTTON-2018. Corrected: Shotton's Proposition 3.6 is for rings without fixed determinant."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring",
-    "verdict": "corrected",
-    "note": "Checked against GEE-MLT-2022. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/steinberg-condition",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against TAYLOR-II-2008, GEE-MLT-2022 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components",
-    "verdict": "corrected",
-    "note": "Checked against TAYLOR-II-2008, GEE-MLT-2022, NT-2026, THORNE-2015. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Part (4) without p > n is Thorne §3.3.4 / Proposition 3.17."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: Gave the map (2.4.3) whose Galois compatibility defines the quotient."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/hodge-type-components",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: Lemma (2.6.1) is about the steps of the filtration, not the graded pieces. Follows the source, which compares the steps of the filtration. The description is for K = ℚ_p."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008, GEE-MLT-2022 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The source asks for a projective associated graded (which makes base change of the filtration well defined), and for N to commute with the descent datum. Restored the hypothesis of Proposition (3.3.1) that A° is formally smooth over the deformation groupoid. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.3 and gap(s): Colmez–Fontaine proof and inertia-type projection."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/pcris-generic-smooth",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008, GEE-MLT-2022. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/pst-coefficient-change",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: For ramified K the characters are powers of the fundamental character of K."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/small-ramification-flat",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/resolution-local-structure",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: The statement put Proposition (2.4.6)(2) on the fibre over the closed point of Spec R^v. The comparison is through a third ring formally smooth over both, not a map from one ring to the other. Named the right fibre. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Pappas–Rapoport local models for Res_{K/ℚ_p} GL_d are not planned anywhere."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: Added the prerequisite that step 2 uses: H⁰ of a proper scheme over a complete local ring is the limit over the infinitesimal neighbourhoods of the closed fibre (theorem on formal functions). Named the result used (formal functions) and its supplier. Said which fibre 𝒢ℛ^{v,loc}_0 is. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-nonordinary-connected",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: Reworded reading-history narrative as a statement of scope. Gee removed the restriction only for residual representations with trivial image. The residual shapes are in terms of the fundamental characters of K, not the cyclotomic character."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-ordinary-locus",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-bt-components",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-FFLAT-2009, CN-2023. Corrected: The example was wrong: for K = ℚ_p(ζ_p) and trivial V_𝔽 there are no non-ordinary points. The \"exactly when\" holds only in the cases (i) and (ii)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
-    "verdict": "corrected",
-    "note": "Checked against SAVITT-2005. Corrected: The two shapes are not always irreducible: at i = 1 and i = p they degenerate to niveau one. Dropped the label \"irreducible\" (see the correction of the explicit list). Locator: the three theorems are on p. 42 of arXiv v3."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Flatness comes from the injectivity in (1), as in the source. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to DeformationAndDerivedPatchingAlgebra:R03.3."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Renamed the planet: authors spelled out instead of the abbreviation of a paper. KW II §3.2.2 requires F_v = ℚ_p at k(ρ̄_v) = p + 1 only for the crystalline lifts. Definition 3.4(2) asks only that an open subgroup of inertia act by χ_p^a. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-archimedean",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Endpoint crystalline classification and KW ordinarity input."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-weight-two-irreducible",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Added the range 3 ≤ k(ρ̄_p) ≤ p and named the type. Recorded why the range of k is needed, with the extraction issue that records the source's slip."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-ordinary",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The reference [13] of KW II is Conrad–Diamond–Taylor. For a sum of two distinct unramified characters there are two stable lines. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-semistable-weight-two-at-p",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Added the standing hypothesis that F_v/ℚ_p is unramified, which the dichotomy uses (for ramified F_v ⊇ ℚ_p(μ_p) and p odd, D_v can act by homotheties)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Replaced the generic duality step by the exact use (cup product with the très ramifiée class). The hypothesis misdescribed the source: only the identification crystalline = ordinary is restricted to ℚ_p. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Endpoint crystalline classification and KW ordinarity input."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-away-from-p",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Replaced the generic duality step by the exact use, and cited the node that proves the count. Added the missing prerequisite: (a) uses the cocycle count proved in R08.5/twisted-semistable-away-from-p. Recorded the particular case of KW II §3.3.2."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/export-completed-tensor-product",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/finite-height-lattices",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: The stated reason only shows that the lattice 𝔖e has no finite E-height. Same correction as in the test height_u_not_finite. The equivalence \"nonempty iff V_B has E-height ≤ h\" was false for B finite flat over ℤ_p: the unique lattice need not be projective over 𝔖_B. (and 5 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/height-lattice-moduli",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008. Corrected: Recorded the difference from the printed statement (free versus projective). Injectivity on E[ε]-points gives injectivity on tangent spaces. The acceptance check overreached (it is not a statement about every A, and the converse for h ≤ 1 is false for a given G_K-action). (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to AlgebraicModuliForArithmeticGeometry:R09.1."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring",
-    "verdict": "corrected",
-    "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: The group is the inertia subgroup of the abelianised Galois group, as in ACC+. Same notation."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme",
-    "verdict": "corrected",
-    "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: Removed the reference to the review process from the use record."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme-local-structure",
-    "verdict": "corrected",
-    "note": "Checked against GERAGHTY-2019, THORNE-2015. Corrected: Restated a quoted phrase of the source in our own words. Corrected the proof step: the graded characters of (ad V_x/Fil¹ad V_x)(ε) are χ_rχ_s^{−1}ε (r ≥ s), not χ_sχ_r^{−1}ε. Geraghty's functor of pairs carries no condition on the inertial characters. (and 3 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/geraghty-fixed-weight-ordinary-rings",
-    "verdict": "corrected",
-    "note": "Checked against GERAGHTY-2019. Corrected: Restated a quoted sentence of the source in our own words. The remark asserts the two cases; no proof is printed. The ring is zero unless the weight character is residually trivial."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/trivial-residual-flag-ring",
-    "verdict": "corrected",
-    "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023, BCGP-2025, THORNE-2015. Corrected: Removed the reference to the review process from the use record. Ē is an algebraic closure of Frac R (no object of C_𝒪 has algebraically closed fraction field). The 'maximal reduced' definition is Thorne's. (and 3 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/residually-split-nearly-ordinary-ring",
-    "verdict": "corrected",
-    "note": "Checked against SKINNER-WILES-1999. Corrected: The step contradicted the statement: a relation also occurs when ω = 1."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/det-ord-finite",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/ordinary-point-criteria",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/distinct-characters-flag",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
-    "verdict": "corrected",
-    "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: Removed the reference to the review process from the use record. The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Removed the reference to the review process from the use record. With CHT's normalisation the point is the dual Tate module, not T_lE (the sign of the jumps). The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/fontaine-laffaille-tangent-space-and-smoothness",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-condition-fixed-inertial-characters",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Restated the printed condition in our own words. CHT's indexing is zero-based, with gr^{n−1} the sub. Stated the index reversal between the two flags and the input (uniqueness of the flag) that makes the comparison an equality of rings. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-fixed-inertial-characters-smoothness",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/discrete-series-deformation-condition",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: In the node's notation the coefficient characteristic is l. Notation: the coefficient characteristic is l in this node. Restated a phrase of the source in the plan's own words."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/discrete-series-smoothness",
-    "verdict": "corrected",
-    "note": "Checked against CHT08. Corrected: Reworded the duality step to state the dependency without a reference to the review process. Recorded that the count differs from the print (a misprint of the source, now E8)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/connected-kisin-modules-with-coefficients",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: Recorded that the supplier nodes are stated for p ≠ 2 and are requested at p = 2. The rigidification is over A/I (an 𝔽-algebra with no map to 𝔽 in general, e.g. A = 𝔽[T]), not over 𝔽. Said which character the module realises."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/etale-multiplicative-parts",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-2ADIC-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/connected-model-moduli",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KISIN-2ADIC-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/flat-connected-deformation-ring",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/rank-two-type-v",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: Restated a quoted phrase of the source in our own words. The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/rank-two-connected-components",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: The connectedness of Spec R[1/p] needs ξ of determinant χ and formally smooth over D^{fl,c,χ}."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/ordinary-deformations-p2",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Proposition 2.4.4 says that the scheme 𝓛^{ord} is formally smooth over W(𝔽), not that the morphism Θ^{ord} is formally smooth. Said over what. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/kisin-local-rings-p2-comparison",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-2ADIC-2009. Corrected: The section is written for every p; said so, since R08.6/newton-thorne-local-quotients cites it for all p."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/coefficient-rings-lambda",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/lambda-presentation",
-    "verdict": "corrected",
-    "note": "Checked against BIP-2023, PQ-2026. Corrected: The restriction p ∤ d is not in the sources and is not needed. For κ of characteristic p one inverts t. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Natural-topology continuous cohomology beyond finite coefficients."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/completion-at-points",
-    "verdict": "corrected",
-    "note": "Checked against BIP-2023, CG-2018, BCGP-2021, BHS-2019. Corrected: BIP's proposition is for F/ℚ_p and for points of P₁. The regularity criterion is Remark 3.43."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/smooth-points-generic-fibre",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: Made the purity argument precise (with N ≠ 0 several weights occur)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/rank-one-ring",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/determinant-twisting",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/g-valued-framed-ring",
-    "verdict": "corrected",
-    "note": "Checked against PQ-2026, BCGP-2021. Corrected: The source proves representability by Grothendieck's criterion, without using smoothness of G. Marked the forward reference. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to ArithmeticStatistics:ST.5 and gap(s): Integral reductive group scheme and Lie API."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/g-valued-presentations",
-    "verdict": "corrected",
-    "note": "Checked against PQ-2026, BCGP-2021. Corrected: The unramifiedness of all lifts is under the same vanishing hypothesis. PQ §3.1 assumes G generalised reductive."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings",
-    "verdict": "corrected",
-    "note": "Checked against DING-2025. Corrected: Corrected the dimension of R_{D,g}: it is 1 + [K:ℚ_p]·n(n−1)/2 (Ding, Proposition 2.10(1)), not n(n−1)/2·[K:ℚ_p] + n. The framed ring is a power series ring over R_D."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/q-tame-group",
-    "verdict": "corrected",
-    "note": "Checked against LTXZZ-RIGID-2021. Corrected: The condition A ≡ 1 mod 𝔪 covered only ρ̄(t) = 1. Holds for every q ≥ 2."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/level-raising-local-problems",
-    "verdict": "corrected",
-    "note": "Checked against LTXZZ-RIGID-2021, LTXZZ-2022. Corrected: Added the prerequisite that supplies the lifting ring: the problems are subfunctors of the 𝒢_N-valued lifts of r̄ : Γ_{F⁺_v} → 𝒢_N(k) with fixed similitude (checked in LTXZZ, §3.5: the pair (r̄, χ) has Γ̃ = Γ_{F⁺_v}). Said which lifting ring the problems live in, and what the G7 supplier does and does not provide at an inert place. Added the hypothesis that μ is even: for μ odd the relation (3.21) in the proof of Proposition 3.5.2 forces the monodromy coordinate to vanish, and the nodal structure fails (E9). (and 3 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/unrestricted-ring-complete-intersection",
-    "verdict": "corrected",
-    "note": "Checked against LTXZZ-RIGID-2021, NT-2026, SHOTTON-2018. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Corrected the title of Shotton's paper. Added the primary source of (1), which the node cited only through Newton–Thorne. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/inertial-type-with-monodromy",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026, SHOTTON-2018. Corrected: With no determinant condition the exact-type points are the unramified lifts. As in the acceptance check."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/fixed-type-rings-rank-n",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2025, NT-2026 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/rank-two-unrestricted-rings-cg",
-    "verdict": "corrected",
-    "note": "Checked against CG-2018. Corrected: Merged the two overlapping opening sentences. Lemma 4.11 is in §4.1. Δ comes from the finite field with v, resp."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-tangent",
-    "verdict": "corrected",
-    "note": "Checked against CG-2018. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/steinberg-ring-domain",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026, THORNE-2015. Corrected: Removed reading-history narrative. Thorne's Proposition 3.17 has no condition on the power of p dividing q_v − 1. As in the statement. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/dotto-division-algebra-cycles",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026, DOTTO-2025, SHOTTON-2018. Corrected: The cycle groups are indexed by dimension (Shotton §2.3, Dotto): the rings R^□_r̄(τ, N) have dimension n² + 1 and their special fibres n², so the groups are Z^{n²+1}(R^□_r̄) and Z^{n²}(R^□_r̄/ϖ). Defined k′ and τ_s, which the statement used without definition. Locator: Shotton's Theorem 4.6 is on p. 17 of arXiv v2. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Jacquet–Langlands transfer of types for D^× (inputs to Dotto’s cycle comparison)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/regular-unipotent-minimally-ramified",
-    "verdict": "corrected",
-    "note": "Checked against CG-2020. Corrected: Stated the implicit hypothesis under which r̄(σ) makes sense."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-ramification-types",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-taylor-wiles-lifts",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2021 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-unipotent-local-models",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: There are five components for four strata: the rank-two part has two."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-ihara-avoidance-rings",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: Defined R̃_v^χ, which the statement used without definition."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/g-valued-generic-fibre-away-from-p",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022, BOOHER-2019, BELLOVIN-GEE-2019. Corrected: The fixed similitude κ^{1−2n} must lift the residual one (a hypothesis of FKP Proposition 9.1; Booher allows any lift of the residual similitude). Added the locator of (3). The general theorem is for GSp_m and GO_m only. (and 4 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/equal-characteristic-local-lifts",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022. Corrected: The existence of a local lift needs only ℓ ≠ p. Added the locator of the last sentence of the statement."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/reducible-lifts-prescribed-determinant",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against FKP-2022 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-rings-p2",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2025 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/pst-quotient-in-families",
-    "verdict": "corrected",
-    "note": "Checked against KISIN-PST-2008-AMS. Corrected: Removed the reference to the review process. The module is the contravariant one."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/g-valued-pst-rings",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022, BELLOVIN-GEE-2019. Corrected: Bellovin–Gee take G reductive, not necessarily connected. Stated the characterising property as in the source (on finite local E-algebras) and where reducedness comes from. Stated Theorem 3.3.3 as read (any v; reduced, local complete intersection). (and 3 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Integral reductive group scheme and Lie API."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/weil-deligne-type-ring",
-    "verdict": "corrected",
-    "note": "Checked against CDN-2023. Corrected: Added the determinant and marked which direction is not at the cited locator."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/bcdt-type-rings",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against BCDT-2001, KISIN-PST-2008-AMS at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.3/fixed-determinant-pst-rings",
-    "verdict": "corrected",
-    "note": "Checked against CN-2023. Corrected: Added the sign convention of the source for the weight of ψ."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/finite-cocycles-kummer",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. Added the hypothesis 2 ≤ k(ρ̄_v) ≤ p and said what Ξ is on inertia for k > 2. The Kummer description is for k = 2. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/kw-algebraisation-lemma",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.4/bt-ring-unique-generalisation",
-    "verdict": "corrected",
-    "note": "Checked against CN-2023. Corrected: Stated the convention: with HT(ε) = +1 a representation of determinant ε^{-1} has weights {0, −1}."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/weight-p-crystalline-ordinarity",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. KW II Lemma 3.5 has no restriction on p, and the case p = 2, k = 2 is needed by R08.6/export-ordinary. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.4 and gap(s): Endpoint crystalline classification and KW ordinarity input."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/weight-p-plus-one-ordinary-ring",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. The hypothesis misdescribed the source. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.4, Tau Ceti ClassFieldTheory and gap(s): Endpoint crystalline classification and KW ordinarity input."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/semistable-weight-two-resolution",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/dyadic-minimal-lifts",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009, KW1-2009. Corrected: γ takes values in a field of characteristic 2, so its order is odd. Uniqueness is for the lift of the restriction to inertia, not for ρ₀."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/twisted-semistable-away-from-p",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.5/kw1-endpoint-weight-rings",
-    "verdict": "corrected",
-    "note": "Checked against KW1-2009. Corrected: The ordinary crystalline weight-two lifts at p = 2 are the rings of R08.5/ordinary-deformations-p2 (Kisin §2.4), which the node did not cite. Added the prerequisite for the ordinary case at p = 2. The homothety case does not occur for F_v = ℚ₂ and k(ρ̄) = 4. (and 2 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/kw1-lift-types",
-    "verdict": "corrected",
-    "note": "Checked against KW1-2009. Corrected: Renamed the planet: a name of the object, not a source locator. Added the global hypotheses of the theorem. Type (1) assumes k(ρ̄) = 2 when p = 2; without it the node claimed a crystalline lift of weight 4 at p = 2. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/good-dihedral-type",
-    "verdict": "corrected",
-    "note": "Checked against KW1-2009. Corrected: KW I state that i = j + 1 does not occur. The list of pairs (i, j) is given by the source for p = 2 as well. Completed the Serre-weight statement of Theorem 5.1(4). (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/dyadic-weight-two-transition",
-    "verdict": "corrected",
-    "note": "Checked against KW2-2009, KW1-2009. Corrected: KW II does not identify the k = 2 ring with Kisin's flat connected ring, and for reducible ρ̄_v that comparison is wrong. Routed the k = 2 case to the nodes that state KW II's rings. Added the prerequisite that the corrected proof step cites for k = 2, ρ̄_v irreducible. (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/ordinary-pcris-lifts-reducible",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against FKP-2022 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/serre-weight-crystalline-lift",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022. Corrected: Restored the hypotheses of FKP Lemma 7.2 (p ≥ 3, ρ̄_p an extension of the trivial character by χ̄). Removed a reference to the review process. Added the case showing why the shape of ρ̄_p is needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/newton-thorne-local-quotients",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026. Corrected: Added the sign convention of the source. Notation of the archimedean ring. Named the paper. (and 5 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/torsion-semistable-condition",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026. Corrected: The extension had sub and quotient interchanged, and the character is trivial."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.6/category-deformation-conditions",
-    "verdict": "corrected",
-    "note": "Checked against BCDT-2001. Corrected: Repaired a garbled clause. The count is Ramakrishna's, for p odd."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-of-weight-lambda",
-    "verdict": "corrected",
-    "note": "Checked against NT-2026, BCGP-2025, CN-2023. Corrected: Restricted the comparison with R06.4's ordinary representations to parallel weights (that notion uses powers of ε), and said how semistability is obtained in general. Made the use of the supplier precise (parts (a)–(b), not the parallel-weight statement (c)). The inequality holds only for λ_{τ,n} ≥ 0. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/semistable-ordinary-quotient",
-    "verdict": "corrected",
-    "note": "Checked against CN-2023. Corrected: Named the convention in which the weights increase (the node L7/ordinary-of-weight-lambda uses the opposite sign)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-condition",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022. Corrected: FKP Appendix B takes G split connected reductive. The comparison with L7/ordinary-of-weight-lambda holds only after the change of weight λ_{τ,j} = −(λ′_{τ,n+1−j} + j − 1). Added the weight dictionary. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ReductiveGroups and gap(s): Ordinary weight and canonical torus comparison."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-quotient",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022. Corrected: Named the extra generators accurately: ψ runs over a basis of X*(T₀), not over central characters. The claim that the generators \"must be added\" was overstated: on the generic fibre of the Hodge-type quotient the condition is automatic. On the Hodge-type quotient the equations hold after inverting p. (and 2 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Ordinary weight and canonical torus comparison."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-components",
-    "verdict": "corrected",
-    "note": "Checked against FKP-2022, BCG-2025. Corrected: The vanishing holds because the module is trivial, not because λ is regular. Barnet-Lamb–Calegari–Gee use Lemma B.4 for GSp_n and GO_n, not GL_n."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/snowden-ordinary-ring-trivial-residual",
-    "verdict": "corrected",
-    "note": "Checked against CN-2023. Corrected: Added the sign convention of the source."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/ordinary-ring-with-frobenius-eigenvalue",
-    "verdict": "corrected",
-    "note": "Checked against CG-2018. Corrected: Defined χ (the node used it without definition; CG18 take χ = εω^{−1}) and said that n is the weight. R^univ is the local framed ring, not a global ring. The condition n ≡ 1 mod p − 1 is not in the source and is not needed with χ = εω^{−1} (it would exclude n = 2)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/eigenvalue-ring-normal-cm-type-three",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against CG-2018 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-siegel-ordinary-condition",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-siegel-ordinary-tangent",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-borel-ordinary-conditions",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: Stated the defining condition of 𝒟^P, which the node only called \"the analogous Siegel-parabolic problem\". Only the Borel problem is the distinguished case of the flag-incidence scheme. Replaced `BorelOrdinary.toParabolic`, whose direction was wrong (P ⊂ B, so the parabolic problem is a subproblem of the Borel one, and the ring map goes R^B ⊗ Λ_{v,1} ↠ R^P), by `ParabolicOrdinary.toBorel`."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-generic-fibres",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: Step (5): only \"H² = 0 implies smooth\" is used. Added the prerequisite that step (5) now cites. Named the argument that repairs the step. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Natural-topology continuous cohomology beyond finite coefficients."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gl2-borel-ordinary-ring",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2021. Corrected: Remark 7.3.8 does not introduce the variables. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-flag-incidence",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2025. Corrected: Added the hypotheses under which the Borel-ordinary ring is defined."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-regularity",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2025. Corrected: The weight argument given for case (b) was wrong."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-flat-ordinary-smoothness",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2025. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Restated a quoted phrase of the source in our own words. Rewrote the planned argument so that it is a proof: the previous form (right exactness on each graded piece kills the obstruction) is not valid as stated, since a Selmer-type H¹ that is right exact on graded pieces need not be so on the module and the Borel is not abelian. (and 4 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-weight-two-components",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2025. Corrected: Removed prerequisites that the proof no longer uses (the rank-four input is L7/gsp4-flat-ordinary-smoothness; R07.4 stays, for the finite flatness of lattices in crystalline representations of weights {0, 1}). BCGP25 Lemma 6.2.6 assumes surjectivity onto Spec Λ. Said where the R07.4 prerequisite is used. The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/connects-relation",
-    "verdict": "corrected",
-    "note": "Checked against BLGGT-2014. Corrected: The criterion was false for potentially crystalline characters."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/weight-zero-crystalline-connectedness",
-    "verdict": "corrected",
-    "note": "Checked against BCGNT-2025, GERAGHTY-2019. Corrected: Part (4) was false as stated: for V = 1 ⊕ ε^{−1}, V ⊗ V has weights {0, 1, 1, 2} and is ordinary of no weight. Stated the Hodge–Tate convention and the normalisation of the valuation in (3). Proof step for the corrected (4). (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/local-model-rho-nm0",
-    "verdict": "corrected",
-    "note": "Checked against BCGNT-2025. Corrected: Fixed ε₂ by its values: BCGNT do not state ε₂ε′₂ = ε^{-1}, and Barnet-Lamb–Calegari–Gee use the inverse character with the same description. Recorded the sign convention of the weights, which the node used without notice."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/kisin-modules-tame-descent",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Corrected the set-up: f′ = f·r with r the order of s_τ (the value 2f was missing), L′ is totally ramified of degree p^{f′} − 1 over K′ (not over K), and 𝔖_{L′,R} is a power series ring in u′, with v = (u′)^{e′}. Spelled out the type condition (on Δ′, with the dual). The untwisted change-of-basis formula could not be right (Proposition 3.2.1 forces a twist by s_j* v^{μ_j*+η_j*}). (and 8 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/semisimple-kisin-modules-and-shapes",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Restated (2)–(5) as in the source: Proposition 3.3.9 is a criterion, not a classification. The Kisin-variety argument proves (5) only. Added the hypotheses under which the Kisin module exists and is unique. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gl3-pcris-deformation-rings",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Added the non-vanishing criterion, which is part of the source's count and proof. Lemma 3.5.4 does not assume ρ̄ generic; added its count of components. Notation: the element is w̃*, not w*. (and 3 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gl3-explicit-ring-rows",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Added the hypothesis that ρ̄ is semisimple. Stated the convention τ = τ(s, μ), and that the primes are ideals of the quotient ring. Restated in the plan's own words. (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gl3-explicit-rings",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Added the hypothesis that ρ̄ is semisimple (the explicit presentations are those at the semisimple Kisin module) and the convention τ = τ(s, μ). The claim that R̄^τ_ρ̄ is formally smooth over the explicit ring is not in diagram (3.9) and is false for f ≥ 4 (dimension 9 + 3f < 6f). Added \"semisimple\". (and 8 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/gl3-component-labelling",
-    "verdict": "corrected",
-    "note": "Checked against LLHLM-2020. Corrected: Added \"semisimple\" and the convention for (s, μ). Notation: the index set is the i-th component of w̃*, which makes the index reversal consistent. Added \"semisimple\". (and 4 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Weak minimal patching functors for GL₃ (global input of LLHLM Theorems 3.5.2, 3.5.3 and Proposition 3.6.1) are not planned anywhere."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/partition-monodromy-rings",
-    "verdict": "corrected",
-    "note": "Checked against CT-2017. Corrected: Pol_n((1, …, 1), q) is everything, so the ring is the maximal reduced flat quotient of R^1_v. As in the statement."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/partition-ring-smooth-points",
-    "verdict": "corrected",
-    "note": "Checked against CT-2017. Corrected: The step did not follow as written (a closed subscheme through x need not contain the component through x)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/away-from-p-rank-n-interface",
-    "verdict": "corrected",
-    "note": "Checked against CT-2017. Corrected: Stated the consumer without the reference to the review process."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L8/doubling-equals-unramified",
-    "verdict": "verified",
-    "note": "Statement, hypotheses, proof outline and locators checked against CG-2018 at the cited places; no change needed."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-block-condition",
-    "verdict": "corrected",
-    "note": "Checked against BCGP-2025. Corrected: The block condition is a twist of the rank-two Taylor–Wiles ring, not equal to it. The comparison as stated was wrong: in the block condition det r on inertia is ψ_v, so an unramified determinant gives only unramified lifts. Corrected the rank-two comparison (twist by a square root of ψ_v). (and 1 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-minimal-conditions",
-    "verdict": "corrected",
-    "note": "Checked against CG-2020. Corrected: Definition 4.6 has no clause for type H. Gave the right reason for the order being prime to p. The relation as written is for arithmetic Frobenius."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:R08.2/rigid-residual-conditions",
-    "verdict": "corrected",
-    "note": "Checked against LTXZZ-2022. Corrected: Removed a remark about an earlier paraphrase. Added the projection for clause (3). Added the projection for clause (4). (and 2 further change(s), listed in the report)."
-   },
-   {
-    "nodeId": "LocalGaloisDeformationRings:L7/torsion-crystalline-representations",
-    "verdict": "corrected",
-    "note": "Checked against LTXZZ-2022. Corrected: Marked the Fontaine–Laffaille description as not taken from the cited definition."
-   }
-  ]
+  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+  "date": "2026-10-11",
+  "notes": "Codex session codex-Mt7g2N, independent of FIX-RT-AREA-langlands-2~4. Follows independent-review-REV-LocalGaloisDeformationRings~2 (2026-10-08, accepted); its full review is retained in reviewHistory. Checked the finite discrete local-duality/Euler-characteristic boundary, arbitrary-rank family quotient, early BLZ input and arithmetic patching ownership. Added a current-upstream note for finite-module duality/finiteness; Euler characteristic and coefficient-field extensions are not certified by those results. This is a bounded review of the forty confirmed findings and round-four fixes, not a new whole-packet source/proof-closure certification; existing coverage, open requests and gaps are retained. All baseline declarations were checked in the pinned Lean sources. The packet checker reports zero errors and zero warnings; its suggested Lean file was freshly elaborated serially with lean-check at the pins, with only expected proof-placeholder warnings. See REV-FIX-RT-AREA-langlands-2~4.md for source receipts, dependency checks, exact verdicts and limits."
  },
  "upstreamNotes": [
   {
@@ -12477,6 +11690,805 @@
     "tauceti:TauCetiRoadmap/ReductiveGroups"
    ],
    "note": "Galois deformation theory with G-valued representations (Fakhruddin–Khare–Patrikis, Appendix B; Bellovin–Gee; Paškūnas–Quast) needs, for a split reductive group G over a complete DVR 𝒪, the scheme of Borel subgroups G/B₀ over 𝒪 and the Zariski-local G(A)-conjugacy of Borels of G_A for local 𝒪-algebras A (SGA3 Exp. XXII 5.8.3, Exp. XXVI 3.3). That is relative theory over a base, which Layer 8 lists as long horizon. A split-case version over ℤ-algebras, alongside Layer 9's pinned groups, would serve these consumers."
+  },
+  {
+   "roadmap": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+   "detail": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, ClassFieldTheory/Local/Duality/FiniteModule.lean, lines 183–269, supplies TauCeti.ClassFieldTheory.dualityMap0_kummerCoeff_bijective, dualityMap1_kummerCoeff_bijective and dualityMap2_kummerCoeff_bijective for finite discrete continuous Galois modules killed by n invertible in the nonarchimedean local field. ClassFieldTheory/FiniteCohomology/DegreeTwo.lean, lines 94–110, also supplies finite_H for a finite smooth module and degrees at most two. Import these existing general results through the ClassFieldTheory owner after the baseline advances. They do not supply the local Euler characteristic, the coefficient-field extension or the deformation-theoretic adapters requested here. Sources: https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/NumberTheory/ClassFieldTheory/Local/Duality/FiniteModule.lean and https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/NumberTheory/ClassFieldTheory/FiniteCohomology/DegreeTwo.lean"
+  }
+ ],
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-LocalGaloisDeformationRings~2",
+   "date": "2026-10-08",
+   "notes": "Independent target-level review of revision round 2: all 157 nodes read against their sources (public versions, hashes as recorded; published texts of Geraghty, Savitt, Kisin 2008 and the LTXZZ companion were not available and the versions read are named). 122 nodes corrected in place and 35 verified; no node added or removed. All 9 baseline declarations confirmed at the pinned commits. Main corrections: the fibre in Kisin's local-structure proposition (reduction modulo the uniformiser, not the fibre over the closed point); the GL₃ comparison diagram (the formally smooth maps start from the ring with framing and gauge basis) and the global input of LLHLM Theorem 3.5.3, now a recorded gap; the set-up of Kisin modules with tame descent; the parity hypothesis in the level-raising local model; the duality and Euler-characteristic step, kept only in nodes whose argument uses it; sign conventions for Hodge–Tate weights; dropped hypotheses in the Khare–Wintenberger, FKP, Booher and Calegari–Geraghty nodes. Source issues: E1–E3, E5–E7 confirmed, E4 rejected (a proof by reference, written out in the node), and E7–E10 added. The five red-team findings and the demands of the previous review were checked. The suggested Lean file elaborates at the pinned Mathlib with proof placeholders as its only warnings; the reader document was regenerated from the corrected packet. The field-by-field record is in REV-LocalGaloisDeformationRings~2.md. Implementation remains unchecked.",
+   "checked": [
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022, KISIN-LECTURES. Corrected: Typo."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022, KISIN-LECTURES. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/local-fixed-determinant",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/local-forget-framing",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-LECTURES, GEE-MLT-2022 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/archimedean-rings-p-odd",
+     "verdict": "corrected",
+     "note": "Checked against TUNG-2021. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The formal smoothness for odd p is stated in KW II Proposition 3.3, not in Tung's proposition."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/archimedean-odd-ring-p2",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against TUNG-2021 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/local-residue-field-change",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022, BLGGT-2014. Corrected: The cited place in Gee only fixes the setting."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/tame-splitting",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: The order condition is on inertia."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/unramified-lifting-ring",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022, CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/minimally-ramified-condition",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: T_q is ℤ_p ⋊ Ẑ."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/minimally-ramified-ring",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+     "verdict": "corrected",
+     "note": "Checked against CHT08, GEE-MLT-2022, TUNG-2021, BLGGT-2014. Corrected: Reworded the duality step to state the dependency without a reference to the review process. Tung's lemma is for GL₂ with fixed determinant. Cited the general-n statement directly."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/inertial-type-quotient",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022, SHOTTON-2018. Corrected: Shotton's Proposition 3.6 is for rings without fixed determinant."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring",
+     "verdict": "corrected",
+     "note": "Checked against GEE-MLT-2022. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/steinberg-condition",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against TAYLOR-II-2008, GEE-MLT-2022 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components",
+     "verdict": "corrected",
+     "note": "Checked against TAYLOR-II-2008, GEE-MLT-2022, NT-2026, THORNE-2015. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Part (4) without p > n is Thorne §3.3.4 / Proposition 3.17."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: Gave the map (2.4.3) whose Galois compatibility defines the quotient."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/hodge-type-components",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: Lemma (2.6.1) is about the steps of the filtration, not the graded pieces. Follows the source, which compares the steps of the filtration. The description is for K = ℚ_p."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008, GEE-MLT-2022 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The source asks for a projective associated graded (which makes base change of the filtration well defined), and for N to commute with the descent datum. Restored the hypothesis of Proposition (3.3.1) that A° is formally smooth over the deformation groupoid. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.3 and gap(s): Colmez–Fontaine proof and inertia-type projection."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/pcris-generic-smooth",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008, GEE-MLT-2022. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/pst-coefficient-change",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-PST-2008 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: For ramified K the characters are powers of the fundamental character of K."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/small-ramification-flat",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/resolution-local-structure",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: The statement put Proposition (2.4.6)(2) on the fibre over the closed point of Spec R^v. The comparison is through a third ring formally smooth over both, not a map from one ring to the other. Named the right fibre. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Pappas–Rapoport local models for Res_{K/ℚ_p} GL_d are not planned anywhere."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: Added the prerequisite that step 2 uses: H⁰ of a proper scheme over a complete local ring is the limit over the infinitesimal neighbourhoods of the closed fibre (theorem on formal functions). Named the result used (formal functions) and its supplier. Said which fibre 𝒢ℛ^{v,loc}_0 is. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-FFLAT-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-nonordinary-connected",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: Reworded reading-history narrative as a statement of scope. Gee removed the restriction only for residual representations with trivial image. The residual shapes are in terms of the fundamental characters of K, not the cyclotomic character."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-ordinary-locus",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/rank-two-bt-components",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-FFLAT-2009, CN-2023. Corrected: The example was wrong: for K = ℚ_p(ζ_p) and trivial V_𝔽 there are no non-ordinary points. The \"exactly when\" holds only in the cases (i) and (ii)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+     "verdict": "corrected",
+     "note": "Checked against SAVITT-2005. Corrected: The two shapes are not always irreducible: at i = 1 and i = p they degenerate to niveau one. Dropped the label \"irreducible\" (see the correction of the explicit list). Locator: the three theorems are on p. 42 of arXiv v3."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Flatness comes from the injectivity in (1), as in the source. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to DeformationAndDerivedPatchingAlgebra:R03.3."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Renamed the planet: authors spelled out instead of the abbreviation of a paper. KW II §3.2.2 requires F_v = ℚ_p at k(ρ̄_v) = p + 1 only for the crystalline lifts. Definition 3.4(2) asks only that an open subgroup of inertia act by χ_p^a. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-archimedean",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Endpoint crystalline classification and KW ordinarity input."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-weight-two-irreducible",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Added the range 3 ≤ k(ρ̄_p) ≤ p and named the type. Recorded why the range of k is needed, with the extraction issue that records the source's slip."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-ordinary",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). The reference [13] of KW II is Conrad–Diamond–Taylor. For a sum of two distinct unramified characters there are two stable lines. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-semistable-weight-two-at-p",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Added the standing hypothesis that F_v/ℚ_p is unramified, which the dichotomy uses (for ramified F_v ⊇ ℚ_p(μ_p) and p odd, D_v can act by homotheties)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Replaced the generic duality step by the exact use (cup product with the très ramifiée class). The hypothesis misdescribed the source: only the identification crystalline = ordinary is restricted to ℚ_p. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Endpoint crystalline classification and KW ordinarity input."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-away-from-p",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Replaced the generic duality step by the exact use, and cited the node that proves the count. Added the missing prerequisite: (a) uses the cocycle count proved in R08.5/twisted-semistable-away-from-p. Recorded the particular case of KW II §3.3.2."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/export-completed-tensor-product",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: The stated reason only shows that the lattice 𝔖e has no finite E-height. Same correction as in the test height_u_not_finite. The equivalence \"nonempty iff V_B has E-height ≤ h\" was false for B finite flat over ℤ_p: the unique lattice need not be projective over 𝔖_B. (and 5 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/height-lattice-moduli",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008. Corrected: Recorded the difference from the printed statement (free versus projective). Injectivity on E[ε]-points gives injectivity on tangent spaces. The acceptance check overreached (it is not a statement about every A, and the converse for h ≤ 1 is false for a given G_K-action). (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to AlgebraicModuliForArithmeticGeometry:R09.1."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring",
+     "verdict": "corrected",
+     "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: The group is the inertia subgroup of the abelianised Galois group, as in ACC+. Same notation."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme",
+     "verdict": "corrected",
+     "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: Removed the reference to the review process from the use record."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme-local-structure",
+     "verdict": "corrected",
+     "note": "Checked against GERAGHTY-2019, THORNE-2015. Corrected: Restated a quoted phrase of the source in our own words. Corrected the proof step: the graded characters of (ad V_x/Fil¹ad V_x)(ε) are χ_rχ_s^{−1}ε (r ≥ s), not χ_sχ_r^{−1}ε. Geraghty's functor of pairs carries no condition on the inertial characters. (and 3 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/geraghty-fixed-weight-ordinary-rings",
+     "verdict": "corrected",
+     "note": "Checked against GERAGHTY-2019. Corrected: Restated a quoted sentence of the source in our own words. The remark asserts the two cases; no proof is printed. The ring is zero unless the weight character is residually trivial."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/trivial-residual-flag-ring",
+     "verdict": "corrected",
+     "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023, BCGP-2025, THORNE-2015. Corrected: Removed the reference to the review process from the use record. Ē is an algebraic closure of Frac R (no object of C_𝒪 has algebraically closed fraction field). The 'maximal reduced' definition is Thorne's. (and 3 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/residually-split-nearly-ordinary-ring",
+     "verdict": "corrected",
+     "note": "Checked against SKINNER-WILES-1999. Corrected: The step contradicted the statement: a relation also occurs when ω = 1."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/det-ord-finite",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/ordinary-point-criteria",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/distinct-characters-flag",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
+     "verdict": "corrected",
+     "note": "Checked against ACC-POTENTIAL-AUTOMORPHY-CM-2023. Corrected: Removed the reference to the review process from the use record. The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Removed the reference to the review process from the use record. With CHT's normalisation the point is the dual Tate module, not T_lE (the sign of the jumps). The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/fontaine-laffaille-tangent-space-and-smoothness",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-condition-fixed-inertial-characters",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Restated the printed condition in our own words. CHT's indexing is zero-based, with gr^{n−1} the sub. Stated the index reversal between the two flags and the input (uniqueness of the flag) that makes the comparison an equality of rings. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-fixed-inertial-characters-smoothness",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Reworded the duality step to state the dependency without a reference to the review process."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/discrete-series-deformation-condition",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: In the node's notation the coefficient characteristic is l. Notation: the coefficient characteristic is l in this node. Restated a phrase of the source in the plan's own words."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/discrete-series-smoothness",
+     "verdict": "corrected",
+     "note": "Checked against CHT08. Corrected: Reworded the duality step to state the dependency without a reference to the review process. Recorded that the count differs from the print (a misprint of the source, now E8)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/connected-kisin-modules-with-coefficients",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: Recorded that the supplier nodes are stated for p ≠ 2 and are requested at p = 2. The rigidification is over A/I (an 𝔽-algebra with no map to 𝔽 in general, e.g. A = 𝔽[T]), not over 𝔽. Said which character the module realises."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/etale-multiplicative-parts",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-2ADIC-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/connected-model-moduli",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KISIN-2ADIC-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/flat-connected-deformation-ring",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/rank-two-type-v",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: Restated a quoted phrase of the source in our own words. The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/rank-two-connected-components",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: The connectedness of Spec R[1/p] needs ξ of determinant χ and formally smooth over D^{fl,c,χ}."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/ordinary-deformations-p2",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Proposition 2.4.4 says that the scheme 𝓛^{ord} is formally smooth over W(𝔽), not that the morphism Θ^{ord} is formally smooth. Said over what. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/kisin-local-rings-p2-comparison",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-2ADIC-2009. Corrected: The section is written for every p; said so, since R08.6/newton-thorne-local-quotients cites it for all p."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/coefficient-rings-lambda",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/lambda-presentation",
+     "verdict": "corrected",
+     "note": "Checked against BIP-2023, PQ-2026. Corrected: The restriction p ∤ d is not in the sources and is not needed. For κ of characteristic p one inverts t. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Natural-topology continuous cohomology beyond finite coefficients."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/completion-at-points",
+     "verdict": "corrected",
+     "note": "Checked against BIP-2023, CG-2018, BCGP-2021, BHS-2019. Corrected: BIP's proposition is for F/ℚ_p and for points of P₁. The regularity criterion is Remark 3.43."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/smooth-points-generic-fibre",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: Made the purity argument precise (with N ≠ 0 several weights occur)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/rank-one-ring",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/determinant-twisting",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BIP-2023 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/g-valued-framed-ring",
+     "verdict": "corrected",
+     "note": "Checked against PQ-2026, BCGP-2021. Corrected: The source proves representability by Grothendieck's criterion, without using smoothness of G. Marked the forward reference. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to ArithmeticStatistics:ST.5 and gap(s): Integral reductive group scheme and Lie API."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/g-valued-presentations",
+     "verdict": "corrected",
+     "note": "Checked against PQ-2026, BCGP-2021. Corrected: The unramifiedness of all lifts is under the same vanishing hypothesis. PQ §3.1 assumes G generalised reductive."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings",
+     "verdict": "corrected",
+     "note": "Checked against DING-2025. Corrected: Corrected the dimension of R_{D,g}: it is 1 + [K:ℚ_p]·n(n−1)/2 (Ding, Proposition 2.10(1)), not n(n−1)/2·[K:ℚ_p] + n. The framed ring is a power series ring over R_D."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/q-tame-group",
+     "verdict": "corrected",
+     "note": "Checked against LTXZZ-RIGID-2021. Corrected: The condition A ≡ 1 mod 𝔪 covered only ρ̄(t) = 1. Holds for every q ≥ 2."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/level-raising-local-problems",
+     "verdict": "corrected",
+     "note": "Checked against LTXZZ-RIGID-2021, LTXZZ-2022. Corrected: Added the prerequisite that supplies the lifting ring: the problems are subfunctors of the 𝒢_N-valued lifts of r̄ : Γ_{F⁺_v} → 𝒢_N(k) with fixed similitude (checked in LTXZZ, §3.5: the pair (r̄, χ) has Γ̃ = Γ_{F⁺_v}). Said which lifting ring the problems live in, and what the G7 supplier does and does not provide at an inert place. Added the hypothesis that μ is even: for μ odd the relation (3.21) in the proof of Proposition 3.5.2 forces the monodromy coordinate to vanish, and the nodal structure fails (E9). (and 3 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/unrestricted-ring-complete-intersection",
+     "verdict": "corrected",
+     "note": "Checked against LTXZZ-RIGID-2021, NT-2026, SHOTTON-2018. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Corrected the title of Shotton's paper. Added the primary source of (1), which the node cited only through Newton–Thorne. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/inertial-type-with-monodromy",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026, SHOTTON-2018. Corrected: With no determinant condition the exact-type points are the unramified lifts. As in the acceptance check."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/fixed-type-rings-rank-n",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2025, NT-2026 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/rank-two-unrestricted-rings-cg",
+     "verdict": "corrected",
+     "note": "Checked against CG-2018. Corrected: Merged the two overlapping opening sentences. Lemma 4.11 is in §4.1. Δ comes from the finite field with v, resp."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-tangent",
+     "verdict": "corrected",
+     "note": "Checked against CG-2018. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/steinberg-ring-domain",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026, THORNE-2015. Corrected: Removed reading-history narrative. Thorne's Proposition 3.17 has no condition on the power of p dividing q_v − 1. As in the statement. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/dotto-division-algebra-cycles",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026, DOTTO-2025, SHOTTON-2018. Corrected: The cycle groups are indexed by dimension (Shotton §2.3, Dotto): the rings R^□_r̄(τ, N) have dimension n² + 1 and their special fibres n², so the groups are Z^{n²+1}(R^□_r̄) and Z^{n²}(R^□_r̄/ϖ). Defined k′ and τ_s, which the statement used without definition. Locator: Shotton's Theorem 4.6 is on p. 17 of arXiv v2. (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Jacquet–Langlands transfer of types for D^× (inputs to Dotto’s cycle comparison)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/regular-unipotent-minimally-ramified",
+     "verdict": "corrected",
+     "note": "Checked against CG-2020. Corrected: Stated the implicit hypothesis under which r̄(σ) makes sense."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-ramification-types",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-taylor-wiles-lifts",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2021 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-unipotent-local-models",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: There are five components for four strata: the rank-two part has two."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-ihara-avoidance-rings",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: Defined R̃_v^χ, which the statement used without definition."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/g-valued-generic-fibre-away-from-p",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022, BOOHER-2019, BELLOVIN-GEE-2019. Corrected: The fixed similitude κ^{1−2n} must lift the residual one (a hypothesis of FKP Proposition 9.1; Booher allows any lift of the residual similitude). Added the locator of (3). The general theorem is for GSp_m and GO_m only. (and 4 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/equal-characteristic-local-lifts",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022. Corrected: The existence of a local lift needs only ℓ ≠ p. Added the locator of the last sentence of the statement."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/reducible-lifts-prescribed-determinant",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against FKP-2022 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-rings-p2",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BCGP-2025 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/pst-quotient-in-families",
+     "verdict": "corrected",
+     "note": "Checked against KISIN-PST-2008-AMS. Corrected: Removed the reference to the review process. The module is the contravariant one."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/g-valued-pst-rings",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022, BELLOVIN-GEE-2019. Corrected: Bellovin–Gee take G reductive, not necessarily connected. Stated the characterising property as in the source (on finite local E-algebras) and where reducedness comes from. Stated Theorem 3.3.3 as read (any v; reduced, local complete intersection). (and 3 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Integral reductive group scheme and Lie API."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/weil-deligne-type-ring",
+     "verdict": "corrected",
+     "note": "Checked against CDN-2023. Corrected: Added the determinant and marked which direction is not at the cited locator."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/bcdt-type-rings",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against BCDT-2001, KISIN-PST-2008-AMS at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.3/fixed-determinant-pst-rings",
+     "verdict": "corrected",
+     "note": "Checked against CN-2023. Corrected: Added the sign convention of the source for the weight of ψ."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/finite-cocycles-kummer",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. Added the hypothesis 2 ≤ k(ρ̄_v) ≤ p and said what Ξ is on inertia for k > 2. The Kummer description is for k = 2. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/kw-algebraisation-lemma",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.4/bt-ring-unique-generalisation",
+     "verdict": "corrected",
+     "note": "Checked against CN-2023. Corrected: Stated the convention: with HT(ε) = +1 a representation of determinant ε^{-1} has weights {0, −1}."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/weight-p-crystalline-ordinarity",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. KW II Lemma 3.5 has no restriction on p, and the case p = 2, k = 2 is needed by R08.6/export-ordinary. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.4 and gap(s): Endpoint crystalline classification and KW ordinarity input."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/weight-p-plus-one-ordinary-ring",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009. Corrected: Removed the reference to the review process. The hypothesis misdescribed the source. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to PadicHodgeTheory:R06.4, Tau Ceti ClassFieldTheory and gap(s): Endpoint crystalline classification and KW ordinarity input."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/semistable-weight-two-resolution",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/dyadic-minimal-lifts",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009, KW1-2009. Corrected: γ takes values in a field of characteristic 2, so its order is odd. Uniqueness is for the lift of the restriction to inertia, not for ρ₀."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/twisted-semistable-away-from-p",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against KW2-2009 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.5/kw1-endpoint-weight-rings",
+     "verdict": "corrected",
+     "note": "Checked against KW1-2009. Corrected: The ordinary crystalline weight-two lifts at p = 2 are the rings of R08.5/ordinary-deformations-p2 (Kisin §2.4), which the node did not cite. Added the prerequisite for the ordinary case at p = 2. The homothety case does not occur for F_v = ℚ₂ and k(ρ̄) = 4. (and 2 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/kw1-lift-types",
+     "verdict": "corrected",
+     "note": "Checked against KW1-2009. Corrected: Renamed the planet: a name of the object, not a source locator. Added the global hypotheses of the theorem. Type (1) assumes k(ρ̄) = 2 when p = 2; without it the node claimed a crystalline lift of weight 4 at p = 2. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/good-dihedral-type",
+     "verdict": "corrected",
+     "note": "Checked against KW1-2009. Corrected: KW I state that i = j + 1 does not occur. The list of pairs (i, j) is given by the source for p = 2 as well. Completed the Serre-weight statement of Theorem 5.1(4). (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/dyadic-weight-two-transition",
+     "verdict": "corrected",
+     "note": "Checked against KW2-2009, KW1-2009. Corrected: KW II does not identify the k = 2 ring with Kisin's flat connected ring, and for reducible ρ̄_v that comparison is wrong. Routed the k = 2 case to the nodes that state KW II's rings. Added the prerequisite that the corrected proof step cites for k = 2, ρ̄_v irreducible. (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/ordinary-pcris-lifts-reducible",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against FKP-2022 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/serre-weight-crystalline-lift",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022. Corrected: Restored the hypotheses of FKP Lemma 7.2 (p ≥ 3, ρ̄_p an extension of the trivial character by χ̄). Removed a reference to the review process. Added the case showing why the shape of ρ̄_p is needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/newton-thorne-local-quotients",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026. Corrected: Added the sign convention of the source. Notation of the archimedean ring. Named the paper. (and 5 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/torsion-semistable-condition",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026. Corrected: The extension had sub and quotient interchanged, and the character is trivial."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.6/category-deformation-conditions",
+     "verdict": "corrected",
+     "note": "Checked against BCDT-2001. Corrected: Repaired a garbled clause. The count is Ramakrishna's, for p odd."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-of-weight-lambda",
+     "verdict": "corrected",
+     "note": "Checked against NT-2026, BCGP-2025, CN-2023. Corrected: Restricted the comparison with R06.4's ordinary representations to parallel weights (that notion uses powers of ε), and said how semistability is obtained in general. Made the use of the supplier precise (parts (a)–(b), not the parallel-weight statement (c)). The inequality holds only for λ_{τ,n} ≥ 0. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/semistable-ordinary-quotient",
+     "verdict": "corrected",
+     "note": "Checked against CN-2023. Corrected: Named the convention in which the weights increase (the node L7/ordinary-of-weight-lambda uses the opposite sign)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-condition",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022. Corrected: FKP Appendix B takes G split connected reductive. The comparison with L7/ordinary-of-weight-lambda holds only after the change of weight λ_{τ,j} = −(λ′_{τ,n+1−j} + j − 1). Added the weight dictionary. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ReductiveGroups and gap(s): Ordinary weight and canonical torus comparison."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-quotient",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022. Corrected: Named the extra generators accurately: ψ runs over a basis of X*(T₀), not over central characters. The claim that the generators \"must be added\" was overstated: on the generic fibre of the Hodge-type quotient the condition is automatic. On the Hodge-type quotient the equations hold after inverting p. (and 2 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Ordinary weight and canonical torus comparison."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/g-valued-ordinary-components",
+     "verdict": "corrected",
+     "note": "Checked against FKP-2022, BCG-2025. Corrected: The vanishing holds because the module is trivial, not because λ is regular. Barnet-Lamb–Calegari–Gee use Lemma B.4 for GSp_n and GO_n, not GL_n."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/snowden-ordinary-ring-trivial-residual",
+     "verdict": "corrected",
+     "note": "Checked against CN-2023. Corrected: Added the sign convention of the source."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/ordinary-ring-with-frobenius-eigenvalue",
+     "verdict": "corrected",
+     "note": "Checked against CG-2018. Corrected: Defined χ (the node used it without definition; CG18 take χ = εω^{−1}) and said that n is the weight. R^univ is the local framed ring, not a global ring. The condition n ≡ 1 mod p − 1 is not in the source and is not needed with χ = εω^{−1} (it would exclude n = 2)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/eigenvalue-ring-normal-cm-type-three",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against CG-2018 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-siegel-ordinary-condition",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-siegel-ordinary-tangent",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against CG-2020 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-borel-ordinary-conditions",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: Stated the defining condition of 𝒟^P, which the node only called \"the analogous Siegel-parabolic problem\". Only the Borel problem is the distinguished case of the flag-incidence scheme. Replaced `BorelOrdinary.toParabolic`, whose direction was wrong (P ⊂ B, so the parabolic problem is a subproblem of the Borel one, and the ring map goes R^B ⊗ Λ_{v,1} ↠ R^P), by `ParabolicOrdinary.toBorel`."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-generic-fibres",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: Step (5): only \"H² = 0 implies smooth\" is used. Added the prerequisite that step (5) now cites. Named the argument that repairs the step. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory and gap(s): Natural-topology continuous cohomology beyond finite coefficients."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gl2-borel-ordinary-ring",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2021. Corrected: Remark 7.3.8 does not introduce the variables. The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to Tau Ceti ClassFieldTheory."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-flag-incidence",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2025. Corrected: Added the hypotheses under which the Borel-ordinary ring is defined."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-regularity",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2025. Corrected: The weight argument given for case (b) was wrong."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-flat-ordinary-smoothness",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2025. Corrected: Removed the appended duality step and the ClassFieldTheory Layer 5 prerequisite: this node's argument uses neither local Tate duality nor the Euler characteristic formula (where a prerequisite uses them, that prerequisite carries the Layer 5 dependency). Restated a quoted phrase of the source in our own words. Rewrote the planned argument so that it is a proof: the previous form (right exactness on each graded piece kills the obstruction) is not valid as stated, since a Selmer-type H¹ that is right exact on graded pieces need not be so on the module and the Borel is not abelian. (and 4 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gsp4-ordinary-weight-two-components",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2025. Corrected: Removed prerequisites that the proof no longer uses (the rank-four input is L7/gsp4-flat-ordinary-smoothness; R07.4 stays, for the finite flatness of lattices in crystalline representations of weights {0, 1}). BCGP25 Lemma 6.2.6 assumes surjectivity onto Spec Λ. Said where the R07.4 prerequisite is used. The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/connects-relation",
+     "verdict": "corrected",
+     "note": "Checked against BLGGT-2014. Corrected: The criterion was false for potentially crystalline characters."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/weight-zero-crystalline-connectedness",
+     "verdict": "corrected",
+     "note": "Checked against BCGNT-2025, GERAGHTY-2019. Corrected: Part (4) was false as stated: for V = 1 ⊕ ε^{−1}, V ⊗ V has weights {0, 1, 1, 2} and is ordinary of no weight. Stated the Hodge–Tate convention and the normalisation of the valuation in (3). Proof step for the corrected (4). (and 1 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/local-model-rho-nm0",
+     "verdict": "corrected",
+     "note": "Checked against BCGNT-2025. Corrected: Fixed ε₂ by its values: BCGNT do not state ε₂ε′₂ = ε^{-1}, and Barnet-Lamb–Calegari–Gee use the inverse character with the same description. Recorded the sign convention of the weights, which the node used without notice."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/kisin-modules-tame-descent",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Corrected the set-up: f′ = f·r with r the order of s_τ (the value 2f was missing), L′ is totally ramified of degree p^{f′} − 1 over K′ (not over K), and 𝔖_{L′,R} is a power series ring in u′, with v = (u′)^{e′}. Spelled out the type condition (on Δ′, with the dual). The untwisted change-of-basis formula could not be right (Proposition 3.2.1 forces a twist by s_j* v^{μ_j*+η_j*}). (and 8 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/semisimple-kisin-modules-and-shapes",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Restated (2)–(5) as in the source: Proposition 3.3.9 is a criterion, not a classification. The Kisin-variety argument proves (5) only. Added the hypotheses under which the Kisin module exists and is unique. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gl3-pcris-deformation-rings",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Added the non-vanishing criterion, which is part of the source's count and proof. Lemma 3.5.4 does not assume ρ̄ generic; added its count of components. Notation: the element is w̃*, not w*. (and 3 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gl3-explicit-ring-rows",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Added the hypothesis that ρ̄ is semisimple. Stated the convention τ = τ(s, μ), and that the primes are ideals of the quotient ring. Restated in the plan's own words. (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gl3-explicit-rings",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Added the hypothesis that ρ̄ is semisimple (the explicit presentations are those at the semisimple Kisin module) and the convention τ = τ(s, μ). The claim that R̄^τ_ρ̄ is formally smooth over the explicit ring is not in diagram (3.9) and is false for f ≥ 4 (dimension 9 + 3f < 6f). Added \"semisimple\". (and 8 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as request(s) to FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/gl3-component-labelling",
+     "verdict": "corrected",
+     "note": "Checked against LLHLM-2020. Corrected: Added \"semisimple\" and the convention for (s, μ). Notation: the index set is the i-th component of w̃*, which makes the index reversal consistent. Added \"semisimple\". (and 4 further change(s), listed in the report). The previous review could not verify this node; the statement is now taken from the source at the cited places, and its missing input is recorded as gap(s): Weak minimal patching functors for GL₃ (global input of LLHLM Theorems 3.5.2, 3.5.3 and Proposition 3.6.1) are not planned anywhere."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/partition-monodromy-rings",
+     "verdict": "corrected",
+     "note": "Checked against CT-2017. Corrected: Pol_n((1, …, 1), q) is everything, so the ring is the maximal reduced flat quotient of R^1_v. As in the statement."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/partition-ring-smooth-points",
+     "verdict": "corrected",
+     "note": "Checked against CT-2017. Corrected: The step did not follow as written (a closed subscheme through x need not contain the component through x)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/away-from-p-rank-n-interface",
+     "verdict": "corrected",
+     "note": "Checked against CT-2017. Corrected: Stated the consumer without the reference to the review process."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L8/doubling-equals-unramified",
+     "verdict": "verified",
+     "note": "Statement, hypotheses, proof outline and locators checked against CG-2018 at the cited places; no change needed."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/taylor-wiles-block-condition",
+     "verdict": "corrected",
+     "note": "Checked against BCGP-2025. Corrected: The block condition is a twist of the rank-two Taylor–Wiles ring, not equal to it. The comparison as stated was wrong: in the block condition det r on inertia is ψ_v, so an unramified determinant gives only unramified lifts. Corrected the rank-two comparison (twist by a square root of ψ_v). (and 1 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/gsp4-minimal-conditions",
+     "verdict": "corrected",
+     "note": "Checked against CG-2020. Corrected: Definition 4.6 has no clause for type H. Gave the right reason for the order being prime to p. The relation as written is for arithmetic Frobenius."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:R08.2/rigid-residual-conditions",
+     "verdict": "corrected",
+     "note": "Checked against LTXZZ-2022. Corrected: Removed a remark about an earlier paraphrase. Added the projection for clause (3). Added the projection for clause (4). (and 2 further change(s), listed in the report)."
+    },
+    {
+     "nodeId": "LocalGaloisDeformationRings:L7/torsion-crystalline-representations",
+     "verdict": "corrected",
+     "note": "Checked against LTXZZ-2022. Corrected: Marked the Fontaine–Laffaille description as not taken from the cited definition."
+    }
+   ]
   }
  ]
 }

@@ -5872,341 +5872,9 @@
   "planningLevel": "target",
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2",
-    "date": "2026-10-08",
-    "notes": "Independent review of revision round 2 (BP-AutomorphicGaloisRepresentations~2), following the review REV-AutomorphicGaloisRepresentations, which did not accept the plan. All five corrections that review asked for were checked and are made: one global object ρ_{π,λ} with a normalisation dictionary; purity outside Saito's scope (Blasius); the reader synchronised; the R34.6 dependency; Skinner's inputs named. All 66 nodes were checked against the 26 public sources (hashes reproduced), every one of the 13 baseline declarations was read at the pinned commits, and the eleven handed red-team findings were checked. 21 nodes verified, 45 corrected in place, none added, none unverifiable. Principal corrections: (1) dictionary clause (g) and the two Skinner–Wiles nodes: Skinner–Wiles send uniformisers to arithmetic Frobenius elements, so their representation is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ, not Carayol's σ_λ(π); a clause (j) for Khare–Wintenberger added. (2) R19.1/newform-rank-two-realisation: Diamond–Flach–Guo's M_g is the conjugate form's realisation; the roadmap's M_g is its twist by M_{ψ^{−1}}, which corrects the determinant for characters of order above two. (3) Carayol nodes: the determinant argument (5.5), the reversed kernel in the Picard–Lefschetz statement and its request, the local fundamental representation, and the case 𝔭 = v of Theorem (A), which needs global irreducibility; the global object now depends on Theorem (B) only, so Theorem (A) can use the irreducibility node. (4) CM definition: the inducing character α is not algebraic, α|·|^{−1/2} is. (5) Khare–Wintenberger's sign lemma: a hypothesis added for N(v) ≡ −1 mod p, with source issue E6 and a gap. (6) Closure: the λ-adic characters of algebraic Hecke characters and the converse for Hodge–Tate characters are imported from their existing owners (AG2.0/galois-character-of-an-algebraic-hecke-character, R24.5/character-system) instead of being requested from R01.1; a spurious prerequisite R34.6 of the Eichler–Shimura node removed; missing direct prerequisites added. (7) Source issues E1–E4 confirmed; E5 and E6 added. The reader's section on mistakes quoted the sources verbatim and is regenerated in the roadmap's own words; short quotations removed from the packet. Reader document and suggested file brought in line with every correction; check_blueprint reports no errors, and the suggested file elaborates at the pinned Mathlib with no warning other than the expected placeholder ones. The plan is accepted as one complete target-level pass: all six layers are planned, none closed, with 12 gaps and 51 supplier requests recorded.",
-    "checked": [
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
-        "verdict": "corrected",
-        "note": "Deligne's Proposition 4.8 and Theorem 4.9 (pp. 166–167) give T_p = F + I_p^*V, FV = p^{k+1} in his indexing and the factorisation; the level-one case and X² + 24X + 2048 for Δ recomputed. Source issue E1 checked on p. 157. Corrected: removed the prerequisite WeightsInEtaleCohomology:R34.6: the congruence relation does not use purity (its own step 3 says so), and the edge closed a loop with R34.6, which imports R19.1; added the anchor for R_q = q^r I_q^* (Proposition 3.18(ii), p. 158)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
-        "verdict": "corrected",
-        "note": "Deligne–Serre Théorème 6.1, Remarques 6.2–6.5 and Lemme 3.2 match the statement, with the arithmetic Frobenius of footnote (1), p. 513. Corrected: the cuspidal branch now names the correctly twisted realisation (Diamond–Flach–Guo's M_g is that of the conjugate form) and restricts Scholl's theorem to k ≥ 3; locator repaired: the Introduction passage is on printed p. 507."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/deligne-serre-condition-c",
-        "verdict": "verified",
-        "note": "7.1 (p. 523) matches. Class counts, 1·12 + 2·9 + 3·6 = 48, the index-two bound and all five tests recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/mod-lambda-representation-of-a-mod-lambda-eigenform",
-        "verdict": "verified",
-        "note": "Théorème 6.7, 6.8–6.12 and Lemme 6.13 match the statement and the steps; the weight-shift congruences and the level-23 examples recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/rankin-bound-for-a-cuspidal-eigenform",
-        "verdict": "verified",
-        "note": "Proposition 5.1 and its proof 5.2 match, including the factor H(s); the pinned Landau theorem has the hypotheses used. Density examples recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-eigenvalues-outside-a-sparse-set",
-        "verdict": "verified",
-        "note": "Proposition 5.5 and Remarque 5.6 match; the bound dens.sup X(c) ≤ r/c recomputed; the finiteness declaration read at the pin."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/bounded-semisimple-subgroups-of-gl2",
-        "verdict": "verified",
-        "note": "Proposition 7.2 (p. 524) matches case by case; the four bounds and the SL₂(F₁₁) example recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/uniformly-bounded-residual-images-in-weight-one",
-        "verdict": "verified",
-        "note": "8.2 and Lemmes 8.3–8.4 (p. 525) match; M is counted before reduction, as in the source."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/lifting-representations-of-groups-of-order-prime-to-l",
-        "verdict": "verified",
-        "note": "8.6 only invokes the lifting; the Schur–Zassenhaus and inverse-limit proof supplied here is correct, and both pinned declarations state what it uses."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-characteristic-zero-lift",
-        "verdict": "verified",
-        "note": "8.5–8.6 (pp. 525–526) match: enlargement of K, the set Y, and independence of ℓ by Lemme 3.2."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-cuspidal-irreducibility",
-        "verdict": "verified",
-        "note": "8.7 (pp. 526–527) matches; the two pinned analytic declarations are used with the requested Euler-product interface."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
-        "verdict": "verified",
-        "note": "Théorème 4.1, Corollaire 4.2, Remarques 4.4–4.5 and 6.5, and the opening of §8 match; the level-23 example recomputed for p < 400."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive",
-        "verdict": "corrected",
-        "note": "Diamond–Flach–Guo Theorem 2.4, §4.4–4.5, formula (28), Lemma 4.12, §5.1–5.3 and Proposition 5.6 read in arXiv v2. Corrected: (a) is a tensor product over Q (formula (28) is a product over the embeddings of K); (b) is the self-duality (29) with values in M_ψ(1 − k); (c) the Hecke algebra is generated by the T_p for all primes p."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
-        "verdict": "corrected",
-        "note": "Diamond–Flach–Guo §1.3, Lemma 5.1, Lemma 5.7, §5.5 and p. 96, and Scholl 1.0.0, Theorem 1.2.4 and 4.2.2 read; examples for 11a1 and Δ recomputed. Corrected: Diamond–Flach–Guo's M_g has geometric Frobenius polynomial X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1} (arXiv v2 §1.3, Lemma 5.1, §5.5 and p. 96), so it is the conjugate form's realisation; the roadmap's M_g is its twist by M_{ψ^{−1}} (Scholl's M(g) for k ≥ 3). Statement, hypotheses, steps and determinant corrected; the earlier text gave det ψ^{−1}χ_ℓ^{k−1} for characters of order above two."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/integral-structure-of-the-newform-premotive",
-        "verdict": "corrected",
-        "note": "Diamond–Flach–Guo §1.2, Lemma 4.12, Lemma 5.5, Proposition 5.6 and §5.4 match; source issue E3 checked on pp. 9, 13, 24, 27, 30. Corrected: the lattices are lattices in Diamond–Flach–Guo's M_g^{DFG}; the twist to the roadmap's realisation is stated; Galois stability comes from the Hecke kernel, not from saturation."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
-        "verdict": "corrected",
-        "note": "Carayol 0.2–0.7, Theorem (B) and 12.3.1–12.3.2 read on the page images; the statement is in his normalisation and keeps the even-degree hypothesis. Corrected: the Čebotarev steps now compare semisimplifications; the extraordinary case uses the local irreducibility of step 5, and the case 𝔭 = v with π_v special uses the global irreducibility of R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, added as a prerequisite together with R01.1; locators repaired (Theorem (A) is on pp. 410–411, 12.3.1 on pp. 458–459)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
-        "verdict": "corrected",
-        "note": "Carayol 2.1–2.3 (pp. 417–421): the coefficient representation, the central action N(z)^w, the definition of σ_λ(π) and the decomposition match. Tests correct. Corrected: added the anchor for the decomposition (2.3, p. 421)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
-        "verdict": "corrected",
-        "note": "Carayol §3 and 5.5–5.6.1 (pp. 421–423, 428–429) read on the page images; determinant χ_π^{−1}ω^{−1} agrees with 0.5(a) and the dictionary. Corrected: step 3 corrected against 5.5 (p. 428): the alternative is α_𝔭 = ξ₁/ξ₂ = ξ₂/ξ₁, with no power of the absolute value; locator of 5.5 is pp. 428–429."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
-        "verdict": "corrected",
-        "note": "Carayol 4.2–4.6, 5.1–5.4 and 5.6 read on the page images (pp. 425–429). Corrected: 4.6 gives only that σ_𝔭 = σ̃₁ is unramified; equality with σ(π_𝔭) is 5.6.3. Step 3 now states what 5.2 proves (the matrices (∗ ∗; 0 1) act trivially)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
-        "verdict": "corrected",
-        "note": "Carayol 6.7 and its Remarque (pp. 431–432) and 11.4 (p. 451) read on the page images; the special form 1 → χ^{−1} → χ^{−1}Sp(2) → χ^{−1}ω^{−1} → 1 recomputed from the Hecke correspondence. Corrected: the kernel in the Picard–Lefschetz statement was reversed: N maps onto ker(H¹(X_s) → H¹(X̃_s)) (11.4, p. 451); the same correction is made in the request to LPV.7. Step 3 follows 4.8 and 11.4."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
-        "verdict": "corrected",
-        "note": "Carayol 10.3–10.6 (pp. 446–449) read on the page images; the statement matches the Proposition of 10.6. Corrected: steps 1–2 corrected against 10.4–10.5 (pp. 447–448): the quotient is by Ḡ(ℚ), and the decomposition is ⊕ π̄^{f,𝔭} ⊗ 𝒰_ℂ(π̄_𝔭^∨)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
-        "verdict": "corrected",
-        "note": "Carayol 11.2–11.3 (p. 450) match; Ind(ξ^{−1}ω^{−1/2}) recomputed from the Hecke correspondence. Corrected: added the prerequisites its steps name: R19.2/carayol-special-places (11.1(c) uses 6.7) and R01.1 (Čebotarev)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
-        "verdict": "corrected",
-        "note": "Theorem (B) (p. 411) and the case split of 11.1 match. Corrected: locator: 11.1 runs over pp. 449–450."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
-        "verdict": "verified",
-        "note": "Carayol 12.1.1–12.1.4 (pp. 454–457) match; both acceptance items are correct."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
-        "verdict": "corrected",
-        "note": "Carayol 12.2.2 and its proof 12.2.3 (pp. 457–458) match; the supplier node R17.4/nonnormal-cubic-base-change gives only the weak transfer, and the stronger local statement stays requested. Corrected: added the anchor for the proof (12.2.3, p. 458)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
-        "verdict": "verified",
-        "note": "Saito's Theorem 2 and its Remark (arXiv p. 13) and Saito 2000 Theorem 1 (p. 429, page image) match; the translation 3 − w_S = w + 1 and the Tate-curve example recomputed. The geometric weight statement remains a request to R34.6 with a recorded gap."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
-        "verdict": "corrected",
-        "note": "Blasius Theorem 1, §2.2, Propositions 2, 5 and 6, §4.1 and §4.2 read in full; the quaternion algebra split at two real places, the tensor-product lemma and the examples checked. Corrected: step 2 now follows Blasius's argument for the motivic cases (Proposition 5: integrality of weights by de Jong's theorem and the classification of unitary representations), with good reduction as the special case; the Grunwald–Wang input is named and requested from R17.5."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family",
-        "verdict": "corrected",
-        "note": "Blasius Proposition 5 and Corollary 7 read; weights w and w + 2 on ker N and coker N recomputed, and the Tate-curve example checked. Depends on the two compatibility theorems, as recorded. Corrected: source note tidied."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
-        "verdict": "corrected",
-        "note": "Skinner's Remark (p. 256) read; the inequality p^{k−1} − 1 > 2p^{(k−1)/2} for large p and the supplier statement R34.6/eigenform-purity-and-ramanujan-bound checked; no cycle with R34.6. Corrected: the argument now starts from reducibility (Jordan–Hölder characters) instead of assuming a direct sum; the classification of Hodge–Tate characters is imported from R24.5/character-system."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
-        "verdict": "corrected",
-        "note": "Saito's Theorem 1 and Claim 1 (arXiv p. 12) and Saito 2000 Theorem 3 (pp. 429–430) match; the translation to Rec_v(π_v ⊗ |·|^{−1/2}) recomputed. Saito 1997 remains a recorded source gap. Corrected: the translation to ρ_{π,λ} at v | ℓ now names its input, the λ-adic character of the central character (AG2.0)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
-        "verdict": "corrected",
-        "note": "Carayol 0.4–0.8 read on the page images: the L-factor characterisation through the contragredient, the principal-series formula, (a), (b) and the Corollaire. Corrected: the cross-reference to a normalisation gap now points to the dictionary; process remarks removed from the source notes."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
-        "verdict": "corrected",
-        "note": "DDT Theorem 3.1(d),(e) (p. 86) and Carayol 0.8 match; the determinant check for weight k and the examples 11a1 and 15a1 recomputed. Corrected: ψ′ defined; the acceptance item now gives the Euler factor, not the Euler polynomial."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
-        "verdict": "corrected",
-        "note": "Chenevier Theorem 2.22(i) (p. 34) with Definition 2.19 has exactly the hypotheses used; Theorem B's algebraically closed residue field is correctly avoided. Corrected: the residual representation of the geometric law is the dual of the arithmetic ρ̄ of the residual-representation node; stated here and in that node."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition",
-        "verdict": "corrected",
-        "note": "DDT Lemma 1.48 (p. 46), (3.1.1) (p. 85), Theorems 1.41 and 3.1(a) checked; the level-23 example recomputed; the supplier node R14.6/special-fibre-eichler-shimura read. Corrected: the acceptance example named the wrong curve (A_f = J_1(11) = X_1(11) is 11a3, isogenous to X_0(11) = 11a1); step 3 inferred a characteristic polynomial from an annihilating polynomial, and now uses the Weil-pairing adjointness (DDT Theorem 1.41); the irreducibility node and R14.2 are added as prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform",
-        "verdict": "corrected",
-        "note": "DDT §3.1 (p. 87) matches; 11a1 at 3 and 5 and the F₄ example recomputed. Corrected: the use by the geometric determinant law states the dual; the lattices in the non-example are named."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
-        "verdict": "corrected",
-        "note": "KW II §7 (pp. 57–60) and §9.1.1 (p. 80) match: arithmetic Frobenius, X² − T_vX + N(v)ψ(π_v), flat reduced Hecke algebra, the map from the deformation ring. Corrected: Khare–Wintenberger's arithmetic convention is tied to the dictionary (ρ_f = ρ_{π,λ}^∨), which becomes a prerequisite; the hypothesis Σ ∩ {v | p} = ∅ for k > 2 is attributed to Lemma 7.2 and §9.1.1."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations",
-        "verdict": "corrected",
-        "note": "DDT §4.1 (pp. 107–110) and Lemma 1.39 match; the level-11 and level-88 computations recomputed. Corrected: list of non-reduced cases completed (p² | N_f)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-classical",
-        "verdict": "corrected",
-        "note": "DDT §3.3, Lemmas 3.26–3.27 and proof (pp. 93–95) match; the matrix-entry argument and Example 3.28 recomputed. Corrected: wording moved away from the source; Frobenius elements stated to be arithmetic."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/reduced-hecke-algebra-as-a-localisation",
-        "verdict": "verified",
-        "note": "DDT §4.2, Lemmas 4.4, 4.6 and Proposition 4.7 (pp. 111–114) match; the level-44 and level-88 examples recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form",
-        "verdict": "corrected",
-        "note": "KW II Lemma 7.2, its proof and the following Remark (pp. 60–61) read. Corrected: statement reworded in the roadmap's words and tied to the dictionary (KW's ρ_f = ρ_{π,λ}^∨). The source's proof for p > 2 identifies γ_v only through the residual representation, which does not separate the two square roots of ψ_v when N(v) ≡ −1 mod p and ρ̄_m|D_v is a sum of two unramified characters: that case is now excluded by hypothesis and recorded as source issue E6 and as a gap. For v | p the form needs the coefficient-prime theorem, now a prerequisite."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/hilbert-local-behaviour-at-p",
-        "verdict": "corrected",
-        "note": "KW II Lemma 7.7 and Corollary 7.8 (pp. 67–68) match, with F unramified at p, parallel weight and residual absolute irreducibility kept. Corrected: the shapes are Khare–Wintenberger's, for the arithmetic ρ_π = ρ_{π,λ}^∨; the dualisation is now a step and the dictionary a prerequisite."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
-        "verdict": "corrected",
-        "note": "Skinner–Wiles §2.1 (p. 9), (3.1′) (p. 30) and (3.2) (pp. 38–39) read on the page images; p odd and even degree kept. Corrected: Skinner–Wiles send uniformisers to arithmetic Frobenius elements (§2.1, p. 9), so their ρ_π is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ, not Carayol's σ_λ(π); hypothesis corrected and the convention anchored."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p",
-        "verdict": "corrected",
-        "note": "Skinner–Wiles (3.3) and the twisting argument (p. 39) read on the page image, with the convention of §2.1 (p. 9). Corrected: Skinner–Wiles' (3.3) is read through their arithmetic normalisation of class field theory: ρ_π|W_v ≅ σ(π_v)^∨, so ρ_π = σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ; statement and hypotheses corrected."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/scholl-projector",
-        "verdict": "corrected",
-        "note": "Scholl 1.0–1.3, Theorems 1.2.1 and 1.2.4 and §4.1 read; |Γ_r| = 648 for n = 3, r = 2 recomputed. Corrected: named the weight argument of Scholl 1.3.4 inside the boundary computation; added the anchor for the Hecke compatibility (Scholl §4.1); the boundary test now speaks of the compactified variety."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent",
-        "verdict": "corrected",
-        "note": "Scholl Theorem 1.2.4, Remark 1.2.6 and 4.1–4.2 read; the level-23 and Δ examples checked; DDT has no level-88 example (Exercise 1.18 is the general statement). Corrected: the level-88 algebra is this roadmap's instance of DDT Exercise 1.18, not an example printed in DDT; the K_f-action is pinned by the transposes of the Hecke operators."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
-        "verdict": "corrected",
-        "note": "Kisin §4.1 (p. 542) and the proof of Theorem 4.3 (pp. 543–544), Skinner's equation (1) and Carayol 0.5 read; the unramified computation, the twist formulas and all six tests recomputed. Corrected: the construction uses Carayol's σ_λ(π) only at unramified places (Theorem (B)), so the prerequisite on Theorem (A) is replaced by Theorem (B); this lets Theorem (A) use the irreducibility node without a cycle. The λ-adic character of χ_π is now imported from its owner AG2.0/galois-character-of-an-algebraic-hecke-character; consumers named."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
-        "verdict": "corrected",
-        "note": "Each clause recomputed from the sources' own conventions: Carayol 0.4–0.8, Saito pp. 9–13, Kisin §4.1–4.3, Skinner pp. 241–256, Skinner–Wiles pp. 9, 30, 38–39, CDN pp. 43–45, KW II pp. 5, 59–60, 80. Clauses (a)–(f) and (h) are right. Corrected: (g) corrected: Skinner–Wiles' ρ_π is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ (their class field theory is arithmetic, §2.1 p. 9); (i) restated for the local parameters, so that it no longer presupposes local–global compatibility; a clause (j) records Khare–Wintenberger's convention; the transport of statements at v | ℓ through twists by Hecke characters is made explicit; prerequisites: Theorem (B) in place of Theorem (A), and the Hecke-character node of AG2.0."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
-        "verdict": "corrected",
-        "note": "Skinner pp. 243 and 251–252 read; the reduction, the parameters (a_i, b_i) = (−2, 0), degrees 2, 1, 0 for the symmetric square and the Wintenberger step match; the twist to w = 0 is the source's 'w = 2'. Corrected: (a) restated: in the CM case the de Rham property comes from the Hecke character, as step 1 says; the Hecke-character node of AG2.0 is the named input."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
-        "verdict": "corrected",
-        "note": "Carayol 5.6.1 and Skinner's Remark (p. 256) read; determinant, value at complex conjugation and the L-function argument recomputed; no forward use of the coefficient-prime theorem. Corrected: oddness: |·|^{−w} corresponds to ε_ℓ^{−w}, not ε_ℓ^{w}; irreducibility: the pole is that of L(π ⊗ ψ₂^{−1}, s − 1/2) at s = 1 (source issue E5), and the converse for Hodge–Tate characters is imported from R24.5/character-system; the Hecke-character node of AG2.0 added."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform",
-        "verdict": "corrected",
-        "note": "Dasgupta–Kakde §9.1 and BGV Remarks (i)–(ii) match; the infinity type of the inducing character recomputed from Carayol 11.2. Corrected: α has half-integral infinity type and is not algebraic; α′ = α|·|_L^{−1/2} is, and its λ-adic character is the inducing character. Statement, API and tests corrected, and a test that detects a half-integral shift added."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/virtual-reducibility-implies-cm",
-        "verdict": "corrected",
-        "note": "Ribet 1975 Theorem 2.3 (pp. 251–252), BGV Remark (ii) and Dasgupta–Kakde Lemma 9.1 match. Corrected: stated for ρ_{π,λ} and its twists and duals; the Hodge–Tate and class-field inputs its steps use are now prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/dimitrov-large-image",
-        "verdict": "verified",
-        "note": "Dimitrov Propositions 3.1, 3.5, 3.8 and §3.2 and Newton–Thorne Lemma 5.7 (p. 41) match; the statement does not depend on the normalisation."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/ribet-momose-classical-large-image",
-        "verdict": "corrected",
-        "note": "Ribet 1985 Theorems 2.1 and 3.1 and §3 (pp. 188–192, page images) and Newton–Thorne II p. 26 match. Corrected: the two inputs of Ribet's Theorem 2.1 (conductors of twists, and inertia at ℓ) are named and added as prerequisites."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family",
-        "verdict": "verified",
-        "note": "Assembled from the member, the dictionary, the two compatibility theorems and purity; Dieulefait–Pacetti Definition 1.10 read; the supplier R24.5:operations provides the carrier."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
-        "verdict": "verified",
-        "note": "Skinner's equation (1) and Blasius §2.3 and §3 read; Carayol's range is Theorem (A); Taylor's originals remain a recorded gap. Conductor and L-factor consequences recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime",
-        "verdict": "corrected",
-        "note": "Kisin Theorem 4.3 and its proof (pp. 543–544) and Theorems 2.5.5 (p. 530) and 2.7.6 (p. 534) read: residual absolute irreducibility kept, arbitrary A°, and tr(w | σ_v) = t_v fixes the correspondence. Corrected: locator repaired: Theorem 2.5.5 is on p. 530 and Theorem 2.7.6 on p. 534."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
-        "verdict": "corrected",
-        "note": "Skinner's whole paper read; the reduction of §2.2, §2.3.2–2.3.3, §2.4.1 and the family argument of §2.4.2 with footnote 9 match the five steps. Corrected: the classical points of the family are given in the roadmap's infinity types (the source's w is shifted by 2, source issue E4)."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/ordinary-refinement-and-saturated-lattice",
-        "verdict": "corrected",
-        "note": "Skinner–Wiles (3.2) checked; unit roots for 11a1 at 3 and 2 and the saturation example recomputed. Corrected: the lattice is placed: a lattice in the arithmetic ρ_{f,λ}, dual to the integral cohomological realisation."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/good-nonordinary-crystalline-wach-realisation",
-        "verdict": "verified",
-        "note": "Scholl Theorem 1.2.4(ii) read; the basis-change rule, the slopes at 2 and the rank-one example recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/endpoint-weight-local-contract",
-        "verdict": "verified",
-        "note": "KW II Corollary 7.8 read; the ranges [0, k−1] and [0, p−2] recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/ordinary-cm-primes-split",
-        "verdict": "corrected",
-        "note": "Hara–Ochiai Proposition A.3 (pp. 70–71) and Dasgupta–Kakde p. 67 match; the Q(i) example recomputed. Corrected: added the prerequisite R19.2/hilbert-hodge-tate-property, whose labelled Hodge–Tate degrees step 1 uses."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.2/cm-ordinary-line-complex-conjugation",
-        "verdict": "verified",
-        "note": "Dasgupta–Kakde Lemma 9.2 and proof (p. 67) match with its hypotheses."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity",
-        "verdict": "corrected",
-        "note": "CDN §5.2.1 and Proposition 5.2 with its proof (pp. 43–45) read: the choices, both Hom identities and the decomposition with ρ_π(−1) match. Corrected: the identification with ρ_{π,λ}^∨ states the action convention it rests on."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes",
-        "verdict": "verified",
-        "note": "Skinner 2020 §3 (p. 350) matches, including the quantifiers; the norm bound recomputed."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant",
-        "verdict": "corrected",
-        "note": "DDT §4.1 and Lemmas 1.37–1.39 and Kisin's proof of Theorem 4.3 read; the degree-two cross-coefficient identity and the dual-number example recomputed. Corrected: the level-88 example is this roadmap's own instance and is no longer attributed to DDT; the law is stated to be that of cohomology, the dual of the Tate module."
-      },
-      {
-        "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-family-local-conditions",
-        "verdict": "verified",
-        "note": "DDT Lemma 3.27 leaves (a)–(c) to the reader; Kisin 2.5.5 and 2.7.6 are for arbitrary A° and finite algebras; flat descent of an ideal vanishing generically is correct."
-      }
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+    "date": "2026-10-11",
+    "notes": "Codex session codex-Mt7g2N, independent of FIX-RT-AREA-langlands-2~4. Follows independent-review-REV-AutomorphicGaloisRepresentations~2 (2026-10-08, accepted); its full review is retained in reviewHistory. Checked the full Hilbert-form range, nonnormal cubic transfer, ordinary/supersingular fibre distinction, henselian split absolutely irreducible Cayley–Hamilton reconstruction, geometric congruence owner, purity boundary and arbitrary-rank/nonreduced Kisin family input. This is a bounded review of the forty confirmed findings and round-four fixes, not a new whole-packet source/proof-closure certification; existing coverage, open requests and gaps are retained. All baseline declarations were checked in the pinned Lean sources. The packet checker reports zero errors and zero warnings; its suggested Lean file was freshly elaborated serially with lean-check at the pins, with only expected proof-placeholder warnings. See REV-FIX-RT-AREA-langlands-2~4.md for source receipts, dependency checks, exact verdicts and limits."
   },
   "reviewHistory": [
     {
@@ -6519,6 +6187,344 @@
           "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-family-local-conditions",
           "verdict": "verified",
           "note": "Exact local deformation functors/quotients are required on all finite quotients. O-flatness descends an ideal only after vanishing on the entire generic algebra, including nilpotents; ordinary integral flags and torsion functor checks remain explicit gaps."
+        }
+      ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2",
+      "date": "2026-10-08",
+      "notes": "Independent review of revision round 2 (BP-AutomorphicGaloisRepresentations~2), following the review REV-AutomorphicGaloisRepresentations, which did not accept the plan. All five corrections that review asked for were checked and are made: one global object ρ_{π,λ} with a normalisation dictionary; purity outside Saito's scope (Blasius); the reader synchronised; the R34.6 dependency; Skinner's inputs named. All 66 nodes were checked against the 26 public sources (hashes reproduced), every one of the 13 baseline declarations was read at the pinned commits, and the eleven handed red-team findings were checked. 21 nodes verified, 45 corrected in place, none added, none unverifiable. Principal corrections: (1) dictionary clause (g) and the two Skinner–Wiles nodes: Skinner–Wiles send uniformisers to arithmetic Frobenius elements, so their representation is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ, not Carayol's σ_λ(π); a clause (j) for Khare–Wintenberger added. (2) R19.1/newform-rank-two-realisation: Diamond–Flach–Guo's M_g is the conjugate form's realisation; the roadmap's M_g is its twist by M_{ψ^{−1}}, which corrects the determinant for characters of order above two. (3) Carayol nodes: the determinant argument (5.5), the reversed kernel in the Picard–Lefschetz statement and its request, the local fundamental representation, and the case 𝔭 = v of Theorem (A), which needs global irreducibility; the global object now depends on Theorem (B) only, so Theorem (A) can use the irreducibility node. (4) CM definition: the inducing character α is not algebraic, α|·|^{−1/2} is. (5) Khare–Wintenberger's sign lemma: a hypothesis added for N(v) ≡ −1 mod p, with source issue E6 and a gap. (6) Closure: the λ-adic characters of algebraic Hecke characters and the converse for Hodge–Tate characters are imported from their existing owners (AG2.0/galois-character-of-an-algebraic-hecke-character, R24.5/character-system) instead of being requested from R01.1; a spurious prerequisite R34.6 of the Eichler–Shimura node removed; missing direct prerequisites added. (7) Source issues E1–E4 confirmed; E5 and E6 added. The reader's section on mistakes quoted the sources verbatim and is regenerated in the roadmap's own words; short quotations removed from the packet. Reader document and suggested file brought in line with every correction; check_blueprint reports no errors, and the suggested file elaborates at the pinned Mathlib with no warning other than the expected placeholder ones. The plan is accepted as one complete target-level pass: all six layers are planned, none closed, with 12 gaps and 51 supplier requests recorded.",
+      "checked": [
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/geometric-construction-and-the-eichler-congruence-relation",
+          "verdict": "corrected",
+          "note": "Deligne's Proposition 4.8 and Theorem 4.9 (pp. 166–167) give T_p = F + I_p^*V, FV = p^{k+1} in his indexing and the factorisation; the level-one case and X² + 24X + 2048 for Δ recomputed. Source issue E1 checked on p. 157. Corrected: removed the prerequisite WeightsInEtaleCohomology:R34.6: the congruence relation does not use purity (its own step 3 says so), and the edge closed a loop with R34.6, which imports R19.1; added the anchor for R_q = q^r I_q^* (Proposition 3.18(ii), p. 158)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform",
+          "verdict": "corrected",
+          "note": "Deligne–Serre Théorème 6.1, Remarques 6.2–6.5 and Lemme 3.2 match the statement, with the arithmetic Frobenius of footnote (1), p. 513. Corrected: the cuspidal branch now names the correctly twisted realisation (Diamond–Flach–Guo's M_g is that of the conjugate form) and restricts Scholl's theorem to k ≥ 3; locator repaired: the Introduction passage is on printed p. 507."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/deligne-serre-condition-c",
+          "verdict": "verified",
+          "note": "7.1 (p. 523) matches. Class counts, 1·12 + 2·9 + 3·6 = 48, the index-two bound and all five tests recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/mod-lambda-representation-of-a-mod-lambda-eigenform",
+          "verdict": "verified",
+          "note": "Théorème 6.7, 6.8–6.12 and Lemme 6.13 match the statement and the steps; the weight-shift congruences and the level-23 examples recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/rankin-bound-for-a-cuspidal-eigenform",
+          "verdict": "verified",
+          "note": "Proposition 5.1 and its proof 5.2 match, including the factor H(s); the pinned Landau theorem has the hypotheses used. Density examples recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-eigenvalues-outside-a-sparse-set",
+          "verdict": "verified",
+          "note": "Proposition 5.5 and Remarque 5.6 match; the bound dens.sup X(c) ≤ r/c recomputed; the finiteness declaration read at the pin."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/bounded-semisimple-subgroups-of-gl2",
+          "verdict": "verified",
+          "note": "Proposition 7.2 (p. 524) matches case by case; the four bounds and the SL₂(F₁₁) example recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/uniformly-bounded-residual-images-in-weight-one",
+          "verdict": "verified",
+          "note": "8.2 and Lemmes 8.3–8.4 (p. 525) match; M is counted before reduction, as in the source."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/lifting-representations-of-groups-of-order-prime-to-l",
+          "verdict": "verified",
+          "note": "8.6 only invokes the lifting; the Schur–Zassenhaus and inverse-limit proof supplied here is correct, and both pinned declarations state what it uses."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-characteristic-zero-lift",
+          "verdict": "verified",
+          "note": "8.5–8.6 (pp. 525–526) match: enlargement of K, the set Y, and independence of ℓ by Lemme 3.2."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-cuspidal-irreducibility",
+          "verdict": "verified",
+          "note": "8.7 (pp. 526–527) matches; the two pinned analytic declarations are used with the requested Euler-product interface."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation",
+          "verdict": "verified",
+          "note": "Théorème 4.1, Corollaire 4.2, Remarques 4.4–4.5 and 6.5, and the opening of §8 match; the level-23 example recomputed for p < 400."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/parabolic-realisation-premotive",
+          "verdict": "corrected",
+          "note": "Diamond–Flach–Guo Theorem 2.4, §4.4–4.5, formula (28), Lemma 4.12, §5.1–5.3 and Proposition 5.6 read in arXiv v2. Corrected: (a) is a tensor product over Q (formula (28) is a product over the embeddings of K); (b) is the self-duality (29) with values in M_ψ(1 − k); (c) the Hecke algebra is generated by the T_p for all primes p."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+          "verdict": "corrected",
+          "note": "Diamond–Flach–Guo §1.3, Lemma 5.1, Lemma 5.7, §5.5 and p. 96, and Scholl 1.0.0, Theorem 1.2.4 and 4.2.2 read; examples for 11a1 and Δ recomputed. Corrected: Diamond–Flach–Guo's M_g has geometric Frobenius polynomial X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1} (arXiv v2 §1.3, Lemma 5.1, §5.5 and p. 96), so it is the conjugate form's realisation; the roadmap's M_g is its twist by M_{ψ^{−1}} (Scholl's M(g) for k ≥ 3). Statement, hypotheses, steps and determinant corrected; the earlier text gave det ψ^{−1}χ_ℓ^{k−1} for characters of order above two."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/integral-structure-of-the-newform-premotive",
+          "verdict": "corrected",
+          "note": "Diamond–Flach–Guo §1.2, Lemma 4.12, Lemma 5.5, Proposition 5.6 and §5.4 match; source issue E3 checked on pp. 9, 13, 24, 27, 30. Corrected: the lattices are lattices in Diamond–Flach–Guo's M_g^{DFG}; the twist to the roadmap's realisation is stated; Galois stability comes from the Hecke kernel, not from saturation."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-modular-compatible-system-carayol-theorem-A",
+          "verdict": "corrected",
+          "note": "Carayol 0.2–0.7, Theorem (B) and 12.3.1–12.3.2 read on the page images; the statement is in his normalisation and keeps the even-degree hypothesis. Corrected: the Čebotarev steps now compare semisimplifications; the extraordinary case uses the local irreducibility of step 5, and the case 𝔭 = v with π_v special uses the global irreducibility of R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, added as a prerequisite together with R01.1; locators repaired (Theorem (A) is on pp. 410–411, 12.3.1 on pp. 458–459)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction",
+          "verdict": "corrected",
+          "note": "Carayol 2.1–2.3 (pp. 417–421): the coefficient representation, the central action N(z)^w, the definition of σ_λ(π) and the decomposition match. Tests correct. Corrected: added the anchor for the decomposition (2.3, p. 421)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant",
+          "verdict": "corrected",
+          "note": "Carayol §3 and 5.5–5.6.1 (pp. 421–423, 428–429) read on the page images; determinant χ_π^{−1}ω^{−1} agrees with 0.5(a) and the dictionary. Corrected: step 3 corrected against 5.5 (p. 428): the alternative is α_𝔭 = ξ₁/ξ₂ = ξ₂/ξ₁, with no power of the absolute value; locator of 5.5 is pp. 428–429."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-vanishing-cycle-filtration",
+          "verdict": "corrected",
+          "note": "Carayol 4.2–4.6, 5.1–5.4 and 5.6 read on the page images (pp. 425–429). Corrected: 4.6 gives only that σ_𝔭 = σ̃₁ is unramified; equality with σ(π_𝔭) is 5.6.3. Step 3 now states what 5.2 proves (the matrices (∗ ∗; 0 1) act trivially)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-special-places",
+          "verdict": "corrected",
+          "note": "Carayol 6.7 and its Remarque (pp. 431–432) and 11.4 (p. 451) read on the page images; the special form 1 → χ^{−1} → χ^{−1}Sp(2) → χ^{−1}ω^{−1} → 1 recomputed from the Hecke correspondence. Corrected: the kernel in the Picard–Lefschetz statement was reversed: N maps onto ker(H¹(X_s) → H¹(X̃_s)) (11.4, p. 451); the same correction is made in the request to LPV.7. Step 3 follows 4.8 and 11.4."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation",
+          "verdict": "corrected",
+          "note": "Carayol 10.3–10.6 (pp. 446–449) read on the page images; the statement matches the Proposition of 10.6. Corrected: steps 1–2 corrected against 10.4–10.5 (pp. 447–448): the quotient is by Ḡ(ℚ), and the decomposition is ⊕ π̄^{f,𝔭} ⊗ 𝒰_ℂ(π̄_𝔭^∨)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-ordinary-cuspidal-places",
+          "verdict": "corrected",
+          "note": "Carayol 11.2–11.3 (p. 450) match; Ind(ξ^{−1}ω^{−1/2}) recomputed from the Hecke correspondence. Corrected: added the prerequisites its steps name: R19.2/carayol-special-places (11.1(c) uses 6.7) and R01.1 (Čebotarev)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b",
+          "verdict": "corrected",
+          "note": "Theorem (B) (p. 411) and the case split of 11.1 match. Corrected: locator: 11.1 runs over pp. 449–450."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-primitive-restriction-lemma",
+          "verdict": "verified",
+          "note": "Carayol 12.1.1–12.1.4 (pp. 454–457) match; both acceptance items are correct."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/carayol-cubic-base-change-of-extraordinary",
+          "verdict": "corrected",
+          "note": "Carayol 12.2.2 and its proof 12.2.3 (pp. 457–458) match; the supplier node R17.4/nonnormal-cubic-base-change gives only the weak transfer, and the stronger local statement stays requested. Corrected: added the anchor for the proof (12.2.3, p. 458)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/strict-compatibility-and-the-monodromy-weight-purity",
+          "verdict": "verified",
+          "note": "Saito's Theorem 2 and its Remark (arXiv p. 13) and Saito 2000 Theorem 1 (p. 429, page image) match; the translation 3 − w_S = w + 1 and the Tate-curve example recomputed. The geometric weight statement remains a request to R34.6 with a recorded gap."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture",
+          "verdict": "corrected",
+          "note": "Blasius Theorem 1, §2.2, Propositions 2, 5 and 6, §4.1 and §4.2 read in full; the quaternion algebra split at two real places, the tensor-product lemma and the examples checked. Corrected: step 2 now follows Blasius's argument for the motivic cases (Proposition 5: integrality of weights by de Jong's theorem and the classification of unitary representations), with good reduction as the special case; the Grunwald–Wang input is named and requested from R17.5."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/monodromy-weight-purity-of-the-family",
+          "verdict": "corrected",
+          "note": "Blasius Proposition 5 and Corollary 7 read; weights w and w + 2 on ker N and coker N recomputed, and the Tate-curve example checked. Depends on the two compatibility theorems, as recorded. Corrected: source note tidied."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
+          "verdict": "corrected",
+          "note": "Skinner's Remark (p. 256) read; the inequality p^{k−1} − 1 > 2p^{(k−1)/2} for large p and the supplier statement R34.6/eigenform-purity-and-ramanujan-bound checked; no cycle with R34.6. Corrected: the argument now starts from reducibility (Jordan–Hölder characters) instead of assuming a direct sum; the classification of Hodge–Tate characters is imported from R24.5/character-system."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+          "verdict": "corrected",
+          "note": "Saito's Theorem 1 and Claim 1 (arXiv p. 12) and Saito 2000 Theorem 3 (pp. 429–430) match; the translation to Rec_v(π_v ⊗ |·|^{−1/2}) recomputed. Saito 1997 remains a recorded source gap. Corrected: the translation to ρ_{π,λ} at v | ℓ now names its input, the λ-adic character of the central character (AG2.0)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.4/hecke-versus-langlands-normalization-and-local-global-compatibility",
+          "verdict": "corrected",
+          "note": "Carayol 0.4–0.8 read on the page images: the L-factor characterisation through the contragredient, the principal-series formula, (a), (b) and the Corollaire. Corrected: the cross-reference to a normalisation gap now points to the dictionary; process remarks removed from the source notes."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
+          "verdict": "corrected",
+          "note": "DDT Theorem 3.1(d),(e) (p. 86) and Carayol 0.8 match; the determinant check for weight k and the examples 11a1 and 15a1 recomputed. Corrected: ψ′ defined; the acceptance item now gives the Euler factor, not the Euler polynomial."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra",
+          "verdict": "corrected",
+          "note": "Chenevier Theorem 2.22(i) (p. 34) with Definition 2.19 has exactly the hypotheses used; Theorem B's algebraically closed residue field is correctly avoided. Corrected: the residual representation of the geometric law is the dual of the arithmetic ρ̄ of the residual-representation node; stated here and in that node."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition",
+          "verdict": "corrected",
+          "note": "DDT Lemma 1.48 (p. 46), (3.1.1) (p. 85), Theorems 1.41 and 3.1(a) checked; the level-23 example recomputed; the supplier node R14.6/special-fibre-eichler-shimura read. Corrected: the acceptance example named the wrong curve (A_f = J_1(11) = X_1(11) is 11a3, isogenous to X_0(11) = 11a1); step 3 inferred a characteristic polynomial from an annihilating polynomial, and now uses the Weil-pairing adjointness (DDT Theorem 1.41); the irreducibility node and R14.2 are added as prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform",
+          "verdict": "corrected",
+          "note": "DDT §3.1 (p. 87) matches; 11a1 at 3 and 5 and the F₄ example recomputed. Corrected: the use by the geometric determinant law states the dual; the lattices in the non-example are named."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic",
+          "verdict": "corrected",
+          "note": "KW II §7 (pp. 57–60) and §9.1.1 (p. 80) match: arithmetic Frobenius, X² − T_vX + N(v)ψ(π_v), flat reduced Hecke algebra, the map from the deformation ring. Corrected: Khare–Wintenberger's arithmetic convention is tied to the dictionary (ρ_f = ρ_{π,λ}^∨), which becomes a prerequisite; the hypothesis Σ ∩ {v | p} = ∅ for k > 2 is attributed to Lemma 7.2 and §9.1.1."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations",
+          "verdict": "corrected",
+          "note": "DDT §4.1 (pp. 107–110) and Lemma 1.39 match; the level-11 and level-88 computations recomputed. Corrected: list of non-reduced cases completed (p² | N_f)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-classical",
+          "verdict": "corrected",
+          "note": "DDT §3.3, Lemmas 3.26–3.27 and proof (pp. 93–95) match; the matrix-entry argument and Example 3.28 recomputed. Corrected: wording moved away from the source; Frobenius elements stated to be arithmetic."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/reduced-hecke-algebra-as-a-localisation",
+          "verdict": "verified",
+          "note": "DDT §4.2, Lemmas 4.4, 4.6 and Proposition 4.7 (pp. 111–114) match; the level-44 and level-88 examples recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.4/quaternionic-sigma-place-local-form",
+          "verdict": "corrected",
+          "note": "KW II Lemma 7.2, its proof and the following Remark (pp. 60–61) read. Corrected: statement reworded in the roadmap's words and tied to the dictionary (KW's ρ_f = ρ_{π,λ}^∨). The source's proof for p > 2 identifies γ_v only through the residual representation, which does not separate the two square roots of ψ_v when N(v) ≡ −1 mod p and ρ̄_m|D_v is a sum of two unramified characters: that case is now excluded by hypothesis and recorded as source issue E6 and as a gap. For v | p the form needs the coefficient-prime theorem, now a prerequisite."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/hilbert-local-behaviour-at-p",
+          "verdict": "corrected",
+          "note": "KW II Lemma 7.7 and Corollary 7.8 (pp. 67–68) match, with F unramified at p, parallel weight and residual absolute irreducibility kept. Corrected: the shapes are Khare–Wintenberger's, for the arithmetic ρ_π = ρ_{π,λ}^∨; the dualisation is now a step and the dictionary a prerequisite."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
+          "verdict": "corrected",
+          "note": "Skinner–Wiles §2.1 (p. 9), (3.1′) (p. 30) and (3.2) (pp. 38–39) read on the page images; p odd and even degree kept. Corrected: Skinner–Wiles send uniformisers to arithmetic Frobenius elements (§2.1, p. 9), so their ρ_π is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ, not Carayol's σ_λ(π); hypothesis corrected and the convention anchored."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.4/nearly-ordinary-hilbert-compatibility-away-from-p",
+          "verdict": "corrected",
+          "note": "Skinner–Wiles (3.3) and the twisting argument (p. 39) read on the page image, with the convention of §2.1 (p. 9). Corrected: Skinner–Wiles' (3.3) is read through their arithmetic normalisation of class field theory: ρ_π|W_v ≅ σ(π_v)^∨, so ρ_π = σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ; statement and hypotheses corrected."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/scholl-projector",
+          "verdict": "corrected",
+          "note": "Scholl 1.0–1.3, Theorems 1.2.1 and 1.2.4 and §4.1 read; |Γ_r| = 648 for n = 3, r = 2 recomputed. Corrected: named the weight argument of Scholl 1.3.4 inside the boundary computation; added the anchor for the Hecke compatibility (Scholl §4.1); the boundary test now speaks of the compactified variety."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent",
+          "verdict": "corrected",
+          "note": "Scholl Theorem 1.2.4, Remark 1.2.6 and 4.1–4.2 read; the level-23 and Δ examples checked; DDT has no level-88 example (Exercise 1.18 is the general statement). Corrected: the level-88 algebra is this roadmap's instance of DDT Exercise 1.18, not an example printed in DDT; the K_f-action is pinned by the transposes of the Hecke operators."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation",
+          "verdict": "corrected",
+          "note": "Kisin §4.1 (p. 542) and the proof of Theorem 4.3 (pp. 543–544), Skinner's equation (1) and Carayol 0.5 read; the unramified computation, the twist formulas and all six tests recomputed. Corrected: the construction uses Carayol's σ_λ(π) only at unramified places (Theorem (B)), so the prerequisite on Theorem (A) is replaced by Theorem (B); this lets Theorem (A) use the irreducibility node without a cycle. The λ-adic character of χ_π is now imported from its owner AG2.0/galois-character-of-an-algebraic-hecke-character; consumers named."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+          "verdict": "corrected",
+          "note": "Each clause recomputed from the sources' own conventions: Carayol 0.4–0.8, Saito pp. 9–13, Kisin §4.1–4.3, Skinner pp. 241–256, Skinner–Wiles pp. 9, 30, 38–39, CDN pp. 43–45, KW II pp. 5, 59–60, 80. Clauses (a)–(f) and (h) are right. Corrected: (g) corrected: Skinner–Wiles' ρ_π is σ_λ(π)^∨ = ρ_{π,λ} ⊗ ε_ℓ (their class field theory is arithmetic, §2.1 p. 9); (i) restated for the local parameters, so that it no longer presupposes local–global compatibility; a clause (j) records Khare–Wintenberger's convention; the transport of statements at v | ℓ through twists by Hecke characters is made explicit; prerequisites: Theorem (B) in place of Theorem (A), and the Hecke-character node of AG2.0."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-hodge-tate-property",
+          "verdict": "corrected",
+          "note": "Skinner pp. 243 and 251–252 read; the reduction, the parameters (a_i, b_i) = (−2, 0), degrees 2, 1, 0 for the symmetric square and the Wintenberger step match; the twist to w = 0 is the source's 'w = 2'. Corrected: (a) restated: in the CM case the de Rham property comes from the Hecke character, as step 1 says; the Hecke-character node of AG2.0 is the named input."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
+          "verdict": "corrected",
+          "note": "Carayol 5.6.1 and Skinner's Remark (p. 256) read; determinant, value at complex conjugation and the L-function argument recomputed; no forward use of the coefficient-prime theorem. Corrected: oddness: |·|^{−w} corresponds to ε_ℓ^{−w}, not ε_ℓ^{w}; irreducibility: the pole is that of L(π ⊗ ψ₂^{−1}, s − 1/2) at s = 1 (source issue E5), and the converse for Hodge–Tate characters is imported from R24.5/character-system; the Hecke-character node of AG2.0 added."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/cm-hilbert-eigenform",
+          "verdict": "corrected",
+          "note": "Dasgupta–Kakde §9.1 and BGV Remarks (i)–(ii) match; the infinity type of the inducing character recomputed from Carayol 11.2. Corrected: α has half-integral infinity type and is not algebraic; α′ = α|·|_L^{−1/2} is, and its λ-adic character is the inducing character. Statement, API and tests corrected, and a test that detects a half-integral shift added."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/virtual-reducibility-implies-cm",
+          "verdict": "corrected",
+          "note": "Ribet 1975 Theorem 2.3 (pp. 251–252), BGV Remark (ii) and Dasgupta–Kakde Lemma 9.1 match. Corrected: stated for ρ_{π,λ} and its twists and duals; the Hodge–Tate and class-field inputs its steps use are now prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/dimitrov-large-image",
+          "verdict": "verified",
+          "note": "Dimitrov Propositions 3.1, 3.5, 3.8 and §3.2 and Newton–Thorne Lemma 5.7 (p. 41) match; the statement does not depend on the normalisation."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/ribet-momose-classical-large-image",
+          "verdict": "corrected",
+          "note": "Ribet 1985 Theorems 2.1 and 3.1 and §3 (pp. 188–192, page images) and Newton–Thorne II p. 26 match. Corrected: the two inputs of Ribet's Theorem 2.1 (conductors of twists, and inertia at ℓ) are named and added as prerequisites."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family",
+          "verdict": "verified",
+          "note": "Assembled from the member, the dictionary, the two compatibility theorems and purity; Dieulefait–Pacetti Definition 1.10 read; the supplier R24.5:operations provides the carrier."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+          "verdict": "verified",
+          "note": "Skinner's equation (1) and Blasius §2.3 and §3 read; Carayol's range is Theorem (A); Taylor's originals remain a recorded gap. Conductor and L-factor consequences recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime",
+          "verdict": "corrected",
+          "note": "Kisin Theorem 4.3 and its proof (pp. 543–544) and Theorems 2.5.5 (p. 530) and 2.7.6 (p. 534) read: residual absolute irreducibility kept, arbitrary A°, and tr(w | σ_v) = t_v fixes the correspondence. Corrected: locator repaired: Theorem 2.5.5 is on p. 530 and Theorem 2.7.6 on p. 534."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+          "verdict": "corrected",
+          "note": "Skinner's whole paper read; the reduction of §2.2, §2.3.2–2.3.3, §2.4.1 and the family argument of §2.4.2 with footnote 9 match the five steps. Corrected: the classical points of the family are given in the roadmap's infinity types (the source's w is shifted by 2, source issue E4)."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/ordinary-refinement-and-saturated-lattice",
+          "verdict": "corrected",
+          "note": "Skinner–Wiles (3.2) checked; unit roots for 11a1 at 3 and 2 and the saturation example recomputed. Corrected: the lattice is placed: a lattice in the arithmetic ρ_{f,λ}, dual to the integral cohomological realisation."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/good-nonordinary-crystalline-wach-realisation",
+          "verdict": "verified",
+          "note": "Scholl Theorem 1.2.4(ii) read; the basis-change rule, the slopes at 2 and the rank-one example recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/endpoint-weight-local-contract",
+          "verdict": "verified",
+          "note": "KW II Corollary 7.8 read; the ranges [0, k−1] and [0, p−2] recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/ordinary-cm-primes-split",
+          "verdict": "corrected",
+          "note": "Hara–Ochiai Proposition A.3 (pp. 70–71) and Dasgupta–Kakde p. 67 match; the Q(i) example recomputed. Corrected: added the prerequisite R19.2/hilbert-hodge-tate-property, whose labelled Hodge–Tate degrees step 1 uses."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.2/cm-ordinary-line-complex-conjugation",
+          "verdict": "verified",
+          "note": "Dasgupta–Kakde Lemma 9.2 and proof (p. 67) match with its hypotheses."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.5/shimura-curve-hk-dR-multiplicity",
+          "verdict": "corrected",
+          "note": "CDN §5.2.1 and Proposition 5.2 with its proof (pp. 43–45) read: the choices, both Hom identities and the decomposition with ρ_π(−1) match. Corrected: the identification with ρ_{π,λ}^∨ states the action convention it rests on."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.3/skinner-density-one-ordinary-primes",
+          "verdict": "verified",
+          "note": "Skinner 2020 §3 (p. 350) matches, including the quantifiers; the norm bound recomputed."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant",
+          "verdict": "corrected",
+          "note": "DDT §4.1 and Lemmas 1.37–1.39 and Kisin's proof of Theorem 4.3 read; the degree-two cross-coefficient identity and the dual-number example recomputed. Corrected: the level-88 example is this roadmap's own instance and is no longer attributed to DDT; the law is stated to be that of cohomology, the dual of the Tate module."
+        },
+        {
+          "nodeId": "AutomorphicGaloisRepresentations:R19.6/hecke-family-local-conditions",
+          "verdict": "verified",
+          "note": "DDT Lemma 3.27 leaves (a)–(c) to the reader; Kisin 2.5.5 and 2.7.6 are for arbitrary A° and finite algebras; flat descent of an ideal vanishing generically is correct."
         }
       ]
     }
