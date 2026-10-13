@@ -252,6 +252,17 @@
       ],
       "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
       "revisionRead": "Revision 2: Theorem C, its exact Eisenstein hypotheses and subsequent Greenberg reformulation, PDF pp.3–4."
+    },
+    {
+      "id": "nekovar",
+      "title": "Selmer complexes",
+      "authors": "Jan Nekovář",
+      "edition": "Astérisque 310, Société Mathématique de France, 2006",
+      "url": "http://www.numdam.org/item/AST_2006__310__R1_0/",
+      "accessed": "2026-10-13",
+      "readSections": [
+        "§12.2 (Theorem 12.2.3, Remark 12.2.4); §§12.7.12–12.7.14 (parity in self-dual ordinary families); §§12.9–12.10 (the rank-one case through Heegner points and the quadratic-twist decomposition)"
+      ]
     }
   ],
   "nodes": [
@@ -3422,6 +3433,49 @@
       "declaration": "universalNormFamily_trace",
       "promotedFrom": "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
       "addedBy": "REV-HeegnerPointEulerSystems--HE.7s~2"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/nekovar-modular-selmer-parity",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Nekovář's parity theorem for ordinary modular forms",
+      "kind": "theorem",
+      "statement": "Let f be a cuspidal newform over ℚ of even weight k and trivial nebentypus, p odd, λ | p a prime of the coefficient field at which f is ordinary, and V = V_λ(f)(k/2) in Nekovář's self-dual convention. For F = ℚ or any quadratic extension of ℚ, dim_{E_λ} H¹_f(F, V) ≡ ord_{s=k/2} L(f/F, s) (mod 2). The Selmer-complex half (the parity of the Selmer rank is constant along the self-dual ordinary Hida family through f and decomposes along quadratic characters) is supplied by SelmerIwasawaCohomology §4.28; this target owns the analytic half: a member of the family of analytic rank one at which the congruence holds, obtained from Heegner points on Shimura curves, the Gross–Zagier–Zhang formula and Kolyvagin's Euler system, together with level raising and the Cornut–Vatsal nonvanishing used to reach such a member.",
+      "hypotheses": [
+        "f a cuspidal newform of even weight k ≥ 2 and trivial nebentypus; p odd; λ-ordinary; F = ℚ or quadratic over ℚ; the analytic order ord_{s=k/2} L(f/F, s) is finite.",
+        "The self-dual ordinary Hida family through f exists and the hypotheses (A1)–(A3) of SelmerIwasawaCohomology §4.28 hold along it."
+      ],
+      "proofSteps": [
+        "Decompose both sides over F/ℚ (quadratic character twist) and reduce to F = ℚ and a quadratic twist, using the quadratic-twist parity of SelmerIwasawaCohomology §4.28.",
+        "Move along the Hida family to a member of weight two with root number −1 and analytic rank one (level raising and Cornut–Vatsal), where the Heegner point is nontorsion by Gross–Zagier–Zhang.",
+        "Apply Kolyvagin's Euler system (HE.8) to obtain Selmer rank one at that member; the family parity theorem transports the congruence back to f.",
+        "Match the analytic side through the functional equation: the root number is (−1)^{ord L}, constant in the family."
+      ],
+      "acceptance": [
+        "State the congruence exactly with Nekovář's self-dual twist and the finite Bloch–Kato Selmer group of SelmerIwasawaCohomology §4.9; cite the family-parity and quadratic-twist targets of SelmerIwasawaCohomology §4.28 as suppliers, never restate them.",
+        "Record the root-number convention and the Cornut–Vatsal and level-raising inputs as named hypotheses or targets of this roadmap."
+      ],
+      "prerequisites": [
+        "SelmerIwasawaCohomology:L4",
+        "HeegnerPointEulerSystems:HE.8/cm-generic-root-number",
+        "GrossZagierAndArithmeticHeights:GZ.5",
+        "EulerSystemsAndKolyvaginSystems:ES.8"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar",
+          "locator": "Theorem 12.2.3 and Remark 12.2.4, pp. 421–422; §§12.9–12.10, pp. 505–528",
+          "match": "The parity theorem and its proof through a rank-one member of the family; the quadratic-twist decomposition in §§12.10.1–12.10.2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Parity",
+        "namespace": "TauCeti.Heegner.Parity"
+      },
+      "declaration": "theorem selmerParity_eq_analyticOrder_mod_two"
     }
   ],
   "requests": [
@@ -3667,6 +3721,13 @@
       "neededBy": [
         "HeegnerPointEulerSystems:HE.8b/auxiliary-quadratic-field-verification",
         "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L4",
+      "need": "The Selmer-complex half of Nekovář's parity theorem: the parity of the finite Selmer rank is constant along a self-dual ordinary Hida family and decomposes along quadratic characters (SelmerIwasawaCohomology §4.28, targets selmerParity_family and selmerParity_quadraticTwist), with the generalized Cassels–Tate pairing and the symplectic filtration behind it.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/nekovar-modular-selmer-parity"
       ]
     }
   ],
