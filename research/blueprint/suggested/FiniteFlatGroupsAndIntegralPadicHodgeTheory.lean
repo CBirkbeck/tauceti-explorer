@@ -21,6 +21,7 @@ import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.CategoryTheory.Galois.Equivalence
 import Mathlib.RingTheory.WittVector.Frobenius
+import Mathlib.RingTheory.WittVector.Compare
 import Mathlib.RingTheory.WittVector.Identities
 import Mathlib.RingTheory.WittVector.Isocrystal
 import Mathlib.RingTheory.WittVector.DiscreteValuationRing
@@ -40,7 +41,10 @@ import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
 and signatures. All proposed results are unproved prototypes at the pinned baseline
-(Mathlib 082e2d3, Tau Ceti f790474); the file has not been compiled.
+(Mathlib 082e2d3, Tau Ceti f790474); the file elaborates there with `sorry` as its only warning.
+Objects owned by other roadmaps appear as `sorry`-bodied placeholders so that the statements have their
+final signatures; the targets that the pinned libraries cannot yet express are listed by name in the
+closing comment.
 
 Layer covered: R07.1 (p-divisible groups of arbitrary height with duality, Tate modules and
 the connected–étale sequence; schematic closure and finite flat models; Raynaud's uniqueness
@@ -71,6 +75,8 @@ named after their owners' planned declarations:
 * `IsUnramifiedOutside` — unramified Galois modules (InverseGaloisAndArithmeticFundamentalGroups
   IG.0, via SGA 1 V.8.2).
 -/
+
+set_option linter.overlappingInstances false
 
 noncomputable section
 
@@ -130,7 +136,7 @@ def genericFibre (G : FLF R) : FLF K :=
   (FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor R K).obj G
 
 /-- The Galois module `G(K̄)` of points of the generic fibre (ModularCurves 0D). -/
-def genericPoints (G : FLF R) : Type u := sorry
+def genericPoints (K : Type u) [Field K] [Algebra R K] (G : FLF R) : Type u := sorry
 
 instance (G : FLF R) : AddCommGroup (genericPoints K G) := sorry
 
@@ -199,7 +205,7 @@ variable [IsDomain R] (K : Type u) [Field K] [Algebra R K] [IsFractionRing R K]
   [CharZero K]
 
 /-- R07.1/p-divisible-tate-module: `T_p(G) = lim_v G_v(K̄)`, with its Galois action. -/
-def tateModule (G : PDivisibleGroup R p h) : Type u := sorry
+def tateModule (K : Type u) [Field K] [Algebra R K] (G : PDivisibleGroup R p h) : Type u := sorry
 
 instance (G : PDivisibleGroup R p h) : AddCommGroup (tateModule K G) := sorry
 
@@ -288,13 +294,13 @@ end Models
 /-- Raynaud's condition (**): the eigen-sheaves of the augmentation ideal for the fundamental
 characters of `F^×` are invertible. -/
 def SatisfiesStarStar {F : Type} [Field F] [Fintype F] {R : Type u} [CommRing R] (G : FLF R)
-    (act : F →+* End G) : Prop := sorry
+    (act : F →* End G) : Prop := sorry
 
 /-- R07.1/f-vector-scheme: an `F`-vector scheme of rank `card F` satisfying (**). The base is
 an algebra over Raynaud's ring `D`. -/
 structure FVectorScheme (F : Type) [Field F] [Fintype F] (R : Type u) [CommRing R] where
   G : FLF R
-  act : F →+* End G
+  act : F →* End G
   rank_eq : rank G = Fintype.card F
   starStar : SatisfiesStarStar G act
 
@@ -450,14 +456,14 @@ theorem exists_of_tateModule_summand [IsDiscreteValuationRing R] {h : ℕ}
       Function.Injective (φ.tateModuleMap K) ∧ LinearMap.range (φ.tateModuleMap K) = M := sorry
 
 /-- PadicHodgeTheory R06.1: `C`, the completion of an algebraic closure of `K`. -/
-def CK : Type u := sorry
+def CK (K : Type u) [Field K] : Type u := sorry
 
 instance : Field (CK K) := sorry
 
 instance : Algebra K (CK K) := sorry
 
 /-- `Hom_{ℤ_p}(T_p(G), C)^{G_K}`, a `K`-vector space. -/
-def hodgeTateInvariants {h : ℕ} (G : PDivisibleGroup R p h) : Type u := sorry
+def hodgeTateInvariants (K : Type u) [Field K] [Algebra R K] {h : ℕ} (G : PDivisibleGroup R p h) : Type u := sorry
 
 instance {h : ℕ} (G : PDivisibleGroup R p h) : AddCommGroup (hodgeTateInvariants K G) := sorry
 
@@ -594,7 +600,7 @@ structure DieudonneModule.Hom (M N : DieudonneModule p k) where
 
 /-- R07.2/frobenius-verschiebung: the relative Frobenius `F_G : G → G^{(p)}` (its target, the
 Frobenius twist, is recorded through `frobeniusTwist`). -/
-def frobeniusTwist (G : FLF k) : FLF k := sorry
+def frobeniusTwist (p : ℕ) (k : Type u) [Field k] (G : FLF k) : FLF k := sorry
 
 def frobeniusHom (G : FLF k) : G ⟶ frobeniusTwist p k G := sorry
 
@@ -925,3 +931,233 @@ theorem SemilinearDescentData.act_mul_apply {Γ S M : Type*} [Group Γ] [CommRin
   rw [D.act_mul]; rfl
 
 end TauCeti.BreuilKisin
+
+namespace TauCeti.Dieudonne
+
+/-! ## R07.2: coefficients — Frobenius-fixed Witt vectors and characteristic polynomials
+
+These two statements make the coefficient recognition used with Dieudonné modules over finite
+fields explicit (R07.2/witt-frobenius-fixed-constants, R07.2/semilinear-charpoly-descent). -/
+
+section Coefficients
+
+variable (p : ℕ) [Fact p.Prime] (k : Type*) [Field k] [CharP k p]
+
+/-- The canonical map `ℤ_p ≅ 𝕎(F_p) → 𝕎(k)` induced by `F_p ⊆ k`. -/
+noncomputable def padicConstants : ℤ_[p] →+* WittVector p k :=
+  (WittVector.map (ZMod.castHom (dvd_refl p) k)).comp (WittVector.equiv p).symm.toRingHom
+
+/-- R07.2/witt-frobenius-fixed-constants: `ι_k` is injective. -/
+theorem padicConstants_injective : Function.Injective (padicConstants p k) := sorry
+
+/-- R07.2/witt-frobenius-fixed-constants: an element of `𝕎(k)` is fixed by the Witt vector
+Frobenius iff it is a `p`-adic constant. No finiteness or perfectness of `k` is assumed. -/
+theorem frobenius_eq_self_iff (x : WittVector p k) :
+    WittVector.frobenius x = x ↔ x ∈ Set.range (padicConstants p k) := sorry
+
+/-- Test: over `k = F_p` every Witt vector is fixed by Frobenius (Mathlib's
+`WittVector.frobenius_zmodp`), as the characterisation predicts. -/
+example (x : WittVector p (ZMod p)) : WittVector.frobenius x = x :=
+  WittVector.frobenius_zmodp p x
+
+/-- R07.2/semilinear-charpoly-descent: if `T` is `σ`-conjugate to itself over
+`L = Frac 𝕎(k)`, its characteristic polynomial has coefficients in `ℤ_p`. -/
+theorem exists_padic_charpoly [PerfectRing k p] {n : Type*} [Fintype n] [DecidableEq n]
+    (T : Matrix n n (WittVector p k)) (B : Matrix n n (FractionRing (WittVector p k)))
+    (hB : IsUnit B.det)
+    (hT : T.map (algebraMap (WittVector p k) (FractionRing (WittVector p k))) =
+      B * T.map (fun x => algebraMap (WittVector p k) (FractionRing (WittVector p k))
+        (WittVector.frobenius x)) * B⁻¹) :
+    ∃ P : Polynomial ℤ_[p], P.Monic ∧ P.natDegree = Fintype.card n ∧
+      P.map (padicConstants p k) = T.charpoly := sorry
+
+/-- Test: the empty matrix has characteristic polynomial `1`, which descends as `1`. -/
+example [PerfectRing k p] (T : Matrix (Fin 0) (Fin 0) (WittVector p k)) :
+    T.charpoly = (1 : Polynomial ℤ_[p]).map (padicConstants p k) := by
+  simp [Matrix.charpoly, Matrix.det_fin_zero]
+
+end Coefficients
+
+end TauCeti.Dieudonne
+
+/-!
+## Statements not typed at the pins
+
+The following API items and unit tests of the roadmap are stated in the roadmap document; their
+carriers (finite flat group schemes over general bases, crystals, period rings, Galois cohomology
+of local fields, Kisin modules, smooth representations of `GL₂`) are not available in the pinned
+libraries in a form that makes the statements meaningful, so they are listed by name only.
+
+R07.1:
+  TauCeti.FiniteFlat.FVectorScheme.cartierDual_zModP,
+  TauCeti.FiniteFlat.FVectorScheme.not_of_rank,
+  TauCeti.FiniteFlat.FVectorScheme.of_generic_char_zero,
+  TauCeti.FiniteFlat.FVectorScheme.rank_eq, TauCeti.FiniteFlat.FVectorScheme.supersingular_E_p,
+  TauCeti.FiniteFlat.FVectorScheme.zModP, TauCeti.FiniteFlat.FormalLieGroup.dim_multiplicative,
+  TauCeti.FiniteFlat.FormalLieGroup.dim_zero, TauCeti.FiniteFlat.FormalLieGroup.height_elliptic,
+  TauCeti.FiniteFlat.FormalLieGroup.inv, TauCeti.FiniteFlat.FormalLieGroup.mulP,
+  TauCeti.FiniteFlat.FormalLieGroup.not_isPDivisible_additive,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_height,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_levels,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_transition,
+  TauCeti.FiniteFlat.PDivisibleGroup.cartierDual_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.continuous_galoisAction,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_baseChange,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_height_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_le_height,
+  TauCeti.FiniteFlat.PDivisibleGroup.dim_supersingular,
+  TauCeti.FiniteFlat.PDivisibleGroup.height_abelianScheme,
+  TauCeti.FiniteFlat.PDivisibleGroup.height_constQpZp,
+  TauCeti.FiniteFlat.PDivisibleGroup.height_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.not_of_constant_ZpZ,
+  TauCeti.FiniteFlat.PDivisibleGroup.ordinary_nonsplit,
+  TauCeti.FiniteFlat.PDivisibleGroup.supersingular_connected,
+  TauCeti.FiniteFlat.PDivisibleGroup.tangentSpace,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModulePairing,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_constQpZp,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_height_zero,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_map,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_muPInfty,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateModule_not_direct_limit,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateSheaf,
+  TauCeti.FiniteFlat.PDivisibleGroup.tateSheaf_exact,
+  TauCeti.FiniteFlat.PDivisibleGroup.truncation,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_eq_hom,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_etale,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_isogeny,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_mu,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_not_colim,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_perfect,
+  TauCeti.FiniteFlat.PDivisibleGroup.universalCover_zero,
+  TauCeti.FiniteFlat.Prolongation.dyadic_two_models,
+  TauCeti.FiniteFlat.Prolongation.exists_max_min, TauCeti.FiniteFlat.Prolongation.inf,
+  TauCeti.FiniteFlat.Prolongation.self, TauCeti.FiniteFlat.Prolongation.two_models_mu_p,
+  TauCeti.FiniteFlat.Prolongation.unique_etale_Zp, TauCeti.FiniteFlat.TruncatedBT,
+  TauCeti.FiniteFlat.TruncatedBT.elliptic, TauCeti.FiniteFlat.TruncatedBT.mu,
+  TauCeti.FiniteFlat.TruncatedBT.not_Zp2_level1, TauCeti.FiniteFlat.TruncatedBT.not_alpha,
+  TauCeti.FiniteFlat.TruncatedBT.of_exact, TauCeti.FiniteFlat.TruncatedBT.restrict,
+  TauCeti.FiniteFlat.katzMazur_neg_one_two, TauCeti.FiniteFlat.katzMazur_not_split,
+  TauCeti.FiniteFlat.katzMazur_one
+
+R07.2:
+  TauCeti.Dieudonne.DieudonneModule.zero, TauCeti.Dieudonne.DieudonneRing,
+  TauCeti.Dieudonne.DieudonneRing.F_mul, TauCeti.Dieudonne.DieudonneRing.F_mul_V,
+  TauCeti.Dieudonne.DieudonneRing.basis, TauCeti.Dieudonne.DieudonneRing.comm_of_Fp,
+  TauCeti.Dieudonne.DieudonneRing.mul_V, TauCeti.Dieudonne.DieudonneRing.not_comm,
+  TauCeti.Dieudonne.DieudonneRing.quot_F_V, TauCeti.Dieudonne.aNumber,
+  TauCeti.Dieudonne.aNumber_M1, TauCeti.Dieudonne.covariantModule,
+  TauCeti.Dieudonne.covariantModule_equiv_dual, TauCeti.Dieudonne.covariantModule_lie,
+  TauCeti.Dieudonne.covariantModule_lie_mu, TauCeti.Dieudonne.covariantModule_mu,
+  TauCeti.Dieudonne.covariantModule_rank, TauCeti.Dieudonne.covariantModule_slope,
+  TauCeti.Dieudonne.covariantModule_zero, TauCeti.Dieudonne.dieudonneModule,
+  TauCeti.Dieudonne.dieudonneModule_F, TauCeti.Dieudonne.dieudonneModule_alphaP,
+  TauCeti.Dieudonne.dieudonneModule_muP, TauCeti.Dieudonne.dieudonneModule_not_covariant,
+  TauCeti.Dieudonne.dieudonneModule_prod, TauCeti.Dieudonne.dieudonneModule_trivial,
+  TauCeti.Dieudonne.dieudonneModule_zmodp, TauCeti.Dieudonne.dualModule,
+  TauCeti.Dieudonne.farguesLF, TauCeti.Dieudonne.frobeniusHom_naturality,
+  TauCeti.Dieudonne.frobenius_alphaP_zero, TauCeti.Dieudonne.frobenius_comp_verschiebung,
+  TauCeti.Dieudonne.frobenius_constZModP_iso, TauCeti.Dieudonne.hasseInvariant,
+  TauCeti.Dieudonne.hasseInvariant_baseChange, TauCeti.Dieudonne.hasseInvariant_dual,
+  TauCeti.Dieudonne.hasseInvariant_mu, TauCeti.Dieudonne.hasseInvariant_supersingular,
+  TauCeti.Dieudonne.hasseInvariant_weight, TauCeti.Dieudonne.hasseWitt,
+  TauCeti.Dieudonne.hodgeTateMap_exact, TauCeti.Dieudonne.isUnit_hasseInvariant_iff_ordinary,
+  TauCeti.Dieudonne.linearDualModule, TauCeti.Dieudonne.linearDual_ne_covariant,
+  TauCeti.Dieudonne.slopeSequence, TauCeti.Dieudonne.slopeSequence_baseChange,
+  TauCeti.Dieudonne.slopeSequence_dual, TauCeti.Dieudonne.slope_constQpZp,
+  TauCeti.Dieudonne.slope_muPInfty, TauCeti.Dieudonne.slope_out_of_range,
+  TauCeti.Dieudonne.slope_supersingular, TauCeti.Dieudonne.standardDieudonne,
+  TauCeti.Dieudonne.verschiebungHom_eq_cartierDual,
+  TauCeti.Dieudonne.verschiebung_comp_frobenius, TauCeti.Dieudonne.verschiebung_muP_iso,
+  TauCeti.Dieudonne.verschiebung_not_inverse, TauCeti.Dieudonne.wittGroup,
+  TauCeti.Dieudonne.wittGroupKer, TauCeti.Dieudonne.wittGroupKer_dieudonneAction,
+  TauCeti.Dieudonne.wittGroupKer_order, TauCeti.Dieudonne.wittGroupKer_points_zero,
+  TauCeti.Dieudonne.wittGroup_exact, TauCeti.Dieudonne.wittGroup_not_constant,
+  TauCeti.Dieudonne.wittGroup_one
+
+R07.3:
+  TauCeti.FontaineLaffaille.FLModule.IsTorsion, TauCeti.FontaineLaffaille.FLModule.isTorsion_iff,
+  TauCeti.FontaineLaffaille.FLModule.not_strongly_divisible,
+  TauCeti.FontaineLaffaille.FLModule.twist, TauCeti.FontaineLaffaille.FLModule.weights,
+  TauCeti.FontaineLaffaille.FLModule.zero, TauCeti.FontaineLaffaille.StronglyDivisibleLattice,
+  TauCeti.FontaineLaffaille.StronglyDivisibleLattice.toFLModule,
+  TauCeti.FontaineLaffaille.exists_stronglyDivisible_iff,
+  TauCeti.FontaineLaffaille.flFunctor_eq_hom, TauCeti.FontaineLaffaille.flFunctor_map,
+  TauCeti.FontaineLaffaille.flFunctor_not_covariant, TauCeti.FontaineLaffaille.flFunctor_unit,
+  TauCeti.FontaineLaffaille.flFunctor_zero, TauCeti.FontaineLaffaille.ringS,
+  TauCeti.FontaineLaffaille.ringS.completion, TauCeti.FontaineLaffaille.ringS.contains_WR,
+  TauCeti.FontaineLaffaille.ringS.galoisAction, TauCeti.FontaineLaffaille.ringS.galois_fixed,
+  TauCeti.FontaineLaffaille.ringS.not_WR, TauCeti.FontaineLaffaille.ringS.phi_teichmuller,
+  TauCeti.FontaineLaffaille.ringS.reduction, TauCeti.FontaineLaffaille.sdl_not_weakly_admissible,
+  TauCeti.FontaineLaffaille.sdl_slope_one, TauCeti.FontaineLaffaille.sdl_slope_zero,
+  TauCeti.FontaineLaffaille.sdl_zero
+
+R07.4:
+  TauCeti.BreuilKisin.BreuilModule, TauCeti.BreuilKisin.BreuilModule.IsMaximal,
+  TauCeti.BreuilKisin.BreuilModule.IsMinimal, TauCeti.BreuilKisin.BreuilModule.T0,
+  TauCeti.BreuilKisin.BreuilModule.exists_hom_to_maximal,
+  TauCeti.BreuilKisin.BreuilModule.fil_quotient_free,
+  TauCeti.BreuilKisin.BreuilModule.not_surjective, TauCeti.BreuilKisin.BreuilModule.ofKisin,
+  TauCeti.BreuilKisin.BreuilModule.ofKisin_unit, TauCeti.BreuilKisin.BreuilModule.ofPDivisible,
+  TauCeti.BreuilKisin.BreuilModule.zero, TauCeti.BreuilKisin.FilteredPhiNModuleDD,
+  TauCeti.BreuilKisin.FilteredPhiNModuleDD.IsWeaklyAdmissible,
+  TauCeti.BreuilKisin.FilteredPhiNModuleDD.galoisAction,
+  TauCeti.BreuilKisin.FilteredPhiNModuleDD.weilDeligne, TauCeti.BreuilKisin.KisinModule.category,
+  TauCeti.BreuilKisin.KisinModule.eisenstein_height_one,
+  TauCeti.BreuilKisin.KisinModule.not_finite_height,
+  TauCeti.BreuilKisin.KisinModule.unit_height_zero, TauCeti.BreuilKisin.KisinModuleCoeff,
+  TauCeti.BreuilKisin.KisinModuleCoeff.coker_projective,
+  TauCeti.BreuilKisin.KisinModuleCoeff.dual, TauCeti.BreuilKisin.KisinModuleCoeff.free_of_finite,
+  TauCeti.BreuilKisin.OE, TauCeti.BreuilKisin.SUr, TauCeti.BreuilKisin.StronglyDivisibleModule,
+  TauCeti.BreuilKisin.StronglyDivisibleModule.descentData,
+  TauCeti.BreuilKisin.StronglyDivisibleModule.monodromy,
+  TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible,
+  TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible_antiequiv,
+  TauCeti.BreuilKisin.StronglyDivisibleRModule,
+  TauCeti.BreuilKisin.StronglyDivisibleRModule.exists_of_lattice,
+  TauCeti.BreuilKisin.StronglyDivisibleRModule.tst,
+  TauCeti.BreuilKisin.StronglyDivisibleRModule.tst_free, TauCeti.BreuilKisin.TorsionKisinModule,
+  TauCeti.BreuilKisin.TorsionKisinModule.zero, TauCeti.BreuilKisin.breuilS,
+  TauCeti.BreuilKisin.coeff_zp, TauCeti.BreuilKisin.dst_cyclotomic_teichmuller,
+  TauCeti.BreuilKisin.dual_etale_multiplicative, TauCeti.BreuilKisin.eisenstein,
+  TauCeti.BreuilKisin.eisenstein_not_isUnit, TauCeti.BreuilKisin.eisenstein_unramified,
+  TauCeti.BreuilKisin.galoisType, TauCeti.BreuilKisin.galoisType_principal_series,
+  TauCeti.BreuilKisin.minimal_example, TauCeti.BreuilKisin.no_descent_qp,
+  TauCeti.BreuilKisin.not_commuting_action, TauCeti.BreuilKisin.not_generating,
+  TauCeti.BreuilKisin.not_projective, TauCeti.BreuilKisin.not_strongly_divisible,
+  TauCeti.BreuilKisin.rank_one_character, TauCeti.BreuilKisin.rank_one_maximal,
+  TauCeti.BreuilKisin.semistable_excluded, TauCeti.BreuilKisin.theta_eisenstein,
+  TauCeti.BreuilKisin.toWittR, TauCeti.BreuilKisin.trivial_descent,
+  TauCeti.BreuilKisin.tst_rank_one, TauCeti.BreuilKisin.unit_is_object, TauCeti.BreuilKisin.zero,
+  TauCeti.BreuilKisin.zp_coefficients
+
+R07.5:
+  TauCeti.FiniteFlat.IsPeuRamifiee, TauCeti.FiniteFlat.IsTresRamifiee,
+  TauCeti.FiniteFlat.cyclotomic_restrict_ne_one,
+  TauCeti.FiniteFlat.cyclotomic_restrict_tameInertia,
+  TauCeti.FiniteFlat.fundamentalCharacter_one_surjective,
+  TauCeti.FiniteFlat.fundamentalCharacter_pow_p,
+  TauCeti.FiniteFlat.fundamentalCharacter_two_norm,
+  TauCeti.FiniteFlat.isPeuRamifiee_iff_valuation, TauCeti.FiniteFlat.isPeuRamifiee_of_unit,
+  TauCeti.FiniteFlat.isPeuRamifiee_sqrt_neg_one, TauCeti.FiniteFlat.isTresRamifiee_sqrt_two,
+  TauCeti.FiniteFlat.kummerSubgroup, TauCeti.FiniteFlat.not_extension_sensitive,
+  TauCeti.FiniteFlat.peuRamifieH1, TauCeti.FiniteFlat.peuRamifieH1Int,
+  TauCeti.FiniteFlat.peuRamifieH1_Ql_finrank, TauCeti.FiniteFlat.peuRamifieH1_eq_top,
+  TauCeti.FiniteFlat.peuRamifieH1_iff_isPeuRamifiee, TauCeti.FiniteFlat.peuRamifieH1_nontrivial,
+  TauCeti.FiniteFlat.peuRamifieH1_quotient, TauCeti.FiniteFlat.peuRamifieH1_uniformiser,
+  TauCeti.FiniteFlat.peuRamifieH1_unit, TauCeti.FiniteFlat.tameInertiaIso,
+  TauCeti.FiniteFlat.tate_curve_tres, TauCeti.FiniteFlat.theta_one,
+  TauCeti.SerreWeights.SerreWeight, TauCeti.SerreWeights.SerreWeight.sym,
+  TauCeti.SerreWeights.compactInduction, TauCeti.SerreWeights.compactInduction_free,
+  TauCeti.SerreWeights.compactInduction_frobenius, TauCeti.SerreWeights.endEquivPolynomial,
+  TauCeti.SerreWeights.heckeOperatorT, TauCeti.SerreWeights.not_finite_dim,
+  TauCeti.SerreWeights.sym_dim, TauCeti.SerreWeights.trivial_length_two
+
+R07.6:
+  TauCeti.FiniteFlat.cyclotomic_upper_break, TauCeti.FiniteFlat.fontaineLowerIndex,
+  TauCeti.FiniteFlat.fontaineUpper, TauCeti.FiniteFlat.fontaineUpperBreak,
+  TauCeti.FiniteFlat.fontaineUpper_eq_serreUpper, TauCeti.FiniteFlat.shift_non_example,
+  TauCeti.FiniteFlat.tame_upper_break, TauCeti.FiniteFlat.unramified,
+  TauCeti.FiniteFlat.valuation_different_eq
+-/
