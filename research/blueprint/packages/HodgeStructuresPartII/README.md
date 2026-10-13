@@ -1,6 +1,6 @@
 # Roadmap: Hodge structures, Part II: variations, period maps and non-abelian Hodge theory
 
-This roadmap extends pure, mixed and polarized Hodge structures to families. It develops Higgs fields, parameter connections, complex non-abelian Hodge theory, variations and logarithmic extensions, period manifolds, rigidity and integrality, degeneration, definable period maps and real Noether–Lefschetz theory. Operators, monodromy, period maps and arithmetic realizations use the same coefficient objects and conventions.
+**Summary.** This roadmap extends pure, mixed and polarized Hodge structures to families. It develops Higgs fields, parameter connections, complex non-abelian Hodge theory, variations and logarithmic extensions, period manifolds, rigidity and integrality, degeneration, definable period maps and real Noether–Lefschetz theory. Operators, monodromy, period maps and arithmetic realizations use the same coefficient objects and conventions.
 
 Nine layers cover algebraic operators (H.0), projective complex non-abelian Hodge theory (H.1), variations and period geometry (H.2–H.3), parabolic estimates and rigidity (H.4–H.5), degeneration and definable Hodge loci (H.6–H.7), and real weight-two applications (H.8).
 
@@ -37,10 +37,10 @@ In the real weight-two layer separate geometric complex-linear action σ_C, coef
 | Pure and rational mixed Hodge structures; polarization and period points | `tauceti:TauCetiRoadmap/HodgeStructures`, L0–L3. Use `TauCeti.Hodge.HodgeStructureOn`, `MixedHodgeStructure`, `IsPolarization` and `PeriodDomain.Point`. |
 | Local coefficient objects | `TauCeti.AlgebraicTopology.LocalCoefficient`, the native functor on the fundamental groupoid. Compare its fibres, restrictions and monodromy with ordinary module sheaves. |
 | Common variation datum | `ShimuraData:D3`. Import its local system, holomorphic filtration, flat connection, fibre comparison and Griffiths transversality. H.2 adds the interfaces needed here; it does not define another common carrier. |
-| Ordinary connections and relative/logarithmic calculus | `CrystallineCohomology:CR.1`. Require the ordinary connection carrier on arbitrary commutative ringed differential sites, with curvature and horizontal maps, as well as the smooth relative and logarithmic specializations. Quasi-nilpotence belongs to crystal comparisons. |
+| Ordinary connections and relative/logarithmic calculus | `CrystallineCohomology:CR.1` owns ordinary connections. Its Kähler-quotient and crystalline-site interfaces must extend to supplied commutative ringed differential sites, with exterior extension, curvature, horizontal maps and restriction/descent, before the general unit-parameter comparison can use that carrier. Keep PD and quasi-nilpotence hypotheses on crystal comparisons. |
 | Sheaf tensor and algebraic vector-bundle operations | Native `TauCeti.SheafOfModules.tensorProduct`, its defining sheafification isomorphism, unitors, symmetry, associativity and over-site restriction. `tauceti:TauCetiRoadmap/AlgebraicVectorBundles`, L0A–L0C, owns the closed monoidal, finite locally free dual, pullback and polynomial-operation interfaces; consume them for scheme modules. |
 | General ringed-site coefficient operations and derived cohomology | `EnhancedDerivedSheaves:E1`. Use native sheaf tensor, dual, exterior and symmetric powers with their stated hypotheses. Supply the remaining polynomial-operation comparisons, descent, tensor exactness and coherent hypercohomology interfaces, consuming algebraic vector-bundle operations on schemes. |
-| Filtered modules and Rees objects | `DerivedDeRhamCohomology:DD.1`. Supply bounded locally split filtrations, their graded quotients, finite Rees fibres, localization and functorial comparisons. The unbounded period lattice needs a separate comparison. |
+| Filtered modules and Rees objects | `DerivedDeRhamCohomology:DD.1` owns filtered and Rees objects. Its enhanced derived interface must export the ordinary finite locally split sheaf lattice, graded quotients, fibres at zero and one, localization and natural restriction/descent maps. Derived cofibres alone do not give these ordinary maps. The unbounded period lattice needs a separate comparison. |
 | Determinant derivative | `ColemanPowerSeries:L1/derivation-determinant-unit`. For a matrix unit G over an arbitrary commutative algebra, supply δ(det G)=det G·tr(G⁻¹δG), also in rank zero and characteristic two. |
 | Analytification, coherent GAGA and relative cohomology | `ComplexComparisonPartII:C0`, C2, C4 and C5. Require actual analytic bundle and relative base-change maps. Compact coefficient Hodge theory, nonlinear metric analysis and proper analytic images are additional general analytic interfaces. |
 | Coherent moduli, Quot/Hom schemes, GIT and deformation algebraization | `AlgebraicModuliForArithmeticGeometry:R09.1`, R09.2, R09.5, R09.6 and `SchemeAndStackFoundations:SF.3`, SF.5. Ordinary curve degree, Harder–Narasimhan theory and vector-bundle Clifford estimates belong to their general curve supplier. |
@@ -143,6 +143,23 @@ without equating sheaf-power sections to powers of section modules.
 Finite local freeness, polynomial-operation pullback comparisons, determinant
 gluing and horizontal operator laws retain their stated supplier contracts.
 
+## How to read the suggested signatures
+
+The detailed definitions, APIs, geometric hypotheses and checks are given below.
+The Lean file suggests statements over native carriers and light definitions.
+Its `Affine` namespace uses commuting derivations and matrices for the local
+parameter operator, curvature, component gauge change and ordered nilpotence;
+the intrinsic sheaf operators retain the more general scope stated here.
+`NonabelianHodge` uses actual group representations, while `Variation` fixes
+the rank-one residue sign. `PeriodGeometry` records the quotient-valued linear
+symbol and `ParabolicBounds` the linear evaluation used after geometric section
+multiplication is constructed. `Arithmetic` retains matrix realizations and
+full projective lattices, `Rigidity` the native quasi-finite locus,
+`Degeneration` nilpotence under nonzero scaling, `Tame` sector inequalities,
+and `RealNL` the Tate-twisted invariant part and full-lattice cone statement.
+These local signatures do not assert the represented moduli, analytic spaces,
+cohomological comparisons or global descent needed by the corresponding layers.
+
 ## Layer 0: Higgs fields and parameter connections
 
 The algebraic layer develops full operator interfaces before invoking moduli or an analytic correspondence. There are three useful levels: arbitrary affine modules with supplied differential calculus; finite free charts with explicit matrices; and finite locally free sheaves with intrinsic forms. The comparisons between these levels must be constructed. A coordinate formula is not a definition of universal differentials, and a module tensor product is not a definition of a sheaf tensor product.
@@ -158,9 +175,10 @@ although D(1)=ω≠0. Since Ω¹_(Q/Q)=0, no quotient of that Kähler module is 
 supplied Ω¹. Thus a comparison restricted to Kähler-quotient calculi does not
 cover the stated generality. Check the zero scalar differential, the nonzero
 unit image, flatness and scalar Leibniz simultaneously. The affine signatures
-`NonUniversalDifferentialChecks` prove these four coordinate checks directly
-and separately exclude every surjective Q-linear map Ω¹_(Q/Q)→Q. The latter
-uses Mathlib's `KaehlerDifferential.subsingleton_of_surjective` at the identity
+`Affine.operator` with `Frame.zero` and the identity matrix gives the nonzero
+operator in this example. The no-surjection example separately excludes every
+surjective Q-linear map Ω¹_(Q/Q)→Q. It uses Mathlib's
+`KaehlerDifferential.subsingleton_of_surjective` at the identity
 algebra map: each differential is zero, so any linear map has zero image and
 cannot reach 1. The general-site comparison must additionally preserve
 restrictions and every exterior extension. This is an algebraic example of the
@@ -174,7 +192,7 @@ A horizontal map u:E→F is O-linear with D_Fu=(u⊗1)D_E. Give identity, compos
 
 λd(φ(e))=⟨D∨φ,e⟩+⟨φ,De⟩.
 
-Prove uniqueness, horizontal evaluation and canonical biduality, and the sign κ_D∨=−transpose(κ_D). Finite locally free biduality reflects as well as preserves flatness. Pullback along a ringed differential morphism uses the supplied one-form comparison and its differential/wedge compatibility, with D_Y(b⊗e)=λ_Y e⊗d_Yb+b·df(D_Xe). Prove horizontal functoriality, identity, composition, tensor and dual comparisons, preservation of curvature and unique descent along horizontal transition maps satisfying their cocycle. Pullback needs no flatness premise for finite locally free E. Coordinate comparison identifies the intrinsic operator with λd+A only when the chart supplies a genuine differential basis and its commuting dual derivations. If λ is a unit, dividing D by λ gives the ordinary connection with curvature λ⁻²κ_D and inverse functor ∇↦λ∇. At λ=0 identify the object with an integrable Higgs field; at λ=1 identify it with CR.1's ordinary carrier.
+Prove uniqueness, horizontal evaluation and canonical biduality, and the sign κ_D∨=−transpose(κ_D). Finite locally free biduality reflects as well as preserves flatness. Pullback along a ringed differential morphism uses the supplied one-form comparison and its differential/wedge compatibility, with D_Y(b⊗e)=λ_Y e⊗d_Yb+b·df(D_Xe). Prove horizontal functoriality, identity, composition, tensor and dual comparisons, preservation of curvature and unique descent along horizontal transition maps satisfying their cocycle. Pullback needs no flatness premise for finite locally free E. Coordinate comparison identifies the intrinsic operator with λd+A only when the chart supplies a genuine differential basis and its commuting dual derivations. If λ is a unit, dividing D by λ gives the ordinary connection with curvature λ⁻²κ_D and inverse functor ∇↦λ∇. At λ=0 identify the object with an integrable Higgs field. At λ=1 the identity-on-operators equivalence requires CR.1's ordinary carrier on this same supplied calculus, including its restriction and exterior extension laws; a Kähler-quotient or PD-site comparison alone does not establish it.
 
 **Checks.**
 
@@ -331,11 +349,11 @@ Required tests include a finite-projective module specified by an idempotent wit
 
 ### Griffiths symbols, finite Rees and the period adapter
 
-For an ordinary integrable connection and a finite locally split Griffiths filtration, construct the graded Higgs symbol grᵖE→grᵖ⁻¹E⊗Ω¹. Changing a representative by Fᵖ⁺¹ changes its image by Fᵖ, and the scalar term e⊗da lies in the same discarded step; hence the symbol is O-linear. Give the trivial filtration, integer shift F⟨m⟩ᵖ=Fᵖ⁺ᵐ, evaluation, grading and morphism functoriality. Shifting reindexes the graded object. Flatness gives exterior integrability, while bounds Fᵃ=E and Fᵇ⁺¹=0, a≤b, give the positive ordered bound b−a+1. Use DD.1's Rees carrier Σ_p t⁻ᵖFᵖE to construct t∇ relatively to the parameter base, where dt=0. Its generator formula is D(e t⁻ᵖ)=∇e t¹⁻ᵖ and its curvature vanishes. The t=0 fibre is the graded Higgs field, the t=1 fibre the original connection, and after inverting t the comparison is the prescribed localized operator. These are operator comparisons as well as module isomorphisms. Sources: [EGa], Lemma 4.9, p.24; [EG20], Lemma 4.9, p.132; [LZ17], Definitions 3.5–3.6, pp.21–22.
+For an ordinary integrable connection and a finite locally split Griffiths filtration, construct the graded Higgs symbol grᵖE→grᵖ⁻¹E⊗Ω¹. Changing a representative by Fᵖ⁺¹ changes its image by Fᵖ, and the scalar term e⊗da lies in the same discarded step; hence the symbol is O-linear. Give the trivial filtration, integer shift F⟨m⟩ᵖ=Fᵖ⁺ᵐ, evaluation, grading and morphism functoriality. Shifting reindexes the graded object. Flatness gives exterior integrability, while bounds Fᵃ=E and Fᵇ⁺¹=0, a≤b, give the positive ordered bound b−a+1. Given DD.1's ordinary finite Rees export, use its carrier Σ_p t⁻ᵖFᵖE to construct t∇ relatively to the parameter base, where dt=0. Its generator formula is D(e t⁻ᵖ)=∇e t¹⁻ᵖ and its curvature vanishes. The t=0 fibre is the graded Higgs field, the t=1 fibre the original connection, and after inverting t the comparison is the prescribed localized operator. These are operator comparisons as well as module isomorphisms. Sources: [EGa], Lemma 4.9, p.24; [EG20], Lemma 4.9, p.132; [LZ17], Definitions 3.5–3.6, pp.21–22.
 
 The unbounded localized period filtration used by Liu–Zhu requires its own E1/DD.1 period lattice, residue, Tate and Galois comparisons. It is not the finite Rees module with an altered name. Determinant and Tate symbols must descend through the global exterior and line-coefficient interfaces, and pullback must commute with those identifications. These targets supply algebraic adapters to the p-adic consumers; the consumers supply their period sheaves and correspondence hypotheses.
 
-[BF22], §2.2.1, Proposition 2.2.6 and Remark 2.2.8, pp.16–17, give the affine Rees equivalence for finite filtrations with finite-projective graded pieces. For smooth varieties in characteristic zero, Remark 2.3.7, pp.25–26, identifies Griffiths-filtered flat bundles with bundles on the filtered de Rham stack. Hodge-stack restriction gives gr⁻ⁱE in weight i, with its field raising weight by one. The general differential-site interface also needs gluing and operator transport.
+[BF22], §2.2.1, Proposition 2.2.6, p.16, gives the enhanced derived Rees equivalence; Remark 2.2.8, p.17, identifies its finite-projective specialization with genuine bounded filtrations having finite-projective graded pieces. For the ordinary sheaf export, require the intrinsic lattice Σ_p FᵖE·t⁻ᵖ⊂E[t,t⁻¹], Rees/(t)≃⊕_p grᵖE, Rees/(t−1)≃E and Rees[t⁻¹]≃E[t,t⁻¹]. The maps send e t⁻ᵖ to its graded class, to e, and to its Laurent section respectively. They must commute with filtered morphisms, tensors, restrictions and descent independently of any local splitting. H.0 constructs the induced operator on this carrier; it does not construct a second Rees object. For smooth varieties in characteristic zero, Remark 2.3.7, pp.25–26, identifies Griffiths-filtered flat bundles with bundles on the filtered de Rham stack. Hodge-stack restriction gives gr⁻ⁱE in weight i, with its field raising weight by one. The general differential-site interface also needs gluing and operator transport.
 
 Test the rank-one lattice R[t]u, u=t⁻¹e, for a step in filtration degree one. Its zero fibre is R·ū in filtration degree one (Rees weight −1); its unit fibre is R·e. In the polynomial chart every nonzero constant survives modulo t and modulo t−1 over any commutative ring. In R[t,t⁻¹], however, t is a unit and every section vanishes modulo t. Thus take the lattice fibre before localization. These checks follow from the preceding [BF22] conventions and polynomial evaluation, including over rings with torsion or zero divisors.
 
@@ -945,7 +963,7 @@ Locators in the layers refer to the editions below. Journal page numbers are use
 | B19 | Olivier Benoist — [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf). Publications Mathématiques de l’IHÉS 130 (2019), 63–110; published PDF |
 | V06 | Claire Voisin — [On integral Hodge classes on uniruled or Calabi–Yau threefolds](https://webusers.imj-prg.fr/~claire.voisin/Articlesweb/inthodge.pdf). Author preprint corresponding to Advanced Studies in Pure Mathematics 45 (2006), 43–73; locators use author PDF pagination |
 | G68 | Phillip A. Griffiths — [Periods of integrals on algebraic manifolds, II: Local study of the period mapping](https://publications.ias.edu/sites/default/files/periodsofintegralII68.pdf). American Journal of Mathematics 90 (1968), 805–865; published scan hosted by IAS |
-| M63 | John Milnor — [Morse Theory](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/milnmors.pdf). Annals of Mathematics Studies 51 (1963), especially §§3,7, pp.20,39–42. |
+| M63 | John Milnor — *Morse Theory*. Annals of Mathematics Studies 51 (1963), especially §§3,7, pp.20,39–42. |
 | BW20 | Olivier Benoist, Olivier Wittenberg — [On the integral Hodge conjecture for real varieties, I](https://arxiv.org/pdf/1801.00872v3). arXiv:1801.00872v3; published in Inventiones Mathematicae 222 (2020), 1–77. Locators use the arXiv numbering. |
 
 The Stacks Project references are Remark 60.6.8, tag [07I0](https://stacks.math.columbia.edu/tag/07I0); §60.15, tag [07J5](https://stacks.math.columbia.edu/tag/07J5); §17.16, tag [01CA](https://stacks.math.columbia.edu/tag/01CA); flat modules, tag [00H9](https://stacks.math.columbia.edu/tag/00H9); principal-cover gluing, tag [00EN](https://stacks.math.columbia.edu/tag/00EN); and finite-projective duality, Lemma 15.74.1, tag [0FNJ](https://stacks.math.columbia.edu/tag/0FNJ).
