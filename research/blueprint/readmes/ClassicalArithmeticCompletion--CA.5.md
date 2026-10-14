@@ -240,6 +240,8 @@ Acceptance:
 
 Direct suppliers: `mathlib:NumberField.exists_ideal_in_class_of_norm_le`, `mathlib:Ideal.absNorm_dvd_absNorm_of_le`, `mathlib:Ideal.absNorm`, `mathlib:ClassGroup.mk0`, `tauceti:ClassGroup.mk0_mem_closure_of_count_eq`, `tauceti:IsDedekindDomain.HeightOneSpectrum.classGroupMk`, `mathlib:RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_norm_le_of_isPrime`.
 
+Sources: STEIN.ANT, Lemma 7.3.1 and its proof, Section 7.3, printed p. 84. The source proves generation by the primes over rational primes p ≤ B_K; its proof (factor a representative of norm ≤ B_K) shows the sharper statement of the node, generation by primes of norm ≤ B_K. conrad-classgroups-2026, Section 1, p. 1. The target follows the source statement, using the notation above.
+
 
 ### The class-group presentation by a family of ideals and its relation lattice
 
@@ -279,6 +281,8 @@ Acceptance:
 
 Direct suppliers: `mathlib:ClassGroup`, `mathlib:ClassGroup.mk0`, `mathlib:NumberField.classNumber`, `mathlib:QuotientGroup.quotientKerEquivOfSurjective`, `mathlib:Submodule.IsPrincipal`.
 
+Sources: biasse-fieker-classgroup-2014, Section 2, printed p. 386. The node is the map π∘φ of the source and its kernel, for the maximal order; the source takes the p_i to be primes generating the class group.
+
 
 ### The class group from a complete relation matrix
 
@@ -297,6 +301,8 @@ Acceptance:
 - Omitting the relation (1, 2) for ℚ(√−14) leaves a matrix of rank 1 < N: an incomplete relation set is detected by the rank before any class number is read off.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-group-presentation`, `ClassicalArithmeticCompletion:CA.3/cokernel-of-an-integer-matrix`, `ClassicalArithmeticCompletion:CA.3/smith-normal-form-certificate`, `mathlib:NumberField.classNumber`.
+
+Sources: biasse-fieker-classgroup-2014, Section 2, printed p. 386. The node is this statement with "enough" made precise (the columns span Λ_I) and with the transposed convention (relations as columns). belabas-computational-2004, Section 1, Definition 1.1, printed p. 20. Definition 1.1 (printed p. 20) calls a finite abelian group known algorithmically when its Smith normal form and discrete logarithms are available; the node supplies the Smith-form half for the class group from a complete relation matrix.
 
 
 ### Found relations bound the class number from above
@@ -317,6 +323,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-group-presentation`, `mathlib:AddSubgroup.index_eq_natAbs_det`, `mathlib:Subgroup.relIndex_mul_index`, `mathlib:NumberField.classNumber`.
 
+Sources: biasse-fieker-classgroup-2014, Section 4.3, printed p. 398 (opening paragraph). The source starts from a tentative class group of cardinality h′ given by the elementary divisors of the found relations (p. 398) and then tests h′R′ against h* (p. 400); the node states the exact relation between h′ = |det A| and h_K, which the source does not spell out.
+
 
 ### A regulator lower bound certifies a fundamental system of units
 
@@ -336,6 +344,8 @@ Acceptance:
 
 Direct suppliers: `mathlib:NumberField.Units.regOfFamily_div_regulator`, `mathlib:NumberField.Units.IsMaxRank`, `mathlib:NumberField.Units.regOfFamily`, `mathlib:NumberField.Units.regulator`, `mathlib:NumberField.Units.regulator_pos`, `mathlib:NumberField.Units.torsion`, `mathlib:NumberField.Units.isMaxRank_iff_closure_finiteIndex`.
 
+Sources: biasse-fieker-classgroup-2014, Section 4.3, printed p. 400. The source (p. 400) certifies the product h′R′ of the tentative class number and the regulator of the found units by checking h* ≤ h′R′ < 2h*; the node isolates the unit half, with an independent lower bound L ≤ R_K in place of h* (class group already known).
+
 
 ### The class-number–regulator certificate
 
@@ -354,6 +364,8 @@ Acceptance:
 - The certificate checks the class group and the units together; neither index is certified from found relations or found units alone.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant`, `ClassicalArithmeticCompletion:CA.5/fundamental-units-from-regulator-bound`, `ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix`, `mathlib:NumberField.Units.regOfFamily_div_regulator`, `mathlib:NumberField.classNumber`.
+
+Sources: biasse-fieker-classgroup-2014, Section 4.3, printed pp. 398 and 400. The node is the implication the source uses to certify its output (h* ≤ h′R′ < 2h*), stated with h* ≤ hR as a hypothesis; the analytic derivation of h* (under GRH in the source) is not part of this node.
 
 
 ### The Hermite matrix of an ideal in a fixed integral basis
@@ -393,6 +405,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.3/hermite-basis-of-a-sublattice`, `ClassicalArithmeticCompletion:CA.3/is-hermite-normal-form`, `ClassicalArithmeticCompletion:CA.3/hermite-normal-form-unique`, `mathlib:NumberField.RingOfIntegers.basis`, `mathlib:Module.Basis`, `mathlib:Ideal`.
 
+Sources: belabas-computational-2004, Section 5.3.1, printed p. 36. The node is the canonical HNF representation of the source, with the canonicity proved by CA.3. The inherited reading used the page image. belabas-computational-2004, Section 5.3.2, printed p. 36. The corner property (API comap_eq_span_corner). The inherited reading used the page image.
+
 
 ### The norm of an ideal is the product of its Hermite pivots
 
@@ -411,6 +425,8 @@ Acceptance:
 - N(𝓞_K) = 1.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix`, `mathlib:Ideal.natAbs_det_basis_change`, `mathlib:Ideal.absNorm`, `ClassicalArithmeticCompletion:CA.3/index-eq-prod-hermite-pivots`.
+
+Sources: STEIN.ANT, Definition 6.3.2, Section 6.3, printed p. 75. The norm as a lattice index, which the Hermite pivots compute. conrad-modulespid-2025, Theorem 5.19, p. 18. The index formula applied to the Hermite basis of I.
 
 
 ### Which Hermite matrices are the matrices of ideals
@@ -431,6 +447,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix`, `ClassicalArithmeticCompletion:CA.3/hermite-normal-form-unique`.
 
+Sources: belabas-computational-2004, Section 5.3.1, printed p. 36. The criterion is the check that a matrix handed over as an ideal is one: its column module must be an 𝓞_K-module. The inherited reading used the page image.
+
 
 ### The discriminant of a basis of a sublattice of 𝓞_K
 
@@ -450,6 +468,8 @@ Acceptance:
 
 Direct suppliers: `mathlib:Algebra.discr_of_matrix_vecMul`, `mathlib:Algebra.discr`, `mathlib:NumberField.RingOfIntegers.basis`, `mathlib:Submodule.natAbs_det_basis_change`, `mathlib:Module.Basis.toMatrix`, `mathlib:NumberField.discr`, `mathlib:IsCyclotomicExtension.Rat.discr`, `mathlib:NumberField.discr_eq_discr`.
 
+Sources: STEIN.ANT, Proposition 6.2.6, Section 6.2, printed p. 73. The node is the proposition for any full sublattice, with the source's proof (change-of-basis determinant).
+
 
 ### The index of ℤ[√d] in the ring of integers of ℚ(√d)
 
@@ -468,6 +488,8 @@ Acceptance:
 - d = −3: ℤ[√−3] has index 2 in ℤ[(1 + √−3)/2], the ring containing the primitive cube roots of unity.
 
 Direct suppliers: `tauceti:TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr`, `tauceti:TauCeti.NumberField.IntegralPrimitiveElement.index`, `tauceti:NumberField.discr_eq_of_squarefree_of_mod_four_eq_one`, `tauceti:NumberField.discr_eq_four_mul_of_mod_four_ne_one`, `mathlib:Polynomial.discr`.
+
+Sources: conrad-quadraticfields-2021, Section 3, Theorem 3.4, p. 2. The two rings of integers whose comparison with ℤ[√d] the node records as an index. STEIN.ANT, Proposition 6.2.6, Section 6.2, printed p. 73. Applied to O = ℤ[√d].
 
 
 ### Dedekind–Kummer at every prime for a monogenic presentation
@@ -502,6 +524,8 @@ Acceptance:
 - ℤ[i], p = 2: X² + 1 ≡ (X + 1)², one prime with e = 2; the monogenic presentation covers the prime dividing the discriminant, which the general theorem with p ∤ exponent also covers but the hypothesis p ∤ disc f does not.
 
 Direct suppliers: `mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod`, `mathlib:RingOfIntegers.exponent_eq_one_iff`, `mathlib:RingOfIntegers.monicFactorsMod`, `mathlib:NumberField.Ideal.inertiaDeg_primesOverSpanEquivMonicFactorsMod_symm_apply`, `mathlib:NumberField.Ideal.ramificationIdx_primesOverSpanEquivMonicFactorsMod_symm_apply`, `mathlib:NumberField.Ideal.primesOverSpanEquivMonicFactorsMod_symm_apply_eq_span`.
+
+Sources: STEIN.ANT, Theorem 4.2.3, Section 4.2, printed pp. 53–54. For a monogenic presentation the index is 1, so the hypothesis holds at every prime; the node records this specialisation with the residue degrees and ramification indices.
 
 
 ### The ring ℤ√d inside the ring of integers of ℚ(√d)
@@ -541,6 +565,8 @@ Acceptance:
 
 Direct suppliers: `mathlib:Zsqrtd`, `mathlib:Zsqrtd.lift`, `mathlib:Zsqrtd.norm`, `tauceti:NumberField.adjoin_gen_eq_top_of_mod_four_ne_one`, `tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one`, `ClassicalArithmeticCompletion:CA.5/index-of-the-order-z-sqrt-d`.
 
+Sources: conrad-quadraticfields-2021, Section 3, Theorem 3.4, p. 2. The node identifies Mathlib's ℤ√d with the first ring and embeds it in the second. conrad-quadraticintegers-2025, Section 2, Theorem 2.3, p. 2. Theorem 2.3 (p. 2) is multiplicativity of the norm x² − dy² on ℤ[√d]; that φ carries this form to the field norm in a quadratic field is the node's own computation (the conjugate of θ is −θ).
+
 
 ### Pell solutions are the units of norm one
 
@@ -560,6 +586,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers`, `mathlib:Pell.Solution₁`, `mathlib:Pell.is_pell_solution_iff_mem_unitary`, `mathlib:Zsqrtd.norm_eq_one_iff`, `mathlib:Pell.IsFundamental.eq_zpow_or_neg_zpow`, `mathlib:Pell.IsFundamental.exists_of_not_isSquare`.
 
+Sources: STEIN.ANT, Section 8.2.1, printed p. 93. The node makes the subgroup precise (the norm-one units, of index ≤ 2 when d ≢ 1 mod 4). The sentence that follows in the source misstates the cyclic group (ClassicalArithmeticCompletion/E601). conrad-pell-one-2025, Theorem 5.3, p. 6. The generation statement on the Pell side, which Mathlib proves as Pell.IsFundamental.eq_zpow_or_neg_zpow.
+
 
 ### The negative Pell equation and units of norm −1
 
@@ -578,6 +606,8 @@ Acceptance:
 - d = 10: 3² − 10·1² = −1.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers`, `ClassicalArithmeticCompletion:CA.5/pell-solutions-are-norm-one-units`, `mathlib:Zsqrtd.norm_eq_one_iff`, `ClassicalArithmeticCompletion:CA.4/negative-pell-classification`.
+
+Sources: conrad-pell-one-2025, Theorem 7.5, p. 12. The Pell-side statement; the node transports it to the units of 𝓞_K.
 
 
 ### The negative Pell equation and units of norm −1 when d ≡ 1 (mod 4)
@@ -615,6 +645,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers`, `ClassicalArithmeticCompletion:CA.5/index-of-the-order-z-sqrt-d`, `tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one`, `tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one`, `mathlib:Zsqrtd.norm`.
 
+Sources: conrad-quadraticfields-2021, Section 3, Theorem 3.4, p. 2. The ring 𝓞_K for d ≡ 1 (mod 4), whose units the node compares with ℤ[√d] through their norms (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8). conrad-pell-one-2025, Theorem 7.5, p. 12. The Pell-side statement in ℤ[√d]; the node transports solubility of x² − dy² = −1 to the units of 𝓞_K when d ≡ 1 (mod 4).
+
 
 ### The class group of ℚ(√−14) is cyclic of order 4
 
@@ -633,6 +665,8 @@ Acceptance:
 - The generator is the class of a prime of norm 3.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes`, `ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix`, `ClassicalArithmeticCompletion:CA.5/kummer-dedekind-for-a-monogenic-presentation`, `ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix`, `tauceti:NumberField.adjoin_gen_eq_top_of_mod_four_ne_one`, `mathlib:Ideal.absNorm_span_singleton`.
+
+Sources: conrad-classgroups-2026, Example 2.3, p. 2. The node is Example 2.3, rewritten as a relation-matrix computation.
 
 
 ### The class group of ℚ(√−30) is ℤ/2 × ℤ/2
@@ -653,6 +687,8 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes`, `ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix`, `ClassicalArithmeticCompletion:CA.5/kummer-dedekind-for-a-monogenic-presentation`, `ClassicalArithmeticCompletion:CA.3/smith-normal-form-of-an-integer-matrix`, `tauceti:NumberField.adjoin_gen_eq_top_of_mod_four_ne_one`, `mathlib:Ideal.absNorm_span_singleton`.
 
+Sources: conrad-classgroups-2026, Example 2.4, pp. 2–3. The conclusion of Example 2.4; the node derives it from the relation matrix.
+
 
 ### Interpreting certified number-field outputs as intrinsic invariants
 
@@ -671,6 +707,8 @@ Acceptance:
 - For ℚ(√5) the unit (1 + √5)/2 with any certified L > R_K/2 is an instance of clause (4) with the class group trivial.
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/discriminant-of-a-sublattice-basis`, `ClassicalArithmeticCompletion:CA.5/hermite-matrix-of-an-ideal-criterion`, `ClassicalArithmeticCompletion:CA.5/ideal-norm-eq-prod-hermite-diagonal`, `ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix`, `ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant`, `ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate`.
+
+Sources: biasse-fieker-classgroup-2014, Section 4.3, printed p. 400. The certification step of a class group and unit computation; the node lists which intrinsic invariant each certified output determines.
 
 
 ## Additional comparison and error targets
@@ -691,7 +729,7 @@ Proof or construction:
 2. Additivity follows from distributivity and cast additivity. Applying τ_s twice cancels the two shear terms.
 3. Its values on (1,0) and (0,1) determine the action and its parameter.
 
-Consumers: ClassicalArithmeticCompletion:CA.5/quadratic-units-action-normal-form — Read the norm sign of a rank-one unit generator as the shear parameter.; Koymans–Pagano v1, Introduction p. 3 (source-route item 9) — Express the stated Galois module on a library carrier with the ordered free/torsion generators fixed..
+Consumers: ClassicalArithmeticCompletion:CA.5/quadratic-units-action-normal-form — Read the norm sign of a rank-one unit generator as the shear parameter; Koymans–Pagano v1, Introduction p. 3 (source-route item 9) — Express the stated Galois module on a library carrier with the ordered free/torsion generators fixed.
 
 | Declaration | Contract |
 |---|---|
@@ -715,7 +753,7 @@ Acceptance:
 
 Direct suppliers: `mathlib:ZMod`.
 
-Source: koymans-pagano-v1, Introduction, p. 3, paragraph giving the unit Galois module. The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity.
+Source: koymans-pagano-v1, Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module). Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
 
 ### A square-killed kernel is detected on the two-primary subgroup
 
@@ -742,7 +780,7 @@ Acceptance:
 
 Direct suppliers: `mathlib:CommGroup.primaryComponent`, `mathlib:CommGroup.mem_primaryComponent`.
 
-Source: koymans-pagano-v1, Introduction, p. 2, paragraph following the definition of D. The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel.
+Source: koymans-pagano-v1, Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1]. Koymans and Pagano recall, citing Fouvry–Klüners, that d lies in D⁻ exactly when the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d) coincide. This node is the group-theoretic step that makes 'coincide' precise for the natural forgetful map, whose kernel is killed by two; the paper does not state it.
 
 ### Negative Pell and norm-minus-one units for every squarefree radicand
 
@@ -769,7 +807,7 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one`, `ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four`.
 
-Source: koymans-pagano-v1, Introduction, p. 2, paragraph following the definition of D. The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel.; koymans-pagano-v1, Introduction, p. 3, paragraph giving the unit Galois module. The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity.
+Source: koymans-pagano-v1, Introduction, p. 1, equation (1.1), and p. 2, first paragraph (definition of D⁻). Koymans and Pagano define D⁻ by integral solubility of the negative Pell equation (1.1) and then compare it with class-group and unit conditions in ℚ(√d) (pp. 2–4). Those comparisons need this passage between integral solutions and units of the full ring of integers, which the paper leaves implicit; the node joins the two parent order-to-unit targets.
 
 ### Negative Pell and the narrow principal square-root class
 
@@ -777,15 +815,15 @@ Source: koymans-pagano-v1, Introduction, p. 2, paragraph following the definitio
 
 Suggested declaration: `TauCeti.ClassicalArithmetic.CA5.negativePell_iff_narrowPrincipal`.
 
-Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff mkPrincipal(θ)=1 in Cl⁺(K). Here θ is read as a unit of the field K, not as an integral unit; θ≠0 follows from its minimal polynomial.
+Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff mkPrincipal(θ)=1 in Cl⁺(K). Here θ is read as a unit of the field K, not as an integral unit; θ≠0 by the pinned coe_gen_ne_zero.
 
 Hypotheses: d>1 is a squarefree integer; K is a number field with θ in O_K. minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation.
 
 Proof or construction:
 
-1. The parent norm bridge turns Pell solubility into an integral unit of norm -1. Since N(θ)=-d, N(θu)=d>0. The pinned quadratic sign lemma makes θu or -θu totally positive, and the pinned mkPrincipal criterion proves triviality.
-2. Conversely mkPrincipal(θ)=1 supplies a unit w with wθ totally positive. The two real embeddings send θ to opposite roots of d; therefore w has opposite signs at these embeddings. Its norm is negative and, being an integral unit norm, equals -1.
-3. Return through the all-radicand comparison. Changing θ to -θ does not change its principal ideal or the result.
+1. (⇐) The all-radicand comparison turns an integral solution into a unit u of O_K with N(u) = −1. Since θ ≠ 0, the pinned exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one gives a unit v with v·θ totally positive, and the pinned mkPrincipal_eq_one_iff makes the narrow class of (θ) trivial.
+2. (⇒) mkPrincipal_eq_one_iff turns triviality into a unit w with w·θ totally positive. As d > 0, the pinned norm_eq_neg_one_of_isTotallyPositive_smul_gen gives N(w) = −1: the two real embeddings send θ to the two roots ±√d, so w has opposite signs there, and a unit norm is ±1. The all-radicand comparison returns an integral solution.
+3. Replacing θ by −θ changes neither the principal ideal nor its narrow class, so the statement does not depend on the chosen square root.
 
 Acceptance:
 
@@ -793,9 +831,9 @@ Acceptance:
 - For d=3 it is nontrivial despite (θ) being principal in the ordinary class group.
 - The same assertion holds for -θ; ordinary principality alone would incorrectly certify every d.
 
-Direct suppliers: `ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison`, `tauceti:NumberField.NarrowClassGroup.mkPrincipal_eq_one_iff`, `tauceti:NumberField.norm_gen_eq_neg_radicand`, `tauceti:NumberField.exists_unit_isTotallyPositive_smul_of_norm_pos`, `tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one`.
+Direct suppliers: `ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison`, `tauceti:NumberField.NarrowClassGroup.mkPrincipal_eq_one_iff`, `tauceti:NumberField.exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one`, `tauceti:NumberField.norm_eq_neg_one_of_isTotallyPositive_smul_gen`, `tauceti:NumberField.coe_gen_ne_zero`.
 
-Source: koymans-pagano-v1, Introduction, p. 4, paragraph introducing the class of (√d). Negative Pell solubility is identified with triviality of the narrow principal class of the square root. The proof is supplied here using the pinned positivity criterion and the parent order bridge.
+Source: koymans-pagano-v1, Introduction, p. 4, running text after the reflection principle (1.3). Koymans and Pagano state, without proof, that negative Pell solubility is equivalent to the ideal (√d) being trivial in the narrow class group, which is why they must compute the Artin pairing with d. The node proves it from the pinned positivity lemmas and the all-radicand comparison.
 
 ### Negative Pell and the canonical two-primary forgetful map
 
@@ -821,7 +859,7 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison`, `ClassicalArithmeticCompletion:CA.5/two-primary-detects-bijectivity`, `tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one`, `tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective`, `tauceti:NumberField.NarrowClassGroup.sq_eq_one_of_mem_ker_toClassGroup`.
 
-Source: koymans-pagano-v1, Introduction, p. 2, paragraph following the definition of D. The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel.
+Source: koymans-pagano-v1, Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1]. Koymans and Pagano recall, citing Fouvry–Klüners [18, Lemma 1] without proof, that negative Pell solubility is equivalent to the coincidence of the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d). The node states it for the natural map Cl⁺(K)[2^∞] → Cl(K)[2^∞] and proves it from the pinned forgetful-map lemmas and the group step.
 
 ### The Galois action on the full quadratic unit group
 
@@ -837,7 +875,7 @@ Proof or construction:
 
 1. The real quadratic presentation gives two real places, no complex places, and unit rank one. Evaluate a torsion unit at a real embedding: a real root of unity is ±1, and the embedding is injective; hence the torsion is exactly {±1}.
 2. Apply the pinned Dirichlet product equivalence, reindex its single free coordinate and identify the torsion coordinate with Z/2. This gives a generator ε and unique expressions ε^a(-1)^b.
-3. The pinned norm identity yields εσε=(-1)^s for exactly one s. Thus σε=ε^(-1)(-1)^s, while σ(-1)=-1; multiplying these formulas gives τ_s on all coordinates.
+3. The pinned identity εσ(ε)=±1 (mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one), read as the field norm through norm_eq_intCast_iff_mul_ringOfIntegersQuadraticConj_eq_intCast, gives εσε=N(ε)=(-1)^s for exactly one s. Thus σε=ε^(-1)(-1)^s, while σ(-1)=-1; multiplying these formulas gives τ_s on all coordinates.
 4. Since N(-1)=1 in degree two, a norm-minus-one unit exists exactly when s=1. Use the all-radicand negative Pell comparison.
 5. For the converse characterization by τ_1, take the inverse image of (1,0). Its sum with its conjugate is the inverse image of (0,1), namely -1. The conjugation norm formula then gives a unit of norm -1, and the order bridge gives negative Pell. Thus an abstract action comparison is not inferred merely from one choice of normal form.
 6. Changing ε to its inverse or to -ε leaves its norm sign unchanged; the coordinate equivalence is existential and requires no canonical choice.
@@ -851,9 +889,9 @@ Acceptance:
 - For d=5 use ε=(1+θ)/2 in the full ring; choosing only the Pell order generator would miss this full-unit coordinate.
 - The torsion coordinate is fixed for every d.
 
-Direct suppliers: `ClassicalArithmeticCompletion:CA.5/quadratic-unit-action-model`, `ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison`, `tauceti:NumberField.unitsMulEquivTorsionProdMultiplicative`, `tauceti:NumberField.ringOfIntegersQuadraticConj`, `tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one`, `mathlib:NumberField.Units.torsion`.
+Direct suppliers: `ClassicalArithmeticCompletion:CA.5/quadratic-unit-action-model`, `ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison`, `tauceti:NumberField.unitsMulEquivTorsionProdMultiplicative`, `tauceti:NumberField.ringOfIntegersQuadraticConj`, `tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one`, `mathlib:NumberField.Units.torsion`, `tauceti:NumberField.norm_eq_intCast_iff_mul_ringOfIntegersQuadraticConj_eq_intCast`.
 
-Source: koymans-pagano-v1, Introduction, p. 3, paragraph giving the unit Galois module. The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity.
+Source: koymans-pagano-v1, Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module). Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
 
 ### A rigorous determinant enclosure from entrywise errors
 
@@ -878,11 +916,12 @@ Acceptance:
 - The empty regulator matrix has exact absolute determinant one.
 - For r=1 the error bound is δ.
 - For r=2, B=2 and δ=1/100, the bound is 4·(1/100)·(201/100)=201/2500.
+- For r=4, E the 4×4 Hadamard matrix with rows (1,1,1,1), (1,−1,1,−1), (1,1,−1,−1), (1,−1,−1,1) and Ê=(3/2)E, so B=1 and δ=1/2: det E=16, det Ê=81, and the difference 65 lies within the node's bound 4!·4·(1/2)·(3/2)³=162, while Biasse–Fieker's printed Lemma 4.4 bound is 64.
 - A nonrigorous floating-point determinant supplies no δ and does not meet the hypotheses.
 
 Direct suppliers: `mathlib:Matrix.det_apply`, `mathlib:Matrix.det_isEmpty`, `mathlib:NumberField.Units.regOfFamily_eq_det`.
 
-Source: biasse-fieker-classgroup-2014, Section 4.3, printed p. 400, Lemma 4.4 and Proposition 4.5. The paper certifies tentative class number and regulator through rigorous approximations and an index bound below two. The entrywise error estimate and two-sided interval interface below are explicit local refinements, not a quotation of its numerical constants or an analytic bound producer.
+Source: biasse-fieker-classgroup-2014, Section 4.3, printed p. 400, Lemma 4.4 and its proof. Biasse–Fieker control the determinant error of the regulator matrix by telescoping and Hadamard's inequality. Their printed Lemma 4.4 bounds the perturbed columns by the unperturbed entry bound and is false as stated (ClassicalArithmeticCompletion/E1501); this node is the corrected entrywise form, with B+δ for the perturbed entries and the r! permutations of the Leibniz formula in place of Hadamard's constant.
 
 ### Class-number and regulator certification from rigorous intervals
 
@@ -911,7 +950,7 @@ Acceptance:
 
 Direct suppliers: `ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant`, `ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate`, `ClassicalArithmeticCompletion:CA.5/determinant-entrywise-enclosure`, `mathlib:NumberField.classNumber_pos`, `mathlib:NumberField.Units.regulator_pos`, `mathlib:NumberField.Units.regOfFamily_pos`, `mathlib:NumberField.Units.regOfFamily_div_regulator`, `mathlib:Subgroup.relIndex_eq_one`, `mathlib:Subgroup.index_eq_one`.
 
-Source: biasse-fieker-classgroup-2014, Section 4.3, printed p. 400, Lemma 4.4 and Proposition 4.5. The paper certifies tentative class number and regulator through rigorous approximations and an index bound below two. The entrywise error estimate and two-sided interval interface below are explicit local refinements, not a quotation of its numerical constants or an analytic bound producer.
+Source: biasse-fieker-classgroup-2014, Section 4.3, printed pp. 398 and 400, the test h* ≤ h′R′ < 2h*, Lemma 4.4 and Proposition 4.5. Biasse–Fieker certify a tentative class number and regulator by the test h* ≤ h′R′ < 2h* against a bound h* with h* ≤ hR < 2h* (obtained under GRH, p. 398), computing R′ from fixed-point logarithms (p. 400). This node is the soundness half with explicit two-sided error intervals and without GRH; only R_u ≤ Rhat+ε and a−η ≤ hR are used. Their explicit precision in Proposition 4.5 undercounts the determinant loss (ClassicalArithmeticCompletion/E1502); the node takes ε as a hypothesis and does not depend on it.
 
 ## Source scope and remaining process boundary
 
@@ -929,8 +968,19 @@ comparisons. It does not accept or edit that source route. A queue owner must
 record the verdict through the existing paper workflow. This is an external
 process boundary, not an unsupplied mathematical theorem in CA.5.
 
-No source error was established in the passages used here. No uncleared source
-was used and no missing source is needed for these targets.
+The independent review found three mistakes in the sources read; they are recorded
+in the packet's `sourceIssues` and confirmed there. Biasse–Fieker's Lemma 4.4 (§4.3,
+p. 400) bounds every column of the telescoped determinants by the entry bound of the
+unperturbed matrix, and fails as printed: for the 4×4 Hadamard matrix E and Ê =
+(3/2)E the determinants differ by 65, against a printed bound of 64
+(ClassicalArithmeticCompletion/E1501). The correct bound has (|Ω| + 2^(−q′))^(r−1)
+in place of |Ω|^(r−1) + 1, and the entrywise target above already uses B + δ. The
+precision count after that lemma, and the displayed precision of Proposition 4.5,
+charge r/2 + 1 bits for the factor r^(r/2+1), which costs (r/2 + 1)·log₂ r bits
+(E1502); the complexity statement is unaffected, and the interval target takes its
+error as a hypothesis. Conrad's Example 2.5 (p. 4) writes (13) for the product of
+the two primes of norm 43 (E1503), a misprint outside the cited examples. No
+uncleared source was used and no missing source is needed for these targets.
 
 The layer retains the parent's six planets; the new nodes add no extra planets:
 
@@ -943,11 +993,18 @@ The layer retains the parent's six planets; the new nodes add no extra planets:
 
 ## Read source inventory
 
-- **STEIN.ANT** — William Stein, [Algebraic Number Theory, a Computational Approach](https://wstein.org/books/ant/ant.pdf). Author PDF dated 14 November 2012; read through public web PDF viewer; no byte checksum claimed. Read 14 October 2026: Section 6.2, Proposition 6.2.6 and Example 6.2.8, printed pp. 73–74: discriminant, index and the quadratic example.
-- **belabas-computational-2004** — Karim Belabas, [Topics in computational algebraic number theory](https://www.numdam.org/item/JTNB_2004__16_1_19_0.pdf). Journal de Théorie des Nombres de Bordeaux 16 (2004), 19–63; Numdam scan, read 2026-09-24 Read 14 October 2026: Definition 1.1, printed p. 20; Sections 5.3.1–5.3.2, printed p. 36.
+- **STEIN.ANT** — William Stein, [Algebraic Number Theory, a Computational Approach](https://wstein.org/books/ant/ant.pdf). Author PDF dated 14 November 2012; checksum of the copy read by the review on 2026-10-14, the same bytes the parent packet records. Read 14 October 2026: Section 6.2, Proposition 6.2.6 and Example 6.2.8, printed pp. 73–74: discriminant, index and the quadratic example.
+- **belabas-computational-2004** — Karim Belabas, [Topics in computational algebraic number theory](https://www.numdam.org/item/JTNB_2004__16_1_19_0.pdf). Journal de Théorie des Nombres de Bordeaux 16 (2004), 19–63; Numdam scan, read 2026-09-24. Read again 14 October 2026: Definition 1.1, printed p. 20; Sections 5.3.1–5.3.2, printed p. 36.
 - **biasse-fieker-classgroup-2014** — Jean-François Biasse and Claus Fieker, [Subexponential class group and unit group computation in large degree number fields](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4387ACB036E3358143A563F196E386CB/S1461157014000345a.pdf/div-class-title-subexponential-class-group-and-unit-group-computation-in-large-degree-number-fields-div.pdf). LMS Journal of Computation and Mathematics 17 (Special issue A) (2014), 385–403, doi:10.1112/S1461157014000345; checksum is of this run’s publisher download. Read 14 October 2026: Section 2, printed p. 386; Section 4.3, printed pp. 398–400, particularly Lemma 4.4 and Proposition 4.5.
-- **conrad-classgroups-2026** — Keith Conrad, [Class group calculations by Minkowski bound](https://kconrad.math.uconn.edu/blurbs/gradnumthy/classgpex.pdf). Expository handout, PDF dated 17 September 2026, read 2026-09-24 Read 14 October 2026: Section 1 and Examples 2.1–2.4, pp. 1–3.
-- **koymans-pagano-v1** — Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv:2201.13424v1, 31 January 2022; this version alone is the cited edition. Read 14 October 2026: Introduction, pp. 2–4: canonical two-primary comparison, unit Galois action and the narrow class of (√d).
+- **conrad-classgroups-2026** — Keith Conrad, [Class group calculations by Minkowski bound](https://kconrad.math.uconn.edu/blurbs/gradnumthy/classgpex.pdf). Expository handout, PDF dated 17 September 2026, read 2026-09-24. Read again 14 October 2026: Section 1 and Examples 2.1–2.4, pp. 1–3; Example 2.5, pp. 3–4 (read by the independent review; misprint E1503).
+- **koymans-pagano-v1** — Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv:2201.13424v1, 31 January 2022; this version alone is the cited edition. Read 14 October 2026: Introduction, pp. 1–4: the negative Pell equation (1.1) and the sets D and D⁻, canonical two-primary comparison, unit Galois action and the narrow class of (√d).
+
+Sources cited only by the inherited targets (read and checked by the parent packet's reviews):
+
+- **conrad-modulespid-2025** — Keith Conrad, [Modules over a PID](https://kconrad.math.uconn.edu/blurbs/linmultialg/modulesoverPID.pdf). Expository handout, PDF dated 26 September 2025, read 2026-09-24.
+- **conrad-quadraticfields-2021** — Keith Conrad, [Factoring in quadratic fields](https://kconrad.math.uconn.edu/blurbs/gradnumthy/quadraticgrad.pdf). Expository handout, PDF dated 7 November 2021, read 2026-09-24.
+- **conrad-quadraticintegers-2025** — Keith Conrad, [Quadratic integers](https://kconrad.math.uconn.edu/blurbs/ugradnumthy/quadratic-integers.pdf). Expository handout, PDF dated 28 February 2025, read 2026-09-24.
+- **conrad-pell-one-2025** — Keith Conrad, [Pell's equation, I](https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn1.pdf). Expository handout, PDF dated 15 February 2025.
 
 ## Pinned declaration inventory
 
@@ -999,3 +1056,7 @@ The actual statements below were read; the blueprint checker also resolves the n
 | `mathlib:ZMod` | `Mathlib/Data/ZMod/Defs.lean` | The existing integers-modulo-n carrier; at n=2 the torsion coordinate. |
 | `mathlib:NumberField.Units.regOfFamily_pos` | `Mathlib/NumberTheory/NumberField/Units/Regulator.lean` | A maximal-rank family has positive regulator. |
 | `mathlib:NumberField.Units.regOfFamily_eq_det` | `Mathlib/NumberTheory/NumberField/Units/Regulator.lean` | Family regulator is the absolute determinant of weighted logs after deleting one infinite place. |
+| `tauceti:NumberField.exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one` | `TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Norm/NegOne.lean` | For a quadratic presentation θ, a unit of field norm −1 gives every nonzero x ∈ K a unit multiple v·x that is totally positive. |
+| `tauceti:NumberField.norm_eq_neg_one_of_isTotallyPositive_smul_gen` | `TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Norm/NegOne.lean` | For a quadratic presentation θ with 0 < d, a unit v with v·θ totally positive has field norm −1. |
+| `tauceti:NumberField.coe_gen_ne_zero` | `TauCeti/NumberTheory/NumberField/Quadratic/Basic.lean` | A generator θ with minimal polynomial X²−d is nonzero in K. |
+| `tauceti:NumberField.norm_eq_intCast_iff_mul_ringOfIntegersQuadraticConj_eq_intCast` | `TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Norm/Basic.lean` | For x ∈ O_K and n ∈ ℤ: the field norm of x is n iff x·σ(x) = n, σ the ring-of-integers quadratic conjugation. |
