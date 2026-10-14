@@ -334,6 +334,29 @@ The compatible-system carrier with actual continuous local realizations and
 period functors, and its large-image applications, are specified in README.md.
 -/
 
+/-!
+The remaining definitions in README.md require arithmetic or geometric carriers:
+
+* Layer 1: `higherCoefficientHeckeAction`, `ParabolicPremotive` (with its pairing
+  and Hecke action), `schollProjector`, `newformOrbitProjector`, `newformFactor`
+  (with its lattice), the cohomological newform realisation `M_g`,
+  `IntegralPremotive` (with its kernel), `integralParabolic` and
+  `integralNewformPremotive`.
+* Layer 3: `Carayol.sigmaLambda`, `hilbertGaloisRep` (with its auxiliary
+  congruence data), and `IsCMHilbert` with its inducing field and character.
+* Layer 4: `NearlyOrdinaryEigenpacket`, its normalized operators and candidate
+  local character `δ_𝔭`, and the attached character `η_𝔭` and invariant line.
+* Layer 5: `ordinaryRefinement`, `eigenformDcris` and `eigenformWach`.
+* Layer 6: `residualRep`, `fullHeckeAlgebra`, `heckeRep`, `residualHeckeRep`,
+  the weight-two optimization invariant `δ(ρ̄)`, `geometricHeckeDeterminant`, and the
+  quaternionic completed Hecke representation.
+* Layer 7: `CompatibleSystemData`, `IsWeaklyCompatible`,
+  `IsStrictlyCompatible`, `IsAlmostStrictlyCompatible` and `fixedEigenformFamily`.
+
+Their intended data, APIs and discriminating checks remain in the corresponding
+README sections.
+-/
+
 -- Pinned library interfaces used by the roadmap.
 #check ModularForm
 #check CuspForm

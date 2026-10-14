@@ -29,6 +29,10 @@ Generic continuous representations, stable lattices, Weil–Deligne functors,
 finite/Lie-group classification and Tate modules belong to
 ArithmeticGaloisRepresentations and the existing Tau Ceti library. Generic
 finite-group averaging is Mathlib's representation invariant projector.
+TauCetiRoadmap.LocalGaloisGroups Layer 5 supplies the cyclotomic reciprocity
+formulas `localCyclotomicCharacter_artinMap_unit` and
+`localCyclotomicCharacter_artinMap_uniformizer`; their geometric normalization
+is an input to the attached-character comparison below.
 Generic determinant laws, Cayley–Hamilton reconstruction and coefficient descent
 belong to TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants; the new targets here
 extract the geometric Hecke module and apply those laws to that module.
@@ -154,7 +158,7 @@ order coprime to its index; `nonempty_sections_of_finite_inverse_system`
 requires nonempty finite stages and a directed index preorder. The group-lifting
 proof must establish these hypotheses at each congruence stage.
 `DirichletCharacter.LFunction_apply_one_ne_zero` requires a nontrivial complex
-character; `riemannZeta_residue_one` is the residue limit at 1.
+character with nonzero modulus; `riemannZeta_residue_one` is the residue limit at 1.
 `NumberField.Embeddings.finite_of_norm_le` requires integrality and a bound at
 every embedding. `TauCeti.LSeries.landau` requires nonnegative coefficients and
 the actual finite abscissa of absolute convergence; a boundary inequality is
@@ -1280,7 +1284,7 @@ unit subgroup.
 **Checks.**
 
 - For canonical parallel κ, v=0 and c_out=1. The quotient of S_SW on arithmetic reciprocity has values λ(T_y) and λ(T₀^SW); this is exactly the parallel theorem above. If ν is unramified it is an unramified quotient.
-- At nonparallel (2,4), µ=2 and v=(1,0), the two cohomological degree pairs are (1,2) and (0,3). After twisting by η they are (0,1) and (0,3); a selected line with a positive labelled degree violates t_H≤0. On a principal unit with first embedding 4 at p=3 and finite factor 1, the arithmetic quotient value is 1/4, not 1.
+- At nonparallel (2,4), µ=2 and v=(1,0), the two cohomological degree pairs are (1,2) and (0,3). After twisting by η⁻¹ they are (0,1) and (0,3); a selected line with a positive labelled degree violates t_H≤0. On a principal unit with first embedding 4 at p=3 and finite factor 1, the arithmetic quotient value is 1/4, not 1.
 - At v=(1,0), the torsion unit u=−1 has A_𝔭(u)=−1. If ν(u)=−1, its quotient value is 1; a formula dropping either factor gives −1. Checking only a sufficiently small principal-unit subgroup misses this finite factor. Changing ϖ to uϖ leaves α unchanged, as δ_𝔭(u)=1.
 - For a unit of norm 1 with χ(rec_arith(u))=ζ₃≠1, the quotient of ρ_{π_SW}^∨ is ζ₃⁻¹δ_𝔭(u), whereas that of S_SW is δ_𝔭(u). A central character of order three detects the missing central correction.
 - The central specialization has λ^alg(S_x)=λ(S_x) at µ=0. For µ=2, a local principal unit u=1+p, trivial smooth central character and θ_SW(u)=1, its values are λ(S_u)=1 but λ^alg(S_u)=u⁻², and det S_SW on rec_arith(u) is u⁻³. The raw central value would give u⁻¹ and the wrong determinant degree. If instead the smooth central value at u is ζ₃, retain the additional ζ₃⁻¹ in λ^alg and in the determinant; the algebraic correction cannot erase it.
