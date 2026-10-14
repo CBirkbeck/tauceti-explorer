@@ -81,6 +81,11 @@ theorem gauge_mul (h k : H) (φ : ParameterLift β η) :
 def unit (β : Q →* MulAut H) (η : Γ →* Q) : ParameterLift β η :=
   ⟨SemidirectProduct.inr.comp η, by ext γ; simp⟩
 
+-- The standard lift has the prescribed projection and a trivial first coordinate.
+example (β : Q →* MulAut H) (η : Γ →* Q) (γ : Γ) :
+    (unit β η).cocycleValue γ = 1 ∧ ((unit β η).1 γ).right = η γ := by
+  simp [unit, cocycleValue]
+
 end ParameterLift
 
 end ParameterLifts
@@ -115,9 +120,10 @@ theorem geometricDegree_geometricDegree (d : W →* Multiplicative ℤ) :
 theorem geometricDegree_ker (d : W →* Multiplicative ℤ) :
     (geometricDegree d).ker = d.ker := sorry
 
-/-- The Tate character `w ↦ q^{d(w)}` attached to a unit `q` and a degree map (LP0.4). -/
+/-- The Tate character `w ↦ q^{-d(w)}` for a geometric degree map (LP0.4). It takes
+arithmetic Frobenius to `q` and geometric Frobenius to `q⁻¹`. -/
 def tateCharacter {Λ : Type*} [Monoid Λ] (q : Λˣ) (d : W →* Multiplicative ℤ) : W →* Λˣ :=
-  (zpowersHom Λˣ q).comp d
+  (zpowersHom Λˣ q⁻¹).comp d
 
 /-- The Tate character of the geometric degree is the inverse of that of the arithmetic one. -/
 theorem tateCharacter_geometricDegree {Λ : Type*} [Monoid Λ] (q : Λˣ)
@@ -128,12 +134,19 @@ end Degree
 
 -- With `q = 3` and arithmetic Frobenius of arithmetic degree `1` (here the generator of
 -- `Multiplicative ℤ` with the identity degree), the Tate character of the geometric degree takes
--- the value `1/3` at arithmetic Frobenius, that is `3` at geometric Frobenius `Fr⁻¹`.
+-- the value `3` at arithmetic Frobenius and `1/3` at geometric Frobenius `Fr⁻¹`.
 example :
     ((tateCharacter (Units.mk0 (3 : ℚ) three_ne_zero)
       (geometricDegree (MonoidHom.id (Multiplicative ℤ))) (Multiplicative.ofAdd 1) : ℚˣ) : ℚ)
-      = 1 / 3 := by
+      = 3 := by
   simp [tateCharacter, geometricDegree]
+
+-- Geometric Frobenius is the inverse generator and has Tate value `1/3`.
+example :
+    ((tateCharacter (Units.mk0 (3 : ℚ) three_ne_zero)
+      (geometricDegree (MonoidHom.id (Multiplicative ℤ))) (Multiplicative.ofAdd (-1)) : ℚˣ) : ℚ)
+      = 1 / 3 := by
+  norm_num [tateCharacter, geometricDegree]
 
 -- The geometric degree of arithmetic Frobenius is `-1`.
 example : geometricDegree (MonoidHom.id (Multiplicative ℤ)) (Multiplicative.ofAdd 1)
@@ -160,15 +173,20 @@ theorem HasFiniteWildRamification.of_finite_image [TopologicalSpace G] [T1Space 
     (hfin : (φ '' (P : Set Γ)).Finite) :
     HasFiniteWildRamification P φ := sorry
 
+-- The trivial homomorphism kills every wild subgroup, even when that subgroup is infinite.
+example (P : Subgroup Γ) : HasFiniteWildRamification P (1 : Γ →* G) :=
+  HasFiniteWildRamification.of_le_ker P 1 (by simp)
+
 end FiniteWild
 
 section WildInertial
 
 variable {L W P : Type*} [Group L] [Group W] [Group P]
 
-/-- A wild inertial parameter (LP0.5): a homomorphism `ρ : P →* L` that extends to a section `φ` of
+/-- The abstract extension predicate underlying a wild inertial parameter (LP0.5): a homomorphism `ρ : P →* L` that extends to a section `φ` of
 `π : L →* W` along `i : P →* W`. The extension is a condition, not data (Kurinczuk–Skodlerack–Stevens,
-§1.20–1.21, pp.8–9). -/
+§1.20–1.21, pp.8–9). Admissibility, continuity and the `SL₂` factor of the
+classical-group definition remain README conditions. -/
 def IsWildInertialParameter (π : L →* W) (i : P →* W) (ρ : P →* L) : Prop :=
   ∃ φ : W →* L, π.comp φ = MonoidHom.id W ∧ φ.comp i = ρ
 
@@ -182,6 +200,19 @@ theorem IsWildInertialParameter.projection {π : L →* W} {i : P →* W} {ρ : 
 theorem IsWildInertialParameter.conj {π : L →* W} {i : P →* W} {ρ : P →* L}
     (h : IsWildInertialParameter π i ρ) (g : L) (hg : π g = 1) :
     IsWildInertialParameter π i ((MulAut.conj g).toMonoidHom.comp ρ) := sorry
+
+-- The identity section extends its restriction.
+example (i : P →* W) : IsWildInertialParameter (MonoidHom.id W) i i :=
+  ⟨MonoidHom.id W, rfl, rfl⟩
+
+-- Losing the prescribed projection admits a false wild parameter.
+example [Nontrivial W] :
+    ¬ IsWildInertialParameter (MonoidHom.id W) (MonoidHom.id W) (1 : W →* W) := by
+  intro h
+  obtain ⟨w, hw⟩ := exists_ne (1 : W)
+  have hp := DFunLike.congr_fun h.projection w
+  simp at hp
+  exact hw hp.symm
 
 end WildInertial
 
@@ -218,6 +249,11 @@ theorem section_mem_twistedWildCentralizer (P : Subgroup W) [P.Normal] (φ : W �
     (hφ : SemidirectProduct.rightHom.comp φ = MonoidHom.id W) (w : W) :
     φ w ∈ twistedWildCentralizer P (φ.comp P.subtype) := sorry
 
+-- With the trivial homomorphism, every element satisfies the twisted condition.
+example (P : Subgroup W) [P.Normal] (x : H ⋊[α] W) :
+    x ∈ twistedWildCentralizer P (1 : P →* H ⋊[α] W) := by
+  simp [twistedWildCentralizer]
+
 end TwistedCentralizer
 
 /-! ## Layer LP1: integral parameter spaces and deformation theory -/
@@ -228,7 +264,9 @@ variable {W Λ : Type*} [Group W] [CommRing Λ] {n : Type*} [Fintype n] [Decidab
 
 /-- The `GL_n` prototype of a Weil–Deligne parameter (LP1.11): `N` is nilpotent and
 `r(w) N r(w)⁻¹ = q^{-deg w} N` for the geometric degree `d` (Fargues–Scholze, Definition VIII.2.4,
-p.282). Discreteness of `r` on inertia is a README hypothesis. -/
+p.282). Discrete inertia and the actual local Weil degree are README hypotheses.
+Over a nonreduced ring, matrix nilpotence is weaker than the scheme-theoretic nilpotent-cone
+condition imposed by `WeilDeligneParameter`. -/
 def IsWeilDelignePair (q : Λˣ) (d : W →* Multiplicative ℤ) (r : W →* GL n Λ)
     (N : Matrix n n Λ) : Prop :=
   IsNilpotent N ∧ ∀ w, (r w : Matrix n n Λ) * N * ((r w)⁻¹ : GL n Λ) =
@@ -250,6 +288,10 @@ theorem IsWeilDelignePair.conj {q : Λˣ} {d : W →* Multiplicative ℤ} {r : W
 theorem IsWeilDelignePair.eq_zero_of_isReduced [IsReduced Λ] {q : Λˣ}
     {d : W →* Multiplicative ℤ} {r : W →* GL (Fin 1) Λ} {N : Matrix (Fin 1) (Fin 1) Λ}
     (h : IsWeilDelignePair q d r N) : N = 0 := sorry
+
+-- The zero monodromy condition imposes no additional restriction on the homomorphism.
+example (q : Λˣ) (d : W →* Multiplicative ℤ) (r : W →* GL n Λ) :
+    IsWeilDelignePair q d r 0 := IsWeilDelignePair.zero q d r
 
 end WeilDeligne
 
@@ -290,6 +332,16 @@ theorem coactionInvariants_includeRight :
 def coarseQuotient (δ : A →ₐ[R] C ⊗[R] A) : AlgebraicGeometry.Scheme :=
   AlgebraicGeometry.Spec (CommRingCat.of (coactionInvariants δ))
 
+-- A trivial coaction fixes every element, with invariance expressed in the tensor algebra.
+example (a : A) :
+    a ∈ coactionInvariants (Algebra.TensorProduct.includeRight : A →ₐ[R] C ⊗[R] A) := by
+  simp [coactionInvariants_includeRight]
+
+-- Coarse quotients are affine schemes, as opposed to the quotient stack.
+example (δ : A →ₐ[R] C ⊗[R] A) : AlgebraicGeometry.IsAffine (coarseQuotient δ) := by
+  dsimp [coarseQuotient]
+  infer_instance
+
 end Coaction
 
 section FreeIndex
@@ -323,6 +375,20 @@ theorem FreeCocycleIndex.ofTuple_map_of {n : ℕ} (γ : Fin n → Γ) (i : Fin n
 theorem FreeCocycleIndex.subsingleton_hom_zero (b : FreeCocycleIndex Γ) :
     Subsingleton (FreeCocycleIndex.Hom (FreeCocycleIndex.ofTuple (Fin.elim0 : Fin 0 → Γ)) b) :=
   sorry
+
+-- Two generators retain their order under evaluation.
+example (a b : Γ) :
+    (FreeCocycleIndex.ofTuple ![a, b]).rank = 2 ∧
+    (FreeCocycleIndex.ofTuple ![a, b]).map (FreeGroup.of (0 : Fin 2) * FreeGroup.of (1 : Fin 2)) = a * b := by
+  constructor
+  · rfl
+  · change (FreeGroup.lift ![a, b]) (FreeGroup.of (0 : Fin 2) * FreeGroup.of (1 : Fin 2)) = a * b
+    rw [map_mul, FreeGroup.lift_apply_of, FreeGroup.lift_apply_of]
+    simp
+
+-- Word maps are over Γ: the identity word map is an endomorphism of each index object.
+example (a : FreeCocycleIndex Γ) : Nonempty (FreeCocycleIndex.Hom a a) :=
+  ⟨⟨MonoidHom.id _, by simp⟩⟩
 
 end FreeIndex
 
@@ -385,6 +451,11 @@ theorem traceFunction_one {V : Type*} [AddCommGroup V] [Module A V] [Module.Free
     traceFunction ρ 1 = Module.finrank A V := by
   simp [traceFunction]
 
+-- The trace of the trivial two-dimensional representation is its rank, not one.
+example (G : Type*) [Group G] :
+    traceFunction (Representation.trivial ℚ G (Fin 2 → ℚ)) 1 = 2 := by
+  norm_num [traceFunction]
+
 end TraceAdapter
 
 -- The linear extension is not multiplicative: for `Γ = 1` and `τ = 2` over `ℚ`,
@@ -407,6 +478,23 @@ theory and stable ∞-categories of perfect complexes on quotient stacks. They a
 The integral comparison in `Ind Perf(BĤ)`, the universal representation bundles on
 `[Z¹(W, Ĥ)/Ĥ]`, perfect generation and the module comparison are README targets: their carriers are
 stacks and stable categories that do not exist at the pins. -/
+
+/-! The remaining named definitions in the roadmap are README targets:
+`CrossedCocycle.restrict`, `CrossedCocycle.sectionEquiv`, `CrossedCocycle.descend`,
+`CrossedCocycle.quotientEquiv`, `H¹(Γ, H)`, continuous crossed cocycles,
+`condensedCoefficients`, `LParameter`, `FiniteWildPiece`, `NormalWildCutoff`,
+`WildInertialParameter`, `wildEnhancementGroup`, `ExtendedWildParameter`, `WildParameterClasses`,
+`IntegralCocycleScheme`, `DerivedParameterStack`, `WeilDeligneParameter`, `ParameterSingularities`,
+`QCoh` and `Perf` of animated quotient stacks, `cotangentToHochschild`,
+`hochschildSelfExtAction`, `dualNilpotentCone`, `NilpotentSingularSupport`, `ParameterInvariantAlgebra`, `ParameterCoarseQuotient`,
+`IsGCompletelyReducible`, `IsGIrreducible`, `IsStronglyReductive`,
+`IsAbsolutelyGCompletelyReducible`, `IsStronglyGIrreducible`, `IsSemisimpleParameter`,
+`coordinateDiagram`, `ExcursionAlgebra`, `CategoricalHeckeDatum`, `ExcursionDatum`,
+`excursionMatrixCoefficient`, `ProjectedPseudocharacter`, `GroupTraceAdapter`,
+the induced modules `∇_λ` and Weyl modules `Δ_λ`, `HasGoodFiltration`, good filtration dimension, `goodFiltrationTStructure`, `InducedPerfectComplexes`,
+`IndProPerf`, equivariant ideal-adic completion, `IndCoh` of the derived unit self-intersection,
+`ParameterMappingApproximation`, `restrictEnhancedParameter`, and `UniversalRepresentationBundle`.
+Their enhanced, topological or algebraic-group carriers and constructions remain in the README. -/
 
 end
 
