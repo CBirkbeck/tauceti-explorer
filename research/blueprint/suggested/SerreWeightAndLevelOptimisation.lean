@@ -34,6 +34,15 @@ theorem levelChangeGluing_class_eq_zero (P Q : Submodule R H) (x : H) :
     (P ⊔ Q).mkQ x = 0 ↔ x ∈ P ⊔ Q := by
   sorry
 
+/-- A linear map killing both submodules descends uniquely to the gluing quotient.
+This imports the existing submodule quotient's universal property. -/
+theorem levelChangeGluing_lift_unique
+    {L : Type*} [AddCommGroup L] [Module R L]
+    (P Q : Submodule R H) (f : H →ₗ[R] L)
+    (hP : ∀ x ∈ P, f x = 0) (hQ : ∀ x ∈ Q, f x = 0) :
+    ∃! g : levelChangeGluing P Q →ₗ[R] L, g.comp (P ⊔ Q).mkQ = f := by
+  sorry
+
 /-- Transport requires preservation of both named submodules. -/
 theorem levelChangeGluing_transport
     {H' : Type*} [AddCommGroup H'] [Module R H']
