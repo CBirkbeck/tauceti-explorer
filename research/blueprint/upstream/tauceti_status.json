@@ -572,13 +572,13 @@
     "EnhancedDerivedSheaves": {
       "stage": "pr",
       "pr": 908,
-      "head": "a157533",
+      "head": "d4d05b1",
       "review": {
-        "recommendation": "pending",
-        "head": "a157533",
-        "current": false,
-        "date": "",
-        "note": ""
+        "recommendation": "approve",
+        "head": "d4d05b1",
+        "current": true,
+        "date": "2026-10-14",
+        "note": "red team (Sol + Astra) and the external Astra deep review applied; deep re-review recommends approval; marked ready for review"
       }
     }
   }
