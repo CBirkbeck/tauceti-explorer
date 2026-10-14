@@ -1,142 +1,44 @@
 # Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex, session `codex-bh6O5i`, 14 October 2026. Refs
+Codex (GPT-6), session `codex-JhxbRq`, 14 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input explorer `a9232ae1fae1af64380517e6e2d9626e07351b2a`; branch `codex-bh6O5i-review-6219`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6160429023).
-No second job was claimed; this continuation did none of the fixes.
+Input explorer `3716acbdf265e87cc6dbda38b92eb7df6f7c8f69`;
+branch `codex-JhxbRq-review-6219`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6160807911).
+This session did none of the fixes and claimed no second job.
 
-The exact pending records in “Exact pending updates” below remain applicable.
-Both input and candidate fingerprints were independently reconstructed and
-matched. They preserve every mathematical field and append the complete old
-review unchanged. Their original assessment attribution remains intact.
-The stock completion check is false; the read-only two-record overlay makes
-it true, including PMIA's negative verdict. Candidate intake checks report
-zero problems.
+The exact pending records below still match both input and candidate hashes.
+They preserve every mathematical field, append the complete preceding
+review unchanged, and retain the original assessment attribution. The stock
+completion check is false; a read-only overlay of the two records makes it
+true, including PMIA's negative verdict. Intake checks find zero problems
+in the candidates. All four packets have zero blueprint-checker errors at
+an index rebuilt from the existing shared source tree; L3 retains 26
+inherited API warnings. This is static validation, not a new mathematical
+review. The current read-only roadmap/library revisions still match those
+below, and the inspected current Fitting/stable-transpose statements support
+the PMIA reuse objection.
 
-Fresh blueprint checks at an index rebuilt from the shared source build
-report zero errors on all four queue packets. L3 has the 26 inherited API
-warnings already documented; the others have none. This is static validation,
-not a new whole-packet mathematical assessment. The shared Mathlib source
-identifies the exact programme pin. The current read-only roadmap and library
-revisions match those recorded below. Current Fitting and stable-transpose
-statements support the existing PMIA reuse objection.
+Only the report and this handoff changed. Repeated descriptions of the
+same gate were consolidated; the original mathematical assessment, exact
+pending updates and provenance remain below and in the report. All packets
+and Suggested files are unchanged. No compilation was repeated; prior Lean
+receipts retain their attribution and limitations.
 
-All four packets and all four Suggested files are unchanged. Only the report
-and this handoff changed. No Lean check was repeated on unchanged files;
-retain the preceding compilation receipts and their attribution. No build,
-update, cache download or language server was run.
+**Blocker:** the live issue omits the L3-2 and LAD packet paths, although
+the queue requires their review metadata. [WORKERS.md](../WORKERS.md),
+“Doing the work”, requires “Edit only the files the issue names, plus your
+own scratch space.” Explicit authorization for the two exact records was
+requested in this worker conversation and has not arrived. No omitted
+packet, queue, issue, prompt, label or promotion data changed.
 
-**Blocking condition:** the live issue still names only L3 and PMIA packet
-paths; the queue requires this review identity on L3-2 and LAD too.
-[WORKERS.md](../WORKERS.md), “Doing the work”, requires “Edit only the files
-the issue names, plus your own scratch space.” Explicit authorization for the
-two exact pending updates was requested in this worker conversation and did
-not arrive. No omitted packet, queue, issue, label or promotion data was
-changed. This checkpoint is due to the unresolved scope restriction.
-
-**Resume:** obtain an issue update or explicit manager authorization for the
-two packet paths in “Exact pending updates”; verify their input hashes; apply
-only the preserved review/reviewHistory candidates; rerun the stock completion,
-blueprint, intake and whitespace checks; update the report/handoff with the
-scope authority; submit the completed one-job PR. Preserve PMIA's
-`needs_changes` verdict. Further source rereading or compilation cannot
-resolve this gate. All required records are below; scratch is disposable.
-
----
-
-# Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
-
-Codex, session `codex-9GgzfH`, 14 October 2026. Refs
-[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input explorer `f38524913af37d7832b550c1f09937b173f748d3`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6159776620).
-This session did none of the fixes under review and claimed no second job.
-
-The completed correction assessment and both pending metadata records below
-remain valid. I reconstructed those records in scratch and confirmed their
-input and candidate SHA256 values exactly. Each preserves every mathematical
-field and appends the complete preceding review unchanged. The stock
-`issues.deliverables_complete` result is false on the permitted tree and true
-with exactly those two records supplied through a read-only overlay. The
-candidates pass intake path, JSON and private-path checks: zero problems.
-
-A fresh declaration index built from the existing shared source tree gives
-zero blueprint-checker errors on all four queue packets. L3 retains its 26
-inherited API-outline warnings; the other packets have no warnings. The
-Mathlib tree identifies the programme pin `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-This static index remains a search aid, not a fresh whole-packet declaration
-review. I also read the current read-only library's `TauCeti.fittingIdeal`,
-`TauCeti.fittingIdeal_eq_minorsIdeal_ker`, `TauCeti.fittingIdeal_baseChange`,
-and `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`.
-Their statements support the recorded PMIA reuse objection. PMIA's negative
-verdict is preserved and is a completed review decision.
-
-The current read-only roadmap and library revisions still match the earlier
-handoff. All four packets and all four Suggested files remain unchanged.
-No Lean file was changed or recompiled in this continuation: the preceding
-receipts below retain their attribution, including L3's unavailable research
-import and the successful PMIA/L3-2/LAD elaborations. No library build,
-update, cache download or language server was run.
-
-The live issue was reread after claiming and after validation. It still
-names only L3 and PMIA as editable packets, while the queue requires this
-review identity on L3-2 and LAD too. [WORKERS.md](../WORKERS.md), Doing the
-work, says “Edit only the files the issue names, plus your own scratch
-space.” Authorization for exactly the two concrete records in the handoff
-was requested in the worker conversation; no reply has arrived. Neither
-omitted packet was edited. This is a scope-blocked checkpoint, not a
-completed submission and not an eight-hour timeout.
-
-Resume only after the live issue adds the two paths or the manager explicitly
-authorizes the prepared metadata updates. Verify the fingerprints, apply
-those exact records with their original assessment attribution, and rerun
-completion, intake and whitespace checks. The mathematical assessment is
-finished: rereading sources or recompiling unchanged files cannot resolve
-this scope mismatch. No scratch file is needed to resume.
-
----
-
-# Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
-
-Codex, session `codex-aSYQ00`, 14 October 2026. Refs
-[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Branch `codex-aSYQ00-review-6219`; input explorer `7e36af9c8`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6159085410).
-No second job was claimed. This continuation did none of the fixes.
-
-The preceding pending records below still match their exact input and
-candidate hashes. They were reconstructed in scratch and validated without
-editing the two omitted packets. Fresh focused source checks support both
-bounded accepted verdicts; they do not repeat the full packet reviews.
-Current-library checks retain PMIA's `needs_changes` verdict. All four
-packets and Suggested files remain unchanged. Only the review report and
-this handoff were updated.
-
-Fresh validation: all four queue packets have zero checker errors at the
-programme index (L3 has its 26 inherited API-outline warnings). L3-2 and LAD
-compile via sequential `lean-check`, respectively with 111 and 489 `sorry`
-warnings and no other diagnostics. Prepared metadata candidates pass intake
-checks through a read-only overlay. Stock completion remains false on the
-permitted tree and becomes true with exactly those two records. Earlier
-L3/PMIA Lean receipts below remain attributed to the preceding session.
-
-The blocking condition is unchanged: the live issue allows only L3/PMIA
-packet edits but the queue requires this job's identity on L3-2/LAD as well.
-The manager was asked to authorize exactly those two metadata-only updates;
-no answer has arrived. No omitted packet, queue, prompt, issue, label or
-promotion data was changed. This checkpoint is required by the issue's
-scope restriction, not by the eight-hour time limit.
-
-Resume when the live issue names the two omitted paths or the manager
-explicitly authorizes those updates. Check the input hashes, preserve every
-old review, and apply the exact records below. They remain attributed to the
-session that performed the preceding bounded assessment. Rerun completion,
-intake and whitespace checks, update the report/handoff to record the scope
-authority, then submit the completed one-job PR. No source rereading or
-mathematical rewriting is needed merely to resolve this metadata scope gate.
-No scratch file is required to resume; all concrete candidates and source
-locators are preserved below.
+**Resume:** obtain an issue update or explicit manager authorization for
+the two packet paths in “Exact pending updates”; verify the fingerprints;
+apply only those preserved review/reviewHistory records; rerun the stock
+completion, blueprint, intake and whitespace checks; update the report and
+handoff with the scope authority; submit the completed one-job PR. Preserve
+PMIA's `needs_changes` verdict. Further source rereading or recompilation
+cannot resolve this gate. Scratch is disposable; all needed records follow.
 
 ---
 
