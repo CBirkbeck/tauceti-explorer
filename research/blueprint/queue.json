@@ -41188,8 +41188,9 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9800"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9800",
+   "finishedAt": "2026-10-14T18:40:21Z"
   },
   {
    "kind": "blueprint",
@@ -48117,8 +48118,9 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9777"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9777",
+   "finishedAt": "2026-10-14T18:40:25Z"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~3",
@@ -48488,8 +48490,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalArithmeticCompletion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9795"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9795",
+   "finishedAt": "2026-10-14T18:40:29Z"
   },
   {
    "id": "REV-PKG-ClassicalArithmeticCompletion",
@@ -50121,7 +50124,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9838"
   },
   {
    "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison",
@@ -51548,7 +51552,8 @@
    ],
    "revisionOf": "PKG-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9836"
   },
   {
    "id": "REV-PKG-HeightsRationalPointsAndObstructions~2",
@@ -51938,7 +51943,8 @@
    ],
    "revisionOf": "PKG-HodgeTateAndCanonicalSubgroups",
    "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9840"
   },
   {
    "id": "REV-PKG-HodgeTateAndCanonicalSubgroups~2",
@@ -53265,8 +53271,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9782"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9782",
+   "finishedAt": "2026-10-14T18:40:34Z"
   },
   {
    "id": "REV-PKG-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -54303,8 +54310,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SerreWeightAndLevelOptimisation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9780"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9780",
+   "finishedAt": "2026-10-14T18:40:38Z"
   },
   {
    "id": "REV-PKG-SerreWeightAndLevelOptimisation",
