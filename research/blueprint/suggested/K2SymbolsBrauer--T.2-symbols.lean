@@ -123,8 +123,10 @@ example (a : Fˣ) : symbol F 1 a = 0 := by sorry
 example (a b : Fˣ) (h : (a : F) + (b : F) = 1) : symbol F a b = 0 := by sorry
 -- TauCeti.FieldSymbols.test_not_exterior
 example : symbol ℝ (-1) (-1) ≠ 0 := by sorry
--- TauCeti.FieldSymbols.test_zero_map
-example (a b : Fˣ) : (0 : SymbolGroup F →ₗ[ℤ] ℤ) (symbol F a b) = 0 := by sorry
+-- TauCeti.FieldSymbols.test_sign_detector
+example : ∃ s : SymbolGroup ℝ →ₗ[ℤ] ZMod 2,
+    s (symbol ℝ (-1) (-1)) = 1 ∧
+    ∀ a b : ℝˣ, (a : ℝ) + (b : ℝ) = 1 → s (symbol ℝ a b) = 0 := by sorry
 -- TauCeti.FieldSymbols.test_finite
 example : Subsingleton (SymbolGroup (ZMod 3)) := by sorry
 -- TauCeti.FieldSymbols.test_char_two
@@ -141,19 +143,6 @@ end TauCeti.FieldSymbols
 
 /- README-only targets: the definitions and proofs use carriers not yet at the pins.
 The reader document gives each exact statement, API, discriminating check and source.
-TauCeti.FieldSymbols.SymbolTensor
-TauCeti.FieldSymbols.steinbergRelations
-TauCeti.FieldSymbols.SymbolGroup
-TauCeti.FieldSymbols.symbol
-TauCeti.FieldSymbols.symbol_mul_left
-TauCeti.FieldSymbols.symbol_mul_right
-TauCeti.FieldSymbols.symbol_steinberg
-TauCeti.FieldSymbols.symbol_one_left
-TauCeti.FieldSymbols.symbol_one_right
-TauCeti.FieldSymbols.symbol_inv_left
-TauCeti.FieldSymbols.universal
-TauCeti.FieldSymbols.hom_ext
-TauCeti.FieldSymbols.map_exists
 TauCeti.MilnorK.degreePresentation
 TauCeti.MilnorK.degreeTwoEquiv
 TauCeti.MilnorK.relationComponent
@@ -186,22 +175,19 @@ TauCeti.FieldSymbolExtension.left_unipotent
 TauCeti.FieldSymbolExtension.left_torus
 TauCeti.FieldSymbolExtension.left_simple
 TauCeti.FieldSymbolExtension.fiber_translate
+TauCeti.FieldSymbolExtension.fiber_ext
+TauCeti.FieldSymbolExtension.fiber_torsor
+TauCeti.FieldSymbolExtension.left_simple_square
 TauCeti.FieldSymbolExtension.test_fiber_identity
 TauCeti.FieldSymbolExtension.test_fiber_unipotent
 TauCeti.FieldSymbolExtension.test_fiber_faithful
 TauCeti.FieldSymbolExtension.test_fiber_not_group
+TauCeti.FieldSymbolExtension.test_fiber_opposite_branch
 TauCeti.MilnorK.realPositive
 TauCeti.MilnorK.realSign
 TauCeti.MilnorK.realSign_kernel
 TauCeti.MilnorK.realDecomposition
 TauCeti.MilnorK.realPositive_divisible
-TauCeti.FieldSymbols.realPositive
-TauCeti.FieldSymbols.realPositive_divisible
-TauCeti.FieldSymbols.real_sign_exists
-TauCeti.FieldSymbols.real_minus_one_nonzero
-TauCeti.FieldSymbols.real_decomposition
-TauCeti.FieldSymbols.realPositive_contains
-TauCeti.FieldSymbols.realPositive_excludes_minus_one
 TauCeti.MilnorK.test_real_degree_one
 TauCeti.MilnorK.test_real_zero_boundary
 -/
