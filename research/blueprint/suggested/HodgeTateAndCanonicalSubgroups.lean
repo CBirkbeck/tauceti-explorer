@@ -165,9 +165,10 @@ example (z : K) : coordAction (1 : GL (Fin 2) K) z = z := by
 
 /-! ## T5: the AIP congruence exponent
 
-On the Hasse neighbourhood of radius ε the AIP structure group B_m contains
-𝒪_p^×(1 + p^x Res 𝔾̂_a) for x = m − ε p^m/(p − 1) (BHW (7.1), in the corrected direction
-recorded in the T0–T5 part). -/
+On the Hasse neighbourhood of radius ε the AIP structure group B_m is contained in
+𝒪_p^×(1 + p^x Res 𝔾̂_a), where x = m − ε p^m/(p − 1). This is the corrected direction
+of BHW (7.1), recorded in the T0–T5 part (E20). Membership of cz + d in B_m follows
+from the ratio of two lifts in the actual torsor (T5/aip-automorphy-factor). -/
 
 /-- x = m − ε p^m/(p − 1). -/
 def aipExponent (p m : ℕ) (ε : ℚ) : ℚ := m - ε * (p : ℚ) ^ m / ((p : ℚ) - 1)
@@ -357,8 +358,10 @@ its statement, hypotheses, API and tests are in the README section named on the 
   ShimuraTower.infiniteLevelMin, ShimuraTower.infiniteLevel.proj,
   ShimuraTower.infiniteLevelMin_isSpatial, ShimuraTower.infiniteLevel_isLocallySpatial,
   ShimuraTower.infiniteLevel_space_homeo, ShimuraTower.infiniteLevel_points,
-  ShimuraTower.infiniteLevel_action, ShimuraTower.infiniteLevel_proEtale,
-  ShimuraTower.infiniteLevel_reindex, ShimuraTower.infiniteLevel_torus,
+  ShimuraTower.infiniteLevel_action, ShimuraTower.infiniteLevel_quasiProEtale,
+  ShimuraTower.infiniteLevel_reindex, ShimuraTower.infiniteLevel.lift,
+  ShimuraTower.infiniteLevel.lift_proj, ShimuraTower.infiniteLevel.hom_ext,
+  ShimuraTower.infiniteLevel_torus,
   ShimuraTower.infiniteLevel_gl2_points, ShimuraTower.infiniteLevel_not_perfectoid,
   ShimuraTower.infiniteLevel_least_level
 
