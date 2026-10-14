@@ -33,7 +33,17 @@ structure OverHom (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) where
 def relativeHomSetoid (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) : Setoid (OverHom qX qY) where
   r f g := ∃ d : qY.toMonoidHom.ker,
     ∀ x, g.hom x = (d : Y) * f.hom x * (d : Y)⁻¹
-  iseqv := ⟨by sorry, by sorry, by sorry⟩
+  iseqv := by
+    refine ⟨fun _ => ⟨1, fun _ => by simp⟩, ?_, ?_⟩
+    · rintro _ _ ⟨d, h⟩
+      refine ⟨d⁻¹, fun x => ?_⟩
+      rw [h x]
+      simp only [Subgroup.coe_inv, inv_inv, mul_assoc, inv_mul_cancel_left, mul_one,
+        inv_mul_cancel]
+    · rintro _ _ _ ⟨d, hd⟩ ⟨e, he⟩
+      refine ⟨e * d, fun x => ?_⟩
+      rw [he x, hd x]
+      simp only [Subgroup.coe_mul, mul_inv_rev, mul_assoc]
 
 abbrev RelativeOuterHom (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) :=
   Quotient (relativeHomSetoid qX qY)
@@ -64,6 +74,15 @@ example (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) (f g : OverHom qX qY)
 example (f : OverHom (ContinuousMonoidHom.id Γ) (ContinuousMonoidHom.id Γ)) :
     f.hom = ContinuousMonoidHom.id Γ := by sorry
 
+-- relativeHom_sign_test: conjugation by an arithmetic element is not removed: over the
+-- sign map S₃ → C₂, conjugation by a transposition inverts A₃, unlike any A₃-conjugate of id.
+example [TopologicalSpace (Equiv.Perm (Fin 3))] [DiscreteTopology (Equiv.Perm (Fin 3))]
+    [TopologicalSpace ℤˣ] [DiscreteTopology ℤˣ]
+    (q : Equiv.Perm (Fin 3) →ₜ* ℤˣ) (hq : ∀ σ, q σ = Equiv.Perm.sign σ) :
+    ∃ f g : OverHom q q, (∀ x, f.hom x = x) ∧
+      RelativeOuterHom.ofHom f ≠ RelativeOuterHom.ofHom g ∧
+      ∃ t : Equiv.Perm (Fin 3), ∀ x, g.hom x = t * x * t⁻¹ := by sorry
+
 structure OverIsom (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) where
   equiv : X ≃ₜ* Y
   over : qY.comp (ContinuousMonoidHom.toContinuousMonoidHom equiv) = qX
@@ -71,7 +90,17 @@ structure OverIsom (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) where
 def relativeIsomSetoid (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) : Setoid (OverIsom qX qY) where
   r e f := ∃ d : qY.toMonoidHom.ker,
     ∀ x, f.equiv x = (d : Y) * e.equiv x * (d : Y)⁻¹
-  iseqv := ⟨by sorry, by sorry, by sorry⟩
+  iseqv := by
+    refine ⟨fun _ => ⟨1, fun _ => by simp⟩, ?_, ?_⟩
+    · rintro _ _ ⟨d, h⟩
+      refine ⟨d⁻¹, fun x => ?_⟩
+      rw [h x]
+      simp only [Subgroup.coe_inv, inv_inv, mul_assoc, inv_mul_cancel_left, mul_one,
+        inv_mul_cancel]
+    · rintro _ _ _ ⟨d, hd⟩ ⟨e, he⟩
+      refine ⟨e * d, fun x => ?_⟩
+      rw [he x, hd x]
+      simp only [Subgroup.coe_mul, mul_inv_rev, mul_assoc]
 
 abbrev RelativeOuterIsom (qX : X →ₜ* Γ) (qY : Y →ₜ* Γ) :=
   Quotient (relativeIsomSetoid qX qY)
@@ -89,6 +118,14 @@ end RelativeOuterIsom
 -- relativeIsom_base_test
 example (e : OverIsom (ContinuousMonoidHom.id Γ) (ContinuousMonoidHom.id Γ)) :
     e.equiv = ContinuousMulEquiv.refl Γ := by sorry
+
+-- relativeIsom_sign_test: the same S₃ → C₂ conjugation is a nontrivial relative class.
+example [TopologicalSpace (Equiv.Perm (Fin 3))] [DiscreteTopology (Equiv.Perm (Fin 3))]
+    [TopologicalSpace ℤˣ] [DiscreteTopology ℤˣ]
+    (q : Equiv.Perm (Fin 3) →ₜ* ℤˣ) (hq : ∀ σ, q σ = Equiv.Perm.sign σ) :
+    ∃ e₀ e : OverIsom q q, (∀ x, e₀.equiv x = x) ∧
+      RelativeOuterIsom.ofIsom e ≠ RelativeOuterIsom.ofIsom e₀ ∧
+      ∃ t : Equiv.Perm (Fin 3), ∀ x, e.equiv x = t * x * t⁻¹ := by sorry
 
 /-- Native quotient adapter; characteristic invariance makes the closure redundant.
 This completes the geometric kernel, retaining the full arithmetic base. -/
@@ -211,6 +248,7 @@ Test target: TauCeti.Anabelian.relativeHom_self_test
 Reader contract: AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-isom
 API target: TauCeti.Anabelian.RelativeOuterIsom.symm
 API target: TauCeti.Anabelian.RelativeOuterIsom.toHom
+API target: TauCeti.Anabelian.RelativeOuterIsom.trans
 Test target: TauCeti.Anabelian.relativeIsom_id_test
 Test target: TauCeti.Anabelian.relativeIsom_conj_test
 
