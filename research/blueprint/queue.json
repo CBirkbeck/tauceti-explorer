@@ -9860,7 +9860,9 @@
    "avoidAccountOf": "DESIGN-FGFO",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FGFO.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9802",
+   "finishedAt": "2026-10-14T18:02:21Z"
   },
   {
    "id": "DESIGN-LV",
@@ -34897,8 +34899,9 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9763"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9763",
+   "finishedAt": "2026-10-14T18:02:28Z"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -34944,8 +34947,9 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9764"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9764",
+   "finishedAt": "2026-10-14T18:02:33Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -37259,8 +37263,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9755"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9755",
+   "finishedAt": "2026-10-14T18:02:38Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
@@ -37306,8 +37311,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9756"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9756",
+   "finishedAt": "2026-10-14T18:02:43Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
@@ -41182,7 +41188,8 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9800"
   },
   {
    "kind": "blueprint",
@@ -42946,8 +42953,9 @@
    ],
    "revisionOf": "BP-TorsionCohomologyInfrastructure",
    "prompt": "research/blueprint/prompts/BP-TorsionCohomologyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9776"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9776",
+   "finishedAt": "2026-10-14T18:02:47Z"
   },
   {
    "priority": 2,
@@ -44298,8 +44306,9 @@
     "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9762"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9762",
+   "finishedAt": "2026-10-14T18:02:48Z"
   },
   {
    "kind": "blueprint",
@@ -44430,8 +44439,9 @@
    ],
    "revisionOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9766"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9766",
+   "finishedAt": "2026-10-14T18:02:53Z"
   },
   {
    "priority": 2,
@@ -47478,8 +47488,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9768"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9768",
+   "finishedAt": "2026-10-14T18:02:58Z"
   },
   {
    "id": "REV-PKG-AnabelianGeometryAndNonabelianChabauty",
@@ -47549,7 +47560,9 @@
     "PKG-ArakelovGeometryAndAbelianHeights"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArakelovGeometryAndAbelianHeights.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9772",
+   "finishedAt": "2026-10-14T18:03:06Z"
   },
   {
    "id": "PKG-ArithmeticDirichletSeriesPartII",
@@ -48100,7 +48113,8 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9777"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~3",
@@ -51571,8 +51585,9 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9765"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9765",
+   "finishedAt": "2026-10-14T18:03:10Z"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -51763,8 +51778,9 @@
     "PKG-HodgeTateAndCanonicalSubgroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9773"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9773",
+   "finishedAt": "2026-10-14T18:03:14Z"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -53065,7 +53081,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9782"
   },
   {
    "id": "REV-PKG-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -53272,8 +53289,9 @@
     "PKG-PerfectoidShimuraVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9775"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9775",
+   "finishedAt": "2026-10-14T18:03:18Z"
   },
   {
    "id": "PKG-PolynomialGaloisGroupsPartII",
@@ -54101,7 +54119,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SerreWeightAndLevelOptimisation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9780"
   },
   {
    "id": "REV-PKG-SerreWeightAndLevelOptimisation",
