@@ -4,12 +4,12 @@ This document continues layer CA.2 (*Sequences and generating functions*) of the
 
 1. **Eulerian numbers** A(n, q), counted by descents, with their identities and unimodality, and the five inequalities of Lawrence–Sawin's Appendix C at their exact ranges (§1).
 2. **Generalised binomial coefficients and the p-free factorial** from Yu's integrality argument: divisibility by n/gcd(n, m), the factorial f_p(N) of the integers prime to p, the factorisation of C(np, mp) and C(−np, mp), and the Luo–Zhu congruence with its exceptional case (§2).
-3. **Ward's strong divisibility theorem** for elliptic divisibility sequences, with an explicit curve carrying normEDS b c d, the zero set over a field, the filtration E_k(ℚ_p) of an arbitrary integral Weierstrass equation and the theorem at primes not dividing W₂W₃ (§3). The primes dividing W₂W₃ and the singular attached curves are a recorded gap (§6).
+3. **Ward's strong divisibility theorem** for elliptic divisibility sequences, with an explicit curve carrying normEDS b c d, the zero set over a field, the filtration E_k(ℚ\_p) of an arbitrary integral Weierstrass equation and the theorem at primes not dividing W₂W₃ (§3). The primes dividing W₂W₃ and the singular attached curves are a recorded gap (§6).
 4. **Three suppliers** for steps of earlier CA.2 targets: formal sine and cosine, and the divergence of the Bernoulli and secant-plus-tangent series on and beyond their circles of convergence (§4), with a disposition of every target on the earlier review frontier (§5).
 
 **Conventions.** ℕ contains 0. A(n, q) is indexed by the number q of descents, so A(n, 0) = 1 and A(0, 0) = 1 (Stanley indexes by 1 + des). Generalised binomial coefficients are Mathlib's `Ring.choose` on ℤ: C(n, m) = n(n − 1)···(n − m + 1)/m! for n ∈ ℤ, m ∈ ℕ. `normEDS b c d` is Mathlib's normalised elliptic divisibility sequence W with W₀ = 0, W₁ = 1, W₂ = b, W₃ = c, W₄ = db; it is nondegenerate when bc ≠ 0. Division polynomials ψₙ, φₙ are Mathlib's, ωₙ is Tau Ceti's. v_p is the p-adic valuation (multiplicity, with v_p(0) = ∞). The Bernoulli numbers are Mathlib's `bernoulli`, B₁ = −1/2.
 
-**Boundaries.** The Hodge-theoretic meaning of Eulerian numbers (χ(H, Ωⁱ_H) = ±d·A(n, i) for a hypersurface H in an abelian variety) belongs to the roadmap that plans Lawrence–Sawin's convolution theory; this layer owns only the numbers and their inequalities. Yu's integrality theorem (Théorème 7.2.3) and the counting of local systems belong to the function-field counting roadmap; this layer owns the binomial and factorial arithmetic it uses. Elliptic curves over local fields — the formal group and the reduction filtration — are Tau Ceti's EllipticCurves roadmap (Layers 1 and 4); this layer applies them to an arbitrary integral equation. The maximal order of the divisor function, which AdditiveCombinatorics asked of this layer, is AnalyticNumberTheory's target AN.5/divisor-maximal-order.
+**Boundaries.** The Hodge-theoretic meaning of Eulerian numbers (χ(H, Ωⁱ\_H) = ±d·A(n, i) for a hypersurface H in an abelian variety) belongs to the roadmap that plans Lawrence–Sawin's convolution theory; this layer owns only the numbers and their inequalities. Yu's integrality theorem (Théorème 7.2.3) and the counting of local systems belong to the function-field counting roadmap; this layer owns the binomial and factorial arithmetic it uses. The formal group of an integral Weierstrass equation and its identification Ê(𝔪) ≅ E₁(K) are Tau Ceti's EllipticCurves roadmap (Layer 1, milestones (i), (iii) and (iv)); this layer adds the finer filtration E_k for an arbitrary integral equation. The maximal order of the divisor function, which AdditiveCombinatorics asked of this layer, is AnalyticNumberTheory's target AN.5/divisor-maximal-order.
 
 ## 1. Eulerian numbers
 
@@ -23,7 +23,7 @@ The Eulerian number A(n, q) counts permutations of {1, …, n} by descents. Lawr
 
 For n, q ∈ ℕ, the Eulerian number A(n, q) is the number of permutations σ of {1, …, n} with exactly q descents, a descent being a position i with 1 ≤ i < n and σ(i) > σ(i + 1). In Lean the permutations are Equiv.Perm (Fin n) and descentCount σ counts the positions i : Fin n with i + 1 < n and σ(i + 1) < σ(i). The empty permutation has no descent, so A(0, 0) = 1 and A(0, q) = 0 for q ≥ 1; for n ≥ 1, A(n, q) = 0 for q ≥ n. The count by ascents (σ(i) < σ(i + 1)) gives the same numbers. In Stanley's indexing A_Stanley(d, k) = A(d, k − 1) (his k counts 1 + des), and Lawrence–Sawin's A(n, q) is this A(n, q).
 
-Hypotheses and conventions: n and q are natural numbers; no range condition is built into the definition, the vanishing outside 0 ≤ q < n (n ≥ 1) is a theorem. The zero-degree value A(0, 0) = 1 is the count of the empty permutation. It is kept separate from Lawrence–Sawin's convention 'A(n, q) = 0 unless 0 ≤ q < n', which they use only for n ≥ 1, and from Stanley's convention A_Stanley(0, k) = δ_{0k} (that is A₀(x) = 1), which is a separate normalisation of his shifted indexing at d = 0 and does not correspond to A(0, 0) under k = q + 1; the identities planned here (row sums, Worpitzky at m = q + 1 ≥ 1) hold with A(0, 0) = 1.
+Hypotheses and conventions: n and q are natural numbers; no range condition is built into the definition, the vanishing outside 0 ≤ q < n (n ≥ 1) is a theorem. The zero-degree value A(0, 0) = 1 is the count of the empty permutation. It is kept separate from Lawrence–Sawin's convention 'A(n, q) = 0 unless 0 ≤ q < n', which they use only for n ≥ 1, and from Stanley's convention A_Stanley(0, k) = δ\_{0k} (that is A₀(x) = 1), which is a separate normalisation of his shifted indexing at d = 0 and does not correspond to A(0, 0) under k = q + 1; the identities planned here (row sums, Worpitzky at m = q + 1 ≥ 1) hold with A(0, 0) = 1.
 
 Uses:
 
@@ -47,8 +47,8 @@ Unit tests:
 - `eulerian_three_one` (computation): A(3, 1) = 4 (the permutations 132, 213, 231, 312).
 - `eulerian_four_row` (computation): A(4, 0) = 1, A(4, 1) = 11, A(4, 2) = 11, A(4, 3) = 1.
 - `eulerian_two_row` (computation): A(2, 0) = A(2, 1) = 1.
-- `eulerian_zero_zero` (degenerate): A(0, 0) = 1: a definition that builds in 'A(n, q) = 0 unless q < n' gives 0 here and breaks the row sum 0! = 1.
-- `sum_eulerian_five` (compatibility): Σ_{q ≤ 5} A(5, q) = 120 = Nat.factorial 5.
+- `sum_eulerian_zero` (degenerate): Σ\_{q ≤ 0} A(0, q) = 0! = 1, that is A(0, 0) = 1: a definition that builds in 'A(n, q) = 0 unless q < n' gives 0 here and breaks the row sum.
+- `sum_eulerian_five` (compatibility): Σ\_{q ≤ 5} A(5, q) = 120 = Nat.factorial 5.
 - `eulerian_ne_zigzag` (non-example): A(3, 1) = 4 ≠ 2 = E₃: Eulerian numbers are not the Euler zigzag numbers of CA.2/euler-zigzag-numbers, nor counts of Eulerian circuits in graphs.
 
 Acceptance checks:
@@ -65,7 +65,7 @@ Direct prerequisites: `mathlib:Equiv.Perm`, `mathlib:Finset.card`, `mathlib:Fins
 
 Suggested Lean: `eulerian` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), §1.4, (1.36) and the paragraph after it, p. 39. Defines A(d, k) as the number of permutations of [d] with k − 1 descents, the Eulerian polynomial A_d(x) = Σ_w x^{1+des(w)}, sets A(0, k) = δ_{0k} and tabulates A_0(x), …, A_8(x).
+Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), §1.4, (1.36) and the paragraph after it, p. 39. Defines A(d, k) as the number of permutations of [d] with k − 1 descents, the Eulerian polynomial A_d(x) = Σ\_w x^{1+des(w)}, sets A(0, k) = δ\_{0k} and tabulates A_0(x), …, A_8(x).
 
 Source: [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersurfaces in abelian varieties*](https://arxiv.org/pdf/2004.09046v5), §3, Lemma 3.4, p. 20; Appendix B, opening paragraph, p. 93; Appendix C, proof of Lemma C.1, p. 116. Uses A(n, i) for the Eulerian number in the Hodge-number formula, adopts the convention A(n, q) = 0 unless 0 ≤ q < n, and recalls that A(n, q) counts permutations of {1, …, n} with exactly q ascents.
 
@@ -75,7 +75,7 @@ Source: [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersur
 
 `ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities` · theorem.
 
-For all n, q ∈ ℕ: (a) Σ_{q=0}^{n} A(n, q) = n!; (b) for q < n, A(n, q) = A(n, n − 1 − q); (c) A(n + 1, q + 1) = (q + 2)·A(n, q + 1) + (n − q)·A(n, q), with natural subtraction (for q ≥ n both sides vanish); (d) Worpitzky's identity (q + 1)ⁿ = Σ_{j=0}^{q} A(n, j)·C(n + q − j, n); (e) A(n, 0) = 1 and A(n, 1) = 2ⁿ − n − 1; (f) the number of permutations with q ascents is A(n, q).
+For all n, q ∈ ℕ: (a) Σ\_{q=0}^{n} A(n, q) = n!; (b) for q < n, A(n, q) = A(n, n − 1 − q); (c) A(n + 1, q + 1) = (q + 2)·A(n, q + 1) + (n − q)·A(n, q), with natural subtraction (for q ≥ n both sides vanish); (d) Worpitzky's identity (q + 1)ⁿ = Σ\_{j=0}^{q} A(n, j)·C(n + q − j, n); (e) A(n, 0) = 1 and A(n, 1) = 2ⁿ − n − 1; (f) the number of permutations with q ascents is A(n, q).
 
 Hypotheses and conventions: n, q ∈ ℕ; (b) needs q < n, which forces n ≥ 1.
 
@@ -90,7 +90,7 @@ Proof sketch:
 1. (a) The sets {σ : des σ = q}, 0 ≤ q ≤ n, partition Equiv.Perm (Fin n), whose cardinality is n! (Fintype.card_perm).
 2. (b) and (f): reversal σ ↦ σ ∘ rev sends a permutation with q descents to one with n − 1 − q descents, and complementation σ ↦ rev ∘ σ exchanges descents and ascents (Stanley p. 40, the paragraph before Proposition 1.4.3).
 3. (c) Insert n + 1 into a permutation of [n]: inserting it into a descent slot or at the end keeps the descent number, inserting it into an ascent slot or at the front raises it by one; this is Stanley's recurrence (1.39) A(d + 1, k) = kA(d, k) + (d − k + 2)A(d, k − 1) with k = q + 2.
-4. (d) Stanley's Proposition 1.4.4, Σ_{m≥0} mⁿxᵐ = A_n(x)/(1 − x)^{n+1} with A_n(x) = Σ_j A(n, j)x^{j+1}; expanding 1/(1 − x)^{n+1} = Σ_k C(n + k, n)x^k (Mathlib's PowerSeries.invOneSubPow) and comparing coefficients of x^{q+1} gives (d).
+4. (d) For n ≥ 1, Stanley's Proposition 1.4.4 gives Σ\_{m≥0} mⁿxᵐ = A_n(x)/(1 − x)^{n+1} with A_n(x) = Σ\_j A(n, j)x^{j+1}; expanding 1/(1 − x)^{n+1} = Σ\_k C(n + k, n)x^k (Mathlib's PowerSeries.invOneSubPow) and comparing coefficients of x^{q+1} gives (d). At n = 0 Stanley sets A₀(x) = 1 rather than x, so (d) is checked directly there: only j = 0 contributes, and both sides are 1 because A(0, 0) = 1.
 5. (e) A(n, 0) = 1 because only the identity has no descent; A(n, 1) = 2ⁿ − n − 1 follows from (d) at q = 1: 2ⁿ = A(n, 0)C(n + 1, n) + A(n, 1).
 
 Direct prerequisites: [eulerian-numbers](#CA-2-eulerian-numbers), `mathlib:Fintype.card_perm`, `mathlib:Nat.choose`, `mathlib:PowerSeries.invOneSubPow`, `mathlib:Fin.revPerm`.
@@ -99,7 +99,7 @@ Suggested Lean: `sum_eulerian`, `eulerian_symm`, `eulerian_succ_succ`, `worpitzk
 
 Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), §1.4, the paragraph before Proposition 1.4.3 and Propositions 1.4.3–1.4.4 with the proof of 1.4.4, (1.37)–(1.39), p. 40. Shows that reversal turns d − 1 − j descents into j descents, proves Σ m^d x^m = A_d(x)/(1 − x)^{d+1} by induction through the recurrence (1.39), and proves (1.39) by inserting d + 1 into a permutation of [d].
 
-Source: [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersurfaces in abelian varieties*](https://arxiv.org/pdf/2004.09046v5), Appendix B, opening paragraph, p. 93; Appendix A, proof of Lemma A.6, p. 92; Appendix C, Lemma C.2 and its proof, p. 116. States the factorial sum Σ_q A(n, q) = n! and uses the symmetry A(n, k) = A(n, n − 1 − k) (proof of Lemma A.6, p. 92) and the ascent description.
+Source: [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersurfaces in abelian varieties*](https://arxiv.org/pdf/2004.09046v5), Appendix C, Lemmas C.1–C.2 with their proofs, p. 116; Appendix A, proof of Lemma A.6, p. 92; Appendix B, opening paragraph, p. 93. The proof of Lemma C.2 is the factorial sum Σ\_q A(n, q) = n!; the proof of Lemma A.6 uses the symmetry A(n, k) = A(n, n − 1 − k); the proof of Lemma C.1 recalls that A(n, q) counts the permutations with exactly q ascents; the opening of Appendix B fixes the convention A(n, q) = 0 outside 0 ≤ q < n.
 
 <a id="CA-2-eulerian-unimodal"></a>
 
@@ -127,7 +127,7 @@ Direct prerequisites: [eulerian-basic-identities](#CA-2-eulerian-basic-identitie
 
 Suggested Lean: `eulerian_le_eulerian_succ` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), Chapter 1, Exercise 1.50(e), p. 124, and its solution, p. 177; Exercise 1.49 with solution, pp. 123–124 and 176. Asks to show that Σ_{w ∈ S_n} x^{des(w)} is symmetric and unimodal, and solves it from the real-rootedness of the Eulerian polynomial (Exercise 1.49) and Newton's inequalities (Exercise 1.50(a),(b)); cites Gasharov for a combinatorial proof.
+Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), Chapter 1, Exercise 1.50(e), p. 124, with its solution, p. 178; Exercises 1.49 and 1.50(a)–(b), p. 124, with the solutions of 1.49 and 1.50(b), p. 177. Asks to show that Σ\_{w ∈ S_n} x^{des(w)} is symmetric and unimodal, and solves it from the real-rootedness of the Eulerian polynomial (Exercise 1.49) and Newton's inequalities (Exercise 1.50(a),(b)); cites Gasharov for a combinatorial proof.
 
 Source: [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersurfaces in abelian varieties*](https://arxiv.org/pdf/2004.09046v5), Appendix C, proof of Lemma C.4, p. 117. Uses, without stating it as a lemma, that A(n, r) ≥ A(n, r₀) for r₀ ≤ r ≤ n/2, which is this unimodality.
 
@@ -151,7 +151,7 @@ Proof sketch:
 
 1. Upper bound: by Worpitzky's identity (eulerian-basic-identities (d)) (q + 1)ⁿ is a sum of nonnegative terms one of which is A(n, q)·C(n, n) = A(n, q). (Lawrence–Sawin's argument: labelling [n] by 1, …, q + 1 and listing each label class in decreasing order gives every permutation with at most q ascents.)
 2. Lower bound (Lawrence–Sawin's argument): the labellings producing a permutation with fewer than q ascents have two adjacent labels whose classes are separated; recording the position j ∈ {0, …, n} of the cut and merging the labels injects them into (n + 1)·qⁿ data, so the number of permutations with exactly q ascents is at least (q + 1)ⁿ − (n + 1)qⁿ.
-3. A(n, q) ≤ n! from Σ_q A(n, q) = n! (eulerian-basic-identities (a)).
+3. A(n, q) ≤ n! from Σ\_q A(n, q) = n! (eulerian-basic-identities (a)).
 4. Ascents and descents give the same numbers (eulerian-basic-identities (f)), so the source's ascent count is A(n, q).
 
 Direct prerequisites: [eulerian-basic-identities](#CA-2-eulerian-basic-identities).
@@ -295,7 +295,7 @@ Uses:
 
 API:
 
-- `pFreeFactorial` (data): f_p(N) := ∏_{1 ≤ i ≤ N, p ∤ i} i.
+- `pFreeFactorial` (data): f_p(N) := ∏\_{1 ≤ i ≤ N, p ∤ i} i.
 - `pFreeFactorial_zero` (simp): f_p(0) = 1.
 - `pFreeFactorial_succ` (simp): f_p(N + 1) = f_p(N)·(1 if p ∣ N + 1, else N + 1).
 - `factorial_eq_mul_pFreeFactorial` (characterisation): N! = p^{⌊N/p⌋}·⌊N/p⌋!·f_p(N), for every p.
@@ -325,7 +325,7 @@ Direct prerequisites: `mathlib:Finset.prod`, `mathlib:Finset.Icc`, `mathlib:Nat.
 
 Suggested Lean: `pFreeFactorial` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Hongjie Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*](https://arxiv.org/pdf/1807.04659v5), §7.2.2, definition of f_p before the citation of Luo–Zhu, p. 71 (arXiv v5). Defines f_p(n) as the product of the integers 1 ≤ i ≤ n prime to p, equal to n!/(p^{[n/p]}[n/p]!), and uses that f_p(p^α) is a unit of ℤ_p.
+Source: [Hongjie Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*](https://arxiv.org/pdf/1807.04659v5), §7.2.2, definition of f_p before the citation of Luo–Zhu, p. 71, and the unit property in the first case of the proof, p. 72 (arXiv v5). Defines f_p(n) as the product of the integers 1 ≤ i ≤ n prime to p, equal to n!/(p^{[n/p]}[n/p]!), and uses that f_p(p^α) is a unit of ℤ\_p.
 
 Source: [Wei Luo and Shengmao Zhu, *Integrality of the LMOV invariants for framed unknot*](https://arxiv.org/pdf/2106.02882v1), §3, equation (10), p. 6 (arXiv:2106.02882v1). Defines f_p(n) for every nonnegative integer n by the same product and the same factorial quotient.
 
@@ -374,8 +374,8 @@ Acceptance checks:
 
 Proof sketch:
 
-1. Induction on N; N = 0 is f_p(0) = 1. For the step, f_p(p^αN) = f_p(p^α(N − 1))·∏_{1 ≤ i ≤ p^α, p ∤ i}(p^α(N − 1) + i).
-2. Modulo p^{2α} the product is f_p(p^α)·(1 + p^α(N − 1)·Σ_{i} i^{−1}), the inverses taken modulo p^{2α} (the cross terms carry p^{2α}).
+1. Induction on N; N = 0 is f_p(0) = 1. For the step, f_p(p^αN) = f_p(p^α(N − 1))·∏\_{1 ≤ i ≤ p^α, p ∤ i}(p^α(N − 1) + i).
+2. Modulo p^{2α} the product is f_p(p^α)·(1 + p^α(N − 1)·Σ\_{i} i^{−1}), the inverses taken modulo p^{2α} (the cross terms carry p^{2α}).
 3. Pair i with p^α − i: 1/i + 1/(p^α − i) = p^α/(i(p^α − i)), so p^α divides the sum of inverses. The pairing has no fixed point because p^{α−1}(p − 1), the number of units, is even and i = p^α/2 is not a unit (p odd, or p = 2 with α ≥ 2); for p = 2, α = 1 the sum is 1 and the argument fails.
 4. Hence the factor is ≡ f_p(p^α) (mod p^{2α}) and the induction closes.
 5. p = 2, α = 1: f_2(2N) is the product of the odd numbers below 2N, of which ⌊N/2⌋ are ≡ 3 (mod 4).
@@ -392,7 +392,7 @@ Source: [Wei Luo and Shengmao Zhu, *Integrality structures in topological string
 
 ## 3. Elliptic divisibility sequences and Ward's theorem
 
-Tau Ceti proves that normEDS b c d is an elliptic net and a divisibility sequence. Ward's theorem upgrades divisibility to strong divisibility, gcd(W_m, Wₙ) = |W_{gcd(m,n)}|, exactly when gcd(W₃, W₄) = 1. The route planned here is geometric. The explicit curve E_{b,c,d} has the point (0, 0) with ψₙ(0, 0) = normEDS b c d n on the nose, for any field and without an ellipticity hypothesis. Tau Ceti's theorem that n·P has Jacobian coordinates (φₙ : ωₙ : ψₙ)(P) on any Weierstrass curve gives the zero set over a field and Ayad's coprimality of φₙ and ψₙ at a nonsingular point. At a prime p not dividing bc the curve is p-integral with P integral and nonsingular modulo p, so v_p(Wₙ) is the filtration level of nP, and the filtration E_k(ℚ_p) of an arbitrary integral equation consists of subgroups. This proves the subgroup property of {n : p^V | Wₙ} at those primes. The primes dividing bc are different in kind: there the point can have singular reduction on every integral model, and the theorem at those primes, together with the singular curves, is the gap of §6.
+Tau Ceti proves that normEDS b c d is an elliptic net and a divisibility sequence. Ward's theorem upgrades divisibility to strong divisibility, gcd(W_m, Wₙ) = |W_{gcd(m,n)}|, exactly when gcd(W₃, W₄) = 1. The route planned here is geometric. The explicit curve E_{b,c,d} has the point (0, 0) with ψₙ(0, 0) = normEDS b c d n on the nose, for any field and without an ellipticity hypothesis. Tau Ceti's theorem that n·P has Jacobian coordinates (φₙ : ωₙ : ψₙ)(P) on any Weierstrass curve gives the zero set over a field and Ayad's coprimality of φₙ and ψₙ at a nonsingular point. At a prime p not dividing bc the curve is p-integral with P integral and nonsingular modulo p, so v_p(Wₙ) is the filtration level of nP, and the filtration E_k(ℚ\_p) of an arbitrary integral equation consists of subgroups. This proves the subgroup property of {n : p^V | Wₙ} at those primes. The primes dividing bc are different in kind: there the point can have singular reduction on every integral model, and the theorem at those primes, together with the singular curves, is the gap of §6.
 
 <a id="CA-2-eds-attached-curve"></a>
 
@@ -447,7 +447,7 @@ Direct prerequisites: `mathlib:WeierstrassCurve.ψ`, `mathlib:WeierstrassCurve.�
 
 Suggested Lean: `edsCurve` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §3, Theorem 8 and the paragraph after it, p. 8 (arXiv v4). States that a sequence Ψₙ(P) on a cubic Weierstrass curve is an EDS and that every EDS over a field with W₂W₃ ≠ 0, W₁ = 1 is Ψₙ(P) for some cubic Weierstrass curve E/K and P ∈ E(K), attributing it to Ward (Theorem 12.1), Shipsey and Stange.
+Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §3, Theorem 8 and the paragraph after it, p. 8 (arXiv v4). States Ward's theorem, as updated by Shipsey and Stange, over a field of characteristic zero: Ψₙ(P) on a cubic Weierstrass curve is an EDS, and every EDS with W₂W₃ ≠ 0, W₁ = 1 is Ψₙ(P) for some cubic Weierstrass curve E/K and P ∈ E(K) (Ward, Theorem 12.1; Shipsey; Stange). The source gives no explicit curve; the curve of this node is checked by the direct computation of the proof sketch, over every field.
 
 Source: [Joseph H. Silverman and Nelson Stephens, *The sign of an elliptic divisibility sequence*](https://arxiv.org/pdf/math/0402415v1), Appendix A, (27)–(31), pp. 16–17 (arXiv:math/0402415v1). Gives Ward's explicit short Weierstrass model Y² = X³ + AX + B and point (x, y) for the EDS 1, α, β, αγ, …, with the discriminant (31).
 
@@ -476,7 +476,7 @@ Proof sketch:
 
 Direct prerequisites: `tauceti:WeierstrassCurve.zsmul_point_eq_smulEval`, `tauceti:WeierstrassCurve.smulEval`, `mathlib:WeierstrassCurve.Jacobian.X_ne_zero_of_Z_eq_zero`, `mathlib:WeierstrassCurve.Jacobian.nonsingular_of_Z_eq_zero`, `mathlib:WeierstrassCurve.Jacobian.Point.fromAffine`, `mathlib:WeierstrassCurve.φ`, `tauceti:WeierstrassCurve.ω`.
 
-Suggested Lean: `evalEval_ψ_eq_zero_iff`, `evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
+Suggested Lean: `evalEval_ψ_eq_zero_iff`, `evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero`, `zsmul_some_eq_some_of_evalEval_ψ_ne_zero` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
 Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §2, Proposition 5 and the multiplication-by-n formulas, pp. 6–7 (arXiv v4). States that a point of an elliptic curve is a nontrivial n-torsion point iff Ψₙ vanishes there, and the formula [n]P = (φₙ/Ψₙ², ωₙ/Ψₙ³).
 
@@ -501,45 +501,45 @@ Proof sketch:
 
 1. By eds-attached-curve, normEDS b c d n = ψₙ(P) on E_{b,c,d} with P nonsingular.
 2. By division-polynomials-at-a-nonsingular-point (a), ψₙ(P) = 0 iff n·P = O, iff the additive order of P divides n (orderOf_dvd_iff_zpow_eq_one in its additive form addOrderOf_dvd_iff_zsmul_eq_zero).
-3. For p ∤ bc apply this over 𝔽_p to the reduced parameters, using map_normEDS for the reduction ℤ → 𝔽_p.
+3. For p ∤ bc apply this over 𝔽\_p to the reduced parameters, using map_normEDS for the reduction ℤ → 𝔽\_p.
 
 Direct prerequisites: [eds-attached-curve](#CA-2-eds-attached-curve), [division-polynomials-at-a-nonsingular-point](#CA-2-division-polynomials-at-a-nonsingular-point), `mathlib:orderOf_dvd_iff_zpow_eq_one`, `mathlib:map_normEDS`.
 
 Suggested Lean: `normEDS_eq_zero_iff` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Joseph H. Silverman, *p-adic properties of division polynomials and elliptic divisibility sequences*](https://arxiv.org/pdf/math/0404412v1), §3, Theorem 8, p. 6 (arXiv:math/0404412v1). For an elliptic curve over a finite field and a point of exact order r ≥ 2, describes the sequence Fₙ(P) as vanishing exactly at the multiples of r, with the periodicity F_{kr+n} = a^{kn}b^{k²}Fₙ.
+Source: [Joseph H. Silverman, *p-adic properties of division polynomials and elliptic divisibility sequences*](https://arxiv.org/pdf/math/0404412v1), §3, Theorem 8, p. 6 (arXiv:math/0404412v1). For an elliptic curve over a finite field and a point P of exact order r ≥ 2, gives F_{kr+n}(P) = a^{kn}b^{k²}Fₙ(P) with units a, b (and F_{2k}(P) = 0 when r = 2); since F₀ = 0 and Fₙ(P) ≠ 0 for 0 < n < r, the sequence vanishes exactly at the multiples of r.
 
 Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §2, Proposition 5, p. 7 (arXiv v4). Vanishing of Ψₙ at P characterises nontrivial n-torsion.
 
 <a id="CA-2-reduction-filtration-of-an-integral-weierstrass-equation"></a>
 
-### The filtration E_k(ℚ_p) for an arbitrary integral Weierstrass equation
+### The filtration E_k(ℚ\_p) for an arbitrary integral Weierstrass equation
 
 `ClassicalArithmeticCompletion:CA.2/reduction-filtration-of-an-integral-weierstrass-equation` · theorem.
 
-Let p be a prime and W a Weierstrass equation with coefficients in ℤ_p, not necessarily minimal, with Δ(W) ≠ 0. For k ≥ 1 let E_k(ℚ_p) = {O} ∪ {(x, y) ∈ W(ℚ_p) : v_p(x) ≤ −2k}. Then each E_k(ℚ_p) is a subgroup of W(ℚ_p), E_k/E_{k+1} ≅ 𝔽_p, and for (x, y) ∈ E_1 the parameter z = −x/y has v_p(z) = −v_p(x)/2. Consequently, for a point Q and a homomorphism n ↦ nQ from ℤ, {n : nQ ∈ E_k} is a subgroup of ℤ.
+Let p be a prime and W a Weierstrass equation with coefficients in ℤ\_p, not necessarily minimal, with Δ(W) ≠ 0. For k ≥ 1 let E_k(ℚ\_p) = {O} ∪ {(x, y) ∈ W(ℚ\_p) : v_p(x) ≤ −2k}. Then each E_k(ℚ\_p) is a subgroup of W(ℚ\_p), E_k/E_{k+1} ≅ 𝔽\_p, and for (x, y) ∈ E_1 the parameter z = −x/y has v_p(z) = −v_p(x)/2. Consequently, for a point Q and a homomorphism n ↦ nQ from ℤ, {n : nQ ∈ E_k} is a subgroup of ℤ.
 
-Hypotheses and conventions: p prime; W has coefficients in ℤ_p (any integral model); Δ(W) ≠ 0 as in the source, which treats elliptic curves.
+Hypotheses and conventions: p prime; W has coefficients in ℤ\_p (any integral model); Δ(W) ≠ 0 as in the source, which treats elliptic curves.
 
 Acceptance checks:
 
 - BLRN, Remark 2.5: E: y² + xy = x³ + 4x + 1, P = (15/4, −83/8) ∈ E_1(ℚ₂) with v₂(P) = 1 and v₂(2P) = 4: the quotients E_k/E_{k+1} are 𝔽₂ but E_1(ℚ₂) has 2-torsion, so the valuation is not v(P) + v₂(n) in general.
-- For W: y² = x³ − p¹²x (not minimal at p), the substitution x = p⁶x′, y = p⁹y′ identifies it with y′² = x′³ − x′, and E_k(W) = E′_{k+3} because v(x) = v(x′) + 6.
+- For W: y² = x³ − p¹²x (not minimal at p), the substitution x = p⁶x′, y = p⁹y′ identifies it with y′² = x′³ − x′, and E_k(W) = E′\_{k+3} because v(x) = v(x′) + 6.
 
 Proof sketch:
 
-1. The formal group Ê of the Weierstrass equation has coefficients in ℤ_p (it is defined from the a_i universally); for z ∈ pℤ_p the series w(z) converges and z ↦ (z/w(z), −1/w(z)) is an isomorphism Ê(pℤ_p) → E_1(ℚ_p) with v(z) = −v(x)/2 (Streng, Lemma III.2.1; Silverman AEC VII.2.2 for a minimal equation).
-2. Ê(p^kℤ_p) is a subgroup of Ê(pℤ_p), and its image is E_k(ℚ_p); Ê(p^k)/Ê(p^{k+1}) ≅ p^kℤ_p/p^{k+1}ℤ_p ≅ 𝔽_p (Streng, Lemma III.2.3).
+1. The formal group Ê of the Weierstrass equation has coefficients in ℤ\_p (it is defined from the a_i universally); for z ∈ pℤ\_p the series w(z) converges and z ↦ (z/w(z), −1/w(z)) is an isomorphism Ê(pℤ\_p) → E_1(ℚ\_p) with v(z) = −v(x)/2 (Streng, Lemma III.2.1; Silverman AEC VII.2.2 for a minimal equation; Tau Ceti's EllipticCurves Layer 1, milestone (iv), plans this identification for an integral model).
+2. Ê(p^kℤ\_p) is a subgroup of Ê(pℤ\_p), and its image is E_k(ℚ\_p); Ê(p^k)/Ê(p^{k+1}) ≅ p^kℤ\_p/p^{k+1}ℤ\_p ≅ 𝔽\_p (Streng, Lemma III.2.3).
 3. The last sentence is the preimage of a subgroup under a homomorphism.
-4. Tau Ceti's EllipticCurves roadmap plans the elliptic formal group law (Layer 1) and the identification Ê(𝔪) ≅ E_1(K) from a minimal Weierstrass equation (Layer 4); this node needs the same statements for an arbitrary integral equation, which the same proof gives.
+4. Tau Ceti's EllipticCurves roadmap, Layer 1, plans the elliptic formal group law (milestone (i)), the group Ê(𝔪) over a complete valued field (iii) and the identification Ê(𝔪) ≅ E₁(K) for an integral model (iv); its Layer 4 works from a minimal equation and is not used here. This node adds the finer filtration E_k, k ≥ 1, and its quotients for an arbitrary integral equation (AEC VII, Exercise 7.4, as solved in Streng, Lemma III.2.3).
 
-Direct prerequisites: `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`, `mathlib:PadicInt`, `mathlib:Padic`, `mathlib:WeierstrassCurve.baseChange`.
+Direct prerequisites: `tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`, `mathlib:PadicInt`, `mathlib:Padic`, `mathlib:WeierstrassCurve.baseChange`.
 
 Suggested Lean: `exists_addSubgroup_filtration` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Marco Streng, *Elliptic divisibility sequences with complex multiplication*](https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf), Chapter III, §2 (opening paragraph, Lemma 2.1, §2.3 and Lemma 2.3), pp. 16–17. Repeats AEC VII §2 for any Weierstrass equation with integral coefficients, not only a minimal one: E_1(K) ≅ Ê(M) via z = −x/y with v(z) = −v(x)/2, the sets E_n(K) = {v(x) ≤ −2n} ∪ {O} are subgroups, and E_n/E_{n+1} ≅ k⁺.
+Source: [Marco Streng, *Elliptic divisibility sequences with complex multiplication*](https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf), Chapter III, §2 (opening paragraph, Lemma 2.1, §2.3 and Lemma 2.3), pp. 16–18. Repeats AEC VII §2 for any Weierstrass equation with integral coefficients, not only a minimal one: E_1(K) ≅ Ê(M) via z = −x/y with v(z) = −v(x)/2, the sets E_n(K) = {v(x) ≤ −2n} ∪ {O} are subgroups, and E_n/E_{n+1} ≅ k⁺.
 
-Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), §2, the opening paragraph, Definition 2.1 and Lemma 2.3, p. 7 (arXiv:2109.03746). Works with a not necessarily minimal Weierstrass equation over ℤ_p, uses the subgroup filtration E_i(ℚ_p), and proves v_p(P) = max{0, −v_p(x)/2}.
+Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), §2, the opening paragraph, Definition 2.1 and Lemma 2.3, p. 7 (arXiv:2109.03746). Works with a not necessarily minimal Weierstrass equation over ℤ\_p, uses the subgroup filtration E_i(ℚ\_p), and proves v_p(P) = max{0, −v_p(x)/2}.
 
 <a id="CA-2-eds-strong-divisibility-at-good-primes"></a>
 
@@ -547,7 +547,7 @@ Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nak
 
 `ClassicalArithmeticCompletion:CA.2/eds-strong-divisibility-at-good-primes` · theorem.
 
-Let b, c, d ∈ ℤ with b ≠ 0, c ≠ 0, W = normEDS b c d, and p a prime with p ∤ b and p ∤ c, such that E_{b,c,d} is nonsingular (Δ(E_{b,c,d}) ≠ 0). Then for every V ≥ 0 the set {n ∈ ℤ : p^V | Wₙ} is a subgroup of ℤ, and for all m, n ∈ ℤ the p-adic multiplicity satisfies v_p(W_{gcd(m,n)}) = min(v_p(W_m), v_p(W_n)) (with v_p(0) = ∞). For V ≥ 1, p^V | Wₙ holds exactly when nP ∈ E_V(ℚ_p), P = (0, 0) on E_{b,c,d}.
+Let b, c, d ∈ ℤ with b ≠ 0, c ≠ 0, W = normEDS b c d, and p a prime with p ∤ b and p ∤ c, such that E_{b,c,d} is nonsingular (Δ(E_{b,c,d}) ≠ 0). Then for every V ≥ 0 the set {n ∈ ℤ : p^V | Wₙ} is a subgroup of ℤ, and for all m, n ∈ ℤ the p-adic multiplicity satisfies v_p(W_{gcd(m,n)}) = min(v_p(W_m), v_p(W_n)) (with v_p(0) = ∞). For V ≥ 1, p^V | Wₙ holds exactly when nP ∈ E_V(ℚ\_p), P = (0, 0) on E_{b,c,d}.
 
 Hypotheses and conventions: b, c, d ∈ ℤ, bc ≠ 0; p prime, p ∤ bc; Δ(E_{b,c,d}) ≠ 0. No coprimality hypothesis is needed at such primes.
 
@@ -558,21 +558,21 @@ Acceptance checks:
 
 Proof sketch:
 
-1. Since p ∤ bc, the coefficients a₁ = (d + b⁴)/(bc), a₂ = c/b², a₃ = b of E = E_{b,c,d} lie in ℤ_(p), P = (0, 0) is integral, and P is nonsingular modulo p because a₃ = b is a p-unit. By eds-attached-curve, Wₙ = ψₙ(P), and φₙ(P), ψₙ(P) ∈ ℤ_(p).
-2. Reduction: the division polynomials have coefficients in ℤ[a₁, …, a₆] (WeierstrassCurve.map_ψ, map_φ), so their values at P reduce to those of the reduced curve at P̃. By division-polynomials-at-a-nonsingular-point (b) over 𝔽_p, p does not divide both φₙ(P) and ψₙ(P).
-3. By division-polynomials-at-a-nonsingular-point (c) over ℚ_p, if Wₙ ≠ 0 then x(nP) = φₙ(P)/ψₙ(P)²; so x(nP) is p-integral when p ∤ Wₙ, and v_p(x(nP)) = −2v_p(Wₙ) when p | Wₙ. If Wₙ = 0 then nP = O. Hence for V ≥ 1, p^V | Wₙ iff nP ∈ E_V(ℚ_p).
-4. By reduction-filtration-of-an-integral-weierstrass-equation (applied to the ℤ_p-model E), {n : nP ∈ E_V} is a subgroup of ℤ; for V = 0 the set is ℤ.
+1. Since p ∤ bc, the coefficients a₁ = (d + b⁴)/(bc), a₂ = c/b², a₃ = b of E = E_{b,c,d} lie in ℤ\_(p), P = (0, 0) is integral, and P is nonsingular modulo p because a₃ = b is a p-unit. By eds-attached-curve, Wₙ = ψₙ(P), and φₙ(P), ψₙ(P) ∈ ℤ\_(p).
+2. Reduction: the division polynomials have coefficients in ℤ[a₁, …, a₆] (WeierstrassCurve.map_ψ, map_φ), so their values at P reduce to those of the reduced curve at P̃. By division-polynomials-at-a-nonsingular-point (b) over 𝔽\_p, p does not divide both φₙ(P) and ψₙ(P).
+3. By division-polynomials-at-a-nonsingular-point (c) over ℚ\_p, if Wₙ ≠ 0 then x(nP) = φₙ(P)/ψₙ(P)²; so x(nP) is p-integral when p ∤ Wₙ, and v_p(x(nP)) = −2v_p(Wₙ) when p | Wₙ. If Wₙ = 0 then nP = O. Hence for V ≥ 1, p^V | Wₙ iff nP ∈ E_V(ℚ\_p).
+4. By reduction-filtration-of-an-integral-weierstrass-equation (applied to the ℤ\_p-model E), {n : nP ∈ E_V} is a subgroup of ℤ; for V = 0 the set is ℤ.
 5. Bezout and the subgroup property give min(v_p W_m, v_p W_n) ≤ v_p W_{gcd(m,n)}; the reverse inequality is divisibility W_{gcd} | W_m, W_n (Tau Ceti isDvdSequence_normEDS).
 
 Direct prerequisites: [eds-attached-curve](#CA-2-eds-attached-curve), [division-polynomials-at-a-nonsingular-point](#CA-2-division-polynomials-at-a-nonsingular-point), [reduction-filtration-of-an-integral-weierstrass-equation](#CA-2-reduction-filtration-of-an-integral-weierstrass-equation), `mathlib:WeierstrassCurve.map_ψ`, `mathlib:WeierstrassCurve.map_φ`, `tauceti:isDvdSequence_normEDS`, `mathlib:emultiplicity`, `mathlib:Int.gcd_eq_gcd_ab`.
 
 Suggested Lean: `normEDS_dvd_iff_mem_addSubgroup`, `emultiplicity_normEDS_gcd` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), §3.1, Lemmas 3.4 and 3.5 with their proofs, p. 9 (arXiv:2109.03746). For the normalised denominator sequence βₙ of a point on an integral model, proves v_p(βₙ) = v_p(nP) − v_p(P) and deduces gcd(β_m, βₙ) = |β_{gcd(m,n)}| from the subgroup filtration; it notes that the division-polynomial sequence need not be strongly divisible when P has bad reduction.
+Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), §3.1, Lemmas 3.4 and 3.5 with their proofs, p. 9 (arXiv:2109.03746). For the normalised denominator sequence βₙ of a point on an integral model, proves v_p(βₙ) = v_p(nP) − v_p(P) and deduces gcd(β\_m, βₙ) = |β\_{gcd(m,n)}| from the subgroup filtration; it notes that the division-polynomial sequence need not be strongly divisible when P has bad reduction.
 
 Source: [Marco Streng, *Elliptic divisibility sequences with complex multiplication*](https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf), Chapter IV, §3, Lemma 3.1 with its proof, p. 38. Proves that the denominator sequence of the multiples of a point on an integral Weierstrass equation is a strong divisibility sequence, by Bezout and the groups E_r.
 
-Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §6, proof of Theorem 14, p. 13 (arXiv v4). For P of nonzero nonsingular reduction, uses Ayad's theorem to identify v(Ψ_{kn_P}) with the valuation of the formal-group parameter of [kn_P]P.
+Source: [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), §6, proof of Theorem 14, p. 13 (arXiv v4). For P of nonzero nonsingular reduction, uses Ayad's theorem to identify v(Ψ\_{kn_P}) with the valuation of the formal-group parameter of [kn_P]P.
 
 <a id="CA-2-ward-strong-divisibility"></a>
 
@@ -593,11 +593,12 @@ Acceptance checks:
 
 Proof sketch:
 
-1. Necessity: put m = 3, n = 4.
-2. Sufficiency, prime by prime: it suffices that for every prime p, min(v_p W_m, v_p Wₙ) = v_p W_{gcd(m,n)}. The inequality ≥ in the other direction is divisibility (Tau Ceti isDvdSequence_normEDS).
-3. Primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0: eds-strong-divisibility-at-good-primes.
-4. Primes p | bc: by the coprimality, p divides exactly one of b, c, and p ∤ d when p | c. At such primes the point P = (0, 0) can have singular reduction on every integral model of E_{b,c,d}, and the valuations v_p(Wₙ) are then not filtration levels of nP (for b = 1, c = 3, d = 1 and p = 3, where 3 ∤ d + b⁴, no integral model carries P as an integral nonsingular point with Wₙ = ψₙ(P) up to a unit, and v₃(Wₙ) is 0 for 3 ∤ n, 1 for n ≡ 3 (mod 6) and 4 + v₃(n/6) for 6 | n, checked to n = 110 — the sets {n : 3^V | Wₙ} are 3ℤ, 6ℤ, 6ℤ, 6ℤ, 18ℤ, … but the jump from 1 to 4 is not a formal-group pattern). The theorem asserts that the sets {n : p^V | Wₙ} are still subgroups; this case and the singular case Δ(E_{b,c,d}) = 0 are the recorded gap 'Ward's strong divisibility at primes dividing W₂W₃ and for singular attached curves'.
-5. Assemble over all primes: |W_{gcd(m,n)}| and gcd(W_m, Wₙ) have the same p-adic valuation for every p and are nonnegative.
+1. Ward's sequences are the normEDS: normEDS b c d satisfies the elliptic net relations (Tau Ceti isEllipticNet_normEDS), hence the EDS recursion, with W₀, …, W₄ = 0, 1, b, c, db; an EDS with W₁ = 1 and W₂W₃ ≠ 0 is determined by W₂, W₃, W₄, and such a triple gives an integral EDS exactly when W₂ | W₄ (Silverman–Stephens, §1, p. 3), so every normalised nondegenerate integral EDS is normEDS b c d for some b, c, d ∈ ℤ with bc ≠ 0.
+2. Necessity: put m = 3, n = 4.
+3. Sufficiency, prime by prime: it suffices that for every prime p, min(v_p W_m, v_p Wₙ) = v_p W_{gcd(m,n)}. The inequality ≥ in the other direction is divisibility (Tau Ceti isDvdSequence_normEDS).
+4. Primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0: eds-strong-divisibility-at-good-primes.
+5. Primes p | bc: by the coprimality, p divides exactly one of b, c, and p ∤ d when p | c. At such primes the point P = (0, 0) can have singular reduction on every integral model of E_{b,c,d}, and the valuations v_p(Wₙ) are then not filtration levels of nP (for b = 1, c = 3, d = 1 and p = 3, where 3 ∤ d + b⁴, no integral model carries P as an integral nonsingular point with Wₙ = ψₙ(P) up to a unit, and v₃(Wₙ) is 0 for 3 ∤ n, 1 for n ≡ 3 (mod 6) and 4 + v₃(n/6) for 6 | n, checked to n = 110 — the sets {n : 3^V | Wₙ} are 3ℤ, 6ℤ, 6ℤ, 6ℤ, 18ℤ, … but the jump from 1 to 4 is not a formal-group pattern). The theorem asserts that the sets {n : p^V | Wₙ} are still subgroups; this case and the singular case Δ(E_{b,c,d}) = 0 are the recorded gap 'Ward's strong divisibility at primes dividing W₂W₃ and for singular attached curves'.
+6. Assemble over all primes: |W_{gcd(m,n)}| and gcd(W_m, Wₙ) have the same p-adic valuation for every p and are nonnegative.
 
 Direct prerequisites: [eds-strong-divisibility-at-good-primes](#CA-2-eds-strong-divisibility-at-good-primes), [eds-attached-curve](#CA-2-eds-attached-curve), `tauceti:isDvdSequence_normEDS`, `tauceti:isEllipticNet_normEDS`, `mathlib:Nat.IsStrongDvdSequence`, `mathlib:IsCoprime`, `mathlib:Int.isCoprime_iff_gcd_eq_one`.
 
@@ -608,6 +609,8 @@ Source: [Joseph H. Silverman and Katherine E. Stange, *Terms in elliptic divisib
 Source: [Joseph H. Silverman, *p-adic properties of elliptic divisibility sequences (lecture slides)*](https://www.math.brown.edu/johsilve/Presentations/ICMSEDSLecture.pdf), slide 1, 'Elliptic Divisibility Sequences As Recursions' (ICMS workshop, Edinburgh, 27 June 2007). States that an integral EDS with W₂W₃ ≠ 0 and W₂ | W₄ is a strong divisibility sequence; the coprimality of W₃ and W₄ is missing there (sourceIssues).
 
 Source: [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), §3.1, Lemma 3.5 and the remark after it, p. 9 (arXiv:2109.03746). Strong divisibility of the normalised denominator sequence, with the warning that the division-polynomial sequence need not be strongly divisible when P has bad reduction — the primes this theorem's gap concerns.
+
+Source: [Joseph H. Silverman and Nelson Stephens, *The sign of an elliptic divisibility sequence*](https://arxiv.org/pdf/math/0402415v1), §1, p. 3 (arXiv:math/0402415v1). An EDS is determined by W₂, W₃, W₄ through its two duplication recursions, and a triple with W₂W₃ ≠ 0 gives an EDS exactly when W₂ | W₄ (attributed to Ward).
 
 ## 4. Suppliers for steps of earlier CA.2 targets
 
@@ -631,13 +634,13 @@ Acceptance checks:
 Proof sketch:
 
 1. (a), (b): compare coefficients with PowerSeries.coeff_derivative: the n-th coefficient of d/dX f is (n + 1)·coeff_{n+1}(f); for sin this is (n + 1)·[n even]·(−1)^{n/2}/(n + 1)! = [n even]·(−1)^{n/2}/n!, the n-th coefficient of cos; for cos it is −[n odd]·(−1)^{(n−1)/2}/n!, that of −sin.
-2. (c): f = sin² + cos² has d/dX f = 2 sin cos − 2 cos sin = 0 by (a), (b) and the Leibniz rule of the derivation, and constant coefficient 0 + 1 = 1; PowerSeries.derivative.ext (A is torsion-free as a ℚ-algebra) gives f = 1.
+2. (c): f = sin² + cos² has d/dX f = 2 sin cos − 2 cos sin = 0 by (a), (b) and the Leibniz rule of the derivation, and constant coefficient 0 + 1 = 1; PowerSeries.derivative.ext, whose hypothesis IsAddTorsionFree A holds because A is a ℚ-module (IsAddTorsionFree.of_module_rat, a lemma rather than an instance), gives f = 1.
 
-Direct prerequisites: `mathlib:PowerSeries.sin`, `mathlib:PowerSeries.cos`, `mathlib:PowerSeries.derivative`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.derivative.ext`.
+Direct prerequisites: `mathlib:PowerSeries.sin`, `mathlib:PowerSeries.cos`, `mathlib:PowerSeries.derivative`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.derivative.ext`, `mathlib:IsAddTorsionFree.of_module_rat`.
 
 Suggested Lean: `derivative_sin`, `derivative_cos`, `sin_sq_add_cos_sq` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), §1.6.1, proof of Proposition 1.6.1, pp. 54–55. Proves that the exponential generating function of the Euler numbers is sec x + tan x through the formal differential equations of tan and sec, which rest on the formal derivatives of sin and cos and on cos² + sin² = 1.
+Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), §1.6.1, proof of Proposition 1.6.1, pp. 54–55. Reduces Proposition 1.6.1 (the exponential generating function of the Euler numbers is sec x + tan x) to the equation 2y′ = y² + 1 with y(0) = 1 and states that sec x + tan x is its unique solution; that sec x + tan x solves the equation rests on the derivatives of sin and cos and on sin² + cos² = 1, which the source takes as known.
 
 <a id="CA-2-bernoulli-coefficients-do-not-decay"></a>
 
@@ -645,7 +648,7 @@ Source: [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second editio
 
 `ClassicalArithmeticCompletion:CA.2/bernoulli-coefficients-do-not-decay` · lemma.
 
-(a) For k ≥ 1: |B_{2k}|·(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2. (b) For z ∈ ℂ with |z| ≥ 2π, the terms B_n zⁿ/n! do not tend to 0, so Σ_n B_n zⁿ/n! is not summable (Mathlib's bernoulli, B₁ = −1/2).
+(a) For k ≥ 1: |B_{2k}|·(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2. (b) For z ∈ ℂ with |z| ≥ 2π, the terms B_n zⁿ/n! do not tend to 0, so Σ\_n B_n zⁿ/n! is not summable (Mathlib's bernoulli, B₁ = −1/2).
 
 Hypotheses and conventions: k ≥ 1 in (a); |z| ≥ 2π in (b). This includes the boundary circle, which the analytic theorem's radius statement leaves open.
 
@@ -656,14 +659,14 @@ Acceptance checks:
 
 Proof sketch:
 
-1. (a) Mathlib's hasSum_zeta_nat: Σ_{n≥1} 1/n^{2k} = (−1)^{k+1}2^{2k−1}π^{2k}B_{2k}/(2k)!; the left side is ζ(2k) > 1, so (−1)^{k+1}B_{2k} > 0 and |B_{2k}|(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2 (DLMF 24.9.8 states the same lower bound).
+1. (a) Mathlib's hasSum_zeta_nat: Σ\_{n≥1} 1/n^{2k} = (−1)^{k+1}2^{2k−1}π^{2k}B_{2k}/(2k)!; the left side is ζ(2k) > 1, so (−1)^{k+1}B_{2k} > 0 and |B_{2k}|(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2 (DLMF (24.9.8) gives the slightly stronger lower bound 2/(1 − 2^{−2k})).
 2. (b) For |z| ≥ 2π, |B_{2k}z^{2k}/(2k)!| ≥ |B_{2k}|(2π)^{2k}/(2k)! ≥ 2 for every k ≥ 1, so the terms do not tend to 0 (Summable.tendsto_atTop_zero, the additive form of Multipliable.tendsto_atTop_one).
 
 Direct prerequisites: `mathlib:hasSum_zeta_nat`, `mathlib:bernoulli`, `mathlib:Multipliable.tendsto_atTop_one`.
 
 Suggested Lean: `two_le_abs_bernoulli_mul_div`, `not_summable_bernoulli_mul_pow_of_le` (in `research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean`).
 
-Source: [F. W. J. Olver et al. (eds.), *NIST Digital Library of Mathematical Functions, §24.9 Inequalities*](https://dlmf.nist.gov/24.9), §24.9, (24.9.8), retrieved 2026-10-14. For n ≥ 1, (−1)^{n+1}B_{2n} is at least 2(2n)!/(2π)^{2n} times 1/(1 − 2^{−2−2n}).
+Source: [F. W. J. Olver et al. (eds.), *NIST Digital Library of Mathematical Functions, §24.9 Inequalities*](https://dlmf.nist.gov/24.9), §24.9, (24.9.8), retrieved 2026-10-14. For n ≥ 1, bounds (−1)^{n+1}B_{2n} below by 2(2n)!/(2π)^{2n} times 1/(1 − 2^{−2n}), and above by the same quantity times 1/(1 − 2^{β−2n}) with β = 2 + log₂(1 − 6/π²) ≈ 0.649 (24.9.9).
 
 <a id="CA-2-tangent-coefficients-do-not-decay"></a>
 
@@ -671,7 +674,7 @@ Source: [F. W. J. Olver et al. (eds.), *NIST Digital Library of Mathematical Fun
 
 `ClassicalArithmeticCompletion:CA.2/tangent-coefficients-do-not-decay` · lemma.
 
-Let e : ℕ → ℚ be any sequence whose odd terms are the tangent numbers in their Bernoulli closed form, e(2n + 1) = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) (for the Euler zigzag numbers this is the API item zigzag_odd_eq_bernoulli of CA.2/euler-zigzag-numbers). Then for z ∈ ℂ with |z| ≥ π/2 the terms e(n)zⁿ/n! do not tend to 0, so Σ_n e(n)zⁿ/n! is not summable.
+Let e : ℕ → ℚ be any sequence whose odd terms are the tangent numbers in their Bernoulli closed form, e(2n + 1) = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) (for the Euler zigzag numbers this is the API item zigzag_odd_eq_bernoulli of CA.2/euler-zigzag-numbers). Then for z ∈ ℂ with |z| ≥ π/2 the terms e(n)zⁿ/n! do not tend to 0, so Σ\_n e(n)zⁿ/n! is not summable.
 
 Hypotheses and conventions: |z| ≥ π/2; only the odd terms of e are constrained.
 
@@ -710,19 +713,19 @@ The earlier pass of CA.2 ended with twenty targets whose review recorded obligat
 | `taylor-series-of-a-complex-function` | suppliers named | Every API item the consumers use already names a Mathlib supplier among the node's prerequisites: multiplicativity by iteratedDeriv_mul through AnalyticAt.contDiffAt; exp, sin and cos by iteratedDeriv_cexp_const_mul or HasFPowerSeriesAt.eq_formalMultilinearSeries against Complex.hasSum_cos and Complex.hasSum_sin; convergence on a disc by Complex.hasSum_taylorSeries_on_ball; germ injectivity by AnalyticAt.eventually_analyticAt with AnalyticOnNhd.differentiableOn. Promoting them to separate nodes is a lemma-level demand. |
 | `bernoulli-generating-function-on-its-disc` | supplied by a new node | The exactness of the radius 2π (divergence beyond, and on, the circle) is now the lemma node bernoulli-coefficients-do-not-decay, from Mathlib's hasSum_zeta_nat: \|B₂ₖ\|(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2. It strengthens the signature not_summable_bernoulli_mul_pow (2π < \|z\|) to 2π ≤ \|z\|. Supplier: [bernoulli-coefficients-do-not-decay](#CA-2-bernoulli-coefficients-do-not-decay). |
 | `secant-plus-tangent-on-its-disc` | supplied by a new node | The exactness of the radius π/2 is now the lemma node tangent-coefficients-do-not-decay: the odd terms satisfy \|E₂ₖ₋₁\|(π/2)^{2k−1}/(2k − 1)! = (4/π)(1 − 2^{−2k})ζ(2k) ≥ 3/π, through zigzag_odd_eq_bernoulli and hasSum_zeta_nat; it gives not_summable_zigzag_mul_pow on π/2 ≤ \|z\|. Supplier: [tangent-coefficients-do-not-decay](#CA-2-tangent-coefficients-do-not-decay). |
-| `p-adic-digit-expansion` | suppliers named | The summability of Σ dᵢpⁱ for arbitrary digits is Mathlib's NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero (the additive form of NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one, Topology/Algebra/InfiniteSum/Nonarchimedean.lean), applied in ℤ_p with the instances IsUltrametricDist ℤ_[p] (hence NonarchimedeanAddGroup) and PadicInt.completeSpace, since ‖dᵢpⁱ‖ ≤ p^{−i} → 0; continuity of reduction modulo pⁿ is PadicInt.toZModPow being a ring homomorphism with open kernel pⁿℤ_p. |
+| `p-adic-digit-expansion` | suppliers named | The summability of Σ dᵢpⁱ for arbitrary digits is Mathlib's NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero (the additive form of NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one, Topology/Algebra/InfiniteSum/Nonarchimedean.lean), applied in ℤ\_p with the instances IsUltrametricDist ℤ\_[p] (hence NonarchimedeanAddGroup) and PadicInt.completeSpace, since ‖dᵢpⁱ‖ ≤ p^{−i} → 0; continuity of reduction modulo pⁿ is PadicInt.toZModPow being a ring homomorphism with open kernel pⁿℤ\_p. |
 | `automata-with-output` | superseded at target level | A demand to split six data declarations into nodes; they are the data and API of one definition at target level. |
 | `automatic-sequences` | resolved | Resolved in the first pass: the finite-kernel cycle was removed, a direct finite automaton is given, and the unary case has its own proof and a base-one test. |
 | `k-kernel` | superseded at target level | A demand to promote kernel_subset; it is an API item of the definition, proved by exponent arithmetic in the node. |
 | `thue-morse-sequence` | resolved | Resolved in the first pass: the elementary non-periodicity argument behind the non-rationality test is supplied. |
-| `cartier-operators` | suppliers named | The Frobenius-product identity Λ_r(g^q h) = g·Λ_r(h) and the reconstruction f = Σ_r X^r(Λ_r f)^q are API items with proof steps that name their suppliers (FiniteField.pow_card and frobenius for (Σ bₙXⁿ)^q = Σ bₙX^{qn}); the corrected hypotheses q > 0 and r < q are in the node. Separate lemma nodes are a lemma-level demand. |
+| `cartier-operators` | suppliers named | The Frobenius-product identity Λ\_r(g^q h) = g·Λ\_r(h) and the reconstruction f = Σ\_r X^r(Λ\_r f)^q are API items with proof steps that name their suppliers (FiniteField.pow_card and frobenius for (Σ bₙXⁿ)^q = Σ bₙX^{qn}); the corrected hypotheses q > 0 and r < q are in the node. Separate lemma nodes are a lemma-level demand. |
 | `automatic-series-are-algebraic` | resolved | Resolved by REV~3: the degree bound q^m − 1 has its own signature exists_poly_natDegree_le_of_finite_kernel. |
 | `stern-brocot-tree` | resolved | Resolved in the first pass: reduction is proved on raw determinant-one pairs including the infinity sentinel. |
 | `stern-brocot-enumerates-positive-rationals` | resolved | Resolved by REV~3: the surjectivity proof uses the decreasing measure U + V of the third review. |
 
 ## 6. Gap
 
-**Ward's strong divisibility at primes dividing W₂W₃ and for singular attached curves.** For b, c, d ∈ ℤ with bc ≠ 0 and gcd(c, db) = 1, the subgroup property of {n : p^V | Wₙ}, W = normEDS b c d, is planned only at primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0 (CA.2/eds-strong-divisibility-at-good-primes). Missing: (1) primes p dividing b or c; there the point (0, 0) can have singular reduction on every integral model (b = 1, c = 3, d = 1, p = 3: no integral model carries P as an integral nonsingular point, and v₃(Wₙ) = 1 for n ≡ 3 (mod 6), 4 + v₃(n/6) for 6 | n), so the formal-group argument does not apply; (2) the singular case Δ(E_{b,c,d}) = 0 (sequences satisfying a linear recurrence, e.g. normEDS 2 3 2 = id), where the filtration of the nonsingular points of a singular integral cubic is needed. Sources: Ward, Memoir on elliptic divisibility sequences, Amer. J. Math. 70 (1948), 31–74, proves the theorem by recursion but is not freely available; no public source with a complete proof was found (searched: Silverman arXiv:math/0404412 and his 2007 ICMS slides, Silverman–Stephens math/0402415, Everest–King math/0404124, Everest–McLaren–Ward math/0409540, Bhakta–Loughran–Rydin Myerson–Nakahara 2109.03746, Streng's master's thesis, Stange 0710.1316 and 1108.3051, Silverman–Stange 1001.5303, Verzobio 1906.00632, Xu 2604.05280; Shipsey's and Swart's theses are not online). Numerical evidence: 1552 sequences with b ∈ [−6, 6] ∖ {0}, c, d ∈ [−8, 8], gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for m, n ≤ 24. A route: Stange's valuation formulas for P of singular reduction (troublemaker sequences, Theorems 19 ff. of arXiv:1108.3051) together with the integrality and coprimality constraints, or a recursion-only proof of the subgroup property modulo p^V.
+**Ward's strong divisibility at primes dividing W₂W₃ and for singular attached curves.** For b, c, d ∈ ℤ with bc ≠ 0 and gcd(c, db) = 1, the subgroup property of {n : p^V | Wₙ}, W = normEDS b c d, is planned only at primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0 (CA.2/eds-strong-divisibility-at-good-primes). Missing: (1) primes p dividing b or c; there the point (0, 0) can have singular reduction on every integral model (b = 1, c = 3, d = 1, p = 3: no integral model carries P as an integral nonsingular point, and v₃(Wₙ) = 1 for n ≡ 3 (mod 6), 4 + v₃(n/6) for 6 | n), so the formal-group argument does not apply; (2) the singular case Δ(E_{b,c,d}) = 0 (sequences satisfying a linear recurrence, e.g. normEDS 2 3 2 = id), where the filtration of the nonsingular points of a singular integral cubic is needed. Sources: Ward, Memoir on elliptic divisibility sequences, Amer. J. Math. 70 (1948), 31–74, proves the theorem by recursion but is not freely available; no public source with a complete proof was found (searched: Silverman arXiv:math/0404412 and his 2007 ICMS slides, Silverman–Stephens math/0402415, Everest–King math/0404124, Everest–McLaren–Ward math/0409540, Bhakta–Loughran–Rydin Myerson–Nakahara 2109.03746, Streng's master's thesis, Stange 0710.1316 and 1108.3051, Silverman–Stange 1001.5303, Verzobio 1906.00632, Xu 2604.05280; Shipsey's and Swart's theses are not online). Numerical evidence: 1552 sequences with b ∈ [−6, 6] ∖ {0}, c, d ∈ [−8, 8], gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for m, n ≤ 24. A wider check by the review: the 3232 sequences with b, c ∈ [−12, 12] ∖ {0}, d ∈ [−6, 6] and gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for 1 ≤ m, n ≤ 32, and in the first range no sequence with gcd(c, db) ≠ 1 is strongly divisible. A route: Stange's valuation formulas for P of singular reduction (troublemaker sequences, Theorems 19 ff. of arXiv:1108.3051) together with the integrality and coprimality constraints, or a recursion-only proof of the subgroup property modulo p^V.
 
 Needed by: [ward-strong-divisibility](#CA-2-ward-strong-divisibility).
 
@@ -730,7 +733,7 @@ Needed by: [ward-strong-divisibility](#CA-2-ward-strong-divisibility).
 
 Inside the roadmap: the Eulerian non-example compares with `ClassicalArithmeticCompletion:CA.2/euler-zigzag-numbers`; the tangent supplier uses that node's API item `zigzag_odd_eq_bernoulli`; the three suppliers of §4 feed `CA.2/secant-plus-tangent-formal-identity`, `CA.2/bernoulli-generating-function-on-its-disc` and `CA.2/secant-plus-tangent-on-its-disc`. Elliptic divisibility sequences rest on CA.0's divisibility and gcd arithmetic (Mathlib's `Int.gcd`, Bezout).
 
-Other roadmaps: Tau Ceti's EllipticCurves, Layer 1 (the elliptic formal group law of a Weierstrass equation) and Layer 4 (the identification Ê(𝔪) ≅ E₁ and the reduction filtration over a complete DVR), applied to an arbitrary integral equation. Libraries: Mathlib's `normEDS`, division polynomials, Weierstrass curves, `Ring.choose`, `bernoulli` and `hasSum_zeta_nat`, formal power series and their derivative; Tau Ceti's `isEllipticNet_normEDS`, `isDvdSequence_normEDS`, `normEDS_two_three_two_eq_id` and `WeierstrassCurve.zsmul_point_eq_smulEval`.
+Other roadmaps: Tau Ceti's EllipticCurves, Layer 1 (the elliptic formal group law of a Weierstrass equation, its points Ê(𝔪) over a complete field and the identification Ê(𝔪) ≅ E₁(K) for an integral model), from which this layer builds the finer filtration E_k of an arbitrary integral equation. Libraries: Mathlib's `normEDS`, division polynomials, Weierstrass curves, `Ring.choose`, `bernoulli` and `hasSum_zeta_nat`, formal power series and their derivative; Tau Ceti's `isEllipticNet_normEDS`, `isDvdSequence_normEDS`, `normEDS_two_three_two_eq_id` and `WeierstrassCurve.zsmul_point_eq_smulEval`.
 
 Consumers: Lawrence–Sawin's Appendix B, and the roadmap planning their convolution monodromy, use §1; Yu's Théorème 7.2.3, in the function-field counting roadmap, uses §2.
 
@@ -746,18 +749,18 @@ Consumers: Lawrence–Sawin's Appendix B, and the roadmap planning their convolu
 
 ## 9. Sources
 
-- [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), Cambridge Studies in Advanced Mathematics 49, second edition (2012); the author's posted PDF. Read: §1.4 (descents, Eulerian polynomials, Propositions 1.4.3–1.4.5), pp. 38–41; §1.6.1 (alternating permutations, Proposition 1.6.1 and its proof), pp. 54–55; Chapter 1 exercises 1.49–1.50 (pp. 123–124) with their solutions (pp. 176–177).
+- [Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*](https://math.mit.edu/~rstan/ec/ec1.pdf), Cambridge Studies in Advanced Mathematics 49, second edition (2012); the author's posted PDF. Read: §1.4 (descents, Eulerian polynomials, Propositions 1.4.3–1.4.5), pp. 38–41; §1.6.1 (alternating permutations, Proposition 1.6.1 and its proof), pp. 54–55; Chapter 1 exercises 1.49–1.50 (p. 124) with the solutions of 1.49 and 1.50(b)–(e) (pp. 177–178).
 - [Brian Lawrence and Will Sawin, *The Shafarevich conjecture for hypersurfaces in abelian varieties*](https://arxiv.org/pdf/2004.09046v5), arXiv:2004.09046v5 (16 October 2025); Annals of Mathematics 202 (2025), no. 3. Read: §3, Lemmas 3.3–3.4 and the definition of the degree, p. 20; Appendix A, the end of the proof of Lemma A.1 (Lemma A.6), p. 92; Appendix B, opening paragraph (conventions), p. 93, and §B.3 opening, p. 101; Appendix C, Lemmas C.1–C.5 with proofs, pp. 116–118.
 - [Hongjie Yu, *Comptage des systèmes locaux ℓ-adiques sur une courbe*](https://arxiv.org/pdf/1807.04659v5), arXiv:1807.04659v5 (18 July 2022); Annals of Mathematics 197 (2023), 423–531. Read: §7.2.2, Lemme 7.2.2 with its proof and the statement of Théorème 7.2.3, p. 67; §7.2.2, proof of Théorème 7.2.3: the definition of f_p, the quoted Luo–Zhu fact (∗), the two binomial factorisations and the first case, pp. 71–72.
 - [Wei Luo and Shengmao Zhu, *Integrality of the LMOV invariants for framed unknot*](https://arxiv.org/pdf/2106.02882v1), arXiv:2106.02882v1 (5 June 2021), the deposit of Commun. Number Theory Phys. 13 (2019), 81–100. Read: §3, equation (10) and Lemma 3.1 with its proof, pp. 6–7.
 - [Wei Luo and Shengmao Zhu, *Integrality structures in topological strings I: framed unknot*](https://arxiv.org/pdf/1611.06506v1), arXiv:1611.06506v1 (20 November 2016). Read: §4, the definition of f_p before Lemma 4.6 and Lemma 4.6 with its proof, pp. 16–17 (page images read).
 - [Katherine E. Stange, *Integral points on elliptic curves and explicit valuations of division polynomials*](https://arxiv.org/pdf/1108.3051v4), arXiv:1108.3051v4 (29 December 2014); Canad. J. Math. 68 (2016). Read: §1 (Theorems 1 and 3), pp. 1–6; §§2–3 (Propositions 5–6, Definition 7, Theorems 8–9), pp. 6–8; §§4–6 (Lemma 10 with proof, Theorem 14 with proof, Corollaries 15–17, Remark 18), pp. 8–13; §7 (Theorem 19 with proof, Remark 20), pp. 14–15.
-- [Joseph H. Silverman and Nelson Stephens, *The sign of an elliptic divisibility sequence*](https://arxiv.org/pdf/math/0402415v1), arXiv:math/0402415v1 (25 February 2004). Read: §1, the definition of an EDS and the W₂ | W₄ criterion, p. 3; Appendix A, (27)–(31), pp. 16–17.
+- [Joseph H. Silverman and Nelson Stephens, *The sign of an elliptic divisibility sequence*](https://arxiv.org/pdf/math/0402415v1), arXiv:math/0402415v1 (25 February 2004). Read: Introduction, Definition 1, p. 1; §1, the normalisation and the W₂ | W₄ criterion, p. 3; Appendix A, (27)–(31), pp. 16–17.
 - [Joseph H. Silverman, *p-adic properties of division polynomials and elliptic divisibility sequences*](https://arxiv.org/pdf/math/0404412v1), arXiv:math/0404412v1 (22 April 2004); Math. Ann. 332 (2005). Read: §1 (Theorems 1–3), pp. 1–3; §3 (Theorem 8), p. 6; §§8–10 (Definitions 2–3, Remarks 5–6, Example 1, Theorems 16–17, Proposition 18, Theorem 20), pp. 24–28.
 - [Joseph H. Silverman and Katherine E. Stange, *Terms in elliptic divisibility sequences divisible by their indices*](https://arxiv.org/pdf/1001.5303v1), arXiv:1001.5303v1 (29 January 2010). Read: §1, the definition of EDS of a point, pp. 2–3; Remark 28, p. 24.
 - [Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, *The elliptic sieve and Brauer groups*](https://arxiv.org/pdf/2109.03746), arXiv:2109.03746 (current version, retrieved 2026-10-14). Read: §2 (Definitions 2.1–2.2, Lemmas 2.3–2.4, Remark 2.5), pp. 7–8; §3.1 (Definition 3.1, Proposition 3.2, Lemmas 3.4–3.5), pp. 8–9; §3.2 opening (symmetry law, Proposition 3.6), p. 9.
-- [Marco Streng, *Elliptic divisibility sequences with complex multiplication*](https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf), Master's thesis, Universiteit Utrecht, 3 June 2006; the author's posted PDF. Read: Chapter I, pp. 1–3; Chapter III, §2 (the opening paragraph, §§2.1–2.3, Lemmas 2.1–2.3 with proofs), pp. 16–17, with the statements of Lemmas 1.6–1.11 it uses; Chapter IV, §§2–4 (Lemmas 2.1, 3.1, 4.1 with proofs, Example 4.2), pp. 38–39.
+- [Marco Streng, *Elliptic divisibility sequences with complex multiplication*](https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf), Master's thesis, Universiteit Utrecht, 3 June 2006; the author's posted PDF. Read: Chapter I, pp. 1–3; Chapter III, §2 (the opening paragraph, §§2.1–2.3, Lemmas 2.1–2.3 with proofs), pp. 16–18, with the statements of Lemmas 1.6–1.11 it uses; Chapter IV, §§2–4 (Lemmas 2.1, 3.1, 4.1 with proofs, Example 4.2), pp. 38–39.
 - [Joseph H. Silverman, *p-adic properties of elliptic divisibility sequences (lecture slides)*](https://www.math.brown.edu/johsilve/Presentations/ICMSEDSLecture.pdf), Slides, ICMS Workshop on Number Theory and Computability, Edinburgh, 27 June 2007. Read: Slides 1–2 (EDS as recursions; EDS and elliptic curves).
-- [F. W. J. Olver et al. (eds.), *NIST Digital Library of Mathematical Functions, §24.9 Inequalities*](https://dlmf.nist.gov/24.9), Online edition, retrieved 2026-10-14. Read: §24.9, (24.9.7)–(24.9.8).
+- [F. W. J. Olver et al. (eds.), *NIST Digital Library of Mathematical Functions, §24.9 Inequalities*](https://dlmf.nist.gov/24.9), Online edition, retrieved 2026-10-14. Read: §24.9, (24.9.7)–(24.9.9).
 
 Mistakes found in these sources are recorded with the plan: a duplicated factor p^α(n − 1) in the expansion of the proof of Luo–Zhu's Lemma 4.6 in the 2016 preprint (corrected in the 2021 deposit of the published article), and the statement of strong divisibility without the coprimality of W₃ and W₄, and without absolute values, on the first slide of Silverman's 2007 ICMS lecture.
