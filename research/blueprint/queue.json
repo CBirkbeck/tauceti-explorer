@@ -2,6 +2,50 @@
  "purpose": "Blueprint swarm queue; see research/blueprint/PROTOCOL.md. Lanes (research/blueprint/lane.py) claim jobs under a file lock.",
  "jobs": [
   {
+   "id": "DESIGN-FGFO",
+   "kind": "design",
+   "priority": 1,
+   "order": 1,
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "name": "The first-order theory of free groups",
+   "outputs": [
+    "research/blueprint/roadmaps/FreeGroupsFirstOrderTheory.json",
+    "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+    "research/blueprint/readmes/FreeGroupsFirstOrderTheory.md",
+    "research/blueprint/suggested/FreeGroupsFirstOrderTheory.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-FGFO.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-FGFO",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "name": "The first-order theory of free groups",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-FGFO.md",
+    "research/blueprint/roadmaps/FreeGroupsFirstOrderTheory.json",
+    "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+    "research/blueprint/suggested/FreeGroupsFirstOrderTheory.lean",
+    "research/blueprint/readmes/FreeGroupsFirstOrderTheory.md"
+   ],
+   "after": [
+    "DESIGN-FGFO"
+   ],
+   "avoidAccountOf": "DESIGN-FGFO",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-FGFO.md",
+   "state": "pending"
+  },
+  {
    "id": "STATUS-01",
    "kind": "status",
    "priority": 0,

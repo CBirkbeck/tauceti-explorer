@@ -4841,5 +4841,9 @@
  "PKG-OrdinaryAutomorphicFormsAndModularityLifting": 9782,
  "REV-PKG-OrdinaryAutomorphicFormsAndModularityLifting": 9783,
  "PKG-ClassicalArithmeticCompletion": 9795,
- "REV-PKG-ClassicalArithmeticCompletion": 9796
+ "REV-PKG-ClassicalArithmeticCompletion": 9796,
+ "BP-EtaleDualityAndPerverseSheaves--EDC.7~2": 9799,
+ "REV-EtaleDualityAndPerverseSheaves--EDC.7~2": 9800,
+ "DESIGN-FGFO": 9801,
+ "REV-DESIGN-FGFO": 9802
 }
