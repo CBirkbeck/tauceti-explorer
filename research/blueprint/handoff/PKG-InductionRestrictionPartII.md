@@ -1,149 +1,105 @@
-# PKG-InductionRestrictionPartII — blocked checkpoint
+# PKG-InductionRestrictionPartII — package complete
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-NXYDao`, 11 October 2026.
-Branch: `codex-NXYDao-package-induction-restriction`.
-Base atlas commit: `df91fe32260d17ef3558ec5fd610ca2a56f047cb`.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6108488021)
-for [claim comment 6108486825](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6108486825).
-The issue and its complete instructions were reread after confirmation.
-None of the manager's priority issues was available. The remaining available
-reviews concerned excluded follow-up work, so this available package was the
-eligible fallback. Only this job was claimed.
+Claude (Opus 5.5), session `claude-RZTzXj`, 14 October 2026.
+Branch: `claude-RZTzXj-pkg-induction-restriction-part-ii`.
 
-**Blocked; this is a checkpoint, not a finished package.** This continuation
-updates only the handoff. The package issue permits three package files and
-this note, prohibits packet changes, and directs the worker to report plan
-mistakes here. The accepted plan explicitly leaves two prerequisite families
-without an owner. Their assignment requires an amendment outside those four
-paths. A manager clarification requesting supplying layer IDs or an amended
-scope was submitted during this run; no resolution was supplied before this
-checkpoint. The obstruction is dependency ownership, not compilation or the
-run's time limit.
+## What this submission does
 
-## The prerequisite amendment needed
+The three package files are rewritten in the 2026-10-12 shape, and the obstruction recorded by the
+earlier checkpoints (prerequisites without an owner) is resolved by owning them in a new first
+layer, as WORKERS.md "Upstream tiers" and PROTOCOL §15 allow for notions no roadmap plans.
 
-The accepted packet has 109 nodes, six planned stages, zero closed stages,
-five gaps and one request. Its accepted review retains those gaps. The
-rescope proposal requires assigning the general integral homological bridge
-once to a continuation of the existing foundations; it supplies no actual
-stage ID. Parent InductionRestriction Layer 7 remains the ordinary-cover
-owner, and cannot be silently enlarged to supply the general bridge.
+- `README.md` (≈165 KB, 3026 lines): upstream form — `# Roadmap:` title, **Summary**, layer table,
+  Scope and ownership, Conventions, Exact supplier contracts (Mathlib pin, Tau Ceti pin, current
+  Tau Ceti after the pin, InductionRestriction Layer 7), How to read the build, Layers RS.0–RS.6
+  with `### RS.k.n` subsections (statement, construction or proof sketch, API, *Needs:*, *Source.*,
+  **Checks.**), per-layer Examples and Dependencies, Downstream consumers, References. Layer labels
+  RS.1–RS.6 are kept because other plans cite them.
+- `Suggested.lean` (896 lines): written from scratch. Light real-bodied definitions over pinned
+  carriers (`Multiplier`, `IsCentralExtension`, `IsStemExtension`, `cyclePairing`,
+  `liftCommutator`, `commutingPairCycle`, `homologicalCommutator`, `schurRelations`,
+  `ReducedMultiplier`, `reducedCoverRelations`, `MarkedExtension`, `MarkedHom`, `markedRelators`,
+  `UniversalMarked`, `universalProjection`, `ClassIndex`, `classDegreeMap`, `universalDegree`,
+  `markedFiberProduct`, `universalKernel`, `finitePower`, `degreePermutation`, `CyclotomicTwist`,
+  `boundedDegreeSlice`, `powerFixedDegree`, `torsionImageFiltration`, `obstructionThreshold`,
+  `jointParityMap`, `parityWeightEnumerator`, `equalOrderInertia`, `swapAction`, `SwapWreath`,
+  `abelianizedSum`, `sumKernelModel`, `outsideInvolutions`), the layer milestones statable at the
+  pins, discriminating `example`s, and a closing list of the README targets not typed at the pins.
+  No data definition has a `sorry` body (the two proof obligations inside definitions are separate
+  `theorem`s).
+- `metadata.toml`: `topic = "math.GR"`.
 
-| Contract needing an owner | Scope to preserve | Consumers |
-| --- | --- | --- |
-| Integral degree-two UCT | Native group homology/cohomology; arbitrary abelian coefficients with trivial action; oriented cycle evaluation; natural Ext injection in group and coefficient variables; free-abelianization bijectivity, including infinite groups. | RS.1 homological commutator and reduced-cover comparisons; RS.2 marked pullback splitting and universal comparison. |
-| Central-extension homological sequence | Exact H₂(E,ℤ)→H₂(G,ℤ)→A→Eᵃᵇ→Gᵃᵇ→0 on specified maps; transgression evaluates the oriented commuting cycle as XYX⁻¹Y⁻¹; independence of section choices. | RS.1 homology image; RS.2 universal kernel; RS.5 compatible covers. |
-| Finite integral homology | Finiteness and group-order annihilation in positive degrees, preserving the H₀ exception. | RS.3 finite-level action; RS.5 multiplier primary support and central coprime splitting. |
-| Coprime degree-two edge | Native semidirect-product inclusion and projection; multiplier coinvariants; split edge filtration; the potentially incoming d₃ differential. | RS.5 multiplier-kernel primary support; RS.6 odd-index-two reduction. |
-| Cyclic complement conjugacy | Finite coprime H,C, C cyclic, H possibly nonabelian; one H-conjugator identifies each actual complement with the standard complement through the projection maps. | RS.5 admissible inertia classes and their class bijection. |
+## Moves and plan corrections (the packet is unchanged)
 
-The first four contracts form the unassigned homological bridge. The last is
-the separate complement-conjugacy gap. Restricting UCT to finite or injective
-coefficients would lose the application to the possibly infinite central
-kernel of the universal marked extension.
+1. **New Layer RS.0 owns the unassigned homological bridge** (packet gap "Natural integral
+   homological bridge — supplier unassigned" and the coverage remarks of RS.1, RS.2, RS.5):
+   RS.0.1 `integralEvaluation`; RS.0.2 universal-coefficient description (finite G; free Gᵃᵇ for
+   any G, which covers the infinite marked fiber product; divisible coefficients); RS.0.3
+   `extensionClassMap` with the commutator formula and naturality; RS.0.4 five-term exact
+   sequence and the stem corollaries; RS.0.6 finiteness and |G|-annihilation of positive-degree
+   integral homology; RS.0.7 Hall decomposition of the multiplier of a coprime semidirect product.
+   The plan's coprime Lyndon–Hochschild–Serre "edge with d₃" is replaced by a transfer argument
+   (corestriction after transfer is the index), which needs no spectral sequence; the LHS route is
+   kept as a remark. Consumers re-pointed: RS.1.3, RS.1.7, RS.1.8, RS.1.13, RS.2.12, RS.3.7,
+   RS.5.2, RS.5.5, RS.5.6, RS.6.1.
+2. **Cyclic complement conjugacy** (the second packet gap) is RS.0.8, with an elementary Sylow
+   normaliser induction; RS.5.7 uses it.
+3. **Ordinary Schur covers** (packet request to InductionRestriction Layer 7): the parent's Layer 7
+   plans the representation group but says explicitly that `H₂(G, ℤ)` must be pinned separately.
+   RS.0.5 defines `IsSchurCover` (stem + bijective class map) and proves that the parent's
+   representation group is one (stem + order of `H²(G, ℂˣ)` + RS.0.2 divisible case). The parent
+   supplies only existence of the representation group.
+4. **Abelian rows of Wood's Table 2** (19 of 31 rows): RS.6.8 proves `M(F(G), c) ≅ Λ²G` for the
+   anti-diagonal model of an odd-order abelian G from RS.6.1 and the Künneth formula, so these rows
+   no longer depend on computational certificates. The values agree with Table 2 (C₃² → C₃,
+   C₅² → C₅, C₉ × C₃ → C₃, C₃³ → C₃³, cyclic → 1).
+5. **Explicit models for the nonabelian rows** (RS.6.9–RS.6.10): sum-kernel, graph and full wreath
+   models, with orders checked against Table 2 (96, 294, 384, 162, 54, 48, 336, 7200, 56 448). The
+   identification of each model with the embedded type selected in the source stays with
+   ArithmeticStatistics ST.3. The earlier draft's longer lists of class sizes and kernel shapes
+   were dropped where not verified.
+6. The order-96 computation "M(F) ≅ C₂³ with relation subgroup of order 4" is not in Wood's paper;
+   the README marks it as an unverified machine computation to be certified.
+7. **Names**: packet snake_case declaration names were converted to Lean style — definitions
+   lowerCamelCase (`lift_commutator` → `liftCommutator`), types UpperCamelCase
+   (`reduced_multiplier` → `ReducedMultiplier`, `marked_extension` → `MarkedExtension`,
+   `universal_presentation` → `UniversalMarked`, `cyclotomic_twist` → `CyclotomicTwist`,
+   `degree_orbit_set` → `DegreeOrbitSet`, `reduction_certificate` → `ReductionCertificate`),
+   API and test labels follow (`lift_commutator_inl` → `liftCommutator_inl`,
+   `lift_commutator_test_1` → `liftCommutator_test_1`); theorem names keep the slug
+   (`homology_image`, `two_adic_survival`, …). A script confirmed that every one of the 109
+   targets, 124 API names and 96 test labels appears in the README under the converted name.
+8. Corrections made while checking the plan's statements: RS.1.13 (`homology_image`) is now
+   proved by naturality of the class map plus five-term exactness; RS.2.12 records why the class
+   map of a marked extension kills Q_c; RS.2.13's tests were rewritten as tests of the correction
+   itself; checks that were remarks were replaced by computed examples (RS.1.12, RS.2.12, RS.3.6,
+   RS.3.7, RS.4.1, RS.4.3, RS.4.5, RS.4.10–RS.4.12, RS.4.14, RS.4.16, RS.4.17, RS.4.19, RS.5.3,
+   RS.5.4, RS.5.6, RS.6.1, RS.6.2).
 
-The README and Suggested.lean already express these contracts, but a typed
-signature with a sorry proof does not assign it to an authorized supplying
-layer. Making them newly owned targets here would contradict the accepted
-plan's boundary; removing them would leave unsupported target arguments.
-PROTOCOL §§3, 15 and 20 and the issue's accepted-plan requirement prevent both
-shortcuts.
+Other plans that cite `InductionRestrictionPartII:RS.k` remain valid. Any roadmap needing the class
+map or five-term sequence of a central extension can cite RS.0.3–RS.0.4.
 
-## Fresh supplier checks
+## Checks run
 
-The supplied current upstream tree was inspected at
-`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`, and current Tau Ceti at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No upstream file was edited or
-used to run Lake.
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean` at Mathlib
+  082e2d3 / Tau Ceti f790474: **exit 0, 88 warnings, all `declaration uses 'sorry'`, no errors and
+  no other warnings** (109 GB memory available at the start).
+- `python3 scripts/check_sorry_data.py` on the Lean file: no offenders.
+- `python3 research/blueprint/intake.py check-files` on the three files: 0 problems.
+- Scripted: all packet targets/API/test names present in the README; every `RS.k.n` reference
+  resolves to a heading; Lean declarations are named in the README or in the closing comment;
+  `*` outside code spans escaped where it is mathematics.
+- Locators verified against the free PDFs this run: Löh, *Group Cohomology* (2019 notes; printed
+  page = PDF page − 8): Thm 1.4.1 p. 20, Thm 1.5.1 p. 30, Outlook 1.5.15 p. 40, Cor 1.6.13 p. 49,
+  Thm 1.7.15 p. 64, Cor 1.7.16 pp. 64–65, Thm 3.2.12 p. 123, Prop 3.2.13 p. 124, Rem 3.2.14 p. 125,
+  Thm 3.2.18 pp. 129–131, Cor 3.2.20 p. 133, Cor 3.2.23 p. 136; Hatcher §3.1: Lemma 3.1 p. 194,
+  Thm 3.2 p. 195; Conrad, *The Schur–Zassenhaus theorem*: Example 2 p. 1, second proof pp. 3–4,
+  Remark 5 p. 4. Wood's lifting paper PDF matches the packet SHA-256. The Wood (2019), EVW and
+  LWZB locators are carried over from the accepted plan and were not re-opened in this run.
 
-- Read the current InductionRestriction and AlgebraicTopology READMEs in
-  full. Parent Layer 7 owns ordinary representation groups and factor-set
-  classes, not the general native integral bridge. AlgebraicTopology Stage 6,
-  item 1 specifies UCT for singular cohomology of spaces; it does not specify
-  the required native group-homology comparison or extension transgression.
-- Searched the current upstream roadmap and Completed README/Suggested.lean
-  inventory for universal coefficients, extension homology and complement
-  conjugacy, then inspected the relevant matches. No matching complete
-  supplier assignment emerged. This is a search result, not a proof that no
-  possible supplier can be developed.
-- Read `TauCeti.ChainComplex.kronecker_bijective` in current
-  `TauCeti/Algebra/Homology/Kronecker.lean`, line 177: its coefficient object
-  must be injective. It cannot discharge arbitrary-coefficient UCT. Its
-  generic evaluation map remains a reuse input.
-- Read the exact pinned Mathlib
-  `Subgroup.exists_right_complement'_of_coprime` statement in
-  `Mathlib/GroupTheory/SchurZassenhaus.lean`, line 277. It asserts existence
-  of a complement, not conjugacy of two complements.
-- Read the relevant reviewed library-audit rows R17.5 and MP.1. They identify
-  factor-set/lifting APIs and parent Layer 7 ownership, not the missing
-  homological bridge. The audit has no row for this roadmap or its alias.
-- Read the accepted packet's review, coverage, requests and rescope proposal.
-  No supplying stage for either unassigned family has been added there.
+## For the reviewer
 
-The cleared-library index was read. No restricted source was copied, and no
-new paper extraction or source-error assertion is made in this continuation.
-
-## Fresh correspondence and validation checks
-
-A comment-masked scan of Suggested.lean found real named declarations for
-**all 109 target names** and **all 124 API names** in the accepted packet.
-Each of its **96 test labels** leads to a Lean example, including labels
-followed by an intervening include command. All 109 target names also occur
-in the README. The file has 555 named declarations in total.
-
-| Layer | Target declarations | API declarations | Test examples |
-| --- | ---: | ---: | ---: |
-| RS.1 | 14 | 29 | 21 |
-| RS.2 | 16 | 29 | 21 |
-| RS.3 | 11 | 28 | 24 |
-| RS.4 | 19 | 22 | 18 |
-| RS.5 | 11 | 4 | 3 |
-| RS.6 | 38 | 12 | 9 |
-| Total | 109 | 124 | 96 |
-
-This establishes signature presence, not mathematical equivalence of every
-prototype to its specification or implementation of the finite certificates.
-The arbitrary-coefficient UCT signatures and natural Ext-injection API were
-also read directly. They preserve their required coefficient generality and
-map variance.
-
-- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
-  **0 errors, 0 warnings**, with the five gaps and one request still explicit.
-- Fresh `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
-  **exit 0, 696 declaration-uses-sorry warnings, zero errors and zero other
-  warnings**. The memory preflight found 85 GiB available. The shared wrapper
-  checked against Mathlib `082e2d37e8`; the full source commit was independently
-  confirmed as `082e2d37e8b0463410cdb532e111cd43d5a66174`. The check finished,
-  and no compiler remains running.
-- README: 171,706 bytes, SHA-256
-  `2194010224101d49bf7b8b6ae15598bd6231bdc0c10588b09c558d1789a6662a`.
-- Suggested.lean: 191,498 bytes, SHA-256
-  `32b58343fb5be7e738e1f5a075add4d9ccd3cef8239f1c9a89fc8f4727cb30e7`.
-- The package metadata is ready as `topic = "math.GR"`, but is deliberately
-  absent. `research/blueprint/issues.py:deliverables_complete` treats a
-  package as complete solely when all its outputs exist; it does not inspect
-  this blocked handoff. Adding the last file would therefore falsely finish
-  the job. No metadata or other package-file change is submitted.
-
-## Where to resume
-
-Assign real supplier roadmap/layer IDs for the two families above and
-reconcile those assignments with the accepted packet, roadmap definition,
-reader and suggested interfaces. Those ownership files are outside this
-package issue's authorized paths. Gate the package on that amendment instead
-of releasing the same unresolvable package to another worker. Queue edits and
-manual labels are outside this job's scope.
-
-After the amendment, finish the mathematical correspondence audit, retain
-parent Layer 7's ordinary-cover boundary, and preserve all 38 RS.6 targets,
-including the 31 finite table-row certificate obligations and the order-96
-marked cover. These are roadmap targets with admitted prototypes, not claims
-of implemented certificates. Add the metadata after the package meets its
-completion requirements, and re-elaborate if signatures change.
-
-No mathematical target moved in this continuation. The
-[preceding handoff at the immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/df91fe32260d17ef3558ec5fd610ca2a56f047cb/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
-preserves links to earlier source receipts, finite-model checks and mutation
-checks. Those are inherited evidence, not fresh checks claimed by this
-session. No scratch file is needed to resume.
+Worth a close look: RS.0.7 (transfer proof of the Hall decomposition, including the norm formula
+for a normal subgroup), RS.0.8 (the induction), RS.6.8 (Λ²G formula), and the row-to-model table
+in RS.6.10.
