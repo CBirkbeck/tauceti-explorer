@@ -168586,6 +168586,67 @@
    "reviewReason": "The conflicting scalar formulas and the derivative calculation were independently checked in the recorded v2 PDF. The packet already uses the scalar normalization supported by the heat transform; the review fixes its citations rather than changing that normalization."
   },
   {
+   "id": "ArithmeticDynamics/E9301",
+   "kind": "error",
+   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.2 and Corollary2.3, p.3 (downloaded PDF hash in sources).",
+   "printed": "The strict local-mass inequality and absence of fixed quadratic differentials are stated without excluding the zero differential; the corollary also does not state the polynomial degree restriction. This is a paraphrase, not a source quotation.",
+   "correction": "Require q≠0 and degree(f)≥2. Keep the non-strict pushforward mass estimate for q=0.",
+   "reason": "q=0 has equal zero masses and is fixed; identity f has degree1 and fixes every differential. The proof requires a disc whose preimage is relatively compact in itself, provided by degree≥2. All f=z^d+c consumers already have d≥2.",
+   "affects": "a stated result",
+   "known": "No correction located in the primary arXiv record or the correction searches on 2026-10-14; recorded for independent checking, not asserted to be a new discovery.",
+   "searched": [
+    "arXiv:1304.4751 abstract/version record",
+    "Gao Ou dynatomic contraction principle erratum search",
+    "Authors/title with Lemma2.2 and quadratic differential correction search"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
+   "citation": "Sources of the blueprint of ArithmeticDynamics",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E9302",
+   "kind": "misprint",
+   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.9 proof, p.10.",
+   "printed": "The coefficient near the cycle point is described with a first-order pole although Q was defined with coefficient1 on its double pole; the ensuing radial integral uses inverse-square growth. The printed annular set labels also interchange the two differences. This records the content in own words.",
+   "correction": "Use q(z)~1/(z−z₀)². Bound the relevant annular difference near each cycle point by an annulus with inner/outer radii ratio tending to1; its double-pole mass is asymptotically2π log of that ratio. State the inclusions for the annular difference actually being bounded.",
+   "reason": "The explicit Q in Lemma2.8 has a double pole at each cycle point. A first-order asymptotic contradicts that definition. The displayed disc containment cannot literally hold for a difference excluding the disc. The logarithmic annular estimate is the intended calculation.",
+   "affects": "the proof",
+   "known": "No published correction located by the same primary-record and author/title searches on 2026-10-14.",
+   "searched": [
+    "arXiv:1304.4751 abstract/version record",
+    "Gao Ou Epstein Lemma2.9 quadratic differential erratum search"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
+   "citation": "Sources of the blueprint of ArithmeticDynamics",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E9303",
+   "kind": "gap",
+   "locator": "Morton 1996 Theorem15 Case2 and Proposition17 p.346, as identified by Morton’s 2011 corrigendum pp.332–333 (the correction was read in full).",
+   "printed": "The original characteristic-p argument passes from a factorization after reduction to polynomial factors over the lifted p-adic coefficient field using Hensel lifting alone. Own-word account of the gap identified by the author.",
+   "correction": "Hensel lifting first gives power-series coefficients. Use the distinct Laurent expansions of dynatomic roots to obtain degree bounds independent of the lifting precision, forcing the limit coefficients to be polynomials, as in the2011 corrigendum.",
+   "reason": "Hensel lifting without the degree bound yields R[[c]], not R[c]. The characteristic-zero genus results used by this packet are in §3 and do not rely on this characteristic-p lifting step.",
+   "affects": "the proof",
+   "known": "Published correction: Morton, Compositio Mathematica 147 (2011),332–334, DOI10.1112/S0010437X1000480X. The corrigendum also gives bibliography renumbering17–20 to16–19.",
+   "searched": [
+    "Numdam record for Morton 1996, including corrections",
+    "Cambridge/DOI primary2011 corrigendum, all pp.332–334"
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
+   "citation": "Sources of the blueprint of ArithmeticDynamics",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticDynamics/E101",
    "kind": "misprint",
    "locator": "Appendix C, fixed point normal form (22), p. 42 of arXiv math/9209221v1",
@@ -215217,12 +215278,12 @@
    "locator": "Higher Coleman theory (author manuscript, sha256 d340c9a0…), text after Remark 4.4.39, p. 79 (definition of M and M₀) and the displayed formula for Fil_{−j}",
    "printed": "It defines M = W_p ⊗_{Q_p} B⁺_{dR,log} together with M₀ = (W_dR ⊗ OB⁺_{dR,log})^{∇=0}, and gives … Fil_{−j} W_p ⊗ Ô = (M ∩ Fil^j M⁰)/(Fil¹M ∩ Fil^j M⁰).",
    "correction": "M = W_p ⊗_{Q_p} B⁺_dR, and one symbol for the second lattice (M₀ = M⁰).",
-   "reason": "No sheaf B⁺_{dR,log} is defined: BP lists only B⁺_dR, B_dR, OB⁺_{dR,log} and OB_{dR,log}, DLLZ-RH defines no unadorned log period sheaf B_{dR,log}, and the next sentence calls M a B⁺_dR-local system. The second lattice is named M₀ in its definition and M⁰ in the displayed formula. Checked on the rendered page (220 dpi), not only in pdftotext output.",
+   "reason": "No sheaf B⁺_{dR,log} is defined: BPC25 lists only B⁺_dR, B_dR, OB⁺_{dR,log} and OB_{dR,log}, DLLZ-RH defines no unadorned log period sheaf B_{dR,log}, and the next sentence calls M a B⁺_dR-local system. The second lattice is named M₀ in its definition and M⁰ in the displayed formula. Checked on the rendered page (220 dpi), not only in pdftotext output.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "research/blueprint packets sourceIssues/errata mentioning BP §4.4.38–4.4.40 (PerfectoidShimuraVarieties/E20 and E23 concern the cyclotomic twist and Theorem 4.4.45, not this notation)",
-    "BP author manuscript pp. 79–80 rendered with pdftoppm; grep of the manuscript for “dR,log” (occurs only in §4.4.38–4.4.39)",
+    "research/blueprint packets sourceIssues/errata mentioning BPC25 §4.4.38–4.4.40 (PerfectoidShimuraVarieties/E20 and E23 concern the cyclotomic twist and Theorem 4.4.45, not this notation)",
+    "BPC25 author manuscript pp. 79–80 rendered with pdftoppm; grep of the manuscript for “dR,log” (occurs only in §4.4.38–4.4.39)",
     "DLLZ-RH author copy, Definitions 2.2.3 and 2.2.10 period-sheaf list"
    ],
    "owner": "HodgeTateAndCanonicalSubgroups",
@@ -215230,7 +215291,7 @@
    "citation": "George Boxer, Vincent Pilloni, Higher Coleman theory, Public author manuscript, 180 pages; §4.4.38 and Remark 4.4.39, pp. 79–80 (finite-level comparison); Theorem 4.4.40, p. 80 (ownership boundary)",
    "status": "confirmed",
    "reviewedBy": "REV-HodgeTateAndCanonicalSubgroups--T6~2",
-   "reviewReason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BP does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰. Independently rechecked in the same hashed public author copy during round 2; no claim of publisher collation."
+   "reviewReason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BPC25 does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰. Independently rechecked in the same hashed public author copy during round 2; no claim of publisher collation."
   },
   {
    "id": "HodgeTateAndCanonicalSubgroups/E14",
