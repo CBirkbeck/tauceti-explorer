@@ -1,585 +1,585 @@
 {
-  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-14T04:50Z",
-  "roadmaps": {
-    "SchemeAndStackFoundations": {
-      "stage": "main",
-      "pr": 779,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92; AD01–AD02 fixed at c16514b; AE01–AE04 fixed at 42ab8a1",
-      "head": "3c50577",
-      "review": {
-        "recommendation": "approve",
-        "head": "3c50577",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "approved and merged by the review bot after the maintainer rounds"
-      },
-      "merged": "2026-10-14T04:47:45Z",
-      "merge_commit": "d23fdaf38"
-    },
-    "PadicMeasuresIwasawaAlgebras": {
-      "stage": "main",
-      "pr": 780,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; 2026-10-13: eight target groups cite PadicFunctionalAnalysis/NewtonPolygons (W. Coram) as suppliers",
-      "head": "f566626",
-      "review": {
-        "recommendation": "approve",
-        "head": "f566626",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "maintainer approved f566626; merged by the review bot"
-      },
-      "merged": "2026-10-14T01:27Z",
-      "merge_commit": "b0b73ac03"
-    },
-    "ReductiveGroupsPartII": {
-      "stage": "pr",
-      "pr": 785,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "0224f06",
-      "review": {
-        "recommendation": "changes",
-        "head": "7950420",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer re-review of 2026-10-13 repaired and answered at 59aa6a1; awaiting re-review"
-      }
-    },
-    "AdelicAlgebraicGroups": {
-      "stage": "pr",
-      "pr": 792,
-      "depends_on": [
-        785
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-      "head": "2b26e68",
-      "review": {
-        "recommendation": "approve",
-        "head": "2b26e68",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
-      }
-    },
-    "SmoothRepresentationsOfLocalGroups": {
-      "stage": "pr",
-      "pr": 793,
-      "depends_on": [
-        785
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "054ead6",
-      "review": {
-        "recommendation": "changes",
-        "head": "dbe52a5",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer re-review of 2026-10-13 repaired and answered at 51b86fd; awaiting re-review"
-      }
-    },
-    "IntegralHeckeAndGaloisDeterminants": {
-      "stage": "pr",
-      "pr": 789,
-      "depends_on": [
-        793
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "ac1db49",
-      "review": {
-        "recommendation": "approve",
-        "head": "ac1db49",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
-      }
-    },
-    "AdicEtaleGeometry": {
-      "stage": "pr",
-      "pr": 814,
-      "depends_on": [
-        813
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-      "head": "8c306f2",
-      "review": {
-        "recommendation": "approve",
-        "head": "8c306f2",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the A3.2/A3.3 corrections; awaiting the adic stack below it"
-      }
-    },
-    "AdicSpacesPartII": {
-      "stage": "pr",
-      "pr": 817,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers",
-      "head": "a3f5743",
-      "review": {
-        "recommendation": "changes",
-        "head": "48ec6c1",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer re-review at 48ec6c1: H01–H04, repaired at b45e54c; awaiting re-review"
-      }
-    },
-    "DiamondsAndVStacks": {
-      "stage": "pr",
-      "pr": 820,
-      "depends_on": [
-        818
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-      "head": "61aeaa1",
-      "review": {
-        "recommendation": "changes",
-        "head": "4a6c8e2",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer re-review at 4a6c8e2: carrier/universe blocker, repaired at 48a865d (re-stacked on #818); awaiting re-review"
-      }
-    },
-    "PerfectoidSpaces": {
-      "stage": "pr",
-      "pr": 818,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
-      "head": "67a02f4",
-      "review": {
-        "recommendation": "approve",
-        "head": "67a02f4",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the P6.4/P4.15.3 corrections; awaiting #813/#817 dependencies"
-      }
-    },
-    "AdicSpacesPartIII": {
-      "stage": "pr",
-      "pr": 813,
-      "depends_on": [
-        817
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
-      "head": "661d520",
-      "review": {
-        "recommendation": "changes",
-        "head": "292dfc0",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 292dfc0: two findings, repaired at 21e1000 (re-stacked on #817); awaiting re-review | re-stacked on #817 b45e54c at ae824af"
-      }
-    },
-    "AdicSpacesPartIV": {
-      "stage": "pr",
-      "pr": 815,
-      "depends_on": [
-        814
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-      "head": "36cf6e6",
-      "review": {
-        "recommendation": "approve",
-        "head": "36cf6e6",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
-      }
-    },
-    "PerfectoidTowers": {
-      "stage": "pr",
-      "pr": 816,
-      "depends_on": [
-        818
-      ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-      "head": "6c8d2d1",
-      "review": {
-        "recommendation": "approve",
-        "head": "6c8d2d1",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
-      }
-    },
-    "ComplexComparisonPartII": {
-      "stage": "pr",
-      "pr": 848,
-      "head": "a3f2832",
-      "depends_on": [
-        779,
-        853
-      ],
-      "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "a3f2832",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
-      }
-    },
-    "AbelianSchemesAndArithmeticModuli": {
-      "stage": "pr",
-      "pr": 849,
-      "head": "1d8f849",
-      "depends_on": [
-        779,
-        848,
-        853
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: ChatGPT Pro third pass at 22af69f accepted all repairs; marked ready for review",
-      "review": {
-        "recommendation": "approve",
-        "head": "22af69f",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "ChatGPT Pro third pass accepted all repairs (no new blocker)"
-      }
-    },
-    "InverseGaloisAndArithmeticFundamentalGroups": {
-      "stage": "pr",
-      "pr": 850,
-      "head": "976f566",
-      "depends_on": [
-        779,
-        785,
-        848,
-        853
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "5ee5153",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
-      }
-    },
-    "GeometryOfNumbersAndQuadraticArithmetic": {
-      "stage": "pr",
-      "pr": 851,
-      "head": "f7073b8",
-      "depends_on": [
-        792,
-        785
-      ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "f7073b8",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
-      }
-    },
-    "NeronModelsAndSemistableAbelianVarieties": {
-      "stage": "pr",
-      "pr": 852,
-      "head": "15a4a79",
-      "depends_on": [
-        779,
-        785
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "changes",
-        "head": "4d84f14",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at c3b2748; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "AlgebraicModuliForArithmeticGeometry": {
-      "stage": "pr",
-      "pr": 853,
-      "head": "2af2744",
-      "depends_on": [
-        779,
-        785,
-        817,
-        813
-      ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines",
-      "review": {
-        "recommendation": "changes",
-        "head": "be92167",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at 6b01e71; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "LocallyAnalyticDistributions": {
-      "stage": "pr",
-      "pr": 854,
-      "head": "aa2639b",
-      "depends_on": [
-        780,
-        813,
-        785
-      ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: 45 target groups of Layers 0–1, 4 cite CompactOperators/PadicFunctionalAnalysis (W. Coram); nine local restatements",
-      "review": {
-        "recommendation": "approve",
-        "head": "aa2639b",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
-      }
-    },
-    "DiophantineApproximationAndTranscendence": {
-      "stage": "main",
-      "pr": 855,
-      "head": "0d1c47b",
-      "depends_on": [],
-      "note": "ported 2026-10-13 (Codex) with a Codex review pass before opening (21 corrections); Lean 3,045 lines (from 6,064), README 2,080 lines",
-      "review": {
-        "recommendation": "approve",
-        "head": "0d1c47b",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "maintainer approved 0d1c47b; merged by the review bot"
-      },
-      "merged": "2026-10-14T03:01:33Z",
-      "merge_commit": "d4e8100e0"
-    },
-    "ArithmeticGaloisRepresentations": {
-      "stage": "pr",
-      "pr": 856,
-      "head": "e95c677",
-      "depends_on": [
-        789,
-        785
-      ],
-      "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "changes",
-        "head": "0636ba9",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at 35f01a2; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "CrystallineCohomology": {
-      "stage": "pr",
-      "pr": 857,
-      "head": "fce71d0",
-      "depends_on": [
-        779,
-        789,
-        813,
-        814,
-        815,
-        818,
-        820,
-        853,
-        849,
-        854,
-        868
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
-      "review": {
-        "recommendation": "changes",
-        "head": "15888a4",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at c26c924; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "ArithmeticGaloisDuality": {
-      "stage": "pr",
-      "pr": 858,
-      "head": "7dce743",
-      "depends_on": [
-        779,
-        856,
-        850,
-        849,
-        853,
-        869
-      ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
-      "review": {
-        "recommendation": "changes",
-        "head": "21649c7",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at 8f458dd; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "DerivedDeRhamCohomology": {
-      "stage": "pr",
-      "pr": 868,
-      "head": "661a196",
-      "depends_on": [
-        857,
-        818,
-        779,
-        789
-      ],
-      "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port",
-      "review": {
-        "recommendation": "changes",
-        "head": "10a113c",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at 439b655; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "SelmerIwasawaCohomology": {
-      "stage": "pr",
-      "pr": 869,
-      "head": "c883651",
-      "depends_on": [
-        858,
-        779,
-        780,
-        818
-      ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "changes",
-        "head": "7a61ea8",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "author-requested ChatGPT Pro review(s) repaired and answered at 5588b28; further rounds in progress where ChatGPT posted follow-ups"
-      }
-    },
-    "NeronModelsAndSemistableAbelianVarietiesPartII": {
-      "stage": "pr",
-      "pr": 870,
-      "head": "c1b7f73",
-      "depends_on": [
-        852,
-        779,
-        785,
-        853
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "c1b7f73",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
-      }
-    },
-    "ArithmeticLocallySymmetricSpaces": {
-      "stage": "pr",
-      "pr": 871,
-      "head": "fa5c087",
-      "depends_on": [
-        792,
-        793,
-        785
-      ],
-      "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 13:45Z; awaiting first review"
-      }
-    },
-    "DeformationAndDerivedPatchingAlgebraPartII": {
-      "stage": "pr",
-      "pr": 872,
-      "head": "cb9e707",
-      "depends_on": [
-        779
-      ],
-      "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "cb9e707",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
-      }
-    },
-    "LefschetzPencilsAndVanishingCycles": {
-      "stage": "pr",
-      "pr": 873,
-      "head": "a39a74a",
-      "depends_on": [
-        779,
-        792,
-        856,
-        853,
-        850,
-        858,
-        852,
-        849,
-        848
-      ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": "approve",
-        "head": "a39a74a",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
-      }
-    },
-    "ClassicalAdicEtaleCohomology": {
-      "stage": "pr",
-      "pr": 875,
-      "head": "224251a",
-      "depends_on": [
-        817,
-        813,
-        815,
-        814,
-        818,
-        820,
-        779,
-        780,
-        873,
-        858,
-        856
-      ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
-      "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 15:00Z; awaiting first review"
-      }
-    },
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
-      "stage": "pr",
-      "pr": 879,
-      "head": "a124119",
-      "depends_on": [
-        849,
-        857,
-        869,
-        852,
-        868,
-        779,
-        850,
-        856,
-        793
-      ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 841 lines, README 6,532 lines",
-      "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 16:30Z as a draft; awaiting first review"
-      }
-    },
-    "EnhancedDerivedSheaves": {
-      "stage": "pr",
-      "pr": 908,
-      "head": "d4d05b1",
-      "review": {
-        "recommendation": "approve",
-        "head": "d4d05b1",
-        "current": true,
-        "date": "2026-10-14",
-        "note": "red team (Sol + Astra) and the external Astra deep review applied; deep re-review recommends approval; marked ready for review"
-      }
-    }
+ "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
+ "updated": "2026-10-14T17:42Z",
+ "roadmaps": {
+  "SchemeAndStackFoundations": {
+   "stage": "main",
+   "pr": 779,
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92; AD01–AD02 fixed at c16514b; AE01–AE04 fixed at 42ab8a1",
+   "head": "3c50577",
+   "review": {
+    "recommendation": "approve",
+    "head": "3c50577",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "approved and merged by the review bot after the maintainer rounds"
+   },
+   "merged": "2026-10-14T04:47:45Z",
+   "merge_commit": "d23fdaf38"
+  },
+  "PadicMeasuresIwasawaAlgebras": {
+   "stage": "main",
+   "pr": 780,
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; 2026-10-13: eight target groups cite PadicFunctionalAnalysis/NewtonPolygons (W. Coram) as suppliers",
+   "head": "f566626",
+   "review": {
+    "recommendation": "approve",
+    "head": "f566626",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "maintainer approved f566626; merged by the review bot"
+   },
+   "merged": "2026-10-14T01:27Z",
+   "merge_commit": "b0b73ac03"
+  },
+  "ReductiveGroupsPartII": {
+   "stage": "pr",
+   "pr": 785,
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+   "head": "7e695c0",
+   "review": {
+    "recommendation": "changes",
+    "head": "3c6c215",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at 3c6c215: three items (Haar-scaling reuse, Moy–Prasad divisibility input, ModelField scope), repaired and answered at 7e695c0; awaiting re-review"
+   }
+  },
+  "AdelicAlgebraicGroups": {
+   "stage": "pr",
+   "pr": 792,
+   "depends_on": [
+    785
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
+   "head": "9f5058d",
+   "review": {
+    "recommendation": "approve",
+    "head": "2b26e68",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+   }
+  },
+  "SmoothRepresentationsOfLocalGroups": {
+   "stage": "pr",
+   "pr": 793,
+   "depends_on": [
+    785
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+   "head": "c12d484",
+   "review": {
+    "recommendation": "changes",
+    "head": "dbe52a5",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "maintainer re-review of 2026-10-13 repaired and answered at 51b86fd; awaiting re-review"
+   }
+  },
+  "IntegralHeckeAndGaloisDeterminants": {
+   "stage": "pr",
+   "pr": 789,
+   "depends_on": [
+    793
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+   "head": "a15eb52",
+   "review": {
+    "recommendation": "approve",
+    "head": "ac1db49",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+   }
+  },
+  "AdicEtaleGeometry": {
+   "stage": "pr",
+   "pr": 814,
+   "depends_on": [
+    813
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
+   "head": "8c306f2",
+   "review": {
+    "recommendation": "approve",
+    "head": "8c306f2",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the A3.2/A3.3 corrections; awaiting the adic stack below it"
+   }
+  },
+  "AdicSpacesPartII": {
+   "stage": "pr",
+   "pr": 817,
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers",
+   "head": "ee74c10",
+   "review": {
+    "recommendation": "changes",
+    "head": "2f1f3c6",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at 2f1f3c6: two items (pro-constructible image ownership, annulus squaring), repaired and answered at ee74c10; awaiting re-review"
+   }
+  },
+  "DiamondsAndVStacks": {
+   "stage": "pr",
+   "pr": 820,
+   "depends_on": [
+    818
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
+   "head": "0580821",
+   "review": {
+    "recommendation": "approve",
+    "head": "c67b635",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves c67b635; the current head carries only the second red-team pass"
+   }
+  },
+  "PerfectoidSpaces": {
+   "stage": "pr",
+   "pr": 818,
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
+   "head": "67a02f4",
+   "review": {
+    "recommendation": "approve",
+    "head": "67a02f4",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "maintainer (roed-math) APPROVED on 2026-10-14; an independent GPT-6 Astra comment review at the same head is being answered; awaiting #813/#817 dependencies"
+   }
+  },
+  "AdicSpacesPartIII": {
+   "stage": "pr",
+   "pr": 813,
+   "depends_on": [
+    817
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
+   "head": "46632e7",
+   "review": {
+    "recommendation": "changes",
+    "head": "292dfc0",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "maintainer (GPT-assisted) review at 292dfc0: two findings, repaired at 21e1000 (re-stacked on #817); awaiting re-review | re-stacked on #817 b45e54c at ae824af"
+   }
+  },
+  "AdicSpacesPartIV": {
+   "stage": "pr",
+   "pr": 815,
+   "depends_on": [
+    814
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
+   "head": "20422d4",
+   "review": {
+    "recommendation": "approve",
+    "head": "36cf6e6",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+   }
+  },
+  "PerfectoidTowers": {
+   "stage": "pr",
+   "pr": 816,
+   "depends_on": [
+    818
+   ],
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
+   "head": "9f04243",
+   "review": {
+    "recommendation": "approve",
+    "head": "6c8d2d1",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+   }
+  },
+  "ComplexComparisonPartII": {
+   "stage": "pr",
+   "pr": 848,
+   "head": "6d28179",
+   "depends_on": [
+    779,
+    853
+   ],
+   "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "changes",
+    "head": "6a5b452",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at 6a5b452: four items (coefficient carrier, Ehresmann, Chern class, triangulation suppliers), repaired and answered at 6d28179; awaiting re-review"
+   }
+  },
+  "AbelianSchemesAndArithmeticModuli": {
+   "stage": "pr",
+   "pr": 849,
+   "head": "9754553",
+   "depends_on": [
+    779,
+    848,
+    853
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: ChatGPT Pro third pass at 22af69f accepted all repairs; marked ready for review",
+   "review": {
+    "recommendation": "changes",
+    "head": "a23979f",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at a23979f: complex-torus construction assigned twice, resolved to the ComplexTori supplier at 9754553; awaiting re-review"
+   }
+  },
+  "InverseGaloisAndArithmeticFundamentalGroups": {
+   "stage": "pr",
+   "pr": 850,
+   "head": "35958f0",
+   "depends_on": [
+    779,
+    785,
+    848,
+    853
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "approve",
+    "head": "5ee5153",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head"
+   }
+  },
+  "GeometryOfNumbersAndQuadraticArithmetic": {
+   "stage": "pr",
+   "pr": 851,
+   "head": "86d8cfc",
+   "depends_on": [
+    792,
+    785
+   ],
+   "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "changes",
+    "head": "86d8cfc",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at 86d8cfc; repair in progress"
+   }
+  },
+  "NeronModelsAndSemistableAbelianVarieties": {
+   "stage": "pr",
+   "pr": 852,
+   "head": "5e79ab9",
+   "depends_on": [
+    779,
+    785
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "changes",
+    "head": "5e79ab9",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "maintainer fresh review (GPT-6 Astra) at 5e79ab9: further specification changes; repair in progress"
+   }
+  },
+  "AlgebraicModuliForArithmeticGeometry": {
+   "stage": "pr",
+   "pr": 853,
+   "head": "abdc743",
+   "depends_on": [
+    779,
+    785,
+    817,
+    813
+   ],
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines",
+   "review": {
+    "recommendation": "changes",
+    "head": "be92167",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 6b01e71; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "LocallyAnalyticDistributions": {
+   "stage": "pr",
+   "pr": 854,
+   "head": "894b27b",
+   "depends_on": [
+    780,
+    813,
+    785
+   ],
+   "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: 45 target groups of Layers 0–1, 4 cite CompactOperators/PadicFunctionalAnalysis (W. Coram); nine local restatements",
+   "review": {
+    "recommendation": "approve",
+    "head": "aa2639b",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head"
+   }
+  },
+  "DiophantineApproximationAndTranscendence": {
+   "stage": "main",
+   "pr": 855,
+   "head": "0d1c47b",
+   "depends_on": [],
+   "note": "ported 2026-10-13 (Codex) with a Codex review pass before opening (21 corrections); Lean 3,045 lines (from 6,064), README 2,080 lines",
+   "review": {
+    "recommendation": "approve",
+    "head": "0d1c47b",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "maintainer approved 0d1c47b; merged by the review bot"
+   },
+   "merged": "2026-10-14T03:01:33Z",
+   "merge_commit": "d4e8100e0"
+  },
+  "ArithmeticGaloisRepresentations": {
+   "stage": "pr",
+   "pr": 856,
+   "head": "4f207a3",
+   "depends_on": [
+    789,
+    785
+   ],
+   "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "changes",
+    "head": "0636ba9",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 35f01a2; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "CrystallineCohomology": {
+   "stage": "pr",
+   "pr": 857,
+   "head": "7ea842d",
+   "depends_on": [
+    779,
+    789,
+    813,
+    814,
+    815,
+    818,
+    820,
+    853,
+    849,
+    854,
+    868
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
+   "review": {
+    "recommendation": "changes",
+    "head": "15888a4",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at c26c924; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "ArithmeticGaloisDuality": {
+   "stage": "pr",
+   "pr": 858,
+   "head": "b8f53f1",
+   "depends_on": [
+    779,
+    856,
+    850,
+    849,
+    853,
+    869
+   ],
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
+   "review": {
+    "recommendation": "changes",
+    "head": "21649c7",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 8f458dd; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "DerivedDeRhamCohomology": {
+   "stage": "pr",
+   "pr": 868,
+   "head": "4eb2b27",
+   "depends_on": [
+    857,
+    818,
+    779,
+    789
+   ],
+   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port",
+   "review": {
+    "recommendation": "changes",
+    "head": "10a113c",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 439b655; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "SelmerIwasawaCohomology": {
+   "stage": "pr",
+   "pr": 869,
+   "head": "2433635",
+   "depends_on": [
+    858,
+    779,
+    780,
+    818
+   ],
+   "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "changes",
+    "head": "7a61ea8",
+    "current": false,
+    "date": "2026-10-13",
+    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 5588b28; further rounds in progress where ChatGPT posted follow-ups"
+   }
+  },
+  "NeronModelsAndSemistableAbelianVarietiesPartII": {
+   "stage": "pr",
+   "pr": 870,
+   "head": "5ac734c",
+   "depends_on": [
+    852,
+    779,
+    785,
+    853
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "approve",
+    "head": "c1b7f73",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+   }
+  },
+  "ArithmeticLocallySymmetricSpaces": {
+   "stage": "pr",
+   "pr": 871,
+   "head": "fa5c087",
+   "depends_on": [
+    792,
+    793,
+    785
+   ],
+   "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "opened 2026-10-13 13:45Z; awaiting first review"
+   }
+  },
+  "DeformationAndDerivedPatchingAlgebraPartII": {
+   "stage": "pr",
+   "pr": 872,
+   "head": "cb9e707",
+   "depends_on": [
+    779
+   ],
+   "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "approve",
+    "head": "cb9e707",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+   }
+  },
+  "LefschetzPencilsAndVanishingCycles": {
+   "stage": "pr",
+   "pr": 873,
+   "head": "02fe347",
+   "depends_on": [
+    779,
+    792,
+    856,
+    853,
+    850,
+    858,
+    852,
+    849,
+    848
+   ],
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": "approve",
+    "head": "a39a74a",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+   }
+  },
+  "ClassicalAdicEtaleCohomology": {
+   "stage": "pr",
+   "pr": 875,
+   "head": "1190c44",
+   "depends_on": [
+    817,
+    813,
+    815,
+    814,
+    818,
+    820,
+    779,
+    780,
+    873,
+    858,
+    856
+   ],
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "opened 2026-10-13 15:00Z; awaiting first review"
+   }
+  },
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+   "stage": "pr",
+   "pr": 879,
+   "head": "a124119",
+   "depends_on": [
+    849,
+    857,
+    869,
+    852,
+    868,
+    779,
+    850,
+    856,
+    793
+   ],
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 841 lines, README 6,532 lines",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "opened 2026-10-13 16:30Z as a draft; awaiting first review"
+   }
+  },
+  "EnhancedDerivedSheaves": {
+   "stage": "pr",
+   "pr": 908,
+   "head": "0304690",
+   "review": {
+    "recommendation": "approve",
+    "head": "d4d05b1",
+    "current": false,
+    "date": "2026-10-14",
+    "note": "red team (Sol + Astra) and the external Astra deep review applied; deep re-review recommends approval; marked ready for review"
+   }
   }
+ }
 }
