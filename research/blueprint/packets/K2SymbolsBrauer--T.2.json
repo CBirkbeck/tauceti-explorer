@@ -88,6 +88,30 @@
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
         "provides": "The reverse-chain relation has parameter -(d*c), with all three index inequalities explicit.",
         "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.equivDirectSum",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/ToTensorPower.lean",
+        "provides": "The algebra equivalence from TensorAlgebra R M to the direct sum of tensor powers, for CommSemiring R and an R-module AddCommMonoid M. Read the pure-word evaluation of toDirectSum and its inverse; it already provides the word-length projection.",
+        "checked": "Declaration, surrounding hypotheses and generator evaluation read at Mathlib 082e2d3 on 2026-10-14 in independent review."
+      },
+      {
+        "ref": "mathlib:TensorPower.mulEquiv",
+        "module": "Mathlib/LinearAlgebra/TensorPower/Basic.lean",
+        "provides": "The linear equivalence between the tensor product of the nth and mth tensor powers and the (n+m)th power, for CommSemiring R and an R-module AddCommMonoid M. With n=m=1 and singleton equivalences it identifies the second power with M⊗M.",
+        "checked": "Declaration, surrounding hypotheses and generator evaluation read at Mathlib 082e2d3 on 2026-10-14 in independent review."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.isEmptyEquiv",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "For an empty index type, the indexed tensor product is linearly equivalent to the coefficient CommSemiring R; its empty pure tensor maps to 1. Use Fin 0 to identify the degree-zero tensor power.",
+        "checked": "Declaration, surrounding hypotheses and generator evaluation read at Mathlib 082e2d3 on 2026-10-14 in independent review."
+      },
+      {
+        "ref": "mathlib:PiTensorProduct.subsingletonEquiv",
+        "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
+        "provides": "For a subsingleton index type with a chosen index i₀, the indexed tensor product of R-modules is linearly equivalent to the module at i₀; the pure tensor evaluates there. Use Fin 1 to identify the first tensor power with U.",
+        "checked": "Declaration, surrounding hypotheses and generator evaluation read at Mathlib 082e2d3 on 2026-10-14 in independent review."
       }
     ]
   },
@@ -134,7 +158,7 @@
       "accessed": "2026-10-14",
       "readSections": [
         "§6, Theorem 8 and Lemmas 36–40, pp. 66–72 (PDF pp. 73–79)",
-        "§7, Theorem 10, p. 76: inspected only to confirm its field-size restriction; no universality result imported"
+        "§7, Theorem 10 statement, printed p. 78; its root-lifting proof, steps (1)–(9), pp. 79–82, and Corollary 1, p. 82 (PDF pp. 85–89). Only the root-lifting argument is used, on infinite fields; no universality theorem is imported."
       ]
     },
     {
@@ -211,7 +235,12 @@
         {
           "name": "pairing_one_left",
           "role": "simp",
-          "statement": "Every Steinberg pairing satisfies c(1,b)=0; likewise c(a,1)=0."
+          "statement": "Every Steinberg pairing satisfies c(1,b)=0."
+        },
+        {
+          "name": "pairing_one_right",
+          "role": "simp",
+          "statement": "Every Steinberg pairing satisfies c(a,1)=0."
         }
       ],
       "tests": [
@@ -403,14 +432,16 @@
         "K2SymbolsBrauer:T.2/milnor-k-theory",
         "mathlib:TensorAlgebra.gradedAlgebra",
         "mathlib:TwoSidedIdeal",
-        "mathlib:RingCon.mk'"
+        "mathlib:RingCon.mk'",
+        "mathlib:TensorAlgebra.equivDirectSum",
+        "mathlib:PiTensorProduct.isEmptyEquiv"
       ],
       "proofSteps": [
         "Use TwoSidedIdeal and its complete lattice: J is the intersection of all ideals containing the displayed products. The tensor algebra is noncommutative, so a left-ideal span alone is insufficient.",
         "Identify J additively with finite sums of sandwiches z·ι(a)ι(b)·w. Closure under left/right multiplication proves this description has the required minimality.",
         "Decompose z and w into their finite homogeneous sums using the existing direct-sum grading. Every resulting sandwich has degree deg(z)+2+deg(w). Group the finite sum by degree.",
         "The component of each degree is again a sum of sandwiches, proving homogeneity. Nonnegative grading implies there are no terms of degree zero or one.",
-        "For degree two, the two outer degrees must both be zero. T₀ is ℤ, so these sandwiches are precisely the integer span of the Steinberg products. The converse containment is immediate."
+        "For degree two, the two outer degrees must both be zero. TensorAlgebra.equivDirectSum and PiTensorProduct.isEmptyEquiv identify T₀ with ℤ (the empty tensor maps to 1), so these sandwiches are precisely the integer span of the Steinberg products. The converse containment is immediate. This uses existing tensor-algebra decomposition rather than developing another one."
       ],
       "acceptance": [
         "Use the existing TensorAlgebra.gradedAlgebra instance, not a new tensor grading.",
@@ -449,14 +480,17 @@
         "K2SymbolsBrauer:T.2/homogeneous-steinberg-ideal",
         "mathlib:RingCon.mk'",
         "mathlib:TensorAlgebra.gradedAlgebra",
-        "mathlib:TensorAlgebra.lift"
+        "mathlib:TensorAlgebra.lift",
+        "mathlib:TensorAlgebra.equivDirectSum",
+        "mathlib:PiTensorProduct.isEmptyEquiv",
+        "mathlib:PiTensorProduct.subsingletonEquiv"
       ],
       "proofSteps": [
         "Apply the quotient ring to the ring congruence of J; this is a Ring, not a commutative-ring quotient of T.",
         "Define each homogeneous image as an ℤ-submodule. Multiplication sends degree i times degree j to degree i+j since the quotient map is a ring homomorphism.",
         "For injectivity of the direct-sum reconstruction, lift each summand to T_i. If their sum lies in J, homogeneity puts each lift in J, so every image summand vanishes. Surjectivity follows by decomposing an arbitrary representative.",
         "Factor finite tensor words through the quotient. A consecutive Steinberg relation is a sandwich of a defining relation, which is zero.",
-        "Identify Kᴹ₀(F) with ℤ and Kᴹ₁(F) with U using the previously established vanishing intersections."
+        "Use TensorAlgebra.equivDirectSum with the empty and singleton PiTensorProduct equivalences for T₀≃ℤ and T₁≃U. Pure words of length d span T_d, so this decomposition agrees with the existing range-power grading on generators. The previously established vanishing intersections then identify Kᴹ₀(F) with ℤ and Kᴹ₁(F) with U. No basis or freeness assumption on U is used."
       ],
       "acceptance": [
         "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
@@ -552,11 +586,14 @@
       ],
       "prerequisites": [
         "K2SymbolsBrauer:T.2/graded-quotient-components",
-        "K2SymbolsBrauer:T.2/tensor-square-presentation"
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "mathlib:TensorAlgebra.equivDirectSum",
+        "mathlib:TensorPower.mulEquiv",
+        "mathlib:PiTensorProduct.subsingletonEquiv"
       ],
       "proofSteps": [
-        "Identify the degree-two tensor-algebra submodule with U⊗ℤU by extending (u,v)↦ι(u)ι(v).",
-        "Construct the inverse by projecting tensor words to degree two: length-two words go to their pure tensor; words of every other length go to zero. The multilinearity relations defining TensorAlgebra respect this projection.",
+        "Restrict the existing TensorAlgebra.equivDirectSum to degree two. Its generator formula sends a product ι(u)ι(v) to the second pure tensor. Identify this tensor power with U⊗ℤU using TensorPower.mulEquiv at 1+1 and the singleton PiTensorProduct equivalence. These are existing library equivalences, not new tensor-algebra targets.",
+        "The inverse is the existing second-component projection composed with the inverse tensor-power equivalence: length-two words go to their pure tensor and words of other lengths have zero second component. Compare with the existing T₂ range-power submodule by its generation by length-two products. The library equivalence supplies well-definedness and multilinearity without a new raw-word quotient construction.",
         "Use J∩T₂=R₂ to descend both directions. Check the composites on degree-two products, then extend by their additive generation."
       ],
       "acceptance": [
@@ -972,6 +1009,16 @@
           "name": "symbolTorus_map",
           "role": "functoriality",
           "statement": "Postcomposing c by A→+B maps (a,t) to (f(a),t) and fixes the quotient torus."
+        },
+        {
+          "name": "symbolTorus_mul",
+          "role": "simp",
+          "statement": "In the A×(Fˣ)^r coordinates, (a,s)(b,t)=(a+b+β(s,t),st), with the displayed ordered factor set β."
+        },
+        {
+          "name": "symbolTorus_project",
+          "role": "projection",
+          "statement": "The homomorphism (a,s)↦s is surjective; the simple torus lift h_i(t) has coefficient zero and t in its ith coordinate."
         }
       ],
       "tests": [
@@ -1104,6 +1151,21 @@
           "name": "symbolMonomial_kernel",
           "role": "characterisation",
           "statement": "The coefficient inclusion is an isomorphism A≃ker(N_c→N₀)."
+        },
+        {
+          "name": "symbolMonomial_conjugation",
+          "role": "relation",
+          "statement": "For Cartan entries a_ij, q_i⁻¹ h_j(t) q_i=h_j(t)h_i(t^(-a_ij)); this includes the central coefficients dictated by the fixed torus product."
+        },
+        {
+          "name": "symbolMonomial_hom_ext",
+          "role": "extensionality",
+          "statement": "Group homomorphisms out of N_c agree if they agree on the embedded H_c and on every q_i."
+        },
+        {
+          "name": "symbolMonomial_lift",
+          "role": "universal-property",
+          "statement": "A homomorphism H_c→G and elements Q_i of a group G extend uniquely to a homomorphism N_c→G if they satisfy the displayed torus conjugation, braid/commutation and Q_i²=image(h_i(-1)) relations. No Q_i⁴=1 relation is imposed."
         }
       ],
       "tests": [
@@ -1244,7 +1306,7 @@
       ],
       "kind": "theorem",
       "title": "Rank-one and rank-two action relations",
-      "statement": "The root and Weyl transformations in E_c satisfy the type-A Steinberg relations. Each rank-one root subgroup with its torus realizes the prescribed cocycle c. The adjacent simple Weyl transformations satisfy the length-three braid relation, and transformations belonging to disconnected simple roots commute.",
+      "statement": "The left and right transformation groups on S_c commute and act transitively, so each acts freely. Each rank-one restriction has the prescribed toral cocycle c. The adjacent simple Weyl transformations satisfy the length-three braid relation, and transformations belonging to disconnected simple roots commute. These are the local action relations used to establish global exactness; the full type-A Steinberg relations are supplied after exactness by symbol-extension-root-lifts.",
       "hypotheses": [
         "F is an infinite field; c is a Steinberg pairing to abelian A; n≥3."
       ],
@@ -1257,7 +1319,7 @@
         "Torus and positive-root left transformations commute with the right generators. Reduce the remaining left/right Weyl commutation to a rank-one or rank-two root subsystem and its minimal Weyl-coset representative.",
         "Use orbit representatives (x_α(u)w(σ)x_β(v), lift(w(σ))) and split the three cases σβ≠±α, σβ=α and σβ=-α. In the last case isolate u=0, v=0 or uv=1; when uv(1-uv)≠0 use c(u⁻¹,(v-u⁻¹)⁻¹)=c((u-v⁻¹)⁻¹,v⁻¹). This follows by bilinearity and the Steinberg relation, and is the essential cocycle cancellation.",
         "Left and right groups are transitive and commute, hence each acts freely: an element fixing one point fixes its orbit under the commuting transitive group. Verify the Weyl braid at (1,1), then use freeness to promote the equality to permutations.",
-        "Restrict the rank-one/rank-two checks to each embedded subsystem and transport to arbitrary cosets. Conjugating the simple root generators gives all roots and their Steinberg commutator formulas."
+        "Use the embedded rank-one actions to identify their toral defects with c. Check the braid and disconnected-root equations on the embedded rank-two spaces; the minimal-coset reduction of Lemma 6.9 transports their equality to every orbit. This supplies the monomial relations and the rank-one decomposition required for the global Bruhat cover. It does not infer all root commutator relations merely from the Weyl braid equations."
       ],
       "acceptance": [
         "The exceptional uv=1 branch is checked without an inverse of zero.",
@@ -1285,7 +1347,7 @@
       ],
       "kind": "theorem",
       "title": "Exact central extension realizing the pairing",
-      "statement": "The projection E_c→SL_n(F) has kernel exactly the embedded coefficient group A, and its root lifts have toral defect c. Thus 1→A→E_c→SL_n(F)→1 is a central extension realizing the prescribed pairing, with A included injectively.",
+      "statement": "The projection E_c→SL_n(F) has kernel exactly the embedded coefficient group A. Thus 1→A→E_c→SL_n(F)→1 is an exact central extension with A included injectively. Its embedded torus retains the defect h_i(s)h_i(t)h_i(st)⁻¹=inl(c(s,t)). Agreement of this torus with Steinberg root-word lifts is proved in symbol-extension-root-lifts.",
       "hypotheses": [
         "F is an infinite field, A is abelian, c is a Steinberg pairing and n≥3."
       ],
@@ -1298,7 +1360,7 @@
         "Embed N_c into E_c using the verified local relations and coefficient/torus translations. Its quotient by the lifted torus is the ordinary Weyl group.",
         "Show E_c is the union of Ũ⁺H̃ w̃ Ũ⁺: the union contains 1 and is stable under left multiplication by its generating transformations. Increasing-length cases move a root past w̃; decreasing-length cases use the verified rank-one decomposition, with its torus inverse parameter.",
         "If an element projects to 1, ordinary Bruhat forces the Weyl component to be 1 and then its torus coordinate to be 1. Unipotent injectivity eliminates the outer factors, leaving precisely A.",
-        "The prescribed torus defect is retained under the injective torus embedding. Centrality and injectivity were established in the permutation action, so the identification of the kernel does not erase nonzero coefficients."
+        "The prescribed torus defect is retained under the injective torus embedding. Centrality and injectivity were established in the permutation action, so the identification of the kernel does not erase nonzero coefficients. This proves exactness before invoking the central-extension root-lifting argument."
       ],
       "acceptance": [
         "At c=p with A=P₂(F), inl(p(-1,-1)) remains nonzero over ℝ.",
@@ -1316,6 +1378,57 @@
         "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
         "namespace": "TauCeti.MilnorK"
       }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-extension-root-lifts",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Steinberg root lifts of the detecting extension",
+      "statement": "For an infinite field F, a Steinberg pairing c:Fˣ×Fˣ→A to an abelian group and n≥3, the exact extension E_c admits lifts y_ij(t) of every elementary root x_ij(t). They are additive in t and satisfy the forward, reverse and disconnected type-A Steinberg commutator relations. Hence there is a homomorphism ρ_c:St_n(F)→E_c over SL_n(F). With w_ij(a)=y_ij(a)y_ji(-a⁻¹)y_ij(a) and h_ij(a)=w_ij(a)w_ij(-1), these lifts agree with the embedded simple torus words, and [h_12(a),h_13(b)]=inl(c(a,b)).",
+      "hypotheses": [
+        "F is an infinite commutative field; A is an abelian group; c is a bilinear Steinberg pairing; n≥3."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+        "K2SymbolsBrauer:T.2/field-lift-calculus",
+        "K2SymbolsBrauer:T.2/symbol-torus-extension",
+        "K2SymbolsBrauer:T.1/central-extension",
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank"
+      ],
+      "proofSteps": [
+        "First use the already proved exactness of E_c→SL_n(F). In a central extension, a commutator of arbitrary lifts depends only on their quotient elements. Choose a∈Fˣ with a²≠1, lift the ordinary coroot h_α(a), and set y_α(t) to the commutator of that lift with any lift of x_α(t/(a²-1)). Its projection is x_α(t); independence of the arbitrary lifts follows from centrality.",
+        "Follow the root-lifting part of Steinberg’s Theorem 10 proof, steps (2)–(8). Torus and monomial conjugation of these sections preserves the section with the correctly rescaled root parameter. For distinct nonopposite roots whose sum is not a root, the residual central commutator is biadditive, and a torus rescaling fixing one root and changing the other kills it. In type A the two roots are linearly independent, so an integral cocharacter with these weights exists; infinity lets one avoid the finitely many forbidden scalar values.",
+        "For a root paired with itself, use simultaneous torus rescaling and biadditivity as in step (5b). Choose z with z(1-z)(1-z+z²)≠0; such a choice exists in every infinite field, including characteristic two. This proves commutativity of the lifted root subgroup. Step (7) then kills the central additivity defect using the defining coroot commutator. These arguments establish actual root homomorphisms, rather than assuming them in the extension data.",
+        "For a pair whose sum is a root, compare its commutator with the canonical lift of the matrix commutator. The remaining central factor is biadditive; the same separating torus rescaling kills it, as in step (8). The matrix constants are +uv in the forward chain and -vu in the reverse chain. Opposite roots have no Steinberg commutator relation; normalizer conjugation supplies the Weyl identities instead. Apply the presented-group universal property to get ρ_c.",
+        "The positive-root translation sections in E_c are additive and satisfy the computed torus conjugation, so they equal the commutator-defined sections. Normalizer equivariance identifies their negative-root transports as well. The explicit rank-one calculation at the end of Matsumoto’s Lemma 6.8(a) proof, p. 47, gives w_i(t)=h_i(t)q_i⁻¹ and w_i(-1)=q_i. Thus the root-word h_i(t) is the embedded torus lift, and its defect is c; Lemmas 6.10(a) and 6.11(d) transport this to the global extension. Monomial conjugation and the +1 Cartan overlap give [h_12(a),h_13(b)]=inl(c(a,b)). Central changes of a torus lift do not change this commutator."
+      ],
+      "acceptance": [
+        "The field-size choice is justified by infinity. This theorem is not applied to F₂, F₃ or F₄.",
+        "The root lifts are obtained after exactness, and satisfy every defining relation of the imported St_n, with all index inequalities.",
+        "The generator equation detects the positive-overlap symbol and retains inl(c(-1,-1)) over ℝ. No finite-rank universal-central-extension theorem is an input."
+      ],
+      "sources": [
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§7, Theorem 10 proof, steps (1)–(9), printed pp. 79–82 (PDF pp. 86–89); Corollary 1, printed p. 82 (PDF p. 89).",
+          "match": "Only the lifting of root relations to an arbitrary central extension is used, specialized to type A and infinite fields. The theorem’s universality conclusion and its small-field exceptions are not imported."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, root lifts before Lemma 5.1, printed p. 23; §6, Lemma 6.10(a), printed p. 42, and Lemma 6.11(d), printed p. 43; §7, end of the proof of Lemma 6.8(a), printed p. 47 (PDF pp. 24, 43–44, 48).",
+          "match": "Identifies the rank-one root-word cocycle of the constructed extension with the prescribed coefficient cocycle."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "addedBy": "REV-K2SymbolsBrauer--T.2"
     },
     {
       "id": "K2SymbolsBrauer:T.2/finite-classical-vanishing",
@@ -1506,7 +1619,7 @@
         "F is an infinite field."
       ],
       "prerequisites": [
-        "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "K2SymbolsBrauer:T.2/symbol-extension-root-lifts",
         "K2SymbolsBrauer:T.2/field-cocycle-normalization",
         "K2SymbolsBrauer:T.2/tensor-square-presentation",
         "K2SymbolsBrauer:T.1/stabilisation"
@@ -1514,7 +1627,7 @@
       "proofSteps": [
         "Take A=P₂(F) and c=p, its universal pairing. A putative relation is a finite product of stable symbol words.",
         "If that word is 1 in stable St, the predecessor’s finite-representative equality yields a rank n≥3 where the corresponding St_n word is 1.",
-        "At that rank, the verified root lifts in E_p satisfy the Steinberg relations and hence give St_n(F)→E_p via the presented-group universal property. No compatibility between E_p at different ranks is required.",
+        "At that rank, symbol-extension-root-lifts gives ρ_p:St_n(F)→E_p with all Steinberg relations and the explicit symbol equation. No compatibility between E_p at different ranks is required. The argument uses root lifting in an exact central extension, not a claimed finite-rank universality theorem.",
         "Each chosen symbol maps to inl(p(a,b)) by the positive-root cocycle normalization. The word maps to the coefficient inclusion of the alleged relation.",
         "Since A→E_p is injective, the relation vanishes in A. This proves injectivity for the chosen map rather than for a possibly differently oriented presentation."
       ],
@@ -1783,15 +1896,29 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Ordinary split Bruhat decomposition and the type-A SL_n root-coordinate specialization: U⁺NU⁺ covers SL_n, its monomial middle term is unique, and multiplication by a simple Weyl element has the two root-parameter cases. The supplier owns ordinary structure theory; this packet owns only its lifted extension/presentation arguments."
+      "need": "For every commutative field F and n≥3, the ordinary split type-A Bruhat specialization supplies U⁺N₀U⁺=SL_n(F) and a unique monomial middle map v:SL_n(F)→N₀. Supply its torus/U⁺ equivariance and the increasing/decreasing formulas for v(w_i(-1)g), with the unique nonzero root parameter in the latter case, in the conventions of Matsumoto Lemma 5.3, pp. 24–25. Current Layer 7 owns ordinary Bruhat theory; this is a requested root-coordinate refinement of its broad target, not an already stated signature. This packet owns only the lifted extension/presentation arguments.",
+      "consumers": [
+        "K2SymbolsBrauer:T.2/lifted-bruhat-generation",
+        "K2SymbolsBrauer:T.2/symbol-extension",
+        "K2SymbolsBrauer:T.2/symbol-extension-exact"
+      ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free",
-      "need": "Reduced-word braid invariance and minimal parabolic-coset representatives, applied to the symmetric-group Weyl system. This is the Coxeter Matsumoto word theorem, distinct from the K₂ presentation theorem."
+      "need": "For the symmetric-group Weyl Coxeter system, supply the reduced-word braid-invariance theorem and minimal representatives w of left parabolic cosets W_I\\W, with ℓ(vw)=ℓ(v)+ℓ(w) for v∈W_I and the corresponding positivity of w⁻¹ on the positive subsystem roots. Current Layer 3 explicitly plans the word theorem and exchange; the minimal-coset interface is a requested consequence/refinement, not an existing displayed target. It supports the rank-one/rank-two orbit reduction of Matsumoto Lemmas 6.2(c), 6.9 and 7.1–7.2.",
+      "consumers": [
+        "K2SymbolsBrauer:T.2/lifted-weyl-square-presentation",
+        "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+        "K2SymbolsBrauer:T.2/symbol-extension-local-relations"
+      ]
     },
     {
       "supplier": "K2SymbolsBrauer:T.2:graded-map",
-      "need": "Import predecessor graded-map and graded-map-degree-three nodes. To identify its degree-two product map with φ_F, supply the map-level equality [a]·[b]=image(s(a,b)) under the chosen classical-to-Quillen comparison, with exactly the commutator orientation fixed here. Own all graded Quillen product construction here, without duplicating it in the classical lane."
+      "need": "Import predecessor graded-map and graded-map-degree-three nodes. To identify its degree-two product map with φ_F, supply the map-level equality [a]·[b]=image(s(a,b)) under the chosen classical-to-Quillen comparison, with exactly the commutator orientation fixed here. Own all graded Quillen product construction here, without duplicating it in the classical lane.",
+      "consumers": [
+        "K2SymbolsBrauer:T.2/graded-map",
+        "K2SymbolsBrauer:T.2/graded-map-degree-three"
+      ]
     }
   ],
   "gaps": [
@@ -1802,6 +1929,10 @@
     {
       "title": "G-T2-product-symbol: inherited companion comparison",
       "detail": "The T.2:graded-map owner must verify the chosen Quillen product on unit classes agrees with the image of [h_12(a),h_13(b)] under the actual classical-to-Quillen comparison. The predecessor G-product-symbol remains open; an abstract Matsumoto equivalence alone does not identify that product map. The inherited graded-map nodes cover the target-level construction, with this exact prerequisite."
+    },
+    {
+      "title": "G-T2-upstream-refinements: requested ordinary root-coordinate and coset interfaces",
+      "detail": "ReductiveGroups Layer 7 plans ordinary Bruhat/BN-pairs, but does not yet display the unique U⁺N₀U⁺ middle map and its two-branch root-coordinate formulas required by lifted-bruhat-generation, symbol-extension and symbol-extension-exact. RootSystems Layer 3 plans exchange and braid invariance, but does not yet display the minimal-parabolic-coset interface used by lifted-weyl-square-presentation, symbol-monomial-extension and symbol-extension-local-relations. The two precise requests name the consumers and conventions. Do not treat these refinements as present in the current upstream Suggested.lean files or mark this coverage closed until supplied."
     }
   ],
   "coverage": [
@@ -1827,6 +1958,7 @@
         "K2SymbolsBrauer:T.2/symbol-extension",
         "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
         "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "K2SymbolsBrauer:T.2/symbol-extension-root-lifts",
         "K2SymbolsBrauer:T.2/finite-classical-vanishing",
         "K2SymbolsBrauer:T.2/finite-milnor-vanishing",
         "K2SymbolsBrauer:T.2/classical-comparison-map",
@@ -1846,7 +1978,8 @@
       "note": "All targets of the umbrella T.2 are represented: classical field symbols and Milnor grading are refined here; the separately owned graded Quillen map is imported with its remaining product comparison. General associative-ring, semilocal and arithmetic extensions from the wider predecessor are outside the field-presentation brief.",
       "remaining": [
         "G-T2-stable-imports: inherited finite-representative and stable centrality proof closure.",
-        "G-T2-product-symbol: obtain the companion’s exact product-symbol square."
+        "G-T2-product-symbol: obtain the companion’s exact product-symbol square.",
+        "G-T2-upstream-refinements: obtain the two requested ordinary Bruhat/root-coordinate and minimal-coset interfaces from their existing owners."
       ]
     }
   ],
@@ -1865,7 +1998,12 @@
         "Author-hosted trieste_notes.pdf, retrieved 2026-10-14",
         "Bielefeld preprint catalogue entry 08127: https://sfb701.math.uni-bielefeld.de/Preprints/view/318",
         "Web search for author/title/errata, 2026-10-14"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the author-hosted PDF p. 7. Its six displayed cells repeat the (12) transposition and omit (13); the adjacent matrices and the six permutations confirm the correction.",
+        "by": "REV-K2SymbolsBrauer--T.2"
+      }
     },
     {
       "id": "K2SymbolsBrauer/E-T2-2",
@@ -1881,22 +2019,216 @@
         "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html, 2026-10-14",
         "Advertised errata PDF https://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf returned 404; sites host also returned 404",
         "Web search for Weibel Exercise III.5.9 correction; Matsumoto §5 Lemma 5.4(c) scan checked, 2026-10-14"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked author chapter pp. 1, 42 and 46, and Matsumoto Lemma 5.4(c), p. 26. Direct diagonal conjugation gives the positive defect for the +1 overlap. The t-adic (t,2) pairing on chapter p. 51 distinguishes this defect from its inverse. The finding is scoped to this public author PDF, not asserted for an uninspected published edition.",
+        "by": "REV-K2SymbolsBrauer--T.2"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer/E-T2-3",
+      "sourceId": "Matsumoto-1969",
+      "kind": "misprint",
+      "locator": "Published 1969 Numdam scan, §5, Lemma 5.6, printed p. 28 (PDF p. 29), opening list of implied condition labels.",
+      "printed": "The list repeats condition (S1) in its second position and does not name (S2).",
+      "correction": "The intended list is (S1), (S2), (S3): bilinear Steinberg pairings satisfy all three general cocycle conditions.",
+      "reason": "The following paragraph defines the general cocycle using (S1), (S2), (S3). Bilinearity gives the cocycle identity (S1), normalization and simultaneous inversion (S2), and bilinearity with c(x,1-x)=0 gives (S3). Thus the second label in the lemma is a typographical repetition.",
+      "affects": "nothing",
+      "known": "No correction found in the inspected Numdam record or targeted searches; no novelty claim.",
+      "searched": [
+        "Numdam version-of-record page https://numdam.org/articles/10.24033/asens.1174/ and its published scan, 2026-10-14",
+        "Targeted web searches for Matsumoto/title/errata and Lemma 5.6/correction, 2026-10-14"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the raster scan of printed p. 28, not just OCR: the opening list visibly repeats (S1). The adjacent definition names all three conditions and the bilinear hypotheses imply (S2) as well.",
+        "by": "REV-K2SymbolsBrauer--T.2"
+      }
     }
   ],
   "upstreamNotes": [
     {
       "roadmap": "tauceti:TauCetiRoadmap/ReductiveGroups",
-      "note": "Current main Layer 7 already owns ordinary Bruhat/BN-pair structure theory. Imported its precise type-A interface without proposing a second ordinary Bruhat roadmap."
+      "note": "Current main Layer 7 owns ordinary Bruhat/BN-pair structure theory. Its Suggested.lean currently states Layer 0 targets only. The required precise type-A root-coordinate interface is a request, recorded in G-T2-upstream-refinements; this packet does not propose a second ordinary Bruhat roadmap."
     },
     {
       "roadmap": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
-      "note": "Current main Layer 3 owns the reduced-word Matsumoto theorem. It is imported as a combinatorial input, and never confused with the K₂ presentation theorem."
+      "note": "Current main Layer 3 explicitly plans exchange and the reduced-word Matsumoto theorem; its Suggested.lean displays those signatures. The minimal-parabolic-coset consequence is requested and recorded in G-T2-upstream-refinements, not described as an already displayed theorem. This combinatorial input is distinct from the K₂ presentation theorem."
     }
   ],
   "suggestedFile": {
     "path": "research/blueprint/suggested/K2SymbolsBrauer--T.2.lean",
     "policy": "Prototype only on existing pinned carriers. Concrete pairing/tensor-square/sign data have real bodies. Absent classical K₂, graded Milnor components and lifted extension carriers remain fully specified README targets, with their API/test names indexed in comments; no data definition is replaced by an unspecified proposition.",
     "claimsImplementation": false
+  },
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "read": "2026-10-14",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/article/ASENS_1969_4_2_1_1_0.pdf",
+      "read": "2026-10-14",
+      "sha256": "4ac51e1290e2ab3c633d5a55378eb078f88d824bb3d28aac3585fce0595db5ca"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.utah.edu/~ptrapa/math-library/steinberg/steinberg-yale-notes.pdf",
+      "read": "2026-10-14",
+      "sha256": "5943b5571ab9815c45eaba206bcb35ed8b3efb3a7c3c45404ea9a9bbce7dbb50"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.uni-bielefeld.de/~rehmann/Publ/trieste_notes.pdf",
+      "read": "2026-10-14",
+      "sha256": "b025b18d8e0348d88b151a7b30dff60121995b7b1f2c4acd0b96f1d334f3e1ed"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.2",
+    "date": "2026-10-14",
+    "notes": "Independent source and pinned-library review of all 26 original targets; 17 verified, 9 corrected and 1 justified root-lifting target added. All 17 baseline references confirmed (13 original plus 4 tensor-power interfaces). Added six API entries, corrected the exactness/root-lifting order and Steinberg Theorem10 page locator, confirmed two errata and added one condition-label misprint. Reader and compact suggested signatures synchronized. Coverage remains planned with the two inherited obligations and an explicit gap for the requested finer upstream interfaces; no formalization or closed coverage is claimed.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/field-pairing",
+        "verdict": "corrected",
+        "note": "Checked Matsumoto Lemma 5.6, pp.27–28, and Weibel III.6.1, p.48. Unit inputs and additive bilinearity match the bilinear type-A case. Split the unit-one API into the already suggested left and right names."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/pairing-identities",
+        "verdict": "verified",
+        "note": "Weibel III.5.10.2–.4, p.43, and Matsumoto Proposition 5.7, pp.28–29 support the negative-unit and skew identities. The a=1 case and characteristic-two specialization are handled; integral diagonal classes are only forced to be 2-torsion."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "verdict": "verified",
+        "note": "The quotient realizes Weibel III.6.1, p.48. TensorProduct.lift and Submodule.liftQ have the required ℤ-module hypotheses and kernel containment; universal evaluation and extensionality determine the actual map."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/homogeneous-steinberg-ideal",
+        "verdict": "corrected",
+        "note": "The sandwich proof of the homogeneous relation ideal is valid for the noncommutative tensor algebra. Added pinned equivDirectSum and isEmptyEquiv citations for the degree-zero identification; no new tensor-algebra decomposition is planned."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "verdict": "corrected",
+        "note": "Homogeneity proves directness after quotient, and word generation supplies the symbol API. Added existing direct-sum, empty and singleton tensor equivalences for the degree-zero/one identifications, with no freeness assumption."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-degree-two",
+        "verdict": "corrected",
+        "note": "Replaced the proposed raw tensor-word projection by the existing TensorAlgebra.equivDirectSum and TensorPower.mulEquiv, with the singleton equivalence. Their generator formulas identify precisely the relation submodule; the Milnor quotient comparison remains the new target."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/milnor-field-map",
+        "verdict": "verified",
+        "note": "Entrywise field maps preserve the defining relations, degrees and entry order; identity, composition and the degree-two square follow on generators. Matsumoto §9, p.50 is used only for symbol-level functorial observations; topology is not imported."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/field-lift-calculus",
+        "verdict": "verified",
+        "note": "Read Steinberg Lemma37, pp.67–68, and Weibel Exercise5.8, p.46. The w and h words have the stated signs and torus action; a third index handles the opposite-root conjugation in rank≥3."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+        "verdict": "verified",
+        "note": "Direct conjugation and Matsumoto Lemma5.4(c), p.26 give the positive toral defect for the +1 overlap. The -1 adjacent-root overlap is inverse. Stable centrality is explicitly imported with its existing gap."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/field-symbol-pairing",
+        "verdict": "verified",
+        "note": "Bilinearity follows from central defects. The a+b=1 word calculation gives the Steinberg relation using field units; actual signed elementary words give coordinate invariance. This avoids importing the predecessor’s arbitrary-ring Whitehead gap."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/lifted-bruhat-generation",
+        "verdict": "verified",
+        "note": "Steinberg Theorem8(b), pp.66,69–70 supplies presentation completeness over arbitrary fields, with toral multiplicativity imposed in the quotient. Root injectivity and ordinary Bruhat eliminate an identity-image normal form. The finer ordinary supplier contract is requested explicitly."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/field-symbol-generation",
+        "verdict": "verified",
+        "note": "The toral-defect normal closure is the finite-rank kernel. Passage to stable finite representatives and stable centrality turns conjugates into sums of the fixed symbol. These inherited inputs retain their recorded gap."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-torus-extension",
+        "verdict": "corrected",
+        "note": "Matsumoto’s ordered torus construction, pp.37–38, matches β. Its diagonal and adjacent commutators are 2c and -c. Added multiplication and projection evaluation APIs; the real diagonal coefficient and functoriality tests are valid."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/lifted-weyl-square-presentation",
+        "verdict": "verified",
+        "note": "Read Theorem6.3 and its proof, pp.34–36. The mod-two factor-set model has the correct adjacent commutator and common central square; the faithful length-branch action retains the nontrivial fourth power. No involutivity or extra fourth-power relation is added."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+        "verdict": "corrected",
+        "note": "Theorem6.3 and Lemmas6.5–6.6, pp.34–40 justify the action and graph quotient, including torus injectivity. Added the conjugation equation, homomorphism extensionality and the presentation lift API used by the global embedding."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-extension",
+        "verdict": "verified",
+        "note": "Matsumoto Lemma5.3, pp.24–25, and the construction preceding Lemma6.7, pp.40–41 agree with the fiber and its two-branch action. Coefficient translation is faithful. The unique middle-map specialization is a requested upstream refinement, not silently assumed present."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+        "verdict": "corrected",
+        "note": "Narrowed the conclusion to the left/right action, rank-one cocycle and Weyl relations proved in Lemmas6.8–6.10 and §7, pp.41–47. Weyl braid relations alone do not supply every root commutator; that nonroutine step is now a separate theorem after exactness."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "verdict": "corrected",
+        "note": "Lemma6.11, pp.42–43 establishes the lifted Bruhat cover and exact kernel, retaining the embedded torus defect. The statement now separates that data from agreement with canonical Steinberg root-word lifts, so root lifting does not precede exactness."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/symbol-extension-root-lifts",
+        "verdict": "added",
+        "note": "Steinberg’s root-lifting proof, steps(1)–(9), printed pp.79–82, and Corollary1, p.82 supply every Steinberg relation in the exact extension for infinite fields. Matsumoto’s explicit rank-one word computation, p.47, identifies the embedded torus and the prescribed cocycle. No UCE theorem or small-field application enters."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/finite-classical-vanishing",
+        "verdict": "verified",
+        "note": "Stable symbol generation together with independent finite pairing vanishing proves classical K₂(F)=0. Steinberg Theorem9, p.72 and Weibel III.6.1.1, p.48 agree. This applies to F₂,F₃,F₄ without finite-rank universality."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/finite-milnor-vanishing",
+        "verdict": "verified",
+        "note": "Read the cyclicity/counting proof in Weibel III.6.1.1, p.48. The actual pinned isCyclic_of_injective_ringHom takes an injective monoid map into an integral domain. Odd-characteristic nonsquares and characteristic-two diagonal vanishing kill P₂ before comparison."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/classical-comparison-map",
+        "verdict": "verified",
+        "note": "The universal pairing and canonical degree-two equivalence define the specific φ on generators; stable symbol generation proves surjectivity. Its three examples detect normalization, the F₂ degeneration and the real integral diagonal."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/infinite-symbol-injectivity",
+        "verdict": "corrected",
+        "note": "Rewired the detecting map through the added root-lifting theorem. A stable word equality is witnessed at a sufficiently large finite rank; ρ_p evaluates it in the injective coefficient group. Neither stabilization injectivity nor cross-rank compatibility of the extensions is assumed."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+        "verdict": "verified",
+        "note": "Infinite-field injectivity and all-field surjectivity prove the fixed comparison; the finite-field branch has independently zero groups. Weibel III.6.1, p.48 and Matsumoto Corollary5.11, p.31 support the respective conclusions with their actual hypotheses."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/matsumoto-natural",
+        "verdict": "verified",
+        "note": "Both sides apply the field map to the specified symbol entries; generator extensionality proves the forward square and hence inverse naturality. No assertion of injectivity under arbitrary field extension is deduced."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/real-sign-detector",
+        "verdict": "verified",
+        "note": "Weibel III.6.2.1, p.49 and III.7.2(c), p.61 support the sign detector. Two units summing to1 cannot both be negative. The universal map detects a nonzero diagonal of order2 and extends to the indicated graded polynomial map without asserting a complete calculation."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-symbol-signs",
+        "verdict": "verified",
+        "note": "Adjacent swaps and diagonal correction follow from the degree-two symbol identities by multiplication. The real polynomial detector shows the integral ring is not alternating. These statements preserve the order of the companion’s graded product map."
+      }
+    ]
   }
 }
