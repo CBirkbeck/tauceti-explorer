@@ -2,7 +2,7 @@
 
 This roadmap supplies the complete local algebra used to construct deformation rings and to patch modules or perfect complexes. Its endpoint is a family of precise algebraic criteria: finite parameter quotients give finite deformation rings; balanced modules or bounded perfect complexes give Cohen–Macaulay patched objects; full support and multiplicity comparisons give component and quotient conclusions. The arithmetic hypotheses selecting the input systems belong to their arithmetic consumers.
 
-The nine layers are planned at target level with 129 new targets and the accepted reserved multiplicity definition imported from P7. Every definition and construction below has an API derived from its uses and at least three tests. Six source or proof refinements remain explicitly open, and seventeen supplier contracts identify interfaces which are planned elsewhere. These are mathematical specifications, not implemented declarations.
+The nine layers are planned at target level with 129 new targets and the accepted reserved multiplicity definition imported from P7. Every definition and construction below has an API derived from its uses and at least three tests. Six source or proof refinements remain explicitly open, and seventeen supplier contracts identify required external interfaces, including explicitly marked additions to supplier plans. These are mathematical specifications, not implemented declarations. Independent review [REV-DeformationAndDerivedPatchingAlgebra](../reviews/REV-DeformationAndDerivedPatchingAlgebra.md) accepts this target-level pass with those open refinements and requests.
 
 ## Conventions and endpoint contracts
 
@@ -43,11 +43,11 @@ flowchart LR
   N --> S
 ```
 
-This diagram shows the principal proof direction. Individual target dependencies below give the precise finer order, including P7 interfaces used by ring duality. EnhancedDerivedSheaves supplies enhanced derived tensor, Hom and homotopy limits. DerivedDeRhamCohomology supplies the full cotangent complex, Koszul carrier and derived completion. SchemeAndStackFoundations supplies scheme carriers, generic cycles and punctured Picard theory. PadicMeasuresIwasawaAlgebras supplies completed group rings and topological bases. None of these general constructions is recreated here.
+This diagram shows the principal proof direction. Individual target dependencies below give the precise finer order, including P7 interfaces used by ring duality. EnhancedDerivedSheaves supplies enhanced derived tensor, Hom and homotopy limits. DerivedDeRhamCohomology supplies the full cotangent complex, Koszul carrier and derived completion. SchemeAndStackFoundations supplies scheme carriers and generic cycles; punctured Picard/parafactorial theory is an additional requested interface. PadicMeasuresIwasawaAlgebras supplies completed group rings; arbitrary complete-flat-module topological bases are an additional requested interface. None of these general constructions is recreated here.
 
 The current AlgebraicVectorBundles roadmap already owns finite locally free bundles and their determinants. R03.3 uses its L0C determinant to prove only a finite-free-resolution trivialization comparison; it does not assume that upstream already supplies determinants of arbitrary perfect complexes. GrothendieckEulerForms already owns finite-support Euler theory, and ModularCurves already owns its regularity interfaces. The blueprint imports those interfaces and records the extra local algebra comparisons needed by this roadmap.
 
-Ring dualizing complexes and affine finite-map duality are owned by R03.3. Geometric coherent duality remains with SchemeAndStackFoundations SF.2 and its reserved coherent-duality definition. The elementary coefficient dual Hom_O(−,O) is placed in P7 so that patching can use it without depending on the higher CoherentCohomologyAndDualityII roadmap. The latter must import this lower owner.
+Ring dualizing complexes and affine finite-map duality are owned by R03.3. Geometric coherent duality remains with SchemeAndStackFoundations SF.2 and its reserved coherent-duality definition. The elementary Matlis coefficient dual Hom_O(−,E/O) is placed in P7 so that patching can use it without depending on the higher CoherentCohomologyAndDualityII roadmap. The latter must import this lower owner.
 
 ## Worked checks of the numerical conventions
 
@@ -72,7 +72,7 @@ For A=k[[t^6,t^7,t^15]], the element t^6 is regular because A is a domain. Yet t
 
 ### The smallest balanced patching model
 
-Let q=1, S∞=O[[t]] and R∞=O=S∞/(t), with H=O. For Δ_N=Z/p^N and M_N=O with trivial Δ_N action, the minimal presentation over O[Δ_N] has one generator and one relation, so its defect is zero. The augmentation of each M_N is H. The S∞-module O has projective dimension one and depth one, exactly dim S∞−1=dim R∞. The numerical equality forces the patched module to be CM over R∞ and hence free over the regular ring R∞. Omitting the one relation or using dim S∞ in place of dim R∞ would fail this model. The general balance and common-map conditions are stated in R03.5; compare CG18 Proposition 2.3, pp. 309–312.
+Let q=1, S∞=O[[t]] and R∞=O=S∞/(t), with H=O. For Δ_N=Z/p^N and M_N=O with trivial Δ_N action, the minimal presentation over O[Δ_N] has one generator and one relation, so its defect is zero. The augmentation of each M_N is H. The S∞-module O has projective dimension one and depth one, exactly dim S∞−1=dim R∞. The numerical equality forces the patched module to be CM over R∞ and hence free over the regular ring R∞. Omitting the one relation or using dim S∞ in place of dim R∞ would fail this model. The general balance and common-map conditions are stated in R03.5; compare CG18 Proposition 2.3 and proof, pp. 308–310.
 
 ### Codimension needs Tor amplitude and a nonzero complex
 
@@ -80,9 +80,9 @@ For regular S=k[[x,y]], the two-term complex [S —x→ S] in degrees [0,1] has 
 
 ### Finite action images and derived augmentation
 
-For perfect C over complete Noetherian S, End_D(S)(C) is a finite S-module. The image R′ of a compatible R∞ action is therefore finite over S. This gives a finite local algebra on which CM and finite duality can be applied. The same reasoning does not prove that the surjecting whole ring R∞ is finite over S. The stronger assertion has its own recorded proof refinement, and no later target silently uses it.
+For perfect C over complete Noetherian S, End_D(S)(C) is a finite S-module. The image R′ of a compatible R∞ action is therefore finite over S. This gives a finite local algebra on which CM and finite duality can be applied. The same reasoning does not prove that the surjecting whole ring R∞ is finite over S. IKM24 p. 47 explicitly invokes BKM Lemmas 3.6–3.7 to adjust a coefficient lift through an action image. The remaining refinement is that this adjustment preserves the coefficient map through Q for every patched object and morphism. No later target silently assumes that comparison.
 
-If C∞≃M[-b], then its derived augmentation is M[-b]⊗^L_S Λ. Ordinary augmentation M/aM gives only top degree b; lower augmented cohomology can be nonzero Tor. For S=k[[x]], M=S/(x) and Λ=k, derived tensor has a second nonzero term even though the ordinary tensor is k. Dual systems use the same ultrafilter and the same S∞→R∞ map, with finite-level pairings constructed before taking a limit. See IKM24 Theorem 10.6 and §11, arXiv v3 pp. 43–51.
+If C∞≃M[-b], then its derived augmentation is M[-b]⊗^L_S Λ. Ordinary augmentation M/aM gives only top degree b; lower augmented cohomology can be nonzero Tor. For S=k[[x]], M=S/(x) and Λ=k, derived tensor has a second nonzero term even though the ordinary tensor is k. Dual systems use the same ultrafilter and the same S∞→R∞ map, with finite-level pairings constructed before taking a limit. See IKM24 Theorem 10.6 and §11, arXiv v3 pp. 43–51, and BKM Lemmas 3.6–3.7, arXiv:2108.09729v2 pp. 11–12.
 
 ### Six-variable component calculation
 
@@ -90,9 +90,9 @@ In k[[a,b,c,d,e,f]], take I=(ab,ac,ae,bc,bd,cf). Its minimal coordinate primes a
 
 ## Pinned inventory and suggested declarations
 
-The blueprint baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Seventeen exact baseline declarations were read and resolved by a Lean audit at these pins. Mathlib supplies regular sequences, module support and support dimension, length additivity, finite-module completion exactness, and projective dimension of regular-sequence quotients. Tau Ceti supplies Artin–Rees controlled lifts, finite-type and integral dimension comparisons, a principal-quotient flatness result, an injective-envelope predicate and the Ext-colimit local-cohomology carrier. An injective-envelope predicate is not an existence theorem, and the local-cohomology carrier is not yet the local-duality comparison.
+The blueprint baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Twenty-two exact baseline declarations were read at these pins; the seventeen original names and five additional evaluation/K-projective names were resolved in Lean audits. Mathlib supplies regular sequences, module support and support dimension, length additivity, finite-module completion exactness, and projective dimension of regular-sequence quotients. Tau Ceti supplies Artin–Rees controlled lifts, finite-type and integral dimension comparisons, a principal-quotient flatness result, an injective-envelope predicate and the Ext-colimit local-cohomology carrier. An injective-envelope predicate is not an existence theorem, and the local-cohomology carrier is not yet the local-duality comparison.
 
-Current upstream main and current Tau Ceti were separately inspected. The nine roadmaps newer than the atlas snapshot were surveyed for these targets, and the AlgebraicVectorBundles and GrothendieckEulerForms interfaces were read in detail. Their existing targets are imported. A similarly named group dualizing module in LocalGaloisGroups does not supply a ring dualizing complex. Presence claims in the Lean subset always refer to the pinned baseline, not to a newer library declaration.
+Current upstream main (`0d144d044dacebca17b654695b6f1ad58f159b27`) and current Tau Ceti (`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`) were separately inspected. The nine roadmaps newer than the atlas snapshot and the four Completed roadmaps were searched for these targets, and the AlgebraicVectorBundles and GrothendieckEulerForms interfaces were read in detail. Their existing targets are imported. A similarly named group dualizing module in LocalGaloisGroups does not supply a ring dualizing complex. Presence claims in the Lean subset always refer to the pinned baseline, not to a newer library declaration.
 
 The suggested file has seven light definitions with real bodies, thirteen milestone statements and five examples. It elaborates at the pinned libraries with proof-placeholder warnings only. Its polynomial coefficient operation is deliberately a raw coefficient, not a completed definition of multiplicity; eventual polynomiality, support degree and zero conventions remain part of the R03.3 specification. Heavy coefficient categories, enhanced derived objects, dualizing carriers, patching systems and their constructions stay in this reader because their required interfaces are planned targets.
 
@@ -188,7 +188,7 @@ CNL_Λ consists of complete separated Noetherian local Λ-algebras with specifie
 
 **Sources.**
 
-- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Definition 4.1 and Lemmas 4.2–4.8, pp. 7–11. This locator supplies the stated construction and its comparison maps.
+- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Definition 4.1, p. 9; Lemmas 4.2–4.6, pp. 10–11; Lemmas 4.7–4.8, p. 12. This locator supplies the stated construction and its comparison maps.
 
 **Proof plan.**
 
@@ -265,7 +265,7 @@ Every A in CNL_Λ is lim A/m^n. Conversely a surjective Artinian local tower wit
 
 **Sources.**
 
-- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Lemmas 4.7–4.8, pp. 10–11; André §3.4, printed p. 84. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Lemmas 4.7–4.8, p. 12; André §3.4, printed p. 84. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -288,16 +288,16 @@ For a complete separated local Λ-algebra A and a finite list a_i∈m_A, evaluat
 
 - For a complete separated local Λ-algebra A and a finite list a_i∈m_A, evaluation defines a unique continuous Λ-map Λ[[X_1,…,X_r]]→A sending X_i to a_i.
 
-**Prerequisites.** [R03.1/complete-local-coefficient-category](#target-r03-1-complete-local-coefficient-category)
+**Prerequisites.** [R03.1/complete-local-coefficient-category](#target-r03-1-complete-local-coefficient-category); `mathlib:MvPowerSeries.eval₂Hom`; `mathlib:MvPowerSeries.eval₂_unique`
 
 **Sources.**
 
-- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Lemma 4.8 proof, pp. 10–11; Stacks Algebra §97. This locator supplies the stated construction and its comparison maps.
+- [StacksFormalDefos](https://stacks.math.columbia.edu/download/formal-defos.pdf): Lemma 4.8 and proof, p. 12; Stacks Algebra §97. This locator supplies the stated construction and its comparison maps.
 
 **Proof plan.**
 
-1. Define polynomial evaluation modulo each open ideal; only finitely many monomials survive at fixed precision.
-2. Pass to the compatible inverse limit and use polynomial density for uniqueness.
+1. Supply the adic uniform/topological instances and prove HasEval for the finite tuple in the maximal ideal. Reuse MvPowerSeries.eval₂Hom rather than constructing evaluation again.
+2. Use MvPowerSeries.eval₂_unique for uniqueness. The additional local adapter proves surjectivity from the chosen relative cotangent generators using successive Artinian approximations.
 
 **Planning API.**
 
@@ -390,7 +390,7 @@ Every complete Noetherian local A is a quotient of a complete regular local Q wi
 
 **Sources.**
 
-- [Andre18](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf): §4.2 and §4.4(1), printed pp. 86–88; CS24 §1.4, PDF p. 8. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [Andre18](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf): §4.2 and §4.4(1), printed pp. 86–88. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -518,7 +518,7 @@ Let R be Noetherian, I⊂R an ideal and S a flat R-algebra, with S allowed non-N
 
 - Let R be Noetherian, I⊂R an ideal and S a flat R-algebra, with S allowed non-Noetherian.
 
-**Prerequisites.** `mathlib:AdicCompletion.map_exact`; `tauceti:TauCeti.ArtinRees.exists_controlled_lift`; `DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion`
+**Prerequisites.** `mathlib:AdicCompletion.map_exact`; `tauceti:TauCeti.ArtinRees.exists_controlled_lift`; [R03.1/flat-algebra-completion](../packets/DeformationAndDerivedPatchingAlgebra--R03.1.json)
 
 **Sources.**
 
@@ -539,11 +539,11 @@ Let R be Noetherian, I⊂R an ideal and S a flat R-algebra, with S allowed non-N
 
 `R03.1/quotient-completion-noetherian-limit` · theorem · implementation unchecked
 
-Let A be any ring, I a finitely generated ideal, and suppose its I-adic completion Â is Noetherian. For every ideal J⊂A, the completion of A/J for the image of I is Â/(JÂ). This uses Noetherianity of Â and finite generation of I; it is not an assertion that arbitrary completion is exact.
+Let (A,m) be a local ring whose m-adic completion Â is Noetherian, and let J⊂A be finitely generated. Then the maximal-adic completion of A/J is naturally Â/(JÂ). A itself need not be Noetherian. For Noetherian local A, every J is finitely generated, so this includes every quotient. This is not an assertion of exactness for arbitrary adic completion.
 
 **Hypotheses.**
 
-- Let A be any ring, I a finitely generated ideal, and suppose its I-adic completion Â is Noetherian.
+- A is local, its maximal-adic completion Â is Noetherian, and J⊂A is finitely generated.
 
 **Prerequisites.** [R03.1/flat-completion-and-finite-module-comparison](#target-r03-1-flat-completion-and-finite-module-comparison)
 
@@ -553,8 +553,8 @@ Let A be any ring, I a finitely generated ideal, and suppose its I-adic completi
 
 **Proof plan.**
 
-1. Compare quotient maps at each I-power level.
-2. Show closure of the extended ideal equals the ideal itself in the Noetherian complete target. Identify the kernel of the inverse-limit map with that extended ideal.
+1. Noetherianity of Â makes each A/m^n Artinian. Finite generators of J give finite kernels (J+m^n)/m^n, with the Mittag–Leffler property.
+2. Take the exact inverse limit of the quotient sequences. Apply the same finite-generator comparison to identify the kernel with JÂ, as in PQ26 Lemma 5.15.
 
 **Check.**
 
@@ -576,7 +576,7 @@ For an N-indexed inverse tower, a pro-map is a pro-isomorphism when its kernel a
 
 **Sources.**
 
-- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 8–9. This locator supplies the stated construction and its comparison maps.
+- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 9–10. This locator supplies the stated construction and its comparison maps.
 
 **Proof plan.**
 
@@ -621,11 +621,11 @@ For finite M,N over a Noetherian ring R, the tower Hom_R(M,N/I^nN) has lim¹=0, 
 
 - For finite M,N over a Noetherian ring R, the tower Hom_R(M,N/I^nN) has lim¹=0, and its limit identifies with the I-adic completion of Hom_R(M,N).
 
-**Prerequisites.** [R03.1/adic-pro-comparison](#target-r03-1-adic-pro-comparison); `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `DeformationAndDerivedPatchingAlgebra:R03.1/adic-hom-lim-one`
+**Prerequisites.** [R03.1/adic-pro-comparison](#target-r03-1-adic-pro-comparison); `EnhancedDerivedSheaves:E1/enhanced-derived-category`; [R03.1/adic-hom-lim-one](../packets/DeformationAndDerivedPatchingAlgebra--R03.1.json)
 
 **Sources.**
 
-- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 8–9. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 9–10. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1048,7 +1048,7 @@ For Noetherian local A and finite nonzero M, an r-generated ideal cuts support d
 
 **Sources.**
 
-- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): §60 (dimension), §103 (CM), pp. 140–145 and 246–251; IKM24 Lemma 3.1, p. 18. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): §60 (dimension), §103 (CM), pp. 140–145 and 246–251; IKM24 Lemma 3.1, p. 17. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1154,7 +1154,7 @@ For nonzero finite M of finite projective dimension over Noetherian local A, pd_
 
 **Sources.**
 
-- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): Proposition 110.1, Lemma 110.5, pp. 261–264, tags 00O7 and 00OC; Proposition 111.1, pp. 267–268, tag 090V. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): Propositions 110.1 and 110.5, pp. 265–266, tags 00O7 and 00OC; Proposition 111.1, pp. 267–268, tag 090V. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1445,7 +1445,7 @@ Regular Noetherian local rings have regular localizations. Regularity descends a
 
 **Sources.**
 
-- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): Lemma 110.6, p. 264, tag 0AFS; Lemma 110.9, p. 265, tag 00OF; Ces19 Corollary 2.5 and SGA2 XI 3.13(i), pp. 5–6. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksAlgebra](https://stacks.math.columbia.edu/download/algebra.pdf): Lemma 110.6, p. 267, tag 0AFS; Lemma 110.9, p. 267, tag 00OF; Ces19 Corollary 2.5 and SGA2 XI 3.13(i), pp. 5–6. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1548,7 +1548,7 @@ For any module M over a Noetherian ring A and any element z∈M, if z maps to ze
 
 **Sources.**
 
-- [DP23](https://arxiv.org/pdf/2012.01307v2): Proposition 5.1 input; Stacks tags 0311 and 031T(1); IKM24 Lemma 7.5 proof, p. 33. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [DP23](https://arxiv.org/pdf/2012.01307v2): Proposition 5.1, PDF p. 16;  Stacks tags 0311 and 031T(1); IKM24 Lemma 7.5 proof, p. 33. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1576,7 +1576,7 @@ Let A be a normal Noetherian domain with fraction field K. Each height-one A_p i
 
 **Sources.**
 
-- [DP23](https://arxiv.org/pdf/2012.01307v2): Proposition 5.1; Stacks tags 0311 and 031T. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [DP23](https://arxiv.org/pdf/2012.01307v2): Proposition 5.1, PDF p. 16; Stacks tags 0311 and 031T. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1891,7 +1891,7 @@ Complete Noetherian local rings possess normalized dualizing complexes by a Cohe
 
 **Sources.**
 
-- [StacksDualizing](https://stacks.math.columbia.edu/download/dualizing.pdf): Lemmas 15.6, 15.8–15.11, pp. 28–29; Lemma 16.1, p. 29; Lemma 22.4, p. 41, tags 0A7G, 0AX0, 0A7K, 0AX1 and 0BFR. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksDualizing](https://stacks.math.columbia.edu/download/dualizing.pdf): Lemmas 15.6, 15.8–15.10 and Proposition 15.11, pp. 28–29; Lemma 16.1, p. 29; Lemma 22.4, p. 41, tags 0A7G, 0AX0, 0A7K, 0AX1 and 0BFR. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -1918,7 +1918,7 @@ For Noetherian local A with normalized ω_A and K∈D^b_fg(A), RHom_A(K,ω_A)^de
 
 **Sources.**
 
-- [StacksDualizing](https://stacks.math.columbia.edu/download/dualizing.pdf): Lemmas 18.1, 18.3–18.4, pp. 34–35, tags 0A82, 0A84 and 0AAK; Ces21 Lemma 3.6(a), PDF p. 11. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [StacksDualizing](https://stacks.math.columbia.edu/download/dualizing.pdf): Lemma 18.1, Theorem 18.3 and Lemma 18.4, pp. 34–35, tags 0A82, 0A84 and 0AAK; Ces21 Lemma 3.6(a), PDF p. 11. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -2037,13 +2037,13 @@ A Noetherian local ring A is Gorenstein if A has finite injective dimension as a
 
 `R03.3/canonical-type-and-base-change` · theorem · implementation unchecked
 
-For CM local A with K_A and an A-regular parameter list f of length dim A, μ_A(K_A)=dim_k Soc(A/(f)). Adjoining formal variables preserves this type. For complete local CM O-algebra B and complete local CI O-algebra C, B⊗̂_O C is CM with the same type as B when B or C is O-flat; under these hypotheses the defining regular sequence remains regular after base change. Finite flat O-order canonical modules identify with the dual supplied by L6.
+For CM local A with K_A and an A-regular parameter list f of length dim A, μ_A(K_A)=dim_k Soc(A/(f)). Adjoining formal variables preserves this type. For complete local CM O-algebra B and complete local CI O-algebra C, B⊗̂_O C is CM with the same type as B when B or C is O-flat; under these hypotheses the defining regular sequence remains regular after base change. For a finite flat local O-order A, finite transitivity gives K_A≅Hom_O(A,O); A is Gorenstein iff this dual is free of rank one over A. For finite group rings, use L6’s coefficient-of-identity pairing Hom_O(O[G],O)≅O[G]. General finite-order duality is not claimed to exist in L6.
 
 **Hypotheses.**
 
 - For CM local A with K_A and an A-regular parameter list f of length dim A, μ_A(K_A)=dim_k Soc(A/(f)).
 
-**Prerequisites.** [R03.3/canonical-module-and-cm-dual](#target-r03-3-canonical-module-and-cm-dual); [R03.3/gorenstein-local-rings](#target-r03-3-gorenstein-local-rings); [R03.1/completed-tensor-products](#target-r03-1-completed-tensor-products); `PadicMeasuresIwasawaAlgebras:L6`
+**Prerequisites.** [R03.3/canonical-module-and-cm-dual](#target-r03-3-canonical-module-and-cm-dual); [R03.3/gorenstein-local-rings](#target-r03-3-gorenstein-local-rings); [R03.1/completed-tensor-products](#target-r03-1-completed-tensor-products); `PadicMeasuresIwasawaAlgebras:L6`; [R03.3/dualizing-existence-and-finite-transitivity](#target-r03-3-dualizing-existence-and-finite-transitivity)
 
 **Sources.**
 
@@ -2363,7 +2363,7 @@ Complete Noetherian local rings are excellent; localization and finite-type exte
 
 **Sources.**
 
-- [EGA2](https://www.numdam.org/item/PMIHES_1965__24__5_0/): 7.4.4, 7.8.2–7.8.3, printed pp. 214–218; Ces21 Remark 1.5 and §2.10, PDF pp. 3–8. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [EGA2](https://www.numdam.org/item/PMIHES_1965__24__5_0/): 7.4.4, printed pp. 199–202; 7.8.2–7.8.6, printed pp. 214–218; Ces21 Remark 1.5 and §2.10, PDF pp. 3–8. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -2445,7 +2445,7 @@ For a ring A of characteristic p>0, F-finite means the Frobenius map F:A→A, a�
 
 **Sources.**
 
-- [CMM21](https://arxiv.org/pdf/1803.10897v2): Definition 5.1, p. 38; Example 6.7, p. 53; BM23 Corollary 4.20 proof, PDF p. 19. This locator supplies the stated construction and its comparison maps.
+- [CMM21](https://arxiv.org/pdf/1803.10897v2): Definition 5.1, p. 38; Example 6.7, p. 53; BM23 §4.4, Corollary 4.20 and proof, PDF pp. 20–21. This locator supplies the stated construction and its comparison maps.
 
 **Proof plan.**
 
@@ -2495,7 +2495,7 @@ For a Noetherian ring A of characteristic p>0, A is regular iff Frobenius is fla
 
 **Sources.**
 
-- [CMM21](https://arxiv.org/pdf/1803.10897v2): Example 6.7, p. 53 and Lemma 5.29 proof, p. 46; BM23 §4.5 before Corollary 4.20, PDF p. 19. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [CMM21](https://arxiv.org/pdf/1803.10897v2): Example 6.7, p. 53 and Lemma 5.29 proof, p. 46; BM23 §4.4 before Corollary 4.20, PDF pp. 20–21. This locator supplies the stated local algebra result; the proof steps specify its use.
 - [StacksLocalCohom](https://stacks.math.columbia.edu/download/local-cohomology.pdf): §17, Lemma 17.6, tag 0EC0, pp. 36–37 (online Lemma 51.17.6). This supplies the characteristic-p Noetherian regularity equivalence without an F-finite assumption.
 
 **Proof plan.**
@@ -2818,22 +2818,25 @@ Let R be complete Noetherian local over O with residue k and A a finite-type R-a
 
 `R03.4/completed-tensor-domains-and-components` · theorem · implementation unchecked
 
-Let A,B be complete Noetherian local O-flat domains with residue k. If A[1/π] is regular and A has an O-valued point, then A⊗̂_O B is a domain with regular generic fibre when both generic fibres are regular. For reduced equidimensional O-flat rings with geometrically integral generic components, components of the completed tensor are indexed by component pairs, with dimension dim A+dim B−1. Without geometric integrality, retain all components of the pairwise product rather than one per pair.
+Let A,B be complete Noetherian local O-flat domains with common residue k. Assume that both A[1/π] and B[1/π] are regular and that both A and B admit O-valued points. Then A⊗̂_O B is a domain and its generic fibre is regular. Separately, if A and B are reduced equidimensional O-flat complete local algebras, geometrically integral in the sense of Tho15 §1 (their scalar extensions to every finite coefficient extension remain domains), then their completed tensor product is geometrically integral of dimension dim A+dim B−1. For reduced equidimensional rings whose component quotients have this property, minimal primes of the completed tensor are indexed by pairs of minimal primes. Without that property, a component pair may split.
 
 **Hypotheses.**
 
-- Let A,B be complete Noetherian local O-flat domains with residue k.
+- For the pointed KWII result, both domains are O-flat, both generic fibres are regular, and both rings admit O-valued points.
+- For the component-pair result, each component quotient is geometrically integral after every finite extension of the coefficient DVR, and the ambient rings are reduced, equidimensional and O-flat.
 
 **Prerequisites.** [R03.1/completed-tensor-products](#target-r03-1-completed-tensor-products); [R03.1/chevalley-topology-comparison](#target-r03-1-chevalley-topology-comparison); [R03.3/excellence-normalization-and-formal-fibres](#target-r03-3-excellence-normalization-and-formal-fibres); `SchemeAndStackFoundations:SF.0`
 
 **Sources.**
 
-- [KWII](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf): Proposition 2.2(ii), p. 9; BIP23 Lemma 6.3, PDF pp. 52–53; CG18 §8.5.1, p. 408. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [KWII](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf): Proposition 2.2(ii) and proof, pp. 9–10. Both regular generic fibres and both O-valued points are used in the domain and generic-regularity proof.
+- [Tho15](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf): Definition before Lemma 1.3 and Lemma 1.4(1),(2),(4), pp. 5–6. Supplies the distinct geometric-integrality, dimension and component-pair statements.
+- [BIP23](https://arxiv.org/pdf/2110.01638v2): Lemma 6.3 and proof, PDF pp. 52–53. Application of component-pair algebra, not a replacement for its geometric hypotheses.
 
 **Proof plan.**
 
-1. The O-point splits the coefficient inclusion, and regular generic fibres prevent new generic zero divisors in the completed product; Chevalley comparison controls approximation.
-2. For several components, inject into the finite product of the pairwise component rings and use flatness to compute dimensions. The geometric-integrality assumption prevents splitting of a pair.
+1. At both O-valued points, regularity embeds the domains into the completed local generic rings E[[x]] and E[[y]]. The coefficientwise tensor embedding and Chevalley topology comparison give a domain; the generic regularity comparison is KWII Proposition 2.2(ii).
+2. For the geometric-integrality alternative and component pairs, use Tho15 Lemma 1.4(1),(2),(4): faithful flatness, the geometric integral-domain comparison, and contraction of minimal primes. The relative dimension is dim A+dim B−1.
 
 **Check.**
 
@@ -2909,7 +2912,7 @@ Let A≠0 be a complete Noetherian local O-algebra finite over a complete DVR O 
 
 **Sources.**
 
-- [KWII](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf): Lemma 2.5 and its argument, PDF pp. 9–10. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [KWII](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf): Proof of Proposition 2.2(i), p. 9 (finite one-dimensional quotient and its normalized valuation ring). The finite-algebra argument is extracted from this proof; there is no KWII Lemma 2.5 at the previous locator.
 
 **Proof plan.**
 
@@ -3061,17 +3064,17 @@ Let O have finite residue k, q≥1, S∞=O[[Z_p^q]], S_N=O[(Z/p^N)^q], and R∞=
 
 `R03.5/kisin-patching-criterion` · theorem · implementation unchecked
 
-Let S→R be local Noetherian, S regular of dimension d, M≠0 finite over S and R, and S→End(M) factor through R. Assume dim R≤d−l and M admits an S-free resolution of length≤l. Then depth_R M=dim R=d−l when dim Supp_S M≤dim R and d−l is attained; M is MCM over R. If R is a domain and M has full dimension, it is nearly faithful; if R is regular, M is free. The finite action image gives depth equality. Do not infer full support over a reducible R solely from dimension.
+Let S→R be a local homomorphism of Noetherian local rings, with S regular of finite dimension d. Let 0≤l≤d and let M≠0 be an R-module finite over both S and R, with the S-action induced by S→R. If dim R≤d−l and M admits an S-free resolution of length≤l, then depth_S M=depth_R M=dim Supp_R M=dim R=d−l; in particular M is MCM over R. If R is a domain, M is nearly faithful; if R is regular, M is finite free. No full-support conclusion follows for a reducible R from these dimension equalities alone.
 
 **Hypotheses.**
 
-- Let S→R be local Noetherian, S regular of dimension d, M≠0 finite over S and R, and S→End(M) factor through R.
+- S→R is local Noetherian, S is regular of dimension d, 0≤l≤d, M≠0 is finite over S and R with compatible actions, dim R≤d−l, and pd_S M≤l.
 
 **Prerequisites.** [R03.3/finite-map-cm-transfer](#target-r03-3-finite-map-cm-transfer); [R03.3/depth-auslander-buchsbaum-and-dimension-bounds](#target-r03-3-depth-auslander-buchsbaum-and-dimension-bounds); [R03.6/nearly-faithful-modules](#target-r03-6-nearly-faithful-modules)
 
 **Sources.**
 
-- [Kisin09](https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf): §3.3.1–3.3.4, published pp. 1157–1159; BCGP25 Proposition 7.2.3, p. 162. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [Kisin09](https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf): §3.3.1–3.3.4, published pp. 1157–1159; BCGP25 Proposition 7.2.3 and proof, pp. 162–163. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -3088,7 +3091,7 @@ Let S→R be local Noetherian, S regular of dimension d, M≠0 finite over S and
 
 `R03.5/characteristic-zero-open-quotient-patching` · theorem · implementation unchecked
 
-Let O have finite residue k, Λ=O[[w_1,…,w_s]], T=Λ[[z_1,…,z_t]], Δ_N=(Z/p^N)^q, S_N=T[Δ_N] and S∞=T[[Z_p^q]]. Let R_N be complete Noetherian local S_N-algebras with surjections from one complete Noetherian local Λ-algebra R∞. Let M_N be finite free Λ[Δ_N]-modules of one rank r, with R_N-actions commuting with the coefficients; put M_N^fr=T⊗̂_Λ M_N. Require compatible Λ-linear augmentation identifications M_N⊗_{Λ[Δ_N]}Λ≅M, where M is Λ-free of rank r, and compatible quotient maps R_N/(z,augmentation)↠R acting on M. Stabilize bounded presentations, R∞-quotient maps and actions over open S∞-ideals containing powers of its entire maximal ideal. Then obtain M∞ finite free of rank r over S∞, a quotient Rpatch of R∞ acting on it, a coefficient map S∞→Rpatch, M∞/(z,augmentation)M∞≅M, and Rpatch/(z,augmentation)↠R. The infinite quotients S∞/(augmentation)^n alone do not support finite pigeonhole arguments. Generic freeness over R∞ requires the pointwise regularity and dimension equality stated in the next target.
+Let O have finite residue k, Λ=O[[w_1,…,w_s]], T=Λ[[z_1,…,z_t]], Δ_N=(Z/p^N)^q, S_N=T[Δ_N] and S∞=T[[Z_p^q]]. Let R_N be complete Noetherian local S_N-algebras with continuous Λ-algebra surjections R∞↠R_N from one complete Noetherian local Λ-algebra R∞. Let F_N be finite free S_N-modules of one rank r, with R_N-actions whose restriction along S_N→R_N is the scalar S_N-action. Require compatible Λ-linear identifications F_N/(z,augmentation)F_N≅M, with M Λ-free of rank r, and compatible quotient maps R_N/(z,augmentation)↠R acting on M. Stabilize the modules, ring truncations, coefficient maps, action maps and augmentation maps over a countable cofinal family of open S∞-ideals containing powers of its entire maximal ideal. Then obtain M∞ finite free of rank r over S∞, a quotient Rpatch of R∞ acting on it, a coefficient map S∞→Rpatch, M∞/(z,augmentation)M∞≅M, and Rpatch/(z,augmentation)↠R. One can take F_N=T⊗̂_Λ M_N from free Λ[Δ_N]-modules when compatible framed R_N-actions are supplied. Generic freeness over R∞ additionally requires pointwise regularity and the dimension equality in the regular-base criterion; these conditions are not supplied by finite-quotient stabilization.
 
 **Hypotheses.**
 
@@ -3108,7 +3111,8 @@ Let O have finite residue k, Λ=O[[w_1,…,w_s]], T=Λ[[z_1,…,z_t]], Δ_N=(Z/p
 
 **Check.**
 
-- S_N itself is O-finite but has infinitely many elements; reduction by an open ideal containing π^n is required for a finite pigeonhole argument.
+- For positive-dimensional T, S_N is finite over T but has infinitely many elements; an open ideal containing a power of the entire maximal ideal is needed for finite pigeonhole arguments.
+- An R_N-action commuting with coefficients must also restrict to the scalar S_N-action; commutation alone does not establish that compatibility.
 
 <a id="target-r03-5-uniform-cotangent-annihilator"></a>
 
@@ -3126,7 +3130,7 @@ In the preceding characteristic-zero patching data, let compatible Λ-points R_N
 
 **Sources.**
 
-- [BCGP25](https://arxiv.org/pdf/2502.20645v1): Proposition 7.2.2 and proof, p. 162. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [BCGP25](https://arxiv.org/pdf/2502.20645v1): Lemma 7.2.2 and proof, p. 162. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -3201,7 +3205,7 @@ An A-module M is nearly faithful if ann_A(M) is a nilpotent ideal: ∃n≥1, ann
 | `TauCeti.NearlyFaithfulModules.faithful` | relation | Faithful implies nearly faithful. |
 | `TauCeti.NearlyFaithfulModules.reduced` | characterisation | For reduced A, nearly faithful implies faithful. |
 | `TauCeti.NearlyFaithfulModules.quotient` | compatibility | For proper I in local Noetherian A, finite nearly faithful M gives nearly faithful M/IM over A/I. |
-| `TauCeti.NearlyFaithfulModules.completion` | functoriality | Finite-module completion preserves and detects full support. |
+| `TauCeti.NearlyFaithfulModules.completion` | functoriality | For Noetherian local A, maximal-adic completion of a finite module preserves and detects full support, using faithful flatness. |
 
 **Unit tests.**
 
@@ -3315,7 +3319,7 @@ For a nonzero Noetherian local ring A of dimension d, define c(A) as the minimum
 
 **Sources.**
 
-- [Tho15](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf): Definition 1.7 and Proposition 1.8, p. 8; NT26 Proposition 3.10 proof. This locator supplies the stated construction and its comparison maps.
+- [Tho15](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf): Definition 1.7 and Proposition 1.8, p. 8. This locator supplies the stated construction and its comparison maps.
 
 **Proof plan.**
 
@@ -3394,7 +3398,7 @@ Let A be excellent local O-algebra, equidimensional of dimension d+1, with each 
 
 **Sources.**
 
-- [Tho15](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf): Proposition 1.6 and proof, p. 7; ACC23 Proposition 6.3.8 and Corollary 6.3.9, published pp. 1053–1055. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [Tho15](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf): Proposition 1.6 and proof, p. 7; ACC23 Proposition 6.3.8 and Corollary 6.3.9, published pp. 1052–1053. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -3411,26 +3415,27 @@ Let A be excellent local O-algebra, equidimensional of dimension d+1, with each 
 
 `R03.6/cycle-specialization-multiplicity` · theorem · implementation unchecked
 
-Use SF.5’s d-dimensional cycle Z_d(M)=Σ_{dim A/p=d}length_{A_p}(M_p)[p]. For equidimensional complete O-flat A of dimension d+1 and finite O-flat M, the special cycle is the sum of generic ranks weighted by the Cartier specializations of component cycles; multiplicities are lengths at the special generic points. Hilbert–Samuel e_{m,D} of a fixed-dimensional module is the corresponding cycle weighted sum of e_m(A/p). All terms are positive when present. Distinct generic components with disjoint special support and coefficient-one specialization cycles yield positive integral component ranks from equality with a full-support special module; disjoint support by itself does not prove integrality of ratios.
+Use SF.5’s fixed-dimensional cycle Z_D(M)=Σ_{dim A/p=D}length_{A_p}(M_p)[p]. Let A be equidimensional, complete and O-flat of dimension d+1, and M finite and O-flat. Cartier specialization gives Z_d(M/πM)=Σ_{p∈Min A}length_{A_p}(M_p) Z_d((A/p)/π), with zero coefficients allowed. These coefficients are generic lengths; they are generic ranks when A is generically reduced. Hilbert–Samuel multiplicity in a fixed dimension is the cycle-weighted sum of e_m(A/p), with smaller-dimensional terms contributing zero. Distinct generic components with disjoint special-cycle support and coefficient-one specializations allow equality with a full-support special module to determine positive integral generic lengths. Calling those integers ranks additionally requires generically reduced A.
 
 **Hypotheses.**
 
-- Use SF.5’s d-dimensional cycle Z_d(M)=Σ_{dim A/p=d}length_{A_p}(M_p)[p].
+- A is equidimensional, complete and O-flat of dimension d+1, and M is finite and O-flat; rank terminology additionally requires A to be generically reduced.
 
 **Prerequisites.** `SchemeAndStackFoundations:SF.5`; [key/hilbert-samuel-multiplicity](#target-key-hilbert-samuel-multiplicity); [R03.3/hilbert-samuel-additivity-and-associativity](#target-r03-3-hilbert-samuel-additivity-and-associativity); [R03.6/completion-generic-special-components](#target-r03-6-completion-generic-special-components)
 
 **Sources.**
 
-- [BCGP21](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf): §7.12, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, published pp. 427–430; EG14 Propositions 2.2.10 and 2.2.13, pp. 11–13. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [BCGP21](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf): §7.12, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, published pp. 427–430; EG14 Proposition 2.2.10 and Lemma 2.2.13, pp. 8–9. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
-1. Filter M by its generic component factors and apply cycle additivity. A π-regular quotient specializes each factor by its local length, not by an assumed unit coefficient.
-2. Apply fixed-dimensional multiplicity associativity to special cycles. Coefficient-one and disjoint support let one read each positive integer rank separately.
+1. Apply the Cartier specialization map to the generic-length cycle of M. Additivity and π-regularity express the special cycle as the stated sum of reduced component specialization cycles.
+2. Apply multiplicity associativity in a fixed ambient dimension. With coefficient-one specializations and disjoint cycle support, each generic length is read separately as a positive integer.
 
 **Check.**
 
 - For O′=O[√π], Z(O′/π)=2[k′]; the factor 2 prevents an integrality proof based only on disjoint supports.
+- For A=O[ε]/ε² and M=A, the generic length and special-fibre length are both two. The free rank one of M over A is not the coefficient of the reduced component cycle.
 
 <a id="target-r03-6-completed-tensor-multiplicity"></a>
 
@@ -3615,6 +3620,7 @@ Over a ring A, a complex C is perfect if it is isomorphic in D(A) to a bounded c
 **Sources.**
 
 - [BP26](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf): Lemma 2.6.6, pp. 21–22; KT17 §2.1, pp. 5–6; Stacks More on Algebra §perfect complexes. This locator supplies the stated construction and its comparison maps.
+- [StacksMoreAlgebra](https://stacks.math.columbia.edu/download/more-algebra.pdf): §67–§68, pp. 168–172; §76, pp. 191–194. The general perfect and Tor-amplitude interfaces underlying the local minimal-model adapters.
 
 **Proof plan.**
 
@@ -3661,7 +3667,7 @@ Over local A, a perfect complex C has a bounded finite free representative F wit
 
 - Over local A, a perfect complex C has a bounded finite free representative F with every differential in m_A, unique up to a (generally noncanonical) chain isomorphism. rank F^i=dim_k H^i(C⊗^L_A k).
 
-**Prerequisites.** [P7/perfect-complexes-tor-amplitude-and-minimal-models](#target-p7-perfect-complexes-tor-amplitude-and-minimal-models); `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`
+**Prerequisites.** [P7/perfect-complexes-tor-amplitude-and-minimal-models](#target-p7-perfect-complexes-tor-amplitude-and-minimal-models); `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:CochainComplex.isKProjective_of_projective`; `mathlib:CochainComplex.IsKProjective.quasiIso_iff`
 
 **Sources.**
 
@@ -3743,7 +3749,8 @@ For a pseudo-coherent complex P over any ring A and a filtered system E_j with o
 
 **Sources.**
 
-- [BP26](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf): Proposition 2.3.13 proof, p. 17. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [BP26](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf): Proposition 2.3.13 proof, p. 17. This is an application, not the general bounded-colimit theorem. Its targets are twists of one fixed bounded-below exceptional pullback; the asserted source gap is rejected below.
+- [StacksMoreAlgebra](https://stacks.math.columbia.edu/download/more-algebra.pdf): §66–§67, Lemmas 66.1 and 67.1, pp. 160–170. Finite perfect approximation to a pseudo-coherent complex proves the affine uniformly bounded-below filtered-Hom adapter.
 
 **Proof plan.**
 
@@ -3822,7 +3829,7 @@ Let A be complete Noetherian local with finite residue field, and (F_n) compatib
 
 - Let A be complete Noetherian local with finite residue field, and (F_n) compatible minimal bounded finite free complexes over A/m^n in one range [a,b], with fixed term ranks and strict base-change identifications satisfying the cocycle condition.
 
-**Prerequisites.** [P7/minimal-perfect-complexes](#target-p7-minimal-perfect-complexes); [R03.1/adic-hom-completion-and-limit](#target-r03-1-adic-hom-completion-and-limit)
+**Prerequisites.** [P7/minimal-perfect-complexes](#target-p7-minimal-perfect-complexes); [R03.1/adic-hom-completion-and-limit](#target-r03-1-adic-hom-completion-and-limit); `mathlib:CochainComplex.IsKProjective.Qh_map_bijective`
 
 **Sources.**
 
@@ -3831,7 +3838,7 @@ Let A be complete Noetherian local with finite residue field, and (F_n) compatib
 **Proof plan.**
 
 1. Limits of the fixed free modules and matrices produce F; finite coefficient sets imply Mittag–Leffler for cycles, boundaries and homotopy-map cohomology.
-2. Apply the Milnor exact sequence to the finite Hom complexes; lim¹ vanishes since each stage is finite. Identify Hom in the homotopy and derived categories using bounded projectivity.
+2. Apply the Milnor exact sequence to the finite Hom complexes; lim¹ vanishes since each stage is finite. Use the existing bounded-projective K-projective theorem and IsKProjective.Qh_map_bijective to identify Hom in the homotopy and derived categories.
 
 **Planning API.**
 
@@ -4148,7 +4155,7 @@ For Noetherian A, finitely generated I and perfect C, derived I-completion agree
 
 **Sources.**
 
-- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 8–9; KT17 Lemma 2.13, PDF pp. 11–12. This locator supplies the stated local algebra result; the proof steps specify its use.
+- [Bhatt18](https://arxiv.org/pdf/1608.08882v2): Lemma 5.3, PDF pp. 9–10; KT17 Lemma 2.13, PDF pp. 11–12. This locator supplies the stated local algebra result; the proof steps specify its use.
 
 **Proof plan.**
 
@@ -4170,7 +4177,7 @@ For Noetherian A, finitely generated I and perfect C, derived I-completion agree
 
 `P8/finite-patching-systems` · definition · implementation unchecked
 
-Fix O complete DVR with finite residue k, a complete local power-series coefficient Λ, S∞=Λ[[y,w]] and augmentation a∞. A patching system has finite local quotients Λ_N of Λ[[y]] with kernels contained in arbitrarily deep maximal powers, perfect Λ_N-complexes C_N in a fixed Tor range, and augmentation quasi-isomorphisms C_N⊗^L_{Λ_N}Λ≅C_0. It has complete Noetherian local Λ_N-algebras R_N, continuous surjections R∞↠Λ[[w]]⊗̂_Λ R_N and derived actions or finite Hecke images T_N with R_N↠T_N/I_N, I_N^δ=0 for one δ. Morphisms respect all coefficient, augmentation and derived actions. Rings R_N are not required to be finite over Λ_N. For paired systems specify mod-π identifications of complexes, rings and image actions.
+Fix O complete DVR with finite residue k, a complete local power-series coefficient Λ, S∞=Λ[[y,w]] and augmentation a∞. A patching system has local quotients Λ_N, finite as Λ-modules, of Λ[[y]] with kernels contained in arbitrarily deep maximal powers, perfect Λ_N-complexes C_N in a fixed Tor range, and augmentation quasi-isomorphisms C_N⊗^L_{Λ_N}Λ≅C_0. It has complete Noetherian local Λ_N-algebras R_N, continuous surjections R∞↠Λ[[w]]⊗̂_Λ R_N and derived actions or finite Hecke images T_N with R_N↠T_N/I_N, I_N^δ=0 for one δ. Morphisms respect all coefficient, augmentation and derived actions. Rings R_N are not required to be finite over Λ_N. For paired systems specify mod-π identifications of complexes, rings and image actions.
 
 **Hypotheses.**
 
@@ -4702,21 +4709,21 @@ In the paired support-transport setting, let x lie on a D-dimensional component 
 
 ## Supplier interfaces and proof refinements
 
-Every layer is planned. These interfaces and refinements prevent a claim of dependency closure. The contracts below are part of the specification; their supplier stages have lower-tier or current-upstream ownership.
+These are requested interfaces, not claims that every supplier currently contains the theorem. A stage remains planned while any of its supplier requests or proof refinements is open.
 
-| Supplier | Required interface | Targets |
+| Supplier | Required interface | Consumers |
 |---|---|---|
 | `EnhancedDerivedSheaves:E1/enhanced-derived-category` | Enhanced derived categories of modules (the point-site case), K-injective and K-flat models, derived tensor/Hom with their natural coherence, truncations, filtered homotopy colimits, and the ordinary Mathlib derived-category comparison. No new abstract derived operation is defined here. | [R03.1/adic-hom-completion-and-limit](#target-r03-1-adic-hom-completion-and-limit), [R03.3/lescot-regularity-criterion](#target-r03-3-lescot-regularity-criterion), [R03.3/residue-injective-hull](#target-r03-3-residue-injective-hull), [R03.3/supported-derived-cohomology](#target-r03-3-supported-derived-cohomology), [R03.3/normalized-ring-dualizing-complex](#target-r03-3-normalized-ring-dualizing-complex), [R03.3/regular-parameters-and-ext-algebra](#target-r03-3-regular-parameters-and-ext-algebra), [R03.5/balanced-modules](#target-r03-5-balanced-modules), [R03.5/defect-coinvariant-formula](#target-r03-5-defect-coinvariant-formula), [R03.5/projectivity-by-derived-coinvariants](#target-r03-5-projectivity-by-derived-coinvariants), [P7/perfect-complexes-tor-amplitude-and-minimal-models](#target-p7-perfect-complexes-tor-amplitude-and-minimal-models), [P7/pseudo-coherent-filtered-hom](#target-p7-pseudo-coherent-filtered-hom), [P7/complete-cofiltered-finite-exactness](#target-p7-complete-cofiltered-finite-exactness), [P7/derived-ring-action](#target-p7-derived-ring-action), [P7/ghost-ideal-nilpotence](#target-p7-ghost-ideal-nilpotence), [P9/dimension-of-bounded-complexes](#target-p9-dimension-of-bounded-complexes), [P7/derived-nakayama-and-finite-amplitude](#target-p7-derived-nakayama-and-finite-amplitude), [P7/derived-specialization-and-tor](#target-p7-derived-specialization-and-tor) |
 | `EnhancedDerivedSheaves:E1/derived-presentability` | The enhanced module-derived category is presentable and has countable homotopy colimits. Use its telescope splitting of idempotents; a split summand of a bounded object is bounded. Merely constructing Idem(C) does not show that C itself is idempotent complete. | [P7/finite-derived-action-localization](#target-p7-finite-derived-action-localization) |
 | `DerivedDeRhamCohomology:DD.1/koszul-complex` | Koszul complexes of finite lists with tensor, dual, filtration, homology and regular-sequence acyclicity APIs. The finite-list carrier is imported; regular-sequence and parameter Euler comparisons are the local adapters planned here. | [R03.3/depth-auslander-buchsbaum-and-dimension-bounds](#target-r03-3-depth-auslander-buchsbaum-and-dimension-bounds), [R03.3/complete-intersections](#target-r03-3-complete-intersections), [R03.3/supported-derived-cohomology](#target-r03-3-supported-derived-cohomology), [R03.3/parameter-length-and-serre-euler](#target-r03-3-parameter-length-and-serre-euler), [R03.3/lci-syntomic-fibre-criterion](#target-r03-3-lci-syntomic-fibre-criterion), [R03.3/regular-parameters-and-ext-algebra](#target-r03-3-regular-parameters-and-ext-algebra) |
-| `DerivedDeRhamCohomology:DD.1/derived-completion` | Derived adic completion as an enhanced functor, its localization/limit description and its Noetherian finite-cohomology comparison. This packet proves only the finite-perfect coefficient adapters. | [R03.3/local-duality-completed-ext](#target-r03-3-local-duality-completed-ext), [P7/bounded-flat-complete-perfectness](#target-p7-bounded-flat-complete-perfectness), [P7/finite-perfect-derived-completion](#target-p7-finite-perfect-derived-completion) |
+| `DerivedDeRhamCohomology:DD.1/derived-completion` | Import DerivedDeRhamCohomology:DD.1/derived-completion, /koszul-completion-tower and /ordinary-quotient-completion: the enhanced reflector, Koszul limit, and Noetherian derived ordinary-quotient comparison. This packet supplies only finite-cohomology and finite-perfect coefficient adapters, not another derived-completion construction. | [R03.3/local-duality-completed-ext](#target-r03-3-local-duality-completed-ext), [P7/bounded-flat-complete-perfectness](#target-p7-bounded-flat-complete-perfectness), [P7/finite-perfect-derived-completion](#target-p7-finite-perfect-derived-completion) |
 | `SchemeAndStackFoundations:SF.0` | Affine/finite type schemes, components, localization and flat base change, with their Noetherian dimension and point APIs. For finite locally free sheaves use the current AlgebraicVectorBundles L0C carriers and determinant line; expose short-exact-sequence determinant comparison to the R03.3 adapter, without rebuilding these objects. | [R03.4/punctured-finite-type-dimension](#target-r03-4-punctured-finite-type-dimension), [R03.4/completed-tensor-domains-and-components](#target-r03-4-completed-tensor-domains-and-components), [R03.4/flat-reduced-quotients-by-points](#target-r03-4-flat-reduced-quotients-by-points), [R03.6/connectedness-dimension](#target-r03-6-connectedness-dimension), [R03.6/crossing-locus-formal-variable-base-change](#target-r03-6-crossing-locus-formal-variable-base-change), [R03.3/finite-free-resolution-determinant-trivialization](#target-r03-3-finite-free-resolution-determinant-trivialization) |
-| `SchemeAndStackFoundations:SF.3` | Punctured-spectrum Picard theory and Grothendieck parafactoriality for local complete intersections of dimension at least four; reuse the current AlgebraicVectorBundles determinant theory. | [R03.3/regularity-localization-and-descent](#target-r03-3-regularity-localization-and-descent), [R03.6/ideal-shaped-map-and-specialization](#target-r03-6-ideal-shaped-map-and-specialization) |
-| `SchemeAndStackFoundations:SF.4` | Generic geometric lci and syntomic definitions, local finite-presentation and flat base-change interfaces. Ring dualizing complexes are owned here in R03.3; geometric coherent duality is reserved to SchemeAndStackFoundations:SF.2, not this stage. | [R03.3/flatness-by-fibres](#target-r03-3-flatness-by-fibres), [R03.3/lci-syntomic-fibre-criterion](#target-r03-3-lci-syntomic-fibre-criterion) |
-| `SchemeAndStackFoundations:SF.5` | Generic cycles of coherent modules, top-dimensional lengths, cycle additivity, flat pullback and Cartier-divisor specialization. R03.6 supplies only complete-local patching adapters and multiplicity comparisons. | [R03.6/completion-generic-special-components](#target-r03-6-completion-generic-special-components), [R03.6/cycle-specialization-multiplicity](#target-r03-6-cycle-specialization-multiplicity), [R03.6/completed-tensor-multiplicity](#target-r03-6-completed-tensor-multiplicity) |
-| `PadicMeasuresIwasawaAlgebras:L0` | Completed direct sums/topological bases of complete flat coefficient modules, compact finite-quotient maps, and coefficient duals; algebraic arbitrary-module Matlis duality remains here. | [P7/flat-complete-module-freeness](#target-p7-flat-complete-module-freeness), [P7/bounded-flat-complete-perfectness](#target-p7-bounded-flat-complete-perfectness), [P7/elementary-coefficient-dual](#target-p7-elementary-coefficient-dual) |
+| `SchemeAndStackFoundations:SF.3` | Punctured-spectrum Picard theory and Grothendieck parafactoriality for local complete intersections of dimension at least four; reuse the current AlgebraicVectorBundles determinant theory. This is an additional required SF.3 interface: the current 26-node SF.3 packet does not yet plan parafactoriality. Do not treat it as supplied. | [R03.3/regularity-localization-and-descent](#target-r03-3-regularity-localization-and-descent), [R03.6/ideal-shaped-map-and-specialization](#target-r03-6-ideal-shaped-map-and-specialization) |
+| `SchemeAndStackFoundations:SF.4` | Generic geometric lci and syntomic definitions, local finite-presentation and flat base-change interfaces. Ring dualizing complexes are owned here in R03.3; geometric coherent duality is reserved to SchemeAndStackFoundations:SF.2, not this stage. This is an additional required SF.4 interface: the current 56-node SF.4 packet does not yet plan geometric lci/syntomic definitions. The ring criteria are planned here. | [R03.3/flatness-by-fibres](#target-r03-3-flatness-by-fibres), [R03.3/lci-syntomic-fibre-criterion](#target-r03-3-lci-syntomic-fibre-criterion) |
+| `SchemeAndStackFoundations:SF.5` | Generic cycles of coherent modules, top-dimensional lengths, cycle additivity, flat pullback and Cartier-divisor specialization. R03.6 supplies only complete-local patching adapters and multiplicity comparisons. The existing SF.5/coherent-cycle and /flat-pullback use generic lengths, and /cartier-gysin is the Chow-class interface; the raw cycle identity for a π-flat module over a complete local DVR algebra is the adapter proved here. | [R03.6/completion-generic-special-components](#target-r03-6-completion-generic-special-components), [R03.6/cycle-specialization-multiplicity](#target-r03-6-cycle-specialization-multiplicity), [R03.6/completed-tensor-multiplicity](#target-r03-6-completed-tensor-multiplicity) |
+| `PadicMeasuresIwasawaAlgebras:L0` | Completed direct sums/topological bases of complete flat coefficient modules, compact finite-quotient maps, and coefficient duals; algebraic arbitrary-module Matlis duality remains here. The current L0 packet does not yet state this arbitrary complete-flat-module interface. This is a supplier request, not a claim of an existing topological basis theorem. | [P7/flat-complete-module-freeness](#target-p7-flat-complete-module-freeness), [P7/bounded-flat-complete-perfectness](#target-p7-bounded-flat-complete-perfectness), [P7/elementary-coefficient-dual](#target-p7-elementary-coefficient-dual) |
 | `PadicMeasuresIwasawaAlgebras:L1` | Completed group algebras O[[Z_p^q]], their finite quotient group algebras and augmentation maps. Ring-theoretic CI and patching are supplied here. | [R03.3/abelian-group-ring-ci](#target-r03-3-abelian-group-ring-ci), [R03.5/defect-coinvariant-formula](#target-r03-5-defect-coinvariant-formula), [R03.5/balanced-modules-and-module-patching](#target-r03-5-balanced-modules-and-module-patching), [P8/finite-patching-systems](#target-p8-finite-patching-systems) |
-| `PadicMeasuresIwasawaAlgebras:L6` | Finite flat O-order dual Hom_O(A,O), its Artinian self-injectivity and Gorenstein equivalences. R03.3 identifies that existing dual with the canonical module without rebuilding finite-order duality. | [R03.3/canonical-type-and-base-change](#target-r03-3-canonical-type-and-base-change) |
+| `PadicMeasuresIwasawaAlgebras:L6` | The existing finite group-ring pairing Hom_O(O[G],O)≅O[G], from PadicMeasuresIwasawaAlgebras:L6/contragredient-dual (Appendix A.4 comparison). General finite flat local O-order canonical modules and Gorenstein equivalences follow from this packet’s finite transitivity and Gorenstein targets, not from L6’s contragredient construction. | [R03.3/canonical-type-and-base-change](#target-r03-3-canonical-type-and-base-change) |
 | `tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent` | Euler characteristics for bounded finite-length cohomology, additivity across distinguished triangles and descent to the existing Grothendieck group; R03.3/R03.6 add local multiplicity and derived-action formulas. | [R03.3/finite-projective-dimension-rank](#target-r03-3-finite-projective-dimension-rank), [R03.3/parameter-length-and-serre-euler](#target-r03-3-parameter-length-and-serre-euler), [P9/derived-length-with-finite-actions](#target-p9-derived-length-with-finite-actions) |
 | `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem` | Existing regular-local completion/dimension comparisons, excellent regular-locus openness and finite-map miracle-flatness/descent. General finite modules and flat local maps are extensions in R03.3, not new copies of these targets. | [R03.3/serre-conditions](#target-r03-3-serre-conditions), [R03.3/miracle-flatness-finite-modules](#target-r03-3-miracle-flatness-finite-modules), [R03.3/regularity-localization-and-descent](#target-r03-3-regularity-localization-and-descent), [R03.3/excellence-normalization-and-formal-fibres](#target-r03-3-excellence-normalization-and-formal-fibres), [R03.3/cm-completion-and-equidimensionality](#target-r03-3-cm-completion-and-equidimensionality), [R03.3/cm-locus-openness](#target-r03-3-cm-locus-openness) |
 | `DerivedDeRhamCohomology:DD.0/cotangent-complex` | Full cotangent complex, derivation interpretation and transitivity for square-zero extensions, providing the obstruction-theory interface; the naive H1Cotangent carrier is insufficient. | [R03.2/obstruction-theory](#target-r03-2-obstruction-theory) |
@@ -4726,9 +4733,7 @@ Every layer is planned. These interfaces and refinements prevent a claim of depe
 
 ### Existing upstream determinant interface
 
-Finite locally free modules and their determinant line, including comparison and pullback; finite exact-sequence comparison is the additional adapter interface required here.
-
-[AlgebraicVectorBundles, L0C — polynomial operations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicVectorBundles/README.md#l0c--polynomial-operations). Current main README L0C was read. It supplies finite-bundle determinants, not a determinant of all perfect complexes. This roadmap is absent from the atlas stage snapshot, so the structured upstream import supplements the SF.0 carrier edge rather than inventing an atlas stage id.
+Finite locally free modules and their determinant line, including pullback, are already planned in [AlgebraicVectorBundles L0C](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicVectorBundles/README.md#l0c--polynomial-operations). Its current README and determinant signatures were read. Only the finite-free-resolution trivialization adapter is planned here.
 
 ### Open proof/source refinements
 
@@ -4737,23 +4742,25 @@ Finite locally free modules and their determinant line, including comparison and
 - **Stable Ext injectivity used by Lescot’s criterion.** AI13 Theorem 2.1 supplies the criterion and its proof reduces nonregularity to the stable-Ext injectivity theorem of Martsinkovsky cited there as [11, Theorem 6]. That primary proof was not read in this run; preserve this exact proof dependency. Needed by [R03.3/lescot-regularity-criterion](#target-r03-3-lescot-regularity-criterion).
 - **Primary connectedness proof.** Tho15 Proposition 1.8 supplies the quoted bound through Brodmann–Rung [BR86, Theorem 2.4], whose proof was not read. The capped connectedness convention also requires explicit comparison in the irreducible case. Needed by [R03.6/connectedness-after-relations](#target-r03-6-connectedness-after-relations).
 - **Pointed cotangent inverse-limit comparison.** BCGP25 Lemma 7.2.2 is used after finite open truncation. The target retains uniform finite cotangent generation and an explicit limit comparison as hypotheses; an arithmetic application must supply those inputs rather than inferring them from the module rank alone. Needed by [R03.5/uniform-cotangent-annihilator](#target-r03-5-uniform-cotangent-annihilator).
-- **Whole-ring finite coefficient map in IKM24.** The unconditional clause asserting R∞ finite over S∞ in IKM24 Theorem 10.6 is not certified here. The finite action image suffices for concentration and duality; whole-ring finiteness is a separate conditional R03.4 parameter-quotient target. Needed by [P8/patched-ring-action-and-common-coefficient-map](#target-p8-patched-ring-action-and-common-coefficient-map), [P8/patched-perfect-complexes-in-a-range-of-degrees](#target-p8-patched-perfect-complexes-in-a-range-of-degrees), [P8/patching-commutes-with-duality](#target-p8-patching-commutes-with-duality).
+- **Whole-ring finite coefficient map in IKM24.** IKM24 Theorem 10.6 proof, p. 47, explicitly invokes BKM Lemmas 3.6–3.7 to adjust a lift through a finite action image. Those proofs were read. What remains uncertified is that such an adjustment preserves the common coefficient map through the limit ring Q for every patching object and morphism. The current targets retain the original common lift and use finite action images; whole-ring finiteness requires the separate parameter-quotient criterion plus this uniform comparison. Needed by [P8/patched-ring-action-and-common-coefficient-map](#target-p8-patched-ring-action-and-common-coefficient-map), [P8/patched-perfect-complexes-in-a-range-of-degrees](#target-p8-patched-perfect-complexes-in-a-range-of-degrees), [P8/patching-commutes-with-duality](#target-p8-patching-commutes-with-duality).
 
 ## Source version and correction record
 
-All statements and findings here are in the worker’s own words. Each finding is scoped to the exact text read and awaits this job’s independent review. Previously confirmed findings are credited as inherited evidence; their old review is not presented as a new review of this blueprint. A source correction was sought before any novelty statement. Subscription correction text that could not be read is explicitly identified.
+All statements and findings use the workers’ own words. Independent review REV-DeformationAndDerivedPatchingAlgebra checked each finding in the exact edition recorded below. Twenty findings are confirmed, with finding 20 narrowed to uniform coefficient-map compatibility; finding 13 is rejected because the source’s fixed exceptional pullback supplies the required common lower bound. Inherited evidence and unread publisher revisions remain explicitly distinguished.
 
 ### E-W9405-1 — CG18 error
 
-**Locator.** Lemma 4.1 proof, journal-layout author PDF p. 355.
+**Locator.** Lemma 4.1 proof, journal-layout author PDF p. 355
 
-**Source assertion, paraphrased.** The proof extends the Hom_R(A,R) canonical-module description to any module-finite map from a regular or Gorenstein local ring, without an equal-dimension restriction.
+**Source assertion.** The proof extends the Hom_R(A,R) canonical-module description to any module-finite map from a regular or Gorenstein local ring, without an equal-dimension restriction.
 
 **Correction.** Use Ext_R^{dim R−dim A}(A,R) for a finite CM local algebra A over a Gorenstein R; plain Hom is the relative-dimension-zero case. The stated finite-flat Z_p case remains correct.
 
 **Reason.** For R=O[[t]] and A=R/(t)=O, Hom_R(A,R)=0 because t is regular, whereas Ext_R^1(A,R)=O is the nonzero canonical module.
 
-**Reach.** the proof. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4762,17 +4769,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 §4.1, p. 355: the finite map O[[t]]→O has zero Hom but nonzero Ext¹. Equal dimension is essential for the Hom canonical-module formula.
+
 ### E-W9405-2 — CG18 error
 
-**Locator.** Lemma 4.2, journal-layout author PDF p. 355.
+**Locator.** Lemma 4.2, journal-layout author PDF p. 355
 
-**Source assertion, paraphrased.** A completed tensor of a CM complete local O-algebra and any complete-intersection O-algebra is declared CM with the same canonical generator count.
+**Source assertion.** A completed tensor of a CM complete local O-algebra and any complete-intersection O-algebra is declared CM with the same canonical generator count.
 
 **Correction.** Require at least one factor O-flat, or a precise Tor-independence hypothesis preserving the defining regular sequence.
 
 **Reason.** Take B=k and C=O[[x,y,z]]/(xy−π,xz−π). The two equations are a regular sequence: after the first quotient x is regular and x(z−y) is regular in its domain. But B completed-tensor C is k[[x,y,z]]/(xy,xz), with minimal primes (x) and (y,z) of different dimensions, so it is not CM.
 
-**Reach.** a stated result. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4781,17 +4792,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 §4.1, pp. 355–356: the displayed completed tensor of k with O[[x,y,z]]/(xy−π,xz−π) has components of unequal dimension. The flat-factor correction is necessary.
+
 ### E-W9405-3 — CG18 error
 
-**Locator.** Lemma 4.4 statement and following explanation, journal-layout author PDF pp. 357–358.
+**Locator.** Lemma 4.4 statement and following explanation, journal-layout author PDF pp. 357–358
 
-**Source assertion, paraphrased.** The first equality criterion is stated using regularity of x in the local ring, although the proof and subsequent example require regularity of its initial form.
+**Source assertion.** The first equality criterion is stated using regularity of x in the local ring, although the proof and subsequent example require regularity of its initial form.
 
 **Correction.** For the degree-d filtration equality require the initial class of x to be regular in gr_m A. The homogeneous graded variant has the intended criterion.
 
 **Reason.** In A=k[[t^6,t^7,t^15]], x=t^6 is regular. The degree-one initial class of t^15 is nonzero but its product with the initial class of x is zero because t^21=(t^7)^3 lies in m³. The source itself supplies this counterexample immediately after the proof.
 
-**Reach.** a stated result. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4800,17 +4815,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Lemma 4.4, pp. 357–358: the source’s t^6,t^7,t^15 example itself separates regularity from initial-form regularity.
+
 ### E-W9405-4 — CG18 error
 
-**Locator.** Lemma 6.2, journal-layout author PDF p. 385.
+**Locator.** Lemma 6.2, journal-layout author PDF p. 385
 
-**Source assertion, paraphrased.** The finite codimension bound is asserted for a perfect complex without requiring nonzero cohomology.
+**Source assertion.** The finite codimension bound is asserted for a perfect complex without requiring nonzero cohomology.
 
 **Correction.** Require a nonzero object of the derived category and a bounded finite-projective model of the specified Tor amplitude.
 
 **Reason.** The contractible complex A→A with identity differential has zero cohomology and empty support. Its codimension cannot satisfy the finite bound, and there is no first nonzero degree for the proof to choose.
 
-**Reach.** a stated result. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4819,17 +4838,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Lemma 6.2, pp. 385–386: its proof selects a first nonzero cohomology degree, so a nonzero complex is required; an identity complex tests the missing hypothesis.
+
 ### E-W9405-5 — CG18 error
 
-**Locator.** Theorem 6.3 input H and conclusion (iv), journal-layout author PDF pp. 386–388.
+**Locator.** Theorem 6.3 input H and conclusion (iv), journal-layout author PDF pp. 386–388
 
-**Source assertion, paraphrased.** The augmentation limit is identified with an arbitrary R-module H from its π-power quotients.
+**Source assertion.** The augmentation limit is identified with an arbitrary R-module H from its π-power quotients.
 
 **Correction.** Require finite H over R, or explicitly complete separated H with the residual finiteness needed by the compactness argument.
 
 **Reason.** Replace any valid H by H⊕E, where E=Frac(O) is made an R-module in the simplest R=O example. Every quotient modulo π^n is unchanged because πE=E, while the asserted final identification with H is changed.
 
-**Reach.** a stated result. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4838,17 +4861,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Theorem 6.3, p. 387: adding a π-divisible E summand changes H without changing its finite π-power quotients. The finite/separated target hypothesis repairs this.
+
 ### E-W9405-6 — CG18 misprint
 
-**Locator.** Theorem 6.3(b)–(d), journal-layout author PDF p. 386.
+**Locator.** Theorem 6.3(b)–(d), journal-layout author PDF p. 386
 
-**Source assertion, paraphrased.** The conditions use all positive reduction exponents for a complex already defined modulo π^M, and use φ_N in a restriction of the M-level datum even when N=0.
+**Source assertion.** The conditions use all positive reduction exponents for a complex already defined modulo π^M, and use φ_N in a restriction of the M-level datum even when N=0.
 
 **Correction.** Use 1≤n≤M (and 1≤n≤N in the N-level augmentation) and use ker φ_M for the M-level datum. Tensor at these levels over the finite coefficient ring on a free representative.
 
 **Reason.** A module annihilated by π^N cannot recover a nonzero O-free H modulo π^{N+1}; φ_0 is also undefined. The finite datum in the proof uses only exponents bounded by its level.
 
-**Reach.** the proof. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4857,17 +4884,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Theorem 6.3, p. 387: the finite-level module killed by π^N cannot model higher augmentation precision, and φ₀ is undefined. Indices are restricted in the corrected plan.
+
 ### E-W9405-7 — CG18 misprint
 
-**Locator.** Theorem 6.3(iii) and proof, journal-layout author PDF pp. 387–389.
+**Locator.** Theorem 6.3(iii) and proof, journal-layout author PDF pp. 387–389
 
-**Source assertion, paraphrased.** The numerical R∞-depth is attached to the unframed top cohomology, although the proof applies the depth argument to the framed complex.
+**Source assertion.** The numerical R∞-depth is attached to the unframed top cohomology, although the proof applies the depth argument to the framed complex.
 
 **Correction.** Attach the formula to H^b(P∞ framed). Require this top module to be nonzero for a finite numerical depth value.
 
 **Reason.** Removing j regular framing variables can lower depth by j. For the zero system, depth of the zero module is infinite, whereas the displayed finite dimension is positive.
 
-**Reach.** a stated result. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4876,17 +4907,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Theorem 6.3, pp. 387–388: the numerical dimension/depth comparison must use the framed ring and a nonzero system. The zero system and removal of framing variables test these conditions.
+
 ### E-W9405-8 — CG18 gap
 
-**Locator.** Theorem 6.3 proof, framing-quotient cohomology comparison, journal-layout author PDF p. 388.
+**Locator.** Theorem 6.3 proof, framing-quotient cohomology comparison, journal-layout author PDF p. 388
 
-**Source assertion, paraphrased.** Cohomology is commuted with tensor by every allowed framing quotient to transport the actions.
+**Source assertion.** Cohomology is commuted with tensor by every allowed framing quotient to transport the actions.
 
 **Correction.** Either supply actions on all required derived coefficient reductions or restrict to an O-flat cofinal family and prove its sufficiency. The blueprint uses an enhanced derived action and a flat cofinal family.
 
 **Reason.** For A=O/π², the two-term A[[z]] complex with differential π and I=(z²,πz) has tensor of H⁰ equal to k[z]/z² with nonzero z action. H⁰ after quotient is generated by π,z and has zero z action. They are not isomorphic.
 
-**Reach.** the proof. **Known correction.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded in the accepted P8/P9 source findings. A published correction exists: Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. Its text could not be accessed in this run; coverage of this particular finding was not independently established. No novelty claim.
 
 **Correction search.**
 
@@ -4895,17 +4930,21 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Theorem 6.3 proof, p. 388: for differential π over (O/π²)[[z]] and I=(z²,πz), H⁰ does not commute with this nonflat quotient. The two modules have distinct z actions as recorded.
+
 ### E-W9405-9 — CG18 misprint
 
-**Locator.** Definitions of completed group rings and framing rings in §§2 and 6, journal-layout author PDF pp. 306–310, 386.
+**Locator.** Definitions of completed group rings and framing rings in §§2 and 6, journal-layout author PDF pp. 306–310, 386
 
-**Source assertion, paraphrased.** The journal-layout copy displays single brackets for several power-series and profinite completed group algebras.
+**Source assertion.** The journal-layout copy displays single brackets for several power-series and profinite completed group algebras.
 
 **Correction.** Use O[[Z_p^q]] and O[[z_1,…,z_j]] for the infinite completed algebras; keep O[Δ_N] for finite group rings.
 
 **Reason.** The proof requires complete local algebras with finite open quotients; ordinary group or polynomial algebras do not have those properties.
 
-**Reach.** nothing. **Known correction.** The accepted P8 review identifies correction items (1) and (10) in Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. This run verified publisher metadata but could not access its text; the item identification is inherited explicitly.
+**Affects.** nothing
+
+**Prior correction or version scope.** The accepted P8 review identifies correction items (1) and (10) in Invent. Math. 227 (2022), 855–856, DOI 10.1007/s00222-021-01095-5. This run verified publisher metadata but could not access its text; the item identification is inherited explicitly.
 
 **Correction search.**
 
@@ -4914,192 +4953,259 @@ All statements and findings here are in the worker’s own words. Each finding i
 - Springer correction DOI 10.1007/s00222-021-01095-5: metadata read; full text served only as subscription content.
 - Accepted roadmap P8/P9 findings and completed independent reviews were inspected; they report reading the two-page correction, but this run does not represent that as its own primary-source reading.
 
+**Independent verdict: confirmed.** CG18 Theorem 6.4, p. 389: visual inspection confirms ordinary brackets at the location where the proof uses complete formal/Iwasawa algebras. Interpret them as formal brackets in the targets.
+
 ### E-W9405-10 — Pilloni20 misprint
 
-**Locator.** Proposition 2.2.1 proof, cleared author PDF p. 9.
+**Locator.** Proposition 2.2.1 proof, cleared author PDF p. 9
 
-**Source assertion, paraphrased.** The successive adic layer is written with m^n above m^{n−1}.
+**Source assertion.** The successive adic layer is written with m^n above m^{n−1}.
 
 **Correction.** Use m^{n−1}/m^n.
 
 **Reason.** The ideals decrease, so the displayed reversed quotient is not the kernel of reduction modulo m^n to reduction modulo m^{n−1}.
 
-**Reach.** the proof. **Known correction.** Previously recorded as E-P7II-01 and independently confirmed; present in the cleared copy read.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded as E-P7II-01 and independently confirmed; present in the cleared copy read.
 
 **Correction search.**
 
 - Author page https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/, checked 2026-10-13; no linked correction for these passages.
 - Accepted P7-II findings and independent review, compared with the maintainer-cleared author PDF in place. No claim about an unseen publisher revision.
 
+**Independent verdict: confirmed.** Pilloni20 Proposition 2.2.1, author p. 9: descending maximal powers give m^(n−1)/m^n, not the reversed quotient.
+
 ### E-W9405-11 — Pilloni20 misprint
 
-**Locator.** Proposition 2.2.2 proof, cleared author PDF p. 9.
+**Locator.** Proposition 2.2.2 proof, cleared author PDF p. 9
 
-**Source assertion, paraphrased.** The residue Tor spectral sequence is written for M while proving the cone of f acyclic.
+**Source assertion.** The residue Tor spectral sequence is written for M while proving the cone of f acyclic.
 
 **Correction.** Apply that spectral sequence to Cone(f).
 
 **Reason.** Only Cone(f) has the acyclic residue change used to force its cohomology to vanish.
 
-**Reach.** the proof. **Known correction.** Previously recorded as E-P7II-02 and independently confirmed; present in the cleared copy read.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded as E-P7II-02 and independently confirmed; present in the cleared copy read.
 
 **Correction search.**
 
 - Author page https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/, checked 2026-10-13; no linked correction for these passages.
 - Accepted P7-II findings and independent review, compared with the maintainer-cleared author PDF in place. No claim about an unseen publisher revision.
 
+**Independent verdict: confirmed.** Pilloni20 Proposition 2.2.2, author p. 9: the vanishing argument applies to Cone(f), whose residue reduction is acyclic, rather than to the unchanged source complex.
+
 ### E-W9405-12 — Pilloni20 gap
 
-**Locator.** Lemma 2.3.1 proof, cleared author PDF p. 10.
+**Locator.** Lemma 2.3.1 proof, cleared author PDF p. 10
 
-**Source assertion, paraphrased.** An infinite completed free module is denoted by completion of R^I without specifying sum versus product.
+**Source assertion.** An infinite completed free module is denoted by completion of R^I without specifying sum versus product.
 
 **Correction.** Use the completion of the algebraic direct sum indexed by the residue basis; the residual matrix has rows J″ and columns I″.
 
 **Reason.** Residue-basis lifts extend a map from a direct sum. An unrestricted infinite product over a field is not spanned by its coordinate basis. The displayed residual block also has its row and column index families reversed.
 
-**Reach.** the proof. **Known correction.** Previously recorded as E-P7II-03/04, independently confirmed as an ambiguity and an index slip, without asserting the author intended an infinite product.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously recorded as E-P7II-03/04, independently confirmed as an ambiguity and an index slip, without asserting the author intended an infinite product.
 
 **Correction search.**
 
 - Author page https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/, checked 2026-10-13; no linked correction for these passages.
 - Accepted P7-II findings and independent review, compared with the maintainer-cleared author PDF in place. No claim about an unseen publisher revision.
 
+**Independent verdict: confirmed.** Pilloni20 Proposition 2.3.1, author p. 10: coordinate lifts define a completed direct sum/topological basis, not an unrestricted product; the residual-block index families are reversed. The roadmap states the completion topology explicitly.
+
 ### E-W9405-13 — BP26 gap
 
-**Locator.** Proposition 2.3.13 proof, author PDF pp. 16–17.
+**Locator.** Proposition 2.3.13 proof, author PDF pp. 16–17
 
-**Source assertion, paraphrased.** The factorization of a map from a pseudo-coherent complex through a filtered union uses a filtered derived-Hom comparison without spelling out its boundedness requirement.
+**Source assertion.** The factorization of a map from a pseudo-coherent complex through a filtered union uses a filtered derived-Hom comparison without spelling out its boundedness requirement.
 
 **Correction.** Verify that the filtered targets have a common lower cohomological bound, then use finite perfect approximations; pseudo-coherent does not by itself mean compact.
 
 **Reason.** Over k[ε]/ε² the pseudo-coherent module k has an infinite negative free resolution. For targets ⊕_{i=0}^n k[i], the colimit of degree-zero Hom gives finite-support sequences; Hom into the infinite direct sum gives the corresponding product, since that resolution is unbounded. The comparison fails without a common lower bound.
 
-**Reach.** the proof. **Known correction.** Previously identified in the routed extraction. No correction found on the author publication page; scoped to the author PDF read, not the unseen Inventiones version.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously identified in the routed extraction. No correction found on the author publication page; scoped to the author PDF read, not the unseen Inventiones version.
 
 **Correction search.**
 
 - Author page https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/, checked 2026-10-13; no linked correction for these passages.
 - Accepted P7-II findings and independent review, compared with the maintainer-cleared author PDF in place. No claim about an unseen publisher revision.
 
+**Independent verdict: rejected.** BP26 Proposition 2.3.13, pp. 16–17, uses twists of the fixed exceptional pullback of a coherent sheaf along a finite-type map. Stacks Duality Lemma 3.5 and Lemmas 17.5–17.6 (0A9I, 0AU1, pp. 6, 47–48) keep that object bounded below, with a common bound on the quasi-compact schemes involved; invertible twists preserve it. The proposed unbounded-target counterexample does not apply. Retain the bounded-Hom target, but do not label this source proof erroneous.
+
 ### E-W9405-14 — BP26 misprint
 
-**Locator.** Lemma 2.6.6 proof, author PDF p. 21.
+**Locator.** Lemma 2.6.6 proof, author PDF p. 21
 
-**Source assertion, paraphrased.** The proof writes the image of d⁰ as lying in M_1, an index not used for its cochain terms.
+**Source assertion.** The proof writes the image of d⁰ as lying in M_1, an index not used for its cochain terms.
 
 **Correction.** Use M¹.
 
 **Reason.** The map d⁰ has codomain M¹; the quotient split in the proof is inside that term.
 
-**Reach.** nothing. **Known correction.** No correction found in the bounded author-page check; source is the author PDF, not the unseen publisher version.
+**Affects.** nothing
+
+**Prior correction or version scope.** No correction found in the bounded author-page check; source is the author PDF, not the unseen publisher version.
 
 **Correction search.**
 
 - Author page https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/, checked 2026-10-13; no linked correction for these passages.
 - Accepted P7-II findings and independent review, compared with the maintainer-cleared author PDF in place. No claim about an unseen publisher revision.
 
+**Independent verdict: confirmed.** BP26 Lemma 2.6.6, author p. 21: the degree-zero differential lands in M¹, and its quotient is formed there.
+
 ### E-W9405-15 — Hochster12 misprint
 
-**Locator.** Lecture of January 27, graded multiplicity discussion, pp. 33–34.
+**Locator.** Lecture of January 27, hypersurface calculation, p. 35 (definitions and regular-ring comparison on pp. 33–34)
 
-**Source assertion, paraphrased.** The degree-(d−1) polynomial of graded-piece lengths is assigned a leading coefficient with denominator d!.
+**Source assertion.** In the hypersurface calculation, a degree-d polynomial difference is assigned leading coefficient μa rather than dμa, and the resulting degree-(d−1) cumulative polynomial is assigned coefficient μ/d!.
 
-**Correction.** Use (d−1)! for graded pieces, and d! for cumulative quotient lengths.
+**Correction.** For a degree-d polynomial with leading coefficient a, the difference P(n)−P(n−μ) has degree d−1 and leading coefficient dμa. For the hypersurface cumulative polynomial this is μ/(d−1)!, so multiplicity is μ. In general, graded pieces of a d-dimensional module use (d−1)! and cumulative lengths use d!.
 
 **Reason.** For k[[x,y]], graded lengths are n+1 and multiplicity is one, so the coefficient is 1=1/1!, not 1/2!. Summation raises the degree and changes the factorial.
 
-**Reach.** nothing. **Known correction.** No correction linked on the author course-notes page checked; bounded search only.
+**Affects.** nothing
+
+**Prior correction or version scope.** No correction linked on the author course-notes page checked; bounded search only.
 
 **Correction search.**
 
 - https://sites.lsa.umich.edu/hochster/lecture-notes-from-course-and-seminars/, inspected 2026-10-13.
 - The public Winter 2012 PDF and the accepted source findings were compared.
 
+**Independent verdict: confirmed.** Hochster12 January 27, p. 35: differencing a degree-d leading term a gives dμa, so the hypersurface cumulative coefficient is μ/(d−1)!. The finding’s page and numerical factor were corrected.
+
 ### E-W9405-16 — Tho15 error
 
-**Locator.** Definition 1.7 and Proposition 1.8, author PDF pp. 8–9.
+**Locator.** Definition 1.7 and Proposition 1.8, author PDF pp. 8–9
 
-**Source assertion, paraphrased.** Connectedness dimension is the infimum of dimensions of disconnecting closed sets, without a convention for an irreducible spectrum, and is then used in a finite quotient inequality.
+**Source assertion.** Connectedness dimension is the infimum of dimensions of disconnecting closed sets, without a convention for an irreducible spectrum, and is then used in a finite quotient inequality.
 
 **Correction.** Cap connectedness dimension by dim A (or explicitly assign dim A to the irreducible case) before stating the quotient inequality.
 
 **Reason.** An irreducible spectrum has no disconnecting closed subset, so the literal infimum is infinite. For A=k[[x,y]], I=(xy), Spec(A/I) is disconnected after removing its closed point and has connectedness dimension zero. The uncapped inequality would demand zero≥infinity.
 
-**Reach.** a stated result. **Known correction.** Previously routed; no correction linked on the author page. Scope is the author copy read.
+**Affects.** a stated result
+
+**Prior correction or version scope.** Previously routed; no correction linked on the author page. Scope is the author copy read.
 
 **Correction search.**
 
 - https://www.dpmms.cam.ac.uk/~jat58/, inspected 2026-10-13; it warns author copies can differ from publication.
 - Definition and proposition read in the author PDF; the primary Brodmann–Rung connectedness theorem remains a source gap rather than an assumed correction.
 
+**Independent verdict: confirmed.** Tho15 Definition 1.7 and Proposition 1.8, p. 8: literal disconnected-locus infimum is infinite on an irreducible spectrum, contradicting the finite lower bound after quotient by (xy). A capped convention is required.
+
 ### E-W9405-17 — EG14 error
 
-**Locator.** Lemma 2.2.14 proof, arXiv:1109.4226v3 p. 9.
+**Locator.** Lemma 2.2.14 proof, arXiv:1109.4226v3 p. 9
 
-**Source assertion, paraphrased.** The proof identifies minimal primes of A completed-tensor B with sums of pairs of minimal primes over an arbitrary coefficient field.
+**Source assertion.** The proof identifies minimal primes of A completed-tensor B with sums of pairs of minimal primes over an arbitrary coefficient field.
 
 **Correction.** Require each pairwise component tensor to be a domain, for example under suitable geometric-integrality hypotheses, or retain all components of those tensors in the cycle product.
 
 **Reason.** Take k=R and A=B=C, viewed as complete local k-algebras. Each has only the zero prime, but C tensor_R C is C×C, with two minimal primes; the sum of the two input zero primes is not prime. The cycle-product statement itself can still be valid when products are full cycles.
 
-**Reach.** the proof. **Known correction.** No correction for this proof step linked on the author preprints page; scoped to arXiv v3, with no assertion that the publisher proof is identical.
+**Affects.** the proof
+
+**Prior correction or version scope.** No correction for this proof step linked on the author preprints page; scoped to arXiv v3, with no assertion that the publisher proof is identical.
 
 **Correction search.**
 
 - https://www.math.uchicago.edu/~emerton/preprints.html, inspected 2026-10-13: the paper link has no separate erratum.
 - arXiv:1109.4226v3 PDF inspected; the publisher version was not read in this run.
 
+**Independent verdict: confirmed.** EG14 Lemma 2.2.14, arXiv v3 p. 9: C⊗_R C≅C×C disproves pairwise minimal-prime identification for unrestricted coefficient residue fields. The packet uses common residue k and geometric hypotheses.
+
 ### E-W9405-18 — BIP23 gap
 
-**Locator.** Lemma 3.35, arXiv:2110.01638v2 p. 27.
+**Locator.** Lemma 3.35, arXiv:2110.01638v2 p. 27
 
-**Source assertion, paraphrased.** The punctured base-change completion formula does not state the finite residue extension required by its coefficient-field argument.
+**Source assertion.** The punctured base-change completion formula does not state the finite residue extension required by its coefficient-field argument.
 
 **Correction.** For this adapter require F/κ(p′) finite; closed punctured points supply the finite extension. Do not generalize from finite type to every point.
 
 **Reason.** For R=k[[x]], take a field F=k((x))(t) at the generic point. It is a finitely generated residue field of a point on Spec R[t], but transcendental over κ((0))=k((x)); it cannot be generated by the finite algebraic coefficient extension used by the proof.
 
-**Reach.** the proof. **Known correction.** A 2024 corrigendum DOI 10.1017/fmp.2024.3 was read and corrects an affiliation only; it does not address this missing hypothesis. No novelty assertion beyond the records inspected.
+**Affects.** the proof
+
+**Prior correction or version scope.** A 2024 corrigendum DOI 10.1017/fmp.2024.3 was read and corrects an affiliation only; it does not address this missing hypothesis. No novelty assertion beyond the records inspected.
 
 **Correction search.**
 
 - Official Cambridge 2024 corrigendum for On local Galois deformation rings, read 2026-10-13; its mathematical statement is unchanged.
 - arXiv:2110.01638 version metadata and v2 proof inspected; the original publisher proof was not collated in this run.
 
+**Independent verdict: confirmed.** BIP23 Lemma 3.35, arXiv v2 p. 27: k((x))(t) is a finite-type field over k((x)) but not finite algebraic. This finding does not impugn the local-field specialization in Lemma 3.36.
+
 ### E-W9405-19 — BCGP25 gap
 
-**Locator.** §7.2.1, patching construction, arXiv:2502.20645v1 pp. 161–162.
+**Locator.** §7.2.1, patching construction, arXiv:2502.20645v1 pp. 161–162
 
-**Source assertion, paraphrased.** Finite patching stabilization is applied to quotients by augmentation powers while the weight coefficient algebra remains present.
+**Source assertion.** Finite patching stabilization is applied to quotients by augmentation powers while the weight coefficient algebra remains present.
 
 **Correction.** Use quotients by open maximal-adic ideals of the full coefficient algebra, and separately prove pointed cotangent comparison at the limit.
 
 **Reason.** For Λ=O[[w]], quotienting only by π^n and a group augmentation ideal retains k[[w]] already at n=1. Its underlying set is infinite, so the finite-level ultrafilter stabilization used for finite rings does not apply to those quotients.
 
-**Reach.** the proof. **Known correction.** No correction identified in the inspected author-page/preprint records; finding is scoped to arXiv v1.
+**Affects.** the proof
+
+**Prior correction or version scope.** No correction identified in the inspected author-page/preprint records; finding is scoped to arXiv v1.
 
 **Correction search.**
 
 - Frank Calegari and Vincent Pilloni author publication pages, inspected 2026-10-13.
 - The v1 proof and its GN finite-ring input were read; later unpublished improvements are not assumed.
 
+**Independent verdict: confirmed.** BCGP25 §7.2.1, v1 pp. 161–163: Λ=O[[w]] still has infinitely many elements after π and augmentation reduction. Cofinal powers of the full maximal ideal supply finite sets for stabilization.
+
 ### E-W9405-20 — IKM24 gap
 
-**Locator.** Theorem 10.6 and proof, arXiv:2206.08212v3 pp. 43–47.
+**Locator.** Theorem 10.6 and proof, arXiv:2206.08212v3 pp. 43–47
 
-**Source assertion, paraphrased.** The coefficient homomorphism is claimed to make the whole patched ring R∞ finite over S∞, although the proof directly controls the image acting on each patched perfect complex.
+**Source assertion.** The proof first chooses a common coefficient lift through the inverse-limit ring Q, then, after examining one nonzero patched object, invokes BKM Lemmas 3.6–3.7 to change the lift through its finite action image R′ so that R∞ is finite over S∞.
 
-**Correction.** Use the finite action image R′=image(R∞→End_D(S∞)(C∞)) for CM and duality conclusions. Whole-ring finiteness requires an additional finite parameter quotient or an argument uniform over the whole ring.
+**Correction.** Account for the cited parameter-lifting argument. For a categorical patching theorem, additionally prove that the adjusted lift preserves the common S∞→Q map, or that it induces the required scalar action for every object and morphism. Until that uniform comparison is supplied, use the original common lift and finite action images for CM and duality conclusions.
 
-**Reason.** Finite S∞-cohomology makes its derived endomorphism module finite over S∞ and therefore makes R′ finite. It does not make its surjecting ring R∞ finite without controlling the kernel. No counterexample to the theorem is claimed; the missing implication is left as an explicit refinement.
+**Reason.** BKM Lemmas 3.6–3.7, arXiv:2108.09729v2 pp. 11–12, give prime-avoiding lifts of parameters; the finite/free conclusion in Lemma 3.6 uses its CM/CI hypotheses. IKM explicitly invokes adaptation of this argument on p. 47, so the implication is not simply omitted. The unresolved step for the functor stated in Theorem 10.6 is compatibility of a lift changed using one action image with the previously fixed Q and all objects. No counterexample to whole-ring finiteness or to the theorem is asserted.
 
-**Reach.** the proof. **Known correction.** Previously routed proof obligation; no correction found in the inspected arXiv v3 record. Scope is v3, not an unseen later edition.
+**Affects.** the proof
+
+**Prior correction or version scope.** Previously routed proof obligation; no correction found in the inspected arXiv v3 record. Scope is v3, not an unseen later edition.
 
 **Correction search.**
 
 - Official arXiv:2206.08212 version record, checked 2026-10-13.
 - The v3 theorem, construction and §11 duality applications were read; accepted routed obligations E34/E35 were compared.
+- The cited BKM arXiv:2108.09729v2 Lemmas 3.6–3.7 and their proofs, pp. 11–12, read in this independent review; the original finding was narrowed to the common-map compatibility obligation.
+
+**Independent verdict: confirmed.** Confirmed only as the stated uniform coefficient-map proof obligation, after correcting the finding to acknowledge IKM p. 47 and its BKM parameter-lifting argument. The direct finite-image observation alone is not a refutation of that argument; single-object parameter lifting and a coefficient map common to PaSy are different obligations.
+
+### E-REV9373-21 — Stone misprint
+
+**Locator.** Example 10, printed p. 15 (PDF p. 19), course PDF dated 16 April 2013
+
+**Source assertion.** The associated graded ring of k[[x,y]] is written as another formal power-series ring, and the associated graded cusp quotient uses the same notation.
+
+**Correction.** Use the graded polynomial ring k[X,Y] and its quotient k[X,Y]/(X²), with X,Y in degree one.
+
+**Reason.** The associated graded is the direct sum of finite homogeneous pieces. For the regular two-variable local ring its degree-n piece has dimension n+1; completed formal series are not elements of that graded direct sum.
+
+**Affects.** nothing
+
+**Prior correction or version scope.** No novelty claim; a notation slip in the inspected public course PDF.
+
+**Correction search.**
+
+- The linked Adelphi commutative-algebra course-note PDF was checked in its dated revision; no separate correction was linked with that file.
+
+**Independent verdict: confirmed.** Independently read Example 10, p. 15. The source’s initial-form calculation is correct after replacing completed power series by graded polynomials; the Hilbert-series targets already use direct sums.
 
 ## Routed uses
 
@@ -5291,7 +5397,7 @@ This ledger maps all 181 incoming identities from 22 papers to reusable targets 
 
 ## Baseline reuse ledger
 
-Each declaration below was read at the stated pin and its full name resolved by the seventeen-declaration Lean audit. These entries give exact reusable inputs; they do not claim implementations of the larger targets.
+All twenty-two declarations were independently read at the recorded pins. Name resolution was checked for the seventeen inherited references and for the five evaluation/K-projective references added by this review. These are inputs to the local adapters, not implementations of the larger targets.
 
 | Declaration | Source module | Provided input |
 |---|---|---|
@@ -5312,20 +5418,25 @@ Each declaration below was read at the stated pin and its full name resolved by 
 | `tauceti:TauCeti.IsInjectiveEnvelope` | `TauCeti/Algebra/Module/Injective/Envelope.lean` | The existing essential-embedding predicate and uniqueness API for envelopes; existence is explicitly absent. |
 | `mathlib:localCohomology` | `Mathlib/Algebra/Homology/LocalCohomology.lean` | Local cohomology as a colimit of Ext modules; the derived-functor and Čech comparisons are still absent. |
 | `mathlib:localCohomology.isoOfSameRadical` | `Mathlib/Algebra/Homology/LocalCohomology.lean` | Natural radical-invariance comparison for local cohomology over a Noetherian ring. |
+| `mathlib:MvPowerSeries.eval₂Hom` | `Mathlib/RingTheory/MvPowerSeries/Evaluation.lean` | Power-series evaluation as a ring homomorphism for continuous coefficients and HasEval entries, with complete separated linearly topologized target and the declared uniform/topological ring instances. |
+| `mathlib:MvPowerSeries.eval₂_unique` | `Mathlib/RingTheory/MvPowerSeries/Evaluation.lean` | Uniqueness of a continuous evaluation agreeing on polynomials, under the same HasEval and completeness hypotheses. |
+| `mathlib:CochainComplex.isKProjective_of_projective` | `Mathlib/Algebra/Homology/HomotopyCategory/KProjective.lean` | A cochain complex in an abelian category, bounded above and degreewise projective, is K-projective. |
+| `mathlib:CochainComplex.IsKProjective.quasiIso_iff` | `Mathlib/Algebra/Homology/DerivedCategory/KProjective.lean` | A morphism between K-projective cochain complexes is a quasi-isomorphism iff a homotopy equivalence; local standard derived-category instance. |
+| `mathlib:CochainComplex.IsKProjective.Qh_map_bijective` | `Mathlib/Algebra/Homology/DerivedCategory/KProjective.lean` | With HasDerivedCategory, maps from a K-projective source in the homotopy category correspond bijectively to maps in the derived category. |
 
 ## Bibliography and inspected versions
 
-Page numbers in target citations follow the edition named here. Cleared author copies were read in place; only bibliographic metadata and hashes are recorded. Other public PDFs are identified by their access date and hash. The reader is organized by its mathematical targets, not as a source-by-source summary.
+Page numbers follow the exact edition listed. Cleared sources were read in place; only metadata and hashes appear here. The reader is organized by mathematical targets rather than by source sections. SHA-256 records identify the actual files inspected; the EG14 hash was refreshed in independent review.
 
 - **StacksFormalDefos.** The Stacks Project, [Formal deformation theory](https://stacks.math.columbia.edu/download/formal-defos.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
   SHA-256: `f6549caab0fa380254eb316265ce14357794224c0e01c517bb0365c708a4c2ea`.
-  Inspected locators: Definitions 3.1–3.2, Lemma 3.3, pp. 4–5; §10, p. 26; Definition 4.1 and Lemmas 4.2–4.8, pp. 7–11; Lemma 3.8 and Example 3.7, pp. 6–7; Lemmas 4.7–4.8, pp. 10–11; André §3.4, printed p. 84; Lemma 4.8 proof, pp. 10–11; Stacks Algebra §97; §10, pp. 26–28; §12, pp. 32–35; Remark 13.5, p. 41; Remark 15.6, p. 47; Definitions 8.9 and 14.4, pp. 23 and 44; Lemma 14.5, p. 44; Remark 15.6, p. 47; Lemma 13.4 and Remark 13.5, pp. 39–41; Theorem 15.5, pp. 46–47; Lemmas 16.3 and 16.7, pp. 48–51; Lemma 18.1 and Theorem 18.2, pp. 54–55; Lemma 17.5 and Remark 17.6, pp. 53–54; Definition 9.1 and warning, p. 24; §§13 and 17, pp. 39–41 and 53–54; KWII §2.2, pp. 7–8.
+  Inspected locators: Definitions 3.1–3.2, Lemma 3.3, pp. 4–5; §10, p. 26; Definition 4.1, p. 9; Lemmas 4.2–4.6, pp. 10–11; Lemmas 4.7–4.8, p. 12; Lemma 3.8 and Example 3.7, pp. 6–7; Lemmas 4.7–4.8, p. 12; André §3.4, printed p. 84; Lemma 4.8 and proof, p. 12; Stacks Algebra §97; §10, pp. 26–28; §12, pp. 32–35; Remark 13.5, p. 41; Remark 15.6, p. 47; Definitions 8.9 and 14.4, pp. 23 and 44; Lemma 14.5, p. 44; Remark 15.6, p. 47; Lemma 13.4 and Remark 13.5, pp. 39–41; Theorem 15.5, pp. 46–47; Lemmas 16.3 and 16.7, pp. 48–51; Lemma 18.1 and Theorem 18.2, pp. 54–55; Lemma 17.5 and Remark 17.6, pp. 53–54; Definition 9.1 and warning, p. 24; §§13 and 17, pp. 39–41 and 53–54; KWII §2.2, pp. 7–8.
 - **StacksAlgebra.** The Stacks Project, [Commutative algebra](https://stacks.math.columbia.edu/download/algebra.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
   SHA-256: `b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947`.
-  Inspected locators: §60 (dimension), §103 (CM), pp. 140–145 and 246–251; IKM24 Lemma 3.1, p. 18; Definitions 103.1 and 103.8, pp. 246 and 248, tags 00N3 and 00NF; LLHLM20 Definition 3.5.1, p. 37; Proposition 110.1, Lemma 110.5, pp. 261–264, tags 00O7 and 00OC; Proposition 111.1, pp. 267–268, tag 090V; Lemma 110.6, p. 264, tag 0AFS; Lemma 110.9, p. 265, tag 00OF; Ces19 Corollary 2.5 and SGA2 XI 3.13(i), pp. 5–6.
+  Inspected locators: §60 (dimension), §103 (CM), pp. 140–145 and 246–251; IKM24 Lemma 3.1, p. 17; Definitions 103.1 and 103.8, pp. 246 and 248, tags 00N3 and 00NF; LLHLM20 Definition 3.5.1, p. 37; Propositions 110.1 and 110.5, pp. 265–266, tags 00O7 and 00OC; Proposition 111.1, pp. 267–268, tag 090V; Lemma 110.6, p. 267, tag 0AFS; Lemma 110.9, p. 267, tag 00OF; Ces19 Corollary 2.5 and SGA2 XI 3.13(i), pp. 5–6.
 - **StacksDualizing.** The Stacks Project, [Dualizing complexes](https://stacks.math.columbia.edu/download/dualizing.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
   SHA-256: `f69eee17ae505f86266a58fc2d317f5f27eab1f426d5943d782a69b59b3674e6`.
-  Inspected locators: Lemma 11.1, pp. 18–19, tag 0AVZ; Stacks Algebra §72; Lemma 11.2, p. 19, tag 0BUV; Stacks Algebra Lemma 103.7, pp. 247–248, tag 0BUS; Lemmas 10.1–10.3, pp. 17–18, tags 0955–0957; Ces21 §3, PDF pp. 13–17; Lemma 11.1, pp. 18–19; Ces21 §3.14, PDF p. 16; LLHLM20 Theorem 5.2.3 proof, p. 120; Definition 15.1 and Lemma 15.3, pp. 26–27, tags 0A7B and 0A7C; §16, p. 29; IKM24 §4, p. 21; Lemmas 15.6, 15.8–15.11, pp. 28–29; Lemma 16.1, p. 29; Lemma 22.4, p. 41, tags 0A7G, 0AX0, 0A7K, 0AX1 and 0BFR; Lemmas 18.1, 18.3–18.4, pp. 34–35, tags 0A82, 0A84 and 0AAK; Ces21 Lemma 3.6(a), PDF p. 11; §19 and Lemmas 20.1–20.2, pp. 35–36, tags 0AWR and 0AWS; IKM24 (4.2)–(4.3), p. 21, Proposition 4.4 proof, p. 22; §21, pp. 37–39, tags 0DW7, 0AWX, 0BJJ and 0DWA; IKM24 §9, pp. 38–40; Lemma 20.4, p. 37, tag 0EHS; Ces21 §3.5, PDF p. 10.
+  Inspected locators: Lemma 11.1, pp. 18–19, tag 0AVZ; Stacks Algebra §72; Lemma 11.2, p. 19, tag 0BUV; Stacks Algebra Lemma 103.7, pp. 247–248, tag 0BUS; Lemmas 10.1–10.3, pp. 17–18, tags 0955–0957; Ces21 §3, PDF pp. 13–17; Lemma 11.1, pp. 18–19; Ces21 §3.14, PDF p. 16; LLHLM20 Theorem 5.2.3 proof, p. 120; Definition 15.1 and Lemma 15.3, pp. 26–27, tags 0A7B and 0A7C; §16, p. 29; IKM24 §4, p. 21; Lemmas 15.6, 15.8–15.10 and Proposition 15.11, pp. 28–29; Lemma 16.1, p. 29; Lemma 22.4, p. 41, tags 0A7G, 0AX0, 0A7K, 0AX1 and 0BFR; Lemma 18.1, Theorem 18.3 and Lemma 18.4, pp. 34–35, tags 0A82, 0A84 and 0AAK; Ces21 Lemma 3.6(a), PDF p. 11; §19 and Lemmas 20.1–20.2, pp. 35–36, tags 0AWR and 0AWS; IKM24 (4.2)–(4.3), p. 21, Proposition 4.4 proof, p. 22; §21, pp. 37–39, tags 0DW7, 0AWX, 0BJJ and 0DWA; IKM24 §9, pp. 38–40; Lemma 20.4, p. 37, tag 0EHS; Ces21 §3.5, PDF p. 10.
 - **CG18.** Frank Calegari and David Geraghty, [Modularity lifting beyond the Taylor–Wiles method](https://www.math.uchicago.edu/~fcale/papers/CG.pdf). Invent. Math. 211 (2018), 297–433; author journal PDF. Accessed 13 October 2026.
   SHA-256: `c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5`.
   Inspected locators: §4.1, Lemmas 4.1–4.2, printed pp. 355–356; §4.1, p. 356; Lemma 4.11 proof, p. 364; §4.1 before Lemma 4.4, pp. 356–357; Stone §1.2, pp. 4–7; Lemma 4.4 and counterexample, pp. 357–358 (corrected first equivalence); Lemma 4.6 proof, pp. 359–360; Definitions 2.1–2.2 and Proposition 2.3 proof, pp. 307–310; Proposition 3.8 proof, p. 323; Proposition 5.10 proof, p. 378; CG20 Theorem 7.11 proof, p. 853; Proposition 2.3 and proof, pp. 308–310; Lemmas 7.5–7.7 and proof, pp. 396–398; Pilloni20 §2.3, pp. 9–11.
@@ -5334,31 +5445,31 @@ Page numbers in target citations follow the edition named here. Cleared author c
   Inspected locators: Lemma 2.6.6, pp. 21–22; KT17 §2.1, pp. 5–6; Stacks More on Algebra §perfect complexes; Lemma 2.6.6, pp. 21–22; Proposition 2.3.13 proof, p. 17.
 - **Andre18.** Yves André, [La conjecture du facteur direct](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf). Publ. Math. IHÉS 127 (2018), 71–93; version of record. Accessed 13 October 2026.
   SHA-256: `34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053`.
-  Inspected locators: §4.2 and §4.4(1), printed pp. 86–88; CS24 §1.4, PDF p. 8; §4.2, printed p. 86; §4.2 and §4.4(1), printed pp. 86–88; Lemma 1.1.1 and proof, printed pp. 75–76; §0.1, footnote 1, printed p. 72.
+  Inspected locators: §4.2 and §4.4(1), printed pp. 86–88; §4.2, printed p. 86; §4.2 and §4.4(1), printed pp. 86–88; Lemma 1.1.1 and proof, printed pp. 75–76; §0.1, footnote 1, printed p. 72.
 - **Bhatt18.** Bhargav Bhatt, [On the direct summand conjecture and its derived variant](https://arxiv.org/pdf/1608.08882v2). arXiv:1608.08882v2. Accessed 13 October 2026.
   SHA-256: `08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430`.
-  Inspected locators: Lemma 5.3, PDF pp. 8–9; Lemma 5.3, PDF pp. 8–9; KT17 Lemma 2.13, PDF pp. 11–12.
+  Inspected locators: Lemma 5.3, PDF pp. 9–10; Lemma 5.3, PDF pp. 9–10; KT17 Lemma 2.13, PDF pp. 11–12.
 - **BMP23.** Bhargav Bhatt, Linquan Ma, Zsolt Patakfalvi, Karl Schwede, Kevin Tucker, Joe Waldron and Jakub Witaszek, [Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic](https://arxiv.org/pdf/2012.15801v3). arXiv:2012.15801v3; cite the PDF pagination. Accessed 13 October 2026.
   SHA-256: `533218825ca5045a9e8e04da1f78ef51e05c90dd83ca4ecb7cd6e8c68dff3d80`.
   Inspected locators: Lemma 4.10 and Remarks 4.11–4.12, pp. 39–40.
 - **BIP23.** Gebhard Böckle, Ashwin Iyengar and Vytautas Paškūnas, [On local Galois deformation rings](https://arxiv.org/pdf/2110.01638v2). arXiv:2110.01638v2; cite PDF and published pagination separately. Accessed 13 October 2026.
   SHA-256: `b48dad0a42d8cacea0a4ae80d5f3a5e89c3a13bf2e03beb8527081422b5853c4`.
   Inspected locators: Corollary 3.40 and proofs of Propositions 4.14, 4.17, PDF pp. 43–44; Stacks Algebra §157; Lemma 3.17, PDF p. 18; KWII Proposition 2.2(i) and Corollary 2.3, pp. 9–10; Lemmas 3.14 and 3.18–3.20, PDF pp. 16–19; PQ26 Lemma 14.2 and Remark 14.3, pp. 72–73; Lemmas 3.35–3.37, PDF pp. 27–28 (published pp. 24–25).
-- **PQ26.** Vytautas Paškūnas and Julian Quast, [On local Galois deformation rings: generalised reductive groups](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf). Forum Math. Sigma (2026), publisher PDF. Accessed 13 October 2026.
+- **PQ26.** Vytautas Paškūnas and Julian Quast, [On local Galois deformation rings: generalised reductive groups](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf). Forum Math. Pi (2026), DOI 10.1017/fmp.2026.10030; publisher PDF. Accessed 13 October 2026.
   SHA-256: `b18abe909131d28524f7a326834e5656d10063039a92f54e627d7cb899350d93`.
   Inspected locators: Lemma 5.15, p. 34; Lemma 3.9, p. 22.
 - **KWII.** Chandrashekhar Khare and Jean-Pierre Wintenberger, [Serre’s modularity conjecture (II)](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf). Author proofs.pdf dated 30 May 2009; PDF pagination. Accessed 13 October 2026.
   SHA-256: `53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4`.
-  Inspected locators: §2.1, p. 6; Stacks Formal deformation theory Example 11.11, pp. 31–32; §2.1–2.3, pp. 6–10; CG18 Lemma 4.2, p. 355; Proof of Proposition 2.2(ii), p. 9; Hochster11 Matlis duality §5; Proposition 2.1 and following discussion, pp. 7–8; Stacks Lemma 14.5, p. 44; Proposition 2.2(ii), p. 9; BIP23 Lemma 6.3, PDF pp. 52–53; CG18 §8.5.1, p. 408; Corollary 2.3, pp. 9–10; BIP23 Lemma 3.54, PDF p. 34; Lemma 2.5 and its argument, PDF pp. 9–10.
+  Inspected locators: §2.1, p. 6; Stacks Formal deformation theory Example 11.11, pp. 31–32; §2.1–2.3, pp. 6–10; CG18 Lemma 4.2, p. 355; Proof of Proposition 2.2(ii), pp. 9–10; Hochster11 Matlis duality §5; Proposition 2.1 and following discussion, pp. 7–8; Stacks Lemma 14.5, p. 44; Proposition 2.2(ii) and proof, pp. 9–10; BIP23 Lemma 6.3, PDF pp. 52–53; CG18 §8.5.1, p. 408; Corollary 2.3, pp. 9–10; BIP23 Lemma 3.54, PDF p. 34; Proof of Proposition 2.2(i), p. 9 (finite one-dimensional quotient and its normalized valuation ring).
 - **Kisin09.** Mark Kisin, [Moduli of finite flat group schemes, and modularity](https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf). Ann. of Math. 170 (2009), 1085–1180; version of record. Accessed 13 October 2026.
   SHA-256: `076f8bb6ec683633f7742d27504b97f5feaef2ddbae2bc5dc4325eb8386f4ee7`.
-  Inspected locators: §3.3, pp. 1157–1159; IKM24 proof of Theorem 10.6, pp. 46–47; §3.3.1–3.3.4, published pp. 1157–1159; BCGP25 Proposition 7.2.3, p. 162.
+  Inspected locators: §3.3, pp. 1157–1159; IKM24 proof of Theorem 10.6, pp. 46–47; §3.3.1–3.3.4, published pp. 1157–1159; BCGP25 Proposition 7.2.3 and proof, pp. 162–163.
 - **BCGP21.** George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf). Publ. Math. IHÉS 134 (2021), 153–501; version of record. Accessed 13 October 2026.
   SHA-256: `b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af`.
-  Inspected locators: §7.11 before (7.11.1), published pp. 425–426; §7.12, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, published pp. 427–430; EG14 Propositions 2.2.10 and 2.2.13, pp. 11–13; Lemmas 7.8.5–7.8.6 and Remark 7.8.7, published pp. 411–412.
+  Inspected locators: §7.11 before (7.11.1), published pp. 425–426; §7.12, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, published pp. 427–430; EG14 Proposition 2.2.10 and Lemma 2.2.13, pp. 8–9; Lemmas 7.8.5–7.8.6 and Remark 7.8.7, published pp. 411–412.
 - **BCGP25.** George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, [Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645v1). arXiv:2502.20645v1. Accessed 13 October 2026.
   SHA-256: `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
-  Inspected locators: §7.2.1 and the patching construction, pp. 161–163; Proposition 7.2.2 and proof, p. 162; Lemma 7.3.2, p. 165; Lemma 7.4.11 proof, p. 172.
+  Inspected locators: §7.2.1 and the patching construction, pp. 161–163; Lemma 7.2.2 and proof, p. 162; Lemma 7.3.2, p. 165; Lemma 7.4.11 proof, p. 172.
 - **IKM24.** Srikanth Iyengar, Chandrashekhar Khare and Jeffrey Manning, [Congruence modules and the Wiles–Lenstra–Diamond numerical criterion in higher codimensions](https://arxiv.org/pdf/2206.08212v3). arXiv:2206.08212v3. Accessed 13 October 2026.
   SHA-256: `8f061724a1800af6319492108835f4db0fd640b93750c213fd1bb313bb8c9d7b`.
   Inspected locators: §9, p. 40; PQ26 Lemma 3.9, p. 22; Ces19 Corollary 2.5, p. 5; Before Lemma 3.4, p. 18; Lemma 9.3 proof, p. 38; §2.1, p. 13; LLHLM20 before (5.9), published p. 126; Lemma 2.6 proof, pp. 15–16; §§3 and 6.6, pp. 18–19 and 29; Stacks Algebra §110; Proofs of Theorem 5.6, Lemma 9.4 and Theorem 9.6, pp. 25 and 39–41; §2.2, p. 13; 10.2, p. 42; ACC23 §6.3.1, published p. 1047; Lemma 10.8 and proof, pp. 48–49; Theorem 10.6 and Lemma 10.7, pp. 43–48; 11.1–11.2 and Theorem 11.3, pp. 49–51; Lemma 10.7, p. 48; CG18 Lemma 6.2 and proof, pp. 385–386.
@@ -5373,25 +5484,25 @@ Page numbers in target citations follow the edition named here. Cleared author c
   Inspected locators: Proof of Lemma 3.6.13, published pp. 70–71; Lemmas 5.2.1–5.2.2, Theorem 5.2.3, Remark 5.2.4, pp. 119–120; proof of Theorem 5.3.5, p. 126; Before Lemma 5.2.1 and Remark 5.2.4, pp. 119–120; proof of Proposition 5.1.8, p. 118; Lemma 3.6.11 and proof, published p. 69.
 - **Tho15.** Jack Thorne, [Automorphy lifting for residually reducible l-adic Galois representations](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf). Source PDF in manifest; §1. Accessed 13 October 2026.
   SHA-256: `76393fcb9a31931789fa4f7c6de9a64275fb02e81e5a3b98c53b8aa1a1834928`.
-  Inspected locators: Lemma 1.10(2), p. 8; Kisin09 §3.3.4, p. 1159; Lemma 1.10, p. 8; Kisin09 §3.3.4, p. 1159; Definition 1.7 and Proposition 1.8, p. 8; NT26 Proposition 3.10 proof; Proposition 1.8, p. 8, citing Brodmann–Rung Theorem 2.4; Proposition 1.6 and proof, p. 7; ACC23 Proposition 6.3.8 and Corollary 6.3.9, published pp. 1053–1055; Lemma 1.10, PDF pp. 8–9; Kisin09 (3.3.4), printed pp. 1158–1159.
+  Inspected locators: Lemma 1.10(2), p. 8; Kisin09 §3.3.4, p. 1159; Lemma 1.10, p. 8; Kisin09 §3.3.4, p. 1159; Definition 1.7 and Proposition 1.8, p. 8; Proposition 1.8, p. 8, citing Brodmann–Rung Theorem 2.4; Proposition 1.6 and proof, p. 7; ACC23 Proposition 6.3.8 and Corollary 6.3.9, published pp. 1052–1053; Lemma 1.10, PDF pp. 8–9; Kisin09 (3.3.4), printed pp. 1158–1159; Definition before Lemma 1.3 and Lemma 1.4(1),(2),(4), pp. 5–6.
 - **EG14.** Matthew Emerton and Toby Gee, [A geometric perspective on the Breuil–Mézard conjecture](https://arxiv.org/pdf/1109.4226v3). arXiv:1109.4226v3; §2.2. Accessed 13 October 2026.
-  SHA-256: `ac0bd912b2ce9ec2a6d53730f4da3b99b6ef5c3403f352c2b5c6197600367f7f`.
-  Inspected locators: §2.2, Lemmas 2.2.10 and 2.2.13–2.2.14, arXiv v3 pp. 8–9.
+  SHA-256: `3dcb86146175a11fffabd8a8f6a739e6c30dbc526acbfeac509efa378d7a3e8d`.
+  Inspected locators: §2.2, Proposition 2.2.10 and Lemmas 2.2.13–2.2.14, arXiv v3 pp. 8–9.
 - **Hochster11.** Melvin Hochster, [Local cohomology](https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf). 2011 course notes, dated in PDF. Accessed 13 October 2026.
   SHA-256: `e8dda8d32793d5257b3e2c51f68e0fc61ea02bbca23117f2adacbc3bb7ce8ed0`.
   Inspected locators: Proposition 1.6 and following paragraph, pp. 7–8; Theorem 5.1, p. 19; Theorem 5.1 and following paragraph, p. 19; BMP23 §2.1, pp. 10–11; Theorem 11.5 and Remark 11.6, pp. 40–41; Stacks tag 0AVZ, pp. 18–19.
 - **Hochster12.** Melvin Hochster, [Commutative algebra](https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W12.pdf). 2012 course notes, January–April lectures. Accessed 13 October 2026.
   SHA-256: `cd4f899d5c62368ee01645d7342d1dbe7f68b0a31a23d7c1cd891a3128adda7a`.
-  Inspected locators: April 17–18 lectures, pp. 165–169 (Koszul partial Euler characteristics).
+  Inspected locators: April 17–18 lectures, pp. 165–169 (Koszul partial Euler characteristics); January 27 lecture, hypersurface calculation, p. 35 (with pp. 33–34 for the normalization).
 - **Stone.** Craig Huneke; notes by Arindam Banerjee, Alessandro De Stefani and Branden Stone, [Commutative algebra III](https://home.adelphi.edu/~bstone/commalg-notes/commalg-3/algebra-notes-iii.pdf). Fall 2011 course notes; PDF dated 16 April 2013. Accessed 13 October 2026.
   SHA-256: `d98af7b0c0b69ca7e83255e3e17bcfac42f0b419b95c907e7a9ddf3ea87fe242`.
-  Inspected locators: §1.2, pp. 4–7; §2, Theorem 7 and Lemma 8, pp. 8–11; LLHLM20 §3.5.1, p. 38 and §6(12), p. 130; Hochster12 January 27, pp. 33–35; Lemma 8 and Theorem 10, pp. 9–10 and 13–14; EG14 Lemma 2.2.8, p. 6; §2 and Proposition 14, pp. 8–20; Stacks Algebra §52 (length) and §97 (completion); Theorem 16 and proof, p. 20 (proof explicitly restricted to rings containing a field).
+  Inspected locators: §1.2, pp. 4–7; §2, Theorem 7 and Lemma 8, pp. 8–11; LLHLM20 §3.5.1, p. 38 and §6(12), p. 130; Hochster12 January 27, pp. 33–35; Lemma 8 and Theorem 10, pp. 9–10 and 13–14; EG14 Lemma 2.2.8, p. 6; §2 and Proposition 14, pp. 8–20; Stacks Algebra §52 (length) and §97 (completion); Theorem 16 and proof, p. 20 (proof explicitly restricted to rings containing a field); Example 10, printed p. 15 (associated graded polynomial ring).
 - **AI13.** Luchezar Avramov and Srikanth Iyengar, [Bass numbers over local rings via stable cohomology](https://arxiv.org/pdf/1208.4458v1). arXiv:1208.4458v1. Accessed 13 October 2026.
   SHA-256: `4933472ff1b7cd0d15f62558c22bc82ee0f15a784383d1d7c5e1e5e713c832dd`.
   Inspected locators: Theorems 2.1 and 2.4, PDF pp. 2–4; IKM24 Theorem 2.5 proof, p. 14.
 - **CMM21.** Dustin Clausen, Akhil Mathew and Matthew Morrow, [K-theory and topological cyclic homology of henselian pairs](https://arxiv.org/pdf/1803.10897v2). arXiv:1803.10897v2. Accessed 13 October 2026.
   SHA-256: `ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c`.
-  Inspected locators: Definition 5.1, p. 38; Example 6.7, p. 53; BM23 Corollary 4.20 proof, PDF p. 19; Example 6.7, p. 53 and Lemma 5.29 proof, p. 46; BM23 §4.5 before Corollary 4.20, PDF p. 19.
+  Inspected locators: Definition 5.1, p. 38; Example 6.7, p. 53; BM23 §4.4, Corollary 4.20 and proof, PDF pp. 20–21; Example 6.7, p. 53 and Lemma 5.29 proof, p. 46; BM23 §4.4 before Corollary 4.20, PDF pp. 20–21.
 - **Ces21.** Kęstutis Česnavičius, [Macaulayfication of Noetherian schemes](https://arxiv.org/pdf/1810.04493v2). arXiv:1810.04493v2; only this public preprint was read in this job. Accessed 13 October 2026.
   SHA-256: `a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9`.
   Inspected locators: Definition 3.1 and Remark 3.2, PDF pp. 9–10; André §0.1, printed p. 72; Lemma 2.5 proof, PDF p. 6; André §4.3–4.4, printed pp. 87–88; Stacks tags 07NX and 07NZ.
@@ -5400,8 +5511,8 @@ Page numbers in target citations follow the edition named here. Cleared author c
   Inspected locators: Equations (1)–(4), Theorem 1 and Corollary 2, pp. 2–3; Proposition 6 and proof, p. 5; IKM24 Lemma 10.7, p. 48.
 - **DP23.** Philip Dittmann and Florian Pop, [Characterizing finitely generated fields by a single field axiom](https://arxiv.org/pdf/2012.01307v2). arXiv:2012.01307v2. Accessed 13 October 2026.
   SHA-256: `f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f`.
-  Inspected locators: Proposition 5.1 input; Stacks tags 0311 and 031T(1); IKM24 Lemma 7.5 proof, p. 33; Proposition 5.1; Stacks tags 0311 and 031T.
-- **Pilloni20.** Vincent Pilloni, [Higher coherent cohomology and p-adic modular forms of singular weight](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf). Cleared author copy dated 17 June 2019, 113 pages; published in Duke Math. J. 169 (2020). Locators use the author PDF page numbers.. Accessed 13 October 2026.
+  Inspected locators: Proposition 5.1, PDF p. 16;  Stacks tags 0311 and 031T(1); IKM24 Lemma 7.5 proof, p. 33; Proposition 5.1, PDF p. 16; Stacks tags 0311 and 031T.
+- **Pilloni20.** Vincent Pilloni, [Higher coherent cohomology and p-adic modular forms of singular weight](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf). Cleared author copy dated 17 June 2019, 113 pages; published in Duke Math. J. 169 (2020). Locators use the author PDF page numbers. Accessed 13 October 2026.
   SHA-256: `4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58`.
   Inspected locators: Propositions 2.2.1–2.2.2, p. 9; Lemma 2.3.1 and Proposition 2.3.1, p. 10; Lemma 2.3.2 and Remark 2.3.1, p. 11; Lemma 10.3.1 proof, p. 60 (finite miracle-flatness application).
 - **ACC23.** Patrick Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack Thorne, [Potential automorphy over CM fields](https://annals.math.princeton.edu/2023/197-3/p02). Ann. of Math. 197 (2023), 897–1113; cleared author copy, published pagination. Accessed 13 October 2026.
@@ -5409,19 +5520,19 @@ Page numbers in target citations follow the edition named here. Cleared author c
   Inspected locators: §6.3.1–§6.3.3, published pp. 1047–1049; §6.4.1–§6.4.6, published pp. 1053–1055; IKM24 10.1–10.4, pp. 42–43; Propositions 6.4.10, 6.4.12 and 6.4.16; Remark 6.4.13, published pp. 1056–1060; IKM24 Theorem 10.6 proof, pp. 44–46; Remark 6.4.8, Proposition 6.4.12(3), Remark 6.4.14 and Lemma 6.4.15, published pp. 1056–1059; IKM24 Theorem 10.6 proof, pp. 44 and 46–47; Remark 6.4.14 and Proposition 6.4.17, published pp. 1059–1061; §6.3.1–Lemma 6.3.4, published pp. 1048–1050; Lemmas 6.3.2 and 6.3.4, published pp. 1047–1050; §6.3.5, Assumption 6.3.6, Proposition 6.3.8, published pp. 1050–1052; Corollary 6.3.9 and proof, published pp. 1052–1053; Corollary 6.3.9 proof, published p. 1053; IKM24 Theorem 10.6(2)–(3), pp. 43–47.
 - **EGA2.** Alexander Grothendieck and Jean Dieudonné, [Éléments de géométrie algébrique IV, deuxième partie](https://www.numdam.org/item/PMIHES_1965__24__5_0/). Publ. Math. IHÉS 24 (1965); cleared version of record. Accessed 13 October 2026.
   SHA-256: `c3e960aa1c5c37046e8892d8a3cac098e2738164136b5cdaa5d5d893f89931da`.
-  Inspected locators: §6.4, printed pp. 141–142; Stone Theorem 16, p. 20; 6.4.1–6.4.2, printed pp. 141–142; Stacks Algebra Lemma 112.7, p. 269, tag 00ON; Proposition 5.7.9 and Corollary 5.7.10, printed pp. 106–107; 7.4.4, 7.8.2–7.8.3, printed pp. 214–218; Ces21 Remark 1.5 and §2.10, PDF pp. 3–8.
+  Inspected locators: §6.4, printed pp. 141–142; Stone Theorem 16, p. 20; 6.4.1–6.4.2, printed pp. 141–142; Stacks Algebra Lemma 112.7, p. 269, tag 00ON; Proposition 5.7.9 and Corollary 5.7.10, printed pp. 106–107; 7.4.4, printed pp. 199–202; 7.8.2–7.8.6, printed pp. 214–218; Ces21 Remark 1.5 and §2.10, PDF pp. 3–8.
 - **EGA3.** Alexander Grothendieck and Jean Dieudonné, [Éléments de géométrie algébrique IV, troisième partie](https://www.numdam.org/item/PMIHES_1966__28__5_0/). Publ. Math. IHÉS 28 (1966); cleared version of record. Accessed 13 October 2026.
   SHA-256: `f365212b38f20608ba34c21ae3ee40bbae1b42d9d3dff01a85356f9cc819c23e`.
   Inspected locators: Theorem 11.3.10 and Lemma 11.3.10.1, printed pp. 138–140; Pilloni20 Lemma 10.1.1, p. 57.
-- **Ces19.** Kęstutis Česnavičius, [Purity for the Brauer group](https://arxiv.org/abs/1711.06456). Cleared author preprint arXiv:1711.06456; published Duke Math. J. 168 (2019), 1461–1486. Locators below refer to the author preprint read.. Accessed 13 October 2026.
+- **Ces19.** Kęstutis Česnavičius, [Purity for the Brauer group](https://arxiv.org/abs/1711.06456). Cleared author preprint arXiv:1711.06456; published Duke Math. J. 168 (2019), 1461–1486. Locators below refer to the author preprint read. Accessed 13 October 2026.
   SHA-256: `a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709`.
   Inspected locators: Corollary 2.5, pp. 5–6; Stacks tags 0E9K, 069I, 07D3 and 09Q7.
 - **BM23.** Bhargav Bhatt and Akhil Mathew, [Syntomic complexes and p-adic étale Tate twists](https://arxiv.org/pdf/2202.04818v2). arXiv:2202.04818v2. Accessed 13 October 2026.
   SHA-256: `12eb19e417531addbcf70d85facf33b1649ba5d8845c31ade9128c6000032955`.
-  Inspected locators: §3, Cohen/Kunz and regular local discussion, PDF p. 19.
+  Inspected locators: §4.4, Corollary 4.20 and proof, PDF pp. 20–21 (Cohen/Kunz and regular local inputs).
 - **HW23.** Christopher Hacon and Jakub Witaszek, [On the relative minimal model program for fourfolds in positive and mixed characteristic](https://arxiv.org/pdf/2009.02631v2). arXiv:2009.02631v2. Accessed 13 October 2026.
   SHA-256: `161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66`.
-  Inspected locators: Matlis duality convention in §2; compare Hochster11 for its proof.
+  Inspected locators: §2.1, Proposition 2.11, PDF p. 10 (Matlis-duality application); compare Hochster11 for the general proof.
 - **CG20.** Frank Calegari and David Geraghty, [Minimal modularity lifting for non-regular symplectic representations](https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf). Author PDF; Duke Math. J. 169 (2020), 801–896. Accessed 13 October 2026.
   SHA-256: `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5`.
   Inspected locators: Theorem 7.11 proof, author p. 53 / published p. 853.
@@ -5431,6 +5542,15 @@ Page numbers in target citations follow the edition named here. Cleared author c
 - **StacksLocalCohom.** The Stacks Project, [Local cohomology](https://stacks.math.columbia.edu/download/local-cohomology.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
   SHA-256: `0afda599835ae426ea0b14a6b9d2e92df000abab91da436c87bed3bd8fc5096e`.
   Inspected locators: §17, Lemma 17.6, tag 0EC0, pp. 36–37.
+- **StacksMoreAlgebra.** The Stacks Project, [More on Algebra](https://stacks.math.columbia.edu/download/more-algebra.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
+  SHA-256: `ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2`.
+  Inspected locators: §66–§68, pp. 160–172, especially Lemmas 66.1 and 67.1 (pseudo-coherence and perfection); §76, pp. 191–194 (Tor amplitude and residue detection).
+- **StacksDuality.** The Stacks Project, [Duality for Schemes](https://stacks.math.columbia.edu/download/duality.pdf). PDF accessed 13 October 2026. Accessed 13 October 2026.
+  SHA-256: `ab59074f91c60e44908903b839e709857dda0daf36c030e898b5bf55cdcda304`.
+  Inspected locators: Lemma 3.5, tag 0A9I, p. 6; Lemmas 17.5–17.6, tag 0AU1, pp. 47–48 (bounded-below coherent exceptional pullback).
+- **BKM24.** Gebhard Böckle, Chandrashekhar Khare and Jeffrey Manning, [Wiles defect of Hecke algebras via local-global arguments](https://arxiv.org/pdf/2108.09729v2). arXiv:2108.09729v2, dated August 2021; the version cited by IKM24. Accessed 13 October 2026.
+  SHA-256: `fa5226dfac494219db8be1326d1229fa5801502a0fb70c6083122bb0ff741f41`.
+  Inspected locators: Lemmas 3.6–3.7 and proofs, PDF pp. 11–12.
 - CG18 version scope: Read the journal-layout author PDF. The 2022 correction metadata was accessible but its subscription text was not read in this run; inherited review evidence is labelled separately.
 - BP26 version scope: Findings apply to this exact author/preprint text. The original publisher version was not collated in this run.
 - BIP23 version scope: Findings apply to this exact author/preprint text. The original publisher version was not collated in this run.
