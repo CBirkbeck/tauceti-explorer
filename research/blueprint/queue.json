@@ -9835,8 +9835,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FGFO.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9801",
-   "finishedAt": "2026-10-14T17:25:37Z"
+   "finishedAt": "2026-10-14T17:25:37Z",
+   "note": "deliverables arrived from an external worker on issue #9801"
   },
   {
    "id": "REV-DESIGN-FGFO",
@@ -9861,8 +9861,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FGFO.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9802",
-   "finishedAt": "2026-10-14T18:02:21Z"
+   "finishedAt": "2026-10-14T18:02:21Z",
+   "note": "deliverables arrived from an external worker on issue #9802"
   },
   {
    "id": "DESIGN-LV",
@@ -21628,8 +21628,8 @@
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9373",
-   "finishedAt": "2026-10-14T16:21:41Z"
+   "finishedAt": "2026-10-14T16:21:41Z",
+   "note": "deliverables arrived from an external worker on issue #9373"
   },
   {
    "id": "BP-FoundationsAndLibraryIntegration",
@@ -34877,8 +34877,8 @@
    "followUpOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9759",
-   "finishedAt": "2026-10-14T16:49:43Z"
+   "finishedAt": "2026-10-14T16:49:43Z",
+   "note": "deliverables arrived from an external worker on issue #9759"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
@@ -34900,8 +34900,8 @@
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9763",
-   "finishedAt": "2026-10-14T18:02:28Z"
+   "finishedAt": "2026-10-14T18:02:28Z",
+   "note": "deliverables arrived from an external worker on issue #9763"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -34925,8 +34925,8 @@
    "followUpOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9760",
-   "finishedAt": "2026-10-14T16:49:44Z"
+   "finishedAt": "2026-10-14T16:49:44Z",
+   "note": "deliverables arrived from an external worker on issue #9760"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -34948,8 +34948,8 @@
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9764",
-   "finishedAt": "2026-10-14T18:02:33Z"
+   "finishedAt": "2026-10-14T18:02:33Z",
+   "note": "deliverables arrived from an external worker on issue #9764"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -37024,8 +37024,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9750",
-   "finishedAt": "2026-10-14T17:25:40Z"
+   "finishedAt": "2026-10-14T17:25:40Z",
+   "note": "deliverables arrived from an external worker on issue #9750"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
@@ -37072,8 +37072,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9751",
-   "finishedAt": "2026-10-14T16:49:45Z"
+   "finishedAt": "2026-10-14T16:49:45Z",
+   "note": "deliverables arrived from an external worker on issue #9751"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
@@ -37120,8 +37120,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9752",
-   "finishedAt": "2026-10-14T17:25:44Z"
+   "finishedAt": "2026-10-14T17:25:44Z",
+   "note": "deliverables arrived from an external worker on issue #9752"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
@@ -37168,8 +37168,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9753",
-   "finishedAt": "2026-10-14T17:25:49Z"
+   "finishedAt": "2026-10-14T17:25:49Z",
+   "note": "deliverables arrived from an external worker on issue #9753"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
@@ -37216,8 +37216,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9754",
-   "finishedAt": "2026-10-14T17:25:52Z"
+   "finishedAt": "2026-10-14T17:25:52Z",
+   "note": "deliverables arrived from an external worker on issue #9754"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
@@ -37264,8 +37264,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9755",
-   "finishedAt": "2026-10-14T18:02:38Z"
+   "finishedAt": "2026-10-14T18:02:38Z",
+   "note": "deliverables arrived from an external worker on issue #9755"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
@@ -37312,8 +37312,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9756",
-   "finishedAt": "2026-10-14T18:02:43Z"
+   "finishedAt": "2026-10-14T18:02:43Z",
+   "note": "deliverables arrived from an external worker on issue #9756"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
@@ -37360,8 +37360,8 @@
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9757",
-   "finishedAt": "2026-10-14T16:49:48Z"
+   "finishedAt": "2026-10-14T16:49:48Z",
+   "note": "deliverables arrived from an external worker on issue #9757"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -41162,8 +41162,8 @@
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.7",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9799",
-   "finishedAt": "2026-10-14T17:25:56Z"
+   "finishedAt": "2026-10-14T17:25:56Z",
+   "note": "deliverables arrived from an external worker on issue #9799"
   },
   {
    "priority": 2,
@@ -42954,8 +42954,8 @@
    "revisionOf": "BP-TorsionCohomologyInfrastructure",
    "prompt": "research/blueprint/prompts/BP-TorsionCohomologyInfrastructure~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9776",
-   "finishedAt": "2026-10-14T18:02:47Z"
+   "finishedAt": "2026-10-14T18:02:47Z",
+   "note": "deliverables arrived from an external worker on issue #9776"
   },
   {
    "priority": 2,
@@ -44280,8 +44280,8 @@
    "revisionOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9758",
-   "finishedAt": "2026-10-14T16:49:51Z"
+   "finishedAt": "2026-10-14T16:49:51Z",
+   "note": "deliverables arrived from an external worker on issue #9758"
   },
   {
    "priority": 2,
@@ -44307,8 +44307,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9762",
-   "finishedAt": "2026-10-14T18:02:48Z"
+   "finishedAt": "2026-10-14T18:02:48Z",
+   "note": "deliverables arrived from an external worker on issue #9762"
   },
   {
    "kind": "blueprint",
@@ -44440,8 +44440,8 @@
    "revisionOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9766",
-   "finishedAt": "2026-10-14T18:02:53Z"
+   "finishedAt": "2026-10-14T18:02:53Z",
+   "note": "deliverables arrived from an external worker on issue #9766"
   },
   {
    "priority": 2,
@@ -47489,8 +47489,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnabelianGeometryAndNonabelianChabauty.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9768",
-   "finishedAt": "2026-10-14T18:02:58Z"
+   "finishedAt": "2026-10-14T18:02:58Z",
+   "note": "deliverables arrived from an external worker on issue #9768"
   },
   {
    "id": "REV-PKG-AnabelianGeometryAndNonabelianChabauty",
@@ -47534,8 +47534,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArakelovGeometryAndAbelianHeights.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9769",
-   "finishedAt": "2026-10-14T17:25:58Z"
+   "finishedAt": "2026-10-14T17:25:58Z",
+   "note": "deliverables arrived from an external worker on issue #9769"
   },
   {
    "id": "REV-PKG-ArakelovGeometryAndAbelianHeights",
@@ -47561,8 +47561,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArakelovGeometryAndAbelianHeights.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9772",
-   "finishedAt": "2026-10-14T18:03:06Z"
+   "finishedAt": "2026-10-14T18:03:06Z",
+   "note": "deliverables arrived from an external worker on issue #9772"
   },
   {
    "id": "PKG-ArithmeticDirichletSeriesPartII",
@@ -50102,6 +50102,49 @@
    "note": "deliverables arrived from an external worker on issue #9211"
   },
   {
+   "id": "PKG-EndoscopicTransferAndUnitaryTraceComparison",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/README.md",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/Suggested.lean",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/metadata.toml",
+    "research/blueprint/handoff/PKG-EndoscopicTransferAndUnitaryTraceComparison.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/review.json",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/README.md",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/Suggested.lean",
+    "research/blueprint/packages/EndoscopicTransferAndUnitaryTraceComparison/metadata.toml"
+   ],
+   "after": [
+    "PKG-EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "avoidAccountOf": "PKG-EndoscopicTransferAndUnitaryTraceComparison",
+   "independentOf": [
+    "PKG-EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
+   "state": "pending"
+  },
+  {
    "id": "PKG-EnhancedDerivedSheaves",
    "kind": "package",
    "priority": 2,
@@ -50523,6 +50566,49 @@
    "state": "done",
    "finishedAt": "2026-10-14T16:13:22Z",
    "note": "deliverables arrived from an external worker on issue #9736"
+  },
+  {
+   "id": "PKG-FreeGroupsFirstOrderTheory",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/README.md",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/Suggested.lean",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-FreeGroupsFirstOrderTheory.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-FreeGroupsFirstOrderTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-FreeGroupsFirstOrderTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-FreeGroupsFirstOrderTheory.md",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/review.json",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/README.md",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/Suggested.lean",
+    "research/blueprint/packages/FreeGroupsFirstOrderTheory/metadata.toml"
+   ],
+   "after": [
+    "PKG-FreeGroupsFirstOrderTheory"
+   ],
+   "avoidAccountOf": "PKG-FreeGroupsFirstOrderTheory",
+   "independentOf": [
+    "PKG-FreeGroupsFirstOrderTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-FreeGroupsFirstOrderTheory.md",
+   "state": "pending"
   },
   {
    "id": "PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -51436,8 +51522,55 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9738",
-   "finishedAt": "2026-10-14T17:26:04Z"
+   "finishedAt": "2026-10-14T17:26:04Z",
+   "note": "deliverables arrived from an external worker on issue #9738"
+  },
+  {
+   "id": "PKG-HeightsRationalPointsAndObstructions~2",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "HeightsRationalPointsAndObstructions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/README.md",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/Suggested.lean",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/metadata.toml",
+    "research/blueprint/handoff/PKG-HeightsRationalPointsAndObstructions~2.md"
+   ],
+   "after": [
+    "REV-PKG-HeightsRationalPointsAndObstructions"
+   ],
+   "revisionOf": "PKG-HeightsRationalPointsAndObstructions",
+   "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-HeightsRationalPointsAndObstructions~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "HeightsRationalPointsAndObstructions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HeightsRationalPointsAndObstructions~2.md",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/review.json",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/README.md",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/Suggested.lean",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/metadata.toml"
+   ],
+   "after": [
+    "PKG-HeightsRationalPointsAndObstructions~2"
+   ],
+   "avoidAccountOf": "PKG-HeightsRationalPointsAndObstructions~2",
+   "independentOf": [
+    "PKG-HeightsRationalPointsAndObstructions",
+    "PKG-HeightsRationalPointsAndObstructions~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions~2.md",
+   "state": "pending"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -51557,8 +51690,8 @@
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9761",
-   "finishedAt": "2026-10-14T16:49:53Z"
+   "finishedAt": "2026-10-14T16:49:53Z",
+   "note": "deliverables arrived from an external worker on issue #9761"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~3",
@@ -51586,8 +51719,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9765",
-   "finishedAt": "2026-10-14T18:03:10Z"
+   "finishedAt": "2026-10-14T18:03:10Z",
+   "note": "deliverables arrived from an external worker on issue #9765"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -51752,8 +51885,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9770",
-   "finishedAt": "2026-10-14T16:49:57Z"
+   "finishedAt": "2026-10-14T16:49:57Z",
+   "note": "deliverables arrived from an external worker on issue #9770"
   },
   {
    "id": "REV-PKG-HodgeTateAndCanonicalSubgroups",
@@ -51779,8 +51912,55 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9773",
-   "finishedAt": "2026-10-14T18:03:14Z"
+   "finishedAt": "2026-10-14T18:03:14Z",
+   "note": "deliverables arrived from an external worker on issue #9773"
+  },
+  {
+   "id": "PKG-HodgeTateAndCanonicalSubgroups~2",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "HodgeTateAndCanonicalSubgroups"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/README.md",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/Suggested.lean",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/metadata.toml",
+    "research/blueprint/handoff/PKG-HodgeTateAndCanonicalSubgroups~2.md"
+   ],
+   "after": [
+    "REV-PKG-HodgeTateAndCanonicalSubgroups"
+   ],
+   "revisionOf": "PKG-HodgeTateAndCanonicalSubgroups",
+   "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-HodgeTateAndCanonicalSubgroups~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "HodgeTateAndCanonicalSubgroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HodgeTateAndCanonicalSubgroups~2.md",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/review.json",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/README.md",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/Suggested.lean",
+    "research/blueprint/packages/HodgeTateAndCanonicalSubgroups/metadata.toml"
+   ],
+   "after": [
+    "PKG-HodgeTateAndCanonicalSubgroups~2"
+   ],
+   "avoidAccountOf": "PKG-HodgeTateAndCanonicalSubgroups~2",
+   "independentOf": [
+    "PKG-HodgeTateAndCanonicalSubgroups",
+    "PKG-HodgeTateAndCanonicalSubgroups~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups~2.md",
+   "state": "pending"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -52682,8 +52862,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularCurvesPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9740",
-   "finishedAt": "2026-10-14T16:50:04Z"
+   "finishedAt": "2026-10-14T16:50:04Z",
+   "note": "deliverables arrived from an external worker on issue #9740"
   },
   {
    "id": "PKG-ModularSymbolsPadicLFunctions",
@@ -53263,8 +53443,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PerfectoidShimuraVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9774",
-   "finishedAt": "2026-10-14T16:50:07Z"
+   "finishedAt": "2026-10-14T16:50:07Z",
+   "note": "deliverables arrived from an external worker on issue #9774"
   },
   {
    "id": "REV-PKG-PerfectoidShimuraVarieties",
@@ -53290,8 +53470,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidShimuraVarieties.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9775",
-   "finishedAt": "2026-10-14T18:03:18Z"
+   "finishedAt": "2026-10-14T18:03:18Z",
+   "note": "deliverables arrived from an external worker on issue #9775"
   },
   {
    "id": "PKG-PolynomialGaloisGroupsPartII",
@@ -66308,6 +66488,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-DESIGN-FGFO",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 441,
+   "name": "new roadmap DESIGN-FGFO: The first-order theory of free groups",
+   "target": "DESIGN-FGFO",
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-FGFO.result.json",
+    "research/blueprint/redteam/RT-DESIGN-FGFO.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-FGFO",
+    "REV-DESIGN-FGFO"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-FGFO.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-FGFO",
+   "kind": "review",
+   "priority": 2,
+   "order": 441,
+   "name": "new roadmap DESIGN-FGFO: The first-order theory of free groups",
+   "roadmapIds": [
+    "FreeGroupsFirstOrderTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-FGFO.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-FGFO.md"
+   ],
+   "after": [
+    "RT-DESIGN-FGFO"
+   ],
+   "avoidAccountOf": "RT-DESIGN-FGFO",
+   "independentOf": [
+    "RT-DESIGN-FGFO",
+    "DESIGN-FGFO",
+    "REV-DESIGN-FGFO"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-FGFO.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-DESIGN-JacobianChallengePartII",
    "kind": "redteam",
    "priority": 2,
@@ -71433,6 +71660,53 @@
    "state": "done",
    "finishedAt": "2026-10-02T03:18:43Z",
    "note": "deliverables arrived from an external worker on issue #5120"
+  },
+  {
+   "id": "RT-BP-DeformationAndDerivedPatchingAlgebra",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 709,
+   "name": "blueprint BP-DeformationAndDerivedPatchingAlgebra: Commutative algebra for deformation theory and patching",
+   "target": "BP-DeformationAndDerivedPatchingAlgebra",
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra.result.json",
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-DeformationAndDerivedPatchingAlgebra",
+    "REV-DeformationAndDerivedPatchingAlgebra"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-DeformationAndDerivedPatchingAlgebra.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra",
+   "kind": "review",
+   "priority": 2,
+   "order": 709,
+   "name": "blueprint BP-DeformationAndDerivedPatchingAlgebra: Commutative algebra for deformation theory and patching",
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-DeformationAndDerivedPatchingAlgebra.review.json",
+    "research/blueprint/reviews/REV-RT-BP-DeformationAndDerivedPatchingAlgebra.md"
+   ],
+   "after": [
+    "RT-BP-DeformationAndDerivedPatchingAlgebra"
+   ],
+   "avoidAccountOf": "RT-BP-DeformationAndDerivedPatchingAlgebra",
+   "independentOf": [
+    "RT-BP-DeformationAndDerivedPatchingAlgebra",
+    "BP-DeformationAndDerivedPatchingAlgebra",
+    "REV-DeformationAndDerivedPatchingAlgebra"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-DeformationAndDerivedPatchingAlgebra.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-HabiroCyclotomicCompletions",
@@ -77420,6 +77694,100 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 965,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5: Endoscopic transfer and unitary trace comparison",
+   "target": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.result.json",
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 965,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5: Endoscopic transfer and unitary trace comparison",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md"
+   ],
+   "after": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5"
+   ],
+   "avoidAccountOf": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "independentOf": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 966,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6: Endoscopic transfer and unitary trace comparison",
+   "target": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.result.json",
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 966,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6: Endoscopic transfer and unitary trace comparison",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.review.json",
+    "research/blueprint/reviews/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md"
+   ],
+   "after": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+   ],
+   "avoidAccountOf": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "independentOf": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-EtaleDualityAndPerverseSheaves--EDC.5",
    "kind": "redteam",
    "priority": 2,
@@ -78881,6 +79249,382 @@
     "REV-ModularCurvesPartII--R13.4a"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4a.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1010,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.0: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.0"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+   "kind": "review",
+   "priority": 2,
+   "order": 1010,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.0: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.0"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1011,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.1: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 1011,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.1: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1012,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.2: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1012,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.2: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1013,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.3: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1013,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.3: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1014,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.4: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1014,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.4: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1015,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.5: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1015,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.5: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1016,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.6: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 1016,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.6: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1017,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.7: P-adic differential equations, rigid cohomology and p-adic weights",
+   "target": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.result.json",
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 1017,
+   "name": "blueprint BP-PadicDifferentialEquationsAndRigidCohomology--RD.7: P-adic differential equations, rigid cohomology and p-adic weights",
+   "roadmapIds": [
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md"
+   ],
+   "after": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7"
+   ],
+   "avoidAccountOf": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "independentOf": [
+    "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+    "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+    "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
    "state": "pending"
   },
   {
@@ -82927,6 +83671,53 @@
     "REV-EllipticRegulators--ER.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EllipticRegulators--ER.7~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1145,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2: Endoscopic transfer and unitary trace comparison",
+   "target": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.result.json",
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1145,
+   "name": "blueprint BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2: Endoscopic transfer and unitary trace comparison",
+   "roadmapIds": [
+    "EndoscopicTransferAndUnitaryTraceComparison"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md"
+   ],
+   "after": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
+   ],
+   "avoidAccountOf": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "independentOf": [
+    "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+    "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+    "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
    "state": "pending"
   },
   {
@@ -92143,6 +92934,7 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
     "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.5.lean",
+    "research/blueprint/handoff/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
     "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
     "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
     "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
@@ -92179,6 +92971,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
     "research/blueprint/readmes/IntegralHeckeAndGaloisDeterminants.md",
     "research/blueprint/suggested/IntegralHeckeAndGaloisDeterminants.lean",
@@ -92455,6 +93248,7 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
     "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.5.lean",
+    "research/blueprint/handoff/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~2.md",
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~3.md",
     "research/blueprint/handoff/BP-AutomorphicLFunctionsAndLocalFactors~2.md",
@@ -92473,6 +93267,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/handoff/BP-IntegralHeckeAndGaloisDeterminants~2.md",
     "research/blueprint/packets/GrossZagierAndArithmeticHeights.json",
     "research/blueprint/readmes/GrossZagierAndArithmeticHeights.md",
@@ -92763,6 +93558,7 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
     "research/blueprint/readmes/GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.5.lean",
+    "research/blueprint/handoff/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~2.md",
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~3.md",
     "research/blueprint/packets/CompletedCohomologyPartII.json",
@@ -92778,6 +93574,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/packets/GrossZagierAndArithmeticHeights.json",
     "research/blueprint/readmes/GrossZagierAndArithmeticHeights.md",
     "research/blueprint/suggested/GrossZagierAndArithmeticHeights.lean",
@@ -93683,6 +94480,12 @@
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+    "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6.lean",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+    "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
     "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
     "research/blueprint/readmes/ArithmeticGaloisRepresentations.md",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean",
@@ -93709,6 +94512,7 @@
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.4.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.4.lean",
+    "research/blueprint/handoff/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
     "research/blueprint/packets/FunctionFieldArithmetic.json",
     "research/blueprint/readmes/FunctionFieldArithmetic.md",
     "research/blueprint/suggested/FunctionFieldArithmetic.lean",
@@ -93719,6 +94523,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/packets/GlobalGaloisDeformations.json",
     "research/blueprint/readmes/GlobalGaloisDeformations.md",
     "research/blueprint/suggested/GlobalGaloisDeformations.lean",
@@ -93761,6 +94566,8 @@
     "research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.0.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
     "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
     "research/blueprint/packets/ArithmeticGaloisRepresentations--R01.3.json",
     "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
@@ -93777,6 +94584,8 @@
     "research/blueprint/packets/SerreWeightAndLevelOptimisation.json",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6.lean",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations--R01.3.lean",
     "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
@@ -95242,6 +96051,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
@@ -95622,6 +96432,7 @@
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
     "research/blueprint/readmes/TorsionCohomologyInfrastructure.md",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
+    "research/blueprint/handoff/BP-TorsionCohomologyInfrastructure~2.md",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
@@ -96374,6 +97185,7 @@
     "research/blueprint/readmes/EtaleDualityAndPerverseSheaves--EDC.6.md",
     "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.6.lean",
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.0~2.md",
+    "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~2.md",
     "research/blueprint/handoff/BP-EtaleDualityAndPerverseSheaves--EDC.4~3.md",
     "research/blueprint/packets/AdicCoefficientsAndComparisons.json",
@@ -97300,6 +98112,9 @@
     "research/blueprint/readmes/PotentialAutomorphyInfrastructure.md",
     "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean",
     "research/blueprint/handoff/BP-PotentialAutomorphyInfrastructure~2.md",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+    "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/readmes/IgusaVarietiesAndTorsionConcentration.md",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean",
@@ -97345,6 +98160,7 @@
     "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
     "research/blueprint/packets/VStackSheavesAndLisseCategories.json",
     "research/blueprint/packets/PotentialAutomorphyInfrastructure.json",
+    "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
@@ -97362,6 +98178,7 @@
     "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.4.lean",
     "research/blueprint/suggested/VStackSheavesAndLisseCategories.lean",
     "research/blueprint/suggested/PotentialAutomorphyInfrastructure.lean",
+    "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
     "research/blueprint/suggested/IgusaVarietiesAndTorsionConcentration.lean"
    ],
    "after": [
@@ -100114,7 +100931,7 @@
    "id": "ERRATA-DESIGN-LV",
    "kind": "errata",
    "priority": 1,
-   "order": 741,
+   "order": 742,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
@@ -100132,7 +100949,7 @@
    "id": "REV-ERRATA-DESIGN-LV",
    "kind": "review",
    "priority": 1,
-   "order": 741,
+   "order": 742,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
@@ -100153,7 +100970,7 @@
    "id": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "kind": "errata",
    "priority": 1,
-   "order": 745,
+   "order": 746,
    "name": "Abelian Schemes And Arithmetic Moduli, Part II",
    "roadmapIds": [],
    "outputs": [
@@ -100169,7 +100986,7 @@
    "id": "REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "kind": "review",
    "priority": 1,
-   "order": 745,
+   "order": 746,
    "name": "Abelian Schemes And Arithmetic Moduli, Part II",
    "roadmapIds": [],
    "outputs": [
