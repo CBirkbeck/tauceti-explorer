@@ -1,0 +1,568 @@
+{
+  "roadmapId": "HeegnerPointEulerSystems",
+  "protocol": "blueprint-v1",
+  "part": "HE.8b",
+  "scope": [
+    "HeegnerPointEulerSystems:HE.8b"
+  ],
+  "status": "complete",
+  "summary": "Target-level follow-up of the accepted HE.7s packet: import its thirteen HE.8b targets without duplicating their IDs, add the primitive μ and exact anticyclotomic specialization key inputs, and resolve the rational/integral, coefficient, local-condition and source-version contracts. All targets are planned; three precise supplier gaps prevent closure. The fixed-K auxiliary-field choice is made explicit and the independent Eisenstein proof stays upstream of this layer’s equality.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native coefficient linear map for an existing power-series ring; used by the concrete convention checks.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 80–81, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native constant-coefficient ring homomorphism, not a characteristic-ideal or μ assignment.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 143–144, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The formal variable of the native power-series ring.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 158–159, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_X_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient m of X^n is 1 at m=n and 0 elsewhere; distinguishes square and square root.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 236–237, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficientwise ring homomorphism on actual series, used only for explicit coefficient checks.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 450–451, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient extraction commutes with a supplied coefficient ring homomorphism.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 461–462, on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_le_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "For a commutative semiring, (x)⊆(y) iff y divides x; fixes the direction of the main-conjecture containments.",
+        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 184–185, on 2026-10-14."
+      }
+    ],
+    "searches": [
+      "Read reviewed data/library-coverage.json HE.8b (AUDIT-25): all four targets absent. Its L5a duplicate note has the stale 4.2.1 locator; the two-variable theorem is 4.1.3/4.1.4.",
+      "On 2026-10-14 searched the pinned Tau Ceti tree for Heegner, Kolyvagin, anticyclotomic, Iwasawa, Selmer and characteristicIdeal. Read Affine.selmerGroup₂ in MordellWeil/SelmerGroup.lean lines85–115: it is explicit classical 2-descent, not ordinary Λ-adic Selmer cohomology. Pinned Mathlib similarly has Heegner-number commentary, Selmer polynomials, multiplicative Dedekind Selmer groups and the group-theoretic Iwasawa criterion, not these arithmetic targets.",
+      "Read current upstream ProfiniteArithmetic and JacobianChallenge README documents; checked ProfiniteArithmetic/Suggested.lean and searched the current library and nine post-snapshot roadmaps for the arithmetic targets. The current profinite, curve, cohomological and algebraic APIs are imported, not replanned. None supplies the HE.8b main-conjecture proof or the missing characteristic-ideal/Selmer carriers.",
+      "Only the seven listed positive Mathlib references are used for the native algebra acceptance examples. No formal arithmetic main-conjecture interface is claimed at the pins."
+    ]
+  },
+  "sources": [
+    {
+      "id": "bcs-v2",
+      "title": "Base change and Iwasawa main conjectures for GL2",
+      "authors": "Ashay Burungale; Francesc Castella; Christopher Skinner",
+      "edition": "arXiv:2405.00270v2, March 2025; all primary BCS locators in this packet refer to this 12-page text",
+      "url": "https://arxiv.org/pdf/2405.00270v2",
+      "sha256": "bf87592cdbaabb5c57004bfd44dd5b4d712cb306bbbdc36520a3daf92fa416f3",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Main text pp.1–11: hypotheses and endpoints; §3.1–3.2 input contracts; §4.1–4.2 comparisons and bounds; §5.1–5.2 base change and anticyclotomic proof."
+      ]
+    },
+    {
+      "id": "bcs-print",
+      "title": "Base Change and Iwasawa Main Conjectures for GL2",
+      "authors": "Ashay Burungale; Francesc Castella; Christopher Skinner",
+      "edition": "IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
+      "url": "https://web.math.ucsb.edu/~castella/BCS-print.pdf",
+      "sha256": "240e85dd09c40046d2cb4ab50732b0e419bb92fc031b85acbe5ae3f02ab4b0ac",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Collated §4.1–§5.2, pp.9–13, including the two minor notation/cross-reference slips in the proof."
+      ]
+    },
+    {
+      "id": "bcgs-v2",
+      "title": "Non-vanishing of Kolyvagin systems and Iwasawa theory",
+      "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
+      "edition": "arXiv:2312.09301v2, January 2026; locators to this preprint",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorems A/B pp.2–3; §1.2 pp.10–15, especially 1.2.1, 1.2.10–1.2.13; §2.1 pp.15–16 and proof of B pp.19–20."
+      ]
+    },
+    {
+      "id": "bck",
+      "title": "A proof of Perrin-Riou’s Heegner point main conjecture",
+      "authors": "Ashay Burungale; Francesc Castella; Chan-Ho Kim",
+      "edition": "Algebra & Number Theory 15(7) (2021), 1627–1653; publisher-form author PDF",
+      "url": "https://web.math.ucsb.edu/~castella/PRconj-print.pdf",
+      "sha256": "6380182b4211ad71e8c9a8b8557132902c673ccd69e7a28192ffde9343b44fdd",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorem 5.2 and proof, pp.1646–1647 (PDF20–21); compared its assumptions with the separate Theorem 5.1."
+      ]
+    },
+    {
+      "id": "cgs-v2",
+      "title": "Mazur’s main conjecture at Eisenstein primes",
+      "authors": "Francesc Castella; Giada Grossi; Christopher Skinner",
+      "edition": "arXiv:2303.04373v2; its numbering differs from the revision cited by BCS",
+      "url": "https://arxiv.org/pdf/2303.04373v2",
+      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorem C and Greenberg reformulation pp.3–4; §2.4 pp.9–10 including Lemma 2.4.4 and Proposition 2.4.5; §6.5 pp.28–29; located the distinct cyclotomic uses of integral Kato in §§5 and 7."
+      ]
+    },
+    {
+      "id": "cgls",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella; Giada Grossi; Jaehoon Lee; Christopher Skinner",
+      "edition": "Author PDF of the Invent. Math.227 (2022) paper; locators to PDF pagination",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
+      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorem 1.2.2 p.8; Theorems 2.2.2–2.2.3 p.15; Proposition 4.2.1 and Theorem 4.2.2 pp.28–29, checking elliptic-unit dependence and the older (Sel) restriction."
+      ]
+    },
+    {
+      "id": "jsw-v1",
+      "title": "The Birch and Swinnerton-Dyer formula for elliptic curves of analytic rank one",
+      "authors": "Dimitar Jetchev; Christopher Skinner; Xin Wan",
+      "edition": "arXiv:1512.06894v1; locators to this text, not journal pagination",
+      "url": "https://arxiv.org/pdf/1512.06894v1",
+      "sha256": "908562efdddaf46b2653317294cb65ae627802bc996400a779b1cd51b5a7d49d",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§3.1 assumptions pp.11–12; §3.4 pp.20–21, Lemma 3.4.1, Corollary 3.4.2 and their proofs; checked that the stated corollary uses an imprimitive Σ containing all ramified places away from p."
+      ]
+    },
+    {
+      "id": "cs-v1",
+      "title": "On refined nonvanishing conjectures by Kurihara and Kolyvagin",
+      "authors": "Francesc Castella; Takamichi Sano",
+      "edition": "arXiv:2601.14504v1, January 2026",
+      "url": "https://arxiv.org/pdf/2601.14504v1",
+      "sha256": "3cd76c20dfc777ccc4126e153b88bef7eb7574bdf5402c6d5123208e30c30eda",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorem C p.4; §3.2 pp.13–14 including (3.6)–(3.9) and Proposition 3.2.3; §3.4 p.17."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8b",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8b"
+      ],
+      "kind": "theorem",
+      "title": "Primitive Greenberg μ-vanishing in BCS descent",
+      "declaration": "primitive_greenberg_mu_vanishing",
+      "statement": "Let A=ℤ_p⟦Gal(K∞/K)⟧, B=ℤ_p⟦Gal(K∞⁻/K)⟧, A_R=R⟦Gal(K∞/K)⟧ and B_R=R⟦Gal(K∞⁻/K)⟧. Write π⁻:A_R→B_R for the cyclotomic-variable quotient. For the primitive BCS functions G_E=L_p^Gr(E/K) and B_E=L_p^BDP(E/K), one has (π⁻G_E)=(B_E), μ(B_E)=0 and μ(G_E)=0. Both functions are nonzero. The BCS B_E is the squared BCGS distribution, so (B_E)=(ℒ_E²) only after the existing normalization comparison is discharged. Consequently if J is an integral characteristic ideal in A_R and (G_E·G_EF)⊇J after inverting p, the same inclusion holds in A_R, provided the analogous hypotheses and primitive μ-vanishing hold for E^F. This clears denominators in the reverse product bound; it does not eliminate a p-primary defect in either individual Selmer ideal under residual irreducibility alone.",
+      "hypotheses": [
+        "E/ℚ is an elliptic curve of conductor N; p>3 is a prime of good ordinary reduction.",
+        "K is imaginary quadratic with signed fundamental discriminant D_K<0 odd and not −3; every prime dividing N splits in K, and p=v v̄ splits in K with v fixed by the chosen p-adic embedding.",
+        "E[p] is irreducible over G_K. The same assumptions are required separately for the auxiliary quadratic twist E^F when it is used.",
+        "All functions and Selmer modules have the primitive BCS normalization, its ordinary Tate lattice and strict-at-v/unrestricted-at-v̄ Greenberg condition; completed unramified coefficients R=Ẑ_p^ur are retained."
+      ],
+      "proofSteps": [
+        "BCS Proposition 4.2.2 imports Hsieh’s toric μ=0 theorem for the primitive anticyclotomic function. Use AutomorphicPadicLFunctions L3h for that theorem, not the different Katz μ theorem needed at Eisenstein primes.",
+        "Use the analytic projection identity of CGS Proposition 2.4.5 (called 1.4.5 in the revision BCS cites). Its construction first proves integrality of the actual Greenberg function in Lemma 2.4.4, using the CM congruence-ideal divisibility from Hida–Tilouine Theorem 0.3 and Rubin’s theorem, plus the augmentation-factor exclusion from BDP22 Theorem A(i). L5a must import those independent inputs; a rational interpolation formula alone cannot replace them.",
+        "Reduction modulo p commutes with π⁻. Since π⁻G_E is nonzero modulo p, G_E is nonzero modulo p as well. This proves μ=0 without requiring the constant coefficient to be a unit.",
+        "At height-one primes away from (p), the rational inclusion gives the desired inequality. At (p), the generator G_E·G_EF has order zero whereas the integral ideal J has nonnegative order. Recover the integral inclusion using the supplier’s normal factorial characteristic-ideal calculus. No claim that μ(J)=0 is made."
+      ],
+      "acceptance": [
+        "A series with zero constant coefficient and coefficient 1 in degree one has μ=0; the μ=0 test must not require a nonzero augmentation.",
+        "Replacing ℒ_E by ℒ_E² doubles every non-p height-one order. The comparison is of generated ideals, not equality of arbitrary period choices.",
+        "Multiplying the analytic generator by p destroys the denominator-clearing argument: for (p) and the unit ideal rational inclusion holds but integral inclusion fails.",
+        "No μ=0 assertion is exported for an arbitrary imprimitive Euler-factor modification."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison",
+        "AutomorphicPadicLFunctions:L3h",
+        "AutomorphicCongruences:L5a",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6"
+      ],
+      "sources": [
+        {
+          "sourceId": "bcs-v2",
+          "locator": "Proposition 4.2.2 p.9; proof of Proposition 5.2.1 pp.9–10, especially (5.1)",
+          "match": "Primitive analytic μ-vanishing supplies exactly the p-height-one step in clearing denominators of the product reverse bound."
+        },
+        {
+          "sourceId": "cgs-v2",
+          "locator": "Lemma 2.4.4 and Proposition 2.4.5 pp.9–10",
+          "match": "The actual integral two-variable Greenberg function projects to an associated anticyclotomic BDP function."
+        }
+      ],
+      "planet": {
+        "name": "Primitive Greenberg μ-vanishing"
+      },
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Anticyclotomic",
+        "namespace": "TauCeti.Heegner.Anticyclotomic"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8b",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8b"
+      ],
+      "kind": "comparison",
+      "title": "Anticyclotomic characteristic-ideal specialization",
+      "declaration": "anticyclotomic_specialization_control",
+      "statement": "With A,B,R,π⁻ as in primitive-greenberg-mu-vanishing, let X_E^(2) and X_E^− be the actual two-variable and anticyclotomic primitive Greenberg duals for T_pE. They use strict at v, unrestricted at v̄ and the fixed propagated away-p conditions. Assume X_E^− is B-torsion, as supplied independently by the Euler-system bound. When the integral imprimitive control and matching local Euler-factor comparisons below are supplied, X_E^(2) is A-torsion and char_B(X_E^−)B_R ⊆ π⁻(char_A(X_E^(2)))B_R. For E and E^F together this gives the corresponding inclusion of products. Combined with the normalized analytic projection and the integral two-variable Greenberg product bound, it yields (B_E B_EF) ⊇ char_B(X_E^−)char_B(X_EF^−)B_R. This is an inclusion for the specified arithmetic modules; characteristic ideals do not commute with arbitrary quotient maps.",
+      "hypotheses": [
+        "E/ℚ is an elliptic curve of conductor N; p>3 is a prime of good ordinary reduction.",
+        "K is imaginary quadratic with signed fundamental discriminant D_K<0 odd and not −3; every prime dividing N splits in K, and p=v v̄ splits in K with v fixed by the chosen p-adic embedding.",
+        "E[p] is irreducible over G_K. The same assumptions are required separately for the auxiliary quadratic twist E^F when it is used.",
+        "All functions and Selmer modules have the primitive BCS normalization, its ordinary Tate lattice and strict-at-v/unrestricted-at-v̄ Greenberg condition; completed unramified coefficients R=Ẑ_p^ur are retained.",
+        "The imported Wan/Fujiwara and L5a product descent supply the integral two-variable Greenberg reverse bound, and both its analytic factors have the primitive μ-vanishing above. In particular their anticyclotomic images are nonzero.",
+        "For a finite Σ containing all ramified places away from p, supply the JSW restriction map X_Gr^Σ/(γ⁺−1)→X_ac^Σ with finite kernel and surjective target, and the precise finite-presentation/Fitting argument; an isomorphism is not assumed.",
+        "Supply exact primitive/imprimitive local module sequences on both towers, identifying their characteristic factors with the same nonzero Euler polynomials, compatible with π⁻ and the chosen Frobenius convention. Retain any correction factors until this comparison proves their cancellation.",
+        "Supply the needed extension of characteristic ideals from finite coefficient rings to the completed unramified coefficient ring; finite-flat base change alone does not state that extension."
+      ],
+      "proofSteps": [
+        "Use the independent anticyclotomic Euler-system bound for torsionness, then SelmerIwasawaCohomology’s kernel-control with the actual strict/unrestricted local maps. JSW Lemma 3.4.1 gives finite errors in the imprimitive setting; it does not identify the primitive Selmer groups. Torsionness of the quotient by γ⁺−1, followed by Nakayama at that height-one prime, gives two-variable torsionness in this application.",
+        "Apply JSW Corollary 3.4.2 to obtain char_B(X_ac^Σ)⊆π⁻char_A(X_Gr^Σ). Its Fitting-ideal argument retains the finite kernel, and uses the principal reflexive closure rather than equating Fitting and characteristic ideals without a projective-dimension hypothesis.",
+        "Transport the local Euler factors through π⁻ using the exact local sequences, and cancel only their proved matching nonzero factors. The missing verification of this primitive step is explicitly recorded as a supplier gap.",
+        "Extend the resulting primitive inclusion to B_R, multiply the statements for E and E^F and combine with the analytic projection and two-variable reverse bound. Nonzero projected analytic functions rule out the zero-ideal/torsion ambiguity in this application."
+      ],
+      "acceptance": [
+        "The comparison has direction char(X_ac)⊆π⁻char(X_Gr); the reverse inclusion is not supplied by JSW.",
+        "A finite kernel contributes no height-one divisor over B, but can change the initial Fitting ideal. The proof must keep those assertions distinct.",
+        "The printed JSW corollary requires an imprimitive Σ. An application with Σ empty must show the local-factor comparison explicitly.",
+        "There is no analytic-rank-one hypothesis in the BCS endpoint. Any use of JSW’s other standing assumptions must be justified from the local proof or left as this recorded control gap, not silently added to the endpoint.",
+        "The torsion Greenberg dual here is distinct from the rank-one all-p ordinary dual used by the CS determinant comparison."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-euler-system-divisibility",
+        "SelmerIwasawaCohomology:L3/kernel-control",
+        "SelmerIwasawaCohomology:L3/derived-control",
+        "SelmerIwasawaCohomology:L2/change-of-conditions",
+        "SelmerIwasawaCohomology:L3",
+        "AutomorphicCongruences:L5a",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "sources": [
+        {
+          "sourceId": "bcs-v2",
+          "locator": "Proof of Theorems 1.2.2 and 1.2.4 p.11, following (5.5)",
+          "match": "This is the anticyclotomic projection of the two-variable Greenberg product bound, before separating its factors."
+        },
+        {
+          "sourceId": "jsw-v1",
+          "locator": "§3.4, Lemma 3.4.1 and Corollary 3.4.2 pp.20–21; compare §3.1 pp.11–12",
+          "match": "The source proves the imprimitive finite-error restriction and the direction of the characteristic-ideal containment. The primitive and hypothesis-range adaptations are retained as explicit supplier obligations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Anticyclotomic",
+        "namespace": "TauCeti.Heegner.Anticyclotomic"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AutomorphicCongruences:L5a",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility"
+      ],
+      "need": "Export BCS v2 Theorem 4.1.3/Corollary 4.1.4 (p.8), not Theorem 4.2.1: ordinary/Greenberg product containments in both directions, rational and integral. Export Lemma 5.1.1 (p.9) characteristic-ideal restriction and Lemma 5.1.2 (p.9) PR-function factorization only after inverting p. Include integral Greenberg-function construction and its analytic π⁻ comparison, CGS v2 Lemma 2.4.4/Proposition 2.4.5 (older 1.4.4/1.4.5). For Lemma 2.4.4, import the proposed independent elliptic-unit owner’s Rubin/Hida–Tilouine congruence-ideal divisibility and the CM-family augmentation-factor exclusion of BDP22 Theorem A(i); do not infer analytic integrality from HE.8b equality. The completed cyclotomic L5b equality is not an input."
+    },
+    {
+      "supplier": "AutomorphicPadicLFunctions:L3h",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing"
+      ],
+      "need": "Supply Hsieh 2014 Theorem B in the exact classical N⁻=1 ordinary, (disc),(Heeg),(spl),(irr_K) primitive toric branch used by BCS v2 Proposition 4.2.2. Compare its coefficient ring, period and squared-distribution normalization to the actual BCS BDP ideal. Keep this theorem separate from the Katz/elliptic-unit Eisenstein μ theorem."
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control"
+      ],
+      "need": "Extend kernel-control to JSW v1 §3.4 pp.20–21 for the Z_p²→Z_p anticyclotomic quotient, with actual strict/unrestricted local maps, finite restriction kernel, imprimitive Σ containing all away-p ramification and the Fitting/reflexive-closure argument. Prove the primitive local Euler-factor exact sequences and their compatibility with π⁻. Check that no analytic-rank-one/corank-one assumption from other JSW sections is used; otherwise expose and discharge it before applying BCS. Generic derived-control alone does not supply these arithmetic identifications."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L4",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control"
+      ],
+      "need": "The existing characteristic-ideal and API-6 supply height-one ideals and μ content over their stated normal factorial rings. Extend the finite-flat-only API-8 to the exact completed unramified coefficient rings R=Ẑ_p^ur and R[[Γ]], with flatness, divisor/ideal extension, faithful descent when needed and continuity through the unramified tower. Also supply the specialization/Fitting reflexive-closure argument over the two-variable ring; do not assume every quotient commutes with characteristic ideals."
+    },
+    {
+      "supplier": "GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison"
+      ],
+      "need": "Discharge the existing node’s explicit integral normalization gap: construct its comparison unit, retaining the character-dependent group-like factor, CM periods, h_K and all nonunit factors. The finite weight-two formula and a rational agreement of functions are insufficient. This is a request to complete the existing owner’s contract, not a second construction."
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.8",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-euler-system-divisibility"
+      ],
+      "need": "Certify the actual weak-residual CGS v2 Theorem 6.5.2 (BCS cites older 5.5.2) and the zero-p-error surjective branch of BCS Theorem 4.2.1. Include the augmentation prime, paired torsion structure, uniform errors and integral Howard hypothesis removal. Do not import Howard B’s p∤h_K/full-image hypotheses as unproved automatic facts."
+    },
+    {
+      "supplier": "RankZeroOneBSD:BSD.7a",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter"
+      ],
+      "need": "Use the already planned exact cgs-anticyclotomic-main-conjecture node and cgls-equal-iwasawa-invariants. Complete their missing imaginary-quadratic elliptic-unit/Katz μ supplier by the new-owner proposal below (RT-AREA-iwasawa-1/5). The early CGS Theorem C branch may use early HE.8 classes, not HE.8b equality, a late BCGS consequence or completed cyclotomic CGS Theorem A. Route integral Kato to the separate cyclotomic BSD.7a consumers through its existing distinguished-lattice-integral-input adapter."
+    },
+    {
+      "supplier": "KatoEulerSystems:L4",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/distinguished-lattice-integral-input"
+      ],
+      "need": "RT-AREA-iwasawa-1/5 ownership routing: fulfil BSD.7a/distinguished-lattice-integral-input’s existing request for Wüthrich Theorems 4,13,16, Proposition 8, Lemma 17 and Corollary 18, with E_• lattice/isogeny transport and IntegralIwasawaTheory L4 Ferrero–Washington. This repairs the downstream cyclotomic Eisenstein branch; it is not asserted to be an additional premise of the early anticyclotomic CGS Theorem C adapter. No duplicate Kato node is created here.",
+      "routingOnly": "Ownership follow-through for RT-AREA-iwasawa-1/5; this request is not a prerequisite of the HE.8b Eisenstein adapter."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Exact integral primitive specialization and completed coefficients",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility"
+      ],
+      "detail": "JSW v1 Corollary 3.4.2 is imprimitive, while BCS uses primitive functions/modules. The matching local exact sequences, hypothesis-range check and completed-unramified characteristic-ideal base change are not currently supplied by the inspected SIC/PMA nodes. Both new and inherited targets remain planned with this explicit input contract, not certified closed."
+    },
+    {
+      "title": "Period, toric μ and integral Euler-system supplier certification",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture"
+      ],
+      "detail": "GZ.9’s explicit comparison unit remains a recorded gap; APL L3h has no exact fine node supplying the needed primitive toric μ theorem. L5a has no packet giving its exact two-variable comparison/factorization contracts. L5w has fine nodes but their own period/Fujiwara/control prerequisites must be discharged. ES.8 must certify the weak-residual and surjective integral bounds with their augmentation and class-number scope. BCS v2 states the endpoints; this packet does not replace these proof inputs with their conclusions."
+    },
+    {
+      "title": "Independent elliptic-unit proof inputs",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches"
+      ],
+      "detail": "CGS Lemma 2.4.4 also uses Rubin and Hida–Tilouine Theorem 0.3 to clear the CM congruence denominator of the actual Greenberg function; route that proof contract through L5a’s integral analytic construction. CGLS Theorem 1.2.2 and Theorem 2.2.3 use Rubin’s imaginary-quadratic main conjecture and Hida’s Katz μ=0; CGS removes (Sel) but still uses those invariants. The proposed elliptic-unit owner and its proof-level exact hypotheses remain unverified. BSD.7a already records the absent owner and the separate Wüthrich integral-Kato request. No generic Katz construction or rational Kato theorem certifies those inputs. No integral Kato premise is added to the independent anticyclotomic Theorem C proof."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HeegnerPointEulerSystems/E11",
+      "source": "bcs-print",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.2.1, published p.11 (arXiv v2 p.10), twice; final line of the proof of Theorem 1.4.1, published p.13 (arXiv v2 p.11)",
+      "printed": "The two-variable comparison is called Proposition 4.1.3 although it is headed Theorem 4.1.3.",
+      "correction": "Read Theorem 4.1.3 at all three references.",
+      "reason": "Theorem 4.1.3 supplies exactly the two-variable ordinary/Greenberg comparison invoked. The correction leaves the intended containments unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
+        "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
+      ]
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E12",
+      "source": "bcs-print",
+      "kind": "misprint",
+      "locator": "Proof of Theorems 1.2.2/1.2.4, published p.12 (arXiv v2 p.11), projected product display following (5.5)",
+      "printed": "The second characteristic ideal inside π⁻ carries Λ_K⁻ although its module is still over the two-variable tower K∞.",
+      "correction": "Use char over Λ_K for both factors before π⁻. After projection the target characteristic ideals are over Λ_K⁻.",
+      "reason": "Both input factors in (5.5) are two-variable Λ_K-modules; π⁻ maps their product to the anticyclotomic ring. This correction leaves the intended containment unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
+        "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2405.00270v2",
+      "citation": "arXiv:2405.00270v2, March 2025; all primary BCS locators in this packet refer to this 12-page text",
+      "read": "2026-10-14",
+      "sha256": "bf87592cdbaabb5c57004bfd44dd5b4d712cb306bbbdc36520a3daf92fa416f3"
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/BCS-print.pdf",
+      "citation": "IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
+      "read": "2026-10-14",
+      "sha256": "240e85dd09c40046d2cb4ab50732b0e419bb92fc031b85acbe5ae3f02ab4b0ac"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "citation": "arXiv:2312.09301v2, January 2026; locators to this preprint",
+      "read": "2026-10-14",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3"
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/PRconj-print.pdf",
+      "citation": "Algebra & Number Theory 15(7) (2021), 1627–1653; publisher-form author PDF",
+      "read": "2026-10-14",
+      "sha256": "6380182b4211ad71e8c9a8b8557132902c673ccd69e7a28192ffde9343b44fdd"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2303.04373v2",
+      "citation": "arXiv:2303.04373v2; its numbering differs from the revision cited by BCS",
+      "read": "2026-10-14",
+      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
+      "citation": "Author PDF of the Invent. Math.227 (2022) paper; locators to PDF pagination",
+      "read": "2026-10-14",
+      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1512.06894v1",
+      "citation": "arXiv:1512.06894v1; locators to this text, not journal pagination",
+      "read": "2026-10-14",
+      "sha256": "908562efdddaf46b2653317294cb65ae627802bc996400a779b1cd51b5a7d49d"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2601.14504v1",
+      "citation": "arXiv:2601.14504v1, January 2026",
+      "read": "2026-10-14",
+      "sha256": "3cd76c20dfc777ccc4126e153b88bef7eb7574bdf5402c6d5123208e30c30eda"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8b",
+      "status": "planned",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-formulation-comparison",
+        "HeegnerPointEulerSystems:HE.8b/auxiliary-quadratic-field-verification",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-euler-system-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/rational-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/rational-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches",
+        "HeegnerPointEulerSystems:HE.8b/split-refined-kolyvagin-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/split-determinantal-heegner-main-conjecture"
+      ],
+      "remaining": [
+        "Exact integral primitive specialization and completed coefficients",
+        "Period, toric μ and integral Euler-system supplier certification",
+        "Independent elliptic-unit proof inputs"
+      ],
+      "note": "All four audited targets and the inherited Eisenstein/BCGS/CS applications are mapped in the reader. Two new key inputs refine the imported reverse-divisibility proof. Completion is of this target-level pass, not formal implementation or supplier closure. General weak-torsion integral p=3 and the inert-p main conjecture are outside the BCS endpoint; no extension is inferred."
+    }
+  ],
+  "dependencyRefinements": [
+    {
+      "node": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility",
+      "addPrerequisites": [
+        "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control"
+      ],
+      "action": "Assembly should replace the coarse toric μ / anticyclotomic-control portions of this existing proof by these fine nodes; preserve all other prerequisites and the node ID. The predecessor is not edited by this issue."
+    },
+    {
+      "node": "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+      "replacePrerequisite": "RankZeroOneBSD:BSD.7a",
+      "withPrerequisite": "RankZeroOneBSD:BSD.7a/cgs-anticyclotomic-main-conjecture",
+      "action": "Use the independent early anticyclotomic node. Preserve its supplier gap; never use completed cyclotomic Theorem A."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HeegnerPointEulerSystems",
+        "AutomorphicCongruences",
+        "ModularIwasawaMainConjectures"
+      ],
+      "detail": "The atlas HE.8/HE.8b descriptions duplicate neighbouring milestone text, and the library audit repeats an obsolete two-variable theorem number.",
+      "proposal": "Keep early family and geometric nonvanishing in HE.8; HE.8b owns the BCS anticyclotomic proof and imports its thirteen existing target IDs. L5a owns BCS Theorem 4.1.3/Corollary 4.1.4 and Lemmas 5.1.1/5.1.2, L5w the Wan/Fujiwara engine, and completed L5b is downstream. MIMC L6 imports these branch exports. Add the two fine dependency refinements above during assembly, without creating duplicate endpoint nodes."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "AutomorphicCongruences",
+        "ComplexMultiplicationAndExplicitReciprocity",
+        "AutomorphicPadicLFunctions",
+        "EulerSystemsAndKolyvaginSystems",
+        "RankZeroOneBSD",
+        "KatoEulerSystems",
+        "HeegnerPointEulerSystems"
+      ],
+      "detail": "RT-AREA-iwasawa-1/5: the current catalogue still has no owner for the elliptic-unit main-conjecture proof, and the existing Kato L4 rational export does not meet BSD.7a’s separate integral request.",
+      "proposal": "Adopt the existing HE.7s/BSD.7 proposal for a new roadmap “Elliptic units and the Iwasawa main conjectures for imaginary quadratic fields”: integral elliptic-unit norm distributions and Euler system; unit/class-group modules and Rubin 1991/1994 two-variable theorem; Hida–Tilouine Invent.Math.117(1994) Theorem0.3 anticyclotomic theorem; Hida Annals2010 Katz μ=0. Import Katz from APL L3, generic Euler-system/Iwasawa theory from ES.3/ES.8 and CM.1–CM.4 reciprocity. Preserve prime, character, conductor, lattice and exceptional-character hypotheses and correction factors. Route the CM congruence-ideal divisibility to L5a’s integral Greenberg construction (CGS Lemma 2.4.4), together with the CM-family augmentation-factor exclusion from its existing Hida/congruence owner. Route the exact character exports to BSD.7a/cgls-residual-character-comparison and cgls-equal-iwasawa-invariants, hence its independent CGS anticyclotomic theorem and HE.8b adapter. Add the Wüthrich integral distinguished-curve input in Kato L4, using IntegralIwasawaTheory L4 Ferrero–Washington, and route it to the already existing BSD.7a/distinguished-lattice-integral-input for the cyclotomic return. Link the unit owner also to HE.7s’s Rubin/Iwasawa CM alternative; do not make it a prerequisite of the reviewed direct Nekovář HE.7 CM descent. This issue proposes ownership and requests; it reserves no IDs and edits no other roadmap."
+    }
+  ],
+  "upstreamNotes": [],
+  "auxiliaryFieldVerification": {
+    "node": "HeegnerPointEulerSystems:HE.8b/auxiliary-quadratic-field-verification",
+    "sources": [
+      "bcs-v2 Lemma 5.2.3 and its residual-restriction argument, p.10",
+      "bcs-v2 Proposition 5.2.1, pp.9–10"
+    ],
+    "detail": "First derive (irr_K) from (irr_Q): if the restriction to G_K were reducible, the irreducible two-dimensional representation would be induced from K. Inertia at any prime dividing D_K would then permute its two lines nontrivially, contradicting unramifiedness away from Np and gcd(D_K,Np)=1. For the theorem’s fixed K, choose a prime q≡1 mod 8|D_K| with prescribed nonzero square/nonsquare residue classes modulo each odd ℓ|Np: (q/p)=−1 and (q/ℓ)=−1 exactly when ℓ|N and ℓ≡−1 mod p. The moduli are coprime because (Heeg),(spl) imply gcd(D_K,Np)=1. Dirichlet/Chebotarev gives infinitely many such q. Then F=ℚ(√q) has D_F=q, q splits in K, and conditions (i)–(iii) hold, including splitting at 2 when 2|N. Avoid the finitely many F contained in the compositum of K and the residual splitting field; restriction to G_FK then preserves the G_K image, giving (iv). Exclude the p=5 exceptional field. The final residual-restriction argument in Lemma 5.2.3 gives (v) under these exclusions, and (vi) is explicit. Thus the local/avoidance construction can be performed without changing K. This expands the existing target proof; it creates no second auxiliary-field node. The quadratic twist remains ordinary at p and has new conductor primes only among those dividing D_F, which split in K; its residual restriction stays irreducible. For the surjective branch, twisting preserves the commutator image SL₂(F_p) and the surjective cyclotomic determinant, hence the full GL₂(F_p) image."
+  },
+  "sourceBoundary": {
+    "predecessor": "The generated issue names HE.0; that packet now covers HE.0–HE.7 and has no HE.8b coverage. The actual accepted predecessor is HE.7s, whose thirteen HE.8b nodes are imported here. No predecessor is modified.",
+    "lean": "All fifteen arithmetic targets (thirteen imports, two new inputs) need absent arithmetic carriers and remain README statements under the 2026-10-12 WORKERS shape. Suggested.lean has only eight concrete native algebra examples: no substitute Selmer carrier, arbitrary characteristic-ideal function, omitted arithmetic hypotheses in a named theorem, data admission or implementation claim.",
+    "tier": "HeegnerPointEulerSystems and these Iwasawa suppliers are outside the current Caraiani–Newton 94-roadmap tier list. No upward definition move is proposed."
+  },
+  "validation": {
+    "packetChecker": "Passed on 2026-10-14: 0 errors, 0 warnings.",
+    "lean": "lean-check exited 0 on 2026-10-14 at the pinned shared build: 67 lines, eight native examples, exactly eight expected admission warnings and no other warnings. No arithmetic target is claimed implemented.",
+    "globalCycleCheck": "Traversed the fine-node graph in blueprint packets from all thirteen imports and two new nodes, applying the proposed dependency refinements: 3,743 reachable fine nodes, 2,562 terminal references, no cycle and no completed cyclotomic L5b/CGS Theorem A input. Stage references and requests remain terminal contracts; this does not certify supplier proof closure.",
+    "targetCount": 4,
+    "importedTargetNodes": 13,
+    "newNodes": 2,
+    "newDefinitionApiItems": 0,
+    "newDefinitionUnitTests": 0,
+    "suggestedExamples": 8,
+    "planets": "One new planet; with the predecessor’s five HE.8b planets the combined stage has six."
+  }
+}
