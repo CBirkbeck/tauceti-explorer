@@ -566,7 +566,8 @@
       "verification": [
         "Use isomorphism classes of actual members, with coefficient embeddings quantified universally. Common traces are not a family constructor.",
         "Unramified WD means trivial inertia and N=0. A parameter with trivial inertia and nonzero N is the semistable Steinberg case.",
-        "KW plain/almost strict, DP almost strict, and BLGGT weak are distinct contracts. In particular no de Rham condition may be inferred at an omitted KW coefficient prime."
+        "KW plain/almost strict, DP almost strict, and BLGGT weak are distinct contracts. In particular no de Rham condition may be inferred at an omitted KW coefficient prime.",
+        "At a residually reducible coefficient prime with p odd and WD_p unramified, DP's almost-strict definition still imposes the full comparison (6), whereas KW's asks only crystallinity with weights (a,b); the constructed Brauer systems meet the stronger condition there (KW II §10.3.2, p. 94, Breuil and Berger)."
       ],
       "target": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
       "ownerPacket": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
@@ -596,7 +597,8 @@
         "ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface",
         "ArithmeticGaloisRepresentations:G7",
         "mathlib:Representation.ind",
-        "mathlib:Representation.dual"
+        "mathlib:Representation.dual",
+        "ArithmeticGaloisRepresentations:R01.1/refined-induction-interface"
       ],
       "sources": [
         {
@@ -704,7 +706,8 @@
         "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
         "GL2AutomorphicRepresentationsAndTransfer:R17.6",
         "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
-        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary",
+        "ArithmeticGaloisRepresentations:R01.1/refined-induction-interface"
       ],
       "sources": [
         {
@@ -799,7 +802,7 @@
     },
     {
       "kind": "theorem",
-      "statement": "For the Brauer system with its stated input contracts, KW almost strictness gives the following fixed local parameter r_q. Away from the coefficient characteristic, WD comparison retains full monodromy. At q=ℓ≠2 with unramified r_q, the member is crystalline with the fixed weights. At q=ℓ with irreducible semisimplified residual member, potential semistability and WD comparison follow through the Kisin input, using a potential-modularity field disjoint from the residual kernel. These are the historical KW II §10.3.2 cases. No omitted ramified reducible or dyadic case follows from this contract. The separate strict-brauer-system theorem supplies all-place strictness by the full Skinner theorem.",
+      "statement": "For the Brauer system with its stated input contracts, KW almost strictness gives the following fixed local parameter r_q. Away from the coefficient characteristic, WD comparison retains full monodromy. At q=ℓ≠2 with unramified r_q, the member is crystalline with the fixed weights, and the Breuil–Berger argument of KW II also identifies its WD parameter with r_q. At q=ℓ with irreducible semisimplified residual member, potential semistability and WD comparison follow through the Kisin input, using a potential-modularity field disjoint from the residual kernel. These are the historical KW II §10.3.2 cases. No omitted ramified reducible or dyadic case follows from this contract. The separate strict-brauer-system theorem supplies all-place strictness by the full Skinner theorem.",
       "hypotheses": [
         "(c) needs ρ̄_ι irreducible, because Kisin's theorem does; this is the whole difference between almost strict and strict",
         "the case q = ℓ = 2 with r_q unramified and ρ̄_ι reducible is not covered"
@@ -860,7 +863,7 @@
       "hypotheses": [
         "the residual weight computations (3), (4) use almost strict compatibility at q and Savitt's computations of reductions of potentially Barsotti–Tate representations of tame type (requested)",
         "when the new residual characteristic q is 2 (KW I §9: case (4) with p = 3, q = 2 and characters of order 3) Savitt's paper does not apply, which is why the proof of KW I Theorem 9.1 gives an ad hoc argument that k(ρ̄′₂) = 2",
-        "F. Diamond's list: the possible (i, j) are j = m(q + 1)/p^r − 1, i = q − 1 − j for 0 < m < p^r/2, so i = j + 1 does not occur"
+        "F. Diamond's list: the possible (i, j) are j = m(q + 1)/p^r − 1, i = q − 1 − j for 0 < m < p^r/2, so i = j + 1 does not occur when q is odd. For q = 2, which forces p = 3, r = 1 and m = 1, the list gives j = 0 and i = 1 = j + 1; KW I state no weight in (4) for q = 2 and treat that case by the separate argument of §9.1 (source issue PotentialModularityAndCompatibleSystems/E13)"
       ],
       "proofSteps": [
         "The p-adic lift of type (i) (R24.3).",
@@ -912,7 +915,7 @@
       "verification": [
         "The four lift types are the existing R24.3 nodes, not new lift-existence targets. Each branch retains its original p, residual-image, q, determinant and inertial-type hypotheses.",
         "Savitt Corollary 6.15 and Remark 6.17 are checked at odd q. Their semisimplified tame nonscalar reduction survives removal of the local trivial-endomorphism hypothesis; a full nonsplit lattice classification needs stronger local input. Global irreducibility does not imply that local hypothesis.",
-        "For the Diamond sublist set j=m(q+1)/p^r−1 and i=q−1−j with 0<m<p^r/2 and the specified integrality. Then i−j=q+1−2m(q+1)/p^r>0; equality to 1 would require p^r=(q+1)(p^r−2m), impossible when p^r | q+1 and (q+1)/p^r>1. Keep these actual divisibility conditions, rather than asserting a free inequality.",
+        "For the Diamond sublist set j=m(q+1)/p^r−1 and i=q−1−j with 0<m<p^r/2 and the specified integrality. Then i−j=q+1−2m(q+1)/p^r>0; equality to 1 would require p^r=(q+1)(p^r−2m), impossible when p^r | q+1 and (q+1)/p^r>1. Keep these actual divisibility conditions, rather than asserting a free inequality. The excluded value (q+1)/p^r = 1 together with p^r − 2m = 1 occurs only for q = 2, p = 3, m = 1, where i = j + 1 (E13).",
         "The dyadic case uses KW I §9.1 p.19’s odd-ramification finite-flat argument. Savitt’s odd-prime formula is not applied at q=2."
       ],
       "target": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
@@ -1065,8 +1068,8 @@
         "Pass this local hypothesis to the R32.6 consumer; no Pan or other modularity-lifting proof is constructed in R24.6."
       ],
       "acceptance": [
-        "Check DP Paso 5 case (1): N ramified in the system and ρ̄_N reducible is case (c)",
-        "Check KW I §8.4: the auxiliary prime p′ is outside the ramification set, so case (b) applies"
+        "Check DP Paso 5 case (1): N ramified in the system and ρ̄_N reducible is the excluded case, in which the KW almost-strict contract gives neither de Rham behavior nor WD comparison; DP use only de Rham behavior there, which their Definition 1.10(4) imposes and which the strict Brauer systems supply",
+        "Check KW I §8.4: the auxiliary prime p′ is outside the ramification set, so the odd unramified-parameter clause applies and the member is crystalline of the fixed weights"
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
@@ -1084,7 +1087,7 @@
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "Paso 5, p. 14 of the arXiv version",
-          "match": "The modern route in case (c)."
+          "match": "The modern route in the excluded case: a residually reducible member at a ramified coefficient prime, where DP rely only on de Rham behavior."
         }
       ],
       "verification": [
@@ -1119,13 +1122,16 @@
         "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
         "GL2ModularityLifting:R32.6/transfer-residually-reducible",
         "GL2ModularityLifting:R32.6/transfer-dyadic",
-        "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd"
+        "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
+        "GL2ModularityLifting:R32.6/ramified-reducible-coefficient-prime",
+        "GL2ModularityLifting:R32.6/transfer-ordinary-three",
+        "GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems"
       ],
       "sources": [
         {
           "sourceId": "kw-serre-modularity-I",
-          "locator": "§8.2, p. 15 of the preprint",
-          "match": "Linked systems."
+          "locator": "§8.2, pp. 14–15 of the preprint",
+          "match": "Linked systems: two systems are linked at a prime when their residual members there are isomorphic (gloss on p. 14), and modularity passes along the link (p. 15)."
         },
         {
           "sourceId": "dieulefait-pacetti",
@@ -1674,7 +1680,8 @@
         "ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface",
         "ArithmeticGaloisRepresentations:G7",
         "mathlib:Rep.indResAdjunction",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+        "ArithmeticGaloisRepresentations:R01.1/refined-induction-interface"
       ],
       "sources": [
         {
@@ -1807,14 +1814,14 @@
     },
     {
       "kind": "lemma",
-      "statement": "Let F be an imaginary CM field, (ℛ,ℳ) a pure, extremely regular polarized weakly compatible system, F′/F a finite extension and s an irreducible subrepresentation of r_λ|G_F′. There is a CM field F″ with F⊆F″⊆F′ such that s is invariant under G_F″ and (s, μ_λ|G_F″⁺) is a polarized representation; it is totally odd when (ℛ,ℳ) is. The field is a CM descent field, not an arbitrary totally-real intermediate field. Purity and extreme regularity force the selected Hodge subset to be stable under the polarized duality.",
+      "statement": "Let F be an imaginary CM field, (ℛ,ℳ) a pure, extremely regular polarized weakly compatible system, F′/F a finite extension and s a subrepresentation of r_λ|G_F′, irreducible or not. There is a CM field F″ with F⊆F″⊆F′ such that s is invariant under G_F″ and (s, μ_λ|G_F″⁺) is a polarized representation; it is totally odd when (ℛ,ℳ) is. The field is a CM descent field, not an arbitrary totally-real intermediate field. Purity and extreme regularity force the selected Hodge subset to be stable under the polarized duality.",
       "hypotheses": [
-        "F imaginary CM (BLGGT v4 Lemma 5.4.5; v1 Lemma 5.2.3 allowed F CM or totally real); (ℛ, ℳ) polarized; ℛ pure and extremely regular; s irreducible, which the last step of the proof uses."
+        "F imaginary CM (BLGGT v4 Lemma 5.4.5; v1 Lemma 5.2.3 allowed F CM or totally real); (ℛ, ℳ) polarized; ℛ pure and extremely regular; s any subrepresentation of r_λ|G_F′. BLGGT v4 Lemma 5.4.5 does not assume s irreducible: multiplicity one of the constituents makes the restricted pairing perfect on every subrepresentation. Proposition 5.4.6 applies the lemma to irreducible constituents."
       ],
       "proofSteps": [
         "Choose τ so that distinct equal-size subsets of H_τ have distinct sums (extreme regularity) and τ₁ on the normal closure F₁ of F′/F⁺; submodules of the same dimension are equal iff the Hodge–Tate numbers of their determinants agree, so constituents have multiplicity one.",
         "Purity gives h_σ + h_{σc} = w dim s, so s^{σcc′} = s^σ; the group generated by products cc′ of complex conjugations cuts out the maximal CM subfield F″ of F′, and s extends to G_{F″}.",
-        "Comparing Hodge–Tate numbers, s^c ≅ μ_λ s^∨, realised by restricting the pairing matrix A_{λ,v}; this gives the parity statement."
+        "The representation μ_λ(s^∨)^c is isomorphic to a submodule of r_λ with the same determinant Hodge–Tate numbers as s, hence to s, so s^c ≅ μ_λ s^∨. The pairing of r_λ restricts to a perfect pairing on s, since a degenerate restriction would produce a second constituent isomorphic to one already in s, against multiplicity one; this gives the polarization of s and its sign."
       ],
       "acceptance": [
         "Check that extreme regularity, not only regularity, is what is used: it separates equal-dimensional submodules by the Hodge–Tate numbers of their determinants, which gives multiplicity one of the constituents of r_λ|_{G_{F₁}}.",
@@ -1829,7 +1836,7 @@
         {
           "sourceId": "blggt-2014-v4",
           "locator": "§5.4, Lemma 5.4.5 and proof, p. 76 (arXiv v4)",
-          "match": "Correct CM base, irreducible constituent, actual polarization and total-oddness hypotheses."
+          "match": "Correct CM base, an arbitrary subrepresentation (irreducibility is not assumed), actual polarization and total-oddness hypotheses."
         }
       ],
       "verification": [
@@ -2787,7 +2794,8 @@
         "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
         "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
         "PotentialModularityAndCompatibleSystems:R24.5/character-system",
-        "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data"
+        "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data",
+        "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system"
       ],
       "status": "open"
     },
@@ -2820,7 +2828,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-      "need": "ClassFieldTheory, Part II: extend the existing global reciprocity interface to the ℓ-adic realization and converse classification of finitely ramified algebraic/de Rham one-dimensional characters as type-A₀ Hecke characters, with a common number field and geometric-Frobenius convention. Consume Hecke carriers and their infinity-type purity from GlobalNumberFields Layers 9–10, and request local de Rham/crystalline and WD purity comparisons from PadicHodgeTheory R06.2–R06.3. BLGGT Appendix A.2 and ACC+ p.197 identify the required character interface. Do not rebuild global reciprocity or general characters here.",
+      "need": "ClassFieldTheory, Part II: extend the existing global reciprocity interface to the ℓ-adic realization and converse classification of finitely ramified algebraic/de Rham one-dimensional characters as type-A₀ Hecke characters, with a common number field and geometric-Frobenius convention. Consume Hecke carriers and their infinity-type purity from GlobalNumberFields Layers 9–10, and request local de Rham/crystalline and WD purity comparisons from PadicHodgeTheory R06.2–R06.3. BLGGT Appendix A.2 and ACC+ §7.1, published p.1092 identify the required character interface. Do not rebuild global reciprocity or general characters here.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.5/character-system",
         "PotentialModularityAndCompatibleSystems:R24.5/rank-one-purity"
@@ -2912,7 +2920,7 @@
         "Read and transcribe the Larsen–Pink/Larsen/Bogomolov/Serre/Conrad–Chai–Oort/Bruhat–Tits proof leaves named in gaps.",
         "Extend the suggested signatures for WD, density, algebraic monodromy, and local constants when the supplier types can be stated; current omissions are explicit."
       ],
-      "notes": "All targets are existing accepted nodes in the R24.3 packet, with the dedicated exact import checks in this packet. Complete means target coverage, not proof closure."
+      "notes": "All targets are existing accepted nodes in the R24.3 packet, with the dedicated exact import checks in this packet. Complete means target coverage, not proof closure. The first paragraph of this stage's atlas record, on R23.1's general Moret–Bailly field selection (the route by which BCGP Proposition 9.1.12 is assigned here), is owned and realised by the accepted R23.1 packet (R23.1/moret-bailly-three-local-conditions, R23.1/moret-bailly-over-a-preliminary-extension, R23.1/tower-linear-disjointness, R23.1/surjective-specialisation-finite-quotient) and is not planned here. Upstream order: this roadmap is Caraiani–Newton tier 22, and these generic definitions are cited upward by WeightsInEtaleCohomology (tier 12), AutomorphicGaloisRepresentationsPartII (17), AutomorphicGaloisRepresentations (18) and GL2ModularityLifting (21). Under the tier rule they move down into a citing lower-tier roadmap when it is packaged; the import contracts of this packet are the specification to move."
     },
     {
       "stageId": "PotentialModularityAndCompatibleSystems:R24.6",
@@ -3019,7 +3027,30 @@
       "detail": "R34.6/hilbert-local-monodromy-weight-export has its stated degree and finite-discrete-series guards. The unrestricted local automorphic input is already planned at R19.3/monodromy-weight-purity-of-the-family and is used here under that exact id. The request to R34.6 records the general purity owner alignment and realization; the restricted geometric source is not silently generalized."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "PotentialModularityAndCompatibleSystems/E13",
+      "source": "kw-serre-modularity-I",
+      "kind": "error",
+      "locator": "Remarks after Theorem 5.1, p. 10 of the author's preprint results.pdf (the Inventiones text, 178 (2009) 485–504, was not obtained)",
+      "printed": "Reporting F. Diamond's description of the level-two pairs (i, j) in Theorem 5.1(4), the remark lists them as j = m(q+1)/p^r − 1 and i = q − 1 − j with 0 < m < p^r/2, and concludes that i = j + 1 never occurs.",
+      "correction": "The conclusion holds only for odd q. For q = 2 the hypothesis p | q + 1 forces p = 3 and r = 1; the only m is 1, and the list gives j = 0 and i = 1 = j + 1. Theorem 5.1(4) states its Serre-weight assertion only for odd q, and KW I §9.1 handles (p, q) = (3, 2) by a separate finite-flat argument, so the clause giving weight q when i = j + 1 is vacuous for odd q and nothing downstream uses the unqualified remark. Read: for q odd, i = j + 1 does not occur.",
+      "reason": "From the list, i − j = q + 1 − 2m(q+1)/p^r, so i − j = 1 exactly when (q+1)(p^r − 2m) = p^r. Since p^r divides q + 1 this forces q + 1 = p^r and p^r − 2m = 1; then p is odd and q = p^r − 1 is an even prime, so q = 2, p^r = 3 and m = 1. Directly: the characters of order 3 of the multiplicative group of the field with four elements give (i, j) = (1, 0).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for DOI 10.1007/s00222-009-0205-7: no update, erratum or correction relation is registered",
+        "the authors' preprint results.pdf at the cited URL (the version read)",
+        "KW II (proofs.pdf) §§9–10 and bibliography, which cite KW I without a correction to this remark",
+        "the Springer landing page, which refused a non-browser request"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review after recomputing the displayed list at q = 2, p = 3 and solving i − j = 1 in general; only that pair occurs, and the weight claim of Theorem 5.1(4) is restricted to odd q, so no stated result is affected.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.5"
+      }
+    }
+  ],
   "inheritedSourceIssues": [
     {
       "id": "PotentialModularityAndCompatibleSystems/E1",
@@ -3643,5 +3674,245 @@
       "RT-AREA-langlands-2/30"
     ],
     "notes": "The accepted owner nodes and their planets are retained unchanged in their packet. The dedicated reader and import checks bind the exact contracts; there is no duplicate declaration or independent-review claim."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R24.5",
+    "date": "2026-10-14",
+    "notes": "Accepted after correction as a complete target-level import pass: three stages planned, proofClosed false. This review is independent of the Codex session codex-0Y1GxJ that wrote the packet. All 30 reused targets exist in the accepted R24.3 packet. Every prerequisite id, request supplier and node named in a gap was resolved; R06.4/fontaine-laffaille-rational-consequences sits in the needs_changes PadicHodgeTheory--P7 packet, as in the owner. All 12 public sources were opened at every locator; their SHA-256 values match. Every one of the 16 baseline declarations was read at the Mathlib pin. Corrected: the irreducibility hypothesis that BLGGT v4 Lemma 5.4.5 does not have; Diamond's list at q=2, with new source issue E13; the KW II case (b) WD comparison; the undefined case labels in local-compatibility; the R32.6 owner nodes for RT /21 in linked-systems and its KW I locator; the R01.1 induction interface for three targets; the DP-versus-KW comparison clause (6); and an ACC+ edition locator in the Class field theory Part II request. Coverage notes now record that the R23.1 paragraph of the R24.5:operations record belongs to R23.1, and the Caraiani–Newton tier-22 move-down of the generic definitions. RT-AREA-langlands-2/10, /21 and /30 are handled correctly. check_blueprint reports 0 errors and 0 warnings. lean-check elaborates the unchanged suggested file; its only warnings mark the intentionally unproved statements. The reader was brought into line with every correction.",
+    "baselineChecks": [
+      {
+        "ref": "mathlib:Complex.Gammaℝ",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/Analysis/SpecialFunctions/Gamma/Deligne at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℂ",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/Analysis/SpecialFunctions/Gamma/Deligne at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/Analysis/SpecialFunctions/Gamma/Deligne at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/FieldTheory/AbsoluteGaloisGroup at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Basic at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation.IsSemisimpleRepresentation",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Semisimple at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Irreducible at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation.dual",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Basic at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:NumberField.FinitePlace",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/NumberTheory/NumberField/Completion/FinitePlace at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:NumberField.FinitePlace.embedding",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/NumberTheory/NumberField/Completion/FinitePlace at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:LinearMap.charpoly",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/LinearAlgebra/Charpoly/Basic at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation.ind",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Induced at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Rep.indResAdjunction",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/RepresentationTheory/Induced at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/LinearAlgebra/Matrix/Determinant/Basic at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/LinearAlgebra/Matrix/Charpoly/Basic at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "verdict": "verified",
+        "note": "Declaration read in Mathlib/Data/ZMod/Defs at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (the lean-check build tree). It supplies the carrier, operation or identity in its provides line and no arithmetic theorem."
+      }
+    ],
+    "checked": [
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+        "verdict": "corrected",
+        "note": "Checked against KW I §5 pp.7–8 (strict, plain and almost-strict clauses, weights, regularity) and DP Definition 1.10 and Theorem 1.11 pp.6–7. Added the second difference from DP: at a residually reducible odd coefficient prime with unramified WD_p, DP still impose the full comparison (6), where KW ask only crystallinity. Strict ⇒ almost strict ⇒ plain holds, because unramified r_q for large ℓ gives crystalline members. Tests and API are adequate."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
+        "verdict": "corrected",
+        "note": "Twist, restriction and induction bookkeeping checked against BLGGT v4 §5.1 pp.62–65 (restriction polynomial α^[k(w):k(v)], H restricted) and KW II p.93. The verification already required R01.1/refined-induction-interface for continuous induction, so it is now a prerequisite. The quadratic induction test, (X−1)² split and X²−1 inert with H={0,0}, was recomputed."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
+        "verdict": "corrected",
+        "note": "Checked against KW II §10.3.2 p.93 and Khare arXiv math/0504080v1 §3 pp.16–17, where genuineness comes from the inner product. Rederived the norm-one argument: Mackey summands over F_i·σF_j are Hom spaces between extensions of one absolutely irreducible G_F-member. By Gallagher each is one-dimensional or zero according to a finite character, and the character is λ-independent by Frobenius recognition. The R17.6 request is precise and within that stage text. Added R01.1/refined-induction-interface as a prerequisite and to the R01.1 request."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+        "verdict": "corrected",
+        "note": "All three historical cases were matched to KW II pp.93–94. In case q=ℓ≠2 with r_q unramified, KW II (Breuil, Berger) prove r_{q,ι}=r_q as well as crystallinity, and the statement now says so again. The Kisin case keeps the residual guard and the disjoint field of KW II Theorem 6.1(iii)(d)."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "verdict": "corrected",
+        "note": "Statement and residual weights checked against KW I Theorem 5.1 and its remarks pp.9–10, KW II p.94 and Savitt Corollary 6.15/Remark 6.17 pp.38–39. Diamond’s remark that i=j+1 never occurs holds only for odd q: at q=2, p=3 the list gives (i,j)=(1,0). The hypothesis now says so and cites new source issue E13; this is harmless, since the weight claim of (4) is made only for odd q."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+        "verdict": "verified",
+        "note": "DP Theorem 1.11 p.7 restated exactly, including the p=2 non-solvable guard and the Definition 1.10(4) de Rham clause. Dieulefait 2004 Theorem 1.1 pp.1–2 confirms the narrower citation scope (E5). The covered A/B/C scope and the R23.4 request are honest."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+        "verdict": "verified",
+        "note": "Checked KW I Theorem 10.1 proof p.20, §8.4 p.17, Lemma 6.2(ii) p.11 and §1 p.2, and DP Lemma 1.14 p.9 (unramified inertia gives weight p). Swinnerton-Dyer pp.15 and 31–33: Δ is reducible at 2,3,5,7,691 and dihedral at 23 (=2·11+1, weight 12=(23+1)/2). The S₃ weight-ℓ example and the bound ℓ>2(a−b)+1 were rechecked."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-at-the-coefficient-prime",
+        "verdict": "corrected",
+        "note": "Clauses agree with KW I §5 p.8 and DP Paso 5 p.14. The acceptance items and the Paso 5 source match cited cases (b)/(c) that the statement does not define; they now name the odd unramified-parameter clause and the excluded residually reducible ramified case."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+        "verdict": "corrected",
+        "note": "Checked KW I §8.2 and DP Remark 4 p.7. The linkage gloss (isomorphic residual members) is on p.14 and its use on p.15, so the locator now reads pp.14–15. Per the RT-AREA-langlands-2/21 fix, R32.6/ramified-reducible-coefficient-prime, R32.6/transfer-ordinary-three and R32.6/de-rham-lifting-and-almost-strict-systems are now prerequisites; the verification and the R32.6 request already described them."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
+        "verdict": "verified",
+        "note": "BLGGT v4 §5.1 p.62 checked on the page image: members valued in GL_n(M̄_λ), H_τ for τ:F↪M̄. Taylor 2006 §6 p.773 contract and the stated difference from it confirmed. Δ: τ(2)=−24 gives Q₂=X²+24X+2048; the cyclotomic test matches BLGGT A.2(7)."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
+        "verdict": "verified",
+        "note": "Regular, extremely regular, totally odd, polarized, density-one irreducible, away-from-coefficient strict, pure, strictly pure and automorphic all match BLGGT v4 pp.62–64; Taylor’s strong compatibility and rank-2 regularity match p.773; w even for n odd at a real place matches p.64."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
+        "verdict": "verified",
+        "note": "The dual polynomial X^nQ(0)^{-1}Q(X^{-1}) matches BLGGT v4 p.62. Recomputed X²−(5/6)X+1/6, the tensor collision {0,−1,1,0}, Sym-power regularity in rank two and ∧³ of rank two."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
+        "verdict": "verified",
+        "note": "Taylor Lemma 6.5 p.774 and the one-dimensional Hodge–Tate characterisation p.773; characteristic-zero only, as stated."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions",
+        "verdict": "verified",
+        "note": "Γ- and ε-factors and d± match BLGGT v4 pp.63–64 (published p.572), and Γℂ=ΓℝΓℝ(·+1) matches Mathlib. Recomputed: the H¹(E) real factor gives Γℂ(s) with ε=−1; for the cyclotomic character d+=1, giving Γℝ(s+1) and ζ(s+1); the trivial character gives Γℝ(s)ζ(s)."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
+        "verdict": "corrected",
+        "note": "Items (1)–(9) match BLGGT v4 §5.5 pp.77–79 (published pp.588–590), including the norm criterion with dim A≥0. Added R01.1/refined-induction-interface for continuous induction and Frobenius reciprocity."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one",
+        "verdict": "verified",
+        "note": "BLGGT v4 Proposition 5.3.2 p.71 with proof through p.74: every irreducible subrepresentation on a density-one set, not a cofinite set."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/constituents-essentially-self-dual",
+        "verdict": "corrected",
+        "note": "BLGGT v4 Lemma 5.4.5 p.76 is stated for any subrepresentation s; irreducibility is not a hypothesis, and the last step uses multiplicity one, not irreducibility. Statement, hypothesis, proof step and source match are corrected, in line with the package review’s correction. Proposition 5.4.6 applies the lemma to irreducible constituents."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/larsen-rational-system-groups",
+        "verdict": "verified",
+        "note": "BLGGT v4 §5.2 pp.65–66: groups, A(n), B(n), θ_ℓ, kernels and cokernels; Bogomolov openness and Larsen–Pink 6.14 recorded as leaves."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/serre-theta-uniform-bounds",
+        "verdict": "verified",
+        "note": "Lemma 5.2.1 and proof pp.66–67; E3 (“mod G⁰_ℓ”) confirmed at p.67; published p.576 cites CCO 2013 Lemma 3.7.7, as the gap records."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/larsen-good-primes",
+        "verdict": "verified",
+        "note": "Proposition 5.2.2 (1)–(6) and proof pp.68–70, including the index bound A(n)⁴D(R) on p.69 and BLGGT’s remark that (3) is unused."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system",
+        "verdict": "verified",
+        "note": "Skinner Theorem 1 pp.241–243 has no residual or parity hypothesis; read the AutomorphicGaloisRepresentations nodes R19.5/skinner-full-hilbert-coefficient-prime, R19.4/all-hilbert-local-global-compatibility, R19.3/monodromy-weight-purity-of-the-family and R19.2/hilbert-normalisation-dictionary (packet accepted). The decomposition field F(q) has completion ℚ_q and F/F(q) is solvable, so the KW II p.93 descent applies at every q, including q=ℓ=2 and reducible residual members (RT-AREA-langlands-2/30)."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/monodromy-component-field",
+        "verdict": "verified",
+        "note": "BLGGT v4 Lemma 5.3.1 pp.70–71 (Sen, two splitting primes of different residue characteristic) and Lemma A.1.5 p.85; R01.5’s current full-span export is correctly declared insufficient."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/polarized-system",
+        "verdict": "verified",
+        "note": "BLGGT v4 §2.1 p.31: pairing symmetry ε_v, covariance, ε_v=−μ(c_v) for imaginary CM, totally odd means ε_v=+1. Recomputed the ℚ(i) test: B(x,y)=J(x,r(c)y) is symmetric with μ=ε⁻¹ and μ(c)=−1."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/polarized-operations",
+        "verdict": "verified",
+        "note": "Formulas re-derived from §2.1: tensor multiplier μμ′δ with sign εε′; Sym^k/∧^k multiplier μ^kδ^{k−1} with sign ε^k; dual multiplier μ⁻¹ with the same sign. The norm character χχ^c extends with value +1 at every c_v, since χχ^c(c_vc_w)=1."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/character-system",
+        "verdict": "verified",
+        "note": "BLGGT v4 A.2 p.87 (HT_τ={a_τ} for infinity type ∏(τx)^{−a_τ}, wt‖·‖=−2, every algebraic character arises so) and ACC+ pp.1085,1092. The Class field theory Part II proposal is consistent with §15: no atlas roadmap plans Serre’s general correspondence, and CM.4 covers only CM abelian varieties."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/rank-one-purity",
+        "verdict": "verified",
+        "note": "BLGGT v4 A.2 items (1), (2), (8) and ACC+ p.1092: rank one is automatically pure."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/induced-character-purity",
+        "verdict": "verified",
+        "note": "ACC+ p.1092; the block computation β^f=α_w with q_w=q_v^f was rechecked."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/artin-system",
+        "verdict": "verified",
+        "note": "ACC+ pp.1086,1092; the quadratic test (X−1 split, X+1 inert) and the irregularity of every rank-two Artin family were rechecked."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/artin-twist-purity",
+        "verdict": "verified",
+        "note": "ACC+ p.1092 with inherited E4: canonical Hodge data are needed for the Hodge symmetry."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data",
+        "verdict": "verified",
+        "note": "ACC+ §7.1 pp.1084–1085: very weak means crystalline with full H off a density-zero set; extremely weak means the determinant condition only. The S₃ metadata counterexample to Hodge symmetry was rechecked."
+      }
+    ]
   }
 }
