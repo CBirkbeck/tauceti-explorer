@@ -24,7 +24,9 @@ Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
   requested from HilbertModularVarietiesAndShimuraCurves R18.3; here only their finite-set shadow
   (functions on a finite type) is prototyped.
 * The ordinary projector is PadicFamilies L0a's `lim T^{n!}`; Skinner–Wiles' exponent
-  `p^n (p^m - 1)` gives the same idempotent (`R21.1/projector-exponent-comparison`).
+  `p^n (p^m - 1)` gives the same idempotent (`R21.1/projector-exponent-comparison`). Its
+  quaternionic instance, the Hecke algebra `T_∞(U, 𝒪)`, level independence and the duality of
+  the ordinary towers are PadicFamilies L5's and are imported.
 * `Λ′_𝒪` (variables `X_i`, `Y`) is the weight algebra of `T_∞(U, 𝒪)`; `Λ_𝒪` (variables `T_j`, `Y`)
   is the one at a permissible maximal ideal.
 -/
@@ -36,7 +38,8 @@ section FiniteSets
 variable {X Y R : Type*} [Fintype X] [Fintype Y] [DecidableEq X]
 
 /-- **`R21.1/ordinary-hecke-adjoint-pairing`**: the stabiliser-weighted pairing
-`⟨f, g⟩ = Σ c(x)⁻¹ f(x) g(x)` on functions on a finite set. -/
+`⟨f, g⟩ = Σ c(x)⁻¹ f(x) g(x)` on functions on a finite set (the weight-two, trivial-coefficient
+case of HilbertModularVarietiesAndShimuraCurves `R18.3/integral-pairing`). -/
 def quaternionicPairing [Field R] (c : X → ℕ) (f g : X → R) : R :=
   ∑ x, ((c x : R))⁻¹ * f x * g x
 
@@ -124,7 +127,8 @@ example : (2 : ZMod 25) ^ (5 * 4) = 1 := by decide
 hence nilpotent on finite coefficients; here `5³ = 0` in `ℤ/125`. -/
 example : (5 : ZMod 125) ^ 3 = 0 := by decide
 
-/-- `R21.1/ordinary-level-independence`: `diag(1, ϖ) · (1 0; x 1) = (1 0; ϖx 1) · diag(1, ϖ)`. -/
+/-- `PadicFamilies:L5/ordinary-level-independence` (imported by R21.2; moved down from R21.1):
+`diag(1, ϖ) · (1 0; x 1) = (1 0; ϖx 1) · diag(1, ϖ)`. -/
 example {R : Type*} [CommRing R] (ϖ x : R) :
     (!![1, 0; 0, ϖ] : Matrix (Fin 2) (Fin 2) R) * !![1, 0; x, 1] =
       !![1, 0; ϖ * x, 1] * !![1, 0; 0, ϖ] := by
