@@ -192,10 +192,12 @@ not import them.
 
 ### From TauCetiRoadmap.RepresentationTheory.InductionRestriction
 
-- Layer 7, representation groups: for a finite group G, a finite central extension
-  `1 → A → Ĝ → G → 1` with A in the commutator subgroup of Ĝ and |A| = |H²(G, ℂˣ)|. Layer RS.0.5
-  uses exactly this (stem, central, order of the kernel) and proves that its class map identifies A
-  with M(G).
+- Layer 7, representation groups: over an algebraically closed field (here ℂ) and for a finite
+  group G, Layer 7 builds the central extension of a factor set and the representation group, a
+  central extension `1 → A → Ĝ → G → 1` whose kernel A is that layer's Schur multiplier
+  `H²(G, ℂˣ)`, lies in the commutator subgroup of Ĝ, and through which every projective
+  representation of G lifts. Layer RS.0.5 uses exactly this (finite, stem, central, |A| =
+  |H²(G, ℂˣ)|) and proves that the class map identifies A with M(G).
 
 ## How to read the build
 
@@ -223,7 +225,7 @@ RS.0, RS.1, RS.4 ─> RS.6 index-two reduction, certificates, anti-diagonal form
 
 ## Layer RS.0: Integral degree-two homology of groups and central extensions
 
-Everything later in the roadmap compares central extensions with integral second homology
+Everything after this layer compares central extensions with integral second homology
 `M(G) = H₂(G, ℤ)`. Mathlib has the carrier (`groupHomology.H2 (Rep.trivial ℤ G ℤ)` with its cycle
 quotient `groupHomology.H2π`), the degree-two cohomology carrier and the functorial maps, and Tau
 Ceti classifies extensions with abelian kernel by factor-set classes. What neither library has is
@@ -232,7 +234,7 @@ universal-coefficient description of that evaluation, the class map of a central
 five-term exact sequence, Schur covers whose kernel is identified with `M(G)` compatibly with
 commutators, the finiteness and order-annihilation of the homology of a finite group, the Hall
 decomposition of the multiplier of a coprime semidirect product, and conjugacy of cyclic complements
-of coprime order. This layer states them once, in the generality the later layers use. Only the
+of coprime order. This layer states them once, in the generality the subsequent layers use. Only the
 representation group itself (a stem central extension of a finite group whose kernel has the order
 of `H²(G, ℂˣ)`) is taken from InductionRestriction, Layer 7.
 
@@ -279,7 +281,7 @@ nothing about the coefficient object. *Needs:* Mathlib `groupHomology.cycles₂`
 `groupCohomology.H2π_eq_iff`, `groupHomology.map`, `groupCohomology.map`.
 
 *Source.* Hatcher, *Algebraic Topology*, §3.1, the evaluation map `H^n(C; G) → Hom(H_n(C), G)` built
-from cycles and boundaries, pp. 190–191, applied to the integral inhomogeneous chain complex of `G`
+from cycles and boundaries, p. 191, applied to the integral inhomogeneous chain complex of `G`
 (whose chain groups are free abelian); Löh, *Group Cohomology* (lecture notes, version of 30 July
 2019), §1.2, pp. 11–17, for the bar complex as the defining complex of group (co)homology.
 
@@ -582,7 +584,7 @@ RS.0.6; Mathlib `groupHomology.map`, `groupHomology.map_comp`, `Representation.C
 *Source.* Löh, *Group Cohomology*, Theorem 1.7.15, p. 64, and the chain-level description of the
 transfer, pp. 63–64; for the spectral-sequence route, Theorem 3.2.12, p. 123, and Proposition
 3.2.13, p. 124. The use in the source papers is Liu–Wood–Zureick-Brown, Lemma 12.10 and its proof
-(published version pp. 62–63), and Ellenberg–Venkatesh–Westerland, Example 9.3.2 (arXiv v1, p. 57).
+(published version pp. 110–111), and Ellenberg–Venkatesh–Westerland, Example 9.3.2 (arXiv v1, p. 57).
 
 **Checks.**
 
@@ -750,7 +752,8 @@ author copy, §2.1, author PDF p.2.
 ### RS.1.4 Commuting-pair classes respect orders
 
 Prove `commutator_order`: For commuting x,y, the homological commutator is additive in each
-commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩. In particular if x is an involution then 2⟨x,y⟩=0.
+commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩ for every natural number n. In particular if x is an
+involution then 2⟨x,y⟩=0.
 
 *Proof sketch.* Work directly in Mathlib's integral inhomogeneous bar chains. Write
 z(a,y)=[a|y]−[y|a] and put
@@ -779,7 +782,7 @@ law. If x²=1, specialize to n=2 and use the unit-cycle boundary. Swapping the v
 z gives the power law in the second variable. This proof uses no finiteness hypothesis, chosen
 cover, universal coefficient sequence or calculation of the homology of a torus.
 
-*Needs:* RS.1, universal homological commutator and its cycle formula; Mathlib's
+*Needs:* RS.1.3 (the class ⟨x, y⟩ and its cycle formula); Mathlib's
 `groupHomology.d₃₂_single`, `groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` in
 `RepresentationTheory/Homological/GroupHomology/LowDegree.lean`. The same file's
 `groupHomology.d₂₁_single` verifies that z(x,y) is a cycle when xy=yx. Subtraction, finite sums and
@@ -1019,7 +1022,9 @@ the definition, arXiv v1 PDF p.34.
 
 **Checks.**
 
-- The equality is stronger than Wood Lemma 2.2, and is not inferred from the zero composite alone.
+- For G = C₂ × C₂ and c = ∅ (S_c = D₈ or Q₈) the image of H₂(S_c, ℤ) in M(G) ≅ C₂ is Q_∅ = 0; for c
+  the three nonidentity elements, S_c = G and the image is all of M(G) = Q_c. A claim that the
+  image is always zero fails the second case, and the zero composite of RS.1.14 does not decide it.
 
 ### RS.1.14 Reduced-cover homology composite vanishes
 
@@ -1620,7 +1625,7 @@ permutation. The inverse unit supplies the inverse homomorphism.
 *Needs:* RS.3.5; RS.2.16; RS.3.3.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+extensions* (2024), §12, published version pp. 104–105; arXiv v2 pp. 47–48.
 
 **Checks.**
 
@@ -1703,7 +1708,7 @@ The API:
 *Needs:* RS.3.2; RS.2.16; RS.3.8.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+extensions* (2024), §12, published version pp. 104–105; arXiv v2 pp. 47–48.
 
 **Checks.**
 
@@ -1764,7 +1769,7 @@ The API:
 *Needs:* RS.3.2; RS.3.9; RS.3.8.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+extensions* (2024), §12, published version pp. 104–105; arXiv v2 pp. 47–48.
 
 **Checks.**
 
@@ -1939,7 +1944,7 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 **Checks.**
 
 - The degree m = −2e_i is allowed: the statement is about the group U, and nonnegativity is imposed
-  only later by the counting slices of RS.3.9.
+  only by the counting slices of RS.3.9.
 
 ### RS.4.8 Torsion-image filtration
 
@@ -2091,7 +2096,7 @@ Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
 - `paritySquareMap_test_1` (degenerate): a(0)=0 and s(0)=0.
 - `paritySquareMap_test_2` (computation): For S₃ transpositions and its identity reduced cover,
-  V=U=F₂, a=id, B=0 and s=0.
+  V = F₂, Additive(Gᵃᵇ) ≅ F₂, a = id, B = 0 and s = 0.
 - `paritySquareMap_test_3` (non-example): For distinct classes with the same abelianized image,
   a(e₁+e₂)=0 even though e₁+e₂≠0. In S₆ the class of a transposition and the class of three disjoint
   transpositions give an explicit example: their cycle types differ and both have odd sign.
@@ -2185,8 +2190,8 @@ developed here, rather than separately numbered results in that paper.
 ### RS.4.17 Ranks count surviving parities
 
 Prove `rank_parity_count`: |C_t^g|=2^{N−rankL_t}. For K_t=2^{N−rankL_t} and K_{−1}=0, the number of
-compatible parities with exact threshold t is K_t−K_{t−1}. Real and imaginary signatures have equal
-parity cardinalities, without an asserted equality of weights.
+compatible parities with exact threshold t is K_t−K_{t−1}. The cosets for g = 1 and for g ∈ c
+have equal cardinalities, though in general not equal weight enumerators (RS.4.18).
 
 *Proof sketch.* Translation preserves cardinality; use rank-nullity and finite-vector-space
 cardinality. Increasing kernels give the histogram difference.
@@ -2274,7 +2279,8 @@ developed here, rather than separately numbered results in that paper.
 - For G = S₃ (one involution class, A = 0) every compatible fiber has exactly one fixed point for
   every odd q prime to 6, and the surviving parities are v_g + ker a = {v_g}.
 - For a reduced multiplier A = C₈ with one column s₁ = class of a generator (an algebraic fixture),
-  the threshold is 3: the odd-parity obstruction survives exactly for q ≡ 1 mod 16.
+  a fiber whose square obstruction has the class of a generator has threshold 3, so it has fixed
+  points exactly when 16 divides q − 1.
 
 ### Dependencies
 
@@ -2298,8 +2304,8 @@ Prove `split_homology_surjection`: For finite G=H⋊Γ, the projection ρ:G→Γ
 *Needs:* `groupHomology.map` (Mathlib); `groupHomology.map_comp` (Mathlib).
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2324,8 +2330,8 @@ two components; the product cardinality alone does not specify the projections.
 `AddCommGroup.primaryComponent` (Mathlib).
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2349,8 +2355,8 @@ separate conjugacy theorem for complements in a possibly noncentral semidirect p
 `Subgroup.exists_right_complement'_of_coprime` (Mathlib); `GroupExtension.Splitting` (Mathlib).
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2374,8 +2380,8 @@ cardinality under that inclusion. The cardinality formula |S′|=|kerθ||M_Γ| u
 *Needs:* RS.5.3.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2413,8 +2419,8 @@ The API:
 specified maps on the two cover kernels; RS.0.7.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2436,8 +2442,8 @@ M_Γ → M_Γ.
 *Needs:* RS.0.7; RS.5.5; RS.5.2.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
-v2 pp.53–54.
+extensions* (2024), Lemma 12.10 and proof, published version pp. 110–111; proof of Theorem 10.4,
+p. 112; arXiv v2 pp. 53–54.
 
 **Checks.**
 
@@ -2470,7 +2476,7 @@ use complement conjugacy.
 bijection needs their conjugacy.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+extensions* (2024), Proof of Theorem 10.4, published version p. 112; arXiv v2 p. 54.
 
 **Checks.**
 
@@ -2487,7 +2493,7 @@ while the section supplies the inverse.
 *Needs:* RS.5.7; `Abelianization.lift` (Mathlib).
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+extensions* (2024), Proof of Theorem 10.4, published version p. 112; arXiv v2 p. 54.
 
 **Checks.**
 
@@ -2503,7 +2509,7 @@ through the embedded Γ to a commuting pair with its first element in c.
 *Needs:* RS.5.7; RS.1.3; RS.1.5.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+extensions* (2024), Proof of Theorem 10.4, published version p. 112; arXiv v2 p. 54.
 
 **Checks.**
 
@@ -2526,7 +2532,7 @@ maps and the reduced kernel isomorphisms.
 *Needs:* RS.5.9; RS.5.6; RS.1.7.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+extensions* (2024), Proof of Theorem 10.4, published version p. 112; arXiv v2 p. 54.
 
 **Checks.**
 
@@ -2551,7 +2557,7 @@ the actual projection kernels gives the kernel-action comparison.
 *Needs:* RS.5.10; RS.3.3; RS.5.8.
 
 *Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
-extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+extensions* (2024), Proof of Theorem 10.4, published version p. 112; arXiv v2 p. 54.
 
 **Checks.**
 
@@ -2921,7 +2927,9 @@ For each row k of Wood's Table 2 (§8.2, p. 419), prove `table_row_k`: for the m
 c_k) listed below, with c_k its outside involutions, M(F_k, c_k) is the listed group. The abelian
 rows follow from RS.6.8; each other row is proved by a certificate (RS.6.4) for the listed model, or
 for the odd rows 13, 22–24 also through RS.6.1. That the listed model is the embedded type selected
-in the source is checked where the types are enumerated (ArithmeticStatistics, ST.3).
+in the source is checked where the types are enumerated (ArithmeticStatistics, ST.3). Wood's table
+lists only types in which c_k is a single conjugacy class of F_k; for the abelian rows this is
+`antidiagonal_marking` (RS.6.8), and for the other rows it is part of the certificate.
 
 | Row | G | Marked group F | M(F, c) |
 | --- | --- | --- | --- |
@@ -2996,8 +3004,9 @@ embedded arithmetic types is made in ArithmeticStatistics, ST.3, which consumes 
 
 - Melanie Matchett Wood, *Nonabelian Cohen–Lenstra moments*, Duke Math. J. 168 (2019), no. 3,
   377–427 ([NSF public access copy](https://par.nsf.gov/servlets/purl/10152050)): §2.3, p. 387;
-  Definition 3.1, p. 388; Lemmas 3.3–3.4, p. 390; §4.1, Proposition 4.1, equations (5)–(6), Remark
-  4.2, pp. 399–401; introduction, pp. 378–379; §8.2, Table 2, p. 419; Appendix opening, p. 420.
+  Definition 3.1, p. 388; Lemmas 3.3–3.4, p. 390; §4.1, pp. 398–401 (Proposition 4.1 and
+  equation (5), p. 400; equation (6) and Remark 4.2, p. 401); introduction, pp. 378–379; §8.2,
+  Table 2, p. 419; Appendix opening, p. 420.
 - Melanie Matchett Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland*,
   Research in the Mathematical Sciences 8 (2021), Article 21 ([author
   copy](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf)): §2.1, p. 2; §2, Lemmas
@@ -3009,9 +3018,9 @@ embedded arithmetic types is made in ArithmeticStatistics, ST.3, which consumes 
 - Yuan Liu, Melanie Matchett Wood, David Zureick-Brown, *A predicted distribution for Galois groups
   of maximal unramified extensions*, Invent. Math. 237 (2024), 49–116 ([NSF public access
   copy](https://par.nsf.gov/servlets/purl/10509628); preprint
-  [arXiv:1907.05002v2](https://arxiv.org/abs/1907.05002v2)): §12, pp. 56–57 of the published copy
-  (arXiv v2 pp. 46–48, invariant degrees p. 50); Lemma 12.10 and its proof, pp. 62–63 (arXiv v2 p.
-  53); proof of Theorem 10.4, p. 64 (arXiv v2 p. 54).
+  [arXiv:1907.05002v2](https://arxiv.org/abs/1907.05002v2)): §12, pp. 104–105 (arXiv v2 pp. 47–48;
+  the paragraph before Proposition 12.7, arXiv v2 p. 50); Lemma 12.10 and its proof, pp. 110–111
+  (arXiv v2 p. 53); proof of Theorem 10.4, p. 112 (arXiv v2 p. 54).
 - Clara Löh, *Group Cohomology*, lecture notes, version of 30 July 2019 ([author
   copy](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf)): §1.2, pp. 11–17; Theorem
   1.4.1, p. 20; Theorem 1.5.1, p. 30; §1.5.2, pp. 32–40; Outlook 1.5.15, p. 40; Corollary 1.6.13, p.
