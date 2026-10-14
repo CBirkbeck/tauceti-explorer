@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-ArakelovGeometryAndAbelianHeights",
+    "date": "2026-10-14",
+    "notes": "Independent review by Codex codex-m5RItY (#9772), distinct from author codex-zt51cz. Corrected the principal Green-current sign, rational-unit/component hypotheses, signed cycle pairing, conjugate-linear Faltings integrand, integral-section elliptic proof, and finite-part/ambient-group scope of divisible towers. Moved the plain Hodge interface to supplier contracts; clarified the metrized C5 adapter; named the local-duality proof targets and strengthened discriminating controls. Clarified that the reduction-prime bound concerns non-semistable primes. Checked all 55 input topics, inherited source limitations, 15 seeded random locators, pinned APIs, current-roadmap/library ownership and ten representative Lean signatures. lean-check exited 0 on the final 234-line Suggested.lean, with only the 18 expected declaration-uses-sorry warnings. Intake and unchanged-packet checks passed. See the review report and handoff for explicit inherited source limits."
+  }
+}
