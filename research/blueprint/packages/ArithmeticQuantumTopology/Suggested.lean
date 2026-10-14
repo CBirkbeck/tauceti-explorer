@@ -237,6 +237,12 @@ theorem casimirSigma_eval_color {i n : ℕ} (h : n < i) :
 
 end RepresentationRing
 
+/-- The fundamental-colour right-handed trefoil uses `t = q⁻¹` (README 2.3); at `q = 2`
+the two possible substitutions give different values. -/
+example : (2 : ℚ) ^ (-1 : ℤ) + 2 ^ (-3 : ℤ) - 2 ^ (-4 : ℤ) = 9 / 16 ∧
+    (2 : ℚ) + 2 ^ (3 : ℕ) - 2 ^ (4 : ℕ) = -6 := by
+  norm_num
+
 section Kashaev
 
 /-- The figure-eight Kashaev sum `Σ_{j<N} ∏_{k=1}^{j} |1 − ζ^k|²`; at `ζ = e^{2πi/N}` it is the
@@ -403,6 +409,10 @@ def cyclicDilogStar (k : ℕ) (ζ x : ℂ) : ℂ :=
 example (ζ x : ℂ) : cyclicDilogStar 1 ζ x = 1 := by
   simp [cyclicDilogStar]
 
+/-- The order-two cyclic product is `1 + x`, fixing the inverse-root convention. -/
+example (x : ℂ) : cyclicDilogStar 2 (-1) x = 1 + x := by
+  norm_num [cyclicDilogStar]
+
 end NeumannZagier
 
 section Faddeev
@@ -425,7 +435,8 @@ def faddeevPhi (b : ℝ) (z : ℂ) : ℂ :=
 example : faddeevHeight 1 = Real.pi / 2 := by
   simp [faddeevHeight]
 
-/-- Self-duality `Φ_b = Φ_{1/b}`. -/
+/-- The raw strip-integral expressions are symmetric under `b ↦ 1/b`. Identifying them with
+meromorphic `Φ` requires the positive-parameter strip hypotheses of README 6.9. -/
 theorem faddeevPhi_inv (b : ℝ) (z : ℂ) : faddeevPhi b⁻¹ z = faddeevPhi b z := by
   sorry
 
@@ -436,6 +447,10 @@ def IsPositiveCharge (a c : ℝ) : Prop :=
 /-- The regular tetrahedron has all three charges `1/6`. -/
 example : IsPositiveCharge (1 / 6) (1 / 6) := by
   refine ⟨by norm_num, by norm_num, by norm_num⟩
+
+/-- A zero first charge and a zero third charge both fail strict positivity. -/
+example : ¬ IsPositiveCharge 0 (1 / 6) ∧ ¬ IsPositiveCharge (1 / 4) (1 / 4) := by
+  norm_num [IsPositiveCharge]
 
 /-- The level phase `exp(iπℓ/(4ℏ))` of the Andersen–Kashaev state integral (README 6.19). -/
 def levelPhase (ℏ ℓ : ℝ) : ℂ :=
@@ -517,6 +532,13 @@ example (γ : Matrix.SpecialLinearGroup (Fin 2) ℤ) (x : ℚ) :
     knotMatrixCocycle (n := Fin 2) (fun _ => 1) (fun _ _ => 1) γ x = 1 := by
   simp [knotMatrixCocycle]
 
+/-- Reversing the two factors changes a matrix cocycle with noncommuting values (README 7.13). -/
+example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 0; 1, 1] ≠
+    (!![1, 0; 1, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 1; 0, 1] := by
+  intro h
+  have h00 := congrArg (fun A : Matrix (Fin 2) (Fin 2) ℤ => A 0 0) h
+  norm_num [Matrix.mul_apply, Fin.sum_univ_two] at h00
+
 end MatrixCocycle
 
 section FigureEightDescendants
@@ -554,40 +576,61 @@ end FigureEightDescendants
 Statements not typed at the pins (their carriers are absent; the README states them):
 
 * Layer 0: `linkingNumber`, `linkingMatrix` and `surgery` of a framed link, `homology_surgery`,
+  `linkExterior_H1_meridians`, `seifertLongitude_H1`,
   `isIntegralHomologySphere_iff`, `IsKirbyMove`, `IsFennRourkeMove`, `kirbyEquiv`, `kirby_theorem`,
   `kirbyEquiv_iff_fennRourke`, `exists_surgery_presentation`, `IsHosteMove`, `hosteEquiv`, the
   admissible band-slide theorem, the refined Kirby calculus and the existence of admissible
   presentations (no framed link type or surgery manifold at the pins).
 * Layer 1: `TopologicalRibbonHopfAlgebra`, `ZeroConvergent`, `Uq`, `Uqev`, `basis_Uq`, the
+  fields `TopologicalRibbonHopfAlgebra.R`, `TopologicalRibbonHopfAlgebra.ribbon`,
+  `TopologicalRibbonHopfAlgebra.moduleCategory`, `TopologicalRibbonHopfAlgebra.duals`, the
   completions, `universalR`, `ribbonElement`, the module categories, `BottomTangle`, `closure`,
-  `RTFunctor`, `J` and `universalInvariant`, `CoreSubalgebra`, `claspForm`, `twistForm`,
+  `RibbonTangle`, `RibbonGraph`, `IsRibbonTangleMove`, `RTFunctor`, `J` and `universalInvariant`,
+  `CoreSubalgebra`, `claspForm`, `twistForm`, `CoreSubalgebra.twistForm`,
   `DrinfeldJimboDatum`, `DrinfeldJimboAlgebra`, `quantumPBWBasis`, `weightedPBWCore`,
   `integralQuantumCore`, `TiltingModule`, `IsNegligibleMorphism`, `TiltingSemisimplification`
+  and `bottomTangleAction`
   (no completed tensor products over `ℂ⟦h⟧` and no quantum group at the pins).
-* Layer 2: `sl2Color`, `quantumTrace`, `colouredJones`, `reducedJones`, `P_prime`, `P_doublePrime`,
-  `P_tildePrime`, `quantumCasimir`, `evenCenterExpansion`, `algebraP` and its completion,
+* Layer 2: `sl2Color`, `sl2RepRing`, `quantumTrace`, `colouredJones`, `reducedJones`,
+  `P`, `P_prime`, `P_doublePrime`,
+  `P_tildePrime`, `quantumCasimir`, `sigma`, `evenCenterExpansion`, `algebraP`, `filtration`
+  and its completion,
   `cyclotomicTruncation`, `unifiedKashaevInvariant`, `kashaevInvariant`, `kashaevFunction`, and the
   integrality, duality and expansion theorems (they need Layer 1 and the Habiro ring).
 * Layer 3: `omega`, the twisting theorem, `unifiedInvariantOfPresentation`, its independence,
   divisibility, multiplicativity and orientation reversal.
 * Layer 4: `wrtWithLift`, `wrt`, the evaluation, integrality, Galois and determination theorems,
-  the Ohtsuki series and characterisation, `QuantumParityGroup`, `generalIntegralKn`,
-  `highestWeightColor`, `StrongKirbyColor`, the general WRT comparison and the general Lie type
+  `OhtsukiSeries` and its characterisation, `sl2KirbyColor`, `QuantumParityGroup`,
+  `quantumParityDegree`, `tensorParityGroup`, `generalIntegralKn`, `generalKnFiltration`,
+  `generalCompletedKn`, `highestWeightColor`, `colorRing`, `StrongKirbyColor`,
+  `admissibleRootLifts`, `admissibleQRoots`, the general WRT comparison and the general Lie type
   unified invariant.
-* Layer 5: `IdealTetrahedron`, `IdealTriangulation`, `IsCompleteHyperbolic`, `gluing_theorem`,
-  `mostow_prasad`, `epstein_penner`, `edgeEquation`, `cuspEquation`, `LiftedFiveTerm`,
+* Layer 5: `IdealTetrahedron`, `IdealTriangulation`, `cuspEnds_parabolic`, `gluing_theorem`,
+  `mostow_prasad`, `mostow_prasad_oriented`, `epstein_penner`, `RegularEPRefinement`,
+  `regularEPRefinement_connected`, `geometricSolution_nondegenerate`, `ShapeSolution`, `isGeometricSolution`,
+  `Flattening`, `flatteningEquiv`, `edgeEquation`, `cuspEquation`, `LiftedFiveTerm`, `transferRelation`,
   `extendedPreBloch`, `extendedBloch`, `StrongFlattening`, `blochElement`, `extendedRogers` (no
   dilogarithm in Mathlib) and the volume and Chern–Simons theorem.
-* Layer 6: `NZVertexSeries`, `formalNZStateIntegral` and its invariance (formal Gaussian bracket
+* Layer 6: `NZVertexSeries`, `NZFormalIntegrand`, `formalNZStateIntegral` and its invariance (formal Gaussian bracket
   from HabiroNahmSeries), the Habiro-module comparison, the root-refined weights and series,
-  `faddeevPhi_divisor` and the functional equations, `positionOp`, `momentumOp`, `sumOp`, the
-  operator pentagon, `analyticStateIntegral`, `schwartz_kernel_theorem`, `wavefrontSet`,
-  `contract`, `chargedPsi`, `chargedTetrahedronKernel`, the charged pentagon, `akStateIntegral`
+  `RootNZDatum`, `RootNZDatum.weights`, `RootNZDatum.average`, `RootNZDatum.oneLoop`,
+  `cyclicDilogarithmStar`, `NZHessian`, `rootNZVertexSeries`, `rootNZFormalSeries`, `faddeevPhi_meromorphic`,
+  `faddeevPhi_integrable`, `faddeevPhi_stripComparison`, `faddeevPhi_divisor`,
+  `faddeevPhi_selfDual`, `faddeevPhi_unitary_real`, `IsUnitaryFaddeevParameter`,
+  `faddeevPhi_unitary_parameter` and the functional
+  equations, `positionOp`, `momentumOp`, `sumOp`, `faddeevMomentumUnitary`,
+  `faddeevPositionUnitary`, `faddeevSumUnitary`, the
+  operator pentagon, `analyticStateIntegral`, `schwartz_kernel_theorem`, `kernelOf`,
+  `operatorOfKernel`, `LocalDistribution`, `restrictTempered`, `wavefrontSet`,
+  `mulOfWavefront`, `mulOfWavefront_tempered`, `contract`, `AKShape`, `LeveledShape`,
+  `AKShape.weight`, `AKShape.charge`, `AKShape.gauge`, `AKShape.admissible`,
+  `chargedPsi`, `chargedTetrahedronKernel`, the charged pentagon, `akStateIntegral`
   and its invariance.
-* Layer 7: `KnotPerturbativeFamily`, the quantum modularity conjectures, the volume conjecture,
+* Layer 7: `KnotPerturbativeFamily`, `representationWeight`, `generalizedKashaev`,
+  `tweakedAutomorphy`, the quantum modularity conjectures, the volume conjecture,
   the quadratic relations, the coefficient asymptotics, the matrix refinements, the analytic
   extension of the cocycle, the Bettin–Drappeau theorem and the comparison conjecture of
-  Andersen–Kashaev.
+  Andersen–Kashaev, `LedgerStatus`, `LedgerColumn`, `LedgerEntry` and `ledgerRows`.
 -/
 
 end TauCetiRoadmap.ArithmeticQuantumTopology

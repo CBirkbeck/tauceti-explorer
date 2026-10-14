@@ -18,8 +18,9 @@ integers, Galois equivariant and determined by J_M, and whose Taylor series at q
 series; (2) the Habiro–Lê extension of (1) to every simple Lie algebra; (3) Neumann's theorem that a
 complete finite-volume hyperbolic 3-manifold has an extended Bloch class whose Rogers regulator is
 i(Vol + i CS) modulo π²; (4) the Garoufalidis–Storzer–Wheeler theorem that the formal Neumann–Zagier
-state integral of an ideal triangulation is a topological invariant with coefficients in the trace
-field, together with its root-of-unity refinement and arithmetic descent; (5) the Andersen–Kashaev
+state integral at the geometric solution is a topological invariant with coefficients in the trace
+field; the root-of-unity construction has proved arithmetic descent and conjectural topological
+invariance; (5) the Andersen–Kashaev
 convergence and invariance theorem for state integrals and their volume limits for 4₁ and 5₂; and
 (6) the Bettin–Drappeau theorem proving quantum modularity for ten hyperbolic knots. The quantum
 modularity conjectures, the volume conjecture and their matrix and cocycle refinements are stated
@@ -60,7 +61,22 @@ It leaves to other roadmaps:
   `TauCeti.FramedBoundaryTorus`). The current Tau Ceti library, newer than the pin, adds the Jimbo
   R-matrix representation of the braid group and its weighted trace (`TauCeti.KnotTheory.jimbo`,
   `TauCeti.KnotTheory.jimboWeightedTrace`); these are the vector-representation shadows of the
-  universal invariant of Layer 1 and are cited, not planned again.
+  universal invariant of Layer 1 and are cited, not planned again. At current Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`,
+  `Geometry/Manifold/Riemannian/Hyperbolic/FiniteVolume.lean` already defines
+  `TauCeti.HyperbolicMetric.HasFiniteVolume` and `TauCeti.IsFiniteVolumeHyperbolic` on a complete
+  metric; their carriers are consumed unchanged. `Hyperbolic/Mostow.lean` records the closed
+  rigidity predicates `TauCeti.IsMostowRigid` and `TauCeti.MostowRigidity`, rather than a proof of
+  rigidity. Layer 5 adds the cusped theorem and its orientation qualification.
+  `Hyperbolic/UpperHalfSpace.lean` supplies `TauCeti.UpperHalfSpace`, its analytic
+  `riemannianMetric` and the transitive similarity action. That module proves neither
+  completeness nor curvature −1, and supplies no ideal boundary or geodesic ideal regions.
+  `TauCeti.BipartiteRibbonGraph` is an abstract graph with cyclic orders; the embedded ribbons and
+  coupons below additionally carry ambient isotopy and module colours.
+  `TauCeti.TemperleyLieb.jonesTrace_sigma_pow_three` in `KnotTheory/TemperleyLieb.lean`
+  computes the right-handed trefoil's writhe-normalized trace as
+  δ(A⁻⁴+A⁻¹²−A⁻¹⁶). Its normalized polynomial is t+t³−t⁴ with t=A⁻⁴; this fixes the
+  bracket convention used in the new quantum-trace comparison.
 - **TauCetiRoadmap GeometricTopology.** Manifolds, connected sum and orientation reversal (Layer 1),
   framed link presentations, Reidemeister and Markov equivalence and the Jones polynomial from the
   Kauffman bracket (Layer 4), Dehn filling and surgery with lens spaces (Layer 5), complete
@@ -68,7 +84,8 @@ It leaves to other roadmaps:
   (Layer 11). Linking numbers, the homology of surgeries, Kirby calculus and the cusped
   finite-volume theory are not planned there, and are planned here.
 - **TauCetiRoadmap AlgebraicTopology.** Singular homology and the Mayer–Vietoris sequence (Stages
-  2–3), used for the homology of a surgery.
+  2–3), and integral universal coefficients and Poincaré duality (Stage 6), used for the homology
+  of a surgery and its integral homology-sphere criterion.
 - **TauCetiRoadmap IntegralLattices.** The classification of indefinite odd unimodular lattices
   (6A), used for the existence of admissible presentations.
 - **TauCetiRoadmap RepresentationTheory.** LieHighestWeight (Cartan subalgebras and root
@@ -76,7 +93,8 @@ It leaves to other roadmaps:
   and dimension formulas, Layer 6) and RootSystems (root and weight lattices). Quantum groups are
   not planned there and are planned here.
 - **TauCetiRoadmap OperatorTheory/SelfAdjointSpectralTheory.** Closed and self-adjoint unbounded
-  operators, resolvents and the spectral measure of an unbounded self-adjoint operator (Parts C–E).
+  operators, resolvents and the spectral measure of an unbounded self-adjoint operator (Parts C–E),
+  and bounded Borel calculus of the Cayley transform (Part B).
   The Schrödinger pair and its Schwartz core are not planned there and are planned here.
 - **HabiroCyclotomicCompletions.** The cyclotomic completions ℤ[q]^S and the Habiro ring (Layer 1),
   factorial series (Layer 2), root evaluation, the Taylor map and p-adic re-expansion (Layer 3), and
@@ -97,6 +115,8 @@ It leaves to other roadmaps:
 Wheeler's two-variable invariant of knots and its comparison with the relative Habiro ring and the
 Melvin–Morton–Rozansky expansion [Whe] are outside this roadmap; they would build on Layer 2 and on
 HabiroRings Layers 1 and 5. A general theory of resurgence and Borel summation is also outside it.
+The construction of the Casson invariant and its comparison with the first Ohtsuki coefficient
+are outside the build; the Ohtsuki comparison here is characterized by p-adic WRT evaluations.
 
 ## Conventions
 
@@ -150,6 +170,12 @@ At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`:
   finite contour shifts; unbounded tails need separate estimates).
 - `SchwartzMap`, `SchwartzMap.fourierTransformCLM`, `TemperedDistribution`,
   `TemperedDistribution.delta`, `MeasureTheory.Lp`: the analytic setting of Layer 6.
+- `Function.HasTemperateGrowth` (`Analysis/Distribution/TemperateGrowth.lean`): smoothness and a
+  polynomial bound on each iterated derivative, with a separate degree for each derivative.
+  `SchwartzMap.smulLeftCLM` and `SchwartzMap.smulLeftCLM_apply` in
+  `Analysis/Distribution/SchwartzSpace/Basic.lean`, and `TemperedDistribution.smulLeftCLM` in
+  `Analysis/Distribution/TemperedDistribution.lean`, supply smooth multiplication under that
+  hypothesis. The total operator outside that hypothesis is zero and does not represent a product.
 - `Matrix.SpecialLinearGroup`: SL₂(ℤ) acting on the rationals in Layer 7.
 
 Mathlib has no dilogarithm; it is imported from Polylogarithms P.1.
@@ -170,7 +196,9 @@ framed link type.
   Reidemeister and Markov equivalence, the Jones polynomial from the Kauffman bracket. Layer 5:
   slopes, Dehn filling, surgery on framed links, lens spaces. Layer 7: `HyperbolicMetric`, volume,
   Mostow rigidity for closed manifolds. Layer 11: triangulations.
-- **AlgebraicTopology.** Stage 2: singular homology; Stage 3: excision and Mayer–Vietoris.
+- **AlgebraicTopology.** Stage 2: singular homology; Stage 3: excision and Mayer–Vietoris, including
+  the sphere computations. Stage 6: integral universal coefficients and Poincaré duality for a
+  compact connected oriented boundaryless 3-manifold of finite CW type.
 - **IntegralLattices.** 6A: an indefinite odd unimodular lattice of signature (t₊, t₋) is isometric
   to ⟨1⟩^(t₊) ⊕ ⟨−1⟩^(t₋).
 - **RepresentationTheory/LieHighestWeight.** Layer 1 (simple roots, root-space decomposition,
@@ -178,7 +206,10 @@ framed link type.
   dimension formulas); RootSystems for root and weight lattices.
 - **OperatorTheory/SelfAdjointSpectralTheory.** Part C (closed operators on `LinearPMap`, graph
   cores), Part D (resolvents, Cayley transform), Part E (the spectral measure of an unbounded
-  self-adjoint operator and the bounded Borel functional calculus).
+  self-adjoint operator, SA-E01–SA-E03), with the bounded Borel star-homomorphism of Part B,
+  SA-B04–SA-B09, applied to its Cayley transform. Real spectral symbols are transported through
+  the coordinate κ of SA-E01; SA-E02 removes the Cayley singular point. No new general Borel
+  calculus is constructed here.
 
 ### From the atlas roadmaps
 
@@ -203,6 +234,12 @@ framed link type.
 - **Polylogarithms.** P.1: Li_n with its principal branch, the Bloch–Wigner function D and its
   five-term relation, the cross-ratio identity. P.2: the volume of an ideal tetrahedron as D of its
   shape (Milnor's formula), in the cross-ratio convention of §5.1.
+  This comparison additionally requires a geometric realization of the ideal boundary as
+  ℂ ∪ {∞}, geodesic ideal regions with finite Riemannian volume, the orientation-preserving
+  PSL₂(ℂ) action and volume additivity under subdivision. These are missing geometric
+  supplier contracts: GeometricTopology Layers 7–8 specify metrics and homogeneous models,
+  but do not specify these ideal-boundary constructions. They must precede P.2; using the
+  P.2 volume theorem to construct its own geometric domain would be circular.
 - **QSeriesPartitionsAndMockModularForms.** QM.0: q-Pochhammer symbols, Bernoulli numbers and
   infinite products with their convergence domains. QM.5: radial limits and expansions, scalar
   quantum modular forms and the scalar cocycle relation.
@@ -304,15 +341,24 @@ first homology of `surgery L` is the cokernel of A = `linkingMatrix L` acting on
 on a split union is the connected sum of the surgeries (GeometricTopology Layer 1's connected sum),
 and surgery on the (±1)-framed unknot is S³.
 
-*Proof sketch.* The exterior of L has H₁ free on the meridians μ_i, by Alexander duality, and the
-longitude λ_i is homologous to Σ_{j≠i} lk(L_i, L_j) μ_j there. Mayer–Vietoris for the exterior and
-the m solid tori, from the AlgebraicTopology roadmap, kills the images f_i μ_i + λ_i, which are the
-columns of A. The determinant criterion follows because a square integer matrix has finite cokernel
-exactly when det A ≠ 0, of order |det A|. ([Hab08] §10.1, pp. 34–35, surgery presentation recalled
-before Theorem 10.2.)
+First prove `linkExterior_H1_meridians`: the integral first homology of the compact exterior is
+free on μ₁,…,μ_m. Prove `seifertLongitude_H1`: the preferred longitude λ_i represents
+Σ_(j≠i)lk(L_i,L_j)μ_j. These are link-specific targets, rather than an unstated import of general
+Alexander duality.
+
+*Proof sketch.* Apply Mayer–Vietoris to S³ as exterior and tubular neighbourhoods, using collars
+for the open-cover formulation. Since H₂(S³)=H₁(S³)=0, the map from H₁ of the boundary tori to
+H₁(exterior)⊕H₁(tubular neighbourhoods) is an isomorphism. The meridians span its kernel after
+projection to the solid-torus factors and therefore form the required exterior basis. The
+Seifert-surface intersection comparison in §0.1 computes the longitude coordinates. The surgery
+Mayer–Vietoris sequence then imposes the columns of A. The determinant criterion gives H₁=0
+exactly for a unimodular A; Stage 6's integral universal coefficients and Poincaré duality then
+give H₂=0 for this closed connected oriented 3-manifold. ([Hab08] §10.1, pp. 34–35, surgery
+presentation recalled before Theorem 10.2; the link-homology argument uses the supplier contracts
+above.)
 
 *Needs:* GeometricTopology Layer 5, GeometricTopology Layer 1, AlgebraicTopology Stage 3
-(Mayer–Vietoris), §0.1, Mathlib `Matrix.det`.
+(Mayer–Vietoris), AlgebraicTopology Stage 6, §0.1, Mathlib `Matrix.det`.
 
 *Lean:* `LinkingCokernel`.
 
@@ -321,6 +367,8 @@ The API:
 - `surgery`: the closed oriented 3-manifold obtained by surgery on the framed link L.
 - `surgery_empty`: surgery on the empty framed link is the 3-sphere.
 - `homology_surgery`: the first homology of `surgery L` is the cokernel of `linkingMatrix L`.
+- `linkExterior_H1_meridians`, `seifertLongitude_H1`: the meridian basis and the longitude formula
+  before imposing the filling relations.
 - `isIntegralHomologySphere_iff`: `surgery L` is an integral homology sphere if and only if the
   determinant of `linkingMatrix L` is a unit.
 - `surgery_disjoint_union`: surgery on a split union is the connected sum of the surgeries.
@@ -491,6 +539,8 @@ Main Lemma, Theorem 2.1, §2.2, p. 1290 (PDF p. 6); proof in §4, pp. 1300–130
 - A band slide applied to an admissible link gives an admissible link with the same linking matrix.
 - A single handle slide of the (+1)-framed unknot over another (+1)-framed split unknot changes the
   linking matrix from I₂ to [[2,1],[1,1]], which is not admissible; band slides avoid this.
+- Two slides in the same algebraic direction instead give P=I+2E₂₁ and
+  PᵀI₂P=[[5,2],[2,1]]; they are not a cancelling band slide.
 
 ### 0.7 Refined Kirby calculus for admissible links (Hoste's conjecture)
 
@@ -546,6 +596,9 @@ the algebraic step is the lattice classification above.)
   of an admissible link is unimodular.
 - The stabilisation is needed: the form (1) ⊕ (1) ⊕ … is already diagonal, but an even form such as
   the E₈ form is not congruent to a diagonal ±1 form without adding a ±1 summand.
+- For positive E₈, adjoining (−1) makes an odd indefinite form of signature (8,1), to which
+  IntegralLattices 6A applies. Adjoining (+1) leaves a positive definite form with only two
+  norm-one vectors, whereas I₉ has eighteen; an arbitrary stabilisation sign is insufficient.
 
 ### Examples
 
@@ -557,7 +610,7 @@ both admissible presentations of S³ and are related by one Hoste move. The p-fr
 
 ### Dependencies
 
-GeometricTopology Layers 1, 4 and 5; AlgebraicTopology Stage 3; IntegralLattices 6A; Mathlib
+GeometricTopology Layers 1, 4 and 5; AlgebraicTopology Stages 3 and 6; IntegralLattices 6A; Mathlib
 `Matrix`; Tau Ceti `FramedMarkovBraid`, `MarkovEquiv` and `BasedOrientedGaussCode.writhe`.
 
 ## Layer 1: ribbon Hopf algebras, quantum groups and universal invariants
@@ -658,6 +711,10 @@ The API:
   distinguish a knot from the unknot.
 - Mathlib's `HopfAlgebra` and `BraidedCategory` give the algebraic shadow (finite-dimensional,
   uncompleted); the completed tensor product is the new ingredient.
+- `zeroConvergent_powers`: hⁿ tends to zero: modulo h^k only n<k can contribute.
+- `zeroConvergent_constant`: the constant family 1 is not zero-convergent, already modulo h.
+- `zeroConvergent_fixedOrder`: the constant family h is not zero-convergent, already modulo h²;
+  membership of all terms in one fixed neighbourhood is insufficient.
 
 ### 1.3 The h-adic quantized enveloping algebra of sl(2) and its integral forms
 
@@ -733,7 +790,8 @@ The API:
 ### 1.5 Braided Hopf algebra structure on the completed even integral form
 
 The braided Hopf algebra structure of the braided transmutation of U_h induces a braided Hopf
-algebra structure with invertible antipode on the h-adic completion of the even integral form; that
+algebra structure with invertible antipode on the image completion of the even integral form
+for its e-power filtration; that
 is, each of the braided structure maps, and the inverses of the braiding and the antipode, carries
 the completed even form into the appropriate completed tensor power.
 
@@ -1109,6 +1167,10 @@ The API:
 - `quantum_dimension_V0`: qdim V₀=1.
 - `quantum_dimension_V1`: qdim V₁=v+v⁻¹, not the constant 2.
 - `color_tensor_V1`: V₁⊗V₁=V₂+V₀, so V₂=X²−1 rather than X².
+- `quantum_integer_small`: [0]=0, [1]=1 and [2]=v+v⁻¹; the Laurent sum has no
+  division by v−v⁻¹ at v=1, where [n] specializes to n.
+- `color_small`: V₀=1 and V₁=X in A[X], before taking quantum dimension. Replacing the
+  representation algebra by its dimension image loses V₁ as an independent variable.
 
 ### 2.2 Coloured Jones polynomials from the universal invariant
 
@@ -1154,11 +1216,14 @@ The API:
 
 For a zero-framed knot, the fundamental-color quantum invariant is unreduced:
 J_K(V₁)=[2]J^red_(K,2). Compare J^red_(K,2) with the Jones polynomial V_K(t) of GeometricTopology
-Layer 4, V_U=1, t=A⁻⁴, using an explicitly fixed mirror/crossing convention and a proven
-substitution t=q or q⁻¹. This comparison is a target of this roadmap. The sources do not fix which
-crossing of GeometricTopology Layer 4's bracket convention matches Habiro's positive crossing, so
-the substitution (t = q or t = q⁻¹, possibly with mirror image) is to be determined by the trefoil
-computation below, not assumed.
+Layer 4, V_U=1, t=A⁻⁴. Choose Habiro's positive braid crossing to represent the positive braid
+generator whose cube closes to the right-handed trefoil in the bracket convention. Then
+`reducedJones_eq_jones` states J^red_(K,2)(q)=V_K(q⁻¹), with no additional mirror operation.
+On V₁⊗V₁ the crossing has eigenvalues q^(1/4) on V₂ and −q^(−3/4) on V₀. Taking the trace of its
+cube and correcting its writhe gives
+q^(−9/4)(q^(3/4)[3]−q^(−9/4))/[2]=q⁻¹+q⁻³−q⁻⁴.
+Thus the right-handed trefoil has V_K(t)=t+t³−t⁴, while its mirror has t⁻¹+t⁻³−t⁻⁴. The
+bracket-side witness is fixed in Scope and ownership.
 
 *Route.* Use the bracket skein relation and the writhe correction of GeometricTopology Layer 4.
 Compute the V₁ crossing eigenvalues and match the oriented skein normalization. Check unknot,
@@ -1166,6 +1231,13 @@ oriented trefoil/mirror and framing twist; this determines the substitution uniq
 pp. 19–20; §6.2, pp. 21–22; [RT] §6.1, p. 17.)
 
 *Needs:* §2.2, GeometricTopology Layer 4.
+
+**Checks.**
+
+- The unknot has J^red_(U,2)=V_U=1; its unreduced value is [2].
+- At q=2 the right-handed trefoil's reduced quantum value is 9/16, whereas V_K(2)=−6; using
+  t=q fails this test.
+- Mirroring exchanges q and q⁻¹, so the mirrored value at q=2 is −6.
 
 ### 2.4 The elements P_n and the cyclotomic basis of the representation ring
 
@@ -1874,7 +1946,7 @@ complex analytic power series.
 
 *Proof sketch.* Apply the re-expansion square at ζ of odd prime-power order. Substitute the WRT
 evaluation theorem. Use the integral formal-series uniqueness characterization. ([Hab08] Theorem
-12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44.)
+12.6, §12.3.2, p. 41.)
 
 *Needs:* §4.3, HabiroCyclotomicCompletions Layer 3 (the Taylor map, 3.1),
 HabiroCyclotomicCompletions Layer 3 (p-adic re-expansion, 3.3), §4.6.
@@ -1882,10 +1954,9 @@ HabiroCyclotomicCompletions Layer 3 (p-adic re-expansion, 3.3), §4.6.
 **Checks.**
 
 - The constant term is 1, matching that the Ohtsuki series begins with 1.
-- The coefficient of q−1 is 6λ(M), with λ the Casson invariant in the orientation convention of
-  [Hab08] §12.3.3.
-- The theorem identifies two objects defined by different means, so it is a comparison and not a
-  definition.
+- For S³ the series is exactly 1, so every positive-degree coefficient vanishes.
+- By §3.5 the coefficient of q−1 is divisible by 6. The candidate series 1+(q−1)
+  fails this necessary test for a homology-sphere Ohtsuki series.
 
 ### 4.8 Why the determination theorems do not transfer to other completions
 
@@ -1957,6 +2028,8 @@ The API:
 - `parity_v_square`: The degree of v²=q is 1.
 - `parity_K_square`: The degree of K_α² is 1.
 - `parity_tensor_zero`: G^⊗0 is the two-element central group, not a trivial group.
+- The degree of v itself is the nonidentity central v̇. In type A₂, where (α₁,α₂)=−1,
+  K̇_α₁ė_α₂=v̇ė_α₂K̇_α₁; replacing G by its abelian quotient loses this sign.
 
 ### 4.11 Integral core filtration
 
@@ -2087,8 +2160,9 @@ quotient.)
 
 - At r = 3 the specialised sl₂ module V₂ is simple and tilting, but its quantum dimension [3]
   vanishes there, so its identity is negligible; only V₀ and V₁ survive the quotient.
-- Over the integral forms no base change to a field has been made, so no simple object is defined
-  there.
+- In the finite-free category over ℤ[v±1], multiplication by 2 on its rank-one trivial module is
+  monic and epic in that category and is not invertible. Full rank therefore does not justify
+  importing abelian semisimplicity before base change to the specified field.
 
 ### 4.15 General Lie-type WRT comparison
 
@@ -2133,7 +2207,7 @@ HabiroCyclotomicCompletions Layer 4 (rootwise Taylor rigidity, 4.3).
 ### Examples
 
 At r = 2 the Kirby colour is V₀ and at r = 3 it is V₀ + [2]V₁. τ_ζ(S³) = 1 at every root, and τ₁ = 1
-by convention. The Ohtsuki series starts 1 + 6λ(M)(q − 1) + ⋯ with λ the Casson invariant. A finite
+by convention. The Ohtsuki series has constant term 1, and for S³ it equals 1. A finite
 set of roots never determines a general element of the Habiro ring: the product of the corresponding
 cyclotomic polynomials is nonzero and has value 0 at all of them.
 
@@ -2159,15 +2233,18 @@ An ordered ideal tetrahedron in the upper half-space model of hyperbolic 3-space
 hyperbolic metric of GeometricTopology Layer 7) has four distinct vertices on ℂ ∪ {∞}; its shape is
 their cross-ratio z ∈ ℂ ∖ {0,1}, normalised so that the vertices (0, ∞, 1, z) have shape z. Its
 companions are z′=1/(1−z), z″=1−1/z and zz′z″=−1. Im z>0 is positive orientation; real nondegenerate
-shapes are flat and may occur in refinement arguments. Hyperbolic space and its isometry group
-PSL₂(ℂ) acting on ℂ ∪ {∞} are not constructed again here.
+shapes are flat and may occur in refinement arguments. The metric carrier is supplied in the
+boundaries. Its realization with ideal boundary ℂ ∪ {∞}, the PSL₂(ℂ) action and finite-volume
+geodesic ideal regions require the additional geometric supplier contract stated there.
+Four complex vertices and their cross-ratio alone do not establish that realization.
 
 *Construction.* Use the ordered vertices and the Möbius normalisation. Compute the companion
 coordinate changes and orientation sign. Flat nondegenerate simplices are kept, since the
 refinements of §5.2 may contain them. ([Neu] §3, pp. 420–421 (PDF pp. 8–9), ideal simplex
 parameters.)
 
-*Needs:* Mathlib `Complex.log`, GeometricTopology Layer 7.
+*Needs:* Mathlib `Complex.log`, GeometricTopology Layer 7 and the ideal-boundary geometric
+supplier contract preceding Polylogarithms P.2. The latter is an unresolved prerequisite.
 
 *Lean:* `shapePrime`, `shapeDoublePrime`, `shape_mul_shapePrime_mul_shapeDoublePrime`.
 
@@ -2195,31 +2272,40 @@ The API:
 
 ### 5.2 Cusped hyperbolic 3-manifolds, ideal triangulations and their rigidity
 
-GeometricTopology Layer 7 plans complete hyperbolic metrics, their volume and Mostow rigidity for
-closed manifolds. The cusped, finite-volume theory that Layers 5–7 need is planned here, as the
-following targets. Throughout, M is the interior of a compact connected orientable 3-manifold whose
+The additional cusp geometry uses the metric carrier specified in the boundaries; the rigidity
+theorem here includes torus cusps. Throughout, M is the interior of a compact
+connected oriented 3-manifold whose
 boundary is a nonempty union of tori.
 
 - `IdealTriangulation`: a finite set of ordered tetrahedra with orientation-reversing,
   order-compatible face pairings whose quotient, with the vertices removed, is homeomorphic to M;
   the links of the removed vertices are triangulated tori, the cusp triangulations, and a peripheral
   curve is a closed normal path in a cusp triangulation. A matrix equation alone is not this datum.
-- `IsCompleteHyperbolic`: a complete hyperbolic metric of finite volume on M (GeometricTopology
-  Layer 7's `HyperbolicMetric`, without the closedness assumption); each end is a cusp T² × [0, ∞)
-  whose holonomy is parabolic.
+- `cuspEnds_parabolic`: for a complete finite-volume metric on M, each end has a cusp
+  neighbourhood T² × [0, ∞) with rank-two parabolic holonomy. This adds the end classification to
+  the existing metric carrier.
 - `gluing_theorem` (Thurston): if shapes z_j with Im z_j > 0 satisfy the edge equations of §5.3 in
   logarithmic form and the completeness equations at every cusp, then the developing map of the
   tetrahedra is a local isometry onto hyperbolic space, the structure on M is complete of finite
   volume, and each tetrahedron is isometric to the geometric ideal tetrahedron with its shape.
-- `mostow_prasad`: two complete finite-volume hyperbolic 3-manifolds with isomorphic fundamental
-  groups are isometric, by an isometry inducing the isomorphism up to conjugation. Hence volume,
-  complex volume modulo its period, the trace field and the geometric representation up to
-  conjugation are topological invariants of M.
+- `mostow_prasad`: an isomorphism of fundamental groups of two complete finite-volume hyperbolic
+  3-manifolds is induced, up to inner conjugation, by an isometry. It can reverse orientation.
+  `mostow_prasad_oriented` adds an orientation-preserving homotopy equivalence and concludes an
+  orientation-preserving isometry in that homotopy class. Unsigned volume and the invariant trace
+  field are invariants without that extra orientation data; the complex regulator and geometric
+  PSL₂(ℂ)-representation up to conjugation use the oriented conclusion.
 - `epstein_penner`: M has a canonical decomposition into convex ideal polyhedra, depending only on a
-  choice of cusp neighbourhood volumes (no choice for one cusp); any two triangulations refining it
-  without new vertices, flat but nondegenerate tetrahedra allowed, are related by 2–3 moves through
-  such triangulations, and the geometric shapes are a nondegenerate solution of the gluing equations
-  on each of them.
+  choice of cusp neighbourhood volumes up to common scaling (no relative choice for one cusp).
+  A `RegularEPRefinement` triangulates each convex cell by a regular subdivision induced by
+  vertex heights, using no new ideal vertices, with compatible shared-face subdivisions; the
+  auxiliary flat tetrahedra needed between adjacent cells are part of the refinement datum.
+  `regularEPRefinement_connected` relates such regular refinements by 2–3 moves through their
+  regular refinement class, permitting flat tetrahedra with nondegenerate shape. It does not
+  assert connectivity of arbitrary triangulations of a convex 3-polytope.
+- `geometricSolution_nondegenerate`: for those refinements and the discrete-faithful complete
+  solution, choose independent edge equations and one peripheral equation per cusp as in [GSW]
+  §2.2; the resulting square gluing Jacobian has nonzero determinant. With a quad choice having
+  det B≠0, this gives det Λ≠0 for §6.1.
 - `ordered_hybrid_refinement`: M admits an ordered triangulation mixing ideal and finite vertices,
   compatible with the face orderings, as required by the extended Bloch class of §5.9.
 
@@ -2229,8 +2315,9 @@ torus parabolic, hence complete. Mostow–Prasad rigidity extends Mostow's close
 (GeometricTopology Layer 7) to finite volume. The Epstein–Penner decomposition is the convex hull
 construction in Minkowski space. ([GSW] §2.2, equations (14)–(15), pp. 6–7, and §2.3, pp. 8–9, where
 these inputs are stated with their hypotheses; [Neu] §14, pp. 464–465 (PDF pp. 52–53) and Theorem
-14.2, p. 465, for ordered hybrid refinements; the original proofs are in [Thu] Chapter 4, [Pra73]
-and [EP88].)
+14.2, p. 465, for ordered hybrid refinements; [Thu] §§4.2 and 4.4, pp. 48–50 and 54–56, for
+the gluing and completeness argument; [Pra73] Theorems A–B, p. 256, for finite-volume rigidity;
+the convex-decomposition proof is [EP88].)
 
 *Needs:* GeometricTopology Layer 7, GeometricTopology Layer 11, §5.1, AlgebraicTopology Stage 3.
 
@@ -2242,6 +2329,15 @@ and [EP88].)
   structure, so the completeness equations are not redundant.
 - The trefoil complement has no complete hyperbolic structure, since its fundamental group has
   nontrivial centre; the gluing theorem never applies to it.
+- Reversing orientation keeps unsigned volume positive but negates the signed fundamental class
+  and R(β̂(M)); it conjugates the geometric representation. An arbitrary group isomorphism cannot
+  be used to conclude equality of the oriented complex volumes.
+- A refinement without a height witness is not certified regular. In particular the connectivity
+  theorem cannot be applied merely because all its tetrahedra use vertices of the convex cells.
+- A single ideal tetrahedron admits its empty-height regular subdivision. A subdivision with a
+  new interior vertex fails the vertex requirement, even if it is geometrically well behaved.
+- A flat shape 2 is nondegenerate, while shape 1 is degenerate. Permitting zero volume in regular
+  refinement paths does not permit the latter.
 
 ### 5.3 Gluing and completeness equations of an ideal triangulation
 
@@ -2386,6 +2482,8 @@ The API:
 - `extendedDehn_transfer`: The four sheet-interchange terms have wedge sum zero.
 - `extendedDehn_sheet_change`: Changing p by 1 changes ν by πi∧(−log(1−z)+qπi); individual
   generators are not automatically in the kernel.
+- At z=1/2 and q=0 that difference is πi∧log 2, which is nonzero because πi and log 2
+  are linearly independent over ℚ. This detects a boundary map that forgets the p sheet.
 
 ### 5.7 The flattening condition makes a two-three move an instance of the lifted five-term relation
 
@@ -2501,9 +2599,10 @@ The API:
 
 **Checks.**
 
-- `rogers_normalizing_constant`: At p=q=0 the value includes −π²/6; omitting it changes this
-  normalization.
-- `rogers_sheet_p`: Changing p by 2 adds πi log(1−z) before reducing periods.
+- `rogers_normalizing_constant`: At z=1/2 and p=q=0, Li₂(1/2)=π²/12−(log 2)²/2 gives
+  R=−π²/12 modulo π². Omitting the −π²/6 changes this value.
+- `rogers_sheet_p`: Changing p by 2 adds πi log(1−z) before reducing periods;
+  at z=1/2 this is −πi log 2, which is not a real π² period.
 - `rogers_not_plain_BlochWigner`: The complex regulator retains a real Chern–Simons term modulo π²;
   its target is not just ℝ.
 
@@ -2586,7 +2685,7 @@ because 1 − z = z⁻¹, and its volume is 2D(e^(πi/3)) = 2.0298832…
 
 ### Dependencies
 
-GeometricTopology Layers 7 and 11; AlgebraicTopology Stage 3; K3BlochGroups V.3, V.4 and V.6;
+GeometricTopology Layers 7 and 11; AlgebraicTopology Stages 3 and 6; K3BlochGroups V.3, V.4 and V.6;
 Polylogarithms P.1 and P.2; Mathlib `Complex.log`.
 
 ## Layer 6: formal and analytic state integrals
@@ -2605,8 +2704,10 @@ knot integrals.
 
 ### 6.1 Neumann–Zagier datum
 
-An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an ideal triangulation (§5.2) with r redundant edge
-equations removed and one peripheral equation per cusp added (r=1 in the knot case). The integral
+An NZ datum Ξ=(A,B,ν,z,f,f″) comes from an ideal triangulation (§5.2). Choose a full-rank square
+system from the edge equations and one peripheral equation per cusp using [GSW] §2.2's incidence
+relations (one edge equation is omitted in the one-cusp knot case); deleting arbitrary r rows is
+not a valid multi-cusp construction. The integral
 block (A|B) has a symplectic completion over ℤ[1/2]; a completion over ℤ additionally requires the
 appropriate integral peripheral-row normalization. In particular ABᵀ=BAᵀ and rank(A|B)=N. Shapes
 z_j∉{0,1} solve ∏_j z_j^A_ij(1−1/z_j)^B_ij=(−1)^ν_i. Integer flattening vectors satisfy Af+Bf″=ν
@@ -2733,7 +2834,7 @@ m before proving k-periodicity. Define the finite weights at the canonical root,
 nonzero weighted-average denominator. After arithmetic descent, use [DG2] Remark 2.7 for other
 primitive roots, transporting the full phase together with the products. Retain each root choice in
 τ. Use the root-independence theorem for powers rather than asserting a canonical scalar. ([DG2]
-§§2.1–2.2, equations (7), (10)–(12), pp. 5–6; Definition 2.1 and Remark 2.7, pp. 6–7.)
+§§2.1–2.2, equations (7), (10)–(12), pp. 5–6; Definition 2.1, p. 6, and Remark 2.7, p. 8.)
 
 *Needs:* §6.1, HabiroNahmSeries HB.4 (formal gaussian integration),
 QSeriesPartitionsAndMockModularForms QM.0.
@@ -2750,10 +2851,18 @@ The API:
 **Checks.**
 
 - `rootNZ_k_one`: For k=1, the finite average has one summand, D∗₁=1 and θ=z.
+- `cyclicDilog_small`: D∗₁(x)=1, D∗₂(x)=1+x for ζ=−1, and D∗₃(x)=(1−ζ⁻¹x)(1−ζ⁻²x)².
+  Reversing ζ without transporting the weights changes the last polynomial.
 - `rootNZ_denominator`: If the weighted sum S is zero, the normalized average is outside the
   constructor’s domain.
 - `rootNZ_kummer_relations`: Repeated shapes θ₁=θ₂ cannot admit an independent automorphism rotating
   only θ₁ in their actual splitting field.
+- A constant function g=c has weighted average c. With weights (1,2) and values (0,2), the
+  weighted average is 4/3, whereas the unweighted average is 1; weights (1,−1) are excluded
+  because their sum is zero. These are finite-average tests, without a geometric realization claim.
+- At k=1 the one-loop expression is the chosen inverse square root of
+  det(A diag(z″)+B diag(z⁻¹)) z^f″(z″)^−f. Changing that square-root choice changes its sign;
+  the zero determinant is excluded, and the 2k-th power removes this sign ambiguity.
 - `rootNZ_primitive_root_transport`: For k=3 and the scalar weight Q=−1, r=1, θ=2, m=2, the
   canonical numerator is 4ζ⁻¹. Complex conjugation transports the entire weight to numerator 4ζ with
   the conjugated Pochhammer denominator. Replacing ζ by ζ² only in that denominator retains the
@@ -2860,7 +2969,9 @@ HabiroNahmSeries HB.9 (quadratic étale coefficients and Kummer descent).
 For Re b>0, Im b≥0 put c_b=i(b+b⁻¹)/2. In |Im z|<|Im c_b| define Φ_b(z)=exp(∫_(ℝ+i0) e^(−2izw)/(4
 sinh(bw)sinh(w/b)w) dw), with the prescribed contour passing above w=0, and extend meromorphically.
 Zeros are −c_b−mib−nib⁻¹ and poles are c_b+mib+nib⁻¹, m,n≥0, with multiplicities when the lattice
-points coincide. It is self-dual: Φ_b = Φ_(b⁻¹). An arbitrary ordinary real-axis integral through
+points coincide. The symmetric strip integral also specifies the reciprocal parameters with
+Re b>0 and Im b≤0; continuation uses that common strip, so self-duality Φ_b = Φ_(b⁻¹)
+has both sides defined. An arbitrary ordinary real-axis integral through
 w=0 is not this definition.
 
 *Construction.* Use the contour integral and its convergence on the strip from [AK] Appendix A.
@@ -2873,10 +2984,18 @@ from the symmetric b and b⁻¹ integrand. ([AK] Definition 15, §1.7, p. 9; App
 
 *Lean:* `faddeevIntegrand`, `faddeevHeight`, `faddeevPhi`, `faddeevPhi_inv`.
 
+The Lean `faddeevPhi` records only the real b>0 strip formula, using the horizontal line
+Im w=(π/2)min(b,b⁻¹); `faddeevPhi_integrable` proves integrability for
+|Im z|<(b+b⁻¹)/2, and `faddeevPhi_stripComparison` identifies it with the above-zero prescription.
+The total integral outside these hypotheses is not a meromorphic continuation. The complex-b
+meromorphic function is the distinct README target `faddeevPhi_meromorphic`; its comparison with
+the real strip formula is asserted only on that common domain.
+
 The API:
 
-- `faddeevPhi`: The strip integral with the above-zero contour prescription and meromorphic
-  continuation.
+- `faddeevPhi_meromorphic`: The meromorphic function determined by the above-zero strip integral.
+- `faddeevPhi_integrable`, `faddeevPhi_stripComparison`: the integrability and comparison targets
+  on the real positive-b strip just specified.
 - `faddeevPhi_selfDual`: Φ_b(z)=Φ_(1/b)(z).
 - `faddeevPhi_divisor`: The stated zeros/poles with their multiplicities.
 
@@ -2884,9 +3003,15 @@ The API:
 
 - `faddeevPhi_zero_pole`: −c_b is a zero and +c_b is a pole; exchanging them reverses the
   convention.
-- `faddeevPhi_selfDual_b1`: At b=1 the self-duality fixes the parameter.
+- `faddeevPhi_selfDual_b2`: b=2 and b=1/2 both have c_b=5i/4 and the same zero/pole lattice;
+  their raw strip contours also have the same height π/4.
+- `faddeevPhi_inversion_constant`: at b=1 and z=0, Φ₁(0)²=exp(iπ/6), by equation (47).
+  A normalization setting Φ₁(0)=1 fails this computed value.
 - `faddeevPhi_contour_prescription`: The defining integrand has a singularity at w=0; the
   unsubtracted ordinary integral over ℝ is not the above-zero contour definition.
+- At b=1 the horizontal height is π/2, strictly between 0 and the first integrand pole at πi.
+- b=0 is excluded, as is z with |Im z|≥(b+b⁻¹)/2 from the raw strip formula; a total Bochner
+  integral outside the admitted domain does not certify an analytic value.
 
 ### 6.10 Faddeev functional equations
 
@@ -2895,10 +3020,26 @@ As meromorphic identities, Φ_b(z−i b^(±1)/2)=(1+exp(2π b^(±1)z))Φ_b(z+i b
 (exp(2πb(z+c_b));exp(2πib²))_∞/(exp(2πb⁻¹(z−c_b));exp(−2πib⁻²))_∞. Equalities at poles are
 understood meromorphically, not as ordinary finite complex values.
 
+For b>0 real, the conjugation identity is overline(Φ_b(z))=1/Φ_b(overline z), wherever the
+finite values exist, and `faddeevPhi_unitary_real` gives |Φ_b(x)|=1 for every real x.
+The real axis has no divisor points, since its zeros and poles lie strictly below and above it.
+The same conjugation identity holds for |b|=1 with Re b>0 and Im b≥0: conjugation exchanges b
+and b⁻¹, and self-duality identifies them. Let `IsUnitaryFaddeevParameter` mean either b>0 real
+or this unit-circle branch, and prove `faddeevPhi_unitary_parameter` on that domain.
+These are the bounded unitary symbols used in §6.11. ([AK] Appendix A, equation (49), p. 35.)
+
+**Checks.**
+
+- b=1 has ℏ=(b+b⁻¹)⁻²=1/4 and |Φ₁(x)|=1 on the real line.
+- b=exp(πi/3) has b+b⁻¹=1, ℏ=1 and c_b=i/2; it lies on the admitted unit circle.
+  No real b>0 gives ℏ=1, since b+b⁻¹≥2 there.
+- b=i is excluded by Re b>0 and b+b⁻¹=0. The parameter b=2i is outside both branches,
+  so unitarity cannot be deduced for an arbitrary nonzero complex parameter.
+
 *Proof sketch.* Shift the contour in the defining strip and compute residues. Use the two shift
 equations for meromorphic continuation. Check the inversion constant in the normalisation of [AK];
 compare the product representation in its convergence domain. ([AK] Appendix A, §13, equations
-(47)–(49), pp. 34–35.)
+(44), (47)–(50), pp. 34–35.)
 
 *Needs:* §6.9, QSeriesPartitionsAndMockModularForms QM.0.
 
@@ -2908,10 +3049,12 @@ On L²(ℝ) let q be multiplication by x and p = (2πi)⁻¹ d/dx, both defined 
 Both are essentially self-adjoint there (q as a multiplication operator, p because the Fourier
 transform carries it to one), S(ℝ) is invariant under both, and [p, q] = (2πi)⁻¹ on S(ℝ). The
 operator p + q on S(ℝ) is essentially self-adjoint: conjugation by the unitary multiplication
-operator e^(iπx²), which preserves S(ℝ), carries p to p + q. For a bounded Borel function f, the
-operators f(p), f(q) and f(p + q) are defined by the spectral measures of SelfAdjointSpectralTheory
-Part E; for |f| = 1 on ℝ they are unitary. This is the setting of the operator pentagon §6.12, where
-f = Φ_b with b > 0 has modulus one on the real line.
+operator e^(iπx²), which preserves S(ℝ), gives e^(−iπx²)p e^(iπx²)=p+q. Apply the supplied Cayley
+Borel calculus and spectral measure to the real-line symbol Φ_b for an
+`IsUnitaryFaddeevParameter` b. Define
+`faddeevMomentumUnitary`, `faddeevPositionUnitary` and `faddeevSumUnitary` as its three bounded
+unitary values; unitarity follows from |Φ_b(x)|=1 on ℝ. These specialised operators are the new
+inputs to the pentagon §6.12.
 
 *Construction.* Use the Fourier transform on S(ℝ) and L²(ℝ) (Mathlib
 `SchwartzMap.fourierTransformCLM`) to reduce p to a multiplication operator; closedness and
@@ -2919,7 +3062,7 @@ self-adjointness are those of SelfAdjointSpectralTheory Parts C–D. Compute the
 p e^(iπx²) = p + q on S(ℝ) directly. ([AK] Appendix A, §13, pp. 34–35, where this pair is used; the
 general theory is SelfAdjointSpectralTheory Parts C–E.)
 
-*Needs:* SelfAdjointSpectralTheory Part C, SelfAdjointSpectralTheory Part D,
+*Needs:* §6.10, SelfAdjointSpectralTheory Part B, SelfAdjointSpectralTheory Part C, SelfAdjointSpectralTheory Part D,
 SelfAdjointSpectralTheory Part E, Mathlib `SchwartzMap`, Mathlib `SchwartzMap.fourierTransformCLM`,
 Mathlib `MeasureTheory.Lp`.
 
@@ -2929,7 +3072,8 @@ The API:
 - `positionOp_momentumOp_comm`: [p, q] = (2πi)⁻¹ on S(ℝ).
 - `sumOp`: the closure of p + q, self-adjoint.
 - `sumOp_eq_conj`: p + q = e^(−iπx²) p e^(iπx²) as self-adjoint operators.
-- `boundedFunctionalCalculus`: f(A) for bounded Borel f, unitary when |f| = 1.
+- `faddeevMomentumUnitary`, `faddeevPositionUnitary`, `faddeevSumUnitary`: the supplied calculus
+  specialised to Φ_b at an admitted unitary parameter, with the unitary conclusion.
 
 **Checks.**
 
@@ -2943,7 +3087,8 @@ The API:
 ### 6.12 Faddeev operator pentagon
 
 On the standard Schrödinger Hilbert space L²(ℝ), for self-adjoint position and momentum p,q with
-[p,q]=1/(2πi) on the common invariant Schwartz core and b>0, the bounded unitary functional-calculus
+[p,q]=1/(2πi) on the common invariant Schwartz core and an `IsUnitaryFaddeevParameter` b,
+the bounded unitary functional-calculus
 operators satisfy Φ_b(p)Φ_b(q)=Φ_b(q)Φ_b(p+q)Φ_b(p). The closure of p+q and the functional calculus
 are those of §6.11. This operator identity is distinct from the formal noncommutative q-dilogarithm
 pentagon owned by HabiroCyclotomicCompletions Layer 1.
@@ -3046,6 +3191,14 @@ The API:
   [AK].
 - `ak_positive_inverse_move`: A proposed 2→3 move without positive new angles is excluded, even if
   its formal linear angle equations have a real solution.
+- `ak_admissibility_examples`: A single tetrahedron with its vertices removed has H₂=0.
+  An S³ triangulation with two distinct vertices has H₂≅ℤ after deleting them, and
+  S²×S¹ with one vertex deleted also has H₂≅ℤ; both fail admissibility.
+- `ak_gauge_zero`: The zero gauge changes neither angles nor level. In the local angle formula,
+  a cyclic incidence pair with coefficient +1 and its reverse with coefficient −1 sends
+  (π/3,π/3) to (π/3+πg,π/3−πg). For g=1/6 these become (π/2,π/6); g=1/3 reaches
+  zero and is outside the positive gauge domain. For regular starting angles the local
+  level-shift coefficients 1/3−α/π vanish.
 
 ### 6.16 Kernels, wavefront sets and the contraction of tempered distributions
 
@@ -3053,24 +3206,43 @@ The state integrals of [AK] compose tempered distributions on products of real l
 provides Schwartz space, tempered distributions, the Dirac distribution and the Fourier transform;
 no roadmap plans the three further inputs, which are targets here.
 
+For the local operations, `LocalDistribution` is the continuous dual D′(ℝⁿ) of the compactly
+supported smooth test space D(ℝⁿ), with its usual inductive-limit topology over compact supports.
+Construct that test-space topology and the restriction S′→D′ before defining its wavefront
+operations. The wavefront seminorms are the localized Fourier seminorms of [BDH] §1, pp. 2–3;
+the normal topology adds the strong-dual seminorms sup_(φ∈B)|u(φ)| for bounded test sets B
+([BDH] §3, Definition 3.1, p. 5). The full cotangent cone recovers the strong local-distribution
+topology; the empty cone recovers C∞, and excludes δ₀. These distinguish this construction from
+unrestricted distributions or an unqualified weak topology.
+
 - `schwartz_kernel_theorem`: continuous linear maps S(ℝⁿ) → S′(ℝᵐ) correspond bijectively to
   tempered distributions on ℝⁿ⁺ᵐ, their kernels.
 - `wavefrontSet`: the wavefront set WF(u) ⊂ ℝⁿ × (ℝⁿ ∖ 0) of a tempered distribution u: the
   directions in which the Fourier transform of a localisation of u does not decay rapidly. It is
   empty exactly when u is smooth, and pullback along a linear surjection pulls it back.
-- `product_of_wavefront`: if no (x, ξ) ∈ WF(u) has (x, −ξ) ∈ WF(v), the product uv is defined,
-  continuous in u and v in the topology that controls wavefront sets, and agrees with the pointwise
-  product for smooth functions.
+- `product_of_wavefront`: if no (x, ξ) ∈ WF(u) has (x, −ξ) ∈ WF(v), the product uv exists as an
+  ordinary distribution D′(ℝⁿ). For fixed closed conic wavefront bounds satisfying that condition,
+  multiplication is sequentially continuous in Hörmander's wavefront topology and agrees with
+  pointwise multiplication for smooth inputs; in the normal topology it is hypocontinuous
+  ([BDH] Theorem 6.1, §6, p. 21). To obtain a tempered product, additionally require that its
+  action extend continuously from compactly supported tests to S(ℝⁿ); the wavefront condition
+  alone provides no bound at infinity.
 - `contraction`: for A on ℝⁿ × ℝᵐ and B on ℝᵐ × ℝˡ, the composite (π_(n,l))_∗(π_(n,m)^∗ A ·
   π_(m,l)^∗ B) is defined when the pulled-back wavefront sets satisfy the product condition and the
-  product extends continuously to the enlarged test space of [AK] Appendix B, which admits functions
-  that are Schwartz only in the variables integrated out. It is a partial composition, not an
-  unrestricted product.
+  product extends continuously to the enlarged test space of [AK] Appendix B, Definition 20.
+  Write x for the retained coordinates and y for the integrated ones. This space of smooth φ(x,y)
+  has seminorms sup |(x,y)^β ∂^αφ| for the multi-indices with β_i=0 whenever α_i=0 in an integrated
+  coordinate. Thus ψ(x), with ψ Schwartz and constant in y, is admitted; positive-order y
+  derivatives must have the stated decay. Pulling back an output Schwartz test gives such a φ,
+  and the extension pairs with it to define pushforward. It is a partial composition.
 
 *Construction.* The kernel theorem follows from the nuclearity of S(ℝⁿ). Wavefront sets and the
 product criterion are local and use the Fourier transform of localisations; the pushforward is
 integration over the fibre, admitted on the enlarged test space. ([AK] Appendix B, §14, pp. 37–39,
-which states these inputs in the form used; the classical proofs are in [Hör] Chapters 5 and 8.)
+Definitions 18–20, Theorem 8 and Proposition 7; the local/global qualification of Theorem 8 is
+  listed under Corrections to the sources. The classical proofs are in [Hör] Chapters 5 and 8.)
+For the corrected local product use the tensor product followed by diagonal pullback in
+[BDH] Theorem 6.1, §6, p. 21; Proposition 5.1, §5, p. 13, supplies the pullback criterion.
 
 *Needs:* Mathlib `SchwartzMap`, Mathlib `TemperedDistribution`, Mathlib
 `TemperedDistribution.delta`, Mathlib `SchwartzMap.fourierTransformCLM`.
@@ -3078,18 +3250,37 @@ which states these inputs in the form used; the classical proofs are in [Hör] C
 The API:
 
 - `kernelOf`, `operatorOfKernel`: the two directions of the kernel theorem.
+- `LocalDistribution`, `restrictTempered`: the local continuous dual and restriction from S′.
 - `wavefrontSet`, `wavefrontSet_eq_empty_iff_smooth`, `wavefrontSet_pullback`.
-- `mulOfWavefront`: the product under the wavefront condition.
+- `mulOfWavefront`: the local distribution product under the wavefront condition.
+- `mulOfWavefront_tempered`: its tempered lift only with a continuous Schwartz extension.
 - `contract`: the partial composition, with `contract_assoc` when both sides are admitted.
 
 **Checks.**
 
 - `delta_mul_delta_excluded`: δ₀ · δ₀ on the same coordinate is excluded, since WF(δ₀) contains (0,
   ξ) and (0, −ξ).
-- `smooth_mul_any`: a smooth function of polynomial growth times any tempered distribution is always
-  admitted, since its wavefront set is empty.
+- Restriction sends the tempered Dirac distribution to evaluation at 0 and the constant
+  tempered distribution 1 to φ↦∫φ. The smooth function e^(x²) defines a local distribution
+  on compactly supported tests but has no tempered extension; D′ and S′ are distinct carriers.
+- `smooth_multiplier`: a smooth multiplier with polynomial bounds on every derivative has the
+  multiplication operator supplied in the boundaries. A polynomial and a compactly supported
+  smooth function satisfy this criterion; smoothness and a bound on the function alone do not.
+- `empty_wavefront_not_tempered_product`: put u=(sin(e^(x²)))′ and v=cos(e^(x²)). Both are smooth
+  tempered distributions: u is the derivative of a bounded function, and v is bounded. Their
+  local product is 2xe^(x²)cos²(e^(x²)). On positive translates of a fixed nonnegative test bump,
+  its integral grows exponentially (the oscillatory square has positive mean), so it cannot
+  satisfy a tempered-distribution polynomial seminorm bound. Both wavefront sets are empty.
 - `hyperplane_delta_support`: δ(x₀ + x₂ − x₁) pairs to zero with every test function supported away
   from the hyperplane x₀ + x₂ = x₁.
+- `kernel_identity`: the identity map has kernel δ(x−y); the constant kernel 1 instead sends φ
+  to the constant function ∫φ. The zero map has zero kernel.
+- `contraction_nonproper`: constant kernels 1 satisfy the local product criterion but their
+  integral over an internal real coordinate diverges; no enlarged-test-space extension exists.
+- `contraction_testSpace`: ψ(x) independent of y belongs to the enlarged test space but is not
+  Schwartz in y unless it is zero. Conversely ψ(x)sin y fails its weighted first-y-derivative
+  seminorms. These tests distinguish the required space from ordinary Schwartz space and from
+  all smooth bounded functions.
 
 ### 6.17 Charged tetrahedron kernel
 
@@ -3150,6 +3341,9 @@ Proposition 2, §5, pp. 16–17.)
 
 For ℏ>0, the Andersen–Kashaev state integral F_ℏ(X,ℓ)=Z_ℏ(X)exp(iπℓ/(4ℏ)) is obtained by tensoring
 the signed charged tetrahedron kernels and contracting each identified face variable over ℝ. Its
+Faddeev parameter λ is chosen with λ+λ⁻¹=ℏ^(−1/2): for 0<ℏ≤1/4 take 0<λ≤1, and for ℏ>1/4
+take λ=(ℏ^(−1/2)+i√(4−ℏ⁻¹))/2 on the upper unit circle with positive real part.
+Both satisfy `IsUnitaryFaddeevParameter`, the domain of the pentagon. Its
 objects are finite face sets, and the morphism associated to X is in S′(ℝ^(boundary faces)). Generic
 contraction A:n→m, B:m→l is (π_(n,l))_∗(π_(n,m)^∗A·π_(m,l)^∗B), admitted only when the two
 pulled-back wavefront sets have no opposite covectors at a common base point and their product
@@ -3181,6 +3375,9 @@ The API:
 **Checks.**
 
 - `ak_level_shift`: At ℏ>0 a level increase of 8ℏ leaves F unchanged because its phase is exp(2πi).
+- A level increase of 4ℏ multiplies F by −1; its phase has period 8ℏ, rather than 4ℏ.
+- At ℏ=1 the parameter is exp(πi/3). Restricting λ to positive reals would omit this
+  allowed state integral and would cover only ℏ≤1/4.
 - `ak_bad_distribution_product`: δ₀·δ₀ on the same coordinate has opposite wavefront covectors and
   is excluded from this composition rule.
 - `ak_closed_output`: The output for an empty face boundary has no free face-coordinate dependence;
@@ -3214,12 +3411,13 @@ for the ∗ law. ([AK] Theorem 4, §1.7, pp. 9–10; Theorem 7 and proof of Theo
 For the one-variable datum A = 0, B = 1, z = 1/2 the Hessian Λ = −B⁻¹A + diag(1/(1 − z)) is 2. At b =
 1 the parameter ℏ = (b + b⁻¹)⁻² is 1/4. The regular shaped tetrahedron has angles π/3 and charges
 1/6, and a level shift by 8ℏ multiplies the Andersen–Kashaev integral by e^(2πi) = 1. For the
-figure-eight knot, the normalised formal series begins 3^(−1/4)(1 + 11h/(72√−3) + ⋯).
+figure-eight knot, the one-loop-normalised series of [GZ] begins
+3^(−1/4)(1 + 11h/(72√−3) + ⋯); the [GSW] formal series of §6.2 has constant coefficient 1.
 
 ### Dependencies
 
 Layer 5; HabiroNahmSeries HB.4, HB.8 and HB.9; HabiroNumberFields HB.6 and HB.7; K3BlochGroups V.3;
-Polylogarithms P.1; QSeriesPartitionsAndMockModularForms QM.0; SelfAdjointSpectralTheory Parts C–E;
+Polylogarithms P.1; QSeriesPartitionsAndMockModularForms QM.0; SelfAdjointSpectralTheory Parts B–E;
 Mathlib `SchwartzMap`, `TemperedDistribution`, `MeasureTheory.integral`.
 
 ## Layer 7: quantum modularity and the knot examples
@@ -3534,6 +3732,9 @@ The API:
 
 - `matrixCocycle_constant`: J=I and j̃=I give W=I.
 - `matrixCocycle_noncommutative_order`: The composition multiplies Wγ(γ′x) before Wγ′(x).
+  With A=[[1,1],[0,1]] and B=[[1,0],[1,1]], AB=[[2,1],[1,1]] whereas
+  BA=[[1,1],[1,2]]. For j̃=I, take J(x)=I, J(γ′x)=B⁻¹ and
+  J(γγ′x)=(AB)⁻¹ at three distinct points: the two factors are A,B and the composite is AB.
 - `matrixCocycle_singular_J`: A singular J(x) does not define a GL-valued W by this formula.
 
 ### 7.14 Analytic extension of the knot cocycle
@@ -3655,14 +3856,16 @@ no checked output exists; it never means zero or agreement.
 | --- | --- | --- |
 | Cyclotomic coefficients | a_n = 1 for all n, so H₀ = Σ (q;q)_n(q⁻¹;q⁻¹)_n (computed) | empty |
 | Kashaev values | orders 1–6: 1, 5, 13, 27, 46+2√5, 89 (computed); the other order-five embedding gives 46−2√5 | order 2: absolute value 7 = det(5₂) (computed) |
-| Values at roots | at a primitive fifth root, 44 − 4q² − 4q³ = 46 + 2√5 (computed) | empty |
+| Values at roots | at q=e^(2πi/5), 44 − 4q² − 4q³ = 46 + 2√5 (computed); at q² it is 46−2√5 | empty |
 | Shape field and Bloch class | ℚ(√−3), ordinary class 2[e^(πi/3)] (computed) | ℚ(ξ), ξ³ − ξ² + 1 = 0, Im ξ < 0 (computed); no class computed |
 | Volume | decay limit of the [AK] integral g₂ (proved) | decay limit of the [AK] integral g₃ (proved) |
 | Asymptotic series | geometric formal invariance [GSW] and positive-q modular asymptotics [BD] (proved); matrix and cocycle refinements conjectural | the same statuses on the 5₂ branches |
 
 The [AK] limits are lim 2πℏ log|g_n| = −Vol as b → 0⁺, with the contour and phase of §6.13. [BD]
 uses positive q, principal logarithms and bounded-denominator x → +∞; its cubic τ³ − τ + 1 = 0, Im τ >
-0, must be compared explicitly with ξ. [GSW] is a formal statement. Neither a torus knot nor a
+0, is related to ξ by τ=ξ⁻¹: both satisfy their stated cubics and the indicated imaginary signs.
+Their one-loop discriminants satisfy 3τ−2τ²=(3ξ−2)/ξ²; square-root phases still require their
+specified branch choices. [GSW] is a formal statement. Neither a torus knot nor a
 singular gluing solution satisfies the hyperbolic and nondegenerate hypotheses of these theorems;
 they are non-examples, not failed instances.
 
@@ -3759,6 +3962,9 @@ The following misprints and errors in the sources are corrected where the target
 21. [DG2] §3.3, proof of Theorem 2.2, pp. 14–16: the coordinate formula keeps the parity sign
     (−1)^((B⁻¹ν)_j).
 22. [Hab08] §12.2, proof of Proposition 12.3, p. 40: the Bézout congruence uses u_i(q), not u_q(q).
+23. [AK] Appendix B, §14, Theorem 8, p. 38: the local wavefront product condition does not ensure
+    that the product of two tempered distributions is tempered. The local D′ product and the
+    additional global continuity condition are separated in §6.16, with a smooth counterexample.
 
 ## References
 
@@ -3791,3 +3997,6 @@ Princeton (1980), Chapter 4. - [Pra73] G. Prasad, *Strong rigidity of Q-rank 1 l
 Math. 21 (1973), 255–286. - [EP88] D. B. A. Epstein and R. C. Penner, *Euclidean decompositions of
 noncompact hyperbolic manifolds*, J. Differential Geom. 27 (1988), 67–80. - [Hör] L. Hörmander, *The
 analysis of linear partial differential operators I*, Springer.
+- [BDH] C. Brouder, N. V. Dang and F. Hélein, *Continuity of the fundamental operations on
+distributions having a specified wave front set (with a counter example by Semyon Alesker)*,
+arXiv:1409.7662v2.
