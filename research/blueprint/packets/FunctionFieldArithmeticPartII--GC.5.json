@@ -1,0 +1,849 @@
+{
+  "roadmapId": "FunctionFieldArithmeticPartII",
+  "protocol": "blueprint-v1",
+  "part": "GC.5",
+  "scope": [
+    "FunctionFieldArithmeticPartII:GC.5"
+  ],
+  "status": "complete",
+  "summary": "Refine the accepted all-degree character-sheaf plan by indexing effective away-divisor choices on the native weighted divisor carrier, extending fibre tensor lines and translation to signed divisors, specifying uniqueness relative to all normalization maps, and pulling multiplication to the entire root-section space. Import all thirteen existing GC.5 targets unchanged by id. Geometric descent, lisse operations and missing Lean carriers remain explicit supplier leaves; this is a complete planning pass, not a claim that the sheaf theory is built.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.Divisor",
+        "kind": "abbrev",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "Native finite integer combinations of normalized places, with coefficientwise order.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree",
+        "kind": "def",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "Additive degree weighted by residue-field degrees, not the coefficient sum.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree_zero",
+        "kind": "lemma",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "The zero divisor has degree zero.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree_add",
+        "kind": "lemma",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "Degree of a sum is the sum of degrees.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree_nonneg",
+        "kind": "lemma",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "An effective divisor has nonnegative weighted degree.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.degree_ofPoint",
+        "kind": "lemma",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "The singleton coefficient-one divisor at P has degree P.degree.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.exists_le_degree_add_nsmul_ofPoint",
+        "kind": "lemma",
+        "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+        "provides": "For IsFunctionField k F, any divisor D, place P and integer bound c, some natural n satisfies c<=degree(D+n[P]).",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.ofPoint",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Basic.lean",
+        "provides": "The coefficient-one Finsupp divisor at a point, on the existing WeilDivisor carrier.",
+        "checked": "Actual statement read with git show at f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; native signatures checked by lean-check at the pins."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "YZ19",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Appendix A.1–A.2.3, printed pp. 514–523, statements and proofs; not a claim to read all Appendix A.3.",
+        "Section 6.2.1, printed pp. 496–497, character-sheaf consumer.",
+        "Page images of printed pp. 522–523 checked against extracted formulas."
+      ]
+    },
+    {
+      "id": "TC-Divisor",
+      "title": "Tau Ceti native function-field and Weil divisor interfaces",
+      "authors": "The Tau Ceti contributors",
+      "edition": "Commit f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Divisor/Basic.lean: native divisor, degree, degree_nonneg, degree_ofPoint and unbounded growth statements and proofs.",
+        "AlgebraicGeometry/WeilDivisor/Basic.lean: native Finsupp carrier and ofPoint."
+      ]
+    },
+    {
+      "id": "UP-Curves",
+      "title": "AlgebraicCurves roadmap, current upstream",
+      "authors": "The Tau Ceti contributors",
+      "edition": "TauCetiRoadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/AlgebraicCurves/README.md",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Layer 12A–12E comparison dictionary, especially closed points/places and divisor degree."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.5/auxiliary-index",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.5",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.5"
+      ],
+      "title": "Admissible auxiliary divisor index",
+      "kind": "definition",
+      "statement": "For fields k,F with a k-algebra structure on F, S a set of places, and integers d,B, define auxiliaryDivisors(S,d,B) as the set of native TauCeti divisors D with 0<=D coefficientwise, D(P)=0 for every P in S, and B<=d+degree(D). Degree is the residue-degree-weighted homomorphism at the pin. Under the point-place dictionary for the curve, take S to be the places of R; this is exactly the effective away-divisor choice set in the parent auxiliary-divisors target.",
+      "hypotheses": [
+        "The native definition needs only Field k, Field F, Algebra k F. Nonemptiness additionally assumes IsFunctionField k F and an explicit place P outside S; no residue-degree-one condition. The geometric comparison uses X as in the conventions and the degree-preserving point-place dictionary."
+      ],
+      "proofSteps": [
+        "Use TauCeti.Divisor and its coefficientwise order; impose the three conditions as a subset without choosing a divisor or a rational point.",
+        "The API is projection of these conditions. For addition use degree_add and degree_nonneg on an effective summand; coefficientwise D<=D+E and E<=D+E follow from effectivity.",
+        "For the nonempty API use the pinned exists_le_degree_add_nsmul_ofPoint on the zero divisor with bound B-d and the given away place. The resulting n times [P] is effective and vanishes at S.",
+        "Transport the set through AlgebraicCurves Layer 12A/12D, not through an invented closed-point carrier; the parent auxiliary-divisors theorem supplies an away closed point on the nonempty open U."
+      ],
+      "acceptance": [
+        "Equality of native and geometric choice conditions must preserve residue degrees, effectivity and ramification support.",
+        "For an away degree-two place, d=-5 and B=3, four copies are admissible and three are not.",
+        "For two members D,E the member D+E is a common upper bound. A signed negative prime is never a member."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Divisor",
+        "tauceti:TauCeti.Divisor.degree",
+        "tauceti:TauCeti.Divisor.degree_add",
+        "tauceti:TauCeti.Divisor.degree_nonneg",
+        "tauceti:TauCeti.Divisor.degree_zero",
+        "tauceti:TauCeti.Divisor.degree_ofPoint",
+        "tauceti:TauCeti.Divisor.exists_le_degree_add_nsmul_ofPoint",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.ofPoint",
+        "FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Appendix A.2.2, pp. 521–522; Lemma A.10, p. 522",
+          "match": "The translated construction needs effective away divisors crossing a lower bound; admissibility imposes a lower bound rather than equality of degree."
+        },
+        {
+          "sourceId": "TC-Divisor",
+          "locator": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean, Divisor, degree, degree_nonneg and exists_le_degree_add_nsmul_ofPoint, at f790474",
+          "match": "The native carrier has weighted degree; its existing growth theorem supplies multiples of any away place."
+        },
+        {
+          "sourceId": "UP-Curves",
+          "locator": "README, Layer 12A and 12D, at 0d144d0",
+          "match": "The upstream dictionary identifies closed points with places and preserves divisor degree; that comparison is imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.mem_iff",
+          "role": "characterisation",
+          "statement": "D is a member exactly when it is effective, vanishes at S, and B<=d+degree D."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.effective",
+          "role": "projection",
+          "statement": "A member D has 0<=D."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.away",
+          "role": "projection",
+          "statement": "For a member D and P in S, D(P)=0."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.degree_bound",
+          "role": "projection",
+          "statement": "For a member D, B<=d+degree D."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.mono_bound",
+          "role": "functoriality",
+          "statement": "If Bprime<=B, a member for B is a member for Bprime."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.add_mem",
+          "role": "structure",
+          "statement": "If D,E are members for the same S,d,B, then D+E is a member and D<=D+E and E<=D+E."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.nonempty_of_away_place",
+          "role": "constructor",
+          "statement": "If F/k is a function field and P is outside S, the choice set is nonempty, with witness n times [P] supplied by the existing degree-growth theorem."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.zero_mem_iff",
+          "role": "simp",
+          "statement": "The zero divisor is admissible if and only if B<=d."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_zero",
+          "kind": "degenerate",
+          "statement": "Zero is a member exactly when B<=d, including equality."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_degree_two",
+          "kind": "computed-value",
+          "statement": "For an away place P with residue degree 2, [P] is a member exactly when B<=d+2."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_negative",
+          "kind": "non-example",
+          "statement": "For any place P, -[P] is not a member for any S,d,B."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_ramified",
+          "kind": "non-example",
+          "statement": "If P is in S, [P] is not a member even when it meets the degree bound."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.auxiliaryDivisors.test_negative_degree",
+          "kind": "computed-value",
+          "statement": "For an away degree-two P, 4[P] belongs for d=-5,B=3 and 3[P] does not."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.5/all-degree-extension",
+          "how": "Indexes precisely the effective choices used to define the normalized translated sheaf in each integer degree."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.5/choice-comparison and FunctionFieldArithmeticPartII:GC.5/choice-cocycle",
+          "how": "The addition API supplies common effective enlargements and prevents signed translations from being used as effective additions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RamifiedClassField/AuxiliaryDivisor",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "leanDisposition": "Native light definition, eight API statements and five examples elaborate at the pins. The geometric comparison remains a supplier contract."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.5",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.5"
+      ],
+      "title": "Signed divisor tensor line",
+      "kind": "construction",
+      "statement": "Extend the parent effective divisorTensorLine to the free abelian group Div(U). For D=sum_x n_x[x] with n_x in Z, tensor, for each closed x, all conjugate geometric stalk lines of L over x, each to power n_x (negative power means dual), with the cyclic Frobenius permutation and local action. Equivalently for D=A-C with A,C effective away from R, set Lambda_D=Lambda_A tensor Lambda_C^dual. The effective sum comparison induces canonical decomposition-independent identifications and a symmetric monoidal functor to the groupoid of one-dimensional Qbar_ell vector spaces with continuous k-Galois action. Its value agrees with the parent effective line for effective D; no ordering or chosen geometric lift belongs to the data.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
+        "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+      ],
+      "proofSteps": [
+        "Use the parent effective divisor line and sum comparison, whose coherence is inherited from GC.3 symmetric multiplicativity, associativity and symmetry.",
+        "Define the negative factors by actual duals of rank-one Frobenius lines. For A-C=Aprime-Cprime, use A+Cprime=Aprime+C and the effective sum comparison, then tensor-cancel the C,Cprime factors. Coherence gives independence of intermediate decomposition.",
+        "Check zero, addition, inverse and symmetry on a common effective refinement. Geometric conjugate permutations supply descent at a nonrational closed point; the dual inverts that action.",
+        "The necessary lisse tensor/dual carriers and coherence are the inherited GC.3 supplier gap, not new coherent-module theory."
+      ],
+      "acceptance": [
+        "The construction is independent of expressing a divisor as a difference of effective divisors.",
+        "At -[x] with degree(x)=2 the line is the dual of both conjugate fibres together, with inverse cyclic Frobenius action.",
+        "Lambda_D tensor Lambda_-D cancels canonically to the unit, also for nonquadratic L."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line",
+        "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity",
+        "FunctionFieldArithmeticPartII:GC.3/symmetric-associativity",
+        "FunctionFieldArithmeticPartII:GC.3/symmetric-symmetry",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Appendix A.2.2, end of p. 521 and p. 522, immediately before (A.7)",
+          "match": "The paper forms a fibre tensor line for arbitrary integral divisors away from R and reduces signed comparisons to effective ones. The functorial cancellation API is the explicit refinement of that argument."
+        },
+        {
+          "sourceId": "YZ19",
+          "locator": "Lemma A.8, pp. 520–521",
+          "match": "Effective tensor multiplication supplies the addition and symmetry comparisons; duality extends them to signed multiplicities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.zero",
+          "role": "simp",
+          "statement": "Lambda_0 is canonically Qbar_ell with trivial Frobenius."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.effective",
+          "role": "compatibility",
+          "statement": "For effective D, the signed line is identified with parent divisorTensorLine(D), preserving its sum comparison and Frobenius."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.sum",
+          "role": "structure",
+          "statement": "Lambda_(D+E) is canonically Lambda_D tensor Lambda_E; the maps satisfy associativity, symmetry and both unit diagrams."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.neg",
+          "role": "equivalence",
+          "statement": "Lambda_-D is canonically Lambda_D^dual, with evaluation giving Lambda_D tensor Lambda_-D isomorphic to Qbar_ell."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.decomposition",
+          "role": "characterisation",
+          "statement": "For D=A-C, Lambda_D is Lambda_A tensor Lambda_C^dual. All such identifications agree via A+Cprime=Aprime+C and satisfy their cocycle."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.closedPoint",
+          "role": "compatibility",
+          "statement": "For any integer n, Lambda_(n[x]) is the nth tensor power of the tensor of every conjugate stalk at x; negative n uses the dual Frobenius action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.test_empty",
+          "kind": "degenerate",
+          "statement": "The zero signed divisor gives the unit Frobenius line."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.test_degree_two_negative",
+          "kind": "computed-value",
+          "statement": "For a degree-two closed point x, Lambda_(-[x]) is (L_x1 tensor L_x2)^dual, with the dual cyclic Frobenius action; one selected stalk is insufficient."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.test_cancellation",
+          "kind": "compatibility",
+          "statement": "The presentations [x]-[x] and 0 give the same canonical unit, and their sum/neg comparisons equal evaluation."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.signedDivisorTensorLine.test_order_three",
+          "kind": "non-example",
+          "statement": "For an unramified rank-one input with Frobenius eigenvalue lambda of order 3 at a rational away point x, Lambda_(-[x]) has eigenvalue lambda inverse, distinct from lambda; no global signs-only restriction is imposed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+          "how": "Normalizes translation by every integral away divisor and supplies its inverse and composition laws."
+        },
+        {
+          "where": "YZ19, Appendix A.2.2, p. 522",
+          "how": "Makes the reduction of signed high-degree translation comparisons to effective divisors precise."
+        }
+      ],
+      "planet": {
+        "name": "Divisor tensor line"
+      },
+      "library": {
+        "module": "TauCeti/RamifiedClassField/DivisorTensorLine",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "leanDisposition": "README target: actual Frobenius-line tensor and dual categories are absent at the pins; all API and test names are in the Suggested omission ledger."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.5",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.5"
+      ],
+      "title": "Universal property of normalized character presentations",
+      "kind": "theorem",
+      "statement": "Fix d in Z and the geometric conventions. For every effective admissible D let Q_D=t_D^*H_(d+degD) tensor Lambda_D^dual. Write c_DE:Q_D isomorphic to Q_E for the parent canonical comparisons and q_D:Q_D isomorphic to P_d for their canonical identifications with the parent all-degree character. They satisfy q_E composed with c_DE=q_D. For any actual lisse sheaf M on P^d, precomposition with all q_D gives a bijection from Hom(P_d,M) to families f_D:Q_D to M satisfying f_E composed with c_DE=f_D for every D,E. Consequently any lisse sheaf equipped with compatible isomorphisms from all Q_D has a unique isomorphism from P_d respecting every normalization. This uniqueness includes the comparison data, not the bare underlying sheaf.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
+        "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+      ],
+      "proofSteps": [
+        "Use the nonempty effective choice set from the parent auxiliary-divisors theorem; use the parent choice-comparison and choice-cocycle to obtain q_D and its compatibility.",
+        "Choose one admissible D0 only for the proof. For a compatible family set f=f_D0 composed with q_D0 inverse. The cocycle identity shows f composed with q_D=f_D for every D.",
+        "The same identity proves independence of D0; since q_D0 is an isomorphism it also proves uniqueness. Apply the result to isomorphism families for the final uniqueness statement.",
+        "This is a consequence of the normalization construction in A.2.2, not an additional descent theorem or an assertion that arbitrary Picard sheaves are classified by divisor values."
+      ],
+      "acceptance": [
+        "A scalar twist of q_D0 at one choice and no others is not a compatible family unless the scalar is 1.",
+        "For high d, use the admissible zero divisor and recover the original high-degree descent H_d with its pullback comparison.",
+        "At d=-1 use any sufficiently large multiple of an away closed point; the uniqueness proof never requires a degree-one divisor."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors",
+        "FunctionFieldArithmeticPartII:GC.5/all-degree-extension",
+        "FunctionFieldArithmeticPartII:GC.5/choice-comparison",
+        "FunctionFieldArithmeticPartII:GC.5/choice-cocycle",
+        "FunctionFieldArithmeticPartII:GC.4/high-degree-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Appendix A.2.2, pp. 521–522, comparison of choices before Lemma A.10",
+          "match": "Canonical identification of every normalized presentation implies this compatible-morphism universal property. The bijection is a derived API statement, not a separately numbered theorem in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RamifiedClassField/Character",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declaration": "TauCeti.RamifiedClassField.picardCharacter.normalizedUniversalProperty",
+      "leanDisposition": "README end statement: geometric lisse category and root Picard carrier are absent at the pins."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.5",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.5"
+      ],
+      "title": "Coherent signed character translation",
+      "kind": "theorem",
+      "statement": "For d in Z and any signed divisor D supported on U, let delta_D be its canonical root Picard k-point given by O_X(D), with the trivial root over R determined by the rational section there; put t_D(M)=M tensor delta_D. There is a canonical Frobenius-equivariant isomorphism theta_(d,D):t_D^*P_(d+degD) isomorphic to P_d tensor Lambda_D, where P_d is the parent all-degree character and Lambda_D is the signed line. It agrees with the parent effective translation when D>=0. With t_E composed with t_D=t_(D+E), theta_(d,D+E) equals the composite t_D^*theta_(d+degD,E) followed by theta_(d,D) tensor id and Lambda_D tensor Lambda_E identified with Lambda_(D+E). The zero comparison is the identity and the D,-D composite is the identity after evaluation. These equalities are taken with the specified Picard and sheaf associators, not on trace functions alone.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
+        "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant."
+      ],
+      "proofSteps": [
+        "Use parent effective-pullback to identify delta_A^*P_(degA) with Lambda_A for effective A. Parent multiplication and unit give the corresponding value at the inverse delta_C, and identify delta_D^*P_(degD) with Lambda_A tensor Lambda_C^dual for D=A-C.",
+        "The signed line decomposition API proves independence of A,C. Restrict parent mu_(d,degD) along id times delta_D to obtain theta_(d,D).",
+        "Restrict parent character-associativity to id times delta_D times delta_E to prove composition. Restrict parent symmetry-unit to get zero and the inverse law, using signed-line evaluation.",
+        "Agreement with the effective translation is checked after further effective high-degree translation and the normalized universal property. No map adding a negative divisor to an effective symmetric power is introduced."
+      ],
+      "acceptance": [
+        "For d=-1 and D=-[x] at an away degree-two point, the map is t_-x^*P_-3 isomorphic to P_-1 tensor Lambda_x^dual.",
+        "Composing D and -D returns P_d with its identity, rather than a scalar multiple.",
+        "For an effective D both definitions of translation coincide as sheaf maps; order-three Frobenius is inverted for negative D."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+        "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+        "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+        "FunctionFieldArithmeticPartII:GC.5/all-degree-extension",
+        "FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication",
+        "FunctionFieldArithmeticPartII:GC.5/unit-trivialization",
+        "FunctionFieldArithmeticPartII:GC.5/character-associativity",
+        "FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit",
+        "FunctionFieldArithmeticPartII:GC.0/root-picard"
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Appendix A.2.2, pp. 521–522, signed translation reduction and (A.7); Proposition A.11, pp. 522–523",
+          "match": "Signed divisor translation is used in the all-degree construction. Restricting the character multiplication makes its identity, composition and inverse compatibility explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RamifiedClassField/Character",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declaration": "TauCeti.RamifiedClassField.picardCharacter.signedTranslation",
+      "leanDisposition": "README end statement: root Picard translation, lisse inverse image and tensor are absent at the pins."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:GC.5/hat-addition-pullback",
+      "parentStageId": "FunctionFieldArithmeticPartII:GC.5",
+      "realises": [
+        "FunctionFieldArithmeticPartII:GC.5"
+      ],
+      "title": "Character comparison on the full section space",
+      "kind": "theorem",
+      "statement": "For d,e>=0 let hatX_d be the parent whole root-section space, hatAJ_d its forgetful map and hatL_d=hatAJ_d^*P_d on all of hatX_d. Pulling parent mu_(d,e) through the square hatAJ_(d+e) composed with hatadd_(d,e)=mult composed with (hatAJ_d times hatAJ_e) gives a canonical isomorphism hatadd_(d,e)^*hatL_(d+e) isomorphic to hatL_d external-tensor hatL_e. The isomorphisms obey associativity, symmetry and the unit diagrams for the effective empty-section object. On the effective opens they are the parent symmetric multiplication alpha_(d,e). At every geometric pair of objects, including either or both global sections equal to zero, this remains an isomorphism of rank-one stalks. No extension by zero from the effective open is used.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve of genus g; R is a reduced finite closed subscheme, rho=deg R, U=X minus R.",
+        "ell is a prime different from char(k); coefficients are Qbar_ell. The input L is an arbitrary rank-one lisse local system on the square-root curve X_1^sqrtR, with its k-descent. Inertia over R has order dividing two; global monodromy is not assumed quadratic.",
+        "Use the actual root Picard stack P^d of triples (M,K_R,i:K_R tensor K_R isomorphic to M restricted to R), and the parent unshifted symmetric local systems L_n and high-degree descents H_n for n at least B=rho+max(2g-1,1). All sheaf maps are Frobenius-equivariant.",
+        "Only the parent source-defined d,e>=0 section spaces and their actual addition maps enter this target. The effective empty divisor has global section 1; the zero global section is not the tensor unit."
+      ],
+      "proofSteps": [
+        "Use the GC.1 root-addition and root-abel-jacobi square on the entire section spaces, including zero sections.",
+        "Apply inverse image to parent all-degree-multiplication and the inverse-image/external-tensor comparison of the actual lisse category.",
+        "Pull parent associativity and symmetry-unit through the triple and swapped squares. On effective opens, full faithfulness of the high-degree comparison and the parent effective-pullback identify this map with alpha; arbitrary effective degrees follow by the common-normalization cocycle.",
+        "For geometric zero-section points the underlying Picard object remains defined; pullback of its rank-one line has rank one. This is the whole-space object used in the published consumer, not a new compact-support construction."
+      ],
+      "acceptance": [
+        "At a degree-d zero global section and an effective degree-e point the output global section is zero but its stalk is P_at_M tensor P_at_N, a nonzero line.",
+        "Restriction to the effective product recovers alpha_(d,e) including d=e=0.",
+        "The effective empty divisor is the unit. The degree-zero zero-section object is a different section object, although its underlying Picard point can be the unit."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:GC.1/root-addition",
+        "FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi",
+        "FunctionFieldArithmeticPartII:GC.5/hat-character-pullback",
+        "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+        "FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication",
+        "FunctionFieldArithmeticPartII:GC.5/choice-cocycle",
+        "FunctionFieldArithmeticPartII:GC.5/character-associativity",
+        "FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit",
+        "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity"
+      ],
+      "sources": [
+        {
+          "sourceId": "YZ19",
+          "locator": "Appendix A.1.4–A.1.5, p. 517; Lemma A.8, pp. 520–521; Proposition A.11, pp. 522–523",
+          "match": "Tensoring section data commutes with forgetting to the root Picard stack; pulling character multiplication through that square gives the whole-space comparison."
+        },
+        {
+          "sourceId": "YZ19",
+          "locator": "Section 6.2.1, p. 497, paragraph defining the whole-space local system hatL_d",
+          "match": "The consumer takes inverse image of the character sheaf on the entire hat space. Its specialization to the quadratic-cover input supplies the motivating example, without restricting the general Appendix A input to quadratic monodromy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RamifiedClassField/HatCharacter",
+        "namespace": "TauCeti.RamifiedClassField"
+      },
+      "declaration": "TauCeti.RamifiedClassField.hatCharacter.addition",
+      "leanDisposition": "README end statement: actual section stack, product square and lisse operations are absent at the pins."
+    }
+  ],
+  "importedTargets": [
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors",
+      "target": "For every integer d and bound B there exists an effective divisor D on U=X−R with d+deg D≥B. The construction requires no rational point of degree one. For two choices D,E, a common effective enlargement is D+E.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line",
+      "target": "For an effective D=Σn_x x supported on U, define the Frobenius line L_D as the tensor product of the fibres of L over all geometric points above x, each repeated n_x times, with its Frobenius permutation descent. This is the value of L_{deg D} at the canonical root divisor O(D)^♮.",
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.zero",
+          "role": "simp",
+          "statement": "L_0 is the coefficient line."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.sum",
+          "role": "compatibility",
+          "statement": "L_{D+E}≅L_D⊗L_E with the inherited tensor coherence.",
+          "promotedTo": "FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity"
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.closedPoint",
+          "role": "characterisation",
+          "statement": "The Frobenius action for a closed point is the cyclic permutation with its local Frobenius action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.test_empty",
+          "kind": "degenerate",
+          "statement": "The empty divisor gives Q̄ℓ."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.test_rational",
+          "kind": "computation",
+          "statement": "For a rational point x outside R the line is L_x."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.divisorTensorLine.test_degree_two",
+          "kind": "non-example",
+          "statement": "For a degree-two closed point the line is the tensor of both conjugate fibres with Frobenius descent."
+        }
+      ],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/translate-high-degree",
+      "target": "If D is effective away from R and both d and d+deg D satisfy the high-degree bound, there is a canonical isomorphism t_D*L_{d+deg D}^Pic≅L_d^Pic⊗L_D.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/all-degree-extension",
+      "target": "For d∈Z choose effective D⊂U with d+deg D≥B=ρ+max(2g−1,1) and set L_d^Pic=t_D*L_{d+deg D}^Pic⊗L_D⁻¹. The comparison and cocycle lemmas identify different choices canonically; the resulting graded sheaf is L^Pic on the whole root Picard stack.",
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.component",
+          "role": "projection",
+          "statement": "The degree-d component is the normalized translated high-degree sheaf."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.comparison",
+          "role": "characterisation",
+          "statement": "The sheaves from two effective choices are canonically isomorphic through their common enlargement."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.translation",
+          "role": "compatibility",
+          "statement": "t_D*L_{d+deg D}^Pic≅L_d^Pic⊗L_D for every d and effective D away from R."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.test_negative_degree",
+          "kind": "non-example",
+          "statement": "The construction gives a sheaf on degree −1 without choosing a degree-one rational point."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.test_common_sum",
+          "kind": "characterisation",
+          "statement": "The comparisons through D+E agree with comparisons through further effective enlargements."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.picardCharacter.test_high_degree",
+          "kind": "compatibility",
+          "statement": "Above B it agrees with the original high-degree descent."
+        }
+      ],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/choice-comparison",
+      "target": "For effective D,E giving high degrees, the two constructions of L_d^Pic are canonically identified by translating each once more to the high degree d+deg D+deg E and using L_{D+E}≅L_D⊗L_E.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/choice-cocycle",
+      "target": "For any three effective choices D,E,F the canonical comparison D→E followed by E→F is the comparison D→F. Comparisons are unchanged by further common effective enlargement.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/effective-pullback",
+      "target": "For every d≥0, AJ_d*L_d^Pic≅L_d canonically. Choose an effective D away from R reaching B; the translated comparison and multiplication cancel L_D.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/unit-trivialization",
+      "target": "At the root-Picard tensor unit e, the pullback e*L^Pic is canonically Q̄ℓ, via the degree-zero effective Abel–Jacobi comparison.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/high-degree-multiplication",
+      "target": "For d,e≥B, mult*L_{d+e}^Pic≅L_d^Pic⊠L_e^Pic on the product Pic^√R,d×Pic^√R,e. The pullback comparison uses AJ_d×AJ_e, not AJ_{d+e}.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication",
+      "target": "For all d,e∈Z there is a canonical isomorphism μ_{d,e}:mult*L_{d+e}^Pic≅L_d^Pic⊠L_e^Pic. It is the high-degree isomorphism transported by independent effective divisors D,E and normalized using L_{D+E}≅L_D⊗L_E.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/character-associativity",
+      "target": "For all integers d,e,f, the two composites of μ for the three-degree product agree under the Picard and sheaf associators.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit",
+      "target": "The multiplication μ_{d,e} commutes with exchanging factors, and its restrictions along e×id and id×e are the identity unit maps after the canonical unit trivialization.",
+      "api": [],
+      "tests": [],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    },
+    {
+      "nodeId": "FunctionFieldArithmeticPartII:GC.5/hat-character-pullback",
+      "target": "For every integer degree in which the hat section moduli problem is defined, set hatL_d=hatAJ_d*L_d^Pic. On the effective open it is canonically L_d for d≥0. This is a pullback along the entire hat map, so its zero-section stalks remain rank one.",
+      "api": [
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.definition",
+          "role": "characterisation",
+          "statement": "hatL_d is exactly hatAJ_d*L_d^Pic."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.effective",
+          "role": "compatibility",
+          "statement": "Its restriction to the effective open is canonically L_d."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.zeroSection",
+          "role": "compatibility",
+          "statement": "At a zero global section its stalk is the character line of the underlying root-Picard object."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.test_effective",
+          "kind": "compatibility",
+          "statement": "The restriction agrees with the unshifted degree-zero symmetric local system."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.test_zero",
+          "kind": "non-example",
+          "statement": "The zero-section stalk is rank one, not zero."
+        },
+        {
+          "name": "TauCeti.RamifiedClassField.hatCharacter.test_degree_zero",
+          "kind": "degenerate",
+          "statement": "At the effective empty divisor it is the coefficient line with the canonical unit."
+        }
+      ],
+      "disposition": "Imported from the accepted parent packet; not redefined here. Geometric signatures remain README targets until the actual suppliers provide carriers."
+    }
+  ],
+  "requests": [
+    {
+      "id": "GC5-CURVE-COMPARISON",
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Integrate the existing AlgebraicCurves Layer 12A/12D closed-point/place and degree-preserving divisor dictionary and the ordinary Picard stack/tensor interface with the parent root-Picard objects. Identify native auxiliaryDivisors(S_R,d,B) with effective divisors on U. Use ordinary picard-stack-curve, picard-scheme-without-point and universal-section-stack supplier targets and upstream JacobianChallenge A/C/D; do not assume a degree-one rational point or replace a Pic^d torsor by a pointed Jacobian. Only this comparison and ordinary geometry are requested, not lisse descent.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.5/auxiliary-index",
+        "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+        "FunctionFieldArithmeticPartII:GC.5/signed-character-translation"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GC5-DESCENT",
+      "title": "Inherited effective root-Picard lisse descent",
+      "detail": "Parent ST-LISSE remains a proof/type leaf behind GC.4/high-degree-descent. Require the actual nonproper high-degree Abel–Jacobi locally trivial-fibration descent and full-faithfulness theorem for these tame DM stacks, including the affine fibre charts. Connected geometric fibres alone do not provide effective descent. No provisional ST.0–ST.6 stage of an unregistered stacks proposal is cited as an existing supplier.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+        "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+        "FunctionFieldArithmeticPartII:GC.5/hat-addition-pullback"
+      ]
+    },
+    {
+      "id": "GC5-LISSE-OPS",
+      "title": "Inherited rank-one lisse tensor, dual and inverse image",
+      "detail": "Parent ST-OPS/ST-LISSE supply actual Qbar_ell lisse categories on the root curve, root Picard and section stacks, tensor/dual evaluation, inverse image, external tensor and their associators, symmetry, units and Frobenius descent. GC.5 needs this subset, not the full nonrepresentable derived pushforward theory. AlgebraicVectorBundles plans coherent Scheme.Modules tensor/dual and is not an ell-adic lisse implementation.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+        "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+        "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+        "FunctionFieldArithmeticPartII:GC.5/hat-addition-pullback"
+      ]
+    },
+    {
+      "id": "GC5-LEAN-CARRIERS",
+      "title": "Actual geometric carriers for end statements",
+      "detail": "Native auxiliaryDivisors elaborates, but root Picard/section stack, lisse sheaf morphism and pullback carriers are absent at both pins. The README gives full geometric statements and imported-target APIs/tests; Suggested records each omitted declaration family. Once suppliers fix concrete types, state these end signatures on those carriers and elaborate. Do not use arbitrary types, predicate fields, or admitted data definitions to make a stand-in compile.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.5/signed-divisor-line",
+        "FunctionFieldArithmeticPartII:GC.5/normalized-character-universal-property",
+        "FunctionFieldArithmeticPartII:GC.5/signed-character-translation",
+        "FunctionFieldArithmeticPartII:GC.5/hat-addition-pullback"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "FunctionFieldArithmeticPartII:GC.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge the exact SF.3 native/geometric comparison request using its actual ordinary Picard and the upstream curve dictionary suppliers.",
+        "Discharge inherited nonproper lisse descent and tensor/dual/pullback coherence leaves; the all-degree comparison API does not prove those supplier theorems.",
+        "When the genuine geometric carriers exist, replace the explicit geometric omission ledger by compact typed end statements and examples; native compilation does not close this leaf."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "kind": "misprint",
+      "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
+      "printed": "The proof restricts the global character of the arbitrary rank-one input to signs.",
+      "correction": "Use χ:π1(U)→Qℓbar× for the stated arbitrary rank-one local system; inertia at R has order dividing two.",
+      "affects": "nothing",
+      "id": "FunctionFieldArithmeticPartII/EGC5-3",
+      "origin": "FunctionFieldArithmeticPartII/E3",
+      "source": "YZ19",
+      "reason": "An arbitrary unramified rank-one input can have order-three monodromy; the order-two restriction belongs only to branch inertia.",
+      "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
+      "searched": [
+        "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Proposition A.11 (not Lemma A.11), proof, p. 523",
+      "printed": "The proof names the Abel–Jacobi map for the sum degree in the two-factor descent step.",
+      "correction": "Descend the two-factor multiplicativity isomorphism along AJ_d1×AJ_d2.",
+      "affects": "nothing",
+      "id": "FunctionFieldArithmeticPartII/EGC5-4",
+      "origin": "FunctionFieldArithmeticPartII/E4",
+      "source": "YZ19",
+      "reason": "A two-factor Picard comparison must be checked along AJ_d times AJ_e, which has the required product domain.",
+      "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
+      "searched": [
+        "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Lemma A.10, proof, p. 522",
+      "printed": "The auxiliary divisor is introduced without an explicit effectiveness condition.",
+      "correction": "Choose an effective divisor D supported in X−R with deg D=d′≥max{2g−1,1}+ρ−d.",
+      "affects": "nothing",
+      "id": "FunctionFieldArithmeticPartII/EGC5-6",
+      "origin": "FunctionFieldArithmeticPartII/E6",
+      "source": "YZ19",
+      "reason": "The map adding D on effective divisor spaces requires D effective. Unbounded multiples of one away closed point suffice; no claim of an effective divisor in every prescribed degree is made.",
+      "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
+      "searched": [
+        "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+      ]
+    },
+    {
+      "kind": "misprint",
+      "locator": "Proposition A.11, proof, display before (A.8) and (A.9), p. 523",
+      "printed": "Three translation and multiplication expressions use the local-system notation without its Picard decoration.",
+      "correction": "L^Pic_{d1+d2+n1+n2} in all three places.",
+      "affects": "nothing",
+      "id": "FunctionFieldArithmeticPartII/EGC5-7",
+      "origin": "FunctionFieldArithmeticPartII/E7",
+      "source": "YZ19",
+      "reason": "Translation and multiplication here act on Picard stacks; their input must be the Picard local system, not the symmetric-space local system.",
+      "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
+      "searched": [
+        "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
+        "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+      ]
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [],
+  "ownershipChecks": {
+    "audit": "Read reviewed FunctionFieldArithmetic FA.0/FA.1 entries in data/library-coverage.json; arithmetic divisors and weighted degree are built, geometric dictionary is owned by AlgebraicCurves and JacobianChallenge. No accepted library audit closes root-stack lisse descent.",
+    "currentLibrary": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 searched for lisse, LocalSystem, PicardStack and CharacterSheaf. Native divisor and coherent invertible-sheaf APIs are not claimed missing; no actual root-Picard lisse carrier was located.",
+    "upstream": "Current TauCetiRoadmap 0d144d0 checked read-only. JacobianChallenge and AlgebraicVectorBundles READMEs read in full and representative Suggested interfaces read; AlgebraicCurves Layer 12 dictionary read. Existing generic curve/Picard/coherent tensor targets remain imported, not replanned. The nine post-snapshot roadmap directories were also searched for root-Picard/lisse/character-sheaf carrier interfaces; none was located."
+  },
+  "validation": {
+    "packet": "check_blueprint.py: zero errors and zero warnings, with all eight pinned declaration references checked by the available baseline index.",
+    "lean": "lean-check exits 0 at the pinned build, only declaration-uses-admission warnings; native definition has a real body. No geometric formalization claim.",
+    "implementationStatus": "unchecked"
+  }
+}
