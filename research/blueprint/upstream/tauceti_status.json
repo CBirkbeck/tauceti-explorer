@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T17:42Z",
+ "updated": "2026-10-14T17:53Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -84,7 +84,7 @@
     793
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "a15eb52",
+   "head": "c69bdd6",
    "review": {
     "recommendation": "approve",
     "head": "ac1db49",
@@ -100,11 +100,11 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "8c306f2",
+   "head": "61345d9",
    "review": {
     "recommendation": "approve",
     "head": "8c306f2",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the A3.2/A3.3 corrections; awaiting the adic stack below it"
    }
@@ -113,7 +113,7 @@
    "stage": "pr",
    "pr": 817,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers",
-   "head": "ee74c10",
+   "head": "0b0f658",
    "review": {
     "recommendation": "changes",
     "head": "2f1f3c6",
@@ -129,7 +129,7 @@
     818
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "0580821",
+   "head": "9a5f75b",
    "review": {
     "recommendation": "approve",
     "head": "c67b635",
@@ -142,11 +142,11 @@
    "stage": "pr",
    "pr": 818,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
-   "head": "67a02f4",
+   "head": "18ae716",
    "review": {
     "recommendation": "approve",
     "head": "67a02f4",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "maintainer (roed-math) APPROVED on 2026-10-14; an independent GPT-6 Astra comment review at the same head is being answered; awaiting #813/#817 dependencies"
    }
@@ -158,7 +158,7 @@
     817
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
-   "head": "46632e7",
+   "head": "000a33a",
    "review": {
     "recommendation": "changes",
     "head": "292dfc0",
@@ -174,7 +174,7 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-   "head": "20422d4",
+   "head": "27ccfc7",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -190,7 +190,7 @@
     818
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "9f04243",
+   "head": "c16c822",
    "review": {
     "recommendation": "approve",
     "head": "6c8d2d1",
@@ -202,7 +202,7 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "6d28179",
+   "head": "1f0778d",
    "depends_on": [
     779,
     853
@@ -219,7 +219,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "9754553",
+   "head": "3e908a3",
    "depends_on": [
     779,
     848,
@@ -273,7 +273,7 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "5e79ab9",
+   "head": "47e3459",
    "depends_on": [
     779,
     785
@@ -282,7 +282,7 @@
    "review": {
     "recommendation": "changes",
     "head": "5e79ab9",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "maintainer fresh review (GPT-6 Astra) at 5e79ab9: further specification changes; repair in progress"
    }
