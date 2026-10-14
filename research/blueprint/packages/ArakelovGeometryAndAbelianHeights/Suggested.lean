@@ -26,6 +26,15 @@ noncomputable section
 
 variable (K : Type*) [Field K] [NumberField K]
 
+/-- A nonzero rational function on a disconnected regular scheme need not be a rational unit
+(README §1.8). Principal Cartier divisors require the latter. -/
+example : ((1, 0) : ℚ × ℚ) ≠ 0 ∧ ¬IsUnit ((1, 0) : ℚ × ℚ) := by
+  simp [Prod.isUnit_iff, Prod.ext_iff]
+
+/-- Nonvanishing on both components gives a rational unit (README §1.8). -/
+example : IsUnit ((2, 1) : ℚ × ℚ) := by
+  norm_num [Prod.isUnit_iff]
+
 /-- An Arakelov divisor is an invertible fractional ideal and one real coefficient per infinite
 place. Addition multiplies the ideals and adds the coefficients (README §1.7). -/
 abbrev ArakelovDivisor : Type _ :=
@@ -119,7 +128,13 @@ end ArakelovDivisor
 open UpperHalfPlane
 open scoped MatrixGroups
 
-/-- The standard period lattice has covolume Im τ (README §2.3), for the standard Lebesgue
+/-- The unit-norm frame on the square torus uses Mathlib's conjugate-linear first argument
+(README §2.1); the integral pairing has the same mixed values. -/
+example : inner ℂ (Complex.I : ℂ) (1 : ℂ) = -Complex.I ∧
+    inner ℂ (1 : ℂ) (Complex.I : ℂ) = Complex.I := by
+  simp
+
+/-- The standard period lattice has covolume Im τ (README §2.2), for the standard Lebesgue
 measure on ℂ. Its identification with the Faltings norm of dz is stated in the README. -/
 theorem covolume_periodLattice (τ : ℍ) :
     ZLattice.covolume (Submodule.span ℤ {(1 : ℂ), (τ : ℂ)}) = τ.im := sorry
@@ -127,7 +142,7 @@ theorem covolume_periodLattice (τ : ℍ) :
 /-- The square lattice has unit covolume. -/
 example : ZLattice.covolume (Submodule.span ℤ {(1 : ℂ), Complex.I}) = 1 := sorry
 
-/-- The positive invariant elliptic term, using Δ=η²⁴ rather than (2π)^12Δ (README §2.10). -/
+/-- The positive invariant elliptic term, using Δ=η²⁴ rather than (2π)^12Δ (README §2.9). -/
 def EllipticCurve.faltingsArchimedeanTerm (τ : ℍ) : ℝ :=
   ‖ModularForm.discriminant τ‖ * τ.im ^ 6
 
@@ -203,7 +218,7 @@ arakelovDegree/normalizedDegree/slope; the divisor–Picard equivalence, princip
 `ArithmeticDivisor`, principal and ofGreen, `ArithmeticChow1`, its restriction, pairing and
 pointHeight; `StackDegree.arakelovDegree`; `Height.ofMetrized`; and `PicHat.rat` and norm.
 
-The supplied `GroupScheme.hodgeBundle` and hodgeLine are metrized by
+The imported Hodge line is metrized by
 `AbelianVariety.faltingsInner`, `AbelianVariety.metrizedHodgeLine`,
 `GroupScheme.metrizedHodgeLine`, `AbelianFamily.faltingsMetric`, and the Deligne/unscaled adapters.
 The other arithmetic definitions are `AbelianVariety.faltingsHeight`,
