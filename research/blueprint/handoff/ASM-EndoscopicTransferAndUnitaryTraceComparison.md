@@ -1,135 +1,119 @@
-# Assembly checkpoint: Endoscopic transfer and unitary trace comparison
+# Assembly: Endoscopic transfer and unitary trace comparison
 
-Issue [#226](https://github.com/CBirkbeck/tauceti-explorer/issues/226), job `ASM-EndoscopicTransferAndUnitaryTraceComparison`. Codex (GPT-6), session `codex-gnFnGw`, 2026-10-14. The bot confirmed the winning claim in [comment 6168169916](https://github.com/CBirkbeck/tauceti-explorer/issues/226#issuecomment-6168169916), referring to claim comment 6168165461. Branch: `codex-gnFnGw-endoscopic-assembly`. Starting main: `c30b736bd9f26d767ee6983b0523d48b22cd1e0b`.
+Issue [#226](https://github.com/CBirkbeck/tauceti-explorer/issues/226), job `ASM-EndoscopicTransferAndUnitaryTraceComparison`. Claude (Opus 5.5), session `claude-2JDz9F`, 2026-10-14; claim confirmed by the bot on the issue (claim comment 6168815199). Branch `claude-2JDz9F-endoscopic-assembly`, from main `e413d8137`. This run continues the three checkpoints #9701 (`codex-mzqAco`), #9722 (`codex-vEpuUD`) and #9728 (`codex-gnFnGw`).
 
-**Status: blocked checkpoint; the assembly cannot be completed from its current inputs.** ET.4 remains `partial`, with independent review `needs_changes` from #395/#9717. The accepted ET.0 and ET.6a inputs do not substitute for the required ET.4–ET.6 plan. This run claimed only #226 and changes no review verdict.
+**Status: assembly complete.** All five outputs of the job are in place: the combined reader, the joined Suggested file, this handoff, and the two part packets the queue lets an assembly edit (ET.6a changed, ET.0 unchanged). No review verdict was changed. No reviewed statement changed in substance: the ET.6a prerequisite lists, one ET.6a statement's supplier sentence and one locator changed, and they are itemized below for the next review of that packet.
 
-## Changes in this continuation
+**The roadmap itself is not complete.** ET.4–ET.6 (packet `--ET.4`) has a finished independent review with verdict `needs_changes` (#395, PR #9717) and status `partial`. The combined reader states every open item of that review at its target and collects them; see "What the roadmap still needs" below. `make_queue.roadmap_complete` requires every stage to be planned in an accepted packet, so finishing this assembly does not queue a package job.
 
-- Reconciled ET.0's obsolete “planned nowhere” Tamagawa gap with the existing exact owner `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`. The gap now names that node and retains its primary-proof and simply connected Tamagawa obligations. It does not certify the unaccepted supplier.
-- Updated ET.0's live AutomorphicSpectralTheory package locators: invariant orbital integrals §6.9, discrete functionals/pseudo-coefficients §6.18 and general Euler–Poincaré functions §6.19. Those three supplier statements were read. The existing obligation for the individual pseudo-coefficient's non-tempered pairing and the packet-average identification is unchanged.
-- Preserved every mathematical target, hypothesis, API item, test, prerequisite, source citation and coverage status except the section-number substitutions and gap bookkeeping just listed. The complete ET.0 `review` object is unchanged, including its historical notes. No reviewed node's mathematics changed.
-- Updated the collected request and gap below to match the revised ET.0 packet and distinguished prerequisite occurrences from distinct dependency edges.
+## Why the assembly is completed rather than checkpointed again
 
-Only the ET.0 packet and this handoff change. ET.0 is permitted by both the issue and queue allowlists. The combined reader from #9722 remains intact. The ET.4/ET.6a packets, part readers, part Suggested files, queue, issue labels and upstream trees are untouched.
+The three earlier runs withheld the Suggested file so that the intake would not mark the job complete while ET.4 is unaccepted. That keeps the job in a loop: the ET.4 review is finished, no revision round `BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2` exists in the queue, and none will be generated (`make_queue.py` makes revision rounds only for planning jobs whose prompt is in `plan_prompts`; `research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md` does not exist, because the job's deliverables arrived from an external worker on #718). Every subsequent worker would meet the same inputs. An assembly joins reviewed parts; ET.4 is reviewed, its corrections are in its packet, and what the review left open is recorded there as gaps and per-node `unverifiable` notes. The precedent is ASM-PrismaticCohomology (PR #6803), assembled from parts whose reviews were `needs_changes`: the document is generated from the corrected packets and prints each open review note at its node. This assembly does the same.
 
-## Fresh validation
+## What this run changed
 
-All three part packets passed `python3 scripts/check_blueprint.py` with **0 errors and 0 warnings**. The edited ET.0 packet was checked again after reconciliation. The inventory and dependency audit found:
+1. **Combined reader** (`readmes/EndoscopicTransferAndUnitaryTraceComparison.md`, built on #9722's draft):
+   - the checkpoint banner is replaced by a status paragraph naming the four inputs that must still be planned and the condition for completeness;
+   - the 29 ET.4–ET.6 targets whose review verdict is `unverifiable` each carry a paragraph **Open after the independent review**, stating in plain words the review's "Remaining" note (for the six ET.5 targets: the algebraic σ-conjugacy, J_b and early Igusa inputs that must be planned at this roadmap's tier);
+   - introductions for layers ET.4, ET.5, ET.6, ET.6a, ET.7a, ET.7b and ET.7 in the style of the ET.0–ET.3 introductions (they listed the targets only);
+   - a subsection *Inputs still to be planned in ET.4–ET.6* opens *Remaining supplier and proof obligations*, listing the four inputs the ET.4 review found missing with the targets that use them;
+   - the build paragraph now describes the Suggested file that exists;
+   - the *Needs* lines of the 15 ET.6a–ET.7 targets whose prerequisites changed in this run follow the packet exactly.
+2. **Suggested file** (`suggested/EndoscopicTransferAndUnitaryTraceComparison.lean`, 571 lines): one import block of individual Mathlib modules, one module note, namespace `TauCetiRoadmap.EndoscopicTransferAndUnitaryTraceComparison`, layers in roadmap order (ET.0, ET.1, ET.2b, ET.4, ET.5, ET.6, ET.7). The ET.0 and ET.4 bodies were in `TauCetiRoadmap.EndoscopicTransfer`, the ET.6a body in `TauCeti.Endoscopy`; all now live in the one namespace with no name clash. Reconciliation: ET.4's `glInnerFormSign` and its two examples duplicated ET.0's `kottwitzSign` (`kottwitzSign_gl` is exactly the sign (−1)^(n−r) of GL_r(D), `kottwitzSign 1 0 = -1` the quaternion case, `kottwitzSign_self` the split case), so they are dropped and an ET.6 note points to the ET.0 declarations; `glInnerFormSign` is not a packet name. Packet unit-test names were added as comments before the ET.0–ET.2b declarations and examples that realise them (`stableConj_gln`, `kottwitzSign_quasiSplit`, `kottwitzSign_quaternion`, `kappaOrbitalIntegral_change_base`, `kappaOrbitalIntegral_sl2`, `stableOrbitalIntegral_gln`, `chevalleyQuotient_gln`, `kostantSection_gln`, `kostantSection_not_semisimple`, `regularCentralizer_gln`), and `Segment.precedes_irrefl`, `endoscopicCoefficient` in ET.4–ET.6. The note distinguishes abstract cochains from continuous Galois cohomology, segment and matrix models from representations and Weil–Deligne parameters, and the finite ledger from automorphic traces, and says that the ET.4–ET.6 signatures do not supply the open inputs.
+3. **ET.6a packet** (`packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json`): cross-part references only, itemized below for the next review of that packet. Its `review` object is untouched (still the accepted #9379 review); per PROTOCOL §8 these edits go live only after an accepted review.
+4. Nothing else: the ET.0 and ET.4 packets, the part readers and part Suggested files, the queue and all other roadmaps are untouched.
 
-| Input | Review | Targets | API items | Tests | Requests | Gaps |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| ET.0 | accepted | 61 | 168 | 103 | 25 | 5 |
-| ET.4 | needs_changes | 69 | 133 | 79 | 11 | 12 |
-| ET.6a | accepted | 50 | 74 | 49 | 18 | 9 |
+## ET.6a packet edits (for re-review)
 
-The combined reader has all **180 target anchors**, all **375 API names** and all **231 test names** in their owning target sections. Seven further anchors belong to source corrections. This continuation checked inventory preservation, not every inherited theorem or every rendered statement against primary sources.
+All identifiers omit `EndoscopicTransferAndUnitaryTraceComparison:`.
 
-The actual packets contain **516 distinct internal node edges**, including **51 distinct ET.4 → ET.0 dependency references** (52 occurrences), and are acyclic. ET.6a still has **29 internal stage prerequisite occurrences** awaiting the exact replacements tabulated below. Applying those proposed replacements plus the two additional imports in the retained handoff gives **588 distinct internal node edges**, also acyclic. The latter graph is proposed and is not the graph currently recorded in the packets.
+(a) The 29 prerequisites that named a whole stage of this roadmap are replaced, in place, by the exact supplier nodes. The table started from #9722's proposal. In this run every row was checked against the consumer's statement, hypotheses and proof steps and against each supplier's statement (a Sonnet cross-check listed the evidence; each change below was decided by reading the node texts): 15 rows are as proposed; 12 rows gain a supplier that the consumer's text uses (for example `ET.7b/red-trace-duality` uses the acceptable-function extension theorem, `ET.5/acceptable-functions-determine`); 3 rows lose one that the consumer does not use (`ET.7a/transferable-level` concerns finite places only, `ET.7/torus-measure-check` is a local computation, `ET.7/division-inner-form-check` does not use the non-transfer of principal series); one row does both. Where the consumer needs more than the named nodes state, the residue stays where it was already recorded: in the four internal requests of the packet (to ET.3, ET.4, ET.5 and ET.6, kept unchanged as the contracts those stages still owe) and in gaps 4–7.
 
-Submission validation: `python3 research/blueprint/intake.py check-files` reported **2 files, 0 problems**, and `git diff --check` passed. A fresh origin/main check at `2a707ba1c1f20248d852f0983e2aa96c5a8e97d0` confirmed the same three review statuses; ET.4 is still unaccepted. The intake completeness predicate was checked and remains false.
+| Consumer | Replaced | Exact suppliers now cited | Against #9722 |
+| --- | --- | --- | --- |
+| `ET.6a/tower-conventions` | `ET.6` | `ET.6/llc-characterizing-properties`, `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands`, `ET.6/segment-wd-parameter` | adds `ET.6/segment-wd-parameter` |
+| `ET.6a/raw-compact-unitary-cohomology` | `ET.4` | `ET.4/simple-division-algebra-trace-identity` | as proposed |
+| `ET.6a/global-extraction` | `ET.4` | `ET.4/simple-division-algebra-trace-identity`, `ET.4/archimedean-lefschetz-functions` | as proposed |
+| `ET.6a/global-extraction` | `ET.6` | `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands` | as proposed |
+| `ET.6a/fs-normalization-contract` | `ET.6` | `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands`, `ET.6/semisimple-langlands-parameter`, `ET.6/segment-wd-parameter` | adds `ET.6/segment-wd-parameter` |
+| `ET.7a/cyclic-base-change` | `ET.4` | `ET.4/local-cyclic-base-change`, `ET.4/global-cyclic-base-change` | as proposed |
+| `ET.7a/cyclic-base-change` | `ET.3` | `ET.3/base-change-fundamental-lemma-and-transfer`, `ET.3/twisted-fundamental-lemma-and-transfer` | as proposed |
+| `ET.7a/twisted-spectral-normalization` | `ET.4` | `ET.4/twisted-spectral-side`, `ET.4/archimedean-lefschetz-functions`, `ET.4/twisted-trace-formula`, `ET.4/base-change-groups` | adds `ET.4/twisted-trace-formula`, `ET.4/base-change-groups` |
+| `ET.7a/weak-unitary-base-change` | `ET.4` | `ET.4/unitary-gl-base-change-descent`, `ET.4/stable-twisted-identity`, `ET.4/unramified-transfers`, `ET.4/base-change-groups` | adds `ET.4/unramified-transfers`, `ET.4/base-change-groups` |
+| `ET.7a/cohomological-base-change` | `ET.4` | `ET.4/archimedean-lefschetz-functions`, `ET.4/stable-twisted-identity`, `ET.4/unitary-gl-base-change-descent`, `ET.4/base-change-transfer-of-functions`, `ET.4/unramified-transfers`, `ET.4/base-change-groups` | adds `ET.4/base-change-transfer-of-functions`, `ET.4/unramified-transfers`, `ET.4/base-change-groups` |
+| `ET.7a/local-unitary-base-change` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/unramified-transfers`, `ET.4/base-change-groups` | as proposed |
+| `ET.7a/local-unitary-base-change` | `ET.6` | `ET.6/zelevinsky-classification`, `ET.6/full-wd-local-langlands` | as proposed |
+| `ET.7a/relevant-packet-multiplicity` | `ET.4` | `ET.4/unitary-endoscopic-classification` | as proposed |
+| `ET.7a/definite-indefinite-switches` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/unramified-transfers` | as proposed |
+| `ET.7a/transferable-level` | `ET.4` | `ET.4/small-level-transfer`, `ET.4/base-change-transfer-of-functions`, `ET.4/unramified-transfers` | adds `ET.4/unramified-transfers`; drops `ET.4/archimedean-lefschetz-functions` |
+| `ET.7a/transferable-level` | `ET.3` | `ET.3/group-fundamental-lemma`, `ET.3/base-change-fundamental-lemma-and-transfer`, `ET.3/twisted-fundamental-lemma-and-transfer`, `ET.3/local-transfer-existence` | adds `ET.3/local-transfer-existence` |
+| `ET.7a/oldform-dimensions` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/archimedean-lefschetz-functions`, `ET.4/small-level-transfer`, `ET.4/base-change-transfer-of-functions`, `ET.4/stable-twisted-identity` | adds `ET.4/stable-twisted-identity` |
+| `ET.7a/gsp4-solvable-descent-interface` | `ET.4` | `ET.4/gsp4-gl4-transfer` | as proposed |
+| `ET.7b/csnc-test-functions` | `ET.4` | `ET.4/base-change-groups`, `ET.4/unramified-transfers`, `ET.4/base-change-transfer-of-functions`, `ET.4/small-level-transfer`, `ET.4/archimedean-lefschetz-functions` | as proposed |
+| `ET.7b/csnc-test-functions` | `ET.5` | `ET.5/acceptable-test-functions`, `ET.5/igusa-endoscopic-test-function`, `ET.5/transfer-at-p` | adds `ET.5/transfer-at-p` |
+| `ET.7b/newton-reduction` | `ET.5` | `ET.5/jb-endoscopic-levi-data`, `ET.5/transfer-at-p` | as proposed |
+| `ET.7b/newton-reduction` | `ET.4` | `ET.4/base-change-groups`, `ET.4/unramified-transfers` | as proposed |
+| `ET.7b/red-trace-duality` | `ET.5` | `ET.5/transfer-at-p`, `ET.5/igusa-endoscopic-test-function`, `ET.5/acceptable-functions-determine` | adds `ET.5/acceptable-functions-determine` |
+| `ET.7b/signed-igusa-trace` | `ET.4` | `ET.4/stable-twisted-identity`, `ET.4/twisted-spectral-side`, `ET.4/stable-elliptic-distribution`, `ET.4/twisted-trace-formula` | adds `ET.4/twisted-trace-formula` |
+| `ET.7b/signed-igusa-trace` | `ET.5` | `ET.5/unitary-igusa-trace-formula`, `ET.5/acceptable-functions-determine` | as proposed |
+| `ET.7/torus-measure-check` | `ET.4` | `ET.4/base-change-transfer-of-functions`, `ET.4/stable-elliptic-distribution` | drops `ET.4/tamagawa-number-formula` |
+| `ET.7/unramified-gl2-check` | `ET.4` | `ET.4/unramified-transfers`, `ET.4/base-change-groups` | as proposed |
+| `ET.7/proper-endoscopy-check` | `ET.4` | `ET.4/stable-elliptic-distribution`, `ET.4/twisted-spectral-side`, `ET.4/tamagawa-number-formula`, `ET.4/base-change-groups`, `ET.4/stable-twisted-identity` | adds `ET.4/base-change-groups`, `ET.4/stable-twisted-identity` |
+| `ET.7/division-inner-form-check` | `ET.6` | `ET.6/local-jacquet-langlands`, `ET.6/badulescu-langlands-jacquet-map` | drops `ET.6/inner-form-nontransfer` |
 
-No Lean file changed and no Lean compilation ran in this continuation. The previous worker's 507-line draft compilation is historical evidence only; the next worker must reconstruct and run `lean-check` on the final combined output. The combined Suggested file remains absent because the assembly intake checks output existence and would otherwise report this blocked job complete.
+Two prerequisites missing outside these rows are added: `ET.7b/newton-reduction` applies the Langlands–Jacquet map to the inner form, so it now cites `ET.6/badulescu-langlands-jacquet-map` (whose own consumer list names it); `ET.7/unramified-gl2-check` uses the unramified cyclic base-change map of Satake parameters, so it now cites `ET.3/base-change-fundamental-lemma-and-transfer`.
 
-The current ClassFieldTheory and AdelicAlgebraicGroups introductions, boundaries and pertinent Suggested interfaces were inspected read-only to check the existing foundation handoffs. No library declaration or source-reading claim was added to the baseline, and no theory was replanned.
+(b) Two imports of early owners, as #9722 recorded: `ET.6a/lubin-tate-tower` now cites `ET.6/drinfeld-level-deformation-spaces` (and its statement says so: "Use the formal O_E-module deformation construction with full Drinfeld levels of ET.6/drinfeld-level-deformation-spaces. The additional framed deformation functor …"; the mathematics is unchanged), and `ET.7a/cyclic-automorphic-induction` cites `ET.4/cyclic-automorphic-induction` (ET.4 proposal 1 / ET.6a proposal 1: one owner for cyclic base change and automorphic induction).
 
-## Required unblock actions
+(c) Wording and locators, no mathematics: a proof step of `ET.6a/infinite-level-moduli` says "finite-flat supplier" instead of "finite-flat packet"; the Arthur–Clozel locator of `ET.7a/cyclic-automorphic-induction` becomes "Chapter III, Definition 6.1 and Theorem 6.2, p. 215; proof, pp. 215–217; Lemma 6.4, pp. 217–218; Corollary 6.5, p. 218" (checked on the Clay scan, printed page = PDF page − 16).
 
-1. Revise ET.4–ET.6 to satisfy the completed independent review, then obtain an independent accepting review. Its concrete missing inputs include the ET-owned algebraic/Igusa prefix, the actual Igusa trace-correspondence geometry, Drinfeld-level representability/projectivity, the multiplicity-one newvector input and full WD segment-pair factors with monodromy and conductor. The [review handoff](REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md) is the exact worklist; this assembly is not a revision or a replacement independent review.
-2. Align the assembly issue and queue with **all three** inputs and authorize their packet paths together. The issue names ET.0/ET.4; the queue names ET.0/ET.6a, omits the ET.4 review from `after`, and points to an absent prompt. No ET.4 revision round is present in the current queue. Regenerate the revision and assembly dependencies so this still-blocked assembly is not immediately offered to another worker on the same inputs.
-3. In the accepted revision, establish the early Igusa and Jacquet/JL interfaces needed to break the prose proof-order cycle. After input acceptance and scope reconciliation, apply the 29 exact ET.6a replacements and the two extra imports below, preserving the residual supplier gaps. Refresh the stale ET.4 part reader; compare all three parts to the combined reader; join their Lean namespaces and imports; run the packet checks, `lean-check` and `check_sorry_data.py`; then submit the complete assembly.
+After these edits the three packets have 180 targets and **604 distinct internal node edges, no cycle, no internal stage-level prerequisite, and no edge from a target to a target of a subsequent stage** (stage order ET.0 < ET.1 < ET.2b < ET.3 < ET.4 < ET.5 < ET.6 < ET.6a < ET.7a < ET.7b < ET.7). The reader's *Needs* line of every ET.4–ET.7 target equals the packet's prerequisite list exactly.
 
-The remainder retains #9722's detailed request, gap, ownership, source-version and reconstruction records. Source-reading and Lean results there belong to session `codex-vEpuUD`; they are not fresh checks by this continuation. Its collected ET.0 request/gap and dependency-count wording have been updated as specified above.
+## Corrections the ET.4 revision should carry into its packet
 
----
+The assembly may not edit the ET.4 packet (it is not an output of this job), so the reader carries these corrections and the packet still has the old text:
 
-# Previous assembly checkpoint record (#9722)
+- Arthur–Clozel locators (Clay scan, printed = PDF − 16, verified page by page in this run): `ET.4/local-cyclic-base-change` should cite Ch. I Proposition 6.6 pp. 58–59, Propositions 6.7–6.8 p. 59, Proposition 6.9 pp. 60–61, Lemma 6.10 p. 62 (proof to p. 64) instead of "Propositions 6.6–6.9 and Lemma 6.10, pp. 59–63"; `ET.4/global-cyclic-base-change` Theorem 3.1 p. 201 (not 202), Theorem 4.2 pp. 202–203, Proposition 4.4 pp. 210–211, Theorem 5.1 pp. 212–213; `ET.4/cyclic-automorphic-induction` Theorem 6.2 p. 215 and Corollary 6.5 p. 218 (proof continues on p. 219) instead of "pp. 216–219".
+- The reader replaces extraction-item and erratum identifiers in target prose (for example "confirmed erratum E74 of the CS17 extraction" in `ET.5/transfer-at-p`) by references to the section *Corrections used by the targets*; the packets keep the identifiers.
 
-Issue [#226](https://github.com/CBirkbeck/tauceti-explorer/issues/226), job `ASM-EndoscopicTransferAndUnitaryTraceComparison`. Codex (GPT-6), session `codex-vEpuUD`, 2026-10-14. Claim confirmed in [comment 6166802976](https://github.com/CBirkbeck/tauceti-explorer/issues/226#issuecomment-6166802976). This continues the inventory checkpoint #9701 by `codex-mzqAco`.
+No ET.4–ET.6 target cites a target of ET.6a–ET.7 as a prerequisite; ten ET.4–ET.6 targets name downstream consumers in their `uses` notes or prose (for example `ET.5/transfer-at-p` names `ET.7b/newton-reduction`), which is consumer bookkeeping except for the proof-order obligation in item 5 below.
 
-**Status: blocked checkpoint; assembly is incomplete.** The required independent ET.4 review finished during this run with verdict **needs_changes** in [#9717](https://github.com/CBirkbeck/tauceti-explorer/pull/9717), merged as `928719edc73a9369f9cbb8e2e45fb8ea510c6e32`. Its missing current-tier algebraic/Igusa foundations and full Weil–Deligne factor proof prevent presenting the parts as an accepted assembly. Read [the independent report](../reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md) and [its handoff](REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md); this worker does not replace that verdict or independently review its own assembly.
+The supplier check also confirmed the residual contracts the reader already states under *Remaining supplier and proof obligations*: the existence of weak base change for the exact U(V) standard data (`ET.7a/cohomological-base-change`), the non-tempered Langlands-quotient rule of local unitary base change (`ET.7a/local-unitary-base-change`), and the even-rank special-maximal S/S′ comparison with its local c_v calculation (`ET.7a/definite-indefinite-switches`, `ET.7a/oldform-dimensions`). No ET.4 target states them; they belong to the ET.4 revision or stay recorded as contracts.
 
-This checkpoint adds [the full combined reader](../readmes/EndoscopicTransferAndUnitaryTraceComparison.md). It covers all **180** distinct targets, including the review's three additions, with their statements, hypotheses, proof routes, source locators, acceptance examples, **375 API items** and **231 definition/construction tests**. ET.0 and ET.6a prose comes from their accepted readers. ET.4 prose is rendered from its independently corrected packet, because its part reader remains stale and was expressly outside #395's deliverables. Every target has an anchor derived from its actual stage and slug; ET.7a's two application nodes retain their proper ownership despite being appended at the end of the packet's node array.
+## What the roadmap still needs
 
-The new introduction fixes scope, local/global notation, reciprocity, Frobenius, normalized induction, special monodromy, perverse/Tate shifts, tower actions, transfer measures and signed rational traces. Internal stage references in this reader are replaced by the exact candidates below, with partial supplier boundaries stated locally. The reader collects the external contracts and remaining proof obligations. The appendix states source corrections in our own words. No source passage, private source file or upstream file is copied into the repository.
+From the ET.4 review (#9717) and its handoff, all stated in the reader:
 
-No packet, part reader, part Suggested file, review, atlas data or queue was edited by this assembly. Bringing this branch up to current main imported #9717's changes, which belong to that already merged review. The branch's submission diff contains only this handoff and the combined reader.
+1. Plan, in this roadmap at its own tier, the inputs the review found missing after it removed the citations of higher-tier roadmaps (IgusaVarietiesAndTorsionConcentration IG.0–IG.1, tier 19; BunGAndNewtonStrata BG0–BG1, outside the 94): the algebraic σ-conjugacy, B(G), J_b, Newton and decency prefix, and the early Igusa geometry (central leaves, liftable torsors, perfect tower, rational Euler class) that ET.5's fixed-point and counting targets use; then the geometry of the Igusa trace correspondences (boundary and leg checks for the EDC.8 trace theorem).
+2. Representability and projectivity at Drinfeld level for the division-algebra Shimura varieties (PELModuli M2 gives an algebraic space and properness at good level only), and the formal/algebraic nearby-cycle comparison and Drinfeld-level deformation theory (requests to R07.2, H1, LPV.6).
+3. The multiplicity-one newvector statement used in Scholze's Corollary 11.5 (request to SmoothRepresentationsOfLocalGroups SR.5).
+4. The segment-pair L- and ε-factors with monodromy and conductor needed for the full Weil–Deligne correspondence (request to AutomorphicLFunctionsAndLocalFactors AL.3).
+5. The proof-order obligation between `ET.5/transfer-at-p` and `ET.7b/newton-reduction` (an early normalized Jacquet/JL composite, or a split of the geometric transfer from its representation-trace assertion), and the early rational Igusa object before ET.5's fixed-point theorem (ET.6a proposal 4).
+6. The unread primary proofs listed per target ("Open after the independent review") and in the gaps below.
 
-## Why the combined Suggested file is withheld
+## Maintainer actions
 
-A **507-line** combined draft was constructed and successfully elaborated with `lean-check` at the shared pinned environment. Exit status was 0; all **55 warnings** were declaration uses of `sorry`. The sorry-data checker passed. This evidence checks the draft signatures, not the unresolved mathematics. The file is deliberately absent from the checkpoint: `issues.deliverables_complete` only checks existence for an assembly. Creating all required outputs would incorrectly mark this blocked job complete even if its handoff says checkpoint. Resume by creating and rechecking that output after the reviewed-input requirement is satisfied.
+1. Queue the revision round of ET.4–ET.6 (`BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2`, outputs the `--ET.4` packet, reader and Suggested file, with its independent review). `make_queue.py` will not create it by itself: the job is not in `plan_prompts`, since `research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md` is absent. The worklist is the ET.4 review handoff (`handoff/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md`) and "What the roadmap still needs" above.
+2. When that revision is accepted, the ET.4–ET.6 sections of the combined reader must be brought into line with the revised packet (re-render those sections; the per-node open notes go away with the gaps they record) and the Suggested file's ET.4–ET.6 part rechecked. Either reopen this assembly for that, or let the package job take ET.4–ET.6 from the accepted packet.
+3. The issue body of #226 names the ET.0 and ET.4 packets as editable; the queue entry names ET.0 and ET.6a, and its `after` list omits the ET.4 review. The queue was followed.
+4. Source-issue identifiers collide between parts (`ET.4/E2` is the inverse-transpose involution, `ET.6a/E2` the missing negative-height components); a registry owner must renumber one without dropping either.
+5. The restructure proposals collected below (11 groups) await decisions; ET.4 proposal 1 (sub-layer ET.4b for cyclic base change and automorphic induction) is already reflected in the prerequisites (ET.7a imports the ET.4 owners).
 
-To reconstruct the compact draft, join only the bodies inside the three part namespaces. Use a single `import Mathlib`, one module note, `noncomputable section`, `open scoped BigOperators`, and namespace `TauCetiRoadmap.EndoscopicTransferAndUnitaryTraceComparison`. ET.0 and ET.4 currently use `TauCetiRoadmap.EndoscopicTransfer`; ET.6a uses `TauCeti.Endoscopy`. Relocate all bodies to the combined namespace. Keep the ET.0 cocycle/matrix/lattice models first. In the ET.4 body put the component and endoscopic-coefficient definitions in ET.4, acceptability in ET.5, then the segment/Sp models and inner-form sign in ET.6. Put ET.6a's finite rational signed-factor model in ET.7. Retain the review's qualified statements and real bodies. There were no duplicate declaration names to resolve. The note must distinguish abstract cochains from continuous Galois cohomology, finite segment and monodromy models from representations, and the finite rational sum from an automorphic trace. Do not introduce heavy carriers, sorry-backed data or additional theory.
+## Checks run in this run
 
-## Actual inputs and scope mismatch
+- `python3 scripts/check_blueprint.py <packet> --index …/declarations.tsv` on all three part packets: **0 errors, 0 warnings** each (ET.0 61 nodes complete; ET.4 69 nodes partial; ET.6a 50 nodes complete).
+- `lean-check suggested/EndoscopicTransferAndUnitaryTraceComparison.lean` (Mathlib 082e2d37e8, shared build): **exit 0, 53 warnings, all `declaration uses 'sorry'`**; `scripts/check_sorry_data.py`: no sorry-bodied data.
+- Reader against packets (scripted, 4,037 fields: statements, hypotheses, proof steps, acceptance, API names and statements, test names and statements, prerequisites, locators): every target has its anchor; the 24 remaining differences are the deliberate reader edits described above (extraction identifiers removed, Arthur–Clozel locators refined, erratum identifiers replaced by references to the corrections section). Prerequisite lists of ET.4–ET.7 targets agree exactly.
+- Internal graph: 180 nodes, 604 distinct edges, acyclic, stage-monotone.
+- `python3 research/blueprint/intake.py check-files` on the five changed files: 0 problems; `git diff --check` clean.
 
-The issue's embedded instructions name reviewed ET.0 and ET.4 and permit those packet paths. The queue names reviewed ET.0 and ET.6a and permits those packet paths. The embedded prompt path is absent. The actual complete scope has three parts; ET.6a cannot replace ET.4–ET.6. This checkpoint uses the undisputed combined-reader and handoff paths and makes no packet edit across the conflicting allowlists. The manager still needs to align the queue and issue with all three actual inputs and their accepted revisions before final assembly.
+## History of this job
 
-| Input | Actual ownership | Nodes | Review | Requests | Gaps |
-| --- | --- | ---: | --- | ---: | ---: |
-| ET.0 | ET.0: 18; ET.1: 15; ET.2b: 17; ET.3: 11 | 61 | accepted | 25 | 5 |
-| ET.4 | ET.4: 24; ET.5: 15; ET.6: 30 | 69 | **needs_changes**, #395/#9717 | 11 | 12 |
-| ET.6a | ET.6a: 22; ET.7a: 14; ET.7b: 8; ET.7: 6 | 50 | accepted | 18 | 9 |
-
-The input filenames are `packets/EndoscopicTransferAndUnitaryTraceComparison--<part>.json`, with matching files in `readmes/` and `suggested/`. ET.2/ET.2a are foundational import interfaces, not missing target inventories. Overlapping `scope` arrays do not give two owners to later stages. Acceptance of ET.6a's target-level plan does not certify its amended ET.4 suppliers or fulfill its explicit gaps.
-
-## Assembly changes that need comparison in the next independent pass
-
-1. ET.4's 69 corrected nodes replace its stale 66-node part reader in the combined draft. The authoritative per-node ledger is the merged independent review. New targets are `ET.5/p-adic-type`, `ET.6/post-correspondence-global-galois` and `ET.6/inner-form-langlands-parameter`. Preserve the early positive `rec_un` / later actual global Galois split, normalized `σ`, full WD monodromy obligation, Q versus LJ distinction, exact division-datum descent scope, negative acceptable Frobenius shift and the two transfer modulus twists.
-2. ET.7a cyclic base change and automorphic induction explicitly import the early ET.4 owners. Add the induction edge to `ET.4/cyclic-automorphic-induction` when authorized to patch ET.6a. ET.6a's framed Lubin–Tate tower explicitly imports `ET.6/drinfeld-level-deformation-spaces`; it still adds quasi-isogeny components, generic fibres and actions. The full tower statement is retained, not replaced by a finite-level theorem.
-3. The local cyclic-base-change extension uses the current SmoothRepresentations Langlands classification with its **Harish–Chandra tempered-support hypothesis**. Its original prose forward reference to ET.6 is removed by #9717; the combined reader states the retained conditional hypothesis. No new general classification is planned here.
-4. Exact ET.4 references do not close the general U(V) weak/cohomological base-change target: the corrected ET.4 descent is only Scholze's division-algebra similitude datum. The non-tempered local quotient rule and S/S′ lattice calculation also exceed the named ET.4 packet suppliers. The combined reader states these partial contracts locally and in its obligations. Keep the strict exponent order, unitary L-embedding, Satake and lattice hypotheses.
-5. The signed ET.7b identity cannot be recovered from an unsigned finite spectral span. ET.5's central-shift argument extends a fixed finite identity after the exact coefficients are known. It does not create those coefficients. The primary source normalization and the missing early Igusa geometry remain open.
-6. ET.5/transfer-at-p names ET.7b/newton-reduction as the representation-theoretic map while that later construction imports ET.5 transfer. Separate the early geometric transfer from the representation-trace assertion, or supply the normalized Jacquet/JL composite earlier. The declared-node graph is acyclic; this **prose proof-order obligation** is not resolved by that graph check.
-7. The newly merged AutomorphicSpectralTheory package renumbered its supplies: `orbital_integral` is §6.9, pseudo-coefficients §6.18, and `general_euler_poincare` §6.19. The combined reader's former AS.6.8a/AS.6.16a/AS.6.17 mentions now point there. Read these current statements: the pseudo-coefficient's tempered/standard-module trace property and the separate general EP test function do not themselves prove the extra non-tempered pairing or the packet-average identification stated in ET.1/pseudocoefficients. That primary-proof obligation remains explicit. No second construction of the AS supplies is proposed.
-8. Kottwitz's Tamagawa theorem has a named ET.4 owner. The codex-gnFnGw continuation reconciles the ET.0 gap to that existing target while retaining the unread-primary-proof obligation and the ET.4 needs_changes status. The combined reader already makes this distinction.
-
-The next pass must compare these changes in the combined reader against the reviewed parts. Source-extraction identifiers and processing asides were removed from reader prose, without removing their mathematical corrections, source names or locators. Original part metadata and reviews are unchanged.
-
-## Exact cross-part candidates
-
-The ET.6a packet still contains **29** internal prerequisite occurrences at stage granularity. The combined reader makes the following substitutions. These are exact supplying nodes **for the indicated component**; a row with a broader target retains its explicit residual gap. Apply packet edits only when the output scope has been resolved, and itemize them for re-review. All identifiers below omit `EndoscopicTransferAndUnitaryTraceComparison:`.
-
-
-
-| Consumer | Original stage | Exact supplier components in the combined reader |
-| --- | --- | --- |
-| `ET.6a/tower-conventions` | `ET.6` | `ET.6/llc-characterizing-properties`, `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands` |
-| `ET.6a/raw-compact-unitary-cohomology` | `ET.4` | `ET.4/simple-division-algebra-trace-identity` |
-| `ET.6a/global-extraction` | `ET.4` | `ET.4/simple-division-algebra-trace-identity`, `ET.4/archimedean-lefschetz-functions` |
-| `ET.6a/global-extraction` | `ET.6` | `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands` |
-| `ET.6a/fs-normalization-contract` | `ET.6` | `ET.6/full-wd-local-langlands`, `ET.6/local-jacquet-langlands`, `ET.6/semisimple-langlands-parameter` |
-| `ET.7a/cyclic-base-change` | `ET.4` | `ET.4/local-cyclic-base-change`, `ET.4/global-cyclic-base-change` |
-| `ET.7a/cyclic-base-change` | `ET.3` | `ET.3/base-change-fundamental-lemma-and-transfer`, `ET.3/twisted-fundamental-lemma-and-transfer` |
-| `ET.7a/twisted-spectral-normalization` | `ET.4` | `ET.4/twisted-spectral-side`, `ET.4/archimedean-lefschetz-functions` |
-| `ET.7a/weak-unitary-base-change` | `ET.4` | `ET.4/unitary-gl-base-change-descent`, `ET.4/stable-twisted-identity` |
-| `ET.7a/cohomological-base-change` | `ET.4` | `ET.4/archimedean-lefschetz-functions`, `ET.4/stable-twisted-identity`, `ET.4/unitary-gl-base-change-descent` |
-| `ET.7a/local-unitary-base-change` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/unramified-transfers`, `ET.4/base-change-groups` |
-| `ET.7a/local-unitary-base-change` | `ET.6` | `ET.6/zelevinsky-classification`, `ET.6/full-wd-local-langlands` |
-| `ET.7a/relevant-packet-multiplicity` | `ET.4` | `ET.4/unitary-endoscopic-classification` |
-| `ET.7a/definite-indefinite-switches` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/unramified-transfers` |
-| `ET.7a/transferable-level` | `ET.4` | `ET.4/small-level-transfer`, `ET.4/base-change-transfer-of-functions`, `ET.4/archimedean-lefschetz-functions` |
-| `ET.7a/transferable-level` | `ET.3` | `ET.3/group-fundamental-lemma`, `ET.3/base-change-fundamental-lemma-and-transfer`, `ET.3/twisted-fundamental-lemma-and-transfer` |
-| `ET.7a/oldform-dimensions` | `ET.4` | `ET.4/unitary-endoscopic-classification`, `ET.4/archimedean-lefschetz-functions`, `ET.4/small-level-transfer`, `ET.4/base-change-transfer-of-functions` |
-| `ET.7a/gsp4-solvable-descent-interface` | `ET.4` | `ET.4/gsp4-gl4-transfer` |
-| `ET.7b/csnc-test-functions` | `ET.4` | `ET.4/base-change-groups`, `ET.4/unramified-transfers`, `ET.4/base-change-transfer-of-functions`, `ET.4/small-level-transfer`, `ET.4/archimedean-lefschetz-functions` |
-| `ET.7b/csnc-test-functions` | `ET.5` | `ET.5/acceptable-test-functions`, `ET.5/igusa-endoscopic-test-function` |
-| `ET.7b/newton-reduction` | `ET.5` | `ET.5/jb-endoscopic-levi-data`, `ET.5/transfer-at-p` |
-| `ET.7b/newton-reduction` | `ET.4` | `ET.4/base-change-groups`, `ET.4/unramified-transfers` |
-| `ET.7b/red-trace-duality` | `ET.5` | `ET.5/transfer-at-p`, `ET.5/igusa-endoscopic-test-function` |
-| `ET.7b/signed-igusa-trace` | `ET.4` | `ET.4/stable-twisted-identity`, `ET.4/twisted-spectral-side`, `ET.4/stable-elliptic-distribution` |
-| `ET.7b/signed-igusa-trace` | `ET.5` | `ET.5/unitary-igusa-trace-formula`, `ET.5/acceptable-functions-determine` |
-| `ET.7/torus-measure-check` | `ET.4` | `ET.4/base-change-transfer-of-functions`, `ET.4/stable-elliptic-distribution`, `ET.4/tamagawa-number-formula` |
-| `ET.7/unramified-gl2-check` | `ET.4` | `ET.4/unramified-transfers`, `ET.4/base-change-groups` |
-| `ET.7/proper-endoscopy-check` | `ET.4` | `ET.4/stable-elliptic-distribution`, `ET.4/twisted-spectral-side`, `ET.4/tamagawa-number-formula` |
-| `ET.7/division-inner-form-check` | `ET.6` | `ET.6/local-jacquet-langlands`, `ET.6/badulescu-langlands-jacquet-map`, `ET.6/inner-form-nontransfer` |
-
-
-Two further imports are explicit: `ET.6a/lubin-tate-tower` → `ET.6/drinfeld-level-deformation-spaces`, and `ET.7a/cyclic-automorphic-induction` → `ET.4/cyclic-automorphic-induction`. The ET.4 packet has 52 cross-part prerequisite occurrences to ET.0, representing 51 distinct edges. Across the corrected 180 targets, replacing all 29 internal stage occurrences and adding these two imports gives **588 distinct internal edges and no cycles**. This verifies node-level ordering and identifier existence, not the truth or completeness of a supplier contract. External stage requests and the prose transfer/Red obligation above remain.
+#9701 (`codex-mzqAco`) took the inventory. #9722 (`codex-vEpuUD`) wrote the combined reader from the accepted ET.0 and ET.6a readers and the corrected ET.4 packet (ET.4's part reader is stale: it predates the review), proposed the 29 exact replacements and the two imports, and compiled a 507-line joined draft that it did not submit. #9728 (`codex-gnFnGw`) reconciled ET.0's Tamagawa gap with the ET.4 owner and renumbered the AutomorphicSpectralTheory package sections (§§6.9, 6.18, 6.19). Their detailed records are condensed into the sections below.
 
 ## Requests collected without claiming fulfillment
 
-There are **54** original request records: 25 from ET.0, 11 from corrected ET.4, and 18 from ET.6a. Four ET.6a requests are internal contracts. The combined reader groups the other 50 by supplier; the numbered collection below keeps every exact consumer list. A request extends the supplier's scope only when explicitly agreed and planned; it is not evidence that its mathematics already exists.
+There are **54** original request records: 25 from ET.0, 11 from corrected ET.4, and 18 from ET.6a. Four ET.6a requests are internal contracts (to ET.3, ET.4, ET.5 and ET.6); they are kept unchanged, since after the exact prerequisites they state what those stages still owe the ET.6a–ET.7 consumers. The combined reader groups the other 50 by supplier; the numbered collection below keeps every exact consumer list. A request extends the supplier's scope only when explicitly agreed and planned; it is not evidence that its mathematics already exists.
 
 
 ### ET.0 request 1: `AlgebraicModuliForArithmeticGeometry:R09.4`
@@ -458,7 +442,7 @@ Needed by `ET.6a/tower-conventions`, `ET.6a/global-extraction`, `ET.6a/supercusp
 
 ## Gap collection
 
-The parts have **26** gap records: 5 + 12 + 9. These records are retained below with their full consumer lists. They overlap, and several contain multiple proof obligations; do not report 26 as a count of distinct missing theorems. The partial-contract and prose-order findings above are additional assembly obligations. ET.0's stale Tamagawa ownership wording is explicitly reconciled rather than perpetuated.
+The parts have **26** gap records: 5 + 12 + 9. These records are retained below with their full consumer lists. They overlap, and several contain multiple proof obligations; do not report 26 as a count of distinct missing theorems. The partial contracts and the proof-order obligation under "What the roadmap still needs" come in addition. ET.0's stale Tamagawa ownership wording is explicitly reconciled rather than perpetuated.
 
 
 ### ET.0 gap 1: Primary sources cited through secondary statements
@@ -619,7 +603,7 @@ Needed by `ET.6a/tower-compact-support`, `ET.6a/equivariant-cohomology-compariso
 
 ## Ownership proposals collected
 
-There are **13** raw restructure proposals. ET.4/1 and ET.6a/1 describe the same early cyclic-transfer owner; ET.4/4 and ET.6a/4 overlap on the early unitary/Igusa prefix. That gives **11 proposal groups**, with the current-tier correction from #9717 taking precedence over any older suggestion to rearrange tiers. None is implemented by this checkpoint. Keep the proposals and their exact consumer interfaces for the maintainer; do not apply changes to upstream, other packets or atlas data here.
+There are **13** raw restructure proposals. ET.4/1 and ET.6a/1 describe the same early cyclic-transfer owner; ET.4/4 and ET.6a/4 overlap on the early unitary/Igusa prefix. That gives **11 proposal groups**, with the current-tier correction from #9717 taking precedence over any older suggestion to rearrange tiers. None is implemented by this assembly, except the import halves already recorded: ET.7a cites the ET.4 owners of cyclic base change and automorphic induction (ET.4 proposal 1, ET.6a proposal 1) and `ET.6a/lubin-tate-tower` cites `ET.6/drinfeld-level-deformation-spaces` (ET.4 proposal 3). Keep the proposals and their exact consumer interfaces for the maintainer; do not apply changes to upstream, other packets or atlas data here.
 
 
 ### ET.0 proposal 1: rescope
@@ -728,7 +712,7 @@ Move only the early compact-unitary raw model/cohomology clauses of AG2.1a and t
 
 ## Source versions and citation corrections
 
-Fresh reconciliation reading on 2026-10-14 covered Arthur–Clozel Ch. I §6 and Ch. III §§1–6 at the relevant theorem pages; Dat §§2.2 and 4.1–4.2 at the stated normalization/sector loci; Shin 2010 §6 (6.8)–(6.10); and Caraiani–Scholze noncompact §§5.4–5.6. The authorized LTXZZ published copy was read in place at Appendix C.1, pp. 351–354; Lemmas C.2.4–C.2.5 and their proofs, pp. 360–363; Proposition C.3.1 and Corollaries C.3.2–C.3.3, pp. 363–364. These readings test the reconciliation points; they are not a fresh complete review of every inherited primary source. No restricted file or passage was saved or copied. Harris–Taylor remains uncleared and unread.
+The reconciliation reading of #9722 (2026-10-14) covered Arthur–Clozel Ch. I §6 and Ch. III §§1–6 at the relevant theorem pages; Dat §§2.2 and 4.1–4.2 at the stated normalization/sector loci; Shin 2010 §6 (6.8)–(6.10); and Caraiani–Scholze noncompact §§5.4–5.6. The authorized LTXZZ published copy was read in place at Appendix C.1, pp. 351–354; Lemmas C.2.4–C.2.5 and their proofs, pp. 360–363; Proposition C.3.1 and Corollaries C.3.2–C.3.3, pp. 363–364. These readings test the reconciliation points; they are not a fresh complete review of every inherited primary source. No restricted file or passage was saved or copied. Harris–Taylor remains uncleared and unread.
 
 The public copies freshly fetched for this run are identified below. The input packets retain their own source manifests. In particular the author PDF and arXiv CSnc copies have different hashes, and editions with different numbering remain distinct.
 
@@ -740,7 +724,7 @@ The public copies freshly fetched for this run are identified below. The input p
 | CSnc | [CSnc](https://www.ma.imperial.ac.uk/~acaraian/papers/noncompact.pdf) | `9c9b723d20f35af25f45c236224fb3a4d72c57379ea54759a3b609f4092d8eb5` |
 
 
-Arthur–Clozel's Clay scan uses **printed page = one-based PDF page − 16**. The combined reader corrects these exact citations: Ch. I Theorem 6.2 starts on p. 51; Proposition 6.6 pp. 58–59, 6.7–6.8 p. 59, 6.9 pp. 60–61, Lemma 6.10 pp. 62–63. Ch. III Definitions 1.1–1.2 p. 199, Theorem 3.1 p. 201, Definition 4.1/Theorem 4.2 pp. 202–203, Proposition 4.4 pp. 210–211, Theorem 5.1 pp. 212–213. Definition 6.1/Theorem 6.2 p. 215, proof pp. 215–217, Lemma 6.4 pp. 217–218, Corollary 6.5 p. 218 with proof continuing on p. 219. These are locator corrections, not replacements of the theorem's hypotheses. Both cyclic-transfer occurrences use the corrected edition.
+Arthur–Clozel's Clay scan uses **printed page = one-based PDF page − 16**. The combined reader corrects these exact citations: Ch. I Theorem 6.2 starts on p. 51; Proposition 6.6 pp. 58–59, 6.7–6.8 p. 59, 6.9 pp. 60–61, Lemma 6.10 pp. 62–63. Ch. III Definitions 1.1–1.2 p. 199, Theorem 3.1 p. 201, Definition 4.1/Theorem 4.2 pp. 202–203, Proposition 4.4 pp. 210–211, Theorem 5.1 pp. 212–213. Definition 6.1/Theorem 6.2 p. 215, proof pp. 215–217, Lemma 6.4 pp. 217–218, Corollary 6.5 p. 218 with proof continuing on p. 219. These are locator corrections, not replacements of the theorem's hypotheses. Both cyclic-transfer occurrences use the corrected edition. This run re-verified every Arthur–Clozel page above on the Clay scan (same SHA-256) and carried the ET.7a locator into the ET.6a packet; the ET.4 packet keeps the old locators until its revision.
 
 The bibliography corrects the noncompact paper's title to *On the generic part of the cohomology of non-compact unitary Shimura varieties*. The compact paper is separately named. Identical URL/title entries are deduplicated; editions with different page numbering remain. Short labels such as AC, Dat, CSnc, CS17, SW13, SW20, FS, LTXZZ and Shin in the target prose refer to those named bibliography entries, not to independent unregistered sources.
 
@@ -752,25 +736,6 @@ Elaboration used Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 
 Read the roadmap's library-coverage audit; it has no direct ET acceptance record. Narrow declaration searches in the current library found no exact named ET carriers; that is not a certification that every related notion is absent. Existing ReductiveGroupsPartII's z-extensions, algebraic π₁, Kottwitz homomorphisms, dual/L-groups and the current SmoothRepresentations induction, Jacquet, Satake and conditional Langlands-classification interfaces are imports. LocalGaloisGroups' marked presentations/orientations and IntegralLattices' arithmetic quadratic-lattice carriers were checked for overlap. Do not replan them, or interpret arithmetic lattice infrastructure as the missing affine Springer or unitary S/S′ theorem. Current HeckeStacksAndLocalShtukas and its integral continuation retain general Hecke/shtuka and integral comparison; ET.6a's proposed classical basic-minuscule specialization is narrower.
 
-The baseline statements were opened at the pin, rather than inferred from declaration names: `Matrix.charpoly`, `Matrix.charpoly_monic`, `Polynomial.discr`, `MeasureTheory.Measure.IsHaarMeasure`, `LaurentSeries`, `PowerSeries`, `Matrix.IsHermitian`, `Matrix.trace` and `Matrix.trace_diagonal`. The Haar predicate supplies local Haar properties, not Tamagawa/quotient measures, character integrability or Weyl integration. The compact Lean draft uses those real matrix/series/finite-sum carriers and abstract algebraic cochains only.
+The baseline statements were opened at the pin, rather than inferred from declaration names: `Matrix.charpoly`, `Matrix.charpoly_monic`, `Polynomial.discr`, `MeasureTheory.Measure.IsHaarMeasure`, `LaurentSeries`, `PowerSeries`, `Matrix.IsHermitian`, `Matrix.trace` and `Matrix.trace_diagonal`. The Haar predicate supplies local Haar properties, not Tamagawa/quotient measures, character integrability or Weyl integration. The Suggested file uses those real matrix/series/finite-sum carriers and abstract algebraic cochains only.
 
 The adjacent AutomorphicSpectralTheory package update arrived with main during this run; the current §§6.9, 6.18–6.20 were read directly. This is an atlas package awaiting its own upstream process, not a claim that those future APIs are already in the Tau Ceti library.
-
-## Verification and resume order
-
-- All three packet checks were rerun after merging current main: **0 errors, 0 warnings** for each. ET.4 is partial/needs_changes even though its structure passes.
-- An anchor and node-local preservation audit checked all 180 target identities and the complete statements, 345 hypotheses, 588 proof steps, 475 acceptance checks, 375 API statements, 231 test statements and 348 source locators. Differences are explicit process-label cleanup, AS package section renumbering, the Arthur–Clozel locator corrections and the finite-level import prefix. No target, API item or test was dropped. This audit is not a proof of the inherited mathematics.
-- Internal graph audit after the proposed exact replacements and two new imports: 180 nodes, 588 edges, no cycles. It leaves partial external contracts and the prose transfer/Red ordering issue open.
-- The 507-line draft compiled successfully with 55 `sorry` warnings only, and passed `check_sorry_data.py`. It has one import block, one namespace and no duplicate declaration names. Its omission from the checkpoint is intentional as explained above.
-- Submission file validation and `git diff --check` pass for this handoff and the combined reader. No private filesystem path or copied source passage is present. The next worker must rerun checks after changing any input or completing the combined Suggested file.
-
-Resume in this order:
-
-1. Finish the ET.4 revision required by #395/#9717 and obtain its independent acceptance. Its key blockers are the ET-owned algebraic/Igusa prefix; formal/Drinfeld-level/projectivity and trace-correspondence application suppliers; multiplicity-one newvectors; full WD segment-pair factors/conductor; archimedean base change and algebraic Hecke-character realization; and the listed unread primary proofs. This assembly cannot accept its own mathematical repairs.
-2. Align the assembly's issue and queue with all three actual parts and authorized packet paths. Do not change labels, queue or other roadmap files yourself.
-3. Replace the ET.4 draft sections from that accepted packet/reader, preserve the additions and corrected proof order, and recheck every ET.7a/ET.7b contract against the supplier's exact new scope. Resolve the partial contracts above or retain precisely attributed gaps allowed by the eventual accepted plan.
-4. Apply the 29 exact internal reference replacements and two ownership imports to the permitted packet. Reconcile stale Tamagawa ownership wording, duplicate BC/AI and finite-level construction ownership, and the early Igusa/Red interfaces. Itemize changes in reviewed mathematics for re-review; do not alter existing reviewer identities or manufacture accepted verdicts.
-5. Reconstruct the single compact Suggested file from the then-current inputs using the instructions above; run `lean-check`, sorry-data, all-part packet, preservation, graph and submission checks. Preserve full reader details rather than compressing the plan to the slim Lean file.
-6. Finish the handoff, open one assembly pull request with `Refs #226`, and let the intake handle it. Do not claim a second job in the same run.
-
-All information needed to resume is here, the combined draft and the registered part/review files. Scratch scripts, PDFs and notes are disposable and are deleted after this checkpoint pull request opens.

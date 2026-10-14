@@ -253,7 +253,10 @@
         "Changing left/right actions also changes which contragredient an isotypic notation selects."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/llc-characterizing-properties",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-parameter"
       ],
       "sources": [
         {
@@ -330,7 +333,7 @@
       ],
       "title": "The formal O_E-module tower",
       "kind": "construction",
-      "statement": "Choose a one-dimensional formal O_E-module H of O_E-height n over the algebraic closure of the residue field. The deformation functor at level m classifies (G,ρ,α_m), where G deforms H, ρ is an O_E-linear quasi-isogeny on the special fibre and α_m is a full Drinfeld level structure on G[varpi_E^m]. Its rigid generic fibres form the Lubin–Tate tower M_LT,m over brevé E. At level zero each quasi-isogeny-height component is an (n−1)-dimensional open ball. Higher generic-fibre levels are finite étale with the specified congruence deck group.",
+      "statement": "Choose a one-dimensional formal O_E-module H of O_E-height n over the algebraic closure of the residue field. Use the formal O_E-module deformation construction with full Drinfeld levels of ET.6/drinfeld-level-deformation-spaces. The additional framed deformation functor at level m classifies (G,ρ,α_m), where G deforms H, ρ is an O_E-linear quasi-isogeny on the special fibre and α_m is a full Drinfeld level structure on G[varpi_E^m]. Its rigid generic fibres form the Lubin–Tate tower M_LT,m over brevé E. At level zero each quasi-isogeny-height component is an (n−1)-dimensional open ball. Higher generic-fibre levels are finite étale with the specified congruence deck group.",
       "hypotheses": [
         "Full Drinfeld level structure is imposed integrally, not an arbitrary basis over a nonreduced base.",
         "Fix H and a uniformizer varpi_E."
@@ -346,6 +349,7 @@
         "The GL_n(E) action is on the tower of correspondences; a general element need not preserve an individual integral level."
       ],
       "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-level-deformation-spaces",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
       ],
@@ -681,7 +685,7 @@
         "Integral and rational functors are distinguished."
       ],
       "proofSteps": [
-        "Import universal covers and Tate modules from the finite-flat packet.",
+        "Import universal covers and Tate modules from the finite-flat supplier.",
         "Translate a frame to the B-linear universal-cover map and its Lie quotient.",
         "Use local p-divisible classification to reconstruct G from the map and prove full faithfulness.",
         "Prove the geometric-point exactness condition is preserved under base change; it cannot be omitted in favor of the rank condition alone."
@@ -1246,7 +1250,7 @@
         "PELModuli:M2/representability",
         "PELModuli:M2/universal-family",
         "PELModuli:M4/canonical-model-identification",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity",
         "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
         "LefschetzPencilsAndVanishingCycles:LPV.6"
       ],
@@ -1385,8 +1389,10 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/unitary-nearby-cycle-decomposition",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands"
       ],
       "sources": [
         {
@@ -1474,7 +1480,10 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre-comparison",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/semisimple-langlands-parameter",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-parameter"
       ],
       "sources": [
         {
@@ -1683,9 +1692,11 @@
         "For an unramified local degree-r extension the Satake eigenvalues become α_i^r."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/local-cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/global-cyclic-base-change",
         "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer"
       ],
       "sources": [
         {
@@ -1727,12 +1738,13 @@
         "A Galois-invariant cuspidal input induces a noncuspidal isobaric sum."
       ],
       "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cyclic-automorphic-induction",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change"
       ],
       "sources": [
         {
           "sourceId": "AC",
-          "locator": "Chapter III, Definition 6.1 and Theorem 6.2 and proof, pp. 214–217",
+          "locator": "Chapter III, Definition 6.1 and Theorem 6.2, p. 215; proof, pp. 215–217; Lemma 6.4, pp. 217–218; Corollary 6.5, p. 218",
           "match": "Automorphic induction, its split/inert parameters and construction by cyclic descent."
         }
       ],
@@ -1903,7 +1915,10 @@
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
         "AutomorphicSpectralTheory:AS.6/invariant-trace-formula"
       ],
       "sources": [
@@ -1943,7 +1958,10 @@
         "Residual Speh possibilities remain until cuspidality is separately established."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
         "ShimuraVarieties:V6/abelian-canonical"
@@ -2038,7 +2056,12 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups"
       ],
       "sources": [
         {
@@ -2085,8 +2108,11 @@
         "Replacing conjugate dual by ordinary dual gives a different list over a CM extension."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/zelevinsky-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change"
       ],
       "sources": [
@@ -2128,7 +2154,7 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification"
       ],
       "sources": [
         {
@@ -2172,7 +2198,8 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers"
       ],
       "sources": [
         {
@@ -2211,8 +2238,13 @@
         "At good inert places the hyperspecial transfer is the GL_N hyperspecial characteristic function."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/group-fundamental-lemma",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change"
       ],
       "sources": [
@@ -2310,7 +2342,11 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
         "AutomorphicFormsOnReductiveGroups:AF.5",
         "AutomorphicFormsOnReductiveGroups:AF.4"
       ],
@@ -2458,8 +2494,14 @@
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization"
       ],
       "sources": [
@@ -2553,10 +2595,13 @@
         "For a proper endoscopic group all allowed Levi contributions are retained."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/jb-endoscopic-levi-data",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/badulescu-langlands-jacquet-map"
       ],
       "sources": [
         {
@@ -2659,7 +2704,9 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine"
       ],
       "sources": [
         {
@@ -2707,8 +2754,12 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-igusa-trace-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization"
       ],
       "sources": [
@@ -2995,7 +3046,8 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution"
       ],
       "sources": [
         {
@@ -3042,7 +3094,9 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer"
       ],
       "sources": [
         {
@@ -3085,7 +3139,11 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity"
       ],
       "sources": [
         {
@@ -3129,7 +3187,8 @@
         "At rank one D=E and the corresponding sign is +1."
       ],
       "prerequisites": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/badulescu-langlands-jacquet-map",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger"
@@ -3235,7 +3294,7 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer"
       ],
       "sources": [
         {
