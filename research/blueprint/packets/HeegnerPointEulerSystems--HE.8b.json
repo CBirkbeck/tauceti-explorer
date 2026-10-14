@@ -65,7 +65,8 @@
       "Read reviewed data/library-coverage.json HE.8b (AUDIT-25): all four targets absent. Its L5a duplicate note has the stale 4.2.1 locator; the two-variable theorem is 4.1.3/4.1.4.",
       "On 2026-10-14 searched the pinned Tau Ceti tree for Heegner, Kolyvagin, anticyclotomic, Iwasawa, Selmer and characteristicIdeal. Read Affine.selmerGroup₂ in MordellWeil/SelmerGroup.lean lines85–115: it is explicit classical 2-descent, not ordinary Λ-adic Selmer cohomology. Pinned Mathlib similarly has Heegner-number commentary, Selmer polynomials, multiplicative Dedekind Selmer groups and the group-theoretic Iwasawa criterion, not these arithmetic targets.",
       "Read current upstream ProfiniteArithmetic and JacobianChallenge README documents; checked ProfiniteArithmetic/Suggested.lean and searched the current library and nine post-snapshot roadmaps for the arithmetic targets. The current profinite, curve, cohomological and algebraic APIs are imported, not replanned. None supplies the HE.8b main-conjecture proof or the missing characteristic-ideal/Selmer carriers.",
-      "Only the seven listed positive Mathlib references are used for the native algebra acceptance examples. No formal arithmetic main-conjecture interface is claimed at the pins."
+      "Only the seven listed positive Mathlib references are used for the native algebra acceptance examples. No formal arithmetic main-conjecture interface is claimed at the pins.",
+      "Independent review also read the accepted BT26/CGLS paper routes and confirmed RT /5,/15,/26,/29–31 ownership decisions; these routes precede the stale HE.7s/BSD.7 duplicate-roadmap proposal. The current PMA packet needs changes and its characteristic-ideal contracts are not asserted to be certified imports."
     ]
   },
   "sources": [
@@ -173,8 +174,8 @@
       "realises": [
         "HeegnerPointEulerSystems:HE.8b"
       ],
-      "kind": "theorem",
-      "title": "Primitive Greenberg μ-vanishing in BCS descent",
+      "kind": "comparison",
+      "title": "Primitive Greenberg μ input and denominator clearing in Heegner descent",
       "declaration": "primitive_greenberg_mu_vanishing",
       "statement": "Let A=ℤ_p⟦Gal(K∞/K)⟧, B=ℤ_p⟦Gal(K∞⁻/K)⟧, A_R=R⟦Gal(K∞/K)⟧ and B_R=R⟦Gal(K∞⁻/K)⟧. Write π⁻:A_R→B_R for the cyclotomic-variable quotient. For the primitive BCS functions G_E=L_p^Gr(E/K) and B_E=L_p^BDP(E/K), one has (π⁻G_E)=(B_E), μ(B_E)=0 and μ(G_E)=0. Both functions are nonzero. The BCS B_E is the squared BCGS distribution, so (B_E)=(ℒ_E²) only after the existing normalization comparison is discharged. Consequently if J is an integral characteristic ideal in A_R and (G_E·G_EF)⊇J after inverting p, the same inclusion holds in A_R, provided the analogous hypotheses and primitive μ-vanishing hold for E^F. This clears denominators in the reverse product bound; it does not eliminate a p-primary defect in either individual Selmer ideal under residual irreducibility alone.",
       "hypotheses": [
@@ -184,8 +185,8 @@
         "All functions and Selmer modules have the primitive BCS normalization, its ordinary Tate lattice and strict-at-v/unrestricted-at-v̄ Greenberg condition; completed unramified coefficients R=Ẑ_p^ur are retained."
       ],
       "proofSteps": [
-        "BCS Proposition 4.2.2 imports Hsieh’s toric μ=0 theorem for the primitive anticyclotomic function. Use AutomorphicPadicLFunctions L3h for that theorem, not the different Katz μ theorem needed at Eisenstein primes.",
-        "Use the analytic projection identity of CGS Proposition 2.4.5 (called 1.4.5 in the revision BCS cites). Its construction first proves integrality of the actual Greenberg function in Lemma 2.4.4, using the CM congruence-ideal divisibility from Hida–Tilouine Theorem 0.3 and Rubin’s theorem, plus the augmentation-factor exclusion from BDP22 Theorem A(i). L5a must import those independent inputs; a rational interpolation formula alone cannot replace them.",
+        "Import BCS Proposition 4.2.2 through L5a, with Hsieh’s primitive toric μ=0 theorem and the CGS analytic projection supplied by AutomorphicPadicLFunctions L3h. This is the shared analytic input to both BCS descent branches, not a second HE-owned μ proof; it is distinct from Hida’s Katz μ theorem at Eisenstein primes.",
+        "The CGS Proposition 2.4.5 projection comparison is owned by L3h, and its actual integral Greenberg function requires Lemma 2.4.4. The CM congruence denominator is cleared by Hida–Tilouine Theorem 0.3 from the proposed AC L0c owner and Rubin’s theorem from the accepted CMAllPrimeMainConjectures design route, together with the augmentation-factor exclusion from BDP22 Theorem A(i). L5a imports this contract. A rational interpolation formula alone cannot replace it.",
         "Reduction modulo p commutes with π⁻. Since π⁻G_E is nonzero modulo p, G_E is nonzero modulo p as well. This proves μ=0 without requiring the constant coefficient to be a unit.",
         "At height-one primes away from (p), the rational inclusion gives the desired inequality. At (p), the generator G_E·G_EF has order zero whereas the integral ideal J has nonnegative order. Recover the integral inclusion using the supplier’s normal factorial characteristic-ideal calculus. No claim that μ(J)=0 is made."
       ],
@@ -214,14 +215,12 @@
           "match": "The actual integral two-variable Greenberg function projects to an associated anticyclotomic BDP function."
         }
       ],
-      "planet": {
-        "name": "Primitive Greenberg μ-vanishing"
-      },
       "library": {
         "module": "TauCeti/NumberTheory/Heegner/Anticyclotomic",
         "namespace": "TauCeti.Heegner.Anticyclotomic"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "ownership": "BCS Proposition 4.2.2 is imported from AutomorphicCongruences L5a, which imports Hsieh and the CGS analytic projection from AutomorphicPadicLFunctions L3h under confirmed RT-AREA-iwasawa-1/15 and /29. This node records the HE.8b use and height-one denominator-clearing consequence; it does not plan a second proof or implementation of those analytic theorems. Replace the coarse supplier reference by its exact export when that supplier is decomposed."
     },
     {
       "id": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
@@ -294,7 +293,7 @@
         "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
         "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility"
       ],
-      "need": "Export BCS v2 Theorem 4.1.3/Corollary 4.1.4 (p.8), not Theorem 4.2.1: ordinary/Greenberg product containments in both directions, rational and integral. Export Lemma 5.1.1 (p.9) characteristic-ideal restriction and Lemma 5.1.2 (p.9) PR-function factorization only after inverting p. Include integral Greenberg-function construction and its analytic π⁻ comparison, CGS v2 Lemma 2.4.4/Proposition 2.4.5 (older 1.4.4/1.4.5). For Lemma 2.4.4, import the proposed independent elliptic-unit owner’s Rubin/Hida–Tilouine congruence-ideal divisibility and the CM-family augmentation-factor exclusion of BDP22 Theorem A(i); do not infer analytic integrality from HE.8b equality. The completed cyclotomic L5b equality is not an input."
+      "need": "L5a must export BCS v2 Proposition 5.2.1 (pp.9–10), its integral ordinary/Greenberg product containments, and the fixed-K application of the six auxiliary-field conditions. It imports, rather than owns again, Theorem 4.1.3/Corollary 4.1.4 (p.8) from the KatoEulerSystems L5 owner proposed in confirmed RT-AREA-iwasawa-1/30. Export Lemma 5.1.1 (p.9) characteristic-ideal restriction and Lemma 5.1.2 (p.9) PR-function factorization only after inverting p. Import BCS Proposition 4.2.2 through L3h’s Hsieh/CGS projection contract (RT /15 and /29); the Greenberg analytic construction requires CGS v2 Lemma 2.4.4/Proposition 2.4.5 (older 1.4.4/1.4.5), with Rubin from CMAllPrimeMainConjectures, Hida–Tilouine from proposed AC L0c, and the BDP22 augmentation-factor exclusion. Completed L5b equality is not an input; L5b and HE.8b are separate consumers of this early product engine (RT /31)."
     },
     {
       "supplier": "AutomorphicPadicLFunctions:L3h",
@@ -339,7 +338,7 @@
       "neededBy": [
         "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter"
       ],
-      "need": "Use the already planned exact cgs-anticyclotomic-main-conjecture node and cgls-equal-iwasawa-invariants. Complete their missing imaginary-quadratic elliptic-unit/Katz μ supplier by the new-owner proposal below (RT-AREA-iwasawa-1/5). The early CGS Theorem C branch may use early HE.8 classes, not HE.8b equality, a late BCGS consequence or completed cyclotomic CGS Theorem A. Route integral Kato to the separate cyclotomic BSD.7a consumers through its existing distinguished-lattice-integral-input adapter."
+      "need": "Use the already planned exact cgs-anticyclotomic-main-conjecture node and cgls-equal-iwasawa-invariants. Complete their independent character inputs through the accepted CMAllPrimeMainConjectures design route for Rubin, L3h for Hida’s Katz μ theorem, and the proposed AC L0c for Hida–Tilouine, as confirmed RT-AREA-iwasawa-1/5 and /26 require. Exact source hypotheses and correction factors still need supplier decomposition. Early CGS Theorem C may use early HE.8 classes, not HE.8b equality, a late BCGS consequence or completed cyclotomic CGS Theorem A. Route integral Kato separately to cyclotomic BSD.7a consumers through distinguished-lattice-integral-input."
     },
     {
       "supplier": "KatoEulerSystems:L4",
@@ -367,7 +366,7 @@
         "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
         "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture"
       ],
-      "detail": "GZ.9’s explicit comparison unit remains a recorded gap; APL L3h has no exact fine node supplying the needed primitive toric μ theorem. L5a has no packet giving its exact two-variable comparison/factorization contracts. L5w has fine nodes but their own period/Fujiwara/control prerequisites must be discharged. ES.8 must certify the weak-residual and surjective integral bounds with their augmentation and class-number scope. BCS v2 states the endpoints; this packet does not replace these proof inputs with their conclusions."
+      "detail": "GZ.9’s explicit comparison unit remains a recorded gap; APL L3h has no exact fine node supplying the primitive toric μ and analytic projection contract. L5a has no packet giving its exact product/restriction/factorization contracts. Confirmed RT /29–30 assign the shared ordinary/Greenberg comparison to proposed Kato L5, imported by L5a; /15 assigns the analytic projection to L3h. L5w has accepted fine targets but retains period/Fujiwara/control prerequisites, including its strengthened narrow-class-field condition and local exceptional-type checks. ES.8’s accepted generic Rubin branch does not certify the requested weak-residual Heegner bound or remove Howard’s image/class-number hypotheses. The PMA packet currently needs changes, so its named characteristic-ideal contracts are planned imports, not accepted library exports. BCS states the endpoints; this packet does not replace these inputs by their conclusions."
     },
     {
       "title": "Independent elliptic-unit proof inputs",
@@ -377,7 +376,7 @@
         "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
         "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches"
       ],
-      "detail": "CGS Lemma 2.4.4 also uses Rubin and Hida–Tilouine Theorem 0.3 to clear the CM congruence denominator of the actual Greenberg function; route that proof contract through L5a’s integral analytic construction. CGLS Theorem 1.2.2 and Theorem 2.2.3 use Rubin’s imaginary-quadratic main conjecture and Hida’s Katz μ=0; CGS removes (Sel) but still uses those invariants. The proposed elliptic-unit owner and its proof-level exact hypotheses remain unverified. BSD.7a already records the absent owner and the separate Wüthrich integral-Kato request. No generic Katz construction or rational Kato theorem certifies those inputs. No integral Kato premise is added to the independent anticyclotomic Theorem C proof."
+      "detail": "CGS Lemma 2.4.4 uses Rubin and Hida–Tilouine Theorem 0.3 to clear the CM congruence denominator. Route Rubin to the accepted CMAllPrimeMainConjectures design (PAPER-BURUNGALE-TIAN-26 route 7 and PAPER-CASTELLA-ETAL-22 route 8), Hida–Tilouine to proposed AC L0c (confirmed RT /26), and Hida’s Katz μ theorem to L3h (accepted CGLS route 6). These ownership decisions do not supply verified fine-node proof contracts yet. CGLS Theorems 1.2.2 and 2.2.3 use the same independent character inputs; CGS removes (Sel), not those invariants. BSD.7a records the missing inputs and separate Wüthrich integral-Kato request. No generic Katz construction or rational Kato theorem certifies them; integral Kato is not a premise of early anticyclotomic Theorem C."
     }
   ],
   "sourceIssues": [
@@ -393,8 +392,14 @@
       "known": "new",
       "searched": [
         "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
-        "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
-      ]
+        "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search.",
+        "The same naming slip was already recorded by the confirmed RT-AREA-iwasawa-1/29 follow-up; this local finding is not a claim of first discovery. No published erratum was located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 4.1.3 supplies exactly the two-variable ordinary/Greenberg comparison invoked. The correction leaves the intended containments unchanged. Independently collated in the acquired arXiv v2 and publisher-form PDF at the stated locators.",
+        "by": "REV-HeegnerPointEulerSystems--HE.8b"
+      }
     },
     {
       "id": "HeegnerPointEulerSystems/E12",
@@ -409,7 +414,12 @@
       "searched": [
         "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
         "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both input factors in (5.5) are two-variable Λ_K-modules; π⁻ maps their product to the anticyclotomic ring. This correction leaves the intended containment unchanged. Independently collated in the acquired arXiv v2 and publisher-form PDF at the stated locators.",
+        "by": "REV-HeegnerPointEulerSystems--HE.8b"
+      }
     }
   ],
   "sourceVersions": [
@@ -522,11 +532,12 @@
         "ModularIwasawaMainConjectures"
       ],
       "detail": "The atlas HE.8/HE.8b descriptions duplicate neighbouring milestone text, and the library audit repeats an obsolete two-variable theorem number.",
-      "proposal": "Keep early family and geometric nonvanishing in HE.8; HE.8b owns the BCS anticyclotomic proof and imports its thirteen existing target IDs. L5a owns BCS Theorem 4.1.3/Corollary 4.1.4 and Lemmas 5.1.1/5.1.2, L5w the Wan/Fujiwara engine, and completed L5b is downstream. MIMC L6 imports these branch exports. Add the two fine dependency refinements above during assembly, without creating duplicate endpoint nodes."
+      "proposal": "Keep early family and geometric nonvanishing in HE.8; HE.8b imports its thirteen existing target IDs and owns their anticyclotomic assembly. L5a owns BCS Proposition 5.2.1 with Lemmas 5.1.1/5.1.2 and auxiliary-field application, importing Theorem 4.1.3/Corollary 4.1.4 from proposed Kato L5 (confirmed RT /29–30), and Proposition 4.2.2 through L3h’s Hsieh/CGS projection contract (RT /15). L5w owns the Wan/Fujiwara engine. L5b and HE.8b independently consume L5a: remove the artificial HE.8b → L5b edge and give L5b its Kato L4 input (RT /31). MIMC L6 imports the separate branch exports. Apply the two fine dependency refinements during assembly without duplicating endpoints or analytic suppliers."
     },
     {
-      "action": "split",
+      "action": "rescope",
       "roadmaps": [
+        "CMAllPrimeMainConjectures",
         "AutomorphicCongruences",
         "ComplexMultiplicationAndExplicitReciprocity",
         "AutomorphicPadicLFunctions",
@@ -535,8 +546,8 @@
         "KatoEulerSystems",
         "HeegnerPointEulerSystems"
       ],
-      "detail": "RT-AREA-iwasawa-1/5: the current catalogue still has no owner for the elliptic-unit main-conjecture proof, and the existing Kato L4 rational export does not meet BSD.7a’s separate integral request.",
-      "proposal": "Adopt the existing HE.7s/BSD.7 proposal for a new roadmap “Elliptic units and the Iwasawa main conjectures for imaginary quadratic fields”: integral elliptic-unit norm distributions and Euler system; unit/class-group modules and Rubin 1991/1994 two-variable theorem; Hida–Tilouine Invent.Math.117(1994) Theorem0.3 anticyclotomic theorem; Hida Annals2010 Katz μ=0. Import Katz from APL L3, generic Euler-system/Iwasawa theory from ES.3/ES.8 and CM.1–CM.4 reciprocity. Preserve prime, character, conductor, lattice and exceptional-character hypotheses and correction factors. Route the CM congruence-ideal divisibility to L5a’s integral Greenberg construction (CGS Lemma 2.4.4), together with the CM-family augmentation-factor exclusion from its existing Hida/congruence owner. Route the exact character exports to BSD.7a/cgls-residual-character-comparison and cgls-equal-iwasawa-invariants, hence its independent CGS anticyclotomic theorem and HE.8b adapter. Add the Wüthrich integral distinguished-curve input in Kato L4, using IntegralIwasawaTheory L4 Ferrero–Washington, and route it to the already existing BSD.7a/distinguished-lattice-integral-input for the cyclotomic return. Link the unit owner also to HE.7s’s Rubin/Iwasawa CM alternative; do not make it a prerequisite of the reviewed direct Nekovář HE.7 CM descent. This issue proposes ownership and requests; it reserves no IDs and edits no other roadmap."
+      "detail": "Confirmed RT-AREA-iwasawa-1/5 rejects a second imaginary-quadratic elliptic-unit roadmap: accepted paper routes already assign elliptic units and Rubin to the pending CMAllPrimeMainConjectures design. Exact exported proof contracts remain missing, as does the separate integral Kato refinement.",
+      "proposal": "Use the accepted CMAllPrimeMainConjectures Part II design route (PAPER-BURUNGALE-TIAN-26 route 7 and PAPER-CASTELLA-ETAL-22 route 8, design #1884) for integral elliptic-unit distributions, unit/class-group modules and Rubin 1991/1994, including the anticyclotomic character components, tame p-ramification and the class-number refinement. It imports Katz from APL L3 and CM.1–CM.4 reciprocity; its early and integral layers must not depend on BSD.7a or completed MIMC L6. Route Hida’s Katz μ=0 through L3h (accepted CGLS route 6), and Hida–Tilouine Theorem 0.3 through the proposed AC L0c owner of confirmed RT /26, rather than reproving them in the unit roadmap. Their exact prime, character, conductor, lattice, correction-factor and exceptional-character hypotheses still require supplier verification. Route Rubin/HT CM congruence divisibility to the CGS Lemma 2.4.4 analytic construction, plus the CM-family augmentation-factor exclusion, and then through L3h’s analytic projection and L5a to the primitive HE.8b input. Route the character exports to the existing BSD.7a/cgls-residual-character-comparison and cgls-equal-iwasawa-invariants, hence early CGS Theorem C and the HE.8b adapter. Complete Wüthrich in Kato L4 using IntegralIwasawaTheory L4 Ferrero–Washington, then route it to BSD.7a/distinguished-lattice-integral-input for the separate cyclotomic return. HE.7s’s Rubin CM alternative imports the same unit owner; the direct Nekovář descent does not gain an artificial prerequisite. This review reserves no IDs and edits no supplier or predecessor."
     }
   ],
   "upstreamNotes": [],
@@ -546,7 +557,7 @@
       "bcs-v2 Lemma 5.2.3 and its residual-restriction argument, p.10",
       "bcs-v2 Proposition 5.2.1, pp.9–10"
     ],
-    "detail": "First derive (irr_K) from (irr_Q): if the restriction to G_K were reducible, the irreducible two-dimensional representation would be induced from K. Inertia at any prime dividing D_K would then permute its two lines nontrivially, contradicting unramifiedness away from Np and gcd(D_K,Np)=1. For the theorem’s fixed K, choose a prime q≡1 mod 8|D_K| with prescribed nonzero square/nonsquare residue classes modulo each odd ℓ|Np: (q/p)=−1 and (q/ℓ)=−1 exactly when ℓ|N and ℓ≡−1 mod p. The moduli are coprime because (Heeg),(spl) imply gcd(D_K,Np)=1. Dirichlet/Chebotarev gives infinitely many such q. Then F=ℚ(√q) has D_F=q, q splits in K, and conditions (i)–(iii) hold, including splitting at 2 when 2|N. Avoid the finitely many F contained in the compositum of K and the residual splitting field; restriction to G_FK then preserves the G_K image, giving (iv). Exclude the p=5 exceptional field. The final residual-restriction argument in Lemma 5.2.3 gives (v) under these exclusions, and (vi) is explicit. Thus the local/avoidance construction can be performed without changing K. This expands the existing target proof; it creates no second auxiliary-field node. The quadratic twist remains ordinary at p and has new conductor primes only among those dividing D_F, which split in K; its residual restriction stays irreducible. For the surjective branch, twisting preserves the commutator image SL₂(F_p) and the surjective cyclotomic determinant, hence the full GL₂(F_p) image."
+    "detail": "First derive (irr_K) from (irr_Q): if the restriction to G_K were reducible, the irreducible two-dimensional representation would be induced from K. Inertia at any prime dividing D_K would then permute its two lines nontrivially, contradicting unramifiedness away from Np and gcd(D_K,Np)=1. For the theorem’s fixed K, choose a prime q≡1 mod 8|D_K| with prescribed nonzero square/nonsquare residue classes modulo each odd ℓ|Np: (q/p)=−1 and (q/ℓ)=−1 exactly when ℓ|N and ℓ≡−1 mod p. The moduli are coprime because (Heeg),(spl) imply gcd(D_K,Np)=1. Dirichlet/Chebotarev gives infinitely many such q. Then F=ℚ(√q) has D_F=q, q splits in K, and conditions (i)–(iii) hold, including splitting at 2 when 2|N. Avoid the finitely many F contained in the compositum of K and the residual splitting field; restriction to G_FK then preserves the G_K image, giving (iv). Exclude the p=5 exceptional field. The final residual-restriction argument in Lemma 5.2.3 gives (v) under these exclusions, and (vi) is explicit. Since D_K is odd and nontrivial, a prime dividing it remains ramified in FK/F while D_F=q is coprime to D_K. Thus FK/F is ramified at a finite place and satisfies the strengthened noncontainment in the narrow Hilbert class field required by the reviewed L5w supplier. Its absolute-residual, local exceptional-type and minimal-lifting verifications still belong to that supplier. Thus the local/avoidance construction can be performed without changing K. This expands the existing target proof; it creates no second auxiliary-field node. The quadratic twist remains ordinary at p and has new conductor primes only among those dividing D_F, which split in K; its residual restriction stays irreducible. For the surjective branch, twisting preserves the commutator image SL₂(F_p) and the surjective cyclotomic determinant, hence the full GL₂(F_p) image."
   },
   "sourceBoundary": {
     "predecessor": "The generated issue names HE.0; that packet now covers HE.0–HE.7 and has no HE.8b coverage. The actual accepted predecessor is HE.7s, whose thirteen HE.8b nodes are imported here. No predecessor is modified.",
@@ -555,14 +566,107 @@
   },
   "validation": {
     "packetChecker": "Passed on 2026-10-14: 0 errors, 0 warnings.",
-    "lean": "lean-check exited 0 on 2026-10-14 at the pinned shared build: 67 lines, eight native examples, exactly eight expected admission warnings and no other warnings. No arithmetic target is claimed implemented.",
-    "globalCycleCheck": "Traversed the fine-node graph in blueprint packets from all thirteen imports and two new nodes, applying the proposed dependency refinements: 3,743 reachable fine nodes, 2,562 terminal references, no cycle and no completed cyclotomic L5b/CGS Theorem A input. Stage references and requests remain terminal contracts; this does not certify supplier proof closure.",
+    "lean": "lean-check exited 0 on 2026-10-14 at the pinned shared build: 68 lines, eight native examples, exactly eight expected admission warnings and no other warnings. No arithmetic target is claimed implemented.",
+    "globalCycleCheck": "Independent traversal of packet fine-node prerequisites from the thirteen HE.7s imports and two new comparisons, applying the proposed refinements: 3,743 reachable fine nodes, 2,562 terminal references, no cycle and no completed cyclotomic L5b or late CGS equality input. Stage references and requests were treated as terminal contracts; this is not supplier proof closure. Imported HE nodes were resolved explicitly to the accepted HE.7s packet.",
     "targetCount": 4,
     "importedTargetNodes": 13,
     "newNodes": 2,
     "newDefinitionApiItems": 0,
     "newDefinitionUnitTests": 0,
     "suggestedExamples": 8,
-    "planets": "One new planet; with the predecessor’s five HE.8b planets the combined stage has six."
+    "planets": "No new planet: this packet’s primitive μ node imports the shared L5a/L3h analytic theorem and records its HE.8b use, so it does not duplicate the owner’s theorem planet. The thirteen inherited HE.8b nodes have five planets.",
+    "reviewCounts": {
+      "checked": 15,
+      "verified": 14,
+      "corrected": 1,
+      "added": 0,
+      "unverifiable": 0,
+      "newNodeKinds": {
+        "comparison": 2
+      }
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.8b",
+    "date": "2026-10-14",
+    "notes": "Independent review of both new nodes and all thirteen accepted predecessor imports; sources, seven exact-pin baseline declarations, arithmetic/local/period boundaries, accepted suppliers, target coverage, compact Suggested shape and confirmed RT /5 checked. Corrected duplicate elliptic-unit roadmap and analytic ownership, removed the artificial HE.8b→L5b dependency, and made the primitive μ node an imported comparison with no duplicate planet. Confirmed both source misprints. Complete target-level pass accepted with planned coverage and three explicit supplier gaps; no formal arithmetic implementation or closure certified.",
+    "checked": [
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/primitive-greenberg-mu-vanishing",
+        "verdict": "corrected",
+        "note": "BCS 4.2.2 and CGS 2.4.4/5 support the analytic projection, integrality and μ argument. Restated as an imported L5a/L3h proof contract with its HE.8b denominator-clearing consequence; removed the duplicate μ planet and corrected Rubin/HT ownership. No μ(J)=0 or individual integral equality is inferred."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-specialization-control",
+        "verdict": "verified",
+        "note": "JSW 3.4.1/2 gives the imprimitive finite-error dual surjection and the stated containment direction. Primitive Euler-factor transport, exact local hypothesis range, completed coefficients and Fitting/reflexive closure remain explicit G1/R3/R4 obligations, not universal quotient identities."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison",
+        "verdict": "verified",
+        "note": "BCS 1.2.1/1.2.4 and BCGS 1.2.1/1.2.10 use squared and root conventions respectively. Existing GZ.9 integral-unit gap is retained; a rational interpolation identity does not remove it."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-formulation-comparison",
+        "verdict": "verified",
+        "note": "Published BCK 5.2 is integral at p>3 under H0=0; CGLS 4.2.1 is rational for odd p. Separate Theorem 5.1 hypotheses and the uncertified weak-torsion integral p=3 extension are not folded into the comparison."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/auxiliary-quadratic-field-verification",
+        "verdict": "verified",
+        "note": "BCS 5.2.1/5.2.3 six conditions checked. Independently checked the fixed-K CRT prime construction, residual splitting-field avoidance, twist surjectivity and finite ramification needed by L5w’s narrow-class-field refinement; exact Fujiwara/minimal-lift inputs remain supplier obligations."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-euler-system-divisibility",
+        "verdict": "verified",
+        "note": "BCS 4.2.1 and CGS v2 6.5.2 give the weak irreducible rational bound and the distinct surjective integral branch. ES.8’s generic Rubin exports cannot silently replace those hypotheses or the augmentation-inclusive refinement."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/anticyclotomic-reverse-product-divisibility",
+        "verdict": "verified",
+        "note": "BCS 5.2, especially 5.2.1 and the anticyclotomic endpoint proof p.11, gives the product route. New μ/control dependency refinements are essential. The inherited locator’s trailing §5.3 is superfluous: the acquired v2 has §5.2. No completed L5b input is used."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/rational-heegner-main-conjecture",
+        "verdict": "verified",
+        "note": "BCS 1.2.2(a) is rank-one equality in Λ[1/p] for p>3 and irr_GQ; fixed-K residual restriction is justified and no analytic-rank or class-number premise is added."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
+        "verdict": "verified",
+        "note": "BCS 1.2.2(b) adds residual GQ surjectivity. Exact regulator/local-control inputs remain requested; rational equality alone does not yield the integral assertion."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/rational-greenberg-bdp-main-conjecture",
+        "verdict": "verified",
+        "note": "BCS 1.2.4(a) supplies torsionness and equality after p-inversion with completed unramified coefficients and the squared/root convention comparison."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture",
+        "verdict": "verified",
+        "note": "BCS 1.2.4(b) integral surjective branch checked with the same primitive local conditions and coefficient ring; no arbitrary p-primary Selmer defect is erased by analytic μ=0."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "verdict": "verified",
+        "note": "CGS Theorem C and 6.5.3/4 supply the independent integral anticyclotomic branch with φ at Gp different from 1 and ω and no older (Sel) assumption. The dependency refinement imports the exact early BSD.7a node; accepted CM/analytic ownership routes repair R7/G3 without using cyclotomic Theorem A."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches",
+        "verdict": "verified",
+        "note": "BCGS A, 1.2.13 and proof pp.15–16 retain separate Eisenstein, p>3 irreducible and p>3 surjective main-conjecture branches; κ1 may vanish and finite-system nonvanishing is still the conclusion."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/split-refined-kolyvagin-divisibility",
+        "verdict": "verified",
+        "note": "BCGS B and proof pp.19–20 require p>3, residual surjectivity, integral main conjecture and p-optimal parametrization. The K-prime half-sum equals the rational Tamagawa sum because bad primes split."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.8b/split-determinantal-heegner-main-conjecture",
+        "verdict": "verified",
+        "note": "CS Theorem C, 3.2.3 and 3.4 require p>3, surjectivity and p-unit Manin constant; the split integral BCS equality gives the determinant basis. This chain supplies no inert main conjecture."
+      }
+    ]
   }
 }

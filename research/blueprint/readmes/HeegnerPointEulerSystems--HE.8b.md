@@ -4,17 +4,18 @@ This layer proves the anticyclotomic main conjectures of Burungale–Castella–
 (BCS), with their distinct rational and integral conclusions. It consumes the
 early Heegner family of HE.8, the reciprocity and normalization of GZ.9, and the
 quartic-CM congruence argument of AutomorphicCongruences L5w through the shared
-two-variable comparisons of L5a. Its conclusions supply the cyclotomic return
-in L5b and the conditional nonvanishing/refined-divisibility applications of
-HE.8. There is no analytic-rank hypothesis in the BCS endpoint.
+two-variable comparisons of L5a. Its conclusions discharge the conditional nonvanishing/refined-divisibility
+applications of HE.8. The cyclotomic L5b proof independently consumes L5a
+and Kato L4; it does not require the completed HE.8b equality (confirmed
+RT-AREA-iwasawa-1/31). There is no analytic-rank hypothesis in the BCS endpoint.
 
 This is a target-level follow-up, not another construction of the main-conjecture
 targets. The accepted [HE.7s packet](../packets/HeegnerPointEulerSystems--HE.7s.json)
 already contains thirteen HE.8b nodes. Their IDs are retained and imported below.
 The generated issue points to HE.0, but that packet now covers HE.0–HE.7 and has
 no HE.8b coverage record. The present packet adds two key inputs to the inherited
-proof: primitive Greenberg μ-vanishing and the exact anticyclotomic specialization
-comparison. It leaves three explicit supplier gaps. Coverage is **planned**, and
+proof: the imported primitive Greenberg μ contract with its denominator-clearing
+consequence, and the exact anticyclotomic specialization comparison. It leaves three explicit supplier gaps. Coverage is **planned**, and
 the pass is **complete**; no implementation or mathematical closure is claimed.
 
 The reviewed AUDIT-25 records all four HE.8b targets as absent at Mathlib
@@ -252,7 +253,11 @@ the compositum of $K$ and the residual splitting field; restriction to
 $G_{FK}$ preserves the $G_K$ residual image. Exclude the exceptional field
 at $p=5$; the residual-restriction argument at the end of Lemma 5.2.3 gives
 the $F(\zeta_p)$ condition. This expands the existing auxiliary-field node's
-proof without changing $K$.
+proof without changing $K$. Every prime dividing $D_K$ is away from
+$D_F=q$; at least one exists and remains ramified in $FK/F$. This verifies
+the finite ramification required by the reviewed L5w supplier's stronger
+narrow-class-field noncontainment. Its absolute-residual, exceptional-type
+and minimal-lift checks remain supplier obligations.
 
 The twist $E^F$ is good ordinary at $p$. Twisting tensors the residual
 representation by the quadratic character, preserving irreducibility on
@@ -273,7 +278,8 @@ selected quartic CM field has $\mathfrak n^-=1$. The arithmetic specialization
 node retains its height-one majorant and control errors, rather than taking an
 unjustified image of a divisorial ideal.
 
-L5a supplies BCS Theorem 4.1.3 and Corollary 4.1.4 (v2 p.8): the ordinary and
+L5a imports BCS Theorem 4.1.3 and Corollary 4.1.4 (v2 p.8) from the
+proposed Kato L5 owner of confirmed RT-AREA-iwasawa-1/30: the ordinary and
 Greenberg two-variable product containments are equivalent, both before and
 after inverting $p$. It also supplies Lemma 5.1.1 (p.9), the Selmer restriction
 inclusion from the quartic CM field, and Lemma 5.1.2 (p.9), the PR-function
@@ -281,8 +287,12 @@ factorization **after inverting $p$**. The latter is not an integral
 period comparison.
 
 **4. `primitive_greenberg_mu_vanishing`**, new node
-`HE.8b/primitive-greenberg-mu-vanishing`, realizes BCS Proposition 4.2.2
-(v2 p.9) at these coefficients. The toric theorem of APL L3h gives
+`HE.8b/primitive-greenberg-mu-vanishing`, records the use of the shared
+BCS Proposition 4.2.2 (v2 p.9) input at these coefficients and its
+denominator-clearing consequence. Its analytic theorem belongs to L5a,
+importing Hsieh and the CGS analytic projection from APL L3h (confirmed
+RT /15 and /29). This HE.8b comparison creates no second proof or theorem
+planet. The toric theorem of APL L3h gives
 $\mu(B_E)=0$. The integral analytic comparison gives
 $(\pi^-G_E)=(B_E)$; in CGS v2 this is Lemma 2.4.4 and Proposition 2.4.5,
 pp.9–10 (older numbering 1.4.4/1.4.5). Reduction modulo $p$ then shows
@@ -291,8 +301,10 @@ original function. This does not require a unit constant coefficient.
 
 The integrality in Lemma 2.4.4 has an independent proof input: Rubin's
 theorem and Hida–Tilouine Theorem 0.3 control the CM congruence denominator,
-and BDP22 Theorem A(i) excludes its augmentation factor. L5a must import
-these inputs before exporting the integral analytic projection. They cannot
+and BDP22 Theorem A(i) excludes its augmentation factor. The accepted
+CMAllPrimeMainConjectures design route owns Rubin; proposed AC L0c owns
+Hida–Tilouine (confirmed RT /5 and /26). L5a imports the resulting
+L3h analytic projection contract. They cannot
 be inferred from the main-conjecture equality being proved here.
 
 For an integral ideal $J\subseteq A_R$, the rational containment
@@ -394,27 +406,33 @@ BDP μ/λ invariants using those character inputs. CGS §6.5 removes (Sel)
 through a uniform Kolyvagin bound; it does not remove the character-theoretic
 inputs. A construction of the Katz function alone is insufficient.
 
-Adopt the existing HE.7s/BSD.7 proposal for **Elliptic units and the Iwasawa
-main conjectures for imaginary quadratic fields**. Its scope is integral
-elliptic-unit distributions and norm relations, their Euler system, the
-unit/class-group modules and Rubin's 1991/1994 two-variable theorem,
-Hida–Tilouine's Invent. Math.117 (1994) Theorem 0.3 anticyclotomic theorem,
-and Hida's Annals 172 (2010) Katz μ theorem. It imports Katz from APL L3,
-Euler-system/Iwasawa machinery from ES.3/ES.8, and CM.1–CM.4 reciprocity.
-It must state the exact character, conductor, exceptional-character and
-coefficient hypotheses, including finite correction factors. Its exports go
-to BSD.7a's existing `cgls-residual-character-comparison` and
-`cgls-equal-iwasawa-invariants`, then to the independent CGS theorem and this
-adapter. Those proof-level exports remain missing; this proposal creates no
-reserved IDs or second plan for them.
+The accepted paper routes already assign elliptic units and Rubin's theorem
+to **CMAllPrimeMainConjectures**, a Part II of ModularIwasawaMainConjectures:
+PAPER-BURUNGALE-TIAN-26 route 7 and PAPER-CASTELLA-ETAL-22 route 8,
+with design #1884. Confirmed RT-AREA-iwasawa-1/5 explicitly rejects a second
+imaginary-quadratic unit roadmap. This existing design owns the integral
+elliptic-unit distributions, their Euler system, unit/class-group modules
+and Rubin's 1991/1994 theorem, including the anticyclotomic character
+components. It imports Katz from APL L3 and CM.1–CM.4 reciprocity. Its early
+and integral layers must remain upstream of BSD.7a and completed MIMC L6.
 
-The same unit owner must supply the Rubin/Hida–Tilouine CM congruence-ideal
-divisibility to L5a's integral Greenberg-function construction, CGS Lemma
-2.4.4 (pp.9–10), with the augmentation-factor exclusion from the CM Hida
-family supplied by its existing congruence owner. This is a second use of
-the independent input, preceding the primitive Greenberg μ theorem even
-in the irreducible branch. It is distinct from both Hsieh's toric μ theorem
-and Hida's Katz μ theorem.
+The other inputs have distinct accepted or proposed owners: Hida's Annals
+172 (2010) Katz μ theorem goes to APL L3h (accepted CGLS route 6), and
+Hida–Tilouine's Invent. Math.117 (1994) Theorem 0.3 goes to proposed
+**AutomorphicCongruences L0c** (confirmed RT /26). Their exact character,
+conductor, exceptional-character, lattice and coefficient hypotheses still
+need verification, including tame ramification at p, the class-number
+refinement and finite correction factors. They supply BSD.7a's existing
+`cgls-residual-character-comparison` and `cgls-equal-iwasawa-invariants`,
+then early CGS Theorem C and this adapter. Ownership decisions alone do not
+certify those missing proof-level exports.
+
+Rubin and Hida–Tilouine also supply the CM congruence-ideal divisibility
+needed by CGS Lemma 2.4.4 (pp.9–10), together with the augmentation-factor
+exclusion from the CM Hida family's existing congruence owner. This integral
+construction precedes L3h's analytic projection and L5a's primitive
+Greenberg μ input, including in the irreducible branch. It is distinct from
+both Hsieh's toric μ theorem and Hida's Katz μ theorem.
 
 The separate Wüthrich obligation already has a BSD.7a
 `distinguished-lattice-integral-input` adapter and a Kato L4 request. It needs
@@ -428,7 +446,7 @@ in the cyclotomic return (§§5 and 7), whereas its early Theorem C proof is in
 both portions of the finding visible without introducing a false dependency
 or a cycle through completed CGS Theorem A.
 
-The unit owner also supplies HE.7s's Rubin/Iwasawa CM alternative. The reviewed
+CMAllPrimeMainConjectures also supplies HE.7s's Rubin/Iwasawa CM alternative. The reviewed
 direct Nekovář HE.7 CM-descent route is not given an artificial elliptic-unit
 prerequisite. None of the Rubin/Hida–Tilouine/Hida/Wüthrich proof contracts is
 declared verified here from second-hand citation; acquisition and exact proof
@@ -441,13 +459,13 @@ the table identifies the additional certifications needed.
 
 | Request | Supplier | Required export |
 | --- | --- | --- |
-| R1 | AutomorphicCongruences L5a | Exact two-variable comparison, restriction, rational factorization, integral Greenberg construction and analytic projection, including the independent Rubin/Hida–Tilouine congruence input to CGS 2.4.4; the BCS locator is 4.1.3/4.1.4. |
+| R1 | AutomorphicCongruences L5a | Export BCS 5.2.1 with 5.1.1/5.1.2, importing the 4.1.3/4.1.4 comparison from proposed Kato L5 and the 4.2.2 Hsieh/CGS analytic contract through L3h. Keep the integral CGS 2.4.4 inputs separate. |
 | R2 | AutomorphicPadicLFunctions L3h | The precise primitive toric μ theorem in BCS 4.2.2's branch and normalization. |
 | R3 | SelmerIwasawaCohomology L3 | JSW arithmetic restriction, finite errors, Fitting argument, primitive Euler-factor transport and hypothesis-range verification. |
 | R4 | PadicMeasuresIwasawaAlgebras L4 | Completed-unramified coefficient extension and the exact specialization/reflexive-closure calculus. |
 | R5 | GZ.9 `bdp-square-root-comparison` | Discharge its existing explicit integral comparison-unit gap. |
 | R6 | EulerSystemsAndKolyvaginSystems ES.8 | Weak-residual augmentation-inclusive bound and the exact surjective integral branch. |
-| R7 | RankZeroOneBSD BSD.7a | Complete the independent early CGS character-invariant inputs through the proposed elliptic-unit owner. |
+| R7 | RankZeroOneBSD BSD.7a | Complete the early CGS character inputs through the accepted CMAllPrimeMainConjectures route, L3h and proposed AC L0c. |
 | R8 | KatoEulerSystems L4 | Fulfil the existing Wüthrich/Ferrero–Washington integral request for the downstream cyclotomic Eisenstein branch. |
 
 G1 is the exact primitive specialization and completed-coefficient gap.
@@ -455,7 +473,10 @@ G2 collects the still uncertified period, toric μ, L5a/L5w and integral
 Euler-system proof inputs. G3 is the independent elliptic-unit input to
 both analytic integrality through L5a and the Eisenstein character invariants.
 These are supplier contracts with named consumers, not assertions of
-unconditional closure. The packet records the two fine dependency additions
+unconditional closure. The current PMA packet needs changes; its named
+characteristic-ideal contracts are planned imports. The accepted ES.8
+generic Rubin branch likewise does not certify the weak-residual Heegner
+refinement requested here. The packet records the two fine dependency additions
 to the inherited reverse-product node and replacement of the Eisenstein
 adapter's coarse BSD.7a prerequisite by its exact early node; assembly must
 apply those changes while retaining the original IDs. This job edits no
@@ -472,12 +493,13 @@ Acceptance requires all of the following:
 3. Verify the direction of specialization, all primitive/imprimitive local
    terms and the finite-error/Fitting argument. No universal rule that
    characteristic ideals commute with quotient is used.
-4. Keep early HE.8 → independent BSD.7a → HE.8b, and HE.8b → cyclotomic L5b.
-   Never feed the completed return theorem into its own anticyclotomic input.
-5. Retain six combined planets: the predecessor's rational/integral Heegner,
-   rational/integral Greenberg and Eisenstein planets, plus primitive
-   Greenberg μ-vanishing. Specialization is a key comparison, not a seventh
-   planet.
+4. Keep early HE.8 → independent BSD.7a → HE.8b, and L5w → L5a →
+   {HE.8b, L5b}. L5b also imports Kato L4. Remove the artificial
+   HE.8b → L5b edge; neither completed branch is a premise of the other.
+5. Retain the predecessor's five planets: rational/integral Heegner,
+   rational/integral Greenberg and Eisenstein. The μ contract uses its
+   analytic owner's theorem, and specialization is a comparison; neither
+   needs a duplicate planet here.
 
 The [suggested file](../suggested/HeegnerPointEulerSystems--HE.8b.lean) follows
 the 2026-10-12 WORKERS shape. All fifteen arithmetic statements require
