@@ -168586,65 +168586,109 @@
    "reviewReason": "The conflicting scalar formulas and the derivative calculation were independently checked in the recorded v2 PDF. The packet already uses the scalar normalization supported by the heat transform; the review fixes its citations rather than changing that normalization."
   },
   {
+   "id": "ArithmeticDynamics/E801",
+   "kind": "misprint",
+   "locator": "Proposition 6.15(a), printed p.63, AWS notes 9 March 2010",
+   "printed": "The openness and closedness of the Berkovich sets are stated on P¹(K).",
+   "correction": "The ambient carrier is P¹,an_K with its weak topology.",
+   "reason": "Definition 6.14 constructs subsets of the analytic line and includes type-II points. The good-reduction Julia singleton in Proposition 6.23 is not a classical subset.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "AWS 2010 source archive: https://swc-math.github.io/aws/2010/",
+    "Author homepage: https://rlbenedetto.people.amherst.edu/",
+    "Author book errata dated 31 August 2026: https://rlbenedetto.people.amherst.edu/ErrataNonarchDynam.pdf",
+    "Web search for the 2010 notes and Proposition 6.24 corrections on 14 October 2026; no correction to these two lecture-note locators located."
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics--DY.2.json",
+   "citation": "Robert L. Benedetto, Non-archimedean dynamics in dimension one: lecture notes, AWS lecture notes, 9 March 2010; read 14 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticDynamics/E802",
+   "kind": "error",
+   "locator": "Proposition 6.24(f), printed p.69, AWS notes 9 March 2010",
+   "printed": "For a polynomial the displayed conclusion is K_φ=∂J_φ,Ber.",
+   "correction": "The intended boundary relation is J_φ,Ber=∂K_φ, with K_φ the Berkovich filled Julia set.",
+   "reason": "The proof discusses ∂K⊆J, indicating the reversal. For z² of good reduction, K is the full closed Berkovich unit disc whereas J is only ζ_G; the boundary of that singleton is itself. This follow-up does not require a filled-Julia node, so none is added.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "AWS 2010 source archive: https://swc-math.github.io/aws/2010/",
+    "Author homepage: https://rlbenedetto.people.amherst.edu/",
+    "Author book errata dated 31 August 2026: https://rlbenedetto.people.amherst.edu/ErrataNonarchDynam.pdf",
+    "Web search for the 2010 notes and Proposition 6.24 corrections on 14 October 2026; no correction to these two lecture-note locators located."
+   ],
+   "owner": "ArithmeticDynamics",
+   "file": "research/blueprint/packets/ArithmeticDynamics--DY.2.json",
+   "citation": "Robert L. Benedetto, Non-archimedean dynamics in dimension one: lecture notes, AWS lecture notes, 9 March 2010; read 14 October 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticDynamics/E9301",
    "kind": "error",
-   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.2 and Corollary2.3, p.3 (downloaded PDF hash in sources).",
+   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma 2.2 and Corollary 2.3, p.3 (downloaded PDF hash in sources).",
    "printed": "The strict local-mass inequality and absence of fixed quadratic differentials are stated without excluding the zero differential; the corollary also does not state the polynomial degree restriction. This is a paraphrase, not a source quotation.",
    "correction": "Require q≠0 and degree(f)≥2. Keep the non-strict pushforward mass estimate for q=0.",
-   "reason": "q=0 has equal zero masses and is fixed; identity f has degree1 and fixes every differential. The proof requires a disc whose preimage is relatively compact in itself, provided by degree≥2. All f=z^d+c consumers already have d≥2.",
+   "reason": "q=0 has equal zero masses and is fixed; identity f has degree 1 and fixes every differential. The proof requires a disc whose preimage is relatively compact in itself, provided by degree≥2. All f=z^d+c consumers already have d≥2.",
    "affects": "a stated result",
    "known": "No correction located in the primary arXiv record or the correction searches on 2026-10-14; recorded for independent checking, not asserted to be a new discovery.",
    "searched": [
     "arXiv:1304.4751 abstract/version record",
     "Gao Ou dynatomic contraction principle erratum search",
-    "Authors/title with Lemma2.2 and quadratic differential correction search"
+    "Authors/title with Lemma 2.2 and quadratic differential correction search"
    ],
    "owner": "ArithmeticDynamics",
    "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
-   "citation": "Sources of the blueprint of ArithmeticDynamics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Y. Gao, Y. Ou, The dynatomic periodic curves for polynomial z↦z^d+c are smooth and irreducible, arXiv:1304.4751v1, exact downloaded PDF; v1 is the only version, listed by arXiv under the title 'The dynatomic curves for unimodel polynomials are smooth and irreducible' (HAL hal-00814484 is the same preprint)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticDynamics--DY.3",
+   "reviewReason": "Rendered p.3 of the only arXiv version: Lemma 2.2 asserts the strict inequality for every Q in Q(ℂ), and Corollary 2.3 asserts f_*Q≠Q for every polynomial f and every such Q. Both fail for Q=0, and the corollary fails for f the identity (no disc V with f⁻¹(V) relatively compact in V exists then). With Q≠0 and deg f≥2 both hold by the printed argument; every use in the paper has Q≠0 and d≥2, so the theorems are unaffected. arXiv lists only v1 and the HAL record hal-00814484 is the same preprint."
   },
   {
    "id": "ArithmeticDynamics/E9302",
    "kind": "misprint",
-   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.9 proof, p.10.",
-   "printed": "The coefficient near the cycle point is described with a first-order pole although Q was defined with coefficient1 on its double pole; the ensuing radial integral uses inverse-square growth. The printed annular set labels also interchange the two differences. This records the content in own words.",
-   "correction": "Use q(z)~1/(z−z₀)². Bound the relevant annular difference near each cycle point by an annulus with inner/outer radii ratio tending to1; its double-pole mass is asymptotically2π log of that ratio. State the inclusions for the annular difference actually being bounded.",
-   "reason": "The explicit Q in Lemma2.8 has a double pole at each cycle point. A first-order asymptotic contradicts that definition. The displayed disc containment cannot literally hold for a difference excluding the disc. The logarithmic annular estimate is the intended calculation.",
+   "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma 2.9 proof, p.10.",
+   "printed": "The coefficient near the cycle point is described with a first-order pole although Q was defined with coefficient 1 on its double pole; the ensuing radial integral uses inverse-square growth. The printed annular set labels also interchange the two differences. This records the content in own words.",
+   "correction": "Use q(z)~1/(z−z₀)². Bound the relevant annular difference near each cycle point by an annulus with inner/outer radii ratio tending to 1; its double-pole mass is asymptotically 2π log of that ratio. State the inclusions for the annular difference actually being bounded.",
+   "reason": "The explicit Q in Lemma 2.8 has a double pole at each cycle point. A first-order asymptotic contradicts that definition. The displayed disc containment cannot literally hold for a difference excluding the disc. The logarithmic annular estimate is the intended calculation.",
    "affects": "the proof",
    "known": "No published correction located by the same primary-record and author/title searches on 2026-10-14.",
    "searched": [
     "arXiv:1304.4751 abstract/version record",
-    "Gao Ou Epstein Lemma2.9 quadratic differential erratum search"
+    "Gao Ou Epstein Lemma 2.9 quadratic differential erratum search"
    ],
    "owner": "ArithmeticDynamics",
    "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
-   "citation": "Sources of the blueprint of ArithmeticDynamics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Y. Gao, Y. Ou, The dynatomic periodic curves for polynomial z↦z^d+c are smooth and irreducible, arXiv:1304.4751v1, exact downloaded PDF; v1 is the only version, listed by arXiv under the title 'The dynatomic curves for unimodel polynomials are smooth and irreducible' (HAL hal-00814484 is the same preprint)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticDynamics--DY.3",
+   "reviewReason": "Rendered p.10: the proof of Lemma 2.9 says that q behaves like 1/(z−z₀) near z₀, but Q has the double pole 1/(z−z₀)² there, and the displayed integral (integrand (1+o(1))/r² against r dr dθ) uses the square. The printed chain D(z₀,ε)⊂U_ε−V_ε⊂D(z₀,ε′) cannot hold, since z₀=f^m(z₀) lies in V_ε; the estimate needs the set difference V_ε−U_ε, which near each cycle point lies in an annulus with radii ratio ε′/ε→1. The intended argument is clear and the lemma stands."
   },
   {
    "id": "ArithmeticDynamics/E9303",
    "kind": "gap",
-   "locator": "Morton 1996 Theorem15 Case2 and Proposition17 p.346, as identified by Morton’s 2011 corrigendum pp.332–333 (the correction was read in full).",
+   "locator": "Morton 1996 Theorem 15 Case 2 and Proposition 17 p.346, as identified by Morton’s 2011 corrigendum pp.332–333 (the correction was read in full).",
    "printed": "The original characteristic-p argument passes from a factorization after reduction to polynomial factors over the lifted p-adic coefficient field using Hensel lifting alone. Own-word account of the gap identified by the author.",
-   "correction": "Hensel lifting first gives power-series coefficients. Use the distinct Laurent expansions of dynatomic roots to obtain degree bounds independent of the lifting precision, forcing the limit coefficients to be polynomials, as in the2011 corrigendum.",
+   "correction": "Hensel lifting first gives power-series coefficients. Use the distinct Laurent expansions of dynatomic roots to obtain degree bounds independent of the lifting precision, forcing the limit coefficients to be polynomials, as in the 2011 corrigendum.",
    "reason": "Hensel lifting without the degree bound yields R[[c]], not R[c]. The characteristic-zero genus results used by this packet are in §3 and do not rely on this characteristic-p lifting step.",
    "affects": "the proof",
-   "known": "Published correction: Morton, Compositio Mathematica 147 (2011),332–334, DOI10.1112/S0010437X1000480X. The corrigendum also gives bibliography renumbering17–20 to16–19.",
+   "known": "Published correction: Morton, Compositio Mathematica 147 (2011), 332–334, DOI 10.1112/S0010437X1000480X. The corrigendum also gives bibliography renumbering 17–20 to 16–19.",
    "searched": [
     "Numdam record for Morton 1996, including corrections",
-    "Cambridge/DOI primary2011 corrigendum, all pp.332–334"
+    "Cambridge/DOI primary 2011 corrigendum, all pp.332–334"
    ],
    "owner": "ArithmeticDynamics",
    "file": "research/blueprint/packets/ArithmeticDynamics--DY.3.json",
-   "citation": "Sources of the blueprint of ArithmeticDynamics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "P. Morton, On certain algebraic curves related to polynomial maps, Compositio Mathematica 103 (1996), 319–350",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticDynamics--DY.3",
+   "reviewReason": "Read in the 2011 corrigendum (pp.332–333): Morton states that Hensel's lemma alone gives factors with coefficients in R[[c]] in Theorem 15, Case 2 (p.346), supplies the degree bound from the Laurent expansions of the roots, says the same argument completes Proposition 17, and renumbers references [17–20] as [16–19]. The characteristic-zero results of §3 used here (Propositions 9–10, Theorems 11 and 13) do not use this step."
   },
   {
    "id": "ArithmeticDynamics/E101",
@@ -194869,6 +194913,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-EllipticRegulators",
    "reviewReason": "Found by checker C: the bound is cited without reference; Hecke's bound suffices."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E1",
+   "kind": "misprint",
+   "locator": "§5.2, list of representatives of E_ell(G), p. 67 (arXiv:1909.01898v2)",
+   "printed": "The representatives are given as {(G_{2n}, s_{2n}, η_{2n})} together with (G_{n_1,n_2}, s_{n_1,n_2}, η_{n_1,n_2}) for n_1 + n_2 = 2n with n_1 ≥ n_2 ≥ 0.",
+   "correction": "The index range should be n_1 ≥ n_2 ≥ 1 (Shin 2011 §3.2 has n_2 > 0).",
+   "reason": "G_{n⃗} is defined only for vectors n⃗ of positive integers, and n_2 = 0 would repeat the principal datum (G_{2n}, s_{2n}, η_{2n}) already listed.",
+   "affects": "nothing",
+   "known": "new for this paper; the same slip in the compact companion paper is recorded as PAPER-CARAIANI-SCHOLZE-17/E66",
+   "searched": [
+    "arXiv:1909.01898 abstract page (version v2 read)",
+    "the sourceIssues of PAPER-CARAIANI-SCHOLZE-24 and PAPER-CARAIANI-SCHOLZE-17 in this atlas"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.0.json",
+   "citation": "A. Caraiani and P. Scholze, On the generic part of the cohomology of local and global Shimura varieties, arXiv:1909.01898v2 (22 November 2023), 90 pp.; read 2026-10-14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "EnhancedDerivedSheaves/E1",
