@@ -51,8 +51,9 @@ those `example`s.
 
 This roadmap owns:
 
-- the Hom-side modular symbols Symb_Γ(V) for every finite-index Γ ≤ SL₂(ℤ) and every coefficient
-  module, with their presentations (coset values, fundamental-domain generators), flat base change,
+- Manin's presentation Δ₀ ≅ ℤ[PSL₂(ℤ)]/I and the Hom-side modular symbols Symb_Γ(V) for every
+  finite-index Γ ≤ SL₂(ℤ) and every coefficient module, with their presentations (coset values, the
+  fundamental-domain presentation over ℤ[Γ] and its generators), flat base change,
   boundary symbols, Eisenstein symbols, the connecting map to H¹(Γ, V), parabolic cohomology, the
   integral boundary exact sequence and descent along normal subgroups;
 - the operators on Hom-side symbols: the monoid Σ₀(N), the Hecke operators T_ℓ and U_q at levels
@@ -61,7 +62,8 @@ This roadmap owns:
 - the duality between Hom-side symbols and the homological module 𝕄 of ModularForms Layer 8, the
   invariant pairing between V_k and Sym^k, the period symbol ψ_f, the dimension of parabolic
   cohomology for torsion-free Γ, Petersson detection of period cocycles, the cohomological
-  Eichler–Shimura isomorphism and the one-dimensionality of signed newform eigenspaces;
+  Eichler–Shimura isomorphism, the separation of cuspidal from Eisenstein good-Hecke eigensystems and
+  the one-dimensionality of signed newform eigenspaces;
 - the rational spectral separation of parabolic and boundary Hecke supports at full level Γ(N) and
   the rational Drinfeld–Manin retraction H¹(Γ(N), V_k(ℚ)) → H¹_par(Γ(N), V_k(ℚ));
 - signed period lines, saturated integral period lattices, the twisted Mellin formula, algebraicity
@@ -82,20 +84,27 @@ This roadmap owns:
 
 It leaves to other roadmaps, and cites:
 
-- **Tau Ceti's ModularForms roadmap.** Layer 4 (newforms, primitive forms, old and new spaces, the
-  bad-prime U_p-eigenvalue), Layer 5 (strong multiplicity one and the separation of cuspidal from
-  Eisenstein eigensystems), Layer 7 (L(f, s), twisted L-series, the Mellin transform and the entire
-  continuation of L-functions of cusp forms), Layer 8 (Div⁰(P¹(ℚ)) with its GL₂⁺(ℚ)-action, Manin's
-  theorem, the fundamental-domain presentation, the homological symbol module 𝕄 = (Div⁰ ⊗ Sym^{k})_{Γ₁(N)}
-  with its Hecke operators, the period map and its injectivity), Layer 8G (the coefficient field,
+- **Tau Ceti's ModularForms roadmap.** Layer 0 (Eisenstein series with character, their
+  q-expansions and the cusp–Eisenstein decomposition), Layer 4 (newforms, primitive forms, old and new
+  spaces, the bad-prime U_p-eigenvalue), Layer 5 (strong multiplicity one and the characterisation of
+  normalised eigenforms by their coefficients), Layer 7 (L(f, s), twisted L-series, the Mellin
+  transform and the entire continuation of L-functions of cusp forms), Layer 8 (Div⁰(P¹(ℚ)) with its
+  GL₂⁺(ℚ)-action, its generation by unimodular divisors and the two- and three-term Manin relations,
+  the homological symbol module 𝕄 = (Div⁰ ⊗ Sym^{k})_{Γ₁(N)} with its Hecke operators, the period map
+  and its injectivity), Layer 8G (the coefficient field,
   Galois stability and the conjugate newform f^σ) and Layer 10C (the dimension formulas, with the
   regular/irregular cusp distinction in odd weight). Layer 8 deliberately builds 𝕄 homologically and
   keeps group cohomology out; this roadmap is where group cohomology, parabolic cohomology and the
-  Eichler–Shimura isomorphism enter. In the current Tau Ceti library (`a91d3aaf`) the following
+  Eichler–Shimura isomorphism enter. Layer 8 presents 𝕄 through Manin symbols but states neither the
+  full kernel of Manin's map ℤ[PSL₂(ℤ)] → Div⁰ nor the fundamental-domain presentation of Div⁰ over ℤ[Γ]
+  for general Γ, and Layer 5 does not separate cuspidal from Eisenstein eigensystems; these are
+  targets of §0.2 and §0.7 here. In the current Tau Ceti library (`a91d3aaf`) the following
   Layer-8 material already exists and is imported, never rebuilt here:
-  `TauCeti.ModularSymbols.degreeZero`, `divisorRep`, `degreeZeroGLRep`, `degreeZeroRep` (the
-  divisor modules and their actions), `TauCeti.ModularSymbols` (the homological module, with
-  `symbol`, `maninSymbol`, `span_maninSymbol_eq_top` and the Manin relations), `heckeSymbol` and
+  `TauCeti.ModularSymbols.degreeZero`, `divisorRep`, `degreeZeroGLRep`, `degreeZeroRep` and
+  `degreeZero_eq_span_unimodular` (the divisor modules, their actions and their generation by
+  unimodular divisors), `TauCeti.ModularSymbols` (the homological module, with `symbol`,
+  `maninSymbol`, `span_maninSymbol_eq_top` and the Manin relations `maninSymbol_mul_S` and
+  `maninSymbol_add_mul_T_mul_S_add_mul_T_mul_S_sq`), `heckeSymbol` and
   `heckeTSymbol` (Hecke operators on 𝕄), `rawPairing`, `periodMap` and `periodMap_injective`, and
   the binary-form actions `TauCeti.binaryFormRep` (P ↦ P(aX + bY, cX + dY)),
   `TauCeti.binaryFormAdjugateRep`, `TauCeti.binaryFormDual` and `TauCeti.linearFormPow`
@@ -103,6 +112,11 @@ It leaves to other roadmaps, and cites:
   `TauCeti.cuspIntegral` and `Matrix.GeneralLinearGroup.geodesicIntegral` (integrals between cusps).
   The level-one period polynomials `TauCeti.periodPolynomial` with `periodPolynomial_injective`
   are the level-one homological counterpart of the period symbol of §0.7 and are cited as such.
+  ModularForms Layer 11 states the level-one isomorphism M_{k+2} ⊕ S_{k+2} ≅ W_k onto the space W_k of
+  period polynomials of degree k (Convention 1) by a dimension count (current Tau Ceti
+  `periodPolynomials` and `finrank_periodPolynomials_eq_finrank_modularForm_add_finrank_cuspForm`); the
+  Eichler–Shimura isomorphism of §0.7 differs from it in being cohomological (S ⊕ S̄ ≅ H¹_par, with the
+  conjugate summand) and in holding for every finite-index Γ with its Hecke, diamond and sign actions.
 - **LocallyAnalyticDistributions.** Layer 0 (closed-disc analytic functions `discAnalytic`, the
   stages LA_h(ℤ_p), locally analytic functions and distributions D(ℤ_p), inductive and projective
   locally convex limits, compact restriction to a smaller radius), Layer 2 (distributions of order r,
@@ -188,7 +202,9 @@ At commit `082e2d37e8b0463410cdb532e111cd43d5a66174`, each with exactly its stat
 `Representation.Coinvariants`, `Rep.ofMulAction`, `Rep.coind`, `Rep.coinvariantsAdjunction`,
 `Rep.coinvariantsTensor`; `groupCohomology` with `groupCohomology.resNatTrans`,
 `groupCohomology.H1InfRes_exact` (exactness of the first three inflation–restriction terms only)
-and `groupCohomology.coindIso` (Shapiro); `CuspForm` and `UpperHalfPlane`; `ModularForm.L` (the
+and `groupCohomology.coindIso` (Shapiro); `CuspForm` and `UpperHalfPlane`;
+`CuspFormClass.qExpansion_isBigO` (Hecke's bound O(n^{w/2}) for the coefficients of a cusp form of weight
+w); `ModularForm.L` (the
 L-function of a modular form on an arithmetic subgroup of GL₂(ℝ), entire for cusp forms, with
 `CuspForm.Λ_eq_mellin`) and `mellin`; `Algebra.adjoin`,
 `IsCoprime`, `LinearMap.aeval_self_charpoly` (Cayley–Hamilton), `Submodule.projectionOnto`,
@@ -218,11 +234,10 @@ declarations listed under Scope and ownership.
 ### From TauCetiRoadmap.ModularForms
 
 - Layer 8: Div⁰(P¹(ℚ)) as a left ℤ[GL₂⁺(ℚ)]-module generated by the {b} − {a}, with
-  0 → Div⁰ → ℤ[P¹(ℚ)] → ℤ → 0; Manin's theorem for Div⁰ itself (d : ℤ[SL₂(ℤ)] → Div⁰, g ↦ {g0} − {g∞},
-  is surjective with kernel the left ideal generated by 1 + σ, 1 + τ + τ² and 1 − (−1), where
-  σ = (0 −1; 1 0), τ = (0 −1; 1 −1)); the fundamental-domain presentation of Div⁰ over ℤ[Γ] for
-  every finite-index Γ ≤ PSL₂(ℤ) containing T, with the boundary relation in the corrected form of
-  §0.2; the homological module 𝕄 with its Hecke and diamond operators; the period map
+  0 → Div⁰ → ℤ[P¹(ℚ)] → ℤ → 0; its generation by the unimodular divisors {g0} − {g∞}, g ∈ SL₂(ℤ), and
+  the two- and three-term Manin relations (current Tau Ceti `degreeZero_eq_span_unimodular`,
+  `span_maninSymbol_eq_top`, `maninSymbol_mul_S`, `maninSymbol_add_mul_T_mul_S_add_mul_T_mul_S_sq`);
+  the homological module 𝕄 with its Hecke and diamond operators; the period map
   S_{k+2}(Γ₁(N)) → Hom_ℤ(𝕄, ℂ) with its convergence, invariance, Hecke equivariance and injectivity.
 - Layer 8G: the coefficient field K_f = ℚ(a_n(f)), the character field inside it, and for a field
   embedding σ the conjugate newform f^σ with a_n(f^σ) = σ(a_n(f)).
@@ -232,10 +247,11 @@ declarations listed under Scope and ownership.
   subspace of S_{k+2}(Γ₁(N) ∩ Γ₀(p), ε) on which every T_ℓ, ℓ ∤ Np, acts by a_ℓ(f) is spanned by f(z)
   and f(pz); if p | N, U_p f = a_p(f)f; at the primitive level N, the fixed-character eigenspace with
   the eigenvalues of f away from N lies in the newspace; the Hecke eigenvalues are algebraic integers.
-- Layer 5: no Eisenstein eigenform of weight k + 2 and level dividing N (respectively Np) has the
-  eigenvalues a_ℓ(f) for every ℓ ∤ N (respectively ℓ ∤ Np); and, in a finite-dimensional boundary
-  Hecke module, a good-Hecke linear combination separating the character of f from every boundary
-  character.
+- Layers 0 and 5: the Eisenstein series of weight k + 2 with character, their q-expansions by twisted
+  divisor sums and the cusp–Eisenstein decomposition (Layer 0), and the characterisation of normalised
+  eigenforms by their coefficients (Layer 5, Diamond–Shurman Proposition 5.8.5), which together give
+  the good Hecke eigenvalues ψ(ℓ) + φ(ℓ)ℓ^{k+1} of the Eisenstein eigenforms of level M, ψ and φ
+  Dirichlet characters of modulus dividing M; strong multiplicity one (Layer 5).
 - Layer 10C: for torsion-free finite-index Γ ≤ SL₂(ℤ) and μ = [PSL₂(ℤ) : Γ̄],
   dim S_{k+2}(Γ) = (k + 1)μ/12 − c_k/2 + δ_{k,0}, where c_k counts all cusps for even k and the regular
   cusps for odd k; and the full-level genera g(X(3)) = 0, g(X(6)) = 1.
@@ -312,7 +328,7 @@ over ℚ. Proposed home: `TauCeti/NumberTheory/ModularForms/ModularSymbols/Hom`,
 or PSL₂(ℤ)) and let {g_j} be right coset representatives of Γ\G. Then ℤ[G] is a free left ℤ[Γ]-module
 with basis {g_j}, of rank [G : Γ], and consequently F ↦ (F(g_j))_j is an isomorphism
 Hom_{ℤ[Γ]}(ℤ[G], V) ≅ ∏_j V for every Γ-module V. The proof is the bijection Γ × (Γ\G) → G,
-(γ, j) ↦ γg_j. Combined with Manin's theorem this gives the presentation of Δ₀ over ℤ[Γ] by coset
+(γ, j) ↦ γg_j. Combined with Manin's presentation (§0.2) this gives the presentation of Δ₀ over ℤ[Γ] by coset
 generators used in §0.2 ([PS] §2.2, p. 8). *Needs:* Mathlib `MonoidAlgebra`,
 `MonoidAlgebra.mapDomainRingHom`, `Module.Free`.
 
@@ -339,8 +355,9 @@ Tau Ceti `TauCeti.binaryFormRep`. *Lean:* `Vk`, `slashPoly`, `slashPoly_mul`, `s
 - The scalar matrix c·1 acts on V_k by c^k (its adjugate is c·1). A definition using the inverse
   instead of the adjugate would give c^{−k} and leave the integral monoid.
 - V_0 is the trivial representation: every γ fixes the constant 1.
-- With γ = T = (1 1; 0 1): X|T = X and Y|T = Y − X. The unadjugated action P((X, Y)γ) would give
-  X|T = X + Y instead.
+- With γ = T = (1 1; 0 1): X|T = X and Y|T = Y − X. The unadjugated substitution P((X, Y)γ) would give
+  Y|T = X + Y instead, and the substitution P(aX + bY, cX + dY) of `binaryFormRep` would give
+  X|T = X + Y.
 
 **The Hecke monoid Σ₀(N)** (construction). For N ≥ 1, Σ₀(N) is the set of integral matrices
 (a b; c d) with ad − bc ≠ 0, N | c and gcd(a, N) = 1. It is a monoid: the lower-left entry of a product
@@ -360,18 +377,35 @@ N = p it is Pollack–Stevens' S₀(p) ([PS] §2.1, p. 7). API: `Sigma0` (the su
 
 ### 0.2 Modular symbols and their presentations
 
+**Manin's presentation of Δ₀** (theorem). Let G = PSL₂(ℤ), σ = (0 −1; 1 0) and τ = (0 −1; 1 −1). The
+map d : ℤ[G] → Δ₀, g ↦ {g0} − {g∞}, is a surjective map of left ℤ[G]-modules whose kernel is the left
+ideal I = ℤ[G](1 + σ) + ℤ[G](1 + τ + τ²), so Δ₀ ≅ ℤ[G]/I; for the same map out of ℤ[SL₂(ℤ)] the kernel
+acquires the generator 1 − (−1). Surjectivity is the generation of Δ₀ by unimodular divisors (continued
+fractions; current Tau Ceti `degreeZero_eq_span_unimodular`), and I ⊆ ker d holds because σ reverses
+the path from ∞ to 0 and τ permutes the vertices 0, 1, ∞ of an ideal triangle (`maninSymbol_mul_S`,
+`maninSymbol_add_mul_T_mul_S_add_mul_T_mul_S_sq`). For ker d ⊆ I use the Farey tessellation: the
+G-translates of the ideal triangle R with vertices 0, 1, ∞ cover ℍ ∪ P¹(ℚ) and meet only along
+unimodular edges, so they give a two-dimensional cell structure relative to P¹(ℚ) whose oriented
+1-cells g·[∞ → 0] correspond to g ∈ G, with σ reversing orientation, and whose 2-cells gR correspond to
+G/⟨τ⟩, with boundary g(1 + τ + τ²). As ℍ ∪ P¹(ℚ) is contractible, its first homology relative to the
+cusps is Δ₀, and the cellular chain complex identifies it with ℤ[G]/I ([PS] §2.2, pp. 7–8, where the
+statement is attributed to Manin). This presentation is the input of every presentation of Δ₀ over
+ℤ[Γ] below. *Needs:* Mathlib `MonoidAlgebra`, `Matrix.SpecialLinearGroup`, `OnePoint`; current Tau Ceti
+`TauCeti.ModularSymbols.degreeZero_eq_span_unimodular`, `maninSymbol_mul_S`,
+`maninSymbol_add_mul_T_mul_S_add_mul_T_mul_S_sq`; ModularForms Layer 8 (Div⁰ with its action).
+
 **Modular symbols** (definition). For Γ ≤ SL₂(ℤ) of finite index and a right ℤ[Γ]-module V, the
 module of V-valued modular symbols is Symb_Γ(V) = Hom_{ℤ[Γ]}(Δ₀, V): the additive maps φ : Δ₀ → V with
 φ(γD) = φ(D)|γ⁻¹ for all γ ∈ Γ and D ∈ Δ₀, where Γ acts on Δ₀ through SL₂(ℤ) → GL₂(ℚ). With the left
 representation ρ(γ)v = v|γ⁻¹ the condition reads φ(γD) = ρ(γ)φ(D) ([PS] §2.1, pp. 6–7). A symbol is
-determined by its values on the unimodular divisors {g0} − {g∞}, g ∈ SL₂(ℤ), which generate Δ₀ by
-Manin's theorem. When the orders of the torsion elements of Γ act invertibly on V,
+determined by its values on the unimodular divisors {g0} − {g∞}, g ∈ SL₂(ℤ), which generate Δ₀ (Manin's
+presentation, above). When the orders of the torsion elements of Γ act invertibly on V,
 Symb_Γ(V) ≅ H¹_c(Y_Γ, Ṽ); that comparison is ModularCurvesPartII R14.3. API: `symbols` (Symb_Γ(V) as an
 additive subgroup, and an R-submodule when V is an R-module, of the maps Δ₀ → V),
 `mem_symbols_iff`, `symbols_ext` (two symbols agreeing on unimodular divisors are equal),
 `symbols_mono` (Γ′ ≤ Γ gives Symb_Γ(V) ⊆ Symb_{Γ′}(V)). *Needs:* Mathlib `Representation`,
 `AddSubgroup`, `Matrix.SpecialLinearGroup.map`, `Matrix.SpecialLinearGroup.toGL`,
-`CongruenceSubgroup.Gamma0`; ModularForms Layer 8 (Δ₀ with its GL₂⁺(ℚ)-action and Manin's theorem;
+`CongruenceSubgroup.Gamma0`; ModularForms Layer 8 (Δ₀ with its GL₂⁺(ℚ)-action and its generation;
 current Tau Ceti `TauCeti.ModularSymbols.degreeZero`, `degreeZeroGLRep`; pinned Tau Ceti
 `TauCeti.augmentationSubrepresentation`). *Lean:* `P1Q`, `Delta0`, `delta0Rep`, `divisor`, `toGLQ`,
 `symbols`, `mem_symbols_iff`, `symbols_ext`, `symbols_SL2Z_trivial`.
@@ -389,14 +423,13 @@ current Tau Ceti `TauCeti.ModularSymbols.degreeZero`, `degreeZeroGLRep`; pinned 
 Γ\SL₂(ℤ), and for g ∈ SL₂(ℤ) write g = γ_g g_{j(g)} with γ_g ∈ Γ. Then φ ↦ (φ({g_j0} − {g_j∞}))_j is an
 isomorphism from Symb_Γ(V) onto the families (v_j) ∈ ∏_j V that satisfy, for every j and with
 x(g) := v_{j(g)}|γ_g⁻¹: x(g_j) + x(g_jσ) = 0, x(g_j) + x(g_jτ) + x(g_jτ²) = 0 and x(g_j) = x(−g_j), with
-σ = (0 −1; 1 0) and τ = (0 −1; 1 −1). Proof: by Manin's theorem Symb_Γ(V) = Hom_{ℤ[Γ]}(ℤ[SL₂(ℤ)]/I, V) for
-the left ideal I generated by 1 + σ, 1 + τ + τ² and 1 − (−1); a ℤ[Γ]-linear map out of ℤ[SL₂(ℤ)] is
-its values on the coset basis; it kills I iff the three relations hold at every g, and by
+σ = (0 −1; 1 0) and τ = (0 −1; 1 −1). Proof: by Manin's presentation Symb_Γ(V) = Hom_{ℤ[Γ]}(ℤ[SL₂(ℤ)]/I, V)
+for the left ideal I generated by 1 + σ, 1 + τ + τ² and 1 − (−1); a ℤ[Γ]-linear map out of ℤ[SL₂(ℤ)]
+is its values on the coset basis; it kills I iff the three relations hold at every g, and by
 equivariance it suffices to take g = g_j. Changing representatives changes the isomorphism by
 γ-twists and not its image ([PS] §2.2, p. 8; the homological counterpart is [Wiese] Definition 5.6 and
 Theorem 5.7, p. 56). *Needs:* §0.1 (Free group algebras over a finite-index subgroup); §0.2
-(Modular symbols); Mathlib `Matrix.SpecialLinearGroup`, `MonoidAlgebra`; ModularForms Layer 8
-(Manin's theorem for Δ₀).
+(Manin's presentation of Δ₀; Modular symbols); Mathlib `Matrix.SpecialLinearGroup`, `MonoidAlgebra`.
 
 **A modular symbol is determined by its values on the fundamental-domain generators** (theorem).
 Let Γ ⊊ PSL₂(ℤ) have finite index and contain T = (1 1; 0 1), and let D₁, …, D_t, D_∞, D′₁, …, D′_s,
@@ -408,17 +441,21 @@ For a right Γ-module V and elements v_i, v_∞, v′_i, v″_i ∈ V with
 v_∞|Δ = Σ_i v_i|(1 − γ_i) − Σ_i v′_i − Σ_i v″_i (Δ := T − 1), v′_i|(1 + γ′_i) = 0 and
 v″_i|(1 + γ″_i + γ″_i²) = 0, there is a unique φ ∈ Symb_Γ(V) with φ(D_i) = v_i, φ(D_∞) = v_∞,
 φ(D′_i) = v′_i and φ(D″_i) = v″_i, and every symbol arises so. For Γ ≤ SL₂(ℤ), apply this to the image Γ̄
-and to the invariants of −1 ∈ Γ in V, since −1 acts trivially on Δ₀. The proof applies
-φ(γD) = φ(D)|γ⁻¹ to the relations. The relation and the criterion are [PS] Theorem 2.6 and
+and to the invariants of −1 ∈ Γ in V, since −1 acts trivially on Δ₀. The presentation is derived from
+Manin's: a Farey fundamental domain F = α₁R ∪ … ∪ α_nR (with one-third triangles β_iT when Γ has
+three-torsion) exists ([PS] Theorems 2.3 and 2.8, pp. 9 and 13); the oriented unimodular paths through the
+interior of F together with its clockwise boundary edges form a ℤ[Γ]-basis of the unimodular chains (Lemma
+2.5, p. 10); modulo the triangle relations the boundary edges generate, and the remaining relations are the
+orientation pairings, the one-element-orbit relations and the relation ∂F = 0 ([PS] §2.4, p. 11). The
+criterion then applies φ(γD) = φ(D)|γ⁻¹ to the relations. The relation and the criterion are [PS] Theorem 2.6 and
 Corollary 2.7 (p. 12) and Theorem 2.9 and Corollary 2.10 (pp. 13–14) with two corrections: the
 translation term has the sign written here, which follows from the boundary relation on p. 11 by
 applying ∂ with D′_i = −∂e′_i, and agrees with the worked Γ₀(11) relation in [Pollack AWS] §2.6,
 footnote 10, p. 8 (whose γ is the γ_i⁻¹ here); and the uniqueness statement includes φ(D_∞) = v_∞, and
 in Corollary 2.10 the three-torsion condition is v″_i|(1 + γ″_i + γ″_i²) = 0. The relation on the
 one-element-orbit edge is (γ′_i + 1)e′_i ∈ J ([PS] §2.4, p. 11). *Needs:* §0.2 (Modular symbols; Modular
-symbols as functions on cosets); Mathlib `Matrix.SpecialLinearGroup`, `CongruenceSubgroup.Gamma0`;
-ModularForms Layer 8 (the fundamental-domain presentation of Δ₀ over ℤ[Γ], with the relation in the
-form above).
+symbols as functions on cosets; Manin's presentation of Δ₀); Mathlib `Matrix.SpecialLinearGroup`,
+`CongruenceSubgroup.Gamma0`.
 
 ### 0.3 Hecke operators, the involution at infinity and signs
 
@@ -461,6 +498,9 @@ Mathlib `Matrix.GeneralLinearGroup`, `CongruenceSubgroup.Gamma0`; ModularForms L
 - ι² = 1, so φ|ι|ι = φ.
 - ι ∉ SL₂(ℤ): det ι = −1. A construction treating ι as an element of Γ would make every symbol
   ι-invariant.
+- On V₁, X|ι = X and Y|ι = −Y. The matrix diag(1, −1) acts on the cusps exactly as ι does, but sends X
+  to −X and fixes Y, so on V_k it is (−1)^k times ι; for odd k it exchanges the two signs (Convention 7),
+  which the cusp action alone cannot detect.
 
 **The plus/minus decomposition** (lemma). If ι normalises Γ and 2 acts invertibly on V, then
 Symb_Γ(V) = Symb_Γ(V)⁺ ⊕ Symb_Γ(V)⁻, the ±1-eigenspaces of ι, through φ = (φ + φ|ι)/2 + (φ − φ|ι)/2; the
@@ -666,7 +706,7 @@ p-torsion-free V, Symb_Γ(V) ⊗ 𝔽_p → Symb_Γ(V/p) is injective with coker
 Ext¹_{ℤ[Γ]}(Δ₀, V), which need not vanish. *Needs:* §0.2 (Modular symbols as functions on cosets; A
 modular symbol is determined by its values on the fundamental-domain generators); §0.1 (Free group
 algebras over a finite-index subgroup); Mathlib `Module.Free`, `Module.Flat`,
-`Module.FinitePresentation`; ModularForms Layer 8 (Manin's theorem).
+`Module.FinitePresentation`; §0.2 (Manin's presentation of Δ₀).
 
 ### 0.6 Duality with the homological symbols
 
@@ -779,6 +819,28 @@ modulo Eisenstein symbols; Descent from a normal subgroup); §0.6 (The invariant
 operators on Γ₁(N)-symbols); §0.3 (The plus/minus decomposition); Mathlib `CuspForm`; Tau Ceti
 `CuspForm.peterssonInnerCosets_definite`; ModularForms Layers 8 and 10C.
 
+**Cuspidal and Eisenstein eigensystems are distinct** (theorem). Let f be a normalised newform of
+weight k + 2, level N and character ε, let M be a multiple of N, and let Γ be a group with
+Γ₁(M) ⊆ Γ ⊆ Γ₀(M). Every eigensystem of the good Hecke operators T_ℓ, ℓ ∤ M, on the Eisenstein
+subspace of weight k + 2 and level M, and on Eis_Γ(V_k(ℂ)), has the form ℓ ↦ ψ(ℓ) + φ(ℓ)ℓ^{k+1} for
+Dirichlet characters ψ, φ of modulus dividing M (ModularForms Layers 0 and 5; [Wiese] Theorem 1.9(a),
+p. 12, transported to the Hom side by §0.6). None of these equals ℓ ↦ a_ℓ(f): at a prime ℓ ≡ 1 mod M the
+Eisenstein value is 1 + ℓ^{k+1}; for k ≥ 1 Hecke's bound a_ℓ(f) = O(ℓ^{(k+2)/2}) gives
+|a_ℓ(f)| < 1 + ℓ^{k+1} for all large such ℓ; for k = 0 every such ℓ has |a_ℓ(f)| < ℓ + 1, because
+T_ℓf is a sum of ℓ + 1 translates f|β_j of the same Petersson norm as f (σ_ℓ ∈ Γ₁(M) as ℓ ≡ 1 mod M),
+and equality in the triangle inequality would make all of them proportional to f, which the
+q-expansion of f|diag(1, ℓ) excludes ([Elkik] §III, pp. 64–66). Primes ℓ ≡ 1 mod M beyond any bound
+exist. Consequently, for one such prime ℓ and d = dim Eis_Γ(V_k(ℂ)), the operator
+G = (T_ℓ − 1 − ℓ^{k+1})^d kills Eis_Γ(V_k(ℂ)) and acts on λ_f-eigenvectors by the nonzero scalar
+c = (a_ℓ(f) − 1 − ℓ^{k+1})^d, so every λ_f-eigenvector of Symb_Γ(V_k(ℂ))/Eis_Γ(V_k(ℂ)) has the
+λ_f-eigenvector c⁻¹G(φ) as a lift, independent of the chosen preimage φ; vanishing of the intersection alone would not
+give the lift. This separation is what makes the boundary spectrally disjoint from λ_f at levels N and
+Np in §0.7 and §2.1. *Needs:* §0.4 (Boundary symbols; Modular symbols modulo Eisenstein symbols); §0.5
+(Hecke operators on Γ₁(N)-symbols); §0.6 (Hom-side symbols are the dual of homological symbols);
+Mathlib `CuspFormClass.qExpansion_isBigO` (Hecke's bound), `Nat.exists_prime_gt_modEq_one`;
+ModularForms Layers 0 and 5 (Eisenstein series with character, their q-expansions and the
+coefficient characterisation of eigenforms).
+
 **Newform eigenspaces of modular symbols are one-dimensional** (theorem). Let f ∈ S_{k+2}(Γ₁(N)) be a
 newform of level N with character ε and coefficient field K_f = ℚ(a_n(f), ε). For each sign, the
 subspace Symb_{Γ₁(N)}(V_k(K_f))^±[ε][λ_f] on which every T_ℓ, ℓ ∤ N, acts by a_ℓ(f) is one-dimensional over
@@ -786,17 +848,17 @@ K_f, meets Eis_{Γ₁(N)} trivially, and after ⊗ℂ is spanned by (1 ± ι)ψ_
 primitive level; 2 is invertible; K_f contains the values of ε. Proof: by ModularForms Layers 4 and 5
 the fixed-character eigenspace with the eigenvalues of f away from N lies in the newspace, where
 Tau Ceti's `finrank_cuspFormsNewEigenspace_eq_one` gives ℂf; Eichler–Shimura and §0.4 give a
-one-dimensional signed quotient eigenspace. The Eisenstein symbols carry the eigenvalues of
-Eisenstein series of weight k + 2 ([Wiese] Theorem 1.9(a), p. 12), none of which is λ_f by Layer 5;
-to lift quotient eigenvectors, use a finite good-Hecke combination separating λ_f from the finitely
-many boundary characters, whose polynomial projector commutes with the Hecke operators (vanishing
-intersection alone would not give the lift). Finally Symb(V_k(K_f)) ⊗_{K_f} ℂ = Symb(V_k(ℂ)) and taking
+one-dimensional signed quotient eigenspace. The Eisenstein symbols carry only Eisenstein
+eigensystems, none of which is λ_f, and quotient eigenvectors lift through the polynomial in one good
+T_ℓ of the previous target, which commutes with every Hecke operator and with ι. Finally
+Symb(V_k(K_f)) ⊗_{K_f} ℂ = Symb(V_k(ℂ)) and taking
 λ_f-eigenspaces commutes with this flat base change, so the K_f-dimension is 1 ([Wiese] Theorem 1.9,
 p. 12; the level-11 plus eigensymbol is [Pollack AWS] §2.3, p. 4). For an oldform eigensystem the
 eigenspace is at least two-dimensional, so the newform hypothesis is necessary. *Needs:* §0.7 (The
 Eichler–Shimura isomorphism); §0.4 (Modular symbols modulo Eisenstein symbols; Boundary symbols);
 §0.5 (Modular symbols commute with flat base change; Modular symbols with character; Hecke operators
-on Γ₁(N)-symbols); §0.3 (The plus/minus decomposition); Tau Ceti `HeckeRing.GL2.Newform`,
+on Γ₁(N)-symbols); §0.3 (The plus/minus decomposition); §0.7 (Cuspidal and Eisenstein eigensystems are
+distinct, with M = N); Tau Ceti `HeckeRing.GL2.Newform`,
 `HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one`; ModularForms Layers 4 and 5.
 
 ### 0.8 The rational Drinfeld–Manin splitting
@@ -812,7 +874,7 @@ F(A)|_P = 0 and the boundary computation gives G(A) = 0 on H/P, and F and G are 
 cusp-form eigenvalue equals 1 + ℓ^{k+1}. In weight two (k = 0) this is Elkik's bound |a_ℓ| < ℓ + 1 by the
 Petersson norm and the Fourier expansion, without Deligne's theorem ([Elkik] §III, pp. 64–66); for
 k > 0 it is Shokurov's boundary scalar and Fourier-coefficient bound for sufficiently large such ℓ
-([Shokurov] §4, Theorem 4.3 and Corollaries 4.4–4.5, pp. 638–641; summarised in [Sharifi] Theorem
+([Shokurov] §4, Theorem 4.3 and Corollaries 4.4–4.5, pp. 637–641; summarised in [Sharifi] Theorem
 3.4.16 and Remark 3.4.17, p. 38), transported from his homological polynomial model to the
 cohomological model through §0.6 and the full-level dictionary of ModularCurvesPartII R14.3. The
 annihilators control generalised eigenspaces, so a non-semisimple boundary extension is allowed; the
@@ -832,10 +894,10 @@ a(A)|_P F(A)|_P t = 0 while te = s_N, so t = s_N. An endomorphism preserving P a
 Hecke operators commutes with e. After the geometric dictionary of ModularCurvesPartII R14.3, the
 direct sum over the geometric components of Y(N) gives Nakamura's s_N : H¹(Y(N)(ℂ), 𝒱_{k+2/ℚ}) →
 H¹(X(N)(ℂ), j_*𝒱_{k+2/ℚ}), and because it commutes with the usual and the adjoint Hecke operators
-(T′_ℓ = ℓ^kT_ℓS_ℓ⁻¹, S′_ℓ = ℓ^{2k}S_ℓ⁻¹, [Nakamura] Lemma 3.1, p. 206), it commutes with complex
-conjugation and, after extension of scalars to ℚ_p and the Betti–étale comparison, with the Galois
-action ([Nakamura] §3.2, p. 220, (20)–(21)). Rationality is essential: no integral splitting exists in
-general. API: `drinfeldManin` (s_N), `drinfeldManin_subtype` (s_N(x) = x on P), `drinfeldManin_hecke` and
+(T′_ℓ = ℓ^kT_ℓS_ℓ⁻¹, S′_ℓ = ℓ^{2k}S_ℓ⁻¹, [Nakamura] Lemma 3.1, p. 34, whose weight k is k + 2 here), it
+commutes with complex conjugation and, after extension of scalars to ℚ_p and the Betti–étale comparison, with the Galois
+action ([Nakamura] §3.2, opening paragraph and the isomorphisms (18)–(19), pp. 45–46). Rationality is
+essential: no integral splitting exists in general. API: `drinfeldManin` (s_N), `drinfeldManin_subtype` (s_N(x) = x on P), `drinfeldManin_hecke` and
 `drinfeldManin_scalarHecke` (equivariance for T_ℓ and S_ℓ), `drinfeldManin_unique`,
 `drinfeldManin_idempotent`, `drinfeldManin_natural` (an endomorphism preserving P and commuting with the
 good T_ℓ and S_ℓ commutes with the projector). *Needs:* §0.8 (Rational separation); §0.4 (Parabolic
@@ -882,7 +944,7 @@ Shapiro, flatness and finite presentation, cusp forms, Cayley–Hamilton and pro
 it uses the Γ₀(N) Hecke ring, the Γ₁(N) diamond cosets, `diamondOp`, the character spaces and their
 decomposition, newforms and newspace multiplicity one, and Petersson definiteness; from the current
 library the Layer-8 divisor modules, homological symbols, binary-form actions and period map. From
-the roadmaps it uses ModularForms Layers 4, 5, 8 and 10C and ModularCurvesPartII R14.3.
+the roadmaps it uses ModularForms Layers 0, 4, 5, 8 and 10C and ModularCurvesPartII R14.3.
 
 ## Layer 1: periods, critical values and p-stabilisation
 
@@ -900,7 +962,7 @@ exists only after a basis is chosen: for φ^± ∈ L_f^± ∖ {0}, the period Ω
 with ψ_f^± = Ω_f^±(φ^±)·φ^±; it is nonzero because ψ_f^± ≠ 0 by Eichler–Shimura. Replacing φ^± by λφ^±,
 λ ∈ K_f^×, replaces Ω_f^± by λ⁻¹Ω_f^± and every period-normalised value by λ times itself, so only
 statements invariant under this rescaling are basis-free; no canonical K_f-basis is assumed
-([Pollack AWS] §2, after 2.10, p. 13). API: `periodLine` (L_f^±), `periodLine_finrank` (dimension one
+([Pollack AWS] §2.12, pp. 12–13). API: `periodLine` (L_f^±), `periodLine_finrank` (dimension one
 over K_f), `period` (Ω_f^±(φ) for nonzero φ ∈ L_f^±), `period_smul` (Ω_f^±(λφ) = λ⁻¹Ω_f^±(φ)),
 `psi_eq_period_smul` (ψ_f^± = Ω_f^±(φ)·φ in L_f^± ⊗ ℂ). *Needs:* §0.7 (Newform eigenspaces are
 one-dimensional; The period symbol); §0.3 (The plus/minus decomposition); §0.5 (Modular symbols commute
@@ -919,16 +981,17 @@ with flat base change). *Lean:* `periodScalar`, `periodScalar_smul`.
 (or a principal ideal domain) whose fraction field K contains K_f, for example the completion of 𝒪_{K_f}
 at a prime, and let V_k(𝒪) = 𝒪[X, Y]_k with the action of §0.1. The saturated lattice
 L_f^±(𝒪) = (L_f^± ⊗_{K_f} K) ∩ Symb_{Γ₁(N)}(V_k(𝒪)) is free of rank one over 𝒪: Symb_{Γ₁(N)}(V_k(𝒪)) is finitely
-generated (by Manin's theorem) and torsion-free and embeds in Symb_{Γ₁(N)}(V_k(K)) by flat base change; the
-intersection with a K-line is nonzero (clear denominators) and is a finitely generated torsion-free
+generated (by Manin's presentation) and torsion-free and embeds in Symb_{Γ₁(N)}(V_k(K)) by flat base
+change; the intersection with a K-line is nonzero (clear denominators) and is a finitely generated torsion-free
 module of rank one, hence free; the quotient by it is torsion-free by construction. A generator
 φ_𝒪^± is unique up to 𝒪^×, so the integral period Ω_{f,𝒪}^± = Ω_f^±(φ_𝒪^±) is defined up to 𝒪^×. It depends on
 the lattice V_k(𝒪): V_k(𝒪) and Hom(Sym^k 𝒪², 𝒪) agree only after inverting k!. A local coefficient field
 has no distinguished complex embedding, so a complex scalar period requires a chosen embedding of K
 into ℂ extending the one of K_f; without it the integral period is a coordinate on the abstract signed
 line. Comparisons with integral Hecke modules (freeness of the f-part over a localised Hecke algebra,
-congruence modules) need multiplicity-one hypotheses and are not part of this target ([Pollack AWS]
-§2, after 2.10, p. 13). API: `integralPeriodLattice` (L_f^±(𝒪) as an 𝒪-submodule of Symb(V_k(𝒪))),
+congruence modules) need multiplicity-one hypotheses and are not part of this target ([PS] §6.3, p. 28, for
+the normalisation by integral values with at least one unit value; [Pollack AWS]
+§2.12, footnote 14, p. 13). API: `integralPeriodLattice` (L_f^±(𝒪) as an 𝒪-submodule of Symb(V_k(𝒪))),
 `integralPeriodLattice_free` (free of rank one), `integralPeriod` (Ω_{f,𝒪}^± from a generator),
 `integralPeriod_unit` (two generators give periods differing by a unit). *Needs:* §1.1 (Period lines and
 periods); §0.5 (Modular symbols commute with flat base change); §0.6 (The invariant pairing); §0.2
@@ -971,7 +1034,7 @@ T_{j,χ}(ψ_f) = ½T_{j,χ}(ψ_f^{ε_{j,χ}}). Consequently, for every basis φ 
 (P|ι)(X, Y) = P(X, −Y) and λ_{j,x}(P|ι) = (−1)^{k−j}λ_{j,−x}(P); ι({a/m} − {∞}) = {−a/m} − {∞}; substitute
 a ↦ −a; then (1 ± ι) multiplies T_{j,χ} by 1 ± ε_{j,χ}; φ is K_f-rational and λ_{j,a/m} has rational coefficients,
 and the twisted Mellin formula concludes. With other conventions for the action or for ι the sign
-ε_{j,χ} changes and must be tracked ([Pollack AWS] §2, after 2.10, p. 13, for k = j = 0; the critical
+ε_{j,χ} changes and must be tracked ([Pollack AWS] §2.12, pp. 12–13, for k = j = 0; the critical
 range 0 ≤ j ≤ k is [RJW] Appendix B.2.1, p. 79). *Needs:* §1.2 (The twisted Mellin formula); §1.1 (Period
 lines and periods); §0.3 (The involution at infinity); §0.7 (Newform eigenspaces are one-dimensional).
 
@@ -1027,7 +1090,7 @@ j!/(2πi)^{j+1}·L(f°, j + 1)/Ω^±. Proof: substitute the twisted Mellin formu
 (−1)^{j+1}χ(−1) = −ε_{j,χ}(−1)^k; for n ≥ 1, χ(p) = 0 and L(f_α, χ̄, s) = L(f°, χ̄, s); for n = 0 use the previous
 lemma. The same statement in Pollack–Stevens' normalisation ([PS] §6, interpolation property (1),
 p. 27) is the normalisation through −a/p^n, consistent with RJW's for the period −ε_{j,χ}(−1)^kΩ_PS/(2πi), using
-τ(χ)τ(χ⁻¹) = χ(−1)p^n; Pollack's lecture notes ([Pollack AWS] §2, after 2.10, p. 13, and §5.1, (7), p. 24) use
+τ(χ)τ(χ⁻¹) = χ(−1)p^n; Pollack's lecture notes ([Pollack AWS] §2.12, pp. 12–13, and §5.1, (7), p. 24) use
 the cusps +a/p^n, which for k = j = 0 differs from RJW's by −1/(2πi) and the sign χ(−1). *Needs:* §1.2 (The
 twisted Mellin formula; Algebraicity of critical values); §1.3 (L-functions of p-stabilised forms);
 §1.1 (Period lines and periods).
@@ -1067,7 +1130,8 @@ is f itself. Its slope is h = v_p(α). It has small slope if h < k + 1 and criti
 refinement is the choice of the root together with its eigenline; it is not determined by f. Since α is
 an algebraic integer, h ≥ 0, and for p ∤ N, v_p(α) + v_p(β) = k + 1 gives 0 ≤ h ≤ k + 1 ([PS] §5.3, p. 24, for the
 slope range of U_p-eigensymbols; §8, X₀(11) at p = 3, p. 35). When p ‖ N with ε of conductor prime to p and
-a_p ≠ 0, a_p² = ε(p)p^k and the slope is k/2 (ModularForms Layer 4, bad-prime eigenvalues). API: `Refinement`
+a_p ≠ 0, a_p² = ε^{(p)}(p)p^k, with ε^{(p)} the character modulo N/p inducing ε (ε(p) itself is 0 as a
+character modulo N), and the slope is k/2 (ModularForms Layer 4, bad-prime eigenvalues). API: `Refinement`
 (a newform with a chosen U_p-eigenvalue α: a root of the Hecke polynomial at p ∤ N, or a_p ≠ 0 at p | N),
 `Refinement.slope` (h = v_p(α)), `Refinement.slope_le` (0 ≤ h ≤ k + 1 when p ∤ N). *Needs:* §1.3
 (p-stabilisations of a newform); §0.5 (Hecke operators on Γ₁(N)-symbols); ModularForms Layer 4.
@@ -1085,16 +1149,16 @@ eigenvalues a_ℓ (ℓ ∤ Np) and α (for U_p). For each sign, L_{f,α}^± = Sy
 over K, and after ⊗ℂ it is spanned by (1 ± ι)ψ_{f_α} (f_α = f when p | N). For p ∤ N it lies in the
 two-dimensional subspace on which only the T_ℓ, ℓ ∤ Np, act by a_ℓ, where U_p acts by the companion matrix
 of X² − a_pX + ε(p)p^{k+1}; for p | N it is the line L_f^± of §1.1, on which U_p acts by a_p. Proof: over ℂ,
-Eichler–Shimura for Γ₀, §0.4 and the Eisenstein separation at level Np (with the boundary spectral
-projector of §0.7, which commutes with U_p) identify the subspace cut out by the T_ℓ, Hecke-equivariantly
+Eichler–Shimura for Γ₀, §0.4 and the separation of §0.7 with M = Np (its polynomial in one good T_ℓ
+commutes with U_p) identify the subspace cut out by the T_ℓ, Hecke-equivariantly
 including U_p, with span(f(z), f(pz)) (ModularForms Layer 4); there the α-eigenspace is ℂf_α; rationality
 follows from flat base change; for p | N, U_p preserves L_f^± and acts by a_p ([PS] §6.3, p. 28). If α = β the
 U_p-eigenspace is still a line but the generalised eigenspace is two-dimensional, and slope
 decompositions see the generalised eigenspace. *Needs:* §2.1 (Refinements); §1.3 (p-stabilisations);
 §1.1 (Period lines); §0.7 (The Eichler–Shimura isomorphism; The period symbol); §0.4 (Modular symbols
 modulo Eisenstein symbols); §0.5 (Modular symbols commute with flat base change; Modular symbols with
-character); §0.3 (The plus/minus decomposition); ModularForms Layers 4 and 5 (the level-Np Eisenstein
-separation).
+character); §0.3 (The plus/minus decomposition); §0.7 (Cuspidal and Eisenstein eigensystems are distinct,
+with M = Np); ModularForms Layer 4.
 
 ### 2.2 Distribution modules with the weight-k action
 
@@ -1300,7 +1364,7 @@ divisors.
 ### Dependencies
 
 Layers 0 and 1; LocallyAnalyticDistributions Layers 0, 2 and 4; PadicMeasuresIwasawaAlgebras for
-integral measures; ModularForms Layers 4 and 5; Mathlib `PadicInt`, `PadicInt.toZModPow`.
+integral measures; ModularForms Layer 4; Mathlib `PadicInt`, `PadicInt.toZModPow`.
 
 ## Layer 3: critical slope
 
@@ -1342,6 +1406,11 @@ function). *Needs:* §2.1 (Refinements); §2.5 (The p-adic L-function); PadicFam
 - For a nonzero signed classical basis of the CM form of level 32 at p = 5 (split in ℚ(i)), every full
   eigenvector specialises to zero, so no eigenlift exists and the construction does not apply; the
   definition must take the non-θ-critical hypothesis as input.
+- For the slope-one refinement of the newform of level 11 at p = 3 (k = 0), adding to L_p(f, α; φ^±) the
+  distribution whose Mellin transform is log_p(s) on each tame component (§3.2) gives a second
+  1-admissible distribution with the same value at every finite-order character; a definition as "the
+  1-admissible distribution with these values" is therefore not well defined, and only the eigenlift
+  normalisation selects L_p(f, α; φ^±).
 
 **Interpolation at critical slope** (theorem). For (f, α) as above, 0 ≤ j ≤ k and χ of conductor p^n,
 L_p(f, α; φ^±)(z^j·χ) is given by the formula of §2.5: ± = (−1)^jχ(−1), the factor α^{−n}p^{nj}τ(χ)j!/(2πi)^j, the
@@ -1552,8 +1621,8 @@ carries a refinement α to σ_p(α), preserves its slope, and transports its nor
 p-adic L-function coefficientwise. For small slope the equality follows from the control theorem or
 interpolation uniqueness; for critical slope from the chosen eigenlift or the family comparison of §3.3,
 not from interpolation alone. No transport of transcendental complex periods is asserted: unrelated
-choices of complex periods change the result by a coefficient-field unit, and conjugating to a different
-p-adic place can change ordinarity ([BMS] §2.1, Theorem 2.2(iii) and the discussion of the period ambiguity,
+choices of complex periods change the result by a nonzero coefficient-field scalar σ(b), and conjugating to
+a different p-adic place can change ordinarity ([BMS] §2.1, Theorem 2.2(iii) and the discussion of the period ambiguity,
 pp. 5–7, for weight two over totally real coefficient fields; [PS] Theorem 5.12, pp. 25–26, and
 Proposition 6.3, pp. 28–29). The identity isomorphism acts trivially on each signed algebraic eigenline.
 *Needs:* §0.5 (Modular symbols commute with flat base change); §1.1 (Period lines); §1.2 (Algebraicity of
@@ -1613,8 +1682,8 @@ of L₂(f, α_i, T) has infinitely many zeros, while the ± decomposition does n
 (v₁₉(−19) = 1 is odd), so both L₁₉(f, α_i, T) have infinitely many zeros, and
 L₁₉(E, α, T) = L⁺₁₉·log⁺₁₉ + L⁻₁₉·log⁻₁₉·α with L^±₁₉ ∈ ℤ₁₉⟦T⟧, computed from the level-11 symbols by the Riemann
 sums of §2.5. (iii) Pollack's Table 1 lists λ^± and μ^± for quadratic twists of the curve 32A at p = 3, where
-a₃ = 0 ([Pollack SS] §3, Corollary 3.6, p. 535; §5.2.1, Remark 5.4, p. 542). The coefficients a₂ = −2,
-a₁₉ = a₂₉ = 0 are read off the product formula. A sharp/flat decomposition at a_p ≠ 0 is not part of this
+a₃ = 0 ([Pollack SS] §7, Table 1, pp. 555–556; for (i) and (ii), §3, Corollary 3.6, p. 535, and §5.2.1,
+Remark 5.4, p. 542). The coefficients a₂ = −2, a₁₉ = a₂₉ = 0 are read off the product formula. A sharp/flat decomposition at a_p ≠ 0 is not part of this
 roadmap. *Needs:* §4.2 (all three targets); §4.4 (Weight-two examples at level 11).
 
 ### Examples
@@ -1696,8 +1765,8 @@ deformations.
 - [Sprung] F. Sprung, *On pairs of p-adic L-functions for weight-two modular forms*, Algebra Number Theory 11
   (2017), 885–928. https://msp.org/ant/2017/11-4/ant-v11-n4-p04-s.pdf
 - [Nakamura] K. Nakamura, *Zeta morphisms for rank two universal deformations*, Invent. Math. 234 (2023),
-  171–290, doi:10.1007/s00222-023-01203-7.
-  https://link.springer.com/content/pdf/10.1007/s00222-023-01203-7.pdf
+  171–290, doi:10.1007/s00222-023-01203-7; arXiv:2006.13647v2 (locators are to the arXiv version).
+  https://arxiv.org/pdf/2006.13647v2
 - [Elkik] R. Elkik, *Le théorème de Manin–Drinfeld*, Astérisque 183 (1990), 59–67.
   https://www.numdam.org/item/AST_1990__183__59_0.pdf
 - [Sharifi] R. Sharifi, *Modular curves and cyclotomic fields*, Arizona Winter School 2018 lecture notes.
@@ -1705,5 +1774,6 @@ deformations.
 - [Shokurov] V. V. Shokurov, *Shimura integrals of cusp forms*, Math. USSR Izv. 16 (1981), 603–646.
   https://www.maths.ed.ac.uk/~icheltso/shokurov/pdf/cusp.pdf
 - [BMS] J. S. Balakrishnan, J. S. Müller and W. A. Stein, *A p-adic analogue of the conjecture of Birch and
-  Swinnerton-Dyer for modular abelian varieties*, Math. Comp. 85 (2016); arXiv:1210.2739.
+  Swinnerton-Dyer for modular abelian varieties*, Math. Comp. 85 (2016); arXiv:1210.2739 (locators are to
+  the arXiv version).
   https://arxiv.org/pdf/1210.2739
