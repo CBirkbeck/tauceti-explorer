@@ -47151,7 +47151,8 @@
     "PKG-AnabelianGeometryAndNonabelianChabauty~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnabelianGeometryAndNonabelianChabauty~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9857"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -53033,7 +53034,8 @@
     "PKG-PadicDifferentialEquationsAndRigidCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9855"
   },
   {
    "id": "PKG-PadicFamilies",
@@ -54307,7 +54309,9 @@
     "PKG-TorsionCohomologyInfrastructure"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-TorsionCohomologyInfrastructure.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9859",
+   "finishedAt": "2026-10-14T22:17:13Z"
   },
   {
    "id": "PKG-VStackSheavesAndLisseCategories",
