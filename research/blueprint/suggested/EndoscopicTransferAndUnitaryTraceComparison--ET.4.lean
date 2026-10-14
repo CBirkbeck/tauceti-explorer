@@ -9,9 +9,10 @@ import Mathlib.Tactic.NormNum
 /-!
 # Endoscopic transfer and unitary trace comparison, layers ET.4–ET.6: suggested signatures
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-(`EndoscopicTransferAndUnitaryTraceComparison--ET.4.md`) is definitive; the statements below
-suggest Lean forms so that contributors and reviewers converge on names and signatures.
+This file suggests signatures for the light targets of the reviewed packet. The independent
+review records `needs_changes`: the accompanying reader still needs the repairs listed in
+`reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md`. These numerical signatures
+do not establish the missing geometric or representation-theoretic inputs.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -28,8 +29,8 @@ What is prototyped:
 * segments of cuspidal representations on one cuspidal line, modelled by integer intervals
   (the type-χ lines of Atobe–Kondo–Yasuda; a general line is the orbit of one supercuspidal
   under unramified twists ν^j), with linking, precedence, truncation and ladders (ET.6);
-* the special Weil–Deligne block Sp_k as a pair of matrices, with its covariance identity
-  (ET.6/segment-wd-parameter);
+* a matrix check for the special Weil–Deligne block already owned by
+  ArithmeticGaloisRepresentations R01.2, with its covariance identity (ET.6 imports that object);
 * the acceptability condition on eigenvalue valuations across slope components (ET.5);
 * the numerical checks of the Kottwitz sign of inner forms of GL_n, the Tamagawa numbers of
   the unitary similitude groups and the endoscopic coefficient ι(G,H) (ET.4, ET.6).
@@ -128,7 +129,13 @@ example : IsLadder [⟨1, 2, by norm_num⟩, ⟨0, 1, by norm_num⟩] := by
 example : ¬ IsLadder [⟨0, 2, by norm_num⟩, ⟨1, 1, le_refl _⟩] := by
   sorry
 
-/-! ## ET.6: the special Weil–Deligne block -/
+/-! ## ET.6: matrix checks for the imported special Weil–Deligne block
+
+These are matrices, not a new Weil–Deligne carrier. For a genuine Frobenius action the residue
+cardinality is positive. The covariance identity below also makes sense for every rational q.
+For a segment based on GL_d, tensoring this block with a d-dimensional irreducible Weil
+representation produces d monodromy blocks of this length.
+-/
 
 /-- The monodromy operator of `Sp_k`: `N e_j = e_{j+1}`, `N e_{k-1} = 0`. -/
 def specialMonodromy (k : ℕ) : Matrix (Fin k) (Fin k) ℚ :=
@@ -165,6 +172,9 @@ example : specialMonodromy 1 = 0 := by
 
 /-! ## ET.5: acceptability across slope components -/
 
+/- Shin's root convention uses ν_i = −λ_i for decreasing slopes λ_i. The negative Frobenius
+shift fr^(−sN) separates valuations in the direction encoded below. -/
+
 /-- Eigenvalue valuations `vals i` of the components of `δ ∈ J_b(ℚ_p)` on the slope pieces,
 ordered by decreasing slope, satisfy Shin's acceptability condition: a component of larger
 slope has strictly smaller valuations (Shin 2009 Definition 6.1). -/
@@ -196,13 +206,17 @@ def glInnerFormSign (n r : ℕ) : ℤ := (-1) ^ (n - r)
 example : glInnerFormSign 2 1 = -1 := by
   sorry
 
+-- Shin's trivial endoscopic datum for basic GL₂ has c = e_p(J_b) = −1, not c = 1.
+-- This sign is distinct from the global coefficient ι(G,H) checked below.
+
 -- The split form has sign 1.
 example (n : ℕ) : glInnerFormSign n n = 1 := by
   sorry
 
 /-- The order of `π₀(Z(Ĝ_n⃗)^Γ)` for the unitary similitude group `G_n⃗` with blocks `n⃗` over a
 CM field with `[F⁺ : ℚ] = d`: `2^r` if `d` is even or every block is even, `2^(r-1)`
-otherwise (Shin 2011 Lemma 3.1). -/
+otherwise (Shin 2011 Lemma 3.1). Its group interpretation requires a nonempty list of positive
+block sizes and positive d; this light definition itself is just a numerical function. -/
 def unitaryComponentCount (d : ℕ) (n : List ℕ) : ℕ :=
   if Even d ∨ ∀ i ∈ n, Even i then 2 ^ n.length else 2 ^ (n.length - 1)
 
