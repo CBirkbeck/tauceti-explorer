@@ -230932,6 +230932,127 @@
    "reviewReason": "Direct zero-vector check and version comparison. GeneralizedCMType/rank-one-type in the scaffold already uses the corrected nonnegative convention."
   },
   {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E101",
+   "kind": "error",
+   "locator": "Example 2.2.18, journal p.456; arXiv v4 p.10",
+   "printed": "The example allows an arbitrary coefficient field k and claims that its p-basis together with t is a valuation p-basis of k((t)).",
+   "correction": "Require finite coefficient p-rank for this particular Laurent monomial basis, or independently assume an actual valuation p-basis of the complete residue field.",
+   "reason": "For k=F_p(s_1,s_2,…) with independent indeterminates, Σ_{n≥1}s_n t^{pn} has infinitely many nonzero coordinates in distinct constant p-monomials over k^p((t^p)). A finite monomial sum cannot represent it. This invalidates this proposed basis, not the existence of any other valuation p-basis.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Journal PDF (2005), arXiv v4, published erratum (2007), author additional errata (2013), and author publications page https://kskedlaya.org/papers/ checked 2026-10-14; no correction of these two items found."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, Documenta Mathematica 10 (2005), 447–525; journal PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E102",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.2.21(c), journal p.457; arXiv v4 p.11",
+   "printed": "The shortest tensor-presentation rewrite replaces the remaining y_i by y_i+c_i, omitting the factor y_1.",
+   "correction": "Use y_i+c_i y_1. Both inspected versions correctly say that the x_i are dependent; no correction of that wording is needed. Make the DVR relation primitive before choosing a unit coefficient to express x_1.",
+   "reason": "Bilinearity gives x_1⊗y_1=Σ x_i⊗c_i y_1. Even over Z, taking y_1=2 shows the omitted factor changes the tensor. The corrected rewrite decreases its length.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Journal PDF (2005), arXiv v4, published erratum (2007), author additional errata (2013), and author publications page https://kskedlaya.org/papers/ checked 2026-10-14; no correction of these two items found."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, Documenta Mathematica 10 (2005), 447–525; journal PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E103",
+   "kind": "error",
+   "locator": "Théorème 2.30(ii), printed p.24, April 2017 author copy only",
+   "printed": "The displayed divisor correspondence includes every closed ideal, including zero.",
+   "correction": "Restrict the finite effective-divisor bijection to nonzero closed ideals and treat the zero ideal separately.",
+   "reason": "Zero is a closed ideal whose generator is the zero function. Its orders are infinite at every point, so it has no locally finite effective divisor with natural-number multiplicities.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Fontaine author publications page and the linked April 2017 book PDF, checked 2026-10-14.",
+    "SMF version-of-record landing page and its five-page published sample checked 2026-10-14; the sample does not include p.24 and the full publisher text was not obtained. Findings are scoped to the author copy only.",
+    "Web search for Colmez/Fargues/Fontaine Préface errata; no correction of these items found. This is not an exhaustive novelty claim."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Pierre Colmez; book by Laurent Fargues and Jean-Marc Fontaine, Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author copy, 16 April 2017; Préface §2.5.1, printed pp.24–25; book published as Astérisque 406 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E104",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.6, printed p.43, author manuscript",
+   "printed": "The trace approximation identifies Σ_σ σ(c)α with Tr(c)=1.",
+   "correction": "The sum is αTr(c)=α. Keep the scalar α in the subtraction used to estimate Tr(cα)−α.",
+   "reason": "α is fixed as an external factor in this sum, so factoring it out gives αΣ_σ σ(c). The subsequent conjugate-difference estimate uses this corrected equality.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Fontaine author page https://www.imo.universite-paris-saclay.fr/~fontaine/ and linked manuscript checked 2026-10-14; no separate erratum listed.",
+    "Web search for Fontaine Ouyang Proposition 3.6 trace errata found no correction; finding is restricted to the author manuscript."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Jean-Marc Fontaine and Yi Ouyang, Theory of p-adic Galois Representations, Author-served manuscript; §3.1, Propositions 3.6 and 3.8, printed pp.42–44",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E105",
+   "kind": "misprint",
+   "locator": "Préface §2.5.1, printed p.24, April 2017 author copy only",
+   "printed": "The displayed formula expresses v_J(f) as a sum of all the pointwise valuations on C(J).",
+   "correction": "Use the already-defined v_J=inf_{r∈J}v_r, equivalently the compact endpoint Gauss maximum after converting to norms. Any pointwise reformulation needs an infimum with a sufficient set of valued extension points, not a sum.",
+   "reason": "For the constant f=p on a nonempty annulus, v_J(f)=1, whereas summing the value 1 over its infinitely many analytic points cannot give 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Fontaine author publications page and the linked April 2017 book PDF, checked 2026-10-14.",
+    "SMF version-of-record landing page and its five-page published sample checked 2026-10-14; the sample does not include p.24 and the full publisher text was not obtained. Findings are scoped to the author copy only.",
+    "Web search for Colmez/Fargues/Fontaine Préface errata; no correction of these items found. This is not an exhaustive novelty claim."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Pierre Colmez; book by Laurent Fargues and Jean-Marc Fontaine, Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author copy, 16 April 2017; Préface §2.5.1, printed pp.24–25; book published as Astérisque 406 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E106",
+   "kind": "error",
+   "locator": "Préface §2.5.1, printed p.24, April 2017 author copy only",
+   "printed": "The Laurent-polynomial completion is stated for all intervals, including intervals containing +∞, which represent a disc containing T=0.",
+   "correction": "For a disc containing the centre complete polynomials (nonnegative powers); for positive-radius annuli use Laurent polynomials.",
+   "reason": "T^{-1} has a pole at the centre and its Gauss value at +∞ is not finite. It cannot be an analytic element or a member of a finite-norm polynomial starting space for that disc.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Fontaine author publications page and the linked April 2017 book PDF, checked 2026-10-14.",
+    "SMF version-of-record landing page and its five-page published sample checked 2026-10-14; the sample does not include p.24 and the full publisher text was not obtained. Findings are scoped to the author copy only.",
+    "Web search for Colmez/Fargues/Fontaine Préface errata; no correction of these items found. This is not an exhaustive novelty claim."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.0.json",
+   "citation": "Pierre Colmez; book by Laurent Fargues and Jean-Marc Fontaine, Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author copy, 16 April 2017; Préface §2.5.1, printed pp.24–25; book published as Astérisque 406 (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E301",
    "kind": "misprint",
    "locator": "KX arXiv v4 Lemma 2.3.2 proof, p. 23",
@@ -231098,6 +231219,274 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
    "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-1",
+   "kind": "misprint",
+   "locator": "Theorem 19.4.1 and Corollary 19.4.2, p. 321 (first edition, author's PDF)",
+   "printed": "For V with finite local monodromy and ρ close to 1, the generic radius R(D†(V) ⊗ F_ρ) is said to equal ρ^b, with b the largest i ≥ 1 such that the upper ramification group G^i is not contained in the kernel; Corollary 19.4.2 says the same of the subsidiary radii.",
+   "correction": "The intrinsic radius is meant: IR(D†(V) ⊗ F_ρ) = ρ^b, i.e. R(D†(V) ⊗ F_ρ) = ρ^{b+1}, with b the highest upper break of V restricted to inertia (Serre's numbering), b ∈ Q_{≥0}, b = 0 when V is tamely ramified; the restriction i ≥ 1 must be dropped because highest breaks in (0, 1) occur. Likewise the subsidiary radii in Corollary 19.4.2 are intrinsic.",
+   "reason": "Dwork's rank-one module M_f with f = t^{−1} (Example 17.1.4, = D†(V) for the Artin-Schreier character of break 1 by Example 19.2.6) has horizontal section exp(−π_0(t^{−1} − t_ρ^{−1})) converging exactly on |t − t_ρ| < ρ^2, so R = ρ^2 while the printed formula gives ρ^1; the book's own Theorem 12.6.4 and Definition 9.4.4 (R = ρ for the trivial module) and Kedlaya's overview (Definition 5.4.1, Theorem 5.4.10) give R = ρ^{β+1}. Inducing the break-1 Artin-Schreier character from k((t^{1/2})) (p odd) gives a representation with highest upper break 1/2, for which no i ≥ 1 qualifies.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Kedlaya's errata for the first printing of p-adic Differential Equations (kskedlaya.org/papers/pde-errata.pdf, updated 26 Oct 2021): it changes G_{κ_K((t)),i} to G^i in Corollary 19.4.2 but does not address the normalisation",
+    "Kedlaya's errata list for the second edition (kskedlaya.org/papers/pde-errata-v2.pdf): no entry for Section 19.4",
+    "Kedlaya, Local monodromy of p-adic differential equations: an overview, Definition 5.4.1 and Theorem 5.4.10 (the correct normalisation R = ρ^{β+1})"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, p-adic Differential Equations, Cambridge Studies in Advanced Mathematics 125, Cambridge University Press, 2010 (first edition); the author's posted PDF, read 2026-10-14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-2",
+   "kind": "misprint",
+   "locator": "§2.9.2, display (2.9.2.2), p. 24 (arXiv:1910.13391, page image checked)",
+   "printed": "A canonical isomorphism from Coker(N) to the solution space Sol(M) = Hom_{K{x}}((M,∇),(K{x},d))^{∇=0} of a unipotent object M with associated (V, N).",
+   "correction": "Sol(M) is canonically the dual (Coker N)^∨ = ker(N^∨ on V^∨): a horizontal homomorphism is a constant functional λ on V with λ∘N = 0.",
+   "reason": "Writing φ(v) = Σ φ_n(v) x^n, horizontality gives φ_n∘N = nφ_n, so φ_n = 0 for n ≥ 1 (N − n invertible) and φ_0 vanishes on NV; for M = U_2 the solutions form the annihilator of e_1 in V^∨. The dimensions agree, and that is all the paper's subsequent argument uses (convergence of solutions in the proof of Proposition 5.1.3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1910.13391 (versions as listed on arXiv, latest PDF read 2026-10-14)",
+    "the authors' pages for an erratum to the Inventiones version (none found)"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Daxin Xu, Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391 (Invent. Math. 227 (2022))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-3",
+   "kind": "error",
+   "locator": "Definition 2.5.1, p. 462 (Doc. Math. 10; arXiv v4 p. 16), used in Proposition 3.3.7(c), Proposition 4.2.2, Lemmas 4.3.1-4.3.2",
+   "printed": "Teichmüller presentations of elements of Γ_I are constructed and used, with a uniqueness property, in several proofs.",
+   "correction": "The construction is invalid because the Teichmüller map is not additive; in Proposition 3.3.7(c), Proposition 4.2.2 and Lemma 4.3.2 use strong semiunit presentations (as in the Annals paper, Proposition 3.14) instead; the surjectivity in Lemma 4.3.1, which needs uniqueness, follows from Fourquaux's thesis, Corollaire 3.9.19, and is not used elsewhere.",
+   "reason": "Pointed out by L. Berger and corrected by the author in the published erratum.",
+   "affects": "the proof",
+   "known": "Kedlaya, Erratum for 'Slope Filtrations Revisited', Documenta Math. 12 (2007), 361-362",
+   "searched": [
+    "Kedlaya, Erratum for 'Slope Filtrations Revisited', Doc. Math. 12 (2007), 361-362",
+    "Kedlaya, Additional errata for 'Slope filtrations revisited' (kskedlaya.org/papers/slope-filt-errata2.pdf)",
+    "arXiv:math/0504204 v4 and the Documenta Mathematica text"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, Documenta Mathematica 10 (2005), 447-525 (published version; EMIS mirror of the journal PDF; printed page = PDF page + 446)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-4",
+   "kind": "gap",
+   "locator": "Lemma 2.9.1, proof, p. 474 (Doc. Math. 10; arXiv v4 p. 28)",
+   "printed": "The proof begins by choosing a unit u removing the slopes of f, which is possible only when f has no slopes in [s′, s).",
+   "correction": "Obtain g with (a), (b) from Lemma 2.6.7; for (c) choose s″ with no slopes of f in [s″, s), divide in Γ_[s″,r], note g is a unit in Γ_[s′,s″], and glue the two divisibilities using Corollary 2.5.7 (Γ_[s′,s″] ∩ Γ_[s″,r] = Γ_[s′,r]).",
+   "reason": "Observed by R. Liu and repaired in the published erratum; this is the issue the first pass recorded as its E72 as new.",
+   "affects": "the proof",
+   "known": "Kedlaya, Erratum for 'Slope Filtrations Revisited', Documenta Math. 12 (2007), 361-362 (the first pass's E72 records the same issue)",
+   "searched": [
+    "Kedlaya, Erratum for 'Slope Filtrations Revisited', Doc. Math. 12 (2007), 361-362",
+    "Kedlaya, Additional errata for 'Slope filtrations revisited' (kskedlaya.org/papers/slope-filt-errata2.pdf)",
+    "arXiv:math/0504204 v4 and the Documenta Mathematica text"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, Documenta Mathematica 10 (2005), 447-525 (published version; EMIS mirror of the journal PDF; printed page = PDF page + 446)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-5",
+   "kind": "gap",
+   "locator": "Lemma 2.9.3, proof, p. 475 (Doc. Math. 10; arXiv v4 p. 28)",
+   "printed": "The inductive construction does not ensure that the elements x_{i+1} lie in Γ_r[π^{−1}].",
+   "correction": "Replace g_{i+1} − x_i by y_i ∈ Γ_r with g_{i+1} − x_i − y_i divisible by h_{i+1} in Γ_{i+1}, chosen by an argument like Lemma 2.9.2.",
+   "reason": "Observed by R. Liu and repaired in the published erratum.",
+   "affects": "the proof",
+   "known": "Kedlaya, Erratum for 'Slope Filtrations Revisited', Documenta Math. 12 (2007), 361-362",
+   "searched": [
+    "Kedlaya, Erratum for 'Slope Filtrations Revisited', Doc. Math. 12 (2007), 361-362",
+    "Kedlaya, Additional errata for 'Slope filtrations revisited' (kskedlaya.org/papers/slope-filt-errata2.pdf)",
+    "arXiv:math/0504204 v4 and the Documenta Mathematica text"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, Documenta Mathematica 10 (2005), 447-525 (published version; EMIS mirror of the journal PDF; printed page = PDF page + 446)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-6",
+   "kind": "error",
+   "locator": "Introduction (Section 1.1), p. 3 of arXiv:math/0110124v4 (p. 95 of the Annals version)",
+   "printed": "The ring Γcon is described as the series taking integral values on some open annulus of outer radius 1.",
+   "correction": "An element of Γcon has that property only after multiplication by a large power of the series variable (and conversely); Γcon is the ring of bounded-by-1 overconvergent series in the sense of Chapter 3.",
+   "reason": "Pointed out by K. Buzzard and corrected in the erratum to Slope filtrations revisited; for example u^{−1} ∈ Γcon has |u^{−1}| = 1/|u| > 1 on every annulus ρ < |u| < 1, while u·u^{−1} = 1 is integral.",
+   "affects": "nothing",
+   "known": "Kedlaya, Erratum for 'Slope Filtrations Revisited', Documenta Math. 12 (2007), 361-362 (errata to [2] = the Annals paper)",
+   "searched": [
+    "Kedlaya, Erratum for 'Slope Filtrations Revisited', Doc. Math. 12 (2007), 361-362",
+    "Kedlaya, Additional errata for 'Slope filtrations revisited' (kskedlaya.org/papers/slope-filt-errata2.pdf)",
+    "arXiv:math/0504204 v4 and the Documenta Mathematica text"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, arXiv:math/0110124v4; Annals of Math. 160 (2004), 93-184",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-7",
+   "kind": "error",
+   "locator": "Lemma 2.3, p. 14 of arXiv:math/0110124v4 (Annals version, Lemma 2.3)",
+   "printed": "For a Bézout ring R, every unimodular row is the first row of a matrix of determinant 1.",
+   "correction": "R must be a Bézout domain: the proof divides by a generator d of (x_1, …, x_{n−1}), which needs d to be a nonzerodivisor.",
+   "reason": "The induction forms x_i/d; in a ring with zero divisors a generator need not divide its multiples uniquely. Corrected by the author.",
+   "affects": "the proof",
+   "known": "Kedlaya, Erratum for 'Slope Filtrations Revisited', Documenta Math. 12 (2007), 361-362 (errata to [2])",
+   "searched": [
+    "Kedlaya, Erratum for 'Slope Filtrations Revisited', Doc. Math. 12 (2007), 361-362",
+    "Kedlaya, Additional errata for 'Slope filtrations revisited' (kskedlaya.org/papers/slope-filt-errata2.pdf)",
+    "arXiv:math/0504204 v4 and the Documenta Mathematica text"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, arXiv:math/0110124v4; Annals of Math. 160 (2004), 93-184",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-8",
+   "kind": "misprint",
+   "locator": "Lemma 5.4.6, p. 33 (arXiv:math/0501361v2; page image checked)",
+   "printed": "E has highest break at least β (resp. at most β) iff the tame pull-back f^*E has highest break nβ (resp. at most nβ) iff the push-forward f_*E has highest break β/n (resp. at most β/n): the first alternative of the second and third clauses lacks 'at least'.",
+   "correction": "E has highest break ≥ β (resp. ≤ β) iff f^*E has highest break ≥ nβ (resp. ≤ nβ) iff f_*E has highest break ≥ β/n (resp. ≤ β/n).",
+   "reason": "Each clause compares one-sided bounds; with 'exactly nβ' the equivalence fails, e.g. E of highest break 2β has highest break ≥ β while f^*E has highest break 2nβ ≠ nβ. The proof (Lemma 5.3.1) gives the one-sided statements.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0501361 v1 and v2 listings",
+    "Kedlaya's errata for the overview (kskedlaya.org/papers/overview-errata.txt, read 2026-10-14): it corrects Remark 3.15, Definition 5.3 and Lemma 5.12 of the journal numbering, not this statement"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2; Int. J. Number Theory 1 (2005)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-9",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.4.7, p. 33 (arXiv:math/0501361v2; page image checked)",
+   "printed": "The cover with reduction u^p − u = a t^{−n} is presented as R[u]/(1 + pπ b t^{−n} − (1 + πu)^p) with b lifting a and π^{p−1} = −p.",
+   "correction": "That ring reduces to u^p − u = −a t^{−n} (expand (1 + πu)^p = 1 + pπu − pπu^p + higher terms and divide by pπ); take b lifting −a, or replace u by −u when p is odd. The cover is the same up to this sign, so nothing downstream changes.",
+   "reason": "Coefficient comparison modulo pπ^2: π^p = −pπ and the middle binomial terms are divisible by pπ^2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0501361 v1 and v2 listings",
+    "Kedlaya's errata for the overview (kskedlaya.org/papers/overview-errata.txt, read 2026-10-14): it corrects Remark 3.15, Definition 5.3 and Lemma 5.12 of the journal numbering, not this statement"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.2.json",
+   "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2; Int. J. Number Theory 1 (2005)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E301",
+   "kind": "gap",
+   "locator": "(2.3.2)(iii), p. 71 (IRMAR 96-03, version provisoire 1991)",
+   "printed": "When Y has no global embedding, the category of isocrystals overconvergent along Y − X is defined by gluing along a covering with local embeddings, and the reader is left to check that it does not depend on the choices made.",
+   "correction": "Independence follows by passing to a common refinement embedded in the products P_α ×_S P′_β, using the frame-independence equivalences on each piece and the uniqueness and transitivity of the Taylor comparison isomorphisms; the argument is written out in isocrystals-glued-from-local-frames.",
+   "reason": "The step is needed for the gluing construction to define a category up to canonical equivalence, on which the independence of the compactification (2.3.5) and the definition (2.3.6) rely.",
+   "affects": "the proof",
+   "known": "Kedlaya (Notes on isocrystals, Lemma 2.6) points to Le Stum, Rigid Cohomology (2007), Theorem 7.1.8, for a complete treatment of the related independence statement; that book is not in the cleared library and was not read.",
+   "searched": [
+    "Berthelot's publication list (archived Rennes page)",
+    "Kedlaya, Notes on isocrystals v6, §2",
+    "Chiarellotto–Tsuzuki 2003, §§2–3"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.3.json",
+   "citation": "Pierre Berthelot, Cohomologie rigide et cohomologie rigide à supports propres. Première partie (version provisoire 1991), Prépublication IRMAR 96-03, Université de Rennes 1, January 1996 (author's copy, archived copy of the author's Rennes page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E302",
+   "kind": "misprint",
+   "locator": "Proof of (2.3.5), p. 73",
+   "printed": "The proof invokes the local nature in X of the category of isocrystals overconvergent along Y − X with the cross-reference (2.2.17).",
+   "correction": "The locality in X is the remark after (2.2.11) (together with (2.3.3)(i)); (2.2.17) concerns two morphisms with the same restriction to Y′.",
+   "reason": "(2.2.17) constructs the comparison isomorphism between pullbacks along morphisms agreeing on Y′ and says nothing about restriction to opens of X; the stack statement used here is the remark after (2.2.11).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The preprint itself (no erratum list)",
+    "Kedlaya, Notes on isocrystals v6, Lemma 2.6 and its references"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.3.json",
+   "citation": "Pierre Berthelot, Cohomologie rigide et cohomologie rigide à supports propres. Première partie (version provisoire 1991), Prépublication IRMAR 96-03, Université de Rennes 1, January 1996 (author's copy, archived copy of the author's Rennes page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E303",
+   "kind": "gap",
+   "locator": "(4.3), Théorème 5, p. 30",
+   "printed": "The survey states that the relative rigid cohomology sheaves of a proper smooth family over a smooth base with a suitable proper formal lift are overconvergent F-crystals, without proof or reference.",
+   "correction": "The statement is proved in Tsuzuki, 'On base change theorem and coherence in rigid cohomology', Documenta Math. Extra Volume Kato (2003), Theorem 4.1.1, pp. 906–908, which attributes it to Berthelot.",
+   "reason": "Mém. SMF 23 is a survey announcing results of the then unwritten preprint; the theorem is used by Étesse (2002, proof of Théorème 7) through this citation.",
+   "affects": "the proof",
+   "known": "Tsuzuki 2003, Theorem 4.1.1 (and Shiho, Relative log convergent cohomology I, Introduction, recording the status)",
+   "searched": [
+    "Tsuzuki 2003 (Documenta, Kato volume)",
+    "Shiho, arXiv:0707.1742v2, Introduction",
+    "Étesse 2002, bibliography"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.3.json",
+   "citation": "Pierre Berthelot, Géométrie rigide et cohomologie des variétés algébriques de caractéristique p, Mém. Soc. Math. France (N.S.) 23 (1986), 7–32",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD6-1",
+   "kind": "error",
+   "locator": "Section 2.1.5 (ii), p. 10, arXiv:1910.13391v2",
+   "printed": "The Kummer F-isocrystal is the connection d − a dx/x, and its Frobenius structure (in the direction F^*K_a → K_a fixed in (i)) is multiplication by t^{(q−1)a}.",
+   "correction": "In the direction F^*K_a → K_a, the horizontal multiplier for ∇ = d − a dx/x is t^{−(q−1)a}; the printed multiplier t^{(q−1)a} is horizontal for the reverse direction K_a → F^*K_a (or, in the printed direction, for ∇ = d + a dx/x). The trace function χ ∘ Norm with χ(x) = x̃^{(q−1)a} belongs to the printed multiplier; in the pullback-to-module convention of this roadmap it corresponds to ∇e = a·e ⊗ dx/x (RD.6/kummer-isocrystal).",
+   "reason": "For F(σ^*e) = h·e with ∇e = −a e dt/t and σ^*(dt/t) = q dt/t, horizontality gives dh/h − a dt/t = −qa dt/t, so dh/h = −(q − 1)a dt/t. The parent packet's E69 corrects the misprint p for q in the pulled-back coefficient but states the logarithmic derivative with the opposite sign; the Kummer part has the same direction issue as the Dwork part recorded in E68.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1910.13391 (versions v1, v2) checked on 2026-10-14; no erratum is listed there.",
+    "The parent packet's search of 2026-10-11 for Xu–Zhu errata found no correction notice."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.6.json",
+   "citation": "Daxin Xu, Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391v2 (19 December 2019); Invent. Math. 227 (2022). Printed preprint numbering.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
