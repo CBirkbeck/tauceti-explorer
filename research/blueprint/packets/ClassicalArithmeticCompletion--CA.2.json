@@ -458,6 +458,13 @@
     "module": "TauCeti/NumberTheory/EllipticDivisibilitySequence/NormEDS.lean",
     "provides": "Tau Ceti: normEDS 2 3 2 is the identity sequence over ℤ.",
     "checked": "statement read at the pinned commit (TauCeti/NumberTheory/EllipticDivisibilitySequence/NormEDS.lean, line 183)"
+   },
+   {
+    "ref": "mathlib:IsAddTorsionFree.of_module_rat",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/Rat.lean",
+    "provides": "An additive commutative group with a ℚ-module structure is additively torsion-free (a lemma, not an instance), the hypothesis of PowerSeries.derivative.ext",
+    "checked": "statement read at the pinned commit (added by REV-ClassicalArithmeticCompletion--CA.2)"
    }
   ]
  },
@@ -472,7 +479,7 @@
    "readSections": [
     "§1.4 (descents, Eulerian polynomials, Propositions 1.4.3–1.4.5), pp. 38–41",
     "§1.6.1 (alternating permutations, Proposition 1.6.1 and its proof), pp. 54–55",
-    "Chapter 1 exercises 1.49–1.50 (pp. 123–124) with their solutions (pp. 176–177)"
+    "Chapter 1 exercises 1.49–1.50 (p. 124) with the solutions of 1.49 and 1.50(b)–(e) (pp. 177–178)"
    ]
   },
   {
@@ -545,7 +552,7 @@
    "url": "https://arxiv.org/pdf/math/0402415v1",
    "sha256": "60e3be02029560e46b38b61208b5e2a015ee31749f452ee8ad5120363e6f12ca",
    "readSections": [
-    "§1, the definition of an EDS and the W₂ | W₄ criterion, p. 3",
+    "Introduction, Definition 1, p. 1; §1, the normalisation and the W₂ | W₄ criterion, p. 3",
     "Appendix A, (27)–(31), pp. 16–17"
    ]
   },
@@ -596,7 +603,7 @@
    "sha256": "21a8227da6e32e3498370dc488dcffe28a7226dab17b9185e3c4d18684a9228b",
    "readSections": [
     "Chapter I, pp. 1–3",
-    "Chapter III, §2 (the opening paragraph, §§2.1–2.3, Lemmas 2.1–2.3 with proofs), pp. 16–17, with the statements of Lemmas 1.6–1.11 it uses",
+    "Chapter III, §2 (the opening paragraph, §§2.1–2.3, Lemmas 2.1–2.3 with proofs), pp. 16–18, with the statements of Lemmas 1.6–1.11 it uses",
     "Chapter IV, §§2–4 (Lemmas 2.1, 3.1, 4.1 with proofs, Example 4.2), pp. 38–39"
    ]
   },
@@ -618,7 +625,7 @@
    "edition": "Online edition, retrieved 2026-10-14",
    "url": "https://dlmf.nist.gov/24.9",
    "readSections": [
-    "§24.9, (24.9.7)–(24.9.8)"
+    "§24.9, (24.9.7)–(24.9.9)"
    ]
   }
  ],
@@ -735,9 +742,9 @@
      "statement": "A(2, 0) = A(2, 1) = 1."
     },
     {
-     "name": "eulerian_zero_zero",
+     "name": "sum_eulerian_zero",
      "kind": "degenerate",
-     "statement": "A(0, 0) = 1: a definition that builds in 'A(n, q) = 0 unless q < n' gives 0 here and breaks the row sum 0! = 1."
+     "statement": "Σ_{q ≤ 0} A(0, q) = 0! = 1, that is A(0, 0) = 1: a definition that builds in 'A(n, q) = 0 unless q < n' gives 0 here and breaks the row sum."
     },
     {
      "name": "sum_eulerian_five",
@@ -775,7 +782,7 @@
     "(a) The sets {σ : des σ = q}, 0 ≤ q ≤ n, partition Equiv.Perm (Fin n), whose cardinality is n! (Fintype.card_perm).",
     "(b) and (f): reversal σ ↦ σ ∘ rev sends a permutation with q descents to one with n − 1 − q descents, and complementation σ ↦ rev ∘ σ exchanges descents and ascents (Stanley p. 40, the paragraph before Proposition 1.4.3).",
     "(c) Insert n + 1 into a permutation of [n]: inserting it into a descent slot or at the end keeps the descent number, inserting it into an ascent slot or at the front raises it by one; this is Stanley's recurrence (1.39) A(d + 1, k) = kA(d, k) + (d − k + 2)A(d, k − 1) with k = q + 2.",
-    "(d) Stanley's Proposition 1.4.4, Σ_{m≥0} mⁿxᵐ = A_n(x)/(1 − x)^{n+1} with A_n(x) = Σ_j A(n, j)x^{j+1}; expanding 1/(1 − x)^{n+1} = Σ_k C(n + k, n)x^k (Mathlib's PowerSeries.invOneSubPow) and comparing coefficients of x^{q+1} gives (d).",
+    "(d) For n ≥ 1, Stanley's Proposition 1.4.4 gives Σ_{m≥0} mⁿxᵐ = A_n(x)/(1 − x)^{n+1} with A_n(x) = Σ_j A(n, j)x^{j+1}; expanding 1/(1 − x)^{n+1} = Σ_k C(n + k, n)x^k (Mathlib's PowerSeries.invOneSubPow) and comparing coefficients of x^{q+1} gives (d). At n = 0 Stanley sets A₀(x) = 1 rather than x, so (d) is checked directly there: only j = 0 contributes, and both sides are 1 because A(0, 0) = 1.",
     "(e) A(n, 0) = 1 because only the identity has no descent; A(n, 1) = 2ⁿ − n − 1 follows from (d) at q = 1: 2ⁿ = A(n, 0)C(n + 1, n) + A(n, 1)."
    ],
    "acceptance": [
@@ -798,8 +805,8 @@
     },
     {
      "sourceId": "lawrence-sawin-2025",
-     "locator": "Appendix B, opening paragraph, p. 93; Appendix A, proof of Lemma A.6, p. 92; Appendix C, Lemma C.2 and its proof, p. 116",
-     "match": "States the factorial sum Σ_q A(n, q) = n! and uses the symmetry A(n, k) = A(n, n − 1 − k) (proof of Lemma A.6, p. 92) and the ascent description."
+     "locator": "Appendix C, Lemmas C.1–C.2 with their proofs, p. 116; Appendix A, proof of Lemma A.6, p. 92; Appendix B, opening paragraph, p. 93",
+     "match": "The proof of Lemma C.2 is the factorial sum Σ_q A(n, q) = n!; the proof of Lemma A.6 uses the symmetry A(n, k) = A(n, n − 1 − k); the proof of Lemma C.1 recalls that A(n, q) counts the permutations with exactly q ascents; the opening of Appendix B fixes the convention A(n, q) = 0 outside 0 ≤ q < n."
     }
    ],
    "implementationStatus": "unchecked",
@@ -845,7 +852,7 @@
    "sources": [
     {
      "sourceId": "STANLEY.EC1",
-     "locator": "Chapter 1, Exercise 1.50(e), p. 124, and its solution, p. 177; Exercise 1.49 with solution, pp. 123–124 and 176",
+     "locator": "Chapter 1, Exercise 1.50(e), p. 124, with its solution, p. 178; Exercises 1.49 and 1.50(a)–(b), p. 124, with the solutions of 1.49 and 1.50(b), p. 177",
      "match": "Asks to show that Σ_{w ∈ S_n} x^{des(w)} is symmetric and unimodal, and solves it from the real-rootedness of the Eulerian polynomial (Exercise 1.49) and Newton's inequalities (Exercise 1.50(a),(b)); cites Gasharov for a combinatorial proof."
     },
     {
@@ -1124,7 +1131,7 @@
    "sources": [
     {
      "sourceId": "yu-2023",
-     "locator": "§7.2.2, definition of f_p before the citation of Luo–Zhu, p. 71 (arXiv v5)",
+     "locator": "§7.2.2, definition of f_p before the citation of Luo–Zhu, p. 71, and the unit property in the first case of the proof, p. 72 (arXiv v5)",
      "match": "Defines f_p(n) as the product of the integers 1 ≤ i ≤ n prime to p, equal to n!/(p^{[n/p]}[n/p]!), and uses that f_p(p^α) is a unit of ℤ_p."
     },
     {
@@ -1364,7 +1371,7 @@
     {
      "sourceId": "stange-valuations-2014",
      "locator": "§3, Theorem 8 and the paragraph after it, p. 8 (arXiv v4)",
-     "match": "States that a sequence Ψₙ(P) on a cubic Weierstrass curve is an EDS and that every EDS over a field with W₂W₃ ≠ 0, W₁ = 1 is Ψₙ(P) for some cubic Weierstrass curve E/K and P ∈ E(K), attributing it to Ward (Theorem 12.1), Shipsey and Stange."
+     "match": "States Ward's theorem, as updated by Shipsey and Stange, over a field of characteristic zero: Ψₙ(P) on a cubic Weierstrass curve is an EDS, and every EDS with W₂W₃ ≠ 0, W₁ = 1 is Ψₙ(P) for some cubic Weierstrass curve E/K and P ∈ E(K) (Ward, Theorem 12.1; Shipsey; Stange). The source gives no explicit curve; the curve of this node is checked by the direct computation of the proof sketch, over every field."
     },
     {
      "sourceId": "silverman-stephens-2004",
@@ -1516,7 +1523,8 @@
     "declaration": "TauCeti.ClassicalArithmetic.evalEval_ψ_eq_zero_iff",
     "declarations": [
      "TauCeti.ClassicalArithmetic.evalEval_ψ_eq_zero_iff",
-     "TauCeti.ClassicalArithmetic.evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero"
+     "TauCeti.ClassicalArithmetic.evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero",
+     "TauCeti.ClassicalArithmetic.zsmul_some_eq_some_of_evalEval_ψ_ne_zero"
     ]
    }
   },
@@ -1551,7 +1559,7 @@
     {
      "sourceId": "silverman-padic-2004",
      "locator": "§3, Theorem 8, p. 6 (arXiv:math/0404412v1)",
-     "match": "For an elliptic curve over a finite field and a point of exact order r ≥ 2, describes the sequence Fₙ(P) as vanishing exactly at the multiples of r, with the periodicity F_{kr+n} = a^{kn}b^{k²}Fₙ."
+     "match": "For an elliptic curve over a finite field and a point P of exact order r ≥ 2, gives F_{kr+n}(P) = a^{kn}b^{k²}Fₙ(P) with units a, b (and F_{2k}(P) = 0 when r = 2); since F₀ = 0 and Fₙ(P) ≠ 0 for 0 < n < r, the sequence vanishes exactly at the multiples of r."
     },
     {
      "sourceId": "stange-valuations-2014",
@@ -1582,10 +1590,10 @@
     "p prime; W has coefficients in ℤ_p (any integral model); Δ(W) ≠ 0 as in the source, which treats elliptic curves."
    ],
    "proofSteps": [
-    "The formal group Ê of the Weierstrass equation has coefficients in ℤ_p (it is defined from the a_i universally); for z ∈ pℤ_p the series w(z) converges and z ↦ (z/w(z), −1/w(z)) is an isomorphism Ê(pℤ_p) → E_1(ℚ_p) with v(z) = −v(x)/2 (Streng, Lemma III.2.1; Silverman AEC VII.2.2 for a minimal equation).",
+    "The formal group Ê of the Weierstrass equation has coefficients in ℤ_p (it is defined from the a_i universally); for z ∈ pℤ_p the series w(z) converges and z ↦ (z/w(z), −1/w(z)) is an isomorphism Ê(pℤ_p) → E_1(ℚ_p) with v(z) = −v(x)/2 (Streng, Lemma III.2.1; Silverman AEC VII.2.2 for a minimal equation; Tau Ceti's EllipticCurves Layer 1, milestone (iv), plans this identification for an integral model).",
     "Ê(p^kℤ_p) is a subgroup of Ê(pℤ_p), and its image is E_k(ℚ_p); Ê(p^k)/Ê(p^{k+1}) ≅ p^kℤ_p/p^{k+1}ℤ_p ≅ 𝔽_p (Streng, Lemma III.2.3).",
     "The last sentence is the preimage of a subgroup under a homomorphism.",
-    "Tau Ceti's EllipticCurves roadmap plans the elliptic formal group law (Layer 1) and the identification Ê(𝔪) ≅ E_1(K) from a minimal Weierstrass equation (Layer 4); this node needs the same statements for an arbitrary integral equation, which the same proof gives."
+    "Tau Ceti's EllipticCurves roadmap, Layer 1, plans the elliptic formal group law (milestone (i)), the group Ê(𝔪) over a complete valued field (iii) and the identification Ê(𝔪) ≅ E₁(K) for an integral model (iv); its Layer 4 works from a minimal equation and is not used here. This node adds the finer filtration E_k, k ≥ 1, and its quotients for an arbitrary integral equation (AEC VII, Exercise 7.4, as solved in Streng, Lemma III.2.3)."
    ],
    "acceptance": [
     "BLRN, Remark 2.5: E: y² + xy = x³ + 4x + 1, P = (15/4, −83/8) ∈ E_1(ℚ₂) with v₂(P) = 1 and v₂(2P) = 4: the quotients E_k/E_{k+1} are 𝔽₂ but E_1(ℚ₂) has 2-torsion, so the valuation is not v(P) + v₂(n) in general.",
@@ -1593,7 +1601,6 @@
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
     "mathlib:PadicInt",
     "mathlib:Padic",
     "mathlib:WeierstrassCurve.baseChange"
@@ -1601,7 +1608,7 @@
    "sources": [
     {
      "sourceId": "streng-mthesis-2006",
-     "locator": "Chapter III, §2 (opening paragraph, Lemma 2.1, §2.3 and Lemma 2.3), pp. 16–17",
+     "locator": "Chapter III, §2 (opening paragraph, Lemma 2.1, §2.3 and Lemma 2.3), pp. 16–18",
      "match": "Repeats AEC VII §2 for any Weierstrass equation with integral coefficients, not only a minimal one: E_1(K) ≅ Ê(M) via z = −x/y with v(z) = −v(x)/2, the sets E_n(K) = {v(x) ≤ −2n} ∪ {O} are subgroups, and E_n/E_{n+1} ≅ k⁺."
     },
     {
@@ -1696,6 +1703,7 @@
     "Absolute values are needed: Wₙ can be negative (W₃ = −1 for the curve 37a1)."
    ],
    "proofSteps": [
+    "Ward's sequences are the normEDS: normEDS b c d satisfies the elliptic net relations (Tau Ceti isEllipticNet_normEDS), hence the EDS recursion, with W₀, …, W₄ = 0, 1, b, c, db; an EDS with W₁ = 1 and W₂W₃ ≠ 0 is determined by W₂, W₃, W₄, and such a triple gives an integral EDS exactly when W₂ | W₄ (Silverman–Stephens, §1, p. 3), so every normalised nondegenerate integral EDS is normEDS b c d for some b, c, d ∈ ℤ with bc ≠ 0.",
     "Necessity: put m = 3, n = 4.",
     "Sufficiency, prime by prime: it suffices that for every prime p, min(v_p W_m, v_p Wₙ) = v_p W_{gcd(m,n)}. The inequality ≥ in the other direction is divisibility (Tau Ceti isDvdSequence_normEDS).",
     "Primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0: eds-strong-divisibility-at-good-primes.",
@@ -1732,6 +1740,11 @@
      "sourceId": "bhakta-loughran-rydin-myerson-nakahara-2023",
      "locator": "§3.1, Lemma 3.5 and the remark after it, p. 9 (arXiv:2109.03746)",
      "match": "Strong divisibility of the normalised denominator sequence, with the warning that the division-polynomial sequence need not be strongly divisible when P has bad reduction — the primes this theorem's gap concerns."
+    },
+    {
+     "sourceId": "silverman-stephens-2004",
+     "locator": "§1, p. 3 (arXiv:math/0402415v1)",
+     "match": "An EDS is determined by W₂, W₃, W₄ through its two duplication recursions, and a triple with W₂W₃ ≠ 0 gives an EDS exactly when W₂ | W₄ (attributed to Ward)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1763,7 +1776,7 @@
    ],
    "proofSteps": [
     "(a), (b): compare coefficients with PowerSeries.coeff_derivative: the n-th coefficient of d/dX f is (n + 1)·coeff_{n+1}(f); for sin this is (n + 1)·[n even]·(−1)^{n/2}/(n + 1)! = [n even]·(−1)^{n/2}/n!, the n-th coefficient of cos; for cos it is −[n odd]·(−1)^{(n−1)/2}/n!, that of −sin.",
-    "(c): f = sin² + cos² has d/dX f = 2 sin cos − 2 cos sin = 0 by (a), (b) and the Leibniz rule of the derivation, and constant coefficient 0 + 1 = 1; PowerSeries.derivative.ext (A is torsion-free as a ℚ-algebra) gives f = 1."
+    "(c): f = sin² + cos² has d/dX f = 2 sin cos − 2 cos sin = 0 by (a), (b) and the Leibniz rule of the derivation, and constant coefficient 0 + 1 = 1; PowerSeries.derivative.ext, whose hypothesis IsAddTorsionFree A holds because A is a ℚ-module (IsAddTorsionFree.of_module_rat, a lemma rather than an instance), gives f = 1."
    ],
    "acceptance": [
     "The coefficient of X² of cos is −1/2 and of X³ of sin is −1/6.",
@@ -1774,13 +1787,14 @@
     "mathlib:PowerSeries.cos",
     "mathlib:PowerSeries.derivative",
     "mathlib:PowerSeries.coeff_derivative",
-    "mathlib:PowerSeries.derivative.ext"
+    "mathlib:PowerSeries.derivative.ext",
+    "mathlib:IsAddTorsionFree.of_module_rat"
    ],
    "sources": [
     {
      "sourceId": "STANLEY.EC1",
      "locator": "§1.6.1, proof of Proposition 1.6.1, pp. 54–55",
-     "match": "Proves that the exponential generating function of the Euler numbers is sec x + tan x through the formal differential equations of tan and sec, which rest on the formal derivatives of sin and cos and on cos² + sin² = 1."
+     "match": "Reduces Proposition 1.6.1 (the exponential generating function of the Euler numbers is sec x + tan x) to the equation 2y′ = y² + 1 with y(0) = 1 and states that sec x + tan x is its unique solution; that sec x + tan x solves the equation rests on the derivatives of sin and cos and on sin² + cos² = 1, which the source takes as known."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1808,7 +1822,7 @@
     "k ≥ 1 in (a); |z| ≥ 2π in (b). This includes the boundary circle, which the analytic theorem's radius statement leaves open."
    ],
    "proofSteps": [
-    "(a) Mathlib's hasSum_zeta_nat: Σ_{n≥1} 1/n^{2k} = (−1)^{k+1}2^{2k−1}π^{2k}B_{2k}/(2k)!; the left side is ζ(2k) > 1, so (−1)^{k+1}B_{2k} > 0 and |B_{2k}|(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2 (DLMF 24.9.8 states the same lower bound).",
+    "(a) Mathlib's hasSum_zeta_nat: Σ_{n≥1} 1/n^{2k} = (−1)^{k+1}2^{2k−1}π^{2k}B_{2k}/(2k)!; the left side is ζ(2k) > 1, so (−1)^{k+1}B_{2k} > 0 and |B_{2k}|(2π)^{2k}/(2k)! = 2ζ(2k) ≥ 2 (DLMF (24.9.8) gives the slightly stronger lower bound 2/(1 − 2^{−2k})).",
     "(b) For |z| ≥ 2π, |B_{2k}z^{2k}/(2k)!| ≥ |B_{2k}|(2π)^{2k}/(2k)! ≥ 2 for every k ≥ 1, so the terms do not tend to 0 (Summable.tendsto_atTop_zero, the additive form of Multipliable.tendsto_atTop_one)."
    ],
    "acceptance": [
@@ -1824,7 +1838,7 @@
     {
      "sourceId": "nist-dlmf-24-9",
      "locator": "§24.9, (24.9.8), retrieved 2026-10-14",
-     "match": "For n ≥ 1, (−1)^{n+1}B_{2n} is at least 2(2n)!/(2π)^{2n} times 1/(1 − 2^{−2−2n})."
+     "match": "For n ≥ 1, bounds (−1)^{n+1}B_{2n} below by 2(2n)!/(2π)^{2n} times 1/(1 − 2^{−2n}), and above by the same quantity times 1/(1 − 2^{β−2n}) with β = 2 + log₂(1 − 6/π²) ≈ 0.649 (24.9.9)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1902,20 +1916,13 @@
    "neededBy": [
     "ClassicalArithmeticCompletion:CA.2/ward-strong-divisibility"
    ],
-   "detail": "For b, c, d ∈ ℤ with bc ≠ 0 and gcd(c, db) = 1, the subgroup property of {n : p^V | Wₙ}, W = normEDS b c d, is planned only at primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0 (CA.2/eds-strong-divisibility-at-good-primes). Missing: (1) primes p dividing b or c; there the point (0, 0) can have singular reduction on every integral model (b = 1, c = 3, d = 1, p = 3: no integral model carries P as an integral nonsingular point, and v₃(Wₙ) = 1 for n ≡ 3 (mod 6), 4 + v₃(n/6) for 6 | n), so the formal-group argument does not apply; (2) the singular case Δ(E_{b,c,d}) = 0 (sequences satisfying a linear recurrence, e.g. normEDS 2 3 2 = id), where the filtration of the nonsingular points of a singular integral cubic is needed. Sources: Ward, Memoir on elliptic divisibility sequences, Amer. J. Math. 70 (1948), 31–74, proves the theorem by recursion but is not freely available; no public source with a complete proof was found (searched: Silverman arXiv:math/0404412 and his 2007 ICMS slides, Silverman–Stephens math/0402415, Everest–King math/0404124, Everest–McLaren–Ward math/0409540, Bhakta–Loughran–Rydin Myerson–Nakahara 2109.03746, Streng's master's thesis, Stange 0710.1316 and 1108.3051, Silverman–Stange 1001.5303, Verzobio 1906.00632, Xu 2604.05280; Shipsey's and Swart's theses are not online). Numerical evidence: 1552 sequences with b ∈ [−6, 6] ∖ {0}, c, d ∈ [−8, 8], gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for m, n ≤ 24. A route: Stange's valuation formulas for P of singular reduction (troublemaker sequences, Theorems 19 ff. of arXiv:1108.3051) together with the integrality and coprimality constraints, or a recursion-only proof of the subgroup property modulo p^V."
+   "detail": "For b, c, d ∈ ℤ with bc ≠ 0 and gcd(c, db) = 1, the subgroup property of {n : p^V | Wₙ}, W = normEDS b c d, is planned only at primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0 (CA.2/eds-strong-divisibility-at-good-primes). Missing: (1) primes p dividing b or c; there the point (0, 0) can have singular reduction on every integral model (b = 1, c = 3, d = 1, p = 3: no integral model carries P as an integral nonsingular point, and v₃(Wₙ) = 1 for n ≡ 3 (mod 6), 4 + v₃(n/6) for 6 | n), so the formal-group argument does not apply; (2) the singular case Δ(E_{b,c,d}) = 0 (sequences satisfying a linear recurrence, e.g. normEDS 2 3 2 = id), where the filtration of the nonsingular points of a singular integral cubic is needed. Sources: Ward, Memoir on elliptic divisibility sequences, Amer. J. Math. 70 (1948), 31–74, proves the theorem by recursion but is not freely available; no public source with a complete proof was found (searched: Silverman arXiv:math/0404412 and his 2007 ICMS slides, Silverman–Stephens math/0402415, Everest–King math/0404124, Everest–McLaren–Ward math/0409540, Bhakta–Loughran–Rydin Myerson–Nakahara 2109.03746, Streng's master's thesis, Stange 0710.1316 and 1108.3051, Silverman–Stange 1001.5303, Verzobio 1906.00632, Xu 2604.05280; Shipsey's and Swart's theses are not online). Numerical evidence: 1552 sequences with b ∈ [−6, 6] ∖ {0}, c, d ∈ [−8, 8], gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for m, n ≤ 24. A wider check by the review: the 3232 sequences with b, c ∈ [−12, 12] ∖ {0}, d ∈ [−6, 6] and gcd(c, db) = 1 satisfy gcd(W_m, Wₙ) = |W_{gcd(m,n)}| for 1 ≤ m, n ≤ 32, and in the first range no sequence with gcd(c, db) ≠ 1 is strongly divisible. A route: Stange's valuation formulas for P of singular reduction (troublemaker sequences, Theorems 19 ff. of arXiv:1108.3051) together with the integrality and coprimality constraints, or a recursion-only proof of the subgroup property modulo p^V."
   }
  ],
  "requests": [
   {
    "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
-   "need": "The elliptic formal group law Ê of a Weierstrass equation, defined over its coefficient ring from the expansion at O, as Tau Ceti's EllipticCurves Layer 1 plans it; consumed for an arbitrary integral equation over ℤ_p.",
-   "neededBy": [
-    "ClassicalArithmeticCompletion:CA.2/reduction-filtration-of-an-integral-weierstrass-equation"
-   ]
-  },
-  {
-   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-   "need": "The identification Ê(𝔪) ≅ E₁(K) and the reduction filtration over a complete DVR, which Layer 4 plans from a minimal Weierstrass equation; this layer applies the same proof to an arbitrary integral equation (Streng, Lemmas III.2.1–2.3).",
+   "need": "The elliptic formal group law Ê of a Weierstrass equation over its coefficient ring (milestone (i)), its group of points Ê(𝔪) over a complete discrete valuation ring (iii) and the identification Ê(𝔪) ≅ E₁(K) for an integral model (iv), as Tau Ceti's EllipticCurves Layer 1 plans them; consumed over ℤ_p for an arbitrary integral equation.",
    "neededBy": [
     "ClassicalArithmeticCompletion:CA.2/reduction-filtration-of-an-integral-weierstrass-equation"
    ]
@@ -1938,7 +1945,7 @@
     "ClassicalArithmeticCompletion"
    ],
    "detail": "Three steps of first-pass CA.2 targets now have supplier nodes in this packet, which the first-pass packet cannot list because it is not edited here.",
-   "proposal": "At assembly, add ClassicalArithmeticCompletion:CA.2/formal-sine-cosine-identities to the prerequisites of ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-formal-identity; ClassicalArithmeticCompletion:CA.2/bernoulli-coefficients-do-not-decay to those of ClassicalArithmeticCompletion:CA.2/bernoulli-generating-function-on-its-disc (it proves the divergence for |z| ≥ 2π behind not_summable_bernoulli_mul_pow); and ClassicalArithmeticCompletion:CA.2/tangent-coefficients-do-not-decay to those of ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-on-its-disc (behind not_summable_zigzag_mul_pow, with e = zigzag and zigzag_odd_eq_bernoulli)."
+   "proposal": "At assembly, add ClassicalArithmeticCompletion:CA.2/formal-sine-cosine-identities to the prerequisites of ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-formal-identity; ClassicalArithmeticCompletion:CA.2/bernoulli-coefficients-do-not-decay to those of ClassicalArithmeticCompletion:CA.2/bernoulli-generating-function-on-its-disc (it proves the divergence for |z| ≥ 2π behind not_summable_bernoulli_mul_pow); and ClassicalArithmeticCompletion:CA.2/tangent-coefficients-do-not-decay to those of ClassicalArithmeticCompletion:CA.2/secant-plus-tangent-on-its-disc (behind not_summable_zigzag_mul_pow, with e = zigzag and zigzag_odd_eq_bernoulli); and mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one with mathlib:IsUltrametricDist.nonarchimedeanGroup to those of ClassicalArithmeticCompletion:CA.2/p-adic-digit-expansion (the summability supplier its frontier disposition names, used in additive form in ℤ_p)."
   },
   {
    "action": "split",
@@ -1954,7 +1961,7 @@
    "roadmaps": [
     "tauceti:TauCetiRoadmap/EllipticCurves"
    ],
-   "note": "Layer 4 states the identification Ê(𝔪) ≅ E₁(K) and the reduction filtration from a minimal Weierstrass equation. Consumers of elliptic divisibility sequences need it for an arbitrary integral equation (Streng's master's thesis, Lemmas III.2.1–2.3, does exactly this); the minimality hypothesis is not used by the proof, so the layer could state the general form."
+   "note": "Layer 1, milestone (iv), states Ê(𝔪) ≅ E₁(K) for an integral model, which is what elliptic divisibility sequences need. The finer filtration E_k(K) = {O} ∪ {v(x) ≤ −2k}, k ≥ 1, with E_k/E_{k+1} ≅ k⁺ (AEC VII, Exercise 7.4) is not named in the roadmap; ClassicalArithmeticCompletion plans it for an arbitrary integral equation from milestone (iv). If Layer 4 states its reduction filtration only for a minimal equation, a remark that E₁ of a nonminimal integral equation is the image of its own formal group, not the kernel of reduction of the minimal model, would prevent a mismatch."
   }
  ],
  "frontierResponse": [
@@ -2076,7 +2083,13 @@
    "searched": [
     "the arXiv listing of 1611.06506 (one version only)",
     "arXiv:2106.02882v1, §3, Lemma 3.1"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "arXiv:1611.06506v1, p. 16: the third line of the display in the proof of Lemma 4.6 carries p^α(n − 1) in front and again inside the sum; arXiv:2106.02882v1, Lemma 3.1, p. 6, has it once, and expanding ∏(p^α(n − 1) + i) modulo p^{2α} gives the single factor. Recomputed: the congruence of Lemma 3.1 holds for p ∈ {3, 5, 7}, α ≤ 3 and p = 2, α ∈ {2, 3}, N ≤ 11.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.2",
+    "date": "2026-10-14"
+   }
   },
   {
    "id": "ClassicalArithmeticCompletion/E1202",
@@ -2091,7 +2104,13 @@
    "searched": [
     "the slide file on the author's presentations page (the only version)",
     "Silverman's paper arXiv:math/0404412, Definition 2 and §8, which defines EDS as divisibility sequences and does not repeat the claim"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The slide numbered 1 (PDF page 2) asserts strong divisibility, W_{gcd(m,n)} = gcd(W_m, Wₙ), for every integral EDS with W₀ = 0, W₁ = 1, W₂W₃ ≠ 0 and W₂ | W₄. Recomputed: normEDS 1 (−6) (−6) = 0, 1, 1, −6, −6, 210, −1044 meets these hypotheses and gcd(W₃, W₄) = 6 ≠ 1 = W₁; for y² + y = x³ − x, W₃ = W₆ = −1, so the identity needs |W_{gcd(m,n)}|.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.2",
+    "date": "2026-10-14"
+   }
   }
  ],
  "sourceVersions": [
@@ -2124,6 +2143,53 @@
    "url": "https://arxiv.org/pdf/1807.04659v5",
    "read": "2026-10-14",
    "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.mit.edu/~rstan/ec/ec1.pdf",
+   "read": "2026-10-14",
+   "sha256": "f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1108.3051v4",
+   "read": "2026-10-14",
+   "sha256": "fb37db6624f35fa159c71dead25674b42e4d8318c1d5a048bf60a889f40a8fb4"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0402415v1",
+   "read": "2026-10-14",
+   "sha256": "60e3be02029560e46b38b61208b5e2a015ee31749f452ee8ad5120363e6f12ca"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0404412v1",
+   "read": "2026-10-14",
+   "sha256": "6b6826c18b490ab4aed3f071366d5c0a189039bad5847e5ad59ac51af8998f12"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1001.5303v1",
+   "read": "2026-10-14",
+   "sha256": "9de6f7ce114988a241e3e5d197637e746c13bc052eae45a2b7fb1cf0f4494568"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2109.03746",
+   "read": "2026-10-14",
+   "sha256": "7874ccb938784e66012670909929876759a9370b42c4398ca0f7fa494fbd1aae"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://pub.math.leidenuniv.nl/~strengtc/mthesis.pdf",
+   "read": "2026-10-14",
+   "sha256": "21a8227da6e32e3498370dc488dcffe28a7226dab17b9185e3c4d18684a9228b"
+  },
+  {
+   "kind": "published",
+   "url": "https://dlmf.nist.gov/24.9",
+   "read": "2026-10-14"
   }
  ],
  "provenance": {
@@ -2131,5 +2197,594 @@
   "worker": "Claude (session claude-ZmmAC5)",
   "date": "2026-10-14",
   "continues": "research/blueprint/packets/ClassicalArithmeticCompletion.json (accepted by REV-ClassicalArithmeticCompletion~3); its 61 CA.2 nodes are cited, not repeated"
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-ClassicalArithmeticCompletion--CA.2",
+  "date": "2026-10-14",
+  "notes": "Independent review by Claude (session claude-xDS6Fs), issue #9675, at target level (PROTOCOL §2); the plan was written by session claude-ZmmAC5 (BP-ClassicalArithmeticCompletion--CA.2, PR #9694). All twelve PDF sources were downloaded afresh and match the packet's SHA-256; DLMF §24.9 was read online. Every node was read at its locators, every baseline declaration at the pins, and every numerical claim recomputed (Eulerian identities and Lemmas C.1–C.5 for n ≤ 71, Yu's divisibility, the p-free factorial and both factorisations, the Luo–Zhu congruences, the discriminant formula at 500 random rational points, the EDS examples, and Ward's criterion on 3232 further sequences). Nine nodes verified, eleven corrected, none added. Substantive corrections: Tau Ceti's EllipticCurves Layer 1, milestone (iv), already plans Ê(𝔪) ≅ E₁(K) for an integral model, so the Layer 4 prerequisite and request are removed and the upstream note rewritten; the Worpitzky proof step failed at n = 0 as written; DLMF (24.9.8) was misquoted; Stange's Theorem 8 is a characteristic-zero statement; Stanley's proof of Proposition 1.6.1 does not prove the trigonometric identities the match credited to it; part (c) of the division-polynomial theorem had no Lean signature; an unused prerequisite now has its proof step; the torsion-freeness supplier of PowerSeries.derivative.ext is added; locator pages corrected (Stanley exercises, Streng, Yu). The restructure entry that wires suppliers at assembly also names the summability lemma the p-adic-digit frontier disposition relies on. Both source findings confirmed. The suggested file elaborates at the pins with exit 0 and only proof-placeholder warnings (77); an audit of its 82 constants finds no placeholder inside a statement or definition body. The reader is re-rendered node by node from the corrected packet, and every underscore after a non-ASCII character is escaped (63; 28 of them made the site renderer open emphasis and drop characters). The gap (Ward at primes dividing W₂W₃ and for singular attached curves) is precise and honest; CA.2 stays planned.",
+  "checked": [
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-numbers",
+    "verdict": "corrected",
+    "note": "Definition, conventions and the zero-degree value checked against Stanley §1.4 (p. 39: A(d, k) counts k − 1 descents, A(0, k) = δ₀ₖ) and Lawrence–Sawin pp. 20, 93, 116. Brute-force descent counts for n ≤ 7 agree with the recurrence; all six tests and both acceptance rows recomputed. The degenerate test, which shared the name eulerian_zero_zero with an API lemma while stating the row sum at n = 0, is renamed sum_eulerian_zero in the packet and the Lean docstring."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities",
+    "verdict": "corrected",
+    "note": "(a)–(f) recomputed for n ≤ 71 (Worpitzky for all q ≤ n + 2, including n = 0). Proof step (d) quoted Stanley 1.4.4 with A_n(x) = Σ A(n, j)x^{j+1}, which fails at n = 0 (Stanley sets A₀(x) = 1); the step now covers n ≥ 1 by 1.4.4 and n = 0 directly. The Lawrence–Sawin locator and match now say which page states which fact (C.2 proof p. 116: factorial sum; A.6 proof p. 92: symmetry; B opening p. 93: convention only). Stanley p. 40 (1.37)–(1.39) checked."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-unimodal",
+    "verdict": "corrected",
+    "note": "Inequality checked for n ≤ 71; the recurrence difference and the coefficient sum (q + 2) + (n − 2q − 2) − (n − q) = 0 verified by hand. Stanley locator corrected: Exercise 1.49 is on p. 124 (not 123), its solution on p. 177 (not 176), and the solution of 1.50(e) on p. 178 (not 177); readSections fixed accordingly."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-power-bounds",
+    "verdict": "verified",
+    "note": "Lawrence–Sawin Lemmas C.1–C.2, p. 116, read: statement, ranges (n ≥ 1, q ≥ 0) and the labelling proof match. Bounds recomputed for 1 ≤ n ≤ 71, q ≤ n + 2; the Worpitzky route for the upper bound is sound."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-small-descent-bounds",
+    "verdict": "verified",
+    "note": "Lemma C.3, pp. 116–117, read; hypothesis q < n/(log(n + 1) + 1) − 1 and n ≥ 2 as printed; recomputed for n ≤ 71."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-square-separation",
+    "verdict": "verified",
+    "note": "Lemma C.4 and its proof, p. 117, read. The packet restates the case split as r < n/(log(n + 1) + 1) or r ≥ r₀, which is what the proof uses; checked that r₀ exists for 21 ≤ n < 5000, that (1 − 1/e)²r^{2n} > 2(3r − 1)ⁿ + (1 − 1/e)rⁿ for r ≥ 3, n ≥ 14 (sampled to r < 40, n < 80), and the lemma itself for n ≤ 71. A(12, 2) = 478271, A(12, 7) = 66318474."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eulerian-ratio-bound",
+    "verdict": "verified",
+    "note": "Lemma C.5, pp. 117–118, read. The inequality fails exactly for n ∈ {0, 1, 3, …, 10} among n ≤ 71; the quoted values at n = 10, 11, the threshold n ≥ 6 for C.3 at q = 1 and n ≥ 15 for 27(3/4)ⁿ < (1 − 1/e)² recomputed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/generalized-binomial-divisibility",
+    "verdict": "verified",
+    "note": "Yu's Lemme 7.2.2 and proof, p. 67, read: same hypotheses (n, m nonzero, m ≥ 1). Divisibility checked for 0 < |n| ≤ 40, 1 ≤ m ≤ 29, absorption for |n| ≤ 30, m < 20; Ring.choose_neg and descPochhammer_eq_factorial_smul_choose read at the pin."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/p-free-factorial",
+    "verdict": "corrected",
+    "note": "Definition matches Yu p. 71 (n ≥ 1) and Luo–Zhu (10), p. 6 (n ≥ 0). Factorial split checked for p ∈ {0, 1, 2, 3, 5, 7}, N < 40, with Lean division by 0 and divisibility by 0; tests recomputed. The Yu locator now also cites p. 72, where the unit property f_p(p^α) ∈ ℤ_p^× is used."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/p-free-factorial-binomial-factorisation",
+    "verdict": "verified",
+    "note": "Both identities as displayed on Yu p. 71; checked for p ∈ {2, 3, 5, 7}, n, m ≤ 11 including m = 0 and the sign (−1)^{m(p−1)}; the derivation through C(N + M − 1, M) = C(N + M, M)·N/(N + M) and part (a) at (n + m, m) is sound."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/luo-zhu-congruence",
+    "verdict": "verified",
+    "note": "Luo–Zhu Lemma 3.1 and proof, pp. 6–7 of arXiv:2106.02882v1, and Yu (∗), p. 71, read; hypotheses and the exceptional case p = 2, α = 1 as printed. Congruence recomputed for p ∈ {3, 5, 7}, α ≤ 3, p = 2, α ∈ {2, 3}, N ≤ 11; the mod-4 formula for N < 60; the pairing argument checked."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eds-attached-curve",
+    "verdict": "corrected",
+    "note": "Δ = −D(b, c, d)/(b⁴c³) verified at 500 random rational points; ψ₂, Ψ₃, preΨ₄ at (0, 0) recomputed; D agrees with Silverman–Stephens (31) (factor 2⁸3¹²β⁹α⁸) and with Silverman's (39) as b⁴D. Examples (Δ = 37, 0, −11321/27, −543211/81, c₄ = 0 for (2, 3, 2), the 37a values) recomputed. Stange's Theorem 8 (p. 8) is stated over fields of characteristic zero and gives no explicit curve; the match now says so."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/division-polynomials-at-a-nonsingular-point",
+    "verdict": "corrected",
+    "note": "The proof rests on Tau Ceti's zsmul_point_eq_smulEval, read at f790474 (fields, nonsingular point, every n, any characteristic) and Mathlib's X_ne_zero_of_Z_eq_zero; Stange Prop. 5 (p. 7) and the Ayad citation in the proof of Theorem 14 (p. 13) read. Part (c), used by the good-primes theorem, had no Lean signature: zsmul_some_eq_some_of_evalEval_ψ_ne_zero added and listed in library.declarations."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eds-zero-set-is-a-subgroup",
+    "verdict": "corrected",
+    "note": "Proof sound (additive order via orderOf_dvd_iff_zpow_eq_one's to_additive form). The 𝔽₂ example recomputed. Silverman's Theorem 8 (p. 6) states the periodicity F_{kr+n} = a^{kn}b^{k²}Fₙ, not the zero set; the match now derives the zero set from it."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/reduction-filtration-of-an-integral-weierstrass-equation",
+    "verdict": "corrected",
+    "note": "Streng Ch. III §2 (printed pp. 16–18, PDF pp. 20–22) and BLRN §2, p. 7, read. Tau Ceti's EllipticCurves README (current main) plans Ê(𝔪) ≅ E₁(K) for an integral model in Layer 1, milestone (iv); the node had cited and requested Layer 4 for it \"from a minimal equation\". The Layer 4 prerequisite and request are removed, proof steps 1 and 4 now name milestone (iv), and Streng's pages are corrected to 16–18. BLRN Remark 2.5 example recomputed (x(2P) = 17985/73984, v₂(2P) = 4)."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/eds-strong-divisibility-at-good-primes",
+    "verdict": "verified",
+    "note": "Argument checked step by step: p ∤ bc gives a p-integral model with P nonsingular mod p, Ayad coprimality over 𝔽_p from the node above, x(nP) = φₙ/ψₙ² over ℚ_p, then the filtration. BLRN Lemmas 3.4–3.5 (p. 9), Streng IV Lemma 3.1 (p. 38) and Stange p. 13 read. Example normEDS 3 2 5 at p = 5 recomputed (5 | Wₙ iff 4 | n; 25 | Wₙ iff 20 | n for n ≤ 40)."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/ward-strong-divisibility",
+    "verdict": "corrected",
+    "note": "Statement checked numerically beyond the packet: 3232 sequences with b, c ∈ [−12, 12], d ∈ [−6, 6], gcd(c, db) = 1 are strongly divisible for m, n ≤ 32, and in the packet's range no sequence with gcd(c, db) ≠ 1 is. The 37a and (1, −6, −6) examples recomputed. The prerequisite isEllipticNet_normEDS was unused by the proof sketch; a first step now uses it to identify Ward's recursive EDS with normEDS, citing Silverman–Stephens §1, p. 3 (source added). The bad-prime and singular cases stay the recorded gap."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/formal-sine-cosine-identities",
+    "verdict": "corrected",
+    "note": "Coefficient computations for (a), (b) checked; PowerSeries.derivative.ext needs IsAddTorsionFree, which a ℚ-algebra satisfies through the lemma IsAddTorsionFree.of_module_rat, now a prerequisite and baseline entry. Stanley §1.6.1 (pp. 54–55) reduces Proposition 1.6.1 to 2y′ = y² + 1 and asserts sec + tan is the solution without the trigonometric identities; the match no longer says the source proves them."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/bernoulli-coefficients-do-not-decay",
+    "verdict": "corrected",
+    "note": "|B₂ₖ|(2π)^{2k}/(2k)! = 2ζ(2k) checked for k ≤ 9 and the hasSum_zeta_nat form read at the pin. DLMF (24.9.8) bounds (−1)^{n+1}B₂ₙ below by 2(2n)!/(2π)^{2n}·1/(1 − 2^{−2n}); the packet had the exponent −2 − 2n and called it the same bound. Corrected in the match and the proof step."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.2/tangent-coefficients-do-not-decay",
+    "verdict": "verified",
+    "note": "Closed form gives 1, 2, 16, 272, … = the odd zigzag numbers (checked to n = 9 against the boustrophedon); the identity |e(2k − 1)|(π/2)^{2k−1}/(2k − 1)! = (4/π)(1 − 2^{−2k})ζ(2k) ≥ 3/π checked for k ≤ 9; zigzag_odd_eq_bernoulli in the first-pass packet has exactly this form. Stanley (1.53)–(1.54), p. 54, read."
+   }
+  ],
+  "counts": {
+   "nodes": 20,
+   "verified": 9,
+   "corrected": 11,
+   "added": 0,
+   "unverifiable": 0,
+   "baselineDeclarations": 65,
+   "baselineConfirmed": 64,
+   "baselineAdded": 1,
+   "baselineRemoved": 0,
+   "requestsRemoved": 1,
+   "sourceIssuesConfirmed": 2,
+   "sourceIssuesRejected": 0,
+   "sourceIssuesNew": 0,
+   "sourceVersionsAdded": 8,
+   "readerUnderscoresEscaped": 63,
+   "readerEmphasisTriggersRemoved": 28
+  },
+  "frontierAudit": "All 20 frontierResponse dispositions were checked against the first-pass packet: the resolved ones against the REV~2 and REV~3 assessments recorded on its gaps; the named suppliers against the pinned index and the first-pass prerequisites (taylor-series 9 of 9, exponential-polynomial-solutions 3 of 3, companion-matrix 3 of 3 and cartier-operators 2 of 2 present). For p-adic-digit-expansion the named NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one and the IsUltrametricDist ℤ_[p] instance exist at the pin but are not among the first-pass prerequisites; the assembly wiring entry now adds them.",
+  "tierAudit": {
+   "tier": 5,
+   "note": "Prerequisites point only to Mathlib, Tau Ceti, Tau Ceti's EllipticCurves Layer 1 and this packet; no upward citation. The rescope sends the AdditiveCombinatorics request (a roadmap outside the 94) to the accepted AnalyticNumberTheory:AN.5/divisor-maximal-order, whose statement (log 2 + ε) implies the requested bound."
+  },
+  "duplicateAudit": "Current TauCetiRoadmap main and the current Tau Ceti library were searched for Eulerian numbers, p-free factorials, formal sine and cosine derivatives and strong divisibility of EDS: none planned or built (the only \"Eulerian\" hit is the continuity equation of OptimalTransport). The pinned Mathlib has no Eulerian numbers and no formal derivative lemmas for PowerSeries.sin and cos.",
+  "baselineAudit": [
+   {
+    "ref": "mathlib:Equiv.Perm",
+    "module": "Mathlib/Logic/Equiv/Defs.lean",
+    "line": 96,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Fin.revPerm",
+    "module": "Mathlib/Data/Fin/Rev.lean",
+    "line": 35,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Finset.Icc",
+    "module": "Mathlib/Order/Interval/Finset/Defs.lean",
+    "line": 280,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Finset.card",
+    "module": "Mathlib/Data/Finset/Card.lean",
+    "line": 47,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Finset.filter",
+    "module": "Mathlib/Data/Finset/Filter.lean",
+    "line": 52,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Finset.prod",
+    "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+    "line": 68,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Finset.prod_filter_mul_prod_filter_not",
+    "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+    "line": 144,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Fintype.card_perm",
+    "module": "Mathlib/Data/Fintype/Perm.lean",
+    "line": 155,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Int.ModEq",
+    "module": "Mathlib/Data/Int/ModEq.lean",
+    "line": 30,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Int.dvd_of_dvd_mul_right_of_gcd_one",
+    "module": "Mathlib/Data/Int/GCD.lean",
+    "line": 242,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Int.gcd_eq_gcd_ab",
+    "module": "Mathlib/Data/Int/GCD.lean",
+    "line": 172,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Int.isCoprime_iff_gcd_eq_one",
+    "module": "Mathlib/RingTheory/Coprime/Lemmas.lean",
+    "line": 38,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:IsCoprime",
+    "module": "Mathlib/RingTheory/Coprime/Basic.lean",
+    "line": 45,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Multipliable.tendsto_atTop_one",
+    "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+    "line": 300,
+    "verdict": "confirmed",
+    "note": "Read: a multipliable sequence tends to 1; its additive form Summable.tendsto_atTop_zero is generated by to_additive and is the form the nodes use."
+   },
+   {
+    "ref": "mathlib:Nat.IsStrongDvdSequence",
+    "module": "Mathlib/Data/Nat/DvdSequence.lean",
+    "line": 81,
+    "verdict": "confirmed",
+    "note": "Read: f : ℕ → ℕ with gcd (f a) (f b) = f (gcd a b) for all a, b."
+   },
+   {
+    "ref": "mathlib:Nat.Prime.coprime_iff_not_dvd",
+    "module": "Mathlib/Data/Nat/Prime/Defs.lean",
+    "line": 413,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Nat.choose",
+    "module": "Mathlib/Data/Nat/Choose/Basic.lean",
+    "line": 50,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Nat.choose_mul_factorial_mul_factorial",
+    "module": "Mathlib/Data/Nat/Choose/Basic.lean",
+    "line": 140,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Nat.coprime_prod_left_iff",
+    "module": "Mathlib/Data/Nat/GCD/BigOperators.lean",
+    "line": 38,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Nat.factorial",
+    "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+    "line": 37,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Padic",
+    "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+    "line": 531,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:PadicInt",
+    "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "line": 62,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Polynomial.evalEvalRingHom",
+    "module": "Mathlib/Algebra/Polynomial/Bivariate.lean",
+    "line": 150,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:PowerSeries.coeff_derivative",
+    "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+    "line": 60,
+    "verdict": "confirmed",
+    "note": "Read: coeff n (d/dX f) = coeff (n + 1) f * (n + 1)."
+   },
+   {
+    "ref": "mathlib:PowerSeries.cos",
+    "module": "Mathlib/RingTheory/PowerSeries/WellKnown.lean",
+    "line": 197,
+    "verdict": "confirmed",
+    "note": "Read: mk fun n => if Even n then algebraMap ℚ A ((−1)^(n/2)/n!) else 0."
+   },
+   {
+    "ref": "mathlib:PowerSeries.derivative",
+    "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+    "line": 50,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:PowerSeries.derivative.ext",
+    "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+    "line": 112,
+    "verdict": "confirmed",
+    "note": "Read: over a commutative ring with IsAddTorsionFree, equal derivatives and constant coefficients give equal series; the hypothesis is supplied by IsAddTorsionFree.of_module_rat."
+   },
+   {
+    "ref": "mathlib:PowerSeries.invOneSubPow",
+    "module": "Mathlib/RingTheory/PowerSeries/WellKnown.lean",
+    "line": 115,
+    "verdict": "confirmed",
+    "note": "Read: the inverse of (1 − X)^d with coefficients C(d − 1 + n, d − 1)."
+   },
+   {
+    "ref": "mathlib:PowerSeries.sin",
+    "module": "Mathlib/RingTheory/PowerSeries/WellKnown.lean",
+    "line": 193,
+    "verdict": "confirmed",
+    "note": "Read: mk fun n => if Even n then 0 else algebraMap ℚ A ((−1)^(n/2)/n!), for [Ring A] [Algebra ℚ A]."
+   },
+   {
+    "ref": "mathlib:Real.add_one_le_exp",
+    "module": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 632,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Real.exp",
+    "module": "Mathlib/Analysis/Complex/Exponential.lean",
+    "line": 80,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Real.log",
+    "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+    "line": 44,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Ring.choose",
+    "module": "Mathlib/RingTheory/Binomial.lean",
+    "line": 380,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Ring.choose_natCast",
+    "module": "Mathlib/RingTheory/Binomial.lean",
+    "line": 399,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:Ring.choose_neg",
+    "module": "Mathlib/RingTheory/Binomial.lean",
+    "line": 435,
+    "verdict": "confirmed",
+    "note": "Read: choose (−r) n = (−1)ⁿ • choose (r + n − 1) n in a binomial ring."
+   },
+   {
+    "ref": "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+    "module": "Mathlib/RingTheory/Binomial.lean",
+    "line": 390,
+    "verdict": "confirmed",
+    "note": "Read: the falling factorial at r is n! • choose r n."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Affine.nonsingular_zero",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+    "line": 225,
+    "verdict": "confirmed",
+    "note": "Read: (0, 0) is nonsingular iff a₆ = 0 and (a₃ ≠ 0 or a₄ ≠ 0)."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Jacobian.Point.fromAffine",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Point.lean",
+    "line": 397,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Jacobian.X_ne_zero_of_Z_eq_zero",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Basic.lean",
+    "line": 431,
+    "verdict": "confirmed",
+    "note": "Read: over a ring without zero divisors, a nonsingular Jacobian triple with Z = 0 has X ≠ 0 (Ayad step (b))."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Jacobian.nonsingular_of_Z_eq_zero",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Basic.lean",
+    "line": 405,
+    "verdict": "confirmed",
+    "note": "Read: the nonsingularity condition of a triple with Z = 0."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.baseChange",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+    "line": 236,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.b₈",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+    "line": 113,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.map",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+    "line": 231,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.map_φ",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 541,
+    "verdict": "confirmed",
+    "note": "Read: (W.map f).φ n = (W.φ n).map (mapRingHom f)."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.map_ψ",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 536,
+    "verdict": "confirmed",
+    "note": "Read: (W.map f).ψ n = (W.ψ n).map (mapRingHom f)."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.preΨ₄",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 147,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Δ",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+    "line": 132,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Ψ₃",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 142,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.φ",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 448,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.ψ",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 401,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.ψ₂",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+    "line": 113,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:ZMod.unitOfCoprime",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "line": 794,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:bernoulli",
+    "module": "Mathlib/NumberTheory/Bernoulli.lean",
+    "line": 195,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:emultiplicity",
+    "module": "Mathlib/RingTheory/Multiplicity.lean",
+    "line": 45,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:hasSum_zeta_nat",
+    "module": "Mathlib/NumberTheory/ZetaValues.lean",
+    "line": 431,
+    "verdict": "confirmed",
+    "note": "Read: for k ≠ 0, Σ 1/n^{2k} has sum (−1)^{k+1}2^{2k−1}π^{2k}B_{2k}/(2k)! (the n = 0 term is 0 in Lean)."
+   },
+   {
+    "ref": "mathlib:map_normEDS",
+    "module": "Mathlib/NumberTheory/EllipticDivisibilitySequence.lean",
+    "line": 792,
+    "verdict": "confirmed",
+    "note": "Read: a ring homomorphism carries normEDS b c d to normEDS (f b) (f c) (f d)."
+   },
+   {
+    "ref": "mathlib:normEDS",
+    "module": "Mathlib/NumberTheory/EllipticDivisibilitySequence.lean",
+    "line": 545,
+    "verdict": "confirmed",
+    "note": "Declaration exists under this name in the cited module at the pinned commit; statement read; it provides what the citing nodes use, with the same or weaker hypotheses."
+   },
+   {
+    "ref": "mathlib:orderOf_dvd_iff_zpow_eq_one",
+    "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+    "line": 770,
+    "verdict": "confirmed",
+    "note": "Read: orderOf x ∣ i ↔ x ^ i = 1; the node uses its to_additive form addOrderOf_dvd_iff_zsmul_eq_zero."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.smulEval",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+    "line": 927,
+    "verdict": "confirmed",
+    "note": "Read at f790474: the triple evalEval x y ∘ ![φₙ, ωₙ, ψₙ] over a commutative ring."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.zsmul_point_eq_smulEval",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+    "line": 1013,
+    "verdict": "confirmed",
+    "note": "Read at f790474: for a Weierstrass curve over a field and a nonsingular affine point, the Jacobian class of n • P is ⟦(φₙ, ωₙ, ψₙ)(x, y)⟧ for every n ∈ ℤ, with no hypothesis on the characteristic or on Δ; this is what parts (a)–(c) of division-polynomials-at-a-nonsingular-point need."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.ω",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Omega.lean",
+    "line": 125,
+    "verdict": "confirmed",
+    "note": "Read at f790474: the ω family of division polynomials (second Jacobian coordinate of [n])."
+   },
+   {
+    "ref": "tauceti:isDvdSequence_normEDS",
+    "module": "TauCeti/NumberTheory/EllipticDivisibilitySequence/Complement.lean",
+    "line": 169,
+    "verdict": "confirmed",
+    "note": "Read at f790474: normEDS b c d is a divisibility sequence over any commutative ring."
+   },
+   {
+    "ref": "tauceti:isEllipticNet_normEDS",
+    "module": "TauCeti/NumberTheory/EllipticDivisibilitySequence/NormEDS.lean",
+    "line": 167,
+    "verdict": "confirmed",
+    "note": "Read at f790474: normEDS b c d is an elliptic net for all b, c, d over any commutative ring; used in the first proof step of ward-strong-divisibility."
+   },
+   {
+    "ref": "tauceti:normEDS_two_three_two_eq_id",
+    "module": "TauCeti/NumberTheory/EllipticDivisibilitySequence/NormEDS.lean",
+    "line": 183,
+    "verdict": "confirmed",
+    "note": "Read at f790474: normEDS (2 : ℤ) 3 2 = id."
+   },
+   {
+    "ref": "mathlib:IsAddTorsionFree.of_module_rat",
+    "module": "Mathlib/Algebra/Module/Rat.lean",
+    "line": 123,
+    "verdict": "added",
+    "note": "Read: an additive commutative group with a ℚ-module structure is IsAddTorsionFree (a lemma, not an instance). Added by this review as the supplier of the torsion-freeness hypothesis of PowerSeries.derivative.ext."
+   }
+  ]
  }
 }

@@ -101,7 +101,7 @@ example : eulerian 4 0 = 1 ∧ eulerian 4 1 = 11 ∧ eulerian 4 2 = 11 ∧ euler
 /-- Unit test `eulerian_two_row`. -/
 example : eulerian 2 0 = 1 ∧ eulerian 2 1 = 1 := by sorry
 
-/-- Unit test `eulerian_zero_zero`: the empty permutation counts once. -/
+/-- Unit test `sum_eulerian_zero`: the empty permutation counts once, so the row sum at `n = 0` is `0! = 1`. -/
 example : ∑ q ∈ Finset.range 1, eulerian 0 q = 0 ! := by sorry
 
 /-- Unit test `sum_eulerian_five`. -/
@@ -297,6 +297,14 @@ theorem evalEval_ψ_eq_zero_iff {W : WeierstrassCurve K} {x y : K}
 theorem evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero {W : WeierstrassCurve K} {x y : K}
     (h : W.toAffine.Nonsingular x y) (n : ℤ) :
     (W.φ n).evalEval x y ≠ 0 ∨ (W.ψ n).evalEval x y ≠ 0 := by sorry
+
+/-- Part (c): where `ψₙ` does not vanish, `n • (x, y)` is the affine point `(φₙ/ψₙ², ωₙ/ψₙ³)`. -/
+theorem zsmul_some_eq_some_of_evalEval_ψ_ne_zero {W : WeierstrassCurve K} {x y : K}
+    (h : W.toAffine.Nonsingular x y) {n : ℤ} (hψ : (W.ψ n).evalEval x y ≠ 0) :
+    ∃ h' : W.toAffine.Nonsingular ((W.φ n).evalEval x y / (W.ψ n).evalEval x y ^ 2)
+        ((W.ω n).evalEval x y / (W.ψ n).evalEval x y ^ 3),
+      n • WeierstrassCurve.Affine.Point.some x y h = WeierstrassCurve.Affine.Point.some _ _ h' := by
+  sorry
 
 /-- CA.2/eds-zero-set-is-a-subgroup: over a field, with `b, c ≠ 0`, the zeros of `normEDS b c d`
 are the multiples of the order of `(0, 0)` on `edsCurve b c d`. -/
