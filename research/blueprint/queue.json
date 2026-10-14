@@ -37765,8 +37765,9 @@
    ],
    "followUpOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics--DY.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9317"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9317",
+   "finishedAt": "2026-10-14T06:48:41Z"
   },
   {
    "id": "REV-ArithmeticDynamics--DY.3",
@@ -39566,7 +39567,8 @@
     "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8935"
   },
   {
    "kind": "design",
@@ -46544,8 +46546,9 @@
     "PKG-AbelianVarietiesIsogenousToNoJacobian~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianVarietiesIsogenousToNoJacobian~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9198"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9198",
+   "finishedAt": "2026-10-14T06:48:43Z"
   },
   {
    "id": "PKG-AdditiveCombinatorics",
@@ -49081,7 +49084,8 @@
     "PKG-EnriquesSurfacesAndIntegralNonexistence"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9212"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -49146,8 +49150,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9169"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9169",
+   "finishedAt": "2026-10-14T06:48:46Z"
   },
   {
    "id": "REV-PKG-ExponentialSumsAndCircleMethod",
@@ -50994,7 +50999,8 @@
     "PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9224"
   },
   {
    "id": "PKG-MetaplecticAutomorphicForms",
@@ -52248,8 +52254,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9195"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9195",
+   "finishedAt": "2026-10-14T06:48:50Z"
   },
   {
    "id": "REV-PKG-SieveMethodsAndPrimePatterns",
@@ -52562,7 +52569,8 @@
     "PKG-WeightZeroCrystallineAutomorphyLifting"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9241"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
@@ -88822,8 +88830,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -103461,8 +103469,9 @@
     "REV-HodgeTateAndCanonicalSubgroups--T6~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-HodgeTateAndCanonicalSubgroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #240"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #240",
+   "finishedAt": "2026-10-14T06:48:56Z"
   },
   {
    "id": "ASM-LefschetzPencilsAndVanishingCycles",
