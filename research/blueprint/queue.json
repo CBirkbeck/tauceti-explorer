@@ -36991,8 +36991,8 @@
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9743",
-   "finishedAt": "2026-10-14T15:36:49Z"
+   "finishedAt": "2026-10-14T15:36:49Z",
+   "note": "deliverables arrived from an external worker on issue #9743"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
@@ -37262,8 +37262,8 @@
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9749",
-   "finishedAt": "2026-10-14T15:36:50Z"
+   "finishedAt": "2026-10-14T15:36:50Z",
+   "note": "deliverables arrived from an external worker on issue #9749"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
@@ -38285,342 +38285,6 @@
    "state": "done",
    "finishedAt": "2026-10-14T09:13:20Z",
    "note": "deliverables arrived from an external worker on issue #9276"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.1",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.1"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T10:08:04Z",
-   "note": "deliverables arrived from an external worker on issue #9665"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.1",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.1.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.1"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.1",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:07:27Z",
-   "note": "deliverables arrived from an external worker on issue #9674"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.2",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.2"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T10:39:56Z",
-   "note": "deliverables arrived from an external worker on issue #9666"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.2",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.2.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.2"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.2",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:43:55Z",
-   "note": "deliverables arrived from an external worker on issue #9675"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.3",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.3"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T10:39:58Z",
-   "note": "deliverables arrived from an external worker on issue #9667"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.3",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.3.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.3"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.3",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:44:01Z",
-   "note": "deliverables arrived from an external worker on issue #9676"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.4",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.4"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:07:32Z",
-   "note": "deliverables arrived from an external worker on issue #9668"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.4",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.4.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.4"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.4",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T12:19:05Z",
-   "note": "deliverables arrived from an external worker on issue #9677"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.5",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.5"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T10:40:00Z",
-   "note": "deliverables arrived from an external worker on issue #9669"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.5",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.5.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.5"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.5",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:44:05Z",
-   "note": "deliverables arrived from an external worker on issue #9678"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.6",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.6"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:44:11Z",
-   "note": "deliverables arrived from an external worker on issue #9670"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.6",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.6.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.6"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.6",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T12:53:23Z",
-   "note": "deliverables arrived from an external worker on issue #9679"
-  },
-  {
-   "id": "BP-ClassicalArithmeticCompletion--CA.7",
-   "kind": "blueprint",
-   "priority": 3,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "scope": [
-    "ClassicalArithmeticCompletion:CA.7"
-   ],
-   "outputs": [
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion"
-   ],
-   "followUpOf": "BP-ClassicalArithmeticCompletion",
-   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T11:44:13Z",
-   "note": "deliverables arrived from an external worker on issue #9671"
-  },
-  {
-   "id": "REV-ClassicalArithmeticCompletion--CA.7",
-   "kind": "review",
-   "priority": 2,
-   "order": 414300,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.7.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean",
-    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md"
-   ],
-   "after": [
-    "BP-ClassicalArithmeticCompletion--CA.7"
-   ],
-   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.7",
-   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "done",
-   "finishedAt": "2026-10-14T13:25:58Z",
-   "note": "deliverables arrived from an external worker on issue #9680"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.0",
@@ -46137,42 +45801,6 @@
    "state": "pending"
   },
   {
-   "id": "ASM-ClassicalArithmeticCompletion",
-   "kind": "assembly",
-   "priority": 2,
-   "order": 5000,
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/readmes/ClassicalArithmeticCompletion.md",
-    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean",
-    "research/blueprint/handoff/ASM-ClassicalArithmeticCompletion.md",
-    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
-    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json"
-   ],
-   "after": [
-    "REV-ClassicalArithmeticCompletion~3",
-    "REV-ClassicalArithmeticCompletion--CA.1",
-    "REV-ClassicalArithmeticCompletion--CA.2",
-    "REV-ClassicalArithmeticCompletion--CA.3",
-    "REV-ClassicalArithmeticCompletion--CA.4",
-    "REV-ClassicalArithmeticCompletion--CA.5",
-    "REV-ClassicalArithmeticCompletion--CA.6",
-    "REV-ClassicalArithmeticCompletion--CA.7"
-   ],
-   "prompt": "research/blueprint/prompts/ASM-ClassicalArithmeticCompletion.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9681",
-   "finishedAt": "2026-10-14T14:33:25Z"
-  },
-  {
    "id": "ASM-DiophantineApproximationAndTranscendence",
    "kind": "assembly",
    "priority": 2,
@@ -48747,6 +48375,49 @@
    "note": "deliverables arrived from an external worker on issue #9202"
   },
   {
+   "id": "PKG-ClassicalArithmeticCompletion",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/packages/ClassicalArithmeticCompletion/README.md",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/Suggested.lean",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/metadata.toml",
+    "research/blueprint/handoff/PKG-ClassicalArithmeticCompletion.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-ClassicalArithmeticCompletion.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-ClassicalArithmeticCompletion",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ClassicalArithmeticCompletion.md",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/review.json",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/README.md",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/Suggested.lean",
+    "research/blueprint/packages/ClassicalArithmeticCompletion/metadata.toml"
+   ],
+   "after": [
+    "PKG-ClassicalArithmeticCompletion"
+   ],
+   "avoidAccountOf": "PKG-ClassicalArithmeticCompletion",
+   "independentOf": [
+    "PKG-ClassicalArithmeticCompletion"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-ClassicalArithmeticCompletion.md",
+   "state": "pending"
+  },
+  {
    "id": "PKG-ClassicalGroupsPartII",
    "kind": "package",
    "priority": 2,
@@ -50728,8 +50399,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FreeGroupsAndLimitGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9735",
-   "finishedAt": "2026-10-14T15:36:54Z"
+   "finishedAt": "2026-10-14T15:36:54Z",
+   "note": "deliverables arrived from an external worker on issue #9735"
   },
   {
    "id": "REV-PKG-FreeGroupsAndLimitGroups",
@@ -52876,8 +52547,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularCurvesPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9739",
-   "finishedAt": "2026-10-14T15:37:02Z"
+   "finishedAt": "2026-10-14T15:37:02Z",
+   "note": "deliverables arrived from an external worker on issue #9739"
   },
   {
    "id": "REV-PKG-ModularCurvesPartII",
@@ -79896,339 +79567,10 @@
    "state": "pending"
   },
   {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.1",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1038,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.1: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.1",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.1",
-    "REV-ClassicalArithmeticCompletion--CA.1"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.1",
-   "kind": "review",
-   "priority": 2,
-   "order": 1038,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.1: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.1.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.1"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.1",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.1",
-    "BP-ClassicalArithmeticCompletion--CA.1",
-    "REV-ClassicalArithmeticCompletion--CA.1"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.2",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1039,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.2: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.2",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.2",
-    "REV-ClassicalArithmeticCompletion--CA.2"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.2",
-   "kind": "review",
-   "priority": 2,
-   "order": 1039,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.2: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.2.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.2"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.2",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.2",
-    "BP-ClassicalArithmeticCompletion--CA.2",
-    "REV-ClassicalArithmeticCompletion--CA.2"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.3",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1040,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.3: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.3",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.3",
-    "REV-ClassicalArithmeticCompletion--CA.3"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.3",
-   "kind": "review",
-   "priority": 2,
-   "order": 1040,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.3: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.3.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.3"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.3",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.3",
-    "BP-ClassicalArithmeticCompletion--CA.3",
-    "REV-ClassicalArithmeticCompletion--CA.3"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.4",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1041,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.4: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.4",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.4",
-    "REV-ClassicalArithmeticCompletion--CA.4"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.4",
-   "kind": "review",
-   "priority": 2,
-   "order": 1041,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.4: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.4.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.4"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.4",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.4",
-    "BP-ClassicalArithmeticCompletion--CA.4",
-    "REV-ClassicalArithmeticCompletion--CA.4"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.5",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1042,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.5: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.5",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.5",
-    "REV-ClassicalArithmeticCompletion--CA.5"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.5",
-   "kind": "review",
-   "priority": 2,
-   "order": 1042,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.5: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.5.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.5"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.5",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.5",
-    "BP-ClassicalArithmeticCompletion--CA.5",
-    "REV-ClassicalArithmeticCompletion--CA.5"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.6",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1043,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.6: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.6",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.6",
-    "REV-ClassicalArithmeticCompletion--CA.6"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.6",
-   "kind": "review",
-   "priority": 2,
-   "order": 1043,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.6: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.6.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.6"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.6",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.6",
-    "BP-ClassicalArithmeticCompletion--CA.6",
-    "REV-ClassicalArithmeticCompletion--CA.6"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "pending"
-  },
-  {
-   "id": "RT-BP-ClassicalArithmeticCompletion--CA.7",
-   "kind": "redteam",
-   "priority": 2,
-   "order": 1044,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.7: Classical arithmetic, sequences, polynomials and reciprocity",
-   "target": "BP-ClassicalArithmeticCompletion--CA.7",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.result.json",
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.md"
-   ],
-   "after": [],
-   "independentOf": [
-    "BP-ClassicalArithmeticCompletion--CA.7",
-    "REV-ClassicalArithmeticCompletion--CA.7"
-   ],
-   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "pending"
-  },
-  {
-   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.7",
-   "kind": "review",
-   "priority": 2,
-   "order": 1044,
-   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.7: Classical arithmetic, sequences, polynomials and reciprocity",
-   "roadmapIds": [
-    "ClassicalArithmeticCompletion"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.review.json",
-    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.7.md"
-   ],
-   "after": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.7"
-   ],
-   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.7",
-   "independentOf": [
-    "RT-BP-ClassicalArithmeticCompletion--CA.7",
-    "BP-ClassicalArithmeticCompletion--CA.7",
-    "REV-ClassicalArithmeticCompletion--CA.7"
-   ],
-   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "pending"
-  },
-  {
    "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.0",
    "kind": "redteam",
    "priority": 2,
-   "order": 1045,
+   "order": 1038,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.0: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence--DT.0",
    "roadmapIds": [
@@ -80250,7 +79592,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.0",
    "kind": "review",
    "priority": 2,
-   "order": 1045,
+   "order": 1038,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.0: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -80275,7 +79617,7 @@
    "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1046,
+   "order": 1039,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.2: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence--DT.2",
    "roadmapIds": [
@@ -80297,7 +79639,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.2",
    "kind": "review",
    "priority": 2,
-   "order": 1046,
+   "order": 1039,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.2: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -80322,7 +79664,7 @@
    "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1047,
+   "order": 1040,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.3: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence--DT.3",
    "roadmapIds": [
@@ -80344,7 +79686,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.3",
    "kind": "review",
    "priority": 2,
-   "order": 1047,
+   "order": 1040,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.3: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -80369,7 +79711,7 @@
    "id": "RT-BP-DiophantineApproximationAndTranscendence--DT.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1048,
+   "order": 1041,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.4: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence--DT.4",
    "roadmapIds": [
@@ -80391,7 +79733,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence--DT.4",
    "kind": "review",
    "priority": 2,
-   "order": 1048,
+   "order": 1041,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence--DT.4: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -80416,7 +79758,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1051,
+   "order": 1044,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.2: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.2",
    "roadmapIds": [
@@ -80438,7 +79780,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.2",
    "kind": "review",
    "priority": 2,
-   "order": 1051,
+   "order": 1044,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.2: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -80463,7 +79805,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1052,
+   "order": 1045,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.3",
    "roadmapIds": [
@@ -80485,7 +79827,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.3",
    "kind": "review",
    "priority": 2,
-   "order": 1052,
+   "order": 1045,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.3: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -80510,7 +79852,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1053,
+   "order": 1046,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.4: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.4",
    "roadmapIds": [
@@ -80532,7 +79874,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.4",
    "kind": "review",
    "priority": 2,
-   "order": 1053,
+   "order": 1046,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.4: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -80557,7 +79899,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
    "kind": "redteam",
    "priority": 2,
-   "order": 1054,
+   "order": 1047,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
    "roadmapIds": [
@@ -80579,7 +79921,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
    "kind": "review",
    "priority": 2,
-   "order": 1054,
+   "order": 1047,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -80604,7 +79946,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
    "kind": "redteam",
    "priority": 2,
-   "order": 1055,
+   "order": 1048,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
    "roadmapIds": [
@@ -80626,7 +79968,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
    "kind": "review",
    "priority": 2,
-   "order": 1055,
+   "order": 1048,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -80651,7 +79993,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1056,
+   "order": 1049,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "roadmapIds": [
@@ -80673,7 +80015,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
    "kind": "review",
    "priority": 2,
-   "order": 1056,
+   "order": 1049,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -80698,7 +80040,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1057,
+   "order": 1050,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
    "roadmapIds": [
@@ -80720,7 +80062,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
    "kind": "review",
    "priority": 2,
-   "order": 1057,
+   "order": 1050,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -80745,7 +80087,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
    "kind": "redteam",
    "priority": 2,
-   "order": 1059,
+   "order": 1052,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
    "roadmapIds": [
@@ -80767,7 +80109,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
    "kind": "review",
    "priority": 2,
-   "order": 1059,
+   "order": 1052,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -80792,7 +80134,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.0",
    "kind": "redteam",
    "priority": 2,
-   "order": 1061,
+   "order": 1054,
    "name": "blueprint BP-ArithmeticStatistics--ST.0: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.0",
    "roadmapIds": [
@@ -80814,7 +80156,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.0",
    "kind": "review",
    "priority": 2,
-   "order": 1061,
+   "order": 1054,
    "name": "blueprint BP-ArithmeticStatistics--ST.0: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -80839,7 +80181,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.1",
    "kind": "redteam",
    "priority": 2,
-   "order": 1062,
+   "order": 1055,
    "name": "blueprint BP-ArithmeticStatistics--ST.1: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.1",
    "roadmapIds": [
@@ -80861,7 +80203,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.1",
    "kind": "review",
    "priority": 2,
-   "order": 1062,
+   "order": 1055,
    "name": "blueprint BP-ArithmeticStatistics--ST.1: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -80886,7 +80228,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1063,
+   "order": 1056,
    "name": "blueprint BP-ArithmeticStatistics--ST.2: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.2",
    "roadmapIds": [
@@ -80908,7 +80250,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.2",
    "kind": "review",
    "priority": 2,
-   "order": 1063,
+   "order": 1056,
    "name": "blueprint BP-ArithmeticStatistics--ST.2: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -80933,7 +80275,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1064,
+   "order": 1057,
    "name": "blueprint BP-ArithmeticStatistics--ST.3: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.3",
    "roadmapIds": [
@@ -80955,7 +80297,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.3",
    "kind": "review",
    "priority": 2,
-   "order": 1064,
+   "order": 1057,
    "name": "blueprint BP-ArithmeticStatistics--ST.3: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -80980,7 +80322,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1065,
+   "order": 1058,
    "name": "blueprint BP-ArithmeticStatistics--ST.4: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.4",
    "roadmapIds": [
@@ -81002,7 +80344,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.4",
    "kind": "review",
    "priority": 2,
-   "order": 1065,
+   "order": 1058,
    "name": "blueprint BP-ArithmeticStatistics--ST.4: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81027,7 +80369,7 @@
    "id": "RT-BP-ArithmeticStatistics--ST.5",
    "kind": "redteam",
    "priority": 2,
-   "order": 1066,
+   "order": 1059,
    "name": "blueprint BP-ArithmeticStatistics--ST.5: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "BP-ArithmeticStatistics--ST.5",
    "roadmapIds": [
@@ -81049,7 +80391,7 @@
    "id": "REV-RT-BP-ArithmeticStatistics--ST.5",
    "kind": "review",
    "priority": 2,
-   "order": 1066,
+   "order": 1059,
    "name": "blueprint BP-ArithmeticStatistics--ST.5: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics"
@@ -81074,7 +80416,7 @@
    "id": "RT-BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "kind": "redteam",
    "priority": 2,
-   "order": 1067,
+   "order": 1060,
    "name": "blueprint BP-ProbabilisticAndMetricNumberTheory--PM.4: Probabilistic, metric and ergodic number theory",
    "target": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "roadmapIds": [
@@ -81096,7 +80438,7 @@
    "id": "REV-RT-BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "kind": "review",
    "priority": 2,
-   "order": 1067,
+   "order": 1060,
    "name": "blueprint BP-ProbabilisticAndMetricNumberTheory--PM.4: Probabilistic, metric and ergodic number theory",
    "roadmapIds": [
     "ProbabilisticAndMetricNumberTheory"
@@ -81121,7 +80463,7 @@
    "id": "RT-DESIGN-LV~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1068,
+   "order": 1061,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "target": "DESIGN-LV~2",
    "roadmapIds": [
@@ -81143,7 +80485,7 @@
    "id": "REV-RT-DESIGN-LV~2",
    "kind": "review",
    "priority": 2,
-   "order": 1068,
+   "order": 1061,
    "name": "new roadmap DESIGN-LV~2 (1 roadmaps)",
    "roadmapIds": [
     "MordellLawrenceVenkatesh"
@@ -81168,7 +80510,7 @@
    "id": "RT-DESIGN-StableReductionPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1069,
+   "order": 1062,
    "name": "new roadmap DESIGN-StableReductionPartII~2: Stable reduction of curves and stable maps, Part II",
    "target": "DESIGN-StableReductionPartII~2",
    "roadmapIds": [
@@ -81190,7 +80532,7 @@
    "id": "REV-RT-DESIGN-StableReductionPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1069,
+   "order": 1062,
    "name": "new roadmap DESIGN-StableReductionPartII~2: Stable reduction of curves and stable maps, Part II",
    "roadmapIds": [
     "StableReductionPartII"
@@ -81215,7 +80557,7 @@
    "id": "RT-DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1071,
+   "order": 1064,
    "name": "new roadmap DESIGN-PotentialAutomorphyInfrastructurePartII~3: Reusable infrastructure for potential automorphy over CM fields, Part II",
    "target": "DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "roadmapIds": [
@@ -81237,7 +80579,7 @@
    "id": "REV-RT-DESIGN-PotentialAutomorphyInfrastructurePartII~3",
    "kind": "review",
    "priority": 2,
-   "order": 1071,
+   "order": 1064,
    "name": "new roadmap DESIGN-PotentialAutomorphyInfrastructurePartII~3: Reusable infrastructure for potential automorphy over CM fields, Part II",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructurePartII"
@@ -81262,7 +80604,7 @@
    "id": "RT-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1072,
+   "order": 1065,
    "name": "new roadmap DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2: Néron models and semistable abelian varieties, Part II",
    "target": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "roadmapIds": [
@@ -81284,7 +80626,7 @@
    "id": "REV-RT-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1072,
+   "order": 1065,
    "name": "new roadmap DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2: Néron models and semistable abelian varieties, Part II",
    "roadmapIds": [
     "NeronModelsAndSemistableAbelianVarietiesPartII"
@@ -81309,7 +80651,7 @@
    "id": "RT-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1073,
+   "order": 1066,
    "name": "new roadmap DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2: Integral Hecke actions, determinants and interpolation, Part II",
    "target": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
    "roadmapIds": [
@@ -81331,7 +80673,7 @@
    "id": "REV-RT-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1073,
+   "order": 1066,
    "name": "new roadmap DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2: Integral Hecke actions, determinants and interpolation, Part II",
    "roadmapIds": [
     "IntegralHeckeAndGaloisDeterminantsPartII"
@@ -81356,7 +80698,7 @@
    "id": "RT-DESIGN-EllipticCurveModularityPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1074,
+   "order": 1067,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartII~2: Modularity and modular parametrisations of elliptic curves over Q, Part II",
    "target": "DESIGN-EllipticCurveModularityPartII~2",
    "roadmapIds": [
@@ -81378,7 +80720,7 @@
    "id": "REV-RT-DESIGN-EllipticCurveModularityPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1074,
+   "order": 1067,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartII~2: Modularity and modular parametrisations of elliptic curves over Q, Part II",
    "roadmapIds": [
     "EllipticCurveModularityPartII"
@@ -81403,7 +80745,7 @@
    "id": "RT-DESIGN-FunctionFieldArithmeticPartII~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1075,
+   "order": 1068,
    "name": "new roadmap DESIGN-FunctionFieldArithmeticPartII~2: Global function fields, reciprocity and automorphic foundations, Part II",
    "target": "DESIGN-FunctionFieldArithmeticPartII~2",
    "roadmapIds": [
@@ -81425,7 +80767,7 @@
    "id": "REV-RT-DESIGN-FunctionFieldArithmeticPartII~2",
    "kind": "review",
    "priority": 2,
-   "order": 1075,
+   "order": 1068,
    "name": "new roadmap DESIGN-FunctionFieldArithmeticPartII~2: Global function fields, reciprocity and automorphic foundations, Part II",
    "roadmapIds": [
     "FunctionFieldArithmeticPartII"
@@ -81450,7 +80792,7 @@
    "id": "RT-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1077,
+   "order": 1070,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2: Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type",
    "target": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "roadmapIds": [
@@ -81472,7 +80814,7 @@
    "id": "REV-RT-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "kind": "review",
    "priority": 2,
-   "order": 1077,
+   "order": 1070,
    "name": "new roadmap DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2: Modularity and modular parametrisations of elliptic curves over Q, Part II: abelian varieties of GL₂-type",
    "roadmapIds": [
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
@@ -81497,7 +80839,7 @@
    "id": "RT-BP-BorelRegulators~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1079,
+   "order": 1072,
    "name": "blueprint BP-BorelRegulators~2: Stable arithmetic cohomology and Borel regulators",
    "target": "BP-BorelRegulators~2",
    "roadmapIds": [
@@ -81519,7 +80861,7 @@
    "id": "REV-RT-BP-BorelRegulators~2",
    "kind": "review",
    "priority": 2,
-   "order": 1079,
+   "order": 1072,
    "name": "blueprint BP-BorelRegulators~2: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators"
@@ -81544,7 +80886,7 @@
    "id": "RT-BP-AdelicAlgebraicGroups~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1081,
+   "order": 1074,
    "name": "blueprint BP-AdelicAlgebraicGroups~2: Adelic algebraic groups and arithmetic quotients",
    "target": "BP-AdelicAlgebraicGroups~2",
    "roadmapIds": [
@@ -81566,7 +80908,7 @@
    "id": "REV-RT-BP-AdelicAlgebraicGroups~2",
    "kind": "review",
    "priority": 2,
-   "order": 1081,
+   "order": 1074,
    "name": "blueprint BP-AdelicAlgebraicGroups~2: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups"
@@ -81591,7 +80933,7 @@
    "id": "RT-BP-ArithmeticGaloisRepresentations~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1083,
+   "order": 1076,
    "name": "blueprint BP-ArithmeticGaloisRepresentations~3: Arithmetic Galois representations and conductors",
    "target": "BP-ArithmeticGaloisRepresentations~3",
    "roadmapIds": [
@@ -81613,7 +80955,7 @@
    "id": "REV-RT-BP-ArithmeticGaloisRepresentations~3",
    "kind": "review",
    "priority": 2,
-   "order": 1083,
+   "order": 1076,
    "name": "blueprint BP-ArithmeticGaloisRepresentations~3: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations"
@@ -81638,7 +80980,7 @@
    "id": "RT-BP-ArithmeticLocallySymmetricSpaces~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1084,
+   "order": 1077,
    "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
    "target": "BP-ArithmeticLocallySymmetricSpaces~2",
    "roadmapIds": [
@@ -81660,7 +81002,7 @@
    "id": "REV-RT-BP-ArithmeticLocallySymmetricSpaces~2",
    "kind": "review",
    "priority": 2,
-   "order": 1084,
+   "order": 1077,
    "name": "blueprint BP-ArithmeticLocallySymmetricSpaces~2: Arithmetic locally symmetric spaces and their cohomology",
    "roadmapIds": [
     "ArithmeticLocallySymmetricSpaces"
@@ -81685,7 +81027,7 @@
    "id": "RT-BP-AutomorphicGaloisRepresentations~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1087,
+   "order": 1080,
    "name": "blueprint BP-AutomorphicGaloisRepresentations~2: Galois representations attached to modular and Hilbert modular forms",
    "target": "BP-AutomorphicGaloisRepresentations~2",
    "roadmapIds": [
@@ -81707,7 +81049,7 @@
    "id": "REV-RT-BP-AutomorphicGaloisRepresentations~2",
    "kind": "review",
    "priority": 2,
-   "order": 1087,
+   "order": 1080,
    "name": "blueprint BP-AutomorphicGaloisRepresentations~2: Galois representations attached to modular and Hilbert modular forms",
    "roadmapIds": [
     "AutomorphicGaloisRepresentations"
@@ -81732,7 +81074,7 @@
    "id": "RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1088,
+   "order": 1081,
    "name": "blueprint BP-AutomorphicLFunctionsAndLocalFactors~2: Automorphic L-functions and local factors",
    "target": "BP-AutomorphicLFunctionsAndLocalFactors~2",
    "roadmapIds": [
@@ -81754,7 +81096,7 @@
    "id": "REV-RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
    "kind": "review",
    "priority": 2,
-   "order": 1088,
+   "order": 1081,
    "name": "blueprint BP-AutomorphicLFunctionsAndLocalFactors~2: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors"
@@ -81779,7 +81121,7 @@
    "id": "RT-BP-AutomorphicSpectralTheory~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1089,
+   "order": 1082,
    "name": "blueprint BP-AutomorphicSpectralTheory~2: Automorphic spectral theory and trace distributions",
    "target": "BP-AutomorphicSpectralTheory~2",
    "roadmapIds": [
@@ -81801,7 +81143,7 @@
    "id": "REV-RT-BP-AutomorphicSpectralTheory~2",
    "kind": "review",
    "priority": 2,
-   "order": 1089,
+   "order": 1082,
    "name": "blueprint BP-AutomorphicSpectralTheory~2: Automorphic spectral theory and trace distributions",
    "roadmapIds": [
     "AutomorphicSpectralTheory"
@@ -81826,7 +81168,7 @@
    "id": "RT-BP-BunGAndNewtonStrata~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1091,
+   "order": 1084,
    "name": "blueprint BP-BunGAndNewtonStrata~3: Reductive bundles, B(G) and Newton strata",
    "target": "BP-BunGAndNewtonStrata~3",
    "roadmapIds": [
@@ -81848,7 +81190,7 @@
    "id": "REV-RT-BP-BunGAndNewtonStrata~3",
    "kind": "review",
    "priority": 2,
-   "order": 1091,
+   "order": 1084,
    "name": "blueprint BP-BunGAndNewtonStrata~3: Reductive bundles, B(G) and Newton strata",
    "roadmapIds": [
     "BunGAndNewtonStrata"
@@ -81873,7 +81215,7 @@
    "id": "RT-BP-ClassicalSerreModularity--R26.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1092,
+   "order": 1085,
    "name": "blueprint BP-ClassicalSerreModularity--R26.1~2: Classical Serre Modularity",
    "target": "BP-ClassicalSerreModularity--R26.1~2",
    "roadmapIds": [
@@ -81895,7 +81237,7 @@
    "id": "REV-RT-BP-ClassicalSerreModularity--R26.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1092,
+   "order": 1085,
    "name": "blueprint BP-ClassicalSerreModularity--R26.1~2: Classical Serre Modularity",
    "roadmapIds": [
     "ClassicalSerreModularity"
@@ -81920,7 +81262,7 @@
    "id": "RT-BP-CohomologyComparisons~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1093,
+   "order": 1086,
    "name": "blueprint BP-CohomologyComparisons~2: Cohomology comparisons: integral diagrams and rational period realizations",
    "target": "BP-CohomologyComparisons~2",
    "roadmapIds": [
@@ -81942,7 +81284,7 @@
    "id": "REV-RT-BP-CohomologyComparisons~2",
    "kind": "review",
    "priority": 2,
-   "order": 1093,
+   "order": 1086,
    "name": "blueprint BP-CohomologyComparisons~2: Cohomology comparisons: integral diagrams and rational period realizations",
    "roadmapIds": [
     "CohomologyComparisons"
@@ -81967,7 +81309,7 @@
    "id": "RT-BP-DerivedDeRhamCohomology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1094,
+   "order": 1087,
    "name": "blueprint BP-DerivedDeRhamCohomology~2: Derived de Rham cohomology and its algebraic foundations",
    "target": "BP-DerivedDeRhamCohomology~2",
    "roadmapIds": [
@@ -81989,7 +81331,7 @@
    "id": "REV-RT-BP-DerivedDeRhamCohomology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1094,
+   "order": 1087,
    "name": "blueprint BP-DerivedDeRhamCohomology~2: Derived de Rham cohomology and its algebraic foundations",
    "roadmapIds": [
     "DerivedDeRhamCohomology"
@@ -82014,7 +81356,7 @@
    "id": "RT-BP-DiamondSixOperations~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1095,
+   "order": 1088,
    "name": "blueprint BP-DiamondSixOperations~2: Six operations, cohomological smoothness and biduality",
    "target": "BP-DiamondSixOperations~2",
    "roadmapIds": [
@@ -82036,7 +81378,7 @@
    "id": "REV-RT-BP-DiamondSixOperations~2",
    "kind": "review",
    "priority": 2,
-   "order": 1095,
+   "order": 1088,
    "name": "blueprint BP-DiamondSixOperations~2: Six operations, cohomological smoothness and biduality",
    "roadmapIds": [
     "DiamondSixOperations"
@@ -82061,7 +81403,7 @@
    "id": "RT-BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1096,
+   "order": 1089,
    "name": "blueprint BP-EtaleDualityAndPerverseSheaves--EDC.0~2: Étale duality, cycle classes and perverse sheaves",
    "target": "BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "roadmapIds": [
@@ -82083,7 +81425,7 @@
    "id": "REV-RT-BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1096,
+   "order": 1089,
    "name": "blueprint BP-EtaleDualityAndPerverseSheaves--EDC.0~2: Étale duality, cycle classes and perverse sheaves",
    "roadmapIds": [
     "EtaleDualityAndPerverseSheaves"
@@ -82108,7 +81450,7 @@
    "id": "RT-BP-GeometricSatakeAndFusion--GS0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1102,
+   "order": 1095,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS0~2: Geometric Satake over the Fargues–Fontaine curve",
    "target": "BP-GeometricSatakeAndFusion--GS0~2",
    "roadmapIds": [
@@ -82130,7 +81472,7 @@
    "id": "REV-RT-BP-GeometricSatakeAndFusion--GS0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1102,
+   "order": 1095,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS0~2: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion"
@@ -82155,7 +81497,7 @@
    "id": "RT-BP-HeckeStacksAndLocalShtukas~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1103,
+   "order": 1096,
    "name": "blueprint BP-HeckeStacksAndLocalShtukas~2: Hecke correspondences and local shtuka cohomology",
    "target": "BP-HeckeStacksAndLocalShtukas~2",
    "roadmapIds": [
@@ -82177,7 +81519,7 @@
    "id": "REV-RT-BP-HeckeStacksAndLocalShtukas~2",
    "kind": "review",
    "priority": 2,
-   "order": 1103,
+   "order": 1096,
    "name": "blueprint BP-HeckeStacksAndLocalShtukas~2: Hecke correspondences and local shtuka cohomology",
    "roadmapIds": [
     "HeckeStacksAndLocalShtukas"
@@ -82202,7 +81544,7 @@
    "id": "RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1104,
+   "order": 1097,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "target": "BP-HeegnerPointEulerSystems--HE.0~2",
    "roadmapIds": [
@@ -82224,7 +81566,7 @@
    "id": "REV-RT-BP-HeegnerPointEulerSystems--HE.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1104,
+   "order": 1097,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.0~2: Heegner-point Euler systems and arithmetic descent",
    "roadmapIds": [
     "HeegnerPointEulerSystems"
@@ -82249,7 +81591,7 @@
    "id": "RT-BP-IgusaVarietiesAndTorsionConcentration~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1105,
+   "order": 1098,
    "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
    "target": "BP-IgusaVarietiesAndTorsionConcentration~2",
    "roadmapIds": [
@@ -82271,7 +81613,7 @@
    "id": "REV-RT-BP-IgusaVarietiesAndTorsionConcentration~2",
    "kind": "review",
    "priority": 2,
-   "order": 1105,
+   "order": 1098,
    "name": "blueprint BP-IgusaVarietiesAndTorsionConcentration~2: Igusa varieties, compactified period fibers and torsion concentration",
    "roadmapIds": [
     "IgusaVarietiesAndTorsionConcentration"
@@ -82296,7 +81638,7 @@
    "id": "RT-BP-IntegralHeckeAndGaloisDeterminants~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1106,
+   "order": 1099,
    "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
    "target": "BP-IntegralHeckeAndGaloisDeterminants~2",
    "roadmapIds": [
@@ -82318,7 +81660,7 @@
    "id": "REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2",
    "kind": "review",
    "priority": 2,
-   "order": 1106,
+   "order": 1099,
    "name": "blueprint BP-IntegralHeckeAndGaloisDeterminants~2: Integral Hecke actions, determinants and interpolation",
    "roadmapIds": [
     "IntegralHeckeAndGaloisDeterminants"
@@ -82343,7 +81685,7 @@
    "id": "RT-BP-KTheoryFiniteLocalFields~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1107,
+   "order": 1100,
    "name": "blueprint BP-KTheoryFiniteLocalFields~2: K-theory of finite and local fields",
    "target": "BP-KTheoryFiniteLocalFields~2",
    "roadmapIds": [
@@ -82365,7 +81707,7 @@
    "id": "REV-RT-BP-KTheoryFiniteLocalFields~2",
    "kind": "review",
    "priority": 2,
-   "order": 1107,
+   "order": 1100,
    "name": "blueprint BP-KTheoryFiniteLocalFields~2: K-theory of finite and local fields",
    "roadmapIds": [
     "KTheoryFiniteLocalFields"
@@ -82390,7 +81732,7 @@
    "id": "RT-BP-KTheoryLowDegrees--U.1~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1109,
+   "order": 1102,
    "name": "blueprint BP-KTheoryLowDegrees--U.1~3: Explicit K₀: projectives, rank and determinant",
    "target": "BP-KTheoryLowDegrees--U.1~3",
    "roadmapIds": [
@@ -82412,7 +81754,7 @@
    "id": "REV-RT-BP-KTheoryLowDegrees--U.1~3",
    "kind": "review",
    "priority": 2,
-   "order": 1109,
+   "order": 1102,
    "name": "blueprint BP-KTheoryLowDegrees--U.1~3: Explicit K₀: projectives, rank and determinant",
    "roadmapIds": [
     "KTheoryLowDegrees"
@@ -82437,7 +81779,7 @@
    "id": "RT-BP-KatoEulerSystems~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1110,
+   "order": 1103,
    "name": "blueprint BP-KatoEulerSystems~2: Kato classes and explicit reciprocity for modular forms",
    "target": "BP-KatoEulerSystems~2",
    "roadmapIds": [
@@ -82459,7 +81801,7 @@
    "id": "REV-RT-BP-KatoEulerSystems~2",
    "kind": "review",
    "priority": 2,
-   "order": 1110,
+   "order": 1103,
    "name": "blueprint BP-KatoEulerSystems~2: Kato classes and explicit reciprocity for modular forms",
    "roadmapIds": [
     "KatoEulerSystems"
@@ -82484,7 +81826,7 @@
    "id": "RT-BP-LanglandsParameterStacks~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1111,
+   "order": 1104,
    "name": "blueprint BP-LanglandsParameterStacks~2: Parameter stacks, invariant theory and spectral coefficients",
    "target": "BP-LanglandsParameterStacks~2",
    "roadmapIds": [
@@ -82506,7 +81848,7 @@
    "id": "REV-RT-BP-LanglandsParameterStacks~2",
    "kind": "review",
    "priority": 2,
-   "order": 1111,
+   "order": 1104,
    "name": "blueprint BP-LanglandsParameterStacks~2: Parameter stacks, invariant theory and spectral coefficients",
    "roadmapIds": [
     "LanglandsParameterStacks"
@@ -82531,7 +81873,7 @@
    "id": "RT-BP-LocalGaloisDeformationRings~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1112,
+   "order": 1105,
    "name": "blueprint BP-LocalGaloisDeformationRings~2: Local Galois deformation rings and their components",
    "target": "BP-LocalGaloisDeformationRings~2",
    "roadmapIds": [
@@ -82555,7 +81897,7 @@
    "id": "REV-RT-BP-LocalGaloisDeformationRings~2",
    "kind": "review",
    "priority": 2,
-   "order": 1112,
+   "order": 1105,
    "name": "blueprint BP-LocalGaloisDeformationRings~2: Local Galois deformation rings and their components",
    "roadmapIds": [
     "LocalGaloisDeformationRings"
@@ -82580,7 +81922,7 @@
    "id": "RT-BP-PELModuli~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1113,
+   "order": 1106,
    "name": "blueprint BP-PELModuli~2: Siegel and PEL moduli problems",
    "target": "BP-PELModuli~2",
    "roadmapIds": [
@@ -82602,7 +81944,7 @@
    "id": "REV-RT-BP-PELModuli~2",
    "kind": "review",
    "priority": 2,
-   "order": 1113,
+   "order": 1106,
    "name": "blueprint BP-PELModuli~2: Siegel and PEL moduli problems",
    "roadmapIds": [
     "PELModuli"
@@ -82627,7 +81969,7 @@
    "id": "RT-BP-PerfectoidShimuraVarieties~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1115,
+   "order": 1108,
    "name": "blueprint BP-PerfectoidShimuraVarieties~3: Shimura towers and perfectoid representability",
    "target": "BP-PerfectoidShimuraVarieties~3",
    "roadmapIds": [
@@ -82649,7 +81991,7 @@
    "id": "REV-RT-BP-PerfectoidShimuraVarieties~3",
    "kind": "review",
    "priority": 2,
-   "order": 1115,
+   "order": 1108,
    "name": "blueprint BP-PerfectoidShimuraVarieties~3: Shimura towers and perfectoid representability",
    "roadmapIds": [
     "PerfectoidShimuraVarieties"
@@ -82674,7 +82016,7 @@
    "id": "RT-BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1116,
+   "order": 1109,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R23.1~2: Potential Modularity And Compatible Systems",
    "target": "BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "roadmapIds": [
@@ -82696,7 +82038,7 @@
    "id": "REV-RT-BP-PotentialModularityAndCompatibleSystems--R23.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1116,
+   "order": 1109,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R23.1~2: Potential Modularity And Compatible Systems",
    "roadmapIds": [
     "PotentialModularityAndCompatibleSystems"
@@ -82721,7 +82063,7 @@
    "id": "RT-BP-RankZeroOneBSD--BSD.0~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1118,
+   "order": 1111,
    "name": "blueprint BP-RankZeroOneBSD--BSD.0~2: Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
    "target": "BP-RankZeroOneBSD--BSD.0~2",
    "roadmapIds": [
@@ -82743,7 +82085,7 @@
    "id": "REV-RT-BP-RankZeroOneBSD--BSD.0~2",
    "kind": "review",
    "priority": 2,
-   "order": 1118,
+   "order": 1111,
    "name": "blueprint BP-RankZeroOneBSD--BSD.0~2: Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
    "roadmapIds": [
     "RankZeroOneBSD"
@@ -82768,7 +82110,7 @@
    "id": "RT-BP-SchemeKTheoryOperations~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1121,
+   "order": 1114,
    "name": "blueprint BP-SchemeKTheoryOperations~3: K-theory of schemes, localisation and operations",
    "target": "BP-SchemeKTheoryOperations~3",
    "roadmapIds": [
@@ -82790,7 +82132,7 @@
    "id": "REV-RT-BP-SchemeKTheoryOperations~3",
    "kind": "review",
    "priority": 2,
-   "order": 1121,
+   "order": 1114,
    "name": "blueprint BP-SchemeKTheoryOperations~3: K-theory of schemes, localisation and operations",
    "roadmapIds": [
     "SchemeKTheoryOperations"
@@ -82815,7 +82157,7 @@
    "id": "RT-BP-SpecialValuesBirchTate~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1124,
+   "order": 1117,
    "name": "blueprint BP-SpecialValuesBirchTate~2: Birch–Tate and arithmetic special-value formulas",
    "target": "BP-SpecialValuesBirchTate~2",
    "roadmapIds": [
@@ -82837,7 +82179,7 @@
    "id": "REV-RT-BP-SpecialValuesBirchTate~2",
    "kind": "review",
    "priority": 2,
-   "order": 1124,
+   "order": 1117,
    "name": "blueprint BP-SpecialValuesBirchTate~2: Birch–Tate and arithmetic special-value formulas",
    "roadmapIds": [
     "SpecialValuesBirchTate"
@@ -82862,7 +82204,7 @@
    "id": "RT-BP-StableHomotopyKTheory~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1126,
+   "order": 1119,
    "name": "blueprint BP-StableHomotopyKTheory~3: Homotopy foundations for algebraic K-theory",
    "target": "BP-StableHomotopyKTheory~3",
    "roadmapIds": [
@@ -82884,7 +82226,7 @@
    "id": "REV-RT-BP-StableHomotopyKTheory~3",
    "kind": "review",
    "priority": 2,
-   "order": 1126,
+   "order": 1119,
    "name": "blueprint BP-StableHomotopyKTheory~3: Homotopy foundations for algebraic K-theory",
    "roadmapIds": [
     "StableHomotopyKTheory"
@@ -82909,7 +82251,7 @@
    "id": "RT-BP-VStackSheavesAndLisseCategories~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1128,
+   "order": 1121,
    "name": "blueprint BP-VStackSheavesAndLisseCategories~2: Artin v-stacks, solid and lisse coefficient categories",
    "target": "BP-VStackSheavesAndLisseCategories~2",
    "roadmapIds": [
@@ -82931,7 +82273,7 @@
    "id": "REV-RT-BP-VStackSheavesAndLisseCategories~2",
    "kind": "review",
    "priority": 2,
-   "order": 1128,
+   "order": 1121,
    "name": "blueprint BP-VStackSheavesAndLisseCategories~2: Artin v-stacks, solid and lisse coefficient categories",
    "roadmapIds": [
     "VStackSheavesAndLisseCategories"
@@ -82956,7 +82298,7 @@
    "id": "RT-BP-WeightsInEtaleCohomology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1129,
+   "order": 1122,
    "name": "blueprint BP-WeightsInEtaleCohomology~2: Weights and purity in étale cohomology",
    "target": "BP-WeightsInEtaleCohomology~2",
    "roadmapIds": [
@@ -82978,7 +82320,7 @@
    "id": "REV-RT-BP-WeightsInEtaleCohomology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1129,
+   "order": 1122,
    "name": "blueprint BP-WeightsInEtaleCohomology~2: Weights and purity in étale cohomology",
    "roadmapIds": [
     "WeightsInEtaleCohomology"
@@ -83003,7 +82345,7 @@
    "id": "RT-BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1130,
+   "order": 1123,
    "name": "blueprint BP-ComplexMultiplicationAndExplicitReciprocity~2: Complex multiplication and explicit reciprocity",
    "target": "BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "roadmapIds": [
@@ -83025,7 +82367,7 @@
    "id": "REV-RT-BP-ComplexMultiplicationAndExplicitReciprocity~2",
    "kind": "review",
    "priority": 2,
-   "order": 1130,
+   "order": 1123,
    "name": "blueprint BP-ComplexMultiplicationAndExplicitReciprocity~2: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity"
@@ -83050,7 +82392,7 @@
    "id": "RT-BP-PotentialAutomorphyInfrastructure~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1131,
+   "order": 1124,
    "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
    "target": "BP-PotentialAutomorphyInfrastructure~2",
    "roadmapIds": [
@@ -83074,7 +82416,7 @@
    "id": "REV-RT-BP-PotentialAutomorphyInfrastructure~2",
    "kind": "review",
    "priority": 2,
-   "order": 1131,
+   "order": 1124,
    "name": "blueprint BP-PotentialAutomorphyInfrastructure~2: Reusable infrastructure for potential automorphy over CM fields",
    "roadmapIds": [
     "PotentialAutomorphyInfrastructure"
@@ -83099,7 +82441,7 @@
    "id": "RT-BP-ArithmeticQuantumTopology~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1132,
+   "order": 1125,
    "name": "blueprint BP-ArithmeticQuantumTopology~2: Arithmetic quantum topology, Habiro invariants and regulators",
    "target": "BP-ArithmeticQuantumTopology~2",
    "roadmapIds": [
@@ -83121,7 +82463,7 @@
    "id": "REV-RT-BP-ArithmeticQuantumTopology~2",
    "kind": "review",
    "priority": 2,
-   "order": 1132,
+   "order": 1125,
    "name": "blueprint BP-ArithmeticQuantumTopology~2: Arithmetic quantum topology, Habiro invariants and regulators",
    "roadmapIds": [
     "ArithmeticQuantumTopology"
@@ -83146,7 +82488,7 @@
    "id": "RT-BP-ClassicalArithmeticCompletion~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1134,
+   "order": 1127,
    "name": "blueprint BP-ClassicalArithmeticCompletion~3: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "BP-ClassicalArithmeticCompletion~3",
    "roadmapIds": [
@@ -83168,7 +82510,7 @@
    "id": "REV-RT-BP-ClassicalArithmeticCompletion~3",
    "kind": "review",
    "priority": 2,
-   "order": 1134,
+   "order": 1127,
    "name": "blueprint BP-ClassicalArithmeticCompletion~3: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion"
@@ -83193,7 +82535,7 @@
    "id": "RT-BP-DiophantineApproximationAndTranscendence~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1135,
+   "order": 1128,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence~2: Diophantine approximation and transcendence",
    "target": "BP-DiophantineApproximationAndTranscendence~2",
    "roadmapIds": [
@@ -83215,7 +82557,7 @@
    "id": "REV-RT-BP-DiophantineApproximationAndTranscendence~2",
    "kind": "review",
    "priority": 2,
-   "order": 1135,
+   "order": 1128,
    "name": "blueprint BP-DiophantineApproximationAndTranscendence~2: Diophantine approximation and transcendence",
    "roadmapIds": [
     "DiophantineApproximationAndTranscendence"
@@ -83240,7 +82582,7 @@
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1138,
+   "order": 1131,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "target": "BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "roadmapIds": [
@@ -83262,7 +82604,7 @@
    "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic~2",
    "kind": "review",
    "priority": 2,
-   "order": 1138,
+   "order": 1131,
    "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
    "roadmapIds": [
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -83287,7 +82629,7 @@
    "id": "RT-BP-HeightsRationalPointsAndObstructions~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1139,
+   "order": 1132,
    "name": "blueprint BP-HeightsRationalPointsAndObstructions~2: Heights, rational points and obstructions",
    "target": "BP-HeightsRationalPointsAndObstructions~2",
    "roadmapIds": [
@@ -83309,7 +82651,7 @@
    "id": "REV-RT-BP-HeightsRationalPointsAndObstructions~2",
    "kind": "review",
    "priority": 2,
-   "order": 1139,
+   "order": 1132,
    "name": "blueprint BP-HeightsRationalPointsAndObstructions~2: Heights, rational points and obstructions",
    "roadmapIds": [
     "HeightsRationalPointsAndObstructions"
@@ -83334,7 +82676,7 @@
    "id": "RT-BP-ModularityAndLanglandsExtensions~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1140,
+   "order": 1133,
    "name": "blueprint BP-ModularityAndLanglandsExtensions~2: Modularity, automorphy and Langlands endpoint extensions",
    "target": "BP-ModularityAndLanglandsExtensions~2",
    "roadmapIds": [
@@ -83356,7 +82698,7 @@
    "id": "REV-RT-BP-ModularityAndLanglandsExtensions~2",
    "kind": "review",
    "priority": 2,
-   "order": 1140,
+   "order": 1133,
    "name": "blueprint BP-ModularityAndLanglandsExtensions~2: Modularity, automorphy and Langlands endpoint extensions",
    "roadmapIds": [
     "ModularityAndLanglandsExtensions"
@@ -83381,7 +82723,7 @@
    "id": "RT-BP-Polylogarithms--P.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1142,
+   "order": 1135,
    "name": "blueprint BP-Polylogarithms--P.3~2: Polylogarithms, explicit regulators and Zagier statements",
    "target": "BP-Polylogarithms--P.3~2",
    "roadmapIds": [
@@ -83403,7 +82745,7 @@
    "id": "REV-RT-BP-Polylogarithms--P.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1142,
+   "order": 1135,
    "name": "blueprint BP-Polylogarithms--P.3~2: Polylogarithms, explicit regulators and Zagier statements",
    "roadmapIds": [
     "Polylogarithms"
@@ -83428,7 +82770,7 @@
    "id": "RT-BP-EllipticRegulators--ER.7~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1150,
+   "order": 1143,
    "name": "blueprint BP-EllipticRegulators--ER.7~2: Elliptic regulators, explicit K₂ classes and L-values",
    "target": "BP-EllipticRegulators--ER.7~2",
    "roadmapIds": [
@@ -83450,7 +82792,7 @@
    "id": "REV-RT-BP-EllipticRegulators--ER.7~2",
    "kind": "review",
    "priority": 2,
-   "order": 1150,
+   "order": 1143,
    "name": "blueprint BP-EllipticRegulators--ER.7~2: Elliptic regulators, explicit K₂ classes and L-values",
    "roadmapIds": [
     "EllipticRegulators"
@@ -83475,7 +82817,7 @@
    "id": "RT-BP-GeometricSatakeAndFusion--GS3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1155,
+   "order": 1148,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS3~2: Geometric Satake over the Fargues–Fontaine curve",
    "target": "BP-GeometricSatakeAndFusion--GS3~2",
    "roadmapIds": [
@@ -83497,7 +82839,7 @@
    "id": "REV-RT-BP-GeometricSatakeAndFusion--GS3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1155,
+   "order": 1148,
    "name": "blueprint BP-GeometricSatakeAndFusion--GS3~2: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion"
@@ -83522,7 +82864,7 @@
    "id": "RT-BP-HeegnerPointEulerSystems--HE.7s~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1156,
+   "order": 1149,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.7s~2: Heegner-point Euler systems and arithmetic descent",
    "target": "BP-HeegnerPointEulerSystems--HE.7s~2",
    "roadmapIds": [
@@ -83544,7 +82886,7 @@
    "id": "REV-RT-BP-HeegnerPointEulerSystems--HE.7s~2",
    "kind": "review",
    "priority": 2,
-   "order": 1156,
+   "order": 1149,
    "name": "blueprint BP-HeegnerPointEulerSystems--HE.7s~2: Heegner-point Euler systems and arithmetic descent",
    "roadmapIds": [
     "HeegnerPointEulerSystems"
@@ -83569,7 +82911,7 @@
    "id": "RT-BP-KTheoryLowDegrees--Z.3~3",
    "kind": "redteam",
    "priority": 2,
-   "order": 1158,
+   "order": 1151,
    "name": "blueprint BP-KTheoryLowDegrees--Z.3~3: Explicit K₀: projectives, rank and determinant",
    "target": "BP-KTheoryLowDegrees--Z.3~3",
    "roadmapIds": [
@@ -83591,7 +82933,7 @@
    "id": "REV-RT-BP-KTheoryLowDegrees--Z.3~3",
    "kind": "review",
    "priority": 2,
-   "order": 1158,
+   "order": 1151,
    "name": "blueprint BP-KTheoryLowDegrees--Z.3~3: Explicit K₀: projectives, rank and determinant",
    "roadmapIds": [
     "KTheoryLowDegrees"
@@ -83616,7 +82958,7 @@
    "id": "RT-BP-MotivicEtaleKTheory--M.5d~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1159,
+   "order": 1152,
    "name": "blueprint BP-MotivicEtaleKTheory--M.5d~2: Motivic and étale methods for arithmetic K-theory",
    "target": "BP-MotivicEtaleKTheory--M.5d~2",
    "roadmapIds": [
@@ -83638,7 +82980,7 @@
    "id": "REV-RT-BP-MotivicEtaleKTheory--M.5d~2",
    "kind": "review",
    "priority": 2,
-   "order": 1159,
+   "order": 1152,
    "name": "blueprint BP-MotivicEtaleKTheory--M.5d~2: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory"
@@ -83663,7 +83005,7 @@
    "id": "RT-BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1160,
+   "order": 1153,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R24.3~2: Potential Modularity And Compatible Systems",
    "target": "BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "roadmapIds": [
@@ -83685,7 +83027,7 @@
    "id": "REV-RT-BP-PotentialModularityAndCompatibleSystems--R24.3~2",
    "kind": "review",
    "priority": 2,
-   "order": 1160,
+   "order": 1153,
    "name": "blueprint BP-PotentialModularityAndCompatibleSystems--R24.3~2: Potential Modularity And Compatible Systems",
    "roadmapIds": [
     "PotentialModularityAndCompatibleSystems"
@@ -83710,7 +83052,7 @@
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1161,
+   "order": 1154,
    "name": "blueprint BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2: Anabelian geometry and nonabelian Chabauty",
    "target": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
    "roadmapIds": [
@@ -83732,7 +83074,7 @@
    "id": "REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1161,
+   "order": 1154,
    "name": "blueprint BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2: Anabelian geometry and nonabelian Chabauty",
    "roadmapIds": [
     "AnabelianGeometryAndNonabelianChabauty"
@@ -83757,7 +83099,7 @@
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "kind": "redteam",
    "priority": 2,
-   "order": 1162,
+   "order": 1155,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.1~2: Finite fields, character sums, finite rings and coding interfaces",
    "target": "BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "roadmapIds": [
@@ -83779,7 +83121,7 @@
    "id": "REV-RT-BP-FiniteFieldsAndCharacterSums--FF.1~2",
    "kind": "review",
    "priority": 2,
-   "order": 1162,
+   "order": 1155,
    "name": "blueprint BP-FiniteFieldsAndCharacterSums--FF.1~2: Finite fields, character sums, finite rings and coding interfaces",
    "roadmapIds": [
     "FiniteFieldsAndCharacterSums"
@@ -83798,6 +83140,335 @@
     "REV-FiniteFieldsAndCharacterSums--FF.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-FiniteFieldsAndCharacterSums--FF.1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.1",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1156,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.1: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.1",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.1",
+    "REV-ClassicalArithmeticCompletion--CA.1"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 1156,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.1: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.1.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.1.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.1"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.1",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.1",
+    "BP-ClassicalArithmeticCompletion--CA.1",
+    "REV-ClassicalArithmeticCompletion--CA.1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1157,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.2: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.2",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.2",
+    "REV-ClassicalArithmeticCompletion--CA.2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1157,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.2: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.2.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.2"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.2",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.2",
+    "BP-ClassicalArithmeticCompletion--CA.2",
+    "REV-ClassicalArithmeticCompletion--CA.2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.3",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1158,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.3: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.3",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.3",
+    "REV-ClassicalArithmeticCompletion--CA.3"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 1158,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.3: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.3.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.3.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.3"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.3",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.3",
+    "BP-ClassicalArithmeticCompletion--CA.3",
+    "REV-ClassicalArithmeticCompletion--CA.3"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1159,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.4: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.4",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.4",
+    "REV-ClassicalArithmeticCompletion--CA.4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1159,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.4: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.4.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.4"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.4",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.4",
+    "BP-ClassicalArithmeticCompletion--CA.4",
+    "REV-ClassicalArithmeticCompletion--CA.4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.5",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1160,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.5: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.5",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.5",
+    "REV-ClassicalArithmeticCompletion--CA.5"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 1160,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.5: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.5.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.5.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.5"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.5",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.5",
+    "BP-ClassicalArithmeticCompletion--CA.5",
+    "REV-ClassicalArithmeticCompletion--CA.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.6",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1161,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.6: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.6",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.6",
+    "REV-ClassicalArithmeticCompletion--CA.6"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 1161,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.6: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.6.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.6.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.6"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.6",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.6",
+    "BP-ClassicalArithmeticCompletion--CA.6",
+    "REV-ClassicalArithmeticCompletion--CA.6"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-ClassicalArithmeticCompletion--CA.7",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1162,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.7: Classical arithmetic, sequences, polynomials and reciprocity",
+   "target": "BP-ClassicalArithmeticCompletion--CA.7",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.result.json",
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-ClassicalArithmeticCompletion--CA.7",
+    "REV-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-ClassicalArithmeticCompletion--CA.7.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-ClassicalArithmeticCompletion--CA.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 1162,
+   "name": "blueprint BP-ClassicalArithmeticCompletion--CA.7: Classical arithmetic, sequences, polynomials and reciprocity",
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalArithmeticCompletion--CA.7.review.json",
+    "research/blueprint/reviews/REV-RT-BP-ClassicalArithmeticCompletion--CA.7.md"
+   ],
+   "after": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "avoidAccountOf": "RT-BP-ClassicalArithmeticCompletion--CA.7",
+   "independentOf": [
+    "RT-BP-ClassicalArithmeticCompletion--CA.7",
+    "BP-ClassicalArithmeticCompletion--CA.7",
+    "REV-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.7.md",
    "state": "pending"
   },
   {
@@ -100346,6 +100017,378 @@
    "avoidAccountOf": "ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII",
    "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-AbelianSchemesAndArithmeticModuliPartII.md",
    "state": "pending"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.1",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T10:08:04Z",
+   "note": "deliverables arrived from an external worker on issue #9665"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.1",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.1.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.1.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.1.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.1"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.1",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.1.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:07:27Z",
+   "note": "deliverables arrived from an external worker on issue #9674"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.2",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T10:39:56Z",
+   "note": "deliverables arrived from an external worker on issue #9666"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.2",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.2.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.2.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.2.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.2"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.2",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.2.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:43:55Z",
+   "note": "deliverables arrived from an external worker on issue #9675"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.3",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T10:39:58Z",
+   "note": "deliverables arrived from an external worker on issue #9667"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.3",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.3.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.3.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.3.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.3"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.3",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.3.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:44:01Z",
+   "note": "deliverables arrived from an external worker on issue #9676"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.4",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.4"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:07:32Z",
+   "note": "deliverables arrived from an external worker on issue #9668"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.4",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.4.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.4.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.4.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.4"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.4",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.4.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T12:19:05Z",
+   "note": "deliverables arrived from an external worker on issue #9677"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.5",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.5"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T10:40:00Z",
+   "note": "deliverables arrived from an external worker on issue #9669"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.5",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.5.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.5.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.5.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.5"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.5",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.5.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:44:05Z",
+   "note": "deliverables arrived from an external worker on issue #9678"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.6",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.6"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:44:11Z",
+   "note": "deliverables arrived from an external worker on issue #9670"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.6",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.6.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.6.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.6.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.6"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.6",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.6.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T12:53:23Z",
+   "note": "deliverables arrived from an external worker on issue #9679"
+  },
+  {
+   "id": "BP-ClassicalArithmeticCompletion--CA.7",
+   "kind": "blueprint",
+   "priority": 3,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "scope": [
+    "ClassicalArithmeticCompletion:CA.7"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion"
+   ],
+   "followUpOf": "BP-ClassicalArithmeticCompletion",
+   "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.7.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T11:44:13Z",
+   "note": "deliverables arrived from an external worker on issue #9671"
+  },
+  {
+   "id": "REV-ClassicalArithmeticCompletion--CA.7",
+   "kind": "review",
+   "priority": 2,
+   "order": 414300,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ClassicalArithmeticCompletion--CA.7.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion--CA.7.lean",
+    "research/blueprint/readmes/ClassicalArithmeticCompletion--CA.7.md"
+   ],
+   "after": [
+    "BP-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.7",
+   "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.7.md",
+   "state": "done",
+   "finishedAt": "2026-10-14T13:25:58Z",
+   "note": "deliverables arrived from an external worker on issue #9680"
+  },
+  {
+   "id": "ASM-ClassicalArithmeticCompletion",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/ClassicalArithmeticCompletion.md",
+    "research/blueprint/suggested/ClassicalArithmeticCompletion.lean",
+    "research/blueprint/handoff/ASM-ClassicalArithmeticCompletion.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.5.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion--CA.7.json"
+   ],
+   "after": [
+    "REV-ClassicalArithmeticCompletion~3",
+    "REV-ClassicalArithmeticCompletion--CA.1",
+    "REV-ClassicalArithmeticCompletion--CA.2",
+    "REV-ClassicalArithmeticCompletion--CA.3",
+    "REV-ClassicalArithmeticCompletion--CA.4",
+    "REV-ClassicalArithmeticCompletion--CA.5",
+    "REV-ClassicalArithmeticCompletion--CA.6",
+    "REV-ClassicalArithmeticCompletion--CA.7"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-ClassicalArithmeticCompletion.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9681",
+   "finishedAt": "2026-10-14T14:33:25Z"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructurePartII--PL.6",
