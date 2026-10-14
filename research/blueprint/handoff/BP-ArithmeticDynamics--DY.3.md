@@ -1,0 +1,40 @@
+# BP-ArithmeticDynamics--DY.3 — completed target-level pass
+
+Issue #9317. Worker Codex, session `codex-bJ9jrz`, model GPT-6. Claim confirmed by the bot at issue comment 6161792038. This run takes no second job. The job branch is `codex-bJ9jrz-arithmetic-dynamics-dy3`.
+
+## Delivered
+
+The DY.3 continuation packet, reader and suggested file cover all four remaining items of the accepted parent coverage record. The parent packet is unchanged. New node identifiers are fresh, and all implementation statuses are unchecked. The pass is **complete** and the single stage **planned**, not closed.
+
+There are 23 new nodes: four definitions, five constructions, ten theorems and four comparisons. Definitions/constructions have 64 API items and 27 discriminating tests. Eight pinned baseline declarations are cited after reading their source statements. The six accepted parent DY.3 planets are retained, with zero additional planets. The packet explicitly records the inherited node/planet identifiers so assembly can preserve them.
+
+The geometry uses the current AlgebraicCurves ownership of function fields, normal models, genus, Hurwitz and finite quotients. New targets specialize these to dynatomic projective models and cycle rotation. Quadratic genera are supported by explicit finite/infinite different and necklace counts. The analytic route includes rational quadratic coefficients, simple-pole local contraction, the separate punctured double-pole multiplier argument, starred kneading, symbolic labels and marked monodromy. The explicit Morton H-curve and guarded elliptic map provide the previously absent two-rational-3-cycle reduction. Enumeration uses the native relative height with the field-degree factor, both certified ED output lists and an exact projective runtime adapter.
+
+The supplier point-list comparison preserves the rank hypotheses absent from the parent’s broad unconditional Poonen statements. It does not silently treat saturation completeness as all-point completeness. The unchanged parent endpoints are mathematical targets, while their certified proof route remains gated as specified in this continuation.
+
+## Checks and Lean receipt
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticDynamics--DY.3.json`: zero errors, zero warnings, using the pinned declaration index.
+- `python3 research/blueprint/intake.py check-files` on the four deliverables: zero problems.
+- `lean-check` on `ArithmeticDynamics--DY.3.lean`: exit 0 at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, with only expected missing-proof warnings. Memory availability was 101 GB before the run. No language server, lake build/update/cache command or new build was started.
+- The ten-row quadratic genus table and infinity counts were independently evaluated with integer Möbius/totient/divisor arithmetic. Exact rational kneading checks give d=3,θ=1/7:12102⋆ of period6; d=4,θ=28/31:3213⋆ of period5, with expansion .32130. Lean’s arithmetic examples verify H’s four sign pairs and H(0,0)=−2, the Morton cycle coordinates3,−3,0 and trace0, and the elliptic image of(−1,−1).
+
+The suggested file states compact milestones on existing carriers and keeps light rational coordinate definitions with actual bodies. Its genus expressions are rational arithmetic abbreviations, not fabricated curve carriers. Heavy geometric, analytic and computational structures remain precise README signatures with full API/tests; no proposition fields or placeholder constructions stand in for them. Elaborating these signatures does not prove any planned theorem.
+
+## Remaining closure and where to resume
+
+1. **G1 — dynamical ray/basin sources.** Extract the primary proofs that Gao–Ou invoke in §3.3 and Propositions3.13/3.15: normalized Böttcher and parameter coordinates, periodic parameter-ray landing for every d≥2, root/co-root and exact petal structure, and the compactified ray limit R with S=f⁻¹(R). General ConformalMapping continuation is not this input. Start from the exact output contracts of `unicritical-external-ray-system` and `unicritical-ray-landing`, then the cited Douady–Hubbard, Eberlein and Petersen–Ryd sources. Those deep primary proofs have not been read in this run; they must not be represented as completed extraction.
+2. **G2 — analytic/algebraic comparison.** Supply the reduced analytic-closure/dynatomic-zero-scheme identification, local Jacobian smoothness comparison, connected smooth analytic curve to geometric integrality, and faithful characteristic-zero descent. Start from `analytic-dynatomic-identification`, retaining formal/exact period distinctions and specialized multiplicity. Do not use affine smoothness to assume irreducibility before the marked monodromy argument.
+3. **G3 — Poonen rank supplier.** ED.3’s corrected rank≤1 descent for the C₁(3₂) sextic is still missing. ED.4’s unconditional result only covers points in the saturation of the known subgroup. Every dependent all-point classification retains rank≤1. This is supplier work, not another DY descent. Stoll’s rank≤3 condition also remains explicit, with analytic continuation/functional equation, weak BSD and a certified nonvanishing derivative required for its analytic route.
+4. **Exact runtime contract.** CN.0’s `algebraic-equality-check` on isolated algebraic numbers is not the whole-field exact carrier/realization/operations contract. The new CN.0 request states that contract exactly. ED.0’s existing bounded-height enumeration supplies a complete union of two lists; do not replace it by exact real boundary comparison. Convert the absolute logarithmic bound B to native multiplicative cutoff D≥exp([K:ℚ]B).
+5. **General supplier imports.** Eleven stage requests comprise nine precise AlgebraicCurves layer contracts, one ConformalMapping contract and CN.0. ED.0/ED.3/ED.4 are consumed through their existing finer node identifiers. ED’s separate E11 rank gap remains in inherited consumers but does not affect Morton’s certified target list.
+
+The packet’s source findings use fresh identifiers E9301–E9303. E9301 adds the necessary nonzero differential/degree≥2 hypotheses to the Gao–Ou contraction statements. E9302 corrects the double-pole asymptotic and annular set labels in its multiplier argument. E9303 records Morton’s published finite-characteristic Hensel-lifting correction, which does not change the characteristic-zero genus formulas. Findings are own-word accounts and require independent review. The parent FPS exponent finding E401 remains authoritative; it is referenced, not copied or renumbered.
+
+## Sources, baseline and current-upstream audit
+
+All exact public PDF URLs, SHA-256 hashes, read locators and access date 2026-10-14 are in the packet and reader. Sources read: Flynn–Poonen–Schaefer arXiv:math/9508211v1 §§1–3 pp.1–8; Gao–Ou arXiv:1304.4751v1 §§1–3 pp.1–29; Doyle–Poonen arXiv:1711.04233v2 §1 pp.1–3; Morton 1992 §§1–3 pp.343–364; Morton 1996 §1 pp.319–324 and §3 pp.336–343; its 2011 corrigendum all pp.332–334; Doyle–Krumm arXiv:1111.4963v4 §1 p.1, §2 p.2, Algorithm4 p.11 and tolerance p.13. The exact Gao–Ou v1 URL serves a PDF headed December 6, 2021; the recorded hash identifies what was read. No uncleared book was used, and no source PDF or passage is in the repository.
+
+The reviewed DY.3 library audit, accepted parent packet/review, related supplier packets and relevant roadmap links were read. Current TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27` and current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were inspected read-only. The current AlgebraicCurves, ConformalMapping and JacobianChallenge README/Suggested interfaces were checked to avoid replanning general theory. No build was run in those trees. The packet records the limited targeted current-library absence audit.
+
+The next worker can resume from the named gap/request nodes and the retained exact source URLs; nothing required for continuation exists only in scratch. This submission is a completed planning pass for independent review, not a checkpoint.
