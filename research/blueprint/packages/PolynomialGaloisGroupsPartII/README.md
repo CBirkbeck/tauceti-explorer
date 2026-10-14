@@ -1,4 +1,4 @@
-# Roadmap: galois groups of polynomials, part II — ramified merging and random partitions
+# Roadmap: Galois groups of polynomials, Part II — ramified merging and random partitions
 
 **Summary.** A monic integral polynomial can have repeated factors modulo a prime even
 when its characteristic-zero roots are distinct. This roadmap expresses that reduction
@@ -23,9 +23,9 @@ The prerequisites and boundaries are as follows.
 - **PolynomialGaloisGroups, Layers 0 and 1** own faithful root actions, the
   orbit/factor dictionary, blocks, block-stabilizer correspondence, and the
   imprimitivity grid and wreath embedding. The grid supplies an equivariant
-  quotient of a transitive imprimitive action into equal blocks. Layer 5 owns
-  the unramified equality of factor degrees and Frobenius cycle lengths;
-  Layer 9 supplies the surrounding polynomial symmetric-group context.
+  quotient of a transitive imprimitive action into equal blocks. Its Layer 5
+  owns the unramified equality of factor degrees and Frobenius cycle lengths;
+  its Layer 9 supplies the surrounding polynomial symmetric-group context.
 - **Mathlib and Tau Ceti** own the partition carrier, full permutation cycle
   type, reduction factor degrees, arithmetic Frobenius lifts, finite-field
   Frobenius orbits, and the simple-root stabilizer and double-transitivity
@@ -37,8 +37,9 @@ The prerequisites and boundaries are as follows.
   The large-prime harmonic-mass argument depends on the precise Mertens theorem,
   including its constant-identification proof; the weaker assertion that the
   product is bounded by an unspecified multiple of `log x` is insufficient.
-- **ArithmeticStatisticsPartIIRandomPolynomials** supplies concrete coefficient
-  laws, bounds for repeated reduction factors, and quantitative irreducibility.
+- **ArithmeticStatisticsPartIIRandomPolynomials**, the proposed continuation of
+  ArithmeticStatistics for random polynomials of growing degree, owns concrete
+  coefficient laws, bounds for repeated reduction factors, and quantitative irreducibility.
   It consumes the partition criterion and arithmetic certificate. Its distribution
   estimates are not prerequisites of the theorem for arbitrary partition laws.
 
@@ -97,6 +98,12 @@ The deterministic exclusions need only `t,κ,δ,ε` in their thresholds, with
 `0 < t` and no upper restriction on `t`. The convention for minimum support
 uses `Option ℕ`: a trivial group has `none`, never an artificial minimum zero.
 
+A few letters are local to a layer. In Layers 0, 1 and 5, `m` is a merging
+multiplicity or fibre size; in Layer 3 it is a harmonic cutoff; in Layer 4 it
+is a minimum support. `r` is a map in 0.4 and 1.2 and a block count elsewhere.
+`D` is a constant in the analytic contracts and a distinguisher set in Layer 4.
+Each subsection fixes the meaning it uses.
+
 ## Exact supplier contracts
 
 ### From Mathlib
@@ -141,7 +148,8 @@ The following are the interfaces consumed, with their required hypotheses.
   `log_add_one_le_harmonic`, after casting the harmonic sum to `ℝ`.
   `Mathlib.NumberTheory.Harmonic.EulerMascheroni` provides
   `Real.eulerMascheroniConstant_lt_two_thirds`. Together with
-  `2/3 < log 2`, it gives `exp γ < 2`.
+  `2/3 < log 2`, which follows from `Real.log_two_gt_d9` in
+  `Mathlib.Analysis.Complex.ExponentialBounds`, it gives `exp γ < 2`.
 
 ### From Tau Ceti
 
@@ -228,7 +236,9 @@ uses `η = δ/4`, retaining its dependence on `δ`.
 
 for every real `x ≥ x₀`, with inclusive prime endpoints and the existing
 Euler–Mascheroni constant `γ`. The required part is the additive bounded error
-with coefficient `exp γ`. Its supplier proof must identify the constant via
+with coefficient `exp γ`; only its upper half,
+`∏_{p ≤ x} (1 − 1/p)⁻¹ ≤ exp(γ) log x + D`, is used, in 3.4.
+Its supplier proof must identify the constant via
 the tilted Euler product and Euler-constant integral comparison. Those analytic
 inputs belong to AN.2; this roadmap does not supply them. See
 [AnalyticNumberTheory, Mertens product](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/AnalyticNumberTheory--AN.0.md#mertens-prime-product)
@@ -327,22 +337,27 @@ its action, and the alternating/symmetric comparisons, not just the permutation.
 - Every full `5`-cycle belongs, using its generated cyclic subgroup. The
   witness is transitive and has order `5`, distinct from `A₅` and `S₅`.
 
-*Needs:* finite permutation subgroups and `IsPretransitive`; 0.2 for later use.
+*Needs:* finite permutation subgroups and `IsPretransitive`. It is used
+together with 0.2 in Layer 6.
 
 ### 0.4 Cycles above a cyclic quotient
 
 Prove `equivariant_cycle_fibres`: let `X,Y` be finite, let `σ,ψ` be permutations,
 and let `r : X → Y` be a surjection with `r(σx) = ψ(r x)`. Suppose
 `ψ.fullCycleType = {d}`, `d > 0`, and every fibre has cardinality `m > 0`.
-Then `σ.fullCycleType` is an `m`-merging of `m` copies of `d`.
+Then each cycle of `σ` has length `d·m_i` with `1 ≤ m_i ≤ m` and meets every
+fibre in exactly `m_i` points, the `m_i` of the different cycles sum to `m`, and
+consequently `σ.fullCycleType` is an `m`-merging of `m` copies of `d`.
 The target assembles all return orbits into one occurrence-block witness,
 beyond the supplied single-cycle formula.
 (BSKK, Claim 11.4 and proof, §11.2, p.57.)
 
 Use the supplied return-orbit identity on one fibre. The return orbits
-partition that fibre, with positive sizes `m_i` summing to `m`.
-The supplied period formula gives upstairs lengths `d m_i`, with `m_i ≤ m`. This supplies the whole occurrence-block witness,
-not only divisibility of individual cycle lengths.
+partition that fibre, with positive sizes `m_i` summing to `m`. The supplied
+period formula gives upstairs lengths `d m_i`, with `m_i ≤ m`, and the
+equal-intersection statement gives `m_i` points of the cycle in every fibre.
+One block of `m_i` copies of `d` per cycle is the occurrence-block witness;
+divisibility of the individual cycle lengths alone would not give it.
 
 *Needs:* 0.1–0.2 and the current cycle-fibre supplier contract.
 
@@ -498,7 +513,11 @@ hold without monicity of `f`; removing all roots leaves its leading coefficient.
   under the field identification with the existing double-transitivity adapter.
 
 *Needs:* intermediate-field adjoin and its inclusion, polynomial mapping and
-monic division, and the simple-root stabilizer and quotient contracts.
+monic division, and the simple-root stabilizer and quotient contracts. The
+current Tau Ceti library also has `Polynomial.rootSet_divByMonic_X_sub_C`:
+dividing by `X − a` at a simple root `a` of the base field removes exactly that
+root from the root set. Applied over the tuple field, where every selected root
+lies, it gives the root-set statement one root at a time.
 
 ### 2.2 Higher irreducibility
 
@@ -699,8 +718,11 @@ cutoff inequalities and cannot be applied to an uncontrolled companion part.
   four qualifying occurrences. Replacing four by one changes the predicate.
 - `{3,3}` at `n = 6, δ = 2` fails `E₂` with `r = 2, j = 1` and
   sum `3`. This tests the definition outside the probability-law parameter range.
+- `{2,6}` of eight passes `E₁` at `κ = 1, α = 0`: its only part at most
+  `8/4 = 2` occurs once, so no pair of occurrences is constrained. A definition
+  that pairs a part with itself on mere membership would reject it.
 
-*Needs:* partition occurrence counts and subsums; 3.1 supplies the later estimates.
+*Needs:* partition occurrence counts and subsums. With 3.1 it feeds the estimates 3.5–3.9.
 
 ### 3.3 Uniform harmonic intervals
 
@@ -774,7 +796,7 @@ giving uniform `ν(E₂ᶜ) ≤ B n^(−δ/4)` for all `n ≥ N`.
 If a forbidden sum is `nj/r`, replace its occurrence submultiset by its
 complement to arrange `j ≤ r/2`. Since `r ∣ n`, this is an integer; and
 `r ≤ n^(δ/2)` puts it between `n^(1−δ/2)` and `n/2`, exactly premise (b)'s
-range. For a fixed `r`, summing `C(nj/r)^(−δ)` over `1 ≤ j ≤ r/2` gives
+range. For a fixed `r`, summing `C·(nj/r)^(−δ)` over `1 ≤ j ≤ r/2` gives
 `O(C n^(−δ) r)`, using `δ < 1`. Summing over divisors `r` gives
 `O(n^(−δ/2) τ(n))`. Invoke AN.5 with exponent `δ/4`, including its constant,
 to reach `n^(−δ/4)`.
@@ -856,18 +878,19 @@ witnesses. The restriction `ε > 0` is essential to that uniform assertion.
 
 The three fields of 3.1 suffice for the probabilistic arguments: (a) supplies
 3.5, (b) supplies 3.6, and (c) supplies 3.7–3.8; 3.9 uses (a) and (c).
-The external analytic inputs are exactly AN.5 for 3.6 and AN.2 for 3.4–3.8.
+The external analytic inputs are exactly AN.5 for 3.6 and AN.2 for 3.4 and,
+through 3.4, for 3.8.
 The harmonic interval comparisons otherwise use the pinned harmonic inequalities.
 
 ## Layer 4: primitive minimum support
 
-### 4.1 An optional minimum
+### 4.1 Minimum support, valued in `Option ℕ`
 
 Define `minSupport G : Option ℕ` for `G ≤ S_Ω` to be `none` if no
 nonidentity element exists, and otherwise `some m`, where `m` is the least
 support cardinality among those elements. The carrier is finite, so the
 nonempty minimum is attained. (BSKK, §12.2 notation, p.61, and Lemma 12.7,
-p.62; the optional empty case specifies the library boundary.)
+p.62; the value `none` for the trivial group is this roadmap's convention.)
 
 Prove `minSupport_eq_none`, equivalent to `G = ⊥`, and
 `minSupport_eq_some`, equivalent to existence of a nonidentity element of
@@ -891,7 +914,7 @@ Define `orbitalDistinguishers G x y` as the finset of points `z` for which
 no `g ∈ G` both fixes `z` and sends `x` to `y`. Equivalently `(x,z)` and
 `(y,z)` lie in different diagonal pair orbits, or `x,y` lie in different
 orbits of the point stabilizer at `z`. There is no new coherent-configuration
-carrier. (Babai, Definition 6.1 and Exercise 6.2, §§6–7, pp.5–6.)
+carrier. (Babai, §6, Definition 6.1, p.5, and Exercise 6.2, p.6.)
 
 Prove `mem_orbitalDistinguishers`, giving the stabilizer-orbit equivalence;
 `orbitalDistinguishers_symm`, by taking inverses of transporting elements;
@@ -934,17 +957,20 @@ Prove `babai_distinguishers`: if `G` is primitive but not
 `2`-pretransitive, `n = card Ω ≥ 5`, and `x ≠ y`, then
 `card D(x,y) ≥ √n/2`. Thus every nonidentity element has support at least
 `√n/2`, by choosing a moved point and using 4.2.
-(Babai, Theorem 6.6, p.6; its proof in Lemmas 8.5–8.18 and
-Corollary 8.19, pp.7–9; Exercise 9.5 and Corollary 9.6, p.10.)
+(Babai, Theorem 6.6, p.6; its proof in §8, from Lemma 8.5 to
+Corollary 8.19, pp.7–9, with the closing comparison at the top of p.10;
+the hypothesis `n ≥ 5` is that of Lemma 8.7, p.7; Exercise 9.5 and
+Corollary 9.6, p.10.)
 
-Use the diagonal pair orbits as colors, with non-diagonal valencies `ρ_i`
+Use the diagonal pair orbits as colors, with non-diagonal valencies `v_i`
 and distinguisher numbers `D(i)`. These numbers are constant under transport.
 For a noncomplete symmetrized orbital graph, its **complement** has diameter
 two, by Lemma 8.5. Applying the regular diameter-two count to that complement
-bounds `ρ_i` by `n−1−√(n−1)`. If the symmetrization is complete, the two
+bounds `v_i` by `n−1−√(n−1)`. If the symmetrization is complete, the two
 paired non-diagonal colors each have valency `(n−1)/2`; the uniprimitive
 assumption excludes a single complete color. Counting triples gives the
-average distinguisher number at least `n−ρ_max > √n`.
+average distinguisher number at least `n−v_max > √n`, where `v_max` is the
+largest non-diagonal valency.
 
 Along an orbital walk the endpoint distinguisher set is contained in the
 union of the edge distinguisher sets: if all adjacent color comparisons at a
@@ -953,7 +979,7 @@ two therefore has `D(i) ≥ D_average/2 > √n/2`.
 
 For diameter at least three, take a shortest three-edge path. Its endpoint
 neighbor sets are disjoint and distinguish the endpoints, so the path union
-bound gives `D(i) ≥ 2ρ_i/3`. The second lower bound needs the full suborbit
+bound gives `D(i) ≥ 2v_i/3`. The second lower bound needs the full suborbit
 count. Fix `z` and form a weighted graph on its stabilizer suborbits, including
 `{z}`. Join two suborbits when a color-`i` or inverse-color edge joins them;
 use the number of such undirected edges as weight. The original orbital graph
@@ -965,9 +991,9 @@ contributes its cardinality along its incoming edge. Edges joining distinct
 suborbits are distinguished by `z`. Each contributes at least one ordered
 color-`i` pair, including when the orbital is self-paired. Counting the triples
 of such ordered pairs and distinguishers gives
-`nρ_i D(i) ≥ n(n−1)`, hence `D(i) ≥ (n−1)/ρ_i`.
+`n v_i D(i) ≥ n(n−1)`, hence `D(i) ≥ (n−1)/v_i`.
 
-Multiplying this bound by `2ρ_i/3` gives
+Multiplying this bound by `2v_i/3` gives
 `D(i)² ≥ 2(n−1)/3 > n/4`. This finishes the large-diameter case.
 The complement diameter-two assertion and the weighted spanning-tree argument
 are both essential; an order or base-size bound would not replace this support
@@ -989,7 +1015,7 @@ Otherwise choose a moved point `a` and `b = u(a)`. Conjugate `u` by `G_a`,
 forming a nonempty conjugacy orbit `E`. Double transitivity makes `G_a`
 transitive on the other `n−1` points. Invariant incidence counts give the
 fraction `(n−m)/(n−1)` of elements of `E` fixing `b`, and the fraction
-`(m−1)/(n−1)` moving any fixed point different from `a`. These are counts
+`(m−1)/(n−1)` moving any given point different from `a`. These are counts
 of distinct conjugates, not unsupported independence assumptions.
 
 Every conjugate `v` fixing `b` moves `a` and fails to commute with `u`:
@@ -1027,7 +1053,10 @@ apply 4.4. In the doubly transitive case with `n ≥ 38`, apply 4.5 and
 compare `n/4` with `(√n−1)/2`. For `5 ≤ n < 38`, primitive recognition
 excludes support two and three, giving `m ≥ 4`; this exceeds the required
 square-root expression throughout that finite range. This branch does not
-use Bochert outside the degree range of its source.
+use Bochert outside the degree range of its source. Jordan's prime-cycle
+theorem alone would not suffice: an element of small support need not be a
+prime cycle, and its prime-order powers are in general products of several
+prime cycles.
 
 *Needs:* 4.1, 4.4–4.5, the alternating index-two property, and primitive
 transposition/3-cycle recognition.
@@ -1059,12 +1088,13 @@ Prove `block_orbit_cycle_divisibility` for a surjective equivariant quotient
 `σ` acts on `X` and `ψ` on the quotient. For each point cycle of length `ℓ`,
 let `r'` be the cardinality of the actual `ψ`-orbit of its block.
 The target goes beyond the supplied single-cycle formula by constructing the
-union `U` of those blocks: it is `σ`-invariant of cardinality `r's`, and every point cycle in `U` has
-length divisible by `r'`. Block orbits of any two point cycles are equal
+union `U` of those blocks: it is `σ`-invariant of cardinality `r's`, and every
+point cycle in `U` has length divisible by `r'`. Block orbits of any two point cycles are equal
 or disjoint. (BSKK, Lemma 12.9, observation preceding the case split, p.62.)
 
 Use the cycle-fibre supplier: `ℓ = r's'` with `1 ≤ r' ≤ r` and
-`1 ≤ s' ≤ s`, where `s'` counts the cycle's points in one block.
+`1 ≤ s' ≤ s`, where `s'` is the number of the cycle's points in each block
+it meets; this number is the same for all of these blocks.
 Every cycle in `U` projects onto the same block orbit, so the supplied
 period divisibility applies with the same `r'`. The equal-or-disjoint assertion
 is orbit equivalence on the blocks. The target includes singleton cycles:
@@ -1131,16 +1161,20 @@ If `2 ≤ r ≤ n^(δ/2)`, choose via `E₅*` a long part `ℓ` not divisible
 by `r`. Its block orbit has `1 ≤ r' < r`, since otherwise `r ∣ ℓ` by 5.1.
 The union of these blocks is invariant of cardinality `nr'/r`. Its cycle
 lengths form a submultiset of the output; pull it back through
-`EqualPartMerging.pullback_submultiset` to an input subsum
-`Σ_{u∈U} u = nr'/r`. This contradicts `E₂`. The summand `u` is part of
-this identity; it is the sum of part sizes, not a count of occurrences.
+`EqualPartMerging.pullback_submultiset` to a submultiset `V ≤ ρ.parts` with
+`Σ_{v∈V} v = nr'/r`. This contradicts `E₂`. The identity sums the part
+sizes in `V`; it does not count occurrences.
 
 If `n^(δ/2) < r < n^(1−α)`, choose **five** distinct parts supplied by `E₃`.
 For each selected cycle, 5.1 gives
 
 ```text
-r' ≥ ℓ/s > n^(δ/2−α) > n^(κα).
+r' ≥ ℓ/s > n^(δ/2−α) ≥ n^(κα).
 ```
+
+The last comparison holds because `δ/2−α = δ/4+θ/2 ≥ α ≥ κα`; it is an
+equality when `θ = 0` and `κ = 1`, so the strict inequality comes from
+`r > n^(δ/2)` in the middle step.
 
 Two selected cycles cannot have the same block orbit, since their lengths
 would have gcd at least `r'`, contradicting `E₁`. Their block unions are
