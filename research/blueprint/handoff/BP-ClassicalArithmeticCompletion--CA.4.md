@@ -11,7 +11,7 @@ Deliverables:
 
 ## What is closed
 
-The packet has 43 nodes (7 definitions, 4 constructions, 28 theorems, 4 lemmas), 87 API items, 61 unit tests,
+The packet has 43 nodes (7 definitions, 4 constructions, 28 theorems, 4 lemmas), 88 API items, 61 unit tests,
 6 planets and 46 baseline declarations, each looked up in the pinned declaration index and read in its source file at
 Mathlib 082e2d3 / Tau Ceti f790474. `scripts/check_blueprint.py` reports 0 errors and 0 warnings. The coverage record
 for CA.4 is `planned`. Every item of the first pass's `remaining` list for CA.4 is answered:
