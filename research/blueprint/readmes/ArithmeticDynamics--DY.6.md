@@ -10,7 +10,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 A finite marked family need not generate its field and may include zero. In the Lech presentation, A=ℤ[T₁,…,Tₙ], F=Frac(A), and H,U are polynomials in the separate primitive variable Y. Parameter denominators V belong to A. H is generically irreducible and separable, and need not be monic over A. The independent parameter evaluation identifies F with ℚ(t₁,…,tₙ).
 
-Arithmetic heights are absolute under finite extensions. Generic heights on a curve use the geometric degree normalization, with constants of height zero. On the inherited elliptic API, the absolute Néron–Tate height is the Tau Ceti relative height divided by the field degree; its normalization is half the limiting x-coordinate height. Keep the factor two in the inherited Lattès comparison. Iterates below mean composition.
+Arithmetic heights are absolute under finite extensions. Generic heights on a curve use the geometric degree normalization, with constants of height zero. At the pinned Tau Ceti commit, `Point.canonicalHeight` is half the limiting relative x-coordinate height; dividing by [K:Q] gives the absolute Néron–Tate height used by the inherited Lattès comparison. Current Tau Ceti main instead averages the full x-coordinate height: at commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` this conversion would require division by 2[K:Q]. Preserve the factor two in the inherited comparison when using the pinned convention, and convert the current API explicitly when packaging. Iterates below mean composition. The definitions can be checked in [pinned CanonicalHeight.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean) and [current CanonicalHeight/Basic.lean](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight/Basic.lean).
 
 The supplemental nodes all belong to `ArithmeticDynamics:DY.6` and have ids beginning `ArithmeticDynamics:DY.6/followup-`. Assemble their union with the accepted base; do not replace the base packet or reallocate its six planets. Only the two Lech gap leaves are discharged at planning level. New targets ending in a supplier request or recorded gap remain conditional on that supplier or gap.
 
@@ -212,7 +212,7 @@ Let R be a complete Noetherian regular local ring, char R=0, residue field F_p, 
 2. A regular system extending p gives a surjection from the (p,T)-adically complete power-series ring. Both rings have dimension g+1; regularity makes the source a domain and forces the kernel to be zero.
 3. Check compatibility with the specified Z_p map by continuity and density of Z. Smoothness supplies regularity, unramifiedness and the dimension of the completed local ring. This compatibility and completion adapter is requested explicitly from SF.0, not assumed to be part of its absolute statement.
 
-**Direct prerequisites:** [`SchemeAndStackFoundations:SF.0/cohen-structure`](../packets/SchemeAndStackFoundations.json), [`SchemeAndStackFoundations:SF.0/cohen-ring`](../packets/SchemeAndStackFoundations.json), [`SchemeAndStackFoundations:SF.0`](../packets/SchemeAndStackFoundations.json).
+**Direct prerequisites:** [`SchemeAndStackFoundations:SF.0/cohen-structure`](../packets/SchemeAndStackFoundations--SF.0.json), [`SchemeAndStackFoundations:SF.0/cohen-ring`](../packets/SchemeAndStackFoundations--SF.0.json), [`SchemeAndStackFoundations:SF.0`](../packets/SchemeAndStackFoundations--SF.0.json).
 
 **Source:** [Jason P. Bell, Dragos Ghioca and Thomas J. Tucker, The dynamical Mordell-Lang problem for étale maps](https://arxiv.org/abs/0808.3266v1), Proposition 2.1 proof, pp.4–5. Uses an unramified complete regular local ring and a regular parameter system to obtain Z_p power-series coordinates.
 
@@ -232,7 +232,7 @@ The specialization limit uses a global height structure specified as part of the
 
 **Theorem target:** `ArithmeticDynamics:DY.6/followup-global-curve-specialization`.
 
-Let K be a global height field with its chosen product-formula height structure, T/K a smooth projective geometrically integral curve, and h_T a Weil height for a divisor of degree 1. Let π:V→T be a projective family with smooth geometrically integral generic fibre, P a rational section, φ a rational self-map over T that is a morphism on the generic fibre, and η∈Pic(V)⊗R with φ*η=αη on the generic fibre, α>1. On a nonempty good open U where the fibres, φ_t and the eigenclass specialize as in Call–Silverman §3, one has lim_{h_T(t)→∞, t∈U(K̄)} ĥ_{V_t,η_t,φ_t}(P_t)/h_T(t)=ĥ_{V_η,η_η,φ_η}(P_η). The right side uses the degree-normalized geometric height on K(T). The statement does not assert an O(1) error.
+Let K be a global height field with its chosen product-formula height structure, T/K a smooth projective geometrically integral curve, and h_T a nonnegative Weil height for a divisor of degree 1. Let V/K be smooth and projective and π:V→T a morphism with smooth geometrically integral generic fibre, P a rational section, and φ a rational self-map over T that is a morphism on the generic fibre. Let η∈Pic(V)⊗R and α>1, with φ*η−αη represented by a fibral divisor (supported over a proper closed subset of T), using the rational pullback convention of Call–Silverman §3. On a nonempty good open U where the fibres are smooth and geometrically integral and φ_t is a morphism, one has lim_{h_T(t)→∞, t∈U(K̄)} ĥ_{V_t,η_t,φ_t}(P_t)/h_T(t)=ĥ_{V_η,η_η,φ_η}(P_η). The right side uses the degree-normalized geometric height on K(T). The statement does not assert an O(1) error.
 
 **Hypotheses and checks.**
 
@@ -246,7 +246,7 @@ Let K be a global height field with its chosen product-formula height structure,
 3. Use curve-height quasi-equivalence h_{T,D}(t)/h_T(t)→deg D, including real divisor classes; the height and intersection contracts are requested from RP.0. Combining with the generic canonical/Weil bound gives a limsup error bounded independently of Q after section-dependent O(1) terms vanish.
 4. Replace P by φⁿP. Both canonical heights multiply by αⁿ. Divide the uniform limsup bound by αⁿ and let n tend to infinity. This generalizes the inherited t-line endpoint without requiring Northcott over K.
 
-**Direct prerequisites:** [`ArithmeticDynamics:DY.1/canonical-height-for-a-divisorial-eigenclass`](../packets/ArithmeticDynamics.json), [`HeightsRationalPointsAndObstructions:RP.0/weil-height-machine`](../packets/HeightsRationalPointsAndObstructions.json), [`HeightsRationalPointsAndObstructions:RP.0/geometric-height-field`](../packets/HeightsRationalPointsAndObstructions.json), [`SchemeAndStackFoundations:SF.0/spreading-out-models`](../packets/SchemeAndStackFoundations.json), [`HeightsRationalPointsAndObstructions:RP.0`](../packets/HeightsRationalPointsAndObstructions.json).
+**Direct prerequisites:** [`ArithmeticDynamics:DY.1/canonical-height-for-a-divisorial-eigenclass`](../packets/ArithmeticDynamics.json), [`HeightsRationalPointsAndObstructions:RP.0/weil-height-machine`](../packets/HeightsRationalPointsAndObstructions.json), [`HeightsRationalPointsAndObstructions:RP.0/geometric-height-field`](../packets/HeightsRationalPointsAndObstructions.json), [`SchemeAndStackFoundations:SF.0/spreading-out-models`](../packets/SchemeAndStackFoundations--SF.0.json), [`HeightsRationalPointsAndObstructions:RP.0`](../packets/HeightsRationalPointsAndObstructions.json).
 
 **Source:** [Gregory S. Call and Joseph H. Silverman, Canonical heights on varieties with morphisms](https://www.numdam.org/item/CM_1993__89_2_163_0.pdf), §3 Theorem 3.1 pp.177–182; §4 Theorem 4.1 and proof pp.183–186. The proof compares fibre and generic heights along a section and amplifies by iteration on a smooth projective base curve.
 
@@ -255,7 +255,7 @@ Let K be a global height field with its chosen product-formula height structure,
 **Acceptance.**
 
 - T=P¹, K a number field and η=O(1) recover the inherited specialization theorem.
-- A constant family gives ratio 0 and generic geometric canonical height 0, even if fibre arithmetic heights are positive.
+- For the constant family f_t(z)=z² on P¹×P¹ over Q, the constant section P_t=2 has generic geometric height 0 and ratio h(2)/h(t)→0. The moving section P_t=t instead has generic height 1 and ratio h(t)/h(t)=1; a constant map alone does not force a zero limit.
 - A degree-e base change multiplies generic degrees and changes the degree-one base-height normalization accordingly.
 
 <a id="benedetto-zero-height"></a>
@@ -274,7 +274,7 @@ Let F be any field, K/F a finite extension of F(T), and f∈K[z] a polynomial of
 **Proof route.**
 
 1. Over any fixed finite extension containing x, zero local escape rates place its forward orbit in every local filled Julia set.
-2. If there are at least three rational zero-height points and all places have potentially good reduction, normalize two finite ones to 0 and 1; the product formula forces the leading coefficient to have norm 1 everywhere and then forces all coefficients to be constants (Benedetto Proposition 6.1). Nonisotriviality therefore supplies a bad place.
+2. The rational zero-height set is forward-invariant. If it has at most two points it is already finite. Otherwise, if all places have potentially good reduction, normalize two finite zero-height points to 0 and 1; the product formula forces the leading coefficient to have norm 1 everywhere and then forces all coefficients to be constants (Benedetto Proposition 6.1). Nonisotriviality therefore supplies a bad place in this remaining case.
 3. At a bad place the filled Julia set is covered by at most d² open discs of radius \|a_d\|^{-1/(d−1)}; at good places it lies in a closed disc of that radius. Two rational points in the same choices of bad-place discs violate the product formula. Thus the rational zero-height set is finite and forward-invariant.
 4. Apply this argument in a finite extension containing any algebraic x. Nonisotriviality persists under that extension.
 
@@ -420,27 +420,28 @@ For a∈Q̄ ∖ {0,1}, there are infinitely many distinct t∈Q̄ ∖ {0,1} for 
 
 **Theorem target:** `ArithmeticDynamics:DY.6/followup-hybrid-uniform-potential`.
 
-For a degree-d≥2 meromorphic family f_t of morphisms of P¹ on a punctured disc, choose a meromorphic homogeneous lift with no common zero for t≠0 and the hybrid parameter \|T\|=r∈(0,1). The normalized degree-dⁿ model potentials from the iterated lift converge uniformly after multiplication by log(r)/log\|t\| to a continuous potential on the hybrid projective line, whose central restriction is the nonarchimedean escape potential. Changes of lift add the corresponding scalar logarithmic normalization.
+Let f_t be a degree-d≥2 meromorphic family of morphisms of P¹ on a punctured disc, with meromorphic homogeneous lift F_t having no common zero for t≠0. Fix 0<r<1 inside the parameter disc and the hybrid central norm \|T\|=r. With the Fubini–Study reference metric define u_n([z],t)=d^{-n} log(max_i \|(F_t^n(z))_i\| / \|\|z\|\|₂^{d^n}), where F_t^n is the homogeneous compositional iterate. The finite-level hybrid extensions of (log r/log\|t\|)u_n converge uniformly over the closed hybrid disc \|t\|≤r to a continuous potential. Its central restriction is g_F([z])=lim_n d^{-n}log\|\|F^n(z)\|\|_sup−log\|\|z\|\|_sup over C((T)) with \|T\|=r, relative to the standard nonarchimedean model metric. Replacing F_t by h(t)F_t changes the limit by (log r/log\|t\|)log\|h(t)\|/(d−1) on complex fibres and by log\|h\|_r/(d−1) centrally.
 
 **Hypotheses and checks.**
 
 - The resultant may vanish at t=0 but not for t≠0; the family is meromorphic across 0.
-- Specify the reference metric and normalization; continuity of this potential is stronger information than weak convergence of measures.
+- Use the Fubini–Study metric on complex O(1) and the standard model metric centrally. Scalar changes of the homogeneous lift use the displayed correction; continuity is stronger information than weak convergence of measures.
 
 **Proof route.**
 
-1. Coefficient meromorphy gives an upper bound by a power of \|t\|; a Nullstellensatz/resultant identity gives the lower bound by another power. This yields \|d^{-n-1}ϕ_{n+1}−d^{-n}ϕ_n\|≤C d^{-n}log\|t\|^{-1} (Favre Proposition 4.4).
+1. Coefficient meromorphy gives an upper bound by a power of \|t\|; a Nullstellensatz/resultant identity gives the lower bound by another power. Thus \|u_{n+1}−u_n\|≤C d^{-n}log\|t\|^{-1} (Favre Proposition 4.4).
 2. The hybrid scaling converts the estimate to a summable bound independent of the parameter. Finite-level model potentials extend continuously to the central fibre by Theorem 2.10.
 3. Uniform convergence proves continuity and identifies the central escape potential by evaluation of the same iterated homogeneous polynomials. The hybrid model-function extension is requested from TB.0.
 
 **Direct prerequisites:** [`ArithmeticDynamics:DY.2/escape-rate`](../packets/ArithmeticDynamics.json), [`TropicalAndBerkovichArithmetic:TB.0`](../packets/TropicalAndBerkovichArithmetic.json).
 
-**Source:** [Charles Favre, Degeneration of endomorphisms of the complex projective space in the hybrid space](https://arxiv.org/pdf/1611.08490v2), Theorem 2.10; §4.3 Proposition 4.4 pp.29–30. A meromorphic growth estimate for successive normalized potentials produces the uniform potential in the hybrid setting.
+**Source:** [Charles Favre, Degeneration of endomorphisms of the complex projective space in the hybrid space](https://arxiv.org/pdf/1611.08490v2), Theorem 2.10 p.15; §4.3 Proposition 4.4 and central-potential identification pp.29–31. A meromorphic growth estimate for successive normalized potentials produces the uniform potential in the hybrid setting.
 
 **Acceptance.**
 
-- A constant good-reduction family has the constant nonarchimedean limit.
+- A constant lift with good reduction has central potential g_F=0 for the standard model metric.
 - Unscaled complex potentials are not asserted continuous at t=0.
+- Multiplying the lift by t^m shifts the central potential by m log(r)/(d−1), while its equilibrium measure is unchanged.
 
 **Open proof leaf — Hybrid analytic comparison proofs.** The TB.0 request specifies the actual model-function and measure comparison contracts. Their proofs in Favre §§2–4 are not yet decomposed to a library/roadmap API; the carrier, density, and measure continuity must all be supplied before the inherited degeneration gap is closed.
 
@@ -507,7 +508,7 @@ For each degree d≥2, finitely many iterated fixed-point multiplier multisets j
 - Flexible Lattès families have constant spectra and positive-dimensional moduli, so their removal is necessary.
 - The number of iterates depends on d; no universal single period is claimed.
 
-**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients and Milnor Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
+**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients (Milnor Theorem 3.1 and Lemma 3.5), and the conjugacy invariants of Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
 
 <a id="affine-lattes-map"></a>
 
@@ -525,12 +526,12 @@ A complex rational map f of degree ≥2 is an affine-torus Lattès map if there 
 **Proof route.**
 
 1. Use the quotient-of-affine-map notion of Milnor Definition 2.1 restricted to a torus. The semiconjugacy determines degree \|a\|².
-2. Milnor Lemma 3.5 and Theorem 5.1 give the cyclic quotient normal form; Theorem 5.1 fixes the conjugacy invariants.
+2. Milnor Theorem 3.1 and Lemma 3.5 give the cyclic quotient normal form; Theorem 5.1 fixes the conjugacy invariants.
 3. Lemma 5.5 identifies flexibility. Elliptic uniformization and the cyclic-quotient classification remain a precise recorded gap; do not identify the whole notion with inherited multiplication-only maps.
 
 **Direct prerequisites:** [`ArithmeticDynamics:DY.6/lattes-map`](../packets/ArithmeticDynamics.json), [`ArithmeticDynamics:DY.6/flexible-lattes-map`](../packets/ArithmeticDynamics.json).
 
-**Source:** [John Milnor, On Lattès maps](https://arxiv.org/abs/math/0402147v2), Definition 2.1 pp.2–3; Theorem 5.1 pp.15–16; Lemma 5.5 p.18. The affine torus quotient includes rigid maps and translations as well as the flexible multiplication cases.
+**Source:** [John Milnor, On Lattès maps](https://arxiv.org/abs/math/0402147v2), Definition 2.1 pp.2–3; Theorem 3.1 pp.3–4 and Lemma 3.5 pp.5–6; Theorem 5.1 pp.15–16; Lemma 5.5 p.18. The affine torus quotient includes rigid maps and translations as well as the flexible multiplication cases.
 
 **Consumers.**
 
@@ -563,7 +564,7 @@ A complex rational map f of degree ≥2 is an affine-torus Lattès map if there 
 - All inherited multiplication-by-m examples are included.
 - z↦z^d is a cylinder quotient and is not a torus quotient.
 
-**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients and Milnor Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
+**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients (Milnor Theorem 3.1 and Lemma 3.5), and the conjugacy invariants of Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
 
 <a id="rigid-lattes-finiteness"></a>
 
@@ -593,7 +594,7 @@ For each d≥2, there are finitely many complex affine-torus Lattès conjugacy c
 - Degree 2 has rigid examples.
 - Degree 4 also has a flexible family, so finiteness of all Lattès classes is false.
 
-**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients and Milnor Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
+**Open proof leaf — Affine quotient classification and rigidity.** Supply complex elliptic uniformization, classification of finite torus quotients (Milnor Theorem 3.1 and Lemma 3.5), and the conjugacy invariants of Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
 
 <a id="minimum-conjugate-height"></a>
 
@@ -657,11 +658,11 @@ Let X,Y be irreducible projective varieties over Q̄ with ample line bundles A,B
 
 **Theorem target:** `ArithmeticDynamics:DY.6/followup-quantitative-attracting-branch`.
 
-Let f(z)=λz·∏_{i=1}^{d−1}(1−α_i z)/∏_{j=1}^{d−1}(1−β_j z) have degree d≥2, fixing 0 and infinity, and M=max{\|α_i\|,\|β_j\|}>0. Over C set C_v=3^{d−1}, ε_v=min(1/8,1/C_v); over a complete algebraically closed nonarchimedean field set C_v=1, ε_v=min_{1≤m≤d}\|m\|^d. If 0<\|λ\|<ε_v, there is a nonzero branch value β with 0<\|f^k(β)\|M≤(C_v\|λ\|)^k for all k≥1.
+Let f(z)=λz·∏_{i=1}^{d−1}(1−α_i z)/∏_{j=1}^{d−1}(1−β_j z) have degree d≥2, fixing 0 and infinity, and M=max{\|α_i\|,\|β_j\|}>0. Over C set C_v=3^{d−1}, ε_v=min(1/8,1/C_v); over a complete algebraically closed nonarchimedean field of characteristic 0 or p>d set C_v=1, ε_v=min_{1≤m≤d}\|m\|^d. If 0<\|λ\|<ε_v, there is a nonzero branch value β with 0<\|f^k(β)\|M≤(C_v\|λ\|)^k for all k≥1.
 
 **Hypotheses and checks.**
 
-- The archimedean absolute value is the usual complex modulus; the nonarchimedean version includes small residue characteristic.
+- The archimedean absolute value is the usual complex modulus. In the nonarchimedean case the field characteristic is 0 or p>d, as in Ingram §1; the residue characteristic can be at most d.
 - A branch value is the image of a critical point, not necessarily the critical point itself.
 
 **Proof route.**
@@ -672,7 +673,7 @@ Let f(z)=λz·∏_{i=1}^{d−1}(1−α_i z)/∏_{j=1}^{d−1}(1−β_j z) have d
 
 **Direct prerequisites:** [`ArithmeticDynamics:DY.2/escape-rate`](../packets/ArithmeticDynamics.json), [`TropicalAndBerkovichArithmetic:TB.0`](../packets/TropicalAndBerkovichArithmetic.json).
 
-**Source:** [Patrick Ingram, The critical height is a moduli height](https://arxiv.org/abs/1610.07904v3), Lemma 8 and proofs, pp.7–8. Uses Koebe quarter in the complex case and the small-residue-prime directional-multiplicity bound in the nonarchimedean case.
+**Source:** [Patrick Ingram, The critical height is a moduli height](https://arxiv.org/abs/1610.07904v3), §1 field convention p.4; Lemma 8 and proofs pp.7–8. Uses Koebe quarter in the complex case and the small-residue-prime directional-multiplicity bound in the nonarchimedean case.
 
 **Acceptance.**
 
@@ -822,7 +823,7 @@ The TB.0 request specifies the actual model-function and measure comparison cont
 
 ### Affine quotient classification and rigidity
 
-Supply complex elliptic uniformization, classification of finite torus quotients and Milnor Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
+Supply complex elliptic uniformization, classification of finite torus quotients (Milnor Theorem 3.1 and Lemma 3.5), and the conjugacy invariants of Theorem 5.1. For the multiplier theorem supply McMullen stable-family rigidity (including its Thurston and holomorphic-motion inputs) and the Noetherian finite-spectrum adapter. The fixed-degree lattice/counting argument is explicit here, but is conditional on the classification; no imaginary-quadratic class-number theorem is needed for that elementary bound.
 
 **Needed by:** [`ArithmeticDynamics:DY.6/followup-affine-lattes-map`](#affine-lattes-map), [`ArithmeticDynamics:DY.6/followup-rigid-lattes-finiteness`](#rigid-lattes-finiteness), [`ArithmeticDynamics:DY.6/followup-finite-multiplier-spectrum`](#finite-multiplier-spectrum).
 
@@ -881,12 +882,12 @@ Read date: 14 October 2026. All source statements and proof routes above are wri
 - **Jason P. Bell.** [A generalised Skolem–Mahler–Lech theorem for affine varieties](https://arxiv.org/pdf/math/0501309v2). arXiv:math/0501309v2; §3 read 2026-10-14. Read: §3, Lemma 3.1 and proof, pp.5–6.
 - **Gregory S. Call and Joseph H. Silverman.** [Canonical heights on varieties with morphisms](https://www.numdam.org/item/CM_1993__89_2_163_0.pdf). Compositio Math. 89 (1993), 163–205; Numdam scan read 2026-10-14. Read: §1 setting p.166; §3 setting and Theorem 3.1 pp.177–182; §4 Theorem 4.1, remark and proof pp.183–186.
 - **Dragos Ghioca, Thomas J. Tucker and Michael E. Zieve.** [Intersections of polynomial orbits, and a dynamical Mordell-Lang conjecture](https://arxiv.org/abs/0705.1954v2). arXiv:0705.1954v2; read 2026-10-14; published pagination is not used. Read: §2.1 Theorem 2.1 and Corollary 2.2, pp.5–6; §5 linear-case argument; §6.1 Proposition 6.3 and Corollary 6.4, p.17; §6.2 pp.17–18.
-- **Patrick Ingram.** [The critical height is a moduli height](https://arxiv.org/abs/1610.07904v3). arXiv:1610.07904v3; read 2026-10-14. Read: Lemma 8 and its two proofs pp.7–8; Lemmas 13–15 and proof of Theorem 1 pp.14–16.
-- **John Milnor.** [On Lattès maps](https://arxiv.org/abs/math/0402147v2). arXiv:math/0402147v2; read 2026-10-14. Read: §2 Definition 2.1, pp.2–3; §5 Theorem 5.1, Corollary 5.2, Lemmas 5.3–5.5 and proofs pp.15–18.
+- **Patrick Ingram.** [The critical height is a moduli height](https://arxiv.org/abs/1610.07904v3). arXiv:1610.07904v3; read 2026-10-14. Read: §1 field convention p.4; Lemma 8 and its two proofs pp.7–8; Lemmas 13–15 and proof of Theorem 1 pp.14–16.
+- **John Milnor.** [On Lattès maps](https://arxiv.org/abs/math/0402147v2). arXiv:math/0402147v2; read 2026-10-14. Read: §2 Definition 2.1, pp.2–3; §3 Theorem 3.1 pp.3–4 and Lemma 3.5 with proof pp.5–6; §5 Theorem 5.1, Corollary 5.2, Lemmas 5.3–5.5 and proofs pp.15–18.
 - **Jason P. Bell, Dragos Ghioca and Thomas J. Tucker.** [The dynamical Mordell-Lang problem for étale maps](https://arxiv.org/abs/0808.3266v1). arXiv:0808.3266v1; read 2026-10-14. Read: §2 Propositions 2.1–2.2 pp.4–6; §4 coefficient embedding and models pp.12–15.
 - **Laura DeMarco, Xiaoguang Wang and Hexi Ye.** [Torsion points and the Lattès family](https://arxiv.org/pdf/1311.1792v3). arXiv:1311.1792v3; read 2026-10-14. Read: Proposition 1.4 and Theorem 1.5 statements p.3; Proposition 3.1 and proof pp.9–10; §4 setting and conclusion pp.12–19 inspected (cusp estimates not fully audited); §6.5 infinitude argument pp.28–29.
 - **Robert L. Benedetto.** [Heights and preperiodic points of polynomials over function fields](https://rlbenedetto.people.amherst.edu/papers/ffheights.pdf). Author copy revised December 12, 2005; read 2026-10-14. Read: Theorems A and B p.2; Lemmas 5.1–5.3 pp.6–7; Proposition 6.1 and proof of Theorem A pp.7–8.
-- **Charles Favre.** [Degeneration of endomorphisms of the complex projective space in the hybrid space](https://arxiv.org/pdf/1611.08490v2). arXiv:1611.08490v2; read 2026-10-14. Read: Theorem B pp.2–3; model-function statements Theorems 2.10 and 2.12; §4.1 Definition 4.1 and Theorem 4.2; §4.3 Proposition 4.4 and proof of Theorem B pp.29–31.
+- **Charles Favre.** [Degeneration of endomorphisms of the complex projective space in the hybrid space](https://arxiv.org/pdf/1611.08490v2). arXiv:1611.08490v2; read 2026-10-14. Read: Theorem B pp.2–3; model-function statements Theorems 2.10 p.15 and 2.12 p.16; §4.1 Definition 4.1 p.25 and Theorem 4.2 p.26; §4.3 Proposition 4.4 and proof of Theorem B pp.29–31.
 - **Curt McMullen.** [Families of rational maps and iterative root-finding algorithms](https://doi.org/10.2307/1971408). Ann. of Math. 125 (1987), 467–493; author-hosted scan read 2026-10-14, publisher DOI used as stable citation link. Read: Rendered printed pp.472–473: Lemma 2.1, Theorem 2.2, Corollary 2.3. The rigidity proofs in §§4–6 have not been audited.
 
 The DeMarco–Faber I and II statements were also screened to choose the degeneration route. Theorem D of Part II concerns analytic stabilization, rather than the hybrid weak limit. Favre supplies the latter and the separate potential estimate. This corrects the inherited gap locator, and is not an allegation of a published source error. Ingram’s reference [21] is Silverman’s *Moduli Spaces and Arithmetic Dynamics* (2012), not *The Arithmetic of Dynamical Systems*. The public sample of the latter was screened and does not supply the needed representative-height proof. Neither that cited book nor Tate’s article was available in the cleared library.
