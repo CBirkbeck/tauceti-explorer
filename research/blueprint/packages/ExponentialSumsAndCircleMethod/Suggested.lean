@@ -58,6 +58,10 @@ example (δ : ℝ) : ¬ shortCharacterHypothesis 2 δ := by sorry
 
 example (n : ℕ) : ¬ shortCharacterHypothesis n 0 := by sorry
 
+example : shortCharacterHypothesis 3 (1/48) := by sorry
+
+example (n : ℕ) (δ : ℝ) (hδ : 1 < δ) : ¬ shortCharacterHypothesis n δ := by sorry
+
 /-- Polar forms. For a commutative ring R, n,r≥0, a tensor c indexed by (r+1)-tuples of n coordinate indices, and r vectors u, define polarForm(c,u)_j=(r+1)!Σ_{a∈(Fin n)^r}c(a₁,…,a_r,j)∏_{t=1}^r u^(t)_{a_t}. -/
 def polarForm {R : Type*} [CommRing R] (n r : ℕ)
     (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R) (j : Fin n) : R :=
@@ -410,8 +414,9 @@ def waringSingularSeries (d s m : ℕ) : ℂ := ∑' q : ℕ, waringSeriesCoeff 
 
 example (m : ℕ) : waringSingularSeries 1 2 m = 1 := by sorry
 
-example (m : ℕ) (h : Summable (waringSeriesCoeff 3 7 m)) :
-    HasSum (waringSeriesCoeff 3 7 m) (waringSingularSeries 3 7 m) := by sorry
+example : waringSingularSeries 1 0 0 = 0 := by sorry
+
+example : waringSingularSeries 4 9 15 = 0 := by sorry
 
 /-- Waring singular integral. I_{d,s}=∫_{β∈ℝ}(∫_{0≤t≤1}exp(2πiβt^d)dt)^s exp(−2πiβ)dβ, using native Lebesgue measure and Bochner integration. -/
 def waringSingularIntegral (d s : ℕ) : ℂ :=
@@ -438,6 +443,8 @@ def waringLocalFactor (d s m p : ℕ) : ℂ :=
 example : waringLocalFactor 1 2 1 3 = 1 := by sorry
 
 example : waringLocalFactor 2 2 1 3 = 4/3 := by sorry
+
+example : waringLocalFactor 4 9 15 2 = 0 := by sorry
 
 /-- Polynomial-system congruence count. For n variables, r integral polynomial equations F_j and integral target m_j, formCongruenceCount(n,r,q,F,m) is the cardinality of x∈(ℤ/qℤ)ⁿ with F_j(x)=m_j for all j. -/
 def formCongruenceCount (n r q : ℕ) [NeZero q]
@@ -705,7 +712,8 @@ theorem vinogradov_three_prime_asymptotic (A : ℝ) (hA : 0<A) :
       |mangoldtTripleCount N-ternaryPrimeSeries N*(N : ℝ)^2/2| ≤
         C*(N : ℝ)^2*(Real.log N)^(-A) := by sorry
 
-/-- Weighted quadratic-form asymptotic. Theorem4.9 and Corollary4.10 p.20, citing Heath–Brown1996 Theorem4/Corollary1. -/
+/-- Weighted quadratic-form asymptotic. SSTT Theorem4.9 and Corollary4.10 p.20;
+Heath–Brown1996 Theorem4 and Corollary1, author pp.7–8. -/
 theorem heath_brown_quadratic_asymptotic (n : ℕ) (hn : 5 ≤ n) (Q : MvPolynomial (Fin n) ℤ)
     (hQ : Q.IsHomogeneous 2)
     (hnd : ∀ x : Fin n → ℚ, (∀ i, (MvPolynomial.pderiv i Q).eval₂ (Int.castRingHom ℚ) x=0) → x=0)

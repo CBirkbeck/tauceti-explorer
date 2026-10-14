@@ -387,6 +387,10 @@ The basic API consists of the following statements.
 
 - The predicate is false for n=2, for every δ.
 - The predicate with δ=0 is false, for every n.
+- For n=3,δ=1/48 the predicate holds by the cubic Burgess specialization below; declaring every case false
+  would fail this control.
+- For every n and δ>1 it is false. Use the nonprincipal character modulo3 on the singleton interval (0,1],
+  whose sum is1, and let Q grow with ε=(δ−1)/(2n) when n≥3. The asserted upper bound then tends to0.
 - Its bound applies to an interval beginning at M=−20 as well as at zero; one extracted constant works for both
   shifts.
 
@@ -2267,7 +2271,7 @@ result. ([Assing](#assingcircle2022), Theorem8.8 and proof pp.79–82.)
 Use Layer 1, Layer 2. Use the native Mathlib APIs listed at each target and the supplier contracts
 `AnalyticNumberTheory:AN.5`.
 
-Prove `gaussian_brascamp_lieb_extremality`: for a finite Brascamp–Lieb datum `(L_j,a_j)` with positive exponents, its optimal constant is the supremum, over positive-definite `A_j` on the target spaces, of `∏_j det(A_j)^{a_j/2} / det(∑_j a_j L_j^* A_j L_j)^{1/2}`. Use determinant one in dimension zero. This is the Gaussian extremality input to the stability proof (Bennett–Bez–Flock–Lee, §2.2, pp.7–9). Bennett–Bez–Flock–Lee use Lieb, Inventiones 102 (1990), Theorem 6.2 for this step. Give its complete proof or a precise native supplier before using stability. Prove `transverse_multilinear_restriction` and the wave-packet decomposition used by the parabola argument. For `d≥2`, `d` compact smooth hypersurface patches with bounded `C²` parametrizations and normals whose determinant has absolute value at least `ν>0`, `q≥2d/(d−1)`, `p′≤(d−1)q/d`, `ε>0` and `R≥1`, require `‖∏_j E_j g_j‖_{L^{q/d}(B(0,R))}≤C R^ε ∏_j ‖g_j‖_{L^p}`. The constant depends on the derivative bound, transversality, exponents and dimension. This is Bennett–Carbery–Tao Theorem 1.16 (author version, p.6; reduction in §2, pp.7–9), the external restriction input to Bourgain–Demeter, rather than a consequence of integer mean values.
+Prove `gaussian_brascamp_lieb_extremality`: for a Brascamp–Lieb datum `(L_j,a_j)` with finitely many maps, positive exponents and finite optimal constant, that constant is the supremum, over positive-definite `A_j` on the target spaces, of `∏_j det(A_j)^{a_j/2} / det(∑_j a_j L_j^* A_j L_j)^{1/2}`. Finiteness of the Brascamp–Lieb constant forces the common kernel of the `L_j` to be zero; positivity of the exponents and `A_j` then makes the denominator matrix positive definite, so its determinant is nonzero. Use determinant one in dimension zero. This is the Gaussian extremality input to the stability proof (Bennett–Bez–Flock–Lee, §2.2, pp.7–9). Bennett–Bez–Flock–Lee use Lieb, Inventiones 102 (1990), Theorem 6.2 for this step. Give its complete proof or a precise native supplier before using stability. Prove `transverse_multilinear_restriction` and the wave-packet decomposition used by the parabola argument. For `d≥2`, `d` compact smooth hypersurface patches with bounded `C²` parametrizations and normals whose determinant has absolute value at least `ν>0`, `q≥2d/(d−1)`, `p′≤(d−1)q/d`, `ε>0` and `R≥1`, require `‖∏_j E_j g_j‖_{L^{q/d}(B(0,R))}≤C R^ε ∏_j ‖g_j‖_{L^p}`. The constant depends on the derivative bound, transversality, exponents and dimension. This is [Bennett–Carbery–Tao](#bctrestriction) Theorem 1.16 (author version, p.6; reduction in §2, pp.7–9), the external restriction input to Bourgain–Demeter, rather than a consequence of integer mean values.
 
 Construct the native localization adapters used in the targets: canonical grids at nonintegral scales, covers with bounded overlap and comparable cardinalities, compact Fourier-support Bernstein inequalities, positive Schwartz cutoffs with prescribed small square-root Fourier support, and affine changes of variables with their Jacobians. Reuse Tau Ceti's nonnegative-Fourier test function for the part of localization it supplies. Define the finite D/A quantities and least decoupling constants only after their eLpNorm values are finite. Their normalization checks are the single-interval identity, zero amplitude, and invariance under translation of the ball with translated amplitude. Covers are geometrically specified; an arbitrary cover is not an admissible input to ball inflation.
 
@@ -2335,9 +2339,10 @@ The basic API consists of the following statements.
 **Checks.**
 
 - For d=1,s=2 and any m the series is1, since every coefficient q>1 vanishes.
-- A Summable degree3,s7 coefficient family has native HasSum equal to this defined series, not to an arbitrary
-  supplied constant.
-- For every Summable real-coefficient family, the series has imaginary part zero.
+- For d=1,s=0,m=0 the native value is0: A(q)=φ(q) for q≥1 is not summable. A divergent sequence of positive
+  partial sums cannot be substituted for the totalized tsum.
+- For d=4,s=9,m=15 the value is0 despite absolute convergence. Fourth powers are0 or1 modulo16, so nine
+  variables cannot give15; the two-adic local factor vanishes. This rejects an always-positive series.
 
 *Needs:* Layer 4 `waringSeriesCoeff`; Mathlib `tprod`; Mathlib `Multipliable`.
 
@@ -2426,8 +2431,8 @@ The basic API consists of the following statements.
 **Checks.**
 
 - At d=1,s=2,m=1,p=3 the value is1.
-- Any locally Summable prime-power coefficient family has its native HasSum equal to this factor.
-- A locally Summable factor has no nonzero imaginary part.
+- At d=4,s=9,m=15,p=2 the value is0: there is no solution modulo16, and hence none modulo any higher power.
+  This is a vanishing local obstruction, rather than positivity supplied by the definition.
 - For d=2,s=2,m=1,p=3 the factor is4/3: there are4 solutions modulo3, all primitive, and4·3^{e−1} modulo3^e. This
   separates the correct q^{s−1} normalization from q^s and detects omission of the e=0 term.
 
@@ -2978,7 +2983,8 @@ quadratic form Q in n≥5 variables and w∈C∞_c(ℝⁿ). For every ε>0 and a
 product converges and weightedQuadraticCount(Q,m,w)=μ∞(Q−1,w)m^{n/2−1}∏_pμ_p(Q,m)+O_{Q,w,ε}(m^{(n−1)/4+ε}). The
 constant is uniform in m, not in the coefficients of Q or arbitrary basis changes. A bounded family of
 derivative seminorms supplies the standard weight-class uniformity. ([Shankar–Shankar–Tang–Tayou](#sstt2022),
-Theorem4.9 and Corollary4.10 p.20, citing Heath–Brown1996 Theorem4/Corollary1.)
+Theorem4.9 and Corollary4.10 p.20; [Heath–Brown 1996](#heathbrown1996), Theorem4, author pp.7–8, and
+Corollary1, author p.8.)
 
 *Needs:* Layer 5 `weightedQuadraticCount`; Layer 4 `quadratic_local_stability`; Layer 4 `weightedRealDensity`.
 
@@ -3138,7 +3144,7 @@ equation(9.5) p.27.)
 Prove `markoff_diagonal_energy` (markoff diagonal second moment). In the same K,A range,
 Σ_{√A≤a≤A}Σ_{1≤k≤K}r_a(K,k)²≤C K logA with an absolute constant for sufficiently largeK. The input binary
 estimate isΣ_{k≤K}R_d(k)²≪K/√d+K logK τ(d)/d. ([Ghosh–Sarnak](#ghoshsarnak2022), Lemma9.5 p.29, using
-Blomer–Granville Theorem2.)
+[Blomer–Granville](#blomergranville2006), Theorem2, author p.5; proof §5, pp.19–22.)
 
 *Needs:* Layer 5 `markoffRepresentationCount`.
 
@@ -3257,6 +3263,8 @@ The basic API consists of the following statements.
 - f=x₁ in two variables is perfect.
 - f=x in one variable is perfect, even though its fibers each have only one point.
 - f=0 is perfect: its sole admissible target0 has a dense integer lattice.
+- f=XY is not perfect. Every nonzero integer k is admissible through (1,k), but XY=k has finitely many
+  integral divisor pairs on an infinite geometric curve, so infinitely many admissible fibers fail density.
 
 *Needs:* Layer 4 `formAdmissible`; Layer 5 `formZariskiDense`.
 
@@ -3279,6 +3287,8 @@ The basic API consists of the following statements.
 - f=x₁ in two variables is almost perfect.
 - f=x is almost perfect.
 - f=0 is almost perfect: the admissible denominator is1, not divergent, and the numerator is0.
+- f=XY is not almost perfect: every nonzero admissible fiber fails density, so the exceptional proportion
+  tends to1, rather than0.
 
 *Needs:* Layer 5 `formZariskiDense`; Layer 4 `formAdmissible`.
 
@@ -3395,9 +3405,9 @@ contracts `AnalyticNumberTheory:AN.2`, `SieveMethodsAndPrimePatterns:SV.2`.
 
 For the optimized Waring range prove positive-trapezoidal-kernel coefficient reconstruction, target-dependent weighted coefficient tails, and the radius and arc comparisons at nonintegral cutoffs. These are stronger than the classical `2^k+1` argument. For primes, combine the exact weighted Siegel–Walfisz and Vaughan contracts with the type I/II estimates, then remove prime powers with an error small relative to the positive odd main term.
 
-The fixed quadratic endpoint requires the complete δ-method input used by Heath–Brown, J. reine angew. Math. 481 (1996), Theorem 4 and Corollary 1: the native δ-symbol expansion, complete composite-modulus Kloosterman estimates, weighted-frequency integral bounds and Euler-product convergence. For Niedermowwe's Gaussian and sharp-box results prove the Gaussian Poisson normalization, the composite Kloosterman/Salié convention and the rotated-box boundary comparison. In the quadratic sum bound retain the squarefree/squarefull decomposition and the factor `gcd(q₁,m)^{1/2}`. Ordinary Kloosterman estimates belong to the existing modular-form supplier; the required quadratic composite variant and normalization are the analytic adapter here.
+The fixed quadratic endpoint requires the complete δ-method input used by [Heath–Brown 1996](#heathbrown1996), Theorem 4 and Corollary 1, author pp.7–8: the native δ-symbol expansion, complete composite-modulus Kloosterman estimates, weighted-frequency integral bounds and Euler-product convergence. For Niedermowwe's Gaussian and sharp-box results prove the Gaussian Poisson normalization, the composite Kloosterman/Salié convention and the rotated-box boundary comparison. In the quadratic sum bound retain the squarefree/squarefull decomposition and the factor `gcd(q₁,m)^{1/2}`. Ordinary Kloosterman estimates belong to the existing modular-form supplier; the required quadratic composite variant and normalization are the analytic adapter here.
 
-The moving Markoff second moment needs a four-variable weighted δ-method estimate uniform in coefficients, target, smoothing thickness and weight derivatives. A fixed-form theorem for rank at least five is not that estimate. Supply the sector-diagonal binary input of Blomer–Granville, Theorem 2, and prove the sharp-to-smooth comparison with its losses. Separate pairs with large common discriminant valuation before making the averaged local-product comparison at the specified `B` and `Φ(A)`. Preserve every logarithmic loss. The negative-target sector has the same uniformity obligations with ratios `1/3` and `1/2`; the arithmetic-action supplier supplies congruence and orbit facts independently of the unweighted count.
+The moving Markoff second moment needs a four-variable weighted δ-method estimate uniform in coefficients, target, smoothing thickness and weight derivatives. A fixed-form theorem for rank at least five is not that estimate. Supply the sector-diagonal binary input of [Blomer–Granville](#blomergranville2006), Theorem 2, author p.5 and proof §5, pp.19–22, including the passage from primitive positive-definite forms and counts up to their automorphisms to the sector's lattice count, and prove the sharp-to-smooth comparison with its losses. Separate pairs with large common discriminant valuation before making the averaged local-product comparison at the specified `B` and `Φ(A)`. Preserve every logarithmic loss. The negative-target sector has the same uniformity obligations with ratios `1/3` and `1/2`; the arithmetic-action supplier supplies congruence and orbit facts independently of the unweighted count.
 
 For Birch use the real symmetric-lattice input `N(Z₂)≤C(n)(Z₂/Z₁)^n N(Z₁)` for `0<Z₁≤Z₂≤1`, with `N(Z)=#{u∈ℤⁿ:|u|<aZ, ‖(Lu)_i‖<a^{-1}Z}`, `a>1` and real symmetric `L`. Match its geometry-of-numbers proof and the bounded-degree affine integer-box estimate, then prove the rank-defect Weyl bounds and absolutely convergent residue series. Nonsingular local positivity requires Hensel lifting and regular real coarea; the admissibility predicate alone supplies neither. The generic cubic application requires a fully quantified tentacled second-moment hypothesis and proof before any fullness conclusion, and creates no unconditional theorem or axiom.
 
@@ -3739,4 +3749,14 @@ with nonzero Gaussian curvature and nondegenerate curves](https://arxiv.org/pdf/
 published JEMS19(2017),483–506
 
 
+<a id="bctrestriction"></a>
+
 - **Bennett–Carbery–Tao**. Jonathan Bennett; Anthony Carbery; Terence Tao, [On the multilinear restriction and Kakeya conjectures](https://www.maths.ed.ac.uk/~carbery/analysis/papers/Carbery/MRKbct_revised7.pdf). Author version, Theorem 1.16, p.6; §2, pp.7–9.
+
+<a id="heathbrown1996"></a>
+
+- **Heath–Brown 1996**. D. R. Heath-Brown, [A new form of the circle method, and its application to quadratic forms](https://ora.ox.ac.uk/objects/uuid:bbd3c62f-f010-44b5-8be5-87e903fb0084/files/m7ec02df6e1b8303a66e7a6015ecb6044). Public author version, Theorem4, pp.7–8; Corollary1, p.8. Published J. reine angew. Math. 481 (1996), 149–206; locators here use the author pagination.
+
+<a id="blomergranville2006"></a>
+
+- **Blomer–Granville**. Valentin Blomer; Andrew Granville, [Estimates for representation numbers of quadratic forms](https://dms.umontreal.ca/~andrew/PDF/quadraticforms.pdf). Public author draft dated 27 June 2006, Theorem2, p.5; proof §5, pp.19–22. Published Duke Mathematical Journal 135 (2006), 261–302; locators here use the author pagination.

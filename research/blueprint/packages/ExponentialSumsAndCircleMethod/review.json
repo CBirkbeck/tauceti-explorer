@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ExponentialSumsAndCircleMethod",
+    "date": "2026-10-14",
+    "notes": "Independent package review completed. Added discriminating short-character, singular-series/local-factor and perfectness controls, Gaussian denominator justification, and primary Heath–Brown/Blomer–Granville locators. Suggested.lean elaborates at the pins: exit 0, 141 sorry-only warnings. needs_changes: four essential supplier extensions have no supplying layer (function-field shrinking, early geometric circle method, maximal local integral splitting, Markoff dynamics); FF.2 moment, weighted AN.2 and quantitative SF.5 contracts also exceed their named exports. See the report for exact consumers and routing requirements."
+  }
+}
