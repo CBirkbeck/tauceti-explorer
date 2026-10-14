@@ -1,1569 +1,1652 @@
-# Certified computational number theory and arithmetic data
+# Roadmap: certified computational number theory and arithmetic data
 
-Arithmetic computations become reusable mathematics when their outputs identify
-objects in the library and carry evidence that can be checked independently of
-the program that found them. This roadmap builds that interface: exact
-presentations, finite primality and factorization certificates, maximal-order
-and class-group computations, integral modular-form matrices, and numerical
-enclosures with proved errors. Its examples include ordinary and nonordinary
-level-one eigenforms, finite-conductor Dirichlet L-function computations, and
-the rational Gram witnesses used in explicit-formula arguments.
+**Summary.** Arithmetic computations become reusable mathematics when their outputs identify
+objects of the library and carry evidence that can be checked independently of the program that
+found them. This roadmap builds that interface. It fixes a RAM model with explicit bit costs,
+exact presentations of algebraic numbers, `p`-adic balls and finite fields, and then gives, for
+each computation, a finite certificate, an executable verifier, a soundness theorem and a
+completeness or termination theorem for the discovery procedure. The end theorems are: Pratt
+certificates are sound and complete and have quadratic size (`PrattCertificate.sound` (1.3),
+`PrattCertificate.complete` (1.4), `pratt_small_certificate` (1.6)); the Miller–Rabin error bound
+(`strongLiar_card_le` (1.9), `millerRabin_rounds_bound` (1.10)); correctness of a fixed variant of AKS
+(`aks_correct` (1.14)); Pocklington certificates (`PocklingtonCertificate.sound` (1.18)); certified
+factorization over finite fields, over `ℤ` and over `ℚ` (`FiniteFieldFactorCertificate.sound` (1.23),
+`IntegerFactorCertificate.complete` (1.21), `certifiedRationalFactorization` (1.28)); integral bases by the
+`p`-radical multiplier criterion (`pRadical_multiplier_eq_iff` (2.7), `integralBasisAlgorithm` (2.9));
+simultaneous certification of the class group and the unit group
+(`certified_class_unit_complete` (2.16)); Ore's residual irreducibility criterion
+(`ore_residual_irreducible` (2.21)); the level-one congruence Sturm bound
+(`levelOne_congruence_sturm` (3.4)) and the complete list of nonordinary level-one pairs below 200
+(`nonordinary_pairs_lt_200` (3.13)); certified local images of `2`-descent and a terminating
+`p`-saturation test on elliptic curves over `ℚ` (`LocalImageCertificate.eq_range_of_isComplete` (3.19),
+`pSaturationTest` (3.26)); rigorous enclosures of Dirichlet and cusp-form `L`-values and Platt's
+finite-conductor theorems (`small_conductor_no_real_zero` (4.24)); and sound rational Gram certificates
+over complete Fincke–Pohst covers for the explicit-formula arguments of Chenevier and Taïbi
+(`NegativeGramCertificate.sound` (4.30), `fpEnumeration_complete` (4.27)).
 
-The common pattern is to specify a mathematical value, choose finite data that
-present it, define an executable verifier, prove the verifier sound, and prove
-completeness and termination for the advertised discovery algorithm. A semantic
-certificate containing a proof is useful for specifying the interface, but it
-does not itself supply an executable verifier. Both are targets when a finite
-verification procedure is required below. Discovery can use heuristics or
-randomness; the meaning of an accepted certificate is fixed independently of
-those choices. Conditional running-time estimates carry their assumptions in
-their own statements.
+The common pattern is to specify a mathematical value, choose finite data that present it, define
+an executable verifier, prove the verifier sound, and prove completeness and termination for the
+discovery algorithm. A semantic certificate containing a proof is useful for specifying the
+interface, but it does not by itself supply an executable verifier; both are targets when a finite
+verification procedure is required below. Discovery may use heuristics or randomness: the meaning
+of an accepted certificate is fixed independently of those choices. Running-time estimates that
+depend on unproved hypotheses carry those hypotheses in their own statements.
 
-Suggested homes are `TauCeti/NumberTheory/Computational/` for the arithmetic
-adapters and `TauCeti/Analysis/ValidatedNumerics/` for general enclosure
-operations. Names below use `TauCeti.Computational`. Every definition needs the
-stated API and its worked tests. [Suggested.lean](Suggested.lean) gives proposed
-signatures and admitted examples; this document is the definitive specification.
+Suggested homes are `TauCeti/NumberTheory/Computational/` for the arithmetic adapters and
+`TauCeti/Analysis/ValidatedNumerics/` for enclosure arithmetic, under the namespace
+`TauCeti.Computational`. [Suggested.lean](Suggested.lean) records, in the namespace
+`TauCetiRoadmap.ComputationalNumberTheory`, the definitions and end theorems that can be stated
+against the pinned libraries; this document is the specification.
 
 ## Scope and ownership
 
-Integers, rationals, residue rings, polynomials, finite fields, number fields,
-the ring of integers, ideals, class groups, units, modular forms, and continued
-L-functions use their Mathlib or Tau Ceti carriers. Finite presentations are
-related to those carriers by explicit decoding and transport equations. A
-computable presentation never creates a second mathematical field or a second
-class group.
+This roadmap owns:
 
-The following suppliers fix the boundaries. Layer identifiers are part of each
-dependency: importing a theorem means importing its hypotheses and normalization.
+1. **Computation models and exact presentations** (Layer CN.0): RAM instructions, partial
+   transitions, executions, bit costs and magnitude bounds; isolated algebraic numbers with exact
+   addition, multiplication, inversion and equality; canonical finite `p`-adic approximations;
+   Rabin irreducibility certificates, certified presentations of finite fields and changes of
+   presentation with explicit inverses.
+2. **Primality and factorization certificates** (Layer CN.1): Pratt trees with soundness,
+   completeness and size bounds; strong liars and the Miller–Rabin bound; a fixed AKS variant and
+   its correctness; Pocklington certificates; integer factor certificates; factor certificates over
+   finite fields and their transport; Hensel lifting modulo prime powers; rational polynomial
+   factor certificates and the certified factorization algorithm.
+3. **Certified computations in number fields** (Layer CN.2): order bases, multiplier rings, local
+   maximality, Frobenius nilradicals, `p`-radicals and the multiplier criterion, integral-basis
+   certificates and the integral-basis algorithm, prime-ideal decompositions, class relation
+   lattices, Minkowski factor bases, unit and joint class–unit stopping bounds, `φ`-adic expansions,
+   `φ`-Newton sides, residual polynomials and Ore's criterion, finite local expansions, squares of
+   units in finite extensions of `ℚ_p`, and roots in `ℚ_p` read off from prime decompositions.
+4. **Exact modular and elliptic data** (Layer CN.3): integral `q`-expansion lattices at level one,
+   Miller bases, the congruence Sturm bound, exact equality of coefficient data, integral Hecke
+   matrices, the ordinary and nonordinary witnesses and companion eigensystems of
+   Boxer–Calegari–Gee; point counts over finite fields as character sums, certified local images
+   of the `x − T` descent map, and `p`-saturation tests by exact divisibility and reduction sieves.
+5. **Validated numerics** (Layer CN.4): signed rational interval and complex box arithmetic,
+   outward dyadic rounding, unique-integer recovery, `p`-adic precision propagation, the Odlyzko
+   kernel and the eight scalar quantities of Chenevier–Lannes and Chenevier–Taïbi with certified
+   enclosures, complete root isolation, enclosures of Dirichlet and level-one cusp-form `L`-values,
+   Platt's finite-conductor theorems, Gram negativity certificates, the Fincke–Pohst enumeration,
+   and dataset checkers.
+6. **Binding and replay of datasets** (Layer CN.5).
 
-| Input | Supplier and contract |
-| --- | --- |
-| Integer lattice coordinates, HNF/SNF and certified change of basis | **ClassicalArithmeticCompletion, CA.3**: Hermite certificates, a basis of a sublattice, the product-of-pivots index formula, and Smith certificates. CN.2 supplies the ambient order basis. The Newton-side consumer also requires the generic lower convex hull, supporting-line and slope-ordering contracts; its polynomial valuations and residual arithmetic remain CN.2. CA.5 consumes the number-field algorithms here and is not an input to them. |
-| Finite-field presentations, embeddings and presentation changes | **FiniteFieldsAndCharacterSums, FF.0**: a certified quotient/evaluation presentation and its ring equivalence with the intrinsic field. |
-| Finite-field polynomial discovery and checking | **FiniteFieldsAndCharacterSums, FF.3**: square-free, distinct-degree and equal-degree factorization, Berlekamp/Cantor–Zassenhaus, certified products and irreducibility, and Hensel lifting modulo prime powers. CN.1 transports their outputs; it does not reconstruct those algorithms. |
-| Number-field index, discriminant and good-index prime decomposition | **NumberFieldArithmetic, Layers 3 and 7**: the index–discriminant identity, Kummer–Dedekind with its index hypothesis, existing explicit integral bases and rank-one unit certificates. CN.2 adds general full-order improvement and general-rank completeness certificates. |
-| Intrinsic local fields and their extension invariants | **LocalFieldsRamification, Layer 0**: complete discretely valued fields, a uniformizer, residue field, surjective reduction, ramification and residue degrees. A chosen residue section is additional data; canonical Teichmüller representatives use **Layer 1**. |
-| Integral Hecke algebra, modular symbols, coefficient fields and labels | **ModularForms, Layers 8–11**: finite Manin presentations and period comparison in Layer 8, exact label/embedding identification in Layer 9, index, cusp-width and dimension conventions in Layer 10, and the level-one trace formula in Layer 11. CN.3 computes coordinates in the forms lattice; the period-dual symbol matrix has the corresponding transpose. |
-| Integral models and characteristic-p modular comparisons | **AlgebraicModularFormsAndSerreWeights, R15.2–R15.3**: the q-expansion principle, bounded denominators and cusp rationality, then the theta operator, Hasse invariant and common-weight comparison. These supply the general congruence and finite companion certificates. |
-| Elliptic curves, isogenies and descent objects | **EllipticCurves, Layers 1, 3, 6 and 7**: isogenies/duals/differentials; finite-field Frobenius and the identity \(#E(\mathbf F_q)=q+1-\operatorname{tr}(\mathrm{Frob})\); Mordell–Weil, torsion, heights and two-descent; Selmer local conditions and the Kummer sequence. **EffectiveDiophantineMethods, ED.3** supplies finite local-image and saturation algorithms with soundness, completeness and termination. CN.3 binds computed outputs to those objects. |
-| Finite-field point counts | **FiniteFieldsAndCharacterSums, FF.3**: enumeration including the point at infinity for general Weierstrass equations, and its certificate. Identification with the elliptic group requires nonsingularity. The character-sum shortcut assumes odd characteristic and \(a_1=a_3=0\); characteristic two uses general enumeration. |
-| Continued analytic L-functions | Mathlib `DirichletCharacter.LFunction` and `ModularForm.L`; **ModularForms, Layer 7** supplies the functional-equation and Fricke normalization. **AutomorphicLFunctionsAndLocalFactors, AL.1** supplies Tate/Hecke continuation with pole/residue data, and **AnalyticNumberTheory, AN.4** its number-field analytic comparison. CN.4 computes enclosures of these imported functions. |
-| General polynomial real algebra and root matching | **RealAlgebraicGeometry, Layers 1–4**: Sturm–Tarski, signed remainder/subresultant identities, distinct-root counts, separation and multiplicity-sensitive matching. CN.0/CN.4 add finite rational certificates, effective refinement and verification against these intrinsic results; they do not develop another Sturm theory or CAD. |
-| Exact ellipsoid enumeration | **GeometryOfNumbersAndQuadraticArithmetic, GN.5**: all integer vectors in a symmetric positive-definite rational ellipsoid, with termination and cutoff completeness. LLL alone does not meet this contract. CN.4 filters and validates the supplied complete cover. |
+It builds on, and does not plan again:
 
-The intrinsic archimedean test functions, Fourier conventions and automorphic
-positivity implications of Chenevier–Taïbi belong to
-**LevelOneAutomorphicFormsForClassicalGroups**. CN.4 owns the numerical
-right-hand sides, rigorous scalar evaluation and finite Gram checks. The
-identification of those right-hand sides with the intrinsic functionals is an
-explicit supplier contract, stated in CN.4, rather than an assumed equality.
+- **Mathlib and Tau Ceti** at the pins, listed under *Exact supplier contracts*. Tau Ceti after the
+  pinned commit adds `NumberFieldOrder.multiplierRing` and `NumberFieldOrder.isIntegral` for
+  orders of number fields and `IntegralPrimitiveElement.not_dvd_index_iff` (Dedekind's criterion
+  for monogenic orders): `multiplierRing` (2.3) agrees with the first on fractional ideals of an order,
+  `OrderBasisCertificate.isIntegral` (2.2) is the second for certified orders, and `IsPMaximal` (2.4) treats
+  orders that need not be monogenic. Mathlib's `NumberField.Units.regOfFamily_div_regulator`
+  already identifies the regulator quotient with the unit index; `units_complete_of_regulator_bound` (2.14)
+  is the stopping inequality drawn from it.
+- **TauCetiRoadmap ModularForms** (Layers 7–11): `L`-functions and functional equations, modular
+  symbols and the integral Hecke algebra, LMFDB labels, cusp widths and dimension formulas, and the
+  level-one trace formula. The lattices of Layer CN.3 live on the `q`-expansion side and are
+  distinct from the integral modular-symbol module there.
+- **TauCetiRoadmap EllipticCurves** (Layers 1, 3, 4, 6, 7): isogenies and formal groups, the Hasse
+  bound, reduction of points and the filtration `E₁ ⊆ E₀ ⊆ E` over local fields, Mordell–Weil with
+  explicit `2`-descent and Nagell–Lutz, and Selmer groups. Layer CN.3 adds certificates on top of
+  those objects; it does not construct them again.
+- **TauCetiRoadmap LocalFieldsRamification** (Layers 0–1): complete discretely valued fields,
+  uniformizers, residue fields, ramification indices and residue degrees, Teichmüller
+  representatives.
+- **TauCetiRoadmap RealAlgebraicGeometry** (Layers 1–4): Sturm–Tarski, signed remainder sequences,
+  subresultants, distinct-root counts, root separation and multiplicity-sensitive root matching.
+  Layers CN.0 and CN.4 add finite rational certificates and refinement on top of that theory.
+- **TauCetiRoadmap PolynomialGaloisGroups** (Layer 5): degrees of irreducible factors over a finite
+  field are Frobenius orbit sizes. Layer CN.0 turns this into a checked irreducibility certificate.
+- **TauCetiRoadmap NumberFieldArithmetic** (Layers 3 and 7): the index–discriminant identity,
+  Kummer–Dedekind under its index hypothesis, explicit integral bases, rank-one unit certificates.
+  Layer CN.2 adds general full-order improvement and unit certificates of every rank.
+- **ClassicalArithmeticCompletion** (Layer CA.3): Hermite and Smith normal form certificates, the
+  Hermite basis of a sublattice, the index as a product of pivots, and Newton polygons of
+  polynomials over a valued field.
+- **AlgebraicModularFormsAndSerreWeights** (Layers R15.2, R15.3, R15.5): the `q`-expansion
+  principle and bounded denominators at level one, the theta operator and the Hasse invariant, and
+  the Deligne–Serre lifting of residual eigensystems to characteristic zero.
+- **AutomorphicLFunctionsAndLocalFactors** (Layer AL.1) and **AnalyticNumberTheory** (Layer AN.4):
+  Tate–Hecke continuation with its pole and residue data, and its comparison with the Dedekind and
+  Hecke `L`-functions of number fields. Layer CN.2 uses the residue of the Dedekind zeta function in
+  the analytic lower bound for `hR` of its class–unit stopping inequality; it does not continue the
+  function.
+- **HeightsRationalPointsAndObstructions** (Layer RP.1): the index of multiplication by two on the
+  points of an abelian variety over a local field, used for the size check of local images.
 
-The consumers include **ComplexMultiplicationAndExplicitReciprocity, CM.5**,
-which uses enclosure arithmetic and unique-integer recovery for class
-polynomials while retaining height, CRT and endomorphism-ring certificates;
-**PeriodsAndSpecialValues, PS.7** and **EffectiveDiophantineMethods, ED.0**,
-which use validated enclosures; and **RankZeroOneBSD**, which assembles exact
-vanishing of lower derivatives and certified nonvanishing at the first
-nonzero derivative. An enclosure containing zero cannot supply the exact
-vanishing part of that last contract.
+Downstream roadmaps build on this one and are listed at the end. In particular the `2`-Selmer
+groups, rank bounds, canonical-height enclosures, index bounds and Mordell–Weil bases of elliptic
+curves are built on Layers CN.2–CN.4 by the effective Diophantine roadmap, and the intrinsic test
+functions and automorphic positivity statements of Chenevier and Taïbi, which consume the numbers
+of Layer CN.4, belong to the roadmap of level-one automorphic forms for classical groups.
 
-## Conventions and existing interfaces
+## Conventions
 
-* A rational interval is Mathlib `NonemptyInterval ℚ`, with ordered closed
-  endpoints. A complex box is a pair of such intervals; its denotation is a
-  subset of `ℂ`. An isolated algebraic number decodes into
-  `algebraicClosure ℚ ℂ`, not into the box itself.
-* Polynomials use `Polynomial`; quotient fields use `AdjoinRoot` and
-  `AdjoinRoot.mk`. Distinct roots and roots counted with multiplicity are
-  distinguished explicitly. A nonzero constant has no roots; zero polynomial
-  input is rejected by finite root-list algorithms.
-* A p-adic approximation describes a ball, with absolute precision \(N\),
-  valuation lower bound \(v\), and relative precision \(N-v\) when its mantissa
-  is nonzero. Zero mantissa describes \(p^N\mathbf Z_p\). Native
-  `padicValRat` defaults to zero at zero; the polynomial valuation here uses
-  `WithTop ℕ` so the zero polynomial has valuation infinity.
-* Matrices act on column vectors. A Hecke matrix entry \((i,j)\) is the
-  \(i\)-th coordinate of the image of basis vector \(j\). All level-one
-  q-expansions have width one; a general subgroup uses its actual strict cusp
-  width. Eisenstein series have constant term one, and \(\Delta=q+\cdots\).
-* In a RAM program, words are integers and addresses are nonnegative integers.
-  Floor division rounds toward negative infinity even with a negative
-  denominator. Unit instruction count, integer magnitude, bit cost and random
-  success probability are separate quantities.
-* Entrywise matrix bounds control quadratic forms only for vectors with
-  nonnegative coordinates. Bounds for arbitrary real vectors require a
-  positive-semidefinite difference or full interval arithmetic.
-* A class-group relation matrix supplies checked relations, not their
-  completeness. A unit regulator index is measured after adjoining all torsion
-  units. A numerical inequality is used only with its rigorous remainder bound.
+* A rational interval is Mathlib `NonemptyInterval ℚ`, with ordered closed endpoints. A complex
+  box is a pair of such intervals; its denotation is a subset of `ℂ`. An isolated algebraic number
+  decodes into `algebraicClosure ℚ ℂ`, never into the box itself.
+* Polynomials use `Polynomial`; quotient rings and fields use `AdjoinRoot` and `AdjoinRoot.mk`.
+  Distinct roots and roots counted with multiplicity are kept apart. A nonzero constant has no
+  roots, and finite root-list algorithms reject the zero polynomial.
+* A finite field is presented over its prime field `ZMod p`, or over a smaller presented field,
+  as `AdjoinRoot f` with `f` monic and certified irreducible; there is one prime field and no
+  second copy of it. Changes of presentation carry both directions explicitly.
+* A `p`-adic approximation describes a ball, with absolute precision `N`, valuation lower bound
+  `v`, and relative precision `N − v` when its mantissa is nonzero. Zero mantissa describes
+  `p^N ℤ_p`. Mathlib's `padicValRat` is `0` at `0`; the polynomial valuation here uses `WithTop ℕ`
+  so that the zero polynomial has valuation `∞`.
+* Matrices act on column vectors. A Hecke matrix entry `(i, j)` is the `i`-th coordinate of the
+  image of basis vector `j`. Level-one `q`-expansions have width one; a finite-index subgroup uses
+  its actual strict cusp width. Eisenstein series have constant term one and `Δ = q + ⋯`.
+* In a RAM program words are integers and addresses are nonnegative integers. Floor division
+  rounds toward negative infinity, also for a negative denominator. Instruction count, integer
+  magnitude, bit cost and probability of success are separate quantities.
+* An elliptic curve over `ℚ` in Layer CN.3 is a `WeierstrassCurve` with `a₁ = a₃ = 0`
+  (Mathlib `IsCharNeTwoNF`) and integral `a₂, a₄, a₆`; its cubic is
+  `f = X³ + a₂X² + a₄X + a₆`, its étale algebra `A = ℚ[X]/(f)` and its descent map is Tau Ceti's
+  `x − T` map into `A^×/A^×²`. A place `v` is a prime `p` or the real place, with `|2|_v` the
+  normalized absolute value (`|2|_2 = 1/2`).
+* Entrywise matrix bounds control quadratic forms only on vectors with nonnegative coordinates.
+  Bounds for arbitrary real vectors need a positive-semidefinite difference or full interval
+  arithmetic.
+* A class-group relation matrix supplies checked relations, not their completeness. The unit
+  regulator index is measured after adjoining all torsion units. A numerical inequality is used
+  only together with its rigorous remainder bound.
 
-Consume the existing Lucas criterion and its converse (`lucas_primality`,
-`reverse_lucas_primality`), the exact `Nat.primeFactorsList` product theorem for
-nonzero input, `PadicInt.toZModPow`, and the native radical/Frobenius maps.
-Use `NumberField.classNumber`, `ClassGroup.mk0`, the Minkowski ideal-class bound
-`NumberField.exists_ideal_in_class_of_norm_le`, and
-`NumberField.Units.regOfFamily_div_regulator` for the intrinsic invariants.
+## Exact supplier contracts
 
-Mathlib's level-one dimension formula and characteristic-zero Sturm theorem
-already apply. Tau Ceti's `TauCeti.ModularForm.eq_of_sturm_bound` gives the
-finite-index equality theorem with discrete strict periods and the actual
-width. The good-prime Hecke coefficient recurrence is supplied by
-`HeckeRing.GL2.qExpansion_coeff_heckeSlashGamma1CuspFormEnd_diagCosetGamma1_of_mem_cuspFormCharSpace`;
-its nebentypus and coprimality hypotheses remain visible in the general-level
-adapter. Continued modular L-functions use `ModularForm.weakFEPair`,
-`WeakFEPair.functional_equation`, `ModularForm.Λ`, `ModularForm.L` and the
-native cusp-form differentiability results. Tau Ceti's
-`CuspForm.hasEntireExtension_qExpansion_coeff` identifies the coefficient
-Dirichlet series with the continuation using the cusp-width factor. These
-interfaces supply exact analytic functions, not numerical error bounds.
+### From Mathlib (pinned at `082e2d37e8b0463410cdb532e111cd43d5a66174`)
 
-The layer order separates presentation, arithmetic and numerical validation:
+- Elementary arithmetic and primality: `lucas_primality`, `reverse_lucas_primality`,
+  `Nat.primeFactorsList`, `Nat.prod_primeFactorsList`, `Nat.prime_of_mem_primeFactorsList`,
+  `padicValRat`, `PadicInt.toZModPow`, `hensels_lemma`.
+- Polynomials and finite fields: `AdjoinRoot`, `AdjoinRoot.equiv'`, `AdjoinRoot.algHom_ext`,
+  `PowerBasis.ofAdjoinEqTop`, `Polynomial.Monic.irreducible_iff_natDegree`,
+  `Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `FiniteField.algEquivOfCardEq`,
+  `FiniteField.frobeniusAlgHom`, `UniqueFactorizationMonoid.normalizedFactors_prod_eq`,
+  `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure` (Mignotte-type coefficient bound),
+  `quadraticChar`.
+- Algebraic numbers and intervals: `algebraicClosure`, `mem_algebraicClosure_iff`,
+  `NonemptyInterval` (its multiplication is the monotone one and does not apply to signed
+  rational endpoints; its inverse is a group inverse, not a field reciprocal).
+- Number fields: `NumberField.classNumber`, `ClassGroup.mk0`,
+  `NumberField.exists_ideal_in_class_of_norm_le`, `NumberField.Units.regOfFamily_div_regulator`,
+  `Ideal.radical`.
+- Modular forms and `L`-functions: `ModularForm.dimension_level_one`,
+  `ModularForm.sturm_bound_levelOne_nat`, `ModularForm.weakFEPair`, `ModularForm.L`,
+  `WeakFEPair.functional_equation`, `DirichletCharacter.LFunction`,
+  `DirichletCharacter.IsPrimitive`, `Complex.digamma`, `Complex.digamma_apply_add_nat`.
+- Elliptic curves: `WeierstrassCurve.IsCharNeTwoNF`, the division polynomials `WeierstrassCurve.Φ`
+  and `WeierstrassCurve.ΨSq` with `WeierstrassCurve.natDegree_Φ`, `WeierstrassCurve.leadingCoeff_Φ`
+  and `WeierstrassCurve.natDegree_ΨSq`.
+- Matrices: `Matrix.PosDef`.
+
+### From Tau Ceti (pinned at `f790474821cf4256814db967cb154e7af3d0c369`)
+
+- `TauCeti.ModularForm.eq_of_sturm_bound` (equality of two forms on a finite-index subgroup from
+  agreement of their coefficients up to the Sturm bound at the actual strict width) and
+  `HeckeRing.GL2.qExpansion_coeff_heckeSlashGamma1CuspFormEnd_diagCosetGamma1_of_mem_cuspFormCharSpace`
+  (the coefficient recurrence of `T_p` on `Γ₁(N)` with its nebentypus and coprimality hypotheses).
+- `CuspForm.hasEntireExtension_qExpansion_coeff` (the coefficient Dirichlet series of a cusp form
+  continues to the native `L`-function, with the cusp-width factor).
+- `TauCeti.kernelBasis` with `mulVec_eq_zero_of_mem_kernelBasis`, `span_kernelBasis`,
+  `linearIndepOn_kernelBasis` and `length_kernelBasis` (row reduction over a field).
+- `WeierstrassCurve.pointCount`, `WeierstrassCurve.frobeniusTrace` and
+  `WeierstrassCurve.pointCount_eq_card_point` (the projective count, singular point included, and
+  its comparison with Mathlib's point type on an elliptic model).
+- The `x − T` descent: `WeierstrassCurve.Affine.A`, `WeierstrassCurve.Affine.M`,
+  `WeierstrassCurve.Affine.μ`, `WeierstrassCurve.Affine.ker_μ_eq`,
+  `WeierstrassCurve.Affine.μX_of_eval_f_ne_zero`, `WeierstrassCurve.Affine.localRes`,
+  `WeierstrassCurve.Affine.localCondition`, `WeierstrassCurve.Affine.mem_localCondition_iff`,
+  `WeierstrassCurve.Affine.selmerGroupA`, `WeierstrassCurve.Affine.normM`,
+  `WeierstrassCurve.Affine.card_ker_nsmul_two`, all for `W : WeierstrassCurve.Affine K` with
+  `[W.IsElliptic] [W.IsCharNeTwoNF]`.
+- `WeierstrassCurve.mul_eval_ΨSq_eq_eval_Φ_of_zsmul` (if `n • P = P′` then
+  `x(P′)·ΨSq_n(x(P)) = Φ_n(x(P))`).
+
+### From TauCetiRoadmap roadmaps
+
+- ModularForms Layer 7 (functional equations with their Fricke sign), Layer 8 (modular symbols,
+  the integral Hecke algebra), Layer 9 (labels), Layer 10 (congruence subgroups, cusp widths,
+  index and dimension conventions), Layer 11 (the level-one trace formula).
+- EllipticCurves Layer 4 (the reduction homomorphism on points at a prime of good reduction),
+  Layer 6 (Mordell–Weil, explicit `2`-descent, the exact torsion subgroup by Nagell–Lutz).
+- LocalFieldsRamification Layer 0 (local fields and their finite extensions: uniformizer, residue
+  field, `e` and `f`), Layer 1 (Teichmüller representatives).
+- RealAlgebraicGeometry Layers 1–4 (real root counting and matching).
+- PolynomialGaloisGroups Layer 5 (factor degrees over a finite field are Frobenius orbit sizes).
+
+### From lower-tier roadmaps
+
+- ClassicalArithmeticCompletion CA.3: `hermite-normal-form-certificate`,
+  `hermite-basis-of-a-sublattice`, `index-eq-prod-hermite-pivots`, `smith-normal-form-certificate`
+  — coordinate reconstruction for order bases and the quotient index of relation lattices.
+- AlgebraicModularFormsAndSerreWeights R15.2 (level-one `q`-expansion principle), R15.3 (theta
+  operator with the shift `a_ℓ ↦ ℓ·a_ℓ`, Hasse invariant), R15.5 (Deligne–Serre lifting of a
+  residual eigensystem to a characteristic-zero eigenform).
+- AutomorphicLFunctionsAndLocalFactors AL.1 and AnalyticNumberTheory AN.4, as above.
+- HeightsRationalPointsAndObstructions RP.1: `#A(F)/2A(F) = |2|_F^(−g)·#A(F)[2]` for an abelian
+  variety of dimension `g` over a finite extension `F` of `ℚ_p`, and `#A(ℝ)[2]/2^g` over `ℝ`.
+
+## How to read the build
+
+Layer CN.0 fixes the computation model and the exact presentations that the other layers decode
+into native carriers. Layer CN.1 certifies primes and factorizations, over `ℤ`, over finite fields
+and over `ℚ`, and supplies Hensel lifting. Layer CN.2 uses these to certify maximal orders, prime
+decompositions, class groups and units, Newton-polygon factorizations over `ℚ_p`, and the local
+square-class and root computations that Layer CN.3 needs. Layer CN.3 binds finite coefficient
+arrays and integer matrices to level-one modular forms and Hecke operators, and binds point
+counts, local descent images and saturation tests to elliptic curves over `ℚ`. Layer CN.4 supplies
+rigorous enclosures of real, complex and `p`-adic quantities, `L`-values and Gram matrices,
+together with complete finite enumerations. Layer CN.5 states how a dataset is bound to these
+certificates and replayed. Layer CN.2 states its analytic stopping inequalities exactly and
+evaluates them with the enclosures of Layer CN.4; Layer CN.0 likewise specifies algebraic
+arithmetic independently of the precision-driven root isolation of Layer CN.4, so no definition
+depends on a layer that follows it.
 
 | Layer | Targets | Inputs |
 | --- | --- | --- |
-| CN.0 | Exact presentations, algebraic root certificates, RAM and cost interfaces | Native arithmetic and FF.0/CA.3 presentations |
-| CN.1 | Primality, integer/rational factors and certificate size | CN.0, native Lucas, FF.3 |
-| CN.2 | Full orders, integral bases, prime ideals, classes, units and local expansions | CN.0–CN.1, CA.3, FF.0/FF.3, NumberFieldArithmetic, LocalFieldsRamification |
-| CN.3 | Integral forms, exact Hecke matrices, companion systems and data equality | CN.0–CN.1, ModularForms, R15.2–R15.3, elliptic/finite-field suppliers |
-| CN.4 | Validated arithmetic, root isolation, L-values and Gram certificates | CN.0, imported continuation/root theory, GN.5 enumeration |
-| CN.5 | Binding and replay of arithmetic datasets | Existing CN.0 cost interfaces and CN.4 finite checkers |
+| CN.0 | RAM model and costs; isolated algebraic numbers; `p`-adic approximations; finite-field presentations | Mathlib; RealAlgebraicGeometry Layers 1–4; PolynomialGaloisGroups Layer 5 |
+| CN.1 | Primality certificates; integer, finite-field and rational factorization; Hensel lifting | CN.0; Mathlib |
+| CN.2 | Orders, integral bases, prime ideals, classes and units, Newton factors, local squares and roots | CN.0–CN.1; Mathlib; Tau Ceti; CA.3; AL.1, AN.4; NumberFieldArithmetic; LocalFieldsRamification |
+| CN.3 | Integral forms, Hecke matrices, BCG witnesses; point counts, local images, saturation | CN.0–CN.2; ModularForms; R15.2, R15.3, R15.5; EllipticCurves; RP.1 |
+| CN.4 | Interval, box and `p`-adic arithmetic; explicit-formula enclosures; roots; `L`-values; Gram certificates; Fincke–Pohst | CN.0–CN.3; Mathlib; RealAlgebraicGeometry Layers 1–4 |
+| CN.5 | Binding and replay of datasets | CN.0, CN.3, CN.4 |
 
-CN.2 specifies the exact regulator and analytic stopping inequalities before
-they are applied through CN.4's enclosure engine. Algebraic presentation
-arithmetic in CN.0 similarly specifies its result independently of the
-precision-driven root-isolation implementation in CN.4. No foundational
-definition depends on either consumer.
-## CN.0: Exact presentations and computation models
+## Layer CN.0: Exact presentations and computation models
 
-Build the presentation and decoding interfaces before algorithms use their output. Finite-field embeddings and integer lattice normal forms are imported through FF.0 and CA.3; the targets below specify the new algebraic-root, p-adic and RAM interfaces. Every use of a finite presentation carries its decoding equation. The raw RAM semantics permits unbounded integers; only a separately proved magnitude bound supports a bit simulation.
+Build the presentation and decoding interfaces before algorithms use their output. Targets
+`RAMInstruction` (0.1)–`PolynomialRAMMagnitude` (0.7) fix the RAM model and its costs: the raw semantics
+permits unbounded integers, and only a separately proved magnitude bound supports a bit
+simulation. Targets `AlgebraicRootCertificate` (0.8)–`algebraicEqual` (0.13) present algebraic numbers by
+isolating rational rectangles, `PadicApproximation` (0.14) presents `p`-adic balls, and
+`RabinCertificate` (0.15)–`presentationChange` (0.17) present finite fields. Every use of a finite presentation
+carries its decoding equation into the native carrier.
 
-Construction requirements. For algebraic presentations, implement a finite rational rectangle root-count certificate, a sound verifier, root separation and precision refinement. Use the intrinsic root-count and matching theorems of RealAlgebraicGeometry Layers 1–4 for the correctness comparison. Construct annihilating polynomials for sum/product/inverse by exact elimination and verify the selected common root. The equality procedure must terminate after gcd/common-root isolation or certified disjointness; rectangle overlap is insufficient. These are the algorithmic content of the presentation targets, rather than new algebraic carriers. Arb §§5–5.3, pp.7–9 motivates enclosure semantics; it is not a source theorem proving this root-isolation algorithm. For the RAM interface, specify a digit-array encoding of large words, address access and arithmetic charges, and prove a uniform simulation bound from polynomial magnitude and the per-step charge. A charge supplied as data does not by itself establish the cost of an implementation. Use Shoup §§3.2–3.6, pp.53–72 for the computation model.
+*Proof obligations of the layer.* For algebraic presentations, implement a finite rational rectangle root-count certificate, a sound verifier, root separation and precision refinement, and use the intrinsic root-count and matching theorems of TauCetiRoadmap RealAlgebraicGeometry Layers 1–4 for the correctness comparison. Construct annihilating polynomials for sums, products and inverses by exact elimination (resultants) and verify the selected common root. The equality procedure terminates after gcd and common-root isolation or after certified disjointness; overlapping rectangles alone prove nothing. Arb §§5–5.3, pp.7–9 motivates the enclosure semantics; it is not a source theorem for root isolation. For the RAM interface, specify a digit-array encoding of large words, address access and arithmetic charges, and prove a uniform simulation bound from a polynomial magnitude bound and the per-step charge; a charge supplied as data does not establish the cost of an implementation (Shoup §§3.2–3.6, pp.53–72). For finite fields, the residues X^(q^m) mod f in a Rabin certificate are computed by repeated `q`-th powering modulo f, and the Bézout pairs by the extended Euclidean algorithm.
 
-### RAM instructions, executions and costs
+### 0.1 RAM instruction (`RAMInstruction`)
 
-**RAM instruction — `RAMInstruction`.** RAMInstruction has arithmetic, branch and halt constructors. An operand is either an integer literal or a pair (indirect,address), with address in ℕ. A destination is such a pair, without the literal alternative. Arithmetic operations are indexed 0,1,2,3 for addition, subtraction, multiplication and floor division. Branch comparisons are indexed 0,…,5 for equality, inequality, less, greater, less-or-equal and greater-or-equal. Programs are finite lists of instructions.
-
-Construction or proof. Use an inductive instruction type, existing sum and product types for operands and destinations, and finite indices for the operation tables.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [Shoup](#source-shoup), §3.2, printed pp.53–55.
-
-API.
+**Definition.** RAMInstruction has arithmetic, branch and halt constructors. An operand is either an integer literal or a pair (indirect,address), with address in ℕ. A destination is such a pair, without the literal alternative. Arithmetic operations are indexed 0,1,2,3 for addition, subtraction, multiplication and floor division. Branch comparisons are indexed 0,…,5 for equality, inequality, less, greater, less-or-equal and greater-or-equal. Programs are finite lists of instructions.
 
 - `ramInstruction_halt_ne_arithmetic`: Halt and arithmetic instructions are distinct.
 - `ramInstruction_branch_injective`: Branch instructions with a common comparison and operands agree precisely when their targets agree.
 - `ramInstruction_arithmetic_injective`: Arithmetic instructions with common destinations and operands agree precisely when their operations agree.
 
-Tests.
+*Construction.* Use an inductive instruction type, existing sum and product types for operands and destinations, and finite indices for the operation tables. ([Shoup](#source-shoup), §3.2, printed pp.53–55.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_ram_halt` (degenerate): The one-instruction halt program has length one.
-- `test_ram_assignment` (computation): The literal assignment 2+3 to cell 0 is a well-formed arithmetic instruction.
-- `test_ram_branch_distinct` (non-example): Changing a branch target changes its syntax.
+**Checks.**
 
-**RAM operand evaluation — `ramRead`.** ramRead m evaluates an integer literal as itself, a direct operand (false,i) as m(i), and an indirect operand (true,i) as m(m(i)) when m(i)≥0. A negative indirect address returns none. Memory m is the exact existing function type ℕ→ℤ.
+- *Degenerate case.* The one-instruction halt program has length one.
+- *Computed value.* The literal assignment 2+3 to cell 0 is a well-formed arithmetic instruction.
+- *Non-example.* Changing a branch target changes its syntax.
 
-Construction or proof. Inspect the operand tag. Check nonnegativity before converting an indirect address from ℤ to ℕ.
+### 0.2 RAM operand evaluation (`ramRead`)
 
-Prerequisites. `RAMInstruction` (CN.0).
-
-Source. [Shoup](#source-shoup), §3.2, printed pp.53–55.
-
-API.
+**Construction.** ramRead m evaluates an integer literal as itself, a direct operand (false,i) as m(i), and an indirect operand (true,i) as m(m(i)) when m(i)≥0. A negative indirect address returns none. Memory m is the exact existing function type ℕ→ℤ.
 
 - `ramRead_literal`: Literals evaluate to themselves.
 - `ramRead_direct`: Direct addressing reads the selected cell.
 - `ramRead_indirect`: Indirect evaluation succeeds exactly at nonnegative stored addresses.
 
-Tests.
+*Method.* Inspect the operand tag. Check nonnegativity before converting an indirect address from ℤ to ℕ. ([Shoup](#source-shoup), §3.2, printed pp.53–55.) *Needs:* `RAMInstruction` (0.1).
 
-- `test_ram_literal_negative` (computation): Negative literal values are allowed.
-- `test_ram_zero_memory` (degenerate): Indirect cell 0 in zero memory reads zero.
-- `test_ram_negative_address` (non-example): A negative stored address is rejected, rather than truncated to zero.
+**Checks.**
 
-**Partial RAM transition — `ramStep`.** ramStep P (pc,m) returns an error if pc is outside P, an operand or destination has a negative indirect address, or a floor-division denominator is zero. Halt returns a successful none. A successful arithmetic step writes its result to the resolved destination and increments pc; a branch preserves memory and jumps to its target exactly when its comparison holds, otherwise increments pc. Floor division is floor of the rational quotient, including negative denominators.
+- *Computed value.* Negative literal values are allowed.
+- *Degenerate case.* Indirect cell 0 in zero memory reads zero.
+- *Non-example.* A negative stored address is rejected, rather than truncated to zero.
 
-Construction or proof. Resolve the instruction and operands with ramRead. For arithmetic, resolve the destination using the old memory, evaluate the indexed operation, and update exactly one cell. For branch, evaluate the indexed comparison. Errors remain distinct from normal halt.
+### 0.3 Partial RAM transition (`ramStep`)
 
-Prerequisites. `RAMInstruction` (CN.0); `ramRead` (CN.0).
-
-Source. [Shoup](#source-shoup), §3.2, printed pp.53–55.
-
-API.
+**Construction.** ramStep P (pc,m) returns an error if pc is outside P, an operand or destination has a negative indirect address, or a floor-division denominator is zero. Halt returns a successful none. A successful arithmetic step writes its result to the resolved destination and increments pc; a branch preserves memory and jumps to its target exactly when its comparison holds, otherwise increments pc. Floor division is floor of the rational quotient, including negative denominators.
 
 - `ramStep_halt`: Executing a halt instruction terminates successfully.
 - `ramStep_empty`: An empty program fails at every counter.
 - `ramStep_deterministic`: The partial semantics has a unique result at each configuration.
 
-Tests.
+*Method.* Resolve the instruction and operands with ramRead. For arithmetic, resolve the destination using the old memory, evaluate the indexed operation, and update exactly one cell. For branch, evaluate the indexed comparison. Errors remain distinct from normal halt. ([Shoup](#source-shoup), §3.2, printed pp.53–55.) *Needs:* `RAMInstruction` (0.1); `ramRead` (0.2).
 
-- `test_ram_add` (computation): Literal 2+3 writes 5 to cell 0.
-- `test_ram_floor` (non-example): Floor division 3/(−2) gives −2, not −1.
-- `test_ram_halts` (degenerate): Halt is a successful termination rather than an error.
+**Checks.**
 
-**Finite RAM execution — `RAMExecution`.** A RAMExecution P is a nonempty list of configurations (pc,m) beginning at counter zero. Each adjacent pair c,d satisfies ramStep P c=ok(some d); the final configuration satisfies ramStep P c=ok none. Its instruction count is the list length, including the final halt. The input-size and memory-magnitude bounds are separate obligations, not part of the raw execution type.
+- *Computed value.* Literal 2+3 writes 5 to cell 0.
+- *Non-example.* Floor division 3/(−2) gives −2, not −1.
+- *Degenerate case.* Halt is a successful termination rather than an error.
 
-Construction or proof. Store a positive length T and configurations indexed by Fin T. Require counter zero initially, the transition equations for successive indices, and final halt.
+### 0.4 Finite RAM execution (`RAMExecution`)
 
-Prerequisites. `ramStep` (CN.0).
-
-Source. [Shoup](#source-shoup), §3.2, printed pp.53–55.
-
-API.
+**Definition.** A RAMExecution P is a nonempty list of configurations (pc,m) beginning at counter zero. Each adjacent pair c,d satisfies ramStep P c=ok(some d); the final configuration satisfies ramStep P c=ok none. Its instruction count is the list length, including the final halt. The input-size and memory-magnitude bounds are separate obligations, not part of the raw execution type.
 
 - `RAMExecution.instructionCount_pos`: Every successful execution has at least its final halt instruction.
 - `RAMExecution.first_pc`: The first counter is zero.
 - `RAMExecution.final_halts`: The final configuration halts successfully.
 
-Tests.
+*Construction.* Store a positive length T and configurations indexed by Fin T. Require counter zero initially, the transition equations for successive indices, and final halt. ([Shoup](#source-shoup), §3.2, printed pp.53–55.) *Needs:* `ramStep` (0.3).
 
-- `test_ram_execution_halt` (computation): The halt-only program has an execution of length one.
-- `test_ram_execution_empty` (degenerate): The empty program has no successful execution.
-- `test_ram_execution_loop` (non-example): An unconditional self-jump has no finite successful execution.
+**Checks.**
 
-**Cost of a RAM execution — `bitCost`.** Given a successful execution e and an explicit nonnegative natural cost C(pc,m) for simulating each instruction in bits, bitCost C e is the sum of C over all executed configurations. The model accepts no default equality between this sum and the unit-cost instruction count.
+- *Computed value.* The halt-only program has an execution of length one.
+- *Degenerate case.* The empty program has no successful execution.
+- *Non-example.* An unconditional self-jump has no finite successful execution.
 
-Construction or proof. Sum the supplied cost over Fin e.length. The cost function must include address, operand and arithmetic costs of the chosen bit implementation.
+### 0.5 Cost of a RAM execution (`bitCost`)
 
-Prerequisites. `RAMExecution` (CN.0).
-
-Source. [Shoup](#source-shoup), §3.6, printed p.72.
-
-API.
+**Definition.** Given a successful execution e and an explicit nonnegative natural cost C(pc,m) for simulating each instruction in bits, bitCost C e is the sum of C over all executed configurations. The model accepts no default equality between this sum and the unit-cost instruction count.
 
 - `bitCost_one`: The constant unit charge recovers the instruction count.
 - `bitCost_add`: Costs add pointwise.
 - `bitCost_mono`: Pointwise larger instruction charges give a larger total.
 
-Tests.
+*Construction.* Sum the supplied cost over Fin e.length. The cost function must include address, operand and arithmetic costs of the chosen bit implementation. ([Shoup](#source-shoup), §3.6, printed p.72.) *Needs:* `RAMExecution` (0.4).
 
-- `test_bitCost_zero` (degenerate): Zero charge gives total zero.
-- `test_bitCost_two` (computation): Constant charge two gives twice the execution length.
-- `test_bitCost_not_unit` (non-example): Constant charge two is strictly greater than the unit count for every successful execution.
+**Checks.**
 
-**Bounded instruction costs give a total bound — `bitCost_le`.** If every executed configuration in e has bit-simulation charge at most B, then bitCost C e≤e.length·B. Instantiating B by a proved function of the largest address and operand width is necessary before transferring a RAM running-time estimate to bit complexity.
+- *Degenerate case.* Zero charge gives total zero.
+- *Computed value.* Constant charge two gives twice the execution length.
+- *Non-example.* Constant charge two is strictly greater than the unit count for every successful execution.
 
-Construction or proof. Compare each summand with B and evaluate the finite constant sum.
+### 0.6 Bounded instruction costs give a total bound (`bitCost_le`)
 
-Prerequisites. `bitCost` (CN.0).
+**Lemma.** If every executed configuration in e has bit-simulation charge at most B, then bitCost C e≤e.length·B. Instantiating B by a proved function of the largest address and operand width is necessary before transferring a RAM running-time estimate to bit complexity.
 
-Source. [Shoup](#source-shoup), §§3.2,3.6, pp.55,72.
+*Proof sketch.* Compare each summand with B and evaluate the finite constant sum. ([Shoup](#source-shoup), §§3.2,3.6, pp.55,72.) *Needs:* `bitCost` (0.5).
 
-**Polynomial magnitude bound for RAM memory — `PolynomialRAMMagnitude`.** PolynomialRAMMagnitude e n A b C means that every memory entry in every configuration of an execution e on n input cells has absolute value at most A·(n+e.length)^b+C. The parameters A,b,C are fixed independently of input in an algorithm-family theorem. This bounds stored integers, including indirect addresses; arbitrary large mathematical integers must be encoded as digit arrays.
+### 0.7 Polynomial magnitude bound for RAM memory (`PolynomialRAMMagnitude`)
 
-Construction or proof. Express the uniform integer magnitude inequality. A single-trace bound does not prove an algorithm family has fixed constants or that multiplying machine words has constant bit cost.
-
-Prerequisites. `RAMExecution` (CN.0).
-
-Source. [Shoup](#source-shoup), §3.2, printed pp.54–55.
-
-API.
+**Definition.** PolynomialRAMMagnitude e n A b C means that every memory entry in every configuration of an execution e on n input cells has absolute value at most A·(n+e.length)^b+C. The parameters A,b,C are fixed independently of input in an algorithm-family theorem. This bounds stored integers, including indirect addresses; arbitrary large mathematical integers must be encoded as digit arrays.
 
 - `polynomialRAMMagnitude_iff`: The predicate is the uniform bound on all stored values.
 - `polynomialRAMMagnitude_mono_constant`: Increasing C preserves the bound.
 - `polynomialRAMMagnitude_mono_input`: Increasing the input-size allowance preserves the bound.
 
-Tests.
+*Construction.* Express the uniform integer magnitude inequality. A single-trace bound does not prove that an algorithm family has fixed constants, nor that multiplying machine words has constant bit cost. ([Shoup](#source-shoup), §3.2, printed pp.54–55.) *Needs:* `RAMExecution` (0.4).
 
-- `test_ram_zero_bound` (degenerate): An execution with all-zero memories has zero magnitude bound.
-- `test_ram_magnitude_projection` (computation): Every selected cell satisfies the bound.
-- `test_ram_nonzero_excluded` (non-example): A nonzero cell contradicts the all-zero bound.
+**Checks.**
 
-### Exact algebraic presentations and comparison
+- *Degenerate case.* An execution with all-zero memories has zero magnitude bound.
+- *Computed value.* Every selected cell satisfies the bound.
+- *Non-example.* A nonzero cell contradicts the all-zero bound.
 
-**Isolated algebraic root certificate — `AlgebraicRootCertificate`.** An AlgebraicRootCertificate stores a nonzero polynomial f∈ℚ[X], two closed rational intervals R,I, and a proof that exactly one complex z satisfies f(z)=0 and Re(z)∈R, Im(z)∈I. Repeated polynomial roots are permitted: uniqueness concerns distinct roots, not their multiplicities. The exact carrier is the native relative algebraic closure of ℚ in ℂ; the finite polynomial and rectangle are presentation data, not a replacement field. The uniqueness proof is a separate checked obligation, not inferred from small diameter.
+### 0.8 Isolated algebraic root certificate (`AlgebraicRootCertificate`)
 
-Construction or proof. Use native Polynomial and NonemptyInterval for finite data. Define the root-and-rectangle predicate explicitly and require unique existence. The certificate is a semantic specification; a terminating finite verifier needs a root-count certificate, specified as a separate construction requirement.
-
-Prerequisites. Mathlib `algebraicClosure`; Mathlib `mem_algebraicClosure_iff`; Mathlib `NonemptyInterval`.
-
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
-
-API.
+**Definition.** An AlgebraicRootCertificate stores a nonzero polynomial f∈ℚ[X], two closed rational intervals R,I, and a proof that exactly one complex z satisfies f(z)=0 and Re(z)∈R, Im(z)∈I. Repeated polynomial roots are permitted: uniqueness concerns distinct roots, not their multiplicities. The exact carrier is the native relative algebraic closure of ℚ in ℂ; the finite polynomial and rectangle are presentation data, not a replacement field. The uniqueness proof is a separate checked obligation, not inferred from small diameter.
 
 - `AlgebraicRootCertificate.value`: Decode the unique root as a native complex algebraic number.
 - `AlgebraicRootCertificate.value_spec`: The decoded value is a root lying in both displayed intervals.
 - `AlgebraicRootCertificate.value_unique`: Any root in the rectangle equals the decoded value.
 
-Tests.
+*Construction.* Use native Polynomial and NonemptyInterval for finite data. Define the root-and-rectangle predicate explicitly and require unique existence. The certificate is a semantic specification; a terminating finite verifier needs a root-count certificate, specified as a separate construction requirement. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* Mathlib `algebraicClosure`; Mathlib `mem_algebraicClosure_iff`; Mathlib `NonemptyInterval`.
 
-- `test_algebraic_zero` (degenerate): X with both intervals [0,0] isolates zero.
-- `test_algebraic_repeated` (computation): X² with the singleton zero rectangle is allowed.
-- `test_algebraic_ambiguous` (non-example): X²−1 cannot isolate a unique root in [−2,2]×[0,0].
+**Checks.**
 
-**Exact rational root presentation — `rationalRootCertificate`.** For r∈ℚ, rationalRootCertificate r consists of X−r, the singleton real interval [r,r] and singleton imaginary interval [0,0]. Its decoded value is the native embedding of r into the complex algebraic numbers. Integers and rationals themselves use native ℤ and normalized ℚ; no new arithmetic carrier is introduced.
+- *Degenerate case.* X with both intervals [0,0] isolates zero.
+- *Computed value.* X² with the singleton zero rectangle is allowed.
+- *Non-example.* X²−1 cannot isolate a unique root in [−2,2]×[0,0].
 
-Construction or proof. The linear polynomial has exactly the root r. The rational casts commute with addition and multiplication by the existing field homomorphism laws.
+### 0.9 Exact rational root presentation (`rationalRootCertificate`)
 
-Prerequisites. `AlgebraicRootCertificate` (CN.0).
-
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
-
-API.
+**Construction.** For r∈ℚ, rationalRootCertificate r consists of X−r, the singleton real interval [r,r] and singleton imaginary interval [0,0]. Its decoded value is the native embedding of r into the complex algebraic numbers. Integers and rationals themselves use native ℤ and normalized ℚ; no new arithmetic carrier is introduced.
 
 - `rationalRootCertificate_value`: Decoding is the rational algebra map.
 - `rationalRootCertificate_add`: Rational addition commutes with decoding.
 - `rationalRootCertificate_mul`: Rational multiplication commutes with decoding.
 
-Tests.
+*Method.* The linear polynomial has exactly the root r. The rational casts commute with addition and multiplication by the existing field homomorphism laws. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* `AlgebraicRootCertificate` (0.8).
 
-- `test_rational_zero` (degenerate): Zero decodes to zero.
-- `test_rational_half` (computation): One half plus one third decodes as five sixths.
-- `test_rational_distinct` (non-example): One half and one third have different decoded values.
+**Checks.**
 
-**Addition of isolated algebraic numbers — `algebraic_add_certificate`.** Given isolated algebraic inputs a,b, there exists an isolated-root certificate whose value is their sum. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
+- *Degenerate case.* Zero decodes to zero.
+- *Computed value.* One half plus one third decodes as five sixths.
+- *Non-example.* One half and one third have different decoded values.
 
-Construction or proof. Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements.
+### 0.10 Addition of isolated algebraic numbers (`algebraic_add_certificate`)
 
-Prerequisites. `AlgebraicRootCertificate` (CN.0); Mathlib `algebraicClosure`.
+**Theorem.** Given isolated algebraic inputs a,b, there exists an isolated-root certificate whose value is their sum. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
 
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
+*Proof sketch.* Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* `AlgebraicRootCertificate` (0.8); Mathlib `algebraicClosure`.
 
-**Multiplication of isolated algebraic numbers — `algebraic_mul_certificate`.** Given isolated algebraic inputs a,b, there exists an isolated-root certificate whose value is their product. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
+### 0.11 Multiplication of isolated algebraic numbers (`algebraic_mul_certificate`)
 
-Construction or proof. Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements.
+**Theorem.** Given isolated algebraic inputs a,b, there exists an isolated-root certificate whose value is their product. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
 
-Prerequisites. `AlgebraicRootCertificate` (CN.0); Mathlib `algebraicClosure`.
+*Proof sketch.* Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* `AlgebraicRootCertificate` (0.8); Mathlib `algebraicClosure`.
 
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
+### 0.12 Inversion of a nonzero algebraic number (`algebraic_inv_certificate`)
 
-**Inversion of a nonzero algebraic number — `algebraic_inv_certificate`.** Given isolated algebraic inputs a with nonzero decoded value, there exists an isolated-root certificate whose value is their inverse. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
+**Theorem.** Given an isolated algebraic input a with nonzero decoded value, there exists an isolated-root certificate whose value is its inverse. An effective implementation must construct an annihilating polynomial, isolate its relevant distinct root and prove this value equation. The theorem specifies the exact operation; no running time or implemented checker is asserted.
 
-Construction or proof. Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements.
+*Proof sketch.* Closure of the native algebraic-number field gives an annihilating rational polynomial. Its finite distinct root set allows a rational rectangle isolating the desired root. Effective elimination and root-count witnesses are additional construction requirements. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* `AlgebraicRootCertificate` (0.8); Mathlib `algebraicClosure`.
 
-Prerequisites. `AlgebraicRootCertificate` (CN.0); Mathlib `algebraicClosure`.
+### 0.13 Equality of isolated algebraic numbers (`algebraicEqual`)
 
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
-
-**Equality of isolated algebraic numbers — `algebraicEqual`.** algebraicEqual compares the decoded native algebraic numbers of two certified isolated-root presentations. Its Boolean answer is true exactly when the values are equal. Finite verification uses polynomial gcd and a common-root isolation argument; overlapping rectangles alone do not prove equality, and disjoint rectangles are only a sufficient inequality test.
-
-Construction or proof. Compare the annihilating polynomials and isolate their common roots. Terminating certified root-count and separation algorithms are required proof inputs. The result is specified independently of the discovery algorithm.
-
-Prerequisites. `AlgebraicRootCertificate` (CN.0).
-
-Source. [Arb](#source-arb), §§5–5.3, pp.7–9.
-
-API.
+**Construction.** algebraicEqual compares the decoded native algebraic numbers of two certified isolated-root presentations. Its Boolean answer is true exactly when the values are equal. Finite verification uses polynomial gcd and a common-root isolation argument; overlapping rectangles alone do not prove equality, and disjoint rectangles are only a sufficient inequality test.
 
 - `algebraicEqual_iff`: Acceptance is equality in the native relative algebraic closure.
 - `algebraicEqual_refl`: Every presentation equals itself.
 - `algebraicEqual_symm`: The verdict is symmetric.
 
-Tests.
+*Method.* Compare the annihilating polynomials and isolate their common roots. Terminating certified root-count and separation algorithms are required proof inputs. The result is specified independently of the discovery algorithm. ([Arb](#source-arb), §§5–5.3, pp.7–9.) *Needs:* `AlgebraicRootCertificate` (0.8).
 
-- `test_algebraic_equal_zero` (degenerate): Two rational zero inputs compare equal.
-- `test_algebraic_equal_fraction` (computation): Different rational expressions for the same number compare equal.
-- `test_algebraic_unequal_fraction` (non-example): One half and one third compare unequal.
+**Checks.**
 
-### Finite p-adic presentations
+- *Degenerate case.* Two rational zero inputs compare equal.
+- *Computed value.* Different rational expressions for the same number compare equal.
+- *Non-example.* One half and one third compare unequal.
 
-**Canonical finite p-adic approximation — `PadicApproximation`.** For prime p, PadicApproximation p stores integers N,v and a natural mantissa s. It is either (N,N,0), or v<N with 0<s<p^(N−v) and p∤s. Its centre is p^v·s∈ℚ and its denotation is {x∈ℚ_p | ‖x−centre‖≤p^(−N)}. N is absolute precision and N−v is relative precision in the nonzero case. Zero mantissa means the entire ball p^Nℤ_p, not the exact number zero.
+### 0.14 Canonical finite p-adic approximation (`PadicApproximation`)
 
-Construction or proof. Store the two normalization alternatives. Use a rational centre and the native p-adic field/norm to define the closed ball. Prime p is a hypothesis of semantic theorems; syntax is parameterized by p.
-
-Prerequisites. Mathlib `padicValRat`; Mathlib `PadicInt.toZModPow`.
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.
-
-API.
+**Definition.** For prime p, PadicApproximation p stores integers N,v and a natural mantissa s. It is either (N,N,0), or v<N with 0<s<p^(N−v) and p∤s. Its centre is p^v·s∈ℚ and its denotation is {x∈ℚ_p | ‖x−centre‖≤p^(−N)}. N is absolute precision and N−v is relative precision in the nonzero case. Zero mantissa means the entire ball p^Nℤ_p, not the exact number zero.
 
 - `PadicApproximation.center`: The exact rational centre is p^v s.
 - `PadicApproximation.denotation`: The ball has radius p^(−N) in the native p-adic field.
 - `PadicApproximation.center_mem`: The centre always belongs to its ball.
 - `PadicApproximation.zero_mem_iff`: Zero belongs precisely to the zero-mantissa ball.
 
-Tests.
+*Construction.* Store the two normalization alternatives. Use a rational centre and the native p-adic field/norm to define the closed ball. Prime p is a hypothesis of semantic theorems; syntax is parameterized by p. ([CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.) *Needs:* Mathlib `padicValRat`; Mathlib `PadicInt.toZModPow`.
 
-- `test_padic_zero_ball` (degenerate): The canonical zero ball at precision N has valuation N.
-- `test_padic_negative_precision` (computation): The tuple (N,v,s)=(0,−1,1) is permitted at p=3 and has centre 1/3.
-- `test_padic_nonunit_mantissa` (non-example): A nonzero mantissa divisible by p cannot be canonical.
+**Checks.**
 
-## CN.1: Primality and factorization certificates
+- *Degenerate case.* The canonical zero ball at precision N has valuation N.
+- *Computed value.* The tuple (N,v,s)=(0,−1,1) is permitted at p=3 and has centre 1/3.
+- *Non-example.* A nonzero mantissa divisible by p cannot be canonical.
 
-Pratt and Pocklington verification certify primality unconditionally. Miller–Rabin specifies a distinct probabilistic rejection test, and AKS fixes one deterministic algorithm before assigning its cost. Integer factorization reuses the native exact factorization theorem; the new data bind discovered factors to recursive primality evidence. Finite-field factor search remains FF.3. Rational factorization owns the denominator/content bridge, finite recombination and its termination.
+### 0.15 Rabin irreducibility certificate (`RabinCertificate`)
 
-Construction requirements. Prove the strong-liar bound through cyclic prime-power kernel counts, the CRT two-fibre estimate and the consequence of Korselt's criterion that an odd Carmichael composite has at least three prime divisors (Shoup Theorem 10.3, pp.309–312). Independent repetition uses the uniform product sample space. For AKS, supply the substitution and multiplicative-congruence-set lemmas in the quotient algebra, evaluation at a primitive r-th root and both image-cardinality estimates: the upper estimate n^(2 floor(sqrt(t))) and the lower estimate 2^min(t,ell)−1. Use Shoup Lemmas 21.6–21.11, pp.550–558, prove r=O(len(n)^5), and account for his O(len(n)^16.5) RAM estimate separately from any bit simulation. Establish the self-delimiting Pratt encoding comparison and a charged finite verifier; certificate existence does not bound discovery of factors of n−1. For rational polynomials, clear denominators, certify integer content, remove repeated factors, choose a degree-preserving square-free modular reduction, invoke FF.3, lift to a proved coefficient bound, and enumerate exact recombinations with termination. Irreducibility is proved by exclusion of all possible bounded factors; do not assume that every rational irreducible polynomial admits an irreducible reduction at a prime. Shoup §§16.5–16.6, pp.439–441 supplies the exact extension-field context; the finite search/termination proof is a construction requirement, not a theorem attributed to those sections.
+**Definition.** Let F be a finite field with q elements and f ∈ F[X] monic of degree n ≥ 1. A RabinCertificate f stores a polynomial r with X^(q^n) ≡ r (mod f) and, for every prime s dividing n, a pair u_s, v_s ∈ F[X] with u_s·(X^(q^(n/s)) − X) + v_s·f = 1. The certificate is accepted when r = X and every displayed identity holds. Acceptance is a finite list of exact polynomial identities in F[X], decided by division with remainder by the monic f; the residues X^(q^m) mod f are computed by repeated q-th powering modulo f.
 
-### Pratt certificates and their size
+- `RabinCertificate.check`: The Boolean acceptance test: the residue equals X and every Bézout identity holds.
+- `RabinCertificate.irreducible`: An accepted certificate proves Irreducible f.
+- `RabinCertificate.monic`: An accepted certificate is attached to a monic polynomial of positive degree.
+- `RabinCertificate.exists_of_irreducible`: Every monic irreducible polynomial over F has an accepted certificate.
 
-**Recursive Pratt certificate — `PrattCertificate`.** A PrattCertificate is either the leaf two or a node (n,a,children), where n and a are natural numbers and children is a finite list of Pratt certificates. Its value is 2 at the leaf and n at a node. Repeated children encode repeated prime factors of n−1. This raw syntax contains no unverified primality proof.
+*Construction.* Rabin's criterion: a monic f of degree n ≥ 1 is irreducible exactly when f divides X^(q^n) − X and gcd(X^(q^(n/s)) − X, f) = 1 for every prime s dividing n. For soundness, X^(q^n) − X is the product of the monic irreducibles whose degree divides n, each once; so f is squarefree and each irreducible factor has degree d dividing n. The Bézout identities show that no factor divides X^(q^(n/s)) − X, so d does not divide n/s for any prime s dividing n, which forces d = n and a single factor. For completeness, an irreducible f of degree n divides X^(q^n) − X and is coprime to X^(q^(n/s)) − X, and the extended Euclidean algorithm in F[X] produces the u_s, v_s. ([Shoup](#source-shoup), Exercise 20.2(a), printed p.524; Theorem 19.10, p.513; Algorithm IPT and Theorem 20.1, §20.1, p.523.) *Needs:* Mathlib `Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`; Mathlib `Polynomial.Monic.irreducible_iff_natDegree`; TauCetiRoadmap PolynomialGaloisGroups Layer 5.
 
-Construction or proof. Define a finite inductive tree with the leaf and node constructors. Define value by pattern matching.
+**Checks.**
 
-Prerequisites. Mathlib `lucas_primality`; Mathlib `reverse_lucas_primality`; Mathlib `Nat.primeFactorsList`.
+- *Computed value.* Over ZMod 2, f = X²+X+1 is accepted: X⁴ ≡ X (mod f), and for s = 2 the identity 1·(X²−X) + 1·f = 1 holds.
+- *Degenerate case.* For f = X − a of degree one no prime divides 1, so the only condition is X^q ≡ X (mod X − a), which holds; every linear polynomial is accepted.
+- *Non-example.* Over ZMod 5, f = X²+1 satisfies X^25 ≡ X (mod f) but gcd(X⁵ − X, f) = f, so no Bézout pair exists and f is rejected; indeed X²+1 = (X−2)(X−3) there.
+- *Non-example.* For every prime p, X⁴+1 over ZMod p has no accepted certificate, because it is reducible modulo every prime.
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+### 0.16 Certified presentation of a finite field (`FiniteFieldPresentation`)
 
-API.
+**Definition.** Let F be a finite field and K a field with an F-algebra structure. A FiniteFieldPresentation F K consists of a monic f ∈ F[X] with an accepted RabinCertificate, an element α ∈ K with f(α) = 0, and the equation finrank F K = natDegree f. It determines the F-algebra isomorphism `FiniteFieldPresentation.equiv : AdjoinRoot f ≃ₐ[F] K` sending the class of X to α; the inverse sends x ∈ K to the class of Σ_(i<n) c_i X^i, where (c_i) are the coordinates of x in the power basis 1, α, …, α^(n−1). Every finite extension K of F has a presentation. A tower F ⊆ E ⊆ K is presented one step at a time; the prime field is Mathlib's `ZMod p`, never a second copy.
+
+- `FiniteFieldPresentation.equiv`: The F-algebra isomorphism AdjoinRoot f ≃ₐ[F] K.
+- `FiniteFieldPresentation.equiv_root`: The class of X is sent to α.
+- `FiniteFieldPresentation.equiv_symm_apply`: The inverse is read off from power-basis coordinates.
+- `FiniteFieldPresentation.minpoly_eq`: The minimal polynomial of α over F is f.
+- `FiniteFieldPresentation.card_eq`: Nat.card K = (Nat.card F)^(natDegree f).
+- `FiniteFieldPresentation.exists`: Every finite extension of F admits a presentation.
+
+*Construction.* Rabin soundness makes f irreducible. A monic irreducible polynomial vanishing at α is the minimal polynomial of α, so F(α) has degree natDegree f = finrank F K and equals K; the power basis of α then gives the isomorphism with AdjoinRoot f and the coordinate formula for its inverse. Existence: a primitive element of K over F has a monic irreducible minimal polynomial of degree finrank F K, which has an accepted certificate. ([Shoup](#source-shoup), Theorem 19.14 and its proof, pp.515–516; §20.1, p.523.) *Needs:* `RabinCertificate` (0.15); Mathlib `AdjoinRoot.equiv'`; Mathlib `PowerBasis.ofAdjoinEqTop`; Mathlib `FiniteField.algEquivOfCardEq`.
+
+**Checks.**
+
+- *Computed value.* For K = GaloisField 2 2 presented by X²+X+1 with root α: equiv sends the class of X+1 to α+1, and α² = α+1.
+- *Degenerate case.* Presenting F over itself by X − a with α = a, the inverse sends x to the class of the constant x.
+- *Agreement with the library notion.* The polynomial of a presentation equals Mathlib's minpoly F α.
+- *Non-example.* X⁴+1 is the polynomial of no presentation over any ZMod p.
+
+### 0.17 Change of presentation with an explicit inverse (`presentationChange`)
+
+**Construction.** Let F be a finite field and f, g ∈ F[X] monic irreducible of the same degree n. A change-of-presentation certificate is a pair (b, c) of polynomials with g ∣ f∘b, f ∣ g∘c and f ∣ b∘c − X, each checked by a remainder computation. It defines the F-algebra isomorphism presentationChange b c : AdjoinRoot f ≃ₐ[F] AdjoinRoot g sending the class of X to the class of b, with inverse sending the class of X to the class of c; the reverse congruence g ∣ c∘b − X follows. Every such pair f, g admits a certificate, and certificates compose by substitution.
+
+- `PresentationChange`: The certificate: the pair (b, c) with its three divisibilities.
+- `presentationChange_root`: The class of X is sent to the class of b.
+- `presentationChange_symm_root`: The inverse sends the class of X to the class of c.
+- `exists_presentationChange`: Monic irreducible f, g of equal degree admit a certificate.
+- `presentationChange_trans`: Composing certificates (b, c) and (b′, c′) gives the certificate (b∘b′, c′∘c).
+
+*Method.* The divisibilities say that b is a root of f modulo g and c a root of g modulo f, so both maps exist as lifts out of the quotient algebras. Their composite on AdjoinRoot f sends the class of X to the class of b∘c, which is the class of X; an algebra map out of AdjoinRoot f is determined by the image of the root, so the composite is the identity. Both fields have q^n elements, so the forward map is bijective with the stated inverse. Existence: f has a root in the field F[X]/(g) because two extensions of F of the same degree are isomorphic. ([Shoup](#source-shoup), Theorem 19.14 and its proof, pp.515–516.) *Needs:* `FiniteFieldPresentation` (0.16); Mathlib `AdjoinRoot.algHom_ext`; Mathlib `FiniteField.algEquivOfCardEq`.
+
+**Checks.**
+
+- *Degenerate case.* (X, X) is a certificate from f to itself.
+- *Computed value.* Over ZMod 3, (b, c) = (X+2, X+1) is a certificate from X²+1 to X²+X+2: (X+2)²+1 = X²+X+2, (X+1)²+(X+1)+2 = X²+1 and b∘c = X+3 = X.
+- *Non-example.* Over ZMod 7 with f = g = X³−2, b = 2X is a root of f modulo f since 2³ = 1, but (2X, 2X) fails f ∣ b∘c − X because b∘c = 4X; the certificate is (2X, 4X).
+
+### Examples
+
+- Floor division in the RAM model rounds toward negative infinity: the step `3 / (−2)` writes `−2`, not `−1` (`ramStep` (0.3)).
+- The rational presentations of `1/2` and `1/3` add to the presentation of `5/6`, and the presentations of `1/2` and `1/3` compare unequal (`rationalRootCertificate` (0.9), `algebraicEqual` (0.13)).
+- At `p = 3` the canonical approximation `(N, v, s) = (0, −1, 1)` has centre `1/3` and denotes `1/3 + ℤ_3` (`PadicApproximation` (0.14)).
+- Over `ZMod 2`, `X²+X+1` has the Rabin certificate `X⁴ ≡ X (mod f)`, `1·(X²−X) + 1·f = 1`, and presents `GaloisField 2 2` (`RabinCertificate` (0.15), `FiniteFieldPresentation` (0.16)).
+- Over `ZMod 3`, `(X+2, X+1)` changes the presentation `X²+1` of `𝔽₉` into `X²+X+2` (`presentationChange` (0.17)).
+
+### Dependencies
+
+Mathlib (integers, rationals, lists, `NonemptyInterval`, `algebraicClosure`, `Polynomial`, `AdjoinRoot`, finite fields, `padicValRat`, `PadicInt.toZModPow`); TauCetiRoadmap RealAlgebraicGeometry Layers 1–4; TauCetiRoadmap PolynomialGaloisGroups Layer 5.
+
+## Layer CN.1: Primality and factorization certificates
+
+Pratt and Pocklington certificates prove primality unconditionally. Miller–Rabin is a separate
+probabilistic rejection test with a proved error bound, and AKS is fixed as one deterministic
+algorithm before any cost is assigned to it. Integer factorization reuses Mathlib's exact
+factorization; the new data bind the factors to recursive primality evidence. Over a finite field
+a factorization is certified by its product identity and a Rabin certificate for each factor;
+Hensel lifting carries a coprime factorization modulo `p` to `p^k`; the rational factorization
+algorithm combines both with a coefficient bound and exhaustive recombination.
+
+*Proof obligations of the layer.* Prove the strong-liar bound through the cyclic prime-power kernel count, the CRT two-fibre estimate and the consequence of Korselt's criterion that an odd Carmichael number has at least three prime divisors (Shoup Theorem 10.3, pp.309–312); independent repetition uses the uniform product sample space. For AKS, prove the substitution and multiplicative-congruence-set lemmas in the quotient algebra, evaluation at a primitive r-th root and both image-cardinality estimates, the upper estimate n^(2⌊√t⌋) and the lower estimate 2^min(t,ℓ) − 1 (Shoup Lemmas 21.6–21.11, pp.550–558); prove r = O(len(n)^5) and account for the O(len(n)^16.5) RAM estimate separately from any bit simulation. Establish the self-delimiting Pratt encoding comparison and a charged finite verifier; existence of a certificate does not bound the cost of factoring n − 1. For rational polynomials, clear denominators, certify the integer content, remove repeated factors, choose a degree-preserving square-free reduction modulo a prime, factor it with `FiniteFieldFactorCertificate.complete` (1.24), lift with `henselLift` (1.26) beyond the Mignotte-type coefficient bound, and enumerate the exact recombinations. Irreducibility is proved by excluding every bounded factor; a rational irreducible polynomial need not have an irreducible reduction at any prime.
+
+### 1.1 Recursive Pratt certificate (`PrattCertificate`)
+
+**Definition.** A PrattCertificate is either the leaf two or a node (n,a,children), where n and a are natural numbers and children is a finite list of Pratt certificates. Its value is 2 at the leaf and n at a node. Repeated children encode repeated prime factors of n−1. This raw syntax contains no unverified primality proof.
 
 - `PrattCertificate.value_two`: The leaf has value 2.
 - `PrattCertificate.value_node`: A node stores its claimed value n.
 - `PrattCertificate.node_injective`: Two nodes are equal precisely when all their raw data are equal.
 
-Tests.
+*Construction.* Define a finite inductive tree with the leaf and node constructors. Define value by pattern matching. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* Mathlib `lucas_primality`; Mathlib `reverse_lucas_primality`; Mathlib `Nat.primeFactorsList`.
 
-- `test_pratt_leaf` (degenerate): The base leaf represents 2.
-- `test_pratt_three` (computation): The candidate (3,2,[two]) represents 3.
-- `test_pratt_untrusted` (non-example): A malformed node may represent 1; existence of raw syntax is not primality.
+**Checks.**
 
-**Pratt certificate checker — `PrattCertificate.check`.** The checker accepts the leaf two. It accepts node(n,a,cs) iff n≥3, 0<a<n, every child checks, the product of child values is n−1, a^(n−1) mod n=1, and a^((n−1)/q) mod n≠1 for every child value q. Empty products are 1. The checker terminates by recursion on the finite tree.
+- *Degenerate case.* The base leaf represents 2.
+- *Computed value.* The candidate (3,2,[two]) represents 3.
+- *Non-example.* A malformed node may represent 1; existence of raw syntax is not primality.
 
-Construction or proof. Recursively check the children; use exact natural modular powers and products. No probable-prime predicate enters the checker.
+### 1.2 Pratt certificate checker (`PrattCertificate.check`)
 
-Prerequisites. `PrattCertificate` (CN.1); Mathlib `lucas_primality`.
-
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
-
-API.
+**Construction.** The checker accepts the leaf two. It accepts node(n,a,cs) iff n≥3, 0<a<n, every child checks, the product of child values is n−1, a^(n−1) mod n=1, and a^((n−1)/q) mod n≠1 for every child value q. Empty products are 1. The checker terminates by recursion on the finite tree.
 
 - `PrattCertificate.check_two`: The leaf is accepted.
 - `PrattCertificate.check_node_iff`: Acceptance is exactly the conjunction of recursive, product and modular conditions.
 - `PrattCertificate.check_value_ge_two`: Acceptance excludes 0 and 1.
 
-Tests.
+*Method.* Recursively check the children; use exact natural modular powers and products. No probable-prime predicate enters the checker. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `PrattCertificate` (1.1); Mathlib `lucas_primality`.
 
-- `test_pratt_check_three` (computation): Witness 2 with the factor 2 certifies 3.
-- `test_pratt_check_one` (degenerate): The malformed value-one node is rejected.
-- `test_pratt_check_nine` (non-example): The candidate for 9 with three factors 2 and witness 2 is rejected.
+**Checks.**
 
-**Soundness of Pratt certificates — `PrattCertificate.sound`.** For every finite Pratt certificate c, c.check=true implies Nat.Prime(c.value).
+- *Computed value.* Witness 2 with the factor 2 certifies 3.
+- *Degenerate case.* The malformed value-one node is rejected.
+- *Non-example.* The candidate for 9 with three factors 2 and witness 2 is rejected.
 
-Construction or proof. Induct on the certificate tree. The children are prime by induction. Every prime divisor of the product n−1 occurs among the child values, so the checked modular inequalities supply all hypotheses of lucas_primality.
+### 1.3 Soundness of Pratt certificates (`PrattCertificate.sound`)
 
-Prerequisites. `PrattCertificate.check` (CN.1); Mathlib `lucas_primality`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
+**Theorem.** For every finite Pratt certificate c, c.check=true implies Nat.Prime(c.value).
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+*Proof sketch.* Induct on the certificate tree. The children are prime by induction. Every prime divisor of the product n−1 occurs among the child values, so the checked modular inequalities supply all hypotheses of lucas_primality. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `PrattCertificate.check` (1.2); Mathlib `lucas_primality`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
 
-**Completeness of Pratt certificates — `PrattCertificate.complete`.** Every prime n is the value of a Pratt certificate accepted by the checker.
+### 1.4 Completeness of Pratt certificates (`PrattCertificate.complete`)
 
-Construction or proof. Use strong induction on n, with leaf 2. For n≥3, reverse_lucas_primality supplies a Lucas witness; take its representative in 1,…,n−1. Factor n−1 using primeFactorsList. Every factor q≤n−1<n has a recursively accepted certificate.
+**Theorem.** Every prime n is the value of a Pratt certificate accepted by the checker.
 
-Prerequisites. `PrattCertificate.check` (CN.1); Mathlib `reverse_lucas_primality`; Mathlib `Nat.primeFactorsList`; Mathlib `Nat.prod_primeFactorsList`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
+*Proof sketch.* Use strong induction on n, with leaf 2. For n≥3, reverse_lucas_primality supplies a Lucas witness; take its representative in 1,…,n−1. Factor n−1 using primeFactorsList. Every factor q≤n−1<n has a recursively accepted certificate. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `PrattCertificate.check` (1.2); Mathlib `reverse_lucas_primality`; Mathlib `Nat.primeFactorsList`; Mathlib `Nat.prod_primeFactorsList`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+### 1.5 Bit size of a Pratt tree (`prattBitSize`)
 
-**Bit size of a Pratt tree — `prattBitSize`.** prattBitSize assigns one tag bit to the leaf. A node contributes 1 plus the binary lengths of n, a and its child count, plus the sizes of the children. Binary length is log₂(x)+1, including one bit for zero. A self-delimiting serialization has size at most a fixed constant multiple of this measure; that encoding comparison is a separate obligation.
-
-Construction or proof. Recurse over the existing finite tree; retain repeated factors and charge every occurrence.
-
-Prerequisites. `PrattCertificate` (CN.1).
-
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
-
-API.
+**Definition.** prattBitSize assigns one tag bit to the leaf. A node contributes 1 plus the binary lengths of n, a and its child count, plus the sizes of the children. Binary length is log₂(x)+1, including one bit for zero. A self-delimiting serialization has size at most a fixed constant multiple of this measure; that encoding comparison is a separate obligation.
 
 - `prattBitSize_two`: The leaf costs one bit.
 - `prattBitSize_node`: The charge is the sum of header lengths and all child charges.
 - `prattBitSize_pos`: Every finite tree has positive size.
 
-Tests.
+*Construction.* Recurse over the existing finite tree; retain repeated factors and charge every occurrence. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `PrattCertificate` (1.1).
 
-- `test_size_leaf` (degenerate): The leaf has size one.
-- `test_size_three` (computation): The tree certifying 3 has size seven.
-- `test_size_repeated` (non-example): Repeated children are charged repeatedly, not silently shared as a DAG.
+**Checks.**
 
-**Quadratic bit-size bound for Pratt certificates — `pratt_small_certificate`.** There is an absolute natural constant C such that every prime n has an accepted Pratt tree c of value n and prattBitSize(c)≤C·(log₂(n)+1)². This is an existence bound for certificates, not a bound on the cost of discovering the factorization of n−1.
+- *Degenerate case.* The leaf has size one.
+- *Computed value.* The tree certifying 3 has size seven.
+- *Non-example.* Repeated children are charged repeatedly, not silently shared as a DAG.
 
-Construction or proof. Induct using the prime factors of n−1 with multiplicity, as in the source proof-length bound. Bound every header by a constant times the binary length of n. Sum the recursive charges. The translation of the source proof lines to this tree measure is an additional proof requirement.
+### 1.6 Quadratic bit-size bound for Pratt certificates (`pratt_small_certificate`)
 
-Prerequisites. `prattBitSize` (CN.1); `PrattCertificate.complete` (CN.1).
+**Theorem.** There is an absolute natural constant C such that every prime n has an accepted Pratt tree c of value n and prattBitSize(c)≤C·(log₂(n)+1)². This is an existence bound for certificates, not a bound on the cost of discovering the factorization of n−1.
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+*Proof sketch.* Induct using the prime factors of n−1 with multiplicity, as in the source proof-length bound. Bound every header by a constant times the binary length of n. Sum the recursive charges. The translation of the source proof lines to this tree measure is an additional proof requirement. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `prattBitSize` (1.5); `PrattCertificate.complete` (1.4).
 
-### Miller–Rabin and independent sampling
+### 1.7 Strong Miller–Rabin liar (`StrongLiar`)
 
-**Strong Miller–Rabin liar — `StrongLiar`.** For n,a∈ℕ write h=v₂(n−1) and t=(n−1)/2^h. StrongLiar n a means n>1 is odd, 0<a<n, and in ZMod n either a^t=1 or a^(t·2^j)=−1 for some j<h. The sample space is the nonzero residues 1,…,n−1; it is not restricted to units. Guards reject n=0,1 and all even n, which the primality wrapper handles separately.
-
-Construction or proof. Use the multiplicity of 2 in n−1 via Nat.factorization and exact exponentiation in ZMod n.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [Shoup](#source-shoup), §10.2, pp.308–310.
-
-API.
+**Definition.** For n,a∈ℕ write h=v₂(n−1) and t=(n−1)/2^h. StrongLiar n a means n>1 is odd, 0<a<n, and in ZMod n either a^t=1 or a^(t·2^j)=−1 for some j<h. The sample space is the nonzero residues 1,…,n−1; it is not restricted to units. Guards reject n=0,1 and all even n, which the primality wrapper handles separately.
 
 - `strongLiar_iff`: The defining modular alternatives use the odd part of n−1.
 - `strongLiar_coprime`: A strong liar is coprime to n, although the sampling space contains nonunits.
 - `strongLiar_one`: The base 1 passes for every odd n>1.
 
-Tests.
+*Construction.* Use the multiplicity of 2 in n−1 via Nat.factorization and exact exponentiation in ZMod n. ([Shoup](#source-shoup), §10.2, pp.308–310.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_strongLiar_prime` (computation): Base 3 passes for 7.
-- `test_strongLiar_one_input` (degenerate): Input 1 is rejected.
-- `test_strongLiar_composite` (non-example): 2047 is composite but passes the strong base-2 test.
+**Checks.**
 
-**Prime inputs pass every admissible base — `strongLiar_of_prime`.** If n is an odd prime and 0<a<n, then StrongLiar n a.
+- *Computed value.* Base 3 passes for 7.
+- *Degenerate case.* Input 1 is rejected.
+- *Non-example.* 2047 is composite but passes the strong base-2 test.
 
-Construction or proof. Fermat gives a^(n−1)=1. In the repeated-squaring chain in the field ZMod n, the predecessor of the first 1 is either absent (a^t=1) or is −1, since the only square roots of 1 are ±1.
+### 1.8 Prime inputs pass every admissible base (`strongLiar_of_prime`)
 
-Prerequisites. `StrongLiar` (CN.1).
+**Theorem.** If n is an odd prime and 0<a<n, then StrongLiar n a.
 
-Source. [Shoup](#source-shoup), Theorem 10.3, prime-input case, p.309.
+*Proof sketch.* Fermat gives a^(n−1)=1. In the repeated-squaring chain in the field ZMod n, the predecessor of the first 1 is either absent (a^t=1) or is −1, since the only square roots of 1 are ±1. ([Shoup](#source-shoup), Theorem 10.3, prime-input case, p.309.) *Needs:* `StrongLiar` (1.7).
 
-**Miller–Rabin strong-liar bound — `strongLiar_card_le`.** For odd composite n>1, the number of bases a with 0<a<n and StrongLiar n a is at most (n−1)/4. Equivalently, four times this cardinality is at most n−1.
+### 1.9 Miller–Rabin strong-liar bound (`strongLiar_card_le`)
 
-Construction or proof. Split prime powers from numbers with at least two distinct prime factors. On prime powers use the cyclic-unit power-map kernel count; on at least two factors apply the CRT and the common 2-adic exponent to bound the two permitted fibres. The cyclic kernel, CRT fibre count, and Carmichael-at-least-three-primes steps are separate proof requirements.
+**Theorem.** For odd composite n>1, the number of bases a with 0<a<n and StrongLiar n a is at most (n−1)/4. Equivalently, four times this cardinality is at most n−1.
 
-Prerequisites. `StrongLiar` (CN.1).
+*Proof sketch.* Split prime powers from numbers with at least two distinct prime factors. On prime powers use the cyclic-unit power-map kernel count; on at least two factors apply the CRT and the common 2-adic exponent to bound the two permitted fibres. The cyclic kernel, CRT fibre count, and Carmichael-at-least-three-primes steps are separate proof requirements. ([Shoup](#source-shoup), Theorem 10.3, pp.309–312.) *Needs:* `StrongLiar` (1.7).
 
-Source. [Shoup](#source-shoup), Theorem 10.3, pp.309–312.
+### 1.10 Error bound for independent Miller–Rabin rounds (`millerRabin_rounds_bound`)
 
-**Error bound for independent Miller–Rabin rounds — `millerRabin_rounds_bound`.** For odd composite n>1 and k∈ℕ, among all (n−1)^k equally likely tuples of bases in {1,…,n−1}, at most (n−1)^k/4^k tuples pass every strong test. Equivalently, 4^k times the number of accepting tuples is at most (n−1)^k. This counting formulation is the uniform independent product distribution; it makes no promise for correlated or adversarially chosen bases.
+**Theorem.** For odd composite n>1 and k∈ℕ, among all (n−1)^k equally likely tuples of bases in {1,…,n−1}, at most (n−1)^k/4^k tuples pass every strong test. Equivalently, 4^k times the number of accepting tuples is at most (n−1)^k. This counting formulation is the uniform independent product distribution; it makes no promise for correlated or adversarially chosen bases.
 
-Construction or proof. An accepting tuple is a function into the strong-liar subset, so its cardinality is the kth power of the one-round cardinality. Raise the one-round bound to k.
+*Proof sketch.* An accepting tuple is a function into the strong-liar subset, so its cardinality is the kth power of the one-round cardinality. Raise the one-round bound to k. ([Shoup](#source-shoup), §10.2 algorithm and Theorem 10.3, pp.309–312.) *Needs:* `strongLiar_card_le` (1.9).
 
-Prerequisites. `strongLiar_card_le` (CN.1).
+### 1.11 AKS order parameter (`aksParameter`)
 
-Source. [Shoup](#source-shoup), §10.2 algorithm and Theorem 10.3, pp.309–312.
-
-### The fixed AKS algorithm
-
-**AKS order parameter — `aksParameter`.** For n>1, aksParameter n is the least r>1 such that gcd(n,r)>1 or gcd(n,r)=1 and the multiplicative order of n modulo r is greater than 4·len(n)², where len(n)=floor(log₂n)+1. Set aksParameter n=0 for n≤1. The choice is deterministic and finite because r=n is always admissible.
-
-Construction or proof. Search r=2,…,n in increasing order using exact gcd and modular-power computations. The candidate n terminates the search.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.
-
-API.
+**Construction.** For n>1, aksParameter n is the least r>1 such that gcd(n,r)>1 or gcd(n,r)=1 and the multiplicative order of n modulo r is greater than 4·len(n)², where len(n)=floor(log₂n)+1. Set aksParameter n=0 for n≤1. The choice is deterministic and finite because r=n is always admissible.
 
 - `aksParameter_valid`: The output is between 2 and n and satisfies the exact order-or-gcd disjunction.
 - `aksParameter_minimal`: No smaller r>1 satisfies the search criterion.
 - `aksParameter_small`: Inputs 0 and 1 use sentinel zero.
 
-Tests.
+*Method.* Search r=2,…,n in increasing order using exact gcd and modular-power computations. The candidate n terminates the search. ([Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_aksParameter_two` (computation): Input 2 has parameter 2.
-- `test_aksParameter_nine` (computation): Input 9 has parameter 3, exposing a factor.
-- `test_aksParameter_one` (degenerate): Input 1 uses zero and is rejected by the primality wrapper.
+**Checks.**
 
-**AKS polynomial congruences — `AKSIdentities`.** AKSIdentities n r ℓ means that for each integer j with 1≤j≤ℓ, (X+j)^n and X^n+j have the same remainder on division by X^r−1 in (ZMod n)[X]. The definition is a finite family of decidable polynomial identities, separate from claims that the coefficient ring is a field.
+- *Computed value.* Input 2 has parameter 2.
+- *Computed value.* Input 9 has parameter 3, exposing a factor.
+- *Degenerate case.* Input 1 uses zero and is rejected by the primality wrapper.
 
-Construction or proof. Use Polynomial.modByMonic over the commutative ring ZMod n. The algorithm supplies r>1, so the modulus is monic of degree r.
+### 1.12 AKS polynomial congruences (`AKSIdentities`)
 
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.
-
-API.
+**Definition.** AKSIdentities n r ℓ means that for each integer j with 1≤j≤ℓ, (X+j)^n and X^n+j have the same remainder on division by X^r−1 in (ZMod n)[X]. The definition is a finite family of decidable polynomial identities, separate from claims that the coefficient ring is a field.
 
 - `aksIdentities_zero`: The empty check range holds.
 - `aksIdentities_mono`: Passing a larger check range implies passing a smaller one.
 - `aksIdentities_iff`: The predicate is exactly the finite remainder comparison.
 
-Tests.
+*Construction.* Use Polynomial.modByMonic over the commutative ring ZMod n. The algorithm supplies r>1, so the modulus is monic of degree r. ([Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_aksIdentities_prime` (computation): The characteristic-5 identity passes at every r and every check range.
-- `test_aksIdentities_vacuous` (degenerate): With no bases, even input 9 passes the identity predicate.
-- `test_aksIdentities_not_prime` (non-example): The empty identity test is not a primality criterion.
+**Checks.**
 
-**Shoup’s AKS algorithm — `aks`.** aks n rejects n≤1 and every perfect power a^b with a,b>1. For the remaining n let r=aksParameter n. Return true if r=n; reject if gcd(n,r)>1; otherwise return whether AKSIdentities n r (2·len(n)·floor(√r)+1) holds. This declaration fixes the variant before any complexity statement.
+- *Computed value.* The characteristic-5 identity passes at every r and every check range.
+- *Degenerate case.* With no bases, even input 9 passes the identity predicate.
+- *Non-example.* The empty identity test is not a primality criterion.
 
-Construction or proof. Decide perfect-power membership using a,b≤n. Execute the bounded parameter search. Decide the finite polynomial equalities using exact coefficients modulo n.
+### 1.13 Shoup’s AKS algorithm (`aks`)
 
-Prerequisites. `aksParameter` (CN.1); `AKSIdentities` (CN.1).
-
-Source. [Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.
-
-API.
+**Construction.** aks n rejects n≤1 and every perfect power a^b with a,b>1. For the remaining n let r=aksParameter n. Return true if r=n; reject if gcd(n,r)>1; otherwise return whether AKSIdentities n r (2·len(n)·floor(√r)+1) holds. This declaration fixes the variant before any complexity statement.
 
 - `aks_small`: Inputs at most 1 are rejected.
 - `aks_perfect_power`: Nontrivial perfect powers are rejected before the polynomial checks.
 - `aks_check_iff`: For a non-power input with coprime parameter r<n, acceptance is exactly the prescribed identity test.
 
-Tests.
+*Method.* Decide perfect-power membership using a,b≤n. Execute the bounded parameter search. Decide the finite polynomial equalities using exact coefficients modulo n. ([Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.) *Needs:* `aksParameter` (1.11); `AKSIdentities` (1.12).
 
-- `test_aks_two` (computation): 2 is accepted.
-- `test_aks_one` (degenerate): 1 is rejected.
-- `test_aks_nine` (non-example): 9 is rejected as a perfect power.
+**Checks.**
 
-**Correctness of the AKS algorithm — `aks_correct`.** For every natural n, aks n=true iff n is prime.
+- *Computed value.* 2 is accepted.
+- *Degenerate case.* 1 is rejected.
+- *Non-example.* 9 is rejected as a perfect power.
 
-Construction or proof. Prime inputs satisfy the polynomial identities by Frobenius. For a composite that reaches the final branch choose a prime p dividing n; the parameter search gives p>r and gcd(n,r)=1. Shoup’s quotient-algebra endomorphisms, upper bound on the evaluation image and lower bound from products of distinct linear factors contradict the order and length bounds. Those nonroutine algebraic estimates are separate proof requirements.
+### 1.14 Correctness of the AKS algorithm (`aks_correct`)
 
-Prerequisites. `aks` (CN.1); `AKSIdentities` (CN.1); `aksParameter` (CN.1).
+**Theorem.** For every natural n, aks n=true iff n is prime.
 
-Source. [Shoup](#source-shoup), §21.2 and Lemmas 21.6–21.11, pp.549–558.
+*Proof sketch.* Prime inputs satisfy the polynomial identities by Frobenius. For a composite that reaches the final branch choose a prime p dividing n; the parameter search gives p>r and gcd(n,r)=1. Shoup’s quotient-algebra endomorphisms, upper bound on the evaluation image and lower bound from products of distinct linear factors contradict the order and length bounds. Those nonroutine algebraic estimates are separate proof requirements. ([Shoup](#source-shoup), §21.2 and Lemmas 21.6–21.11, pp.549–558.) *Needs:* `aks` (1.13); `AKSIdentities` (1.12); `aksParameter` (1.11).
 
-### Partial-factor primality certificates
+### 1.15 Pocklington prime-divisor congruence (`pocklington_prime_divisor`)
 
-**Pocklington prime-divisor congruence — `pocklington_prime_divisor`.** Let n>1, F>1 and F∣n−1. Suppose that for each prime q∣F there is an integer a with a^(n−1)≡1 modulo n and gcd(a^((n−1)/q)−1,n)=1. Then every prime divisor p of n satisfies F∣p−1. The witness a may depend on q; F and (n−1)/F need not be coprime.
+**Theorem.** Let n>1, F>1 and F∣n−1. Suppose that for each prime q∣F there is an integer a with a^(n−1)≡1 modulo n and gcd(a^((n−1)/q)−1,n)=1. Then every prime divisor p of n satisfies F∣p−1. The witness a may depend on q; F and (n−1)/F need not be coprime.
 
-Construction or proof. For every prime-power q^e∣F, the order of a modulo p divides n−1 but does not divide (n−1)/q. Thus its q-adic exponent is at least e, and q^e divides p−1. Combine these prime powers.
+*Proof sketch.* For every prime-power q^e∣F, the order of a modulo p divides n−1 but does not divide (n−1)/q. Thus its q-adic exponent is at least e, and q^e divides p−1. Combine these prime powers. ([Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-Prerequisites. Native arithmetic, finite lists and functions.
+### 1.16 Pocklington primality criterion (`pocklington_prime`)
 
-Source. [Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.
+**Theorem.** Under the prime-divisor criterion’s hypotheses, if F²>n then n is prime.
 
-**Pocklington primality criterion — `pocklington_prime`.** Under the prime-divisor criterion’s hypotheses, if F²>n then n is prime.
+*Proof sketch.* If n were composite it would have a prime divisor p≤√n<F. The preceding congruence F∣p−1 contradicts 0<p−1<F. ([Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.) *Needs:* `pocklington_prime_divisor` (1.15).
 
-Construction or proof. If n were composite it would have a prime divisor p≤√n<F. The preceding congruence F∣p−1 contradicts 0<p−1<F.
+### 1.17 Finite Pocklington certificate (`PocklingtonCertificate`)
 
-Prerequisites. `pocklington_prime_divisor` (CN.1).
-
-Source. [Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.
-
-**Finite Pocklington certificate — `PocklingtonCertificate`.** PocklingtonCertificate n stores a list of Pratt trees and one integer witness for each occurrence. Its certified part F is the product of the child values. The checker requires n>1, F>1, F∣n−1, n<F², all children accepted, and for each (q,a), a^(n−1)≡1 mod n and gcd(a^((n−1)/q)−1,n)=1. Repeated q encode multiplicity. The uncatalogued cofactor is allowed to remain unfactored.
-
-Construction or proof. Represent the entries as a finite list of pairs. Every prime divisor of F is a certified child, so the list supplies the universal witnesses needed by the Pocklington criterion.
-
-Prerequisites. `PrattCertificate.check` (CN.1); `PrattCertificate.sound` (CN.1); `pocklington_prime` (CN.1).
-
-Source. [Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.
-
-API.
+**Definition.** PocklingtonCertificate n stores a list of Pratt trees and one integer witness for each occurrence. Its certified part F is the product of the child values. The checker requires n>1, F>1, F∣n−1, n<F², all children accepted, and for each (q,a), a^(n−1)≡1 mod n and gcd(a^((n−1)/q)−1,n)=1. Repeated q encode multiplicity. The uncatalogued cofactor is allowed to remain unfactored.
 
 - `PocklingtonCertificate.factor`: F is the product of certified child values.
 - `PocklingtonCertificate.check`: Execute all bounds, divisibility, recursive and gcd tests.
 - `PocklingtonCertificate.check_iff`: No prime-divisor quantification remains in the checker.
 
-Tests.
+*Construction.* Represent the entries as a finite list of pairs. Every prime divisor of F is a certified child, so the list supplies the universal witnesses needed by the Pocklington criterion. ([Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.) *Needs:* `PrattCertificate.check` (1.2); `PrattCertificate.sound` (1.3); `pocklington_prime` (1.16).
 
-- `test_pocklington_seventeen` (computation): F=8 with three factors 2 and witness 3 certifies 17.
-- `test_pocklington_empty` (degenerate): An empty factor list is rejected.
-- `test_pocklington_insufficient` (non-example): A single factor 2 cannot certify 17 because 2²≤17.
+**Checks.**
 
-**Soundness of finite Pocklington certificates — `PocklingtonCertificate.sound`.** If the finite Pocklington checker accepts n, then n is prime.
+- *Computed value.* F=8 with three factors 2 and witness 3 certifies 17.
+- *Degenerate case.* An empty factor list is rejected.
+- *Non-example.* A single factor 2 cannot certify 17 because 2²≤17.
 
-Construction or proof. Pratt soundness makes every child value prime. Every prime divisor of F occurs in the list, so select its recorded integer witness and apply the Pocklington criterion.
+### 1.18 Soundness of finite Pocklington certificates (`PocklingtonCertificate.sound`)
 
-Prerequisites. `PocklingtonCertificate` (CN.1); `PrattCertificate.sound` (CN.1); `pocklington_prime` (CN.1).
+**Theorem.** If the finite Pocklington checker accepts n, then n is prime.
 
-Source. [Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.
+*Proof sketch.* Pratt soundness makes every child value prime. Every prime divisor of F occurs in the list, so select its recorded integer witness and apply the Pocklington criterion. ([Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.) *Needs:* `PocklingtonCertificate` (1.17); `PrattCertificate.sound` (1.3); `pocklington_prime` (1.16).
 
-### Integer and polynomial factorization
+### 1.19 Integer factorization with prime certificates (`IntegerFactorCertificate`)
 
-**Integer factorization with prime certificates — `IntegerFactorCertificate`.** An IntegerFactorCertificate stores a sign ε∈{−1,1} and a list of raw Pratt certificates. Its value is ε times the product of their natural values, viewed in ℤ. It checks against z precisely when every Pratt tree checks and this product equals z. Units ±1 have an empty factor list. Zero has no accepted certificate, and repeated primes remain repeated list entries.
-
-Construction or proof. Use a Bool for the sign and a finite list of existing Pratt trees. Decode by an integer product and check each tree. This certifies a discovered factorization independently of the algorithm that found it.
-
-Prerequisites. `PrattCertificate.check` (CN.1); `PrattCertificate.sound` (CN.1); Mathlib `Nat.primeFactorsList`; Mathlib `Nat.prod_primeFactorsList`.
-
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
-
-API.
+**Definition.** An IntegerFactorCertificate stores a sign ε∈{−1,1} and a list of raw Pratt certificates. Its value is ε times the product of their natural values, viewed in ℤ. It checks against z precisely when every Pratt tree checks and this product equals z. Units ±1 have an empty factor list. Zero has no accepted certificate, and repeated primes remain repeated list entries.
 
 - `IntegerFactorCertificate.value`: Decode the signed product.
 - `IntegerFactorCertificate.check`: Check exact equality and all prime certificates.
 - `IntegerFactorCertificate.check_iff`: Acceptance is the product equation together with acceptance of all prime witnesses.
 
-Tests.
+*Construction.* Use a Bool for the sign and a finite list of existing Pratt trees. Decode by an integer product and check each tree. This certifies a discovered factorization independently of the algorithm that found it. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `PrattCertificate.check` (1.2); `PrattCertificate.sound` (1.3); Mathlib `Nat.primeFactorsList`; Mathlib `Nat.prod_primeFactorsList`.
 
-- `test_integer_factor_unit` (degenerate): The negative sign and empty list certify −1.
-- `test_integer_factor_twelve` (computation): Two copies of 2 and the accepted certificate for 3 certify 12.
-- `test_integer_factor_zero` (non-example): No zero product certificate is accepted.
+**Checks.**
 
-**Soundness of integer factorization certificates — `IntegerFactorCertificate.sound`.** An accepted certificate for z gives z≠0 and a list of prime absolute factors whose signed product is z. Thus every prime divisor of |z| occurs among its child values; no completeness inference is made from a partial list.
+- *Degenerate case.* The negative sign and empty list certify −1.
+- *Computed value.* Two copies of 2 and the accepted certificate for 3 certify 12.
+- *Non-example.* No zero product certificate is accepted.
 
-Construction or proof. Apply Pratt soundness to each child. Prime factors are positive and nonzero, so their signed product is nonzero. Euclid’s lemma identifies prime divisors of the product.
+### 1.20 Soundness of integer factorization certificates (`IntegerFactorCertificate.sound`)
 
-Prerequisites. `IntegerFactorCertificate` (CN.1); `PrattCertificate.sound` (CN.1).
+**Theorem.** An accepted certificate for z gives z≠0 and a list of prime absolute factors whose signed product is z. Thus every prime divisor of |z| occurs among its child values; no completeness inference is made from a partial list.
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+*Proof sketch.* Apply Pratt soundness to each child. Prime factors are positive and nonzero, so their signed product is nonzero. Euclid’s lemma identifies prime divisors of the product. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `IntegerFactorCertificate` (1.19); `PrattCertificate.sound` (1.3).
 
-**Every nonzero integer admits a factor certificate — `IntegerFactorCertificate.complete`.** Every nonzero integer z admits an accepted IntegerFactorCertificate. Use the native primeFactorsList of |z| and Pratt completeness, retaining the sign of z.
+### 1.21 Every nonzero integer admits a factor certificate (`IntegerFactorCertificate.complete`)
 
-Construction or proof. The native product theorem reconstructs the positive absolute value. Each list element is prime and therefore has an accepted Pratt tree. Restore the sign.
+**Theorem.** Every nonzero integer z admits an accepted IntegerFactorCertificate. Use the native primeFactorsList of |z| and Pratt completeness, retaining the sign of z.
 
-Prerequisites. `IntegerFactorCertificate` (CN.1); `PrattCertificate.complete` (CN.1); Mathlib `Nat.prod_primeFactorsList`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
+*Proof sketch.* The native product theorem reconstructs the positive absolute value. Each list element is prime and therefore has an accepted Pratt tree. Restore the sign. ([PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.) *Needs:* `IntegerFactorCertificate` (1.19); `PrattCertificate.complete` (1.4); Mathlib `Nat.prod_primeFactorsList`; Mathlib `Nat.prime_of_mem_primeFactorsList`.
 
-Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its length bound.
+### 1.22 Factorization certificate over a finite field (`FiniteFieldFactorCertificate`)
 
-**Transport of certified finite-field factors — `transport_finite_factorization`.** Let e:F≃+*K be a certified change from a computable finite-field presentation to the intrinsic finite field. For nonzero f=c∏g_i with c≠0 and all g_i monic irreducible, mapping coefficients by e yields map(e,f)=e(c)∏map(e,g_i), again with monic irreducible factors. The FF.3 checker and its search algorithm supply the data; CN.1 only checks the presentation boundary and reconstructs the intrinsic factorization.
+**Definition.** For a finite field F and f ∈ F[X], a FiniteFieldFactorCertificate f stores a nonzero constant c ∈ F and a finite list of triples (g_i, e_i, R_i) with g_i monic and pairwise distinct, e_i ≥ 1 and R_i an accepted RabinCertificate of g_i. It is accepted when f = C c · ∏ g_i^(e_i) as an exact polynomial identity. The zero polynomial has no accepted certificate, because c ≠ 0 makes the product nonzero.
 
-Construction or proof. Use the nonzero finite-field factorization certificate supplied by FF.3. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport.
+- `FiniteFieldFactorCertificate.check`: The Boolean test: product identity and every Rabin certificate.
+- `FiniteFieldFactorCertificate.toMultiset`: The multiset Σ e_i·{g_i} of certified factors.
+- `FiniteFieldFactorCertificate.leadingCoeff_eq`: On acceptance, c is the leading coefficient of f.
 
-Prerequisites. **FiniteFieldsAndCharacterSums, FF.3** (factorization certificate sound); **FiniteFieldsAndCharacterSums, FF.0** (presentation change isomorphism).
+*Construction.* Store the data as a list and check the product identity by exact multiplication in F[X], together with the Rabin checks of the factors. Repeated factors are recorded by their exponents, not by repetition in the list. ([Shoup](#source-shoup), §20.3, p.527 (factorization of a monic polynomial into irreducibles) and Exercise 20.2(a), p.524.) *Needs:* `RabinCertificate` (0.15); Mathlib `UniqueFactorizationMonoid.normalizedFactors_prod_eq`.
 
-Source. [Shoup](#source-shoup), Theorem 19.14, pp.515–516; Chapter 20.
+**Checks.**
 
-**Rational polynomial factor certificate — `RationalFactorCertificate`.** For f∈ℚ[X], RationalFactorCertificate f consists of a nonzero rational leading factor c, a finite list of monic polynomials, proofs that each is irreducible over ℚ, and the exact identity f=c∏g_i. Multiplicity is represented by repeated factors. The definition uses actual irreducibility proofs; a CAS assertion or irreducibility modulo a single prime without a valid lifting criterion is insufficient. For f∈ℤ[X], certify its coefficientwise rational image and separately retain integer content and primitive-factor normalization.
+- *Degenerate case.* The polynomial 1 is certified by c = 1 and the empty list.
+- *Computed value.* Over ZMod 5, X²+1 is certified by c = 1 and the linear factors X−2, X−3 with exponent one.
+- *Non-example.* Over ZMod 5 the single factor X²+1 with exponent one is rejected, since X²+1 has no accepted Rabin certificate there.
+- *Non-example.* The zero polynomial has no accepted certificate.
 
-Construction or proof. Store finite polynomial data and exact proof obligations. This wraps an output of discovery, not a new factorization theory. The factory must obtain each rational irreducibility proof by a justified criterion, with exhaustive modular recombination when one-prime irreducibility is unavailable.
+### 1.23 Soundness of finite-field factorization certificates (`FiniteFieldFactorCertificate.sound`)
 
-Prerequisites. Native arithmetic, finite lists and functions.
+**Theorem.** If a FiniteFieldFactorCertificate of f ∈ F[X] is accepted, then f ≠ 0, leadingCoeff f = c, and its multiset Σ e_i·{g_i} equals Mathlib's normalizedFactors f.
 
-Source. [Shoup](#source-shoup), §16.5–16.6, pp.439–441.
+*Proof sketch.* Each g_i is irreducible by Rabin soundness and monic, hence normalized. The product of a multiset of normalized irreducibles has that multiset as its normalized factors; the nonzero constant c is a unit and contributes nothing. Comparing leading coefficients of the monic product gives the second claim. ([Shoup](#source-shoup), §20.3, p.527; Exercise 20.2(a), p.524.) *Needs:* `FiniteFieldFactorCertificate` (1.22); `RabinCertificate` (0.15); Mathlib `UniqueFactorizationMonoid.normalizedFactors_prod_eq`.
 
-API.
+### 1.24 Every nonzero polynomial over a finite field has a factorization certificate (`FiniteFieldFactorCertificate.complete`)
+
+**Theorem.** Every nonzero f ∈ F[X] over a finite field F has an accepted FiniteFieldFactorCertificate. A certificate is found by a terminating search: the monic divisors of f of each degree form a finite set, so exhaustive search over monic polynomials of degree at most natDegree f finds the monic irreducible factors and their exponents, and Rabin completeness supplies their certificates. Square-free decomposition, distinct-degree factorization and Cantor–Zassenhaus or Berlekamp splitting find the same factors faster; the checker does not depend on how the candidates were found.
+
+*Proof sketch.* Unique factorization in F[X] gives the factors and exponents; each factor has a Rabin certificate by completeness. Termination of the exhaustive search follows from the finiteness of F. The faster discovery algorithms produce candidates that the checker accepts by soundness of each algorithm, which is a statement about those algorithms and not about the certificate. ([Shoup](#source-shoup), §§20.3–20.5, pp.527–544 (Theorem 20.5, p.528; §20.4, pp.531–538; §20.5, pp.539–544).) *Needs:* `FiniteFieldFactorCertificate` (1.22); `RabinCertificate` (0.15).
+
+### 1.25 Transport of certified finite-field factors (`transport_finite_factorization`)
+
+**Theorem.** Let `e : F ≃+* K` be a certified change from a computable finite-field presentation to the intrinsic finite field. For nonzero f=c∏g_i with c≠0 and all g_i monic irreducible, mapping coefficients by e yields map(e,f)=e(c)∏map(e,g_i), again with monic irreducible factors. The certificate `FiniteFieldFactorCertificate` (1.22) and its search `FiniteFieldFactorCertificate.complete` (1.24) supply the data; this theorem checks the presentation boundary and reconstructs the intrinsic factorization.
+
+*Proof sketch.* Use `FiniteFieldFactorCertificate.sound` (1.23) for the presented factorization. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport. ([Shoup](#source-shoup), Theorem 19.14, pp.515–516; Chapter 20.) *Needs:* `FiniteFieldFactorCertificate.sound` (1.23); `presentationChange` (0.17); `FiniteFieldPresentation` (0.16).
+
+### 1.26 Hensel lifting of a coprime factorization modulo a prime power (`henselLift`)
+
+**Theorem.** Let p be a prime, k ≥ 1 and f ∈ ℤ[X] monic. Suppose f mod p = g₀h₀ in (ZMod p)[X] with g₀ and h₀ monic and coprime. Then there is exactly one pair (g, h) of monic polynomials in (ZMod (p^k))[X] with g mod p = g₀, h mod p = h₀ and f mod p^k = g·h. A factorization f mod p = ∏ g_{0,i} into pairwise coprime monic factors lifts uniquely in the same way, one factor at a time. The lift is computed from Bézout polynomials u₀g₀ + v₀h₀ = 1 by k − 1 linear correction steps.
+
+*Proof sketch.* Apply Hensel's lemma for the complete discrete valuation ring ℤ_p to get monic g, h ∈ ℤ_p[X] lifting g₀, h₀ with f = gh, and reduce modulo p^k. For uniqueness modulo p^k, two monic lifts differ by a correction δ divisible by p; the coprimality of g₀ and h₀ in (ZMod p)[X] makes the linearized equation g₀δ_h + h₀δ_g ≡ 0 force δ ≡ 0 modulo the next power of p, and induction on the exponent gives δ = 0. The correction step solves that linear equation with the Bézout polynomials. ([MilneANT](#source-milneant), Theorem 7.33 (Hensel's lemma) and Lemma 7.34, printed p.121; Remark 7.37, p.122.) *Needs:* Mathlib `PadicInt.toZModPow`; Mathlib `hensels_lemma`.
+
+### 1.27 Rational polynomial factor certificate (`RationalFactorCertificate`)
+
+**Definition.** For f∈ℚ[X], RationalFactorCertificate f consists of a nonzero rational leading factor c, a finite list of monic polynomials, proofs that each is irreducible over ℚ, and the exact identity f=c∏g_i. Multiplicity is represented by repeated factors. The definition uses actual irreducibility proofs; a CAS assertion or irreducibility modulo a single prime without a valid lifting criterion is insufficient. For f∈ℤ[X], certify its coefficientwise rational image and separately retain integer content and primitive-factor normalization.
 
 - `RationalFactorCertificate.reconstruct`: The certificate reconstructs f exactly.
 - `RationalFactorCertificate.input_nonzero`: No certificate exists for the zero polynomial.
 - `RationalFactorCertificate.leadingCoeff`: The scalar equals the leading coefficient of f because every listed factor is monic.
 
-Tests.
+*Construction.* Store finite polynomial data and exact proof obligations. This wraps an output of discovery, not a new factorization theory. The factory must obtain each rational irreducibility proof by a justified criterion, with exhaustive modular recombination when one-prime irreducibility is unavailable. ([Shoup](#source-shoup), §16.5–16.6, pp.439–441.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_rational_factor_one` (degenerate): The unit polynomial uses scalar 1 and an empty list.
-- `test_rational_factor_repeated` (computation): (X−1)² has the repeated linear list [X−1,X−1].
-- `test_rational_factor_zero` (non-example): The zero polynomial has no such factor certificate.
+**Checks.**
 
-**Certified rational polynomial factorization — `certifiedRationalFactorization`.** For nonzero f∈ℚ[X], certifiedRationalFactorization returns a RationalFactorCertificate f. Clear denominators and content, separate repeated factors, factor a suitable finite-field reduction via FF.3, lift factors to a precision exceeding a proved coefficient bound, and perform exhaustive exact recombination. The result is deterministic once every search branch and stopping bound is fixed; a randomized finite-field search may discover candidates but cannot weaken the final certificate checks.
+- *Degenerate case.* The unit polynomial uses scalar 1 and an empty list.
+- *Computed value.* (X−1)² has the repeated linear list [X−1,X−1].
+- *Non-example.* The zero polynomial has no such factor certificate.
 
-Construction or proof. The semantic result type requires exact reconstruction and genuine rational irreducibility. Prove modular lifting and terminating bounded recombination; single-prime irreducibility is a sufficient shortcut only when its hypotheses hold, not a complete general algorithm.
+### 1.28 Certified rational polynomial factorization (`certifiedRationalFactorization`)
 
-Prerequisites. `RationalFactorCertificate` (CN.1); **FiniteFieldsAndCharacterSums, FF.3** (hensel lifting modulo prime powers); `transport_finite_factorization` (CN.1).
-
-Source. [Shoup](#source-shoup), §16.5–16.6, pp.439–441.
-
-API.
+**Construction.** For nonzero f∈ℚ[X], certifiedRationalFactorization returns a RationalFactorCertificate f. Clear denominators and content, separate repeated factors, factor a suitable finite-field reduction with `FiniteFieldFactorCertificate.complete` (1.24), lift the factors with `henselLift` (1.26) to a precision exceeding a proved coefficient bound, and perform exhaustive exact recombination. The result is deterministic once every search branch and stopping bound is fixed; a randomized finite-field search may discover candidates but cannot weaken the final certificate checks.
 
 - `certifiedRationalFactorization_product`: The returned factors reconstruct f.
 - `certifiedRationalFactorization_irreducible`: Every returned factor is monic and irreducible over ℚ.
 - `certifiedRationalFactorization_scalar`: The scalar is the input leading coefficient.
 
-Tests.
+*Method.* The semantic result type requires exact reconstruction and genuine rational irreducibility. The coefficient bound for factors is Mathlib's Mahler-measure estimate; prove terminating bounded recombination over the lifted factors; single-prime irreducibility is a sufficient shortcut only when its hypotheses hold, not a complete general algorithm. ([Shoup](#source-shoup), §16.5–16.6, pp.439–441.) *Needs:* `RationalFactorCertificate` (1.27); `henselLift` (1.26); `FiniteFieldFactorCertificate.complete` (1.24); Mathlib `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure`; `transport_finite_factorization` (1.25).
 
-- `test_factorization_constant` (degenerate): A nonzero constant produces an empty irreducible-factor list.
-- `test_factorization_repeated` (computation): (X−1)² produces two copies of X−1.
-- `test_factorization_Q_not_C` (non-example): X²+1 stays irreducible over ℚ even though it splits over ℂ.
+**Checks.**
 
-## CN.2: Certified computations in number fields
+- *Degenerate case.* A nonzero constant produces an empty irreducible-factor list.
+- *Computed value.* (X−1)² produces two copies of X−1.
+- *Non-example.* X²+1 stays irreducible over ℚ even though it splits over ℂ.
 
-All coordinates refer to the native number field and its native ring of integers. A multiplication-stable full lattice is an order; maximality is proved separately. Improve an arbitrary full order by intrinsic p-radical multiplier steps, including primes dividing a power-basis index. The class/unit algorithm checks relation completeness and the torsion-aware regulator index jointly. First-order Newton data retain their sign, normalization and separability conditions.
+### Examples
 
-Construction requirements. For multiplier improvement, prove finite-index p-primary saturation, containment of the integral multiplier order in (1/p)R, the radical-extension/intersection identity, and the strict decrease of the p-index under enlargement (Stevenhagen Proposition 9.3, p.235). The nilpotence criterion needs the multiplication-operator bound x^dim(A)=0 for nilpotent x; Frobenius linearity alone is insufficient. CA.3 must supply a finite-field kernel basis, with spanning, soundness and the native matrix/kernel comparison, in addition to its integer HNF/SNF contracts. Factor the discriminant using CN.1, check all critical primes and prove termination using the native index–discriminant identity. Prime discovery at index divisors uses the reduced maximal-order quotient algebra, primitive idempotents and explicit finite-field quotient maps; assemble ramification exponents and reconstruct pO_K. For classes and units, enumerate the complete Minkowski factor base, certify principal relation witnesses, compute the quotient index via CA.3, and extract units from the integer relation kernel. Certify log/regulator determinant enclosures and the analytic hR lower bound with explicit tail estimates before using the stopping inequality (Stevenhagen §12, pp.248–252); any GRH speedup changes only its stated conditional estimate. For Newton factors, prove admissible-development invariance and product/factorization theorems, factor square-free residual data and compare intrinsic ramification/residue degrees. Repeated residual factors require higher-order refinement or the independent maximal-order algorithm, not the first-order irreducibility criterion (Guàrdia–Montes–Nart Theorems 1.15, 1.19 and Corollary 1.20, pp.11–15). Finite local expansions choose a residue section, extract digits, prove the remainder estimate and termination, and compare changes of embedding/uniformizer. LocalFieldsRamification supplies the field and reduction, not that extraction theorem.
+- The Pratt tree `(3, 2, [2])` is accepted and has bit size `7`; the candidate for `9` with three factors `2` and witness `2` is rejected (`PrattCertificate.check` (1.2), `prattBitSize` (1.5)).
+- `2047 = 23·89` is composite but passes the strong test to base `2`; base `3` passes for the prime `7` (`StrongLiar` (1.7)).
+- `aksParameter 9 = 3` exposes the factor `3`, and `aks 9` rejects `9` as a perfect power (`aksParameter` (1.11), `aks` (1.13)).
+- `F = 8` with three factors `2` and witness `3` certifies `17` by Pocklington, since `8² > 17`; the single factor `2` does not, since `2² ≤ 17` (`PocklingtonCertificate` (1.17)).
+- Over `ZMod 5`, `X²+1 = (X−2)(X−3)`; over `ℤ`, `X² − 2 ≡ (X−3)(X+3) (mod 7)` lifts to `(X−10)(X+10) (mod 49)` (`FiniteFieldFactorCertificate` (1.22), `henselLift` (1.26)).
+- `X²+1` stays irreducible over `ℚ` although it splits over `ℂ` (`certifiedRationalFactorization` (1.28)).
 
-### Full orders and multiplier improvement
+### Dependencies
 
-**Finite order basis certificate — `OrderBasisCertificate`.** For a number field K and n∈ℕ, an OrderBasisCertificate stores b₀,…,bₙ₋₁∈K forming a ℚ-basis, integer coordinates for 1, and integer structure constants b_i b_j=Σ_k m_ijk b_k. These finite identities prove that the integer span of b is a full order. The certificate does not assert maximality.
+Layer CN.0; Mathlib (`lucas_primality`, `reverse_lucas_primality`, `Nat.primeFactorsList`, Carmichael numbers, `ZMod`, `Polynomial.modByMonic`, unique factorization, `PadicInt.toZModPow`, the Mahler-measure coefficient bound).
 
-Construction or proof. Check rational linear independence and spanning, the coordinate equation for 1, and all n² multiplication equations. The integer span is then closed under multiplication. CA.3 normal forms supply coordinate reconstruction.
+## Layer CN.2: Certified computations in number fields
 
-Prerequisites. **ClassicalArithmeticCompletion, CA.3** (hermite normal form certificate).
+All coordinates refer to the native number field and its native ring of integers. A
+multiplication-stable full lattice is an order; maximality is proved separately. An arbitrary full
+order is improved by `p`-radical multiplier steps, including at primes dividing a power-basis
+index. The class and unit algorithm checks relation completeness and the torsion-aware regulator
+index jointly. First-order Newton data keep their sign, normalization and separability conditions.
+The layer ends with two local computations used by Layer CN.3: deciding squares of units in a
+finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decomposition of `p`.
 
-Source. [NumberRings](#source-numberrings), §9, pp.233–235.
+*Proof obligations of the layer.* For multiplier improvement, prove finite-index `p`-primary saturation, containment of the integral multiplier order in (1/p)R, the radical-extension and intersection identity, and the strict decrease of the `p`-index under enlargement (Stevenhagen Proposition 9.3, p.235). Factor the discriminant with Layer CN.1, check all critical primes and prove termination with the index–discriminant identity of TauCetiRoadmap NumberFieldArithmetic. Prime discovery at index divisors uses the reduced maximal-order quotient algebra, primitive idempotents and explicit finite-field quotient maps; assemble the ramification exponents and reconstruct pO_K. For classes and units, enumerate the complete Minkowski factor base, certify principal relation witnesses, compute the quotient index with ClassicalArithmeticCompletion CA.3, and extract units from the integer relation kernel. Certify the logarithm and regulator determinant enclosures and the analytic lower bound for hR, from the residue of the Dedekind zeta function (AutomorphicLFunctionsAndLocalFactors AL.1, AnalyticNumberTheory AN.4) with explicit tail estimates, before using the stopping inequality (Stevenhagen §12, pp.248–252); a speedup that assumes GRH changes only its stated conditional estimate. For Newton factors, prove invariance under admissible developments and the product and factorization theorems, factor square-free residual data and compare the intrinsic ramification and residue degrees. Repeated residual factors need a higher-order refinement or the maximal-order algorithm, not the first-order criterion (Guàrdia–Montes–Nart Theorems 1.15, 1.19 and Corollary 1.20, pp.11–15). Finite local expansions choose a residue section, extract digits, prove the remainder estimate and termination, and compare changes of embedding and uniformizer.
 
-API.
+### 2.1 Finite order basis certificate (`OrderBasisCertificate`)
+
+**Definition.** For a number field K and n∈ℕ, an OrderBasisCertificate stores b₀,…,bₙ₋₁∈K forming a ℚ-basis, integer coordinates for 1, and integer structure constants b_i b_j=Σ_k m_ijk b_k. These finite identities prove that the integer span of b is a full order. The certificate does not assert maximality.
 
 - `OrderBasisCertificate.order`: Package the integer span as a native ℤ-subalgebra of K.
 - `OrderBasisCertificate.mem_order`: Membership is existence of integer coordinates in b.
 - `OrderBasisCertificate.coordinates_unique`: Integer coordinates in the basis are unique.
 
-Tests.
+*Construction.* Check rational linear independence and spanning, the coordinate equation for 1, and all n² multiplication equations. The integer span is then closed under multiplication. CA.3 normal forms supply coordinate reconstruction. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
-- `test_order_Q` (computation): The singleton basis 1 presents ℤ in ℚ.
-- `test_order_rank_zero` (degenerate): A number field has no rank-zero order certificate.
-- `test_order_half` (non-example): The singleton rational basis 1/2 is not closed under multiplication over ℤ.
+**Checks.**
 
-**Order coordinates imply integrality — `OrderBasisCertificate.isIntegral`.** Every element in the order of an OrderBasisCertificate is integral over ℤ.
+- *Computed value.* The singleton basis 1 presents ℤ in ℚ.
+- *Degenerate case.* A number field has no rank-zero order certificate.
+- *Non-example.* The singleton rational basis 1/2 is not closed under multiplication over ℤ.
 
-Construction or proof. Its multiplication matrix in the displayed integer basis has integral entries. Cayley–Hamilton supplies a monic annihilating polynomial. The intrinsic finite-algebra integrality theorem belongs to the number-field/library supplier; this declaration specializes it to checked coordinates.
+### 2.2 Order coordinates imply integrality (`OrderBasisCertificate.isIntegral`)
 
-Prerequisites. `OrderBasisCertificate` (CN.2).
+**Theorem.** Every element in the order of an OrderBasisCertificate is integral over ℤ.
 
-Source. [NumberRings](#source-numberrings), §2, pp.212–213, Theorem 2.2; §7, p.226; §9, pp.233–235.
+*Proof sketch.* Its multiplication matrix in the displayed integer basis has integral entries. Cayley–Hamilton supplies a monic annihilating polynomial. This is Mathlib's integrality of elements of a finitely generated ℤ-algebra, specialized to checked coordinates. ([NumberRings](#source-numberrings), §2, pp.212–213, Theorem 2.2; §7, p.226; §9, pp.233–235.) *Needs:* `OrderBasisCertificate` (2.1).
 
-**Multiplier ring of an integral lattice — `multiplierRing`.** For a field K of characteristic zero and an integer submodule I⊆K, multiplierRing I is the ℤ-subalgebra {x∈K | xI⊆I}. This definition also permits I=0, in which case the multiplier ring is all of K. Finiteness and the full-lattice condition are hypotheses of the maximal-order theorems, not hidden in this carrier.
+### 2.3 Multiplier ring of an integral lattice (`multiplierRing`)
 
-Construction or proof. The stabilizing condition is closed under addition, multiplication and negation. Every integer scalar stabilizes I. Package the subset as the existing Subalgebra ℤ K type.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [NumberRings](#source-numberrings), §9, Proposition 9.3, pp.234–235.
-
-API.
+**Construction.** For a field K of characteristic zero and an integer submodule I⊆K, multiplierRing I is the ℤ-subalgebra {x∈K | xI⊆I}. This definition also permits I=0, in which case the multiplier ring is all of K. Finiteness and the full-lattice condition are hypotheses of the maximal-order theorems, not hidden in this carrier. For a fractional ideal of an order it is the same set as the `Subring` `NumberFieldOrder.multiplierRing` of current Tau Ceti; the version here accepts any ℤ-submodule of K.
 
 - `mem_multiplierRing`: Membership means preservation of every lattice element by multiplication.
 - `multiplierRing_zero`: The zero lattice has the whole field as multiplier ring.
 - `multiplierRing_smul`: Multiplying a lattice by a nonzero field element does not change its multiplier ring.
 
-Tests.
+*Method.* The stabilizing condition is closed under addition, multiplication and negation. Every integer scalar stabilizes I. Package the subset as the existing Subalgebra ℤ K type. ([NumberRings](#source-numberrings), §9, Proposition 9.3, pp.234–235.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_multiplier_zero` (degenerate): The zero lattice must not be treated as a finite order.
-- `test_multiplier_Z` (compatibility): The lattice generated by 1 in ℚ has only integral multipliers.
-- `test_multiplier_half` (non-example): 1/2 does not stabilize the lattice ℤ inside ℚ.
+**Checks.**
 
-**Local maximality of an order — `IsPMaximal`.** For a ℤ-subalgebra R of a characteristic-zero field K and a prime p, IsPMaximal R p means that for every x∈K integral over ℤ there is an integer a not divisible by p with a·x∈R. For a full finite order R this says its localization at p equals that of the maximal order, or equivalently p does not divide its index. The predicate is meaningful at arbitrary p, but arithmetic theorems assume primality.
+- *Degenerate case.* The zero lattice must not be treated as a finite order.
+- *Agreement with the library notion.* The lattice generated by 1 in ℚ has only integral multipliers.
+- *Non-example.* 1/2 does not stabilize the lattice ℤ inside ℚ.
 
-Construction or proof. Express equality after localization by clearing a denominator prime to p. Keep the intrinsic integral closure as the target.
+### 2.4 Local maximality of an order (`IsPMaximal`)
 
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [NumberRings](#source-numberrings), §9, pp.233–235.
-
-API.
+**Definition.** For a ℤ-subalgebra R of a characteristic-zero field K and a prime p, IsPMaximal R p means that for every x∈K integral over ℤ there is an integer a not divisible by p with a·x∈R. For a full finite order R this says its localization at p equals that of the maximal order, or equivalently p does not divide its index. The predicate is meaningful at arbitrary p, but arithmetic theorems assume primality.
 
 - `isPMaximal_iff`: Local maximality is the stated prime-to-p denominator-clearing property.
 - `isPMaximal_mono`: Enlarging R preserves local maximality.
 - `isPMaximal_top`: The whole field satisfies the predicate at primes; finiteness must be imposed separately for orders.
 
-Tests.
+*Construction.* Express equality after localization by clearing a denominator prime to p. Keep the intrinsic integral closure as the target. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_pMaximal_Z` (computation): The usual copy of ℤ in ℚ is p-maximal at every prime.
-- `test_pMaximal_one` (non-example): At p=1 no denominator passes, so the predicate is false.
-- `test_pMaximal_overorder` (compatibility): Every overorder of a p-maximal order remains p-maximal.
+**Checks.**
 
-**Nilradical from a Frobenius kernel — `nilpotent_iff_frobenius_zero`.** Let A be a finite-dimensional commutative algebra over ZMod p, p prime, and let p^k≥dim A. Then x is nilpotent iff x^(p^k)=0. Consequently the nilradical is the kernel of the kth iterate of the Frobenius algebra endomorphism, computable by linear algebra in any supplied basis.
+- *Computed value.* The usual copy of ℤ in ℚ is p-maximal at every prime.
+- *Non-example.* At p=1 no denominator passes, so the predicate is false.
+- *Agreement with the library notion.* Every overorder of a p-maximal order remains p-maximal.
 
-Construction or proof. A nilpotent multiplication operator on the d-dimensional space has nilpotency exponent at most d. Thus x^d=0 and x^(p^k)=0. The reverse implication is the definition of nilpotence. The semantic kernel is native linear algebra. A certified finite-field kernel-basis algorithm and its basis-to-matrix comparison are required from CA.3, separately from its integer Smith/Hermite interfaces.
+### 2.5 Nilradical from a Frobenius kernel (`nilpotent_iff_frobenius_zero`)
 
-Prerequisites. Mathlib `FiniteField.frobeniusAlgHom`; Mathlib `Ideal.radical`.
+**Theorem.** Let A be a finite-dimensional commutative algebra over ZMod p, p prime, and let p^k≥dim A. Then x is nilpotent iff x^(p^k)=0. Consequently the nilradical is the kernel of the kth iterate of the Frobenius algebra endomorphism, computable by linear algebra in any supplied basis.
 
-Source. [NumberRings](#source-numberrings), §9, pp.233–234.
+*Proof sketch.* A nilpotent multiplication operator on the d-dimensional space has nilpotency exponent at most d. Thus x^d=0 and x^(p^k)=0. The reverse implication is the definition of nilpotence. The semantic kernel is native linear algebra. The kernel of the Frobenius iterate in a supplied basis is computed by Tau Ceti's `TauCeti.kernelBasis` (row reduction over a field, with `mulVec_eq_zero_of_mem_kernelBasis`, `span_kernelBasis` and `linearIndepOn_kernelBasis`); the bound x^d = 0 for nilpotent x is Cayley–Hamilton for the multiplication operator. ([NumberRings](#source-numberrings), §9, pp.233–234.) *Needs:* Mathlib `FiniteField.frobeniusAlgHom`; Mathlib `Ideal.radical`; Tau Ceti `TauCeti.kernelBasis`.
 
-**The p-radical in field coordinates — `pRadicalLattice`.** For a full order R⊆K and prime p, pRadicalLattice R p is the integer lattice of x∈R with x^k∈pR for some k≥1. It is the inverse image of the nilradical of R/pR. The exponent excludes the empty-power convention. This is a coordinate adapter for the native ideal radical, not a second definition of radical.
+### 2.6 The p-radical in field coordinates (`pRadicalLattice`)
 
-Construction or proof. Take the native radical of pR in R and map its underlying integer module through the inclusion R→K. Finite-field linear algebra computes it from the Frobenius kernel.
-
-Prerequisites. Mathlib `Ideal.radical`; `nilpotent_iff_frobenius_zero` (CN.2); **ClassicalArithmeticCompletion, CA.3** (hermite normal form certificate).
-
-Source. [NumberRings](#source-numberrings), Equation (9-2) and following paragraph, pp.234–235.
-
-API.
+**Construction.** For a full order R⊆K and prime p, pRadicalLattice R p is the integer lattice of x∈R with x^k∈pR for some k≥1. It is the inverse image of the nilradical of R/pR. The exponent excludes the empty-power convention. This is a coordinate adapter for the native ideal radical, not a second definition of radical.
 
 - `mem_pRadicalLattice`: Membership is a positive power in pR.
 - `pRadicalLattice_contains_p`: The element p belongs to the p-radical.
 - `pRadicalLattice_mul`: The lattice is stable under multiplication by its order.
 
-Tests.
+*Method.* Take the native radical of pR in R and map its underlying integer module through the inclusion R→K. Finite-field linear algebra computes it from the Frobenius kernel. ([NumberRings](#source-numberrings), Equation (9-2) and following paragraph, pp.234–235.) *Needs:* Mathlib `Ideal.radical`; `nilpotent_iff_frobenius_zero` (2.5); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
-- `test_pRadical_zero` (degenerate): For a characteristic-zero field the zero-radical of an order is zero.
-- `test_pRadical_Z` (computation): The p-radical of ℤ inside ℚ is pℤ for prime p.
-- `test_pRadical_one_not` (non-example): 1 does not belong to the p-radical of ℤ at a prime.
+**Checks.**
 
-**Multiplier criterion for p-maximality — `pRadical_multiplier_eq_iff`.** For a full order R presented by an OrderBasisCertificate and a prime p, the multiplier ring of pRadicalLattice R p equals R iff IsPMaximal R p. In the nonmaximal case it is a strictly larger integral overorder contained in (1/p)R; its quotient over R is p-primary.
+- *Degenerate case.* For a characteristic-zero field the zero-radical of an order is zero.
+- *Computed value.* The p-radical of ℤ inside ℚ is pℤ for prime p.
+- *Non-example.* 1 does not belong to the p-radical of ℤ at a prime.
 
-Construction or proof. Apply Stevenhagen Proposition 9.3 to the p-primary saturation. If the order is already p-maximal, the multiplier ring lies between R and its p-primary saturation, forcing equality. Otherwise Proposition 9.3 supplies a multiplier outside R. Finite-lattice coordinate conversion is provided by CA.3.
+### 2.7 Multiplier criterion for p-maximality (`pRadical_multiplier_eq_iff`)
 
-Prerequisites. `OrderBasisCertificate` (CN.2); `OrderBasisCertificate.isIntegral` (CN.2); `pRadicalLattice` (CN.2); `multiplierRing` (CN.2); `IsPMaximal` (CN.2).
+**Theorem.** For a full order R presented by an OrderBasisCertificate and a prime p, the multiplier ring of pRadicalLattice R p equals R iff IsPMaximal R p. In the nonmaximal case it is a strictly larger integral overorder contained in (1/p)R; its quotient over R is p-primary.
 
-Source. [NumberRings](#source-numberrings), Proposition 9.3 and its proof, p.235.
+*Proof sketch.* Apply Stevenhagen Proposition 9.3 to the p-primary saturation. If the order is already p-maximal, the multiplier ring lies between R and its p-primary saturation, forcing equality. Otherwise Proposition 9.3 supplies a multiplier outside R. Finite-lattice coordinate conversion is provided by CA.3. ([NumberRings](#source-numberrings), Proposition 9.3 and its proof, p.235.) *Needs:* `OrderBasisCertificate` (2.1); `OrderBasisCertificate.isIntegral` (2.2); `pRadicalLattice` (2.6); `multiplierRing` (2.3); `IsPMaximal` (2.4); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
-**Integral basis certificate — `IntegralBasisCertificate`.** An IntegralBasisCertificate K is an OrderBasisCertificate of some finite rank together with a proof that its order is exactly the set of elements integral over ℤ. Thus its basis spans the native ring of integers, not merely a suborder. A practical finite certificate proves this maximality by checking the p-radical multiplier criterion at every prime whose square divides the starting discriminant.
+### 2.8 Integral basis certificate (`IntegralBasisCertificate`)
 
-Construction or proof. Store the full order basis and the exact maximality equation. The finite local checks are converted to this equation by the discriminant-index theorem; the resulting basis transports to the native RingOfIntegers carrier.
-
-Prerequisites. `OrderBasisCertificate` (CN.2); `OrderBasisCertificate.isIntegral` (CN.2); `pRadical_multiplier_eq_iff` (CN.2); `IntegerFactorCertificate` (CN.1).
-
-Source. [NumberRings](#source-numberrings), §9, pp.233–235.
-
-API.
+**Definition.** An IntegralBasisCertificate K is an OrderBasisCertificate of some finite rank together with a proof that its order is exactly the set of elements integral over ℤ. Thus its basis spans the native ring of integers, not merely a suborder. A practical finite certificate proves this maximality by checking the p-radical multiplier criterion at every prime whose square divides the starting discriminant.
 
 - `IntegralBasisCertificate.mem_iff`: The certificate identifies the order with the integral closure.
 - `IntegralBasisCertificate.rank_eq`: The rank is the rational field degree.
 - `IntegralBasisCertificate.integerBasis`: Transport the checked coordinates to a native ℤ-basis of the ring of integers.
 
-Tests.
+*Construction.* Store the full order basis and the exact maximality equation. The finite local checks are converted to this equation by the discriminant-index theorem; the resulting basis transports to the native RingOfIntegers carrier. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `OrderBasisCertificate` (2.1); `OrderBasisCertificate.isIntegral` (2.2); `pRadical_multiplier_eq_iff` (2.7); `IntegerFactorCertificate` (1.19).
 
-- `test_integral_basis_Q` (computation): ℚ has an integral basis certificate of rank one.
-- `test_integral_basis_rank_zero` (degenerate): A certificate has positive rank.
-- `test_integral_basis_half` (non-example): The rational 1/2 is excluded by the certificate for ℚ.
+**Checks.**
 
-**Certified integral-basis algorithm — `integralBasisAlgorithm`.** Given a full order basis in K, integralBasisAlgorithm returns an IntegralBasisCertificate K for an overorder containing the input. Factor the absolute discriminant exactly, compute p-radicals and multiplier overorders at all critical primes, and stop each local loop only when the multiplier ring is unchanged. Each strict enlargement drops the p-exponent of the index in the maximal order, so the local loops terminate. No polynomial bit-time claim is made for the required integer factorization.
+- *Computed value.* ℚ has an integral basis certificate of rank one.
+- *Degenerate case.* A certificate has positive rank.
+- *Non-example.* The rational 1/2 is excluded by the certificate for ℚ.
 
-Construction or proof. Use the checked integer factorization for the critical prime list. Apply the multiplier criterion and CA.3 HNF coordinate changes at each step. A positive finite index strictly decreases under proper enlargement. The discriminant-index square identity proves that no unchecked prime can divide the final index.
+### 2.9 Certified integral-basis algorithm (`integralBasisAlgorithm`)
 
-Prerequisites. `IntegralBasisCertificate` (CN.2); `pRadical_multiplier_eq_iff` (CN.2); `IntegerFactorCertificate` (CN.1); **ClassicalArithmeticCompletion, CA.3** (hermite normal form certificate).
-
-Source. [NumberRings](#source-numberrings), §9, pp.233–235.
-
-API.
+**Construction.** Given a full order basis in K, integralBasisAlgorithm returns an IntegralBasisCertificate K for an overorder containing the input. Factor the absolute discriminant exactly, compute p-radicals and multiplier overorders at all critical primes, and stop each local loop only when the multiplier ring is unchanged. Each strict enlargement drops the p-exponent of the index in the maximal order, so the local loops terminate. No polynomial bit-time claim is made for the required integer factorization.
 
 - `integralBasisAlgorithm_contains`: The returned maximal order contains the input order.
 - `integralBasisAlgorithm_maximal`: The returned order equals the intrinsic integral closure.
 - `integralBasisAlgorithm_rank`: The returned rank equals the input rank.
 
-Tests.
+*Method.* Use the checked integer factorization for the critical prime list. Apply the multiplier criterion and CA.3 HNF coordinate changes at each step. A positive finite index strictly decreases under proper enlargement. The discriminant-index square identity proves that no unchecked prime can divide the final index. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `IntegralBasisCertificate` (2.8); `pRadical_multiplier_eq_iff` (2.7); `IntegerFactorCertificate` (1.19); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
-- `test_integral_basis_algorithm_Q` (computation): Every order in ℚ returns the usual integer ring.
-- `test_integral_basis_algorithm_one` (degenerate): The returned order contains 1.
-- `test_integral_basis_algorithm_idempotent` (compatibility): Applying the algorithm to its output preserves the order, though not necessarily the basis.
+**Checks.**
 
-**Prime-ideal decomposition certificate — `PrimeIdealFactorCertificate`.** For K a number field and a rational prime p, a PrimeIdealFactorCertificate K p stores a finite list of pairwise distinct nonzero prime ideals P_i of the native ring of integers, positive exponents e_i, and the identity pO_K=∏P_i^e_i. Each ideal is presented in the certified integral basis. Primality may be checked by an explicit finite-field quotient presentation. At primes dividing the index of a chosen power basis, the computation must use the maximal order or a proved higher-order method.
+- *Computed value.* Every order in ℚ returns the usual integer ring.
+- *Degenerate case.* The returned order contains 1.
+- *Agreement with the library notion.* Applying the algorithm to its output preserves the order, though not necessarily the basis.
 
-Construction or proof. Use native ideals, ideal multiplication and primality. The exact product and prime checks certify the decomposition without trusting a discovered factor list. Import FF.0 quotient-field presentations and the integral basis coordinates.
+### 2.10 Prime-ideal decomposition certificate (`PrimeIdealFactorCertificate`)
 
-Prerequisites. `IntegralBasisCertificate` (CN.2); **FiniteFieldsAndCharacterSums, FF.0** (certified presentation of a finite field).
-
-Source. [NumberRings](#source-numberrings), §9, pp.234–235; §12, p.248.
-
-API.
+**Definition.** For K a number field and a rational prime p, a PrimeIdealFactorCertificate K p stores a finite list of pairwise distinct nonzero prime ideals P_i of the native ring of integers, positive exponents e_i, and the identity pO_K=∏P_i^e_i. Each ideal is presented in the certified integral basis. Primality may be checked by an explicit finite-field quotient presentation. At primes dividing the index of a chosen power basis, the computation must use the maximal order or a proved higher-order method.
 
 - `PrimeIdealFactorCertificate.reconstruct`: The product is exactly the rational prime ideal.
 - `PrimeIdealFactorCertificate.exponent_pos`: Every listed exponent is strictly positive.
 - `PrimeIdealFactorCertificate.nonempty`: For prime p the decomposition cannot be empty.
 
-Tests.
+*Construction.* Use native ideals, ideal multiplication and primality. The exact product and prime checks certify the decomposition without trusting a discovered factor list. Residue fields are presented by `FiniteFieldPresentation` (0.16), and ideals by the integral basis coordinates. ([NumberRings](#source-numberrings), §9, pp.234–235; §12, p.248.) *Needs:* `IntegralBasisCertificate` (2.8); `FiniteFieldPresentation` (0.16).
 
-- `test_prime_factor_Q` (computation): A rational prime stays a single prime of exponent one over ℚ.
-- `test_prime_factor_zero_exponent` (non-example): A zero exponent cannot pad the output.
-- `test_prime_factor_bottom` (degenerate): The zero ideal cannot occur.
+**Checks.**
 
-### Class relations, units and stopping inequalities
+- *Computed value.* A rational prime stays a single prime of exponent one over ℚ.
+- *Non-example.* A zero exponent cannot pad the output.
+- *Degenerate case.* The zero ideal cannot occur.
 
-**Checked class-group relation lattice — `classRelationLattice`.** For n nonzero integral ideals I_i, classRelationLattice I is the integer submodule of ℤⁿ consisting of a with ∏[I_i]^(a_i)=1 in the native class group. A found relation matrix contributes a sublattice L contained in this kernel, certified by principal fractional-ideal generators. The relation kernel exists intrinsically; discovering rows does not show L equals it.
+### 2.11 Checked class-group relation lattice (`classRelationLattice`)
 
-Construction or proof. Use ClassGroup.mk0 for the ideal classes. Their product-of-powers map is a homomorphism from the additive integer coordinate module to the class group, written multiplicatively. Its kernel is closed under integer linear combinations.
-
-Prerequisites. Mathlib `ClassGroup.mk0`.
-
-Source. [NumberRings](#source-numberrings), §12, exact sequence and relation matrix, p.248.
-
-API.
+**Definition.** For n nonzero integral ideals I_i, classRelationLattice I is the integer submodule of ℤⁿ consisting of a with ∏[I_i]^(a_i)=1 in the native class group. A found relation matrix contributes a sublattice L contained in this kernel, certified by principal fractional-ideal generators. The relation kernel exists intrinsically; discovering rows does not show L equals it.
 
 - `mem_classRelationLattice`: Membership is the exact ideal-class product equation.
 - `classRelationLattice_zero`: The zero vector is a relation.
 - `classRelationLattice_neg`: A relation remains valid after negating all exponents.
 
-Tests.
+*Construction.* Use ClassGroup.mk0 for the ideal classes. Their product-of-powers map is a homomorphism from the additive integer coordinate module to the class group, written multiplicatively. Its kernel is closed under integer linear combinations. ([NumberRings](#source-numberrings), §12, exact sequence and relation matrix, p.248.) *Needs:* Mathlib `ClassGroup.mk0`.
 
-- `test_relations_empty` (degenerate): For an empty factor base the unique exponent vector is a relation.
-- `test_relations_unit_ideals` (computation): A factor base consisting of unit ideals has the whole relation lattice.
-- `test_relations_subtraction` (compatibility): Subtracting two checked relations is valid.
+**Checks.**
 
-**Relation quotient covers the class group — `classNumber_dvd_relation_index`.** Let the classes of I₁,…,I_n generate Cl(K), and let L⊆classRelationLattice I be a full-rank integer submodule. Then the native class number divides the finite index [ℤⁿ:L]. The quotient ℤⁿ/L maps surjectively to Cl(K); equality of cardinalities is a separate completeness condition.
+- *Degenerate case.* For an empty factor base the unique exponent vector is a relation.
+- *Computed value.* A factor base consisting of unit ideals has the whole relation lattice.
+- *Agreement with the library notion.* Subtracting two checked relations is valid.
 
-Construction or proof. The class product map is surjective by factor-base generation. The inclusion L⊆kernel lets it descend to the quotient. A surjection of finite groups makes the target order divide the source order.
+### 2.12 Relation quotient covers the class group (`classNumber_dvd_relation_index`)
 
-Prerequisites. `classRelationLattice` (CN.2); Mathlib `NumberField.classNumber`; **ClassicalArithmeticCompletion, CA.3** (smith normal form certificate).
+**Theorem.** Let the classes of I₁,…,I_n generate Cl(K), and let L⊆classRelationLattice I be a full-rank integer submodule. Then the native class number divides the finite index [ℤⁿ:L]. The quotient ℤⁿ/L maps surjectively to Cl(K); equality of cardinalities is a separate completeness condition.
 
-Source. [NumberRings](#source-numberrings), §12, formula for h′, p.248.
+*Proof sketch.* The class product map is surjective by factor-base generation. The inclusion L⊆kernel lets it descend to the quotient. A surjection of finite groups makes the target order divide the source order. ([NumberRings](#source-numberrings), §12, formula for h′, p.248.) *Needs:* `classRelationLattice` (2.11); Mathlib `NumberField.classNumber`; ClassicalArithmeticCompletion CA.3 (smith normal form certificate).
 
-**Certified Minkowski factor-base generation — `minkowski_factorBase_generates`.** Let B be a nonnegative real number at least the native Minkowski bound for K. If a finite list I includes every nonzero prime ideal of norm at most B, its classes generate the class group. A larger rational upper bound is sufficient. Replacing it by a Bach-type logarithmic bound requires its stated GRH hypothesis and separate proof.
+### 2.13 Certified Minkowski factor-base generation (`minkowski_factorBase_generates`)
 
-Construction or proof. Take a small-norm ideal representative of each class using the native Minkowski theorem. Factor it into prime ideals. Every prime factor has norm at most that ideal’s norm, so all its factors occur in the list.
+**Theorem.** Let B be a nonnegative real number at least the native Minkowski bound for K. If a finite list I includes every nonzero prime ideal of norm at most B, its classes generate the class group. A larger rational upper bound is sufficient. Replacing it by a Bach-type logarithmic bound requires its stated GRH hypothesis and separate proof.
 
-Prerequisites. Mathlib `NumberField.exists_ideal_in_class_of_norm_le`; `PrimeIdealFactorCertificate` (CN.2); Mathlib `ClassGroup.mk0`.
+*Proof sketch.* Take a small-norm ideal representative of each class using the native Minkowski theorem. Factor it into prime ideals. Every prime factor has norm at most that ideal’s norm, so all its factors occur in the list. ([NumberRings](#source-numberrings), §12, pp.245–248.) *Needs:* Mathlib `NumberField.exists_ideal_in_class_of_norm_le`; `PrimeIdealFactorCertificate` (2.10); Mathlib `ClassGroup.mk0`.
 
-Source. [NumberRings](#source-numberrings), §12, pp.245–248.
+### 2.14 Fundamental units from a regulator index bound (`units_complete_of_regulator_bound`)
 
-**Fundamental units from a regulator index bound — `units_complete_of_regulator_bound`.** Let K be a number field and u a family of rank(K) units whose logarithmic images are linearly independent. If regOfFamily(u)<2·regulator(K), then the subgroup generated by u together with the torsion units is the full unit group. To claim generation by a displayed finite list alone, that list must separately generate all torsion units.
+**Theorem.** Let K be a number field and u a family of rank(K) units whose logarithmic images are linearly independent. If regOfFamily(u)<2·regulator(K), then the subgroup generated by u together with the torsion units is the full unit group. To claim generation by a displayed finite list alone, that list must separately generate all torsion units.
 
-Construction or proof. The native regulator ratio is the subgroup index. Full logarithmic rank makes the index positive. The strict bound makes it a positive integer below 2, hence one; index one is equivalent to the subgroup being the whole group.
+*Proof sketch.* The native regulator ratio is the subgroup index. Full logarithmic rank makes the index positive. The strict bound makes it a positive integer below 2, hence one; index one is equivalent to the subgroup being the whole group. ([NumberRings](#source-numberrings), §12, pp.248–250.) *Needs:* Mathlib `NumberField.Units.regOfFamily_div_regulator`.
 
-Prerequisites. Mathlib `NumberField.Units.regOfFamily_div_regulator`.
+### 2.15 Joint class and unit stopping bound (`joint_class_unit_bound`)
 
-Source. [NumberRings](#source-numberrings), §12, pp.248–250.
+**Theorem.** Suppose h>0 divides h′, and u is a full logarithmic-rank family of units of a number field K. If h′·regOfFamily(u)<2h·regulator(K), then h′=h and u together with all torsion units generates the unit group. In the class-group algorithm h′ is the order of the quotient by certified found relations, and h is the true class number; the surjection from that quotient must first establish h∣h′.
 
-**Joint class and unit stopping bound — `joint_class_unit_bound`.** Suppose h>0 divides h′, and u is a full logarithmic-rank family of units of a number field K. If h′·regOfFamily(u)<2h·regulator(K), then h′=h and u together with all torsion units generates the unit group. In the class-group algorithm h′ is the order of the quotient by certified found relations, and h is the true class number; the surjection from that quotient must first establish h∣h′.
+*Proof sketch.* The ratio is the product of two positive integers: h′/h and the native unit index. A product below 2 forces both factors to be 1. Apply the unit stopping argument. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `units_complete_of_regulator_bound` (2.14); Mathlib `NumberField.Units.regOfFamily_div_regulator`.
 
-Construction or proof. The ratio is the product of two positive integers: h′/h and the native unit index. A product below 2 forces both factors to be 1. Apply the unit stopping argument.
+### 2.16 Certified completion of class and unit computations (`certified_class_unit_complete`)
 
-Prerequisites. `units_complete_of_regulator_bound` (CN.2); Mathlib `NumberField.Units.regOfFamily_div_regulator`.
+**Theorem.** With a complete factor base I, a checked full-rank relation sublattice L, and a full-logarithmic-rank unit family u, let h′=card(ℤⁿ/L). If h′·regOfFamily(u)<2·classNumber(K)·regulator(K), then h′ equals the class number and u together with all torsion units generates the unit group. The analytic bound must be certified by enclosing intervals and a rigorous remainder estimate; a numerical Euler-product guess is not a stopping certificate.
 
-Source. [NumberRings](#source-numberrings), §12, pp.248–252.
+*Proof sketch.* Combine factor-base generation, the relation-quotient divisibility theorem and the joint positive-integer bound. A separately validated lower bound on hR and upper bound on h′R′ can discharge the strict inequality without knowing h or R individually. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `classNumber_dvd_relation_index` (2.12); `minkowski_factorBase_generates` (2.13); `joint_class_unit_bound` (2.15).
 
-**Certified completion of class and unit computations — `certified_class_unit_complete`.** With a complete factor base I, a checked full-rank relation sublattice L, and a full-logarithmic-rank unit family u, let h′=card(ℤⁿ/L). If h′·regOfFamily(u)<2·classNumber(K)·regulator(K), then h′ equals the class number and u together with all torsion units generates the unit group. The analytic bound must be certified by enclosing intervals and a rigorous remainder estimate; a numerical Euler-product guess is not a stopping certificate.
+### 2.17 Exact φ-adic polynomial expansion (`phiExpansion`)
 
-Construction or proof. Combine factor-base generation, the relation-quotient divisibility theorem and the joint positive-integer bound. A separately validated lower bound on hR and upper bound on h′R′ can discharge the strict inequality without knowing h or R individually.
-
-Prerequisites. `classNumber_dvd_relation_index` (CN.2); `minkowski_factorBase_generates` (CN.2); `joint_class_unit_bound` (CN.2).
-
-Source. [NumberRings](#source-numberrings), §12, pp.248–252.
-
-### Newton sides and residual factors
-
-**Exact φ-adic polynomial expansion — `phiExpansion`.** For a commutative ring R and monic φ∈R[X] of positive degree m, phiExpansion φ f returns coefficients a_i∈R[X] of degree less than m, zero for i>floor(natDegree f/m), with f=Σa_iφ^i. It uses successive division by the monic polynomial φ; the coefficients are polynomials, not scalar coefficients of f. The zero polynomial has all coefficients zero.
-
-Construction or proof. Repeated monic quotient/remainder division lowers degree. The remainders are the a_i. Induction gives reconstruction, the degree bound and uniqueness.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [GMN](#source-gmn), §1.2, Definition 1.6, p.7.
-
-API.
+**Construction.** For a commutative ring R and monic φ∈R[X] of positive degree m, phiExpansion φ f returns coefficients a_i∈R[X] of degree less than m, zero for i>floor(natDegree f/m), with f=Σa_iφ^i. It uses successive division by the monic polynomial φ; the coefficients are polynomials, not scalar coefficients of f. The zero polynomial has all coefficients zero.
 
 - `phiExpansion_reconstruct`: The finite φ-adic sum is f.
 - `phiExpansion_degree`: Each coefficient has degree strictly below deg φ.
 - `phiExpansion_eventually_zero`: Indices beyond the quotient-degree bound have zero coefficient.
 
-Tests.
+*Method.* Repeated monic quotient/remainder division lowers degree. The remainders are the a_i. Induction gives reconstruction, the degree bound and uniqueness. ([GMN](#source-gmn), §1.2, Definition 1.6, p.7.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_phi_zero` (degenerate): The expansion of zero is identically zero.
-- `test_phi_X` (compatibility): For φ=X the coefficients are the constant polynomials C(f.coeff i).
-- `test_phi_shift` (computation): For φ=X−1, X² has coefficients 1,2,1.
+**Checks.**
 
-**Valuation of a φ-coefficient — `coefficientValuation`.** For prime p and a∈ℤ[X], coefficientValuation p a is infinity if a=0, and otherwise the minimum v_p(a_i) over the nonzero coefficients. It uses WithTop ℕ, so the zero polynomial has infinite valuation; the native default v_p(0)=0 is never inserted into the minimum.
+- *Degenerate case.* The expansion of zero is identically zero.
+- *Agreement with the library notion.* For φ=X the coefficients are the constant polynomials C(f.coeff i).
+- *Computed value.* For φ=X−1, X² has coefficients 1,2,1.
 
-Construction or proof. Take the finite minimum over the support of a, with top for the empty support. This is the Gauss valuation used only to compute the points of the φ-adic polygon. The general ordinary Newton-polygon theory remains CA.3.
+### 2.18 Valuation of a φ-coefficient (`coefficientValuation`)
 
-Prerequisites. `phiExpansion` (CN.2); Mathlib `padicValRat`.
-
-Source. [GMN](#source-gmn), §1.2, p.7.
-
-API.
+**Definition.** For prime p and a∈ℤ[X], coefficientValuation p a is infinity if a=0, and otherwise the minimum v_p(a_i) over the nonzero coefficients. It uses WithTop ℕ, so the zero polynomial has infinite valuation; the native default v_p(0)=0 is never inserted into the minimum.
 
 - `coefficientValuation_zero`: Zero has infinite valuation.
 - `coefficientValuation_const`: A nonzero constant has its usual integer valuation.
 - `coefficientValuation_ge_iff`: A lower valuation bound means coefficientwise divisibility by p^N.
 
-Tests.
+*Construction.* Take the finite minimum over the support of a, with top for the empty support. This is the Gauss valuation used only to compute the points of the φ-adic polygon. Ordinary Newton polygons of polynomials over a valued field, with sloped valuations and slope multiplicities, are ClassicalArithmeticCompletion CA.3's. ([GMN](#source-gmn), §1.2, p.7.) *Needs:* `phiExpansion` (2.17); Mathlib `padicValRat`.
 
-- `test_gauss_zero` (degenerate): The zero polynomial gives top.
-- `test_gauss_three` (computation): 3X+9 has 3-adic coefficient valuation 1.
-- `test_gauss_missing_coefficient` (non-example): X² has valuation zero, regardless of its zero constant coefficient.
+**Checks.**
 
-**A finite negative φ-Newton side — `IsPhiNewtonSide`.** For prime p and monic positive-degree φ∈ℤ[X], IsPhiNewtonSide p φ f s u e h d certifies the entire supporting side from (s,u) to (s+ed,u−hd), with slope −h/e. Require e,h,d>0, gcd(e,h)=1 and hd≤u. The two endpoint coefficient valuations equal their displayed ordinates. Every φ-expansion point lies on or above the line e·v_p(a_i)+h·i=e·u+h·s, and every point on that line has s≤i≤s+ed. Zero coefficients have valuation infinity. The φ-divisible initial segment has slope −∞ and is recorded separately by its multiplicity; it is not encoded with a finite e,h.
+- *Degenerate case.* The zero polynomial gives top.
+- *Computed value.* 3X+9 has 3-adic coefficient valuation 1.
+- *Non-example.* X² has valuation zero, regardless of its zero constant coefficient.
 
-Construction or proof. Use the already specified φ-expansion and coefficient Gauss valuation. Clear the slope denominator to use exact integer inequalities. This is a checked side of a φ-polygon, not a second owner of the generic Newton-polygon geometry in CA.3.
+### 2.19 A finite negative φ-Newton side (`IsPhiNewtonSide`)
 
-Prerequisites. `phiExpansion` (CN.2); `coefficientValuation` (CN.2); **ClassicalArithmeticCompletion, CA.3**.
-
-Source. [GMN](#source-gmn), Definitions 1.6–1.9, pp.7–8.
-
-API.
+**Definition.** For prime p and monic positive-degree φ∈ℤ[X], IsPhiNewtonSide p φ f s u e h d certifies the entire supporting side from (s,u) to (s+ed,u−hd), with slope −h/e. Require e,h,d>0, gcd(e,h)=1 and hd≤u. The two endpoint coefficient valuations equal their displayed ordinates. Every φ-expansion point lies on or above the line e·v_p(a_i)+h·i=e·u+h·s, and every point on that line has s≤i≤s+ed. Zero coefficients have valuation infinity. The φ-divisible initial segment has slope −∞ and is recorded separately by its multiplicity; it is not encoded with a finite e,h.
 
 - `phiSide_denominator_pos`: The slope denominator is positive.
 - `phiSide_left_nonzero`: The left endpoint coefficient is nonzero.
 - `phiSide_length_pos`: A side has strictly positive horizontal length ed.
 
-Tests.
+*Construction.* Use the already specified φ-expansion and coefficient Gauss valuation. Clear the slope denominator to use exact integer inequalities. The side is certified by these inequalities alone; it needs no convex-hull construction. ([GMN](#source-gmn), Definitions 1.6–1.9, pp.7–8.) *Needs:* `phiExpansion` (2.17); `coefficientValuation` (2.18).
 
-- `test_phiSide_eisenstein` (computation): X²−3 has the single 3-adic side of slope −1/2.
-- `test_phiSide_zero` (degenerate): The zero polynomial has no finite side.
-- `test_phiSide_wrong_slope` (non-example): The slope of X²−3 is not −1.
+**Checks.**
 
-**Residual polynomial of a φ-Newton side — `phiResidualPolynomial`.** For side data (s,u,e,h,d), phiResidualPolynomial has coefficient at Y^j equal to the reduction in F_φ=(ℤ/pℤ)[X]/(φ mod p) of a_(s+ej)/p^(u−hj), for 0≤j≤d. Divide each integer coefficient exactly before reducing. For a certified side the divisions are exact; points strictly above the side give zero. The endpoint coefficients are nonzero when φ mod p is irreducible, so the residual degree is d and Y does not divide it. Uniformizer p and reduction of the chosen φ are fixed conventions.
+- *Computed value.* X²−3 has the single 3-adic side of slope −1/2.
+- *Degenerate case.* The zero polynomial has no finite side.
+- *Non-example.* The slope of X²−3 is not −1.
 
-Construction or proof. Use integer coefficient division, the native quotient AdjoinRoot and the finite monomial sum. Reduction and exact divisibility lemmas are separate proof requirements.
+### 2.20 Residual polynomial of a φ-Newton side (`phiResidualPolynomial`)
 
-Prerequisites. `IsPhiNewtonSide` (CN.2); **FiniteFieldsAndCharacterSums, FF.0** (certified presentation of a finite field).
-
-Source. [GMN](#source-gmn), Definition 1.9, p.8.
-
-API.
+**Construction.** For side data (s,u,e,h,d), phiResidualPolynomial has coefficient at Y^j equal to the reduction in F_φ=(ℤ/pℤ)[X]/(φ mod p) of a_(s+ej)/p^(u−hj), for 0≤j≤d. Divide each integer coefficient exactly before reducing. For a certified side the divisions are exact; points strictly above the side give zero. The endpoint coefficients are nonzero when φ mod p is irreducible, so the residual degree is d and Y does not divide it. Uniformizer p and reduction of the chosen φ are fixed conventions.
 
 - `phiResidual_degree_le`: No coefficient above d occurs.
 - `phiResidual_degree`: On a certified side over an irreducible residue polynomial the degree is exactly d.
 - `phiResidual_constant_ne_zero`: The left endpoint gives a nonzero constant coefficient.
 
-Tests.
+*Method.* Use integer coefficient division, the native quotient AdjoinRoot and the finite monomial sum. Reduction and exact divisibility lemmas are separate proof requirements. ([GMN](#source-gmn), Definition 1.9, p.8.) *Needs:* `IsPhiNewtonSide` (2.19); `FiniteFieldPresentation` (0.16).
 
-- `test_residual_eisenstein` (computation): For X²−3 the residual polynomial is Y−1, not Y or Y²−1.
-- `test_residual_zero` (degenerate): Raw zero input gives zero residual output.
-- `test_residual_repeated` (non-example): (X−3)² has repeated residual (Y−1)², so a square-free residual hypothesis cannot be omitted.
+**Checks.**
 
-**Ore residual irreducibility criterion — `ore_residual_irreducible`.** Let p be prime, φ and f monic in ℤ[X], deg φ>0, and φ mod p irreducible. Suppose f mod p=(φ mod p)^n, n>0, and the whole φ-polygon is the finite side from (0,hd) to (ed,0), with n=ed and coprime positive h,e. If its residual polynomial is irreducible over F_φ, then f is irreducible over ℚ_p. For a root θ the resulting local extension has ramification index e and residue degree deg(φ)·deg(R); these intrinsic invariants and their normalization are supplied by LocalFieldsRamification.
+- *Computed value.* For X²−3 the residual polynomial is Y−1, not Y or Y²−1.
+- *Degenerate case.* Raw zero input gives zero residual output.
+- *Non-example.* (X−3)² has repeated residual (Y−1)², so a square-free residual hypothesis cannot be omitted.
 
-Construction or proof. Use the product theorem for φ-polygons and residual polynomials, the polygon factorization theorem and residual factorization theorem. An irreducible residual factor of exponent one admits only one irreducible local factor. The native local degree formula then gives the ramification and residue degrees.
+### 2.21 Ore residual irreducibility criterion (`ore_residual_irreducible`)
 
-Prerequisites. `phiResidualPolynomial` (CN.2); **LocalFieldsRamification, Layer 0**; **FiniteFieldsAndCharacterSums, FF.3** (hensel lifting modulo prime powers).
+**Theorem.** Let p be prime, φ and f monic in ℤ[X], deg φ>0, and φ mod p irreducible. Suppose f mod p=(φ mod p)^n, n>0, and the whole φ-polygon is the finite side from (0,hd) to (ed,0), with n=ed and coprime positive h,e. If its residual polynomial is irreducible over F_φ, then f is irreducible over ℚ_p. For a root θ the resulting local extension has ramification index e and residue degree deg(φ)·deg(R); these intrinsic invariants and their normalization are supplied by LocalFieldsRamification.
 
-Source. [GMN](#source-gmn), Theorem 1.19 and Corollary 1.20, pp.14–15.
+*Proof sketch.* Use the product theorem for φ-polygons and residual polynomials, the polygon factorization theorem and residual factorization theorem. An irreducible residual factor of exponent one admits only one irreducible local factor. The native local degree formula then gives the ramification and residue degrees. ([GMN](#source-gmn), Theorem 1.19 and Corollary 1.20, pp.14–15.) *Needs:* `phiResidualPolynomial` (2.20); TauCetiRoadmap LocalFieldsRamification Layer 0; `henselLift` (1.26).
 
-### Finite expansions in local fields
+### 2.22 Finite local expansion certificate (`LocalExpansionCertificate`)
 
-**Finite local expansion certificate — `LocalExpansionCertificate`.** For a normed field L, chosen nonzero uniformizer π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). Intrinsic local-field structure, uniformizer and reduction map come from the owner. A chosen residue section is a separate input; canonical Teichmüller representatives, when wanted, belong to LocalFields layer 1. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.
-
-Construction or proof. Store exact native field elements and the norm inequality. Digit construction requires a separately chosen section of the surjective residue reduction map, then a finite extraction/remainder argument specified as a separate construction requirement. Layer 0 supplies field and valuation structure, not an expansion theorem. Preserve the chosen prime, embedding and uniformizer normalization in comparisons.
-
-Prerequisites. **LocalFieldsRamification, Layer 0**; `PadicApproximation` (CN.0); `PrimeIdealFactorCertificate` (CN.2).
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.
-
-API.
+**Definition.** For a normed field L, chosen nonzero uniformizer π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). The local field, its uniformizer and its reduction map are those of TauCetiRoadmap LocalFieldsRamification Layer 0. A chosen residue section is a separate input; canonical Teichmüller representatives belong to TauCetiRoadmap LocalFieldsRamification Layer 1. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.
 
 - `LocalExpansionCertificate.center`: The exact finite centre is π^v times the digit polynomial.
 - `LocalExpansionCertificate.error_bound`: The supplied exact x lies in the certified local ball.
 - `LocalExpansionCertificate.integral_digits`: Every exact digit has norm at most one.
 
-Tests.
+*Construction.* Store exact native field elements and the norm inequality. Digit construction requires a separately chosen section of the surjective residue reduction map, then a finite extraction/remainder argument specified as a separate construction requirement. Layer 0 supplies field and valuation structure, not an expansion theorem. Preserve the chosen prime, embedding and uniformizer normalization in comparisons. ([CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.) *Needs:* TauCetiRoadmap LocalFieldsRamification Layer 0; `PadicApproximation` (0.14); `PrimeIdealFactorCertificate` (2.10).
 
-- `test_local_zero` (degenerate): Zero has a certificate with zero digits at every finite length.
-- `test_local_inverse_uniformizer` (computation): π⁻¹ has a length-one exact expansion with initial exponent −1 and digit 1.
-- `test_local_false_zero_approximation` (non-example): A precision-one zero centre at v=0 cannot represent 1 when ‖π‖<1.
+**Checks.**
 
-## CN.3: Exact modular and elliptic arithmetic data
+- *Degenerate case.* Zero has a certificate with zero digits at every finite length.
+- *Computed value.* π⁻¹ has a length-one exact expansion with initial exponent −1 and digit 1.
+- *Non-example.* A precision-one zero centre at v=0 cannot represent 1 when ‖π‖<1.
 
-The integral Fourier-coefficient lattice lives inside the complex space of forms. Construct its Miller basis using normalized E4, E6 and Delta and keep it distinct from the integral modular-symbol lattice. The existing characteristic-zero Sturm theorem supplies exact equality; congruence modulo a prime requires the integral model and its own theorem. Bind Hecke matrices and finite coefficient arrays to intrinsic operators before exporting numerical examples or database identifications.
+### 2.23 Squares of units in a finite extension of ℚ_p (`isSquare_iff_isSquare_mod`)
 
-Construction requirements. Prove coefficient integrality for normalized E4, E6 and Delta, the dimension-compatible monomial family, its leading powers and integral unitriangular elimination (Stein Algorithm 2.18, Lemma 2.20 and Remark 2.21, pp.19–21). The full modular lattice additionally needs an Eisenstein generator with the correct denominator normalization. Prove the integral polynomial-in-j lemma needed for congruence Sturm and use R15.2's q-expansion principle, bounded denominators and rational cusps for the general level/character extension (Stein Theorem 9.18, pp.171–172). Compare finite Manin presentations with integral Hecke matrices through the period-dual map; keep transpose, torsion, bad-prime and embedding conventions. In the BCG examples, a singular residual determinant supplies a finite witness but a characteristic-zero eigenform requires ModularForms Layer 8's simultaneous eigensystem/lifting contract. Companion existence needs one common eigenvector for all Hecke operators, with R15.3 theta/Hasse and a finite congruence Sturm certificate; matching roots of two characteristic polynomials is insufficient. Produce full certificates for every listed witness and every exclusion in the finite ranges. In the cohomological convention of BCG, a_g(ell)=ell^(p−k)a_f(ell), giving exponent 81 at (107,26); at (151,52) and (151,100) the gcd condition is 3, not 1. Curve adapters import FF.3 counts, the elliptic isogeny/descent objects and ED.3 finite local-image/saturation contracts from the ownership table; the adapter must bind all finite outputs, rather than treating those supplier services as consequences of a database label.
+**Theorem.** Let L be a finite extension of ℚ_p, O_L its valuation ring and π a uniformizer. A unit u ∈ O_L^× is a square in L exactly when u ≡ w² (mod 4π O_L) for some w ∈ O_L. Consequently the square class of a nonzero element of L is decided by the parity of its valuation and a finite computation in O_L/4πO_L. For odd p the condition says that the residue of u is a square in the residue field; for L = ℚ_2 it says u ≡ 1 (mod 8).
 
-### Integral forms and finite coefficient equality
+*Proof sketch.* If u ≡ w² modulo 4π then w is a unit, and the polynomial X² − u satisfies |w² − u| ≤ |4π| < |2w|², so Newton's lemma gives a root of X² − u near w. The converse is immediate. For odd p, 4π generates the maximal ideal; for L = ℚ_2, 4π = 8 and the unit squares modulo 8 are 1. ([MilneANT](#source-milneant), Theorem 7.32 (Newton's lemma), printed p.120.) *Needs:* TauCetiRoadmap LocalFieldsRamification Layer 0; Mathlib `hensels_lemma`.
 
-**Integral q-expansion lattice — `integralModularLattice`.** For integer weight k, integralModularLattice k is the ℤ-submodule of ModularForm SL₂(ℤ) k consisting of forms whose width-one q-expansion coefficients all belong to the image of ℤ in ℂ. This is a coefficient lattice inside the space of forms. It is distinct from the upstream integral modular-symbol module, which lives on the homological side.
+### 2.24 Roots in ℚ_p from the decomposition of p (`card_padicRoots_eq`)
 
-Construction or proof. Use the existing modular-form carrier and q-expansion. Close the integral coefficient condition under addition and integer scalar multiplication.
+**Theorem.** Let f ∈ ℚ[X] be monic irreducible, K = ℚ[X]/(f) and p a prime. The number of roots of f in ℚ_p equals the number of prime ideals P of O_K above p with ramification index and residue degree both equal to 1. For a separable f with irreducible factors f_j and fields K_j, the number of roots of f in ℚ_p is the sum of these counts over j. With the PrimeIdealFactorCertificate of each K_j at p, the count is a finite computation.
 
-Prerequisites. Mathlib `ModularForm.dimension_level_one`; Mathlib `ModularForm.sturm_bound_levelOne_nat`.
+*Proof sketch.* K ⊗_ℚ ℚ_p is the product of the completions K_P over the primes P above p, and [K_P : ℚ_p] = e(P|p)·f(P|p). A root of f in ℚ_p is a ℚ-algebra map K → ℚ_p, equivalently a factor K_P of degree one. Distinct roots give distinct factors because f is separable. ([MilneANT](#source-milneant), Proposition 8.2 and its proof, printed p.136.) *Needs:* `PrimeIdealFactorCertificate` (2.10); `certifiedRationalFactorization` (1.28); TauCetiRoadmap LocalFieldsRamification Layer 0.
 
-Source. [Stein](#source-stein), Lemma 2.20 and Remark 2.21, pp.20–21.
+### Examples
 
-API.
+- The `p`-radical of `ℤ` in `ℚ` is `pℤ`, whose multiplier ring is `ℤ`, so `ℤ` is `p`-maximal (`pRadicalLattice` (2.6), `pRadical_multiplier_eq_iff` (2.7)).
+- `X² − 3` has the single `3`-adic side of slope `−1/2` with residual polynomial `Y − 1`; `(X − 3)²` has the repeated residual `(Y − 1)²`, so the square-free hypothesis of Ore's criterion fails there (`IsPhiNewtonSide` (2.19), `phiResidualPolynomial` (2.20)).
+- In `ℚ_2`, `17` is a square and `5` is not, although `5 ≡ 1 (mod 4)`; in `ℚ_5`, `6` is a square because `6 ≡ 1 (mod 5)` (`isSquare_iff_isSquare_mod` (2.23)).
+- `X² − 2` has two roots in `ℚ_7`, because `7` splits in `ℚ(√2)`, and none in `ℚ_2`, because `2` ramifies (`card_padicRoots_eq` (2.24)).
+- `π⁻¹` has a length-one expansion with initial exponent `−1` and digit `1` (`LocalExpansionCertificate` (2.22)).
+
+### Dependencies
+
+Layers CN.0–CN.1; ClassicalArithmeticCompletion CA.3; AutomorphicLFunctionsAndLocalFactors AL.1 and AnalyticNumberTheory AN.4 (the analytic class-number bound); TauCetiRoadmap NumberFieldArithmetic Layers 3 and 7; TauCetiRoadmap LocalFieldsRamification Layers 0–1; Mathlib (number fields, class groups, regulators, `Ideal.radical`, Frobenius); Tau Ceti `TauCeti.kernelBasis`.
+
+## Layer CN.3: Exact modular and elliptic arithmetic data
+
+The integral Fourier-coefficient lattice lives inside the complex space of level-one forms.
+Construct its Miller basis from the normalized `E₄`, `E₆` and `Δ`, and keep it distinct from the
+integral modular-symbol lattice. Mathlib's characteristic-zero Sturm theorem gives exact equality;
+congruence modulo a prime needs the integral model and its own theorem. Hecke matrices and finite
+coefficient arrays are bound to the intrinsic operators before any numerical example or database
+identification is exported. The second half of the layer treats elliptic curves over `ℚ`: point
+counts over finite fields, certified local images of the `x − T` descent map with a size check
+that decides completeness, and a terminating test for `p`-saturation of a subgroup of the
+Mordell–Weil group.
+
+*Proof obligations of the layer.* Prove coefficient integrality of the normalized E₄, E₆ and Δ, the dimension-compatible monomial family, its leading powers and integral unitriangular elimination (Stein Algorithm 2.18, Lemma 2.20 and Remark 2.21, pp.19–21). The full modular lattice additionally needs an Eisenstein generator with the correct denominator normalization. Prove the integral polynomial-in-j lemma needed for the congruence Sturm bound and use the level-one q-expansion principle of AlgebraicModularFormsAndSerreWeights R15.2 (Stein Theorem 9.18, pp.171–172). In the BCG examples a singular residual determinant gives a finite witness, and a characteristic-zero eigenform comes from the Deligne–Serre lifting lemma of R15.5. A companion system needs one common eigenvector for all Hecke operators, the theta operator and Hasse invariant of R15.3, and a finite congruence Sturm certificate; matching roots of two characteristic polynomials is not enough. Produce full certificates for every listed witness and every exclusion in the finite ranges. In the cohomological convention of BCG, a_g(ℓ) = ℓ^(p−k)·a_f(ℓ), so the exponent at (107, 26) is 81; at (151, 52) and (151, 100) the gcd condition gives 3, not 1. For elliptic curves, every finite output is bound to Tau Ceti's objects: point counts to `WeierstrassCurve.pointCount`, local images to the subgroup range μ of `W_v.M`, and saturation verdicts to divisibility in W(ℚ).
+
+### 3.1 Integral q-expansion lattice (`integralModularLattice`)
+
+**Definition.** For integer weight k, integralModularLattice k is the ℤ-submodule of ModularForm SL₂(ℤ) k consisting of forms whose width-one q-expansion coefficients all belong to the image of ℤ in ℂ. This is a coefficient lattice inside the space of forms. It is distinct from the upstream integral modular-symbol module, which lives on the homological side.
 
 - `mem_integralModularLattice`: Membership is integrality of every q coefficient.
 - `integralModularLattice_zero`: The zero form is integral.
 - `integralModularLattice_ext`: Elements agree if their underlying modular forms agree.
 
-Tests.
+*Construction.* Use the existing modular-form carrier and q-expansion. Close the integral coefficient condition under addition and integer scalar multiplication. ([Stein](#source-stein), Lemma 2.20 and Remark 2.21, pp.20–21.) *Needs:* Mathlib `ModularForm.dimension_level_one`; Mathlib `ModularForm.sturm_bound_levelOne_nat`.
 
-- `test_integral_modular_zero` (degenerate): Zero is in the weight-zero lattice.
-- `test_integral_E4` (compatibility): Mathlib’s unit-constant E₄ is integral.
-- `test_half_E4` (non-example): One half of E₄ is not integral because its constant term is 1/2.
+**Checks.**
 
-**Integral cusp-form lattice — `integralCuspLattice`.** integralCuspLattice k is the ℤ-submodule of CuspForm SL₂(ℤ) k consisting of forms with every width-one q coefficient in ℤ⊆ℂ. Its inclusion in the modular-form coefficient lattice is the native cusp-to-modular inclusion. It contains no Eisenstein summand.
+- *Degenerate case.* Zero is in the weight-zero lattice.
+- *Agreement with the library notion.* Mathlib’s unit-constant E₄ is integral.
+- *Non-example.* One half of E₄ is not integral because its constant term is 1/2.
 
-Construction or proof. Restrict the integral q-coefficient condition to the native cusp-form carrier.
+### 3.2 Integral cusp-form lattice (`integralCuspLattice`)
 
-Prerequisites. `integralModularLattice` (CN.3).
-
-Source. [Stein](#source-stein), Lemma 2.20, pp.20–21.
-
-API.
+**Definition.** integralCuspLattice k is the ℤ-submodule of CuspForm SL₂(ℤ) k consisting of forms with every width-one q coefficient in ℤ⊆ℂ. Its inclusion in the modular-form coefficient lattice is the native cusp-to-modular inclusion. It contains no Eisenstein summand.
 
 - `mem_integralCuspLattice`: Membership is integrality of all coefficients.
 - `integralCuspLattice_coeff_zero`: Its constant coefficient is zero by native cuspidality.
 - `integralCuspLattice_ext`: Equality is equality of underlying cusp forms.
 
-Tests.
+*Construction.* Restrict the integral q-coefficient condition to the native cusp-form carrier. ([Stein](#source-stein), Lemma 2.20, pp.20–21.) *Needs:* `integralModularLattice` (3.1).
 
-- `test_integral_delta` (computation): The normalized discriminant is in the weight-12 lattice.
-- `test_cusp_weight_zero` (degenerate): The weight-zero cusp lattice is zero.
-- `test_half_delta` (non-example): One half of Δ fails integrality at the first coefficient.
+**Checks.**
 
-**Integral Miller basis — `millerBasis`.** For even k∈ℕ and d=dimℂ S_k(SL₂(ℤ)), millerBasis k is a ℤ-basis f₁,…,f_d of integralCuspLattice k satisfying a_j(f_i)=δ_ij for 1≤i,j≤d. Use unit-constant F₄=1+240Σσ₃(n)qⁿ and F₆=1−504Σσ₅(n)qⁿ. They agree with Mathlib E₄,E₆; Stein’s unnormalized symbols require his scaling factors.
+- *Computed value.* The normalized discriminant is in the weight-12 lattice.
+- *Degenerate case.* The weight-zero cusp lattice is zero.
+- *Non-example.* One half of Δ fails integrality at the first coefficient.
 
-Construction or proof. Choose a,b≥0 with 4a+6b≤14 and congruent to k modulo 12, choosing a=b=0 when k≡0. The forms Δ^j F₆^(2(d−j)+b) F₄^a have leading coefficient 1 at q^j. Integral triangular elimination gives the Kronecker first-d coefficients. The native dimension bound shows these span over ℂ; the leading coefficients then force integral coordinates for each integral cusp form.
+### 3.3 Integral Miller basis (`millerBasis`)
 
-Prerequisites. `integralCuspLattice` (CN.3); Mathlib `ModularForm.dimension_level_one`; Mathlib `ModularForm.sturm_bound_levelOne_nat`.
-
-Source. [Stein](#source-stein), Algorithm 2.18 and Lemma 2.20, pp.19–21.
-
-API.
+**Construction.** For even k∈ℕ and d=dimℂ S_k(SL₂(ℤ)), millerBasis k is a ℤ-basis f₁,…,f_d of integralCuspLattice k satisfying a_j(f_i)=δ_ij for 1≤i,j≤d. Use unit-constant F₄=1+240Σσ₃(n)qⁿ and F₆=1−504Σσ₅(n)qⁿ. They agree with Mathlib E₄,E₆; Stein’s unnormalized symbols require his scaling factors.
 
 - `millerBasis_coeff`: The first d positive coefficients form the identity matrix.
 - `millerBasis_repr`: The i-th integral coordinate is the (i+1)-st q coefficient.
 - `millerBasis_unique`: A basis with the same first-d coefficient normalization is this basis.
 
-Tests.
+*Method.* Choose a,b≥0 with 4a+6b≤14 and congruent to k modulo 12, choosing a=b=0 when k≡0. The forms Δ^j F₆^(2(d−j)+b) F₄^a have leading coefficient 1 at q^j. Integral triangular elimination gives the Kronecker first-d coefficients. The native dimension bound shows these span over ℂ; the leading coefficients then force integral coordinates for each integral cusp form. ([Stein](#source-stein), Algorithm 2.18 and Lemma 2.20, pp.19–21.) *Needs:* `integralCuspLattice` (3.2); Mathlib `ModularForm.dimension_level_one`; Mathlib `ModularForm.sturm_bound_levelOne_nat`.
 
-- `test_miller_weight_zero` (degenerate): At weight zero the basis index type is empty.
-- `test_miller_delta` (computation): At weight 12 the sole basis form is Δ.
-- `test_miller_weight_two` (non-example): Weight two has no cusp basis vector.
+**Checks.**
 
-**Level-one congruence Sturm bound — `levelOne_congruence_sturm`.** Let k∈ℕ and f belong to integralModularLattice k. For a prime p, if every coefficient a_n(f) for 0≤n≤floor(k/12) is divisible by p, then every coefficient is divisible by p. This is a congruence statement in the integral lattice, not the characteristic-zero identity theorem.
+- *Degenerate case.* At weight zero the basis index type is empty.
+- *Computed value.* At weight 12 the sole basis form is Δ.
+- *Non-example.* Weight two has no cusp basis vector.
 
-Construction or proof. Use the integral triangular basis at level one to propagate divisibility from the initial coefficients to all integral coordinates. Stein’s alternative proof uses the integral polynomial-in-j expansion and multiplication by Δ. The full modular integral basis must be constructed separately from the complex Sturm theorem.
+### 3.4 Level-one congruence Sturm bound (`levelOne_congruence_sturm`)
 
-Prerequisites. `integralModularLattice` (CN.3); Mathlib `ModularForm.sturm_bound_levelOne_nat`; `millerBasis` (CN.3); **AlgebraicModularFormsAndSerreWeights, R15.2**.
+**Theorem.** Let k∈ℕ and f belong to integralModularLattice k. For a prime p, if every coefficient a_n(f) for 0≤n≤floor(k/12) is divisible by p, then every coefficient is divisible by p. This is a congruence statement in the integral lattice, not the characteristic-zero identity theorem.
 
-Source. [Stein](#source-stein), Theorem 9.18, pp.171–172, level-one case.
+*Proof sketch.* Use the integral triangular basis at level one to propagate divisibility from the initial coefficients to all integral coordinates. Stein’s alternative proof uses the integral polynomial-in-j expansion and multiplication by Δ. The full modular integral basis must be constructed separately from the complex Sturm theorem. ([Stein](#source-stein), Theorem 9.18, pp.171–172, level-one case.) *Needs:* `integralModularLattice` (3.1); Mathlib `ModularForm.sturm_bound_levelOne_nat`; `millerBasis` (3.3); AlgebraicModularFormsAndSerreWeights R15.2.
 
-**Exact equality of certified modular data — `modularDataEqual`.** modularDataEqual B a b checks equality of two arrays of isolated algebraic coefficients indexed by 0,…,B. For two same-weight modular forms on a finite-index subgroup Γ of SL₂(ℤ), set B=(k·[SL₂(ℤ):Γ]).toNat/12 and require that the decoded arrays equal the forms’ coefficients at their actual strict cusp width. Acceptance then proves equality by the native Sturm bound. An LMFDB orbit label is accepted only after the owner’s level, character and embedding convention identifies which intrinsic forms these arrays describe; a label alone does not provide either binding proof.
+### 3.5 Exact equality of certified modular data (`modularDataEqual`)
 
-Construction or proof. Apply the exact algebraic-value comparison at each index. Use the two coefficient binding proofs and the native Sturm theorem, including coefficient zero. Modular symbols, integral Hecke algebras, orbit labels and trace formulas are imported from their respective ModularForms layers.
-
-Prerequisites. `algebraicEqual` (CN.0); Tau Ceti `TauCeti.ModularForm.eq_of_sturm_bound`; **ModularForms, Layer 8**; **ModularForms, Layer 9**; **ModularForms, Layer 10**.
-
-Source. [Stein](#source-stein), Theorem 9.18, pp.171–172; §9.4.
-
-API.
+**Construction.** modularDataEqual B a b checks equality of two arrays of isolated algebraic coefficients indexed by 0,…,B. For two same-weight modular forms on a finite-index subgroup Γ of SL₂(ℤ), set B=(k·[SL₂(ℤ):Γ]).toNat/12 and require that the decoded arrays equal the forms’ coefficients at their actual strict cusp width. Acceptance then proves equality by the native Sturm bound. The two coefficient binding proofs are hypotheses: a database label alone provides neither of them.
 
 - `modularDataEqual_iff`: Acceptance is coefficientwise equality of native algebraic values.
 - `modularDataEqual_sound`: Correctly bound finite-index modular forms coincide on acceptance.
 - `modularDataEqual_symm`: Swapping the arrays preserves the verdict.
 
-Tests.
+*Method.* Apply the exact algebraic-value comparison at each index. Use the two coefficient binding proofs and the native Sturm theorem, including coefficient zero. Modular symbols, integral Hecke algebras, orbit labels and trace formulas stay with TauCetiRoadmap ModularForms Layers 8, 9 and 11; this checker uses only q-expansions and the Sturm bound. ([Stein](#source-stein), Theorem 9.18, pp.171–172; §9.4.) *Needs:* `algebraicEqual` (0.13); Tau Ceti `TauCeti.ModularForm.eq_of_sturm_bound`; TauCetiRoadmap ModularForms Layer 10.
 
-- `test_modular_data_constant` (degenerate): Bound zero still checks the constant coefficient.
-- `test_modular_data_equal` (computation): Identical arrays pass.
-- `test_modular_data_delta` (non-example): Matching constant terms do not suffice at weight twelve: the first Δ coefficient differs from zero.
+**Checks.**
 
-### Hecke recurrences and integer matrices
+- *Degenerate case.* Bound zero still checks the constant coefficient.
+- *Computed value.* Identical arrays pass.
+- *Non-example.* Matching constant terms do not suffice at weight twelve: the first Δ coefficient differs from zero.
 
-**Level-one Hecke recurrence contract — `HasLevelOnePrimeRecurrence`.** For natural k≥2 and prime p, HasLevelOnePrimeRecurrence k p T records the coefficient formula a_m(Tf)=a_pm(f)+p^(k−1)a_(m/p)(f) when p∣m, with second term zero otherwise, for every level-one cusp form f. T is a supplied complex linear endomorphism on the native space. The canonical operator comes from the upstream Hecke action and its pinned coefficient theorem; this predicate only specifies the computational comparison.
+### 3.6 Level-one Hecke recurrence contract (`HasLevelOnePrimeRecurrence`)
 
-Construction or proof. State the native recurrence on the level-one cusp space after identifying Γ₁(1) with SL₂(ℤ). Keep p and k explicit.
-
-Prerequisites. Tau Ceti `HeckeRing.GL2.qExpansion_coeff_heckeSlashGamma1CuspFormEnd_diagCosetGamma1_of_mem_cuspFormCharSpace`; `integralCuspLattice` (CN.3).
-
-Source. [Stein](#source-stein), Proposition 2.31, p.24; Lemma 2.20, pp.20–21.
-
-API.
+**Definition.** For natural k≥2 and prime p, HasLevelOnePrimeRecurrence k p T records the coefficient formula a_m(Tf)=a_pm(f)+p^(k−1)a_(m/p)(f) when p∣m, with second term zero otherwise, for every level-one cusp form f. T is a supplied complex linear endomorphism on the native space. The canonical operator comes from the upstream Hecke action and its pinned coefficient theorem; this predicate only specifies the computational comparison.
 
 - `heckeRecurrence_coeff_one`: The first coefficient of T_p f is a_p(f) for p>1.
 - `heckeRecurrence_unique`: At fixed k,p the recurrence determines the endomorphism uniquely.
 - `heckeRecurrence_preserves_integrality`: The endomorphism preserves the integral cusp lattice.
 
-Tests.
+*Construction.* State the native recurrence on the level-one cusp space after identifying Γ₁(1) with SL₂(ℤ). Keep p and k explicit. ([Stein](#source-stein), Proposition 2.31, p.24; Lemma 2.20, pp.20–21.) *Needs:* Tau Ceti `HeckeRing.GL2.qExpansion_coeff_heckeSlashGamma1CuspFormEnd_diagCosetGamma1_of_mem_cuspFormCharSpace`; `integralCuspLattice` (3.2).
 
-- `test_hecke_weight_two` (degenerate): The zero-dimensional weight-two space has the zero endomorphism satisfying the recurrence.
-- `test_hecke_delta` (computation): At weight 12 and p=2, T₂ acts by −24.
-- `test_hecke_zero_wrong` (non-example): The zero endomorphism does not represent T₂ at weight 12.
+**Checks.**
 
-**Integral Hecke matrix in the Miller basis — `integralHeckeMatrix`.** For even k≥2, prime p and an endomorphism T satisfying the level-one recurrence, integralHeckeMatrix k p T is its integer matrix in the Miller basis, using column vectors. Entry (i,j) is a_(i+1)(T f_j), uniquely read as an integer; the recurrence computes it from coefficients of f_j through degree p·d. It represents an operator on the forms lattice, distinct from the dual modular-symbol matrix.
+- *Degenerate case.* The zero-dimensional weight-two space has the zero endomorphism satisfying the recurrence.
+- *Computed value.* At weight 12 and p=2, T₂ acts by −24.
+- *Non-example.* The zero endomorphism does not represent T₂ at weight 12.
 
-Construction or proof. The recurrence preserves the integral cusp lattice. Restrict T to a ℤ-linear map and apply the native matrix-of-linear-map construction to the Miller basis. Its first-d coefficient property gives the entry formula.
+### 3.7 Integral Hecke matrix in the Miller basis (`integralHeckeMatrix`)
 
-Prerequisites. `HasLevelOnePrimeRecurrence` (CN.3); `millerBasis` (CN.3); **ModularForms, Layer 8**.
-
-Source. [Stein](#source-stein), Proposition 2.31, p.24; Lemma 2.20, pp.20–21.
-
-API.
+**Construction.** For even k≥2, prime p and an endomorphism T satisfying the level-one recurrence, integralHeckeMatrix k p T is its integer matrix in the Miller basis, using column vectors. Entry (i,j) is a_(i+1)(T f_j), uniquely read as an integer; the recurrence computes it from coefficients of f_j through degree p·d. It represents an operator on the forms lattice, distinct from the dual modular-symbol matrix.
 
 - `integralHeckeMatrix_entry`: Column j consists of the integral coefficients a_(i+1)(T f_j).
 - `integralHeckeMatrix_repr`: The matrix acts on the native integer coordinate column of every lattice form.
 - `integralHeckeMatrix_unique`: The coefficient comparison uniquely determines the integer matrix.
 
-Tests.
+*Method.* The recurrence preserves the integral cusp lattice. Restrict T to a ℤ-linear map and apply the native matrix-of-linear-map construction to the Miller basis. Its first-d coefficient property gives the entry formula. ([Stein](#source-stein), Proposition 2.31, p.24; Lemma 2.20, pp.20–21.) *Needs:* `HasLevelOnePrimeRecurrence` (3.6); `millerBasis` (3.3).
 
-- `test_hecke_matrix_empty` (degenerate): The weight-two matrix has dimension zero and determinant one.
-- `test_hecke_matrix_delta` (computation): The weight-12 T₂ determinant is −24.
-- `test_hecke_matrix_ordinary` (non-example): At p=2, weight 12 is nonordinary: −24 reduces to zero.
+**Checks.**
 
-### Ordinary and nonordinary arithmetic witnesses
+- *Degenerate case.* The weight-two matrix has dimension zero and determinant one.
+- *Computed value.* The weight-12 T₂ determinant is −24.
+- *Non-example.* At p=2, weight 12 is nonordinary: −24 reduces to zero.
 
-**The coefficient at 107 of ΔE₄²E₆ — `weight26_coeff_107`.** With the unit-constant Mathlib E₄,E₆ and normalized discriminant Δ, the coefficient at q^107 of ΔE₄²E₆ equals 35830422465487817813321292. This exact integer is −1 modulo 107. The coefficient theorem certifies ordinarity once the existing eigenform and reduction interfaces are supplied.
+### 3.8 The coefficient at 107 of ΔE₄²E₆ (`weight26_coeff_107`)
 
-Construction or proof. Use the exact integral coefficient formulas and truncate products beyond degree 107. Multiply over ℤ, then compare the resulting coefficient through the native q-expansion multiplication map. The finite convolution certificate is checked independently of any CAS label.
+**Theorem.** With the unit-constant Mathlib E₄,E₆ and normalized discriminant Δ, the coefficient at q^107 of ΔE₄²E₆ equals 35830422465487817813321292. This exact integer is −1 modulo 107. The coefficient theorem certifies ordinarity once the existing eigenform and reduction interfaces are supplied.
 
-Prerequisites. `integralModularLattice` (CN.3); `integralCuspLattice` (CN.3).
+*Proof sketch.* Use the exact integral coefficient formulas and truncate products beyond degree 107. Multiply over ℤ, then compare the resulting coefficient through the native q-expansion multiplication map. The finite convolution certificate is checked independently of any CAS label. ([BCG](#source-bcg), §2.3, proof of Theorem 2.4, p.515.) *Needs:* `integralModularLattice` (3.1); `integralCuspLattice` (3.2).
 
-Source. [BCG](#source-bcg), §2.3, proof of Theorem 2.4, p.515.
+### 3.9 Ordinary reduction at 107 (`weight26_ordinary_107`)
 
-**Ordinary reduction at 107 — `weight26_ordinary_107`.** The certified coefficient 35830422465487817813321292 reduces to −1 in ZMod 107, hence is nonzero.
+**Lemma.** The certified coefficient 35830422465487817813321292 reduces to −1 in ZMod 107, hence is nonzero.
 
-Construction or proof. Reduce the exact numeral modulo 107. This arithmetic check uses the certified coefficient theorem for its interpretation as a Hecke eigenvalue.
+*Proof sketch.* Reduce the exact numeral modulo 107. This arithmetic check uses the certified coefficient theorem for its interpretation as a Hecke eigenvalue. ([BCG](#source-bcg), §2.3, p.515.) *Needs:* `weight26_coeff_107` (3.8).
 
-Prerequisites. `weight26_coeff_107` (CN.3).
+### 3.10 Nonordinary determinant at weight 38 and prime 79 (`weight38_nonordinary_det`)
 
-Source. [BCG](#source-bcg), §2.3, p.515.
+**Theorem.** The determinant of the level-one T₇₉ matrix on the integral weight-38 cusp lattice is divisible by 79. Together with the Deligne–Serre lifting lemma, this yields a characteristic-zero eigenform with a₇₉ in a prime above 79. Also gcd(37,80)=1. The determinant statement alone is kept separate from that eigenform-lifting input.
 
-**Nonordinary determinant at weight 38 and prime 79 — `weight38_nonordinary_det`.** The determinant of the level-one T₇₉ matrix on the integral weight-38 cusp lattice is divisible by 79. Together with the imported simultaneous eigenform and reduction theorem, this yields a characteristic-zero eigenform with a₇₉ in a prime above 79. Also gcd(37,80)=1. The determinant statement alone is kept separate from that eigenform-lifting input.
+*Proof sketch.* Construct the dimension-two Miller basis, compute the recurrence through degree 158, and reduce its exact integer determinant modulo 79. A singular reduction gives a residual eigensystem, which lifts to a characteristic-zero eigenform by the Deligne–Serre lifting lemma of AlgebraicModularFormsAndSerreWeights R15.5. ([BCG](#source-bcg), Corollary 3.2 proof, p.518.) *Needs:* `integralHeckeMatrix` (3.7); AlgebraicModularFormsAndSerreWeights R15.5 (Deligne–Serre lifting of eigenvalues).
 
-Construction or proof. Construct the dimension-two Miller basis, compute the recurrence through degree 158, and reduce its exact integer determinant modulo 79. Use the upstream Hecke eigenform decomposition to interpret singular reduction.
+### 3.11 Certified nonordinary weight-prime pair (`NonordinaryLevelOnePair`)
 
-Prerequisites. `integralHeckeMatrix` (CN.3).
-
-Source. [BCG](#source-bcg), Corollary 3.2 proof, p.518.
-
-**Certified nonordinary weight-prime pair — `NonordinaryLevelOnePair`.** NonordinaryLevelOnePair k p means p is prime, k≥2 is even, and the determinant of an integral matrix for the intrinsic level-one T_p action on S_k vanishes modulo p. The matrix must satisfy the complete coefficient recurrence, which determines the operator uniquely. To export existence of a characteristic-zero eigenform with nonordinary reduction, use the owner’s integral Hecke eigensystem and lifting theorem.
-
-Construction or proof. Use the matrix construction and reduce its integer determinant into ZMod p. The empty matrix has determinant one, so zero-dimensional spaces never pass.
-
-Prerequisites. `integralHeckeMatrix` (CN.3); `HasLevelOnePrimeRecurrence` (CN.3); **ModularForms, Layer 8**.
-
-Source. [BCG](#source-bcg), Corollary 3.2 and Remark 3.3, p.518.
-
-API.
+**Definition.** NonordinaryLevelOnePair k p means p is prime, k≥2 is even, and the determinant of an integral matrix for the intrinsic level-one T_p action on S_k vanishes modulo p. The matrix must satisfy the complete coefficient recurrence, which determines the operator uniquely. To export existence of a characteristic-zero eigenform with nonordinary reduction, use the Deligne–Serre lifting lemma of AlgebraicModularFormsAndSerreWeights R15.5.
 
 - `nonordinary_pair_prime`: A certified pair has prime residue characteristic.
 - `nonordinary_pair_even`: A certified pair has even positive weight.
 - `nonordinary_pair_nonzero_dimension`: The cusp space of a certified pair has positive dimension.
 
-Tests.
+*Construction.* Use the matrix construction and reduce its integer determinant into ZMod p. The empty matrix has determinant one, so zero-dimensional spaces never pass. ([BCG](#source-bcg), Corollary 3.2 and Remark 3.3, p.518.) *Needs:* `integralHeckeMatrix` (3.7); `HasLevelOnePrimeRecurrence` (3.6); AlgebraicModularFormsAndSerreWeights R15.5 (Deligne–Serre lifting of eigenvalues).
 
-- `test_nonordinary_38_79` (computation): The pair (38,79) passes.
-- `test_nonordinary_weight_two` (degenerate): No weight-two pair passes.
-- `test_nonordinary_26_107` (non-example): The weight-26 form is ordinary at 107.
+**Checks.**
 
-**The first two nonordinary level-one primes — `small_nonordinary_primes`.** Among primes p≤79, a level-one nonordinary eigenform of even weight 2≤k<p exists exactly for p=59 or p=79. The determinant witnesses occur at weights 16 and 46 for 59, and 38 and 44 for 79. The weight-16 witness at 59 fails gcd(k−1,p+1)=1, whereas weight 38 at 79 passes it.
+- *Computed value.* The pair (38,79) passes.
+- *Degenerate case.* No weight-two pair passes.
+- *Non-example.* The weight-26 form is ordinary at 107.
 
-Construction or proof. Enumerate every prime p≤79 and every even weight below p. For each, reconstruct the Miller basis and T_p matrix by exact q-expansion arithmetic, then check the determinant. The Sturm/basis comparison proves these are the intrinsic operators; dimension-zero cases contribute determinant one.
+### 3.12 The first two nonordinary level-one primes (`small_nonordinary_primes`)
 
-Prerequisites. `NonordinaryLevelOnePair` (CN.3); `integralHeckeMatrix` (CN.3).
+**Theorem.** Among primes p≤79, a level-one nonordinary eigenform of even weight 2≤k<p exists exactly for p=59 or p=79. The determinant witnesses occur at weights 16 and 46 for 59, and 38 and 44 for 79. The weight-16 witness at 59 fails gcd(k−1,p+1)=1, whereas weight 38 at 79 passes it.
 
-Source. [BCG](#source-bcg), Remark 3.3, p.518.
+*Proof sketch.* Enumerate every prime p≤79 and every even weight below p. For each, reconstruct the Miller basis and T_p matrix by exact q-expansion arithmetic, then check the determinant. The Sturm/basis comparison proves these are the intrinsic operators; dimension-zero cases contribute determinant one. ([BCG](#source-bcg), Remark 3.3, p.518.) *Needs:* `NonordinaryLevelOnePair` (3.11); `integralHeckeMatrix` (3.7).
 
-**Nonordinary pairs below 200 — `nonordinary_pairs_lt_200`.** For prime p<200 and even 2≤k<p, the nonordinary pairs (p,k) are exactly (59,16),(59,46),(79,38),(79,44),(107,28),(107,82),(131,40),(131,94),(139,36),(139,106),(151,60),(151,94),(173,24),(173,152),(193,72),(193,124). Filtering by gcd(k−1,p+1)=1 gives the primes 79,151,173,193 used in the nonordinary part of BCG Remark 3.3.
+### 3.13 Nonordinary pairs below 200 (`nonordinary_pairs_lt_200`)
 
-Construction or proof. Run the same exact finite matrix checks on the larger range and retain every result. Then perform the integer gcd filter.
+**Theorem.** For prime p<200 and even 2≤k<p, the nonordinary pairs (p,k) are exactly (59,16),(59,46),(79,38),(79,44),(107,28),(107,82),(131,40),(131,94),(139,36),(139,106),(151,60),(151,94),(173,24),(173,152),(193,72),(193,124). Filtering by gcd(k−1,p+1)=1 gives the primes 79,151,173,193 used in the nonordinary part of BCG Remark 3.3.
 
-Prerequisites. `NonordinaryLevelOnePair` (CN.3); `integralHeckeMatrix` (CN.3).
+*Proof sketch.* Run the same exact finite matrix checks on the larger range and retain every result. Then perform the integer gcd filter. ([BCG](#source-bcg), Remark 3.3, p.518.) *Needs:* `NonordinaryLevelOnePair` (3.11); `integralHeckeMatrix` (3.7).
 
-Source. [BCG](#source-bcg), Remark 3.3, p.518.
+### 3.14 Complete companion eigensystem at weight 82 (`weight82_companion_system`)
 
-**Complete companion eigensystem at weight 82 — `weight82_companion_system`.** Let a_n be the exact integer coefficients of f=ΔE₄²E₆. The level-one integral Hecke matrices at weight 82 admit a common nonzero eigenvector over an algebraic closure of 𝔽₁₀₇, with eigenvalue ℓ⁸¹a_ℓ for every prime ℓ≠107. Equivalently a_ℓ(f)=ℓ²⁵a_ℓ(g) modulo 107. This coefficient convention matches BCG’s cohomological Galois normalization ρ̄_f≅ε̄⁻²⁵ρ̄_g, whose determinant is ε̄^(1−k). A common root of two separate characteristic polynomials is insufficient.
+**Theorem.** Let a_n be the exact integer coefficients of f=ΔE₄²E₆. The level-one integral Hecke matrices at weight 82 admit a common nonzero eigenvector over an algebraic closure of 𝔽₁₀₇, with eigenvalue ℓ⁸¹a_ℓ for every prime ℓ≠107. Equivalently a_ℓ(f)=ℓ²⁵a_ℓ(g) modulo 107. This coefficient convention matches BCG’s cohomological Galois normalization ρ̄_f≅ε̄⁻²⁵ρ̄_g, whose determinant is ε̄^(1−k). A common root of two separate characteristic polynomials is insufficient.
 
-Construction or proof. Construct a common residual eigensystem, apply the mod-p theta/Hasse weight comparison, and prove the full congruence with a congruence Sturm bound. The theta weight convention, eigensystem lift and Galois trace comparison are requested from their owners. These proof inputs are not inferred from two Hecke eigenvalues.
+*Proof sketch.* Construct a common residual eigensystem, apply the mod-p theta/Hasse weight comparison, and prove the full congruence with a congruence Sturm bound. The theta operator, its eigenvalue shift a_ℓ ↦ ℓ·a_ℓ and the Hasse invariant are AlgebraicModularFormsAndSerreWeights R15.3's; the lift of a residual eigensystem is R15.5's; the cohomological normalization is the one fixed in this statement. These proof inputs are not inferred from two Hecke eigenvalues. ([BCG](#source-bcg), Theorem 2.4 proof, p.515.) *Needs:* `integralHeckeMatrix` (3.7); `levelOne_congruence_sturm` (3.4); `weight26_coeff_107` (3.8); AlgebraicModularFormsAndSerreWeights R15.3; AlgebraicModularFormsAndSerreWeights R15.5 (Deligne–Serre lifting of eigenvalues).
 
-Prerequisites. `integralHeckeMatrix` (CN.3); `levelOne_congruence_sturm` (CN.3); `weight26_coeff_107` (CN.3); **AlgebraicModularFormsAndSerreWeights, R15.3**; **ModularForms, Layer 8**.
+### 3.15 Ordinary level-one companion pair (`OrdinaryCompanionPair`)
 
-Source. [BCG](#source-bcg), Theorem 2.4 proof, p.515.
-
-**Ordinary level-one companion pair — `OrdinaryCompanionPair`.** For a prime p, OrdinaryCompanionPair p k means 2≤k<p, both k and k′=p+1−k are even, and the integral level-one Hecke operators in these weights have common residual eigensystems over an algebraic closure of 𝔽_p. The first eigensystem has eigenvalues a_ℓ and a_p≠0. For every prime ℓ≠p the companion eigenvalue is ℓ^(p−k)a_ℓ, equivalently a_ℓ=ℓ^(k−1)b_ℓ. Each eigensystem is represented by one nonzero vector simultaneously for all prime Hecke matrices, not a collection of independently chosen eigenvalues.
-
-Construction or proof. Use the integer Hecke matrices and coefficientwise reduction into the algebraic closure. Record both operator families, their intrinsic recurrence comparisons, two nonzero simultaneous eigenvectors and their eigenvalue function. Characteristic-zero lifting and the cohomological Galois comparison are owner inputs.
-
-Prerequisites. `integralHeckeMatrix` (CN.3); `HasLevelOnePrimeRecurrence` (CN.3); `weight82_companion_system` (CN.3).
-
-Source. [BCG](#source-bcg), Theorem 2.1 and §2.3, pp.513–515; Remark 3.3, p.518.
-
-API.
+**Definition.** For a prime p, OrdinaryCompanionPair p k means 2≤k<p, both k and k′=p+1−k are even, and the integral level-one Hecke operators in these weights have common residual eigensystems over an algebraic closure of 𝔽_p. The first eigensystem has eigenvalues a_ℓ and a_p≠0. For every prime ℓ≠p the companion eigenvalue is ℓ^(p−k)a_ℓ, equivalently a_ℓ=ℓ^(k−1)b_ℓ. Each eigensystem is represented by one nonzero vector simultaneously for all prime Hecke matrices, not a collection of independently chosen eigenvalues.
 
 - `ordinaryCompanionPair_weight`: The weight is even and strictly between 1 and p.
 - `ordinaryCompanionPair_dimension`: The first cusp space has positive dimension. Ordinarity belongs to the selected eigensystem; other eigensystems in the same space may be nonordinary.
 - `ordinaryCompanionPair_companion_dimension`: The companion cusp space is also nonzero.
 
-Tests.
+*Construction.* Use the integer Hecke matrices and coefficientwise reduction into the algebraic closure. Record both operator families, their intrinsic recurrence comparisons, two nonzero simultaneous eigenvectors and their eigenvalue function. Characteristic-zero lifting is the Deligne–Serre lemma of AlgebraicModularFormsAndSerreWeights R15.5. ([BCG](#source-bcg), Theorem 2.1 and §2.3, pp.513–515; Remark 3.3, p.518.) *Needs:* `integralHeckeMatrix` (3.7); `HasLevelOnePrimeRecurrence` (3.6); `weight82_companion_system` (3.14); AlgebraicModularFormsAndSerreWeights R15.5 (Deligne–Serre lifting of eigenvalues).
 
-- `test_companion_107` (computation): Weight 26 at 107 has companion weight 82.
-- `test_companion_low_prime` (degenerate): There is no eligible weight for p=2.
-- `test_companion_weight_two` (non-example): Weight two has no cusp eigensystem.
+**Checks.**
 
-**Corrected ordinary companion witnesses — `corrected_ordinary_companion_list`.** For (p,k)=(107,26),(139,20),(173,68),(179,30),(191,30),(193,48), an OrdinaryCompanionPair p k exists and gcd(k−1,p−1)=1. The candidate at p=151 has weights 52 and 100, and gcd(51,150)=gcd(99,150)=3, so those companion forms do not satisfy BCG Theorem 2.1. No exhaustive statement about all primes is made.
+- *Computed value.* Weight 26 at 107 has companion weight 82.
+- *Degenerate case.* There is no eligible weight for p=2.
+- *Non-example.* Weight two has no cusp eigensystem.
 
-Construction or proof. Produce a complete simultaneous eigensystem certificate for each pair, apply the owner’s lift/Galois comparison, and check the integer gcd. T₂/T₃ checks are discovery evidence; the target requires full congruence certificates.
+### 3.16 Corrected ordinary companion witnesses (`corrected_ordinary_companion_list`)
 
-Prerequisites. `OrdinaryCompanionPair` (CN.3); `levelOne_congruence_sturm` (CN.3).
+**Theorem.** For (p,k)=(107,26),(139,20),(173,68),(179,30),(191,30),(193,48), an OrdinaryCompanionPair p k exists and gcd(k−1,p−1)=1. The candidate at p=151 has weights 52 and 100, and gcd(51,150)=gcd(99,150)=3, so those companion forms do not satisfy BCG Theorem 2.1. No exhaustive statement about all primes is made.
 
-Source. [BCG](#source-bcg), Remark 3.3, p.518; [CG13](#source-cg13), §§6–7, pp.11–12 and appendix table C, p.14.
+*Proof sketch.* Produce a complete simultaneous eigensystem certificate for each pair, lift it with the Deligne–Serre lemma of AlgebraicModularFormsAndSerreWeights R15.5, and check the integer gcd. T₂/T₃ checks are discovery evidence; the target requires full congruence certificates. ([BCG](#source-bcg), Remark 3.3, p.518; [CG13](#source-cg13), §§6–7, pp.11–12 and appendix table C, p.14.) *Needs:* `OrdinaryCompanionPair` (3.15); `levelOne_congruence_sturm` (3.4); AlgebraicModularFormsAndSerreWeights R15.5 (Deligne–Serre lifting of eigenvalues).
 
-## CN.4: Validated numerics and finite analytic certificates
+### 3.17 Point counts over a finite field as a character sum (`pointCount_eq_charSum`)
 
-Numerical output is an enclosure of a specified intrinsic value. Arithmetic must propagate precision and analytic error together. Root lists need both isolation and completeness. Dirichlet and modular L-value algorithms evaluate imported continuations with rigorous tails. The explicit-formula applications accept only admissible, completely covered datasets and exact rational Gram inequalities.
+**Theorem.** Let F be a finite field of odd characteristic with q elements and W a Weierstrass curve over F with a₁ = a₃ = 0, singular or not, with cubic f(x) = x³ + a₂x² + a₄x + a₆. Then Tau Ceti's projective count satisfies W.pointCount = q + 1 + Σ_(x∈F) χ(f(x)), where χ = quadraticChar F, and so W.frobeniusTrace = −Σ_(x∈F) χ(f(x)). Over a finite field with decidable equality, W.pointCount is also the cardinality of the finite set of affine solutions plus one, which is how a finite enumeration computes it.
 
-Construction requirements. Implement terminating enclosures of exp, log, pi, digamma, trigamma and incomplete Gamma with argument reduction and directed rounding; add every truncation error to the final interval. Use Complex.digamma_apply_add_nat only away from nonpositive integers. For polynomial roots, provide finite rational root counts, subdivision, separation and completeness against RealAlgebraicGeometry's intrinsic root theory. A real analytic sign-change test requires continuity; unique isolation additionally needs a monotonicity or derivative bound. For cusp L-values, prove the smoothed functional-equation identity, an effective coefficient-growth constant and an incomplete-Gamma tail bound with the imported cusp-width/Fricke normalization. General level/nebentypus uses the same contract with the owner's transformed form and algebraic embeddings. For Platt's finite ranges, construct or regenerate the primitive-character enumeration, Euler–Maclaurin/FFT error certificates, sampling/upsampling bounds, the real completed-function normalization and a Turing zero count (Platt §§4–7, pp.3–15). A list of sign changes proves neither a complete zero count nor a full finite-conductor theorem. For CT, prove the eight numerical formulas equal the intrinsic F/G values under the supplier's Fourier/Laplace and J_F conventions (CL Proposition 3.17, pp.304–307; CT Proposition 4.4, pp.298–299). The G evaluation formulas are unconditional; only the automorphic positivity use carries GRH. Prove the weighted alternating tail beyond the sufficient threshold alpha(N+1)≥1. Each dataset row binds an exact infinity type, positive multiplicity and delta in {0,1}; prove the required epsilon product is real when delta_i delta_j=1. Preserve the multiplicity lift t_i/m_i and diagonal A/m_i. GN.5 supplies complete rational ellipsoid enumeration; record enlarged cutoffs explicitly, retain extra vectors and verify every requested row. Counts for a cover, including the 12293-row example, are not counts for the smaller exact ellipsoid.
+- `pointCount_eq_card_filter`: W.pointCount equals the cardinality of the filtered finite set of affine solutions plus one.
+- `frobeniusTrace_eq_neg_charSum`: The Frobenius trace is minus the character sum.
 
-### Rational intervals, boxes and exact recovery
+*Proof sketch.* For each x ∈ F the equation y² = f(x) has 1 + χ(f(x)) solutions y, because χ is 1 on nonzero squares, −1 on nonsquares and 0 at 0. Sum over x and add the point at infinity. The comparison with Mathlib's point type on an elliptic model is Tau Ceti's pointCount_eq_card_point. ([Sutherland](#source-sutherland), §7.2, equation (1), p.2.) *Needs:* Tau Ceti `WeierstrassCurve.pointCount`; Tau Ceti `WeierstrassCurve.frobeniusTrace`; Tau Ceti `WeierstrassCurve.pointCount_eq_card_point`; Mathlib `quadraticChar`.
 
-**Rational interval multiplication — `intervalMul`.** For I=[a,b] and J=[c,d] with rational endpoints, intervalMul I J is [min(ac,ad,bc,bd), max(ac,ad,bc,bd)]. These are enclosing intervals in ℝ under the rational embedding. The existing monotone interval multiplication does not apply to arbitrary signed rational endpoints.
+**Checks.**
 
-Construction or proof. Evaluate all four corner products. Their minimum is at most their maximum; package these as the endpoints of the existing NonemptyInterval ℚ carrier.
+- *Computed value.* y² = x³+x over ZMod 3 has 4 points: x = 0 gives one point, x = 1 none (f(1) = 2 is a nonsquare), x = 2 two (f(2) = 1).
+- *Computed value.* y² = x³+x+1 over ZMod 5 has 9 points, so its Frobenius trace is −3.
+- *Degenerate case.* The cusp y² = x³ over ZMod 5 has q+1 = 6 points, its singular point included, and trace 0.
+- *Non-example.* Over ZMod 2, y² = x³+1 has 3 points, while q + 1 + Σ χ(f(x)) with Mathlib's quadraticChar of ZMod 2 gives 4: the odd-characteristic hypothesis cannot be dropped.
 
-Prerequisites. Mathlib `NonemptyInterval`.
+### 3.18 Certified local image of the 2-descent map (`LocalImageCertificate`)
 
-Source. [Arb](#source-arb), §3.1.2, p.5; §4, p.6; §5, p.7.
+**Construction.** Let W be an elliptic Weierstrass curve over ℚ with a₁ = a₃ = 0 and integral a₂, a₄, a₆, with cubic f, and let v be a prime p or the real place, K_v = ℚ_p or ℝ. Write W_v for its base change, A_v = K_v[X]/(f), M_v = A_v^×/A_v^(×2) (Tau Ceti `W_v.M`) and μ_v : W_v(K_v) → M_v the x − T map (Tau Ceti `μ`). A LocalImageCertificate W v consists of: (i) finitely many rationals x₁, …, x_k with f(x_i) a nonzero square in K_v, checked exactly (at ℝ: f(x_i) > 0; at p: the p-adic valuation of f(x_i) is even and its unit part passes the square test of `isSquare_iff_isSquare_mod` (2.23)); (ii) the number r_v of roots of f in K_v, certified at ℝ by the sign of the discriminant (three real roots when it is positive, one when it is negative) and at p by `card_padicRoots_eq` (2.24); (iii) the subgroup H_v of M_v generated by the classes of x_i − T. Its target size is N_v = (1 + r_v)·|2|_v^(−1) at a prime and N_v = (1 + r_v)/2 at ℝ, and the certificate is complete when #H_v = N_v. The order of H_v is computed by deciding which products of the generators are squares in each field factor of A_v.
 
-API.
+- `localImageSpan`: The subgroup H_v ≤ W_v.M generated by the classes `W_v.μX x_i` of the x_i − T.
+- `localImageSpan_le_range`: H_v ≤ range μ_v whenever every f(x_i) is a nonzero square in K_v.
+- `LocalImageCertificate.targetSize`: N_v = (1 + r_v)·|2|_v^(−1), or (1 + r_v)/2 at ℝ.
+- `LocalImageCertificate.IsComplete`: The predicate #H_v = N_v.
+- `LocalImageCertificate.card_span`: #H_v = 2^(rank over 𝔽₂ of the classes of the x_i − T).
+
+*Method.* Each x_i is the abscissa of a point P_i ∈ W_v(K_v), and μ_v(P_i) is the class of x_i − T because f(x_i) ≠ 0 (Tau Ceti μX_of_eval_f_ne_zero), so the y-coordinate is never needed. A_v is the product of the fields K_v[X]/(f_j) for the irreducible factors f_j of f over K_v, and a class is trivial exactly when each component is a square, which the square test decides. The discriminant criterion over ℝ is the statement that E(ℝ) has one or two components according to its sign. ([FPS](#source-fps), §7, Lemma 4 and its proof, p.17; [Cremona](#source-cremona), §3.3, p.69.) *Needs:* `isSquare_iff_isSquare_mod` (2.23); `card_padicRoots_eq` (2.24); Tau Ceti `WeierstrassCurve.Affine.μ`; Tau Ceti `WeierstrassCurve.Affine.M`; Tau Ceti `WeierstrassCurve.Affine.μX_of_eval_f_ne_zero`.
+
+**Checks.**
+
+- *Computed value.* For y² = x³ − x at ℝ, the discriminant 4 is positive, r_∞ = 3 and N_∞ = 2; the abscissae −1/2 and 2 give the two classes (+,−,−) and (+,+,+) of signs of x − e_i, so #H_∞ = 2 and the certificate is complete.
+- *Degenerate case.* With no abscissae H_v is trivial; this is complete exactly when N_v = 1, for example at ℝ for y² = x³ + 1, whose discriminant is negative.
+- *Non-example.* For y² = x³ − x at p = 2, N_2 = (1+3)·2 = 8, while the single abscissa 1/4 (f(1/4) = −15/64, unit part −15 ≡ 1 mod 8) gives #H_2 ≤ 2; the certificate is not complete.
+
+### 3.19 The size check completes a local image (`LocalImageCertificate.eq_range_of_isComplete`)
+
+**Theorem.** For every LocalImageCertificate C of W at v, H_v ≤ range μ_v. If C is complete then H_v = range μ_v (stated in Suggested.lean as `localImageSpan_eq_range_of_card_padic` and `localImageSpan_eq_range_of_card_real`), and Tau Ceti's local condition W.localCondition K_v is the preimage of H_v under W.localRes K_v. If #H_v < N_v then H_v ≠ range μ_v, so the size check is both sufficient and necessary.
+
+*Proof sketch.* Every generator is μ_v of an actual point. The kernel of μ_v is 2W_v(K_v) (Tau Ceti ker_μ_eq), so #range μ_v = [W_v(K_v) : 2W_v(K_v)]. This index is #W_v(K_v)[2]·|2|_v^(−1) at a prime and #W_v(ℝ)[2]/2 at ℝ, and #W_v(K_v)[2] = 1 + r_v (Tau Ceti card_ker_nsmul_two); so #range μ_v = N_v. A subgroup of a finite group with the same order is the whole group, and mem_localCondition_iff identifies the local condition. ([FPS](#source-fps), §7, proofs of Lemmas 3 and 4, pp.16–17.) *Needs:* `LocalImageCertificate` (3.18); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); Tau Ceti `WeierstrassCurve.Affine.ker_μ_eq`; Tau Ceti `WeierstrassCurve.Affine.card_ker_nsmul_two`; Tau Ceti `WeierstrassCurve.Affine.mem_localCondition_iff`.
+
+### 3.20 Complete local images exist and are found by search (`exists_complete_localImageCertificate`)
+
+**Theorem.** For every W as above and every place v there is a complete LocalImageCertificate. Enumerating rationals x by increasing height, keeping those with f(x) a nonzero square in K_v, and stopping when the size check passes is a terminating algorithm.
+
+*Proof sketch.* The map P ↦ μ_v(P) is locally constant on W_v(K_v) away from the 2-torsion, and the abscissa determines the class. The set of x ∈ K_v with f(x) a nonzero square is open, and ℚ is dense in K_v, so every class in the finite group range μ_v is the class of x − T for some rational x. Finitely many such x generate range μ_v, and the enumeration reaches them. ([FPS](#source-fps), §7, Lemma 4 and its proof, p.17.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); Tau Ceti `WeierstrassCurve.Affine.μ`.
+
+### 3.21 Local images at good odd primes (`localImage_of_good_odd`)
+
+**Theorem.** Let p be an odd prime and W an elliptic Weierstrass curve over ℚ_p with a₁ = a₃ = 0, integral coefficients and no bad primes over ℤ_p (Tau Ceti `badPrimes`). Then range μ equals the intersection of Tau Ceti's unramified subgroup W.selmerGroupA ℤ_p with the kernel of the norm map W.normM. In particular, for a curve over ℚ and a set S containing 2 and the bad primes, the local conditions at primes outside S impose nothing beyond being unramified with square norm, so a 2-Selmer computation needs local images only at S and ℝ.
+
+*Proof sketch.* The inclusion is Tau Ceti's range_μ_le_selmerGroupA together with range_μ_le_ker_normM. For the count, f has distinct roots modulo p, so every field factor of A is unramified over ℚ_p and contributes two unit square classes; the norm on unit classes is onto ℤ_p^×/ℤ_p^(×2), so the unramified classes of square norm number 2^((number of factors) − 1) = 1 + r_p. The index formula at odd p gives #range μ = 1 + r_p, so the inclusion is an equality. ([Cremona](#source-cremona), §3.6, Checking local solubility, p.80.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); Tau Ceti `WeierstrassCurve.Affine.selmerGroupA`; Tau Ceti `WeierstrassCurve.Affine.normM`.
+
+### 3.22 p-saturated subgroups (`IsPSaturated`)
+
+**Definition.** Let A be an additive commutative group, G ≤ A a subgroup and p a prime. G is p-saturated in A when every a ∈ A with p·a ∈ G lies in G. Equivalently A[p] ≤ G and G ∩ pA = pG. When [A : G] is finite, G is p-saturated exactly when p does not divide [A : G], and G = A exactly when it is p-saturated for every prime p dividing the index.
+
+- `isPSaturated_iff`: IsPSaturated G p ↔ A[p] ≤ G ∧ G ⊓ p•⊤ = p•G.
+- `isPSaturated_iff_not_dvd_index`: For finite index and prime p: IsPSaturated G p ↔ ¬ p ∣ G.index.
+- `isPSaturated_top`: The whole group is p-saturated.
+- `eq_top_of_forall_isPSaturated`: A finite-index subgroup that is p-saturated for every prime p ≤ [A : G] is the whole group.
+
+*Construction.* If G is p-saturated then A[p] ≤ G, and pa ∈ G forces a ∈ G. Conversely, if pa = pg with g ∈ G then a − g ∈ A[p] ≤ G. For finite index, Cauchy's theorem in A/G gives a ∉ G with pa ∈ G when p divides the index; when it does not, the class of such an a has order dividing both p and the index, so it is trivial. ([Siksek](#source-siksek), §4, p.17, equation (39).) *Needs:* Mathlib `AddSubgroup.index`.
+
+**Checks.**
+
+- *Computed value.* In ℤ, 6ℤ is 5-saturated and is neither 2- nor 3-saturated.
+- *Degenerate case.* ⊤ ≤ A is p-saturated for every p.
+- *Non-example.* In ℤ × ℤ/2, G = ℤ × 0 satisfies G ∩ 2A = 2G but is not 2-saturated, because A[2] is not contained in G.
+
+### 3.23 p-saturation reduces to finitely many divisibility tests (`isPSaturated_iff_forall_not_dvd`)
+
+**Theorem.** Let A be an additive commutative group, p a prime and G ≤ A generated by g₁, …, g_m. The set V_p of b̄ ∈ 𝔽_p^m with Σ b_i g_i ∈ pA is a well-defined 𝔽_p-subspace, because p·g_i ∈ pA. Then V_p = 0 and A[p] ≤ G hold together exactly when G is p-saturated and the classes of g₁, …, g_m are linearly independent in G/pG. V_p = 0 is decided by testing Σ b_i g_i ∈ pA for one representative b with |b_i| ≤ (p−1)/2 of each line of 𝔽_p^m.
+
+*Proof sketch.* Suppose V_p = 0 and A[p] ≤ G. If pa ∈ G, write pa = Σ c_i g_i; then c̄ ∈ V_p, so c = p·c′, and a − Σ c′_i g_i lies in A[p] ≤ G, hence a ∈ G. Independence in G/pG holds because pG ⊆ pA. Conversely, saturation gives A[p] ≤ G and G ∩ pA = pG, so an element of V_p has Σ b_i g_i ∈ pG and b̄ = 0 by independence. Lines suffice because V_p is a subspace. ([Siksek](#source-siksek), §4, p.17, equation (39), and §4.1, the space V_p, p.17.) *Needs:* `IsPSaturated` (3.22).
+
+### 3.24 Exact test for divisibility of a rational point by p (`mem_nsmul_iff_exists_root`)
+
+**Theorem.** Let W be an elliptic Weierstrass curve over ℚ, p a prime and P = (x_P, y_P) a nonzero point of W(ℚ). Then P ∈ pW(ℚ) exactly when the monic polynomial Φ_p(X) − x_P·ΨSq_p(X) ∈ ℚ[X] of degree p², built from Mathlib's division polynomials, has a rational root x₀ for which one of the at most two points Q = (x₀, y₀) ∈ W(ℚ) above x₀ satisfies pQ = P. The rational roots are found from a certified rational factorization, so the test is finite and exact. The zero point is always divisible.
+
+*Proof sketch.* If pQ = P with Q = (x₀, y₀), Tau Ceti's mul_eval_ΨSq_eq_eval_Φ_of_zsmul gives x_P·ΨSq_p(x₀) = Φ_p(x₀). The polynomial is monic of degree p² because Φ_p is monic of degree p² and ΨSq_p has degree p² − 1, so it is nonzero and has finitely many rational roots. Conversely, a candidate Q is checked directly with the group law, and W(ℚ) has at most two points with a given abscissa. ([Siksek](#source-siksek), §4.2, equation (41), pp.18–19.) *Needs:* `certifiedRationalFactorization` (1.28); Tau Ceti `WeierstrassCurve.mul_eval_ΨSq_eq_eval_Φ_of_zsmul`; Mathlib `WeierstrassCurve.natDegree_Φ`; Mathlib `WeierstrassCurve.leadingCoeff_Φ`; Mathlib `WeierstrassCurve.natDegree_ΨSq`.
+
+### 3.25 The reduction sieve for p-saturation (`saturationSieve_sound`)
+
+**Theorem.** Let W be an elliptic Weierstrass curve over ℚ with integral coefficients, p a prime and g₁, …, g_m ∈ W(ℚ). For a prime q of good reduction let ρ_q : W(ℚ) → W̃(𝔽_q)/pW̃(𝔽_q) be reduction followed by the quotient. Each ρ_q vanishes on pW(ℚ), so V_p is contained in the kernel of the 𝔽_p-linear map 𝔽_p^m → W̃(𝔽_q)/pW̃(𝔽_q), b ↦ Σ b_i ρ_q(g_i). If the intersection of these kernels over finitely many good primes is 0, then V_p = 0. A prime q contributes only when p divides #W̃(𝔽_q).
+
+*Proof sketch.* Reduction at a prime of good reduction is a group homomorphism W(ℚ) → W̃(𝔽_q), so it sends pW(ℚ) into pW̃(𝔽_q). Hence an element of V_p maps to zero under every ρ_q. The p-part of W̃(𝔽_q)/pW̃(𝔽_q) is trivial unless p divides the group order. ([Siksek](#source-siksek), §4.1, equation (40), pp.17–18.) *Needs:* `isPSaturated_iff_forall_not_dvd` (3.23); TauCetiRoadmap EllipticCurves Layer 4; `pointCount_eq_charSum` (3.17).
+
+### 3.26 A terminating p-saturation test (`pSaturationTest`)
+
+**Construction.** Let W be an elliptic Weierstrass curve over ℚ with integral coefficients, p a prime and g₁, …, g_r ∈ W(ℚ). Let G be the subgroup generated by the g_i and the torsion subgroup W(ℚ)_tors, which is finite and computed exactly by the Nagell–Lutz bound. pSaturationTest returns true exactly when G is p-saturated in W(ℚ) and g₁, …, g_r together with an 𝔽_p-basis t₁, …, t_s of W(ℚ)_tors/p·W(ℚ)_tors are linearly independent in G/pG. It shrinks the candidate space with the reduction sieve at good primes and then applies the exact divisibility test to one representative of each remaining line of 𝔽_p^(r+s). It terminates because there are finitely many lines.
+
+- `pSaturationTest_iff`: The test returns true exactly when G is p-saturated and the listed generators are independent in G/pG.
+- `pSaturationTest_sieve`: Adding sieve primes never changes the verdict.
+- `index_coprime_of_pSaturationTest`: If G has finite index in W(ℚ) and the test returns true, then p does not divide [W(ℚ) : G].
+
+*Method.* Since W(ℚ)_tors ≤ G, the condition W(ℚ)[p] ≤ G holds, so correctness is `isPSaturated_iff_forall_not_dvd` (3.23) applied to the generators g₁, …, g_r, t₁, …, t_s, with each test decided by `mem_nsmul_iff_exists_root` (3.24). The sieve discards only lines outside V_p, by `saturationSieve_sound` (3.25). Termination: 𝔽_p^(r+s) has finitely many lines and every test is exact. ([Siksek](#source-siksek), §4, pp.17–19; [Cremona](#source-cremona), §3.3, Propositions 3.3.1–3.3.2, pp.69–70.) *Needs:* `isPSaturated_iff_forall_not_dvd` (3.23); `mem_nsmul_iff_exists_root` (3.24); `saturationSieve_sound` (3.25); TauCetiRoadmap EllipticCurves Layer 6.
+
+**Checks.**
+
+- *Degenerate case.* For y² = x³ − x, whose rational points are the four 2-torsion points, r = 0 and G = W(ℚ); the test returns true for every p.
+- *Non-example.* If g₁ = 2Q for a rational point Q of infinite order, the test at p = 2 returns false, witnessed by the line of b = (1, 0, …, 0).
+- *Non-example.* For g₁ = Q and g₂ = 2Q the test returns false at every p, because the generators are dependent in G/pG, even when G is p-saturated.
+
+### Examples
+
+- Mathlib's `E₄` is integral and `E₄/2` is not; at weight `12` the Miller basis is `{Δ}` and `T₂` acts by `−24`, so `2` is nonordinary there (`integralModularLattice` (3.1), `millerBasis` (3.3), `integralHeckeMatrix` (3.7)).
+- The coefficient of `q^107` in `ΔE₄²E₆` is `35830422465487817813321292 ≡ −1 (mod 107)` (`weight26_coeff_107` (3.8)).
+- At weight `38` the integral matrix of `T₇₉` in the Miller basis reduces modulo `79` to `[[3, 17], [25, 10]]`, whose determinant `30 − 425 = −395 = −5·79` vanishes modulo `79` (`weight38_nonordinary_det` (3.10)).
+- `y² = x³ + x + 1` over `ZMod 5` has `9` points and Frobenius trace `−3` (`pointCount_eq_charSum` (3.17)).
+- For `y² = x³ − x` at the real place the abscissae `−1/2` and `2` give a complete local image of order `2` (`LocalImageCertificate` (3.18)).
+- In `ℤ`, `6ℤ` is `5`-saturated and neither `2`- nor `3`-saturated (`IsPSaturated` (3.22)).
+
+### Dependencies
+
+Layers CN.0–CN.2; TauCetiRoadmap ModularForms Layers 7–11; AlgebraicModularFormsAndSerreWeights R15.2, R15.3, R15.5; TauCetiRoadmap EllipticCurves Layers 4 and 6; HeightsRationalPointsAndObstructions RP.1; Mathlib (level-one modular forms, `quadraticChar`, division polynomials); Tau Ceti (Sturm bound, Hecke recurrence, point count, `x − T` descent, division-polynomial identity).
+
+## Layer CN.4: Validated numerics and finite analytic certificates
+
+Numerical output is an enclosure of a specified intrinsic value. Arithmetic propagates precision
+and analytic error together. Root lists need both isolation and completeness. Dirichlet and
+modular `L`-value algorithms evaluate the native continuations with rigorous tails. The
+explicit-formula applications accept only admissible, completely covered datasets and exact
+rational Gram inequalities; complete covers come from the Fincke–Pohst enumeration.
+
+*Proof obligations of the layer.* Implement terminating enclosures of exp, log, π, digamma, trigamma and the incomplete Gamma function with argument reduction and directed rounding, and add every truncation error to the final interval. Use Complex.digamma_apply_add_nat only away from the nonpositive integers. For polynomial roots, provide finite rational root counts, subdivision, separation and completeness against the root theory of TauCetiRoadmap RealAlgebraicGeometry. A sign-change test for a real analytic function needs continuity, and unique isolation additionally needs a monotonicity or derivative bound. For level-one cusp L-values, prove the smoothed functional-equation identity, an effective coefficient-growth constant and an incomplete-Gamma tail bound. For Platt's finite ranges, construct the primitive-character enumeration, the Euler–Maclaurin and FFT error certificates, the sampling and upsampling bounds, the real normalization of the completed function and a Turing zero count (Platt §§4–7, pp.3–15); a list of sign changes proves neither a complete zero count nor a finite-conductor theorem. For CT, the G evaluation formulas are unconditional; only their automorphic positivity use, which is not part of this roadmap, assumes GRH. Prove the weighted alternating tail beyond the sufficient threshold α(N+1) ≥ 1. Each dataset row binds an exact infinity type, a positive multiplicity and δ ∈ {0, 1}; prove that the required ε-product is real when δ_iδ_j = 1, and keep the multiplicity lift t_i/m_i with diagonal A/m_i. Complete covers come from `fpEnumeration_complete` (4.27) with an explicitly enlarged cutoff whose extra vectors are kept and checked; counts for a cover, such as the 12293-row example, are not counts for the smaller exact ellipsoid.
+
+### 4.1 Rational interval multiplication (`intervalMul`)
+
+**Construction.** For I=[a,b] and J=[c,d] with rational endpoints, intervalMul I J is [min(ac,ad,bc,bd), max(ac,ad,bc,bd)]. These are enclosing intervals in ℝ under the rational embedding. The existing monotone interval multiplication does not apply to arbitrary signed rational endpoints.
 
 - `intervalMul_lower`: The lower endpoint is the minimum of the four corner products.
 - `intervalMul_comm`: Multiplication is symmetric in its two intervals.
 - `intervalMul_pure`: Singleton intervals multiply as rational numbers.
 
-Tests.
+*Method.* Evaluate all four corner products. Their minimum is at most their maximum; package these as the endpoints of the existing NonemptyInterval ℚ carrier. ([Arb](#source-arb), §3.1.2, p.5; §4, p.6; §5, p.7.) *Needs:* Mathlib `NonemptyInterval`.
 
-- `test_intervalMul_signed` (computation): [−2,3] times [−4,5] is [−12,15].
-- `test_intervalMul_zero` (degenerate): The singleton zero times any interval is the singleton zero.
-- `test_intervalMul_crossing` (non-example): [−1,1] times itself has lower endpoint −1, not +1.
+**Checks.**
 
-**Enclosure under multiplication — `intervalMul_sound`.** For x,y∈ℝ, if a≤x≤b and c≤y≤d, then xy lies between the endpoints of intervalMul [a,b] [c,d], with all rational endpoints cast into ℝ.
+- *Computed value.* [−2,3] times [−4,5] is [−12,15].
+- *Degenerate case.* The singleton zero times any interval is the singleton zero.
+- *Non-example.* [−1,1] times itself has lower endpoint −1, not +1.
 
-Construction or proof. Split each input interval at zero. In each of the four sign cases, order compatibility of multiplication bounds xy by the corresponding corner products.
+### 4.2 Enclosure under multiplication (`intervalMul_sound`)
 
-Prerequisites. `intervalMul` (CN.4).
+**Theorem.** For x,y∈ℝ, if a≤x≤b and c≤y≤d, then xy lies between the endpoints of intervalMul [a,b] [c,d], with all rational endpoints cast into ℝ.
 
-Source. [Arb](#source-arb), §3.1.2, p.5; §4, p.6; §5, p.7.
+*Proof sketch.* Split each input interval at zero. In each of the four sign cases, order compatibility of multiplication bounds xy by the corresponding corner products. ([Arb](#source-arb), §3.1.2, p.5; §4, p.6; §5, p.7.) *Needs:* `intervalMul` (4.1).
 
-**Partial interval reciprocal — `intervalInv`.** intervalInv I returns none when 0∈I and otherwise returns the interval [1/I.upper,1/I.lower]. Failure is data and carries no assertion that the mathematical reciprocal exists at zero.
+### 4.3 Partial interval reciprocal (`intervalInv`)
 
-Construction or proof. Decide whether the rational endpoints straddle zero. On either remaining sign component, inversion reverses order.
-
-Prerequisites. Mathlib `NonemptyInterval`.
-
-Source. [Arb](#source-arb), §3.1, pp.4–6; §5, pp.7–8.
-
-API.
+**Construction.** intervalInv I returns none when 0∈I and otherwise returns the interval [1/I.upper,1/I.lower]. Failure is data and carries no assertion that the mathematical reciprocal exists at zero.
 
 - `intervalInv_involutive`: Successful inversion twice recovers the input interval.
 - `intervalInv_none`: Failure is equivalent to the input interval containing zero.
 - `intervalInv_endpoints`: Successful output has reciprocals of the reversed input endpoints.
 
-Tests.
+*Method.* Decide whether the rational endpoints straddle zero. On either remaining sign component, inversion reverses order. ([Arb](#source-arb), §3.1, pp.4–6; §5, pp.7–8.) *Needs:* Mathlib `NonemptyInterval`.
 
-- `test_intervalInv_positive` (computation): The reciprocal of [2,4] is [1/4,1/2].
-- `test_intervalInv_zero` (degenerate): The singleton zero is rejected.
-- `test_intervalInv_negative` (computation): The reciprocal of [−4,−2] is [−1/2,−1/4].
+**Checks.**
 
-**Enclosure under reciprocal — `intervalInv_sound`.** If intervalInv I=some J and x∈ℝ lies in I, then x≠0 and 1/x lies in J.
+- *Computed value.* The reciprocal of [2,4] is [1/4,1/2].
+- *Degenerate case.* The singleton zero is rejected.
+- *Computed value.* The reciprocal of [−4,−2] is [−1/2,−1/4].
 
-Construction or proof. Unfold the successful branch and distinguish positive and negative intervals; apply order reversal of inversion in that sign component.
+### 4.4 Enclosure under reciprocal (`intervalInv_sound`)
 
-Prerequisites. `intervalInv` (CN.4).
+**Theorem.** If intervalInv I=some J and x∈ℝ lies in I, then x≠0 and 1/x lies in J.
 
-Source. [Arb](#source-arb), §3.1, pp.4–6; §5, pp.7–8.
+*Proof sketch.* Unfold the successful branch and distinguish positive and negative intervals; apply order reversal of inversion in that sign component. ([Arb](#source-arb), §3.1, pp.4–6; §5, pp.7–8.) *Needs:* `intervalInv` (4.3).
 
-**Outward dyadic rounding — `dyadicHull`.** For precision p∈ℕ, dyadicHull p [a,b]=[floor(2^p a)/2^p,ceil(2^p b)/2^p]. Negative endpoints use floor and ceiling, not truncation toward zero. The representation remains NonemptyInterval ℚ.
+### 4.5 Outward dyadic rounding (`dyadicHull`)
 
-Construction or proof. Use the integer floor and ceiling of each scaled endpoint. Positivity of 2^p proves the endpoints are ordered.
-
-Prerequisites. Mathlib `NonemptyInterval`.
-
-Source. [Arb](#source-arb), §3.1, p.4; §5, p.7.
-
-API.
+**Construction.** For precision p∈ℕ, dyadicHull p [a,b]=[floor(2^p a)/2^p,ceil(2^p b)/2^p]. Negative endpoints use floor and ceiling, not truncation toward zero. The representation remains NonemptyInterval ℚ.
 
 - `dyadicHull_grid`: Both output endpoints lie on the 2^(−p) rational grid.
 - `dyadicHull_contains`: The original interval is contained in the rounded interval.
 - `dyadicHull_idempotent`: Rounding again at the same precision does not change the interval.
 
-Tests.
+*Method.* Use the integer floor and ceiling of each scaled endpoint. Positivity of 2^p proves the endpoints are ordered. ([Arb](#source-arb), §3.1, p.4; §5, p.7.) *Needs:* Mathlib `NonemptyInterval`.
 
-- `test_dyadicHull_third` (computation): At p=2 the singleton 1/3 becomes [1/4,1/2].
-- `test_dyadicHull_negative` (non-example): At p=0 the singleton −1/3 becomes [−1,0].
-- `test_dyadicHull_zero` (degenerate): Exact zero remains exact at every precision.
+**Checks.**
 
-**Width added by dyadic rounding — `dyadicHull_width`.** The width of dyadicHull p I is less than width(I)+2·2^(−p). The strict bound includes exact endpoints.
+- *Computed value.* At p=2 the singleton 1/3 becomes [1/4,1/2].
+- *Non-example.* At p=0 the singleton −1/3 becomes [−1,0].
+- *Degenerate case.* Exact zero remains exact at every precision.
 
-Construction or proof. Each endpoint moves outward by strictly less than 2^(−p); add the two floor/ceiling error inequalities.
+### 4.6 Width added by dyadic rounding (`dyadicHull_width`)
 
-Prerequisites. `dyadicHull` (CN.4).
+**Lemma.** The width of dyadicHull p I is less than width(I)+2·2^(−p). The strict bound includes exact endpoints.
 
-Source. [Arb](#source-arb), §3.1, p.4; §5, p.7.
+*Proof sketch.* Each endpoint moves outward by strictly less than 2^(−p); add the two floor/ceiling error inequalities. ([Arb](#source-arb), §3.1, p.4; §5, p.7.) *Needs:* `dyadicHull` (4.5).
 
-**Rational complex-box denotation — `complexBoxSet`.** A complex box is represented by the native pair (R,I) of closed nonempty rational intervals. complexBoxSet(R,I) is {z∈ℂ | Re(z)∈R and Im(z)∈I}. No new complex-number carrier or rounded value equality is introduced. Degenerate boxes and boxes meeting branch cuts are allowed; analytic evaluators must account for their entire image.
+### 4.7 Rational complex-box denotation (`complexBoxSet`)
 
-Construction or proof. Define the four real endpoint inequalities using rational casts.
-
-Prerequisites. Mathlib `NonemptyInterval`.
-
-Source. [Arb](#source-arb), §5 and §5.3, pp.7–8.
-
-API.
+**Definition.** A complex box is represented by the native pair (R,I) of closed nonempty rational intervals. complexBoxSet(R,I) is {z∈ℂ | Re(z)∈R and Im(z)∈I}. No new complex-number carrier or rounded value equality is introduced. Degenerate boxes and boxes meeting branch cuts are allowed; analytic evaluators must account for their entire image.
 
 - `mem_complexBoxSet`: Membership is membership of both real components in their endpoint intervals.
 - `complexBoxSet_nonempty`: Every nonempty component pair denotes a nonempty complex set.
 - `complexBoxSet_mono`: Expanding each component interval expands the denotation.
 
-Tests.
+*Construction.* Define the four real endpoint inequalities using rational casts. ([Arb](#source-arb), §5 and §5.3, pp.7–8.) *Needs:* Mathlib `NonemptyInterval`.
 
-- `test_box_zero` (degenerate): The pair of singleton zero intervals contains only zero.
-- `test_box_i` (computation): The box [0,0]×[1,1] contains i.
-- `test_box_positive_nonzero` (non-example): A strictly positive real lower endpoint excludes zero.
+**Checks.**
 
-**Unique integer extraction — `uniqueInteger`.** uniqueInteger I returns the integer ceil(I.lower) precisely when ceil(I.lower)=floor(I.upper); otherwise it returns none. It asserts uniqueness inside the closed interval, not that an unknown real number in it is integral.
+- *Degenerate case.* The pair of singleton zero intervals contains only zero.
+- *Computed value.* The box [0,0]×[1,1] contains i.
+- *Non-example.* A strictly positive real lower endpoint excludes zero.
 
-Construction or proof. Compute the smallest and largest integers in the rational interval. Compare them exactly.
+### 4.8 Unique integer extraction (`uniqueInteger`)
 
-Prerequisites. Mathlib `NonemptyInterval`.
-
-Source. [Arb](#source-arb), §2.3, pp.3–4.
-
-API.
+**Construction.** uniqueInteger I returns the integer ceil(I.lower) precisely when ceil(I.lower)=floor(I.upper); otherwise it returns none. It asserts uniqueness inside the closed interval, not that an unknown real number in it is integral.
 
 - `uniqueInteger_mem`: A returned integer lies in the input interval.
 - `uniqueInteger_iff`: The output is z iff z is the unique integer in I.
 - `uniqueInteger_pure`: A singleton integer is recovered.
 
-Tests.
+*Method.* Compute the smallest and largest integers in the rational interval. Compare them exactly. ([Arb](#source-arb), §2.3, pp.3–4.) *Needs:* Mathlib `NonemptyInterval`.
 
-- `test_uniqueInteger_one` (computation): [3/4,5/4] contains exactly the integer 1.
-- `test_uniqueInteger_two` (non-example): [0,1] is rejected because both endpoints are integers.
-- `test_uniqueInteger_empty` (degenerate): The singleton 1/2 contains no integer and is rejected.
+**Checks.**
 
-**Recovery of a known integral value — `uniqueInteger_sound`.** If z is an integer, its real image belongs to I, and uniqueInteger I=some w, then z=w. An enclosure around zero alone never proves that a general real or complex analytic value vanishes.
+- *Computed value.* [3/4,5/4] contains exactly the integer 1.
+- *Non-example.* [0,1] is rejected because both endpoints are integers.
+- *Degenerate case.* The singleton 1/2 contains no integer and is rejected.
 
-Construction or proof. Cast the rational endpoint inequalities and apply uniqueInteger_iff to the known integer z.
+### 4.9 Recovery of a known integral value (`uniqueInteger_sound`)
 
-Prerequisites. `uniqueInteger` (CN.4).
+**Theorem.** If z is an integer, its real image belongs to I, and uniqueInteger I=some w, then z=w. An enclosure around zero alone never proves that a general real or complex analytic value vanishes.
 
-Source. [Arb](#source-arb), §2.3, pp.3–4.
+*Proof sketch.* Cast the rational endpoint inequalities and apply uniqueInteger_iff to the known integer z. ([Arb](#source-arb), §2.3, pp.3–4.) *Needs:* `uniqueInteger` (4.8).
 
-### p-adic precision propagation
+### 4.10 Normalize a rational p-adic ball (`padicNormalize`)
 
-**Normalize a rational p-adic ball — `padicNormalize`.** For prime p, rational centre c and absolute precision N∈ℤ, padicNormalize p c N returns the unique canonical PadicApproximation at precision N with denotation {x | ‖x−c‖≤p^(−N)}. Its valuation field is N if c=0, and min(v_p(c),N) otherwise. For v<N the mantissa is the unique residue in [1,p^(N−v)) prime to p representing c·p^(−v) modulo p^(N−v).
-
-Construction or proof. Separate the zero and high-valuation cases. Otherwise invert the denominator prime to p modulo p^(N−v) and reduce the scaled numerator. Native p-adic truncation compares this residue with the original rational centre.
-
-Prerequisites. `PadicApproximation` (CN.0); Mathlib `PadicInt.toZModPow`; Mathlib `padicValRat`.
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.
-
-API.
+**Construction.** For prime p, rational centre c and absolute precision N∈ℤ, padicNormalize p c N returns the unique canonical PadicApproximation at precision N with denotation {x | ‖x−c‖≤p^(−N)}. Its valuation field is N if c=0, and min(v_p(c),N) otherwise. For v<N the mantissa is the unique residue in [1,p^(N−v)) prime to p representing c·p^(−v) modulo p^(N−v).
 
 - `padicNormalize_precision`: Absolute precision is retained.
 - `padicNormalize_denotation`: Normalization preserves the entire rational-centred ball.
 - `padicNormalize_valuation`: The zero branch avoids the native valuation-at-zero default.
 - `padicNormalize_id`: Normalizing an already canonical centre and precision recovers the approximation.
 
-Tests.
+*Method.* Separate the zero and high-valuation cases. Otherwise invert the denominator prime to p modulo p^(N−v) and reduce the scaled numerator. Native p-adic truncation compares this residue with the original rational centre. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `PadicApproximation` (0.14); Mathlib `PadicInt.toZModPow`; Mathlib `padicValRat`.
 
-- `test_normalize_zero` (degenerate): Zero at precision 5 has valuation 5 and mantissa zero.
-- `test_normalize_five` (computation): 5 modulo 3 normalizes to mantissa 2.
-- `test_normalize_cancellation` (non-example): 9 at absolute precision 2 is a zero-centred ball, not a unit with valuation zero.
+**Checks.**
 
-**Certified p-adic addition — `padicAdd`.** Add two canonical p-adic approximations by normalizing the sum of centres at absolute precision min(N,N′). For every independently chosen x in the first ball and y in the second, the sum lies in the output ball. This enclosure does not recover correlations between repeated occurrences of an uncertain input.
+- *Degenerate case.* Zero at precision 5 has valuation 5 and mantissa zero.
+- *Computed value.* 5 modulo 3 normalizes to mantissa 2.
+- *Non-example.* 9 at absolute precision 2 is a zero-centred ball, not a unit with valuation zero.
 
-Construction or proof. Expand the error around the exact rational centres and apply the ultrametric inequality.
+### 4.11 Certified p-adic addition (`padicAdd`)
 
-Prerequisites. `padicNormalize` (CN.4); `PadicApproximation` (CN.0).
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.
-
-API.
+**Construction.** Add two canonical p-adic approximations by normalizing the sum of centres at absolute precision min(N,N′). For every independently chosen x in the first ball and y in the second, the sum lies in the output ball. This enclosure does not recover correlations between repeated occurrences of an uncertain input.
 
 - `padicAdd_precision`: The output has the stated absolute precision.
 - `padicAdd_sound`: The output contains every result from independently chosen inputs.
 - `padicAdd_comm`: The canonical result is symmetric in its inputs.
 
-Tests.
+*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
-- `test_padic_add_zero` (degenerate): The operation on two precision-zero zero-centred balls contains zero.
-- `test_padic_add_centres` (computation): The exact operation on the centres lies in the output.
-- `test_padic_add_unequal_precision` (compatibility): The declared precision includes different input precisions and zero centres.
+**Checks.**
 
-**Certified p-adic multiplication — `padicMul`.** Multiply two canonical p-adic approximations by normalizing the product of centres at absolute precision min(v+N′,N+v′). For every independently chosen x in the first ball and y in the second, the product lies in the output ball. This enclosure does not recover correlations between repeated occurrences of an uncertain input.
+- *Degenerate case.* The operation on two precision-zero zero-centred balls contains zero.
+- *Computed value.* At p = 3, (1 + O(3²)) + (2 + O(3³)) has centre 3 and absolute precision 2, so its canonical form is (N, v, s) = (2, 1, 1).
+- *Agreement with the library notion.* The declared precision includes different input precisions and zero centres.
 
-Construction or proof. Expand the error around the exact rational centres and apply the ultrametric inequality. For multiplication the mixed error has valuation at least N+N′, which is no smaller than either retained bound because v≤N and v′≤N′.
+### 4.12 Certified p-adic multiplication (`padicMul`)
 
-Prerequisites. `padicNormalize` (CN.4); `PadicApproximation` (CN.0).
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.
-
-API.
+**Construction.** Multiply two canonical p-adic approximations by normalizing the product of centres at absolute precision min(v+N′,N+v′). For every independently chosen x in the first ball and y in the second, the product lies in the output ball. This enclosure does not recover correlations between repeated occurrences of an uncertain input.
 
 - `padicMul_precision`: The output has the stated absolute precision.
 - `padicMul_sound`: The output contains every result from independently chosen inputs.
 - `padicMul_comm`: The canonical result is symmetric in its inputs.
 
-Tests.
+*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. For multiplication the mixed error has valuation at least N+N′, which is no smaller than either retained bound because v≤N and v′≤N′. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
-- `test_padic_mul_zero` (degenerate): The operation on two precision-zero zero-centred balls contains zero.
-- `test_padic_mul_centres` (computation): The exact operation on the centres lies in the output.
-- `test_padic_mul_unequal_precision` (compatibility): The declared precision includes different input precisions and zero centres.
-- `test_padic_mul_negative_valuation` (computation): At p=3, multiply 3+O(3^4) by 1/3+O(3^2): the normalized output has centre 1 and absolute precision min(1+2,4−1)=3.
+**Checks.**
 
-**Partial p-adic inversion — `padicInverse`.** padicInverse rejects a zero-mantissa approximation, because its ball contains zero. Otherwise it returns the normalized reciprocal of the rational centre at absolute precision N−2v. Every element in the input ball is nonzero and its inverse lies in this output. The input relative precision N−v is preserved.
+- *Degenerate case.* The operation on two precision-zero zero-centred balls contains zero.
+- *Computed value.* The exact operation on the centres lies in the output.
+- *Agreement with the library notion.* The declared precision includes different input precisions and zero centres.
+- *Computed value.* At p=3, multiply 3+O(3^4) by 1/3+O(3^2): the normalized output has centre 1 and absolute precision min(1+2,4−1)=3.
 
-Construction or proof. Write x=c+h with v(h)≥N>v(c). Then x has the same valuation as c and x⁻¹−c⁻¹=−h/(cx), of valuation at least N−2v.
+### 4.13 Partial p-adic inversion (`padicInverse`)
 
-Prerequisites. `padicNormalize` (CN.4); `PadicApproximation` (CN.0).
-
-Source. [CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.
-
-API.
+**Construction.** padicInverse rejects a zero-mantissa approximation, because its ball contains zero. Otherwise it returns the normalized reciprocal of the rational centre at absolute precision N−2v. Every element in the input ball is nonzero and its inverse lies in this output. The input relative precision N−v is preserved.
 
 - `padicInverse_none_iff`: Rejection is exactly the presence of zero in the input ball.
 - `padicInverse_precision`: A successful output has precision N−2v.
 - `padicInverse_sound`: A successful output encloses reciprocals of every input value.
 
-Tests.
+*Method.* Write x=c+h with v(h)≥N>v(c). Then x has the same valuation as c and x⁻¹−c⁻¹=−h/(cx), of valuation at least N−2v. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
-- `test_padic_inverse_zero` (degenerate): The zero-centred ball is rejected.
-- `test_padic_inverse_unit` (computation): Inverting a precision-four unit preserves absolute precision four.
-- `test_padic_inverse_loss` (non-example): Inverting 3+O(3⁴) loses two absolute digits, yielding precision two.
+**Checks.**
 
-### Explicit-formula kernels and scalar enclosures
+- *Degenerate case.* The zero-centred ball is rejected.
+- *Computed value.* Inverting a precision-four unit preserves absolute precision four.
+- *Non-example.* Inverting 3+O(3⁴) loses two absolute digits, yielding precision two.
 
-**Odlyzko tail kernel — `ctTailKernel`.** ctTailKernel(x)=2π²exp(−x)/(x²+π²)² for real x. It is positive everywhere and decreases on [0,∞). This is the scalar exponentially decaying kernel in both unconditional F_ℓ and conditional G_ℓ evaluation formulas; positivity of the test functions and the GRH-dependent explicit-formula implication belong to the automorphic owner.
+### 4.14 Odlyzko tail kernel (`ctTailKernel`)
 
-Construction or proof. Use native real exp and π. Positivity follows from π≠0. On the nonnegative half-line both the exponential factor decreases and the positive denominator increases.
-
-Prerequisites. Native arithmetic, finite lists and functions.
-
-Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.
-
-API.
+**Definition.** ctTailKernel(x)=2π²exp(−x)/(x²+π²)² for real x. It is positive everywhere and decreases on [0,∞). This is the scalar exponentially decaying kernel in the evaluation formulas for both F_ℓ and G_ℓ; positivity of the test functions and the explicit-formula implication, which assumes GRH, are statements about automorphic forms and not targets of this roadmap.
 
 - `ctTailKernel_pos`: The kernel is strictly positive.
 - `ctTailKernel_zero`: At zero its value is 2/π².
 - `ctTailKernel_geometric`: For x,t≥0, r(x+t)≤exp(−t)r(x).
 
-Tests.
+*Construction.* Use native real exp and π. Positivity follows from π≠0. On the nonnegative half-line both the exponential factor decreases and the positive denominator increases. ([CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-- `test_tail_kernel_zero` (degenerate): The zero value is positive and finite.
-- `test_tail_kernel_one` (computation): r(1) is strictly below r(0).
-- `test_tail_kernel_not_even` (non-example): The kernel is not even: r(−1)>r(1).
+**Checks.**
 
-**Geometric bound for the Odlyzko tail — `ctTailKernel_tail`.** For α>0, b≥0 and N∈ℕ, the series Σr(α(b+n)) converges and its tail after indices 0,…,N−1 lies in [0,r(α(b+N))/(1−exp(−α))]. N=0 includes the entire series.
+- *Degenerate case.* The zero value is positive and finite.
+- *Computed value.* r(1) is strictly below r(0).
+- *Non-example.* The kernel is not even: r(−1)>r(1).
 
-Construction or proof. The preceding kernel inequality gives a geometric majorant with ratio exp(−α)<1. Sum that majorant and use termwise positivity.
+### 4.15 Geometric bound for the Odlyzko tail (`ctTailKernel_tail`)
 
-Prerequisites. `ctTailKernel` (CN.4).
+**Theorem.** For α>0, b≥0 and N∈ℕ, the series Σr(α(b+n)) converges and its tail after indices 0,…,N−1 lies in [0,r(α(b+N))/(1−exp(−α))]. N=0 includes the entire series.
 
-Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.
+*Proof sketch.* The preceding kernel inequality gives a geometric majorant with ratio exp(−α)<1. Sum that majorant and use termwise positivity. ([CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.) *Needs:* `ctTailKernel` (4.14).
 
-**Alternating Odlyzko tail bound — `ctTailKernel_alternating_tail`.** For α>0 and b≥0, the absolute error after the first N terms of Σ(−1)^n r(α(b+n)) is at most r(α(b+N)). The weighted n·r(αn) variant used by J_F(1−ε) needs its own monotonicity threshold; α(N+1)≥1 is a sufficient rationally checkable replacement for the sharper decimal threshold in the source.
+### 4.16 Alternating Odlyzko tail bound (`ctTailKernel_alternating_tail`)
 
-Construction or proof. The kernel decreases to zero, so apply the alternating-series remainder theorem. For the weighted variant, differentiate log(xr(x)); it is decreasing for x≥1.
+**Theorem.** For α>0 and b≥0, the absolute error after the first N terms of Σ(−1)^n r(α(b+n)) is at most r(α(b+N)). The weighted n·r(αn) variant used by J_F(1−ε) needs its own monotonicity threshold; α(N+1)≥1 is a sufficient rationally checkable replacement for the sharper decimal threshold in the source.
 
-Prerequisites. `ctTailKernel` (CN.4); `ctTailKernel_tail` (CN.4).
+*Proof sketch.* The kernel decreases to zero, so apply the alternating-series remainder theorem. For the weighted variant, differentiate log(xr(x)); it is decreasing for x≥1. ([CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.) *Needs:* `ctTailKernel` (4.14); `ctTailKernel_tail` (4.15).
 
-Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.
+### 4.17 Closed scalar formulas for CT evaluation (`ctExplicitFormula`)
 
-**Closed scalar formulas for CT evaluation — `ctExplicitFormula`.** ctExplicitFormula ℓ w selects one of eight scalar expressions, for ℓ>0 and w∈ℕ. Put r=ctTailKernel, φ(z)=(ψ((z+1)/2)−ψ(z/2))/2, b_F=1/2+w/4 and b_G=(1+w)/2. Indices 0,…,7 are F̂_ℓ(0), F̂_ℓ(i/4π), J_Fℓ(I_w), J_Fℓ(1−ε), Ĝ_ℓ(0), Ĝ_ℓ(i/4π), J_Gℓ(I_w), J_Gℓ(1−ε). Their explicit expressions are those of CL Proposition 3.17 and CT Proposition 4.4, with the Fourier/Laplace dictionary F̂(0)=Φ_F(1/2), F̂(i/4π)=Φ_F(0). This declaration defines the numerical right-hand sides; identification with the intrinsic automorphic linear functional remains an imported obligation.
+**Definition.** ctExplicitFormula ℓ w selects one of eight scalar expressions, for ℓ>0 and w∈ℕ. Put r=ctTailKernel, φ(z)=(ψ((z+1)/2)−ψ(z/2))/2, b_F=1/2+w/4 and b_G=(1+w)/2. Indices 0,…,7 are F̂_ℓ(0), F̂_ℓ(i/4π), J_Fℓ(I_w), J_Fℓ(1−ε), Ĝ_ℓ(0), Ĝ_ℓ(i/4π), J_Gℓ(I_w), J_Gℓ(1−ε). Their explicit expressions are those of CL Proposition 3.17 and CT Proposition 4.4, with the Fourier/Laplace dictionary F̂(0)=Φ_F(1/2), F̂(i/4π)=Φ_F(0). This declaration defines the numerical right-hand sides only; nothing in this roadmap uses their identification with the intrinsic automorphic linear functionals.
 
 For an explicit specification, let \(z_0=\tfrac12+i\pi/\ell\),
 \(z_1=1+i\pi/\ell\), \(z_F=b_F+i\pi/(2\ell)\), and
@@ -1589,289 +1672,290 @@ The numerical right-hand sides, in the stated order, are:
 | 6 | \(\log(2\pi)-\Re\psi(z_G)+\frac1\pi\Im\psi(z_G)-\frac1\ell\Re\psi'(z_G)+\ell S(\ell,b_G)\) |
 | 7 | \(\Re\phi(z_0)-\frac1\pi\Im\phi(z_0)+\frac1\ell\Re\phi'(z_0)+\ell T(\ell,\tfrac12)\) |
 
-All eight expressions and their enclosures are unconditional. Any GRH
-assumption belongs to the imported automorphic positivity implication for G,
-rather than to this numerical definition.
-
-Construction or proof. Use the native digamma function and its derivative, the displayed exponentially convergent tails, and elementary real/complex operations. Both formulas for F̂(i/4π) and Ĝ(0) equal 8ℓ/π². Distinguish the F and G gamma shifts and the weighted alternating tail.
-
-Prerequisites. `ctTailKernel` (CN.4); `ctTailKernel_tail` (CN.4); `ctTailKernel_alternating_tail` (CN.4); Mathlib `Complex.digamma`; Mathlib `Complex.digamma_apply_add_nat`.
-
-Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint; [CT](#source-ct), Proposition 4.4 and proof, pp.298–299.
-
-API.
+All eight expressions and their enclosures are unconditional. A GRH
+assumption enters only the automorphic positivity statement for G, which is not
+part of this roadmap.
 
 - `ctExplicitFormula_shared_value`: F̂_ℓ(i/4π)=Ĝ_ℓ(0), without an analytic hypothesis.
 - `ctExplicitFormula_fourier`: Their value is 8ℓ/π².
-- `ctExplicitFormula_G_imag`: The conditional imaginary Fourier value has the cosh closed formula.
+- `ctExplicitFormula_G_imag`: The imaginary Fourier value Ĝ_ℓ(i/4π) has the cosh closed formula.
 
-Tests.
+*Construction.* Use the native digamma function and its derivative, the displayed exponentially convergent tails, and elementary real/complex operations. Both formulas for F̂(i/4π) and Ĝ(0) equal 8ℓ/π². Distinguish the F and G gamma shifts and the weighted alternating tail. ([CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint; [CT](#source-ct), Proposition 4.4 and proof, pp.298–299.) *Needs:* `ctTailKernel` (4.14); `ctTailKernel_tail` (4.15); `ctTailKernel_alternating_tail` (4.16); Mathlib `Complex.digamma`; Mathlib `Complex.digamma_apply_add_nat`.
 
-- `test_ct_fourier_positive` (computation): For every positive ℓ the shared Fourier value is positive.
-- `test_ct_fourier_zero` (degenerate): At ℓ=0 the totalized formula is zero, and is excluded from every evaluation theorem.
-- `test_ct_fourier_linear` (compatibility): Doubling ℓ doubles the shared Fourier value.
+**Checks.**
 
-**Certified rational enclosures of CT quantities — `ctEnclosure`.** For rational ℓ>0, weight w, quantity index q∈{0,…,7} and precision P∈ℕ, ctEnclosure returns rational endpoints containing ctExplicitFormula ℓ w q, with width at most 2^(−P). It evaluates exp, log, π, ψ and ψ′ with directed error bounds and adds the explicit series remainder. The two identical Fourier-value indices 1 and 4 use the same evaluation path. An approximate eigenvalue search does not enter this checker.
+- *Computed value.* For every positive ℓ the shared Fourier value is positive.
+- *Degenerate case.* At ℓ=0 the totalized formula is zero, and is excluded from every evaluation theorem.
+- *Agreement with the library notion.* Doubling ℓ doubles the shared Fourier value.
 
-Construction or proof. Bound argument-reduction and elementary-function errors, shift digamma arguments within the right half-plane using the native recurrence, and apply a certified Euler–Maclaurin or Spouge remainder. Choose tail truncation from the kernel bounds. Round the final interval outward, increasing internal precision until the requested width is achieved. The special-function remainder and termination proof are additional construction requirements.
+### 4.18 Certified rational enclosures of CT quantities (`ctEnclosure`)
 
-Prerequisites. `ctExplicitFormula` (CN.4); `dyadicHull` (CN.4); `ctTailKernel_tail` (CN.4); `ctTailKernel_alternating_tail` (CN.4); Mathlib `Complex.digamma_apply_add_nat`.
-
-Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint; [Arb](#source-arb), §5, pp.7–8.
-
-API.
+**Construction.** For rational ℓ>0, weight w, quantity index q∈{0,…,7} and precision P∈ℕ, ctEnclosure returns rational endpoints containing ctExplicitFormula ℓ w q, with width at most 2^(−P). It evaluates exp, log, π, ψ and ψ′ with directed error bounds and adds the explicit series remainder. The two identical Fourier-value indices 1 and 4 use the same evaluation path. An approximate eigenvalue search does not enter this checker.
 
 - `ctEnclosure_sound`: The exact scalar lies between the returned endpoints.
 - `ctEnclosure_width`: The rational width meets the requested binary accuracy.
 - `ctEnclosure_shared`: The equal Fourier-value indices use the same enclosure.
 
-Tests.
+*Method.* Bound argument-reduction and elementary-function errors, shift digamma arguments within the right half-plane using the native recurrence, and apply a certified Euler–Maclaurin or Spouge remainder. Choose tail truncation from the kernel bounds. Round the final interval outward, increasing internal precision until the requested width is achieved. The special-function remainder and termination proof are additional construction requirements. ([CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint; [Arb](#source-arb), §5, pp.7–8.) *Needs:* `ctExplicitFormula` (4.17); `dyadicHull` (4.5); `ctTailKernel_tail` (4.15); `ctTailKernel_alternating_tail` (4.16); Mathlib `Complex.digamma_apply_add_nat`.
 
-- `test_ct_enclosure_unit` (computation): At ℓ=1 and precision 8 the shared Fourier value lies inside (4/5,41/50).
-- `test_ct_enclosure_weight_zero` (degenerate): Weight zero is an allowed I₀ evaluation, with a nonempty enclosure.
-- `test_ct_enclosure_not_exact` (non-example): The rational interval cannot be a singleton for 8/π².
+**Checks.**
 
-### Complete polynomial root lists
+- *Computed value.* At ℓ=1 and precision 8 the shared Fourier value lies inside (4/5,41/50).
+- *Degenerate case.* Weight zero is an allowed I₀ evaluation, with a nonempty enclosure.
+- *Non-example.* The rational interval cannot be a singleton for 8/π².
 
-**Complete isolation of rational-polynomial roots — `isolatePolynomialRoots`.** For nonzero f∈ℚ[X], isolatePolynomialRoots f returns a finite list of AlgebraicRootCertificate objects, each using f, with pairwise disjoint closed rational rectangles, and whose decoded values are exactly the distinct complex roots of f. Multiplicities are retained separately by square-free factorization; the output list counts distinct roots. A constant nonzero polynomial returns the empty list.
+### 4.19 Complete isolation of rational-polynomial roots (`isolatePolynomialRoots`)
 
-Construction or proof. Use exact square-free factorization and certified complex root counting in rational rectangles. Subdivide until each remaining rectangle contains a single distinct root and all roots are accounted for. A separation bound and a global degree/count argument prove termination and completeness; these are explicit proof obligations, not supplied by approximate root locations.
-
-Prerequisites. `AlgebraicRootCertificate` (CN.0); `RationalFactorCertificate` (CN.1).
-
-Source. [Arb](#source-arb), §5, pp.7–8.
-
-API.
+**Construction.** For nonzero f∈ℚ[X], isolatePolynomialRoots f returns a finite list of AlgebraicRootCertificate objects, each using f, with pairwise disjoint closed rational rectangles, and whose decoded values are exactly the distinct complex roots of f. Multiplicities are retained separately by square-free factorization; the output list counts distinct roots. A constant nonzero polynomial returns the empty list.
 
 - `isolatePolynomialRoots_polynomial`: Every output uses the input polynomial.
 - `isolatePolynomialRoots_complete`: The decoded values are exactly all distinct roots.
 - `isolatePolynomialRoots_nodup`: No root occurs twice.
 - `isolatePolynomialRoots_disjoint`: Different output rectangles are disjoint.
 
-Tests.
+*Method.* Use exact square-free factorization and certified complex root counting in rational rectangles. Subdivide until each remaining rectangle contains a single distinct root and all roots are accounted for. A separation bound and a global degree/count argument prove termination and completeness; these are explicit proof obligations, not supplied by approximate root locations. ([Arb](#source-arb), §5, pp.7–8.) *Needs:* `AlgebraicRootCertificate` (0.8); `RationalFactorCertificate` (1.27); TauCetiRoadmap RealAlgebraicGeometry Layers 1–4.
 
-- `test_isolate_constant` (degenerate): A nonzero constant has no roots.
-- `test_isolate_repeated` (non-example): X² returns one distinct root, not two boxes containing zero.
-- `test_isolate_complex` (computation): X²+1 returns two distinct complex roots.
+**Checks.**
 
-### Continued L-values and finite conductor ranges
+- *Degenerate case.* A nonzero constant has no roots.
+- *Non-example.* X² returns one distinct root, not two boxes containing zero.
+- *Computed value.* X²+1 returns two distinct complex roots.
 
-**Certified continued Dirichlet L-values — `dirichletLBox`.** For a primitive complex Dirichlet character χ of positive modulus q, a rational complex point z away from the principal-character pole at s=1, and requested precision P, dirichletLBox returns a rational complex rectangle containing the native continued LFunction(χ,z), with each component width at most 2^(−P). Character values require certified algebraic presentations. Euler–Maclaurin or an approximate functional equation supplies analytic continuation evaluation; the raw Dirichlet series is used only where it converges.
+### 4.20 Certified continued Dirichlet L-values (`dirichletLBox`)
 
-Construction or proof. Import the native continued function. Evaluate finite character sums and special-function terms with enclosing arithmetic, then add a proved uniform remainder. The principal-character pole is rejected by hypothesis. For nonrational evaluation points, consume a shrinking input enclosure and a local derivative bound in the same evaluator.
-
-Prerequisites. Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`; `complexBoxSet` (CN.4); `AlgebraicRootCertificate` (CN.0).
-
-Source. [Platt](#source-platt), §§4–6 and §7, pp.3–15.
-
-API.
+**Construction.** For a primitive complex Dirichlet character χ of positive modulus q, a rational complex point z away from the principal-character pole at s=1, and requested precision P, dirichletLBox returns a rational complex rectangle containing the native continued LFunction(χ,z), with each component width at most 2^(−P). Character values require certified algebraic presentations. Euler–Maclaurin or an approximate functional equation supplies analytic continuation evaluation; the raw Dirichlet series is used only where it converges.
 
 - `dirichletLBox_sound`: The native meromorphic L-value is enclosed.
 - `dirichletLBox_width`: Both component widths are at most 2^(−P).
 - `dirichletLBox_nonvanishing`: Exclusion of zero certifies nonvanishing.
 
-Tests.
+*Method.* Import the native continued function. Evaluate finite character sums and special-function terms with enclosing arithmetic, then add a proved uniform remainder. The principal-character pole is rejected by hypothesis. For nonrational evaluation points, consume a shrinking input enclosure and a local derivative bound in the same evaluator. ([Platt](#source-platt), §§4–6 and §7, pp.3–15.) *Needs:* Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`; `complexBoxSet` (4.7); `AlgebraicRootCertificate` (0.8).
 
-- `test_lbox_zeta_two` (computation): The modulus-one value at 2 encloses ζ(2).
-- `test_lbox_pole` (non-example): The principal modulus-one input at 1 fails the pole guard.
-- `test_lbox_critical_line` (compatibility): The central point uses the continued L-function, even though its raw Dirichlet series is outside absolute convergence.
+**Checks.**
 
-**Certified cusp-form L-value enclosure — `cuspLBox`.** For positive integer weight k, a level-one cusp form f with integral q-expansion, a rational complex argument z and precision P, cuspLBox returns a rational rectangle containing the native continued ModularForm.L(k,f,z), with each coordinate width at most 2^(−P). The finite coordinates of f are supplied through the certified Miller basis. The algorithm uses the imported functional equation and a smoothed series with effective coefficient and truncation bounds; it does not use the raw Dirichlet series outside its convergence half-plane. General levels, algebraic coefficient embeddings and Fricke-transformed data are additional supplier contracts of the same evaluation contract.
+- *Computed value.* The modulus-one value at 2 encloses ζ(2).
+- *Non-example.* The principal modulus-one input at 1 fails the pole guard.
+- *Agreement with the library notion.* The central point uses the continued L-function, even though its raw Dirichlet series is outside absolute convergence.
 
-Construction or proof. Obtain exact finite coordinates through the integral lattice and Miller basis. Import the native continuation and functional equation. Enclose finite sums and bound both smoothed tails before outward rounding. Effective constants and the general-level normalization comparison are additional proof requirements.
+### 4.21 Certified cusp-form L-value enclosure (`cuspLBox`)
 
-Prerequisites. Mathlib `ModularForm.L`; Mathlib `ModularForm.weakFEPair`; Mathlib `WeakFEPair.functional_equation`; `complexBoxSet` (CN.4); `millerBasis` (CN.3); `integralCuspLattice` (CN.3); **ModularForms, Layer 7**.
-
-Source. [Arb](#source-arb), §§5–6, pp.7–10.
-
-API.
+**Construction.** For positive integer weight k, a level-one cusp form f with integral q-expansion, a rational complex argument z and precision P, cuspLBox returns a rational rectangle containing the native continued ModularForm.L(k,f,z), with each coordinate width at most 2^(−P). The finite coordinates of f are supplied through the certified Miller basis. The algorithm uses Mathlib's functional equation and a smoothed series with effective coefficient and truncation bounds; it does not use the raw Dirichlet series outside its convergence half-plane. The target is stated at level one, where Mathlib's functional equation has sign and conductor fixed.
 
 - `cuspLBox_contains`: The rectangle encloses the native continuation at the rational point.
 - `cuspLBox_width`: Both coordinate widths satisfy the requested absolute precision.
 - `cuspLBox_excludes_zero`: Excluding zero proves nonvanishing and never an exact vanishing claim.
 
-Tests.
+*Method.* Obtain exact finite coordinates through the integral lattice and Miller basis. Use Mathlib's continuation and functional equation. Enclose finite sums and bound both smoothed tails before outward rounding. The effective coefficient constant and both tail bounds are part of the proof. ([Arb](#source-arb), §§5–6, pp.7–10.) *Needs:* Mathlib `ModularForm.L`; Mathlib `ModularForm.weakFEPair`; Mathlib `WeakFEPair.functional_equation`; `complexBoxSet` (4.7); `millerBasis` (3.3); `integralCuspLattice` (3.2).
 
-- `test_cuspL_zero` (degenerate): A zero cusp form has an enclosure containing zero.
-- `test_cuspL_precision` (computation): At precision eight both widths are at most 1/256.
-- `test_cuspL_no_zero_inference` (non-example): The explicit rectangle [−1,1]×[−1,1] contains both zero and one, so membership of zero alone in this enclosure does not prove exact vanishing.
-- `test_cuspL_singleton_zero` (degenerate): The singleton rectangle {0}×{0} contains only zero; a certified value in this exact rectangle is zero.
+**Checks.**
 
-**Platt’s finite-conductor zero certificate target — `platt_bounded_height`.** For primitive χ of modulus q≤400000, every zero s of the native LFunction in 0<Re(s)<1 with |Im(s)|≤H(q) has Re(s)=1/2, where H(q)=max(10⁸/q,7.5·10⁷/q+200) for even q and max(10⁸/q,3.75·10⁷/q+200) for odd q. This parity is the modulus parity, not character parity. The unconditional finite computation is not an assumption of global GRH.
+- *Degenerate case.* A zero cusp form has an enclosure containing zero.
+- *Computed value.* At precision eight both widths are at most 1/256.
+- *Non-example.* The explicit rectangle [−1,1]×[−1,1] contains both zero and one, so membership of zero alone in this enclosure does not prove exact vanishing.
+- *Degenerate case.* The singleton rectangle {0}×{0} contains only zero; a certified value in this exact rectangle is zero.
 
-Construction or proof. Reconstruct the character enumeration, interval evaluations, sign-change zero isolations and Turing upper count. Equality between the isolated zero count and the upper count excludes missed off-line zeros. This chain and its datasets remain separate construction requirements.
+### 4.22 Platt’s finite-conductor zero certificate target (`platt_bounded_height`)
 
-Prerequisites. `dirichletLBox` (CN.4); Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`.
+**Theorem.** For primitive χ of modulus q≤400000, every zero s of the native LFunction in 0<Re(s)<1 with |Im(s)|≤H(q) has Re(s)=1/2, where H(q)=max(10⁸/q,7.5·10⁷/q+200) for even q and max(10⁸/q,3.75·10⁷/q+200) for odd q. This parity is the modulus parity, not character parity. The unconditional finite computation is not an assumption of global GRH.
 
-Source. [Platt](#source-platt), Theorems 7.1–7.2, pp.14–15.
+*Proof sketch.* Reconstruct the character enumeration, interval evaluations, sign-change zero isolations and Turing upper count. Equality between the isolated zero count and the upper count excludes missed off-line zeros. This chain and its datasets remain separate construction requirements. ([Platt](#source-platt), Theorems 7.1–7.2, pp.14–15.) *Needs:* `dirichletLBox` (4.20); Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`.
 
-**Platt’s central nonvanishing target — `platt_central_nonvanishing`.** For every primitive complex Dirichlet character of modulus q≤2000000, LFunction(χ,1/2)≠0. This is a separate finite certificate target from the bounded-height zero-line theorem.
+### 4.23 Platt’s central nonvanishing target (`platt_central_nonvanishing`)
 
-Construction or proof. Enumerate every primitive character and produce an interval for its central value excluding zero. Increase certified precision in every unresolved case; never accept a box merely because its midpoint is nonzero.
+**Theorem.** For every primitive complex Dirichlet character of modulus q≤2000000, LFunction(χ,1/2)≠0. This is a separate finite certificate target from the bounded-height zero-line theorem.
 
-Prerequisites. `dirichletLBox` (CN.4); Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`.
+*Proof sketch.* Enumerate every primitive character and produce an interval for its central value excluding zero. Increase certified precision in every unresolved case; never accept a box merely because its midpoint is nonzero. ([Platt](#source-platt), Theorems 7.1–7.2, pp.14–15.) *Needs:* `dirichletLBox` (4.20); Mathlib `DirichletCharacter.LFunction`; Mathlib `DirichletCharacter.IsPrimitive`.
 
-Source. [Platt](#source-platt), Theorems 7.1–7.2, pp.14–15.
+### 4.24 No real zeros for conductor at most 400000 (`small_conductor_no_real_zero`)
 
-**No real zeros for conductor at most 400000 — `small_conductor_no_real_zero`.** For primitive χ of modulus q≤400000 and real s with 0<s<1, the native continued LFunction(χ,s) is nonzero. This is the exact computation input used by Bennett–Siksek Proposition 7.2.
+**Theorem.** For primitive χ of modulus q≤400000 and real s with 0<s<1, the native continued LFunction(χ,s) is nonzero. This is the exact computation input used by Bennett–Siksek Proposition 7.2.
 
-Construction or proof. A hypothetical real zero has height zero, so the bounded-height theorem forces s=1/2. The separate central nonvanishing theorem excludes that value.
+*Proof sketch.* A hypothetical real zero has height zero, so the bounded-height theorem forces s=1/2. The separate central nonvanishing theorem excludes that value. ([Platt](#source-platt), Theorems 7.1–7.2, pp.14–15; [BennettSiksek](#source-bennettsiksek), §7, proof of Proposition 7.2, p.376.) *Needs:* `platt_bounded_height` (4.22); `platt_central_nonvanishing` (4.23).
 
-Prerequisites. `platt_bounded_height` (CN.4); `platt_central_nonvanishing` (CN.4).
+### 4.25 Entrywise lower bounds on effective vectors (`effectiveGram_lower`)
 
-Source. [Platt](#source-platt), Theorems 7.1–7.2, pp.14–15; [BennettSiksek](#source-bennettsiksek), §7, proof of Proposition 7.2, p.376.
+**Theorem.** Let A,B be real n×n matrices. If B_ij≤A_ij for every i,j and x_i≥0 for every i, then Σ_ij B_ij x_i x_j≤Σ_ij A_ij x_i x_j. Symmetry is unnecessary for this inequality. The nonnegative-coordinate hypothesis is essential.
 
-### Gram inequalities, complete covers and dataset verification
+*Proof sketch.* Every x_i x_j is nonnegative. Multiply each entry inequality by this number and sum. ([CT](#source-ct), Remark 2.11, pp.281–282.) *Needs:* `intervalMul_sound` (4.2).
 
-**Entrywise lower bounds on effective vectors — `effectiveGram_lower`.** Let A,B be real n×n matrices. If B_ij≤A_ij for every i,j and x_i≥0 for every i, then Σ_ij B_ij x_i x_j≤Σ_ij A_ij x_i x_j. Symmetry is unnecessary for this inequality. The nonnegative-coordinate hypothesis is essential.
+### 4.26 Fincke–Pohst enumeration of an ellipsoid (`fpEnumeration`)
 
-Construction or proof. Every x_i x_j is nonnegative. Multiply each entry inequality by this number and sum.
+**Construction.** Let G be a symmetric rational n×n matrix whose quadratic completion has positive pivots, t ∈ ℚ^n a centre and R ∈ ℚ a bound. Write the completion as (x−t)ᵀG(x−t) = Σ_k q_kk·(x_k − t_k + Σ_(j>k) q_kj(x_j − t_j))². fpEnumeration G t R ⊆ ℤ^n is the finite set produced by choosing x_(n−1), …, x_0 in turn: at each level the coordinate runs over the integers whose square term fits in the remaining budget, decided by exact comparison of rational squares, and the budget is reduced by that term. Boundary points are included, both signs of each vector appear, the zero vector appears when t = 0 and R ≥ 0, and the set is empty when R < 0. As a total function it returns the empty set when a pivot is not positive.
 
-Prerequisites. `intervalMul_sound` (CN.4).
+- `fpEnumeration_of_neg`: If R < 0 the set is empty.
+- `fpEnumeration_neg`: With t = 0 the set is closed under x ↦ −x.
+- `fpEnumeration_mono`: R ≤ R′ implies fpEnumeration G t R ⊆ fpEnumeration G t R′.
+- `zero_mem_fpEnumeration`: The zero vector belongs to fpEnumeration G 0 R for R ≥ 0.
 
-Source. [CT](#source-ct), Remark 2.11, pp.281–282.
+*Method.* Compute the quadratic completion over ℚ (Gaussian elimination on the symmetric matrix). At each level the admissible integers form a bounded interval, because the square term is at most the remaining budget; their endpoints are found by comparing rational squares, never by extracting square roots. Recursion over the n levels with finite branching gives a finite set. ([deWeger](#source-deweger), §3.6 and Figure 2, printed pp.51–52.) *Needs:* `effectiveGram_lower` (4.25); Mathlib `Matrix.PosDef`.
 
-**Loewner lower bounds on unrestricted vectors — `loewnerGram_lower`.** For symmetric real matrices A and B with A−B positive semidefinite, xᵀBx≤xᵀAx for every real vector x, including mixed signs.
+**Checks.**
 
-Construction or proof. Evaluate the positive-semidefinite inequality on x and expand the difference.
+- *Computed value.* For G = I₂, t = 0 and R = 1 the output is {0, ±(1,0), ±(0,1)}, five vectors.
+- *Computed value.* For G = [[2,1],[1,2]], t = 0 and R = 2 the output has seven vectors, {0, ±(1,0), ±(0,1), ±(1,−1)}; (1,1) has value 6 and is excluded.
+- *Degenerate case.* R = −1 gives the empty set for every G and t.
+- *Non-example.* For G = [[2,1],[1,2]] and R = 2 the box |x_i| ≤ 1 contains (1,1), which is not in the output: bounding coordinates separately overcounts.
 
-Prerequisites. Native arithmetic, finite lists and functions.
+### 4.27 Soundness and completeness of the Fincke–Pohst enumeration (`fpEnumeration_complete`)
 
-Source. [CT](#source-ct), Remark 2.11, pp.281–282.
+**Theorem.** Let G be a symmetric rational matrix with positive completion pivots, t ∈ ℚ^n and R ∈ ℚ. For every x ∈ ℤ^n, x ∈ fpEnumeration G t R exactly when (x−t)ᵀG(x−t) ≤ R. Consequently an empty output certifies that no integer vector lies in the ellipsoid, and for t = 0 the output {0} certifies that every nonzero integer vector has value greater than R. An enlarged bound R′ ≥ R gives a cover whose extra vectors are kept and filtered separately.
 
-**Rational witness of Gram negativity — `NegativeGramCertificate`.** For an n×n matrix I of rational enclosing intervals and a rational vector t, NegativeGramCertificate I consists of t_i≥0 for every i, t≠0, and the strictly negative rational upper bound Σ_ij I_ij.upper t_i t_j<0. It does not store an approximate eigenvalue as evidence.
+*Proof sketch.* If (x−t)ᵀG(x−t) ≤ R, the completion identity bounds every partial sum of the square terms by R, so at each level x_k lies in the interval scanned for its tail, and downward induction shows that x is produced. Conversely, a produced vector has nonnegative final budget, which is the inequality. Monotonicity in R gives the cover statement. ([deWeger](#source-deweger), §3.6 and Figure 2, printed pp.51–52, with the translation to a centre on p.53.) *Needs:* `fpEnumeration` (4.26).
 
-Construction or proof. The fields are exact rational inequalities. Nonnegativity permits endpointwise upper bounding.
+### 4.28 Loewner lower bounds on unrestricted vectors (`loewnerGram_lower`)
 
-Prerequisites. Mathlib `NonemptyInterval`; `effectiveGram_lower` (CN.4).
+**Theorem.** For symmetric real matrices A and B with A−B positive semidefinite, xᵀBx≤xᵀAx for every real vector x, including mixed signs.
 
-Source. [CT](#source-ct), Algorithm 2.4.4, pp.282–283.
+*Proof sketch.* Evaluate the positive-semidefinite inequality on x and expand the difference. ([CT](#source-ct), Remark 2.11, pp.281–282.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
-API.
+### 4.29 Rational witness of Gram negativity (`NegativeGramCertificate`)
+
+**Definition.** For an n×n matrix I of rational enclosing intervals and a rational vector t, NegativeGramCertificate I consists of t_i≥0 for every i, t≠0, and the strictly negative rational upper bound Σ_ij I_ij.upper t_i t_j<0. It does not store an approximate eigenvalue as evidence.
 
 - `NegativeGramCertificate.upper_negative`: The stored endpoint quadratic value is strictly negative.
 - `NegativeGramCertificate.vector_ne_zero`: The witness vector is nonzero.
 - `NegativeGramCertificate.scale`: Multiplying the vector by a positive rational preserves certification.
 - `NegativeGramCertificate.scale_vector`: The scaled certificate uses exactly r times the original vector.
 
-Tests.
+*Construction.* The fields are exact rational inequalities. Nonnegativity permits endpointwise upper bounding. ([CT](#source-ct), Algorithm 2.4.4, pp.282–283.) *Needs:* Mathlib `NonemptyInterval`; `effectiveGram_lower` (4.25).
 
-- `test_negativeGram_one` (computation): The one-dimensional interval [−2,−1] admits vector 1.
-- `test_negativeGram_zero_dim` (degenerate): Dimension zero admits no nonzero vector certificate.
-- `test_negativeGram_crossing` (non-example): The one-dimensional enclosure [−1,1] certifies no negative value by this rule.
+**Checks.**
 
-**Soundness of the negativity certificate — `NegativeGramCertificate.sound`.** If A_ij lies in interval I_ij and c is a NegativeGramCertificate I, then c.vectorᵀ A c.vector<0 over ℝ.
+- *Computed value.* The one-dimensional interval [−2,−1] admits vector 1.
+- *Degenerate case.* Dimension zero admits no nonzero vector certificate.
+- *Non-example.* The one-dimensional enclosure [−1,1] certifies no negative value by this rule.
 
-Construction or proof. Cast the exact rational upper inequality to ℝ. Sum entrywise upper bounds weighted by nonnegative vector products.
+### 4.30 Soundness of the negativity certificate (`NegativeGramCertificate.sound`)
 
-Prerequisites. `NegativeGramCertificate` (CN.4); `effectiveGram_lower` (CN.4).
+**Theorem.** If A_ij lies in interval I_ij and c is a NegativeGramCertificate I, then c.vectorᵀ A c.vector<0 over ℝ.
 
-Source. [CT](#source-ct), Algorithm 2.4.4, step 4, pp.282–283.
+*Proof sketch.* Cast the exact rational upper inequality to ℝ. Sum entrywise upper bounds weighted by nonnegative vector products. ([CT](#source-ct), Algorithm 2.4.4, step 4, pp.282–283.) *Needs:* `NegativeGramCertificate` (4.29); `effectiveGram_lower` (4.25).
 
-**Effective vectors from a certified ellipsoid cover — `effectiveEllipsoidCover`.** Given a certified finite cover S of all integer vectors x with xᵀBx≤c, effectiveEllipsoidCover filters S by nonnegative coordinates and the exact rational bound xᵀBx≤c. If B is entrywise below the real target Gram matrix A, then every effective integer x with xᵀAx≤c remains in the output. The result may contain vectors failing the true A-bound, so it is a cover of the required set, not an exact list for A. A safety factor such as 1.001 must appear in the supplied c and never be silently described as the original cutoff.
+### 4.31 Effective vectors from a certified ellipsoid cover (`effectiveEllipsoidCover`)
 
-Construction or proof. Import GN.5’s complete exact enumeration. Filter with decidable integer/rational inequalities. The effective Gram comparison proves that each required A-short vector is B-short and therefore was enumerated.
-
-Prerequisites. **GeometryOfNumbersAndQuadraticArithmetic, GN.5**; `effectiveGram_lower` (CN.4).
-
-Source. [CT](#source-ct), Remark 2.11 and §2.4.3, pp.281–282.
-
-API.
+**Construction.** Given a certified finite cover S of all integer vectors x with xᵀBx≤c, effectiveEllipsoidCover filters S by nonnegative coordinates and the exact rational bound xᵀBx≤c. If B is entrywise below the real target Gram matrix A, then every effective integer x with xᵀAx≤c remains in the output. The result may contain vectors failing the true A-bound, so it is a cover of the required set, not an exact list for A. A safety factor such as 1.001 must appear in the supplied c and never be silently described as the original cutoff.
 
 - `mem_effectiveEllipsoidCover`: Membership is membership in S plus the two exact filter conditions.
 - `effectiveEllipsoidCover_subset`: Filtering never invents a vector.
 - `effectiveEllipsoidCover_complete`: Every nonnegative B-short vector is retained when S is exhaustive.
 
-Tests.
+*Method.* Take S = fpEnumeration B 0 c, complete by `fpEnumeration_complete` (4.27). Filter with decidable integer/rational inequalities. The effective Gram comparison proves that each required A-short vector is B-short and therefore was enumerated. ([CT](#source-ct), Remark 2.11 and §2.4.3, pp.281–282.) *Needs:* `fpEnumeration_complete` (4.27); `effectiveGram_lower` (4.25).
 
-- `test_effective_cover_zero` (degenerate): The zero vector survives any nonnegative cutoff when supplied.
-- `test_effective_cover_negative` (non-example): A negative coordinate is rejected even inside the ellipsoid.
-- `test_effective_cover_boundary` (computation): A vector on the exact rational boundary is retained.
+**Checks.**
 
-**Finite Gram-negativity checker — `checkNegativeGram`.** checkNegativeGram I t is true exactly when every rational coordinate of t is nonnegative, t is not the zero vector, and the rational quadratic sum using upper interval endpoints is strictly negative. It verifies a raw proposed witness, independently of how t was found. For mixed-sign vectors this endpoint checker deliberately rejects the witness; use full interval products or a different certified bound instead.
+- *Degenerate case.* The zero vector survives any nonnegative cutoff when supplied.
+- *Non-example.* A negative coordinate is rejected even inside the ellipsoid.
+- *Computed value.* A vector on the exact rational boundary is retained.
 
-Construction or proof. All arithmetic and comparisons are rational and finite. A successful check constructs the previously specified NegativeGramCertificate with exactly the supplied vector.
+### 4.32 Finite Gram-negativity checker (`checkNegativeGram`)
 
-Prerequisites. `NegativeGramCertificate` (CN.4); `effectiveGram_lower` (CN.4).
-
-Source. [CT](#source-ct), Algorithms 2.4.4–2.4.5, pp.282–284.
-
-API.
+**Construction.** checkNegativeGram I t is true exactly when every rational coordinate of t is nonnegative, t is not the zero vector, and the rational quadratic sum using upper interval endpoints is strictly negative. It verifies a raw proposed witness, independently of how t was found. For mixed-sign vectors this endpoint checker deliberately rejects the witness; use full interval products or a different certified bound instead.
 
 - `checkNegativeGram_iff`: Acceptance is exactly the three finite rational conditions.
 - `checkNegativeGram_certificate`: Success supplies a certificate with the same vector.
 - `checkNegativeGram_scale`: Scaling by a positive rational preserves the Boolean verdict.
 
-Tests.
+*Method.* All arithmetic and comparisons are rational and finite. A successful check constructs the previously specified NegativeGramCertificate with exactly the supplied vector. ([CT](#source-ct), Algorithms 2.4.4–2.4.5, pp.282–284.) *Needs:* `NegativeGramCertificate` (4.29); `effectiveGram_lower` (4.25).
 
-- `test_check_negative` (computation): Upper endpoint −1 and vector 1 pass.
-- `test_check_zero_vector` (degenerate): The zero vector never passes.
-- `test_check_ambiguous_sign` (non-example): An interval straddling zero fails even if its lower endpoint is negative.
+**Checks.**
 
-**Finite family of Gram certificates — `checkGramDataset`.** A raw Gram row is a dimension n, an n×n rational interval matrix and an n-coordinate rational vector. checkGramDataset applies checkNegativeGram to every row and returns their Boolean conjunction. Acceptance says exactly that every listed witness certifies a negative real quadratic value, assuming the analytic entries are enclosed. It does not assert that the list exhausts a mathematical search space; completeness follows separately from the enumeration certificate. Each dataset record must identify its mathematical parameters and the certificate binding its entries to the intrinsic analytic values.
+- *Computed value.* Upper endpoint −1 and vector 1 pass.
+- *Degenerate case.* The zero vector never passes.
+- *Non-example.* An interval straddling zero fails even if its lower endpoint is negative.
 
-Construction or proof. Use a dependent pair over n and a finite List. Check each row independently; prove the all-members equivalence by list induction.
+### 4.33 Finite family of Gram certificates (`checkGramDataset`)
 
-Prerequisites. `checkNegativeGram` (CN.4); `ctEnclosure` (CN.4); `effectiveEllipsoidCover` (CN.4).
-
-Source. [CT](#source-ct), §§2.4.6 and 4.1–4.3, pp.284–286 and 295–299.
-
-API.
+**Construction.** A raw Gram row is a dimension n, an n×n rational interval matrix and an n-coordinate rational vector. checkGramDataset applies checkNegativeGram to every row and returns their Boolean conjunction. Acceptance says exactly that every listed witness certifies a negative real quadratic value, assuming the analytic entries are enclosed. It does not assert that the list exhausts a mathematical search space; completeness follows separately from the enumeration certificate. Each dataset record must identify its mathematical parameters and the certificate binding its entries to the intrinsic analytic values.
 
 - `checkGramDataset_iff`: All rows pass iff every member’s finite checker passes.
 - `checkGramDataset_append`: Checking concatenation is the conjunction of the two checks.
 - `checkGramDataset_perm`: Reordering rows does not change acceptance.
 
-Tests.
+*Method.* Use a dependent pair over n and a finite List. Check each row independently; prove the all-members equivalence by list induction. ([CT](#source-ct), §§2.4.6 and 4.1–4.3, pp.284–286 and 295–299.) *Needs:* `checkNegativeGram` (4.32); `ctEnclosure` (4.18); `effectiveEllipsoidCover` (4.31).
 
-- `test_dataset_empty` (degenerate): The empty list passes without proving enumeration completeness.
-- `test_dataset_single` (computation): A one-row negative certificate passes.
-- `test_dataset_bad_row` (non-example): Adding a zero-vector row makes the entire dataset fail.
+**Checks.**
 
-**Correct multiplicity lift for Gram witnesses — `multiplicityGram_lift`.** Let m_i>0 be block sizes, A∈ℝ and K an n×n real matrix. On the expanded index set {(i,r):0≤r<m_i}, put B_(i,r),(j,s)=A·δ_(i,r),(j,s)−K_ij. For any vector t, the expanded vector x_(i,r)=t_i/m_i satisfies xᵀBx=tᵀβt, where β_ij=(A/m_i)δ_ij−K_ij. Thus a certified negative value for β gives one for B. The lift is t_i/m_i; replacing it by t_i/√m_i changes the off-diagonal normalization. This equality does not assert equality of Euclidean unit-sphere minima.
+- *Degenerate case.* The empty list passes without proving enumeration completeness.
+- *Computed value.* A one-row negative certificate passes.
+- *Non-example.* Adding a zero-vector row makes the entire dataset fail.
 
-Construction or proof. Sum each constant block contribution and the diagonal terms separately. Each diagonal block contributes A·m_i·(t_i/m_i)²=A t_i²/m_i, while each off-diagonal block contributes −K_ij t_i t_j.
+### 4.34 Correct multiplicity lift for Gram witnesses (`multiplicityGram_lift`)
 
-Prerequisites. `NegativeGramCertificate` (CN.4).
+**Lemma.** Let m_i>0 be block sizes, A∈ℝ and K an n×n real matrix. On the expanded index set {(i,r):0≤r<m_i}, put B_(i,r),(j,s)=A·δ_(i,r),(j,s)−K_ij. For any vector t, the expanded vector x_(i,r)=t_i/m_i satisfies xᵀBx=tᵀβt, where β_ij=(A/m_i)δ_ij−K_ij. Thus a certified negative value for β gives one for B. The lift is t_i/m_i; replacing it by t_i/√m_i changes the off-diagonal normalization. This equality does not assert equality of Euclidean unit-sphere minima.
 
-Source. [CT](#source-ct), §2.4.2, Equation (2.4.4), p.278 and reduction pp.280–281; Algorithm 2.4.5, p.283.
+*Proof sketch.* Sum each constant block contribution and the diagonal terms separately. Each diagonal block contributes A·m_i·(t_i/m_i)²=A t_i²/m_i, while each off-diagonal block contributes −K_ij t_i t_j. ([CT](#source-ct), §2.4.2, Equation (2.4.4), p.278 and reduction pp.280–281; Algorithm 2.4.5, p.283.) *Needs:* `NegativeGramCertificate` (4.29).
 
-## CN.5: Binding and replay of arithmetic datasets
+### Examples
 
-An arithmetic dataset is used through the mathematical certificate that binds
-its rows to native objects. Reuse the CN.0 presentation and cost interfaces and
-the CN.4 finite checkers; no additional mathematical carrier is needed. Store
-the exact input range, enumeration order, normalization, coefficient embedding,
-precision and every rational endpoint needed to replay an accepted result.
-Specify the interpreter and dependency versions, an unambiguous serialization,
-and content hashes for the inputs and outputs. A hash binds bytes, not their
-mathematical meaning: the decoding and verifier soundness theorems remain the
-source of correctness.
+- `[−2, 3]·[−4, 5] = [−12, 15]`, and `[−1, 1]·[−1, 1]` has lower endpoint `−1`, not `1` (`intervalMul` (4.1)).
+- At precision `2` the outward dyadic hull of `1/3` is `[1/4, 1/2]`; at precision `0` that of `−1/3` is `[−1, 0]` (`dyadicHull` (4.5)).
+- At `p = 3`, `(3 + O(3⁴))·(1/3 + O(3²))` has centre `1` and absolute precision `min(1 + 2, 4 − 1) = 3`, and inverting `3 + O(3⁴)` gives absolute precision `2` (`padicMul` (4.12), `padicInverse` (4.13)).
+- The shared Fourier value `8ℓ/π²` at `ℓ = 1` lies in `(4/5, 41/50)` (`ctEnclosure` (4.18)).
+- For `G = [[2, 1], [1, 2]]` and `R = 2` the Fincke–Pohst output has seven vectors and excludes `(1, 1)` (`fpEnumeration` (4.26)).
+- The multiplicity lift sends `t_i` to `t_i/m_i`, so each diagonal block contributes `A·m_i·(t_i/m_i)² = A t_i²/m_i` (`multiplicityGram_lift` (4.34)).
 
-For modular data, replay all coefficient and Hecke bindings from CN.3. For the
-CT datasets, replay the exact scalar bounds, row admissibility, the complete
-ellipsoid cover and every negativity witness from CN.4. For the Platt ranges,
-replay the complete character enumeration, error bounds, isolated zeros and
-Turing counts, separately from the central nonvanishing records. State the
-finite range established by each replay. Samples and checksums cannot replace
-the completeness assertions in those targets.
+### Dependencies
 
-Prerequisites. CN.0 RAM/presentation interfaces, CN.3 finite coefficient
-certificates, and CN.4 `checkNegativeGram`, `checkGramDataset`, complete covers
-and analytic zero-count certificates. Sources. CT §§2.4.6 and 4.1–4.3,
-pp.284–286 and 295–299; Platt §§4–7, pp.3–15; Arb §5, pp.7–8.
+Layers CN.0–CN.3; Mathlib (`NonemptyInterval`, digamma, `DirichletCharacter.LFunction`, `ModularForm.L`, `WeakFEPair`, `Matrix.PosDef`); TauCetiRoadmap RealAlgebraicGeometry Layers 1–4.
+
+## Layer CN.5: Binding and replay of arithmetic datasets
+
+An arithmetic dataset is used through the certificate that binds its rows to native objects.
+This layer adds no mathematical carrier: it reuses the presentations and cost interfaces of Layer
+CN.0 and the checkers of Layers CN.3 and CN.4. A dataset record stores the exact input range, the
+enumeration order, the normalization, the coefficient embedding, the precision and every rational
+endpoint needed to replay an accepted result, together with an unambiguous serialization and
+content hashes of inputs and outputs. A hash binds bytes, not their mathematical meaning: the
+decoding and verifier soundness theorems remain the source of correctness.
+
+For modular data, replay all coefficient and Hecke bindings of Layer CN.3 (`modularDataEqual` (3.5),
+`integralHeckeMatrix` (3.7)). For elliptic data, replay the local-image certificates and saturation
+tests (`LocalImageCertificate` (3.18), `pSaturationTest` (3.26)). For the CT datasets, replay the exact scalar
+bounds, the row admissibility, the complete ellipsoid cover and every negativity witness of Layer
+CN.4 (`ctEnclosure` (4.18), `effectiveEllipsoidCover` (4.31), `checkGramDataset` (4.33)). For the Platt ranges, replay
+the complete character enumeration, the error bounds, the isolated zeros and the Turing counts,
+separately from the central nonvanishing records (`platt_bounded_height` (4.22),
+`platt_central_nonvanishing` (4.23)). State the finite range established by each replay; samples and
+checksums cannot replace the completeness assertions of those targets (Chenevier–Taïbi §§2.4.6
+and 4.1–4.3, pp.284–286 and 295–299; Platt §§4–7, pp.3–15; Arb §5, pp.7–8).
+
+### Examples
+
+- Replaying the one-row dataset with interval `[−2, −1]` and vector `1` re-runs `checkNegativeGram` (4.32) and returns true; adding a zero-vector row makes `checkGramDataset` (4.33) return false.
+
+### Dependencies
+
+Layers CN.0, CN.3 and CN.4.
+
+## Downstream consumers
+
+- **EffectiveDiophantineMethods**: its `2`-Selmer groups, rank bounds, canonical-height enclosures,
+  index bounds and Mordell–Weil bases use `LocalImageCertificate.eq_range_of_isComplete` (3.19),
+  `localImage_of_good_odd` (3.21), `pSaturationTest` (3.26), the class and unit certificates of Layer CN.2, and
+  the enclosures of Layer CN.4; its worked Diophantine examples instantiate the dataset binding of
+  Layer CN.5.
+- **ComplexMultiplicationAndExplicitReciprocity** (Layer CM.5): enclosure arithmetic and
+  `uniqueInteger_sound` (4.9) for class polynomials, keeping its own height, CRT and endomorphism-ring
+  certificates.
+- **PeriodsAndSpecialValues** (Layer PS.7): validated enclosures.
+- **RankZeroOneBSD**: exact vanishing of lower derivatives together with certified nonvanishing at
+  the first nonzero derivative; an enclosure containing zero never supplies the exact vanishing.
+- **FiniteFieldsAndCharacterSums**: finite-field applications use the presentations and factor
+  certificates of Layers CN.0–CN.1 and the dataset binding of Layer CN.5.
+- **ClassicalArithmeticCompletion** (Layers CA.5–CA.7): interprets the certified basis, unit and
+  class-group outputs of Layer CN.2 in intrinsic field invariants.
+- **LevelOneAutomorphicFormsForClassicalGroups**: identifies the numbers of `ctExplicitFormula` (4.17)
+  with its intrinsic linear functionals and uses the Gram certificates of Layer CN.4.
 
 ## References
 
-Locators use the printed page numbers of the linked version unless explicitly
-marked as PDF pages. The sources motivate or prove the mathematical statements
-at the cited locations; finite-data adapters and algorithms described as
-construction requirements also need the stated decoding and termination proofs.
-In particular, Arb supplies enclosure semantics, not the exact polynomial
-root-count algorithm, and Shoup §§16.5–16.6 supplies extension-field context,
-not the complete rational-factor recombination proof. The CL reference is the
-French preprint and its Proposition 3.17; the English edition has different
-numbering.
+Locators use the printed page numbers of the linked version unless explicitly marked as PDF
+pages. The sources prove or motivate the mathematical statements at the cited locations; the
+finite-data adapters and algorithms also need the stated decoding and termination proofs. Arb
+supplies enclosure semantics, not the exact polynomial root-count algorithm, and Shoup §§16.5–16.6
+supplies extension-field context, not the complete rational-factor recombination proof. The CL
+reference is the French preprint and its Proposition 3.17; the English edition numbers it
+differently.
 
 <a id="source-shoup"></a>
 
@@ -1928,3 +2012,27 @@ numbering.
 <a id="source-cg13"></a>
 
 - **CG13**: Craig Citro and Alexandru Ghitza, [Computing level one Hecke eigensystems (mod p)](https://arxiv.org/pdf/1102.3321v2), arXiv:1102.3321v2, 29 March 2011.
+
+<a id="source-milneant"></a>
+
+- **MilneANT**: J. S. Milne, [Algebraic Number Theory](https://www.jmilne.org/math/CourseNotes/ANT.pdf), course notes, version 3.08 (2020).
+
+<a id="source-sutherland"></a>
+
+- **Sutherland**: Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 7: Point counting](https://math.mit.edu/classes/18.783/2023/LectureNotes7.pdf), MIT lecture notes, Fall 2023.
+
+<a id="source-cremona"></a>
+
+- **Cremona**: J. E. Cremona, [Algorithms for Modular Elliptic Curves, Chapter III](https://johncremona.github.io/book/fulltext/chapter3.pdf), 2nd edition (1997), author's online text.
+
+<a id="source-fps"></a>
+
+- **FPS**: E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, [Cycles of quadratic polynomials and rational points on a genus-2 curve](https://arxiv.org/abs/math/9508211), arXiv:math/9508211v1; Duke Math. J. 90 (1997).
+
+<a id="source-siksek"></a>
+
+- **Siksek**: Samir Siksek, [Infinite descent on elliptic curves](https://samirsiksek.github.io/siksek.github.io/papers/infart2.pdf), author preprint (1995); Rocky Mountain J. Math. 25 (1995).
+
+<a id="source-deweger"></a>
+
+- **deWeger**: B. M. M. de Weger, [Algorithms for Diophantine Equations](https://ir.cwi.nl/pub/13190/13190D.pdf), CWI Tract 65 (1989).
