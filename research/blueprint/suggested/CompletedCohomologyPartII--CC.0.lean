@@ -1,5 +1,10 @@
 import Mathlib.RepresentationTheory.Invariants
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Homology.Embedding.CochainComplex
+import Mathlib.Algebra.Homology.ShortComplex.ModuleCat
+import Mathlib.Algebra.Category.ModuleCat.Abelian
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.Tactic
 
 /-!
@@ -22,20 +27,25 @@ the pins: the arithmetic tower and its completed modules are the owner's README 
 smooth representations over `O`, their averaging projectors and smooth contragredients are planned
 by SmoothRepresentationsOfLocalGroups SR.0 (`TauCeti.SmoothRep.averaging`,
 `TauCeti.SmoothRep.smoothDual`, `TauCeti.SmoothRep.invariants_smoothDual`). The fifth, the control
-lemma of CC.2, is about complexes of complete torsion-free modules; its statement needs the
-cohomology of a cochain complex of modules together with the reductions modulo every power of the
-uniformizer, which is a development of theory rather than a light statement, so it too stays in
-the roadmap document. Their suggested names, in the namespace `TauCeti.CompletedCohomology`:
+lemma of CC.2, is about complexes of complete torsion-free modules. Its clause (1) needs only the
+cohomology of a cochain complex of modules, which the pins have, and is stated below as
+`homology_hom_away_eq_zero`. Clauses (2)–(4) also need the reductions of the complex modulo every
+power of the uniformizer and their limits, which is a development of theory rather than a light
+statement, so they stay in the roadmap document. The suggested names, in the namespace
+`TauCeti.CompletedCohomology` (the unit tests of `TameCompleted` are named in the roadmap
+document):
 
 * `CC.2/complete-torsion-free-complex-control`: `homology_equiv_limit_of_complete_torsionFree`,
-  with `homology_divisible_eq_zero` and `bockstein_transition_eq_mul` for its clauses (1) and (2).
+  with `homology_hom_away_eq_zero` (stated below) and `bockstein_transition_eq_mul` for its clauses
+  (1) and (2).
 
 * `CC.3/finite-coefficient-model-of-completed-homology`: `completedHomology_equiv_limit_finite`,
   the homeomorphism `H̃_n ≃ lim_s lim_U H_n(Y_U, O/ϖ^s)`, and `rational_completedHomology`, the
   identification of Fu's rational model with `E ⊗_O H̃_n`.
 * `CC.3/tame-level-completed-modules`: `TameCompleted` with `TameCompleted.ι`,
-  `TameCompleted.smooth`, `TameCompleted.invariants`, `TameCompleted.averaging_comp_ι`,
-  `TameCompleted.equivariant` and `TameCompleted.of_empty`.
+  `TameCompleted.exists_ι`, `TameCompleted.desc`, `TameCompleted.smooth`,
+  `TameCompleted.invariants`, `TameCompleted.averaging_comp_ι`, `TameCompleted.equivariant` and
+  `TameCompleted.of_empty`.
 * `CC.3/tame-level-borel-moore-duality`: `tameBorelMooreDuality`, the isomorphism from the
   tame-level Borel–Moore module onto the smooth contragredient of the tame-level compactly
   supported completed cohomology.
@@ -43,9 +53,29 @@ the roadmap document. Their suggested names, in the namespace `TauCeti.Completed
   `integralCochainModel_cohomology` and `integralCochainModel_reduction`, and
   `completedCohomology_coeff_equiv`, the interchange for complete torsion-free coefficients.
 
-What follows is not part of any roadmap's plan. It is the arithmetic behind the acceptance tests of
-the roadmap document, stated on Mathlib objects only, and proved.
+After the statement of clause (1), what follows is not part of any roadmap's plan. It is the
+arithmetic behind the acceptance tests of the roadmap document, stated on Mathlib objects only, and
+proved.
 -/
+
+namespace TauCeti.CompletedCohomology
+
+open CategoryTheory
+
+/-- **Clause (1) of `CC.2/complete-torsion-free-complex-control`** (Pan 2022, Lemma 4.4.4 and its
+proof). For a bounded-above cochain complex of `ϖ`-adically complete, `ϖ`-torsion-free modules, no
+cohomology module receives a nonzero `O`-linear map from `O[1/ϖ]`: no nonzero class has a
+compatible system of `ϖ`-power roots, so the `ϖ`-adic Tate module of the cohomology vanishes. A
+class lying in every `ϖ ^ n • H^i` need not vanish without clause (4)'s bounded-torsion hypothesis.
+The torsion-freeness and boundedness hypotheses are those of the source. -/
+theorem homology_hom_away_eq_zero {O : Type} [CommRing O] (ϖ : O)
+    (M : CochainComplex (ModuleCat.{0} O) ℤ) (n : ℤ) [M.IsStrictlyLE n]
+    (hcomplete : ∀ i, IsAdicComplete (Ideal.span {ϖ}) (M.X i))
+    (htorsionFree : ∀ i, IsSMulRegular (M.X i) ϖ) (i : ℤ)
+    (f : Localization.Away ϖ →ₗ[O] M.homology i) : f = 0 := by
+  sorry
+
+end TauCeti.CompletedCohomology
 
 namespace CompletedCohomologyPartIICC0Acceptance
 
