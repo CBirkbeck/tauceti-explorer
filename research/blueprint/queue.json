@@ -37014,7 +37014,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9750"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
@@ -41138,7 +41139,8 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.7",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9799"
   },
   {
    "priority": 2,
