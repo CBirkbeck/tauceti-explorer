@@ -216748,7 +216748,7 @@
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E1",
    "kind": "misprint",
-   "locator": "§2.2.5, p. 925 (also in arXiv v2, p. 29)",
+   "locator": "§2.2.5, p. 925 (also in arXiv v2, p. 28)",
    "printed": "The homomorphism given by Lemma 2.1.13 is written t : Ξ_v → H(GL_n(F_v), I_v) ⊗_ℤ O and called an injective O-algebra homomorphism.",
    "correction": "t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗_ℤ O, defined on the group algebra of Ξ_v.",
    "reason": "An O-algebra homomorphism needs an O-algebra as domain; the next sentence applies t to an element q_v^{−⟨λ, ρ+(1−n)/2·det⟩}(1, …, α, …, 1) of O[Ξ_v], and Lemma 2.1.13 produces a map on H(M(F), U_M) ⊗ R = O[Ξ_v] for M = T_n.",
@@ -216764,8 +216764,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. An O-algebra homomorphism needs an O-algebra as domain; the next sentence applies t to an element q_v^{−⟨λ, ρ+(1−n)/2·det⟩}(1, …, α, …, 1) of O[Ξ_v], and Lemma 2.1.13 produces a map on H(M(F), U_M) ⊗ R = O[Ξ_v] for M = T_n."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. An O-algebra homomorphism needs an O-algebra as domain; the next sentence applies t to an element q_v^{−⟨λ, ρ+(1−n)/2·det⟩}(1, …, α, …, 1) of O[Ξ_v], and Lemma 2.1.13 produces a map on H(M(F), U_M) ⊗ R = O[Ξ_v] for M = T_n."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E2",
@@ -216786,8 +216786,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Confirmed the mismatch between the cited complex pro-ℓ-Iwahori result and the general integral/intermediate-level assertion. The old repair incorrectly extended Weyl relations to non-Weyl-stable levels; this review replaces that repair."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. Flicker, The tame algebra, §§2–4: the algebra studied is C_c(I_t\\G/I_t) over ℂ, with I_t the pro-p Iwahori subgroup; no intermediate level appears. When p divides [I_v : Iw_v(1,1)] the averaging idempotent does not exist over O, so the integral statements need the arguments recorded in IHR.1/tame-double-coset-invertible and IHR.2/tame-hecke-centre."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E3",
@@ -216795,7 +216795,7 @@
    "locator": "§2.2.5, pp. 930–931, the sentence before (2.2.17) (also in arXiv v2)",
    "printed": "For every Ĩ_v̄ with Ĩw_v̄(1,1) ⊂ Ĩ_v̄ ⊂ Ĩw_v̄(0,1), the source identifies Ĩ_v̄ ∩ G(F⁺_v̄) with a product I_{v^c} × I_v of open compact subgroups of GL_n(F_{v^c}) and GL_n(F_v); Proposition 2.2.18 is then stated with the GL_n polynomials at the levels I_v and I_{v^c}.",
    "correction": "The identification holds exactly when the torus subgroup Ã ⊂ (k(v)^×)^{2n} of ι_v(Ĩ_v̄) is a product A′ × A″ of subgroups of the first and last n coordinates; assume this (block-decomposable levels). The levels the paper uses, Ĩw_v̄(1,1) in Lemma 3.2.1(5) and Ĩw_v̄(0,1), are block-decomposable.",
-   "reason": "Take n = 1 and Ã = {(a, a)} ⊂ (k(v)^×)²: Ĩ_v̄ ∩ G(F⁺_v̄) = {(x, y) ∈ O_{F_{v^c}}^× × O_{F_v}^× : c(x)^{−1} ≡ y mod ϖ_v}, which is not a product of subgroups since both projections are onto O^× while the subgroup is proper. For such Ĩ_v̄ the polynomials P_{v,σ}, P_{v^c,σ^{−c}} of Proposition 2.2.18 are not defined.",
+   "reason": "Take n = 1, q_v > 2 and Ã = {(a, a)} ⊂ (k(v)^×)²: Ĩ_v̄ ∩ G(F⁺_v̄) = {(x, y) ∈ O_{F_{v^c}}^× × O_{F_v}^× : c(x)^{−1} ≡ y mod ϖ_v}, which is not a product of subgroups since both projections are onto O^× while the subgroup is proper. For such Ĩ_v̄ the polynomials P_{v,σ}, P_{v^c,σ^{−c}} of Proposition 2.2.18 are not defined.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -216808,8 +216808,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. Take n = 1 and Ã = {(a, a)} ⊂ (k(v)^×)²: Ĩ_v̄ ∩ G(F⁺_v̄) = {(x, y) ∈ O_{F_{v^c}}^× × O_{F_v}^× : c(x)^{−1} ≡ y mod ϖ_v}, which is not a product of subgroups since both projections are onto O^× while the subgroup is proper. For such Ĩ_v̄ the polynomials P_{v,σ}, P_{v^c,σ^{−c}} of Proposition 2.2.18 are not defined."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against published pp. 930–931 and arXiv v2. For n = 1 and q_v > 2 the diagonal subgroup of the residue torus gives a coupled Levi intersection. Requiring a product torus subgroup repairs the assertion; q_v = 2 is a degenerate product case."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E4",
@@ -216830,8 +216830,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. The general term (−1)^iq_v^{i(i−1)/2}T_{v,i}X^{n−i} gives the sign (−1)^n at i = n, and the constant term of a characteristic polynomial is (−1)^n times the determinant."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. The general term (−1)^iq_v^{i(i−1)/2}T_{v,i}X^{n−i} gives the sign (−1)^n at i = n, and the constant term of a characteristic polynomial is (−1)^n times the determinant."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E5",
@@ -216852,8 +216852,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. P̃_v is monic of degree 2n and the neighbouring terms carry X^{2n−1}, …."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. P̃_v is monic of degree 2n and the neighbouring terms carry X^{2n−1}, …."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E6",
@@ -216874,8 +216874,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. P̃_{v,σ} = P_{v^c,σ^{−c}}P_{v,σ} is a product of two monic polynomials of degree n; with X^{n−i} negative powers would occur. (2.2.17) on p. 931 has X^{2n−i}."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. P̃_{v,σ} = P_{v^c,σ^{−c}}P_{v,σ} is a product of two monic polynomials of degree n; with X^{n−i} negative powers would occur. (2.2.17) on p. 931 has X^{2n−i}."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E7",
@@ -216896,8 +216896,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. By part (3) the scalar is the i-th elementary symmetric function of the eigenvalues of r_v(σ); for n = 2 and an unramified principal series whose Frobenius eigenvalues on rec^T are a and −a, e_{v,1}(ϖ_v, π_v) = 0."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. By part (3) the scalar is the i-th elementary symmetric function of the eigenvalues of r_v(σ); for n = 2 and an unramified principal series whose Frobenius eigenvalues on rec^T are a and −a, e_{v,1}(ϖ_v, π_v) = 0."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E8",
@@ -216918,8 +216918,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. The preceding sentence defines e_{v^c,i}(σ) for this purpose, e_{v,i}(·) is defined only on W_{F_v} while σ ∈ W_{F_{v^c}}, and the proof of Lemma 2.2.13 uses ẽ_{v,k}(σ) = Σ_{i+j=k}e_{v,i}(σ)e_{v^c,j}(σ^{−c})."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. The preceding sentence defines e_{v^c,i}(σ) for this purpose, e_{v,i}(·) is defined only on W_{F_v} while σ ∈ W_{F_{v^c}}, and the proof of Lemma 2.2.13 uses ẽ_{v,k}(σ) = Σ_{i+j=k}e_{v,i}(σ)e_{v^c,j}(σ^{−c})."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E9",
@@ -216940,8 +216940,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. For n = 1, s = 1, α_1 = 2, μ = (1, 1) the printed roots differ by a factor q_v², whereas the two Frobenius eigenvalues of r_v(φ_v) on Sp_2 differ by q_v; with the correction they are ψ(φ_v) and ψ|·|^{−1}(φ_v), and the final step of the proof goes through unchanged."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. For n = 1, s = 1, α_1 = 2, μ = (1, 1) the printed roots differ by a factor q_v², whereas the two Frobenius eigenvalues of r_v(φ_v) on Sp_2 differ by q_v; with the correction they are ψ(φ_v) and ψ|·|^{−1}(φ_v), and the final step of the proof goes through unchanged."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E10",
@@ -216962,8 +216962,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. 𝔪 is a maximal ideal of T^S(K, λ) (p. 963 insists on this), and the localizations T^{T_i}_R(K_i, λ)_{𝔪_i} are taken as T^{S_i}(K_i, λ)-algebras."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. 𝔪 is a maximal ideal of T^S(K, λ) (p. 963 insists on this), and the localizations T^{T_i}_R(K_i, λ)_{𝔪_i} are taken as T^{S_i}(K_i, λ)-algebras."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E11",
@@ -216984,8 +216984,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. The construction gives K̃_v̄ ∩ G = K_v̄ ∩ G(O_{F⁺_v̄}), which is K_v̄ only if K_v̄ ⊂ G(O_{F⁺_v̄}); for n ≥ 2 and K_v = gGL_n(O_{F_v})g^{−1}, g = diag(ϖ_v, 1, …, 1), this fails."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. The construction gives K̃_v̄ ∩ G = K_v̄ ∩ G(O_{F⁺_v̄}), which is K_v̄ only if K_v̄ ⊂ G(O_{F⁺_v̄}); for n ≥ 2 and K_v = gGL_n(O_{F_v})g^{−1}, g = diag(ϖ_v, 1, …, 1), this fails."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E12",
@@ -217006,8 +217006,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. Only Ĩ_{c,R} is introduced, and D̃_{c,R} is valued modulo Ĩ_{c,R}; part (3) and Corollary 3.2.3 use the right subscript."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. Only Ĩ_{c,R} is introduced, and D̃_{c,R} is valued modulo Ĩ_{c,R}; part (3) and Corollary 3.2.3 use the right subscript."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E13",
@@ -217028,8 +217028,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. φ_v, Res_v and P_{v,φ_v} are defined only for v ∈ R − R^c (Res_v at the Siegel level q̃_v); the bullet is meant to give part (3), stated for v ∈ R − R^c, and the parallel bullet on p. 961 says v ∈ R − R^c."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. φ_v, Res_v and P_{v,φ_v} are defined only for v ∈ R − R^c (Res_v at the Siegel level q̃_v); the bullet is meant to give part (3), stated for v ∈ R − R^c, and the parallel bullet on p. 961 says v ∈ R − R^c."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E14",
@@ -217050,8 +217050,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. At v ∈ R − R^c the level is q̃_v and P̃_{v,σ} is built from transferred operators; the needed statement is Lemma 2.2.13, cited nowhere else."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. At v ∈ R − R^c the level is q̃_v and P̃_{v,σ} is built from transferred operators; the needed statement is Lemma 2.2.13, cited nowhere else."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E15",
@@ -217072,8 +217072,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. Conditions (1)–(3) compare characteristic polynomials and a trace modulo Ĩ, and what is constructed is a determinant modulo a nilpotent ideal."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. Conditions (1)–(3) compare characteristic polynomials and a trace modulo Ĩ, and what is constructed is a determinant modulo a nilpotent ideal."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E16",
@@ -217094,15 +217094,15 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. The two readings are equivalent because ρ(σ) is invertible."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. The two readings are equivalent because ρ(σ) is invertible."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E17",
    "kind": "gap",
    "locator": "§3.2, proof of Lemma 3.2.1, p. 956 (also in arXiv v2)",
    "printed": "Lemma 3.2.1(2)–(3) asserts the separating finite-order characters without giving their global construction or a local-prescription theorem.",
-   "correction": "Supply the construction: take the characters to be restrictions to G_F of characters of G_{F⁺} of odd prime order r ≠ p with r > 4n², whose unramified local components at the places of F⁺ below R have Frobenius values chosen so that their squares avoid the finitely many eigenvalue ratios, and which are trivial at the other places below S (and, for ψ_2, at every place above a prime where ψ_1 ramifies; for the character of condition (3), at every place above a prime below R ∪ R^c ∪ S_p). Such characters exist by the Grunwald–Wang theorem, whose special case never occurs in odd order (Conrad, Lifting global representations with local properties, Appendix A, Proposition A.3, p. 32). The proof is IHR.7/auxiliary-characters.",
+   "correction": "Supply the construction: take the characters to be restrictions to G_F of characters of G_{F⁺} of order dividing an odd prime r ≠ p with r > 4n², whose unramified local components at the places of F⁺ below R have Frobenius values chosen so that their squares avoid the finitely many eigenvalue ratios, and which are trivial at the other places below S (and, for ψ_2, at every place above a prime where ψ_1 ramifies; for the character of condition (3), at every place above a prime below R ∪ R^c ∪ S_p). Such characters exist by the Grunwald–Wang theorem, whose special case never occurs in odd order (Conrad, Lifting global representations with local properties, Appendix A, Proposition A.3, p. 32). The proof is IHR.7/auxiliary-characters.",
    "reason": "For ψ = χ|_{G_F} with χ a character of G_{F⁺} unramified at v̄, ψ(Frob_v) = ψ(Frob_{v^c}) = χ(Frob_v̄) and ψ^c = ψ, so the coprimality conditions at v only ask that χ(Frob_v̄)² avoid a set of at most 4n² eigenvalue ratios in k̄^×; squaring is a bijection of μ_r for r odd, and μ_r(O) → k^× is injective for r ≠ p. The global existence with prescribed restrictions at a finite set of places is the Grunwald–Wang theorem, unobstructed for odd orders.",
    "affects": "nothing",
    "known": "new",
@@ -217117,8 +217117,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. The omission is confirmed; the old proposed Kummer/Chebotarev completion is not established and remains a gap."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "The omitted construction is confirmed. The revised odd-order Grunwald–Wang proof closes it: at most 4n² ratios, bijective squaring in μ_r, disjoint ramification by trivial prescriptions. Order divides r, allowing the trivial R = ∅ case. Conrad Appendix A, Proposition A.3, pp. 31–32 supplies the exact global input."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E18",
@@ -217139,15 +217139,15 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Independently checked at the published locator. Proposition 2.3.9 concerns T̃^S(K̃, λ̃) acting on RΓ(X̃_K̃, 𝒱_λ̃), not on RΓ_c(X̃_K̃, O)."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. Proposition 2.3.9 concerns T̃^S(K̃, λ̃) acting on RΓ(X̃_K̃, 𝒱_λ̃), not on RΓ_c(X̃_K̃, O)."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E19",
    "kind": "error",
    "locator": "§2.2.5, proof of Lemma 2.2.13, pp. 927–928",
    "printed": "The symmetric-function comparison in normalized principal series uses the unscaled inducing characters as eigenvalues of rec^T.",
-   "correction": "Use ψ_i(α)|α|^{(1−2n)/2}, consistently with the definition of rec^T in §1.2, p. 908.",
+   "correction": "Use ψ_i(α)|α|^{(1−2n)/2}, consistently with the definition of rec^T in §1.2, p. 906.",
    "reason": "Already for normalized induction of two trivial characters, rec^T at geometric Frobenius has eigenvalues q_v^{1/2}, not 1.",
    "affects": "the proof",
    "known": "new",
@@ -217158,8 +217158,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "Already for normalized induction of two trivial characters, rec^T at geometric Frobenius has eigenvalues q_v^{1/2}, not 1."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. Already for normalized induction of two trivial characters, rec^T at geometric Frobenius has eigenvalues q_v^{1/2}, not 1."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E20",
@@ -217177,8 +217177,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "The domain of the representation is the unitary group; the forward composition is ill-typed."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. The domain of the representation is the unitary group; the forward composition is ill-typed."
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E21",
@@ -217196,8 +217196,8 @@
    "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminantsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), no. 3, 897–1113, doi:10.4007/annals.2023.197.3.2; the published PDF posted on Frank Calegari's page (217 pp.), cited by printed page numbers and published statement numbers; title and authors verified on p. 897",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
-   "reviewReason": "For n=1 the ordered resultant is b−a when the conjugate factor has root b and the v-factor has root a."
+   "reviewedBy": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
+   "reviewReason": "Independently checked against the published text and the corresponding arXiv v2 passage. For n=1 the ordered resultant is b−a when the conjugate factor has root b and the v-factor has root a."
   },
   {
    "id": "IntegralIwasawaTheory/E81",
