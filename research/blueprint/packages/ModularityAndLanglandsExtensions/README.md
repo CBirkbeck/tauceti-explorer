@@ -10,13 +10,13 @@ This roadmap owns the endpoint implications and the comparisons between their no
 
 TauCetiRoadmap.RepresentationTheory.ClassicalGroups, Layers 0–1, supplies the standard representations and functorial tensor, symmetric and exterior powers. TauCetiRoadmap.RepresentationTheory.CompactGroups, Layers 5–6 and its SU(2) engine, supplies Peter–Weyl, characters, Haar probability measure, the classification of the SU(2) irreducibles and Weyl integration. Sato–Tate here consumes these results to identify arithmetic conjugacy classes and prove equidistribution. The finite-field projective-image condition is a specialization of Mathlib's projective general and special linear groups; no projective-group foundation is introduced.
 
-The current Tau Ceti elliptic library supplies `WeierstrassCurve.tateModuleGaloisRepresentation`, its continuous action for elliptic curves, and `TauCeti.det_tateModuleGaloisRepresentation` under the separably closed and characteristic hypotheses of that theorem. These are the Tate-module representation and its cyclotomic determinant. This roadmap consumes them through the rational cohomological dual comparison. TauCetiRoadmap.LocalGaloisGroups and ProfiniteArithmetic supply their local and profinite foundations; their tame-module and character-compatible-system statements do not assert the automorphic comparisons specified here.
+The current Tau Ceti elliptic library supplies `WeierstrassCurve.tateModuleGaloisRepresentation`, its continuous action for elliptic curves, and `TauCeti.det_tateModuleGaloisRepresentation` under the separably closed and characteristic hypotheses of that theorem. These are the Tate-module representation and its cyclotomic determinant. This roadmap consumes them through the rational cohomological dual comparison. The current newform API also supplies `HeckeRing.GL2.Newform.satakeParameters`, `satakeParameters_eq_pair_iff`, `satakeAngle` and `satakeParameters_eq_exp_satakeAngle` in `TauCeti.NumberTheory.ModularForms.Newforms.Satake`: the last comparison assumes prime p, trivial local nebentypus and the Ramanujan bound. It is an imported classical rational special case; it supplies neither that bound nor the CM-field Sato–Tate theorem. TauCetiRoadmap.LocalGaloisGroups and ProfiniteArithmetic supply their local and profinite foundations; their tame-module and character-compatible-system statements do not assert the automorphic comparisons specified here.
 
 ClassicalSerreModularity and EllipticCurveModularity own classical rational modularity. GL2AutomorphicRepresentationsAndTransfer owns rank-two local Langlands, soluble Artin cases and rank-two base change. PotentialModularityAndCompatibleSystems owns compatible-system objects and their general operations and L-functions. The consumer comparisons below distinguish all-place automorphy from weak automorphy, and cuspidal automorphy from an isobaric direct sum.
 
 AutomorphicGaloisRepresentationsPartII owns the actual Galois realization, Weil–Deligne and Hodge–Tate comparisons. AutomorphicFormsOnReductiveGroups owns archimedean local Langlands, algebraic weights, purity and real cohomological packet constructions. EndoscopicTransferAndUnitaryTraceComparison owns local factors, cyclic base change, automorphic induction and the trace formula inputs. AutomorphicLFunctionsAndLocalFactors supplies the analytic standard, Rankin–Selberg and Langlands–Shahidi results in the strengthened forms specified below.
 
-The detailed eigenvariety, level-raising and tensor-lifting methods are imported from SymmetricPowersByAnalyticContinuation, SymmetricPowersByUnitaryLevelRaising, SymmetricPowerAutomorphyLifting and SymmetricPowersByTensorFunctorialityLifting. The Dwork and open-image arguments use PotentialAutomorphyDworkMotivesPartII and OpenImageTheoremsForAbelianVarieties. Their required conclusions are explicit supplier contracts, not inferences from a shorter theorem with weaker hypotheses.
+The detailed eigenvariety, level-raising and tensor-lifting methods are imported from SymmetricPowersByAnalyticContinuation, SymmetricPowersByUnitaryLevelRaising, SymmetricPowerAutomorphyLifting and SymmetricPowersByTensorFunctorialityLifting. The Dwork and open-image arguments use PotentialAutomorphyDworkMotivesPartII and OpenImageTheoremsForAbelianVarieties. These six proposed owners have no supplied roadmap package or layer establishing these contracts. Their method and geometric comparisons are explicit missing prerequisites of the retained endpoints; they cannot yet be used as closed lower-tier imports.
 
 ## Conventions
 
@@ -76,9 +76,9 @@ A system consists of one number field, coefficient field, rank and finite bad se
 The full Artin L-function is constructed from the same finite-image continuous complex representation: finite local factors are the determinants on inertia invariants, with the specified Frobenius, and infinity factors use its complex-conjugation eigenspaces. Strong Artin matching supplies local parameters and all these factors at every place; weak almost-everywhere matching supplies only a partial product. Twists, direct sums and automorphic comparisons commute with these constructions. Entireness excludes the trivial rank-one representation.
 
 <a id="contract-c-local-deformation"></a>
-#### C-LOCAL-DEFORMATION: from PotentialAutomorphyInfrastructure, Layer PA.4
+#### C-LOCAL-DEFORMATION: local components and lifting extensions
 
-The component-connects relation compares lifts of the same local residual representation, determinant and Hodge type in the actual generic fibre of its deformation ring. Ordinary and potentially diagonalizable predicates apply to the same continuous local representation and filtration/crystalline module. BCGNT 3.2.1 must export the specialized connects ALT used twice in 6.2.3, preserving all seventeen auxiliary-system conditions and the subsequent cyclic untensoring/descent. PA.4 ordinary/Fontaine–Laffaille endpoints alone do not imply this, nor Caraiani–Newton 1.3 or CG18 5.16.
+The component-connects relation compares lifts of the same local residual representation, determinant and Hodge type in the actual generic fibre of its deformation ring. Ordinary and potentially diagonalizable predicates apply to the same continuous local representation and filtration/crystalline module. BCGNT 3.2.1 must export the specialized connects ALT used twice in 6.2.3, preserving all seventeen auxiliary-system conditions and the subsequent cyclic untensoring/descent. PotentialAutomorphyInfrastructure, Layer 5, §§5.22–5.23, supplies the ordinary/Fontaine–Laffaille endpoints, not this connects theorem, Caraiani–Newton 1.3 or CG18 5.16. The latter three are explicit missing lifting extensions; their statements cannot be attributed to the auxiliary-prime construction of PA.4.
 
 <a id="contract-c-moduli"></a>
 #### C-MODULI: from PotentialModularityAndCompatibleSystems, Layer R23.1
@@ -211,11 +211,11 @@ Finite-slope eigenvarieties: the Coleman–Mazur eigencurve E for GL₂/ℚ (tam
 
 ACC+ Theorem 5.5.1 (local–global compatibility at p for ordinary parts over CM fields, decomposed generic residual representation) and the ordinarity comparison of ACC+ Corollary 5.5.2.
 
-#### From PotentialAutomorphyInfrastructure, Layer PA.4
+#### From PotentialAutomorphyInfrastructure, Layer 5, §§5.22–5.23
 
-The automorphy lifting theorems for n-dimensional representations of G_F, F imaginary CM or totally real, of ACC+ §6.1: Theorem 6.1.1 (Fontaine–Laffaille: crystalline, p unramified, p > n², enormous decomposed generic residual image, regular weight below p − 2n) and Theorem 6.1.2 (ordinary of regular weight, p > n), with all image, level and local hypotheses. Consumers: Qian, BCGNT, Caraiani–Newton, Calegari–Geraghty. Apply the Fontaine–Laffaille and ordinary theorems only with their exact bounds, enormous/decomposed-generic image, scalar and local conditions. BCGNT Proposition 6.2.3 instead needs its Theorem 3.2.1 with the local connects relation; Caraiani–Newton needs its Theorem 1.3 potentially semistable branch, and CG Theorem 5.16 needs its general-number-field conditional branch. Those are distinct requests, not supplied by the two PA.4 endpoints.
+The automorphy lifting theorems for n-dimensional representations of G_F, F imaginary CM or totally real, of ACC+ §6.1: Theorem 6.1.1 (Fontaine–Laffaille: crystalline, p unramified, p > n², enormous decomposed generic residual image, regular weight below p − 2n) and Theorem 6.1.2 (ordinary of regular weight, p > n), with all image, level and local hypotheses. Consumers: Qian, BCGNT, Caraiani–Newton, Calegari–Geraghty. Apply the Fontaine–Laffaille and ordinary theorems only with their exact bounds, enormous/decomposed-generic image, scalar and local conditions. BCGNT Proposition 6.2.3 instead needs its Theorem 3.2.1 with the local connects relation; Caraiani–Newton needs its Theorem 1.3 potentially semistable branch, and CG Theorem 5.16 needs its general-number-field conditional branch. Those are distinct requests, not supplied by the two Layer 5 endpoints.
 
-BCGNT Theorem 3.2.1, the CM automorphy lifting theorem with Taylor–Wiles conditions and component-wise local connects hypotheses, plus ACC+ Proposition 6.5.13 cyclic descent with irreducibility and level control. Ordinary/Fontaine–Laffaille endpoint names alone do not provide these signatures.
+**Missing lifting extension.** BCGNT Theorem 3.2.1, the CM automorphy lifting theorem with Taylor–Wiles conditions and component-wise local connects hypotheses, plus ACC+ Proposition 6.5.13 cyclic descent with irreducibility and level control. Ordinary/Fontaine–Laffaille endpoint names alone do not provide these signatures.
 
 Use the [C-LOCAL-DEFORMATION contract](#contract-c-local-deformation) above.
 
@@ -263,7 +263,7 @@ Connected reductive groups over local and global fields, quasi-split forms and t
 
 #### From TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 5
 
-The Peter–Weyl theorem for compact groups (characters of irreducible representations span the class functions), for Serre's equidistribution criterion.
+The Peter–Weyl matrix-coefficient theorem. The character completeness needed for Serre's criterion is the class-function result of Layer 6 below; finite linear combinations are dense, rather than equal to all continuous class functions.
 
 #### From TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 6
 
@@ -538,7 +538,7 @@ For rank one use the Weil-group abelianization isomorphism W_K^ab≅K^×: rec_K(
 - n = 1: BC_{ℂ/ℝ}(χ) = χ ∘ N_{ℂ/ℝ}.
 - rec_ℝ(D_k) for a discrete series D_k (k ≥ 2) is irreducible of dimension 2, so D_k is not an isobaric sum of characters, while BC_{ℂ/ℝ}(D_k) is.
 
-Check the discrete series: for k ≥ 2, rec_ℝ(D_k) = Ind_{W_ℂ}^{W_ℝ}(z ↦ (z/z̄)^{(k−1)/2}) up to the twist by |·|^{s} fixed by the central character.
+Check the discrete series: for k ≥ 2, rec_ℝ(D_k) = Ind_{W_ℂ}^{W_ℝ}(z ↦ (z/|z|)^{k−1}) up to the twist by |·|^{s} fixed by the central character. The inducing character is single-valued: at k = 2 and z = −1 it is −1, whereas z/z̄ = 1 alone cannot determine its square root.
 
 ([ACC+](#ref-acc-2023), §1.2 Notation, arXiv v2 p. 11 (Annals pp. 907–908).)
 
@@ -638,11 +638,17 @@ Newton–Thorne 2026 use it in the proofs of Lemma 3.1, Theorem 3.2 and Proposit
 <a id="automorphic-induction-register"></a>
 #### Automorphic induction and its cuspidality criterion
 
-Import cyclic automorphic induction from EndoscopicTransferAndUnitaryTraceComparison ET.7: for L/F cyclic of degree d, AI_{L/F} sends GL_m(𝔸_L) to GL_{md}(𝔸_F), has the induced Weil parameter at every place, and is cuspidal precisely when the inducing cuspidal representation has orbit of size d under Gal(L/F). In particular it must not be fixed by any nonidentity element. GL2AutomorphicRepresentationsAndTransfer R17.5 supplies the quadratic monomial case and soluble Artin modularity; R17.4 supplies GL₂ cyclic and soluble base change. These transfers supply only their stated cases of functoriality.
+Import cyclic automorphic induction from EndoscopicTransferAndUnitaryTraceComparison ET.7a: for L/F cyclic of degree d, AI_{L/F} sends GL_m(𝔸_L) to GL_{md}(𝔸_F), has the induced Weil parameter at every place, and is cuspidal precisely when the inducing cuspidal representation has orbit of size d under Gal(L/F). In particular it must not be fixed by any nonidentity element. GL2AutomorphicRepresentationsAndTransfer R17.5 supplies the quadratic monomial case and soluble Artin modularity; R17.4 supplies GL₂ cyclic and soluble base change. These transfers supply only their stated cases of functoriality.
 
-([The principle of functoriality](#ref-arthur-2003), §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)).)
+**Source boundary.** Arthur’s §4, p. 45 states the Artin conjectural specialization, not this cyclic induction theorem or its cuspidality criterion. The exact theorem must be supplied with a primary locator by ET.7a from Arthur–Clozel; BCGNT, proof of Proposition 6.2.3, arXiv v3 p. 63, uses Arthur–Clozel Chapter 3, Theorem 4.2 for the untensoring step. The all-place induction and orbit criterion remain an explicit source gap.
 
 *Needs:* EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a; GL2AutomorphicRepresentationsAndTransfer, Layer R17.5; GL2AutomorphicRepresentationsAndTransfer, Layer R17.4 (solvable base change); GL2AutomorphicRepresentationsAndTransfer, Layer R17.4 (solvable descent); [Cyclic base change and soluble descent](#cyclic-base-change-gln); [Assertions with explicit hypotheses](#endpoint-status-register); [C-AUTOMORPHIC](#contract-c-automorphic); [C-GALOIS](#contract-c-galois).
+
+### Source boundaries for the imported methods
+
+Clozel 1990 Theorem 3.13 (independence of the coefficient isomorphism) and Lemme 4.9 (purity), Khare’s weight-one descent with its 1999 corrigendum, Blasius–Harris–Ramakrishnan Proposition 5.3.7, Henniart’s 2009 finite-place exterior-square comparison, Kim’s 2003 symmetric-fourth proof and 2004 icosahedral symmetric powers, and the complete Adams–Johnson conditions are explicit primary-source gaps. Their endpoint citations specify the requested assertions; they do not replace the missing proof and exact primary locator. Arthur–Clozel cyclic induction has the separate boundary above.
+
+The unitary method additionally needs the precise level-raising hypotheses of Anastassiades–Thorne Theorem 5.1, author pp. 19–20; the residually reducible lifting hypotheses of Allen–Newton–Thorne Theorem 1.1, arXiv 1912.11269v2 pp. 1–2; and the enormous-image adjoint Selmer vanishing of Newton–Thorne Theorem A, arXiv 1912.11265v2 p. 2. These are inputs to the absent method owners, not consequences of the symmetric-power endpoint. Buzzard–Kilford Theorem A, author p. 2, includes the ordinary component of the full eigencurve; the cuspidal restriction used here has positive indices, as in Newton–Thorne I Theorem 3.2, pp. 53–54 (arXiv v3).
 
 ## How to read the build
 
@@ -850,7 +856,7 @@ The compatible system in Khare–Wintenberger's sense (§5): weakly compatible, 
 
 State the resulting comparison as `TauCeti.WeightOne.weightOne_of_irregular`.
 
-Twist so that the weights are (0, 0); Sen–Fontaine: ρ_ι is unramified at ℓ for almost all ℓ. Residual irreducibility of ρ̄_λ for almost all λ (PotentialModularityAndCompatibleSystems R24.6). Strong form of Serre's conjecture (ClassicalSerreModularity R27.6) with Gross's tameness criterion and Coleman–Voloch (SerreWeightAndLevelOptimisation R20.3): for almost all λ, ρ̄_λ arises from S₁(Γ₁(N)) with N independent of λ. Khare's weight-one descent (owner ClassicalSerreModularity R27.6/weight-one-descent-from-infinitely-many-primes: since S₁(Γ₁(N)) has finitely many newforms, one f has ρ̄_λ ≅ ρ̄_{f,λ} for infinitely many λ, hence ρ_ι ≅ ρ_{f,ι}). Khare–Wintenberger only sketch this step, citing Khare's IMRN 1997 note, which was not available.
+Twist so that the weights are (0, 0); Sen–Fontaine: ρ_ι is unramified at ℓ for almost all ℓ. Residual irreducibility of ρ̄_λ for almost all λ (PotentialModularityAndCompatibleSystems R24.6). Strong form of Serre's conjecture (ClassicalSerreModularity R27.6) with Gross's tameness criterion and Coleman–Voloch (SerreWeightAndLevelOptimisation R20.3): for almost all λ, ρ̄_λ arises from S₁(Γ₁(N)) with N independent of λ. Khare's weight-one descent (owner ClassicalSerreModularity R27.6/weight-one-descent-from-infinitely-many-primes: since S₁(Γ₁(N)) has finitely many newforms, one f has ρ̄_λ ≅ ρ̄_{f,λ} for infinitely many λ, hence ρ_ι ≅ ρ_{f,ι}). **Source boundary.** Khare–Wintenberger sketch this step and cite Khare’s IMRN 1997 note; its primary proof and 1999 corrigendum remain a source gap. Use the corrected descent statement as a required supplier theorem, not the uncorrected note by itself.
 
 The converse: newforms of weight one give irregular irreducible odd compatible systems (Deligne–Serre).
 
@@ -901,13 +907,13 @@ F imaginary quadratic with X₀(15)(F) finite (Theorem 1.1); F imaginary CM Galo
 
 State the resulting comparison as `TauCeti.WeightOne.ellipticCurve_modular_imagQuadratic`.
 
-Import the exact potentially semistable CM lifting theorem of Caraiani–Newton Theorem 1.3, with its residual image, polarization and local hypotheses, as the requested PA.4 extension. It is not supplied by PA.4’s ordinary/Fontaine–Laffaille endpoint alone. Residual modularity of E[3] or E[5] (Allen–Khare–Thorne) and the 3–5 switch; analysis of the F-points of X₀(15) and related modular curves for the exceptional residual images. Require both the stated PA.4 lifting extension and the modular-curve point analysis with the residual modularity and switching maps.
+Import the exact potentially semistable CM lifting theorem of Caraiani–Newton Theorem 1.3, with its residual image, polarization and local hypotheses, as the missing C-LOCAL-DEFORMATION extension. It is not supplied by the ordinary/Fontaine–Laffaille theorems of PotentialAutomorphyInfrastructure Layer 5, §§5.22–5.23. Residual modularity of E[3] or E[5] (Allen–Khare–Thorne) and the 3–5 switch; analysis of the F-points of X₀(15) and related modular curves for the exceptional residual images. Require both this lifting extension and the modular-curve point analysis with the residual modularity and switching maps.
 
 Over imaginary quadratic fields this is the first unconditional modularity theorem; potential modularity over CM fields is [Potential automorphy of the symmetric powers of a non-CM elliptic curve over ℚ (ACC+, Corollary 7.2.4)](#acc-elliptic-symmetric-powers) and Layer 2.
 
 ([On the modularity of elliptic curves over imaginary quadratic fields](#ref-caraiani-newton-2023), §1, Theorem 1.1 (Corollary 7.1.2), p. 2 (arXiv:2301.10509v3); [On the modularity of elliptic curves over imaginary quadratic fields](#ref-caraiani-newton-2023), §1, Theorem 1.2 (Corollary 6.1.2), p. 3 (arXiv:2301.10509v3).)
 
-*Needs:* PotentialAutomorphyInfrastructure, Layer PA.4; PotentialModularityAndCompatibleSystems, Layer R23.1; [Assertions with explicit hypotheses](#endpoint-status-register); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); PotentialModularityAndCompatibleSystems, Layer R23.1; [Assertions with explicit hypotheses](#endpoint-status-register); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 <a id="functorial-lift"></a>
 ### 1.6 Functorial lift of a GL_n representation along an algebraic representation R : GL_n → GL_N
@@ -969,7 +975,7 @@ Compose the actual GL₂ representation with the central quotient and conjugate 
 <a id="totally-real-odd-artin"></a>
 ### 1.8 The odd Artin conjecture over totally real fields (Pilloni–Stroh), as used for A₅ images
 
-Let E be a totally real field and ϱ : G_E → GL₂(ℂ) a continuous irreducible totally odd representation (det ϱ(c) = −1 for every complex conjugation c), in particular one with projective image A₅. Then ϱ is automorphic: it arises from a Hilbert modular eigenform of parallel weight one (Pilloni–Stroh, Theorem 0.3), so ϱ satisfies Langlands' and Artin's conjectures. Boxer–Calegari–Gee–Pilloni apply it to a characteristic-zero totally odd lift with finite image (Tate) of a mod 3 representation ϱ̄₃ : G_E → GL₂(F₉) with projective image A₅.
+Let E be a totally real field and ϱ : G_E → GL₂(ℂ) a continuous irreducible finite-image totally odd representation (det ϱ(c) = −1 for every complex conjugation c), in particular one with projective image A₅. Then ϱ is automorphic: it arises from a Hilbert modular eigenform of parallel weight one (Pilloni–Stroh, Theorem 0.3), so ϱ satisfies Langlands' and Artin's conjectures. Boxer–Calegari–Gee–Pilloni apply it to a characteristic-zero totally odd lift with finite image (Tate) of a mod 3 representation ϱ̄₃ : G_E → GL₂(F₉) with projective image A₅.
 
 E totally real; ϱ:G_E→GL₂(ℂ) continuous, irreducible and of finite image; det ϱ(c_v)=−1 for every real place v. No unramified-at-p assumption is present in Pilloni–Stroh Theorem 0.3.
 
@@ -1069,7 +1075,7 @@ Definition of the proposition.
 - SP 3 is Gelbart–Jacquet's theorem for non-CM π.
 - SP_n says nothing about CM π, whose symmetric powers (n ≥ 3) are not cuspidal.
 
-SP₁, SP₂ are trivial; SP₃ is Gelbart–Jacquet; SP₄, SP₅ are Kim–Shahidi and Kim ([Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers)).
+SP₁, SP₂ are trivial; SP₃ is Gelbart–Jacquet; SP₄, SP₅ are Kim–Shahidi and Kim ([Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers)).
 
 ([Newton–Thorne, Hilbert](#ref-nt-2026), Conjecture B, §1 (Introduction), p. 3 (arXiv v2); restated after Theorem 3.2, p. 13.)
 
@@ -1101,7 +1107,7 @@ F a number field.
 
 State the resulting comparison as `TauCeti.Functoriality.kim_exteriorSquare`.
 
-Kim: Langlands–Shahidi method for the Levi GL₂ × GL₄ (and GL₃ × GL₄) in Spin groups and the converse theorem, giving ∧² for GL₄; Sym⁴ is extracted from ∧²(Sym³π). Henniart: local compatibility of ∧² at every place. Gee–Taïbi use (a) in their proof of the multiplicity formula for GSp₄; BCGP Theorem 9.3.1 uses (a) with Theorem 2.9.3.
+Kim: Langlands–Shahidi method for the Levi GL₂ × GL₄ (and GL₃ × GL₄) in Spin groups and the converse theorem, giving ∧² for GL₄; Sym⁴ is extracted from ∧²(Sym³π). **Source boundary.** Henniart 2009 completes the finite-place exterior-square comparison; its primary proof and the separate archimedean comparison require exact source locators. They are required for the all-place lift, beyond Kim’s weak transfer. Gee–Taïbi use (a) in their proof of the multiplicity formula for GSp₄; BCGP Theorem 9.3.1 uses (a) with Theorem 2.9.3.
 
 For π attached to a non-CM elliptic curve over ℚ, Sym⁴π is cuspidal on GL₅.
 
@@ -1110,7 +1116,7 @@ For π attached to a non-CM elliptic curve over ℚ, Sym⁴π is cuspidal on GL�
 *Needs:* [Kim–Shahidi: functorial products GL₂ × GL₃ → GL₆ and the symmetric cube](#kim-shahidi-sym3); [Functorial lift of a GL_n representation along an algebraic representation R : GL_n → GL_N](#functorial-lift); AutomorphicLFunctionsAndLocalFactors, Layer AL.4; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-ARTIN](#contract-c-artin).
 
 <a id="low-rank-symmetric-powers"></a>
-### 1.15 Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)
+### 1.15 Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)
 
 Let F be a totally real field and π a cuspidal regular algebraic automorphic representation of GL₂(𝔸_F) without CM. Then for 1 ≤ n ≤ 5 the lift Sym^{n−1}π exists as a regular algebraic essentially self-dual cuspidal automorphic representation of GL_n(𝔸_F): this is the statement SP_n of Newton–Thorne for n ≤ 5, the base case of their induction.
 
@@ -1132,7 +1138,7 @@ For the identity representation of GL₂(𝔽₇), the projective image is PGL�
 
 ### Dependencies
 
-The layer uses the exact supplier contracts above, AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing), AnalyticNumberTheory, Layer AN.4, TauCetiRoadmap.Chebotarev, Layer 10, Layer 0, ClassicalSerreModularity, Layer R27.6 (weight one descent from infinitely many primes), ClassicalSerreModularity, Layer R27.6 (unramified residual representations arise in weight one), ClassicalSerreModularity, Layer R27.6 (full classical serre theorem), PotentialModularityAndCompatibleSystems, Layer R24.6 (residual members), PadicHodgeTheory, Layer R06.2 (dcris of tate twists and unramified), SerreWeightAndLevelOptimisation, Layer R20.3 (weight one forms unramified at p), AutomorphicGaloisRepresentations, Layer R19.1 (weight one artin representation), PotentialModularityAndCompatibleSystems, Layer R23.1, AutomorphicGaloisRepresentations, Layer R19.2, GL2ModularityLifting, Layer R22.5, GlobalGaloisDeformations, Layer R04.2 (universal deformation ring), PotentialAutomorphyInfrastructure, Layer PA.4, EndoscopicTransferAndUnitaryTraceComparison, Layer ET.6, `Matrix.ProjGenLinGroup`, `Matrix.ProjGenLinGroup.mk`, `Matrix.ProjGenLinGroup.map`, `Matrix.ProjectiveSpecialLinearGroup.toPGL`, GL2AutomorphicRepresentationsAndTransfer, Layer R17.5, GL2AutomorphicRepresentationsAndTransfer, Layer R16.3, AutomorphicLFunctionsAndLocalFactors, Layer AL.4.
+The layer uses the exact supplier contracts above, AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing), AnalyticNumberTheory, Layer AN.4, TauCetiRoadmap.Chebotarev, Layer 10, Layer 0, ClassicalSerreModularity, Layer R27.6 (weight one descent from infinitely many primes), ClassicalSerreModularity, Layer R27.6 (unramified residual representations arise in weight one), ClassicalSerreModularity, Layer R27.6 (full classical serre theorem), PotentialModularityAndCompatibleSystems, Layer R24.6 (residual members), PadicHodgeTheory, Layer R06.2 (dcris of tate twists and unramified), SerreWeightAndLevelOptimisation, Layer R20.3 (weight one forms unramified at p), AutomorphicGaloisRepresentations, Layer R19.1 (weight one artin representation), PotentialModularityAndCompatibleSystems, Layer R23.1, AutomorphicGaloisRepresentations, Layer R19.2, GL2ModularityLifting, Layer R22.5, GlobalGaloisDeformations, Layer R04.2 (universal deformation ring), [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension), EndoscopicTransferAndUnitaryTraceComparison, Layer ET.6, `Matrix.ProjGenLinGroup`, `Matrix.ProjGenLinGroup.mk`, `Matrix.ProjGenLinGroup.map`, `Matrix.ProjectiveSpecialLinearGroup.toPGL`, GL2AutomorphicRepresentationsAndTransfer, Layer R17.5, GL2AutomorphicRepresentationsAndTransfer, Layer R16.3, AutomorphicLFunctionsAndLocalFactors, Layer AL.4.
 
 ## Layer 2: controlled potential automorphy and compatible systems
 
@@ -1293,13 +1299,13 @@ F imaginary CM, m≥2, n≥1, X₀ a finite set of finite places; R=(M,S,{Q_v},{
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.prSwitch`.
 
-Apply BCGNT Theorem 3.2.1 at p to S_aux, using the S_UA seed, Taylor–Wiles image conditions (13) and local connects relations (15)–(16). Apply the same theorem at r to S_CM using S_aux, (14), (17), and ordinary connectedness; obtain weak automorphy of S_CM. The order-m self-twist of its automorphic π gives automorphic induction from GL_n(𝔸_L). Compare compatible systems at an irreducible member, undo Ψ, and descend cyclically to F (ACC+ Proposition 6.5.13). The specialized connects ALT and descent require exact exports beyond a bare PA.4 ordinary/Fontaine–Laffaille citation.
+Apply BCGNT Theorem 3.2.1 at p to S_aux, using the S_UA seed, Taylor–Wiles image conditions (13) and local connects relations (15)–(16). Apply the same theorem at r to S_CM using S_aux, (14), (17), and ordinary connectedness; obtain weak automorphy of S_CM. The order-m self-twist of its automorphic π gives automorphic induction from GL_n(𝔸_L). Compare compatible systems at an irreducible member, undo Ψ, and descend cyclically to F (ACC+ Proposition 6.5.13). The specialized connects ALT and descent require exact exports beyond a bare Layer 5 ordinary/Fontaine–Laffaille citation.
 
 Input to [Potential weak automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 6.2.4)](#potential-weak-automorphy-symmetric-powers).
 
 ([BCGNT](#ref-bcgnt-2025), Proposition 6.2.3 and proof, §6.2, arXiv v3 pp. 61–63 (published pp. 54–57; arXiv pagination differs) PDF p.62.)
 
-*Needs:* EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a; PotentialAutomorphyInfrastructure, Layer PA.4; AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one); AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a; [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one); AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 <a id="pd-lifts-with-local-conditions"></a>
 ### 2.10 Lifts with potentially diagonalizable local conditions (Theorem 4.3.1)
@@ -1357,7 +1363,7 @@ The input to [An automorphic symmetric-power seed for the auxiliary elliptic cur
 
 Let F be totally real, p ≫_n 0, ρ̄ : Γ_F → GSp_{2n}(k) with similitude κ̄^{1−2n} and ρ̄|_{Γ_{F(ζ_p)}} absolutely GSp_{2n}-irreducible (ρ̄ may be GL_{2n}-reducible), and v₀ a place with ρ̄|_{Γ_{F_{v₀}}} = 1 and N(v₀) ≡ 1 mod p. Then there are a Galois totally real F′/F linearly disjoint from F(ρ̄, ζ_p) and a regular algebraic self-dual cuspidal Π_{F′} of GL_{2n}(𝔸_{F′}) with r̄_ι(Π_{F′}) ≅ ρ̄|_{Γ_{F′}} and Π_{F′,w} an unramified twist of Steinberg for every w | v₀: run BLGGT Theorem 3.1.2 with the additional Moret-Bailly condition v(t(P)) < 0 at the places above v₀.
 
-Every GL_{2n} constituent of ρ̄ is self-dual and remains irreducible on Γ_{F(ζ_p)}. The Steinberg local component is π_w for each w|v₀.
+Retain the hypotheses of FKP Proposition 9.1: [F(ζ_p):F]>a_{GSp_{2n}} of FKP19 Lemma A.6, ρ̄ is not induced from a proper subgroup as a GL_{2n}-representation, and at every v|p there is an ordinary GSp_{2n}-lift with similitude κ^{1−2n}. Every GL_{2n} constituent of ρ̄ is self-dual with this multiplier and remains irreducible on Γ_{F(ζ_p)}. The Steinberg local component is π_w for each w|v₀.
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.withSteinbergPlace`.
 
@@ -1365,7 +1371,7 @@ BLGGT Theorem 3.1.2 (PotentialAutomorphyInfrastructurePartII PL.5/dwork-potentia
 
 Used in FKP Proposition 9.1 to produce geometric lifts with Zariski-dense image.
 
-([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, proof of Proposition 9.1, arXiv v5 p. 42; [Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, proof of Proposition 9.1, arXiv v5 p. 42.)
+([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, Proposition 9.1 and proof, arXiv v5 pp. 41–43 (the residual automorphy argument on p. 42).)
 
 *Needs:* PotentialAutomorphyInfrastructurePartII, Layer PL.5 (dwork potential ordinary automorphy); [Moret–Bailly with prescribed local Galois extensions (Proposition 3.1.1)](#moret-bailly-galois-control); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
@@ -1384,7 +1390,7 @@ Odd symmetric powers are the input to the tensor-product trick for Theorem 1.1.
 
 ([Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), §10, proof of Theorem 1.1, 'extra hypothesis' bullet, p. 97 (arXiv v2) = Invent. p. 428 [sub-item sec10-special-case]; [Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), §10, general case, pp. 97–98 (arXiv v2) = Invent. p. 429 [sub-items sec10-general-case, sec10-auxiliary-curve-lemma].)
 
-*Needs:* [The twisted modular curve X_E(q)](#twisted-modular-curve); [Moret–Bailly with prescribed local Galois extensions (Proposition 3.1.1)](#moret-bailly-galois-control); PotentialAutomorphyInfrastructure, Layer PA.4; [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [The twisted modular curve X_E(q)](#twisted-modular-curve); [Moret–Bailly with prescribed local Galois extensions (Proposition 3.1.1)](#moret-bailly-galois-control); [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 <a id="change-of-weight-and-level"></a>
 ### 2.15 Change of weight and level (Theorem 4.4.1)
@@ -1486,7 +1492,7 @@ The acceptance criterion of Layer 1: this is the only statement about elliptic c
 
 ([Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429; [Modularity lifting beyond the Taylor–Wiles method](#ref-cg-2018), Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv v2) = Invent. pp. 428–429.)
 
-*Needs:* [Conditional potential modularity of odd symmetric powers of elliptic curves (Calegari–Geraghty §10)](#cg18-odd-symmetric-powers); [Assertions with explicit hypotheses](#endpoint-status-register); PotentialAutomorphyInfrastructure, Layer PA.4; [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [Conditional potential modularity of odd symmetric powers of elliptic curves (Calegari–Geraghty §10)](#cg18-odd-symmetric-powers); [Assertions with explicit hypotheses](#endpoint-status-register); [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 <a id="potential-weak-automorphy-symmetric-powers"></a>
 ### 2.21 Potential weak automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 6.2.4)
@@ -1635,22 +1641,22 @@ Apply ACC+ Theorem 6.1.2 at l′ with ordinary regular weights, enormous image, 
 
 The transport between coefficient primes is the step where the compatible system of the Dwork motive is used.
 
-([Potential automorphy for GL_n](#ref-qian-2023), §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator; [ACC+](#ref-acc-2023), §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030); [Potential automorphy for GL_n](#ref-qian-2023), Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4; [Potential automorphy for general linear groups (PhD dissertation, Stanford University)](#ref-qian-thesis-2023), Remark 3.0.13, printed p. 55 (PDF p. 62).)
+([Potential automorphy for GL_n](#ref-qian-2023), §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator; [ACC+](#ref-acc-2023), §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 134 (Annals p. 1031); the theorem begins on arXiv p. 133; [Potential automorphy for GL_n](#ref-qian-2023), Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4; [Potential automorphy for general linear groups (PhD dissertation, Stanford University)](#ref-qian-thesis-2023), Remark 3.0.13, printed p. 55 (PDF p. 62).)
 
-*Needs:* [An automorphic symmetric-power seed for the auxiliary elliptic curve (Qian Proposition 4.1; ACC+ Corollary 7.2.4)](#elliptic-symmetric-power-seed); PotentialAutomorphyInfrastructure, Layer PA.4; PotentialAutomorphyInfrastructurePartII, Layer PL.5; TauCetiRoadmap.Chebotarev, Layer 10; PotentialAutomorphyInfrastructure, Layer PA.4 (ordinary automorphy lifting); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [An automorphic symmetric-power seed for the auxiliary elliptic curve (Qian Proposition 4.1; ACC+ Corollary 7.2.4)](#elliptic-symmetric-power-seed); PotentialAutomorphyInfrastructurePartII, Layer PL.5; TauCetiRoadmap.Chebotarev, Layer 10; PotentialAutomorphyInfrastructure, Layer 5, §5.23 (ordinary automorphy lifting); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system).
 
 <a id="compatible-system-from-potential-automorphy"></a>
 ### 2.30 A potentially automorphic geometric GSp_{2n}-lift lies in a strictly pure compatible system (FKP, after BLGGT 5.5.1)
 
-Let F be totally real and ρ : Γ_F → GSp_{2n}(O′) geometric with Zariski-dense image such that ρ|_{Γ_{F′}} ≅ r_ι(Π_{F′}) for a RAESDC Π_{F′} of GL_{2n}(𝔸_{F′}), F′/F Galois totally real. Then ρ belongs to a strictly pure compatible system {ρ_{ι′}} of ℓ-adic representations of Γ_F indexed by primes ℓ and ι′ : ℂ ≅ Q̄_ℓ, each with Zariski-dense image in GSp_{2n}.
+Let F be totally real, n ≥ 1, and ρ : Γ_F → GSp_{2n}(O′) geometric with Zariski-dense image and cyclotomic similitude κ^{1−2n}. Retain the auxiliary Steinberg place v₀ of FKP Proposition 9.1: WD(ρ|_{Γ_{F_{v₀}}}) has a regular nilpotent monodromy operator (an unramified twist of the rank-2n Steinberg parameter). Suppose that ρ|_{Γ_{F′}} ≅ r_ι(Π_{F′}) for a RAESDC Π_{F′} of GL_{2n}(𝔸_{F′}), F′/F Galois totally real. Then ρ belongs to a strictly pure compatible system {ρ_{ι′}} of ℓ-adic representations of Γ_F indexed by primes ℓ and ι′ : ℂ ≅ Q̄_ℓ. For the Zariski-density conclusion at every coefficient prime, require that each member has regular nilpotent monodromy at a finite place away from that coefficient prime, as well as the compatible symplectic pairing and ℓ-independent formal character.
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.compatibleSystem_of_potentiallyAutomorphic`.
 
-The argument of BLGGT Theorem 5.5.1 ([A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system)): Brauer's induction over the soluble subextensions of F′/F, with soluble descent (PotentialAutomorphyInfrastructurePartII PL.0/soluble-descent). Zariski density for all ι′ from that of ρ (Larsen–Pink style independence; FKP's argument).
+The argument of BLGGT Theorem 5.5.1 ([A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system)): Brauer's induction over the soluble subextensions of F′/F, with soluble descent (PotentialAutomorphyInfrastructurePartII PL.0/soluble-descent). For each coefficient prime different from the residue characteristic of v₀, strict local compatibility retains the regular nilpotent operator; at the coefficient prime equal to that residue characteristic require the corresponding local comparison or a second auxiliary Steinberg place. **Comparison boundary.** The all-primes regular-unipotent comparison is a required extra input; one Steinberg place and weak compatibility alone do not establish it at its own residue characteristic. FKP's argument uses the regular unipotent and the symplectic pairing to reduce the Zariski closure to a principal GL₂ or GSp_{2n}; independence of formal character excludes the principal GL₂ alternative when n>1. At n=1, GSp₂ is already GL₂. Independence of formal character alone is not the regular-unipotent input.
 
 The GSp-valued refinement of [A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system).
 
-([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, proof of Proposition 9.1, arXiv v5 p. 43.)
+([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, proof of Proposition 9.1, arXiv v5 pp. 42–43.)
 
 *Needs:* [A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system); PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
@@ -1697,13 +1703,13 @@ As in the statement; F^av arbitrary.
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.qian_ordinary`.
 
-Apply [Residual potential ordinary automorphy over CM fields (Qian, Theorem 1.1)](#qian-residual-potential-automorphy) to r̄ with F^av enlarged to contain F̄^{ker r̄}(ζ_l). Conclude by ACC+ Theorem 6.1.2 (ordinary automorphy lifting over CM fields), requested from PotentialAutomorphyInfrastructure PA.4 .
+Apply [Residual potential ordinary automorphy over CM fields (Qian, Theorem 1.1)](#qian-residual-potential-automorphy) to r̄ with F^av enlarged to contain F̄^{ker r̄}(ζ_l). Conclude by ACC+ Theorem 6.1.2 (ordinary automorphy lifting over CM fields), supplied by PotentialAutomorphyInfrastructure Layer 5, §5.23 with all its hypotheses.
 
 Specialises to Qian's Theorem 1.1 lifts when r is itself ordinary.
 
 ([Potential automorphy for GL_n](#ref-qian-2023), Theorem 1.4, §1, p. 2 (arXiv v1); Invent. p. 1241 per routed locator; proof: last paragraph of §4, p. 26 (arXiv v1).)
 
-*Needs:* [Residual potential ordinary automorphy over CM fields (Qian, Theorem 1.1)](#qian-residual-potential-automorphy); PotentialAutomorphyInfrastructure, Layer PA.4; PotentialAutomorphyInfrastructure, Layer PA.4 (ordinary automorphy lifting); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [Residual potential ordinary automorphy over CM fields (Qian, Theorem 1.1)](#qian-residual-potential-automorphy); [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); PotentialAutomorphyInfrastructure, Layer 5, §5.23 (ordinary automorphy lifting); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 ### Examples
 
@@ -1711,7 +1717,7 @@ For a finite collection of polarized systems the extension in simultaneous poten
 
 ### Dependencies
 
-The layer uses the exact supplier contracts above, PotentialModularityAndCompatibleSystems, Layer R23.1 (moret bailly theorem incomplete skolem data have integral points), PotentialAutomorphyInfrastructurePartII, Layer PL.5 (dwork potential ordinary automorphy), PotentialAutomorphyInfrastructurePartII, Layer PL.5 (ordinary lifts prescribed local), PotentialAutomorphyInfrastructurePartII, Layer PL.4 (ordinary automorphy lifting), AutomorphicGaloisRepresentationsPartII, Layer AG2.0 (polarized galois representation), TauCetiRoadmap.Chebotarev, Layer 10, PotentialAutomorphyInfrastructurePartII, Layer PL.0, AutomorphicGaloisRepresentationsPartII, Layer AG2.2, AutomorphicGaloisRepresentationsPartII, Layer AG2.5, PotentialAutomorphyInfrastructure, Layer PA.2, PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one), PotentialModularityAndCompatibleSystems, Layer R24.5:operations, PotentialAutomorphyInfrastructurePartII, Layer PL.5 (pd automorphy lifting), PotentialModularityAndCompatibleSystems, Layer R23.1, TauCetiRoadmap.ModularCurves, Layer 5, TauCetiRoadmap.ModularCurves, Layer 10, EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a, PotentialAutomorphyInfrastructure, Layer PA.4, AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (connects relation), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (potentially diagonalizable), GlobalGaloisDeformations, Layer G7 (polarized representability), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (automorphic polarized representation), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (automorphy under twist), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (pd criteria), PotentialModularityAndCompatibleSystems, Layer R24.5 (rank two reducibility independent of lambda), PotentialModularityAndCompatibleSystems, Layer R24.5 (weakly compatible system rank n), PotentialModularityAndCompatibleSystems, Layer R24.5 (compatible system predicates), PotentialModularityAndCompatibleSystems, Layer R24.5 (constituents essentially self dual), Layer 0, PotentialAutomorphyInfrastructurePartII, Layer PL.5, PotentialModularityAndCompatibleSystems, Layer R24.5 (system l functions), PotentialModularityAndCompatibleSystems, Layer R24.5 (galois grothendieck ring), AutomorphicLFunctionsAndLocalFactors, Layer AL.2, `Matrix.trace`, AutomorphicLFunctionsAndLocalFactors, Layer AL.3, PotentialModularityAndCompatibleSystems, Layer R24.5 (linear algebra operations on systems), PotentialAutomorphyInfrastructure, Layer PA.4 (ordinary automorphy lifting).
+The layer uses the exact supplier contracts above, PotentialModularityAndCompatibleSystems, Layer R23.1 (moret bailly theorem incomplete skolem data have integral points), PotentialAutomorphyInfrastructurePartII, Layer PL.5 (dwork potential ordinary automorphy), PotentialAutomorphyInfrastructurePartII, Layer PL.5 (ordinary lifts prescribed local), PotentialAutomorphyInfrastructurePartII, Layer PL.4 (ordinary automorphy lifting), AutomorphicGaloisRepresentationsPartII, Layer AG2.0 (polarized galois representation), TauCetiRoadmap.Chebotarev, Layer 10, PotentialAutomorphyInfrastructurePartII, Layer PL.0, AutomorphicGaloisRepresentationsPartII, Layer AG2.2, AutomorphicGaloisRepresentationsPartII, Layer AG2.5, PotentialAutomorphyInfrastructure, Layer PA.2, PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one), PotentialModularityAndCompatibleSystems, Layer R24.5:operations, PotentialAutomorphyInfrastructurePartII, Layer PL.5 (pd automorphy lifting), PotentialModularityAndCompatibleSystems, Layer R23.1, TauCetiRoadmap.ModularCurves, Layer 5, TauCetiRoadmap.ModularCurves, Layer 10, EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a, [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (connects relation), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (potentially diagonalizable), GlobalGaloisDeformations, Layer G7 (polarized representability), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (automorphic polarized representation), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (automorphy under twist), PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent), PotentialAutomorphyInfrastructurePartII, Layer PL.1 (pd criteria), PotentialModularityAndCompatibleSystems, Layer R24.5 (rank two reducibility independent of lambda), PotentialModularityAndCompatibleSystems, Layer R24.5 (weakly compatible system rank n), PotentialModularityAndCompatibleSystems, Layer R24.5 (compatible system predicates), PotentialModularityAndCompatibleSystems, Layer R24.5 (constituents essentially self dual), Layer 0, PotentialAutomorphyInfrastructurePartII, Layer PL.5, PotentialModularityAndCompatibleSystems, Layer R24.5 (system l functions), PotentialModularityAndCompatibleSystems, Layer R24.5 (galois grothendieck ring), AutomorphicLFunctionsAndLocalFactors, Layer AL.2, `Matrix.trace`, AutomorphicLFunctionsAndLocalFactors, Layer AL.3, PotentialModularityAndCompatibleSystems, Layer R24.5 (linear algebra operations on systems), PotentialAutomorphyInfrastructure, Layer 5, §5.23 (ordinary automorphy lifting).
 
 ## Layer 3: classical-group packets and symplectic descent
 
@@ -1812,7 +1818,7 @@ Transport rec_GT to Q̄_p-coefficients through ı. Independence of ı in the two
 - For the Steinberg representation of GSp₄(K), n(π) = 3 (N regular nilpotent in GSp₄(ℂ)).
 - For a tempered parameter with A_φ = ℤ/2ℤ, L(ρ) has two elements, exactly one of them generic: L(ρ) is not a singleton.
 
-Check the twist on unramified principal series: for π = χ₁ × χ₂ ⋊ σ unramified, L(ρ) ∋ π iff ρ(Frob) has eigenvalues the Satake parameters shifted by p^{3/2}.
+Check the twist on unramified principal series: for π = χ₁ × χ₂ ⋊ σ unramified, L(ρ) ∋ π iff ρ(Frob) has eigenvalues the Satake parameters shifted by q^{3/2}, where q is the residue cardinality of K. For residue cardinality q = 9 and coefficient prime p = 5 the scalar is 27, independently of p; using 5^{3/2} fails this comparison.
 
 ([BCGP, potential modularity](#ref-bcgp-2021), Definition 2.3.1, §2.3 PDF p.19; [BCGP, potential modularity](#ref-bcgp-2021), Remark 2.3.2, §2.3, p. 19 (arXiv v3); [BCGP, potential modularity](#ref-bcgp-2021), §2.3, after Remark 2.3.3, p. 19 (arXiv v3).)
 
@@ -1982,15 +1988,15 @@ For G° = SL₂ = Sp₂, a parameter ϱ : W_F → SO₃(ℂ) with image the Klei
 *Needs:* [Discrete global Arthur parameters of a quasi-split classical group](#global-arthur-parameter); EndoscopicTransferAndUnitaryTraceComparison, Layer ET.6; TauCetiRoadmap.ReductiveGroups, Layer 6; [C-ARTHUR](#contract-c-arthur).
 
 <a id="shahidi-exterior-square"></a>
-### 3.11 Holomorphy and non-vanishing of twisted exterior-square L-functions on Re s = 1 (Shahidi)
+### 3.11 Twisted exterior-square L-functions at s = 1 (Shahidi)
 
 Let Π be unitary cuspidal on GL₄(𝔸_F) (or GL_{2n}) and ω unitary. At s=1, L^S(s,Π,∧²⊗ω) has either a simple pole or a finite nonzero limit; the pole is equivalent to symplectic type with multiplier ω^{−1}. For cyclic prime-degree F′/F with Π′=BC(Π) cuspidal, in the factorization over the unitary quotient characters ψ at most one factor L^S(s,Π,∧²⊗ωψ) has a pole at 1 and the others have nonzero limits there. This assertion is at s=1; it does not assert absence of poles at all other points of Re s=1.
 
-F a number field; Π unitary cuspidal on GL₄ or GL_{2n}; ω unitary; S contains the ramified places. The cyclic base-change consequence requires BC(Π) cuspidal. Two different pole-producing twists would give a prohibited nontrivial self-twist.
+F a number field; Π unitary cuspidal on GL₄ or GL_{2n}; ω unitary; S contains the ramified places. **Source boundary.** BCGP’s cited argument supplies the GL₄ case; the GL_{2n} variant requires its own analytic theorem and primary locator. The cyclic base-change consequence requires BC(Π) cuspidal. Two different pole-producing twists would give a prohibited nontrivial self-twist.
 
 State the resulting comparison as `TauCeti.Arthur.exteriorSquare_nonvanishing`.
 
-Use the AL.4 exterior-square theorem at s=1 for unitary cuspidal Π and unitary ω. Full vertical-line claims require a separate theorem and cannot be inferred from BCGP p.247. Pole criterion: definition of symplectic type ([Discrete automorphic representations of GSp₄: symplectic type, general type and transfer](#gsp4-discrete-spectrum-types)). Factorisation: base change of unramified local factors.
+Use the required Langlands–Shahidi exterior-square extension at s=1 for unitary cuspidal Π and unitary ω. AL.4 supplies only unramified L-group factors; analytic continuation and boundary nonvanishing are a missing extension, not an AL.4 theorem. Full vertical-line claims require a separate theorem and cannot be inferred from BCGP p.247. Pole criterion: definition of symplectic type ([Discrete automorphic representations of GSp₄: symplectic type, general type and transfer](#gsp4-discrete-spectrum-types)). Factorisation: base change of unramified local factors.
 
 BCGP Lemma 8.3.2 deduces from this that a GSp₄ representation over F′ whose transfer is a base change descends to F.
 
@@ -2011,9 +2017,9 @@ State the resulting comparison as `TauCeti.Arthur.localPacket`.
 
 Arthur's proof (2013, Chapters 2–7) is a long induction comparing the stabilised twisted trace formula of GL_N ⋊ θ with the stable trace formulas of the twisted endoscopic groups G, using the local intertwining relation. The packets are defined by (a) and (b) through the twisted transfer of characters of GL_N (Mœglin–Waldspurger stabilisation; Waldspurger's transfer; the fundamental lemma). Use the conditional classification with the ordinary and twisted stabilization, orbital-integral transfer, weighted fundamental lemma and local intertwining identities specified above, with the same test functions and transfer normalizations.
 
-The packets of a tempered φ with S_φ = 1 are singletons; for G = SL₂-type groups the packet sizes are |Ŝ_φ| ∈ {1, 2, 4}.
+The identities (a) and (b) are Arthur Theorem 2.2.1, §2.2, pp. 65–66; Theorem 1.5.1 supplies the packet and tempered assertions. The packets of a tempered φ with S_φ = 1 are singletons; for G = SL₂-type groups the packet sizes are |Ŝ_φ| ∈ {1, 2, 4}.
 
-([The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript); [The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, after Theorem 1.5.1, p. 42 (2011 manuscript); [Endoscopic classification of representations of quasi-split unitary groups](#ref-mok-2015), §2.5, Theorem 2.5.1 PDF p.32.)
+([The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–43 (2011 manuscript; Theorem 1.5.1 on p. 42); [The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, after Theorem 1.5.1, pp. 42–43 (2011 manuscript); [Endoscopic classification of representations of quasi-split unitary groups](#ref-mok-2015), §2.5, Theorem 2.5.1 PDF p.32.)
 
 *Needs:* [Extended Langlands parameters (ϱ, χ_ϱ) of a p-adic classical group](#extended-langlands-parameter); [Trace formula and intertwining inputs](#trace-formula-inputs-register); [The twisted weighted fundamental lemma](#arthur-dependency-gate); EndoscopicTransferAndUnitaryTraceComparison, Layer ET.6; [C-ARTHUR](#contract-c-arthur).
 
@@ -2047,11 +2053,11 @@ Assume TWFL together with the [trace formula and intertwining inputs](#trace-for
 
 State the resulting comparison as `TauCeti.Arthur.multiplicity_formula`.
 
-Arthur 2013, Chapters 3–8: comparison of the stable multiplicity formula with the discrete part of the stabilised trace formula of G and the twisted trace formula of GL_N, by induction on N. The local packets and the pairing ⟨·, π_v⟩ are those of [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets). The global sign ε_ψ arises from the global intertwining operators normalised by Langlands–Shahidi; its computation uses the root numbers of the Rankin–Selberg products.
+Arthur, Theorem 2.2.1, §2.2, pp. 65–66, supplies the stable transfer and character identities with the distinguished element s_ψ in the pairing. Chapters 3–8 establish the comparison of the stable multiplicity formula with the discrete part of the stabilised trace formula of G and the twisted trace formula of GL_N, by induction on N. The local packets and the pairing ⟨·, π_v⟩ are those of [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets). The global sign ε_ψ arises from the global intertwining operators normalised by Langlands–Shahidi; its computation uses the root numbers of the Rankin–Selberg products.
 
 Recover the trivial representation of PGL₂ = SO₃ from ψ = 1 ⊠ ν₂, and the cuspidal spectrum of PGL₂ from the generic parameters of [Discrete global Arthur parameters of a quasi-split classical group](#global-arthur-parameter)'s test so3_generic_iff (multiplicity one for SL₂-packets after restriction is not claimed: SL₂ is not SO₃).
 
-([The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–47 (2011 manuscript).)
+([The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](#ref-arthur-2013), §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–48 (2011 manuscript).)
 
 *Needs:* [Discrete global Arthur parameters of a quasi-split classical group](#global-arthur-parameter); [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets); [Trace formula and intertwining inputs](#trace-formula-inputs-register); [The twisted weighted fundamental lemma](#arthur-dependency-gate); AutomorphicSpectralTheory, Layer AS.6 (invariant trace formula); [C-ARTHUR](#contract-c-arthur).
 
@@ -2267,9 +2273,9 @@ Consumers: BCGP Lemma 8.3.2 (soluble descent of GSp₄ automorphy), Theorem 9.3.
 <a id="gsp4-archimedean-limit-packets"></a>
 ### 3.26 The archimedean L-packet of a limit of discrete series of GSp₄(ℝ)
 
-Let λ = (λ₁, 0; c) with λ₁ < 0. The limits of discrete series of GSp₄(ℝ) with infinitesimal character λ attached to the two Weyl chambers positive for λ are π(λ)^h (containing the holomorphic and antiholomorphic limits of discrete series of Sp₄(ℝ)) and π(λ)^g (the generic one), and the archimedean L-packet containing π(λ)^h is {π(λ)^g, π(λ)^h} (Blasius–Harris–Ramakrishnan, Proposition 5.3.7). In Calegari–Geraghty's notation this is the packet {π(λ, C₀), π(λ, C₁)}, λ = (a − 1, 0; 4 − a), and for a global parameter ψ of general type the archimedean Arthur packet Π_{ψ_∞} is this L-packet.
+Let λ = (λ₁, 0; c) ∈ X*(T) + (2, 1; 0) with λ₁ > 0. The limits of discrete series of GSp₄(ℝ) with infinitesimal character λ attached to the two Weyl chambers positive for λ are π(λ)^h (containing the holomorphic and antiholomorphic limits of discrete series of Sp₄(ℝ)) and π(λ)^g (the generic one), and the archimedean L-packet containing π(λ)^h is {π(λ)^g, π(λ)^h} (Blasius–Harris–Ramakrishnan, Proposition 5.3.7). **Source boundary.** The two-member description is supplied through Pilloni §15.2.4, author p. 109, and Calegari–Geraghty Theorem 7.11, published pp. 854–855; the primary proof of Blasius–Harris–Ramakrishnan Proposition 5.3.7 remains a source gap. In Calegari–Geraghty's notation this is the packet {π(λ, C₀), π(λ, C₁)}, λ = (a − 1, 0; 4 − a), and for a global parameter ψ of general type the archimedean Arthur packet Π_{ψ_∞} is this L-packet.
 
-λ=(λ₁,0;c) with λ₁<0. The identification of Π_{ψ_∞} with the L-packet uses Arthur's classification ([The twisted weighted fundamental lemma](#arthur-dependency-gate)).
+λ=(λ₁,0;c) ∈ X*(T)+(2,1;0) with λ₁>0. In the integral triple convention this includes λ₁−3 ≡ c (mod 2). The character-lattice parity is Pilloni §5.1.1, author p. 20. For λ=(1,0;2) the holomorphic minimal Sp₄ K-type is (2,2); λ₁=0 is excluded, and λ=(1,0;1) fails the parity condition. The identification of Π_{ψ_∞} with the L-packet uses Arthur's classification ([The twisted weighted fundamental lemma](#arthur-dependency-gate)).
 
 For the classification-dependent conclusion assume TWFL and the [trace formula and intertwining inputs](#trace-formula-inputs-register).
 
@@ -2305,9 +2311,9 @@ The conclusion used by CG: r̄_m symplectic when absolutely irreducible.
 <a id="limit-discrete-series-packet-types"></a>
 ### 3.28 Global packets with a holomorphic limit of discrete series at infinity are of general, Yoshida or Saito–Kurokawa type
 
-Let π = π_f ⊗ π(λ)^h be a discrete automorphic representation of GSp₄(𝔸_ℚ) with λ = (λ₁, 0; c), λ₁ < 0. Then its global Arthur packet is of general, Yoshida or Saito–Kurokawa type (Schmidt 2018, §§1.1–1.2, compared with the archimedean parameters of π(λ)^h in Schmidt 2017). If moreover the Hecke eigensystem of π_f is congruent to a non-Eisenstein maximal ideal (residual Galois representation irreducible), the packet is of general type, and then π_f ⊗ π(λ)^h is automorphic iff π_f ⊗ π(λ)^g is, both with multiplicity one (Pilloni, Proposition 15.2.4.1).
+Let π = π_f ⊗ π(λ)^h be a discrete automorphic representation of GSp₄(𝔸_ℚ) with λ = (λ₁, 0; c) ∈ X*(T)+(2,1;0), λ₁ > 0. Then its global Arthur packet is of general, Yoshida or Saito–Kurokawa type (Schmidt 2018, §§1.1–1.2, compared with the archimedean parameters of π(λ)^h in Schmidt 2017). If moreover the Hecke eigensystem of π_f is congruent to a non-Eisenstein maximal ideal (residual Galois representation irreducible), the packet is of general type, and then π_f ⊗ π(λ)^h is automorphic iff π_f ⊗ π(λ)^g is, both with multiplicity one (Pilloni, Proposition 15.2.4.1).
 
-F = ℚ; λ₁ < 0; conditional on [The twisted weighted fundamental lemma](#arthur-dependency-gate).
+F = ℚ; λ ∈ X*(T)+(2,1;0), λ₁ > 0; the finite part is unramified outside Np with its Hecke character congruent to the fixed non-Eisenstein eigensystem of Pilloni §15.2; conditional on [The twisted weighted fundamental lemma](#arthur-dependency-gate).
 
 For the classification-dependent conclusion assume TWFL and the [trace formula and intertwining inputs](#trace-formula-inputs-register).
 
@@ -2317,7 +2323,7 @@ Compare the archimedean parameter of π(λ)^h with the archimedean components al
 
 Calegari–Geraghty's proof of Theorem 7.11 excludes classes (b)–(f) by the same reducibility argument in weight (a, 2).
 
-([Higher coherent cohomology and p-adic modular forms of singular weights](#ref-pilloni-2020), §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version); [Higher coherent cohomology and p-adic modular forms of singular weights](#ref-pilloni-2020), §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version).)
+([Higher coherent cohomology and p-adic modular forms of singular weights](#ref-pilloni-2020), §15.2.4, Proposition 15.2.4.1 and proof, p. 109 (author version); [Schmidt, archimedean aspects](#ref-schmidt-2017), §2.3, pp. 2390–2391 (author PDF pp. 10–11); [Schmidt, packet structure](#ref-schmidt-2018), §§1.1–1.2, pp. 3088–3092.)
 
 *Needs:* [The archimedean L-packet of a limit of discrete series of GSp₄(ℝ)](#gsp4-archimedean-limit-packets); [Discrete representations of GSp₄ not of general type have reducible Galois representations (BCGP Lemma 2.9.1)](#non-general-type-reducible); [Arthur's classification of the discrete spectrum of GSp₄ (Arthur 2004; Gee–Taïbi)](#gsp4-arthur-classification); [C-ARTHUR](#contract-c-arthur); [C-AUTOMORPHIC](#contract-c-automorphic).
 
@@ -2539,7 +2545,7 @@ The heart of BCGNT's Theorem C.
 
 ([BCGNT](#ref-bcgnt-2025), Theorem 6.2.1 and proof, Remark 6.2.2, §6.2, arXiv v3 pp. 59–60 (published p. 53); ACC+ inputs also in the proof of Theorem 7.1.1, arXiv p. 69 (published p. 61).)
 
-*Needs:* [Potential weak automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 6.2.4)](#potential-weak-automorphy-symmetric-powers); PotentialAutomorphyInfrastructure, Layer PA.4; PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one); [Purity from potential weak automorphy of symmetric powers (BCGNT Lemma 6.1.3)](#purity-from-symmetric-powers); AutomorphicGaloisRepresentationsPartII, Layer AG2.5; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
+*Needs:* [Potential weak automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 6.2.4)](#potential-weak-automorphy-symmetric-powers); [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension); PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one); [Purity from potential weak automorphy of symmetric powers (BCGNT Lemma 6.1.3)](#purity-from-symmetric-powers); AutomorphicGaloisRepresentationsPartII, Layer AG2.5; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
 
 <a id="clozel-thorne-reductions"></a>
 ### 4.11 Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1
@@ -2666,13 +2672,13 @@ F totally real; π non-CM, cuspidal, regular algebraic.
 
 State the resulting comparison as `TauCeti.SymmetricPower.sp_all`.
 
-Induction on n ≥ 6, with the cases n ≤ 5 known ([Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers)). Write n = p + r with p ≥ 5 prime and 0 < r < p (Bertrand); Proposition 6.1 ([Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1](#clozel-thorne-reductions)) reduces to π′ with the local conditions; Newton–Thorne's level-raising and tensor-product theorems (§§3–5; owners: the Part II extensions SymmetricPowersByUnitaryLevelRaising and SymmetricPowersByTensorFunctorialityLifting, requiring the exact supplier contract) give automorphy of Sym^{p+r−1}r_{π′,ι} from SP_p, SP_r and SP_{p−r}.
+Induction on n ≥ 6, with the cases n ≤ 5 known ([Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers)). Write n = p + r with p ≥ 5 prime and 0 < r < p (Bertrand); Proposition 6.1 ([Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1](#clozel-thorne-reductions)) reduces to π′ with the local conditions; Newton–Thorne's level-raising and tensor-product theorems (§§3–5; owners: the Part II extensions SymmetricPowersByUnitaryLevelRaising and SymmetricPowersByTensorFunctorialityLifting, requiring the exact supplier contract) give automorphy of Sym^{p+r−1}r_{π′,ι} from SP_p, SP_r and SP_{p−r}.
 
 SP_6 recovers Clozel–Thorne's Sym⁵ without their disjointness hypothesis.
 
 ([Newton–Thorne, Hilbert](#ref-nt-2026), Theorem 6.4 and its proof, §6, p. 50 (arXiv v2).)
 
-*Needs:* [The statement SP_n (Newton–Thorne, Conjecture B)](#sp-statement); [Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); [Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1](#clozel-thorne-reductions); [One prime suffices for symmetric power functoriality (Newton–Thorne, Lemma 2.1)](#one-prime-criterion); [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
+*Needs:* [The statement SP_n (Newton–Thorne, Conjecture B)](#sp-statement); [Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); [Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1](#clozel-thorne-reductions); [One prime suffices for symmetric power functoriality (Newton–Thorne, Lemma 2.1)](#one-prime-criterion); [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
 
 <a id="sym6-sym8"></a>
 ### 4.18 Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)
@@ -2783,13 +2789,13 @@ Let F be totally real, π cuspidal on GL₂(𝔸_F) with π_∞ essentially squa
 
 State the resulting comparison as `TauCeti.SymmetricPower.upToEight`.
 
-(1): [Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); (2)–(4): [Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)](#sym6-sym8) and the reductions of Theorem 7.1 (mixed parity). Holomorphy: Godement–Jacquet for the cuspidal Π (AutomorphicLFunctionsAndLocalFactors AL.2).
+(1): [Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); (2)–(4): [Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)](#sym6-sym8) and the reductions of Theorem 7.1 (mixed parity). Holomorphy: Godement–Jacquet for the cuspidal Π (AutomorphicLFunctionsAndLocalFactors AL.2).
 
 Superseded by [Symmetric power functoriality for Hilbert modular forms (Newton–Thorne, Theorem A = Theorem 6.5(1))](#hilbert-symmetric-powers), which needs no disjointness.
 
 ([Clozel–Thorne III](#ref-ct-2017), §7, Corollary 7.2, manuscript pp. 46–47 (Corollaries 1.2, 1.3 on p. 2).)
 
-*Needs:* [Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)](#sym6-sym8); [Symmetric powers of GL₂ in degrees at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet); [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
+*Needs:* [Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)](#sym6-sym8); [Symmetric powers of GL₂ of rank at most five (SP_n for n ≤ 5)](#low-rank-symmetric-powers); AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet); [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
 
 <a id="bianchi-ramanujan"></a>
 ### 4.25 The Ramanujan conjecture in parallel weight over imaginary CM fields (BCGNT Theorem A = Theorem 7.1.1)
@@ -2905,7 +2911,7 @@ For a non-CM elliptic curve, the degree-two motivic symmetric power has real fac
 
 ### Dependencies
 
-The layer uses the exact supplier contracts above, GL2AutomorphicRepresentationsAndTransfer, Layer R17.5, AnalyticNumberTheory, Layer AN.2, TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 5, TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 6, `Matrix.trace`, Layer 0, Layer 1, AutomorphicGaloisRepresentationsPartII, Layer AG2.2, TauCetiRoadmap.Chebotarev, Layer 10, Layer 2, PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one), AutomorphicFormsOnReductiveGroups, Layer AF.4, AutomorphicGaloisRepresentationsPartII, Layer AG2.0 (regular algebraic of weight), AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (jacquet shalika satake bound), PotentialModularityAndCompatibleSystems, Layer R24.5:operations, PotentialAutomorphyInfrastructurePartII, Layer PL.5 (pd automorphy lifting), AutomorphicLFunctionsAndLocalFactors, Layer AL.2, PotentialAutomorphyInfrastructure, Layer PA.4, AutomorphicGaloisRepresentationsPartII, Layer AG2.5, EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a, PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent), ArithmeticLocallySymmetricSpaces, Layer ALS.3, AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet), AutomorphicLFunctionsAndLocalFactors, Layer AL.3, EllipticCurveModularity, Layer R29.6, AutomorphicGaloisRepresentations, Layer R19.2, AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing).
+The layer uses the exact supplier contracts above, GL2AutomorphicRepresentationsAndTransfer, Layer R17.5, AnalyticNumberTheory, Layer AN.2, TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 5, TauCetiRoadmap.RepresentationTheory.CompactGroups, Layer 6, `Matrix.trace`, Layer 0, Layer 1, AutomorphicGaloisRepresentationsPartII, Layer AG2.2, TauCetiRoadmap.Chebotarev, Layer 10, Layer 2, PotentialModularityAndCompatibleSystems, Layer R24.5 (residual irreducibility density one), AutomorphicFormsOnReductiveGroups, Layer AF.4, AutomorphicGaloisRepresentationsPartII, Layer AG2.0 (regular algebraic of weight), AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (jacquet shalika satake bound), PotentialModularityAndCompatibleSystems, Layer R24.5:operations, PotentialAutomorphyInfrastructurePartII, Layer PL.5 (pd automorphy lifting), AutomorphicLFunctionsAndLocalFactors, Layer AL.2, [C-LOCAL-DEFORMATION](#contract-c-local-deformation) (the required lifting extension), AutomorphicGaloisRepresentationsPartII, Layer AG2.5, EndoscopicTransferAndUnitaryTraceComparison, Layer ET.7a, PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent), ArithmeticLocallySymmetricSpaces, Layer ALS.3, AutomorphicLFunctionsAndLocalFactors, Layer AL.2 (global godement jacquet), AutomorphicLFunctionsAndLocalFactors, Layer AL.3, EllipticCurveModularity, Layer R29.6, AutomorphicGaloisRepresentations, Layer R19.2, AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (strong multiplicity one), AutomorphicLFunctionsAndLocalFactors, Layer AL.3 (rs boundary nonvanishing).
 
 ## Layer 5: generic transfers and Langlands conjectures
 
@@ -3244,3 +3250,9 @@ Siegel modularity and abelian-surface modularity consume the classical packet, d
 
 <a id="ref-zou-2024"></a>
 - Konrad Zou. [The categorical form of Fargues’ conjecture for tori](https://arxiv.org/pdf/2202.13238v2). arXiv:2202.13238v2, 6 August 2024
+
+<a id="ref-schmidt-2017"></a>
+- Ralf Schmidt. [Archimedean aspects of Siegel modular forms of degree 2](https://math.ou.edu/~rschmidt/papers/hodge.pdf). Rocky Mountain J. Math. 47 (2017), no. 7, 2381–2422; §2.3, pp. 2390–2391 (author PDF pp. 10–11).
+
+<a id="ref-schmidt-2018"></a>
+- Ralf Schmidt. [Packet structure and paramodular forms](https://sites.math.unt.edu/~schmidt/papers/packets_paramodular.pdf). Trans. Amer. Math. Soc. 370 (2018), 3085–3112; §§1.1–1.2, pp. 3088–3092.
