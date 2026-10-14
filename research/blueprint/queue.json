@@ -34873,8 +34873,9 @@
    ],
    "followUpOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9759"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9759",
+   "finishedAt": "2026-10-14T16:49:43Z"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
@@ -34918,8 +34919,9 @@
    ],
    "followUpOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9760"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9760",
+   "finishedAt": "2026-10-14T16:49:44Z"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -37061,8 +37063,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9751"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9751",
+   "finishedAt": "2026-10-14T16:49:45Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
@@ -37108,7 +37111,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9752"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
@@ -37154,7 +37158,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9753"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
@@ -37200,7 +37205,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9754"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
@@ -37246,7 +37252,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9755"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
@@ -37338,8 +37345,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9757"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9757",
+   "finishedAt": "2026-10-14T16:49:48Z"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -44253,8 +44261,9 @@
    ],
    "revisionOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9758"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9758",
+   "finishedAt": "2026-10-14T16:49:51Z"
   },
   {
    "priority": 2,
@@ -51400,7 +51409,8 @@
     "PKG-HeightsRationalPointsAndObstructions"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9738"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -51519,8 +51529,9 @@
    ],
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9761"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9761",
+   "finishedAt": "2026-10-14T16:49:53Z"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~3",
@@ -51711,8 +51722,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9770"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9770",
+   "finishedAt": "2026-10-14T16:49:57Z"
   },
   {
    "id": "REV-PKG-HodgeTateAndCanonicalSubgroups",
@@ -52638,8 +52650,9 @@
     "PKG-ModularCurvesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularCurvesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9740"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9740",
+   "finishedAt": "2026-10-14T16:50:04Z"
   },
   {
    "id": "PKG-ModularSymbolsPadicLFunctions",
@@ -53217,8 +53230,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PerfectoidShimuraVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9774"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9774",
+   "finishedAt": "2026-10-14T16:50:07Z"
   },
   {
    "id": "REV-PKG-PerfectoidShimuraVarieties",
