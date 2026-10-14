@@ -12,8 +12,9 @@ milestones or additional comparisons and imports 264 targets by their original I
 for 277 targets in this reader. Six obsolete targets are redirected to existing
 height declarations or AutomorphicSpectralTheory. The primary packet records the
 part hashes, corrections and substitutions, so the unchanged part files remain
-the provenance of the imported statements. Its new material requires independent
-review. Every layer is **planned**; none is closed or claimed implemented.
+the provenance of the imported statements. Its new material and corrections were
+independently reviewed (REV-GrossZagierAndArithmeticHeights). Every layer is
+**planned**; none is closed or claimed implemented.
 
 ## Prerequisites and boundaries
 
@@ -358,7 +359,7 @@ Rosati/conjugate-dual Hermitian positivity for arbitrary χ. The accepted biline
 
 Weil indices, norm shells, GL₂/K identification and general adjoint-value specialization.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `AutomorphicLFunctionsAndLocalFactors:AL.1`, `AutomorphicLFunctionsAndLocalFactors:AL.3`.
 
@@ -368,7 +369,7 @@ Weil indices, norm shells, GL₂/K identification and general adjoint-value spec
 
 Jacobian 2Θ specialization and tangent local-symbol comparison.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `HeightsRationalPointsAndObstructions:RP.0`.
 
@@ -378,7 +379,7 @@ Jacobian 2Θ specialization and tangent local-symbol comparison.
 
 Theta line versus rigidified Poincaré line, with the actual polarization convention.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `AbelianSchemesAndArithmeticModuli:A2`.
 
@@ -386,11 +387,11 @@ Theta line versus rigidified Poincaré line, with the actual polarization conven
 
 ### R1-partial-4
 
-Sibling-stage modular-curve material; the perfect Hecke pairing is specifically R12.5, and generalized elliptic curves specifically R13.1.
+Sibling-stage modular-curve material. R12.5 supplies only the Hecke-equivariant identification of weight-two cusp forms with differentials; the a₁ Hecke duality, the change-of-level Petersson trace and new/old orthogonality are Tau Ceti ModularForms (Layers 2–3 and pinned declarations), boundary-Eisenstein orthogonality is AS.4, and generalized elliptic curves are R13.1.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
-**Supplier boundary:** `ModularCurvesPartII:R14.1`, `ModularCurvesPartII:R14.5`, `ModularCurvesPartII:R13.4a`.
+**Supplier boundary:** `ModularCurvesPartII:R14.1`, `ModularCurvesPartII:R13.4a`.
 
 **Consumers:** [Special correspondence cycle](#target-gz-6-special-correspondence-cycle), [Normalized Hodge class](#target-gz-3-normalised-hodge-class-and-xi-parametrised-realisation), [Manin constant](#target-gz-3-manin-constant), [Modular cusp and boundary correction](#target-gz-7-boundary-cusp-correction), [CM tensor stabilizer height](#target-gz-7-cm-tensor-stabilizer-height), [Marked Green height characterization](#target-gz-7-classical-height-green-characterization), [Eta-normalized CM tangent](#target-gz-7-classical-eta-tangent), [CM level reduction component](#target-gz-7-classical-level-reduction-component), [Trace coset classification](#target-gz-6-classical-trace-coset-classification).
 
@@ -398,7 +399,7 @@ Sibling-stage modular-curve material; the perfect Hecke pairing is specifically 
 
 The precise GL₂ constituent/rational-structure comparisons at the chosen levels.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `GL2AutomorphicRepresentationsAndTransfer:R16.2`, `GL2AutomorphicRepresentationsAndTransfer:R17.1`, `GL2AutomorphicRepresentationsAndTransfer:R17.3`.
 
@@ -408,7 +409,7 @@ The precise GL₂ constituent/rational-structure comparisons at the chosen level
 
 Regularized small-dimensional Siegel–Weil and the unread Baruch–Mao comparison. The convergent range m−r>n+1 cannot handle the isotropic binary/ternary applications.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `MetaplecticAutomorphicForms:MP.6`, `MetaplecticAutomorphicForms:MP.7`.
 
@@ -418,15 +419,17 @@ Regularized small-dimensional Siegel–Weil and the unread Baruch–Mao comparis
 
 Graph Green kernel and model-measure comparison, beyond the general skeleton.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
-**Supplier boundary:** `TropicalAndBerkovichGeometry:TB.2`, `TropicalAndBerkovichGeometry:TB.3`, `TropicalAndBerkovichGeometry:TB.6`.
+**Supplier boundary:** `TropicalAndBerkovichArithmetic:TB.2`, `TropicalAndBerkovichArithmetic:TB.3`, `TropicalAndBerkovichArithmetic:TB.6`.
+
+**Consumers:** [Admissible reduction-graph measure](#target-gz-2-graph-admissible-measure), [Explicit admissible skeleton measure](#target-gz-2-explicit-skeleton-measure).
 
 ### R1-partial-8
 
 Measure compatibility and nonholomorphic/logarithmic growth estimates.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `AutomorphicFormsOnReductiveGroups:AF.3`, `AutomorphicFormsOnReductiveGroups:AF.5`.
 
@@ -436,7 +439,7 @@ Measure compatibility and nonholomorphic/logarithmic growth estimates.
 
 Character avatars, CM periods and the square-root measure: stage specifications exist, but their exact target packets remain missing.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `AutomorphicPadicLFunctions:L0`, `AutomorphicPadicLFunctions:L3`, `AutomorphicPadicLFunctions:L3h`.
 
@@ -446,7 +449,7 @@ Character avatars, CM periods and the square-root measure: stage specifications 
 
 Complete-DVR coefficients with infinite residue field Ô^ur, Amice surjectivity and Weierstrass factorization; L4’s finite-residue-field hypothesis does not cover Ô^ur.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `PadicMeasuresIwasawaAlgebras:L1`, `PadicMeasuresIwasawaAlgebras:L2`, `PadicMeasuresIwasawaAlgebras:L4`.
 
@@ -456,7 +459,7 @@ Complete-DVR coefficients with infinite residue field Ô^ur, Amice surjectivity 
 
 Nilpotent-thickening compatibility for the rigid/formal comparison.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
@@ -466,7 +469,7 @@ Nilpotent-thickening compatibility for the rigid/formal comparison.
 
 CM fixed sections: the existing packet itself records their absent owner.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `HilbertModularVarietiesAndShimuraCurves:R18.5`.
 
@@ -476,7 +479,7 @@ CM fixed sections: the existing packet itself records their absent owner.
 
 The precise Ramanujan estimate needed by the kernel continuation.
 
-**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here..
+**Status:** partial-input. **Proposed owner:** Named supplier extension unless an exact existing export is identified; no scope move is applied here.
 
 **Supplier boundary:** `AutomorphicGaloisRepresentations:R19.1`.
 
@@ -1134,7 +1137,7 @@ For a Weierstrass elliptic curve E/K with translation T_P(x)=x+P and polarizatio
 2. Apply uniqueness of quadratic refinements to identify the doubling limits.
 3. Take the full polar form, then apply the determinant scaling baseline.
 
-**Dependencies:** [Poincaré height pairing](#target-gz-1-neron-tate-height-and-the-poincare-pairing), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), `HeightsRationalPointsAndObstructions:RP.0`.
+**Dependencies:** [Poincaré height pairing](#target-gz-1-neron-tate-height-and-the-poincare-pairing), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), `HeightsRationalPointsAndObstructions:RP.0`.
 
 **Acceptance.**
 
@@ -3896,7 +3899,7 @@ Standing notation of Chapter I: N ≥ 1 an integer (N > 1 is assumed in the proo
 1. Apply the imported Hecke-equivariant Jacobian/local-height pairing to the finite-dimensional Hecke module.
 2. Use the perfect Fourier-coefficient pairing of the Hecke algebra and weight-two cusp forms to produce the series with coefficient ⟨a,T_m b⟩. This imports Mordell–Weil and the Jacobian instead of defining either again.
 
-**Dependencies:** `HeightsRationalPointsAndObstructions:RP.0`, `ModularCurvesPartII:R14.2`, `ModularCurvesPartII:R12.5`.
+**Dependencies:** `HeightsRationalPointsAndObstructions:RP.0`, `ModularCurvesPartII:R14.2`, `ModularCurvesPartII:R12.5`, `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
 
 **Acceptance.**
 
@@ -3978,7 +3981,7 @@ For N | M, f ∈ S_{2k}(Γ₀(N)) and g ∈ M̃_{2k}(Γ₀(M)): (f, g)_{Γ₀(M)
 1. Use the trace coset decomposition and change variables in the Petersson integral.
 2. Compare the index-normalized trace with the source unnormalized trace before applying adjunction.
 
-**Dependencies:** `ModularCurvesPartII:R14.2`, `ModularCurvesPartII:R14.5`.
+**Dependencies:** `ModularCurvesPartII:R14.2`, `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`.
 
 **Acceptance.**
 
@@ -4005,7 +4008,7 @@ Standing notation (Ch. IV §0, p. 267): K = ℚ(√D) imaginary quadratic with f
 1. Separate the level divisors by inclusion–exclusion.
 2. Apply trace adjunction to the resulting oldform/newform terms, retaining the Möbius factor.
 
-**Dependencies:** [Classical trace adjunction](#target-gz-6-classical-trace-adjunction), `ModularCurvesPartII:R14.5`.
+**Dependencies:** [Classical trace adjunction](#target-gz-6-classical-trace-adjunction), `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`.
 
 **Acceptance.**
 
@@ -4103,10 +4106,10 @@ Standing notation (Ch. IV §0, p. 267): K = ℚ(√D) imaginary quadratic with f
 
 **Outline.**
 
-1. Use the Hecke algebra/Fourier-coefficient perfect pairing on the newform subspace.
-2. Prime-to-N Hecke operators determine each newform component; do not extend the assertion to arbitrary oldforms.
+1. Replace Φ̃−Φ̃′ by its cuspidal holomorphic projection (AS.4 constituent projection), which has the same Petersson product with every cusp form and whose m-th coefficient is computed from the m-th Fourier coefficient alone, so it vanishes for every m prime to N.
+2. By the pinned Main Lemma (TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero, trivial character for Γ₀(N)) that projection is old; by the pinned newness criterion (TauCeti.mem_cuspFormsNew_iff) a newform is orthogonal to it. Do not extend the assertion to arbitrary oldforms.
 
-**Dependencies:** `ModularCurvesPartII:R12.5`.
+**Dependencies:** `tauceti:TauCeti.mem_cuspFormsNew_iff`, `tauceti:TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero`, `AutomorphicSpectralTheory:AS.4`.
 
 **Acceptance.**
 
@@ -4777,7 +4780,7 @@ Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadrat
 
 **Target:** `GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition` (theorem).
 
-Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\𝔥} f(z) \overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). Genus notation (p. 284–285): {𝔫} is the genus of any integral ideal 𝔫 of K with N(𝔫) ≡ ε(N)N (mod D) (independent of the choice); {A𝔫} its product with the genus of A; R_{A𝔫}(n) = number of integral ideals of norm n in the genus {A𝔫} (for n = 0 the sum of r_B(0) over the classes B of that genus); δ(n) = 2^s, s = number of prime factors of (n, D) (δ(0) = 2^t, t = number of prime factors of D). Suppose ε(N) = +1 and n > 0 satisfies (4.2): Nn + l ≡ 0 (mod D) for some l = N(𝔞), 𝔞 an integral ideal in A [the hypothesis (4.2) is omitted in the printed statement of b); it is needed, see issue PAPER-GROSS-ZAGIER-86/E37]. Then σ′_A(n) = Σ_{p|n} a_p(n) log p with a_p(n) = 0 if ε(p) = 1; a_p(n) = (ord_p(n) + 1)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = −1; a_p(n) = ord_p(n)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = 0, In the inert and ramified branches choose the genus {𝔠} using an integral ideal of norm congruent to −p modulo D (Remark 1); the genus is independent of that choice. (Proof: a_p(n) = −2Σ_{d|n} ε_A(n,d) ord_p(d); multiplicativity reduces to the p-part; ε(p) = −1 and ν odd use ε_A(n,d₁) = ε_{A𝔠}(−n₁,d₁) and part a); p | D uses ε_A(n,d) = −ε_A(n,n/d) and ε_A(n,d₁) = ε_{A𝔠𝔭^{ν−1}}(−n₁,d₁).)
+Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\𝔥} f(z) \overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). Genus notation (p. 284–285): {𝔫} is the genus of any integral ideal 𝔫 of K with N(𝔫) ≡ ε(N)N (mod D) (independent of the choice); {A𝔫} its product with the genus of A; R_{A𝔫}(n) = number of integral ideals of norm n in the genus {A𝔫} (for n = 0 the sum of r_B(0) over the classes B of that genus); δ(n) = 2^s, s = number of prime factors of (n, D) (δ(0) = 2^t, t = number of prime factors of D). Suppose ε(N) = +1 and n > 0 satisfies (4.2): Nn + l ≡ 0 (mod D) for some l = N(𝔞), 𝔞 an integral ideal in A [the hypothesis (4.2) is omitted in the printed statement of b); it is needed, see issue PAPER-GROSS-ZAGIER-86/E37]. Then σ′_A(n) = Σ_{p|n} a_p(n) log p with a_p(n) = 0 if ε(p) = 1; a_p(n) = (ord_p(n) + 1)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = −1; a_p(n) = ord_p(n)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = 0. In the inert and ramified branches choose the genus {𝔠} using an integral ideal of norm congruent to −p modulo D (Remark 1); the genus is independent of that choice. (Proof: a_p(n) = −2Σ_{d|n} ε_A(n,d) ord_p(d); multiplicativity reduces to the p-part; ε(p) = −1 and ν odd use ε_A(n,d₁) = ε_{A𝔠}(−n₁,d₁) and part a); p | D uses ε_A(n,d) = −ε_A(n,n/d) and ε_A(n,d₁) = ε_{A𝔠𝔭^{ν−1}}(−n₁,d₁).)
 
 **Hypotheses.**
 
@@ -4952,7 +4955,7 @@ Let N ≥ 1 and M | N, and let E(z) = E_{2,s}(z)|_{s=0}, F(z) = ∂_sE_{2,s}(z)|
 1. Pair the boundary Eisenstein families with cusp forms in their convergence region.
 2. Continue the pairing and differentiate; cusp decay kills the boundary terms, giving zero for both E and F.
 
-**Dependencies:** [Boundary Eisenstein cusp constants](#target-gz-6-classical-boundary-eisenstein-cusps), `ModularCurvesPartII:R14.5`.
+**Dependencies:** [Boundary Eisenstein cusp constants](#target-gz-6-classical-boundary-eisenstein-cusps), `AutomorphicSpectralTheory:AS.4`.
 
 **Acceptance.**
 
@@ -5330,7 +5333,7 @@ For the noncompact split modular curve X₀(N), form the finite-level compactifi
 2. Extend the diagonal by the normalized tangent and retain the eta/different self terms.
 3. Assemble the finite and infinite corrections and show the remaining difference is old before newform projection.
 
-**Dependencies:** `AutomorphicSpectralTheory:AS.2/automorphic-green`, [Resolvent cusp expansion](#target-gz-7-classical-cusp-expansion), [Tangent-normalized CM height symbol](#target-gz-7-classical-tangent-symbol), [Logarithmic weight-two projection](#target-gz-6-classical-holomorphic-projection), `ModularCurvesPartII:R13.3`, `ModularCurvesPartII:R13.4a`.
+**Dependencies:** `AutomorphicSpectralTheory:AS.2/automorphic-green`, [Resolvent cusp expansion](#target-gz-7-classical-cusp-expansion), [Tangent-normalized CM height symbol](#target-gz-7-classical-tangent-symbol), [Logarithmic weight-two projection](#target-gz-6-classical-holomorphic-projection), `ModularCurvesPartII:R12.5`, `ModularCurvesPartII:R13.3`, `ModularCurvesPartII:R13.4a`.
 
 **Acceptance.**
 
@@ -6605,7 +6608,7 @@ For m ≥ 1, (m, N) = 1: T_m acts on constants by σ₁(m) = #{γ ∈ Γ\R_N : d
 1. Reindex determinant-m matrices as the usual prime-to-N Hecke cosets.
 2. Use invariance of the resolvent and the Eisenstein Hecke eigenvalue σ₁(m).
 
-**Dependencies:** `AutomorphicSpectralTheory:AS.2/automorphic-green`, `ModularCurvesPartII:R14.5`.
+**Dependencies:** `AutomorphicSpectralTheory:AS.2/automorphic-green`, `ModularCurvesPartII:R14.2`, `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
 
 **Acceptance.**
 
@@ -6958,7 +6961,7 @@ Standing notation (Chap. I §3, restated p. 233): K imaginary quadratic, discrim
 
 **Target:** `GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation` (theorem).
 
-Standing notation (Chap. I §3, restated p. 233): K imaginary quadratic, discriminant D, 𝒪 = 𝒪_K, (D, N) = 1, D odd (hence squarefree, D ≡ 1 mod 4), D ≡ square (mod 4N) (all p | N split in K); H = Hilbert class field, Cl_K ≅ Gal(H/K); u = #𝒪^×/2; t = number of prime factors of D; s = number of prime factors of N; Γ = Γ₀(N) ⊂ PSL₂(ℤ); 𝔥 = upper half-plane; R_N = (ℤ ℤ; Nℤ ℤ); m ≥ 1 with (m, N) = 1; √D = i√|D|. For m ≥ 1, (m, N) = 1, r_𝒜(m) = 0, s > 1: γ^m_{N,s}(𝒜) = −2u² Σ_{n≥1} δ(n) R_{{𝒜𝔫}}(n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)), Here R_{{𝒜𝔫}}(n) counts the norm-n integral ideals belonging to {𝒜𝔫}.
+Standing notation (Chap. I §3, restated p. 233): K imaginary quadratic, discriminant D, 𝒪 = 𝒪_K, (D, N) = 1, D odd (hence squarefree, D ≡ 1 mod 4), D ≡ square (mod 4N) (all p | N split in K); H = Hilbert class field, Cl_K ≅ Gal(H/K); u = #𝒪^×/2; t = number of prime factors of D; s = number of prime factors of N; Γ = Γ₀(N) ⊂ PSL₂(ℤ); 𝔥 = upper half-plane; R_N = (ℤ ℤ; Nℤ ℤ); m ≥ 1 with (m, N) = 1; √D = i√|D|. For m ≥ 1, (m, N) = 1, r_𝒜(m) = 0, s > 1: γ^m_{N,s}(𝒜) = −2u² Σ_{n≥1} δ(n) R_{{𝒜𝔫}}(n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)). Here R_{{𝒜𝔫}}(n) counts the norm-n integral ideals belonging to {𝒜𝔫}.
 
 **Hypotheses.**
 
@@ -9070,7 +9073,7 @@ Let E/ℚ have conductor N, f : X₀(N) → E a modular parametrisation with f(�
 2. Combine classical-gross-zagier-formula with petersson-norm-and-parametrisation-degree.
 3. For χ = 1 and c = 1 the χ-sum is the Galois trace over Pic(O_K) ≅ Gal(H_K/K) (GZ.0/trace-versus-average).
 
-**Dependencies:** [The Gross–Zagier formula on X₀(N) for ring-class characters](#target-gz-8-classical-gross-zagier-formula), [Petersson norm, parametrisation degree and Manin constant](#target-gz-8-petersson-norm-and-parametrisation-degree), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), [Trace versus normalised average of a Galois orbit](#target-gz-0-trace-versus-average), `HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation`, `HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree`, `EllipticCurveModularity:R29.5/modular-parametrisation`, `tauceti:WeierstrassCurve.Affine.Point.canonicalHeight`, `mathlib:WeierstrassCurve.Affine.Point`, `mathlib:NumberField.instAdmissibleAbsValues`.
+**Dependencies:** [The Gross–Zagier formula on X₀(N) for ring-class characters](#target-gz-8-classical-gross-zagier-formula), [Petersson norm, parametrisation degree and Manin constant](#target-gz-8-petersson-norm-and-parametrisation-degree), [Pinned and current elliptic height conventions](#target-gz-0-pinned-height-normalization-comparison), [Trace versus normalised average of a Galois orbit](#target-gz-0-trace-versus-average), `HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation`, `HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree`, `EllipticCurveModularity:R29.5/modular-parametrisation`, `tauceti:WeierstrassCurve.Affine.Point.canonicalHeight`, `mathlib:WeierstrassCurve.Affine.Point`, `mathlib:NumberField.instAdmissibleAbsValues`.
 
 **Acceptance.**
 
@@ -9294,7 +9297,7 @@ Let N > 1, K = ℚ(√D) imaginary quadratic with D odd, (D, N) = 1 and every p 
 3. Rewrite both through Chapter IV Proposition (4.6) (the Fourier coefficients of the holomorphic projection of the derivative of the Rankin kernel, GZ.6) and add: ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1.
 4. Two cusp forms whose m-th coefficients agree for (m, N) = 1 differ by an old form, which has the same Petersson product with every newform; use L'_𝒜(f, 1) = 8π² u^{-2} |D|^{-1/2} (f, g_𝒜).
 
-**Dependencies:** [Projected Rankin derivative cusp form](#target-gz-6-classical-projected-derivative-cuspform), [Projected Rankin derivative coefficients](#target-gz-6-classical-projected-derivative-coefficients), [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality), [Prime-to-level newform detection](#target-gz-6-classical-prime-to-level-detection), [Total archimedean CM formula](#target-gz-7-classical-total-archimedean-formula), [Total finite CM height formula](#target-gz-7-classical-finite-height-sum), `HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair`, `HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators`, `mathlib:CuspForm`, `mathlib:CongruenceSubgroup.Gamma0`, `tauceti:UpperHalfPlane.peterssonInner`, `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`, `tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality`, `tauceti:CuspForm.peterssonInnerCosets`, `tauceti:TauCeti.cuspFormsOld`, `tauceti:TauCeti.cuspFormsNew`, `tauceti:TauCeti.isCompl_cuspFormsOld_cuspFormsNew`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq`, `HeegnerPointEulerSystems:HE.1`.
+**Dependencies:** [Projected Rankin derivative cusp form](#target-gz-6-classical-projected-derivative-cuspform), [Projected Rankin derivative coefficients](#target-gz-6-classical-projected-derivative-coefficients), [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality), [Prime-to-level newform detection](#target-gz-6-classical-prime-to-level-detection), [Total archimedean CM formula](#target-gz-7-classical-total-archimedean-formula), [Total finite CM height formula](#target-gz-7-classical-finite-height-sum), `HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair`, `HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators`, `mathlib:CuspForm`, `mathlib:CongruenceSubgroup.Gamma0`, `tauceti:UpperHalfPlane.peterssonInner`, `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`, `tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality`, `tauceti:CuspForm.peterssonInnerCosets`, `tauceti:TauCeti.cuspFormsOld`, `tauceti:TauCeti.cuspFormsNew`, `tauceti:TauCeti.isCompl_cuspFormsOld_cuspFormsNew`, `tauceti:HeckeRing.GL2.Newform`, `tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq`, `HeegnerPointEulerSystems:HE.1`, `tauceti:TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero`.
 
 **Acceptance.**
 
@@ -10044,7 +10047,7 @@ The actual dual and twice-rigidified Poincaré line, contravariant dual pullback
 
 General Mordell–Weil finite generation for A over a number field from weak descent and the Northcott height argument; reduce the descent height step to Mathlib AddCommGroup.fg_of_descent'.
 
-**Consumers:** [Character-component height pairing](#target-gz-1-character-height-pairing).
+**Consumers:** [Character-component height pairing](#target-gz-1-character-height-pairing), [Rational Galois descent of Mordell–Weil spaces](#target-gz-1-mordell-weil-galois-descent), [The χ-isotypic Mordell–Weil space A(χ)](#target-gz-8-chi-isotypic-mordell-weil-space).
 
 ### Request 5: ArakelovGeometryAndAbelianHeights:R35.1
 
@@ -10090,7 +10093,7 @@ Proper cycle push-forward with generic residue-degree multiplicities, base-chang
 
 Hecke double-coset correspondences on finite-level modular/Shimura curves, their convolution with multiplicities and action on Pic⁰, with level compatibilities.
 
-**Consumers:** [Special correspondence cycle](#target-gz-6-special-correspondence-cycle).
+**Consumers:** [Special correspondence cycle](#target-gz-6-special-correspondence-cycle), [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality), [Classical trace adjunction](#target-gz-6-classical-trace-adjunction), [Hecke kernel action](#target-gz-7-classical-hecke-kernel-action).
 
 ### Request 11: HeegnerPointEulerSystems:HE.1
 
@@ -10112,7 +10115,7 @@ Meromorphic continuation of the mixed incoherent Eisenstein kernel, compact-para
 
 Holomorphic/cuspidal constituent projection with Petersson adjunction, annihilation of constants/Eisenstein/old components in the new constituent, and compatibility with the relevant theta/correspondence kernels.
 
-**Consumers:** [Arithmetic theta lifting comparison](#target-gz-6-arithmetic-theta-lifting), [Projected arithmetic kernel identity](#target-gz-6-generating-series-arithmetic-theta-lifting-and-the-kernel-identity).
+**Consumers:** [Arithmetic theta lifting comparison](#target-gz-6-arithmetic-theta-lifting), [Projected arithmetic kernel identity](#target-gz-6-generating-series-arithmetic-theta-lifting-and-the-kernel-identity), [Prime-to-level newform detection](#target-gz-6-classical-prime-to-level-detection).
 
 **Audit:** R1-projections.
 
@@ -10308,7 +10311,7 @@ The norm representation and genus criterion with Nn+l≡0 mod D and l a norm fro
 
 Regularized Petersson holomorphic projection in weight two with logarithmic cusp growth, Fourier Mellin finite parts, continuation bounds and orthogonality of boundary Eisenstein families.
 
-**Consumers:** [Logarithmic weight-two projection](#target-gz-6-classical-holomorphic-projection).
+**Consumers:** [Logarithmic weight-two projection](#target-gz-6-classical-holomorphic-projection), [Boundary Eisenstein orthogonality](#target-gz-6-classical-boundary-eisenstein-orthogonality).
 
 **Audit:** R1-projections.
 
@@ -10350,9 +10353,9 @@ Classical ideal-class theta series of weight one and character ε, constant r_A(
 
 ### Request 45: ModularCurvesPartII:R12.5
 
-Hecke algebra/Fourier coefficient perfect pairing for weight-two cuspidal forms and the Jacobian, trace adjunction, newform orthogonal projection and prime-to-level detection on the newform subspace.
+The Hecke-equivariant identification of S₂(Γ₀(N)) with the regular differentials on X₀(N), so that the classical operators T_m on S₂(Γ₀(N)) and the Hecke correspondences on J₀(N) act through one commutative algebra on its cotangent space. The a₁ duality is ModularForms Layer 2, new/old orthogonality and the Main Lemma are pinned Tau Ceti declarations, and boundary-Eisenstein orthogonality is AS.4.
 
-**Consumers:** [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality), [Classical trace adjunction](#target-gz-6-classical-trace-adjunction), [Prime-to-level newform detection](#target-gz-6-classical-prime-to-level-detection), [Boundary Eisenstein orthogonality](#target-gz-6-classical-boundary-eisenstein-orthogonality).
+**Consumers:** [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality).
 
 ### Request 46: HeightsRationalPointsAndObstructions:RP.0
 
@@ -10460,7 +10463,7 @@ Adelic/classical comparison and restricted tensor factorization in the exact cen
 
 Petersson pairing of cuspidal weight-two forms with the specified unnormalized and Tamagawa Haar measures and rapid decay.
 
-**Consumers:** [Petersson and modular-degree comparison](#target-gz-3-petersson-composition-comparison).
+**Consumers:** [Petersson and modular-degree comparison](#target-gz-3-petersson-composition-comparison), [Petersson pairing as a product of Whittaker pairings](#target-gz-5-petersson-whittaker-factorization).
 
 **Audit:** R1-partial-8.
 
@@ -10642,7 +10645,7 @@ Propose GL2 automorphic representations and transfer, Part II: integral Jacquet�
 
 For GL₂ over a totally real F and a CM extension K/F: the base-change Rankin L-function L(s, π_K ⊗ χ) with analytic continuation, functional equation and local root numbers ε(1/2, π_{K,v} ⊗ χ_v); the Rankin–Selberg-over-F root numbers and their comparison ε_RS = η_v(−1) ε_BC (Langlands λ-factor); the adjoint L-value L(1, π, ad); and the relation L(f, ψ^alg, s) = L(π_K × ψ^alg, s − 1/2). Also export the completed Hecke L-function L(s, η) of a CM extension K/F, with ζ_K = ζ_F·L(s, η) including archimedean factors, used in CST Lemma 2.3. Rankin–Selberg continuation and the unitary/motivic shift are cited as AL.3/rs-global-functional-equation and AL.3/motivic-unitary-shift.
 
-**Consumers:** [The χ-Heegner point P_χ(f) and its finite form P⁰_χ(f)](#target-gz-8-chi-heegner-point), [Toric integral versus finite trace](#target-gz-8-toric-integral-versus-finite-sum), [The Yuan–Zhang–Zhang Gross–Zagier formula (YZZ Theorem 1.2)](#target-gz-8-general-quaternionic-gross-zagier-identity), [Matching local signs force the global sign −1](#target-gz-8-essential-case-root-number), [The Gross–Zagier formula on X₀(N) for ring-class characters](#target-gz-8-classical-gross-zagier-formula), [Heegner points on X_{N⁺,N⁻} over ℚ and the trivial character](#target-gz-8-rational-shimura-curve-heegner-formula), [The BDP anticyclotomic p-adic L-function in weight two](#target-gz-9-bdp-p-adic-l-function), [Corollaries on derivatives: positivity and Galois invariance](#target-gz-8-derivative-corollaries).
+**Consumers:** [The χ-Heegner point P_χ(f) and its finite form P⁰_χ(f)](#target-gz-8-chi-heegner-point), [Toric integral versus finite trace](#target-gz-8-toric-integral-versus-finite-sum), [The Yuan–Zhang–Zhang Gross–Zagier formula (YZZ Theorem 1.2)](#target-gz-8-general-quaternionic-gross-zagier-identity), [Matching local signs force the global sign −1](#target-gz-8-essential-case-root-number), [The Gross–Zagier formula on X₀(N) for ring-class characters](#target-gz-8-classical-gross-zagier-formula), [Heegner points on X_{N⁺,N⁻} over ℚ and the trivial character](#target-gz-8-rational-shimura-curve-heegner-formula), [The BDP anticyclotomic p-adic L-function in weight two](#target-gz-9-bdp-p-adic-l-function), [Corollaries on derivatives: positivity and Galois invariance](#target-gz-8-derivative-corollaries), [Explicit local toric constants at test vectors](#target-gz-4-explicit-local-toric-constants), [Petersson pairing as a product of Whittaker pairings](#target-gz-5-petersson-whittaker-factorization), [Waldspurger period formula](#target-gz-5-waldspurger-period-formula-and-its-siegel-weil-proof).
 
 **Audit:** R1-epsilon, R1-partial-1.
 
@@ -10676,11 +10679,11 @@ Integral quaternionic Shimura models and CM sections; the formal Poincaré trivi
 
 **Audit:** R1-ordinary-moments.
 
-### Request 91: tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor
+### Request 91: tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms
 
-The Atkin–Lehner main lemma at level Γ₀(N): a weight-two cusp form whose q-expansion coefficients vanish at every index prime to N is old. The old/new decomposition, newforms and strong multiplicity one are cited as pinned declarations (TauCeti.cuspFormsOld, TauCeti.cuspFormsNew, HeckeRing.GL2.Newform and its strong multiplicity one).
+Petersson orthogonality of the new and old subspaces at level Γ₀(N), and the change-of-level trace adjunction (f,g)_{Γ₀(M)}=(f,Tr^M_N g)_{Γ₀(N)} for N | M, including g of moderate growth at every cusp paired with a cusp form f. The old/new decomposition, the newness criterion and the Atkin–Lehner Main Lemma are pinned declarations (TauCeti.cuspFormsOld, TauCeti.cuspFormsNew, TauCeti.mem_cuspFormsNew_iff, TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero); strong multiplicity one is HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq.
 
-**Consumers:** [The main identity on X₀(N): heights as Fourier coefficients](#target-gz-8-coefficient-identity).
+**Consumers:** [The main identity on X₀(N): heights as Fourier coefficients](#target-gz-8-coefficient-identity), [Classical trace adjunction](#target-gz-6-classical-trace-adjunction), [Möbius level decomposition](#target-gz-6-classical-mobius-level-decomposition).
 
 ### Request 92: tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality
 
@@ -10736,11 +10739,27 @@ Harris–Kudla algebraicity and Prasanna Theorem 2.4 integrality and Theorem 3.2
 
 **Audit:** R2-rational-structures.
 
+### Request 99: tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra
+
+The q-expansion formula a₁(T_n f)=a_n(f) for every n ≥ 1 on S₂(Γ₀(N)), with T_n=U_n at primes dividing N, and the resulting perfect pairing (T,f)↦a₁(Tf) between the Hecke algebra generated by all T_n and S₂(Γ₀(N)); the description of T_m for (m,N)=1 by the integral matrices of determinant m in R_N modulo Γ₀(N).
+
+**Consumers:** [Hecke height-series cuspidality](#target-gz-6-classical-height-series-cuspidality), [Hecke kernel action](#target-gz-7-classical-hecke-kernel-action).
+
+### Request 100: AbelianSchemesAndArithmeticModuli:A2
+
+For an abelian variety A over a number field K and a finite Galois extension H/K: the Gal(H/K)-action on A(H) commutes with End_K(A), and A(H)^Gal(H/K)=A(K).
+
+**Consumers:** [Rational Galois descent of Mordell–Weil spaces](#target-gz-1-mordell-weil-galois-descent).
+
 ## Source and interface limits
 
 The source and proof checks in the accepted parts retain their original authorship and independent verdicts. Phrases about an inspected passage in an imported target describe that historical check. This worker rechecked the cited library statements, the new CST constants and Petersson product, the public normalization comparisons, and the author erratum; it did not re-read every historical source. The unavailable 2013 book and 2011 draft are never represented as personally inspected.
 
 The 100 historical source findings remain in their owning [GZ.0 packet](../packets/GrossZagierAndArithmeticHeights--GZ.0.json) and [GZ.8 packet](../packets/GrossZagierAndArithmeticHeights--GZ.8.json). Their IDs are packet-local: overlapping E-numbers are distinguished by packet and source. References to PAPER-GROSS-ZAGIER-86 findings refer to that paper’s reviewed extraction. This primary packet does not attach the earlier independent approvals to its own corrections.
+
+### Source issue recorded in review
+
+**CST Proposition 2.5, arXiv:1408.1733v2 p.18 (misprint, affects nothing).** The proposition defines the finite-place factor γ_v as Vol(U₀(N)_v)/Vol(U_v), the reciprocal of the γ_v of Proposition 2.4 and of the γ defined before Lemma 3.5. Formula (2.5) is derived in the same way as (2.3), so it needs Vol(U_v)/Vol(U₀(N)_v); the proof of Theorem 1.5 indeed applies (2.5) with Lemma 3.13, whose γ is L(1,1_F)(1−e(R)q⁻¹). [Explicit local toric constants at test vectors](#target-gz-4-explicit-local-toric-constants) states γ as in Lemma 3.5, and [The explicit Gross–Zagier formula of Cai–Shu–Tian](#target-gz-8-explicit-gross-zagier-formula), which applies (2.5), takes its local constants from that target. arXiv v2 is the latest version; the published text (Algebra Number Theory 8, 2014) was not openly available for comparison.
 
 ### YZZ Picard modularity and bad-place proof comparisons
 

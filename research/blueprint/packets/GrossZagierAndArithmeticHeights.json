@@ -600,6 +600,20 @@
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "The completed Riemann zeta function Λ(s) = π^{-s/2}Γ(s/2)ζ(s); Λ(2) = π^{-1}ζ(2) is the completed ζ(2) of the YZZ constant over ℚ.",
         "checked": "Declaration and relevant definition/statement read at the recorded pin on 2026-10-14, Codex codex-fpPjYu. This is a source check, not an implementation claim for this blueprint."
+      },
+      {
+        "ref": "tauceti:TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/MainLemma.lean",
+        "provides": "The Atkin–Lehner Main Lemma per nebentypus on Γ₁(N): a cusp form in S_k(Γ₁(N),χ) whose q-expansion coefficients vanish at every index coprime to N lies in the old subspace; Γ₀(N) is the trivial-character case.",
+        "checked": "statement read at Tau Ceti f790474 by REV-GrossZagierAndArithmeticHeights"
+      },
+      {
+        "ref": "tauceti:TauCeti.mem_cuspFormsNew_iff",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Basic.lean",
+        "provides": "A level-N cusp form is new exactly when it is Petersson-orthogonal to every level raise V_d g of a cusp form g of proper divisor level M with dM | N.",
+        "checked": "statement read at Tau Ceti f790474 by REV-GrossZagierAndArithmeticHeights"
       }
     ]
   },
@@ -3620,11 +3634,13 @@
         "prerequisites": [
           "HeightsRationalPointsAndObstructions:RP.0",
           "ModularCurvesPartII:R14.2",
-          "ModularCurvesPartII:R12.5"
+          "ModularCurvesPartII:R12.5",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
         ],
         "statement": "Standing notation of Chapter I: N ≥ 1 an integer (N > 1 is assumed in the proof, §9; N = 1 is treated in [18]); X = X₀(N) over ℚ, J = Jac(X); K = ℚ(√D) imaginary quadratic with discriminant D, (D, N) = 1, and D odd (hence D ≡ 1 mod 4 and squarefree, so (D, 2N) = 1; D = −3 is allowed, D = −4 is excluded); O = O_K; h = #Pic(O); u = #(O^×/{±1}) (u = 1 unless D = −3, then u = 3); ε = (D/·) the quadratic character of K/ℚ; H = K(j(E)) the Hilbert class field; the Heegner hypothesis D ≡ β² (mod 4N) for some β ∈ ℤ (equivalently, every prime p | N splits in K); x a Heegner point of discriminant D on X; c = class of (x) − (∞) in J(H); σ ∈ Gal(H/K) corresponds to the ideal class 𝒜 ∈ Cl_K under the Artin isomorphism; ⟨ , ⟩ the global (Néron–Tate) height pairing over H extended Hermitian to J(H) ⊗ ℂ; ( , ) the Petersson product (5.1). The height-coefficient expansion g_𝒜(z) = Σ_{m≥1} ⟨c, T_m c^σ⟩ e^{2πimz} belongs to S₂(Γ₀(N))."
       },
-      "reason": "Consolidation and supplier correction; the accepted part file remains unchanged."
+      "reason": "Consolidation and supplier correction; the accepted part file remains unchanged.",
+      "reviewNote": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it."
     },
     {
       "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding",
@@ -3654,10 +3670,17 @@
       "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
       "fields": {
         "prerequisites": [
-          "ModularCurvesPartII:R12.5"
+          "tauceti:TauCeti.mem_cuspFormsNew_iff",
+          "tauceti:TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero",
+          "AutomorphicSpectralTheory:AS.4"
+        ],
+        "proofSteps": [
+          "Replace Φ̃−Φ̃′ by its cuspidal holomorphic projection (AS.4 constituent projection), which has the same Petersson product with every cusp form and whose m-th coefficient is computed from the m-th Fourier coefficient alone, so it vanishes for every m prime to N.",
+          "By the pinned Main Lemma (TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero, trivial character for Γ₀(N)) that projection is old; by the pinned newness criterion (TauCeti.mem_cuspFormsNew_iff) a newform is orthogonal to it. Do not extend the assertion to arbitrary oldforms."
         ]
       },
-      "reason": "Consolidation and supplier correction; the accepted part file remains unchanged."
+      "reason": "Consolidation and supplier correction; the accepted part file remains unchanged.",
+      "reviewNote": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it."
     },
     {
       "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing",
@@ -3823,7 +3846,7 @@
     {
       "target": "GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation",
       "fields": {
-        "statement": "Standing notation (Chap. I §3, restated p. 233): K imaginary quadratic, discriminant D, 𝒪 = 𝒪_K, (D, N) = 1, D odd (hence squarefree, D ≡ 1 mod 4), D ≡ square (mod 4N) (all p | N split in K); H = Hilbert class field, Cl_K ≅ Gal(H/K); u = #𝒪^×/2; t = number of prime factors of D; s = number of prime factors of N; Γ = Γ₀(N) ⊂ PSL₂(ℤ); 𝔥 = upper half-plane; R_N = (ℤ ℤ; Nℤ ℤ); m ≥ 1 with (m, N) = 1; √D = i√|D|. For m ≥ 1, (m, N) = 1, r_𝒜(m) = 0, s > 1: γ^m_{N,s}(𝒜) = −2u² Σ_{n≥1} δ(n) R_{{𝒜𝔫}}(n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)), Here R_{{𝒜𝔫}}(n) counts the norm-n integral ideals belonging to {𝒜𝔫}."
+        "statement": "Standing notation (Chap. I §3, restated p. 233): K imaginary quadratic, discriminant D, 𝒪 = 𝒪_K, (D, N) = 1, D odd (hence squarefree, D ≡ 1 mod 4), D ≡ square (mod 4N) (all p | N split in K); H = Hilbert class field, Cl_K ≅ Gal(H/K); u = #𝒪^×/2; t = number of prime factors of D; s = number of prime factors of N; Γ = Γ₀(N) ⊂ PSL₂(ℤ); 𝔥 = upper half-plane; R_N = (ℤ ℤ; Nℤ ℤ); m ≥ 1 with (m, N) = 1; √D = i√|D|. For m ≥ 1, (m, N) = 1, r_𝒜(m) = 0, s > 1: γ^m_{N,s}(𝒜) = −2u² Σ_{n≥1} δ(n) R_{{𝒜𝔫}}(n) r_𝒜(nN + m|D|) Q_{s−1}(1 + 2nN/(m|D|)). Here R_{{𝒜𝔫}}(n) counts the norm-n integral ideals belonging to {𝒜𝔫}."
       },
       "reason": "Consolidation and supplier correction; the accepted part file remains unchanged."
     },
@@ -3858,7 +3881,7 @@
     {
       "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition",
       "fields": {
-        "statement": "Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\\𝔥} f(z) \\overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). Genus notation (p. 284–285): {𝔫} is the genus of any integral ideal 𝔫 of K with N(𝔫) ≡ ε(N)N (mod D) (independent of the choice); {A𝔫} its product with the genus of A; R_{A𝔫}(n) = number of integral ideals of norm n in the genus {A𝔫} (for n = 0 the sum of r_B(0) over the classes B of that genus); δ(n) = 2^s, s = number of prime factors of (n, D) (δ(0) = 2^t, t = number of prime factors of D). Suppose ε(N) = +1 and n > 0 satisfies (4.2): Nn + l ≡ 0 (mod D) for some l = N(𝔞), 𝔞 an integral ideal in A [the hypothesis (4.2) is omitted in the printed statement of b); it is needed, see issue PAPER-GROSS-ZAGIER-86/E37]. Then σ′_A(n) = Σ_{p|n} a_p(n) log p with a_p(n) = 0 if ε(p) = 1; a_p(n) = (ord_p(n) + 1)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = −1; a_p(n) = ord_p(n)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = 0, In the inert and ramified branches choose the genus {𝔠} using an integral ideal of norm congruent to −p modulo D (Remark 1); the genus is independent of that choice. (Proof: a_p(n) = −2Σ_{d|n} ε_A(n,d) ord_p(d); multiplicativity reduces to the p-part; ε(p) = −1 and ν odd use ε_A(n,d₁) = ε_{A𝔠}(−n₁,d₁) and part a); p | D uses ε_A(n,d) = −ε_A(n,n/d) and ε_A(n,d₁) = ε_{A𝔠𝔭^{ν−1}}(−n₁,d₁).)"
+        "statement": "Standing notation of Chapter IV (pp. 267–282): K = ℚ(√D) imaginary quadratic with fundamental discriminant D < 0, assumed odd from §2 on (so D ≡ 1 mod 4, squarefree); δ = |D|; ε(n) = (D/n), the odd primitive quadratic character mod δ; h = #Cl_K; w = 2u = #O_K^×; A ∈ Cl_K a fixed ideal class; r_A(n) = number of integral ideals of norm n in A (n ≥ 1), r_A(0) = 1/w; N ≥ 1 an integer prime to D; k ≥ 1; f = Σ a(n)qⁿ ∈ S_2k^new(Γ₀(N)); L_A(f,s) = L^(N)(2s−2k+1, ε)·Σ_{n≥1} a(n) r_A(n) n^{−s} (0.1); Petersson product (f,g) = ∫_{Γ₀(N)\\𝔥} f(z) \\overline{g(z)} y^{2k} dx dy/y² (linear in f, antilinear in g); Φ̃_s ∈ M̃_2k(Γ₀(N)) the Rankin kernel of Prop. (1.2), (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_A(f, s+2k−1) = (f, Φ̃_s); e_s(n,y) the n-th Fourier coefficient of 𝓔_s (§3), so that Φ̃_s(z) = Σ_{n∈ℤ, l≥0, Nn+l≡0 (mod D)} e_s(n, Ny/δ) r_A(l) e^{−2πly/δ} e((Nn+l)x/δ) (3.1); for n ≠ 0 and 0 < d | n, ε_A(n,d) = 0 if (d, n/d, D) ≠ 1 and ε_A(n,d) = ε_{D₁}(d) ε_{D₂}(−Nn/d) χ_{D₁·D₂}(A) otherwise, where D = D₁D₂ with |D₂| = (d, D) and χ_{D₁·D₂} is the genus character (Prop. (3.2)); V_s(t), V*_s(t) = (π|t|)^{−s−2k+1}Γ(s+2k−1)V_s(t), p_{k,r}(t) and q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1}x^{−k}e^{−xt}dx as in Prop. (3.3). Genus notation (p. 284–285): {𝔫} is the genus of any integral ideal 𝔫 of K with N(𝔫) ≡ ε(N)N (mod D) (independent of the choice); {A𝔫} its product with the genus of A; R_{A𝔫}(n) = number of integral ideals of norm n in the genus {A𝔫} (for n = 0 the sum of r_B(0) over the classes B of that genus); δ(n) = 2^s, s = number of prime factors of (n, D) (δ(0) = 2^t, t = number of prime factors of D). Suppose ε(N) = +1 and n > 0 satisfies (4.2): Nn + l ≡ 0 (mod D) for some l = N(𝔞), 𝔞 an integral ideal in A [the hypothesis (4.2) is omitted in the printed statement of b); it is needed, see issue PAPER-GROSS-ZAGIER-86/E37]. Then σ′_A(n) = Σ_{p|n} a_p(n) log p with a_p(n) = 0 if ε(p) = 1; a_p(n) = (ord_p(n) + 1)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = −1; a_p(n) = ord_p(n)·δ(n)·R_{A𝔫𝔠}(n/p) if ε(p) = 0. In the inert and ramified branches choose the genus {𝔠} using an integral ideal of norm congruent to −p modulo D (Remark 1); the genus is independent of that choice. (Proof: a_p(n) = −2Σ_{d|n} ε_A(n,d) ord_p(d); multiplicativity reduces to the p-part; ε(p) = −1 and ν odd use ε_A(n,d₁) = ε_{A𝔠}(−n₁,d₁) and part a); p | D uses ε_A(n,d) = −ε_A(n,n/d) and ε_A(n,d₁) = ε_{A𝔠𝔭^{ν−1}}(−n₁,d₁).)"
       },
       "reason": "Consolidation and supplier correction; the accepted part file remains unchanged."
     },
@@ -4022,6 +4045,128 @@
         "statement": "Standing notation (Ch. I §3, Ch. II): N > 1; K imaginary quadratic of discriminant D with D odd (hence squarefree, D ≡ 1 mod 4), (D, N) = 1 and D ≡ □ (mod 4N) (so every p | N splits in K); O = O_K, h = h_K, u = #O^×/2 (u = 1 unless D = −3, then u = 3), w = 2u; H the Hilbert class field; ε(n) = (D/n); x = (φ: E → E′) ∈ X₀(N)(H) a Heegner point of discriminant D (E, E′ with CM by O, ker φ ≅ O/𝔫 for the primitive ideal 𝔫 of norm N); c = (x) − (∞), d = (x) − (0); σ ∈ Gal(H/K) ↔ A ∈ Cl_K under the Artin isomorphism; m ≥ 1 with (m, N) = 1; T_m the m-th Hecke correspondence; r_A(m) = number of integral ideals of norm m in A; σ_ν(m) = Σ_{d|m} d^ν. Local notation (Ch. III): v a finite place of H over the prime p; A_v the ring of integers of H_v, π a uniformizer, q = q_v = p^f = #A_v/π; W the completion of the maximal unramified extension of A_v (π is prime in W), 𝔽 = W/π an algebraic closure of A_v/π; X the model of X₀(N) over ℤ of §1; x, x^σ the sections of X ⊗ A_v (or X ⊗ W) extending x, x^σ. Suppose p | N (so p = 𝔭𝔭̄ splits and v divides exactly one of 𝔫, 𝔫̄, where O/𝔫 ≅ ℤ/Nℤ is the annihilator of ker φ). Writing n=ord_p(N), both section reductions lie in the ordinary locus: their component is 𝓕_{0,n} when v | 𝔫̄ and 𝓕_{n,0} when v | 𝔫."
       },
       "reason": "Consolidation and supplier correction; the accepted part file remains unchanged."
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+      "fields": {
+        "prerequisites": [
+          "ModularCurvesPartII:R14.2",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+        ]
+      },
+      "reason": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality",
+      "fields": {
+        "prerequisites": [
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps",
+          "AutomorphicSpectralTheory:AS.4"
+        ]
+      },
+      "reason": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action",
+      "fields": {
+        "prerequisites": [
+          "AutomorphicSpectralTheory:AS.2/automorphic-green",
+          "ModularCurvesPartII:R14.2",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
+        ]
+      },
+      "reason": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition",
+      "fields": {
+        "prerequisites": [
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms"
+        ]
+      },
+      "reason": "Review correction: R12.5 states that analytic newform theory remains with ModularForms and R14.5 (modular quotients) supplies none of this; route each input to the layer or pinned declaration that states it.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity",
+      "fields": {
+        "prerequisites": [
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform",
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-coefficients",
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
+          "GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula",
+          "GrossZagierAndArithmeticHeights:GZ.7/classical-finite-height-sum",
+          "HeegnerPointEulerSystems:HE.1/cm-cyclic-isogeny-pair",
+          "HeegnerPointEulerSystems:HE.1/jacobian-basepoint-denominators",
+          "mathlib:CuspForm",
+          "mathlib:CongruenceSubgroup.Gamma0",
+          "tauceti:UpperHalfPlane.peterssonInner",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+          "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+          "tauceti:CuspForm.peterssonInnerCosets",
+          "tauceti:TauCeti.cuspFormsOld",
+          "tauceti:TauCeti.cuspFormsNew",
+          "tauceti:TauCeti.isCompl_cuspFormsOld_cuspFormsNew",
+          "tauceti:HeckeRing.GL2.Newform",
+          "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq",
+          "HeegnerPointEulerSystems:HE.1",
+          "tauceti:TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero"
+        ]
+      },
+      "reason": "Review correction: the Atkin–Lehner Main Lemma used in the old-form step is a pinned Tau Ceti declaration; cite it rather than request it.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.7/boundary-cusp-correction",
+      "fields": {
+        "prerequisites": [
+          "AutomorphicSpectralTheory:AS.2/automorphic-green",
+          "GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion",
+          "GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol",
+          "GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection",
+          "ModularCurvesPartII:R12.5",
+          "ModularCurvesPartII:R13.3",
+          "ModularCurvesPartII:R13.4a"
+        ]
+      },
+      "reason": "Review correction: the R12.5 request already names this target for the differential/q-expansion comparison at the cusp that its tangent-normalized boundary values use; list the stage as a prerequisite.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.1/elliptic-poincare-comparison",
+      "fields": {
+        "prerequisites": [
+          "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+          "GrossZagierAndArithmeticHeights:GZ.0/pinned-height-normalization-comparison",
+          "HeightsRationalPointsAndObstructions:RP.0"
+        ]
+      },
+      "reason": "Review correction: the two substituted height references collapse to one target; list it once.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "target": "GrossZagierAndArithmeticHeights:GZ.8/elliptic-curve-heegner-height-formula",
+      "fields": {
+        "prerequisites": [
+          "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
+          "GrossZagierAndArithmeticHeights:GZ.8/petersson-norm-and-parametrisation-degree",
+          "GrossZagierAndArithmeticHeights:GZ.0/pinned-height-normalization-comparison",
+          "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+          "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+          "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+          "EllipticCurveModularity:R29.5/modular-parametrisation",
+          "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+          "mathlib:WeierstrassCurve.Affine.Point",
+          "mathlib:NumberField.instAdmissibleAbsValues"
+        ]
+      },
+      "reason": "Review correction: two substituted height references collapse to one target; list it once.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
     }
   ],
   "retiredTargets": [
@@ -4100,7 +4245,9 @@
       "supplier": "HeightsRationalPointsAndObstructions:RP.1",
       "need": "General Mordell–Weil finite generation for A over a number field from weak descent and the Northcott height argument; reduce the descent height step to Mathlib AddCommGroup.fg_of_descent'.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing"
+        "GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing",
+        "GrossZagierAndArithmeticHeights:GZ.1/mordell-weil-galois-descent",
+        "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space"
       ],
       "availability": "Requested interface; not asserted to exist merely because its stage exists."
     },
@@ -4165,7 +4312,10 @@
       "supplier": "ModularCurvesPartII:R14.2",
       "need": "Hecke double-coset correspondences on finite-level modular/Shimura curves, their convolution with multiplicities and action on Pic⁰, with level compatibilities.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle"
+        "GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+        "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action"
       ],
       "availability": "Requested interface; not asserted to exist merely because its stage exists."
     },
@@ -4196,7 +4346,8 @@
       "need": "Holomorphic/cuspidal constituent projection with Petersson adjunction, annihilation of constants/Eisenstein/old components in the new constituent, and compatibility with the relevant theta/correspondence kernels.",
       "neededBy": [
         "GrossZagierAndArithmeticHeights:GZ.6/arithmetic-theta-lifting",
-        "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity"
+        "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection"
       ],
       "availability": "Requested interface; not asserted to exist merely because its stage exists.",
       "auditRefs": [
@@ -4575,7 +4726,8 @@
       "supplier": "AutomorphicSpectralTheory:AS.4",
       "need": "Regularized Petersson holomorphic projection in weight two with logarithmic cusp growth, Fourier Mellin finite parts, continuation bounds and orthogonality of boundary Eisenstein families.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection"
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality"
       ],
       "availability": "Requested interface; not asserted to exist merely because its stage exists.",
       "auditRefs": [
@@ -4648,14 +4800,12 @@
     },
     {
       "supplier": "ModularCurvesPartII:R12.5",
-      "need": "Hecke algebra/Fourier coefficient perfect pairing for weight-two cuspidal forms and the Jacobian, trace adjunction, newform orthogonal projection and prime-to-level detection on the newform subspace.",
+      "need": "The Hecke-equivariant identification of S₂(Γ₀(N)) with the regular differentials on X₀(N), so that the classical operators T_m on S₂(Γ₀(N)) and the Hecke correspondences on J₀(N) act through one commutative algebra on its cotangent space. The a₁ duality is ModularForms Layer 2, new/old orthogonality and the Main Lemma are pinned Tau Ceti declarations, and boundary-Eisenstein orthogonality is AS.4.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
-        "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
-        "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
-        "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality"
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality"
       ],
-      "availability": "Requested interface; not asserted to exist merely because its stage exists."
+      "availability": "Requested interface; not asserted to exist merely because its stage exists.",
+      "reviewNote": "Narrowed in review: R12.5 states that analytic newform theory remains with ModularForms, so the trace, newform and Eisenstein parts of the former contract are routed to their owners."
     },
     {
       "supplier": "HeightsRationalPointsAndObstructions:RP.0",
@@ -4835,7 +4985,8 @@
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.3",
       "need": "Petersson pairing of cuspidal weight-two forms with the specified unnormalized and Tamagawa Haar measures and rapid decay.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison"
+        "GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison",
+        "GrossZagierAndArithmeticHeights:GZ.5/petersson-whittaker-factorization"
       ],
       "revisionResolution": "GZ.3 proves the Petersson/composition scalar comparison; AF.3 supplies its analytic pairing.",
       "availability": "Requested interface; not asserted to exist merely because its stage exists.",
@@ -5137,7 +5288,10 @@
         "GrossZagierAndArithmeticHeights:GZ.8/classical-gross-zagier-formula",
         "GrossZagierAndArithmeticHeights:GZ.8/rational-shimura-curve-heegner-formula",
         "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
-        "GrossZagierAndArithmeticHeights:GZ.8/derivative-corollaries"
+        "GrossZagierAndArithmeticHeights:GZ.8/derivative-corollaries",
+        "GrossZagierAndArithmeticHeights:GZ.4/explicit-local-toric-constants",
+        "GrossZagierAndArithmeticHeights:GZ.5/petersson-whittaker-factorization",
+        "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof"
       ],
       "availability": "Requested interface; not asserted to exist merely because its stage exists.",
       "auditRefs": [
@@ -5190,12 +5344,15 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-      "need": "The Atkin–Lehner main lemma at level Γ₀(N): a weight-two cusp form whose q-expansion coefficients vanish at every index prime to N is old. The old/new decomposition, newforms and strong multiplicity one are cited as pinned declarations (TauCeti.cuspFormsOld, TauCeti.cuspFormsNew, HeckeRing.GL2.Newform and its strong multiplicity one).",
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms",
+      "need": "Petersson orthogonality of the new and old subspaces at level Γ₀(N), and the change-of-level trace adjunction (f,g)_{Γ₀(M)}=(f,Tr^M_N g)_{Γ₀(N)} for N | M, including g of moderate growth at every cusp paired with a cusp form f. The old/new decomposition, the newness criterion and the Atkin–Lehner Main Lemma are pinned declarations (TauCeti.cuspFormsOld, TauCeti.cuspFormsNew, TauCeti.mem_cuspFormsNew_iff, TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero); strong multiplicity one is HeckeRing.GL2.Newform.eq_of_forall_notMem_qExpansion_coeff_eq.",
       "neededBy": [
-        "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity"
+        "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition"
       ],
-      "availability": "Requested interface; not asserted to exist merely because its stage exists."
+      "availability": "Requested interface; not asserted to exist merely because its stage exists.",
+      "reviewNote": "Review: the supplier is the layer the consumer cites (Layer 3); the Main Lemma formerly requested from Layer 4 is already a pinned declaration."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
@@ -5278,6 +5435,25 @@
       "auditRefs": [
         "R2-rational-structures"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+      "need": "The q-expansion formula a₁(T_n f)=a_n(f) for every n ≥ 1 on S₂(Γ₀(N)), with T_n=U_n at primes dividing N, and the resulting perfect pairing (T,f)↦a₁(Tf) between the Hecke algebra generated by all T_n and S₂(Γ₀(N)); the description of T_m for (m,N)=1 by the integral matrices of determinant m in R_N modulo Γ₀(N).",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+        "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action"
+      ],
+      "availability": "Requested interface; not asserted to exist merely because its stage exists.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+      "need": "For an abelian variety A over a number field K and a finite Galois extension H/K: the Gal(H/K)-action on A(H) commutes with End_K(A), and A(H)^Gal(H/K)=A(K).",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.1/mordell-weil-galois-descent"
+      ],
+      "availability": "Requested interface; not asserted to exist merely because its stage exists.",
+      "addedBy": "REV-GrossZagierAndArithmeticHeights"
     }
   ],
   "coverage": [
@@ -6472,10 +6648,9 @@
       "id": "R1-partial-4",
       "suppliers": [
         "ModularCurvesPartII:R14.1",
-        "ModularCurvesPartII:R14.5",
         "ModularCurvesPartII:R13.4a"
       ],
-      "need": "Sibling-stage modular-curve material; the perfect Hecke pairing is specifically R12.5, and generalized elliptic curves specifically R13.1.",
+      "need": "Sibling-stage modular-curve material. R12.5 supplies only the Hecke-equivariant identification of weight-two cusp forms with differentials; the a₁ Hecke duality, the change-of-level Petersson trace and new/old orthogonality are Tau Ceti ModularForms (Layers 2–3 and pinned declarations), boundary-Eisenstein orthogonality is AS.4, and generalized elliptic curves are R13.1.",
       "proposedOwner": "Named supplier extension unless an exact existing export is identified; no scope move is applied here.",
       "status": "partial-input",
       "neededBy": [
@@ -6530,14 +6705,17 @@
     {
       "id": "R1-partial-7",
       "suppliers": [
-        "TropicalAndBerkovichGeometry:TB.2",
-        "TropicalAndBerkovichGeometry:TB.3",
-        "TropicalAndBerkovichGeometry:TB.6"
+        "TropicalAndBerkovichArithmetic:TB.2",
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.6"
       ],
       "need": "Graph Green kernel and model-measure comparison, beyond the general skeleton.",
       "proposedOwner": "Named supplier extension unless an exact existing export is identified; no scope move is applied here.",
       "status": "partial-input",
-      "neededBy": [],
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.2/graph-admissible-measure",
+        "GrossZagierAndArithmeticHeights:GZ.2/explicit-skeleton-measure"
+      ],
       "provenance": "The 43 partial historical contracts are grouped by supplier in independent package review #9217; no claim of full coverage follows from a stage-id match."
     },
     {
@@ -6863,6 +7041,7 @@
       "action": "rescope",
       "roadmaps": [
         "HeegnerPointEulerSystems",
+        "ComplexMultiplicationAndExplicitReciprocity",
         "GrossZagierAndArithmeticHeights"
       ],
       "detail": "R1-ordinary-intersections: missing specialization is not an existing export.",
@@ -7074,7 +7253,29 @@
       "note": "The prior source findings and independent verdicts stay in their owning part; they are not new findings or self-review here."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "GrossZagierAndArithmeticHeights/E101",
+      "source": "cai-shu-tian-2014",
+      "kind": "misprint",
+      "locator": "Proposition 2.5, definition of γ_v, arXiv:1408.1733v2 p.18",
+      "printed": "Proposition 2.5 defines the finite-place factor γ_v as the volume of U₀(N)_v divided by the volume of U_v.",
+      "correction": "γ_v is the volume of U_v divided by the volume of U₀(N)_v, as in Proposition 2.4 and in the definition before Lemma 3.5.",
+      "reason": "Formula (2.5) is derived exactly as (2.3): converting ⟨f₁,f₂⟩_U and ⟨φ,φ⟩_{U₀(N)} into Petersson norms introduces Vol(X_{U₀(N)})/Vol(X_U), which is the product of Vol(U_v)/Vol(U₀(N)_v). Proposition 2.4 states this ratio, and the proof of Theorem 1.5 applies (2.5) together with Lemma 3.13, whose γ is Lemma 3.5’s Vol(U)/Vol(U₀(n)) = L(1,1_F)(1−e(R)q⁻¹) (pp.23 and 30). With the printed reciprocal, Theorem 1.5 would acquire the factor γ_v⁻² at every v dividing N.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:1408.1733 abstract page, 2026-10-14: v2 is the latest version; journal reference Algebra Number Theory 8 (2014) 2523–2572",
+        "MSP article page for Algebra Number Theory 8(10), 2014: the published text is not openly served, so the published Proposition 2.5 was not compared",
+        "The accepted GZ.0 and GZ.8 packets’ sourceIssues: no entry for this proposition"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found and checked in this review on the rendered arXiv v2 pages 18, 23 and 30; the consumers use Lemma 3.5’s γ.",
+        "by": "REV-GrossZagierAndArithmeticHeights"
+      }
+    }
+  ],
   "sourceInspection": [
     {
       "sourceId": "cai-shu-tian-2014",
@@ -7186,5 +7387,284 @@
       "locator": "README.md Layer 9, lines 1178–1182 at TauCetiRoadmap 0d144d04",
       "detail": "The README specifies the logarithmic x-height convention. Historical Tau Ceti f790474 instead defines canonicalHeight with denominator 2·4^n and its half-polarized pairing, so that README convention disagrees with the blueprint pin. Current Tau Ceti a91d3aaf has denominator 4^n and now agrees with the README. The factor-two comparison here is specific to the historical pin; the upstream README and library remain read-only."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1408.1733v2",
+      "read": "2026-10-14",
+      "sha256": "8d908543404abfbd9c1708ad9af696c4fb71595701bd67cb5bff11b3a8d6ac43",
+      "note": "Read by REV-GrossZagierAndArithmeticHeights: §2.1 Proposition 2.1, §2.3 (2.3)–(2.5), §3.2 Lemma 3.5, §3.4 Propositions 3.11–3.12, Lemmas 3.13–3.14; fractions checked on rendered pages 14, 18, 23, 26–27, 30–31. The published version was not openly available."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~yxy/preprints/erratum-GZSC.pdf",
+      "read": "2026-10-14",
+      "sha256": "e4c4eaeb197ceaf18b02955d90a56e52e4776eca1f31c88c16074adaf19d8d1e",
+      "note": "Read in full by REV-GrossZagierAndArithmeticHeights (items 1–64 and §2); identical to the copy at faculty.bicmr.pku.edu.cn."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GrossZagierAndArithmeticHeights",
+    "date": "2026-10-14",
+    "notes": "Independent review by Claude (Opus), session claude-EGtFwd, of the consolidated GZ.0–GZ.9 blueprint written by Codex codex-fpPjYu (issue #9416). Scope: the 13 owned targets (4 new, 9 milestone copies of accepted part targets), all 30 target corrections, the 6 retirements and reference substitutions, the 98 requests, 16 gaps, 33 supplier dispositions, 28 restructure proposals, the 7 red-team dispositions, the 83 baseline declarations, the suggested file and the reader. Resolved the full 277-target plan by the importPolicy (both part hashes match) and checked that every prerequisite resolves and the graph is acyclic. All 83 baseline declarations exist at the pins with matching modules; those cited by owned targets and corrections were read. Sources read here: CST arXiv:1408.1733v2 (Proposition 2.1, (2.1)–(2.5), Lemma 3.5, Propositions 3.11–3.12, Lemmas 3.13–3.14 on rendered pages) and the YZZ author erratum in full; the 2011 YZZ draft URL returns 404 and the 2013 book is not cleared, so those locators rest on the accepted part reviews (gaps 0, 6, 8). Corrected: the consolidation copied the old R14.5 request text onto R12.5, although R12.5 leaves newform theory to ModularForms, and left four targets citing R14.5 with no R14.5 request. Six targets are rerouted to ModularForms Layers 2–3, AS.4, R14.2 and two pinned Tau Ceti declarations (the Atkin–Lehner Main Lemma and the newness criterion, now baseline entries); Requests 45 and 91 are corrected and Requests 99–100 added; consumer lists are completed; two duplicate prerequisites, one missing R12.5 prerequisite and two broken sentences are fixed; supplierAudit R1-partial-4 and R1-partial-7 (wrong roadmap id TropicalAndBerkovichGeometry) and one restructure roadmap list are corrected. Added source issue E101: CST Proposition 2.5 prints γ_v as the reciprocal of the γ of Proposition 2.4 and Lemma 3.5 (confirmed; affects nothing here). Red-team dispositions RT-AREA-automorphic-1/19, RT-AREA-iwasawa-1/3, /11, /12, /17 and RT-AREA-algebraicgeometry/26 are reflected correctly in the resolved targets and the reader. lean-check of the suggested file at the pins: 30 warnings for admitted proofs and nothing else. check_blueprint: 0 errors, 0 warnings. Accepted: every owned target is verified or corrected, every cited baseline declaration is confirmed, and the open boundaries are recorded honestly as gaps and requests; all ten layers remain planned, none closed. Note for promotion: the atlas build does not resolve importPolicy or targetCorrections, so a promoted copy shows the 13 owned targets; the 30+9 corrections live in this packet and its reader.",
+    "checked": [
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/pinned-height-normalization-comparison",
+        "verdict": "verified",
+        "note": "Read Point.canonicalHeight (limit over 2·4ⁿ), neronTatePairing (associated′, the halved polar form), neronTatePairing_apply/_self and regulator_eq_abs_det_neronTateGramMatrix at Tau Ceti f790474, and the current a91d3aaf definitions (limit over 4ⁿ, same halved polar form). The factors h_x=2h_O, B_x=2B_O, Reg_x=2^r·regulator and the statement that current names already carry the x-height convention are correct; the Checks (Gram determinants 2 and 8 for a²+2b², quadratic base change ×2 and ×4) were recomputed. Matrix.det_smul and NumberField.totalWeight_eq_finrank read at Mathlib 082e2d3."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/mordell-weil-galois-descent",
+        "verdict": "verified",
+        "note": "Elementary norm/averaging argument checked: (A(H)⊗ℚ)^G=A(K)⊗ℚ with inverse N/[H:K]; the torsion-lift step and the M-linear scalar extension are correct, and the four Checks are right. Added the missing A2 request (Request 100) and listed the target under the RP.1 request."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/explicit-local-toric-constants",
+        "verdict": "verified",
+        "note": "Checked against CST arXiv v2 on the rendered pages: Proposition 3.11 (α(W₀)|δ|^{1/2}, δ_σ), Proposition 3.12 (all five conductor cases, including the denominators L(1/2,π,χ)), Lemma 3.5 (γ=Vol(R×)/Vol(U₀(n))=L(1,1_F)(1−e(R)q⁻¹) and the Eichler symbol), Lemma 3.13 (the three δ-exponents) and Lemma 3.14 (C=4^{k−1}π^{k+1}/Γ(k), so 4π³ in weight two). Recorded the CST Proposition 2.5 misprint (E101), which the target already avoids."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/petersson-whittaker-factorization",
+        "verdict": "verified",
+        "note": "Matches CST Proposition 2.1 and (2.2) on the rendered p.14: ⟨φ₁,φ₂⟩_Pet=2L(1,σ,ad)L(2,1_F)⁻¹∏α_v with α_v the Whittaker pairing over L(1,σ_v,ad)L(1,1_v)L(2,1_v)⁻¹, bilinear in φ₁∈σ, φ₂∈σ̃. The prerequisite on the explicit constants is used only for the almost-everywhere value 1. Added as a consumer of the AF.3 and AL.3 requests."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+        "verdict": "verified",
+        "note": "Unchanged copy of the accepted GZ.0 target. Re-read the author erratum (28 June 2026): items 4, 5, 10, 13, 15 and the footnote to item 5 give the base-change sign convention, the torus volume 2L(1,η) and the removal of the Tamagawa claims; the Rankin/base-change ratio η_v(−1) and the factor 4L(1,η)² are correct."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target apart from the substituted height reference. The elliptic diagonal Check 2·canonicalHeight at f790474 agrees with the pinned code. The 2011-draft locator could not be reopened (the author page now returns 404); source support rests on the accepted part review and is listed under the unacquired-editions gap."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target. Sign, degree-zero restriction and the 2·canonicalHeight elliptic Check are consistent with the pinned height comparison. 2011-draft locator not reopenable in this review (see gap 6)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target; pullback p^*ξ_U=deg(p)ξ_V and push-forward p_*ξ_V=ξ_U are consistent with the degree formula. Its R12.5/R13.3/R13.4a prerequisites have requests. 2011-draft locator not reopenable (see gap 6)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target. The criterion ε_BC(1/2,π_v,χ_v)=χ_v(−1)ε(B_v) agrees with erratum item 5 and with Tunnell–Saito after χ=λ⁻¹ (λ|F×=ω_π gives χ_v(−1)=ω_v(−1))."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target. CST (2.1), p.13, gives ζ_F(2)L(1/2,π,χ)/(2L(1,π,ad)) for periods of total volume 2L(1,η); division by 4L(1,η)² gives the stated probability constant /8. The split Shimizu step remains gap 7 (RT-AREA-automorphic-1/19). Added under the AL.3 request."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target; the projected (not pointwise) factor-two identity and its AS.4 projection request are consistent. 2011-draft locator not reopenable (see gaps 0 and 6)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+        "verdict": "verified",
+        "note": "Unchanged accepted GZ.0 target. Read TauCeti.GlobalNumberFields.weakApproximation_denseRange at f790474 (finite sets of finite and infinite places); the density step uses exactly that. 2011-draft locator not reopenable (see gaps 0 and 6)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity",
+        "verdict": "verified",
+        "note": "Identical to the accepted GZ.8 target. Rechecked the constant conversion from CST (2.4) on the rendered p.18 (CST point 2L(1,η) times the probability point, K-relative height twice the F-relative one, CST curve volume half of YZZ’s) and erratum items 1, 16, 28–31, 47, 57, 62. The projector proof remains gap 8."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+        "verdict": "corrected",
+        "note": "Prerequisites now RP.0, R14.2, R12.5 (Hecke-equivariant cusp-form/differential identification) and ModularForms Layer 2 (a₁ duality, new Request 99); the R12.5 request is narrowed to what R12.5 states."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
+        "verdict": "corrected",
+        "note": "R12.5, whose text leaves newform theory to ModularForms, replaced by the pinned TauCeti.mem_cuspFormsNew_iff and TauCeti.mem_cuspFormsOld_of_forall_coprime_qExpansion_coeff_eq_zero (both read at f790474) and the AS.4 projection; outline rewritten to that argument."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+        "verdict": "corrected",
+        "note": "R14.5 (modular quotients) replaced by ModularForms Layer 3; the consolidation had listed this target under R12.5 without changing its prerequisites, and no R14.5 request remained."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality",
+        "verdict": "corrected",
+        "note": "R14.5 replaced by AS.4, whose existing request names orthogonality of the boundary Eisenstein families."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action",
+        "verdict": "corrected",
+        "note": "R14.5 replaced by R14.2 (Hecke correspondences on divisors) and ModularForms Layer 2 (determinant-m double cosets)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition",
+        "verdict": "corrected",
+        "note": "R14.5 replaced by ModularForms Layer 3 (new/old orthogonality); Request 91 lists it."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/coefficient-identity",
+        "verdict": "corrected",
+        "note": "Adds the pinned Main Lemma declaration used in its last step; Request 91 is pointed at the Layer 3 it cites."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/elliptic-poincare-comparison",
+        "verdict": "corrected",
+        "note": "Duplicate prerequisite produced by the reference substitution removed."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/elliptic-curve-heegner-height-formula",
+        "verdict": "corrected",
+        "note": "Duplicate prerequisite produced by the reference substitution removed."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/boundary-cusp-correction",
+        "verdict": "corrected",
+        "note": "R12.5 added as a prerequisite, matching the existing R12.5 request that names it for the cusp differential/q-expansion comparison."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation",
+        "verdict": "corrected",
+        "note": "Consolidation rewording verified; broken sentence (\", Here\") repaired."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition",
+        "verdict": "corrected",
+        "note": "Consolidation rewording verified; broken sentence (\", In\") repaired."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series",
+        "verdict": "verified",
+        "note": "MP.7 (half-integral weight) to MP.5 (theta kernels) is right for the weight-one ideal-class theta series."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding",
+        "verdict": "verified",
+        "note": "MP.7 to MP.5 verified, as above."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel",
+        "verdict": "verified",
+        "note": "MP.7 to MP.5 verified, as above."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing",
+        "verdict": "verified",
+        "note": "MP.7 to MP.5 verified, as above."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-different-reindexing",
+        "verdict": "verified",
+        "note": "MP.7 to MP.5 verified, as above."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/chi-isotypic-mordell-weil-space",
+        "verdict": "verified",
+        "note": "Galois-descent and RP.1 prerequisites verified; listed under the RP.1 request."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+        "verdict": "verified",
+        "note": "New CST constant and Petersson prerequisites verified against CST §2.3–§3.4."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/explicit-formula-variation",
+        "verdict": "verified",
+        "note": "Explicit-constant prerequisite verified."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/derivative-corollaries",
+        "verdict": "verified",
+        "note": "Removal of the upward BSD.2 citation verified."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/l-linear-neron-tate-pairing",
+        "verdict": "verified",
+        "note": "Height reference substitution verified against the pinned code."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/nonvanishing-criterion",
+        "verdict": "verified",
+        "note": "Character-pairing prerequisite verified; Hermitian positivity stays gap 9."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.9/petersson-norm-ratio",
+        "verdict": "verified",
+        "note": "Harris–Kudla/Prasanna inputs correctly recorded as a source/owner gap rather than supplied by GZ.5."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-cm-waldspurger-formula",
+        "verdict": "verified",
+        "note": "Same rational-structure boundary verified."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-disjoint-archimedean-sum",
+        "verdict": "verified",
+        "note": "Rewording of the r_A(m)=0 hypothesis verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula",
+        "verdict": "verified",
+        "note": "Rewording verified; the garbled clause of the part text is repaired."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height",
+        "verdict": "verified",
+        "note": "Vertical-orthogonality rewording verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-prime-to-p-hom-count",
+        "verdict": "verified",
+        "note": "Rewording of the étale-lift reason verified (uses p∤m)."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-single-prime-logarithm",
+        "verdict": "verified",
+        "note": "Rewording verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.9/bdp-p-adic-l-function",
+        "verdict": "verified",
+        "note": "New square-adapter Checks verified; the complete-DVR Weierstrass extension (residue field 𝔽̄_p) is correctly a request."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.9/quaternionic-bdp-construction",
+        "verdict": "verified",
+        "note": "P4 imports and the L2 Amice-surjectivity request over Ô^ur verified as stated boundaries."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.9/bdp-measure-integrality",
+        "verdict": "verified",
+        "note": "P4 prerequisites verified."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/rational-shimura-curve-heegner-formula",
+        "verdict": "verified",
+        "note": "Completed ζ(2)=ζ_finite(2)/π and L(χ_D,1)=L_finite/π checked; Case II rewording verified."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.8/admissible-order-test-vector",
+        "verdict": "verified",
+        "note": "Rewording of V(π,χ) verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing",
+        "verdict": "verified",
+        "note": "Rewording verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-coefficient-parity",
+        "verdict": "verified",
+        "note": "Rewording verified equivalent."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component",
+        "verdict": "verified",
+        "note": "Rewording verified equivalent."
+      }
+    ]
+  }
 }
