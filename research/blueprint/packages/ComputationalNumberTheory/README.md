@@ -12,10 +12,10 @@ certificates are sound and complete and have quadratic size (`PrattCertificate.s
 (`aks_correct` (1.14)); Pocklington certificates (`PocklingtonCertificate.sound` (1.18)); certified
 factorization over finite fields, over `ℤ` and over `ℚ` (`FiniteFieldFactorCertificate.sound` (1.23),
 `IntegerFactorCertificate.complete` (1.21), `certifiedRationalFactorization` (1.28)); integral bases by the
-`p`-radical multiplier criterion (`pRadical_multiplier_eq_iff` (2.7), `integralBasisAlgorithm` (2.9));
+`p`-radical multiplier criterion (`pRadical_multiplier_eq_iff` (2.6), `integralBasisAlgorithm` (2.8));
 simultaneous certification of the class group and the unit group
-(`certified_class_unit_complete` (2.16)); Ore's residual irreducibility criterion
-(`ore_residual_irreducible` (2.21)); the level-one congruence Sturm bound
+(`certified_class_unit_complete` (2.15)); Ore's residual irreducibility criterion
+(`ore_residual_irreducible` (2.20)); the level-one congruence Sturm bound
 (`levelOne_congruence_sturm` (3.4)) and the complete list of nonordinary level-one pairs below 200
 (`nonordinary_pairs_lt_200` (3.13)); certified local images of `2`-descent and a terminating
 `p`-saturation test on elliptic curves over `ℚ` (`LocalImageCertificate.eq_range_of_isComplete` (3.19),
@@ -75,11 +75,15 @@ It builds on, and does not plan again:
 
 - **Mathlib and Tau Ceti** at the pins, listed under *Exact supplier contracts*. Tau Ceti after the
   pinned commit adds `NumberFieldOrder.multiplierRing` and `NumberFieldOrder.isIntegral` for
-  orders of number fields and `IntegralPrimitiveElement.not_dvd_index_iff` (Dedekind's criterion
-  for monogenic orders): `multiplierRing` (2.3) agrees with the first on fractional ideals of an order,
-  `OrderBasisCertificate.isIntegral` (2.2) is the second for certified orders, and `IsPMaximal` (2.4) treats
+  orders of number fields (`TauCeti.GlobalNumberFields.NumberFieldOrder`, modules
+  `NumberTheory/NumberField/Global/Orders/Basic` and `ProperIdeal`) and
+  `TauCeti.NumberField.IntegralPrimitiveElement.not_dvd_index_iff` (Dedekind's criterion
+  for monogenic orders): order integrality is consumed from `NumberFieldOrder.isIntegral`,
+  after the finite basis identities construct the native order;
+  `multiplierRing` (2.2) agrees with the first on fractional ideals of an order,
+  `IsPMaximal` (2.3) treats
   orders that need not be monogenic. Mathlib's `NumberField.Units.regOfFamily_div_regulator`
-  already identifies the regulator quotient with the unit index; `units_complete_of_regulator_bound` (2.14)
+  already identifies the regulator quotient with the unit index; `units_complete_of_regulator_bound` (2.13)
   is the stopping inequality drawn from it.
 - **TauCetiRoadmap ModularForms** (Layers 7–11): `L`-functions and functional equations, modular
   symbols and the integral Hecke algebra, LMFDB labels, cusp widths and dimension formulas, and the
@@ -91,7 +95,9 @@ It builds on, and does not plan again:
   those objects; it does not construct them again.
 - **TauCetiRoadmap LocalFieldsRamification** (Layers 0–1): complete discretely valued fields,
   uniformizers, residue fields, ramification indices and residue degrees, Teichmüller
-  representatives.
+  representatives. Its Layer 2 supplies surjectivity of the norm on units in unramified
+  extensions, now implemented by `TauCeti.map_normUnits_unitFiltration` at depth zero in
+  `NumberTheory/LocalField/Norm/Unramified/Basic`; this is an input to the good-odd-prime count.
 - **TauCetiRoadmap RealAlgebraicGeometry** (Layers 1–4): Sturm–Tarski, signed remainder sequences,
   subresultants, distinct-root counts, root separation and multiplicity-sensitive root matching.
   Layers CN.0 and CN.4 add finite rational certificates and refinement on top of that theory.
@@ -164,7 +170,9 @@ of Layer CN.4, belong to the roadmap of level-one automorphic forms for classica
   `PowerBasis.ofAdjoinEqTop`, `Polynomial.Monic.irreducible_iff_natDegree`,
   `Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `FiniteField.algEquivOfCardEq`,
   `FiniteField.frobeniusAlgHom`, `UniqueFactorizationMonoid.normalizedFactors_prod_eq`,
-  `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure` (Mignotte-type coefficient bound),
+  `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure_of_one_le_mahlerMeasure`
+  (Mignotte-type bound for a factor), `Polynomial.mahlerMeasure_le_sum_norm_coeff`
+  (a computable bound for the input’s Mahler measure),
   `quadraticChar`.
 - Algebraic numbers and intervals: `algebraicClosure`, `mem_algebraicClosure_iff`,
   `NonemptyInterval` (its multiplication is the monotone one and does not apply to signed
@@ -212,7 +220,8 @@ of Layer CN.4, belong to the roadmap of level-one automorphic forms for classica
 - EllipticCurves Layer 4 (the reduction homomorphism on points at a prime of good reduction),
   Layer 6 (Mordell–Weil, explicit `2`-descent, the exact torsion subgroup by Nagell–Lutz).
 - LocalFieldsRamification Layer 0 (local fields and their finite extensions: uniformizer, residue
-  field, `e` and `f`), Layer 1 (Teichmüller representatives).
+  field, `e` and `f`), Layer 1 (Teichmüller representatives), Layer 2 (surjectivity of the
+  unramified norm on units).
 - RealAlgebraicGeometry Layers 1–4 (real root counting and matching).
 - PolynomialGaloisGroups Layer 5 (factor degrees over a finite field are Frobenius orbit sizes).
 
@@ -227,6 +236,12 @@ of Layer CN.4, belong to the roadmap of level-one automorphic forms for classica
 - AutomorphicLFunctionsAndLocalFactors AL.1 and AnalyticNumberTheory AN.4, as above.
 - HeightsRationalPointsAndObstructions RP.1: `#A(F)/2A(F) = |2|_F^(−g)·#A(F)[2]` for an abelian
   variety of dimension `g` over a finite extension `F` of `ℚ_p`, and `#A(ℝ)[2]/2^g` over `ℝ`.
+  The nonarchimedean formula follows from Mattuck, Theorem 7, p.114: choose an open
+  finite-index subgroup isomorphic to the additive group of the ring of integers in `F`
+  to the power `g`, and compare multiplication by two on this subgroup and its finite
+  quotient. The finite quotient's kernel and cokernel have equal size. Over `ℝ`, use the
+  connected compact real torus and its finite component group instead. FPS §7 applies
+  this argument in dimension two; Layer CN.3 uses its dimension-one specialization.
 
 ## How to read the build
 
@@ -364,7 +379,7 @@ carries its decoding equation into the native carrier.
 **Checks.**
 
 - *Degenerate case.* An execution with all-zero memories has zero magnitude bound.
-- *Computed value.* Every selected cell satisfies the bound.
+- *Computed value.* A length-one halt trace with a stored 7 satisfies the bound with A = 0 and C = 7, even when that cell is unused.
 - *Non-example.* A nonzero cell contradicts the all-zero bound.
 
 ### 0.8 Isolated algebraic root certificate (`AlgebraicRootCertificate`)
@@ -452,9 +467,9 @@ carries its decoding equation into the native carrier.
 
 ### 0.15 Rabin irreducibility certificate (`RabinCertificate`)
 
-**Definition.** Let F be a finite field with q elements and f ∈ F[X] monic of degree n ≥ 1. A RabinCertificate f stores a polynomial r with X^(q^n) ≡ r (mod f) and, for every prime s dividing n, a pair u_s, v_s ∈ F[X] with u_s·(X^(q^(n/s)) − X) + v_s·f = 1. The certificate is accepted when r = X and every displayed identity holds. Acceptance is a finite list of exact polynomial identities in F[X], decided by division with remainder by the monic f; the residues X^(q^m) mod f are computed by repeated q-th powering modulo f.
+**Definition.** Let F be a finite field with q elements and f ∈ F[X] monic of degree n ≥ 1. A RabinCertificate f stores the reduced remainder r = X^(q^n) mod f and, for every prime s dividing n, a pair u_s, v_s ∈ F[X] with u_s·(X^(q^(n/s)) − X) + v_s·f = 1. The certificate is accepted when r = X mod f and every displayed identity holds. Comparing both reduced remainders includes the degree-one case, where X mod (X − a) = a. Acceptance is a finite list of exact polynomial identities in F[X], decided by division with remainder by the monic f; the residues X^(q^m) mod f are computed by repeated q-th powering modulo f.
 
-- `RabinCertificate.check`: The Boolean acceptance test: the residue equals X and every Bézout identity holds.
+- `RabinCertificate.check`: The Boolean acceptance test: the residue equals X mod f and every Bézout identity holds.
 - `RabinCertificate.irreducible`: An accepted certificate proves Irreducible f.
 - `RabinCertificate.monic`: An accepted certificate is attached to a monic polynomial of positive degree.
 - `RabinCertificate.exists_of_irreducible`: Every monic irreducible polynomial over F has an accepted certificate.
@@ -464,7 +479,7 @@ carries its decoding equation into the native carrier.
 **Checks.**
 
 - *Computed value.* Over ZMod 2, f = X²+X+1 is accepted: X⁴ ≡ X (mod f), and for s = 2 the identity 1·(X²−X) + 1·f = 1 holds.
-- *Degenerate case.* For f = X − a of degree one no prime divides 1, so the only condition is X^q ≡ X (mod X − a), which holds; every linear polynomial is accepted.
+- *Degenerate case.* For f = X − a of degree one no prime divides 1. Both X^q and X reduce to the constant a, so every monic linear polynomial is accepted; comparing the reduced remainder a with the unreduced polynomial X would wrongly reject it.
 - *Non-example.* Over ZMod 5, f = X²+1 satisfies X^25 ≡ X (mod f) but gcd(X⁵ − X, f) = f, so no Bézout pair exists and f is rejected; indeed X²+1 = (X−2)(X−3) there.
 - *Non-example.* For every prime p, X⁴+1 over ZMod p has no accepted certificate, because it is reducible modulo every prime.
 
@@ -666,6 +681,8 @@ algorithm combines both with a coefficient bound and exhaustive recombination.
 
 **Construction.** aks n rejects n≤1 and every perfect power a^b with a,b>1. For the remaining n let r=aksParameter n. Return true if r=n; reject if gcd(n,r)>1; otherwise return whether AKSIdentities n r (2·len(n)·floor(√r)+1) holds. This declaration fixes the variant before any complexity statement.
 
+Suggested.lean states the acceptance predicate as `AKSAccepts`; the Boolean wrapper is the finite decision procedure specified here.
+
 - `aks_small`: Inputs at most 1 are rejected.
 - `aks_perfect_power`: Nontrivial perfect powers are rejected before the polynomial checks.
 - `aks_check_iff`: For a non-power input with coprime parameter r<n, acceptance is exactly the prescribed identity test.
@@ -795,7 +812,7 @@ algorithm combines both with a coefficient bound and exhaustive recombination.
 - `RationalFactorCertificate.input_nonzero`: No certificate exists for the zero polynomial.
 - `RationalFactorCertificate.leadingCoeff`: The scalar equals the leading coefficient of f because every listed factor is monic.
 
-*Construction.* Store finite polynomial data and exact proof obligations. This wraps an output of discovery, not a new factorization theory. The factory must obtain each rational irreducibility proof by a justified criterion, with exhaustive modular recombination when one-prime irreducibility is unavailable. ([Shoup](#source-shoup), §16.5–16.6, pp.439–441.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
+*Construction.* Store finite polynomial data and exact proof obligations. This wraps an output of discovery, not a new factorization theory. The factory must obtain each rational irreducibility proof by a justified criterion, with exhaustive modular recombination when one-prime irreducibility is unavailable. ([LLL82](#source-lll82), §3, algorithm 3.5 and Theorem 3.6, printed pp.25–26 of the linked report, for rational factorization and reconstruction.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
 **Checks.**
 
@@ -811,13 +828,14 @@ algorithm combines both with a coefficient bound and exhaustive recombination.
 - `certifiedRationalFactorization_irreducible`: Every returned factor is monic and irreducible over ℚ.
 - `certifiedRationalFactorization_scalar`: The scalar is the input leading coefficient.
 
-*Method.* The semantic result type requires exact reconstruction and genuine rational irreducibility. The coefficient bound for factors is Mathlib's Mahler-measure estimate; prove terminating bounded recombination over the lifted factors; single-prime irreducibility is a sufficient shortcut only when its hypotheses hold, not a complete general algorithm. ([Shoup](#source-shoup), §16.5–16.6, pp.439–441.) *Needs:* `RationalFactorCertificate` (1.27); `henselLift` (1.26); `FiniteFieldFactorCertificate.complete` (1.24); Mathlib `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure`; `transport_finite_factorization` (1.25).
+*Method.* For a primitive integer polynomial F of positive degree n and leading coefficient a ≠ 0, first form the monic integer polynomial F̃(Y) = a^(n−1)F(Y/a). This invertible rational change of variable lets the monic Hensel contract apply even to nonmonic inputs. Separate square-free parts and choose a prime not dividing their discriminants. For a monic factor g of a square-free part H, the complementary monic factor has Mahler measure at least one. Mathlib's factor coefficient bound and its bound by the sum of input coefficient norms therefore give an explicit integer B bounding every coefficient of g. Lift to p^k > 2B. Enumerate subsets of the lifted finite-field irreducible factors, take balanced coefficient representatives, and test exact division in ℤ[Y]. Every genuine proper monic factor occurs in this finite search: reduction selects its subset, unique Hensel lifting fixes its residue, and the coefficient bound makes reconstruction unique. If no proper factor divides H then H is irreducible; otherwise recurse on the factor and quotient, whose degrees decrease. Restore multiplicities, undo the change of variable, make the rational factors monic and restore the scalar. Constants bypass this search. The cited algorithm uses lattice reduction; the finite exhaustive recombination here has its own completeness argument just given and makes no efficiency claim. Single-prime irreducibility remains a sufficient shortcut, not a general algorithm. ([LLL82](#source-lll82), §2, proof of Proposition 2.13, printed p.20, coefficient bound; §3, algorithms 3.3 and 3.5 and Theorem 3.6, printed pp.23–26, Hensel lifting and rational factorization.) *Needs:* `RationalFactorCertificate` (1.27); `henselLift` (1.26); `FiniteFieldFactorCertificate.complete` (1.24); Mathlib `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure_of_one_le_mahlerMeasure`; Mathlib `Polynomial.mahlerMeasure_le_sum_norm_coeff`; `transport_finite_factorization` (1.25).
 
 **Checks.**
 
 - *Degenerate case.* A nonzero constant produces an empty irreducible-factor list.
 - *Computed value.* (X−1)² produces two copies of X−1.
 - *Non-example.* X²+1 stays irreducible over ℚ even though it splits over ℂ.
+- *Nonmonic input.* For F = 2X²+3X+1 the change of variable gives F̃ = Y²+3Y+2 = (Y+1)(Y+2); undoing it gives scalar 2 and monic factors X+1/2 and X+1.
 
 ### Examples
 
@@ -860,13 +878,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Degenerate case.* A number field has no rank-zero order certificate.
 - *Non-example.* The singleton rational basis 1/2 is not closed under multiplication over ℤ.
 
-### 2.2 Order coordinates imply integrality (`OrderBasisCertificate.isIntegral`)
-
-**Theorem.** Every element in the order of an OrderBasisCertificate is integral over ℤ.
-
-*Proof sketch.* Its multiplication matrix in the displayed integer basis has integral entries. Cayley–Hamilton supplies a monic annihilating polynomial. This is Mathlib's integrality of elements of a finitely generated ℤ-algebra, specialized to checked coordinates. ([NumberRings](#source-numberrings), §2, pp.212–213, Theorem 2.2; §7, p.226; §9, pp.233–235.) *Needs:* `OrderBasisCertificate` (2.1).
-
-### 2.3 Multiplier ring of an integral lattice (`multiplierRing`)
+### 2.2 Multiplier ring of an integral lattice (`multiplierRing`)
 
 **Construction.** For a field K of characteristic zero and an integer submodule I⊆K, multiplierRing I is the ℤ-subalgebra {x∈K | xI⊆I}. This definition also permits I=0, in which case the multiplier ring is all of K. Finiteness and the full-lattice condition are hypotheses of the maximal-order theorems, not hidden in this carrier. For a fractional ideal of an order it is the same set as the `Subring` `NumberFieldOrder.multiplierRing` of current Tau Ceti; the version here accepts any ℤ-submodule of K.
 
@@ -882,7 +894,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Agreement with the library notion.* The lattice generated by 1 in ℚ has only integral multipliers.
 - *Non-example.* 1/2 does not stabilize the lattice ℤ inside ℚ.
 
-### 2.4 Local maximality of an order (`IsPMaximal`)
+### 2.3 Local maximality of an order (`IsPMaximal`)
 
 **Definition.** For a ℤ-subalgebra R of a characteristic-zero field K and a prime p, IsPMaximal R p means that for every x∈K integral over ℤ there is an integer a not divisible by p with a·x∈R. For a full finite order R this says its localization at p equals that of the maximal order, or equivalently p does not divide its index. The predicate is meaningful at arbitrary p, but arithmetic theorems assume primality.
 
@@ -898,21 +910,21 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Non-example.* At p=1 no denominator passes, so the predicate is false.
 - *Agreement with the library notion.* Every overorder of a p-maximal order remains p-maximal.
 
-### 2.5 Nilradical from a Frobenius kernel (`nilpotent_iff_frobenius_zero`)
+### 2.4 Nilradical from a Frobenius kernel (`nilpotent_iff_frobenius_zero`)
 
 **Theorem.** Let A be a finite-dimensional commutative algebra over ZMod p, p prime, and let p^k≥dim A. Then x is nilpotent iff x^(p^k)=0. Consequently the nilradical is the kernel of the kth iterate of the Frobenius algebra endomorphism, computable by linear algebra in any supplied basis.
 
 *Proof sketch.* A nilpotent multiplication operator on the d-dimensional space has nilpotency exponent at most d. Thus x^d=0 and x^(p^k)=0. The reverse implication is the definition of nilpotence. The semantic kernel is native linear algebra. The kernel of the Frobenius iterate in a supplied basis is computed by Tau Ceti's `TauCeti.kernelBasis` (row reduction over a field, with `mulVec_eq_zero_of_mem_kernelBasis`, `span_kernelBasis` and `linearIndepOn_kernelBasis`); the bound x^d = 0 for nilpotent x is Cayley–Hamilton for the multiplication operator. ([NumberRings](#source-numberrings), §9, pp.233–234.) *Needs:* Mathlib `FiniteField.frobeniusAlgHom`; Mathlib `Ideal.radical`; Tau Ceti `TauCeti.kernelBasis`.
 
-### 2.6 The p-radical in field coordinates (`pRadicalLattice`)
+### 2.5 The p-radical in field coordinates (`pRadicalLattice`)
 
-**Construction.** For a full order R⊆K and prime p, pRadicalLattice R p is the integer lattice of x∈R with x^k∈pR for some k≥1. It is the inverse image of the nilradical of R/pR. The exponent excludes the empty-power convention. This is a coordinate adapter for the native ideal radical, not a second definition of radical.
+**Construction.** For a ℤ-subalgebra R of a number field K and natural p, pRadicalLattice R p is the integer submodule of x∈R with x^k∈pR for some k≥1. The computational and maximality results use full finite orders and prime p. It is the inverse image of the nilradical of R/pR. The exponent excludes the empty-power convention. This is a coordinate adapter for the native ideal radical, not a second definition of radical.
 
 - `mem_pRadicalLattice`: Membership is a positive power in pR.
 - `pRadicalLattice_contains_p`: The element p belongs to the p-radical.
 - `pRadicalLattice_mul`: The lattice is stable under multiplication by its order.
 
-*Method.* Take the native radical of pR in R and map its underlying integer module through the inclusion R→K. Finite-field linear algebra computes it from the Frobenius kernel. ([NumberRings](#source-numberrings), Equation (9-2) and following paragraph, pp.234–235.) *Needs:* Mathlib `Ideal.radical`; `nilpotent_iff_frobenius_zero` (2.5); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
+*Method.* Take the native radical of pR in R and map its underlying integer module through the inclusion R→K. Finite-field linear algebra computes it from the Frobenius kernel. ([NumberRings](#source-numberrings), Equation (9-2) and following paragraph, pp.234–235.) *Needs:* Mathlib `Ideal.radical`; `nilpotent_iff_frobenius_zero` (2.4); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
 **Checks.**
 
@@ -920,13 +932,13 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Computed value.* The p-radical of ℤ inside ℚ is pℤ for prime p.
 - *Non-example.* 1 does not belong to the p-radical of ℤ at a prime.
 
-### 2.7 Multiplier criterion for p-maximality (`pRadical_multiplier_eq_iff`)
+### 2.6 Multiplier criterion for p-maximality (`pRadical_multiplier_eq_iff`)
 
 **Theorem.** For a full order R presented by an OrderBasisCertificate and a prime p, the multiplier ring of pRadicalLattice R p equals R iff IsPMaximal R p. In the nonmaximal case it is a strictly larger integral overorder contained in (1/p)R; its quotient over R is p-primary.
 
-*Proof sketch.* Apply Stevenhagen Proposition 9.3 to the p-primary saturation. If the order is already p-maximal, the multiplier ring lies between R and its p-primary saturation, forcing equality. Otherwise Proposition 9.3 supplies a multiplier outside R. Finite-lattice coordinate conversion is provided by CA.3. ([NumberRings](#source-numberrings), Proposition 9.3 and its proof, p.235.) *Needs:* `OrderBasisCertificate` (2.1); `OrderBasisCertificate.isIntegral` (2.2); `pRadicalLattice` (2.6); `multiplierRing` (2.3); `IsPMaximal` (2.4); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
+*Proof sketch.* Apply Stevenhagen Proposition 9.3 to the p-primary saturation. If the order is already p-maximal, the multiplier ring lies between R and its p-primary saturation, forcing equality. Otherwise Proposition 9.3 supplies a multiplier outside R. Finite-lattice coordinate conversion is provided by CA.3. ([NumberRings](#source-numberrings), Proposition 9.3 and its proof, p.235.) *Needs:* `OrderBasisCertificate` (2.1); `pRadicalLattice` (2.5); `multiplierRing` (2.2); `IsPMaximal` (2.3); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
-### 2.8 Integral basis certificate (`IntegralBasisCertificate`)
+### 2.7 Integral basis certificate (`IntegralBasisCertificate`)
 
 **Definition.** An IntegralBasisCertificate K is an OrderBasisCertificate of some finite rank together with a proof that its order is exactly the set of elements integral over ℤ. Thus its basis spans the native ring of integers, not merely a suborder. A practical finite certificate proves this maximality by checking the p-radical multiplier criterion at every prime whose square divides the starting discriminant.
 
@@ -934,7 +946,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - `IntegralBasisCertificate.rank_eq`: The rank is the rational field degree.
 - `IntegralBasisCertificate.integerBasis`: Transport the checked coordinates to a native ℤ-basis of the ring of integers.
 
-*Construction.* Store the full order basis and the exact maximality equation. The finite local checks are converted to this equation by the discriminant-index theorem; the resulting basis transports to the native RingOfIntegers carrier. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `OrderBasisCertificate` (2.1); `OrderBasisCertificate.isIntegral` (2.2); `pRadical_multiplier_eq_iff` (2.7); `IntegerFactorCertificate` (1.19).
+*Construction.* Store the full order basis and the exact maximality equation. The finite local checks are converted to this equation by the discriminant-index theorem; the resulting basis transports to the native RingOfIntegers carrier. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `OrderBasisCertificate` (2.1); `pRadical_multiplier_eq_iff` (2.6); `IntegerFactorCertificate` (1.19).
 
 **Checks.**
 
@@ -942,7 +954,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Degenerate case.* A certificate has positive rank.
 - *Non-example.* The rational 1/2 is excluded by the certificate for ℚ.
 
-### 2.9 Certified integral-basis algorithm (`integralBasisAlgorithm`)
+### 2.8 Certified integral-basis algorithm (`integralBasisAlgorithm`)
 
 **Construction.** Given a full order basis in K, integralBasisAlgorithm returns an IntegralBasisCertificate K for an overorder containing the input. Factor the absolute discriminant exactly, compute p-radicals and multiplier overorders at all critical primes, and stop each local loop only when the multiplier ring is unchanged. Each strict enlargement drops the p-exponent of the index in the maximal order, so the local loops terminate. No polynomial bit-time claim is made for the required integer factorization.
 
@@ -950,7 +962,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - `integralBasisAlgorithm_maximal`: The returned order equals the intrinsic integral closure.
 - `integralBasisAlgorithm_rank`: The returned rank equals the input rank.
 
-*Method.* Use the checked integer factorization for the critical prime list. Apply the multiplier criterion and CA.3 HNF coordinate changes at each step. A positive finite index strictly decreases under proper enlargement. The discriminant-index square identity proves that no unchecked prime can divide the final index. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `IntegralBasisCertificate` (2.8); `pRadical_multiplier_eq_iff` (2.7); `IntegerFactorCertificate` (1.19); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
+*Method.* Use the checked integer factorization for the critical prime list. Apply the multiplier criterion and CA.3 HNF coordinate changes at each step. A positive finite index strictly decreases under proper enlargement. The discriminant-index square identity proves that no unchecked prime can divide the final index. ([NumberRings](#source-numberrings), §9, pp.233–235.) *Needs:* `IntegralBasisCertificate` (2.7); `pRadical_multiplier_eq_iff` (2.6); `IntegerFactorCertificate` (1.19); ClassicalArithmeticCompletion CA.3 (hermite normal form certificate).
 
 **Checks.**
 
@@ -958,15 +970,15 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Degenerate case.* The returned order contains 1.
 - *Agreement with the library notion.* Applying the algorithm to its output preserves the order, though not necessarily the basis.
 
-### 2.10 Prime-ideal decomposition certificate (`PrimeIdealFactorCertificate`)
+### 2.9 Prime-ideal decomposition certificate (`PrimeIdealFactorCertificate`)
 
-**Definition.** For K a number field and a rational prime p, a PrimeIdealFactorCertificate K p stores a finite list of pairwise distinct nonzero prime ideals P_i of the native ring of integers, positive exponents e_i, and the identity pO_K=∏P_i^e_i. Each ideal is presented in the certified integral basis. Primality may be checked by an explicit finite-field quotient presentation. At primes dividing the index of a chosen power basis, the computation must use the maximal order or a proved higher-order method.
+**Definition.** For K a number field and a natural p, a PrimeIdealFactorCertificate K p stores a finite list of pairwise distinct nonzero prime ideals P_i of the native ring of integers, positive exponents e_i, and the identity pO_K=∏P_i^e_i. The decomposition algorithm assumes p is prime; the raw structure also permits p=1 with the empty list. Each ideal is presented in the certified integral basis. Primality may be checked by an explicit finite-field quotient presentation. At primes dividing the index of a chosen power basis, the computation must use the maximal order or a proved higher-order method.
 
 - `PrimeIdealFactorCertificate.reconstruct`: The product is exactly the rational prime ideal.
 - `PrimeIdealFactorCertificate.exponent_pos`: Every listed exponent is strictly positive.
 - `PrimeIdealFactorCertificate.nonempty`: For prime p the decomposition cannot be empty.
 
-*Construction.* Use native ideals, ideal multiplication and primality. The exact product and prime checks certify the decomposition without trusting a discovered factor list. Residue fields are presented by `FiniteFieldPresentation` (0.16), and ideals by the integral basis coordinates. ([NumberRings](#source-numberrings), §9, pp.234–235; §12, p.248.) *Needs:* `IntegralBasisCertificate` (2.8); `FiniteFieldPresentation` (0.16).
+*Construction.* Use native ideals, ideal multiplication and primality. The exact product and prime checks certify the decomposition without trusting a discovered factor list. Residue fields are presented by `FiniteFieldPresentation` (0.16), and ideals by the integral basis coordinates. ([NumberRings](#source-numberrings), §9, pp.234–235; §12, p.248.) *Needs:* `IntegralBasisCertificate` (2.7); `FiniteFieldPresentation` (0.16).
 
 **Checks.**
 
@@ -974,7 +986,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Non-example.* A zero exponent cannot pad the output.
 - *Degenerate case.* The zero ideal cannot occur.
 
-### 2.11 Checked class-group relation lattice (`classRelationLattice`)
+### 2.10 Checked class-group relation lattice (`classRelationLattice`)
 
 **Definition.** For n nonzero integral ideals I_i, classRelationLattice I is the integer submodule of ℤⁿ consisting of a with ∏[I_i]^(a_i)=1 in the native class group. A found relation matrix contributes a sublattice L contained in this kernel, certified by principal fractional-ideal generators. The relation kernel exists intrinsically; discovering rows does not show L equals it.
 
@@ -990,37 +1002,39 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Computed value.* A factor base consisting of unit ideals has the whole relation lattice.
 - *Agreement with the library notion.* Subtracting two checked relations is valid.
 
-### 2.12 Relation quotient covers the class group (`classNumber_dvd_relation_index`)
+### 2.11 Relation quotient covers the class group (`classNumber_dvd_relation_index`)
 
 **Theorem.** Let the classes of I₁,…,I_n generate Cl(K), and let L⊆classRelationLattice I be a full-rank integer submodule. Then the native class number divides the finite index [ℤⁿ:L]. The quotient ℤⁿ/L maps surjectively to Cl(K); equality of cardinalities is a separate completeness condition.
 
-*Proof sketch.* The class product map is surjective by factor-base generation. The inclusion L⊆kernel lets it descend to the quotient. A surjection of finite groups makes the target order divide the source order. ([NumberRings](#source-numberrings), §12, formula for h′, p.248.) *Needs:* `classRelationLattice` (2.11); Mathlib `NumberField.classNumber`; ClassicalArithmeticCompletion CA.3 (smith normal form certificate).
+*Proof sketch.* The class product map is surjective by factor-base generation. The inclusion L⊆kernel lets it descend to the quotient. A surjection of finite groups makes the target order divide the source order. ([NumberRings](#source-numberrings), §12, formula for h′, p.248.) *Needs:* `classRelationLattice` (2.10); Mathlib `NumberField.classNumber`; ClassicalArithmeticCompletion CA.3 (smith normal form certificate).
 
-### 2.13 Certified Minkowski factor-base generation (`minkowski_factorBase_generates`)
+### 2.12 Certified Minkowski factor-base generation (`minkowski_factorBase_generates`)
 
 **Theorem.** Let B be a nonnegative real number at least the native Minkowski bound for K. If a finite list I includes every nonzero prime ideal of norm at most B, its classes generate the class group. A larger rational upper bound is sufficient. Replacing it by a Bach-type logarithmic bound requires its stated GRH hypothesis and separate proof.
 
-*Proof sketch.* Take a small-norm ideal representative of each class using the native Minkowski theorem. Factor it into prime ideals. Every prime factor has norm at most that ideal’s norm, so all its factors occur in the list. ([NumberRings](#source-numberrings), §12, pp.245–248.) *Needs:* Mathlib `NumberField.exists_ideal_in_class_of_norm_le`; `PrimeIdealFactorCertificate` (2.10); Mathlib `ClassGroup.mk0`.
+*Proof sketch.* Take a small-norm ideal representative of each class using the native Minkowski theorem. Factor it into prime ideals. Every prime factor has norm at most that ideal’s norm, so all its factors occur in the list. ([NumberRings](#source-numberrings), §12, pp.245–248.) *Needs:* Mathlib `NumberField.exists_ideal_in_class_of_norm_le`; `PrimeIdealFactorCertificate` (2.9); Mathlib `ClassGroup.mk0`.
 
-### 2.14 Fundamental units from a regulator index bound (`units_complete_of_regulator_bound`)
+### 2.13 Fundamental units from a regulator index bound (`units_complete_of_regulator_bound`)
 
 **Theorem.** Let K be a number field and u a family of rank(K) units whose logarithmic images are linearly independent. If regOfFamily(u)<2·regulator(K), then the subgroup generated by u together with the torsion units is the full unit group. To claim generation by a displayed finite list alone, that list must separately generate all torsion units.
 
 *Proof sketch.* The native regulator ratio is the subgroup index. Full logarithmic rank makes the index positive. The strict bound makes it a positive integer below 2, hence one; index one is equivalent to the subgroup being the whole group. ([NumberRings](#source-numberrings), §12, pp.248–250.) *Needs:* Mathlib `NumberField.Units.regOfFamily_div_regulator`.
 
-### 2.15 Joint class and unit stopping bound (`joint_class_unit_bound`)
+### 2.14 Joint class and unit stopping bound (`joint_class_unit_bound`)
 
-**Theorem.** Suppose h>0 divides h′, and u is a full logarithmic-rank family of units of a number field K. If h′·regOfFamily(u)<2h·regulator(K), then h′=h and u together with all torsion units generates the unit group. In the class-group algorithm h′ is the order of the quotient by certified found relations, and h is the true class number; the surjection from that quotient must first establish h∣h′.
+**Theorem.** Suppose h,h′ are positive natural numbers with h∣h′, and u is a full logarithmic-rank family of units of a number field K. If h′·regOfFamily(u)<2h·regulator(K), then h′=h and u together with all torsion units generates the unit group. In the class-group algorithm h′ is the order of the finite quotient by certified found relations, so h′≥1, and h is the true class number; the surjection from that quotient must first establish h∣h′.
 
-*Proof sketch.* The ratio is the product of two positive integers: h′/h and the native unit index. A product below 2 forces both factors to be 1. Apply the unit stopping argument. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `units_complete_of_regulator_bound` (2.14); Mathlib `NumberField.Units.regOfFamily_div_regulator`.
+*Proof sketch.* The ratio is the product of two positive integers: h′/h and the native unit index. A product below 2 forces both factors to be 1. Apply the unit stopping argument. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `units_complete_of_regulator_bound` (2.13); Mathlib `NumberField.Units.regOfFamily_div_regulator`.
 
-### 2.16 Certified completion of class and unit computations (`certified_class_unit_complete`)
+**Check.** The positivity of h′ is essential: h=1 and h′=0 satisfy h∣h′ and the strict numerical bound whenever the regulator is positive, but h′≠h. Zero cannot be the order of a finite group.
+
+### 2.15 Certified completion of class and unit computations (`certified_class_unit_complete`)
 
 **Theorem.** With a complete factor base I, a checked full-rank relation sublattice L, and a full-logarithmic-rank unit family u, let h′=card(ℤⁿ/L). If h′·regOfFamily(u)<2·classNumber(K)·regulator(K), then h′ equals the class number and u together with all torsion units generates the unit group. The analytic bound must be certified by enclosing intervals and a rigorous remainder estimate; a numerical Euler-product guess is not a stopping certificate.
 
-*Proof sketch.* Combine factor-base generation, the relation-quotient divisibility theorem and the joint positive-integer bound. A separately validated lower bound on hR and upper bound on h′R′ can discharge the strict inequality without knowing h or R individually. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `classNumber_dvd_relation_index` (2.12); `minkowski_factorBase_generates` (2.13); `joint_class_unit_bound` (2.15).
+*Proof sketch.* Combine factor-base generation, the relation-quotient divisibility theorem and the joint positive-integer bound. A separately validated lower bound on hR and upper bound on h′R′ can discharge the strict inequality without knowing h or R individually. ([NumberRings](#source-numberrings), §12, pp.248–252.) *Needs:* `classNumber_dvd_relation_index` (2.11); `minkowski_factorBase_generates` (2.12); `joint_class_unit_bound` (2.14).
 
-### 2.17 Exact φ-adic polynomial expansion (`phiExpansion`)
+### 2.16 Exact φ-adic polynomial expansion (`phiExpansion`)
 
 **Construction.** For a commutative ring R and monic φ∈R[X] of positive degree m, phiExpansion φ f returns coefficients a_i∈R[X] of degree less than m, zero for i>floor(natDegree f/m), with f=Σa_iφ^i. It uses successive division by the monic polynomial φ; the coefficients are polynomials, not scalar coefficients of f. The zero polynomial has all coefficients zero.
 
@@ -1036,7 +1050,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Agreement with the library notion.* For φ=X the coefficients are the constant polynomials C(f.coeff i).
 - *Computed value.* For φ=X−1, X² has coefficients 1,2,1.
 
-### 2.18 Valuation of a φ-coefficient (`coefficientValuation`)
+### 2.17 Valuation of a φ-coefficient (`coefficientValuation`)
 
 **Definition.** For prime p and a∈ℤ[X], coefficientValuation p a is infinity if a=0, and otherwise the minimum v_p(a_i) over the nonzero coefficients. It uses WithTop ℕ, so the zero polynomial has infinite valuation; the native default v_p(0)=0 is never inserted into the minimum.
 
@@ -1044,7 +1058,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - `coefficientValuation_const`: A nonzero constant has its usual integer valuation.
 - `coefficientValuation_ge_iff`: A lower valuation bound means coefficientwise divisibility by p^N.
 
-*Construction.* Take the finite minimum over the support of a, with top for the empty support. This is the Gauss valuation used only to compute the points of the φ-adic polygon. Ordinary Newton polygons of polynomials over a valued field, with sloped valuations and slope multiplicities, are ClassicalArithmeticCompletion CA.3's. ([GMN](#source-gmn), §1.2, p.7.) *Needs:* `phiExpansion` (2.17); Mathlib `padicValRat`.
+*Construction.* Take the finite minimum over the support of a, with top for the empty support. This is the Gauss valuation used only to compute the points of the φ-adic polygon. Ordinary Newton polygons of polynomials over a valued field, with sloped valuations and slope multiplicities, are ClassicalArithmeticCompletion CA.3's. ([GMN](#source-gmn), §1.2, p.7.) *Needs:* `phiExpansion` (2.16); Mathlib `padicValRat`.
 
 **Checks.**
 
@@ -1052,7 +1066,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Computed value.* 3X+9 has 3-adic coefficient valuation 1.
 - *Non-example.* X² has valuation zero, regardless of its zero constant coefficient.
 
-### 2.19 A finite negative φ-Newton side (`IsPhiNewtonSide`)
+### 2.18 A finite negative φ-Newton side (`IsPhiNewtonSide`)
 
 **Definition.** For prime p and monic positive-degree φ∈ℤ[X], IsPhiNewtonSide p φ f s u e h d certifies the entire supporting side from (s,u) to (s+ed,u−hd), with slope −h/e. Require e,h,d>0, gcd(e,h)=1 and hd≤u. The two endpoint coefficient valuations equal their displayed ordinates. Every φ-expansion point lies on or above the line e·v_p(a_i)+h·i=e·u+h·s, and every point on that line has s≤i≤s+ed. Zero coefficients have valuation infinity. The φ-divisible initial segment has slope −∞ and is recorded separately by its multiplicity; it is not encoded with a finite e,h.
 
@@ -1060,7 +1074,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - `phiSide_left_nonzero`: The left endpoint coefficient is nonzero.
 - `phiSide_length_pos`: A side has strictly positive horizontal length ed.
 
-*Construction.* Use the already specified φ-expansion and coefficient Gauss valuation. Clear the slope denominator to use exact integer inequalities. The side is certified by these inequalities alone; it needs no convex-hull construction. ([GMN](#source-gmn), Definitions 1.6–1.9, pp.7–8.) *Needs:* `phiExpansion` (2.17); `coefficientValuation` (2.18).
+*Construction.* Use the already specified φ-expansion and coefficient Gauss valuation. Clear the slope denominator to use exact integer inequalities. The side is certified by these inequalities alone; it needs no convex-hull construction. ([GMN](#source-gmn), Definitions 1.6–1.9, pp.7–8.) *Needs:* `phiExpansion` (2.16); `coefficientValuation` (2.17).
 
 **Checks.**
 
@@ -1068,7 +1082,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Degenerate case.* The zero polynomial has no finite side.
 - *Non-example.* The slope of X²−3 is not −1.
 
-### 2.20 Residual polynomial of a φ-Newton side (`phiResidualPolynomial`)
+### 2.19 Residual polynomial of a φ-Newton side (`phiResidualPolynomial`)
 
 **Construction.** For side data (s,u,e,h,d), phiResidualPolynomial has coefficient at Y^j equal to the reduction in F_φ=(ℤ/pℤ)[X]/(φ mod p) of a_(s+ej)/p^(u−hj), for 0≤j≤d. Divide each integer coefficient exactly before reducing. For a certified side the divisions are exact; points strictly above the side give zero. The endpoint coefficients are nonzero when φ mod p is irreducible, so the residual degree is d and Y does not divide it. Uniformizer p and reduction of the chosen φ are fixed conventions.
 
@@ -1076,7 +1090,7 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - `phiResidual_degree`: On a certified side over an irreducible residue polynomial the degree is exactly d.
 - `phiResidual_constant_ne_zero`: The left endpoint gives a nonzero constant coefficient.
 
-*Method.* Use integer coefficient division, the native quotient AdjoinRoot and the finite monomial sum. Reduction and exact divisibility lemmas are separate proof requirements. ([GMN](#source-gmn), Definition 1.9, p.8.) *Needs:* `IsPhiNewtonSide` (2.19); `FiniteFieldPresentation` (0.16).
+*Method.* Use integer coefficient division, the native quotient AdjoinRoot and the finite monomial sum. Reduction and exact divisibility lemmas are separate proof requirements. ([GMN](#source-gmn), Definition 1.9, p.8.) *Needs:* `IsPhiNewtonSide` (2.18); `FiniteFieldPresentation` (0.16).
 
 **Checks.**
 
@@ -1084,21 +1098,21 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Degenerate case.* Raw zero input gives zero residual output.
 - *Non-example.* (X−3)² has repeated residual (Y−1)², so a square-free residual hypothesis cannot be omitted.
 
-### 2.21 Ore residual irreducibility criterion (`ore_residual_irreducible`)
+### 2.20 Ore residual irreducibility criterion (`ore_residual_irreducible`)
 
 **Theorem.** Let p be prime, φ and f monic in ℤ[X], deg φ>0, and φ mod p irreducible. Suppose f mod p=(φ mod p)^n, n>0, and the whole φ-polygon is the finite side from (0,hd) to (ed,0), with n=ed and coprime positive h,e. If its residual polynomial is irreducible over F_φ, then f is irreducible over ℚ_p. For a root θ the resulting local extension has ramification index e and residue degree deg(φ)·deg(R); these intrinsic invariants and their normalization are supplied by LocalFieldsRamification.
 
-*Proof sketch.* Use the product theorem for φ-polygons and residual polynomials, the polygon factorization theorem and residual factorization theorem. An irreducible residual factor of exponent one admits only one irreducible local factor. The native local degree formula then gives the ramification and residue degrees. ([GMN](#source-gmn), Theorem 1.19 and Corollary 1.20, pp.14–15.) *Needs:* `phiResidualPolynomial` (2.20); TauCetiRoadmap LocalFieldsRamification Layer 0; `henselLift` (1.26).
+*Proof sketch.* Use the product theorem for φ-polygons and residual polynomials, the polygon factorization theorem and residual factorization theorem. An irreducible residual factor of exponent one admits only one irreducible local factor. The native local degree formula then gives the ramification and residue degrees. ([GMN](#source-gmn), Theorem 1.19 and Corollary 1.20, pp.14–15.) *Needs:* `phiResidualPolynomial` (2.19); TauCetiRoadmap LocalFieldsRamification Layer 0; `henselLift` (1.26).
 
-### 2.22 Finite local expansion certificate (`LocalExpansionCertificate`)
+### 2.21 Finite local expansion certificate (`LocalExpansionCertificate`)
 
-**Definition.** For a normed field L, chosen nonzero uniformizer π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). The local field, its uniformizer and its reduction map are those of TauCetiRoadmap LocalFieldsRamification Layer 0. A chosen residue section is a separate input; canonical Teichmüller representatives belong to TauCetiRoadmap LocalFieldsRamification Layer 1. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.
+**Definition.** For a normed field L, chosen nonzero element π with ‖π‖<1, element x and digit count N, a LocalExpansionCertificate stores an integer initial exponent v, digits d₀,…,dₙ₋₁ of norm at most one, and a proved remainder bound ‖x−π^vΣd_iπ^i‖≤‖π‖^(v+N). For local digit extraction, π is a uniformizer and the local field and reduction map are those of TauCetiRoadmap LocalFieldsRamification Layer 0; the certificate itself records only the norm conditions. A chosen residue section is a separate input; canonical Teichmüller representatives belong to TauCetiRoadmap LocalFieldsRamification Layer 1. Without a fixed residue section these finite digits are not canonical; equality of decoded approximations is not asserted to imply equality of digits.
 
 - `LocalExpansionCertificate.center`: The exact finite centre is π^v times the digit polynomial.
 - `LocalExpansionCertificate.error_bound`: The supplied exact x lies in the certified local ball.
 - `LocalExpansionCertificate.integral_digits`: Every exact digit has norm at most one.
 
-*Construction.* Store exact native field elements and the norm inequality. Digit construction requires a separately chosen section of the surjective residue reduction map, then a finite extraction/remainder argument specified as a separate construction requirement. Layer 0 supplies field and valuation structure, not an expansion theorem. Preserve the chosen prime, embedding and uniformizer normalization in comparisons. ([CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.) *Needs:* TauCetiRoadmap LocalFieldsRamification Layer 0; `PadicApproximation` (0.14); `PrimeIdealFactorCertificate` (2.10).
+*Construction.* Store exact native field elements and the norm inequality. Digit construction requires a separately chosen section of the surjective residue reduction map, then a finite extraction/remainder argument specified as a separate construction requirement. Layer 0 supplies field and valuation structure, not an expansion theorem. Preserve the chosen prime, embedding and uniformizer normalization in comparisons. ([CarusoPublished](#source-carusopublished), §2.1.1, pp.17–19.) *Needs:* TauCetiRoadmap LocalFieldsRamification Layer 0; `PadicApproximation` (0.14); `PrimeIdealFactorCertificate` (2.9).
 
 **Checks.**
 
@@ -1106,25 +1120,25 @@ finite extension of `ℚ_p`, and counting roots in `ℚ_p` from the decompositio
 - *Computed value.* π⁻¹ has a length-one exact expansion with initial exponent −1 and digit 1.
 - *Non-example.* A precision-one zero centre at v=0 cannot represent 1 when ‖π‖<1.
 
-### 2.23 Squares of units in a finite extension of ℚ_p (`isSquare_iff_isSquare_mod`)
+### 2.22 Squares of units in a finite extension of ℚ_p (`isSquare_iff_isSquare_mod`)
 
 **Theorem.** Let L be a finite extension of ℚ_p, O_L its valuation ring and π a uniformizer. A unit u ∈ O_L^× is a square in L exactly when u ≡ w² (mod 4π O_L) for some w ∈ O_L. Consequently the square class of a nonzero element of L is decided by the parity of its valuation and a finite computation in O_L/4πO_L. For odd p the condition says that the residue of u is a square in the residue field; for L = ℚ_2 it says u ≡ 1 (mod 8).
 
 *Proof sketch.* If u ≡ w² modulo 4π then w is a unit, and the polynomial X² − u satisfies |w² − u| ≤ |4π| < |2w|², so Newton's lemma gives a root of X² − u near w. The converse is immediate. For odd p, 4π generates the maximal ideal; for L = ℚ_2, 4π = 8 and the unit squares modulo 8 are 1. ([MilneANT](#source-milneant), Theorem 7.32 (Newton's lemma), printed p.120.) *Needs:* TauCetiRoadmap LocalFieldsRamification Layer 0; Mathlib `hensels_lemma`.
 
-### 2.24 Roots in ℚ_p from the decomposition of p (`card_padicRoots_eq`)
+### 2.23 Roots in ℚ_p from the decomposition of p (`card_padicRoots_eq`)
 
 **Theorem.** Let f ∈ ℚ[X] be monic irreducible, K = ℚ[X]/(f) and p a prime. The number of roots of f in ℚ_p equals the number of prime ideals P of O_K above p with ramification index and residue degree both equal to 1. For a separable f with irreducible factors f_j and fields K_j, the number of roots of f in ℚ_p is the sum of these counts over j. With the PrimeIdealFactorCertificate of each K_j at p, the count is a finite computation.
 
-*Proof sketch.* K ⊗_ℚ ℚ_p is the product of the completions K_P over the primes P above p, and [K_P : ℚ_p] = e(P|p)·f(P|p). A root of f in ℚ_p is a ℚ-algebra map K → ℚ_p, equivalently a factor K_P of degree one. Distinct roots give distinct factors because f is separable. ([MilneANT](#source-milneant), Proposition 8.2 and its proof, printed p.136.) *Needs:* `PrimeIdealFactorCertificate` (2.10); `certifiedRationalFactorization` (1.28); TauCetiRoadmap LocalFieldsRamification Layer 0.
+*Proof sketch.* K ⊗_ℚ ℚ_p is the product of the completions K_P over the primes P above p, and [K_P : ℚ_p] = e(P|p)·f(P|p). A root of f in ℚ_p is a ℚ-algebra map K → ℚ_p, equivalently a factor K_P of degree one. Distinct roots give distinct factors because f is separable. ([MilneANT](#source-milneant), Proposition 8.2 and its proof, printed p.136.) *Needs:* `PrimeIdealFactorCertificate` (2.9); `certifiedRationalFactorization` (1.28); TauCetiRoadmap LocalFieldsRamification Layer 0.
 
 ### Examples
 
-- The `p`-radical of `ℤ` in `ℚ` is `pℤ`, whose multiplier ring is `ℤ`, so `ℤ` is `p`-maximal (`pRadicalLattice` (2.6), `pRadical_multiplier_eq_iff` (2.7)).
-- `X² − 3` has the single `3`-adic side of slope `−1/2` with residual polynomial `Y − 1`; `(X − 3)²` has the repeated residual `(Y − 1)²`, so the square-free hypothesis of Ore's criterion fails there (`IsPhiNewtonSide` (2.19), `phiResidualPolynomial` (2.20)).
-- In `ℚ_2`, `17` is a square and `5` is not, although `5 ≡ 1 (mod 4)`; in `ℚ_5`, `6` is a square because `6 ≡ 1 (mod 5)` (`isSquare_iff_isSquare_mod` (2.23)).
-- `X² − 2` has two roots in `ℚ_7`, because `7` splits in `ℚ(√2)`, and none in `ℚ_2`, because `2` ramifies (`card_padicRoots_eq` (2.24)).
-- `π⁻¹` has a length-one expansion with initial exponent `−1` and digit `1` (`LocalExpansionCertificate` (2.22)).
+- The `p`-radical of `ℤ` in `ℚ` is `pℤ`, whose multiplier ring is `ℤ`, so `ℤ` is `p`-maximal (`pRadicalLattice` (2.5), `pRadical_multiplier_eq_iff` (2.6)).
+- `X² − 3` has the single `3`-adic side of slope `−1/2` with residual polynomial `Y − 1`; `(X − 3)²` has the repeated residual `(Y − 1)²`, so the square-free hypothesis of Ore's criterion fails there (`IsPhiNewtonSide` (2.18), `phiResidualPolynomial` (2.19)).
+- In `ℚ_2`, `17` is a square and `5` is not, although `5 ≡ 1 (mod 4)`; in `ℚ_5`, `6` is a square because `6 ≡ 1 (mod 5)` (`isSquare_iff_isSquare_mod` (2.22)).
+- `X² − 2` has two roots in `ℚ_7`, because `7` splits in `ℚ(√2)`, and none in `ℚ_2`, because `2` ramifies (`card_padicRoots_eq` (2.23)).
+- `π⁻¹` has a length-one expansion with initial exponent `−1` and digit `1` (`LocalExpansionCertificate` (2.21)).
 
 ### Dependencies
 
@@ -1338,7 +1352,7 @@ Mordell–Weil group.
 
 ### 3.18 Certified local image of the 2-descent map (`LocalImageCertificate`)
 
-**Construction.** Let W be an elliptic Weierstrass curve over ℚ with a₁ = a₃ = 0 and integral a₂, a₄, a₆, with cubic f, and let v be a prime p or the real place, K_v = ℚ_p or ℝ. Write W_v for its base change, A_v = K_v[X]/(f), M_v = A_v^×/A_v^(×2) (Tau Ceti `W_v.M`) and μ_v : W_v(K_v) → M_v the x − T map (Tau Ceti `μ`). A LocalImageCertificate W v consists of: (i) finitely many rationals x₁, …, x_k with f(x_i) a nonzero square in K_v, checked exactly (at ℝ: f(x_i) > 0; at p: the p-adic valuation of f(x_i) is even and its unit part passes the square test of `isSquare_iff_isSquare_mod` (2.23)); (ii) the number r_v of roots of f in K_v, certified at ℝ by the sign of the discriminant (three real roots when it is positive, one when it is negative) and at p by `card_padicRoots_eq` (2.24); (iii) the subgroup H_v of M_v generated by the classes of x_i − T. Its target size is N_v = (1 + r_v)·|2|_v^(−1) at a prime and N_v = (1 + r_v)/2 at ℝ, and the certificate is complete when #H_v = N_v. The order of H_v is computed by deciding which products of the generators are squares in each field factor of A_v.
+**Construction.** Let W be an elliptic Weierstrass curve over ℚ with a₁ = a₃ = 0 and integral a₂, a₄, a₆, with cubic f, and let v be a prime p or the real place, K_v = ℚ_p or ℝ. Write W_v for its base change, A_v = K_v[X]/(f), M_v = A_v^×/A_v^(×2) (Tau Ceti `W_v.M`) and μ_v : W_v(K_v) → M_v the x − T map (Tau Ceti `μ`). A LocalImageCertificate W v consists of: (i) finitely many rationals x₁, …, x_k with f(x_i) a nonzero square in K_v, checked exactly (at ℝ: f(x_i) > 0; at p: the p-adic valuation of f(x_i) is even and its unit part passes the square test of `isSquare_iff_isSquare_mod` (2.22)); (ii) the number r_v of roots of f in K_v, certified at ℝ by the sign of the discriminant (three real roots when it is positive, one when it is negative) and at p by `card_padicRoots_eq` (2.23); (iii) the subgroup H_v of M_v generated by the classes of x_i − T. Its target size is N_v = (1 + r_v)·|2|_v^(−1) at a prime and N_v = (1 + r_v)/2 at ℝ, and the certificate is complete when #H_v = N_v. The order of H_v is computed by deciding which products of the generators are squares in each field factor of A_v.
 
 - `localImageSpan`: The subgroup H_v ≤ W_v.M generated by the classes `W_v.μX x_i` of the x_i − T.
 - `localImageSpan_le_range`: H_v ≤ range μ_v whenever every f(x_i) is a nonzero square in K_v.
@@ -1346,7 +1360,7 @@ Mordell–Weil group.
 - `LocalImageCertificate.IsComplete`: The predicate #H_v = N_v.
 - `LocalImageCertificate.card_span`: #H_v = 2^(rank over 𝔽₂ of the classes of the x_i − T).
 
-*Method.* Each x_i is the abscissa of a point P_i ∈ W_v(K_v), and μ_v(P_i) is the class of x_i − T because f(x_i) ≠ 0 (Tau Ceti μX_of_eval_f_ne_zero), so the y-coordinate is never needed. A_v is the product of the fields K_v[X]/(f_j) for the irreducible factors f_j of f over K_v, and a class is trivial exactly when each component is a square, which the square test decides. The discriminant criterion over ℝ is the statement that E(ℝ) has one or two components according to its sign. ([FPS](#source-fps), §7, Lemma 4 and its proof, p.17; [Cremona](#source-cremona), §3.3, p.69.) *Needs:* `isSquare_iff_isSquare_mod` (2.23); `card_padicRoots_eq` (2.24); Tau Ceti `WeierstrassCurve.Affine.μ`; Tau Ceti `WeierstrassCurve.Affine.M`; Tau Ceti `WeierstrassCurve.Affine.μX_of_eval_f_ne_zero`.
+*Method.* Each x_i is the abscissa of a point P_i ∈ W_v(K_v), and μ_v(P_i) is the class of x_i − T because f(x_i) ≠ 0 (Tau Ceti μX_of_eval_f_ne_zero), so the y-coordinate is never needed. A_v is the product of the fields K_v[X]/(f_j) for the irreducible factors f_j of f over K_v, and a class is trivial exactly when each component is a square, which the square test decides. The discriminant criterion over ℝ is the statement that E(ℝ) has one or two components according to its sign. ([FPS](#source-fps), §7, Lemma 4 and its proof, p.17; [Cremona](#source-cremona), §3.3, p.69.) *Needs:* `isSquare_iff_isSquare_mod` (2.22); `card_padicRoots_eq` (2.23); Tau Ceti `WeierstrassCurve.Affine.μ`; Tau Ceti `WeierstrassCurve.Affine.M`; Tau Ceti `WeierstrassCurve.Affine.μX_of_eval_f_ne_zero`.
 
 **Checks.**
 
@@ -1358,19 +1372,19 @@ Mordell–Weil group.
 
 **Theorem.** For every LocalImageCertificate C of W at v, H_v ≤ range μ_v. If C is complete then H_v = range μ_v (stated in Suggested.lean as `localImageSpan_eq_range_of_card_padic` and `localImageSpan_eq_range_of_card_real`), and Tau Ceti's local condition W.localCondition K_v is the preimage of H_v under W.localRes K_v. If #H_v < N_v then H_v ≠ range μ_v, so the size check is both sufficient and necessary.
 
-*Proof sketch.* Every generator is μ_v of an actual point. The kernel of μ_v is 2W_v(K_v) (Tau Ceti ker_μ_eq), so #range μ_v = [W_v(K_v) : 2W_v(K_v)]. This index is #W_v(K_v)[2]·|2|_v^(−1) at a prime and #W_v(ℝ)[2]/2 at ℝ, and #W_v(K_v)[2] = 1 + r_v (Tau Ceti card_ker_nsmul_two); so #range μ_v = N_v. A subgroup of a finite group with the same order is the whole group, and mem_localCondition_iff identifies the local condition. ([FPS](#source-fps), §7, proofs of Lemmas 3 and 4, pp.16–17.) *Needs:* `LocalImageCertificate` (3.18); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); Tau Ceti `WeierstrassCurve.Affine.ker_μ_eq`; Tau Ceti `WeierstrassCurve.Affine.card_ker_nsmul_two`; Tau Ceti `WeierstrassCurve.Affine.mem_localCondition_iff`.
+*Proof sketch.* Every generator is μ_v of an actual point. The kernel of μ_v is 2W_v(K_v) (Tau Ceti ker_μ_eq), so #range μ_v = [W_v(K_v) : 2W_v(K_v)]. This index is #W_v(K_v)[2]·|2|_v^(−1) at a prime and #W_v(ℝ)[2]/2 at ℝ, and #W_v(K_v)[2] = 1 + r_v (Tau Ceti card_ker_nsmul_two); so #range μ_v = N_v. A subgroup of a finite group with the same order is the whole group, and mem_localCondition_iff identifies the local condition. ([Mattuck](#source-mattuck), Theorem 7, p.114, for the local subgroup used in the index calculation; [FPS](#source-fps), §7, proofs of Lemmas 3 and 4, pp.16–17, for the dimension-two application of that calculation.) *Needs:* `LocalImageCertificate` (3.18); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); Tau Ceti `WeierstrassCurve.Affine.ker_μ_eq`; Tau Ceti `WeierstrassCurve.Affine.card_ker_nsmul_two`; Tau Ceti `WeierstrassCurve.Affine.mem_localCondition_iff`.
 
 ### 3.20 Complete local images exist and are found by search (`exists_complete_localImageCertificate`)
 
 **Theorem.** For every W as above and every place v there is a complete LocalImageCertificate. Enumerating rationals x by increasing height, keeping those with f(x) a nonzero square in K_v, and stopping when the size check passes is a terminating algorithm.
 
-*Proof sketch.* The map P ↦ μ_v(P) is locally constant on W_v(K_v) away from the 2-torsion, and the abscissa determines the class. The set of x ∈ K_v with f(x) a nonzero square is open, and ℚ is dense in K_v, so every class in the finite group range μ_v is the class of x − T for some rational x. Finitely many such x generate range μ_v, and the enumeration reaches them. ([FPS](#source-fps), §7, Lemma 4 and its proof, p.17.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); Tau Ceti `WeierstrassCurve.Affine.μ`.
+*Proof sketch.* Every coset of 2W_v(K_v) is open and infinite: multiplication by two maps a sufficiently small local Lie subgroup onto an open subgroup. Thus each coset has a point away from the finite 2-torsion subgroup and the point at infinity. The map P ↦ μ_v(P) is locally constant there, and the abscissa determines the class. The set of x ∈ K_v with f(x) a nonzero square is open, and ℚ is dense in K_v, so every class in the finite group range μ_v is the class of x − T for some rational x. Finitely many such x generate range μ_v, and the enumeration reaches them. ([Mattuck](#source-mattuck), Theorem 7, p.114, for the nonarchimedean local subgroup; [FPS](#source-fps), §7, Lemma 4 and its proof, p.17, for the density argument.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); Tau Ceti `WeierstrassCurve.Affine.μ`.
 
 ### 3.21 Local images at good odd primes (`localImage_of_good_odd`)
 
 **Theorem.** Let p be an odd prime and W an elliptic Weierstrass curve over ℚ_p with a₁ = a₃ = 0, integral coefficients and no bad primes over ℤ_p (Tau Ceti `badPrimes`). Then range μ equals the intersection of Tau Ceti's unramified subgroup W.selmerGroupA ℤ_p with the kernel of the norm map W.normM. In particular, for a curve over ℚ and a set S containing 2 and the bad primes, the local conditions at primes outside S impose nothing beyond being unramified with square norm, so a 2-Selmer computation needs local images only at S and ℝ.
 
-*Proof sketch.* The inclusion is Tau Ceti's range_μ_le_selmerGroupA together with range_μ_le_ker_normM. For the count, f has distinct roots modulo p, so every field factor of A is unramified over ℚ_p and contributes two unit square classes; the norm on unit classes is onto ℤ_p^×/ℤ_p^(×2), so the unramified classes of square norm number 2^((number of factors) − 1) = 1 + r_p. The index formula at odd p gives #range μ = 1 + r_p, so the inclusion is an equality. ([Cremona](#source-cremona), §3.6, Checking local solubility, p.80.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); Tau Ceti `WeierstrassCurve.Affine.selmerGroupA`; Tau Ceti `WeierstrassCurve.Affine.normM`.
+*Proof sketch.* The inclusion is Tau Ceti's range_μ_le_selmerGroupA together with range_μ_le_ker_normM. For the count, f has distinct roots modulo p, so every field factor of A is unramified over ℚ_p and contributes two unit square classes. The unramified norm-on-units contract of LocalFieldsRamification Layer 2 makes the norm on unit square classes onto ℤ_p^×/ℤ_p^(×2). Thus its kernel has order 2^((number of factors) − 1) = 1 + r_p: the cubic splitting types are (3), (1,2) and (1,1,1), with kernel orders 1, 2 and 4. The index formula at odd p gives #range μ = 1 + r_p, so the inclusion is an equality. This count is the argument for the equality; Cremona supplies the local-solubility context, rather than this norm-kernel theorem. ([Cremona](#source-cremona), §3.6, Checking local solubility, p.80; [FPS](#source-fps), §7, proof of Lemma 3, pp.16–17, for the local index argument in dimension two.) *Needs:* `LocalImageCertificate.eq_range_of_isComplete` (3.19); HeightsRationalPointsAndObstructions RP.1 (local indices of multiplication by two); TauCetiRoadmap LocalFieldsRamification Layer 2; Tau Ceti `WeierstrassCurve.Affine.selmerGroupA`; Tau Ceti `WeierstrassCurve.Affine.normM`.
 
 ### 3.22 p-saturated subgroups (`IsPSaturated`)
 
@@ -1391,9 +1405,13 @@ Mordell–Weil group.
 
 ### 3.23 p-saturation reduces to finitely many divisibility tests (`isPSaturated_iff_forall_not_dvd`)
 
-**Theorem.** Let A be an additive commutative group, p a prime and G ≤ A generated by g₁, …, g_m. The set V_p of b̄ ∈ 𝔽_p^m with Σ b_i g_i ∈ pA is a well-defined 𝔽_p-subspace, because p·g_i ∈ pA. Then V_p = 0 and A[p] ≤ G hold together exactly when G is p-saturated and the classes of g₁, …, g_m are linearly independent in G/pG. V_p = 0 is decided by testing Σ b_i g_i ∈ pA for one representative b with |b_i| ≤ (p−1)/2 of each line of 𝔽_p^m.
+**Theorem.** Let A be an additive commutative group, p a prime and G ≤ A generated by g₁, …, g_m. The set V_p of b̄ ∈ 𝔽_p^m with Σ b_i g_i ∈ pA is a well-defined 𝔽_p-subspace, because p·g_i ∈ pA. Then V_p = 0 and A[p] ≤ G hold together exactly when G is p-saturated and the classes of g₁, …, g_m are linearly independent in G/pG. V_p = 0 is decided by testing Σ b_i g_i ∈ pA for one representative of each line of 𝔽_p^m: use |b_i| ≤ (p−1)/2 for odd p and b_i ∈ {0,1} for p = 2. In particular the nonzero class modulo 2 must be tested.
 
-*Proof sketch.* Suppose V_p = 0 and A[p] ≤ G. If pa ∈ G, write pa = Σ c_i g_i; then c̄ ∈ V_p, so c = p·c′, and a − Σ c′_i g_i lies in A[p] ≤ G, hence a ∈ G. Independence in G/pG holds because pG ⊆ pA. Conversely, saturation gives A[p] ≤ G and G ∩ pA = pG, so an element of V_p has Σ b_i g_i ∈ pG and b̄ = 0 by independence. Lines suffice because V_p is a subspace. ([Siksek](#source-siksek), §4, p.17, equation (39), and §4.1, the space V_p, p.17.) *Needs:* `IsPSaturated` (3.22).
+*Proof sketch.* Suppose V_p = 0 and A[p] ≤ G. If pa ∈ G, write pa = Σ c_i g_i; then c̄ ∈ V_p, so c = p·c′, and a − Σ c′_i g_i lies in A[p] ≤ G, hence a ∈ G. Independence in G/pG holds because pG ⊆ pA. Conversely, saturation gives A[p] ≤ G and G ∩ pA = pG, so an element of V_p has Σ b_i g_i ∈ pG and b̄ = 0 by independence. Lines suffice because V_p is a subspace. ([Siksek](#source-siksek), §4, equation (39), and §4.1, p.17; §4.2, projective representatives and the p = 2 exception, p.18.) *Needs:* `IsPSaturated` (3.22).
+
+The variant `isPSaturated_iff_forall_not_dvd_of_span_quotient` assumes only g_i ∈ G and that their classes generate G/pG: every x ∈ G can be written Σ c_i g_i + py with y ∈ G. It has the same equivalence between V_p = 0 together with A[p] ≤ G, and p-saturation together with independence in G/pG. In the forward proof write pa = Σ c_i g_i + py, then apply the preceding argument to a − y. This is the version used when prime-to-p torsion is omitted from the generator list.
+
+**Checks.** At p = 2, A = ℤ and g₁ = 2, the coefficient 1 witnesses failure; rounding the odd-prime bound down to zero would miss it. At A = ℤ/3, p = 2 and G = A, the empty list generates G/2G = 0 and the quotient-generating variant certifies saturation, although the empty list does not generate G. At A = ℤ/2, p = 2 and G = 0, the empty candidate space is insufficient because A[2] is not contained in G.
 
 ### 3.24 Exact test for divisibility of a rational point by p (`mem_nsmul_iff_exists_root`)
 
@@ -1415,7 +1433,7 @@ Mordell–Weil group.
 - `pSaturationTest_sieve`: Adding sieve primes never changes the verdict.
 - `index_coprime_of_pSaturationTest`: If G has finite index in W(ℚ) and the test returns true, then p does not divide [W(ℚ) : G].
 
-*Method.* Since W(ℚ)_tors ≤ G, the condition W(ℚ)[p] ≤ G holds, so correctness is `isPSaturated_iff_forall_not_dvd` (3.23) applied to the generators g₁, …, g_r, t₁, …, t_s, with each test decided by `mem_nsmul_iff_exists_root` (3.24). The sieve discards only lines outside V_p, by `saturationSieve_sound` (3.25). Termination: 𝔽_p^(r+s) has finitely many lines and every test is exact. ([Siksek](#source-siksek), §4, pp.17–19; [Cremona](#source-cremona), §3.3, Propositions 3.3.1–3.3.2, pp.69–70.) *Needs:* `isPSaturated_iff_forall_not_dvd` (3.23); `mem_nsmul_iff_exists_root` (3.24); `saturationSieve_sound` (3.25); TauCetiRoadmap EllipticCurves Layer 6.
+*Method.* Since W(ℚ)_tors ≤ G, the condition W(ℚ)[p] ≤ G holds. The g_i and t_j generate G/pG, although they need not generate G as an integer group: prime-to-p torsion already lies in pG. Use `isPSaturated_iff_forall_not_dvd_of_span_quotient` (3.23). Its proof is the same coefficient argument: if pQ ∈ G, express its class modulo pG as Σ b_i g_i + Σ c_j t_j; the difference is pR for R ∈ G. A zero candidate space forces every coefficient to be divisible by p, and Q − R minus the resulting combination is in W(ℚ)[p] ≤ G. Conversely, saturation and independence in G/pG force every divisible candidate to have zero coefficient class. Each test is decided by `mem_nsmul_iff_exists_root` (3.24); representatives at p = 2 use coefficients 0 or 1. The sieve discards only lines outside V_p, by `saturationSieve_sound` (3.25). Termination: 𝔽_p^(r+s) has finitely many lines and every test is exact. ([Siksek](#source-siksek), §4, pp.17–19; [Cremona](#source-cremona), §3.3, Propositions 3.3.1–3.3.2, pp.69–70.) *Needs:* `isPSaturated_iff_forall_not_dvd_of_span_quotient` (3.23); `mem_nsmul_iff_exists_root` (3.24); `saturationSieve_sound` (3.25); TauCetiRoadmap EllipticCurves Layer 6.
 
 **Checks.**
 
@@ -1434,7 +1452,7 @@ Mordell–Weil group.
 
 ### Dependencies
 
-Layers CN.0–CN.2; TauCetiRoadmap ModularForms Layers 7–11; AlgebraicModularFormsAndSerreWeights R15.2, R15.3, R15.5; TauCetiRoadmap EllipticCurves Layers 4 and 6; HeightsRationalPointsAndObstructions RP.1; Mathlib (level-one modular forms, `quadraticChar`, division polynomials); Tau Ceti (Sturm bound, Hecke recurrence, point count, `x − T` descent, division-polynomial identity).
+Layers CN.0–CN.2; TauCetiRoadmap LocalFieldsRamification Layer 2; TauCetiRoadmap ModularForms Layers 7–11; AlgebraicModularFormsAndSerreWeights R15.2, R15.3, R15.5; TauCetiRoadmap EllipticCurves Layers 4 and 6; HeightsRationalPointsAndObstructions RP.1; Mathlib (level-one modular forms, `quadraticChar`, division polynomials); Tau Ceti (Sturm bound, Hecke recurrence, point count, `x − T` descent, division-polynomial identity).
 
 ## Layer CN.4: Validated numerics and finite analytic certificates
 
@@ -1559,7 +1577,7 @@ rational Gram inequalities; complete covers come from the Fincke–Pohst enumera
 - `padicNormalize_valuation`: The zero branch avoids the native valuation-at-zero default.
 - `padicNormalize_id`: Normalizing an already canonical centre and precision recovers the approximation.
 
-*Method.* Separate the zero and high-valuation cases. Otherwise invert the denominator prime to p modulo p^(N−v) and reduce the scaled numerator. Native p-adic truncation compares this residue with the original rational centre. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `PadicApproximation` (0.14); Mathlib `PadicInt.toZModPow`; Mathlib `padicValRat`.
+*Method.* Separate the zero and high-valuation cases. Otherwise invert the denominator prime to p modulo p^(N−v) and reduce the scaled numerator. Native p-adic truncation compares this residue with the original rational centre. ([CarusoPublished](#source-carusopublished), §2.1.1, Proposition 2.1.1 and Definition 2.1.2, pp.II–17–II–18.) *Needs:* `PadicApproximation` (0.14); Mathlib `PadicInt.toZModPow`; Mathlib `padicValRat`.
 
 **Checks.**
 
@@ -1575,13 +1593,13 @@ rational Gram inequalities; complete covers come from the Fincke–Pohst enumera
 - `padicAdd_sound`: The output contains every result from independently chosen inputs.
 - `padicAdd_comm`: The canonical result is symmetric in its inputs.
 
-*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
+*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. ([CarusoPublished](#source-carusopublished), §2.1.2, Proposition 2.1.3, equation (2.1), p.II–18.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
 **Checks.**
 
 - *Degenerate case.* The operation on two precision-zero zero-centred balls contains zero.
 - *Computed value.* At p = 3, (1 + O(3²)) + (2 + O(3³)) has centre 3 and absolute precision 2, so its canonical form is (N, v, s) = (2, 1, 1).
-- *Agreement with the library notion.* The declared precision includes different input precisions and zero centres.
+- *Agreement with the library notion.* At p = 3, O(3²) + (1 + O(3⁴)) is 1 + O(3²), with canonical tuple (2,0,1); using the larger input precision would lose admissible sums.
 
 ### 4.12 Certified p-adic multiplication (`padicMul`)
 
@@ -1591,13 +1609,13 @@ rational Gram inequalities; complete covers come from the Fincke–Pohst enumera
 - `padicMul_sound`: The output contains every result from independently chosen inputs.
 - `padicMul_comm`: The canonical result is symmetric in its inputs.
 
-*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. For multiplication the mixed error has valuation at least N+N′, which is no smaller than either retained bound because v≤N and v′≤N′. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
+*Method.* Expand the error around the exact rational centres and apply the ultrametric inequality. For multiplication the mixed error has valuation at least N+N′, which is no smaller than either retained bound because v≤N and v′≤N′. ([CarusoPublished](#source-carusopublished), §2.1.2, Proposition 2.1.3, equation (2.3) and its proof, pp.II–18–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
 **Checks.**
 
 - *Degenerate case.* The operation on two precision-zero zero-centred balls contains zero.
-- *Computed value.* The exact operation on the centres lies in the output.
-- *Agreement with the library notion.* The declared precision includes different input precisions and zero centres.
+- *Computed value.* At p = 3, O(3²)·(1 + O(3⁴)) is O(3²), with canonical tuple (2,2,0); replacing the zero centre by valuation zero would give the wrong precision.
+- *Agreement with the library notion.* At p = 3, O(3²)·O(3⁴) is O(3⁶), with canonical tuple (6,6,0); taking the minimum of the input precisions would miss this gain.
 - *Computed value.* At p=3, multiply 3+O(3^4) by 1/3+O(3^2): the normalized output has centre 1 and absolute precision min(1+2,4−1)=3.
 
 ### 4.13 Partial p-adic inversion (`padicInverse`)
@@ -1608,7 +1626,7 @@ rational Gram inequalities; complete covers come from the Fincke–Pohst enumera
 - `padicInverse_precision`: A successful output has precision N−2v.
 - `padicInverse_sound`: A successful output encloses reciprocals of every input value.
 
-*Method.* Write x=c+h with v(h)≥N>v(c). Then x has the same valuation as c and x⁻¹−c⁻¹=−h/(cx), of valuation at least N−2v. ([CarusoPublished](#source-carusopublished), §2.1.1, Definition 2.1.2, and §2.1.2, Proposition 2.1.3 and Equation (2.5), pp.II–17–II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
+*Method.* Write x=c+h with v(h)≥N>v(c). Then x has the same valuation as c and x⁻¹−c⁻¹=−h/(cx), of valuation at least N−2v. ([CarusoPublished](#source-carusopublished), §2.1.2, proof of Proposition 2.1.3, equation (2.5), p.II–19.) *Needs:* `padicNormalize` (4.10); `PadicApproximation` (0.14).
 
 **Checks.**
 
@@ -1628,7 +1646,7 @@ rational Gram inequalities; complete covers come from the Fincke–Pohst enumera
 
 **Checks.**
 
-- *Degenerate case.* The zero value is positive and finite.
+- *Degenerate case.* At x=0 the kernel is exactly 2/π², rather than zero or 2π².
 - *Computed value.* r(1) is strictly below r(0).
 - *Non-example.* The kernel is not even: r(−1)>r(1).
 
@@ -1685,7 +1703,7 @@ part of this roadmap.
 **Checks.**
 
 - *Computed value.* For every positive ℓ the shared Fourier value is positive.
-- *Degenerate case.* At ℓ=0 the totalized formula is zero, and is excluded from every evaluation theorem.
+- *Degenerate case.* At ℓ=0 the shared scalar 8ℓ/π² at indices 1 and 4 is zero; this does not specify a value of the other six expressions there. Every evaluation theorem requires ℓ>0.
 - *Agreement with the library notion.* Doubling ℓ doubles the shared Fourier value.
 
 ### 4.18 Certified rational enclosures of CT quantities (`ctEnclosure`)
@@ -1780,12 +1798,12 @@ part of this roadmap.
 
 ### 4.26 Fincke–Pohst enumeration of an ellipsoid (`fpEnumeration`)
 
-**Construction.** Let G be a symmetric rational n×n matrix whose quadratic completion has positive pivots, t ∈ ℚ^n a centre and R ∈ ℚ a bound. Write the completion as (x−t)ᵀG(x−t) = Σ_k q_kk·(x_k − t_k + Σ_(j>k) q_kj(x_j − t_j))². fpEnumeration G t R ⊆ ℤ^n is the finite set produced by choosing x_(n−1), …, x_0 in turn: at each level the coordinate runs over the integers whose square term fits in the remaining budget, decided by exact comparison of rational squares, and the budget is reduced by that term. Boundary points are included, both signs of each vector appear, the zero vector appears when t = 0 and R ≥ 0, and the set is empty when R < 0. As a total function it returns the empty set when a pivot is not positive.
+**Construction.** Let G be a symmetric rational n×n matrix whose quadratic completion has positive pivots, t ∈ ℚ^n a centre and R ∈ ℚ a bound. Write the completion as (x−t)ᵀG(x−t) = Σ_k q_kk·(x_k − t_k + Σ_(j>k) q_kj(x_j − t_j))². fpEnumeration G t R ⊆ ℤ^n is the finite set produced by choosing x_(n−1), …, x_0 in turn: at each level the coordinate runs over the integers whose square term fits in the remaining budget, decided by exact comparison of rational squares, and the budget is reduced by that term. Boundary points are included. When t = 0 the output contains both signs of each vector, and contains zero when R ≥ 0. The set is empty when R < 0. As a total function it returns the empty set when a pivot is not positive.
 
 - `fpEnumeration_of_neg`: If R < 0 the set is empty.
 - `fpEnumeration_neg`: With t = 0 the set is closed under x ↦ −x.
 - `fpEnumeration_mono`: R ≤ R′ implies fpEnumeration G t R ⊆ fpEnumeration G t R′.
-- `zero_mem_fpEnumeration`: The zero vector belongs to fpEnumeration G 0 R for R ≥ 0.
+- `zero_mem_fpEnumeration`: For symmetric G with positive completion pivots and R ≥ 0, zero belongs to fpEnumeration G 0 R.
 
 *Method.* Compute the quadratic completion over ℚ (Gaussian elimination on the symmetric matrix). At each level the admissible integers form a bounded interval, because the square term is at most the remaining budget; their endpoints are found by comparing rational squares, never by extracting square roots. Recursion over the n levels with finite branching gives a finite set. ([deWeger](#source-deweger), §3.6 and Figure 2, printed pp.51–52.) *Needs:* `effectiveGram_lower` (4.25); Mathlib `Matrix.PosDef`.
 
@@ -1794,6 +1812,9 @@ part of this roadmap.
 - *Computed value.* For G = I₂, t = 0 and R = 1 the output is {0, ±(1,0), ±(0,1)}, five vectors.
 - *Computed value.* For G = [[2,1],[1,2]], t = 0 and R = 2 the output has seven vectors, {0, ±(1,0), ±(0,1), ±(1,−1)}; (1,1) has value 6 and is excluded.
 - *Degenerate case.* R = −1 gives the empty set for every G and t.
+- *Degenerate case.* At dimension zero the output is the singleton empty vector for R ≥ 0 and empty for R < 0.
+- *Computed value.* In dimension one, G = [1], t = 1/2 and R = 1/4 give {0,1}; −1 is excluded, so sign symmetry requires t = 0.
+- *Non-example.* G = [0] has a nonpositive pivot and gives the empty output even at R = 0; zero membership requires the positive-pivot hypothesis.
 - *Non-example.* For G = [[2,1],[1,2]] and R = 2 the box |x_i| ≤ 1 contains (1,1), which is not in the output: bounding coordinates separately overcounts.
 
 ### 4.27 Soundness and completeness of the Fincke–Pohst enumeration (`fpEnumeration_complete`)
@@ -1804,7 +1825,7 @@ part of this roadmap.
 
 ### 4.28 Loewner lower bounds on unrestricted vectors (`loewnerGram_lower`)
 
-**Theorem.** For symmetric real matrices A and B with A−B positive semidefinite, xᵀBx≤xᵀAx for every real vector x, including mixed signs.
+**Theorem.** For real matrices A and B with A−B positive semidefinite, xᵀBx≤xᵀAx for every real vector x, including mixed signs. Positive semidefiniteness includes symmetry of the difference; A and B need not separately be symmetric.
 
 *Proof sketch.* Evaluate the positive-semidefinite inequality on x and expand the difference. ([CT](#source-ct), Remark 2.11, pp.281–282.) *Needs:* Mathlib (integers, rationals, lists and finite functions).
 
@@ -1839,7 +1860,7 @@ part of this roadmap.
 - `effectiveEllipsoidCover_subset`: Filtering never invents a vector.
 - `effectiveEllipsoidCover_complete`: Every nonnegative B-short vector is retained when S is exhaustive.
 
-*Method.* Take S = fpEnumeration B 0 c, complete by `fpEnumeration_complete` (4.27). Filter with decidable integer/rational inequalities. The effective Gram comparison proves that each required A-short vector is B-short and therefore was enumerated. ([CT](#source-ct), Remark 2.11 and §2.4.3, pp.281–282.) *Needs:* `fpEnumeration_complete` (4.27); `effectiveGram_lower` (4.25).
+*Method.* When B is symmetric with positive LDLᵀ pivots, take S = fpEnumeration B 0 c, complete by `fpEnumeration_complete` (4.27). Filter with decidable integer/rational inequalities. The effective Gram comparison proves that each required A-short vector is B-short and therefore was enumerated. ([CT](#source-ct), Remark 2.11 and §2.4.3, pp.281–282.) *Needs:* `fpEnumeration_complete` (4.27); `effectiveGram_lower` (4.25).
 
 **Checks.**
 
@@ -1893,6 +1914,7 @@ part of this roadmap.
 - The shared Fourier value `8ℓ/π²` at `ℓ = 1` lies in `(4/5, 41/50)` (`ctEnclosure` (4.18)).
 - For `G = [[2, 1], [1, 2]]` and `R = 2` the Fincke–Pohst output has seven vectors and excludes `(1, 1)` (`fpEnumeration` (4.26)).
 - The multiplicity lift sends `t_i` to `t_i/m_i`, so each diagonal block contributes `A·m_i·(t_i/m_i)² = A t_i²/m_i` (`multiplicityGram_lift` (4.34)).
+- With two block sizes `(2,3)`, `A = 6`, `K = [[1,2],[2,4]]` and `t = (2,3)`, the reduced matrix is `[[2,−2],[−2,−2]]` and its value is `8 − 24 − 18 = −34`. The lift is the five-coordinate vector `(1,1,1,1,1)`, whose expanded value is `30 − (4 + 24 + 36) = −34`; division by square roots of block sizes would give a different value (`multiplicityGram_lift` (4.34)).
 
 ### Dependencies
 
@@ -1952,8 +1974,9 @@ Layers CN.0, CN.3 and CN.4.
 Locators use the printed page numbers of the linked version unless explicitly marked as PDF
 pages. The sources prove or motivate the mathematical statements at the cited locations; the
 finite-data adapters and algorithms also need the stated decoding and termination proofs. Arb
-supplies enclosure semantics, not the exact polynomial root-count algorithm, and Shoup §§16.5–16.6
-supplies extension-field context, not the complete rational-factor recombination proof. The CL
+supplies enclosure semantics, not the exact polynomial root-count algorithm. LLL82 supplies
+modular lifting and coefficient bounds; the exhaustive rational-factor recombination variant
+is specified with its separate completeness argument in Layer CN.1. The CL
 reference is the French preprint and its Proposition 3.17; the English edition numbers it
 differently.
 
@@ -2036,3 +2059,11 @@ differently.
 <a id="source-deweger"></a>
 
 - **deWeger**: B. M. M. de Weger, [Algorithms for Diophantine Equations](https://ir.cwi.nl/pub/13190/13190D.pdf), CWI Tract 65 (1989).
+
+<a id="source-lll82"></a>
+
+- **LLL82**: A. K. Lenstra, H. W. Lenstra Jr. and L. Lovász, [Factoring polynomials with rational coefficients](https://ir.cwi.nl/pub/9304/9304D.pdf), CWI report (1982), printed pages 1–31; published in Math. Ann. 261 (1982), 515–534. Locators above refer to the report's printed pagination.
+
+<a id="source-mattuck"></a>
+
+- **Mattuck**: Arthur Mattuck, [Abelian varieties over p-adic ground fields](https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf), Annals of Mathematics 62 (1955), 92–119; Theorem 7 is on printed p.114.
