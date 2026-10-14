@@ -1,0 +1,1752 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "PadicDifferentialEquationsAndRigidCohomology",
+  "part": "RD.1",
+  "status": "complete",
+  "scope": [
+    "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+  ],
+  "summary": "Target-level continuation of the accepted RD.1 plan: explicit cyclic vectors, interior subsidiary-radius variation and splitting, monodromy key calculation, public Dwork estimates, corrected bounded/completed and equal-characteristic Frobenius comparisons, global/reverse slopes and Robba residue duality. Imports the accepted main packet; analytical source and coefficient-ring gaps remain explicit. No formalisation is claimed. The six accepted main-packet RD.1 planets are retained; this continuation adds no planet flags.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Derivation",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "provides": "Constant-linear derivation with Leibniz rule; a connection is linear over constants, not over its differential field.",
+        "checked": "Read actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Module.Basis",
+        "kind": "structure",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A basis indexed by a finite type represented by a linear equivalence to finitely supported coordinates.",
+        "checked": "Read actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Bundled linear and semilinear maps, without an analytic convergence or connection structure.",
+        "checked": "Read actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant of a finite square matrix over a commutative ring.",
+        "checked": "Read actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "rd1-katz",
+      "title": "A simple algorithm for cyclic vectors",
+      "authors": "Nicholas M. Katz",
+      "edition": "American Journal of Mathematics 109 (1987), 65–70",
+      "url": "https://web.math.princeton.edu/~nmk/old/simplealgorithm.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Entire paper; Theorems 1 and 2 and formula (1), pp. 65–68; characteristic-p warning p. 68"
+      ],
+      "sha256": "3abf6c8b25b0e59f6b26a01a944efa97287efb093fdd1b33cd65330f75307c54"
+    },
+    {
+      "id": "rd1-kx",
+      "title": "Differential modules on p-adic polyannuli",
+      "authors": "Kiran S. Kedlaya and Liang Xiao",
+      "edition": "arXiv:0804.1495v4, 16 December 2008; paper dated 15 December 2008",
+      "url": "https://arxiv.org/pdf/0804.1495v4",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§§1.2–1.5 inputs, pp. 6–16; Hypothesis 2.0.1 and §§2.1–2.6, pp. 17–33"
+      ],
+      "sha256": "18645e0da704265f155686579bbe428406dfdd8b6c8e880695f959ec8618c563"
+    },
+    {
+      "id": "rd1-kx-errata",
+      "title": "Differential modules on p-adic polyannuli: erratum",
+      "authors": "Kiran S. Kedlaya and Liang Xiao",
+      "edition": "Journal of the Institute of Mathematics of Jussieu 9 (2010), 669–671, DOI 10.1017/S1474748009000243",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1474748009000243",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Entire three-page erratum: corrections to §2.7 in residue characteristic zero"
+      ],
+      "sha256": "e3400540a3a1d69b177538c4899aa0debf8198bbcb1c57d2fabe642d64350b28"
+    },
+    {
+      "id": "rd1-monodromy",
+      "title": "A p-adic local monodromy theorem",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Annals of Mathematics 160 (2004), 93–184; published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p04.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Lemmas 4.11–4.12, pp. 148–151; reverse-filtration Proposition 5.11; compare arXiv v4 pp. 51–54 and 66–67"
+      ],
+      "sha256": "983760b784df3a61dcb916f139476c9c4c3613376042c27ea6699064bb14d69e"
+    },
+    {
+      "id": "rd1-sfr",
+      "title": "Slope filtrations revisited",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "arXiv:math/0504204v4; Documenta Mathematica 10 (2005), 447–525",
+      "url": "https://arxiv.org/pdf/math/0504204v4",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Proposition 3.3.7(c), preprint pp. 34–35; §§6.2–6.3, preprint pp. 63–64; explicit caveat in Remark 6.3.4"
+      ],
+      "sha256": "da80101622bfea911682476b1e3542bfd79200f247acf0c788c5b2383bd3ce07"
+    },
+    {
+      "id": "rd1-sfr-errata",
+      "title": "Slope filtrations revisited: additional errata",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "Author list dated 12 February 2013",
+      "url": "https://kskedlaya.org/papers/slope-filt-errata2.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Entire two-page list; corrected proof of Lemma 2.6.3; no correction listed to §6.3"
+      ]
+    },
+    {
+      "id": "rd1-ff",
+      "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+      "authors": "Laurent Fargues and Jean-Marc Fontaine",
+      "edition": "Author copy, 16 avril 2017, printed page numbering",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§11.2.5, Propositions 11.2.20, 11.2.22, 11.2.24 and Lemma 11.2.25, pp. 377–379; Remark 11.3.4 p. 382"
+      ],
+      "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3"
+    },
+    {
+      "id": "rd1-hp",
+      "title": "Vector bundles with a Frobenius structure on the punctured unit disc",
+      "authors": "Urs Hartl and Richard Pink",
+      "edition": "Compositio Mathematica 140 (2004), 689–716",
+      "url": "https://ivv5hpp.uni-muenster.de/u/uhartl/Publikat/SigmaBd.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§§1–4 ring/bundle/global-generation statements; §§8–11 standard bundles, extension calculation, fundamental estimate and classification, pp. 703–715"
+      ],
+      "sha256": "9a873a3239ff4cf7d447eaaeaa029012f11c7e1ff91ffb607b4530a44cf7a9e8"
+    },
+    {
+      "id": "rd1-dwork",
+      "title": "On the zeta function of a hypersurface",
+      "authors": "Bernard Dwork",
+      "edition": "Publications Mathématiques de l’IHÉS 12 (1962), 5–68",
+      "url": "https://www.numdam.org/item/10.1007/BF02684275.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§4(a), Lemma 4.1 and equations (4.3)–(4.4), pp. 55–58"
+      ],
+      "sha256": "587b20581de129a77666a4522274e878cbd0a4b8d4a693e657951a7d0e3c5618"
+    },
+    {
+      "id": "rd1-sparse",
+      "title": "Computing zeta functions of sparse nondegenerate hypersurfaces",
+      "authors": "Steven Sperber and John Voight",
+      "edition": "arXiv:1112.4881, publicly served PDF read 14 October 2026",
+      "url": "https://arxiv.org/pdf/1112.4881",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§1, splitting function and equation (1.4), PDF pp. 5–6"
+      ],
+      "sha256": "4338f78f0bf3c0c41c03042fe01fd3107bdec16293698d2cfdcd07c8c3904272"
+    },
+    {
+      "id": "rd1-li",
+      "title": "Exponential sums and rigid cohomology",
+      "authors": "Peigen Li",
+      "edition": "Finite Fields and Their Applications 81 (2022), 102031",
+      "url": "https://bimsa.net/doc/publication/1445.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Proposition 2.1 and its proof, PDF pp. 4–5, alternate gauge estimates"
+      ],
+      "sha256": "6e7717ac3b7123b3dd326c65523084b5e76160b0c2eca488e5958f2a1c71a9ee"
+    },
+    {
+      "id": "rd1-dad",
+      "title": "Parabolicity conjecture of F-isocrystals",
+      "authors": "Marco D’Addezio",
+      "edition": "arXiv:2012.12879v4",
+      "url": "https://arxiv.org/pdf/2012.12879v4",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§2.2 p. 6; Theorem 4.2.6 and proof pp. 14–15"
+      ],
+      "sha256": "f92379bec97564edc2b89f86f6bfc5c271abdc31c5d17cb9ba93b58e204a07a8"
+    },
+    {
+      "id": "rd1-xz",
+      "title": "Bessel F-isocrystals for reductive groups",
+      "authors": "Daxin Xu and Xinwen Zhu",
+      "edition": "arXiv:1910.13391, publicly served PDF read 14 October 2026",
+      "url": "https://arxiv.org/pdf/1910.13391",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Appendix A, §A.2, PDF p. 64, constant-Newton-polygon slope filtration"
+      ],
+      "sha256": "b8d153ef1822a20e8179005d4775e43fc3af7430d840d2b077b45cb8583667cd"
+    },
+    {
+      "id": "rd1-notes",
+      "title": "Notes on isocrystals",
+      "authors": "Kiran S. Kedlaya",
+      "edition": "arXiv:1606.01321, publicly served PDF read 14 October 2026",
+      "url": "https://arxiv.org/pdf/1606.01321",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "Theorems 3.12 and 4.1, Corollary 4.2 and Remark 4.5, PDF pp. 7–9"
+      ],
+      "sha256": "7fa7ab3126dcb5b25a77b97b5d7930983e2305fbfebc71b2e5f92697e6cab886"
+    },
+    {
+      "id": "rd1-dlb",
+      "title": "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+      "authors": "Gabriel Dospinescu and Arthur-César Le Bras",
+      "edition": "Annals of Mathematics 186 (2017), 321–411",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf",
+      "readDate": "2026-10-14",
+      "readSections": [
+        "§§6.1–6.4, Lemma 6.3 and Proposition 6.4, printed pp. 355–357"
+      ],
+      "sha256": "00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-candidate",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "definition",
+      "title": "Katz cyclic-vector candidate",
+      "statement": "For a rank-n differential module with ordered basis e₀,…,eₙ₋₁ over R, define c(e,x)=Σ₀≤j<n (x^j/j!) Σ₀≤k≤j (−1)^k binom(j,k) D^k(e_(j−k)). The rank-zero candidate is zero. This is an explicit candidate, not an assertion that every x works.",
+      "hypotheses": [
+        "R is a commutative differential ring; D is additive and satisfies D(rv)=∂(r)v+rD(v).",
+        "(n−1)! is invertible when n>0; x=t−a with ∂t=1 and ∂a=0 for the cyclic-vector theorem."
+      ],
+      "proofSteps": [
+        "Form the finite sums on the existing module carrier; keep the connection constant-linear.",
+        "Use the binomial cancellation in its first n differential jets; do not define cyclicity again, since the main packet already owns it."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/differential-module",
+        "mathlib:Derivation",
+        "mathlib:Module.Basis",
+        "mathlib:LinearMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-katz",
+          "locator": "Formula (1) and Theorems 1–2, pp. 65–67",
+          "match": "The finite Taylor-corrected vector supplies the constructive input to the cyclic-vector lemma."
+        }
+      ],
+      "acceptance": [
+        "In a horizontal rank-two basis, c=e₀+xe₁ and its derivative is e₁ when ∂x=1.",
+        "Allow n=0 in the definition; the positive-rank theorem states n>0 explicitly."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Katz Theorems 1–2",
+          "how": "Compute a candidate and a finite family of local generators."
+        },
+        {
+          "where": "PadicDifferentialEquationsAndRigidCohomology:RD.1/cyclic-vector-lemma",
+          "how": "Replace an existence-only source gap by the explicit formula."
+        }
+      ],
+      "api": [
+        {
+          "name": "katzCandidate",
+          "role": "constructor",
+          "statement": "For a rank-n differential module with ordered basis e₀,…,eₙ₋₁ over R, define c(e,x)=Σ₀≤j<n (x^j/j!) Σ₀≤k≤j (−1)^k binom(j,k) D^k(e_(j−k)). The rank-zero candidate is zero. This is an explicit candidate, not an assertion that every x works."
+        },
+        {
+          "name": "katzCandidate_zero_rank",
+          "role": "simp",
+          "statement": "For n=0 the empty sum is zero."
+        },
+        {
+          "name": "katzCandidate_rank_one",
+          "role": "simp",
+          "statement": "For n=1 the candidate equals e₀."
+        },
+        {
+          "name": "katzCandidate_naturality",
+          "role": "functoriality",
+          "statement": "A differential-linear isomorphism sends c(e,x) to c(f(e),x)."
+        },
+        {
+          "name": "katzCandidate_jet",
+          "role": "characterisation",
+          "statement": "With ∂x=1 the i-th jet at x=0 is eᵢ for 0≤i<n."
+        },
+        {
+          "name": "katzCandidate_basis_coordinates",
+          "role": "compatibility",
+          "statement": "Its coordinates are the finite sums obtained using the pinned Basis.repr and the constant-linear map D."
+        }
+      ],
+      "tests": [
+        {
+          "name": "empty",
+          "kind": "degenerate",
+          "statement": "n=0 gives zero even when x≠0."
+        },
+        {
+          "name": "line",
+          "kind": "computed",
+          "statement": "n=1 gives e₀ without any hypothesis on x."
+        },
+        {
+          "name": "horizontal_two",
+          "kind": "computed",
+          "statement": "D(e₀)=D(e₁)=0 gives c=e₀+xe₁, not e₀−xe₁."
+        },
+        {
+          "name": "bad_translation",
+          "kind": "non-example",
+          "statement": "For a specially chosen translation a the candidate can vanish; the theorem cannot assert every a works."
+        }
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-determinant-criterion",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "lemma",
+      "title": "Katz determinant criterion",
+      "statement": "With ∂t=1, the formal candidate in R[X] equipped with ∂X=1 has Wronskian P(X)=det(c,Dc,…,D^(n−1)c) in the e-basis, with P(0)=1 and degree at most n(n−1). If P(t−a) is a unit, c(e,t−a) is cyclic.",
+      "hypotheses": [
+        "n>0; (n−1)! invertible; R commutative; e a basis; the connection extends to R[X] by Leibniz."
+      ],
+      "proofSteps": [
+        "Expand the j-th jet. Binomial cancellation leaves eⱼ at X=0, giving the identity coordinate matrix.",
+        "Each jet column has X-degree at most n−1, so the determinant has degree at most n(n−1).",
+        "Specialisation at X=t−a commutes with D exactly when a is constant. Invertibility of the determinant is the basis criterion."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-candidate",
+        "mathlib:Matrix.det"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-katz",
+          "locator": "Proofs of Theorems 1–2, pp. 66–67",
+          "match": "The constant term and determinant degree give both the local criterion and the finite-family algorithm."
+        }
+      ],
+      "acceptance": [
+        "The Wronskian at X=0 is 1, not merely nonzero.",
+        "Track the differential structure on the polynomial variable; ordinary coefficientwise differentiation would fail."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-local-global-algorithm",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Katz cyclic-vector algorithm",
+      "statement": "If R is local and t−a lies in its maximal ideal, c(e,t−a) is cyclic. More generally, if constants contain a field k with at least N=n(n−1)+1 elements, any N distinct constants aᵢ yield candidates whose cyclic loci cover Spec R. Over a differential field of characteristic zero with ∂t=1, at least one of these candidates is cyclic.",
+      "hypotheses": [
+        "n>0; finite free rank n; the factorial assumption of katz-candidate.",
+        "For the global conclusion k⊂ker ∂ is a field and N pairwise distinct aᵢ belong to k."
+      ],
+      "proofSteps": [
+        "Locally the determinant reduces to 1 modulo the maximal ideal.",
+        "Globally evaluate P at t−aᵢ. The Vandermonde determinant is a product of nonzero constant differences, hence a unit.",
+        "Since P has degree ≤N−1 and constant term 1, its coefficients, and therefore the evaluation values, generate the unit ideal. Each prime admits an invertible evaluation after localisation."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-determinant-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-katz",
+          "locator": "Theorems 1–2 and proofs, pp. 65–67",
+          "match": "The field proof is obtained from a finite covering by explicit candidates, not by an unspecified generic vector."
+        }
+      ],
+      "acceptance": [
+        "Use exactly N candidates, including N=1 in rank one.",
+        "The conclusion over a ring is local cyclicity, not necessarily one globally cyclic candidate."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/cyclic-rescaling",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "comparison",
+      "title": "Rescaling a nonzero derivation",
+      "statement": "Over a characteristic-zero differential field with ∂≠0, choose t with s=∂t≠0. Put δ=s⁻¹∂ and D′=s⁻¹D. For every v, the spans of the first n iterates of D and D′ agree; cyclicity is unchanged. Hence the Katz algorithm applies with δt=1.",
+      "hypotheses": [
+        "K a characteristic-zero field; D constant-linear with Leibniz rule; n is the finite rank."
+      ],
+      "proofSteps": [
+        "Use the Leibniz rule to check D′ is a connection for δ.",
+        "Induction gives (D′)^i(v)=s^(−i)D^i(v) plus lower iterates. The transition matrix is triangular with nonzero diagonal.",
+        "Apply the finite-candidate theorem. With ∂=0 and D=0 on K² no vector is cyclic; do not drop ∂≠0."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-local-global-algorithm",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/cyclic-vector-lemma"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-katz",
+          "locator": "pp. 65–67, ∂t=1 setup; rescaling argument supplied here",
+          "match": "The argument explicitly connects the normalised algorithm to the main cyclic-vector statement."
+        }
+      ],
+      "acceptance": [
+        "The field hypothesis is needed to invert s.",
+        "Import main source issue E10 for the missing nonzero-derivation assumption in KX Lemma 1.2.4."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/extrinsic-partial-radius-variation",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Extrinsic subsidiary-radius variation",
+      "statement": "For the ∂₀-connection, order subsidiary radii R₁≤…≤R_d; set fᵢ(r)=−log Rᵢ(M,e^(−r)) and Fᵢ=Σⱼ≤i fⱼ. All fᵢ and Fᵢ are continuous and piecewise affine; Fᵢ is convex, and its affine slopes are integral whenever i=d or fᵢ>fᵢ₊₁. In general slopes of fᵢ lie in the union of (1/e)ℤ for 1≤e≤d. On a disc, slopes of Fᵢ are nonpositive where fᵢ>r, and fᵢ=r for sufficiently large r.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I."
+      ],
+      "proofSteps": [
+        "Reduce at small radii to a cyclic twisted polynomial and its Newton polygon; use the imported spectral and transfer statements.",
+        "For nonvisible radii use Frobenius pushforward/antecedents and recover individual slopes by subtracting partial sums.",
+        "The full ∂₀ argument in KX is a reference to book Theorem 11.3.2; gap G1 records the unverified analytic input rather than declaring this proof closed."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-radius",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-radius-basic-properties",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/christol-dwork-newton-polygon",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-antecedent",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.2.5, p. 20; Hypothesis 2.0.1 pp. 17–18",
+          "match": "This is the extrinsic profile, with eventual fᵢ=r on a disc."
+        }
+      ],
+      "acceptance": [
+        "A trivial ∂₀-line has R=η and f=r.",
+        "Order f₁≥…≥f_d; do not sum the smallest negative logarithms."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/coefficient-partial-radius-variation",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Coefficient-derivation radius variation",
+      "statement": "For a fixed coefficient derivation ∂ⱼ, define fᵢ and Fᵢ from extrinsic ∂ⱼ subsidiary radii as above. They are continuous, Fᵢ is convex, and they are piecewise affine wherever fᵢ>−log|uⱼ|. On the region fᵢ>(log p)/(p^n(p−1))−log|uⱼ|, slopes of Fᵢ at a total sum or strict gap lie in p^(−n)ℤ and individual slopes lie in the union of (1/(p^n e))ℤ, 1≤e≤d. On a disc Fᵢ has nonpositive slopes.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "j∈{1,…,m}; n≥0 in the visibility-threshold assertion."
+      ],
+      "proofSteps": [
+        "Use an almost-isometric basis and a cyclic vector for ∂ⱼ. The visible spectral radii come from the coefficient Newton polygon (KX Lemmas 2.2.2–2.2.3).",
+        "Away from visibility apply the ∂ⱼ-Frobenius pushforward, separate its subsidiary spectrum and induct on the threshold n; the scaling introduces p^(−n).",
+        "Continuity follows from the spectral norms; convexity follows from the Newton polygon and induction. The isometric-basis and contraction suppliers cited only to the unread book remain G1."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-radius",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-radius-basic-properties",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/christol-dwork-newton-polygon",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-antecedent",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-local-global-algorithm"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.2.6 and proof, pp. 20–22; Lemmas 2.2.2–2.2.3, pp. 19–20",
+          "match": "The coefficient theorem has a visibility restriction; it alone does not supply strong intrinsic integrality."
+        }
+      ],
+      "acceptance": [
+        "Do not claim piecewise affinity at fᵢ=−log|uⱼ| from this theorem alone.",
+        "At threshold n=0 the asserted partial slopes are integers."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/annular-projector-descent",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "lemma",
+      "title": "Intersection descent of annular projectors",
+      "statement": "For domains R=S∩T inside U and a finite locally free R-module M, M=(M⊗S)∩(M⊗T) inside M⊗U. An idempotent endomorphism on M⊗S extending an idempotent on M⊗T descends uniquely to M. Thus compatible spectral projectors on overlapping annular charts glue.",
+      "hypotheses": [
+        "All maps are injective; R=S∩T is an actual ring-intersection statement in the common overring U.",
+        "M is finite locally free, not just torsion-free."
+      ],
+      "proofSteps": [
+        "For v in the intersection define the ideal of denominators making v lie in M; localisation on a trivialising cover shows this ideal is the unit ideal.",
+        "Apply the intersection result to End_R(M), which is finite locally free.",
+        "Descend the operator and its equation P²=P using injectivity; uniqueness supplies agreement on overlaps."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring-membership-and-intersections",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/modules-over-bezout-domains"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Lemmas 2.3.1–2.3.2, pp. 22–23",
+          "match": "The local-free intersection argument is the algebraic engine for gluing decompositions."
+        }
+      ],
+      "acceptance": [
+        "The image and kernel are locally free direct summands.",
+        "Correct the self-reference in Lemma 2.3.2 to Lemma 2.3.1; do not assume all open-annular modules globally free."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/affine-gap-annular-splitting",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Affine-gap extrinsic annular splitting",
+      "statement": "On an open annulus A¹_K(α,β) with α>0, if Fᵢ for one derivation is affine on (−logβ,−logα) and fᵢ>fᵢ₊₁ throughout, 1≤i<d, there is a unique differential direct-sum decomposition whose first summand has exactly the first i subsidiary radii at every η.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "Fix ∂₀ or one ∂ⱼ; no assertion of global freeness for either summand."
+      ],
+      "proofSteps": [
+        "On closed subannuli use affine log norms at a Newton-polygon vertex to obtain unit coefficients and two coprime characteristic factors (KX Lemmas 2.3.3–2.3.4).",
+        "In the visible coefficient case the separation of factors gives a spectral projector by an iterative contraction; the quantitative contraction is the unread book input G1. The ∂₀ branch is book Theorem 12.4.2.",
+        "Use uniqueness of the radius-separated projector and intersection descent to glue over the open annulus."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/extrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/coefficient-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/annular-projector-descent",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/units-of-robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/robba-factorization-and-radius-decomposition"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.3.5 and Caution 2.3.6, pp. 23–24",
+          "match": "The decomposition is a sheaf statement on an open annulus, subject to affineness and a persistent gap."
+        }
+      ],
+      "acceptance": [
+        "Removing affineness is not licensed by a pointwise spectral gap.",
+        "Each summand is locally free; a chosen free presentation on every closed subannulus is sufficient for the proof."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-rotation",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "construction",
+      "title": "Generic rotation",
+      "statement": "Normalise |uⱼ|=1. For η₊>0, let K̃ be the completed Gauss field K(x₁,…,xₘ) with |xⱼ|=η₊⁻¹. On |t|<η₊ define the Taylor homomorphism uⱼ↦uⱼ+xⱼt, fixing t. Pull M back and use the rotated ∂₀=∂₀+Σxⱼ∂ⱼ. For 0<η<η₊ its ∂₀ extrinsic radius is min{η IR_∂₀(M,η), η₊ IR_∂ⱼ(M,η):1≤j≤m}.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "The Taylor series converges under the rational-type bounds and strict η<η₊; coefficients are extended to the Gauss completion."
+      ],
+      "proofSteps": [
+        "Construct the injective isometric Taylor homomorphism and pullback of the finite locally free module on the strict subannulus.",
+        "Apply the connection chain rule. Generic independent xⱼ prevent cancellation in the spectral norm, giving the minimum formula.",
+        "Use scalar-extension invariance and uniqueness of radius blocks for its splitting applications."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring-flat-base-change",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-radius-basic-properties",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/differential-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Notation 2.4.1 and Lemma 2.4.2, p. 26",
+          "match": "Rotation converts competing coefficient directions into a single annular derivative."
+        }
+      ],
+      "acceptance": [
+        "Keep η₊ in the coefficient-radius terms; replacing it by η changes the formula.",
+        "The construction has no claim of convergence on the boundary η=η₊."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "KX Theorem 2.4.4",
+          "how": "Transfer strong slope integrality from the t-direction."
+        },
+        {
+          "where": "KX Theorem 2.5.1",
+          "how": "Construct radius blocks and descend them by uniqueness."
+        }
+      ],
+      "api": [
+        {
+          "name": "genericRotation",
+          "role": "constructor",
+          "statement": "Normalise |uⱼ|=1. For η₊>0, let K̃ be the completed Gauss field K(x₁,…,xₘ) with |xⱼ|=η₊⁻¹. On |t|<η₊ define the Taylor homomorphism uⱼ↦uⱼ+xⱼt, fixing t. Pull M back and use the rotated ∂₀=∂₀+Σxⱼ∂ⱼ. For 0<η<η₊ its ∂₀ extrinsic radius is min{η IR_∂₀(M,η), η₊ IR_∂ⱼ(M,η):1≤j≤m}."
+        },
+        {
+          "name": "genericRotation_taylor",
+          "role": "data",
+          "statement": "The coefficient map sends uⱼ to uⱼ+xⱼt and t to t."
+        },
+        {
+          "name": "genericRotation_isometric",
+          "role": "compatibility",
+          "statement": "The Taylor map preserves η-Gauss norms for η<η₊."
+        },
+        {
+          "name": "genericRotation_connection",
+          "role": "characterisation",
+          "statement": "The pulled-back t-connection equals D₀+ΣxⱼDⱼ."
+        },
+        {
+          "name": "genericRotation_radius",
+          "role": "characterisation",
+          "statement": "The extrinsic minimum formula holds on each η<η₊."
+        },
+        {
+          "name": "genericRotation_base_change",
+          "role": "functoriality",
+          "statement": "Differential morphisms and tensor products commute with rotation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "no_coefficients",
+          "kind": "degenerate",
+          "statement": "For m=0 the construction is ordinary scalar extension and R=ηIR_∂₀."
+        },
+        {
+          "name": "horizontal",
+          "kind": "computed",
+          "statement": "A horizontal trivial line has rotated radius η since all IR=1."
+        },
+        {
+          "name": "coefficient_dominates",
+          "kind": "computed",
+          "statement": "A pure coefficient line with IR_∂ⱼ=c and c<η/η₊ has rotated radius η₊c."
+        },
+        {
+          "name": "boundary",
+          "kind": "non-example",
+          "statement": "The radius identity has a strict η<η₊ hypothesis; it cannot define a boundary Taylor pullback."
+        }
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-partial-radius-variation",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Intrinsic subsidiary-radius variation",
+      "statement": "For the full commuting connection, order intrinsic subsidiary radii IR₁≤…≤IR_d≤1 and put fᵢ=−log IRᵢ and Fᵢ=Σⱼ≤i fⱼ. All profiles are continuous and piecewise affine; Fᵢ is convex and has integral slopes at i=d or a strict gap fᵢ>fᵢ₊₁. Individual slopes lie in the union of (1/e)ℤ, 1≤e≤d. On a disc Fᵢ has nonpositive slopes and is constant for sufficiently large r.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I."
+      ],
+      "proofSteps": [
+        "Use the half-open local decompositions of KX Theorems 2.3.8–2.3.10 to partition constituents according to their dominant derivation near a radius; their precise analytic inputs are included in G1.",
+        "Rotate a coefficient-dominant block into a t-block and apply the extrinsic strong-integrality theorem.",
+        "If θᵢ is the number of t-dominant constituents among the first i, compare one-sided slopes: (Fᵢ,rot)′₊−θᵢ≤Fᵢ′₊ and (Fᵢ,rot)′₋−θᵢ≥Fᵢ′₋. This yields convexity and the integral partial slopes.",
+        "At the maximum radius, convexity and discrete possible slopes force local finite piecewise affinity. Transfer on a disc gives eventual constancy."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-rotation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/extrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/coefficient-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/affine-gap-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-transfer-generic-disc"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.4.4 and proof, pp. 27–30",
+          "match": "The intrinsic theorem strengthens the coefficient theorem by generic rotation and a dominant-direction count."
+        }
+      ],
+      "acceptance": [
+        "A horizontal line has f=0, in contrast with the extrinsic f=r.",
+        "The first i are the largest negative logarithms, preserving multiplicities."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-annular-splitting",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Intrinsic annular decomposition",
+      "statement": "On A¹_K(α,β), α>0, if the intrinsic Fᵢ is affine and fᵢ>fᵢ₊₁ throughout, there is a unique decomposition of M into integrable differential summands with the first i and remaining subsidiary intrinsic radii respectively.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "1≤i<d; I=(α,β)."
+      ],
+      "proofSteps": [
+        "Shrink to η₋<1<η₊ so the radius gap exceeds the possible rotation-normalisation error −logη₋.",
+        "Affineness forces equality in the one-sided rotation inequalities, so the rotated Fᵢ is affine. Apply affine-gap extrinsic splitting.",
+        "Uniqueness descends the projector across the Gauss scalar extension. Every commuting derivation preserves the projector because morphisms between the radius-separated blocks vanish.",
+        "Glue the local projectors by intersection descent."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-rotation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/affine-gap-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/annular-projector-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.5.1 and proof, pp. 30–31",
+          "match": "This is the all-derivations splitting used for annular breaks."
+        }
+      ],
+      "acceptance": [
+        "Uniqueness is a differential uniqueness statement, not a choice of bases.",
+        "The proof of the imported boundary break theorem should cite this annular theorem, not the disc theorem."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/constant-profile-disc-splitting",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Intrinsic disc decomposition",
+      "statement": "On the open disc A¹_K[0,β), if Fᵢ is affine for r>−logβ, it is constant. If fᵢ>fᵢ₊₁ for all such r, the unique intrinsic decomposition extends across t=0 as a decomposition of locally free integrable differential modules.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "1≤i<d; the disc includes its centre."
+      ],
+      "proofSteps": [
+        "The disc profile is eventually constant and convex with nonpositive slopes; affineness therefore makes it constant everywhere.",
+        "Transfer identifies the module near zero with a pullback from its differential fibre over K; decompose that fibre by its intrinsic radii.",
+        "Glue the central decomposition to the unique annular splitting. The all-derivations compatibility is retained."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-transfer-generic-disc"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.5.2 and proof, p. 31",
+          "match": "Affineness on a disc forces constancy, permitting extension through the centre."
+        }
+      ],
+      "acceptance": [
+        "A punctured-disc decomposition alone does not establish centre extension.",
+        "Include t=0 in the acceptance chart."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/boundary-break-proof",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "application",
+      "title": "Boundary break and Swan-integrality proof support",
+      "statement": "For a module solvable at the outer boundary, the full intrinsic partial profiles are eventually affine with nonnegative rational slopes. The imported break decomposition is obtained by repeatedly splitting at strict gaps, and the total break multiplicity sum is integral.",
+      "hypotheses": [
+        "K is a complete nonarchimedean characteristic-zero field, with positive residue characteristic p, commuting rational-type coefficient derivations ∂₁,…,∂ₘ and parameters uⱼ.",
+        "∂ⱼuⱼ=1, ∂ⱼuₖ=0 for j≠k, ‖∂ⱼ‖=|uⱼ|⁻¹ and the rational-type factorial bounds hold; ∂₀=d/dt.",
+        "M is a nonzero finite locally free coherent module with the indicated continuous integrable connection on A¹_K(I), rank d. η=e^(−r) lies in I.",
+        "Normalise the outer boundary to 1; IRᵢ→1 as η→1⁻."
+      ],
+      "proofSteps": [
+        "Continuity, convexity and discrete slopes from the intrinsic-profile theorem force stable affine slopes near the boundary.",
+        "Apply intrinsic annular splitting to each strict gap; combine equal profiles into a break block.",
+        "The total partial slope is integral. Since Fᵢ sums the largest fⱼ, the first block is the smallest radius/largest break. This supplies the interior proof without redefining break or Swan conductor."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/solvable-at-boundary",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/break-decomposition",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/swan-conductor-integrality"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-kx",
+          "locator": "Theorem 2.6.1, pp. 32–33, with Theorems 2.4.4 and 2.5.1",
+          "match": "The boundary application uses the annular decomposition, correcting the printed disc citation."
+        }
+      ],
+      "acceptance": [
+        "Rank-one θ-Dwork example has break 1 and Swan conductor 1.",
+        "This is a proof-support application to existing target nodes, not a new definition of subsidiary radii or breaks."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/puiseux-root-input",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "lemma",
+      "title": "Puiseux Newton-polygon root criterion",
+      "statement": "For a nonzero finite polynomial P(z)=Σc_e z^e with distinct nonnegative rational exponents, a finite number l is the valuation of a nonzero root in an algebraically closed valued field if and only if the lower convex hull of (−e,v(c_e)) has a segment of slope l. A monomial has no nonzero root.",
+      "hypotheses": [
+        "Zero coefficients are omitted; rational exponents have one common denominator; roots are evaluated after adjoining that denominator-th root."
+      ],
+      "proofSteps": [
+        "Clear denominators in the exponents by z=w^N.",
+        "Apply the ordinary Newton-polygon root criterion and convert the slope back, accounting for the minus sign in the exponent coordinate.",
+        "Exclude z=0, whose valuation is infinite."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/extended-robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-monodromy",
+          "locator": "Lemma 4.11, published pp. 148–149; arXiv v4 pp. 51–52",
+          "match": "The finite fractional-polynomial criterion supplies the initial root and lifting steps in the key calculation."
+        }
+      ],
+      "acceptance": [
+        "For z−a the segment slope is v(a).",
+        "Record the ordinary Newton-polygon supplier as G2, not as a presumed pinned theorem."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/monodromy-key-calculation",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "lemma",
+      "title": "Kedlaya monodromy key calculation",
+      "statement": "In the algebraically closed extended analytic ring with invertible q-Frobenius σ fixing a uniformiser π, let n≥1 and x=Σᵢ₌₀ⁿuᵢπ^i, where the uᵢ are strong semiunits of negative residue valuation or zero and x≠0. There exist a,b, not both zero, with σ(a)=πa and πσ^n(b)=b−ax.",
+      "hypotheses": [
+        "The extended-ring topology, strong-semiunit partial valuations and Frobenius action are those of RD.0.",
+        "The residue valuation is nontrivial; complete algebraically closed residue field; π is fixed by σ.",
+        "Normalise the π-adic contribution to w_ρ so w_ρ(π)=1 in the nonvanishing calculation."
+      ],
+      "proofSteps": [
+        "For m>0 set f(i,l,m)=(v₀(uᵢ)+m q^(−l))q^(−n(i+l)), and h(m)=minᵢ,ₗ f(i,l,m). The minimum is locally finite, increasing, piecewise affine, and h(qm)=q^(−n)h(m). Choose a corner τ with h(τ)<0.",
+        "Define T by f(i,l,τ)<0, S by f(i,l,τ)<q^(−n)h(τ), and s(i,l)=floor(log_(q^n)(h(τ)/f(i,l,τ))). S is finite; s≥0, and only finitely many indices have bounded s.",
+        "On the uniformly bounded partial-valuation modules U_τ→U_h(τ), define the additive π-linear convergent operator r(z)=Σ_T π^s σ^(−ni−nl+ns)(uᵢ) σ^(−ni−(n+1)l+ns)(z). Its reduction is a finite Puiseux polynomial with distinct exponents. The corner supplies a nonzero root of valuation τ.",
+        "Lift every required reduction recursively modulo successive powers of π, keeping the same uniform valuation bound. Completeness and continuity then give a nonzero z with v₀(z)=τ and r(z)=0; dense image alone would not imply surjectivity.",
+        "Put a=Σₗ∈ℤπ^lσ^(−l)(z). Since z∈U_τ and v₀(z)=τ, w_ρ(π^lσ^(−l)(z))=l+ρq^(−l)τ. Choose 1/(q−1)<ρτ<q/(q−1): the l=0 term uniquely minimises the valuation, so a≠0. The valuations tend to infinity at both ends and σ(a)=πa. Split ax=A+B using T; B has nonnegative partial valuation. The nonnegative-valuation difference input (monodromy Proposition 3.19(d), pp. 126–127) writes B=πσ^n(b₁)−b₁: explicitly b₁=−Σₖ≥0π^kσ^(nk)(B). Nonnegative residue partial valuations and the increasing π powers guarantee its convergence, and finite sums telescope.",
+        "For each index in T, the oriented finite geometric sum of length i+l−s gives b₂ with A=r(z)+πσ^n(b₂)−b₂. The integers i+l−s are uniformly bounded, so all summation k lie in one finite set of integers. Each unshifted summand has every partial valuation ≥h(τ), and σ^(nk) multiplies this bound by one of finitely many q^(nk). The π shifts have a uniform lower index bound; bounded-s index sets are finite. These facts give a uniform residue-valuation lower bound, π-adic convergence and overconvergence. Set b=−b₁−b₂; since a≠0 the pair is nonzero. G2 records only the ordinary Newton-polygon supplier still missing."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/puiseux-root-input",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/semiunit-presentation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring-membership-and-intersections",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/cohomology-of-rank-one-frobenius-modules",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/extended-robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-monodromy",
+          "locator": "Lemma 4.12 and entire proof, published pp. 148–151; arXiv v4 pp. 52–54",
+          "match": "The plan includes the corner, recursive lifting, bilateral series and telescoping correction beyond the accepted first step."
+        }
+      ],
+      "acceptance": [
+        "Distinguish the integer s from a radius variable.",
+        "Check both equations and that a,b are not both zero; a convergent zero series would not suffice.",
+        "Use oriented summation when i+l−s<0, rather than an empty sum."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/artin-hasse-integrality",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "lemma",
+      "title": "Artin–Hasse integrality",
+      "statement": "For each prime p, E_p(X)=exp(Σⱼ≥0 X^(p^j)/p^j) and its inverse have p-integral coefficients and constant coefficient 1.",
+      "hypotheses": [
+        "Formal power series over Q_p; integrality means membership in Z_p[[X]]."
+      ],
+      "proofSteps": [
+        "Use the Euler product E_p(X)=∏_{m≥1,p∤m}(1−X^m)^(−μ(m)/m); the formal logarithm agrees coefficientwise by the Möbius divisor sum.",
+        "The exponents −μ(m)/m are p-adic integers. The binomial coefficients of a p-adic integer are integral, by density of ordinary nonnegative integers and continuity of the binomial polynomial.",
+        "Every fixed coefficient involves finitely many factors. Negating the exponents proves integrality of the inverse. This elementary proof is provided here; Dwork states the integrality input."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-dwork",
+          "locator": "§4(a), equations (4.3)–(4.4), p. 56; Euler-product proof supplied here",
+          "match": "Artin–Hasse integrality controls the low-degree factor in a public proof of splitting-function convergence."
+        }
+      ],
+      "acceptance": [
+        "For p=2 the coefficient of X² in E₂ is 1, whereas exp(X) has nonintegral coefficient 1/2.",
+        "Check both E_p and E_p⁻¹; the inverse is needed for the unit statement."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-overconvergence-proof",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Dwork splitting-function overconvergence",
+      "statement": "Let π^(p−1)=−p in a complete extension of Q_p, v_p(p)=1, and θ(X)=exp(π(X−X^p)) as a formal series. Both θ and θ⁻¹ have coefficients of degree k with valuation at least αk, where α=(p−1)/p²>0. Hence θ is an analytic unit on |X|<p^α. The imported Dwork module on the Robba annulus admits F(w)=θ(t⁻¹)⁻¹w with an overconvergent inverse.",
+      "hypotheses": [
+        "p prime, including p=2; the analytic evaluation is of the extended formal series, not necessarily of the scalar exponential.",
+        "The coefficient Frobenius fixes π and sends t to t^p for this example."
+      ],
+      "proofSteps": [
+        "Factor θ=E_p(πX)∏ⱼ≥2 exp(−π^(p^j)X^(p^j)/p^j); the X^p term cancels because π^p/p=−π.",
+        "For degree k p^j in the j-th exponential, v_p≥k((p^j−1)/(p−1)−j)≥α k p^j for j≥2. The E_p factor and its inverse have degree-d valuation ≥d/(p−1).",
+        "Finite coefficient convolutions preserve the α-degree bound. The same argument with signs reversed handles θ⁻¹. Their formal product is 1, so they are inverse analytic functions on the open disc.",
+        "Substitute X=t⁻¹ to obtain an annulus |t|>p^(−α), including inner radii below 1. Differentiate the Frobenius factor and verify the chain rule for D(w)=−πt⁻²w."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/artin-hasse-integrality",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-exponential-module",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-differential-module",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/derivation-on-robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-sparse",
+          "locator": "§1, equation (1.4), PDF pp. 5–6",
+          "match": "The public coefficient estimate supplies exactly the unit and inverse required by the Dwork example."
+        },
+        {
+          "sourceId": "rd1-dwork",
+          "locator": "Lemma 4.1, §4(a), pp. 55–58",
+          "match": "Dwork gives the Artin–Hasse factorisation and coefficient estimates."
+        },
+        {
+          "sourceId": "rd1-li",
+          "locator": "Proposition 2.1 and proof, PDF pp. 4–5",
+          "match": "A separate public gauge proof also controls overconvergence and the inverse, with a different normalisation."
+        }
+      ],
+      "acceptance": [
+        "Do not evaluate a divergent scalar exponential at X=1 or infer θ(1)=1 from its formal exponent.",
+        "For p=2 the factor bound is α=1/4 and the X² coefficient includes −π.",
+        "The open-disc bound gives overconvergence; convergence on its boundary is not asserted."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/descending-generic-filtration",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Descending bounded generic slope filtration",
+      "statement": "Every finite-dimensional Frobenius module M over E† has a unique filtration by saturated Frobenius submodules whose completed graded pieces are isoclinic of strictly decreasing arithmetic slopes. The filtration completes to the decreasing generic slope filtration over E. If F is algebraically closed, every graded piece is a direct sum of standard E† blocks of its one slope; M itself need not be their direct sum.",
+      "hypotheses": [
+        "F is a perfect complete nontrivially valued characteristic-p field; q is a power of p; σ raises residue coefficients to q-th powers and fixes π.",
+        "E† is the bounded overconvergent Teichmüller coefficient field and E its π-adic completion, in the Fargues–Fontaine §11.2.5 convention; the coefficient-ring identification is requested from RD.0.",
+        "Frobenius modules have invertible linearisation; this does not imply Frobenius is bijective on an arbitrary integral lattice."
+      ],
+      "proofSteps": [
+        "Take the highest completed slope submodule. Its determinant is a rank-one Frobenius line in an exterior power.",
+        "In rank one choose λ with the highest slope and a completed eigenbasis vᵢ. Approximate it by bounded overconvergent wᵢ so λwᵢ=ΣⱼBᵢⱼF(wⱼ), with B mod π=diag(1,0,…,0). For v₁=Σcᵢwᵢ use σ(cᵢ)=ΣⱼBⱼᵢcⱼ. Choose r with w_r(B)≥0; induction in the π-index gives rv_h(cᵢ)+h≥0. At h=0 the coordinates reduce to δᵢ₁, not all to zero. Thus the determinant line has overconvergent coordinates. Apply the imported saturated exterior-power descent and the RD.0 intersection statement to descend from the algebraic extension.",
+        "Pass to the quotient and induct on rank. Completed uniqueness and injectivity give uniqueness over E†. For graded standard forms use the fixed-slope completion comparison, not full faithfulness on mixed slopes."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/saturated-subobject-descent-via-exterior-power",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/completion-versus-overconvergence"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-monodromy",
+          "locator": "Proposition 5.11 and proof, published pp. 164–166; arXiv v4 pp. 66–67",
+          "match": "The proof descends the highest generic slope first, giving decreasing bounded slopes."
+        },
+        {
+          "sourceId": "rd1-ff",
+          "locator": "Proposition 11.2.24 p. 378, with accepted main source issues E218/E219",
+          "match": "The corrected statement is filtration descent and fixed-slope comparison, not equivalence on all objects."
+        }
+      ],
+      "acceptance": [
+        "For slopes 0,1 the first submodule has slope 1.",
+        "A nonsplit bounded extension can split after completion; no unconditional E† direct-sum conclusion."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/bijective-lattice-invariants",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Bijective integral-lattice invariant descent",
+      "statement": "If Λ is finite free over O_E† and Frobenius is bijective on Λ (matrix A∈GL_n(O_E†)), then Λ^(σ=1)→(Λ⊗O_E)^(σ=1) is an isomorphism.",
+      "hypotheses": [
+        "F is a perfect complete nontrivially valued characteristic-p field; q is a power of p; σ raises residue coefficients to q-th powers and fixes π.",
+        "E† is the bounded overconvergent Teichmüller coefficient field and E its π-adic completion, in the Fargues–Fontaine §11.2.5 convention; the coefficient-ring identification is requested from RD.0.",
+        "Frobenius modules have invertible linearisation; this does not imply Frobenius is bijective on an arbitrary integral lattice.",
+        "The integral Frobenius matrix and its inverse have integral entries; fixed vectors are integral."
+      ],
+      "proofSteps": [
+        "A fixed vector satisfies X=Aσ(X), so σ(X)=A⁻¹X. Apply the coefficient estimates to B=A⁻¹.",
+        "Rescale the basis by a Teichmüller scalar of sufficiently large residue norm so the reduction of B has entries in O_F. Choose one small positive radius ρ₀ with the resulting partial seminorm bound.",
+        "Iterate σ(X)=BX in each truncation. Frobenius scales the residue norm exponent by q; the first nonzero π-index bounds all truncations at the same ρ₀. Thus the coordinates are overconvergent. Injectivity is inclusion.",
+        "The matrix [[1,0],[c,π]] with |c|>1 violates integral bijectivity and has a completed fixed vector e₁+Σⱼ≥0π^j[c^(q^j)]e₂ that is not overconvergent."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/witt-partial-valuations",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/partial-valuation-multiplicativity",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/completion-versus-overconvergence"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-ff",
+          "locator": "Lemma 11.2.25, p. 379, equation (7), corrected using main source issue E219",
+          "match": "The integral invariant statement is valid with bijectivity and the inverse matrix in the estimate."
+        }
+      ],
+      "acceptance": [
+        "Reject the condition σΛ⊆Λ as insufficient.",
+        "Normalise B=A⁻¹, not A, when the equation is X=AσX."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/negative-frobenius-cokernel",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "comparison",
+      "title": "Negative-slope Frobenius cokernel comparison",
+      "statement": "For d>0 and h≥1 the additive map 1−π^(−d)σ^h:E†→E† is surjective. A solution to (1−π^(−d)σ^h)y=x is y=−Σₘ≥1 π^(dm)σ^(−hm)(x); the same formula is valid on the completion and is compatible with inclusion.",
+      "hypotheses": [
+        "F is a perfect complete nontrivially valued characteristic-p field; q is a power of p; σ raises residue coefficients to q-th powers and fixes π.",
+        "E† is the bounded overconvergent Teichmüller coefficient field and E its π-adic completion, in the Fargues–Fontaine §11.2.5 convention; the coefficient-ring identification is requested from RD.0.",
+        "Frobenius modules have invertible linearisation; this does not imply Frobenius is bijective on an arbitrary integral lattice.",
+        "σ is invertible; d,h integers with the stated strict signs."
+      ],
+      "proofSteps": [
+        "Backward Frobenius reduces residue-coefficient growth by q^(−hm), while π^(dm) gives a linearly increasing integral valuation. This produces one positive convergence radius for the tail.",
+        "Telescope finite partial sums; their remaining error tends to zero in the analytic and π-adic topologies.",
+        "This is the FF coefficient/iterate transport of the imported negative-slope rank-one cohomology, not a new claim of Ext vanishing in both slope directions."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/cohomology-of-rank-one-frobenius-modules",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring-membership-and-intersections"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-sfr",
+          "locator": "Proposition 3.3.7(c), preprint pp. 34–35, n<0 with σ replaced by σ^h; FF Lemma 11.2.25 p. 379",
+          "match": "The negative slope makes backward-Frobenius summation overconvergent."
+        }
+      ],
+      "acceptance": [
+        "Verify the sign with x=1: y=−π^d/(1−π^d).",
+        "The map is additive and linear over σ^h-fixed constants; it is not E†-linear."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/isoclinic-completion-comparison",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "comparison",
+      "title": "Isoclinic completion comparison",
+      "statement": "For two E† Frobenius modules of the same prescribed arithmetic slope λ, completion induces a bijection on Frobenius-linear morphisms. If F is algebraically closed, the completion functor on slope-λ objects is an equivalence, with standard blocks providing essential surjectivity. For a general perfect F, only full faithfulness is asserted here.",
+      "hypotheses": [
+        "F is a perfect complete nontrivially valued characteristic-p field; q is a power of p; σ raises residue coefficients to q-th powers and fixes π.",
+        "E† is the bounded overconvergent Teichmüller coefficient field and E its π-adic completion, in the Fargues–Fontaine §11.2.5 convention; the coefficient-ring identification is requested from RD.0.",
+        "Frobenius modules have invertible linearisation; this does not imply Frobenius is bijective on an arbitrary integral lattice.",
+        "Both source and target are isoclinic of the same λ; essential surjectivity adds algebraic closedness."
+      ],
+      "proofSteps": [
+        "The internal Hom has slope zero by the imported slope calculus. Twist/iterate to a unit-root lattice and apply the H⁰ comparison of SFR Proposition 6.3.2 or the bijective-lattice invariant estimate.",
+        "Over algebraically closed F classify the completed object into standard blocks. Each block is already defined over E†, giving essential surjectivity.",
+        "Use SFR Remark 6.3.4 to keep the non-algebraically-closed obstruction visible. Mixed-slope Homs do not reduce to unit root."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/bijective-lattice-invariants",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-stable-lattices",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/standard-frobenius-modules",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-sfr",
+          "locator": "Propositions 6.3.2 and 6.3.3(a), Remark 6.3.4, preprint pp. 63–64",
+          "match": "The H⁰ comparison applies to pure modules of the same slope and explicitly has an essential-surjectivity caveat."
+        }
+      ],
+      "acceptance": [
+        "Test λ=0 by ordinary fixed vectors.",
+        "Do not export an all-slope completion equivalence or a general-perfect-field equivalence."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-germ-extension",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "comparison",
+      "title": "Frobenius germ and punctured-disc comparison",
+      "statement": "For the FF analytic coefficient ring R_F=colim_(ρ→0) B_(0,ρ], restriction and Frobenius gluing identify finite projective Frobenius modules with compatible Frobenius bundles on the punctured analytic radius domain. In equal characteristic E=F_q((π)), the coefficient Frobenius fixes π; comparison with Hartl–Pink uses π as their z and coefficientwise q-power σ.",
+      "hypotheses": [
+        "F is algebraically closed complete nontrivially valued of characteristic p; coefficient field E is either FF mixed characteristic or F_q((π)).",
+        "The Banach charts, their overlap restrictions and φ-rescaling maps must be supplied by RD.0; equal-characteristic coefficients are Laurent series in π with coefficients in F."
+      ],
+      "proofSteps": [
+        "Spread a finitely presented module and Frobenius isomorphism to one small annular chart.",
+        "Translate that chart by Frobenius powers, glue across intersections using the isomorphism and its cocycle, and restrict back to recover the germ.",
+        "Match the FF norms and HP Laurent convergence conditions chartwise. This match and the mixed-characteristic extension are G3; a mere coincidence of symbols R is not a ring identification."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/extended-robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring-membership-and-intersections"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-ff",
+          "locator": "§11.2.5 and Propositions 11.2.20–11.2.22, pp. 377–378; Remark 11.3.4 p. 382",
+          "match": "The comparison separates coefficient-ring foundations from the slope classification."
+        }
+      ],
+      "acceptance": [
+        "In equal characteristic σ(π)=π, whereas σ acts nontrivially on F coefficients.",
+        "Do not identify R_F with an ordinary Robba ring having t↦t^q without an explicit comparison."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/equalchar-degree-zero-section-input",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Equal-characteristic extension section theorem",
+      "statement": "Over the Hartl–Pink punctured-disc ring, for every r≥1 and every σ-bundle extension 0→O(−1)→G→F_(1,r)→0 there is a nonzero Frobenius-fixed section of G.",
+      "hypotheses": [
+        "F is complete algebraically closed characteristic p with nontrivial norm; σ is coefficientwise q-power, fixes the Laurent variable z.",
+        "HP F_(d,r) has σ^r=z^(−d), geometric degree d and arithmetic slope −d/r."
+      ],
+      "proofSteps": [
+        "Write the extension matrix [[z,b],[0,A_(1,r)]]. A section of the quotient has coordinates v_t=Σᵢ∈ℤz^(−i)w^(q^(ir−t)) for 0<|w|<1; the first coordinate u must solve u=zσ(u)+bσ(v).",
+        "Its forced coefficients are u_i=Σⱼ≥0 f_(i−j)^(q^j). The negative-power tail always converges; the positive tail is controlled by a fractional q-polynomial condition (HP Lemmas 9.3–9.4).",
+        "Reduce to HP Proposition 9.5. Discard residue-norm ≤1 coefficients and shift so m=Σ_l m_l z^l has only positive exponents, with log|m_l|≤cl. For n=r+1 form F_i(w)=Σ_(0<j<ni)F_(i,j)w^(q^(−j)), where F_(i,j)=Σ_(j/n<k≤i)m_(nk−j)^(q^(−k)). Their logarithmic profiles φ_(i,j)=log|F_(i,j)| satisfy φ_(i+l,j+nl)=q^(−l)φ_(i,j); the actual coefficient differences satisfy log|F_(i′,j)−F_(i,j)|≤cn i q^(−i) for i′≥i≥2.",
+        "If every limiting φ_j≤0, any sufficiently small nonzero w works. Otherwise choose a corner ρ≥cn of max_j(φ_j−q^(−j)ρ), with positive maximum at two j. Newton polygons yield roots w_i of norm exp(−ρ).",
+        "Use the ball-image criterion for additive fractional q-polynomials to choose compatible roots with log|w_(i+1)−w_i|≤−c′q^((n−1)i/2). Their limit w retains nonzero norm; splitting j at ni/2 gives limsup log|F_i(w)|≤0 and the required positive-tail convergence."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/puiseux-root-input",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/standard-frobenius-modules",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/cohomology-of-rank-one-frobenius-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-hp",
+          "locator": "Proposition 9.1, Lemmas 9.3–9.4, Proposition 9.5 and §§10.1–10.17, pp. 705–712",
+          "match": "The public analytic key calculation is independent of the classification it proves."
+        }
+      ],
+      "acceptance": [
+        "Do not cite HP Theorem 4.3 as input: the source derives it from classification. Use Theorem 4.1 for global generation.",
+        "Maintain the logarithm in the root-difference estimate; a negative upper bound on an absolute value is impossible."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/equal-characteristic-classification",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Equal-characteristic Frobenius classification",
+      "statement": "For algebraically closed perfectoid F and E=F_q((π)), every finite projective Frobenius module over R_F is a direct sum of standard blocks with coprime integer pair (c,r), r>0, satisfying φ^r=π^c. The multiset of pairs is unique, and its arithmetic slope is c/r. With c=−d these are the Hartl–Pink blocks F_(d,r). Together with the imported mixed-characteristic classification, this covers the two coefficient characteristics in FF Remark 11.3.4, subject to the explicit ring comparison G3.",
+      "hypotheses": [
+        "The precise coefficient category is the one in frobenius-germ-extension, not a completion-only bounded category.",
+        "Do not assume finite projective underlying modules on a nonspherically complete punctured disc are free before σ-bundle classification."
+      ],
+      "proofSteps": [
+        "Use HP Theorem 4.1 to find a line subbundle of maximal degree; saturation and the degree bound make its quotient a σ-bundle. Rank-one classification and slope-ordered splitting are the imported standard/HN inputs transported to this coefficient category (G3).",
+        "Induct simultaneously: every degree-zero bundle has a section; every bundle splits into standard blocks; every nonnegative-degree bundle has a section. The nonsplit degree-zero obstruction is equalchar-degree-zero-section-input.",
+        "For rank r and degree d, pull back under [r] and twist by −d to obtain degree zero. A section yields a map from [r]_*O(d). If full rank, use saturation/degree and gcd(d,r); otherwise split off a standard summand by the slope inequality and induct.",
+        "HP Corollary 11.8 gives uniqueness. Transport through the germ comparison, preserving the sign c=−d and arithmetic slope convention."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-germ-extension",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/equalchar-degree-zero-section-input",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/standard-frobenius-modules",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/semistability-and-harder-narasimhan-filtration",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/splitting-of-exact-sequences-by-polygons",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-over-extended-robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-hp",
+          "locator": "Theorem 11.1, Lemmas 11.2–11.4, pp. 713–714; Corollary 11.8 p. 715; §8 pp. 703–705",
+          "match": "The classification adds equal-characteristic coefficients without rebuilding the already planned standard-block notion."
+        },
+        {
+          "sourceId": "rd1-ff",
+          "locator": "Remark 11.3.4, p. 382",
+          "match": "The required classification includes equal-characteristic E and arbitrary algebraically closed perfectoid F."
+        }
+      ],
+      "acceptance": [
+        "F_(1,r) has arithmetic slope −1/r, not +1/r.",
+        "Direct-sum classification here does not imply direct-sum classification over bounded E†."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/common-vertex-global-subobject",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Common Newton-vertex subisocrystal",
+      "statement": "Let X be a smooth variety over a perfect field k of characteristic p, with an F^n-bearing convergent isocrystal E and a common Newton-polygon vertex of horizontal coordinate a at every geometric point. Then there is a unique convergent Frobenius subisocrystal of rank a whose slopes are the smallest a slopes at each point.",
+      "hypotheses": [
+        "Finite coefficient field, fixed n≥1 and a fixed common break; use the convergent category, not merely a differential module or an arbitrary overconvergent subobject."
+      ],
+      "proofSteps": [
+        "At the generic point use classical Dieudonné–Manin to select the initial slope block.",
+        "Extend the corresponding subobject across the base by the common-vertex theorem; this uses the curve/Katz purity arguments named in Notes Theorem 4.1, not just generic linear algebra (G4).",
+        "A connection respects the block because its second fundamental map goes from lower slopes to higher slopes and the relevant Frobenius Hom is zero (Notes Remark 4.5). Uniqueness follows from the same slope separation."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-notes",
+          "locator": "Theorem 4.1, Corollary 4.2 and Remark 4.5, PDF pp. 8–9",
+          "match": "A common vertex is the global extension input for a constant-Newton-polygon slope filtration."
+        }
+      ],
+      "acceptance": [
+        "The subobject is connection-stable, not only Frobenius-stable at generic points.",
+        "Neither this theorem nor its application asserts that the filtration lies in the overconvergent category."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/dense-open-global-slopes",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Dense-open global slope filtration",
+      "statement": "For an F^n-bearing convergent isocrystal on a smooth variety X over perfect k, there is a dense open U whose complement is a divisor such that on each connected component of U the Newton polygon is constant and the isocrystal has a unique filtration with isoclinic graded pieces of strictly increasing slopes.",
+      "hypotheses": [
+        "X is smooth of finite type; coefficients and F^n are fixed as in common-vertex-global-subobject.",
+        "An empty divisor is allowed; disconnected components are treated separately."
+      ],
+      "proofSteps": [
+        "Upper semicontinuity and purity of the Newton-jumping locus give a dense open constant-polygon locus with complement of pure codimension one (Notes Theorem 3.12). On regular X this is the support of a divisor. The proof of this purity supplier is G4.",
+        "For each successive vertex use the common-vertex theorem, then pass to its quotient.",
+        "The first graded piece has the smallest slope. Frobenius-Hom vanishing gives compatibility and uniqueness; the result is global on U and distinct from the local Robba slope filtration of RD.2."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/common-vertex-global-subobject",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-dad",
+          "locator": "§2.2, p. 6",
+          "match": "A divisor may be removed to obtain the global increasing slope filtration."
+        },
+        {
+          "sourceId": "rd1-xz",
+          "locator": "Appendix A §A.2, PDF p. 64",
+          "match": "Constant-Newton-polygon convergent F-isocrystals admit the ascending filtration."
+        },
+        {
+          "sourceId": "rd1-notes",
+          "locator": "Theorem 3.12 and Corollary 4.2, PDF pp. 7–8",
+          "match": "Purity and common-vertex extension provide the geometric prerequisite chain."
+        }
+      ],
+      "acceptance": [
+        "A constant slope-zero object permits U=X.",
+        "A bare connection without Frobenius does not have this Newton filtration."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "comparison",
+      "title": "de Jong reverse slope filtration",
+      "statement": "For M† over E†_alg, write the completed increasing slope filtration 0=S₀⊂S₁⊂…⊂Sₘ=M. There is a unique reverse filtration 0=Srev₀⊂…⊂Srevₘ=M† whose i-th graded piece completes to S_(m+1−i)/S_(m−i), for 1≤i≤m. Each isoclinic grade of slope s/r admits a Frobenius eigenbasis with eigenvalue p^(s/r) after a finite coefficient extension adjoining the needed r-th root of p.",
+      "hypotheses": [
+        "The algebraic residue extension is perfect and its completion is algebraically closed as required by the source; slope indices begin at 0.",
+        "s∈ℤ, r>0; negative s is allowed; the coefficient extension and Frobenius lift fix the chosen scalar eigenvalue."
+      ],
+      "proofSteps": [
+        "Apply the descending bounded generic filtration and compare its graded completions with the ascending filtration in the reverse order.",
+        "Uniqueness identifies the grade as S_(m+1−i)/S_(m−i). The printed shifted indices in D’Addezio are corrected; at i=m the quotient is S₁/S₀.",
+        "For one isoclinic grade apply classical standard-block classification and fixed-slope full faithfulness after the finite scalar extension to transport the Frobenius eigenbasis."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/descending-generic-filtration",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/isoclinic-completion-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-dad",
+          "locator": "Theorem 4.2.6 and proof, pp. 14–15",
+          "match": "Reverse bounded slopes and eigenbasis comparison, with the quotient-index correction made explicit."
+        }
+      ],
+      "acceptance": [
+        "For m=2 the grades complete to S₂/S₁ and S₁/S₀.",
+        "This RD.1 ownership replaces the stray VB0 target; no VB0 dependency."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/residue-duality-pairing",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "definition",
+      "title": "Robba kernel–cokernel residue pairing",
+      "statement": "For a finite free differential Robba module M over L with coordinate T and connection operator ∂ for δ=(1+T)d/dT, define H¹_∂(M)=coker ∂ and H⁰_∂(M∨)=ker ∂∨. The pairing sends ([m],ℓ) to Res_T(⟨m,ℓ⟩ dT/(1+T)). For δ=d/dT the one-form is dT instead. The dual connection is determined by δ⟨m,ℓ⟩=⟨∂m,ℓ⟩+⟨m,∂∨ℓ⟩.",
+      "hypotheses": [
+        "L is a complete characteristic-zero nonarchimedean coefficient field; the Robba derivative has zero residue on exact one-forms.",
+        "For the Dospinescu–Le Bras convention ∇=t(1+T)d/dT on coefficients and ∂=t⁻¹∇, t=log(1+T).",
+        "The dual is the differential-module dual. For N_rig(V̌), V̌=V*⊗χ_cyc, choose the horizontal generator t⁻¹e_χ of N_rig(L(1)) to identify it with this dual."
+      ],
+      "proofSteps": [
+        "Use the imported Robba Laurent coefficient and derivative to define residue as the coefficient of T⁻¹ in the one-form coefficient.",
+        "For horizontal ℓ the value on ∂m is the residue of δ⟨m,ℓ⟩ dT/(1+T)=d⟨m,ℓ⟩, hence zero. Descend to the additive/L-linear cokernel.",
+        "Export the pairing of quotient classes; changes of coordinate act on the differential form, not just on the scalar coefficient. The cyclotomic twist is fixed by the horizontal generator, without an extra claim of φ/Γ-equivariance."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/differential-module",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-differential-module",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/derivation-on-robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-dlb",
+          "locator": "§§6.1–6.4, printed pp. 355–357; Proposition 6.4 proof p. 357",
+          "match": "The derivative and cyclotomic-dual conventions explain which residue pairing the cokernel argument uses."
+        }
+      ],
+      "acceptance": [
+        "The scalar residue for ∂=(1+T)d/dT is the coefficient of T⁻¹ in g/(1+T), not in g.",
+        "Well-definedness follows from integration by parts and horizontality, independently of perfectness."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Dospinescu–Le Bras Proposition 6.4",
+          "how": "Convert vanishing of horizontal sections of N_rig(V̌) into surjectivity of ∂ on N_rig(V)."
+        },
+        {
+          "where": "RD.1 Robba duality target",
+          "how": "Identify the finite-dimensional cokernel with the dual of the horizontal kernel."
+        }
+      ],
+      "api": [
+        {
+          "name": "robbaResiduePairing",
+          "role": "constructor",
+          "statement": "For a finite free differential Robba module M over L with coordinate T and connection operator ∂ for δ=(1+T)d/dT, define H¹_∂(M)=coker ∂ and H⁰_∂(M∨)=ker ∂∨. The pairing sends ([m],ℓ) to Res_T(⟨m,ℓ⟩ dT/(1+T)). For δ=d/dT the one-form is dT instead. The dual connection is determined by δ⟨m,ℓ⟩=⟨∂m,ℓ⟩+⟨m,∂∨ℓ⟩."
+        },
+        {
+          "name": "dualConnection_leibniz",
+          "role": "characterisation",
+          "statement": "δ of the evaluation pairing is the sum of the two connection evaluations."
+        },
+        {
+          "name": "residue_exact",
+          "role": "simp",
+          "statement": "The residue of dg is zero for every convergent Robba Laurent series g."
+        },
+        {
+          "name": "residuePairing_representative",
+          "role": "projection",
+          "statement": "Evaluation on a quotient class equals the chosen representative formula."
+        },
+        {
+          "name": "residuePairing_bilinear",
+          "role": "structure",
+          "statement": "The descended pairing is L-bilinear."
+        },
+        {
+          "name": "residuePairing_coordinate",
+          "role": "compatibility",
+          "statement": "Under an analytic invertible parameter change, the one-form residue and pairing agree."
+        },
+        {
+          "name": "residuePairing_tate_generator",
+          "role": "compatibility",
+          "statement": "Using t⁻¹e_χ identifies the Cartier differential dual with M∨ for the DLB ∂ convention."
+        }
+      ],
+      "tests": [
+        {
+          "name": "trivial_dT",
+          "kind": "computed",
+          "statement": "For the trivial module and δ=d/dT, pairing [T⁻¹] with 1 is 1."
+        },
+        {
+          "name": "exact",
+          "kind": "degenerate",
+          "statement": "For any m and horizontal ℓ, pairing [∂m] with ℓ is zero."
+        },
+        {
+          "name": "cyclotomic_form",
+          "kind": "computed",
+          "statement": "For the trivial δ=(1+T)d/dT line, pairing [(1+T)/T] with 1 is 1."
+        },
+        {
+          "name": "wrong_form",
+          "kind": "non-example",
+          "statement": "For g=T⁻², Res(g dT)=0 but Res(g dT/(1+T))=−1; using dT for δ=(1+T)d/dT is wrong."
+        },
+        {
+          "name": "integer_residue_line",
+          "kind": "compatibility",
+          "statement": "For ∂=d/dT+a/T with a∈ℤ, the horizontal dual section T^a pairs [T^(−a−1)] to 1."
+        }
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/robba-residue-duality",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "realises": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "kind": "theorem",
+      "title": "Robba residue duality",
+      "statement": "For a finite free differential module with a compatible invertible Frobenius structure over R_L, where L is complete discretely valued of characteristic zero with perfect residue field of characteristic p>0 and a q-Frobenius lift, H⁰ and H¹ for its connection are finite-dimensional, and the residue pairing H¹_∂(M)×H⁰_∂(M∨)→L is perfect. In the DLB convention, this identifies N_rig(V)/∂N_rig(V) with the L-dual of N_rig(V̌)^(∂=0) after the horizontal Tate-line identification.",
+      "hypotheses": [
+        "The Frobenius and finite-dimensional module hypotheses are essential to the public local-monodromy proof route.",
+        "Use the same one-form/derivation and differential dual as residue-duality-pairing; no bare representation-dual identification.",
+        "This theorem uses the discretely valued positive-residue-characteristic hypotheses of RD.2 local monodromy; in the DLB consumer L is a finite extension of Q_p."
+      ],
+      "proofSteps": [
+        "Use the imported RD.2 finite-étale local-monodromy and logarithmic-form targets to obtain, after a finite extension, a unipotent model d+A du/u with A nilpotent. This is a theorem dependency on RD.2, not a redeveloped quasi-unipotence theorem.",
+        "Integrate Laurent coefficients of nonzero degree; polynomial-size denominators preserve convergence on a smaller annulus. H⁰ is ker A and H¹ is coker A. The residue pairing is the evaluation coker A × ker Aᵗ, hence perfect by finite-dimensional linear algebra.",
+        "Use finite-cover trace and pullback with their degree normalisation to descend perfectness to L. The analytic normal-form and trace comparison details remain G5.",
+        "As a consumer check, for a two-dimensional absolutely irreducible nontrianguline de Rham V, DLB Lemma 6.3 gives ∂-injectivity using t^hN⊂D_rig and (∇−h)(t^hx)=t^(h+1)∂x. Apply the same result to V̌ and perfectness for surjectivity, giving Proposition 6.4. The representation/N_rig construction itself is outside RD.1."
+      ],
+      "prerequisites": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/residue-duality-pairing",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/local-monodromy-finite-etale-form",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/logarithmic-form-of-local-monodromy",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-separable-extensions-of-analytic-rings",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/unipotent-iff-nilpotent-residue"
+      ],
+      "sources": [
+        {
+          "sourceId": "rd1-dlb",
+          "locator": "Proposition 6.4 proof, p. 357; Lemma 6.3 pp. 356–357",
+          "match": "The consumer uses general perfect duality cited to the uncleared book Proposition 20.4.2; this plan supplies an explicit alternative route and states its unresolved descent checks."
+        }
+      ],
+      "acceptance": [
+        "Trivial line: H⁰=L, H¹=L and the T⁻¹ residue pairing is perfect.",
+        "Unipotent nilpotent Jordan block: compare ker A and coker A directly.",
+        "No claim that the uncleared book proof has been read."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "status": "planned",
+      "note": "All continuation targets have exact target nodes, source locators, hypotheses, proof routes and acceptance tests. Existing main RD.1 nodes are imported. This is a complete planning pass, not closed coverage or an implementation claim.",
+      "remaining": [
+        "G1: analytic radius and projector suppliers: KX Theorem 2.2.5 cites the uncleared Kedlaya book Theorem 11.3.2; the ∂₀ splitting cites Theorem 12.4.2. The coefficient proof uses almost-isometric bases (book 1.3.7/8.6.1), visible-spectrum comparison (6.7.4), contracting twisted-factor lifting (6.7.1 and 2.2.2), and the half-open/disk analytic inputs in KX 2.3.8–2.3.10. The public KX proof and full rotation/gluing route were read; these precise analytical suppliers have not been independently established in a cleared source. Obtain public proofs or a cleared copy, and check they match these hypotheses. The main packet already owns the broad spectral, transfer and Frobenius-antecedent targets; do not duplicate them.",
+        "G2: ordinary Newton-polygon root supplier: The published monodromy Lemma 4.12 proof and HP §§9–11 have been read. The packet supplies recursive lifting instead of a bare density argument, an explicit unique-minimum proof that a≠0, and uniform bounds for the oriented b₂ sums. Still supply and trace an ordinary Newton-polygon root theorem for finite polynomials over the complete algebraically closed valued residue field, including the nonzero-root and closed-ball-image statements after clearing fractional exponents. No verified pinned declaration or fully traced proof of that general supplier is cited here.",
+        "G3: FF and HP coefficient-category transport: RD.0 currently plans mixed Cohen/Witt analytic rings and ordinary Robba rings. It does not state the chartwise FF Teichmüller E†/E/R_F comparison in both coefficient characteristics. Prove the compatible norms, Frobenius action, overlap intersections and germ extension; transport the rank-one/global-generation/standard-block and slope-splitting inputs used by HP §§4–8 without assuming the classification in advance. HP §§9–11 were read in full for the key estimate and classification. No claim of ordinary-Robba/FF ring equality or unrestricted bounded completion equivalence is made.",
+        "G4: geometric Newton-polygon purity and extension: Read public statements/arguments in Notes on isocrystals Theorems 3.12/4.1, Corollary 4.2 and Remark 4.5 and both consumers. Their geometric purity/common-vertex extension proof suppliers (Katz curve argument, de Jong–Oort purity and the Notes §5 extension theorem) have not been fully traced here. Establish them at target level with smoothness/perfect-base hypotheses, rather than replacing them by the local Robba filtration. The convergent category is imported from RD.3; no higher-tier VB0 import is needed.",
+        "G5: public general Robba-duality proof: The DLB consumer was read but its general duality citation is Kedlaya book Proposition 20.4.2, which is not cleared and was not read. The alternative RD.2 local-monodromy route needs a full proof that finite-cover normal-form cohomology, residue, trace and duality descend, with the exact one-form and degree factors. Establish those comparisons and convergence of Laurent integration; a proof for a nilpotent constant matrix alone is not the general theorem."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G1: analytic radius and projector suppliers",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/extrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/coefficient-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/affine-gap-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-partial-radius-variation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/intrinsic-annular-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/constant-profile-disc-splitting",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/boundary-break-proof"
+      ],
+      "detail": "KX Theorem 2.2.5 cites the uncleared Kedlaya book Theorem 11.3.2; the ∂₀ splitting cites Theorem 12.4.2. The coefficient proof uses almost-isometric bases (book 1.3.7/8.6.1), visible-spectrum comparison (6.7.4), contracting twisted-factor lifting (6.7.1 and 2.2.2), and the half-open/disk analytic inputs in KX 2.3.8–2.3.10. The public KX proof and full rotation/gluing route were read; these precise analytical suppliers have not been independently established in a cleared source. Obtain public proofs or a cleared copy, and check they match these hypotheses. The main packet already owns the broad spectral, transfer and Frobenius-antecedent targets; do not duplicate them."
+    },
+    {
+      "title": "G2: ordinary Newton-polygon root supplier",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/puiseux-root-input",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/monodromy-key-calculation",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/equalchar-degree-zero-section-input"
+      ],
+      "detail": "The published monodromy Lemma 4.12 proof and HP §§9–11 have been read. The packet supplies recursive lifting instead of a bare density argument, an explicit unique-minimum proof that a≠0, and uniform bounds for the oriented b₂ sums. Still supply and trace an ordinary Newton-polygon root theorem for finite polynomials over the complete algebraically closed valued residue field, including the nonzero-root and closed-ball-image statements after clearing fractional exponents. No verified pinned declaration or fully traced proof of that general supplier is cited here."
+    },
+    {
+      "title": "G3: FF and HP coefficient-category transport",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/descending-generic-filtration",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/bijective-lattice-invariants",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/negative-frobenius-cokernel",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/isoclinic-completion-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-germ-extension",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/equal-characteristic-classification",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison"
+      ],
+      "detail": "RD.0 currently plans mixed Cohen/Witt analytic rings and ordinary Robba rings. It does not state the chartwise FF Teichmüller E†/E/R_F comparison in both coefficient characteristics. Prove the compatible norms, Frobenius action, overlap intersections and germ extension; transport the rank-one/global-generation/standard-block and slope-splitting inputs used by HP §§4–8 without assuming the classification in advance. HP §§9–11 were read in full for the key estimate and classification. No claim of ordinary-Robba/FF ring equality or unrestricted bounded completion equivalence is made."
+    },
+    {
+      "title": "G4: geometric Newton-polygon purity and extension",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/common-vertex-global-subobject",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dense-open-global-slopes"
+      ],
+      "detail": "Read public statements/arguments in Notes on isocrystals Theorems 3.12/4.1, Corollary 4.2 and Remark 4.5 and both consumers. Their geometric purity/common-vertex extension proof suppliers (Katz curve argument, de Jong–Oort purity and the Notes §5 extension theorem) have not been fully traced here. Establish them at target level with smoothness/perfect-base hypotheses, rather than replacing them by the local Robba filtration. The convergent category is imported from RD.3; no higher-tier VB0 import is needed."
+    },
+    {
+      "title": "G5: public general Robba-duality proof",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/robba-residue-duality"
+      ],
+      "detail": "The DLB consumer was read but its general duality citation is Kedlaya book Proposition 20.4.2, which is not cleared and was not read. The alternative RD.2 local-monodromy route needs a full proof that finite-cover normal-form cohomology, residue, trace and duality descend, with the exact one-form and degree factors. Establish those comparisons and convergence of Laurent integration; a proof for a nilpotent constant matrix alone is not the general theorem."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-germ-extension",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/descending-generic-filtration",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/bijective-lattice-invariants",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/negative-frobenius-cokernel",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/isoclinic-completion-comparison"
+      ],
+      "need": "Supply FF coefficient rings E†=colim B_[0,ρ], its π-adic completion E, and R_F=colim B_(0,ρ], in mixed and equal coefficient characteristic, with explicit norms, φ fixing π and q-power residue action. Match the HP Laurent charts when E=F_q((π)); provide intersections, gluing and scalar extensions. This is an RD.0 extension, not a duplicate FF vector-bundle roadmap."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E301",
+      "kind": "misprint",
+      "locator": "KX arXiv v4 Lemma 2.3.2 proof, p. 23",
+      "printed": "The proof points to its own lemma for the intersection result.",
+      "correction": "Use Lemma 2.3.1.",
+      "reason": "Lemma 2.3.1 is the preceding finite-locally-free intersection statement needed on End(M).",
+      "affects": "nothing",
+      "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+      "searched": [
+        "KX v4 and full published 2010 erratum; the erratum addresses §2.7 only."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E302",
+      "kind": "misprint",
+      "locator": "KX arXiv v4 Theorem 2.6.1 proof, pp. 32–33",
+      "printed": "The annular break-splitting step is assigned to the disc theorem 2.5.2.",
+      "correction": "Use Theorem 2.5.1 for the boundary annulus.",
+      "reason": "A neighbourhood of the outer Robba boundary excludes t=0; Theorem 2.5.1 is precisely the affine-gap annular statement.",
+      "affects": "nothing",
+      "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+      "searched": [
+        "KX v4 and full published 2010 erratum."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E303",
+      "kind": "misprint",
+      "locator": "D’Addezio arXiv v4 Theorem 4.2.6(2), p. 14",
+      "printed": "The completed i-th reverse grade is indexed by m−i and m−i−1.",
+      "correction": "Use S_(m+1−i)/S_(m−i), 1≤i≤m.",
+      "reason": "At i=m the printed expression reaches a negative index; the last reverse grade is the lowest ascending grade S₁/S₀.",
+      "affects": "a stated result",
+      "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+      "searched": [
+        "D’Addezio v4 theorem and proof; accepted main source-issue list; no separate author erratum checked."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E304",
+      "kind": "misprint",
+      "locator": "Hartl–Pink published §10.17, p. 712",
+      "printed": "The root-difference absolute value is bounded above by a negative expression.",
+      "correction": "The left side must be log|w−w_i|.",
+      "reason": "The preceding root-lifting estimate is logarithmic; absolute values are nonnegative.",
+      "affects": "nothing",
+      "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+      "searched": [
+        "Published SigmaBd.pdf §§10.15–10.17; no separate erratum located in the source."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E305",
+      "kind": "misprint",
+      "locator": "Hartl–Pink published §10.16, p. 712",
+      "printed": "The displayed terminal logarithmic bound has the wrong sign on cn.",
+      "correction": "Use log|w|=−ρ≤−cn.",
+      "reason": "Lemma 10.12 chooses ρ≥cn, and §10.3 requires log|w|≤−cn.",
+      "affects": "nothing",
+      "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+      "searched": [
+        "Published SigmaBd.pdf §§10.3,10.12,10.16; no separate erratum located in the source."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E306",
+      "kind": "misprint",
+      "locator": "Monodromy published Lemma 4.12 proof, p. 150",
+      "printed": "The target of the dense-image and surjectivity sentence is labelled U_f(t).",
+      "correction": "Use U_h(t).",
+      "reason": "h(t) is the uniform lower valuation bound; f depends on two additional indices and cannot label that module.",
+      "affects": "nothing",
+      "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+      "searched": [
+        "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E307",
+      "kind": "misprint",
+      "locator": "Monodromy published Lemma 4.12 proof, p. 150, bilateral series estimate",
+      "printed": "The w_s estimate mixes a second radius variable r on its right side.",
+      "correction": "Use l v_p(π)+s q^(−l)t throughout.",
+      "reason": "The residue contribution to w_s is multiplied by the same radius s as on its left side.",
+      "affects": "nothing",
+      "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+      "searched": [
+        "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E308",
+      "kind": "misprint",
+      "locator": "Monodromy published Proposition 5.11 proof, p. 165",
+      "printed": "The exterior-power reduction calls the selected determinant line the lowest slope submodule.",
+      "correction": "It is the highest slope line in the d-th exterior power.",
+      "reason": "M₁ was selected as the highest-slope rank-d block; summing its d slopes maximises the exterior-power slope.",
+      "affects": "nothing",
+      "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+      "searched": [
+        "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+      ]
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E309",
+      "kind": "misprint",
+      "locator": "Monodromy published Proposition 5.11 proof, p. 165, coefficient induction base",
+      "printed": "The base case claims all coordinates cᵢ vanish modulo π.",
+      "correction": "The coordinates reduce to δᵢ₁; normalise wᵢ≡vᵢ modulo π.",
+      "reason": "v₁ has coordinate one in the first vector and zero in the other vectors in a nearby basis. The first coordinate is a unit, and the displayed bound still follows.",
+      "affects": "nothing",
+      "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+      "searched": [
+        "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "note": "Read current TauCetiRoadmap and current TauCeti in addition to the atlas snapshot. The nine newer roadmaps do not supply these analytic radius/Frobenius targets. AdicSpaces and LocalFieldsRamification supply style and general analytic/local-field foundations, not an existing Robba slope theorem. The reviewed library audit has no dedicated RD.1 layer entry; related Coleman/Weil audit entries do not establish these targets. Pinned WittVector isocrystal_classification is only rank one, not general Dieudonné–Manin. No upstream change is requested."
+    }
+  ]
+}
