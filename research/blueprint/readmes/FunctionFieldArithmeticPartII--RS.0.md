@@ -488,15 +488,16 @@ For a fixed parent framed root p and a finite chain of arbitrary test-algebra ma
 - No flatness or injectivity is imposed on any B_i→B_(i+1).
 - Use the native chosen pullbacks and their actual associator/pasting isomorphisms; no definitional equality of different chosen limits is asserted.
 - For n=0 no fppf-cover or chart-normalization claim is made.
+- Scheme-level arrow naturality uses the parent's `normalization-change-arrow`, valid for every natural exponent. Its bundled `normalization-base-change-natural-iso` is used only for n≥1.
 
 **Proof or construction.**
 
 1. Compose the parent normalization-change algebra maps. Identity and composition are already specified there, so coefficients and the adjoined root identify the direct composite map.
 2. Inductively paste the Cartesian coefficient squares and use the native pullback universal property to form the comparison to each chosen bracketing.
-3. Every comparison has the same two composite projections. Repeated pullback.hom_ext proves equality of comparison morphisms, inverses and all rebracketing diagrams; it also proves naturality in framed arrows using the parent natural isomorphism.
+3. Every comparison has the same two composite projections. Repeated pullback.hom_ext proves equality of comparison morphisms, inverses and all rebracketing diagrams. For every n, the parent's normalization-change-arrow proves the arrow square before taking Spec: coefficients follow the test-algebra map and the target adjoined root maps to the source adjoined root times the inverse unit label. Applying Spec and comparing both pullback projections proves arrow naturality. For n≥1 this agrees with the parent's bundled natural isomorphism.
 4. For n≥1 the parent chart triangle and the same projection characterization carry the normalized chart map through the finite composite. The proof never cancels the root section.
 
-**Direct dependencies.** `FunctionFieldArithmeticPartII:RS.0/normalization-change-map`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-identity`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-composition`, `FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-iso`, `mathlib:CategoryTheory.Limits.pullback.hom_ext`.
+**Direct dependencies.** `FunctionFieldArithmeticPartII:RS.0/normalization-change-map`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-identity`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-composition`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-arrow`, `FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-iso`, `FunctionFieldArithmeticPartII:RS.0/normalization-change-chart-factorization`, `mathlib:CategoryTheory.Limits.pullback.hom_ext`.
 
 **Acceptance.**
 
@@ -504,6 +505,7 @@ For a fixed parent framed root p and a finite chain of arbitrary test-algebra ma
 - m=2 and m=3 reproduce the parent comparisons on both projections and both inverse projections.
 - For a chain Z/4→Z/2→Z/2→Z/2→Z/2 all formulas hold although nilpotent sections and the −1 stabilizer collapse at its first map.
 - The n=0 algebra comparison remains valid without being a cover.
+- At n=0 over Q, with u=f=2, the normalization algebra is Q[T]/(1−2)=0. Its empty spectrum still satisfies the base-change comparison, but cannot cover Spec Q.
 
 **Source support.** [TV17](https://arxiv.org/pdf/1410.1164v2), §3, Remark 3.1 and Proposition 3.4, pp. 12–13; Corollary 3.13, p. 16: Proposition 3.4 motivates coefficient compatibility. The arbitrary finite chosen-limit coherence is our induction from the parent’s ring-map universality and native pullback uniqueness, not a printed root-stack theorem.
 
@@ -517,12 +519,13 @@ For a small scheme site and an enlargement u≤v, import the coherent universe-l
 
 - Specify u≤v and the essential-image site, or an explicit small skeleton and its induced topology.
 - The supplier’s lift preserves the native geometric carriers and covering families and comes with coherent operation comparisons; a scalar-point wrapper alone is insufficient.
+- On every matched test scheme, require an equivalence of the full invertible-sheaf groupoids and bijections on their sections and arrows. Every enlarged invertible sheaf must be isomorphic to a lifted small one. An inverse defined only on the image of the module lift does not establish this requirement; no equivalence of all module categories across universes is assumed.
 
 **Proof or construction.**
 
 1. Request generic native scheme/module universe comparisons from SF.0 and descent transport along the resulting equivalence of sites from D0. Those generic constructions are owned there, not recreated here.
 2. Lift M,t,φ using the section and tensor comparisons; these carry φ(t^n)=s to the identical typed root equation in the enlarged universe. Lift h and both arrow squares in the same way.
-3. Use the inverse carrier equivalences to recover a root and every labelled arrow, giving an actual groupoid equivalence, not a bijection of point orbits.
+3. Use essential surjectivity of the supplied invertible-sheaf lift on each matched scheme to recover a small root line. Its section bijection recovers t; full faithfulness, together with the tensor and target-line comparisons, recovers φ and every root arrow. Faithfulness reflects the section equation and both arrow equations. Thus the inverse recovers all enlarged roots on that test scheme, rather than only roots already in the lift's image.
 4. The supplier’s pullback comparisons transport the root pseudofunctor, κ and frame equivalence; D0’s equivalent-site transport and stackification universal property transport native-stackification-equivalence.
 5. Underlying coherent lift maps satisfy triangle/pentagon, hence so do their root restrictions. Genuine new larger test objects are handled by the formula of the native root pseudofunctor at that universe, not asserted to come from the small site.
 
@@ -552,6 +555,7 @@ For a small scheme site and an enlargement u≤v, import the coherent universe-l
 
 - The site being compared must be named, not silently enlarged.
 - Unit labels, including stabilizers, are transported bijectively on each matched test object.
+- On a matched test scheme the inverse must recover any enlarged invertible root line up to isomorphism, not only lines presented as lifts; this is required from UNIVERSE-GEOMETRY-RS0.
 
 **Source support.** [AGV08](https://arxiv.org/pdf/math/0603151v2), Appendix B.1–B.2, printed pp. 52–54: The root datum is intrinsic line, section and isomorphism data; universe transport is an authored formalization adapter based on the requested carrier equivalences, not a theorem printed in Appendix B.; [STACKIFICATION](https://stacks.math.columbia.edu/tag/02ZO), Lemmas 8.9.1–8.9.3, §8.9 Tag 02ZO and Lemma 8.9.1 Tag 02ZP; online, no fixed pagination: The stackification universal characterization transports across equivalent sites; it does not identify sites with different objects.
 
@@ -569,10 +573,10 @@ The coordinate end conditions are `frameChange_equation`, `frameChange_arrow`, `
 
 - **JAC-A-RS0**, supplier `SchemeAndStackFoundations:SF.3`: Integrate, without replanning, AlgebraicVectorBundles L0A–L0B tensorSection, the unit comparison and coherent strong symmetric monoidal module pullback on native InvertibleSheaf. Supply explicit pure-tensor coordinate multiplication, unit-section coordinate1, naturality under actual module maps and section-pullback compatibility with unit/tensor and identity/composition comparisons. Reuse current native trivializationCoordinate and unitsGlobalSectionsMulEquivAut; their generic definitions are already implemented. This refines parent JAC-A only at its still-needed section/tensor comparison boundary. Fix β₀:h*O_T≅O_Y and β₂:h*(M⊗N)≅h*M⊗h*N, so the root-power recursion uses their inverses. Consumers: `native-power-pullback`, `native-framed-equivalence`, `native-coefficient-naturality`.
 - **AFFINE-BASIS-RS0**, supplier `SchemeAndStackFoundations:SF.1`: Supply restriction/extension equivalence for groupoid-valued stacks between the scheme fppf site over X and its affine test basis, with the topology induced by covering refinements, and compatibility with the chosen native module and section pullbacks. Reuse native fppf/fpqc topologies and effective module descent from R09.3; this is a generic site-basis adapter, not a second root-stack or quotient definition. Consumers: `native-stackification-equivalence`.
-- **UNIVERSE-GEOMETRY-RS0**, supplier `SchemeAndStackFoundations:SF.0`: Coherent ambient-universe lifts of native schemes/modules/invertible sheaves on a fixed small site, with inverse equivalences on their essential images and comparison isomorphisms for sections, units, tensor, Spec/Γ and pullback. Specify actual carriers and identity/composition diagrams. Restrict any equivalence claim to the lifted site, not all genuinely larger test schemes. Consumers: `native-universe-adapter`.
+- **UNIVERSE-GEOMETRY-RS0**, supplier `SchemeAndStackFoundations:SF.0`: Coherent ambient-universe lifts of native schemes/modules/invertible sheaves on a fixed small site, with inverse equivalences on their essential images and comparison isomorphisms for sections, units, tensor, Spec/Γ and pullback. On each matched test scheme, additionally require essential surjectivity onto the full enlarged invertible-sheaf groupoid, full faithfulness and section bijections, compatible with those comparisons. An image-only inverse for module lifts is insufficient for the root-groupoid equivalence; no equivalence of all module categories across universes is requested. Specify actual carriers and identity/composition diagrams. Restrict the test-site equivalence to the lifted site, not all genuinely larger test schemes. Consumers: `native-universe-adapter`.
 - **UNIVERSE-STACKS-RS0**, supplier `DiamondsAndVStacks:D0`: Transport groupoid-valued pseudofunctors, covering topologies, IsStack and stackification across an equivalence with the essential-image lifted site, including strong transformations and invertible modifications. Root-specific transport uses this generic adapter; no equality between all universe levels of schemes is asserted. Consumers: `native-universe-adapter`.
 
-The monoidal section request must supply its actual maps and equations before κ's section law can be instantiated. An abstract assertion that line pullback exists is not this input. The affine-basis request must compare the induced covering topologies and descent categories; restricting scalar tests alone is not a basis theorem. The universe requests must give native carrier and operation comparisons and the equivalence of the named essential-image sites. They make no assertion about unrelated larger test objects.
+The monoidal section request must supply its actual maps and equations before κ's section law can be instantiated. An abstract assertion that line pullback exists is not this input. The affine-basis request must compare the induced covering topologies and descent categories; restricting scalar tests alone is not a basis theorem. The universe requests must give native carrier and operation comparisons, the equivalence of the named essential-image sites, and an equivalence on all invertible sheaves in each matched fibre. The latter may be established using small affine trivializing covers and descent in the supplier; it is an explicit input here. They make no assertion about unrelated larger test objects.
 
 With those supplied interfaces, all targets in the stage are planned at target level. Its coverage status is planned, with the exact supplier integration and native signature boundary recorded. The packet is a complete planning pass; it is not a closed or implemented library. RS.1 and RS.2 have their own geometric and infinite targets and suppliers. Formal proofs are the work the assembled roadmap specifies, rather than an additional blueprint node for each routine induction step.
 

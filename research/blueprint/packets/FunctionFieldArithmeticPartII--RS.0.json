@@ -1047,27 +1047,31 @@
       "hypotheses": [
         "No flatness or injectivity is imposed on any B_i→B_(i+1).",
         "Use the native chosen pullbacks and their actual associator/pasting isomorphisms; no definitional equality of different chosen limits is asserted.",
-        "For n=0 no fppf-cover or chart-normalization claim is made."
+        "For n=0 no fppf-cover or chart-normalization claim is made.",
+        "Scheme-level arrow naturality uses the parent's normalization-change-arrow, valid for every natural exponent. Its bundled normalization-base-change-natural-iso is used only for n≥1."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/normalization-change-map",
         "FunctionFieldArithmeticPartII:RS.0/normalization-change-identity",
         "FunctionFieldArithmeticPartII:RS.0/normalization-change-composition",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-arrow",
         "FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso",
         "FunctionFieldArithmeticPartII:RS.0/normalization-change-iso",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-chart-factorization",
         "mathlib:CategoryTheory.Limits.pullback.hom_ext"
       ],
       "proofSteps": [
         "Compose the parent normalization-change algebra maps. Identity and composition are already specified there, so coefficients and the adjoined root identify the direct composite map.",
         "Inductively paste the Cartesian coefficient squares and use the native pullback universal property to form the comparison to each chosen bracketing.",
-        "Every comparison has the same two composite projections. Repeated pullback.hom_ext proves equality of comparison morphisms, inverses and all rebracketing diagrams; it also proves naturality in framed arrows using the parent natural isomorphism.",
+        "Every comparison has the same two composite projections. Repeated pullback.hom_ext proves equality of comparison morphisms, inverses and all rebracketing diagrams. For every n, the parent's normalization-change-arrow proves the arrow square before taking Spec: coefficients follow the test-algebra map and the target adjoined root maps to the source adjoined root times the inverse unit label. Applying Spec and comparing both pullback projections proves arrow naturality. For n≥1 this agrees with the parent's bundled natural isomorphism.",
         "For n≥1 the parent chart triangle and the same projection characterization carry the normalized chart map through the finite composite. The proof never cancels the root section."
       ],
       "acceptance": [
         "m=0 gives the identity comparison, after the empty-chain convention.",
         "m=2 and m=3 reproduce the parent comparisons on both projections and both inverse projections.",
         "For a chain Z/4→Z/2→Z/2→Z/2→Z/2 all formulas hold although nilpotent sections and the −1 stabilizer collapse at its first map.",
-        "The n=0 algebra comparison remains valid without being a cover."
+        "The n=0 algebra comparison remains valid without being a cover.",
+        "At n=0 over Q, with u=f=2, the normalization algebra is Q[T]/(1−2)=0. Its empty spectrum still satisfies the base-change comparison, but cannot cover Spec Q."
       ],
       "sources": [
         {
@@ -1094,7 +1098,8 @@
       "statement": "For a small scheme site and an enlargement u≤v, import the coherent universe-lift functor on schemes, native modules and invertible sheaves, together with section, tensor, Spec/Γ and pullback comparisons. Restrict the enlarged test site to the essential image of the original site. Applying these comparisons to the parent root data gives an equivalence between the original root groupoid and the lifted root groupoid, commuting with all arrows, frames, κ, chart realization and stackification. On a ring B this is the comparison with ULift B via the actual ring equivalence; units and root coordinates map through that equivalence. Identity and successive enlargement comparisons satisfy triangle/pentagon coherence. This statement is not an equivalence between all small and all larger test schemes.",
       "hypotheses": [
         "Specify u≤v and the essential-image site, or an explicit small skeleton and its induced topology.",
-        "The supplier’s lift preserves the native geometric carriers and covering families and comes with coherent operation comparisons; a scalar-point wrapper alone is insufficient."
+        "The supplier’s lift preserves the native geometric carriers and covering families and comes with coherent operation comparisons; a scalar-point wrapper alone is insufficient.",
+        "On every matched test scheme, require an equivalence of the full invertible-sheaf groupoids and bijections on their sections and arrows. Every enlarged invertible sheaf must be isomorphic to a lifted small one. An inverse defined only on the image of the module lift does not establish this requirement; no equivalence of all module categories across universes is assumed."
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
@@ -1107,13 +1112,14 @@
       "proofSteps": [
         "Request generic native scheme/module universe comparisons from SF.0 and descent transport along the resulting equivalence of sites from D0. Those generic constructions are owned there, not recreated here.",
         "Lift M,t,φ using the section and tensor comparisons; these carry φ(t^n)=s to the identical typed root equation in the enlarged universe. Lift h and both arrow squares in the same way.",
-        "Use the inverse carrier equivalences to recover a root and every labelled arrow, giving an actual groupoid equivalence, not a bijection of point orbits.",
+        "Use essential surjectivity of the supplied invertible-sheaf lift on each matched scheme to recover a small root line. Its section bijection recovers t; full faithfulness, together with the tensor and target-line comparisons, recovers φ and every root arrow. Faithfulness reflects the section equation and both arrow equations. Thus the inverse recovers all enlarged roots on that test scheme, rather than only roots already in the lift's image.",
         "The supplier’s pullback comparisons transport the root pseudofunctor, κ and frame equivalence; D0’s equivalent-site transport and stackification universal property transport native-stackification-equivalence.",
         "Underlying coherent lift maps satisfy triangle/pentagon, hence so do their root restrictions. Genuine new larger test objects are handled by the formula of the native root pseudofunctor at that universe, not asserted to come from the small site."
       ],
       "acceptance": [
         "The site being compared must be named, not silently enlarged.",
-        "Unit labels, including stabilizers, are transported bijectively on each matched test object."
+        "Unit labels, including stabilizers, are transported bijectively on each matched test object.",
+        "On a matched test scheme the inverse must recover any enlarged invertible root line up to isomorphism, not only lines presented as lifts; this is required from UNIVERSE-GEOMETRY-RS0."
       ],
       "sources": [
         {
@@ -1221,7 +1227,7 @@
     {
       "id": "UNIVERSE-GEOMETRY-RS0",
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Coherent ambient-universe lifts of native schemes/modules/invertible sheaves on a fixed small site, with inverse equivalences on their essential images and comparison isomorphisms for sections, units, tensor, Spec/Γ and pullback. Specify actual carriers and identity/composition diagrams. Restrict any equivalence claim to the lifted site, not all genuinely larger test schemes.",
+      "need": "Coherent ambient-universe lifts of native schemes/modules/invertible sheaves on a fixed small site, with inverse equivalences on their essential images and comparison isomorphisms for sections, units, tensor, Spec/Γ and pullback. On each matched test scheme, additionally require essential surjectivity onto the full enlarged invertible-sheaf groupoid, full faithfulness and section bijections, compatible with those comparisons. An image-only inverse for module lifts is insufficient for the root-groupoid equivalence; no equivalence of all module categories across universes is requested. Specify actual carriers and identity/composition diagrams. Restrict the test-site equivalence to the lifted site, not all genuinely larger test schemes.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter"
       ]
@@ -1287,7 +1293,12 @@
       "laterVersionCheck": "Present in the selected corresponding v2 passage; not a published correction.",
       "origin": "PAPER-YUN-ZHANG-19/E33",
       "source": "YZ19",
-      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published pp.515–516 and Cartesian diagram (A.1). Over K[ε]/(ε²), a trivial root line with section ε has square zero and cannot be isomorphic to the zero section. The full fibre is therefore the μ₂ quotient of the square-zero thickening; Bμ₂ describes its reduced substack in the paper’s tame setting.",
+        "by": "REV-FunctionFieldArithmeticPartII--RS.0"
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII/E5",
@@ -1305,7 +1316,12 @@
       ],
       "origin": "PAPER-YUN-ZHANG-19/E66",
       "source": "YZ19",
-      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on published p.515, Definition A.2. The preceding bullet supplies the global section a, whose restriction is required by the root-section equation; the self-reference in the restriction clause is a misprint.",
+        "by": "REV-FunctionFieldArithmeticPartII--RS.0"
+      }
     },
     {
       "id": "FunctionFieldArithmeticPartII/E12",
@@ -1322,7 +1338,12 @@
         "2026-10-05: exact-title erratum search and Abramovich public paper directory https://www.math.brown.edu/dabramov/PAPERS/ did not identify a correction.",
         "2026-10-05: attempted Project Euclid journal page for DOI 10.1353/ajm.0.0017 was not served by the browser tool. No published-version collation or assertion about the version of record is made."
       ],
-      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on arXiv v2 p.53, Appendix B.2 item (3). The power identification has exponent d while the section equation uses unbound m. Use d in that equation. This verdict concerns the specified preprint, with no new version-of-record or erratum-search claim.",
+        "by": "REV-FunctionFieldArithmeticPartII--RS.0"
+      }
     }
   ],
   "upstreamNotes": [],
@@ -1406,5 +1427,78 @@
     "newNodes": 13,
     "parentNodesReused": "All accepted RS.0 targets remain in the parent; no parent node is copied or edited. RS.1/root-fpqc-descent and RS.2/root-point-groupoid are reused as exact suppliers.",
     "scopeBoundary": "Infinite root towers, coherent infinite reindexing and genuine 2-limits are owned by RS.2. Algebraicity, coarse spaces, closed fibres and DM criteria are RS.1; this packet supplies their native finite-root comparison. General local frames/coordinates and monoidal module infrastructure remain their existing owners."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--RS.0",
+    "date": "2026-10-14",
+    "notes": "Independent review by Codex session codex-iOFbXE of the codex-Bh4iCE planning pass. Read all 13 targets, 36 API items, 24 tests, source locators, parent contracts, supplier statements and reviewed audit; confirmed all 12 baseline declarations against exact pinned source files. Corrected the finite-normalization exponent-zero dependency boundary and strengthened the universe request on full invertible-sheaf fibres. Confirmed all three inherited sourceIssues at their locators. The packet remains a complete target-level planning pass with RS.0 planned, four explicit supplier requests and one exhaustive native-signature gap; no implementation is claimed. Suggested Lean elaborated at the pins with ten expected proof-admission warnings and no other diagnostics.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "verdict": "verified",
+        "note": "The zero and successor comparisons have the correct inverse-unit/inverse-tensor direction. Section preservation follows by the imported tensor-section law; arbitrary pullback does not assert a global-section tensor isomorphism. The six APIs and four tests cover the fixed recursion and nonflat changes."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+        "verdict": "verified",
+        "note": "The pulled identification is h*φ composed with κ. Naturality preserves both root-arrow squares, and target-pair transport postcomposes φ. Nonflat pullback may identify stabilizer labels, as its tests require."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+        "verdict": "verified",
+        "note": "Identity and composition compare both the root line and the pulled target line. The imported monoidal coherence restricts to root arrows and proves the triangle, pentagon and arbitrary finite-chain comparisons without strict equality of chosen objects."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-framed-category",
+        "verdict": "verified",
+        "note": "Frames are object data and impose no extra arrow equation. The identity Hom map makes forgetting frames fully faithful, with exactly the globally trivializable root lines as essential image. Its tests detect deleted stabilizers, incompatible frame restrictions and nontrivial affine Picard classes."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "verdict": "verified",
+        "note": "The unit coefficient, section coordinate and conjugated arrow label satisfy both scalar equations. The inverse reconstructs O, its section and l⁻¹ mul(u)c_n. The frame provides the unit/counit and Hom bijection; neither section cancellation nor a root of u is used."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-frame-change",
+        "verdict": "verified",
+        "note": "Changing frames gives y′=a y, u′=b u a⁻ⁿ and w′=a_q w a_p⁻¹. Substitution preserves the section and power squares and the cocycles. The rational rescaling example detects the inverse-power factor."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "verdict": "verified",
+        "note": "The native pulled-unit and tensor comparisons, with ΓSpecIso_naturality, give ψ(u), ψ(y) and ψ(w). The comparison uses the parent framed change functor and the positive-exponent normalization inputs; it permits noninjective and nonflat maps."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+        "verdict": "verified",
+        "note": "The functor is the composite of the normalized coordinate inclusion, inverse native equivalence and frame forgetful functor. All are fully faithful on the relevant Hom sets. The Z/4 obstruction correctly prevents objectwise essential surjectivity; Z/9 tests retain nilpotent sections."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
+        "verdict": "verified",
+        "note": "Intersect the two native line-frame covers and refine by affine opens, then use the positive-exponent finite-free unit-root cover. The normalization arrow has label r and satisfies both equations. Arbitrary base change preserves the covers and comparisons without a canonical global frame."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+        "verdict": "verified",
+        "note": "The parent root fpqc descent imports R09.3 effective QCoh and rank-one descent. Its fppf restriction is a stack; the chart map is fully faithful and locally essentially surjective. Stacks Lemma 8.9.1 characterizes the stackification, with the affine-basis adapter explicitly requested."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-chart-frame-independence",
+        "verdict": "verified",
+        "note": "Comparing through the intrinsic native root stack supplies the equivalence; the unit-root cover realizes it locally by z′=Rz. Ratios of choices yield μ_n-labelled modifications and the root-arrow cocycle. No global compatible roots or equality of raw affine charts is asserted."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-finite-normalization-coherence",
+        "verdict": "corrected",
+        "note": "Added the all-exponent normalization-change-arrow prerequisite for scheme-level naturality and the positive-exponent chart-factorization prerequisite. Projection uniqueness now proves every finite-chain comparison also at n=0 without using the positive-only bundled natural isomorphism. Added the empty-spectrum n=0 obstruction."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter",
+        "verdict": "corrected",
+        "note": "Strengthened the geometry request to an equivalence on full invertible-sheaf groupoids over each matched scheme, with section bijections and full faithfulness. The inverse now explicitly recovers arbitrary enlarged root lines, rather than only preselected lifts. Test-site comparisons still exclude genuinely larger schemes."
+      }
+    ]
   }
 }
