@@ -1,0 +1,517 @@
+{
+  "roadmapId": "HeegnerPointEulerSystems",
+  "protocol": "blueprint-v1",
+  "part": "HE.8c",
+  "scope": [
+    "HeegnerPointEulerSystems:HE.8c"
+  ],
+  "status": "complete",
+  "summary": "Complete source-hypothesis pass for the reviewed process layer HE.8c. Cornut tower traces, exact-conductor CV characters/signs and geometric-versus-analytic branches, BCGS rational/integral conditions and independent residual branches are checked with versioned primary sources. Every mathematical target is imported from the accepted HE.8/HE.8b plan; zero new nodes or planets. Existing supplier and proof gaps remain explicit, and removal of the process stage is proposed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [],
+    "searches": [
+      "Read reviewed AUDIT-25 HE.8c entry: process; its three source-hypothesis targets are covered by H1, H2–H6 and H7–H9 respectively.",
+      "Repeated case-insensitive Heegner/Kolyvagin/anticyclotomic/Cornut/Vatsal/Ratner/Tomanov searches of the exact pinned Tau Ceti git tree and pinned Mathlib source; no relevant implementation found (Mathlib has Heegner-number commentary only). No new mathematical declarations are needed by a process audit.",
+      "Read current upstream GlobalNumberFields and ProfiniteArithmetic roadmaps in full, relevant Suggested interfaces, and relevant EllipticCurves ordinary-reduction contracts; searched all current upstream README/Suggested files for the nonvanishing/dynamics names. Current upstream HEAD 0d144d044dacebca17b654695b6f1ad58f159b27 and current Tau Ceti HEAD a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were inspected read-only. No new generic arithmetic, class-field or profinite target is introduced."
+    ]
+  },
+  "sources": [
+    {
+      "title": "Mazur’s conjecture on higher Heegner points",
+      "authors": "Christophe Cornut",
+      "edition": "Author manuscript dated 24 October 2001; Invent. Math.148 (2002),495–523. Locators are manuscript pagination.",
+      "id": "cornut",
+      "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf",
+      "sha256": "e7915bddc4843d38e6652b013b707e34e43e5df698aec178231376abbd092da9",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction, manuscript pp.1–3; §3.7 Proposition 3.11, p.20; §4 Theorem A and its reduction to Theorem B, pp.20–21. Checked the trace, modular quotient, torsion and prime hypotheses; not a complete audit of the paper."
+      ]
+    },
+    {
+      "title": "Nontriviality of Rankin–Selberg L-functions and CM points",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186",
+      "id": "cv",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§1.1 equations (1)–(3), Lemma 1.1, Definition 1.3 and Theorems 1.4–1.5, pp.2–7; Definition 1.6, p.9; Theorems 1.10–1.13, pp.13–15.",
+        "§2.1 Corollary 2.2, p.21; §2.2 and Lemma 2.8, pp.22–23; §4.1 (H1),(H2), Theorems 4.1–4.2, pp.36–37; §4.6 second dynamical proof, Proposition 4.17, pp.48–50; §5.4 Proposition 5.6 through Theorem 5.10 and its proof, pp.55–60."
+      ]
+    },
+    {
+      "title": "CM points and quaternion algebras",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Author manuscript, 3 April 2005; Documenta Math.10 (2005),263–309",
+      "id": "cv-dynamics",
+      "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf",
+      "sha256": "efececf39b157f59d08d5c042808e4527a099d0b328924d546cf67b0e9ed2703",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§2.2 setup (S1)–(S3), Definition 2.8, Theorem 2.9 and Corollary 2.10, pp.9–12.",
+        "§2.7 Theorem 2.29, Lemmas 2.30–2.32 and the commensurability argument, pp.31–34. Read the precise local dynamics input; the original Ratner/Margulis–Tomanov proofs and a matching general-F_P twisted-diagonal theorem were not acquired."
+      ]
+    },
+    {
+      "title": "Non-vanishing of Kolyvagin systems and Iwasawa theory",
+      "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
+      "edition": "arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF",
+      "id": "bcgs",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction (Heeg),(disc),(tor), Theorems A–B and p-optimality footnote, pp.1–3; §1.1 coefficient conventions, pp.6–10.",
+        "Conjecture 1.2.10, Remark 1.2.11 and Theorem 1.2.13, pp.14–15; §2.1 full Theorem A proof and footnote 5, pp.15–16; §2.2 exact-length hypotheses and Theorem B proof, pp.17–20."
+      ]
+    },
+    {
+      "title": "Non-vanishing of Kolyvagin systems and Iwasawa theory",
+      "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
+      "edition": "Author copy dated 2 January 2026, linked by Castella alongside CJM publication; not certified as the publisher PDF",
+      "id": "bcgs-author",
+      "url": "https://web.math.ucsb.edu/~castella/Kolyvagin.pdf",
+      "sha256": "c089c054da151c72acc41d1e215a016af2b11e5daccdab6fb03feca669e58ab8",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction (disc), p.1, and §2.2 Proposition 2.2.1, Theorem 2.2.2, Lemma 2.2.4, pp.17–19, collated against arXiv v2 for inherited E1/E3. Author copy, not publisher-certified text."
+      ]
+    },
+    {
+      "title": "Base change and Iwasawa main conjectures for GL2",
+      "authors": "Ashay Burungale; Francesc Castella; Christopher Skinner",
+      "edition": "arXiv:2405.00270v2, March 2025; theorem numbering belongs to v2",
+      "id": "bcs",
+      "url": "https://arxiv.org/pdf/2405.00270v2",
+      "sha256": "bf87592cdbaabb5c57004bfd44dd5b4d712cb306bbbdc36520a3daf92fa416f3",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§1.2 (disc),(Heeg),(spl), Conjecture 1.2.1, Theorems 1.2.2 and 1.2.4, pp.2–3. Hypothesis and normalization interface only; the independent main-conjecture proof is owned by HE.8b and its suppliers."
+      ]
+    },
+    {
+      "title": "Mazur’s main conjecture at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Christopher Skinner",
+      "edition": "Author-served copy linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF",
+      "id": "cgs",
+      "url": "https://web.math.ucsb.edu/~castella/Mazur.pdf",
+      "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction Theorem C and subsequent Greenberg reformulation, pp.3–4; the local kernel-character assumptions and absence of the older rank-one (Sel) condition. Supplier interface only, not an independent proof audit."
+      ]
+    }
+  ],
+  "nodes": [],
+  "coverage": [
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8c",
+      "status": "source_decomposed",
+      "remaining": [],
+      "note": "AUDIT-25 process verdict: source checks complete, no mathematical nodes. All three audited bookkeeping targets have hypothesisChecks with precise source locators and imported owners. This does not close HE.8/HE.8b mathematics or supersede their accepted packet.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-kolyvagin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility",
+        "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+        "HeegnerPointEulerSystems:HE.8/cm-generic-root-number",
+        "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/definite-cm-character-period",
+        "HeegnerPointEulerSystems:HE.8/definite-rankin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile",
+        "HeegnerPointEulerSystems:HE.8/indefinite-cm-character-point",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite",
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison",
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/rational-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/rational-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches",
+        "HeegnerPointEulerSystems:HE.8b/split-refined-kolyvagin-divisibility",
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses"
+      ]
+    }
+  ],
+  "hypothesisChecks": [
+    {
+      "id": "H1",
+      "title": "Classical tower trace",
+      "statement": "Let E/Q have a modular parametrization X_0(N)→E, let K be imaginary quadratic with every prime dividing N split, and let p be a prime not dividing N. If y_(p^n) is the associated point and H_infinity the anticyclotomic Z_p-extension inside K[p^infinity], some n≥0 has Tr_(K[p^infinity]/H_infinity)(y_(p^n)) non-torsion. The trace is the finite torsion-subgroup sum on a point of finite orbit. Cornut also proves infinite-dimensional character-projected span for any nonzero modular abelian quotient of J_0(N). Ordinary reduction, p odd, the discriminant exclusions and residual hypotheses belong to a narrower Iwasawa application, not to this geometric statement.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion"
+      ],
+      "sources": [
+        {
+          "sourceId": "cornut",
+          "locator": "Introduction main theorem, pp.1–2; §4 Theorem A, pp.20–21",
+          "match": "Some finite conductor has an infinite-order tower trace; the stronger modular quotient statement does not assume ordinary reduction."
+        }
+      ],
+      "acceptance": [
+        "Do not replace the tower trace by y_1 or the trace from K[1] to K.",
+        "Retain Howard/HE.8 application hypotheses when importing the narrower existing target; do not broaden that target in this packet."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H2",
+      "title": "CV tower, conductor and fixed torsion character",
+      "statement": "F is totally real, K/F is CM, P is a finite prime with residue characteristic p. O_C=O_F+C O_K, G(n)=Pic(O_(P^n))=Gal(K[P^n]/K), and G_infinity is their inverse limit. Its finite torsion subgroup G_0 has quotient Z_p of rank [F_P:Q_p]; G_2 is the image of A_F^× and identifies with Pic(O_F). For n large enough that G_0 injects into G(n), fix chi_0 on G_0 with chi_0 omega=1 on G_2. P(n,chi_0) consists of the characters restricting to chi_0 and not factoring through G(n−1). Its conductor is the O_F ring-class conductor, not the generally smaller O_K Hecke conductor. No rank-one tower assumption over general F is made.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/cm-character-stratum"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "§1.1 equations (1),(3), ring-class conventions and P(n,chi_0), pp.3–6; §2.1 Corollary 2.2, p.21; Lemma 2.8, p.23",
+          "match": "Exact-conductor characters and compatible torsion type are the quantified domain of both nonvanishing branches."
+        }
+      ],
+      "acceptance": [
+        "Exclude every old-level pullback even if its L-value is nonzero.",
+        "Exclude a primitive character with wrong torsion restriction.",
+        "Do not use G_0 as a subgroup at small n before injectivity."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H3",
+      "title": "CV local signs and exceptional representation",
+      "statement": "Let pi be cuspidal parallel weight two, omega finite-order and everywhere unramified, N its conductor, and N-prime-to-P coprime to D_(K/F). Put S equal to all real places plus the finite inert v≠P with ord_v(N) odd. The local exceptional-sign set S(chi), defined by epsilon(pi_v,chi_v)≠eta_v(−1)omega_v(−1), is S or S∪{P}; it equals S if P does not divide N, if P splits, or for sufficiently large conductor. The global sign is (−1)^|S| in those cases. Even parity is definite, odd parity indefinite. The separate representation condition pi≅pi⊗eta_(K/F) is the exceptional pair excluded in the definite branch.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/cm-generic-root-number"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "§1.1 equations (2)–(3), pp.3–4; Lemma 1.1 and Definition 1.3, p.5; convention after Definition 1.3, p.6",
+          "match": "Local sign stabilization and exceptional automorphic induction are distinct restrictions."
+        }
+      ],
+      "acceptance": [
+        "When P divides N and is inert, do not extend the stabilized sign to every small conductor.",
+        "Include all real places in S.",
+        "A positive sign alone does not remove the exceptional-pair obstruction."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H4",
+      "title": "Geometric point and period branches",
+      "statement": "Use B/F split by K and at P. In the definite case Ram(B)=S; in the indefinite case Ram(B)=S minus one real place. H is the unit group of a fixed order R, with R_P Eichler (H1), and at every ramified K/F prime Q≠P, B_Q split and R_Q maximal (H2). Good means R_P maximal, or the two maximal-order endpoints at P have distinct intersections with g_P^−1 K_P g_P (equivalently the source conjugation convention). The indefinite quotient is a nonzero, P-new, Pic(O_F)-equivariant rational quotient J→A of the matching character type. For each good CM point of every sufficiently large conductor, a primitive fixed-type character projection is nonzero after tensoring with the character field. The definite version uses a nonzero P-new automorphic vector in a nonexceptional representation, and has nonzero primitive-character period. Neither assertion is a statement about nonzero torsion points.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/indefinite-cm-character-point",
+        "HeegnerPointEulerSystems:HE.8/definite-cm-character-period",
+        "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "Definition 1.6, p.9; Theorem 1.10, p.13; §4 (H1),(H2), Theorems 4.1–4.2, pp.36–37; Theorem 1.13, p.15; Theorem 5.10 and proof, pp.58–60",
+          "match": "Good CM points, new quotients/vectors, the matching central character and nonexceptionality are retained before analytic comparison."
+        }
+      ],
+      "acceptance": [
+        "At maximal P-level every CM point is good; positive Eichler level needs the endpoint test.",
+        "A zero quotient/vector or wrong central-character component cannot discharge this input.",
+        "In CV equation (4), a=sum chi(sigma)psi(sigma x)/|G(n)| belongs to the chi-inverse eigenspace; use the imported reciprocity and projector convention explicitly."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H5",
+      "title": "Analytic branches after geometric nonvanishing",
+      "statement": "With H2 data and admissible chi_0 fixed, definite nonexceptional pi gives, for every n sufficiently large, some chi in P(n,chi_0) with L(pi,chi,1/2) nonzero, using the toric period criterion at stabilized sign. The indefinite derivative theorem in this manuscript additionally requires omega=1 and N, D_(K/F), P pairwise coprime; then for every sufficiently large n some such chi has L-prime(pi,chi,1/2) nonzero. Those extra restrictions belong to the available generalized Gross–Zagier formula, not to the geometric point theorem. The old HE.8c-prefixed indefinite target is retained with its existing mathematical parent HE.8.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/definite-rankin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "Theorems 1.4–1.5, pp.6–7; §1.3 Remark 1.9 and Theorem 1.10, p.13; §1.4 Theorem 1.11 and Theorem 1.13, p.15",
+          "match": "Separate central-value and derivative conclusions; the derivative route has stronger analytic hypotheses and character-inversion checks."
+        }
+      ],
+      "acceptance": [
+        "The quantifiers are for each sufficiently large level, there exists a character; never every character.",
+        "Geometric point nonvanishing alone is not a typed L-derivative theorem.",
+        "The legacy target id is imported rather than redefined."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H6",
+      "title": "Dynamical supplier required by both CV branches",
+      "statement": "For the actual simultaneous reduction map Red and norm-component map C, CV dynamics takes auxiliary sets of finite primes away from P, with B_v split, K_v a field and |S_aux|+|Ram_f(B)|+[F:Q] even, and a finite nonempty set of Galois shifts pairwise distinct modulo P-rational elements rec_K(lambda) with lambda_P in K^×F_P^×. Along a P-isogeny class, compact-open Galois averages converge to the invariant probability measures on the allowed component fibres. At finite level, outside a finite exceptional set, Red(Gx)=C^−1(G C(Red(x))). This needs non-Archimedean uniform distribution on products of cocompact SL_2(F_P) quotients, including twisted-diagonal stabilizers and the commensurability criterion. Real Ratner results do not supply it.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv-dynamics",
+          "locator": "§2.2 (S1)–(S3), Definition 2.8, Theorem 2.9, Corollary 2.10, pp.9–12; §2.7 Theorem 2.29, Lemmas 2.30–2.32 and Corollary 2.34, pp.31–33",
+          "match": "The fibre restriction and P-irrationality prevent false full-product independence; the source names the local Ratner/Margulis–Tomanov input."
+        },
+        {
+          "sourceId": "cv",
+          "locator": "§4.6 Proposition 4.17, p.49; §5.4 Proposition 5.6, p.55",
+          "match": "Both orbit-surjectivity applications explicitly reduce to the companion Corollary 2.10."
+        }
+      ],
+      "acceptance": [
+        "Keep the component restriction; prohibit a surjectivity claim onto incompatible fibres.",
+        "Keep pairwise P-irrationality; identical shifts force a diagonal.",
+        "General finite F_P twisted-diagonal matching is an inherited acquisition gap; the source only directly cites the Q_p case."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H7",
+      "title": "BCGS rational conditional nonvanishing",
+      "statement": "E/Q has conductor N, p is odd of good ordinary reduction, K is imaginary quadratic with signed d_K<0 odd and not −3, every prime dividing N splits, E(K)[p]=0, and p splits as v v-bar. With the actual Tate lattice and finite derivative system fixed, BCGS Theorem A assumes the rational anticyclotomic Greenberg main conjecture. It concludes that some squarefree product n of allowed inert Kolyvagin primes has kappa_n nonzero; kappa_1 may vanish and analytic rank one is not assumed. The proof only needs the lower divisibility L_BDP^2 divides a characteristic generator in Lambda^ur[1/p].",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-kolyvagin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound"
+      ],
+      "sources": [
+        {
+          "sourceId": "bcgs",
+          "locator": "Introduction Theorem A, pp.2–3; Conjecture 1.2.10 and Remark 1.2.11, p.14; §2.1 proof and footnote 5, pp.15–16",
+          "match": "The main conjecture remains a hypothesis; the proof uses rational lower divisibility with a bounded p-error, not an integral equality."
+        }
+      ],
+      "acceptance": [
+        "Do not infer kappa_1 nonzero from nontriviality of the whole system.",
+        "Do not apply this theorem at an inert or ramified p.",
+        "Keep E(K)[p]=0 even when another branch may separately prove it."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H8",
+      "title": "Main-conjecture coefficients and branch discharge",
+      "statement": "For Gamma=Gal(K_infinity/K), Lambda=Z_p[[Gamma]], Lambda^ur=Lambda completed-tensor Z_p^ur, let X_Gr be the Pontryagin dual for local conditions (0,unrestricted) at the chosen split primes. BCGS integral equality is char_Lambda(X_Gr)Lambda^ur=(L_BDP^2); rational equality is in Lambda^ur[1/p]. BCS and CGS use a single-power name for the squared BDP function; compare generated ideals after matching periods, Euler factors and local conditions. BCS Theorems 1.2.2/1.2.4 supply rational Heegner and Greenberg equalities for p>3 and E[p] irreducible over G_Q; their stated integral branch has residual surjectivity over G_Q. CGS Theorem C supplies an independent Eisenstein equality for a rational p-isogeny with kernel F_p(phi), p not dividing 2N, and phi|G_p distinct from 1 and the mod-p cyclotomic character. All field and ordinary assumptions of BCGS A remain in its application; HE.8b performs the adapters.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison",
+        "HeegnerPointEulerSystems:HE.8b/rational-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-heegner-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/rational-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/integral-greenberg-bdp-main-conjecture",
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter",
+        "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches"
+      ],
+      "sources": [
+        {
+          "sourceId": "bcgs",
+          "locator": "Conjecture 1.2.10, Remark 1.2.11 and Theorem 1.2.13, pp.14–15",
+          "match": "Rational and integral statements, and their residual branches, have different coefficient strength."
+        },
+        {
+          "sourceId": "bcs",
+          "locator": "§1.2 Theorems 1.2.2 and 1.2.4, pp.2–3",
+          "match": "The irreducible G_Q route is rational, while the residual-surjective route is integral in the stated anticyclotomic theorems."
+        },
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem C and following Greenberg reformulation, pp.3–4",
+          "match": "The early anticyclotomic Eisenstein theorem excludes two local characters and drops the old rank-one Selmer hypothesis."
+        }
+      ],
+      "acceptance": [
+        "An equality after inverting p does not determine the p-primary divisor.",
+        "An irreducible G_Q representation is not identified by notation with a surjective G_Q or irreducible G_K representation.",
+        "Do not use late HE.8b equality as an input to its independent BSD.7a Eisenstein supplier."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H9",
+      "title": "Refined finite-system index and p-optimality",
+      "statement": "For each allowed squarefree n, I_n=p^M(n)Z_p with M(n)=min_(ell|n){v_p(a_ell),v_p(ell+1)}, M(1)=infinity and I_1=0. Put ind(0)=infinity and ind(kappa_n)=max{r:kappa_n lies in p^r H^1(K,T/I_nT)} for a nonzero class. M_r is the infimum at exactly r prime factors; M_infinity is inf_r M_r. BCGS Theorem B assumes all Theorem A data, p>3, residual G_Q→GL_2(F_p) surjective, the integral main conjecture and a fixed p-optimal modular parametrization. Then M_infinity=sum_(ell|N) v_p(c_ell(E/Q)), half the sum over K-primes above N. p-optimal means minimal p-adic valuation of the parametrization degree over the entire Q-isogeny class. M_infinity need not equal the bottom index or a Sha order.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility",
+        "HeegnerPointEulerSystems:HE.8b/split-refined-kolyvagin-divisibility"
+      ],
+      "sources": [
+        {
+          "sourceId": "bcgs",
+          "locator": "Introduction coefficient and divisibility definitions, Theorem B and footnote 1, pp.2–3; §2.2.3 Theorem B proof, pp.19–20",
+          "match": "The integral and p-optimal lattice conditions fix the exact finite-system defect, with each split rational bad prime counted twice over K."
+        }
+      ],
+      "acceptance": [
+        "Changing the parametrization by [p] can alter integral indices, so retain its normalization.",
+        "For a zero system M_infinity=infinity; rational main-conjecture equality alone cannot give the finite exact sum.",
+        "The verified exact-length proof route remains p>3; no p=3 theorem is claimed false."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "H10",
+      "title": "Source routes and ordering",
+      "statement": "The additional Khayutin quadratic-order input is owned by HE.0 and MultiquadraticPartII; CGLS integral class construction and rational comparison are HE.8/HE.8b inputs; Gross/Kolyvagin descent is HE.3–HE.7 (with the family application in HE.8). None creates an HE.8c mathematical target. Generic orders, Hecke characters, class fields, elliptic curves and profinite calculus are imported from their existing upstream owners. The legitimate chain is independent dynamics to early HE.8 geometry, then independent main-conjecture suppliers to HE.8b, then unconditional BCGS applications. The process note has no mathematical dependants.",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "Theorem 1.10, p.13 and Proposition 4.17, p.49",
+          "match": "Geometry is proved before applying an analytic comparison."
+        },
+        {
+          "sourceId": "bcgs",
+          "locator": "Theorem A, pp.2–3 and Theorem 1.2.13, pp.14–15",
+          "match": "The conditional implication and independent equality supplier are separate mathematical inputs."
+        }
+      ],
+      "acceptance": [
+        "Route extra sources to their supplied owners; do not duplicate their mathematical definitions here.",
+        "Propose removal of the process stage without modifying atlas data in this submission."
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "importedDefinitions": [
+    {
+      "nodeId": "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+      "declaration": "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum",
+      "api": [
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_mem",
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_torsion",
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_not_old",
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_transport"
+      ],
+      "tests": [
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_identity_quotient",
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_wrong_torsion",
+        "TauCeti.Heegner.Anticyclotomic.cmCharacterStratum_first_nontrivial"
+      ],
+      "ownership": "Existing HE.8 definition/construction and its API/tests; referenced here without adding declarations."
+    },
+    {
+      "nodeId": "HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile",
+      "declaration": "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile",
+      "api": [
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_at",
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_bottom",
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_top",
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_rescale"
+      ],
+      "tests": [
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_zero",
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_bottom_vs_infimum",
+        "TauCeti.Heegner.Anticyclotomic.heegnerDivisibilityProfile_sum_not_max"
+      ],
+      "ownership": "Existing HE.8 definition/construction and its API/tests; referenced here without adding declarations."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "need": "Extend beyond current real Lie-group Ratner nodes: over F_P, classify/average unipotent orbits in products of cocompact SL₂(F_P) quotients as CV-dynamics Theorem 2.29 (Margulis–Tomanov11.2/Ratner3); give twisted-diagonal stabilizers as Lemma 2.30 and partition/commensurability criterion2.31–2.35. Q_p is the directly referenced Ratner case; general finite F_P requires a precise acquired theorem, not extrapolation.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution"
+      ],
+      "relationship": "Preserve the existing accepted HE.7s supplier request; no new generic theory is planned by HE.8c."
+    },
+    {
+      "supplier": "RankZeroOneBSD:BSD.7a",
+      "need": "Export the independent early CGS Theorem C and its following Greenberg reformulation (author copy pp.3–4) for E/Q with a rational p-isogeny of kernel character phi, p not dividing 2N, K satisfying (disc),(Heeg),(spl), and phi|G_p distinct from 1 and the mod-p cyclotomic character, without the older (Sel) condition. Theorem A of CGS is its cyclotomic consequence, not the anticyclotomic supplier. Use only early HE.8 classes, never HE.8b equality or late BCGS/CS applications; preserve the existing independent elliptic-unit/integral Kato supplier proof obligations recorded by the accepted HE.7s request before claiming closure.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter"
+      ],
+      "relationship": "Preserve the existing accepted HE.7s supplier request; no new generic theory is planned by HE.8c."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Inherited non-Archimedean dynamics gap",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity"
+      ],
+      "detail": "RT-AREA-iwasawa-1/1: real GN.4 Ratner results do not supply uniform distribution on cocompact SL_2(F_P) product quotients. The companion CV manuscript Theorem 2.29 cites Margulis–Tomanov 11.2/Ratner 3, and Lemma 2.30 directly cites Ratner only for F_P=Q_p. Acquire and match the general finite-extension twisted-diagonal input, together with partition/commensurability consequences. The original dynamics papers were not read here. The accepted HE.8 distribution targets remain planned, not mathematically closed."
+    },
+    {
+      "title": "Inherited analytic and integral normalization gaps",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+        "HeegnerPointEulerSystems:HE.8b/bdp-function-convention-comparison"
+      ],
+      "detail": "Use the exact GZ.8 generalized height identity at the derivative scope, and GZ.9 BDP coefficient/period/imprimitive dictionaries for the Greenberg adapters. Neither point nonvanishing nor equality of a differently normalized rational L-function certifies an integral characteristic ideal. Preserve the accepted HE.7s local torsion/control normalization obligation: full Tate invariants, ordinary-quotient invariants and reduction-group invariants are not equated by notation."
+    },
+    {
+      "title": "Inherited independent Eisenstein proof supplier",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8b/eisenstein-main-conjecture-adapter"
+      ],
+      "detail": "CGS Theorem C was read as a supplier statement. Its independent proof is supplied through BSD.7a with the accepted exact elliptic-unit/integral Kato supplier requests. This source check does not certify those proofs or remove that dependency. BSD.7a may use early HE.8 classes and geometric nonvanishing, never the late HE.8b equality it helps prove."
+    },
+    {
+      "title": "Inherited arithmetic bounds and small-prime limitation",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility"
+      ],
+      "detail": "Preserve the BCGS/CGS uniform weak-torsion bound for a collection whose one fixed p^t multiple is a genuine system, with error independent of t; the narrower non-torsion classical HE.7 trace theorem does not certify it. Preserve E3: the exact-length stub proof has verified p>3 scope. No general p=3 integral comparison or stub proof is certified under E(K)[p]=0 alone."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "HeegnerPointEulerSystems/E1",
+      "source": "bcgs",
+      "kind": "misprint",
+      "locator": "Introduction(disc), arXiv v2 p.1; same text in linked author copy dated 2 January 2026 p.1; journal wording unverified",
+      "correction": "Here discriminant is −D_K<0, so the positive D_K should be excluded from 3. Equivalently use signed discriminant D_K<0 and exclude −3 consistently.",
+      "reason": "The preceding line declares −D_K<0; D_K=3 otherwise passes the printed exclusion although the six-unit field Q(√−3) is the excluded exceptional case. Later sections switch to signed discriminant notation.",
+      "affects": "nothing",
+      "known": "recorded in accepted HE.7s packet",
+      "printed": "The introductory discriminant exclusion uses the negative exception after introducing a positive absolute discriminant.",
+      "searched": [
+        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+      ],
+      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2"
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E3",
+      "source": "bcgs",
+      "kind": "gap",
+      "locator": "Theorem 2.2.2, Proposition 2.2.1, Lemma 2.2.4 and proof, arXiv2312.09301v2 pp.17–19; same mismatch in linked author copy; publisher text unverified",
+      "correction": "Supply the uniform stub lemma at p=3, or restrict this proof route to p>3. No counterexample to Theorem 2.2.2 at p=3 is claimed.",
+      "reason": "Theorem 2.2.2 imports the setting of Proposition 2.2.1. Its proof invokes Lemma 2.2.4 twice to identify the uniform stub index, without disposing of p=3. The cited lemma has an explicit stronger prime assumption.",
+      "affects": "the proof",
+      "known": "recorded in accepted HE.7s packet",
+      "printed": "The exact-length theorem inherits an odd-prime range wider than the stub lemma invoked in its proof.",
+      "searched": [
+        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+      ],
+      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HeegnerPointEulerSystems"
+      ],
+      "detail": "HE.8c is a reviewed process layer, and all its mathematical content already has HE.8 or HE.8b ownership in the accepted HE.7s packet. RS-04 retains the roadmap and does not change this audit verdict.",
+      "proposal": "Remove HE.8c after retaining this source matrix in the mathematical HE.8/HE.8b reader. Remove incoming HE.8/HE.8b bookkeeping edges rather than treating hypothesis checking as a theorem prerequisite. Preserve the legacy HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses identifier with its existing HE.8 parent. Keep separate definite and indefinite targets, generic non-Archimedean dynamics under GN.4 or its Part II, and independent main-conjecture suppliers before HE.8b. No atlas or prior packet is edited by this job."
+    }
+  ],
+  "upstreamNotes": [],
+  "implementationStatus": "unchecked"
+}
