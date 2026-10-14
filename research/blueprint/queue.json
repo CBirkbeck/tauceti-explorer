@@ -47123,8 +47123,9 @@
    ],
    "revisionOf": "PKG-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/PKG-AnabelianGeometryAndNonabelianChabauty~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9856"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9856",
+   "finishedAt": "2026-10-14T21:40:14Z"
   },
   {
    "id": "REV-PKG-AnabelianGeometryAndNonabelianChabauty~2",
@@ -53005,8 +53006,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9854"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9854",
+   "finishedAt": "2026-10-14T21:40:23Z"
   },
   {
    "id": "REV-PKG-PadicDifferentialEquationsAndRigidCohomology",
@@ -54278,8 +54280,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-TorsionCohomologyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9858"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9858",
+   "finishedAt": "2026-10-14T21:40:27Z"
   },
   {
    "id": "REV-PKG-TorsionCohomologyInfrastructure",
