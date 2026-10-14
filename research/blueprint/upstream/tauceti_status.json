@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T21:01Z",
+ "updated": "2026-10-14T21:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -39,10 +39,10 @@
    "head": "85b9dab",
    "review": {
     "recommendation": "changes",
-    "head": "3c6c215",
-    "current": false,
+    "head": "85b9dab",
+    "current": true,
     "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 3c6c215: three items (Haar-scaling reuse, Moy–Prasad divisibility input, ModelField scope), repaired and answered at 7e695c0; awaiting re-review"
+    "note": "deep review (GPT-6 Astra) of the bundled head (RG2 + SmoothRepresentations + IntegralHecke): Weil–Deligne construction ownership; repair in progress"
    }
   },
   "AdelicAlgebraicGroups": {
@@ -193,10 +193,10 @@
    "head": "3f6457f",
    "review": {
     "recommendation": "approve",
-    "head": "6c8d2d1",
-    "current": false,
+    "head": "3f6457f",
+    "current": true,
     "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+    "note": "author-requested deep review (GPT-6 Astra) approves the head after the second red-team pass and the stack rebase"
    }
   },
   "ComplexComparisonPartII": {
@@ -610,7 +610,7 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "4541144",
+   "head": "877f07b",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
@@ -623,12 +623,12 @@
   "ClassicalArithmeticCompletion": {
    "stage": "pr",
    "pr": 921,
-   "head": "2af33bf",
+   "head": "f281fea",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
     "head": "2af33bf",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "deep review (GPT-6 Astra) at 2af33bf: §7.47 coefficient-ring claim and two ownership issues; red-team repair running, deep-review fix queued"
    }
@@ -636,12 +636,12 @@
   "DiamondEtaleCohomology": {
    "stage": "pr",
    "pr": 922,
-   "head": "59d5a1d",
+   "head": "1b6196a",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes the adic stack, EnhancedDerivedSheaves and ClassicalAdicEtaleCohomology; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
     "head": "59d5a1d",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "deep review (GPT-6 Astra) at 59d5a1d: cutoff/internal-Hom contract and degenerate-case checks; red-team repair running, deep-review fix queued"
    }
@@ -649,12 +649,12 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "4030582",
+   "head": "d027020",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
     "head": "4030582",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "deep review (GPT-6 Astra) at 4030582: three specification issues; repair in progress; red team running"
    }
@@ -662,7 +662,7 @@
   "AutomorphicLFunctionsAndLocalFactors": {
    "stage": "pr",
    "pr": 924,
-   "head": "df302fb",
+   "head": "68698f6",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
@@ -675,7 +675,7 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "41bde29",
+   "head": "e286c91",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
@@ -688,7 +688,7 @@
   "DiamondSixOperations": {
    "stage": "pr",
    "pr": 927,
-   "head": "7568adf",
+   "head": "166ccac",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes DiamondEtaleCohomology; draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
@@ -701,7 +701,7 @@
   "AlgebraicModularFormsAndSerreWeights": {
    "stage": "pr",
    "pr": 928,
-   "head": "02d5299",
+   "head": "53e7e5c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
@@ -736,6 +736,20 @@
     "date": null,
     "note": "red team (Sol + Astra) running"
    }
+  },
+  "ShimuraVarieties": {
+   "stage": "pr",
+   "pr": 933,
+   "head": "b85d49f",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "red team (Sol + Astra) running"
+   }
   }
- }
+ },
+ "_decycling": "2026-10-14: maintainer found dependency cycles among the open roadmap PRs; a global supplier order and relocation plan is in progress (see the PR threads)"
 }
