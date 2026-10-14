@@ -705,7 +705,8 @@ theorem abp_lifting (σ : C ≃+* C)
       ∀ i, (P i).eval θ = ρ i := by sorry
 
 /-- DM.8/period-transcendence, the specialization equality, with t included among the function generators; identification with Γ_M
-uses the separately documented motive/category supplier interface. -/
+uses the separately documented motive/category supplier interface. The determinant must be a unit
+in the native radius-one Tate algebra; being a formal-power-series unit would be weaker. -/
 theorem period_transcendence (K : Type*) [Field K] [Algebra (RatFunc F) K]
     [Algebra K C] [IsAlgClosure (RatFunc F) K] [IsScalarTower (RatFunc F) K C]
     (σ : C ≃+* C) (hσ : ∀ a : C, (σ a) ^ Fintype.card F = a)
@@ -715,7 +716,9 @@ theorem period_transcendence (K : Type*) [Field K] [Algebra (RatFunc F) K]
     (c : K) (hc : c ≠ 0) (s : ℕ)
     (hdet : Φ.det = Polynomial.C c * (Polynomial.X - Polynomial.C θK) ^ s)
     (Ψ : Matrix (Fin r) (Fin r) (entireSubring (RatFunc F) kinf C))
-    (hunit : IsUnit ((Ψ.map (fun f => f.val)).det))
+    (hunit : IsUnit ((Ψ.map (fun f =>
+      (⟨f.val, entire_restricted (RatFunc F) kinf C f⟩ :
+        PowerSeries.IsRestricted.subring (R := C) 1))).det))
     (heq : (Ψ.map (fun f => twistSeries σ f.val)) =
       (Φ.map (fun P => (P.map (algebraMap K C) : PowerSeries C))) * Ψ.map (fun f => f.val))
     [Algebra K (PowerSeries C)]
@@ -837,8 +840,10 @@ end Denominators
 /- Supplier-dependent signatures deliberately omitted, rather than represented by opaque types
 or unspecified proposition fields:
 * tate_analytic_interface and twisting_limit reuse the current univariate restricted-series norm
-  and multivariate completeness, which postdate the pin; their preparation/residue comparison still
-  needs to be instantiated. analytic_separability and the full analytic_fixed_fields need DM.2's chosen analytic
+  and multivariate completeness, as well as current Weierstrass preparation/uniqueness, unit detection
+  and principal-ideal results, which postdate the pin. Their C∞ zero/pole and residue comparison still
+  needs to be instantiated; generic preparation and the principal-ideal theorem are already implemented.
+  analytic_separability and the full analytic_fixed_fields need DM.2's chosen analytic
   fraction field and its canonical rational-field algebra tower.
 * fundamental_betti_basis, integral_trivialization, betti_exact_tensor and neutral_category need
   DM.4's actual dual-σ category/scalar extension and instantiation of MC.6's already planned
