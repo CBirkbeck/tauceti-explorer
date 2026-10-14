@@ -265,7 +265,7 @@
         {
           "sourceId": "conrad07",
           "locator": "Example 2.5.1, p.18; Theorem 4.4.3, pp.43–46",
-          "match": "The displayed branch maps and smooth-locus isogeny are used with the finite-flat assertion on the whole proper curve corrected by source issue E7. The finite-flat moduli maps of Theorem 4.4.3 are different morphisms."
+          "match": "The displayed branch maps and smooth-locus isogeny are used with the finite-flat assertion on the whole proper curve corrected by source issue E307. The finite-flat moduli maps of Theorem 4.4.3 are different morphisms."
         }
       ],
       "proofSteps": [
@@ -361,7 +361,11 @@
       "prerequisites": [
         "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
         "ModularCurvesPartII:R13.1/drinfeld-structures-and-cyclicity",
-        "ModularCurvesPartII:R13.2",
+        "ModularCurvesPartII:R13.2/gamma-level-structures",
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/coherent-cyclic-decontractions",
+        "ModularCurvesPartII:R13.2/refined-gamma-zero-moduli",
+        "ModularCurvesPartII:R13.2/contraction-maps-between-levels",
         "AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation",
         "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering"
       ],
@@ -652,11 +656,14 @@
       ],
       "title": "Integral coarse modular curves",
       "kind": "construction",
-      "statement": "For an open H≤GL₂(Ẑ) containing Γ(n), take the finite-inertia coarse space X_H of the corresponding compactified level stack supplied by R13.2. It is a projective normal ℤ-scheme, finite locally free over ℙ¹_j and flat of relative dimension one. The construction is algebraic: normalize the j-line in the generic level algebra and compare the stack coarse space to this normalization. Full level has its determinant/cyclotomic constant algebra, fixed-pairing level is over the corresponding cyclotomic integer base, Γ₁ is the marked-generator problem, and Γ₀ uses the refined cyclic-subgroup stack. Keep disconnected full-level generic components in the normalization algebra. No analytic connectedness or R12.6 is used.",
+      "statement": "For an open H≤GL₂(Ẑ) containing Γ(n), take the finite-inertia coarse space X_H of the corresponding compactified level stack 𝒳_H (R13.4a/deligne-rapoport-level-stack; for the full, Γ₁ and refined Γ₀ levels it is R13.2's moduli stack, by R13.4a/standard-level-stack-identifications). It is a projective normal ℤ-scheme, finite locally free over ℙ¹_j and flat of relative dimension one. The construction is algebraic: normalize the j-line in the generic level algebra and compare the stack coarse space to this normalization. Full level has its determinant/cyclotomic constant algebra, fixed-pairing level is over the corresponding cyclotomic integer base, Γ₁ is the marked-generator problem, and Γ₀ uses the refined cyclic-subgroup stack. Keep disconnected full-level generic components in the normalization algebra. No analytic connectedness or R12.6 is used.",
       "hypotheses": [],
       "prerequisites": [
         "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
-        "ModularCurvesPartII:R13.2",
+        "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+        "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/refined-gamma-zero-moduli",
         "SchemeAndStackFoundations:SF.1/keel-mori",
         "AlgebraicModuliForArithmeticGeometry:R09.5/coarse-j-line-recovery",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/arithmetic-normalization"
@@ -753,7 +760,9 @@
       "prerequisites": [
         "ModularCurvesPartII:R13.4a/integral-coarse-curves",
         "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
-        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering"
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+        "ModularCurvesPartII:R13.4a/affine-open-identification",
+        "ModularCurvesPartII:R13.4a/prime-diamond-agreement"
       ],
       "sources": [
         {
@@ -763,6 +772,7 @@
         }
       ],
       "proofSteps": [
+        "The elliptic-open identification with the Katz–Mazur coarse schemes is R13.4a/affine-open-identification, and the prime N≥5 diamond-quotient agreement over ℤ[1/N] is R13.4a/prime-diamond-agreement; this node collects them with the Katz–Mazur compactification comparison and proves nothing about them again.",
         "Compare affine coarse maps using their universal property.",
         "Both compactifications are finite normal extensions of the same dense level algebra; verify all components meet the elliptic open.",
         "Apply normalization uniqueness, then use separatedness and schematic density to identify maps."
@@ -1141,8 +1151,12 @@
         "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
         "ModularCurvesPartII:R13.3/gamma-one-twisted-tate-chart",
         "ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient",
-        "ModularCurvesPartII:R12.3",
-        "ModularCurvesPartII:R12.6"
+        "ModularCurvesPartII:R12.3/compact-modular-uniformization",
+        "ModularCurvesPartII:R12.3/tate-and-cusp-parameter-agreement",
+        "ModularCurvesPartII:R12.3/cusp-fields-and-component-labels",
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent",
+        "ModularCurvesPartII:R12.6/component-fields-and-twisted-descent",
+        "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility"
       ],
       "sources": [
         {
@@ -2009,7 +2023,10 @@
         "ModularCurvesPartII:R13.4a/integral-coarse-curves",
         "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
         "ModularCurvesPartII:R13.3/tate-power-isogeny",
-        "ModularCurvesPartII:R13.2",
+        "ModularCurvesPartII:R13.2/gamma-level-structures",
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/small-level-and-dm-boundaries",
+        "ModularCurvesPartII:R13.2/contraction-maps-between-levels",
         "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
         "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence",
         "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse"
@@ -2595,7 +2612,8 @@
         "ModularCurvesPartII:R14.1/diamond-operators",
         "ModularCurvesPartII:R14.1/atkin-lehner-involution",
         "ModularCurvesPartII:R14.1/full-and-cyclic-correspondences",
-        "ModularCurvesPartII:R12.6",
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent",
+        "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility",
         "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra"
       ],
       "sources": [
@@ -3292,7 +3310,10 @@
         "ModularCurvesPartII:R14.2/integral-hecke-algebra",
         "ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian",
         "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
-        "ModularCurvesPartII:R12.5"
+        "ModularCurvesPartII:R12.5/weight-two-regular-differentials",
+        "ModularCurvesPartII:R12.5/first-coefficient-hecke-pairing",
+        "ModularCurvesPartII:R12.5/perfect-hecke-pairing",
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent"
       ],
       "sources": [
         {
@@ -3376,15 +3397,6 @@
       ]
     },
     {
-      "supplier": "ModularCurvesPartII:R13.2",
-      "need": "Refined Γ₀(n) compactification of Česnavičius Theorem 5.13, using decontractions and compatibility of cyclic subgroups, as well as honest Γ(n), fixed-pairing and Γ₁(n) stacks. In particular distinguish the regular DM refined stack from the naive Artin Γ₀ stack; their coarse spaces agree, not their stacks.",
-      "neededBy": [
-        "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
-        "ModularCurvesPartII:R13.4a/integral-coarse-curves",
-        "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence"
-      ]
-    },
-    {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation",
       "need": "Import the existing identity-framed object/relation formal groupoid presentation of a smooth atlas, including its hypotheses. Residual automorphisms outside the identity relation completion must be retained separately; the finite-inertia coarse-invariant comparison is the R09.5 request, not a consequence of the single completed atlas chart. Invariant completions require the actual stabilizer action from R09.5 and the explicit local charts; they are not identified with the atlas ring itself.",
       "neededBy": [
@@ -3434,21 +3446,6 @@
       "neededBy": [
         "ModularCurvesPartII:R13.4a/modular-polynomial",
         "ModularCurvesPartII:R14.1/atkin-lehner-involution"
-      ]
-    },
-    {
-      "supplier": "ModularCurvesPartII:R12.3",
-      "need": "Algebraic/analytic component identification of the already constructed coarse curves, including determinant orbits, cusp fields and honest full-level versus scalar-framed conventions.",
-      "neededBy": [
-        "ModularCurvesPartII:R13.4b/generic-component-comparison"
-      ]
-    },
-    {
-      "supplier": "ModularCurvesPartII:R12.6",
-      "need": "Canonical algebraic/analytic compactification comparison with its cusp parameters, descent maps and weight-two normalization; use R13.4a as its algebraic input, never the aggregate R13.4.",
-      "neededBy": [
-        "ModularCurvesPartII:R13.4b/generic-component-comparison",
-        "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences"
       ]
     },
     {
@@ -3583,13 +3580,6 @@
       ]
     },
     {
-      "supplier": "ModularCurvesPartII:R12.5",
-      "need": "Weight-two cotangent identification and rational/cyclotomic q-expansion descent, with the correct coefficient field for Γ₀, Γ₁ and character components. Rational q-expansion determination and a_m(f)=a₁(T_m f) are imported from the earlier classical forms package.",
-      "neededBy": [
-        "ModularCurvesPartII:R14.2/rational-coefficient-pairing"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
       "need": "Existing field-curve Picard/Jacobian scheme theorem with dimension, principal polarization and field-base change. Use it for each geometric fibre; the relative norm/polarization extension is requested separately from A0-extension/A2.",
       "neededBy": [
@@ -3707,7 +3697,7 @@
   ],
   "sourceIssues": [
     {
-      "id": "ModularCurvesPartII/E1",
+      "id": "ModularCurvesPartII/E301",
       "kind": "error",
       "locator": "Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
       "printed": "In our words: The singular exception is restricted to supersingular extra-automorphism points.",
@@ -3726,7 +3716,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E2",
+      "id": "ModularCurvesPartII/E302",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The scalar-equivalence framing problem is described as fine.",
@@ -3746,7 +3736,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E3",
+      "id": "ModularCurvesPartII/E303",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The cyclic isogeny correspondence is assigned degree σ₁(m).",
@@ -3766,7 +3756,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E4",
+      "id": "ModularCurvesPartII/E304",
       "kind": "misprint",
       "locator": "Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The auxiliary C_(pm)→C_p map and the C_p power map have component domains written as ℤ/m.",
@@ -3786,7 +3776,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E5",
+      "id": "ModularCurvesPartII/E305",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "printed": "In our words: The unrigidified stack of generalized p-gons is assigned cusp stabilizer order p.",
@@ -3806,7 +3796,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E6",
+      "id": "ModularCurvesPartII/E306",
       "kind": "error",
       "locator": "Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
       "printed": "In our words: For d>2 the component labels use both a unit b modulo d and a positive divisor r of d; the later chart clause asserts a unique positive-divisor lift.",
@@ -3826,7 +3816,7 @@
       }
     },
     {
-      "id": "ModularCurvesPartII/E7",
+      "id": "ModularCurvesPartII/E307",
       "kind": "error",
       "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
       "printed": "In our words: The branchwise mth-power map between the proper formal Tate n-gon curves is asserted finite flat of degree m.",
@@ -4273,6 +4263,77 @@
         "nodeId": "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison",
         "verdict": "corrected",
         "note": "Corrected the modular-symbol claim after reading current ModularForms Layer 8: its full-symbol period map gives a quotient, not equal kernels with cusp forms. Recorded the missing integral boundary-kernel/modulo-torsion cuspidal comparison and a Γ₁(5) genus-zero counterexample to full-symbol equality. The separately supplied J/Betti/Tate faithful comparison remains justified."
+      }
+    ]
+  },
+  "assemblyEdits": {
+    "job": "ASM-ModularCurvesPartII",
+    "date": "2026-10-14",
+    "note": "Reference repairs by the assembly. No statement of a mathematical result, hypothesis, API item, unit test, source locator or review verdict changed, except the input-owner wording in integral-coarse-curves and the citing proof step added to coarse-normalization-comparisons.",
+    "edits": [
+      {
+        "node": "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R13.2 replaced by ModularCurvesPartII:R13.2/gamma-level-structures, ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin, ModularCurvesPartII:R13.2/coherent-cyclic-decontractions, ModularCurvesPartII:R13.2/refined-gamma-zero-moduli, ModularCurvesPartII:R13.2/contraction-maps-between-levels",
+        "reason": "The charts use the integral full, point, mixed and refined cyclic level structures, their proper flat stacks and the compactified level maps of R13.2; these are the exact R12.1-packet nodes."
+      },
+      {
+        "node": "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R13.2 replaced by ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack, ModularCurvesPartII:R13.4a/standard-level-stack-identifications, ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin, ModularCurvesPartII:R13.2/refined-gamma-zero-moduli",
+        "reason": "For a general open H the compactified level stack is the normalization 𝒳_H of R13.4a/deligne-rapoport-level-stack; for the standard levels R13.4a/standard-level-stack-identifications identifies it with R13.2's moduli stacks (proper flat stacks and the refined Γ₀ stack). Proposed by the R13.4a packet's restructure entry and review; no cycle."
+      },
+      {
+        "node": "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+        "field": "statement",
+        "change": "'supplied by R13.2' replaced by the exact owner of the level stack for general open H and for the standard levels",
+        "reason": "R13.2 constructs only the standard-level stacks; the statement is for every open H. Wording of the input's owner only; the asserted properties of X_H are unchanged."
+      },
+      {
+        "node": "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
+        "field": "prerequisites, proofSteps",
+        "change": "added R13.4a/affine-open-identification and R13.4a/prime-diamond-agreement as prerequisites and a first proof step citing them",
+        "reason": "REV-ModularCurvesPartII--R13.4a found that this node states the conclusions those two R13.4a targets prove; its restructure entry asks this packet to cite them. No cycle: neither target depends on this node."
+      },
+      {
+        "node": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R12.3 replaced by ModularCurvesPartII:R12.3/compact-modular-uniformization, ModularCurvesPartII:R12.3/tate-and-cusp-parameter-agreement, ModularCurvesPartII:R12.3/cusp-fields-and-component-labels",
+        "reason": "Resolution recorded by REV-ModularCurvesPartII--R13.4b in the R13.4b packet: The accepted R12.1 packet states the compact analytic comparison, the cusp-width and Tate-parameter agreement and the cusp-field/determinant-label identification. The consumer adds only the descent by the determinant image of H and the scalar-framed component count."
+      },
+      {
+        "node": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R12.6 replaced by ModularCurvesPartII:R12.6/canonical-generic-fibre-descent, ModularCurvesPartII:R12.6/component-fields-and-twisted-descent, ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility",
+        "reason": "Resolution recorded by REV-ModularCurvesPartII--R13.4b in the R13.4b packet: Canonical generic models, component fields of the full-level curve and compatibility with level maps are exactly these accepted nodes; the last one names R13.4b as its consumer."
+      },
+      {
+        "node": "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R12.6 replaced by ModularCurvesPartII:R12.6/canonical-generic-fibre-descent, ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility",
+        "reason": "Resolution recorded by REV-ModularCurvesPartII--R13.4b in the R13.4b packet: Generic-fibre descent by q-expansions and compatibility of the comparisons with level maps, diamonds and characteristic-zero Hecke actions are the R12.6 inputs this comparison uses."
+      },
+      {
+        "node": "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R12.5 replaced by ModularCurvesPartII:R12.5/weight-two-regular-differentials, ModularCurvesPartII:R12.5/first-coefficient-hecke-pairing, ModularCurvesPartII:R12.5/perfect-hecke-pairing, ModularCurvesPartII:R12.6/canonical-generic-fibre-descent",
+        "reason": "Resolution recorded by REV-ModularCurvesPartII--R13.4b in the R13.4b packet: R12.5/perfect-hecke-pairing already proves perfection of β(T,f)=a₁(Tf) on V_Q=H⁰(X₀(N)_Q,Ω¹) for the cotangent Hecke image T_Q. The consumer’s own content is the identification of the Jacobian Hecke image tensored with Q with T_Q by faithfulness of the cotangent action; its nondegeneracy steps are the supplier’s proof and are imported, not proved again."
+      },
+      {
+        "node": "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence",
+        "field": "prerequisites",
+        "change": "stage citation ModularCurvesPartII:R13.2 replaced by ModularCurvesPartII:R13.2/gamma-level-structures, ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin, ModularCurvesPartII:R13.2/small-level-and-dm-boundaries, ModularCurvesPartII:R13.2/contraction-maps-between-levels",
+        "reason": "Resolution recorded by REV-ModularCurvesPartII--R13.4b in the R13.4b packet: The mixed Γ₁(N;n) level structure (with the disjointness condition [G_d+H_d]=Eˢᵐ[d]), properness and flatness of its stack, its DM/representability range and the contraction maps between levels are these accepted nodes. The refined Γ₀ construction is not an input of this node."
+      },
+      {
+        "field": "requests",
+        "change": "withdrew the four requests to this roadmap's own stages ModularCurvesPartII:R13.2, ModularCurvesPartII:R12.3, ModularCurvesPartII:R12.6, ModularCurvesPartII:R12.5",
+        "reason": "Every consumer now cites the exact supplying nodes of the accepted R12.1 and R13.4a packets, as REV-ModularCurvesPartII--R13.4b did for the same consumers in the R13.4b packet."
+      },
+      {
+        "field": "sourceIssues",
+        "change": "renumbered E1→E301, E2→E302, E3→E303, E4→E304, E5→E305, E6→E306, E7→E307; the one node reference (tate-power-isogeny source match) updated",
+        "reason": "The R14.3 packet numbers its own findings E1–E3, so E1–E3 named two different findings roadmap-wide (raised by REV-ModularCurvesPartII--R12.1, --R13.4b). The review object keeps its historical E-numbers; read E1–E7 there as E301–E307."
       }
     ]
   }

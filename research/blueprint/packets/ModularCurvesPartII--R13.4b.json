@@ -361,7 +361,7 @@
   "imports": [
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "sha256": "e93e1a1749d60cadd6530683ebba7183b667f086b2260a5076f4031ec6503aad",
+      "sha256": "2f2c4964f3a5834d405920948a2d6688debfde92f58dc06a63f590294fe3d86b",
       "review": "independent-review-REV-ModularCurvesPartII--R13.3",
       "accepted": "2026-10-13",
       "nodeIds": [
@@ -397,7 +397,9 @@
         "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions",
         "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
         "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison"
-      ]
+      ],
+      "sha256AtReview": "e93e1a1749d60cadd6530683ebba7183b667f086b2260a5076f4031ec6503aad",
+      "assemblyEdit": "ASM-ModularCurvesPartII repaired references in the R13.3 packet (its assemblyEdits field); imported node statements are unchanged."
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
@@ -1060,7 +1062,8 @@
         "ModularCurvesPartII:R12.3/cusp-fields-and-component-labels"
       ],
       "reason": "The accepted R12.1 packet states the compact analytic comparison, the cusp-width and Tate-parameter agreement and the cusp-field/determinant-label identification. The consumer adds only the descent by the determinant image of H and the scalar-framed component count.",
-      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+      "addedBy": "REV-ModularCurvesPartII--R13.4b",
+      "materializedIn": "research/blueprint/packets/ModularCurvesPartII--R13.3.json"
     },
     {
       "consumer": "ModularCurvesPartII:R13.4b/generic-component-comparison",
@@ -1071,7 +1074,8 @@
         "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility"
       ],
       "reason": "Canonical generic models, component fields of the full-level curve and compatibility with level maps are exactly these accepted nodes; the last one names R13.4b as its consumer.",
-      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+      "addedBy": "REV-ModularCurvesPartII--R13.4b",
+      "materializedIn": "research/blueprint/packets/ModularCurvesPartII--R13.3.json"
     },
     {
       "consumer": "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
@@ -1081,7 +1085,8 @@
         "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility"
       ],
       "reason": "Generic-fibre descent by q-expansions and compatibility of the comparisons with level maps, diamonds and characteristic-zero Hecke actions are the R12.6 inputs this comparison uses.",
-      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+      "addedBy": "REV-ModularCurvesPartII--R13.4b",
+      "materializedIn": "research/blueprint/packets/ModularCurvesPartII--R13.3.json"
     },
     {
       "consumer": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
@@ -1103,7 +1108,8 @@
         "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent"
       ],
       "reason": "R12.5/perfect-hecke-pairing already proves perfection of β(T,f)=a₁(Tf) on V_Q=H⁰(X₀(N)_Q,Ω¹) for the cotangent Hecke image T_Q. The consumer’s own content is the identification of the Jacobian Hecke image tensored with Q with T_Q by faithfulness of the cotangent action; its nondegeneracy steps are the supplier’s proof and are imported, not proved again.",
-      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+      "addedBy": "REV-ModularCurvesPartII--R13.4b",
+      "materializedIn": "research/blueprint/packets/ModularCurvesPartII--R13.3.json"
     },
     {
       "consumer": "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
@@ -1134,7 +1140,8 @@
         "ModularCurvesPartII:R13.2/contraction-maps-between-levels"
       ],
       "reason": "The mixed Γ₁(N;n) level structure (with the disjointness condition [G_d+H_d]=Eˢᵐ[d]), properness and flatness of its stack, its DM/representability range and the contraction maps between levels are these accepted nodes. The refined Γ₀ construction is not an input of this node.",
-      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+      "addedBy": "REV-ModularCurvesPartII--R13.4b",
+      "materializedIn": "research/blueprint/packets/ModularCurvesPartII--R13.3.json"
     },
     {
       "consumer": "ModularCurvesPartII:R14.3/relative-coefficient-system",
@@ -2000,7 +2007,7 @@
   "inheritedSourceIssues": [
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E1",
+      "id": "ModularCurvesPartII/E301",
       "kind": "error",
       "locator": "Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
       "affects": "a stated result",
@@ -2010,7 +2017,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E2",
+      "id": "ModularCurvesPartII/E302",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "affects": "the proof",
@@ -2020,7 +2027,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E3",
+      "id": "ModularCurvesPartII/E303",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "affects": "a stated result",
@@ -2030,7 +2037,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E4",
+      "id": "ModularCurvesPartII/E304",
       "kind": "misprint",
       "locator": "Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "affects": "the proof",
@@ -2040,7 +2047,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E5",
+      "id": "ModularCurvesPartII/E305",
       "kind": "error",
       "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
       "affects": "the proof",
@@ -2050,7 +2057,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E6",
+      "id": "ModularCurvesPartII/E306",
       "kind": "error",
       "locator": "Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
       "affects": "a stated result",
@@ -2060,7 +2067,7 @@
     },
     {
       "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-      "id": "ModularCurvesPartII/E7",
+      "id": "ModularCurvesPartII/E307",
       "kind": "error",
       "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
       "affects": "a stated result",
@@ -2121,7 +2128,8 @@
     "The R14.6→R19.1 weight-two transfer is scoped in links. The R19 owner must import it as an input and retain only the genuinely higher-weight congruence argument.",
     "The two-added-prime R20 case uses the R13.6 component maps, but the actual quaternionic J′_(pq) character exact sequence remains the R14.6 gap; a rational old/new isogeny cannot fill it.",
     "Own-roadmap stage citations of R12.3, R12.5, R12.6 and R13.2 are resolved to exact nodes of the accepted R12.1 packet; R14.2/rational-coefficient-pairing imports the perfection of the first-coefficient pairing from R12.5/perfect-hecke-pairing and adds only the Jacobian-image identification.",
-    "Source mistakes found in these targets are registered once, in the R13.3 packet (E1–E7) and the R14.3 packet (E1–E3); inheritedSourceIssues lists them. The two packets reuse E1–E3 for different findings; renumbering one set is for their owners."
+    "Source mistakes found in these targets are registered once, in the R13.3 packet (E301–E307, renumbered from E1–E7 by ASM-ModularCurvesPartII) and the R14.3 packet (E1–E3); inheritedSourceIssues lists them.",
+    "ASM-ModularCurvesPartII materialized the five resolutions whose consumer is an R13.3-packet node in that packet (marked materializedIn). The other thirty resolutions concern R14.3-packet consumers and remain contracts here until that packet is next revised."
   ],
   "review": {
     "status": "accepted",
