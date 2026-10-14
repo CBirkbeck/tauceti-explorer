@@ -204819,15 +204819,14 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "IHÉS article page at Centre Mersenne, 2026-10-14: no erratum linked.",
-    "arXiv:1812.09269 abstract page, 2026-10-14: versions v1–v3 listed, no erratum noted."
+    "Publisher article page (DOI 10.1007/s10240-021-00128-2) and arXiv:1812.09269 abstract/version page, 2026-10-14: no erratum for this claim noted."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular, Publications mathématiques de l'IHÉS 134 (2021), 153–501; published version",
    "status": "rejected",
-   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
-   "reviewReason": "The printed argument invokes the subgroup classification together with Tate, not Tate alone. A reduction-compatible finite lift needs explanation, but the packet has not ruled out that combined standard argument. Fong–Swan supplies a reusable proof expansion; this does not establish an error or genuine gap in the published proposition. The asserted implication from Tate alone is too weak, but is not what the source claims."
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Collated the published Proposition 10.1.3, pp. 473–474. Its solvable argument combines subgroup classification with Tate and asserts a lift of the residual representation itself. The allegation only shows that Tate alone does not specify reduction; it does not refute the combined argument. The explicit Fong–Swan expansion is useful but does not establish a source error."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E17",
@@ -204845,8 +204844,8 @@
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Luis Dieulefait and Ariel Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2",
    "status": "rejected",
-   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
-   "reviewReason": "The proof asserts an odd complex lift of the residual representation itself; it does not replace it by an arbitrary projective lift and does not cite Tate for this step. In this context lift includes compatibility with reduction. Supplying Fong–Swan expands a standard input, rather than contradicting the source."
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read DP21 Theorem 1.3 and proof, p. 3. The assertion is an odd complex lift of the given residual representation, whose meaning includes reduction compatibility. The source does not substitute an arbitrary projective lift. Expanding the finite-group lifting input does not establish a false claim."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E18",
@@ -204858,15 +204857,15 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "Webb's book page (Typos section), 2026-10-14: no entry for these remarks.",
-    "The published Cambridge edition was not consulted; the author states the prepublication version has the same mathematical content."
+    "Author book page and linked Typos file, 2026-10-14: no listed correction for this specific item. The Typos list uses published-edition pagination.",
+    "Only the prepublication PDF dated 23 February 2016 was collated; the published Cambridge edition was not consulted."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Peter Webb, A Course in Finite Group Representation Theory, Cambridge Studies in Advanced Mathematics 161 (2016); the author's prepublication version of 23 February 2016, which he states has the same mathematical content (printed page = PDF page − 7)",
    "status": "confirmed",
-   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
-   "reviewReason": "The cited prepublication remarks and the residue-root paragraph omit the prime-to-p qualification: in characteristic p no root has order divisible by p. The cyclic p-group is a direct counterexample to requiring primitive roots of the full exponent. This confirms the remarks error only, not a false Theorem 9.2.7; its characteristic-p hypothesis may be vacuous. The finite splitting-field proof here uses 9.2.6 instead of assuming a corrected theorem. The published edition was not collated."
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read the prepublication remarks after 9.2.7, p. 144, and the residue-root paragraph, p. 148. In characteristic p the full exponent need not be prime to p, and a primitive root of that order need not exist. A cyclic p-group splits over F_p. The remarks need the prime-to-p qualification; 9.2.7 itself has a potentially vacuous hypothesis and is not disproved. Published edition not collated."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E19",
@@ -204878,15 +204877,15 @@
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "Webb’s linked Typos file on the book page, read 2026-10-14: no entry for Proposition 9.4.5(5).",
-    "The published Cambridge edition was not collated; the claim concerns only the linked prepublication PDF."
+    "Author book page and linked Typos file, 2026-10-14: no listed correction for this specific item. The Typos list uses published-edition pagination.",
+    "Only the prepublication PDF dated 23 February 2016 was collated; the published Cambridge edition was not consulted."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Peter Webb, A Course in Finite Group Representation Theory, Cambridge Studies in Advanced Mathematics 161 (2016); the author's prepublication version of 23 February 2016, which he states has the same mathematical content (printed page = PDF page − 7)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read 9.4.5(5), p. 151, and its proof on p. 152. The displayed criterion repeats L₁ on both sides; free modules of different ranks disprove that criterion. Reduction of L₂ is the intended right-hand term, as also follows from 9.4.2. Claim limited to the dated author PDF."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E20",
@@ -204898,15 +204897,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Theorem 2.1.10, p. 3. The extension must take values in the divisible target and therefore use the chosen y. The displayed equality of two source expressions forces k′−k, rather than k−k′, to be the chosen multiple of l. The corrected well-definedness calculation in the packet is valid."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E21",
@@ -204918,15 +204917,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Corollary 8.1.5, p. 52. Compactness passes to both product factors, the vector part and lattice part; the repeated vector-part symbol is a misprint. This affects no theorem statement."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E22",
@@ -204938,15 +204937,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Lemma 8.2.1, p. 53. The compared fractional parts must use coordinates of h; the basis-vector tuple cannot yield the required small nonzero element of H. The packet uses the corrected coordinates."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E23",
@@ -204958,15 +204957,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Lemma 8.2.3 and Exercise 8.2.4, pp. 53–54. Only H∩L is cyclic; H may have higher rank. The lifted generators must be indexed by the projected generating family, ending at m. Both corrections are justified by the stated induction."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E24",
@@ -204978,15 +204977,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Lemma 8.2.5, p. 54. Membership is known for the integer multiples of λ_n u_n, not the expression using u₀ before the limit. Closedness applied to the actual elements proves the intended conclusion; the revised small-vector sketch is independent of this misprint."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E25",
@@ -204998,15 +204997,15 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "Author source page and linked teaching notes checked on 2026-10-14; no correction for this item found.",
-    "Only the dated author PDF was collated; no later printed version is claimed."
+    "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+    "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
    ],
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+   "reviewReason": "Read Lemma 8.0.7, p. 51. Without the extra openness hypothesis q=0 into R gives a singleton local image, so the early openness assertion is false. In the final paragraph the containment must be in the quotient image p(W₁). The stated lifting lemma survives both proof corrections."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E20",
@@ -234149,10 +234148,11 @@
    "correction": "It is a unit on [s,r]; divisibility of f by the resulting g on [s′,r] follows by the separate slope argument.",
    "reason": "A unit on [s′,r] cannot remove a zero or slope lying in [s′,s).",
    "affects": "the proof",
-   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "known": "Known: Kedlaya, Erratum for Slope Filtrations Revisited, Documenta Mathematica 12 (2007), pp. 361–362; the same correction is recorded in RD.2 source issue E-RD2-4, with journal statement p. 474 and proof p. 475.",
    "searched": [
     "The public version and locators named here, independently read 2026-10-14.",
-    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed.",
+    "The RD.2 source locator and correction record for the published erratum, pp. 361–362; no new novelty claim is made."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
@@ -259978,8 +259978,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "rejected",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Rejected: the published proof on p.954 contains no displayed localization product with the alleged wrong indices. Inverting ratios already units would not change the localization anyway. The actual minor reference slip on that page is recorded as E17."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Rejected again: the published proof on p.954 displays no localization product, so there is no wrong index set to correct. The real slip on that page is E17."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E2",
@@ -259989,7 +259989,7 @@
    "correction": "Import the corrected closed quotient and strong-closed notions from PerfectoidQuotients Q4, as recorded in the reviewed extraction: Bhatt–Scholze Prisms Theorem7.4/Remark7.5 and Étale cohomology of diamonds Definition5.7(ii)/Theorem5.8.",
    "reason": "The later quotient theorem and plus-ring condition correct these source statements; this run imports that owner rather than reconstructing the proof.",
    "affects": "a stated result",
-   "known": "Known corrections explicitly recorded and source-qualified in the reviewed PAPER-SCHOLZE-15 catalogue and Q4 plan.",
+   "known": "PAPER-SCHOLZE-15/E1 and E2 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -259999,8 +259999,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed with corrected scope: Prisms Theorem 7.4/Remark 7.5 give surjectivity for the closed quotient, contrary to the 2015 caution; diamonds Definition 5.7(ii)/Theorem 5.8 explicitly fix the plus-ring integral-closure condition. These later statements, not the obsolete caution, are used."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Remark 2.2.4 (p.956) asserts that R→S need not be surjective, with the example K⟨T^(1/p^∞)⟩ and I=(T−1); Bhatt–Scholze, Prisms, Theorem 7.4 shows surjectivity for every Zariski closed subset. Definition 2.2.6 (p.957) imposes only almost surjectivity of R⁺→S⁺; the later definition also requires S⁺ to be the integral closure of the image."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E3",
@@ -260010,7 +260010,7 @@
    "correction": "Use only Lagrangian coordinate subsets, one of each paired symplectic basis coordinate.",
    "reason": "The g=2 nonadmissible chart p₁₃≠0 is nonempty but its reduction cell has p³−p points, whereas an admissible graph cell has p³. An integral symplectic coordinate change would preserve those counts. Thus nonisotropy of the coordinate plane alone is not an emptiness proof.",
    "affects": "a stated result",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E16 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260020,8 +260020,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed, with a replacement witness: arbitrary coordinate g-subsets are not one GSp_2g(Z_p) orbit. For g=2 over F_p, the ordinary Lagrangian graph cell has p³ points, while the cell p₁₃≠0 has p³−p points. That cell is nonempty; use the admissible 2^g charts rather than claiming it empty."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Checked on pp.1008, 1012–1014 and 1029–1030. For g=2 the cell p₁₃≠0 of the Lagrangian Grassmannian over F_p is cut out by bc−ad=1 in the coordinates (1,a,0,b),(0,c,1,d), so it has p³−p points, while a Lagrangian graph cell has p³; GSp_4(Z_p) cannot carry one chart to the other. The 2^g Lagrangian charts still cover Fl, since every Lagrangian reduction has a nonzero Lagrangian Plücker coordinate."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E4",
@@ -260031,7 +260031,7 @@
    "correction": "Choose the minimum codimension among violating modules.",
    "reason": "The spectral-sequence comparison requires the lower-codimension terms not to interfere.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E32 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260041,18 +260041,18 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the nonzero spectral-sequence term must have minimal, not maximal, codimension among the violations to isolate the first surviving term."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1024: with c the maximal violating codimension, a term E^j(H̃_k) with j<c could come from a violating H̃_k of smaller codimension, which the argument must exclude; c has to be the minimal one."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E5",
    "kind": "misprint",
-   "locator": "Corollary 4.2.3 proof, p.1024",
-   "printed": "The supplier range labels do not match the Hodge-type middle-degree case.",
+   "locator": "Paragraph after Corollary 4.2.3, p.1024",
+   "printed": "For compact X_K the remark identifies the Calegari–Emerton invariants as l₀=d and q₀=0.",
    "correction": "Use l₀=0 and q₀=d.",
-   "reason": "The geometric completed compact-support amplitude is bounded by d in the equal-rank Shimura case.",
+   "reason": "For an equal-rank group l₀=rank G(R)−rank K_∞=0, and q₀=(dim_R X−l₀)/2=d for the Shimura varieties here; the printed values are exchanged.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E33 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260062,8 +260062,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the Hodge-type equal-rank case has l₀=0, q₀=d; the printed values are exchanged."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Checked in the remark after Corollary 4.2.3, p.1024: the printed values are l₀=d, q₀=0, whereas the Shimura case has l₀=0, q₀=d."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E6",
@@ -260073,7 +260073,7 @@
    "correction": "The final exponent is (ℓ_i−1)/2 and the constituent is a representation of GL_n_i.",
    "reason": "A segment of length ℓ_i runs from (1−ℓ_i)/2 to (ℓ_i−1)/2 in unit steps.",
    "affects": "a stated result",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E8 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260083,8 +260083,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: a length-ℓ_i segment has endpoints (1−ℓ_i)/2 and (ℓ_i−1)/2; its underlying cuspidal constituent is on GL_{n_i}."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1033: the displayed sum ends with the exponent (ℓ_i−i)/2, and φ_(Π_iv) is said to take values in ᴸGL_h; a segment of length ℓ_i ends at (ℓ_i−1)/2 and Π_i lives on GL_(n_i)."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E7",
@@ -260094,7 +260094,7 @@
    "correction": "Choose a>n for Sp and a≥n for U when taking all weights ak,k≥1.",
    "reason": "The initial term k=1 must already satisfy Proposition5.1.1’s range.",
    "affects": "a stated result",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E37 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260104,8 +260104,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: taking k=1 in the claimed progression without restricting a can violate Proposition 5.1.1. Choose a>n in the symplectic case and a≥n in the unitary case."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1038: the proof uses the ideals ker(T_cl→T_K,k) for every k≥1, but Corollary 5.1.7 needs the weight mk in the discrete-series range of Proposition 5.1.1, so the step m must satisfy m>n (Sp) or m≥n (U)."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E8",
@@ -260115,7 +260115,7 @@
    "correction": "The coefficient of X^(2n) has positive sign; use P_v(X)Q_vc(q_vX).",
    "reason": "The two degree-n top coefficients have product sign (−1)^(2n)=1.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E38 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260125,8 +260125,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed in both unitary displays on pp.1042–1043: multiplying the degree-n leading signs gives (−1)^(2n)=+1."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Both unitary displays on pp.1042–1043 end with −q^nT_2n X^(2n); the degree 2n term has sign (−1)^(2n)=+1."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E9",
@@ -260136,7 +260136,7 @@
    "correction": "Require I₀,ℓ=I₀ as well as ℓ∤[F̃:F].",
    "reason": "Otherwise the character family has no common chosen coefficient quotient.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E39 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260146,8 +260146,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the subsequent character comparison uses the previously stabilized ideal; selecting ℓ only by largeness and the degree exclusion does not ensure that equality."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1050: the new prime ℓ is chosen only with ℓ∤[F̃:F]; Lemma 5.3.6 then compares character determinants modulo I₀, which needs I₀,ℓ=I₀, available for infinitely many ℓ by the construction on p.1048."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E10",
@@ -260157,7 +260157,7 @@
    "correction": "Use Ĩ_χ=I₁+I_χ and restrict to characters with Ĩ₀,χ=I₀.",
    "reason": "The untwisted and twisted determinants must be compared modulo both errors.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E40 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260167,8 +260167,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the two determinants are available over quotients by different ideals; their common comparison quotient must kill their sum Ĩ_χ."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1051: the composite determinant is compared with D̃_I modulo I_χ alone, while the untwisted and twisted determinants are only known modulo I₁ and I_χ respectively; the comparison quotient is A/Ĩ_χ."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E11",
@@ -260178,7 +260178,7 @@
    "correction": "Take the first nonzero coefficient order r and compare modulo X^(r+1).",
    "reason": "At order one the displayed induction otherwise does not start.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E41 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260188,8 +260188,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: if the first difference has X-order r, reduction modulo X^(r+1) isolates it. The printed X^(r+1) start with reduction at that same order cannot do so."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1053: with k minimal such that not all Q_m≡1 mod X^k, the stated congruence Q_m≡1+(XT^m)^k a_m mod X^(k+1) presupposes Q_m≡1 mod X^k; k has to be the first nonzero order."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E12",
@@ -260199,7 +260199,7 @@
    "correction": "Expand the remaining product in T with polynomial coefficients in X, after isolating the least weight.",
    "reason": "Q₀∈S[X] can be divided out coefficientwise in this expansion while retaining polynomial X-coefficients.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E42 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260209,18 +260209,18 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: expanding in X only gives formal X-series coefficients. Expanding in T after the least-weight shift supplies polynomial X-coefficients for the induction."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1054: Q₀ lies in S[X], not S[T], and the X^a-coefficient of Q′Q₀ is not Q′_aQ₀; expanding in T with coefficients in S[X] makes the argument work."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E13",
    "kind": "misprint",
-   "locator": "Lemma 5.3.11 multiplicativity proof, p.1055",
+   "locator": "Proof of Lemma 5.3.8, multiplicativity of D^(m), the display before Lemma 5.3.12, p.1055",
    "printed": "The noncommuting inverse factors are ordered as if multiplication commuted.",
    "correction": "Use the inverse of (1−Ux)(1−Uy), namely (1−Uy)⁻¹(1−Ux)⁻¹, when forming the kernel element.",
    "reason": "With the corrected order its specialization at U=1 is identity, as the kernel argument requires.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E43 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260230,8 +260230,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the inverse of the product of the two noncommuting factors reverses their order. The printed order does not specialize to the identity needed by the kernel argument."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Locator corrected: the display is in the proof of Lemma 5.3.8, between Lemmas 5.3.11 and 5.3.12. p.1055: with the printed order f|_(U=1)=(1−x)(1−y)(1−x)⁻¹(1−y)⁻¹, which is not 1 in the noncommutative S[G]; Lemma 5.3.12 needs f|_(U=1)=1, which holds with (1−Uy)⁻¹ before (1−Ux)⁻¹."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E14",
@@ -260241,7 +260241,7 @@
    "correction": "Use σ_m and the local Hecke coefficient map.",
    "reason": "Its right-hand side is in the local integral Hecke quotient, not the residual field.",
    "affects": "a stated result",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E11 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260251,8 +260251,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the characteristic formula for σ_m must use that representation and its local quotient coefficient map; the printed σ_ψ belongs to the residual field."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1060: the displayed identity is in the localized Hecke quotient, so its left side must be the representation σ_m just constructed, not the residual σ_ψ."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E15",
@@ -260262,7 +260262,7 @@
    "correction": "Reverse the containment: the simultaneous finite-coefficient kernel is contained in the integral action kernel.",
    "reason": "UCT injects integral cohomology modulo p^m into finite-coefficient cohomology; its next-degree Tor term prevents the converse in general.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E45 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260272,8 +260272,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: UCT injects H^i(M)/p^m into H^i(M/p^m), so simultaneous finite-coefficient annihilation implies integral annihilation. The Tor term gives no reverse implication."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1060: H^i(M)/p^m injects into H^i(M/p^m) and the finitely generated H^i(M) is p-adically separated, so the simultaneous finite-coefficient kernel lies in the integral kernel; the printed inclusion fails when H^(i+1)(M) has torsion acted on nontrivially."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E16",
@@ -260283,7 +260283,7 @@
    "correction": "Use products over m, and over (i,m), then the closed image.",
    "reason": "Identity has infinitely many nonzero components, so it does not belong to the direct sum.",
    "affects": "the proof",
-   "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
+   "known": "PAPER-SCHOLZE-15/E46 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals passage at this locator",
     "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
@@ -260293,8 +260293,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Confirmed: the unital simultaneous action has an identity component at every exponent, which is not in the direct sum. A product followed by its closed action image has the required topology."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "p.1061: the identity of T has a nonzero component for every m, so its image is not in the direct sum; products and closed images are needed."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E17",
@@ -260304,7 +260304,7 @@
    "correction": "Use (i) for bounded section ratios and (ii) for the unit-locus description of overlaps. For i∈J and J⊂J′, take the product of s_j^(i)/s_i^(i) over j∈J′\\J.",
    "reason": "Condition (i) bounds the ratios; (ii) identifies where they have absolute value one. Later on the page the reduced-section gluing already correctly cites the overlap bound (iii). There are three numbered hypotheses in the published lemma.",
    "affects": "nothing",
-   "known": "PAPER-SCHOLZE-15/E13 in the reviewed extraction",
+   "known": "PAPER-SCHOLZE-15/E13 in the reviewed paper extraction; no published erratum found",
    "searched": [
     "Published Annals proof, p.954",
     "Reviewed PAPER-SCHOLZE-15.result.json, E13"
@@ -260313,8 +260313,8 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "Read the published page: the reference names (i), but agreement modulo ϖ uses the displayed bound in (ii). The four hypotheses already give the intended result."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Verified the revision's correction on p.954: 'By assumption (i)' introduces f∈R_J⁺ with U_J′={|f|=1}, which needs (i) for f∈R_J⁺ and (ii) for the unit loci; the gluing of L uses (ii) and (iii) and the gluing of the s̄_j uses (iii), both cited correctly. The earlier review's relocation to reduced-section gluing was wrong; PAPER-SCHOLZE-15/E13 agrees with this entry."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E18",
@@ -260335,8 +260335,212 @@
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
    "citation": "Ana Caraiani and Bao V. Le Hung, On the image of complex conjugation in certain Galois representations, Author PDF linked below; §3, printed author pages 6–9 (published in Compositio Mathematica 152 (2016))",
    "status": "confirmed",
-   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
-   "reviewReason": "The Heisenberg lattice computation supplies a neat-level counterexample at p=5: two, rather than three, degree-one classes. The target already requests actual nilmanifold complexes; no conclusion here relies on the false exterior-power formula."
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Author PDF p.8: Remark 3.1 identifies R^jπ_*F̄_p with the j-th exterior power of the adjoint action on Lie U. For the Borel of GL₃ at principal level 3 the fibre group is the Heisenberg lattice with a,b,c∈3Z and commutators in 9Z, whose abelianization Z²⊕Z/3 gives a two-dimensional H¹ with F₅ coefficients, not three. Rationally the correct answer is Lie algebra cohomology (Nomizu), which differs from the exterior algebra whenever U is not commutative."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E19",
+   "kind": "gap",
+   "locator": "Corollary 5.2.6 proof, p.1044 (arXiv v2: proof of Corollary V.2.6, p.90; same text)",
+   "printed": "To reach a neat tame level the proof adjoins the places over an auxiliary prime ℓ≥3, ℓ≠p, to S⁺ and asserts that the desired result then follows by varying ℓ.",
+   "correction": "For each ℓ the argument gives J_ℓ, with J_ℓ^(d+1)=0, only in the Hecke image away from S⁺∪{ℓ}, and a determinant unramified outside S∪{ℓ}. Since the Hecke image A is finite, infinitely many ℓ share the extended ideal J=J_ℓA; for two of them the determinants over A/J agree at all Frobenius outside S∪{ℓ₁,ℓ₂}, hence coincide, are unramified at ℓ₁ and ℓ₂, and give the statement for S with the same exponent d+1.",
+   "reason": "The Hochschild–Serre sequence for the level-ℓ tower is equivariant only for Hecke operators away from ℓ, so neither the filtration nor the determinant controls the operators at ℓ; gluing two primes without the stabilization only gives an ideal of exponent 2d+1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Published Annals text at the locator",
+    "arXiv v2 (1306.2070v2) at the corresponding passage",
+    "PAPER-SCHOLZE-15.result.json sourceIssues",
+    "Annals and arXiv records: no erratum or later version found"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Recorded by this review after reading p.1044 and arXiv v2 p.90; the stabilization argument repairs it without changing the exponents 2(d+1) and 4(d+1)."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E20",
+   "kind": "misprint",
+   "locator": "Remark 5.4.5 and the proof printed after it, p.1061 (arXiv v2: Remark V.4.5, p.104; same layout)",
+   "printed": "A proof follows Remark 5.4.5; it builds a determinant over the localized Hecke ring modulo I with I^N=0, reducing to σ_ψ, and applies Chenevier Theorem 2.22(i).",
+   "correction": "That proof is the proof of Corollary 5.4.4; it belongs before Remark 5.4.5, which says only that the same proof gives the stronger statements.",
+   "reason": "The proof uses the irreducibility of σ_ψ and produces σ_m over the localized ring, which is exactly the content of Corollary 5.4.4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published Annals text at the locator",
+    "arXiv v2 (1306.2070v2) at the corresponding passage",
+    "PAPER-SCHOLZE-15.result.json sourceIssues",
+    "Annals and arXiv records: no erratum or later version found"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Recorded by this review from the published p.1061 and arXiv v2 p.104."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E21",
+   "kind": "misprint",
+   "locator": "Lemma 5.2.2, p.1038",
+   "printed": "The natural projection is written with the level subscripts X_P and X^M_P in place of K_P and K^M_P.",
+   "correction": "The projection is X^P_(K_P)→X^M_(K^M_P).",
+   "reason": "The lemma's spaces are indexed by compact open subgroups; X_P is not a level.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E9 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1038: the projection's subscripts are the space symbols, not the levels K_P and K^M_P."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E22",
+   "kind": "misprint",
+   "locator": "Paragraph before Lemma 5.2.3, p.1041",
+   "printed": "The map H^i(X^P_(K^P))→H^i(X^M_(K^M)) is described as pullback along an embedding with target K^P_(K^P).",
+   "correction": "The embedding is X^M_(K^M)→X^P_(K^P).",
+   "reason": "The target must be the stratum X^P_(K^P), of which the Levi space is a section.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E10 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1041: the embedding's target is printed with the level symbol K in place of X."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E23",
+   "kind": "misprint",
+   "locator": "Theorem 4.3.1 proof, p.1030",
+   "printed": "The locus where s̄_J is invertible and its sections H⁰(V_(JK_p),I/p^n) are written without the tilde.",
+   "correction": "Use Ṽ_(JK_p), the preimage in the genuine minimal compactification, in both places.",
+   "reason": "Earlier on the same page the continuity statement and the localization are for Ṽ_(JK_p); the formal model and 𝔍 live on the genuine compactification.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E34 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1030: the preceding display has Ṽ_(JK_p), the following one drops the tilde."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E24",
+   "kind": "misprint",
+   "locator": "Remark 5.1.5, p.1034",
+   "printed": "For Π′=Π|·|^((k+1−n)/2) the remark asserts (Π′^∨)^c≅Π′⊗χ with χ=|·|^(n+1−k).",
+   "correction": "χ=|·|^(n−1−k).",
+   "reason": "From (Π^∨)^c≅Π one gets (Π′^∨)^c≅Π|·|^(−(k+1−n)/2)=Π′|·|^(n−1−k).",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E36 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Recomputed: the twist exponent is −2·(k+1−n)/2=n−1−k; Theorem 5.1.4 as stated is unaffected."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E25",
+   "kind": "misprint",
+   "locator": "§5.4 setup paragraph, p.1057",
+   "printed": "The sentence defining K=K_SK^S repeats 'is any compact open subgroup' twice.",
+   "correction": "K_S⊂∏_(v∈S)GL_n(O_Fv) is any compact open subgroup and K^S=∏_(v∉S)GL_n(O_Fv).",
+   "reason": "Duplicated phrase; the arXiv v2 wording is correct.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E31 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1057."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E26",
+   "kind": "misprint",
+   "locator": "Theorem 4.1.1 proof, first displayed limit, p.1020",
+   "printed": "The limit defining 𝒴*_(K^p)(J) runs over K^p⊂K^p′⊂G(A_f^p).",
+   "correction": "The limit runs over K^p′⊂G′(A_f^p), the Siegel group.",
+   "reason": "The spaces 𝒴*_(K^p′) are Siegel spaces, defined for levels of G′.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E6 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1020."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E27",
+   "kind": "gap",
+   "locator": "Theorem 4.1.1(i) and the end of its proof, pp.1018–1020",
+   "printed": "The proof says that part (i) for G follows easily from part (i) for G′ by going through the argument.",
+   "correction": "The identification of R⁺_(K^p) with the p-adic completion of the colimit of the finite-level plus rings, and the descent of V_J to a finite-level affinoid, need an argument; the perfectoid supplier provides it.",
+   "reason": "Lemma 4.3.3's injectivity uses exactly this colimit description, so it cannot be left implicit.",
+   "affects": "the proof",
+   "known": "PAPER-SCHOLZE-15/E7 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on pp.1019–1020; TC.2/boundary-ideal-colimit takes the colimit description from PerfectoidShimuraVarieties:S2/hodge-image-compactified-tower."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E28",
+   "kind": "misprint",
+   "locator": "Theorem 3.3.18(vi) proof, last paragraph, p.1015",
+   "printed": "The set |h|≤|p|^(C+1) is said to be an open subset of U that does not meet the boundary, hence empty.",
+   "correction": "It does not meet U minus the boundary, so it is an open subset contained in the boundary, hence empty.",
+   "reason": "On U minus the boundary |h|≥|p|^C>|p|^(C+1).",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E23 in the reviewed paper extraction; no published erratum found",
+   "searched": [
+    "Published Annals text at the locator",
+    "PAPER-SCHOLZE-15.result.json sourceIssues"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure~2",
+   "reviewReason": "Read on p.1015."
   },
   {
    "id": "TropicalAndBerkovichArithmetic/E1",
