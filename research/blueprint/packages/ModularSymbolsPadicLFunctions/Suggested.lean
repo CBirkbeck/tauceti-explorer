@@ -1,0 +1,567 @@
+import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
+import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+import Mathlib.NumberTheory.ModularForms.LFunction
+import Mathlib.RepresentationTheory.Basic
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.Tactic.LinearCombination
+import TauCeti.RepresentationTheory.Augmentation
+
+/-!
+# ModularSymbolsPadicLFunctions: representative target signatures
+
+This file is not the roadmap: the roadmap is `README.md`, which is definitive. The file records the
+light definitions whose carriers exist in Mathlib and Tau Ceti at the pinned commits, and the
+signatures of milestone theorems that can be stated against them, so that contributors and
+reviewers converge on names and signatures. It is not exhaustive. Every theorem is proved by
+`sorry`; definitions have real bodies.
+
+Design choices made explicit here:
+
+* Divisors on the cusps are `MonoidAlgebra ℤ (OnePoint ℚ)` with Mathlib's permutation
+  representation of `GL₂(ℚ)`, and `Δ₀` is Tau Ceti's augmentation subrepresentation. This is
+  definitionally the divisor module `TauCeti.ModularSymbols.degreeZero ℤ` of the current Tau Ceti
+  library, which the implementation imports.
+* A right action `v ↦ v ∣ γ` of `Γ` on the coefficients is recorded as the left representation
+  `ρ γ = (· ∣ γ⁻¹)`, so a modular symbol satisfies `φ (γ • D) = ρ γ (φ D)`.
+* `V_k` is the module of homogeneous polynomials of degree `k` in `X 0 = X`, `X 1 = Y`, with the
+  row-adjugate right action `P ↦ P(dX - cY, -bX + aY)`; Tau Ceti's `binaryFormRep` uses
+  `P ↦ P(aX + bY, cX + dY)` and the two agree after `γ ↦ (adj γ)ᵀ`.
+* Group cohomology in degree one is used through explicit cocycles and coboundaries, so that the
+  boundary exact sequence of Layer 0 is stated without choosing a model of `H¹`.
+* Heavy objects (the period symbol, parabolic cohomology as a quotient, distribution modules and
+  their topologies, overconvergent symbols, the p-adic L-function, half-logarithms as functions
+  on the open disc) are README targets and do not appear here.
+-/
+
+namespace TauCetiRoadmap.ModularSymbolsPadicLFunctions
+
+open Matrix MvPolynomial
+open scoped MatrixGroups OnePoint
+
+noncomputable section
+
+/-! ## Layer 0: Hom-side modular symbols, Hecke operators and the Eichler–Shimura isomorphism -/
+
+section Divisors
+
+/-- The cusps `P¹(ℚ)`, with Mathlib's action of `GL₂(ℚ)` by linear fractional transformations. -/
+abbrev P1Q := OnePoint ℚ
+
+/-- `Δ₀ = Div⁰(P¹(ℚ))`: the degree-zero divisors on the cusps, as the augmentation submodule of the
+permutation module `ℤ[P¹(ℚ)]`. -/
+abbrev Delta0 : Submodule ℤ (MonoidAlgebra ℤ P1Q) :=
+  (TauCeti.augmentationSubrepresentation ℤ (GL (Fin 2) ℚ) P1Q).toSubmodule
+
+/-- The action of `GL₂(ℚ)` on `Δ₀`. -/
+abbrev delta0Rep : Representation ℤ (GL (Fin 2) ℚ) Delta0 :=
+  (TauCeti.augmentationSubrepresentation ℤ (GL (Fin 2) ℚ) P1Q).toRepresentation
+
+/-- The divisor `{b} - {a}`, the path from `a` to `b`. -/
+def divisor (a b : P1Q) : Delta0 :=
+  ⟨MonoidAlgebra.single b 1 - MonoidAlgebra.single a 1,
+    TauCeti.single_sub_single_mem_augmentationSubrepresentation b a⟩
+
+/-- `SL₂(ℤ)` acting on the cusps and on divisors through `GL₂(ℚ)`. -/
+abbrev toGLQ : SL(2, ℤ) →* GL (Fin 2) ℚ := Matrix.SpecialLinearGroup.mapGL ℚ
+
+end Divisors
+
+section Symbols
+
+variable {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
+
+/-- **Modular symbols** `Symb_Γ(V) = Hom_{ℤ[Γ]}(Δ₀, V)`: the additive maps `φ : Δ₀ → V` with
+`φ(γ D) = ρ(γ) φ(D)` for `γ ∈ Γ` (Pollack–Stevens §2.1). Belongs to Layer 0, §0.2. -/
+def symbols (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    AddSubgroup (Delta0 →ₗ[ℤ] V) where
+  carrier := {φ | ∀ (γ : Γ) (D : Delta0), φ (delta0Rep (toGLQ γ) D) = ρ γ (φ D)}
+  add_mem' {a b} ha hb γ D := by simp [ha γ D, hb γ D]
+  zero_mem' γ D := by simp
+  neg_mem' {a} ha γ D := by simp [ha γ D]
+
+theorem mem_symbols_iff (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (φ : Delta0 →ₗ[ℤ] V) :
+    φ ∈ symbols Γ ρ ↔ ∀ (γ : Γ) (D : Delta0), φ (delta0Rep (toGLQ γ) D) = ρ γ (φ D) :=
+  Iff.rfl
+
+/-- A modular symbol is determined by its values on the unimodular divisors `{g 0} - {g ∞}`
+(Manin's theorem, ModularForms Layer 8). -/
+theorem symbols_ext (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    {φ ψ : Delta0 →ₗ[ℤ] V} (hφ : φ ∈ symbols Γ ρ) (hψ : ψ ∈ symbols Γ ρ)
+    (h : ∀ g : SL(2, ℤ), φ (divisor (toGLQ g • (∞ : P1Q)) (toGLQ g • ((0 : ℚ) : P1Q))) =
+      ψ (divisor (toGLQ g • (∞ : P1Q)) (toGLQ g • ((0 : ℚ) : P1Q)))) :
+    φ = ψ := sorry
+
+/-- The zero map is a modular symbol for every `Γ` and `V`. -/
+example (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) : (0 : Delta0 →ₗ[ℤ] V) ∈ symbols Γ ρ :=
+  (symbols Γ ρ).zero_mem
+
+/-- Level one, trivial coefficients: `Symb_{SL₂(ℤ)}(ℤ) = 0` (the Manin relations give `2v = 0` and
+`3v = 0`). A definition on all of `ℤ[P¹(ℚ)]` would contain the constant functions instead. -/
+theorem symbols_SL2Z_trivial :
+    symbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) = ⊥ :=
+  sorry
+
+end Symbols
+
+section Coefficients
+
+variable (R : Type*) [CommRing R]
+
+/-- **The coefficient modules** `V_k(R)`: homogeneous polynomials of degree `k` in `X = X 0` and
+`Y = X 1`. Belongs to Layer 0, §0.1. -/
+abbrev Vk (k : ℕ) : Submodule R (MvPolynomial (Fin 2) R) :=
+  MvPolynomial.homogeneousSubmodule (Fin 2) R k
+
+/-- The row-adjugate right action `(P ∣ γ)(X, Y) = P(dX - cY, -bX + aY)` of an integral matrix
+`γ = !![a, b; c, d]`, as a substitution of variables. -/
+def slashPoly (γ : Matrix (Fin 2) (Fin 2) ℤ) :
+    MvPolynomial (Fin 2) R →ₐ[R] MvPolynomial (Fin 2) R :=
+  MvPolynomial.aeval ![C (γ 1 1 : R) * X 0 - C (γ 1 0 : R) * X 1,
+    -(C (γ 0 1 : R) * X 0) + C (γ 0 0 : R) * X 1]
+
+/-- The action is a right action: `P ∣ (γ δ) = (P ∣ γ) ∣ δ`, because `(γ δ)* = δ* γ*`. -/
+theorem slashPoly_mul (γ δ : Matrix (Fin 2) (Fin 2) ℤ) :
+    slashPoly R (γ * δ) = (slashPoly R δ).comp (slashPoly R γ) := sorry
+
+/-- The action preserves the degree. -/
+theorem slashPoly_mem_Vk {k : ℕ} (γ : Matrix (Fin 2) (Fin 2) ℤ) {P : MvPolynomial (Fin 2) R}
+    (hP : P ∈ Vk R k) : slashPoly R γ P ∈ Vk R k := sorry
+
+/-- A scalar matrix `c • 1` acts on `V_k` by `c ^ k`. -/
+theorem slashPoly_scalar {k : ℕ} (c : ℤ) {P : MvPolynomial (Fin 2) R} (hP : P ∈ Vk R k) :
+    slashPoly R (c • (1 : Matrix (Fin 2) (Fin 2) ℤ)) P = (c : R) ^ k • P := sorry
+
+/-- Convention witness: `T = !![1, 1; 0, 1]` fixes `X` and sends `Y` to `Y - X`. The unadjugated
+action `P ↦ P((X, Y) T)` would send `X` to `X + Y`. -/
+example : slashPoly ℤ !![1, 1; 0, 1] (X 0) = X 0 ∧
+    slashPoly ℤ !![1, 1; 0, 1] (X 1) = -X 0 + X 1 := by
+  simp [slashPoly]
+
+end Coefficients
+
+section HeckeMonoid
+
+/-- **The Hecke monoid** `Σ₀(N)`: integral matrices `!![a, b; c, d]` with `det ≠ 0`, `N ∣ c` and
+`gcd(a, N) = 1`. Belongs to Layer 0, §0.1. -/
+def Sigma0 (N : ℕ) : Submonoid (Matrix (Fin 2) (Fin 2) ℤ) where
+  carrier := {γ | γ.det ≠ 0 ∧ (N : ℤ) ∣ γ 1 0 ∧ IsCoprime (γ 0 0) (N : ℤ)}
+  mul_mem' := sorry
+  one_mem' := by simp [isCoprime_one_left]
+
+/-- `Γ₀(N) ⊆ Σ₀(N)`. -/
+theorem Gamma0_le_Sigma0 (N : ℕ) {γ : SL(2, ℤ)} (hγ : γ ∈ CongruenceSubgroup.Gamma0 N) :
+    (γ : Matrix (Fin 2) (Fin 2) ℤ) ∈ Sigma0 N := sorry
+
+/-- Upper triangular Hecke representatives lie in `Σ₀(N)`. -/
+example (N : ℕ) (a : ℤ) (ℓ : ℕ) (hℓ : ℓ ≠ 0) : !![1, a; 0, (ℓ : ℤ)] ∈ Sigma0 N := by
+  refine ⟨?_, ?_, ?_⟩ <;> simp [Matrix.det_fin_two, hℓ, isCoprime_one_left]
+
+/-- `diag(2, 1) ∉ Σ₀(4)`: the condition is on the upper-left entry. -/
+example : ¬ (!![2, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) ∈ Sigma0 4 := sorry
+
+/-- An integral matrix of nonzero determinant as an element of `GL₂(ℚ)` (the identity otherwise). -/
+def intMatrixToGL (δ : Matrix (Fin 2) (Fin 2) ℤ) : GL (Fin 2) ℚ :=
+  if h : δ.det ≠ 0 then
+    Matrix.GeneralLinearGroup.mkOfDetNeZero ((Int.castRingHom ℚ).mapMatrix δ)
+      (by rw [← RingHom.map_det]; simpa using h)
+  else 1
+
+variable {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
+
+/-- The slash `(φ ∣ δ)(D) = φ(δ D) ∣ δ` of a map `φ : Δ₀ → V`, for a right action `act` of integral
+matrices on `V` (`act δ v = v ∣ δ`). -/
+def slashSymbol (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V) (δ : Matrix (Fin 2) (Fin 2) ℤ)
+    (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V :=
+  (act δ).toAddMonoidHom.toIntLinearMap ∘ₗ φ ∘ₗ delta0Rep (intMatrixToGL δ)
+
+/-- **The Hecke operator** `T_ℓ = ∣ diag(ℓ, 1) + Σ_{a < ℓ} ∣ !![1, a; 0, ℓ]` (Pollack–Stevens §2.1),
+for a prime `ℓ ∤ N`. Belongs to Layer 0, §0.3. -/
+def heckeT (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V) (ℓ : ℕ) (φ : Delta0 →ₗ[ℤ] V) :
+    Delta0 →ₗ[ℤ] V :=
+  slashSymbol act !![(ℓ : ℤ), 0; 0, 1] φ +
+    ∑ a ∈ Finset.range ℓ, slashSymbol act !![1, (a : ℤ); 0, (ℓ : ℤ)] φ
+
+/-- **The Hecke operator** `U_q = Σ_{a < q} ∣ !![1, a; 0, q]` for `q ∣ N`. -/
+def heckeU (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V) (q : ℕ) (φ : Delta0 →ₗ[ℤ] V) :
+    Delta0 →ₗ[ℤ] V :=
+  ∑ a ∈ Finset.range q, slashSymbol act !![1, (a : ℤ); 0, (q : ℤ)] φ
+
+/-- The hypothesis that `act` is a right action of `Σ₀(N)` restricting to `ρ` on `Γ₀(N)`. -/
+def IsSigma0Action (N : ℕ) (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) : Prop :=
+  (∀ γ ∈ Sigma0 N, ∀ δ ∈ Sigma0 N, act (γ * δ) = act δ ∘ₗ act γ) ∧ act 1 = LinearMap.id ∧
+    ∀ γ : CongruenceSubgroup.Gamma0 N, act ((γ : SL(2, ℤ)) : Matrix (Fin 2) (Fin 2) ℤ) = ρ γ⁻¹
+
+/-- `T_ℓ` and `U_q` preserve `Γ₀(N)`-modular symbols. -/
+theorem heckeT_mem_symbols (N : ℕ) (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) (hact : IsSigma0Action N act ρ)
+    {ℓ : ℕ} (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) {φ : Delta0 →ₗ[ℤ] V}
+    (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    heckeT act ℓ φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ := sorry
+
+theorem heckeU_mem_symbols (N : ℕ) (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) (hact : IsSigma0Action N act ρ)
+    {q : ℕ} (hq : q.Prime) (hqN : q ∣ N) {φ : Delta0 →ₗ[ℤ] V}
+    (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    heckeU act q φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ := sorry
+
+/-- Good-prime Hecke operators commute on equivariant symbols (Layer 0 milestone). -/
+theorem heckeT_comm (N : ℕ) (act : Matrix (Fin 2) (Fin 2) ℤ → V →ₗ[R] V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) (hact : IsSigma0Action N act ρ)
+    {ℓ m : ℕ} (hℓ : ℓ.Prime) (hm : m.Prime) (hℓN : ¬ ℓ ∣ N) (hmN : ¬ m ∣ N)
+    {φ : Delta0 →ₗ[ℤ] V} (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    heckeT act ℓ (heckeT act m φ) = heckeT act m (heckeT act ℓ φ) := sorry
+
+end HeckeMonoid
+
+section Involution
+
+/-- **The involution at infinity** `ι = !![-1, 0; 0, 1]`. -/
+def iotaMatrix : Matrix (Fin 2) (Fin 2) ℤ := !![-1, 0; 0, 1]
+
+theorem iotaMatrix_mul_self : iotaMatrix * iotaMatrix = 1 := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [iotaMatrix]
+
+/-- `ι ∉ SL₂(ℤ)`: its determinant is `-1`. -/
+theorem det_iotaMatrix : iotaMatrix.det = -1 := by
+  simp [iotaMatrix, Matrix.det_fin_two]
+
+/-- On `V_k` the involution acts by `P(X, Y) ↦ P(X, -Y)`. -/
+example : slashPoly ℤ iotaMatrix (X 0) = X 0 ∧ slashPoly ℤ iotaMatrix (X 1) = -X 1 := by
+  simp [slashPoly, iotaMatrix]
+
+end Involution
+
+section Boundary
+
+variable {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
+
+/-- **Boundary symbols** `BSymb_Γ(V) = Hom_{ℤ[Γ]}(ℤ[P¹(ℚ)], V)`. Belongs to Layer 0, §0.4. -/
+def boundarySymbols (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    AddSubgroup (MonoidAlgebra ℤ P1Q →ₗ[ℤ] V) where
+  carrier := {ψ | ∀ (γ : Γ) (D : MonoidAlgebra ℤ P1Q),
+    ψ (Representation.ofMulAction ℤ (GL (Fin 2) ℚ) P1Q (toGLQ γ) D) = ρ γ (ψ D)}
+  add_mem' {a b} ha hb γ D := by simp [ha γ D, hb γ D]
+  zero_mem' γ D := by simp
+  neg_mem' {a} ha γ D := by simp [ha γ D]
+
+/-- Restriction along `Δ₀ ⊆ ℤ[P¹(ℚ)]`. -/
+def restrictBoundary : (MonoidAlgebra ℤ P1Q →ₗ[ℤ] V) →+ (Delta0 →ₗ[ℤ] V) where
+  toFun ψ := ψ ∘ₗ Delta0.subtype
+  map_zero' := rfl
+  map_add' _ _ := rfl
+
+/-- **Eisenstein symbols** `Eis_Γ(V)`, the image of the boundary symbols. -/
+def eisSymbols (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    AddSubgroup (Delta0 →ₗ[ℤ] V) :=
+  (boundarySymbols Γ ρ).map restrictBoundary
+
+theorem restrictBoundary_mem_symbols (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    {ψ : MonoidAlgebra ℤ P1Q →ₗ[ℤ] V} (hψ : ψ ∈ boundarySymbols Γ ρ) :
+    restrictBoundary ψ ∈ symbols Γ ρ := sorry
+
+/-- `res` is not injective: the degree map (the constant boundary function `1`) is a nonzero
+boundary symbol for the trivial action that restricts to zero on `Δ₀`. -/
+example : restrictBoundary (V := ℤ) (MonoidAlgebra.basis P1Q ℤ).sumCoords = 0 := by
+  ext D
+  have hD := D.2
+  simp only [Delta0, TauCeti.toSubmodule_augmentationSubrepresentation, LinearMap.mem_ker] at hD
+  simpa [restrictBoundary] using hD
+
+/-- The cocycle `γ ↦ φ({γ x} - {x})` of a modular symbol, for a base cusp `x`. -/
+def symbolCocycle (Γ : Subgroup SL(2, ℤ)) (x : P1Q) (φ : Delta0 →ₗ[ℤ] V) (γ : Γ) : V :=
+  φ (divisor x (toGLQ γ • x))
+
+/-- The cocycle identity `c(γ η) = ρ(γ) c(η) + c(γ)`. -/
+theorem symbolCocycle_mul (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (x : P1Q)
+    {φ : Delta0 →ₗ[ℤ] V} (hφ : φ ∈ symbols Γ ρ) (γ η : Γ) :
+    symbolCocycle Γ x φ (γ * η) = ρ γ (symbolCocycle Γ x φ η) + symbolCocycle Γ x φ γ := sorry
+
+/-- The stabiliser `Γ_r` of a cusp `r`. -/
+def cuspStabilizer (Γ : Subgroup SL(2, ℤ)) (r : P1Q) : Subgroup Γ :=
+  (MulAction.stabilizer (GL (Fin 2) ℚ) r).comap (toGLQ.comp Γ.subtype)
+
+/-- A function `c : Γ → V` is a coboundary on a subgroup `H` if `c h = ρ h v - v` on `H`. -/
+def IsCoboundaryOn (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (H : Subgroup Γ)
+    (c : Γ → V) : Prop :=
+  ∃ v : V, ∀ h ∈ H, c h = ρ h v - v
+
+/-- **Parabolic cocycles**: coboundaries on every cusp stabiliser (Wiese, Definition 6.12). -/
+def IsParabolic (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (c : Γ → V) : Prop :=
+  ∀ r : P1Q, IsCoboundaryOn Γ ρ (cuspStabilizer Γ r) c
+
+/-- Boundary exact sequence, exactness at `Symb_Γ(V)`: the cocycle of a symbol is a coboundary iff
+the symbol is Eisenstein (Layer 0 milestone, integrally). -/
+theorem symbolCocycle_isCoboundary_iff (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (x : P1Q) {φ : Delta0 →ₗ[ℤ] V} (hφ : φ ∈ symbols Γ ρ) :
+    IsCoboundaryOn Γ ρ ⊤ (symbolCocycle Γ x φ) ↔ φ ∈ eisSymbols Γ ρ := sorry
+
+/-- The cocycle of a symbol is parabolic. -/
+theorem symbolCocycle_isParabolic (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (x : P1Q) {φ : Delta0 →ₗ[ℤ] V} (hφ : φ ∈ symbols Γ ρ) :
+    IsParabolic Γ ρ (symbolCocycle Γ x φ) := sorry
+
+/-- Boundary exact sequence, exactness at `H¹`: every parabolic cocycle is cohomologous to the
+cocycle of a symbol. -/
+theorem exists_symbol_of_isParabolic (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (x : P1Q) (c : Γ → V) (hc : ∀ γ η : Γ, c (γ * η) = ρ γ (c η) + c γ)
+    (hpar : IsParabolic Γ ρ c) :
+    ∃ φ ∈ symbols Γ ρ, IsCoboundaryOn Γ ρ ⊤ (fun γ ↦ c γ - symbolCocycle Γ x φ γ) := sorry
+
+end Boundary
+
+section DrinfeldManin
+
+variable {K H : Type*} [Field K] [AddCommGroup H] [Module K H]
+
+/-- The **Bézout projector** `e = b(A) G(A)` attached to an operator `A` and polynomials `b, G`
+(the core of the rational Drinfeld–Manin splitting, Layer 0, §0.8). -/
+def bezoutProjector (A : Module.End K H) (b G : Polynomial K) : Module.End K H :=
+  Polynomial.aeval A b * Polynomial.aeval A G
+
+/-- If `a F + b G = 1`, `F(A)` kills `P` and `G(A)` maps into `P`, then `e` is an idempotent with
+image `P` restricting to the identity on `P`. -/
+theorem bezoutProjector_idempotent (A : Module.End K H) (P : Submodule K H) (a b F G : Polynomial K)
+    (hBez : a * F + b * G = 1) (hF : ∀ x ∈ P, Polynomial.aeval A F x = 0)
+    (hG : ∀ x, Polynomial.aeval A G x ∈ P) (hP : ∀ x ∈ P, A x ∈ P) :
+    bezoutProjector A b G * bezoutProjector A b G = bezoutProjector A b G ∧
+      (∀ x ∈ P, bezoutProjector A b G x = x) ∧ ∀ x, bezoutProjector A b G x ∈ P := sorry
+
+/-- The projector commutes with every operator commuting with `A`. -/
+theorem bezoutProjector_comm (A B : Module.End K H) (b G : Polynomial K) (hAB : Commute A B) :
+    Commute (bezoutProjector A b G) B := sorry
+
+/-- The rational model of the Drinfeld–Manin tests: `T(x, y) = (y, 2y)` on `ℚ²` with `P = ℚ × 0`,
+`F = X`, `G = X - 2`; the projector `1 - T/2` sends `(0, 1)` to `(-1/2, 0)`. -/
+example :
+    let T : Module.End ℚ (Fin 2 → ℚ) := Matrix.toLin' !![0, 1; 0, 2]
+    bezoutProjector T (Polynomial.C (-(1 / 2 : ℚ))) (Polynomial.X - Polynomial.C 2) ![0, 1] =
+      ![-(1 / 2 : ℚ), 0] := sorry
+
+end DrinfeldManin
+
+/-! ## Layer 1: periods, critical values and p-stabilisation -/
+
+section Periods
+
+variable {W : Type*} [AddCommGroup W] [Module ℂ W]
+
+/-- **The period coordinate** of `ψ` on the line spanned by `φ`: the scalar `Ω` with `ψ = Ω • φ`
+(zero when there is none). A period is a coordinate on a line, never a canonical number. -/
+def periodScalar (ψ φ : W) : ℂ :=
+  open scoped Classical in
+  if h : ∃ c : ℂ, ψ = c • φ then h.choose else 0
+
+/-- Rescaling the basis by `λ` rescales the period by `λ⁻¹`. -/
+theorem periodScalar_smul {ψ φ : W} (hφ : φ ≠ 0) (hψ : ∃ c : ℂ, ψ = c • φ) {c : ℂ} (hc : c ≠ 0) :
+    periodScalar ψ (c • φ) = c⁻¹ * periodScalar ψ φ := sorry
+
+end Periods
+
+section Mellin
+
+open Complex
+open scoped Real UpperHalfPlane
+
+/-- **The untwisted Mellin formula** in Mathlib's normalisation of `ModularForm.L`:
+`2πi ∫_{i∞}^0 f(z) z^j dz = j! / (-2πi)^j · L(f, j + 1)` for a cusp form of weight `k + 2` and
+`0 ≤ j ≤ k`, written through the Mellin transform of `t ↦ f(it)` (the path from `i∞` to `0` gives
+the factor `-i^{j+1}`). When the width at `∞` is one, `ModularForm.L` is `Σ aₙ n^{-s}`. -/
+theorem mellin_period_eq_L {Γ : Subgroup (GL (Fin 2) ℝ)} [Γ.IsArithmetic] {k j : ℕ} (hj : j ≤ k)
+    {F : Type*} [FunLike F ℍ ℂ] [CuspFormClass F Γ (k + 2)] (f : F) :
+    2 * π * I * (-(I ^ (j + 1)) *
+        mellin (fun t : ℝ ↦ f (UpperHalfPlane.ofComplex (I * t))) ((j : ℂ) + 1)) =
+      (j.factorial : ℂ) / (-2 * π * I) ^ j *
+        ModularForm.L (k := (k : ℤ) + 2) (by omega) f ((j : ℂ) + 1) := sorry
+
+end Mellin
+
+section Stabilisation
+
+variable {K : Type*} [Field K]
+
+/-- The coefficients `a_n - β a_{n/p}` of the p-stabilisation `f° - β f°(pz)` (zero term when
+`p ∤ n`). Belongs to Layer 1, §1.3. -/
+def stabilisedCoeff (a : ℕ → K) (p : ℕ) (β : K) (n : ℕ) : K :=
+  a n - β * if p ∣ n then a (n / p) else 0
+
+/-- Prime-to-`p` coefficients are unchanged. -/
+theorem stabilisedCoeff_coprime (a : ℕ → K) {p n : ℕ} (β : K) (h : ¬ p ∣ n) :
+    stabilisedCoeff a p β n = a n := by
+  simp [stabilisedCoeff, h]
+
+/-- **`U_p f_α = α f_α`** at the level of coefficients: from the good-prime recurrence
+`a_{pm} = a_p a_m - e a_{m/p}` with `e = ε(p) p^{k+1}`, `α + β = a_p` and `α β = e`. -/
+theorem stabilisedCoeff_eigen (a : ℕ → K) {p : ℕ} (hp : p.Prime) (e α β : K)
+    (hrec : ∀ m, a (p * m) = a p * a m - e * if p ∣ m then a (m / p) else 0)
+    (hsum : α + β = a p) (hprod : α * β = e) (m : ℕ) :
+    stabilisedCoeff a p β (p * m) = α * stabilisedCoeff a p β m := sorry
+
+end Stabilisation
+
+/-! ## Layer 2: refinements, overconvergent symbols and small-slope p-adic L-functions -/
+
+section Refinements
+
+variable {K : Type*} [Field K]
+
+/-- `α` is a root of the good-prime Hecke polynomial `X² - a_p X + ε(p) p^{k+1}`. -/
+def IsGoodRefinementRoot (ap εp : K) (p k : ℕ) (α : K) : Prop :=
+  α ^ 2 - ap * α + εp * (p : K) ^ (k + 1) = 0
+
+/-- The two roots multiply to `ε(p) p^{k+1}`; in particular a root is nonzero when `ε(p) ≠ 0`. -/
+theorem goodRoot_mul {ap εp α : K} {p k : ℕ} (hα : IsGoodRefinementRoot ap εp p k α) :
+    α * (ap - α) = εp * (p : K) ^ (k + 1) := by
+  unfold IsGoodRefinementRoot at hα
+  linear_combination (-1 : K) * hα
+
+/-- At `p ∣ N` the refinement eigenvalue is the actual nonzero `a_p`: there is none when `a_p = 0`. -/
+def IsBadRefinement (ap α : K) : Prop := α = ap ∧ α ≠ 0
+
+example (α : K) : ¬ IsBadRefinement 0 α := fun h ↦ h.2 h.1
+
+end Refinements
+
+section Moments
+
+variable (K : Type*) [NormedField K]
+
+/-- Bounded moment sequences: the moment model of `D = D[1]` (Pollack–Stevens, Proposition 3.1). -/
+def boundedMoments : Submodule K (ℕ → K) where
+  carrier := {c | ∃ C : ℝ, ∀ j, ‖c j‖ ≤ C}
+  add_mem' := sorry
+  zero_mem' := ⟨0, by simp⟩
+  smul_mem' := sorry
+
+/-- Moment sequences that are `O(r^j)` for every `r > 1`: the moment model of `D†`. -/
+def daggerMoments : Submodule K (ℕ → K) where
+  carrier := {c | ∀ r : ℝ, 1 < r → ∃ C : ℝ, ∀ j, ‖c j‖ ≤ C * r ^ j}
+  add_mem' := sorry
+  zero_mem' := fun r _ ↦ ⟨0, by simp⟩
+  smul_mem' := sorry
+
+theorem boundedMoments_le_daggerMoments : boundedMoments K ≤ daggerMoments K := sorry
+
+/-- `1/(j+1)` is a dagger moment sequence that is not bounded in `ℚ_p`. -/
+example (p : ℕ) [Fact p.Prime] :
+    (fun j : ℕ ↦ ((j : ℚ_[p]) + 1)⁻¹) ∈ daggerMoments ℚ_[p] ∧
+      (fun j : ℕ ↦ ((j : ℚ_[p]) + 1)⁻¹) ∉ boundedMoments ℚ_[p] := sorry
+
+end Moments
+
+section Specialisation
+
+variable {K : Type*} [Field K]
+
+/-- The monoid `Σ₀(p)` over `ℤ_p`: `p ∤ a`, `p ∣ c`, `det ≠ 0`. -/
+def Sigma0p (p : ℕ) [Fact p.Prime] : Submonoid (Matrix (Fin 2) (Fin 2) ℤ_[p]) where
+  carrier := {γ | γ.det ≠ 0 ∧ IsUnit (γ 0 0) ∧ (p : ℤ_[p]) ∣ γ 1 0}
+  mul_mem' := sorry
+  one_mem' := sorry
+
+/-- **Specialisation** `ρ_k(μ) = ∫ (Y - zX)^k dμ = Σ_j C(k, j) (-1)^j μ(z^j) X^j Y^{k-j}`, on moment
+sequences. Belongs to Layer 2, §2.3. -/
+def specialiseMoments (k : ℕ) (c : ℕ → K) : MvPolynomial (Fin 2) K :=
+  ∑ j ∈ Finset.range (k + 1),
+    C ((k.choose j : K) * (-1) ^ j * c j) * X 0 ^ j * X 1 ^ (k - j)
+
+/-- The `Y^k` coefficient is the total mass `μ(1)`. -/
+theorem specialiseMoments_coeff_Yk (k : ℕ) (c : ℕ → K) :
+    (specialiseMoments k c).coeff (Finsupp.single 1 k) = c 0 := sorry
+
+/-- The Dirac distribution `δ₀` (moments `1, 0, 0, …`) specialises to `Y^k`. -/
+example (k : ℕ) : specialiseMoments k (Pi.single 0 (1 : K)) = X 1 ^ k := sorry
+
+/-- A distribution with only a moment above `k` specialises to zero. -/
+example (k : ℕ) : specialiseMoments k (Pi.single (k + 1) (1 : K)) = 0 := sorry
+
+end Specialisation
+
+section EulerFactors
+
+variable {K : Type*} [Field K]
+
+/-- The interpolation factor at `p` for trivial conductor:
+`(1 - p^j/α)(1 - ε(p) p^{k-j}/α)`, the first factor from the distribution, the second from the
+p-stabilisation. Belongs to Layer 2, §2.5, and Layer 4, §4.1. -/
+def eulerFactorAtP (α εp : K) (p k j : ℕ) : K :=
+  (1 - (p : K) ^ j / α) * (1 - εp * (p : K) ^ (k - j) / α)
+
+/-- Weight two, `j = 0`, trivial character: `(1 - 1/α)²`, the Mazur–Tate–Teitelbaum factor. -/
+example (α : K) (p : ℕ) : eulerFactorAtP α 1 p 0 0 = (1 - 1 / α) ^ 2 := by
+  simp [eulerFactorAtP, sq]
+
+end EulerFactors
+
+/-! ## Layer 3: critical slope
+
+The critical-slope constructions consume PadicFamilies Layer 3 and are README targets only. -/
+
+/-! ## Layer 4: tame twists, supersingular primes, comparisons and examples -/
+
+section Supersingular
+
+/-- The cyclotomic factor `Φ_n(T) = Σ_{t < p} T^{p^{n-1} t}` used in Pollack's half-logarithms. -/
+def pPowerCyclotomic (p n : ℕ) : Polynomial ℤ :=
+  ∑ t ∈ Finset.range p, Polynomial.X ^ (p ^ (n - 1) * t)
+
+/-- `Φ_n` is the `p^n`-th cyclotomic polynomial for `n ≥ 1`. -/
+theorem pPowerCyclotomic_eq (p n : ℕ) (hp : p.Prime) (hn : 1 ≤ n) :
+    pPowerCyclotomic p n = Polynomial.cyclotomic (p ^ n) ℤ := sorry
+
+/-- `Φ_n(1) = p`: each half-logarithm factor `Φ_n(1)/p` equals one at the origin. -/
+theorem pPowerCyclotomic_eval_one (p n : ℕ) : (pPowerCyclotomic p n).eval 1 = p := by
+  simp [pPowerCyclotomic, Polynomial.eval_finsetSum]
+
+end Supersingular
+
+section Depletion
+
+variable {K : Type*} [Field K]
+
+/-- The coefficients of the Euler-depleted form `f^[ℓ]`: `a_n` for `ℓ ∤ n` and `0` for `ℓ ∣ n`. -/
+def depletedCoeff (a : ℕ → K) (ℓ n : ℕ) : K :=
+  if ℓ ∣ n then 0 else a n
+
+/-- The depleted coefficients agree with those of `f - a_ℓ V_ℓ f + ε(ℓ) ℓ^{k+1} V_{ℓ²} f` under the
+good-prime recurrence (Layer 4, §4.3). -/
+theorem depletedCoeff_eq (a : ℕ → K) {ℓ : ℕ} (hℓ : ℓ.Prime) (e : K)
+    (hrec : ∀ m, a (ℓ * m) = a ℓ * a m - e * if ℓ ∣ m then a (m / ℓ) else 0) (n : ℕ) :
+    depletedCoeff a ℓ n =
+      a n - a ℓ * (if ℓ ∣ n then a (n / ℓ) else 0) +
+        e * (if ℓ ^ 2 ∣ n then a (n / ℓ ^ 2) else 0) := sorry
+
+/-- The Euler factor by which `E_ℓ` multiplies the value at `χ(z) z^j` (good prime `ℓ ∤ N`). -/
+def eulerDeletionFactor (aℓ εℓ χℓ : K) (ℓ k j : ℕ) : K :=
+  1 - aℓ * χℓ⁻¹ * (ℓ : K)⁻¹ ^ (j + 1) + εℓ * χℓ⁻¹ ^ 2 * (ℓ : K) ^ k * (ℓ : K)⁻¹ ^ (2 * j + 1)
+
+/-- Weight two, trivial twist: `1 - a_ℓ/ℓ + ε(ℓ)/ℓ`. -/
+example (aℓ εℓ : K) (ℓ : ℕ) :
+    eulerDeletionFactor aℓ εℓ 1 ℓ 0 0 = 1 - aℓ / ℓ + εℓ / ℓ := by
+  simp [eulerDeletionFactor, div_eq_mul_inv]
+
+end Depletion
+
+/- README targets with no declaration in this file, because their carriers are not at the pinned
+libraries or their construction is a theorem: the free coset presentation, the coset and
+fundamental-domain descriptions, flat base change, the plus/minus decomposition, the map to
+`H¹` and parabolic cohomology as a quotient, descent, diamond operators and Γ₁(N) Hecke operators,
+symbols with character and their decomposition, the two dualities, the period symbol, the dimension
+of parabolic cohomology, Petersson detection, the Eichler–Shimura isomorphism, newform eigenspaces,
+rational Hecke separation; period lines and integral periods, the twisted Mellin formula,
+algebraicity of critical values, the interpolation dictionary; refined eigenlines, the distribution
+modules with the weight-k action, lifting, the slope decomposition of the fibre, the control theorem,
+admissibility, the p-adic L-function with interpolation, uniqueness and the integral ordinary measure;
+all critical-slope targets; tame twists, both supersingular refinements, the half-logarithms as
+functions on the open disc, the ± decomposition, coefficient embeddings, the depletion identity of
+p-adic L-functions, and the level-11 examples. -/
+
+end
+
+end TauCetiRoadmap.ModularSymbolsPadicLFunctions
