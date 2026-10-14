@@ -48523,8 +48523,9 @@
     "PKG-ClassicalArithmeticCompletion"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalArithmeticCompletion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9796"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9796",
+   "finishedAt": "2026-10-14T19:53:43Z"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
@@ -50131,8 +50132,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9838"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9838",
+   "finishedAt": "2026-10-14T19:53:47Z"
   },
   {
    "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison",
@@ -51950,8 +51952,9 @@
    ],
    "revisionOf": "PKG-HodgeTateAndCanonicalSubgroups",
    "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9840"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9840",
+   "finishedAt": "2026-10-14T19:53:54Z"
   },
   {
    "id": "REV-PKG-HodgeTateAndCanonicalSubgroups~2",
@@ -53305,8 +53308,9 @@
     "PKG-OrdinaryAutomorphicFormsAndModularityLifting"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9783"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9783",
+   "finishedAt": "2026-10-14T19:54:00Z"
   },
   {
    "id": "PKG-PELModuli",
