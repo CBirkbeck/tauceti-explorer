@@ -8,6 +8,10 @@ import Mathlib.Tactic
 /-!
 # Torsion cohomology infrastructure: statements at the pinned carriers
 
+This file is not the roadmap and is not exhaustive: the roadmap document
+TorsionCohomologyInfrastructure.md is definitive. The statements below suggest Lean forms so
+that contributors and reviewers converge on names and signatures.
+
 The geometric targets TC.0–TC.2 and arithmetic realizations TC.3–TC.4 live in
 TorsionCohomologyInfrastructure.md. Their actual supplier types are required
 before they can be stated here. This file introduces only one light polynomial
