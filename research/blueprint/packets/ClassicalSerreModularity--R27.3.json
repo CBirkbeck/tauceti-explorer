@@ -2953,9 +2953,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~3",
-  "date": "2026-10-08",
-  "notes": "Review continuation by Codex codex-CiCHr3, Refs #5871, following the completed codex-t0EaB3 review in PR #7265 and the codex-FXDpCC intake audit. Re-read the forty finding claims, verified evidence, fix report and completed per-finding dispositions. This continuation checks changes since completed-review commit 0ca7bd10c, rather than claiming a fresh reading of all unchanged primary sources. The packet and suggested file were unchanged. Retain accepted for the three-packet fix scope and the earlier corrections; this does not close the recorded source gaps or certify a new exhaustive base-plan review. Re-read the exact Maschke declaration and its field/finite-group/invertible-order section hypotheses at Mathlib 082e2d3. Packet checker: zero errors/warnings, 37 unchecked nodes. Fresh sequential lean-check: zero errors and 23 unproved-declaration warnings. Historical verdict preserved in reviewHistory. Current evidence and external queue-completion blocker are in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+  "date": "2026-10-14",
+  "notes": "Independent fix review by Codex codex-2BpYA7, Refs #7451, following independent-review-REV-FIX-RT-AREA-langlands-2~3; the full earlier object is preserved in reviewHistory. Read all forty confirmed findings, verified evidence and the round-four fix dispositions; acceptance is scoped to the fixes in this issue, not a fresh complete audit of all inherited primary sources. Checked the odd Artin proof owner with the characteristic-zero finite-image model and weight-one reductions, soluble transfer imported from R17.5, the early/late good-dihedral separation, Hypothesis H imported from R22.6, and DP insertion importing the general prescribed-lift owner. The coarse stage changes remain for the maintainer. All existing baseline declaration statements were located/read at the recorded pins (120 distinct references across thirteen packets); no new baseline claim or implementation is introduced. Packet checker: zero errors/warnings. Sequential lean-check: exit 0, only expected unproved-declaration warnings; mathematical gaps remain open. Report and six-packet queue-scope blocker: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~4.md."
  },
  "reviewHistory": [
   {
@@ -3159,6 +3159,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~3",
    "date": "2026-10-07",
    "notes": "Independent completed review by Codex codex-t0EaB3 of FIX-RT-AREA-langlands-2~3 (#5870, Claude claude-c9TlsS, PR #6724), Refs #5871. Follows the Claude claude-hd6PQ0 continuation in PR #7024 and the preceding accepted REV-FIX-RT-BP-ClassicalSerreModularity--R27.3; previous review objects are preserved verbatim. Read all 40 confirmed findings, the fix and prior reviews, the four new and changed local nodes, their concrete suppliers, KW I pp.6–7,17–21 and DP Theorem 1.9/Paso 2; read the Maschke declaration and section hypotheses at Mathlib082e2d3. The Artin weight-one chain has its finite-image, lattice, conductor, companion-form and coherent-cohomology inputs; no ML.1 circular import. No forbidden concrete R26/R27 ancestors of R33.1–R33.4. Corrected six test kinds and the suggested positive-level Newform parameter. All fixes in scope are right after these corrections; accepted as a fix review, retaining the existing unread-source gaps and pre-existing R33 suggested-interface omissions. Packet checker with pinned index: zero errors/warnings. Suggested Mathlib-only file: zero errors and 23 unproved-declaration warnings. Stage-edge edits remain the maintainer's. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md"
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~3",
+   "date": "2026-10-08",
+   "notes": "Review continuation by Codex codex-CiCHr3, Refs #5871, following the completed codex-t0EaB3 review in PR #7265 and the codex-FXDpCC intake audit. Re-read the forty finding claims, verified evidence, fix report and completed per-finding dispositions. This continuation checks changes since completed-review commit 0ca7bd10c, rather than claiming a fresh reading of all unchanged primary sources. The packet and suggested file were unchanged. Retain accepted for the three-packet fix scope and the earlier corrections; this does not close the recorded source gaps or certify a new exhaustive base-plan review. Re-read the exact Maschke declaration and its field/finite-group/invertible-order section hypotheses at Mathlib 082e2d3. Packet checker: zero errors/warnings, 37 unchecked nodes. Fresh sequential lean-check: zero errors and 23 unproved-declaration warnings. Historical verdict preserved in reviewHistory. Current evidence and external queue-completion blocker are in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md."
   }
  ],
  "restructure": [
