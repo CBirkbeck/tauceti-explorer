@@ -4851,5 +4851,11 @@
  "PKG-EndoscopicTransferAndUnitaryTraceComparison": 9838,
  "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison": 9839,
  "PKG-HodgeTateAndCanonicalSubgroups~2": 9840,
- "REV-PKG-HodgeTateAndCanonicalSubgroups~2": 9841
+ "REV-PKG-HodgeTateAndCanonicalSubgroups~2": 9841,
+ "PKG-PadicDifferentialEquationsAndRigidCohomology": 9854,
+ "REV-PKG-PadicDifferentialEquationsAndRigidCohomology": 9855,
+ "PKG-AnabelianGeometryAndNonabelianChabauty~2": 9856,
+ "REV-PKG-AnabelianGeometryAndNonabelianChabauty~2": 9857,
+ "PKG-TorsionCohomologyInfrastructure": 9858,
+ "REV-PKG-TorsionCohomologyInfrastructure": 9859
 }
