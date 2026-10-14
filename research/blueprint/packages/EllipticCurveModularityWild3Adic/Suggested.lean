@@ -133,6 +133,15 @@ theorem three_not_unit_mod_cubes (u : ℤ_[3]ˣ) (x : Q3ˣ) :
     ((u : ℤ_[3]) : Q3) * (x : Q3) ^ 3 ≠ 3 := by
   sorry
 
+/-- README 1.1 negative control: a pure cubic extension kills the nonzero class of `3`
+without containing `√-3`. Restriction injectivity therefore needs the Galois hypothesis. -/
+theorem nonGalois_cubic_kummer_control (α : Q3bar) (hα : α ^ 3 = 3) :
+    let L := IntermediateField.adjoin Q3 {α}
+    Module.finrank Q3 L = 3 ∧ ¬ IsGalois Q3 L ∧
+      (∀ x : Q3, x ^ 3 ≠ 3) ∧ (∃ x : L, x ^ 3 = 3) ∧
+      (∀ β : Q3bar, β ^ 2 = -3 → β ∉ L) := by
+  sorry
+
 /-- The defining polynomial of the cyclic cubic field (README 1.3). -/
 def cyclicCubicPoly : Q3[X] := X ^ 3 - C 3 * X ^ 2 + C 3
 
@@ -266,6 +275,13 @@ example : localCurveCaseSix.Δ = -50544 := by
   simp [localCurveCaseSix, shortWeierstrass, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
     WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]; norm_num
 
+/-- The other local companion curves also have nonzero discriminants (README 1.16). -/
+example : localCurveCaseThree.Δ = -5184 ∧ localCurveCaseFour.Δ = -3456 ∧
+    localCurveCaseFive.Δ = -17280 := by
+  norm_num [localCurveCaseThree, localCurveCaseFour, localCurveCaseFive, shortWeierstrass,
+    WeierstrassCurve.Δ, WeierstrassCurve.b₂, WeierstrassCurve.b₄,
+    WeierstrassCurve.b₆, WeierstrassCurve.b₈]
+
 /-- README 1.14: the conductor-243 congruences `A ≡ B + 3 ≡ 0 mod 9` hold for the test curve
 `y² = x³ + 9x - 3`, and its discriminant has `3`-adic valuation `5`. -/
 example : (9 : ℤ) % 9 = 0 ∧ (-3 + 3 : ℤ) % 9 = 0 ∧ padicValInt 3 (-50544) = 5 := by
@@ -360,6 +376,29 @@ example : (X ^ 2 - C 1 : F3[X]).eval 0 = -1 ∧ (cPi (X ^ 2 - C 1)).eval 0 = 1 :
 example : (cPi (X ^ 2 + C 1)).eval 0 = -1 := by
   simp [cPi]
 
+/-- README 2.2: the scalar Euler operator sends `u` to `u`; zero monodromy on a
+standard generator does not mean the derivation is identically zero. -/
+example : (X : F3[X]) * derivative (X : F3[X]) = X ∧ (X : F3[X]) ≠ 0 := by
+  simp
+
+/-- README 2.2: `-1` is a square after extending the residue field to `𝔽₉`; it is not
+one in `𝔽₃`. The distinction controls rank-one isomorphism classes. -/
+example : (∃ j : GaloisField 3 2, j ^ 2 = -1) ∧ ¬ ∃ j : F3, j ^ 2 = -1 := by
+  constructor
+  · sorry
+  · decide
+
+/-- README 2.3: the coefficient of the unramified quadratic twist at `3` commutes with
+Frobenius but is not the identity; a fixed uniformizer alone does not force wild descent. -/
+example : (-1 : F3) ^ 3 = -1 ∧ (-1 : F3) ≠ 1 := by decide
+
+/-- README 2.7: the order-three unipotent action differs from its inverse on `(0,1)`.
+With the two other operators as in the README this detects the third ideal generator. -/
+example : let U : M2 := !![1, 1; 0, 1]
+    let Uinv : M2 := !![1, -1; 0, 1]
+    U ^ 3 = 1 ∧ U * Uinv = 1 ∧ (U - Uinv).mulVec ![0, 1] = ![-1, 0] := by
+  decide
+
 end LayerW32
 
 /-! ## Layers W3.3–W3.5: the three weak-acceptability computations
@@ -442,6 +481,36 @@ theorem card_GL2_F3 : Nat.card (GL (Fin 2) (ZMod 3)) = 48 := by
   rw [Matrix.card_GL_field]
   norm_num [Finset.prod_range_succ, ZMod.card]
 
+/-- README 6.11: the fixed conductor-50 curve, Cremona `50b1`. -/
+def exceptionalCurveFifty : WeierstrassCurve ℚ := ⟨1, 1, 1, -3, 1⟩
+
+/-- README 6.11: the fixed conductor-338 curve, Cremona `338e1`. -/
+def exceptionalCurveThreeThirtyEight : WeierstrassCurve ℚ := ⟨1, 1, 1, 3, -5⟩
+
+/-- The discriminant and `c₄` witnesses determine the two exceptional `j`-invariants. -/
+example : exceptionalCurveFifty.Δ = -800 ∧ exceptionalCurveFifty.c₄ = 145 ∧
+    exceptionalCurveThreeThirtyEight.Δ = -17576 ∧
+    exceptionalCurveThreeThirtyEight.c₄ = -143 := by
+  norm_num [exceptionalCurveFifty, exceptionalCurveThreeThirtyEight, WeierstrassCurve.Δ,
+    WeierstrassCurve.c₄, WeierstrassCurve.b₂, WeierstrassCurve.b₄,
+    WeierstrassCurve.b₆, WeierstrassCurve.b₈]
+
+/-- Each fixed equation has a nonzero rational discriminant, hence is elliptic. -/
+local instance : exceptionalCurveFifty.IsElliptic := ⟨by
+  norm_num [exceptionalCurveFifty, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈, isUnit_iff_ne_zero]⟩
+
+local instance : exceptionalCurveThreeThirtyEight.IsElliptic := ⟨by
+  norm_num [exceptionalCurveThreeThirtyEight, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈, isUnit_iff_ne_zero]⟩
+
+/-- README 6.11: the sign of the level-50 `j` and the level-338 value. -/
+example : exceptionalCurveFifty.j = -121945 / 32 ∧
+    exceptionalCurveThreeThirtyEight.j = 1331 / 8 := by
+  norm_num [exceptionalCurveFifty, exceptionalCurveThreeThirtyEight, WeierstrassCurve.j, Units.val_inv_eq_inv_val, WeierstrassCurve.coe_Δ',
+    WeierstrassCurve.Δ, WeierstrassCurve.c₄, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
+
 end LayerW36
 
 /-! ## README targets without a declaration of the same name
@@ -455,6 +524,7 @@ Each is specified in README.md under the section given.
 * Layer W3.0: 0.1 `compactType`, 0.2 `Admits`, 0.3 `cubicTypes`, 0.4 `ramifiedQuadraticTypes`,
   0.5 `extendedTypes`, 0.6 `simpleAdmittanceCubic`, 0.7 `simpleAdmittanceQuadratic`,
   0.8 `simpleAdmittanceExtended`.
+  The type-level predicates `Type.Admits` and `Type.SimplyAdmits` are specified in 0.2.
 * Layer W3.1: 1.1 `kummerQ3`, 1.2 `uniformizerData`, 1.5 `positiveQuadraticSplittingField`,
   1.6 `negativeQuadraticSplittingField`, 1.7 `extendedTypeSplittingField`, 1.8 `smallGroupFacts`,
   1.9 `sixLocalCases`, 1.10 `sixCaseClassification`, 1.11 `manoharmayumCubicCurves`,
@@ -464,6 +534,11 @@ Each is specified in README.md under the section given.
   2.4 `FiniteFlatDescent`, 2.5 `cubicCategory`, 2.6 `quadraticCategory`, 2.7 `extendedCategory`,
   2.8 `thetaMaps`, 2.9 `thetaKernelCriterion`, 2.10 `cubicPointFactorization`,
   2.11 `quadraticPointFactorization`.
+  Auxiliary definitions: 2.2 `BreuilModule.rankOneCoeff`, `BreuilModule.ext`;
+  2.3 `BreuilModule.correction`, `BreuilModule.DescentCategory`;
+  2.4 `DieudonneDescentAlgebra`, its annihilation condition and `SigmaFiltration`,
+  including the weak and strong filtration predicates; 2.6 the quadratic ideal;
+  2.7 the extended ideals `I_i`.
 * Layer W3.3: 3.1 `cubicRankOneModels`, 3.2 `cubicForwardExtensions`,
   3.3 `cubicLocalLocalDescent`, 3.4 `cubicResidualModel`, 3.5 `cubicRankOneSelfExtensions`,
   3.6 `cubicRankThreeSplitting`, 3.7 `cubicDiagonalVanishing`, 3.8 `cubicTangentBound`,
