@@ -71,8 +71,20 @@ example : comparisonTrace ({()} : Finset Unit) (fun _ => 2) (fun _ => -1)
     (fun _ => 3) (fun _ => 5) (fun _ => 7) = -210 := by
   norm_num [comparisonTrace]
 
--- Agreement with the existing finite matrix trace in a two-dimensional example.
-example : Matrix.trace (Matrix.diagonal (fun i : Fin 2 => if i = 0 then (2 : ℚ) else 3)) = 5 := by
-  norm_num [Matrix.trace, Matrix.diagonal, Fin.sum_univ_two]
+/-- Over all of a finite index type the ledger is the Mathlib trace of the diagonal matrix of
+the five-fold products. -/
+theorem comparisonTrace_eq_trace_diagonal {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (multiplicity coefficient localTrace auxiliaryTrace sphericalTrace : ι → ℚ) :
+    comparisonTrace Finset.univ multiplicity coefficient localTrace auxiliaryTrace
+        sphericalTrace =
+      Matrix.trace (Matrix.diagonal fun i =>
+        multiplicity i * coefficient i * localTrace i * auxiliaryTrace i * sphericalTrace i) := by
+  sorry
+
+-- comparisonTrace.matrixTrace: two terms with products 2 and 3 give the trace of diag(2,3).
+example : comparisonTrace (Finset.univ : Finset (Fin 2)) (fun i => if i = 0 then 2 else 3)
+    (fun _ => 1) (fun _ => 1) (fun _ => 1) (fun _ => 1) =
+      Matrix.trace (Matrix.diagonal (fun i : Fin 2 => if i = 0 then (2 : ℚ) else 3)) := by
+  simp [comparisonTrace, Fin.sum_univ_two]
 
 end TauCeti.Endoscopy

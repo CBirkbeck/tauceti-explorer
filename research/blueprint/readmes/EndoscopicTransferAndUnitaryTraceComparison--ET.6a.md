@@ -11,9 +11,10 @@ by another one without the comparison theorem stated below.
 This is a completed target-level planning pass, with every scoped target assigned
 a contract, proof route and acceptance check. All four stages are **planned**.
 They are not source-decomposed, closed or implemented. In particular the missing
-Harris–Taylor primary proof and the independent Dat-to-FS dictionary remain real
-gaps. The reader is the definitive mathematical plan; the Suggested file contains
-only small statements on carriers already present at the pinned libraries.
+Harris–Taylor and Boyer primary proofs and the independent Dat-to-FS dictionary
+remain real gaps. The reader is the definitive mathematical plan; the Suggested
+file contains only small statements on carriers already present at the pinned
+libraries.
 
 ## Conventions and dependencies
 
@@ -59,7 +60,11 @@ The confirmed cyclic-base-change finding requires an additional ordering repair:
 the cyclic BC/AI targets currently assigned to ET.7a belong in a new ET.4b before
 ET.6. This part retains the issue's current scope and proposes that relocation.
 It introduces no ET.7a→ET.6 edge. The local p-divisible classification similarly
-belongs in an early finite-flat supplier after R07.2, never in relative T2.
+belongs in an early finite-flat supplier after R07.2, never in relative T2. Since
+FiniteFlatGroupsAndIntegralPadicHodgeTheory is now TauCetiRoadmap pull request
+#879, whose Dieudonné layer stops before Rapoport–Zink spaces, that supplier is an
+addition to the pull request, a Part II, or a target planned here. No ET.6a target
+uses HS2, so the atlas edge HS2→ET.6a is proposed for deletion.
 
 ## Library boundary and Lean prototype
 
@@ -73,11 +78,12 @@ neighboring shtuka layers are unbuilt. A current-library name search found no
 classical towers, Igusa, Speh or JL carrier. This is search evidence, not a claim
 that every possible foundational declaration was inspected.
 
-Matrix.trace was read at the Mathlib pin in
-Mathlib/LinearAlgebra/Matrix/Trace.lean, lines 35–47. It is used in a finite
-normalization example, not as a surrogate for an infinite-dimensional trace.
-The Suggested file defines the finite rational comparisonTrace ledger, states
-its short API and gives the three numerical tests below. Every other proposed
+Matrix.trace and Matrix.trace_diagonal were read at the Mathlib pin in
+Mathlib/LinearAlgebra/Matrix/Trace.lean, lines 35–50. They enter only the
+compatibility statement of the finite ledger, not as a surrogate for an
+infinite-dimensional trace. The Suggested file defines the finite rational
+comparisonTrace ledger, states its short API, including the identification with
+the trace of a diagonal matrix, and gives the four tests below. Every other proposed
 carrier, API and unit test remains a reader target because its prerequisite
 theory is absent at the pins. The newer WORKERS shape rule governs this slim
 file; there are no opaque carriers, Prop placeholders or data definitions with
@@ -198,8 +204,11 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
 Source matching.
 
-- [Dat] §§2.1–2.2, 3.3 and 3.5, pp. 8–13, 22–26: Action and central-quotient conventions used in the
-   literal cohomology formula.
+- [Dat] §2.2.1, p. 12; §3.1.5 with footnote 6, p. 16; Fait 3.3.2, p. 22; §3.5, pp. 24–27: Dat
+   normalizes |·| so that arithmetic Frobenius has value q and uniformizers correspond to geometric
+   Frobenius; the linear group acts through transposed quasi-isogenies so that the final theorem
+   carries no contragredient; on the Lubin–Tate side the linear group first acts on the right and is
+   turned into a left action by inversion, and the diagonal centre acts trivially.
 - [FS] IX.7.3–IX.7.4, p. 338: The target Hecke normalization includes a shift and a half Tate twist.
 
 ### The formal O_E-module tower
@@ -315,7 +324,7 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions`, `
 Source matching.
 
 - [Dat] §3.1, pp. 15–18: Special O_D-modules, period domain and level actions.
-- [SW13] §7.3, pp. 72–73: The EL duality specializes to the two classical towers, with a convention
+- [SW13] §7.3, pp. 71–73: The EL duality specializes to the two classical towers, with a convention
    warning on the linear group.
 
 ### Period maps and their equivariance
@@ -371,7 +380,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower`, `E
 
 Source matching.
 
-- [SW13] §6.1; Proposition 7.2.2, pp. 56–57, 70: The two period constructions and their exchange.
+- [SW13] §6.1, pp. 54–56 (Proposition 6.1.3, p. 55); §7.1, Proposition 7.1.1, p. 68; Proposition
+   7.2.2, p. 70: The crystalline (Grothendieck–Messing) period map at level zero and its étaleness,
+   the infinite-level Hodge–Tate period map with its equivariance (linear group acting,
+   self-quasi-isogeny group trivial), and the exchange of the two flag varieties under duality.
 - [Pan] §§5.2.2–5.2.4, pp. 55–57 (v1): Rank-two GM étaleness and the Hodge–Tate map.
 
 ### Commuting actions and effective Weil descent
@@ -529,7 +541,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli
 
 Source matching.
 
-- [SW13] Proposition 7.2.2 and Theorem 7.2.3, pp. 70–71; §7.3, pp. 72–73: The basic EL duality and the
+- [SW13] Proposition 7.2.2 and Theorem 7.2.3, pp. 70–71; §7.3, pp. 71–73 (the inverse-transpose remark
+   on the linear-group action is in the proof of Theorem 7.3.1, p. 71): The basic EL duality and the
    classical specialization.
 
 ### The equivariant compact-support complex
@@ -586,17 +599,18 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-desc
 
 Source matching.
 
-- [Dat] §3.3, pp. 21–23: The equivariant compact-support derived complex and coefficient limits.
+- [Dat] §3.3, Faits 3.3.2–3.3.5 and the definition of RΓ_c, pp. 21–24: The equivariant compact-support
+   derived complex and coefficient limits.
 
 ### Equivariant tower cohomology comparison
 
 Target `equivariant-cohomology-comparison` (theorem).
 
 There is an isomorphism C_LT,Z_ell≅C_Dr,Z_ell in the equivariant derived category, compatible with
-   GL_n(E)×D× and W_E, finite-level pullback/trace and coefficient reduction. It induces all
-   degree-wise cohomology comparisons after extending to Λ. The proof passes through the equivalence
-   of the appropriate equivariant tower topoi and proper-support functors; a bare perfectoid-space
-   isomorphism does not suffice.
+   the smooth GL_n(E)×D× structure (hence with the Hecke operators of both level systems), with W_E
+   and with coefficient reduction. It induces all degree-wise cohomology comparisons after extending
+   to Λ. The proof passes through the equivalence of the appropriate equivariant tower topoi and
+   proper-support functors; a bare perfectoid-space isomorphism does not suffice.
 
 Hypotheses.
 
@@ -613,15 +627,20 @@ Construction or proof route.
 
 Acceptance checks.
 
-- The comparison commutes with level traces and coefficient reduction.
+- The comparison is an isomorphism of smooth GL_n(E)×D× complexes, so it intertwines the Hecke
+   operators of both towers; it commutes with coefficient reduction.
 - A degree-wise comparison only after forgetting W_E fails this target.
 
 Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support`, `PerfectoidSpaces:P5`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison`.
 
 Source matching.
 
-- [Dat] Theorem 3.4.1 and Corollary 3.4.2, pp. 23–24: The tower-topos comparison gives the equivariant
-   integral derived isomorphism.
+- [Dat] Theorem 3.4.1 and Corollary 3.4.2, p. 24: Dat states the equivalence of the equivariant
+   period-space topoi exchanging the two compact-support functors, credits it to Faltings and
+   Fargues and refers to Fargues’s work on the isomorphism between the two towers for its proof;
+   Corollary 3.4.2 is the resulting integral derived isomorphism over the central quotient group
+   with the discrete Weil group. Dat is a consumer of this theorem; the proof route here goes
+   through the Scholze–Weinstein duality instead.
 
 ### Central quotient and tensor sectors
 
@@ -822,8 +841,8 @@ Unit tests.
 
 Uses.
 
-- Harris–Taylor input as used in Dat, §4.1: The local supercuspidal realization is extracted from this
-   raw global object.
+- Harris–Taylor and Boyer input as used in Dat, §4.1: The local supercuspidal realization is extracted
+   from this raw global object.
 - AutomorphicGaloisRepresentationsPartII:AG2.1a: Its raw compact-unitary clauses move down here; later
    Galois compatibility consumes them.
 
@@ -836,9 +855,10 @@ Inputs. `PELModuli:M2/representability`, `PELModuli:M2/universal-family`, `PELMo
 
 Source matching.
 
-- [Dat] §4.1, pp. 26–29: The independent Harris–Taylor input is named explicitly in the proof of the
-   local cohomology formula.
-- [Shin] §5.1, pp. 29–31 (author copy): Compact unitary PEL data and the distinction between moduli
+- [Dat] §4.1, Theorem 4.1.2 and its proof, pp. 28–29: Dat credits Theorem 4.1.2 to Boyer; its proof
+   translates between Harris–Taylor’s and Boyer’s nearby-cycle notation and applies Boyer’s theorem,
+   whose global input is the compact unitary (Harris–Taylor) Shimura variety planned here.
+- [Shin] §5.1, pp. 30–31 (author copy): Compact unitary PEL data and the distinction between moduli
    and canonical-model components.
 
 ### Independent nearby-cycle decomposition
@@ -848,9 +868,9 @@ Target `unitary-nearby-cycle-decomposition` (theorem).
 For the compact unitary model above, decompose the relevant Newton-stratum nearby-cycle terms into
    Igusa factors and local formal-module deformation cohomology, with the stratum shifts,
    coefficient duals, W_E descent and Hecke actions retained. Extracting the supercuspidal local
-   sector has only the contribution yielding degree n−1. The precise Harris–Taylor stratification
-   and local-system statements must be read and matched before this theorem is certified; Dat’s
-   citation is an interface witness, not its proof.
+   sector has only the contribution yielding degree n−1. The precise Harris–Taylor and Boyer
+   stratification and local-system statements must be read and matched before this theorem is
+   certified; Dat’s citation is an interface witness, not its proof.
 
 Hypotheses.
 
@@ -875,8 +895,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-c
 
 Source matching.
 
-- [Dat] Theorem 4.1.2 and its Harris–Taylor dictionary, pp. 27–29: The cited nearby-cycle realization
-   is essential to the theorem and is not proved by duality.
+- [Dat] Theorem 4.1.2 and its proof, pp. 28–29 (with Lemma 3.5.13, p. 27): Dat identifies the sector
+   cohomology with the dual of the nearby-cycle cohomology of the Lubin–Tate formal scheme
+   (Berkovich’s comparison and the duality Lemma 3.5.13) and then applies Boyer’s computation; the
+   nearby-cycle realization is imported, not proved by duality.
 
 ### Automorphic trace comparison and local extraction
 
@@ -902,8 +924,9 @@ Construction or proof route.
 2. Compare geometric raw cohomological traces and automorphic spectral traces including component and
    volume factors.
 3. Use the nearby-cycle decomposition to identify the surviving local factor.
-4. Prove concentration and scalar normalization by the Harris–Taylor argument; exact theorem matching
-   in the uncleared book is still required.
+4. Prove concentration and scalar normalization by the Harris–Taylor argument as extended by Boyer;
+   exact theorem matching in the uncleared Harris–Taylor book and in Boyer’s freely available paper
+   (arXiv:math/0511531) is still required.
 
 Acceptance checks.
 
@@ -915,8 +938,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-c
 
 Source matching.
 
-- [Dat] §4.1, pp. 26–29: The proof imports the Harris–Taylor global calculation and translates its
-   conventions.
+- [Dat] §4.1, pp. 28–29: The proof of Theorem 4.1.2 applies Boyer’s theorem, which rests on the
+   Harris–Taylor global calculation, after translating conventions.
 
 ### Actual supercuspidal cohomology in Dat conventions
 
@@ -932,12 +955,15 @@ Let ρ be an irreducible smooth D× representation such that π_ρ=JL(ρ) is sup
 Hypotheses.
 
 - ell≠p and characteristic-zero coefficients.
-- The independent Harris–Taylor realization and its concentration proof must be supplied.
+- The independent global realization (Harris–Taylor, extended by Boyer) and its concentration proof
+   must be supplied.
 - Only the d_ρ=1 (supercuspidal) specialization of Dat is used.
 
 Construction or proof route.
 
-1. Specialize Dat 4.1.2 to d_ρ=1, leaving only i=0 in its degree n−1+i indexing.
+1. Specialize Dat 4.1.2 to d_ρ=1. Only i=0 is defined in its degree n−1+i indexing; the vanishing for
+   1≤i≤n−1 is the intended reading recorded as EndoscopicTransferAndUnitaryTraceComparison/E3 and
+   follows from the range of Boyer’s computation.
 2. Identify the unique smooth factor with JL(ρ) and retain rec of its contragredient.
 3. Read the independent global realization through the preceding raw/nearby-cycle/extraction chain; it
    remains blocked by source access.
@@ -952,8 +978,9 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/central-quotient-sect
 
 Source matching.
 
-- [Dat] Theorem 4.1.2, pp. 27–28: The supercuspidal specialization of the displayed degree-wise
-   formula.
+- [Dat] Theorem 4.1.2 (credited to Boyer), p. 28: The supercuspidal (d_ρ=1) specialization of the
+   displayed degree-wise formula; the vanishing outside degree n−1 is the intended reading of the
+   theorem’s range (EndoscopicTransferAndUnitaryTraceComparison/E3).
 
 ### Normalization contract for the two Hecke orientations
 
@@ -994,8 +1021,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre
 
 Source matching.
 
-- [FS] IX.7.4, p. 338: The two normalized cohomology outputs needed by the consumer; not an
-   independent proof.
+- [FS] IX.7.4, p. 338: The two normalized cohomology outputs needed by the consumer (FS writes JL(π)
+   for the D× representation σ and ρ_π^* for the dual parameter); not an independent proof.
 - [Dat] §§3.3–3.5 and Theorem 4.1.2, pp. 21–28: The literal input complex and sector convention that
    the independent dictionary must translate.
 
@@ -1038,11 +1065,12 @@ Source matching.
 
 Target `stein-mittag-leffler` (theorem).
 
-In the rank-two LT/Dr infinite-level setting of CDN23, choose an increasing Stein affinoid
-   perfectoid cover {U_s}. For every i and k≥1 the restriction inverse system {H_et^i(U_s,Z/p^k)} is
-   Mittag–Leffler. Thus its derived inverse-limit obstruction R¹lim vanishes. This p-primary
-   statement is separate from the ell≠p compact-support realization and does not assert that
-   arbitrary perfectoid covers are Mittag–Leffler.
+In the setting of CDN23 §3 — the Lubin–Tate tower of GL_n(F) at infinite level over C_p, for every
+   n≥1 (the paper applies it with n=2), and hence the Drinfeld tower through the duality isomorphism
+   — choose an increasing Stein affinoid perfectoid cover {U_s}. For every i and k≥1 the restriction
+   inverse system {H_et^i(U_s,Z/p^k)} is Mittag–Leffler. Thus its derived inverse-limit obstruction
+   R¹lim vanishes. This p-primary statement is separate from the ell≠p compact-support realization
+   and does not assert that arbitrary perfectoid covers are Mittag–Leffler.
 
 Hypotheses.
 
@@ -1067,18 +1095,19 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit`, `P
 Source matching.
 
 - [CDN23] Lemma 3.10 and Corollary 3.11, pp. 35–36: The Stein-cover Mittag–Leffler proof, including
-   the component argument.
+   the component argument; §3 works with the Lubin–Tate tower of GL_n(F) for arbitrary n (§3.1, p.
+   32).
 
 ### Gross–Hopkins coordinates and infinitesimal operators
 
 Target `gross-hopkins-vector-fields` (theorem).
 
 In the rank-two LT chart of CDN20, write the Gross–Hopkins period coordinate as A/B and put
-   g=AB′−A′B. Étaleness makes g invertible. The three Lie-algebra vector-field coefficients are
-   f_1=A²/g, f_2=B²/g and f_3=AB/g, in the source’s chosen basis; their infinitesimal actions are
-   f_i d/dz. In particular f_1 f_2′−f_2 f_1′=2f_3, so the first two vector fields have the required
-   bracket. The formulas are coordinate-dependent and glue through the period-map transformation
-   rule.
+   g=AB′−A′B. Étaleness makes g invertible. The vector fields f_i d/dz with f_1=A²/g, f_2=B²/g and
+   f_3=AB/g give the infinitesimal action of the Lie algebra of D×/F× (D the quaternion division
+   algebra) on functions on the tower, in the source’s chosen basis. In particular f_1 f_2′−f_2
+   f_1′=2f_3, so the first two vector fields have the required bracket. The formulas are
+   coordinate-dependent and glue through the period-map transformation rule.
 
 Hypotheses.
 
@@ -1101,8 +1130,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms`, `E
 
 Source matching.
 
-- [CDN20] Proposition 4.8, pp. 38–39 (arXiv copy): The Gross–Hopkins coordinates and infinitesimal
-   action.
+- [CDN20] Proposition 4.8, pp. 38–39 (arXiv copy): Proof of Proposition 4.8, Lubin–Tate side: the
+   Gross–Hopkins period coordinate A/B, the invertibility of g and the three vector fields giving
+   the infinitesimal action of Ǧ/Z(Ǧ), which the source attributes to Gross–Hopkins, and the
+   identity f_1f_2′−f_2f_1′=2f_3 (checked by the quotient rule).
 
 ### Duality and locally analytic vectors
 
@@ -1154,7 +1185,10 @@ For a cyclic extension L/K of number fields of prime degree r and its class-fiel
    self-twist case r divides m and Π is the isobaric sum of the r distinct conjugates of a cuspidal
    representation of GL_(m/r)(A_L). A Galois-stable cuspidal Π descends, and its descents differ by
    powers of η. Local tempered base change satisfies the Shintani character identity and sends the
-   central character ω_π to ω_π∘N_L/K.
+   central character ω_π to ω_π∘N_L/K; the other tempered representations with the same lift are the
+   inductions of the same discrete-series data twisted factorwise by powers of the local class-field
+   character, and the lift of a supercuspidal representation is supercuspidal when it is discrete
+   and otherwise is induced from the distinct Galois conjugates of a supercuspidal representation.
 
 Hypotheses.
 
@@ -1181,8 +1215,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `AutomorphicSpectral
 
 Source matching.
 
-- [AC] Chapter I, Definition 6.1 and Theorem 6.2, pp. 51–52; Chapter III, Theorem 4.2, pp. 202–203:
-   The local Shintani lift and the global cyclic cuspidality alternatives.
+- [AC] Chapter I, Definition 6.1 and Theorem 6.2, p. 51; Proposition 6.7, p. 59; Lemma 6.10, p. 62;
+   Chapter III, Theorem 4.2, pp. 202–203: The local Shintani lift with its uniqueness and
+   central-character relation, the fibres of tempered lifting, the lifts of supercuspidal
+   representations, and the global cyclic cuspidality alternatives.
 
 ### Cyclic automorphic induction
 
@@ -1306,7 +1342,7 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/speh-representation`,
 
 Source matching.
 
-- [MW] Introduction, theorem (i)–(ii), pp. 605–606; §II.3 and its corollary: The residual
+- [MW] Introduction, theorem (i)–(ii), pp. 605–606; §II.3 and its corollary, pp. 647–649: The residual
    classification by repeated cuspidal support and the residue proof route.
 
 ### Twisted unitary spectral coefficients
@@ -1318,7 +1354,8 @@ For the unitary twisted GL group and test functions of Shin §4, the invariant t
    traces on the relatively discrete Levi spectrum of the normalized intertwining composite. After
    the stated central character twist, Shin Corollary 4.14 identifies this composite with the
    normalized θ-intertwiner A′ on the induced representation. At the full Levi the determinant is
-   2^r for r nonzero endoscopic blocks, so its reciprocal spectral coefficient is 2^(−r).
+   2^r for r nonzero components of the endoscopic datum vecn, so its reciprocal spectral coefficient
+   is 2^(−r); at a maximal proper Levi it is 2^(r+1).
 
 Hypotheses.
 
@@ -1343,20 +1380,21 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-cla
 
 Source matching.
 
-- [Shin] Proposition 4.8, Remark 4.10 and Corollary 4.14, pp. 28–29 (author copy): The Levi/Weyl
-   coefficient, determinant and normalized intertwiner.
+- [Shin] Proposition 4.8 and Remark 4.10, p. 28; Lemma 4.11, p. 29; Corollary 4.14, p. 30 (author
+   copy): The Levi/Weyl coefficient, determinant and normalized intertwiner.
 
 ### Weak unitary base change and standard pairs
 
 Target `weak-unitary-base-change` (definition).
 
 Let F/F+ be CM, V a standard definite or standard one-place-indefinite hermitian space, and π an
-   automorphic U(V) representation. A weak automorphic base change is an isobaric automorphic Π on
-   GL_N(A_F) whose unramified local parameters match local base change at all but finitely many
-   places of F+. A standard pair requires π_f to occur in the stated raw Shimura cohomology (degree
-   zero in the definite case, some degree in the indefinite case). Strong multiplicity one gives
-   uniqueness of Π when it exists; weak base change alone specifies neither every bad local factor
-   nor every packet member.
+   automorphic U(V) representation. A weak automorphic base change is an automorphic representation
+   Π of GL_N(A_F) that is a finite isobaric sum of discrete automorphic representations and whose
+   unramified local parameters match local base change at all but finitely many places of F+. A
+   standard pair requires π_f to occur in the stated raw Shimura cohomology (degree zero in the
+   definite case, some degree in the indefinite case). Strong multiplicity one gives uniqueness of Π
+   when it exists; weak base change alone specifies neither every bad local factor nor every packet
+   member.
 
 Hypotheses.
 
@@ -1365,11 +1403,15 @@ Hypotheses.
 
 Construction or proof route.
 
-1. Import the standard hermitian datum and raw canonical-model cohomology from lower PEL/Shimura
-   owners.
+1. Import the canonical models of the abelian-type unitary Shimura varieties Sh(V,K) attached to
+   Res_{F+/Q}U(V) (these are not PEL moduli of similitude groups) and, for definite V, the finite
+   Shimura sets; take their raw cohomology.
 2. Define the unramified parameter-matching predicate.
 3. Use strong multiplicity one for uniqueness in the isobaric class.
-4. Record that the existence proof is Labesse’s transfer via independent stable trace identities.
+4. Record that LTXZZ attributes existence to Shin’s cohomological base change for unitary similitude
+   groups (their reference [72], Theorem 1.1, adapted as in their Proposition D.1.3) and, for
+   definite V, also to Labesse (their reference [42], Corollaire 5.3); both run through independent
+   stable trace identities.
 
 Proposed API (reader targets unless expressly prototyped).
 
@@ -1396,7 +1438,7 @@ Acceptance checks.
 - Changing a ramified unitary local factor cannot be ruled out by the weak definition alone.
 - Residual Speh possibilities remain until cuspidality is separately established.
 
-Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `PELModuli:M3/complex-points`.
+Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `ShimuraVarieties:V6/abelian-canonical`.
 
 Source matching.
 
@@ -1417,8 +1459,9 @@ For a standard pair (V,π), the independent unitary stable trace comparison and 
 Hypotheses.
 
 - Use the independent ET.4 stable/twisted identities and their admissible test functions.
-- Existence requires the Labesse theorem cited in LTXZZ 3.2.8; its primary proof remains a
-   source-reading gap.
+- Existence is LTXZZ Proposition 3.2.8, which cites Shin’s cohomological base change (their reference
+   [72], Theorem 1.1) and, for definite V, Labesse (their reference [42], Corollaire 5.3); these
+   primary proofs remain a source-reading gap.
 
 Construction or proof route.
 
@@ -1427,7 +1470,8 @@ Construction or proof route.
 3. Use the residual classification and cyclic base-change steps to identify the isobaric GL_N
    constituents.
 4. Apply strong multiplicity one to identify the good-place character and infinity type.
-5. Read Labesse’s primary existence argument before treating the theorem as independently certified.
+5. Read Shin’s (and, in the definite case, Labesse’s) primary existence argument before treating the
+   theorem as independently certified.
 
 Acceptance checks.
 
@@ -1438,9 +1482,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-cha
 
 Source matching.
 
-- [LTXZZ] Proposition 3.2.8, p. 146: The existence theorem is attributed to Labesse, not proved in
-   this paper.
-- [Shin] §4, Proposition 4.8 and Corollary 4.14, pp. 28–29: The pure twisted spectral comparison
+- [LTXZZ] Proposition 3.2.8, p. 146: The existence theorem is not proved in LTXZZ: it is attributed to
+   Shin’s cohomological base change, with Labesse’s result as a second reference in the definite
+   case.
+- [Shin] §4, Proposition 4.8, p. 28, and Corollary 4.14, p. 30: The pure twisted spectral comparison
    machinery.
 
 ### Local unitary Langlands quotient compatibility
@@ -1475,7 +1520,7 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `EndoscopicTransferA
 
 Source matching.
 
-- [LTXZZ] Appendix C.1, pp. 351–354: The local Langlands-quotient and tempered/spherical base-change
+- [LTXZZ] Appendix C.1, pp. 351–352: The local Langlands-quotient and tempered/spherical base-change
    rules.
 
 ### Relevant generic packet multiplicity one
@@ -1551,7 +1596,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multi
 
 Source matching.
 
-- [LTXZZ] Corollaries C.3.2 and C.3.3, p. 364; Proposition C.2.5: The two parity-specific switches.
+- [LTXZZ] Corollaries C.3.2 and C.3.3, p. 364; Proposition C.2.5, p. 362: The two parity-specific
+   switches.
 
 ### Transferable compact levels
 
@@ -1632,7 +1678,11 @@ Construction or proof route.
    infinity components.
 2. Use the local special-maximal calculation to obtain each zero/one c_v.
 3. Sum dim π_v^K over local packet members at the remaining bad places.
-4. Apply the transferred trace identity with normalized intertwiners; the standard infinity packet
+4. Prove the identity between packet sums of invariants and normalized traces by passing to an
+   auxiliary totally real quadratic extension in which every place of Σ_min splits, every place of
+   Σ_lr is inert and the base change of Π stays cuspidal, and by using Shin’s definite-case
+   dimension formula there (LTXZZ pp. 370–371, citing their references [71] and [72]).
+5. Apply the transferred trace identity with normalized intertwiners; the standard infinity packet
    contributes 1 in the definite case and N in the indefinite case.
 
 Acceptance checks.
@@ -1640,7 +1690,7 @@ Acceptance checks.
 - If some c_v=0 both specified eigenspaces vanish.
 - For N=2 and all local factors one, the indefinite dimension is twice the definite dimension.
 
-Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `AutomorphicFormsOnReductiveGroups:AF.5`.
+Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `AutomorphicFormsOnReductiveGroups:AF.5`, `AutomorphicFormsOnReductiveGroups:AF.4`.
 
 Source matching.
 
@@ -1683,8 +1733,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, 
 
 Source matching.
 
-- [BCGP] §1.8.22, p. 15; Proposition 7.5.3 and proof, pp. 175–176 (arXiv copy): General-type transfer
-   and the precise solvable-descent clients of cyclic descent.
+- [BCGP] §1.8.22, p. 15; Proposition 7.5.3 and proof, p. 175 (arXiv copy): General-type transfer and
+   the precise solvable-descent clients of cyclic descent.
 
 ### Automorphic induction of a quadratic Hecke character
 
@@ -1842,6 +1892,9 @@ Source matching.
 
 - [CSnc] §5.6 setup and Theorem 5.6.1, pp. 74–75: The exact finite test functions, auxiliary sets and
    infinity input.
+- [CSnc] Definition 5.3.1, p. 68: The transferred functions: the p-component is the function of Shin
+   2010 §6 (the same as in CS17), auxiliary places use Langlands–Shelstad transfer, the unramified
+   part uses the L-morphism and infinity uses Euler–Poincaré functions.
 
 ### Normalized Newton reduction to the inner form
 
@@ -1852,8 +1905,11 @@ Define Red_b,vecn:Groth(G_vecn(Q_p))→Groth(J_b(Q_p)) by summing over the effec
    functors, the specified L-map transfer (normalized induction among products of GL groups), and
    the Langlands–Jacquet map to the inner form. Include the transfer character and modulus factor
    belonging to the selected ET.5 test-function normalization. In Shin’s conventions
-   Red=(n-Red)⊗barδ_(P(ν_b))^(1/2); CS17’s Red must be matched with its own φ_p before reuse. A
-   naive unsigned Jacquet-then-JL composition is insufficient.
+   Red=(n-Red)⊗barδ_(P(ν_b))^(1/2). CS17 §5.4 prints Red as the untwisted composite of the three
+   steps (Shin’s n-Red); by the confirmed erratum PAPER-CARAIANI-SCHOLZE-17/E74 the twist is needed
+   for CS17 Lemma 5.4.2, so the twisted Red is the one defined here, and CSnc’s use of CS17’s Red is
+   read the same way (EndoscopicTransferAndUnitaryTraceComparison/E4). A naive unsigned
+   Jacquet-then-JL composition is insufficient.
 
 Hypotheses.
 
@@ -1897,8 +1953,9 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.5`, `EndoscopicTransferA
 
 Source matching.
 
-- [CS17] §5.4, Remark 5.4.1 and Lemma 5.4.2, pp. 739–740: The three-step construction and trace
-   compatibility.
+- [CS17] §5.4, Remark 5.4.1 and Lemma 5.4.2, pp. 739–740: The three-step construction (printed without
+   the modulus twist, corrected by PAPER-CARAIANI-SCHOLZE-17/E74) and the trace compatibility of
+   Lemma 5.4.2.
 - [Shin] §5.5, (5.14)–(5.16), pp. 36–37 (author copy): The signed opposite Jacquet functor and modulus
    twist.
 
@@ -1908,9 +1965,10 @@ Target `red-trace-duality` (theorem).
 
 For acceptable φ_p and the fixed transfer φ_vecn,p, every virtual π_p on G_vecn(Q_p) satisfies tr
    π_p(φ_vecn,p)=tr Red_b,vecn(π_p)(φ_p). This identity is exact in the chosen measures and
-   normalization; each transfer step is dual to the corresponding representation step. The
-   subsequent finite-character Frobenius-shift argument extends the needed character identity to
-   arbitrary compactly supported smooth φ_p.
+   normalization; each transfer step is dual to the corresponding representation step. The local
+   identity is for acceptable φ_p, where φ_vecn,p is defined; the global trace expansion that uses
+   it is extended to arbitrary compactly supported smooth φ_p by the Frobenius-twist argument of
+   Shin 2009, Lemma 6.4, as in the proofs of CS17 Lemma 5.5.1 and CSnc Lemma 5.6.2.
 
 Hypotheses.
 
@@ -1935,7 +1993,8 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `E
 
 Source matching.
 
-- [CS17] Lemma 5.4.2, p. 740: The exact local trace identity.
+- [CS17] Lemma 5.4.2, p. 740: The local trace identity, valid for the twisted Red of
+   PAPER-CARAIANI-SCHOLZE-17/E74; with the printed untwisted composite it fails for non-basic b.
 - [CSnc] Proof of Lemma 5.6.2, pp. 75–76: The local reduction and acceptable-function extension input.
 
 ### The signed source Igusa trace identity
@@ -1950,6 +2009,8 @@ For the CSnc test package, tr(φ|[H_c(Ig^b,Λ)])=τ(G)Σ_vecn ε_vecn I_spec^(G_
 
 Hypotheses.
 
+- φ_p is acceptable: CSnc §5.6 assumes this in the first instance and Theorem 5.6.1 is proved under
+   it; only the factorized expansion is extended to arbitrary φ_p.
 - Use the source datum, τ(G), transferred functions and real Lefschetz normalization.
 - The alternating class and its finite-level smooth traces are well defined.
 
@@ -1979,9 +2040,13 @@ Target `local-factorization` (theorem).
 After fixing the CSnc test package, the rational alternating Igusa trace lies in the finite span of
    terms tr(Red_b,vecn(π_vecn,p)(φ_p)) · tr(Π_vecn,Spf(f_vecn,Spf)A_Spf) ·
    tr(ζ_vecn,*Π_vecn^S(f_2n^S)). Here Π_vecn is a θ-stable irreducible isobaric automorphic
-   representation with cohomological infinity component, and π_vecn,p is its split-p base-change
-   preimage. The coefficients are virtual spectral coefficients; no sign, multiplicity or positivity
-   is supplied merely by the span assertion.
+   representation whose infinity component is cohomological for one of the coefficient systems
+   Ξ(φ_vecn) entering f_vecn,∞ (none of them is trivial when vecn is proper:
+   PAPER-CARAIANI-SCHOLZE-17/E77 and EndoscopicTransferAndUnitaryTraceComparison/E5), π_vecn,p is
+   its split-p base-change preimage, and Red is the twisted reduction above
+   (PAPER-CARAIANI-SCHOLZE-17/E74, EndoscopicTransferAndUnitaryTraceComparison/E4). The coefficients
+   are virtual spectral coefficients; no sign, multiplicity or positivity is supplied merely by the
+   span assertion.
 
 Hypotheses.
 
@@ -2007,8 +2072,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace`, 
 Source matching.
 
 - [CSnc] Lemma 5.6.2 and Remark 5.6.3, pp. 75–76: The finite factorization and possible repeated
-   eigencharacters.
-- [CS17] Lemma 5.5.1, pp. 741–743: The analogous isobaric spectral factorization.
+   eigencharacters; its “trivial algebraic representation” clause and its untwisted Red are
+   corrected as recorded in EndoscopicTransferAndUnitaryTraceComparison/E4–E5.
+- [CS17] Lemma 5.5.1, pp. 741–743: The analogous isobaric spectral factorization, as corrected by
+   PAPER-CARAIANI-SCHOLZE-17/E74 and E77.
 
 ### Separation of unramified Hecke characters
 
@@ -2043,8 +2110,10 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization`,
 
 Source matching.
 
-- [CS17] Corollary 5.5.2 and Remark 5.5.3, p. 743: Linear independence and the nonuniqueness of
-   endoscopic contributions.
+- [CS17] Corollary 5.5.2 and Remark 5.5.3, p. 743: Linear independence of unramified Hecke characters
+   and the nonuniqueness of endoscopic contributions; the first assertion of Corollary 5.5.2 holds
+   only for the total contribution of a Hecke eigensystem (PAPER-CARAIANI-SCHOLZE-17/E79), which is
+   the form used here.
 - [CSnc] Remark 5.6.3, p. 76: The same Hecke eigensystem may have multiple endoscopic origins.
 
 ### Rational Igusa export without concentration
@@ -2113,12 +2182,14 @@ Proposed API (reader targets unless expressly prototyped).
 - `comparisonTrace_addMultiplicity` (structure): Adding multiplicity functions adds the trace.
 - `comparisonTrace_zeroLocal` (simp): If every local factor is zero, the trace is zero.
 - `comparisonTrace_merge` (compatibility): Terms with the same sign and three trace factors combine by adding virtual multiplicities.
+- `comparisonTrace_eq_trace_diagonal` (compatibility): Over all of a finite index type, the ledger equals the Mathlib trace of the diagonal matrix whose entries are the five-fold products.
 
 Unit tests.
 
 - `comparisonTrace.balanced` (computation): One term with mult=signless traces=1 and endoscopic coefficient 1/2 evaluates to 1/2.
 - `comparisonTrace.cancellation` (computation): Two terms with identical trace factors and multiplicities 1 and −1 have sum zero.
 - `comparisonTrace.innerForm` (computation): A term with multiplicity 2, sign −1 and trace factors 3,5,7 evaluates to −210.
+- `comparisonTrace.matrixTrace` (compatibility): For two terms with products 2 and 3 the ledger equals Matrix.trace of the diagonal matrix diag(2,3), namely 5.
 
 Uses.
 
@@ -2131,7 +2202,7 @@ Acceptance checks.
 - A negative coefficient is legal and must remain negative.
 - A balanced proper endoscopic contribution includes its factor 1/2.
 
-Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace`, `mathlib:Matrix.trace`.
+Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace`, `mathlib:Matrix.trace`, `mathlib:Matrix.trace_diagonal`.
 
 Source matching.
 
@@ -2275,8 +2346,9 @@ Inputs. `EndoscopicTransferAndUnitaryTraceComparison:ET.6`, `EndoscopicTransferA
 
 Source matching.
 
-- [Dat] §2 and Theorem 4.1.2, pp. 8–11, 27–28: The Jacquet–Langlands conventions and their relation to
-   tower factors.
+- [Dat] §2.1, pp. 6–12, in particular Remark 2.1.14, p. 10; Theorem 4.1.2, p. 28: The
+   Jacquet–Langlands conventions (in the Grothendieck group the elliptic representations of a type
+   differ from the discrete series by the sign (−1)^|I|) and their relation to tower factors.
 - [Shin] §5.5–§5.6, pp. 36–42: The sign enters the inner-form trace transfer.
 
 ### Coherent automorphic and Igusa exports
@@ -2330,6 +2402,10 @@ Add an early local p-divisible/formal-module supplier after Dieudonné theory: d
    including the SW20 covariant conversion and O_E-linear specialization. This is an explicit
    scope-extension request, not a claim that R07.2 already has those local results. Move the local
    classification out of T2 and assign its FF bundle prerequisites below this supplier.
+   FiniteFlatGroupsAndIntegralPadicHodgeTheory is now TauCetiRoadmap pull request #879; its R07.2
+   (Dieudonné theory, R07.2.1–R07.2.29) contains no Rapoport–Zink or Drinfeld-level moduli and no
+   SW13 §5 classification, so this scope extension has to be made in that pull request, in a Part II
+   of that roadmap, or by planning the classification in ET.6a itself.
 
 Needed by: `lubin-tate-tower`, `drinfeld-tower`, `infinite-level-moduli`, `basic-modification-functor`, `rational-igusa-object`.
 
@@ -2412,9 +2488,22 @@ Needed by: `speh-representation`.
 
 ### AutomorphicFormsOnReductiveGroups:AF.5
 
-Matsushima/complex cohomological decomposition for the standard definite and one-place-indefinite
-   unitary datum, the relevant tempered infinity packet, and the characteristic-zero middle-degree
-   calculation. This is not integral or Igusa concentration.
+For the standard definite unitary datum: identification of the degree-zero cohomology of the Shimura
+   sets with algebraic automorphic forms on the compact-at-infinity unitary group (functions on
+   finite adelic double cosets), compatibly with Hecke operators and with the decomposition into
+   automorphic representations with trivial infinity component. This is the definite case of the
+   oldform count; it is not integral or Igusa concentration.
+
+Needed by: `oldform-dimensions`.
+
+### AutomorphicFormsOnReductiveGroups:AF.4
+
+Cohomological representations of the real unitary group U(N−1,1)×U(N)^(d−1) and the (g,K)-cohomology
+   (Matsushima) description of the Π-eigenspace of the cohomology of the standard indefinite unitary
+   Shimura variety for relevant Π: every contributing π is cuspidal and tempered, contributes only
+   in degree N−1, and each of the N discrete series with Harish-Chandra parameter
+   {(1−N)/2,…,(N−1)/2} contributes one dimension. Characteristic zero only; not integral or Igusa
+   concentration.
 
 Needed by: `oldform-dimensions`.
 
@@ -2467,12 +2556,15 @@ Needed by: `tower-conventions`, `global-extraction`, `supercuspidal-dat-sector`,
 
 ## Gaps and certification gates
 
-### Harris–Taylor primary proof access
+### Harris–Taylor and Boyer primary proof access
 
 The full Harris–Taylor book is neither cleared in atlas-library/INDEX.md nor freely accessible from
-   an authorized copy found in this run. Dat §4.1 expressly imports its global realization. The raw
-   compact unitary integral model, Newton-stratum nearby-cycle decomposition, global extraction,
-   actual supercuspidal concentration and scalar normalization have a target-level plan but no
+   an authorized copy found in this run. Dat credits Theorem 4.1.2 to Boyer and proves it by
+   translating notation and applying Boyer’s theorem; Boyer’s computation (arXiv:math/0511531,
+   freely available; Invent. Math. 177 (2009)) rests on Harris–Taylor’s global realization. Neither
+   Boyer’s paper nor the Harris–Taylor book has been read for this plan. The raw compact unitary
+   integral model, Newton-stratum nearby-cycle decomposition, global extraction, actual
+   supercuspidal concentration and scalar normalization have a target-level plan but no
    independently read book proof or precise internal theorem/page locators. Obtain/register the
    book, then match its exact statements and proof chain. The packet is planned, not
    source_decomposed or closed.
@@ -2497,16 +2589,20 @@ R07.2 currently plans Dieudonné theory, not the entire O_E/O_D deformation/clas
    and below relative T2. The general representation of the special O_D formal moduli also needs its
    primary proof (Drinfeld/Rapoport–Zink or the source explicitly proving the specialization); SW13
    duality alone is not that integral representability proof.
+   FiniteFlatGroupsAndIntegralPadicHodgeTheory is now TauCetiRoadmap pull request #879, whose R07.2
+   stops at Dieudonné theory over perfect valuation rings (R07.2.29); the classification can only be
+   added there, in a Part II, or planned in ET.6a.
 
 Affected targets: `lubin-tate-tower`, `drinfeld-tower`, `infinite-level-moduli`, `basic-modification-functor`.
 
 ### Primary pure-transfer and packet proofs
 
-LTXZZ 3.2.8 cites Labesse’s existence theorem, C.3.1 cites the generic KMSW classification, and
-   D.2.2 cites Morel/small-level transfer. Their exact consumer statements were read, but this part
-   does not certify those independently unread primary proofs. ET.4 must supply the requested
-   independent pure-transfer, generic packet, small-level and GSp4 classification contracts. Local
-   LLC in ET.6 does not automatically supply all global unitary packet members.
+LTXZZ 3.2.8 cites Shin’s cohomological base change (their reference [72], Theorem 1.1) and, for
+   definite V, Labesse (their reference [42], Corollaire 5.3), C.3.1 cites the generic KMSW
+   classification, and D.2.2 cites Morel/small-level transfer. Their exact consumer statements were
+   read, but this part does not certify those independently unread primary proofs. ET.4 must supply
+   the requested independent pure-transfer, generic packet, small-level and GSp4 classification
+   contracts. Local LLC in ET.6 does not automatically supply all global unitary packet members.
 
 Affected targets: `cohomological-base-change`, `relevant-packet-multiplicity`, `definite-indefinite-switches`, `transferable-level`, `oldform-dimensions`, `gsp4-solvable-descent-interface`.
 
@@ -2566,16 +2662,25 @@ Affected targets: `tower-compact-support`, `equivariant-cohomology-comparison`.
 
 Confirmed RT-AREA-langlands-1/1: ET.6 classical LLC needs cyclic BC/AI currently placed after it.
 
-Create ET.4b after ET.3/ET.4 and AS.6, move the cyclic-base-change and cyclic-automorphic-induction
-   targets there, and add ET.4b→ET.6, ET.7a and the modularity-extension consumers. Keep ET.7a pure
-   cohomological unitary transfer and residual Speh comparison. Current packet retains the assigned
-   scope pending this decision.
+Create ET.4b after ET.3/ET.4 and AS.6, requiring AutomorphicSpectralTheory:AS.6, ET.3 and ET.4. Move
+   cyclic-base-change (with Arthur–Clozel Chapter I §6: Theorem 6.2, Proposition 6.7, Lemma 6.10)
+   and cyclic-automorphic-induction (Chapter III §§4 and 6) there, and add Harris–Taylor’s base
+   change from their unitary group (Harris–Taylor §VI: VI.1.1, VI.2.1, VI.2.9–VI.2.10), which this
+   part could not read. Add the edges ET.4b→ET.6, ET.4b→ET.7a and
+   ET.4b→GL2AutomorphicRepresentationsAndTransfer:R17.4. ET.6 itself still needs explicit targets
+   for Harris’s non-Galois automorphic induction (Scholze, Local Langlands for GL_n, §13) and
+   Henniart’s highly-ramified-twist argument (§14). Keep ET.7a pure cohomological unitary transfer
+   and residual Speh comparison. The current packet retains the assigned scope pending this
+   decision.
 
 Confirmed RT-AREA-padic-1/25: SW13 local classification must precede T2 and the towers.
 
 Add an early local p-divisible stage after R07.2, with the independent geometric FF bundle
    classification and the SW13 5.1.4/5.1.6/5.2.1 proof chain; route T2, IG.3 and ET.6a to it. Do not
    import relative T2 back into the classical tower construction.
+   FiniteFlatGroupsAndIntegralPadicHodgeTheory is now TauCetiRoadmap pull request #879, so the new
+   stage is either an addition to that pull request or a Part II of it; planning the classification
+   in ET.6a is the alternative if neither is wanted.
 
 Confirmed RT-AREA-geomlanglands/2 and current HS3/classical-comparison overlap: tower comparison
    needs one owner and direction.
@@ -2583,7 +2688,10 @@ Confirmed RT-AREA-geomlanglands/2 and current HS3/classical-comparison overlap: 
 ET.6a owns the narrow basic minuscule fibre and the LT/Dr specialization of SW20 24.2.5/24.3.5.
    Redirect HS3 tower clauses and ES7 to these nodes. General HS2 local-shtuka construction and the
    general EL/PEL integral comparison remain with their owners. No ET.6a→HS3 dependency; HS3 and ES7
-   consume ET.6a.
+   consume ET.6a. Delete the atlas stage edge HeckeStacksAndLocalShtukas:HS2→ET.6a: no ET.6a node
+   uses HS2 (the basic fibre is built from FarguesFontaineDiamonds F4 and DiamondsAndVStacks D6),
+   and HS2 lies outside the Caraiani–Newton tiers. Point ES7:GLn-comparison’s import sentence and
+   HS2’s “match with known local Shimura moduli” clause at ET.6a/classical-tower-fibre-comparison.
 
 WORKERS upstream tier rule moves higher raw geometry and rational Igusa inputs down before ET.
 
@@ -2594,6 +2702,101 @@ Move only the early compact-unitary raw model/cohomology clauses of AG2.1a and t
    theorem stays ET.7b. Higher stages import these nodes; global Galois representations, boundary
    localization, compactified fibres, integral concentration and residual applications stay with
    AG2/IG.
+
+## Mistakes in the sources
+
+The following mistakes were found at the cited places. Every node above uses the corrected
+   statements.
+
+### EndoscopicTransferAndUnitaryTraceComparison/E2 (misprint, affects nothing)
+
+[Dat] §3.2.2, p. 18, and §3.2.3, p. 19 (author PDF of Invent. Math. 169 (2007)).
+
+Printed: The Lubin–Tate deformation functor is written as a union of height components indexed by
+   the natural numbers (h∈N, and once by an undefined index set H), and the level-zero space as the
+   union over h∈N.
+
+Correction: The height h of the framing quasi-isogeny ranges over Z, and the unions are over h∈Z.
+
+Reason: Quasi-isogenies of every integer height occur (compose with powers of the uniformizer), the
+   decomposition is stated for all heights in the preceding sentence, and the Drinfeld side (§3.1.3,
+   p. 16) uses h∈Z; the D×-action of §3.2.4 moves heights by negative amounts as well.
+
+Known: new. Searched: the author PDF on the author’s page (only version available to this review);
+   the published Inventiones version was not accessible to this review.
+
+### EndoscopicTransferAndUnitaryTraceComparison/E3 (misprint, affects nothing)
+
+[Dat] Theorem 4.1.2, p. 28 (author PDF of Invent. Math. 169 (2007)).
+
+Printed: The isomorphism H_c^{d−1+i}[ρ]≅π_ρ^{≤i}⊗σ(π_ρ^∨)|·|^{(d_ρ−d)/2−i} is asserted for 0≤i≤d−1,
+   while π_ρ^{≤i}=π_ρ^{{1,…,i}} is defined only for {1,…,i}⊆S_ρ, i.e. for i≤d_ρ−1 (Convention
+   2.1.13).
+
+Correction: The formula holds for 0≤i≤d_ρ−1, and H_c^{d−1+i}[ρ]=0 for d_ρ≤i≤d−1 (equivalently, set
+   π_ρ^{≤i}=0 there).
+
+Reason: The proof identifies H_c^{d−1+i}[ρ] with the dual of Boyer’s U^{d−1−i}(ρ) and applies
+   Boyer’s theorem, which describes U^{d−d_ρ+i} for 0≤i≤d_ρ−1 and gives zero in the other degrees;
+   the substitution i↦d_ρ−1−i in the proof covers exactly the range 0≤i≤d_ρ−1. For supercuspidal ρ
+   (d_ρ=1) this is the concentration in degree d−1 used by supercuspidal-dat-sector.
+
+Known: new. Searched: the author PDF on the author’s page (only version available to this review);
+   the published Inventiones version was not accessible to this review.
+
+### EndoscopicTransferAndUnitaryTraceComparison/E4 (error, affects a stated result)
+
+[CSnc] §5.6, Lemma 5.6.2 and its proof, pp. 75–76, and the proof of Theorem 5.1.2, p. 77 (author
+   copy; the same text in arXiv:1909.01898v2).
+
+Printed: The p-factor of each term is tr(Red(π_p^vecn)(φ_p)), with Red the morphism of CS17 §5.4,
+   obtained from tr π_p^vecn(φ_p^vecn) by CS17 Lemma 5.4.2, where φ_p^vecn is the function of Shin
+   2010 §6 (Definition 5.3.1(1), p. 68).
+
+Correction: Use Red=n-Red⊗δ̄^{1/2}_{P(ν_b)} (Shin 2011 §5.5), or evaluate the untwisted composite at
+   φ_p·δ̄^{1/2}_{P(ν_b)}; the p-local representations π_j=Red(π_p^vecn) of the proof of Theorem
+   5.1.2 change by the same twist.
+
+Reason: This is PAPER-CARAIANI-SCHOLZE-17/E74 inherited: CSnc takes Red from CS17 §5.4, where it is
+   printed as the untwisted three-step composite, and takes φ_p^vecn from Shin 2010 §6, whose
+   construction transfers φ_p·δ̄^{1/2}; CS17 Lemma 5.4.2 holds only for the twisted Red. For
+   non-basic b the twist changes central characters, so the printed expansion is off. Whether the
+   last assertion of Theorem 5.1.2 (the parameter of π_{j,v}|·|^{1/2−n}) needs the corresponding
+   unramified twist was not determined in this review.
+
+Known: new. Searched: arXiv:1909.01898 v1 and v2 listing (v2 checked: same text); Annals of
+   Mathematics article page for 199 (2024), 483–590 (no erratum listed); Crossref record of
+   doi:10.4007/annals.2024.199.2.1 (no update relation); the atlas extraction
+   PAPER-CARAIANI-SCHOLZE-24 (not recorded there).
+
+### EndoscopicTransferAndUnitaryTraceComparison/E5 (error, affects a stated result)
+
+[CSnc] §5.6, Lemma 5.6.2, last sentence but one of the statement, p. 75 (author copy; the same text
+   in arXiv:1909.01898v2).
+
+Printed: Each Π^vecn_∞ is asserted to be cohomological with respect to the trivial algebraic
+   representation.
+
+Correction: Π^vecn_∞ is cohomological with respect to Ξ(φ_vecn) for one of the discrete parameters
+   φ_vecn with ζ̃_vecn∘φ_vecn the parameter of the trivial representation of G_2n; for vecn=(2n)
+   this is the trivial representation, for proper vecn=(n_1,n_2) none of them is. Π^vecn is still
+   regular and C-algebraic, which is all that the later arguments use.
+
+Reason: This is PAPER-CARAIANI-SCHOLZE-17/E77 inherited. The test function at infinity is a
+   combination of Lefschetz functions for the Ξ(φ_vecn) (p. 74). In CSnc the endoscopic twist
+   multiplies both blocks by ϖ^{ϵ(n_i)} with ϵ(n_1)=ϵ(n_2) because n_1+n_2=2n (p. 68), so two
+   trivial blocks would give two runs of exponents with the same centre, while the exponents of the
+   trivial parameter of GL_{2n} split into runs centred at n_2/2 and −n_1/2.
+
+Known: new. Searched: arXiv:1909.01898 v1 and v2 listing (v2 checked: same text); Annals of
+   Mathematics article page for 199 (2024), 483–590 (no erratum listed); Crossref record of
+   doi:10.4007/annals.2024.199.2.1 (no update relation); the atlas extraction
+   PAPER-CARAIANI-SCHOLZE-24 (not recorded there).
+
+The CS17 errata recorded in the paper extraction PAPER-CARAIANI-SCHOLZE-17 are used throughout
+   ET.7b: E74 (the reduction map needs the modulus twist), E77 (at infinity the contributing
+   representations are cohomological for the endoscopic coefficient systems, not the trivial one)
+   and E79 (Corollary 5.5.2 holds for the total contribution of a Hecke eigensystem).
 
 ## Source versions read
 
@@ -2636,19 +2839,23 @@ URL: https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf
 
 SHA-256: `4973a260e5af4b046652956ad63e95a412fb82873cdecc6bd585c85e1aa4a04d`. Read 2026-10-14.
 
-- §§2.1–2.2, pp. 8–13
-- §§3.1–3.5, pp. 15–26; Theorem 3.4.1 and Corollary 3.4.2
-- §4.1, Theorem 4.1.2 and Harris–Taylor convention dictionary, pp. 26–29
+- §§2.1–2.2, pp. 6–14
+- §§3.1–3.5, pp. 15–27; Theorem 3.4.1 and Corollary 3.4.2, p. 24; Lemma 3.5.13, p. 27
+- §4 and §4.1, Theorem 4.1.2 (credited to Boyer) and its proof, which translates Harris–Taylor’s and
+   Boyer’s notation, pp. 28–29
 
 ### [CSnc] On the generic part of the cohomology of non-compact unitary Shimura varieties
 
-Ana Caraiani and Peter Scholze. Author noncompact.pdf; internal 76-page section numbering used here.
+Ana Caraiani and Peter Scholze. Author copy noncompact.pdf (90 pages; its text and page numbers
+   agree with arXiv:1909.01898v2 at every place cited here); published in Annals of Mathematics 199
+   (2024), 483–590.
 
 URL: https://www.ma.imperial.ac.uk/~acaraian/papers/noncompact.pdf
 
 SHA-256: `9c9b723d20f35af25f45c236224fb3a4d72c57379ea54759a3b609f4092d8eb5`. Read 2026-10-14.
 
 - §§2.2–2.3, liftable automorphisms, central leaves and finite Igusa torsors, pp. 14–20
+- §5.3, Definition 5.3.1 and Theorem 5.3.2, p. 68
 - §5.6, pp. 74–76; Theorem 5.6.1, Lemma 5.6.2 and Remark 5.6.3
 
 ### [CS17] On the generic part of the cohomology of Shimura varieties
@@ -2672,8 +2879,8 @@ URL: https://math.berkeley.edu/~swshin/StableGal.pdf
 
 SHA-256: `93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b`. Read 2026-10-14.
 
-- §4, Proposition 4.8, Remark 4.10 and Corollary 4.14, pp. 27–29
-- §5.1, compact PEL datum and component convention, pp. 29–31
+- §4, Proposition 4.8, Remark 4.10 and Corollary 4.14, pp. 28–30
+- §5.1, compact PEL datum and component convention, pp. 30–31
 - §5.5–§5.6, signed reduction and trace duality, pp. 36–42
 
 ### [AC] Simple algebras, base change, and the advanced theory of the trace formula
@@ -2687,6 +2894,7 @@ SHA-256: `3033d863634f5a1e8c26e48ba5b5ec9d8f95fb411b2a6d21c1580db80bc01737`. Rea
 
 - Chapter I §§4–5, unramified base-change map and associated functions, pp. 40–50
 - Chapter I §6, Definition 6.1 and Theorem 6.2 with reduction/proof, pp. 51–57
+- Chapter I §6, Proposition 6.7, p. 59, and Lemma 6.10, p. 62
 - Chapter III §4, Theorem 4.2 and the cyclic alternatives, pp. 202–203
 - Chapter III §6, Definition 6.1, Theorem 6.2 and induction-by-stages proof, pp. 214–217
 
@@ -2713,8 +2921,8 @@ SHA-256: `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97`. Rea
 
 - Definitions 3.2.3 and 3.2.7; Proposition 3.2.8, pp. 144–146
 - Lemma 6.1.11 and proof, pp. 267–268 (consumer boundary only)
-- Appendix C.1 local base change, pp. 351–354; C.3, Proposition C.3.1 and Corollaries C.3.2–C.3.3, pp.
-   363–364
+- Appendix C.1 local base change, pp. 351–352; Proposition C.2.5, p. 362; C.3, Proposition C.3.1 and
+   Corollaries C.3.2–C.3.3, pp. 363–364
 - Appendix D.2, pp. 368–371, setup, Definition D.2.1, Lemma D.2.2 and Proposition D.2.3
 
 Maintainer-cleared copy read in place under atlas-library; no copy or passages saved.
@@ -2767,7 +2975,7 @@ URL: https://arxiv.org/pdf/2502.20645
 SHA-256: `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`. Read 2026-10-14.
 
 - §1.8.22, p. 15, general-type GL4/GSp4 transfer
-- Proposition 7.5.3 and proof, pp. 175–176, solvable descent
+- Proposition 7.5.3 and proof, p. 175, solvable descent
 - Lemma 10.2.4 and proof, p. 213, quadratic Hecke-character induction
 
 ### [FS] Geometrization of the local Langlands correspondence
@@ -2784,6 +2992,7 @@ SHA-256: `1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027`. Rea
 The issue’s CDN23 Lemma 3.3 locator is corrected to published Lemma 3.10,
 pp. 35–36. This corrects the source route, not the published mathematics. Pan
 locators refer to v1; the 2026 Annals pagination has not been substituted. Dat’s
-source proves its own convention and imports Harris–Taylor; the FS theorem is
-only the consumer signature. Neither citation is treated as access to the
-missing independent global proof.
+Theorem 4.1.2 is credited to Boyer and its proof applies Boyer’s computation,
+which rests on Harris–Taylor’s global realization; the FS theorem is only the
+consumer signature. Neither citation is treated as access to the missing
+independent global proof.
