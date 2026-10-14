@@ -1,9 +1,9 @@
 # Independent correction review: FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-TmpkHR`, 13 October 2026. Refs
+Codex (GPT-6), session `codex-3K3sKj`, 14 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input: `88926f22178b3dcac10feff5ade8b9472ac9e3fd`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6157139097).
+Input: `a44866586cf3d2a672692b391ef9f48816b6c9ba`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6158062083).
 I did none of the fixes under review.
 
 L3's correction is accepted. PMIA retains `needs_changes`: its arithmetic
@@ -25,7 +25,7 @@ procedure. D.1 is read-only context, not a queue output.
 This bounded pass checks the six original claims, their verifier's decisions,
 the round-two fixes, and the affected statements, prerequisites, APIs and
 tests. It follows
-[the preceding correction review](https://github.com/CBirkbeck/tauceti-explorer/blob/88926f22178b3dcac10feff5ade8b9472ac9e3fd/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+[the preceding correction review](https://github.com/CBirkbeck/tauceti-explorer/blob/a44866586cf3d2a672692b391ef9f48816b6c9ba/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
 It does not repeat the earlier complete reviews of 1,663 L3, 487 PMIA, 79
 L3-2 and 303 LAD nodes. Earlier reviews and their ledgers retain their own
 attribution.
@@ -53,7 +53,7 @@ No new source issue is asserted.
 signed finite product into continuous unit-valued Gamma. Its recurrence
 multiplies by −x on units and by −1 on nonunits. The dyadic exponent-two
 congruence is exceptional; the buffered precision avoids it. Fresh finite
-checks pass 600 valid periods and 320 recurrence steps. Modulo four,
+checks pass 660 valid periods and 320 recurrence steps. Modulo four,
 G2(1)=3 and G2(5)=1 distinguish the false unrestricted period-four claim.
 The integer values G3(0)=1, G3(1)=−1, G3(4)=2 and G3(5)=−8 check the sign.
 These are finite checks, not analytic proofs. The native continuous-unit lift
@@ -155,8 +155,10 @@ owners or remove either method.
 
 I read the reviewed library-audit entries for L3, PMIA L6, D.2 and LAD L4.
 The programme pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
-and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The shared baseline
-checkouts identify those exact commits. The affected ContinuousMap/Units,
+and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The declaration
+index was rebuilt from the existing pinned shared build;
+Mathlib identifies the exact pin, and the inspected Tau Ceti transpose and
+Teichmuller files have the pinned Git blobs. The affected ContinuousMap/Units,
 GaussSum, LocalField/Teichmuller and AuslanderReiten/Transpose statements
 were read there. GaussSum uses the positive sum; Teichmuller lifts residue
 units; native transpose is an opposite-linear dual cokernel and needs no
@@ -184,8 +186,7 @@ relation minors, whereas Fitt¹(Z²)=0. Preserve nonflat base-change examples
 and the opposite-ring dual factors P0×Q1 and P1×Q0. Character-order and
 sharp-transport adapters remain arithmetic work.
 
-The previous report's scheme-level boundary should not suggest those
-suppliers are still missing: current Tau Ceti also has
+Current Tau Ceti also has
 `AlgebraicGeometry.Scheme.Modules.fittingIdeal_pullback` in
 AlgebraicGeometry/Modules/FittingIdeal/Pullback.lean:107, for quasicoherent
 finite-type modules under arbitrary scheme morphisms, without flatness.
@@ -210,11 +211,10 @@ canonical paths. Stock completion is false on the permitted tree and true
 with exactly those two records, including PMIA's negative verdict. Intake
 path/JSON/private-path validation and whitespace checks pass.
 
-No new Lean code was written and no Lean process was started in this
-metadata-only pass. The unchanged Suggested files retain the preceding
-review's sequential `lean-check` receipts: L3 failed before body elaboration
-because its `research` imports were unavailable; PMIA, L3-2 and LAD exited
-zero with respectively 1,075, 111 and 489 placeholder warnings. Those are
-historical results, not fresh compilation claims. The files are research
-suggestions, not certified final compact packages. No build, cache download
-or language server ran.
+No Lean code changed. Fresh sequential `lean-check` runs on all four
+unchanged Suggested files give: L3 exit 1 before body elaboration because
+its `research` imports are unavailable; PMIA, L3-2 and LAD exit 0 with
+respectively 1,075, 111 and 489 placeholder warnings and no other warnings
+or errors. Available memory exceeded 100 GB before compiling. These are
+research suggestions, not certified final compact packages. No build,
+cache download or language server ran.
