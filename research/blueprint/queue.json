@@ -45394,8 +45394,9 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6277"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6277",
+   "finishedAt": "2026-10-14T13:59:43Z"
   },
   {
    "id": "ASM-ArithmeticDynamics",
@@ -45455,7 +45456,8 @@
     "REV-ClassicalArithmeticCompletion--CA.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-ClassicalArithmeticCompletion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9681"
   },
   {
    "id": "ASM-DiophantineApproximationAndTranscendence",
