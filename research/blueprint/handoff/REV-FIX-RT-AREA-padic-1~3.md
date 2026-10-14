@@ -1,34 +1,37 @@
 # Handoff: REV-FIX-RT-AREA-padic-1~3
 
-Codex, session `codex-EOSC2v`, 13 October 2026. Refs
+Codex, session `codex-6w0vbR`, 14 October 2026. Refs
 [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input `4490514872d8f031b22a352370bb5e6a47501ea3`;
-branch `codex-EOSC2v-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6157342663).
+Input `8e7e3ccd726c7df769ee22a826f9fe6d48fafe45`;
+branch `codex-6w0vbR-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6157825080).
 This session did none of the author fixes or earlier reviews. One issue claimed;
 no second job.
 
-**Blocked checkpoint.** The issued #5704 scope is seven outputs / three
-packets; its queue scope is 47 outputs / 23 packets. Fresh #6519 has seven
-issued outputs / three packets, versus 23 queued outputs / eleven packets.
-Both issued ordered lists still equal their historical queues at `c69e5b6c9`
-and `888f12f5c9`. Every queued output exists.
+**Blocked checkpoint.** The issued #5704 scope remains seven outputs / three
+packets; its queue requires 47 outputs / 23 packets. Independently fetched
+#6519 assigns seven outputs / three packets, versus 23 queued outputs / eleven
+packets. Both issued lists equal their historical queues at `c69e5b6c9` and
+`888f12f5c9`. Every queued output exists.
 
-Read the stock completion function and reran the report's read-only collision
-fixture. Issued scopes yield `[false, true]`; restoring #5704's archived P0
-and ASII verdicts only in memory yields `[true, false]`. Both queue scopes
-remain incomplete. Overwriting current reviews cannot finish both jobs.
-All ten assessment-bound history regression assertions pass, including
-invalidation on changed mathematics, suggested files, scope and digests.
-The fixture confirms unchanged assessed content relative to `331007b5e`.
-These candidates remain uninstalled; source and reader binding is unresolved.
+Read the stock completion function and reran the report's preserved read-only
+collision fixture: issued scopes yield `[false, true]`; restoring #5704's
+archived P0 and ASII verdicts in memory yields `[true, false]`. Both queue
+scopes remain incomplete. Overwriting current reviews cannot finish both jobs
+and does not discharge the expanded scope.
+
+All ten assessment-bound history regression assertions pass. They reject
+changed mathematics, suggested files, scope, digests and nonverdicts. The
+fixture confirms unchanged assessed packet content and suggested files relative
+to `331007b5e`. The candidate is uninstalled; source and reader binding remains
+unresolved. Runnable reproductions and complete prior finding dispositions
+are preserved in the review report; no scratch artifact is needed to resume.
 
 Fresh stock blueprint checks with the configured declaration index pass with
 zero errors and warnings: P0 326 nodes, AEG 153, ASII 537. No fresh source or
-baseline-statement audit or Lean compilation ran. Earlier qualified source
-checks and successful elaborations retain their attribution. The report
-preserves the complete finding dispositions and runnable fixtures; no scratch
-artifact is needed for resumption. Only this report and handoff changed.
+baseline-statement audit or Lean compilation ran. Prior qualified mathematical
+reviews and elaborations retain their attribution. Only the report's current
+checkpoint and this handoff changed.
 
 ## Required repair before resumption
 

@@ -1,60 +1,62 @@
-# Current checkpoint: Codex codex-EOSC2v, 13 October 2026
+# Current checkpoint: Codex codex-6w0vbR, 14 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input commit `4490514872d8f031b22a352370bb5e6a47501ea3`;
-branch `codex-EOSC2v-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6157342663)
-confirms claimant comment `6157340268`. This session did none of the author
-fixes or earlier reviews. One issue claimed; no second job.
+Input commit `8e7e3ccd726c7df769ee22a826f9fe6d48fafe45`;
+branch `codex-6w0vbR-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6157825080)
+confirms claimant comment `6157823255`. This session did none of the author
+fixes or earlier reviews. It claimed this issue alone.
 
-**Blocked checkpoint.** The prior handoff's orchestration repair remains
-uninstalled. Reread #5704 after claim confirmation and fetched #6519 afresh.
-The issued lists and the stock completion function give:
+**Blocked checkpoint.** The preceding handoff's required orchestration repair
+is still absent. Reread the live issue after claim confirmation and fetched
+#6519 independently. The issued deliverable lists still match their historical
+queue assignments at `c69e5b6c9` and `888f12f5c9`, in order. The current queue
+has expanded both assignments:
 
 | Job | Issued outputs / packets | Queue outputs / packets | Completion, issued / queue |
 | --- | --- | --- | --- |
 | #5704 | 7 / 3 | 47 / 23 | false / false |
 | #6519 | 7 / 3 | 23 / 11 | true / false |
 
-Both ordered issued lists equal their historical queue assignments at
-`c69e5b6c9` and `888f12f5c9`. Every queued output exists. The #6519 queue has
-changed since the preceding checkpoint, from ten packets to eleven; it still
-conflicts with its issued three-packet scope.
-
-Read `issues.deliverables_complete` and reran the preserved read-only
-completion-collision reproduction. Issued scopes return `[false, true]`;
-restoring #5704's archived P0 and ASII reviews only in memory returns
-`[true, false]`. The function consults only current top-level reviews.
-Replacing those reviews would transfer the completion failure to #6519.
+Every queued output exists. File creation is not the missing condition.
+Read `issues.deliverables_complete` at lines 533–574: fix-review completion
+checks only current top-level review objects. Reran the preserved read-only
+completion-collision fixture below. The issued scopes return `[false, true]`;
+restoring #5704's archived P0 and ASII verdicts in memory returns
+`[true, false]`. The broader queue scopes remain incomplete. Replacing reviews
+in the authorized packets would transfer the issued-scope failure to #6519,
+while still leaving 20 unauthorized packet assessments for this job.
 
 Reran all ten assertions in the preserved assessment-bound history fixture.
-The candidate preserves current top-level verdicts and accepts the archived
-review only with a matching scoped assessment. Its tests reject expanded
-scopes and invalidate that historical fallback on changed mathematics,
-suggested files, output scope, mismatched digests and nonverdicts.
-These in-memory cases are regression evidence for a repair, not an installed
-completion mechanism. Source and reader inputs still need an explicit
-assessment-binding policy; unbound legacy review history must not count.
-The fixture also verifies that all three assigned packets, excluding only
-`review` and `reviewHistory`, and every byte of their suggested files are
-unchanged from the scoped review merge `331007b5e`.
+They pass, including rejection of expanded scopes, changed mathematical
+content, changed suggested files, changed output lists, wrong digests and
+nonverdicts. The fixture also confirms that all three assigned packets,
+excluding only `review` and `reviewHistory`, and every byte of their suggested
+files match the scoped-review merge `331007b5e`. This is evidence for the
+candidate repair, which remains uninstalled. Its source and reader binding
+policy still requires an explicit maintainer decision; unbound legacy history
+must not be treated as a fresh assessment.
 
-Fresh stock blueprint checks, using the configured declaration index, report
-**zero errors and warnings** for P0 (326 nodes), AEG (153) and ASII (537).
-No link map or restructuring proposal is assigned. These are structural
-checks; this continuation issues no fresh mathematical verdict or source or
-baseline-statement audit. No Lean compilation ran for these documentation
-changes. Earlier elaborations retain their attribution and their limitation:
-the missing P7 tower signatures and tests were not elaborated.
+Fresh stock blueprint checks using the configured pinned declaration index
+report **zero errors and zero warnings** for P0 (326 nodes), AEG (153) and
+ASII (537). These validate packet structure and indexed names, not the
+mathematics or baseline statements. No link map or restructuring proposal is
+assigned. No fresh source audit, mathematical verdict or Lean compilation was
+performed in this blocked continuation. Earlier finding dispositions and
+qualified elaboration results below retain their original attribution.
 
-WORKERS.md restricts edits to issue-named files and scratch space. The queue,
-generator, completion function and generated review prompt are outside this
-assignment; all four also fail `intake.ALLOWED`. Only this report's current
-checkpoint and the handoff change. The earlier finding dispositions and
-runnable fixtures below remain intact. Resume after an authorized repair
-reconciles issued scopes, preserves them through regeneration and allows both
-content-bound scoped reviews to finish together. Repeated review dispatch
-cannot resolve the excluded orchestration defect.
+WORKERS.md says “Edit only the files the issue names, plus your own scratch
+space.” The necessary repair paths — `research/blueprint/queue.json`,
+`research/blueprint/make_queue.py`, `research/blueprint/issues.py` and this
+job's generated prompt — are outside the assignment and each fails
+`intake.ALLOWED`. No production repair or review metadata was changed.
+Only this report's current checkpoint and its handoff were updated; the
+finding dispositions and runnable fixtures below remain available.
+
+Resume after an authorized maintainer repair reconciles both issued scopes,
+preserves them through regeneration and permits content-bound overlapping
+assessments to complete together. Redispatching this review before that repair
+cannot satisfy its completion predicate within the authorized deliverables.
 
 ---
 
