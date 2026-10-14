@@ -9,17 +9,21 @@ import Mathlib.CategoryTheory.Monoidal.Cartesian.Over
 /-!
 # JacobianChallengePartII: representative target signatures
 
-`README.md` is the definitive roadmap. This file is not exhaustive: it records
-definitions, theorem signatures and examples statable against the pinned APIs.
-It uses group objects in the slice category of schemes, so represented points
-include arbitrary test schemes. Multiplicative notation expresses the additive
-geometric law: the ordered difference is the second point divided by the first.
+`README.md` is the roadmap and is definitive. This file is not exhaustive: it records the
+definitions, theorem signatures and examples that can be stated against the pinned Mathlib and
+Tau Ceti, so that contributors and reviewers converge on names and signatures.
 
-The curve-coordinate constructions take the earlier Abel and difference
-morphisms as explicit inputs. Their relative Picard identifications and the
-geometric multiplication theorem require the supplier interfaces named in the
-README. The concluding comment lists the geometric targets absent from these
-representative signatures. Every admitted proof remains a roadmap target.
+Design choices made explicit here:
+* The Jacobian, its fibre powers and the curve are objects of `Over S`, and the Jacobian is a group
+  object there (`GrpObj`), so represented points are morphisms from arbitrary test schemes,
+  nonreduced ones included.
+* Multiplicative notation is Mathlib's notation for group objects and expresses the additive law of
+  the Jacobian: the ordered difference `j(x, y) = [y] − [x]` is the second Abel image divided by the
+  first.
+* The geometric Abel morphism and the section-free difference of Layer 2 are explicit inputs of the
+  Layer 5 constructions. Their construction from the relative Picard scheme, and the finiteness of
+  multiplication by a nonzero integer on an abelian scheme, are README targets whose carriers are not
+  at the pins; the closing comment lists those targets by name.
 -/
 
 namespace TauCetiRoadmap.JacobianChallengePartII
@@ -29,10 +33,10 @@ noncomputable section
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped CategoryTheory.MonObj
 
-/-! ## Layer 2: section-free differences
+/-! ## Layer 2: Abel maps and section-free differences
 
-The pointed companion uses the earlier Abel morphism and agrees with the
-section-free construction once its Picard-torsor comparison is available.
+The pointed difference `CurveDifference.pointedMap` of README §2.6 is built from a degree-one Abel
+morphism; it agrees with the section-free difference of the Picard torsor (README §2.1, §2.6).
 Yuan, arXiv:2108.05625v4, §2.2.1, p. 29; Theorem 2.10(2), pp. 37–38.
 -/
 
@@ -113,9 +117,9 @@ example [IsCommMonObj A] (abel : X ⟶ A) (b : 𝟙_ (Over S) ⟶ A)
   sorry
 end RelativeJacobian.CurveDifference
 
-/-! ## Layer 5: shifted morphisms and fibre-power coordinates
+/-! ## Layer 5: Fibre powers and shifted Faltings–Zhang maps
 
-The canonical Abel map and the section-free difference are inputs from Layer 2.
+The canonical Abel morphism (README §5.1) and the section-free difference (README §2.6) are inputs.
 Yuan, arXiv:2108.05625v4, Theorem 2.10(3), p. 37; §4.6.2, pp. 96–98,
 and Dimitrov–Gao–Habegger, arXiv:2001.10276v3, §6.1, p. 25.
 -/
@@ -124,7 +128,8 @@ namespace RelativeJacobian
 universe u
 variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
 
-/-- JC5.2, using the canonical Abel morphism from JC5.1. -/
+/-- The universal shift `(y, x) ↦ (y, y + c(x))` of README §5.2, for the canonical Abel morphism
+`c = i_ω` of README §5.1. -/
 def UniversalShift (canonicalAbel : X ⟶ A) : A ⨯ X ⟶ A ⨯ A :=
   prod.lift prod.fst (prod.fst * (prod.snd ≫ canonicalAbel))
 
@@ -161,7 +166,8 @@ example (c : X ⟶ A) (y : T ⟶ A) (x x' : T ⟶ X) :
   sorry
 end UniversalShift
 
-/-- JC5.3, using the section-free difference morphism from JC2.6. -/
+/-- The Faltings–Zhang morphism `(x₀, …, x_m) ↦ (d(x₀, x₁), …, d(x₀, x_m))` of README §5.3, for the
+section-free difference `d = j` of README §2.6. -/
 def FaltingsZhang (m : ℕ) (difference : X ⨯ X ⟶ A) :
     (∏ᶜ fun _ : Fin (m + 1) ↦ X) ⟶ (∏ᶜ fun _ : Fin m ↦ A) :=
   Pi.lift (fun i ↦ prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
@@ -207,7 +213,7 @@ example (m : ℕ) (d : X ⨯ X ⟶ A)
     Pi.lift (fun _ : Fin (m + 1) ↦ x) ≫ FaltingsZhang m d =
       Pi.lift (fun _ : Fin m ↦ (1 : T ⟶ A)) := by
   sorry
--- test_originChange, applied to each degree-one Abel morphism via JC2.6.pointed.
+-- test_originChange: with any degree-one Abel morphism, every coordinate is a difference of Abel images.
 example (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
     (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
     (x : Fin (m + 1) → (T ⟶ X)) :
@@ -216,7 +222,8 @@ example (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
   sorry
 end FaltingsZhang
 
-/-- JC5.4, with m = n + 1 and the source order X^m × A. -/
+/-- The shifted Faltings–Zhang morphism of README §5.4, with `m = n + 1` and source order `X^m × A`:
+the head is `c(x₁) + y` and coordinate `r > 1` is `d(x₁, x_r)`. -/
 def ShiftedFaltingsZhang (n : ℕ) (canonicalAbel : X ⟶ A) (difference : X ⨯ X ⟶ A) :
     (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
   Pi.lift (fun i ↦ if i = 0 then
@@ -270,7 +277,8 @@ example (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
 end ShiftedFaltingsZhang
 end RelativeJacobian
 
-/- The triangular change is the coordinate isomorphism of Layer 5.
+/-! ### The triangular coordinate change (README §5.5)
+
 Yuan, arXiv:2108.05625v4, proof of Theorem 4.17(5), p. 98. -/
 
 namespace RelativeJacobian
@@ -407,15 +415,17 @@ example (a b : T ⟶ A) (h : a * b ≠ b * a) :
 end TriangularCoordinateEquivalence
 end RelativeJacobian
 
-/- The factorization uses the Abel-difference identity from Layer 2.
-Nonzero finite locally free multiplication comes from the abelian-scheme
-supplier. Yuan, arXiv:2108.05625v4, proof of Theorem 4.17(5), p. 98. -/
+/-! ### The shifted-power factorization (README §5.6)
+
+The factorization uses the Abel-difference identity of README §2.6; finite locally free
+multiplication by a nonzero integer is AbelianSchemesAndArithmeticModuli A3.2.
+Yuan, arXiv:2108.05625v4, proof of Theorem 4.17(5), p. 98. -/
 
 namespace RelativeJacobian
 universe u
 variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
 
-/-- JC5.6: the tuple of all shifted canonical Abel coordinates. -/
+/-- The shifted canonical power `B(x₁, …, x_m, y) = (c(x₁) + y, …, c(x_m) + y)` of README §5.6. -/
 def ShiftedCanonicalPower (n : ℕ) (c : X ⟶ A) :
     (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
   Pi.lift (fun i ↦ ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ c) * prod.snd)
@@ -446,7 +456,7 @@ example (n : ℕ) (c : X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
   sorry
 end ShiftedCanonicalPower
 
-/-- JC5.6: fix the head and apply the given integer multiplication to each tail. -/
+/-- The tail isogeny `D` of README §5.6: fix the head and multiply each tail by `e`. -/
 def TailMultiplication (n : ℕ) (e : ℤ) :
     (∏ᶜ fun _ : Fin (n + 1) ↦ A) ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
   Pi.lift (fun i ↦ if i = 0 then Pi.π (fun _ : Fin (n + 1) ↦ A) 0
@@ -574,7 +584,7 @@ example [IsCommMonObj A] (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
   sorry
 end TailMultiplication
 
-/-- The JC2 difference identity gives the JC5.6 equality as an S-morphism.
+/-- README §5.6: the Abel-difference identity gives `B ≫ R = τ ≫ D` as an S-morphism.
 In the geometric application e = 2g - 2 and c = i_ω. -/
 theorem shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
     (c : X ⟶ A) (d : X ⨯ X ⟶ A)
@@ -583,7 +593,7 @@ theorem shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
       ShiftedFaltingsZhang n c d ≫ TailMultiplication (A := A) n e := by
   sorry
 
-/-- Product stability transfers the supplier's finite multiplication theorem to D. -/
+/-- Product stability transfers finiteness of multiplication by `e` to `D`. -/
 theorem TailMultiplication.finite [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [IsFinite (((𝟙 A) ^ e : A ⟶ A).left)] :
     IsFinite (TailMultiplication (A := A) n e).left := by
@@ -601,7 +611,7 @@ theorem TailMultiplication.finitePresentation [IsCommMonObj A] (n : ℕ) (e : �
     LocallyOfFinitePresentation (TailMultiplication (A := A) n e).left := by
   sorry
 
-/-- Surjectivity of D imports surjectivity of the supplier's multiplication isogeny. -/
+/-- Surjectivity of multiplication by `e` transfers to `D`. -/
 theorem TailMultiplication.surjective [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [Surjective (((𝟙 A) ^ e : A ⟶ A).left)] :
     Surjective (TailMultiplication (A := A) n e).left := by
@@ -634,17 +644,35 @@ end
 
 end TauCetiRoadmap.JacobianChallengePartII
 
-/- Geometric targets requiring the relative Picard, dual abelian-scheme,
-algebraic-equivalence, relative-cohomology or fine-level interfaces of README.md:
-Layer 0: relative-degree-components, degree-locally-constant, picard-representability, picard-torsors.
-Layer 1: relative-jacobian, jacobian-proper, jacobian-base-change, principal-polarization.
-Layer 2: section-free-abel-map, degree-abel-map, pointed-factorization, degree-one-closed-immersion, nonzero-degree-finite, curve-difference, diagonal-base-change.
-Layer 3: jacobian-poincare, degree-one-theta, twice-theta, theta-inverse-pullback, theta-pullback, poincare-addition-identity, poincare-curve-square, theta-doubling-formula, poincare-diagonal, geometric-twice-theta, twice-theta-symmetric, twice-theta-zero-rigidified, twice-theta-relatively-ample.
-Layer 4: actual-picard-zero, actual-picard-bizero, relative-autoduality-pullback, actual-to-relative-obstruction, actual-pullback-torsion-cokernel, bizero-lift-one-factor, bizero-pullback-torsion-cokernel, axis-normalized-picard, pointed-square-picard-isomorphism.
-Layer 5: canonical-abel-map, universal-shift, faltings-zhang, shifted-faltings-zhang, shifted-power-factorization.
-Layer 6: picard-lie-cohomology, curve-jacobian-hodge-bundles, hodge-line-isomorphism.
-Layer 7: universal-level-jacobian, universal-faltings-zhang.
-For curve-difference, universal-shift, faltings-zhang,
-shifted-faltings-zhang and shifted-power-factorization, the native companions
-above still require their stated geometric identifications and supplier inputs.
+/-
+Targets stated in README.md and not typed here, because their carriers (the relative Picard sheaf
+and scheme, abelian schemes and their duals, polarizations, actual Picard groups with pullback,
+relative coherent cohomology and duality, full level structures) are not in Mathlib or Tau Ceti at
+the pins:
+Layer 0: `RelativeJacobian.degreeLocallyConstant`, `RelativeJacobian.RelativeDegreeComponents`,
+  `RelativeJacobian.picardRepresentability`, `RelativeJacobian.PicardTorsors`.
+Layer 1: `RelativeJacobian.jacobianProper`, `RelativeJacobian.RelativeJacobian`,
+  `RelativeJacobian.jacobianBaseChange`, `RelativeJacobian.PrincipalPolarization`.
+Layer 2: `RelativeJacobian.SectionFreeAbelMap`, `RelativeJacobian.DegreeAbelMap`,
+  `RelativeJacobian.pointedFactorization`, `RelativeJacobian.degreeOneClosedImmersion`,
+  `RelativeJacobian.nonzeroDegreeFinite`, `RelativeJacobian.CurveDifference` (the section-free
+  morphism; its pointed companion `pointedMap` is above), `RelativeJacobian.diagonalBaseChange`.
+Layer 3: `RelativeJacobian.JacobianPoincare`, `RelativeJacobian.DegreeOneTheta`,
+  `RelativeJacobian.TwiceTheta`, `RelativeJacobian.thetaInversePullback`,
+  `RelativeJacobian.thetaPullback`, `RelativeJacobian.poincareAdditionIdentity`,
+  `RelativeJacobian.poincareCurveSquare`, `RelativeJacobian.thetaDoublingFormula`,
+  `RelativeJacobian.poincareDiagonal`, `RelativeJacobian.geometricTwiceTheta`,
+  `RelativeJacobian.twiceThetaSymmetric`, `RelativeJacobian.twiceThetaZeroRigidified`,
+  `RelativeJacobian.twiceThetaRelativelyAmple`.
+Layer 4: `RelativeJacobian.ActualPicardZero`, `RelativeJacobian.ActualPicardBizero`,
+  `RelativeJacobian.relativeAutodualityPullback`, `RelativeJacobian.actualToRelativeObstruction`,
+  `RelativeJacobian.actualPullbackTorsionCokernel`, `RelativeJacobian.bizeroLiftOneFactor`,
+  `RelativeJacobian.bizeroPullbackTorsionCokernel`, `RelativeJacobian.AxisNormalizedPicard`,
+  `RelativeJacobian.pointedSquarePicardIsomorphism`.
+Layer 5: `RelativeJacobian.canonicalAbelMap`; the identification of the inputs `c` and `d` of
+  `UniversalShift`, `FaltingsZhang`, `ShiftedFaltingsZhang` and `shifted_power_factorization` with
+  `i_ω` and `j`, and the instance of multiplication by `2g − 2` on the Jacobian.
+Layer 6: `RelativeJacobian.picardLieCohomology`, `RelativeJacobian.curveJacobianHodgeBundles`,
+  `RelativeJacobian.hodgeLineIsomorphism`.
+Layer 7: `RelativeJacobian.levelJacobian`, `RelativeJacobian.levelFaltingsZhang`.
 -/
