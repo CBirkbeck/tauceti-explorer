@@ -27298,12 +27298,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicFamilies.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #965"
+   "note": "deliverables arrived from an external worker on issue #965",
+   "finishedAt": "2026-10-14T09:40:46Z"
   },
   {
    "id": "REV-PadicFamilies",
@@ -31765,8 +31766,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--RS.2",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--RS.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8953"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8953",
+   "finishedAt": "2026-10-14T09:40:49Z"
   },
   {
    "id": "BP-FunctionFieldArithmeticPartII--GC.0",
@@ -37884,7 +37886,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9665"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.1",
@@ -37928,7 +37931,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9666"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.2",
@@ -37972,7 +37976,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9667"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.3",
@@ -38016,7 +38021,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9668"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.4",
@@ -49052,7 +49058,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EnhancedDerivedSheaves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9664"
   },
   {
    "id": "REV-PKG-EnhancedDerivedSheaves",
@@ -96797,9 +96804,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #718"
+   "note": "deliverables arrived from an external worker on issue #718",
+   "finishedAt": "2026-10-14T09:40:54Z"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
