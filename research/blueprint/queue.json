@@ -36945,8 +36945,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9742"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9742",
+   "finishedAt": "2026-10-14T16:13:10Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.0",
@@ -37037,8 +37038,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9744"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9744",
+   "finishedAt": "2026-10-14T16:13:12Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.2",
@@ -37082,8 +37084,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9745"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9745",
+   "finishedAt": "2026-10-14T16:13:13Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3",
@@ -37127,8 +37130,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9746"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9746",
+   "finishedAt": "2026-10-14T16:13:16Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.4",
@@ -37172,8 +37176,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9747"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9747",
+   "finishedAt": "2026-10-14T16:13:18Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5",
@@ -37217,8 +37222,9 @@
    ],
    "followUpOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9748"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9748",
+   "finishedAt": "2026-10-14T16:13:21Z"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6",
@@ -48395,7 +48401,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalArithmeticCompletion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9795"
   },
   {
    "id": "REV-PKG-ClassicalArithmeticCompletion",
@@ -50430,8 +50437,9 @@
     "PKG-FreeGroupsAndLimitGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FreeGroupsAndLimitGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9736"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9736",
+   "finishedAt": "2026-10-14T16:13:22Z"
   },
   {
    "id": "PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -51317,8 +51325,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9737"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9737",
+   "finishedAt": "2026-10-14T16:13:26Z"
   },
   {
    "id": "REV-PKG-HeightsRationalPointsAndObstructions",
@@ -51654,7 +51663,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeTateAndCanonicalSubgroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9770"
   },
   {
    "id": "REV-PKG-HodgeTateAndCanonicalSubgroups",
@@ -53159,7 +53169,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PerfectoidShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9774"
   },
   {
    "id": "REV-PKG-PerfectoidShimuraVarieties",
