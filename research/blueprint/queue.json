@@ -37762,7 +37762,8 @@
    ],
    "followUpOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics--DY.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9317"
   },
   {
    "id": "REV-ArithmeticDynamics--DY.3",
@@ -39532,7 +39533,8 @@
    ],
    "revisionOf": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
    "prompt": "research/blueprint/prompts/DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8908"
   },
   {
    "priority": 2,
@@ -46510,8 +46512,9 @@
    ],
    "revisionOf": "PKG-AbelianVarietiesIsogenousToNoJacobian",
    "prompt": "research/blueprint/prompts/PKG-AbelianVarietiesIsogenousToNoJacobian~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9155"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9155",
+   "finishedAt": "2026-10-14T05:49:26Z"
   },
   {
    "id": "REV-PKG-AbelianVarietiesIsogenousToNoJacobian~2",
@@ -46582,8 +46585,9 @@
     "PKG-AdditiveCombinatorics"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdditiveCombinatorics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9199"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9199",
+   "finishedAt": "2026-10-14T05:49:31Z"
   },
   {
    "id": "PKG-AdelicAlgebraicGroups",
@@ -46863,7 +46867,9 @@
     "PKG-ArithmeticDirichletSeriesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticDirichletSeriesPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9200",
+   "finishedAt": "2026-10-14T05:49:34Z"
   },
   {
    "id": "PKG-ArithmeticGaloisDuality",
@@ -48017,8 +48023,9 @@
     "PKG-ComputationalNumberTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComputationalNumberTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9205"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9205",
+   "finishedAt": "2026-10-14T05:49:37Z"
   },
   {
    "id": "PKG-ConformalMappingPartII",
@@ -48114,7 +48121,8 @@
     "PKG-ConformalMappingPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ConformalMappingPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9206"
   },
   {
    "id": "PKG-CrystallineCohomology",
@@ -49039,7 +49047,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9168"
   },
   {
    "id": "REV-PKG-EnriquesSurfacesAndIntegralNonexistence",
@@ -49129,7 +49138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ExponentialSumsAndCircleMethod.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9169"
   },
   {
    "id": "REV-PKG-ExponentialSumsAndCircleMethod",
@@ -51259,8 +51269,9 @@
     "PKG-MultiquadraticPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MultiquadraticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9227"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9227",
+   "finishedAt": "2026-10-14T05:49:42Z"
   },
   {
    "id": "PKG-NeronModelsAndSemistableAbelianVarieties",
@@ -51466,8 +51477,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PolynomialGaloisGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9186"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9186",
+   "finishedAt": "2026-10-14T05:49:45Z"
   },
   {
    "id": "REV-PKG-PolynomialGaloisGroupsPartII",
@@ -51829,8 +51841,9 @@
     "PKG-QuiverRepresentationsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-QuiverRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9234"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9234",
+   "finishedAt": "2026-10-14T05:49:51Z"
   },
   {
    "id": "PKG-RankZeroOneBSD",
@@ -52224,7 +52237,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SieveMethodsAndPrimePatterns.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9195"
   },
   {
    "id": "REV-PKG-SieveMethodsAndPrimePatterns",
@@ -52510,7 +52524,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9196"
   },
   {
    "id": "REV-PKG-WeightZeroCrystallineAutomorphyLifting",
@@ -89776,8 +89791,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7451"
+   "state": "pending",
+   "note": "released on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
