@@ -8,7 +8,7 @@ signatures statable against the pinned APIs; it is not exhaustive. Continuous co
 their ordered multiplication, gauge classes use a native quotient, and sections are over a fixed
 quotient. The linear correspondence and height formulas record their signs and normalization.
 Geometric fundamental groups, comparison functors and represented Selmer varieties are targets
-of the reader. They are not introduced here by admitted data definitions.
+of README.md. They are not introduced here by admitted data definitions.
 -/
 
 namespace TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty
@@ -39,7 +39,7 @@ def GaugeRelated [TopologicalSpace G] [TopologicalSpace U]
   ∃ a : U, ∀ g, d.1 g = gauge ρ a c.1 g
 
 /-- The native quotient by gauge equivalence. Its generated equivalence relation agrees with
-the single-gauge relation, giving the orbit-set realization described in the reader. -/
+the single-gauge relation, giving the orbit-set realization described in README.md. -/
 def H1 [TopologicalSpace G] [TopologicalSpace U] (ρ : G →* MulAut U) :=
   Quotient (Relation.EqvGen.setoid (GaugeRelated ρ))
 
@@ -154,7 +154,7 @@ namespace ArithmeticPath
 variable {G : Type u} {E : Type v} [Group G] [Group E]
 
 /-- In a common group frame, the geometric arithmetic path cocycle is p⁻¹sₓ(g)p s_b(g)⁻¹.
-The reader's two-fibre-functor construction specializes to this formula. -/
+The two-fibre-functor construction of README.md specializes to this formula. -/
 def pathCocycle (sb sx : G →* E) (p : E) (g : G) : E :=
   p⁻¹ * sx g * p * (sb g)⁻¹
 
@@ -189,7 +189,7 @@ variable {K : Type u} [Field K] {G : Type v} [Group G]
 variable {V : Type w} [AddCommGroup V] [Module K V] [Module.Finite K V]
 
 /-- A length bound on a linear representation is a filtration with trivial successive action.
-The geometric tensor categories in the reader use the corresponding exact-category notion. -/
+The geometric tensor categories of README.md use the corresponding exact-category notion. -/
 def UnipotentLength (ρ : G →* (V ≃ₗ[K] V)) (n : ℕ) : Prop :=
   ∃ F : ℕ → Submodule K V,
     F 0 = ⊥ ∧ F n = ⊤ ∧ Monotone F ∧
@@ -253,7 +253,7 @@ variable [TopologicalSpace G] [TopologicalSpace U]
 variable {I : Type w} {L : I → Type*}
 
 /-- The underlying Selmer set is the intersection of the specified local conditions on actual
-gauge classes. Its arithmetic localization maps and representing scheme are reader targets. -/
+gauge classes. Its arithmetic localization maps and representing scheme are README targets. -/
 def SelmerSet (ρ : G →* MulAut U) (localization : ∀ i, Nonabelian.H1 ρ → L i)
     (condition : ∀ i, Set (L i)) : Set (Nonabelian.H1 ρ) :=
   {x | ∀ i, localization i x ∈ condition i}
@@ -452,7 +452,7 @@ variable {E : Type u} {G : Type v} [Group E] [Group G]
 variable [TopologicalSpace E] [TopologicalSpace G]
 
 /-- A continuous section is a continuous homomorphism splitting the fixed arithmetic quotient.
-The conjugacy relation in the reader uses only the geometric kernel. -/
+The conjugacy relation of README.md uses only the geometric kernel. -/
 structure GaloisSection (q : E →ₜ* G) where
   hom : G →ₜ* E
   splits : q.comp hom = ContinuousMonoidHom.id G
@@ -501,7 +501,7 @@ example :
 end Frontier
 
 /-!
-The reader specifies the geometric arithmetic path torsor, finite-coefficient étale K(π,1)
+README.md specifies the geometric arithmetic path torsor, finite-coefficient étale K(π,1)
 predicate and raw étale pro-space; equivariant topological torsors and their isomorphisms;
 good and symmetric paths; relative outer Hom and Isom; stable log-admissible covers;
 cyclotomic degree; Jacobian-geometric and formal Kummer disc sections, nondegenerate sections
