@@ -1,52 +1,57 @@
 # Review continuation: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-JhxbRq`, 14 October 2026. Refs
+Codex (GPT-6), session `codex-6OHVZ0`, 14 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input explorer `3716acbdf265e87cc6dbda38b92eb7df6f7c8f69`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6160807911).
+Input explorer `abaf563a7910d7f139f6b8ebac974501a9a1bb8b`;
+branch `codex-6OHVZ0-review-6219`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6161171599).
 This session did none of the fixes under review and claimed no second job.
 
 The mathematical assessment below remains attributed to `codex-3K3sKj`.
-This continuation checked the pending metadata records rather than repeating
-that assessment. Both input fingerprints and both candidate fingerprints
-match the exact handoff records. Parsed comparisons verify that every
-mathematical field is unchanged and that each entire preceding review is
-appended unchanged to `reviewHistory`. The previous continuation accounts
-remain available in the input revision's history; this report removes their
-repeated descriptions of the same scope gate.
+This continuation verifies the concrete updates left by that assessment;
+it does not claim another whole-packet or source review. Both input hashes
+and both candidate hashes match the exact handoff records. Parsed comparisons
+confirm that every non-review field is unchanged and that each complete
+preceding review, including its node ledger, is appended unchanged to
+`reviewHistory`. The proposed verdicts accept the L3-2 and LAD corrections;
+PMIA retains `needs_changes`.
 
 Fresh validation:
 
-- A declaration index reconstructed from the existing shared source build
-  gives zero blueprint-checker errors for all four queue packets. L3 retains
-  its 26 inherited API warnings; the others have none. This index is a search
-  aid and does not constitute a fresh whole-packet baseline review.
-- The two pending candidates pass intake path, JSON and private-path checks.
-- The stock completion check is false on the permitted tree. A read-only
-  overlay of exactly the two metadata records makes it true. PMIA's
-  `needs_changes` verdict is preserved and counts as a completed review.
-- The current read-only roadmap and library commits still match the earlier
-  account below. I read the current generic Fitting definition, its
-  finite-free-surjection computation, arbitrary base-change theorem and
-  stable projective-transpose theorem. Their statements support the recorded
-  PMIA reuse objection.
-- All four packets and all four Suggested files remain unchanged. No Lean
-  check was repeated for unchanged files; the earlier compilation receipts
-  below retain their attribution and limitations. No build, update, cache
-  download or language server was run.
+- A declaration index reconstructed from the existing shared pinned source
+  tree contains 70,802 Tau Ceti and 246,008 Mathlib declarations. The four
+  queue packets have zero blueprint-checker errors. L3 retains 26 inherited
+  API-outline warnings; the other packets have none. This index is a search
+  aid, not a new verification of every baseline statement.
+- The exact two pending candidates pass intake JSON and private-path checks.
+  The stock completion check is false on the permitted tree; a read-only
+  overlay of precisely those records makes it true. The negative PMIA
+  verdict counts as a completed review.
+- Current read-only roadmap and library commits still match the assessment
+  below. The current Fitting definition, arbitrary finite-free presentation
+  computation, kernel-generating-set computation, arbitrary base-change
+  theorem, stable projective-transpose theorem and scheme Fitting pullback
+  statement were read directly. They support PMIA's recorded reuse objection.
+- All four packets and Suggested files remain unchanged. No Lean check was
+  repeated for unchanged files; the earlier receipts below retain their
+  attribution and limitations. No build, update, cache download or language
+  server was run.
 
 The live issue still names only L3 and PMIA as editable packets, while the
 queue requires this review identity on L3-2 and LAD too.
 [WORKERS.md](../WORKERS.md), “Doing the work”, requires “Edit only the files
 the issue names, plus your own scratch space.” Explicit authorization for
-the two concrete metadata updates was requested in this worker conversation
-and has not arrived. Neither omitted packet was edited. No queue, issue,
-label, prompt or promotion data was changed.
+the two verified metadata-only updates was requested in this worker
+conversation. Their application awaits that answer. Neither omitted packet
+has been edited. No queue, issue, label, prompt or promotion data changed.
 
-This is a blocked checkpoint. The handoff contains the exact two records
-and fingerprints. Resume by obtaining authority for those paths, verifying
-the fingerprints and applying the records. The mathematics does not need
-another review merely to resolve the file-scope mismatch.
+The handoff preserves the exact updates and fingerprints. After scope
+authorization, apply those records, rerun the completion and intake checks,
+and submit the completed review. Further source rereading or recompilation
+cannot resolve this submission gate.
+
+This submission is a scope-blocked checkpoint: authorization has not arrived,
+and the stock completion check remains false on the permitted tree.
 
 ---
 
