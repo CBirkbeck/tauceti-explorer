@@ -20,98 +20,98 @@
     "kind": "def",
     "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
     "provides": "The absolute Galois group Gal(K̄/K) of a field, with its Krull topology.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:Field.absoluteGaloisGroup.mapOfAlgebra",
     "kind": "def",
     "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
-    "provides": "The continuous restriction map G_L → G_K for an algebra L over K.",
-    "checked": "statement read at the pinned commit"
+    "provides": "A continuous restriction homomorphism G_L → G_K after choosing compatible algebra structures on the algebraic closures and the required scalar tower. It does not alone establish an embedding or an isomorphism of Galois groups.",
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:ContinuousMonoidHom",
     "kind": "structure",
     "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
     "provides": "Continuous monoid homomorphisms between topological monoids.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:Subgroup.Normal",
     "kind": "structure",
     "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
     "provides": "Normality of a subgroup.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:Padic",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
     "provides": "The field ℚ_ℓ of ℓ-adic numbers.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:PadicInt",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
     "provides": "The ring ℤ_ℓ of ℓ-adic integers.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:IsNilpotent.exp",
     "kind": "def",
     "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
     "provides": "The exponential of an element of a ℚ-algebra, as the finite sum up to the nilpotency class; meaningful for nilpotent elements.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:Representation",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Basic.lean",
     "provides": "A representation of a monoid G on a module V over k, as a monoid hom G →* (V →ₗ[k] V).",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:Module.End.HasEigenvalue",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
     "provides": "μ is an eigenvalue of an endomorphism f when the eigenspace is nonzero.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:LinearMap.IsPerfPair",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/PerfectPairing/Basic.lean",
     "provides": "A bilinear map M × N → R is a perfect pairing: both induced maps to duals are bijective.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.Ext.comp",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
     "provides": "Yoneda composition Ext^a(X, Y) × Ext^b(Y, Z) → Ext^{a+b}(X, Z).",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Map.lean",
     "provides": "The map Ext^n(X, Y) → Ext^n(F X, F Y) induced by an exact functor F between abelian categories.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor_comp",
     "kind": "lemma",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Map.lean",
     "provides": "(α.comp β h).mapExactFunctor F = (α.mapExactFunctor F).comp (β.mapExactFunctor F) h: exact functors preserve Yoneda composition.",
-    "checked": "statement read at the pinned commit"
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    },
    {
     "ref": "mathlib:CategoryTheory.Sheaf.H",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
-    "provides": "Sheaf cohomology H^n(F) of an abelian sheaf on a site, defined as Ext^n from the constant sheaf ℤ.",
-    "checked": "statement read at the pinned commit"
+    "provides": "Cohomology of an abelian-group-valued sheaf, defined as Ext from the constant sheaf ℤ. For a ring Λ, identification with Ext in sheaves of Λ-modules also needs the module/abelian-cohomology comparison supplied by ClassicalAdicEtaleCohomology H0.",
+    "checked": "independently read the declaration and its hypotheses at the pinned Mathlib commit (REV-DESIGN-DeligneWeightsAndPurityPartII, 2026-10-14)"
    }
   ]
  },
@@ -128,7 +128,8 @@
     "§8, Definition/Proposition 8.4, Theorem 8.5, Proposition 8.6, Proposition 8.7 and Corollary 8.8, pp. 304–307",
     "§9, Proposition 9.1 to Lemma 9.9 with the proof of Theorem 9.6, pp. 307–311",
     "§1, Theorems 1.1, 1.3 and 1.15 and Conjecture 1.14, pp. 245–251",
-    "References, pp. 312–313"
+    "References, pp. 312–313",
+    "§3, Theorem 3.7, p. 267, and its proof, p. 283 (finite extensions and tilting)"
    ]
   },
   {
@@ -158,12 +159,13 @@
    "title": "Local monodromy data and their isomorphisms",
    "statement": "Fix a prime ℓ. A local monodromy datum D = (H, I, t, Fr, Q) consists of a profinite group H; a closed normal subgroup I ⊆ H (inertia); a continuous group homomorphism t : I → ℚ_ℓ (additive target) that is not identically zero (the tame ℓ-adic character); a subset Fr ⊆ H (geometric Frobenius elements) that is a single left coset ΦI of I, whose image topologically generates H/I, with H/I isomorphic to ℤ̂ as a profinite group; and an integer Q ≥ 2 prime to ℓ; subject to the twist relation t(ΦσΦ⁻¹) = Q⁻¹·t(σ) for all Φ ∈ Fr and σ ∈ I. An isomorphism of data D → D′ is an isomorphism of topological groups α : H → H′ with α(I) = I′, α(Fr) = Fr′, Q = Q′, and t′(α(σ)) = c·t(σ) for all σ ∈ I and one constant c ∈ ℚ_ℓ^×. The rescaled datum c·D replaces t by c·t and is isomorphic to D through the identity of H.",
    "hypotheses": [
-    "ℓ prime; Q ≥ 2 prime to ℓ; t continuous and nonzero; Fr a single coset of I generating H/I ≅ ℤ̂."
+    "H profinite (compact, Hausdorff and totally disconnected); ℓ prime; Q ≥ 2 prime to ℓ; t continuous and nonzero; Fr a single coset of I generating H/I ≅ ℤ̂."
    ],
    "proofSteps": [
     "The twist relation is independent of the representative: for Φ′ = Φτ with τ ∈ I, t(Φ′σΦ′⁻¹) = t(Φ(τστ⁻¹)Φ⁻¹) = Q⁻¹t(τστ⁻¹) = Q⁻¹t(σ), because t is a homomorphism to an abelian group.",
     "Isomorphisms compose (constants multiply), have inverses (constant c⁻¹), and the identity is an isomorphism with c = 1; rescaling is an isomorphism with the identity map.",
-    "The identity element of H is never in Fr: Φ = 1 would give t(σ) = Q⁻¹t(σ) for all σ, hence t = 0 since Q ≥ 2, contradicting nonvanishing."
+    "The identity element of H is never in Fr: Φ = 1 would give t(σ) = Q⁻¹t(σ) for all σ, hence t = 0 since Q ≥ 2, contradicting nonvanishing.",
+    "Compactness is essential for later uniqueness: every open subgroup of I has finite index, so t cannot vanish on it unless t vanishes on all of I (the additive group of ℚ_ℓ is torsion-free)."
    ],
    "acceptance": [
     "The standard datum of a local field (WM.0/standard-local-datum) and its restrictions to closed subgroups (WM.0/restricted-local-datum) are local monodromy data.",
@@ -187,7 +189,7 @@
     {
      "name": "LocalMonodromyDatum",
      "role": "structure",
-     "statement": "The structure bundling H, I, t, Fr, Q with the closedness, normality, nonvanishing, coset, generation and twist conditions."
+     "statement": "The structure on a profinite H bundling I, t, Fr, Q with closedness, normality, nonvanishing, coset, generation and twist conditions."
     },
     {
      "name": "LocalMonodromyDatum.tame_conj",
@@ -232,7 +234,7 @@
     {
      "name": "LocalMonodromyDatum.rescaleIso",
      "role": "equivalence",
-     "statement": "c·D ≅ D through the identity of H."
+     "statement": "The identity gives c·D → D with constant c⁻¹, or D → c·D with constant c."
     }
    ],
    "tests": [
@@ -255,6 +257,11 @@
      "name": "LocalMonodromyDatum.rescaleIso",
      "kind": "compatibility",
      "statement": "For c = ℓ, the identity of H is an isomorphism D → ℓ·D with constant ℓ; it is not an isomorphism with constant 1."
+    },
+    {
+     "name": "LocalMonodromyDatum.profinite_required",
+     "kind": "non-example",
+     "statement": "The discrete group H = ℤ[1/Q] ⋊ ℤ with action n·x = Q^{−n}x, I = ℤ[1/Q], t the inclusion into ℚ_ℓ and Fr the coset of 1 satisfies the twist but is not profinite. Its inertia has the open subgroup {0}, on which t vanishes; an exponential condition there cannot determine N. This model must be excluded by the topology hypotheses."
     }
    ],
    "prerequisites": [
@@ -288,7 +295,7 @@
    ],
    "kind": "construction",
    "title": "The standard local monodromy datum of a local field",
-   "statement": "Let k be a nonarchimedean local field (finite over ℚ_p or over 𝔽_p((u))) with residue field 𝔽_q, q = p^f, and let ℓ ≠ p. Fix once an isomorphism ℤ_ℓ(1) ≅ ℤ_ℓ. The standard datum D_k = (G_k, I_k, t_ℓ, Fr_k, q) has G_k = Field.absoluteGaloisGroup k; I_k its inertia subgroup (LocalFieldsRamification Layer 4); t_ℓ : I_k → ℤ_ℓ(1) ≅ ℤ_ℓ ⊆ ℚ_ℓ the ℓ-component of the tame character, σ ↦ (σ(ϖ^{1/ℓ^n})/ϖ^{1/ℓ^n})_n for a uniformiser ϖ and a compatible system of ℓ-power roots, independent of both choices; Fr_k the set of geometric Frobenius lifts, the inverses of the arithmetic Frobenius lifts (TauCeti.IsArithFrobeniusLift); and Q = q. For a finite extension k′/k of ramification index e and residue degree f′, the datum of k restricted to G_{k′} (WM.0/restricted-local-datum) is e·D_{k′}, so it is isomorphic to D_{k′} through the identity of G_{k′} with constant e.",
+   "statement": "Let k be a nonarchimedean local field (finite over ℚ_p or over 𝔽_p((u))) with residue field 𝔽_q, q = p^f, and let ℓ ≠ p. Fix once an isomorphism ℤ_ℓ(1) ≅ ℤ_ℓ. The standard datum D_k = (G_k, I_k, t_ℓ, Fr_k, q) has G_k = Field.absoluteGaloisGroup k; I_k its inertia subgroup (LocalFieldsRamification Layer 4); t_ℓ : I_k → ℤ_ℓ(1) ≅ ℤ_ℓ ⊆ ℚ_ℓ the ℓ-component of the tame character, σ ↦ (σ(ϖ^{1/ℓ^n})/ϖ^{1/ℓ^n})_n for a uniformiser ϖ and a compatible system of ℓ-power roots, independent of both choices; Fr_k the set of geometric Frobenius lifts, the inverses of the arithmetic Frobenius lifts (TauCeti.IsArithFrobeniusLift); and Q = q. For a finite extension k′/k of ramification index e and residue degree f′, the datum of k restricted to G_{k′} (WM.0/restricted-local-datum) is e·D_{k′}, so it is isomorphic to D_{k′} through the identity of G_{k′} with constant e⁻¹; the inverse isomorphism has constant e.",
    "hypotheses": [
     "k a nonarchimedean local field with finite residue field of characteristic p; ℓ ≠ p prime.",
     "The isomorphism ℤ_ℓ(1) ≅ ℤ_ℓ is fixed once and for all; changing it rescales t_ℓ by a unit."
@@ -368,7 +375,7 @@
     {
      "name": "standardDatum_restrict_ramified",
      "kind": "compatibility",
-     "statement": "For k′ = ℚ_p(p^{1/2}) over ℚ_p (p odd), t_{ℓ,ℚ_p}|_{I_{k′}} = 2·t_{ℓ,k′}: the constant is the ramification index, nonzero in ℚ_ℓ even when ℓ = 2."
+     "statement": "For k′ = ℚ_p(p^{1/2}) over ℚ_p (p odd), t_{ℓ,ℚ_p}|_{I_{k′}} = 2·t_{ℓ,k′}. The identity from the restricted datum to D_{k′} has constant 1/2, and its inverse has constant 2, nonzero in ℚ_ℓ even for ℓ = 2."
     },
     {
      "name": "standardDatum_arithmetic_not_frob",
@@ -636,7 +643,7 @@
     {
      "name": "IsWeightMonodromyPure.tateTwist",
      "role": "functoriality",
-     "statement": "ρ(r) = ρ ⊗ χ_ℓ^r is pure of weight w − 2r."
+     "statement": "For the standard datum D_k, ρ(r) = ρ ⊗ χ_ℓ^r is pure of weight w − 2r. For a general datum the same conclusion needs a specified continuous character χ with χ|_I = 1 and χ(Φ) = Q⁻¹ for Φ ∈ Fr; no cyclotomic character of an arbitrary profinite group is assumed."
     }
    ],
    "tests": [
@@ -962,7 +969,7 @@
    ],
    "proofSteps": [
     "Choose k̄′ = k̄. Then (X_{k′})_{k̄} = X_{k̄}, and the G_{k′}-representation H^i((X_{k′})_{k̄}, ℚ̄_ℓ) is the restriction of the G_k-representation H^i(X_{k̄}, ℚ̄_ℓ) to the open subgroup G_{k′} (functoriality of the Galois action, SchemeAndStackFoundations SF.2, requested).",
-    "By WM.0/standard-local-datum, D_k|_{G_{k′}} = e·D_{k′}, isomorphic to D_{k′} through the identity with constant e (WM.0/transport-along-isomorphisms).",
+    "By WM.0/standard-local-datum, D_k|_{G_{k′}} = e·D_{k′}, isomorphic to D_{k′} through the identity with constant e⁻¹ (WM.0/transport-along-isomorphisms).",
     "By WM.0/detection-on-subgroups with H′ = G_{k′}, purity of weight i for D_k is equivalent to purity for D_k|_{G_{k′}}, hence for D_{k′}."
    ],
    "acceptance": [
@@ -1038,7 +1045,8 @@
     "ℱ = R^i f_*ℚ̄_ℓ is a lisse sheaf on U = C ∖ {x}, and its formation commutes with base change (smooth and proper base change, SchemeAndStackFoundations SF.2, requested). Its local Weil representation at the missing point x is the stalk at a geometric point over Spec k with the action of the decomposition group, which is H^i(X_{k^s}, ℚ̄_ℓ) with its G_k-action; the completion and the henselisation of the local ring at x have the same absolute Galois group (PerfectoidSpaces:P3/henselian-finite-etale-approximation).",
     "ℱ is punctually pure of weight i: at a closed point u ∈ U, ℱ_ū = H^i(X_ū, ℚ̄_ℓ), and the geometric Frobenius eigenvalues are Weil q_u-numbers of weight i by Deligne's theorem for proper smooth varieties over finite fields (DeligneWeightsAndPurity DWP.7; DWP.4 for projective fibres).",
     "For every field isomorphism ι : ℚ̄_ℓ ≅ ℂ, DeligneWeightsAndPurity:DWP.5/local-monodromy-purity applied to ℱ (ι-pure of weight β = i) gives: on the monodromy filtration of the local monodromy operator, Gr_j^M is ι-pure of weight i + j relative to q_x, with geometric Frobenius satisfying FNF⁻¹ = q_x⁻¹N. (DWP.5's proof uses Lemma 9.5 of Scholze, Weil II 1.8.4.)",
-    "An eigenvalue that is ι-pure of weight w for every ι is algebraic and a Weil q_x-number of weight w (DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota). DWP.5's N, filtration and geometric Frobenius are those of D_k (WM.0/weight-monodromy-purity, compatibility with DWP.5), so WMC_ℓ(X_k, i) holds."
+    "An eigenvalue that is ι-pure of weight w for every ι is algebraic and a Weil q_x-number of weight w (DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota). DWP.5's N, filtration and geometric Frobenius are those of D_k (WM.0/weight-monodromy-purity, compatibility with DWP.5), so WMC_ℓ(X_k, i) holds.",
+    "Scholze states Theorem 9.4 for a rational missing point. For a closed point of degree a, extend constants to κ(x) and take a component containing a point above x; its completion is k and its residue cardinality is q_x = q^a. Apply the rational-point form there; the supplier local-weight theorem also permits closed points directly."
    ],
    "acceptance": [
     "Scholze 2012, Theorem 9.4, p. 308.",
@@ -1137,7 +1145,7 @@
    ],
    "proofSteps": [
     "X^{p^n} − ϖ is Eisenstein over O_k, so k(ϖ^{1/p^n}) is totally ramified of degree p^n with ring of integers O_k[ϖ^{1/p^n}] (LocalFieldsRamification Layer 0, totally ramified extensions).",
-    "O_{k_∞}/ϖ = ∪_n O_k[X]/(X^{p^n} − ϖ, ϖ) = 𝔽_q[T^{1/p^∞}]/(T), on which Frobenius is surjective since 𝔽_q is perfect; K is complete, nondiscretely valued, so K is perfectoid (PerfectoidSpaces:P1/perfectoid-field-definition).",
+    "The quotient by ϖ is 𝔽_q[T^{1/p^∞}]/(T), unchanged on completion. To check the supplier definition, verify Frobenius on O_K/p as well: approximate x ∈ O_K modulo p by x_n ∈ O_{k(ϖ^{1/p^n})}. Expand x_n modulo p as a finite sum Σ [a_i](ϖ^{1/p^n})^i using the multiplicative Teichmüller representatives of 𝔽_q supplied by LocalFieldsRamification Layer 1 (TauCeti.teichmullerLift, extended by zero). Then y = Σ [a_i^{1/p}](ϖ^{1/p^{n+1}})^i satisfies y^p ≡ x_n mod p. Thus Frobenius O_K/p → O_K/p is surjective. The completed union is nondiscretely valued and complete, so it is perfectoid (PerfectoidSpaces:P1/perfectoid-field-definition).",
     "O_{K♭} = lim_{x↦x^p} O_K/ϖ = lim_{x↦x^p} 𝔽_q[T^{1/p^∞}]/(T); the element (ϖ^{1/p^n} mod ϖ)_n is t, and the limit is the t-adically completed 𝔽_q[t^{1/p^∞}]; t♯ = lim (ϖ^{1/p^n})^{p^n} = ϖ (PerfectoidSpaces:P1/tilt-of-perfectoid-field, whose acceptance example is k = ℚ_p).",
     "Density: every element of O_{K♭} is a t-adic limit of elements of 𝔽_q[t^{1/p^∞}] ⊆ 𝔽_q(t)^{perf} ⊆ k′^{perf}."
    ],
@@ -1154,7 +1162,8 @@
    "prerequisites": [
     "PerfectoidSpaces:P1/perfectoid-field-definition",
     "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
-    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
    ],
    "planet": {
     "name": "Tilt of the Kummer tower"
@@ -1245,7 +1254,7 @@
    ],
    "acceptance": [
     "For C = ℂ_p and ℓ ≠ p, the compatible system (ζ_{ℓ^n}) ∈ ℤ_ℓ(1)_{ℂ_p} has a unique preimage in ℤ_ℓ(1)_{ℂ_p♭}.",
-    "Non-example: for ℓ = p the map ♯ is not injective on p-power roots of unity: ε = (1, ζ_p, ζ_{p²}, …) has ε♯ = 1 while ε ≠ 1, and μ_{p^n}(C♭) is trivial."
+    "Non-example in mixed characteristic: μ_{p^n}(C♭) = {1}, whereas μ_{p^n}(C) has p^n elements, so ♯ is not surjective on these root-of-unity groups. The element ε = (1, ζ_p, ζ_{p²}, …) has ε♯ = 1 and ε ≠ 1, but has infinite order in C♭; it witnesses noninjectivity on the full multiplicative group, not on p-power torsion."
    ],
    "prerequisites": [
     "PerfectoidSpaces:P1/tilt-of-perfectoid-field",
@@ -1402,7 +1411,7 @@
      "statement": "T(Z, ε) is quasi-compact."
     },
     {
-     "name": "tube_antitone",
+     "name": "tube_mono",
      "role": "relation",
      "statement": "ε′ ≤ ε implies T(Z, ε′) ⊆ T(Z, ε)."
     },
@@ -1456,7 +1465,7 @@
     {
      "name": "tube_depends_on_model",
      "kind": "non-example",
-     "statement": "For X = Spec O[T], Z = V(T) and Z′ = V(ϖT), which have the same generic fibre V(T), T(Z′, ε) = {|T| ≤ ε/|ϖ|} ≠ T(Z, ε): the tube depends on the integral model of Z, although both families are cofinal."
+     "statement": "For X = Spec O[T], Z = V(T), Z′ = V(ϖT) and 0 < |ϖ| < 1, take ε = |ϖ|². Then T(Z′, ε) = {|T| ≤ |ϖ|}, whereas T(Z, ε) = {|T| ≤ |ϖ|²}; the K-point T = ϖ lies only in the former. Both subschemes have generic fibre V(T), and both tube families are cofinal. For ε ≥ 1 both tubes are the unit disc, so inequality is not asserted for every radius."
     }
    ],
    "prerequisites": [
@@ -1472,7 +1481,7 @@
    "sources": [
     {
      "sourceId": "ITO20",
-     "locator": "§4.1, Proposition 4.1, p. 19, and Lemma 4.3, p. 20",
+     "locator": "§4.2, Proposition 4.1, p. 19, and Lemma 4.3, p. 20",
      "match": "Definition of the open and closed tubular neighbourhoods by generators, their independence and openness, functoriality, and cofinality among constructible neighbourhoods."
     },
     {
@@ -1491,13 +1500,13 @@
    ],
    "kind": "theorem",
    "title": "Local constancy of direct images near the centre of a disc (Huber)",
-   "statement": "Let K be an algebraically closed complete nonarchimedean field of characteristic 0, O = K°, X a separated scheme of finite type over O, f ∈ O_X(X), and f^{rig} : d(X̂) → B(1) = Spa(K⟨T⟩, O⟨T⟩) the morphism induced by T ↦ f. Let n ≥ 1 be invertible in O. Then for every j the sheaf R^j f^{rig}_* ℤ/n is oc-quasi-constructible in Huber's sense; in particular there is ε_1 ∈ |K^×| such that for every j its restriction to the punctured disc B(ε_1) ∖ {0} is a locally constant sheaf of finite type.",
+   "statement": "Let K be an algebraically closed complete nonarchimedean field of characteristic 0, O = K°, X a separated scheme of finite type over O, f ∈ O_X(X), and f^{rig} : d(X̂) → B(1) = Spa(K⟨T⟩, O⟨T⟩) the morphism induced by T ↦ f. Let n ≥ 1 be invertible in O. Then for every j the sheaf R^j f^{rig}_* ℤ/n is oc-quasi-constructible in Huber's sense; in particular for each j there is ε_1(j, n) ∈ |K^×| such that its restriction to the punctured disc B(ε_1(j, n)) ∖ {0} is a locally constant sheaf of finite type.",
    "hypotheses": [
     "K algebraically closed, complete, of characteristic 0; X separated of finite type over O; n invertible in O."
    ],
    "proofSteps": [
     "This is Huber, A finiteness result for direct image sheaves on the étale site of rigid analytic varieties, J. Algebraic Geom. 7 (1998), Theorem 2.1, in the form recalled by Ito (arXiv:2008.07794v1, §1.2, first step of the sketch of Theorem 1.1).",
-    "Only finitely many j matter, because R^j f^{rig}_* vanishes for j > 2 dim X_K (cohomological dimension of fibres), so one ε_1 serves all j.",
+    "Ito records local constancy for each R^j separately. A common radius for all relevant j additionally requires a uniform bound on the cohomological amplitude of Rf^{rig}_* ℤ/n; this input is recorded as a gap. For a nonproper f, ordinary direct-image stalks cannot simply be replaced by fibre cohomology to deduce such a bound.",
     "The derived direct images are those of ClassicalAdicEtaleCohomology:H0/derived-direct-image; local constancy is with respect to the étale site of the punctured disc (ClassicalAdicEtaleCohomology:H4/punctured-disc-region)."
    ],
    "acceptance": [
@@ -1560,18 +1569,17 @@
    ],
    "kind": "theorem",
    "title": "Huber's neighbourhood theorem: small tubes have the cohomology of the subvariety",
-   "statement": "Let K be an algebraically closed complete nonarchimedean field of characteristic 0, O = K°, X a separated scheme of finite type over O, Z ⊆ X a closed immersion of finite presentation, n ≥ 1 invertible in O, and F a locally constant constructible sheaf of ℤ/n-modules on d(X̂) (for example ℤ/n). Then there is ε_0 ∈ |K^×| such that for every ε ∈ |K^×| with ε ≤ ε_0 and every i, the restriction map H^i(T(Z, ε), F) → H^i(d(Ẑ), F) is an isomorphism, where d(Ẑ) carries the étale cohomology of the closed subspace (the pseudo-adic space (d(X̂), d(Ẑ))). Moreover T(Z, ε) is quasi-compact.",
+   "statement": "Let K be an algebraically closed complete nonarchimedean field of characteristic 0, O = K°, X a separated scheme of finite type over O, Z ⊆ X a closed immersion of finite presentation, n ≥ 1 invertible in O. Then there is ε_0 ∈ |K^×| such that for every ε ∈ |K^×| with ε ≤ ε_0 and every i, the restriction map H^i(T(Z, ε), ℤ/n) → H^i(d(Ẑ), ℤ/n) is an isomorphism, where d(Ẑ) carries the étale cohomology of the closed subspace (the pseudo-adic space (d(X̂), d(Ẑ))). Moreover T(Z, ε) is quasi-compact.",
    "hypotheses": [
-    "K algebraically closed, complete, characteristic 0; X separated of finite type over O; Z ⊆ X closed of finite presentation; n invertible in O; F locally constant constructible.",
+    "K algebraically closed, complete, characteristic 0; X separated of finite type over O; Z ⊆ X closed of finite presentation; n invertible in O; constant ℤ/n coefficients.",
     "ε_0 depends on n; a choice independent of n (Ito, Theorem 1.2) is not needed here."
    ],
    "proofSteps": [
-    "Reduction to a principal ideal: blowing up X along Z replaces Z by an effective Cartier divisor E, and T(E, ε) is the preimage of T(Z, ε) (WM.3/tubular-neighbourhoods (d)); proper base change for the blow-up (ClassicalAdicEtaleCohomology:H3/proper-pushforward-base-change) reduces the comparison to E, and working locally on X one may assume Z = V(f) for a global function f (Ito, §1.2).",
-    "With f^{rig} : d(X̂) → B(1) induced by f, T(Z, ε) = (f^{rig})⁻¹(B(ε)) and d(Ẑ) = (f^{rig})⁻¹(0); the Leray spectral sequence (ClassicalAdicEtaleCohomology:H0/leray-spectral-sequence) has E₂ terms H^a(B(ε), R^b f^{rig}_* F).",
-    "By WM.3/oc-quasi-constructibility the sheaves R^b f^{rig}_* F are locally constant of finite type on B(ε_1) ∖ {0}; by WM.3/lutkebohmert-riemann-existence they are trivialised by a Kummer covering on B(ε_0) ∖ {0}.",
-    "Explicit computation on discs (ClassicalAdicEtaleCohomology:H4/disc-cohomology, H4/punctured-disc-cohomology, H4/tame-radial-covers), with the localisation sequence for {0} ⊆ B(ε), gives that restriction H^a(B(ε), R^b f^{rig}_* F) → H^a({0}, (R^b f^{rig}_* F)_0) is an isomorphism for ε ≤ ε_0: zero for a > 0 and the stalk at 0 for a = 0.",
-    "The stalk (R^b f^{rig}_* F)_0 is colim_ε H^b((f^{rig})⁻¹(B(ε)), F) = H^b(d(Ẑ), F) by continuity of cohomology along the tilde-limit d(Ẑ) = ∩_ε T(Z, ε) (ClassicalAdicEtaleCohomology:H0/tilde-limits-and-cohomological-continuity). The spectral sequence degenerates and gives H^i(T(Z, ε), F) ≅ H^i(d(Ẑ), F), compatibly with restriction.",
-    "The original proof is Huber, J. Algebraic Geom. 7 (1998), 359–403, Theorem 3.6; this plan follows Ito's restatement and outline (Theorem 4.5(2) and §1.2)."
+    "The end theorem is the constant-coefficient case of Ito, Theorem 4.5(2), p. 21, restating Huber 1998 Theorem 3.6. It supplies the simultaneous bound ε_0 for all i. The following is the route in Ito §1.2, pp. 2–3, whose outstanding inputs are recorded in the neighbourhood-proof gap; it is not a claim that the listed supplier results already prove every reduction.",
+    "Reduce the defining ideal to a principal equation through the blow-up and descent argument, then work on a finite affine cover. Tube preimages are WM.3/tubular-neighbourhoods (d). Proper base change alone does not assert that the blow-up leaves cohomology unchanged; the needed descent and gluing comparison remains to be supplied.",
+    "For Z = V(f), put f^{rig} : d(X̂) → B(1). Then T(Z, ε) = (f^{rig})⁻¹(B(ε)). Leray has terms H^a(B(ε), R^b f^{rig}_* ℤ/n). Each sheaf is locally constant on a sufficiently small punctured disc by WM.3/oc-quasi-constructibility, and Lütkebohmert trivialises it after a Kummer cover. Choosing one radius and cover for the derived image requires the bounded-amplitude input in the gap.",
+    "One still needs the explicit computation for these Kummer-trivialised direct-image sheaves, including their extension across the origin and stabilisation of restriction on shrinking discs. Constant-sheaf disc cohomology and prime-to-p tame covers from ClassicalAdicEtaleCohomology H4 do not by themselves establish this calculation for every Kummer cover in the Riemann-existence theorem.",
+    "Finally identify the limiting cohomology with that of the closed pseudo-adic subspace and apply Leray. The continuity theorem in ClassicalAdicEtaleCohomology H0 requires a verified limit of étale topoi with descent of the coefficients; equality of underlying point sets ∩_ε T(Z, ε) = d(Ẑ) alone does not establish this hypothesis. This identification is part of the recorded proof gap."
    ],
    "acceptance": [
     "For X = Spec O[T] and Z = V(T): T(Z, ε) is the closed disc and d(Ẑ) the origin; both have cohomology ℤ/n in degree 0 only, for every ε.",
@@ -1621,7 +1629,7 @@
    ],
    "kind": "theorem",
    "title": "A Galois-stable neighbourhood with the cohomology of the subvariety, for all ℓ-power coefficients",
-   "statement": "Let K be a complete nonarchimedean field of characteristic 0 (for instance the perfectoid field of WM.2/kummer-perfectoid-field), C the completion of an algebraic closure of K, ℓ a prime invertible in K°, 𝒳 a proper scheme of finite presentation over K° with generic fibre X, and Y ⊆ X a closed subscheme. Let 𝒵 ⊆ 𝒳 be a closed subscheme of finite presentation with generic fibre Y (for instance cut out by integral multiples of finitely many equations of Y). Then there is ε ∈ |K^×| such that, for Ỹ_{ε′} := T(𝒵, ε′) ⊆ X^ad and every ε′ ∈ |K^×| with ε′ ≤ ε: Ỹ_{ε′} is a quasi-compact open neighbourhood of Y^ad defined over K; its base change Ỹ_{ε′,C} = T(𝒵_{O_C}, ε′) is stable under G_K; and for all i and all m ≥ 1 the restriction H^i(Ỹ_{ε′,C}, ℤ/ℓ^m) → H^i(Y^ad_C, ℤ/ℓ^m) is a G_K-equivariant isomorphism of rings (for the cup product), compatible with reduction ℤ/ℓ^{m+1} → ℤ/ℓ^m.",
+   "statement": "Let K be a complete nonarchimedean field of characteristic 0 (for instance the perfectoid field of WM.2/kummer-perfectoid-field), C the completion of an algebraic closure of K, ℓ a prime invertible in K°, 𝒳 a proper scheme of finite presentation over K° with generic fibre X, and Y ⊆ X a closed subscheme. Let 𝒵 ⊆ 𝒳 be a closed subscheme of finite presentation with generic fibre Y (for instance cut out by integral multiples of finitely many equations of Y). Then there is ε ∈ |K^×| such that, for Ỹ_{ε′} := T(𝒵, ε′) ⊆ X^ad and every ε′ ∈ |K^×| with ε′ ≤ ε: Ỹ_{ε′} is a quasi-compact open neighbourhood of Y^ad defined over K; its base change Ỹ_{ε′,C} = T(𝒵_{O_C}, ε′) is stable under G_K; and for all i and all m ≥ 1 the restriction H^i(Ỹ_{ε′,C}, ℤ/ℓ^m) → H^i(Y^ad_C, ℤ/ℓ^m) is a G_K-equivariant isomorphism in each degree; together these maps form an isomorphism of graded cohomology rings for the cup product, compatible with reduction ℤ/ℓ^{m+1} → ℤ/ℓ^m.",
    "hypotheses": [
     "K complete of characteristic 0; 𝒳 proper of finite presentation over K°; 𝒵 closed of finite presentation with generic fibre Y; ℓ invertible in K°."
    ],
@@ -1671,7 +1679,7 @@
    ],
    "proofSteps": [
     "An exact functor between abelian categories induces maps on Ext groups that commute with Yoneda composition: this is mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor_comp, applied to f* and to the composite defined by mathlib:CategoryTheory.Abelian.Ext.comp.",
-    "Transport along f*A ≅ A identifies the maps on Ext^i(A, A) with pullback in cohomology (for abelian-group coefficients Mathlib's mathlib:CategoryTheory.Sheaf.H is Ext from the constant sheaf).",
+    "Transport along f*A ≅ A identifies Ext pullback with cohomology pullback. For étale sheaves of A-modules use ClassicalAdicEtaleCohomology:H0/derived-direct-image and its module/abelian-cohomology comparison. Mathlib CategoryTheory.Sheaf.H directly supplies only the abelian-group (A = ℤ) version, so it is not used as the ring-module identification by itself.",
     "A bijective map preserving products has an inverse preserving products.",
     "For étale cohomology this cup product agrees with the one defined through the derived tensor product and used in Poincaré duality (EtaleDualityAndPerverseSheaves:EDC.2:pairings/cup-product-trace-pairing), since for the unit object A both are the Yoneda product on Ext^*(A, A)."
    ],
@@ -1684,7 +1692,8 @@
     "mathlib:CategoryTheory.Abelian.Ext.comp",
     "mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor",
     "mathlib:CategoryTheory.Sheaf.H",
-    "EtaleDualityAndPerverseSheaves:EDC.2:pairings/cup-product-trace-pairing"
+    "EtaleDualityAndPerverseSheaves:EDC.2:pairings/cup-product-trace-pairing",
+    "ClassicalAdicEtaleCohomology:H0/derived-direct-image"
    ],
    "planet": {
     "name": "Cup products under pullback (Lemma 9.8)"
@@ -1807,7 +1816,7 @@
     {
      "name": "tiltedApproximation_not_tilt",
      "kind": "non-example",
-     "statement": "Z′ is not a tilt of Y: for a smooth plane cubic Y ⊆ ℙ², Z may be a plane curve of degree 3p^N, of arithmetic genus (3p^N − 1)(3p^N − 2)/2 > 1 for N ≥ 1, and then H¹(Z′) has larger dimension than H¹(Y); only an embedding of H^i(Y) as a direct summand is asserted."
+     "statement": "Different cohomology is possible even with Y = X = ℙ¹ over ℚ_3 and Ỹ = X^ad. Take k₁ = 𝔽_3(t), L♭ = K♭, k″ = 𝔽_3((t)), and Z′ the smooth projective elliptic curve y² = x³ − x. Its x-coordinate gives a finite degree-two morphism g : Z′ → ℙ¹. These are tilted approximation data, yet dim H¹(Z′, ℚ̄_ℓ) = 2 and H¹(Y, ℚ̄_ℓ) = 0 for ℓ ≠ 3. Approximation permits a larger cohomology space; no cohomology isomorphism with Y is asserted."
     }
    ],
    "prerequisites": [
@@ -1820,7 +1829,15 @@
     "SchemeAndStackFoundations:SF.0/geometric-irreducible-components",
     "SchemeAndStackFoundations:SF.4/de-jong-alteration-theorem",
     "SchemeAndStackFoundations:SF.4/alteration",
-    "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields"
+    "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
+    "SchemeAndStackFoundations:SF.5/chow-proper-push",
+    "SchemeAndStackFoundations:SF.5/chern-projection",
+    "SchemeAndStackFoundations:SF.5/degree",
+    "SchemeAndStackFoundations:SF.5/ample",
+    "SchemeAndStackFoundations:SF.5/nef-big",
+    "SchemeAndStackFoundations:SF.5/big-line",
+    "SchemeAndStackFoundations:SF.5/nef-big-numerical",
+    "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/WeightMonodromy/TiltedApproximation",
@@ -1989,10 +2006,10 @@
     "Y geometrically connected, proper and smooth of dimension d; Z′ geometrically connected, projective and smooth of dimension d; g generically finite onto W of dimension d; ℚ̄_ℓ coefficients."
    ],
    "proofSteps": [
-    "Both groups are one-dimensional: for a connected smooth proper variety of dimension d over a separably closed field, H^{2d} with ℚ̄_ℓ coefficients is ℚ̄_ℓ(−d) via the trace (EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, proper case H_c = H). So f* is an isomorphism if and only if it is nonzero.",
+    "Both groups are one-dimensional: for a connected smooth proper variety of dimension d over a separably closed field, H^{2d} with ℚ̄_ℓ coefficients is ℚ̄_ℓ(−d) via the trace (EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, proper case H_c = H). So f* is an isomorphism if and only if it is nonzero. For d = 0, both geometrically connected smooth varieties over the algebraic closure are a point; the comparison preserves the unit, hence is the identity on H⁰. Thus use the extreme-degree supplier only for d ≥ 1, its stated range.",
     "Suppose f* = 0 in degree 2d. By WM.4/comparison-map (d), g* ∘ π*_X = f* ∘ r_Y = 0 on H^{2d}(X_{Σ,C}); since π*_X is an isomorphism (AnalyticToricGeometryPartII:NT.4/projection-cohomology, passed to ℚ̄_ℓ), g* : H^{2d}(X_{Σ,k̄₁}, ℚ̄_ℓ) → H^{2d}(Z′_{k̄₁}, ℚ̄_ℓ) vanishes.",
     "Let H be an ample line bundle on X_Σ, defined from the fan over every field. Then g*(c₁(H)^d) = c₁(g*H)^d (naturality of the Kummer first Chern class, EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/first-chern-class, and of cup products).",
-    "Its trace is the degree of the zero-cycle c₁(g*H)^d ∩ [Z′] (EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map: compatibility with intersection products and trace equals degree), which by the projection formula (SchemeAndStackFoundations:SF.5/chern-projection, SF.5/degree) equals deg(g)·deg(c₁(H)^d ∩ [W]) > 0, positive because H is ample and W has dimension d (SchemeAndStackFoundations:SF.5/ample).",
+    "Its trace is the degree of the zero-cycle c₁(g*H)^d ∩ [Z′] (EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map: compatibility with intersection products and trace equals degree), which by the projection formula (SchemeAndStackFoundations:SF.5/chern-projection, SF.5/degree, with g_*[Z′] = deg(g)[W] from SF.5/chow-proper-push) equals deg(g)·deg(c₁(H)^d ∩ [W]) > 0. For d ≥ 1, H|_W is ample (SF.5/ample), hence nef (SF.5/nef-big) and big (SF.5/big-line); SF.5/nef-big-numerical gives the strictly positive top intersection on the reduced integral W. The d = 0 case was already handled by the unit.",
     "A positive integer is nonzero in ℚ̄_ℓ, so g*(c₁(H)^d) ≠ 0, a contradiction."
    ],
    "acceptance": [
@@ -2009,7 +2026,11 @@
     "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
     "SchemeAndStackFoundations:SF.5/chern-projection",
     "SchemeAndStackFoundations:SF.5/degree",
-    "SchemeAndStackFoundations:SF.5/ample"
+    "SchemeAndStackFoundations:SF.5/ample",
+    "SchemeAndStackFoundations:SF.5/chow-proper-push",
+    "SchemeAndStackFoundations:SF.5/nef-big",
+    "SchemeAndStackFoundations:SF.5/big-line",
+    "SchemeAndStackFoundations:SF.5/nef-big-numerical"
    ],
    "planet": {
     "name": "Top-degree isomorphism (Lemma 9.9)"
@@ -2261,6 +2282,13 @@
    "neededBy": [
     "DeligneWeightsAndPurityPartII:WM.4/comparison-map"
    ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+   "need": "Import the zero-preserving multiplicative section of reduction on the ring of integers of a local field with finite residue field, TauCeti.teichmullerLift, as supplied by LocalFieldsRamification Layer 1. Multiplicativity gives [a^{1/p}]^p = [a] for a in the perfect residue field. This is existing upstream/library work, used for the finite uniformiser expansion modulo p in the Kummer-tower proof; no new work is asked.",
+   "neededBy": [
+    "DeligneWeightsAndPurityPartII:WM.2/kummer-perfectoid-field"
+   ]
   }
  ],
  "coverage": [
@@ -2289,7 +2317,7 @@
    "status": "planned",
    "remaining": [
     "Confirm the statements of Huber 1998 Theorems 2.1 and 3.6 and of Lütkebohmert 1993 Theorem 2.2 against the original papers (gap recorded); in particular the definition of oc-quasi-constructibility and whether Theorem 3.6(a) needs further hypotheses on X.",
-    "The 'explicit calculation' step of the proof of WM.3/huber-neighbourhood-theorem (disc cohomology with Kummer-trivialised coefficients and the localisation sequence at the origin) is outlined, not decomposed."
+    "Complete the recorded neighbourhood-proof inputs: blow-up descent/gluing, derived bounded amplitude and simultaneous Kummer trivialisation, disc/stalk stabilisation for those sheaves, and the étale-topos continuity comparison with the closed pseudo-adic subspace."
    ]
   },
   {
@@ -2309,6 +2337,14 @@
     "DeligneWeightsAndPurityPartII:WM.3/huber-neighbourhood-theorem"
    ],
    "detail": "R. Huber, A finiteness result for direct image sheaves on the étale site of rigid analytic varieties, J. Algebraic Geom. 7 (1998), 359–403 (Theorems 2.1 and 3.6), and W. Lütkebohmert, Riemann's existence problem for a p-adic field, Invent. Math. 111 (1993), 309–330 (Theorem 2.2), are not freely available to the worker. The three nodes state these results in the form in which K. Ito, arXiv:2008.07794v1 (Theorem 1.1, Theorem 4.5 and the proof sketch in §1.2), recalls and uses them, and the proof outline of the neighbourhood theorem follows Ito's sketch. Before formalisation the statements, in particular the definition of oc-quasi-constructible sheaves (Huber 1998, Definition 1.4) and any hypotheses of Theorem 3.6(a) beyond those Ito records, must be checked against the originals."
+  },
+  {
+   "title": "Derived inputs in the neighbourhood-theorem proof route",
+   "neededBy": [
+    "DeligneWeightsAndPurityPartII:WM.3/oc-quasi-constructibility",
+    "DeligneWeightsAndPurityPartII:WM.3/huber-neighbourhood-theorem"
+   ],
+   "detail": "To implement the route recalled in Ito §1.2 (pp. 2–3), establish: (1) the blow-up descent and finite-cover gluing comparison for tubes and the closed pseudo-adic subspace; (2) bounded cohomological amplitude of Rf^{rig}_* ℤ/n on a sufficiently small disc, giving a common radius and Kummer trivialisation for all nonzero direct images; (3) stabilisation of disc cohomology for these Kummer-trivialised sheaves with their extension across the origin, including the covers not supplied by the prime-to-p tame-cover input in ClassicalAdicEtaleCohomology H4; (4) the étale-topos limit and coefficient descent needed to identify the shrinking-tube limit with cohomology of the closed pseudo-adic subspace. The end theorem is verified in Ito Theorem 4.5(2), p. 21. These proof inputs are not claimed established by ordinary proper base change, nonproper fibre cohomology, or equality of underlying point sets."
   }
  ],
  "restructure": [
@@ -2348,7 +2384,12 @@
     "the author's papers page",
     "arXiv:1111.4914 versions (only v1)",
     "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the published Proposition 9.1, p. 307: the quantified inertia element is σ, whereas the tame-character argument uses an unbound letter. The corrected formula evaluates t_ℓ at σ.",
+    "by": "REV-DESIGN-DeligneWeightsAndPurityPartII"
+   }
   },
   {
    "id": "DeligneWeightsAndPurityPartII/E2",
@@ -2365,7 +2406,12 @@
     "the author's papers page",
     "arXiv:1111.4914 versions (only v1)",
     "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the published Lemma 9.5, p. 309: the weight integer i is used without a quantifier. Taking i ∈ ℤ makes the local criterion precise.",
+    "by": "REV-DESIGN-DeligneWeightsAndPurityPartII"
+   }
   },
   {
    "id": "DeligneWeightsAndPurityPartII/E3",
@@ -2382,7 +2428,12 @@
     "the author's papers page",
     "arXiv:1111.4914 versions (only v1)",
     "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an omitted choice in the published proof, pp. 309 and 311: nonzero implies isomorphism only after both top-degree groups are one-dimensional. An arbitrary integral alteration can acquire several geometric components. Choosing a geometrically irreducible alteration after finite extension repairs the proof, and does not change Theorem 9.6.",
+    "by": "REV-DESIGN-DeligneWeightsAndPurityPartII"
+   }
   }
  ],
  "sourceVersions": [
@@ -2401,5 +2452,163 @@
    "citation": "K. Ito, arXiv:2008.07794v1"
   }
  ],
- "upstreamNotes": []
+ "upstreamNotes": [],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-DeligneWeightsAndPurityPartII",
+  "date": "2026-10-14",
+  "notes": "Independent target-level review of all 30 nodes, all 14 pinned baseline declarations, exact supplier contracts, API/tests, source issues and current upstream/library overlap. Corrected 14 nodes, clarified two baseline contracts, aligned the reader and restored profiniteness in the elaborating Lean signatures. No nodes added. A complete planning pass is accepted with two honest gaps and nine requests (five import existing upstream work and four ask suppliers for precise additional interfaces); this is not a gap-free or formalised proof.",
+  "checked": [
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/local-monodromy-datum",
+    "verdict": "corrected",
+    "note": "Profinite hypotheses restored in Lean; compactness excludes the discrete model with an open zero tame image. Rescaling directions are explicit."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/standard-local-datum",
+    "verdict": "corrected",
+    "note": "Read the current LocalFieldsRamification tame/inertia/Frobenius contracts. Corrected the restricted-to-standard isomorphism scalar from e to e⁻¹."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/restricted-local-datum",
+    "verdict": "verified",
+    "note": "Open quotient image is fℤ̂; compact nonzero tame image is a nonzero ℤ_ℓ lattice. Checked transitivity, Q^f and four tests."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/weight-monodromy-purity",
+    "verdict": "corrected",
+    "note": "Logarithm uniqueness, geometric Frobenius sign, finite inertia on graded pieces and finite-power independence verified. Tate twisting now names the required character."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/detection-on-subgroups",
+    "verdict": "verified",
+    "note": "Grothendieck supplies the original N; the restricted nonzero tame image gives the same N. The finite-inertia power argument detects weights, including the p-power tower."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/transport-along-isomorphisms",
+    "verdict": "verified",
+    "note": "For t′∘α = c t the pulled-back operator is cN′, so rescaling preserves the filtration and purity. IsIso inverse and composite constants agree with Lean."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/direct-summands",
+    "verdict": "verified",
+    "note": "Monodromy and its filtration respect stable direct sums. The Tate-curve kernel example correctly distinguishes a subrepresentation from a direct summand."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/weight-monodromy-conjecture",
+    "verdict": "verified",
+    "note": "Proper cohomology defines a finite-dimensional continuous representation using the precise SF.2 request. Checked projective space, point, good reduction and semisimplification tests."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/finite-extension-invariance",
+    "verdict": "corrected",
+    "note": "Restriction and detection prove both directions. Corrected the datum isomorphism scalar to e⁻¹."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.0/good-reduction-case",
+    "verdict": "verified",
+    "note": "Smooth proper base change gives trivial inertia and N = 0; DWP.7 supplies proper-smooth finite-field purity. Reader now calls SF.2 an outstanding request."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.1/deligne-curve-theorem",
+    "verdict": "corrected",
+    "note": "DWP.5 and purity for every embedding give Weil q_x-weights. Added the constant-extension reduction from Scholze’s rational point to a closed point."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.1/function-field-varieties",
+    "verdict": "verified",
+    "note": "Verified spreading out, smooth-proper identification and the local completion comparison. No mixed-characteristic conjecture is assumed."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.2/kummer-perfectoid-field",
+    "verdict": "corrected",
+    "note": "Added the actual Frobenius O_K/p check and imported existing Teichmüller representatives. Tilt and density match Scholze §9 and the P1 contract."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.2/galois-group-identification",
+    "verdict": "verified",
+    "note": "The continuous baseline restriction map is only a map; isomorphisms come from the stated henselian-completion, tilting and completed-perfection suppliers."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.2/residue-fields-and-roots-of-unity",
+    "verdict": "corrected",
+    "note": "Sharp is equivariant and bijective on prime-to-p torsion. Corrected the p-power non-example: ε has infinite order, and mixed-characteristic p-torsion fails surjectivity."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.2/monodromy-data-match",
+    "verdict": "verified",
+    "note": "Checked inertia, geometric Frobenius, residue cardinality and t_k = v(t)t_k″. The declared isomorphism constant is correctly v(t)⁻¹."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.2/tilting-transfer",
+    "verdict": "verified",
+    "note": "A stable direct summand is pure; transport along β and detection on the two restricted data gives purity over the original local field."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/tubular-neighbourhoods",
+    "verdict": "corrected",
+    "note": "Ito Proposition 4.1 and Lemma 4.3 are in §4.2. Corrected the monotonicity name and gave a valid separating radius in the model-dependence test."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/oc-quasi-constructibility",
+    "verdict": "corrected",
+    "note": "Verified Ito’s degreewise local-constancy statement. Removed the unsupported common radius and nonproper fibre-cohomology argument; recorded derived boundedness as a gap."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/lutkebohmert-riemann-existence",
+    "verdict": "verified",
+    "note": "Verified the Kummer-trivialisation form recalled by Ito §1.2. The original 1993 theorem remains explicitly unread, rather than silently treated as checked."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/huber-neighbourhood-theorem",
+    "verdict": "corrected",
+    "note": "Verified the constant-coefficient end theorem in Ito Theorem 4.5(2). Narrowed coefficients to the case needed; isolated the unestablished descent, boundedness, calculation and continuity inputs."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/galois-stable-neighbourhood",
+    "verdict": "corrected",
+    "note": "One radius for ℤ/ℓ extends to all ℓ-power coefficients by the long exact sequences. Multiplicativity is now stated for the graded cohomology ring."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.3/cup-products-under-pullback",
+    "verdict": "corrected",
+    "note": "The Yoneda-product identity is the pinned Ext.mapExactFunctor_comp. Added the H0 module/abelian comparison; Sheaf.H alone is the ℤ-coefficient version."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/tilted-approximation",
+    "verdict": "corrected",
+    "note": "Alteration after finite extension gives geometric connectedness and the needed dimension. Replaced the arithmetic-genus non-example by an elliptic double cover; supplied the numerical degree API inputs."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/comparison-map",
+    "verdict": "verified",
+    "note": "Each arrow has the correct direction and coefficient compatibility. Galois equivariance uses precisely the two outstanding naturality requests, which the reader now labels as requests."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/top-degree-isomorphism",
+    "verdict": "corrected",
+    "note": "Added the d = 0 unit argument and the exact proper-push, nef, big and numerical positivity suppliers. Rational coefficients and geometric connectedness are essential."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/duality-splitting",
+    "verdict": "verified",
+    "note": "The perfect-pairing identity forces injectivity; the annihilator has the complementary dimension and is stable under the pairing’s one-dimensional character."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/direct-summand-of-tilted-cohomology",
+    "verdict": "verified",
+    "note": "Rational Poincaré duality and the top-degree isomorphism give a Galois-stable complementary subspace; no cohomology isomorphism in other degrees is claimed."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/weight-monodromy-toric-complete-intersections",
+    "verdict": "verified",
+    "note": "Checked the entire Scholze Theorem 9.6 route: neighbourhood, approximation, comparison, splitting, equal-characteristic weights and datum transfer."
+   },
+   {
+    "nodeId": "DeligneWeightsAndPurityPartII:WM.4/projective-complete-intersections",
+    "verdict": "verified",
+    "note": "Projective spaces and their products have the imported complete regular projective fans; the closed smooth geometrically connected intersections satisfy Theorem 9.6."
+   }
+  ]
+ }
 }
