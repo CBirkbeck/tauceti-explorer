@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-WeightZeroCrystallineAutomorphyLifting",
+    "date": "2026-10-14",
+    "notes": "Fixed framing generality, impossible prepared examples, rank-two component hypotheses, opposite Hodge–Tate signs, selected-block eigenspace and Hecke normalizations, prime-to-p Iwahori kernels, repeated tame characters, excluded-place reduction, adequate counts, common-unramified descent and Lean form. All 30 package targets and all 21 plan targets/31 APIs/30 tests retained. lean-check exits 0 with fourteen sorry warnings only. Four supplier contracts remain: arbitrary-rank weight-zero generic reducedness; twisted diamond-linear crystalline comparison with uniform nilpotence; torsion comparison away from p; geometric component stabilization or finite-type models for local lifting rings. See the independent report for exact hypotheses and consumers; these inputs prevent upstream readiness."
+  }
+}
