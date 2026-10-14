@@ -188754,9 +188754,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 §4.1, p. 355: the finite map O[[t]]→O has zero Hom but nonzero Ext¹. Equal dimension is essential for the Hom canonical-module formula."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-2",
@@ -188776,9 +188776,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 §4.1, pp. 355–356: the displayed completed tensor of k with O[[x,y,z]]/(xy−π,xz−π) has components of unequal dimension. The flat-factor correction is necessary."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-3",
@@ -188798,9 +188798,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Lemma 4.4, pp. 357–358: the source’s t^6,t^7,t^15 example itself separates regularity from initial-form regularity."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-4",
@@ -188820,9 +188820,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Lemma 6.2, pp. 385–386: its proof selects a first nonzero cohomology degree, so a nonzero complex is required; an identity complex tests the missing hypothesis."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-5",
@@ -188842,9 +188842,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Theorem 6.3, p. 387: adding a π-divisible E summand changes H without changing its finite π-power quotients. The finite/separated target hypothesis repairs this."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-6",
@@ -188864,9 +188864,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Theorem 6.3, p. 387: the finite-level module killed by π^N cannot model higher augmentation precision, and φ₀ is undefined. Indices are restricted in the corrected plan."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-7",
@@ -188886,9 +188886,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Theorem 6.3, pp. 387–388: the numerical dimension/depth comparison must use the framed ring and a nonzero system. The zero system and removal of framing variables test these conditions."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-8",
@@ -188908,9 +188908,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Theorem 6.3 proof, p. 388: for differential π over (O/π²)[[z]] and I=(z²,πz), H⁰ does not commute with this nonflat quotient. The two modules have distinct z actions as recorded."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-9",
@@ -188930,9 +188930,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433; author journal PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "CG18 Theorem 6.4, p. 389: visual inspection confirms ordinary brackets at the location where the proof uses complete formal/Iwasawa algebras. Interpret them as formal brackets in the targets."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-10",
@@ -188950,9 +188950,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weight, Cleared author copy dated 17 June 2019, 113 pages; published in Duke Math. J. 169 (2020). Locators use the author PDF page numbers.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Pilloni20 Proposition 2.2.1, author p. 9: descending maximal powers give m^(n−1)/m^n, not the reversed quotient."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-11",
@@ -188970,9 +188970,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weight, Cleared author copy dated 17 June 2019, 113 pages; published in Duke Math. J. 169 (2020). Locators use the author PDF page numbers.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Pilloni20 Proposition 2.2.2, author p. 9: the vanishing argument applies to Cone(f), whose residue reduction is acyclic, rather than to the unchanged source complex."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-12",
@@ -188990,9 +188990,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weight, Cleared author copy dated 17 June 2019, 113 pages; published in Duke Math. J. 169 (2020). Locators use the author PDF page numbers.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Pilloni20 Proposition 2.3.1, author p. 10: coordinate lifts define a completed direct sum/topological basis, not an unrestricted product; the residual-block index families are reversed. The roadmap states the completion topology explicitly."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-13",
@@ -189010,9 +189010,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "George Boxer and Vincent Pilloni, Higher Hida theory for Siegel modular forms, Author PDF accessed 13 October 2026; scope findings to this text",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "BP26 Proposition 2.3.13, pp. 16–17, uses twists of the fixed exceptional pullback of a coherent sheaf along a finite-type map. Stacks Duality Lemma 3.5 and Lemmas 17.5–17.6 (0A9I, 0AU1, pp. 6, 47–48) keep that object bounded below, with a common bound on the quasi-compact schemes involved; invertible twists preserve it. The proposed unbounded-target counterexample does not apply. Retain the bounded-Hom target, but do not label this source proof erroneous."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-14",
@@ -189030,16 +189030,16 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "George Boxer and Vincent Pilloni, Higher Hida theory for Siegel modular forms, Author PDF accessed 13 October 2026; scope findings to this text",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "BP26 Lemma 2.6.6, author p. 21: the degree-zero differential lands in M¹, and its quotient is formed there."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-15",
    "kind": "misprint",
-   "locator": "Lecture of January 27, graded multiplicity discussion, pp. 33–34",
-   "printed": "The degree-(d−1) polynomial of graded-piece lengths is assigned a leading coefficient with denominator d!.",
-   "correction": "Use (d−1)! for graded pieces, and d! for cumulative quotient lengths.",
+   "locator": "Lecture of January 27, hypersurface calculation, p. 35 (definitions and regular-ring comparison on pp. 33–34)",
+   "printed": "In the hypersurface calculation, a degree-d polynomial difference is assigned leading coefficient μa rather than dμa, and the resulting degree-(d−1) cumulative polynomial is assigned coefficient μ/d!.",
+   "correction": "For a degree-d polynomial with leading coefficient a, the difference P(n)−P(n−μ) has degree d−1 and leading coefficient dμa. For the hypersurface cumulative polynomial this is μ/(d−1)!, so multiplicity is μ. In general, graded pieces of a d-dimensional module use (d−1)! and cumulative lengths use d!.",
    "reason": "For k[[x,y]], graded lengths are n+1 and multiplicity is one, so the coefficient is 1=1/1!, not 1/2!. Summation raises the degree and changes the factorial.",
    "affects": "nothing",
    "known": "No correction linked on the author course-notes page checked; bounded search only.",
@@ -189050,9 +189050,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Melvin Hochster, Commutative algebra, 2012 course notes, January–April lectures",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Hochster12 January 27, p. 35: differencing a degree-d leading term a gives dμa, so the hypersurface cumulative coefficient is μ/(d−1)!. The finding’s page and numerical factor were corrected."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-16",
@@ -189070,9 +189070,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Jack Thorne, Automorphy lifting for residually reducible l-adic Galois representations, Source PDF in manifest; §1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Tho15 Definition 1.7 and Proposition 1.8, p. 8: literal disconnected-locus infimum is infinite on an irreducible spectrum, contradicting the finite lower bound after quotient by (xy). A capped convention is required."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-17",
@@ -189090,9 +189090,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Matthew Emerton and Toby Gee, A geometric perspective on the Breuil–Mézard conjecture, arXiv:1109.4226v3; §2.2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "EG14 Lemma 2.2.14, arXiv v3 p. 9: C⊗_R C≅C×C disproves pairwise minimal-prime identification for unrestricted coefficient residue fields. The packet uses common residue k and geometric hypotheses."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-18",
@@ -189110,9 +189110,9 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Gebhard Böckle, Ashwin Iyengar and Vytautas Paškūnas, On local Galois deformation rings, arXiv:2110.01638v2; cite PDF and published pagination separately",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "BIP23 Lemma 3.35, arXiv v2 p. 27: k((x))(t) is a finite-type field over k((x)) but not finite algebraic. This finding does not impugn the local-field specialization in Lemma 3.36."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-19",
@@ -189130,29 +189130,49 @@
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Modularity theorems for abelian surfaces, arXiv:2502.20645v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "BCGP25 §7.2.1, v1 pp. 161–163: Λ=O[[w]] still has infinitely many elements after π and augmentation reduction. Cofinal powers of the full maximal ideal supply finite sets for stabilization."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebra/E-W9405-20",
    "kind": "gap",
    "locator": "Theorem 10.6 and proof, arXiv:2206.08212v3 pp. 43–47",
-   "printed": "The coefficient homomorphism is claimed to make the whole patched ring R∞ finite over S∞, although the proof directly controls the image acting on each patched perfect complex.",
-   "correction": "Use the finite action image R′=image(R∞→End_D(S∞)(C∞)) for CM and duality conclusions. Whole-ring finiteness requires an additional finite parameter quotient or an argument uniform over the whole ring.",
-   "reason": "Finite S∞-cohomology makes its derived endomorphism module finite over S∞ and therefore makes R′ finite. It does not make its surjecting ring R∞ finite without controlling the kernel. No counterexample to the theorem is claimed; the missing implication is left as an explicit refinement.",
+   "printed": "The proof first chooses a common coefficient lift through the inverse-limit ring Q, then, after examining one nonzero patched object, invokes BKM Lemmas 3.6–3.7 to change the lift through its finite action image R′ so that R∞ is finite over S∞.",
+   "correction": "Account for the cited parameter-lifting argument. For a categorical patching theorem, additionally prove that the adjusted lift preserves the common S∞→Q map, or that it induces the required scalar action for every object and morphism. Until that uniform comparison is supplied, use the original common lift and finite action images for CM and duality conclusions.",
+   "reason": "BKM Lemmas 3.6–3.7, arXiv:2108.09729v2 pp. 11–12, give prime-avoiding lifts of parameters; the finite/free conclusion in Lemma 3.6 uses its CM/CI hypotheses. IKM explicitly invokes adaptation of this argument on p. 47, so the implication is not simply omitted. The unresolved step for the functor stated in Theorem 10.6 is compatibility of a lift changed using one action image with the previously fixed Q and all objects. No counterexample to whole-ring finiteness or to the theorem is asserted.",
    "affects": "the proof",
    "known": "Previously routed proof obligation; no correction found in the inspected arXiv v3 record. Scope is v3, not an unseen later edition.",
    "searched": [
     "Official arXiv:2206.08212 version record, checked 2026-10-13.",
-    "The v3 theorem, construction and §11 duality applications were read; accepted routed obligations E34/E35 were compared."
+    "The v3 theorem, construction and §11 duality applications were read; accepted routed obligations E34/E35 were compared.",
+    "The cited BKM arXiv:2108.09729v2 Lemmas 3.6–3.7 and their proofs, pp. 11–12, read in this independent review; the original finding was narrowed to the common-map compatibility obligation."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebra",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
    "citation": "Srikanth Iyengar, Chandrashekhar Khare and Jeffrey Manning, Congruence modules and the Wiles–Lenstra–Diamond numerical criterion in higher codimensions, arXiv:2206.08212v3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Confirmed only as the stated uniform coefficient-map proof obligation, after correcting the finding to acknowledge IKM p. 47 and its BKM parameter-lifting argument. The direct finite-image observation alone is not a refutation of that argument; single-object parameter lifting and a coefficient map common to PaSy are different obligations."
+  },
+  {
+   "id": "DeformationAndDerivedPatchingAlgebra/E-REV9373-21",
+   "kind": "misprint",
+   "locator": "Example 10, printed p. 15 (PDF p. 19), course PDF dated 16 April 2013",
+   "printed": "The associated graded ring of k[[x,y]] is written as another formal power-series ring, and the associated graded cusp quotient uses the same notation.",
+   "correction": "Use the graded polynomial ring k[X,Y] and its quotient k[X,Y]/(X²), with X,Y in degree one.",
+   "reason": "The associated graded is the direct sum of finite homogeneous pieces. For the regular two-variable local ring its degree-n piece has dimension n+1; completed formal series are not elements of that graded direct sum.",
+   "affects": "nothing",
+   "known": "No novelty claim; a notation slip in the inspected public course PDF.",
+   "searched": [
+    "The linked Adelphi commutative-algebra course-note PDF was checked in its dated revision; no separate correction was linked with that file."
+   ],
+   "owner": "DeformationAndDerivedPatchingAlgebra",
+   "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra.json",
+   "citation": "Craig Huneke; notes by Arindam Banerjee, Alessandro De Stefani and Branden Stone, Commutative algebra III, Fall 2011 course notes; PDF dated 16 April 2013",
+   "status": "confirmed",
+   "reviewedBy": "REV-DeformationAndDerivedPatchingAlgebra",
+   "reviewReason": "Independently read Example 10, p. 15. The source’s initial-form calculation is correct after replacing completed power series by graded polynomials; the Hilbert-series targets already use direct sums."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E4",
@@ -197061,6 +197081,168 @@
    "status": "confirmed",
    "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
    "reviewReason": "Checked arXiv:1909.01898v2 §5.5 p. 72 and Shin 2011 §4 before (4.2), p. 21. Transpose without inverse reverses a noncommuting matrix product, so cannot define the semidirect-product automorphism. Inverse transpose is multiplicative. This verdict concerns the stated preprint version only."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E3",
+   "kind": "misprint",
+   "locator": "Appendix A.1.1, pp. 120, 122–123; correction in Clozel–Labesse 2011 §5 p. 115",
+   "printed": "Several displayed orbital-integral formulas omit the Kottwitz sign of the semisimple twisted centralizer.",
+   "correction": "Retain e(I_δ) in the stable singular formula; for GL_n(ℂ) base change from U(p,q), the nonzero value is e(I_δ)2^n times the coefficient character at the norm.",
+   "reason": "The centralizer Euler–Poincaré value depends on its real form. Clozel–Labesse Theorems 4.1/5.1 and their published correction supply the required sign.",
+   "affects": "the proof",
+   "known": "Published correction by Clozel and Labesse, Clay Mathematics Proceedings 13 (2011), p. 115, identifying the affected lines of Labesse 1999.",
+   "searched": [
+    "Read the primary published correction on p. 115 and Theorems 4.1/5.1 on pp. 113–115. No claim of a survey of later editions."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
+   "citation": "J.-P. Labesse, Cohomologie, stabilisation et changement de base, Astérisque 257 (1999), vi + 116 pp.; Numdam copy. Read 2026-10-14.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E4",
+   "kind": "misprint",
+   "locator": "§4.5, proof of Proposition 4.5, p. 27",
+   "printed": "The prose cuspidality criterion reverses the existence of an anisotropic maximal real torus modulo the split centre.",
+   "correction": "A cuspidal connected group has such an anisotropic maximal torus modulo A_M; for a twisted Levi subset test this on its associated fixed unitary Levi.",
+   "reason": "Morel Definition 3.1.1 and §8.2 give the positive-existence criterion. Shin’s subsequent split-centre rank argument rules out proper cuspidal Levis only with that criterion.",
+   "affects": "the proof",
+   "known": "No independently verified published erratum located in this run; this record concerns only the cited primary copy.",
+   "searched": [
+    "Read Shin 2011 §4.5 p. 27 and compared Morel corrected v2 Definition 3.1.1 p. 50, §8.2 p. 131 and CSnc Definition 5.5.2 p. 74. No claim to have checked every edition."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
+   "citation": "S. W. Shin, Galois representations arising from some compact Shimura varieties, Author's copy (StableGal.pdf, 62 pp.) of Ann. of Math. 173 (2011), 1645–1741; printed page = PDF page. Read 2026-10-14.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E6",
+   "kind": "error",
+   "locator": "Author copy, §2 Lemma 2.4, p.5; corrected author errata p.1",
+   "printed": "The adelic β_G map using the quotient by Z(G)(F) is asserted functorial for homomorphisms of reductive groups.",
+   "correction": "Use the functorial map H¹(F,G(A_F))→A_F(G). Keep β_G only in its fixed-group exact-sequence arguments.",
+   "reason": "A group inclusion need not carry its source centre into the target centre; the diagonal torus in GL_2 prevents the claimed map of quotients.",
+   "affects": "the proof",
+   "known": "Shin author-maintained errata.pdf, p.1, first entry",
+   "searched": [
+    "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+    "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+    "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, Counting points on Igusa varieties, Author copy of Duke Math. J. 146 (2009), 509–568; 44 pages, locators below use author-copy printed pages, equal to PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E7",
+   "kind": "error",
+   "locator": "Author copy, §3.2, p.10, paragraph invoking Kottwitz Proposition 6.3",
+   "printed": "Decent representatives of the same class in B(G), with their rational Newton Levi, are described as rationally conjugate as actual elements.",
+   "correction": "Kottwitz Proposition 6.3 compares the rational conjugacy orbits of (M,[b]_M), with [b]_M in B(M). It does not compare arbitrary actual decent elements by ordinary rational conjugacy.",
+   "reason": "For G_m, take b=1 and b′=x⁻¹σ(x)≠1 for a Teichmüller unit x in an unramified extension L_s. Both have ν=0, are σ-conjugate and satisfy the decency norm-one equation; ordinary torus conjugacy cannot change either element.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+    "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+    "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E8",
+   "kind": "error",
+   "locator": "Author copy, §3.3, proof of Corollary 3.8, p.11, parenthetical explanation",
+   "printed": "Connectedness of the semisimple centralizer is used to identify stable and rational conjugacy classes by definition.",
+   "correction": "Connected centralizers can have several rational classes in a stable class. Use the acceptable rational-conjugacy uniqueness and the stable rational-class comparison of Lemmas 3.5–3.6.",
+   "reason": "An elliptic regular element of SL_2(Q_p) has connected norm-one torus T. H¹(Q_p,T)=Q_p×/N(E×) is nontrivial for a quadratic E, while H¹(Q_p,SL_2)=1; its stable class therefore contains distinct rational classes.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+    "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+    "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E9",
+   "kind": "misprint",
+   "locator": "Author copy, §6.4, p.26, last displayed equality of the general-case perturbation argument",
+   "printed": "The final transfer-factor equality has the pairing ⟨α̃_p,κ̃⟩ without inversion.",
+   "correction": "Use ⟨α̃_p,κ̃⟩⁻¹, consistently with equation (6.9) and the regular-case cocycle comparison.",
+   "reason": "The perturbation preserves κ(b_δ) and the centralizer cocycle. Its limit must have the same inverse character as the regular identity; changing the exponent would not prove Lemma 6.3.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+    "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+    "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-1",
+   "kind": "misprint",
+   "locator": "7 October 2010 author PDF, Lemma 6.1 and the first displayed proof formula, p.15",
+   "printed": "The harmonic-descent prefactor is expressed using the rational prime p rather than the residue cardinality of the arbitrary p-adic field F.",
+   "correction": "Use q^{(n−k)r}, where q=|κ_F|, in both prefactors.",
+   "reason": "The connected-height-k modulus is evaluated at a uniformizer of F and uses |ϖ|=q^{-1}. For residue degree two, n=2,k=1,r=1, this gives p² instead of the printed p.",
+   "affects": "nothing",
+   "known": "No correction located for this author copy; the finding is restricted to the hashed 2010 version. The 2013 published version was not collated, so no claim is made about its wording.",
+   "searched": [
+    "Scholze’s current publication page and linked LocalLanglands.pdf (same 2010 copy), 2026-10-14",
+    "arXiv:1010.1540 version record, 2026-10-14; no later arXiv version located"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+   "citation": "Peter Scholze, The Local Langlands correspondence for GL_n over p-adic fields, Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-2",
+   "kind": "gap",
+   "locator": "Published 1981 article, §4.1 theorem p.208 and existence proof §4.2 pp.208–210, especially the ideal conclusion on p.210; correction Jacquet 2012 Remark 1 p.523",
+   "printed": "The original existence proof concludes that its symmetric Laurent-polynomial ideal is the full ring from an insufficient common-zero argument.",
+   "correction": "Use Jacquet 2012 Lemmas 4–5 and §3 to establish a nonvanishing polynomial at every nonzero tuple, apply the Nullstellensatz and obtain the essential vector.",
+   "reason": "Jacquet’s Remark 1 explains that the original argument proves only absence of a common coordinate-hyperplane obstruction; that does not establish the claimed full-ring ideal in general. His replacement proof checks every tuple. The original proof does suffice when L(s,π)=1.",
+   "affects": "the proof",
+   "known": "Published correction: Jacquet, Pacific J. Math. 260 (2012), 515–525, Theorem 1 and §§2–3; DOI 10.2140/pjm.2012.260.515.",
+   "searched": [
+    "Jacquet’s publication page and published Conducteur scan",
+    "Pacific Journal of Mathematics publisher correction, read 2026-10-14"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+   "citation": "Hervé Jacquet, Ilya Piatetski-Shapiro and Joseph Shalika, Conducteur des représentations du groupe linéaire, Mathematische Annalen 256 (1981), 199–214; published scan on Jacquet’s page, one cover page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E2",
@@ -231066,10 +231248,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya and Liang Xiao, Differential modules on p-adic polyannuli, arXiv:0804.1495v4, 16 December 2008; paper dated 15 December 2008",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 23: the proof of Lemma 2.3.2 says to apply Lemma 2.3.2 itself; the argument applies Lemma 2.3.1 to the idempotents in End(M)=M∨⊗M."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E302",
@@ -231085,15 +231267,15 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya and Liang Xiao, Differential modules on p-adic polyannuli, arXiv:0804.1495v4, 16 December 2008; paper dated 15 December 2008",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 33: the decomposition is obtained 'by Theorem 2.5.2', which is the disc theorem with constant profile; on A¹(η,1) the partial profiles are affine, which is the hypothesis of the annular Theorem 2.5.1."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E303",
    "kind": "misprint",
-   "locator": "D’Addezio arXiv v4 Theorem 4.2.6(2), p. 14",
+   "locator": "D’Addezio arXiv v4 Theorem 4.2.6(i), p. 14",
    "printed": "The completed i-th reverse grade is indexed by m−i and m−i−1.",
    "correction": "Use S_(m+1−i)/S_(m−i), 1≤i≤m.",
    "reason": "At i=m the printed expression reaches a negative index; the last reverse grade is the lowest ascending grade S₁/S₀.",
@@ -231104,10 +231286,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Marco D’Addezio, Parabolicity conjecture of F-isocrystals, arXiv:2012.12879v4",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read Theorem 4.2.6(i), p. 14: the printed grade S_(m−i)/S_(m−i−1) misses the top grade at i=1 and has a negative index at i=m; the proof of Lemma 4.2.7 (p. 15) uses that the first reverse step carries the maximal slope, i.e. S_m/S_(m−1). The locator is corrected from part (2) to part (i)."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E304",
@@ -231123,10 +231305,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Urs Hartl and Richard Pink, Vector bundles with a Frobenius structure on the punctured unit disc, Compositio Mathematica 140 (2004), 689–716",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read the proof of Lemma 10.17, p. 712: it bounds |w−w_i| by the negative number −c′q^((n−1)i/2); Lemma 10.15 and the estimate that follows concern log|w−w_i|."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E305",
@@ -231134,7 +231316,7 @@
    "locator": "Hartl–Pink published §10.16, p. 712",
    "printed": "The displayed terminal logarithmic bound has the wrong sign on cn.",
    "correction": "Use log|w|=−ρ≤−cn.",
-   "reason": "Lemma 10.12 chooses ρ≥cn, and §10.3 requires log|w|≤−cn.",
+   "reason": "Lemma 10.12 chooses ρ≥cn, and §10.3 requires log|w|≤−cn. The printed inequality −ρ≤cn is true but too weak to feed §10.3; the construction gives −ρ≤−cn.",
    "affects": "nothing",
    "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
    "searched": [
@@ -231142,10 +231324,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Urs Hartl and Richard Pink, Vector bundles with a Frobenius structure on the punctured unit disc, Compositio Mathematica 140 (2004), 689–716",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read §10.16, p. 712: the printed bound log|w|=−ρ≤cn is true but is not what §10.3 needs; Lemma 10.12 gives ρ≥cn, hence log|w|≤−cn. A sign misprint that affects nothing."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E306",
@@ -231157,14 +231339,15 @@
    "affects": "nothing",
    "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
    "searched": [
-    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note.",
+    "Kedlaya, Erratum for “Slope filtrations revisited”, Documenta Math. 12 (2007) 361–362: it lists two errata to the monodromy paper (introduction p. 95; Lemma 2.3), neither at this locator."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, Annals of Mathematics 160 (2004), 93–184; published version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 150: 'dense in U_f(t)' and 'surject onto U_f(t)'; the preceding estimate shows r maps U_t into U_h(t), and f(i,l,t) depends on the pair (i,l)."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E307",
@@ -231176,14 +231359,15 @@
    "affects": "nothing",
    "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
    "searched": [
-    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note.",
+    "Kedlaya, Erratum for “Slope filtrations revisited”, Documenta Math. 12 (2007) 361–362: it lists two errata to the monodromy paper (introduction p. 95; Lemma 2.3), neither at this locator."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, Annals of Mathematics 160 (2004), 93–184; published version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 150: the bound w_s(π^l z^(σ^(−l)))≥l·v_p(π)+r·q^(−l)t has r where s is meant; with s the bound is the one used for convergence."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E308",
@@ -231195,14 +231379,15 @@
    "affects": "nothing",
    "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
    "searched": [
-    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note.",
+    "Kedlaya, Erratum for “Slope filtrations revisited”, Documenta Math. 12 (2007) 361–362: it lists two errata to the monodromy paper (introduction p. 95; Lemma 2.3), neither at this locator."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, Annals of Mathematics 160 (2004), 93–184; published version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 165: the sentence on exterior powers is copied from Proposition 5.10, where M₁ has minimal slope; in Proposition 5.11 M₁ has maximal slope, so ∧^d M₁ is the highest-slope line of ∧^d M."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E309",
@@ -231214,14 +231399,56 @@
    "affects": "nothing",
    "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
    "searched": [
-    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note.",
+    "Kedlaya, Erratum for “Slope filtrations revisited”, Documenta Math. 12 (2007) 361–362: it lists two errata to the monodromy paper (introduction p. 95; Lemma 2.3), neither at this locator."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
-   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, Annals of Mathematics 160 (2004), 93–184; published version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Read p. 165: v₁≡w₁ modulo π, so c₁≡1 and the claim cᵢ≡0 fails for i=1; v₀(c₁)=0 still gives r·v₀(c₁)+0≥0, so the base case of the induction holds."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E310",
+   "kind": "gap",
+   "locator": "Monodromy published Lemma 4.12 proof, definition of b₂ and the telescoping step, p. 151",
+   "printed": "b₂ is written as a sum over j from 1 to i+l−s(i,l) for each pair in T, and the telescoping is said to leave the k=0 term minus the k=i+l−s(i,l) term.",
+   "correction": "Read a sum from j=1 to N with N<0 as minus the sum from j=N+1 to 0 (oriented summation). With this convention b₂−πσⁿ(b₂)=r(z)−A holds for every pair in T.",
+   "reason": "i+l−s(i,l) can be negative. Take q=2, n=1 and one coefficient u₀ with v₀(u₀)=−1, so f(0,l,m)=−2^(−l)+m4^(−l). The corners of h are t=(2/3)2^l, with h(t)=−2^(−l)/3. At t=(2/3)2^(−5) the pair (0,−5) lies in S, so s=0 and i+l−s=−5; an empty sum would break the telescoping for this pair. With T_j=π^(i+l−j)σ^(−nj)(u_iσ^(−l)(z)) one has πσⁿ(T_j)=T_(j−1), and the oriented sum S of T_1,…,T_N satisfies S−πσⁿ(S)=T_N−T_0 for every integer N.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Published Annals paper and arXiv v4 at the locator",
+    "Kedlaya, Erratum for “Slope filtrations revisited”, Documenta Math. 12 (2007) 361–362: it lists two errata to the monodromy paper (introduction p. 95; Lemma 2.3), neither at this locator.",
+    "The hundred source issues of the main packet and those of the other RD continuation packets"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, Annals of Mathematics 160 (2004), 93–184; published version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Found by this review; the example was computed by hand and the oriented-sum identity checked term by term."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E311",
+   "kind": "misprint",
+   "locator": "KX arXiv v4 Theorem 2.6.1 proof, first sentence, p. 33",
+   "printed": "The proof says 'for l=1,…,d' and then speaks of the function d!F_i(M,r).",
+   "correction": "The index is i: for i=1,…,d the function d!F_i(M,r) is continuous, convex and piecewise affine with integer slopes.",
+   "reason": "Only i occurs in the rest of the sentence and the proof; l plays no role.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "KX arXiv v4 at the locator",
+    "The 2010 erratum (J. Inst. Math. Jussieu 9, 669–671), which concerns §2.7 only"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Kiran S. Kedlaya and Liang Xiao, Differential modules on p-adic polyannuli, arXiv:0804.1495v4, 16 December 2008; paper dated 15 December 2008",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1",
+   "reviewReason": "Found by this review on reading p. 33."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD2-1",
@@ -231496,22 +231723,22 @@
    "kind": "error",
    "locator": "item for the journal's page 331, line 8, p. 1 of the errata note (13 October 2003); read against Lemma 3 of arXiv v2, p. 5",
    "printed": "The errata replaces 2m + 1 by d(m + 1) − 2 (d = 2g + 1) in the bound of Lemma 3, whose form ω = A(x)y^{2m+1}dx has odd exponent 2m + 1.",
-   "correction": "With Lemma 3's own m the multiplier must be p^{⌊log_p(d(2m + 3) − 2)⌋}, i.e. p^{⌊log_p((2g + 1)(e + 2) − 2)⌋} for F(x)y^e dx with e odd (Harvey §3; Edixhoven Lemma 4.3.5 with even exponent m' = 2m + 2 in the form a·y^{m'}dx/y). The errata formula d(m + 1) − 2 is right only if m is read as Edixhoven's even exponent.",
+   "correction": "With Lemma 3's own m the multiplier must be p^{⌊log_p(d(2m + 3) − 2)⌋}, i.e. p^{⌊log_p((2g + 1)(e + 2) − 2)⌋} for F(x)y^e dx with e odd (Harvey §4; Edixhoven Lemma 4.3.5 with even exponent m' = 2m + 2 in the form a·y^{m'}dx/y). The errata formula d(m + 1) − 2 is right only if m is read as Edixhoven's even exponent.",
    "reason": "For Q = x^3 + x + 1, p = 5 (good reduction, discriminant −31) and m = 0, the reduction of y dx = Q dx/y is (2/5)x dx/y + (3/5) dx/y + d((2/5)xy), computed exactly; it needs the factor 5 = 5^{⌊log_5 7⌋}, while d(m + 1) − 2 = 1 gives 5^0 = 1.",
    "affects": "the proof",
-   "known": "new as a reading of the errata in the arXiv numbering; the journal's own indexing of Lemma 3 (page 331) was not available to check whether it uses the even exponent, and Edixhoven's Lemma 4.3.5 and Harvey §3 state the correct bound",
+   "known": "new as a reading of the errata in the arXiv numbering; the journal's own indexing of Lemma 3 (page 331) was not available to check whether it uses the even exponent, and Edixhoven's Lemma 4.3.5 and Harvey §4 state the correct bound",
    "searched": [
     "Kedlaya's errata note (kskedlaya.org/papers/hyperell-errata.pdf)",
     "Edixhoven's course notes, Lemma 4.3.5",
-    "Harvey, arXiv math/0610973v2, §3",
+    "Harvey, arXiv math/0610973v2, §4",
     "arXiv versions of Kedlaya's paper (v2 read)"
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
    "citation": "K. S. Kedlaya, Comments/errata for 'Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology', author's note dated 13 October 2003 (2 pp.)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "Checked against the errata note (item for page 331, line 8) and arXiv v2 Lemma 3, p. 5. The reduction of y dx for Q = x^3 + x + 1 at p = 5 was recomputed exactly: whatever F = c_2x^2 + c_1x + c_0 is used in d(Fy), the coefficient of x dx/y in the reduced form is forced to be 2/5, so the factor 5 is needed and the literal d(m + 1) − 2 = 1 is too small. Edixhoven, Lemma 4.3.5 (p. 14), and Harvey, §4, proof of Proposition 2 (p. 6), give d(m' + 1) − 2 for the even exponent m' = 2m + 2. Confirmed, scoped as the packet scopes it to Lemma 3's indexing in arXiv v2; the journal page was not available to the review either."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E702",
@@ -231529,9 +231756,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
    "citation": "K. S. Kedlaya, Comments/errata for 'Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology', author's note dated 13 October 2003 (2 pp.)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "The errata note (p. 1) describes the Frobenius-stable submodule inside the Z_q-span of x^i dx/y for i = 1, …, 2g − 1; the basis of H^1(A; K)^− is indexed from 0 (Kedlaya arXiv v2, p. 4; Edixhoven, Proposition 4.3.2, p. 12, and Proposition 5.3.1, p. 18). Confirmed."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E703",
@@ -231548,9 +231775,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
    "citation": "B. Edixhoven, Point counting after Kedlaya (EIDMA-Stieltjes Graduate course, Leiden, 22–26 September 2003), course notes, version of 25 October 2006 (23 pp.)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "Checked on the page image of p. 14: the proof of Lemma 4.3.5 prints v_∞(y) = −2 and then uses v_∞(dx/y) = d − 3, which needs v_∞(y) = −d. Confirmed misprint; the bound is unaffected."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E704",
@@ -231568,9 +231795,70 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
    "citation": "J. Tuitman, Counting points on curves using a map to P^1, II, Finite Fields Appl. 45 (2017), 301–322; arXiv:1412.7217v2 read here",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "The June 2020 erratum (one page) replaces condition (3) by the condition on reduced parts and credits Vermeulen and Castryck; for y^2 = f(x) the algebra R^0/(r) = (Z_q[x]/(f))[y]/(y^2) has nilpotents, so its trace form is degenerate. Confirmed, known."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E705",
+   "kind": "misprint",
+   "locator": "proof of Lemma 27.10, p. 158 (version 2.21, 22 March 2013)",
+   "printed": "After ruling out a reciprocal root c_i of h with |c_i|_ℓ > 1, the proof concludes that every |c_i|_ℓ is strictly less than 1.",
+   "correction": "Every |c_i|_ℓ is at most 1, which is what the first sentence of the proof sets out to show and what integrality of h needs.",
+   "reason": "The argument excludes only |c_i|_ℓ > 1. Equality occurs: f = 1/(1 − t) is in 1 + tZ_ℓ[[t]] with h = 1 − t and c = 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the author's errata page for the course notes (https://www.jmilne.org/math/CourseNotes/errata.html, LEC v2.21 section, read 2026-10-14)",
+    "version 2.21 is the current version of the notes"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "J. S. Milne, Lectures on étale cohomology, Version 2.21, 22 March 2013",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "Added by the review after reading the page image of p. 158; the packet's node already uses the non-strict bound."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E706",
+   "kind": "gap",
+   "locator": "Summary 27.14(c) and the paragraph proving it, p. 159 (version 2.21, 22 March 2013)",
+   "printed": "(c) asserts that if, for one ℓ, the factors P_{r,ℓ} are pairwise coprime, then each lies in 1 + tZ[t]. The proof gets integrality of the odd and even products from Proposition 27.11, then says the reciprocal roots of each P_{r,ℓ} are algebraic integers and that this implies P_{r,ℓ} ∈ 1 + tZ[t].",
+   "correction": "Pairwise coprimality gives only that the coefficients of P_{r,ℓ} are algebraic integers lying in Q_ℓ. Rationality, and with it integrality, needs the multiset of reciprocal roots of each P_{r,ℓ} to be Gal(Q̄/Q)-stable. Purity, the hypothesis of (d), supplies this, as in Deligne, Weil I, p. 277, and RD.7/weight-separated-factor-extraction. State (c) with the conclusion 'coefficients integral over Z', or assume the hypothesis of (d).",
+   "reason": "Two conjugate quadratic algebraic integers α, ᾱ in Q_ℓ can be split as P_1 = 1 − αt and P_3 = 1 − ᾱt. The two factors are coprime and their product is in 1 + tZ[t], but neither factor is in Q[t]. So algebraic-integer reciprocal roots do not put an individual factor in Z[t] without a rationality argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the author's errata page for the course notes (https://www.jmilne.org/math/CourseNotes/errata.html, LEC v2.21 section, read 2026-10-14)",
+    "Deligne, Weil I, p. 277, which uses purity at this step"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "J. S. Milne, Lectures on étale cohomology, Version 2.21, 22 March 2013",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "Added by the review. The packet cites 27.14(c)–(d) only for the summary, and its node rests on purity, so no planned statement is affected."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E707",
+   "kind": "misprint",
+   "locator": "§4.3 Step III, p. 12, against the proof of Proposition 4.7, p. 14 (arXiv v2)",
+   "printed": "Step III defines the Frobenius matrix by F_p(ω_i) = Σ_j F_{j,i}ω_j, so column i holds the coordinates of F_p(ω_i). The proof of Proposition 4.7 then takes the q-power matrix to be F^{σ^{n−1}}F^{σ^{n−2}}⋯F.",
+   "correction": "The two do not match. In the column convention the matrix of F_p^n is F·F^{σ}⋯F^{σ^{n−1}}; the product F^{σ^{n−1}}⋯F is the matrix of F_p^n in the row convention F_p(ω_i) = Σ_j F_{i,j}ω_j. The author's Magma implementation (pcc_q, zeta_q.m, functions frobmatrix and galois_norm) uses rows with the decreasing product, so read F_{i,j} in Step III.",
+   "reason": "For a σ-semilinear map a with column matrix A, a^2 has column matrix A·σ(A). For n = 3 the two orders give different characteristic polynomials: over W(F_8), F_8 = F_2[a]/(a^3 + a + 1), any lift of the matrix with rows (0, 1) and (a, a^2) has trace of A^{σ^2}A^{σ}A ≡ 0 and trace of A·A^{σ}·A^{σ^2} ≡ 1 modulo 2 (computed by hand and by machine).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Tuitman's erratum of June 2020 (jtuitman.github.io/erratum.pdf), which corrects only Assumption 1(3)",
+    "arXiv listing of 1412.7217 (v2 is the latest version)",
+    "the author's code at github.com/jtuitman/pcc (pcc_q/zeta_q.m), read 2026-10-14"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "J. Tuitman, Counting points on curves using a map to P^1, II, Finite Fields Appl. 45 (2017), 301–322; arXiv:1412.7217v2 read here",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7",
+   "reviewReason": "Added by the review. The precision bound of Proposition 4.7 does not depend on the order. The packet's node uses the row convention with the decreasing product, which is consistent; the node now states its convention explicitly."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E1",
