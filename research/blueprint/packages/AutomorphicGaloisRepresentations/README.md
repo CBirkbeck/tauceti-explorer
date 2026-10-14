@@ -32,6 +32,10 @@ finite-group averaging is Mathlib's representation invariant projector.
 Generic determinant laws, Cayley–Hamilton reconstruction and coefficient descent
 belong to TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants; the new targets here
 extract the geometric Hecke module and apply those laws to that module.
+Its Layer 3a.1 also supplies characteristic-polynomial duality, character
+scaling and the classical k≥2 coefficient normalization. The light coefficient
+expressions below fix the additional weight-one and inverse-Hecke-operator
+conventions; they do not introduce another determinant or scaling theory.
 
 The compatible-system carrier and character converse needed by this construction
 are defined here before any potential-modularity application. The finite-weight
@@ -137,7 +141,8 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 with their subgroup and integer-weight parameters, and `Representation` as the
 monoid homomorphism into linear endomorphisms. `Submodule.restrictScalars`
 retains the underlying set under a scalar tower. `Representation.averageMap`
-and `Representation.isProj_averageMap` require an invertible group order.
+and `Representation.isProj_averageMap` require a finite group with a chosen Fintype
+and an invertible group order.
 `Matrix.det_fin_two` and `DualNumber.eps` support the division-free and
 nilpotent negative controls. `Matrix.card_GL_field` counts all of GL_n over a
 finite field, not a selected residual image.
@@ -258,13 +263,13 @@ prime sum remain the analytic supplier obligations below.
 
 ### From PadicHodgeTheory
 
-**R06.3.** Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations. Kisin's analytic continuation of crystalline periods in families (Kisin, Overconvergent modular forms and the Fontaine–Mazur conjecture, Invent. Math. 153 (2003), Proposition 5.14 and Corollary 5.15), for representations of G_{F_v} with φ replaced by φ^{f_v}, under the Sen-polynomial condition P(X) = XQ(X) with Q(0) not a zero divisor (Skinner footnote 9).
+**R06.3.** Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations. Kisin's analytic continuation of crystalline periods in families ([public author DVI](https://abel.math.harvard.edu/~kisin/dvifiles/fmform.dvi), Proposition 5.14 and Corollary 5.15, internal pp. 26–27). In the source's G_Qp case require a Tate algebra R over Q_p, a finite free continuous R-representation M, an invertible Y with Sp(R) Y-small in the sense of §5.2, and Sen polynomial TQ(T). For every positive integer k require a collection of Tate R-algebras R_i such that ∏_{j=0}^{k−1}Q(−j) is invertible in each R_i, every equivariant map M^∨⊗R_i→B_dR^+/t^k⊗̂R_i factors through the φ=Y crystalline periods, and R→∏R_i is injective. The conclusion is continuation for sufficiently large truncations and a nonzero crystalline period at every continuous specialization to a closed subfield of C_p. The required G_{F_v} version uses φ^{f_v}; retain the non-zero-divisor condition Q(0) on the family (Skinner footnote 9). A Sen-polynomial factorization and dense classical field points alone do not replace the factorization, invertibility and injectivity hypotheses.
 
 **R06.5.** Generic proper smooth/semistable geometric comparisons, projectors, cohomological pull–push and coefficient change used by Scholl/Saito/Skinner; concrete eigenform applications stay in Layer 4. Generic semistable/proper-smooth comparison compatible with finite-group and Hecke projectors; sufficient logarithmic compactification and coefficient-functor compatibility for Scholl/Saito realisations, not a theorem already asserting the modular conclusion. Faltings' de Rham and Hodge–Tate comparison for smooth projective varieties over p-adic fields, and the crystalline comparison at good reduction with Katz–Messing characteristic polynomials, applied to Shimura-curve, Kuga–Sato and Picard-modular-surface families.
 
 **P7.** Generic Wach module existence for a crystalline lattice, exact weight convention, coefficient extension and semilinear basis-change laws; use wach-dcris-comparison for the reduction map. Repeated-root diagonalisation is not asserted.
 
-**R06.2.** Wintenberger's lifting of crystalline representations along central isogenies (Wintenberger, Invent. Math. 120 (1995), Theorem 1.1.3, Proposition 1.2, Remarks 1.1.4; Ann. Inst. Fourier 47 (1997), Theorem 2.2.2) for GL₂ → GL₂/{±1}: a crystalline representation of G_{F_v} into (GL₂/{±1})(Q̄_p) whose Hodge cocharacter lifts is the image of a crystalline GL₂-representation.
+**R06.2.** Wintenberger's lifting of crystalline representations along central isogenies (Wintenberger, Invent. Math. 120 (1995), Theorem 1.1.3, Proposition 1.2, Remarks 1.1.4; [Ann. Inst. Fourier 47 (1997)](https://www.numdam.org/article/AIF_1997__47_5_1289_0.pdf), Theorem 2.2.2, pp. 1310–1311; the GL₂ application is [Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf), §2.4.1, p. 252) for GL₂ → GL₂/{±1}: a crystalline representation of G_{F_v} into (GL₂/{±1})(Q̄_p) whose Hodge cocharacter lifts is the image of a crystalline GL₂-representation.
 
 ### From TauCetiRoadmap.ArithmeticDirichletSeries
 
@@ -280,7 +285,7 @@ prime sum remain the analytic supplier obligations below.
 
 **L2a.** Group-independent eigenvariety gluing in Buzzard's form: Fredholm series of a compact U_p on orthonormalisable Banach modules over an affinoid weight disc, finite slope summands, and reduced affinoid pieces whose classical points are Zariski dense.
 
-**L2.** The instance for the totally definite quaternion algebra over a totally real F (Buzzard, Eigenvarieties §§8–11; Buzzard 2004 §7): overconvergent forms S^D_κ(U; m) over a weight disc with the action of T^S ⊗ U_p and classicality for slope small relative to the weight, as used in Skinner §2.4.2. L2 states the eigencurve over Q; the quaternionic instance over F is required with the stated totally real quaternionic scope.
+**L2.** The instance for the totally definite quaternion algebra over a totally real F ([Buzzard, Eigenvarieties](https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf), §§8–11 for the form spaces, Lemma 12.2 pp. 78–79 for compact U_π and §13 pp. 79–80 for gluing; [Buzzard 2004](https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/GL1.pdf), §7 Proposition 4, internal p. 19, for small-slope classicality over Q; [Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf), §2.4.2, pp. 253–255, for the totally real fixed-slope instance): overconvergent forms S^D_κ(U; m) over a weight disc with the action of T^S ⊗ U_p and classicality for slope small relative to the weight, as used in Skinner §2.4.2. L2 states the eigencurve over Q; the quaternionic instance over F is required with the stated totally real quaternionic scope. Eigenvarieties §11, p. 77, and §13, p. 80, leave small-slope classicality to the separate 2004 argument; compactness and gluing alone do not supply it.
 
 
 ### Geometry and character contracts used by the concrete constructions
@@ -437,7 +442,7 @@ See [A. J. Scholl](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf.pdf) — Th
 
 ### 1.5 Rank-two newform realisation
 
-For a normalized cusp newform g, take the common kernel of its Hecke ideal in the rational parabolic realisation. It has rank two over the coefficient field. DFG's factor M_g^DFG realizes the conjugate form, with geometric good polynomial `X²−ψ(p)⁻¹a_pX+ψ(p)⁻¹p^{k−1}`. Define our cohomological factor by `M_g=M_g^DFG⊗M_{ψ⁻¹}`; its polynomial becomes `X²−a_pX+ψ(p)p^{k−1}` and its arithmetic dual is the classical Galois representation. Identify the top Hodge line with Kg and show oddness at every λ. Rational irreducibility has its own target in Layer 7. For k=2 use the modular abelian quotient, and for k>2 use the Kuga–Sato projector.
+For a normalized cusp newform g, take the common kernel of its Hecke ideal in the rational parabolic realisation. It has rank two over the coefficient field. DFG's factor M_g^DFG realizes the conjugate form, with geometric good polynomial `X²−ψ(p)⁻¹a_pX+ψ(p)⁻¹p^{k−1}`. Define our cohomological factor by `M_g=M_g^DFG⊗M_{ψ⁻¹}`; its polynomial becomes `X²−a_pX+ψ(p)p^{k−1}` and its arithmetic dual is the classical Galois representation. Identify the top Hodge line with Kg and show oddness at every λ. Rational irreducibility has its own target in §4.8. For k=2 use the modular abelian quotient, and for k>2 use the Kuga–Sato projector.
 
 The restricted Fricke pairing on M_g^DFG is alternating and perfect, giving
 `∧²_K M_g^DFG ≅ M_ψ(1−k)`. After the twist,
@@ -749,7 +754,7 @@ For every π of type (k,w) as fixed above, construct a continuous semisimple ρ_
 
 *Needs:* [3.7 Carayol's Theorem B](#37-carayols-theorem-b); [3.2 Twisting and the exact determinant](#32-twisting-and-the-exact-determinant); `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `IntegralHeckeAndGaloisDeterminants:IHG.1`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `HilbertModularVarietiesAndShimuraCurves:R18.4`; `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
 
-See [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — §4.1, p. 542; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Proof of Theorem 4.3, p. 544; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — Introduction, p. 242, after equation (1); [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 0.5, printed p. 410.
+See [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — §4.1, author-copy p. 31; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — Proof of Theorem 4.3, author-copy pp. 32–33; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — Introduction, p. 242, after equation (1); [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 0.5, printed p. 410.
 
 - `hilbertGaloisRep` (constructor): The continuous semisimple ρ_{π,λ}: G_F → GL₂(E_λ) attached to π of infinity type (k,w) and λ.
 - `hilbertGaloisRep_charpoly` (characterisation): For v ∉ S_π, v ∤ ℓ: charpoly ρ_{π,λ}(Frob_v^{geom}) = X² − t_vX + q_vs_v, with t_v, s_v the eigenvalues of T_v and S_v defined by ϖ_v.
@@ -777,7 +782,7 @@ Prove all identities in the convention table, the inverse-uniformiser eigenvalue
 
 *Needs:* [3.10 The unrestricted Hilbert constructor](#310-the-unrestricted-hilbert-constructor); [3.7 Carayol's Theorem B](#37-carayols-theorem-b); [3.2 Twisting and the exact determinant](#32-twisting-and-the-exact-determinant); [1.5 Rank-two newform realisation](#15-rank-two-newform-realisation); `GL2AutomorphicRepresentationsAndTransfer:R16.3`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.2`; `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
 
-See [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 0.4–0.5, printed pp. 409–410; [Takeshi Saito](https://arxiv.org/pdf/math/0612077v2) — §2, p. 9 of the arXiv version; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — §4.1, p. 542; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — Introduction, p. 242; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — §2.4.2, p. 255; [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §2.1, p. 9; (3.1′), p. 30; (3.2)–(3.3), pp. 38–39; [C. Khare and J.-P. Wintenberger](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) — §1.2, p. 5; §7, pp. 59–60; §9.1.1, p. 80 (authors' final version); [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf) — §5.2.1, pp. 44–45.
+See [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 0.4–0.5, printed pp. 409–410; [Takeshi Saito](https://arxiv.org/pdf/math/0612077v2) — §2, p. 9 of the arXiv version; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — §4.1, author-copy p. 31; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — Introduction, p. 242; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — §2.4.2, p. 255; [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §2.1, p. 9; (3.1′), p. 30; (3.2)–(3.3), pp. 38–39; [C. Khare and J.-P. Wintenberger](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) — §1.2, p. 5; §7, pp. 59–60; §9.1.1, p. 80 (authors' final version); [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf) — §5.2.1, pp. 44–45.
 
 For the light coefficient calculations define `hilbertGeomCharpoly t s q` as
 X²−tX+qs over any coefficient field, `carayolGeomCharpoly t s q` as
@@ -788,7 +793,6 @@ expressions still exist algebraically outside these hypotheses; that does not
 make the corresponding automorphic input admissible.
 
 
-- `hilbertGeomCharpoly_normTwist`: With q≠0, scaling t by q and s by q² identifies the twisted polynomial as q²P(X/q).
 - `hilbertGeomCharpoly`: The rank-two geometric good polynomial, with coefficient of X equal to −t and constant coefficient qs.
 - `carayolGeomCharpoly`: The polynomial after the central-character correction; multiply the roots of the first polynomial by s⁻¹.
 - `hodgeDegrees`, `hodgeDegrees_sum`, `hodgeDegrees_normTwist`: The labelled pair, sum w+1 under parity, and shift by (1,1) for w↦w+2.
@@ -975,7 +979,7 @@ For π of arbitrary regular cohomological multiweight over a totally real F, λ|
 
 *Needs:* [3.10 The unrestricted Hilbert constructor](#310-the-unrestricted-hilbert-constructor); [3.11 The representation dictionary as a theorem](#311-the-representation-dictionary-as-a-theorem); [4.5 Geometric coefficient-prime comparison](#45-geometric-coefficient-prime-comparison); `LocalGaloisDeformationRings:R08.3/semistable-height-quotient`; `LocalGaloisDeformationRings:R08.3/pst-quotient-in-families`; `IntegralHeckeAndGaloisDeterminants:IHG.1`.
 
-See [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 4.3 and proof, pp. 543–544; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 2.5.5, pp. 530–531; Theorem 2.7.6, p. 534; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — §4.1, p. 542.
+See [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — Theorem 4.3 and proof, author-copy pp. 32–33; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — Theorem 2.5.5, author-copy pp. 19–20; Theorem 2.7.6, author-copy p. 23; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — §4.1, author-copy p. 31.
 
 ### 4.7 Skinner's full coefficient-prime theorem
 
@@ -1024,11 +1028,13 @@ T₀(v) by the corresponding unit operator.
 
 This finite-weight interface includes the coefficient character on p-units, so
 it accommodates nearly ordinary forms whose quotient is ramified. Define the
-ordinary predicate by the unramified quotient-character condition. A finite
+ordinary predicate by the unramified quotient-character condition. In the
+parallel-weight range of §4.11, a finite
 character twist making the local factors ordinary at the specified finite set
-transports λ and its unit-root data; the existence of that global twist comes
-from the character-extension contract, not from an arbitrary choice of a local
-character. An Iwasawa algebra, a Hida family and its control theorem are separate
+transports λ and its unit-root data; its existence comes
+from the character-extension contract. For other weights finite twisting does
+not remove a nontrivial labelled algebraic character on principal units. An
+Iwasawa algebra, a Hida family and its control theorem are separate
 objects and are unnecessary for this finite-weight construction.
 
 *Needs:* GL2AutomorphicRepresentationsAndTransfer R16.2, cohomological form
@@ -1038,7 +1044,7 @@ and coefficient representations of HilbertModularVarietiesAndShimuraCurves
 R18.4; Layer 3's normalization dictionary.
 
 - `NearlyOrdinaryEigenpacket`: Bundle the finite-weight eigenvector, normalized operators, eigencharacter and unit eigenvalues.
-- `NearlyOrdinaryEigenpacket.quotientCharacter`: The character of local units specified by λ(T_y), extended with value λ(T₀(v)) at ϖ_v.
+- `NearlyOrdinaryEigenpacket.quotientCharacter`: The candidate character from normalized unit and uniformizer data; §4.11 identifies it with the representation quotient in the parallel-weight range. The general-weight identification is the gap in §5.1.
 - `NearlyOrdinaryEigenpacket.twist`: Transport the weight, central character and normalized Hecke values by a specified global finite-order character.
 - `NearlyOrdinaryEigenpacket.isOrdinary`: Require the quotient character to be unramified at every v|p.
 
@@ -1096,23 +1102,36 @@ Layers 1 and 3; WeightsInEtaleCohomology R34.3–R34.6 with the independent geom
 
 ### 5.1 Ordinary refinement and the fixed lattice
 
-For a classical k≥2 newform, p∤N and a_p a λ-adic unit, choose the unit Euler root α. In the arithmetic representation prove `0→V⁺→V→V⁻→0`, with unramified quotient having arithmetic Frobenius α and subcharacter ψχ_p^{k−1}(V⁻)⁻¹. For the fixed stable lattice T define T⁺=T∩V⁺ and T⁻=T/T⁺. Prove saturation, torsion-freeness and rank one of T⁻ and compatibility with flat coefficient extension and the existing rational period line. On the cohomological realisation the ordinary line is instead the unramified subrepresentation at geometric Frobenius; use the annihilator under duality. For Hilbert multiweights use the Hilbert labelled quotient character from the finite-weight eigenpacket and compute the subcharacter as its inverse times the determinant; the Q-formula alone is insufficient.
+For a classical k≥2 newform, p∤N and a_p a λ-adic unit, choose the unit Euler root α. In the arithmetic representation prove `0→V⁺→V→V⁻→0`, with unramified quotient having arithmetic Frobenius α and subcharacter ψχ_p^{k−1}(V⁻)⁻¹. For the fixed stable lattice T define T⁺=T∩V⁺ and T⁻=T/T⁺. Prove saturation, torsion-freeness and rank one of T⁻ and compatibility with flat coefficient extension and the existing rational period line. On the cohomological realisation the ordinary line is instead the unramified subrepresentation at geometric Frobenius; use the annihilator under duality. For a Hilbert form in the parallel-weight range of §4.11 use its proved quotient character, then recover the subcharacter from the determinant. For other multiweights the fixed-lattice construction applies once the rational filtration is supplied, but identification of its graded characters with §4.10 is a separate comparison gap below.
 
-*Needs:* [1.4 Rational orbit projector and coefficient descent](#14-rational-orbit-projector-and-coefficient-descent); [1.6 Integral newform structures](#16-integral-newform-structures); `ArithmeticGaloisRepresentations:R01.1`.
+*Needs:* [1.4 Rational orbit projector and coefficient descent](#14-rational-orbit-projector-and-coefficient-descent); [1.6 Integral newform structures](#16-integral-newform-structures); [4.11 The nearly ordinary Hilbert construction](#411-the-nearly-ordinary-hilbert-construction) in its stated range; `ArithmeticGaloisRepresentations:R01.1`.
 
 See [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §3.3 equation (3.2), pp. 38–39; [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — §1.2, pp. 8–10; §4.5, pp. 50–51; §§5.3–5.4, pp. 56–59.
 
 The line and quotient formulas are assertions to prove from the classical local
 comparison: at good ordinary p the crystalline unit-root quotient is unramified,
-and its arithmetic Frobenius value is α. For Hilbert multiweights the λ(T_y)
-formula gives the quotient on units, λ(T₀(v)) its uniformizer value, and the
-determinant gives the other character. A quotient is unramified only under the
+and its arithmetic Frobenius value is α. In §4.11's parallel-weight range the
+λ(T_y) formula gives the quotient on units, λ(T₀(v)) its uniformizer value,
+and the determinant gives the other character. A quotient is unramified only under the
 ordinary specialization, not for every nearly ordinary form. Fix the rational
 line before intersecting with T. Algebraically `ordinaryLatticePlus` is
 `T ⊓ V⁺.restrictScalars O`, while `ordinaryLatticePlusIn` is the inverse image of
 V⁺ in the module T; the latter is the submodule used to form the quotient. For a
 DVR use a uniformizer ϖ_λ, so the nonsaturated competing submodule is
 ϖ_λOe₁; p need not be a uniformizer in a ramified coefficient field.
+
+**General-weight comparison gap.** For k_τ≥2 of one parity, the existence of a
+nearly ordinary rational filtration is supported by
+[Hida](https://www.math.ucla.edu/~hida/JAMI.pdf), Theorem I(iv), printed p. 118,
+and [Balasubramanyam–Ghate–Vatsal](https://mathweb.tifr.res.in/~eghate/hilbertCM.pdf),
+§3, internal pp. 7–8. The latter gives the quotient on principal p-units as
+`ε₁,p(u)∏_τσ_τ(u)^{−v_τ}` in its Artin convention. The finite character alone
+does not supply that labelled algebraic factor. A complete identification with
+§4.10 still needs the quotient character on all units, its value at a chosen
+uniformizer, the change-of-uniformizer law, and transport to the fixed ρ versus
+arithmetic-dual convention of §3.11. Skinner–Wiles §3.3 does not establish this
+outside its parallel-weight range. Keep this as an unsupplied comparison;
+neither the packet definition nor lattice saturation proves it.
 
 
 - `ordinaryRefinement` (constructor): The unit root α and the specified ordinary filtration proved above of the fixed representation.
@@ -1134,6 +1153,7 @@ DVR use a uniformizer ϖ_λ, so the nonsaturated competing submodule is
 - For V⁺=0 the intersection in V and its inverse image in T are both zero; the quotient is T.
 - For V⁺=V the intersection is T and its inverse image is the whole module T; the quotient is zero.
 - For a finite full T⊆K² and V⁺=Ke₁ the two intersection presentations agree under T↪V, and the actual quotient has rank one over O.
+- At k=(2,4), the normalization has v=(1,0); on principal units the missing factor is σ₁(u)⁻¹. For σ₁(u)=1+p and trivial ε₁,p, its value is (1+p)⁻¹, not 1. A formula using only the finite unit character fails this nonparallel control.
 
 ### 5.2 Good-prime crystalline and Wach factors
 
@@ -1351,7 +1371,7 @@ Let O be a complete DVR and T_m a completed local finite O-flat Hecke algebra, i
 
 *Needs:* [1.4 Rational orbit projector and coefficient descent](#14-rational-orbit-projector-and-coefficient-descent); [3.1 The quaternionic multiplicity space](#31-the-quaternionic-multiplicity-space); [6.3 The full weight-two Hecke algebra](#63-the-full-weight-two-hecke-algebra); `IntegralHeckeAndGaloisDeterminants:IHG.4`; `ArithmeticGaloisRepresentations:R01.5`; `HilbertModularVarietiesAndShimuraCurves:R18.4`.
 
-See [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, the structure of the full Hecke algebra, pp. 109–110, and Lemmas 1.37–1.39; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 4.3 proof, pp. 543–544; [Gaetan Chenevier](https://arxiv.org/pdf/0809.0415v2) — §§1.1–1.5, pp. 7–8; §1.10, p. 12.
+See [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, the structure of the full Hecke algebra, pp. 109–110, and Lemmas 1.37–1.39; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — Theorem 4.3 proof, author-copy pp. 32–33; [Gaetan Chenevier](https://arxiv.org/pdf/0809.0415v2) — §§1.1–1.5, pp. 7–8; §1.10, p. 12.
 
 For descent use the whole-generic-algebra coefficient criterion of
 TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §4.1, including
@@ -1422,7 +1442,7 @@ For the reconstructed representation with specified absolutely irreducible resid
 
 *Needs:* [6.8 The geometric Hecke determinant](#68-the-geometric-hecke-determinant); [6.9 From a determinant law to a Hecke representation](#69-from-a-determinant-law-to-a-hecke-representation); [5.1 Ordinary refinement and the fixed lattice](#51-ordinary-refinement-and-the-fixed-lattice); [4.6 Kisin's coefficient-prime theorem](#46-kisins-coefficient-prime-theorem); `GlobalGaloisDeformations:R04.3`; `LocalGaloisDeformationRings:R08.3`.
 
-See [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — Lemma 3.27 and proof, pp. 94–95; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 2.5.5, printed pp. 530–531; Theorem 2.7.6, printed p. 534; §4.3, printed pp. 543–544.
+See [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — Lemma 3.27 and proof, pp. 94–95; [Mark Kisin](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi) — Theorem 2.5.5, author-copy pp. 19–20; Theorem 2.7.6, author-copy p. 23; §4.3, author-copy pp. 32–33.
 
 ### Examples
 
@@ -1481,8 +1501,20 @@ are inverse roots, and ε_ℓ^m twists geometric roots by q_v^{−m}. Hodge degr
 negate under duality, add under tensor product and shift by −m under ε_ℓ^m.
 Pullback to F′ uses the appropriate residue-degree power of Frobenius and base
 change of the local WD parameter; retain finite ramification in the new S.
-These operations preserve the predicates with those changes. No potential
-modularity theorem is used to define the carrier or any operation.
+Prove preservation of weak and strict compatibility by these operations, with
+the new rank, Hodge multisets and bad set. Character twists use a compatible
+rank-one algebraic-character family, and its ramified places enter S.
+Almost-strict compatibility is a rank-two predicate: direct sum or tensor
+product of two rank-two systems has rank four and is outside its domain.
+For operations whose output still has rank two, prove almost-strict
+compatibility only when each required output pair is inherited from a required
+input comparison, or its comparison is supplied separately. In particular,
+finite restriction or a ramified character twist can turn a ramified common
+parameter into an unramified one at an odd coefficient prime with reducible
+residual representation; the formerly omitted comparison is then required.
+Coefficient extension, duality and conjugation retain the omitted-pair
+bookkeeping. No potential modularity theorem is used to define the carrier or
+any operation.
 
 *Needs:* ArithmeticGaloisRepresentations R01.1–R01.2, continuous semisimple
 carriers, local WD functors and their tensor/dual laws; PadicHodgeTheory R06.3,
@@ -1491,7 +1523,8 @@ algebraic-character avatars; Layer 3's geometric-character theorem.
 
 - `CompatibleSystemData`: The common field, polynomials, local members, exceptional places and labelled degrees.
 - `CompatibleSystemData.IsWeaklyCompatible`, `.IsAlmostStrictlyCompatible`, `.IsStrictlyCompatible`: The separate predicates with the coefficient-prime clauses above.
-- `CompatibleSystemData.coefficientExtension`, `.dual`, `.twist`, `.tensor`, `.restrict`, `.conjugate`: Transport data and compatibility with the exact polynomial and labelled-degree formulas.
+- `CompatibleSystemData.coefficientExtension`, `.directSum`, `.dual`, `.twist`, `.tensor`, `.restrict`, `.conjugate`: Transport the data, weak compatibility and strict compatibility with the exact polynomial and labelled-degree formulas.
+- `CompatibleSystemData.almostStrict_transport`: For a rank-two output, require comparisons at every output pair not covered by a required input comparison; an omitted input pair alone supplies no comparison.
 - `CompatibleSystemData.strict_implies_almostStrict`, `.almostStrict_implies_weak`: Preserve all weaker clauses without asserting their converses.
 
 **Checks.**
@@ -1501,6 +1534,8 @@ algebraic-character avatars; Layer 3's geometric-character theorem.
 - A weight-two Steinberg member has N≠0; replacing its WD module by the direct sum of its two characters fails strict compatibility although the Frobenius polynomial is unchanged.
 - An arbitrary list of semisimple members with unrelated good polynomials inhabits the data carrier but fails weak compatibility.
 - At a coefficient prime with reducible residual representation, the almost-strict exception does not authorize dropping the de Rham or good-prime crystalline clauses.
+- The direct sum and tensor product of two rank-two systems have rank four; neither is an instance of the rank-two almost-strict predicate.
+- At an odd coefficient prime with reducible residual representation, restrict a finite ramified scalar WD character to an extension that kills it, or twist by its inverse. The resulting unramified common parameter requires a coefficient-prime comparison that the original almost-strict hypothesis could omit.
 
 ### 7.2 Purity of the entire family
 
@@ -1650,7 +1685,7 @@ Citations above use printed journal pages for the published scans and internal p
 - [C. Khare and J.-P. Wintenberger, *Serre's modularity conjecture (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf). Author final version of 30 May 2009, internal pages; published in Invent. Math. 178 (2009), 505–586.
 - [C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf). Publ. Math. IHÉS 89 (1999), 5–126; printed journal pages in the Numdam scan.
 - [A. J. Scholl, *Motives for modular forms*](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf.pdf). Author copy of Invent. Math. 100 (1990), 419–430; internal author-copy pages.
-- [Mark Kisin, *Potentially semi-stable deformation rings*](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf). J. Amer. Math. Soc. 21 (2008), 513–546; printed journal pages in the AMS PDF.
+- [Mark Kisin, *Potentially semi-stable deformation rings*](https://abel.math.harvard.edu/~kisin/dvifiles/def.dvi). J. Amer. Math. Soc. 21 (2008), 513–546; locators here use the public author DVI: Theorem 2.5.5 pp. 19–20, Theorem 2.7.6 p. 23, §4.1 p. 31 and Theorem 4.3 pp. 32–33.
 - [Christopher Skinner, *A note on the p-adic Galois representations attached to Hilbert modular forms*](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf). Documenta Math. 14 (2009), 241–258; printed journal pages in the EMS PDF.
 - [Mladen Dimitrov, *Galois representations modulo p and cohomology of Hilbert modular varieties*](https://arxiv.org/pdf/math/0411152v1). arXiv:math/0411152v1, internal pages; published in Ann. Sci. École Norm. Sup. 38 (2005), 505–551.
 - [Samit Dasgupta and Mahesh Kakde, *On the Brumer–Stark conjecture*](https://math.iisc.ac.in/~maheshkakde/brumerstark.pdf). Author copy of Ann. Math. 197 (2023), 289–388; internal pages.

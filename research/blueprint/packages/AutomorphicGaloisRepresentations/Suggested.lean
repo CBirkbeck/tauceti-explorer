@@ -157,12 +157,6 @@ The representation dictionary requires s≠0. -/
 noncomputable def carayolGeomCharpoly (t s q : K) : K[X] :=
   X ^ 2 - C (t / s) * X + C (q / s)
 
-/-- The inverse cyclotomic twist multiplies geometric roots by q. -/
-theorem hilbertGeomCharpoly_normTwist (t s q : K) :
-    hilbertGeomCharpoly (q * t) (q ^ 2 * s) q =
-      X ^ 2 - C (q * t) * X + C (q ^ 3 * s) :=
-  sorry
-
 /-- Trivial scalar Hecke value makes the two polynomial conventions agree,
 including the zero-trace case; this cannot detect a central-character error. -/
 example : hilbertGeomCharpoly (-1 : ℚ) 1 3 = X ^ 2 + C 1 * X + C 3 ∧
