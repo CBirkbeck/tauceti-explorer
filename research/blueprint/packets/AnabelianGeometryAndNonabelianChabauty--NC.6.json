@@ -1,590 +1,1937 @@
 {
-  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
-  "protocol": "blueprint-v1",
-  "part": "NC.6",
-  "scope": [
-    "AnabelianGeometryAndNonabelianChabauty:NC.6"
-  ],
-  "status": "partial",
-  "summary": "NC.6 is a process endpoint whose outputs belong to NC.1–NC.5 and EffectiveDiophantineMethods ED.6. The removal proposal preserves the existing NC.5 to ED.6 edge and introduces no mathematical nodes. The 2026-10-14 continuation confirms that all six supplier packets and their 24 indexed exports are unchanged. No restructuring result, accepted or otherwise, contains an NC.6 layer entry. Coverage remains partial: independent acceptance of the drop is still required, and executable checker probes reject node-free planned closure and an under-budget complete pass with an open scope.",
-  "baseline": {
-    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "declarations": []
+ "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+ "protocol": "blueprint-v1",
+ "part": "NC.6",
+ "scope": [
+  "AnabelianGeometryAndNonabelianChabauty:NC.6"
+ ],
+ "status": "complete",
+ "summary": "NC.6 is planned as the frontier layer of the roadmap: the statements that connect the profinite and unipotent theory to rational points and that remain conjectural. On the profinite side it defines the conjugacy classes of Galois sections and the section map of rational points, proves (after Stix, Appendix B) that the section map is injective for curves of genus at least one over number fields by comparing sections of an abelian variety with its Kummer map, and states Grothendieck's section conjecture as a named proposition. On the unipotent side it states Kim's dimension conjecture (Kim 2009, Conjecture 1) and his Selmer-vanishing conjecture (Conjecture 2), plans the graded dimension formulas and the H² estimate they need, and plans every conditional bridge Kim gives (Selmer vanishing, Bloch–Kato, weight filtrations after Fontaine–Mazur, weak Jannsen, pseudo-nullity) together with the two known cases (the thrice-punctured line, after Kim 2005, and punctured CM elliptic curves of Selmer rank one). Finally it states Kim's eventual-equality conjecture of Balakrishnan–Dan-Cohen–Kim–Wewers with its S-integral variant and proves its depth-one instance for the thrice-punctured line. Every conjecture is a named proposition and every result that uses one lists it as a hypothesis. The export of NC.1–NC.5 outputs to EffectiveDiophantineMethods ED.6 named in the stage text is process; restructure[0] proposes narrowing the stage to the frontier, superseding the earlier drop proposal. Eighteen nodes; nine source findings in Kim 2009, BDCKW v4, Stix v1 and Kim 2005 v1.",
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "declarations": [
+   {
+    "ref": "mathlib:ContinuousMonoidHom",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+    "provides": "Continuous monoid homomorphisms A →ₜ* B between topological monoids, with comp and id; the carrier for sections of a profinite extension.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:MulAction.orbitRel.Quotient",
+    "kind": "abbrev",
+    "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+    "provides": "The orbit set of a group action, used for conjugacy classes of sections and for nonabelian H¹ (as in NC.3).",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:AddGroup.FG",
+    "kind": "class",
+    "module": "Mathlib/GroupTheory/Finiteness.lean",
+    "provides": "Finitely generated additive groups; the hypothesis under which an abelian group has no nonzero divisible element.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:Function.Bijective",
+    "kind": "def",
+    "module": "Mathlib/Logic/Function/Defs.lean",
+    "provides": "Bijectivity of a function; the section conjecture is bijectivity of the section map.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:ArithmeticFunction.moebius",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
+    "provides": "The Möbius function μ : ArithmeticFunction ℤ, for the Witt and Labute dimension formulas.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:Nat.divisors",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Divisors.lean",
+    "provides": "The finset of divisors of a natural number, for the divisor sums.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   },
+   {
+    "ref": "mathlib:Filter.Eventually",
+    "kind": "def",
+    "module": "Mathlib/Order/Filter/Defs.lean",
+    "provides": "Eventual truth along a filter; with Filter.atTop it expresses 'for all sufficiently large n'.",
+    "checked": "statement read at the pinned commit (2026-10-14)"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "mochizuki-1996",
+   "title": "The Profinite Grothendieck Conjecture for Closed Hyperbolic Curves over Number Fields",
+   "authors": "Shinichi Mochizuki",
+   "edition": "Journal of Mathematical Sciences, the University of Tokyo 3 (1996), 571–627; publisher PDF",
+   "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
+   "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
+   "readSections": [
+    "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
+   ]
   },
-  "sources": [
-    {
-      "id": "mochizuki-1996",
-      "title": "The Profinite Grothendieck Conjecture for Closed Hyperbolic Curves over Number Fields",
-      "authors": "Shinichi Mochizuki",
-      "edition": "Journal of Mathematical Sciences, the University of Tokyo 3 (1996), 571–627; publisher PDF",
-      "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
-      "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
-      "readSections": [
-        "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
-      ]
-    },
-    {
-      "id": "kim-2009",
-      "title": "The Unipotent Albanese Map and Selmer Varieties for Curves",
-      "authors": "Minhyong Kim",
-      "edition": "Publications of RIMS 45 (2009), 89–133; publisher PDF",
-      "url": "https://ems.press/content/serial-article-files/41066?nt=1",
-      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
-      "readSections": [
-        "Introduction, pp.89–96: section-conjecture formulation, Theorem 1, global/local diagram and Conjecture 1."
-      ]
-    },
-    {
-      "id": "balakrishnan-dogra-2018",
-      "title": "Quadratic Chabauty and Rational Points I: p-adic Heights",
-      "authors": "Jennifer S. Balakrishnan and Netan Dogra",
-      "edition": "arXiv:1601.00388v2; page numbers refer to this preprint, not Duke Mathematical Journal",
-      "url": "https://arxiv.org/pdf/1601.00388v2",
-      "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
-      "readSections": [
-        "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
-      ]
-    },
-    {
-      "id": "bdckw-2018v4",
-      "title": "A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves",
-      "authors": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers",
-      "edition": "arXiv:1209.0640v4; all locators use preprint pagination",
-      "url": "https://arxiv.org/pdf/1209.0640v4",
-      "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
-      "readSections": [
-        "§§2.3–2.7, pp.9–10, local conditions and nested loci; §§3.1–3.4, pp.12–13, eventual equality conjecture, number-field scope caveat and relation to the section conjecture."
-      ]
-    },
-    {
-      "id": "bdmtv-2021v4",
-      "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
-      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
-      "edition": "arXiv:2101.01862v4; retained only for the version comparison",
-      "url": "https://arxiv.org/pdf/2101.01862v4",
-      "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
-      "readSections": [
-        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
-      ]
-    },
-    {
-      "id": "bdmtv-2023-published",
-      "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
-      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
-      "edition": "Compositio Mathematica 159 (2023), 1111–1152; version of record",
-      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
-      "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
-      "readSections": [
-        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
-      ]
-    }
-  ],
-  "nodes": [],
-  "requests": [],
-  "coverage": [
-    {
-      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
-      "status": "partial",
-      "remaining": [
-        "Obtain independent acceptance of a restructuring result with layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop and the suppliers and preserved NC.5 to ED.6 link specified below. The present blueprint proposal and the accepted parent planning pass do not supply that acceptance.",
-        "When the accepted drop is available in the checker registry, cite that result here, set coverage to closed with remaining empty, clear the structural gap and set packet status closed. Authorized integration removes NC.6 and its two incoming edges while preserving the direct NC.5 to ED.6 dependency; integration is outside this issue and is not a further mathematical prerequisite."
-      ]
-    }
-  ],
-  "gaps": [
-    {
-      "title": "NC.6 removal awaits accepted restructuring",
-      "neededBy": [],
-      "detail": "The reviewed AUDIT-08 entry and the accepted parent pass classify NC.6 as process-only export work. Its mathematical outputs already have the owners and exact fine-grained nodes indexed in supplierExports. PROTOCOL sections 11 and 15 forbid inventing process nodes or duplicating those targets, and permit node-free closed coverage only for an accepted structural drop. No accepted RS result records that drop at the input commit in closureCheck. The status probes reproduce the checker rejection of premature complete/planned/closed claims. The only remaining decision is independent restructuring acceptance outside the permitted files; supplier mathematical gaps remain with their owners."
-    }
-  ],
-  "restructure": [
-    {
-      "action": "rescope",
-      "roadmaps": [
-        "AnabelianGeometryAndNonabelianChabauty"
-      ],
-      "detail": "The reviewed library audit classifies NC.6 as process work; its four exports already have mathematical owners and its precision consumer already has a direct NC.5 dependency.",
-      "proposal": "Drop NC.6 after independent restructuring acceptance. Keep reconstruction in NC.1, unipotent groups/comparisons in NC.2, geometric Selmer varieties in NC.3, iterated-integral equations and general conditional Chabauty–Kim loci in NC.4, quadratic height equations/loci in NC.5, and precision, candidate comparison and global certificates in EffectiveDiophantineMethods ED.6. Keep all supplier gaps and conjectural hypotheses at their existing owners.",
-      "acceptanceStatus": "proposed",
-      "layers": {
-        "AnabelianGeometryAndNonabelianChabauty:NC.6": {
-          "action": "drop",
-          "suppliedBy": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.1",
-            "AnabelianGeometryAndNonabelianChabauty:NC.2",
-            "AnabelianGeometryAndNonabelianChabauty:NC.3",
-            "AnabelianGeometryAndNonabelianChabauty:NC.4",
-            "AnabelianGeometryAndNonabelianChabauty:NC.5",
-            "EffectiveDiophantineMethods:ED.6"
-          ],
-          "reason": "No additional mathematical carrier, definition or theorem is required to publish these independently owned outputs."
-        }
-      },
-      "owners": [
-        {
-          "target": "Source-qualified Isom reconstruction from geometric profinite fundamental groups with outer Galois action; separately sourced Hom variants",
-          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.1",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        },
-        {
-          "target": "Finite-level unipotent étale and de Rham groups, path torsors and comparison maps",
-          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.2",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        },
-        {
-          "target": "Geometric Selmer schemes, specified local conditions and localization morphisms",
-          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.3",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        },
-        {
-          "target": "Unipotent Albanese maps, iterated-integral equations and conditional finite Chabauty–Kim loci",
-          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.4",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        },
-        {
-          "target": "Quadratic Chabauty equations, finite away-from-p height alternatives and source-qualified finite depth-two loci",
-          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.5",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        },
-        {
-          "target": "Finite precision data, exhaustive disc/root certificates and comparison with exact global points",
-          "owner": "EffectiveDiophantineMethods:ED.6",
-          "formerly": [
-            "AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ]
-        }
-      ],
-      "links": [
-        {
-          "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
-          "target": "EffectiveDiophantineMethods:ED.6",
-          "reason": "Preserve the existing direct consumer link for quadratic equations and their rank/local-height hypotheses. ED.6 owns computational precision and global certification; no NC.6 transit is needed."
-        }
-      ],
-      "removeLinks": [
-        {
-          "source": "AnabelianGeometryAndNonabelianChabauty:NC.1",
-          "target": "AnabelianGeometryAndNonabelianChabauty:NC.6"
-        },
-        {
-          "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
-          "target": "AnabelianGeometryAndNonabelianChabauty:NC.6"
-        }
-      ],
-      "noNewLinkReason": "The atlas reports no NC.6 consumers. NC.2 to NC.3 to NC.4 to NC.5 already carries the unipotent inputs to ED.6. Profinite reconstruction is an independent NC.1 output, not an input required by the existing quadratic enumeration algorithm; do not introduce an NC.1 to ED.6 edge."
-    }
-  ],
-  "sourceIssues": [
-    {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
-      "source": "bdmtv-2023-published",
-      "kind": "error",
-      "locator": "Published Lemma 4.7, p.1136; same tail condition in arXiv:2101.01862v4, p.25.",
-      "printed": "The truncation index is constrained only at coefficient indices satisfying ord_p(F_i) + i = n.",
-      "correction": "For all i ≥ m require ord_p(F_i) + i ≥ n, using ord_p(0) = infinity; retain the convergence and multiplicity obligations of the ED.6 root-determination-precision node.",
-      "reason": "The coefficient of T^i in G(T) = p^(−k)F(pT) has valuation ord_p(F_i) + i − k. A polynomial truncation of degree below m modulo p^(n−k) therefore needs a bound for every tail index. For F(x) = p^5 − p x + x^2, m = 2, n = 5, k = 2, the only equality index is 0, whereas G(T) = p^3 − T + T^2 has a unit coefficient in degree 2. This repeats the obstruction already recorded by the ED supplier; it supplies no new root-isolation proof.",
-      "affects": "a stated result",
-      "known": "Already recorded as EffectiveDiophantineMethods/E21, confirmed by REV-EffectiveDiophantineMethods~3. Freshly checked here in the published and v4 passages; not claimed new.",
-      "searched": [
-        "Published Compositio 159 (2023), p.1136",
-        "arXiv:2101.01862v4, p.25",
-        "research/blueprint/packets/EffectiveDiophantineMethods.json, E21"
-      ],
-      "originFinding": "EffectiveDiophantineMethods/E21"
-    },
-    {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-phi-branch",
-      "source": "bdmtv-2021v4",
-      "kind": "misprint",
-      "locator": "arXiv:2101.01862v4, p.24, final branch equality before Proposition 4.6; compared with published (4.21), p.1134, and branch equality, p.1136.",
-      "printed": "The eventual branch for phi(i) includes an additional c1.",
-      "correction": "The branch is phi(i) = −2 floor(log_p i). Add c1 when applying the separate splitting estimate, as in the final coefficient bound.",
-      "reason": "Substituting the eventual minimum into the published definition (4.21) gives two negative floor-log terms. The published branch agrees; c1 remains in Proposition 4.6's final bound.",
-      "affects": "nothing",
-      "known": "Corrected in the published Compositio 159 (2023), p.1136; already recorded as EffectiveDiophantineMethods/E30.",
-      "searched": [
-        "arXiv:2101.01862v4, pp.24–25",
-        "Published Compositio 159 (2023), pp.1134–1136",
-        "research/blueprint/packets/EffectiveDiophantineMethods.json, E30"
-      ],
-      "originFinding": "EffectiveDiophantineMethods/E30"
-    }
-  ],
-  "sourceVersions": [
-    {
-      "sourceId": "mochizuki-1996",
-      "kind": "published",
-      "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
-      "read": "2026-10-11",
-      "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
-      "extent": [
-        "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
-      ]
-    },
-    {
-      "sourceId": "kim-2009",
-      "kind": "published",
-      "url": "https://ems.press/content/serial-article-files/41066?nt=1",
-      "read": "2026-10-11",
-      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
-      "extent": [
-        "Introduction, pp.89–96: section-conjecture formulation, Theorem 1, global/local diagram and Conjecture 1."
-      ]
-    },
-    {
-      "sourceId": "balakrishnan-dogra-2018",
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1601.00388v2",
-      "read": "2026-10-11",
-      "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
-      "extent": [
-        "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
-      ]
-    },
-    {
-      "sourceId": "bdckw-2018v4",
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1209.0640v4",
-      "read": "2026-10-11",
-      "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
-      "extent": [
-        "§§2.3–2.7, pp.9–10, local conditions and nested loci; §§3.1–3.4, pp.12–13, eventual equality conjecture, number-field scope caveat and relation to the section conjecture."
-      ]
-    },
-    {
-      "sourceId": "bdmtv-2021v4",
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/2101.01862v4",
-      "read": "2026-10-11",
-      "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
-      "extent": [
-        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
-      ]
-    },
-    {
-      "sourceId": "bdmtv-2023-published",
-      "kind": "published",
-      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
-      "read": "2026-10-11",
-      "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
-      "extent": [
-        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
-      ]
-    }
-  ],
-  "ownershipEvidence": {
-    "audit": "data/library-coverage.json: AnabelianGeometryAndNonabelianChabauty, NC.6, verdict process (AUDIT-08).",
-    "parentPacket": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json: latest accepted review independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, 2026-10-11. NC.6 coverage remains not_read with removal explicitly pending acceptance; no parent node realises NC.6. This acceptance of planning corrections is not acceptance of a restructuring result.",
-    "existingNode": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification is an authored topological torsor/H1 comparison. Its statement was read; it does not supply the geometric Selmer-variety export.",
-    "consumerPacket": "research/blueprint/packets/EffectiveDiophantineMethods.json: latest review needs_changes (REV-EffectiveDiophantineMethods~3, 2026-10-08). ED.6/certified-solution-set, padic-candidate-comparison, qc-disc-certificate, qc-certificate-sound, height-series-valuation-bound, root-determination-precision and qc-modular-algorithm identify the owner and open interfaces; none is imported as completed or formalised.",
-    "graph": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json and EffectiveDiophantineMethods.json: NC.1 and NC.5 feed NC.6; NC.6 has no consumers; NC.5 already feeds ED.6.",
-    "scopedSuppliers": "The exact NC.1–NC.5 exports in supplierExports were read afresh in this continuation. NC.2–NC.5 have accepted complete planning passes with planned coverage and retained gaps; NC.1 has needs_changes. These node ids establish ownership without introducing duplicate NC.6 declarations or treating source/supplier gaps as closed."
+  {
+   "id": "kim-2009",
+   "title": "The Unipotent Albanese Map and Selmer Varieties for Curves",
+   "authors": "Minhyong Kim",
+   "edition": "Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "url": "https://ems.press/content/serial-article-files/41066?nt=1",
+   "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
+   "readSections": [
+    "Introduction, pp.89–96 (section conjecture p.90, Theorem 1 p.93, fundamental diagram p.95, Conjecture 1 and its implications p.96).",
+    "§3 Comments I, pp.120–126 (finiteness from Conjecture 1, Conjecture 2, Observations 1–3, Proposition 2, Lemma 6).",
+    "§4 Comments II, pp.127–131 (refined Selmer varieties, the rank-one CM case, Observation 4); references pp.131–133."
+   ]
   },
-  "libraryScreen": {
-    "upstreamRoadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
-    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-    "read": [
-      "TauCetiRoadmap/ProfiniteArithmetic/README.md, whole document; Suggested.lean, Layer 2 continuous automorphisms and outer quotient, lines 453–522.",
-      "Completed/EffectiveBounds/README.md and Suggested.lean, whole documents.",
-      "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean, module documentation, lines 1–87."
-    ],
-    "consequence": "NC.6 introduces no generic outer-automorphism, arithmetic-bound or power-series-evaluation API. Current upstream ownership is preserved. No baseline declaration is cited by a mathematical node, so declarations is empty; no fresh exhaustive absence search or supplier implementation claim is made."
+  {
+   "id": "balakrishnan-dogra-2018",
+   "title": "Quadratic Chabauty and Rational Points I: p-adic Heights",
+   "authors": "Jennifer S. Balakrishnan and Netan Dogra",
+   "edition": "arXiv:1601.00388v2; page numbers refer to this preprint, not Duke Mathematical Journal",
+   "url": "https://arxiv.org/pdf/1601.00388v2",
+   "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
+   "readSections": [
+    "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
+   ]
   },
-  "frontiers": [
-    "Mochizuki's closed-curve Isom theorem is not the section conjecture and supplies no rational-point enumeration algorithm. Hom claims and variants for other bases require their own NC.1 sources.",
-    "A finite-level locus contains the specified global rational or integral points through the local/global diagram. Finiteness under verified dimension or quadratic-height hypotheses is distinct from equality with the global set.",
-    "Eventual equality in BDCKW §3.1 uses that source's minimal Z-model and stringent local conditions. Do not generalize it to arbitrary number fields or identify it with Kim 2009 Conjecture 1's dimension inequality.",
-    "Any unresolved Bloch–Kato, Fontaine–Mazur, logarithm-rank, reduction or local-height input remains an explicit condition on every downstream assertion. FAIL or unresolved candidate balls yield an open computation."
-  ],
-  "supplierExports": [
-    {
-      "output": "Source-qualified profinite curve reconstruction",
-      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.1",
-      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
-      "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-isom",
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/number-field-isom"
-      ],
-      "conditions": "Use continuous arithmetic extension equivalences over the fixed G_K, modulo target geometric inner conjugation. Distinguish the pointed Theorem 10.1 from the outer-action Theorem 10.2; the unpointed extension formulation retains the NC.1 comparison obligations. The supplier is under revision, so this index does not certify its statement or close its four gaps.",
-      "snapshot": {
-        "sha256": "e7b268ef9496b07dd9385b701e7e1bf38561cff86c1991940387d643090a3466",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "needs_changes",
-        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
-        "reviewDate": "2026-10-10",
-        "gaps": 4
-      },
-      "verifiedUnchanged": "2026-10-14"
-    },
-    {
-      "output": "Geometric unipotent groups, tensor paths and comparisons",
-      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.2",
-      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.2.json",
-      "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.2/tannakian-groups",
-        "AnabelianGeometryAndNonabelianChabauty:NC.2/tensor-paths",
-        "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison"
-      ],
-      "conditions": "Use functors on all coefficient algebras and geometric right path torsors, rather than pointwise topological H1. Retain the length transitions, composition, filtration and Frobenius. The ramified base-change clause covers models and endpoints descending from the stated unramified setup; general ramified-model comparison remains requested.",
-      "snapshot": {
-        "sha256": "baaa6d4930fc3ff95af3b49e4b34df736d2181fdb4645310cd08c5cd085e6a00",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "accepted",
-        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
-        "reviewDate": "2026-10-11",
-        "gaps": 3
-      },
-      "verifiedUnchanged": "2026-10-14"
-    },
-    {
-      "output": "Represented Selmer varieties and localization",
-      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.3",
-      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.3.json",
-      "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-functor",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-representability",
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-localization-naturality"
-      ],
-      "conditions": "Retain every specified bad-place and crystalline local condition, actual localization natural transformations and their all-algebra representability hypotheses. The closed fibre-product construction does not supply its own representability inputs. The parent topological torsor-classification node is not a substitute.",
-      "snapshot": {
-        "sha256": "1157ed4bdc0b5e13494c616de043e05435e59fe59a1d050b2fdcf514f8175b5f",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "accepted",
-        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
-        "reviewDate": "2026-10-11",
-        "gaps": 4
-      },
-      "verifiedUnchanged": "2026-10-14"
-    },
-    {
-      "output": "Albanese coordinates, local loci and conditional finiteness",
-      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.4",
-      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
-      "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.4/local-albanese",
-        "AnabelianGeometryAndNonabelianChabauty:NC.4/iterated-coordinates",
-        "AnabelianGeometryAndNonabelianChabauty:NC.4/kim-loci",
-        "AnabelianGeometryAndNonabelianChabauty:NC.4/rational-integral-containment",
-        "AnabelianGeometryAndNonabelianChabauty:NC.4/dimension-finiteness"
-      ],
-      "conditions": "With the supplier right-path convention, the period representative is I(b,x) inverse times gamma(x). Preserve the distinct crystalline, de Rham period-image and geometric-image-closure loci and their forward inclusions. The selected dimension theorem over Q assumes a verified strict inequality and all geometric inputs; it proves finiteness, not eventual global-point equality.",
-      "snapshot": {
-        "sha256": "0123cb29c96ebfb16b0572dfaa2529d1984f35a59a664fab52ca6a6f1071f73c",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "accepted",
-        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
-        "reviewDate": "2026-10-11",
-        "gaps": 4
-      },
-      "verifiedUnchanged": "2026-10-14"
-    },
-    {
-      "output": "Quadratic pairs, signed away-place heights and finite supersets",
-      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.5",
-      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-      "nodes": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
-        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants",
-        "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair",
-        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
-      ],
-      "conditions": "The rank criterion uses the rational Neron-Severi rank and the Mordell-Weil-cut Selmer convention. Upsilon is the negative sum of all away-place height alternatives. A finite residual locus is a superset of the rational points and need not equal the exact depth-two locus. Preserve analytic density on every open subdisc and compact chart coverage; certify the logarithm separately when ED.6 requires it.",
-      "snapshot": {
-        "sha256": "63ec06ed33bbb6859d51f596f452fb265edcf8f157951675076b39f78ab96e4f",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "accepted",
-        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
-        "reviewDate": "2026-10-11",
-        "gaps": 3
-      },
-      "verifiedUnchanged": "2026-10-14"
-    },
-    {
-      "output": "Finite precision, exhaustive local root coverage and exact global certification",
-      "owner": "EffectiveDiophantineMethods:ED.6",
-      "packet": "research/blueprint/packets/EffectiveDiophantineMethods.json",
-      "nodes": [
-        "EffectiveDiophantineMethods:ED.6/certified-solution-set",
-        "EffectiveDiophantineMethods:ED.6/padic-candidate-comparison",
-        "EffectiveDiophantineMethods:ED.6/qc-disc-certificate",
-        "EffectiveDiophantineMethods:ED.6/qc-certificate-sound",
-        "EffectiveDiophantineMethods:ED.6/height-series-valuation-bound",
-        "EffectiveDiophantineMethods:ED.6/root-determination-precision",
-        "EffectiveDiophantineMethods:ED.6/qc-modular-algorithm"
-      ],
-      "conditions": "ED.6 owns finite coefficient/precision data, sound exhaustive root or disc coverage, simple-root uniqueness or its separately justified replacement, and matching or exclusion of every candidate against exact global points. Its review remains needs_changes. NC.6 supplies no root-isolation theorem, verifier or numerical replay and adds no reconstruction dependency to this algorithm.",
-      "snapshot": {
-        "sha256": "3faceaa4a24e8859577e4b00f8629999f2060c96dda09ebce42db8a0214b4e7c",
-        "status": "complete",
-        "coverage": "planned",
-        "reviewStatus": "needs_changes",
-        "reviewer": "independent-review-REV-EffectiveDiophantineMethods~3",
-        "reviewDate": "2026-10-08",
-        "gaps": 27
-      },
-      "verifiedUnchanged": "2026-10-14"
-    }
-  ],
-  "closureCheck": {
-    "agent": "Codex",
-    "session": "codex-KwZ5Gh",
-    "issue": 6347,
-    "date": "2026-10-14",
-    "inputCommit": "86cbf801ccbc7fefc20bffcd38ed596123f0030c",
-    "checker": "scripts/check_blueprint.py",
-    "checkerSha256": "75b2dfb8e323750c7098cc36ed32070f760c2216e9b7585cdfa91906bb30750b",
-    "acceptedDropFound": false,
-    "scanned": "research/blueprint/restructure/RS-*.result.json and the checker DROPPED_STAGES registry; no NC.6 drop. The same ownership screen checks all scoped NC packets and canonical atlas edges.",
-    "probes": [
-      {
-        "candidate": "current",
-        "status": "partial",
-        "coverage": "partial",
-        "errors": [],
-        "warnings": []
-      },
-      {
-        "candidate": "complete-with-open-scope",
-        "status": "complete",
-        "coverage": "partial",
-        "errors": [
-          "complete with 0 nodes, under the budget of 300, while stages are not planned: AnabelianGeometryAndNonabelianChabauty:NC.6"
-        ],
-        "warnings": []
-      },
-      {
-        "candidate": "complete-with-node-free-planned-scope",
-        "status": "complete",
-        "coverage": "planned",
-        "errors": [
-          "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: planned but no node realises it"
-        ],
-        "warnings": []
-      },
-      {
-        "candidate": "closed-without-accepted-drop",
-        "status": "closed",
-        "coverage": "closed",
-        "errors": [
-          "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: closed but no node realises it"
-        ],
-        "warnings": []
-      }
-    ],
-    "interpretation": "Only the current partial checkpoint is valid. Do not change the checker, manufacture a process node, reuse another stage realisation as NC.6, or substitute source_decomposed coverage for an unaccepted removal.",
-    "releaseCondition": "An independent accepted RS result records layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop with the suppliers and graph treatment in restructure[0]. The maintainer routes and accepts that structural decision; this blueprint session cannot author its own acceptance.",
-    "afterAcceptance": "Once that accepted result is available to the checker, this packet can cite it, set its sole coverage to closed with remaining empty, remove the structural gap and set status closed. Atlas stage/edge removal is performed by authorized integration; it is not an additional #6347 deliverable or a prerequisite for recognizing the already accepted drop.",
-    "restructureScreen": {
-      "resultFiles": 33,
-      "acceptedResults": 31,
-      "stageEntries": 0,
-      "manifestSha256": "8edd7d2bb41ddc8c69a40968485b90e324cea6005044763572ff40a2b3adeaf3"
-    },
-    "supplierCheck": "All six supplier packet hashes match the 2026-10-11 snapshots; all 24 export ids remain present. ED.6 retains 27 gaps in its whole-roadmap packet. These are ownership references, not closure or implementation evidence.",
-    "graphCheck": "Both proposed incoming-edge removals and the preserved direct NC.5 to ED.6 edge still exist in data/atlas.json. NC.6 has no outgoing stage edges.",
-    "readingExtent": "Fresh reading of the worker rules, issue, previous checkpoint, audited process verdict, parent NC.6 coverage and review, checker closure rules and relevant link-map records. Supplier statements and source-reading claims remain attributed to previous workers; their exact packet hashes were checked unchanged. No new mathematical claim or source error is added."
+  {
+   "id": "bdckw-2018v4",
+   "title": "A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves",
+   "authors": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers",
+   "edition": "arXiv:1209.0640v4; all locators use preprint pagination",
+   "url": "https://arxiv.org/pdf/1209.0640v4",
+   "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
+   "readSections": [
+    "§1, pp.1–8 (introduction, statement of the conjecture, summary of results).",
+    "§§2–3, pp.8–15 (Selmer schemes with stringent conditions, independence of T and base point, Conjecture 3.1, SGK/ILK, relation to the section conjecture and to Ш).",
+    "§§6–8, pp.43–49 (thrice-punctured line, higher genus remarks, S-integral variant)."
+   ]
   },
-  "continuationSourceChecks": [
-    {
-      "sourceId": "mochizuki-1996",
-      "locator": "Section 10, Theorems 10.1–10.2 and proof, printed pp.624–626",
-      "date": "2026-10-11",
-      "extent": "Fresh selected reading of the published source: pointed arithmetic extension version, outer geometric-action version, and descent argument; no new audit of NC.1 proof closure."
-    },
-    {
-      "sourceId": "kim-2009",
-      "locator": "Introduction, printed pp.89–96",
-      "date": "2026-10-11",
-      "extent": "Fresh selected reading of the section-conjecture boundary, finite-depth objects, local/global diagram, and the conditional implication following Conjecture 1; no new decomposition of NC.2–NC.5."
-    }
-  ],
-  "closureCheckHistory": [
-    {
-      "agent": "Codex",
-      "session": "codex-lFtp5b",
-      "issue": 6347,
-      "date": "2026-10-11",
-      "inputCommit": "3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab",
-      "checker": "scripts/check_blueprint.py",
-      "checkerSha256": "75b2dfb8e323750c7098cc36ed32070f760c2216e9b7585cdfa91906bb30750b",
-      "acceptedDropFound": false,
-      "scanned": "research/blueprint/restructure/RS-*.result.json and the checker DROPPED_STAGES registry; no NC.6 drop. The same ownership screen checks all scoped NC packets and canonical atlas edges.",
-      "probes": [
-        {
-          "candidate": "current",
-          "status": "partial",
-          "coverage": "partial",
-          "errors": [],
-          "warnings": []
-        },
-        {
-          "candidate": "complete-with-open-scope",
-          "status": "complete",
-          "coverage": "partial",
-          "errors": [
-            "complete with 0 nodes, under the budget of 300, while stages are not planned: AnabelianGeometryAndNonabelianChabauty:NC.6"
-          ],
-          "warnings": []
-        },
-        {
-          "candidate": "complete-with-node-free-planned-scope",
-          "status": "complete",
-          "coverage": "planned",
-          "errors": [
-            "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: planned but no node realises it"
-          ],
-          "warnings": []
-        },
-        {
-          "candidate": "closed-without-accepted-drop",
-          "status": "closed",
-          "coverage": "closed",
-          "errors": [
-            "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: closed but no node realises it"
-          ],
-          "warnings": []
-        }
-      ],
-      "interpretation": "Only the current partial checkpoint is valid. Do not change the checker, manufacture a process node, reuse another stage realisation as NC.6, or substitute source_decomposed coverage for an unaccepted removal.",
-      "releaseCondition": "An independent accepted RS result records layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop with the suppliers and graph treatment in restructure[0]. The maintainer routes and accepts that structural decision; this blueprint session cannot author its own acceptance.",
-      "afterAcceptance": "Once that accepted result is available to the checker, this packet can cite it, set its sole coverage to closed with remaining empty, remove the structural gap and set status closed. Atlas stage/edge removal is performed by authorized integration; it is not an additional #6347 deliverable or a prerequisite for recognizing the already accepted drop."
-    }
-  ],
-  "continuationChecks": {
-    "agent": "Codex",
-    "session": "codex-KwZ5Gh",
-    "date": "2026-10-14",
-    "upstreamRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
-    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-    "read": [
-      "ProfiniteArithmetic/README.md, Layer 2; Suggested.lean, lines 453–522.",
-      "Completed/EffectiveBounds/README.md and Suggested.lean; current README hash agrees with the atlas snapshot.",
-      "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean, module documentation, lines 1–87."
-    ],
-    "lean": {
-      "command": "lean-check research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean",
-      "exitCode": 0,
-      "errors": 0,
-      "warnings": 0,
-      "availableMemoryGiB": 111,
-      "scope": "Comment-only syntax check. No supplier theorem, definition or computation is elaborated."
-    }
+  {
+   "id": "bdmtv-2021v4",
+   "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
+   "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+   "edition": "arXiv:2101.01862v4; retained only for the version comparison",
+   "url": "https://arxiv.org/pdf/2101.01862v4",
+   "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+   "readSections": [
+    "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
+   ]
+  },
+  {
+   "id": "bdmtv-2023-published",
+   "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
+   "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+   "edition": "Compositio Mathematica 159 (2023), 1111–1152; version of record",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
+   "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
+   "readSections": [
+    "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
+   ]
+  },
+  {
+   "id": "stix-2008v1",
+   "title": "On cuspidal sections of algebraic fundamental groups",
+   "authors": "Jakob Stix",
+   "edition": "arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563. Locators use the arXiv v1 pagination.",
+   "url": "https://arxiv.org/pdf/0809.0017v1",
+   "sha256": "b456de5edf8dcbd52b5e414d24a87ff942908aac6f06fe2b7f175b32695d21bb",
+   "readSections": [
+    "§1.1, pp.1–2 (Conjecture 1 and the injectivity remark).",
+    "Appendix B, Proposition 44, Theorem 45 and Remark 46, p.22."
+   ]
+  },
+  {
+   "id": "linton-nyberg-brodda-2025",
+   "title": "The theory of one-relator groups: history and recent progress",
+   "authors": "Marco Linton and Carl-Fredrik Nyberg-Brodda",
+   "edition": "arXiv:2501.18306v1 (2025), survey; locators use the arXiv pagination.",
+   "url": "https://arxiv.org/pdf/2501.18306v1",
+   "sha256": "48c9436ac575b917827c4cd0ed942600afdb63a13ed88f134dd77d3f159b023b",
+   "readSections": [
+    "§1.7, the paragraphs on the lower central series of one-relator groups and equation (32), pp.65–66."
+   ]
+  },
+  {
+   "id": "kim-2005v1",
+   "title": "The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel",
+   "authors": "Minhyong Kim",
+   "edition": "arXiv:math/0409456v1 (2004); published in Invent. Math. 161 (2005), 629–656. Locators use the arXiv v1 pagination; the published version was not read.",
+   "url": "https://arxiv.org/pdf/math/0409456v1",
+   "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+   "readSections": [
+    "Introduction, pp.1–2.",
+    "§3, final part of the proof of the main theorem, pp.17–18."
+   ]
   }
+ ],
+ "nodes": [
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/section-classes",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Conjugacy classes of Galois sections",
+   "kind": "definition",
+   "statement": "Let k be a field with separable closure k^s and Γ_k = Gal(k^s/k), and let X be a quasi-compact geometrically connected k-scheme with a geometric point x̄ of X_{k^s}. Write π = π_1^ét(X, x̄), Δ = π_1^ét(X_{k^s}, x̄) and pr: π → Γ_k for the projection of the arithmetic exact sequence 1 → Δ → π → Γ_k → 1 (IG.1). A section is a continuous group homomorphism s: Γ_k → π with pr ∘ s = id. The geometric kernel acts on sections by (δ·s)(σ) = δ s(σ) δ⁻¹. The set of sections modulo this action is Sect(X/k). Equivalently, π acts by γ·s = c_γ ∘ s ∘ c_{pr(γ)⁻¹} (conjugation c_γ), and this action has the same orbits, because π = Δ·s(Γ_k) and s(τ) acts trivially on s. A change of geometric base point along an étale path induces a bijection of the sets of classes that does not depend on the path, so Sect(X/k) depends only on X/k up to canonical bijection. When a reference section s_0 is fixed, s ↦ [σ ↦ s(σ) s_0(σ)⁻¹] identifies Sect(X/k) with the nonabelian H¹(Γ_k, Δ) of NC.3, where Γ_k acts on Δ by conjugation through s_0; the class of s_0 goes to the base point.",
+   "hypotheses": [
+    "k any field; X quasi-compact and geometrically connected over k, so that the sequence of IG.1 is exact.",
+    "Sections are continuous homomorphisms of profinite groups; the equivalence relation is conjugation by the geometric kernel Δ only.",
+    "No hyperbolicity or properness is assumed in the definition; those hypotheses enter the theorems that use it."
+   ],
+   "proofSteps": [
+    "Import the exact sequence 1 → Δ → π → Γ_k → 1 and its continuity from IG.1/arithmetic-exact-sequence.",
+    "Check that δ·s is again a continuous section (pr kills Δ) and that this is a group action; take orbits with Mathlib's orbit quotient.",
+    "Show that Kim's π-action has the same orbits: write γ = δ s(τ) and compute c_{s(τ)} ∘ s ∘ c_{τ⁻¹} = s.",
+    "Base-point change: an étale path p: x̄ → x̄' gives compatible isomorphisms of π and Δ (IG.0); a second path differs by an element of Δ, which acts trivially on classes.",
+    "With a reference section s_0, the difference σ ↦ s(σ)s_0(σ)⁻¹ is a continuous 1-cocycle for the s_0-twisted action, conjugation by δ changes it by the coboundary of δ, and every cocycle c gives the section c·s_0; this is the bijection with H¹(Γ_k, Δ) (NC.3/nonabelian-h1, NC.0/reference-section-change)."
+   ],
+   "acceptance": [
+    "For X = Spec k the kernel Δ is trivial, π = Γ_k, and Sect(Spec k/k) has exactly one element.",
+    "For X = P¹_k the kernel Δ is trivial (P¹ is simply connected over k^s), so Sect(P¹/k) is one point although P¹(k) is infinite when k is.",
+    "For X = G_{m,k} in characteristic zero Δ = Ẑ(1) and Sect(G_m/k) ≅ H¹(k, Ẑ(1)) ≅ lim_n k^×/k^{×n} by Kummer theory."
+   ],
+   "prerequisites": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change",
+    "mathlib:ContinuousMonoidHom",
+    "mathlib:MulAction.orbitRel.Quotient"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, p.90",
+     "match": "Defines the set of splittings of the arithmetic sequence modulo conjugation by the whole fundamental group, acting through the projection, as the target of the section map."
+    },
+    {
+     "sourceId": "stix-2008v1",
+     "locator": "§1.1, p.1",
+     "match": "Defines S_{π1}(U/k) as the set of sections up to conjugation by the geometric fundamental group and explains why only classes are well defined."
+    },
+    {
+     "sourceId": "bdckw-2018v4",
+     "locator": "§1.2, p.2 and §3.4, p.13",
+     "match": "Writes the same target as the nonabelian H¹(G, π_1^ét(X̄, b)) using the path torsors from a rational base point."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "Kim 2009, Introduction p.90",
+     "how": "The section conjecture is a bijection from X(F) onto this set."
+    },
+    {
+     "where": "Stix 2008, Conjecture 1 (p.1) and Theorem 45 (p.22)",
+     "how": "Both the conjecture and the injectivity theorem are statements about maps into S_{π1}(X/k)."
+    },
+    {
+     "where": "BDCKW §3.4, p.13",
+     "how": "The H¹ form is compared with the unipotent Selmer schemes of Kim's conjecture."
+    },
+    {
+     "where": "NC.6/section-class-map, NC.6/section-map-injective, NC.6/section-conjecture",
+     "how": "Target of the section map, of the injectivity theorem and of the conjecture."
+    }
+   ],
+   "api": [
+    {
+     "name": "SectionClasses.mk",
+     "role": "constructor",
+     "statement": "The class [s] ∈ Sect(X/k) of a continuous section s of pr."
+    },
+    {
+     "name": "SectionClasses.mk_eq_mk_iff",
+     "role": "characterisation",
+     "statement": "[s] = [t] if and only if t = δ s δ⁻¹ for some δ in the geometric kernel Δ."
+    },
+    {
+     "name": "SectionClasses.orbit_eq_kim",
+     "role": "compatibility",
+     "statement": "The orbits of Kim's action of the whole group π (γ·s = c_γ ∘ s ∘ c_{pr(γ)⁻¹}) are exactly the Δ-conjugacy classes."
+    },
+    {
+     "name": "SectionClasses.equivH1",
+     "role": "equivalence",
+     "statement": "For a fixed section s_0, the map [s] ↦ [σ ↦ s(σ)s_0(σ)⁻¹] is a bijection Sect(X/k) ≅ H¹(Γ_k, Δ) with Γ_k acting through s_0, sending [s_0] to the base point."
+    },
+    {
+     "name": "SectionClasses.map",
+     "role": "functoriality",
+     "statement": "A k-morphism f: X → Y with compatible geometric base points induces Sect(X/k) → Sect(Y/k), independent of the path chosen to compare base points, with map_id and map_comp."
+    },
+    {
+     "name": "SectionClasses.restrict",
+     "role": "functoriality",
+     "statement": "For a finite separable extension k'/k, restriction of a section to Γ_{k'} gives Sect(X/k) → Sect(X_{k'}/k'), compatible with map."
+    },
+    {
+     "name": "SectionClasses.basepointEquiv",
+     "role": "compatibility",
+     "statement": "An étale path x̄ → x̄' induces a bijection of the sets of classes; two paths induce the same bijection."
+    },
+    {
+     "name": "GaloisSection.diff",
+     "role": "data",
+     "statement": "The difference cocycle σ ↦ s(σ)s_0(σ)⁻¹ of two sections, with values in the geometric kernel Δ."
+    },
+    {
+     "name": "GaloisSection.diff_mul",
+     "role": "relation",
+     "statement": "diff(στ) = diff(σ) · s_0(σ) diff(τ) s_0(σ)⁻¹: the difference is a 1-cocycle for the conjugation action through s_0."
+    },
+    {
+     "name": "SectionClasses.map_mk",
+     "role": "simp",
+     "statement": "SectionClasses.map f [s] = [f ∘ s] for a morphism of extensions f over Γ_k."
+    }
+   ],
+   "tests": [
+    {
+     "name": "SectionClasses.spec_field_unique",
+     "kind": "degenerate",
+     "statement": "For X = Spec k, Sect(X/k) has exactly one element, the class of the identity section of π = Γ_k."
+    },
+    {
+     "name": "SectionClasses.projectiveLine_unique",
+     "kind": "computation",
+     "statement": "For X = P¹_k, Sect(X/k) has exactly one element, because the geometric kernel is trivial."
+    },
+    {
+     "name": "SectionClasses.gm_kummer",
+     "kind": "compatibility",
+     "statement": "For char k = 0 and X = G_{m,k} with the reference section of the point 1, SectionClasses.equivH1 identifies Sect(G_m/k) with H¹(k, Ẑ(1)), and Kummer theory identifies this with the profinite completion lim_n k^×/k^{×n}."
+    },
+    {
+     "name": "SectionClasses.raw_sections_not_classes",
+     "kind": "non-example",
+     "statement": "For X = G_{m,Q}, a section s and its conjugate δ s δ⁻¹ by δ ∈ Ẑ(1) with δ² ≠ 1 differ as homomorphisms (complex conjugation acts on Ẑ(1) by inversion, so the difference cocycle δ·σ(δ)⁻¹ is nontrivial at σ = c) but have the same class: a definition that forgets the quotient is wrong."
+    }
+   ],
+   "planet": {
+    "name": "Galois sections"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/section-class-map",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "The section map of rational points",
+   "kind": "construction",
+   "statement": "For X/k as in section-classes and x ∈ X(k), the k-rational point gives a section s_x of π_1^ét(X, x̄_x) → Γ_k for a geometric point x̄_x over x (IG.1), whose image is a decomposition group of a point of the universal pro-étale cover over x. Transporting s_x along any étale path x̄_x → x̄ (NC.0/transferred-endpoint-section) gives a section of pr whose Δ-conjugacy class does not depend on the path. The section map is κ_X: X(k) → Sect(X/k), x ↦ [s_x]. If b ∈ X(k) is a reference point and Sect(X/k) is identified with H¹(Γ_k, Δ) through s_b, then κ_X(x) is the class of the Γ_k-equivariant Δ-torsor of étale paths from b to x (NC.0/arithmetic-geometric-paths). The map is natural for k-morphisms and compatible with restriction to finite separable extensions. κ_X(x) = κ_X(y) holds exactly when the path torsor P(x, y) has a Γ_k-fixed path (NC.0/path-section-comparison).",
+   "hypotheses": [
+    "X quasi-compact and geometrically connected over k; x ∈ X(k).",
+    "The map uses only rational points. Tangential base points give cuspidal sections of open curves (IG.1/tame-tangential-fiber) that are not values of κ_X on X(k)."
+   ],
+   "proofSteps": [
+    "A k-point x: Spec k → X induces Γ_k = π_1(Spec k) → π_1(X, x̄_x), a section by functoriality (IG.1).",
+    "Transport along a path p: x̄_x → x̄ gives p s_x p⁻¹; replacing p by p·h with h ∈ Δ conjugates the result by h (NC.0/transferred-endpoint-section).",
+    "With reference b, the difference cocycle of the transported s_x against s_b is the cocycle of the path torsor P(b, x) (NC.0/arithmetic-path-cocycle).",
+    "Naturality follows from functoriality of path torsors and sections (NC.0/arithmetic-path-functoriality)."
+   ],
+   "acceptance": [
+    "For X = Spec k, κ_X is the unique map from a point to a point.",
+    "For X = P¹_k with k infinite, κ_X is constant and not injective.",
+    "For X = G_{m,k} with reference b = 1, κ_X(a) is the Kummer class of a ∈ k^×."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/section-classes",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, p.90",
+     "match": "Constructs the class of a splitting from a rational point by transporting the induced map on fundamental groups along an étale path, and notes the independence up to conjugacy."
+    },
+    {
+     "sourceId": "stix-2008v1",
+     "locator": "§1.1, p.1",
+     "match": "A rational point yields a section whose image is a decomposition group, well defined up to geometric conjugation."
+    },
+    {
+     "sourceId": "bdckw-2018v4",
+     "locator": "§1.2, p.2",
+     "match": "Describes the same map as x ↦ the class of the torsor of étale paths from b to x."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "Kim 2009, Introduction p.90",
+     "how": "Grothendieck's conjecture asserts that this map is bijective."
+    },
+    {
+     "where": "Stix 2008, Theorem 45 (p.22)",
+     "how": "Injectivity of this map for subvarieties of abelian varieties over fields without divisible points."
+    },
+    {
+     "where": "NC.6/kummer-section-comparison",
+     "how": "Its abelianisation for an abelian variety is the Kummer map."
+    },
+    {
+     "where": "NC.6/section-conjecture",
+     "how": "The conjecture is the bijectivity of κ_X."
+    }
+   ],
+   "api": [
+    {
+     "name": "sectionClassMap_eq_pathTorsor",
+     "role": "characterisation",
+     "statement": "With a reference point b, κ_X(x) corresponds under SectionClasses.equivH1 to the class of the path torsor P(b, x) in H¹(Γ_k, Δ)."
+    },
+    {
+     "name": "sectionClassMap_base",
+     "role": "simp",
+     "statement": "Under the identification with H¹ through s_b, κ_X(b) is the base point."
+    },
+    {
+     "name": "sectionClassMap_natural",
+     "role": "functoriality",
+     "statement": "For a k-morphism f: X → Y, κ_Y ∘ f = SectionClasses.map f ∘ κ_X on X(k)."
+    },
+    {
+     "name": "sectionClassMap_restrict",
+     "role": "functoriality",
+     "statement": "For finite separable k'/k, SectionClasses.restrict ∘ κ_X = κ_{X_{k'}} ∘ (X(k) → X(k'))."
+    },
+    {
+     "name": "sectionClassMap_eq_iff",
+     "role": "characterisation",
+     "statement": "κ_X(x) = κ_X(y) if and only if the Γ_k-equivariant torsor of geometric paths from x to y has a Γ_k-fixed element."
+    }
+   ],
+   "tests": [
+    {
+     "name": "sectionClassMap_spec_field",
+     "kind": "degenerate",
+     "statement": "For X = Spec k the section map is the bijection between one-point sets."
+    },
+    {
+     "name": "sectionClassMap_projectiveLine_not_injective",
+     "kind": "non-example",
+     "statement": "For X = P¹_Q, κ_X(0) = κ_X(1) although 0 ≠ 1, since Sect(P¹/Q) is a point; hyperbolicity is needed for injectivity."
+    },
+    {
+     "name": "sectionClassMap_gm_eq_kummer",
+     "kind": "compatibility",
+     "statement": "For X = G_{m,Q} with reference point 1, κ_X is the Kummer map Q^× → lim_n Q^×/Q^{×n}; it is injective because Q^× = {±1} × (free abelian group) has no nontrivial element divisible by every n, and κ_X(−1) ≠ κ_X(1) since −1 is not a square."
+    },
+    {
+     "name": "sectionClassMap_gm_not_surjective",
+     "kind": "computation",
+     "statement": "For X = G_{m,Q}, κ_X is not surjective: Q^× is countable while lim_n Q^×/Q^{×n} is uncountable."
+    }
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/kummer-section-comparison",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Sections of an abelian variety and the Kummer map",
+   "kind": "comparison",
+   "statement": "Let A/k be an abelian variety and n ≥ 1 invertible in k. Multiplication by n is a finite étale Galois cover A → A with group A[n](k^s); it defines a quotient π_1(A/k) → π^{[n]}(A/k), an extension of Γ_k by A[n](k^s). For a ∈ A(k), let s_a and s_0 be the images in π^{[n]}(A/k) of sections attached to a and to the origin. Then the difference cocycle σ ↦ s_a(σ) s_0(σ)⁻¹, with values in A[n](k^s), represents the Kummer class δ_n(a) ∈ H¹(k, A[n]) of RP.1/kummer-map, with the sign convention δ_n(a)(σ) = σ(b) − b for any b with nb = a. Passing to the limit over n, the image of κ_A(a) − κ_A(0) in H¹(k, T̂A), T̂A = lim_n A[n](k^s), is the profinite Kummer class of a. For a curve X with a rational point b and Jacobian J, combining with the Abel–Jacobi map ι_b and SF.3/tate-module-etale-h1, the abelianised section map of X is x ↦ Kummer class of [x − b].",
+   "hypotheses": [
+    "A abelian variety over k; n invertible in k (all n when char k = 0).",
+    "Sign convention: Kummer cocycle σ(b) − b with nb = a, equal to the difference cocycle s_a s_0⁻¹."
+   ],
+   "proofSteps": [
+    "Identify the fibre of [n]: A → A over 0 with A[n](k^s); s_0 acts on it through the natural Galois action.",
+    "To let s_a act on the fibre over 0, choose the path from 0 to a given on the cover [n] by translation by a fixed b with nb = a.",
+    "Compute s_a(σ)(P) = −b + σ(P + b) = σ(P) + (σ(b) − b), so s_a(σ)s_0(σ)⁻¹ is translation by σ(b) − b, a Kummer cocycle (RP.1/kummer-map).",
+    "Compatibility of the covers [nm] → [n] gives the inverse limit statement; for Jacobians use the Abel–Jacobi functoriality of sections and the identification of T̂J with the abelianised geometric fundamental group (SF.3/tate-module-etale-h1)."
+   ],
+   "acceptance": [
+    "For E: y² = x³ − x over Q and a = (0, 0), δ_2(a) ≠ 0 because E(Q) = E[2](Q) ≅ (Z/2)² and so 2E(Q) = 0; hence the images of s_a and s_0 in π^{[2]}(E/Q) are not conjugate.",
+    "For a = 0 the difference cocycle is trivial and δ_n(0) = 0."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/section-class-map",
+    "HeightsRationalPointsAndObstructions:RP.1/kummer-map",
+    "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+    "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+    "SchemeAndStackFoundations:SF.3/tate-module-etale-h1",
+    "HeightsRationalPointsAndObstructions:RP.6/curve-in-jacobian"
+   ],
+   "sources": [
+    {
+     "sourceId": "stix-2008v1",
+     "locator": "Appendix B, Proposition 44 and proof, p.22",
+     "match": "Shows that the Kummer boundary of a rational point is represented by the difference cocycle of its section and the origin's section in the mod-n quotient, by computing the action on the fibre of multiplication by n."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/section-map-injective",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Injectivity of the section map",
+   "kind": "theorem",
+   "statement": "Let k be a field such that, for every abelian variety A/k, the group A(k) has no nonzero element divisible by every n ≥ 1 invertible in k. If X/k is a geometrically connected variety that admits an immersion into an abelian variety over k, then κ_X: X(k) → Sect(X/k) is injective. Consequently, for a number field k and a smooth projective geometrically connected curve X/k of genus g ≥ 1 (in particular for every proper hyperbolic curve, g ≥ 2), the section map κ_X is injective. The same holds for finite extensions of Q_p, where A(k) is a compact p-adic Lie group with no nonzero divisible elements.",
+   "hypotheses": [
+    "The divisibility hypothesis concerns all abelian varieties over k; over a number field it follows from the Mordell–Weil theorem.",
+    "For a curve, X(k) = ∅ makes the statement empty; otherwise a rational point b gives the Abel–Jacobi closed immersion X → J for g ≥ 1."
+   ],
+   "proofSteps": [
+    "If X(k) is empty there is nothing to prove; otherwise fix an immersion ι: X → A over k (for a curve, the Abel–Jacobi map at b, RP.6/curve-in-jacobian).",
+    "By naturality of the section map (sectionClassMap_natural) it suffices to show injectivity for A, since ι is injective on k-points.",
+    "If κ_A(x) = κ_A(y), then for every n the images in π^{[n]}(A/k) are conjugate, so by NC.6/kummer-section-comparison δ_n(x − y) = 0, that is x − y ∈ nA(k) for all n.",
+    "By hypothesis x − y = 0. Over a number field A(k) is finitely generated (RP.1/mordell-weil), and a finitely generated abelian group has no nonzero element divisible by every n: write it as Z^r ⊕ (finite) and take n a multiple of the torsion exponent."
+   ],
+   "acceptance": [
+    "Elliptic curves over Q: for E: y² = x³ − x, the four rational points have pairwise distinct section classes.",
+    "The non-example P¹_Q (no immersion into an abelian variety, κ constant) shows the immersion hypothesis cannot be dropped.",
+    "The elementary step: in Z ⊕ Z/6, an element divisible by every n ≥ 1 is zero."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/section-class-map",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kummer-section-comparison",
+    "HeightsRationalPointsAndObstructions:RP.6/curve-in-jacobian",
+    "HeightsRationalPointsAndObstructions:RP.1/mordell-weil",
+    "mathlib:AddGroup.FG"
+   ],
+   "sources": [
+    {
+     "sourceId": "stix-2008v1",
+     "locator": "Appendix B, Theorem 45, Remark 46, p.22; §1.1, p.2",
+     "match": "Proves injectivity for varieties immersing into abelian varieties over fields without divisible rational points, and notes that number fields (Mordell–Weil) and local fields qualify; the introduction attributes the injectivity part to Grothendieck."
+    },
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, p.90",
+     "match": "States the section conjecture whose injective half this node proves."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "planet": {
+    "name": "Injectivity of the section map"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/section-conjecture",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Grothendieck's section conjecture",
+   "kind": "definition",
+   "statement": "For a field k and a quasi-compact geometrically connected k-scheme X, the proposition SectionConjecture(X/k) states that the section map κ_X: X(k) → Sect(X/k) is a bijection. Grothendieck's section conjecture is the proposition that SectionConjecture(X/k) holds for every number field k and every smooth projective geometrically connected curve X/k of genus at least 2. It is an open problem: it is stated as a named proposition, and any result that uses it lists it among its hypotheses. By NC.6/section-map-injective, for such X it is equivalent to surjectivity of κ_X; in particular it predicts that a curve without rational points has no sections. The cuspidal form for affine hyperbolic curves, the birational form and the p-adic forms are different statements and are not this definition.",
+   "hypotheses": [
+    "The proposition is about rational points and conjugacy classes of continuous sections; it is not asserted.",
+    "The genus bound and the number-field hypothesis are part of the conjecture, not of the proposition SectionConjecture(X/k)."
+   ],
+   "proofSteps": [
+    "Define SectionConjecture(X/k) as bijectivity of κ_X (section-class-map).",
+    "Define the global conjecture by quantifying over number fields and smooth projective geometrically connected curves of genus ≥ 2.",
+    "Derive the equivalence with surjectivity from NC.6/section-map-injective."
+   ],
+   "acceptance": [
+    "SectionConjecture(Spec k/k) holds for every field k.",
+    "SectionConjecture(P¹_Q/Q) and SectionConjecture(G_{m,Q}/Q) both fail, for different reasons (non-injective, non-surjective)."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/section-class-map",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/section-map-injective",
+    "mathlib:Function.Bijective"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, p.90",
+     "match": "Formulates the section conjecture for smooth compact hyperbolic curves over number fields as bijectivity of the map from rational points to conjugacy classes of splittings, citing Grothendieck's 1983 letter."
+    },
+    {
+     "sourceId": "stix-2008v1",
+     "locator": "§1.1, Conjecture 1, p.1",
+     "match": "States the conjecture for smooth projective geometrically connected curves of genus at least 2 over number fields and records that the injective part is known."
+    },
+    {
+     "sourceId": "bdckw-2018v4",
+     "locator": "§1.2, p.2 and §3.4, p.13",
+     "match": "Restates the conjecture in the H¹ form and compares its surjectivity with the surjectivity statement for Selmer schemes."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "Kim 2009, Introduction pp.90 and 96",
+     "how": "The motivating conjecture whose 'implies Faltings' is replaced by the unipotent implications of Conjectures 1 and 2."
+    },
+    {
+     "where": "BDCKW §1.2 and §3.4",
+     "how": "Kim's eventual equality conjecture is presented as a unipotent analogue of its surjectivity."
+    },
+    {
+     "where": "Roadmap document, NC.6 acceptance",
+     "how": "The section-conjecture frontier is kept as a stated, unassumed proposition."
+    }
+   ],
+   "api": [
+    {
+     "name": "sectionConjecture_iff_surjective",
+     "role": "characterisation",
+     "statement": "For a number field k and a smooth projective geometrically connected curve X/k of genus ≥ 1, SectionConjecture(X/k) holds if and only if κ_X is surjective."
+    },
+    {
+     "name": "sectionConjecture_isEmpty_iff",
+     "role": "characterisation",
+     "statement": "If X(k) = ∅, SectionConjecture(X/k) holds if and only if Sect(X/k) = ∅, that is, the arithmetic sequence has no continuous section."
+    },
+    {
+     "name": "GrothendieckSectionConjecture",
+     "role": "data",
+     "statement": "The proposition: for every number field k and every smooth projective geometrically connected curve X/k of genus ≥ 2, SectionConjecture(X/k)."
+    },
+    {
+     "name": "sectionConjecture_of_equiv",
+     "role": "functoriality",
+     "statement": "SectionConjecture is invariant under isomorphism of k-schemes, via SectionClasses.map and sectionClassMap_natural."
+    },
+    {
+     "name": "SectionConjectureFor",
+     "role": "compatibility",
+     "statement": "The abstract form for an extension datum q: E → Γ with a family of sections indexed by a point set P: bijectivity of P → Sect; SectionConjecture(X/k) is the instance q = pr, P = X(k), x ↦ s_x."
+    }
+   ],
+   "tests": [
+    {
+     "name": "sectionConjecture_spec_field",
+     "kind": "degenerate",
+     "statement": "SectionConjecture(Spec k/k) holds: both sides are one-point sets."
+    },
+    {
+     "name": "not_sectionConjecture_projectiveLine",
+     "kind": "non-example",
+     "statement": "SectionConjecture(P¹_Q/Q) fails because κ is constant on the infinite set P¹(Q); a statement without the genus bound is false."
+    },
+    {
+     "name": "not_sectionConjecture_gm",
+     "kind": "non-example",
+     "statement": "SectionConjecture(G_{m,Q}/Q) fails because the Kummer map Q^× → lim_n Q^×/Q^{×n} is injective but not surjective; injectivity alone is not the conjecture."
+    },
+    {
+     "name": "sectionConjecture_iff_bijective",
+     "kind": "characterisation",
+     "statement": "SectionConjecture(X/k) is exactly bijectivity of κ_X; for an abstract section datum with a non-injective point map (two points with equal sections) it fails."
+    }
+   ],
+   "planet": {
+    "name": "Section conjecture"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Kim's dimension conjecture",
+   "kind": "definition",
+   "statement": "Setting (Kim 2009, pp.91–96): X is a smooth hyperbolic curve over Q, 𝒳 ⊂ 𝒳′ a smooth model over Z[1/S] with smooth compactification and smooth complement, b ∈ 𝒳(Z[1/S]) or an integral tangential base point, p ∉ S a prime of good reduction and T = S ∪ {p}. Depth n means the quotient U⟨n⟩ = U/Γ_{n+1}U of the Q_p-unipotent étale fundamental group U of X_{Q̄} at b (NC.2), which is Kim's U_{n+1}; S_n = H¹_f(G_T, U⟨n⟩) is the Selmer variety (classes crystalline at p, no condition at the other places of T), an affine Q_p-scheme of finite type (NC.3), and Q_n = U_dR⟨n⟩/F⁰ is the target of the depth-n de Rham Albanese map at p (NC.4). The proposition KimDimensionConjecture(X, p) states: there is n ≥ 1 with dim S_n < dim Q_n (Kim 2009, Conjecture 1). By NC.4/dimension-finiteness the inequality at one depth n gives finiteness of 𝒳(Z[1/S]), and of X(Q) when X is proper. The conjecture is open for curves of positive genus; it is stated as a named proposition, and every result that uses it lists it as a hypothesis. Refining the local conditions (for example the stringent conditions of BDCKW or the potentially unramified conditions of Kim §4) replaces S_n by a closed subscheme and can only lower dim S_n.",
+   "hypotheses": [
+    "X hyperbolic over Q (2g − 2 + s > 0 where s is the number of geometric points of the boundary); p ∉ S of good reduction for 𝒳′ and the boundary.",
+    "Dimensions are Krull dimensions of the represented affine schemes; dim Q_n = dim U_dR⟨n⟩ − dim F⁰U_dR⟨n⟩.",
+    "Depth indexing follows NC.2/NC.4 (depth 1 is the abelian quotient)."
+   ],
+   "proofSteps": [
+    "Take S_n from NC.3/selmer-functor and NC.3/finite-level-representability with only the crystalline condition at p.",
+    "Take Q_n and the de Rham Albanese map from NC.4/local-albanese.",
+    "Define the proposition as the existence of a depth with the strict inequality.",
+    "Prove finite_of_kimDimensionConjecture from NC.4/dimension-finiteness at that depth (with NC.4/rational-integral-containment)."
+   ],
+   "acceptance": [
+    "At depth 1 for a proper curve of genus g whose Jacobian has p-adic Selmer rank r, the inequality is r < g, Chabauty's condition (NC.4/depth-one-locus).",
+    "For P¹ ∖ {0, 1, ∞} over Z the inequality already holds at depth 1 (0 < 2)."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-functor",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-level-representability",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/local-albanese",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/dimension-finiteness",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/rational-integral-containment",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/locus-compatibilities",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/central-quotients"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, Conjecture 1 and the paragraph after it, p.96; §3, pp.120–121",
+     "match": "States the conjectural dimension inequality for some depth over Q, explains that it yields finiteness as in Chabauty's argument, and records that it is known in genus zero and some genus-one cases."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "Kim 2009, §3 pp.120–121",
+     "how": "The dimension inequality at one depth gives a nonzero algebraic function vanishing on the Selmer image, hence finiteness."
+    },
+    {
+     "where": "NC.6/vanishing-implies-dimension, NC.6/weak-jannsen-implies-dimension, NC.6/pseudo-null-implies-dimension",
+     "how": "Conclusion of the conditional bridges from motivic conjectures."
+    },
+    {
+     "where": "NC.6/genus-zero-dimension, NC.6/cm-rank-one-finiteness",
+     "how": "The known cases of the inequality."
+    },
+    {
+     "where": "BDCKW §1.8, p.4",
+     "how": "Finiteness of X(Z_p)_n as soon as the localisation image is a proper subvariety."
+    }
+   ],
+   "api": [
+    {
+     "name": "KimDimensionConjecture",
+     "role": "data",
+     "statement": "The proposition ∃ n ≥ 1, dim S_n < dim Q_n for the data (X, 𝒳, b, p, S)."
+    },
+    {
+     "name": "finite_of_kimDimensionConjecture",
+     "role": "relation",
+     "statement": "KimDimensionConjecture(X, p) implies that 𝒳(Z[1/S]) is finite, and that X(Q) is finite if X is proper."
+    },
+    {
+     "name": "kimDimensionConjecture_of_refined",
+     "role": "relation",
+     "statement": "If S′_n ⊆ S_n is the Selmer variety for finer local conditions, dim S′_n ≤ dim S_n; the inequality for S_n implies it for S′_n, and finiteness follows from either (NC.4/locus-compatibilities)."
+    },
+    {
+     "name": "kimDimensionConjecture_basepoint",
+     "role": "compatibility",
+     "statement": "The proposition does not depend on the integral base point b: change of base point gives isomorphic Selmer varieties (BDCKW §2.9) and the de Rham dimensions are independent of b."
+    },
+    {
+     "name": "dim_Q_eq_sum",
+     "role": "simp",
+     "statement": "dim Q_n = Σ_{k=1}^{n} (d_k − f_k), where d_k = dim gr_k U and f_k = dim F⁰ gr_k U_dR (NC.6/graded-central-dimensions)."
+    },
+    {
+     "name": "KimDimensionInequality",
+     "role": "other",
+     "statement": "The form on dimension sequences: for selDim, dRDim : ℕ → ℕ, ∃ n ≥ 1, selDim n < dRDim n; KimDimensionConjecture is the instance selDim n = dim S_n, dRDim n = dim Q_n."
+    },
+    {
+     "name": "kimDimensionInequality_mono",
+     "role": "relation",
+     "statement": "If selDim′ ≤ selDim pointwise, the inequality for selDim implies it for selDim′ (the dimension form of kimDimensionConjecture_of_refined)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "kimDimensionConjecture_depth_one_chabauty",
+     "kind": "compatibility",
+     "statement": "For a proper curve of genus g over Q whose Jacobian has p-adic Bloch–Kato Selmer rank r, the depth-1 inequality dim S_1 < dim Q_1 is the classical condition r < g."
+    },
+    {
+     "name": "kimDimensionConjecture_thrice_punctured_Z",
+     "kind": "computation",
+     "statement": "For P¹ ∖ {0, 1, ∞} over Z (S = ∅): dim S_1 = 0 (H¹_f(G_T, Q_p(1)) = Z^× ⊗ Q_p = 0) and dim Q_1 = 2, so the inequality holds at n = 1."
+    },
+    {
+     "name": "kimDimensionConjecture_thrice_punctured_half",
+     "kind": "computation",
+     "statement": "For P¹ ∖ {0, 1, ∞} over Z[1/2]: dim S_1 = 2 = dim Q_1, so depth 1 fails, while dim S_2 = 2 < 3 = dim Q_2 (H¹(G_T, Q_p(2)) = 0); the inequality first holds at depth 2."
+    },
+    {
+     "name": "not_kimDimensionConjecture_gm",
+     "kind": "non-example",
+     "statement": "For the non-hyperbolic G_m over Z[1/2], U = Q_p(1) is abelian, U⟨n⟩ = U⟨1⟩, and dim S_n = 1 = dim Q_n for every n, so the inequality never holds, matching the infinitude of G_m(Z[1/2]) = ±2^Z."
+    },
+    {
+     "name": "kimDimensionConjecture_needs_crystalline",
+     "kind": "non-example",
+     "statement": "Dropping the crystalline condition at p is wrong: for P¹ ∖ {0, 1, ∞} over Z, H¹(G_T, Q_p(1)) = Z[1/p]^× ⊗ Q_p is one-dimensional, so the unconditioned depth-1 variety has dimension 2 = dim Q_1."
+    }
+   ],
+   "planet": {
+    "name": "Kim's dimension conjecture"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Dimensions of the lower central quotients",
+   "kind": "theorem",
+   "statement": "Let X be a smooth curve over a number field with smooth compactification of genus g and s ≥ 0 boundary points over the algebraic closure, hyperbolic (2g − 2 + s > 0), and let d_n = dim gr_n U, where gr_n U = Γ_nU/Γ_{n+1}U for the Q_p-unipotent étale (or de Rham) fundamental group U of NC.2. If s ≥ 1, U is the unipotent completion of a free group on m = 2g + s − 1 generators and Σ_{k | n} k·d_k = m^n (Witt), so d_n = (1/n) Σ_{k | n} μ(k) m^{n/k}. If s = 0 (so g ≥ 2), U is the completion of a surface group with one relation of degree 2 and Σ_{k | n} k·d_k = α^n + β^n with α, β = g ± √(g² − 1) (Labute), so d_n = (1/n) Σ_{k | n} μ(k)(α^{n/k} + β^{n/k}). In both cases gr_1 U = H₁ has dimension m (resp. 2g), gr_n U is a G_T-equivariant quotient of H₁^{⊗n}, and d_n ~ λ^n/n with λ = m (resp. α); in the hyperbolic case λ > g.",
+   "hypotheses": [
+    "Hyperbolic smooth curve; the dimensions are those of the graded pieces of the lower central series of the Q_p-unipotent completion, equal to the ranks of the graded pieces of the discrete group.",
+    "gr_n is taken with Γ_1U = U, so gr_1 U is the abelianisation H₁."
+   ],
+   "proofSteps": [
+    "The topological fundamental group of the complex points is free on m generators (s ≥ 1) or the one-relator surface group (s = 0); the unipotent completion has the same graded Lie algebra tensored with Q_p (NC.2/etale-galois, NC.2/central-quotients).",
+    "Free case: the graded Lie algebra is free on H₁, and Witt's formula (QM.6/free-lie-algebra-character-formula) gives d_n.",
+    "Surface case: the graded Lie algebra is the free Lie algebra on 2g generators modulo the ideal generated by the symplectic element of degree 2; its enveloping algebra has Hilbert series 1/(1 − 2g t + t²), which gives the stated divisor sum (Labute).",
+    "gr_n is spanned by iterated brackets of degree-1 elements, so it is a quotient of H₁^{⊗n}; the asymptotics follow from the divisor sums."
+   ],
+   "acceptance": [
+    "m = 2 (P¹ ∖ {0, 1, ∞}): d_1, …, d_5 = 2, 1, 2, 3, 6.",
+    "g = 2, s = 0: d_1 = 4, d_2 = 5 (= dim Λ²H₁ − 1), d_3 = 16.",
+    "g = 1, s = 0 (not hyperbolic): the formula gives d_1 = 2 and d_n = 0 for n ≥ 2, the abelian case."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/central-quotients",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/etale-galois",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/tannakian-groups",
+    "QSeriesPartitionsAndMockModularForms:QM.6/free-lie-algebra-character-formula",
+    "mathlib:ArithmeticFunction.moebius",
+    "mathlib:Nat.divisors"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, proof of Proposition 2, pp.122–123",
+     "match": "States the two recursive divisor-sum formulas for the graded dimensions, citing Labute for the surface-group case, and their asymptotics."
+    },
+    {
+     "sourceId": "linton-nyberg-brodda-2025",
+     "locator": "§1.7, discussion of the lower central series of one-relator groups and equation (32), p.65",
+     "match": "Reports Labute's theorem that the graded Lie algebra of a one-relator group whose relator is not a proper power modulo the lower central series is a one-relator Lie algebra, gives the closed Möbius formula for the ranks in genus 2, and the exponential growth rate g + √(g² − 1) in genus g; expanding its inner sum as α^d + β^d with α + β = 4, αβ = 1 recovers Kim's divisor sum."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/selmer-vanishing-conjecture",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Vanishing of the strict Selmer groups of tensor powers",
+   "kind": "definition",
+   "statement": "Let F be a number field, X/F a smooth curve, p a prime and T a finite set of places of F containing the places above p, the archimedean places and the places of bad reduction of X and its boundary. Put V_n = H¹_ét(X_{F̄}, Q_p)^{⊗n}(1), a continuous Q_p-representation of G_T. For a finite-dimensional continuous representation V of G_T, Sel⁰_T(V) is the kernel of H¹(G_T, V) → ⊕_{w ∈ T} H¹(G_w, V), the group Ш¹_T(V) with rational coefficients. The proposition SelmerVanishing(X, p, T) states that Sel⁰_T(V_n) = 0 for all sufficiently large n (Kim 2009, Conjecture 2). It is open in general and is stated as a named proposition.",
+   "hypotheses": [
+    "Continuous cohomology of the profinite group G_T with Q_p-coefficients (limits of lattices, as in ArithmeticGaloisDuality).",
+    "The local maps are restrictions to decomposition groups G_w for w ∈ T; no condition is imposed outside T beyond being unramified there."
+   ],
+   "proofSteps": [
+    "Define V_n from H¹ of the curve with the G_T action (SF.3/tate-module-etale-h1 for the proper part; NC.2 for the unipotent comparison).",
+    "Define Sel⁰_T(V) as the kernel of localisation, Ш¹_T(V) of AGD R02.4/restricted-product-cohomology, extended to rational coefficients by R02.4/lattice-rational-poitou-tate.",
+    "Define the proposition by an eventually-true statement in n."
+   ],
+   "acceptance": [
+    "For P¹ ∖ {0, 1, ∞} over Q, V_n ≅ Q_p(1 − n)^{2^n} and Sel⁰_T(V_n) = 0 for n ≥ 2.",
+    "For n = 1 and a proper curve, V_1 ≅ V_pJ by the Weil pairing and Sel⁰_T(V_pJ) is the fine Selmer space of J."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.4/restricted-product-cohomology",
+    "ArithmeticGaloisDuality:R02.4/lattice-rational-poitou-tate",
+    "SchemeAndStackFoundations:SF.3/tate-module-etale-h1",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/etale-galois",
+    "mathlib:Filter.Eventually"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, Conjecture 2 and the definition of Sel⁰_T before it, p.121",
+     "match": "Defines the strict Selmer group as the kernel of localisation at T and conjectures its vanishing on the twisted tensor powers of H¹ for large n."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "Kim 2009, Proposition 2 and Lemma 6, pp.122–125",
+     "how": "Through Poitou–Tate duality it bounds H² of the graded pieces, which forces the dimension inequality."
+    },
+    {
+     "where": "Kim 2009, Observations 1 and 2, p.122",
+     "how": "Bloch–Kato and a weight-filtration form of Fontaine–Mazur each imply it."
+    },
+    {
+     "where": "NC.6/h2-growth-bound, NC.6/vanishing-implies-dimension",
+     "how": "Hypothesis of the H² estimate and of the implication to Conjecture 1."
+    }
+   ],
+   "api": [
+    {
+     "name": "SelmerVanishing",
+     "role": "data",
+     "statement": "The proposition: Sel⁰_T(V_n) = 0 for all sufficiently large n."
+    },
+    {
+     "name": "sel0_eq_sha1",
+     "role": "compatibility",
+     "statement": "Sel⁰_T(V) is Ш¹_T(V) of ArithmeticGaloisDuality with rational coefficients."
+    },
+    {
+     "name": "sel0_dual_sha2",
+     "role": "relation",
+     "statement": "Poitou–Tate: Sel⁰_T(V) is dual to Ш²_T(V^∨(1)); for V = V_n, V^∨(1) = H₁^{⊗n} with H₁ = H¹(X_{F̄}, Q_p)^∨, so SelmerVanishing is equivalent to Ш²_T(H₁^{⊗n}) = 0 for n ≫ 0."
+    },
+    {
+     "name": "sel0_mono_T",
+     "role": "functoriality",
+     "statement": "For T ⊆ T′, inflation identifies Sel⁰_{T′}(V) with a subspace of Sel⁰_T(V)."
+    },
+    {
+     "name": "selmerVanishing_of_finite_extension",
+     "role": "functoriality",
+     "statement": "If F′/F is finite, SelmerVanishing over F′ implies it over F, since restriction is injective on H¹ with Q_p-coefficients."
+    },
+    {
+     "name": "EventuallyVanishing",
+     "role": "other",
+     "statement": "The form on dimension sequences: dim n = 0 for all large n; SelmerVanishing is the instance dim n = dim Sel⁰_T(V_n)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "selmerVanishing_thrice_punctured",
+     "kind": "computation",
+     "statement": "For X = P¹ ∖ {0, 1, ∞} over Q, Sel⁰_T(V_n) = 0 for every n ≥ 2: V_n ≅ Q_p(1 − n)^{2^n}, Ш¹_T(Q_p(j)) is dual to Ш²_T(Q_p(1 − j)), and H²(G_T, Q_p(m)) = 0 for m ≥ 2 (Soulé)."
+    },
+    {
+     "name": "sel0_eq_sha1_test",
+     "kind": "compatibility",
+     "statement": "For any V, Sel⁰_T(V) equals the kernel of the localisation map of AGD R02.4/restricted-product-cohomology after tensoring with Q_p."
+    },
+    {
+     "name": "selmerVanishing_not_bloch_kato_selmer",
+     "kind": "non-example",
+     "statement": "Replacing Sel⁰_T by the Bloch–Kato Selmer group H¹_f is wrong: for an elliptic curve E/Q of positive rank, H¹_f(G_Q, V_pE) ⊇ E(Q) ⊗ Q_p ≠ 0 at n = 1, whereas the strict group only requires local triviality and the conjecture concerns n ≫ 0."
+    },
+    {
+     "name": "selmerVanishing_zero_rep",
+     "kind": "degenerate",
+     "statement": "For V = 0, Sel⁰_T(V) = 0."
+    }
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/h2-growth-bound",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Kim's H² estimate",
+   "kind": "theorem",
+   "statement": "Assume SelmerVanishing(X, p, T) for X/F as in selmer-vanishing-conjecture, with compactification of genus g and s boundary points. Then there is an explicit polynomial P, depending only on g, s and |T|, such that dim_{Q_p} H²(G_T, gr_n U) ≤ P(n)·g^n for all sufficiently large n (with g^n read as 0 when g = 0 and n ≥ 2, where the local invariants vanish). At a place w ∤ p the local contribution is at most n·dim Gr^W_2·g^{n−1} + (n(n−1)/2)(dim Gr^W_1)²·g^{n−2} from the weight filtration of H¹ attached to semistable reduction, plus the boundary contribution n(s − 1)g^{n−1}; at w | p it is at most n(g + s − 1)g^{n−1}, from the Hodge–Tate weights of H¹.",
+   "hypotheses": [
+    "SelmerVanishing(X, p, T) holds; n is beyond the threshold it provides.",
+    "gr_n U is the G_T-equivariant quotient of H₁^{⊗n} of NC.6/graded-central-dimensions, H₁ = H¹(X_{F̄}, Q_p)^∨."
+   ],
+   "proofSteps": [
+    "Since cd_p(G_T) = 2 (AGD R02.4/cohomological-dimension-bound, p odd or F totally imaginary), H² is right exact: H²(G_T, H₁^{⊗n}) ↠ H²(G_T, gr_n U).",
+    "By SelmerVanishing and Poitou–Tate (sel0_dual_sha2), Ш²_T(H₁^{⊗n}) = 0, so H²(G_T, H₁^{⊗n}) injects into ⊕_{w ∈ T} H²(G_w, H₁^{⊗n}).",
+    "Local duality (AGD D7/local-coefficient-field-duality): dim H²(G_w, H₁^{⊗n}) = dim H⁰(G_w, H¹^{⊗n}(1)).",
+    "For w ∤ p, after a finite extension giving semistable reduction, H¹ of the compactification has a weight filtration W_0 ⊂ W_1 ⊂ W_2 with dim W_0 = dim Gr_2 ≤ g (DWP.10); the boundary part is Q_p(−1)^{s−1}. Invariants of H¹^{⊗n}(1) come only from tensors with exactly one factor of weight 2 and the rest of weight 0, or two factors of weight 1, which gives the stated count.",
+    "For w | p, H¹ is de Rham with Hodge–Tate weights 0 (multiplicity g) and 1 (multiplicity g + s − 1) (PHT R06.5 de Rham comparison, R06.2 de Rham ⇒ Hodge–Tate); invariants of a Hodge–Tate representation embed in its weight-0 part (Tate, R06.2), which gives n(g + s − 1)g^{n−1}."
+   ],
+   "acceptance": [
+    "For P¹ ∖ {0, 1, ∞} (g = 0) the bound gives H²(G_T, gr_n U) = 0 for n ≥ 2, consistent with Soulé's vanishing H²(G_T, Q_p(n)) = 0.",
+    "For g ≥ 2 the bound grows like n²g^n, slower than d_n ~ α^n/n since α = g + √(g² − 1) > g."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/selmer-vanishing-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound",
+    "ArithmeticGaloisDuality:R02.4/lattice-rational-poitou-tate",
+    "ArithmeticGaloisDuality:D7/local-coefficient-field-duality",
+    "DeligneWeightsAndPurity:DWP.10/finite-residue-semistable-curve-weights",
+    "PadicHodgeTheory:R06.5/proper-smooth-rational-de-rham-comparison",
+    "PadicHodgeTheory:R06.2/plan/de-rham-implies-hodge-tate",
+    "PadicHodgeTheory:R06.2/plan/hodge-tate-decomposition-tate"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, Lemma 6 and proof, pp.124–125",
+     "match": "Bounds H² of the graded pieces by a polynomial times g^n, using cohomological dimension two, Conjecture 2 with Poitou–Tate, local duality, the weight filtration from Raynaud's uniformisation away from p and the Hodge–Tate decomposition at p; the coefficient module is written H¹ where its dual H₁ is meant (source issue E-NC6-kim-h1-notation)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/vanishing-implies-dimension",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Selmer vanishing implies the dimension conjecture",
+   "kind": "theorem",
+   "statement": "Let X be a smooth hyperbolic curve over Q with the data of kim-dimension-conjecture. If SelmerVanishing(X, p, T) holds, then KimDimensionConjecture(X, p) holds; hence 𝒳(Z[1/S]) is finite (and X(Q) if X is proper). Precisely, for n large (of suitable parity), dim S_n ≤ Σ_{k ≤ n} dim H¹(G_T, gr_k U) ≤ Σ_{k ≤ n} (d_k⁻ + P(k)g^k) < Σ_{k ≤ n} (d_k − g^k) ≤ dim Q_n, where d_k⁻ is the dimension of the (−1)-eigenspace of complex conjugation on gr_k U. Here d_k⁻ = (d_k − τ_k)/2 with τ_k the trace of complex conjugation, computed from its trace t on H₁. In the proper case τ_k = 0 for odd k (gr_k U is pure of odd weight −k). In the affine case τ_k = (1/k) Σ_{e | k} μ(e) t_e^{k/e} with t_e = t for odd e and t_e = m for even e; either |t| < m, and then |τ_k| = o(d_k), or t = −m (genus 0 with all boundary points real), and then complex conjugation acts on gr_k U by (−1)^k. In every case Σ_{k ≤ n} d_k⁺ ≥ c·λ^n/n for infinitely many n, with λ > g.",
+   "hypotheses": [
+    "SelmerVanishing(X, p, T); X hyperbolic over Q; T = S ∪ {p} with p of good reduction.",
+    "The comparison of eigenspace dimensions uses the corrected count of source issue E-NC6-kim-conjugation-eigenspaces, not Kim's printed value d_k/2."
+   ],
+   "proofSteps": [
+    "The central extensions 1 → gr_{n}U → U⟨n⟩ → U⟨n−1⟩ → 1 make H¹(G_T, U⟨n⟩) fibred over a subvariety of H¹(G_T, U⟨n−1⟩) with fibres torsors under H¹(G_T, gr_n U) (NC.3/central-extension, NC.3/finite-level-representability), so dim S_n ≤ Σ_{k ≤ n} dim H¹(G_T, gr_k U).",
+    "H⁰(G_T, gr_k U) = 0 for k ≥ 1 (weights of H₁ are −1 and −2), so Tate's global Euler characteristic formula over Q (AGD R02.4/global-euler-characteristic with rational coefficients) gives dim H¹ − dim H² = d_k⁻.",
+    "Bound dim H² by NC.6/h2-growth-bound and dim F⁰ gr_k U_dR by g^k (F⁰ of H₁^{dR ⊗k} has dimension dim H¹(O)^{⊗k} = g^k), so dim Q_n ≥ Σ_{k ≤ n} (d_k − g^k).",
+    "Compare: the difference is at least Σ_{k ≤ n} d_k⁺ − Σ_{k ≤ n} (P(k) + 1)g^k, and by NC.6/graded-central-dimensions and the trace computation Σ_{k ≤ n} d_k⁺ ≥ c·λ^n/n for infinitely many n with λ > g; choose such n.",
+    "Finiteness then follows from finite_of_kimDimensionConjecture."
+   ],
+   "acceptance": [
+    "For a proper curve of genus 2, λ = 2 + √3 ≈ 3.73 > 2 = g, and the counting step succeeds once Σ_{k ≤ n} d_k/2 over odd k exceeds Σ_{k ≤ n} (P(k) + 1)2^k.",
+    "For P¹ ∖ {0, 1, ∞} complex conjugation acts on gr_k U ≅ Q_p(k)^{d_k} by (−1)^k, so d_k⁺ = d_k for even k and 0 for odd k; the count succeeds through the even degrees."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/selmer-vanishing-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/h2-growth-bound",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-level-representability",
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.4/lattice-rational-poitou-tate",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/filtered-path",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/local-albanese"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, Proposition 2 and proof, pp.122–124",
+     "match": "Proves that Conjecture 2 implies Conjecture 1 by comparing the growth of the graded dimensions with the Euler characteristic and the H² estimate; the eigenspace value printed on p.123 needs the correction recorded in sourceIssues."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "planet": {
+    "name": "Selmer vanishing criterion"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/bloch-kato-implies-vanishing",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Bloch–Kato implies Selmer vanishing",
+   "kind": "theorem",
+   "statement": "Let X/F be a smooth curve over a number field and p, T as in selmer-vanishing-conjecture. Suppose that, for every n ≥ 2, the group H¹_g(G_F, H^n(X^n_{F̄}, Q_p(1))) of classes unramified at almost all places and de Rham (potentially semistable) at the places above p is spanned by the image of K-theory under the étale Chern class map, as predicted by the Bloch–Kato conjecture (their Conjecture 5.3, as cited by Kim). Since the relevant K-group K^{(1)}_{1−n}(X^n) is zero for n ≥ 2, this hypothesis says that H¹_g(G_F, H^n(X^n_{F̄}, Q_p(1))) = 0 for n ≥ 2. Then SelmerVanishing(X, p, T) holds; in fact Sel⁰_T(V_n) = 0 for every n ≥ 2.",
+   "hypotheses": [
+    "The Bloch–Kato fragment for the motives h^n(X^n)(1), n ≥ 2, is a hypothesis; it is not a theorem of any roadmap.",
+    "For open X the smooth variety X^n is not proper and the hypothesis is the corresponding statement for its cohomology."
+   ],
+   "proofSteps": [
+    "By Künneth, V_n = H¹(X_{F̄}, Q_p)^{⊗n}(1) is a G_F-stable direct summand of H^n(X^n_{F̄}, Q_p(1)).",
+    "A class in Sel⁰_T(V_n) is unramified outside T and locally trivial at T, so it lies in H¹_g(G_F, V_n) ⊆ H¹_g(G_F, H^n(X^n_{F̄}, Q_p(1))) (PHR L1/bloch-kato-subgroups).",
+    "The weight-graded piece K^{(1)}_{2r−n−1} with r = 1 is a negative K-group of the regular scheme X^n for n ≥ 2, hence zero, so the hypothesis gives H¹_g = 0 and therefore Sel⁰_T(V_n) = 0."
+   ],
+   "acceptance": [
+    "For P¹ ∖ {0, 1, ∞} over Q the conclusion holds unconditionally (selmerVanishing_thrice_punctured), consistent with Soulé's theorem.",
+    "The hypothesis is used only through the vanishing of H¹_g; no regulator computation enters."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/selmer-vanishing-conjecture",
+    "PadicHodgeRegulators:L1/bloch-kato-subgroups",
+    "MotivicEtaleKTheory:M.8/finite-etale-chern",
+    "EtaleDualityAndPerverseSheaves:EDC.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, Observation 1 and the paragraph before it, pp.121–122",
+     "match": "Places Sel⁰_T(V_n) inside H¹_g of a twisted cohomology group of X^n and deduces Conjecture 2 from Bloch–Kato's conjectured isomorphism with K-theory, whose source group vanishes in this range."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/weight-splitting-implies-vanishing",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Weight filtrations on extensions imply Selmer vanishing",
+   "kind": "theorem",
+   "statement": "Let X/F and V_n be as in selmer-vanishing-conjecture and n ≥ 3. Suppose every extension 0 → V_n → E → Q_p → 0 of G_T-representations whose class lies in Sel⁰_T(V_n) carries a finite increasing filtration W by G_T-subrepresentations, strictly compatible with the maps of the extension, inducing on Q_p the filtration pure of weight 0 and on V_n a filtration with W_0V_n = 0. Then Sel⁰_T(V_n) = 0. The hypothesis is what Kim (following Scholl) derives from the Fontaine–Mazur conjecture together with the expectation that such extensions are Q_p-linear combinations of extensions of geometric origin; it is a stated hypothesis here. For proper X, V_n is pure of weight n − 2 and W_0V_n = 0 for n ≥ 3; for open X the weights of V_n lie in [n − 2, 2n − 2] and the same conclusion holds.",
+   "hypotheses": [
+    "The weight-filtration hypothesis on each extension class in Sel⁰_T(V_n); n ≥ 3.",
+    "Weights of V_n come from the weights 1 (compact part) and 2 (boundary part) of H¹ at good places."
+   ],
+   "proofSteps": [
+    "Strictness gives v ∈ W_0E mapping to 1 ∈ Q_p.",
+    "W_0E ∩ V_n = W_0V_n = 0 since all weights of V_n are at least n − 2 ≥ 1 (WEC R34.2 purity at good places).",
+    "Hence W_0E is a one-dimensional G_T-stable complement of V_n, the extension splits and its class is zero."
+   ],
+   "acceptance": [
+    "For n = 2 and proper X, V_2 has weight 0 and the argument does not apply.",
+    "For P¹ ∖ {0, 1, ∞}, V_n = Q_p(1 − n)^{2^n} has weight 2n − 2 ≥ 4 for n ≥ 3."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/selmer-vanishing-conjecture",
+    "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, Observation 2 and the argument after it, p.122",
+     "match": "Attributes to Scholl the deduction of Conjecture 2 from the Fontaine–Mazur conjecture via weight filtrations on geometric extensions, and splits the extension through its weight-zero part for n ≥ 3; the purity claim needs the open-curve correction recorded in sourceIssues."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/weak-jannsen-implies-dimension",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Weak Jannsen vanishing implies the dimension conjecture for affine curves",
+   "kind": "theorem",
+   "statement": "Let X be a smooth affine hyperbolic curve over Q (s ≥ 1) with compactification X′ of genus g and the data of kim-dimension-conjecture. Assume the weak Jannsen conjecture: there is k > 0 such that H²(G_T, H^i(V_{Q̄}, Q_p)(r)) = 0 for every smooth projective V/Q with good reduction outside T, every i and every r ≥ i + k. Then KimDimensionConjecture(X, p) holds, so 𝒳(Z[1/S]) is finite.",
+   "hypotheses": [
+    "X affine (s ≥ 1); the weak Jannsen vanishing is a hypothesis for all smooth projective V/Q with good reduction outside T.",
+    "Kim records that the argument was not adapted to the compact case."
+   ],
+   "proofSteps": [
+    "Pass to a finite extension over which all cusps are rational; this does not affect the H² estimate (corestriction).",
+    "Use 0 → Q_p(1)^{s−1} → H₁(X) → H₁(X′) → 0 and, in the Grothendieck group, expand H₁(X)^{⊗n} into tensor products of V = H₁(X′) ≅ H¹(X′)(1) and Q_p(1).",
+    "V^{⊗l} is a direct summand of H^l(X′^l_{Q̄})(l) (Künneth), so H²(G_T, V^{⊗l}(r)) = 0 for r ≥ k by the hypothesis.",
+    "The Weil pairing embeds Q_p(1) in V^{⊗2} as a direct summand; writing V^{⊗2k} = M ⊕ Q_p(k) and iterating, dim H²(G_T, V^{⊗n}(l)) ≤ C·a^n with a = ((2g)^{2k} − 1)^{1/(2k)} < 2g ≤ m.",
+    "Combine with the Euler characteristic and the graded dimensions d_n ~ m^n/n as in vanishing-implies-dimension."
+   ],
+   "acceptance": [
+    "For g = 0 every tensor power of H₁ is a sum of Tate twists and the hypothesis reduces to Soulé's vanishing of H²(G_T, Q_p(r)) for r ≥ 2.",
+    "The bound C·a^n with a < m is the only input from the hypothesis."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/vanishing-implies-dimension",
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound",
+    "PadicHodgeTheory:R06.5/plan/weil-pairing-duality",
+    "EtaleDualityAndPerverseSheaves:EDC.0"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§3, statement of the weak Jannsen conjecture, Observation 3 and its proof, pp.125–126",
+     "match": "Shows for affine curves that a uniform vanishing of H² in large twists bounds H² of the tensor powers by an exponential of base below m, which suffices for Conjecture 1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/cm-rank-one-finiteness",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Integral points on punctured CM elliptic curves of rank one",
+   "kind": "theorem",
+   "statement": "Let E/Q be an elliptic curve with complex multiplication, X = E ∖ {O} with its minimal model and an integral tangential base point at O, p an odd prime of good reduction and T the bad primes together with p. Assume that the Bloch–Kato Selmer group H¹_f(G_Q, V_pE) has dimension one (this holds, for example, when E(Q) has rank one and Ш(E)[p^∞] is finite). Let Sel_T(U⟨n⟩) be the refined Selmer variety of classes potentially unramified at the primes of T other than p and potentially crystalline at p. Then dim Sel_T(U⟨2⟩) ≤ 1 < 2 = dim U_dR⟨2⟩/F⁰, so the integral points 𝒳(Z) form a finite set, without any conjectural input.",
+   "hypotheses": [
+    "CM ensures potentially good reduction everywhere (good reduction over Q(E[12])), which defines the potentially unramified conditions.",
+    "Selmer rank one is a hypothesis on V_pE; rank E(Q) = 1 alone does not give it without finiteness of Ш(E)[p^∞] (source issue E-NC6-kim-rank-one)."
+   ],
+   "proofSteps": [
+    "Depth-two graded piece: gr_2 U = Λ²H₁ ≅ Q_p(1) (NC.6/graded-central-dimensions with m = 2).",
+    "The refined central sequence 0 → Sel_T(gr_2 U) → Sel_T(U⟨2⟩) → Sel_T(U⟨1⟩) is exact in the torsor sense (NC.3/central-selmer-dimension), so dim Sel_T(U⟨2⟩) ≤ dim Sel_T(H₁) + dim Sel_T(Q_p(1)).",
+    "Sel_T(Q_p(1)) = Z^× ⊗ Q_p = 0 (SIC L0/s-unit-kummer-identification). Sel_T(H₁) = H¹_f(G_Q, V_pE): at ℓ ≠ p the local H¹ of V_pE vanishes for potentially good reduction (weights), and at p potentially crystalline classes are de Rham, where H¹_g = H¹_f for V_pE; it has dimension one by hypothesis (SIC L4/elliptic-finite-kummer).",
+    "On the de Rham side F⁰(gr_2 U_dR) = 0 because F⁰H₁ ∧ F⁰H₁ = 0, so dim U_dR⟨2⟩/F⁰ = 3 − 1 = 2.",
+    "The refined conditions are finer than Kim's, so NC.4/locus-compatibilities and NC.4/dimension-finiteness give finiteness."
+   ],
+   "acceptance": [
+    "The congruent-number curve y² = x³ − 25x has CM by Z[i] and E(Q) of rank one, generated modulo torsion by (−4, 6); with Ш(E)[p^∞] finite it satisfies the hypothesis.",
+    "The depth used is 2 in this roadmap's indexing (Kim's U_3)."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/central-selmer-dimension",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/local-condition-geometry",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/locus-compatibilities",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/dimension-finiteness",
+    "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
+    "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§4, pp.127–129",
+     "match": "Defines the potentially unramified and potentially crystalline refined Selmer varieties, proves the central exact sequence for them and computes the depth-two dimensions for a rank-one CM curve, obtaining finiteness of integral points independently of conjectures."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/pseudo-null-implies-dimension",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Pseudo-nullity implies the dimension conjecture for punctured CM curves",
+   "kind": "theorem",
+   "statement": "Let E/Q have complex multiplication, X = E ∖ {O}, p a prime of good reduction, F_1 = Q(E[p]), F_∞ = Q(E[p^∞]), G_∞ = Gal(F_∞/F_1), Λ = Z_p[[G_∞]], and I the Galois group of the maximal abelian unramified pro-p extension of F_∞ in which the primes above T split completely. Assume the Coates–Sujatha conjecture that I is a pseudo-null Λ-module. Then KimDimensionConjecture holds for X (working over F_1, which suffices because corestriction is surjective on H²), and hence 𝒳(Z) is finite.",
+   "hypotheses": [
+    "The pseudo-nullity of I over Λ is a hypothesis.",
+    "The H² estimate is reduced to F_1; local terms are bounded as in h2-growth-bound with g = 1."
+   ],
+   "proofSteps": [
+    "It suffices to bound dim H²(G_T, H₁^{⊗n}) by a polynomial in n; the local contributions are bounded as in NC.6/h2-growth-bound, so it suffices to bound Ш²_T(H₁^{⊗n}).",
+    "By Poitou–Tate this is dual to Sel⁰_T(H¹^{⊗n}(1)), and the Hochschild–Serre sequence for F_∞/F_1 in continuous cohomology identifies it with Hom_Λ(I, H¹^{⊗n}(1)).",
+    "Pseudo-nullity makes I finitely generated over Z_p (Greenberg 1978, as cited by Kim), so a Frobenius element has finitely many eigenvalues on I ⊗ Q_p; by weights Hom_Λ(I, H¹^{⊗n}(1)) = 0 for n ≫ 0.",
+    "Conclude as in vanishing-implies-dimension with the polynomial bound."
+   ],
+   "acceptance": [
+    "The hypothesis is about F_∞ = Q(E[p^∞]), a two-dimensional p-adic Lie extension of F_1 in the CM case.",
+    "With g = 1 the local bound is polynomial in n, and d_n ~ 2^n/n for m = 2."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/h2-growth-bound",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/vanishing-implies-dimension",
+    "PadicMeasuresIwasawaAlgebras:L4/pseudo-null",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2009",
+     "locator": "§4, Observation 4 and its proof, pp.130–131",
+     "match": "Derives Conjecture 1 for a punctured CM curve from the pseudo-nullity conjecture of Coates and Sujatha through Poitou–Tate, Hochschild–Serre and a weight argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/genus-zero-dimension",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "The dimension conjecture for the thrice-punctured line",
+   "kind": "theorem",
+   "statement": "Let X = P¹ ∖ {0, 1, ∞} over Z[1/S] with S a finite set of primes, b the tangential base point at 0, and p ∉ S. Then KimDimensionConjecture(X, p) holds, hence X(Z[1/S]) is finite (Siegel's theorem for this curve). Explicitly gr_n U ≅ Q_p(n)^{r_n} with r_n the Witt numbers for m = 2, F⁰ = 0 on U_dR so dim Q_n = Σ_{k ≤ n} r_k, and dim S_n ≤ |S|·2 + Σ_{3 ≤ k ≤ n, k odd} r_k, which is smaller for n large.",
+   "hypotheses": [
+    "S finite, p ∉ S; T = S ∪ {p}.",
+    "Uses Soulé's computation of H¹(G_T, Q_p(k)): zero for even k ≥ 2 and one-dimensional for odd k ≥ 3."
+   ],
+   "proofSteps": [
+    "H₁ = Q_p(1)² and gr_n U is a quotient of H₁^{⊗n}, so gr_n U ≅ Q_p(n)^{r_n} with r_n from NC.6/graded-central-dimensions.",
+    "H¹_f(G_T, Q_p(1)) = Z[1/S]^× ⊗ Q_p has dimension |S| (SIC L0/s-unit-kummer-identification); H¹(G_T, Q_p(k)) = 0 for even k ≥ 2 and has dimension one for odd k ≥ 3 (Soulé; ArithmeticKTheory N.5).",
+    "The central-extension fibration gives dim S_n ≤ 2|S| + Σ_{odd 3 ≤ k ≤ n} r_k (NC.3/central-extension).",
+    "Since the Hodge filtration of H¹_dR is F¹ = everything, F⁰U_dR is trivial and dim Q_n = Σ_{k ≤ n} r_k; the even-degree terms make the difference positive for large n.",
+    "Finiteness follows from NC.4/dimension-finiteness."
+   ],
+   "acceptance": [
+    "S = ∅: the inequality holds at depth 1 (0 < 2).",
+    "S = {2}: depth 1 gives 2 = 2, depth 2 gives 2 < 3, in agreement with BDCKW §8.2."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-dimension-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-level-representability",
+    "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
+    "ArithmeticKTheory:N.5",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/dimension-finiteness"
+   ],
+   "sources": [
+    {
+     "sourceId": "kim-2005v1",
+     "locator": "Introduction, pp.1–2; §3, end of the proof of the main theorem, pp.17–18",
+     "match": "Bounds the Selmer dimension using the Tate-twist graded pieces and Soulé's vanishing, compares with the de Rham dimension and deduces Siegel's theorem for the thrice-punctured line; the index range printed on p.18 needs the correction in sourceIssues."
+    },
+    {
+     "sourceId": "kim-2009",
+     "locator": "Introduction, paragraph after Conjecture 1, p.96",
+     "match": "Records that Conjecture 1 is proved in genus zero."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-conjecture",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Kim's conjecture on eventual equality",
+   "kind": "definition",
+   "statement": "Let 𝒳 → Spec Z be a regular minimal model of a hyperbolic curve over Q in one of the three cases of BDCKW §2.1 (P¹ minus a reduced horizontal divisor with at least three geometric points; the regular minimal model of a smooth proper curve of genus ≥ 2; or the complement of a nonempty reduced horizontal divisor in the regular minimal model of a smooth proper curve of genus ≥ 1), b an integral point or integral tangent vector, p an odd prime of good reduction and T a finite set of primes containing p and the bad primes. Let U⟨n⟩ be the depth-n quotient of the Q_p-unipotent étale fundamental group (BDCKW's U_n), j_v: 𝒳(Z_v) → H¹(G_v, U⟨n⟩) the local unipotent Kummer maps, and Sel_n(𝒳) = ⋂_{v ≠ p} loc_v⁻¹(Im j_v) ⊆ H¹_f(G_T, U⟨n⟩), with the scheme structure given by the sum of the ideals (each Im j_v is finite and is the base point for v ∉ T). Put X(Z_p)_n = j_p⁻¹(loc_p(Sel_n(𝒳))) ⊆ 𝒳(Z_p). These sets decrease with n, contain 𝒳(Z), and do not depend on T or b. The proposition KimConjecture(𝒳, p) states that X(Z_p)_n = 𝒳(Z) for all sufficiently large n (BDCKW Conjecture 3.1). For a finite set S of primes with p ∉ S, dropping the conditions at v ∈ S gives Sel_{n,S}(𝒳), X(Z_p)_{S,n} ⊇ 𝒳(Z[1/S]), and the S-integral proposition KimConjecture_S(𝒳, p): X(Z_p)_{S,n} = 𝒳(Z[1/S]) for n large (BDCKW §8.1). Both are open and are stated as named propositions; BDCKW do not formulate a version over other number fields (§3.2), and none is stated here.",
+   "hypotheses": [
+    "𝒳 a regular minimal Z-model as in BDCKW §2.1; p odd of good reduction for 𝒳 and b.",
+    "In NC.4 terms, X(Z_p)_n is the crystalline locus crystallineLocus_n for the stringent local conditions C_v = Im j_v at v ≠ p and the crystalline condition at p.",
+    "Depth indexing: U⟨n⟩ = U/Γ_{n+1}U, so n = 1 is the abelian depth."
+   ],
+   "proofSteps": [
+    "Represent H¹_f(G_T, U⟨n⟩) and the localisation maps (NC.3/selmer-functor, NC.3/selmer-representability).",
+    "Finiteness of Im j_v for v ≠ p (Kim–Tamagawa, as cited by BDCKW 2.5) and triviality for good v ∉ T make Sel_n(𝒳) a closed subscheme; define X(Z_p)_n through the local Kummer map j_p (NC.4/kim-loci).",
+    "Monotonicity in n and containment of 𝒳(Z) follow from NC.4/locus-compatibilities and NC.4/rational-integral-containment.",
+    "Independence of T and b: BDCKW §2.8 (inflation lemma for closed normal subgroups) and §2.9 (twisting by the path torsor P(b, c)).",
+    "Define the propositions as eventual equality."
+   ],
+   "acceptance": [
+    "For P¹ ∖ {0, 1, ∞} over Z and p = 5, X(Z_5)_1 = ∅ = 𝒳(Z) (NC.6/thrice-punctured-depth-one).",
+    "For P¹ ∖ {0, 1, ∞} over Z and p = 7, X(Z_7)_1 consists of the two primitive sixth roots of unity, so equality fails at depth 1."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-functor",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-representability",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/kim-loci",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/locus-compatibilities",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/rational-integral-containment",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/global-etale-albanese",
+    "mathlib:Filter.Eventually"
+   ],
+   "sources": [
+    {
+     "sourceId": "bdckw-2018v4",
+     "locator": "§1.3–1.4, pp.2–3; §§2.1–2.9, pp.8–12; §3.1–3.2, pp.12–13; §8.1, p.48",
+     "match": "Defines the Selmer scheme with stringent local conditions, the nested loci and their independence of T and the base point, states the eventual equality conjecture over Z, notes that no number-field version is formulated, and introduces the S-integral variant."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   },
+   "uses": [
+    {
+     "where": "BDCKW §§5–8",
+     "how": "The conjecture is tested by computing X(Z_p)_n for punctured elliptic curves, the thrice-punctured line and Fermat curves."
+    },
+    {
+     "where": "BDCKW §3.4",
+     "how": "Presented as the unipotent counterpart of the surjectivity in the section conjecture and of finiteness of Ш."
+    },
+    {
+     "where": "NC.6/thrice-punctured-depth-one",
+     "how": "The depth-one instance proved in BDCKW §6.1."
+    },
+    {
+     "where": "EffectiveDiophantineMethods ED.6",
+     "how": "Certified enumeration compares a computed finite locus with the known global points; equality at some depth is what makes such a comparison exhaustive."
+    }
+   ],
+   "api": [
+    {
+     "name": "kimLocus",
+     "role": "data",
+     "statement": "X(Z_p)_n = j_p⁻¹(loc_p(Sel_n(𝒳))) ⊆ 𝒳(Z_p)."
+    },
+    {
+     "name": "kimLocus_antitone",
+     "role": "relation",
+     "statement": "X(Z_p)_{n+1} ⊆ X(Z_p)_n for every n ≥ 1."
+    },
+    {
+     "name": "integral_subset_kimLocus",
+     "role": "relation",
+     "statement": "𝒳(Z) ⊆ X(Z_p)_n for every n."
+    },
+    {
+     "name": "kimConjecture_iff_exists_subset",
+     "role": "characterisation",
+     "statement": "KimConjecture(𝒳, p) holds if and only if X(Z_p)_n ⊆ 𝒳(Z) for some n, by the two previous items."
+    },
+    {
+     "name": "kimLocus_eq_crystallineLocus",
+     "role": "compatibility",
+     "statement": "X(Z_p)_n equals NC.4's crystallineLocus_n for the stringent local conditions."
+    },
+    {
+     "name": "kimLocus_indep_T",
+     "role": "compatibility",
+     "statement": "For T ⊆ T′ both containing p and the bad primes, the Selmer schemes for T and T′ are isomorphic compatibly with loc_p, so X(Z_p)_n does not depend on T."
+    },
+    {
+     "name": "kimLocus_indep_basepoint",
+     "role": "compatibility",
+     "statement": "Twisting by the path torsor P(b, c) identifies the Selmer schemes for integral base points b and c compatibly with loc_p and the Kummer maps, so X(Z_p)_n does not depend on b."
+    },
+    {
+     "name": "kimConjectureS",
+     "role": "data",
+     "statement": "The S-integral proposition: X(Z_p)_{S,n} = 𝒳(Z[1/S]) for n large, with KimConjectureS ∅ = KimConjecture."
+    },
+    {
+     "name": "EventualEquality",
+     "role": "other",
+     "statement": "The form on families of sets: L n = G for all large n; KimConjecture is the instance L n = X(Z_p)_n, G = 𝒳(Z)."
+    },
+    {
+     "name": "eventualEquality_iff_exists_subset",
+     "role": "characterisation",
+     "statement": "For an antitone family L with G ⊆ L n for all n, eventual equality holds if and only if L n ⊆ G for some n."
+    },
+    {
+     "name": "eventualEquality_iInter",
+     "role": "relation",
+     "statement": "For an antitone family, eventual equality with G implies ⋂_n L n = G; the converse fails (kimConjecture_not_intersection)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "kimConjecture_thrice_punctured_p5",
+     "kind": "computation",
+     "statement": "For 𝒳 = P¹ ∖ {0, 1, ∞} over Z with the tangential base point at 0 and p = 5, X(Z_5)_1 = ∅ = 𝒳(Z), so the conjecture holds from depth 1 (BDCKW §6.1)."
+    },
+    {
+     "name": "kimLocus_thrice_punctured_p7",
+     "kind": "computation",
+     "statement": "For the same 𝒳 and p = 7, X(Z_7)_1 = {ζ_6, ζ_6⁵} ≠ 𝒳(Z) = ∅: equality is eventual, not at depth 1 (BDCKW §6.2)."
+    },
+    {
+     "name": "kimConjecture_not_intersection",
+     "kind": "non-example",
+     "statement": "Eventual equality is stronger than ⋂_n X(Z_p)_n = 𝒳(Z): for the decreasing family L_n = G ∪ {m ∈ ℕ : m ≥ n} with G finite, the intersection is G but no L_n equals G, so a definition by the intersection would accept it."
+    },
+    {
+     "name": "kimConjectureS_empty",
+     "kind": "degenerate",
+     "statement": "For S = ∅ the S-integral Selmer scheme is Sel_n(𝒳) and KimConjectureS reduces to KimConjecture."
+    },
+    {
+     "name": "kimLocusS_half_contains",
+     "kind": "computation",
+     "statement": "For P¹ ∖ {0, 1, ∞} over Z[1/2] and an odd prime p, the three points 2, −1 and 1/2 lie in X(Z_p)_{{2},2}, the zero set of 2Li_2(z) + log(z)log(1 − z) (BDCKW §8.2)."
+    }
+   ],
+   "planet": {
+    "name": "Kim's conjecture"
+   }
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty:NC.6/thrice-punctured-depth-one",
+   "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "realises": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "title": "Kim's conjecture at depth one for the thrice-punctured line",
+   "kind": "application",
+   "statement": "Let 𝒳 = P¹ ∖ {0, 1, ∞} over Z with the tangential base point at 0. Then 𝒳(Z) = ∅. At depth 1, U⟨1⟩ = Q_p(1)², Sel_1(𝒳) = 0 and j_p(z) = (log z, log(1 − z)), so X(Z_p)_1 is the set of z ∈ Z_p with z and 1 − z both roots of unity, which is the set of primitive sixth roots of unity lying in Z_p. Hence for p = 3 or p ≡ 2 mod 3, X(Z_p)_1 = ∅ and KimConjecture(𝒳, p) holds from depth 1. For p ≡ 1 mod 3, X(Z_p)_1 = {ζ_6, ζ_6⁵}; Sel_2(𝒳) = 0 by Soulé's vanishing H¹(G_T, Q_p(2)) = 0, and X(Z_p)_2 = ∅ if and only if the p-adic dilogarithm Li_2(ζ_6) is nonzero. BDCKW report that Li_2(ζ_6) ≠ 0 for 3 ≤ p < 10⁵ by a numerical computation; that report is not a theorem of this layer.",
+   "hypotheses": [
+    "p odd; 𝒳(Z) = ∅ because z and 1 − z cannot both be units of Z.",
+    "The depth-two statement for p ≡ 1 mod 3 is an equivalence with a nonvanishing condition, not an unconditional equality."
+   ],
+   "proofSteps": [
+    "𝒳(Z) is empty: the only units are ±1, and 1 − 1 = 0, 1 − (−1) = 2.",
+    "Sel_1(𝒳) = 0: it is (Z^× ⊗ Q_p)² with the stringent conditions (NC.3/depth-one-selmer-comparison, SIC L0/s-unit-kummer-identification).",
+    "The depth-1 local Kummer map is (log z, log(1 − z)) (NC.4/depth-one-period); a zero of the p-adic logarithm on Z_p^× is a root of unity, and z, 1 − z both roots of unity forces z to be a primitive sixth root of unity.",
+    "A primitive sixth root of unity lies in Z_p exactly when p ≡ 1 mod 3.",
+    "For p ≡ 1 mod 3, add the depth-2 coordinate −Li_2(z); since Li_2(ζ_6) + Li_2(ζ_6⁻¹) = 0, the two candidates vanish or survive together."
+   ],
+   "acceptance": [
+    "p = 5: X(Z_5)_1 = ∅.",
+    "p = 7: X(Z_7)_1 = {3, 5} modulo the identification of ζ_6 with the Teichmüller lifts of 3 and 5, the primitive sixth roots of unity mod 7."
+   ],
+   "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/kim-conjecture",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3/depth-one-selmer-comparison",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4/depth-one-period",
+    "SelmerIwasawaCohomology:L0/s-unit-kummer-identification"
+   ],
+   "sources": [
+    {
+     "sourceId": "bdckw-2018v4",
+     "locator": "§6.1–6.3, pp.43–45; §1.14, p.7",
+     "match": "Computes the depth-one locus of the thrice-punctured line through the logarithms, proves the depth-one case for p = 3 and p ≡ 2 mod 3, reduces the depth-two case for p ≡ 1 mod 3 to nonvanishing of Li_2 at a sixth root of unity, and reports the numerical check."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Anabelian/Frontiers",
+    "namespace": "TauCeti.Anabelian"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "ArithmeticKTheory:N.5",
+   "need": "For T = S ∪ {p} with S a finite set of primes and p odd: dim_{Q_p} H¹(G_{Q,T}, Q_p(k)) = 1 for odd k ≥ 3, H¹(G_{Q,T}, Q_p(k)) = 0 for even k ≥ 2, and H²(G_{Q,T}, Q_p(k)) = 0 for k ≥ 2 (Soulé's computation, stated in continuous Galois cohomology with Q_p-coefficients).",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/genus-zero-dimension"
+   ]
+  },
+  {
+   "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
+   "need": "Künneth for ℓ-adic and p-adic étale cohomology of a product of smooth (not necessarily proper) curves over a field of characteristic zero: H¹(C_{F̄})^{⊗n} is a Galois-stable direct summand of H^n(C^n_{F̄}), compatibly with Tate twists.",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/bloch-kato-implies-vanishing",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/weak-jannsen-implies-dimension"
+   ]
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:D7",
+   "need": "The Hochschild–Serre exact sequence 0 → H¹(G/N, M^N) → H¹(G, M) → H⁰(G/N, H¹(N, M)) → H²(G/N, M^N) in continuous cohomology of profinite groups with coefficients an inverse system of finite modules satisfying the Mittag-Leffler condition (Jannsen), and its rational version.",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/pseudo-null-implies-dimension"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+   "status": "planned",
+   "remaining": [
+    "Resolve the three source gaps: read Labute 1970 (or Labute 1967, Théorème 2) for the surface-group dimension formula, Greenberg 1978 §2 for finite generation of pseudo-null modules, and Bloch–Kato 1990 Conjecture 5.3 for the exact form of the Bloch–Kato hypothesis.",
+    "Obtain the three requested supplier statements: Soulé's dimensions of H¹ and H² of Q_p(k) over Q (ArithmeticKTheory N.5), Künneth for products of curves (EtaleDualityAndPerverseSheaves EDC.0), and continuous Hochschild–Serre (ArithmeticGaloisDuality D7).",
+    "The export of NC.1–NC.5 outputs to EffectiveDiophantineMethods ED.6 named in the stage text is not a mathematical target and has no node; restructure[0] proposes narrowing the stage to the frontier statements planned here."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Primary source for Labute's dimension formula not read",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/graded-central-dimensions"
+   ],
+   "detail": "The surface-group case of graded-central-dimensions (Σ_{k|n} k·d_k = α^n + β^n) is taken from Kim 2009 pp.122–123, which cites Labute, J. Algebra 14 (1970), 16–23. The publisher did not serve that paper to this worker. The formula was checked against the free survey of Linton and Nyberg-Brodda (arXiv:2501.18306, §1.7, equation (32), p.65), which gives it in genus 2 and the growth rate g + √(g² − 1) in every genus, and against small cases (g = 1 gives the abelian case; g = 2 gives d_2 = 5 = dim Λ²H₁ − 1 and d_3 = 16). It is also equivalent to the enveloping algebra of the graded Lie algebra having Hilbert series 1/(1 − 2g t + t²) (take logarithms of the PBW product). A follow-up reads Labute 1970 or Labute, Invent. Math. 4 (1967), Théorème 2, and pins the primary locator for all g."
+  },
+  {
+   "title": "Greenberg's finite-generation input not read",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/pseudo-null-implies-dimension"
+   ],
+   "detail": "The proof of Observation 4 uses that pseudo-nullity of I over Λ makes I finitely generated over Z_p, citing Greenberg, Invent. Math. 47 (1978), §2 (Kim 2009 p.131). That source was not read; the step is recorded with Kim's citation only."
+  },
+  {
+   "title": "Bloch–Kato Conjecture 5.3 read only through Kim",
+   "neededBy": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6/bloch-kato-implies-vanishing"
+   ],
+   "detail": "Bloch–Kato, 'L-functions and Tamagawa numbers of motives' (Grothendieck Festschrift I, 1990) is not freely available to this worker. The hypothesis of bloch-kato-implies-vanishing is therefore stated in the form actually used, H¹_g(G_F, H^n(X^n_{F̄}, Q_p(1))) = 0 for n ≥ 2, with the attribution to Conjecture 5.3 as given by Kim 2009 pp.121–122."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "AnabelianGeometryAndNonabelianChabauty"
+   ],
+   "detail": "The stage text of NC.6 combines a process instruction (export the outputs of NC.1–NC.5 to EffectiveDiophantineMethods ED.6) with a mathematical acceptance condition (preserve the section-conjecture and eventual-stabilisation frontiers, keeping motivic hypotheses explicit). The reviewed audit AUDIT-08 classifies the export as process; the earlier checkpoints of this job proposed dropping the stage. The frontier statements, however, are mathematics that no layer of the atlas states: the section map and its injectivity, Grothendieck's section conjecture, Kim's Conjectures 1 and 2 with their conditional bridges and known cases, and Kim's eventual-equality conjecture. This packet plans them and proposes narrowing the stage instead of dropping it.",
+   "proposal": "Narrow NC.6 to 'Sections, rational points and the conjectural frontiers', keeping exactly the eighteen nodes of this packet. The export of reconstruction, Selmer varieties, iterated-integral equations and finite loci stays with NC.1–NC.5, and certified enumeration with precision data stays with EffectiveDiophantineMethods ED.6, which already depends directly on NC.5. Remove the edge NC.1 → NC.6 only if a reviewer finds that no NC.6 node uses NC.1 (the present nodes use NC.0, NC.2, NC.3 and NC.4, not NC.1's reconstruction theorems); add NC.0 → NC.6, NC.3 → NC.6 and NC.4 → NC.6, which the prerequisites use.",
+   "acceptanceStatus": "proposed",
+   "layers": {
+    "AnabelianGeometryAndNonabelianChabauty:NC.6": {
+     "action": "narrow",
+     "keeps": "The section map and its classes, injectivity of the section map, Grothendieck's section conjecture as a named proposition, Kim's dimension conjecture (Conjecture 1) and Selmer-vanishing conjecture (Conjecture 2) as named propositions, the conditional implications from Selmer vanishing, Bloch–Kato, weight filtrations, weak Jannsen and pseudo-nullity, the known cases (genus zero, punctured CM curves of Selmer rank one), the graded dimension formulas they use, Kim's eventual-equality conjecture and its depth-one instance for the thrice-punctured line.",
+     "suppliedBy": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.1",
+      "AnabelianGeometryAndNonabelianChabauty:NC.2",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "AnabelianGeometryAndNonabelianChabauty:NC.4",
+      "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "EffectiveDiophantineMethods:ED.6"
+     ],
+     "reason": "The export instruction states no mathematics; its outputs are owned by NC.1–NC.5 and ED.6. The frontier statements are owned by no other layer."
+    }
+   },
+   "owners": [
+    {
+     "target": "Source-qualified profinite reconstruction (Isom and Hom theorems)",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Unipotent étale and de Rham fundamental groups, path torsors and comparisons",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Selmer varieties with specified local conditions",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Unipotent Albanese maps, iterated-integral equations and finite Chabauty–Kim loci",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Quadratic Chabauty height equations and loci",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Precision requirements and certified enumeration of rational points",
+     "owner": "EffectiveDiophantineMethods:ED.6",
+     "formerly": [
+      "AnabelianGeometryAndNonabelianChabauty:NC.6"
+     ]
+    },
+    {
+     "target": "Section conjecture, Kim's Conjectures 1 and 2 and Kim's eventual-equality conjecture, with their known cases and conditional bridges",
+     "owner": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+     "formerly": []
+    }
+   ],
+   "links": [
+    {
+     "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+     "target": "EffectiveDiophantineMethods:ED.6",
+     "reason": "Unchanged: ED.6 consumes the quadratic Chabauty equations directly."
+    },
+    {
+     "source": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+     "target": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+     "reason": "The frontier conjectures are statements about the Chabauty–Kim loci and their dimension inputs."
+    },
+    {
+     "source": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+     "target": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+     "reason": "The section map is built from NC.0's path torsors and transported sections."
+    }
+   ],
+   "supersedes": "The drop proposal recorded by the checkpoints of 2026-10-11 to 2026-10-14 (issue #6347); kept in git history."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
+   "source": "bdmtv-2023-published",
+   "kind": "error",
+   "locator": "Published Lemma 4.7, p.1136; same tail condition in arXiv:2101.01862v4, p.25.",
+   "printed": "The truncation index is constrained only at coefficient indices satisfying ord_p(F_i) + i = n.",
+   "correction": "For all i ≥ m require ord_p(F_i) + i ≥ n, using ord_p(0) = infinity; retain the convergence and multiplicity obligations of the ED.6 root-determination-precision node.",
+   "reason": "The coefficient of T^i in G(T) = p^(−k)F(pT) has valuation ord_p(F_i) + i − k. A polynomial truncation of degree below m modulo p^(n−k) therefore needs a bound for every tail index. For F(x) = p^5 − p x + x^2, m = 2, n = 5, k = 2, the only equality index is 0, whereas G(T) = p^3 − T + T^2 has a unit coefficient in degree 2. This repeats the obstruction already recorded by the ED supplier; it supplies no new root-isolation proof.",
+   "affects": "a stated result",
+   "known": "Already recorded as EffectiveDiophantineMethods/E21, confirmed by REV-EffectiveDiophantineMethods~3. Freshly checked here in the published and v4 passages; not claimed new.",
+   "searched": [
+    "Published Compositio 159 (2023), p.1136",
+    "arXiv:2101.01862v4, p.25",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json, E21"
+   ],
+   "originFinding": "EffectiveDiophantineMethods/E21"
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-phi-branch",
+   "source": "bdmtv-2021v4",
+   "kind": "misprint",
+   "locator": "arXiv:2101.01862v4, p.24, final branch equality before Proposition 4.6; compared with published (4.21), p.1134, and branch equality, p.1136.",
+   "printed": "The eventual branch for phi(i) includes an additional c1.",
+   "correction": "The branch is phi(i) = −2 floor(log_p i). Add c1 when applying the separate splitting estimate, as in the final coefficient bound.",
+   "reason": "Substituting the eventual minimum into the published definition (4.21) gives two negative floor-log terms. The published branch agrees; c1 remains in Proposition 4.6's final bound.",
+   "affects": "nothing",
+   "known": "Corrected in the published Compositio 159 (2023), p.1136; already recorded as EffectiveDiophantineMethods/E30.",
+   "searched": [
+    "arXiv:2101.01862v4, pp.24–25",
+    "Published Compositio 159 (2023), pp.1134–1136",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json, E30"
+   ],
+   "originFinding": "EffectiveDiophantineMethods/E30"
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-conjugation-eigenspaces",
+   "source": "kim-2009",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Proposition 2, p.123 (published version).",
+   "printed": "For n odd, the right-hand side of the Euler characteristic formula, the dimension of the (−1)-eigenspace of complex conjugation on the graded piece Z_{n+1}\\Z_n, is asserted to be d_n/2, by comparison with complex Hodge theory.",
+   "correction": "The value d_n/2 holds when the graded piece is pure of odd weight, which is the compact case. In general the (−1)-eigenspace has dimension (d_n − τ_n)/2, where τ_n is the trace of complex conjugation on the graded piece, computed from its trace t on H₁ by τ_n = (1/n)Σ_{e|n} μ(e) t_e^{n/e} (t_e = t for odd e, t_e = m for even e). Either |t| < m and τ_n = o(d_n), or t = −m and conjugation acts by (−1)^n; in both cases the sum of the (+1)-eigenspace dimensions still grows like λ^n/n with λ > g, so Proposition 2 survives with this replacement.",
+   "reason": "For X = P¹ ∖ {0, 1, ∞} over Q, each graded piece is Q_p(n)^{d_n} and complex conjugation acts on Q_p(n) by (−1)^n, so for odd n the (−1)-eigenspace is the whole piece, of dimension d_n, not d_n/2. In the affine case the graded pieces are mixed (the boundary contributes Tate twists of even weight), and the Hodge-symmetry argument applies only to pure odd weight.",
+   "affects": "the proof",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.120–126",
+    "arXiv:math/0510441 (preprint of the same paper), §3",
+    "research/errata/REGISTER.md and the sourceIssues of the NC.0–NC.5 packets"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-h1-notation",
+   "source": "kim-2009",
+   "kind": "misprint",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Lemma 6 (p.124) and proof of Observation 3 (p.125).",
+   "printed": "The coefficient module surjecting onto the graded piece in H², and the module in the exact sequence with Q_p(1)^{s−1} in the proof of Observation 3, are written as tensor powers of H¹(X̄, Q_p).",
+   "correction": "Read H₁ = H¹(X̄, Q_p)^∨ in both places: the graded pieces are quotients of H₁^{⊗n}, local duality turns H²(G_w, H₁^{⊗n}) into H⁰(G_w, H¹^{⊗n}(1)), and the extension 0 → Q_p(1)^{s−1} → H₁(X) → H₁(X′) → 0 holds for homology (for cohomology the boundary term is a quotient Q_p(−1)^{s−1}).",
+   "reason": "The lower central quotients of the unipotent fundamental group are generated by its abelianisation H₁, and the subsequent local estimate on p.124 uses the invariants of H¹^{⊗n}(1), which is the local dual of H₁^{⊗n}, not of H¹^{⊗n}.",
+   "affects": "nothing",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.122–126",
+    "arXiv:math/0510441, §3",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-purity-open",
+   "source": "kim-2009",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, argument after Observation 2, p.122.",
+   "printed": "V_n is said to be pure of weight n − 2.",
+   "correction": "This holds when X is proper. For an affine curve, H¹(X̄) is mixed of weights 1 and 2 and V_n has weights in [n − 2, 2n − 2]; the argument still works because all weights are at least n − 2 ≥ 1 for n ≥ 3, so W_0E ∩ V_n = 0.",
+   "reason": "Conjecture 2 is stated for any smooth curve; for X = P¹ ∖ {0, 1, ∞}, V_n = Q_p(1 − n)^{2^n} is pure of weight 2n − 2, not n − 2.",
+   "affects": "the proof",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.121–122",
+    "arXiv:math/0510441, §3",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-rank-one",
+   "source": "kim-2009",
+   "kind": "gap",
+   "locator": "Publ. RIMS 45 (2009), §4, pp.127 and 129.",
+   "printed": "Finiteness of integral points is claimed for CM elliptic curves over Q of rank 1 independently of any conjecture, and the dimension of the refined Selmer group of H¹(Ē, Q_p) is said to be 1 by the rank one hypothesis.",
+   "correction": "The computation needs the Bloch–Kato Selmer group of V_pE to have dimension one. Rank one of E(Q) gives this only together with finiteness of Ш(E)[p^∞], which is known for instance when the analytic rank is one (Gross–Zagier and Kolyvagin). State the hypothesis as Selmer rank one.",
+   "reason": "The Selmer group H¹_f(G_Q, V_pE) has dimension rank E(Q) + corank Ш(E)[p^∞]; without finiteness of the p-part of Ш the dimension can exceed the rank, and then the depth-two dimension count 1 < 2 is not established.",
+   "affects": "a stated result",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.127–130",
+    "arXiv:math/0510441, §4",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-prime-list",
+   "source": "bdckw-2018v4",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §1.16, p.8.",
+   "printed": "The S-integral conjecture for the thrice-punctured line with S = {2} is said to hold in depth 2 for p = 3, 5, 6.",
+   "correction": "p = 3, 5, 7, as in §8.2 (p.49).",
+   "reason": "6 is not prime, and §8.2 reports the numerical check for p = 3, 5, 7 and failure from p = 11.",
+   "affects": "nothing",
+   "known": "new for v4; the published version (Math. Ann. 372 (2018)) was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.8 and 48–49",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-congruence-or",
+   "source": "bdckw-2018v4",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §7.6, p.48.",
+   "printed": "The check is reported for d = 2 and all 3 ≤ p ≤ 53 with p ≡ 3 mod 8 and p ≡ 5 mod 8.",
+   "correction": "p ≡ 3 mod 8 or p ≡ 5 mod 8, the odd primes for which 2 is not a square in Q_p.",
+   "reason": "No prime satisfies both congruences; the construction needs d = 2 to be a nonsquare in Q_p, which holds exactly for p ≡ ±3 mod 8.",
+   "affects": "nothing",
+   "known": "new for v4; the published version was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.47–48",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-selmer-index",
+   "source": "bdckw-2018v4",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §6.2, p.44.",
+   "printed": "In the case p ≡ 1 mod 3 the text says that Sel_1(X) still vanishes because H¹(G_T, Q_p(2)) = 0.",
+   "correction": "Sel_2(X) = 0: the vanishing of H¹(G_T, Q_p(2)) is what extends Sel_1(X) = 0 to depth two, as the next display (X(Z_p)_2 cut out by log z, log(1 − z), Li_2) requires.",
+   "reason": "Sel_1(X) = 0 was already shown in §6.1 from Q_p(1); the new graded piece at depth two is Q_p(2).",
+   "affects": "nothing",
+   "known": "new for v4; the published version was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.43–44",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-stix-theorem-reference",
+   "source": "stix-2008v1",
+   "kind": "misprint",
+   "locator": "arXiv:0809.0017v1, Appendix B, Remark 46, p.22.",
+   "printed": "The remark refers to the assumptions of Theorem B.",
+   "correction": "Theorem 45, the only theorem of Appendix B.",
+   "reason": "No Theorem B exists in the paper; the remark follows Theorem 45 and discusses its divisibility hypothesis.",
+   "affects": "nothing",
+   "known": "new for v1; the published version (Adv. Stud. Pure Math. 63) was not read.",
+   "searched": [
+    "arXiv:0809.0017v1, pp.21–22",
+    "research/errata/REGISTER.md"
+   ]
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim2005-soule-range",
+   "source": "kim-2005v1",
+   "kind": "misprint",
+   "locator": "arXiv:math/0409456v1, §3, end of the proof of the main theorem, p.18.",
+   "printed": "H¹(G_T, Q_p(2n+1)) is said to have dimension 1 for n ≥ 3, and the resulting bound ends with the term r_{2⌊n/2⌋}.",
+   "correction": "Dimension 1 for n ≥ 1 (all odd twists at least 3), and the bound runs over the odd indices 3, 5, …, up to the largest odd integer at most n.",
+   "reason": "Soulé's theorem gives dimension one for every odd twist m ≥ 3, and the bound already uses the terms r_3 and r_5 (twists 3 and 5); the graded pieces with nonzero H¹ are those of odd degree, while 2⌊n/2⌋ is even.",
+   "affects": "nothing",
+   "known": "new for v1; the published version (Invent. Math. 161 (2005)) was not read.",
+   "searched": [
+    "arXiv:math/0409456v1, pp.17–18",
+    "research/errata/REGISTER.md"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "sourceId": "mochizuki-1996",
+   "kind": "published",
+   "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
+   "read": "2026-10-11",
+   "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
+   "extent": [
+    "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
+   ]
+  },
+  {
+   "sourceId": "kim-2009",
+   "kind": "published",
+   "url": "https://ems.press/content/serial-article-files/41066?nt=1",
+   "read": "2026-10-14",
+   "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
+   "extent": [
+    "Introduction pp.89–96; §3 pp.120–126; §4 pp.127–131."
+   ]
+  },
+  {
+   "sourceId": "balakrishnan-dogra-2018",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1601.00388v2",
+   "read": "2026-10-11",
+   "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
+   "extent": [
+    "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
+   ]
+  },
+  {
+   "sourceId": "bdckw-2018v4",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1209.0640v4",
+   "read": "2026-10-14",
+   "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
+   "extent": [
+    "§1 pp.1–8; §§2–3 pp.8–15; §§6–8 pp.43–49. The published version (Math. Ann. 372 (2018)) was not read; findings are scoped to v4."
+   ]
+  },
+  {
+   "sourceId": "bdmtv-2021v4",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2101.01862v4",
+   "read": "2026-10-11",
+   "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+   "extent": [
+    "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
+   ]
+  },
+  {
+   "sourceId": "bdmtv-2023-published",
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
+   "read": "2026-10-11",
+   "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
+   "extent": [
+    "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
+   ]
+  },
+  {
+   "sourceId": "stix-2008v1",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/0809.0017v1",
+   "read": "2026-10-14",
+   "sha256": "b456de5edf8dcbd52b5e414d24a87ff942908aac6f06fe2b7f175b32695d21bb",
+   "extent": [
+    "§1.1 pp.1–2; Appendix B p.22. The published version (Adv. Stud. Pure Math. 63) was not read; findings are scoped to v1."
+   ]
+  },
+  {
+   "sourceId": "linton-nyberg-brodda-2025",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2501.18306v1",
+   "read": "2026-10-14",
+   "sha256": "48c9436ac575b917827c4cd0ed942600afdb63a13ed88f134dd77d3f159b023b",
+   "extent": [
+    "§1.7 pp.65–66 only; used as a secondary source for Labute's rank formula."
+   ]
+  },
+  {
+   "sourceId": "kim-2005v1",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0409456v1",
+   "read": "2026-10-14",
+   "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+   "extent": [
+    "Introduction pp.1–2; §3 pp.17–18. The published version (Invent. Math. 161) was not read; findings are scoped to v1."
+   ]
+  }
+ ],
+ "upstreamNotes": []
 }
