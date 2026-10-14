@@ -188,26 +188,29 @@ namespace Unipotent
 variable {K : Type u} [Field K] {G : Type v} [Group G]
 variable {V : Type w} [AddCommGroup V] [Module K V] [Module.Finite K V]
 
-/-- A length bound on a linear representation is a filtration with trivial successive action.
-The geometric tensor categories of README.md use the corresponding exact-category notion. -/
+/-- Extension length n means n + 1 trivial graded layers, agreeing with C_n in the README.
+The finite-dimensional representation version uses submodules over any field. -/
 def UnipotentLength (ρ : G →* (V ≃ₗ[K] V)) (n : ℕ) : Prop :=
   ∃ F : ℕ → Submodule K V,
-    F 0 = ⊥ ∧ F n = ⊤ ∧ Monotone F ∧
-      ∀ i, i < n → ∀ g v, v ∈ F (i + 1) → ρ g v - v ∈ F i
+    F 0 = ⊥ ∧ F (n + 1) = ⊤ ∧ Monotone F ∧
+      ∀ i, i < n + 1 → ∀ g v, v ∈ F (i + 1) → ρ g v - v ∈ F i
 
-/-- Length zero is reserved for the zero representation. -/
+/-- Length zero means trivial action, including on a nonzero vector space. -/
 theorem length_zero_iff (ρ : G →* (V ≃ₗ[K] V)) :
-    UnipotentLength ρ 0 ↔ Subsingleton V := by
+    UnipotentLength ρ 0 ↔ ∀ g v, ρ g v = v := by
   sorry
 
-/-- A nonzero trivial representation has length one and not length zero. -/
-example [Nontrivial V] :
-    UnipotentLength (1 : G →* (V ≃ₗ[K] V)) 1 ∧
-      ¬ UnipotentLength (1 : G →* (V ≃ₗ[K] V)) 0 := by
+/-- A trivial representation has extension length zero. -/
+example : UnipotentLength (1 : G →* (V ≃ₗ[K] V)) 0 := by
   sorry
 
 /-- The zero representation has length zero. -/
 example [Subsingleton V] (ρ : G →* (V ≃ₗ[K] V)) : UnipotentLength ρ 0 := by
+  sorry
+
+/-- One vector moved by the action rejects extension length zero. -/
+example (ρ : G →* (V ≃ₗ[K] V)) (g : G) (v : V) (h : ρ g v ≠ v) :
+    ¬ UnipotentLength ρ 0 := by
   sorry
 
 end Unipotent
@@ -307,6 +310,21 @@ end Period
 /-! ## Layer 6: Quadratic Chabauty and height equations -/
 
 namespace Heights
+
+/-- On the symplectic plane, a tensor u ⊗ v acts by w ↦ ⟨u,w⟩v.
+This is the trace-equals-cup convention of the divisor correspondence target. -/
+def symplecticTensorAction (u v : ℚ × ℚ) : (ℚ × ℚ) →ₗ[ℚ] ℚ × ℚ :=
+  (u.1 • LinearMap.snd ℚ ℚ ℚ - u.2 • LinearMap.fst ℚ ℚ ℚ).smulRight v
+
+/-- The diagonal middle tensor b ⊗ a − a ⊗ b acts as negative identity. -/
+example (w : ℚ × ℚ) :
+    symplecticTensorAction (0, 1) (1, 0) w -
+      symplecticTensorAction (1, 0) (0, 1) w = -w := by
+  sorry
+
+/-- The simple tensor a ⊗ b acts by diag(0,1), so its trace and cup are 1. -/
+example (w : ℚ × ℚ) : symplecticTensorAction (1, 0) (0, 1) w = (0, w.2) := by
+  sorry
 
 variable {K : Type u} [Field K]
 variable {C : Type v} [AddCommGroup C] [Module K C]
@@ -516,7 +534,8 @@ specifies the comparison from continuous fundamental-group cohomology to étale 
 tangential fibre functors, admissible coverings of pointed stable curves, relative Hodge–Tate
 inputs over small logarithmic bases, homogeneous quotients of unipotent groups, the Bloch–Kato
 subgroups, Coleman charts on proper curves, mixed extensions with Nekovář's local and global
-heights, and the action of divisor correspondences on H¹ ⊗ H¹.
+heights, including the adjacent-finite construction on semistable mixed extensions, and the
+action of divisor correspondences on H¹ ⊗ H¹.
 Their sites, comparison functors, completions and representing schemes are constructions of
 the corresponding layers of README.md.
 -/
