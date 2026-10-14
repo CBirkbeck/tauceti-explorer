@@ -435,10 +435,10 @@
         "module": "TauCeti.RigidCohomology.RD4",
         "namespace": "TauCeti.RigidCohomology"
       },
+      "plannedDeclaration": "rigidGysin",
       "planet": {
         "name": "Rigid Gysin isomorphism"
-      },
-      "plannedDeclaration": "rigidGysin"
+      }
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.4/quasi-etale-specialization",
@@ -881,10 +881,10 @@
           "how": "Receives a spectral sequence from compact-support cohomology of the smooth strata."
         }
       ],
+      "plannedDeclaration": "LogProperCohomology",
       "planet": {
         "name": "Log rigid cohomology with proper support"
-      },
-      "plannedDeclaration": "LogProperCohomology"
+      }
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.4/log-residue-double-complex",
@@ -1232,10 +1232,10 @@
         "module": "TauCeti.RigidCohomology.RD4",
         "namespace": "TauCeti.RigidCohomology"
       },
+      "plannedDeclaration": "daggerBerthelotComparison",
       "planet": {
         "name": "Dagger–rigid cohomology comparison"
-      },
-      "plannedDeclaration": "daggerBerthelotComparison"
+      }
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.4/dagger-supported-comparison",
