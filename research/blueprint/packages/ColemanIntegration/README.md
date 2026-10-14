@@ -213,7 +213,7 @@ Standing hypotheses of this target: |p| < 1 in K.
 
 Standing hypotheses of this target: K complete, nontrivially normed, ultrametric; characteristic zero where primitives are used. r in (0, ∞] (ENNReal); r = ∞ gives entire functions.
 
-- `discAnalytic`: discAnalytic K a r : Subalgebra K (`Metric.eball` a r→K), the functions given on the ball by one convergent power series.
+- `discAnalytic`: discAnalytic K a r (hr : 0 < r) : Subalgebra K (`Metric.eball` a r→K), the functions given on the ball by one convergent power series. Every operation below carries the positive-radius hypotheses for its discs.
 - `mem_discAnalytic_iff`: f is in discAnalytic K a r iff there is P with `HasFPowerSeriesOnBall` (extension of f) P a r.
 - `discAnalytic.coeff`: The coefficient sequence of f at the centre a, unique by `HasFPowerSeriesAt.eq_formalMultilinearSeries`.
 - `discAnalytic.deriv_mem`: f in discAnalytic implies deriv f in discAnalytic (termwise, same radius).
@@ -233,7 +233,8 @@ Standing hypotheses of this target: K complete, nontrivially normed, ultrametric
 
 - For K = ℂ_p, the function z↦`NormedSpace.logOneAdd` K K z restricted to D^-(0, 1) lies in discAnalytic K 0 1, with coefficients (-1)^(n+1)/n.
 - The indicator function of D^-(0, 1/p) on D^-(0, 1) in ℂ_p is `AnalyticOnNhd` (locally constant) but is not in discAnalytic ℂ_p 0 1.
-- Constant functions lie in discAnalytic K a r for r, including r = ∞.
+- Constant functions lie in discAnalytic K a r for every positive r, including r = ∞.
+- At r = 0 even a constant function admits no `HasFPowerSeriesOnBall` witness, since its `r_pos` field would assert 0 < 0. Thus radius zero cannot define this subalgebra by the same membership condition.
 - The geometric series z↦sum z^n is in discAnalytic ℂ_p 0 1 but its coefficient sequence is not `PowerSeries.IsRestricted` at 1 (not in the Tate algebra).
 
 ### L0.8 The unique primitive with chosen base value on an open disc

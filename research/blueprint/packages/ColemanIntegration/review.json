@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-ColemanIntegration",
-    "date": "2026-10-10",
-    "notes": "Completed independent package review. Corrected puncturedLine_h1 to require p not dividing N, generalized regulator distribution to every positive integer m, repaired the nonzero-idempotent dimension criterion/test, six malformed API references, headings, empty prerequisite and source pages. All 177 targets, 257 README API names and 152 namespace-aware Lean test names retained; README 199607 bytes. Initial and final independent lean-check both exited 0: 511 warnings, all declaration uses sorry, no errors or other warnings. Packet checker: 0 errors, 0 warnings. Needs changes for the locally owned L3.Fa-Fd motivic/regulator/coefficient constructions lacking complete prerequisite/API/test specifications (R1), and their missing actual Lean construction/API/test forms plus the complex boundary-value construction and statable algebraic APIs (R2). Comments listing names are not signatures. See research/blueprint/reviews/REV-PKG-ColemanIntegration.md. This is a finished review, not a checkpoint."
+    "reviewer": "independent-review-REV-PKG-ColemanIntegration~2",
+    "date": "2026-10-14",
+    "notes": "Completed independent review under the mandatory early rejection rule in PACKAGE_REVIEW.md, Shape of a roadmap (2026-10-12). Suggested.lean develops a shuffle word algebra and a chain of pre-Bloch/Bloch quotient constructions; real bodies and 1172 lines do not satisfy the prohibition on developing theory. These are README targets, and the next revision must replace the construction-heavy Lean with representative statements over existing carriers. Corrected discAnalytic to require 0 < r, aligned the README API and constant-function Check, and added a proved radius-zero negative control using HasFPowerSeriesOnBall.r_pos. Initial and final independent lean-check exited 0, each with 98 declaration-uses-sorry warnings and no other diagnostics. No targets, API names or existing Checks were removed. The required early rejection stops the source sample, full prerequisite/duplication audit and full adversarial pass; those are not certified. See research/blueprint/reviews/REV-PKG-ColemanIntegration~2.md and its handoff. This is a completed needs_changes review, not a checkpoint."
   }
 }
