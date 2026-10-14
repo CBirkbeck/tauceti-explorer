@@ -86,7 +86,10 @@
       "sha256": "78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc",
       "accessed": "2026-10-14",
       "readSections": [
-        "§11, Lemma 11.22 and its proof, pp. 63–64"
+        "§11, Lemma 11.22 and its proof, pp. 63–64",
+        "§6, Proposition 6.5, p. 29",
+        "§7, Lemma 7.19, p. 37",
+        "§10, Definition 10.1 and Convention 10.2, pp. 49–50"
       ]
     },
     {
@@ -98,7 +101,8 @@
       "sha256": "aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349",
       "accessed": "2026-10-14",
       "readSections": [
-        "§2.1, set-up and Theorem 2.1.2, PDF pp. 10–11"
+        "§2.1, set-up and Theorems 2.1.2–2.1.3, PDF pp. 10–12",
+        "§2.3, Lemmas 2.3.6–2.3.7 and frame-to-flag construction, PDF pp. 19–21"
       ]
     },
     {
@@ -149,7 +153,7 @@
       "sha256": "e15abf4e7ab3e400ecaae963e5ccd80b340919d8499ebfde5b55f2ceb83ab285",
       "accessed": "2026-10-14",
       "readSections": [
-        "§III.3, Lemma III.3.4 and proof, p. 55"
+        "§III.3, Lemma III.3.4 and proof, pp. 55–56"
       ]
     }
   ],
@@ -975,7 +979,7 @@
         "module": "TauCeti/AlgebraicGeometry/ShimuraVariety/Tower",
         "namespace": "ShimuraTower"
       },
-      "statement": "Let (G, X) be a pure Shimura datum with reflex field E for which ShimuraVarieties V8 supplies actual canonical models together with their descended level maps and minimal compactifications; this holds for data of abelian type through V6 and V8/abelian-instance, which include the Siegel, PEL, Hodge-type and Hilbert data of T2–T5. Fix a prime p, a complete algebraically closed nonarchimedean field C of characteristic 0 over ℚ_p, an embedding ι: E → C and a compact open subgroup K^p ⊂ G(𝔸_f^p). Let CO_p be the set of compact open subgroups of G(ℚ_p) ordered by inclusion; it is cofiltered because K_p ∩ K′_p is again compact open. The p-level tower at tame level K^p is the functor on CO_p that sends K_p to the analytic adic space S_{K_p} := (Sh_{K^pK_p}(G, X) ⊗_{E,ι} C)^{ad} over Spa(C, O_C), and an inclusion K′_p ⊆ K_p to the analytification π_{K′_p,K_p}: S_{K′_p} → S_{K_p} of the descended forgetful map. The compactified tower K_p ↦ S*_{K_p} := (Sh^{min}_{K^pK_p}(G, X) ⊗_{E,ι} C)^{ad}, with the extended level maps, contains the open tower as the complement of the boundary, functorially in K_p. Every transition map is finite, and on the open tower it is finite étale when K^pK_p is neat. If σ: C ≅ ℂ is an isomorphism of abstract fields (one exists exactly when C has the cardinality of the continuum, for instance C = ℂ_p), then through σ ∘ ι the C-points are S_{K_p}(C) = G(ℚ)\\(X × G(𝔸_f)/K^pK_p), compatibly with the transition maps.",
+      "statement": "Let (G, X) be a pure Shimura datum with reflex field E for which ShimuraVarieties V8 supplies actual canonical models together with their descended level maps and minimal compactifications; this holds for data of abelian type through V6 and V8/abelian-instance, which include the Siegel, PEL, Hodge-type and Hilbert data of T2–T5. Fix a prime p, a complete algebraically closed nonarchimedean field C of characteristic 0 over ℚ_p, an embedding ι: E → C and a compact open subgroup K^p ⊂ G(𝔸_f^p). Let CO_p be the set of compact open subgroups of G(ℚ_p) ordered by inclusion; it is nonempty (intersect a closed faithful embedding G(ℚ_p) ⊂ GL_d(ℚ_p) with GL_d(ℤ_p)) and cofiltered because K_p ∩ K′_p is again compact open. The p-level tower at tame level K^p is the functor on CO_p that sends K_p to the analytic adic space S_{K_p} := (Sh_{K^pK_p}(G, X) ⊗_{E,ι} C)^{ad} over Spa(C, O_C), and an inclusion K′_p ⊆ K_p to the analytification π_{K′_p,K_p}: S_{K′_p} → S_{K_p} of the descended forgetful map. The compactified tower K_p ↦ S*_{K_p} := (Sh^{min}_{K^pK_p}(G, X) ⊗_{E,ι} C)^{ad}, with the extended level maps, contains the open tower as the complement of the boundary, functorially in K_p. Every transition map is finite, and on the open tower it is finite étale when K^pK_p is neat. If σ: C ≅ ℂ is an isomorphism of abstract fields (one exists exactly when C has the cardinality of the continuum, for instance C = ℂ_p), then through σ ∘ ι the C-points are S_{K_p}(C) = G(ℚ)\\(X × G(𝔸_f)/K^pK_p), compatibly with the transition maps.",
       "hypotheses": [
         "(G, X) lies in the class of data whose canonical models and level maps are supplied: abelian type, through V6 and V8/abelian-instance. General data with the V7/V8.general models are handled by PerfectoidShimuraVarieties S0.general, which builds on this node.",
         "C is complete, algebraically closed and of characteristic 0 over ℚ_p, and the tower depends on ι. Descent of the tower to E_v or to another finite extension of ℚ_p is a separate statement, not part of this notation.",
@@ -1059,7 +1063,7 @@
         {
           "name": "ShimuraTower.pLevel_gl2_components",
           "kind": "computation",
-          "statement": "For GL_2, K^p = K(N)^p with N ≥ 3 prime to p and K_p = K(p^m), S*_{K_p} has φ(Np^m) connected components, each the analytified complete modular curve X(Np^m)_C."
+          "statement": "For GL_2, K^p = K(N)^p with N ≥ 3 prime to p and K_p = K(p^m), S*_{K_p} has φ(Np^m) connected components, each the analytification of the connected complete modular curve X(Np^m, ζ)_C with a fixed primitive Weil-pairing value ζ. Their disjoint union is the full-basis modular curve X_full(Np^m)_C of TauCetiRoadmap ModularCurves; X_full is not the name of one component."
         },
         {
           "name": "ShimuraTower.pLevel_gl2_transition_degree",
@@ -1201,7 +1205,7 @@
       ],
       "acceptance": [
         "The order test distinguishes the right action from the left action T_g ∘ T_h.",
-        "The centre test identifies the kernel of the G(ℚ_p)-action on the limit with the closure of the rational centre meeting K^p."
+        "The GL₂ centre test detects the prime-to-p congruence condition controlling triviality of this scalar. General action-kernel descriptions remain PerfectoidShimuraVarieties S0's targets."
       ],
       "sources": [
         {
@@ -1227,7 +1231,7 @@
         "module": "TauCeti/AlgebraicGeometry/ShimuraVariety/Tower",
         "namespace": "ShimuraTower"
       },
-      "statement": "In the situation of T2/p-level-tower, put S^◇_{K^p,∞} := lim_{K_p} (S_{K_p})^◇ and S^{*◇}_{K^p,∞} := lim_{K_p} (S*_{K_p})^◇, limits of v-sheaves on perfectoid spaces over Spd(C, O_C) of the diamonds of DiamondsAndVStacks D6; no perfectoidness is assumed. Then: (i) S^{*◇}_{K^p,∞} is a spatial diamond, its projections to the finite levels are quasicompact and quasiseparated, and |S^{*◇}_{K^p,∞}| → lim_{K_p} |S*_{K_p}| is a homeomorphism; (ii) S^◇_{K^p,∞} is the open subdiamond over the complement of the boundary, a locally spatial diamond with |S^◇_{K^p,∞}| ≅ lim_{K_p} |S_{K_p}|; (iii) for a perfectoid (R, R⁺) over (C, O_C), S^◇_{K^p,∞}(R, R⁺) = lim_{K_p} S_{K_p}(R, R⁺); (iv) the right action of T2/tower-right-action induces a right action of G(ℚ_p) on S^◇_{K^p,∞} and S^{*◇}_{K^p,∞}, continuous on compact open subgroups (each K_p acts on the K′_p-stage through the finite quotient K_p/K′_p for K′_p normal in K_p); (v) when K^pK_p is neat, S^◇_{K^p,∞} → (S_{K_p})^◇ is pro-étale, the limit of the finite étale maps of the open tower above K_p. A cofinal family of levels gives a canonically isomorphic limit.",
+      "statement": "In the situation of T2/p-level-tower, put S^◇_{K^p,∞} := lim_{K_p} (S_{K_p})^◇ and S^{*◇}_{K^p,∞} := lim_{K_p} (S*_{K_p})^◇, limits of v-sheaves on perfectoid spaces over Spd(C, O_C) of the diamonds of DiamondsAndVStacks D6; no perfectoidness is assumed. Then: (i) S^{*◇}_{K^p,∞} is a spatial diamond, its projections to the finite levels are quasicompact and quasiseparated, and |S^{*◇}_{K^p,∞}| → lim_{K_p} |S*_{K_p}| is a homeomorphism; (ii) S^◇_{K^p,∞} is the open subdiamond over the complement of the boundary, a locally spatial diamond with |S^◇_{K^p,∞}| ≅ lim_{K_p} |S_{K_p}|; (iii) for a perfectoid (R, R⁺) over (C, O_C), S^◇_{K^p,∞}(R, R⁺) = lim_{K_p} S_{K_p}(R, R⁺); (iv) the right action of T2/tower-right-action induces a right action of G(ℚ_p) on S^◇_{K^p,∞} and S^{*◇}_{K^p,∞}, continuous on compact open subgroups (each K_p acts on the K′_p-stage through the finite quotient K_p/K′_p for K′_p normal in K_p); (v) when K^pK_p is neat, S^◇_{K^p,∞} → (S_{K_p})^◇ is separated and quasi-pro-étale: after pullback to a strictly totally disconnected perfectoid test space it is represented by the pro-étale limit of the finite étale covers above K_p. A cofinal family of levels gives a canonically isomorphic limit.",
       "hypotheses": [
         "The limit is formed in v-sheaves over Spd(C, O_C) along the cofiltered poset CO_p, or along any family of levels that is initial in it.",
         "S*_{K_p} is the analytification of a projective variety, hence quasicompact and quasiseparated; this gives spatiality in (i). The open tower is only locally spatial."
@@ -1237,7 +1241,7 @@
         "The transition maps are finite, hence quasicompact and quasiseparated. Scholze's limit lemma (DiamondsAndVStacks:D5/limits-and-finite-stage-comparisons, ECD Lemma 11.22) gives (i). For (ii) the preimage of the open complement of the boundary is an open subdiamond (D4/underlying-topological-space), and the same lemma applies to the open tower.",
         "(iii) is the evaluation of a limit of sheaves on Spd(R, R⁺), using the description of the diamond functor on perfectoid test objects (D6/gluing-and-the-diamond-functor).",
         "(iv): the T_g commute with the transition maps, so they induce maps of limits; a compact open K_p acts on each stage S_{K′_p} with K′_p normal in K_p through the finite group K_p/K′_p, hence continuously.",
-        "(v): at neat level the transition maps of the open tower are finite étale, and a cofiltered limit of finite étale maps of diamonds is pro-étale. Independence of the cofinal family is the comparison of limits along an initial functor (mathlib:CategoryTheory.Functor.Initial.limitIso)."
+        "(v): pull back along a strictly totally disconnected perfectoid T → (S_{K_p})^◇. The finite étale covers at finer levels become finite étale affinoid perfectoid spaces over T. Their limit is affinoid perfectoid by PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces (ECD Proposition 6.5); its map to T is pro-étale, since over every rank-one point its fibre is that point times an inverse limit of finite discrete sets (DiamondsAndVStacks:D1/pro-etale-maps-over-std-base, ECD Lemma 7.19). The projection is separated as a limit of separated maps. This proves quasi-pro-étaleness by DiamondsAndVStacks:D3/etale-and-quasi-pro-etale-morphisms-of-stacks (ECD Definition 10.1 and Convention 10.2). Independence of the cofinal family uses mathlib:CategoryTheory.Functor.Initial.limitIso."
       ],
       "prerequisites": [
         "HodgeTateAndCanonicalSubgroups:T2/p-level-tower",
@@ -1248,7 +1252,10 @@
         "DiamondsAndVStacks:D5/spatial-diamond",
         "DiamondsAndVStacks:D4/underlying-topological-space",
         "mathlib:CategoryTheory.Limits.limit",
-        "mathlib:CategoryTheory.Functor.Initial.limitIso"
+        "mathlib:CategoryTheory.Functor.Initial.limitIso",
+        "PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces",
+        "DiamondsAndVStacks:D1/pro-etale-maps-over-std-base",
+        "DiamondsAndVStacks:D3/etale-and-quasi-pro-etale-morphisms-of-stacks"
       ],
       "uses": [
         {
@@ -1310,14 +1317,29 @@
           "statement": "The induced right action of G(ℚ_p), continuous on compact open subgroups."
         },
         {
-          "name": "ShimuraTower.infiniteLevel_proEtale",
+          "name": "ShimuraTower.infiniteLevel_quasiProEtale",
           "role": "characterisation",
-          "statement": "At neat level the projection to (S_{K_p})^◇ is pro-étale."
+          "statement": "At neat level the open projection is separated and quasi-pro-étale; over a strictly totally disconnected perfectoid test space its pullback is represented by an affinoid pro-étale map."
         },
         {
           "name": "ShimuraTower.infiniteLevel_reindex",
           "role": "functoriality",
           "statement": "Restriction to an initial family of levels gives a canonically isomorphic limit."
+        },
+        {
+          "name": "ShimuraTower.infiniteLevel.lift",
+          "role": "universal-property",
+          "statement": "For a v-sheaf Y over Spd(C, O_C) with compatible maps f_K:Y → (S_K)^◇, there is a unique map Y → S^◇_{K^p,∞} with those projections; likewise for the minimally compactified tower."
+        },
+        {
+          "name": "ShimuraTower.infiniteLevel.lift_proj",
+          "role": "simp",
+          "statement": "The composite of the lifted cone map with proj_K equals f_K, for every level K."
+        },
+        {
+          "name": "ShimuraTower.infiniteLevel.hom_ext",
+          "role": "extensionality",
+          "statement": "Two maps into either limit diamond agree when their composites with all finite-level projections agree."
         }
       ],
       "tests": [
@@ -1356,6 +1378,11 @@
           "sourceId": "CS17",
           "locator": "§2.1, Theorem 2.1.2, PDF p. 11",
           "match": "The perfectoid Shimura variety is a tilde-limit of the finite-level spaces of fixed tame level; its diamond is the limit formed here."
+        },
+        {
+          "sourceId": "ECD",
+          "locator": "§6, Proposition 6.5, p. 29; §7, Lemma 7.19, p. 37; §10, Definition 10.1 and Convention 10.2, pp. 49–50",
+          "match": "Affinoid perfectoid inverse limits exist. Over a strictly totally disconnected base, the profinite-fibre criterion proves pro-étaleness of the limit of finite étale covers; the diamond projection is therefore quasi-pro-étale with the required local separatedness."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1378,16 +1405,16 @@
       "planet": {
         "name": "AIP torsor comparison morphism"
       },
-      "statement": "Let F be the totally real field of the Hilbert datum, m ≥ 1, let ε lie in the range of T5/hodge-tate-aip-lift (ε ≤ p^{−(m+1)}, inside the level-m canonical range), and let n ∈ ℤ_{≥0} ∪ {∞}. Write X_n := X_{Γ*(p^∞)}(p^nε)_a for the anticanonical full-level tower at radius p^nε (X_∞ := X_{Γ*(p^∞)}(ε)_a), u_n: X_n → X_{Γ*(p^∞)}(ε)_a for the morphism given by the action of the matrix diag(p^n, 1) (BHW §7.2; u_∞ = id), and s̃_n := s ∘ u_n, where s = HT(α(e₁)) is the canonical Hodge–Tate section factored through the AIP torsor F_m(ε) ⊂ T(ω) by T5/hodge-tate-aip-lift. Then: (i) s̃_n is a morphism over the Atkin–Lehner isomorphism AL_n: X_{Γ₀*(p^n)}(p^nε)_a ≅ X(ε) of T4/atkin-lehner-anticanonical, that is, the projection of F_m(ε) to X(ε) composed with s̃_n equals AL_n composed with the projection of X_n to Γ₀*(p^n)-level (for n = ∞, the forgetful map X_{Γ₀*(p^∞)}(ε)_a → X(ε)); (ii) for γ = (a b; c d) in the deck group Γ₀*(p^n) of X_n over its Γ₀*(p^n)-quotient (for n = ∞, for every γ in Γ₀*(p)), the factor j(γ, x) := c·z(x) + d, with z the Hodge–Tate coordinate of T4/hodge-tate-coordinate on X_n, takes values in the AIP structure group B_m, and s̃_n(x·γ) = j(γ, x)·s̃_n(x) for the B_m-torsor action on F_m(ε), the action of γ on X_n being the one of BHW's diagram (7.2) in the conventions of T4/hodge-tate-coordinate; (iii) consequently, for a bounded smooth weight κ: U → 𝒲* and a section f of 𝒪_{F_m(ε)×U} with b*f = κ⁻¹(b)·f for all b ∈ B_m, the pullback g = s̃_n* f satisfies γ*g = κ⁻¹(c·z + d)·g for every γ ∈ Γ₀*(p^n), and s̃_n* carries 𝒪⁺-valued eigenfunctions to 𝒪⁺-valued functions. The identification of the resulting coefficient sheaves (Birkbeck–Heuer–Williams, Theorem 7.14) and its Hecke equivariance are OverconvergentAutomorphicForms O5/O6 theorems built on this one.",
+      "statement": "Let F be the totally real field of the Hilbert datum, m ≥ 1, let ε lie in the range of T5/hodge-tate-aip-lift (ε ≤ p^{−(m+1)}, inside the level-m canonical range), and let n ∈ ℤ_{≥1} ∪ {∞}. Write X_n := X_{Γ*(p^∞)}(p^nε)_a for the anticanonical full-level tower at radius p^nε (X_∞ := X_{Γ*(p^∞)}(ε)_a), u_n: X_n → X_{Γ*(p^∞)}(ε)_a for the morphism given by the action of the matrix diag(p^n, 1) (BHW §7.2; u_∞ = id), and s̃_n := s ∘ u_n, where s = HT(α(e₁)) is the canonical Hodge–Tate section factored through the AIP torsor F_m(ε) ⊂ T(ω) by T5/hodge-tate-aip-lift. Then: (i) s̃_n is a morphism over the Atkin–Lehner isomorphism AL_n: X_{Γ₀*(p^n)}(p^nε)_a ≅ X(ε) of T4/atkin-lehner-anticanonical, that is, the projection of F_m(ε) to X(ε) composed with s̃_n equals AL_n composed with the projection of X_n to Γ₀*(p^n)-level (for n = ∞, the forgetful map X_{Γ₀*(p^∞)}(ε)_a → X(ε)); (ii) for γ = (a b; c d) in the deck group Γ₀*(p^n) of X_n over its Γ₀*(p^n)-quotient (for n = ∞, for every γ in Γ₀*(p)), the factor j(γ, x) := c·z(x) + d, with z the Hodge–Tate coordinate of T4/hodge-tate-coordinate on X_n, takes values in the AIP structure group B_m, and s̃_n(x·γ) = j(γ, x)·s̃_n(x) for the B_m-torsor action on F_m(ε), the action of γ on X_n being the one of BHW's diagram (7.2) in the conventions of T4/hodge-tate-coordinate; (iii) consequently, for a bounded smooth weight κ: U → 𝒲* and a section f of 𝒪_{F_m(ε)×U} with b*f = κ⁻¹(b)·f for all b ∈ B_m, the pullback g = s̃_n* f satisfies γ*g = κ⁻¹(c·z + d)·g for every γ ∈ Γ₀*(p^n), and s̃_n* carries 𝒪⁺-valued eigenfunctions to 𝒪⁺-valued functions. The identification of the resulting coefficient sheaves (Birkbeck–Heuer–Williams, Theorem 7.14) and its Hecke equivariance are OverconvergentAutomorphicForms O5/O6 theorems built on this one.",
       "hypotheses": [
         "Conventions of T4/hodge-tate-coordinate: dual-abelian Hilbert level structures α: 𝒪_p² ≅ T_pA^∨, the kernel coordinate z and the left fractional-linear action, with the conversion α′ = α ∘ γ^∨ to the right action on the tower fixed there.",
         "B_m is the actual structure group of the étale torsor F_m(ε) → X(ε) of T5/aip-torsor. That j lands in B_m is the ratio argument of T5/aip-automorphy-factor; the containment printed as (7.1) in BHW holds only in the corrected direction recorded in the T0–T5 part's source issues and is not used backwards.",
         "The level m attached to a weight follows the corrected indexing of the T0–T5 part (m = k + r − 1 on the k-th piece of weight space); (iii) is stated for any κ whose analytic extension is admitted on B_m.",
-        "Finite n uses the scaled radius p^nε with p^nε < 1/2, as required by T4/atkin-lehner-anticanonical."
+        "Finite n uses the scaled radius p^nε with p^nε < 1/2, as required by T4/atkin-lehner-anticanonical. In the Hilbert case retain the canonical-subgroup range at each quotient step required by that supplier. Level zero is recovered downstream for coefficient sheaves through AL_1 (BHW Theorem 7.14, proof, p. 31); it does not assert equivariance of this anticanonical branch under Γ₀*(1) = G*(ℤ_p)."
       ],
       "proofSteps": [
         "For n = ∞: T5/hodge-tate-aip-lift gives the factorization s: X_∞ → F_m(ε). The square over X(ε) commutes because the projection of s(x) is the abelian variety underlying x (BHW Lemma 7.12, right square). The left square, s(x·γ) = j(γ, x)·s(x) with j in B_m, is T5/aip-automorphy-factor.",
-        "For finite n: s̃_n = s ∘ u_n, so the n = ∞ relation at the point u_n(x) gives s̃_n(x·γ) as a B_m-multiple of s̃_n(x); the transformation rule of the Hodge–Tate coordinate under the matrix of u_n (T4/hodge-tate-coordinate, with the dual-abelian convention α′ = α ∘ γ^∨) identifies that multiple with c·z(x) + d for γ in Γ₀*(p^n). Composing the right square with the Atkin–Lehner isomorphism of T4/atkin-lehner-anticanonical, which identifies the Γ₀*(p^n)-quotient at radius p^nε with X(ε) through u_n, gives (i). This is the commutative diagram (7.2) of BHW, which the source prints for Γ₀*(p) and applies, in the proof of Theorem 7.14, to γ in Γ₀*(p^n); the statement here keeps the latter range at finite level.",
+        "For finite n ≥ 1, put ρ = u_n γ u_n⁻¹ = (a p^n b; p^{−n} c d). Its lower-left entry need not be divisible by p, so do not apply the Γ₀*(p) assertion of T5/aip-automorphy-factor to ρ. Instead the general quotient-line transformation of T4/hodge-tate-coordinate on the two charts gives z(u_n x) = p^n z(x) and j(ρ,u_n x) = (p^{−n}c)(p^n z(x)) + d = cz(x)+d. The two transformed HT lifts lie in F_m(ε) by T5/hodge-tate-aip-lift and over the same point of X(ε), since γ fixes the Γ₀*(p^n) quotient and u_n lies over AL_n. Their unique ratio in that faithfully acting torsor is therefore cz+d, which proves membership in B_m and equivariance. The right square is T4/atkin-lehner-anticanonical. This interprets BHW diagram (7.2) with the finite-level group Γ₀*(p^n) used in the proof of Theorem 7.14, rather than the Γ₀*(p) printed in the diagram.",
         "(iii) is formal from (ii): for f with b*f = κ⁻¹(b)f, g(x·γ) = f(j(γ, x)·s̃_n(x)) = κ⁻¹(j(γ, x))·g(x). Integrality is preserved because s̃_n is a morphism of adic spaces and pullback preserves 𝒪⁺."
       ],
       "prerequisites": [
@@ -1404,7 +1431,8 @@
       "acceptance": [
         "For n = ∞ and diagonal γ = diag(a, d) ∈ Γ₀*(p), (ii) reads s(x·γ) = d·s(x), matching the transformation ψ ↦ dψ of the Igusa generator in T5/igusa-full-level-comparison.",
         "For κ(t) = t^k on 𝒪_p^× (an algebraic weight), (iii) gives γ*g = (c·z + d)^{−k}·g, the weight-k automorphy law on the anticanonical tower.",
-        "The statement makes no claim that the pulled-back eigenfunctions span an invertible 𝒪⁺-module or that the induced map of coefficient sheaves is an isomorphism; both are O5's."
+        "The statement makes no claim that the pulled-back eigenfunctions span an invertible 𝒪⁺-module or that the induced map of coefficient sheaves is an isomorphism; both are O5's.",
+        "The level restriction is necessary: at an ordinary point with z = 0, the Weyl matrix (0 −1; 1 0) belongs to G*(ℤ_p) = Γ₀*(1) and sends the kernel line to ∞, outside the chosen anticanonical chart. It cannot be treated as a deck transformation preserving this branch."
       ],
       "sources": [
         {
@@ -2257,7 +2285,7 @@
         "live": true
       }
     ],
-    "meaning": "The whole-roadmap plan is the union of importedNodes (minus outgoingImportedNodes) and nodes. Promotion serialises the two parts (already live in data/blueprints) and this packet's nodes together. For packaging and review, importedPrerequisites gives the definitive prerequisites of every imported target and replaces the part's list; importedNodeCorrections gives authoritative replacements of the named fields of imported targets; outgoingImportedNodes lists imported targets that belong to another roadmap's plan and are not part of this roadmap's effective plan; requestResolutions records where a supplier now has an exact node for a part request. The part files are not edited by this job; the same changes go into them at their next revision.",
+    "meaning": "The whole-roadmap plan is the union of importedNodes (minus outgoingImportedNodes) and nodes. The current atlas merger concatenates the two parts (already live in data/blueprints) and this packet's nodes; it does not materialize these assembly overrides or remove the outgoing target. That display is not the definitive effective plan below; packaging must apply every override and the exclusion. For packaging and review, importedPrerequisites gives the definitive prerequisites of every imported target and replaces the part's list; importedNodeCorrections gives authoritative replacements of the named fields of imported targets; outgoingImportedNodes lists imported targets that belong to another roadmap's plan and are not part of this roadmap's effective plan; requestResolutions records where a supplier now has an exact node for a part request. The part files are not edited by this job; the same changes go into them at their next revision.",
     "importedPrerequisites": {
       "HodgeTateAndCanonicalSubgroups:T0/conormal-module": [
         "tauceti:TauCeti.Bialgebra.CotangentSpace",
@@ -3527,7 +3555,7 @@
             },
             {
               "sourceId": "SCH15",
-              "locator": "§III.3, Lemma III.3.4, p. 55 (arXiv:1306.2070v2)",
+              "locator": "§III.3, Lemma III.3.4, pp. 55–56 (arXiv:1306.2070v2)",
               "match": "The Siegel instance on points: a continuous GSp_{2g}(ℚ_p)-equivariant map from the open perfectoid Siegel space to the flag variety, sending (A, α) to the Hodge–Tate filtration; recorded as the continuity API item."
             }
           ]
@@ -4844,7 +4872,7 @@
     }
   ],
   "libraryAudit": {
-    "reviewedCoverage": "data/library-coverage.json has no reviewed record for this roadmap; the parts' audits (unreviewed AUDIT-37 and the part searches) stand.",
+    "reviewedCoverage": "The aggregate data/library-coverage.json has no record for this roadmap. AUDIT-37.result.json has an accepted independent review in reviews/REV-AUDIT-37.md; its nine layers are not built. Its existing Cartier-duality, cotangent, period-ring and Grassmannian ingredients are reused, with their exact scope checked at the pins.",
     "thisPass": "The moved-down tower constructions use Mathlib's cofiltered categories, functors, limits and initial-functor limit comparison, read at the pin; no Mathlib or Tau Ceti declaration builds Shimura varieties, analytification of their towers or limits of diamonds. The current Tau Ceti library and TauCetiRoadmap main were searched for Shimura towers, infinite-level, Hodge–Tate period maps, AIP torsors and Fargues degrees: none is present."
   },
   "inventory": {
@@ -4860,7 +4888,7 @@
       "lemma": 13,
       "theorem": 58
     },
-    "apiItems": 408,
+    "apiItems": 411,
     "unitTests": 224,
     "planets": 37,
     "baselineDeclarations": 42,
@@ -4870,12 +4898,13 @@
   "leanPrototype": {
     "file": "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean",
     "compiled": true,
-    "checked": "2026-10-14 with lean-check in the shared build at Mathlib 082e2d37e8 and Tau Ceti f790474: exit 0, four warnings, all for proofs left open, no other diagnostics; scripts/check_sorry_data.py passes",
-    "lines": 778,
+    "checked": "2026-10-14, independently rechecked by Codex session codex-P3IfDh using lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: exit 0; four warnings for proofs left open, no other diagnostics; scripts/check_sorry_data.py passes",
+    "lines": 780,
     "shape": "2026-10-12 package shape: light real-bodied definitions over pinned carriers, milestone statements, examples, and a generated closing index of every other planned name",
     "realBodiedDefinitions": [
       "TauCeti.HodgeTate.affineConormal",
       "TauCeti.HodgeTate.CompactOpenSubgroup",
+      "TauCeti.HodgeTate.CompactOpenSubgroup.toSubgroup",
       "TauCeti.HodgeTate.CompactOpenSubgroup.top",
       "TauCeti.HodgeTate.hasseValuation",
       "TauCeti.HodgeTate.canonicalSum",
@@ -4898,7 +4927,701 @@
       "TauCeti.HodgeTate.coordAction_mul",
       "TauCeti.LogAdic.trivialLog_isLog (proved)"
     ],
-    "indexedNames": 768,
-    "readerParagraph": "`research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean` (778 lines) is written to the 2026-10-12 shape. It states and does not develop. Its light real-bodied definitions use carriers that exist at the pins: the affine conormal module (Tau Ceti's cotangent space of a bialgebra), the compact open subgroups that index the p-level tower, the Hasse valuation and the weak, strong and BHW ranges with c_p, the fractional-linear action with its factor cz + d, the AIP exponent x = m − εp^m/(p − 1), and prelog and log structures on a ring. The six milestones are: intersections of compact open subgroups are compact open, the level poset is cofiltered, the strong range implies the weak one, the cocycle of cz + d, the action law, and the trivial log structure is a log structure; the first and last are proved outright. Eleven examples evaluate c_p, S_n, the AIP exponent and the identity matrix, separate the weak range from the strong one, and show that the one-element monoid is not a log structure on ℚ. Every other planned declaration (768 names) is listed in a closing index by layer and target, because its carrier (Shimura towers and diamonds, p-divisible groups over valuation rings, semi-abelian degenerations, period sheaves, log adic sites, the AIP torsor) is not at the pins. `lean-check` at Mathlib 082e2d37e8 and Tau Ceti f790474 exits 0 with four warnings, all for proofs left open. The part files `HodgeTateAndCanonicalSubgroups--T0.lean` and `--T6.lean` keep their fuller typed prototypes."
+    "indexedNames": 707,
+    "readerParagraph": "`research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean` (780 lines) is written to the 2026-10-12 shape. It states and does not develop. Its light real-bodied definitions use carriers that exist at the pins: the affine conormal module (Tau Ceti's cotangent space of a bialgebra), the compact open subgroups that index the p-level tower, the Hasse valuation and the weak, strong and BHW ranges with c_p, the fractional-linear action with its factor cz + d, the AIP exponent x = m − εp^m/(p − 1), and prelog and log structures on a ring. The six milestones are: intersections of compact open subgroups are compact open, the level poset is cofiltered, the strong range implies the weak one, the cocycle of cz + d, the action law, and the trivial log structure is a log structure; the first and last are proved outright. Ten examples evaluate c_p, S_n, the AIP exponent and the identity matrix, separate the weak range from the strong one, and show that the one-element monoid is not a log structure on ℚ. Every other planned declaration (707 distinct names across 771 index entries) is listed in a closing index by layer and target, because its carrier (Shimura towers and diamonds, p-divisible groups over valuation rings, semi-abelian degenerations, period sheaves, log adic sites, the AIP torsor) is not at the pins. `lean-check` at Mathlib 082e2d37e8 and Tau Ceti f790474 exits 0 with four warnings, all for proofs left open. The part files `HodgeTateAndCanonicalSubgroups--T0.lean` and `--T6.lean` keep their fuller typed prototypes.",
+    "indexEntries": 771
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeTateAndCanonicalSubgroups",
+    "date": "2026-10-14",
+    "notes": "Independent whole-roadmap assembly review by Codex, session codex-P3IfDh. Checked all 137 effective targets, the four additions and six imported field corrections; unchanged historical source checks inherit the two hash-matched accepted part reviews. All 42 baseline declarations independently read at the pins. Corrected projection morphism class, missing limit API, positive-level AIP torsor contract and finite conjugation proof, modular component conventions, Lean containment annotation and inventory/audit metadata. Nine planned stages, 25 requests and 23 gaps remain honest; acceptance is of the plan, not closed proofs or library implementation. See the review and handoff for promotion-overlay limits and supplier status.",
+    "checked": [
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/conormal-module",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/finite-hodge-tate-map",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/hodge-tate-map-compatibilities",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/p-divisible-hodge-tate-map",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/fargues-hodge-tate-cokernel",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: States the subgroup case of the bound (PAPER-PILLONI-20 item external-fargues-hodge-tate-cokernel-bound), which needs no embedding hypothesis; the T0 node had only a conditional remark."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/fargues-degree",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: Adds the degree computation of PAPER-PILLONI-20 item ext-fargues-degree-of-subgroups, which the T0 routing ledger assigned to this node but which no field contained."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/fargues-degree-properties",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/fargues-degree-generic-isomorphism",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/fargues-divisor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/isogeny-divisor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/multiplicative-hodge-tate-isomorphism",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/normalized-multiplicative-pullback",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/semi-abelian-torsion",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: The supplier gap recorded for this target is closed: ShimuraCompactifications C4 now plans the semi-abelian Verschiebung determinant (resolution of the C4 and R07.2 requests)."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-ordinary-locus",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-minimal-compactification",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/hodge-tate-boundary-extension",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/raynaud-hodge-tate-filtration",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/harder-narasimhan-filtration",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/degree-different",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T1/abelian-relative-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T1/hodge-tensor-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/p-divisible-hodge-tate-sequence",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/abelian-hodge-tate-sequence",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/hodge-tate-flag-point",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: Text follows the move of the tower from PerfectoidShimuraVarieties S0 to T2."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/pel-hodge-type-filtration",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/de-rham-hodge-tate-levi-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: The tower, its limit and its action move down from PerfectoidShimuraVarieties S0 (tier 17) to T2 (this roadmap is tier 16); the continuity API item records where Scholze's Lemma III.3.4 (PAPER-SCHOLZE-15 item 59, a maintainer-added source) is planned."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/hasse-neighbourhood",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/subgroup-lifting",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/section-rigidity",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/pointwise-quotient-hasse",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-hodge-tate",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T3/hilbert-canonical-subgroup",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/canonical-locus-isomorphism",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/flag-variety-balls",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/ramified-period-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/igusa-torsor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/igusa-full-level-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/integral-differential-lattice",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/modified-hodge-bundle",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/modified-minimal-model",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/modified-plus-sheaf",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited. Re-read and verified the authoritative field correction: Adds Pilloni's Remark 12.7.1.1 (PAPER-PILLONI-20 item etale-sheaf-omega-mod-plus), which the node had only implicitly."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/aip-torsor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/conormal-base-change",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/conormal-right-exact",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T0/finite-hodge-tate-naturality",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T4/canonical-kernel-congruence",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/integral-lattice-level-independence",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/aip-automorphy-factor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/toric-log-adic-space",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/integral-adic-chart",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/divisorial-analytic-log",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-smooth-chart-criterion",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/continuous-log-derivation",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/continuous-log-differentials",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/analytic-log-de-rham",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-morphism",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-root-covers",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-ramification-index",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-site",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-coherent-acyclicity",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/finite-kummer-descent",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-higher-direct-images",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/rigid-abhyankar",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/pro-kummer-presentations",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/corrected-pro-kummer-covers",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/pro-kummer-etale-site",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-padic-local-systems",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-cohomology-finite-vanishing",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-plus",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-complete",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-faltings-extension",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/filtered-log-connection",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T6/finite-level-canonical-package",
+        "verdict": "verified",
+        "note": "Accepted part target imported from independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2. Verified its assembly, effective prerequisites, API/tests and reader agreement; the historical source verdict is inherited."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/p-level-tower",
+        "verdict": "corrected",
+        "note": "Corrected the cofiltered index nonemptiness proof and the GL₂ component test: the connected component has a fixed primitive Weil-pairing value; the full-basis curve is its disjoint union. Source and finite-level supplier contracts verified."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/tower-right-action",
+        "verdict": "corrected",
+        "note": "Verified the right-action order, descended finite-level maps, prime-to-p commutation and centre tests against Milne §5, p.65. Restricted the acceptance clause to its actual GL₂ test; general action-kernel descriptions remain S0 targets."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T2/infinite-level-diamond",
+        "verdict": "corrected",
+        "note": "Corrected the neat-level projection to separated quasi-pro-étale; supplied the strictly totally disconnected base-test proof and exact P5/D1/D3 prerequisites. Added compatible-cone lift, projection and extensionality API. ECD 6.5, 7.19, 10.1–10.2, 11.22 verified."
+      },
+      {
+        "nodeId": "HodgeTateAndCanonicalSubgroups:T5/aip-torsor-hodge-tate-comparison",
+        "verdict": "corrected",
+        "note": "Corrected finite levels to n≥1, retaining the Hilbert canonical range at each quotient; n=0 sheaf comparison uses AL₁ downstream. Corrected finite conjugation proof to use the general chart law and the ratio of actual torsor lifts, rather than applying the Γ₀(p) assertion to a conjugate outside that group. Added the Weyl non-example."
+      }
+    ]
   }
 }
