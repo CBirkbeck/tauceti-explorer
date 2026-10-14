@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T19:03Z",
+ "updated": "2026-10-14T19:17Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -35,8 +35,8 @@
   "ReductiveGroupsPartII": {
    "stage": "pr",
    "pr": 785,
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "19c6313",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); since 2026-10-14 19:16Z the #785 branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants",
+   "head": "85b9dab",
    "review": {
     "recommendation": "changes",
     "head": "3c6c215",
@@ -52,7 +52,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "791e18a",
+   "head": "2ad17a1",
    "review": {
     "recommendation": "changes",
     "head": "9f5058d",
@@ -67,14 +67,14 @@
    "depends_on": [
     785
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); merged into #785 branch 2026-10-14 19:12Z",
    "head": "74400cd",
    "review": {
     "recommendation": "approve",
-    "head": "c12d484",
-    "current": false,
+    "head": "74400cd",
+    "current": true,
     "date": "2026-10-14",
-    "note": "maintainer integration re-review (roed-math, GPT-5.6 Sol) finds no blocker and asks only for a restack onto current main, done at e664bc4"
+    "note": "maintainer (roed-math) APPROVED and merged #793 into the ReductiveGroupsPartII branch (#785) at 19:12Z; the folder now travels with #785"
    }
   },
   "IntegralHeckeAndGaloisDeterminants": {
@@ -83,14 +83,14 @@
    "depends_on": [
     793
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); merged into #793 branch 2026-10-14 19:15Z, folded into #785",
    "head": "3eb09ab",
    "review": {
     "recommendation": "approve",
     "head": "ac1db49",
     "current": false,
     "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+    "note": "merged by the maintainer into the SmoothRepresentations branch at 19:15Z and folded into #785 at 85b9dab; earlier Astra approval at ac1db49"
    }
   },
   "AdicEtaleGeometry": {
@@ -386,7 +386,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "e27013c",
+   "head": "d37a67e",
    "depends_on": [
     779,
     856,
@@ -584,7 +584,7 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "242a8ea",
+   "head": "036319d",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); Lean 449 lines (17 real-bodied definitions, 11 theorems, 39 examples), README 4,536 lines; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
