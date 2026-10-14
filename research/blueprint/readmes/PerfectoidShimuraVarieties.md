@@ -24,183 +24,39 @@ T3/T4 supply canonical-subgroup quotients, radius changes and canonical–antica
 
 ## Coverage and limits of the plan
 
-There are 90 target-level nodes: 4 definitions, 20 constructions, 51 theorems, 8 comparisons and 7 lemmas. They carry 155 API items, 97 planned discriminating tests and 27 planets. All eight stages are planned; none is closed. Seven gaps and fifteen exact requests remain, listed below. The revision review REV-PerfectoidShimuraVarieties~2 is complete and records needs_changes. All mathematical targets were checked; eight S6 nodes still depend on unestablished geometric proof inputs, and the suggested file remains a partial prototype that does not meet Protocol §13 packet/file coverage. The recorded closure gaps alone do not require any stage to be implemented or closed. The acceptance failure is the missing prototype coverage, together with the eight explicitly unverifiable proof interfaces.
-
-The suggested file contains 112 actual named declarations/instances and 49 actual examples. Its pinned Lean check succeeds with only placeholder-proof warnings, including the reviewer’s residue-unit and cusp-cone examples. That validates the stated native signatures, not the unavailable geometry or the 90 mathematical targets. The categorical recipes take the actual finite-level models and geometric functors as suppliers; they do not define replacement geometric records. The supplied perfectoid category and fully faithful fixed-base functor are parameters. The representative record retains its space and diamond isomorphism, while good-affinoid/tilde-limit conditions are omitted. Its resulting predicate is only the diamond-representability portion of the full notion.
-
-The following ledger records the stated portions and omissions for every definition/construction. In the target specifications that follow, every planned API and test is still given in mathematics. Items absent from the native signatures are not claimed to have elaborated. Named geometric theorems likewise remain the mathematical statements below: perfectoid representability, boundary goodness, compactified period maps, logarithmic comparison, algebraic torsor descent, integral Levi reductions and their affinoidness have no geometric Lean theorem signatures at this baseline.
+There are 98 target-level nodes: 5 definitions, 22 constructions, 55 theorems, 8 comparisons and 8 lemmas. They carry 174 API items, 109 planned discriminating tests and 28 planets. All eight stages are planned; none is closed. Six gaps and thirteen supplier requests remain, listed below. Revision 3 answers REV-PerfectoidShimuraVarieties~2 as follows. The suggested file is brought to the 2026-10-12 shape described in the ledger below, which replaces the earlier coverage demand: carriers absent from the pins make a target a README target, and the file indexes every such name. Of the eight S6 proof interfaces the review could not verify, the log-to-v passage is now planned in S6 (log-to-v-comparison, kummer-to-v-bridge), which also carries the general toroidal map and the integral Levi reduction, with one narrow recorded gap (openness of the completed log affinoid perfectoid charts); the Bruhat tubes and level groups are planned in S6 and the false step of Boxer–Pilloni Lemma 4.6.20 is replaced by a complete argument, which settles the Bruhat reduction and the Hecke correspondences; Lovering’s auxiliary datum with its Levi fibre-product identity and the boundary torsor descent remain precise requests to ShimuraData D4 and AutomorphicBundles B3.general. Scholze’s Hebbarkeitssatz, good triples and the Hasse blow-up Hartogs statements moved down into S1 from TorsionCohomologyInfrastructure, which sits above this roadmap in the upstream order.
 
 ## Suggested-file ledger
 
-### The level subgroups Γ₀(pᵐ), Γ₁(pᵐ), Γ(pᵐ) of GSp_2g(ℤ_p)
-
-All nine planned level-group API names have actual native signatures, using integral GSp and the multiplier congruence. Compactness/openness and full multiplier-image statements are included. Examples cover m=0, genus one, the Γ₀/Γ₁ and GL₂ finite indices, the SL₂(ℤ) congruence comparison, noncofinal Γ₁ and the determinant-versus-multiplier non-example. No geometric moduli quotient is inferred from these group calculations.
-
-API names with a native signature or structure field (often only the stated portion): `GSp.levelGamma`, `GSp.levelGamma1`, `GSp.levelGamma0`, `GSp.levelGamma_le_levelGamma1`, `GSp.levelGamma_normal`, `GSp.levelGamma0QuotGamma1`, `GSp.levelGamma_cofinal`, `GSp.similitude_levelGamma0`, `GSp.levelGamma_genusOne`.
-
-### The p-level tower of a Shimura datum at fixed tame level
-
-Canonical-model, base-change and analytification functors are supplied. Finiteness and degree, canonical-model descent, double-coset points and geometric open immersion are omitted. Identity and composition examples check only the functor recipe.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.pLevel`, `ShimuraTower.pLevelMin`, `ShimuraTower.toMin`, `ShimuraTower.transition_comp`, `ShimuraTower.reindex`.
-
-API names without a signature: `ShimuraTower.transition_finite`, `ShimuraTower.points_eq_doubleCoset`.
-
-### The right action of G(ℚ_p) and of prime-to-p Hecke operators on the p-level tower
-
-An opposite-group action on points, its multiplication order, equivariant transitions and quotient by an actual annihilated normal subgroup are stated. Continuous diamond actions, arithmetic identity at a finite level, tame Hecke maps and the actual deck-kernel equality are omitted.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.translate`, `ShimuraTower.translate_one`, `ShimuraTower.translate_mul`, `ShimuraTower.translate_of_mem`, `ShimuraTower.translate_comm_transition`, `ShimuraTower.quotientAction`.
-
-API names without a signature: `ShimuraTower.primeToPHecke`.
-
-### The infinite-level Shimura diamond S^◇_{K^p,∞}
-
-The actual limit in a supplied sheaf category, projections, extensionality and reindexing by an initial functor are stated. Existence/diamondhood, spatiality, underlying topological limit, complete-field points, continuous action and pro-étaleness are omitted. No claim that an ordinary categorical limit is a tilde-limit is made.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.infiniteLevel`, `ShimuraTower.infiniteLevelMin`, `ShimuraTower.infiniteLevel.proj`, `ShimuraTower.infiniteLevel_reindex`.
-
-API names without a signature: `ShimuraTower.infiniteLevelMin_isSpatial`, `ShimuraTower.infiniteLevel_isLocallySpatial`, `ShimuraTower.infiniteLevel_space_homeo`, `ShimuraTower.infiniteLevel_points`, `ShimuraTower.infiniteLevel_action`, `ShimuraTower.infiniteLevel_proEtale`.
-
-### Perfectoid representatives of a tower
-
-A supplied category Perf and fixed-base fully faithful diamond functor give the representative’s space and diamond isomorphism, cone lifting, uniqueness and maps. Good-affinoid and dense-function/tilde-limit conditions are omitted. Every API has its categorical portion; the nonperfectoid constant-tower and component-moduli tests are not expressible here.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.PerfectoidRepresentative`, `ShimuraTower.PerfectoidRepresentative.diamondIso`, `ShimuraTower.PerfectoidRepresentative.unique`, `ShimuraTower.PerfectoidRepresentative.lift`, `ShimuraTower.PerfectoidRepresentative.map`, `ShimuraTower.PerfectoidRepresentative.ofDiamondIso`, `ShimuraTower.IsPerfectoidTower`.
-
-### The neutral-component tower and its symmetry group
-
-The neutral diagram and inclusion are supplied functors; the neutral symmetry is the stabilizer in a supplied component action. Actual arithmetic components, connectedness, induced reconstruction, neutral deck groups and connected-data moduli are omitted.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.neutralComponent`, `ShimuraTower.neutralComponent.toFull`, `ShimuraTower.neutralSymmetry`.
-
-API names without a signature: `ShimuraTower.neutralDeckGroup`, `ShimuraTower.fullOfNeutral`, `ShimuraTower.connectedDatumTower`, `ShimuraTower.neutralComponent_isConnected`.
-
-### Towers retaining a moduli rigidification
-
-Only the quadratic-unit arithmetic example is stated. Rigidified Shimura moduli, finite geometric quotient, tower limit, torsor freeness and quotient/limit comparison have no signatures.
-
-API names without a signature: `ShimuraTower.Rigidified`, `ShimuraTower.Rigidified.quotientIso`, `ShimuraTower.Rigidified.infiniteLevel`, `ShimuraTower.Rigidified.isTorsor_of_free`, `ShimuraTower.Rigidified.quotient_infiniteLevel`, `ShimuraTower.Rigidified.trivial`.
-
-### The general-data infinite-level diamond
-
-The limit of the supplied general-data diagram is stated. General canonical models, spatiality, component identifications, actions and agreement with the abelian construction remain supplied geometry.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.generalInfiniteLevel`.
-
-API names without a signature: `ShimuraTower.generalInfiniteLevel_isSpatial`, `ShimuraTower.generalInfiniteLevel_action`, `ShimuraTower.generalInfiniteLevel_eq_abelian`.
-
-### The toroidal tower diamond with cone-compatible deck actions
-
-Analytification of a supplied cone-compatible diagram and its limit, maps to the supplied open/minimal diagrams and refinement compatibility are stated. Open immersion, spatiality, boundary ramification, continuous effective deck actions and Hecke spans through changed fans are omitted. The refinement example checks only the identity refinement.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.toroidal`, `ShimuraTower.toroidalInfiniteLevel`, `ShimuraTower.toroidalInfiniteLevel.openEmbedding`, `ShimuraTower.toroidalInfiniteLevel.toMin`, `ShimuraTower.toroidalInfiniteLevel.refine`.
-
-API names without a signature: `ShimuraTower.toroidalInfiniteLevel_isSpatial`, `ShimuraTower.toroidalInfiniteLevel.deck`, `ShimuraTower.toroidalInfiniteLevel.translate`.
-
-### The Siegel spaces of the construction: integral models, Hasse domains and finite-level adic spaces
-
-No signature: the integral minimal moduli/model, semi-abelian boundary, analytic generic fibre and Hasse-domain carriers are unavailable. All seven APIs and five geometric tests are omitted.
-
-API names without a signature: `SiegelTorsion.integralMin`, `SiegelTorsion.hasseDomain`, `SiegelTorsion.hasseDomain_generic`, `SiegelTorsion.finiteLevel`, `SiegelTorsion.finiteLevel_hasse`, `SiegelTorsion.finiteLevel_eq_tower`, `SiegelTorsion.hasseDomain_mono`.
-
-### The anticanonical Γ₀(pᵐ)-tower and its affinoidness at deep level
-
-No signature: formal Hasse neighbourhoods, canonical subgroups, analytic anticanonical domains and their tilde-limit carriers are unavailable. All six APIs and four tests are omitted.
-
-API names without a signature: `SiegelTorsion.anticanonical`, `SiegelTorsion.anticanonical_iso_hasse`, `SiegelTorsion.anticanonical_isClopen`, `SiegelTorsion.anticanonical_integralModel`, `SiegelTorsion.anticanonical_isAffinoid`, `SiegelTorsion.anticanonical_restrict`.
-
-### Tate's normalized traces on the anticanonical tower
-
-Finite free characteristic-zero algebras give degree-normalized trace, linearity, scalar identity and tower compatibility, with three algebraic examples. Completed affinoid algebras, integral operator bounds and convergence in the Frobenius tower are omitted; the finite-level coefficient trace is not the full continuous Tate trace.
-
-API names with a native signature or structure field (often only the stated portion): `SiegelTorsion.normalizedTrace`, `SiegelTorsion.normalizedTrace_of_finiteLevel`, `SiegelTorsion.normalizedTrace_compat`, `SiegelTorsion.normalizedTrace_linear`.
-
-API names without a signature: `SiegelTorsion.normalizedTrace_bound`, `SiegelTorsion.normalizedTrace_tendsto`.
-
-### The continuous Hodge–Tate map on the open infinite-level Siegel tower
-
-No signature: abelian families, completed relative Hodge–Tate sequence and the underlying inverse-limit analytic space are unavailable. All five APIs and four tests are omitted.
-
-API names without a signature: `SiegelTorsion.htMapTop`, `SiegelTorsion.htMapTop_apply`, `SiegelTorsion.htMapTop_continuous`, `SiegelTorsion.htMapTop_equivariant`, `SiegelTorsion.points_infiniteLevel`.
-
-### The Siegel Hodge–Tate period map as a map of adic spaces, extended over the boundary
-
-No signature: the perfectoid and analytic flag/morphism carriers and boundary extension are unavailable. All six APIs and four tests are omitted.
-
-API names without a signature: `SiegelTorsion.htMap`, `SiegelTorsion.htMap_top`, `SiegelTorsion.htMap_unique`, `SiegelTorsion.htMap_equivariant`, `SiegelTorsion.htMap_anticanonical`, `SiegelTorsion.htMap_neighbourhood`.
-
-### The open perfectoid Siegel tower, its right action and its finite-level quotients
-
-Only the strict-Iwahori subgroup of actual integral GSp is stated, with Γ₀ inclusion and quotient/unipotent tests. Open perfectoid tower, geometric effective torsor, quotient and action signatures and tests are omitted.
-
-API names with a native signature or structure field (often only the stated portion): `SiegelTorsion.strictIwahori`.
-
-API names without a signature: `SiegelTorsion.openTower`, `SiegelTorsion.openTower_torsor`, `SiegelTorsion.openTower_quotient`, `SiegelTorsion.openTower_action`.
-
-### The symplectic embedding and the comparison of finite levels with their Siegel images
-
-No signature: actual Shimura-data embeddings, finite-level analytic models and closed immersions are unavailable. All six APIs and four tests are omitted.
-
-API names without a signature: `HodgeTower.embedding`, `HodgeTower.toSiegel`, `HodgeTower.toSiegel_isClosedImmersion`, `HodgeTower.toSiegel_boundary`, `HodgeTower.toSiegel_comp`, `HodgeTower.toSiegel_finite`.
-
-### Scholze's image compactification and its relation to the minimal compactification
-
-No signature: schematic closure, normalization, Hodge-type canonical minimal compactification and boundary carriers are unavailable. All six APIs and four tests are omitted.
-
-API names without a signature: `HodgeTower.imageCompactification`, `HodgeTower.minToImage`, `HodgeTower.minToImage_isNormalization`, `HodgeTower.minToImage_iso_open`, `HodgeTower.imageCompactification_boundary`, `HodgeTower.imageCompactification_stable`.
-
-### Imported homogeneous flag and Levi torsor: the right-action dictionary
-
-Point quotients P\G, inversion, U\G→P\G, inverse-left Levi action, normality and fibrewise freeness are stated. These do not give an algebraic/analytic torsor or associated vector bundle; geometric local triviality, compact dual, parabolic from μ and general associated-bundle APIs are omitted. The generic geometric construction is an upstream R09.1/B0 request, not owned by S3.
-
-API names with a native signature or structure field (often only the stated portion): `HodgeTate.FL`, `HodgeTate.leviTorsor`, `HodgeTate.FL_equivLeftFlag`.
-
-API names without a signature: `HodgeTate.associatedBundle`, `HodgeTate.associatedBundle_tensor`, `HodgeTate.FL_siegel`.
-
-### Siegel graph charts, strict-Iwahori stable domains and the Hodge–Tate frame
-
-Symmetric matrices, block fractional action, determinant-unit congruence, quotient map (1,Z), its graph kernel, surjectivity and transformation are stated. The distance-to-ℤ_p subset and strict-Iwahori pointwise stability are stated over normed ultrametric p-adic extensions. Kernel/quotient and the genus-one c⁻¹ correction have examples. Analytic affinoid realization, pullback to an actual abelian family, bundle frames and Tate-line linearizations are omitted.
-
-API names with a native signature or structure field (often only the stated portion): `HodgeTate.siegelGraphChart`, `HodgeTate.siegelGraphChart_act`, `HodgeTate.det_factor_isUnit`, `HodgeTate.siegelGraphChart_stable`, `HodgeTate.hodgeFrame`, `HodgeTate.hodgeFrame_transform`, `HodgeTate.graphDistanceDomain`.
-
-### Property 𝒫: perfectoidness of all minimally compactified towers of a datum
-
-Only universal diamond representability of supplied minimal/neutral diagrams and diagram-isomorphism invariance are stated. This omits the good-chart and strong-boundary clauses, arithmetic index-category construction, neutral/full equivalence, adjoint descent and Hodge/pre-abelian geometric examples.
-
-API names with a native signature or structure field (often only the stated portion): `ShimuraTower.PropertyP`, `ShimuraTower.ConnectedPropertyP`, `ShimuraTower.propertyP_iso`.
-
-API names without a signature: `ShimuraTower.propertyP_iff_neutral`, `ShimuraTower.propertyP_of_adjoint`, `ShimuraTower.propertyP_hodge`.
-
-### The geometric, intermediate and arithmetic Hilbert towers at infinite level
-
-Only the matrix level action through det(γ)γ⁻¹, its order and diagonal counterexamples are stated. The three geometric towers, β₁/β₂, polarization action, Weil-pairing components and perfectoid representatives have no signatures.
-
-API names with a native signature or structure field (often only the stated portion): `HilbertTower.levelAction`.
-
-API names without a signature: `HilbertTower.geometric`, `HilbertTower.intermediate`, `HilbertTower.arithmetic`, `HilbertTower.beta1`, `HilbertTower.beta2`, `HilbertTower.polAction`, `HilbertTower.isPerfectoid`.
-
-### The 𝒪_p^×-valued Weil pairing of the intermediate Hilbert tower
-
-Only the alternating determinant coefficient, its level transformation, target-generator change and diagonal example are stated. A closed singleton in the p-adic pairing group illustrates the topology. Actual abelian Weil pairing, polarization compatibility, ideal/twist generator, target units and geometric/rigidified/arithmetic fibres are omitted.
-
-API names with a native signature or structure field (often only the stated portion): `HilbertTower.weilPairing`, `HilbertTower.weilPairing_level`, `HilbertTower.weilPairing_changeGenerator`.
-
-API names without a signature: `HilbertTower.weilPairing_pol`, `HilbertTower.weilPairing_fibre`, `HilbertTower.weilPairing_E`, `HilbertTower.weilPairing_arith`.
-
-### The action of G(ℚ_p) on the Hilbert towers and the change of polarization module
-
-Only the dual-matrix multiplication order used for its level-action convention has a signature/example in hilbert-three-towers. No action on isogenies, polarization classes or Hilbert spaces is stated; all four qpAction APIs and the geometric tests are omitted.
-
-API names without a signature: `HilbertTower.qpAction`, `HilbertTower.qpAction_extends`, `HilbertTower.qpAction_polModule`, `HilbertTower.qpAction_eq_translate`.
-
-### Auxiliary data for an abelian-type datum: the Hodge-type cover and Lovering's B₁
-
-Only the group fibre product of supplied ab/reflex-norm homomorphisms, its projections, commutative square and identity-pullback example are stated. No reflex norm, cocharacter, auxiliary Shimura datum, reflex-field compatibility, maps to G, coefficient c-Levi identity or toroidal Galois quotient is constructed.
-
-API names with a native signature or structure field (often only the stated portion): `AbelianType.lovering`.
-
-API names without a signature: `AbelianType.hodgeCover`, `AbelianType.flag_eq`, `AbelianType.deltaGroup`, `AbelianType.neutral_galois`.
+The suggested file follows the maintainer’s shape of 2026-10-12: it states and does not develop. It keeps light definitions with real bodies over carriers that exist at the pinned Mathlib and Tau Ceti (the similitude group GSp_2g and its level subgroups, the strict Iwahori, the Siegel graph chart and frame, point quotients P\G and the Levi projection, opposite-group actions and their kernels, finite-level normalised traces, the dual-matrix level action, the group carrier of Lovering’s fibre product, categorical limits of supplied diagrams and the fixed-base representative record) together with statements and examples about them. No data is defined by a placeholder. Of the 174 planned API items of the 27 definitions and constructions, 63 are stated there (several as the stated portion only, as their docstrings say), and 27 of the 109 planned checks are examples there. The remaining items and all 71 theorem, lemma and comparison targets have carriers that are not at the pins (adic, perfectoid and analytic spaces, diamonds, canonical models, compactifications, period sheaves, almost modules over perfectoid algebras, analytic groups and tubes); they are README targets, specified in the sections below, and the file closes with an index naming each of them under its node. The file also states, as a group-theoretic milestone, the double-coset identity behind the repaired proof of Boxer–Pilloni Lemma 4.6.20. It elaborates at the pins with placeholder proofs as its only warnings.
+
+- *The level subgroups Γ₀(pᵐ), Γ₁(pᵐ), Γ(pᵐ) of GSp_2g(ℤ_p)* (`S0/siegel-level-subgroups`). In the file: API `GSp.levelGamma`, `GSp.levelGamma1`, `GSp.levelGamma0`, `GSp.levelGamma_le_levelGamma1`, `GSp.levelGamma_normal`, `GSp.levelGamma0QuotGamma1`, `GSp.levelGamma_cofinal`, `GSp.similitude_levelGamma0`, `GSp.levelGamma_genusOne`; checks `levelGamma_index_g1`, `levelGamma0_similitude_not_det`, `levelGamma_inter_SL2Z`, `levelGamma1_not_cofinal`, `levelGamma_m_zero`. README targets: none.
+- *The p-level tower of a Shimura datum at fixed tame level* (`S0/p-level-tower`). In the file: API `ShimuraTower.pLevel`, `ShimuraTower.pLevelMin`, `ShimuraTower.toMin`, `ShimuraTower.transition_comp`, `ShimuraTower.reindex`. README targets: API `ShimuraTower.transition_finite`, `ShimuraTower.points_eq_doubleCoset`; checks `pLevel_gl2_full_level`, `pLevel_transition_degree_gl2`, `pLevel_torus_zero_dim`, `pLevel_not_over_reflex_completion`.
+- *The right action of G(ℚ_p) and of prime-to-p Hecke operators on the p-level tower* (`S0/tower-right-action`). In the file: API `ShimuraTower.translate`, `ShimuraTower.translate_one`, `ShimuraTower.translate_mul`, `ShimuraTower.translate_of_mem`, `ShimuraTower.translate_comm_transition`, `ShimuraTower.quotientAction`; checks `translate_mul_order`. README targets: API `ShimuraTower.primeToPHecke`; checks `translate_center_gl2`, `translate_trivial_group`.
+- *The infinite-level Shimura diamond S^◇_{K^p,∞}* (`S0/infinite-level-diamond`). In the file: API `ShimuraTower.infiniteLevel`, `ShimuraTower.infiniteLevelMin`, `ShimuraTower.infiniteLevel.proj`, `ShimuraTower.infiniteLevel_reindex`. README targets: API `ShimuraTower.infiniteLevelMin_isSpatial`, `ShimuraTower.infiniteLevel_isLocallySpatial`, `ShimuraTower.infiniteLevel_space_homeo`, `ShimuraTower.infiniteLevel_points`, `ShimuraTower.infiniteLevel_action`, `ShimuraTower.infiniteLevel_proEtale`; checks `infiniteLevel_torus`, `infiniteLevel_not_perfectoid_definition`, `infiniteLevel_space_gl2`, `infiniteLevel_singleton_index`.
+- *Perfectoid representatives of a tower* (`S0/perfectoid-representative`). In the file: API `ShimuraTower.PerfectoidRepresentative`, `ShimuraTower.PerfectoidRepresentative.diamondIso`, `ShimuraTower.PerfectoidRepresentative.unique`, `ShimuraTower.PerfectoidRepresentative.lift`, `ShimuraTower.PerfectoidRepresentative.map`, `ShimuraTower.PerfectoidRepresentative.ofDiamondIso`, `ShimuraTower.IsPerfectoidTower`; checks `representative_compatible_tilde`, `representative_perfectoid_constant`. README targets: checks `representative_frobenius_P1`, `representative_constant_tower`.
+- *The neutral-component tower and its symmetry group* (`S0/connected-component-tower`). In the file: API `ShimuraTower.neutralComponent`, `ShimuraTower.neutralComponent.toFull`, `ShimuraTower.neutralSymmetry`. README targets: API `ShimuraTower.neutralDeckGroup`, `ShimuraTower.fullOfNeutral`, `ShimuraTower.connectedDatumTower`, `ShimuraTower.neutralComponent_isConnected`; checks `neutral_deck_gl2`, `neutral_full_comparison_count`, `neutral_tower_torus`, `neutral_symmetry_not_Gp`.
+- *Towers retaining a moduli rigidification* (`S0/rigidified-moduli-tower`). In the file: checks `rigidified_hilbert_delta_order`. README targets: API `ShimuraTower.Rigidified`, `ShimuraTower.Rigidified.quotientIso`, `ShimuraTower.Rigidified.infiniteLevel`, `ShimuraTower.Rigidified.isTorsor_of_free`, `ShimuraTower.Rigidified.quotient_infiniteLevel`, `ShimuraTower.Rigidified.trivial`; checks `rigidified_trivial_delta`, `rigidified_not_shimura_kernel`.
+- *The general-data infinite-level diamond* (`S0.general/general-infinite-level-diamond`). In the file: API `ShimuraTower.generalInfiniteLevel`. README targets: API `ShimuraTower.generalInfiniteLevel_isSpatial`, `ShimuraTower.generalInfiniteLevel_action`, `ShimuraTower.generalInfiniteLevel_eq_abelian`; checks `general_abelian_agrees`, `general_torus`, `general_no_perfectoid_claim`.
+- *The toroidal tower diamond with cone-compatible deck actions* (`S0.general/toroidal-tower-diamond`). In the file: API `ShimuraTower.toroidal`, `ShimuraTower.toroidalInfiniteLevel`, `ShimuraTower.toroidalInfiniteLevel.openEmbedding`, `ShimuraTower.toroidalInfiniteLevel.toMin`, `ShimuraTower.toroidalInfiniteLevel.refine`. README targets: API `ShimuraTower.toroidalInfiniteLevel_isSpatial`, `ShimuraTower.toroidalInfiniteLevel.deck`, `ShimuraTower.toroidalInfiniteLevel.translate`; checks `toroidal_g1_equals_minimal`, `toroidal_refinement_iso_open`, `toroidal_single_level`, `toroidal_hecke_needs_refinement`.
+- *The Siegel spaces of the construction: integral models, Hasse domains and finite-level adic spaces* (`S1/siegel-finite-level-spaces`). In the file: nothing. README targets: API `SiegelTorsion.integralMin`, `SiegelTorsion.hasseDomain`, `SiegelTorsion.hasseDomain_generic`, `SiegelTorsion.finiteLevel`, `SiegelTorsion.finiteLevel_hasse`, `SiegelTorsion.finiteLevel_eq_tower`, `SiegelTorsion.hasseDomain_mono`; checks `hasseDomain_zero_ordinary`, `goodReduction_ne_open`, `hasseDomain_not_blowup`, `finiteLevel_trivial_level`, `finiteLevel_fixed_similitude_g1`.
+- *Good triples: affinoid perfectoid spaces with a Hebbarkeitssatz relative to a boundary and a good-reduction locus* (`S1/good-triple`). In the file: nothing. README targets: API `GoodTriple`, `GoodTriple.indep_t`, `GoodTriple.tilt_iff`, `GoodTriple.extend_bounded`, `GoodTriple.of_hasse_chart`, `GoodTriple.finite_normal_cover`, `GoodTriple.limit`; checks `goodTriple_empty_boundary`, `goodTriple_empty_open`, `goodTriple_codimension_one_fails`, `goodTriple_tilt`.
+- *The anticanonical Γ₀(pᵐ)-tower and its affinoidness at deep level* (`S1/anticanonical-tower`). In the file: nothing. README targets: API `SiegelTorsion.anticanonical`, `SiegelTorsion.anticanonical_iso_hasse`, `SiegelTorsion.anticanonical_isClopen`, `SiegelTorsion.anticanonical_integralModel`, `SiegelTorsion.anticanonical_isAffinoid`, `SiegelTorsion.anticanonical_restrict`; checks `anticanonical_m1_degree`, `anticanonical_eps_zero`, `anticanonical_not_full_preimage`, `anticanonical_affinoid_of_lift`.
+- *Tate's normalized traces on the anticanonical tower* (`S1/tate-normalized-traces`). In the file: API `SiegelTorsion.normalizedTrace`, `SiegelTorsion.normalizedTrace_of_finiteLevel`, `SiegelTorsion.normalizedTrace_compat`, `SiegelTorsion.normalizedTrace_linear`; checks `normalizedTrace_identity_level`, `normalizedTrace_not_unnormalized`, `normalizedTrace_compat_R3`. README targets: API `SiegelTorsion.normalizedTrace_bound`, `SiegelTorsion.normalizedTrace_tendsto`; checks `normalizedTrace_g1_monomial`.
+- *The continuous Hodge–Tate map on the open infinite-level Siegel tower* (`S1/continuous-hodge-tate-map`). In the file: nothing. README targets: API `SiegelTorsion.htMapTop`, `SiegelTorsion.htMapTop_apply`, `SiegelTorsion.htMapTop_continuous`, `SiegelTorsion.htMapTop_equivariant`, `SiegelTorsion.points_infiniteLevel`; checks `htMapTop_ordinary_rational`, `htMapTop_supersingular_drinfeld`, `htMapTop_tate_curve`, `htMapTop_isotropic`.
+- *The Siegel Hodge–Tate period map as a map of adic spaces, extended over the boundary* (`S1/siegel-hodge-tate-period-map`). In the file: nothing. README targets: API `SiegelTorsion.htMap`, `SiegelTorsion.htMap_top`, `SiegelTorsion.htMap_unique`, `SiegelTorsion.htMap_equivariant`, `SiegelTorsion.htMap_anticanonical`, `SiegelTorsion.htMap_neighbourhood`; checks `htMap_g1_cusps_rational`, `htMap_anticanonical_chart`, `htMap_not_finite_level`, `htMap_equivariant_center`.
+- *The open perfectoid Siegel tower, its right action and its finite-level quotients* (`S1/siegel-open-tower-and-level-quotients`). In the file: API `SiegelTorsion.strictIwahori`; checks `strictIwahori_quotient_g1`, `strictIwahori_not_subgroups`. README targets: API `SiegelTorsion.openTower`, `SiegelTorsion.openTower_torsor`, `SiegelTorsion.openTower_quotient`, `SiegelTorsion.openTower_action`; checks `openTower_trivial_quotient`, `openTower_kernel_trivial`.
+- *The symplectic embedding and the comparison of finite levels with their Siegel images* (`S2/hodge-type-embedding-and-siegel-comparison`). In the file: nothing. README targets: API `HodgeTower.embedding`, `HodgeTower.toSiegel`, `HodgeTower.toSiegel_isClosedImmersion`, `HodgeTower.toSiegel_boundary`, `HodgeTower.toSiegel_comp`, `HodgeTower.toSiegel_finite`; checks `toSiegel_identity`, `toSiegel_hilbert`, `toSiegel_not_closed_large_level`, `toSiegel_points`.
+- *Scholze's image compactification and its relation to the minimal compactification* (`S2/image-compactification`). In the file: nothing. README targets: API `HodgeTower.imageCompactification`, `HodgeTower.minToImage`, `HodgeTower.minToImage_isNormalization`, `HodgeTower.minToImage_iso_open`, `HodgeTower.imageCompactification_boundary`, `HodgeTower.imageCompactification_stable`; checks `imageCompactification_siegel`, `imageCompactification_curve`, `imageCompactification_not_normal`, `imageCompactification_open_compat`.
+- *Imported homogeneous flag and Levi torsor: the right-action dictionary* (`S3/levi-torsor-over-flag-variety`). In the file: API `HodgeTate.FL`, `HodgeTate.leviTorsor`, `HodgeTate.FL_equivLeftFlag`; checks `FL_parabolic_pinned`, `FL_trivial_mu`, `FL_left_right_inverse`. README targets: API `HodgeTate.associatedBundle`, `HodgeTate.associatedBundle_tensor`, `HodgeTate.FL_siegel`; checks `FL_gl2_P1`, `FL_compact_dual`.
+- *Siegel graph charts, strict-Iwahori stable domains and the Hodge–Tate frame* (`S3/siegel-graph-chart-and-frame`). In the file: API `HodgeTate.siegelGraphChart`, `HodgeTate.siegelGraphChart_act`, `HodgeTate.det_factor_isUnit`, `HodgeTate.siegelGraphChart_stable`, `HodgeTate.hodgeFrame`, `HodgeTate.hodgeFrame_transform`, `HodgeTate.graphDistanceDomain`; checks `graph_factor_g1`, `graph_factor_identity`, `graph_factor_cocycle`, `graph_unit_needs_iwahori`, `graph_chart_lagrangian`, `hodge_frame_similitude`. README targets: checks `graph_domain_not_disc`.
+- *Property 𝒫: perfectoidness of all minimally compactified towers of a datum* (`S4/property-p`). In the file: API `ShimuraTower.PropertyP`, `ShimuraTower.ConnectedPropertyP`, `ShimuraTower.propertyP_iso`. README targets: API `ShimuraTower.propertyP_iff_neutral`, `ShimuraTower.propertyP_of_adjoint`, `ShimuraTower.propertyP_hodge`; checks `propertyP_siegel`, `propertyP_torus`, `propertyP_not_open_only`, `propertyP_level_independent`.
+- *The geometric, intermediate and arithmetic Hilbert towers at infinite level* (`S5/hilbert-three-towers`). In the file: API `HilbertTower.levelAction`; checks `levelAction_adjugate`, `levelAction_vs_rightTranslation`. README targets: API `HilbertTower.geometric`, `HilbertTower.intermediate`, `HilbertTower.arithmetic`, `HilbertTower.beta1`, `HilbertTower.beta2`, `HilbertTower.polAction`, `HilbertTower.isPerfectoid`; checks `three_towers_F_eq_Q`, `beta1_not_surjective`.
+- *The 𝒪_p^×-valued Weil pairing of the intermediate Hilbert tower* (`S5/hilbert-weil-pairing`). In the file: API `HilbertTower.weilPairing`, `HilbertTower.weilPairing_level`, `HilbertTower.weilPairing_changeGenerator`; checks `weilPairing_diag`. README targets: API `HilbertTower.weilPairing_pol`, `HilbertTower.weilPairing_fibre`, `HilbertTower.weilPairing_E`, `HilbertTower.weilPairing_arith`; checks `weilPairing_F_eq_Q`, `weilPairing_scalar_pol`, `weilPairing_arith_not_defined`.
+- *The action of G(ℚ_p) on the Hilbert towers and the change of polarization module* (`S5/hilbert-gl2-qp-action`). In the file: nothing. README targets: API `HilbertTower.qpAction`, `HilbertTower.qpAction_extends`, `HilbertTower.qpAction_polModule`, `HilbertTower.qpAction_eq_translate`; checks `qpAction_scalar_p`, `qpAction_integral`, `qpAction_not_fixed_c`.
+- *Auxiliary data for an abelian-type datum: the Hodge-type cover and Lovering's B₁* (`S6/abelian-auxiliary-data`). In the file: API `AbelianType.lovering`; checks `abelian_aux_hodge_trivial`. README targets: API `AbelianType.hodgeCover`, `AbelianType.flag_eq`, `AbelianType.deltaGroup`, `AbelianType.neutral_galois`; checks `abelian_aux_hilbert`, `abelian_aux_not_preabelian_proof`.
+- *The analytic level groups G_{m,n}, G¹_{m,n} of a reductive 𝒪_F-group and their Iwahori decompositions* (`S6/bruhat-level-groups`). In the file: nothing. README targets: API `LevelGroup.mk`, `LevelGroup.zero_zero`, `LevelGroup.antitone`, `LevelGroup.iwahoriDecomposition`, `LevelGroup.normalizes`, `LevelGroup.rank_one_points`; checks `levelGroups_zero_zero`, `levelGroups_GL2`, `levelGroups_decomposition_unique`, `levelGroups_not_normal`.
+- *Tubes of Bruhat cells in the analytic flag variety and their description as orbits* (`S6/bruhat-cell-tubes`). In the file: nothing. README targets: API `BruhatTube.mk`, `BruhatTube.prod_iso`, `BruhatTube.eq_orbit`, `BruhatTube.inter`, `BruhatTube.translates_finite`, `BruhatTube.quotient_presentation`; checks `tubes_zero_zero`, `tubes_GL2_disc`, `tubes_orbit`, `tubes_not_algebraic_cell`.
 
 ## S0 — Finite and infinite towers
 
@@ -700,7 +556,8 @@ Let D be a pure Shimura datum, K^p ⊆ G(𝔸_f^p) neat, K_p ∈ CO_p and Σ a K
 Coverage: **planned**.
 
 - Gap: the boundary-strata argument of Lemma 3.2.35 for general ε (PerfectoidShimuraVarieties/E9).
-- Exact T0/T2/T3/T4 supplier nodes replace the old broad Hasse, filtration, chart and canonical-subgroup requests. Their conditional boundary/Raynaud descent inputs remain inherited. TC.0’s Hebbarkeitssatz and C5’s full-level boundary strata are still requested.
+- Exact T0/T2/T3/T4 supplier nodes replace the old broad Hasse, filtration, chart and canonical-subgroup requests. Their conditional boundary/Raynaud descent inputs remain inherited. C5’s full-level boundary strata are still requested.
+- Scholze’s §2.3 Hebbarkeitssatz, good triples and the Hartogs statements of §3.2.2 are planned here (perfectoid-hebbarkeitssatz, hasse-locus-hebbarkeitssatz, good-triple, good-triple-stability, hasse-blowup-hartogs): they moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18), which imports them from this stage.
 
 ### The Siegel spaces of the construction: integral models, Hasse domains and finite-level adic spaces
 
@@ -787,6 +644,171 @@ Let K^p be as in siegel-finite-level-spaces and let S_{K^pK′_p} ⊆ S*_{K^pK�
 - [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §3.1, footnote 7, p. 971. The GSp_2g(ℚ_p)-action is semilinear over ℚ_p^cycl, through u(γ).
 - [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §4.1, proof of Theorem 4.1.1, p. 1019. The passage from Scholze's Siegel space to the tower over C.
 
+### Scholze's Hebbarkeitssatz for affinoid perfectoid spaces in characteristic p
+
+Target `PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz` (theorem).
+
+Let K be a perfectoid field of characteristic p, t ∈ 𝔪_K nonzero, X = Spa(R, R⁺) an affinoid perfectoid space over K, I ⊆ R an ideal, I⁺ = I ∩ R⁺, I^{+1/p^∞} ⊆ R⁺ the ideal of elements some p-power of which lies in I⁺, and Z = V(I) ⊆ X. Then (i) there is an isomorphism of almost 𝒪_K-modules Hom_{R⁺}(I^{+1/p^∞}, R⁺/t)^a ≅ H⁰(X ∖ Z, 𝒪⁺_X/t)^a, compatible, at every x ∈ X ∖ Z with completed residue field k(x), with evaluation H⁰(X ∖ Z, 𝒪⁺_X/t)^a → 𝒪_{k(x)}^a/t; and (ii) for a map R → R′ of perfectoid K-algebras and I′ = IR′, the map I^{+1/p^∞} ⊗_{R⁺} R′⁺ → I′^{+1/p^∞} is an almost isomorphism.
+
+**Hypotheses and conventions.**
+
+- K perfectoid of characteristic p; almost mathematics with respect to 𝔪_K.
+- The stalk of 𝒪⁺_X/t at x is k(x)⁺/t (Scholze Lemma 2.3.1), so a section of (𝒪⁺_X/t)^a is determined by its values at points; this pins the isomorphism of (i) down uniquely (Remark 2.3.3).
+- Moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18): this packet (tier 17) plans it and TorsionCohomologyInfrastructure imports it from here.
+
+**Proof route.**
+
+1. Principal case I = (f), f ∈ R⁺: I^{+1/p^∞} is almost equal to f^{1/p^∞}R⁺ = ⋃_n f^{1/p^n}R⁺. Cover X ∖ V(f) by the rational subsets U_n = {|f| ≥ |t|^n}; their rings modulo t are almost the explicit algebras (R⁺/t)[u_n^{1/p^∞}]/(u_n^{1/p^m}f^{1/p^m} − t^{n/p^m}) (PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids, PerfectoidSpaces:P2/integral-almost-acyclicity). Compare the inverse system of these algebras with R⁺/t along multiplication by f^{1/p^k − 1/p^{k′}}: kernels and cokernels are killed by f^{1/p^k}, the kernel system is Mittag-Leffler zero, so the inverse limits agree almost.
+2. Identify lim_k R⁺/t with Hom_{R⁺}(M, R⁺/t) for M the colimit of R⁺ along multiplication by f^{1/p^k − 1/p^{k+1}}; M → f^{1/p^∞}R⁺ is an isomorphism because R⁺ is perfect (if f^{1/p^k}a = 0 then f^{1/p^{k+1}}a = 0).
+3. General I: reduce to finitely generated I by filtered colimits; for I = I₁ + I₂ use the sheaf property on X ∖ V(I) = (X ∖ V(I₁)) ∪ (X ∖ V(I₂)) with intersection X ∖ V(I₁I₂) and the almost exact sequence 0 → (I₁I₂)^{+1/p^∞} → I₁^{+1/p^∞} ⊕ I₂^{+1/p^∞} → (I₁ + I₂)^{+1/p^∞} → 0 (Scholze, proof of Proposition 2.3.2), and induct on the number of generators.
+4. (ii): by the same reductions to a principal ideal f, where both sides are the colimit of R⁺ (resp. R′⁺) along f^{1/p^k − 1/p^{k+1}}, which commutes with base change (PerfectoidSpaces:P0/almost-isomorphisms-are-monoidal).
+
+**Acceptance instances.**
+
+- For Z = ∅ (I = R) both sides of (i) are (R⁺/t)^a.
+- In the setting of hasse-locus-hebbarkeitssatz, (i) gives the usual extension statement H⁰(X, 𝒪⁺/t)^a ≅ H⁰(X ∖ Z, 𝒪⁺/t)^a.
+
+**Direct prerequisites.** `PerfectoidSpaces:P0/almost-modules-over-perfectoid-base`, `PerfectoidSpaces:P0/almost-zero-limits-and-colimits`, `PerfectoidSpaces:P0/almost-isomorphisms-are-monoidal`, `PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids`, `PerfectoidSpaces:P2/integral-almost-acyclicity`, `PerfectoidSpaces:P2/affinoid-perfectoid-basis`.
+
+**Sources.**
+
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.1, Lemma 2.3.1, Proposition 2.3.2 and Remark 2.3.3, pp. 958–961. Statement and proof of the almost isomorphism between Hom out of the p-root closure of I⁺ and sections modulo t off V(I), with the stalk computation and the evaluation compatibility.
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.1, Lemma 2.3.4, pp. 961–962. Base change of the p-root closure of an ideal along a map of perfectoid algebras is an almost isomorphism.
+
+### The Hebbarkeitssatz on the perfected Hasse locus of a normal variety with a resolution
+
+Target `PerfectoidShimuraVarieties:S1/hasse-locus-hebbarkeitssatz` (theorem).
+
+Let A₀ be a normal integral finitely generated 𝔽_p-algebra such that Spec A₀ admits a resolution of singularities (a proper birational T → Spec A₀ with T smooth over 𝔽_p), 0 ≠ f ∈ A₀, K = 𝔽_p((t^{1/p^∞})), S = A₀^{1/p^∞} ⊗̂_{𝔽_p} K with S⁺ = A₀^{1/p^∞} ⊗̂_{𝔽_p} 𝒪_K, Y = Spa(S, S⁺), X = {y ∈ Y : |f(y)| ≥ |t|} with (R, R⁺) = (𝒪_Y(X), 𝒪⁺_Y(X)), and 0 ≠ I₀ ⊆ A₀ an ideal with Z = V(I₀R) ⊆ X. Then H⁰(X, 𝒪⁺_X/t)^a → H⁰(X ∖ Z, 𝒪⁺_X/t)^a is an isomorphism of almost 𝒪_K-modules. The key input is: for 0 ≠ f, g ∈ A₀ the maps A₀^{1/p^∞} → Hom(g^{1/p^∞}A₀^{1/p^∞}, A₀^{1/p^∞}) and A₀^{1/p^∞}/f → Hom(g^{1/p^∞}A₀^{1/p^∞}, A₀^{1/p^∞}/f) are almost isomorphisms for the ideal generated by all f^{1/p^m}; the first is an isomorphism and the second injective without any resolution hypothesis.
+
+**Hypotheses and conventions.**
+
+- A₀ normal, integral, of finite type over 𝔽_p, with a resolution of singularities; in the Siegel application Spec A₀ is an open of the minimal compactification X* ⊗ 𝔽_p, f is the Hasse invariant, I₀ the boundary ideal, and the resolution is a smooth toroidal compactification.
+- No codimension condition on V(I₀) is needed here; codimension at least two enters only in the good-triple injectivity of good-triple-stability.
+- Moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18).
+
+**Proof route.**
+
+1. Reduce to I₀ = (g) principal as in perfectoid-hebbarkeitssatz, and rewrite R⁺^a/t ≅ A₀^{1/p^∞}[u^{1/p^∞}]/(uf)^a; using the basis given by the powers u^i, the claim becomes the two almost isomorphisms of the statement (Scholze Lemma 2.3.6).
+2. First map: A₀^{1/p^∞} is a domain, so the map is injective with target inside A₀^{1/p^∞}[g⁻¹]; an element x with g^{1/p^n}x ∈ A₀^{1/p^∞} for all n is integral because A₀ is normal noetherian and integrality is tested by rank-one valuations.
+3. Second map, smooth case: an explicit computation with the elements f^{1/p^n}. General case: pull back along the resolution π: T → Spec A₀; π_*𝒪_T = 𝒪 by normality and Zariski's connectedness theorem, and R¹π_*𝒪_T is coherent (SchemeAndStackFoundations:SF.2/qcoh-higher-direct-images), so a power f^n kills its f-power torsion; passing to perfections this makes 𝒪/f → π_*(𝒪_{T^{1/p^∞}}/f) injective with almost zero cokernel, and adjunction transports the smooth-case almost isomorphism down.
+
+**Acceptance instances.**
+
+- For I₀ = A₀ (Z = ∅) the statement is the identity.
+- For A₀ = 𝔽_p[x, y], f = 1 and I₀ = (x, y), it says that bounded functions modulo t on the perfectoid punctured affinoid plane extend across the origin.
+
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz`, `SchemeAndStackFoundations:SF.4/serre-normality-criterion`, `SchemeAndStackFoundations:SF.2/qcoh-higher-direct-images`, `PerfectoidSpaces:P0/almost-zero-limits-and-colimits`.
+
+**Sources.**
+
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.2, Corollary 2.3.5 and its proof, pp. 962–963. The extension isomorphism on the locus |f| ≥ |t| of the perfected variety, assuming a resolution of singularities.
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.2, Lemma 2.3.6, Remark 2.3.7 and the proof of Lemma 2.3.6, pp. 963–966. The two almost isomorphisms for Hom out of g^{1/p^∞}A₀^{1/p^∞}, the first proved by valuations and the second through the resolution.
+
+### Good triples: affinoid perfectoid spaces with a Hebbarkeitssatz relative to a boundary and a good-reduction locus
+
+Target `PerfectoidShimuraVarieties:S1/good-triple` (definition).
+
+Let K be a perfectoid field (of any characteristic) and t ∈ K with |p| ≤ |t| < 1, t ≠ 0. A triple (X, Z, U) of an affinoid perfectoid space X over K, a closed subset Z ⊆ X and a quasi-compact open subset U ⊆ X ∖ Z is good if the restriction maps give an isomorphism H⁰(X, 𝒪⁺_X/t)^a ≅ H⁰(X ∖ Z, 𝒪⁺_X/t)^a and an injection H⁰(X ∖ Z, 𝒪⁺_X/t)^a ↪ H⁰(U, 𝒪⁺_U/t)^a of almost 𝒪_K-modules. Goodness does not depend on t, is compatible with tilting, and for a good triple the same two statements hold for every t ∈ 𝒪_K, including t = 0: bounded functions on X ∖ Z extend uniquely to X and are determined by their restriction to U.
+
+**Hypotheses and conventions.**
+
+- In the Siegel application X is an affinoid open of a perfectoid minimal compactification, Z its boundary and U its good-reduction locus.
+- Moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18).
+
+**Proof route.**
+
+1. Independence of t: for t′ = t^a or t′ a unit multiple, the statements for t and t′ are equivalent by the t-adic filtration of 𝒪⁺/t^n and the five lemma (Scholze, the paragraph after Definition 2.3.8).
+2. Tilting: 𝒪⁺_X/t ≅ 𝒪⁺_{X♭}/t♭ for t♭ with |t♭| = |t| and the tilting homeomorphism identifies Z, U and X ∖ Z with their tilts (PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets).
+3. t = 0: pass to the inverse limit over t^n, using that H⁰(−, 𝒪⁺) is the limit of the H⁰(−, 𝒪⁺/t^n) on these qcqs spaces.
+
+**Planning API.**
+
+- `GoodTriple` (data): The predicate on (X, Z, U) with X affinoid perfectoid over K, Z ⊆ X closed and U ⊆ X ∖ Z quasi-compact open, for a fixed t with |p| ≤ |t| < 1.
+- `GoodTriple.indep_t` (characterisation): Goodness for t is equivalent to goodness for any other t′ with |p| ≤ |t′| < 1.
+- `GoodTriple.tilt_iff` (compatibility): (X, Z, U) is good iff its tilt (X♭, Z♭, U♭) is good.
+- `GoodTriple.extend_bounded` (other): For a good triple, H⁰(X, 𝒪⁺) → H⁰(X ∖ Z, 𝒪⁺) is an almost isomorphism and H⁰(X ∖ Z, 𝒪⁺) → H⁰(U, 𝒪⁺) is injective.
+- `GoodTriple.of_hasse_chart` (constructor): The perfected Hasse chart of a normal variety with a resolution, with boundary of codimension at least two, gives a good triple (good-triple-stability (a)).
+- `GoodTriple.finite_normal_cover` (functoriality): Goodness passes to the perfection of a finite normal cover étale outside the boundary with no component over the boundary (good-triple-stability (b)).
+- `GoodTriple.limit` (functoriality): Goodness passes to inverse limits of such covers along surjective transition maps (good-triple-stability (c)).
+
+**Unit tests.**
+
+- `goodTriple_empty_boundary` (degenerate): For any affinoid perfectoid X, the triple (X, ∅, X) is good.
+- `goodTriple_empty_open` (non-example): For X nonempty, (X, ∅, ∅) is not good: H⁰(X, 𝒪⁺/t)^a = (R⁺/t)^a is not almost zero, so it does not inject into H⁰(∅, 𝒪⁺/t)^a = 0.
+- `goodTriple_codimension_one_fails` (non-example): For A₀ = 𝔽_p[x], f = x and J = (x) (so V(J) has codimension one), with R₀ = (A₀ ⊗̂ K)⟨u⟩/(ux − t) and U₀ = {|x| = 1}: the function u has |u| = |t| on U but |u| = 1 where |x| = |t|, so it is zero in H⁰(U, 𝒪⁺/t)^a and not almost zero in H⁰(X, 𝒪⁺/t)^a; the perfected triple is not good.
+- `goodTriple_tilt` (compatibility): (X, Z, U) is good if and only if (X♭, Z♭, U♭) is good, where ♭ is the tilting equivalence of PerfectoidSpaces P2.
+
+**Acceptance instances.**
+
+- A good triple with U = X ∖ Z gives Riemann's extension for bounded functions across Z.
+
+**Direct prerequisites.** `PerfectoidSpaces:P2/affinoid-perfectoid-basis`, `PerfectoidSpaces:P2/tilting-homeomorphism-and-rational-subsets`, `PerfectoidSpaces:P2/integral-almost-acyclicity`, `PerfectoidSpaces:P0/almost-modules-over-perfectoid-base`.
+
+**Sources.**
+
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.3, Definition 2.3.8 and the paragraph after it, pp. 966–967. The definition of good triples, independence of t, compatibility with tilting and the t = 0 consequence for bounded functions.
+
+### Good triples: the base case and stability under finite normal covers, limits and field extension
+
+Target `PerfectoidShimuraVarieties:S1/good-triple-stability` (theorem).
+
+Let K be a perfectoid field of characteristic p, R₀ a reduced topologically finitely generated Tate K-algebra, X₀ = Spa(R₀, R₀°), X its completed perfection (an affinoid perfectoid space), I₀ ⊆ R₀ an ideal with Z₀ = V(I₀), Z its preimage, and U₀ ⊆ X₀ ∖ Z₀ a quasi-compact open with preimage U. (a) Base case: if A₀ is normal of finite type over 𝔽_p with a resolution of singularities, f ∈ A₀ is a nonzerodivisor, R₀ = (A₀ ⊗̂_{𝔽_p} K)⟨u⟩/(uf − t), I₀ = JR₀ for an ideal J ⊆ A₀ with V(J) ⊆ Spec A₀ of codimension ≥ 2 and U₀ = {x : |g(x)| = 1 for some g ∈ J}, then (X, Z, U) is good for K the completion of any algebraic extension of 𝔽_p((t^{1/p^∞})). (b) Finite normal covers: if (X, Z, U) is good, R₀ is normal, V(I₀) ⊆ Spec R₀ has codimension ≥ 2, and R₀′ is a finite normal R₀-algebra étale outside V(I₀) with no irreducible component of Spec R₀′ mapping into V(I₀), then (i) the trace pairing R₀′ ⊗_{R₀} R₀′ → R₀ is perfect, (ii) its perfection R′° ⊗_{R°} R′° → R° is almost perfect, (iii) H⁰(V′, 𝒪⁺/t)^a ≅ Hom_{R°/t}(R′°/t, H⁰(V, 𝒪⁺/t))^a for every open V ⊆ X with preimage V′, (iv) the triple (X′, Z′, U′) is good, and (v) if X′ → X is surjective then H⁰(X, 𝒪⁺/t) → H⁰(X′, 𝒪⁺/t) ∩ H⁰(U, 𝒪⁺/t) is an almost isomorphism. (c) Limits: for a filtered system of such covers R₀^{(i)} with surjective transition maps X^{(i)} → X^{(j)}, the inverse limit X̃ in perfectoid spaces with the preimages Z̃, Ũ is good.
+
+**Hypotheses and conventions.**
+
+- (a) uses the codimension-two condition only for the injectivity into U: it needs depth ≥ 1 of A₀/f at points of V(J), which follows from Serre's criterion for the normal ring A₀.
+- (b), (c): K of characteristic p; transfer to characteristic 0 is by tilting (good-triple).
+- Moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18).
+
+**Proof route.**
+
+1. (a) Reduce to A₀ integral. hasse-locus-hebbarkeitssatz gives the extension isomorphism. With H⁰(X, 𝒪⁺/t)^a = A₀^{1/p^∞}[u^{1/p^∞}]/(uf)^a and its localisations at g ∈ J on U_g, the injectivity into U reduces, through the basis u^i, to H⁰(Spec A₀, 𝒪) = H⁰(Spec A₀ ∖ V(J), 𝒪) and H⁰(Spec A₀, 𝒪/f) ↪ H⁰(Spec A₀ ∖ V(J), 𝒪/f), which hold because A₀ has depth ≥ 2 and A₀/f depth ≥ 1 at V(J) (SchemeAndStackFoundations:SF.4/serre-normality-criterion, SchemeAndStackFoundations:SF.0/coherent-hartogs). For K an algebraic extension, first finite extensions by (b), then the completion of the union by (c) (Scholze Corollary 2.3.12).
+2. (b) Perfect trace pairing on the finite étale locus (AdicSpacesPartII:R3/finite-etale-trace-pairing) extends over V(I₀) by Hartogs for the normal rings R₀ and R₀′ (SF.0/coherent-hartogs); by Banach's open mapping theorem the cokernel of R₀′° → Hom(R₀′°, R₀°) is killed by a power of t, which becomes almost zero after completed perfection; reduce modulo t and use the fibre-product formula for affinoid perfectoid spaces to get the Hom description on every V; goodness and the intersection formula follow, the latter by factoring through the trace, checked on U.
+3. (c) Pass to the filtered colimit over i of the injections from (b) on the qcqs spaces X̃, Ũ (PerfectoidSpaces:P7/limit-of-perfectoid-tower); surjectivity of X̃ → X^{(i)} gives the injections of the finite-level sections, and the intersection formula of (b)(v) shows that a section on X̃ ∖ Z̃ comes from some X^{(i)} ∖ Z^{(i)}, where the Hebbarkeitssatz extends it.
+
+**Acceptance instances.**
+
+- For A₀ = 𝔽_p[x, y], f = y and J = (x, y), (a) recovers the elementary Hartogs-type statement of Scholze Remark 3.2.11 in characteristic p.
+- goodTriple_codimension_one_fails of good-triple shows that the codimension condition of (a) cannot be dropped.
+
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/good-triple`, `PerfectoidShimuraVarieties:S1/hasse-locus-hebbarkeitssatz`, `SchemeAndStackFoundations:SF.4/serre-normality-criterion`, `SchemeAndStackFoundations:SF.0/coherent-hartogs`, `AdicSpacesPartII:R3/finite-etale-trace-pairing`, `PerfectoidSpaces:P3/almost-purity-theorem`, `PerfectoidSpaces:P7/limit-of-perfectoid-tower`.
+
+**Sources.**
+
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.3, Lemma 2.3.9 and its proof, pp. 967–968. Goodness of the perfected Hasse chart triple when the boundary has codimension at least two, using depth of A₀ and A₀/f.
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.3, Lemma 2.3.10 (i)–(v) and its proof, pp. 968–969. Trace pairings, the Hom description of sections on covers, goodness of covers and the intersection formula.
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §2.3.3, Lemma 2.3.11 and Corollary 2.3.12 with proofs, pp. 969–970. Goodness of inverse limits along surjective transition maps and the extension to completed algebraic extensions of the base field.
+
+### Hartogs extension on the Hasse blow-up Spf((R ⊗̂ ℤ_p^cycl)⟨u⟩/(fu − p^ε))
+
+Target `PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs` (theorem).
+
+(i) Classical algebraic Hartogs: for a normal noetherian ring R and a subset Z ⊆ Spec R everywhere of codimension ≥ 2, R = H⁰(Spec R ∖ Z, 𝒪). (ii) Let R be a topologically finitely generated flat p-adically complete ℤ_p-algebra with R̄ = R/p normal, f ∈ R with image f̄ ∈ R̄ a nonzerodivisor, 0 ≤ ε ≤ 1, and S = (R ⊗̂_{ℤ_p} ℤ_p^cycl)⟨u⟩/(fu − p^ε). Then S is a flat p-adically complete ℤ_p^cycl-algebra in which u is a nonzerodivisor, and for a closed subset Y ⊆ Spec R̄ of codimension ≥ 2 with preimage Z ⊆ Spf S and complement U, H⁰(U, 𝒪_{Spf S}) = H⁰(Spf S, 𝒪_{Spf S}) = S.
+
+**Hypotheses and conventions.**
+
+- p^ε ∈ ℤ_p^cycl denotes an element of valuation ε (ε of the form a/((p − 1)p^n)).
+- In the Siegel application R is an affine chart of the integral minimal compactification, f a lift of the Hasse invariant and Y the boundary, of codimension ≥ 2 in the special fibre when g ≥ 2.
+- Moved down from TorsionCohomologyInfrastructure TC.0 (upstream tier 18); (i) is SchemeAndStackFoundations' coherent Hartogs for the structure sheaf of a normal scheme.
+
+**Proof route.**
+
+1. (i) A normal noetherian ring satisfies Serre's condition S₂ (SchemeAndStackFoundations:SF.4/serre-normality-criterion), so its local rings at points of Z have depth ≥ 2, and coherent Hartogs applies to 𝒪 (SchemeAndStackFoundations:SF.0/coherent-hartogs).
+2. (ii) Injectivity: S is p-adically separated, so test on Spec S_ε, S_ε = S/p^ε. It is the scheme-theoretic union of {u = 0} ≅ Spec R_ε and W = {f = 0} = V(f̄) × 𝔸¹; sections on U are compatible pairs on U ∩ Spec R_ε and U ∩ W. On Spec R_ε use (i) after base change to ℤ_p^cycl/p^ε. On W reduce to H⁰(V(f̄), 𝒪) ↪ H⁰(V(f̄) ∖ Y, 𝒪), which holds because R̄/f̄ has depth ≥ 1 at points of Y (R̄ has depth ≥ 2 there).
+3. Surjectivity: a section on U gives a section of the u-adic completion Ŝ_u, which is u-adic because u divides p^ε; its special fibre is Spec R_ε, where (i) extends the section; then compare with S inside Ŝ_u to conclude (Scholze, proof of Lemma 3.2.10, pp. 982–983).
+
+**Acceptance instances.**
+
+- For R = ℤ_p⟨T₁, T₂⟩, f = T₂, ε = 1 and Y = {T₁ = T₂ = 0} this is the rigid-analytic Hartogs statement of Scholze Remark 3.2.11: functions on {|t₁| = 1 or |t₂| = 1} inside {|t₁| ≤ 1, |p| ≤ |t₂| ≤ 1} extend uniquely.
+
+**Direct prerequisites.** `SchemeAndStackFoundations:SF.4/serre-normality-criterion`, `SchemeAndStackFoundations:SF.0/coherent-hartogs`.
+
+**Sources.**
+
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §3.2.2, Proposition 3.2.9, p. 980. Classical algebraic Hartogs for normal noetherian rings and complements of codimension at least two.
+- [Peter Scholze, On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), §3.2.2, Lemma 3.2.10, Remark 3.2.11 and the proof of Lemma 3.2.10, pp. 981–983. Hartogs on the Hasse blow-up of a flat p-adic algebra with normal special fibre, with the illustration by the bidisc.
+
 ### The Frobenius diagram modulo p on Hasse domains
 
 Target `PerfectoidShimuraVarieties:S1/frobenius-diagram-mod-p` (lemma).
@@ -827,13 +849,13 @@ Target `PerfectoidShimuraVarieties:S1/frobenius-trace-estimates` (theorem).
 **Proof route.**
 
 1. (i) Finite freeness: Weierstrass-type division by the monic relations; the trace of a monomial X^i with some i_j ≠ 0 lies in Iⁿ by a change of variables making X_1^{i_1}⋯X_n^{i_n} the first coordinate over an invertible matrix over 𝔽_p (PAPER-SCHOLZE-15/E15 corrects X_i^{i_1} to X_1^{i_1}).
-2. (ii) Locally Spf R is étale over Spf ℤ_p⟨Y_1, …, Y_n⟩, so R/p is locally free over itself via Frobenius with basis Y^i (0 ≤ i_j ≤ p − 1). Put R′_{ε/p} = (R ⊗̂ ℤ_p^cycl)⟨v_ε⟩/(f^p v_ε − p^ε) and τ: R′_{ε/p} → R_{ε/p}, v_ε ↦ u_{ε/p}^p: τ[1/p] is an isomorphism, τ is injective because R′_{ε/p} is p-torsion free (Lemma 3.2.10; TorsionCohomologyInfrastructure TC.0), and its cokernel is killed by p^{(p−1)ε/p}, hence by p^ε. Since ε < 1 − ε, φ factors through ψ: R_ε → R′_{ε/p}, and ψ agrees modulo p^{1−2ε} with the Frobenius map, so ψ is finite free with basis Y^i (this gives finite flatness and the rank p^n after inverting p). One can write R′_{ε/p} = R_ε⟨X_1, …, X_n⟩/(X_i^p − Y_i − P_i) with P_i ∈ p^{1−2ε}R_ε⟨X⟩ (p. 994), so (i) with I = (p^{1−2ε}) gives tr(R′_{ε/p}) ⊆ p^{n−2nε}R_ε; as p^ε R_{ε/p} ⊆ τ(R′_{ε/p}), tr(R_{ε/p}) ⊆ p^{−ε}·p^{n−2nε}R_ε = p^{n−(2n+1)ε}R_ε.
+2. (ii) Locally Spf R is étale over Spf ℤ_p⟨Y_1, …, Y_n⟩, so R/p is locally free over itself via Frobenius with basis Y^i (0 ≤ i_j ≤ p − 1). Put R′_{ε/p} = (R ⊗̂ ℤ_p^cycl)⟨v_ε⟩/(f^p v_ε − p^ε) and τ: R′_{ε/p} → R_{ε/p}, v_ε ↦ u_{ε/p}^p: τ[1/p] is an isomorphism, τ is injective because R′_{ε/p} is p-torsion free (Lemma 3.2.10; hasse-blowup-hartogs), and its cokernel is killed by p^{(p−1)ε/p}, hence by p^ε. Since ε < 1 − ε, φ factors through ψ: R_ε → R′_{ε/p}, and ψ agrees modulo p^{1−2ε} with the Frobenius map, so ψ is finite free with basis Y^i (this gives finite flatness and the rank p^n after inverting p). One can write R′_{ε/p} = R_ε⟨X_1, …, X_n⟩/(X_i^p − Y_i − P_i) with P_i ∈ p^{1−2ε}R_ε⟨X⟩ (p. 994), so (i) with I = (p^{1−2ε}) gives tr(R′_{ε/p}) ⊆ p^{n−2nε}R_ε; as p^ε R_{ε/p} ⊆ τ(R′_{ε/p}), tr(R_{ε/p}) ⊆ p^{−ε}·p^{n−2nε}R_ε = p^{n−(2n+1)ε}R_ε.
 
 **Acceptance instances.**
 
 - For n = 1, R = ℤ_p⟨Y⟩ and S = R⟨X⟩/(X^p − Y), tr(X^i) = 0 for 0 < i < p and tr(1) = p, so tr(S) ⊆ (p) = I.
 
-**Direct prerequisites.** `AdicSpacesPartII:R3/finite-locally-free-algebra-trace`, `AdicSpacesPartII:R3/algebra-trace-base-change`, `AdicSpacesPartII:R3/algebra-trace-transitivity`, `TorsionCohomologyInfrastructure:TC.0`.
+**Direct prerequisites.** `AdicSpacesPartII:R3/finite-locally-free-algebra-trace`, `AdicSpacesPartII:R3/algebra-trace-base-change`, `AdicSpacesPartII:R3/algebra-trace-transitivity`, `PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs`.
 
 **Sources.**
 
@@ -856,7 +878,7 @@ Let 0 ≤ ε < 1/2. There is a unique diagram of p-adic formal schemes F̃: 𝔄
 1. Import the generic canonical-subgroup quotient/radius and canonical–anticanonical comparison from T3/quotient-hasse-radius and T4/atkin-lehner-anticanonical. Specialize to the Siegel formal moduli problem and its integral Frobenius map; this node does not own those general comparisons.
 2. On 𝔛(p⁻¹ε), the strong canonical subgroup C of level 1 exists (HodgeTateAndCanonicalSubgroups T3: Scholze Corollary 3.2.6 and Definition 3.2.7); it is totally isotropic by uniqueness, so A/C is principally polarized with induced level-K^p structure, giving F̃_𝔛 and F̃_𝔄 (the isogeny A → A/C).
 3. C reduces to ker F modulo p^{1−ε}, so F̃ reduces to the relative Frobenius diagram; the Hasse invariant of A/C is related to that of A so that F̃ lands in 𝔛(ε).
-4. Extension to 𝔛*: by Hartogs on the Hasse blow-up (Scholze Lemma 3.2.10; owned by TorsionCohomologyInfrastructure TC.0 and AdicSpacesPartII R2) the map extends uniquely across the boundary, which has codimension ≥ 2 in the special fibre for g ≥ 2; for g = 1 the boundary is the set of cusps, which lie in the ordinary locus, and the extension near a cusp is given by the finite-level Tate-curve parameter spaces (ShimuraVarieties:V8/gl2-cusps-tate; Heuer §2.3), on which the canonical subgroup is μ_p.
+4. Extension to 𝔛*: by Hartogs on the Hasse blow-up (Scholze Lemma 3.2.10; hasse-blowup-hartogs) the map extends uniquely across the boundary, which has codimension ≥ 2 in the special fibre for g ≥ 2; for g = 1 the boundary is the set of cusps, which lie in the ordinary locus, and the extension near a cusp is given by the finite-level Tate-curve parameter spaces (ShimuraVarieties:V8/gl2-cusps-tate; Heuer §2.3), on which the canonical subgroup is μ_p.
 5. Uniqueness is immediate from uniqueness of the canonical subgroup (Scholze p. 986): in a diagram of the stated kind, ker F̃_𝔄 ⊆ 𝔄(p⁻¹ε)[p] is a finite flat subgroup that reduces to ker F modulo p^{1−ε}, hence is the canonical subgroup C (HodgeTateAndCanonicalSubgroups T3), so F̃_𝔄 is A → A/C and F̃_𝔛 classifies A/C with its induced structures; over 𝔛* the extension is unique by Hartogs. (Lemma 3.2.4 is not used here: it needs Ω¹ killed by p^ε, and bare Frobenius lifts are not unique.)
 6. Degrees, without using the anticanonical locus: F̃_𝔛 is locally a map φ: R_ε → R_{ε/p} of the kind in frobenius-trace-estimates (ii) (Frobenius on R̄ and u_ε ↦ u_{ε/p}^p modulo p^{1−ε}), so on generic fibres it is finite locally free of rank p^n, n = g(g+1)/2 (proof of Corollary 3.2.22(i)); it is étale on generic fibres because A ↦ (A, C) is a section of the étale forgetful map 𝒳_{Γ₀(p)} → 𝒳, hence an open immersion, followed by the étale map (A, D) ↦ A/D (Scholze p. 987). Over it, F̃_𝔄 is fibrewise an isogeny of degree p^g, giving p^{g(g+1)/2+g}. The printed common degree is incorrect; the stronger assertion of integral nonflatness at every positive ε has not been established by this review (PerfectoidShimuraVarieties/E4).
 
@@ -865,7 +887,7 @@ Let 0 ≤ ε < 1/2. There is a unique diagram of p-adic formal schemes F̃: 𝔄
 - For g = 1 and ε = 0, F̃ is the classical canonical lift of Frobenius on the ordinary locus, E ↦ E/C, of degree p on generic fibres.
 - F̃ ∘ (inclusion 𝔛(p⁻²ε) ⊆ 𝔛(p⁻¹ε)) = (inclusion) ∘ F̃ (compatibility with shrinking ε).
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `PerfectoidShimuraVarieties:S1/frobenius-diagram-mod-p`, `PerfectoidShimuraVarieties:S1/frobenius-trace-estimates`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`, `HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius`, `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`, `TorsionCohomologyInfrastructure:TC.0`, `AdicSpacesPartII:R2/hasse-domain`, `ShimuraVarieties:V8/gl2-cusps-tate`, `HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci`, `HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `PerfectoidShimuraVarieties:S1/frobenius-diagram-mod-p`, `PerfectoidShimuraVarieties:S1/frobenius-trace-estimates`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`, `HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius`, `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`, `PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs`, `AdicSpacesPartII:R2/hasse-domain`, `ShimuraVarieties:V8/gl2-cusps-tate`, `HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci`, `HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical`.
 
 **Sources.**
 
@@ -888,14 +910,14 @@ Let 0 ≤ ε < 1/2 and m ≥ 0. Then 𝔄(p⁻ᵐε) → 𝔛(p⁻ᵐε) has a c
 1. Import the generic canonical-subgroup quotient/radius and canonical–anticanonical comparison from T3/quotient-hasse-radius and T4/atkin-lehner-anticanonical. Specialize to the Siegel formal moduli problem and its integral Frobenius map; this node does not own those general comparisons.
 2. Existence of C_m on 𝔄(p⁻ᵐε): iterate the canonical subgroup of level 1 along the Frobenius lifts (HodgeTateAndCanonicalSubgroups T3: canonical subgroups of all levels and their quotients, Scholze Proposition 3.2.8).
 3. (A/C_m, A[pᵐ]/C_m) is a Γ₀(pᵐ)-structure: C_m is totally isotropic by uniqueness, so A/C_m is principally polarized, and A[pᵐ]/C_m is a Lagrangian subgroup isomorphic to (ℤ/pᵐ)^g at geometric points because C_m is (Scholze Proposition 3.2.8(iv); T3) — a totally isotropic subgroup of order p^{mg} alone need not be of this form. The map is an open immersion: its composite with the étale map 𝒳_{Γ₀(pᵐ)} → 𝒳, (A′, D) ↦ A′/D, is the inclusion 𝒳(p⁻ᵐε) ⊆ 𝒳, since (A/C_m)/(A[pᵐ]/C_m) = A/A[pᵐ] ≅ A (Scholze p. 987).
-4. Extension to minimal compactifications. g ≥ 2: Hartogs for the Hasse blow-up (Scholze Lemma 3.2.10; TorsionCohomologyInfrastructure TC.0) on affine charts Spf S of 𝔛* with f = Ha, together with: a section U_η → 𝒴 of a finite normal 𝒴 → (Spf S)^{ad}_η that is an open embedding extends uniquely to an open embedding (𝒴 is affinoid and normal; Scholze pp. 987–988), applied to the normalisation of 𝒳*_{Γ₀(pᵐ)} over the chart; cartesianness on 𝒳* by Hartogs once more. g = 1 (left to the reader in the source): the cusps lie in the ordinary locus, and on the Tate-curve disc D_x of a cusp (ShimuraVarieties:V8/gl2-cusps-tate) the map sends (T(q), μ_{pᵐ}) to (T(q)/μ_{pᵐ}, T(q)[pᵐ]/μ_{pᵐ}) = (T(q^{pᵐ}), ⟨q⟩), i.e. it is the identity of the q-disc onto the anticanonical cusp chart of 𝒳*_{Γ₀(pᵐ)} with parameter (q^{pᵐ})^{1/pᵐ} = q (Heuer Proposition 2.22), which extends over q = 0.
+4. Extension to minimal compactifications. g ≥ 2: Hartogs for the Hasse blow-up (Scholze Lemma 3.2.10; hasse-blowup-hartogs) on affine charts Spf S of 𝔛* with f = Ha, together with: a section U_η → 𝒴 of a finite normal 𝒴 → (Spf S)^{ad}_η that is an open embedding extends uniquely to an open embedding (𝒴 is affinoid and normal; Scholze pp. 987–988), applied to the normalisation of 𝒳*_{Γ₀(pᵐ)} over the chart; cartesianness on 𝒳* by Hartogs once more. g = 1 (left to the reader in the source): the cusps lie in the ordinary locus, and on the Tate-curve disc D_x of a cusp (ShimuraVarieties:V8/gl2-cusps-tate) the map sends (T(q), μ_{pᵐ}) to (T(q)/μ_{pᵐ}, T(q)[pᵐ]/μ_{pᵐ}) = (T(q^{pᵐ}), ⟨q⟩), i.e. it is the identity of the q-disc onto the anticanonical cusp chart of 𝒳*_{Γ₀(pᵐ)} with parameter (q^{pᵐ})^{1/pᵐ} = q (Heuer Proposition 2.22), which extends over q = 0.
 5. Cartesian square: both vertical maps are finite étale of degree p^{g(g+1)/2} over the good-reduction locus (using m ≥ 1), and the top map is an open immersion; compare degrees.
 
 **Acceptance instances.**
 
 - For g = 1, the image of 𝒳(p⁻ᵐε) is the locus of (E', D) with E' = E/C_m and D ∩ (canonical subgroup of E') = 0, i.e. the anticanonical component of the Γ₀(pᵐ)-curve over the ε-ordinary locus.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `PerfectoidShimuraVarieties:S1/canonical-frobenius-lift`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`, `HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius`, `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`, `TorsionCohomologyInfrastructure:TC.0`, `PerfectoidShimuraVarieties:S0/siegel-level-subgroups`, `ShimuraVarieties:V8/gl2-cusps-tate`, `HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci`, `HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `PerfectoidShimuraVarieties:S1/canonical-frobenius-lift`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`, `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`, `HodgeTateAndCanonicalSubgroups:T3/quotient-hasse-radius`, `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`, `PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs`, `PerfectoidShimuraVarieties:S0/siegel-level-subgroups`, `ShimuraVarieties:V8/gl2-cusps-tate`, `HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci`, `HodgeTateAndCanonicalSubgroups:T4/atkin-lehner-anticanonical`.
 
 **Sources.**
 
@@ -1090,7 +1112,7 @@ Assume g ≥ 2 and 0 ≤ ε < 1/2. Let 𝒴*_m → 𝒳*_{Γ₀(pᵐ)}(ε)_a be 
 
 **Proof route.**
 
-1. (i) Finite-level Hartogs: normality of 𝒴*_{m′} and codimension ≥ 2 of the boundary in the integral model (Scholze Proposition 3.2.9 and Lemma 3.2.10; TorsionCohomologyInfrastructure TC.0 and AdicSpacesPartII R2), applied on the Hasse blow-up charts.
+1. (i) Finite-level Hartogs: normality of 𝒴*_{m′} and codimension ≥ 2 of the boundary in the integral model (Scholze Proposition 3.2.9 and Lemma 3.2.10; hasse-blowup-hartogs), applied on the Hasse blow-up charts.
 2. (ii) Use the retractions given by tate-normalized-traces, base-changed along the finite étale 𝒴_m → 𝒳_{Γ₀(pᵐ)}(ε)_a, and (i) at every level.
 3. (iii) Combine (ii) with the definition of tilde-limits (PerfectoidSpaces:P7/good-affinoid-perfectoid).
 
@@ -1098,7 +1120,7 @@ Assume g ≥ 2 and 0 ≤ ε < 1/2. Let 𝒴*_m → 𝒳*_{Γ₀(pᵐ)}(ε)_a be 
 
 - Applied to 𝒴*_m = 𝒳*_{Γ₀(pᵐ)}(ε)_a itself it recovers that H⁰ of the open good-reduction part computes the affinoid ring of the compactified anticanonical piece.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/tate-normalized-traces`, `PerfectoidShimuraVarieties:S1/anticanonical-tower`, `PerfectoidShimuraVarieties:S1/gamma0-infinite-level-perfectoid`, `TorsionCohomologyInfrastructure:TC.0`, `AdicSpacesPartII:R2/hasse-domain`, `PerfectoidSpaces:P7/good-affinoid-perfectoid`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/tate-normalized-traces`, `PerfectoidShimuraVarieties:S1/anticanonical-tower`, `PerfectoidShimuraVarieties:S1/gamma0-infinite-level-perfectoid`, `PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs`, `PerfectoidShimuraVarieties:S1/good-triple`, `AdicSpacesPartII:R2/hasse-domain`, `PerfectoidSpaces:P7/good-affinoid-perfectoid`.
 
 **Sources.**
 
@@ -1144,14 +1166,14 @@ Assume g ≥ 2, 0 ≤ ε < 1/2 and m ≥ 1. Let X^{ord*} ⊆ X* ⊗ 𝔽_p be th
 
 **Proof route.**
 
-1. Apply the base good triple lemma (Scholze Lemma 2.3.9; TorsionCohomologyInfrastructure TC.0) on affine charts of the characteristic-p Hasse blow-up, with Spec A₀ an open of X* ⊗ 𝔽_p, f = Ha and I₀ the boundary ideal, using the toroidal resolution (ShimuraCompactifications C5).
-2. Pass to the finite normal covers X^{ord*}_{Γ₁(pᵐ)} étale away from the boundary by Scholze Lemma 2.3.10 (TC.0).
+1. Apply the base good triple lemma (Scholze Lemma 2.3.9; good-triple-stability (a), resting on hasse-locus-hebbarkeitssatz) on affine charts of the characteristic-p Hasse blow-up, with Spec A₀ an open of X* ⊗ 𝔽_p, f = Ha and I₀ the boundary ideal, using the toroidal resolution (ShimuraCompactifications C5).
+2. Pass to the finite normal covers X^{ord*}_{Γ₁(pᵐ)} étale away from the boundary by Scholze Lemma 2.3.10 (good-triple-stability (b)).
 
 **Acceptance instances.**
 
 - The statement says that bounded functions on the perfected ε-Hasse locus extend uniquely across the boundary: the characteristic-p Hebbarkeitssatz in the Siegel instance.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `TorsionCohomologyInfrastructure:TC.0`, `ShimuraCompactifications:C5/integral-minimal-space`, `ShimuraCompactifications:C5/integral-toroidal-space`, `ShimuraCompactifications:C5/valuative-properness`, `PerfectoidSpaces:P7/perfection-tilde-limit`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/siegel-finite-level-spaces`, `PerfectoidShimuraVarieties:S1/good-triple`, `PerfectoidShimuraVarieties:S1/good-triple-stability`, `PerfectoidShimuraVarieties:S1/hasse-locus-hebbarkeitssatz`, `ShimuraCompactifications:C5/integral-minimal-space`, `ShimuraCompactifications:C5/integral-toroidal-space`, `ShimuraCompactifications:C5/valuative-properness`, `PerfectoidSpaces:P7/perfection-tilde-limit`.
 
 **Sources.**
 
@@ -1200,14 +1222,14 @@ Let 0 ≤ ε < 1/2. For every m ≥ 1 there is a unique perfectoid space 𝒳*_{
 **Proof route.**
 
 1. Combine gamma1-cover-tilt (the untilting argument) with hartogs-for-finite-covers-of-anticanonical-tower (iii) at level Γ₁(pᵐ) ∩ Γ₀(p^{m′}).
-2. Goodness transfers from characteristic p (characteristic-p-base-triples-good) by tilting; pass to the limit over m by the stability of good triples under inverse limits (Scholze Lemma 2.3.11; TorsionCohomologyInfrastructure TC.0) and PerfectoidSpaces:P7/limit-of-perfectoid-tower.
-3. g = 1: pull the finite étale (ℤ/pᵐ)^×-torsor 𝒳*_{Γ₁(pᵐ)}(ε)_a → 𝒳*_{Γ₀(pᵐ)}(ε)_a (Heuer Lemma 2.23) back to gamma0-infinite-level-perfectoid; the result is perfectoid with the tilde-limit property by almost purity (PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid, PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change), and goodness passes along finite étale maps (Scholze Lemma 2.3.10; TC.0); the base goodness uses only the injectivity half of Lemma 2.3.9, valid in codimension 1 because the cusps are ordinary (V(J) ∩ V(f) = ∅).
+2. Goodness transfers from characteristic p (characteristic-p-base-triples-good) by tilting; pass to the limit over m by the stability of good triples under inverse limits (Scholze Lemma 2.3.11; good-triple-stability (c)) and PerfectoidSpaces:P7/limit-of-perfectoid-tower.
+3. g = 1: pull the finite étale (ℤ/pᵐ)^×-torsor 𝒳*_{Γ₁(pᵐ)}(ε)_a → 𝒳*_{Γ₀(pᵐ)}(ε)_a (Heuer Lemma 2.23) back to gamma0-infinite-level-perfectoid; the result is perfectoid with the tilde-limit property by almost purity (PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid, PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change), and goodness passes along finite étale maps (Scholze Lemma 2.3.10; good-triple-stability (b)); the base goodness uses only the injectivity half of Lemma 2.3.9, valid in codimension 1 because the cusps are ordinary (V(J) ∩ V(f) = ∅).
 
 **Acceptance instances.**
 
 - For g = 1 and ε = 0 this is the perfectoid ordinary Igusa tower over the ordinary locus with its cusps.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/gamma1-cover-tilt`, `PerfectoidShimuraVarieties:S1/hartogs-for-finite-covers-of-anticanonical-tower`, `PerfectoidShimuraVarieties:S1/characteristic-p-base-triples-good`, `PerfectoidShimuraVarieties:S1/gamma0-infinite-level-perfectoid`, `TorsionCohomologyInfrastructure:TC.0`, `PerfectoidSpaces:P7/limit-of-perfectoid-tower`, `PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change`, `PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid`, `ShimuraVarieties:V8/gl2-cusps-tate`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/gamma1-cover-tilt`, `PerfectoidShimuraVarieties:S1/hartogs-for-finite-covers-of-anticanonical-tower`, `PerfectoidShimuraVarieties:S1/characteristic-p-base-triples-good`, `PerfectoidShimuraVarieties:S1/gamma0-infinite-level-perfectoid`, `PerfectoidShimuraVarieties:S1/good-triple`, `PerfectoidShimuraVarieties:S1/good-triple-stability`, `PerfectoidSpaces:P7/limit-of-perfectoid-tower`, `PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change`, `PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid`, `ShimuraVarieties:V8/gl2-cusps-tate`, `PerfectoidShimuraVarieties:S0/siegel-level-subgroups`.
 
 **Sources.**
 
@@ -1228,13 +1250,13 @@ Let 0 ≤ ε < 1/2. (Lemma 3.2.35) For m ≥ 1, 𝒳*_{Γ(pᵐ)}(ε)_a → 𝒳*
 **Proof route.**
 
 1. Lemma 3.2.35: for ε = 0, 𝒳*_{Γ(pᵐ)}(0)_a ≅ ⊔_{Γ₁(pᵐ)/Γ(pᵐ)} 𝒳*_{Γ₁(pᵐ)}(0)_a (a Lagrangian complement Σ = α(C_m) of the anticanonical subgroup is the extra datum, and Γ₁(pᵐ)/Γ(pᵐ) acts simply transitively on such Σ; Hartogs reduces to good reduction); for general ε the source invokes an unreferenced description of the boundary strata of 𝒳*_{Γ(pᵐ)} → 𝒳*_{Γ₁(pᵐ)} through lower-genus Siegel spaces and asserts finite étaleness above each stratum 'as it is so generically': this needs constancy of inertia along strata and the density of the ordinary locus in each stratum, supplied by the boundary description requested from ShimuraCompactifications C5 (Pilloni–Stroh Appendix A at full level pⁿ); recorded as a gap (PerfectoidShimuraVarieties/E9). For g = 1 (left to the reader in the source) only finite-level inputs are used: Heuer's Lemma 2.25 and Proposition 2.26 (§2.7), on the Tate-curve charts of ShimuraVarieties:V8/gl2-cusps-tate, give at each cusp x Cartesian squares Γ₀(pᵐ, ℤ/pᵐ) × D_{m,x} → (ℤ/pᵐ)^× × D_{m,x} over Heuer's 𝒳*_{Γ(pᵐ)}(ε)_a → 𝒳*_{Γ₁(pᵐ)}(ε)_a, so the map is finite étale also over the cusps; S1's 𝒳*_{Γ(pᵐ)}(ε)_a is the open and closed part of Heuer's on which the Weil pairing is ζ_{pᵐ} (the labels (a b; 0 d) with ad ≡ 1), which is finite étale over the same base.
-2. Theorem 3.2.36: base change the Γ₁(p^∞)-level perfectoid space along the finite étale tower and apply almost purity (Scholze, Perfectoid spaces, Theorem 7.9(iii); PerfectoidSpaces P3) and PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change; goodness passes along finite étale maps (TC.0).
+2. Theorem 3.2.36: base change the Γ₁(p^∞)-level perfectoid space along the finite étale tower and apply almost purity (Scholze, Perfectoid spaces, Theorem 7.9(iii); PerfectoidSpaces P3) and PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change; goodness passes along finite étale maps (good-triple-stability (b)).
 
 **Acceptance instances.**
 
 - A strict and explicit neighbourhood of the ordinary locus in the minimal compactification becomes affinoid perfectoid at infinite level and satisfies the Hebbarkeitssatz with respect to the boundary.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid`, `PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid`, `PerfectoidSpaces:P3/almost-purity-theorem`, `PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change`, `TorsionCohomologyInfrastructure:TC.0`, `ShimuraCompactifications:C5`, `PerfectoidSpaces:P5/finite-etale-finite-stage-approximation`, `ShimuraVarieties:V8/gl2-cusps-tate`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid`, `PerfectoidSpaces:P3/finite-etale-over-perfectoid-is-perfectoid`, `PerfectoidSpaces:P3/almost-purity-theorem`, `PerfectoidSpaces:P7/tilde-limit-finite-etale-base-change`, `PerfectoidShimuraVarieties:S1/good-triple`, `PerfectoidShimuraVarieties:S1/good-triple-stability`, `ShimuraCompactifications:C5`, `PerfectoidSpaces:P5/finite-etale-finite-stage-approximation`, `ShimuraVarieties:V8/gl2-cusps-tate`.
 
 **Sources.**
 
@@ -2884,18 +2906,48 @@ For F = ℚ: G* = G = GL_2, Γ* = Γ, Δ(N) = Δ(p^∞N) = Δ_∞(N) = 1, Z_∞ 
 
 Coverage: **planned**.
 
-- Gap: Boxer–Pilloni §3.3 flag-variety dynamics (tubes of Bruhat cells and their normalisation), used by bruhat-levi-reduction and through it by the Bruhat clause of toroidal-hecke-correspondences, has no owner yet.
-- Exact accepted T6 finite-level logarithmic comparison, lattice filtration, parabolic reduction, Levi twist and Hodge-type agreement nodes are imported. They do not resolve the tower/effective-deck/log-to-v bridge gap.
-- Effective arithmetic central-kernel annihilation and the logarithmic-to-v comparison, including v-covers and analytic torsor descent.
-- Auxiliary reflex-torus datum and G^c/Levi fibre-product identities, beyond the existing central-isogeny lift.
-- Descent through ramified toroidal finite quotients with trivial boundary inertia on pushed-out fibres.
-- Repair the separate-vanishing step of BP Lemma 4.6.20 (E41) in the flag-dynamics supplier.
+- Boxer–Pilloni §3.3 (analytic level groups, Iwahori decompositions, tubes of Bruhat cells and their orbit description) is planned in bruhat-level-groups and bruhat-cell-tubes; the higher Coleman theory roadmap imports it from here. The repaired proof of Lemma 4.6.20 (E41) is in toroidal-hecke-correspondences.
+- The log-to-v passage is owned and planned here (log-to-v-comparison, kummer-to-v-bridge): effective deck group, central-kernel annihilation, v-covers by completed log affinoid perfectoid objects and descent of maps to FL^◇. Gap: universal openness of the completed log affinoid perfectoid charts over the toroidal tower diamond, used for density in log-to-v-comparison (iv).
+- Auxiliary reflex-torus datum and G^c/Levi fibre-product identities, beyond the existing central-isogeny lift (requested from ShimuraData D4).
+- Descent through ramified toroidal finite quotients with trivial boundary inertia on pushed-out fibres (requested from AutomorphicBundles B3.general).
+
+### From the pro-Kummer-étale site of S^tor_{K,Σ} to the v-site of the toroidal tower diamond
+
+Target `PerfectoidShimuraVarieties:S6/log-to-v-comparison` (lemma).
+
+In the situation of S0.general/toroidal-tower-diamond, put X = S^tor_{K^pK_p,Σ} with its fs log structure along the boundary and X_{K′_p} = S^tor_{K^pK′_p,Σ} for open normal K′_p ⊆ K_p. (i) Each X_{K′_p} → X is a finite Kummer étale Galois cover for the effective deck group K_p/(K′_p(K_p ∩ Z_K)), where Z_K is the closure in G(ℚ_p) of the arithmetic centre Z(ℚ) ∩ K; hence X̃_∞ := “lim” X_{K′_p} is an object of X_prokét and a pro-finite Kummer étale torsor under K_p/(K_p ∩ Z_K). (ii) For every log affinoid perfectoid object V of X_prokét over X̃_∞, its associated affinoid perfectoid space V̂ carries a canonical map V̂^◇ → S^{tor◇}_{K^p,Σ,∞} = lim_{K′_p}(X_{K′_p})^◇, functorial in V. (iii) If {U_a → X} is a covering of X_prokét by log affinoid perfectoid objects, then V_a := U_a ×_X X̃_∞ is log affinoid perfectoid and finitely many of the V̂_a^◇ → S^{tor◇}_{K^p,Σ,∞} form a v-cover. (iv) For V, W log affinoid perfectoid over X̃_∞, the open subset of V̂^◇ ×_{S^{tor◇}} Ŵ^◇ lying over the open Shimura variety S_K is dense in |V̂^◇ ×_{S^{tor◇}} Ŵ^◇|. Consequently, maps V̂^◇ → Y to a separated v-sheaf Y that agree over S_K on all such fibre products descend uniquely to S^{tor◇}_{K^p,Σ,∞}.
+
+**Hypotheses and conventions.**
+
+- (G, X) a pure Shimura datum, K = K^pK_p neat, Σ a projective K-admissible cone decomposition, with the notation of S0.general/toroidal-tower-diamond; C complete algebraically closed over the reflex field.
+- Boxer–Pilloni state Theorem 4.4.40 and describe its evaluation on perfectoid tests (§4.6.1) without proving this comparison; RT-AREA-padic-1/4 and HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction assign it to S6.
+- Part (iv) is conditional on the openness statement recorded in the gap 'Openness of the completed log affinoid perfectoid charts over the toroidal tower diamond'; (i)–(iii) are planned without that input.
+
+**Proof route.**
+
+1. (i) The finite toroidal level maps for a fixed admissible Σ are log étale and Kummer along the boundary (in the cone charts the level change replaces the cusp lattice by a sublattice of finite index), hence finite Kummer étale (ShimuraCompactifications:C3.general/general-map-descent, HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-morphism); they are Galois for the effective deck group because Z(ℚ) ∩ K acts trivially on the tower and the interior covers are Galois with this group (S0/tower-action-kernel), and a finite Kummer étale cover is determined by its restriction to the interior (HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension). The limit is pro-finite Kummer étale (HodgeTateAndCanonicalSubgroups:T6:log-sites/pro-kummer-etale-site).
+2. (ii) A presentation V = lim V_i with V_i → X_{K′_p} for cofinal K′_p gives V̂ → V_i → X_{K′_p} on underlying adic spaces, compatible in K′_p; the diamond functor and the universal property of the limit give V̂^◇ → S^{tor◇} (DiamondsAndVStacks:D4/diamonds-are-v-sheaves).
+3. (iii) U_a ×_X X̃_∞ is a cofiltered limit of pullbacks of finite Kummer étale maps to the log affinoid perfectoid U_a, hence log affinoid perfectoid with V̂_a = lim of finite étale covers of Û_a (HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis (1), (3)). Points: a point of |S^{tor◇}| = lim |X_{K′_p}| (S0.general/toroidal-tower-diamond) is a compatible family (x_{K′_p}); choose a and a point u of |Û_a| over x_{K_p} (the U_a cover X). By the four-point lemma for the exact map X_{K′_p} → X (HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products (3)), the set of points of the fs fibre product U_a ×_X X_{K′_p} over (u, x_{K′_p}) is nonempty; these sets are compact in the constructible topology and form an inverse system in K′_p, so they have a compatible family, which is a point of |V̂_a| = lim_{K′_p} |U_a ×_X X_{K′_p}| (log-affinoid-perfectoid) over the given point. Hence the V̂_a^◇ jointly surject onto |S^{tor◇}|. X is proper, so S^{tor◇} is quasi-compact and finitely many V̂_a suffice; a quasi-compact map of small v-sheaves that is surjective on points is a v-cover (DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks).
+4. (iv) The boundary of V̂ is the vanishing locus of the chart monomials, all of whose roots exist, so its complement is dense in |V̂|. If the projection V̂^◇ ×_{S^{tor◇}} Ŵ^◇ → V̂^◇ is open (the recorded gap: openness of Ŵ^◇ → S^{tor◇}, a limit of composites of Kummer étale maps, which are open on underlying spaces by HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-morphism), every nonempty open of the fibre product maps onto an open of V̂ meeting the interior, and the boundary is pulled back from X, so the interior of the fibre product is dense.
+5. Descent: on the v-cover of (iii) the given maps agree on the overlaps over S_K; their equaliser on each overlap is closed (Y separated) and contains a dense open by (iv), so it is everything; a closed subdiamond containing all points is the whole diamond (DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks), and v-descent of maps into the v-sheaf Y gives the unique descended map (DiamondsAndVStacks:D4/diamonds-are-v-sheaves).
+
+**Acceptance instances.**
+
+- For the modular curve (G = GL₂, no boundary refinement needed), at a cusp the log affinoid perfectoid objects over X̃_∞ are the perfectoid discs in the variable q^{1/∞} of the Tate-curve tower, and (iii) says the perfectoid cusp discs together with interior affinoid perfectoids v-cover the compactified infinite-level modular curve.
+- Over the open Shimura variety the comparison reduces to the identification of the pro-étale site of S_K with a site of affinoid perfectoid objects over S^◇_{K^p,∞} (no log structure).
+
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `PerfectoidShimuraVarieties:S0/tower-action-kernel`, `ShimuraCompactifications:C3.general/general-map-descent`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-morphism`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/pro-kummer-etale-site`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products`, `DiamondsAndVStacks:D4/diamonds-are-v-sheaves`, `DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks`, `DiamondsAndVStacks:D4/underlying-topological-space`.
+
+**Sources.**
+
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §4.4.40, the paragraph before Theorem 4.4.40 and the theorem, p. 80. The toroidal tower diamond as a limit of diamonds and the triviality of the pro-Kummer-étale torsor over it, stated as a consequence of the logarithmic comparison without a proof of the passage to the v-site.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §4.6.1, p. 90. The description of the Hodge–Tate torsor on a perfectoid space over the toroidal tower through étale-local frames and their cocycle, which presupposes this comparison.
 
 ### Evaluating the Hodge–Tate torsor on perfectoid test objects over the toroidal tower diamond
 
 Target `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge` (lemma).
 
-In the situation of toroidal-tower-diamond (S0.general) and HodgeTateAndCanonicalSubgroups T6:comparison: let P_HT ⊆ G_{pet,p} ×^{G^c(ℚ_p)} G^{c,an} be the P^c_μ-reduction of the pro-Kummer-étale G^c(ℚ_p)-torsor over S^tor_{K,Σ} given by the logarithmic Hodge–Tate filtration. For every perfectoid space S with a map S → S^{tor◇}_{K^p,Σ,∞}, there is a P^{c,an}_μ-torsor P_HT(S) ⊆ G^{c,an} × S, functorial in S and compatible with base change, which étale-locally on S̃ → S is P^{c,an}_μ · g_{S̃} for an element g_{S̃} ∈ G^{c,an}(S̃) unique up to left multiplication by P^{c,an}_μ(S̃); the cocycle p₂^*g · (p₁^*g)⁻¹ ∈ P_μ(S̃ ×_S S̃) describes P_HT(S), and right translation g_{S̃} ↦ g_{S̃}·g by G^{an} carries the embedded reduction P_HT(S) to its translate P_HT(S)·g, inducing an isomorphism of the intrinsic P-torsors. This is the passage from the pro-Kummer-étale site of S^tor_{K,Σ} to the v-site of the diamond that Boxer–Pilloni §4.6.1 presuppose and do not prove.
+In the situation of toroidal-tower-diamond (S0.general) and HodgeTateAndCanonicalSubgroups T6:comparison: let P_HT ⊆ G_{pet,p} ×^{G^c(ℚ_p)} G^{c,an} be the P^c_μ-reduction of the pro-Kummer-étale G^c(ℚ_p)-torsor over S^tor_{K,Σ} given by the logarithmic Hodge–Tate filtration. For every perfectoid space S with a map S → S^{tor◇}_{K^p,Σ,∞}, there is a P^{c,an}_μ-torsor P_HT(S) ⊆ G^{c,an} × S, functorial in S and compatible with base change, which étale-locally on S̃ → S is P^{c,an}_μ · g_{S̃} for an element g_{S̃} ∈ G^{c,an}(S̃) unique up to left multiplication by P^{c,an}_μ(S̃); the cocycle p₂^*g · (p₁^*g)⁻¹ ∈ P_μ(S̃ ×_S S̃) describes P_HT(S), and right translation g_{S̃} ↦ g_{S̃}·g by G^{an} carries the embedded reduction P_HT(S) to its translate P_HT(S)·g, inducing an isomorphism of the intrinsic P-torsors. P_HT(S) is the preimage in G^{c,an} × S of the graph of the induced map S → FL_{G^c,μ}^◇ = (P^c_μ\G^c)^{an,◇}. This is the passage from the pro-Kummer-étale site of S^tor_{K,Σ} to the v-site of the diamond that Boxer–Pilloni §4.6.1 presuppose and do not prove; it is proved here from log-to-v-comparison.
 
 **Hypotheses and conventions.**
 
@@ -2903,15 +2955,16 @@ In the situation of toroidal-tower-diamond (S0.general) and HodgeTateAndCanonica
 
 **Proof route.**
 
-1. Use the effective profinite deck group from S0/tower-action-kernel, not an automatically faithful K_p-torsor. To trivialize the pushed-out G^c torsor over the limit, verify that the actual arithmetic central kernel maps to 1 in G^c; the precise logarithmic/effective-deck comparison is a recorded supplier request.
-2. On log affinoid perfectoid objects the logarithmic period sheaves have the required evaluations (T6:comparison). Passing from these objects to all perfectoid tests over the tower requires a v-cover comparison and v-descent of analytic P^c_μ-torsors; these are recorded requests, not consequences of evaluating period sheaves alone.
-3. Two local frames differ by P_μ on the left. Right translation changes their embedding in the trivial G^c-torsor but preserves the intrinsic torsor through the translated isomorphism.
+1. Tower torsor and central kernel. The canonical local systems W_p imported in HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations are, on S_K, the local systems attached to the p-level tower, and their Kummer-étale extensions are attached to the toroidal tower X̃_∞ of log-to-v-comparison (i) (the extension is unique: HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension). Their existence as local systems on S_K for every W ∈ Rep(G^c) is the statement that the arithmetic centre Z(ℚ) ∩ K, hence its closure Z_K, acts trivially on representations of G^c = G/Z_s: its image in (Z/Z_s)(ℚ) is a neat arithmetic subgroup of a torus with equal ℚ- and ℝ-split ranks, hence finite and then trivial (AutomorphicBundles:B0/central-split-quotient, AutomorphicBundles:B0/ineffective-fibre-descent). Hence G_{pet,p} ≅ X̃_∞ ×^{K_p/(K_p ∩ Z_K)} G^c(ℚ_p), which is trivialised over X̃_∞ by its tautological section; the tower is not assumed to be a faithful K_p-torsor (S0/tower-action-kernel).
+2. Frames on log affinoid perfectoid objects. For V log affinoid perfectoid over X̃_∞, the slice X_prokét/V is the pro-étale site of V̂ (HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis (3)), and the P^c_μ-reduction P_HT of the now trivial G^{c,an}-torsor (HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction) is étale-locally on V̂ of the form P^{c,an}_μ·g with g ∈ G^c(𝒪(V̂′)), unique up to P^{c,an}_μ on the left. Its class is a map V̂^◇ → FL_{G^c,μ}^◇, functorial in V and compatible on fibre products of log affinoid perfectoid objects (log-perfectoid-basis (1)).
+3. Descent to all perfectoid tests. Over the open Shimura variety these maps are the classes of the Hodge–Tate frames of the same pro-étale torsor, so they agree on the parts of the fibre products lying over S_K. FL is separated, so log-to-v-comparison (iii)–(iv) descends them uniquely to π: S^{tor◇}_{K^p,Σ,∞} → FL_{G^c,μ}^◇. For a perfectoid S → S^{tor◇}_{K^p,Σ,∞} put P_HT(S) := (G^{c,an} × S) ×_{FL × S} S along the composite with π; since G^c → P^c_μ\G^c is a smooth P^c_μ-torsor with étale-local sections, P_HT(S) is étale-locally P^{c,an}_μ·g_{S̃}, the cocycle p₂^*g·(p₁^*g)⁻¹ ∈ P^c_μ(S̃ ×_S S̃) describes it, and it is functorial and compatible with base change. No effective descent of analytic torsors along v-covers is needed: maps into the v-sheaf FL^◇ glue by the sheaf property.
+4. Two local frames differ by P_μ on the left. Right translation changes their embedding in the trivial G^c-torsor but preserves the intrinsic torsor through the translated isomorphism.
 
 **Acceptance instances.**
 
 - For Hodge-type data with perfect Σ, P_HT(S) is the pullback of the Hodge–Tate torsor along a map S → S^{tor}_{K^p,Σ} of perfectoid spaces (S3 hodge-compactified-period-maps (c)).
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `DiamondsAndVStacks:D4/diamonds-are-v-sheaves`, `PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety`, `AutomorphicBundles:B0/central-split-quotient`, `AutomorphicBundles:B0/ineffective-fibre-descent`, `PerfectoidShimuraVarieties:S0/tower-action-kernel`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/log-to-v-comparison`, `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `DiamondsAndVStacks:D4/diamonds-are-v-sheaves`, `PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety`, `AutomorphicBundles:B0/central-split-quotient`, `AutomorphicBundles:B0/ineffective-fibre-descent`, `PerfectoidShimuraVarieties:S0/tower-action-kernel`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension`.
 
 **Sources.**
 
@@ -2927,11 +2980,11 @@ In the situation of kummer-to-v-bridge, the pushed-out coefficient torsor G_{pet
 
 - (G, X) an arbitrary pure Shimura datum (Boxer–Pilloni §4: axioms SV1–SV3), K = K^pK_p neat, Σ a fixed projective K-admissible cone decomposition, smooth for the base cusp lattice at K; at deeper K^pK′_p ⊆ K the same fan is pulled back with its changed cusp lattice and fs logarithmic Kummer charts, without asserting smoothness of every underlying deeper-level space, F/ℚ_p finite splitting G with E(G, X) ⊆ F; G^c = G/Z_s(G), where Z_s(G) is the largest subtorus of the centre Z(G) which is ℝ-split but contains no ℚ-split subtorus (Boxer–Pilloni §4.1.1; Z_s(G) = 1 in the Hodge-type case).
 - Only K_p acts on the fixed-Σ tower; equivariance for G(ℚ_p) is through the Hecke correspondences of toroidal-hecke-correspondences.
-- The trivialization is conditional on kummer-to-v-bridge’s effective-deck comparison, annihilation of the arithmetic central kernel in G^c, log-affinoid v-covers and analytic torsor descent; the tower is not assumed to be a faithful K_p-torsor.
+- The trivialization over the tower uses kummer-to-v-bridge: the effective deck group, annihilation of the arithmetic central kernel in G^c, and the log-to-v comparison of log-to-v-comparison, whose density part (iv) rests on the recorded openness gap; the tower is not assumed to be a faithful K_p-torsor.
 
 **Proof route.**
 
-1. Use kummer-to-v-bridge’s effective-deck comparison and central-kernel annihilation to trivialize the pushed-out G^c coefficient torsor. Its descended P_HT-reduction defines the flag map. The generic finite-level K_p action alone does not supply that trivialization.
+1. Use kummer-to-v-bridge: the pushed-out G^c coefficient torsor is the effective-deck torsor of the toroidal tower and is trivial over it, the frames of P_HT on log affinoid perfectoid objects give maps to FL^◇, and these descend to S^{tor◇}_{K^p,Σ,∞} by log-to-v-comparison. The generic finite-level K_p action alone does not supply that trivialization.
 2. Pulling back U_P\G → FL recovers P_HT ×^{P} M = M_HT (definition).
 3. The finite-level logarithmic comparison M_HT ≅ M_dR ×^{μ,ℤ_p^×} ℤ_p(1) with the canonical extension M_dR (HodgeTateAndCanonicalSubgroups T6:comparison, Boxer–Pilloni §4.4.38–4.4.39 after Diao–Lan–Liu–Zhu Theorem 5.3.1; AutomorphicBundles:B3.general/general-canonical-extension) pulls back to the tower.
 4. Comparison with S3: for Hodge-type data, on the open Shimura variety the logarithmic comparison, hence the Hodge–Tate filtration and P_HT, agrees with Caraiani–Scholze's P_μ-reduction P_p built from the universal abelian variety and its Hodge tensors (Boxer–Pilloni Remark 4.4.39; supplied by T6:comparison/hodge-type-comparison-agreement with its open-locus hypotheses), so π^tor_HT restricted to S^◇_{K^p,∞} is S3 hodge-open-period-map. For perfect Σ, π^tor_HT and the map of S3 hodge-compactified-period-maps (c) agree on the open subdiamond; their equaliser is a closed subdiamond (FL is separated) whose underlying closed set contains the dense subset |S^◇_{K^p,∞}| of |S^{tor◇}_{K^p,Σ,∞}| = lim |S^tor_{K^pK′_p,Σ}| (the boundary is nowhere dense at each level), so it is everything, and a closed immersion of diamonds that is surjective on points is an isomorphism (DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks).
@@ -2941,7 +2994,7 @@ In the situation of kummer-to-v-bridge, the pushed-out coefficient torsor G_{pet
 - For the Siegel datum and any Σ, π^tor_HT is the map of S1 perfectoid-toroidal-siegel-tower composed with the minimal π_HT.
 - For a datum of non-abelian type (e.g. with an E₇ factor) the map exists although no perfectoid representative of the toroidal tower is known.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`, `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `PerfectoidShimuraVarieties:S0.general/general-infinite-level-diamond`, `PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety`, `PerfectoidShimuraVarieties:S3/hodge-open-period-map`, `PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps`, `AutomorphicBundles:B3.general/general-canonical-extension`, `AutomorphicBundles:B1.general/general-principal-model`, `DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`, `PerfectoidShimuraVarieties:S6/log-to-v-comparison`, `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `PerfectoidShimuraVarieties:S0.general/general-infinite-level-diamond`, `PerfectoidShimuraVarieties:S3/levi-torsor-over-flag-variety`, `PerfectoidShimuraVarieties:S3/hodge-open-period-map`, `PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps`, `AutomorphicBundles:B3.general/general-canonical-extension`, `AutomorphicBundles:B1.general/general-principal-model`, `DiamondsAndVStacks:D4/isomorphism-criteria-for-v-sheaves-and-stacks`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement`.
 
 **Sources.**
 
@@ -2958,18 +3011,19 @@ In the situation of general-toroidal-period-map, for t ∈ G(ℚ_p) and cone dec
 
 - (G, X) an arbitrary pure Shimura datum (Boxer–Pilloni §4: axioms SV1–SV3), K = K^pK_p neat, Σ a fixed projective K-admissible cone decomposition, smooth for the base cusp lattice at K; at deeper K^pK′_p ⊆ K the same fan is pulled back with its changed cusp lattice and fs logarithmic Kummer charts, without asserting smoothness of every underlying deeper-level space, F/ℚ_p finite splitting G with E(G, X) ⊆ F; G^c = G/Z_s(G), where Z_s(G) is the largest subtorus of the centre Z(G) which is ℝ-split but contains no ℚ-split subtorus (Boxer–Pilloni §4.1.1; Z_s(G) = 1 in the Hodge-type case).
 - Boxer–Pilloni state this for abelian type 'for suitable choices of polyhedral cone decomposition'; the compatibility condition is made explicit here (Σ″ refines both pullbacks).
-- The Bruhat clause has the hypotheses of bruhat-levi-reduction (abelian type, quasi-split G_{ℚ_p}, K_p = K_{p,m′,b′}, F large), and through it depends on the Boxer–Pilloni §3.3 tubes (recorded gap).
+- The Bruhat clause has the hypotheses of bruhat-levi-reduction (abelian type, quasi-split G_{ℚ_p}, K_p = K_{p,m′,b′}, F large), and through it on the tubes and level groups of bruhat-cell-tubes and bruhat-level-groups.
 
 **Proof route.**
 
 1. Construct the correspondence on finite levels with the common refinement (ShimuraCompactifications C3.general) and pass to the diamonds of the towers (S0.general toroidal-tower-diamond, refinement maps are isomorphisms over the open part).
-2. Local sections x₂ = x₁t of the pro-étale torsors give the map of G_{pet,p}-torsors; over the Bruhat domains choose P_HT-trivialisations x′_i with x_i = x′_iwh_i, i.e. x′_i = x_ih_i⁻¹w⁻¹, for h_i ∈ G^{1,c}_{m,n}K^c_p (bruhat-levi-reduction); then x′₂ = x′₁·wh₁th₂⁻¹w⁻¹ with wh₁th₂⁻¹w⁻¹ ∈ P^{an,c}_μ; project to M_μ and use the root-group factorisation (Lemma 4.6.20).
+2. Local sections x₂ = x₁t of the pro-étale torsors give the map of G_{pet,p}-torsors; over the Bruhat domains choose P_HT-trivialisations x′_i with x_i = x′_iwh_i, i.e. x′_i = x_ih_i⁻¹w⁻¹, for h_i ∈ G^{1,c}_{m,n}K^c_p (bruhat-levi-reduction); then x′₂ = x′₁·wh₁th₂⁻¹w⁻¹ with wh₁th₂⁻¹w⁻¹ ∈ P^{an,c}_μ; project to M_μ.
+3. Levi image (Boxer–Pilloni Lemma 4.6.20, with a repaired proof; PerfectoidShimuraVarieties/E41). Put H = wK_pG¹_{m,n}w⁻¹ and t′ = wtw⁻¹ ∈ T. By bruhat-level-groups (5) (K_p = K_{p,m′,b′} has an Iwahori decomposition and lies in G_{m−n,0}), H = (H ∩ P_μ)(H ∩ Ū_P) = (H ∩ Ū_P)(H ∩ P_μ), Ū_P the unipotent radical of the opposite parabolic. Write an element of H t′ H as k t′ k′ with k = k_P k_Ū and k′ = k′_Ū k′_P in these factorisations. Since t′ normalises Ū_P, k t′ k′ = k_P t′ (t′⁻¹k_Ū t′ k′_Ū) k′_P with t′⁻¹k_Ū t′ k′_Ū ∈ Ū_P, so k t′ k′ ∈ P_μ iff t′⁻¹k_Ū t′ k′_Ū ∈ P_μ ∩ Ū_P = {1}, i.e. iff k′_Ū = t′⁻¹k_Ū⁻¹t′. The two opposite-unipotent factors cancel; they need not be trivial, which is the step the source misstates. Then k t′ k′ = k_P t′ k′_P, so H t′ H ∩ P_μ = (H ∩ P_μ) t′ (H ∩ P_μ), and its image in M_μ is K_{p,w,M_μ}M¹_{μ,m,n}·wtw⁻¹·K_{p,w,M_μ}M¹_{μ,m,n} because H ∩ P_μ projects onto K_{p,w,M_μ}M¹_{μ,m,n} (bruhat-levi-reduction, Lemma 4.6.11).
 
 **Acceptance instances.**
 
 - For GL_2 and t = diag(p, 1) it is the U_p correspondence on the modular tower, with the period map transforming by t on ℙ¹.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `PerfectoidShimuraVarieties:S6/bruhat-levi-reduction`, `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `ShimuraCompactifications:C3/hecke-span`, `ShimuraCompactifications:C3/choice-comparison`, `ShimuraCompactifications:C3.general/general-map-descent`, `AutomorphicBundles:B3.general/general-boundary-functoriality`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `PerfectoidShimuraVarieties:S6/bruhat-levi-reduction`, `PerfectoidShimuraVarieties:S0.general/toroidal-tower-diamond`, `ShimuraCompactifications:C3/hecke-span`, `ShimuraCompactifications:C3/choice-comparison`, `ShimuraCompactifications:C3.general/general-map-descent`, `AutomorphicBundles:B3.general/general-boundary-functoriality`, `PerfectoidShimuraVarieties:S6/bruhat-level-groups`, `PerfectoidShimuraVarieties:S6/bruhat-cell-tubes`.
 
 **Sources.**
 
@@ -3194,7 +3248,7 @@ Assume G_{ℚ_p} quasi-split with a reductive model over 𝒪_F, M^c_μ ⊆ M^{c
 
 - Abelian type (Boxer–Pilloni §4.5–4.6), quasi-split G_{ℚ_p}, F large enough to split G.
 - The descent uses that the étale torsor M^{an}_dR is already defined at finite level, because pro-étale descent is not effective in general (Remark 4.6.5).
-- The quotient used to descend the open reduction is by the effective deck group K_p/(Z_{K^p} ∩ K_p). Compatibility of the G^c-torsor with this kernel is the same requested logarithmic/effective-deck comparison as in kummer-to-v-bridge.
+- The quotient used to descend the open reduction is by the effective deck group K_p/(Z_{K^p} ∩ K_p). Compatibility of the G^c-torsor with this kernel is proved in kummer-to-v-bridge (first step).
 
 **Proof route.**
 
@@ -3214,6 +3268,104 @@ Assume G_{ℚ_p} quasi-split with a reductive model over 𝒪_F, M^c_μ ⊆ M^{c
 - [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §4.6.2, proof of Proposition 4.6.3, p. 91. The revised manuscript defines the twisted torsor over perfectoid test objects and untwists before descending.
 - [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §4.6.2, Remark 4.6.4, pp. 90–91. The integral structure is the Hodge–Tate one.
 
+### The analytic level groups G_{m,n}, G¹_{m,n} of a reductive 𝒪_F-group and their Iwahori decompositions
+
+Target `PerfectoidShimuraVarieties:S6/bruhat-level-groups` (construction).
+
+Let F/ℚ_p be finite and G a split reductive group over 𝒪_F with Borel B = TU, opposite Borel B̄ = TŪ and roots Φ = Φ⁺ ⊔ Φ⁻. Write 𝒢 for the quasi-compact adic space attached to G (the generic fibre of its p-adic completion), Iw = ]B_k[_𝒢 for the Iwahori (the tube of the special fibre of B), 𝒰_α ≅ unit ball for the root group of α, 𝒰°_α for the tube of the identity, 𝒰_{α,m} = {|u_α| ≤ |p^m|} and 𝒰°_{α,m} = ⋃_{m′>m} 𝒰_{α,m′}. For m, n ∈ ℚ_{≥0} let 𝒢_{B,m}, 𝒢_{U,m}, 𝒢_{B̄,n}, 𝒢_{Ū,n} be the affinoid subgroups of elements reducing into B, U, B̄, Ū modulo p^m (resp. p^n), 𝒢°_{B,m} = ⋃_{m′>m} 𝒢_{B,m′}, and put 𝒢_{m,n} = 𝒢°_{B,m} ∩ 𝒢_{B̄,n} and 𝒢¹_{m,n} = 𝒢°_{U,m} ∩ 𝒢_{Ū,n}, together with their partial closures (sets of specialisations). Then: (1) all of these are subgroups of 𝒢^{an} (as functors on complete Huber pairs), with 𝒢_{0,0} = Iw; (2) strong Iwahori decomposition: for every ordering of Φ the product map 𝒯 × ∏_i 𝒰*_{α_i} → Iw (with 𝒰*_α = 𝒰_α for α ∈ Φ⁺ and 𝒰°_α for α ∈ Φ⁻) is an isomorphism of analytic adic spaces; (3) for w ∈ W the product map (𝒯 ∩ G′) × ∏_{α ∈ w⁻¹Φ⁺} 𝒰*_α × ∏_{α ∈ w⁻¹Φ⁻} 𝒰*_α → G′ is an isomorphism for G′ = 𝒢_{m,n} and 𝒢¹_{m,n}, where 𝒰*_α = 𝒰_{α,n} for α ∈ Φ⁺ and 𝒰°_{α,m} for α ∈ Φ⁻; (4) for m, k ∈ ℤ_{≥0}, 𝒢_{m,0} normalises 𝒢¹_{m+k,k}; (5) if m ≥ n are integers and K_p ⊆ G(𝒪_F) ∩ 𝒢_{m−n,0} has an Iwahori decomposition K_p = (U(𝒪_F) ∩ K_p)(T(𝒪_F) ∩ K_p)(Ū(𝒪_F) ∩ K_p) (as K_{p,m′,b′} does), then K_p𝒢¹_{m,n} = 𝒢¹_{m,n}K_p is a group whose elements have a unique root-coordinate factorisation for every ordering of Φ; hence for w ∈ ^MW, a parabolic P ⊇ B with opposite unipotent radical Ū_P and H = wK_p𝒢¹_{m,n}w⁻¹, one has H = (H ∩ P)(H ∩ Ū_P) = (H ∩ Ū_P)(H ∩ P).
+
+**Hypotheses and conventions.**
+
+- G split reductive over 𝒪_F (in the Shimura application F splits G_{ℚ_p}, and the parabolic P_μ contains B).
+- The source leaves the general case of (3) to the reader and proves only G′ = 𝒢_{0,0}; the proof route below supplies the general case.
+- Formerly an ownerless input (Boxer–Pilloni §3.3 flag-variety dynamics); this packet now plans it in S6, where its only planned consumers bruhat-cell-tubes and bruhat-levi-reduction sit, and the higher Coleman theory roadmap imports it from here.
+
+**Proof route.**
+
+1. (1) 𝒢_{B,m}, 𝒢_{U,m}, 𝒢_{B̄,n}, 𝒢_{Ū,n} are groups since reduction modulo p^m is a homomorphism; intersections and increasing unions of groups are groups; partial closures are groups because their points over (K, K⁺) are the points of the closed-under-specialisation sets over (K, K°) (Boxer–Pilloni Lemma 3.3.14).
+2. (2) Complete G along B_k to a formal group; the product map of formal schemes 𝒯 × ∏ 𝒰*_{α_i} → Iw is an isomorphism on reduced special fibres (T_k × ∏_{α∈Φ⁺} U_{α,k} ≅ B_k), and on tangent spaces at closed points by the Chevalley commutator relations, whose correction terms are strictly higher in the root order; both sides are formally smooth, so it is an isomorphism, and one passes to generic fibres (Boxer–Pilloni Proposition 3.3.4; ReductiveGroupsPartII:RG2.3/big-cell-criteria, ReductiveGroupsPartII:RG2.1/rational-points-root-datum).
+3. (3) For G′ ⊆ Iw decompose g ∈ G′ by (2) as g = t·u⁺·u⁻ with u^± in the products over Φ^±. Since U × T × Ū → G is an open immersion over 𝒪_F (big cell), g reduces into B̄ modulo p^n iff u⁺ ≡ 1 and into B modulo p^{m+} iff u⁻ ≡ 1, coordinatewise: this gives the radii 𝒰_{α,n} (α ∈ Φ⁺) and 𝒰°_{α,m} (α ∈ Φ⁻). For the grouping by w⁻¹Φ^± reorder the factors with the Chevalley commutator formula; its structure constants are integral and the commutator of factors of radii |p^a|, |p^b| has radius |p^{a+b}| (ReductiveGroupsPartII:RG2.1/valued-commutator-estimates), so the radius conditions are preserved and uniqueness follows from (2).
+4. (4) Embed G into some GL_r with B = G ∩ B_{GL_r} (a Borel of GL_r fixed by B, by Borel's fixed point theorem on the flag variety of GL_r); there an element of 𝒢¹_{m+k,k} is 1 + p^k X with X in an explicit order Lie_{m,0} of matrices stable under Ad(𝒢_{m,0}), so h(1 + p^kX)h⁻¹ = 1 + p^k Ad(h)X (Boxer–Pilloni Lemma 3.3.18).
+5. (5) K_p normalises 𝒢¹_{m,n} by (4) (as 𝒢¹_{m,n} = 𝒢¹_{(m−n)+n,n}), so the product is a group; factor its elements through the Iwahori decomposition of K_p and (3) for 𝒢¹_{m,n}, and regroup with the commutator estimates as in (3) to obtain the factorisation for every ordering of Φ. Conjugation by w carries the factor of α to the root group of wα; grouping the roots wα that lie in P against those of Ū_P gives the two factorisations of H. Boxer–Pilloni use this unique factorisation in the proof of Lemma 4.6.20, and K_{p,m′,b′} ⊆ 𝒢_{m−n,0} with its Iwahori decomposition in §4.6.8 and the proof of Proposition 4.6.12.
+
+**Planning API.**
+
+- `LevelGroup.mk` (constructor): 𝒢_{m,n} = 𝒢°_{B,m} ∩ 𝒢_{B̄,n} and 𝒢¹_{m,n} = 𝒢°_{U,m} ∩ 𝒢_{Ū,n} as subgroups of 𝒢^{an}, with their partial closures.
+- `LevelGroup.zero_zero` (simp): 𝒢_{0,0} = Iw.
+- `LevelGroup.antitone` (relation): 𝒢_{m′,n′} ⊆ 𝒢_{m,n} and 𝒢¹_{m′,n′} ⊆ 𝒢¹_{m,n} for m′ ≥ m, n′ ≥ n; 𝒢¹_{m,n} ⊆ 𝒢_{m,n}.
+- `LevelGroup.iwahoriDecomposition` (equivalence): The product isomorphisms (2) and (3) for every ordering of Φ (for Iw) and for the grouping by w⁻¹Φ^± (for 𝒢_{m,n}, 𝒢¹_{m,n}).
+- `LevelGroup.normalizes` (relation): 𝒢_{m,0} normalises 𝒢¹_{m+k,k}.
+- `LevelGroup.rank_one_points` (characterisation): 𝒢_{m,n}, its partial closure and its full closure have the same rank-one points.
+
+**Unit tests.**
+
+- `levelGroups_zero_zero` (degenerate): 𝒢_{0,0} = Iw, the analytic Iwahori subgroup ]B_k[_𝒢.
+- `levelGroups_GL2` (computation): For GL₂ over ℤ_p and m = n = 1: (a b; c d) ∈ 𝒢_{1,1}(ℚ_p) iff a, d ∈ ℤ_p^×, |c| < |p| (so c ∈ p²ℤ_p) and |b| ≤ |p|; in 𝒢¹_{1,1} moreover a ≡ d ≡ 1 mod p^{1+}.
+- `levelGroups_decomposition_unique` (characterisation): For GL₂, w = 1: every g ∈ 𝒢_{m,n} is uniquely t·(1 b; 0 1)·(1 0; c 1) with t diagonal integral, |b| ≤ |p^n| and |c| < |p^m|.
+- `levelGroups_not_normal` (non-example): For GL₂ and m > 0 the Iwahori does not normalise 𝒢¹_{m+k,k}: h = (1 0; x 1) with |p^m| < |x| < 1 lies in Iw = 𝒢_{0,0}, and conjugating (1 b; 0 1) with |b| = |p^k| gives the matrix (1 − bx, b; −x²b, 1 + xb), whose diagonal entry 1 − bx has |bx| > |p^{m+k}|, so it is not in 𝒢¹_{m+k,k}; the normaliser statement needs h ∈ 𝒢_{m,0}.
+
+**Acceptance instances.**
+
+- For G = GL₂, B upper triangular and m = n = 1: 𝒢_{1,1} consists of the integral matrices (a b; c d) with |c| < |p| and |b| ≤ |p|, and 𝒢¹_{1,1} of those with moreover a, d ≡ 1 modulo p.
+
+**Direct prerequisites.** `ReductiveGroupsPartII:RG2.3/big-cell-criteria`, `ReductiveGroupsPartII:RG2.1/rational-points-root-datum`, `ReductiveGroupsPartII:RG2.1/valued-commutator-estimates`, `AdicSpacesPartII:R2/specialisation-map`, `ShimuraData:D3/bruhat-integral`.
+
+**Sources.**
+
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.3, Proposition 3.3.4 and its proof, pp. 38–39. The strong Iwahori decomposition of the analytic Iwahori subgroup for any ordering of the roots, via the formal completion along B_k.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.13, Lemma 3.3.14 and Proposition 3.3.15, p. 41. The groups G_{m,n}, G¹_{m,n} and their partial closures, and their Iwahori decompositions; the general case is left to the reader in the source.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), Lemma 3.3.18 and its proof, p. 42. Normalisation of G¹_{m+k,k} by G_{m,0} through an embedding into GL_r.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.19, the definition before Lemma 3.3.20, p. 43; §4.6.8, p. 92; proof of Proposition 4.6.12, p. 94; proof of Lemma 4.6.20, p. 98. Subgroups of G(O_F) with an Iwahori decomposition; K_{p,m′,b′} has one and lies in G_{m−n,0}; the unique root factorisation of elements of wK_pG¹_{m,n}w⁻¹ used in the proof of Lemma 4.6.20.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory](https://arxiv.org/abs/2110.10251v1), §3.3, Proposition 3.3.2, Lemma 3.3.11, Proposition 3.3.12 and Lemma 3.3.15, pp. 37–40. The same statements in the arXiv v1 numbering.
+
+### Tubes of Bruhat cells in the analytic flag variety and their description as orbits
+
+Target `PerfectoidShimuraVarieties:S6/bruhat-cell-tubes` (construction).
+
+In the situation of bruhat-level-groups, let P ⊇ B be a parabolic with Levi M, FL = P\G, ^MW the Kostant representatives and, for w ∈ ^MW, U_w ⊆ FL the open translate of the big cell with U_w^{an} ≅ ∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰_α^{an} through (u_α) ↦ w∏_α u_α. Put ]C_{w,k}[ = P\PwIw (the tube of the Bruhat cell C_{w,k} of the special fibre) and, for m, n ∈ ℚ ∪ {−∞}, let ]C_{w,k}[_{m,n} ⊆ U_w^{an} be the image of w∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_{α,m} × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_{α,n} (images in the sheaf-theoretic sense), together with the partial closures obtained from the closed balls and the specialisation closures. Then: (1) for any ordering of the roots, ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_α × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_α → ]C_{w,k}[, (u_α) ↦ w∏ u_α, is an isomorphism; (2) ]C_{w,k}[_{0,0} = ]C_{w,k}[, ]C_{w,k}[_{m,n} = ]C_{w,k}[_{m,0} ∩ ]C_{w,k}[_{0,n} for m, n ≥ 0; (3) orbit description: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for m, n ∈ ℚ_{≥0}, and likewise for the partial closures; (4) for m ≥ 0, a profinite K_p ⊆ 𝒢_{m,0} and s ≥ 0, ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of translates ]C_{w,k}[_{m+s,s}h, h ∈ K_p; (5) consequently (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w = ]C_{w,k}[_{m,n}K_p for K_p ⊆ 𝒢_{m−n,0}.
+
+**Hypotheses and conventions.**
+
+- Hypotheses of bruhat-level-groups; in the Shimura application P = P_μ, FL = FL_{G,μ} and M = M_μ.
+- In Boxer–Pilloni's application the unipotent radical of P is abelian, so the root groups for w⁻¹Φ^{−,M} commute; in general the order does not matter by the commutation lemma used in the source.
+
+**Proof route.**
+
+1. (1) Immediate from the strong Iwahori decomposition (bruhat-level-groups (2)) and P ∩ wIww⁻¹-cancellation: write PwIw = Pw·∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α (Boxer–Pilloni Corollary 3.3.7).
+2. (2) From the definition by radii.
+3. (3) By the Iwahori decomposition of 𝒢_{m,n} for the grouping w⁻¹Φ^± (bruhat-level-groups (3)), w⁻¹Pw ∩ 𝒢_{m,n} absorbs the factors with α ∉ w⁻¹Φ^{−,M}, leaving w∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α with the radii of the definition; the same computation applies to 𝒢¹_{m,n} because the torus and Levi factors are absorbed in P (Boxer–Pilloni Corollary 3.3.17).
+4. (4) For h ∈ K_p, ]C_{w,k}[_{m+s,s}h = P\Pw𝒢¹_{m+s,s}h = P\Pwh𝒢¹_{m+s,s} by (3) and the normalisation bruhat-level-groups (4); two such translates are equal or disjoint, and there are finitely many because 𝒢_{m+s,s} ∩ K_p has finite index in K_p (Boxer–Pilloni Lemma 3.3.19).
+5. (5) K_p normalises 𝒢¹_{m,n} (bruhat-level-groups (4) with K_p ⊆ 𝒢_{m−n,0}), so 𝒢¹_{m,n}K_p = K_p𝒢¹_{m,n}, and (3) gives the stated quotient presentation (Boxer–Pilloni, proof of Proposition 4.6.12).
+
+**Planning API.**
+
+- `BruhatTube.mk` (constructor): ]C_{w,k}[_{m,n} ⊆ FL^{an} for w ∈ ^MW and m, n ∈ ℚ ∪ {−∞}, with partial closures.
+- `BruhatTube.prod_iso` (equivalence): The product isomorphism (1) of root balls onto ]C_{w,k}[.
+- `BruhatTube.eq_orbit` (characterisation): ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n}.
+- `BruhatTube.inter` (simp): ]C_{w,k}[_{m,n} = ]C_{w,k}[_{m,0} ∩ ]C_{w,k}[_{0,n} for m, n ≥ 0.
+- `BruhatTube.translates_finite` (other): ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of K_p-translates.
+- `BruhatTube.quotient_presentation` (characterisation): ]C_{w,k}[_{m,n}K_p = (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w for K_p ⊆ 𝒢_{m−n,0}.
+
+**Unit tests.**
+
+- `tubes_zero_zero` (degenerate): ]C_{w,k}[_{0,0} = ]C_{w,k}[ = P\PwIw.
+- `tubes_GL2_disc` (computation): For GL₂ with P = B upper triangular and FL = P\G ≅ ℙ¹ through the second row: for w = 1, ]C_{1,k}[_{m,n} = {[z : 1] : |z| < |p^m|}, the open disc of radius |p^m| around the base point P\P = [0 : 1]; for w = s it is the closed disc of radius |p^n| around [1 : 0].
+- `tubes_orbit` (characterisation): ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for all m, n ≥ 0.
+- `tubes_not_algebraic_cell` (non-example): ]C_{w,k}[ is open in FL^{an} and is not the analytification of the locally closed Bruhat cell PwB of the generic fibre: for GL₂, w = 1 it is an open disc, while P\PB is the point ∞.
+
+**Acceptance instances.**
+
+- For G = GL₂, P = B, w = 1: ]C_{1,k}[_{m,n} is the disc {|z| < |p^m|} in the chart z of ℙ¹ around the B-fixed point, independent of n.
+
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/bruhat-level-groups`, `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/schubert-families`, `AdicSpacesPartII:R2/specialisation-map`.
+
+**Sources.**
+
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.6, Corollary 3.3.7, p. 39. Tubes of Bruhat cells as products of root balls and open root balls.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.8, Definition 3.3.10 and Remarks 3.3.11–3.3.12, pp. 39–41. The subsets ]C_{w,k}[_{m,n} of U_w^{an} and their partial closures, defined as images.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), Corollary 3.3.17 and Lemma 3.3.19 with proofs, pp. 42–43. Tubes as orbits of the level groups, and K_p-orbits as finite disjoint unions of translates.
+- [George Boxer, Vincent Pilloni, Higher Coleman theory](https://arxiv.org/abs/2110.10251v1), §3.3, Corollary 3.3.5, Corollary 3.3.14 and Lemma 3.3.16, pp. 38–41. The same statements in the arXiv v1 numbering.
+
 ### Reduction of the Levi torsor over Bruhat domains
 
 Target `PerfectoidShimuraVarieties:S6/bruhat-levi-reduction` (theorem).
@@ -3223,11 +3375,11 @@ Assume G_{ℚ_p} quasi-split with P_μ containing a Borel B over ℚ_p, F/ℚ_p 
 **Hypotheses and conventions.**
 
 - Abelian type (the truncated period map π^tor_{HT,K_p} of Boxer–Pilloni §4.5 is stated for abelian type), quasi-split G_{ℚ_p}.
-- The tubes ]C_{w,k}[_{m,n} = P\PwG¹_{m,n} of Bruhat cells and the normalisation Lemma 3.3.15 are Boxer–Pilloni §3.3 flag-variety dynamics, owned by no roadmap yet (gap); the cells C_w themselves are ShimuraData:D3/bruhat-integral.
+- The tubes ]C_{w,k}[_{m,n} = P\PwG¹_{m,n} of Bruhat cells, the level groups G¹_{m,n} with their Iwahori decompositions and the normalisation lemma (Boxer–Pilloni §3.3: arXiv v1 Corollary 3.3.14 and Lemma 3.3.15, revised manuscript Corollary 3.3.17 and Lemma 3.3.18) are planned in bruhat-level-groups and bruhat-cell-tubes; the algebraic cells C_w themselves are ShimuraData:D3/bruhat-integral.
 
 **Proof route.**
 
-1. ]C_{w,k}[_{m,n}K_p = (P^{an}_μ ∩ wK_pG¹_{m,n}w⁻¹)\wK_pG¹_{m,n}w⁻¹·w (Boxer–Pilloni Corollary 3.3.14, gap).
+1. ]C_{w,k}[_{m,n}K_p = (P^{an}_μ ∩ wK_pG¹_{m,n}w⁻¹)\wK_pG¹_{m,n}w⁻¹·w (Boxer–Pilloni Corollary 3.3.14 of arXiv v1; bruhat-cell-tubes (5), using that K_p normalises G¹_{m,n} by bruhat-level-groups (4)).
 2. For perfectoid S over the preimage choose g_{S̃} ∈ wG¹_{m,n}K_p (kummer-to-v-bridge); the cocycle lies in P_μ ∩ wG¹_{m,n}K_pw⁻¹ and its image in M_μ lies in K_{p,w,M_μ}M¹_{μ,m,n} (Lemma 4.6.11 via Proposition 4.6.9's root-group decomposition): a reduction M_{HT,m,n,K_p} of M^{an}_HT over the preimage in the tower, which is K_p-invariant.
 3. Before descending, twist by the cyclotomic character through μ, which factors through K_{p,w,M_μ}M¹_{μ,m,n} by the hypothesis on F: this gives a K_p-invariant reduction M_{dR,m,n,K_p} of M^{an}_dR over the tower (ℤ_p(1) is only pro-étale over the finite level, so the twisted M_{HT,m,n,K_p} itself does not descend).
 4. Descend M_{dR,m,n,K_p} to (π^tor_{HT,K_p})⁻¹(]C_{w,k}[_{m,n}K_p) as in integral-levi-reduction, using that M^{an}_dR is étale at finite level (Remark 4.6.5).
@@ -3238,7 +3390,7 @@ Assume G_{ℚ_p} quasi-split with P_μ containing a Borel B over ℚ_p, F/ℚ_p 
 - For G = GL_2, w = 1 and K_p = Iwahori, K_{p,1,M_μ} = T(ℤ_p) and the reduction is the torsor of trivialisations of the canonical-subgroup filtration over the ordinary-type domain.
 - Example 4.6.10: for G_{ℚ_p} = Res_{ℚ_{p²}/ℚ_p}GL_2 the projected group K_{p,1,M_μ} is the image of B(ℤ_p) in T(ℚ_{p²}) × GL_2(ℚ_{p²}), not a product Iwahori.
 
-**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/integral-levi-reduction`, `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/schubert-families`.
+**Direct prerequisites.** `PerfectoidShimuraVarieties:S6/integral-levi-reduction`, `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/schubert-families`, `PerfectoidShimuraVarieties:S6/bruhat-level-groups`, `PerfectoidShimuraVarieties:S6/bruhat-cell-tubes`, `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`.
 
 **Sources.**
 
@@ -3259,17 +3411,11 @@ Verified: the ε = 0 case (moduli argument with Lagrangian complements of the an
 
 Consumers: `PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid`.
 
-### Boxer–Pilloni §3.3 flag-variety dynamics: tubes ]C_{w,k}[_{m,n} = P\PwG¹_{m,n} of Bruhat cells and the normalisation Lemma 3.3.15
+### Openness of the completed log affinoid perfectoid charts over the toroidal tower diamond
 
-The reduction of the Levi torsor over Bruhat domains (Boxer–Pilloni Proposition 4.6.12, requested by OverconvergentAutomorphicForms O8) uses Corollary 3.3.14 (the tubes as orbits) and Lemma 3.3.15 (G_{m,0} normalises G¹_{m+k,k}) of Boxer–Pilloni §3.3. The local description of the Hecke correspondences on Bruhat domains (Proposition 4.6.19) uses the same reduction. ShimuraData D3 plans the integral Bruhat stratification and Schubert cells but not their p-adic tubes and the groups G¹_{m,n}; the natural owner is the higher Hida and Coleman theory roadmap (HigherHidaAndColemanTheory, routed from the Pilloni and Boxer–Pilloni extractions but not yet designed). The source proof of Lemma 4.6.20 also requires repair of the false separate-vanishing inference (E41); only cancellation of the opposite-root factors follows.
+log-to-v-comparison (iv) needs: for W log affinoid perfectoid over the toroidal tower X̃_∞ in the pro-Kummer-étale site of S^tor_{K,Σ}, the map Ŵ^◇ → S^{tor◇}_{K^p,Σ,∞} = lim (S^tor_{K^pK′_p,Σ})^◇ is universally open on underlying spaces (equivalently, the projections V̂^◇ ×_{S^{tor◇}} Ŵ^◇ → V̂^◇ are open). It is a cofiltered limit of composites of Kummer étale maps, which are open (DLLZ), but the fs-versus-adic fibre-product comparison at the boundary and openness in the limit are not written in any source; Boxer–Pilloni Theorem 4.4.40 and §4.6.1 use the resulting descent without comment. With it, the interior is dense in every fibre product and the Hodge–Tate frames descend. The effective deck group, the annihilation of the arithmetic centre in G^c and the v-cover property are planned in S6 and are not part of this gap. S6 owns the statement (RT-AREA-padic-1/4); the natural place for a general version is the logarithmic foundations of HodgeTateAndCanonicalSubgroups T6:log-sites.
 
-Consumers: `PerfectoidShimuraVarieties:S6/bruhat-levi-reduction`, `PerfectoidShimuraVarieties:S6/toroidal-hecke-correspondences`.
-
-### Effective deck groups and the logarithmic-to-v torsor bridge
-
-T6:comparison evaluates logarithmic period sheaves on log affinoid perfectoid objects. It does not by itself show that every perfectoid test over the toroidal tower has the required v-cover, or that the arithmetic central kernel annihilates the pushed-out G^c torsor. S0/tower-action-kernel and AutomorphicBundles B0 retain that kernel. Supply the exact comparison, central-kernel annihilation and effective descent before using a tautological frame over the entire tower.
-
-Consumers: `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`, `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `PerfectoidShimuraVarieties:S6/integral-levi-reduction`.
+Consumers: `PerfectoidShimuraVarieties:S6/log-to-v-comparison`, `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`, `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `PerfectoidShimuraVarieties:S6/integral-levi-reduction`.
 
 ### Auxiliary reflex-torus datum and coefficient Levi fibre products
 
@@ -3292,7 +3438,6 @@ Consumers: `PerfectoidShimuraVarieties:S3/hodge-tate-formal-models`.
 ## Supplier requests
 
 - **ShimuraCompactifications:C5**: At level K^pΓ(pᵐ) over ℚ for the Siegel datum (K^p contained in a level-N subgroup, N ≥ 3 prime to p): the description of the boundary strata of the minimal compactification X*_{Γ(pᵐ)} and of the map X*_{Γ(pᵐ)} → X*_{Γ₁(pᵐ)} on them through lower-genus Siegel spaces (Faltings–Chai V.2; Pilloni–Stroh Théorème A.11), with the constancy of inertia along each stratum, as used in Scholze, torsion paper, Lemma 3.2.35. The integral minimal and toroidal compactifications at good level are cited from the existing nodes C5/integral-minimal-space, C5/minimal-hodge-ampleness, C5/integral-toroidal-space, C5/valuative-properness and C5/higher-level-toroidal-normalization. Consumers: `PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid`.
-- **TorsionCohomologyInfrastructure:TC.0**: Scholze, torsion paper, §2.3: the perfectoid Hebbarkeitssatz (Proposition 2.3.2, Lemma 2.3.4), Corollary 2.3.5 under resolution of singularities, good triples (Definition 2.3.8) and Lemmas 2.3.9–2.3.11 with Corollary 2.3.12 (base good triples, finite normal covers étale away from the boundary, inverse limits, extension of the base field); and the Hartogs statements Proposition 3.2.9 and Lemma 3.2.10 for normal noetherian rings and for the Hasse blow-up (R ⊗̂ ℤ_p^cycl)⟨u⟩/(fu − p^ε). Consumers: `PerfectoidShimuraVarieties:S1/frobenius-trace-estimates`, `PerfectoidShimuraVarieties:S1/canonical-frobenius-lift`, `PerfectoidShimuraVarieties:S1/anticanonical-open-immersions`, `PerfectoidShimuraVarieties:S1/hartogs-for-finite-covers-of-anticanonical-tower`, `PerfectoidShimuraVarieties:S1/characteristic-p-base-triples-good`, `PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid`, `PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid`.
 - **ShimuraCompactifications:C3.general**: For a Hodge-type datum with a Siegel embedding (G, X) ↪ (G̃, X̃): for a cofinal set of admissible cone decompositions Σ there are Σ̃ and closed immersions S^tor_{K^pK_p,Σ} ↪ S̃^tor_{K̃^pK̃_p,Σ̃} for all small K_p, compatible with the level transition maps, the closed immersion of the open Shimura varieties and the maps to the minimal compactifications (Lan, Closed immersions of toroidal compactifications of Shimura varieties, Math. Res. Lett. 29 (2022), Theorem 2.2, as used in Boxer–Pilloni §4.4.25 of the revised manuscript). The existing node C3/level-datum-functoriality and C3.general/general-map-descent give the maps; the request is for the closed-immersion property. Consumers: `PerfectoidShimuraVarieties:S3/hodge-compactified-period-maps`.
 - **ShimuraVarieties:V2**: Baily–Borel compactifications Sh*_Γ(G, X⁺) of connected Shimura varieties Γ\X⁺ for every arithmetic Γ ⊆ G(ℚ)_+ (also non-congruence and with torsion), over ℂ: normal projective, finite maps Sh*_{Γ₁} → Sh*_{Γ₂} for Γ₁ ⊆ Γ₂ of finite index, the identification Sh*_{Γ₁}/(Γ₂/Γ₁) ≅ Sh*_{Γ₂} for Γ₁ normal in Γ₂, and the finite maps for G → G^ad sending (G(ℚ)_+ ∩ K)\X⁺ to π(Γ)\X⁺ (Hansen–Johansson, §5.3, Propositions 5.18–5.19). Consumers: `PerfectoidShimuraVarieties:S4/property-p`, `PerfectoidShimuraVarieties:S4/property-p-from-adjoint`, `PerfectoidShimuraVarieties:S4/hodge-adjoint-property-p`.
 - **ShimuraData:D4**: Connected Shimura data (G, X⁺) (Deligne's conditions on a semisimple G and a G^ad(ℝ)⁺-orbit) with the connected data (G^der, X⁺), (G^ad, X⁺) attached to a Shimura datum, and the pre-abelian notion for connected data: (G, X⁺) is of pre-abelian type if (G^ad, X⁺) ≅ (G̃^ad, X̃⁺) for a Hodge-type datum (Hansen–Johansson Definition 4.1, after Moonen 2.10), agreeing with D4/preabelian-type for full data. Consumers: `PerfectoidShimuraVarieties:S4/property-p`, `PerfectoidShimuraVarieties:S4/preabelian-minimal-perfectoid`.
@@ -3301,7 +3446,6 @@ Consumers: `PerfectoidShimuraVarieties:S3/hodge-tate-formal-models`.
 - **HilbertModularVarietiesAndShimuraCurves:H3**: The unit group Δ(N) = 𝒪_F^{×,+}/((1 + N𝒪_F)^×)² and the finite étale Δ(N)-torsor from the G*-variety (fixed polarization module) to the arithmetic G-variety, the maps attached to changing 𝔠 by isogenies (Birkbeck–Heuer–Williams Proposition 8.4 and Lemma 8.22). Consumers: `PerfectoidShimuraVarieties:S5/hilbert-three-towers`, `PerfectoidShimuraVarieties:S5/hilbert-polarization-torsors`, `PerfectoidShimuraVarieties:S5/hilbert-gl2-qp-action`.
 - **HilbertModularVarietiesAndShimuraCurves:H4**: At finite p-level: the G*, intermediate (G-level with fixed G*-polarization) and arithmetic G Hilbert varieties at levels Γ*(pⁿ), Γ(pⁿ), Γ₀(pⁿ) with the maps β₁, β₂; the level-structure action through γ^∨ = det(γ)γ⁻¹ and the polarization action; the Weil-pairing components (𝒪_F/pⁿ)^× and U_n; the finite torsors under Γ̄₀(p^m, pⁿ), P̄Γ₀(p^m, pⁿ) = Γ̄₀/Z_n (Z_n = (1 + N𝒪_F)^×/(1 + pⁿN𝒪_F)^×), Ē(p^m, pⁿ), Δ(pⁿN) and, on identity components, Δ_n(N) (Birkbeck–Heuer–Williams Lemmas 8.5–8.19, with the corrected stabilisation argument for Δ_n(N) when p = 2). Consumers: `PerfectoidShimuraVarieties:S5/hilbert-three-towers`, `PerfectoidShimuraVarieties:S5/hilbert-mixed-span`, `PerfectoidShimuraVarieties:S5/hilbert-weil-pairing`, `PerfectoidShimuraVarieties:S5/hilbert-polarization-torsors`, `PerfectoidShimuraVarieties:S5/hilbert-level-torsors`.
 - **HilbertModularVarietiesAndShimuraCurves:H5**: For F = ℚ: the identification of both Hilbert groups with GL₂ and of the Hilbert moduli and level structures (μ_N-structures on A, Γ(pⁿ)-structures on A^∨) with the modular-curve ones of the full-level modular curves, with the sign conventions of the Weil pairing matched. Consumers: `PerfectoidShimuraVarieties:S5/modular-tower-comparison`, `PerfectoidShimuraVarieties:S5/hilbert-f-equals-q-check`.
-- **HodgeTateAndCanonicalSubgroups:T6:comparison**: Compare the pro-Kummer-étale canonical G^c local system with the effective toroidal p-level tower: prove that its actual arithmetic central kernel maps to 1 in G^c, that perfectoid tests over the tower admit v-covers by the requisite log affinoid perfectoid objects, and that the local P^c_μ-reductions descend to functorial analytic torsors on the v-site. Coordinate with AutomorphicBundles B0/ineffective-fibre-descent; do not assume the tower is a faithful K_p-torsor. Consumers: `PerfectoidShimuraVarieties:S6/kummer-to-v-bridge`, `PerfectoidShimuraVarieties:S6/general-toroidal-period-map`, `PerfectoidShimuraVarieties:S6/integral-levi-reduction`.
 - **ShimuraData:D4**: For an abelian-type datum and a Hodge-type central derived cover, construct Lovering’s auxiliary B₁ = G₁ ×_{G₁^ab} Res_{E/ℚ}G_m with the specified reflex-norm map, Shimura cocharacter, maps to G₁ and G (through B), and common adjoint flag variety. Prove the compatibility of Z_s, G^c and the Levi fibre-product identity used in S6/torsor-fibre-product; a lift through a fixed central isogeny alone does not supply these statements. Consumers: `PerfectoidShimuraVarieties:S6/abelian-auxiliary-data`, `PerfectoidShimuraVarieties:S6/torsor-fibre-product`, `PerfectoidShimuraVarieties:S6/abelian-connected-towers-and-descent-group`, `PerfectoidShimuraVarieties:S6/abelian-torsor-descent`.
 - **AutomorphicBundles:B3.general**: Prove descent of the pushed-out canonical de Rham/Levi torsor under the finite toroidal quotient in Boxer–Pilloni Theorem 4.4.43(5), arXiv v1 pp. 80–81, and Remark 4.6.6, pp. 89–90: identify boundary inertia on compatible toric charts, prove its action on the pushed-out fibres is trivial, and descend as an étale torsor; compare the logarithmic Hodge–Tate torsor. Coordinate the finite ramified quotient hypotheses with ShimuraCompactifications C3.general. Consumers: `PerfectoidShimuraVarieties:S6/abelian-torsor-descent`.
 - **DiamondsAndVStacks:D6**: Provide the fully faithful perfectoid-space-to-diamond functor with the analytic base/untilt fixed, so a map between diamonds represented by perfectoid spaces over C lifts uniquely to an analytic morphism. The general analytic diamond-functor statement does not imply full faithfulness for all analytic adic spaces. For S3 also identify maps from a perfectoid space over C to the smooth analytic flag with maps to its diamond on perfectoid tests, using the flag’s actual analytic functor of points; full faithfulness between two perfectoid objects alone does not supply a nonperfectoid target. Consumers: `PerfectoidShimuraVarieties:S2/genuine-to-image-comparison`, `PerfectoidShimuraVarieties:S3/hodge-open-period-map`.
