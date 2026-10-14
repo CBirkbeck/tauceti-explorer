@@ -117,6 +117,10 @@ stated in README §§2.1–2.6. -/
 
 /-! ## Layer 3: Bruhat induction and deep unipotent cohomology -/
 
+/-- The rank-one inverse adjoint character at diag(2,1) has residue 3 at p=5. -/
+example : (2 : ZMod 5)⁻¹ = 3 ∧ (2 : ZMod 5)⁻¹ ≠ 2 := by
+  sorry
+
 #check TauCeti.ArtinRees.exists_controlled_lift
 
 /-- The actual image of a chosen submodule in the ambient p-power quotient. -/
@@ -287,6 +291,23 @@ example : preparedUnitaryPartition true false = [2, 1, 1] ∧
 example : preparedUnitaryPartition true true = [1, 1, 1, 1] ∧
     ∀ st stc, (preparedUnitaryPartition st stc).sum = 4 := by
   sorry
+
+/- The following definitions and constructions have their full statements in README.md.
+Layer 0: ParahoricPVBC, PositiveParahoricMonoid, LowestWeightScalingCharacter.
+Layer 1: POrdinaryFiniteLevel, UnipotentTransferAction, OrdinaryMonoidLocalization,
+  POrdinaryFunctors, POrdinaryCompleted, ParahoricVariant.
+Layer 2: DualPOrdinary.
+Layer 3: ChiCharacter, InductionFiltrationFunctors, BruhatStratumInduction,
+  BruhatOpenCellInduction.
+Layer 4: QOrdinaryHecke, IotaQOrdinary, QOrdinaryLocalSubspace.
+Layer 5: BoundaryCoefficientObject.
+Layer 6: OrdHeckeAlgebras42, HeckeImagesA, DeepLeviLevel, DeepUnitaryLevel,
+  HeckeImagesDual, TorsionHeckeImage, UnitaryMiddleHeckeImage.
+Layer 8: Pgl2Cohomology, TwoSystemPatchingData.
+Layer 9: Setup56, DeformationProblemsSChi, PreparedPGL2Level,
+  TaylorWilesDeformationProblem.
+The light scalar and partition definitions above give local values of the full
+LowestWeightScalingCharacter and PreparedPGL2Level constructions. -/
 
 end CrystallineCM
 end TauCetiRoadmap.CrystallineLocalGlobalCompatibilityCM
