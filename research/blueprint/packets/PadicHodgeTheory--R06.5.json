@@ -584,7 +584,7 @@
       "proofSteps": [
         "Apply the abelian-scheme realization. Import the common finite-field H¹ Frobenius polynomial from the lower-tier crystalline/étale Frobenius comparison; dualize φ^f to obtain the displayed reciprocal polynomial.",
         "Use R07.2 height-two Dieudonné/isocrystal classification: ordinary has slopes 0,1 on H¹, supersingular has 1/2,1/2. The Hasse bound and the trace alone are not the proof of the slope assertion over every F_{p^f}.",
-        "In the ordinary case weak admissibility forces Fil⁰D_K not to equal the slope −1 line: otherwise that line would have t_H=0>−1=t_N. Its induced jump is −1 and it is weakly admissible. Full faithfulness/exactness of admissible period functors gives the Galois subrepresentation.",
+        "In the ordinary case weak admissibility forces Fil⁰D_K not to equal the slope −1 line: otherwise that line would have t_H=0>−1=t_N. Its induced jump is −1. Tensor this line with D_cris(Q_p(−1)): it has slope 0 and filtration jump 0. The R06.2 unit-root equivalence realizes this rank-one object by an unramified character. Twisting back by Q_p(1) gives an admissible representation of the original line. Full faithfulness then lifts its inclusion into D to a G_K-map into V_p(E); exactness and faithfulness show that the map is injective. Full faithfulness alone would not establish admissibility of a weakly admissible line.",
         "A rank-one σ-isocrystal over the unramified K₀ has integral slope: write φ(e)=b e, and v_p(det φ^f)=f v_p(b) with v_p(b)∈Z. Thus a half-slope rank-two object has no φ-stable K₀-line. Any Q_p subrepresentation would supply one."
       ],
       "acceptance": [
@@ -598,7 +598,9 @@
         "ArithmeticGaloisRepresentations:R01.6/finite-field-frobenius-conventions",
         "PadicDifferentialEquationsAndRigidCohomology:RD.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible"
+        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
+        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful"
       ],
       "sources": [
         {
@@ -615,6 +617,11 @@
           "sourceId": "katz-messing",
           "locator": "Theorem 1 and proof, printed pp.74–75 (PDF pp.3–4)",
           "match": "Equality of crystalline and étale Frobenius polynomials for smooth projective varieties."
+        },
+        {
+          "sourceId": "brinon-conrad",
+          "locator": "Lemma 8.3.3, p.118; Proposition 8.3.4 and proof, pp.118–119",
+          "match": "Rank-one weakly admissible objects become unit-root after a Tate twist, and unit-root objects correspond to unramified representations; no general weak-admissibility essential-surjectivity theorem is needed here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -637,7 +644,7 @@
       "proofSteps": [
         "At each finite level use the pinned TauCeti.kummerCocycle and kummerCocycle_mem_Z1, with the actual K-algebra Galois action and the same root choices. The finite cocycle classes agree under transition maps; the continuous inverse-limit dictionary in R02.1 identifies their limit with H¹_cont(G_K,Z_p(1)).",
         "The cocycle equation is exactly the upper-right entry of the multiplication law for [[χ,c],[0,1]]. Invertibility follows from χ∈Z_p× and continuity from its two entries. Interpret the action as Mathlib Representation on the existing free module; a separate KummerCocycle carrier is unnecessary.",
-        "Changing q_n by ε_n^b changes the coordinate cocycle by (χ−1)b. Conjugation by a unipotent matrix gives an isomorphism of extensions. Tensor the completed Kummer map with Q_p, using the imported valuation/principal-unit logarithm calculation, to obtain Q_p⊕K.",
+        "Changing q_n by ε_n^b changes the coordinate cocycle by (χ−1)b. Conjugation by a unipotent matrix gives an isomorphism of extensions. Tensor the completed Kummer map with Q_p, using the imported valuation/principal-unit logarithm calculation, to obtain Q_p⊕K. Products of compatible roots add cocycles and hence give Baer sums, and restriction uses the same roots and fixed base element. Equality of the actions in a fixed basis is equality of their upper-right entries.",
         "LocalGaloisGroups separates finite p-power torsion from the free completed module. Its image vanishes rationally but may be nonzero integrally. The free part is detected by valuation and log, so rational splitting occurs exactly for roots of unity. This is the correction to the checkpoint’s integral root-of-unity test."
       ],
       "acceptance": [
@@ -692,6 +699,21 @@
           "name": "TauCeti.PadicHodge.kummerRepOfCocycle",
           "role": "constructor",
           "statement": "A continuous χ_p-cocycle defines a Representation on Z_p² and, by scalar extension, Q_p²; its submodule and quotient are Z_p(1) and Z_p."
+        },
+        {
+          "name": "TauCeti.PadicHodge.kummerRepOfCocycle_ext",
+          "role": "extensionality",
+          "statement": "For fixed character and prescribed basis, two cocycles give equal representation actions iff their values agree for every g. Extensions with fixed identifications of their subline and quotient are equivalent iff their continuous H¹ classes agree; isomorphism of unframed representations is a weaker relation."
+        },
+        {
+          "name": "TauCeti.PadicHodge.kummerClass_mul",
+          "role": "relation",
+          "statement": "δ(q q′)=δ(q)+δ(q′); the right side is the Baer sum of the continuous extension classes, with δ(1)=0 and δ(q⁻¹)=−δ(q)."
+        },
+        {
+          "name": "TauCeti.PadicHodge.kummerClass_restrict",
+          "role": "functoriality",
+          "statement": "For a finite extension L/K, restriction of δ_K(q) equals δ_L(q), and restriction of T_K(q) is isomorphic to T_L(q) as an extension with its prescribed subline and quotient; identity and tower composition hold."
         },
         {
           "name": "TauCeti.PadicHodge.kummerClass_eq_delta",
@@ -821,7 +843,8 @@
         "PadicHodgeTheory:R06.1/bst-embedding-into-bdr",
         "PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications",
         "PadicHodgeTheory:R06.2/admissibility-dimension-bound",
-        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible"
+        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
+        "PadicHodgeTheory:R06.2/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -853,7 +876,7 @@
         "The base field and period conventions below apply; additional hypotheses appear in the statement."
       ],
       "proofSteps": [
-        "Apply the imported analytic uniformization at each finite extension containing the finite torsion. A class z modulo q^Z is p^n-torsion iff z^{p^n}=q^j for some j; reducing j modulo p^n gives the displayed representatives and uniqueness.",
+        "Use the existing TauCeti.tateCurveAt q hq and isElliptic_tateCurveAt as the elliptic curve carrier; identify the imported Layer 4 analytic point uniformization with that equation. Apply uniformization at each finite extension containing the finite torsion. A class z modulo q^Z is p^n-torsion iff z^{p^n}=q^j for some j; reducing j modulo p^n gives the displayed representatives and uniqueness.",
         "Compute multiplication by p on these representatives using q_{n+1}^p=q_n and ε_{n+1}^p=ε_n. Transition maps are surjective, and the inverse-limit basis is (ε_n),(q_n).",
         "The G_K action on the first basis vector is χ_p and on the second is the Kummer cocycle from the preceding construction. The finite-level exact sequences therefore give precisely its lattice, including the extension class."
       ],
@@ -879,7 +902,18 @@
           "match": "The Tate curve realizes the Kummer extension."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamImports": [
+        {
+          "roadmap": "TauCeti current library",
+          "layer": "TateCurve/Basic.lean and Specialization.lean",
+          "declarations": [
+            "TauCeti.tateCurveAt",
+            "TauCeti.isElliptic_tateCurveAt"
+          ],
+          "note": "Actual specialized curve carrier at current commit a91d3aa; analytic uniformization remains the Layer 4 supplier target. No second Tate equation is planned."
+        }
+      ]
     },
     {
       "id": "PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module",
@@ -937,15 +971,15 @@
       ],
       "title": "The normalized Tate L-invariant",
       "kind": "definition",
-      "statement": "Use the existing weakly admissible filtered (φ,N)-module carrier of R06.2. A Tate-type object here is a rank-two D over K₀ with a one-dimensional Q_p-space D^{φ=1}, generated by y, such that N(y)≠0, φ(Ny)=p^{−1}Ny, and y,Ny span D. Its Hodge filtration has Fil^{−1}=D_K, Fil¹=0 and a one-dimensional Fil⁰ transverse to ker N. Define L(D)∈K by Fil⁰D_K=K(y+L(D)Ny). This is independent of the choice of nonzero y∈D^{φ=1}. For the Kummer normal form with v_p(q)≠0, L(V(q))=log_K(q)/v_p(q). Two such unframed filtered (φ,N)-modules are isomorphic iff their L-invariants agree; by the existing admissible equivalence, the corresponding rational representations are isomorphic iff the invariants agree. The statement concerns this exact Tate-type class, not arbitrary semistable rank-two objects or framed extension classes.",
+      "statement": "Use the existing weakly admissible filtered (φ,N)-module carrier of R06.2. A Tate-type object here is a rank-two D over K₀ with a one-dimensional Q_p-space D^{φ=1}, generated by y, such that N(y)≠0, φ(Ny)=p^{−1}Ny, and y,Ny span D. Its Hodge filtration has Fil^{−1}=D_K, Fil¹=0 and a one-dimensional Fil⁰ transverse to ker N. Define L(D)∈K by Fil⁰D_K=K(y+L(D)Ny). This is independent of the choice of nonzero y∈D^{φ=1}. For the Kummer normal form with v_p(q)≠0, L(V(q))=log_K(q)/v_p(q). Two such unframed filtered (φ,N)-modules are isomorphic iff their L-invariants agree; by full faithfulness on the semistable representations already realizing these objects, the corresponding rational representations are isomorphic iff the invariants agree. The statement concerns this exact Tate-type class, not arbitrary semistable rank-two objects or framed extension classes.",
       "hypotheses": [
         "The base field and period conventions below apply; additional hypotheses appear in the statement."
       ],
       "proofSteps": [
         "Weak admissibility forces Fil⁰≠ker N because the slope −1 line would otherwise have t_H=0>t_N=−1. Decompose a generator of Fil⁰ in the basis (Ny,y); its y coefficient is nonzero, so normalize it to 1.",
         "Every other φ-fixed generator is a Q_p× multiple of y and scales Ny by the same factor. This proves independence. In the basis (x,y) with Ny=v x and Fil⁰=K(y+ℓx), the coefficient relative to Ny is ℓ/v.",
-        "A φ,N isomorphism scales y and Ny together and hence preserves L. Conversely mapping these canonical bases with the same L preserves all structures. For normal forms (v,ℓ),(v′,ℓ′), a diagonal map x↦αx′, y↦βy′ works exactly when vα=βv′ and ℓα=βℓ′.",
-        "The branch change log′(p)=b adds b v_p(q) to ℓ, hence adds b to L; its comparison uses the corresponding changed period embedding. This is not invariance under an unrecorded logarithm choice."
+        "A φ,N isomorphism scales y and Ny together and hence preserves L. Conversely mapping these canonical bases with the same L preserves all structures. For normal forms (v,ℓ),(v′,ℓ′), a diagonal map x↦αx′, y↦βy′ works exactly when vα=βv′ and ℓα=βℓ′. For objects already in the image of D_st, full faithfulness lifts this isomorphism and its inverse to representations; no assertion that every weakly admissible object is realized is used.",
+        "For a logarithm branch change admitted by the imported R06.1 period embedding (in particular log′(p)=b∈K₀), the change adds b v_p(q) to ℓ and therefore adds b to L, using that changed embedding to transport the filtration. The coordinate identity ℓ/v↦ℓ/v+b holds for any b∈K, but does not by itself construct an embedding for an arbitrary K-valued branch. The geometric statements otherwise use the fixed branch log_K(p)=0."
       ],
       "acceptance": [
         "q=p has L=0 and remains noncrystalline.",
@@ -955,7 +989,8 @@
       "prerequisites": [
         "PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module",
         "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
-        "mathlib:Matrix.det_fin_two"
+        "mathlib:Matrix.det_fin_two",
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful"
       ],
       "sources": [
         {
@@ -1042,6 +1077,11 @@
           "name": "TauCeti.PadicHodge.tateNormalForm_iso",
           "role": "characterisation",
           "statement": "For v,v′≠0, diagonal scalars α,β∈R× satisfying vα=βv′ and ℓα=βℓ′ exist iff ℓ/v=ℓ′/v′."
+        },
+        {
+          "name": "TauCeti.PadicHodge.tateMonodromy_arithmeticFrobenius",
+          "role": "compatibility",
+          "statement": "For r≠0, F=diag(r,1)=Φ(r)⁻¹ satisfies F N(v)=r·N(v) F, matching the R06.3 arithmetic Weil–Deligne convention."
         }
       ],
       "tests": [
@@ -1174,7 +1214,8 @@
         "NeronModelsAndSemistableAbelianVarieties:R11.3",
         "PadicHodgeTheory:R06.4/ordinary-implies-semistable",
         "PadicHodgeTheory:R06.2/crystalline-semistable-base-change",
-        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified"
+        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+        "PadicHodgeTheory:R06.2/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -1201,12 +1242,12 @@
       ],
       "title": "Split, nonsplit and potentially multiplicative elliptic periods",
       "kind": "theorem",
-      "statement": "Let E/K be elliptic with v_p(j(E))<0. The imported Tate twist theorem supplies q∈K× with 0<|q|<1 and E≅E_q⊗η for a quadratic character η. E is split multiplicative iff η=1, nonsplit multiplicative iff η is nontrivial unramified, and additive potentially multiplicative iff η is ramified. Then V_p(E)≅V(q)⊗η. In the first two cases it is semistable with nonzero rank-one N; in the third it is potentially semistable with N≠0 and nontrivial inertial descent, but is not semistable over K. All three fail potential crystallinity and potential good reduction. For K=Q_p in the nonsplit case, D_st has φ=diag(−p^{−1},−1), N(y)=v_p(q)x and the same filtration normal form after choosing a generator of the unramified period line. The minimal-equation predicates agree with Mathlib HasMultiplicativeReduction and HasSplitMultiplicativeReduction.",
+      "statement": "Let E/K be elliptic with v_p(j(E))<0. The explicitly requested Tate-parameter and quadratic-character classification supplies q∈K× with 0<|q|<1 and E≅E_q⊗η for a quadratic character η. E is split multiplicative iff η=1, nonsplit multiplicative iff η is nontrivial unramified, and additive potentially multiplicative iff η is ramified. Then V_p(E)≅V(q)⊗η. In the first two cases it is semistable with nonzero rank-one N; in the third it is potentially semistable with N≠0 and nontrivial inertial descent, but is not semistable over K. All three fail potential crystallinity and potential good reduction. For K=Q_p in the nonsplit case, D_st has φ=diag(−p^{−1},−1), N(y)=v_p(q)x and the same filtration normal form after choosing a generator of the unramified period line. The minimal-equation predicates agree with Mathlib HasMultiplicativeReduction and HasSplitMultiplicativeReduction.",
       "hypotheses": [
         "The base field and period conventions below apply; additional hypotheses appear in the statement."
       ],
       "proofSteps": [
-        "Import the Tate j-parameter and quadratic twist classification from EllipticCurves Layer 4 (and its reduction algorithm). This node does not construct that curve or classify reduction again.",
+        "Import the specialized Tate curve and inverse-j parameter from EllipticCurves Layer 4 and the quadratic twist/anti-equivariance interface from Layer 5. Use the explicit EllipticCurves Part II supplier contract for the full ramification/reduction classification, which current Layer 5 does not state. This node supplies its period consequence and does not construct a second curve or reduction classification.",
         "Tensor the Tate period realization by the finite character. An unramified η is crystalline of weight 0 and multiplies Frobenius by its unramified eigenvalue; at Q_p a nontrivial quadratic value is −1. The nilpotent N is unchanged up to the tensor line.",
         "For ramified η, choose a finite splitting extension. Its WD inertial descent is η|I_K, and remains nontrivial even after Frobenius semisimplification. R06.3’s descent criterion for semistability excludes semistability over K; nonzero N excludes potential crystallinity.",
         "Use a minimal Weierstrass equation when relating this conclusion to Mathlib predicates. A scaled nonminimal equation cannot test good or multiplicative reduction."
@@ -1224,7 +1265,9 @@
         "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
         "mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction",
         "PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module",
-        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified"
+        "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent"
       ],
       "sources": [
         {
@@ -1350,7 +1393,7 @@
     },
     {
       "supplier": "ArithmeticGaloisDuality:R02.1",
-      "need": "Use continuous cohomology for compact Z_p(1) and locally compact Q_p(1): the inverse-limit finite Kummer classes yield H¹_cont(G_K,Z_p(1))≅lim K×/(K×)^{p^n}; rationalization yields H¹_cont(G_K,Q_p(1)). Identify this H¹ with Ext¹ in continuous finite-dimensional Q_p representations and split iff zero, compatible with root changes and Baer sums. The discrete-module Ext dictionary in R02.4 is not sufficient.",
+      "need": "Use continuous cohomology for compact Z_p(1) and locally compact Q_p(1): the inverse-limit finite Kummer classes yield H¹_cont(G_K,Z_p(1))≅lim K×/(K×)^{p^n}; rationalization yields H¹_cont(G_K,Q_p(1)). Identify this H¹ with Ext¹ in continuous finite-dimensional Q_p representations and split iff zero, compatible with root changes and Baer sums. The discrete-module Ext dictionary in R02.4 is not sufficient. Equip the existing LocalGaloisGroups padicCompletionUnits carrier with the inverse-limit topology from its finite power-class quotients, and prove continuity of the Kummer identification on that same carrier. Do not define a second completed multiplicative group. Include restriction in finite field extensions and multiplicativity/Baer sums.",
       "neededBy": [
         "PadicHodgeTheory:R06.6/kummer-representation"
       ]
@@ -1379,9 +1422,16 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-      "need": "For 0<|q|<1 supply the existing Tate curve and the G_K-equivariant Kbar×/q^Z uniformization compatible over finite extensions, with its p-power torsion. For v(j(E))<0 supply the unique Tate parameter and quadratic twist: trivial iff split multiplicative, nontrivial unramified iff nonsplit multiplicative, ramified iff additive potentially multiplicative. Relate this to the minimal Mathlib reduction predicates. These are existing EllipticCurves targets; this part owns only their period adapter.",
+      "need": "Import the current TauCeti.tateCurveAt q hq, its isElliptic_tateCurveAt theorem, and its formal Laurent j-expansion. Layer 4 supplies the G_K-equivariant point uniformization Kbar×/q^Z over finite extensions and its p-power torsion. Require the analytic inverse-j parameter for v(j(E))<0, identified with this specialized curve. Quadratic twists are imported from Layer 5, not reconstructed in Layer 4. The point uniformization and inverse-j theorem are not consequences of the present formal power-series declarations alone.",
       "neededBy": [
         "PadicHodgeTheory:R06.6/tate-curve-tate-module",
+        "PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "need": "Import the existing quadraticTwistPointEquiv and its anti-equivariance, and exists_quadraticTwist_hasSplitMultiplicativeReduction for the nonsplit multiplicative case. The full v(j)<0 classification needed here must additionally identify the splitting quadratic character as trivial for split multiplicative, nontrivial unramified for nonsplit multiplicative, and ramified for additive potentially multiplicative, at every residue characteristic including 2. This refinement is not stated in current Layer 5: route the missing result as EllipticCurves, Part II, building on Layers 4–5, rather than call it existing work or develop reduction theory here. A concrete Part II stage id is a maintainer routing action; no fictitious id is introduced.",
+      "neededBy": [
         "PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves"
       ]
     }
@@ -1402,7 +1452,8 @@
       "note": "Complete target-level pass of Kummer lattices, all rational Kummer extensions, the Tate-curve period and L-invariant, good iff crystalline, semistable reduction implies semistable, twists with potentially multiplicative reduction, and good-place abelian coefficient-prime compatibility. Nine targets with explicit lattice/descent contracts; no automorphic geometric realization is owned here.",
       "remaining": [
         "Néron R11.3 must state the compatible p-divisible good-reduction criterion and its p-power Raynaud exact sequences before this part can be closed.",
-        "Néron R11.4–R11.5 own the converse semistable reduction criterion and rank-N/toric-rank result. General bad-place abelian WD comparison and automorphic local Langlands compatibility are downstream targets, not silently inferred from good-place polynomials."
+        "Néron R11.4–R11.5 own the converse semistable reduction criterion and rank-N/toric-rank result. General bad-place abelian WD comparison and automorphic local Langlands compatibility are downstream targets, not silently inferred from good-place polynomials.",
+        "The explicit EllipticCurves Part II classification contract and Layer 4 analytic inverse-j/uniformization adapter remain supplier boundaries; the current tateCurveAt declaration does not prove them."
       ]
     }
   ],
@@ -1413,6 +1464,13 @@
         "PadicHodgeTheory:R06.5/abelian-scheme-dcris"
       ],
       "detail": "Brinon–Conrad Remark 7.3.3 gives the Frobenius-pullback convention, but the Berthelot–Breen–Messing proof has not been read and that volume is not in the cleared library. The target uses an exact request to R07.2 and the A4 pd-first-cohomology interface. NEXT ACTION: the R07.2/A4 supplier should establish the stated σ-pullback comparison from a lawful source and verify its semilinear convention before closing this part."
+    },
+    {
+      "title": "The full potentially multiplicative twist classification needs a routed supplier",
+      "neededBy": [
+        "PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves"
+      ],
+      "detail": "Current EllipticCurves Layer 5 supplies quadratic twist point equivalences and a split twist for nonsplit multiplicative curves, but it does not explicitly state the all-p classification for v(j)<0 with the ramification of the quadratic character. Layer 4 owns the Tate uniformization; the current library only constructs the specialized curve and formal j-expansion. NEXT ACTION: route the additional analytic inverse-j and ramification/refinement contracts to EllipticCurves, Part II, building on the existing Layers 4–5, and obtain a lawful source/proof with the residue-characteristic-2 case before closing this target. Its downstream period and inertia calculation is verified conditional on that stated contract."
     }
   ],
   "sourceIssues": [
@@ -1431,7 +1489,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The nonlinear Frobenius formula is incompatible with Nφ=pφN on the logarithmic variable; linear φ(Y)=pY satisfies the relation.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E41",
@@ -1448,7 +1511,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The series must vanish when its increment is zero and have linear leading term; the printed n−1 exponent fails both checks.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E42",
@@ -1465,7 +1533,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A Tate curve has p^{2n} points of p^n-torsion in characteristic zero; excluding a residue class in either index fails the count.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E43",
@@ -1482,7 +1555,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Base-field Tate uniformization requires split multiplicative reduction; nonsplit multiplicative reduction needs an unramified quadratic twist.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E44",
@@ -1499,7 +1577,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An isogeny q↦q² scales both valuation and logarithm; log(q)/v_p(q), rather than raw log(q), classifies the unframed module.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E45",
@@ -1516,7 +1599,12 @@
         "Berger author errata PDF, dated 13 Oct 2026, contents read 2026-10-14: no survey entry.",
         "Published 2004 book version was not seen; no claim about its wording."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Ordinary H¹ is the full linear dual of the covariant Tate module, with its Galois action. G_K-equivariant maps into a Tate-twisted line cannot give that representation.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E46",
@@ -1533,7 +1621,12 @@
         "PadicHodgeTheory--P7 sourceIssues E20, E24, E25 (other Brinon–Conrad misprints, none on this passage)",
         "Listed source version re-read 2026-10-14; earlier checkpoint correction search retained as historical provenance."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the source’s contravariant convention the filtration coefficient is −log(q)/v_p(q). For q=p^m it is zero although monodromy is nonzero; both the missing divisor and exclusion of zero are errors.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     },
     {
       "id": "PadicHodgeTheory/E47",
@@ -1550,7 +1643,12 @@
         "The Duke Math. J. 97 (1999) version was not seen",
         "Listed source version re-read 2026-10-14; earlier checkpoint correction search retained as historical provenance."
       ],
-      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint; source statements were re-read in this run. No independent reviewer verdict is claimed."
+      "provenance": "Inherited E40–E47 identifiers from the earlier checkpoint, retained by the blueprint author after re-reading the sources. The independent verdict is recorded separately in review by REV-PadicHodgeTheory--R06.5.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The introduction identifies the new converse as crystallinity implying good reduction; the intervening historical sentence reverses the directions.",
+        "by": "REV-PadicHodgeTheory--R06.5"
+      }
     }
   ],
   "sourceVersions": [
@@ -1645,6 +1743,17 @@
         "provides": "The basis-independent determinant of the elliptic Tate representation equals the cyclotomic character; this packet only realizes that statement under period functors."
       },
       {
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/TateCurve/Basic.lean; TauCeti/AlgebraicGeometry/EllipticCurve/TateCurve/Specialization.lean",
+        "declarations": [
+          "TauCeti.tateCurve",
+          "TauCeti.exists_tateCurve_j_eq",
+          "TauCeti.tateCurveAt",
+          "TauCeti.isElliptic_tateCurveAt",
+          "TauCeti.norm_tateCurveAt_Δ"
+        ],
+        "provides": "The formal integral Tate equation and Laurent j-expansion, and its convergent specialization at a unit q with ‖q‖<1 in a complete ultrametric normed ring. These are current-library imports, not declarations claimed at the compilation pin. They do not supply analytic point uniformization or the inverse-j/classification theorem."
+      },
+      {
         "module": "TauCetiRoadmap/LocalGaloisGroups/README.md, Layer 7 Step 1–2; Suggested.lean",
         "declarations": [
           "padicCompletionUnits",
@@ -1654,7 +1763,8 @@
         ],
         "provides": "The completed multiplicative carrier, its finite p-power-root torsion, and its free quotient; import these rather than introduce a second completion."
       }
-    ]
+    ],
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27"
   },
   "libraryAudit": {
     "reviewedCoverage": "The reviewed data/library-coverage.json has no coverage entries for either scoped PadicHodgeTheory layer. AUDIT-37’s PadicHodgeTheory result is an unreviewed lead, not accepted coverage. Every listed baseline was read at the pins; the current library was also searched for D_cris, D_st, crystalline/semistable representation and Hyodo–Kato carriers without finding their formalized geometric interfaces.",
@@ -1677,6 +1787,15 @@
         "AutomorphicGaloisRepresentationsPartII"
       ],
       "note": "RT-AREA-padic-2/22 assigns modular-curve, Kuga–Sato and Shimura-curve applications to R19.5 and higher-rank applications to AG2.6. Six inherited automorphic nodes are removed from this scoped part and mapped in the handoff. No reverse dependency on R19, R18, GH.0 or a modular-variety model is introduced."
+    },
+    {
+      "title": "Existing Tate curve, completion and twist owners",
+      "roadmaps": [
+        "EllipticCurves",
+        "LocalGaloisGroups",
+        "ArithmeticGaloisDuality"
+      ],
+      "note": "The current library already specializes the formal Tate curve; consume tateCurveAt and import analytic uniformization. LocalGaloisGroups Layer 7 already owns the completed multiplicative carrier; R02.1 equips that carrier with its topology and continuous Kummer/Ext identification. Quadratic twists are Layer 5 imports. The full potentially multiplicative ramification classification and analytic inverse-j refinement need an EllipticCurves Part II routing, not new reduction theory in PadicHodgeTheory."
     }
   ],
   "prototypePolicy": {
@@ -1693,5 +1812,103 @@
     "withinPacket": "Acyclic; all direct prerequisites resolve to checked baselines, existing nodes or exact requested stages. No direct higher-tier prerequisite.",
     "supplierRewiring": "Four inherited AI.6 CP.3 references require the precise tier-order edits recorded in upstreamNotes and the handoff. The current unedited supplier graph is not claimed tier-closed; the packet’s comparison plan imports their same-bundle targets with the lower-tier/current ownership contracts.",
     "checked": "2026-10-14"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PadicHodgeTheory--R06.5",
+    "date": "2026-10-14",
+    "notes": "Independent target-level review by Codex session codex-sghglj of all 18 nodes, nine pinned baseline declarations, eight source versions and E40–E47, 25 API entries, 17 discriminating tests, 11 planets, direct supplier contracts, current-library/roadmap ownership and confirmed RT-AREA-padic-2/22. Seven nodes corrected and eleven verified; no node or baseline citation added or removed. Acceptance is of a complete planned pass, conditional on fourteen precise supplier requests and two recorded gaps, not closed mathematical or formalized coverage. Reader reconciliation is specified in the review report and handoff because that document is outside this issue’s permitted edit paths. Lean/check results are recorded in the report.",
+    "checked": [
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison",
+        "verdict": "verified",
+        "note": "Scholze Theorem 7.11 and Remark 7.12, pp.46–47, and Theorem 8.4, pp.48–49, give the filtered comparison and constant-coefficient degeneration. Algebraic/adic and GAGA adapters are explicit requests."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
+        "verdict": "verified",
+        "note": "BMS Theorems 1.1(i) and 14.6(i), pp.2–4,121–123, give the rational proper smooth comparison without a ramification or torsion-freeness restriction. Brinon–Conrad 7.3.1, p.97, supplies the lift realization."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/proper-semistable-period-comparison",
+        "verdict": "verified",
+        "note": "Česnavičius–Koshikawa Proposition 9.2 and Theorem 9.5, pp.75–77, give arithmetic descent and comparison; total tensor monodromy, ramified normalization and B_dR agreement are retained."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/proper-smooth-potential-semistability",
+        "verdict": "verified",
+        "note": "Colmez–Nizioł Theorem 6.4 and proof, pp.40–43, and the imported rational monodromy theorem support potential admissibility. No claim that every proper smooth rigid space has a semistable model is made."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists",
+        "verdict": "verified",
+        "note": "Naturality, cup products and normalized Tate trace are explicit AI.5/AI.6/CR.6 requests, not inferred from an unfiltered vector-space isomorphism. Duals and coefficient twists remain in the general layer."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/abelian-scheme-dcris",
+        "verdict": "verified",
+        "note": "Brinon–Conrad Remark 7.3.3, pp.97–98, fixes the σ-pullback convention; the unread degree-one proof remains an explicit R07.2/A4 supplier boundary. The covariant filtration is the dual H¹ filtration."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights",
+        "verdict": "verified",
+        "note": "Scholze Theorem 8.4 gives arbitrary-reduction H¹ weights 0,−1; dualization gives covariant weights 0,1 and the Lie/ω description. Good reduction is not assumed."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/weil-pairing-duality",
+        "verdict": "verified",
+        "note": "The rational polarization pairing has the cyclotomic multiplier and determinant χ_p^g; the integral nondegeneracy condition is retained. Current elliptic Tate-module, Weil-pairing and determinant imports were read."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular",
+        "verdict": "corrected",
+        "note": "Added unit-root realization before lifting the slope −1 inclusion by full faithfulness, with Brinon–Conrad 8.3.3–8.3.4, pp.118–119. Verified the reciprocal polynomial and the F₉ semilinear counterexample."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/kummer-representation",
+        "verdict": "corrected",
+        "note": "Added equality in a fixed basis, Baer-sum/multiplicativity and restriction APIs. Required topology on the existing Layer 7 completion. Integral torsion and rational splitting tests are distinct and correct."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/kummer-representations-semistable",
+        "verdict": "corrected",
+        "note": "Added the admissible-category subquotient closure used for Baer sums. Checked the period basis, N sign, v_p normalization, log branch, units and nonzero-valuation cases against both source conventions."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/tate-curve-tate-module",
+        "verdict": "corrected",
+        "note": "Imported current tateCurveAt and its ellipticity theorem rather than treating the curve construction as missing. Point uniformization remains an exact Layer 4 contract; corrected torsion ranges and inverse-limit action are sound."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module",
+        "verdict": "verified",
+        "note": "Checked Nφ=pφN, the filtration line, weak admissibility, nonzero monodromy under finite base change and arithmetic WD inversion. q=p has zero logarithm but nonzero N."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/tate-curve-l-invariant",
+        "verdict": "corrected",
+        "note": "Added explicit full faithfulness for representations already realizing the modules and the arithmetic Frobenius API. Checked canonical φ-fixed basis, ratio classification, scale and branch formulas; no general essential surjectivity is claimed."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/good-reduction-iff-crystalline",
+        "verdict": "verified",
+        "note": "Brinon–Conrad Theorem 7.1.13, p.90, and Coleman–Iovita Introduction/Theorem 3, pp.1–3, support the criterion. The actual stable lattice, compatible finite-flat models and all-p supplier requests are retained."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/semistable-reduction-semistable",
+        "verdict": "corrected",
+        "note": "Added admissible-category closure for the de Rham subquotients. Raynaud compatible p-power sequences and the de Rham hypothesis in the extension theorem are explicit; arbitrary semistable extensions are not asserted."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves",
+        "verdict": "corrected",
+        "note": "Corrected the twist owner to Layer 5, added the WD inertial descent criterion, and recorded the unstated full ramification classification as an EllipticCurves Part II supplier gap. Verified the conditional split/unramified/ramified period consequences."
+      },
+      {
+        "nodeId": "PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction",
+        "verdict": "verified",
+        "note": "Katz–Messing Theorem 1, printed pp.74–75, identifies crystalline and ℓ-adic geometric H¹ polynomials; dual inversions give the covariant arithmetic polynomial. The target claims good-place Frobenius-semisimplified compatibility only."
+      }
+    ]
   }
 }

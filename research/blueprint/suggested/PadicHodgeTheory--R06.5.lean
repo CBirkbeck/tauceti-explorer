@@ -1,7 +1,8 @@
 /-
 Suggested signatures for PadicHodgeTheory, part R06.5 (layers R06.5 and R06.6).
 This file is an aid, not an exhaustive checklist or the specification. The reader
-research/blueprint/readmes/PadicHodgeTheory--R06.5.md states the complete targets,
+research/blueprint/readmes/PadicHodgeTheory--R06.5.md and its independent review
+research/blueprint/reviews/REV-PadicHodgeTheory--R06.5.md state the targets,
 hypotheses, proof routes, supplier contracts, API and definition tests.
 
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
@@ -58,13 +59,19 @@ example {R : Type*} [CommRing R] (a : R) :
     kummerMatrix a 0 = !![a, 0; 0, 1] := by
   rfl
 
-/-- Test `kummerMatrix_subline`: the first basis line is the character line. -/
+/-- Test `kummerMatrix_subline`: the character subline and trivial quotient. -/
 example {R : Type*} [CommRing R] (a c : R) :
-    kummerMatrix a c 0 0 = a ∧ kummerMatrix a c 1 0 = 0 := by
+    kummerMatrix a c 0 0 = a ∧ kummerMatrix a c 1 0 = 0 ∧
+      kummerMatrix a c 1 1 = 1 := by
   simp [kummerMatrix]
 
 /-- Test `kummerMatrix_cocycle`: the character acts on the second cocycle term. -/
 example : kummerMatrix (2 : ℚ) 3 * kummerMatrix 5 7 = kummerMatrix 10 17 := by
+  sorry
+
+/-- Test `kummerMatrix_rootChange`: the coboundary has the prescribed sign. -/
+example : kummerMatrix (1 : ℚ) (-5) * kummerMatrix 2 3 * kummerMatrix 1 5 =
+    kummerMatrix 2 8 := by
   sorry
 
 /-! R06.6/tate-curve-l-invariant and tate-curve-filtered-phi-n-module.
@@ -124,6 +131,10 @@ example {R : Type*} [Field R] : tateLInvariant (1 : R) 0 = 0 := by
 
 /-- Test `tateLInvariant_raw_log`: the invariant is unchanged by a Tate isogeny. -/
 example : tateLInvariant (1 : ℚ) 2 = tateLInvariant 2 4 := by
+  sorry
+
+/-- Test `tateLInvariant_branch_test`: a branch shift adds its value on `p`. -/
+example : tateLInvariant (2 : ℚ) (4 + 3 * 2) = tateLInvariant 2 4 + 3 := by
   sorry
 
 /-- Test `tateFiltrationVector_second`: the line is transverse to `ker N`. -/
