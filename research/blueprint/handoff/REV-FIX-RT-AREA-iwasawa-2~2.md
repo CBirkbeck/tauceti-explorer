@@ -1,5 +1,57 @@
 # Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
+Codex, session `codex-9GgzfH`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input explorer `f38524913af37d7832b550c1f09937b173f748d3`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6159776620).
+This session did none of the fixes under review and claimed no second job.
+
+The completed correction assessment and both pending metadata records below
+remain valid. I reconstructed those records in scratch and confirmed their
+input and candidate SHA256 values exactly. Each preserves every mathematical
+field and appends the complete preceding review unchanged. The stock
+`issues.deliverables_complete` result is false on the permitted tree and true
+with exactly those two records supplied through a read-only overlay. The
+candidates pass intake path, JSON and private-path checks: zero problems.
+
+A fresh declaration index built from the existing shared source tree gives
+zero blueprint-checker errors on all four queue packets. L3 retains its 26
+inherited API-outline warnings; the other packets have no warnings. The
+Mathlib tree identifies the programme pin `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+This static index remains a search aid, not a fresh whole-packet declaration
+review. I also read the current read-only library's `TauCeti.fittingIdeal`,
+`TauCeti.fittingIdeal_eq_minorsIdeal_ker`, `TauCeti.fittingIdeal_baseChange`,
+and `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`.
+Their statements support the recorded PMIA reuse objection. PMIA's negative
+verdict is preserved and is a completed review decision.
+
+The current read-only roadmap and library revisions still match the earlier
+handoff. All four packets and all four Suggested files remain unchanged.
+No Lean file was changed or recompiled in this continuation: the preceding
+receipts below retain their attribution, including L3's unavailable research
+import and the successful PMIA/L3-2/LAD elaborations. No library build,
+update, cache download or language server was run.
+
+The live issue was reread after claiming and after validation. It still
+names only L3 and PMIA as editable packets, while the queue requires this
+review identity on L3-2 and LAD too. [WORKERS.md](../WORKERS.md), Doing the
+work, says “Edit only the files the issue names, plus your own scratch
+space.” Authorization for exactly the two concrete records in the handoff
+was requested in the worker conversation; no reply has arrived. Neither
+omitted packet was edited. This is a scope-blocked checkpoint, not a
+completed submission and not an eight-hour timeout.
+
+Resume only after the live issue adds the two paths or the manager explicitly
+authorizes the prepared metadata updates. Verify the fingerprints, apply
+those exact records with their original assessment attribution, and rerun
+completion, intake and whitespace checks. The mathematical assessment is
+finished: rereading sources or recompiling unchanged files cannot resolve
+this scope mismatch. No scratch file is needed to resume.
+
+---
+
+# Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
+
 Codex, session `codex-aSYQ00`, 14 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
 Branch `codex-aSYQ00-review-6219`; input explorer `7e36af9c8`.
