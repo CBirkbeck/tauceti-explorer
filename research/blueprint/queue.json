@@ -42981,8 +42981,9 @@
     "BP-TorsionCohomologyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/REV-TorsionCohomologyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9779"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9779",
+   "finishedAt": "2026-10-14T19:17:49Z"
   },
   {
    "kind": "blueprint",
@@ -44468,8 +44469,9 @@
     "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9767"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9767",
+   "finishedAt": "2026-10-14T19:17:53Z"
   },
   {
    "kind": "blueprint",
@@ -45734,8 +45736,9 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9741"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9741",
+   "finishedAt": "2026-10-14T19:17:57Z"
   },
   {
    "id": "ASM-PotentialModularityAndCompatibleSystems",
@@ -47519,8 +47522,9 @@
     "PKG-AnabelianGeometryAndNonabelianChabauty"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9771"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9771",
+   "finishedAt": "2026-10-14T19:18:01Z"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -48147,7 +48151,9 @@
     "PKG-AutomorphicGaloisRepresentations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentations~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9778",
+   "finishedAt": "2026-10-14T19:18:05Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentationsPartII",
@@ -48517,7 +48523,8 @@
     "PKG-ClassicalArithmeticCompletion"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalArithmeticCompletion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9796"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
@@ -53298,7 +53305,8 @@
     "PKG-OrdinaryAutomorphicFormsAndModularityLifting"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9783"
   },
   {
    "id": "PKG-PELModuli",
@@ -54337,7 +54345,9 @@
     "PKG-SerreWeightAndLevelOptimisation"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SerreWeightAndLevelOptimisation.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9781",
+   "finishedAt": "2026-10-14T19:18:09Z"
   },
   {
    "id": "PKG-ShimuraCompactifications",
