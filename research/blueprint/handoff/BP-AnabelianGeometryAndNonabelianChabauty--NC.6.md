@@ -1,138 +1,122 @@
 # BP-AnabelianGeometryAndNonabelianChabauty--NC.6
 
-Agent: Codex (GPT-6) — codex-lFtp5b. Issue: #6347.
-Date: 11 October 2026. Input commit: 3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab.
-Disposition: **blocked checkpoint**, continuing codex-y2NpRL's checkpoint
-merged in #8722. The blocker is independent acceptance of the process-layer
-removal, rather than the run's time limit.
+Agent: Codex — codex-KwZ5Gh. Issue: #6347. Date: 14 October 2026.
+Input commit: 86cbf801ccbc7fefc20bffcd38ed596123f0030c.
+Disposition: **blocked checkpoint**. Continues the checkpoints merged in
+#8722 (codex-y2NpRL) and #8813 (codex-lFtp5b). The independent structural
+decision required by those checkpoints has still not appeared.
 
-## Result and changes in this continuation
+## What this continuation established
 
-Only AnabelianGeometryAndNonabelianChabauty:NC.6 is in scope. The packet remains
-partial with zero nodes, API items, typed tests, planets, supplier requests and
-baseline declarations, and one structural gap. NC.6 has no new mathematical
-target. Reconstruction stays in NC.1; equations and loci stay in NC.2–NC.5;
-precision and exact global-point certification stay in EffectiveDiophantineMethods
-ED.6. The Lean companion contains comments only.
+NC.6 is the sole stage in scope. The reviewed AUDIT-08 entry in
+`data/library-coverage.json` classifies it as process work: exporting the
+outputs of existing mathematical owners introduces no new definition or
+theorem. The parent's accepted review, independent-review-REV-FIX-RT-AREA-algebraicgeometry~2,
+still leaves NC.6 not_read and requires removal to be proposed without
+inventing process nodes or claiming unaccepted closure.
 
-The continuation adds `supplierExports`: 24 exact existing node ids in six
-owner records, with supplier file hashes, review snapshots and retained
-conditions. Their full statements, hypotheses, prerequisites and source
-locators were inspected. NC.2–NC.5 have accepted complete planning passes with
-planned coverage, retaining respectively 3, 4, 4 and 3 gaps. NC.1 retains four
-gaps and a needs_changes review; ED's latest review also remains needs_changes.
-None of these references asserts that a supplier is implemented or closes its
-gaps. The reader now links to each scoped supplier instead of relying on the
-parent's older remaining-work list.
+Fresh checks of all 33 `RS-*.result.json` files found 31 accepted results and
+**zero NC.6 layer entries**, accepted or otherwise. The checker obtains its
+node-free closure exception only from accepted RS results. Its current
+`DROPPED_STAGES` registry therefore does not contain NC.6.
 
-The export index preserves the all-coefficient-algebra Selmer representation
-inputs; the descending-model restriction on NC.2's ramified comparison;
-NC.4's right-path period `I(b,x)⁻¹γ(x)` and distinct crystalline, period-image
-and geometric-closure loci; and NC.5's rational Néron–Severi rank,
-Mordell–Weil-cut convention and negative away-place height sums. A finite
-local superset still requires ED.6's exhaustive certificates and exact global
-comparison. Section-conjecture surjectivity, eventual Chabauty–Kim equality
-and all conditional inputs stay with their mathematical owners.
+All six supplier packet hashes agree with the prior checkpoint, and all 24
+indexed node ids remain present. Their existing review statuses and gaps are
+unchanged: NC.1 needs_changes with four gaps; NC.2–NC.5 accepted planning
+passes with respectively three, four, four and three gaps; the whole ED
+packet needs_changes with 27 gaps. Those references establish ownership;
+they certify neither mathematical closure nor implementation.
 
-The existing PROTOCOL §15 proposal is retained:
+The canonical atlas still contains both NC.1 → NC.6 and NC.5 → NC.6, has
+no outgoing NC.6 stage edges, and contains the direct NC.5 → ED.6 edge.
+The removal proposal and supplier conventions remain unchanged. Nothing
+moved between owners or upstream tiers.
 
-- Drop NC.6, supplied by NC.1–NC.5 and EffectiveDiophantineMethods ED.6.
-- Remove NC.1 → NC.6 and NC.5 → NC.6; NC.6 has no consumers to reroute.
-- Preserve NC.5 → ED.6 and NC.2 → NC.3 → NC.4 → NC.5.
-- Retain reconstruction as an independent NC.1 output. The existing ED.6
-  algorithm requires no new NC.1 → ED.6 dependency.
-- Leave supplier gaps and conjectural hypotheses at their existing owners.
+The packet's `closureCheck` now records these fresh checks, the current input
+and checker hashes, the restructuring-screen digest, and reproduced status
+probes. The previous receipt remains in `closureCheckHistory`. Each supplier
+record has a fresh unchanged-hash verification date; ED's snapshot now
+explicitly records its existing 27 gaps. No new mathematics or source error
+was added. The reader and comment-only Lean companion remain unchanged.
 
-No other job's packet, campaign, atlas data, restructuring result or upstream
-roadmap was edited. No notion moved across upstream tiers.
+## Exact blocker and where to resume
 
-## Exact blocker and resumption
+The remaining input is independent acceptance of the packet's
+`restructure[0]` proposal. This issue author cannot supply that acceptance,
+and this issue's allowed files do not include a restructuring result or its
+independent review. A further source-reading pass cannot resolve this
+structural blocker. The manager should route the existing proposal to an
+independent restructuring decision before another NC.6 continuation.
 
-The reviewed AUDIT-08 library verdict calls NC.6 process work. The parent's
-latest accepted review, independent-review-REV-FIX-RT-AREA-algebraicgeometry~2
-(11 October 2026), still leaves NC.6 not_read with removal pending acceptance.
-An accepted planning correction is not an accepted structural drop.
+That decision must record an accepted RS result whose NC.6 layer action is
+`drop`, with NC.1–NC.5 and EffectiveDiophantineMethods ED.6 as suppliers. It
+must preserve NC.5 → ED.6 and the NC.2 → NC.3 → NC.4 → NC.5 chain, remove
+NC.6's two incoming edges, and keep supplier gaps and conjectural hypotheses
+at their mathematical owners. Reconstruction remains an independent NC.1
+output; the ED.6 algorithm requires no new reconstruction dependency.
 
-No accepted `research/blueprint/restructure/RS-*.result.json` drops NC.6,
-and the checker's `DROPPED_STAGES` registry does not contain it. The new
-`closureCheck` records checker/input hashes and executable status probes:
+After the accepted result is available to the checker:
 
-- Current partial packet: zero errors and warnings.
-- Complete with partial scope: fails the under-budget completion rule.
-- Complete with node-free planned scope: fails because no node realises NC.6.
-- Closed without an accepted drop: fails for the same missing realisation.
+1. Cite its exact repository path in the scoped packet and handoff.
+2. Set the sole coverage record to closed with an empty remaining list.
+3. Clear the structural gap and set the packet status to closed, adding no
+   nodes, API items, tests or planets.
+4. Update the reader and Lean comments and rerun the blueprint and Lean checks.
 
-Do not manufacture a process node, duplicate another stage's target, alter the
-checker, or substitute source_decomposed coverage for the pending decision.
-The independent decision belongs outside #6347's four allowed deliverables;
-this author cannot accept its own restructuring. Further source decomposition
-of NC.6 will not remove that blocker.
+The accepted result is sufficient for packet closure. Applying the atlas
+stage and edge removals belongs to authorized integration and is not an
+additional prerequisite for this issue. If independent review instead
+identifies new mathematics, assign it to its existing mathematical owner or
+explicitly rescope NC.6 before another planning pass.
 
-The maintainer can route `restructure[0]` directly to independent restructuring
-review. An accepted RS result must record
-`layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop`, its
-`suppliedBy` owners and the preserved NC.5 → ED.6 link. Once that accepted
-result is available to the checker, cite its exact path here, set this scope's
-coverage to closed with remaining empty, clear the structural gap, and set
-packet status closed without adding nodes. **The accepted result is sufficient
-for packet closure**; applying the atlas stage/edge removal is a separate
-authorized integration step, not a further #6347 prerequisite. This corrects
-the ordering in the previous handoff. If independent review identifies new
-mathematics, assign it to its mathematical owner or explicitly rescope the
-stage before another blueprint pass.
+Do not manufacture a process node, duplicate another layer's target, change
+the checker, or use source_decomposed coverage to bypass the pending decision.
 
-## Reading extent and provenance
+## Reading extent and source provenance
 
-The existing `sourceVersions`, source hashes and two `sourceIssues` are
-inherited from codex-y2NpRL's selected interface readings. This continuation
-does not claim to have freshly rehashed or audited those entire papers.
-`continuationSourceChecks` records fresh selected readings of Mochizuki,
-§10, Theorems 10.1–10.2 and proof, printed pp.624–626; and Kim's introduction,
-printed pp.89–96. They check the pointed/outer reconstruction boundary,
-section-conjecture boundary, local/global diagram and conditional dimension
-implication. They supply no new NC.1 proof audit or NC.2–NC.5 decomposition.
+This continuation read the binding worker rules, protocols, upstream guide,
+full issue, previous checkpoint, process audit, parent coverage and review,
+relevant link-map records, and checker closure rules. It verified the exact
+supplier file hashes and export ids. It did not repeat the prior workers'
+mathematical reviews or paper readings; their statements and source-reading
+receipts remain attributed to them.
 
-The inherited ED source findings remain attributed to their existing owners:
-E21's all-tail truncation condition versus the printed equality-index condition
-in BDMTV's published Lemma 4.7, p.1136; and E30's preprint eventual-phi branch
-misprint, corrected on that published page. No new source error, independent
-review verdict, root-isolation theorem or numerical replay is claimed.
+The inherited source register identifies selected readings of Mochizuki
+(§10, Theorems 10.1–10.2, pp.624–626), Kim (introduction, pp.89–96),
+Balakrishnan–Dogra, BDCKW and BDMTV. The recorded readings of published
+BDMTV Algorithm 3.12, pp.1124–1126, and Proposition 4.6/Lemma 4.7,
+pp.1135–1136, and its preprint comparison remain inherited. The E21
+all-tail truncation correction and E30 preprint branch correction retain
+their existing ED provenance. No new source issue, whole-paper audit,
+root-isolation proof or numerical replay is claimed. No missing source is
+needed to decide the process-stage ownership; the missing input is acceptance.
 
-This continuation read the roadmap's campaign, the relevant ED.6 campaign
-targets, parent NC.6 coverage and NC.3/torsor-classification, the reviewed
-library audit, the scoped exports above and the seven named ED.6 nodes.
-The parent's full node collection was not re-reviewed. The previous
-checkpoint records full readings of both campaign documents.
+At current upstream roadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27,
+this run read ProfiniteArithmetic Layer 2 and its corresponding suggested
+signatures. It read the completed EffectiveBounds README and suggested file;
+the current completed README matches the atlas snapshot by SHA-256. At
+current Tau Ceti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039,
+it read the MvPowerSeries/Evaluation module documentation. These current
+read-only screens remain separate from the blueprint's fixed library pins.
+No generic upstream API was replanned and no new library absence claim was
+made. No restricted book was needed or copied.
 
-At current upstream roadmap commit 070dc2becd74419e76303ede84b465ed4a69461f,
-ProfiniteArithmetic and Completed/EffectiveBounds READMEs were read in full,
-along with ProfiniteArithmetic Suggested.lean Layer 2 and the full
-EffectiveBounds Suggested.lean. At current Tau Ceti commit
-a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, the MvPowerSeries/Evaluation module
-documentation was read. These current read-only inputs are separate from the
-blueprint's fixed library pins. No generic upstream API is re-planned and no
-fresh exhaustive library absence claim is made. No restricted book was needed
-or copied. All mathematical descriptions are in the authors' own words.
+## Checks and scope counts
 
-## Checks
+- Blueprint checker: zero errors and warnings for the partial packet.
+  This packet cites no baseline declarations.
+- Executable status probes: complete/partial fails the under-budget rule;
+  complete/planned and closed/closed each fail missing NC.6 realisation.
+- Supplier hashes, all 24 export ids, restructuring registry and canonical
+  edges checked against the recorded input.
+- `lean-check research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean`:
+  exit 0, no errors or warnings, shared pinned Mathlib 082e2d37e8 build;
+  111 GiB available beforehand. This comment-only check verifies syntax,
+  with no mathematical assertion or supplier signature elaborated.
+- JSON, deliverable paths, absence of private paths/source excerpts and
+  `git diff --check` checked before submission.
 
-- `python3 scripts/check_blueprint.py
-  research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json`:
-  zero errors and warnings; partial, zero nodes, one gap.
-- Status probes, supplier ids/file hashes, graph edges and accepted-drop
-  registry checked against the recorded input. Both removed edges, the
-  preserved edge and the unipotent chain exist; NC.6 has no consumers.
-- A final fetch of main (f90586176) found no restructuring-file changes since
-  the recorded input; no accepted NC.6 drop appeared during the continuation.
-- `lean-check
-  research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean`:
-  exit 0, no errors or warnings, in the shared pinned Mathlib 082e2d37e8 build.
-  Available memory was 99 GiB before the single serial check. The wrapper
-  waited for a shared slot. This comment-only syntax check validates no
-  mathematical assertion, supplier signature or computation.
-- JSON, relative document links, all 24 supplier ids and file hashes, exactly
-  four permitted deliverable paths and absence of local paths/source excerpts
-  checked; `git diff --check` passes.
-
-All resumption information is in the four deliverables. No scratch artifact
-is required by the next worker. No background process is left running.
+Counts: zero nodes of every kind, API items, typed unit tests, planets,
+baseline declarations and supplier requests; one structural gap. NC.6
+coverage and packet status remain partial. All resumption information is in
+the deliverables; no scratch file is required. No background process remains.
