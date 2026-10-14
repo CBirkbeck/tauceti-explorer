@@ -121,7 +121,7 @@ example (γ γ' : Matrix.GeneralLinearGroup n K) (h : IsConj γ γ') :
 /-- The equality of characteristic polynomials alone does not give conjugacy without
 semisimplicity: the identity and a unipotent Jordan block in `GL_2(ℚ)`. -/
 example : ¬ IsConj (1 : Matrix.GeneralLinearGroup (Fin 2) ℚ)
-    (Matrix.GeneralLinearGroup.mkOfDetNeZero !![1, 1; 0, 1] (by sorry)) := by sorry
+    (Matrix.GeneralLinearGroup.mkOfDetNeZero !![1, 1; 0, 1] (by simp [Matrix.det_fin_two_of])) := by sorry
 
 end GLn
 
