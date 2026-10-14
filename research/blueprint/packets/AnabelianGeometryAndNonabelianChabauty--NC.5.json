@@ -553,7 +553,8 @@
       },
       "prototypeBoundary": "The geometric locus and dimension theorem signature are omitted at G1 and the NC.4 contract. The node is a theorem plan, not a numerical surrogate.",
       "blockedBy": [
-        "AnabelianGeometryAndNonabelianChabauty/G501"
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G504"
       ]
     },
     {
@@ -1284,7 +1285,8 @@
       },
       "prototypeBoundary": "Omitted actual local mixed-extension/height signature at G2; the generic theorem belongs to the shared height owner.",
       "blockedBy": [
-        "AnabelianGeometryAndNonabelianChabauty/G502"
+        "AnabelianGeometryAndNonabelianChabauty/G502",
+        "AnabelianGeometryAndNonabelianChabauty/G504"
       ]
     },
     {
@@ -1334,7 +1336,8 @@
       },
       "prototypeBoundary": "Omitted local Kummer/height signature at G1,G2 and the NC.4 supplier contract.",
       "blockedBy": [
-        "AnabelianGeometryAndNonabelianChabauty/G502"
+        "AnabelianGeometryAndNonabelianChabauty/G502",
+        "AnabelianGeometryAndNonabelianChabauty/G504"
       ]
     },
     {
@@ -1587,7 +1590,8 @@
       "prototypeBoundary": "Omitted actual geometric height-construction theorem at G1,G2. No fake geometry structure assumes this conclusion.",
       "blockedBy": [
         "AnabelianGeometryAndNonabelianChabauty/G501",
-        "AnabelianGeometryAndNonabelianChabauty/G502"
+        "AnabelianGeometryAndNonabelianChabauty/G502",
+        "AnabelianGeometryAndNonabelianChabauty/G504"
       ]
     },
     {
@@ -1632,7 +1636,8 @@
       },
       "prototypeBoundary": "The geometric theorem is omitted at G1. A native conditional form importing the missing NC.4 analytic zero theorem is not fabricated.",
       "blockedBy": [
-        "AnabelianGeometryAndNonabelianChabauty/G501"
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G504"
       ]
     },
     {
@@ -1969,7 +1974,7 @@
     {
       "supplier": "MotivesAndAlgebraicCycles:MC.0",
       "need": "Rational Picard/divisor correspondences on X×X modulo pullbacks; proper intersection/moving and Kunneth H1⊗H1 cycle action; compatibility of swapping, cup contraction and polarized trace. The specific Beilinson/relative-cohomology mixed-extension comparison is not claimed supplied by MC.0: G1 records it.",
-      "needBy": [
+      "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization",
@@ -1979,7 +1984,7 @@
     {
       "supplier": "HeightsRationalPointsAndObstructions:RP.1",
       "need": "Finite generation of the actual rational Jacobian Mordell–Weil group and the rational Kummer image, with rank and localization conventions. This is not a certificate of rank for the concrete genus-three Jacobian.",
-      "needBy": [
+      "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights"
       ]
@@ -1987,7 +1992,7 @@
     {
       "supplier": "AnabelianGeometryAndNonabelianChabauty:NC.4",
       "need": "The depth-two proper-curve Selmer variety with a Mordell–Weil cut, crystalline p-condition and actual bad-place local images; finite image for v≠p from Kim–Tamagawa; nonlinear Albanese density on every open residue subdisc; the compact-chart analytic zero theorem. Also supply good-reduction proper etale paths unramified at v≠p, and potential good reduction implies potentially unramified paths after finite base change. NC.2 crystalline p-comparison alone is not this away-place theorem.",
-      "needBy": [
+      "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
@@ -1998,7 +2003,7 @@
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
       "need": "Use the existing k-defined NS injection, together with A6 finite rank. Supply rational coefficient descent for the Rosati-symmetric-Hom comparison when it is invoked over Q: A2/rational-ns-and-ample-cone states its isomorphism over an algebraically closed field. Do not identify geometric NS or its integral Galois invariants with Q-defined line classes without descent. The generic rank bound needs only the rational NS injection into H2(J), not the Tate-conjecture equality.",
-      "needBy": [
+      "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
         "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion"
       ]
@@ -2076,6 +2081,18 @@
         "EffectiveDiophantineMethods:ED.6/xs13-p0-disc",
         "EffectiveDiophantineMethods:ED.6/xs13-rational-points"
       ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/G504",
+      "title": "G4: the NC.4 refinements this layer requests are not yet targets of NC.4",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
+      ],
+      "detail": "The five consuming targets cite the layer NC.4 through the request to it. NC.4 states density of the Albanese map on whole residue discs (NC.4/residue-disc-density), the Chabauty–Kim loci (NC.4/kim-loci) and finiteness under discwise nonvanishing (NC.4/finite-annihilator-locus). It does not state the depth-two Selmer variety of a proper curve with a Mordell–Weil cut and actual bad-place local images, finiteness of the local images away from p after Kim–Tamagawa, density on every open subdisc of a residue disc, the analytic zero theorem on compact charts, or the unramifiedness (potential unramifiedness after finite base change) of path torsors at places of good (potentially good) reduction away from p. These must be added to NC.4, or to the owner of local Galois path classes, before the consuming targets are closed."
     }
   ],
   "sourceIssues": [
@@ -2654,5 +2671,12 @@
         "note": "BD I §§6.2–6.4 pp.24–29 explicitly realizes E_Z=A_Z^*(1). Corrected the ambiguous direct identification, removed the incompatible additional twist from the comparison and recorded preprint-only E511. The pointed x=b specialization remains an explicit G1 proof input."
       }
     ]
-  }
+  },
+  "assemblyEdits": [
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "All four requests listed their consumers under the misspelt key needBy; renamed to neededBy, so that the consumers are recorded. Added gap G504 for the parts of that request that no NC.4 target supplies, and listed it in blockedBy of the five consuming targets."
+    }
+  ]
 }

@@ -370,10 +370,7 @@
           "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
-      ],
-      "planet": {
-        "name": "Central obstruction"
-      }
+      ]
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-central-obstruction",
@@ -812,10 +809,7 @@
           "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
-      ],
-      "planet": {
-        "name": "Nonabelian cohomology"
-      }
+      ]
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cochain-scalar-extension",
@@ -1166,9 +1160,6 @@
       "library": {
         "module": "TauCeti/NumberTheory/NonabelianChabauty/Selmer",
         "namespace": "TauCeti.NonabelianCohomology.NC3"
-      },
-      "planet": {
-        "name": "Crystalline local condition"
       }
     },
     {
@@ -1387,7 +1378,7 @@
       ],
       "proofSteps": [
         "The parent central extension identifies global fibres as H1(V)-orbits; vanishing twisted invariants makes the action free.",
-        "For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline. Its invariant realization is crystalline U_cr over the absolutely unramified field; U_DR is obtained after scalar extension, as recorded in E5.",
+        "For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline. Its invariant realization is crystalline U_cr over the absolutely unramified field; U_DR is obtained after scalar extension, as recorded in E305.",
         "At fixed unramified places use the actual inertia restriction; for trivial inertia action neutral means the vector cocycle is zero.",
         "Addition by a linear Selmer class preserves the local conditions. After a point of a geometric fibre is chosen, the all-algebra action/difference identities give inverse natural maps between that fibre functor and the vector Selmer functor. Yoneda makes this a scheme isomorphism; a bijection merely on field-valued points would not suffice.",
         "Apply the finite-type scheme fibre-dimension inequality, not a dimension field stored as an assumption."
@@ -1406,7 +1397,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 4, central Selmer fibres and dimension calculation, printed pp. 128–129; crystalline invariant notation corrected as source issue E5",
+          "locator": "Section 4, central Selmer fibres and dimension calculation, printed pp. 128–129; crystalline invariant notation corrected as source issue E305",
           "match": "The argument restricts the central cohomology action to a linear Selmer action using local invariant lifting before taking dimensions."
         }
       ],
@@ -1644,7 +1635,7 @@
   ],
   "sourceIssues": [
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E304",
       "source": "kim2009v4",
       "kind": "error",
       "locator": "arXiv math/0510441v4, section 4, printed p. 25; superseded by v5 section 4 p. 25 and published section 4 p. 127",
@@ -1666,7 +1657,7 @@
       }
     },
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E5",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E305",
       "source": "kim2009",
       "kind": "misprint",
       "locator": "Version of record, section 4, printed p. 129, invariant B_cr points in the central Selmer difference argument; also arXiv v5 p. 26",
@@ -1879,5 +1870,17 @@
       "sourceIssues": "Both findings and four source-version receipts pass the section-18 schema checks.",
       "scope": "Only the packet, suggested file, review report and this job’s handoff change; no parent/NC.2/reader/base atlas file changes."
     }
-  }
+  },
+  "assemblyEdits": [
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Source issues E4 and E5 renumbered E304 and E305 (E4 also named a different NC.1 finding). The two node references in NC.3/central-selmer-dimension (proof step 2 and source locator) now read E305. The review object keeps its historical numbers: read its E4, E5 as E304, E305."
+    },
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Planets: the joined layer NC.3 had twelve planets (six here, six on the lemma-level NC.3 targets of the root packet). Kept six for the layer: finite-level-representability, selmer-functor and central-selmer-dimension here, and nonabelian-h1, exact-sequence and torsor-classification in the root packet. Removed the planet field from NC.3/positive-defect (Central obstruction); NC.3/cohomology-functor (Nonabelian cohomology); NC.3/local-condition-geometry (Crystalline local condition). No statement, proof, API, test or prerequisite changed."
+    }
+  ]
 }
