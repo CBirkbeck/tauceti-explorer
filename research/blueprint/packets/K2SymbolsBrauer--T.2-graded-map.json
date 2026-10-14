@@ -6,7 +6,7 @@
   "scope": [
     "K2SymbolsBrauer:T.2:graded-map"
   ],
-  "summary": "A target-level continuation of T.1: import the existing graded-map and degree-three nodes, specify their full generator, grading, naturality and uniqueness interfaces, and promote the degree-two comparison to its own target. The source-reading part of G-product-symbol is completed with Weibel and Loday; the actual product-model and sign compatibility remains an explicit K.7 supplier request. V.2 consumes the degree-three component and owns image, cokernel, exactness and injectivity. All targets are planned; inherited source-quotient, Matsumoto and plus-comparison boundaries prevent closure. Nothing is formalised.",
+  "summary": "A target-level continuation of T.1: import the existing graded-map and degree-three nodes, specify their full generator, grading, naturality and uniqueness interfaces, and promote the degree-two comparison to its own target. The product of two unit classes is planned here as its own theorem (Loday, Proposition 2.2.3, with Lemma 2.2.1 and the Hopf description of K_2): it is the classical Steinberg symbol up to one sign that is fixed once on the torus, so the degree-two map is the Matsumoto equivalence followed by the normalized classical-to-Quillen comparison. Only the comparison of K.7's biexact product with Loday's plus-construction product in degree (1,1) is requested from K.7. The homogeneous Milnor quotient is supplied by the accepted T.2:symbols plan, and the classical-to-Quillen comparison in its Hurewicz normalization by the T.1 follow-up T.1/chosen-k2-comparisons, which rests on the accepted StableHomotopyKTheory H.3 plan and Tau Ceti's AlgebraicTopology roadmap. V.2 consumes the degree-three component and owns image, cokernel, exactness and injectivity. All targets are planned; the K.7 model comparison and the residual Matsumoto gaps of T.2:symbols prevent closure. Nothing is formalised.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -97,7 +97,8 @@
       "readSections": [
         "III.5.12–5.12.2, printed pp.227–228 / PDF pp.235–236; III.6.1 and III.6.3, printed pp.231,234 / PDF pp.239,242.",
         "III.7.1, printed p.245 / PDF p.253; IV.1.7–1.8, printed pp.264–265 / PDF pp.272–273; IV.1.10–1.10.1, printed p.266 / PDF p.274.",
-        "Exercises IV.1.8–1.9 and IV.1.12, printed pp.274–275 / PDF pp.282–283; VI.4.3.2, printed p.482 / PDF p.490; VI.5.2.1 and 5.3, printed p.488 / PDF p.496."
+        "Exercises IV.1.8–1.9 and IV.1.12, printed pp.274–275 / PDF pp.282–283; VI.4.3.2, printed p.482 / PDF p.490; VI.5.2.1 and 5.3, printed p.488 / PDF p.496.",
+        "Reviewer additions: III.5.10–5.10.1, printed p.225 / PDF p.233; Examples III.7.2(c), printed p.245 / PDF p.253; Exercise IV.1.12(d), printed p.275 / PDF p.283."
       ]
     },
     {
@@ -110,7 +111,8 @@
       "accessed": "2026-10-14",
       "readSections": [
         "§2.1, construction 2.1.1–2.1.10 and Theorems 2.1.11–2.1.12, printed pp.331–335 / PDF pp.24–28.",
-        "§2.2, Lemma 2.2.1 and Proposition 2.2.3 with its proof, printed pp.336–338 / PDF pp.29–31."
+        "§2.2, Lemma 2.2.1 and Proposition 2.2.3 with its proof, printed pp.336–338 / PDF pp.29–31.",
+        "Reviewer additions: §2.1.10, printed p.335 / PDF p.28; the Remark after Proposition 2.2.3, printed p.338 / PDF p.31."
       ]
     }
   ],
@@ -123,44 +125,112 @@
       ],
       "title": "Degree-two identification with the classical Matsumoto map",
       "kind": "comparison",
-      "statement": "Let F be a field. Write m_F:K2^M(F)≃K2^cl(F) for the symbol-preserving Matsumoto equivalence, θ1_F for the natural classical-to-Quillen K1 identification, and θ2_F:K2^cl(F)≃K2(F) for the natural classical-to-Quillen K2 identification, normalized so θ2_F({a,b}_cl)=θ1_F([a])·θ1_F([b]). Then the degree-two component Φ_2 of the imported unital graded product map equals θ2_F composed with m_F. In particular Φ_2 is an isomorphism, natural in unital field homomorphisms. This uses the supplied oriented product-symbol theorem and does not derive it from bilinearity or from Matsumoto alone.",
+      "statement": "Let F be a field. Write m_F : K₂^M(F) ≃ K₂^cl(F) for the symbol-preserving Matsumoto equivalence, {a,b} ↦ {a,b}, obtained from T.2/matsumoto through the degree-two presentation of the Milnor ring (T.2:symbols/field-proof/homogeneous-components); θ₂ : K₂^cl(F) ≃ K₂(F) for the natural comparison of T.1/k2-pi2 in its Hurewicz normalization β (T.1/chosen-k2-comparisons), transported to the Quillen model; and θ₂♮ = θ₂ ∘ (x ↦ x^ε) for its normalization by the torus sign ε of T.2/unit-loop-product-symbol. Then the degree-two component Φ₂ of the imported unital graded map equals θ₂♮ ∘ m_F. In particular Φ₂ is an isomorphism, natural in unital field homomorphisms. The identity uses the product-symbol theorem; it does not follow from bilinearity or from Matsumoto's theorem alone.",
       "hypotheses": [
         "F is a commutative field; every symbol entry is a unit.",
-        "The K.7 supplier identifies its actual biexact tensor product with the plus-model product, including the unit-matrix formula and its orientation relative to the chosen θ2.",
-        "The imported Matsumoto and plus-comparison nodes retain their recorded proof gaps."
+        "The degree-(1,1) comparison of K.7's biexact product with Loday's plus product is the open request used by T.2/unit-loop-product-symbol.",
+        "The imported Matsumoto node rests on the infinite-field proof inputs of T.2:symbols and keeps its recorded finite-field and stable-witness gaps; θ₂ is the Hurewicz normalization planned in T.1/chosen-k2-comparisons, which awaits its review."
       ],
       "proofSteps": [
-        "Use units-to-K1 and pi1-plus-construction to identify the ordered two unit classes used by Φ with the unit-matrix loops in the product supplier.",
-        "The K.7 supplier computes this product as the chosen classical Steinberg symbol transported by θ2. Weibel IV.1.10.1 specifies the convention; Loday Proposition 2.2.3 supplies a calculation with an explicit inverse under his connecting map. The needed natural comparison between that calculation and K.7’s biexact product is a recorded gap, not an automatic identification of all product models.",
-        "Evaluate Φ_2 and θ2 composed with m_F on every two-symbol. The Milnor presentation makes these symbols generate the degree-two additive group, so the homomorphisms agree.",
-        "Since m_F and θ2 are equivalences, the degree-two map is an equivalence. Transport naturality from the imported graded map and the two supplied natural equivalences."
+        "By the imported symbol formula, Φ₂{a,b} = ι_F(a)·ι_F(b), where ι_F(a) = θ₁(K₁.ofUnits a).",
+        "By T.2/unit-loop-product-symbol, ι_F(a)·ι_F(b) = θ₂♮({a,b}_cl) = θ₂♮(m_F{a,b}).",
+        "The degree-two Milnor group is generated by two-symbols: homogeneous-components identifies it with the tensor quotient Q₂(F), which pure tensors generate. Two homomorphisms agreeing on symbols are equal.",
+        "m_F and θ₂♮ are equivalences, so Φ₂ is one. Naturality is transported from the graded map and the two natural equivalences; θ₂♮ is natural because ε is a constant sign.",
+        "This identifies the map already constructed and is not an input of its construction, so the descent argument is not circular."
       ],
       "acceptance": [
         "The equality is on the actual degree-two homomorphism, not merely an abstract isomorphism of its source and target.",
-        "At ℚ(t), the external tame-symbol test on {2,t} distinguishes the required orientation from its negative.",
-        "Only the Matsumoto presentation plus θ2 and product compatibility imply invertibility; checking relations alone does not."
+        "At ℚ(t), the tame residue at t = 0 of (θ₂♮)⁻¹Φ₂{2,t} is 2 in T.3's convention; the reversed product or the opposite normalization gives 1/2.",
+        "Only the Matsumoto presentation, θ₂ and the product-symbol theorem give invertibility; checking relations alone does not.",
+        "For a finite field both sides vanish (Weibel III.6.1.1 and III.7.2(a)), so finite fields test nothing about the sign; the infinite fields carry the content."
       ],
       "prerequisites": [
         "K2SymbolsBrauer:T.2/graded-map",
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
         "K2SymbolsBrauer:T.2/matsumoto",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/homogeneous-components",
         "K2SymbolsBrauer:T.1/k2-pi2",
-        "KTheoryLowDegrees:U.3/units-to-K1",
-        "KTheoryLowDegrees:U.6/pi1-plus-construction",
-        "GeneralAlgebraicKTheory:K.7"
+        "K2SymbolsBrauer:T.1/chosen-k2-comparisons"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.7.1, printed p.245 / PDF p.253; IV.1.10–1.10.1, printed p.266 / PDF p.274.",
-          "match": "The tensor Steinberg quotient and the product comparison specify the graded map. The source identifies the product of two unit classes with the classical symbol and states the natural graded extension."
+          "locator": "III.6.1, printed p.231 / PDF p.239; III.7.1, printed p.245 / PDF p.253; IV.1.10–1.10.1, printed p.266 / PDF p.274.",
+          "match": "Matsumoto's presentation of K₂ of a field by bilinear symbols with the Steinberg relation; the identification of the degree-two Milnor group with K₂ through it; and the ring map from Milnor to Quillen K-theory whose degree-two values are the Steinberg symbols."
         },
         {
           "sourceId": "Loday.1976",
-          "locator": "§2.1, Proposition 2.1.8 and Theorems 2.1.11–2.1.12, printed pp.334–335 / PDF pp.27–28; §2.2, Proposition 2.2.3 with proof, printed pp.337–338 / PDF pp.30–31.",
-          "match": "The higher product is natural, bilinear, associative and graded commutative. The explicit degree-one product calculation uses commuting stabilized elementary matrices and their Steinberg lifts. Under Loday’s connecting-map identification the result is the inverse commutator; the comparison cannot be used without matching orientations."
+          "locator": "§2.2, Proposition 2.2.3 with proof, printed pp.337–338 / PDF pp.30–31.",
+          "match": "The product of two unit classes agrees with Milnor's commutator symbol up to sign, and is its inverse under Loday's connecting-map identification; the sign is fixed in T.2/unit-loop-product-symbol."
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+      "parentStageId": "K2SymbolsBrauer:T.2:graded-map",
+      "realises": [
+        "K2SymbolsBrauer:T.2:graded-map"
+      ],
+      "title": "The product of two unit classes is the Steinberg symbol",
+      "kind": "theorem",
+      "statement": "Let R be a commutative ring and a, b ∈ Rˣ. The diagonal matrices D_a = diag(a, a⁻¹, 1) and D′_b = diag(b, 1, b⁻¹) are commuting elements of E₃(R), the images of h₁₂(a) and h₁₃(b), and the classical Steinberg symbol of T.2/steinberg-symbol is the commutator {a,b} = [D̃_a, D̃′_b] ∈ K₂^cl(R) of any lifts to St(R). Let θ₁ : K₁^cl(R) ≅ π₁BGL(R)⁺ be the comparison of U.6/pi1-plus-construction, θ₂ : K₂^cl(R) ≅ π₂BGL(R)⁺ the Hurewicz-route realization β_R of T.1/k2-pi2 fixed in T.1/chosen-k2-comparisons (the Hopf kernel equivalence α_R : K₂(R) ≅ H₂(E(R); ℤ), the plus-construction homology isomorphism, the inverse Hurewicz isomorphism of the simply connected cover BE(R)⁺ and the cover map), and x·y the degree-(1,1) product of Quillen K-theory of the commutative ring R (K.7's external product followed by the multiplication R ⊗ R → R). Fix the sign ε ∈ {+1, −1} by the torus convention: under the Hopf isomorphism of T.1/hopf-formula for the presentation ℤ² = ⟨s, t | sts⁻¹t⁻¹⟩, the fundamental class of Bℤ² = S¹ × S¹, oriented so that the quotient S¹ × S¹ → S¹ ∧ S¹ ≅ S² used to multiply classes of π₁ has degree one, is the class of (sts⁻¹t⁻¹)^ε. Then θ₁[a]·θ₁[b] = θ₂({a,b}^ε), naturally in R. Equivalently the normalized comparison θ₂♮ = θ₂ ∘ (x ↦ x^ε) satisfies θ₁[a]·θ₁[b] = θ₂♮({a,b}); this is the normalization under which Weibel's Example IV.1.10.1 holds literally. In particular θ₁[a]·θ₁[1−a] = 0 whenever a and 1−a are units, whatever ε is.",
+      "hypotheses": [
+        "R is a commutative ring (a field, for the graded map); a and b are units of R.",
+        "The product is K.7's biexact product, identified in degree (1,1) with Loday's plus-construction product by the comparison requested from GeneralAlgebraicKTheory K.7.",
+        "ε depends only on the orientation of the torus, the commutator convention xyx⁻¹y⁻¹ and the Hopf isomorphism fixed in T.1; it is computed once, on ℤ², and is never chosen to force the formula."
+      ],
+      "proofSteps": [
+        "Reduce to the external product. For commutative R the internal product is the external product for A = A′ = R followed by the multiplication μ : R ⊗ R → R. The comparisons θ₁ and θ₂ and the classical symbol are natural in ring maps (U.6/pi1-plus-construction, T.1/k2-pi2, T.2/steinberg-symbol), and μ sends a ⊗ 1 and 1 ⊗ b to a and b, so it suffices to compute in A ⊗ A′ with the units a ⊗ 1 and 1 ⊗ b.",
+        "Identify the product with a torus map. By the requested K.7 comparison the product of the loop classes of a and b is Loday's class [γ ∘ (a⁺ ∧ b⁺)] (Loday 2.1.10). Its composite with the quotient S¹ × S¹ → S¹ ∧ S¹ is homotopic to the unreduced γ ∘ (a⁺ × b⁺), and Loday's first display in the proof of Proposition 2.2.3 rewrites this, using that subtraction for the block-sum H-space structure is block sum with the inverse matrix, as the plus construction of Bψ for the homomorphism ψ : ℤ² → E₃(A ⊗ A′), (1,0) ↦ D_a, (0,1) ↦ D′_b. That map factors through BE⁺, the universal cover of BGL⁺ (H.3/plus-universal-cover, H.3/plus-construction-functoriality; Bℤ² is a K(ℤ²,1) by H.1/classifying-space-of-group-is-KG1).",
+        "Take Hurewicz images. BE⁺ is simply connected, so the Hurewicz map π₂ → H₂ is an isomorphism (Tau Ceti AlgebraicTopology stage 8). A map S² → BE⁺ whose composite with the degree-one quotient of the torus is the torus map has Hurewicz image the image of the torus fundamental class (Loday, Lemma 2.2.1, with n = 2 and Γ = ℤ²; the fundamental class is the cross product of the circle classes, AlgebraicTopology stage 5). Through H.3/plus-integral-homology this image is ψ_*[T²] in H₂(E(A ⊗ A′); ℤ).",
+        "Pass to K₂ through Hopf's formula. T.1:classical/hopf-formula-natural, for the presentation of ℤ² and the map of free groups sending s and t to the free generators x_{D_a} and x_{D′_b} of the canonical presentation of E, sends the Hopf class of sts⁻¹t⁻¹ to the class of the free commutator [x_{D_a}, x_{D′_b}]. Under the Hopf kernel equivalence α of T.1/chosen-k2-comparisons (T.1:classical/uce-kernel-h2-natural, T.1/k2-h2-elementary) that class is the commutator of Steinberg lifts of D_a and D′_b, because in a central extension of a perfect group a commutator depends only on the images of its entries. By the definition of ε, ψ_*[T²] therefore corresponds to {a,b}^ε (Weibel III.5.10–5.10.1), and applying θ₂ gives the formula.",
+        "If a and 1−a are units then {a, 1−a} = 1 by T.2/steinberg-identity, so the product vanishes for either value of ε. This is the relation the graded map needs before it descends."
+      ],
+      "acceptance": [
+        "The same ε serves every commutative ring, every pair of units and every ring map; it is determined on ℤ² alone.",
+        "Reversing the factors gives θ₁[b]·θ₁[a] = θ₂({b,a}^ε) = −θ₁[a]·θ₁[b] in additive K₂, consistent with K.7/graded-commutativity and the skew-symmetry of the classical symbol.",
+        "Loday identifies π₂BE⁺ with the Steinberg kernel through the connecting map of the extension and finds the inverse commutator (Proposition 2.2.3); his Remark on p.338 gives the Schur-multiplier route used here. T.1:plus/normalised-comparison normalizes the same inherited comparison through that connecting map (χ_A), while T.1/chosen-k2-comparisons uses Hurewicz (β_R). The two are natural equivalences with the same source and target and are compared on the torus class before either is substituted for the other; ε is defined relative to β.",
+        "For R = ℚ(t), a = 2 and b = t, (θ₂♮)⁻¹(θ₁[2]·θ₁[t]) = {2,t}, whose tame residue at t = 0 is 2 in the T.3 convention; the opposite normalization or the reversed product gives 1/2."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.7",
+        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+        "KTheoryLowDegrees:U.6/pi1-plus-construction",
+        "KTheoryLowDegrees:U.3/units-to-K1",
+        "K2SymbolsBrauer:T.1/k2-pi2",
+        "K2SymbolsBrauer:T.1/chosen-k2-comparisons",
+        "K2SymbolsBrauer:T.1/k2-h2-elementary",
+        "K2SymbolsBrauer:T.1/hopf-formula",
+        "K2SymbolsBrauer:T.1:classical/hopf-formula-natural",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "K2SymbolsBrauer:T.2/steinberg-symbol",
+        "K2SymbolsBrauer:T.2/steinberg-identity",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "StableHomotopyKTheory:H.3/plus-universal-cover",
+        "StableHomotopyKTheory:H.3/plus-integral-homology",
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ],
+      "sources": [
+        {
+          "sourceId": "Loday.1976",
+          "locator": "§2.1.10, printed p.335 / PDF p.28; §2.2, Lemma 2.2.1, printed p.336 / PDF p.29; Proposition 2.2.3 with its proof and the following Remark, printed pp.337–338 / PDF pp.30–31.",
+          "match": "The product of two degree-one classes is the plus construction of the torus map of the two commuting diagonal matrices; the lemma identifies the Hurewicz image of such a map with the image of the torus fundamental class. Under the connecting map of the Steinberg extension Loday obtains the inverse of the commutator of lifts, and his remark indicates the Schur multiplier route that this node uses to fix the sign."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.10–5.10.1, printed p.225 / PDF p.233; IV.1.7.1, printed p.265 / PDF p.273; IV.1.10–1.10.1, printed p.266 / PDF p.274.",
+          "match": "The Steinberg symbol is the commutator of lifts of diag(r, r⁻¹, 1) and diag(s, 1, s⁻¹); K₂ is identified with π₂BGL⁺ through H₂(E); and the degree-(1,1) product is stated to give the Steinberg symbols, without a sign convention for that identification (source issue E-product-sign)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Steinberg symbols as K-theory products"
+      },
+      "addedBy": "REV-K2SymbolsBrauer--T.2-graded-map"
     }
   ],
   "importedTargets": [
@@ -186,7 +256,7 @@
         {
           "name": "milnorToQuillen_two",
           "role": "characterisation",
-          "statement": "The degree-two map is θ2_F composed with the classical Matsumoto equivalence, using the stated product-symbol orientation. This API item is promoted to K2SymbolsBrauer:T.2/graded-map-degree-two-identification."
+          "statement": "The degree-two map is θ₂♮ ∘ m_F: the Matsumoto equivalence followed by T.1's comparison normalized by the torus sign of T.2/unit-loop-product-symbol. This API item is promoted to K2SymbolsBrauer:T.2/graded-map-degree-two-identification."
         },
         {
           "name": "milnorToQuillen_symbol",
@@ -216,7 +286,7 @@
         {
           "name": "milnorToQuillen_steinberg",
           "role": "relation",
-          "statement": "If a and 1-a are nonzero, ι_F(a)ι_F(1-a)=0. This is obtained from the oriented classical symbol comparison and Steinberg identity before descending the tensor map."
+          "statement": "If a and 1−a are nonzero, ι_F(a)ι_F(1−a) = 0. This comes from T.2/unit-loop-product-symbol and the classical Steinberg identity before the tensor map descends, and does not depend on the sign ε."
         },
         {
           "name": "milnorToQuillen_three_symbol",
@@ -248,7 +318,7 @@
         {
           "name": "oriented_rational_function",
           "kind": "compatibility",
-          "statement": "External sign test using the T.3 convention: at t=0 in ℚ(t), the tame residue of θ2 inverse applied to Φ_2({2,t}) is 2, while reversing the product or negating θ2 gives 1/2. T.3 is a test consumer, not a prerequisite for constructing Φ."
+          "statement": "External sign test using the T.3 convention: at t=0 in ℚ(t), the tame residue of (θ₂♮)⁻¹Φ₂({2,t}) is 2, while reversing the product or using the opposite normalization gives 1/2. T.3 is a test consumer, not a prerequisite for constructing Φ."
         },
         {
           "name": "field_map_two",
@@ -264,6 +334,12 @@
           "name": "rational_degree_three_not_surjective",
           "kind": "non-example",
           "statement": "External computation: K3^M(ℚ)=ℤ/2 and K3(ℚ)=ℤ/48. The canonical degree-three map is injective by the theorem owned in V.2, hence not surjective. Neither computation nor injectivity is an input to constructing the map."
+        },
+        {
+          "name": "rational_degree_four_not_injective",
+          "kind": "non-example",
+          "statement": "External computation: {−1,−1,−1,−1} is nonzero in K₄^M(ℚ), since its image in K₄^M(ℝ) is detected by the sign symbol (Weibel III.7.2(c)), but Φ₄ sends it to zero in K₄(ℚ) (Weibel Exercise IV.1.12(d), because η⁴ = 0 in the stable stems). An API that asserts injectivity of Φ in every degree fails this test; it is not an input of the construction.",
+          "addedBy": "REV-K2SymbolsBrauer--T.2-graded-map"
         }
       ],
       "uses": [
@@ -288,7 +364,9 @@
         "GeneralAlgebraicKTheory:K.7",
         "mathlib:TensorAlgebra.lift",
         "mathlib:TensorAlgebra.hom_ext",
-        "mathlib:RingQuot.liftAlgHom"
+        "mathlib:RingQuot.liftAlgHom",
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/homogeneous-components"
       ],
       "sources": [
         {
@@ -300,13 +378,18 @@
           "sourceId": "Loday.1976",
           "locator": "§2.1, Proposition 2.1.8 and Theorems 2.1.11–2.1.12, printed pp.334–335 / PDF pp.27–28; §2.2, Proposition 2.2.3 with proof, printed pp.337–338 / PDF pp.30–31.",
           "match": "The higher product is natural, bilinear, associative and graded commutative. The explicit degree-one product calculation uses commuting stabilized elementary matrices and their Steinberg lifts. Under Loday’s connecting-map identification the result is the inverse commutator; the comparison cannot be used without matching orientations."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Examples III.7.2(c), printed p.245 / PDF p.253; Exercise IV.1.12(d), printed p.275 / PDF p.283.",
+          "match": "The all-minus-one symbol survives in Milnor K-theory of the reals in every degree, while its degree-four instance dies in Quillen K₄ of ℚ; so the graded map need not be injective."
         }
       ],
       "proofClarifications": [
         "Send a unit u to its unit-matrix K1 class, transported by θ1. Extend the resulting integer-linear map through TensorAlgebra.lift.",
-        "Use the requested oriented product-symbol compatibility and the imported Steinberg identity to kill every degree-two generator of the two-sided Steinberg ideal. Descend through RingQuot.liftAlgHom; homogeneous degree preservation uses the source grading, not RingQuot alone.",
+        "Use T.2/unit-loop-product-symbol and the imported Steinberg identity to kill every degree-two generator of the two-sided Steinberg ideal. Descend through RingQuot.liftAlgHom; degree preservation uses the degree presentation of T.2:symbols/field-proof/homogeneous-components, not RingQuot alone.",
         "The source’s universal property gives uniqueness, its degree-zero unit and symbol concatenation give multiplicativity, and naturality follows by uniqueness or generator evaluation.",
-        "The supplier chain for the actual Quillen ring is K.7/products-from-biexact-functors and its S-grid, stabilization and coherence nodes; no products are constructed here.",
+        "The supplier chain for the actual Quillen ring is K.7/products-from-biexact-functors and its S-grid, stabilization and coherence nodes; its comparison with Loday's plus product in degree (1,1) is the K.7 request. No products are constructed here.",
         "Take degree three without invoking V.2. The promoted degree-two theorem identifies the already constructed map and is not an incoming prerequisite of it."
       ]
     },
@@ -326,19 +409,28 @@
   "requests": [
     {
       "supplier": "GeneralAlgebraicKTheory:K.7",
-      "need": "Supply a natural comparison of the actual biexact tensor product with the plus-model product of Loday §2.1, and compute θ1([a])·θ1([b])=θ2({a,b}_cl) for units of a commutative field, using the chosen natural θ2 of T.1/k2-pi2. Match Loday Proposition 2.2.3’s inverse connecting-map convention explicitly to Weibel IV.1.10.1; deduce vanishing on (a,1-a). The abstract products-from-biexact-functors node does not state this comparison.",
+      "need": "Compare K.7's product with Loday's plus-construction product in degree (1,1). For rings A and A′, under the identification of the base-point component of the K-theory space with BGL(−)⁺ (K.2:plus/plus-equals-Q) and of K₁ with π₁BGL⁺ (KTheoryLowDegrees U.6/pi1-plus-construction), the degree-(1,1) part K₁(A) ⊗ K₁(A′) → K₂(A ⊗ A′) of the biexact external product of K.7/products-from-biexact-functors equals Loday's product [f]∗[f′] = [γ ∘ (f ∧ f′)] (Loday §2.1.10 and Theorem 2.1.11; Weibel IV.1.10), where γ is built from tensor products of matrices and the block-sum H-space structure. State it naturally in A and A′, with the identification S¹ ∧ S¹ ≅ S² used by K.7's sign conventions made explicit; for a commutative ring the internal product is this followed by the multiplication R ⊗ R → R. The value on two unit classes and its sign relative to T.1/k2-pi2 are planned in K2SymbolsBrauer:T.2/unit-loop-product-symbol and are not requested. K.7/products-from-biexact-functors and K.7/unit-multiplication-and-K0-tensor-comparison do not state this comparison, and the locators read here state the plus product only.",
       "neededBy": [
-        "K2SymbolsBrauer:T.2/graded-map",
-        "K2SymbolsBrauer:T.2/graded-map-degree-two-identification"
-      ]
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+        "K2SymbolsBrauer:T.2/graded-map"
+      ],
+      "addedBy": "BP-K2SymbolsBrauer--T.2-graded-map; narrowed by REV-K2SymbolsBrauer--T.2-graded-map"
     },
     {
-      "supplier": "StableHomotopyKTheory:H.3",
-      "need": "For T.1/k2-pi2 supply the natural BE(F)^+ universal-cover comparison and the oriented degree-two Hurewicz equivalence, with compatibility between the torus fundamental class/central-extension connecting map and the fixed classical K2 symbol. Existing plus existence and acyclicity statements alone do not determine this interface.",
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "need": "The homology cross product, giving the fundamental class of the torus S¹ × S¹ as the cross product of the two circle classes, and the statement that the quotient S¹ × S¹ → S¹ ∧ S¹ ≅ S² sends it to the generator of H₂(S²; ℤ) fixed by that identification.",
       "neededBy": [
-        "K2SymbolsBrauer:T.1/k2-pi2",
-        "K2SymbolsBrauer:T.2/graded-map-degree-two-identification"
-      ]
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol"
+      ],
+      "addedBy": "REV-K2SymbolsBrauer--T.2-graded-map"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "need": "The absolute Hurewicz theorem in degree two for simply connected spaces, π₂(X) ≅ H₂(X; ℤ), natural in based maps, applied to X = BE(R)⁺.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol"
+      ],
+      "addedBy": "REV-K2SymbolsBrauer--T.2-graded-map"
     }
   ],
   "coverage": [
@@ -346,41 +438,29 @@
       "stageId": "K2SymbolsBrauer:T.2:graded-map",
       "status": "planned",
       "remaining": [
-        "The inherited Milnor homogeneous-quotient and Matsumoto proof boundaries remain in T.2:symbols.",
-        "Obtain the natural plus-cover/Hurewicz interface used by T.1/k2-pi2, with its orientation matched to K.7.",
-        "Obtain K.7’s actual product-model and unit-symbol comparison; independent review must verify this continuation’s contracts and sign tests."
+        "G-product-model: K.7's comparison of its biexact product with Loday's plus product in degree (1,1), requested from GeneralAlgebraicKTheory:K.7.",
+        "G-Matsumoto (inherited): the residual T.2:symbols gaps G-finite-classical and G-stable-witness.",
+        "Cover/Hurewicz (inherited from T.1/k2-pi2): now planned in the T.1 follow-ups, T.1/chosen-k2-comparisons (Hurewicz route, β) and T.1:plus/normalised-comparison (fibre-boundary route, χ), both awaiting review. They normalize the same inherited comparison by different routes, which can differ by a sign; their reviews or the assembly must state the relation of β and χ. The sign ε here is defined relative to β.",
+        "Assembly: merge the importedTargets refinements (API, tests, additional prerequisites) into the graded-map and degree-three nodes of the T.1 packet under their existing ids, and add T.2/unit-loop-product-symbol to the graded-map node's prerequisites."
       ]
     }
   ],
   "gaps": [
     {
-      "title": "G-graded-quotient (inherited)",
-      "detail": "The parent milnor-k-theory node records the homogeneous Steinberg quotient, degree decomposition and graded universal property as a gap. Pinned RingQuot and TensorAlgebra supply ungraded descent but not this complete grading interface. This stage imports its owner; it does not reconstruct the Milnor ring.",
+      "title": "G-product-model (refines G-product-symbol)",
+      "detail": "Weibel IV.1.10–1.10.1 and Loday §2.1–2.2 have been read, and the value of the product on two unit classes, with its sign, is planned in T.2/unit-loop-product-symbol. No supplier yet states the comparison of K.7's biexact product with Loday's plus product in degree (1,1); it is requested from K.7. Until it is supplied, the product-symbol theorem, the Steinberg relation used for descent and the degree-two identification rest on that request.",
       "neededBy": [
-        "K2SymbolsBrauer:T.2/graded-map"
-      ]
-    },
-    {
-      "title": "G-Matsumoto (inherited)",
-      "detail": "The imported Matsumoto node states the presentation but does not decompose its converse normal-form proof. The field-symbol owner must supply that proof; the graded comparison has not proved injectivity just by checking relations.",
-      "neededBy": [
-        "K2SymbolsBrauer:T.2/graded-map-degree-two-identification"
-      ]
-    },
-    {
-      "title": "G-cover-Hurewicz (inherited)",
-      "detail": "The natural equivalence of classical K2 with plus-model π2 still has a supplier boundary in T.1/k2-pi2. This continuation does not choose a replacement θ2 solely to force the desired product equality; the existing comparison’s orientation must be established.",
-      "neededBy": [
-        "K2SymbolsBrauer:T.2/graded-map-degree-two-identification"
-      ]
-    },
-    {
-      "title": "G-product-symbol (refined)",
-      "detail": "Weibel IV.1.10–1.10.1 and the actual proof of Loday Proposition 2.2.3 have been read, removing the parent’s unread-source requirement. The generic K.7 product node has no map-level theorem identifying its tensor pairing with this plus-model calculation. That model comparison and the connecting-map sign relative to the chosen θ2 remain requested; both the descent proof and degree-two identification require them.",
-      "neededBy": [
+        "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
         "K2SymbolsBrauer:T.2/graded-map",
         "K2SymbolsBrauer:T.2/graded-map-degree-two-identification",
         "K2SymbolsBrauer:T.2/graded-map-degree-three"
+      ]
+    },
+    {
+      "title": "G-Matsumoto (inherited, narrowed)",
+      "detail": "The accepted T.2:symbols packet plans the completeness half of Matsumoto's presentation for infinite fields (T.2:symbols/field-proof/stable-separation, with faithful-realization and zero-symbol-splitting). Its residual gaps G-finite-classical (the primary proof of the finite-field presentation) and G-stable-witness (finite-rank witnesses for the stable Steinberg group) remain, so m_F is not fully decomposed. Checking relations still proves only descent, never injectivity.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.2/graded-map-degree-two-identification"
       ]
     }
   ],
@@ -406,8 +486,36 @@
       "known": "No accessible correction established; this record is scoped to the combined author copy, with no claim about the published edition.",
       "searched": [
         "Weibel’s author K-book page and linked Kbook.errata.pdf on 2026-10-14; both www.math and sites.math errata links returned HTTP 404.",
-        "The author directory index and web search for Kbook III.5.12 tensor-rank corrections; no accessible matching correction located."
-      ]
+        "The author directory index and web search for Kbook III.5.12 tensor-rank corrections; no accessible matching correction located.",
+        "Reviewer, 2026-10-14: the live errata link again returned HTTP 404; the Wayback Machine snapshot of Kbook.errata.pdf dated 2014-12-02 (corrections to the AMS edition, two pages) was read and has no entry for III.5.12."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at printed p.227 / PDF p.235 of the checksummed author copy: the introduction to Definition 5.12 identifies R^m ⊗ R^n with R^{m+n} and E with M_{m+n}(R), and the proof of Lemma 5.12.1 speaks of automorphisms of R^{m+n}. The free module R^m ⊗ R^n has rank mn; with m = n = 1 the printed rank 2 contradicts the source's own remark that E = R in that case. The intended argument is unaffected.",
+        "by": "REV-K2SymbolsBrauer--T.2-graded-map"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer/E-product-sign",
+      "source": "Kbook.2013",
+      "kind": "gap",
+      "locator": "Combined author draft, Theorem IV.1.10 and Example IV.1.10.1, printed p.266 / PDF p.274, with Corollary IV.1.7.1, printed p.265 / PDF p.273.",
+      "printed": "The theorem says that the degree-(1,1) plus-construction product coincides with the matrix symbol product of III.5.12, and the example that the product of two unit classes is the Steinberg symbol of III.5.10; the identification of K₂ with π₂BGL⁺ used for this is given only as an isomorphism through H₂(E), with no sign convention.",
+      "correction": "The equality holds once the identification of K₂ with π₂BGL⁺ is normalized; under Loday's identification through the connecting map of the Steinberg extension, the product of the classes of a and b is the inverse of the commutator symbol. The convention should be stated, or the sign inserted.",
+      "reason": "Loday's Proposition 2.2.3 (printed pp.337–338), the result cited for the theorem, proves agreement only up to sign and computes the inverse commutator under its connecting-map identification. Loday's commutator of lifts of diag(a, a⁻¹, 1) and diag(b, 1, b⁻¹) is exactly Weibel's {a,b} by III.5.10–5.10.1, since these matrices are the images of h₁₂(a) and h₁₃(b), and for central commutators the two commutator conventions agree.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Weibel's K-book page, 2026-10-14: the errata link returns HTTP 404.",
+        "Wayback Machine snapshot of Kbook.errata.pdf dated 2014-12-02 (corrections to the AMS edition): no entry for IV.1.7 or IV.1.10.",
+        "Loday 1976, §2.2, which states the sign explicitly."
+      ],
+      "addedBy": "REV-K2SymbolsBrauer--T.2-graded-map",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at both locators and against the rendered pages 337–338 of Loday's published paper. The statement is true for a suitable normalization, so nothing built on it changes, but a formalisation must fix the sign, as T.2/unit-loop-product-symbol does.",
+        "by": "REV-K2SymbolsBrauer--T.2-graded-map"
+      }
     }
   ],
   "sourceVersions": [
@@ -422,6 +530,13 @@
       "url": "https://www.numdam.org/item/ASENS_1976_4_9_3_309_0.pdf",
       "read": "2026-10-14",
       "sha256": "e1b3377fc93ba9b41456b8ace9e7d50d80e930e74dd92b6d23bd3f7bde78264e"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://web.archive.org/web/20141202012632/http://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf",
+      "read": "2026-10-14",
+      "sha256": "9944293478d96b349d8f0864c11bbae849d86aaddac0c9c1b1bc9c67fd320567",
+      "citation": "Weibel, corrections to the AMS edition of the K-book, archived copy (searched for both findings)."
     }
   ],
   "baselineAudit": {
@@ -435,5 +550,33 @@
       "id": "RT-AREA-ktheory-2/20",
       "resolution": "Reuses parent graded-map-degree-three and exports only to V.2. The current K3BlochGroups parent already imports the graded-map stage. No other packet is edited and no reverse dependency or second product construction is introduced."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.2-graded-map",
+    "date": "2026-10-14",
+    "notes": "Claude (session claude-nII9ug) reviewing Codex codex-XACoi9's completed pass. Fetched both sources (checksums match the packet) and checked every locator: Weibel III.5.10-5.12.2, III.6.1, III.6.3, III.7.1-7.2, IV.1.7-1.10.1, Exercises IV.1.8, 1.9, 1.12 and VI.4.3.2, VI.5.2.1-5.3; Loday 2.1.8, 2.1.10-2.1.12, Lemma 2.2.1, Proposition 2.2.3 (rendered pages) and the Remark after it. All twelve baseline declarations confirmed at Mathlib 082e2d3 and Tau Ceti f790474 (the Tau Ceti file is byte-identical to GitHub at the pin). Corrections: (1) added T.2/unit-loop-product-symbol, the product of two unit classes (Loday 2.2.3 with Lemma 2.2.1 and the Hopf/UCE identification of T.1), with an explicit torus sign; the degree-two statement no longer both normalizes theta_2 by the product formula and forbids choosing it so; (2) narrowed the K.7 request to the degree-(1,1) model comparison of the biexact product with Loday's plus product, since K.7's own nodes do not plan classical K_2; (3) replaced the H.3 request by the accepted H.3 nodes plus-universal-cover, plus-integral-homology and plus-construction-functoriality, and requested AlgebraicTopology stages 5 and 8 (torus fundamental class, Hurewicz); (4) removed the stale G-graded-quotient gap (planned by the accepted T.2:symbols homogeneous-components node) and narrowed G-Matsumoto to what remains, and retired G-cover-Hurewicz because the T.1 follow-up T.1/chosen-k2-comparisons (merged during this review) now plans it; epsilon is defined relative to that Hurewicz normalization, and its possible sign difference from T.1:plus/normalised-comparison is reported; (5) added the degree-four non-injectivity test (Exercise IV.1.12(d)); (6) confirmed E-tensor-product-rank and added E-product-sign, after reading the archived errata list. RT-AREA-ktheory-2/20 is handled correctly. Reader and Lean comment updated; the Lean file elaborates at the pins with only proof-placeholder warnings. Accepted as a completed pass; the K.7 model comparison and the residual T.2:symbols Matsumoto gaps stay open.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-map-degree-two-identification",
+        "verdict": "corrected",
+        "note": "Mathematics verified against Weibel III.6.1, III.7.1, IV.1.10.1 and Loday 2.2.3. Restated with the torus sign epsilon and the normalized comparison so that it is true for T.1's theta_2 whichever orientation the conventions give; direct prerequisites now include the product theorem, T.2/milnor-k-theory and the T.2:symbols degree presentation; locators corrected to the places that state Matsumoto's presentation and the degree-two identification."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/unit-loop-product-symbol",
+        "verdict": "added",
+        "note": "Key theorem the degree-two target and the Steinberg descent need, previously folded into a request to K.7, whose plan has no classical K_2. Proof sketch from Loday Lemma 2.2.1 and Proposition 2.2.3, Weibel III.5.10.1 and IV.1.7.1, with the T.1 Hopf/UCE nodes and the accepted H.3 nodes; only the model comparison is requested from K.7."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-map",
+        "verdict": "corrected",
+        "note": "Imported target (T.1 packet). Its importedTargets refinement was checked item by item: API now cites the product theorem for the Steinberg relation and the normalized comparison for degree two; the sign test uses the normalized comparison; added the degree-four non-injectivity test from Exercise IV.1.12(d); grading cites the T.2:symbols degree presentation."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.2/graded-map-degree-three",
+        "verdict": "verified",
+        "note": "Imported export to K3BlochGroups V.2; V.2's milnor-to-quillen-degree-three imports this stage, and the link runs graded-map to V.2 only, as RT-AREA-ktheory-2/20 requires. The Z/2 to Z/48 check matches Weibel VI.4.3.2 and VI.5.2.1."
+      }
+    ]
+  }
 }

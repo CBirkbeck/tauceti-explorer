@@ -79,10 +79,15 @@ README-only targets, imported rather than redeclared:
 * K2SymbolsBrauer:T.2/graded-map: milnorToQuillen, degree components, naturality,
   symbol evaluation, preservation of the unit/products and uniqueness.
 * K2SymbolsBrauer:T.2/graded-map-degree-three: the ordered triple product.
-New target:
+New targets:
+* K2SymbolsBrauer:T.2/unit-loop-product-symbol: for units a, b of a commutative
+  ring, the product of the K1 classes of a and b is the classical Steinberg
+  symbol {a,b} raised to a sign fixed once on the torus, transported by the
+  classical-to-Quillen K2 comparison; the product of a and 1 - a vanishes.
 * K2SymbolsBrauer:T.2/graded-map-degree-two-identification:
-  milnorToQuillen_two equals the chosen classical Matsumoto equivalence followed
-  by the natural classical-to-Quillen K2 equivalence, with its orientation fixed.
-The missing carriers preclude signatures for these targets at the pins.
+  milnorToQuillen_two equals the classical Matsumoto equivalence followed by the
+  natural classical-to-Quillen K2 equivalence normalized by that sign.
+The missing carriers (Quillen K-groups, their products and classical K2) preclude
+signatures for these targets at the pins.
 The generic descent theorem above proves no higher K-theory comparison.
 -/
