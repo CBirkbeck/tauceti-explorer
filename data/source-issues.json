@@ -217041,8 +217041,8 @@
    "kind": "gap",
    "locator": "§3.2, proof of Lemma 3.2.1, p. 956 (also in arXiv v2)",
    "printed": "Lemma 3.2.1(2)–(3) asserts the separating finite-order characters without giving their global construction or a local-prescription theorem.",
-   "correction": "Record a missing proof input, rather than a false theorem: an odd-prime-order global-character theorem with prescribed unramified Frobenius values and avoidance of a finite ramification set is needed. The former ClassFieldTheory/Kummer/Chebotarev paragraph did not prove that theorem; see G1.",
-   "reason": "The coprimality conditions only constrain ψ(Frob_v)ψ(Frob_{v^c}) = χ(Frob_v̄)² to avoid finitely many values; the independence of the uniformizer classes modulo r follows from the principle that an element which is an r-th power at a density-one set of places is an r-th power.",
+   "correction": "Supply the construction: take the characters to be restrictions to G_F of characters of G_{F⁺} of odd prime order r ≠ p with r > 4n², whose unramified local components at the places of F⁺ below R have Frobenius values chosen so that their squares avoid the finitely many eigenvalue ratios, and which are trivial at the other places below S (and, for ψ_2, at every place above a prime where ψ_1 ramifies; for the character of condition (3), at every place above a prime below R ∪ R^c ∪ S_p). Such characters exist by the Grunwald–Wang theorem, whose special case never occurs in odd order (Conrad, Lifting global representations with local properties, Appendix A, Proposition A.3, p. 32). The proof is IHR.7/auxiliary-characters.",
+   "reason": "For ψ = χ|_{G_F} with χ a character of G_{F⁺} unramified at v̄, ψ(Frob_v) = ψ(Frob_{v^c}) = χ(Frob_v̄) and ψ^c = ψ, so the coprimality conditions at v only ask that χ(Frob_v̄)² avoid a set of at most 4n² eigenvalue ratios in k̄^×; squaring is a bijection of μ_r for r odd, and μ_r(O) → k^× is injective for r ≠ p. The global existence with prescribed restrictions at a finite set of places is the Grunwald–Wang theorem, unobstructed for odd orders.",
    "affects": "nothing",
    "known": "new",
    "searched": [
