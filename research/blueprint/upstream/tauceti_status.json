@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T20:36Z",
+ "updated": "2026-10-14T20:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -677,6 +677,19 @@
    "pr": 925,
    "head": "41bde29",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "red team (Sol + Astra) running"
+   }
+  },
+  "DiamondSixOperations": {
+   "stage": "pr",
+   "pr": 927,
+   "head": "7568adf",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes DiamondEtaleCohomology; draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
     "head": null,
