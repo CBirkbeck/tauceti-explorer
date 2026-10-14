@@ -97,7 +97,8 @@ quasi-etale-specialization — TubeSpecialization:
 tube-proper-support-functor — TubeProperSupport:
   ker(id → g_*g*), exact, before Rs_*; special-fibre comparison is only a map.
 supported-log-de-rham-complexes — SupportedLogComplex:
-  ω, tildeω and their supported versions from an admissible log embedding system.
+  ω, tildeω and their supported versions from an admissible log embedding system;
+  the degree-q shifted injection is (−1)^(q−1) beta wedge dlog t, for shift differential −d.
 log-monodromy-localization — logMonodromyLocalization:
   Localization triangles commute with the connecting operator N.
 log-rigid-proper-support-cohomology — LogProperCohomology:
@@ -107,7 +108,8 @@ log-residue-double-complex — LogResidueComplex:
 supported-log-weight-spectral-sequence — supportedLogWeightSpectralSequence:
   Underlying vector-space page E1^(−k,q+k) has j≥max(0,−k) strata terms.
 positive-log-support-complex — PositiveLogComplex:
-  Ξ^i=Ω_log^(i+1)/Ω_regular^(i+1), the zeroth residue column, with proper support.
+  Ξ^i=Ω_log^(i+1)/Ω_regular^(i+1), the zeroth residue column, with proper support;
+  the absolute map to Ξ[−1] has degree-q sign (−1)^(q−1).
 positive-support-spectral-sequence — positiveSupportSpectralSequence:
   E1^(−k,q+k)=H_c^(q−k)(U^(k+1)) for k≥0, and zero for k<0.
 high-degree-log-support-comparison — highDegreeLogSupportComparison:
@@ -117,7 +119,9 @@ dagger-berthelot-comparison — daggerBerthelotComparison:
 dagger-supported-comparison — daggerSupportedComparison:
   Closed support is a localization fibre; compact support uses ambient supports.
 log-dagger-comparison — logDaggerComparison:
-  Coherent log forms compare termwise on a fixed admissible proper model.
+  On specified proper formal frames, coherent dagger log terms compare in derived
+  cohomology with j† terms. Their completed DL support adapter is separately G2;
+  the unsupported constant-coefficient proper adapter uses GK05 Theorem 5.3(ii).
 algebraic-rigid-specialization-maps — Specialization:
   ρ: algebraic dR → rigid; ρ_c: compact rigid → compact algebraic dR.
 specialization-forget-supports-square — specializationForgetSupportsSquare:

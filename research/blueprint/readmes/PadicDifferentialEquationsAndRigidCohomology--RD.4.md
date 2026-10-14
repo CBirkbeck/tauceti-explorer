@@ -8,11 +8,11 @@ This continuation imports the existing RD.4 targets. It adds the descent theorem
 
 Let V be a complete mixed-characteristic discrete valuation ring with residue field k of characteristic p and fraction field K of characteristic zero. The usual frame and coefficient constructions use separated finite-type k-schemes. Statements involving q-Frobenius specify a compatible coefficient Frobenius and its pullback. For the log proper-support construction, κ is finite, W=W(κ), and K₀=Frac W. The base κ° is the standard log point, W° its Witt lift, W[t]° has the divisor log structure at t=0, and Wtriv has the trivial log structure.
 
-All complexes are cohomologically graded. A shift C[−r] places a degree-zero class in degree r. For q-linear Frobenius, K(−1) has Frobenius q. Thus the codimension-c Gysin shift is [−2c] and its equivariant twist is (−c). Semilinear Frobenius is retained before taking a q-power; no arbitrary scalar change makes it linear.
+All complexes are cohomologically graded. A shift C[−r] places a degree-zero class in degree r and has differential (−1)^r d. Thus C[−1]^q=C^(q−1) with differential −d. The shifted log injection in degree q is (−1)^(q−1)β∧θ=θ∧β; the unshifted residue augmentation is β∧θ. The absolute projection to Ξ[−1] has the same degree sign, which cancels the injection sign in the compatibility square. For q-linear Frobenius, K(−1) has Frobenius q. Thus the codimension-c Gysin shift is [−2c] and its equivariant twist is (−c). Semilinear Frobenius is retained before taking a q-power; no arbitrary scalar change makes it linear.
 
 A frame (X,X̄,𝔓) has X open in X̄ and a closed embedding of X̄ in a formal V-scheme smooth near X. Ordinary rigid cohomology is de Rham hypercohomology of its coherent j† coefficient realization on the closure tube. A closed support Z⊆X is imposed by the restriction kernel on that realization. Compact support is imposed in a proper ambient frame using the tube support complex. The ordinary support triangle has RΓ_Z(X) as the fibre of RΓ(X)→RΓ(X∖Z); it does not define compact support of an open X.
 
-On a smooth affine weak lift with weak completion A†, the coefficient Monsky–Washnitzer complex is M⊗_(A†)Ω•_(A†/K). The inherited MW comparison supplies its canonical identification with rigid cohomology. A coherent connection admits the overconvergent coefficient interpretation only with the required Taylor convergence; invertible horizontal Frobenius provides it under Berthelot’s smooth weak-lift hypotheses.
+On a smooth affine weak lift with weak completion A†, the coefficient Monsky–Washnitzer complex is M⊗_(A†)Ω•_(A†/K). The inherited MW comparison, refined here to E∈Isoc† without Frobenius, supplies its canonical identification with rigid cohomology. A coherent connection admits the overconvergent coefficient interpretation only with the required Taylor convergence; invertible horizontal Frobenius provides it under Berthelot’s smooth weak-lift hypotheses.
 
 Log proper support uses an open immersion U⊆X into a specified proper strictly semistable log scheme. The functor imposing support acts on tube sheaves before derived specialization. Its cohomology retains the parameter X. The boundary realization is log convergent cohomology. The identification of log convergent and log rigid cohomology for proper X does not change that boundary term into log rigid cohomology for a nonproper boundary.
 
@@ -20,7 +20,7 @@ The dagger space in the comparison is the dagger structure on a tube in a proper
 
 ## Imported targets and ownership
 
-The node prefix in the following table is `PadicDifferentialEquationsAndRigidCohomology:RD.4/`. Their complete contracts are imported from the [existing RD roadmap](PadicDifferentialEquationsAndRigidCohomology.md); this continuation introduces no second definition of them.
+The node prefix in the following table is `PadicDifferentialEquationsAndRigidCohomology:RD.4/`. Their contracts are imported from the [existing RD roadmap](PadicDifferentialEquationsAndRigidCohomology.md), with the coefficient and proof refinements stated below. In particular, ordinary rigid realizations already accept E∈Isoc†; the parent’s F-only MW, closed-support and finite-extension clients require the explicit underlying coefficient interfaces here. This continuation introduces no second definition of them.
 
 | Imported node suffix | Contract used here |
 |---|---|
@@ -112,29 +112,31 @@ Berthelot 1986 Théorème 4 states this invariant comparison. Its general suppor
 
 ### Monsky washnitzer comparison
 
-For a smooth affine weak lift, the functorial MW de Rham complex computes ordinary rigid cohomology, with the inherited coefficient hypotheses.
+For a smooth affine weak lift and E∈Isoc†(X/K), the finite projective A†_K-module M with integrable, Taylor-overconvergent connection computes ordinary rigid cohomology by M⊗Ω•_(A†_K/K). The inherited F-isocrystal comparison is its Frobenius-equipped specialization; integrability alone is not sufficient.
 
-Take a projective closure of the weak affine lift. Its strict-neighbourhood affinoids have vanishing higher coherent cohomology, and their filtered global forms recover Ω•_(A†/K). Weak lifts of maps extend on a smaller radius; the graph common frame compares these maps with rigid pullback.
+Use the no-F coefficient equivalence of BI Proposition 2.5.2(ii), with Taylor convergence imposed, and Corollary 2.5.6 for lifted maps. Take a projective closure of the weak affine lift. Coherent acyclicity on strict-neighbourhood affinoids and filtered global forms identify the coefficient hypercohomology with M⊗Ω•_(A†_K/K). The constant-coefficient radius calculation in B97 Proposition 1.10 is applied termwise to the coherent coefficient realization, not cited as a theorem for arbitrary coefficients. Graph common frames and the relative Poincaré comparison supply functoriality.
 
 **Imports:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/monsky-washnitzer-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/mw-comparison-for-affine-curves`.
 
-**Sources:** [B97] Proposition 1.10 and proof, pp. 15–16. The radius calculation and graph-frame comparison establish the MW identification and functoriality.
+**Sources:** [B97] Proposition 1.10 and proof, pp. 15–16. Proves the constant-coefficient MW identification and functoriality by radius calculation; the coefficient extension here uses BI and coherent acyclicity.
+
+**Additional coefficient source:** [BI] Proposition 2.5.2(ii), global pp. 82–83 (II, pp. 36–37), and Corollary 2.5.6, global p. 86 (II, p. 40): finite projective weak modules with Taylor-overconvergent integrable connection realize arbitrary E∈Isoc† and lifted pullback. RD.3 owns this affine coefficient interface.
 
 ### Finite flat base change
 
-Retain the inherited finite K′/K comparison for ordinary and compact supports, and its compatibility with closed-support triangles. It is finite scalar extension, not arbitrary relative smooth base change.
+Use finite K′/K scalar extension for ordinary E∈Isoc†(X/K) cohomology without Frobenius, and hence for closed support by localization. Retain the compact-support extension as a support-preserving target. This is finite scalar extension, not arbitrary relative smooth base change.
 
-Use finite affinoid pushforward, flatness and filtered radius colimits to compare the coefficient realizations after scalar extension. Tensoring over K is exact; it commutes with the kernel and finite support Čech constructions. CT Corollary 11.8.2 gives the coefficient version. The closed-support comparison follows from the localization triangle.
+Finite affinoid pushforward, flatness and filtered radius colimits compare ordinary coefficient realizations after scalar extension; CT Corollary 11.8.2 proves this ordinary no-F comparison. Exact K′⊗_K− and the no-F localization triangle give the closed-support version. For compact support the tensor operation must also be checked against the chosen proper-ambient support realization and its frame changes; that adapter remains G1. B97 Proposition 1.8 is the constant-coefficient ordinary proof and is not a compact-support coefficient theorem.
 
 **Imports:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/finite-flat-base-change`.
 
-**Sources:** [B97] Proposition 1.8 and proof, pp. 12–13. Finite scalar extension is proved by finite affinoid pushforward and exact tensoring.; [CT03] Theorem 11.8.1 and Corollary 11.8.2, pp. 210–213. The finite-flat frame theorem and its DVR scalar-extension corollary include coefficients.
+**Sources:** [B97] Proposition 1.8 and proof, pp. 12–13. Proves ordinary constant-coefficient finite scalar extension by finite affinoid pushforward and exact tensoring.; [CT03] Theorem 11.8.1 and Corollary 11.8.2, pp. 210–213. The finite-flat frame theorem and DVR scalar-extension corollary include ordinary overconvergent isocrystal coefficients without Frobenius; compact support is not asserted here.
 
 ### Rigid cohomology with supports
 
-For closed T⊆Z⊆X, the support sequence uses RΓ_T→RΓ_Z→RΓ_(Z∖T)(X∖T)→RΓ_T[1]. Excision restricts to an open neighbourhood of the support; disjoint closed supports split.
+For closed T⊆Z⊆X, the support sequence uses RΓ_T→RΓ_Z→RΓ_(Z∖T)(X∖T)→RΓ_T[1]. Excision restricts to an open neighbourhood of the support; disjoint closed supports split. Use E∈Isoc†(X/K), with no Frobenius required; the parent’s F-only support statements are refined to these underlying complexes. Frobenius compatibility is additional structure.
 
-On j† coherent realizations take the kernel of restriction to the support complement. The nested-kernel sequence gives localization, and restriction to an open neighbourhood preserves this kernel. On disjoint supports the restriction kernels decompose. Exactness before derived pushforward gives the triangles and natural boundary maps, including their coefficient and Frobenius compatibility.
+On j† coherent realizations take the kernel of restriction to the support complement. The nested-kernel sequence gives localization, and restriction to an open neighbourhood preserves this kernel. On disjoint supports the restriction kernels decompose. Exactness before derived pushforward gives the triangles and natural boundary maps, including their coefficient and Frobenius compatibility. B97 constructs the support kernel for arbitrary module sheaves, so applying it termwise to coherent coefficient forms requires no Frobenius; the no-F ordinary realization already exists in the parent.
 
 **Imports:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology-with-supports`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/excision-sequence`.
 
@@ -142,7 +144,7 @@ On j† coherent realizations take the kernel of restriction to the support comp
 
 ### Finite etale pushforward de rham
 
-Retain both ordinary and compact-support finite étale coefficient pushforward comparisons, with the inherited hypotheses.
+Retain both ordinary and compact-support finite étale coefficient pushforward comparisons, with the inherited hypotheses. The underlying finite étale coefficient maps are also required for E∈Isoc† without Frobenius; their support-preserving global identification remains G1.
 
 Étale base change of differential modules uses Mathlib’s tensorKaehlerEquivOfFormallyEtale and TauCeti’s basis transport; finite pushforward is coherent and exact on the analytic radius pieces. Global support and proper-compactification compatibility still require the general proof recorded in G1; the algebraic differential identity alone does not discharge it.
 
@@ -154,7 +156,7 @@ The compact-support independence proof and global finite-étale support comparis
 
 ## New targets
 
-The target names below are planning names in namespace `TauCeti.RigidCohomology`. A heavy geometric object is a reader target until its carrier and supplier interfaces are available. Every construction gives its user-facing API and discriminating checks; its proof route states which existing carrier or requested comparison each step needs.
+The target names below are planning names in namespace `TauCeti.RigidCohomology`. A heavy geometric object is a reader target until its carrier and supplier interfaces are available. Every construction gives its user-facing API and discriminating checks of the types specified by PROTOCOL §12; its proof route states which existing carrier or requested comparison each step needs.
 
 ### 1. Relative overconvergent Poincaré lemma
 
@@ -217,6 +219,7 @@ For a short exact sequence 0 → E′ → E → E″ → 0 of overconvergent iso
 **Hypotheses and conventions.**
 
 - X is separated of finite type over k; support and compactification conventions are those of the inherited RD.4 complexes.
+- Use the no-F coefficient refinements of the imported support/localization, MW and finite scalar-extension contracts in this packet; do not obtain arbitrary E∈Isoc† merely by forgetting Frobenius on an F-isocrystal.
 
 **Construction or proof.**
 
@@ -224,7 +227,7 @@ For a short exact sequence 0 → E′ → E → E″ → 0 of overconvergent iso
 2. Use exactness of j† and of the supported realization functor before deriving global sections. The short exact sequence of complexes gives a triangle.
 3. Glue by de Rham descent, then take cohomology. Use naturality of the boundary map to retain Frobenius.
 
-**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology-with-supports`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/compactly-supported-rigid-cohomology`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`, `mathlib:DerivedCategory`.
+**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology-with-supports`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/compactly-supported-rigid-cohomology`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`, `mathlib:DerivedCategory`, `PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-isocrystal`.
 
 **Acceptance.**
 
@@ -244,14 +247,15 @@ If i:Z ↪ X is a closed immersion of smooth separated k-schemes of pure constan
 - k is perfect of characteristic p, and K is a complete characteristic-zero coefficient field with residue field k.
 - Mixed codimension components require separate shifts; the Frobenius twist is part of the equivariant statement.
 - The global coordinate-independence proof is an explicit gap, G1; this node records the full target.
+- Use the no-F coefficient refinements of the imported support/localization, MW and finite scalar-extension contracts in this packet; do not obtain arbitrary E∈Isoc† merely by forgetting Frobenius on an F-isocrystal.
 
 **Construction or proof.**
 
-1. Reduce smooth closed pairs étale locally to coordinate pairs and import the inherited liftable Gysin calculation.
+1. Reduce smooth closed pairs étale locally to coordinate pairs. Refine the inherited liftable calculation to Taylor-overconvergent coefficients without Frobenius; its no-F coordinate residue map and gluing are explicitly part of G1, rather than an import of the parent’s F-only theorem for an arbitrary E.
 2. The required gluing checks that the residue generator transforms canonically when normal coordinates change, and that the local maps respect support Čech descent. This is the unclosed step in G1.
 3. Use localization for the resulting Gysin sequence; scalar extension is inherited. The divisor example determines the twist sign.
 
-**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/gysin-isomorphism`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/tate-twist`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`, `SchemeAndStackFoundations:SF.4`.
+**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/gysin-isomorphism`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/tate-twist`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`, `SchemeAndStackFoundations:SF.4`, `PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-isocrystal`.
 
 **Acceptance.**
 
@@ -293,9 +297,9 @@ For a finite-type O_K′-scheme Z and a closed subscheme X of its special fibre,
 
 **Checks and worked examples.**
 
-- **formal_point**: For X=Spec κ′ in Spf O_K′, the intermediate formal étale site identifies with the residue-field étale site; this does not identify all analytic sheaves with residue-field sheaves.
-- **empty_tube**: X empty gives the empty tube and zero derived pushforward of module sheaves.
-- **same_special_fibre**: Replacing the formal completion by an infinitesimal thickening leaves its special-fibre étale-site comparison unchanged.
+- **formal_point** (compatibility): For X=Spec κ′ in Spf O_K′, the intermediate formal étale site identifies with the residue-field étale site; this does not identify all analytic sheaves with residue-field sheaves.
+- **empty_tube** (degenerate): X empty gives the empty tube and zero derived pushforward of module sheaves.
+- **same_special_fibre** (compatibility): Replacing the formal completion by an infinitesimal thickening leaves its special-fibre étale-site comparison unchanged.
 
 **Acceptance.**
 
@@ -336,10 +340,10 @@ For U open in the closed special-fibre subscheme X of Z and g: ]X∖U[_Zη ↪ ]
 
 **Checks and worked examples.**
 
-- **whole**: For U=X, g has empty domain, so f! is the identity.
-- **empty**: For U empty, g is the identity and f! is zero.
-- **away_from_complement**: If g*F=0, the inclusion f!F → F is an isomorphism.
-- **kernel_agreement**: On module sections with restriction r:V→W, the support condition is r(v)=0, matching Mathlib LinearMap.ker; using ker of the zero map for all r fails when r=id.
+- **whole** (degenerate): For U=X, g has empty domain, so f! is the identity.
+- **empty** (degenerate): For U empty, g is the identity and f! is zero.
+- **away_from_complement** (characterisation): If g*F=0, the inclusion f!F → F is an isomorphism.
+- **kernel_agreement** (compatibility): On module sections with restriction r:V→W, the support condition is r(v)=0, matching Mathlib LinearMap.ker; using ker of the zero map for all r fails when r=id.
 
 **Acceptance.**
 
@@ -351,17 +355,17 @@ For U open in the closed special-fibre subscheme X of Z and g: ]X∖U[_Zη ↪ ]
 
 **Target:** `SupportedLogComplex`. **Node:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/supported-log-de-rham-complexes`.
 
-Fix a Zariski-log scheme (X,L) over κ° and an admissible embedding system (X_•,L_•) ↪ (Z_•,N_•) over W[t]°. Put Y_•=(t=0) in Z_•, with induced log structure M_•. Let u:X_•→X be the hypercover augmentation. Form ω_X=Ru_*Rs_*(Ω•_(Y_•,M_•)/W°⊗O_tube) and its supported version ω_(U,X) by applying f!_(U_•,X_•) inside Rs_*. Form tildeω similarly using Ω•_(Z_•,N_•)/Wtriv⊗O_Y_•. Invert p throughout. The short exact sequence of log form complexes defined by right wedging with dlog t gives ω[−1]→tildeω→ω→ω and its connecting operator N.
+Fix a Zariski-log scheme (X,L) over κ° and an admissible embedding system (X_•,L_•) ↪ (Z_•,N_•) over W[t]°. Put Y_•=(t=0) in Z_•, with induced log structure M_•. Let u:X_•→X be the hypercover augmentation. Form ω_X=Ru_*Rs_*(Ω•_(Y_•,M_•)/W°⊗O_tube) and its supported version ω_(U,X) by applying f!_(U_•,X_•) inside Rs_*. Form tildeω similarly using Ω•_(Z_•,N_•)/Wtriv⊗O_Y_•. Invert p throughout. The short exact sequence of log form complexes with θ=dlog t and degree-q injection β↦(−1)^(q−1)β∧θ=θ∧β from ω[−1] (whose differential is −d) gives ω[−1]→tildeω→ω→ω and its connecting operator N.
 
 **Hypotheses and conventions.**
 
-- Admissible means: X_• is a Zariski hypercover with exact closed embeddings; Z_• is log smooth over W[t]°; at level zero it is flat with smooth generic fibre over W[t] and smooth over W; Y_0 is a relative simple normal-crossings divisor; N_0 is its divisor log structure; the special-fibre bases have the specified identifications. Higher levels satisfy the embedding-system compatibility conditions.
+- Admissible means: X_• is a Zariski hypercover with exact closed embeddings into finite-type fine log-smooth (Z_•,N_•) over W[t]°. At level zero, (X_0,L_0)≃(Z_0,N_0)×_(W[t]°)κ°; Z_0 is flat and generically smooth over W[t] and smooth over W; Y_0=(t=0) is a relative strict normal-crossings divisor and N_0 is its divisor log structure. Higher levels are induced from these lifts by the embedding-product construction of DL B.1 and GK05 §§5.1–5.2: blow up the componentwise product centre, remove the strict transforms of the component factors, and take the exceptional divisor and lifted diagonal. Arbitrary compatible higher embeddings are not a replacement for this admissible system.
 - This is a realization after choosing a system. RD.4 supplies its analytic common-refinement comparisons through the log rigid realization; CR.5 supplies log charts and exactification, with the weak-formal extensions explicitly requested. A generic ordinary log connection alone does not supply such a system.
 
 **Construction or proof.**
 
 1. Import log structures, log differentials and exactification from CR.5. Use the semistable local weak lifts and product/refinement construction of the log rigid realization to build the admissible system.
-2. Tensor the absolute and relative log form sequences with analytic tube functions. Apply the exact tube support functor, then derived specialization and hypercover pushforward.
+2. Tensor the absolute and relative log form sequences with analytic tube functions. Apply the exact tube support functor, then derived specialization and hypercover pushforward. Normalize the shifted injection to θ∧β: d(θ∧β)=−θ∧dβ, so it is a chain map from the standard shift with differential −d. The unshifted augmentation to the residue double complex remains β↦β∧θ.
 3. Retain the triangle and its connecting map N as canonical data. Use common admissible refinements and the log Poincaré comparison to identify realizations.
 
 **Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/tube-proper-support-functor`, `CrystallineCohomology:CR.5/log-differentials`, `CrystallineCohomology:CR.5`, `EnhancedDerivedSheaves:E2`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/log-rigid-realization`.
@@ -378,13 +382,15 @@ Fix a Zariski-log scheme (X,L) over κ° and an admissible embedding system (X_�
 - `SupportedLogComplex.monodromyTriangle` (structure): ω_(U,X)[−1] → tildeω_(U,X) → ω_(U,X) →ᴺ ω_(U,X) is distinguished.
 - `SupportedLogComplex.enlargeOpen` (functoriality): U⊆U′ gives maps between both supported complexes compatible with N.
 - `SupportedLogComplex.nonlogAgreement` (compatibility): For a proper smooth pair with trivial relative log structure, the proper-support realization agrees with the inherited ordinary rigid compact-support realization.
+- `SupportedLogComplex.shiftInjection` (structure): In degree q, ω[−1]→tildeω sends β to (−1)^(q−1)β∧θ, so it commutes with the standard shifted differential −d; it determines the stated monodromy triangle convention.
 
 **Checks and worked examples.**
 
-- **full_support**: U=X recovers ω_X and tildeω_X.
-- **no_support**: U empty gives zero complexes and zero N.
-- **smooth_point**: For the standard log point over κ°, relative ω has K₀ in degree zero; the absolute log complex retains a dlog t term. Identifying ω and tildeω fails this test.
-- **support_order**: A replacement F!F*ω_X is not part of the definition; the only general map from it to ω_(U,X) is the one furnished by Lemma B.3.
+- **full_support** (degenerate): U=X recovers ω_X and tildeω_X.
+- **no_support** (degenerate): U empty gives zero complexes and zero N.
+- **smooth_point** (computation): For the standard log point over κ°, relative ω has K₀ in degree zero; the absolute log complex retains a dlog t term. Identifying ω and tildeω fails this test.
+- **support_order** (compatibility): The canonical map a:F!F*ω_X→ω_(U,X) satisfies (ω_(U,X)→ω_X)∘a=(F!F*ω_X→ω_X), the adjunction counit, after the common embedding realization. For U=X it is the identity; for U empty both its source and target are zero. No general inverse is stipulated.
+- **shifted_wedge_sign** (computation): On a smooth chart with relative coordinates x,y, take β=x dy and θ=dlog t. The degree-two shifted injection is i²(β)=−x dy∧θ, and d i²(β)=−dx∧dy∧θ=i³(−dβ). Using right wedge without the degree sign gives the opposite answer.
 
 **Acceptance.**
 
@@ -451,10 +457,10 @@ For X proper strictly semistable over the standard log point κ°, of pure dimen
 
 **Checks and worked examples.**
 
-- **full**: For U=X, H^q((X,X))=H^q_rig(X/W°).
-- **empty**: For U empty all pair groups vanish.
-- **point**: For X the proper standard log point and U=X, H⁰=K₀ and H^q=0 for q≠0.
-- **smooth_line**: For X=P¹ with smooth special fibre and U=A¹, the proper-support group is K₀(−1) in degree two and zero in other degrees. It cannot be replaced by ordinary H⁰(A¹).
+- **full** (compatibility): For U=X, H^q((X,X))=H^q_rig(X/W°).
+- **empty** (degenerate): For U empty all pair groups vanish.
+- **point** (computation): For X the proper standard log point and U=X, H⁰=K₀ and H^q=0 for q≠0.
+- **smooth_line** (computation): For X=P¹ with smooth special fibre and U=A¹, the proper-support group is K₀(−1) in degree two and zero in other degrees. It cannot be replaced by ordinary H⁰(A¹).
 
 **Acceptance.**
 
@@ -495,9 +501,9 @@ On an admissible system define P_j Ω^m_log as the image of Ω^j_log⊗Ω^(m−j
 
 **Checks and worked examples.**
 
-- **single_component**: For a smooth fibre with one component, all intersection terms of order ≥2 vanish; the spectral sequence has its single ordinary cohomology column.
-- **two_components**: For two transverse components, order-two terms consist of their intersection once, not twice from ordered pairs; the two face maps have opposite incidence signs.
-- **differential_sign**: In column j=1 the horizontal differential is −d; using +d in every column fails anticommutation with wedge dlog t.
+- **single_component** (degenerate): For a smooth fibre with one component, all intersection terms of order ≥2 vanish; the spectral sequence has its single ordinary cohomology column.
+- **two_components** (computation): For two transverse components, order-two terms consist of their intersection once, not twice from ordered pairs; the two face maps have opposite incidence signs.
+- **differential_sign** (characterisation): In column j=1 the horizontal differential is −d; using +d in every column fails anticommutation with wedge dlog t.
 
 **Acceptance.**
 
@@ -539,13 +545,13 @@ Define Ξ^i=Ω^(i+1)_log(Z/Wtriv)/Ω^(i+1)_regular(Z/W), restricted to Y, with t
 
 **Hypotheses and conventions.**
 
-- Use the same admissible system and its totalization signs. The superscript + denotes this quotient complex and is not a positivity condition on slopes.
+- Use the same admissible system and its totalization signs. The superscript + denotes this quotient complex and is not a positivity condition on slopes. For the standard cochain shift, the degree-q absolute quotient map is α↦(−1)^(q−1)[α]∈Ξ^(q−1). Its target differential is −d; the degree signs cancel those of ω[−1]→tildeω in the compatibility square.
 
 **Construction or proof.**
 
 1. Take the j=0 column of the residue double complex.
 2. Project the total complex to its zeroth column; the column-index behavior of the differentials makes this a chain map.
-3. Apply the exact tube support functor and derived pushforwards. The wedge-dlog t augmentation yields the relative map and the absolute shifted map.
+3. Apply the exact tube support functor and derived pushforwards. The relative map is β↦[β∧θ] without a degree sign. For the absolute map to Ξ[−1], use α↦(−1)^(q−1)[α] in degree q so it commutes with −d on the target and composes with the shifted injection to the shift of the relative map.
 
 **Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/log-residue-double-complex`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/tube-proper-support-functor`.
 
@@ -558,14 +564,14 @@ Define Ξ^i=Ω^(i+1)_log(Z/Wtriv)/Ω^(i+1)_regular(Z/W), restricted to Y, with t
 
 - `PositiveLogComplex.quotient` (constructor): Ξ^i is the specified quotient, not a submodule of log forms.
 - `PositiveLogComplex.relativeMap` (functoriality): ω_(U,X) maps to ω⁺_(U,X) by projection of residue columns.
-- `PositiveLogComplex.absoluteMap` (functoriality): tildeω_(U,X) maps to ω⁺_(U,X)[−1], with the source triangle compatibility.
+- `PositiveLogComplex.absoluteMap` (functoriality): In degree q the map tildeω→ω⁺[−1] is α↦(−1)^(q−1)[α]; its composite with ω[−1]→tildeω is the shift of β↦[β∧θ]. The same formulas hold after proper support.
 - `PositiveLogComplex.supportMaps` (compatibility): Enlarging U and forgetting supports commute with both maps.
 
 **Checks and worked examples.**
 
-- **empty**: For U empty, ω⁺_(U,X)=0.
-- **standard_log_point**: For the standard log point, Ξ⁰ is generated by the class of dlog t and gives K₀ in degree zero, so the quotient by ordinary forms cannot be discarded.
-- **projection_column**: For a two-component fibre, the map on the first spectral-sequence page retains j=0 terms only; retaining every j fails the defining column projection.
+- **empty** (degenerate): For U empty, ω⁺_(U,X)=0.
+- **standard_log_point** (computation): For the standard log point, Ξ⁰ is generated by the class of dlog t and gives K₀ in degree zero, so the quotient by ordinary forms cannot be discarded.
+- **projection_column** (characterisation): For a two-component fibre, the map on the first spectral-sequence page retains j=0 terms only; retaining every j fails the defining column projection.
 
 **Acceptance.**
 
@@ -682,22 +688,22 @@ For a smooth framed Y and closed Z⊆Y, compatible dagger tube realizations iden
 
 **Target:** `logDaggerComparison`. **Node:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/log-dagger-comparison`.
 
-For an admissible log embedding system as above whose terms have compatible proper formal frames and coherent log-form extensions to their closure tubes, also allowing a coherent integrable log coefficient with the same termwise extension property, termwise dagger realization of the relative and absolute log complexes is canonically equivalent to their j† log-form realization. With the supported ambient dagger carrier and its comparison, it also identifies the proper-support log complexes ω_(U,X) and tildeω_(U,X), preserving their wedge-dlog t triangle, N and the forget-supports maps. Applying this target to the HLTT ordinary locus requires an explicit identification of HLTT’s dagger log complex with these admissible-model complexes; that identification and the supported extension remain gap G2.
+Fix an admissible log embedding system with compatible proper formal frames, partially proper dagger closure tubes, and coherent extensions of every log-form term (and, if used, its coherent integrable log coefficient). Derived cohomology of the dagger log-form realization agrees termwise, and after bounded totalization, with the overconvergent j† log-form realization on the closure tubes. This is an ordinary overconvergent comparison. A comparison to the completed DL complexes ω_(U,X), tildeω_(U,X) is conditional on a separate support-preserving dagger-to-convergent adapter for the specified pair and coefficient, compatible with refinements, the signed log triangle and N. For proper X with constant coefficients the unsupported adapter is the proper log rigid/convergent comparison; nonproper boundary and arbitrary log coefficients are not covered by it. The supported adapter and the identification of the HLTT ordinary-locus log complex remain G2.
 
 **Hypotheses and conventions.**
 
-- The formal log model and strict-neighbourhood extension of its log forms are required data.
+- The proper formal frames, partially proper dagger closure tubes and coherent strict-neighbourhood extensions of the log terms are required data. No termwise sheaf equivalence with completed log forms on an arbitrary nonproper chart is asserted.
 - Only the fixed-model comparison is asserted; no independence of the proper compactification of log pair cohomology is added.
 - No weight or finite-slope finiteness conclusion is supplied by this comparison; those import RD.5 and RD.6.
-- For coefficients, tensor the relative/absolute log form complexes with the fixed coherent log connection and require every term to extend coherently to the closure tube. Independence of that coefficient log model is not assumed from the constant-coefficient DL construction.
+- A coherent log connection may be used in the ordinary j† comparison only if every term extends coherently to its dagger closure tube. Its comparison with the completed DL support realization requires the additional coefficient-specific adapter in G2; GK05 Theorem 5.3(ii) here is used only for proper semistable constant coefficients, not for this general log connection.
 
 **Construction or proof.**
 
-1. Log differentials on the smooth log embedding system are coherent. Apply Theorem 5.1(a) to each coherent sheaf and differential, and take bounded totalizations and hypercover descent. Restriction of the log connection and wedge-dlog t commute with the comparison of its coherent terms, giving a comparison of K₀-sheaf complexes even though the de Rham differential is not O-linear.
-2. Wedge dlog t is natural in these maps, so the relative/absolute triangles and their connecting N agree.
-3. For supports use the ambient dagger-support comparison before specialization. Verify the HLTT horizontal boundary and semistable log structures give the required admissible realization; both obligations are retained in G2.
+1. Apply GK00 Theorem 5.1(a) to coherent log terms on the specified dagger closure tubes. Use its compatible finite Čech/radius realization and natural restriction of the log differential to compare derived cohomology of the bounded complexes. This uses maps of K₀-complexes; the differential is not O-linear. Comparison of completed DL forms is not a consequence of this step.
+2. The signed θ-wedge injection and quotient maps are natural for this ordinary comparison. For proper semistable X with constant coefficients, separately compare dagger and completed realizations by the residue filtration and proper cohomology of each component intersection, using proper-log-rigid-convergent-comparison.
+3. For a supported pair, prove both the ambient dagger/Berthelot support comparison and its compatibility with the completed log-convergent realization, keeping the nonproper boundary convergent. Verify the HLTT log model, horizontal boundary and coefficient extension against these precise complexes. These support/completion/consumer identifications are G2; they are not inferred from the termwise j† comparison.
 
-**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/dagger-berthelot-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/dagger-supported-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/supported-log-de-rham-complexes`, `CrystallineCohomology:CR.5/log-differentials`.
+**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/dagger-berthelot-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/dagger-supported-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/supported-log-de-rham-complexes`, `CrystallineCohomology:CR.5/log-differentials`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/proper-log-rigid-convergent-comparison`.
 
 **Acceptance.**
 
@@ -705,7 +711,7 @@ For an admissible log embedding system as above whose terms have compatible prop
 - For the standard log point the absolute dlog t class and zero relative monodromy are respected.
 - For a nonproper open the chosen log compactification remains visible.
 
-**Sources:** [GK00] Theorem 5.1(a)–(b), pp. 23–24. The coherent-sheaf comparison can be applied termwise to coherent log forms; the source does not state a general log compact-support theorem.; [DL] Appendix B.2, (B.1)–(B.3), pp. 115–117. The log support realization and its relative/absolute triangle specify the comparison target.
+**Sources:** [GK00] Theorem 5.1(a)–(b), pp. 23–24. Provides coherent dagger versus overconvergent j† cohomology on the specified proper formal model. Applying it to coherent log terms does not identify completed log-convergent forms on nonproper charts.; [DL] Appendix B.2, (B.1)–(B.3), pp. 115–117. The log support realization and its relative/absolute triangle specify the comparison target.; [GK05] Theorem 5.3(ii) and proof, pp. 28–29. For proper semistable schemes the constant/locally constant log rigid and convergent realizations agree via their proper component intersections; the constant specialization supplies the separate unsupported completed adapter here.
 
 ### 18. Specialization and cospecialization of de Rham cohomology
 
@@ -742,10 +748,10 @@ Let X be smooth of pure dimension over a complete mixed-characteristic DVR R and
 
 **Checks and worked examples.**
 
-- **proper_point**: For X=Spec R and the trivial connection both maps are the identity on K in degree zero.
-- **affine_line**: For X=A¹_R, ordinary H⁰ and compact H² are distinct; a purported single ordinary-to-compact specialization map has the wrong degrees.
-- **pro_connection**: For M=O on a line compactified by P¹, d(I^n) is contained in I^(n−1)Ω; the definition must accept a pro-connection rather than require d to preserve each boundary-ideal power.
-- **zero_coefficient**: M=0 gives zero complexes and zero maps in both directions.
+- **proper_point** (computation): For X=Spec R and the trivial connection both maps are the identity on K in degree zero.
+- **affine_line** (computation): For X=A¹_R and M=O, ordinary algebraic and rigid H⁰ are K and ρ⁰ sends 1 to 1. Both compact H⁰ groups vanish and both compact H² groups are one-dimensional K. These types prohibit replacing ρ by a map from rigid H⁰ to algebraic compact H⁰.
+- **pro_connection** (characterisation): For M=O on a line compactified by P¹, d(I^n) is contained in I^(n−1)Ω; the definition must accept a pro-connection rather than require d to preserve each boundary-ideal power.
+- **zero_coefficient** (degenerate): M=0 gives zero complexes and zero maps in both directions.
 
 **Acceptance.**
 
@@ -815,10 +821,10 @@ For finite tame level K^p, n≥0 and k≥0, take Pan’s overconvergent modular-
 
 **Checks and worked examples.**
 
-- **zero_operator**: For supplied θ=0, the quotient is canonically the full target space.
-- **surjective_operator**: For supplied surjective θ, the quotient is zero; replacing the cokernel by ker θ fails.
-- **image_relation**: For any source form f, the class of θ(f) is zero, agreeing with Mathlib’s quotient by LinearMap.range.
-- **level_limit**: A filtered system of finite-dimensional quotient spaces can have infinite-dimensional limit, e.g. C^n with standard inclusions; no infinite-level finite-dimensional assertion follows.
+- **zero_operator** (degenerate): For supplied θ=0, the quotient is canonically the full target space.
+- **surjective_operator** (degenerate): For supplied surjective θ, the quotient is zero; replacing the cokernel by ker θ fails.
+- **image_relation** (compatibility): For any source form f, the class of θ(f) is zero, agreeing with Mathlib’s quotient by LinearMap.range.
+- **level_limit** (non-example): A filtered system of finite-dimensional quotient spaces can have infinite-dimensional limit, e.g. C^n with standard inclusions; no infinite-level finite-dimensional assertion follows.
 
 **Acceptance.**
 
@@ -836,6 +842,7 @@ Let X be smooth separated of finite type over perfect k, with dim X≤d, Z⊆X c
 
 - K is the complete mixed-characteristic discrete-valuation coefficient field. Codimension is measured componentwise; the empty support has zero groups in every degree.
 - This is an amplitude theorem, not finite-dimensionality. It is located in RD.4 because the supported log comparison needs it before RD.5.
+- Use the no-F coefficient refinements of the imported support/localization, MW and finite scalar-extension contracts in this packet; do not obtain arbitrary E∈Isoc† merely by forgetting Frobenius on an F-isocrystal.
 
 **Construction or proof.**
 
@@ -843,7 +850,7 @@ Let X be smooth separated of finite type over perfect k, with dim X≤d, Z⊆X c
 2. For a smooth support apply the general Gysin comparison: the lower bound follows from the shift 2e, and the upper bound follows inductively from the smaller-dimensional support. Its general gluing obligation is the inherited G1.
 3. For codimension zero, remove an affine open meeting every component and use localization; the complement has positive codimension, where the supported bound has already been proved. On the affine open a smooth weak lift and coherent j† acyclicity reduce ordinary cohomology to a form complex of length at most d. This proves the ambient bound; decompose connected components if their dimensions differ. Finite scalar extension preserves the induction comparisons.
 
-**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/general-rigid-gysin`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/finite-flat-base-change`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/monsky-washnitzer-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`.
+**Direct prerequisites:** `PadicDifferentialEquationsAndRigidCohomology:RD.4/general-rigid-gysin`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/finite-flat-base-change`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/monsky-washnitzer-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.4/etale-proper-de-rham-descent`, `PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-isocrystal`.
 
 **Acceptance.**
 
@@ -908,13 +915,14 @@ For a fine κ°-log scheme X admitting a Zariski open cover with exact closed em
 - `LogRigidRealization.pullback` (functoriality): A morphism of admissible log schemes and the induced pullback of E give the contravariant realization map, with identities and composition.
 - `LogRigidRealization.toConvergent` (compatibility): Completing the weak formal embeddings gives a natural map from log rigid to log convergent cohomology.
 - `LogRigidRealization.smoothAgreement` (compatibility): For a smooth scheme with log structure pulled back from the standard base, the relative log form complex is the ordinary form complex, and the realization agrees with the inherited ordinary rigid/coefficient realization whenever those coefficient classes coincide.
+- `LogRigidRealization.coefficientMap` (functoriality): A map of finite-rank Zariski locally constant K₀-sheaves induces a map on both realizations, commuting with refinement, pullback and the completion map.
 
 **Checks and worked examples.**
 
-- **standard_log_point**: For the standard log point and constant coefficient K₀, relative H⁰=K₀ and H^q=0 for q≠0.
-- **two_points**: For two disjoint standard log points with constant coefficient, H⁰=K₀², not a single K₀.
-- **duplicate_cover**: Covering the standard log point by two copies of itself still gives H⁰=K₀; the cover totalization removes duplicate sections, unlike a direct sum of chart cohomology.
-- **smooth_projective_line**: For P¹ with the log structure pulled back from κ°, the constant realization has H⁰=K₀, H²=K₀(−1), and H¹=0, agreeing with ordinary rigid cohomology.
+- **standard_log_point** (computation): For the standard log point and constant coefficient K₀, relative H⁰=K₀ and H^q=0 for q≠0.
+- **two_points** (computation): For two disjoint standard log points with constant coefficient, H⁰=K₀², not a single K₀.
+- **duplicate_cover** (compatibility): Covering the standard log point by two copies of itself still gives H⁰=K₀; the cover totalization removes duplicate sections, unlike a direct sum of chart cohomology.
+- **smooth_projective_line** (computation): For P¹ with the log structure pulled back from κ°, the constant realization has H⁰=K₀, H²=K₀(−1), and H¹=0, agreeing with ordinary rigid cohomology.
 
 **Acceptance.**
 
@@ -943,23 +951,23 @@ F1 continues to own the dagger spaces, differential and ambient support/localiza
 
 ## Mathematical obligations for closure
 
-- **G1 — Global support comparison and unrestricted Gysin proof**: Obtain and read Tsuzuki, Hiroshima Math. J. 29 (1999), 479–527, Theorem 4.1.1 and Corollaries 2.6.5–2.6.6, plus a full support-independence proof behind Berthelot 1986 Théorème 4. The publisher returned a bot-protection page; no 1999 proof was read. Supply the normal-coordinate residue-change compatibility needed to descend the local Gysin maps, and the support-preserving proper/finite-étale comparison. The 2003 primary statement witness fixes the unrestricted target and base-change compatibility but does not fill these proofs.
-- **G2 — Global compact and log dagger comparison for the ordinary-locus consumer**: Prove that the F1 larger-radius ambient dagger support complex agrees with Berthelot compact support under radius changes and proper frame changes, then extend the coherent Theorem 5.1 comparison to the admissible supported log realization. Identify the exact HLTT ordinary-locus dagger log complex and horizontal boundary with that admissible model. Grosse-Klönne 2000 §5.2 announces compact support, while Theorem 5.1 itself is ordinary and contains no blanket log-support statement; its citation alone cannot close this obligation.
+- **G1 — Global support comparison and unrestricted Gysin proof**: Obtain and read Tsuzuki, Hiroshima Math. J. 29 (1999), 479–527, Theorem 4.1.1 and Corollaries 2.6.5–2.6.6, plus a full support-independence proof behind Berthelot 1986 Théorème 4. The publisher returned a bot-protection page; no 1999 proof was read. Supply the normal-coordinate residue-change compatibility needed to descend the local Gysin maps, and the support-preserving proper/finite-étale comparison. The 2003 primary statement witness fixes the unrestricted target and base-change compatibility but does not fill these proofs. The local residue calculation and its gluing must cover E∈Isoc† without Frobenius, since the inherited liftable Gysin target is F-only. Verify compact-support finite scalar extension for these coefficients; CT03 Corollary 11.8.2 supplies only the ordinary comparison.
+- **G2 — Global compact and log dagger comparison for the ordinary-locus consumer**: Compare the F1 larger-radius ambient dagger support complex with Berthelot compact support under radius and proper-frame changes. Separately construct the supported dagger-to-completed-log-convergent adapter for the admissible DL pair, with its chosen coefficient, preserving the signed relative/absolute triangle, N, refinement and support maps. GK00 Theorem 5.1 gives dagger versus overconvergent j† cohomology; it does not identify completed log forms on nonproper charts. GK05 Theorem 5.3(ii) supplies the unsupported proper semistable constant-coefficient comparison, not a blanket nonproper-boundary or general-log-connection theorem. Identify the exact HLTT ordinary-locus log model, horizontal boundary and coefficient with this pair-specific adapter before exporting it to AG2.4. GK00 §5.2 only announces compact support; neither citation alone closes these obligations.
 - **G3 — Geometric realization of the Igusa theta quotient**: Read Coleman 1996 §8 and Coleman 1997 Theorem 2.1 with the Igusa-level log coefficient model used by Pan v1 Proposition 5.1.7. Construct or import the finite-level geometric spaces, determinant line and theta resolution from their curve/modular-form owners, identifying their complex with log rigid Sym^k cohomology after extension to C. Check coefficient extension and finite-level finiteness hypotheses. Pan’s quotient definition was read; his cited geometric proof was not. No upward-tier geometric prerequisite is silently inserted into RD.4.
 
 The planning pass represents every remaining RD.4 target, but these three obligations and the supplier contracts below prevent stage closure.
 
 ## Supplier contracts
 
-- **`PadicDifferentialEquationsAndRigidCohomology:RD.3`**: Refine the inherited strong-fibration and affine coefficient-equivalence targets to the exact conormal-coordinate/cofinal-radius hypotheses and invertible horizontal-Frobenius Taylor-convergence proof from Berthelot I 1.3.7–1.3.8 and II 2.5.7–2.5.8. RD.4 imports these nodes and does not duplicate them. Required by `relative-overconvergent-poincare`.
-- **`CrystallineCohomology:CR.5`**: Extend the existing CR.5/log-exactification, log-de-rham and semistable-residues interfaces to the weak-formal W[t] admissible systems used by GK05 and Disegni–Liu: exactifications of embedding-product diagonals, strict/smooth local projection charts, and the exterior SNC residue isomorphism with incidence signs. Existing algebraic exactification and absolute component residues are imported by node id. Analytic open-polydisc Poincaré, common-refinement independence of tube realizations and proper log rigid/convergent comparison are RD.4 targets; the PD Poincaré lemma is not used as an analytic substitute. Required by `supported-log-de-rham-complexes`, `log-residue-double-complex`, `log-rigid-proper-support-cohomology`, `log-rigid-realization`.
+- **`PadicDifferentialEquationsAndRigidCohomology:RD.3`**: Refine the inherited strong-fibration and affine coefficient-equivalence targets to the exact conormal-coordinate/cofinal-radius hypotheses and invertible horizontal-Frobenius Taylor-convergence proof from Berthelot I 1.3.7–1.3.8 and II 2.5.7–2.5.8. RD.4 imports these nodes and does not duplicate them. Also export the no-F affine realization of E∈Isoc† as a finite projective A†_K-module with integrable connection AND Taylor convergence on a strict diagonal neighbourhood (BI Proposition 2.5.2(ii), global pp. 82–83), with lifted pullback from Corollary 2.5.6, p. 86. The existing RD.3 overconvergent-isocrystal owns this class; the Frobenius theorem supplies automatic convergence only when its invertible horizontal Frobenius hypotheses hold. Required by `relative-overconvergent-poincare`, `coefficient-long-exact-sequence`, `general-rigid-gysin`, `rigid-support-cohomological-bounds`.
+- **`CrystallineCohomology:CR.5`**: Extend the existing CR.5/log-exactification, log-de-rham and semistable-residues interfaces to the weak-formal W[t] admissible systems used by GK05 and Disegni–Liu: exactifications of embedding-product diagonals, strict/smooth local projection charts, and the exterior SNC residue isomorphism with incidence signs. Existing algebraic exactification and absolute component residues are imported by node id. Analytic open-polydisc Poincaré, common-refinement independence of tube realizations and proper log rigid/convergent comparison are RD.4 targets; the PD Poincaré lemma is not used as an analytic substitute. For admissibility, retain flatness and generic smoothness over W[t], smoothness over W, the special-base identity, and the induced higher embedding levels of DL B.1/GK05 §5.2; do not require the entire generic fibre to be smooth. This algebraic/formal supplier must not depend on the RD.4 analytic cohomology it is used to construct. Required by `supported-log-de-rham-complexes`, `log-residue-double-complex`, `log-rigid-proper-support-cohomology`, `log-rigid-realization`.
 - **`AdicEtaleGeometry:A1`**: Provide the Berkovich tube quasi-étale specialization map to the formal-completion étale site and formal/special étale equivalence, including closed-stratum restriction, as the analytic-site interface used by Disegni–Liu B.1. This extends that roadmap’s A1 site interfaces; it is not an equivalence of tube sheaves with special-fibre sheaves. Required by `quasi-etale-specialization`.
 - **`EnhancedDerivedSheaves:E1`**: Import derived pushforward, support-kernel triangles and adjunction transformations for bounded-below module-sheaf complexes on these sites, including naturality of connecting maps. Required by `quasi-etale-specialization`, `tube-proper-support-functor`, `algebraic-rigid-specialization-maps`.
 - **`EnhancedDerivedSheaves:E2`**: Import hypercover descent and compatible derived pushforwards for coherent/log coefficient realizations; analytic and log comparison theorems themselves remain in RD.4/CR.5. Also supply the bounded-below derived inverse limits of boundary-ideal pro-de Rham complexes, cofinal invariance and compatibility with proper global sections used by Xu–Zhu. This is an inverse-limit construction, not adic module completion. Required by `etale-proper-de-rham-descent`, `supported-log-de-rham-complexes`, `algebraic-rigid-specialization-maps`, `log-rigid-realization`.
 - **`EnhancedDerivedSheaves:E3`**: Import injective resolutions of diagrams, homotopy-independent totalizations, bounded filtered-complex spectral sequences and exact filtered colimits of vector spaces. These are homological foundations, not new rigid coefficient definitions. Required by `relative-overconvergent-poincare`, `etale-proper-de-rham-descent`, `log-residue-double-complex`, `igusa-theta-cokernel`.
 - **`SchemeAndStackFoundations:SF.4`**: Supply the proper projective refinements of compactifications used in the Chow-lemma step of CT03 §6.4/§8.3, the smooth affine weak lifts from Elkik used by the MW comparison, and smooth closed-pair local-coordinate lift data for the Gysin reduction. Keep these model/lifting results in the birational/formal geometry owner; their rigid comparisons belong to RD.4. Required by `relative-overconvergent-poincare`, `etale-proper-de-rham-descent`, `general-rigid-gysin`, `log-rigid-realization`.
 - **`AdicSpacesPartII:R3`**: Supply proper rigid coherent GAGA for analytification of the boundary-ideal pro-complex and its coherent terms, and the admissible-cover/tube support comparisons in Xu–Zhu §§2.2.3–2.2.4. This is a requested extension in that roadmap’s analytic direction. Required by `algebraic-rigid-specialization-maps`.
-- **`AdicSpacesPartII:F1`**: Keep ownership of dagger spaces/forms and their larger-radius ambient support/localization carrier complexes. Supply the exact compact-support carrier of GK00 §4.8 with radius-change maps. The comparisons with Berthelot rigid and log proper-support cohomology belong to RD.4; do not duplicate them in F1. Required by `dagger-supported-comparison`.
+- **`AdicSpacesPartII:F1`**: Keep ownership of dagger spaces/forms and their larger-radius ambient support/localization carrier complexes. Supply the exact compact-support carrier of GK00 §4.8 with radius-change maps. The comparisons with Berthelot rigid and log proper-support cohomology belong to RD.4; do not duplicate them in F1. For the fixed-model log comparison, supply the partially proper dagger closure tube and coherent log-form/coefficient extensions on it; a comparison between an arbitrary dagger chart and its ordinary completion is not sufficient. Required by `dagger-supported-comparison`, `log-dagger-comparison`.
 
 ## Baseline and prototype
 
@@ -980,9 +988,9 @@ The [suggested file](../suggested/PadicDifferentialEquationsAndRigidCohomology--
 
 Locators use printed pages for CT03, B86 and T03; global author-copy pages for BI and B97; PDF pages for GK00, GK05, DL, XZ and Pan. Each statement and proof route above is written for its target, in original prose. The read sections below identify the actual source inspection rather than assert that every surrounding section was read.
 
-- **[CT03]** Bruno Chiarellotto and Nobuo Tsuzuki, [Cohomological descent of rigid cohomology for étale coverings](https://www.numdam.org/item/RSMUP_2003__109__63_0.pdf). Rend. Sem. Mat. Univ. Padova 109 (2003), 63–215, published PDF. Read 2026-10-14: §2.6 and Proposition 2.7.2, pp. 76–81; §4.2, pp. 112–115; §6.4, pp. 136–139; §§7.3–7.4, pp. 148–152; §8.3, pp. 156–162; proof passages in §§8.4–8.7, pp. 162–168; Theorem 9.1.1 and Corollary 9.1.2, p. 168; Propositions 10.5.1–10.5.3, pp. 185–188; Theorem 11.8.1 and Corollary 11.8.2, pp. 210–213; §12, pp. 213–215. SHA256 `f332fdec43e968bf5501e2442744eac35678c0bf19515724c084580c65aed271`.
+- **[CT03]** Bruno Chiarellotto and Nobuo Tsuzuki, [Cohomological descent of rigid cohomology for étale coverings](https://www.numdam.org/item/RSMUP_2003__109__63_0.pdf). Rend. Sem. Mat. Univ. Padova 109 (2003), 63–215, published PDF. Read 2026-10-14: §2.6 and Proposition 2.7.2, pp. 76–81; §4.2, pp. 112–115; §6.4, pp. 136–139; §§7.3–7.4, pp. 148–152; §8.3, pp. 156–162; proof passages in §§8.4–8.7, pp. 162–168; Theorem 9.1.1 and Corollary 9.1.2, p. 168; Propositions 10.5.1–10.5.3, pp. 185–188; Theorem 11.8.1 and Corollary 11.8.2, pp. 210–213; §12, pp. 213–215; Remark 11.7.2, p. 210, on the corrected splitness assumption. SHA256 `f332fdec43e968bf5501e2442744eac35678c0bf19515724c084580c65aed271`.
 - **[B86]** Pierre Berthelot, [Géométrie rigide et cohomologie des variétés algébriques de caractéristique p](https://www.numdam.org/article/MSMF_1986_2_23__R3_0.pdf). Mém. Soc. Math. France 23 (1986), 7–32, published PDF. Read 2026-10-14: Théorème 4, p. 23, and its compact-support setup; theorem announcement, not a full proof. SHA256 `dcbbfffefeb2b80a13de43c6d98ff3778792ea193839ba476c09517c4f827ad3`.
-- **[BI]** Pierre Berthelot, [Cohomologie rigide et cohomologie rigide à supports propres, première partie](https://wstein.org/people/berthelo/publis/Cohomologie_Rigide_I.pdf). Author prepublication IRMAR 96-03, January 1996; global PDF pagination used alongside chapter pagination. Read 2026-10-14: Théorème 1.3.7 and Remarque 1.3.8, global pp. 44–45 (chapter I, pp. 20–21); Théorème 2.5.7 and its proof, global pp. 86–89 (chapter II, pp. 40–43); §2.5.8, p. 89. SHA256 `0630136eca195bed8208783d4931540220342fb95c883159f4fe3ec6bc8e0907`.
+- **[BI]** Pierre Berthelot, [Cohomologie rigide et cohomologie rigide à supports propres, première partie](https://wstein.org/people/berthelo/publis/Cohomologie_Rigide_I.pdf). Author prepublication IRMAR 96-03, January 1996; global PDF pagination used alongside chapter pagination. Read 2026-10-14: Théorème 1.3.7 and Remarque 1.3.8, global pp. 44–45 (chapter I, pp. 20–21); Théorème 2.5.7 and its proof, global pp. 86–89 (chapter II, pp. 40–43); §2.5.8, p. 89; Proposition 2.5.2(ii) and proof, global pp. 82–83 (II, pp. 36–37), and Lemmas 2.5.3–2.5.4, Proposition 2.5.5 and Corollary 2.5.6, global pp. 83–86 (II, pp. 37–40). SHA256 `0630136eca195bed8208783d4931540220342fb95c883159f4fe3ec6bc8e0907`.
 - **[B97]** Pierre Berthelot, [Finitude et pureté cohomologique en cohomologie rigide](https://wstein.org/people/berthelo/publis/Finitude.pdf). Author copy of Invent. Math. 128 (1997), 329–377; locators use author-copy page numbers. Read 2026-10-14: Proposition 1.8, pp. 12–13; Proposition 1.10, pp. 15–16; §§2.1–2.5, pp. 16–19, including proof of support localization; §1.2, pp. 6–7, support kernel exactness and its restriction sequence. SHA256 `0d08a9650307fa9e750b22d3bd70302ca2f776a5a718fc04939d24b81eb2a0be`.
 - **[T03]** Nobuo Tsuzuki, [On base change theorem and coherence in rigid cohomology](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-kato/tsuzuki.dm.pdf). Documenta Math., Extra Volume Kato (2003), 891–918, published PDF. Read 2026-10-14: §2.2, p. 895; Lemma 4.1.2 and proof, p. 908, as a primary statement witness for general Gysin; not the 1999 Gysin proof. SHA256 `e8ff85920449765c45ddf3f10e8d644b8e422771e9757e02f4d3c90ed1617cde`.
 - **[GK00]** Elmar Grosse-Klönne, [Rigid analytic spaces with overconvergent structure sheaf](https://arxiv.org/pdf/1408.3329v1). arXiv:1408.3329v1, 2014 author version of J. reine angew. Math. 519 (2000), 73–95, with corrected Lemma 4.7. Read 2026-10-14: §§4.7–4.8, pp. 21–22; Theorem 5.1 and proof, pp. 23–24; §5.2, p. 24. SHA256 `f75311cc7638b225ec79a528d59abdc71f3cf7e3270ff081287c328d60cb071b`.
@@ -990,3 +998,15 @@ Locators use printed pages for CT03, B86 and T03; global author-copy pages for B
 - **[XZ]** Daxin Xu and Xinwen Zhu, [Bessel F-isocrystals for reductive groups](https://arxiv.org/pdf/1910.13391). arXiv:1910.13391 downloaded 2026-10-14; exact bytes identified by SHA256. Read 2026-10-14: §2.2, pp. 11–13, including construction of the two maps and proof of Proposition 2.2.5. SHA256 `b8d153ef1822a20e8179005d4775e43fc3af7430d840d2b077b45cb8583667cd`.
 - **[Pan]** Lue Pan, [On locally analytic vectors of the completed cohomology of modular curves II](https://arxiv.org/pdf/2209.06366v1). arXiv:2209.06366v1, 14 September 2022. Read 2026-10-14: §§5.1.3–5.1.8, pp. 53–54, including Definition 5.1.6 and Proposition 5.1.7. SHA256 `0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4`.
 - **[GK05]** Elmar Grosse-Klönne, [Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1). arXiv:1408.3346v1, 2014 author version of J. Algebraic Geom. 14 (2005), 391–437; read in the cleared library. Read 2026-10-14: Lemma 1.4 and §1.5, pp. 8–9, including the realization and independence proof; §§5.1–5.2, pp. 26–28, admissible weak lifts and the residue double complex; Theorem 5.3(ii) and proof, pp. 28–29; §5.4, p. 29, connecting monodromy; Proposition 5.5 statement and proof, p. 29. SHA256 `84d6c4b36a3e1908f989ac1a139fb28055f6e7ab51384c26a48cd517f87e0713`.
+
+## Source corrections checked by the independent reviewer
+
+- **PadicDifferentialEquationsAndRigidCohomology/E1** — [GK00] arXiv:1408.3329v1, Lemma 4.7 and its author footnote, p. 21; the footnote reports an omission in the 2000 publication, whose text was not independently read here. The author reports that the published strictness/closed-image lemma omitted the assumptions that the coefficient field is discretely valued and has characteristic zero. Use the corrected author-version lemma with both hypotheses. Theorem 5.1 in this packet already assumes a complete mixed-characteristic DVR. The author footnote explicitly restores the hypotheses to make the finiteness input available. This records a known repair to the proof assumptions, without alleging a new counterexample or independently collating the publisher text. Status: Corrected in arXiv:1408.3329v1, Lemma 4.7 and footnote, p. 21; affects the proof. Independently confirmed in this review.
+- **PadicDifferentialEquationsAndRigidCohomology/E2** — [GK05] arXiv:1408.3346v1, §5.2, unnumbered alternating intersection complex following equation (2), p. 28; finding scoped to this author version. The first and second intersection sums are both indexed by Θ_(1,G). The second sum is indexed by Θ_(2,G); later terms use successively higher intersection orders. Equation (2) identifies Gr_j with j-fold intersections. Thus the Gr_2 term is indexed by Θ_(2,G). For two transverse components the first sum has the two components and the next sum their single intersection; repeating the component sum cannot be the displayed residue exact sequence. Status: new; affects nothing. Independently confirmed in this review.
+- **PadicDifferentialEquationsAndRigidCohomology/E3** — [CT03] Published PDF, Remark 11.7.2 and Proposition 11.7.3, p. 210; report concerns the first version, not the corrected published theorem. Remark 11.7.2 reports that an earlier statement of Theorem 11.7.1 omitted splitness of the étale hypercover used in its simplicial compactification proof. Require a split hypercover in that compactification construction, or use the separate proof for a general hypercover. Theorem 9.1.1, used by this packet for an already supplied étale-proper frame hypercover, is unchanged. The corrected remark and Proposition 11.7.3 explicitly require splitness to construct the simplicial proper completion. The remark also explains that descent itself has another proof without splitness; the omission concerns this proof route. Status: Corrected in the published Remark 11.7.2 and Proposition 11.7.3, p. 210; affects the proof. Independently confirmed in this review.
+
+For GK05 the AMS version-of-record PDF could not be read (HTTP 403). Its arXiv history lists only v1; the author page was also inaccessible and indexed correction searches found none. The new misprint is attributed only to the author version identified above. The two known correction notices report earlier omissions; their older texts were not independently collated.
+
+## Independent review
+
+Accepted as a complete planning pass on 2026-10-14 by `independent-review-REV-PadicDifferentialEquationsAndRigidCohomology--RD.4`. All 23 target nodes and six pinned declarations were checked. The corrected packet has 44 API items, 34 tests and three new planet candidates, with no new duplicate node. G1–G3 and the nine supplier requests remain explicit obligations before closure; the six-planet assembly proposal is unchanged. See [the review report](../reviews/REV-PadicDifferentialEquationsAndRigidCohomology--RD.4.md) for the individual verdicts, scope corrections and validation.
