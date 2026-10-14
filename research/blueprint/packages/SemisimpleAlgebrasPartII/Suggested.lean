@@ -1,398 +1,122 @@
-/-
-This file is not the roadmap and is not exhaustive. The README is definitive.
-The declarations suggest Lean forms so that contributors and reviewers converge
-on names and signatures. Proofs are admitted with `sorry`.
--/
+import Mathlib
 import TauCeti.Algebra.BrauerGroup.BaseChange
 import TauCeti.Algebra.BrauerGroup.Division
 import TauCeti.Algebra.BrauerGroup.Quaternion
-import Mathlib.Analysis.Complex.Polynomial.Basic
 import TauCeti.Algebra.CentralSimple.Index
-import TauCeti.Algebra.CentralSimple.FiniteSeparable
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.RingTheory.Morita.Matrix
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.Algebra.Azumaya.Matrix
-import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
-import Mathlib.Algebra.TrivSqZeroExt.Basic
-import Mathlib.Data.ZMod.Basic
-import Mathlib.FieldTheory.PurelyInseparable.Basic
-import TauCeti.FieldTheory.GaloisCohomology.Coefficients
-import TauCeti.RepresentationTheory.Homological.ContCohomology.Corestriction
 
-import Mathlib.LinearAlgebra.Matrix.Module
-import Mathlib.RingTheory.TensorProduct.Basic
-import Mathlib.LinearAlgebra.Dimension.Free
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.RingTheory.Finiteness.Basic
-import Mathlib.Algebra.Algebra.Tower
-import Mathlib.Algebra.Polynomial.Monic
-import Mathlib.Tactic.Ring
+/-!
+# SemisimpleAlgebrasPartII: representative target signatures
 
-set_option maxHeartbeats 800000
+The roadmap is README.md. This file records light definitions and theorem
+signatures statable against the pinned APIs and is not exhaustive. Brauer groups
+are multiplicative, splitting degrees include inseparable extensions, columns
+carry the restricted matrix action, and characteristic polynomials use T id - u.
+Geometric targets use the supplier contracts in the README.
+-/
+
 universe u
-namespace SemisimpleAlgebrasPartII
-open scoped TensorProduct Quaternion Matrix.Module
 
-noncomputable abbrev divisionColumnModule {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) : Module D (Fin n → L) :=
-  Module.compHom (Fin n → L) ρ.toRingHom
+namespace TauCetiRoadmap.SemisimpleAlgebrasPartII
 
-section FieldArithmetic
+open scoped Quaternion Matrix.Module
+
+/-! ## Layer 0: the index of a Brauer class -/
+
+section FieldIndex
 variable {K : Type u} [Field K]
 
-theorem indexBrauerCongr {A B : CSA.{u,u} K} (h : IsBrauerEquivalent A B) :
-    TauCeti.Algebra.index K A = TauCeti.Algebra.index K B := by
-  sorry
-
+/-- The algebra index evaluated on a chosen representative of the existing
+Brauer quotient. The representative formula expresses its choice independence. -/
 noncomputable def classIndex (α : BrauerGroup.{u,u} K) : ℕ :=
-  Quotient.lift (fun A : CSA.{u,u} K => TauCeti.Algebra.index K A)
-    (fun _ _ h => indexBrauerCongr h) α
+  let A : CSA.{u,u} K := Quotient.out α
+  TauCeti.Algebra.index K A
 
+/-- The class index agrees with the index of every central simple representative. -/
 theorem classIndex_mk (A : CSA.{u,u} K) :
     classIndex (TauCeti.BrauerGroup.mk A) = TauCeti.Algebra.index K A := by
   sorry
 
+/-- Every Brauer class has strictly positive index. -/
 theorem classIndex_pos (α : BrauerGroup.{u,u} K) : 0 < classIndex α := by
   sorry
 
-theorem classIndex_eq_one_iff (α : BrauerGroup.{u,u} K) : classIndex α = 1 ↔ α = 1 := by
+/-- Index one characterizes the trivial Brauer class. -/
+theorem classIndex_eq_one_iff (α : BrauerGroup.{u,u} K) :
+    classIndex α = 1 ↔ α = 1 := by
   sorry
 
--- matrix_identity
+/-- A positive matrix stabilization changes degree but has trivial class index. -/
 example (n : ℕ) [NeZero n] :
-    classIndex (TauCeti.BrauerGroup.mk (TauCeti.CSA.of K (Matrix (Fin n) (Fin n) K))) = 1 := by
-  sorry
--- finite_field
-example [Finite K] (α : BrauerGroup.{u,u} K) : classIndex α = 1 := by
-  sorry
--- division_representative
-example (D : Type u) [DivisionRing D] [Algebra K D] [Algebra.IsCentral K D]
-    [FiniteDimensional K D] :
-    classIndex (TauCeti.BrauerGroup.mk (TauCeti.CSA.of K D)) = TauCeti.Algebra.deg K D := by
-  sorry
--- zero_excluded
-example (α : BrauerGroup.{u,u} K) : classIndex α ≠ 0 := by
+    classIndex (TauCeti.BrauerGroup.mk
+      (TauCeti.CSA.of K (Matrix (Fin n) (Fin n) K))) = 1 := by
   sorry
 
--- hamilton_period_index: concrete nonsplit class, not an arbitrary representative.
+/-- The nonsplit Hamilton class has index and period two. -/
 example : classIndex (TauCeti.BrauerGroup.mk (TauCeti.CSA.of ℝ ℍ[ℝ])) = 2 ∧
     orderOf (TauCeti.BrauerGroup.mk (TauCeti.CSA.of ℝ ℍ[ℝ])) = 2 := by
   sorry
 
--- complexification_lowers_index: the finite quadratic extension strictly lowers index.
-example : classIndex (TauCeti.BrauerGroup.baseChange ℝ ℂ
-    (TauCeti.BrauerGroup.mk (TauCeti.CSA.of ℝ ℍ[ℝ]))) = 1 ∧
-    classIndex (TauCeti.BrauerGroup.mk (TauCeti.CSA.of ℝ ℍ[ℝ])) = 2 := by
-  sorry
-
-noncomputable def splittingDegrees (α : BrauerGroup.{u,u} K) : Set ℕ :=
+/-- Degrees of all finite field extensions splitting the class; separability
+is deliberately absent. -/
+def splittingDegrees (α : BrauerGroup.{u,u} K) : Set ℕ :=
   {d | ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
     FiniteDimensional K L ∧ Module.finrank K L = d ∧
       TauCeti.BrauerGroup.baseChange K L α = 1}
 
-theorem mem_splittingDegrees (α : BrauerGroup.{u,u} K) (d : ℕ) :
-    d ∈ splittingDegrees α ↔ ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
-      FiniteDimensional K L ∧ Module.finrank K L = d ∧
-        TauCeti.BrauerGroup.baseChange K L α = 1 := by
-  sorry
-
-theorem one_mem_splittingDegrees_iff (α : BrauerGroup.{u,u} K) :
-    1 ∈ splittingDegrees α ↔ α = 1 := by
-  sorry
-
-theorem splittingDegrees_nonempty (α : BrauerGroup.{u,u} K) :
-    (splittingDegrees α).Nonempty := by
-  sorry
-
-theorem splittingDegrees_positive (α : BrauerGroup.{u,u} K) {d : ℕ}
-    (h : d ∈ splittingDegrees α) : 0 < d := by
-  sorry
-
-theorem classIndex_mem_splittingDegrees (α : BrauerGroup.{u,u} K) :
-    classIndex α ∈ splittingDegrees α := by
-  sorry
-
--- identity_degree_one
+/-- The identity class has the ground field as a degree-one splitter. -/
 example : 1 ∈ splittingDegrees (1 : BrauerGroup.{u,u} K) := by
   sorry
--- zero_degree
+
+/-- No extension field has degree zero. -/
 example (α : BrauerGroup.{u,u} K) : 0 ∉ splittingDegrees α := by
   sorry
--- nontrivial_no_degree_one
-example (α : BrauerGroup.{u,u} K) (h : α ≠ 1) : 1 ∉ splittingDegrees α := by
-  sorry
--- quaternion_degree_two: the Hamilton division class is split over the quadratic extension ℂ/ℝ.
-example : 2 ∈ splittingDegrees
-    (TauCeti.BrauerGroup.mk (TauCeti.CSA.of ℝ ℍ[ℝ])) := by
-  sorry
 
--- The left D-action is genuine instance data, not a predicate asserting the target arithmetic.
-theorem divisionModuleDimension (D L : Type u) [DivisionRing D] [Field L]
-    [Algebra K D] [Algebra.IsCentral K D] [FiniteDimensional K D]
-    [Algebra K L] [FiniteDimensional K L]
-    (e : (L ⊗[K] D) ≃ₐ[L]
-      Matrix (Fin (TauCeti.Algebra.deg K D)) (Fin (TauCeti.Algebra.deg K D)) L) :
-    let ρ : D →ₐ[K]
-        Matrix (Fin (TauCeti.Algebra.deg K D)) (Fin (TauCeti.Algebra.deg K D)) L :=
-      (e.restrictScalars K).toAlgHom.comp Algebra.TensorProduct.includeRight
-    ∃ s : Module D (Fin (TauCeti.Algebra.deg K D) → L),
-      letI := s
-      s = divisionColumnModule (TauCeti.Algebra.deg K D) ρ ∧
-      IsScalarTower K D (Fin (TauCeti.Algebra.deg K D) → L) ∧
-      Module.Finite D (Fin (TauCeti.Algebra.deg K D) → L) ∧
-      Module.finrank K (Fin (TauCeti.Algebra.deg K D) → L) =
-        (TauCeti.Algebra.deg K D)^2 *
-          Module.finrank D (Fin (TauCeti.Algebra.deg K D) → L) := by
-  sorry
-
+/-- Every finite splitting degree is divisible by the class index, including inseparable degrees. -/
 theorem indexDividesSplittingDegree (L : Type u) [Field L] [Algebra K L]
     [FiniteDimensional K L] (α : BrauerGroup.{u,u} K)
     (h : TauCeti.BrauerGroup.baseChange K L α = 1) :
     classIndex α ∣ Module.finrank K L := by
   sorry
 
+/-- Every field extension lowers the class index by a divisor. -/
 theorem classIndex_baseChange_dvd (L : Type u) [Field L] [Algebra K L]
     (α : BrauerGroup.{u,u} K) :
     classIndex (TauCeti.BrauerGroup.baseChange K L α) ∣ classIndex α := by
   sorry
 
+/-- The reverse divisibility bound for every finite field extension. -/
 theorem indexDividesDegreeIndex (L : Type u) [Field L] [Algebra K L]
     [FiniteDimensional K L] (α : BrauerGroup.{u,u} K) :
     classIndex α ∣ Module.finrank K L *
       classIndex (TauCeti.BrauerGroup.baseChange K L α) := by
   sorry
 
+/-- The positive index is the attained least finite splitting degree. -/
 theorem minimumSplittingDegree (α : BrauerGroup.{u,u} K) :
     IsLeast (splittingDegrees α) (classIndex α) := by
   sorry
 
+/-- The index has the universal common-divisor property for all finite splitting degrees. -/
 theorem gcdSplittingDegrees (α : BrauerGroup.{u,u} K) (n : ℕ) :
     (∀ d ∈ splittingDegrees α, n ∣ d) ↔ n ∣ classIndex α := by
   sorry
 
+/-- Classes generating the same cyclic Brauer subgroup have equal indices. -/
 theorem sameCyclicIndex (α β : BrauerGroup.{u,u} K)
     (h : Subgroup.zpowers α = Subgroup.zpowers β) : classIndex α = classIndex β := by
   sorry
 
--- The field homomorphism uses the normalized full comparison described in SA.1.
--- Its cohomology equation uses the chosen closure and coefficient identifications.
-noncomputable def brauerCorestriction (K L : Type u) [Field K] [Field L]
-    [Algebra K L] [FiniteDimensional K L] [Algebra.IsSeparable K L] :
-    BrauerGroup.{u,u} L →* BrauerGroup.{u,u} K := by
-  sorry
+end FieldIndex
 
-theorem brauerCorestriction_res (L : Type u) [Field L] [Algebra K L]
-    [FiniteDimensional K L] [Algebra.IsSeparable K L] (α : BrauerGroup.{u,u} K) :
-    brauerCorestriction K L (TauCeti.BrauerGroup.baseChange K L α) =
-      α ^ Module.finrank K L := by
-  sorry
+section DivisionColumns
 
-theorem corestrictionRestrictionDegree (L : Type u) [Field L] [Algebra K L]
-    [FiniteDimensional K L] [Algebra.IsSeparable K L] (α : BrauerGroup.{u,u} K) :
-    brauerCorestriction K L (TauCeti.BrauerGroup.baseChange K L α) =
-      α ^ Module.finrank K L := by
-  sorry
-
-theorem brauerCorestriction_comp (L E : Type u) [Field L] [Field E]
-    [Algebra K L] [Algebra L E] [Algebra K E] [IsScalarTower K L E]
-    [FiniteDimensional K L] [FiniteDimensional L E] [FiniteDimensional K E]
-    [Algebra.IsSeparable K L] [Algebra.IsSeparable L E] [Algebra.IsSeparable K E] :
-    brauerCorestriction K E =
-      (brauerCorestriction K L).comp (brauerCorestriction L E) := by
-  sorry
-
-theorem brauerCorestriction_self :
-    brauerCorestriction K K = MonoidHom.id (BrauerGroup.{u,u} K) := by
-  sorry
-
--- identity_extension
-example (α : BrauerGroup.{u,u} K) : brauerCorestriction K K α = α := by
-  sorry
-
--- trivial_class
-example (L : Type u) [Field L] [Algebra K L] [FiniteDimensional K L]
-    [Algebra.IsSeparable K L] : brauerCorestriction K L 1 = 1 := by
-  sorry
-
--- quadratic_restriction
-example (L : Type u) [Field L] [Algebra K L] [FiniteDimensional K L]
-    [Algebra.IsSeparable K L] (hdeg : Module.finrank K L = 2)
-    (α : BrauerGroup.{u,u} K) :
-    brauerCorestriction K L (TauCeti.BrauerGroup.baseChange K L α) = α ^ 2 := by
-  sorry
-
--- inseparable_boundary
-example (L : Type u) [Field L] [Algebra K L] [FiniteDimensional K L]
-    [IsPurelyInseparable K L] (hdeg : 1 < Module.finrank K L) :
-    ¬ Algebra.IsSeparable K L := by
-  sorry
-
-theorem separableSplittingAnnihilates (L : Type u) [Field L] [Algebra K L]
-    [FiniteDimensional K L] [Algebra.IsSeparable K L]
-    (α : BrauerGroup.{u,u} K) (h : TauCeti.BrauerGroup.baseChange K L α = 1) :
-    α ^ Module.finrank K L = 1 := by
-  sorry
-
-theorem classPowerIndex (α : BrauerGroup.{u,u} K) : α ^ classIndex α = 1 := by
-  sorry
-
-theorem brauerFiniteOrder (α : BrauerGroup.{u,u} K) : IsOfFinOrder α := by
-  sorry
-
-theorem brauerOrder_pos (α : BrauerGroup.{u,u} K) : 0 < orderOf α := by
-  sorry
-
-theorem periodDividesIndex (α : BrauerGroup.{u,u} K) : orderOf α ∣ classIndex α := by
-  sorry
-
-theorem primeToPSplitting (α : BrauerGroup.{u,u} K) (p : ℕ)
-    (hp : p.Prime) (h : ¬p ∣ orderOf α) :
-    ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
-      FiniteDimensional K L ∧ Algebra.IsSeparable K L ∧
-      ¬p ∣ Module.finrank K L ∧ TauCeti.BrauerGroup.baseChange K L α = 1 := by
-  sorry
-
-theorem indexPrimeDividesPeriod (α : BrauerGroup.{u,u} K) (p : ℕ)
-    (hp : p.Prime) (h : p ∣ classIndex α) : p ∣ orderOf α := by
-  sorry
-
-theorem samePrimeDivisors (α : BrauerGroup.{u,u} K) (p : ℕ) (hp : p.Prime) :
-    p ∣ orderOf α ↔ p ∣ classIndex α := by
-  sorry
-
-end FieldArithmetic
-
-section UnitsTransfer
-variable (K L : Type u) [Field K] [Field L]
-    [Algebra K L] [FiniteDimensional K L] [Algebra.IsSeparable K L]
-    (U : Subgroup (TauCeti.AbsoluteGaloisGroup K)) [U.FiniteIndex]
-    (hU : IsOpen (U : Set (TauCeti.AbsoluteGaloisGroup K)))
-    (cK : Additive (BrauerGroup.{u,u} K) ≃+
-      TauCeti.ContCohomology.H2 (TauCeti.AbsoluteGaloisGroup K) (TauCeti.UnitsCoeff K))
-    (cLU : Additive (BrauerGroup.{u,u} L) ≃+
-      TauCeti.ContCohomology.H2 U (TauCeti.UnitsCoeff K))
-
-/-- Transport of the native degree-two transfer along specified full comparisons.
-The lower comparison already incorporates the closure and coefficient identification. -/
-noncomputable def transportedCorestriction :
-    BrauerGroup.{u,u} L →* BrauerGroup.{u,u} K where
-  toFun β := Additive.toMul (cK.symm
-    (TauCeti.ContCohomology.explicitCor2
-      (TauCeti.AbsoluteGaloisGroup K) (TauCeti.UnitsCoeff K) U hU
-        (cLU (Additive.ofMul β))))
-  map_one' := by sorry
-  map_mul' := by sorry
-
-theorem transportedCorestriction_cohomology (β : BrauerGroup.{u,u} L) :
-    cK (Additive.ofMul (transportedCorestriction K L U hU cK cLU β)) =
-      TauCeti.ContCohomology.explicitCor2
-        (TauCeti.AbsoluteGaloisGroup K) (TauCeti.UnitsCoeff K) U hU
-          (cLU (Additive.ofMul β)) := by
-  sorry
-
-theorem transportedCorestriction_res
-    (hindex : U.index = Module.finrank K L)
-    (hres : ∀ α : BrauerGroup.{u,u} K,
-      cLU (Additive.ofMul (TauCeti.BrauerGroup.baseChange K L α)) =
-        TauCeti.ContCohomology.explicitRes2
-          (TauCeti.AbsoluteGaloisGroup K) (TauCeti.UnitsCoeff K) U
-            (cK (Additive.ofMul α)))
-    (α : BrauerGroup.{u,u} K) :
-    transportedCorestriction K L U hU cK cLU
-      (TauCeti.BrauerGroup.baseChange K L α) = α ^ Module.finrank K L := by
-  sorry
-
-end UnitsTransfer
-
--- Affine annihilators and the nilpotent boundary (SA.2).
-variable {R : Type*} [CommRing R] {M : Type*} [AddCommGroup M] [Module R M]
-variable {ι : Type*} [Nonempty ι]
-theorem matrixSupport (I : Ideal R) :
-    I ≤ Module.annihilator R (ι → M) ↔ I ≤ Module.annihilator R M := by
-  sorry
-
-example (I : Ideal R) : I ≤ Module.annihilator R (Fin 2 → M) ↔
-    I ≤ Module.annihilator R M := by
-  sorry
-example : Module.annihilator R (Fin 0 → M) = ⊤ := by
-  sorry
-
-example (I : Ideal R) : I ≤ Module.annihilator R (Fin 1 → M) ↔
-    I ≤ Module.annihilator R M := by
-  sorry
-example : (TrivSqZeroExt.inr (1 : ZMod 2) : TrivSqZeroExt (ZMod 2) (ZMod 2)) ≠ 0 := by
-  sorry
-
-example : (TrivSqZeroExt.inr (1 : ZMod 2) : TrivSqZeroExt (ZMod 2) (ZMod 2)) ^ 2 = 0 := by
-  sorry
-
-theorem nilpotentSupportBoundary :
-    (2 : ZMod 4) ^ 2 = 0 ∧
-      ¬(2 : ZMod 4) ∈ Module.annihilator (ZMod 4) (ZMod 4) := by
-  sorry
-
--- Restricted matrix-column action and polynomial boundary (SA.0, SA.3).
-theorem divisionColumnAction {K D L : Type*} [Field K] [DivisionRing D]
+/-- The standard matrix column module restricted along the specified algebra map. -/
+noncomputable abbrev divisionColumnModule {K D L : Type*} [Field K] [DivisionRing D]
     [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) (a : D) (v : Fin n → L) (i : Fin n) :
-    letI := divisionColumnModule n ρ
-    (a • v) i = ∑ j, ρ a i j * v j := by
-  rfl
+    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) : Module D (Fin n → L) :=
+  Module.compHom (Fin n → L) ρ.toRingHom
 
-theorem divisionColumnTower {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) :
-    let := divisionColumnModule n ρ
-    IsScalarTower K D (Fin n → L) := by
-  sorry
-
-theorem divisionColumnFinite {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] [Module.Finite K L] (n : ℕ)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) :
-    let := divisionColumnModule n ρ
-    Module.Finite D (Fin n → L) := by
-  sorry
-
-theorem divisionColumnDimension {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] [Module.Finite K D] [Module.Finite K L]
-    (n : ℕ) (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) :
-    let := divisionColumnModule n ρ
-    Module.finrank K (Fin n → L) = Module.finrank K D * Module.finrank D (Fin n → L) := by
-  sorry
-
-theorem splittingDegreeDvd {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] [Module.Finite K D] [Module.Finite K L]
-    (n : ℕ) (hn : 0 < n) (hdim : Module.finrank K D = n ^ 2)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) : n ∣ Module.finrank K L := by
-  sorry
-
--- column_rank_one
-example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
-    [Algebra K D] [Algebra K L] (ρ : D →ₐ[K] Matrix (Fin 1) (Fin 1) L)
-    (a : D) (v : Fin 1 → L) :
-    letI := divisionColumnModule 1 ρ
-    (a • v) 0 = ρ a 0 0 * v 0 := by
-  sorry
-
--- column_empty
-example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
-    [Algebra K D] [Algebra K L] [Module.Finite K L]
-    (ρ : D →ₐ[K] Matrix (Fin 0) (Fin 0) L) :
-    letI := divisionColumnModule 0 ρ
-    Module.Finite D (Fin 0 → L) := by
-  sorry
-
--- column_degree_boundary
-example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
-    [Algebra K D] [Algebra K L] [Module.Finite K D] [Module.Finite K L]
-    (ρ : D →ₐ[K] Matrix (Fin 2) (Fin 2) L)
-    (hD : Module.finrank K D = 4) (hL : Module.finrank K L = 3) : False := by
-  sorry
-
--- column_rank_two
+/-- The action is row-by-column, with both summands in the first coordinate. -/
 example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
     [Algebra K D] [Algebra K L] (ρ : D →ₐ[K] Matrix (Fin 2) (Fin 2) L)
     (a : D) (v : Fin 2 → L) :
@@ -400,29 +124,125 @@ example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
     (a • v) 0 = ρ a 0 0 * v 0 + ρ a 0 1 * v 1 := by
   sorry
 
-example {K : Type*} [Field K] :
-    Module.finrank K (Fin 0 → K) = 0 := by
+/-- Degree three cannot split a division algebra of degree two. -/
+example {K D L : Type*} [Field K] [DivisionRing D] [Field L]
+    [Algebra K D] [Algebra K L] [Module.Finite K D] [Module.Finite K L]
+    (ρ : D →ₐ[K] Matrix (Fin 2) (Fin 2) L)
+    (hD : Module.finrank K D = 4) (hL : Module.finrank K L = 3) : False := by
   sorry
 
+end DivisionColumns
+
+/-! ## Layer 1: period, restriction and corestriction -/
+
+section PeriodIndex
+variable {K : Type u} [Field K]
+
+/-- A finite separable splitting degree annihilates the original Brauer class. -/
+theorem separableSplittingAnnihilates (L : Type u) [Field L] [Algebra K L]
+    [FiniteDimensional K L] [Algebra.IsSeparable K L]
+    (α : BrauerGroup.{u,u} K) (h : TauCeti.BrauerGroup.baseChange K L α = 1) :
+    α ^ Module.finrank K L = 1 := by
+  sorry
+
+/-- Raising any field Brauer class to its index gives the identity. -/
+theorem classPowerIndex (α : BrauerGroup.{u,u} K) : α ^ classIndex α = 1 := by
+  sorry
+
+/-- Every field Brauer class has finite order. -/
+theorem brauerFiniteOrder (α : BrauerGroup.{u,u} K) : IsOfFinOrder α := by
+  sorry
+
+/-- The period divides the index; it need not equal the index. -/
+theorem periodDividesIndex (α : BrauerGroup.{u,u} K) : orderOf α ∣ classIndex α := by
+  sorry
+
+/-- A prime not dividing the period admits a prime-to-that-prime finite separable splitter. -/
+theorem primeToPSplitting (α : BrauerGroup.{u,u} K) (p : ℕ)
+    (hp : p.Prime) (h : ¬p ∣ orderOf α) :
+    ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
+      FiniteDimensional K L ∧ Algebra.IsSeparable K L ∧
+      ¬p ∣ Module.finrank K L ∧ TauCeti.BrauerGroup.baseChange K L α = 1 := by
+  sorry
+
+/-- For every prime, divisibility of period and index is equivalent. -/
+theorem samePrimeDivisors (α : BrauerGroup.{u,u} K) (p : ℕ) (hp : p.Prime) :
+    p ∣ orderOf α ↔ p ∣ classIndex α := by
+  sorry
+
+/-- A nontrivial purely inseparable extension is outside the transfer domain. -/
+example (L : Type u) [Field L] [Algebra K L] [FiniteDimensional K L]
+    [IsPurelyInseparable K L] (hdeg : 1 < Module.finrank K L) :
+    ¬ Algebra.IsSeparable K L := by
+  sorry
+
+end PeriodIndex
+
+/-! ## Layer 2: geometric Morita theory and exact support -/
+
+section AnnihilatorChecks
+variable {R : Type*} [CommRing R] {M : Type*} [AddCommGroup M] [Module R M]
+
+/-- The affine column check uses the library's product-annihilator formula. -/
+example (I : Ideal R) : I ≤ Module.annihilator R (Fin 2 → M) ↔
+    I ≤ Module.annihilator R M := by
+  sorry
+
+/-- Empty columns lose faithfulness: their annihilator is the unit ideal. -/
+example : Module.annihilator R (Fin 0 → M) = ⊤ := by
+  sorry
+
+/-- Topological support does not detect annihilation by a nilpotent ideal. -/
+example : (2 : ZMod 4) ^ 2 = 0 ∧
+    ¬(2 : ZMod 4) ∈ Module.annihilator (ZMod 4) (ZMod 4) := by
+  sorry
+
+end AnnihilatorChecks
+
+/-! ## Layer 3: Morita characteristic coefficients -/
+
+/-- The characteristic-two dual numbers, using the existing square-zero extension. -/
 abbrev DualNumbers := TrivSqZeroExt (ZMod 2) (ZMod 2)
 
+/-- The specified nonzero square-zero element of the dual numbers. -/
 def epsilon : DualNumbers := TrivSqZeroExt.inr (1 : ZMod 2)
 
-theorem epsilon_ne_zero : epsilon ≠ 0 := by
-  sorry
-
-theorem epsilon_sq : epsilon ^ 2 = 0 := by
-  sorry
-
-theorem two_epsilon : (2 : DualNumbers) * epsilon = 0 := by
+/-- The chosen coefficient is nonzero even though its square vanishes. -/
+example : epsilon ≠ 0 ∧ epsilon ^ 2 = 0 := by
   sorry
 
 open Polynomial
 
-theorem distinctMonicFrobeniusRoots :
-    (X : Polynomial DualNumbers) ≠ X + C epsilon ∧
-      (X : Polynomial DualNumbers).Monic ∧ (X + C epsilon).Monic ∧
-      (X : Polynomial DualNumbers) ^ 2 = (X + C epsilon) ^ 2 := by
+/-- Distinct monic polynomials can have equal Frobenius powers over a
+nonreduced base. Coefficient descent must use the actual module action. -/
+example : (X : Polynomial DualNumbers) ≠ X + C epsilon ∧
+    (X : Polynomial DualNumbers).Monic ∧ (X + C epsilon).Monic ∧
+    (X : Polynomial DualNumbers) ^ 2 = (X + C epsilon) ^ 2 := by
   sorry
 
-end SemisimpleAlgebrasPartII
+/-- The rank-one scalar convention is T - b. -/
+example {R : Type*} [CommRing R] (b : R) :
+    (Matrix.diagonal (fun _ : Fin 1 => b)).charpoly = X - C b := by
+  sorry
+
+/-- The empty determinant gives the characteristic polynomial one. -/
+example {R : Type*} [CommRing R] :
+    (0 : Matrix (Fin 0) (Fin 0) R).charpoly = 1 := by
+  sorry
+
+/-! ## Layer 4: relative Cartier and Brauer comparison -/
+
+/-
+The README also states the targets whose supplier carriers are absent at the
+pins: comparisonBaseChangeUnits, brauerCorestriction and its normalized
+cohomology, embedding, tower and identity equations; sheafMorita,
+coherentMorita, sheafSupportMorita; splittingTransitionLine, charpolyLineTwist,
+moritaCharpoly and its API; finitePushforwardMorita, spectralLineTrivialization,
+finitePushforwardLineInvariant, moritaHiggsOverlap, moritaHiggsInvariant and
+its API; cartierMiddleImage,
+cartierBoundaryAdditivity, cartierBoundaryNaturality, cartierBrauerComparison,
+relativeClassVanishingInput, relativeBrauerEquality and relativeMoritaRefinement.
+Their full statements, hypotheses and Checks remain in the README.
+-/
+
+end TauCetiRoadmap.SemisimpleAlgebrasPartII
