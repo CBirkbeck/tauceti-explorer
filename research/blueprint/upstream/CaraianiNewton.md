@@ -75,7 +75,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 10
 
-- **DeformationAndDerivedPatchingAlgebra** — Commutative algebra for deformation theory and patching. Plan 10/11 accepted · package not yet · CN needs 9/9 layers
+- **DeformationAndDerivedPatchingAlgebra** — Commutative algebra for deformation theory and patching. Plan 11/11 accepted · package not yet · CN needs 9/9 layers
 - **FiniteFlatGroupsAndIntegralPadicHodgeTheory** — Finite flat group schemes and integral p-adic Hodge theory. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #879 open** · move down: PadicHodgeTheory (30), PadicDifferentialEquationsAndRigidCohomology (1)
 - **Merged package:** AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles
   - **AdicCoefficientsAndComparisons** — Adic coefficients and comparison with schemes. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: DiamondSixOperations (13), DiamondEtaleCohomology (12)
@@ -99,7 +99,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **AlgebraicModularFormsAndSerreWeights** — Algebraic modular forms, reduction and Serre weights. Plan 1/1 accepted · package accepted · CN needs 6/6 layers · move down: AutomorphicGaloisRepresentations (8), AutomorphicBundles (1)
 - **CompletedCohomologyPartII** — Completed cohomology, homology and arithmetic towers — Part II. Plan 3/3 accepted · package not yet · CN needs 9/9 layers · move down: EtaleDualityAndPerverseSheaves (2), ShimuraVarieties (1), HilbertModularVarietiesAndShimuraCurves (1) · cites outside the 94: NoncommutativeAndEquivariantIwasawa (6)
 - **WeightsInEtaleCohomology** — Weights and purity in étale cohomology. Plan 1/1 accepted · package accepted · CN needs 3/6 layers · move down: AutomorphicGaloisRepresentations (8), PotentialModularityAndCompatibleSystems (4), HilbertModularVarietiesAndShimuraCurves (3), CohomologyComparisons (2), PadicHodgeTheory (1) · cites outside the 94: GeneralizedHeegnerCycles (1)
-- **PadicDifferentialEquationsAndRigidCohomology** — P-adic differential equations, rigid cohomology and p-adic weights. Plan 1/1 accepted · package not yet · CN needs 3/8 layers · move down: PadicHodgeTheory (1) · cites outside the 94: WeilConjectures (1)
+- **PadicDifferentialEquationsAndRigidCohomology** — P-adic differential equations, rigid cohomology and p-adic weights. Plan 1/9 accepted · package not yet · CN needs 3/8 layers · move down: PadicHodgeTheory (1) · cites outside the 94: WeilConjectures (1)
 - **DiamondSixOperations** — Six operations, cohomological smoothness and biduality. Plan 1/1 accepted · package not yet · CN needs 6/7 layers
 
 ## Tier 13

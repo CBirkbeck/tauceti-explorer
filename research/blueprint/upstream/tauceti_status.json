@@ -142,13 +142,13 @@
       "stage": "pr",
       "pr": 818,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
-      "head": "d9e2a0d",
+      "head": "67a02f4",
       "review": {
         "recommendation": "approve",
-        "head": "d9e2a0d",
+        "head": "67a02f4",
         "current": true,
         "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
+        "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the P6.4/P4.15.3 corrections; awaiting #813/#817 dependencies"
       }
     },
     "AdicSpacesPartIII": {
