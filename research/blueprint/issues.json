@@ -4857,5 +4857,7 @@
  "PKG-AnabelianGeometryAndNonabelianChabauty~2": 9856,
  "REV-PKG-AnabelianGeometryAndNonabelianChabauty~2": 9857,
  "PKG-TorsionCohomologyInfrastructure": 9858,
- "REV-PKG-TorsionCohomologyInfrastructure": 9859
+ "REV-PKG-TorsionCohomologyInfrastructure": 9859,
+ "PKG-EndoscopicTransferAndUnitaryTraceComparison~2": 9867,
+ "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2": 9868
 }
