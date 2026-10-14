@@ -82,6 +82,12 @@ hypothesis. Recognition, linear algebra, character realization and local Hodge
 comparison are their imported interfaces. The coefficient-field extension is
 finite; it is not an infinite collection of unrelated local coefficient fields.
 
+The atlas record of this layer also carries a paragraph on R23.1's general
+Moret–Bailly field selection. That material belongs to R23.1 and is planned by
+its targets R23.1/moret-bailly-three-local-conditions,
+R23.1/moret-bailly-over-a-preliminary-extension, R23.1/tower-linear-disjointness
+and R23.1/surjective-specialisation-finite-quotient, not here.
+
 
 ### Rank-n weakly compatible systems of l-adic representations
 
@@ -280,6 +286,7 @@ For number fields F and E, the two-dimensional E-rational family stores continuo
 - Use isomorphism classes of actual members, with coefficient embeddings quantified universally. Common traces are not a family constructor.
 - Unramified WD means trivial inertia and N=0. A parameter with trivial inertia and nonzero N is the semistable Steinberg case.
 - KW plain/almost strict, DP almost strict, and BLGGT weak are distinct contracts. In particular no de Rham condition may be inferred at an omitted KW coefficient prime.
+- At a residually reducible coefficient prime with p odd and WD_p unramified, DP's almost-strict definition still imposes the full comparison (6), whereas KW's asks only crystallinity with weights (a,b); the constructed Brauer systems meet the stronger condition there (KW II §10.3.2, p. 94, Breuil and Berger).
 
 **API.**
 
@@ -399,7 +406,7 @@ Given systems, construct character twists, finite base-field restrictions and fi
 - Local-global compatibility of each operation with Weil–Deligne parameters (ArithmeticGaloisRepresentations R01.2, PadicHodgeTheory R06.3).
 - Recognition by Frobenius polynomials (ArithmeticGaloisRepresentations R01.5) for (iv).
 
-**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, PadicHodgeTheory:R06.3/plan/weil-deligne-parameter, ArithmeticGaloisRepresentations:R01.2, ArithmeticGaloisRepresentations:R01.5, ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface, ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface, ArithmeticGaloisRepresentations:G7, mathlib:Representation.ind, mathlib:Representation.dual.
+**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, PadicHodgeTheory:R06.3/plan/weil-deligne-parameter, ArithmeticGaloisRepresentations:R01.2, ArithmeticGaloisRepresentations:R01.5, ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface, ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface, ArithmeticGaloisRepresentations:G7, mathlib:Representation.ind, mathlib:Representation.dual, ArithmeticGaloisRepresentations:R01.1/refined-induction-interface.
 
 **Checks.**
 
@@ -832,7 +839,7 @@ For a number field F and prime l, 𝒢𝒢_{F,l} is the category of semisimple c
 - (8): trace formula for induced characters, Frobenius reciprocity and Mackey's double-coset formula; (8f) is Brauer's induction theorem for Gal(F′/F), transported by ı^{−1} and multiplied by A.
 - (9): independence of the decomposition, from the additivity of L^S on direct sums and inductivity of partial L-functions.
 
-**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/system-l-functions, PotentialModularityAndCompatibleSystems:R24.5/system-operations, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems, ArithmeticGaloisRepresentations:R01.5, ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface, ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface, ArithmeticGaloisRepresentations:G7, mathlib:Rep.indResAdjunction, tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction.
+**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/system-l-functions, PotentialModularityAndCompatibleSystems:R24.5/system-operations, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems, ArithmeticGaloisRepresentations:R01.5, ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface, ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface, ArithmeticGaloisRepresentations:G7, mathlib:Rep.indResAdjunction, tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction, ArithmeticGaloisRepresentations:R01.1/refined-induction-interface.
 
 **Checks.**
 
@@ -1070,17 +1077,17 @@ Let ℛ be a regular weakly compatible system of l-adic representations of G_F d
 
 **Target:** R24.5/constituents-essentially-self-dual. **Kind:** lemma.
 
-Let F be an imaginary CM field, (ℛ,ℳ) a pure, extremely regular polarized weakly compatible system, F′/F a finite extension and s an irreducible subrepresentation of r_λ|G_F′. There is a CM field F″ with F⊆F″⊆F′ such that s is invariant under G_F″ and (s, μ_λ|G_F″⁺) is a polarized representation; it is totally odd when (ℛ,ℳ) is. The field is a CM descent field, not an arbitrary totally-real intermediate field. Purity and extreme regularity force the selected Hodge subset to be stable under the polarized duality.
+Let F be an imaginary CM field, (ℛ,ℳ) a pure, extremely regular polarized weakly compatible system, F′/F a finite extension and s a subrepresentation of r_λ|G_F′, irreducible or not. There is a CM field F″ with F⊆F″⊆F′ such that s is invariant under G_F″ and (s, μ_λ|G_F″⁺) is a polarized representation; it is totally odd when (ℛ,ℳ) is. The field is a CM descent field, not an arbitrary totally-real intermediate field. Purity and extreme regularity force the selected Hodge subset to be stable under the polarized duality.
 
 **Hypotheses and scope.**
 
-- F imaginary CM (BLGGT v4 Lemma 5.4.5; v1 Lemma 5.2.3 allowed F CM or totally real); (ℛ, ℳ) polarized; ℛ pure and extremely regular; s irreducible, which the last step of the proof uses.
+- F imaginary CM (BLGGT v4 Lemma 5.4.5; v1 Lemma 5.2.3 allowed F CM or totally real); (ℛ, ℳ) polarized; ℛ pure and extremely regular; s any subrepresentation of r_λ|G_F′. BLGGT v4 Lemma 5.4.5 does not assume s irreducible: multiplicity one of the constituents makes the restricted pairing perfect on every subrepresentation. Proposition 5.4.6 applies the lemma to irreducible constituents.
 
 **Construction or proof.**
 
 - Choose τ so that distinct equal-size subsets of H_τ have distinct sums (extreme regularity) and τ₁ on the normal closure F₁ of F′/F⁺; submodules of the same dimension are equal iff the Hodge–Tate numbers of their determinants agree, so constituents have multiplicity one.
 - Purity gives h_σ + h_{σc} = w dim s, so s^{σcc′} = s^σ; the group generated by products cc′ of complex conjugations cuts out the maximal CM subfield F″ of F′, and s extends to G_{F″}.
-- Comparing Hodge–Tate numbers, s^c ≅ μ_λ s^∨, realised by restricting the pairing matrix A_{λ,v}; this gives the parity statement.
+- The representation μ_λ(s^∨)^c is isomorphic to a submodule of r_λ with the same determinant Hodge–Tate numbers as s, hence to s, so s^c ≅ μ_λ s^∨. The pairing of r_λ restricts to a perfect pairing on s, since a degenerate restriction would produce a second constituent isomorphic to one already in s, against multiplicity one; this gives the polarization of s and its sign.
 
 **Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems, PotentialModularityAndCompatibleSystems:R24.5/polarized-system.
 
@@ -1095,7 +1102,7 @@ Let F be an imaginary CM field, (ℛ,ℳ) a pure, extremely regular polarized we
 - Check that extreme regularity, not only regularity, is what is used: it separates equal-dimensional submodules by the Hodge–Tate numbers of their determinants, which gives multiplicity one of the constituents of r_λ|_{G_{F₁}}.
 - Check the output against R24.5/linear-algebra-operations-on-systems: restriction to G_{F′} may break irreducibility, and the lemma records what survives for polarized systems (each constituent descends to a CM field F″ ⊆ F′ and stays essentially conjugate self-dual with the same μ_λ, totally odd if (r_λ, μ_λ) is).
 
-**Sources.** blggt-2014-v4, §5.4, Lemma 5.4.5 and proof, p. 76 (arXiv v4): Correct CM base, irreducible constituent, actual polarization and total-oddness hypotheses.
+**Sources.** blggt-2014-v4, §5.4, Lemma 5.4.5 and proof, p. 76 (arXiv v4): Correct CM base, an arbitrary subrepresentation (irreducibility is not assumed), actual polarization and total-oddness hypotheses.
 
 
 ## R24.5 — families from potential modularity
@@ -1126,7 +1133,7 @@ Given a continuous odd rank-two lift over ℚ, a totally real finite Galois pote
 - At p the Brauer identity gives A_p=[ρ], so (A_ι,A_ι)=1 and dim A_ι=2 for all ι. The representation-ring criterion yields a genuine irreducible; degree two by itself cannot do so.
 - Trace identities give the common Frobenius polynomials and independence of choices. Repeat the overlap comparison to identify restrictions to every solvable intermediate field. Local descent is then handled separately in the almost-strict and strict-compatibility theorems.
 
-**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, PotentialModularityAndCompatibleSystems:R24.5/system-operations, GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change, GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent, GL2AutomorphicRepresentationsAndTransfer:R17.4/tower-independence, PotentialModularityAndCompatibleSystems:R23.4, ArithmeticGaloisRepresentations:R01.5, PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring, AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility, GL2AutomorphicRepresentationsAndTransfer:R17.6, tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary.
+**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, PotentialModularityAndCompatibleSystems:R24.5/system-operations, GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change, GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent, GL2AutomorphicRepresentationsAndTransfer:R17.4/tower-independence, PotentialModularityAndCompatibleSystems:R23.4, ArithmeticGaloisRepresentations:R01.5, PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring, AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility, GL2AutomorphicRepresentationsAndTransfer:R17.6, tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary, ArithmeticGaloisRepresentations:R01.1/refined-induction-interface.
 
 **Checks.**
 
@@ -1174,7 +1181,7 @@ Given a continuous odd rank-two lift over ℚ, a totally real finite Galois pote
 
 **Target:** R24.5/almost-strict-compatibility. **Kind:** theorem.
 
-For the Brauer system with its stated input contracts, KW almost strictness gives the following fixed local parameter r_q. Away from the coefficient characteristic, WD comparison retains full monodromy. At q=ℓ≠2 with unramified r_q, the member is crystalline with the fixed weights. At q=ℓ with irreducible semisimplified residual member, potential semistability and WD comparison follow through the Kisin input, using a potential-modularity field disjoint from the residual kernel. These are the historical KW II §10.3.2 cases. No omitted ramified reducible or dyadic case follows from this contract. The separate strict-brauer-system theorem supplies all-place strictness by the full Skinner theorem.
+For the Brauer system with its stated input contracts, KW almost strictness gives the following fixed local parameter r_q. Away from the coefficient characteristic, WD comparison retains full monodromy. At q=ℓ≠2 with unramified r_q, the member is crystalline with the fixed weights, and the Breuil–Berger argument of KW II also identifies its WD parameter with r_q. At q=ℓ with irreducible semisimplified residual member, potential semistability and WD comparison follow through the Kisin input, using a potential-modularity field disjoint from the residual kernel. These are the historical KW II §10.3.2 cases. No omitted ramified reducible or dyadic case follows from this contract. The separate strict-brauer-system theorem supplies all-place strictness by the full Skinner theorem.
 
 **Hypotheses and scope.**
 
@@ -1242,7 +1249,7 @@ Let ρ̄ satisfy KW I Theorem 5.1's hypotheses. For each i ∈ {1, 2, 3, 4} (wit
 
 - the residual weight computations (3), (4) use almost strict compatibility at q and Savitt's computations of reductions of potentially Barsotti–Tate representations of tame type (requested)
 - when the new residual characteristic q is 2 (KW I §9: case (4) with p = 3, q = 2 and characters of order 3) Savitt's paper does not apply, which is why the proof of KW I Theorem 9.1 gives an ad hoc argument that k(ρ̄′₂) = 2
-- F. Diamond's list: the possible (i, j) are j = m(q + 1)/p^r − 1, i = q − 1 − j for 0 < m < p^r/2, so i = j + 1 does not occur
+- F. Diamond's list: the possible (i, j) are j = m(q + 1)/p^r − 1, i = q − 1 − j for 0 < m < p^r/2, so i = j + 1 does not occur when q is odd. For q = 2, which forces p = 3, r = 1 and m = 1, the list gives j = 0 and i = 1 = j + 1; KW I state no weight in (4) for q = 2 and treat that case by the separate argument of §9.1 (source issue PotentialModularityAndCompatibleSystems/E13)
 
 **Construction or proof.**
 
@@ -1257,7 +1264,7 @@ Let ρ̄ satisfy KW I Theorem 5.1's hypotheses. For each i ∈ {1, 2, 3, 4} (wit
 
 - The four lift types are the existing R24.3 nodes, not new lift-existence targets. Each branch retains its original p, residual-image, q, determinant and inertial-type hypotheses.
 - Savitt Corollary 6.15 and Remark 6.17 are checked at odd q. Their semisimplified tame nonscalar reduction survives removal of the local trivial-endomorphism hypothesis; a full nonsplit lattice classification needs stronger local input. Global irreducibility does not imply that local hypothesis.
-- For the Diamond sublist set j=m(q+1)/p^r−1 and i=q−1−j with 0<m<p^r/2 and the specified integrality. Then i−j=q+1−2m(q+1)/p^r>0; equality to 1 would require p^r=(q+1)(p^r−2m), impossible when p^r | q+1 and (q+1)/p^r>1. Keep these actual divisibility conditions, rather than asserting a free inequality.
+- For the Diamond sublist set j=m(q+1)/p^r−1 and i=q−1−j with 0<m<p^r/2 and the specified integrality. Then i−j=q+1−2m(q+1)/p^r>0; equality to 1 would require p^r=(q+1)(p^r−2m), impossible when p^r | q+1 and (q+1)/p^r>1. Keep these actual divisibility conditions, rather than asserting a free inequality. The excluded value (q+1)/p^r = 1 together with p^r − 2m = 1 occurs only for q = 2, p = 3, m = 1, where i = j + 1 (E13).
 - The dyadic case uses KW I §9.1 p.19’s odd-ramification finite-flat argument. Savitt’s odd-prime formula is not applied at q=2.
 
 
@@ -1382,10 +1389,10 @@ For an arbitrary KW almost-strict system and ι above ℓ, the definition gives 
 
 **Acceptance.**
 
-- Check DP Paso 5 case (1): N ramified in the system and ρ̄_N reducible is case (c)
-- Check KW I §8.4: the auxiliary prime p′ is outside the ramification set, so case (b) applies
+- Check DP Paso 5 case (1): N ramified in the system and ρ̄_N reducible is the excluded case, in which the KW almost-strict contract gives neither de Rham behavior nor WD comparison; DP use only de Rham behavior there, which their Definition 1.10(4) imposes and which the strict Brauer systems supply
+- Check KW I §8.4: the auxiliary prime p′ is outside the ramification set, so the odd unramified-parameter clause applies and the member is crystalline of the fixed weights
 
-**Sources.** kw-serre-modularity-I, §5, p. 8 of the preprint: The almost strict conditions; dieulefait-pacetti, Paso 5, p. 14 of the arXiv version: The modern route in case (c).
+**Sources.** kw-serre-modularity-I, §5, p. 8 of the preprint: The almost strict conditions; dieulefait-pacetti, Paso 5, p. 14 of the arXiv version: The modern route in the excluded case: a residually reducible member at a ramified coefficient prime, where DP rely only on de Rham behavior.
 
 
 ### Linked systems and modularity transfer
@@ -1405,7 +1412,7 @@ If one member of a compatible rank-two family is the member attached to a newfor
 - Apply recognition memberwise to the existing f-family.
 - Apply the appropriate owner’s lifting export, retaining all its local/de Rham and residual-image conditions.
 
-**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, ArithmeticGaloisRepresentations:R01.5, PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1, AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, GL2ModularityLifting:R32.6/transfer-residually-reducible, GL2ModularityLifting:R32.6/transfer-dyadic, GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd.
+**Required contracts.** PotentialModularityAndCompatibleSystems:R24.5/compatible-system, ArithmeticGaloisRepresentations:R01.5, PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1, AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility, GL2ModularityLifting:R32.6/transfer-residually-reducible, GL2ModularityLifting:R32.6/transfer-dyadic, GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd, GL2ModularityLifting:R32.6/ramified-reducible-coefficient-prime, GL2ModularityLifting:R32.6/transfer-ordinary-three, GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems.
 
 **Checks.**
 
@@ -1419,7 +1426,7 @@ If one member of a compatible rank-two family is the member attached to a newfor
 - Check (ii) in KW I §8.2's inductive step: (ρ_ι) and (ρ′_ι) linked at ℓ
 - Check that the lifting theorem used at each link has its residual hypotheses
 
-**Sources.** kw-serre-modularity-I, §8.2, p. 15 of the preprint: Linked systems; dieulefait-pacetti, Remark 4, p. 7 of the arXiv version: (i).
+**Sources.** kw-serre-modularity-I, §8.2, pp. 14–15 of the preprint: Linked systems: two systems are linked at a prime when their residual members there are isomorphic (gloss on p. 14), and modularity passes along the link (p. 15).; dieulefait-pacetti, Remark 4, p. 7 of the arXiv version: (i).
 
 
 ## Worked contract checks
@@ -1458,7 +1465,9 @@ weight. This check is over ℚ and uses a cofinite residual theorem; it does not
 promote the general BLGGT density-one conclusion to a cofinite conclusion.
 For the level-two tame-type bookkeeping p=3,q=5,r=1,m=1 gives j=1 and i=3,
 so i−j=2 and the two candidate weights are 4 and 2. The i=j+1 boundary
-would instead give q; the stated Diamond divisibility constraints exclude it.
+would instead give q; the stated Diamond divisibility constraints exclude it for odd q.
+At q=2, which forces p=3, the list gives i=1 and j=0; KW I state no weight there
+and argue separately in §9.1 (source issue E13).
 
 **Gamma cancellation.** The real factor of an elliptic cohomological family is
 Γℝ(s−1/2)Γℝ(s+1/2)Γℂ(s)/Γℂ(s−1/2). The Mathlib duplication identity
@@ -1521,7 +1530,8 @@ own words. A source's use of a theorem from another paper does not imply its
 original proof has been checked. Original monodromy/integral-model proof leaves
 are identified explicitly above. The known source corrections E1–E5 remain
 owned by the R24.3 packet; this document uses their qualified statements and
-adds no duplicate errata record.
+adds no duplicate errata record. The independent review recorded E13 (KW I,
+p. 10: Diamond’s remark fails at q = 2) in the dedicated packet.
 
 - **kw-serre-modularity-II**: Chandrashekhar Khare and Jean-Pierre Wintenberger, [Serre's modularity conjecture (II)](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf). Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505–586. Locators give the preprint's page numbers (1–98), which are not the Inventiones pages. Read: §10.3.2, pp.93–94, all construction and local-comparison paragraphs; bibliography p.96.
 
