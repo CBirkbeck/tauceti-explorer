@@ -1,17 +1,22 @@
 /-
 P-adic Hodge theory and geometric comparison: statements on existing carriers.
 
-The full target list, definition APIs, tests and source locators are in
-../readmes/PadicHodgeTheory--P7.md. This companion deliberately states only
+This file is not the roadmap and is not exhaustive: the roadmap document
+../readmes/PadicHodgeTheory--P7.md is definitive and holds the full target list,
+definition APIs, tests and source locators. The statements here suggest Lean forms
+so that contributors and reviewers converge on names and signatures. This
+companion deliberately states only
 milestones expressible at the pins. It neither constructs the missing analytic
 rings, Galois representations, period sheaves nor their categories.
 
 Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369
 
-The two light definitions below are formulas on coefficient families, not an
-analytic annulus ring. Their convergence hypotheses are essential when using
-a real supremum. All planned proofs are sorry; the definitions have real bodies.
+The first two light definitions below are formulas on coefficient families, not
+an analytic annulus ring. Their convergence hypotheses are essential when using
+a real supremum. The third, `thetaDR`, is θ_dR on Mathlib's `BDeRhamPlus` at
+𝓞_ℂ_[p]: evaluation at level one followed by the map θ[1/p] induces on the quotient
+by its kernel. All planned proofs are sorry; the definitions have real bodies.
 -/
 
 import Mathlib.Topology.Algebra.InfiniteSum.DiscreteConvolution
@@ -132,10 +137,30 @@ theorem bdrPlus_complete_dvr :
       @IsDiscreteValuationRing (BDeRhamPlus (PadicComplexInt p) p) inferInstance h := by
   sorry
 
-/-- R06.1/de-rham-period-ring: the completed theta map is surjective. -/
-theorem bdrPlus_exists_theta :
-    ∃ θ : BDeRhamPlus (PadicComplexInt p) p →+* PadicComplex p,
-      Function.Surjective θ := by
+/-- R06.1/de-rham-period-ring, `thetaDR`: θ_dR is evaluation at level one followed by the map
+that θ[1/p] induces on the quotient by its kernel. Its target `Localization.Away p` of 𝓞_ℂ_[p]
+is ℂ_[p]; the identification is not restated here. -/
+def thetaDR : BDeRhamPlus (PadicComplexInt p) p →+* Localization.Away (p : PadicComplexInt p) :=
+  (RingHom.kerLift (fontaineThetaInvertP (PadicComplexInt p) p)).comp
+    (AdicCompletion.evalOneₐ (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p))).toRingHom
+
+/-- R06.1/de-rham-period-ring, `thetaDR_coe`: θ_dR extends θ[1/p]. -/
+theorem thetaDR_coe
+    (x : Localization.Away (p : WittVector p (PreTilt (PadicComplexInt p) p))) :
+    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _ x) =
+      fontaineThetaInvertP (PadicComplexInt p) p x := by
+  sorry
+
+/-- R06.1/de-rham-period-ring, `thetaDR_surjective`. -/
+theorem thetaDR_surjective : Function.Surjective (thetaDR p) := by
+  sorry
+
+/-- Test thetaDR_teichmuller: θ_dR([x]) = x^♯ for x in the tilt. -/
+example (x : PreTilt (PadicComplexInt p) p) :
+    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _
+      (algebraMap (WittVector p (PreTilt (PadicComplexInt p) p)) _ (WittVector.teichmuller p x))) =
+      algebraMap (PadicComplexInt p) (Localization.Away (p : PadicComplexInt p))
+        (PreTilt.untilt x) := by
   sorry
 
 end GeometricPeriodRing

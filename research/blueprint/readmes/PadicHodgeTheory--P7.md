@@ -1,6 +1,6 @@
 # P-adic Hodge theory and geometric comparison — analytic and classical foundations
 
-This part connects analytic Laurent series and rational period rings to period functors, monodromy and geometric comparison. It is a target-level plan for P7, P8 and R06.1–R06.4, including the early annulus and local-rational sublayers. R06.5 and R06.6 belong to the other part. All 300 targets below remain unimplemented and await independent review. Reaching the planning budget completes this pass; it does not close the roadmap.
+This part connects analytic Laurent series and rational period rings to period functors, monodromy and geometric comparison. It is a target-level plan for P7, P8 and R06.1–R06.4, including the early annulus and local-rational sublayers. R06.5 and R06.6 belong to the other part. All 300 targets below remain unimplemented. An independent review has checked this part; its corrections are incorporated below. Reaching the planning budget completes this pass; it does not close the roadmap.
 
 The mathematical input is a prime p, a finite extension K/Q_p unless a target explicitly allows a more general discretely valued field, and a complete algebraically closed extension C of K. A relative perfectoid affinoid has its own pair (R,R⁺); a statement for C alone does not prove the corresponding affinoid assertion. Coefficient fields E are finite extensions of Q_p. Every target specifies additional hypotheses and its direct suppliers.
 
@@ -14,7 +14,7 @@ The annulus sublayer owns analytic Laurent coefficient rings and their unramifie
 
 The early local-rational sublayer owns corrected rational period sheaves and the primitive-comparison proof chain. Its inputs stop at almost purity, AI.3 and site/cohomology infrastructure. It does not import CP.3, CP.4, AI.4 or AI.5 to prove primitive comparison. CohomologyComparisons CP.3 owns constant-coefficient geometric de Rham comparison and Hodge–Tate degeneration; P8 extends to coefficient objects and families. The BMS derived-completed A_inf sheaf and the classical Witt sheaf have a comparison, not a definitional identification. In particular their precise almost annihilators must remain visible.
 
-The finite-Q_p Colmez–Fontaine proposition is stated in R06.2 and proved by separate R06.3 targets through Berger's modification, slope/subobject results, RD.2 and PG.2. Its consumers list the proof target as well as the proposition. The global stage graph still needs a split between early filtered definitions and consumers of essential surjectivity. The perfect-residue-field extension remains a gap. The latest RS-01 fix review returned needs_changes on its /30 ownership decision; Fontaine–Laffaille and R07.4's general Colmez–Fontaine supplier remain unresolved.
+The finite-Q_p Colmez–Fontaine proposition is stated in R06.2 and proved by separate R06.3 targets through Berger's modification, slope/subobject results, RD.2 and PG.2. Its consumers outside R06.2 list the proof target as well as the proposition. No R06.2 target of this part depends on the R06.3 proof: the two ordinarity criteria need only the admissible-subobject lemma, which follows from the Colmez–Fontaine bigness criterion, so the plan induces no R06.3 → R06.2 stage edge. The perfect-residue-field extension remains a gap. The latest RS-01 fix review returned needs_changes on its /30 ownership decision; Fontaine–Laffaille and R07.4's general Colmez–Fontaine supplier remain unresolved.
 
 The current TauCetiRoadmap documents and current Tau Ceti library were checked in addition to the atlas snapshot. In particular LocalGaloisGroups supplies continuous cyclotomic characters and Artin reciprocity, and AdicSpaces supplies existing analytic geometry. No construction already present in those roadmaps is replanned here. Cross-roadmap requirements below specify the extra statements needed from their owners.
 
@@ -83,8 +83,8 @@ The target graph is acyclic. The display groups by mathematical layer; it is not
 
 **Remaining.**
 
-- Colmez–Fontaine global ordering and perfect-residue extension: The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers have a direct prerequisite on that proof. The atlas still places the R06.2 proposition before P7 and does not implement the necessary consumer-stage split; applying a stage edge back to R06.2 would create cycles. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made.
-- Proof of the labelled crystalline-character classification: Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Theorem B.4. Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification.
+- Colmez–Fontaine global ordering and perfect-residue extension: The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers outside R06.2 cite that proof directly. Inside this packet no R06.2 node depends on it: the two R06.2 ordinarity criteria need only the admissible-subobject lemma, which follows from R06.2/colmez-fontaine-bigness-criterion (corrected in review REV-PadicHodgeTheory--P7), so the node graph induces no R06.3 → R06.2 stage edge. The atlas still places the R06.2 proposition before P7; a stage edge from R06.3 back to R06.2 would create a cycle. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made.
+- Proof of the labelled crystalline-character classification: Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Proposition B.4 (Lifting global representations with local properties, Appendix B). Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification.
 - General perfect-residue Colmez–Fontaine and the fixed-bound G-torsor: GLX §5.1, pp. 835–836 invokes CF for K/Q̆_p finite and Dat–Orlik–Rapoport Proposition 11.4.3 for the neutral fiber functor under [b]∈B(G,{μ}). The finite-Q_p proof planned here is insufficient for the former, and a basis does not trivialize the latter torsor. Those proofs were not read. The DOR book is not in the cleared library; use a permitted public proof or obtain maintainer clearance. BG1 supplies B(G,{μ}), not this torsor theorem.
 
 **PadicHodgeTheory:R06.3.** Monodromy via the P7/PG.2 Robba bridge and RD.2, Fontaine’s WD recipe with R01.2 conventions, and the actual finite-Q_p CF proof via Berger modifications/slopes are planned. Weight-zero finite inertia, purity and rank-two Drinfeld coefficient types are included; proof inputs and normalization requests remain explicit.
@@ -104,9 +104,9 @@ The target graph is acyclic. The display groups by mathematical layer; it is not
 
 ## The suggested Lean companion
 
-The [suggested file](../suggested/PadicHodgeTheory--P7.lean) is a short set of statements on actual pinned carriers. Its two real-bodied definitions express coefficient convergence and the Gauss supremum on functions Z→K. It states analytic convolution milestones, six discriminating examples, completeness and Frobenius assertions for Mathlib's ring of integers of C_p, and the DVR/theta milestones for Mathlib's BDeRhamPlus. Its p-adic completeness and nonunit instances are explicit hypotheses where needed. The general-C theorem is specified in this reader; the companion gives its C_p specialization.
+The [suggested file](../suggested/PadicHodgeTheory--P7.lean) is a short set of statements on actual pinned carriers. Two of its real-bodied definitions express coefficient convergence and the Gauss supremum on functions Z→K. It states analytic convolution milestones, six discriminating examples, completeness and Frobenius assertions for Mathlib's ring of integers of C_p, and the DVR milestone for Mathlib's BDeRhamPlus. A third real-bodied definition, thetaDR (evaluation at level one followed by the map θ[1/p] induces on the quotient by its kernel), carries the packet's API items thetaDR_coe and thetaDR_surjective and the test thetaDR_teichmuller. Its p-adic completeness and nonunit instances are explicit hypotheses where needed. The general-C theorem is specified in this reader; the companion gives its C_p specialization.
 
-Analytic rings, Galois representations, filtered-module categories and period sheaves that the pins do not provide are fully specified below. They are not replaced by formal Laurent series or arbitrary vector spaces in Lean. All 641 API items and 372 proposed tests belong to the reader; the companion is not an exhaustive signature file. Its proofs remain sorry, and elaboration verifies signatures rather than the mathematical results.
+Analytic rings, Galois representations, filtered-module categories and period sheaves that the pins do not provide are fully specified below. They are not replaced by formal Laurent series or arbitrary vector spaces in Lean. All 641 API items and 373 proposed tests belong to the reader; the companion is not an exhaustive signature file. Its proofs remain sorry, and elaboration verifies signatures rather than the mathematical results.
 
 ## Target catalogue
 
@@ -144,7 +144,7 @@ Let O_C = 𝓞_ℂ_[p] be the valuation subring of C = ℂ_[p] (Mathlib PadicCom
 
 **Acceptance checks.**
 
-- The Mathlib definitions BDeRhamPlus (𝓞_ℂ_[p]) p and BDeRham (𝓞_ℂ_[p]) p elaborate once these instances are provided (checked in the suggested Lean file).
+- Once these instances are provided, BDeRhamPlus (𝓞_ℂ_[p]) p elaborates with its commutative ring structure, and θ_dR is a real-bodied map on it (checked in the suggested Lean file). Mathlib’s BDeRham (𝓞_ℂ_[p]) p elaborates as a type but has no registered ring instance at the pins, so statements about B_dR itself need that instance first.
 - Non-example: for K/Q_p finite with ramification index e > 1, O_K is p-adically complete but x ↦ x^p is not surjective on O_K/p (a uniformiser π_K is not a p-th power modulo p), so surjective_fontaineTheta does not apply to R = O_K; this is why the period rings are built from O_C.
 
 <a id="node-002"></a>
@@ -317,7 +317,7 @@ Let K/Q_p be finite and K_∞/K an infinitely ramified Galois extension with Gal
 - The upper ramification groups of Gal(L_0/K) vanish beyond some h, and for the Z_p-extension |Gal(K_n/K)^v| grows linearly in the break index (B-C Lemmas 13.1.6–13.1.7, F-O (A.34)), so v_K(D_{L_n/K_n}) ≤ ∫_{−1}^{h} |Gal(K_n/K)^v|^{-1} dv → 0.
 - A different of valuation → 0 forces the trace image Tr(O_{L_n}) ⊇ elements of valuation → 0 (F-O Corollary A.72), whence Tr_{M/K_∞}(O_M) ⊇ m_{K_∞}; dividing by the trace of a suitable α gives Corollary A.89.
 
-**Direct prerequisites.** None.
+**Direct prerequisites.** `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`
 
 **Sources.**
 
@@ -348,7 +348,7 @@ Let K/Q_p be finite, K_∞ = K(μ_{p^∞}), H_K = Gal(Q̄_p/K_∞), Γ_K = Gal(K
 - (4): X_n is the completion of ⋃_m (K_m ∩ X_n); on each finite-dimensional K_n-space K_m ∩ X_n, γ_n − 1 is injective (its kernel is K_m^{γ_n} ∩ X_n = K_n ∩ X_n = 0), hence bijective, and the uniform bound on its inverse (F-O Proposition A.97(2)) comes from the same trace estimate; extend by continuity.
 - (5): on K_n the operator γ − λ is invertible when v(λ − 1) > d or λ is not a root of unity, and on X_n it is a small perturbation of the invertible γ − 1 (F-O Proposition A.97(3), B-C Lemma 14.1.9).
 
-**Direct prerequisites.** [PadicHodgeTheory:R06.1/tate-trace-almost-surjective](#node-006); [PadicHodgeTheory:R06.1/ax-sen-tate-invariants](#node-005); `mathlib:Algebra.normalizedTrace`; `mathlib:Algebra.normalizedTrace_trans`
+**Direct prerequisites.** [PadicHodgeTheory:R06.1/tate-trace-almost-surjective](#node-006); [PadicHodgeTheory:R06.1/ax-sen-tate-invariants](#node-005); `mathlib:Algebra.normalizedTrace`; `mathlib:Algebra.normalizedTrace_trans`; `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`
 
 **Sources.**
 
@@ -534,7 +534,7 @@ For a perfectoid affinoid (R,R^+) over a characteristic-zero perfectoid (K,K^+),
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, the definitions before Lemma 6.3, Lemma 6.3 with proof, Corollary 6.4 with proof, pp. 35-36 (extraction lines 2026-2081). Scholze Lemma 6.3 is imported through P1; the rational completion and filtration are the definitions and Corollary 6.4.
+- [sch13-padic-hodge](#source-11) — Section 6, the definitions before Lemma 6.3, Lemma 6.3 with proof, Corollary 6.4 with proof, pp. 35-36. Scholze Lemma 6.3 is imported through P1; the rational completion and filtration are the definitions and Corollary 6.4.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodRings/BdRAffinoid`, namespace `TauCeti.PadicHodge`.
 
@@ -624,7 +624,7 @@ Put B_dR^+ := BDeRhamPlus O_C p, the (ker θ_Q)-adic completion of A_inf[1/p] (M
 
 **Acceptance checks.**
 
-- The Mathlib definitions typecheck at R = 𝓞_ℂ_[p] (suggested Lean file).
+- BDeRhamPlus typechecks at R = 𝓞_ℂ_[p], and thetaDR, thetaDR_coe, thetaDR_surjective and the test thetaDR_teichmuller are stated on it in the suggested Lean file; BDeRham has no ring instance at the pins.
 - θ_dR([x]) = x^♯ for x ∈ O_C^♭.
 
 <a id="node-014"></a>
@@ -1182,7 +1182,7 @@ B_cris^+ := A_cris[1/p] and B_cris := B_cris^+[1/t] = A_cris[1/t], identified wi
 - `Bcris_t_inv` (degenerate): t^{-1} ∈ B_cris and φ(t^{-1}) = p^{-1}t^{-1}.
 - `BcrisPlus_subset_BdRPlus` (compatibility): B_cris^+ ⊆ B_dR^+ = BDeRhamPlus 𝓞_ℂ_[p] p and B_cris ⊆ BDeRham 𝓞_ℂ_[p] p.
 - `Bcris_ne_BdR` (non-example): B_cris ≠ B_dR: B_cris^{G_K} = K_0 ≠ K = B_dR^{G_K} when K/K_0 is ramified.
-- `Bcris_not_field` (non-example): B_cris is not a field: ξ is a nonzero non-unit of B_cris (B_cris^× is described by regularity, and ξ spans no G_K-stable line).
+- `Bcris_xi_unit_not_plus` (non-example): ξ = [p^♭] − p is a non-unit of B_cris^+ (θ(ξ) = 0) but a unit of B_cris: writing [ε] − 1 = ξ·w with w ∈ A_inf, t/ξ = Σ_{n≥1} (−1)^{n−1}((n−1)!/n)·ξ^{n−1}/(n−1)!·w^n lies in p^{−1}A_cris (the coefficients (n−1)!/n have p-adic valuation ≥ −1 and tend to +∞), so ξ^{−1} = (t/ξ)·t^{−1} ∈ B_cris. A definition with B_cris = B_cris^+ fails this, and so does the claim that ξ is a non-unit of B_cris.
 
 **Uses.**
 
@@ -1331,7 +1331,7 @@ For r ∈ N let Fil^r A_cris = A_cris ∩ Fil^rB_dR and Fil^r_p A_cris = {a ∈ 
 **Sources.**
 
 - [fontaine-ouyang](#source-05) — §6.2.3, Theorem 6.26 and Remark 6.27, p. 130. Statements (1)–(3) with proof.
-- [brinon-conrad](#source-06) — Theorem 9.1.10, p. 134. Statement (1); B-C give no proof ('This is difficult; see [21, 5.3.7]').
+- [brinon-conrad](#source-06) — Theorem 9.1.10, p. 134. The equality (Fil^0 B_cris)^{φ=1} = Q_p in (1); B-C give no proof ('This is difficult; see [21, 5.3.7]'). The exact sequences of (1) are Fontaine–Ouyang's Theorem 6.26.
 - [brinon-conrad](#source-06) — Proof of Lemma 9.3.7, display (9.3.1), p. 151. Variant (4); B-C cite the unavailable Colmez–Fontaine paper, F-O's proof is used.
 
 **Acceptance checks.**
@@ -1798,7 +1798,7 @@ Let R_F = lim_{x↦x^p} O_{K̄}/p (Fontaine's ring R, built from the arithmetic 
 
 `PadicHodgeTheory:R06.1/breuil-completed-semistable-rings` · construction
 
-For a finite extension K/Q_p with uniformizer π and Cohen ring W, let R_l be the divided-power envelope of W[t]/p^l→O_K/p^l, t↦π, compatible with the canonical divided powers on p. Let P_l be the G_K-equivariant PD period algebra over R_l in Tsuji’s construction. Define 𝒦=S^min=(lim_l R_l)[1/p] and B̂_st^+=(lim_l P_l)[1/p]. Equip these rings with the compatible Frobenius, monodromy N and specialization 𝒦→K_0 at t=0. The explicit presentation of P_l, including its transition maps and N, is a required construction input recorded as a gap.
+For a finite extension K/Q_p with uniformizer π and Cohen ring W, let R_l be the divided-power envelope of W[t]/p^l→O_K/p^l, t↦π, compatible with the canonical divided powers on p. Let P_l be the G_K-equivariant PD period algebra over R_l of Kato (3.2) or Tsuji §1.6. Define 𝒦=S^min=(lim_l R_l)[1/p] and B̂_st^+=(lim_l P_l)[1/p]. Equip these rings with the compatible Frobenius, monodromy N and specialization 𝒦→K_0 at t=0. The explicit presentation of P_l, including its transition maps and N, is a required construction input recorded as a gap.
 
 **Hypotheses.**
 
@@ -1814,7 +1814,7 @@ For a finite extension K/Q_p with uniformizer π and Cohen ring W, let R_l be th
 
 **Sources.**
 
-- [disegni-liu](#source-23) — Appendix B.5, definitions before Lemma B.13, pp. 91–92. Definitions by limits; explicit presentations are referred to Breuil and Tsuji.
+- [disegni-liu](#source-23) — Appendix B.5, unnumbered paragraph before Lemma B.13 and footnote 39, pp. 91–92. 𝒦 = (lim R_l) ⊗_W K_0 and B̂_st^+ = (lim P_l) ⊗_W K_0 (Breuil's S^min and B̂_st^+, footnote 39); P_l is taken from Kato (3.2) or Tsuji §1.6, and the explicit description is referred to Breuil §§2 and 4.
 
 **Proposed library home.** `TauCeti/PadicHodge/R06.1/breuil_completed_semistable_rings`, namespace `TauCeti.PadicHodge`.
 
@@ -2052,7 +2052,7 @@ For f, g in O_K(I) and rho in I: |fg|_rho = |f|_rho |g|_rho, and for f, g nonzer
 **Sources.**
 
 - [lazard-1962](#source-08) — Proposition 1, p. 50 (numdam OCR). Proposition 1 proves n(fg) = n(f)+n(g), N(fg) = N(f)+N(g) and v(fg, mu) = v(f, mu) + v(g, mu), hence integrality.
-- [kedlaya-liu](#source-04) — Definition 2.2.15, p. 28. The same argument for Tate algebras: the Gauss norm is multiplicative when the base norm is.
+- [kedlaya-liu](#source-04) — Definition 2.2.15, p. 33. The same argument for Tate algebras: the Gauss norm is multiplicative when the base norm is.
 
 **Acceptance checks.**
 
@@ -2508,7 +2508,7 @@ O_{E,K} is the set of families a : Z -> O_K with a_n -> 0 as n -> -infinity, and
 **Sources.**
 
 - [kedlaya-liu](#source-04) — Definition 4.1.2, p. 103. E_K = bounded families tending to 0 at -infinity.
-- [kedlaya-liu](#source-04) — Definition 4.1.3(a), p. 104. The two topologies.
+- [kedlaya-liu](#source-04) — Definition 4.1.3(a), p. 103. The two topologies.
 - [fontaine-ouyang](#source-05) — Section 4.3.2, eq. (4.8), p. 80. O_{E_0} as the p-adic completion of W[[pi]][1/pi].
 - [berger-intro](#source-01) — III.1.1, p. 21. A_K/p = k_K((pi_K)).
 
@@ -2672,7 +2672,7 @@ Let alpha be algebraic over K with |alpha| in I (absolute value extended uniquel
 
 `PadicHodgeTheory:P7:annulus-foundations/annulus-derivation` · construction
 
-d = d/dT : O_K(I) -> O_K(I), sum a_n T^n |-> sum n a_n T^{n-1}, is a continuous K-linear derivation with |df|_rho <= rho^{-1} |f|_rho for rho in I, commuting with restriction maps. If char K = 0 then ker d = K and the image of d is the set of f whose T^{-1}-coefficient vanishes; the T^{-1}-coefficient of df is always 0. For L complete over K and z with |z - e| in the interior of I, ev_{e,z}(df) is the derivative at z of the function w |-> ev_{e,w}(f).
+d = d/dT : O_K(I) -> O_K(I), sum a_n T^n |-> sum n a_n T^{n-1}, is a continuous K-linear derivation with |df|_rho <= rho^{-1} |f|_rho for rho in I, commuting with restriction maps. If char K = 0 then ker d = K; if moreover I is open, the image of d is the set of f whose T^{-1}-coefficient vanishes (when I has a closed endpoint and the residue characteristic is p > 0 the image is in general smaller, see the test derivative.test_closed_endpoint_image); the T^{-1}-coefficient of df is always 0. For L complete over K and z with |z - e| in the interior of I, ev_{e,z}(df) is the derivative at z of the function w |-> ev_{e,w}(f).
 
 **Hypotheses.**
 
@@ -2713,6 +2713,7 @@ d = d/dT : O_K(I) -> O_K(I), sum a_n T^n |-> sum n a_n T^{n-1}, is a continuous 
 - `derivative.test_const` (degenerate): d (C c) = 0.
 - `derivative.test_polynomial` (compatibility): On polynomials K[T] contained in O_K(I), d agrees with Mathlib Polynomial.derivative.
 - `derivative.test_Tinv_not_exact` (non-example): T^{-1} is not d f for any f in O_K(I) (its T^{-1}-coefficient is 1).
+- `derivative.test_closed_endpoint_image` (non-example): For K = Q_p and I = {1}, f = Σ_{k≥0} p^k T^{p^k−1} lies in O_K(I) and has zero T^{−1}-coefficient, but its only formal primitive Σ_{k≥0} T^{p^k} (up to a constant) has coefficients not tending to 0, so f is not in d(O_K(I)): the image statement needs I open.
 
 **Uses.**
 
@@ -2780,7 +2781,7 @@ Let L be a complete valued extension of K (not necessarily finite) and I = [a, b
 **Sources.**
 
 - [kedlaya-liu](#source-04) — Definition 2.1.10, p. 27. Definition of the completed tensor product for the product seminorm.
-- [kedlaya-liu](#source-04) — Definition 2.2.15, p. 28. Tate algebras with radii, complete for the Gauss norm; the annulus ring O_K([a,b]) is the analogous Laurent algebra.
+- [kedlaya-liu](#source-04) — Definition 2.2.15, p. 33. Tate algebras with radii, complete for the Gauss norm; the annulus ring O_K([a,b]) is the analogous Laurent algebra.
 
 **Acceptance checks.**
 
@@ -3259,7 +3260,7 @@ Let K be a complete nonarchimedean field, V an affinoid adic space smooth over S
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 5, Lemma 5.2 with proof, p. 28 (extraction lines 1537-1553). The statement of the node, and its proof via Huber 1.6.10 and 2.2.8.
+- [sch13-padic-hodge](#source-11) — Section 5, Lemma 5.2 with proof, p. 28. The statement of the node, and its proof via Huber 1.6.10 and 2.2.8.
 
 **Acceptance checks.**
 
@@ -3290,8 +3291,8 @@ Let X be a locally noetherian adic space over Spa(Q_p, Z_p) with pro-étale site
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 4, Definition 4.1 and Lemma 4.2 (i), (iv) with proofs, pp. 21-22 (extraction lines 1134-1187). The extension of the valuations to the completed structure sheaf, the API item valuation.
-- [sch13-padic-hodge](#source-11) — Section 4, Definition 4.1 (ii), p. 21 (extraction lines 1141-1144). The definition of Ô_X from the integral sheaf that AI.3 supplies.
+- [sch13-padic-hodge](#source-11) — Section 4, Definition 4.1 and Lemma 4.2 (i), (iv) with proofs, pp. 21-22. The extension of the valuations to the completed structure sheaf, the API item valuation.
+- [sch13-padic-hodge](#source-11) — Section 4, Definition 4.1 (ii), p. 21. The definition of Ô_X from the integral sheaf that AI.3 supplies.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/StructureSheaves`, namespace `TauCeti.PadicHodge`.
 
@@ -3349,7 +3350,7 @@ For X locally noetherian over Spa(Q_p, Z_p) and every U ∈ X_proét: (i) O_X^+(
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.2 (ii), (v) with proof, pp. 21-22 (extraction lines 1148-1198). Consequence (ii) of the node; the characterisation by valuations precedes it in the statement.
+- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.2 (ii), (v) with proof, pp. 21-22. Consequence (ii) of the node; the characterisation by valuations precedes it in the statement.
 
 **Acceptance checks.**
 
@@ -3380,8 +3381,8 @@ Let K be a perfectoid field of characteristic 0 with open bounded valuation subr
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.10 (iii), (v) and the final assertion, pp. 26-27 (extraction lines 1426-1444). The values of the completed sheaves on affinoid perfectoids; (v) supplies the almost acyclicity that inverting p upgrades.
-- [sch13-padic-hodge](#source-11) — Section 4, Remark 4.11, p. 26 (extraction lines 1445-1447). The extension of the basis statement to all locally noetherian X over Spa(Q_p, Z_p).
+- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.10 (iii), (v) and the final assertion, pp. 26-27. The values of the completed sheaves on affinoid perfectoids; (v) supplies the almost acyclicity that inverting p upgrades.
+- [sch13-padic-hodge](#source-11) — Section 4, Remark 4.11, p. 26. The extension of the basis statement to all locally noetherian X over Spa(Q_p, Z_p).
 
 **Acceptance checks.**
 
@@ -3411,8 +3412,8 @@ Let K be a perfectoid field of characteristic 0 with open bounded valuation subr
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.5 (i) with proof, pp. 23-24 (extraction lines 1242-1290). The rational identification recorded by the node.
-- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.18 with proof, p. 40 (extraction lines 2337-2350). The use of the rational étale-pullback formula in the torus computation.
+- [sch13-padic-hodge](#source-11) — Section 4, Lemma 4.5 (i) with proof, pp. 23-24. The rational identification recorded by the node.
+- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.18 with proof, p. 40. The use of the rational étale-pullback formula in the torus computation.
 
 **Acceptance checks.**
 
@@ -3443,7 +3444,7 @@ Let X be a locally noetherian adic space over Spa(Q_p, Z_p), and let A_inf = W(�
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.1 (i)-(ii), p. 35 (extraction lines 2008-2018). The definition of B_inf and θ that the node records; (ii) continues with B+dR = lim Binf/(ker θ)^n and its filtration (ker θ)^i B+dR.
+- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.1 (i)-(ii), p. 35. The definition of B_inf and θ that the node records; (ii) continues with B+dR = lim Binf/(ker θ)^n and its filtration (ker θ)^i B+dR.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/DeRham`, namespace `TauCeti.PadicHodge`.
 
@@ -3506,7 +3507,7 @@ Let K be a perfectoid field of characteristic 0 with open bounded valuation subr
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Theorem 6.5 (i) with proof, p. 36 (extraction lines 2084-2106). The values of the rational period sheaves; the A_inf part is imported from AI.3.
+- [sch13-padic-hodge](#source-11) — Section 6, Theorem 6.5 (i) with proof, p. 36. The values of the rational period sheaves; the A_inf part is imported from AI.3.
 
 **Acceptance checks.**
 
@@ -3537,7 +3538,7 @@ In the situation of the previous node: H^i(U, B_inf) is almost zero for i > 0 (a
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Theorem 6.5 (ii)-(iii), p. 36 (extraction lines 2091-2094). The rational local acyclicity demanded by the stage text.
+- [sch13-padic-hodge](#source-11) — Section 6, Theorem 6.5 (ii)-(iii), p. 36. The rational local acyclicity demanded by the stage text.
 
 **Acceptance checks.**
 
@@ -3567,7 +3568,7 @@ Let X be locally noetherian over Spa(Q_p, Z_p). The de Rham sheaf B_dR is the sh
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.1 (iii) and Remark 6.2, p. 35 (extraction lines 2019-2029). The definition of B_dR as B_dR^+[t^{-1}] and the reason it is well defined.
+- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.1 (iii) and Remark 6.2, p. 35. The definition of B_dR as B_dR^+[t^{-1}] and the reason it is well defined.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/DeRham`, namespace `TauCeti.PadicHodge`.
 
@@ -3624,7 +3625,7 @@ Let X be locally noetherian over Spa(K, K^+), K perfectoid of characteristic 0, 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.6 with proof, p. 36 (extraction lines 2107-2121). The statement; its proof in the source is 'Go through all identifications'.
+- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.6 with proof, p. 36. The statement; its proof in the source is 'Go through all identifications'.
 
 **Acceptance checks.**
 
@@ -3653,7 +3654,7 @@ Let X be locally noetherian over Spa(Q_p, Z_p), Ẑ_p = lim Z/p^n and Ẑ_p(1) =
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.7 with proof, p. 37 (extraction lines 2127-2144). The statement; the proof uses t = log([ε]) over X_K and descent through the cyclotomic action.
+- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.7 with proof, p. 37. The statement; the proof uses t = log([ε]) over X_K and descent through the cyclotomic action.
 
 **Acceptance checks.**
 
@@ -3685,7 +3686,7 @@ Let X be smooth over Spa(k, O_k), k a complete discretely valued extension of Q_
 **Sources.**
 
 - [sch16-erratum](#source-12) — Item (3), pp. 1-2. The corrected construction required verbatim by the P8 stage text.
-- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.8 (i)-(iii), p. 37 (extraction lines 2145-2156). The differentials used for the connection; items (ii)-(iii) of the definition are superseded by the erratum.
+- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.8 (i)-(iii), p. 37. The differentials used for the connection; items (ii)-(iii) of the definition are superseded by the erratum.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/StructuralDeRham`, namespace `TauCeti.PadicHodge`.
 
@@ -3746,7 +3747,7 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Remark 6.9, p. 37 (extraction lines 2169-2180). The connection for the superseded definition; transferred here to the corrected completion.
+- [sch13-padic-hodge](#source-11) — Section 6, Remark 6.9, p. 37. The connection for the superseded definition; transferred here to the corrected completion.
 - [sch16-erratum](#source-12) — Item (3), p. 2. The erratum asserts that the results, including those using ∇, survive; the node supplies the construction.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/StructuralDeRham`, namespace `TauCeti.PadicHodge`.
@@ -3802,7 +3803,7 @@ Let K be a perfectoid field of characteristic 0 and (R, R^+) a perfectoid affino
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.11 with proof, p. 38 (extraction lines 2218-2232). The statement; the proof reduces to p-adic completeness of the subalgebra generated by ξ/p^k and X_i/p^k.
+- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.11 with proof, p. 38. The statement; the proof reduces to p-adic completeness of the subalgebra generated by ξ/p^k and X_i/p^k.
 
 **Acceptance checks.**
 
@@ -3831,7 +3832,7 @@ Let U = Spa(R, R^+) be an affinoid adic space of finite type over Spa(W(κ)[1/p]
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.12 with proof, p. 38 (extraction lines 2235-2246). The finiteness input that makes R_0^+ finitely generated.
+- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.12 with proof, p. 38. The finiteness input that makes R_0^+ finitely generated.
 
 **Acceptance checks.**
 
@@ -3863,8 +3864,8 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, proof of Proposition 6.10, pp. 38-39 (extraction lines 2203-2207). The statement of the construction.
-- [sch13-padic-hodge](#source-11) — Section 6, end of the proof of Proposition 6.10, p. 39 (extraction lines 2254-2265). The lifting argument.
+- [sch13-padic-hodge](#source-11) — Section 6, proof of Proposition 6.10, pp. 38-39. The statement of the construction.
+- [sch13-padic-hodge](#source-11) — Section 6, end of the proof of Proposition 6.10, p. 39. The lifting argument.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/StructuralDeRham`, namespace `TauCeti.PadicHodge`.
 
@@ -3918,7 +3919,7 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.10 with proof, pp. 38-39 (extraction lines 2197-2215). Statement (a).
+- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.10 with proof, pp. 38-39. Statement (a).
 - [sch16-erratum](#source-12) — Item (3), strengthened Proposition 6.10 and its proof, pp. 2-3. Statement (b) and the reason the corrected definition is needed.
 
 **Acceptance checks.**
@@ -3948,8 +3949,8 @@ In the situation of node local-structure-of-structural-de-rham-sheaf: (i) under 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, proof of Corollary 6.13, p. 39 (extraction lines 2268-2277). The source leaves the coordinate form of ∇ and of the filtration implicit; the node makes it explicit.
-- [tan-tong](#source-14) — Section 2.2, proof of Corollary 2.17, p. 16 (extraction lines 1018-1027). The crystalline analogue of (i), written out by Tan and Tong.
+- [sch13-padic-hodge](#source-11) — Section 6, proof of Corollary 6.13, p. 39. The source leaves the coordinate form of ∇ and of the filtration implicit; the node makes it explicit.
+- [tan-tong](#source-14) — Section 2.2, proof of Corollary 2.17, p. 16. The crystalline analogue of (i), written out by Tan and Tong.
 
 **Acceptance checks.**
 
@@ -3979,8 +3980,8 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.8 (iv) and Remark 6.9, p. 37 (extraction lines 2157-2180). The definition of OB_dR and its filtration, carried over to the corrected OB_dR^+.
-- [tan-tong](#source-14) — Section 2.4, p. 20 (extraction lines 1268-1276). The intersection property of the filtrations, proved here from the local description instead of Brinon's memoir.
+- [sch13-padic-hodge](#source-11) — Section 6, Definition 6.8 (iv) and Remark 6.9, p. 37. The definition of OB_dR and its filtration, carried over to the corrected OB_dR^+.
+- [tan-tong](#source-14) — Section 2.4, p. 20. The intersection property of the filtrations, proved here from the local description instead of Brinon's memoir.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/StructuralDeRham`, namespace `TauCeti.PadicHodge`.
 
@@ -4034,7 +4035,7 @@ Let B be a Q-algebra and I = (ξ) + … an ideal-adic filtration on B[[X_1, …,
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, proof of Theorem 7.2, p. 42 (extraction lines 2437-2441). The formal fact over Q-algebras on which the Poincaré lemma and Theorem 7.2 rest.
+- [sch13-padic-hodge](#source-11) — Section 7, proof of Theorem 7.2, p. 42. The formal fact over Q-algebras on which the Poincaré lemma and Theorem 7.2 rest.
 
 **Acceptance checks.**
 
@@ -4065,7 +4066,7 @@ Let X be an n-dimensional smooth adic space over Spa(k, O_k), k complete discret
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.13 with proof, p. 39 (extraction lines 2268-2277). The Poincaré lemma and strictness as stated.
+- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.13 with proof, p. 39. The Poincaré lemma and strictness as stated.
 
 **Acceptance checks.**
 
@@ -4094,7 +4095,7 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.14 with proof, p. 39 (extraction lines 2278-2285). The statement; the proof is 'the first graded piece of the Poincaré lemma'.
+- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.14 with proof, p. 39. The statement; the proof is 'the first graded piece of the Poincaré lemma'.
 
 **Acceptance checks.**
 
@@ -4122,7 +4123,7 @@ In the situation of node local-structure-of-structural-de-rham-sheaf, for every 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.15, p. 39 (extraction lines 2286-2295). The statement, given in the source without proof.
+- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.15, p. 39. The statement, given in the source without proof.
 
 **Acceptance checks.**
 
@@ -4153,8 +4154,8 @@ Let f: X → Y be a smooth morphism of relative dimension d between smooth adic 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Proposition 8.5 with proof, p. 49 (extraction lines 2937-2956). The relative Poincaré lemma; the source's first term is an uncompleted tensor product (corrected here).
-- [tan-tong](#source-14) — Section 5, Proposition 5.1 (1), p. 43 (extraction lines 2652-2665). The crystalline analogue, printed with a completed tensor product Acris,X ⊗̂ fk^{-1}OAcris,Y as its first term.
+- [sch13-padic-hodge](#source-11) — Section 8, Proposition 8.5 with proof, p. 49. The relative Poincaré lemma; the source's first term is an uncompleted tensor product (corrected here).
+- [tan-tong](#source-14) — Section 5, Proposition 5.1 (1), p. 43. The crystalline analogue, printed with a completed tensor product Acris,X ⊗̂ fk^{-1}OAcris,Y as its first term.
 
 **Acceptance checks.**
 
@@ -4184,7 +4185,7 @@ Let X → Tⁿ be étale, K ⊃ μ_{p^∞} perfectoid, X̃_K → X_K the Z_p^n-t
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.17 with proof, p. 40 (extraction lines 2325-2327). The statement and its one-line proof.
+- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.17 with proof, p. 40. The statement and its one-line proof.
 
 **Acceptance checks.**
 
@@ -4211,7 +4212,7 @@ Let X = Spa(R, R^+) be affinoid of finite type over Spa(k, O_k) with an étale m
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.18 with proof, p. 40 (extraction lines 2337-2350). The proof; the statement is the displayed injectivity with p-power-torsion cokernel.
+- [sch13-padic-hodge](#source-11) — Section 6, Lemma 6.18 with proof, p. 40. The proof; the statement is the displayed injectivity with p-power-torsion cokernel.
 
 **Acceptance checks.**
 
@@ -4241,8 +4242,8 @@ Let k be complete discretely valued over Q_p with perfect residue field, k_∞ =
 
 **Sources.**
 
-- [brinon-conrad](#source-06) — Section 14.1, Lemma 14.1.9, p. 242 (extraction lines 12189-12193). Tate's key lemma, whose proof supplies the splitting K̂_∞ = K ⊕ X used here.
-- [sch13-padic-hodge](#source-11) — Section 6, proof of Proposition 6.16 (ii), p. 41 (extraction lines 2389-2394). The step of Scholze's proof that this node proves; it is a Tate-type descent, not a consequence of Lemma 5.5.
+- [brinon-conrad](#source-06) — Section 14.1, Lemma 14.1.9, p. 242. Tate's key lemma, whose proof supplies the splitting K̂_∞ = K ⊕ X used here.
+- [sch13-padic-hodge](#source-11) — Section 6, proof of Proposition 6.16 (ii), p. 41. The step of Scholze's proof that this node proves; it is a Tate-type descent, not a consequence of Lemma 5.5.
 
 **Acceptance checks.**
 
@@ -4273,7 +4274,7 @@ Let X = Spa(R, R^+) be affinoid of finite type over Spa(k, O_k) with an étale m
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.16 (i) with proof, pp. 39-40 (extraction lines 2296-2365). The statement; the proof follows Brinon's Proposition 4.1.2 through Lemmas 6.17 and 6.18.
+- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.16 (i) with proof, pp. 39-40. The statement; the proof follows Brinon's Proposition 4.1.2 through Lemmas 6.17 and 6.18.
 
 **Acceptance checks.**
 
@@ -4303,7 +4304,7 @@ Let X = Spa(R, R^+) be affinoid of finite type over Spa(k, O_k) with an étale m
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.16 (ii) with proof, pp. 39-41 (extraction lines 2302-2394). The statement; Tate's computation of H^q_cont(Γ_k, Q_p(i)) is the last step.
+- [sch13-padic-hodge](#source-11) — Section 6, Proposition 6.16 (ii) with proof, pp. 39-41. The statement; Tate's computation of H^q_cont(Γ_k, Q_p(i)) is the last step.
 
 **Acceptance checks.**
 
@@ -4335,7 +4336,7 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.19 with proof, p. 41 (extraction lines 2396-2417). The statement.
+- [sch13-padic-hodge](#source-11) — Section 6, Corollary 6.19 with proof, p. 41. The statement.
 
 **Acceptance checks.**
 
@@ -4365,7 +4366,7 @@ X smooth over Spa(k, O_k), where k is a complete discretely valued extension of 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 6, Remark 6.20, p. 41 (extraction lines 2403-2404). The statement (with the misprint corrected as recorded by the reviewed decomposition).
+- [sch13-padic-hodge](#source-11) — Section 6, Remark 6.20, p. 41. The statement (with the misprint corrected as recorded by the reviewed decomposition).
 
 **Acceptance checks.**
 
@@ -4395,8 +4396,8 @@ Let X a locally noetherian adic space over Spa(k, O_k), k complete discretely va
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.1, Definition 2.1, Proposition 2.2 and Corollary 2.3, pp. 5-6 (extraction lines 271-337). The definition of the crystalline period sheaves.
-- [tan-tong](#source-14) — Section 2.1, Definition 2.4, p. 6 (extraction lines 348-351). B_cris and its filtration.
+- [tan-tong](#source-14) — Section 2.1, Definition 2.1, Proposition 2.2 and Corollary 2.3, pp. 5-6. The definition of the crystalline period sheaves.
+- [tan-tong](#source-14) — Section 2.1, Definition 2.4, p. 6. B_cris and its filtration.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Crystalline`, namespace `TauCeti.PadicHodge`.
 
@@ -4451,7 +4452,7 @@ Let X a locally noetherian adic space over Spa(k, O_k), k complete discretely va
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.1, Lemma 2.6 with proof, pp. 7-9 (extraction lines 410-530). The hypotheses of the lemma; conclusions (1)-(2) follow in the source.
+- [tan-tong](#source-14) — Section 2.1, Lemma 2.6 with proof, pp. 7-9. The hypotheses of the lemma; conclusions (1)-(2) follow in the source.
 
 **Acceptance checks.**
 
@@ -4483,8 +4484,8 @@ Let X a locally noetherian adic space over Spa(k, O_k), k complete discretely va
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.1, Lemma 2.7, p. 9 (extraction lines 531-536). Statement (a).
-- [tan-tong](#source-14) — Section 2.1, Corollary 2.8 (2), pp. 10-11 (extraction lines 603-616). Statement (c): rational local acyclicity of the crystalline period sheaves.
+- [tan-tong](#source-14) — Section 2.1, Lemma 2.7, p. 9. Statement (a).
+- [tan-tong](#source-14) — Section 2.1, Corollary 2.8 (2), pp. 10-11. Statement (c): rational local acyclicity of the crystalline period sheaves.
 
 **Acceptance checks.**
 
@@ -4512,7 +4513,7 @@ Let X a locally noetherian adic space over Spa(k, O_k), k complete discretely va
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.3, pp. 18-19 (extraction lines 1141-1149). The Frobenius on the crystalline period sheaves.
+- [tan-tong](#source-14) — Section 2.3, pp. 18-19. The Frobenius on the crystalline period sheaves.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Crystalline`, namespace `TauCeti.PadicHodge`.
 
@@ -4565,8 +4566,8 @@ Let X be the generic fibre of a smooth formal scheme over O_k, k absolutely unra
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.4, Proposition 2.23 (1)-(2) with proof, pp. 21-22 (extraction lines 1281-1390). The embedding; the B_cris part is this node, the OB_cris part is node structural-crystalline-to-de-rham-embedding.
-- [tan-tong](#source-14) — Section 2.4, proof of Proposition 2.23 (1), p. 22 (extraction lines 1380-1382). The omitted injectivity argument (gap).
+- [tan-tong](#source-14) — Section 2.4, Proposition 2.23 (1)-(2) with proof, pp. 21-22. The embedding; the B_cris part is this node, the OB_cris part is node structural-crystalline-to-de-rham-embedding.
+- [tan-tong](#source-14) — Section 2.4, proof of Proposition 2.23 (1), p. 22. The omitted injectivity argument (gap).
 
 **Acceptance checks.**
 
@@ -4596,8 +4597,8 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.2, Definition 2.9, p. 13 (extraction lines 769-782). The definition of the structural crystalline period sheaves.
-- [tan-tong](#source-14) — Section 2.2, the paragraph after Corollary 2.16, p. 16 (extraction lines 976-1001). The connection on OA_cris, OB_cris^+ and OB_cris.
+- [tan-tong](#source-14) — Section 2.2, Definition 2.9, p. 13. The definition of the structural crystalline period sheaves.
+- [tan-tong](#source-14) — Section 2.2, the paragraph after Corollary 2.16, p. 16. The connection on OA_cris, OB_cris^+ and OB_cris.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Crystalline`, namespace `TauCeti.PadicHodge`.
 
@@ -4654,7 +4655,7 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.2, Proposition 2.13, Lemma 2.14 with proofs, Corollaries 2.15-2.16, pp. 14-16 (extraction lines 841-975). The local description.
+- [tan-tong](#source-14) — Section 2.2, Proposition 2.13, Lemma 2.14 with proofs, Corollaries 2.15-2.16, pp. 14-16. The local description.
 
 **Acceptance checks.**
 
@@ -4682,7 +4683,7 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.2, Corollary 2.17 with proof, p. 16 (extraction lines 1003-1027). The statement; strict exactness and Griffiths transversality are part of it.
+- [tan-tong](#source-14) — Section 2.2, Corollary 2.17 with proof, p. 16. The statement; strict exactness and Griffiths transversality are part of it.
 
 **Acceptance checks.**
 
@@ -4711,7 +4712,7 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.2, Lemma 2.18 and Corollary 2.19, pp. 17-18 (extraction lines 1052-1135). The rational local acyclicity of the structural crystalline sheaf.
+- [tan-tong](#source-14) — Section 2.2, Lemma 2.18 and Corollary 2.19, pp. 17-18. The rational local acyclicity of the structural crystalline sheaf.
 
 **Acceptance checks.**
 
@@ -4742,8 +4743,8 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.3, Lemma 2.21, p. 19 (extraction lines 1179-1183). Horizontality.
-- [tan-tong](#source-14) — Section 2.3, Lemma 2.22, pp. 19-20 (extraction lines 1204-1216). The comparison of Frobenius structures for different lifts.
+- [tan-tong](#source-14) — Section 2.3, Lemma 2.21, p. 19. Horizontality.
+- [tan-tong](#source-14) — Section 2.3, Lemma 2.22, pp. 19-20. The comparison of Frobenius structures for different lifts.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Crystalline`, namespace `TauCeti.PadicHodge`.
 
@@ -4795,7 +4796,7 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [tan-tong](#source-14) — Section 2.4, Proposition 2.23 and Corollaries 2.24-2.26, pp. 21-22 (extraction lines 1281-1424). Corollary 2.26; Proposition 2.23 and Corollary 2.25 give the filtered embeddings.
+- [tan-tong](#source-14) — Section 2.4, Proposition 2.23 and Corollaries 2.24-2.26, pp. 21-22. Corollary 2.26; Proposition 2.23 and Corollary 2.25 give the filtered embeddings.
 
 **Acceptance checks.**
 
@@ -4825,8 +4826,8 @@ Let X be a locally noetherian adic space over Spa(k, O_k), k complete discretely
 
 **Sources.**
 
-- [brinon-conrad](#source-06) — Section 9.2, Definition 9.2.3 and the following paragraphs, p. 138 (extraction lines 6820-6849). The ring-level definition that the sheaf construction base-changes; φ(X) = pX is fixed in the same paragraph.
-- [brinon-conrad](#source-06) — Section 9.2, Theorem 9.2.10, p. 143 (extraction lines 7134-7137). The embedding into B_dR and its dependence on the choice of log(p).
+- [brinon-conrad](#source-06) — Section 9.2, Definition 9.2.3 and the following paragraphs, p. 138. The ring-level definition that the sheaf construction base-changes; φ(X) = pX is fixed in the same paragraph.
+- [brinon-conrad](#source-06) — Section 9.2, Theorem 9.2.10, p. 143. The embedding into B_dR and its dependence on the choice of log(p).
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Semistable`, namespace `TauCeti.PadicHodge`.
 
@@ -4881,8 +4882,8 @@ Let k absolutely unramified (k = W(κ)[1/p], κ perfect); 𝔛 a smooth formal s
 
 **Sources.**
 
-- [brinon-conrad](#source-06) — Section 9.2, Definition 9.2.3 and the following paragraphs, p. 138 (extraction lines 6820-6849). The polynomial presentation that the structural version inherits.
-- [tan-tong](#source-14) — Section 1, Introduction, p. 3 (extraction lines 128-136). The horizontal-sections property that the structural semistable sheaf inherits.
+- [brinon-conrad](#source-06) — Section 9.2, Definition 9.2.3 and the following paragraphs, p. 138. The polynomial presentation that the structural version inherits.
+- [tan-tong](#source-14) — Section 1, Introduction, p. 3. The horizontal-sections property that the structural semistable sheaf inherits.
 
 **Proposed library home.** `TauCeti/PadicHodge/PeriodSheaves/Semistable`, namespace `TauCeti.PadicHodge`.
 
@@ -4935,7 +4936,7 @@ Let X = Spa(A, A^+) be a connected affinoid noetherian adic space over Spa(Q_p, 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 4, Theorem 4.9 with proof, pp. 25-26 (extraction lines 1378-1425). The statement; the proof uses the perfectoid universal cover and Artin–Schreier on the tilt.
+- [sch13-padic-hodge](#source-11) — Section 4, Theorem 4.9 with proof, pp. 25-26. The statement; the proof uses the perfectoid universal cover and Artin–Schreier on the tilt.
 
 **Acceptance checks.**
 
@@ -4963,7 +4964,7 @@ For X proper smooth of dimension d over an algebraically closed complete C/Q_p a
 
 **Sources.**
 
-- [scholze-arxiv](#source-13) — Lemma 5.3, p. 29. Finite nested covers used in the global finiteness proof.
+- [scholze-arxiv](#source-13) — Lemma 5.3, p. 28 (proof p. 29). Finite nested covers used in the global finiteness proof.
 
 **Proposed library home.** `TauCeti/PadicHodge/P8/local-rational/nested_affinoid_covers`, namespace `TauCeti.PadicHodge`.
 
@@ -5064,7 +5065,7 @@ For proper smooth X/C of dimension d and an F_p-local system L, H^j(X_proét,L�
 
 **Sources.**
 
-- [scholze-arxiv](#source-13) — Lemma 5.8, p. 32 (arXiv v2). Finiteness input of Theorem 5.1; the published numbering differs.
+- [scholze-arxiv](#source-13) — Lemma 5.8, p. 33 (arXiv v2). Finiteness input of Theorem 5.1; the published numbering differs.
 
 **Acceptance checks.**
 
@@ -5076,7 +5077,7 @@ For proper smooth X/C of dimension d and an F_p-local system L, H^j(X_proét,L�
 
 `PadicHodgeTheory:P8:local-rational/primitive-comparison-mod-p` · theorem · planet: **Primitive comparison**
 
-For X proper smooth over Spa(C,C^+) with C algebraically closed complete over Q_p and L an F_p-local system, H^i_et(X,L) is finite-dimensional, vanishes for i>2dim X, and the natural map H^i_et(X,L)⊗F_p O_C/p → H^i_proét(X,L⊗Ô_X^+/p) is an almost isomorphism. The same statement with C^+ and O_X^+/p is obtained by the coefficient-ring reduction in the proof.
+For X proper smooth over Spa(C,C^+) with C algebraically closed complete over Q_p and L an F_p-local system, H^i_et(X,L) is finite-dimensional, vanishes for i>2dim X, and the natural map H^i_et(X,L)⊗_{F_p} C^+/p → H^i_et(X,L⊗O_X^+/p) is an almost isomorphism (Scholze's form). By the étale/pro-étale comparison the target equals H^i_proét(X,L⊗Ô_X^+/p), and C^+/p may be replaced by O_C/p up to almost isomorphism.
 
 **Hypotheses.**
 
@@ -5150,7 +5151,7 @@ For proper smooth X/C of dimension d, RΓ_et(X,Z/p^n) is perfect over Z/p^n of a
 
 **Sources.**
 
-- [zavyalov](#source-22) — Proposition 5.5.1, pp. 81–82 (arXiv v3). Perfectness and inverse-limit argument; restricted here to smooth X.
+- [zavyalov](#source-22) — Lemma 5.5.1 and proof, pp. 81–82 (arXiv v3). Perfectness and inverse-limit argument; restricted here to smooth X.
 - [bhatt-morrow-scholze](#source-20) — Theorem 5.1, arXiv p. 45. Finitely generated Z_p-cohomology is an input to integral comparisons.
 
 **Acceptance checks.**
@@ -5180,7 +5181,7 @@ For proper smooth X/C and a finite free lisse Z_p-system L, the natural comparis
 
 **Sources.**
 
-- [scholze-arxiv](#source-13) — proof of Theorem 8.4(i), p. 49. The coefficient version comes before the de Rham comparison.
+- [scholze-arxiv](#source-13) — proof of Theorem 8.4, first step (A_inf coefficients), p. 49. The coefficient version comes before the de Rham comparison.
 - [bhatt-morrow-scholze](#source-20) — Remark 5.5, Lemma 5.6 and Theorem 5.7, arXiv p. 47. Distinguishes the derived-completed Witt sheaf and the stronger annihilator.
 
 **Acceptance checks.**
@@ -5211,7 +5212,7 @@ For proper smooth X/C and a lisse Z_p-system L with finitely generated stalks, R
 
 **Sources.**
 
-- [scholze-arxiv](#source-13) — proof of Theorem 8.4(i), p. 49. Quotients and completion establish the lattice comparison.
+- [scholze-arxiv](#source-13) — proof of Theorem 8.4, B_dR^+ step, p. 49. Quotients and completion establish the lattice comparison.
 - [bhatt-morrow-scholze](#source-20) — paragraph following Theorem 5.7, arXiv p. 47; proof of Theorem 13.1, p. 115. The same primitive input for proper smooth X/C.
 
 **Acceptance checks.**
@@ -5240,7 +5241,7 @@ For ν:X_proét→X_et on a locally noetherian adic X/Q_p, the canonical compari
 
 **Sources.**
 
-- [scholze-arxiv](#source-13) — Proposition 3.15 and Corollary 3.17, pp. 21–22; Lemma 4.10, p. 26. Site comparison and identification modulo p.
+- [scholze-arxiv](#source-13) — Proposition 3.15, p. 19; Corollary 3.17 with proof, pp. 20–21; Lemma 4.10, p. 26. Site comparison and identification modulo p.
 
 **Acceptance checks.**
 
@@ -5270,7 +5271,7 @@ For a proper rigid-analytic X/C, with no smoothness assumption, H^i_et(X,F_p) is
 **Sources.**
 
 - [scholze-survey](#source-21) — Theorem 3.17 and preceding paragraph, p. 19. Uses characteristic-zero resolution to remove smoothness.
-- [zavyalov](#source-22) — Proposition 5.5.1, pp. 81–82. Integral consequence for arbitrary proper X.
+- [zavyalov](#source-22) — Lemma 5.5.1, pp. 81–82 (arXiv v3). Integral consequence for arbitrary proper X.
 
 **Acceptance checks.**
 
@@ -5464,7 +5465,7 @@ For a field F, an object of Fil_F is a finite-dimensional F-vector space D with 
 
 - Definitions; exhaustiveness/separatedness of ⊗ and dual are checked with bases adapted to the filtrations; gr is exact on short exact sequences and gr(D ⊗ D') ≅ gr D ⊗ gr D' (B-C §6.2).
 
-**Direct prerequisites.** `mathlib:IsModuleFiltration`; `mathlib:Submodule`
+**Direct prerequisites.** `mathlib:IsModuleFiltration`; `mathlib:Submodule`; `mathlib:Submodule.dualAnnihilator`
 
 **Sources.**
 
@@ -5679,7 +5680,7 @@ Let F/Q_p be finite (p any prime; for FaltingsFinitenessAndIsogenyTheorems read 
 
 **Sources.**
 
-- [brinon-conrad](#source-06) — Example 2.3.5, p. 17. Statement (3).
+- [brinon-conrad](#source-06) — Example 2.3.5, p. 17. Part (3): a C_K-representation is Hodge–Tate iff it is a finite direct sum of twists C_K(−q), with multiplicities dim_K W{q}.
 - [brinon-conrad](#source-06) — Theorem 2.2.7, p. 15. The input for (1).
 - [fontaine-ouyang](#source-05) — §3.5.2, Proposition 3.53, p. 63. Statement (2): discrete inertia action gives triviality over P = K̂^{ur}·K̄-closure, hence over C.
 
@@ -6024,7 +6025,7 @@ Let K/Q_p be finite with residue field k, K_0 = W(k)[1/p] (Mathlib's K(p, k) = F
 **Sources.**
 
 - [brinon-conrad](#source-06) — Definition 8.2.5, p. 112. The definition; Definition 7.3.4 is the case N = 0.
-- [brinon-conrad](#source-06) — §8.2, formulas after Remark 8.2.5, p. 113. Monodromy on tensor products and duals.
+- [brinon-conrad](#source-06) — §8.2, formulas after Definition 8.2.5, pp. 112–113. Monodromy on tensor products and duals.
 - [fontaine-ouyang](#source-05) — Definition 6.36, p. 134. F-O's definition.
 
 **Proposed library home.** `TauCeti/PadicHodge/FilteredPhiNModules`, namespace `TauCeti.PadicHodge`.
@@ -6684,7 +6685,7 @@ If V is a semistable p-adic representation of G_K then D_st(V) ∈ MF^{φ,N}_K i
 **Sources.**
 
 - [brinon-conrad](#source-06) — Theorem 9.3.4 with proof, pp. 147–148. The statement and proof.
-- [fontaine-ouyang](#source-05) — §7.2.7, Proposition A1, p. 157. F-O's proof ('admissible' in F-O = weakly admissible).
+- [fontaine-ouyang](#source-05) — Proposition A1, p. 140, with its proof in §7.2 ending at §7.2.7, p. 157. F-O's proof ('admissible' in F-O = weakly admissible).
 - [brinon-conrad](#source-06) — Example 8.1.10, p. 107. The elliptic-curve acceptance example.
 
 **Acceptance checks.**
@@ -6953,15 +6954,15 @@ Let V be crystalline over K/Q_p, with E large enough to split the required Frobe
 
 **Hypotheses.**
 
-- V crystalline; λ dominant integral. The finite extension splitting eigenvalues is part of the coefficient datum. The essential-surjectivity step requires the Colmez–Fontaine supplier described in the ordering gap.
+- V crystalline; λ dominant integral. The finite extension splitting eigenvalues is part of the coefficient datum. No essential-surjectivity input is used: V is given, and a weakly admissible subobject of the admissible module D_cris(V) is admissible by the dimension count of R06.2/colmez-fontaine-bigness-criterion.
 
 **Proof route.**
 
 - Ordinary characters give the slopes directly by the rank-one crystalline character computation.
 - In the converse order the slope pieces from the largest eigenvalues and compare their Hodge and Newton polygons. Equality at every breakpoint forces the induced filtered pieces to be weakly admissible.
-- Apply the admissible-subobject dictionary to obtain the flag and classify its rank-one characters. Record the Colmez–Fontaine dependency rather than using its proposition as a proof.
+- Admissible-subobject lemma: if D is admissible and D′ ⊆ D is a weakly admissible subobject, then D/D′ is weakly admissible (R06.2/weakly-admissible-category-abelian) and, V_cris being left exact, dim D = dim V_cris(D) ≤ dim V_cris(D′) + dim V_cris(D/D′) ≤ dim D′ + dim D/D′ by R06.2/colmez-fontaine-bigness-criterion; so equality holds and D′ is admissible. The slope pieces therefore give the flag; classify its rank-one characters.
 
-**Direct prerequisites.** [PadicHodgeTheory:R06.2/regular-ordinary-representation](#node-258); [PadicHodgeTheory:R06.2/weak-admissibility](#node-161); [PadicHodgeTheory:R06.2/colmez-fontaine-theorem](#node-180); [PadicHodgeTheory:R06.2/crystalline-character-classification](#node-262); [PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba](#node-277)
+**Direct prerequisites.** [PadicHodgeTheory:R06.2/regular-ordinary-representation](#node-258); [PadicHodgeTheory:R06.2/weak-admissibility](#node-161); [PadicHodgeTheory:R06.2/crystalline-character-classification](#node-262); [PadicHodgeTheory:R06.2/colmez-fontaine-bigness-criterion](#node-179); [PadicHodgeTheory:R06.2/weakly-admissible-category-abelian](#node-163)
 
 **Sources.**
 
@@ -6983,19 +6984,19 @@ Let V be semistable of rank n over K and suppose gr^i D_dR,τ(V) has dimension o
 
 **Hypotheses.**
 
-- Consecutive jumps are required; maximal nilpotence alone does not imply ordinarity. Use the genuine admissible-subobject/Colmez–Fontaine supplier.
+- Consecutive jumps are required; maximal nilpotence alone does not imply ordinarity. The admissible-subobject lemma suffices (a weakly admissible subobject of the admissible D_st(V) is admissible, by the dimension count of R06.2/colmez-fontaine-bigness-criterion); no essential-surjectivity input is used.
 
 **Proof route.**
 
 - Twist by a crystalline character to reduce to jumps 0,…,n−1.
 - The kernels of powers of N form the φ,N-stable flag; Nφ=pφN fixes successive slope differences.
-- Weak admissibility and the consecutive Hodge bounds force equality of Hodge and Newton degrees at every step. Transfer the flag to V and undo the twist.
+- Weak admissibility and the consecutive Hodge bounds force equality of Hodge and Newton degrees at every step, so each ker N^j is a weakly admissible subobject of D_st(V), hence admissible by the dimension count of R06.2/colmez-fontaine-bigness-criterion. Transfer the flag to V and undo the twist.
 
-**Direct prerequisites.** [PadicHodgeTheory:R06.2/regular-ordinary-representation](#node-258); [PadicHodgeTheory:R06.2/crystalline-character-classification](#node-262); [PadicHodgeTheory:R06.2/weak-admissibility](#node-161); [PadicHodgeTheory:R06.2/colmez-fontaine-theorem](#node-180); [PadicHodgeTheory:R06.3/colmez-fontaine-proof-via-robba](#node-277)
+**Direct prerequisites.** [PadicHodgeTheory:R06.2/regular-ordinary-representation](#node-258); [PadicHodgeTheory:R06.2/crystalline-character-classification](#node-262); [PadicHodgeTheory:R06.2/weak-admissibility](#node-161); [PadicHodgeTheory:R06.2/colmez-fontaine-bigness-criterion](#node-179); [PadicHodgeTheory:R06.2/weakly-admissible-category-abelian](#node-163)
 
 **Sources.**
 
-- [blght](#source-26) — Lemma 2.2(2), p. 17. Includes precisely the consecutive-jump hypothesis.
+- [blght](#source-26) — Lemma 2.2(2), p. 17. States the case of filtration jumps 0,…,n−1 (ordinary of weight 0) with the consecutive-jump hypothesis; the general consecutive range c_τ,…,c_τ+n−1 follows by twisting with a crystalline character.
 - [qian-dwork](#source-25) — Lemma 4.2, p. 20. Used only with the corrected weight hypothesis.
 
 **Acceptance checks.**
@@ -7054,7 +7055,7 @@ Let K/Q_p and E/Q_p be finite, with E containing all embeddings of K. A continuo
 
 **Sources.**
 
-- [bip](#source-29) — Lemma 6.5 and proof, pp. 53–54, citing Conrad Theorem B.4. Uses the full unit-group criterion for crystalline characters.
+- [bip](#source-29) — Lemma 6.5 and proof, pp. 53–54, citing Conrad Proposition B.4. Uses the full unit-group criterion for crystalline characters.
 
 **Acceptance checks.**
 
@@ -7112,7 +7113,7 @@ For a connected reductive G/Q_p, K finite over Q̆_p, b∈G(Q̆_p), and μ_η:G_
 
 **Sources.**
 
-- [glx](#source-28) — §5.1, pp. 835–836, equation (5.1). The filtered tensor functor and admissible-pair condition.
+- [glx](#source-28) — §5.1, pp. 835–836, equation (5.1); arXiv:2208.07195, §5.1, pp. 31–32 (equation (5.1) and the paragraph before Definition 5.1 on p. 32). The filtered tensor functor and admissible-pair condition.
 
 **Proposed library home.** `TauCeti/PadicHodge/R06.2/g_valued_filtered_functor`, namespace `TauCeti.PadicHodge`.
 
@@ -7159,7 +7160,7 @@ For K finite over Q̆_p, Fontaine’s D_cris and V_cris give inverse exact tenso
 
 **Sources.**
 
-- [glx](#source-28) — §5.1, pp. 835–836, first paragraph. States the equivalence for K/Q̆_p finite, citing Colmez–Fontaine.
+- [glx](#source-28) — §5.1, pp. 835–836, first paragraph; arXiv:2208.07195, §5.1, pp. 31–32 (equation (5.1) and the paragraph before Definition 5.1 on p. 32). States the equivalence for K/Q̆_p finite, citing Colmez–Fontaine.
 
 **Acceptance checks.**
 
@@ -7187,7 +7188,7 @@ Let (b,μ_η) be an admissible pair for connected reductive G/Q_p, with μ_η in
 
 **Sources.**
 
-- [glx](#source-28) — §5.1, p. 836, paragraph preceding Definition 5.1. Includes the bound hypothesis and reference to Proposition 11.4.3.
+- [glx](#source-28) — §5.1, p. 836, paragraph preceding Definition 5.1; arXiv:2208.07195, §5.1, pp. 31–32 (equation (5.1) and the paragraph before Definition 5.1 on p. 32). Includes the bound hypothesis and reference to Proposition 11.4.3.
 
 **Acceptance checks.**
 
@@ -7292,8 +7293,8 @@ For a semistable representation V of G_K and D=D_st(V), the natural map (B_st⊗
 
 **Sources.**
 
-- [colmez-niziol](#source-27) — §5.2.1, pp. 33–34. Classical fundamental complex and the admissible case.
-- [cdn20b](#source-35) — §0.2–§0.4, pp. 4–7. Coefficient period terms in the Drinfeld application; tower cohomology remains another owner’s theorem.
+- [colmez-niziol](#source-27) — §5.1.3, Remark 5.5(iii)–(iv), pp. 33–34. For acyclic filtered modules: V_st is finite-dimensional iff the module is weakly admissible, and it is then admissible with the comparison isomorphisms (iii); the map V_st ⊗ B_dR^+ → Fil^0 is surjective (iv).
+- [cdn20b](#source-35) — §0.4 and Théorème 0.8, p. 7. A consumer: the Drinfeld-tower comparison uses the period terms X_st^+(M) = (B_st^+ ⊗ M)^{N=0,φ=p} and the kernel V_{M,L}; the classical fundamental sequence itself is not stated there.
 
 **Acceptance checks.**
 
@@ -7590,7 +7591,7 @@ For n >= 0 the map iota_n = iota_0 o phi^{-n} : B~^{dagger,r_n}_{rig} -> B_dR^+ 
 
 - [berger-2002](#source-02) — Proposition 2.25, proof, p. 24. Injectivity of iota_n on the log ring reduces to transcendence.
 - [berger-2002](#source-02) — Proposition 2.25, proof, p. 25. The transcendence input from Fontaine (unavailable).
-- [berger-2002](#source-02) — Proposition 2.11, p. 17. iota_0 is an injective morphism into B_dR^+.
+- [berger-2002](#source-02) — Proposition 2.11, p. 19. iota_0 is an injective morphism into B_dR^+.
 - [berger-errata](#source-10) — Section 1, Propositions 2.11 and 2.12. Corrected hypothesis for iota_n on A~_I; the statement here is made on B~^{dagger,r_n}_{rig}, where it holds.
 - [berger-2002](#source-02) — Proposition 2.12, p. 20. ι_n = ι_0∘φ^{−n} is an injective morphism into B_dR^+.
 - [berger-2002](#source-02) — §0.3, pp. 4–5. Injective maps ι_n from B†,r_n_rig,K to K_n[[t]] intertwining ∇ and t d/dt.
@@ -8454,7 +8455,7 @@ Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 
 - `difPlus_tate_twist` (computation): D_dif^+(Q_p(n)) = K_∞[[t]]·e_n with ∇_{V,0}(e_n) = n·e_n.
 - `difPlus_trivial` (degenerate): D_dif^+(Q_p) = K_∞[[t]] with ∇_{V,0} = t d/dt.
 - `difPlus_mod_t_sen` (compatibility): D_dif^+(V)/t ≅ D_Sen(V) with ∇_{V,0} ↦ Θ_V.
-- `dif_not_flat_nonsplit` (non-example): For a non-split extension V of Q_p(1) by Q_p (Hodge–Tate, not de Rham; Brinon–Conrad §6.3), the connection on D_dif(V) is not flat.
+- `dif_not_trivial_nonsplit` (non-example): For a non-split extension V of Q_p(1) by Q_p (Hodge–Tate, not de Rham; Brinon–Conrad §6.3), the connection on D_dif(V) is not trivial: its horizontal sections span less than D_dif(V). (Every connection in one variable is integrable, so integrability does not distinguish this case.)
 
 **Uses.**
 
@@ -8711,6 +8712,7 @@ For K/Q_p finite and E/Q_p finite, an E-B-pair is a pair (W_e,W_dR^+) with W_e f
 
 - [ding](#source-30) — §2.1, pp. 9–10, citing Berger Proposition 2.2.6. Coefficient B-pair realizations used in the filtration argument.
 - [fontaine04](#source-31) — §3.7, pp. 67–69. Semilinear B_dR representations are not all trivial.
+- [kedlaya-liu](#source-04) — Definition 9.3.11, p. 197; Theorem 9.5.8(c), p. 202. B-pairs as triples (M_e, M_dR^+, M_dR) with the two gluing isomorphisms; over a p-adic field K they form one of the equivalent categories of Theorem 9.5.8 (Q_p coefficients).
 
 **Proposed library home.** `TauCeti/PadicHodge/P7/classical_b_pair`, namespace `TauCeti.PadicHodge`.
 
@@ -8836,7 +8838,7 @@ For an E-coefficient Robba (φ,Γ_K)-module M and associated W, the Herr complex
 **Sources.**
 
 - [kedlaya-liu](#source-04) — Remark 9.5.9, p. 202, referring to Herr and Liu; this is a comparison indication, not a proof of every compatibility. Classical cohomology comparison.
-- [ding](#source-30) — Lemma 2.1, pp. 10–11. Full-rank lattice quotients use the H⁰ comparison.
+- [ding](#source-30) — Lemma 2.1, p. 10. Full-rank lattice quotients use the H⁰ comparison.
 
 **Acceptance checks.**
 
@@ -8864,7 +8866,7 @@ Every continuous finite-dimensional semilinear B_dR-representation of G_K is a f
 
 **Sources.**
 
-- [fontaine04](#source-31) — Theorem 3.17, Proposition 3.18, Theorem 3.19, pp. 65–68; Proposition 3.20, p. 69. Orbit and indecomposable classification, including higher-rank simple blocks.
+- [fontaine04](#source-31) — Théorème 3.17, p. 66; Proposition 3.18, p. 67; Théorème 3.19, p. 68; Proposition 3.20, p. 69. Orbit and indecomposable classification, including higher-rank simple blocks.
 
 **Acceptance checks.**
 
@@ -8940,7 +8942,7 @@ Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 
 
 `PadicHodgeTheory:R06.3/de-rham-iff-dif-connection-trivial` · theorem
 
-Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 = W(k)[1/p], K_n = K(μ_{p^n}), K_∞ = ∪K_n, H_K = Gal(K̄/K_∞), Γ_K = G_K/H_K identified with an open subgroup of Z_p^× by χ, F'_K = K_∞ ∩ K_0^nr (the maximal unramified extension of K_0 in K_∞), r_n = p^{n−1}(p−1), n(r) the least n with r ≤ r_n, π = [ε] − 1 ∈ A_inf, q = φ(π)/π, π̄ = ε − 1 ∈ O_{C^♭}, t = log(1+π) = log[ε]. For every p-adic representation V of G_K: K_∞ ⊗_K D_dR(V) is the kernel of ∇_V acting on D_dif(V); in particular V is de Rham iff the meromorphic connection on D_dif(V) is trivial (flat), i.e. dim_{K_∞} ker(∇_V) = d. Moreover, if V is de Rham with Hodge–Tate weights ≤ 0 then K_∞[[t]] ⊗_K D_dR(V) ⊂ D_dif^+(V) ⊃ t^w D_dif^+(V) for some w ≥ 0.
+Throughout: p is a prime, K a finite extension of Q_p with residue field k, K_0 = W(k)[1/p], K_n = K(μ_{p^n}), K_∞ = ∪K_n, H_K = Gal(K̄/K_∞), Γ_K = G_K/H_K identified with an open subgroup of Z_p^× by χ, F'_K = K_∞ ∩ K_0^nr (the maximal unramified extension of K_0 in K_∞), r_n = p^{n−1}(p−1), n(r) the least n with r ≤ r_n, π = [ε] − 1 ∈ A_inf, q = φ(π)/π, π̄ = ε − 1 ∈ O_{C^♭}, t = log(1+π) = log[ε]. For every p-adic representation V of G_K: K_∞ ⊗_K D_dR(V) is the kernel of ∇_V acting on D_dif(V); in particular V is de Rham iff the meromorphic connection on D_dif(V) is trivial (has a full set of horizontal sections), i.e. dim_{K_∞} ker(∇_V) = d. Moreover, if V is de Rham with Hodge–Tate weights ≤ 0 then K_∞[[t]] ⊗_K D_dR(V) ⊂ D_dif^+(V) ⊃ t^w D_dif^+(V) for some w ≥ 0.
 
 **Hypotheses.**
 
@@ -9624,6 +9626,7 @@ Berger’s M is an exact tensor equivalence from filtered (φ,N,G_K)-modules wit
 **Acceptance checks.**
 
 - Berger’s printed slope-zero proof uses this subobject equivalence and hence RD.2 local monodromy. Remark V.2.2 avoids using de Rham ⇒ potentially semistable as an antecedent; it does not remove this printed dependency chain (source issue E32).
+- Recovering each localization lattice as Fil^0 of the recovered filtration uses the lattice lemma that Berger’s October 2026 errata adds to the proof of Théorème III.2.3 (source issue E44).
 
 <a id="node-276"></a>
 
@@ -9647,7 +9650,7 @@ For a filtered (φ,N,G_K)-module D, the degree of M(D) is t_N(D)−t_H(D). It is
 
 **Sources.**
 
-- [berger-2008](#source-03) — Theorem IV.2.1 and Theorem IV.2.2, pp. 18–19. Determinant computation and admissibility/étaleness criterion.
+- [berger-2008](#source-03) — Théorème IV.2.1 and Proposition IV.2.2, p. 18. Determinant computation and admissibility/étaleness criterion.
 
 **Acceptance checks.**
 
@@ -9766,7 +9769,7 @@ For a de Rham E-representation V of G_K, define IsPure(V,w) by purity of its Fro
 
 `PadicHodgeTheory:R06.3/rank-two-potentially-semistable-types` · definition
 
-For a rank-two (φ,N,G_Qp)-module M over Q_p^nr with coefficient field E and smooth descent, define supercuspidal type by irreducibility of WD(M), and special type by N≠0. In the weight-one homological normalization of CDN, the supercuspidal case has two Newton slopes 1/2 and the special case has slopes 0 and 1. Their LL(M) and JL(M) are imported from local Langlands/Jacquet–Langlands and have central character det WD(M)·|·|, with arithmetic Frobenius sent to p by |·|. For a representation V of HT weights {0,1}, CDN20B uses WD(D_pst(V)[1])=WD(D_pst(V))⊗|·|^−1; this is a normalization comparison, not an identification of the covariant D_st slopes with the homological slopes.
+For a rank-two (φ,N,G_Qp)-module M over Q_p^nr with coefficient field E and smooth descent, define supercuspidal type by irreducibility of WD(M), and special type by N≠0. CDN23 §0.3.1 build the slopes into their definitions (supercuspidal: WD(M) irreducible of slope 1/2; special: N≠0 with φ-slopes 0 and 1), i.e. they work in the weight-one homological normalization; the predicates here are the slope-free ones, and the CDN types are their intersection with that normalization. Their LL(M) and JL(M) are imported from local Langlands/Jacquet–Langlands and have central character det WD(M)·|·|, with arithmetic Frobenius sent to p by |·|. For a representation V of HT weights {0,1}, CDN20B uses WD(D_pst(V)[1])=WD(D_pst(V))⊗|·|^−1; this is a normalization comparison, not an identification of the covariant D_st slopes with the homological slopes.
 
 **Hypotheses.**
 
@@ -9782,8 +9785,8 @@ For a rank-two (φ,N,G_Qp)-module M over Q_p^nr with coefficient field E and smo
 
 **Sources.**
 
-- [cdn23](#source-34) — §0.3.1 and footnote 15, p. 9. Two types, slopes and central-character normalization.
-- [cdn20b](#source-35) — §0.3, p. 5. The shifted WD(V) convention.
+- [cdn23](#source-34) — §0.3.1 with footnotes 12–13, pp. 9–10. Two types, slopes and central-character normalization.
+- [cdn20b](#source-35) — §0.2 with footnotes 4–5, pp. 4–5; §0.3, p. 5. The shifted WD(V) convention.
 
 **Proposed library home.** `TauCeti/PadicHodge/R06.3/rank_two_potentially_semistable_types`, namespace `TauCeti.PadicHodge`.
 
@@ -9999,7 +10002,7 @@ Let K/Q_p be finite and E/Q_p finite. An E-linear representation V of G_K is ord
 **Sources.**
 
 - [berger-2002](#source-02) — Proof of Corollaire 6.3, p. 63. Definition used by Berger (after Perrin-Riou).
-- [brinon-conrad](#source-06) — Theorem 8.3.6, p. 121. Ordinary two-dimensional crystalline representations.
+- [brinon-conrad](#source-06) — Theorem 8.3.6, pp. 120–121. Ordinary two-dimensional crystalline representations.
 
 **Proposed library home.** `TauCeti/PadicHodge/SmallWeight/Ordinary`, namespace `TauCeti.PadicHodge`.
 
@@ -10086,7 +10089,7 @@ Let V be a two-dimensional E-representation of G_Qp, E/Q_p finite, with HT weigh
 
 **Sources.**
 
-- [brinon-conrad](#source-06) — Theorem 8.3.6, p. 121; Proposition 8.3.8, p. 123. Filtered-module calculation; the parity restriction is specific to Q_p coefficients.
+- [brinon-conrad](#source-06) — Theorem 8.3.6, pp. 120–121; Proposition 8.3.8, p. 123. Filtered-module calculation; the parity restriction is specific to Q_p coefficients.
 - [kw-serre-modularity-II](#source-40) — Definition 3.4 and Lemma 3.5, pp. 22–23. All three residual-ordinary lifting branches, including the extra Q_p endpoint.
 
 **Acceptance checks.**
@@ -10183,7 +10186,7 @@ For p≥3 and crystalline rank-two V/G_Qp with E-coefficients and HT weights {0,
 **Sources.**
 
 - [kw-serre-modularity-I](#source-19) — Theorem 4.1 (2), p. 7. Weights up to p + 1 in KW.
-- [brinon-conrad](#source-06) — Theorem 8.3.6, p. 120. Existence for r = p.
+- [brinon-conrad](#source-06) — Theorem 8.3.6, p. 120. The parametrisation of rank-two crystalline representations with Hodge–Tate weights {0, r}, r > 0, which covers r = p; no separate existence statement for r = p is printed.
 - [kw-serre-modularity-II](#source-40) — Lemma 3.5(i), pp. 22–23. The additional Q_p endpoint requires Berger–Li–Zhu.
 
 **Acceptance checks.**
@@ -10215,7 +10218,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Definition 7.1, pp. 41-42 (extraction lines 2422-2428). Definition (i); (ii) defines OB+dR-modules with integrable connection in the same way.
+- [sch13-padic-hodge](#source-11) — Section 7, Definition 7.1, pp. 41-42. Definition (i); (ii) defines OB+dR-modules with integrable connection in the same way.
 
 **Proposed library home.** `TauCeti/PadicHodge/RelativeComparison/LocalSystems`, namespace `TauCeti.PadicHodge`.
 
@@ -10270,7 +10273,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.2 with proof, p. 42 (extraction lines 2431-2441). The statement; the proof reduces to Proposition 6.10 and power series over Q-algebras.
+- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.2 with proof, p. 42. The statement; the proof reduces to Proposition 6.10 and power series over Q-algebras.
 
 **Acceptance checks.**
 
@@ -10300,7 +10303,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.3 with proof, p. 42 (extraction lines 2443-2465). Item (iii) of the equivalence; items (i)-(ii) precede it.
+- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.3 with proof, p. 42. Item (iii) of the equivalence; items (i)-(ii) precede it.
 
 **Acceptance checks.**
 
@@ -10327,7 +10330,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Definitions 7.4-7.5, p. 42 (extraction lines 2466-2476). Definition 7.4; Definition 7.5 defines 'associated'.
+- [sch13-padic-hodge](#source-11) — Section 7, Definitions 7.4-7.5, p. 42. Definition 7.4; Definition 7.5 defines 'associated'.
 
 **Proposed library home.** `TauCeti/PadicHodge/RelativeComparison/LocalSystems`, namespace `TauCeti.PadicHodge`.
 
@@ -10381,7 +10384,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.6 and Lemma 7.7 with proofs, pp. 42-44 (extraction lines 2477-2621). The construction and full faithfulness.
+- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.6 and Lemma 7.7 with proofs, pp. 42-44. The construction and full faithfulness.
 
 **Proposed library home.** `TauCeti/PadicHodge/RelativeComparison/LocalSystems`, namespace `TauCeti.PadicHodge`.
 
@@ -10434,7 +10437,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.8 with proof, p. 45 (extraction lines 2640-2681). The statement.
+- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.8 with proof, p. 45. The statement.
 
 **Acceptance checks.**
 
@@ -10463,7 +10466,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Proposition 7.9 and Lemma 7.10 with proofs, pp. 45-46 (extraction lines 2683-2738). The uniqueness statement; Lemma 7.10 supplies the Ext injections.
+- [sch13-padic-hodge](#source-11) — Section 7, Proposition 7.9 and Lemma 7.10 with proofs, pp. 45-46. The uniqueness statement; Lemma 7.10 supplies the Ext injections.
 
 **Acceptance checks.**
 
@@ -10493,7 +10496,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Proposition 7.9, p. 45 (extraction lines 2683-2692). The characterisation by graded pieces from which tensor compatibility is derived (packet-authored).
+- [sch13-padic-hodge](#source-11) — Section 7, Proposition 7.9, p. 45. The characterisation by graded pieces from which tensor compatibility is derived (packet-authored).
 
 **Acceptance checks.**
 
@@ -10522,7 +10525,7 @@ Let X be proper smooth over Spa(k, O_k) and A a locally free O_X-module of finit
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.13 with proof, p. 47 (extraction lines 2793-2808). The last step of the proof; the statement precedes it.
+- [sch13-padic-hodge](#source-11) — Section 7, Lemma 7.13 with proof, p. 47. The last step of the proof; the statement precedes it.
 
 **Acceptance checks.**
 
@@ -10552,7 +10555,7 @@ Let X be proper smooth over Spa(k, O_k), (E, ∇, Fil) a filtered O_X-module wit
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.11 with proof, pp. 46-47 (extraction lines 2739-2822). The statement; the Hodge–Tate part follows in the source.
+- [sch13-padic-hodge](#source-11) — Section 7, Theorem 7.11 with proof, pp. 46-47. The statement; the Hodge–Tate part follows in the source.
 
 **Acceptance checks.**
 
@@ -10579,7 +10582,7 @@ Let X be a locally noetherian adic space over Spa(Q_p, Z_p). A lisse Z_p-sheaf o
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Definition 8.1, p. 48 (extraction lines 2826-2834). The definition of lisse Ẑ_p-sheaves; lisse Z_p-sheaves on X_ét are defined just before.
+- [sch13-padic-hodge](#source-11) — Section 8, Definition 8.1, p. 48. The definition of lisse Ẑ_p-sheaves; lisse Z_p-sheaves on X_ét are defined just before.
 
 **Proposed library home.** `TauCeti/PadicHodge/RelativeComparison/LisseSheaves`, namespace `TauCeti.PadicHodge`.
 
@@ -10633,7 +10636,7 @@ Let X be a locally noetherian adic space over Spa(Q_p, Z_p) and L_• a lisse Z_
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Proposition 8.2, p. 48 (extraction lines 2835-2843). The statement, introduced by 'Using Theorem 4.9 and Lemma 3.18, one immediately verifies'.
+- [sch13-padic-hodge](#source-11) — Section 8, Proposition 8.2, p. 48. The statement, introduced by 'Using Theorem 4.9 and Lemma 3.18, one immediately verifies'.
 
 **Acceptance checks.**
 
@@ -10660,7 +10663,7 @@ Let X smooth over Spa(k, O_k), k a complete discretely valued extension of Q_p w
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Definition 8.3, p. 48 (extraction lines 2854-2859). The definition.
+- [sch13-padic-hodge](#source-11) — Section 8, Definition 8.3, p. 48. The definition.
 
 **Proposed library home.** `TauCeti/PadicHodge/RelativeComparison/LisseSheaves`, namespace `TauCeti.PadicHodge`.
 
@@ -10715,7 +10718,7 @@ Let X be proper smooth over Spa(k, O_k), L a lisse Ẑ_p-sheaf on X_proét, M = 
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4, p. 48 (extraction lines 2862-2868). The first assertion of Theorem 8.4.
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4, p. 48. The first assertion of Theorem 8.4.
 - [sch13-padic-hodge](#source-11) — Section 8, proof of Theorem 8.4, p. 49. The dependence on the primitive comparison theorem.
 
 **Acceptance checks.**
@@ -10745,7 +10748,7 @@ Let X be proper smooth over Spa(k, O_k) and L a de Rham lisse Ẑ_p-sheaf with a
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4 and its proof, pp. 48-49 (extraction lines 2869-2933). The second half of Theorem 8.4 (degeneration, filtered comparison and Hodge–Tate decomposition).
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4 and its proof, pp. 48-49. The second half of Theorem 8.4 (degeneration, filtered comparison and Hodge–Tate decomposition).
 
 **Acceptance checks.**
 
@@ -10776,8 +10779,8 @@ Let k be a finite extension of Q_p (more generally complete discretely valued wi
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Introduction, Theorem 1.6 and Corollary 1.8 (statements), p. 4 (extraction lines 146-182). The conclusion of Corollary 1.8 that part (a) of the node re-derives and identifies with CP.3's comparison.
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4, p. 48 (extraction lines 2869-2881). The period-sheaf isomorphism with which the CP.3 comparison is identified.
+- [sch13-padic-hodge](#source-11) — Introduction, Theorem 1.6 and Corollary 1.8 (statements), p. 4. The conclusion of Corollary 1.8 that part (a) of the node re-derives and identifies with CP.3's comparison.
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.4, p. 48. The period-sheaf isomorphism with which the CP.3 comparison is identified.
 
 **Acceptance checks.**
 
@@ -10808,7 +10811,7 @@ Let f: X → Y be a proper smooth morphism of smooth adic spaces over Spa(k, O_k
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Lemma 8.7 with proof, pp. 50-51 (extraction lines 2983-3074). Part (iii) of the proof; parts (i), (ii), (iv) precede and follow it.
+- [sch13-padic-hodge](#source-11) — Section 8, Lemma 8.7 with proof, pp. 50-51. Part (iii) of the proof; parts (i), (ii), (iv) precede and follow it.
 
 **Acceptance checks.**
 
@@ -10838,7 +10841,7 @@ Let f: X → Y be a proper smooth morphism of smooth adic spaces over Spa(k, O_k
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Lemma 8.6 with proof, pp. 49-51 (extraction lines 2957-3093). The statement.
+- [sch13-padic-hodge](#source-11) — Section 8, Lemma 8.6 with proof, pp. 49-51. The statement.
 
 **Acceptance checks.**
 
@@ -10870,7 +10873,7 @@ Let f: X → Y be a proper smooth morphism of smooth adic spaces over Spa(k, O_k
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 (i) with proof, pp. 51-52 (extraction lines 3094-3156). Part (i); the proof starts from Corollary 5.11.
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 (i) with proof, pp. 51-52. Part (i); the proof starts from Corollary 5.11.
 
 **Acceptance checks.**
 
@@ -10900,7 +10903,7 @@ In the situation of the previous node, assume L de Rham with associated filtered
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 (ii), pp. 51-52 (extraction lines 3111-3117). Part (ii); the conclusion that Ri fproét∗L is de Rham with associated Ri fdR∗(E) follows in the statement.
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 (ii), pp. 51-52. Part (ii); the conclusion that Ri fproét∗L is de Rham with associated Ri fdR∗(E) follows in the statement.
 
 **Acceptance checks.**
 
@@ -10932,7 +10935,7 @@ Let S be a smooth adic space over Spa(k, O_k) and f: A → S a proper smooth mor
 
 **Sources.**
 
-- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 and Remark 8.9, pp. 51-52 (extraction lines 3094-3119). The lisseness hypothesis for algebraic (e.g. abelian-scheme) families; Theorem 8.8 is applied in degree 1.
+- [sch13-padic-hodge](#source-11) — Section 8, Theorem 8.8 and Remark 8.9, pp. 51-52. The lisseness hypothesis for algebraic (e.g. abelian-scheme) families; Theorem 8.8 is applied in degree 1.
 
 **Acceptance checks.**
 
@@ -11150,7 +11153,7 @@ For smooth rigid X/C and a coherent O_X-module B, the natural map Lν^*B→ν^*B
 
 **Sources.**
 
-- [heuer](#source-38) — Proposition 2.9 and proof, pp. 273–275. Coherent and unit coefficients on the pro-étale site.
+- [heuer](#source-38) — Proposition 2.9 and proof, pp. 273–275; arXiv:2307.01303v3, Proposition 2.9 and proof, pp. 8–9. Coherent and unit coefficients on the pro-étale site.
 
 **Acceptance checks.**
 
@@ -11179,7 +11182,7 @@ For proper smooth X/C, smooth Y/C, coherent B on X and π:Y×X→Y, the pro-éta
 
 **Sources.**
 
-- [heuer](#source-38) — equation (6) and its explanation, p. 275. The proper-product assertion used for the multiplicative comparison.
+- [heuer](#source-38) — equation (6) and its explanation, p. 275; arXiv:2307.01303v3, equation (6), p. 10 (written there with ⊗_K, K the algebraically closed base field). The proper-product assertion used for the multiplicative comparison.
 
 **Acceptance checks.**
 
@@ -11680,8 +11683,8 @@ The following 75 declaration statements were read at the recorded pins. Existing
 - `mathlib:Module.finrank` — `Mathlib/LinearAlgebra/Dimension/Finrank.lean`. Dimension of a vector space as a natural number; Hodge–Tate multiplicities dim gr^{−h}D_dR(V). Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
 - `mathlib:ValuationSubring.inertiaSubgroup` — `Mathlib/RingTheory/Valuation/RamificationGroup.lean`. Inertia subgroup of the decomposition group of a valuation subring (kernel of the action on the residue field); used for 'unramified' in the definition of ordinary representations and inertial types. Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
 - `mathlib:ZMod.units_pow_card_sub_one_eq_one` — `Mathlib/FieldTheory/Finite/Basic.lean`. a^(p−1) = 1 for a ∈ (ZMod p)ˣ; gives ω^{p−1} = 1 in the endpoint non-example. Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
-- `mathlib:Submodule.dualAnnihilator` — `Mathlib/LinearAlgebra/Dual/Defs.lean`. Annihilator of a submodule in the dual; used for the dual filtration Fil^i(D^*) = (Fil^{1−i}D)^⊥ in the Hodge–Tate sign dictionary (suggested Lean file). Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
-- `mathlib:IsNilpotent` — `Mathlib/Algebra/GroupWithZero/Basic.lean`. x is nilpotent if x^n = 0 for some n; the monodromy operator of a Weil–Deligne representation (suggested Lean file). Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
+- `mathlib:Submodule.dualAnnihilator` — `Mathlib/LinearAlgebra/Dual/Defs.lean`. Annihilator of a submodule in the dual; the dual filtration Fil^i(D^∨) = (Fil^{1−i}D)^⊥ of R06.2/filtered-vector-spaces, used in the Hodge–Tate sign dictionary. Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
+- `mathlib:IsNilpotent` — `Mathlib/Algebra/GroupWithZero/Basic.lean`. x is nilpotent if x^n = 0 for some n; the monodromy operator of a Weil–Deligne representation (R06.2/monodromy-nilpotent, R06.1/frobenius-restricted-monodromy-edge). Declaration and signature read at Mathlib 082e2d3 / Tau Ceti f790474; shared-build source checked against that commit, 2026-10-14.
 - `mathlib:Algebra.normalizedTrace` — `Mathlib/FieldTheory/NormalizedTrace.lean`. The base-linear normalized trace on an algebraic characteristic-zero field extension; equals trace divided by degree in a finite extension. Declaration, hypotheses and signature read with git show at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-14.
 - `mathlib:Algebra.normalizedTrace_trans` — `Mathlib/FieldTheory/NormalizedTrace.lean`. Transitivity of normalized traces in a tower of algebraic characteristic-zero field extensions. Declaration, hypotheses and signature read with git show at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-14.
 
@@ -11751,7 +11754,7 @@ Fontaine–Ouyang Lemma 6.12 uses p-adic separatedness of the ring generated by 
 
 ### G11. Colmez–Fontaine global ordering and perfect-residue extension
 
-The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers have a direct prerequisite on that proof. The atlas still places the R06.2 proposition before P7 and does not implement the necessary consumer-stage split; applying a stage edge back to R06.2 would create cycles. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made.
+The finite-Q_p Berger route is now explicitly planned in R06.3 through M(D), the cyclotomic RD.2 slope filtration, filtered subobject correspondence and PG.2. Consumers outside R06.2 cite that proof directly. Inside this packet no R06.2 node depends on it: the two R06.2 ordinarity criteria need only the admissible-subobject lemma, which follows from R06.2/colmez-fontaine-bigness-criterion (corrected in review REV-PadicHodgeTheory--P7), so the node graph induces no R06.3 → R06.2 stage edge. The atlas still places the R06.2 proposition before P7; a stage edge from R06.3 back to R06.2 would create a cycle. R07.4’s general CF supplier and the perfect-residue theorem over finite extensions of Q̆_p remain unresolved by the latest RS-01 review. Adopt the proposed theorem/consumer cut and read the general CF proof. No assertion that the entire family’s stage graph is repaired is made.
 
 **Affected targets.** [PadicHodgeTheory:R06.2/colmez-fontaine-theorem](#node-180)
 
@@ -11787,7 +11790,7 @@ Disegni–Liu Appendix B.5, pp. 91–92 supplies the contracts but refers to Bre
 
 ### G17. Proof of the labelled crystalline-character classification
 
-Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Theorem B.4. Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification.
+Böckle–Iyengar–Paškūnas Lemma 6.5, pp. 53–54 uses Conrad Proposition B.4 (Lifting global representations with local properties, Appendix B). Read the Lubin–Tate period computation and weight-zero unramified converse in that appendix, then prove the full-unit criterion with arithmetic Artin. BIP’s interpolation argument alone does not prove the classification.
 
 **Affected targets.** [PadicHodgeTheory:R06.2/crystalline-character-classification](#node-262)
 
@@ -12179,7 +12182,7 @@ Show two sub-layers: 'P8:local-rational — de Rham period sheaves and Poincaré
 
 The finite-Q_p proof is planned in R06.3 through Berger’s modification, RD.2 cyclotomic slopes and filtered subobjects, and PG.2. R06.2 keeps only the proposition and its elementary equivalent forms; finite-Q_p consumers cite the actual proof node. The perfect-residue extension and R07.4 supplier remain open.
 
-Split R06.2 into period-functor/filtered definitions and the consumers of essential surjectivity; place the latter after the R06.3 proof. Add P7, RD.2 and PG.2 prerequisites to that proof cut without adding a cyclic edge back to the whole R06.2 stage. Resolve R07.3/R06.4 FL proof ownership and R07.4’s general CF input with the family lead.
+Split R06.2 into period-functor/filtered definitions and the consumers of essential surjectivity; place the latter after the R06.3 proof. Add P7, RD.2 and PG.2 prerequisites to that proof cut without adding a cyclic edge back to the whole R06.2 stage. Resolve R07.3/R06.4 FL proof ownership and R07.4’s general CF input with the family lead. Review REV-PadicHodgeTheory--P7: inside this packet the split is no longer forced. The two R06.2 ordinarity criteria now use only the admissible-subobject lemma derived from the bigness criterion, so no R06.2 node cites the R06.3 proof. The remaining consumers of essential surjectivity are outside R06.2, or are the perfect-residue targets of R06.2 recorded as gaps.
 
 ### Proposal 10: Redirect CohomologyComparisons' request to R06.2 for Kisin's functor and Scholze's de Rham comparison
 
@@ -12255,7 +12258,7 @@ Every description below is a paraphrase. The records distinguish published errat
 
 **Location.** `berger-2002`, Section 2, p. 13 (and Proposition 1.4, p. 12; Proposition 2.31, p. 27), arXiv v3.
 
-**Reported source claim.** The source says the preceding chapter's review establishes that f 7→ f (πK ) gives an isomorphism from BF to B†K.
+**Reported source claim.** Section 2 (p. 13) states that, by the recollections of the previous chapter, f ↦ f(π_K) is an isomorphism from B_F, the Laurent series with coefficients in F, onto B_K^†; Proposition 1.4 and Proposition 2.31 likewise take the coefficients a_k in F.
 
 **Statement used here.** The coefficients lie in F' = K_0', the maximal unramified extension of F contained in K_infinity, which can be larger than F.
 
@@ -12270,6 +12273,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Section 2 (p. 13) and Propositions 1.4 and 2.31 take coefficients in F. For K = Q_p(√(y p*)) with y a non-square unit, K_∞ contains √y, so F′ ≠ F. Berger 2008 Appendix B and the 2026 errata record the correction.
 
 ### PadicHodgeTheory/E2 — error
 
@@ -12291,6 +12296,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Introduction 0.3 (pp. 4–5) and Proposition 2.31 (p. 27) put e_K = [K_∞ : F_∞]. Since π = π_K^e·(unit) with e the ramification index, the radius needs e, which equals [K_∞ : F_∞] only when F′ = F.
+
 ### PadicHodgeTheory/E3 — error
 
 **Location.** `berger-2002`, Section 2.4, p. 25 (and Section 1.2, p. 11): monodromy operator on B~^dagger_log.
@@ -12310,6 +12317,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Section 2.4 (p. 25) sets N = −d/d log(π). Berger 2008 Appendix B ("Monodromie") gives the normalisation N(log π) = −p/(p−1) needed to recover D_st.
 
 ### PadicHodgeTheory/E4 — gap
 
@@ -12331,11 +12340,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Proposition 2.24 (p. 24) defines log on Ã^+ only, while log(π_K) is used later. Berger's errata records this.
+
 ### PadicHodgeTheory/E5 — error
 
-**Location.** `berger-2002`, Propositions 2.11 and 2.12, p. 17-19.
+**Location.** `berger-2002`, Propositions 2.11 and 2.12, pp. 19–20 (arXiv v3).
 
-**Reported source claim.** The fragment of Proposition 2.11 describes x 7→ ι0 (x) as a morphism, with the next word cut off at “in-”.
+**Reported source claim.** Propositions 2.11 and 2.12 state that ι_0 (resp. ι_n) is injective on Ã_{J_0} (resp. Ã_{J_n}) and, when r_0 ∈ I (resp. r_n ∈ I), that the kernel of θ∘ι_n on Ã_I is generated by [p̃]/p − 1 (resp. [p̃^{p^n}]/p − 1), without requiring that element to lie in Ã_I.
 
 **Statement used here.** The statements on A~_I hold only if [p~]/p - 1 (resp. [p~^{p^n}]/p - 1) belongs to A~_I; otherwise replace A~_I by B~_I.
 
@@ -12351,11 +12362,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Proposition 2.11 (p. 19) and Proposition 2.12 (p. 20) state the kernel without the integrality condition, which Berger's errata adds. The locator now covers p. 20.
+
 ### PadicHodgeTheory/E6 — misprint
 
 **Location.** `berger-2002`, Corollaire 2.20, p. 23.
 
-**Reported source claim.** The source labels Corollaire 2.20 as the maximum principle.
+**Reported source claim.** Corollaire 2.20 (maximum principle) is stated for x ∈ B̃^{†,r}_rig and an interval I = [s;t] that contains r.
 
 **Statement used here.** The condition on r should be r <= s, t, i.e. [s; t] contained in [r; +infinity[.
 
@@ -12371,11 +12384,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Corollaire 2.20 (p. 23) is stated for I = [s;t] containing r. Berger's errata replaces this by r ≤ s, t.
+
 ### PadicHodgeTheory/E7 — error
 
 **Location.** `berger-2002`, Proof of Proposition 5.15, p. 54.
 
-**Reported source claim.** The proof says it suffices to verify ιn (Ns ) = Kn [[t]] ⊗K DdR (V ), before the quoted sentence breaks off.
+**Reported source claim.** The proof of Proposition 5.15 reduces to checking that ι_n(N_s) equals K_n[[t]] ⊗_K D_dR(V).
 
 **Statement used here.** Only density of the image of iota_n for the t-adic topology holds, which is what the rest of the proof uses.
 
@@ -12390,6 +12405,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)
 - Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]
 - arXiv version list of math/0102179 (v1-v3)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Proposition 5.15 (p. 54) reduces to ι_n(N_s) = K_n[[t]] ⊗ D_dR(V). Berger 2008 Appendix B says this equality is false and only t-adic density holds.
 
 ### PadicHodgeTheory/E8 — misprint
 
@@ -12410,11 +12427,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger, Errata for my articles (2026), Section 2
 - Compositio Mathematica 140 (2004) article page (no corrigendum listed)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Théorème III.4.4 (p. 22) prints χ^{−j}(γ). Since γ(π) ≡ χ(γ)π mod π² and γ is trivial on N(V)/πN(V), the exponent is +j.
+
 ### PadicHodgeTheory/E9 — gap
 
 **Location.** `berger-2004`, Proof of Théorème III.4.4, last two lines, p. 22.
 
-**Reported source claim.** The source asserts ϕ(y) ∈ q^i(B̃+rig ⊗Qp V) and concludes y ∈ Fil^i Dcris(V).
+**Reported source claim.** The last lines of the proof deduce from φ(y) ∈ q^i(B̃^+_rig ⊗ V) that y ∈ Fil^i D_cris(V).
 
 **Statement used here.** One only has y in Fil^i N(V) + pi N(V) a priori; applying gamma - chi(gamma)^j for j = 1, ..., i-1 (gamma non-torsion) shows y in Fil^i N(V).
 
@@ -12428,11 +12447,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Berger, Errata for my articles (2026)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The last lines of the proof of Théorème III.4.4 (p. 22) skip the step. Berger's errata supplies it.
+
 ### PadicHodgeTheory/E10 — gap
 
 **Location.** `berger-2004`, Définition III.4.1, p. 21.
 
-**Reported source claim.** The definition fragment refers to a Wach module whose weights lie in [a; b], then breaks off before specifying what it is.
+**Reported source claim.** Définition III.4.1 defines a Wach module with weights in [a;b] as a free A_F^+- or B_F^+-module of rank d with a Γ_F-action trivial modulo π and a Frobenius satisfying the height condition, with no étaleness condition over B_F.
 
 **Statement used here.** Over B^+_F (where p is a unit) one must add that B_F tensor_{B^+_F} N is an etale (phi, Gamma)-module over B_F.
 
@@ -12446,11 +12467,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Berger, Errata for my articles (2026)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Définition III.4.1 (p. 21) has no étaleness condition over B_F^+. Berger's errata adds it.
+
 ### PadicHodgeTheory/E11 — gap
 
 **Location.** `berger-2008`, Théorème I.3.3 (2), p. 8.
 
-**Reported source claim.** The fragment of item (2) begins by referring to B†,pr.
+**Reported source claim.** Théorème I.3.3(2) requires that the B^{†,pr}_{rig,K}-module B^{†,pr}_{rig,K} ⊗ D_r have a basis contained in φ(D_r).
 
 **Statement used here.** Require that B^{dagger,pr}_{rig,K} tensor D_r is the B^{dagger,pr}_{rig,K}-module generated by phi(D_r), which gives Mat(phi) in GL_d(B^{dagger,pr}_{rig,K}) as used later.
 
@@ -12463,6 +12486,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - Berger, Errata for my articles (2026)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Rejected. As printed, B^{†,pr}_{rig,K} ⊗ D_r has a basis φ(x_1), …, φ(x_d) with x_i ∈ D_r. Writing x = A·e in a basis e of D_r gives φ(x) = φ(A)·Mat(φ)·e, so det φ(A)·det Mat(φ) is a unit, and Mat(φ) ∈ GL_d already follows. The 2026 errata only calls the generation wording preferable. There is no gap in the proof.
 
 ### PadicHodgeTheory/E12 — error
 
@@ -12485,13 +12510,15 @@ Every description below is a paraphrase. The records distinguish published errat
 - Tan–Tong arXiv:1510.05543v2, Proposition 5.1
 - the published Forum of Mathematics, Pi version could not be opened (the publisher page served only the abstract)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Proposition 8.5 (p. 49, identical in arXiv v2) prints the uncompleted tensor product. The T² → T¹ example shows that the kernel of ∇_{X/Y} is larger than its image. The packet uses the completed form (P8:local-rational/relative-poincare-lemma).
+
 ### PadicHodgeTheory/E13 — misprint
 
 **Location.** `sch13-padic-hodge`, Section 7, proof of Theorem 7.6 (i), p. 43 (author's version; the same text in arXiv:1205.3463v2).
 
 **Reported source claim.** The proof invokes lemma 6.19 for an analogous conclusion.
 
-**Statement used here.** Similarly, Corollary 6.19 shows that
+**Statement used here.** The reference should be to Corollary 6.19, which states ν_*OB_dR = O_{X_ét}.
 
 **Reason.** There is no Lemma 6.19; the cited fact ν_*OB_dR = O_{X_ét} is Corollary 6.19.
 
@@ -12503,6 +12530,8 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Scholze's erratum
 - arXiv:1205.3463v2 (same wording)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Theorem 7.6(i) (p. 43) cites 'lemma 6.19'. The cited statement is Corollary 6.19.
 
 ### PadicHodgeTheory/E14 — misprint
 
@@ -12523,6 +12552,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Scholze's erratum
 - arXiv:1205.3463v2 (same wording)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Theorem 6.5 (p. 36) writes U → X_proét for an object U of the site. Lemma 4.10 uses the correct wording.
+
 ### PadicHodgeTheory/E15 — misprint
 
 **Location.** `tan-tong`, Section 2.2, proof of Lemma 2.18, p. 18 (arXiv:1510.05543v2).
@@ -12540,6 +12571,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - arXiv:1510.05543 v2 (v1 and the published Algebra & Number Theory version not read)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The display in the proof of Lemma 2.18 (p. 18) has A_cris/p^r where the proof works modulo p^n.
 
 ### PadicHodgeTheory/E16 — misprint
 
@@ -12559,6 +12592,8 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - arXiv:1510.05543 v2
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Corollary 2.17 (p. 16) prints Fil^{i−(i_0+…+i_d)} with a nonexistent index i_0.
+
 ### PadicHodgeTheory/E17 — gap
 
 **Location.** `tan-tong`, Section 2.4, proof of Proposition 2.23 (1), p. 22 (arXiv:1510.05543v2).
@@ -12577,6 +12612,8 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - arXiv:1510.05543 v2
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Proposition 2.23(1) (p. 22) omits the injectivity of B_cris^+ → B_dR^+ for the sheaves and refers to Brinon's memoir.
+
 ### PadicHodgeTheory/E18 — misprint
 
 **Location.** `tan-tong`, Section 1, p. 3, and Section 3.2, p. 30 (arXiv:1510.05543v2).
@@ -12594,6 +12631,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - arXiv:1510.05543 v2
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Pages 3 and 30 cite 'Proposition 2.17'. The Poincaré lemma is Corollary 2.17 (p. 16).
 
 ### PadicHodgeTheory/E19 — gap
 
@@ -12614,6 +12653,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Scholze's erratum
 - arXiv:1205.3463v2 (same wording)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Corollary 6.19 (p. 41) calls the first part clear. OB_dR is not complete for its filtration, so an argument is needed.
+
 ### PadicHodgeTheory/E20 — misprint
 
 **Location.** `brinon-conrad`, Example 8.1.3 (Katz), p. 104.
@@ -12632,11 +12673,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Example 8.1.3 (p. 104) prints X² − 4p. Trace 0 and determinant 4p give X² + 4p.
+
 ### PadicHodgeTheory/E21 — gap
 
 **Location.** `brinon-conrad`, Lemma 8.1.8 and its footnote 1, p. 106.
 
-**Reported source claim.** The proof says isoclinicity permits assuming k algebraically closed, reducing the task to decomposing ∆α1 ⊗ ∆α2 into a direct sum whose summands are copies of ∆α1 +α2 . A footnote calls for insertion of the proof.
+**Reported source claim.** The proof of Lemma 8.1.8 reduces, by isoclinicity, to k algebraically closed and to decomposing Δ_{α_1} ⊗ Δ_{α_2} into copies of Δ_{α_1+α_2}, and stops there; footnote 1 says a proof has to be inserted.
 
 **Statement used here.** Supply a proof: over k̄, Δ_{s/r} ⊗ Δ_{s'/r'} has φ^{rr'} acting on the eigenvectors v ⊗ v' with φ^r v = p^s v, φ^{r'} v' = p^{s'} v' by p^{sr' + s'r}, which spans; so it is isoclinic of slope s/r + s'/r'.
 
@@ -12649,6 +12692,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Lemma 8.1.8 (p. 106) stops after the reduction, and footnote 1 asks for a proof.
 
 ### PadicHodgeTheory/E22 — gap
 
@@ -12667,6 +12712,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The authors omit the proof of Theorem 9.1.8 (p. 133) and know no published reference.
 
 ### PadicHodgeTheory/E23 — gap
 
@@ -12687,6 +12734,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Brinon–Conrad omit the injectivity of j (p. 129). Fontaine–Ouyang Exercise 6.3 (p. 114) concerns only A^0_cris → A_cris.
+
 ### PadicHodgeTheory/E24 — misprint
 
 **Location.** `brinon-conrad`, Example 6.3.6, pp. 78–79.
@@ -12705,11 +12754,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Example 6.3.6 (pp. 78–79) prints 'weights of V′ strictly larger'. In Brinon–Conrad's convention, where Q_p(1) has weight −1, this contradicts their example V′ = Q_p(r). The proof works in the opposite convention.
+
 ### PadicHodgeTheory/E25 — misprint
 
 **Location.** `brinon-conrad`, Proof of Theorem 14.3.4, pp. 253–254 (with footnote 8).
 
-**Reported source claim.** For degree 1, the proof first treats η = 1, intending to infer the remaining cases afterward. It describes this initial task as proving H1 (GK , CK ) = 0.
+**Reported source claim.** In degree 1 the proof first treats η = 1 and announces that it proves H^1(G_K, C_K) = 0, although the argument that follows, and the theorem, give a one-dimensional H^1.
 
 **Statement used here.** 'we first prove that H^1(G_K, C_K) is 1-dimensional over K' — which is what the following argument shows (H^1(G_K, C_K) ≅ Hom_cont(Z_p, K)).
 
@@ -12723,11 +12774,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Theorem 14.3.4 (p. 254) announces H^1(G_K, C_K) = 0 and then shows that it is one-dimensional.
+
 ### PadicHodgeTheory/E26 — gap
 
 **Location.** `brinon-conrad`, Proposition 9.3.9 (Colmez–Fontaine), footnote 2, p. 151.
 
-**Reported source claim.** The footnote requests a proof of the converse: finite dimensionality of V st (D) should imply semistability via [14, Prop. 4.5]; if δ(D) is also surjective, the argument of [14, Prop. 5.7] should give weak admissibility of D.
+**Reported source claim.** Footnote 2 to Proposition 9.3.9 asks for a proof of the converse: finite-dimensionality of V_st(D) should give semistability (Colmez–Fontaine Prop. 4.5), and surjectivity of δ(D) should then give weak admissibility (proof of their Prop. 5.7).
 
 **Statement used here.** The converse is not proved in the notes (it needs Colmez–Fontaine's paper, not available).
 
@@ -12741,11 +12794,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Footnote 2 to Proposition 9.3.9 (p. 151) records the authors' own missing converse.
+
 ### PadicHodgeTheory/E27 — gap
 
 **Location.** `brinon-conrad`, Theorem 9.1.5 and its proof, p. 131.
 
-**Reported source claim.** The source calls the injectivity argument in [21, §4.1.2–4.1.3] incomplete for e(K) > 1: although ξpe generates ker θ, it fails to generate the kernel of the corresponding OK -algebra map.
+**Reported source claim.** The proof of Theorem 9.1.5 says that Fontaine's injectivity argument (Astérisque 223, §§4.1.2–4.1.3) is incomplete when e(K) > 1, because the generator ξ of ker θ does not generate the kernel of the corresponding O_K-algebra map.
 
 **Statement used here.** A complete proof of injectivity of K ⊗_{K_0} B_cris → B_dR is needed; the packet derives it from Colmez 2002 Proposition 8.14 (K ⊗_{K_0} B_max^+ ↪ B_dR^+) and B_cris^+ ⊆ B_max^+.
 
@@ -12760,11 +12815,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 - Colmez 2002 (author's PDF) §8.5 read
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Theorem 9.1.5 (p. 131) states the incompleteness and leaves the repair out.
+
 ### PadicHodgeTheory/E28 — gap
 
 **Location.** `fontaine-ouyang`, Proof of Theorem 6.14(2), p. 121.
 
-**Reported source claim.** The source asserts that Frac(K ⊗K0 Bcris ) is finite over Ccris and infers transcendence of log[$] over Frac(K ⊗K0 Bcris ).
+**Reported source claim.** The proof of Theorem 6.14(2) asserts that Frac(K ⊗_{K_0} B_cris) is a finite extension of C_cris and deduces that log[ϖ] is transcendental over it.
 
 **Statement used here.** The argument presupposes that K ⊗_{K_0} B_cris → B_dR is injective (so that Frac(K ⊗ B_cris) is a field inside B_dR); this must be proved first (Colmez 2002, Proposition 8.14 route).
 
@@ -12778,11 +12835,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Theorem 6.14(2) (p. 121) uses Frac(K ⊗ B_cris) without first proving that K ⊗ B_cris → B_dR is injective.
+
 ### PadicHodgeTheory/E29 — gap
 
 **Location.** `fontaine-ouyang`, Proof of Lemma 6.12, p. 120.
 
-**Reported source claim.** The proof uses p-adic separatedness of S to reduce the task to proving pr αu ∉ S for α ∈ S − pS and r ∈ N.
+**Reported source claim.** The proof of Lemma 6.12 uses that S = W(R)[[ξ/p]] is p-adically separated to reduce to showing p^r α u ∉ S for α ∈ S ∖ pS and r ∈ N.
 
 **Statement used here.** p-adic separatedness of S = W(R)[[ξ/p]] ⊆ B_dR^+ needs a proof; it follows from Colmez's expansion θ_β (Colmez 2002 §8.4), which identifies S with O_C[[X]].
 
@@ -12795,6 +12854,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Lemma 6.12 (p. 120) asserts p-adic separatedness of S without proof.
 
 ### PadicHodgeTheory/E30 — error
 
@@ -12814,11 +12875,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Exercise 5.18(3) (p. 93) claims a continuous section on K̄. Extending it by completeness of B_dR^+ would contradict Exercise 5.18(1).
+
 ### PadicHodgeTheory/E31 — misprint
 
 **Location.** `fontaine-ouyang`, Corollary 6.46, p. 137.
 
-**Reported source claim.** The source claims the equality tN (∆) = tN (∆0 ) + tN (∆00 ).
+**Reported source claim.** Corollary 6.46, for a short exact sequence 0 → Δ′ → Δ → Δ″ → 0 of filtered K-vector spaces, asserts t_N(Δ) = t_N(Δ′) + t_N(Δ″).
 
 **Statement used here.** t_H(Δ) = t_H(Δ′) + t_H(Δ′′) for a short exact sequence of filtered K-vector spaces.
 
@@ -12832,13 +12895,15 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Corollary 6.46 (p. 137) prints t_N for filtered vector spaces. Definition 6.44 and Proposition 6.45 concern t_H.
+
 ### PadicHodgeTheory/E32 — gap
 
-**Location.** `berger-2008`, Remarque V.2.2, p. 22, with Proposition IV.2.2 (p. 18) and Corollaire III.2.5 (p. 17).
+**Location.** `berger-2008`, Remarque V.2.2, p. 22, with the proof of Théorème V.2.1 (pp. 21–22, citing Théorème IV.2.4, an immediate consequence of Proposition IV.2.2, p. 18) and Corollaire III.2.5 (p. 17).
 
-**Reported source claim.** The remark says the preceding proof uses the construction D 7→ M(D) without using a description of that functor's essential image. It concludes that the proof does not invoke the p-adic monodromy theorem.
+**Reported source claim.** Remarque V.2.2 says the proof of Théorème V.2.1 uses the construction D ↦ M(D) but not the description of its essential image, and hence does not use the p-adic monodromy theorem.
 
-**Statement used here.** As written, the proof of Théorème V.2.1 does use the essential image: it invokes Proposition IV.2.2, whose proof uses Corollaire III.2.5, which is proved from Théorème III.2.4 (equivalence onto modules with locally trivial connection), whose essential-surjectivity part (Théorème III.2.3) uses Théorème III.2.1, the p-adic monodromy theorem of André–Kedlaya–Mebkhout. For sub-objects of M(D) the needed solutions can probably be obtained from those of M(D) directly, but the text does not do this.
+**Statement used here.** As written, the proof of Théorème V.2.1 does use the essential image: it invokes Théorème IV.2.4, an immediate consequence of Proposition IV.2.2, whose proof uses Corollaire III.2.5, which is proved from Théorème III.2.4 (equivalence onto modules with locally trivial connection), whose essential-surjectivity part (Théorème III.2.3) uses Théorème III.2.1, the p-adic monodromy theorem of André–Kedlaya–Mebkhout. For sub-objects of M(D) the needed solutions can probably be obtained from those of M(D) directly, but the text does not do this.
 
 **Reason.** Follow the chain of references in the proofs of IV.2.2 → III.2.5 → III.2.4 → III.2.3 → III.2.1.
 
@@ -12849,6 +12914,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - arXiv:math/0406601 has a single version (v1); Berger's web page lists the Astérisque 319 version, not compared; Berger's own appendix B is an erratum to [Ber02] only
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Remarque V.2.2 (p. 22) claims that the essential image is not used. The proof of Théorème V.2.1 cites Théorème IV.2.4, which follows from Proposition IV.2.2 (p. 18). The proof of IV.2.2 invokes Corollaire III.2.5 (p. 17), which rests on Théorèmes III.2.4, III.2.3 and the monodromy theorem III.2.1. The locator now names Théorème IV.2.4.
 
 ### PadicHodgeTheory/E33 — gap
 
@@ -12869,6 +12936,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. For Theorem 9.1.10 (p. 134) the notes give only a reference to Astérisque 223.
+
 ### PadicHodgeTheory/E34 — gap
 
 **Location.** `fontaine-ouyang`, Proposition 5.31(3) and its proof, p. 100.
@@ -12886,6 +12955,8 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Proposition 5.31(3) (p. 100) is left unproved, with the remark that it is 'not so easy'.
 
 ### PadicHodgeTheory/E35 — misprint
 
@@ -12905,11 +12976,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Berger 2008 Appendice B
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Exemple 2.8(1) (p. 17). Berger 2008 Appendix B replaces A_max^+ by A_max.
+
 ### PadicHodgeTheory/E36 — gap
 
 **Location.** `berger-2002`, Proposition 5.15, p. 54, with Lemme 4.6, p. 41 (arXiv v3).
 
-**Reported source claim.** The proposition asserts that Ns is free of rank d over B†,s rig,K and satisfies ∇V (Ns ) ⊂ tNs.
+**Reported source claim.** Proposition 5.15 asserts that N_s is a free B^{†,s}_{rig,K}-module of rank d with ∇_V(N_s) ⊂ tN_s.
 
 **Statement used here.** ∇_V(N_s) ⊂ tN_s holds after replacing s by s' = r_{n_0} (and N_s by B†,s'_rig,K ⊗ N_s); for the original s it can fail when n_0 > n(s).
 
@@ -12924,11 +12997,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Berger 2008 Appendice B (lists a different correction to the proof of Proposition 5.15)
 - berger-intro IV.4.1
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Proposition 5.15 (p. 54) claims ∇_V(N_s) ⊂ tN_s for the original s, but Lemme 4.6 (p. 41) gives t-divisibility only on a smaller annulus. The V = Q_p(−1) computation shows the failure.
+
 ### PadicHodgeTheory/E37 — misprint
 
 **Location.** `fontaine-ouyang`, §1.3.3, p. 16 (book draft read).
 
-**Reported source claim.** The source takes τk ∈ Gk as geometric Frobenius. It defines E(−1) as an E-vector space of dimension one carrying an action of WK, with trivial action by IK and with τk acting through multiplication by q−1.
+**Reported source claim.** §1.3.3 takes τ_k to be the geometric Frobenius and defines E(−1) as the one-dimensional E-vector space with trivial I_K-action on which τ_k acts by multiplication by q^{−1}.
 
 **Statement used here.** On E(−1) the geometric Frobenius acts by q (equivalently the arithmetic Frobenius by q^{−1}); with that twist the condition 'N: D → D(−1) is W_K-equivariant' gives ρ(τ_k)Nρ(τ_k)^{−1} = q^{−1}N, Deligne's relation.
 
@@ -12944,11 +13019,13 @@ Every description below is a paraphrase. The records distinguish published errat
 - Deligne 1973 via ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor
 - Brinon–Conrad §8.2
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. §1.3.3 (p. 16) lets the geometric Frobenius act on E(−1) by q^{−1}. The geometric Frobenius acts on Q_ℓ(−1) by q (F-O §1.2), so with the printed twist the W_K-equivariance of N gives the inverse of Deligne’s relation.
+
 ### PadicHodgeTheory/E38 — gap
 
 **Location.** `brinon-conrad`, Theorem 12.4.8 and Theorem 12.4.12, pp. 194–195 (version of 24 June 2009).
 
-**Reported source claim.** Theorem 12.4.8 asserts exact anti-equivalences, quasi-inverse to each other, between strongly divisible lattices L satisfying Filp L = 0 and Zp [GK ]-lattices Λ inside crystalline GK -representations whose Hodge-Tate weights belong to {0, . . . , p − 1}.
+**Reported source claim.** Theorem 12.4.8 asserts exact quasi-inverse anti-equivalences between strongly divisible lattices L with Fil^p L = 0 and Z_p[G_K]-lattices in crystalline representations with Hodge–Tate weights in {0,…,p−1}; the surrounding text carries the authors' footnotes asking for more detail or a reference.
 
 **Statement used here.** The proof is incomplete in the notes (author footnotes 'need to say more', 'should sketch proof or give reference'); Theorem 12.4.12 is stated only for one-step filtrations. Neither is used as a prerequisite here.
 
@@ -12962,11 +13039,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad notes, version of 24 June 2009
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Theorems 12.4.8 and 12.4.12 (pp. 194–195) carry the authors' footnotes 3–7 marking the missing steps.
+
 ### PadicHodgeTheory/E39 — misprint
 
 **Location.** `berger-intro`, III.1.1, p. 21 (arXiv v1).
 
-**Reported source claim.** The source defines AK = {Σ ak πK^k, ak ∈ OF , a−k → 0} and deduces AK /p = kK ((πK )).
+**Reported source claim.** III.1.1 defines A_K as the ring of Laurent series Σ a_k π_K^k with a_k ∈ O_F and a_{−k} → 0, and states A_K/p = k_K((π_K)).
 
 **Statement used here.** a_k ∈ O_{F'_K} with F'_K = K_∞ ∩ F^nr; with a_k ∈ O_F the reduction would be k((π_K)), not k_K((π_K)).
 
@@ -12980,11 +13059,13 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Berger 2008 Appendice B
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. III.1.1 (p. 21) takes a_k ∈ O_F and claims A_K/p = k_K((π_K)). This is the same phenomenon as E1.
+
 ### PadicHodgeTheory/E40 — error
 
 **Location.** `brinon-conrad`, Example 4.4.4, p. 59, author PDF dated 24 June 2009.
 
-**Reported source claim.** The example asserts that the cyclotomic element μ generates the theta kernel at p = 2. This description is a paraphrase.
+**Reported source claim.** Example 4.4.4 is an exercise asking the reader to show, with the criterion of Proposition 4.4.3(2), that the element ε − 1 of ker θ (that is, [ε] − 1 = μ) generates ker θ when p = 2, and that this fails for p > 2.
 
 **Statement used here.** μ does not generate ker θ for any prime, including p = 2.
 
@@ -12998,6 +13079,8 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - Brinon–Conrad author notes, Proposition 4.4.3 and Example 4.4.4, pp. 58–59
 - BMS1 arXiv:1602.03148v3, Example 3.16, pp. 25–26
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Example 4.4.4 (p. 59) asks the reader to prove that ε − 1 = [ε] − 1 generates ker θ for p = 2. By Proposition 4.4.3, an element of ker θ generates iff its image in R has valuation v_R(p̃) = 1, while v_R(ε − 1) = p/(p−1) = 2 when p = 2, so that case is false too. The printed field now describes the exercise exactly.
 
 ### PadicHodgeTheory/E41 — error
 
@@ -13017,6 +13100,8 @@ Every description below is a paraphrase. The records distinguish published errat
 
 - KL I arXiv v5, Definition 9.3.3, Lemma 9.3.4 and Remark 9.3.17
 - Scholze’s almost acyclicity for the positive structure sheaf
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Lemma 9.3.4 (p. 196) asserts acyclicity for every sheaf of Definition 9.3.3, including Ã^+ = W(O^+). Exact acyclicity of Ã^+ would make O^+ acyclic on perfectoid subdomains (reduce modulo p). For a degree-p Artin–Schreier extension L/K of perfectoid fields of characteristic p, the Čech computation would then give H^2 = O_K^+/Tr(O_L^+) = O_K^+/m_K ≠ 0. Only almost acyclicity holds.
 
 ### PadicHodgeTheory/E42 — error
 
@@ -13038,6 +13123,8 @@ Every description below is a paraphrase. The records distinguish published errat
 - BLGHT author preprint, Lemma 2.2(2), p. 17
 - Brinon–Conrad Proposition 8.3.8, p. 123
 
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Lemma 4.2 (p. 20) has no weight hypothesis and cites BLGHT Lemma 2.2(2), which assumes filtration jumps 0, …, n−1. Counterexample for n = 2: a weakly admissible (φ, N)-module with N ≠ 0, jumps {0, r} (r ≥ 3 odd), slopes (r ± 1)/2 and Fil^r ≠ ker N. Its only (φ, N)-stable line ker N has t_H = 0 < t_N = (r − 1)/2, so the representation is irreducible.
+
 ### PadicHodgeTheory/E43 — misprint
 
 **Location.** `kedlaya-liu`, Proof of Corollary 9.3.14, p. 198, arXiv:1301.0792v5.
@@ -13055,6 +13142,29 @@ Every description below is a paraphrase. The records distinguish published errat
 **Checked against.**
 
 - KL I Theorems 8.7.8,9.3.12,9.3.13, Corollary 9.3.14 and Remark 9.3.10
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. The proof of Corollary 9.3.14 (p. 198) cites Theorem 9.3.13, which concerns étale objects only. The full-category statement needs Theorem 9.3.12 with Remark 9.3.10.
+
+### PadicHodgeTheory/E44 — gap
+
+**Location.** `berger-2008`, Proof of Théorème III.2.3, last paragraph, p. 16.
+
+**Reported source claim.** The proof defines the filtration on L ⊗ Sol_L(D) from the lattices K_n[[t]] ⊗_{ι_n} M_r and then asserts, without argument, that each such lattice equals Fil^0(K_n((t)) ⊗ D^n_K) for that filtration, which gives M = M(Sol_L(D)).
+
+**Statement used here.** A lemma is needed: if W is a G-stable B_dR^+-lattice in B_dR ⊗ D, G acting trivially on D, and Fil^i D := D ∩ t^i W, then W = Fil^0(B_dR ⊗ D). With it the asserted equality, and hence M = M(Sol_L(D)), follows.
+
+**Reason.** Defining a filtration by intersecting with a lattice does not by itself show that the lattice is recovered as Fil^0 of that filtration; the lemma supplies exactly this step.
+
+**Scope.** the proof
+
+**Known correction or verification status.** Berger, Errata for my articles (version dated October 13, 2026), §4, 'Theorem III.2.3', which supplies the lemma; it is Lemma 7.6 of Berger's 'Multivariable Lubin–Tate (φ,Γ)-modules and filtered φ-modules'.
+
+**Checked against.**
+
+- Berger's errata, versions dated May 5, 2026 (not listed) and October 13, 2026 (listed)
+- Berger 2008 Appendice B (corrections to Berger 2002 only)
+
+**Independent review (REV-PadicHodgeTheory--P7).** Confirmed. Added by this review. The last paragraph of the proof of Théorème III.2.3 (p. 16) asserts the lattice identity without argument, and the October 2026 errata adds the missing lemma. R06.3/filtered-module-robba-equivalence relies on this step.
 
 ## Bibliography and versions
 
@@ -13157,7 +13267,7 @@ Read: recorded in packet. SHA-256: `a6a117423db62aec072442bb15b70e3175bcc3b631bd
 
 ### fontaine-ouyang
 
-J.-M. Fontaine and Y. Ouyang — [Theory of p-adic Galois representations](https://www.imo.universite-paris-saclay.fr/~jean-marc.fontaine/prepub/theory_padic.pdf). book draft (Université Paris-Saclay page)
+J.-M. Fontaine and Y. Ouyang — [Theory of p-adic Galois representations](https://www.imo.universite-paris-saclay.fr/~fontaine/galoisrep.pdf). book draft (Université Paris-Saclay page; the former address .../~jean-marc.fontaine/prepub/theory_padic.pdf no longer resolves, and the file at the new address has the same SHA-256)
 
 Read: recorded in packet. SHA-256: `56590ae4bc10cc274491a37c1ab65af2eb1f712227bc295fe986d66c3204059f`.
 
@@ -13260,7 +13370,7 @@ Read: recorded in packet. SHA-256: `52e188211dfba449a92e5a8a66cc65379fe17688e638
 
 L. Berger — [Errata for my articles](https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf). author PDF dated May 5, 2026
 
-Read: recorded in packet. SHA-256: `3a8db18e831c72ffa3084eb703820adbcfa98a676d8144f0b6207a13ef47a782`.
+Read: recorded in packet. SHA-256: `3a8db18e831c72ffa3084eb703820adbcfa98a676d8144f0b6207a13ef47a782`. A later version of the same list, dated October 13, 2026 (SHA-256 `bb42b4f8d684882625adb4b0994cbaeb214141522d4f7ac27237e69317e92f5d`), was read on 14 October 2026; it adds, among other items, the lemma missing from the proof of Théorème III.2.3 of Berger 2008 (source issue E44).
 
 **Target-related reading locators.**
 
