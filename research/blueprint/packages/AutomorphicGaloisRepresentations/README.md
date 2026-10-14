@@ -59,8 +59,10 @@ Hilbert constructor.
 At an unramified finite v, write q_v for the residue cardinality and ϖ_v for a
 uniformiser. The eigenvalues t_v and s_v are those of the double cosets
 `diag(ϖ_v,1)` and `ϖ_v I₂`, respectively. Local class field theory sends ϖ_v to
-**geometric** Frobenius. The cyclotomic character ε_ℓ therefore has value q_v⁻¹
-there, and corresponds to the norm character `|·|_v`.
+**geometric** Frobenius. For v∤ℓ the cyclotomic character ε_ℓ has value q_v⁻¹
+there, and corresponds to `|·|_v`. At v|ℓ its reciprocity values include
+the algebraic norm factor specified in §4.11; q_v⁻¹ is not its value
+at a coefficient-prime uniformizer.
 
 The single Hilbert object used throughout is ρ_{π,λ}, characterized at good
 geometric Frobenius by
@@ -263,7 +265,7 @@ prime sum remain the analytic supplier obligations below.
 
 ### From PadicHodgeTheory
 
-**R06.3.** Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations. Kisin's analytic continuation of crystalline periods in families ([public author DVI](https://abel.math.harvard.edu/~kisin/dvifiles/fmform.dvi), Proposition 5.14 and Corollary 5.15, internal pp. 26–27). In the source's G_Qp case require a Tate algebra R over Q_p, a finite free continuous R-representation M, an invertible Y with Sp(R) Y-small in the sense of §5.2, and Sen polynomial TQ(T). For every positive integer k require a collection of Tate R-algebras R_i such that ∏_{j=0}^{k−1}Q(−j) is invertible in each R_i, every equivariant map M^∨⊗R_i→B_dR^+/t^k⊗̂R_i factors through the φ=Y crystalline periods, and R→∏R_i is injective. The conclusion is continuation for sufficiently large truncations and a nonzero crystalline period at every continuous specialization to a closed subfield of C_p. The required G_{F_v} version uses φ^{f_v}; retain the non-zero-divisor condition Q(0) on the family (Skinner footnote 9). A Sen-polynomial factorization and dense classical field points alone do not replace the factorization, invertibility and injectivity hypotheses.
+**R06.3.** Period-ring D_pst, labelled Hodge–Tate grading, WD conversion and its dual/twist/normalisation functor laws for potentially semistable representations. The rank-one local algebraicity theorem must include the labelled-degree and φ^{f_K} formula of [Conrad](https://math.stanford.edu/~conrad/papers/locchar.pdf), Appendix B, Propositions B.3–B.4, pp. 33–36, with finite-inertia descent. Semistable periods must provide weak admissibility, induced subobject filtrations, rank-one admissibility, exactness and full faithfulness, compatible with a commuting finite coefficient-field action and finite Galois descent ([Colmez–Fontaine](https://webusers.imj-prg.fr/~pierre.colmez/CF.pdf), Theorem A p. 2, §3.4 pp. 21–22, Propositions 4.2/4.4 pp. 23–24). These generic contracts do not already assert the eigenform filtration; §4.11 proves that application. Kisin's analytic continuation of crystalline periods in families ([public author DVI](https://abel.math.harvard.edu/~kisin/dvifiles/fmform.dvi), Proposition 5.14 and Corollary 5.15, internal pp. 26–27). In the source's G_Qp case require a Tate algebra R over Q_p, a finite free continuous R-representation M, an invertible Y with Sp(R) Y-small in the sense of §5.2, and Sen polynomial TQ(T). For every positive integer k require a collection of Tate R-algebras R_i such that ∏_{j=0}^{k−1}Q(−j) is invertible in each R_i, every equivariant map M^∨⊗R_i→B_dR^+/t^k⊗̂R_i factors through the φ=Y crystalline periods, and R→∏R_i is injective. The conclusion is continuation for sufficiently large truncations and a nonzero crystalline period at every continuous specialization to a closed subfield of C_p. The required G_{F_v} version uses φ^{f_v}; retain the non-zero-divisor condition Q(0) on the family (Skinner footnote 9). A Sen-polynomial factorization and dense classical field points alone do not replace the factorization, invertibility and injectivity hypotheses.
 
 **R06.5.** Generic proper smooth/semistable geometric comparisons, projectors, cohomological pull–push and coefficient change used by Scholl/Saito/Skinner; concrete eigenform applications stay in Layer 4. Generic semistable/proper-smooth comparison compatible with finite-group and Hecke projectors; sufficient logarithmic compactification and coefficient-functor compatibility for Scholl/Saito realisations, not a theorem already asserting the modular conclusion. Faltings' de Rham and Hodge–Tate comparison for smooth projective varieties over p-adic fields, and the crystalline comparison at good reduction with Katz–Messing characteristic polynomials, applied to Shimura-curve, Kuga–Sato and Picard-modular-surface families.
 
@@ -1012,59 +1014,278 @@ The inertia formulas are proved here from the coefficient-prime comparison and t
 
 For F totally real of even degree and p odd, fix the compact open U of
 Skinner–Wiles, with U_v=GL₂(O_{F_v}) for v|p before imposing the p-power level.
-Use the existing cohomological automorphic space at weight k_τ≥2 of one parity
-and specified central character. Define `NearlyOrdinaryEigenpacket` by a nonzero simultaneous
-Hecke eigenvector at U_a=U∩U(p^a), its eigencharacter λ, and unit eigenvalues of each
-normalized T₀(v). The normalization is the weight factor in
-[Skinner–Wiles](https://www.numdam.org/item/PMIHES_1999__89__5_0.pdf),
-§3.2, printed pp. 30–31: put t=Σ_ττ, m=k−2t, and choose v_τ≥0 with min v_τ=0
-and m+2v=µt as in §3.1, p. 27. The operator at a chosen algebraic uniformizer
-ϖ_𝔭 is scaled by (ϖ_𝔭)^{−v}=∏_τσ_τ(ϖ_𝔭)^{−v_τ}. At parallel weight κ,
-v=0 and µ=κ−2. Record the embeddings and the normalization as part of the data.
-Use the inverse double-coset action (3.1′), p. 30, and the modified unit action
-of G(U_a) in §3.2, which includes ∏_{v|p}ω(a_v)^{−µ}; the raw diamond action
-alone is insufficient. Changing the uniformizer changes
-T₀(v) by the corresponding unit operator.
+Use the existing cuspidal automorphic space at k_τ≥2 of one parity and the
+specified central character. Put µ=max_τ(k_τ)−2 and
+v_τ=(µ+2−k_τ)/2, so v_τ≥0, min v_τ=0 and k−2t+2v=µt.
+Define `NearlyOrdinaryEigenpacket` by a nonzero simultaneous eigenvector at
+U_a=U∩U(p^a), its eigencharacter λ, its chosen local refinements, and unit
+eigenvalues of the normalized T₀(v). Record the embeddings and all operator
+normalizations. At parallel κ, v=0 and µ=κ−2.
 
-This finite-weight interface includes the coefficient character on p-units, so
-it accommodates nearly ordinary forms whose quotient is ramified. Define the
-ordinary predicate by the unramified quotient-character condition. In the
-parallel-weight range of §4.11, a finite
-character twist making the local factors ordinary at the specified finite set
-transports λ and its unit-root data; its existence comes
-from the character-extension contract. For other weights finite twisting does
-not remove a nontrivial labelled algebraic character on principal units. An
-Iwasawa algebra, a Hida family and its control theorem are separate
-objects and are unnecessary for this finite-weight construction.
+Here write π_SW for the source's representation, rather than silently using
+its infinity type for the forward Hecke convention. The weight action in
+§3.1, p. 28, gives positive-real central character z↦z^µ: inserting zI into
+`j(u,z)^{−k}det(u)^{v+k−t}` gives this exponent. Thus π_SW has type (k,−µ)
+and Π=π_SW^∨ has type (k,µ) in this roadmap. Its cohomological representation
+is ρ_Π=σ(π_SW); the source's arithmetic representation is ρ_Π^∨.
+
+Use the inverse double-coset action (3.1′), p. 30, and the modified G(U_a)
+action, including ∏_{v|p}ω(a_v)^{−µ}. The coordinates of G(U_a) on p-units
+are `(a⁻¹d,a)`, §3.2, p. 32. Consequently T_y=(y,1) is represented by
+`diag(1,y)` supported at the selected p-place. Its Teichmüller multiplier
+is 1 because a=1; multiplying T_y by ω(y)^{−µ} would introduce a spurious
+finite character. The central operators still require the modified action.
+
+At a place 𝔭|p put K=F_𝔭 and Σ_𝔭={τ:F↪E_λ inducing 𝔭}; enlarge E_λ to
+contain all embeddings. Define the algebraic character
+`A_𝔭(x)=∏_{τ∈Σ_𝔭}τ(x)^{−v_τ}` on K×.
+Choose ϖ∈F× which is a uniformizer at 𝔭 and a unit at the other p-places.
+The source uses the *global* factor
+`A_all(ϖ)=∏_ττ(ϖ)^{−v_τ}` in T₀^SW(𝔭).
+Put `c_out(ϖ)=∏_{τ∉Σ_𝔭}τ(ϖ)^{−v_τ}`; this is an E_λ-unit, and set
+`T₀^loc(ϖ)=c_out(ϖ)⁻¹T₀^SW(𝔭)` and `α_𝔭=λ(T₀^loc(ϖ))`.
+Both operators have unit eigenvalues simultaneously. Their eigenvalues need
+not be equal. Equivalently T₀^loc uses A_𝔭(ϖ) in place of A_all(ϖ), and can
+be defined for any local uniformizer without a global representative.
+
+Prove the following operator-to-character comparison on the chosen good line.
+In the principal-series case
+`π_SW,𝔭=Ind(η|·|⁻¹/²,ξ|·|⁻¹/²)`, or the special case with inducing
+characters `ξ|·|⁻¹/²,ξ|·|¹/²`, put ν=ιξ⁻¹, the selected smooth WD character
+of Π_𝔭⊗|·|⁻¹/². Then
+
+`λ(T_y)=ν(y)` for **every** y∈O_K×, and `α_𝔭=ν(ϖ)A_𝔭(ϖ)`.
+
+Derive the first identity from inverse translation on the refined local
+principal/special model, with the coordinate computation above; derive the
+second from the scaled inverse-coset operator. This is a concrete application
+of R16.2's local models, not a hypothesis that a Galois filtration already
+exists. The restriction ν|O_K× has finite image, whereas A_𝔭 generally does
+not. Define the candidate character by
+
+`δ_𝔭(yϖⁿ)=λ(T_y)A_𝔭(y)α_𝔭ⁿ=ν(yϖⁿ)A_𝔭(yϖⁿ)` for n∈Z.
+
+It has values in O_{E_λ}× and is continuous. Local reciprocity extends it
+uniquely to a continuous Galois character η_𝔭 with
+`η_𝔭∘rec_geom=δ_𝔭`. This extension uses the profinite completion and
+compactness, not an assumed continuous extension of an arbitrary smooth
+character with a nonunit uniformizer value. For ϖ′=uϖ, u∈O_K×, prove
+
+`T₀^loc(ϖ′)=A_𝔭(u)T_uT₀^loc(ϖ)`,
+`α_𝔭′=λ(T_u)A_𝔭(u)α_𝔭=δ_𝔭(u)α_𝔭`.
+
+These laws make δ_𝔭 independent of the uniformizer. For two admissible global
+representatives also change c_out; the corresponding raw source eigenvalues
+transform by ν(u)A_all(u), before dividing out the new c_out. Omitting this
+unit factor would give an incorrect local character.
+
+The finite-weight interface includes this full locally algebraic character.
+Define its ordinary predicate by δ_𝔭|O_K×=1 at every p-place. The source's
+condition ξ unramified agrees with that predicate when all local v_τ=0;
+outside that range it describes the smooth factor only. A finite character
+twist can remove finite unit ramification, but cannot remove nonzero labelled
+algebraic exponents. In the parallel-weight range, the finite-character
+extension of R17.5 supplies the global twist with the prescribed local
+components; its weight, central character and every normalized Hecke value
+must be transported. The Galois identification is the comparison target of
+§4.11, not part of this data definition.
+
+For light coefficient checks define `nearlyOrdinaryUnitValue νu xu v` over a
+field with a finite embedding index as `νu * ∏_τ xu(τ)^{−v(τ)}`. Its local
+interpretation requires nonzero embedding values and the finite smooth
+character above. It only evaluates the coefficient expression; it does not
+construct the local Galois character.
 
 *Needs:* GL2AutomorphicRepresentationsAndTransfer R16.2, cohomological form
-spaces and principal/special local classification; R17.5, the global
-finite-character extension with prescribed local components; the Hecke action
-and coefficient representations of HilbertModularVarietiesAndShimuraCurves
-R18.4; Layer 3's normalization dictionary.
+spaces and refined principal/special local models with inverse translation;
+R17.5, the global finite-character extension with prescribed local components;
+the Hecke action and coefficient representations of
+HilbertModularVarietiesAndShimuraCurves R18.4; ClassFieldTheory local
+reciprocity and profinite completion; [3.11 The representation dictionary as a
+theorem](#311-the-representation-dictionary-as-a-theorem).
 
-- `NearlyOrdinaryEigenpacket`: Bundle the finite-weight eigenvector, normalized operators, eigencharacter and unit eigenvalues.
-- `NearlyOrdinaryEigenpacket.quotientCharacter`: The candidate character from normalized unit and uniformizer data; §4.11 identifies it with the representation quotient in the parallel-weight range. The general-weight identification is the gap in §5.1.
-- `NearlyOrdinaryEigenpacket.twist`: Transport the weight, central character and normalized Hecke values by a specified global finite-order character.
-- `NearlyOrdinaryEigenpacket.isOrdinary`: Require the quotient character to be unramified at every v|p.
+See [Skinner–Wiles](https://www.numdam.org/item/PMIHES_1999__89__5_0.pdf),
+§3.1 pp. 27–28 for the weight/action, (3.1′) and §3.2 p. 30 for inverse
+translation and T₀, p. 31 for the selected ξ and good-line classification,
+and p. 32 for the unit coordinates. These source formulas supply the
+operator comparison above; they do not assert the general-weight Galois
+identification proved in the next target.
+
+- `NearlyOrdinaryEigenpacket`: Bundle the eigenvector, refinements, eigencharacter, global/local normalized operators and unit eigenvalues.
+- `NearlyOrdinaryEigenpacket.quotientCharacter`: δ_𝔭 on arithmetic reciprocity is the quotient of ρ_Π^∨ by §4.11; its all-unit values are λ(T_y)A_𝔭(y), its uniformizer value is α_𝔭, and its geometric avatar η_𝔭 is the subcharacter of ρ_Π.
+- `NearlyOrdinaryEigenpacket.twist`: Transport the weight, central character, all unit values and normalized roots by the specified global character, with the algebraic correction for a norm twist in §4.11.
+- `NearlyOrdinaryEigenpacket.isOrdinary`: Require δ_𝔭|O_K×=1 at every p-place.
+- `NearlyOrdinaryEigenpacket.changeUniformizer`: Transport the operator and root by δ_𝔭(u), leaving the character unchanged.
+- `nearlyOrdinaryUnitValue`: Evaluate the finite factor times the labelled algebraic product; zero exponents return the finite factor, and nonzero exponents retain their labelled embeddings.
 
 **Checks.**
 
-- At parallel weight κ, v=0 gives the unscaled unit-root operator; at κ=2 the Teichmüller correction also has exponent zero.
+- At parallel κ, v=0 gives the unscaled unit-root operator. T_y has Teichmüller factor 1 even at κ>2; only at κ=2 is the exponent on every modified operator zero.
 - A finite ramified character twist of an ordinary eigenpacket remains nearly ordinary, but need not satisfy the unramified ordinary predicate.
 - A supersingular good-prime polynomial with both roots of positive valuation gives no unit-root eigenpacket.
-- For a nonparallel weight the labelled scaling ∏_τσ_τ(ϖ_𝔭)^{−v_τ} is required; its existence does not remove the parallel-weight hypothesis of the attached representation theorem below.
+- For nonparallel k=(2,4), µ=2 and v=(1,0), the quotient on a principal unit with τ₁(u)=1+p is (1+p)⁻¹ when ν(u)=1. No finite twist can trivialize this on an open unit subgroup.
+- For `nearlyOrdinaryUnitValue`, zero v and νu=−1 give −1; for embedding values (4,4) and v=(1,0), νu=1 gives 1/4; on the torsion unit −1 with embedding values (−1,−1) and νu=−1, the same exponents give 1. These detect losing either the algebraic or finite factor. At p=3, 4 is a principal unit.
+- In F=Q(√13), p=3 splits and ϖ=4+√13 has norm 3. Choose 𝔭 where √13≡−1, so ϖ is a uniformizer there and a unit at the other 3-place. Put k=4 at 𝔭 and k=2 at the other place, giving v=(0,1). If θ is the other embedding of ϖ, then c_out=θ⁻¹; a raw root β=θ⁻¹ gives local α=1. Equating β with α fails this outside-place correction.
+- At p=3, if ν(4)=ζ₃, A_𝔭(4)=1/4 and α=2, changing ϖ to 4ϖ gives α′=ζ₃/2. For x=yϖⁿ the new unit is yu^{−n}, so the new formula gives the same δ_𝔭(x), also for n<0.
 
 ### 4.11 The nearly ordinary Hilbert construction
 
-Let p be odd, F totally real of even degree, U⊆GL₂(O_F⊗Ẑ) open compact, n the product of its nonmaximal primes, and π nearly ordinary of parallel κ≥2 with Hecke eigencharacter λ. Attach Skinner–Wiles's continuous irreducible arithmetic representation. It is odd, unramified away from np, with trace λ(T(v)) and determinant Nv·λ(S(v)) at good arithmetic Frobenius, and determinant λ(S_x)ε_p(x) for central x∈Z(U). At each v|p its upper-triangular quotient character ψ₂ has ψ₂(y)=λ(T_y) on local units and ψ₂(ϖ_v)=λ(T₀(v)). The quotient character is the character of the finite-weight eigenpacket of §4.10; its subcharacter is det(V) times its inverse. These formulas are proved as part of this target. A finite character twist makes the relevant form ordinary, giving the nearly ordinary construction from the ordinary one. Under their arithmetic reciprocity and inverse Hecke action the representation is `σ_λ(π)^∨=ρ_{π,λ}⊗ε_ℓ`; retain that twist in every later comparison.
+Let p be odd, F totally real of even degree, U⊆GL₂(O_F⊗Ẑ) open compact, n the product of its nonmaximal primes, and π_SW nearly ordinary of parallel κ≥2 with Hecke eigencharacter λ. Attach Skinner–Wiles's continuous irreducible arithmetic representation. It is odd, unramified away from np, with trace λ(T(v)) and determinant Nv·λ(S(v)) at good arithmetic Frobenius, and determinant χ_{π_SW,λ}ε_p. For central x∈Z(U), this is λ^alg(S_x)ε_p(x), with the algebraic central specialization defined below. At each v|p its upper-triangular quotient character ψ₂ has ψ₂(y)=λ(T_y) on local units and ψ₂(ϖ_v)=λ(T₀(v)). The quotient character is the character of the finite-weight eigenpacket of §4.10; its subcharacter is det(V) times its inverse. These formulas are proved as part of this target. A finite character twist makes the relevant form ordinary, giving the nearly ordinary construction from the ordinary one. Under their arithmetic reciprocity and inverse Hecke action the representation is `σ_λ(π_SW)^∨=ρ_{π_SW,λ}⊗ε_ℓ`; retain that twist in every later comparison.
 
-*Needs:* [4.10 Finite-weight nearly ordinary data](#410-finite-weight-nearly-ordinary-data); [3.17 Carayol's geometric Hilbert theorem](#317-carayols-geometric-hilbert-theorem); [3.10 The unrestricted Hilbert constructor](#310-the-unrestricted-hilbert-constructor); [3.11 The representation dictionary as a theorem](#311-the-representation-dictionary-as-a-theorem).
+*Needs:* [4.10 Finite-weight nearly ordinary data](#410-finite-weight-nearly-ordinary-data); [3.17 Carayol's geometric Hilbert theorem](#317-carayols-geometric-hilbert-theorem); [3.10 The unrestricted Hilbert constructor](#310-the-unrestricted-hilbert-constructor); [3.11 The representation dictionary as a theorem](#311-the-representation-dictionary-as-a-theorem); [3.12 Hilbert Hodge–Tate property](#312-hilbert-hodgetate-property); [4.7 Skinner's full coefficient-prime theorem](#47-skinners-full-coefficient-prime-theorem); PadicHodgeTheory R06.3, the rank-one locally algebraic and admissible-subobject contracts above.
 
 See [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §3.3, (3.2), p. 38 (Numdam PDF page 35; printed page = PDF page + 3); [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §3.3, p. 39; [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §2.1, p. 9, and (3.1′), p. 30.
 
-For a specified quotient character ν₂, record the subcharacter ν₁=det(ρ)ν₂⁻¹, so all labelled inertia exponents and central-character factors are retained. The line comes from the principal/special ordinary local comparison; it is not chosen by triangularizing an unspecified residual representation.
+For the central comparison, retain the difference between the finite-level
+modified operator and its Galois character. On a p-unit idele x let
+`θ_SW(x)=∏_{v|p}ω(x_v)^{−µ}`, the source's multiplier for its central operator.
+Inverse translation gives
+`λ(S_x)=θ_SW(x)χ_{π_SW,p}^{sm}(x)⁻¹`, where χ^{sm} is the smooth local
+central character transported to E_λ. The algebraic specialization is
 
+`λ^alg(S_x)=λ(S_x)θ_SW(x)⁻¹∏_ττ(x)^{−µ}
+           =χ_{π_SW,λ}(rec_arith(x))`.
+
+Thus `det S_SW(rec_arith(x))=λ^alg(S_x)ε_p(rec_arith(x))`.
+At κ=2, µ=0 and λ^alg=λ. At κ>2 the raw finite-level λ(S_x) alone cannot
+have the determinant's nonzero labelled algebraic degrees. Skinner–Wiles
+(3.2), p. 38, writes the determinant as λ(S_x)ε_p; the comparison with its
+weight-specialized central character must retain the algebraic correction
+above when using the finite-level operators of §3.2. This correction also
+follows independently from §3.11's exact determinant, so it does not assume
+the local triangular statement to prove that determinant.
+
+**General regular-weight comparison.** For any totally real F, any prime p,
+and any cuspidal Π of type (k,µ), k_τ≥2 of one parity, choose a place 𝔭|p
+and a principal/special refinement. Its selected smooth character ν is the
+line in the full WD parameter of Π_𝔭⊗|·|⁻¹/², with N=0 on that line;
+for a special parameter use ker N. Require the locally normalized
+`α_𝔭=ν(ϖ)A_𝔭(ϖ)` to be an E_λ-unit. Use the local A_𝔭 and δ_𝔭 of §4.10.
+In the Skinner–Wiles range Π=π_SW^∨, its operator comparison supplies exactly
+these data. For other F or p, R16.2's same refined local models supply the
+inverse unit/coset operators; the local comparison does not require the
+even-degree or odd-p hypotheses of their global finite-weight Hecke algebra.
+Put V=ρ_{Π,λ}|G_K, D=det V=χ_{Π,λ}ε_p⁻¹, and η=η_𝔭 the continuous
+character with geometric reciprocity δ_𝔭=νA_𝔭. Prove a G_K-stable exact sequence
+
+`0 → E_λ(η) → V → E_λ(Dη⁻¹) → 0`.
+
+Duality gives `0 → E_λ(D⁻¹η) → V^∨ → E_λ(η⁻¹) → 0`.
+Since rec_arith=rec_geom⁻¹, this arithmetic-dual quotient has value
+δ_𝔭(y)=λ(T_y)∏_{τ∈Σ_𝔭}τ(y)^{−v_τ} on every local unit and value α_𝔭
+on rec_arith(ϖ). Its labelled degrees in our grading are −v_τ; those of
+its subcharacter are −(µ+1−v_τ). In V the degrees are v_τ and µ+1−v_τ.
+The representation's determinant recovers the second character, including all
+finite and central-character factors. Do not infer a split representation.
+
+The proof has the following exact inputs and intermediate targets.
+
+1. Import the rank-one locally algebraic comparison: η is potentially
+   crystalline, has labelled degrees v_τ, and its full WD character in
+   geometric convention is ν. On arithmetic units η has value
+   ν(y)⁻¹A_𝔭(y)⁻¹. After a finite extension killing finite inertia,
+   [Conrad](https://math.stanford.edu/~conrad/papers/locchar.pdf),
+   Appendix B, Definition B.1 p. 32, Proposition B.3 pp. 33–34 and
+   Proposition B.4 pp. 35–36, identify the degrees and Frobenius.
+   In the crystalline case his formula gives
+   `φ^{f_K}=δ_𝔭(ϖ)A_𝔭(ϖ)⁻¹=ν(ϖ)`; use norm functoriality and descent
+   for finite inertia. This removes the algebraic factor from the WD
+   parameter while retaining it in the Galois character.
+2. Import [3.12 Hilbert Hodge–Tate property](#312-hilbert-hodgetate-property)
+   and [4.7 Skinner's full coefficient-prime theorem](#47-skinners-full-coefficient-prime-theorem).
+   They give potential semistability, degrees (v_τ,µ+1−v_τ), and the full
+   Frobenius-semisimple WD parameter of Π_K⊗|·|⁻¹/², including N.
+   Its selected line is ν, with N=0 on that line; in the special case
+   it is ker N. This is a period line, not yet a Galois subrepresentation.
+3. Twist W=V⊗η⁻¹. Its degrees are (0,k_τ−1). Over a finite Galois L/K
+   making V and η semistable, its selected period line has φ^{f_L}=1,
+   N=0 and Newton degree zero. The other Newton slope is positive,
+   since weak admissibility of the whole module identifies its total
+   Newton degree with the positive sum of the labelled k_τ−1.
+   Thus the slope-zero line is unique, lifts from the Frobenius-semisimple
+   parameter to the actual period module, and is preserved by descent.
+   The monodromy relation also kills N on the minimal-slope line.
+4. The ambient filtration has only nonnegative degrees, so the induced
+   filtration on that line has nonnegative labelled degrees. Weak
+   admissibility gives t_H(line)≤t_N(line)=0; hence every one of those
+   degrees is zero. The line with its induced filtration is admissible.
+   Use the semistable period functor's exactness and full faithfulness
+   to obtain an invariant line in W|G_L. Its period module agrees with
+   that of the trivial character. Uniqueness and descent make the line
+   G_K-stable, and the full descended WD parameter identifies its
+   character with 1, rather than an unspecified finite descent twist.
+   Twisting back gives η⊂V.
+
+The generic rank-one admissibility and fully faithful period-functor results
+are imports from PadicHodgeTheory R06.3, with the coefficient action and finite
+Galois descent retained. See
+[Colmez–Fontaine](https://webusers.imj-prg.fr/~pierre.colmez/CF.pdf),
+§3.4 pp. 21–22 for the subobject inequality, Proposition 4.2 and the
+following equivalence p. 23 for the period functor, and Proposition 4.4 p. 24
+for rank-one admissibility. For a finite coefficient field use Theorem A
+p. 2 and the period equivalence on the underlying Q_p-module, retaining
+its commuting E_λ-action. The selected module has slope and filtration zero
+on every coefficient factor, so its underlying module is weakly admissible
+as well; it is not necessary to identify an E_λ-line with a Q_p-line. The new target here is
+their application to the selected modular parameter, not another construction
+of the generic period equivalence. This proof uses the full theorem of §4.7;
+a residual irreducibility assumption or a Hida-family control theorem is not
+an extra hypothesis. Regularity k_τ≥2 and the normalized unit-root condition
+are essential.
+
+To transport back to the fixed ρ for the source form, put χ=χ_{π_SW,λ}.
+By §3.11, D=χ⁻¹ε_p⁻¹ and the four ordered graded pairs are:
+
+| Representation | Subcharacter | Quotient character |
+| --- | --- | --- |
+| σ(π_SW)=ρ_Π | η | χ⁻¹ε_p⁻¹η⁻¹ |
+| S_SW=σ(π_SW)^∨=ρ_{π_SW}ε_p | χε_pη | η⁻¹ |
+| ρ_{π_SW} | χη | ε_p⁻¹η⁻¹ |
+| ρ_{π_SW}^∨ | ε_pη | χ⁻¹η⁻¹ |
+
+For any row evaluate its actual Galois characters on the stated reciprocity
+map. In particular, the quotient of S_SW on rec_arith has values δ_𝔭;
+the quotient of ρ_{π_SW}^∨ has the further factor χ⁻¹∘rec_arith.
+The latter two arithmetic representations cannot be identified without
+that central correction. On coefficient-prime units
+`ε_p(rec_geom(u))=N_{K/Q_p}(u)` and on a uniformizer
+`ε_p(rec_geom(ϖ))=N_{K/Q_p}(ϖ)/q_K`.
+These follow from ClassFieldTheory's arithmetic Artin normalization by
+inversion and norm functoriality, as recorded in TauCetiRoadmap.LocalGaloisGroups
+Layer 5. At K=Q_p and ϖ=p the value is 1, not p⁻¹. Use these formulas to
+transport every cyclotomic factor in the table.
+
+For a forward form Π of arbitrary type (k,w), let j=(w−µ)/2 and
+Π₀=Π⊗|det|^j, of type (k,µ). Obtain its canonical character η₀ as above;
+then `ρ_Π=ρ_{Π₀}ε_p^{−j}` and `η=η₀ε_p^{−j}`.
+Writing a_τ=v_τ+j=(w−k_τ+2)/2, its geometric values are
+
+`η(rec_geom(u))=ν₀(u)∏_ττ(u)^{−a_τ}`,
+`η(rec_geom(ϖ))=α₀(N_{K/Q_p}(ϖ)/q_K)^{−j}`.
+
+The smooth parameter is ν=ν₀|·|^{−j}, so the uniformizer value also equals
+ν(ϖ)∏_ττ(ϖ)^{−a_τ}. These identities allow negative j, have the same
+change-of-uniformizer law, and preserve unit-valued Galois characters.
+The quotient of ρ_Π^∨ is η⁻¹, with these same values under rec_arith;
+its subcharacter is (det ρ_Π)⁻¹η. The quotient is unramified exactly when
+all local a_τ=0 and the finite unit factor is trivial. Distinct labelled
+algebraic characters cannot be cancelled by a finite factor on an open
+unit subgroup.
+
+- `nearlyOrdinary_gradedCharacters`: Construct the invariant line and both graded characters of ρ_Π and its arithmetic dual under the stated regular-weight and unit-root hypotheses.
+- `nearlyOrdinary_sourceDictionary`: Transport all four pairs by the determinant, central character and cyclotomic twist in the table.
+- `nearlyOrdinary_centralCharacter`: Compare the modified finite-level λ(S_x) with λ^alg(S_x), hence with χ_{π_SW,λ} on arithmetic reciprocity, for all central p-units.
+- `nearlyOrdinary_normTwist`: Shift each labelled degree by j and transport unit/uniformizer values by ε_p^{−j}.
+
+**Checks.**
+
+- For canonical parallel κ, v=0 and c_out=1. The quotient of S_SW on arithmetic reciprocity has values λ(T_y) and λ(T₀^SW); this is exactly the parallel theorem above. If ν is unramified it is an unramified quotient.
+- At nonparallel (2,4), µ=2 and v=(1,0), the two cohomological degree pairs are (1,2) and (0,3). After twisting by η they are (0,1) and (0,3); a selected line with a positive labelled degree violates t_H≤0. On a principal unit with first embedding 4 at p=3 and finite factor 1, the arithmetic quotient value is 1/4, not 1.
+- At v=(1,0), the torsion unit u=−1 has A_𝔭(u)=−1. If ν(u)=−1, its quotient value is 1; a formula dropping either factor gives −1. Checking only a sufficiently small principal-unit subgroup misses this finite factor. Changing ϖ to uϖ leaves α unchanged, as δ_𝔭(u)=1.
+- For a unit of norm 1 with χ(rec_arith(u))=ζ₃≠1, the quotient of ρ_{π_SW}^∨ is ζ₃⁻¹δ_𝔭(u), whereas that of S_SW is δ_𝔭(u). A central character of order three detects the missing central correction.
+- The central specialization has λ^alg(S_x)=λ(S_x) at µ=0. For µ=2, a local principal unit u=1+p, trivial smooth central character and θ_SW(u)=1, its values are λ(S_u)=1 but λ^alg(S_u)=u⁻², and det S_SW on rec_arith(u) is u⁻³. The raw central value would give u⁻¹ and the wrong determinant degree. If instead the smooth central value at u is ζ₃, retain the additional ζ₃⁻¹ in λ^alg and in the determinant; the algebraic correction cannot erase it.
+- For canonical classical weight two at Q_p, twist the forward form by |det|⁻¹. Then j=1, η=η₀ε_p⁻¹, the cohomological degrees become (1,2), unit values acquire u⁻¹ and the value at ϖ=p stays α₀. Using p⁻¹ for ε_p at this place gives the wrong uniformizer value.
+- In a special parameter with F=diag(1,q_K) after twisting, N=E₁₂ is nonzero and the selected line is ker N. The comparison gives a Galois line, not a split representation. A good supersingular parameter with both normalized roots of positive valuation fails the unit-root hypothesis and supplies no such line.
 
 ### 4.12 Nearly ordinary compatibility away from p
 
@@ -1102,17 +1323,18 @@ Layers 1 and 3; WeightsInEtaleCohomology R34.3–R34.6 with the independent geom
 
 ### 5.1 Ordinary refinement and the fixed lattice
 
-For a classical k≥2 newform, p∤N and a_p a λ-adic unit, choose the unit Euler root α. In the arithmetic representation prove `0→V⁺→V→V⁻→0`, with unramified quotient having arithmetic Frobenius α and subcharacter ψχ_p^{k−1}(V⁻)⁻¹. For the fixed stable lattice T define T⁺=T∩V⁺ and T⁻=T/T⁺. Prove saturation, torsion-freeness and rank one of T⁻ and compatibility with flat coefficient extension and the existing rational period line. On the cohomological realisation the ordinary line is instead the unramified subrepresentation at geometric Frobenius; use the annihilator under duality. For a Hilbert form in the parallel-weight range of §4.11 use its proved quotient character, then recover the subcharacter from the determinant. For other multiweights the fixed-lattice construction applies once the rational filtration is supplied, but identification of its graded characters with §4.10 is a separate comparison gap below.
+For a classical k≥2 newform, p∤N and a_p a λ-adic unit, choose the unit Euler root α. In the arithmetic representation prove `0→V⁺→V→V⁻→0`, with unramified quotient having arithmetic Frobenius α and subcharacter ψχ_p^{k−1}(V⁻)⁻¹. For the fixed stable lattice T define T⁺=T∩V⁺ and T⁻=T/T⁺. Prove saturation, torsion-freeness and rank one of T⁻ and compatibility with flat coefficient extension and the existing rational period line. On the cohomological realisation the ordinary line is instead the unramified subrepresentation at geometric Frobenius; use the annihilator under duality. For every regular Hilbert weight with the normalized unit-root refinement of §4.11 (given by §4.10 in the Skinner–Wiles range), use the rational filtration and exact graded characters proved in §4.11, then recover the other character from the determinant. The nearly ordinary quotient can be ramified; the unramified ordinary interface is its stated specialization.
 
-*Needs:* [1.4 Rational orbit projector and coefficient descent](#14-rational-orbit-projector-and-coefficient-descent); [1.6 Integral newform structures](#16-integral-newform-structures); [4.11 The nearly ordinary Hilbert construction](#411-the-nearly-ordinary-hilbert-construction) in its stated range; `ArithmeticGaloisRepresentations:R01.1`.
+*Needs:* [1.4 Rational orbit projector and coefficient descent](#14-rational-orbit-projector-and-coefficient-descent); [1.6 Integral newform structures](#16-integral-newform-structures); [4.11 The nearly ordinary Hilbert construction](#411-the-nearly-ordinary-hilbert-construction), including the general regular-weight comparison; `ArithmeticGaloisRepresentations:R01.1`.
 
 See [C. M. Skinner and A. J. Wiles](http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf) — §3.3 equation (3.2), pp. 38–39; [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — §1.2, pp. 8–10; §4.5, pp. 50–51; §§5.3–5.4, pp. 56–59.
 
 The line and quotient formulas are assertions to prove from the classical local
 comparison: at good ordinary p the crystalline unit-root quotient is unramified,
-and its arithmetic Frobenius value is α. In §4.11's parallel-weight range the
-λ(T_y) formula gives the quotient on units, λ(T₀(v)) its uniformizer value,
-and the determinant gives the other character. A quotient is unramified only under the
+and its arithmetic Frobenius value is α. For Hilbert weights, §4.11 identifies the arithmetic-dual quotient on all units
+as λ(T_y)A_𝔭(y), and its uniformizer value as the local normalized α_𝔭;
+the determinant gives the other character. Use its central/Tate table when
+the chosen realization is ρ_{π_SW} instead of ρ_Π. A quotient is unramified only under the
 ordinary specialization, not for every nearly ordinary form. Fix the rational
 line before intersecting with T. Algebraically `ordinaryLatticePlus` is
 `T ⊓ V⁺.restrictScalars O`, while `ordinaryLatticePlusIn` is the inverse image of
@@ -1120,20 +1342,18 @@ V⁺ in the module T; the latter is the submodule used to form the quotient. For
 DVR use a uniformizer ϖ_λ, so the nonsaturated competing submodule is
 ϖ_λOe₁; p need not be a uniformizer in a ramified coefficient field.
 
-**General-weight comparison gap.** For k_τ≥2 of one parity, the existence of a
-nearly ordinary rational filtration is supported by
-[Hida](https://www.math.ucla.edu/~hida/JAMI.pdf), Theorem I(iv), printed p. 118,
-and [Balasubramanyam–Ghate–Vatsal](https://mathweb.tifr.res.in/~eghate/hilbertCM.pdf),
-§3, internal pp. 7–8. The latter gives the quotient on principal p-units as
-`ε₁,p(u)∏_τσ_τ(u)^{−v_τ}` in its Artin convention. The finite character alone
-does not supply that labelled algebraic factor. A complete identification with
-§4.10 still needs the quotient character on all units, its value at a chosen
-uniformizer, the change-of-uniformizer law, and transport to the fixed ρ versus
-arithmetic-dual convention of §3.11. Skinner–Wiles §3.3 does not establish this
-outside its parallel-weight range. Keep this as an unsupplied comparison;
-neither the packet definition nor lattice saturation proves it.
+The general regular-weight line is an output of §4.11's local period
+comparison, before any lattice is chosen. For a stable full lattice in its
+arithmetic-dual representation, intersection with the proved subline is
+saturated, and the quotient is a rank-one lattice in η⁻¹. Its all-unit and
+uniformizer characters remain those of §4.11; saturation does not change or
+prove those formulas. The principal-unit expression agrees with
+[Balasubramanyam–Ghate–Vatsal](https://mathweb.tifr.res.in/~eghate/hilbertCM.pdf),
+§3, internal pp. 7–8, after translating their weights and reciprocity. The
+all-unit/uniformizer comparison is obtained by the intervening argument of
+§4.11, rather than an extension of the parallel Skinner–Wiles theorem.
 
-
+- `nearlyOrdinaryRefinement_graded` (compatibility): For the chosen regular Hilbert refinement, identify the rational line and both graded lattices with §4.11's characters; its ordinary specialization requires the quotient to be unramified.
 - `ordinaryRefinement` (constructor): The unit root α and the specified ordinary filtration proved above of the fixed representation.
 - `ordinaryRefinement_quotient` (projection): The unramified quotient character with arithmetic Frob eigenvalue α.
 - `ordinaryRefinement_subcharacter` (characterisation): The subcharacter is εχ_p^{k−1} times the inverse quotient character.
@@ -1153,7 +1373,7 @@ neither the packet definition nor lattice saturation proves it.
 - For V⁺=0 the intersection in V and its inverse image in T are both zero; the quotient is T.
 - For V⁺=V the intersection is T and its inverse image is the whole module T; the quotient is zero.
 - For a finite full T⊆K² and V⁺=Ke₁ the two intersection presentations agree under T↪V, and the actual quotient has rank one over O.
-- At k=(2,4), the normalization has v=(1,0); on principal units the missing factor is σ₁(u)⁻¹. For σ₁(u)=1+p and trivial ε₁,p, its value is (1+p)⁻¹, not 1. A formula using only the finite unit character fails this nonparallel control.
+- At k=(2,4), the normalization has v=(1,0); on principal units the algebraic factor is σ₁(u)⁻¹. For σ₁(u)=1+p and trivial ε₁,p, its value is (1+p)⁻¹, not 1. A formula using only the finite unit character fails this nonparallel control.
 
 ### 5.2 Good-prime crystalline and Wach factors
 
@@ -1701,3 +1921,6 @@ Citations above use printed journal pages for the published scans and internal p
 - [Takeshi Saito, *Weight-monodromy conjecture for ℓ-adic representations associated to modular forms. A supplement to the paper [10]*](https://www.ms.u-tokyo.ac.jp/~t-saito/pp/weightmonodromy.pdf). The Arithmetic and Geometry of Algebraic Cycles (2000), 427–431; printed pages in the author-hosted scan.
 
 - [Brian Conrad, algebraic Hecke-character seminar notes](https://math.stanford.edu/~conrad/DarmonCM/2011Notes/algebraicHeckecharacters.pdf), the second Lemma 1, internal pp. 9–10; local algebraicity and the global converse are distinguished.
+
+- [Brian Conrad, *Lifting global representations with local properties*](https://math.stanford.edu/~conrad/papers/locchar.pdf). Author copy, internal pages; Appendix B, Definition B.1 p. 32, Propositions B.3–B.4 pp. 33–36 and Example B.5 p. 36.
+- [Pierre Colmez and Jean-Marc Fontaine, *Construction des représentations p-adiques semi-stables*](https://webusers.imj-prg.fr/~pierre.colmez/CF.pdf). Author copy, internal pages; Theorem A p. 2, §3.4 pp. 21–22, Proposition 4.2 p. 23 and Proposition 4.4 p. 24.
