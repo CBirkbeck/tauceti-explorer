@@ -70,7 +70,7 @@ Canonical abelian cohomology is `continuousCohomology` of a topological represen
 
 **SelmerIwasawaCohomology L0, L2 and L4.** Import S-unit Kummer, compact/rational global Selmer kernels, unramified conditions, Bloch–Kato finite conditions and rational duality. SelmerIwasawaCohomology states the Kummer/Sha sequence only for elliptic curves (§2.12, §4.26); for abelian varieties use HeightsRationalPointsAndObstructions §§1.3–1.4 (Selmer and Tate–Shafarevich groups of abelian varieties, the descent exact sequence) at each finite level, and pass to the limit over [p^k] for the rational Tate-module form. At depth one the geometric path class is compared to the Jacobian Kummer class by Layer 2. The Selmer group includes the Tate module of Sha unless a vanishing hypothesis is imposed; rank alone never removes it. The subgroup H¹\_g and the inclusions H¹\_e⊆H¹\_f⊆H¹\_g are the Layer 4 target [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
-**Mixed extensions and p-adic heights.** No lower-tier roadmap states mixed extensions or Nekovář's heights. They are the Layer 6 targets [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions), [Nekovář's local heights](#nekovar-local-heights) and [The global height and its decomposition into local heights](#nekovar-global-height), in the generality the quadratic Chabauty equations need.
+**Mixed extensions and p-adic heights.** No lower-tier roadmap states mixed extensions or Nekovář's heights. They are the Layer 6 targets [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions), [Nekovář's local heights](#nekovar-local-heights), [The local height on semistable mixed extensions](#nekovar-semistable-local-height) and [The global height and its decomposition into local heights](#nekovar-global-height), in the generality the quadratic Chabauty equations need.
 
 ### From periods, rigid cohomology and integration
 
@@ -715,10 +715,6 @@ Standing hypotheses (H10).
 
 Unfold the kernel and the twisted map; their underlying equality is definitionally the original coefficient-map equality.
 
-**Checks.**
-
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); `MonoidHom.ker`; `MonoidHom.mem_ker`.
@@ -743,7 +739,6 @@ The interface consists of the following named results.
 - `Twist.kernelAction.test_unit`: Every g fixes the group identity in the twisted kernel.
 - `Twist.kernelAction.test_joint_continuity`: The restricted action map G×K\_c→K\_c is jointly continuous for the product and subgroup topologies.
 - `Twist.kernelAction.test_noncommutative_action`: For discrete S₂ acting trivially on S₃ before twisting, c(nonidentity)=(01), f=1 and x=(12), the restricted twisted action of (01) sends x to (02), different from x. The raw trivial action fails this test.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
@@ -775,8 +770,6 @@ The interface consists of the following named results.
 - `H1.kernelImage.test_non_neutral_rejected`: A class whose mapped twisted-coefficient H¹ image is non-neutral cannot lie in the kernel-inclusion range, even without surjectivity.
 - `H1.kernelImage.test_shifted_basepoint`: If [f∘c]≠1, the neutral class of H¹(G,U) does not belong to the twist-translated kernel-inclusion range.
 - `H1.kernelImage.test_constant_map`: For the constant-identity coefficient homomorphism into arbitrary V, every class of H¹(G,Twist(c)) lies in the kernel-inclusion range; no surjectivity onto V is assumed.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
@@ -816,7 +809,6 @@ The interface consists of the following named results.
 - `Twist.quotientAction.test_projection`: The quotient projection is G-equivariant for the inner action: g⋆[x]=[c(g)(g•j\_c(x))c(g)⁻¹].
 - `Twist.quotientAction.test_joint_continuity`: The descended action G×Q\_c→Q\_c is jointly continuous for the quotient topology, even when f is not a quotient map.
 - `Twist.quotientAction.test_nontrivial_twist`: For f=id and any genuine inner-twist value g⋆\_c x≠x, the induced quotient action moves [x]. Replacing the twist by a trivial raw action fails this test; the hypothesis is not asserted for all twists.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Mathlib contributors](#reference-mathlibnativetwistedquotients-082e2d3), GroupTheory/GroupAction/Quotient.lean: QuotientAction, quotient and smul\_mk, exact pin 082e2d3; Kim continuous coefficient conventions motivate the use.
 
@@ -840,7 +832,6 @@ The interface consists of the following named results.
 - `Z1.twistedQuotient.test_value`: The projected cocycle at g is the quotient class [d(g)], not a lift or an arbitrary representative.
 - `Z1.twistedQuotient.test_constant_map`: For the constant coefficient homomorphism f=1, its kernel is all of Twist(c), and every projected cocycle is the trivial cocycle on the quotient.
 - `Z1.twistedQuotient.test_gauge`: Ordered gauge change descends exactly by the quotient class of its gauge element; no commutativity of U is assumed.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
@@ -868,9 +859,6 @@ The interface consists of the following named results.
 - `H1.twistedQuotient.test_representative`: The quotient H¹ map on a cocycle class is the class of the projected cocycle, so the construction agrees with the H1.map.
 - `H1.twistedQuotient.test_kernel`: Every class from the restricted twisted kernel is killed by the quotient H¹ map; no converse or injectivity of the kernel inclusion is presumed.
 - `H1.kernelImage.test_quotient_neutral`: The neutral class of the ambient inner twist belongs to the kernel-inclusion range.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
@@ -897,8 +885,6 @@ The interface consists of the following named results.
 - `Twist.quotientEquiv.test_native_comparison`: The quotient multiplicative equivalence equals Mathlib’s quotientKerEquivOfSurjective applied to the twisted coefficient map.
 - `Twist.quotientEquiv.test_inverse`: The quotient comparison and inverse cancel on every quotient element.
 - `Twist.quotientEquiv.test_nonsurjective_constant`: For the constant coefficient map and a target value v≠1, the twisted map is not surjective. It cannot satisfy the target-valued quotient equivalence’s hypothesis.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
@@ -925,7 +911,6 @@ The interface consists of the following named results.
 - `Z1.twistedQuotientEquiv.test_round_trip`: Forward quotient-cocycle comparison followed by its inverse recovers every continuous quotient cocycle.
 - `Z1.twistedQuotientEquiv.test_projection_triangle`: Comparing the projected cocycle with the target twist equals direct composition with the twisted coefficient homomorphism.
 - `Z1.twistedQuotientEquiv.test_neutral`: The quotient-cocycle comparison fixes the trivial cocycle; the twist translation, not this comparison, sends it to f∘c.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
@@ -953,7 +938,6 @@ The interface consists of the following named results.
 - `H1.twistedQuotientEquiv.test_round_trip`: The H¹ comparison is a bijection on gauge-orbit classes, with inverse returning every quotient class.
 - `H1.twistedQuotientEquiv.test_neutral`: The H¹ equivalence is genuinely pointed between the two twisted coefficient groups; it does not map neutral to the un-repointed class [f∘c].
 - `H1.twistedQuotientEquiv.test_repointed_fibre`: The quotient neutral fibre is exactly the original coefficient-map fibre over [f∘c] after the twist translation; the base point cannot be replaced by 1 in the un-repointed target.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
@@ -1550,10 +1534,6 @@ Standing hypotheses (H18).
 
 Apply equivariance of the cocycle map to the inverse gauge. Evaluate at g, use f(x⁻¹)=f(x)⁻¹ and the given ordered coboundary formula. Cancellation gives the identity without commuting any factors.
 
-**Checks.**
-
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
 
 Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
@@ -1583,7 +1563,6 @@ The interface consists of the following named results.
 - `Z1.twistedKernelLift.test_gauge`: A kernel-valued gauge agrees before and after the cocycle lift.
 - `Z1.twistedKernelLift.test_non_kernel_rejected`: If F\_c(d(g))≠1 at one g, no K\_c-valued cocycle can have every underlying value equal to d.
 - `Z1.kernelImage.test_inverse_gauge_order`: For G=ConjAct(S₃), U=S₃ with the conjugation action and discrete topologies, x=(01)(12) and d=x•1, the inverse gauge x⁻¹•d equals 1, whereas x•d does not equal 1.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
 
@@ -1608,7 +1587,6 @@ The interface consists of the following named results.
 - `Twist.kernelEquiv.test_inverse`: The kernel comparison and its inverse cancel on every kernel element.
 - `Twist.kernelEquiv.test_identity_kernel`: For the identity coefficient homomorphism, the underlying value of every element of the twisted kernel is 1.
 - `Twist.kernelEquiv.test_constant_kernel`: For the constant identity-valued coefficient map, every x in Twist(c) lies in its kernel and kernelEquiv retains the value j\_c(x).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
@@ -1730,7 +1708,6 @@ The interface consists of the following named results.
 - `Twist.quotientHomeomorph.test_native_value`: On [x], the homeomorphism has original target-group value f(j\_c(x)).
 - `Twist.quotientHomeomorph.test_inverse`: The homeomorphism and inverse cancel on every quotient element.
 - `Twist.quotientHomeomorph.test_quotient_topology_required`: If continuous surjective equivariant f fails IsQuotientMap, the quotient equivalence’s inverse is not continuous. This checks the exact missing topology hypothesis conditionally; no concrete topology counterexample is claimed.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
@@ -2955,7 +2932,7 @@ Use [Good path between tangential basepoints](#nc-0-chen-good-path); [Symmetric 
 
 <a id="pi1-etale-comparison"></a>
 
-**Comparison of continuous π₁-cohomology with étale cohomology.** Let X be a connected quasi-compact quasi-separated scheme with geometric point x and π=π₁(X,x). The inclusion of finite étale X-schemes into all étale X-schemes induces a morphism of topoi ρ:X\_et→X\_fet, and the fibre functor at x identifies X\_fet with the classifying topos Bπ of continuous π-sets. For a finite discrete π-module M let L\_x(M)=ρ\*M, the finite locally constant abelian sheaf corresponding to M. Define εⁿ\_M:Hⁿ\_cont(π,M)=Hⁿ(X\_fet,M)→Hⁿ(X\_et,L\_x(M)) as the edge map of the Leray spectral sequence of ρ (pullback followed by the counit). Then εⁿ\_M is natural in π-equivariant maps of M, in pointed morphisms of schemes and in paths between geometric points. ε⁰ and ε¹ are isomorphisms for every X. Rᵠρ\_\*L\_x(M) is the sheaf on X\_fet associated to (Y→X)↦Hᵠ\_et(Y,L\_x(M)|Y), so every εⁿ\_M is an isomorphism exactly when these sheaves vanish for q>0.
+**Comparison of continuous π₁-cohomology with étale cohomology.** Let X be a connected quasi-compact quasi-separated scheme with geometric point x and π=π₁(X,x). The inclusion of finite étale X-schemes into all étale X-schemes induces a morphism of topoi ρ:X\_et→X\_fet, and the fibre functor at x identifies X\_fet with the classifying topos Bπ of continuous π-sets. For a finite discrete π-module M let L\_x(M)=ρ\*M, the finite locally constant abelian sheaf corresponding to M. Define εⁿ\_M:Hⁿ\_cont(π,M)=Hⁿ(X\_fet,M)→Hⁿ(X\_et,L\_x(M)) as the edge map of the Leray spectral sequence of ρ (pullback followed by the counit). Then εⁿ\_M is natural in π-equivariant maps of M, in pointed morphisms of schemes and in paths between geometric points. ε⁰ and ε¹ are isomorphisms for every X. Rᵠρ\_\*L\_x(M) is the sheaf on X\_fet associated to (Y→X)↦Hᵠ\_et(Y,L\_x(M)|Y), so vanishing of these sheaves for q>0 implies that every εⁿ\_M is an isomorphism. The converse is asserted for the full K(π,1) property, quantified over every finite continuous π-module and every degree, not for a single fixed M. It uses the induced coefficients of every finite étale cover and Shapiro comparison to detect the higher-direct-image stalks.
 
 X connected, quasi-compact and quasi-separated; M finite discrete with continuous π-action. No hypothesis on the order of M is needed for the construction or for degrees 0 and 1.
 
@@ -4541,7 +4518,7 @@ For a gauge G=1−aE with E²=0, differentiating G contributes −daE. The conne
 Two endpoint augmentations matter in the crystalline comparison: equal endpoints recover the Hopf algebra, whereas unequal endpoints give its path comodule. A comparison of group algebras at a single point cannot specify the second endpoint. For a ramified local field, the special-fibre realization is over its maximal unramified subfield K₀ and the Hodge realization is over K; they are compared after the prescribed scalar extension.
 
 
-For a finite-dimensional representation over any field, `Unipotent.length_zero_iff` says that `UnipotentLength ρ 0` holds exactly when the underlying vector space is zero. This linear predicate specializes the exact-category extension length; it does not construct the geometric category.
+For a finite-dimensional representation over any field, `Unipotent.length_zero_iff` says that `UnipotentLength ρ 0` holds exactly when the action is trivial, including on nonzero vector spaces. Its filtration has n+1 graded layers, agreeing with C_n and the exact-category extension length above; it does not construct the geometric category.
 
 ### Dependencies
 
@@ -5386,7 +5363,7 @@ Use [Annihilate inertia and recover regular differentials](#nc-1-inertia-and-reg
 
 M noetherian, integral, of characteristic zero; X, Y proper smooth with geometrically connected fibres of genus ≥2 (proper hyperbolic). The open-curve variant needs the logarithmic tangent bundle and is not stated here.
 
-Representability: the graph of a morphism is a closed subscheme of X×\_MY, so Hom is an open subscheme of the Hilbert scheme of X×\_MY. Unramified: the tangent space of Hom at a nonconstant f:X\_m→Y\_m is H⁰(X\_m,f\*T\_(Y\_m)), which vanishes because f\*T\_(Y\_m) has degree (2−2g\_Y)·deg f<0. Quasi-finite: the Riemann–Hurwitz formula bounds deg f by (2g\_X−2)/(2g\_Y−2), which bounds the Hilbert polynomial of the graph. Proper: the valuative criterion, using that a finite étale cover of the generic fibre of a stable curve over a discrete valuation ring extends to a proper surjective morphism of the stable models. In characteristic zero a finite unramified morphism is étale over a dense open subscheme.
+Representability: the graph of a morphism is a closed subscheme of X×\_MY, so Hom is an open subscheme of the Hilbert scheme of X×\_MY. Unramified: the tangent space of Hom at a nonconstant f:X\_m→Y\_m is H⁰(X\_m,f\*T\_(Y\_m)), which vanishes because f\*T\_(Y\_m) has degree (2−2g\_Y)·deg f<0. Quasi-finite: the Riemann–Hurwitz formula bounds deg f by (2g\_X−2)/(2g\_Y−2), which bounds the Hilbert polynomial of the graph. Proper: extend a nonconstant generic-fibre map over a discrete valuation ring. Such a map can be ramified, so extension of finite étale covers alone does not suffice. Resolve the rational map from the smooth relative curve; the exceptional curves are rational and map constantly to the smooth hyperbolic target, which has no rational curves. Descent across the resolution extends the map, and its positive degree is preserved. This gives the valuative criterion for the dominant Hom locus; Lemma 8.3 supplies the finite étale special case used in reconstruction. In characteristic zero a finite unramified morphism is étale over a dense open subscheme.
 
 **Checks.**
 
@@ -5847,7 +5824,7 @@ The inclusions come from ℚ\_p⊆B\_cris^(φ=1)⊆B\_cris⊆B\_dR: a class dyin
 
 **Checks.**
 
-- For V=ℚ\_p(1) and K=ℚ\_p, H¹(ℚ\_p,ℚ\_p(1))=ℚ\_p^×⊗ℚ\_p is 2-dimensional, H¹\_f=H¹\_e is the 1-dimensional image of ℤ\_p^×, and H¹\_g is all of H¹; so the inclusion H¹\_f⊆H¹\_g can be strict, and a definition using B\_dR for H¹\_f would be wrong.
+- For V=ℚ\_p(1) and K=ℚ\_p, H¹(ℚ\_p,ℚ\_p(1))=(limₙ ℚ\_p^×/(ℚ\_p^×)^(pⁿ))⊗ℤₚℚ\_p is 2-dimensional, H¹\_f=H¹\_e is the 1-dimensional image of ℤ\_p^×, and H¹\_g is all of H¹; so the inclusion H¹\_f⊆H¹\_g can be strict, and a definition using B\_dR for H¹\_f would be wrong.
 - For V=ℚ\_p (trivial), H¹(ℚ\_p,ℚ\_p)=Hom(G\_(ℚ\_p),ℚ\_p) is 2-dimensional, H¹\_f is the 1-dimensional unramified line and H¹\_e=0, so H¹\_e⊆H¹\_f can be strict.
 - If V is crystalline with D\_cris(V)^(φ=1)=0 and D\_cris(V^\*(1))^(φ=1)=0, then H¹\_e=H¹\_f=H¹\_g; this applies to V\_pE for an elliptic curve E with good reduction, recovering the equality used for elliptic curves.
 
@@ -5915,7 +5892,7 @@ Use [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-c
 
 <a id="nc-3-local-condition-geometry"></a>
 
-**Local condition geometry.** For the geometric étale U\_n over a local field k\_v/Qp, use [Finite-level representability](#nc-3-finite-level-representability) to represent local H1. Assume finite vector cohomology and the stated invariant vanishing on every central layer, period-ring topologies, and effective filtered-torsor/coset descent over every coefficient algebra. In the central product chart H1(V\_i)×I\_i, assume the lower local condition cuts out a represented closed base J\_i⊂I\_i and that universal quotient neutralizations yield finitely many natural defect maps to vector spaces W\_ij: the next local condition on (x,y) is exactly ell\_ij(x)+b\_ij(y)=0, for all algebras, where ell\_ij is linear and b\_ij is natural in J\_i. Then induction represents the crystalline neutralLocus by a closed affine finite-type subfunctor. The invariant-coset boundary has this functor as its pointwise image only with effective coset lifting and descent on all algebras; no field-point image substitutes for this assertion. The same criterion constructs fixed unramified and fixed finite-index H\_v conditions. For unramifiedness use the revised central induction through vector inertia conditions; do not assume H1(I\_v,U\_n) is represented by a variety.
+**Local condition geometry.** For the geometric étale U\_n over a local field k\_v/Qp, use [Finite-level representability](#nc-3-finite-level-representability) to represent local H1. Assume finite vector cohomology and the stated invariant vanishing on every central layer, period-ring topologies, and effective filtered-torsor/coset descent over every coefficient algebra. In the central product chart H1(V\_i)×I\_i, assume the lower local condition cuts out a represented closed base J\_i⊂I\_i and that universal quotient neutralizations yield finitely many natural defect maps to vector spaces W\_ij: the next local condition on (x,y) is exactly ell\_ij(x)+b\_ij(y)=0, for all algebras, where ell\_ij is linear and b\_ij is natural in J\_i. Then induction represents the crystalline neutralLocus by a closed affine finite-type subfunctor. The invariant-coset boundary has this functor as its pointwise image only with effective coset lifting and descent on all algebras; no field-point image substitutes for this assertion. The same criterion constructs fixed unramified and fixed finite-index H\_v conditions. For unramifiedness use central induction through vector inertia conditions; do not assume H1(I\_v,U\_n) is represented by a variety.
 
 Local k\_v finite over Qp, finite depth, and the finite-level representability hypotheses. Period coefficient actions/topologies; B\_cris is not treated as the complete topological field in Kim2005. Fixed inertia or specified finite-index subgroup H\_v; vector neutral conditions and detection spaces W\_ij are finite-dimensional and commute with coefficient extension. Effective invariant-coset and strictly filtered torsor descent, including universal quotient neutralizations over each J\_i. The displayed affine-linear defect criterion is proved on all algebras and is independent of chosen neutralization after passing to cohomology.
 
@@ -6754,11 +6731,11 @@ Turn rational divisor correspondences into depth-two quotients and mixed extensi
 
 <a id="mixed-extensions"></a>
 
-**Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1).** Let G be a profinite group (G\_T for a finite set of places T, or a decomposition group G\_v) and W₀,…,W\_n continuous finite-dimensional ℚ\_p-representations with Hom\_G(Wᵢ,Wⱼ)=0 for i<j. A mixed extension with graded pieces W₀,…,W\_n is a representation M with a filtration M=M₀⊃M₁⊃…⊃M\_(n+1)=0 and isomorphisms αᵢ:Mᵢ/Mᵢ₊₁≅Wᵢ; morphisms are filtered isomorphisms compatible with the αᵢ. Let U(W₀,…,W\_n) be the unipotent group of block upper unitriangular automorphisms of ⊕Wᵢ, with the induced continuous G-action. Sending M to the G-equivariant U-torsor Φ(M) of filtered isomorphisms M≅⊕Wᵢ inducing the αᵢ defines a bijection Φ from isomorphism classes of mixed extensions to H¹(G,U(W₀,…,W\_n)), which identifies crystalline (respectively semistable) mixed extensions at v|p with H¹\_f (respectively H¹\_st). For (W₀,W₁,W₂)=(ℚ\_p,V,ℚ\_p(1)), U is a central extension 1→ℚ\_p(1)→U→V⊕Hom(V,ℚ\_p(1))→1, π₁(M)=φ₀,₁(M) and π₂(M)=φ₁,₂(M) are the two adjacent extension classes, and M↦M\*(1) is an involution. Partial Baer sums M+₁,ₙ₋₁N (when φ₁,ₙ₋₁ agree) and M+₂,ₙN (when φ₂,ₙ agree) are defined, and a function is bi-additive when it is additive for both.
+**Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1).** Let G be a profinite group (G\_T for a finite set of places T, or a decomposition group G\_v) and W₀,…,W\_n continuous finite-dimensional ℚ\_p-representations with Hom\_G(Wᵢ,Wⱼ)=0 for i<j. A mixed extension with graded pieces W₀,…,W\_n is a representation M with a filtration M=M₀⊃M₁⊃…⊃M\_(n+1)=0 and isomorphisms αᵢ:Mᵢ/Mᵢ₊₁≅Wᵢ; morphisms are filtered isomorphisms compatible with the αᵢ. Let U(W₀,…,W\_n) be the unipotent group of block unitriangular automorphisms of ⊕Wᵢ preserving the descending filtration ⊕ⱼ≥ᵢWⱼ: its blocks map Wᵢ to Wⱼ only for j≥i, and its diagonal blocks are identities. This fixes the matrix direction independently of the words upper and lower. Give it the induced continuous G-action. Sending M to the right U-torsor Φ(M) of filtered isomorphisms f:⊕Wᵢ≅M inducing αᵢ⁻¹ on the graded pieces, with right action f·u=f∘u and semilinear action g(f)=g_M∘f∘g_⊕W⁻¹ defines a bijection Φ from isomorphism classes of mixed extensions to H¹(G,U(W₀,…,W\_n)), which identifies crystalline (respectively semistable) mixed extensions at v|p with H¹\_f (respectively H¹\_st). For (W₀,W₁,W₂)=(ℚ\_p,V,ℚ\_p(1)), U is a central extension 1→ℚ\_p(1)→U→V⊕Hom(V,ℚ\_p(1))→1, π₁(M)=φ₀,₁(M) and π₂(M)=φ₁,₂(M) are the two adjacent extension classes, and M↦M\*(1) is an involution. Partial Baer sums M+₁,ₙ₋₁N (when φ₁,ₙ₋₁ agree) and M+₂,ₙN (when φ₂,ₙ agree) are defined, and a function is bi-additive when it is additive for both.
 
-G profinite; the Wᵢ continuous and finite-dimensional with Hom\_G(Wᵢ,Wⱼ)=0 for i<j, which forces mixed extensions to have no nontrivial automorphisms and H⁰(G,U)=1.
+G profinite; the Wᵢ continuous and finite-dimensional with Hom\_G(Wᵢ,Wⱼ)=0 for i<j, which forces mixed extensions to have no nontrivial automorphisms and H⁰(G,U)=1. The crystalline and semistable classifications require the graded pieces themselves to be crystalline or semistable, respectively. The dual-and-twist involution on the three-piece type uses the fixed Jacobian polarization V≅V\*(1); for arbitrary graded pieces duality instead reverses and dualizes the type. Finite-type representability for G=G\_T additionally uses finite-dimensional continuous cohomology of the successive Hom representations and the central representability hypotheses of Layer 4; invariant vanishing alone is not a finiteness assertion.
 
-Φ(M) is a torsor because two filtered isomorphisms inducing the αᵢ differ by an element of U; the G-action is by conjugation. The inverse twists ⊕Wᵢ by a torsor. The central extension description is the block structure for n=2. The vanishing of Hom\_G(Wᵢ,Wⱼ) for i<j kills automorphisms and makes H¹(G,U) represented by an affine scheme of finite type when G=G\_T.
+Φ(M) is a torsor because two filtered isomorphisms inducing the αᵢ differ by an element of U; the G-action is by conjugation. The inverse twists ⊕Wᵢ by a torsor. The central extension description is the block structure for n=2. The vanishing of Hom\_G(Wᵢ,Wⱼ) for i<j kills automorphisms. For G=G\_T combine it with the finite-cohomology and central representability hypotheses of Layer 4 to obtain affine finite-type representability.
 
 The interface consists of the following named results.
 
@@ -6773,7 +6750,7 @@ The interface consists of the following named results.
 
 - For n=1, mixed extensions of W₀ by W₁ are Ext¹(W₀,W₁)=H¹(G,Hom(W₀,W₁)), and U=Hom(W₀,W₁) is a vector group.
 - The split extension ℚ\_p⊕V⊕ℚ\_p(1) corresponds to the trivial class of H¹(G,U), and π₁, π₂ of it vanish.
-- With W₀=W₁=ℚ\_p (Hom≠0) the split extension has the nontrivial automorphisms (x,y)↦(x,y+λx); the hypothesis Hom\_G(Wᵢ,Wⱼ)=0 is needed for Φ to be a bijection of sets rather than of groupoids.
+- With W₀=W₁=ℚ\_p and trivial G, the split extension has the nontrivial automorphisms (x,y)↦(x,y+λx). Nevertheless both its isomorphism-class set and H¹(1,𝔾\_a) have one element: the Hom-vanishing hypothesis removes automorphisms, rather than being necessary for the class-set bijection. A groupoid equivalence retains these automorphisms.
 - For G=G\_v with v∤p and V=V\_pJ, H¹(G\_v,V)=0, so every mixed extension is V⊕N with N an extension of ℚ\_p by ℚ\_p(1), and Φ identifies classes with H¹(G\_v,ℚ\_p(1)).
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.1, Definitions 4.1, 4.2 and 4.4 and Remark 4.3, p. 13; §4.2, Definitions 4.5–4.6 and Lemma 4.7, p. 14; §4.3, p. 14; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.3, Definitions 3.3–3.4, p. 904; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.1, author pp. 10–12.
@@ -6782,9 +6759,9 @@ Use [Torsors under U with compatible G-action are classified by H¹(G, U)](#nc-3
 
 <a id="nekovar-local-heights"></a>
 
-**Nekovář's local heights.** Let X/ℚ be a smooth projective curve with good reduction at p, V=V\_pJ (equivalently H¹\_et(X\_ℚ̄,ℚ\_p)^∨), and fix a continuous idèle class character χ:𝔸^×\_ℚ/ℚ^×→ℚ\_p and a splitting s:V\_dR/Fil⁰→V\_dR of the Hodge filtration with isotropic kernel. For v≠p, H⁰(G\_v,V)=0=H¹(G\_v,V), so a mixed extension M of ℚ\_p,V,ℚ\_p(1) over G\_v splits as V⊕N with N an extension of ℚ\_p by ℚ\_p(1); define h\_v(M)=χ\_v([N]), where χ\_v:H¹(G\_v,ℚ\_p(1))≅ℚ\_v^×⊗ℚ\_p→ℚ\_p is induced by the local component of χ through Kummer theory. For v=p and M crystalline, with D\_cris(M)=M₀⊃M₁⊃M₂ as a mixed extension of filtered φ-modules, the extension class of D\_cris(M) in Ext¹(ℚ\_p,M₁) is an element of M₁/Fil⁰; lift it to M₁ by s and project to M₂≅D\_cris(ℚ\_p(1)) by the canonical φ-equivariant splitting of M₂⊂M₁, which exists for weight reasons. The result c lies in D\_cris(ℚ\_p(1))≅H¹\_f(G\_p,ℚ\_p(1)), and h\_p(M)=χ\_p(c). Then: each h\_v is continuous, bi-additive and symmetric (h\_v(M)=h\_v(M\*(1))); h\_p is an algebraic function on H¹\_f(G\_p,U); h\_v(M)=0 when v≠p and M is unramified, and more generally when M is potentially unramified; changing s changes h\_p by a bilinear function of (π₁(M),π₂(M)) on V\_dR/Fil⁰; and h\_v is linear in χ.
+**Nekovář's local heights.** Let X/ℚ be a smooth projective curve with good reduction at p, V=V\_pJ (equivalently H¹\_et(X\_ℚ̄,ℚ\_p)^∨), and fix a continuous idèle class character χ:𝔸^×\_ℚ/ℚ^×→ℚ\_p and a section s:V\_dR/Fil⁰→V\_dR of the Hodge quotient with isotropic image, equivalently an isotropic complementary subspace to Fil⁰. For v≠p, H⁰(G\_v,V)=0=H¹(G\_v,V), so a mixed extension M of ℚ\_p,V,ℚ\_p(1) over G\_v splits as V⊕N with N an extension of ℚ\_p by ℚ\_p(1); define h\_v(M)=χ\_v([N]), where χ\_v:H¹(G\_v,ℚ\_p(1))≅(limₙ ℚ\_v^×/(ℚ\_v^×)^(pⁿ))⊗ℤₚℚ\_p→ℚ\_p is induced by the local component of χ through Kummer theory. For v=p and M crystalline, with D\_cris(M)=M₀⊃M₁⊃M₂ as a mixed extension of filtered φ-modules, the extension class of D\_cris(M) in Ext¹(ℚ\_p,M₁) is an element of M₁/Fil⁰; lift it to M₁ by s and project to M₂≅D\_cris(ℚ\_p(1)) by the canonical φ-equivariant splitting of M₂⊂M₁, which exists for weight reasons. The result c lies in D\_cris(ℚ\_p(1))≅H¹\_f(G\_p,ℚ\_p(1)), and h\_p(M)=χ\_p(c). Then: each h\_v is continuous, bi-additive and symmetric (h\_v(M)=h\_v(M\*(1))); h\_p is an algebraic function on H¹\_f(G\_p,U); h\_v(M)=0 when v≠p and M is unramified, and more generally when M is potentially unramified; changing s changes h\_p by a bilinear function of (π₁(M),π₂(M)) on V\_dR/Fil⁰; and h\_v is linear in χ.
 
-X/ℚ smooth projective of genus g≥1 with good reduction at p; χ continuous with χ\_p ramified (so that χ\_p is nonzero on H¹\_f(G\_p,ℚ\_p(1))); s with isotropic kernel for the symmetry statement.
+X/ℚ smooth projective of genus g≥1 with good reduction at p; χ continuous with χ\_p ramified (so that χ\_p is nonzero on H¹\_f(G\_p,ℚ\_p(1))); s with isotropic image for the symmetry statement. Its kernel is zero for every section and cannot express the isotropy condition.
 
 For v≠p, H⁰(G\_v,V)=0 because J(ℚ\_v)[p^∞] is finite, H²(G\_v,V)=H⁰(G\_v,V\*(1))^∨=0 by local duality and V\*(1)≅V, and the local Euler characteristic is zero, so H¹=0; the splitting then follows. For v=p, Ext¹ of ℚ\_p by a filtered φ-module W with W^(φ=1)=0 is W/Fil⁰W, computed by comparing a φ-splitting with a filtered one. Algebraicity: the construction is a polynomial function on U\_dR/F⁰. Potentially unramified vanishing: over a finite Galois extension trivialising the inertia action, the class of N restricts to zero, and restriction is injective on H¹(G\_v,ℚ\_p(1)) because ℚ\_p(1) has no invariants under the open subgroup. Change of splitting: the difference of two splittings is a linear map V\_dR/Fil⁰→Fil⁰V\_dR, and the difference of heights is the corresponding bilinear form.
 
@@ -6803,14 +6780,44 @@ The interface consists of the following named results.
 - For v≠p and M=V⊕N with N the Kummer extension of an element u∈ℚ\_v^× of valuation 1, h\_v(M)=χ\_v(u)=the value of χ\_v on a uniformiser; for u a unit it is 0, the unramified case.
 - At a place v=ℓ≠p of good reduction, M=V⊕N with N the Kummer class of ℓ has unramified graded pieces but is ramified, and h\_v(M)=χ\_v(ℓ), which is nonzero for a suitable χ; the vanishing statement needs M itself potentially unramified, not only its graded pieces.
 - For χ=0 every height vanishes, so a nonzero character is needed to use h\_p as a coordinate.
+- On a four-dimensional symplectic de Rham space with basis a₁,a₂,b₁,b₂, 〈aᵢ,bⱼ〉=δᵢⱼ and Fil⁰=span(a₁,a₂), the section with image span(b₁,b₂) is isotropic. The section with image span(b₁+a₂,b₂) has zero kernel but pairing 〈b₁+a₂,b₂〉=1, so it fails the symmetry hypothesis.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3, pp. 14–15; §4.3.1, p. 15; §4.3.2, Lemma 4.8 and Remark 4.9, pp. 15–16; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.1, p. 901; §3.2 and Lemma 3.2, p. 903; §3.3, (12) and Definition 3.4, p. 904; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.4, author pp. 15–18. The underlying construction is Nekovář's (On p-adic height pairings, Séminaire de Théorie des Nombres, Paris 1990–91, §§2–4), as recalled in these sources.
 
 Use [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality over finite and coefficient fields); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.4 (the local invariant map); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0 (S-unit Kummer theory); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
 
+<a id="nekovar-semistable-local-height"></a>
+
+**The local height on semistable mixed extensions.** Keep the good-reduction Jacobian representation V, character χ and Hodge section s above, and put K=ℚ\_p. For a mixed extension M write E₂=M₁, so that 0→ℚ\_p(1)→E₂→V→0, and let x∈H¹(K,E₂) classify 0→E₂→M→ℚ\_p→0. Assume that both adjacent extension classes are finite: E₂ is crystalline and the image π(x) lies in H¹\_f(K,V). These assumptions hold when M is semistable, because H¹\_st(K,V)=H¹\_f(K,V) for a good-reduction Jacobian, also after the polarized identification V≅V\*(1). Define the height on this adjacent-finite domain, and hence on H¹\_st(K,U(ℚ\_p,V,ℚ\_p(1))), as follows.
+
+The finite and unrestricted cohomology sequences are
+
+```text
+0 → H¹_f(K,ℚ_p(1)) → H¹_f(K,E₂) → H¹_f(K,V) → 0,
+0 → H¹(K,ℚ_p(1)) → π⁻¹(H¹_f(K,V)) → H¹_f(K,V) → 0.
+```
+
+The injections use H⁰(K,V)=0. The unrestricted sequence is surjective because its connecting obstruction is the cup product with the finite class of E₂, and the finite local conditions for V and V\*(1) annihilate one another under local duality. For the finite sequence, the Bloch–Kato exponentials identify the three terms with their de Rham quotients: D\_cris(V) and D\_cris(E₂) have no φ-fixed vectors. Good reduction and the Weil weights ensure that the φ-spectrum of V is disjoint from that of ℚ\_p(1), so there is a unique φ-equivariant splitting j\_φ:D\_dR(V)→D\_dR(E₂). The composition of s, j\_φ and the quotient to D\_dR(E₂)/Fil⁰, transported by the exponentials, gives a section r\_s:H¹\_f(K,V)→H¹\_f(K,E₂). Let w\_s(y) be the unique finite Tate class whose image is y−r\_s(π(y)).
+
+Choose y∈H¹\_f(K,E₂) with π(y)=π(x), and let k∈H¹(K,ℚ\_p(1)) be the unique class with x−i(y)=j(k). Set w′\_s(x)=u(w\_s(y))+k, where i and u are the inclusions of finite classes into unrestricted cohomology, and define h\_p(M)=χ\_p(w′\_s(x)). Replacing y by y+j(a), with a finite Tate class, adds a to w\_s(y) and subtracts a from k, so the result is independent of the choice. This uses the full Kummer group, including its valuation direction; it does not apply a crystalline formula to D\_st(M).
+
+The interface is `localHeight_st` on semistable classes, `localHeight_st_lift_independent`, `localHeight_st_agrees_crystalline`, and `localHeight_st_central_translation`. The latter states h\_p(M+d)−h\_p(M)=χ\_p(d)=inv\_p(χ\_p∪d), with the reciprocity and cup-product convention of the preceding height target. Include `localHeight_st_biadditive`, `localHeight_st_symm` for isotropic s, and `localHeight_st_change_splitting` and `localHeight_st_character_smul` with the same formulas as on crystalline classes. Functoriality of the two cohomology rows under pushout and pullback proves partial Baer additivity. Dualize the rows using local duality and the polarization; the two Hodge splittings are adjoint precisely for isotropic s, giving symmetry. The difference of two r\_s is a map into the finite Tate term, giving the bilinear change-of-splitting formula. The central term k is independent of s, and χ acts linearly on both terms.
+
+**Checks.**
+
+- For a crystalline x, take y=x: k=0 and the formula is χ\_p(w\_s(x)), the preceding crystalline height.
+- Replacing a chosen lift y by y+j(a) for a nonzero finite Tate class a changes the two summands by +a and −a; their sum is unchanged.
+- The split mixed extension has x=0 and height zero.
+- For M=V⊕N(p(1+p)), the two adjacent classes vanish. Its Tate extension has valuation one, so M is semistable and not crystalline. Taking y=0 gives h\_p(M)=χ\_p(p(1+p)); for the logarithmic character with χ\_p(p)=0 this equals χ\_p(1+p), which is nonzero, including p=2. Restricting the construction to H¹\_f(K,U) would lose this input.
+- Translating this M by the Kummer class of (1+p) changes the height by χ\_p(1+p); reversing the central-translation sign fails this test.
+
+The cohomological construction is [Amnon Besser](#reference-besser-heights2002), §4, diagram (4.4), Definition 4.1, Lemma 4.2 and Definition 4.3, pp. 6–7; the Hodge/Frobenius splitting is §6, equation (6.1), p. 10. Its restriction to crystalline mixed extensions and the semistable domain are [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3, pp. 14–16; the global translation and isotropic symmetry are §4.3.3, pp. 16–17. The signs here are fixed by the displayed cohomology construction and the central Kummer check, rather than by a comparison with Coleman–Gross heights.
+
+Use [Nekovář's local heights](#nekovar-local-heights); [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions); [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (crystalline admissibility and exponentials).
+
 <a id="nekovar-global-height"></a>
 
-**The global height and its decomposition into local heights.** With the data of [Nekovář's local heights](#nekovar-local-heights) and T the set of bad places together with p, define h on H¹\_st(G\_T,U(ℚ\_p,V,ℚ\_p(1))) (classes semistable at p) by h(M)=Σ\_(v∈T)h\_v(loc\_v M). Then h is invariant under the action of H¹\_st(G\_T,ℚ\_p(1)), because h\_v(c+d)=h\_v(c)+loc\_v(χ∪d) and the sum of the local invariants of a global class is zero. Hence h factors through H¹\_f(G\_T,V)×H¹\_f(G\_T,V) via M↦(π₁(M),π₂(M)\*(1)), and the factored map is bilinear; it is Nekovář's global p-adic height pairing h:H¹\_f(G\_T,V)×H¹\_f(G\_T,V\*(1))→ℚ\_p for (χ,s). It is symmetric when s is isotropic, and changing s or scaling χ changes it as for the local heights.
+**The global height and its decomposition into local heights.** With the data of [Nekovář's local heights](#nekovar-local-heights) and T the set of bad places together with p, define h on H¹\_st(G\_T,U(ℚ\_p,V,ℚ\_p(1))) (classes semistable at p) by h(M)=Σ\_(v∈T)h\_v(loc\_v M), using [The local height on semistable mixed extensions](#nekovar-semistable-local-height) at p. Then h is invariant under the action of H¹\_st(G\_T,ℚ\_p(1)), because h\_v(c+d)=h\_v(c)+loc\_v(χ∪d) and the sum of the local invariants of a global class is zero. Hence h factors through H¹\_f(G\_T,V)×H¹\_f(G\_T,V) via M↦(π₁(M),π₂(M)\*(1)), and the factored map is bilinear; it is Nekovář's global p-adic height pairing h:H¹\_f(G\_T,V)×H¹\_f(G\_T,V\*(1))→ℚ\_p for (χ,s). It is symmetric when s is isotropic, and changing s or scaling χ changes it as for the local heights.
 
 As for [Nekovář's local heights](#nekovar-local-heights); T finite containing p and the bad places; H¹\_st(G\_T,V)=H¹\_f(G\_T,V) for V=V\_pJ.
 
@@ -6824,7 +6831,7 @@ Additivity: the central ℚ\_p(1) acts on each local term by adding the cup prod
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3.3, pp. 16–17; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.1, equation (11) and the decomposition into local heights, p. 901; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.5, author pp. 18–19.
 
-Use [Nekovář's local heights](#nekovar-local-heights); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions).
+Use [Nekovář's local heights](#nekovar-local-heights); [The local height on semistable mixed extensions](#nekovar-semistable-local-height); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions).
 
 ### 6.2 Rational classes and the rank obstruction
 
@@ -6848,11 +6855,11 @@ Use [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/REA
 
 <a id="correspondence-cycle-classes"></a>
 
-**Divisor correspondences acting on H¹⊗H¹.** Let X be a smooth projective geometrically connected curve of genus g over a field F of characteristic zero, H¹ a Weil cohomology of X with coefficient field L of characteristic zero (étale ℚ\_p, or de Rham), τ the swap of X×X and π₁,π₂ the projections. For Z∈Pic(X×X)⊗ℚ let ξ\_Z be the Künneth component of its cycle class in H¹⊗H¹(1)≅End(H¹) (Poincaré duality). Then: ξ\_(τ\*Z) is the adjoint of ξ\_Z for the cup-product pairing (with the Koszul sign fixed together with the Künneth isomorphism), so that for a Jacobian it corresponds to the Rosati involution; pullbacks π₁\*Z₁ and π₂\*Z₂ have zero H¹⊗H¹-component; the trace of ξ\_Z as an endomorphism of H¹ equals the image of ξ\_Z under the cup product H¹⊗H¹(1)→H²(1)≅L; and if J is absolutely simple and Z is symmetric (τ\*Z=Z+π₁\*Z₁+π₂\*Z₂), ξ\_Z lies in ∧²H¹(1). The map Z↦ξ\_Z is compatible with base change of F and with the comparison isomorphisms between étale and de Rham realizations.
+**Divisor correspondences acting on H¹⊗H¹.** Let X be a smooth projective geometrically connected curve of genus g over a field F of characteristic zero, H¹ a Weil cohomology of X with coefficient field L of characteristic zero (étale ℚ\_p, or de Rham), τ the swap of X×X and π₁,π₂ the projections. For Z∈Pic(X×X)⊗ℚ let ξ\_Z be the Künneth component of its cycle class in H¹⊗H¹(1)≅End(H¹) (Poincaré duality). Fix the alternating pairing 〈u,v〉=tr(u∪v), and identify u⊗v with T(u⊗v):w↦〈u,w〉v (Tate twists are included in the pairing). Thus tr(T(u⊗v))=〈u,v〉. The swap on the middle Künneth summand is minus the ordinary tensor flip. These choices fix all signs below. Then: ξ\_(τ\*Z) is the adjoint of ξ\_Z for the cup-product pairing (with the Koszul sign fixed together with the Künneth isomorphism), so that for a Jacobian it corresponds to the Rosati involution; pullbacks π₁\*Z₁ and π₂\*Z₂ have zero H¹⊗H¹-component; the trace of ξ\_Z as an endomorphism of H¹ equals the image of ξ\_Z under the cup product H¹⊗H¹(1)→H²(1)≅L; and if J is absolutely simple and Z is symmetric (τ\*Z=Z+π₁\*Z₁+π₂\*Z₂), ξ\_Z lies in ∧²H¹(1). The map Z↦ξ\_Z is compatible with base change of F and with the comparison isomorphisms between étale and de Rham realizations.
 
 X smooth projective geometrically connected over F of characteristic zero; L of characteristic zero; for the ∧² statement J absolutely simple.
 
-Take cycle classes of divisors on X×X and project by the Künneth decomposition. τ\* exchanges the two tensor factors, which is the adjoint under Poincaré duality; a pullback from one factor lies in H²⊗H⁰ or H⁰⊗H². The trace identity is the definition of the trace of an endomorphism given by an element of H¹⊗H¹(1)≅H¹⊗(H¹)^∨ through the Poincaré pairing. For the ∧² statement, a symmetric correspondence induces a Rosati-symmetric element of End(J)⊗ℚ, which lies in the image of NS(J)⊗ℚ by [Rational Rosati descent](#rational-rosati-descent), and the class of a divisor on J lies in H²(J)(1)=∧²H¹(1).
+Take cycle classes of divisors on X×X and project by the Künneth decomposition. For A=T(u⊗v), the alternating pairing gives A†=−T(v⊗u); hence the graded swap −flip corresponds to the adjoint, without an unspecified sign; a pullback from one factor lies in H²⊗H⁰ or H⁰⊗H². The trace identity is the definition of the trace of an endomorphism given by an element of H¹⊗H¹(1)≅H¹⊗(H¹)^∨ through the Poincaré pairing. For the ∧² statement, a symmetric correspondence induces a Rosati-symmetric element of End(J)⊗ℚ, which lies in the image of NS(J)⊗ℚ by [Rational Rosati descent](#rational-rosati-descent), and the class of a divisor on J lies in H²(J)(1)=∧²H¹(1).
 
 The interface consists of the following named results.
 
@@ -6865,8 +6872,10 @@ The interface consists of the following named results.
 
 **Checks.**
 
-- The diagonal Δ has ξ\_Δ=±identity of H¹ (the sign fixed by the Künneth convention), with trace ±2g; the symmetric correspondence Δ−X×{P}−{P}×X has the same ξ, so its trace is ±2g≠0 and it is not nice.
-- The graph of an automorphism σ of X has ξ equal to σ\* (up to the same sign), and its swap has ξ equal to (σ⁻¹)\*.
+- For a symplectic basis aᵢ,bᵢ with 〈aᵢ,bⱼ〉=δᵢⱼ, the diagonal middle component is Σᵢ(bᵢ⊗aᵢ−aᵢ⊗bᵢ). Our T sends it to −id with trace −2g. Subtracting the two fibre classes does not change it, so this symmetric correspondence is not nice for g≥1. For g=0 its middle component is zero and it is again not nice.
+- Define Γ\_σ={(σ(x),x)}. Its middle component acts as −σ\*, and the swapped graph acts as −(σ⁻¹)\*. This graph direction is part of the convention.
+- On H=ℚ² with 〈(x₁,x₂),(y₁,y₂)〉=x₁y₂−x₂y₁, `symplecticTensorAction` in Suggested.lean is T on a simple tensor. T(b⊗a−a⊗b)(w)=−w, whose trace is −2; T(a⊗b) has matrix diag(0,1), with trace 1=〈a,b〉. Reversing the pairing would reverse both values.
+- If either input of `symplecticTensorAction` is zero, the endomorphism is zero. With a=(1,0), b=(0,1), T(b⊗a)=diag(−1,0), which differs from T(a⊗b)=diag(0,1); exchanging the factors without the graded minus sign fails the adjoint convention.
 - For a pullback π₁\*Z₁, ξ=0 although the class in H²(X×X) is nonzero: the Künneth projection, not the whole cycle class, is used.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §2.3, the definitions of symmetric and nice correspondences, Lemma 2.4 and its proof, p. 900; Remark 2.5, p. 901; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §6.2, the cycle class cl\_Z through Künneth projectors, p. 25.
@@ -7158,7 +7167,7 @@ Translate a fibre of H1(U\_Z)→H1(Aut\_gr(A\_Z)) to the neutral fibre by the im
 - The neutral coset is fixed.
 - The argument addresses every twisted fibre, not just the kernel of a map of pointed sets.
 
-The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4, Lemma 4.2 and proof, pp. 21–22; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §5.1, pp. 18–20.
+The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4, Lemma 4.2 and proof, p. 20; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §5.1, pp. 18–20.
 
 Use [Twisted height module](#nc-5-height-module-twist); [Twisting by a cocycle](#nc-3-twisting); [Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence); [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions).
 
@@ -7202,7 +7211,7 @@ Classify the crystalline central fibre as a torsor for H1\_f(G\_p,Qp(1))≅Qp. T
 
 - A zero local functional collapses the central fibre and gives no such isomorphism.
 
-The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.3, Lemmas3.6–3.7, p. 18; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3.2, Lemma 4.8, p. 16; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Lemma 3.7 proof, pp. 907–908.
+The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.3, Lemmas 3.6–3.7, pp. 14–15; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3.2, Lemma 4.8, p. 16; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Lemma 3.7 proof, pp. 907–908.
 
 Use [Specialized local height formula](#nc-5-height-prevalue); [Injectivity of the specialized twisting map](#nc-5-twist-injective); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [Nekovář's local heights](#nekovar-local-heights).
 
@@ -7386,7 +7395,7 @@ Import tensor-product universal properties and the shared equivariant splitting 
 - For K\_p=Qp×Qp and W=K\_p, the balanced dimension is 2 while the ordinary tensor dimension is 4.
 - For the cubic real-multiplication example dimensions are 3 and 9; three dependent vectors still do not form a basis.
 
-The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §1.7, pp. 894–895; Remark 3.9, p. 908; §6.4.1, p. 932; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4.1, Lemma 4.3, p. 23; §5, Lemma 5.2(1), p. 24 and Lemma 5.3, p. 25.
+The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §1.7, pp. 894–895; Remark 3.9, p. 908; §6.4.1, p. 932; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4, Lemma 4.4, p. 22; §5, Lemma 5.3(1)–(2) and proof, pp. 22–23.
 
 Use [Specialized local height formula](#nc-5-height-prevalue); `TensorProduct`; `TensorProduct.lift`; [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A3.9 (the Rosati involution); [Rational Rosati descent](#rational-rosati-descent).
 
@@ -7412,7 +7421,7 @@ Use [Quadratic Chabauty pair from heights](#nc-5-pair-of-heights); [Vanishing fo
 
 **Independence of height choices.** Changing the allowed Hodge splitting changes theta and the transported global bilinear pairing by the same bilinear expression D(AJ\_b(x),E AJ\_b(x)+c), so their residual and its height locus agree. Rescaling the idele character by a nonzero scalar a changes theta,B and every local image set by a; Upsilon becomes a*Upsilon and the residual-membership locus agrees. The zero character is excluded. Arbitrary unrelated characters are not identified by this scaling argument.
 
-Use `height_change_splitting` and `height_character_smul` of [Nekovář's local heights](#nekovar-local-heights) and [The global height and its decomposition into local heights](#nekovar-global-height), restricted to the two Mordell–Weil classes. Use a single global character with its compatible local components; in the selected Q setting the stated nonzero rescaling is the comparison.
+Use `height_change_splitting` and `height_character_smul` of [Nekovář's local heights](#nekovar-local-heights), [The local height on semistable mixed extensions](#nekovar-semistable-local-height) and [The global height and its decomposition into local heights](#nekovar-global-height), restricted to the two Mordell–Weil classes. Use a single global character with its compatible local components; in the selected Q setting the stated nonzero rescaling is the comparison.
 
 Apply the generic splitting-change formula to the local height and the global pairing; cancel identical bilinear changes. All away-place height values scale with the character. The signed correction set scales likewise. Multiplication by a nonzero scalar is injective, giving equivalence of memberships. A zero scalar destroys the obstruction.
 
@@ -7421,7 +7430,7 @@ Apply the generic splitting-change formula to the local height and the global pa
 - The change in theta alone is not claimed to vanish.
 - For a=0, the example residual 7−2 is falsely accepted after scaling; this is excluded.
 
-The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Remark 3.12, pp. 908–909; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), Remark 4.9, p. 16; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.4, after Lemma 3.8, p. 19.
+The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Remark 3.12, pp. 908–909; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), Remark 4.9, p. 16; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.5, the change-of-splitting paragraph after Lemma 3.11, p. 18.
 
 Use [Quadratic Chabauty pair from heights](#nc-5-pair-of-heights); [Signed away-place correction set](#nc-5-away-height-constants); [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
@@ -7625,9 +7634,9 @@ Use [Selmer functor](#nc-3-selmer-functor); [Finite-level representability](#nc-
 
 <a id="open-curve-product-cohomology"></a>
 
-**Étale cohomology of open curves, powers and Weil restrictions.** Let F be a field of characteristic zero, X̄ a smooth projective geometrically connected curve over F of genus g, D⊂X̄ a reduced divisor, finite étale over F with s=#D(F̄)≥1 geometric points, and X=X̄∖D. (a) There is a G\_F-equivariant exact sequence 0→H¹(X̄\_F̄,ℚ\_p)→H¹(X\_F̄,ℚ\_p)→ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)→0, where G\_F permutes the factors of ℚ\_p(−1)^(D(F̄)) through its action on D(F̄) and the last map is the sum; so H¹(X\_F̄) is an extension of the boundary part ker(ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)), of dimension s−1, by H¹(X̄\_F̄), and dim H¹(X\_F̄)=2g+s−1. (b) For every n≥1, H¹(X\_F̄,ℚ\_p)^⊗n is a G\_F-stable direct summand of Hⁿ(Xⁿ\_F̄,ℚ\_p), and likewise with twists. (c) For a finite extension F′/F and a smooth projective variety V′ over F′, Ind\_(G\_F′)^(G\_F)Hⁱ(V′\_F̄,ℚ\_p) is a G\_F-stable direct summand of Hⁱ((Res\_(F′/F)V′)\_F̄,ℚ\_p), so by Shapiro's lemma Hᵐ(G\_(F′,T′),Hⁱ(V′\_F̄)(r))≅Hᵐ(G\_(F,T),Ind Hⁱ(V′\_F̄)(r)) embeds as a summand of Hᵐ(G\_(F,T),Hⁱ((Res V′)\_F̄)(r)), for T′ the places above T.
+**Étale cohomology of open curves, powers and Weil restrictions.** Let F be a field of characteristic zero, X̄ a smooth projective geometrically connected curve over F of genus g, D⊂X̄ a reduced divisor, finite étale over F with s=#D(F̄)≥1 geometric points, and X=X̄∖D. (a) There is a G\_F-equivariant exact sequence 0→H¹(X̄\_F̄,ℚ\_p)→H¹(X\_F̄,ℚ\_p)→ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)→0, where G\_F permutes the factors of ℚ\_p(−1)^(D(F̄)) through its action on D(F̄) and the last map is the sum; so H¹(X\_F̄) is an extension of the boundary part ker(ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)), of dimension s−1, by H¹(X̄\_F̄), and dim H¹(X\_F̄)=2g+s−1. (b) For every n≥1, H¹(X\_F̄,ℚ\_p)^⊗n is a G\_F-stable direct summand of Hⁿ(Xⁿ\_F̄,ℚ\_p), and likewise with twists. (c) For a finite extension F′/F, a smooth projective geometrically connected variety V′ over F′ and i≥1, Ind\_(G\_F′)^(G\_F)Hⁱ(V′\_F̄,ℚ\_p) is a G\_F-stable direct summand of Hⁱ((Res\_(F′/F)V′)\_F̄,ℚ\_p), with T containing the places ramified in F′/F and the bad-reduction places, so that G\_(F′,T′) is the finite-index subgroup of G\_(F,T) determined by F′, and by Shapiro's lemma Hᵐ(G\_(F′,T′),Hⁱ(V′\_F̄)(r))≅Hᵐ(G\_(F,T),Ind Hⁱ(V′\_F̄)(r)) embeds as a summand of Hᵐ(G\_(F,T),Hⁱ((Res V′)\_F̄)(r)), for T′ the places above T.
 
-F of characteristic zero; D finite étale over F and nonempty; for (c), V′ smooth projective and T a finite set of places with T′ above it.
+F of characteristic zero; D finite étale over F and nonempty; for (c), V′ smooth projective and geometrically connected, i≥1. The arithmetic cohomology consequence assumes F is a number field and T contains the primes above p, bad-reduction primes and primes ramified in F′/F, with T′ the places above T.
 
 (a) Localisation (Gysin) for the closed immersion D\_F̄→X̄\_F̄ with purity H²\_D(X̄,ℚ\_p)=ℚ\_p(−1)^(D(F̄)), and H²(X\_F̄)=0 since X\_F̄ is affine; the map to H²(X̄\_F̄)=ℚ\_p(−1) is the sum of the Gysin classes, each of which is the point class. The dimension count agrees with the affine-curve computation. (b) Künneth gives Hⁿ(Xⁿ)=⊕\_(i₁+…+iₙ=n)⊗Hⁱʲ(X), whose summand with all iⱼ=1 is H¹^⊗n; the projector is algebraic (built from the Künneth decomposition) and Galois-equivariant. (c) Over F̄, Res\_(F′/F)V′ becomes the product of the conjugates V′\_σ over embeddings σ:F′→F̄, permuted by G\_F; Künneth gives the summand ⊕\_σ Hⁱ(V′\_σ)⊗H⁰(others)=⊕\_σHⁱ(V′\_σ), which is the induced representation. Shapiro's lemma identifies the cohomology of the induced module.
 
@@ -7636,6 +7645,7 @@ F of characteristic zero; D finite étale over F and nonempty; for (c), V′ smo
 - For X=P¹∖{0,1,∞} over ℚ, g=0 and s=3, so H¹(X\_ℚ̄)=ker(ℚ\_p(−1)³→ℚ\_p(−1))≅ℚ\_p(−1)² with trivial permutation action since the three points are rational.
 - For X̄=P¹ and D={±√2}, s=2 and the boundary part ker(ℚ\_p(−1)²→ℚ\_p(−1)) is ℚ\_p(−1)⊗ε, with ε the quadratic character of ℚ(√2): the permutation action is visible and is not trivial.
 - For n=2 and X a proper curve of genus g, H²(X²) has dimension 1+4g²+1 and the summand H¹⊗H¹ has dimension 4g²: the other two summands H²⊗H⁰ and H⁰⊗H² are not part of H¹^⊗2.
+- For F′/F quadratic and V′=P¹, H⁰(Res V′)=ℚ\_p has dimension 1, whereas Ind H⁰(V′) has dimension 2. The induced-summand assertion requires i≥1; it cannot count the identical degree-zero summand once for each factor. In degree 2 the two factor classes are distinct and give the asserted 2-dimensional induced summand.
 
 The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Lemma 59.69.3 (Tag 03RR) and Lemma 59.97.9 (Tag 0F13).
 
@@ -7643,7 +7653,7 @@ Use [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md
 
 <a id="free-lie-character"></a>
 
-**Witt character and the surface relation.** For a finite-dimensional characteristic-zero vector space H with an endomorphism τ, construct the degree-n free Lie functor L\_n(H) and prove the Witt character formula tr(τ|L\_n(H))=(1/n)Σ\_(d|n)μ(d) tr(τ^d|H)^(n/d). For a proper genus-g surface relation, identify the enveloping-algebra Hilbert series 1/(1−2g t+t²), and derive the Labute dimensions by logarithmic derivative and Möbius inversion. Identify these with the graded Lie dimensions of the geometric unipotent curve group. For complex conjugation c, the open-curve character uses the proper and boundary eigenspaces; it is not forced to be zero in odd degree.
+**Witt character and the surface relation.** For a finite-dimensional characteristic-zero vector space H with an endomorphism τ and an integer n≥1, construct the degree-n free Lie functor L\_n(H) and prove the Witt character formula tr(τ|L\_n(H))=(1/n)Σ\_(d|n)μ(d) tr(τ^d|H)^(n/d). For a proper genus-g surface relation, identify the enveloping-algebra Hilbert series 1/(1−2g t+t²), and derive the Labute dimensions by logarithmic derivative and Möbius inversion. Identify these with the graded Lie dimensions of the geometric unipotent curve group. For complex conjugation c, the open-curve character uses the proper and boundary eigenspaces; it is not forced to be zero in odd degree.
 
 n≥1; characteristic zero permits division by n. For the surface case g≥2 and the nonzero symplectic relation has degree two.
 
@@ -7668,7 +7678,7 @@ Use [Lower central depth](#nc-2-central-quotients); [InverseGaloisAndArithmeticF
 
 <a id="nc-6-graded-central-dimensions"></a>
 
-**Dimensions of the lower central quotients.** Let X be a smooth curve over a number field with smooth compactification of genus g and s ≥ 0 boundary points over the algebraic closure, hyperbolic (2g − 2 + s &gt; 0), and let d\_n = dim gr\_n U, where gr\_n U = Γ\_nU/Γ\_{n+1}U for the Q\_p-unipotent étale (or de Rham) fundamental group U of Layer 2. If s ≥ 1, U is the unipotent completion of a free group on m = 2g + s − 1 generators and Σ\_{k | n} k·d\_k = m^n (Witt), so d\_n = (1/n) Σ\_{k | n} μ(k) m^{n/k}. If s = 0 (so g ≥ 2), U is the completion of a surface group with one relation of degree 2 and Σ\_{k | n} k·d\_k = α^n + β^n with α, β = g ± √(g² − 1) (Labute), so d\_n = (1/n) Σ\_{k | n} μ(k)(α^{n/k} + β^{n/k}). In both cases gr\_1 U = H₁ has dimension m (resp. 2g), gr\_n U is a G\_T-equivariant quotient of H₁^{⊗n}, and d\_n ~ λ^n/n with λ = m (resp. α); in the hyperbolic case λ &gt; g.
+**Dimensions of the lower central quotients.** Let X be a smooth curve over a number field with smooth compactification of genus g and s ≥ 0 boundary points over the algebraic closure, hyperbolic (2g − 2 + s &gt; 0), and for n≥1 let d\_n = dim gr\_n U, where gr\_n U = Γ\_nU/Γ\_{n+1}U for the Q\_p-unipotent étale (or de Rham) fundamental group U of Layer 2. If s ≥ 1, U is the unipotent completion of a free group on m = 2g + s − 1 generators and Σ\_{k | n} k·d\_k = m^n (Witt), so d\_n = (1/n) Σ\_{k | n} μ(k) m^{n/k}. If s = 0 (so g ≥ 2), U is the completion of a surface group with one relation of degree 2 and Σ\_{k | n} k·d\_k = α^n + β^n with α, β = g ± √(g² − 1) (Labute), so d\_n = (1/n) Σ\_{k | n} μ(k)(α^{n/k} + β^{n/k}). In both cases gr\_1 U = H₁ has dimension m (resp. 2g), gr\_n U is a G\_T-equivariant quotient of H₁^{⊗n}, and d\_n ~ λ^n/n with λ = m (resp. α); in the hyperbolic case λ &gt; g.
 
 Hyperbolic smooth curve; the dimensions are those of the graded pieces of the lower central series of the Q\_p-unipotent completion, equal to the ranks of the graded pieces of the discrete group. gr\_n is taken with Γ\_1U = U, so gr\_1 U is the abelianisation H₁.
 
@@ -7716,15 +7726,16 @@ Use [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.2 (r
 
 <a id="nc-6-h2-growth-bound"></a>
 
-**Kim's H² estimate.** Assume SelmerVanishing(X, p, T) for X/F as in [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture), with compactification of genus g and s boundary points. Then there is an explicit polynomial P, depending only on g, s and |T|, such that dim\_{Q\_p} H²(G\_T, gr\_n U) ≤ P(n)·g^n for all sufficiently large n (with g^n read as 0 when g = 0 and n ≥ 2, where the local invariants vanish). At a place w ∤ p the local contribution is at most n·dim Gr^W\_2·g^{n−1} + (n(n−1)/2)(dim Gr^W\_1)²·g^{n−2} from the weight filtration of H¹ attached to semistable reduction, plus the boundary contribution n(s − 1)g^{n−1}; at w | p it is at most n(g + s − 1)g^{n−1}, from the Hodge–Tate weights of H¹.
+**Kim's H² estimate.** Assume SelmerVanishing(X, p, T) for X/F as in [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture), with compactification of genus g and s boundary points. Then there is an explicit polynomial P, depending only on g, s and |T|, such that dim\_{Q\_p} H²(G\_T, gr\_n U) ≤ P(n)·g^n for all sufficiently large n (with g^n read as 0 when g = 0 and n ≥ 2, where the local invariants vanish). At a place w ∤ p the local contribution is at most n·dim Gr^W\_2·g^{n−1} + (n(n−1)/2)(dim Gr^W\_1)²·g^{n−2} from the weight filtration of H¹ attached to semistable reduction, plus the boundary contribution n·max(s−1,0)·g^{n−1}; at w | p it is at most n·(g+max(s−1,0))·g^{n−1}, from the Hodge–Tate weights of H¹. For a proper curve (s=0) the boundary contribution is zero and the two Hodge–Tate multiplicities are g and g; the open formula g+s−1 is used only when s≥1.
 
 SelmerVanishing(X, p, T) holds; n is beyond the threshold it provides. gr\_n U is the G\_T-equivariant quotient of H₁^{⊗n} of [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions), H₁ = H¹(X\_{F̄}, Q\_p)^∨.
 
-H² is right exact on Q\_p-representations of G\_T: for finite p-primary M, H³(G\_T, M) ≅ ⊕\_{v real} H³(G\_v, M) is killed by 2 (ArithmeticGaloisDuality §R02.4.4; cd\_p(G\_T) = 2 when p is odd or F is totally imaginary), so after passing to lattices and inverting p (ArithmeticGaloisDuality §D7.6) H³ vanishes with Q\_p-coefficients for every p, including p = 2 when F has a real place. Hence H²(G\_T, H₁^{⊗n}) ↠ H²(G\_T, gr\_n U). By SelmerVanishing and Poitou–Tate (sel0\_dual\_sha2), Ш²\_T(H₁^{⊗n}) = 0, so H²(G\_T, H₁^{⊗n}) injects into ⊕\_{w ∈ T} H²(G\_w, H₁^{⊗n}). Local duality (ArithmeticGaloisDuality §D7.5): dim H²(G\_w, H₁^{⊗n}) = dim H⁰(G\_w, H¹^{⊗n}(1)). For w ∤ p: by the Gysin sequence (EDC.3) H¹(X\_{F̄}) is an extension of the boundary part ker(Q\_p(−1)^{D(F̄)} → Q\_p(−1)), which is Q\_p(−1)^{s−1} after a finite extension making the boundary points rational (invariants only grow), by H¹ of the compactification X′; the invariants of H¹^{⊗n}(1) are bounded by the sum of those of the induced graded pieces. On H¹(X′), after a finite extension giving semistable reduction, the weight filtration W\_0 ⊂ W\_1 ⊂ W\_2 has dim W\_0 = dim Gr\_2 ≤ g (DWP.10). Invariants come only from weight-zero tensors: one factor of weight 2 (from Gr\_2 of H¹(X′) or from the boundary) and n − 1 of weight 0, or two factors of weight 1 and n − 2 of weight 0, which gives the stated count. For w | p: with the convention HT(χ) = +1 of R06.2, H¹(X′\_{F̄}) is de Rham with Hodge–Tate decomposition (H¹(X′, O) ⊗ C\_p) ⊕ (H⁰(X′, Ω¹) ⊗ C\_p(−1)) (R06.5 for the proper curve X′, R06.2 de Rham ⇒ Hodge–Tate), and the boundary part is C\_p(−1)^{s−1}; together this is Kim's decomposition (H¹(X′, O) ⊗ C\_p) ⊕ (H⁰(X′, Ω¹(log D)) ⊗ C\_p(−1)), of dimensions g and g + s − 1. On each graded piece of H¹^{⊗n}(1) the invariants embed in the weight-zero part (Tate, R06.2), which needs exactly one factor from the C\_p(−1) part, giving n(g + s − 1)g^{n−1}.
+H² is right exact on Q\_p-representations of G\_T: for finite p-primary M, H³(G\_T, M) ≅ ⊕\_{v real} H³(G\_v, M) is killed by 2 (ArithmeticGaloisDuality §R02.4.4; cd\_p(G\_T) = 2 when p is odd or F is totally imaginary), so after passing to lattices and inverting p (ArithmeticGaloisDuality §D7.6) H³ vanishes with Q\_p-coefficients for every p, including p = 2 when F has a real place. Hence H²(G\_T, H₁^{⊗n}) ↠ H²(G\_T, gr\_n U). By SelmerVanishing and Poitou–Tate (sel0\_dual\_sha2), Ш²\_T(H₁^{⊗n}) = 0, so H²(G\_T, H₁^{⊗n}) injects into ⊕\_{w ∈ T} H²(G\_w, H₁^{⊗n}). Local duality (ArithmeticGaloisDuality §D7.5): dim H²(G\_w, H₁^{⊗n}) = dim H⁰(G\_w, H¹^{⊗n}(1)). For w ∤ p: by the Gysin sequence (EDC.3) H¹(X\_{F̄}) is an extension of the boundary part ker(Q\_p(−1)^{D(F̄)} → Q\_p(−1)), which is Q\_p(−1)^{s−1} after a finite extension making the boundary points rational (invariants only grow), by H¹ of the compactification X′; the invariants of H¹^{⊗n}(1) are bounded by the sum of those of the induced graded pieces. On H¹(X′), after a finite extension giving semistable reduction, the weight filtration W\_0 ⊂ W\_1 ⊂ W\_2 has dim W\_0 = dim Gr\_2 ≤ g (DWP.10). Invariants come only from weight-zero tensors: one factor of weight 2 (from Gr\_2 of H¹(X′) or from the boundary) and n − 1 of weight 0, or two factors of weight 1 and n − 2 of weight 0, which gives the stated count. For w | p: with the convention HT(χ) = +1 of R06.2, H¹(X′\_{F̄}) is de Rham with Hodge–Tate decomposition (H¹(X′, O) ⊗ C\_p) ⊕ (H⁰(X′, Ω¹) ⊗ C\_p(−1)) (R06.5 for the proper curve X′, R06.2 de Rham ⇒ Hodge–Tate), and the boundary part has dimension max(s−1,0); when s≥1 it is C\_p(−1)^{s−1}. In that open case this is Kim's decomposition (H¹(X′, O) ⊗ C\_p) ⊕ (H⁰(X′, Ω¹(log D)) ⊗ C\_p(−1)), of dimensions g and g + s − 1. For s=0 use the proper decomposition with dimensions g and g. On each graded piece of H¹^{⊗n}(1) the invariants embed in the weight-zero part (Tate, R06.2), which needs exactly one factor from the C\_p(−1) part, giving n·(g+max(s−1,0))·g^{n−1}.
 
 **Checks.**
 
 - For P¹ ∖ {0, 1, ∞} (g = 0) the bound gives H²(G\_T, gr\_n U) = 0 for n ≥ 2, consistent with Soulé's vanishing H²(G\_T, Q\_p(n)) = 0.
+- For a proper genus-one curve s=0, the boundary has dimension 0 and the Hodge–Tate multiplicities are (1,1), so the p-place tensor estimate is n, not 0. At a split multiplicative place the weight-zero subspace of H¹⊗H¹(1) has two basis tensors and monodromy sends their sum to a nonzero multiple of the lowest-weight tensor; its kernel has dimension 1. Substituting s−1=−1 into a boundary count would give the false bound 0.
 - For g ≥ 2 the bound grows like n²g^n, slower than d\_n ~ α^n/n since α = g + √(g² − 1) &gt; g.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, Lemma 6 and proof, pp. 124–125.
@@ -8015,6 +8026,10 @@ An equation is an upper bound on rational points until the local image, correcti
 <a id="reference-besser"></a>
 
 **Amnon Besser.** Coleman integration using the Tannakian formalism. arXiv:math/0011269v1 (2000), 24 pages; published version Math. Ann. 322 (2002), 19–48, not used for pagination. [Source](https://arxiv.org/pdf/math/0011269v1).
+
+<a id="reference-besser-heights2002"></a>
+
+**Amnon Besser.** The p-adic height pairings of Coleman–Gross and of Nekovář. arXiv:math/0209006v1 (2002), 12 pages; PDF pagination. [Source](https://arxiv.org/pdf/math/0209006v1).
 
 <a id="reference-chen2024"></a>
 
