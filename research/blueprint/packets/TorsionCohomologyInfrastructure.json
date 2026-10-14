@@ -151,7 +151,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 2.1.1, pp. 953–954",
-          "match": "The lemma constructs the projective formal model and ample line from the four section/overlap conditions; the localization formula is a proof detail here, not a printed source error."
+          "match": "The lemma constructs the projective formal model and ample line from the frame, bounded-ratio, unit-locus and overlap-congruence requirements in its three numbered hypotheses. Completed localization is a proof input; no erroneous localization product is printed."
         }
       ],
       "acceptance": [
@@ -2503,7 +2503,7 @@
     },
     {
       "item": "PAPER-SCHOLZE-15/122",
-      "locator": "§5.4, proof of Theorem 5.4.1, p.1058, boundary-induction step referring to Caraiani–Le Hung §3",
+      "locator": "§5.4, proof of Theorem 5.4.1, p. 1058, integral boundary induction and its reference to Caraiani–Le Hung §3",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/integral-boundary-induction"
       ],
@@ -3046,10 +3046,10 @@
       "id": "TorsionCohomologyInfrastructure/E17",
       "source": "Scholze",
       "kind": "misprint",
-      "locator": "Lemma 2.1.1 proof, p.954, gluing the reductions of the sections",
-      "printed": "The proof attributes agreement of the reduced sections to condition (i) alone.",
-      "correction": "Condition (ii) gives the overlap congruence; condition (i) supplies the unit frame used to divide by it.",
-      "reason": "Condition (i) says only that a distinguished section frames the line. The inequality in (ii) is what makes differences vanish modulo ϖ on overlaps.",
+      "locator": "Lemma 2.1.1 proof, p.954, choosing the function defining an intersection unit locus",
+      "printed": "The choice of f with U_J′={x∈U_J:|f(x)|=1} is attributed only to condition (i).",
+      "correction": "Use (i) for bounded section ratios and (ii) for the unit-locus description of overlaps. For i∈J and J⊂J′, take the product of s_j^(i)/s_i^(i) over j∈J′\\J.",
+      "reason": "Condition (i) bounds the ratios; (ii) identifies where they have absolute value one. Later on the page the reduced-section gluing already correctly cites the overlap bound (iii). There are three numbered hypotheses in the published lemma.",
       "affects": "nothing",
       "known": "PAPER-SCHOLZE-15/E13 in the reviewed extraction",
       "searched": [
@@ -3060,6 +3060,12 @@
         "verdict": "confirmed",
         "reason": "Read the published page: the reference names (i), but agreement modulo ϖ uses the displayed bound in (ii). The four hypotheses already give the intended result.",
         "by": "REV-TorsionCohomologyInfrastructure"
+      },
+      "revisionCorrection": {
+        "job": "BP-TorsionCohomologyInfrastructure~2",
+        "session": "codex-JxYost",
+        "date": "2026-10-14",
+        "note": "The earlier independent verdict is retained as history, but its gluing locator and condition numbers were mistaken. Direct text and visual inspection of published p.954 agree with PAPER-SCHOLZE-15/E13: the reference slip concerns choosing f, using (i) and (ii), not gluing reduced sections, which correctly invokes (iii). The lemma statement is unaffected. This author correction awaits independent review."
       }
     },
     {
@@ -3449,5 +3455,14 @@
     "pureAlgebraCheck": "The six early TC.3 algebra nodes have no reachable TC.2 or AG2 dependency.",
     "validation": "lean-check exits zero; 13 warnings all concern proof placeholders. The only added Lean statements are weightedProduct_swap and the nonunit Z/9 separation diagnostic; no data definition uses a placeholder.",
     "readerAgreement": "Blocked pending the exact report-listed reconciliation: the issue authorizes packet, suggested file, report and own handoff, but excludes the reader. Review needs_changes prevents automatic promotion with that contradictory reader."
+  },
+  "revisionAudit": {
+    "job": "BP-TorsionCohomologyInfrastructure~2",
+    "session": "codex-JxYost",
+    "date": "2026-10-14",
+    "scope": "Reconcile the reader with all 38 reviewed target nodes, 37 API entries, 27 definition tests, 17 supplier requests, 53 source routes and 18 source findings; retain node ids, planned coverage and the independent review unchanged.",
+    "sourceCorrection": "E17 is corrected to the actual p.954 unit-locus reference slip; its earlier review remains historical and the new correction needs independent verification. E1 remains rejected. E18 remains limited to the hashed author copy.",
+    "baseline": "Reopened all eleven baseline statements at the recorded Mathlib and Tau Ceti pins; inspected current read-only roadmap/library commits recorded in auditEvidence. Existing IHG arbitrary-family nilpotence and compact-law gluing are imports, not new plans.",
+    "reviewStatus": "This revision does not accept or review its own work. The prior needs_changes verdict remains pending independent reconciliation review."
   }
 }
