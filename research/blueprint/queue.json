@@ -17232,7 +17232,8 @@
    "avoidAccountOf": "DESIGN-DeligneWeightsAndPurityPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DeligneWeightsAndPurityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4592"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -24578,11 +24579,12 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #9412"
+   "note": "deliverables arrived from an external worker on issue #9412",
+   "finishedAt": "2026-10-14T03:15:22Z"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems",
@@ -25076,8 +25078,9 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.6",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9386"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9386",
+   "finishedAt": "2026-10-14T03:15:23Z"
   },
   {
    "id": "BP-GL2ModularityLifting--R22.1",
@@ -25979,7 +25982,8 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9394"
   },
   {
    "id": "BP-IgusaVarietiesAndTorsionConcentration",
@@ -27247,8 +27251,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #460"
+   "state": "external",
+   "note": "claimed on GitHub issue #460"
   },
   {
    "id": "BP-PadicFamilies",
@@ -27762,11 +27766,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra"
    ],
-   "note": "claimed on GitHub issue #9429"
+   "note": "deliverables arrived from an external worker on issue #9429",
+   "finishedAt": "2026-10-14T03:15:27Z"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.5",
@@ -35490,8 +35495,9 @@
    ],
    "followUpOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9417"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9417",
+   "finishedAt": "2026-10-14T03:15:28Z"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8",
@@ -35558,7 +35564,8 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.8b",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.8b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9389"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.2",
@@ -40579,7 +40586,8 @@
     "BP-BunGAndNewtonStrata~3"
    ],
    "prompt": "research/blueprint/prompts/REV-BunGAndNewtonStrata~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9260"
   },
   {
    "kind": "blueprint",
@@ -41953,8 +41961,9 @@
     "BP-PerfectoidShimuraVarieties~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9269"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9269",
+   "finishedAt": "2026-10-14T03:15:30Z"
   },
   {
    "kind": "blueprint",
@@ -49133,8 +49142,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9170"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9170",
+   "finishedAt": "2026-10-14T03:15:33Z"
   },
   {
    "id": "REV-PKG-FaltingsFinitenessAndIsogenyTheorems",
@@ -50994,7 +51004,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularSymbolsPadicLFunctions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9181"
   },
   {
    "id": "REV-PKG-ModularSymbolsPadicLFunctions",
