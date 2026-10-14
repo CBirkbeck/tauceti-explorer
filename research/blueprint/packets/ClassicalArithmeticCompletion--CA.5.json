@@ -416,7 +416,7 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -483,7 +483,7 @@
           "statement": "τ_1(2,1)=(-2,1), so the shear uses parity rather than the integer exponent itself."
         }
       ],
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.quadraticUnitAction"
+      "leanName": "TauCeti.ClassicalArithmetic.quadraticUnitAction"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/two-primary-detects-bijectivity",
@@ -521,10 +521,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.bijective_iff_bijOn_twoPrimary"
+      "leanName": "TauCeti.ClassicalArithmetic.bijective_iff_bijOn_twoPrimary"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison",
@@ -563,10 +563,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_norm_neg_one"
+      "leanName": "TauCeti.ClassicalArithmetic.negativePell_iff_norm_neg_one"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-narrow-principal-comparison",
@@ -607,10 +607,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_narrowPrincipal"
+      "leanName": "TauCeti.ClassicalArithmetic.negativePell_iff_narrowPrincipal"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-two-primary-comparison",
@@ -651,10 +651,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_twoPrimary"
+      "leanName": "TauCeti.ClassicalArithmetic.negativePell_iff_twoPrimary"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/quadratic-units-action-normal-form",
@@ -701,12 +701,12 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.quadratic_units_action_normal_form",
+      "leanName": "TauCeti.ClassicalArithmetic.quadratic_units_action_normal_form",
       "endpoints": [
-        "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_quadraticUnitAction_one"
+        "TauCeti.ClassicalArithmetic.negativePell_iff_quadraticUnitAction_one"
       ]
     },
     {
@@ -749,10 +749,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.determinant_entrywise_error"
+      "leanName": "TauCeti.ClassicalArithmetic.determinant_entrywise_error"
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.5/interval-class-number-regulator-certificate",
@@ -800,10 +800,10 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
-        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "implementationStatus": "unchecked",
-      "leanName": "TauCeti.ClassicalArithmetic.CA5.relations_units_complete_of_intervals"
+      "leanName": "TauCeti.ClassicalArithmetic.relations_units_complete_of_intervals"
     }
   ],
   "coverage": [
@@ -1311,6 +1311,17 @@
         "nodeId": "reader",
         "field": "document",
         "change": "node sections re-rendered from the corrected packet; Sources lines for the 19 inherited targets; four inventory rows; source-findings paragraph"
+      }
+    ]
+  },
+  "assemblyEdits": {
+    "job": "ASM-ClassicalArithmeticCompletion",
+    "date": "2026-10-14",
+    "edits": [
+      {
+        "edit": "library namespace",
+        "nodes": 16,
+        "detail": "library.namespace (and, in CA.5, the leanName prefixes) set to TauCeti.ClassicalArithmetic, the one namespace of the joined suggested file"
       }
     ]
   }

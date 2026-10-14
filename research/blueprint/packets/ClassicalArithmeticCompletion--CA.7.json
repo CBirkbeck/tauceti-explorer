@@ -440,7 +440,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -527,7 +527,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -565,10 +565,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
-      },
-      "planet": {
-        "name": "Stable equality in K₀"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -601,7 +598,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -694,7 +691,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -731,7 +728,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -822,7 +819,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -911,7 +908,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "prerequisiteFacets": [
         {
@@ -952,7 +949,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -991,7 +988,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1089,7 +1086,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1125,7 +1122,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1217,7 +1214,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1318,7 +1315,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1352,7 +1349,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1434,7 +1431,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1528,7 +1525,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1561,7 +1558,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1599,7 +1596,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "prerequisiteFacets": [
         {
@@ -1639,7 +1636,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1674,10 +1671,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
-      },
-      "planet": {
-        "name": "Rank-one ideal representatives"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "prerequisiteFacets": [
         {
@@ -1718,7 +1712,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1753,7 +1747,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "planet": {
         "name": "Jacobinski cancellation"
@@ -1792,7 +1786,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1829,7 +1823,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1865,7 +1859,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1958,7 +1952,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2013,10 +2007,7 @@
           "where": "ClassicalArithmeticCompletion:CA.7/continuation/positive-unit-kernel",
           "how": "Identify the maximal-order kernel."
         }
-      ],
-      "planet": {
-        "name": "Fröhlich Hom-description"
-      }
+      ]
     },
     {
       "id": "ClassicalArithmeticCompletion:CA.7/continuation/froehlich-hom-description",
@@ -2051,7 +2042,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "prerequisiteFacets": [
         {
@@ -2094,7 +2085,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2190,7 +2181,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2226,7 +2217,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2319,7 +2310,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2402,7 +2393,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2436,7 +2427,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2473,7 +2464,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2512,7 +2503,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2605,7 +2596,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2641,7 +2632,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2676,7 +2667,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2765,7 +2756,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2798,7 +2789,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2888,7 +2879,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "prerequisiteFacets": [
         {
@@ -2928,7 +2919,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -3015,7 +3006,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -3098,7 +3089,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -3193,7 +3184,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3226,7 +3217,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3260,7 +3251,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -3344,7 +3335,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3378,7 +3369,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3417,7 +3408,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3452,7 +3443,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3486,7 +3477,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3522,7 +3513,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3558,7 +3549,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3595,7 +3586,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "planet": {
         "name": "Fröhlich–Taylor theorem"
@@ -3632,7 +3623,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3665,7 +3656,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3701,7 +3692,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3737,7 +3728,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "addedBy": "REV-ClassicalArithmeticCompletion--CA.7"
     },
@@ -3771,7 +3762,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3805,7 +3796,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3837,7 +3828,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3875,7 +3866,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3908,7 +3899,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3941,7 +3932,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -3974,7 +3965,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -4007,7 +3998,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -4040,7 +4031,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/GaloisModule/Continuation",
-        "namespace": "TauCeti.ClassicalArithmetic.CA7Continuation"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     }
   ],
@@ -6224,6 +6215,35 @@
         "nodeId": "ClassicalArithmeticCompletion:CA.7/taylor-odd-order-free",
         "verdict": "corrected",
         "note": "Inherited contract and ledger entry: G-DH dropped; G-ELLELEMENTARY added through the obstruction equality. Absolute rank [N:ℚ] and Eichler for odd order (T81 p.42) checked."
+      }
+    ]
+  },
+  "assemblyEdits": {
+    "job": "ASM-ClassicalArithmeticCompletion",
+    "date": "2026-10-14",
+    "edits": [
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.7/continuation/split-k0-stable-equality",
+        "planet": "Stable equality in K₀",
+        "reason": "CA.7 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.7/continuation/semisimple-rank-one-class-supplier",
+        "planet": "Rank-one ideal representatives",
+        "reason": "CA.7 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.7/continuation/character-idele-quotient",
+        "planet": "Fröhlich Hom-description",
+        "reason": "CA.7 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "library namespace",
+        "nodes": 69,
+        "detail": "library.namespace (and, in CA.5, the leanName prefixes) set to TauCeti.ClassicalArithmetic, the one namespace of the joined suggested file"
       }
     ]
   }

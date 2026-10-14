@@ -1,35 +1,60 @@
-import Mathlib.Data.Nat.Log
-import Mathlib.Data.Fintype.Pigeonhole
-import Mathlib.Data.Fintype.EquivFin
-import Mathlib.Order.Interval.Finset.Nat
-import Mathlib.Data.Set.Finite.Lattice
+import Mathlib.Algebra.BigOperators.Finprod
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.Algebra.GCDMonoid.Finset
+import Mathlib.Algebra.Group.ForwardDiff
+import Mathlib.Algebra.Group.Subgroup.Lattice
 import Mathlib.Algebra.LinearRecurrence
 import Mathlib.Algebra.Module.Lattice
 import Mathlib.Algebra.Module.PID
 import Mathlib.Algebra.Module.Projective
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Algebra.Polynomial.Module.AEval
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.Algebra.QuadraticAlgebra.Basic
+import Mathlib.Algebra.Squarefree.Basic
 import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Basic
+import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+import Mathlib.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.Basic
 import Mathlib.Analysis.Analytic.Order
 import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.Complex.CauchyIntegral
 import Mathlib.Analysis.Complex.Polynomial.Basic
 import Mathlib.Analysis.Complex.TaylorSeries
+import Mathlib.Analysis.Convex.Function
+import Mathlib.Analysis.Polynomial.MahlerMeasure
 import Mathlib.Analysis.Real.OfDigits
+import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import Mathlib.Analysis.SpecialFunctions.Complex.Log
+import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
+import Mathlib.Analysis.SpecialFunctions.Exp
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Sqrt
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Series
+import Mathlib.Combinatorics.Nullstellensatz
 import Mathlib.Combinatorics.SimpleGraph.Acyclic
 import Mathlib.Computability.DFA
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Perm
+import Mathlib.Data.Fintype.Pigeonhole
 import Mathlib.Data.Int.GCD
 import Mathlib.Data.Int.ModEq
+import Mathlib.Data.Int.Sqrt
+import Mathlib.Data.Nat.Choose.Basic
 import Mathlib.Data.Nat.Digits.Defs
 import Mathlib.Data.Nat.DvdSequence
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Nat.Fib.Basic
+import Mathlib.Data.Nat.Log
 import Mathlib.Data.Nat.ModEq
+import Mathlib.Data.Nat.PrimeFin
 import Mathlib.Data.Nat.Squarefree
 import Mathlib.Data.Nat.Totient
+import Mathlib.Data.Set.Card
+import Mathlib.Data.Set.Finite.Lattice
 import Mathlib.Data.ZMod.Basic
 import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.FieldTheory.Galois.Abelian
@@ -39,7 +64,12 @@ import Mathlib.FieldTheory.KummerPolynomial
 import Mathlib.FieldTheory.Minpoly.Basic
 import Mathlib.FieldTheory.Minpoly.IsConjRoot
 import Mathlib.FieldTheory.RatFunc.AsPolynomial
+import Mathlib.FieldTheory.Separable
+import Mathlib.GroupTheory.GroupAction.Defs
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.GroupTheory.Perm.Fin
 import Mathlib.GroupTheory.SpecificGroups.Cyclic
+import Mathlib.GroupTheory.Torsion
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.LinearAlgebra.Eigenspace.Charpoly
 import Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient
@@ -47,10 +77,12 @@ import Mathlib.LinearAlgebra.FreeModule.PID
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Minpoly
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Echelon.Decomposition
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.Rank
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Projectivization.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Tower
 import Mathlib.LinearAlgebra.Trace
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
@@ -58,20 +90,25 @@ import Mathlib.NumberTheory.Bernoulli
 import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.NumberTheory.DiophantineApproximation.Basic
 import Mathlib.NumberTheory.DirichletCharacter.Basic
+import Mathlib.NumberTheory.EllipticDivisibilitySequence
 import Mathlib.NumberTheory.FrobeniusNumber
 import Mathlib.NumberTheory.FundamentalDiscriminant
 import Mathlib.NumberTheory.GaussSum
 import Mathlib.NumberTheory.Height.NumberField
 import Mathlib.NumberTheory.JacobiSum.Basic
+import Mathlib.NumberTheory.LegendreSymbol.Basic
 import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity
 import Mathlib.NumberTheory.LegendreSymbol.ZModChar
 import Mathlib.NumberTheory.LucasLehmer
 import Mathlib.NumberTheory.MahlerMeasure
+import Mathlib.NumberTheory.MulChar.Basic
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.NumberField.Completion.InfinitePlace
 import Mathlib.NumberTheory.NumberField.Cyclotomic.Basic
+import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
 import Mathlib.NumberTheory.NumberField.Discriminant.Defs
 import Mathlib.NumberTheory.NumberField.House
 import Mathlib.NumberTheory.NumberField.Ideal.Basic
@@ -88,8 +125,10 @@ import Mathlib.NumberTheory.Real.GoldenRatio
 import Mathlib.NumberTheory.Real.Irrational
 import Mathlib.NumberTheory.SumFourSquares
 import Mathlib.NumberTheory.SumTwoSquares
+import Mathlib.NumberTheory.ZetaValues
 import Mathlib.NumberTheory.Zsqrtd.Basic
 import Mathlib.NumberTheory.Zsqrtd.GaussianInt
+import Mathlib.Order.Interval.Finset.Nat
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.RepresentationTheory.FDRep
 import Mathlib.RingTheory.AdicCompletion.Basic
@@ -98,54 +137,79 @@ import Mathlib.RingTheory.Algebraic.Defs
 import Mathlib.RingTheory.Binomial
 import Mathlib.RingTheory.ClassGroup.Basic
 import Mathlib.RingTheory.DedekindDomain.AdicValuation
+import Mathlib.RingTheory.DedekindDomain.Factorization
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Discriminant
+import Mathlib.RingTheory.Finiteness.Projective
 import Mathlib.RingTheory.Frobenius
 import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+import Mathlib.RingTheory.Ideal.Norm.RelNorm
 import Mathlib.RingTheory.IntegralClosure.IntegralRestrict
+import Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic
 import Mathlib.RingTheory.IsGaloisGroup.Basic
 import Mathlib.RingTheory.LaurentSeries
+import Mathlib.RingTheory.Localization.Basic
+import Mathlib.RingTheory.Multiplicity
 import Mathlib.RingTheory.MvPolynomial.Expand
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.RingTheory.Noetherian.Defs
+import Mathlib.RingTheory.Polynomial.Content
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Roots
 import Mathlib.RingTheory.Polynomial.Dickson
 import Mathlib.RingTheory.Polynomial.GaussLemma
+import Mathlib.RingTheory.Polynomial.Resultant.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.PowerSeries.Derivative
 import Mathlib.RingTheory.PowerSeries.Exp
 import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.RingTheory.PowerSeries.PiTopology
 import Mathlib.RingTheory.PowerSeries.WellKnown
 import Mathlib.RingTheory.RamificationInertia.Ramification
 import Mathlib.RingTheory.RootsOfUnity.EnoughRootsOfUnity
 import Mathlib.RingTheory.Trace.Basic
 import Mathlib.RingTheory.Valuation.Basic
 import Mathlib.RingTheory.ZMod.UnitsCyclic
+import Mathlib.SetTheory.Cardinal.Finite
+import Mathlib.Topology.Algebra.InfiniteSum.Basic
+import Mathlib.Topology.Order.Compact
+import TauCeti.Algebra.Category.ModuleCat.CartanMap
+import TauCeti.AlgebraicGeometry.EllipticCurve.DivisionPolynomial.ZSMul
+import TauCeti.Analysis.Complex.Conformal.Moebius
+import TauCeti.Analysis.Complex.Conformal.RiemannMapping.Normalization
+import TauCeti.Analysis.Complex.Conformal.SchwarzPick.Derivative
+import TauCeti.Analysis.Contour.HomologyCauchy
+import TauCeti.CategoryTheory.GrothendieckGroup.Split
+import TauCeti.LinearAlgebra.Matrix.Echelon.KernelBasis
+import TauCeti.NumberTheory.EllipticDivisibilitySequence.Complement
+import TauCeti.NumberTheory.EllipticDivisibilitySequence.NormEDS
+import TauCeti.NumberTheory.NumberField.NarrowClassGroup.Finite
+import TauCeti.NumberTheory.NumberField.Quadratic.Conjugation.NarrowClassGroup
+import TauCeti.NumberTheory.NumberField.Units.Dirichlet
+import TauCeti.RingTheory.Polynomial.BinomialBasis
 
-/-
+/-!
+# Classical arithmetic, sequences, polynomials and reciprocity: suggested Lean forms
+
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/ClassicalArithmeticCompletion.md` is definitive. These
-statements suggest Lean forms so that contributors and reviewers can converge on
-names and signatures. They claim no implementation.
+`research/blueprint/readmes/ClassicalArithmeticCompletion.md` is definitive. These statements
+suggest Lean forms so that contributors and reviewers can converge on names and signatures.
+Every proof is admitted; no implementation is claimed.
 
-BP-ClassicalArithmeticCompletion~2: checked planning signatures, implementationStatus = unchecked.
-REV-ClassicalArithmeticCompletion~3 corrected statements that were false or too weak as typed and
-added the signatures its corrections introduce; the file still elaborates at both pins with admitted
-proofs only.
-Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Revision round 2 elaborates this file with lean-check in the existing shared build at both
-pins. All executable declarations and examples elaborate; their proofs remain admitted.
-Owner-dependent interfaces remain explicitly commented and are not part of that receipt.
-Historical author and independent-review checks remain attributed in the packet. Where a
-node imports a Tau Ceti declaration, its section identifies that input.
+Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`.
 
-One section per layer, CA.0 to CA.7, in the order of the roadmap; later sections use the
-declarations of earlier ones (CA.5 uses CA.3's Hermite normal form, CA.3's rational
-canonical form uses the companion block that CA.2 defines). Everything the pinned
-libraries already contain -- quadratic reciprocity, Euler's criterion, Gauss and Jacobi
-sums, the linear recurrence API, the elementary-divisor structure theorem, Pell, the
-two- and four-square theorems, the Mahler measure of a polynomial, the house, the
-normal basis theorem -- is imported, not restated.
+The file follows the layers CA.0 to CA.7. Each layer has the targets of the first pass, then
+those of its continuation, in one namespace, `TauCeti.ClassicalArithmetic`. Later layers use the
+declarations of earlier ones. What the pinned libraries already contain is imported, not
+restated: quadratic reciprocity, Euler's criterion, Gauss and Jacobi sums, the linear recurrence
+API, the structure theorem over a PID, Pell's equation, the two- and four-square theorems, the
+Mahler measure of a polynomial, the house, the normal basis theorem, Tau Ceti's Gauss–Jordan
+elimination and kernel basis, `SplitK0` and the normalised Riemann maps.
+
+A target whose carrier is not at the pins (the degree-`n` norm-residue symbol, the local Galois
+Gauss sums, the locally free class group and what is built on it, among others) is stated in
+the document and named in comments here, not typed. Sorried definitions are inherited from the
+first-pass and continuation files; the package keeps real bodies only.
 -/
 
 -- ===== CA.0 =====
@@ -973,6 +1037,582 @@ end CA1
 end TauCeti.ClassicalArithmetic
 
 
+-- ===== CA.1 continuation =====
+
+section CA1Continuation
+
+open NumberField
+
+noncomputable section
+
+namespace TauCeti.ClassicalArithmetic
+
+section CA1Continuation
+
+
+-- `normEquationSymbol`: the first-pass declaration, stated in the CA.1 section above
+
+-- `ratSquarefreePart`: the first-pass declaration, stated in the CA.1 section above
+
+variable {K : Type*} [Field K] [NumberField K]
+
+-- `powerResidueSymbol`: the first-pass declaration, stated in the CA.1 section above
+
+-- `powerResidueSymbolIdeal`: the first-pass declaration, stated in the CA.1 section above
+
+-- `IsPrimaryEisenstein`: the first-pass declaration, stated in the CA.1 section above
+
+-- `IsEisensteinPrimary`: the first-pass declaration, stated in the CA.1 section above
+
+/-! ## The degree-`n` norm-residue symbol (README targets)
+
+Intended forms, for a nonarchimedean local field `F` (`[ValuativeRel F] [TopologicalSpace F]
+[IsNonarchimedeanLocalField F]`) containing a primitive `n`-th root of unity, with
+`TauCetiRoadmap.ClassFieldTheory.artinMap F : Fˣ →* Field.absoluteGaloisGroupAbelianization F`:
+
+* `normResidueSymbol (n : ℕ) [NeZero n] (a b : Fˣ) : rootsOfUnity n F`, characterised by
+  `normResidueSymbol_spec`: for `β` in the algebraic closure with `β ^ n = b`, every lift of
+  `artinMap F a` sends `β` to `normResidueSymbol n a b * β` (`CA.1/local-norm-residue-symbol`).
+* `normResidueSymbol_mul_left`, `normResidueSymbol_mul_right`, `normResidueSymbol_one_sub_self`
+  (`(1 - a, a) = 1`, `(-a, a) = 1`), `normResidueSymbol_swap` (`(b, a) = (a, b)⁻¹`)
+  (`CA.1/norm-residue-symbol-steinberg-and-skew-symmetry`).
+* `normResidueSymbol_eq_one_iff_mem_normGroup`, `normResidueSymbol_eq_one_forall_iff`
+  (`CA.1/norm-residue-symbol-norm-criterion`), and `normResidueSymbol_pairing`, the induced
+  bimultiplicative pairing `Fˣ ⧸ (powMonoidHom n).range × Fˣ ⧸ (powMonoidHom n).range → rootsOfUnity n F`
+  on which nondegeneracy and the orthogonality of norm groups are stated.
+* `normResidueSymbol_pow_of_dvd`, `normResidueSymbol_norm`, `normResidueSymbol_map_ringEquiv`
+  (`CA.1/norm-residue-symbol-functoriality`).
+* `normResidueSymbol_tame`: for residue characteristic prime to `n`, the value is the root of unity
+  congruent to `((-1) ^ (v a * v b) * b ^ (v a) * a ^ (-(v b))) ^ ((q - 1) / n)`.
+* `normResidueSymbol_two_eq_hilbertSymbol` and `normResidueSymbol_eq_localSymbol`:
+  `muNRepEquivZMod ζ (normResidueSymbol n a b) = ε * localSymbol (kummerCupPairing ζ hζ) tr
+  (kummerClass n F a) (kummerClass n F b)` with one universal `ε = ±1`, where `tr` is the
+  invariant coordinate: `H²(F, μ_n) → Br F` induced by `μ_n ⊆ (Fˢ)ˣ`, followed by `n • invMap F`
+  read in `ZMod n`. Class Field Theory's `h2MuEquivZMod_mixed` only asserts that some
+  `H²(F, μ_n) ≃+ ZMod n` exists, so it does not pin `tr` (the current Tau Ceti library, after the pin,
+  defines it as `h2MuEquivZMod F`, characterised by `toRatAddCircle_h2MuEquivZMod`); any other
+  coordinate rescales the right side by a unit of `ZMod n`
+  (`CA.1/norm-residue-symbol-and-the-cohomological-symbol`).
+* `archNormResidueSymbol (w : InfinitePlace K) (n : ℕ) (a b : w.Completionˣ)`, from
+  `infiniteArtinAt`; `archNormResidueSymbol_complex`, `archNormResidueSymbol_real`,
+  `archNormResidueSymbol_spec`, `archNormResidueSymbol_eq_one_iff`,
+  `archNormResidueSymbol_mul_left`, `archNormResidueSymbol_two_compat`
+  (`CA.1/archimedean-norm-residue-symbol`).
+* `hilbertSymbolAt (n : ℕ) (v : Place K) (a b : Kˣ) : rootsOfUnity n (𝓞 K)` at finite places
+  through `v.adicCompletion K` and at infinite places through `w.Completion`, with
+  `hilbertSymbolAt_finite`, `hilbertSymbolAt_infinite`, `hilbertSymbolAt_tame`,
+  `hilbertSymbolAt_eq_one_of_unit`, `hilbertSymbolAt_galois`, `hilbertSymbolAt_two`
+  (`CA.1/norm-residue-symbol-at-a-place`); this is `hilbertSymbolDeg` of the first pass.
+
+Unit tests, as intended `example`s: `normResidueSymbol_test_one` (`n = 1`),
+`normResidueSymbol_test_pow_right` (`(a, c ^ n) = 1`), `normResidueSymbol_test_Q7_cube`
+(`(7, 2)` in `ℚ_[7]`, `n = 3`, is the cube root of unity `≡ 4 mod 7`),
+`normResidueSymbol_test_Q7_swap` (`(2, 7) ≡ 2 mod 7`), `normResidueSymbol_test_units`
+(`(2, 3) = 1` in `ℚ_[7]`, `n = 3`), `normResidueSymbol_test_Q2_quadratic` (`(-1, -1) = -1` in
+`ℚ_[2]`); `archNormResidueSymbol_test_neg_neg`, `archNormResidueSymbol_test_complex`,
+`archNormResidueSymbol_test_sign_product`, `archNormResidueSymbol_test_n_one`;
+`hilbertSymbolAt_test_Q_odd`, `hilbertSymbolAt_test_infinite_cubic`,
+`hilbertSymbolAt_test_conjugate_places`, `hilbertSymbolAt_test_Q_infinite`.
+-/
+
+/-! ## Quadratic reciprocity in a number field (FIMR §2)
+
+For `n = 2` the degree-2 norm-residue symbol at a place is the norm-equation symbol, which is
+stated at the pin; the dyadic and archimedean factors are therefore real definitions here. -/
+
+/-- `μ_∞(a, b)`: the product of the quadratic symbols over the infinite places. -/
+noncomputable def archQuadFactor (a b : K) : ℤ :=
+  ∏ w : InfinitePlace K, normEquationSymbol w.Completion (a : w.Completion) (b : w.Completion)
+
+/-- `μ₂(a, b)`: the product of the quadratic symbols over the dyadic places. -/
+noncomputable def dyadicQuadFactor (a b : K) : ℤ :=
+  ∏ᶠ (v : IsDedekindDomain.HeightOneSpectrum (𝓞 K)) (_ : (2 : 𝓞 K) ∈ v.asIdeal),
+    normEquationSymbol (v.adicCompletion K) (a : v.adicCompletion K) (b : v.adicCompletion K)
+
+variable [HasEnoughRootsOfUnity (𝓞 K) 2]
+
+/-- `CA.1/completed-quadratic-residue-symbol`: `|a/b| = μ_∞(a, b) (a/b)`. -/
+noncomputable def completedQuadSym (a b : 𝓞 K) : 𝓞 K :=
+  (archQuadFactor (a : K) (b : K) : 𝓞 K) * powerResidueSymbolIdeal 2 (Ideal.span {b}) a
+
+theorem completedQuadSym_of_totallyPositive {a b : 𝓞 K}
+    (hb : ∀ (w : InfinitePlace K) (hw : w.IsReal), 0 < w.embedding_of_isReal hw (b : K)) :
+    completedQuadSym a b = powerResidueSymbolIdeal 2 (Ideal.span {b}) a := by
+  sorry
+
+theorem completedQuadSym_mul_left {a a' b : 𝓞 K} (ha : a ≠ 0) (ha' : a' ≠ 0)
+    (hb : IsCoprime b 2) :
+    completedQuadSym (a * a') b = completedQuadSym a b * completedQuadSym a' b := by
+  sorry
+
+/-- `CA.1/quadratic-reciprocity-in-a-number-field` (`completedQuadSym_reciprocity`). -/
+theorem completedQuadSym_reciprocity {a b : 𝓞 K} (ha0 : a ≠ 0) (hb0 : b ≠ 0)
+    (ha : IsCoprime a 2) (hb : IsCoprime b 2) (hab : IsCoprime a b) :
+    powerResidueSymbolIdeal 2 (Ideal.span {b}) a =
+      ((dyadicQuadFactor (a : K) (b : K) * archQuadFactor (a : K) (b : K) : ℤ) : 𝓞 K) *
+        powerResidueSymbolIdeal 2 (Ideal.span {a}) b := by
+  sorry
+
+/-- `CA.1/dyadic-hilbert-factor-depends-on-residues-mod-eight`. -/
+theorem dyadicQuadFactor_congr {a a' b b' : 𝓞 K} (ha : IsCoprime a 2) (hb : IsCoprime b 2)
+    (haa : a - a' ∈ Ideal.span {(8 : 𝓞 K)}) (hbb : b - b' ∈ Ideal.span {(8 : 𝓞 K)}) :
+    dyadicQuadFactor (a : K) (b : K) = dyadicQuadFactor (a' : K) (b' : K) := by
+  sorry
+
+/-- `CA.1/completed-quadratic-residue-symbol-periodicity` (`completedQuadSym_periodic`). -/
+theorem completedQuadSym_periodic {a b d : 𝓞 K} (ha : a ≠ 0) (hb : IsCoprime b 2)
+    (hd : IsCoprime d 2) (hbd : b - d ∈ Ideal.span {8 * a}) :
+    completedQuadSym a b = completedQuadSym a d := by
+  sorry
+
+/-- Unit test `completedQuadSym_test_neg_neg`: over `ℚ`, `|(-1)/(-3)| = 1`. -/
+example [HasEnoughRootsOfUnity (𝓞 ℚ) 2] : completedQuadSym (K := ℚ) (-1) (-3) = 1 := by
+  sorry
+
+/-- Unit test `completedQuadSym_test_neg_pos`: over `ℚ`, `|(-1)/3| = -1`. -/
+example [HasEnoughRootsOfUnity (𝓞 ℚ) 2] : completedQuadSym (K := ℚ) (-1) 3 = -1 := by
+  sorry
+
+/-- Unit test `completedQuadSym_test_unit`: `|a/1| = 1`. -/
+example {a : 𝓞 K} (ha : a ≠ 0) : completedQuadSym a 1 = 1 := by
+  sorry
+
+/-- Unit test `completedQuadSym_test_not_plain`: over `ℚ`, `|(-1)/(-3)| ≠ ((-1)/(-3))`. -/
+example [HasEnoughRootsOfUnity (𝓞 ℚ) 2] :
+    completedQuadSym (K := ℚ) (-1) (-3) ≠ powerResidueSymbolIdeal 2 (Ideal.span {-3}) (-1) := by
+  sorry
+
+/-- `completedQuadSym_rat`: over `ℚ`, `|a/b|` is the Jacobi symbol of `|b|`, negated when
+`a` and `b` are both negative. -/
+theorem completedQuadSym_rat [HasEnoughRootsOfUnity (𝓞 ℚ) 2] {a b : ℤ} (hb : Odd b) :
+    completedQuadSym (K := ℚ) (a : 𝓞 ℚ) (b : 𝓞 ℚ) =
+      (((if a < 0 ∧ b < 0 then -1 else 1) * jacobiSym a b.natAbs : ℤ) : 𝓞 ℚ) := by
+  sorry
+
+/-! ## Norm compatibility of the power residue symbol (Koymans–Milovic §5) -/
+
+omit [HasEnoughRootsOfUnity (𝓞 K) 2] in
+/-- `CA.1/norm-compatibility-of-the-power-residue-symbol`. -/
+theorem powerResidueSymbolIdeal_relNorm {L : Type*} [Field L] [NumberField L] [Algebra K L]
+    (n : ℕ) [NeZero n] [HasEnoughRootsOfUnity (𝓞 K) n] [HasEnoughRootsOfUnity (𝓞 L) n]
+    (x : 𝓞 K) {𝔄 : Ideal (𝓞 L)} (h𝔄 : 𝔄 ≠ ⊥) (hn : (Ideal.absNorm 𝔄).Coprime n) :
+    powerResidueSymbolIdeal (K := L) n 𝔄 (algebraMap (𝓞 K) (𝓞 L) x) =
+      algebraMap (𝓞 K) (𝓞 L) (powerResidueSymbolIdeal n (Ideal.relNorm (𝓞 K) 𝔄) x) := by
+  sorry
+
+omit [HasEnoughRootsOfUnity (𝓞 K) 2]
+
+/-! ## Biquadratic reciprocity in `ℤ[i]`
+
+`K` is `ℚ(i)` (`IsCyclotomicExtension {4} ℚ K`) and `ζ` the primitive 4th root of unity `i`;
+the quartic symbol is the first pass's `powerResidueSymbolIdeal 4`. -/
+
+/-- `CA.1/primary-gaussian-integer`: `α ≡ 1 (mod (1 + i) ^ 3)`. -/
+def IsPrimaryGaussian (ζ : 𝓞 K) (α : 𝓞 K) : Prop :=
+  (1 + ζ) ^ 3 ∣ α - 1
+
+section Quartic
+
+variable [IsCyclotomicExtension {4} ℚ K] {ζ : 𝓞 K}
+
+theorem isPrimaryGaussian_add_mul_iff (hζ : IsPrimitiveRoot ζ 4) (a b : ℤ) :
+    IsPrimaryGaussian ζ ((a : 𝓞 K) + (b : 𝓞 K) * ζ) ↔
+      (a % 4 = 1 ∧ b % 4 = 0) ∨ (a % 4 = 3 ∧ b % 4 = 2) := by
+  sorry
+
+theorem exists_unique_unit_mul_isPrimaryGaussian (hζ : IsPrimitiveRoot ζ 4) {α : 𝓞 K}
+    (hα : Odd (Ideal.absNorm (Ideal.span {α}))) :
+    ∃! k : Fin 4, IsPrimaryGaussian ζ (ζ ^ (k : ℕ) * α) := by
+  sorry
+
+theorem IsPrimaryGaussian.mul {α β : 𝓞 K} (hα : IsPrimaryGaussian ζ α)
+    (hβ : IsPrimaryGaussian ζ β) : IsPrimaryGaussian ζ (α * β) := by
+  sorry
+
+/-- Complex conjugation is any ring automorphism with `σ ζ = ζ ^ 3`. -/
+theorem IsPrimaryGaussian.conj (hζ : IsPrimitiveRoot ζ 4) (σ : 𝓞 K ≃+* 𝓞 K) (hσ : σ ζ = ζ ^ 3)
+    {α : 𝓞 K} (hα : IsPrimaryGaussian ζ α) : IsPrimaryGaussian ζ (σ α) := by
+  sorry
+
+theorem isPrimaryGaussian_intCast_iff (hζ : IsPrimitiveRoot ζ 4) (m : ℤ) :
+    IsPrimaryGaussian ζ (m : 𝓞 K) ↔ m % 4 = 1 := by
+  sorry
+
+theorem IsPrimaryGaussian.div_intCast (hζ : IsPrimitiveRoot ζ 4) {m : ℤ} {β : 𝓞 K}
+    (h : IsPrimaryGaussian ζ ((m : 𝓞 K) * β)) (hm : m % 4 = 1) : IsPrimaryGaussian ζ β := by
+  sorry
+
+theorem IsPrimaryGaussian.norm_sub_one_div_four (hζ : IsPrimitiveRoot ζ 4) {a b : ℤ}
+    (h : IsPrimaryGaussian ζ ((a : 𝓞 K) + (b : 𝓞 K) * ζ)) :
+    ((a ^ 2 + b ^ 2 - 1) / 4) % 2 = ((a - 1) / 2) % 2 := by
+  sorry
+
+theorem IsPrimaryGaussian.exists_prod_primary_primes (hζ : IsPrimitiveRoot ζ 4) {α : 𝓞 K}
+    (hα : IsPrimaryGaussian ζ α) (hu : ¬ IsUnit α) :
+    ∃ s : Multiset (𝓞 K), (∀ π ∈ s, Prime π ∧ IsPrimaryGaussian ζ π) ∧ s.prod = α := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_neg_three`. -/
+example (hζ : IsPrimitiveRoot ζ 4) : IsPrimaryGaussian ζ (-3) := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_norm_five`: `-1 + 2i` and `-1 - 2i` are primary. -/
+example (hζ : IsPrimitiveRoot ζ 4) :
+    IsPrimaryGaussian ζ (-1 + 2 * ζ) ∧ IsPrimaryGaussian ζ (-1 - 2 * ζ) := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_one_add_two_i`: `1 + 2i` is not primary. -/
+example (hζ : IsPrimitiveRoot ζ 4) : ¬ IsPrimaryGaussian ζ (1 + 2 * ζ) := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_three`: `3` is not primary. -/
+example (hζ : IsPrimitiveRoot ζ 4) : ¬ IsPrimaryGaussian ζ 3 := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_one_add_i`: `1 + i` is not primary. -/
+example (hζ : IsPrimitiveRoot ζ 4) : ¬ IsPrimaryGaussian ζ (1 + ζ) := by
+  sorry
+
+/-- Unit test `isPrimaryGaussian_test_one`: the unit `1` satisfies the congruence. -/
+example : IsPrimaryGaussian ζ 1 := by
+  sorry
+
+variable [HasEnoughRootsOfUnity (𝓞 K) 4]
+
+/-- `CA.1/quartic-character-of-coprime-rational-integers`. -/
+theorem powerResidueSymbolIdeal_four_intCast {a m : ℤ} (ha : Odd a) (ha1 : a ≠ 1 ∧ a ≠ -1)
+    (hcop : IsCoprime a m) :
+    powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K)}) (m : 𝓞 K) = 1 := by
+  sorry
+
+/-- `CA.1/quartic-supplement-for-i-and-minus-one`. -/
+theorem powerResidueSymbolIdeal_four_zeta (hζ : IsPrimitiveRoot ζ 4) {a b : ℤ}
+    (h : IsPrimaryGaussian ζ ((a : 𝓞 K) + (b : 𝓞 K) * ζ)) :
+    powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K) + (b : 𝓞 K) * ζ}) ζ =
+      ζ ^ ((-((a - 1) / 2)) % 4).toNat ∧
+    powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K) + (b : 𝓞 K) * ζ}) (-1) =
+      (-1) ^ ((b / 2) % 2).toNat := by
+  sorry
+
+/-- `CA.1/quartic-jacobi-sum-of-a-primary-prime`: `-χ(-1) J(χ, χ) = π`. -/
+theorem jacobiSum_powerResidueSymbol_four (hζ : IsPrimitiveRoot ζ 4) {π : 𝓞 K} (hπ : Prime π)
+    (hprim : IsPrimaryGaussian ζ π) {p : ℕ} (hp : p.Prime) (hp4 : p % 4 = 1)
+    (hN : Ideal.absNorm (Ideal.span {π}) = p) [(Ideal.span {π}).IsMaximal]
+    [Fintype (𝓞 K ⧸ Ideal.span {π})] :
+    -(powerResidueSymbol 4 (Ideal.span {π}) (-1)) *
+      jacobiSum (powerResidueSymbol 4 (Ideal.span {π})) (powerResidueSymbol 4 (Ideal.span {π})) =
+        π := by
+  sorry
+
+/-- `CA.1/quartic-gauss-sum-fourth-power`: `g(χ_π, ψ) ^ 4 = p · π ^ 2` after any injective
+ring map into a domain. -/
+theorem gaussSum_powerResidueSymbol_four_pow_four (hζ : IsPrimitiveRoot ζ 4) {π : 𝓞 K}
+    (hπ : Prime π) (hprim : IsPrimaryGaussian ζ π) {p : ℕ} (hp : p.Prime) (hp4 : p % 4 = 1)
+    (hN : Ideal.absNorm (Ideal.span {π}) = p) [(Ideal.span {π}).IsMaximal]
+    [Fintype (𝓞 K ⧸ Ideal.span {π})] {R : Type*} [CommRing R] [IsDomain R] (φ : 𝓞 K →+* R)
+    (hφ : Function.Injective φ) (ψ : AddChar (𝓞 K ⧸ Ideal.span {π}) R) (hψ : ψ.IsPrimitive) :
+    gaussSum ((powerResidueSymbol 4 (Ideal.span {π})).ringHomComp φ) ψ ^ 4 = p * φ π ^ 2 := by
+  sorry
+
+/-- `CA.1/quartic-reciprocity-with-a-rational-denominator` (b): for `a ≡ 1 (mod 4)`. -/
+theorem quartic_reciprocity_intCast (hζ : IsPrimitiveRoot ζ 4) {a : ℤ} (ha : a % 4 = 1)
+    {lam : 𝓞 K} (hlam : IsPrimaryGaussian ζ lam) (hcop : IsCoprime (a : 𝓞 K) lam) :
+    powerResidueSymbolIdeal 4 (Ideal.span {lam}) (a : 𝓞 K) =
+      powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K)}) lam := by
+  sorry
+
+/-- `CA.1/quartic-reciprocity-for-coprime-coordinates`. -/
+theorem quartic_reciprocity_coprime_coords (hζ : IsPrimitiveRoot ζ 4) {a b c d : ℤ}
+    (hπ : IsPrimaryGaussian ζ ((a : 𝓞 K) + (b : 𝓞 K) * ζ))
+    (hlam : IsPrimaryGaussian ζ ((c : 𝓞 K) + (d : 𝓞 K) * ζ))
+    (hab : IsCoprime a b) (hcd : IsCoprime c d)
+    (hcop : IsCoprime ((a : 𝓞 K) + (b : 𝓞 K) * ζ) ((c : 𝓞 K) + (d : 𝓞 K) * ζ)) :
+    powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K) + (b : 𝓞 K) * ζ})
+        ((c : 𝓞 K) + (d : 𝓞 K) * ζ) =
+      powerResidueSymbolIdeal 4 (Ideal.span {(c : 𝓞 K) + (d : 𝓞 K) * ζ})
+          ((a : 𝓞 K) + (b : 𝓞 K) * ζ) * (-1) ^ (((a - 1) / 2) * ((c - 1) / 2)).natAbs := by
+  sorry
+
+/-- `CA.1/quartic-reciprocity`: for coprime primary `λ, π`,
+`(λ/π)_4 = (π/λ)_4 · (-1) ^ (((Nλ - 1)/4) ((Nπ - 1)/4))`. -/
+theorem quartic_reciprocity (hζ : IsPrimitiveRoot ζ 4) {π lam : 𝓞 K}
+    (hπ : IsPrimaryGaussian ζ π) (hlam : IsPrimaryGaussian ζ lam) (hcop : IsCoprime π lam) :
+    powerResidueSymbolIdeal 4 (Ideal.span {π}) lam =
+      powerResidueSymbolIdeal 4 (Ideal.span {lam}) π *
+        (-1) ^ (((Ideal.absNorm (Ideal.span {lam}) - 1) / 4) *
+          ((Ideal.absNorm (Ideal.span {π}) - 1) / 4)) := by
+  sorry
+
+/-- `CA.1/quartic-supplement-for-one-plus-i`. -/
+theorem powerResidueSymbolIdeal_four_one_add_zeta (hζ : IsPrimitiveRoot ζ 4) {a b : ℤ}
+    (h : IsPrimaryGaussian ζ ((a : 𝓞 K) + (b : 𝓞 K) * ζ)) :
+    powerResidueSymbolIdeal 4 (Ideal.span {(a : 𝓞 K) + (b : 𝓞 K) * ζ}) (1 + ζ) =
+      ζ ^ (((a - b - b ^ 2 - 1) / 4) % 4).toNat := by
+  sorry
+
+/-- Acceptance (parent source issue E203): `π = -1 + 2i`, `λ = -3`: both symbols are `-i`. -/
+example (hζ : IsPrimitiveRoot ζ 4) :
+    powerResidueSymbolIdeal 4 (Ideal.span {-1 + 2 * ζ}) (-3) = ζ ^ 3 ∧
+      powerResidueSymbolIdeal 4 (Ideal.span {(-3 : 𝓞 K)}) (-1 + 2 * ζ) = ζ ^ 3 := by
+  sorry
+
+end Quartic
+
+/-! ## The inputs of Eisenstein reciprocity
+
+`K = ℚ(ζ_m)`. The Gauss sum `g(P) = g(χ_P, ψ)`, with `χ_P = (·/P)_m⁻¹` and the trace character
+`ψ`, lives in `ℚ(ζ_m, ζ_p)`; its `m`-th power `Φ(P)` lies in `𝓞_K`. Intended form of the
+characterisation `stickelbergerPhi_prime`: for an injective ring map `ι : 𝓞 K →+* R` into the
+ring of integers `R` of `ℚ(ζ_{mp})` and a primitive additive character `ψ` of `𝓞 K ⧸ P` with
+values in `R`, `ι (stickelbergerPhi m P) = gaussSum (((powerResidueSymbol m P)⁻¹).ringHomComp ι) ψ ^ m`.
+The automorphisms `σ_t : ζ ↦ ζ ^ t` of `𝓞 K` are passed as a family `σ` with `σ t ζ = ζ ^ t` for
+`t` prime to `m`; the condition is asked only there, because no ring automorphism sends a
+primitive `m`-th root of unity to `ζ ^ t` with `gcd(t, m) > 1` (at `t = 0` it would send `ζ` to `1`),
+so asking it for every `t` would make the hypotheses contradictory and the statements vacuous. -/
+
+/-- `CA.1/stickelberger-gauss-sum-power`: `Φ(A)`, multiplicative in the ideal `A` prime to `m`. -/
+noncomputable def stickelbergerPhi (m : ℕ) (A : Ideal (𝓞 K)) : 𝓞 K := sorry
+
+section Stickelberger
+
+variable {m : ℕ} [NeZero m] [IsCyclotomicExtension {m} ℚ K] {ζ : 𝓞 K}
+
+theorem stickelbergerPhi_mul {A B : Ideal (𝓞 K)} (hA : (Ideal.absNorm A).Coprime m)
+    (hB : (Ideal.absNorm B).Coprime m) :
+    stickelbergerPhi m (A * B) = stickelbergerPhi m A * stickelbergerPhi m B := by
+  sorry
+
+@[simp] theorem stickelbergerPhi_top : stickelbergerPhi (K := K) m ⊤ = 1 := by
+  sorry
+
+theorem stickelbergerPhi_norm_sq {A : Ideal (𝓞 K)} (hA : (Ideal.absNorm A).Coprime m)
+    (φ : K →+* ℂ) : ‖φ (stickelbergerPhi m A)‖ ^ 2 = (Ideal.absNorm A : ℝ) ^ m := by
+  sorry
+
+theorem stickelbergerPhi_galois {A : Ideal (𝓞 K)} (hA : (Ideal.absNorm A).Coprime m)
+    (σ : 𝓞 K ≃+* 𝓞 K) : σ (stickelbergerPhi m A) = stickelbergerPhi m (A.map σ) := by
+  sorry
+
+theorem stickelbergerPhi_modEq {l : ℕ} [Fact l.Prime] (hl : l ≠ 2)
+    [IsCyclotomicExtension {l} ℚ K] {P : Ideal (𝓞 K)} [P.IsMaximal]
+    (hP : (Ideal.absNorm P).Coprime l) :
+    stickelbergerPhi l P + 1 ∈ Ideal.span {(l : 𝓞 K)} := by
+  sorry
+
+/-- `CA.1/stickelberger-relation` (`span_stickelbergerPhi`): `(Φ(A)) = A ^ γ`,
+`γ = Σ_{t < m, (t, m) = 1} t σ_t⁻¹`. -/
+theorem span_stickelbergerPhi (hζ : IsPrimitiveRoot ζ m) (σ : ℕ → (𝓞 K ≃+* 𝓞 K))
+    (hσ : ∀ t, t.Coprime m → (σ t) ζ = ζ ^ t) {A : Ideal (𝓞 K)}
+    (hA : (Ideal.absNorm A).Coprime m) :
+    Ideal.span {stickelbergerPhi m A} =
+      ∏ t ∈ (Finset.range m).filter (fun t => t.Coprime m), (A.map (σ t).symm) ^ t := by
+  sorry
+
+/-- `CA.1/stickelberger-unit-factor-is-a-root-of-unity`: `Φ(α) = ± ζ ^ i · α ^ γ`. -/
+theorem stickelbergerPhi_span_singleton (hζ : IsPrimitiveRoot ζ m) (σ : ℕ → (𝓞 K ≃+* 𝓞 K))
+    (hσ : ∀ t, t.Coprime m → (σ t) ζ = ζ ^ t) {α : 𝓞 K} (hα : IsCoprime α (m : 𝓞 K)) :
+    ∃ (e : ℤˣ) (i : ℕ), stickelbergerPhi m (Ideal.span {α}) =
+      (e : 𝓞 K) * ζ ^ i *
+        ∏ t ∈ (Finset.range m).filter (fun t => t.Coprime m), ((σ t).symm α) ^ t := by
+  sorry
+
+/-- `CA.1/gauss-sum-power-residue-identity`: `(Φ(P)/P')_m = (N P'/P)_m`. -/
+theorem powerResidueSymbolIdeal_stickelbergerPhi [HasEnoughRootsOfUnity (𝓞 K) m]
+    {P P' : Ideal (𝓞 K)} [P.IsMaximal] [P'.IsMaximal]
+    (hP : (Ideal.absNorm P).Coprime m) (hP' : (Ideal.absNorm P').Coprime m)
+    (hPP' : (Ideal.absNorm P).Coprime (Ideal.absNorm P')) :
+    powerResidueSymbolIdeal m P' (stickelbergerPhi m P) =
+      powerResidueSymbolIdeal m P (Ideal.absNorm P' : 𝓞 K) := by
+  sorry
+
+end Stickelberger
+
+section EisensteinInputs
+
+variable {l : ℕ} [Fact l.Prime] [IsCyclotomicExtension {l} ℚ K] {ζ : 𝓞 K}
+
+/-- `CA.1/stickelberger-unit-factor-of-a-primary-element`: for primary `α`, `Φ(α) = ± α ^ γ`. -/
+theorem stickelbergerPhi_of_isEisensteinPrimary (hl : l ≠ 2) (hζ : IsPrimitiveRoot ζ l)
+    (σ : ℕ → (𝓞 K ≃+* 𝓞 K)) (hσ : ∀ t, t.Coprime l → (σ t) ζ = ζ ^ t) {α : 𝓞 K}
+    (hα : IsEisensteinPrimary l ζ α) :
+    ∃ e : ℤˣ, stickelbergerPhi l (Ideal.span {α}) =
+      (e : 𝓞 K) * ∏ t ∈ (Finset.range l).filter (fun t => t.Coprime l), ((σ t).symm α) ^ t := by
+  sorry
+
+/-- `CA.1/eisenstein-reciprocity-at-ideal-norms`: `(α / N 𝔅)_l = (N 𝔅 / α)_l`. -/
+theorem eisenstein_reciprocity_absNorm (hl : l ≠ 2) [HasEnoughRootsOfUnity (𝓞 K) l]
+    (hζ : IsPrimitiveRoot ζ l) {α : 𝓞 K} (hα : IsEisensteinPrimary l ζ α) (hαu : ¬ IsUnit α)
+    {𝔅 : Ideal (𝓞 K)} (h𝔅 : (Ideal.absNorm 𝔅).Coprime l)
+    (hcop : IsCoprime (Ideal.absNorm 𝔅 : 𝓞 K) α) :
+    powerResidueSymbolIdeal l (Ideal.span {(Ideal.absNorm 𝔅 : 𝓞 K)}) α =
+      powerResidueSymbolIdeal l (Ideal.span {α}) (Ideal.absNorm 𝔅 : 𝓞 K) := by
+  sorry
+
+end EisensteinInputs
+
+/-- Unit test `stickelbergerPhi_test_top`: `Φ(𝓞_K) = 1`. -/
+example (m : ℕ) : stickelbergerPhi (K := K) m ⊤ = 1 := by
+  sorry
+
+/-- Unit test `stickelbergerPhi_test_quadratic`: for `m = 2` (`K = ℚ`), `Φ((5)) = 5` and
+`Φ((3)) = -3`. -/
+example [IsCyclotomicExtension {2} ℚ K] :
+    stickelbergerPhi 2 (Ideal.span {(5 : 𝓞 K)}) = 5 ∧
+      stickelbergerPhi 2 (Ideal.span {(3 : 𝓞 K)}) = -3 := by
+  sorry
+
+/-- Unit test `stickelbergerPhi_test_cubic`: for `m = 3` and `π = -1 - 3ω` of norm `7`,
+`Φ((π)) = 7 π̄`, with `σ` the conjugation `ω ↦ ω ^ 2`. -/
+example [IsCyclotomicExtension {3} ℚ K] {ω : 𝓞 K} (hω : IsPrimitiveRoot ω 3)
+    (σ : 𝓞 K ≃+* 𝓞 K) (hσ : σ ω = ω ^ 2) :
+    stickelbergerPhi 3 (Ideal.span {-1 - 3 * ω}) = 7 * σ (-1 - 3 * ω) := by
+  sorry
+
+/-- Unit test `stickelbergerPhi_test_inverse_character`: in the cubic test, `Φ((π)) ≠ 7 π`. -/
+example [IsCyclotomicExtension {3} ℚ K] {ω : 𝓞 K} (hω : IsPrimitiveRoot ω 3) :
+    stickelbergerPhi 3 (Ideal.span {-1 - 3 * ω}) ≠ 7 * (-1 - 3 * ω) := by
+  sorry
+
+/-! ## Zeros of a binary quadratic form on `ℙ¹(𝔽_p)` -/
+
+/-- The zeros of `m x² + r x y + n y²` on `ℙ¹(𝔽_p)`, read on a representative (the form is
+homogeneous). -/
+def binaryQuadraticZeros {p : ℕ} [Fact p.Prime] (m r n : ZMod p) :
+    Set (Projectivization (ZMod p) (Fin 2 → ZMod p)) :=
+  {x | m * x.rep 0 ^ 2 + r * x.rep 0 * x.rep 1 + n * x.rep 1 ^ 2 = 0}
+
+/-- `CA.1/projective-zeros-of-a-binary-quadratic-form`. -/
+theorem ncard_binaryQuadraticZeros {p : ℕ} [Fact p.Prime] (hp : p ≠ 2) {m r n : ZMod p}
+    (h : ¬ (m = 0 ∧ r = 0 ∧ n = 0)) :
+    ((binaryQuadraticZeros m r n).ncard : ℤ) = 1 + quadraticChar (ZMod p) (r ^ 2 - 4 * m * n) := by
+  sorry
+
+/-- Acceptance: `x² + y²` has no zeros over `𝔽_3` and two over `𝔽_5`. -/
+example : (binaryQuadraticZeros (p := 3) 1 0 1).ncard = 0 := by
+  sorry
+
+example [Fact (Nat.Prime 5)] : (binaryQuadraticZeros (p := 5) 1 0 1).ncard = 2 := by
+  sorry
+
+/-- Acceptance: `y²` has the single zero `[1 : 0]`. -/
+example : (binaryQuadraticZeros (p := 3) 0 0 1).ncard = 1 := by
+  sorry
+
+/-! ## Supporting lemmas for the first-pass targets -/
+
+/-- `CA.1/nonzero-root-count-of-a-power-equation`. -/
+theorem card_units_pow_eq {F : Type*} [Field F] [Fintype F] (n : ℕ) {a : Fˣ}
+    (ha : ∃ y : Fˣ, y ^ n = a) :
+    Nat.card {x : Fˣ // x ^ n = a} = (Fintype.card F - 1).gcd n := by
+  sorry
+
+theorem card_pow_eq_of_pos {F : Type*} [Field F] [Fintype F] {n : ℕ} (hn : 0 < n) {a : Fˣ}
+    (ha : ∃ y : Fˣ, y ^ n = a) :
+    Nat.card {x : F // x ^ n = (a : F)} = (Fintype.card F - 1).gcd n := by
+  sorry
+
+/-- Acceptance: for `n = 0` the field count is `q`, one more than the unit count. -/
+example : Nat.card {x : ZMod 5 // x ^ 0 = 1} = 5 := by
+  sorry
+
+/-- `CA.1/squarefree-part-signed-uniqueness`. -/
+theorem squarefree_int_eq_of_mul_sq_eq {d d' : ℤ} (hd : Squarefree d) (hd' : Squarefree d')
+    {c c' : ℚ} (hc : c ≠ 0) (hc' : c' ≠ 0) (h : (d : ℚ) * c ^ 2 = d' * c' ^ 2)
+    (h0 : (d : ℚ) * c ^ 2 ≠ 0) : d = d' := by
+  sorry
+
+-- `ratSquarefreePart_mul_sq`: CA.1/squarefree-part-of-a-square-multiple, stated in the CA.1 section above under this name
+
+-- `prime_dvd_ratSquarefreePart_iff`: CA.1/prime-divides-squarefree-part-iff-odd-valuation, stated in the CA.1 section above under this name
+
+section Cubic
+
+variable [IsCyclotomicExtension {3} ℚ K] {ω : 𝓞 K}
+
+-- `isPrimaryEisenstein_add_mul_iff`: CA.1/primary-eisenstein-coordinate-criterion, stated in the CA.1 section above under this name
+
+-- `exists_unique_associated_isPrimaryEisenstein`: CA.1/unique-primary-associate-of-an-eisenstein-prime, stated in the CA.1 section above under this name
+
+variable [HasEnoughRootsOfUnity (𝓞 K) 3]
+
+/-- `CA.1/gauss-sum-cube-of-a-cubic-character`: for `χ` of order `3`, `g(χ) ^ 3 = q J(χ, χ)`. -/
+theorem gaussSum_pow_three_of_orderOf_eq_three {F R : Type*} [Field F] [Fintype F] [CommRing R]
+    [IsDomain R] {χ : MulChar F R} (hχ : orderOf χ = 3) {ψ : AddChar F R} (hψ : ψ.IsPrimitive) :
+    χ (-1) = 1 ∧ gaussSum χ ψ ^ 3 = Fintype.card F * jacobiSum χ χ := by
+  sorry
+
+/-- `CA.1/cubic-jacobi-sum-is-primary`. -/
+theorem jacobiSum_powerResidueSymbol_three_isPrimary {π : 𝓞 K} (hπ : Prime π)
+    (hprim : IsPrimaryEisenstein π) {p : ℕ} (hp : p.Prime) (hp3 : p % 3 = 1)
+    (hN : Ideal.absNorm (Ideal.span {π}) = p) [(Ideal.span {π}).IsMaximal]
+    [Fintype (𝓞 K ⧸ Ideal.span {π})] :
+    IsPrimaryEisenstein
+      (jacobiSum (powerResidueSymbol 3 (Ideal.span {π})) (powerResidueSymbol 3 (Ideal.span {π}))) := by
+  sorry
+
+/-- `CA.1/cubic-jacobi-sum-norm-and-divisibility`: `π ∣ J(χ_π, χ_π)` and `N(J) = p`. -/
+theorem jacobiSum_powerResidueSymbol_three_dvd {π : 𝓞 K} (hπ : Prime π)
+    (hprim : IsPrimaryEisenstein π) {p : ℕ} (hp : p.Prime) (hp3 : p % 3 = 1)
+    (hN : Ideal.absNorm (Ideal.span {π}) = p) [(Ideal.span {π}).IsMaximal]
+    [Fintype (𝓞 K ⧸ Ideal.span {π})] :
+    π ∣ jacobiSum (powerResidueSymbol 3 (Ideal.span {π})) (powerResidueSymbol 3 (Ideal.span {π})) ∧
+      Ideal.absNorm (Ideal.span {jacobiSum (powerResidueSymbol 3 (Ideal.span {π}))
+        (powerResidueSymbol 3 (Ideal.span {π}))}) = p := by
+  sorry
+
+/-- `CA.1/cubic-reciprocity-with-two-rational-primes`: `(n / q)_3 = 1`. -/
+theorem powerResidueSymbolIdeal_three_intCast {q : ℕ} (hq : q.Prime) (hq3 : q % 3 = 2) {n : ℤ}
+    (hn : IsCoprime n q) :
+    powerResidueSymbolIdeal 3 (Ideal.span {(q : 𝓞 K)}) (n : 𝓞 K) = 1 := by
+  sorry
+
+/-- `CA.1/cubic-reciprocity-rational-and-complex-prime`. -/
+theorem cubic_reciprocity_natCast {q : ℕ} (hq : q.Prime) (hq3 : q % 3 = 2) {π : 𝓞 K}
+    (hπ : Prime π) (hprim : IsPrimaryEisenstein π) (hN : Ideal.absNorm (Ideal.span {π}) % 3 = 1) :
+    powerResidueSymbolIdeal 3 (Ideal.span {π}) (q : 𝓞 K) =
+      powerResidueSymbolIdeal 3 (Ideal.span {(q : 𝓞 K)}) π := by
+  sorry
+
+/-- `CA.1/cubic-reciprocity-two-complex-primes`. -/
+theorem cubic_reciprocity_of_norm_prime {π₁ π₂ : 𝓞 K} (h₁ : Prime π₁) (h₂ : Prime π₂)
+    (hp₁ : IsPrimaryEisenstein π₁) (hp₂ : IsPrimaryEisenstein π₂)
+    (hN₁ : (Ideal.absNorm (Ideal.span {π₁})).Prime) (hN₂ : (Ideal.absNorm (Ideal.span {π₂})).Prime)
+    (hN : Ideal.absNorm (Ideal.span {π₁}) ≠ Ideal.absNorm (Ideal.span {π₂}))
+    (h3₁ : Ideal.absNorm (Ideal.span {π₁}) ≠ 3) (h3₂ : Ideal.absNorm (Ideal.span {π₂}) ≠ 3) :
+    powerResidueSymbolIdeal 3 (Ideal.span {π₁}) π₂ =
+      powerResidueSymbolIdeal 3 (Ideal.span {π₂}) π₁ := by
+  sorry
+
+/-- `CA.1/cubic-reciprocity-with-a-rational-integer`. -/
+theorem cubic_reciprocity_intCast {π : 𝓞 K} (hπ : Prime π) (hprim : IsPrimaryEisenstein π)
+    (h3 : Ideal.absNorm (Ideal.span {π}) ≠ 3) {A : ℤ} (hA3 : ¬ (3 : ℤ) ∣ A)
+    (hAπ : IsCoprime (A : 𝓞 K) π) :
+    powerResidueSymbolIdeal 3 (Ideal.span {π}) (A : 𝓞 K) =
+      powerResidueSymbolIdeal 3 (Ideal.span {(A : 𝓞 K)}) π := by
+  sorry
+
+end Cubic
+
+/-- `CA.1/normalising-root-of-unity-of-a-cyclotomic-integer`: `α ≡ a + b λ (mod λ²)` and
+`ζ ^ c ≡ 1 - c λ (mod λ²)`, with `λ = 1 - ζ`. -/
+theorem exists_intCast_add_mul_one_sub_mem {l : ℕ} [Fact l.Prime] [IsCyclotomicExtension {l} ℚ K]
+    {ζ : 𝓞 K} (hζ : IsPrimitiveRoot ζ l) (α : 𝓞 K) :
+    ∃ a b : ℤ, α - (a + b * (1 - ζ)) ∈ Ideal.span {(1 - ζ) ^ 2} := by
+  sorry
+
+theorem zeta_pow_sub_mem {l : ℕ} [Fact l.Prime] [IsCyclotomicExtension {l} ℚ K]
+    {ζ : 𝓞 K} (hζ : IsPrimitiveRoot ζ l) (c : ℕ) :
+    ζ ^ c - (1 - c * (1 - ζ)) ∈ Ideal.span {(1 - ζ) ^ 2} := by
+  sorry
+
+end CA1Continuation
+
+end TauCeti.ClassicalArithmetic
+
+end
+
+end CA1Continuation
+
 -- ===== CA.2 =====
 
 /-
@@ -1394,14 +2034,14 @@ def eulerNumber (n : ℕ) : ℤ := if Even n then (-1) ^ (n / 2) * zigzag n else
 
 theorem zigzag_odd_eq_bernoulli (n : ℕ) :
     (zigzag (2 * n + 1) : ℚ) = (-1) ^ n * 2 ^ (2 * n + 2) * (2 ^ (2 * n + 2) - 1) *
-      bernoulli (2 * n + 2) / (2 * n + 2) := by sorry
+      _root_.bernoulli (2 * n + 2) / (2 * n + 2) := by sorry
 
 /-- Unit test `zigzag_values`: the first eight zigzag numbers. -/
 example : (List.range 8).map zigzag = [1, 1, 1, 2, 5, 16, 61, 272] := by sorry
 
 /-- Unit test `zigzag_three_bernoulli`: the tangent number `E_3 = 2` against Mathlib's
 `bernoulli 4 = -1/30`. -/
-example : (zigzag 3 : ℚ) = -(2 ^ 4 * (2 ^ 4 - 1) * bernoulli 4 / 4) := by sorry
+example : (zigzag 3 : ℚ) = -(2 ^ 4 * (2 ^ 4 - 1) * _root_.bernoulli 4 / 4) := by sorry
 
 /-- Unit test `eulerNumber_two`: the signed Euler number `E_2 = -1` (DLMF), while the zigzag
 number is `1`; the two conventions differ in sign. -/
@@ -1476,7 +2116,7 @@ theorem hasSum_of_mul_taylorPowerSeries_eq {r : ℝ} {g h : ℂ → ℂ}
 /-- **The Bernoulli generating function on its disc of convergence.** For `|z| < 2π`,
 `∑ B_n zⁿ / n! = z / (e^z - 1)` (and `1` at `z = 0`), with Mathlib's `bernoulli` (`B₁ = -1/2`). -/
 theorem hasSum_bernoulli_mul_pow {z : ℂ} (hz : ‖z‖ < 2 * Real.pi) :
-    HasSum (fun n => (bernoulli n : ℂ) * z ^ n / n.factorial)
+    HasSum (fun n => (_root_.bernoulli n : ℂ) * z ^ n / n.factorial)
       (if z = 0 then 1 else z / (Complex.exp z - 1)) := by sorry
 
 /-- **`sec z + tan z` on its disc of convergence.** For `|z| < π / 2`,
@@ -1487,7 +2127,7 @@ theorem hasSum_zigzag_mul_pow {z : ℂ} (hz : ‖z‖ < Real.pi / 2) :
 
 /-- CA.2/bernoulli-generating-function-on-its-disc: the sharp outer divergence clause. -/
 theorem not_summable_bernoulli_mul_pow {z : ℂ} (hz : 2 * Real.pi < ‖z‖) :
-    ¬ Summable (fun n : ℕ => (bernoulli n : ℂ) * z ^ n / n.factorial) := by sorry
+    ¬ Summable (fun n : ℕ => (_root_.bernoulli n : ℂ) * z ^ n / n.factorial) := by sorry
 
 /-- CA.2/secant-plus-tangent-on-its-disc: the sharp outer divergence clause. -/
 theorem not_summable_zigzag_mul_pow {z : ℂ} (hz : Real.pi / 2 < ‖z‖) :
@@ -1943,6 +2583,541 @@ end CA2
 
 end TauCeti.ClassicalArithmetic
 
+
+end
+
+-- ===== CA.2: Cobham's base-independence theorem (first pass) =====
+
+namespace TauCeti.ClassicalArithmetic
+
+/-! ## Cobham's theorem through redundant digits and overlapping periods
+The declarations below retain the canonical-digit `IsAutomatic` definition.
+All proof bodies are planning placeholders.
+-/
+
+/-- Reversal on every word, including noncanonical and padded words. -/
+theorem DFAO.exists_output_reverse {α σ Δ : Type*} [Fintype σ] (M : DFAO α σ Δ) :
+    ∃ (τ : Type) (_ : Fintype τ) (N : DFAO α τ Δ),
+      ∀ w, N.output (N.eval w) = M.output (M.eval w.reverse) := by sorry
+
+/-- A finite kernel and bounded carry compute all bounded little-endian words. -/
+theorem IsAutomatic.exists_boundedDigitLSF {k : ℕ} [NeZero k] {Δ : Type*}
+    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) (d : ℕ) :
+    ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
+      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val)) := by sorry
+
+/-- Redundant most-significant-first digits, with correctness on every word. -/
+theorem isAutomatic_iff_redundantDigits {k d : ℕ} [NeZero k] {Δ : Type*}
+    (hk : 2 ≤ k) (hd : k ≤ d + 1) (f : ℕ → Δ) :
+    IsAutomatic k f ↔ ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
+      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val).reverse) := by sorry
+
+/-- Positive-length words over the enlarged alphabet include both interval endpoints. -/
+theorem exists_redundantDigits_of_le {k n z : ℕ} (hk : 2 ≤ k) (hn : 0 < n)
+    (hz : z ≤ 2 * k ^ n) :
+    ∃ w : List (Fin (2 * k + 1)), w.length = n ∧
+      Nat.ofDigits k (w.map Fin.val).reverse = z := by sorry
+
+/-- One finite colouring controls all doubled radix suffix blocks. -/
+theorem IsAutomatic.exists_widePrefixColouring {k : ℕ} [NeZero k] {Δ : Type*}
+    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) :
+    ∃ (q : ℕ), 0 < q ∧ ∃ C : ℕ → Fin q,
+      ∀ x y, C x = C y → ∀ n, 0 < n → ∀ z, z ≤ 2 * k ^ n →
+        f (x * k ^ n + z) = f (y * k ^ n + z) := by sorry
+
+/-- Finite pigeonholing of normalized powers; equality is allowed. -/
+theorem exists_close_powers {a b C : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) (hC : 0 < C) :
+    ∃ m n : ℕ, 0 < m ∧ 0 < n ∧
+      C * Int.natAbs ((a : ℤ) ^ m - (b : ℤ) ^ n) ≤ b ^ n := by sorry
+
+/-- Uniform collision representatives for the infinite fibres of the second colouring. -/
+theorem exists_tail_colour_collisions {r s : ℕ} (A : ℕ → Fin r) (B : ℕ → Fin s) :
+    ∃ N ξ : ℕ, 0 < ξ ∧ ∀ x, N ≤ x → ∃ u v : ℕ,
+      u < ξ ∧ v < ξ ∧ u ≠ v ∧ B u = B x ∧ B v = B x ∧ A u = A v := by sorry
+
+/-- A long integer overlap extends the first local period to the union. -/
+theorem localPeriod_union_intervals {Δ : Type*} (f : ℕ → Δ) {l r L R p q : ℕ}
+    (hp : 0 < p) (hq : 0 < q)
+    (hI : ∀ t, l ≤ t → t + p ≤ r → f (t + p) = f t)
+    (hJ : ∀ t, L ≤ t → t + q ≤ R → f (t + q) = f t)
+    (hcard : p + q ≤ (Finset.Icc (max l L) (min r R)).card) :
+    ∀ t, min l L ≤ t → t + p ≤ max r R → f (t + p) = f t := by sorry
+
+/-- Three block comparisons at nearby unequal scales give a positive local period. -/
+theorem localPeriod_of_close_scales {Δ : Type*} (f : ℕ → Δ) {A B ξ x u v : ℕ}
+    (hA : 0 < A) (hB : 0 < B) (hξ : 0 < ξ) (hu : u < ξ) (hv : v < ξ)
+    (huv : u ≠ v) (hAB : A ≠ B)
+    (hclose : 6 * ξ * Int.natAbs ((A : ℤ) - B) ≤ B)
+    (hxu : ∀ z, z ≤ 2 * B → f (x * B + z) = f (u * B + z))
+    (hxv : ∀ z, z ≤ 2 * B → f (x * B + z) = f (v * B + z))
+    (huvA : ∀ w, w ≤ 2 * A → f (u * A + w) = f (v * A + w)) :
+    let p := Int.natAbs (((u : ℤ) - v) * ((A : ℤ) - B))
+    0 < p ∧ 6 * p ≤ B ∧ ∀ t, 3 * x * B + B ≤ 3 * t →
+      3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t := by sorry
+
+/-- Integer endpoint rounding preserves enough overlap for one tail period. -/
+theorem eventuallyPeriodic_of_window_periods {Δ : Type*} (f : ℕ → Δ) {B N : ℕ}
+    (hB : 0 < B)
+    (h : ∀ x, N ≤ x → ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧
+      ∀ t, 3 * x * B + B ≤ 3 * t →
+        3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t) :
+    ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧ ∀ t, (N + 1) * B ≤ t → f (t + p) = f t := by sorry
+
+/-- Forward direction of Cobham's theorem, with both positive exponents quantified. -/
+theorem eventuallyPeriodic_of_two_automatic {a b : ℕ} [NeZero a] [NeZero b]
+    {Δ : Type*} (ha : 2 ≤ a) (hb : 2 ≤ b)
+    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n)
+    (f : ℕ → Δ) (hfa : IsAutomatic a f) (hfb : IsAutomatic b f) :
+    ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
+
+/- The node `eventually-periodic-sequences-are-automatic` promotes the existing
+`isAutomatic_of_eventually_periodic` declaration above; there is no second copy. -/
+
+/-- Cobham's complete equivalence on the existing automatic-sequence carrier. -/
+theorem cobham {a b : ℕ} [NeZero a] [NeZero b] {Δ : Type*}
+    (ha : 2 ≤ a) (hb : 2 ≤ b)
+    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n) (f : ℕ → Δ) :
+    (IsAutomatic a f ∧ IsAutomatic b f) ↔
+      ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
+
+/-- Acceptance `reversal_order`: noncommuting transitions detect an incorrect reversal. -/
+example :
+    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
+        [false, true] = 2 ∧
+    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
+        [true, false] = 1 := by sorry
+
+/-- Acceptance `boundedCarry_three`: a two-state carry bound is too small. -/
+example : (3 + 4) / 2 = (3 : ℕ) := by sorry
+
+/-- Acceptance `redundant_same_value`: noncanonical and canonical words agree. -/
+example : Nat.ofDigits 3 ([3] : List ℕ).reverse =
+    Nat.ofDigits 3 ([1, 0] : List ℕ).reverse := by sorry
+
+/-- Acceptance `redundant_leading_zero`: leading zeros are harmless. -/
+example (k : ℕ) (w : List ℕ) :
+    Nat.ofDigits k (0 :: w).reverse = Nat.ofDigits k w.reverse := by sorry
+
+/-- Acceptance `redundant_endpoint`: the doubled interval is closed on the right. -/
+example : Nat.ofDigits 2 ([4, 0] : List ℕ).reverse = 8 := by sorry
+
+/-- Acceptance `zero_length_rejected`: a zero-length word cannot represent 2. -/
+example : ¬ ∃ w : List (Fin 5), w.length = 0 ∧
+    Nat.ofDigits 2 (w.map Fin.val).reverse = 2 := by sorry
+
+/-- Acceptance `close_powers_two_three`: a positive, unequal pair. -/
+example : 10 * Int.natAbs ((2 : ℤ) ^ 8 - 3 ^ 5) ≤ (3 : ℕ) ^ 5 := by sorry
+
+/-- Acceptance `dependent_bases`: unequal bases need not be independent. -/
+example : (2 : ℕ) ≠ 4 ∧ (2 : ℕ) ^ 2 = 4 ^ 1 := by sorry
+
+/-- Acceptance `window_rounding_seven`: the adjacent overlap retains two integers. -/
+example : (Finset.Icc (7 + (7 + 2) / 3) (5 * 7 / 3)).card = 2 := by sorry
+
+/-- Acceptance `window_rounding_eight`: an endpoint remainder does not break gluing. -/
+example : (Finset.Icc (8 + (8 + 2) / 3) (5 * 8 / 3)).card = 3 := by sorry
+
+/-- Acceptance `signed_period`: both signs of the scale difference give the same period. -/
+example : Int.natAbs (((0 : ℤ) - 1) * (17 - 18)) = 1 ∧
+    Int.natAbs (((1 : ℤ) - 0) * (18 - 17)) = 1 := by sorry
+
+/-- Acceptance `finite_prefix`: eventual periodicity need not hold from zero. -/
+example : (∀ n ≥ 1, (if n + 2 = 0 then 7 else (n + 2) % 2 : ℕ) =
+    (if n = 0 then 7 else n % 2 : ℕ)) ∧
+    (if 2 = 0 then 7 else 2 % 2 : ℕ) ≠ (if 0 = 0 then 7 else 0 % 2 : ℕ) := by sorry
+
+/-- Acceptance `unary_eventually_periodic`: base one uses the existing unary convention. -/
+example : IsAutomatic 1 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
+
+/-- Acceptance `both_bases_finite_prefix`: the same tail is automatic in both bases. -/
+example : IsAutomatic 2 (fun n : ℕ => if n = 0 then 7 else n % 2) ∧
+    IsAutomatic 3 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
+
+end TauCeti.ClassicalArithmetic
+
+
+-- ===== CA.2 continuation =====
+
+section CA2Continuation
+
+noncomputable section
+
+open scoped Nat
+
+namespace TauCeti.ClassicalArithmetic
+
+section CA2
+
+/-! ### Eulerian numbers (Stanley EC1 §1.4; Lawrence–Sawin, Appendix C) -/
+
+/-- The number of descents of a permutation `σ` of `Fin n`: the positions `i` with `i + 1 < n`
+and `σ (i + 1) < σ i`. -/
+def descentCount {n : ℕ} (σ : Equiv.Perm (Fin n)) : ℕ :=
+  (Finset.univ.filter fun i : Fin n => ∃ h : i.1 + 1 < n, σ ⟨i.1 + 1, h⟩ < σ i).card
+
+/-- The number of ascents of a permutation `σ` of `Fin n`: the positions `i` with `i + 1 < n`
+and `σ i < σ (i + 1)`. -/
+def ascentCount {n : ℕ} (σ : Equiv.Perm (Fin n)) : ℕ :=
+  (Finset.univ.filter fun i : Fin n => ∃ h : i.1 + 1 < n, σ i < σ ⟨i.1 + 1, h⟩).card
+
+/-- CA.2/eulerian-numbers: the Eulerian number `A(n, q)`, the number of permutations of
+`{1, …, n}` with exactly `q` descents. The empty permutation has no descent, so
+`A(0, 0) = 1`; for `n ≥ 1` it vanishes from `q = n` on. -/
+def eulerian (n q : ℕ) : ℕ :=
+  (Finset.univ.filter fun σ : Equiv.Perm (Fin n) => descentCount σ = q).card
+
+theorem eulerian_zero_zero : eulerian 0 0 = 1 := by sorry
+
+theorem eulerian_zero_right (n : ℕ) : eulerian n 0 = 1 := by sorry
+
+theorem eulerian_eq_zero_of_le {n q : ℕ} (hn : 1 ≤ n) (hq : n ≤ q) : eulerian n q = 0 := by
+  sorry
+
+theorem eulerian_one_right (n : ℕ) : eulerian n 1 = 2 ^ n - n - 1 := by sorry
+
+theorem card_ascentCount_eq_eulerian (n q : ℕ) :
+    (Finset.univ.filter fun σ : Equiv.Perm (Fin n) => ascentCount σ = q).card = eulerian n q := by
+  sorry
+
+/-- CA.2/eulerian-basic-identities. -/
+theorem sum_eulerian (n : ℕ) : ∑ q ∈ Finset.range (n + 1), eulerian n q = n ! := by sorry
+
+theorem eulerian_symm {n q : ℕ} (hq : q < n) : eulerian n q = eulerian n (n - 1 - q) := by sorry
+
+theorem eulerian_succ_succ (n q : ℕ) :
+    eulerian (n + 1) (q + 1) = (q + 2) * eulerian n (q + 1) + (n - q) * eulerian n q := by sorry
+
+/-- Worpitzky's identity, the coefficient form of Stanley's `∑ mⁿxᵐ = Aₙ(x)/(1 - x)ⁿ⁺¹`. -/
+theorem worpitzky (n q : ℕ) :
+    (q + 1) ^ n = ∑ j ∈ Finset.range (q + 1), eulerian n j * (n + q - j).choose n := by sorry
+
+/-- Unit test `eulerian_three_one`. -/
+example : eulerian 3 1 = 4 := by sorry
+
+/-- Unit test `eulerian_four_row`: the row `1, 11, 11, 1`. -/
+example : eulerian 4 0 = 1 ∧ eulerian 4 1 = 11 ∧ eulerian 4 2 = 11 ∧ eulerian 4 3 = 1 := by sorry
+
+/-- Unit test `eulerian_two_row`. -/
+example : eulerian 2 0 = 1 ∧ eulerian 2 1 = 1 := by sorry
+
+/-- Unit test `sum_eulerian_zero`: the empty permutation counts once, so the row sum at `n = 0` is `0! = 1`. -/
+example : ∑ q ∈ Finset.range 1, eulerian 0 q = 0 ! := by sorry
+
+/-- Unit test `sum_eulerian_five`. -/
+example : ∑ q ∈ Finset.range 6, eulerian 5 q = 120 := by sorry
+
+/-- Unit test `eulerian_ne_zigzag`: `A(3, 1) = 4` while the Euler zigzag number `E₃` is `2`. -/
+example : eulerian 3 1 ≠ 2 := by sorry
+
+/-- CA.2/eulerian-unimodal: the rows rise up to the middle. -/
+theorem eulerian_le_eulerian_succ {n q : ℕ} (hq : 2 * (q + 1) ≤ n - 1) :
+    eulerian n q ≤ eulerian n (q + 1) := by sorry
+
+/-- CA.2/eulerian-power-bounds (Lawrence–Sawin, Lemma C.1, upper half). -/
+theorem eulerian_le_pow (n q : ℕ) : eulerian n q ≤ (q + 1) ^ n := by sorry
+
+/-- CA.2/eulerian-power-bounds (Lawrence–Sawin, Lemma C.1, lower half). -/
+theorem pow_sub_le_eulerian {n : ℕ} (hn : 1 ≤ n) (q : ℕ) :
+    ((q + 1 : ℕ) : ℤ) ^ n - (n + 1) * (q : ℤ) ^ n ≤ eulerian n q := by sorry
+
+/-- CA.2/eulerian-power-bounds (Lawrence–Sawin, Lemma C.2). -/
+theorem eulerian_le_factorial (n q : ℕ) : eulerian n q ≤ n ! := by sorry
+
+/-- CA.2/eulerian-small-descent-bounds (Lawrence–Sawin, Lemma C.3). -/
+theorem one_sub_exp_neg_one_mul_le_eulerian {n q : ℕ} (hn : 2 ≤ n)
+    (hq : (q : ℝ) < n / (Real.log (n + 1) + 1) - 1) :
+    (1 - Real.exp (-1)) * ((q : ℝ) + 1) ^ n ≤ eulerian n q := by sorry
+
+/-- CA.2/eulerian-square-separation (Lawrence–Sawin, Lemma C.4). -/
+theorem two_mul_eulerian_lt {n r : ℕ} (hr : 3 ≤ r) (hrn : r ≤ n - 2) :
+    2 * eulerian n (3 * r - 2) < eulerian n (r - 1) * (eulerian n (r - 1) - 1) := by sorry
+
+/-- CA.2/eulerian-ratio-bound (Lawrence–Sawin, Lemma C.5). -/
+theorem twentySeven_mul_eulerian_two_lt {n : ℕ} (hn : 11 ≤ n) :
+    27 * eulerian n 2 < eulerian n 1 ^ 2 := by sorry
+
+/-- Acceptance: the threshold `11` of Lemma C.5 is sharp (`A(10, 1) = 1013`,
+`A(10, 2) = 47840`). -/
+example : ¬ 27 * eulerian 10 2 < eulerian 10 1 ^ 2 := by sorry
+
+/-! ### Generalised binomial coefficients and the p-free factorial (Yu §7.2.2; Luo–Zhu) -/
+
+/-- The absorption identity for Mathlib's generalised binomial coefficients over `ℤ`. -/
+theorem succ_mul_ringChoose_succ (n : ℤ) (m : ℕ) :
+    ((m + 1 : ℕ) : ℤ) * Ring.choose n (m + 1) = n * Ring.choose (n - 1) m := by sorry
+
+/-- CA.2/generalized-binomial-divisibility (Yu, Lemme 7.2.2): `n / gcd(n, m)` divides the
+generalised binomial coefficient `C(n, m)`, negative `n` included. -/
+theorem div_gcd_dvd_ringChoose {n : ℤ} (hn : n ≠ 0) {m : ℕ} (hm : 1 ≤ m) :
+    n / (Int.gcd n m : ℤ) ∣ Ring.choose n m := by sorry
+
+/-- Unit test `ringChoose_neg_two_two`. -/
+example : Ring.choose (-2 : ℤ) 2 = 3 := by sorry
+
+/-- Unit test `div_gcd_dvd_ringChoose_neg_four_two`: `-2 ∣ C(-4, 2) = 10`. -/
+example : (-4 : ℤ) / (Int.gcd (-4) 2 : ℤ) ∣ Ring.choose (-4 : ℤ) 2 := by sorry
+
+/-- Unit test `not_dvd_ringChoose_four_two`: the gcd cannot be dropped, `4 ∤ C(4, 2) = 6`. -/
+example : ¬ (4 : ℤ) ∣ Ring.choose (4 : ℤ) 2 := by sorry
+
+/-- CA.2/p-free-factorial: `f_p(N)`, the product of the integers `1 ≤ i ≤ N` prime to `p`;
+`f_p(0) = 1`. -/
+def pFreeFactorial (p N : ℕ) : ℕ :=
+  ∏ i ∈ (Finset.Icc 1 N).filter (fun i => ¬ p ∣ i), i
+
+theorem pFreeFactorial_zero (p : ℕ) : pFreeFactorial p 0 = 1 := by sorry
+
+theorem pFreeFactorial_succ (p N : ℕ) :
+    pFreeFactorial p (N + 1) = pFreeFactorial p N * if p ∣ N + 1 then 1 else N + 1 := by sorry
+
+/-- The factorial split `N! = p^⌊N/p⌋ ⌊N/p⌋! f_p(N)`. -/
+theorem factorial_eq_mul_pFreeFactorial (p N : ℕ) :
+    N ! = p ^ (N / p) * (N / p) ! * pFreeFactorial p N := by sorry
+
+/-- `f_p(N)` is a `p`-adic unit. -/
+theorem not_dvd_pFreeFactorial {p : ℕ} (hp : p.Prime) (N : ℕ) : ¬ p ∣ pFreeFactorial p N := by
+  sorry
+
+theorem pFreeFactorial_prime {p : ℕ} (hp : p.Prime) : pFreeFactorial p p = (p - 1) ! := by sorry
+
+/-- Unit test `pFreeFactorial_three_six`: `1 · 2 · 4 · 5 = 40`. -/
+example : pFreeFactorial 3 6 = 40 := by sorry
+
+/-- Unit test `pFreeFactorial_two_four`. -/
+example : pFreeFactorial 2 4 = 3 := by sorry
+
+/-- Unit test `pFreeFactorial_ne_ordCompl`: `f₂(6) = 15` while the prime-to-2 part of `6!` is
+`45`. -/
+example : pFreeFactorial 2 6 ≠ 6 ! / 2 ^ (6 !).factorization 2 := by sorry
+
+/-- Unit test `factorial_six_eq_mul_pFreeFactorial`: `6! = 3² · 2! · f₃(6)`. -/
+example : 6 ! = 3 ^ (6 / 3) * (6 / 3) ! * pFreeFactorial 3 6 := by sorry
+
+/-- CA.2/p-free-factorial-binomial-factorisation, nonnegative upper entry. -/
+theorem choose_mul_mul_pFreeFactorial {p : ℕ} (hp : p.Prime) {m n : ℕ} (hmn : m ≤ n) :
+    (n * p).choose (m * p) * (pFreeFactorial p (m * p) * pFreeFactorial p ((n - m) * p)) =
+      n.choose m * pFreeFactorial p (n * p) := by sorry
+
+/-- CA.2/p-free-factorial-binomial-factorisation, negative upper entry, with the sign
+`(-1)^(m(p-1))`. -/
+theorem ringChoose_neg_mul_pFreeFactorial {p : ℕ} (hp : p.Prime) {n : ℕ} (hn : 1 ≤ n) (m : ℕ) :
+    Ring.choose (-((n * p : ℕ) : ℤ)) (m * p) *
+        ((pFreeFactorial p (m * p) * pFreeFactorial p (n * p) : ℕ) : ℤ) =
+      (-1) ^ (m * (p - 1)) * Ring.choose (-(n : ℤ)) m *
+        (pFreeFactorial p (n * p + m * p) : ℕ) := by sorry
+
+/-- Unit test `ringChoose_neg_two_two_factorisation`: `p = 2`, `n = m = 1`, both sides `3`. -/
+example : Ring.choose (-2 : ℤ) 2 * ((pFreeFactorial 2 2 * pFreeFactorial 2 2 : ℕ) : ℤ) =
+    (-1) ^ (1 * (2 - 1)) * Ring.choose (-1 : ℤ) 1 * (pFreeFactorial 2 4 : ℕ) := by sorry
+
+/-- CA.2/luo-zhu-congruence: `f_p(p^α N) ≡ f_p(p^α)^N (mod p^(2α))` for `p` odd and `α ≥ 1`,
+or `p = 2` and `α ≥ 2`. -/
+theorem pFreeFactorial_pow_mul_modEq {p : ℕ} (hp : p.Prime) {α : ℕ} (hα : 1 ≤ α)
+    (h2 : p ≠ 2 ∨ 2 ≤ α) (N : ℕ) :
+    (pFreeFactorial p (p ^ α * N) : ℤ) ≡ (pFreeFactorial p (p ^ α) : ℤ) ^ N
+      [ZMOD (p : ℤ) ^ (2 * α)] := by sorry
+
+/-- The exceptional case `p = 2`, `α = 1`: `f₂(2N) ≡ (-1)^⌊N/2⌋ (mod 4)`. -/
+theorem pFreeFactorial_two_two_mul_modEq (N : ℕ) :
+    (pFreeFactorial 2 (2 * N) : ℤ) ≡ (-1) ^ (N / 2) [ZMOD 4] := by sorry
+
+/-- Unit test `luoZhu_fails_two_one`: the congruence fails for `p = 2`, `α = 1`, `N = 2`
+(`f₂(4) = 3`, `f₂(2)² = 1`). -/
+example : ¬ ((pFreeFactorial 2 (2 ^ 1 * 2) : ℤ) ≡ (pFreeFactorial 2 (2 ^ 1) : ℤ) ^ 2
+    [ZMOD (2 : ℤ) ^ (2 * 1)]) := by sorry
+
+/-- Unit test `luoZhu_three_one_two`: `f₃(6) = 40 ≡ 4 = f₃(3)² (mod 9)`. -/
+example : (pFreeFactorial 3 (3 ^ 1 * 2) : ℤ) ≡ (pFreeFactorial 3 (3 ^ 1) : ℤ) ^ 2
+    [ZMOD (3 : ℤ) ^ (2 * 1)] := by sorry
+
+/-! ### The curve of a normalised elliptic divisibility sequence and Ward's theorem -/
+
+section EDS
+
+variable {K : Type*} [Field K] [DecidableEq K]
+
+/-- CA.2/eds-attached-curve: the Weierstrass curve
+`y² + ((d + b⁴)/(bc)) xy + b y = x³ + (c/b²) x²` attached to the parameters `b, c, d` of
+`normEDS`; the point `(0, 0)` carries the sequence. -/
+def edsCurve (b c d : K) : WeierstrassCurve K where
+  a₁ := (d + b ^ 4) / (b * c)
+  a₂ := c / b ^ 2
+  a₃ := b
+  a₄ := 0
+  a₆ := 0
+
+theorem edsCurve_nonsingular {b : K} (hb : b ≠ 0) (c d : K) :
+    (edsCurve b c d).toAffine.Nonsingular 0 0 := by sorry
+
+theorem evalEval_ψ₂_edsCurve (b c d : K) : (edsCurve b c d).ψ₂.evalEval 0 0 = b := by sorry
+
+theorem eval_Ψ₃_edsCurve {b : K} (hb : b ≠ 0) (c d : K) : (edsCurve b c d).Ψ₃.eval 0 = c := by
+  sorry
+
+theorem eval_preΨ₄_edsCurve {b c : K} (hb : b ≠ 0) (hc : c ≠ 0) (d : K) :
+    (edsCurve b c d).preΨ₄.eval 0 = d := by sorry
+
+/-- The point `(0, 0)` of `edsCurve b c d` carries `normEDS b c d`. -/
+theorem evalEval_ψ_edsCurve {b c : K} (hb : b ≠ 0) (hc : c ≠ 0) (d : K) (n : ℤ) :
+    ((edsCurve b c d).ψ n).evalEval 0 0 = normEDS b c d n := by sorry
+
+/-- The discriminant: `Δ = -D(b, c, d)/(b⁴c³)` with Ward's polynomial `D` (Silverman–Stephens,
+Appendix A, (31), up to the factor `2⁸3¹²b⁸c⁹`). -/
+theorem Δ_edsCurve {b c : K} (hb : b ≠ 0) (hc : c ≠ 0) (d : K) :
+    (edsCurve b c d).Δ = -(d * b ^ 12 + (3 * d ^ 2 - c ^ 3) * b ^ 8 +
+      (3 * d ^ 3 - 20 * c ^ 3 * d) * b ^ 4 + 16 * c ^ 6 + 8 * c ^ 3 * d ^ 2 + d ^ 4) /
+        (b ^ 4 * c ^ 3) := by sorry
+
+theorem map_edsCurve {L : Type*} [Field L] (f : K →+* L) (b c d : K) :
+    (edsCurve b c d).map f = edsCurve (f b) (f c) (f d) := by sorry
+
+/-- Unit test `Δ_edsCurve_two_three_two`: the identity sequence `normEDS 2 3 2` comes from a
+cuspidal cubic. -/
+example : (edsCurve (2 : ℚ) 3 2).Δ = 0 := by sorry
+
+/-- Unit test `Δ_edsCurve_one_neg_one_one`: the sequence `1, 1, -1, 1, 2, …` comes from the curve
+`y² + y = x³ - x` of conductor `37` (substitute `y ↦ y + x`). -/
+example : (edsCurve (1 : ℚ) (-1) 1).Δ = 37 := by sorry
+
+/-- Unit test `edsCurve_one_neg_one_one_coeffs`. -/
+example : (edsCurve (1 : ℚ) (-1) 1).a₁ = -2 ∧ (edsCurve (1 : ℚ) (-1) 1).a₂ = -1 := by sorry
+
+/-- Unit test `evalEval_ψ_edsCurve_two_three_two`: the division polynomials of the cusp curve at
+`(0, 0)` are `n`. -/
+example (n : ℤ) : ((edsCurve (2 : ℚ) 3 2).ψ n).evalEval 0 0 = n := by sorry
+
+/-- CA.2/division-polynomials-at-a-nonsingular-point: on any Weierstrass curve over a field,
+`ψₙ` vanishes at a nonsingular point exactly when `n` kills it. -/
+theorem evalEval_ψ_eq_zero_iff {W : WeierstrassCurve K} {x y : K}
+    (h : W.toAffine.Nonsingular x y) (n : ℤ) :
+    (W.ψ n).evalEval x y = 0 ↔ n • (WeierstrassCurve.Affine.Point.some x y h) = 0 := by sorry
+
+/-- Ayad's coprimality: `φₙ` and `ψₙ` do not vanish together at a nonsingular point. -/
+theorem evalEval_φ_ne_zero_or_evalEval_ψ_ne_zero {W : WeierstrassCurve K} {x y : K}
+    (h : W.toAffine.Nonsingular x y) (n : ℤ) :
+    (W.φ n).evalEval x y ≠ 0 ∨ (W.ψ n).evalEval x y ≠ 0 := by sorry
+
+/-- Part (c): where `ψₙ` does not vanish, `n • (x, y)` is the affine point `(φₙ/ψₙ², ωₙ/ψₙ³)`. -/
+theorem zsmul_some_eq_some_of_evalEval_ψ_ne_zero {W : WeierstrassCurve K} {x y : K}
+    (h : W.toAffine.Nonsingular x y) {n : ℤ} (hψ : (W.ψ n).evalEval x y ≠ 0) :
+    ∃ h' : W.toAffine.Nonsingular ((W.φ n).evalEval x y / (W.ψ n).evalEval x y ^ 2)
+        ((W.ω n).evalEval x y / (W.ψ n).evalEval x y ^ 3),
+      n • WeierstrassCurve.Affine.Point.some x y h = WeierstrassCurve.Affine.Point.some _ _ h' := by
+  sorry
+
+/-- CA.2/eds-zero-set-is-a-subgroup: over a field, with `b, c ≠ 0`, the zeros of `normEDS b c d`
+are the multiples of the order of `(0, 0)` on `edsCurve b c d`. -/
+theorem normEDS_eq_zero_iff {b c : K} (hb : b ≠ 0) (hc : c ≠ 0) (d : K) (n : ℤ) :
+    normEDS b c d n = 0 ↔
+      (addOrderOf (WeierstrassCurve.Affine.Point.some 0 0 (edsCurve_nonsingular hb c d)) : ℤ) ∣
+        n := by sorry
+
+/-- Unit test `normEDS_zmod_two_zeros`: the sequence `1, 1, -1, 1, 2, …` read in `𝔽₂` vanishes at
+`5` and not at `3`. -/
+example : normEDS (1 : ZMod 2) (-1) 1 5 = 0 ∧ normEDS (1 : ZMod 2) (-1) 1 3 ≠ 0 := by sorry
+
+end EDS
+
+open Classical in
+/-- CA.2/reduction-filtration-of-an-integral-weierstrass-equation: for an elliptic curve given
+by any (not necessarily minimal) Weierstrass equation over `ℤ_p` and `k ≥ 1`, the points with
+`‖x‖ ≥ p^(2k)`, together with `0`, form a subgroup. -/
+theorem exists_addSubgroup_filtration (p : ℕ) [Fact p.Prime] (W : WeierstrassCurve ℤ_[p])
+    (hΔ : W.Δ ≠ 0) {k : ℕ} (hk : 1 ≤ k) :
+    ∃ H : AddSubgroup (W.baseChange ℚ_[p]).toAffine.Point, ∀ P, P ∈ H ↔
+      (P = 0 ∨ ∃ (x y : ℚ_[p]) (h : (W.baseChange ℚ_[p]).toAffine.Nonsingular x y),
+        P = WeierstrassCurve.Affine.Point.some x y h ∧ (p : ℝ) ^ (2 * k) ≤ ‖x‖) := by sorry
+
+/-- CA.2/eds-strong-divisibility-at-good-primes: at a prime `p ∤ bc`, when the attached curve is
+nonsingular, the indices `n` with `p^V ∣ Wₙ` form a subgroup of `ℤ` for every `V`. -/
+theorem normEDS_dvd_iff_mem_addSubgroup (b c d : ℤ) {p : ℕ} (hp : p.Prime)
+    (hpb : ¬ (p : ℤ) ∣ b) (hpc : ¬ (p : ℤ) ∣ c) (hΔ : (edsCurve (b : ℚ) c d).Δ ≠ 0) (V : ℕ) :
+    ∃ H : AddSubgroup ℤ, ∀ n, n ∈ H ↔ (p : ℤ) ^ V ∣ normEDS b c d n := by sorry
+
+theorem emultiplicity_normEDS_gcd (b c d : ℤ) {p : ℕ} (hp : p.Prime)
+    (hpb : ¬ (p : ℤ) ∣ b) (hpc : ¬ (p : ℤ) ∣ c) (hΔ : (edsCurve (b : ℚ) c d).Δ ≠ 0) (m n : ℤ) :
+    emultiplicity (p : ℤ) (normEDS b c d (Int.gcd m n)) =
+      min (emultiplicity (p : ℤ) (normEDS b c d m)) (emultiplicity (p : ℤ) (normEDS b c d n)) := by
+  sorry
+
+/-- CA.2/ward-strong-divisibility: a nondegenerate normalised integral EDS with
+`gcd(W₃, W₄) = 1` is a strong divisibility sequence. -/
+theorem ward_strong_divisibility {b c d : ℤ} (hb : b ≠ 0) (hc : c ≠ 0)
+    (hcop : IsCoprime c (d * b)) (m n : ℤ) :
+    Int.gcd (normEDS b c d m) (normEDS b c d n) = (normEDS b c d (Int.gcd m n)).natAbs := by sorry
+
+/-- The coprimality hypothesis is necessary: strong divisibility at `(3, 4)` is
+`gcd(W₃, W₄) = |W₁| = 1`. -/
+theorem isCoprime_of_strong_divisibility {b c d : ℤ}
+    (h : ∀ m n : ℤ, Int.gcd (normEDS b c d m) (normEDS b c d n) =
+      (normEDS b c d (Int.gcd m n)).natAbs) : IsCoprime c (d * b) := by sorry
+
+/-- Ward's theorem read in Mathlib's `Nat.IsStrongDvdSequence`. -/
+theorem isStrongDvdSequence_natAbs_normEDS {b c d : ℤ} (hb : b ≠ 0) (hc : c ≠ 0)
+    (hcop : IsCoprime c (d * b)) :
+    Nat.IsStrongDvdSequence fun n : ℕ => (normEDS b c d n).natAbs := by sorry
+
+/-- Unit test `normEDS_one_neg_six_neg_six`: `0, 1, 1, -6, -6, 210, …` has `gcd(W₃, W₄) = 6`,
+so strong divisibility fails at `(3, 4)`. -/
+example : Int.gcd (normEDS 1 (-6) (-6) 3) (normEDS 1 (-6) (-6) 4) = 6 := by sorry
+
+/-- Unit test `ward_identity_sequence`: for `normEDS 2 3 2 = id` the theorem is
+`gcd(m, n) = gcd(m, n)`. -/
+example (m n : ℤ) : Int.gcd (normEDS (2 : ℤ) 3 2 m) (normEDS (2 : ℤ) 3 2 n) =
+    (normEDS (2 : ℤ) 3 2 (Int.gcd m n)).natAbs := by sorry
+
+/-- Unit test `normEDS_one_neg_one_one_values`: Silverman's sequence for `y² + y = x³ - x`. -/
+example : (List.range 11).map (fun n : ℕ => normEDS (1 : ℤ) (-1) 1 n) =
+    [0, 1, 1, -1, 1, 2, -1, -3, -5, 7, -4] := by sorry
+
+/-! ### Suppliers for steps of the earlier CA.2 targets -/
+
+section Suppliers
+
+open _root_.PowerSeries
+
+/-- CA.2/formal-sine-cosine-identities: the formal derivative of `sin` is `cos`. -/
+theorem derivative_sin (A : Type*) [CommRing A] [Algebra ℚ A] :
+    PowerSeries.derivative A (PowerSeries.sin A) = PowerSeries.cos A := by sorry
+
+theorem derivative_cos (A : Type*) [CommRing A] [Algebra ℚ A] :
+    PowerSeries.derivative A (PowerSeries.cos A) = -PowerSeries.sin A := by sorry
+
+theorem sin_sq_add_cos_sq (A : Type*) [CommRing A] [Algebra ℚ A] :
+    PowerSeries.sin A ^ 2 + PowerSeries.cos A ^ 2 = 1 := by sorry
+
+/-- Unit test `coeff_two_cos`. -/
+example : PowerSeries.coeff 2 (PowerSeries.cos ℚ) = -1 / 2 := by sorry
+
+/-- CA.2/bernoulli-coefficients-do-not-decay: `|B₂ₖ| (2π)^(2k) / (2k)! = 2 ζ(2k) ≥ 2`. -/
+theorem two_le_abs_bernoulli_mul_div {k : ℕ} (hk : k ≠ 0) :
+    2 ≤ |(bernoulli (2 * k) : ℝ)| * (2 * Real.pi) ^ (2 * k) / (2 * k) ! := by sorry
+
+/-- The Bernoulli series `∑ Bₙ zⁿ / n!` diverges on and beyond the circle `|z| = 2π`. -/
+theorem not_summable_bernoulli_mul_pow_of_le {z : ℂ} (hz : 2 * Real.pi ≤ ‖z‖) :
+    ¬ Summable fun n : ℕ => (bernoulli n : ℂ) * z ^ n / n ! := by sorry
+
+/-- CA.2/tangent-coefficients-do-not-decay: a sequence whose odd terms are the tangent numbers,
+given by their Bernoulli closed form, has `∑ eₙ zⁿ / n!` divergent on and beyond `|z| = π/2`. -/
+theorem not_summable_mul_pow_of_tangent_closed_form (e : ℕ → ℚ)
+    (he : ∀ n : ℕ, e (2 * n + 1) = (-1) ^ n * 2 ^ (2 * n + 2) * (2 ^ (2 * n + 2) - 1) *
+      bernoulli (2 * n + 2) / (2 * n + 2))
+    {z : ℂ} (hz : Real.pi / 2 ≤ ‖z‖) :
+    ¬ Summable fun n : ℕ => (e n : ℂ) * z ^ n / n ! := by sorry
+
+/-- Unit test `tangent_closed_form_three`: the closed form gives `E₃ = 2` from `B₄ = -1/30`. -/
+example : ((-1) ^ 1 * 2 ^ (2 * 1 + 2) * (2 ^ (2 * 1 + 2) - 1) * bernoulli (2 * 1 + 2) /
+    (2 * 1 + 2) : ℚ) = 2 := by sorry
+
+end Suppliers
+
+end CA2
+
+end TauCeti.ClassicalArithmetic
+
+end
+
+end CA2Continuation
 
 -- ===== CA.3 =====
 
@@ -2963,6 +4138,990 @@ end CA3
 
 end TauCeti.ClassicalArithmetic
 
+
+end
+
+-- ===== CA.3 continuation =====
+
+section CA3Continuation
+
+noncomputable section
+
+open Polynomial
+
+namespace TauCeti.ClassicalArithmetic
+
+
+-- `intValuedPolynomials`: stated in the CA.3 section above
+
+-- `characteristicIdeal`: stated in the CA.3 section above
+
+
+/-! ## Localization and Newton sequences -/
+
+section Localization
+
+variable {D K : Type*} [CommRing D] [IsDomain D] [Field K] [Algebra D K] [IsFractionRing D K]
+
+/-- **Integer-valued polynomials commute with localization** (CA.3/int-valued-localization),
+part (i): a polynomial that maps `D` into `S⁻¹D` maps `S⁻¹D` into `S⁻¹D`. Here `A` is the
+localization of `D` at `S`, sitting inside `K`. -/
+theorem eval_mem_of_forall_eval_mem_localization (S : Submonoid D) (A : Type*) [CommRing A]
+    [IsDomain A] [Algebra D A] [IsLocalization S A] [Algebra A K] [IsScalarTower D A K]
+    {f : K[X]} (hf : ∀ a : D, f.eval (algebraMap D K a) ∈ (algebraMap A K).range) (x : A) :
+    f.eval (algebraMap A K x) ∈ (algebraMap A K).range := by
+  sorry
+
+/-- **Integer-valued polynomials commute with localization** (CA.3/int-valued-localization),
+part (ii): for Noetherian `D`, `Int(S⁻¹D) = S⁻¹ Int(D)`. -/
+theorem mem_intValuedPolynomials_localization_iff [IsNoetherianRing D] (S : Submonoid D)
+    (A : Type*) [CommRing A] [IsDomain A] [Algebra D A] [IsLocalization S A] [Algebra A K]
+    [IsScalarTower D A K] [IsFractionRing A K] {f : K[X]} :
+    f ∈ intValuedPolynomials A K ↔ ∃ s ∈ S, C (algebraMap D K s) * f ∈ intValuedPolynomials D K := by
+  sorry
+
+/-- Part (iii): the characteristic ideals localize. -/
+theorem mem_characteristicIdeal_localization_iff [IsNoetherianRing D] (S : Submonoid D)
+    (A : Type*) [CommRing A] [IsDomain A] [Algebra D A] [IsLocalization S A] [Algebra A K]
+    [IsScalarTower D A K] [IsFractionRing A K] (n : ℕ) (c : K) :
+    c ∈ characteristicIdeal A K n ↔ ∃ s ∈ S, algebraMap D K s * c ∈ characteristicIdeal D K n := by
+  sorry
+
+/-- The generalized binomial polynomial `∏_{k<n} (X - a_k)/(a_n - a_k)` of a sequence in `D`. -/
+def genBinomial (a : ℕ → D) (n : ℕ) : K[X] :=
+  ∏ k ∈ Finset.range n,
+    C (algebraMap D K (a n) - algebraMap D K (a k))⁻¹ * (X - C (algebraMap D K (a k)))
+
+/-- **Newton sequences** (CA.3/newton-sequence-criterion): for an injective sequence, the
+generalized binomials are integer-valued iff they form a regular basis of `Int(D)`. -/
+theorem genBinomial_mem_iff_isBasis {a : ℕ → D} (ha : Function.Injective a) :
+    (∀ n, genBinomial (K := K) a n ∈ intValuedPolynomials D K) ↔
+      ∃ b : Module.Basis ℕ D (intValuedPolynomials D K), ∀ n, (b n : K[X]) = genBinomial a n := by
+  sorry
+
+/-- **Newton sequences**: the test-set form of the criterion. -/
+theorem genBinomial_mem_iff_testSet {a : ℕ → D} (ha : Function.Injective a) :
+    (∀ n, genBinomial (K := K) a n ∈ intValuedPolynomials D K) ↔
+      ∀ (n : ℕ) (f : K[X]), f.natDegree ≤ n →
+        (f ∈ intValuedPolynomials D K ↔
+          ∀ k ≤ n, f.eval (algebraMap D K (a k)) ∈ (algebraMap D K).range) := by
+  sorry
+
+/-- **Newton sequences**: the characteristic ideals of a Newton sequence. -/
+theorem characteristicIdeal_eq_span_of_newton {a : ℕ → D} (ha : Function.Injective a)
+    (hN : ∀ n, genBinomial (K := K) a n ∈ intValuedPolynomials D K) (n : ℕ) :
+    characteristicIdeal D K n =
+      Submodule.span D {(algebraMap D K (∏ k ∈ Finset.range n, (a n - a k)))⁻¹} := by
+  sorry
+
+/-- Non-example for the criterion: in `ℤ`, a sequence starting `0, 2` is not a Newton sequence,
+since its first binomial is `X / 2`. -/
+example (a : ℕ → ℤ) (h0 : a 0 = 0) (h1 : a 1 = 2) :
+    genBinomial (K := ℚ) a 1 ∉ intValuedPolynomials ℤ ℚ := by
+  sorry
+
+end Localization
+
+/-! ## The Legendre exponent -/
+
+/-- **The Legendre exponent** (CA.3/legendre-exponent): `w_q(n) = ∑_{k ≥ 1} ⌊n / q^k⌋`; the terms
+with `k > n` vanish for `q ≥ 2`. -/
+def legendreExponent (q n : ℕ) : ℕ :=
+  ∑ k ∈ Finset.Icc 1 n, n / q ^ k
+
+namespace LegendreExponent
+
+/-- `w_q(n) = ∑_{l ≤ n} v_q(l)`, with `v_q(l)` the multiplicity of `q` in `l`. -/
+theorem eq_sum_multiplicity {q : ℕ} (hq : 2 ≤ q) (n : ℕ) :
+    (legendreExponent q n : ℕ∞) = ∑ l ∈ Finset.Icc 1 n, emultiplicity q l := by
+  sorry
+
+/-- `w_q(n + 1) = w_q(n) + v_q(n + 1)`. -/
+theorem succ {q : ℕ} (hq : 2 ≤ q) (n : ℕ) :
+    (legendreExponent q (n + 1) : ℕ∞) = legendreExponent q n + emultiplicity q (n + 1) := by
+  sorry
+
+/-- `w_q(n) = 0 ↔ n < q`. -/
+theorem eq_zero_iff {q : ℕ} (hq : 2 ≤ q) (n : ℕ) : legendreExponent q n = 0 ↔ n < q := by
+  sorry
+
+/-- `w_q(q) = 1`. -/
+theorem self {q : ℕ} (hq : 2 ≤ q) : legendreExponent q q = 1 := by
+  sorry
+
+/-- Superadditivity. -/
+theorem add_le (q m n : ℕ) : legendreExponent q m + legendreExponent q n ≤ legendreExponent q (m + n) := by
+  sorry
+
+/-- For a prime, Legendre's formula. -/
+theorem prime_eq_padicValNat {p : ℕ} [Fact p.Prime] (n : ℕ) :
+    legendreExponent p n = padicValNat p n.factorial := by
+  sorry
+
+end LegendreExponent
+
+/-- Unit test `TauCeti.ClassicalArithmetic.legendreExponent_two_four`. -/
+example : legendreExponent 2 4 = 3 ∧ legendreExponent 3 10 = 4 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.legendreExponent_four_four`. -/
+example : legendreExponent 4 4 = 1 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.legendreExponent_lt`. -/
+example (q n : ℕ) (h : n < q) : legendreExponent q n = 0 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.legendreExponent_five_factorial`. -/
+example : legendreExponent 5 26 = 6 ∧ padicValNat 5 (Nat.factorial 26) = 6 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.legendreExponent_four_eight_ne`: the base-`4` exponent
+is not the `2`-adic valuation of `8!`. -/
+example : legendreExponent 4 8 = 2 ∧ padicValNat 2 (Nat.factorial 8) = 7 := by
+  sorry
+
+/-! ## The v-ordering of a discrete valuation ring -/
+
+section VOrdering
+
+variable {V : Type*} [CommRing V] [IsDomain V] [IsDiscreteValuationRing V]
+
+/-- **The v-ordering of a DVR** (CA.3/v-ordering-of-a-dvr): for a uniformizer `π` and
+representatives `r : Fin q → V` of the residue classes, `a_n = ∑_i r(n_i) π^i` over the base-`q`
+digits `n_i` of `n`. -/
+def dvrVOrdering (π : V) {q : ℕ} (hq : 0 < q) (r : Fin q → V) (n : ℕ) : V :=
+  ∑ i ∈ Finset.range (Nat.digits q n).length, r ⟨n / q ^ i % q, Nat.mod_lt _ hq⟩ * π ^ i
+
+/-- Data for the theorems below: a uniformizer, finite residue field of cardinality `q`, and a
+system of representatives with `r 0 = 0`. -/
+structure VOrderingData (V : Type*) [CommRing V] [IsDomain V] [IsDiscreteValuationRing V] where
+  /-- The cardinality of the residue field. -/
+  q : ℕ
+  two_le : 2 ≤ q
+  card_residue : Nat.card (IsLocalRing.ResidueField V) = q
+  /-- The uniformizer. -/
+  π : V
+  irreducible : Irreducible π
+  /-- The representatives of the residue classes. -/
+  r : Fin q → V
+  r_zero : r ⟨0, by omega⟩ = 0
+  r_bijective : Function.Bijective fun i => IsLocalRing.residue V (r i)
+
+namespace VOrderingData
+
+variable (d : VOrderingData V)
+
+/-- The v-ordering attached to the data. -/
+def seq (n : ℕ) : V := dvrVOrdering d.π (by have := d.two_le; omega) d.r n
+
+theorem seq_zero : d.seq 0 = 0 := by
+  sorry
+
+/-- (a) `v(a_n - a_m) = v_q(n - m)`. -/
+theorem addVal_seq_sub {n m : ℕ} (h : n ≠ m) :
+    IsDiscreteValuationRing.addVal V (d.seq n - d.seq m) = emultiplicity (d.q : ℤ) ((n : ℤ) - m) := by
+  sorry
+
+theorem seq_injective : Function.Injective d.seq := by
+  sorry
+
+/-- (c) `v(∏_{k<n} (a_n - a_k)) = w_q(n)`. -/
+theorem addVal_prod_seq (n : ℕ) :
+    IsDiscreteValuationRing.addVal V (∏ k ∈ Finset.range n, (d.seq n - d.seq k)) =
+      legendreExponent d.q n := by
+  sorry
+
+/-- (d) The v-ordering property. -/
+theorem le_addVal_prod_sub_seq (x : V) (n : ℕ) :
+    (legendreExponent d.q n : ℕ∞) ≤
+      IsDiscreteValuationRing.addVal V (∏ k ∈ Finset.range n, (x - d.seq k)) := by
+  sorry
+
+/-- (b) `q^h` consecutive terms form a complete system of representatives modulo `𝔪^h`. -/
+theorem bijective_mod_pow (s h : ℕ) :
+    Function.Bijective fun k : Fin (d.q ^ h) =>
+      Ideal.Quotient.mk (IsLocalRing.maximalIdeal V ^ h) (d.seq (s + k)) := by
+  sorry
+
+end VOrderingData
+
+/-- Unit test `TauCeti.ClassicalArithmetic.dvrVOrdering_int_eq`: in `ℤ_(p)` with `π = p` and
+`r i = i`, the v-ordering is `n ↦ n`. -/
+example (p : ℕ) [hp : Fact p.Prime] (n : ℕ) :
+    dvrVOrdering ((p : ℤ) : Localization.AtPrime (Ideal.span {(p : ℤ)})) hp.out.pos
+      (fun i => ((i : ℕ) : Localization.AtPrime (Ideal.span {(p : ℤ)}))) n = n := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.dvrVOrdering_gaussian`: with `q = 2` and representatives
+`0, 1` (as for `ℤ[i]` localized at `1 + i`), `a₂ = π`, `a₃ = 1 + π`, `a₄ = π²`, and in a DVR with
+uniformizer `π` the valuation of `a₄ − a₀` is `2`. -/
+example (π : V) : dvrVOrdering π two_pos ![0, 1] 2 = π ∧ dvrVOrdering π two_pos ![0, 1] 3 = 1 + π ∧
+    dvrVOrdering π two_pos ![0, 1] 4 = π ^ 2 := by
+  sorry
+
+example (π : V) (hπ : Irreducible π) :
+    IsDiscreteValuationRing.addVal V (dvrVOrdering π two_pos ![0, 1] 4 - dvrVOrdering π two_pos ![0, 1] 0) = 2 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.natCast_not_vOrdering_inert`: if `3` is a uniformizer and
+`2` a unit (as in `ℤ[i]` localized at `3`, residue field of cardinality `9`), the sequence `n ↦ n`
+violates property (c): `v(3 · 2 · 1) = 1`, while `w_9(3) = 0`. -/
+example (h3 : Irreducible (3 : V)) (h2 : IsUnit (2 : V)) :
+    IsDiscreteValuationRing.addVal V (∏ k ∈ Finset.range 3, ((3 : V) - k)) ≠ legendreExponent 9 3 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.dvrVOrdering_first_terms`. -/
+example (π : V) {q : ℕ} (hq : 0 < q) (r : Fin q → V) (hr : r ⟨0, hq⟩ = 0) :
+    dvrVOrdering π hq r 0 = 0 ∧ ∀ i : Fin q, 0 < (i : ℕ) → dvrVOrdering π hq r i = r i := by
+  sorry
+
+/-- **Regular basis of `Int(V)`** (CA.3/local-regular-basis-of-int-dvr): the characteristic ideals
+of a DVR with residue field of cardinality `q`. -/
+theorem characteristicIdeal_dvr {K : Type*} [Field K] [Algebra V K] [IsFractionRing V K]
+    (d : VOrderingData V) (n : ℕ) :
+    characteristicIdeal V K n =
+      Submodule.span V {(algebraMap V K d.π ^ legendreExponent d.q n)⁻¹} := by
+  sorry
+
+/-- **Regular basis of `Int(V)`**: the generalized binomials of the v-ordering form a regular
+basis. -/
+theorem exists_basis_genBinomial_dvr {K : Type*} [Field K] [Algebra V K] [IsFractionRing V K]
+    (d : VOrderingData V) :
+    ∃ b : Module.Basis ℕ V (intValuedPolynomials V K), ∀ n, (b n : K[X]) = genBinomial d.seq n := by
+  sorry
+
+/-- An infinite residue field gives `Int(V) = V[X]`. -/
+theorem intValuedPolynomials_eq_of_infinite_residueField {K : Type*} [Field K] [Algebra V K]
+    [IsFractionRing V K] [Infinite (IsLocalRing.ResidueField V)] (f : K[X]) :
+    f ∈ intValuedPolynomials V K ↔ ∀ i, f.coeff i ∈ (algebraMap V K).range := by
+  sorry
+
+end VOrdering
+
+/-! ## Factorial ideals and the ideals `Π_q` -/
+
+section Factorial
+
+open IsDedekindDomain
+
+variable (D : Type*) [CommRing D] [IsDedekindDomain D]
+
+/-- The norm `N(𝔪) = |D/𝔪|` of a maximal ideal. -/
+abbrev residueCard (v : HeightOneSpectrum D) : ℕ := Nat.card (D ⧸ v.asIdeal)
+
+/-- **The factorial ideal** (CA.3/factorial-ideal): `n!_D = ∏_𝔪 𝔪^{w_{N(𝔪)}(n)}`. -/
+def factorialIdeal (n : ℕ) : Ideal D :=
+  ∏ᶠ v : HeightOneSpectrum D, v.asIdeal ^ legendreExponent (residueCard D v) n
+
+/-- **The ideal `Π_q(D)`** (CA.3/polya-ideal): the product of the maximal ideals of norm `q`. -/
+def polyaIdeal (q : ℕ) : Ideal D :=
+  ∏ᶠ v : {v : HeightOneSpectrum D // residueCard D v = q}, v.1.asIdeal
+
+variable {D}
+variable (K : Type*) [Field K] [Algebra D K] [IsFractionRing D K]
+
+/-- Hypotheses of the global theory: `D` is not a field and its residue fields are finite. -/
+def FiniteResidueFields : Prop := ∀ v : HeightOneSpectrum D, Finite (D ⧸ v.asIdeal)
+
+/-- **The local formula for the characteristic ideals**
+(CA.3/characteristic-ideals-of-a-dedekind-domain): the exponent of `𝔪` in `I_n(D)` is
+`-w_{N(𝔪)}(n)`. -/
+theorem characteristicIdeal_eq_finprod (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    (n : ℕ) :
+    characteristicIdeal D K n =
+      ((∏ᶠ v : HeightOneSpectrum D,
+          (v.asIdeal : FractionalIdeal (nonZeroDivisors D) K) ^
+            (-(legendreExponent (residueCard D v) n : ℤ)) : FractionalIdeal (nonZeroDivisors D) K) :
+        Submodule D K) := by
+  sorry
+
+/-- Only finitely many maximal ideals have norm at most `n`. -/
+theorem finite_setOf_residueCard_le (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    (n : ℕ) : {v : HeightOneSpectrum D | residueCard D v ≤ n}.Finite := by
+  sorry
+
+namespace FactorialIdeal
+
+/-- The exponent of `𝔪` in `n!_D`. -/
+theorem count_factorialIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    (v : HeightOneSpectrum D) (n : ℕ) :
+    FractionalIdeal.count K v (factorialIdeal D n : FractionalIdeal (nonZeroDivisors D) K) =
+      legendreExponent (residueCard D v) n := by
+  sorry
+
+/-- `n!_D = I_n(D)⁻¹`, stated as `n!_D · I_n(D) = D` in the submodules of `K`. -/
+theorem mul_characteristicIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    (n : ℕ) :
+    ((factorialIdeal D n : FractionalIdeal (nonZeroDivisors D) K) : Submodule D K) *
+      characteristicIdeal D K n = 1 := by
+  sorry
+
+/-- `n!_D` is a nonzero ideal, so it has a class in the class group. -/
+theorem ne_bot (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (n : ℕ) :
+    factorialIdeal D n ≠ ⊥ := by
+  sorry
+
+theorem zero_eq_top : factorialIdeal D 0 = ⊤ := by
+  sorry
+
+theorem one_eq_top : factorialIdeal D 1 = ⊤ := by
+  sorry
+
+/-- `n!_ℤ = (n!)`. -/
+theorem int (n : ℕ) : factorialIdeal ℤ n = Ideal.span {((n.factorial : ℕ) : ℤ)} := by
+  sorry
+
+theorem mul_dvd (hfin : FiniteResidueFields (D := D)) (m n : ℕ) :
+    factorialIdeal D m * factorialIdeal D n ∣ factorialIdeal D (m + n) := by
+  sorry
+
+theorem dvd_succ (hfin : FiniteResidueFields (D := D)) (n : ℕ) :
+    factorialIdeal D n ∣ factorialIdeal D (n + 1) := by
+  sorry
+
+/-- `n!_D = ∏_{2 ≤ q ≤ n} Π_q(D)^{w_q(n)}`. -/
+theorem eq_prod_polyaIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (n : ℕ) :
+    factorialIdeal D n = ∏ q ∈ Finset.Icc 2 n, polyaIdeal D q ^ legendreExponent q n := by
+  sorry
+
+/-- `(n + 1)!_D = n!_D · ∏_q Π_q(D)^{v_q(n + 1)}`. -/
+theorem succ (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (n : ℕ) :
+    factorialIdeal D (n + 1) =
+      factorialIdeal D n * ∏ q ∈ Finset.Icc 2 (n + 1), polyaIdeal D q ^ multiplicity q (n + 1) := by
+  sorry
+
+end FactorialIdeal
+
+namespace PolyaIdeal
+
+/-- The exponent of `𝔪` in `Π_q(D)`. -/
+theorem count_polyaIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    (v : HeightOneSpectrum D) (q : ℕ) :
+    FractionalIdeal.count K v (polyaIdeal D q : FractionalIdeal (nonZeroDivisors D) K) =
+      if residueCard D v = q then 1 else 0 := by
+  sorry
+
+/-- `Π_q(D)` is a nonzero ideal. -/
+theorem ne_bot (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (q : ℕ) :
+    polyaIdeal D q ≠ ⊥ := by
+  sorry
+
+theorem eq_top_iff (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (q : ℕ) :
+    polyaIdeal D q = ⊤ ↔ ∀ v : HeightOneSpectrum D, residueCard D v ≠ q := by
+  sorry
+
+theorem eq_top_of_not_isPrimePow (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    {q : ℕ} (hq : ¬ IsPrimePow q) : polyaIdeal D q = ⊤ := by
+  sorry
+
+theorem isCoprime (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) {q q' : ℕ}
+    (h : q ≠ q') : IsCoprime (polyaIdeal D q) (polyaIdeal D q') := by
+  sorry
+
+end PolyaIdeal
+
+/-- **Factorial ideals and the `Π_q` generate the same free group** (CA.3/factorial-group-basis):
+the recursive inversion for a prime power `q = p^f`. -/
+theorem polyaIdeal_prime_pow_eq (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D))
+    {p : ℕ} (hp : p.Prime) {f : ℕ} (hf : 1 ≤ f) :
+    (polyaIdeal D (p ^ f) : FractionalIdeal (nonZeroDivisors D) K) =
+      (factorialIdeal D (p ^ f) : FractionalIdeal (nonZeroDivisors D) K) *
+        (factorialIdeal D (p ^ f - 1) : FractionalIdeal (nonZeroDivisors D) K)⁻¹ *
+        ∏ j ∈ Finset.Ico 1 f,
+          (polyaIdeal D (p ^ j) : FractionalIdeal (nonZeroDivisors D) K) ^ (-((f / j : ℕ) : ℤ)) := by
+  sorry
+
+/-- **Factorial ideals and the `Π_q` generate the same free group**: freeness. -/
+theorem eq_zero_of_prod_polyaIdeal_zpow_eq_one (hD : ¬ IsField D)
+    (hfin : FiniteResidueFields (D := D)) (s : Finset ℕ) (c : ℕ → ℤ)
+    (h : ∏ q ∈ s, (polyaIdeal D q : FractionalIdeal (nonZeroDivisors D) K) ^ c q = 1) :
+    ∀ q ∈ s, polyaIdeal D q ≠ ⊤ → c q = 0 := by
+  sorry
+
+/-- **The Pólya–Ostrowski criterion** (CA.3/polya-ostrowski-criterion). -/
+theorem exists_regular_basis_iff_factorialIdeal_isPrincipal (hD : ¬ IsField D)
+    (hfin : FiniteResidueFields (D := D)) :
+    (∃ b : Module.Basis ℕ D (intValuedPolynomials D K), ∀ n, (b n : K[X]).natDegree = n) ↔
+      ∀ n, (factorialIdeal D n).IsPrincipal := by
+  sorry
+
+/-- **The Pólya–Ostrowski criterion**, the form with the ideals `Π_q`. -/
+theorem forall_factorialIdeal_isPrincipal_iff (hD : ¬ IsField D)
+    (hfin : FiniteResidueFields (D := D)) :
+    (∀ n, (factorialIdeal D n).IsPrincipal) ↔ ∀ q, (polyaIdeal D q).IsPrincipal := by
+  sorry
+
+end Factorial
+
+/-- Unit test `TauCeti.ClassicalArithmetic.factorialIdeal_int_eq`. -/
+example (n : ℕ) : factorialIdeal ℤ n = Ideal.span {((n.factorial : ℕ) : ℤ)} := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.factorialIdeal_zero_one`. -/
+example (D : Type*) [CommRing D] [IsDedekindDomain D] :
+    factorialIdeal D 0 = ⊤ ∧ factorialIdeal D 1 = ⊤ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.factorialIdeal_gaussian_four`: in `ℤ[i]`, `2! = (1 + i)` and
+`4! = (1 + i)³`. -/
+example : factorialIdeal GaussianInt 2 = Ideal.span {(⟨1, 1⟩ : GaussianInt)} ∧
+    factorialIdeal GaussianInt 4 = Ideal.span {(⟨1, 1⟩ : GaussianInt) ^ 3} := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaIdeal_gaussian`. -/
+example : polyaIdeal GaussianInt 2 = Ideal.span {(⟨1, 1⟩ : GaussianInt)} ∧
+    polyaIdeal GaussianInt 5 = Ideal.span {(5 : GaussianInt)} ∧
+    polyaIdeal GaussianInt 9 = Ideal.span {(3 : GaussianInt)} ∧ polyaIdeal GaussianInt 3 = ⊤ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaIdeal_int`. -/
+example (p : ℕ) (hp : p.Prime) :
+    polyaIdeal ℤ p = Ideal.span {(p : ℤ)} ∧ polyaIdeal ℤ 4 = ⊤ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaIdeal_six`. -/
+example (D : Type*) [CommRing D] [IsDedekindDomain D] (hD : ¬ IsField D)
+    (hfin : FiniteResidueFields (D := D)) : polyaIdeal D 6 = ⊤ := by
+  sorry
+
+/-! ## Pólya fields and the Pólya group -/
+
+section Polya
+
+open NumberField
+
+variable (K : Type*) [Field K] [NumberField K]
+
+/-- **Pólya fields** (CA.3/polya-field): `Int(𝓞_K)` has a regular basis. -/
+def IsPolyaField : Prop :=
+  ∃ b : Module.Basis ℕ (𝓞 K) (intValuedPolynomials (𝓞 K) K), ∀ n, (b n : K[X]).natDegree = n
+
+/-- **The Pólya group** (CA.3/polya-group): the subgroup of the class group generated by the
+classes of the factorial ideals. -/
+def polyaGroup : Subgroup (ClassGroup (𝓞 K)) :=
+  Subgroup.closure
+    {c | ∃ (n : ℕ) (I : nonZeroDivisors (Ideal (𝓞 K))), (I : Ideal (𝓞 K)) = factorialIdeal (𝓞 K) n ∧
+      c = ClassGroup.mk0 I}
+
+namespace PolyaGroup
+
+/-- The Pólya group is generated by the classes of the `Π_q`. -/
+theorem eq_closure_polyaIdeal :
+    polyaGroup K = Subgroup.closure
+      {c | ∃ (q : ℕ) (I : nonZeroDivisors (Ideal (𝓞 K))), (I : Ideal (𝓞 K)) = polyaIdeal (𝓞 K) q ∧
+        c = ClassGroup.mk0 I} := by
+  sorry
+
+/-- `Po(K) = ⊥` iff `K` is a Pólya field. -/
+theorem eq_bot_iff : polyaGroup K = ⊥ ↔ IsPolyaField K := by
+  sorry
+
+theorem card_dvd_classNumber : Nat.card (polyaGroup K) ∣ classNumber K := by
+  sorry
+
+theorem eq_bot_of_classNumber_eq_one (h : classNumber K = 1) : polyaGroup K = ⊥ := by
+  sorry
+
+theorem rat : polyaGroup ℚ = ⊥ := by
+  sorry
+
+end PolyaGroup
+
+namespace IsPolyaField
+
+theorem iff_factorialIdeal_isPrincipal :
+    IsPolyaField K ↔ ∀ n, (factorialIdeal (𝓞 K) n).IsPrincipal := by
+  sorry
+
+theorem iff_polyaIdeal_isPrincipal :
+    IsPolyaField K ↔ ∀ q, (polyaIdeal (𝓞 K) q).IsPrincipal := by
+  sorry
+
+theorem of_classNumber_eq_one (h : classNumber K = 1) : IsPolyaField K := by
+  sorry
+
+theorem rat : IsPolyaField ℚ := by
+  sorry
+
+end IsPolyaField
+
+/-- **Ostrowski's theorem** (CA.3/polya-group-of-a-galois-field): in a Galois field,
+`Π_{p^f}^e = p 𝓞_K`. -/
+theorem polyaIdeal_pow_ramificationIdxIn [IsGalois ℚ K] {p : ℕ} (hp : p.Prime) :
+    polyaIdeal (𝓞 K) (p ^ (Ideal.span {(p : ℤ)}).inertiaDegIn (𝓞 K)) ^
+        (Ideal.span {(p : ℤ)}).ramificationIdxIn (𝓞 K) = Ideal.span {(p : 𝓞 K)} := by
+  sorry
+
+/-- **Ostrowski's theorem**: the other `Π_{p^j}` are trivial. -/
+theorem polyaIdeal_prime_pow_eq_top [IsGalois ℚ K] {p : ℕ} (hp : p.Prime) {j : ℕ}
+    (hj : j ≠ (Ideal.span {(p : ℤ)}).inertiaDegIn (𝓞 K)) : polyaIdeal (𝓞 K) (p ^ j) = ⊤ := by
+  sorry
+
+/-- **Ostrowski's theorem**: `|Po(K)|` divides the product of the ramification indices. -/
+theorem card_polyaGroup_dvd_prod_ramificationIdxIn [IsGalois ℚ K] :
+    Nat.card (polyaGroup K) ∣
+      ∏ p ∈ (discr K).natAbs.primeFactors, (Ideal.span {(p : ℤ)}).ramificationIdxIn (𝓞 K) := by
+  sorry
+
+/-- **Ostrowski's theorem**: a Galois field whose degree is prime to its class number is a Pólya
+field. -/
+theorem isPolyaField_of_coprime [IsGalois ℚ K] (h : (Module.finrank ℚ K).Coprime (classNumber K)) :
+    IsPolyaField K := by
+  sorry
+
+/-- **The imaginary quadratic Pólya fields** (CA.3/imaginary-quadratic-polya-fields). -/
+theorem isPolyaField_iff_of_sq_eq {d : ℤ} (hd : d < 0) (hsq : Squarefree d)
+    (hK : Module.finrank ℚ K = 2) {θ : K} (hθ : θ ^ 2 = d) :
+    IsPolyaField K ↔ d = -1 ∨ d = -2 ∨ ∃ p : ℕ, p.Prime ∧ p % 4 = 3 ∧ d = -p := by
+  sorry
+
+/-- **Zantema's theorem** (CA.3/cyclotomic-fields-are-polya): cyclotomic fields are Pólya fields. -/
+theorem isPolyaField_of_isCyclotomicExtension (n : ℕ) [NeZero n] [IsCyclotomicExtension {n} ℚ K] :
+    IsPolyaField K := by
+  sorry
+
+/-- **Zantema's theorem**, the explicit generator at a prime dividing `n = p^(k+1) m`. -/
+theorem polyaIdeal_eq_span_zeta_sub_one {n p k m : ℕ} [NeZero n] [IsCyclotomicExtension {n} ℚ K]
+    [NeZero (p ^ (k + 1))] (hp : p.Prime) (hn : n = p ^ (k + 1) * m) (hm : ¬ p ∣ m) {ζ : K}
+    (hζ : IsPrimitiveRoot ζ (p ^ (k + 1))) :
+    polyaIdeal (𝓞 K) (p ^ orderOf (p : ZMod m)) = Ideal.span {hζ.toInteger - 1} := by
+  sorry
+
+end Polya
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaGroup_rat_test`. -/
+example : polyaGroup ℚ = ⊥ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.isPolyaField_rat_test`. -/
+example : IsPolyaField ℚ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.not_isPolyaField_sqrt_neg_five`: an imaginary
+quadratic field with two ramified primes is not a Pólya field (here `ℚ(√-5)`). -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -5) : ¬ IsPolyaField K := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.isPolyaField_sqrt_neg_23`: `ℚ(√-23)` is a Pólya field
+although its class number is `3`. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -23) : IsPolyaField K ∧ NumberField.classNumber K = 3 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaGroup_sqrt_neg_23_ne_classGroup`. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -23) : polyaGroup K = ⊥ ∧ Nat.card (ClassGroup (NumberField.RingOfIntegers K)) = 3 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.factorialIdeal_sqrt_neg_five_two` and
+`TauCeti.ClassicalArithmetic.polyaIdeal_sqrt_neg_five`: in `ℚ(√-5)`, `2! = Π₂ = (2, 1 + √-5)` is not
+principal, although `Π₂² = (2)`. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -5) :
+    factorialIdeal (NumberField.RingOfIntegers K) 2 = polyaIdeal (NumberField.RingOfIntegers K) 2 ∧
+    ¬ (polyaIdeal (NumberField.RingOfIntegers K) 2).IsPrincipal ∧
+    polyaIdeal (NumberField.RingOfIntegers K) 2 ^ 2 = Ideal.span {(2 : NumberField.RingOfIntegers K)} := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.isPolyaField_gaussian`: `ℚ(i)` is a Pólya field. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -1) : IsPolyaField K := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.card_polyaGroup_dvd_sqrt_neg_23`. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -23) : Nat.card (polyaGroup K) ∣ NumberField.classNumber K := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.polyaGroup_sqrt_neg_five`. -/
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) {θ : K}
+    (hθ : θ ^ 2 = -5) : polyaGroup K = ⊤ ∧ Nat.card (polyaGroup K) = 2 := by
+  sorry
+
+/-! ## Factor bounds -/
+
+section FactorBounds
+
+/-- The Euclidean norm of the coefficient vector of an integer polynomial. -/
+def l2Norm (f : ℤ[X]) : ℝ :=
+  Real.sqrt (∑ i ∈ f.support, ((f.coeff i : ℤ) : ℝ) ^ 2)
+
+/-- **Mignotte's inequality for irreducible integer factors**
+(CA.3/mignotte-irreducible-factor-l2-bound), as quoted by Bary-Soroker–Koukoulopoulos–Kozma. -/
+theorem l2Norm_le_of_irreducible_dvd {A I : ℤ[X]} (hA : A ≠ 0) (hI : Irreducible I) (hdvd : I ∣ A)
+    (hm : 1 ≤ I.natDegree) :
+    l2Norm I ≤ Real.exp (Real.sqrt I.natDegree) *
+      (I.natDegree + 2 * Real.sqrt I.natDegree + 2) ^ (1 + Real.sqrt I.natDegree) *
+      l2Norm A ^ (1 + Real.sqrt I.natDegree) := by
+  sorry
+
+/-- The classical consequence of the Mahler-measure API: `‖I‖₂ ≤ C(2m, m)^{1/2} ‖A‖₂`. -/
+theorem l2Norm_le_sqrt_choose_mul_of_dvd {A I : ℤ[X]} (hA : A ≠ 0) (hdvd : I ∣ A) :
+    l2Norm I ≤ Real.sqrt ((2 * I.natDegree).choose I.natDegree) * l2Norm A := by
+  sorry
+
+/-- **Size of an irreducible factor at an integer point** (CA.3/irreducible-factor-evaluation-bound;
+Bary-Soroker–Koukoulopoulos–Kozma, Lemma 3.4). Any irreducible `I` of `ℤ[X]`, including a prime
+constant (degree `0`). -/
+theorem abs_eval_le_of_irreducible_dvd {A I : ℤ[X]} {H : ℝ} (hH : 1 ≤ H)
+    (hcoeff : ∀ i, |(A.coeff i : ℝ)| ≤ H) (hn : 1 ≤ A.natDegree) (hI : Irreducible I)
+    (hdvd : I ∣ A) {N : ℤ} (hN : 2 ≤ N) :
+    |((I.eval N : ℤ) : ℝ)| ≤ (N : ℝ) ^ I.natDegree *
+      Real.exp (4 * (1 + Real.sqrt I.natDegree) *
+        Real.log (14 * Real.sqrt A.natDegree * H)) := by
+  sorry
+
+/-- The corrected coefficient norm `‖A‖₂ ≤ H √(n + 1)`. -/
+theorem l2Norm_le_of_abs_coeff_le {A : ℤ[X]} {H : ℝ} (hcoeff : ∀ i, |(A.coeff i : ℝ)| ≤ H) :
+    l2Norm A ≤ H * Real.sqrt (A.natDegree + 1) := by
+  sorry
+
+end FactorBounds
+
+/-! ## Squarefree integral combinations -/
+
+section Squarefree
+
+/-- **The primitive gcd** (CA.3/primitive-polynomial-gcd): the primitive part of the gcd in the GCD
+monoid `ℤ[X]` (whose normalization makes the leading coefficient positive). -/
+def primitiveGcd (s : Finset ℤ[X]) : ℤ[X] :=
+  (s.gcd id).primPart
+
+namespace PrimitiveGcd
+
+theorem isPrimitive (s : Finset ℤ[X]) (hs : s.Nonempty) (h0 : (0 : ℤ[X]) ∉ s) :
+    (primitiveGcd s).IsPrimitive := by
+  sorry
+
+theorem leadingCoeff_pos (s : Finset ℤ[X]) (hs : s.Nonempty) (h0 : (0 : ℤ[X]) ∉ s) :
+    0 < (primitiveGcd s).leadingCoeff := by
+  sorry
+
+theorem dvd (s : Finset ℤ[X]) {Q : ℤ[X]} (hQ : Q ∈ s) : primitiveGcd s ∣ Q := by
+  sorry
+
+/-- The family must be nonempty and free of `0`: for `s = ∅` or `s = {0}` the primitive gcd is `1`
+while every primitive `H` satisfies the hypothesis. -/
+theorem dvd_primitiveGcd (s : Finset ℤ[X]) (hs : s.Nonempty) (h0 : (0 : ℤ[X]) ∉ s) {H : ℤ[X]}
+    (hH : H.IsPrimitive)
+    (h : ∀ Q ∈ s, H.map (Int.castRingHom ℚ) ∣ Q.map (Int.castRingHom ℚ)) : H ∣ primitiveGcd s := by
+  sorry
+
+theorem natDegree_eq (s : Finset ℤ[X]) (h0 : (0 : ℤ[X]) ∉ s) :
+    (primitiveGcd s).natDegree = (s.gcd (Polynomial.map (Int.castRingHom ℚ))).natDegree := by
+  sorry
+
+/-- The quotients `Q / G` have no common nonconstant primitive factor. -/
+theorem quotients_coprime (s : Finset ℤ[X]) {H : ℤ[X]} (hH : H.IsPrimitive)
+    (h : ∀ Q ∈ s, H * primitiveGcd s ∣ Q) (hs : s.Nonempty) (h0 : (0 : ℤ[X]) ∉ s) : IsUnit H := by
+  sorry
+
+end PrimitiveGcd
+
+/-- Unit test `TauCeti.ClassicalArithmetic.primitiveGcd_two_four`. -/
+example : primitiveGcd {2 * X, 4 * X} = X := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.primitiveGcd_ne_gcdMonoid`: the content is discarded. -/
+example : ({2 * X, 4 * X} : Finset ℤ[X]).gcd id = 2 * X ∧ primitiveGcd {2 * X, 4 * X} = X := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.natDegree_primitiveGcd_eq`. -/
+example : primitiveGcd {X ^ 2 - 1, X ^ 2 + X} = X + 1 ∧
+    (primitiveGcd {X ^ 2 - 1, X ^ 2 + X}).natDegree =
+      (({X ^ 2 - 1, X ^ 2 + X} : Finset ℤ[X]).gcd (Polynomial.map (Int.castRingHom ℚ))).natDegree := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.primitiveGcd_single`. -/
+example : primitiveGcd {-6 * X - 4} = 3 * X + 2 := by
+  sorry
+
+/-- **A bounded squarefree integral combination** (CA.3/squarefree-integral-combination; Smith,
+Lemma 2.10). The polynomials are `Q 0, …, Q k`, with `Q 0` taking the coefficient `1`. The sum of
+the coefficients is at most `2d − 1` in `ℕ` (so `0` when `d = 0`), which gives Smith's bound `2d` on
+each. -/
+theorem exists_squarefree_combination {k n : ℕ} (Q : Fin (k + 1) → ℤ[X]) (hQ : ∀ i, Q i ≠ 0)
+    (hdeg : ∀ i, (Q i).natDegree ≤ n) (hn : ∃ i, (Q i).natDegree = n) :
+    ∃ b : Fin k → ℕ,
+      (∑ j, b j ≤ 2 * (n - (primitiveGcd (Finset.univ.image Q)).natDegree) - 1) ∧
+      ∃ R : ℤ[X], Q 0 + ∑ j : Fin k, (b j : ℤ[X]) * Q j.succ = primitiveGcd (Finset.univ.image Q) * R ∧
+        R.natDegree = n - (primitiveGcd (Finset.univ.image Q)).natDegree ∧
+        Squarefree (R.map (Int.castRingHom ℚ)) := by
+  sorry
+
+/-- Unit test from the acceptance list: `X² + b X⁰` is squarefree for `b = 1` but not for `b = 0`. -/
+example : ¬ Squarefree ((X ^ 2 : ℚ[X])) ∧ Squarefree ((X ^ 2 + 1 : ℚ[X])) := by
+  sorry
+
+end Squarefree
+
+/-! ## Fujiwara's root bound -/
+
+section Fujiwara
+
+/-- **Fujiwara's weighted root bound** (CA.3/fujiwara-weighted-root-bound), for
+`f = ∑_{k ≤ n} a k X^(n - k)` with `a 0 ≠ 0`. -/
+theorem norm_le_of_fujiwara_weights {n : ℕ} (hn : 1 ≤ n) (a : ℕ → ℂ) (ha : a 0 ≠ 0)
+    (w : ℕ → ℝ) (hw : ∀ k ∈ Finset.Icc 1 n, 0 < w k)
+    (hsum : ∑ k ∈ Finset.Icc 1 n, (w k)⁻¹ ≤ 1) {α : ℂ}
+    (hα : ∑ k ∈ Finset.range (n + 1), a k * α ^ (n - k) = 0) :
+    ∃ k ∈ Finset.Icc 1 n, ‖α‖ ≤ (w k * ‖a k / a 0‖) ^ ((k : ℝ)⁻¹) := by
+  sorry
+
+/-- **Fujiwara's root bound** (CA.3/fujiwara-root-bound) for a monic polynomial: every root `θ`
+satisfies `‖θ‖ ≤ 2 · max(‖a_1‖, …, ‖a_{n-1}‖^{1/(n-1)}, ‖a_n / 2‖^{1/n})`, stated as a bound by
+one of the terms. -/
+theorem norm_le_fujiwara {f : ℂ[X]} (hf : f.Monic) (hn : 1 ≤ f.natDegree) {θ : ℂ}
+    (hθ : f.IsRoot θ) :
+    (∃ k ∈ Finset.Ico 1 f.natDegree,
+        ‖θ‖ ≤ 2 * ‖f.coeff (f.natDegree - k)‖ ^ ((k : ℝ)⁻¹)) ∨
+      ‖θ‖ ≤ 2 * ‖f.coeff 0 / 2‖ ^ ((f.natDegree : ℝ)⁻¹) := by
+  sorry
+
+end Fujiwara
+
+/-- Unit test from the acceptance list: for `X² − 4` the corrected bound is `2√2 ≥ 2`, while the
+form without the factor `2` would give `√2 < 2`. -/
+example : (2 : ℝ) ≤ 2 * ‖((4 : ℂ) / 2)‖ ^ ((2 : ℝ)⁻¹) ∧ ‖((4 : ℂ) / 2)‖ ^ ((2 : ℝ)⁻¹) < 2 := by
+  sorry
+
+/-! ## The Gregory–Newton expansion -/
+
+/-- **The Gregory–Newton expansion** (CA.3/newton-forward-difference-expansion). -/
+theorem eq_sum_fwdDiff_mul_choose (f : ℚ[X]) {N : ℕ} (hN : f.natDegree ≤ N) :
+    f = ∑ k ∈ Finset.range (N + 1),
+      C ((fwdDiff 1)^[k] (fun x : ℚ => f.eval x) 0) * Ring.choose (X : ℚ[X]) k := by
+  sorry
+
+/-- Compatibility with Tau Ceti: the Gregory–Newton coefficients are the coordinates in
+`TauCeti.binomialPolynomialBasis`. -/
+theorem binomialPolynomialBasis_repr_eq_fwdDiff (f : ℚ[X]) (k : ℕ) :
+    (TauCeti.binomialPolynomialBasis ℚ).repr f k = (fwdDiff 1)^[k] (fun x : ℚ => f.eval x) 0 := by
+  sorry
+
+/-- Unit test from the acceptance list: `X² = (X choose 1) + 2 (X choose 2)`. -/
+example : (X ^ 2 : ℚ[X]) = Ring.choose (X : ℚ[X]) 1 + 2 * Ring.choose (X : ℚ[X]) 2 := by
+  sorry
+
+/-! ## The lower Newton polygon of a finite point family -/
+
+section NewtonPolygon
+
+variable (I : Finset ℕ) (hI : I.Nonempty) (y : ℕ → ℝ)
+
+/-- **The supporting value** `μ_r = min_{i ∈ I} (y i + r i)`
+(CA.3/newton-polygon-of-a-point-family). -/
+def newtonSupport (r : ℝ) : ℝ := I.inf' hI fun i => y i + r * i
+
+open Classical in
+/-- The contact set of the supporting line of parameter `r`. -/
+def newtonContact (r : ℝ) : Finset ℕ := I.filter fun i => y i + r * i = newtonSupport I hI y r
+
+/-- The width `m_r = max C_r − min C_r` of the side of parameter `r`. -/
+def newtonWidth (r : ℝ) : ℕ :=
+  (newtonContact I hI y r).sup id - ((newtonContact I hI y r).min).untopD 0
+
+namespace NewtonPolygon
+
+theorem newtonSupport_le {i : ℕ} (hi : i ∈ I) (r : ℝ) : newtonSupport I hI y r ≤ y i + r * i := by
+  sorry
+
+theorem mem_newtonContact_iff (r : ℝ) (i : ℕ) :
+    i ∈ newtonContact I hI y r ↔ i ∈ I ∧ y i + r * i = newtonSupport I hI y r := by
+  sorry
+
+theorem newtonContact_nonempty (r : ℝ) : (newtonContact I hI y r).Nonempty := by
+  sorry
+
+theorem finite_setOf_newtonWidth_pos : {r : ℝ | 0 < newtonWidth I hI y r}.Finite := by
+  sorry
+
+/-- The widths add up to the span of `I`. -/
+theorem sum_newtonWidth :
+    ∑ᶠ r : ℝ, newtonWidth I hI y r = I.sup id - (I.min).untopD 0 := by
+  sorry
+
+/-- **Slope ordering.** -/
+theorem max_newtonContact_le_min {r r' : ℝ} (h : r < r') :
+    (newtonContact I hI y r').sup id ≤ ((newtonContact I hI y r).min).untopD 0 := by
+  sorry
+
+theorem concaveOn_newtonSupport : ConcaveOn ℝ Set.univ (newtonSupport I hI y) := by
+  sorry
+
+/-- The two ends of the side of parameter `r` lie on its supporting line. -/
+theorem newtonSide_endpoints (r : ℝ) :
+    y ((newtonContact I hI y r).sup id) =
+      y (((newtonContact I hI y r).min).untopD 0) - r * newtonWidth I hI y r := by
+  sorry
+
+/-- Compatibility with the sloped valuation of the main CA.3 file
+(`slopedValuation v r f = f.support.inf fun i => v (f.coeff i) + r i`): for `f ≠ 0`, with the points
+`(i, v (aᵢ))` on the support. -/
+theorem newtonSupport_polynomial {K : Type*} [Field K] (v : AddValuation K (WithTop ℝ))
+    (hv : ∀ x : K, x ≠ 0 → v x ≠ ⊤) {f : K[X]} (hf : f.support.Nonempty) (r : ℝ) :
+    ((newtonSupport f.support hf (fun i => (v (f.coeff i)).untopD 0) r : ℝ) : WithTop ℝ) =
+      f.support.inf fun i => v (f.coeff i) + ((r * i : ℝ) : WithTop ℝ) := by
+  sorry
+
+end NewtonPolygon
+
+end NewtonPolygon
+
+/-- Unit test `TauCeti.ClassicalArithmetic.newtonWidth_example`: the points `(0, 2), (2, 1), (5, 0)`. -/
+example :
+    newtonWidth {0, 2, 5} (by simp) (fun i => if i = 0 then 2 else if i = 2 then 1 else 0) (1 / 2) = 2 ∧
+    newtonWidth {0, 2, 5} (by simp) (fun i => if i = 0 then 2 else if i = 2 then 1 else 0) (1 / 3) = 3 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.newtonWidth_singleton`. -/
+example (i₀ : ℕ) (y : ℕ → ℝ) (r : ℝ) : newtonWidth {i₀} (by simp) y r = 0 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.newtonSupport_eq_slopedValuation`: the points `(0, 1), (2, 0)`
+of `X² − 2` over `ℚ₂` have the single side `r = 1/2` of width `2`. -/
+example : newtonWidth {0, 2} (by simp) (fun i => if i = 0 then 1 else 0) (1 / 2) = 2 ∧
+    ∀ r : ℝ, r ≠ 1 / 2 → newtonWidth {0, 2} (by simp) (fun i => if i = 0 then 1 else 0) r = 0 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.newtonContact_not_chord`: the points `(0,0), (1,-1), (2,0)`. -/
+example :
+    newtonContact {0, 1, 2} (by simp) (fun i => if i = 1 then -1 else 0) 0 = {1} ∧
+    newtonContact {0, 1, 2} (by simp) (fun i => if i = 1 then -1 else 0) 1 = {0, 1} := by
+  sorry
+
+/-! ## Gauss–Jordan elimination and kernel bases
+
+Tau Ceti already provides the elimination and the kernel basis, and they are not restated here:
+`TauCeti.rowReduce` (terminating Gauss–Jordan elimination over a division ring with decidable
+equality) with `TauCeti.isReducedRowEchelon_rowReduceMatrix`, `TauCeti.isPivotedBy_rowReduceMatrix`,
+`TauCeti.span_rowReduce` and `TauCeti.length_rowReduce_ofFn`; and `TauCeti.kernelBasis`,
+`TauCeti.freeColumnBasis` and `TauCeti.finrank_ker_mulVecLin`. This section adds the change-of-basis
+certificate, the uniqueness of the reduced form and the transport of the kernel basis to a linear
+map in chosen bases. -/
+
+section GaussJordan
+
+variable {F : Type*} [Field F] [DecidableEq F] {m n : ℕ}
+
+/-- The output of Gauss–Jordan elimination with its certificate
+(CA.3/gauss-jordan-reduced-echelon-form). -/
+structure GaussJordanResult (A : Matrix (Fin m) (Fin n) F) where
+  /-- The row transformation. -/
+  P : Matrix (Fin m) (Fin m) F
+  /-- Its inverse. -/
+  P' : Matrix (Fin m) (Fin m) F
+  /-- The reduced row echelon form. -/
+  R : Matrix (Fin m) (Fin n) F
+  /-- The pivot of each row (`⊤` for a zero row). -/
+  pivot : Fin m → WithTop (Fin n)
+  mul_eq : P * A = R
+  mul_inv : P * P' = 1
+  inv_mul : P' * P = 1
+  isReducedRowEchelon : R.IsReducedRowEchelon
+  isPivotedBy : R.IsPivotedBy pivot
+
+/-- Existence of the certificate; the roadmap computes it by running `TauCeti.rowReduce` on the
+augmented matrices `[A | 1]` and `[P | 1]`. -/
+theorem nonempty_gaussJordanResult (A : Matrix (Fin m) (Fin n) F) :
+    Nonempty (GaussJordanResult A) := by
+  sorry
+
+/-- **Gauss–Jordan elimination with its certificate**. -/
+def gaussJordan (A : Matrix (Fin m) (Fin n) F) : GaussJordanResult A :=
+  Classical.choice (nonempty_gaussJordanResult A)
+
+/-- The reduced form is Tau Ceti's: its first `rank A` rows and pivots are those of
+`TauCeti.rowReduceMatrix (List.ofFn A)`, and the remaining rows are zero with pivot `⊤`. -/
+theorem GaussJordanResult.R_eq_rowReduceMatrix {A : Matrix (Fin m) (Fin n) F}
+    (r : GaussJordanResult A) (i : Fin m) :
+    (∀ h : (i : ℕ) < (TauCeti.rowReduce (List.ofFn A)).length,
+        r.R i = TauCeti.rowReduceMatrix (List.ofFn A) ⟨i, h⟩ ∧
+          r.pivot i = TauCeti.rowReducePivot (List.ofFn A) ⟨i, h⟩) ∧
+      ((TauCeti.rowReduce (List.ofFn A)).length ≤ i → r.R i = 0 ∧ r.pivot i = ⊤) := by
+  sorry
+
+/-- Uniqueness of the reduced row echelon form. -/
+theorem IsReducedRowEchelon.eq_of_mul {R₁ R₂ : Matrix (Fin m) (Fin n) F}
+    (h₁ : R₁.IsReducedRowEchelon) (h₂ : R₂.IsReducedRowEchelon) {Q : Matrix (Fin m) (Fin m) F}
+    (hQ : IsUnit Q.det) (h : Q * R₁ = R₂) : R₁ = R₂ := by
+  sorry
+
+theorem card_pivots_gaussJordan (A : Matrix (Fin m) (Fin n) F) :
+    (Finset.univ.filter fun i => (gaussJordan A).pivot i ≠ ⊤).card = A.rank := by
+  sorry
+
+theorem ker_toLin'_gaussJordan (A : Matrix (Fin m) (Fin n) F) :
+    LinearMap.ker (Matrix.toLin' A) = LinearMap.ker (Matrix.toLin' (gaussJordan A).R) := by
+  sorry
+
+variable {V W : Type*} [AddCommGroup V] [Module F V] [AddCommGroup W] [Module F W]
+
+/-- **The kernel of a linear map in chosen bases** (CA.3/kernel-basis-of-a-reduced-echelon-matrix):
+a vector lies in `ker φ` iff its coordinates lie in the kernel of the matrix of `φ`. -/
+theorem mem_ker_iff_toMatrix_mulVec_repr (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) (x : V) :
+    x ∈ LinearMap.ker φ ↔ Matrix.mulVec (LinearMap.toMatrix b b' φ) (b.repr x) = 0 := by
+  sorry
+
+/-- **The kernel basis of a linear map in chosen bases**: Tau Ceti's kernel vectors of the matrix
+of `φ`, read in the basis `b`, form a basis of `ker φ` indexed by the free columns. -/
+theorem exists_basis_ker_of_toMatrix (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) :
+    ∃ β : Module.Basis {j : Fin n // TauCeti.IsFreeColumn (List.ofFn (LinearMap.toMatrix b b' φ)) j}
+        F (LinearMap.ker φ),
+      ∀ j, (β j : V) =
+        ∑ k, TauCeti.kernelVector (List.ofFn (LinearMap.toMatrix b b' φ)) j.1 k • b k := by
+  sorry
+
+/-- The dimension of the kernel of a linear map is `n` minus the rank of its matrix. -/
+theorem finrank_ker_eq_sub_rank_toMatrix (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) :
+    Module.finrank F (LinearMap.ker φ) = n - (LinearMap.toMatrix b b' φ).rank := by
+  sorry
+
+end GaussJordan
+
+/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_example_rat`; `A` has full row rank, so the
+certificate is unique. -/
+example : (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).R = !![1, 2, 0; 0, 0, 1] ∧
+    (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).P = !![0, 1 / 2; 1, -1 / 2] ∧
+    (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).P' = !![1, 1; 2, 0] := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_zero`. -/
+example : (gaussJordan (0 : Matrix (Fin 2) (Fin 3) ℚ)).R = 0 ∧
+    ∀ i, (gaussJordan (0 : Matrix (Fin 2) (Fin 3) ℚ)).pivot i = ⊤ := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_zmod_two_rank`: the nonzero row of `R` is the
+single row Tau Ceti's sweep returns. -/
+example : (gaussJordan !![(1 : ZMod 2), 1; 1, 1]).R = !![1, 1; 0, 0] ∧
+    (TauCeti.rowReduce (List.ofFn !![(1 : ZMod 2), 1; 1, 1])).map Prod.snd = [![1, 1]] ∧
+    (!![(1 : ZMod 2), 1; 1, 1]).rank = 1 := by
+  sorry
+
+/-- Unit test `TauCeti.ClassicalArithmetic.not_isReducedRowEchelon_example`. -/
+example : (!![(1 : ℚ), 2; 0, 1]).IsRowEchelon ∧ ¬ (!![(1 : ℚ), 2; 0, 1]).IsReducedRowEchelon := by
+  sorry
+
+/-- Acceptance example: Tau Ceti's kernel basis of `[[1, 2, 1], [2, 4, 0]]` over `ℚ` is
+`(-2, 1, 0)`, and that vector is in the kernel. -/
+example : TauCeti.kernelBasis !![(1 : ℚ), 2, 1; 2, 4, 0] = [![-2, 1, 0]] ∧
+    Matrix.toLin' !![(1 : ℚ), 2, 1; 2, 4, 0] ![-2, 1, 0] = 0 := by
+  sorry
+
+/-- Acceptance example: over `ZMod 2` the kernel basis of `[[1, 1], [1, 1]]` is `(1, 1)`. -/
+example : TauCeti.kernelBasis !![(1 : ZMod 2), 1; 1, 1] = [![1, 1]] := by
+  sorry
+
+end TauCeti.ClassicalArithmetic
+
+end
+
+end CA3Continuation
 
 -- ===== CA.4 =====
 
@@ -4074,6 +6233,1019 @@ end CA4
 end TauCeti.ClassicalArithmetic
 
 
+-- ===== CA.4 continuation =====
+
+section CA4Continuation
+
+set_option linter.unusedVariables false
+set_option linter.unusedSectionVars false
+
+open scoped BigOperators
+
+namespace TauCeti.ClassicalArithmetic
+
+
+-- `markoffSet`: the first-pass carrier, stated in the CA.4 section above
+
+-- `markoffVieta`: the first-pass carrier, stated in the CA.4 section above
+
+-- `positiveMarkoffTriples`: the first-pass carrier, stated in the CA.4 section above
+
+-- `pellNormSet`: the first-pass carrier, stated in the CA.4 section above
+
+/-! ## Markoff–Hurwitz varieties (`CA.4/markoff-hurwitz-variety`) -/
+
+section MarkoffHurwitz
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+
+/-- `V_{n,a,k}(R)`: the solutions of x₁² + ⋯ + x_n² = a·x₁⋯x_n + k. -/
+def markoffHurwitzSet (n : ℕ) (a k : R) : Set (Fin n → R) :=
+  {x | ∑ i, x i ^ 2 = a * ∏ i, x i + k}
+
+theorem markoffHurwitzSet.mem_iff {n : ℕ} {a k : R} {x : Fin n → R} :
+    x ∈ markoffHurwitzSet n a k ↔ ∑ i, x i ^ 2 = a * ∏ i, x i + k := Iff.rfl
+
+theorem markoffHurwitzSet.map_mem (f : R →+* S) {n : ℕ} {a k : R} {x : Fin n → R}
+    (hx : x ∈ markoffHurwitzSet n a k) : f ∘ x ∈ markoffHurwitzSet n (f a) (f k) := by sorry
+
+theorem markoffHurwitzSet.comp_perm_mem_iff {n : ℕ} {a k : R} (σ : Equiv.Perm (Fin n))
+    (x : Fin n → R) : x ∘ σ ∈ markoffHurwitzSet n a k ↔ x ∈ markoffHurwitzSet n a k := by sorry
+
+theorem markoffHurwitzSet.signChange_mem_iff {n : ℕ} {a k : R} (ε : Fin n → ℤˣ)
+    (hε : ∏ i, ε i = 1) (x : Fin n → R) :
+    (fun i => ((ε i : ℤ) : R) * x i) ∈ markoffHurwitzSet n a k ↔ x ∈ markoffHurwitzSet n a k := by
+  sorry
+
+/-- `V_{n,a,k}(ℤ₊)`, the positive Markoff–Hurwitz tuples. -/
+def markoffHurwitzPositive (n : ℕ) (a k : ℤ) : Set (Fin n → ℤ) :=
+  {x | x ∈ markoffHurwitzSet n a k ∧ ∀ i, 0 < x i}
+
+theorem markoffHurwitzSet_three_three_zero :
+    markoffHurwitzSet 3 (3 : R) 0 = markoffSet R := by sorry
+
+example : (![1, 1, 1, 1] : Fin 4 → ℤ) ∈ markoffHurwitzSet 4 4 0 ∧
+    (![3, 1, 1, 1] : Fin 4 → ℤ) ∈ markoffHurwitzSet 4 4 0 := by sorry -- markoffHurwitzSet_four_ones
+
+example : (![2, 3, 5] : Fin 3 → ℤ) ∈ markoffHurwitzSet 3 1 8 := by
+  sorry -- markoffHurwitzSet_two_three_five
+
+theorem zero_mem_markoffHurwitzSet_iff {n : ℕ} (hn : 1 ≤ n) {a k : R} :
+    (0 : Fin n → R) ∈ markoffHurwitzSet n a k ↔ k = 0 := by sorry
+
+example : (![1, 1, 1] : Fin 3 → ℤ) ∈ markoffHurwitzSet 3 3 0 := by
+  sorry -- markoffHurwitzSet_three_three_zero_ones
+
+example : (![1, 1, 2] : Fin 3 → ℤ) ∈ markoffHurwitzSet 3 3 0 ∧
+    (![-1, 1, 2] : Fin 3 → ℤ) ∉ markoffHurwitzSet 3 3 0 := by sorry -- neg_one_one_two_not_mem
+
+end MarkoffHurwitz
+
+/-! ## Moves and the group `Γ_{n,a}` (`CA.4/markoff-hurwitz-moves`) -/
+
+section Moves
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+
+/-- The move `m_j`: replace `x j` by `a·∏_{i≠j} x i − x j`. -/
+def markoffHurwitzMove {n : ℕ} (a : R) (j : Fin n) (x : Fin n → R) : Fin n → R :=
+  Function.update x j (a * ∏ i ∈ Finset.univ.erase j, x i - x j)
+
+@[simp] theorem markoffHurwitzMove_apply_self {n : ℕ} (a : R) (j : Fin n) (x : Fin n → R) :
+    markoffHurwitzMove a j x j = a * ∏ i ∈ Finset.univ.erase j, x i - x j := by sorry
+
+@[simp] theorem markoffHurwitzMove_apply_of_ne {n : ℕ} (a : R) {i j : Fin n} (h : i ≠ j)
+    (x : Fin n → R) : markoffHurwitzMove a j x i = x i := by sorry
+
+theorem markoffHurwitzMove_involutive {n : ℕ} (a : R) (j : Fin n) :
+    Function.Involutive (markoffHurwitzMove a j) := by sorry
+
+theorem markoffHurwitzMove_mem {n : ℕ} {a k : R} (j : Fin n) {x : Fin n → R}
+    (hx : x ∈ markoffHurwitzSet n a k) : markoffHurwitzMove a j x ∈ markoffHurwitzSet n a k := by
+  sorry
+
+theorem markoffHurwitzMove_map (f : R →+* S) {n : ℕ} (a : R) (j : Fin n) (x : Fin n → R) :
+    f ∘ markoffHurwitzMove a j x = markoffHurwitzMove (f a) j (f ∘ x) := by sorry
+
+/-- The move as a permutation of `Fin n → R`. -/
+def markoffHurwitzMovePerm {n : ℕ} (a : R) (j : Fin n) : Equiv.Perm (Fin n → R) :=
+  (markoffHurwitzMove_involutive a j).toPerm _
+
+/-- The coordinate permutation `x ↦ x ∘ σ⁻¹`. -/
+def coordPerm {n : ℕ} (σ : Equiv.Perm (Fin n)) : Equiv.Perm (Fin n → R) :=
+  Equiv.arrowCongr σ (Equiv.refl R)
+
+theorem signChange_involutive {n : ℕ} (ε : Fin n → ℤˣ) :
+    Function.Involutive (fun (x : Fin n → R) i => ((ε i : ℤ) : R) * x i) := by sorry
+
+/-- The sign change `x ↦ (ε i x i)_i` as a permutation. -/
+def signChangePerm {n : ℕ} (ε : Fin n → ℤˣ) : Equiv.Perm (Fin n → R) :=
+  (signChange_involutive (R := R) ε).toPerm _
+
+/-- `Γ_{n,a}(R)`: generated by the moves, the permutations and the even sign changes. -/
+def markoffHurwitzGroup (n : ℕ) (a : R) : Subgroup (Equiv.Perm (Fin n → R)) :=
+  Subgroup.closure ({g | ∃ j, g = markoffHurwitzMovePerm a j} ∪ {g | ∃ σ, g = coordPerm σ} ∪
+    {g | ∃ ε : Fin n → ℤˣ, ∏ i, ε i = 1 ∧ g = signChangePerm ε})
+
+/-- The narrow subgroup, generated by the permutations and even sign changes. -/
+def markoffHurwitzNarrowGroup (n : ℕ) (R : Type*) [CommRing R] :
+    Subgroup (Equiv.Perm (Fin n → R)) :=
+  Subgroup.closure ({g | ∃ σ, g = coordPerm σ} ∪
+    {g | ∃ ε : Fin n → ℤˣ, ∏ i, ε i = 1 ∧ g = signChangePerm ε})
+
+theorem markoffHurwitzGroup.apply_mem {n : ℕ} {a k : R} {g : Equiv.Perm (Fin n → R)}
+    (hg : g ∈ markoffHurwitzGroup n a) {x : Fin n → R} (hx : x ∈ markoffHurwitzSet n a k) :
+    g x ∈ markoffHurwitzSet n a k := by sorry
+
+theorem markoffHurwitzMove_three_one (j : Fin 3) (x : Fin 3 → R) :
+    markoffHurwitzMove (1 : R) j x = Function.update x j (x (j + 1) * x (j + 2) - x j) := by sorry
+
+theorem markoffHurwitzMove_three_three (j : Fin 3) (x : Fin 3 → R) :
+    markoffHurwitzMove (3 : R) j x = markoffVieta j x := by sorry
+
+example : markoffHurwitzMove (1 : ℤ) 2 ![3, 3, 3] = ![3, 3, 6] := by
+  sorry -- markoffHurwitzMove_three_three_three
+
+example : markoffHurwitzMove (4 : ℤ) 0 ![1, 1, 1, 1] = ![3, 1, 1, 1] := by
+  sorry -- markoffHurwitzMove_four_ones
+
+theorem markoffHurwitzMove_zero {n : ℕ} (hn : 2 ≤ n) (a : R) (j : Fin n) :
+    markoffHurwitzMove a j 0 = 0 := by sorry
+
+example : markoffHurwitzMove (3 : ℤ) 2 ![1, 1, 1] = ![1, 1, 2] ∧
+    markoffHurwitzMove (3 : ℤ) 2 ![1, 1, 1] = markoffVieta 2 ![1, 1, 1] := by
+  sorry -- markoffHurwitzMove_eq_markoffVieta
+
+example : (![1, 1, 1] : Fin 3 → ℤ) ∈ markoffHurwitzSet 3 1 2 ∧
+    (![-1, 1, 1] : Fin 3 → ℤ) ∉ markoffHurwitzSet 3 1 2 := by
+  sorry -- single_sign_change_not_preserving
+
+example : Nat.card (markoffHurwitzNarrowGroup 3 ℤ) = 24 := by
+  sorry -- card_markoffHurwitzNarrow_three
+
+end Moves
+
+/-! ## Markoff level surfaces (`CA.4/markoff-level-surface`) -/
+
+section LevelSurface
+
+variable {R S : Type*} [CommRing R] [CommRing S]
+
+/-- The Markoff cubic `M(x) = x₁² + x₂² + x₃² − x₁x₂x₃`. -/
+def markoffPoly (x : Fin 3 → R) : R :=
+  x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2 - x 0 * x 1 * x 2
+
+/-- `V_k(R) = {M = k}`. -/
+def markoffLevelSet (R : Type*) [CommRing R] (k : R) : Set (Fin 3 → R) :=
+  {x | markoffPoly x = k}
+
+/-- Chen's trace-coordinate Markoff surface `X(R) = V₀(R)`. -/
+def markoffTraceSurface (R : Type*) [CommRing R] : Set (Fin 3 → R) :=
+  markoffLevelSet R 0
+
+/-- `X*(R) = X(R) ∖ {0}`. -/
+def markoffTraceSurfaceNonzero (R : Type*) [CommRing R] : Set (Fin 3 → R) :=
+  markoffTraceSurface R \ {0}
+
+theorem markoffLevelSet.mem_iff {k : R} {x : Fin 3 → R} :
+    x ∈ markoffLevelSet R k ↔ x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2 - x 0 * x 1 * x 2 = k := Iff.rfl
+
+theorem markoffLevelSet.map_mem (f : R →+* S) {k : R} {x : Fin 3 → R}
+    (hx : x ∈ markoffLevelSet R k) : f ∘ x ∈ markoffLevelSet S (f k) := by sorry
+
+theorem markoffLevelSet.comp_perm_mem_iff {k : R} (σ : Equiv.Perm (Fin 3)) (x : Fin 3 → R) :
+    x ∘ σ ∈ markoffLevelSet R k ↔ x ∈ markoffLevelSet R k := by sorry
+
+theorem markoffLevelSet.doubleNeg_mem_iff {k : R} (x : Fin 3 → R) :
+    (![-x 0, -x 1, x 2] : Fin 3 → R) ∈ markoffLevelSet R k ↔ x ∈ markoffLevelSet R k := by sorry
+
+theorem markoffLevelSet.neg_one_mem_iff {k : R} (x : Fin 3 → R) :
+    (![-x 0, x 1, x 2] : Fin 3 → R) ∈ markoffLevelSet R k ↔
+      x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2 + x 0 * x 1 * x 2 = k := by sorry
+
+theorem markoffLevelSet_eq_markoffHurwitzSet (k : R) :
+    markoffLevelSet R k = markoffHurwitzSet 3 1 k := by sorry
+
+theorem markoffHurwitzSet_three_one (k : R) :
+    markoffHurwitzSet 3 (1 : R) k = markoffLevelSet R k :=
+  (markoffLevelSet_eq_markoffHurwitzSet k).symm
+
+example : (![3, 3, 3] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 0 ∧
+    (![0, 1, 2] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 5 ∧
+    (![3, 3, 4] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ (-2) := by sorry -- markoffLevelSet_int_examples
+
+example : (![1, 1, 1] : Fin 3 → ℤ) ∉ markoffTraceSurface ℤ ∧
+    (![1, 1, 1] : Fin 3 → ℤ) ∈ markoffSet ℤ := by sorry -- ones_not_mem_markoffTraceSurface
+
+theorem zero_mem_markoffLevelSet_iff (k : R) :
+    (0 : Fin 3 → R) ∈ markoffLevelSet R k ↔ k = 0 := by sorry
+
+example : markoffTraceSurface (ZMod 3) = {0} := by sorry -- markoffTraceSurface_zmod_three
+
+example : markoffLevelSet (ZMod 4) 3 = ∅ := by sorry -- markoffLevelSet_zmod_four_three
+
+example : markoffLevelSet ℤ 8 = markoffHurwitzSet 3 1 8 ∧
+    (![2, 3, 5] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 8 := by
+  sorry -- markoffLevelSet_eq_markoffHurwitzSet_ex
+
+end LevelSurface
+
+/-! ## The twist `ξ(y) = 3y` (`CA.4/markoff-coefficient-three-twist`) -/
+
+section Twist
+
+variable {R : Type*} [CommRing R]
+
+/-- `ξ(y) = 3 • y`. -/
+def markoffTwist (y : Fin 3 → R) : Fin 3 → R := (3 : R) • y
+
+theorem markoffTwist_mem {y : Fin 3 → R} (hy : y ∈ markoffSet R) :
+    markoffTwist y ∈ markoffLevelSet R 0 := by sorry
+
+theorem markoffTwist_markoffVieta (j : Fin 3) (y : Fin 3 → R) :
+    markoffTwist (markoffVieta j y) = markoffHurwitzMove (1 : R) j (markoffTwist y) := by sorry
+
+theorem markoffTwist_comp_perm (σ : Equiv.Perm (Fin 3)) (y : Fin 3 → R) :
+    markoffTwist (y ∘ σ) = markoffTwist y ∘ σ := by sorry
+
+theorem markoffTwist_signChange (ε : Fin 3 → ℤˣ) (y : Fin 3 → R) :
+    markoffTwist (fun i => ((ε i : ℤ) : R) * y i) = fun i => ((ε i : ℤ) : R) * markoffTwist y i := by
+  sorry
+
+/-- Over a ring in which 3 is a unit, `ξ` identifies the two surfaces. -/
+noncomputable def markoffTwistEquiv (h : IsUnit (3 : R)) : markoffSet R ≃ markoffLevelSet R 0 where
+  toFun y := ⟨markoffTwist y.1, markoffTwist_mem y.2⟩
+  invFun x := ⟨(h.unit⁻¹ : Rˣ) • x.1, by sorry⟩
+  left_inv y := by sorry
+  right_inv x := by sorry
+
+theorem markoffTwist_bijOn_int :
+    Set.BijOn markoffTwist (markoffSet ℤ) (markoffLevelSet ℤ 0) := by sorry
+
+example : markoffTwist (![1, 1, 1] : Fin 3 → ℤ) = ![3, 3, 3] ∧
+    markoffTwist (![2, 5, 29] : Fin 3 → ℤ) = ![6, 15, 87] ∧
+    (![6, 15, 87] : Fin 3 → ℤ) ∈ markoffTraceSurface ℤ := by sorry -- markoffTwist_examples
+
+example : (∀ y : Fin 3 → ZMod 3, markoffTwist y = 0) ∧ markoffTraceSurface (ZMod 3) = {0} ∧
+    Nat.card (markoffSet (ZMod 3)) = 9 := by sorry -- markoffTwist_zmod_three
+
+theorem markoffTwist_zero : markoffTwist (0 : Fin 3 → R) = 0 := by sorry
+
+example : Nat.card (markoffSet (ZMod 5)) = 41 ∧ Nat.card (markoffLevelSet (ZMod 5) 0) = 41 := by
+  sorry -- markoffTwistEquiv_zmod_five
+
+example : markoffTwist (markoffVieta 2 (![1, 1, 1] : Fin 3 → ℤ)) = ![3, 3, 6] ∧
+    markoffHurwitzMove (1 : ℤ) 2 ![3, 3, 3] = ![3, 3, 6] := by sorry -- markoffTwist_vieta_example
+
+/-- CA.4/markoff-positive-zero-orbit (Chen, Theorem 1.2.1): the positive points of `X(ℤ)` are
+the words in the coefficient-one moves applied to `(3, 3, 3)`. -/
+theorem markoff_positive_zero_orbit (x : Fin 3 → ℤ) :
+    (x ∈ markoffTraceSurface ℤ ∧ ∀ i, 0 < x i) ↔
+      ∃ l : List (Fin 3), x = l.foldr (fun j y => markoffHurwitzMove (1 : ℤ) j y) ![3, 3, 3] := by
+  sorry
+
+end Twist
+
+/-! ## Ghosh–Sarnak's Δ-function (`CA.4/markoff-delta`, `CA.4/markoff-delta-differences`) -/
+
+section Delta
+
+variable {R : Type*} [CommRing R]
+
+/-- `Δ(x) = (1 + x₂² − x₁² − x₃²)² − 4(x₁x₃ − x₂)²`. -/
+def markoffDelta (x : Fin 3 → R) : R :=
+  (1 + x 1 ^ 2 - x 0 ^ 2 - x 2 ^ 2) ^ 2 - 4 * (x 0 * x 2 - x 1) ^ 2
+
+theorem markoffDelta_eq_prod (x : Fin 3 → R) :
+    markoffDelta x = (1 + x 0 + x 1 + x 2) * (1 + x 1 - x 0 - x 2) * (1 + x 2 - x 0 - x 1) *
+      (1 + x 0 - x 1 - x 2) := by sorry
+
+/-- The coefficients `(A_i, B_i, C_i)` of the Bhargava form
+`Q_i = (x_j x_l − x_i)u² + (1 + x_i² − x_j² − x_l²)uv + (x_j x_l − x_i)v²`. -/
+def markoffBhargavaForm (i : Fin 3) (x : Fin 3 → R) : R × R × R :=
+  (x (i + 1) * x (i + 2) - x i, 1 + x i ^ 2 - x (i + 1) ^ 2 - x (i + 2) ^ 2,
+    x (i + 1) * x (i + 2) - x i)
+
+theorem markoffBhargavaForm_discr (i : Fin 3) (x : Fin 3 → R) :
+    (markoffBhargavaForm i x).2.1 ^ 2 - 4 * (markoffBhargavaForm i x).1 *
+      (markoffBhargavaForm i x).2.2 = markoffDelta x := by sorry
+
+@[simp] theorem markoffDelta_comp_perm (σ : Equiv.Perm (Fin 3)) (x : Fin 3 → R) :
+    markoffDelta (x ∘ σ) = markoffDelta x := by sorry
+
+@[simp] theorem markoffDelta_doubleNeg (x : Fin 3 → R) :
+    markoffDelta (![-x 0, -x 1, x 2] : Fin 3 → R) = markoffDelta x := by sorry
+
+theorem markoffDelta_emod_four (x : Fin 3 → ℤ) :
+    markoffDelta x % 4 = if (x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2) % 2 = 1 then 0 else 1 := by sorry
+
+theorem markoffDelta_neg_iff {x : Fin 3 → ℤ} (h0 : 2 ≤ x 0) (h1 : x 0 ≤ x 1) (h2 : x 1 ≤ x 2) :
+    markoffDelta x < 0 ↔ x 1 ≤ x 2 ∧ x 2 ≤ x 0 + x 1 - 2 := by sorry
+
+example : markoffDelta (0 : Fin 3 → ℤ) = 1 := by sorry -- markoffDelta_zero
+
+example : markoffDelta (![3, 3, 3] : Fin 3 → ℤ) = -80 := by sorry -- markoffDelta_three_three_three
+
+example (a : ℤ) : markoffDelta (![2, a, a] : Fin 3 → ℤ) = 9 - 4 * a ^ 2 ∧
+    markoffDelta (![-1, 1, 1] : Fin 3 → ℤ) = -16 := by sorry -- markoffDelta_cayley
+
+example : markoffDelta (![1, 1, 1] : Fin 3 → ℤ) = 0 ∧
+    markoffDelta (![-1, 1, 1] : Fin 3 → ℤ) = -16 := by sorry -- markoffDelta_single_sign_change
+
+example : markoffDelta (![3, 3, 6] : Fin 3 → ℤ) = 325 ∧
+    markoffDelta (![3, 3, 6] : Fin 3 → ℤ) ≠ markoffDelta (![3, 3, 3] : Fin 3 → ℤ) := by
+  sorry -- markoffDelta_not_vieta_invariant
+
+example (i : Fin 3) : markoffBhargavaForm i (![3, 3, 3] : Fin 3 → ℤ) = (6, -8, 6) := by
+  sorry -- markoffBhargavaForm_discr_example
+
+/-- CA.4/markoff-delta-differences (1): the identity behind (8.2). -/
+theorem markoff_sq_sub_four_mul (k : R) {x : Fin 3 → R} (hx : x ∈ markoffLevelSet R k) :
+    (x 0 ^ 2 - 4) * (x 1 ^ 2 - 4) = (2 * x 2 - x 0 * x 1) ^ 2 - 4 * (k - 4) := by sorry
+
+/-- CA.4/markoff-delta-differences (2): Ghosh–Sarnak (4.1), for the move in the last coordinate
+(the other two follow by permuting). -/
+theorem markoffDelta_move_sub (k : R) {x : Fin 3 → R} (hx : x ∈ markoffLevelSet R k) :
+    markoffDelta (markoffHurwitzMove (1 : R) 2 x) - markoffDelta x =
+      x 0 * x 1 * (x 0 * x 1 - 2 * x 2) * (2 * (k - 5) + (x 0 ^ 2 - 4) * (x 1 ^ 2 - 4)) := by
+  sorry
+
+/-- CA.4/markoff-delta-differences: positivity of the bracket. -/
+theorem markoffDelta_bracket_pos {k : ℤ} {x : Fin 3 → ℤ} (hx : x ∈ markoffLevelSet ℤ k)
+    (h : k < 0 ∨ (5 ≤ k ∧ 3 ≤ |x 0| ∧ 3 ≤ |x 1|)) :
+    0 < 2 * (k - 5) + (x 0 ^ 2 - 4) * (x 1 ^ 2 - 4) := by sorry
+
+end Delta
+
+/-! ## Levels, class numbers and fundamental sets (`CA.4/markoff-level-classification`,
+`CA.4/markoff-class-number`, `CA.4/markoff-delta-zero-level` and the descent nodes) -/
+
+section Levels
+
+/-- Admissible levels: `k ≢ 3 (mod 4)` and `k ≢ ±3 (mod 9)`. -/
+def MarkoffAdmissible (k : ℤ) : Prop := k % 4 ≠ 3 ∧ k % 9 ≠ 3 ∧ k % 9 ≠ 6
+
+instance MarkoffAdmissible.decidable (k : ℤ) : Decidable (MarkoffAdmissible k) := by
+  unfold MarkoffAdmissible; infer_instance
+
+/-- Exceptional levels: an integral point with a coordinate of absolute value at most 2. -/
+def MarkoffExceptional (k : ℤ) : Prop := ∃ x ∈ markoffLevelSet ℤ k, ∃ i, |x i| ≤ 2
+
+/-- Generic levels. -/
+def MarkoffGeneric (k : ℤ) : Prop := MarkoffAdmissible k ∧ ¬ MarkoffExceptional k
+
+/-- Hasse failures: admissible levels with no integral point. -/
+def MarkoffHasseFailure (k : ℤ) : Prop := MarkoffAdmissible k ∧ markoffLevelSet ℤ k = ∅
+
+theorem markoffExceptional_iff (k : ℤ) :
+    MarkoffExceptional k ↔ (∃ u v : ℤ, k = u ^ 2 + v ^ 2) ∨
+      (∃ u v : ℤ, 4 * (k - 1) = u ^ 2 + 3 * v ^ 2) ∨ (∃ u : ℤ, k - 4 = u ^ 2) := by sorry
+
+theorem MarkoffExceptional.not_hasseFailure {k : ℤ} (h : MarkoffExceptional k) :
+    ¬ MarkoffHasseFailure k := by sorry
+
+theorem markoffGeneric_of_neg {k : ℤ} (hk : k < 0) (ha : MarkoffAdmissible k) :
+    MarkoffGeneric k := by sorry
+
+example : MarkoffGeneric 46 := by sorry -- markoffGeneric_forty_six
+
+example : MarkoffExceptional 5 := ⟨![0, 1, 2], by sorry, 0, by sorry⟩ -- markoffExceptional_five
+
+example : ¬ MarkoffAdmissible 3 ∧ ¬ MarkoffAdmissible 6 := by
+  unfold MarkoffAdmissible; decide -- not_markoffAdmissible_three_six
+
+example : MarkoffGeneric (-4) := by sorry -- markoffGeneric_neg_four
+
+example : MarkoffExceptional 13 := by sorry -- markoffExceptional_thirteen
+
+example : MarkoffExceptional 14 ∧ (4 : ℤ) * (14 - 1) = 2 ^ 2 + 3 * 4 ^ 2 ∧
+    (![1, 3, 4] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 14 := by sorry -- markoffExceptional_iff_fourteen
+
+/-- The group `Γ = Γ_{3,1}(ℤ)` acting on `ℤ³`. -/
+abbrev markoffGamma : Subgroup (Equiv.Perm (Fin 3 → ℤ)) := markoffHurwitzGroup 3 (1 : ℤ)
+
+/-- The Γ-orbits of points of `V_k(ℤ)`. -/
+def markoffOrbits (k : ℤ) : Set (MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ)) :=
+  (fun x => (Quotient.mk'' x : MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ))) ''
+    markoffLevelSet ℤ k
+
+/-- The class number `h_M(k)` (zero for the infinite orbit set at `k = 4`, by convention). -/
+noncomputable def markoffClassNumber (k : ℤ) : ℕ := Nat.card (markoffOrbits k)
+
+/-- `F⁺_k(ℤ) = {3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k}`. -/
+def markoffFundamentalPlus (k : ℤ) : Set (Fin 3 → ℤ) :=
+  {u | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧ u 0 ^ 2 + u 1 ^ 2 + u 2 ^ 2 + u 0 * u 1 * u 2 = k}
+
+/-- `F⁻_k(ℤ) = {3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, M(u) = k}`. -/
+def markoffFundamentalMinus (k : ℤ) : Set (Fin 3 → ℤ) :=
+  {u | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧ 2 * u 2 ≤ u 0 * u 1 ∧ markoffPoly u = k}
+
+theorem markoffFundamentalPlus_finite (k : ℤ) : (markoffFundamentalPlus k).Finite := by sorry
+
+theorem markoffFundamentalMinus_finite (k : ℤ) : (markoffFundamentalMinus k).Finite := by sorry
+
+theorem markoffFundamentalPlus_eq_empty_of_lt {k : ℤ} (hk : k < 54) :
+    markoffFundamentalPlus k = ∅ := by sorry
+
+/-- The fundamental counts add up to the lattice-point count `R⁺(K)` of Ghosh–Sarnak (1.6) and
+Lemma 7.2, owned by GeometryOfNumbersAndQuadraticArithmetic GN.4/markoff-fundamental-set-count. -/
+theorem sum_card_markoffFundamentalPlus_eq (K : ℕ) :
+    ∑ k ∈ Finset.Icc (0 : ℤ) K, (markoffFundamentalPlus k).ncard =
+      {u : Fin 3 → ℤ | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧
+        u 0 ^ 2 + u 1 ^ 2 + u 2 ^ 2 + u 0 * u 1 * u 2 ≤ K}.ncard := by sorry
+
+/-- The negative counterpart, `R⁻(K)` of Ghosh–Sarnak, Lemma 7.3 (GN.4). -/
+theorem sum_card_markoffFundamentalMinus_eq (K : ℕ) :
+    ∑ k ∈ Finset.Icc (-(K : ℤ)) (-1), (markoffFundamentalMinus k).ncard =
+      {u : Fin 3 → ℤ | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧ 2 * u 2 ≤ u 0 * u 1 ∧
+        1 ≤ -markoffPoly u ∧ -markoffPoly u ≤ K}.ncard := by sorry
+
+theorem markoffClassNumber_eq_zero_iff {k : ℤ} (hk : k ≠ 4) :
+    markoffClassNumber k = 0 ↔ markoffLevelSet ℤ k = ∅ := by sorry
+
+/-- Narrow equivalence: related by a permutation and a double sign change. -/
+def MarkoffNarrowEquiv (x y : Fin 3 → ℤ) : Prop := ∃ g ∈ markoffHurwitzNarrowGroup 3 ℤ, g x = y
+
+/-- CA.4/markoff-delta-zero-level: on `V₀(ℤ)`, Δ is negative exactly at the narrow class of
+`(3, 3, 3)`, and nonnegative elsewhere. -/
+theorem markoffDelta_zero_level_neg_iff {x : Fin 3 → ℤ} (hx : x ∈ markoffLevelSet ℤ 0) :
+    markoffDelta x < 0 ↔ MarkoffNarrowEquiv ![3, 3, 3] x := by sorry
+
+example : markoffClassNumber 0 = 2 := by sorry -- markoffClassNumber_zero
+
+example : markoffFundamentalPlus 54 = {![3, 3, 3]} := by sorry -- markoffFundamentalPlus_fifty_four
+
+example : Nat.card (markoffFundamentalPlus 3685) = 6 := by
+  sorry -- card_markoffFundamentalPlus_3685
+
+example : Nat.card (markoffFundamentalMinus (-3691)) = 9 := by
+  sorry -- card_markoffFundamentalMinus_neg_3691
+
+example : markoffFundamentalPlus 5 = ∅ ∧ (![0, 1, 2] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 5 ∧
+    markoffClassNumber 5 ≠ Nat.card (markoffFundamentalPlus 5) := by
+  sorry -- markoffFundamentalPlus_five
+
+example : markoffClassNumber 3 = 0 := by sorry -- markoffClassNumber_three
+
+/-- CA.4/markoff-descent-positive-level (a): the descent inequality, for every `k ≥ 1`. -/
+theorem markoff_descent_inequality {k : ℤ} (hk : 1 ≤ k) {x : Fin 3 → ℤ}
+    (hx : x ∈ markoffLevelSet ℤ k) (h0 : 3 ≤ x 0) (h1 : x 0 ≤ x 1) (h2 : x 1 ≤ x 2) :
+    x 0 * x 1 - x 2 < x 1 := by sorry
+
+/-- CA.4/markoff-descent-positive-level (b): Ghosh–Sarnak, Lemma 2.1, with the small-coordinate
+branch kept explicit. -/
+theorem markoff_descent_positive_level {k : ℤ} (hk : 5 ≤ k) {x : Fin 3 → ℤ}
+    (hx : x ∈ markoffLevelSet ℤ k) :
+    ∃ g ∈ markoffGamma, (∃ i, |g x i| ≤ 2) ∨
+      ∃ u ∈ markoffFundamentalPlus k, g x = ![-u 0, u 1, u 2] := by sorry
+
+/-- CA.4/markoff-levels-one-to-three: `V₃(ℤ) = ∅`, `V₂(ℤ)` and `V₁(ℤ)` are single finite orbits. -/
+theorem markoff_levels_one_to_three :
+    markoffLevelSet ℤ 3 = ∅ ∧
+    (markoffLevelSet ℤ 2).ncard = 16 ∧ markoffOrbits 2 = {Quotient.mk'' ![0, 1, 1]} ∧
+    (markoffLevelSet ℤ 1).ncard = 6 ∧ markoffOrbits 1 = {Quotient.mk'' ![0, 0, 1]} := by sorry
+
+/-- CA.4/markoff-descent-negative-level: Ghosh–Sarnak, Lemma 2.2. -/
+theorem markoff_descent_negative_level {k : ℤ} (hk : k < 0) {x : Fin 3 → ℤ}
+    (hx : x ∈ markoffLevelSet ℤ k) :
+    (∀ i, 3 ≤ |x i|) ∧ (∃ g ∈ markoffGamma, g x ∈ markoffFundamentalMinus k) ∧
+    ∀ u ∈ markoffFundamentalMinus k, (u 1 : ℝ) ≤ Real.sqrt (|k| + 9) ∧
+      2 * u 2 ≤ |k| + 9 := by sorry
+
+/-- CA.4/markoff-fundamental-sets (i): Ghosh–Sarnak, Theorem 1.1, for non-exceptional `k ≥ 5`. -/
+theorem markoff_fundamental_sets_pos {k : ℤ} (hk : 5 ≤ k) (hgen : ¬ MarkoffExceptional k) :
+    Set.BijOn (fun u : Fin 3 → ℤ =>
+        (Quotient.mk'' ![-u 0, u 1, u 2] : MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ)))
+      (markoffFundamentalPlus k) (markoffOrbits k) := by sorry
+
+/-- CA.4/markoff-fundamental-sets (ii): Ghosh–Sarnak, Theorem 1.1, for `k < 0`. -/
+theorem markoff_fundamental_sets_neg {k : ℤ} (hk : k < 0) :
+    Set.BijOn (fun u : Fin 3 → ℤ =>
+        (Quotient.mk'' u : MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ)))
+      (markoffFundamentalMinus k) (markoffOrbits k) := by sorry
+
+/-- CA.4/markoff-class-number-finite. -/
+theorem markoffOrbits_finite {k : ℤ} (hk : k ≠ 4) : (markoffOrbits k).Finite := by sorry
+
+/-- CA.4/markoff-cayley-cubic-orbits: one orbit for each `(2, a, a)`, `a ≥ 0`. -/
+theorem markoff_cayley_cubic_orbits :
+    Set.BijOn (fun a : ℕ =>
+        (Quotient.mk'' ![2, (a : ℤ), a] : MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ)))
+      Set.univ (markoffOrbits 4) := by sorry
+
+/-- CA.4/markoff-first-hasse-failures (a): 46 is the smallest positive Hasse failure. -/
+theorem markoff_first_positive_hasse_failure :
+    MarkoffHasseFailure 46 ∧ ∀ k, 0 ≤ k → k < 46 → ¬ MarkoffHasseFailure k := by sorry
+
+/-- CA.4/markoff-first-hasse-failures (b). -/
+theorem markoff_first_negative_hasse_failure :
+    markoffClassNumber (-2) = 1 ∧ markoffOrbits (-2) = {Quotient.mk'' ![3, 3, 4]} ∧
+      MarkoffHasseFailure (-4) ∧ ∀ k, -4 < k → k < 0 → ¬ MarkoffHasseFailure k := by sorry
+
+/-- CA.4/markoff-class-number-upper-bound (a): the trivial bounds. -/
+theorem card_markoffFundamentalPlus_le {k : ℤ} (hk : 5 ≤ k) :
+    ((markoffFundamentalPlus k).ncard : ℝ) ≤ 2 * (k : ℝ) ^ ((2 : ℝ) / 3) := by sorry
+
+theorem card_markoffFundamentalMinus_le {k : ℤ} (hk : k < 0) :
+    ((markoffFundamentalMinus k).ncard : ℤ) ≤ 2 * (|k| + 9) := by sorry
+
+/-- CA.4/markoff-class-number-upper-bound (b), at non-exceptional levels. Its input, the
+unit-class count for `X² − (a² − 4)Y² = 4N`, is a recorded gap. The restriction is needed: on the
+exceptional levels `4 + w²` the line `(2, t, t + w)` meets `⌊w/2⌋ + 1` orbits (source issue E553). -/
+theorem markoffClassNumber_isBigO (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, ∀ k : ℤ, ((5 ≤ k ∧ ¬ MarkoffExceptional k) ∨ k < 0) →
+      (markoffClassNumber k : ℝ) ≤ C * |(k : ℝ)| ^ ((1 : ℝ) / 3 + ε) := by sorry
+
+end Levels
+
+/-! ## Parametric solutions (`CA.4/markoff-parametric-degree-descent`, `-families`) -/
+
+section Parametric
+
+open _root_.Polynomial
+
+/-- The Markoff-type polynomial `M*` of Ghosh–Sarnak (5.1), with `ε = ±1`. -/
+noncomputable def markoffStarPoly (α β : Fin 3 → ℤ) (ε : ℤˣ) (x : Fin 3 → ℤ[X]) : ℤ[X] :=
+  ∑ j, C (α j) * x j + (C (β 0) * x 1 * x 2 + C (β 1) * x 0 * x 2 + C (β 2) * x 0 * x 1) +
+    x 0 ^ 2 + x 1 ^ 2 + C ((ε : ℤ)) * x 2 ^ 2 - x 0 * x 1 * x 2
+
+/-- CA.4/markoff-parametric-degree-descent: Ghosh–Sarnak, Lemma 5.1. -/
+theorem markoff_parametric_degree_descent (α β : Fin 3 → ℤ) (ε : ℤˣ) (k : ℤ) (P : Fin 3 → ℤ[X])
+    (hP : ∀ j, 0 < (P j).natDegree) (h : markoffStarPoly α β ε P = C k) :
+    ∃ Q : Fin 3 → ℤ[X], markoffStarPoly α β ε Q = C k ∧
+      ∃ j, (Q j).natDegree = 0 ∧ ∀ i, i ≠ j → 0 < (Q i).natDegree := by sorry
+
+/-- CA.4/markoff-parametric-degree-descent: no parametric solution has exactly two constant
+coordinates. -/
+theorem markoff_parametric_two_constants (α β : Fin 3 → ℤ) (ε : ℤˣ) (k : ℤ) (P : Fin 3 → ℤ[X])
+    (j : Fin 3) (hj : 0 < (P j).natDegree) (hc : ∀ i, i ≠ j → (P i).natDegree = 0) :
+    markoffStarPoly α β ε P ≠ C k := by sorry
+
+/-- CA.4/markoff-parametric-families (1). -/
+theorem markoff_parametric_families (k : ℤ) :
+    (∃ P : Fin 3 → ℤ[X], (∃ j, 0 < (P j).natDegree) ∧
+      ∀ t : ℤ, (fun j => (P j).eval t) ∈ markoffLevelSet ℤ k) ↔ IsSquare (k - 4) := by sorry
+
+/-- CA.4/markoff-parametric-families (2): the companion surface `x₁² + x₂² − x₃² − x₁x₂x₃ = k`. -/
+theorem markoff_companion_parametric_families (k : ℤ) :
+    (∃ P : Fin 3 → ℤ[X], (∃ j, 0 < (P j).natDegree) ∧ ∀ t : ℤ,
+      (P 0).eval t ^ 2 + (P 1).eval t ^ 2 - (P 2).eval t ^ 2 -
+        (P 0).eval t * (P 1).eval t * (P 2).eval t = k) ↔ IsSquare (k + 4) ∨ k = 0 := by sorry
+
+end Parametric
+
+/-! ## Certified enumeration (`CA.4/markoff-class-number-enumeration`) -/
+
+section Enumeration
+
+/-- Search for `F⁺_k` (`k ≥ 5`) or `F⁻_k` (`k < 0`) in the explicit boxes. -/
+def markoffFundamentalSearch (k : ℤ) : Finset (Fin 3 → ℤ) :=
+  if 5 ≤ k then
+    ((Finset.Icc (3 : ℤ) (Int.sqrt k + 1)) ×ˢ (Finset.Icc (3 : ℤ) (Int.sqrt k + 1))).biUnion
+      (fun p => ((Finset.Icc p.2 (k + 1)).filter fun c =>
+        3 ≤ p.1 ∧ p.1 ≤ p.2 ∧ p.1 ^ 2 + p.2 ^ 2 + c ^ 2 + p.1 * p.2 * c = k).image
+          fun c => ![p.1, p.2, c])
+  else if k < 0 then
+    ((Finset.Icc (3 : ℤ) (Int.sqrt (|k| + 9))) ×ˢ (Finset.Icc (3 : ℤ) (Int.sqrt (|k| + 9)))).biUnion
+      (fun p => ((Finset.Icc p.2 (p.1 * p.2)).filter fun c =>
+        p.1 ≤ p.2 ∧ 2 * c ≤ p.1 * p.2 ∧ p.1 ^ 2 + p.2 ^ 2 + c ^ 2 - p.1 * p.2 * c = k).image
+          fun c => ![p.1, p.2, c])
+  else ∅
+
+/-- Bounded search for the three binary equations of `markoffExceptional_iff`. -/
+def markoffExceptionalTest (k : ℤ) : Bool :=
+  let B := Int.sqrt (4 * |k| + 4) + 2
+  decide (∃ u ∈ Finset.Icc (-B) B, ∃ v ∈ Finset.Icc (-B) B,
+    k = u ^ 2 + v ^ 2 ∨ 4 * (k - 1) = u ^ 2 + 3 * v ^ 2 ∨ k - 4 = u ^ 2)
+
+theorem markoffFundamentalSearch_eq_plus {k : ℤ} (hk : 5 ≤ k) :
+    (↑(markoffFundamentalSearch k) : Set (Fin 3 → ℤ)) = markoffFundamentalPlus k := by sorry
+
+theorem markoffFundamentalSearch_eq_minus {k : ℤ} (hk : k < 0) :
+    (↑(markoffFundamentalSearch k) : Set (Fin 3 → ℤ)) = markoffFundamentalMinus k := by sorry
+
+theorem markoffExceptionalTest_iff (k : ℤ) :
+    markoffExceptionalTest k = true ↔ MarkoffExceptional k := by sorry
+
+theorem markoffHasseFailure_iff_search {k : ℤ} (hk : 5 ≤ k ∨ k < 0) :
+    MarkoffHasseFailure k ↔ MarkoffAdmissible k ∧ markoffExceptionalTest k = false ∧
+      markoffFundamentalSearch k = ∅ := by sorry
+
+theorem markoffClassNumber_eq_card_search {k : ℤ} (hk : 5 ≤ k ∨ k < 0)
+    (hgen : ¬ MarkoffExceptional k) :
+    markoffClassNumber k = (markoffFundamentalSearch k).card := by sorry
+
+example : (markoffFundamentalSearch 3685).card = 6 := by sorry -- markoffFundamentalSearch_3685
+
+example : (markoffFundamentalSearch (-3691)).card = 9 := by
+  sorry -- markoffFundamentalSearch_neg_3691
+
+example : markoffFundamentalSearch 46 = ∅ ∧ markoffExceptionalTest 46 = false := by
+  sorry -- markoffFundamentalSearch_forty_six
+
+example : markoffFundamentalSearch 5 = ∅ ∧ markoffExceptionalTest 5 = true := by
+  sorry -- markoffFundamentalSearch_five
+
+example (k : ℤ) (h₁ : 5 ≤ k) (h₂ : k < 54) : markoffFundamentalSearch k = ∅ := by
+  sorry -- markoffFundamentalSearch_lt
+
+example : (markoffFundamentalSearch 9454).card = 11 ∧ ![3, 7, 87] ∈ markoffFundamentalSearch 9454 ∧
+    ![17, 17, 28] ∈ markoffFundamentalSearch 9454 := by sorry -- markoffFundamentalSearch_9454
+
+end Enumeration
+
+/-! ## Typed signatures for the first-pass Markoff comparison nodes -/
+
+section FirstPassSignatures
+
+/-- CA.4/markoff-coefficient-one-zero-orbits (first pass): every integral point of `X` is
+divisible by 3, `ξ` is a bijection on integral points, and `V₀(ℤ)` has the two orbits of `0`
+and `(3, 3, 3)`. -/
+theorem markoff_coefficient_one_zero_orbits :
+    (∀ x ∈ markoffTraceSurface ℤ, ∀ i, (3 : ℤ) ∣ x i) ∧
+    markoffOrbits 0 = {Quotient.mk'' 0, Quotient.mk'' ![3, 3, 3]} := by sorry
+
+/-- CA.4/markoff-positive-root-orbits (first pass): for every `k ≥ 5` the map from `F⁺_k(ℤ)`
+to orbits is injective, and its orbits consist of points with all coordinates of absolute value
+at least 3. -/
+theorem markoff_positive_root_orbits {k : ℤ} (hk : 5 ≤ k) :
+    Set.InjOn (fun u : Fin 3 → ℤ =>
+        (Quotient.mk'' ![-u 0, u 1, u 2] : MulAction.orbitRel.Quotient markoffGamma (Fin 3 → ℤ)))
+      (markoffFundamentalPlus k) ∧
+    ∀ u ∈ markoffFundamentalPlus k, ∀ g ∈ markoffGamma, ∀ i, 3 ≤ |g ![-u 0, u 1, u 2] i| := by sorry
+
+/-- CA.4/markoff-exceptional-class-number-lower-bound (first pass). -/
+theorem markoff_exceptional_class_number_lower_bound {k : ℤ} (hk : 5 ≤ k)
+    (hexc : MarkoffExceptional k) :
+    (markoffFundamentalPlus k).ncard + 1 ≤ markoffClassNumber k := by sorry
+
+end FirstPassSignatures
+
+/-! ## Local points and local solubility -/
+
+section Local
+
+/-- CA.4/markoff-explicit-local-points: Ghosh–Sarnak, Corollary 6.3, over any ring in which
+2 and 3 are units. -/
+theorem markoff_explicit_local_point {R : Type*} [CommRing R] (h2 : IsUnit (2 : R))
+    (h3 : IsUnit (3 : R)) (k : R) :
+    let e : R := 2
+    let f : R := ((h2.unit⁻¹ : Rˣ) : R)
+    let c : R := ((((h3.unit * h2.unit⁻¹ : Rˣ) ^ 2)⁻¹ : Rˣ) : R)
+    (![2 - (k - 4) * c, e + f, e - f + f * (2 - (k - 4) * c)] : Fin 3 → R) ∈ markoffLevelSet R k := by
+  sorry
+
+theorem markoffLevelSet_zmod_nonempty {p : ℕ} [Fact p.Prime] (hp : 5 ≤ p) (n : ℕ) (k : ℤ) :
+    (markoffLevelSet (ZMod (p ^ n)) (k : ZMod (p ^ n))).Nonempty := by sorry
+
+end Local
+
+/-! ### `CA.4/quadratic-gauss-sum-normalisation` and `CA.4/markoff-type-point-count-mod-p` -/
+
+section GaussSums
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The quadratic character of `𝔽_p` with complex values. -/
+noncomputable def quadraticCharC : MulChar (ZMod p) ℂ :=
+  (quadraticChar (ZMod p)).ringHomComp (Int.castRingHom ℂ)
+
+/-- `S_p(a) = Σ_u e_p(a u²)`. -/
+noncomputable def quadraticExpSum (a : ZMod p) : ℂ :=
+  ∑ u : ZMod p, ZMod.stdAddChar (a * u ^ 2)
+
+theorem quadraticExpSum_zero : quadraticExpSum p 0 = p := by sorry
+
+theorem quadraticExpSum_eq_char_mul (hp : p ≠ 2) {a : ZMod p} (ha : a ≠ 0) :
+    quadraticExpSum p a = quadraticCharC p a * quadraticExpSum p 1 := by sorry
+
+theorem quadraticExpSum_one_eq_gaussSum (hp : p ≠ 2) :
+    quadraticExpSum p 1 = gaussSum (quadraticCharC p) ZMod.stdAddChar := by sorry
+
+theorem quadraticExpSum_one_sq (hp : p ≠ 2) :
+    quadraticExpSum p 1 ^ 2 = quadraticCharC p (-1) * p := by sorry
+
+theorem sum_char_mul_stdAddChar (hp : p ≠ 2) (b : ZMod p) :
+    ∑ a : ZMod p, quadraticCharC p a * ZMod.stdAddChar (a * b) =
+      quadraticCharC p b * quadraticExpSum p 1 := by sorry
+
+theorem sum_quadraticChar_sub_sq (hp : p ≠ 2) {c : ZMod p} (hc : c ≠ 0) :
+    ∑ x : ZMod p, quadraticChar (ZMod p) (c - x ^ 2) = -quadraticChar (ZMod p) (-1) := by sorry
+
+example : haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
+    quadraticExpSum 3 1 ^ 2 = -3 := by sorry -- quadraticExpSum_three_sq
+
+example : haveI : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
+    quadraticExpSum 5 2 = -quadraticExpSum 5 1 := by sorry -- quadraticExpSum_five_two
+
+example (hp : p ≠ 2) : quadraticExpSum p 0 = p := by sorry -- quadraticExpSum_zero_eq
+
+example : haveI : Fact (Nat.Prime 7) := ⟨by decide⟩
+    quadraticExpSum 7 1 = gaussSum (quadraticCharC 7) ZMod.stdAddChar ∧
+      quadraticExpSum 7 1 ^ 2 = -7 := by sorry -- quadraticExpSum_one_eq_gaussSum_seven
+
+example (hp : p ≠ 2) :
+    ∑ x : ZMod p, quadraticChar (ZMod p) (-x ^ 2) = (p - 1) * quadraticChar (ZMod p) (-1) := by
+  sorry -- sum_quadraticChar_sub_sq_zero
+
+/-- CA.4/markoff-type-point-count-mod-p: Ghosh–Sarnak, Lemma 6.4. -/
+theorem markoff_type_point_count (hp : p ≠ 2) (α β : ZMod p) :
+    (Nat.card {x : Fin 3 → ZMod p // x 0 ^ 2 + x 1 ^ 2 + x 2 ^ 2 - α * x 0 * x 1 * x 2 = β} : ℤ) =
+      if α = 0 then (p : ℤ) ^ 2 + p * quadraticChar (ZMod p) (-β)
+      else (p : ℤ) ^ 2 + 1 + p * quadraticChar (ZMod p) (α ^ 2 * β - 4) *
+        (3 + quadraticChar (ZMod p) β) := by sorry
+
+theorem card_markoffTraceSurfaceNonzero (hp : p ≠ 2) :
+    (Nat.card (markoffTraceSurfaceNonzero (ZMod p)) : ℤ) =
+      (p : ℤ) ^ 2 + 3 * p * quadraticChar (ZMod p) (-1) := by sorry
+
+end GaussSums
+
+section LocalSolubility
+
+/-- CA.4/markoff-local-solubility: Ghosh–Sarnak, Proposition 6.1, with the corrected lifts at
+`p = 2, 3`. -/
+theorem markoff_local_solubility (k : ℤ) :
+    (∀ (p : ℕ) [Fact p.Prime], (markoffLevelSet ℤ_[p] (k : ℤ_[p])).Nonempty) ↔
+      MarkoffAdmissible k := by sorry
+
+theorem markoff_local_solubility_mod (k : ℤ) :
+    (∀ m : ℕ, 0 < m → (markoffLevelSet (ZMod m) (k : ZMod m)).Nonempty) ↔ MarkoffAdmissible k := by
+  sorry
+
+theorem markoff_padic_nonempty_of_five_le {p : ℕ} [Fact p.Prime] (hp : 5 ≤ p) (k : ℤ) :
+    (markoffLevelSet ℤ_[p] (k : ℤ_[p])).Nonempty := by sorry
+
+end LocalSolubility
+
+/-! ## Hasse failures (`CA.4/markoff-reciprocity-obstruction`, `-hasse-failures-*`) -/
+
+section HasseFailures
+
+/-- CA.4/markoff-reciprocity-obstruction, prime-factor form. (The source's character form fails
+for `d < 0` at a coordinate `±1`, e.g. `k = 2`, `x = (1, 1, 1)`: source issue E555.) -/
+theorem markoff_reciprocity_obstruction {d : ℤ} (hd : d ≠ 0) {x : Fin 3 → ℤ}
+    (hx : x ∈ markoffLevelSet ℤ (4 + d)) {q : ℕ} [Fact q.Prime] (hq2 : q ≠ 2)
+    (hqd : ¬ (q : ℤ) ∣ d) (hqx : (q : ℤ) ∣ x 0 ^ 2 - 4) :
+    legendreSym q d = 1 := by sorry
+
+/-- CA.4/markoff-hasse-failures-two-nu-squared (i). -/
+theorem markoff_hasse_failure_neg_family {ν : ℕ} (hν : 3 ≤ ν) (hodd : Odd ν)
+    (hprime : ∀ q ∈ ν.primeFactors, q % 8 = 1 ∨ q % 8 = 3) :
+    MarkoffHasseFailure (4 - 2 * (ν : ℤ) ^ 2) := by sorry
+
+/-- CA.4/markoff-hasse-failures-two-nu-squared (ii). -/
+theorem markoff_hasse_failure_pos_family {ν : ℕ} (hν : 1 ≤ ν)
+    (hprime : ∀ q ∈ ν.primeFactors, q % 8 = 1 ∨ q % 8 = 7) (h9 : ν % 9 = 4 ∨ ν % 9 = 5) :
+    MarkoffHasseFailure (4 + 2 * (ν : ℤ) ^ 2) := by sorry
+
+/-- CA.4/markoff-hasse-failures-prime-family: Proposition 8.1 (iii). -/
+theorem markoff_hasse_failure_prime_family {ℓ : ℕ} (hℓ : ℓ.Prime) (h13 : 13 ≤ ℓ)
+    (h9 : ℓ % 9 = 4 ∨ ℓ % 9 = 5) :
+    MarkoffGeneric (4 + 2 * (ℓ : ℤ) ^ 2) ∧ MarkoffHasseFailure (4 + 2 * (ℓ : ℤ) ^ 2) := by sorry
+
+/-- CA.4/markoff-hasse-failures-twelve-nu-squared: Proposition 8.2. -/
+theorem markoff_hasse_failure_twelve {ν : ℕ} (h32 : ν ^ 2 % 32 = 25)
+    (hprime : ∀ q ∈ ν.primeFactors, q % 12 = 1 ∨ q % 12 = 11) :
+    MarkoffHasseFailure (4 + 12 * (ν : ℤ) ^ 2) := by sorry
+
+/-- CA.4/markoff-hasse-failures-twenty-nu-squared: Proposition 8.3. -/
+theorem markoff_hasse_failure_twenty {ν : ℕ} (h9 : ν % 9 = 4 ∨ ν % 9 = 5)
+    (hprime : ∀ q ∈ ν.primeFactors, q % 20 = 1 ∨ q % 20 = 19) :
+    MarkoffHasseFailure (4 + 20 * (ν : ℤ) ^ 2) := by sorry
+
+example : MarkoffHasseFailure 342 ∧ MarkoffHasseFailure 1456 ∧ MarkoffHasseFailure 33624 ∧
+    MarkoffHasseFailure (-14) := by sorry
+
+/-- CA.4/markoff-infinitely-many-hasse-failures. -/
+theorem markoff_infinitely_many_hasse_failures :
+    {k : ℤ | 0 < k ∧ MarkoffHasseFailure k}.Infinite ∧
+      {k : ℤ | k < 0 ∧ MarkoffHasseFailure k}.Infinite := by sorry
+
+open Classical in
+/-- CA.4/markoff-hasse-failure-count-lower-bound: its analytic input (the Landau–Wirsing count)
+is a recorded gap. -/
+theorem markoff_hasse_failure_count_lower_bound :
+    ∃ c > (0 : ℝ), ∀ᶠ K : ℕ in Filter.atTop,
+      c * Real.sqrt K / Real.sqrt (Real.log K) ≤
+        (((Finset.Icc (1 : ℤ) K).filter fun k => MarkoffHasseFailure k).card : ℝ) ∧
+      c * Real.sqrt K / Real.sqrt (Real.log K) ≤
+        (((Finset.Icc (-(K : ℤ)) (-1)).filter fun k => MarkoffHasseFailure k).card : ℝ) := by
+  sorry
+
+end HasseFailures
+
+/-! ## Exceptional Markoff–Hurwitz tuples and the descent (Gamburd–Magee–Ronan;
+`CA.4/markoff-hurwitz-exceptional`, `-signed-to-positive`, `-moves-outside-compact`,
+`-infinite-descent`) -/
+
+section HurwitzDescent
+
+/-- Fundamental exceptional points (Gamburd–Magee–Ronan, Definition 15), stated on the sorted
+tuple `List.mergeSort` of the coordinates: for `a = 1`, `n − 3` ones followed by a `2`; for
+`a = 2`, `n − 2` ones. -/
+def MarkoffHurwitzFundamentalExceptional (n : ℕ) (a k : ℤ) (x : Fin n → ℤ) : Prop :=
+  x ∈ markoffHurwitzPositive n a k ∧
+    let s := (List.ofFn x).mergeSort (fun u v => decide (u ≤ v))
+    (a = 1 ∧ s.take (n - 2) = List.replicate (n - 3) 1 ++ [2]) ∨
+      (a = 2 ∧ s.take (n - 2) = List.replicate (n - 2) 1)
+
+/-- The exceptional set `E`: the Γ-orbits of the fundamental exceptional points. -/
+def markoffHurwitzExceptional (n : ℕ) (a k : ℤ) : Set (Fin n → ℤ) :=
+  {x | ∃ y, MarkoffHurwitzFundamentalExceptional n a k y ∧ ∃ g ∈ markoffHurwitzGroup n a, g y = x}
+
+theorem markoffHurwitzExceptional_smul {n : ℕ} {a k : ℤ} {g : Equiv.Perm (Fin n → ℤ)}
+    (hg : g ∈ markoffHurwitzGroup n a) (x : Fin n → ℤ) :
+    g x ∈ markoffHurwitzExceptional n a k ↔ x ∈ markoffHurwitzExceptional n a k := by sorry
+
+theorem markoffHurwitzFundamentalExceptional_iff_one {n : ℕ} (hn : 3 ≤ n) {k : ℤ}
+    (x : Fin n → ℤ) (hsort : Monotone x) (hpos : ∀ i, 0 < x i)
+    (hone : ∀ i : Fin n, (i : ℕ) < n - 3 → x i = 1) (htwo : x ⟨n - 3, by omega⟩ = 2) :
+    x ∈ markoffHurwitzSet n 1 k ↔
+      (x ⟨n - 2, by omega⟩ - x ⟨n - 1, by omega⟩) ^ 2 = k - n - 1 := by sorry
+
+theorem markoffHurwitzFundamentalExceptional_iff_two {n : ℕ} (hn : 3 ≤ n) {k : ℤ}
+    (x : Fin n → ℤ) (hsort : Monotone x) (hpos : ∀ i, 0 < x i)
+    (hone : ∀ i : Fin n, (i : ℕ) < n - 2 → x i = 1) :
+    x ∈ markoffHurwitzSet n 2 k ↔
+      (x ⟨n - 2, by omega⟩ - x ⟨n - 1, by omega⟩) ^ 2 = k - n + 2 := by sorry
+
+theorem markoffHurwitzExceptional_nonempty_iff {n : ℕ} (hn : 3 ≤ n) {a k : ℤ} (ha : 1 ≤ a) :
+    (markoffHurwitzExceptional n a k).Nonempty ↔
+      (a = 1 ∧ IsSquare (k - n - 1)) ∨ (a = 2 ∧ IsSquare (k - n + 2)) := by sorry
+
+theorem markoffHurwitzExceptional_eq_empty_of_three_le {n : ℕ} {a k : ℤ} (ha : 3 ≤ a) :
+    markoffHurwitzExceptional n a k = ∅ := by sorry
+
+example : MarkoffHurwitzFundamentalExceptional 3 1 8 ![2, 3, 5] := by
+  sorry -- markoffHurwitzFundamentalExceptional_eight
+
+example : markoffHurwitzExceptional 3 1 14 = ∅ ∧ (![1, 3, 4] : Fin 3 → ℤ) ∈ markoffLevelSet ℤ 14 := by
+  sorry -- markoffHurwitzExceptional_fourteen
+
+example : markoffHurwitzExceptional 3 3 0 = ∅ := by sorry -- markoffHurwitzExceptional_markoff
+
+example : MarkoffHurwitzFundamentalExceptional 4 2 2 ![1, 1, 5, 5] := by
+  sorry -- markoffHurwitzFundamentalExceptional_four_two
+
+example (k : ℤ) (h : (markoffHurwitzExceptional 3 1 k).Nonempty) :
+    MarkoffExceptional k ∧ IsSquare (k - 4) := by sorry -- markoffHurwitzExceptional_compat_gs
+
+/-- CA.4/markoff-hurwitz-signed-to-positive: the bounded error in passing to positive tuples. -/
+theorem markoff_hurwitz_signed_to_positive {n : ℕ} (hn : 3 ≤ n) {a : ℤ} (ha : 1 ≤ a) (k : ℤ) :
+    ∃ C : ℕ, ∀ R : ℕ,
+      ({x | x ∈ markoffHurwitzSet n a k ∧ x ∉ markoffHurwitzExceptional n a k ∧
+          ∀ i, |x i| ≤ R} : Set (Fin n → ℤ)).ncard ≤
+        2 ^ (n - 1) * ({x | x ∈ markoffHurwitzPositive n a k ∧
+          x ∉ markoffHurwitzExceptional n a k ∧ ∀ i, x i ≤ R} : Set (Fin n → ℤ)).ncard + C ∧
+      2 ^ (n - 1) * ({x | x ∈ markoffHurwitzPositive n a k ∧
+          x ∉ markoffHurwitzExceptional n a k ∧ ∀ i, x i ≤ R} : Set (Fin n → ℤ)).ncard ≤
+        ({x | x ∈ markoffHurwitzSet n a k ∧ x ∉ markoffHurwitzExceptional n a k ∧
+          ∀ i, |x i| ≤ R} : Set (Fin n → ℤ)).ncard := by sorry
+
+/-- CA.4/markoff-hurwitz-moves-outside-compact: Gamburd–Magee–Ronan, Proposition 16, parts (1),
+(2), (3) and (5) (part (3) only outside the ball). -/
+theorem markoff_hurwitz_moves_outside_compact {n : ℕ} (hn : 3 ≤ n) {a : ℤ} (ha : 1 ≤ a) (k : ℤ) :
+    ∃ R₀ : ℕ, ∀ x ∈ markoffHurwitzPositive n a k, x ∉ markoffHurwitzExceptional n a k →
+      (∃ i, R₀ < x i) →
+      ∃ j, (∀ i, i ≠ j → x i < x j) ∧ (∀ i, markoffHurwitzMove a j x i < x j) ∧
+        (∀ i, i ≠ j → ∀ l, l ≠ i → markoffHurwitzMove a i x l < markoffHurwitzMove a i x i) ∧
+        ∀ i, markoffHurwitzMove a i x ∈ markoffHurwitzPositive n a k := by sorry
+
+/-- CA.4/markoff-hurwitz-infinite-descent: Gamburd–Magee–Ronan, Corollary 17. The list can be
+taken to consist of moves at the strict maximum, each lowering it (by
+`markoff_hurwitz_moves_outside_compact`); the statement records only the outcome. -/
+theorem markoff_hurwitz_infinite_descent {n : ℕ} (hn : 3 ≤ n) {a : ℤ} (ha : 1 ≤ a) (k : ℤ) :
+    ∃ R₀ : ℕ, ∀ x ∈ markoffHurwitzPositive n a k, x ∉ markoffHurwitzExceptional n a k →
+      ∃ l : List (Fin n), (∀ i, l.foldr (fun j y => markoffHurwitzMove a j y) x i ≤ R₀) ∧
+        l.foldr (fun j y => markoffHurwitzMove a j y) x ∈ markoffHurwitzPositive n a k := by
+  sorry
+
+end HurwitzDescent
+
+/-! ## Negative Pell radicands (`CA.4/negative-pell-radicand-sets`,
+`CA.4/negative-pell-rational-solubility`, `CA.4/negative-pell-prime-one-mod-four`) -/
+
+section NegativePell
+
+/-- `𝒟⁻`: squarefree `d > 0` with `x² − dy² = −1` soluble in integers. -/
+def negPellRadicands : Set ℕ :=
+  {d | 0 < d ∧ Squarefree d ∧ ∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1}
+
+/-- `𝒟`: squarefree `d > 0` all of whose prime factors are `2` or `≡ 1 (mod 4)`. -/
+def pellFamily : Set ℕ :=
+  {d | 0 < d ∧ Squarefree d ∧ ∀ p, p.Prime → p ∣ d → p % 4 = 1 ∨ p = 2}
+
+/-- `𝒟⁻(X)` for natural `X`. -/
+noncomputable def negPellRadicandsBelow (X : ℕ) : Finset ℕ := by
+  classical exact (Finset.range X).filter (· ∈ negPellRadicands)
+
+/-- `𝒟(X)` for natural `X`. -/
+noncomputable def pellFamilyBelow (X : ℕ) : Finset ℕ := by
+  classical exact (Finset.range X).filter (· ∈ pellFamily)
+
+theorem mem_negPellRadicands_iff (d : ℕ) :
+    d ∈ negPellRadicands ↔ 0 < d ∧ Squarefree d ∧ (pellNormSet d (-1)).Nonempty := by sorry
+
+theorem negPellRadicands_subset_pellFamily : negPellRadicands ⊆ pellFamily := by sorry
+
+@[simp] theorem one_mem_negPellRadicands : 1 ∈ negPellRadicands := by sorry
+
+example : negPellRadicandsBelow 11 = {1, 2, 5, 10} := by sorry -- negPellRadicandsBelow_eleven
+
+example : 34 ∈ pellFamily ∧ 34 ∉ negPellRadicands := by
+  sorry -- thirty_four_mem_pellFamily_not_negPell
+
+example : 1 ∈ negPellRadicands :=
+  ⟨by norm_num, squarefree_one, 0, 1, by norm_num⟩ -- one_mem_negPellRadicands_ex
+
+example : 3 ∉ pellFamily ∧ 3 ∉ negPellRadicands := by sorry -- three_not_mem_pellFamily
+
+example : 13 ∈ negPellRadicands ∧ (⟨18, 5⟩ : ℤ√13) ∈ pellNormSet 13 (-1) := by
+  sorry -- mem_negPellRadicands_thirteen
+
+/-- CA.4/negative-pell-rational-solubility. -/
+theorem negPell_rat_soluble_iff {d : ℕ} (hd : 0 < d) (hsq : Squarefree d) :
+    (∃ x y : ℚ, x ^ 2 - d * y ^ 2 = -1) ↔ d ∈ pellFamily := by sorry
+
+theorem negPell_rat_soluble_iff_sum_two_sq {d : ℕ} (hd : 0 < d) (hsq : Squarefree d) :
+    (∃ x y : ℚ, x ^ 2 - d * y ^ 2 = -1) ↔ ∃ u v : ℕ, d = u ^ 2 + v ^ 2 := by sorry
+
+example : ((5 : ℚ) / 3) ^ 2 - 34 * (1 / 3) ^ 2 = -1 ∧ 34 ∉ negPellRadicands := by sorry
+
+/-- CA.4/negative-pell-prime-one-mod-four: Dirichlet's theorem. -/
+theorem prime_mem_negPellRadicands {p : ℕ} (hp : p.Prime) (h4 : p % 4 = 1) :
+    p ∈ negPellRadicands := by sorry
+
+theorem negPellRadicands_infinite : negPellRadicands.Infinite := by sorry
+
+end NegativePell
+
+/-! ## The triple product and its specialisations (`CA.4/jacobi-triple-product`, ...) -/
+
+section TripleProduct
+
+open _root_.PowerSeries PowerSeries.WithPiTopology
+
+/-- CA.4/power-series-product-specialisation. -/
+theorem coeff_prod_map_eventually_eq {A B ι : Type*} [CommRing A] [CommRing B] (φ : A →+* B)
+    (f : ι → PowerSeries A) (g : PowerSeries A)
+    (h : ∀ m : ℕ, ∀ᶠ s in Filter.atTop, coeff m (∏ i ∈ s, f i) = coeff m g) (m : ℕ) :
+    ∀ᶠ s in Filter.atTop, coeff m (∏ i ∈ s, map φ (f i)) = coeff m (map φ g) := by sorry
+
+theorem hasProd_map_of_coeff_eventually_eq {A B ι : Type*} [CommRing A] [CommRing B]
+    [TopologicalSpace B] (φ : A →+* B) (f : ι → PowerSeries A) (g : PowerSeries A)
+    (h : ∀ m : ℕ, ∀ᶠ s in Filter.atTop, coeff m (∏ i ∈ s, f i) = coeff m g) :
+    HasProd (fun i => map φ (f i)) (map φ g) := by sorry
+
+/-- CA.4/jacobi-triple-product (a), for every Hausdorff topological commutative ring and unit `a`
+(the coefficient form, without topology, is `coeff_prod_map_eventually_eq`'s hypothesis). -/
+theorem jacobi_triple_product {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R]
+    (a : Rˣ) :
+    HasProd (fun n : ℕ => (1 - X ^ (2 * n + 2)) * (1 + C (a : R) * X ^ (2 * n + 1)) *
+        (1 + C ((a⁻¹ : Rˣ) : R) * X ^ (2 * n + 1)))
+      (∑' n : ℤ, C (((a ^ n : Rˣ)) : R) * X ^ (n.natAbs ^ 2)) ∧
+    Summable (fun n : ℤ => C (((a ^ n : Rˣ)) : R) * X ^ (n.natAbs ^ 2) : ℤ → PowerSeries R) := by
+  sorry
+
+/-- CA.4/jacobi-triple-product (b): the form with `t^{k(k+1)/2}`. -/
+theorem jacobi_triple_product' {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R]
+    (s : Rˣ) :
+    HasProd (fun i : ℕ => (1 - X ^ (i + 1)) * (1 + C (s : R) * X ^ (i + 1)) *
+        (1 + C ((s⁻¹ : Rˣ) : R) * X ^ i))
+      (∑' k : ℤ, C (((s ^ k : Rˣ)) : R) * X ^ ((k * (k + 1) / 2).toNat)) := by sorry
+
+/-- CA.4/jacobi-cube-identity. -/
+theorem jacobi_cube_identity {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R] :
+    HasProd (fun n : ℕ => (1 - X ^ (n + 1) : PowerSeries R) ^ 3)
+      (∑' n : ℕ, C ((-1 : R) ^ n * (2 * n + 1)) * X ^ (n * (n + 1) / 2)) := by sorry
+
+/-- CA.4/theta-product-specialisations (ii), (iii), (iv) and Euler's identity; (iii) is stated
+in the equivalent form ∏(1 + x^{2n})²(1 − x^{2n}) = Σ_{r ≥ 0} x^{r(r+1)}, valid over every ring
+(twice it is Σ_{r ∈ ℤ} x^{r² + r}). -/
+theorem theta_product_specialisations {R : Type*} [CommRing R] [TopologicalSpace R]
+    [T2Space R] :
+    HasProd (fun n : ℕ => (1 + X ^ (2 * n + 1) : PowerSeries R) ^ 2 * (1 - X ^ (2 * n + 2)))
+        (∑' n : ℤ, X ^ (n.natAbs ^ 2)) ∧
+    HasProd (fun n : ℕ => (1 + X ^ (2 * n + 2) : PowerSeries R) ^ 2 * (1 - X ^ (2 * n + 2)))
+        (∑' r : ℕ, X ^ (r * (r + 1))) ∧
+    (∏' n : ℕ, (1 - X ^ (n + 1) : PowerSeries R)) =
+        (∏' n : ℕ, (1 + X ^ (n + 1) : PowerSeries R)) * ∑' n : ℤ, C ((-1 : R) ^ n.natAbs) * X ^ (n.natAbs ^ 2) ∧
+    (∏' n : ℕ, (1 + X ^ (n + 1) : PowerSeries R)) * (∏' n : ℕ, (1 - X ^ (2 * n + 1))) = 1 := by
+  sorry
+
+/-- CA.4/theta-product-specialisations (iii) in the form with the factor 2 and the sum over ℤ. -/
+theorem theta_two_product_int {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R] :
+    (2 : PowerSeries R) * ∏' n : ℕ, (1 + X ^ (2 * n + 2) : PowerSeries R) ^ 2 * (1 - X ^ (2 * n + 2)) =
+      ∑' r : ℤ, X ^ ((r * (r + 1)).toNat) := by sorry
+
+end TripleProduct
+
+end TauCeti.ClassicalArithmetic
+
+
+end CA4Continuation
+
 -- ===== CA.5 =====
 
 /-!
@@ -4214,11 +7386,7 @@ theorem classNumber_mul_relIndex_eq_natAbs_det {N : ℕ} (I : Fin N → (Ideal (
       (relationLattice I).toAddSubgroup = A.det.natAbs := by
   sorry
 
-/-- CA.5/class-number-divides-relation-determinant: equality detects all relations. -/
-theorem natAbs_det_eq_classNumber_iff {N : ℕ} (I : Fin N → (Ideal (𝓞 K))⁰)
-    (hgen : Function.Surjective (classGroupPresentation I)) (A : Matrix (Fin N) (Fin N) ℤ)
-    (hA : LinearMap.range A.mulVecLin ≤ relationLattice I) (hdet : A.det ≠ 0) :
-    A.det.natAbs = classNumber K ↔ LinearMap.range A.mulVecLin = relationLattice I := by sorry
+-- `natAbs_det_eq_classNumber_iff`: API item of CA.5/class-number-divides-relation-determinant; it is relationDet_eq_classNumber_iff (CA.5 continuation section below) for the presentation map of the ideal family, whose kernel is relationLattice I
 
 /-! ### Units -/
 
@@ -4499,6 +7667,322 @@ end CA5
 end TauCeti.ClassicalArithmetic
 
 
+end
+
+-- ===== CA.5: the order-to-unit comparison for d ≡ 1 (mod 4) (first pass) =====
+
+/-! ## Existing CA.5 order-to-unit comparison
+
+Signatures for the already planned and independently reviewed node
+`CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four`.
+These complete that node's four named API entries and four acceptance examples.
+The three later CA.4 level-zero/root-orbit comparison nodes still need typed
+signatures tied to their pending general carrier; see the packet's signature gap.
+-/
+
+namespace TauCeti.ClassicalArithmetic
+
+section QuadraticOrderComparison
+
+open _root_.Polynomial _root_.TauCeti.ClassicalArithmetic.Polynomial NumberField
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- Every unit lies in the quadratic order in the residue class `1 mod 8`. -/
+theorem unit_mem_zsqrtd_of_mod_eight_eq_one {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd8 : d % 8 = 1) (u : (𝓞 K)ˣ) :
+    (u : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range := by
+  sorry
+
+/-- In the residue class `5 mod 8`, cubing lands in the quadratic order. -/
+theorem unit_cube_mem_zsqrtd_of_mod_eight_eq_five {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd8 : d % 8 = 5) (u : (𝓞 K)ˣ) :
+    ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range ∧
+      ∀ a b ν : ℤ, 2 * (u : 𝓞 K) = a + b * θ →
+        Algebra.norm ℤ (u : 𝓞 K) = ν →
+        2 * (u : 𝓞 K) ^ 3 =
+          (a * (a ^ 2 - 3 * ν) : ℤ) + (b * (a ^ 2 - ν) : ℤ) * θ := by
+  sorry
+
+/-- Negative Pell solubility and the unit norm condition for `d = 1 mod 4`. -/
+theorem negativePell_iff_unit_norm_neg_one_mod_four_one {d : ℤ} {θ : 𝓞 K}
+    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
+    (hsf : Squarefree d) (hd4 : d % 4 = 1) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+      ∃ u : (𝓞 K)ˣ, Algebra.norm ℤ (u : 𝓞 K) = -1 := by
+  sorry
+
+/-- Cubing preserves the sign of a unit norm in `{1,-1}`. -/
+theorem unit_cube_norm (u : (𝓞 K)ˣ) {ν : ℤ}
+    (hν : ν = 1 ∨ ν = -1) (hu : Algebra.norm ℤ (u : 𝓞 K) = ν) :
+    Algebra.norm ℤ ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) = ν ^ 3 ∧ ν ^ 3 = ν := by
+  sorry
+
+/-- `negativePell_half_unit_five`: a half-integral unit is not in the order. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((5 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (5 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 1 + θ) :
+    Algebra.norm ℤ (u : 𝓞 K) = -1 ∧
+      (u : 𝓞 K) ∉ (zsqrtdToRingOfIntegers (d := 5) θ hθ).range ∧
+      (u : 𝓞 K) ^ 3 = 2 + θ := by
+  sorry
+
+/-- `negativePell_half_unit_thirteen`: cubing produces the integral solution. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((13 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (13 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 3 + θ) :
+    (u : 𝓞 K) ^ 3 = 18 + 5 * θ ∧ (18 : ℤ) ^ 2 - 13 * 5 ^ 2 = -1 := by
+  sorry
+
+/-- `negativePell_order_seventeen`: the residue class where no cube is needed. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((17 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (17 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    4 + θ ∈ (zsqrtdToRingOfIntegers (d := 17) θ hθ).range ∧
+      Algebra.norm ℤ (4 + θ) = -1 ∧
+      ∀ a b : ℤ, Odd a → Odd b → ¬ (a ^ 2 - 17 * b ^ 2 = 4 ∨
+        a ^ 2 - 17 * b ^ 2 = -4) := by
+  sorry
+
+/-- `negativePell_positive_norm_twentyone`: norm `+1` does not solve negative Pell. -/
+example {θ : 𝓞 K} (hθ : θ * θ = ((21 : ℤ) : 𝓞 K))
+    (hmin : minpoly ℤ θ = X ^ 2 - C (21 : ℤ))
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
+    (hu : 2 * (u : 𝓞 K) = 5 + θ) :
+    (u : 𝓞 K) ^ 3 = 55 + 12 * θ ∧ Algebra.norm ℤ (u : 𝓞 K) = 1 ∧
+      ¬ ∃ x y : ℤ, x ^ 2 - 21 * y ^ 2 = -1 := by
+  sorry
+
+end QuadraticOrderComparison
+
+end TauCeti.ClassicalArithmetic
+
+
+-- ===== CA.5 continuation =====
+
+section CA5Continuation
+
+set_option autoImplicit false
+
+open NumberField Polynomial Module
+open scoped NumberField
+
+namespace TauCeti.ClassicalArithmetic
+
+/- New target: quadratic-unit-action-model. The additive carrier already exists. -/
+def quadraticUnitAction (s : ZMod 2) (x : ℤ × ZMod 2) : ℤ × ZMod 2 :=
+  (-x.1, x.2 + s * (x.1 : ZMod 2))
+
+theorem quadraticUnitAction_add (s : ZMod 2) (x y : ℤ × ZMod 2) :
+    quadraticUnitAction s (x + y) = quadraticUnitAction s x + quadraticUnitAction s y := by
+  sorry
+
+theorem quadraticUnitAction_involutive (s : ZMod 2) :
+    Function.Involutive (quadraticUnitAction s) := by
+  sorry
+
+theorem quadraticUnitAction_free_generator (s : ZMod 2) :
+    quadraticUnitAction s (1, 0) = (-1, s) := by
+  sorry
+
+theorem quadraticUnitAction_torsion_generator (s : ZMod 2) :
+    quadraticUnitAction s (0, 1) = (0, 1) := by
+  sorry
+
+theorem quadraticUnitAction_parameter (s t : ZMod 2) :
+    quadraticUnitAction s = quadraticUnitAction t ↔ s = t := by
+  sorry
+
+theorem quadraticUnitAction_norm (s : ZMod 2) (x : ℤ × ZMod 2) :
+    x + quadraticUnitAction s x = (0, s * (x.1 : ZMod 2)) := by
+  sorry
+
+-- quadraticUnitAction_normMinusOne
+example : quadraticUnitAction 1 (1, 0) = (-1, 1) := by sorry
+-- quadraticUnitAction_normPlusOne
+example : quadraticUnitAction 0 (1, 0) = (-1, 0) := by sorry
+-- quadraticUnitAction_torsion
+example : quadraticUnitAction 1 (0, 1) = (0, 1) := by sorry
+-- quadraticUnitAction_evenExponent
+example : quadraticUnitAction 1 (2, 1) = (-2, 1) := by sorry
+
+/- New target: detection on the canonical two-primary subgroups. No finiteness needed. -/
+theorem bijective_iff_bijOn_twoPrimary
+    {G H : Type*} [CommGroup G] [CommGroup H] (q : G →* H)
+    (hq : Function.Surjective q) (hker : ∀ x ∈ q.ker, x ^ 2 = 1) :
+    Function.Bijective q ↔
+      Set.BijOn q (CommGroup.primaryComponent G 2) (CommGroup.primaryComponent H 2) := by
+  sorry
+
+section Quadratic
+
+variable {K : Type*} [Field K] [NumberField K]
+variable {d : ℤ} {θ : 𝓞 K}
+
+/- New target: one interface joining the two parent order-to-unit comparisons. -/
+theorem negativePell_iff_norm_neg_one
+    (hd : 1 < d) (hsq : Squarefree d)
+    (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+      ∃ u : (𝓞 K)ˣ, Algebra.norm ℤ (u : 𝓞 K) = -1 := by
+  sorry
+
+/- New target: the narrow principal class of the chosen square root. The pinned
+`exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one` and
+`norm_eq_neg_one_of_isTotallyPositive_smul_gen` are its two unit-level halves. -/
+theorem negativePell_iff_narrowPrincipal
+    (hd : 1 < d) (hsq : Squarefree d)
+    (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+      NarrowClassGroup.mkPrincipal (Units.mk0 (θ : K) (coe_gen_ne_zero hmin)) = 1 := by
+  sorry
+
+/- New target: the natural restriction, rather than an abstract group isomorphism. -/
+theorem negativePell_iff_twoPrimary
+    (hd : 1 < d) (hsq : Squarefree d)
+    (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+      Set.BijOn (NarrowClassGroup.toClassGroup (K := K))
+        (CommGroup.primaryComponent (NarrowClassGroup K) 2)
+        (CommGroup.primaryComponent (ClassGroup (𝓞 K)) 2) := by
+  sorry
+
+/- New target: Galois action in Dirichlet coordinates, including both norm types. -/
+theorem quadratic_units_action_normal_form
+    (hd : 1 < d) (hsq : Squarefree d)
+    (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    ∃ (s : ZMod 2) (F : Additive ((𝓞 K)ˣ) ≃+ (ℤ × ZMod 2)),
+      F (Additive.ofMul (-1 : (𝓞 K)ˣ)) = (0, 1) ∧
+      (∀ u : (𝓞 K)ˣ,
+        F (Additive.ofMul (Units.map
+          (ringOfIntegersQuadraticConj hmin hgen).toMonoidHom u)) =
+        quadraticUnitAction s (F (Additive.ofMul u))) ∧
+      (s = 1 ↔ ∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) := by
+  sorry
+
+theorem negativePell_iff_quadraticUnitAction_one
+    (hd : 1 < d) (hsq : Squarefree d)
+    (hmin : minpoly ℤ θ = X ^ 2 - C d)
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
+    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
+    ∃ F : Additive ((𝓞 K)ˣ) ≃+ (ℤ × ZMod 2),
+      F (Additive.ofMul (-1 : (𝓞 K)ˣ)) = (0, 1) ∧
+      ∀ u : (𝓞 K)ˣ,
+        F (Additive.ofMul (Units.map
+          (ringOfIntegersQuadraticConj hmin hgen).toMonoidHom u)) =
+        quadraticUnitAction 1 (F (Additive.ofMul u)) := by
+  sorry
+
+end Quadratic
+
+/- New target: entrywise determinant enclosure. The exponent uses natural subtraction;
+the dimension-zero coefficient is zero and the two empty determinants are one. -/
+theorem determinant_entrywise_error {r : ℕ} (E Ê : Matrix (Fin r) (Fin r) ℝ)
+    (B δ : ℝ) (hB : 0 ≤ B) (hδ : 0 ≤ δ)
+    (hsize : ∀ i j, |E i j| ≤ B) (herr : ∀ i j, |Ê i j - E i j| ≤ δ) :
+    |Ê.det - E.det| ≤ (r.factorial : ℝ) * r * δ * (B + δ) ^ (r - 1) := by
+  sorry
+
+example (E Ê : Matrix (Fin 0) (Fin 0) ℝ) : |Ê.det - E.det| = 0 := by sorry
+example (E Ê : Matrix (Fin 1) (Fin 1) ℝ) (δ : ℝ)
+    (h : |Ê 0 0 - E 0 0| ≤ δ) : |Ê.det - E.det| ≤ δ := by sorry
+-- The Hadamard check: B = 1, δ = 1/2, difference 65 ≤ 162, while the printed bound of
+-- Biasse–Fieker Lemma 4.4 would be 64 (ClassicalArithmeticCompletion/E1501).
+example :
+    let E : Matrix (Fin 4) (Fin 4) ℝ :=
+      !![1, 1, 1, 1; 1, -1, 1, -1; 1, 1, -1, -1; 1, -1, -1, 1]
+    |((3 / 2 : ℝ) • E).det - E.det| = 65 := by sorry
+
+section Certificates
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/- The following four endpoints refine the interfaces of the EXISTING parent targets.
+They do not introduce another basis, ideal, presentation or regulator construction. -/
+
+-- Parent: discriminant-of-a-sublattice-basis; dependent families are also rejected.
+theorem integralBasis_iff_discr_eq {n : ℕ} (ω : Basis (Fin n) ℤ (𝓞 K))
+    (b : Fin n → 𝓞 K) :
+    (∃ β : Basis (Fin n) ℤ (𝓞 K), ∀ i, β i = b i) ↔
+      Algebra.discr ℤ b = NumberField.discr K := by
+  sorry
+
+theorem integralBasis_of_squarefree_discr {n : ℕ}
+    (ω : Basis (Fin n) ℤ (𝓞 K)) (b : Fin n → 𝓞 K)
+    (hb : Squarefree (Algebra.discr ℤ b)) :
+    ∃ β : Basis (Fin n) ℤ (𝓞 K), ∀ i, β i = b i := by
+  sorry
+
+-- Parent: hermite-matrix-of-an-ideal-criterion and ideal-norm-eq-prod-hermite-diagonal.
+-- General square matrices are permitted; HNF is only a canonical output convention.
+theorem multiplication_witnesses_iff_ideal {n : ℕ}
+    (ω : Basis (Fin n) ℤ (𝓞 K)) (H : Matrix (Fin n) (Fin n) ℤ)
+    (hH : H.det ≠ 0) :
+    let L := (LinearMap.range H.mulVecLin).map ω.equivFun.symm.toLinearMap
+    (∀ k, ∃ X : Matrix (Fin n) (Fin n) ℤ,
+      Algebra.leftMulMatrix ω (ω k) * H = H * X) ↔
+    ∃ I : Ideal (𝓞 K), I ≠ ⊥ ∧ I.restrictScalars ℤ = L ∧
+      Ideal.absNorm I = H.det.natAbs := by
+  sorry
+
+-- Parent: class-number-divides-relation-determinant and its equality corollary, for any
+-- surjection φ; the parent file's `natAbs_det_eq_classNumber_iff` is the case of the
+-- presentation map of an ideal family, so a package keeps one of the two forms.
+theorem relationDet_eq_classNumber_iff {N : ℕ}
+    (φ : (Fin N → ℤ) →+ Additive (ClassGroup (𝓞 K)))
+    (hφ : Function.Surjective φ) (A : Matrix (Fin N) (Fin N) ℤ)
+    (hA : A.det ≠ 0) (hrel : ∀ j, φ (fun i => A i j) = 0) :
+    A.det.natAbs = NumberField.classNumber K ↔
+      LinearMap.range A.mulVecLin = φ.ker.toIntSubmodule := by
+  sorry
+
+/- New target: a rigorous interval refinement of the parent's joint certificate. -/
+theorem relations_units_complete_of_intervals {N : ℕ}
+    (φ : (Fin N → ℤ) →+ Additive (ClassGroup (𝓞 K)))
+    (hφ : Function.Surjective φ) (A : Matrix (Fin N) (Fin N) ℤ)
+    (hA : A.det ≠ 0) (hrel : ∀ j, φ (fun i => A i j) = 0)
+    (u : Fin (NumberField.Units.rank K) → (𝓞 K)ˣ)
+    (hu : NumberField.Units.IsMaxRank u) (Rhat ε a η : ℝ)
+    (hε : 0 ≤ ε) (hη : 0 ≤ η)
+    (hRu : |Rhat - NumberField.Units.regOfFamily u| ≤ ε)
+    (hprod : |a - (NumberField.classNumber K : ℝ) *
+      NumberField.Units.regulator K| ≤ η)
+    (hcert : (A.det.natAbs : ℝ) * (Rhat + ε) < 2 * (a - η)) :
+    LinearMap.range A.mulVecLin = φ.ker.toIntSubmodule ∧
+    (Subgroup.closure (Set.range u) ⊔ NumberField.Units.torsion K = ⊤) ∧
+    A.det.natAbs = NumberField.classNumber K ∧
+    NumberField.Units.regOfFamily u = NumberField.Units.regulator K := by
+  sorry
+
+end Certificates
+
+-- Concrete checks of the order-to-unit bridge and certificate boundary.
+example : (2 : ℤ) ^ 2 - 5 * 1 ^ 2 = -1 := by sorry
+example : (18 : ℤ) ^ 2 - 13 * 5 ^ 2 = -1 := by sorry
+example : (4 : ℤ) ^ 2 - 17 * 1 ^ 2 = -1 := by sorry
+example : ¬ ∃ x y : ℤ, x ^ 2 - 3 * y ^ 2 = -1 := by sorry
+example : (Matrix.of ![![2, 1], ![0, 2]] : Matrix (Fin 2) (Fin 2) ℤ).det.natAbs = 4 := by
+  sorry
+example : (Matrix.of ![![2, 0], ![0, 4]] : Matrix (Fin 2) (Fin 2) ℤ).det.natAbs = 8 := by
+  sorry
+example : ¬ (2 : ℝ) * 1 < 2 * 1 := by sorry
+
+end TauCeti.ClassicalArithmetic
+
+
+end CA5Continuation
+
 -- ===== CA.6 =====
 
 /-! ## CA.6 Special algebraic numbers and Mahler measure
@@ -4524,7 +8008,7 @@ namespace TauCeti.ClassicalArithmetic
 
 section CA6
 
-open Polynomial Filter Topology
+open _root_.Polynomial _root_.TauCeti.ClassicalArithmetic.Polynomial Filter Topology
 open scoped IntermediateField
 
 /-! ### Pisot numbers (CA.6/pisot-number) -/
@@ -5064,6 +8548,207 @@ end CA6
 
 end TauCeti.ClassicalArithmetic
 
+
+-- ===== CA.6 continuation =====
+
+section CA6Continuation
+
+noncomputable section
+open scoped BigOperators Topology
+open Filter Set
+
+namespace TauCeti.ClassicalArithmetic
+
+/-- Real Taylor coefficients with a bounded holomorphic witness on the open disc. -/
+def RealSchurSeries (e : ℕ → ℝ) : Prop :=
+  ∃ f : ℂ → ℂ, DifferentiableOn ℂ f (Metric.ball 0 1) ∧
+    ∀ z ∈ Metric.ball (0 : ℂ) 1,
+      HasSum (fun j : ℕ => (e j : ℂ) * z ^ j) (f z) ∧ ‖f z‖ ≤ 1
+
+/-- The finite pair-product diameter; assertions below are restricted to compact K. -/
+def finiteFeketeDiameter (K : Set ℂ) (n : ℕ) : ℝ :=
+  if n < 2 then 0 else
+    sSup {r : ℝ | ∃ z : Fin n → ℂ, (∀ i, z i ∈ K) ∧
+      r = Real.rpow (∏ i : Fin n, ∏ j ∈ Finset.univ.filter (fun j => i < j),
+        ‖z i - z j‖) (2 / ((n : ℝ) * ((n : ℝ) - 1)))}
+
+/-- Infimum of finite Fekete diameters indexed from two. -/
+def transfiniteDiameter (K : Set ℂ) : ℝ :=
+  sInf (Set.range (fun n : ℕ => finiteFeketeDiameter K (n + 2)))
+
+/-- Empty-set norm is explicitly zero. -/
+def polynomialSupNorm (K : Set ℂ) (p : Polynomial ℂ) : ℝ :=
+  if K = ∅ then 0 else sSup {r : ℝ | ∃ z ∈ K, r = ‖p.eval z‖}
+
+/-- Infimum over monic polynomials of exactly degree n. -/
+def chebyshevMonicNorm (K : Set ℂ) (n : ℕ) : ℝ :=
+  sInf {r : ℝ | ∃ p : Polynomial ℂ,
+    p.Monic ∧ p.natDegree = n ∧ r = polynomialSupNorm K p}
+
+/-- A real affine radial segment for each endpoint. -/
+def radialHedgehog {n : ℕ} (a : Fin n → ℂ) : Set ℂ :=
+  {z | ∃ i : Fin n, ∃ t : ℝ, t ∈ Icc 0 1 ∧ z = (t : ℂ) * a i}
+
+/-- Maximum endpoint norm for a finite nonempty family; zero for the empty one. -/
+def endpointRadius {n : ℕ} (a : Fin n → ℂ) : ℝ :=
+  sSup (Set.range (fun i : Fin n => ‖a i‖))
+
+/-- The Laurent coefficient convention uses the +1 shift. -/
+def shiftedHankelDet {R : Type*} [CommRing R] (a : ℕ → R) (n : ℕ) : R :=
+  Matrix.det (fun i j : Fin n => a (i.val + j.val + 1))
+
+/-- A holomorphic witness with the actual convergent Laurent germ at infinity. -/
+def ExteriorLaurentContinuation (a : ℕ → ℂ) (K : Set ℂ) : Prop :=
+  IsCompact K ∧ K.Nonempty ∧ ∃ G : ℂ → ℂ,
+    DifferentiableOn ℂ G Kᶜ ∧ ∃ R : ℝ, 0 < R ∧ K ⊆ Metric.closedBall 0 R ∧
+      ∀ z : ℂ, R < ‖z‖ → HasSum (fun j : ℕ => a j * (z⁻¹) ^ j) (G z)
+
+/-- Smyth's coefficient condition, including every positive index. -/
+theorem schur_coeff_bound (e : ℕ → ℝ) (he : RealSchurSeries e)
+    (k : ℕ) (hk : 1 ≤ k) : |e k| ≤ 1 - (e 0) ^ 2 := by
+  sorry
+
+/-- Both doubled-index bounds; the strict constant condition fixes denominators. -/
+theorem schur_doubled_coeff_bounds (e : ℕ → ℝ) (he : RealSchurSeries e)
+    (hc : |e 0| < 1) (k : ℕ) (hk : 1 ≤ k) :
+    -(1 - (e 0) ^ 2) + (e k) ^ 2 / (1 + e 0) ≤ e (2 * k) ∧
+      e (2 * k) ≤ (1 - (e 0) ^ 2) - (e k) ^ 2 / (1 - e 0) := by
+  sorry
+
+/-- Finite Parseval contract, requiring no boundary extension of the witness. -/
+theorem schur_parseval_contract (e : ℕ → ℝ) (he : RealSchurSeries e)
+    (p : ℕ → ℂ) (s : Finset ℕ) (hp : ∀ j, j ∉ s → p j = 0) (N : ℕ) :
+    (∑ m ∈ Finset.range (N + 1),
+      ‖∑ j ∈ Finset.range (m + 1), p j * (e (m - j) : ℂ)‖ ^ 2) ≤
+      ∑ j ∈ s, ‖p j‖ ^ 2 := by
+  sorry
+
+/-- The boundary constants force every positive coefficient to vanish. -/
+theorem schur_boundary_constant (e : ℕ → ℝ) (he : RealSchurSeries e)
+    (hc : |e 0| = 1) : ∀ k : ℕ, 1 ≤ k → e k = 0 := by
+  sorry
+
+/-- Monic integer polynomials have algebraic-integer exponential Mahler measure. -/
+theorem monic_mahler_integral (p : Polynomial ℤ) (hp : p.Monic) :
+    IsIntegral ℤ (p.map (Int.castRingHom ℂ)).mahlerMeasure := by
+  sorry
+
+/-- End analytic input; the reader records the missing short-gap verification. -/
+theorem smyth_analytic_input (p : Polynomial ℤ) (hp : p.Monic)
+    (hi : Irreducible p) (h0 : p.coeff 0 = 1 ∨ p.coeff 0 = -1)
+    (hr : p.reverse ≠ p ∧ p.reverse ≠ -p)
+    (hM : (p.map (Int.castRingHom ℂ)).mahlerMeasure ≤ 4 / 3) :
+    (p.map (Int.castRingHom ℂ)).mahlerMeasure ^ 3 -
+      (p.map (Int.castRingHom ℂ)).mahlerMeasure - 1 ≥ 0 := by
+  sorry
+
+/-- Monotonicity starts at index two. -/
+theorem finite_fekete_antitone (K : Set ℂ) (hK : IsCompact K) :
+    Antitone (fun n : ℕ => finiteFeketeDiameter K (n + 2)) := by
+  sorry
+
+/-- The two limiting constructions agree, including compact finite sets. -/
+theorem fekete_chebyshev_limit (K : Set ℂ) (hK : IsCompact K) (hne : K.Nonempty) :
+    Tendsto (fun n : ℕ => finiteFeketeDiameter K (n + 2)) atTop
+      (𝓝 (transfiniteDiameter K)) ∧
+    Tendsto (fun n : ℕ => Real.rpow (chebyshevMonicNorm K (n + 1))
+      (1 / ((n : ℝ) + 1))) atTop (𝓝 (transfiniteDiameter K)) ∧
+    transfiniteDiameter K = sInf (Set.range (fun n : ℕ =>
+      Real.rpow (chebyshevMonicNorm K (n + 1)) (1 / ((n : ℝ) + 1)))) := by
+  sorry
+
+/-- A monic inverse image has the degree-root diameter normalization. -/
+theorem monic_preimage_diameter (K : Set ℂ) (hK : IsCompact K) (hne : K.Nonempty)
+    (p : Polynomial ℂ) (hp : p.Monic) (hd : 1 ≤ p.natDegree) :
+    IsCompact (p.eval ⁻¹' K) ∧ (p.eval ⁻¹' K).Nonempty ∧
+    transfiniteDiameter (p.eval ⁻¹' K) =
+      Real.rpow (transfiniteDiameter K) (1 / (p.natDegree : ℝ)) := by
+  sorry
+
+/-- The compact segment has one-quarter its Euclidean length. -/
+theorem transfinite_diameter_segment (a b : ℂ) :
+    transfiniteDiameter {z : ℂ | ∃ t : ℝ, t ∈ Icc 0 1 ∧
+      z = (1 - (t : ℂ)) * a + (t : ℂ) * b} = ‖b - a‖ / 4 := by
+  sorry
+
+/-- Multiplicities and zero endpoints are admitted; the family is nonempty. -/
+theorem dubinin_hedgehog_bound (n : ℕ) (hn : 1 ≤ n) (a : Fin n → ℂ) :
+    transfiniteDiameter (radialHedgehog a) ≤
+      endpointRadius a * Real.rpow 4 (-(1 / (n : ℝ))) := by
+  sorry
+
+/-- The contour-basis estimate retains its exact quadratic exponent. -/
+theorem hankel_analytic_growth (a : ℕ → ℂ) (K : Set ℂ)
+    (h : ExteriorLaurentContinuation a K) (r : ℝ) (hr : transfiniteDiameter K < r) :
+    ∃ B : ℝ, 0 < B ∧ ∀ n : ℕ,
+      ‖shiftedHankelDet a n‖ ≤ (n.factorial : ℝ) * B ^ n * r ^ (n * (n - 1)) := by
+  sorry
+
+/-- Rational-series ownership is CA.2; write its polynomial contract directly. -/
+theorem kronecker_hankel_rationality {k : Type*} [Field k] (a : ℕ → k) :
+    (∃ P Q : Polynomial k, Q.coeff 0 ≠ 0 ∧
+      (Q : PowerSeries k) * PowerSeries.mk a = (P : PowerSeries k)) ↔
+      ∃ N : ℕ, ∀ n : ℕ, N ≤ n → shiftedHankelDet a n = 0 := by
+  sorry
+
+/-- Integer coefficients are essential; the conclusion is rationality over ℚ. -/
+theorem bertrandias_rationality (a : ℕ → ℤ) (K : Set ℂ)
+    (h : ExteriorLaurentContinuation (fun j => (a j : ℂ)) K)
+    (hd : transfiniteDiameter K < 1) :
+    ∃ P Q : Polynomial ℚ, Q.coeff 0 ≠ 0 ∧
+      (Q : PowerSeries ℚ) * PowerSeries.mk (fun j => (a j : ℚ)) =
+        (P : PowerSeries ℚ) := by
+  sorry
+
+/-- The analytic milestone consumed by the parent's arithmetic induction. -/
+theorem dimitrov_analytic_input (n : ℕ) (hn : 1 ≤ n) (β : Fin n → ℂ)
+    (S : PowerSeries ℤ) (h0 : PowerSeries.coeff 0 S = 1)
+    (hsq : (S.map (Int.castRingHom ℂ)) ^ 2 =
+      ((∏ i : Fin n, (1 - Polynomial.C (β i) * Polynomial.X) : Polynomial ℂ) :
+        PowerSeries ℂ))
+    (hR : endpointRadius β ^ n < 4) :
+    ∃ P Q : Polynomial ℚ, Q.coeff 0 ≠ 0 ∧
+      (Q : PowerSeries ℚ) * S.map (Int.castRingHom ℚ) = (P : PowerSeries ℚ) := by
+  sorry
+
+-- A few computed and degenerate examples; the complete tests are in the reader.
+example (z : Complex.UnitDisc) : TauCeti.unitDiscMoebius 0 z = z := by
+  sorry
+
+example : RealSchurSeries (fun j => if j = 0 then 1 else 0) := by
+  sorry
+
+example : ¬ RealSchurSeries (fun j => if j = 0 then 3 / 2 else 0) := by
+  sorry
+
+example : transfiniteDiameter ({0} : Set ℂ) = 0 := by
+  sorry
+
+example : transfiniteDiameter (Metric.closedBall (0 : ℂ) 1) = 1 := by
+  sorry
+
+example : transfiniteDiameter (radialHedgehog (fun _ : Fin 1 => (4 : ℂ))) = 1 := by
+  sorry
+
+example : transfiniteDiameter (radialHedgehog (fun i : Fin 2 =>
+    if i = 0 then (1 : ℂ) else -1)) = 1 / 2 := by
+  sorry
+
+example : shiftedHankelDet (fun j : ℕ => (2 : ℤ) ^ j) 0 = 1 := by
+  sorry
+
+example : shiftedHankelDet (fun j : ℕ => (2 : ℤ) ^ j) 2 = 0 := by
+  sorry
+
+example : shiftedHankelDet (fun j : ℕ => if j = 2 then (1 : ℤ) else 0) 1 = 0 ∧
+    shiftedHankelDet (fun j : ℕ => if j = 2 then (1 : ℤ) else 0) 2 = -1 := by
+  sorry
+
+end TauCeti.ClassicalArithmetic
+
+end
+
+end CA6Continuation
 
 -- ===== CA.7 =====
 
@@ -6048,242 +9733,214 @@ end CA7
 end TauCeti.ClassicalArithmetic
 
 
-namespace TauCeti.ClassicalArithmetic
+end
 
-/-! ## Cobham's theorem through redundant digits and overlapping periods
-The declarations below retain the canonical-digit `IsAutomatic` definition.
-All proof bodies are planning placeholders.
--/
+-- ===== CA.7 continuation =====
 
-/-- Reversal on every word, including noncanonical and padded words. -/
-theorem DFAO.exists_output_reverse {α σ Δ : Type*} [Fintype σ] (M : DFAO α σ Δ) :
-    ∃ (τ : Type) (_ : Fintype τ) (N : DFAO α τ Δ),
-      ∀ w, N.output (N.eval w) = M.output (M.eval w.reverse) := by sorry
+section CA7Continuation
 
-/-- A finite kernel and bounded carry compute all bounded little-endian words. -/
-theorem IsAutomatic.exists_boundedDigitLSF {k : ℕ} [NeZero k] {Δ : Type*}
-    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) (d : ℕ) :
-    ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
-      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val)) := by sorry
-
-/-- Redundant most-significant-first digits, with correctness on every word. -/
-theorem isAutomatic_iff_redundantDigits {k d : ℕ} [NeZero k] {Δ : Type*}
-    (hk : 2 ≤ k) (hd : k ≤ d + 1) (f : ℕ → Δ) :
-    IsAutomatic k f ↔ ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
-      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val).reverse) := by sorry
-
-/-- Positive-length words over the enlarged alphabet include both interval endpoints. -/
-theorem exists_redundantDigits_of_le {k n z : ℕ} (hk : 2 ≤ k) (hn : 0 < n)
-    (hz : z ≤ 2 * k ^ n) :
-    ∃ w : List (Fin (2 * k + 1)), w.length = n ∧
-      Nat.ofDigits k (w.map Fin.val).reverse = z := by sorry
-
-/-- One finite colouring controls all doubled radix suffix blocks. -/
-theorem IsAutomatic.exists_widePrefixColouring {k : ℕ} [NeZero k] {Δ : Type*}
-    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) :
-    ∃ (q : ℕ), 0 < q ∧ ∃ C : ℕ → Fin q,
-      ∀ x y, C x = C y → ∀ n, 0 < n → ∀ z, z ≤ 2 * k ^ n →
-        f (x * k ^ n + z) = f (y * k ^ n + z) := by sorry
-
-/-- Finite pigeonholing of normalized powers; equality is allowed. -/
-theorem exists_close_powers {a b C : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) (hC : 0 < C) :
-    ∃ m n : ℕ, 0 < m ∧ 0 < n ∧
-      C * Int.natAbs ((a : ℤ) ^ m - (b : ℤ) ^ n) ≤ b ^ n := by sorry
-
-/-- Uniform collision representatives for the infinite fibres of the second colouring. -/
-theorem exists_tail_colour_collisions {r s : ℕ} (A : ℕ → Fin r) (B : ℕ → Fin s) :
-    ∃ N ξ : ℕ, 0 < ξ ∧ ∀ x, N ≤ x → ∃ u v : ℕ,
-      u < ξ ∧ v < ξ ∧ u ≠ v ∧ B u = B x ∧ B v = B x ∧ A u = A v := by sorry
-
-/-- A long integer overlap extends the first local period to the union. -/
-theorem localPeriod_union_intervals {Δ : Type*} (f : ℕ → Δ) {l r L R p q : ℕ}
-    (hp : 0 < p) (hq : 0 < q)
-    (hI : ∀ t, l ≤ t → t + p ≤ r → f (t + p) = f t)
-    (hJ : ∀ t, L ≤ t → t + q ≤ R → f (t + q) = f t)
-    (hcard : p + q ≤ (Finset.Icc (max l L) (min r R)).card) :
-    ∀ t, min l L ≤ t → t + p ≤ max r R → f (t + p) = f t := by sorry
-
-/-- Three block comparisons at nearby unequal scales give a positive local period. -/
-theorem localPeriod_of_close_scales {Δ : Type*} (f : ℕ → Δ) {A B ξ x u v : ℕ}
-    (hA : 0 < A) (hB : 0 < B) (hξ : 0 < ξ) (hu : u < ξ) (hv : v < ξ)
-    (huv : u ≠ v) (hAB : A ≠ B)
-    (hclose : 6 * ξ * Int.natAbs ((A : ℤ) - B) ≤ B)
-    (hxu : ∀ z, z ≤ 2 * B → f (x * B + z) = f (u * B + z))
-    (hxv : ∀ z, z ≤ 2 * B → f (x * B + z) = f (v * B + z))
-    (huvA : ∀ w, w ≤ 2 * A → f (u * A + w) = f (v * A + w)) :
-    let p := Int.natAbs (((u : ℤ) - v) * ((A : ℤ) - B))
-    0 < p ∧ 6 * p ≤ B ∧ ∀ t, 3 * x * B + B ≤ 3 * t →
-      3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t := by sorry
-
-/-- Integer endpoint rounding preserves enough overlap for one tail period. -/
-theorem eventuallyPeriodic_of_window_periods {Δ : Type*} (f : ℕ → Δ) {B N : ℕ}
-    (hB : 0 < B)
-    (h : ∀ x, N ≤ x → ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧
-      ∀ t, 3 * x * B + B ≤ 3 * t →
-        3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t) :
-    ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧ ∀ t, (N + 1) * B ≤ t → f (t + p) = f t := by sorry
-
-/-- Forward direction of Cobham's theorem, with both positive exponents quantified. -/
-theorem eventuallyPeriodic_of_two_automatic {a b : ℕ} [NeZero a] [NeZero b]
-    {Δ : Type*} (ha : 2 ≤ a) (hb : 2 ≤ b)
-    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n)
-    (f : ℕ → Δ) (hfa : IsAutomatic a f) (hfb : IsAutomatic b f) :
-    ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
-
-/- The node `eventually-periodic-sequences-are-automatic` promotes the existing
-`isAutomatic_of_eventually_periodic` declaration above; there is no second copy. -/
-
-/-- Cobham's complete equivalence on the existing automatic-sequence carrier. -/
-theorem cobham {a b : ℕ} [NeZero a] [NeZero b] {Δ : Type*}
-    (ha : 2 ≤ a) (hb : 2 ≤ b)
-    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n) (f : ℕ → Δ) :
-    (IsAutomatic a f ∧ IsAutomatic b f) ↔
-      ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
-
-/-- Acceptance `reversal_order`: noncommuting transitions detect an incorrect reversal. -/
-example :
-    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
-        [false, true] = 2 ∧
-    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
-        [true, false] = 1 := by sorry
-
-/-- Acceptance `boundedCarry_three`: a two-state carry bound is too small. -/
-example : (3 + 4) / 2 = (3 : ℕ) := by sorry
-
-/-- Acceptance `redundant_same_value`: noncanonical and canonical words agree. -/
-example : Nat.ofDigits 3 ([3] : List ℕ).reverse =
-    Nat.ofDigits 3 ([1, 0] : List ℕ).reverse := by sorry
-
-/-- Acceptance `redundant_leading_zero`: leading zeros are harmless. -/
-example (k : ℕ) (w : List ℕ) :
-    Nat.ofDigits k (0 :: w).reverse = Nat.ofDigits k w.reverse := by sorry
-
-/-- Acceptance `redundant_endpoint`: the doubled interval is closed on the right. -/
-example : Nat.ofDigits 2 ([4, 0] : List ℕ).reverse = 8 := by sorry
-
-/-- Acceptance `zero_length_rejected`: a zero-length word cannot represent 2. -/
-example : ¬ ∃ w : List (Fin 5), w.length = 0 ∧
-    Nat.ofDigits 2 (w.map Fin.val).reverse = 2 := by sorry
-
-/-- Acceptance `close_powers_two_three`: a positive, unequal pair. -/
-example : 10 * Int.natAbs ((2 : ℤ) ^ 8 - 3 ^ 5) ≤ (3 : ℕ) ^ 5 := by sorry
-
-/-- Acceptance `dependent_bases`: unequal bases need not be independent. -/
-example : (2 : ℕ) ≠ 4 ∧ (2 : ℕ) ^ 2 = 4 ^ 1 := by sorry
-
-/-- Acceptance `window_rounding_seven`: the adjacent overlap retains two integers. -/
-example : (Finset.Icc (7 + (7 + 2) / 3) (5 * 7 / 3)).card = 2 := by sorry
-
-/-- Acceptance `window_rounding_eight`: an endpoint remainder does not break gluing. -/
-example : (Finset.Icc (8 + (8 + 2) / 3) (5 * 8 / 3)).card = 3 := by sorry
-
-/-- Acceptance `signed_period`: both signs of the scale difference give the same period. -/
-example : Int.natAbs (((0 : ℤ) - 1) * (17 - 18)) = 1 ∧
-    Int.natAbs (((1 : ℤ) - 0) * (18 - 17)) = 1 := by sorry
-
-/-- Acceptance `finite_prefix`: eventual periodicity need not hold from zero. -/
-example : (∀ n ≥ 1, (if n + 2 = 0 then 7 else (n + 2) % 2 : ℕ) =
-    (if n = 0 then 7 else n % 2 : ℕ)) ∧
-    (if 2 = 0 then 7 else 2 % 2 : ℕ) ≠ (if 0 = 0 then 7 else 0 % 2 : ℕ) := by sorry
-
-/-- Acceptance `unary_eventually_periodic`: base one uses the existing unary convention. -/
-example : IsAutomatic 1 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
-
-/-- Acceptance `both_bases_finite_prefix`: the same tail is automatic in both bases. -/
-example : IsAutomatic 2 (fun n : ℕ => if n = 0 then 7 else n % 2) ∧
-    IsAutomatic 3 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
-
-end TauCeti.ClassicalArithmetic
-
-/-! ## Existing CA.5 order-to-unit comparison
-
-Signatures for the already planned and independently reviewed node
-`CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four`.
-These complete that node's four named API entries and four acceptance examples.
-The three later CA.4 level-zero/root-orbit comparison nodes still need typed
-signatures tied to their pending general carrier; see the packet's signature gap.
--/
+open CategoryTheory
+open scoped nonZeroDivisors TensorProduct
 
 namespace TauCeti.ClassicalArithmetic
 
-section QuadraticOrderComparison
+universe u
 
-open Polynomial NumberField
+section StableEquality
 
-variable {K : Type*} [Field K] [NumberField K]
+variable (R : Type u) [Ring R]
 
-/-- Every unit lies in the quadratic order in the residue class `1 mod 8`. -/
-theorem unit_mem_zsqrtd_of_mod_eight_eq_one {d : ℤ} {θ : 𝓞 K}
-    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
-    (hsf : Squarefree d) (hd8 : d % 8 = 1) (u : (𝓞 K)ˣ) :
-    (u : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range := by
-  sorry
+/-- The existing finite-projective category; no replacement K₀ carrier. -/
+abbrev FPModuleCat := (TauCeti.finiteProjectiveModules.{u} R).FullSubcategory
 
-/-- In the residue class `5 mod 8`, cubing lands in the quadratic order. -/
-theorem unit_cube_mem_zsqrtd_of_mod_eight_eq_five {d : ℤ} {θ : 𝓞 K}
-    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
-    (hsf : Squarefree d) (hd8 : d % 8 = 5) (u : (𝓞 K)ˣ) :
-    ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) ∈ (zsqrtdToRingOfIntegers θ hθ).range ∧
-      ∀ a b ν : ℤ, 2 * (u : 𝓞 K) = a + b * θ →
-        Algebra.norm ℤ (u : 𝓞 K) = ν →
-        2 * (u : 𝓞 K) ^ 3 =
-          (a * (a ^ 2 - 3 * ν) : ℤ) + (b * (a ^ 2 - ν) : ℤ) * θ := by
-  sorry
+abbrev ProjectiveK0 := TauCeti.SplitK0.{u} (FPModuleCat R)
 
-/-- Negative Pell solubility and the unit norm condition for `d = 1 mod 4`. -/
-theorem negativePell_iff_unit_norm_neg_one_mod_four_one {d : ℤ} {θ : 𝓞 K}
-    (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^ 2 - C d)
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (hd : 1 < d)
-    (hsf : Squarefree d) (hd4 : d % 4 = 1) :
-    (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
-      ∃ u : (𝓞 K)ˣ, Algebra.norm ℤ (u : 𝓞 K) = -1 := by
-  sorry
+variable (P Q : Type u) [AddCommGroup P] [Module R P]
+  [AddCommGroup Q] [Module R Q]
 
-/-- Cubing preserves the sign of a unit norm in `{1,-1}`. -/
-theorem unit_cube_norm (u : (𝓞 K)ˣ) {ν : ℤ}
-    (hν : ν = 1 ∨ ν = -1) (hu : Algebra.norm ℤ (u : 𝓞 K) = ν) :
-    Algebra.norm ℤ ((u ^ 3 : (𝓞 K)ˣ) : 𝓞 K) = ν ^ 3 ∧ ν ^ 3 = ν := by
-  sorry
+/-- A common finite free summand, with its size retained in the witness. -/
+def StableEquivalent : Prop :=
+  ∃ n : ℕ, Nonempty ((P × (Fin n → R)) ≃ₗ[R] (Q × (Fin n → R)))
 
-/-- `negativePell_half_unit_five`: a half-integral unit is not in the order. -/
-example {θ : 𝓞 K} (hθ : θ * θ = ((5 : ℤ) : 𝓞 K))
-    (hmin : minpoly ℤ θ = X ^ 2 - C (5 : ℤ))
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
-    (hu : 2 * (u : 𝓞 K) = 1 + θ) :
-    Algebra.norm ℤ (u : 𝓞 K) = -1 ∧
-      (u : 𝓞 K) ∉ (zsqrtdToRingOfIntegers (d := 5) θ hθ).range ∧
-      (u : 𝓞 K) ^ 3 = 2 + θ := by
-  sorry
+theorem StableEquivalent.refl : StableEquivalent R P P := by sorry
 
-/-- `negativePell_half_unit_thirteen`: cubing produces the integral solution. -/
-example {θ : 𝓞 K} (hθ : θ * θ = ((13 : ℤ) : 𝓞 K))
-    (hmin : minpoly ℤ θ = X ^ 2 - C (13 : ℤ))
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
-    (hu : 2 * (u : 𝓞 K) = 3 + θ) :
-    (u : 𝓞 K) ^ 3 = 18 + 5 * θ ∧ (18 : ℤ) ^ 2 - 13 * 5 ^ 2 = -1 := by
-  sorry
+theorem StableEquivalent.symm (h : StableEquivalent R P Q) :
+    StableEquivalent R Q P := by sorry
 
-/-- `negativePell_order_seventeen`: the residue class where no cube is needed. -/
-example {θ : 𝓞 K} (hθ : θ * θ = ((17 : ℤ) : 𝓞 K))
-    (hmin : minpoly ℤ θ = X ^ 2 - C (17 : ℤ))
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
-    4 + θ ∈ (zsqrtdToRingOfIntegers (d := 17) θ hθ).range ∧
-      Algebra.norm ℤ (4 + θ) = -1 ∧
-      ∀ a b : ℤ, Odd a → Odd b → ¬ (a ^ 2 - 17 * b ^ 2 = 4 ∨
-        a ^ 2 - 17 * b ^ 2 = -4) := by
-  sorry
+theorem StableEquivalent.trans
+    (T : Type u) [AddCommGroup T] [Module R T]
+    (hPQ : StableEquivalent R P Q) (hQT : StableEquivalent R Q T) :
+    StableEquivalent R P T := by sorry
 
-/-- `negativePell_positive_norm_twentyone`: norm `+1` does not solve negative Pell. -/
-example {θ : 𝓞 K} (hθ : θ * θ = ((21 : ℤ) : 𝓞 K))
-    (hmin : minpoly ℤ θ = X ^ 2 - C (21 : ℤ))
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) (u : (𝓞 K)ˣ)
-    (hu : 2 * (u : 𝓞 K) = 5 + θ) :
-    (u : 𝓞 K) ^ 3 = 55 + 12 * θ ∧ Algebra.norm ℤ (u : 𝓞 K) = 1 ∧
-      ¬ ∃ x y : ℤ, x ^ 2 - 21 * y ^ 2 = -1 := by
-  sorry
+theorem StableEquivalent.of_equiv (e : P ≃ₗ[R] Q) :
+    StableEquivalent R P Q := by sorry
 
-end QuadraticOrderComparison
+theorem StableEquivalent.prod
+    (P' Q' : Type u) [AddCommGroup P'] [Module R P']
+    [AddCommGroup Q'] [Module R Q']
+    (h : StableEquivalent R P Q) (h' : StableEquivalent R P' Q') :
+    StableEquivalent R (P × P') (Q × Q') := by sorry
+
+-- finite-projective-free-complement
+theorem finiteProjective_free_complement [Module.Finite R P] [Module.Projective R P] :
+    ∃ (n : ℕ) (N : Submodule R (Fin n → R)),
+      Module.Finite R N ∧ Module.Projective R N ∧
+      Nonempty ((P × N) ≃ₗ[R] (Fin n → R)) := by sorry
+
+-- split-k0-stable-equality
+theorem splitK0_of_eq_iff (X Y : FPModuleCat R) :
+    TauCeti.SplitK0.of.{u} X = TauCeti.SplitK0.of.{u} Y ↔
+      StableEquivalent R X.obj Y.obj := by sorry
+
+example : StableEquivalent ℤ ℤ ℤ := by sorry
+
+example : StableEquivalent ℤ (Fin 0 → ℤ) (Fin 0 → ℤ) := by sorry
+
+example : ¬ StableEquivalent ℤ (Fin 0 → ℤ) ℤ := by sorry
+
+example (X : FPModuleCat R) :
+    TauCeti.SplitK0.of.{u} X = TauCeti.SplitK0.of.{u} X ↔
+      StableEquivalent R X.obj X.obj := by sorry
+
+end StableEquality
+
+section Restriction
+
+variable {R S : Type u} [Ring R] [Ring S]
+
+-- finite-projective-scalar-change: the restriction half.
+-- The arbitrary-ring extension functor requires a balanced tensor carrier;
+-- the README specifies it and its induced SplitK0 map.
+theorem restrictScalars_finite_projective (f : R →+* S)
+    (hS : letI := f.toModule; Module.Finite R S ∧ Module.Projective R S)
+    (X : ModuleCat S) [Module.Finite S X] [Module.Projective S X] :
+    Module.Finite R ((ModuleCat.restrictScalars f).obj X) ∧
+      Module.Projective R ((ModuleCat.restrictScalars f).obj X) := by sorry
+
+end Restriction
+
+section Dedekind
+
+variable (A K : Type u) [CommRing A] [IsDedekindDomain A]
+  [Field K] [Algebra A K] [IsFractionRing A K]
+
+-- steinitz-ideal-product
+theorem steinitz_ideal_product (I J : (FractionalIdeal A⁰ K)ˣ) :
+    Nonempty ((↥((I : FractionalIdeal A⁰ K) : Submodule A K) × ↥((J : FractionalIdeal A⁰ K) : Submodule A K)) ≃ₗ[A]
+      (A × ↥(((I : FractionalIdeal A⁰ K) * (J : FractionalIdeal A⁰ K)) : Submodule A K))) := by sorry
+
+-- Pseudobases, M ≅ Aⁿ⁻¹ ⊕ I, projectivity of lattices and the Steinitz class are owned by
+-- GeometryOfNumbersAndQuadraticArithmetic GN.2 (lattice-pseudobasis, lattice-steinitz-class);
+-- they are imported, not restated here. `steinitz_ideal_product` is the rank-two case of
+-- that classification, used by the K₀ comparison.
+
+example (I : (FractionalIdeal A⁰ K)ˣ) :
+    Nonempty ((↥((I : FractionalIdeal A⁰ K) : Submodule A K) ×
+      ↥((I⁻¹ : FractionalIdeal A⁰ K) : Submodule A K)) ≃ₗ[A] (A × A)) := by sorry
+
+example : Subsingleton (ClassGroup ℤ) := by sorry
+
+end Dedekind
+
+section ProjectiveNorm
+
+variable (A G M : Type u) [CommRing A] [Group G] [Fintype G]
+  [AddCommGroup M] [Module (MonoidAlgebra A G) M]
+
+-- projective-group-norm-surjectivity
+theorem projective_group_norm_surjective [Module.Projective (MonoidAlgebra A G) M]
+    (m : M) (hm : ∀ g : G, MonoidAlgebra.single g (1 : A) • m = m) :
+    ∃ x : M, (∑ g : G, MonoidAlgebra.single g (1 : A) • x) = m := by sorry
+
+end ProjectiveNorm
+
+section FiniteGaussProducts
+
+variable (F : Type u) [Field F] [Fintype F]
+
+-- finite-gauss-product: uses Mathlib's sum, including its g(1) = -1 convention.
+theorem hasseDavenport_product (χ η : MulChar F ℂ) (ψ : AddChar F ℂ)
+    (hψ : ψ ≠ 1) (n : ℕ) (hn : 0 < n)
+    (hdiv : n ∣ Fintype.card F - 1) (horder : orderOf η = n) :
+    gaussSum (χ ^ n) ψ *
+        (∏ j ∈ Finset.range (n - 1), gaussSum (η ^ (j + 1)) ψ) =
+      χ (n : F) ^ n *
+        (∏ j ∈ Finset.range n, gaussSum (χ * η ^ j) ψ) := by sorry
+
+example (ψ : AddChar F ℂ) (hψ : ψ ≠ 1) :
+    gaussSum (1 : MulChar F ℂ) ψ = -1 := by sorry
+
+example (χ : MulChar F ℂ) (hχ : χ ≠ 1) :
+    gaussSum χ (1 : AddChar F ℂ) = 0 := by sorry
+
+-- The n = 1 product law retains the same sum and contributes no extra sign.
+example (χ : MulChar F ℂ) (ψ : AddChar F ℂ) :
+    gaussSum (χ ^ 1) ψ *
+        (∏ j ∈ Finset.range 0, gaussSum ((1 : MulChar F ℂ) ^ (j + 1)) ψ) =
+      χ (1 : F) ^ 1 *
+        (∏ j ∈ Finset.range 1, gaussSum (χ * (1 : MulChar F ℂ) ^ j) ψ) := by sorry
+
+end FiniteGaussProducts
+
+/-!
+README-only targets: balanced extension on arbitrary rings and its scalar maps;
+the K₀ comparison over GN.2's Steinitz class; order ideles, reduced norms
+assembled from IntegralHeckeAndGaloisDeterminants IHG.0, and genus
+classification; the Eichler predicate and Jacobinski cancellation; determinant
+character homomorphisms, positive Hom quotients and Fröhlich's comparison;
+tame local Gauss sums, Artin signs and the root-number class; the integral
+group logarithm, determinant descent (including Q_p-ℓ-elementary groups) and the
+Fröhlich–Taylor equality.
+
+These depend on absent order, character-ring, or noncommutative completion
+carriers. Their precise statements, APIs, tests and proof boundaries are in
+the paired README and packet. No substitute carrier is asserted here.
+-/
 
 end TauCeti.ClassicalArithmetic
+
+
+end CA7Continuation
+
+
+/-!
+## Proposed names not typed at the pins
+
+The targets below are stated in full in the roadmap document. Their carriers are not at the pins,
+or their part file stated them compactly, so the names their packets propose for API items, unit
+tests and declarations are listed here, by target, and not typed.
+
+* `CA.6/real-schur-series`: `RealSchurSeries.function_unique`, `RealSchurSeries.coeff_zero_eq`, `realSchur_constant_boundary`, `realSchur_monomial`, `realSchur_constant_outside`, `realSchur_rational_example`
+* `CA.6/smyth-bounded-factorization`: `smythFactorization_schur`, `smythFactorization_constant`, `smythFactorization_boundary`, `smythFactorization_coeff_mul`, `smythFactorization_nonpolynomial`, `smythFactorization_plastic`, `smythFactorization_reciprocal`, `smythFactorization_nonunit`
+* `CA.6/finite-fekete-diameter`: `feketeDiameter_nonneg`, `feketeDiameter_attained`, `feketeDiameter_mono`, `transfiniteDiameter_affine`, `transfiniteDiameter_finite`, `finiteFeketeDiameter_two`, `fekete_two_points`, `fekete_singleton`, `fekete_disc_scale`, `fekete_segment_normalization`
+* `CA.6/chebyshev-monic-norm`: `compactPolynomialNorm_eval_le`, `compactPolynomialNorm_mul_le`, `chebyshevNorm_attained`, `chebyshevNorm_submultiplicative`, `chebyshevNorm_mono`, `chebyshevNorm_affine`, `compactPolynomialNorm_eq_continuousMap_norm`, `chebyshev_singleton`, `chebyshev_disc`, `chebyshev_segment`, `compactNorm_constant`
+* `CA.6/lemniscate-enclosure`: `lemniscateEnclosure_subset_interior`, `lemniscateEnclosure_diameter`, `lemniscateEnclosure_boundary`, `lemniscateEnclosure_monic_basis`, `lemniscateEnclosure_contour_bound`, `lemniscate_zero_capacity`, `lemniscate_two_spikes`, `lemniscate_strict_level`
+* `CA.6/radial-hedgehog`: `radialHedgehog_mem`, `radialHedgehog_compact`, `radialHedgehog_zero_mem`, `radialHedgehog_norm_le`, `radialHedgehog_mono_lengths`, `radialHedgehog_affine_scale`, `radialHedgehog_complement`, `radialHedgehog_eq_iUnion_segment`, `hedgehog_empty`, `hedgehog_one`, `hedgehog_opposite`, `hedgehog_duplicate`
+* `CA.6/normalized-conformal-radius`: `conformalRadius_pos`, `conformalRadius_independent`, `conformalRadius_deriv`, `conformalRadius_mono`, `conformalRadius_affine`, `conformalRadius_exhaustion`, `conformalRadius_disc`, `conformalRadius_halfplane`, `conformalRadius_slitplane`, `conformalRadius_wrong_point`
+* `CA.6/slit-dirichlet-capacity`: `dirichletCapacity_nonneg`, `dirichletCapacity_test_le`, `dirichletCapacity_mono_plate`, `dirichletCapacity_conformal`, `dirichletCapacity_dihedral_average`, `dirichletCapacity_annulus`, `dirichletCapacity_scale`, `dirichletCapacity_separation`, `dirichletCapacity_thin_annulus`
+* `CA.6/dubinin-desymmetrization`: `desymmetrization_partition`, `desymmetrization_boundary_match`, `desymmetrization_transfer`, `desymmetrization_energy`, `desymmetrization_capacity_le`, `desymmetrization_one_ray`, `desymmetrization_regular`, `desymmetrization_two_rays`, `desymmetrization_radius`
+* `CA.6/shifted-hankel-determinant`: `shiftedHankelDet_zero`, `shiftedHankelDet_one`, `shiftedHankelDet_two`, `shiftedHankelDet_map`, `shiftedHankelDet_integer`, `shiftedHankelDet_monic_basis`, `hankel_empty`, `hankel_geometric`, `hankel_shift`, `hankel_single_zero`
+* `CA.6/exterior-laurent-continuation`: `exteriorContinuation_enlarge_radius`, `exteriorContinuation_enlarge_set`, `exteriorContinuation_unique`, `exteriorContinuation_coeff`, `exteriorContinuation_moment`, `continuation_geometric`, `continuation_branch`, `continuation_essential_infinity`, `continuation_constant`
+* `CA.6/hedgehog-square-root-continuation`: `hedgehogSqrt_square`, `hedgehogSqrt_holomorphic`, `hedgehogSqrt_at_infinity`, `hedgehogSqrt_coeff_unique`, `hedgehogSqrt_continuation`, `hedgehogSqrt_integer_import`, `hedgehogSqrt_one`, `hedgehogSqrt_zero`, `hedgehogSqrt_repeated`, `hedgehogSqrt_no_cut`
+* `CA.7/continuation/stable-equivalence`: `stable_equivalence_1`, `stable_equivalence_2`, `stable_equivalence_3`, `stable_equivalence_4`
+* `CA.7/continuation/balanced-extension`: `BalancedExtension.balanced_lift`, `balanced_extension_1`, `balanced_extension_2`, `balanced_extension_3`, `balanced_extension_4`
+* `CA.7/continuation/extension-k0-map`: `extension_k0_map_1`, `extension_k0_map_2`, `extension_k0_map_3`, `extension_k0_map_4`
+* `CA.7/continuation/restriction-k0-map`: `restriction_k0_map_1`, `restriction_k0_map_2`, `restriction_k0_map_3`, `restriction_k0_map_4`
+* `CA.7/continuation/dedekind-k0-comparison`: `DedekindK0Comparison.rank_kernel`, `DedekindK0Comparison.ideal_inverse`, `dedekind_k0_comparison_1`, `dedekind_k0_comparison_2`, `dedekind_k0_comparison_3`, `dedekind_k0_comparison_4`
+* `CA.7/continuation/order-ideles`: `OrderIdeles.unit_change`, `OrderIdeles.principal_change`, `OrderIdeles.opposite`, `order_ideles_1`, `order_ideles_2`, `order_ideles_3`, `order_ideles_4`
+* `CA.7/continuation/reduced-norm`: `ReducedNorm.base_change`, `ReducedNorm.idele`, `reduced_norm_1`, `reduced_norm_2`, `reduced_norm_3`, `reduced_norm_4`
+* `CA.7/continuation/norm-one-group`: `NormOneGroup.idele`, `norm_one_group_1`, `norm_one_group_2`, `norm_one_group_3`, `norm_one_group_4`
+* `CA.7/continuation/eichler-condition`: `EichlerCondition.component`, `EichlerCondition.opposite`, `EichlerCondition.noncompact`, `eichler_condition_1`, `eichler_condition_2`, `eichler_condition_3`, `eichler_condition_4`
+* `CA.7/continuation/determinant-character-hom`: `determinant_character_hom_1`, `determinant_character_hom_2`, `determinant_character_hom_3`, `determinant_character_hom_4`
+* `CA.7/continuation/character-idele-quotient`: `CharacterIdeleQuotient.field_change`, `character_idele_quotient_1`, `character_idele_quotient_2`, `character_idele_quotient_3`, `character_idele_quotient_4`
+* `CA.7/continuation/positive-unit-kernel`: `PositiveUnitKernel.finite_places`, `PositiveUnitKernel.maximal_order`, `positive_unit_kernel_1`, `positive_unit_kernel_2`, `positive_unit_kernel_3`, `positive_unit_kernel_4`
+* `CA.7/continuation/norm-resolvent`: `NormResolvent.basis_change`, `NormResolvent.character_sum`, `NormResolvent.transversal`, `norm_resolvent_1`, `norm_resolvent_2`, `norm_resolvent_3`, `norm_resolvent_4`
+* `CA.7/continuation/reduced-characteristic-polynomial`: `reduced_characteristic_polynomial_1`, `reduced_characteristic_polynomial_2`, `reduced_characteristic_polynomial_3`, `reduced_characteristic_polynomial_4`
+* `CA.7/continuation/tame-local-gauss-sum`: `TameLocalGaussSum.virtual`, `TameLocalGaussSum.induction_zero`, `TameLocalGaussSum.finite_field`, `tame_local_gauss_sum_1`, `tame_local_gauss_sum_2`, `tame_local_gauss_sum_3`, `tame_local_gauss_sum_4`
+* `CA.7/continuation/symplectic-root-sign`: `SymplecticRootSign.virtual`, `SymplecticRootSign.functional_equation`, `symplectic_root_sign_1`, `symplectic_root_sign_2`, `symplectic_root_sign_3`, `symplectic_root_sign_4`
+* `CA.7/continuation/root-number-class`: `RootNumberClass.two_torsion`, `RootNumberClass.no_symplectic`, `RootNumberClass.hom_comparison`, `root_number_class_1`, `root_number_class_2`, `root_number_class_3`, `root_number_class_4`
+* `CA.7/continuation/adjusted-gauss-sum`: `AdjustedGaussSum.outside_p`, `adjusted_gauss_sum_1`, `adjusted_gauss_sum_2`, `adjusted_gauss_sum_3`, `adjusted_gauss_sum_4`
+* `CA.7/continuation/adams-character-operation`: `AdamsCharacterOperation.one_dimensional`, `adams_character_operation_1`, `adams_character_operation_2`, `adams_character_operation_3`, `adams_character_operation_4`
+* `CA.7/continuation/integral-group-log`: `IntegralGroupLog.conjugacy`, `integral_group_log_1`, `integral_group_log_2`, `integral_group_log_3`, `integral_group_log_4`
+* `CA.7/continuation/integral-character-action`: `IntegralCharacterAction.projection`, `integral_character_action_1`, `integral_character_action_2`, `integral_character_action_3`, `integral_character_action_4`
+-/
