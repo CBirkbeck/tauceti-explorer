@@ -38214,8 +38214,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.7",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9680"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9680",
+   "finishedAt": "2026-10-14T13:25:58Z"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.0",
@@ -44871,8 +44872,9 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a"
    ],
    "prompt": "research/blueprint/prompts/ASM-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "pending",
-   "note": "released on GitHub issue #226"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #226",
+   "finishedAt": "2026-10-14T13:26:02Z"
   },
   {
    "id": "ASM-EtaleDualityAndPerverseSheaves",
@@ -45392,7 +45394,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.6"
    ],
    "prompt": "research/blueprint/prompts/ASM-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6277"
   },
   {
    "id": "ASM-ArithmeticDynamics",
