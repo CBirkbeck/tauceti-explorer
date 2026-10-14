@@ -17232,8 +17232,9 @@
    "avoidAccountOf": "DESIGN-DeligneWeightsAndPurityPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DeligneWeightsAndPurityPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4592"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4592",
+   "finishedAt": "2026-10-14T04:05:22Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -25500,7 +25501,8 @@
    ],
    "avoidAccountOf": "BP-GrossZagierAndArithmeticHeights",
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9387"
   },
   {
    "id": "BP-HabiroCohomologyFoundations",
@@ -27795,8 +27797,9 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R24.5",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9400"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9400",
+   "finishedAt": "2026-10-14T04:05:26Z"
   },
   {
    "id": "BP-PrismaticCohomology",
@@ -35522,8 +35525,9 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.8",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9388"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9388",
+   "finishedAt": "2026-10-14T04:05:29Z"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.8b",
@@ -40592,8 +40596,9 @@
     "BP-BunGAndNewtonStrata~3"
    ],
    "prompt": "research/blueprint/prompts/REV-BunGAndNewtonStrata~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9260"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9260",
+   "finishedAt": "2026-10-14T04:05:32Z"
   },
   {
    "kind": "blueprint",
@@ -46546,7 +46551,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdditiveCombinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9156"
   },
   {
    "id": "REV-PKG-AdditiveCombinatorics",
@@ -49603,7 +49609,8 @@
     "PKG-GlobalGaloisDeformations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GlobalGaloisDeformations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9216"
   },
   {
    "id": "PKG-GrossZagierAndArithmeticHeights",
@@ -51013,8 +51020,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9181"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9181",
+   "finishedAt": "2026-10-14T04:05:36Z"
   },
   {
    "id": "REV-PKG-ModularSymbolsPadicLFunctions",
@@ -51768,7 +51776,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-QuiverRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9190"
   },
   {
    "id": "REV-PKG-QuiverRepresentationsPartII",
@@ -52049,7 +52058,8 @@
    ],
    "revisionOf": "PKG-SemisimpleAlgebrasPartII",
    "prompt": "research/blueprint/prompts/PKG-SemisimpleAlgebrasPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9193"
   },
   {
    "id": "REV-PKG-SemisimpleAlgebrasPartII~2",
