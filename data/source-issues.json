@@ -198617,8 +198617,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), 5–171; Numdam scan (printed page = PDF page − 1)",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "Checked the printed page image and surrounding theorem numbers; the correction agrees with the preceding theorem and its proof."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Independently read BBD pp.137–138 and 147: 5.3.7 is a weight criterion, while 5.3.8 supplies the geometric semisimplicity used in the hyperplane argument."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E702",
@@ -198638,8 +198638,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), 5–171; Numdam scan (printed page = PDF page − 1)",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "Checked the printed page image and surrounding theorem numbers; the correction agrees with the preceding theorem and its proof."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Independently read BBD p.140: the closed complement and the pure perverse object share a printed label. Renaming the closed scheme preserves the statement."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E703",
@@ -198659,8 +198659,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "Yakov Varshavsky, Local terms for transversal intersections, Compositio Mathematica 159 (2023), pp.985–1004, DOI 10.1112/S0010437X23007091",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "Take char k≠2, X=𝔸², g(u,v)=(−u,−v), Z=V(uv). This is a reduced invariant Cartier divisor and D=µ₂ is reduced. N_ZX=Spec k[u,v,t]/(uv), with g(t)=t, so (N_ZX)^D=Spec k[t]. But X^D=Z^D=Spec k and N_(Z^D)(X^D)=Spec k. The proof substitutes vector-space coinvariants for the algebra quotient by the ideal of differences defining fixed schemes."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Computed the invariant Cartier-divisor example: the normal cone has a fixed affine line, whereas the cone of the fixed pair is a point. The algebra fixed quotient is not vector-space coinvariants."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E704",
@@ -198680,8 +198680,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "Yakov Varshavsky, Local terms for transversal intersections, Compositio Mathematica 159 (2023), pp.985–1004, DOI 10.1112/S0010437X23007091",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "Take char k≠2, X=Spec k[x,y,z]/(x³+yz), g=(x,−y,−z), lying in the torus of weights (0,1,−1). This tame involution has X^g=Spec k[x]/(x³), supported at the isolated origin. But N_0X=Spec k[x,y,z]/(yz), and its fixed scheme is Spec k[x], containing nonzero points."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Computed the singular torus example: the full fixed ring is k[x]/(x³), but the reduced-point tangent cone has fixed ring k[x]. This refutes the cone implication, not the independently repaired local-term equality."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E705",
@@ -198701,8 +198701,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "Yakov Varshavsky, Local terms for transversal intersections, Compositio Mathematica 159 (2023), pp.985–1004, DOI 10.1112/S0010437X23007091",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "Trace classes are defined on Fix(c_s), and the proof uses topological constancy of Fix(c)→S. There is no hypothesis making X→S topologically constant."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Independently read Proposition 2.5 on p.989 and its preceding definitions: only the fixed family is topologically constant, and trace classes live on its fibres; ambient X-fibres are the wrong groups."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E706",
@@ -198721,8 +198721,28 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
    "citation": "X. Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic, Ann. of Math. 185 (2017), no. 2; arXiv:1407.8519v3",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
-   "reviewReason": "On a smooth positive-dimensional stratum, ℚ̄_ℓ[2d](d) is dualizing and is not middle perverse. The main text uses ℚ̄_ℓ[d], and its resolution decomposition also uses [d]."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "Independently compared Zhu Appendix A.3.1, p.55, with §2.1.1, p.20, and Lemma 2.11, p.26: the smooth-open IC normalization is [d]; [2d](d) is the dualizing normalization."
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E707",
+   "kind": "error",
+   "locator": "Proposition 2.2.8(i), p.195; repeated in 3.5.1, p.211; compare 2.1.1, p.187, and 2.2.7, p.194",
+   "printed": "The purity weight assigned to an irreducible compact-form representation has the positive sign 2Re(r).",
+   "correction": "With the stated norm character ω₁(g)=q^(−deg g), the weight is −2Re(r).",
+   "reason": "At a geometric Frobenius of degree d, the modulus is q^(−d Re(r)), which equals (q^d)^(w/2) only for w=−2Re(r). The character ω₁ gives the Tate line of weight −2, a diagnostic counterexample to the positive sign.",
+   "affects": "a stated result",
+   "known": "PAPER-DELIGNE-80/E38 and PAPER-DELIGNE-80/E72 (already confirmed in the atlas register)",
+   "searched": [
+    "Numdam published text, pp.187, 194–195 and 211, independently read 2026-10-14",
+    "Atlas data/source-issues.json: PAPER-DELIGNE-80/E38 and PAPER-DELIGNE-80/E72"
+   ],
+   "owner": "EtaleDualityAndPerverseSheaves",
+   "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.7.json",
+   "citation": "P. Deligne, La conjecture de Weil. II, Publ. Math. IHÉS 52 (1980), 137–252 (Numdam)",
+   "status": "confirmed",
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.7~2",
+   "reviewReason": "The printed positive sign contradicts its own norm-character convention and the Tate-line example; the packet target already uses the corrected negative sign."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E1",
