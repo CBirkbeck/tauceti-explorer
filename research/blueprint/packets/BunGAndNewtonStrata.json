@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Independent revision-2 review checked the 98-node target-level pass over seven planned stages. Reader consistency and both-characteristic maximum/topology routes are retained. Corrections add direct prerequisites, distinguish geometric-point from sheaf automorphisms, correct bundle pullback and bounded Schubert lifting, qualify characteristic-zero sources, supply general-field classification/torus citations, and retain p-adic scope for rational-point and bounded z-extension lifting. All 42 baseline citations are confirmed and all nine source issues independently checked. The 12 gaps, 47 requests and 88 full Lean-signature omissions remain explicit. The review requires actual named signatures/APIs/examples under §13; no stage is closed and implementation remains unchecked.",
+ "summary": "Independent revision-2 review checked the 98-node target-level pass over seven planned stages. Reader consistency and both-characteristic maximum/topology routes are retained. Corrections add direct prerequisites, distinguish geometric-point from sheaf automorphisms, correct bundle pullback and bounded Schubert lifting, qualify characteristic-zero sources, supply general-field classification/torus citations, and retain p-adic scope for rational-point and bounded z-extension lifting. All 42 baseline citations are confirmed and all nine source issues independently checked. The 12 gaps and 47 requests remain explicit. Revision 3 types every node, API item and unit test in the suggested file over named owner interfaces (LocalDatum, CurveSite, StackGeometry and related structures), replacing the 88 full-signature omissions; no stage is closed and implementation remains unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -747,9 +747,15 @@
     }
    ],
    "prototype": {
-    "status": "typed-category-interface",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.GBundle",
+     "TauCeti.BunG.GBundle.trivial",
+     "TauCeti.BunG.GBundle.evaluate",
+     "TauCeti.BunG.GBundle.tensorIso",
+     "TauCeti.BunG.GBundle.pullback",
+     "TauCeti.BunG.GBundle.tensorIso_ext",
      "TauCeti.BunG.TensorInterface.Data",
      "TauCeti.BunG.TensorInterface.Iso",
      "TauCeti.BunG.TensorInterface.Data.evaluate",
@@ -759,7 +765,12 @@
      "TauCeti.BunG.TensorInterface.Data.postcompose",
      "TauCeti.BunG.TensorInterface.Iso.ext"
     ],
-    "note": "Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced."
+    "tests": [
+     "TauCeti.BunG.GBundle.testGL1",
+     "TauCeti.BunG.GBundle.testTrivial",
+     "TauCeti.BunG.GBundle.testNoFaithfulChoice"
+    ],
+    "note": "Typed in the suggested file over ExactTensorCat and CurveSite (Tau Ceti finite representations; VB1 curve bundles and pullback; the structure-sheaf functor). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -806,10 +817,13 @@
    "declaration": "TauCeti.BunG.GTorsorsThreeDescriptions",
    "continuedFrom": "23-node checkpoint; stable identifier retained, contract/prerequisites refined.",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GTorsorsThreeDescriptions"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over CurveSite and the TorsorDescriptions owner interface (R09.3, D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -853,10 +867,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.StructureGroupAndTensorDescent",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.StructureGroupAndTensorDescent"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over CurveSite; extension of structure group is the real-bodied GBundle.extend. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1095,17 +1112,14 @@
     }
    ],
    "prototype": {
-    "status": "typed-native-trivialized-frobenius-family",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
     "declarations": [
-     "TauCeti.BunG.TensorInterface.Data",
-     "TauCeti.BunG.TensorInterface.Iso",
-     "TauCeti.BunG.TensorInterface.Data.evaluate",
-     "TauCeti.BunG.TensorInterface.Data.unitIso",
-     "TauCeti.BunG.TensorInterface.Data.tensorIso",
-     "TauCeti.BunG.TensorInterface.Data.map_conflation",
-     "TauCeti.BunG.TensorInterface.Data.postcompose",
-     "TauCeti.BunG.TensorInterface.Iso.ext",
+     "TauCeti.BunG.GIsocrystal",
+     "TauCeti.BunG.GIsocrystal.ofRepresentative",
+     "TauCeti.BunG.GIsocrystal.forget",
+     "TauCeti.BunG.GIsocrystal.changeTrivialization",
+     "TauCeti.BunG.GIsocrystal.map",
      "TauCeti.BunG.RepresentativeTensor.coefficientSigma",
      "TauCeti.BunG.RepresentativeTensor.coefficientSigma_tmul",
      "TauCeti.BunG.RepresentativeTensor.frobenius",
@@ -1124,9 +1138,29 @@
      "TauCeti.BunG.RepresentativeTensor.isoComp",
      "TauCeti.BunG.RepresentativeTensor.isoRefl",
      "TauCeti.BunG.RepresentativeTensor.isoInv",
+     "TauCeti.BunG.TensorInterface.Data",
+     "TauCeti.BunG.TensorInterface.Iso",
+     "TauCeti.BunG.TensorInterface.Data.evaluate",
+     "TauCeti.BunG.TensorInterface.Data.unitIso",
+     "TauCeti.BunG.TensorInterface.Data.tensorIso",
+     "TauCeti.BunG.TensorInterface.Data.map_conflation",
+     "TauCeti.BunG.TensorInterface.Data.postcompose",
+     "TauCeti.BunG.TensorInterface.Iso.ext",
      "TauCeti.BunG.RepresentativeTensor.dataGroupoid"
     ],
-    "note": "Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled."
+    "tests": [
+     "TauCeti.BunG.GIsocrystal.testGLn",
+     "TauCeti.BunG.GIsocrystal.testUnit",
+     "TauCeti.BunG.GIsocrystal.testTensorSlope",
+     "TauCeti.BunG.RepresentativeTensor.testSemilinearity",
+     "TauCeti.BunG.RepresentativeTensor.testCoefficientUnit",
+     "TauCeti.BunG.RepresentativeTensor.testTensorFamily",
+     "TauCeti.BunG.RepresentativeTensor.testNotLinear",
+     "TauCeti.BunG.RepresentativeTensor.testIntertwiner",
+     "TauCeti.BunG.RepresentativeTensor.testArrowComposition",
+     "TauCeti.BunG.RepresentativeTensor.testReconstruction"
+    ],
+    "note": "Typed in the suggested file over ExactTensorCat, CurveSite.isoc (VB0) and IsocrystalRealization; the native trivialized form RepresentativeTensor is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1325,7 +1359,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-affine-point-and-tensor-groupoid-interface",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.SigmaClass",
@@ -1333,10 +1367,6 @@
      "TauCeti.BunG.SigmaClass.mk_eq_iff",
      "TauCeti.BunG.SigmaClass.map",
      "TauCeti.BunG.SigmaClass.lift",
-     "TauCeti.BunG.SigmaClass.map_mk",
-     "TauCeti.BunG.SigmaClass.map_id",
-     "TauCeti.BunG.SigmaClass.map_comp",
-     "TauCeti.BunG.SigmaClass.lift_unique",
      "TauCeti.BunG.SigmaClass.affinePoints",
      "TauCeti.BunG.SigmaClass.equiv",
      "TauCeti.BunG.SigmaClass.representativeGroupoid",
@@ -1347,9 +1377,26 @@
      "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer",
      "TauCeti.BunG.RepresentativeTensor.representativeFunctor",
      "TauCeti.BunG.RepresentativeTensor.reconstructionFunctor",
-     "TauCeti.BunG.RepresentativeTensor.categoryEquivalence"
+     "TauCeti.BunG.RepresentativeTensor.categoryEquivalence",
+     "TauCeti.BunG.SigmaClass.map_mk",
+     "TauCeti.BunG.SigmaClass.map_id",
+     "TauCeti.BunG.SigmaClass.map_comp",
+     "TauCeti.BunG.SigmaClass.lift_unique"
     ],
-    "note": "The native Hopf-point quotient and representative groupoid now compare by an actual category-equivalence signature with the whole trivialized Frobenius tensor family on finite rational comodules. Its arrows reconstruct the actual conjugator by native Tannaka duality. G_m and Witt-unit controls remain concrete. The untrivialized exact tensor G-isocrystal comparison and actual general local coefficient/Frobenius instantiation remain G08; this does not supply analytic bundle or v-stack signatures."
+    "tests": [
+     "TauCeti.BunG.SigmaClass.testGL1",
+     "TauCeti.BunG.SigmaClass.testIdentitySigma",
+     "TauCeti.BunG.SigmaClass.testCommutative",
+     "TauCeti.BunG.SigmaClass.testRepresentativeHom",
+     "TauCeti.BunG.SigmaClass.testRepresentativeComposition",
+     "TauCeti.BunG.SigmaClass.testRepresentativeAutomorphisms",
+     "TauCeti.BunG.SigmaClass.testGmNativePoints",
+     "TauCeti.BunG.SigmaClass.testWittGL1",
+     "TauCeti.BunG.SigmaClass.testWittGL1Unit",
+     "TauCeti.BunG.SigmaClass.testWittGL1Distinct",
+     "TauCeti.BunG.RepresentativeTensor.testRepresentativeFamily"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1518,22 +1565,37 @@
     }
    ],
    "prototype": {
-    "status": "typed-affine-point-functor-and-tensor-automorphisms",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.SigmaCentralizer",
+     "TauCeti.BunG.SigmaCentralizer.points",
+     "TauCeti.BunG.SigmaCentralizer.baseChange",
+     "TauCeti.BunG.SigmaCentralizer.conjugate",
+     "TauCeti.BunG.SigmaCentralizer.autIsocrystal",
+     "TauCeti.BunG.SigmaCentralizer.functorOfPoints",
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy",
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply",
+     "TauCeti.BunG.RepresentativeTensor.tensorAut",
+     "TauCeti.BunG.RepresentativeTensor.tensorAut_component",
      "TauCeti.BunG.PointCoefficients",
      "TauCeti.BunG.coefficientFrobenius",
      "TauCeti.BunG.coefficientRepresentative",
      "TauCeti.BunG.centralizerPoints",
      "TauCeti.BunG.centralizerMap",
-     "TauCeti.BunG.centralizerFunctor",
-     "TauCeti.BunG.SigmaCentralizer.functorOfPoints",
-     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy",
-     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply",
-     "TauCeti.BunG.RepresentativeTensor.tensorAut",
-     "TauCeti.BunG.RepresentativeTensor.tensorAut_component"
+     "TauCeti.BunG.centralizerFunctor"
     ],
-    "note": "The actual group-valued functor on all commutative E-algebras and natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Native tensor automorphisms of the trivialized Frobenius family now identify multiplicatively with the point sigma-stabilizer, with component formulas on every representation. Reductive representation of this functor, Newton-Levi base change and untrivialized exact G-isocrystal comparison remain omitted."
+    "tests": [
+     "TauCeti.BunG.SigmaCentralizer.testTrivial",
+     "TauCeti.BunG.SigmaCentralizer.testBasicGL2",
+     "TauCeti.BunG.SigmaCentralizer.testNonbasic",
+     "TauCeti.BunG.SigmaCentralizer.testCoefficientNaturality",
+     "TauCeti.BunG.SigmaCentralizer.testFixedGroup",
+     "TauCeti.BunG.SigmaCentralizer.testIdentityFrobenius",
+     "TauCeti.BunG.RepresentativeTensor.testTensorStabilizer",
+     "TauCeti.BunG.RepresentativeTensor.testTensorIdentitySigma"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1568,14 +1630,16 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.SigmaCentralizerConjugacy",
    "prototype": {
-    "status": "typed-natural-point-functor-isomorphism",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.SigmaCentralizerConjugacy",
      "TauCeti.BunG.SigmaCentralizer.conjugateEquiv",
      "TauCeti.BunG.SigmaCentralizer.conjugateEquiv_apply",
      "TauCeti.BunG.SigmaCentralizer.naturalConjugacy"
     ],
-    "note": "The native affine point-functor isomorphism now retains naturality on all coefficient E-algebras, in addition to the stabilizer equivalence. The reductive representing-group isomorphism and its tensor automorphism action still require the Newton/descent and concrete isocrystal suppliers."
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1673,10 +1737,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.DecentRepresentative",
+     "TauCeti.BunG.DecentRepresentative.mk",
+     "TauCeti.BunG.DecentRepresentative.equation",
+     "TauCeti.BunG.DecentRepresentative.multiple",
+     "TauCeti.BunG.DecentRepresentative.finiteDescent"
+    ],
+    "tests": [
+     "TauCeti.BunG.DecentRepresentative.testRankOne",
+     "TauCeti.BunG.DecentRepresentative.testUnit",
+     "TauCeti.BunG.DecentRepresentative.testPositivePeriod"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1727,10 +1802,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ExistenceOfDecentRepresentative",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ExistenceOfDecentRepresentative"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1810,10 +1888,20 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Defect",
+     "TauCeti.BunG.Defect.value",
+     "TauCeti.BunG.Defect.conjugate",
+     "TauCeti.BunG.Defect.product"
+    ],
+    "tests": [
+     "TauCeti.BunG.Defect.testUnit",
+     "TauCeti.BunG.Defect.testHalf",
+     "TauCeti.BunG.Defect.testSplitNonbasic"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1851,10 +1939,13 @@
    "declaration": "TauCeti.BunG.PureInnerTwisting",
    "continuedFrom": "23-node checkpoint; stable identifier retained, contract/prerequisites refined.",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.PureInnerTwisting"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the GroupSheafTorsors owner interface (R09.3, D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1892,10 +1983,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.BasicInnerFormBundleEquivalence",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.BasicInnerFormBundleEquivalence"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext and NewtonSpace.InnerTwisting. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1935,10 +2029,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.DivisionAlgebraMorita",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.DivisionAlgebraMorita"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, CurveSite's VB0 invariants (isocRank, isocSlope, brauerInv) and Mathlib's right End-module structure on Hom. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -1981,10 +2078,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.LeviNewtonFormula",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.LeviNewtonFormula"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2030,10 +2130,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.MinusculeBasicLeviLift",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.MinusculeBasicLeviLift"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2122,10 +2225,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TorusSpecial",
+     "TauCeti.BunG.TorusSpecial.mk",
+     "TauCeti.BunG.TorusSpecial.witness",
+     "TauCeti.BunG.TorusSpecial.newton",
+     "TauCeti.BunG.TorusSpecial.ellipticBasic"
+    ],
+    "tests": [
+     "TauCeti.BunG.TorusSpecial.testSplitGL1",
+     "TauCeti.BunG.TorusSpecial.testZero",
+     "TauCeti.BunG.TorusSpecial.testSplitTorus"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2168,10 +2282,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.EllipticTorusBasicImage",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.EllipticTorusBasicImage"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2213,10 +2330,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.TransferredTorusSpecialness",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TransferredTorusSpecialness"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2316,10 +2436,22 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Ordinary",
+     "TauCeti.BunG.Ordinary.isOrdinary",
+     "TauCeti.BunG.Ordinary.unique",
+     "TauCeti.BunG.Ordinary.quasiSplitExists",
+     "TauCeti.BunG.Ordinary.maximal",
+     "TauCeti.BunG.Ordinary.derivedIsogeny"
+    ],
+    "tests": [
+     "TauCeti.BunG.Ordinary.testGL2",
+     "TauCeti.BunG.Ordinary.testTorus",
+     "TauCeti.BunG.Ordinary.testQuaternion"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2373,10 +2505,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.AcceptableUniqueMaximum",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.AcceptableUniqueMaximum"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2417,10 +2552,13 @@
     "name": "Straight Weyl classification"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.StraightWeylClassification"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2461,10 +2599,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.OrdinaryStraightTranslation",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.OrdinaryStraightTranslation"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2502,10 +2643,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.OrdinaryDerivedIsogeny",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.OrdinaryDerivedIsogeny"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2543,10 +2687,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.OrdinaryIntegralConjugacy",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.OrdinaryIntegralConjugacy"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2589,10 +2736,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ProductAndUnramifiedNorm",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ProductAndUnramifiedNorm"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2630,10 +2780,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.BasicLeviFibreUniqueness",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.BasicLeviFibreUniqueness"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2729,10 +2882,21 @@
     "name": "Families of G-isocrystals"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GIsocrystalFamily",
+     "TauCeti.BunG.GIsocrystalFamily.pullback",
+     "TauCeti.BunG.GIsocrystalFamily.ofLoopElement",
+     "TauCeti.BunG.GIsocrystalFamily.geometricClass",
+     "TauCeti.BunG.GIsocrystalFamily.loopQuotient"
+    ],
+    "tests": [
+     "TauCeti.BunG.GIsocrystalFamily.testField",
+     "TauCeti.BunG.GIsocrystalFamily.testTrivial",
+     "TauCeti.BunG.GIsocrystalFamily.testAutomorphisms"
+    ],
+    "note": "Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2759,7 +2923,7 @@
     "The arc-descent argument is independent of the later family κ-local-constancy argument.",
     "Apply current HK22 only over perfect normal charts. An arbitrary-perfect-base profinite étale statement cannot be read off from its v1 version or from v-local isotriviality.",
     "The lattice bound includes the initial Frobenius denominator, and the tensor-line lift lies in the actual automorphism group. E08/E09 affect source proofs; neither is recorded as a counterexample to the stated isotriviality theorem. G04 remains open.",
-    "Restricted Lean controls force the shear coefficient into every stable over-lattice, rule out a bound making that coefficient nonintegral, and distinguish an ambient lift from the diagonal tensor stabilizer. They do not type the family v-stack theorem."
+    "Restricted Lean controls force the shear coefficient into every stable over-lattice, rule out a bound making that coefficient nonintegral, and distinguish an ambient lift from the diagonal tensor stabilizer. The family v-stack theorem itself is typed as IsocrystalFamilyVDescent over the IsocrystalFamilies owner interface."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
@@ -2803,14 +2967,16 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.IsocrystalFamilyVDescent",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.IsocrystalFamilyVDescent",
      "TauCeti.BunG.FamilyDescentControls.shear_forces_coefficient",
      "TauCeti.BunG.FamilyDescentControls.shear_violates_bound",
      "TauCeti.BunG.FamilyDescentControls.ambient_lift_not_tensor_lift"
     ],
-    "note": "The full family v-stack signature remains omitted under G08. Three elaborated native Submodule/field-vector controls check E08/E09 only: stable over-lattices contain the shear coefficient, a nonintegral scaled coefficient violates a proposed bound, and an ambient invertible lift need not lie in the smaller tensor stabilizer. No analytic geometry or actual orbit-lifting theorem is supplied."
+    "tests": [],
+    "note": "Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `GIsocrystalFamily.stack`; their objects are described by API theorems."
    }
   },
   {
@@ -2854,10 +3020,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.FamilyKottwitzLocalConstancy",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FamilyKottwitzLocalConstancy"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2943,10 +3112,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.AbelianizedClass",
+     "TauCeti.BunG.AbelianizedClass.abelianize",
+     "TauCeti.BunG.AbelianizedClass.torusModel",
+     "TauCeti.BunG.AbelianizedClass.centerModel",
+     "TauCeti.BunG.AbelianizedClass.map"
+    ],
+    "tests": [
+     "TauCeti.BunG.AbelianizedClass.testTorus",
+     "TauCeti.BunG.AbelianizedClass.testSLn",
+     "TauCeti.BunG.AbelianizedClass.testPGLn"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -2986,10 +3166,13 @@
    "declaration": "TauCeti.BunG.AbelianizationIdentification",
    "continuedFrom": "23-node checkpoint; stable identifier retained, contract/prerequisites refined.",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.AbelianizationIdentification"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3077,10 +3260,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CurveEtaleBase",
+     "TauCeti.BunG.CurveEtaleBase.pullback",
+     "TauCeti.BunG.CurveEtaleBase.baseChange",
+     "TauCeti.BunG.CurveEtaleBase.pushforward",
+     "TauCeti.BunG.CurveEtaleBase.constantComparison"
+    ],
+    "tests": [
+     "TauCeti.BunG.CurveEtaleBase.testGeometric",
+     "TauCeti.BunG.CurveEtaleBase.testTrivialSheaf",
+     "TauCeti.BunG.CurveEtaleBase.testCoproduct"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3120,10 +3314,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.CurveTorsionCohomology",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CurveTorsionCohomology"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3164,10 +3361,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.DiagonalizableCurveCohomology",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.DiagonalizableCurveCohomology"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3206,10 +3406,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.CrossedModuleCurveClasses",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CrossedModuleCurveClasses"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, CrossedModuleCohomology and CurveCrossedModule (ET.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3319,10 +3522,24 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Bun",
+     "TauCeti.BunG.Bun.objects",
+     "TauCeti.BunG.Bun.pullback",
+     "TauCeti.BunG.Bun.ofIsocrystal",
+     "TauCeti.BunG.Bun.isomSheaf",
+     "TauCeti.BunG.Bun.gaga",
+     "TauCeti.BunG.Bun.pullback_id",
+     "TauCeti.BunG.Bun.pullback_comp"
+    ],
+    "tests": [
+     "TauCeti.BunG.Bun.testGLn",
+     "TauCeti.BunG.Bun.testTrivial",
+     "TauCeti.BunG.Bun.testNonbasicHom"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `Bun.stack`, `Bun.pullback_id`, `Bun.pullback_comp`, `Bun.gaga`; their objects are described by API theorems."
    }
   },
   {
@@ -3363,10 +3580,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.BunGSmallness",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.BunGSmallness"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3421,10 +3641,13 @@
     "name": "Geometric bundle classification"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.PointsAreBOfG"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3463,10 +3686,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.HnSignAndSemicontinuity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.HnSignAndSemicontinuity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3507,10 +3733,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.StrictlyDisconnectedTorsors",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.StrictlyDisconnectedTorsors"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, LocallyProfiniteTorsors (D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3557,10 +3786,13 @@
     "name": "Trivial bundle locus"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GeometricallyTrivialLocus"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3602,10 +3834,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.GrassmannianPointLifting",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GrassmannianPointLifting"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3657,10 +3892,13 @@
     "name": "Beauville–Laszlo uniformization"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.BeauvilleLaszloSurjectivity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3699,10 +3937,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.CentralTorusGrassmannianSurjectivity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CentralTorusGrassmannianSurjectivity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3741,10 +3982,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.CentralTorusBundleSurjectivity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CentralTorusBundleSurjectivity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3789,10 +4033,13 @@
     "name": "Kottwitz local constancy"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.SemicontinuityAndLocalConstancy"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3837,10 +4084,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.GrassmannianKottwitzSign",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GrassmannianKottwitzSign"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -3904,10 +4154,13 @@
     "name": "Newton topology theorem"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.NewtonTopologyHomeomorphism"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4000,10 +4253,21 @@
     "name": "HN-graded G-bundles"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.HNGraded",
+     "TauCeti.BunG.HNGraded.forget",
+     "TauCeti.BunG.HNGraded.ofClass",
+     "TauCeti.BunG.HNGraded.automorphisms",
+     "TauCeti.BunG.HNGraded.classifying"
+    ],
+    "tests": [
+     "TauCeti.BunG.HNGraded.testGL2",
+     "TauCeti.BunG.HNGraded.testBasic",
+     "TauCeti.BunG.HNGraded.testUngraded"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `HNGraded.stack`; their objects are described by API theorems."
    }
   },
   {
@@ -4044,10 +4308,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.HnGradedClassification",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.HnGradedClassification"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4167,10 +4434,25 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FilteredAutomorphism",
+     "TauCeti.BunG.FilteredAutomorphism.raising_iff",
+     "TauCeti.BunG.FilteredAutomorphism.parabolic",
+     "TauCeti.BunG.FilteredAutomorphism.unipotent",
+     "TauCeti.BunG.FilteredAutomorphism.graded",
+     "TauCeti.BunG.FilteredAutomorphism.pullback",
+     "TauCeti.BunG.FilteredAutomorphism.localSplit"
+    ],
+    "tests": [
+     "TauCeti.BunG.FilteredAutomorphism.testGL2",
+     "TauCeti.BunG.FilteredAutomorphism.testTrivialFiltration",
+     "TauCeti.BunG.FilteredAutomorphism.testZeroWeight",
+     "TauCeti.BunG.FilteredAutomorphism.testRationalJump",
+     "TauCeti.BunG.FilteredAutomorphism.testNonAffine"
+    ],
+    "note": "Typed in the suggested file over the native FilteredFibreFunctor over a coefficient ring (Mathlib submodules and linear equivalences). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4271,10 +4553,22 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FullAutomorphism",
+     "TauCeti.BunG.FullAutomorphism.projection",
+     "TauCeti.BunG.FullAutomorphism.section",
+     "TauCeti.BunG.FullAutomorphism.kernel",
+     "TauCeti.BunG.FullAutomorphism.graded",
+     "TauCeti.BunG.FullAutomorphism.semidirect"
+    ],
+    "tests": [
+     "TauCeti.BunG.FullAutomorphism.testGL2",
+     "TauCeti.BunG.FullAutomorphism.testBasic",
+     "TauCeti.BunG.FullAutomorphism.testAlgebraicJ"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `FullAutomorphism.stack`, `FullAutomorphism.kernelStack`, `FullAutomorphism.projection`, `FullAutomorphism.section`; their objects are described by API theorems."
    }
   },
   {
@@ -4315,10 +4609,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.PositiveAutomorphismKernel",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.PositiveAutomorphismKernel"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4357,10 +4654,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.QuasiSplitOppositeParabolic",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.QuasiSplitOppositeParabolic"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4452,10 +4752,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Semistable",
+     "TauCeti.BunG.Semistable.mem_iff",
+     "TauCeti.BunG.Semistable.openImmersion",
+     "TauCeti.BunG.Semistable.basicDecomposition",
+     "TauCeti.BunG.Semistable.component"
+    ],
+    "tests": [
+     "TauCeti.BunG.Semistable.testGL2Half",
+     "TauCeti.BunG.Semistable.testTorus",
+     "TauCeti.BunG.Semistable.testUnstable"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `BunContext.substack`; their objects are described by API theorems."
    }
   },
   {
@@ -4542,10 +4853,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TorusPicard",
+     "TauCeti.BunG.TorusPicard.tensor",
+     "TauCeti.BunG.TorusPicard.kottwitz",
+     "TauCeti.BunG.TorusPicard.fibre",
+     "TauCeti.BunG.TorusPicard.splitOfSection"
+    ],
+    "tests": [
+     "TauCeti.BunG.TorusPicard.testGm",
+     "TauCeti.BunG.TorusPicard.testTrivial",
+     "TauCeti.BunG.TorusPicard.testTorsion"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `TorusPicard.tensor`; their objects are described by API theorems."
    }
   },
   {
@@ -4592,10 +4914,13 @@
     "name": "Newton stratum classifying stack"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.StratumIsClassifyingStack"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4634,10 +4959,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.AutomorphismTorsorReduction",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.AutomorphismTorsorReduction"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4678,10 +5006,13 @@
     "name": "Newton stratum dimension"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.StratumDimension"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4724,10 +5055,13 @@
    "declaration": "TauCeti.BunG.IsomSheafRepresentability",
    "continuedFrom": "23-node checkpoint; stable identifier retained, contract/prerequisites refined.",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.IsomSheafRepresentability"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `BunContext.diagonal`; their objects are described by API theorems."
    }
   },
   {
@@ -4775,10 +5109,13 @@
     "name": "Smooth Artin moduli stack"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.BunGIsSmoothArtin"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0) with GrassmannianInterface (GS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4824,10 +5161,13 @@
     "name": "Connected components of Bun_G"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ConnectedComponents"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -4923,10 +5263,22 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FilteredChart",
+     "TauCeti.BunG.FilteredChart.graded",
+     "TauCeti.BunG.FilteredChart.forget",
+     "TauCeti.BunG.FilteredChart.split",
+     "TauCeti.BunG.FilteredChart.pullback",
+     "TauCeti.BunG.FilteredChart.gradedFraming"
+    ],
+    "tests": [
+     "TauCeti.BunG.FilteredChart.testGL2Extension",
+     "TauCeti.BunG.FilteredChart.testBasic",
+     "TauCeti.BunG.FilteredChart.testOpposite"
+    ],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `FilteredChart.chartStack`, `FilteredChart.qChart`, `FilteredChart.piChart`, `FilteredChart.chartSection`, `FilteredChart.puncturedFraming`, `FilteredChart.uAction`, `FilteredChart.pullback`; their objects are described by API theorems."
    }
   },
   {
@@ -4965,10 +5317,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.QuasiSplitParabolicChart",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.QuasiSplitParabolicChart"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5011,10 +5366,13 @@
     "name": "Negative Banach–Colmez chart"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ChartOverClassifyingStack"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5060,10 +5418,13 @@
     "name": "Spatial chart complement"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.SectionAndSpatialComplement"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5105,10 +5466,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ContractingChartAction",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ContractingChartAction"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5151,10 +5515,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ChartJacobianPositivity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ChartJacobianPositivity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5203,10 +5570,13 @@
     "name": "Smooth specialization chart"
    },
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ChartToBunG"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5246,10 +5616,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.Gl2ExtensionChart",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Gl2ExtensionChart"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5288,14 +5661,16 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.FiniteFrobeniusNormCentralizer",
    "prototype": {
-    "status": "typed-pointwise-core",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.FiniteFrobeniusNormCentralizer",
      "TauCeti.BunG.frobeniusNorm_add",
      "TauCeti.BunG.frobeniusNorm_twistedConjugate",
      "TauCeti.BunG.centralizes_norm_of_period"
     ],
-    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5337,10 +5712,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ModificationNewtonBound",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ModificationNewtonBound"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5378,10 +5756,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.MinusculeModificationImage",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.MinusculeModificationImage"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5477,10 +5858,22 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FlagNewton",
+     "TauCeti.BunG.FlagNewton.classAt",
+     "TauCeti.BunG.FlagNewton.stratum",
+     "TauCeti.BunG.FlagNewton.upperUnion",
+     "TauCeti.BunG.FlagNewton.acceptableImage",
+     "TauCeti.BunG.FlagNewton.baseChange"
+    ],
+    "tests": [
+     "TauCeti.BunG.FlagNewton.testGL2",
+     "TauCeti.BunG.FlagNewton.testCentral",
+     "TauCeti.BunG.FlagNewton.testSign"
+    ],
+    "note": "Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5519,10 +5912,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.FlagStrataSemicontinuity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FlagStrataSemicontinuity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5561,10 +5957,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.UnitaryFlagStratumDimension",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.UnitaryFlagStratumDimension"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points) and CS24UnitaryDatum (IG.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5620,10 +6019,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.UnitaryOrdinaryFlagLocus",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.UnitaryOrdinaryFlagLocus"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points) and CS24UnitaryDatum (IG.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5664,10 +6066,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.GlMinusculeQuasisplitCentralizer",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GlMinusculeQuasisplitCentralizer"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5781,7 +6186,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-diagonalizable-protorus-interface",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.SlopeProtorus",
@@ -5795,7 +6200,12 @@
      "TauCeti.BunG.SlopeProtorus.toMultiplicativeGroup",
      "TauCeti.BunG.SlopeProtorus.map_apply"
     ],
-    "note": "The native commutative Hopf algebra E[Q], representation weights, finite denominator clearing, split-torus character-map equivalence and coordinate postcomposition are typed. The three tests evaluate or distinguish actual coordinate morphisms. Canonical comparison with arbitrary nonsplit tori and the full Newton morphism remain the reductive/local coefficient supplier contracts; no finite-type diagonalizable group category is incorrectly applied to Q."
+    "tests": [
+     "TauCeti.BunG.SlopeProtorus.testHalf",
+     "TauCeti.BunG.SlopeProtorus.testZero",
+     "TauCeti.BunG.SlopeProtorus.testDenominator"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -5884,10 +6294,21 @@
     }
    ],
    "prototype": {
-    "status": "imported-upstream-signatures",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The upstream suggested file defines the quotient from actual AbsoluteRootData and supplies its Galois action, inertia coinvariants and maps. BG does not restate those definitions. The pinned shared build does not expose this roadmap module as an import; the BG alias and canonical inner-twist comparison signatures remain omitted. This is an import of existing work, not a missing fundamental-group plan."
+    "declarations": [
+     "TauCeti.BunG.AlgebraicPiOne",
+     "TauCeti.BunG.AlgebraicPiOne.ofCocharacter",
+     "TauCeti.BunG.AlgebraicPiOne.coinvariants",
+     "TauCeti.BunG.AlgebraicPiOne.map",
+     "TauCeti.BunG.AlgebraicPiOne.innerInvariant"
+    ],
+    "tests": [
+     "TauCeti.BunG.AlgebraicPiOne.testGLn",
+     "TauCeti.BunG.AlgebraicPiOne.testSLn",
+     "TauCeti.BunG.AlgebraicPiOne.testNormOne"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    },
    "importedFrom": {
     "roadmap": "ReductiveGroupsPartII",
@@ -5987,10 +6408,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.NewtonSpace",
+     "TauCeti.BunG.NewtonSpace.dominant",
+     "TauCeti.BunG.NewtonSpace.le",
+     "TauCeti.BunG.NewtonSpace.delta",
+     "TauCeti.BunG.NewtonSpace.transfer"
+    ],
+    "tests": [
+     "TauCeti.BunG.NewtonSpace.testGL2",
+     "TauCeti.BunG.NewtonSpace.testTorus",
+     "TauCeti.BunG.NewtonSpace.testCentral"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6077,10 +6509,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.HodgeInvariants",
+     "TauCeti.BunG.HodgeInvariants.sharp",
+     "TauCeti.BunG.HodgeInvariants.diamond",
+     "TauCeti.BunG.HodgeInvariants.average_eq",
+     "TauCeti.BunG.HodgeInvariants.baseChange"
+    ],
+    "tests": [
+     "TauCeti.BunG.HodgeInvariants.testSplitGL2",
+     "TauCeti.BunG.HodgeInvariants.testUnit",
+     "TauCeti.BunG.HodgeInvariants.testTorsion"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6097,7 +6540,7 @@
     "The typed KottwitzDescent consumer interface takes an actual group G, an integral abelian group A, automorphisms σ and τ, and a supplied homomorphism with κ̃(σg)=τκ̃(g). It does not identify arbitrary such data with a reductive group over a local field."
    ],
    "proofSteps": [
-    "Construct the slope morphism using Dieudonné–Manin and tensor compatibility; its general local-field signature remains G08.",
+    "Construct the slope morphism using Dieudonné–Manin and tensor compatibility; the suggested file takes the representative slope morphism as the LocalDatum field newtonRep and descends it to B(G) as Invariants.newtonRat; instantiating that field at the pins is G08.",
     "Import the upstream representative Kottwitz homomorphism on G(L), its surjectivity and naturality. Request its local Frobenius-equivariance signature: the current upstream README states this property but explicitly supplies no Lean target.",
     "For c=g b σ(g)⁻¹, compute κ̃(c)=κ̃(b)+κ̃(g)−τκ̃(g). Native integral coinvariants identify κ̃(g) with τκ̃(g), so the quotient universal property descends the representative formula uniquely.",
     "For a cyclic ℤ-action, positive powers give telescoping sums in the range of τ−id and negative powers reduce to positive powers using τ⁻¹. Conversely the generator relation is τa−a. This identifies the native relation submodule with that range. For an abelian point group, the same equation gives both directions of the quotient equivalence.",
@@ -6345,9 +6788,15 @@
     }
    ],
    "prototype": {
-    "status": "typed-integral-kottwitz-descent-interface",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
+     "TauCeti.BunG.Invariants",
+     "TauCeti.BunG.Invariants.newton",
+     "TauCeti.BunG.Invariants.kottwitz",
+     "TauCeti.BunG.Invariants.representativeKottwitz",
+     "TauCeti.BunG.Invariants.map",
+     "TauCeti.BunG.Invariants.rationalCompatibility",
      "TauCeti.BunG.KottwitzDescent.cyclicRepresentation",
      "TauCeti.BunG.KottwitzDescent.cyclicRepresentation_generator",
      "TauCeti.BunG.KottwitzDescent.Target",
@@ -6371,7 +6820,19 @@
      "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv",
      "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv_mk"
     ],
-    "note": "KottwitzDescent types the actual sigma-class descent of a supplied Frobenius-equivariant homomorphism to native integral cyclic coinvariants, its uniqueness, surjectivity, naturality and abelian quotient equivalence. Identity/sign-action controls retain integral torsion. This consumer interface does not reconstruct upstream π_1 or κ̃. The general-E Newton morphism, local Frobenius-equivariance instantiation, successive inertia/Γ comparison and rational compatibility signatures remain G08; the original GL_n, bundle-sign and norm-one-torus examples are still required."
+    "tests": [
+     "TauCeti.BunG.Invariants.testGL1",
+     "TauCeti.BunG.Invariants.testSign",
+     "TauCeti.BunG.Invariants.testTorsion",
+     "TauCeti.BunG.KottwitzDescent.testIdentityTarget",
+     "TauCeti.BunG.KottwitzDescent.testUnit",
+     "TauCeti.BunG.KottwitzDescent.testTwistedInvariant",
+     "TauCeti.BunG.KottwitzDescent.testSignParity",
+     "TauCeti.BunG.KottwitzDescent.testSignDistinct",
+     "TauCeti.BunG.KottwitzDescent.testSignTwo",
+     "TauCeti.BunG.KottwitzDescent.testSignNotFixed"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6424,10 +6885,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ClassificationByTwoInvariants",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ClassificationByTwoInvariants"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6512,10 +6976,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Basic",
+     "TauCeti.BunG.Basic.adjoint_iff",
+     "TauCeti.BunG.Basic.ofKottwitz",
+     "TauCeti.BunG.Basic.newton",
+     "TauCeti.BunG.Basic.innerTransport"
+    ],
+    "tests": [
+     "TauCeti.BunG.Basic.testGL2Half",
+     "TauCeti.BunG.Basic.testTorus",
+     "TauCeti.BunG.Basic.testNonbasic"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6609,10 +7084,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.NewtonOrder",
+     "TauCeti.BunG.NewtonOrder.le_iff",
+     "TauCeti.BunG.NewtonOrder.partialOrder",
+     "TauCeti.BunG.NewtonOrder.basic_minimal",
+     "TauCeti.BunG.NewtonOrder.representationCriterion"
+    ],
+    "tests": [
+     "TauCeti.BunG.NewtonOrder.testGL2",
+     "TauCeti.BunG.NewtonOrder.testDifferentKappa",
+     "TauCeti.BunG.NewtonOrder.testTorsion"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6651,10 +7137,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.RepresentationDetectsDominance",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.RepresentationDetectsDominance"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6762,10 +7251,22 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.Acceptable",
+     "TauCeti.BunG.Acceptable.mem_iff",
+     "TauCeti.BunG.Acceptable.basic",
+     "TauCeti.BunG.Acceptable.finite",
+     "TauCeti.BunG.Acceptable.torus_iff",
+     "TauCeti.BunG.Acceptable.product"
+    ],
+    "tests": [
+     "TauCeti.BunG.Acceptable.testGL2",
+     "TauCeti.BunG.Acceptable.testZero",
+     "TauCeti.BunG.Acceptable.testTorsion"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6820,10 +7321,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.AdmissibleFinitenessAndBasic",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.AdmissibleFinitenessAndBasic"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6912,10 +7416,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.RationalNewtonWitness",
+     "TauCeti.BunG.RationalNewtonWitness.quasiSplit",
+     "TauCeti.BunG.RationalNewtonWitness.basic",
+     "TauCeti.BunG.RationalNewtonWitness.levi",
+     "TauCeti.BunG.RationalNewtonWitness.centralOnJ"
+    ],
+    "tests": [
+     "TauCeti.BunG.RationalNewtonWitness.testSplitGL2",
+     "TauCeti.BunG.RationalNewtonWitness.testBasic",
+     "TauCeti.BunG.RationalNewtonWitness.testInnerForm"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -6963,10 +7478,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.TorusNormDescription",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TorusNormDescription"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7017,10 +7535,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.RationalKottwitzSurjectivity",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.RationalKottwitzSurjectivity"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7108,18 +7629,24 @@
     }
    ],
    "prototype": {
-    "status": "typed-pointwise-core",
+    "status": "typed-over-local-datum",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.ComponentCoset",
      "TauCeti.BunG.ComponentCoset.mem_iff",
      "TauCeti.BunG.ComponentCoset.nonempty",
      "TauCeti.BunG.ComponentCoset.translate",
+     "TauCeti.BunG.ComponentCoset.liftZExtension",
      "TauCeti.BunG.ComponentCoset.fixedSubgroup",
      "TauCeti.BunG.ComponentCoset.equivFixed",
      "TauCeti.BunG.ComponentCoset.equivFixed_apply"
     ],
-    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
+    "tests": [
+     "TauCeti.BunG.ComponentCoset.testIdentity",
+     "TauCeti.BunG.ComponentCoset.testSign",
+     "TauCeti.BunG.ComponentCoset.testParity"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7165,10 +7692,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ZExtensionBoundedLifting",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ZExtensionBoundedLifting"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7206,10 +7736,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.ConnectedCenterBasicInnerForms",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.ConnectedCenterBasicInnerForms"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7291,10 +7824,20 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.CentralNewtonOnJ",
+     "TauCeti.BunG.CentralNewtonOnJ.morphism",
+     "TauCeti.BunG.CentralNewtonOnJ.integralMultiple",
+     "TauCeti.BunG.CentralNewtonOnJ.transport"
+    ],
+    "tests": [
+     "TauCeti.BunG.CentralNewtonOnJ.testBasicHalf",
+     "TauCeti.BunG.CentralNewtonOnJ.testUnit",
+     "TauCeti.BunG.CentralNewtonOnJ.testNonbasic"
+    ],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7332,10 +7875,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.GeneralLeviNewtonComparison",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-local-datum",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.GeneralLeviNewtonComparison"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   },
   {
@@ -7375,10 +7921,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.DeRhamQuotientGroupClass",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-over-owner-interfaces",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.DeRhamQuotientGroupClass"
+    ],
+    "tests": [],
+    "note": "Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08)."
    }
   }
  ],
@@ -7395,7 +7944,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7412,7 +7961,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7431,7 +7980,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7445,7 +7994,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7464,7 +8013,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7480,7 +8029,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   },
   {
@@ -7496,7 +8045,7 @@
     "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
-    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; instantiate the G08 owner-interface parameters of the suggested file with the owners’ carriers once those exist at the pins."
    ]
   }
  ],
@@ -7592,8 +8141,8 @@
   },
   {
    "id": "G08",
-   "title": "Lean formulation boundary",
-   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. RepresentativeTensor now types the actual semilinear Frobenius family on native finite rational comodules, its Tannakian point reconstruction, all tensor arrows and the point sigma-stabilizer comparison. This covers the trivialized presentation. Comparison with the untrivialized exact G-isocrystal category, Steinberg trivialization and represented Newton-Levi descent remain open. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage. The RF suggested file’s DiamondFormulas explicitly leaves the actual perfectoid site, represented base and coefficient sheaves as omitted hypotheses; VS0’s ArtinVStack and VS1’s analytic Jacobian/cohomological signatures likewise remain omission contracts. Generic sheaf carriers do not instantiate these geometric hypotheses. KottwitzDescent now types the unique sigma-class descent of a supplied equivariant representative homomorphism to native integral cyclic coinvariants, native naturality, surjectivity and an actual abelian quotient equivalence. Its sign-action controls compare the nonzero order-two quotient with zero fixed points. This narrows only the integral descent boundary; general-E Newton and actual local Galois/Frobenius identification remain open.",
+   "title": "Owner-interface instantiation at the pins",
+   "detail": "Revision 3 types every node, API item and unit test in the suggested file. Objects owned by other roadmaps enter as named parameters, following the accepted DiamondsAndVStacks suggested file: LocalDatum (upstream RG2.1.5 π₁(G)_I with Frobenius and κ̃, the RG2.4 based root datum of the quasi-split form with Galois action, roots and dominant chamber, VB0 slope morphisms of representatives, split ranks, a Borel and the Newton Levi); ExactTensorCat and CurveSite (D1–D2 perfectoid site, v- and pro-étale topologies, geometric points; RF2/VB1 bundles on X_S with pullback, the structure-sheaf and isocrystal-to-bundle functors; VB0 isocrystal rank, slope and Brauer invariant; VB2/VB4 slopes and degrees); StackGeometry (D0 point, classifying stacks, coproducts, 2-fibre products and quotients; D4 smallness, locally spatial and spatial diamonds and underlying spaces; D3/D5 immersions, separatedness, partial properness, properness, v-surjectivity and representability in locally spatial diamonds; VS0 Artin v-stacks and ℓ-cohomological smoothness of given dimension); SlopeFiltrations (VB4 graded and filtered bundles with semistable pieces); GrassmannianInterface (GS0 affine Grassmannian, Schubert cells, flag varieties; RF4 Beauville–Laszlo map); EtaleSites (D2/D6/RF2 étale sites, ET.0/C1 cohomology); and the torsor interfaces (R09.3, D3). BG’s own notions are defined on top of them with real bodies wherever their definition is not itself a stack-level construction; prestack-valued constructions (Bun.stack, sub-prestacks, HN-split and automorphism stacks, the chart stacks) are typed with admitted bodies and their objects are described by API theorems. What remains is instantiating these parameters with the owners’ carriers once those exist at the pins: VB0’s exported exact E-linear symmetric monoidal isocrystal category, VB1’s relative analytic bundle category, RF/D’s perfectoid site, curve and v-stack structures, VS0/VS1’s Artin and cohomological-smoothness interfaces, and the RG2.1 local Frobenius comparison. Until then, statements involving owner fields are asserted for the owners’ instantiations.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
@@ -10649,16 +11198,16 @@
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
-  "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
-  "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work. Continuation codex-CxGyYK updates only the omitted filtered-group, family-descent and ordinary-flag contracts and their source hypotheses; it adds no elaborated geometric target signatures. Continuation codex-hQQIPH adds three restricted native shear/orbit membership controls for HK22 proof findings E08/E09; full family and geometric target signatures remain omitted.",
+  "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs, rational representation symmetric monoidal structure, Mathlib pseudofunctors with IsStack, lower-set topologies, semicontinuity and topological Krull dimension.",
+  "status": "elaborated-full-signatures-over-owner-interfaces",
+  "scope": "Revision 3 types all 98 nodes: every node declaration, all API items and all unit tests appear under their packet names. The native algebraic cores of revisions 1–2 are retained (twisted conjugacy, representative groupoid, centralizer functor, trivialized Frobenius tensor family with Tannakian reconstruction, integral Kottwitz descent, GL_n slope data, slope protorus). BG0/BG1 algebraic nodes are typed over the LocalDatum owner interface with real-bodied B(G), N(G), κ, ν, μ♯, μ◇, Basic, NewtonOrder, Acceptable, Ordinary, DecentRepresentative, Defect, TorusSpecial and the Levi, Iwahori–Weyl and parahoric statements. The geometric layers are typed over ExactTensorCat, CurveSite, StackGeometry, SlopeFiltrations, GrassmannianInterface, EtaleSites and torsor interfaces, with real-bodied G-bundles, G-isocrystals, Bun_G points and pullback, the point classification map, the Newton topology, S-points of strata, HN-split and filtered charts and filtered automorphism subgroups; prestack-valued constructions have admitted bodies.",
   "elaboration": {
-   "date": "2026-10-10",
+   "date": "2026-10-14",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (178); no errors or other warnings.",
-   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples. New shear/orbit controls check only native algebraic signatures, not valuation-theoretic c≥N, Newton slope classification or continuous lifting for the actual isocrystal group.",
-   "agent": "Codex — codex-RH698u"
+   "warnings": "Only admitted-proof declaration warnings (435); no errors or other warnings.",
+   "limitation": "Elaboration checks types, not proofs. Owner fields are parameters whose instantiation at the pins is G08; prestack-valued constructions have admitted bodies.",
+   "agent": "Claude — claude-2Fl0Hn"
   }
  },
  "upstreamNotes": [

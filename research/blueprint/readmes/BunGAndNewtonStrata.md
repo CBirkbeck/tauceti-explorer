@@ -24,7 +24,7 @@ The abelianized Weil construction is restricted to the stated p-adic setting. It
 
 ## Stage targets
 
-The declarations below specify definitions, APIs, proof chains and discriminating tests. Every implementation status is unchecked. The target-level pass has 98 stable nodes covering all seven scoped stages. Each target chain ends in a cited baseline declaration, an existing supplier node or an exact supplier request, with unresolved inputs recorded as gaps. Planning coverage does not assert closed proof chains or full Lean signatures. The 12 gaps, 47 requests and 88 full-signature omissions remain explicit; no stage is closed.
+The declarations below specify definitions, APIs, proof chains and discriminating tests. Every implementation status is unchecked. The target-level pass has 98 stable nodes covering all seven scoped stages. Each target chain ends in a cited baseline declaration, an existing supplier node or an exact supplier request, with unresolved inputs recorded as gaps. Planning coverage does not assert closed proof chains. Every node, API item and unit test has a typed signature in the suggested file, over named owner interfaces for the objects other roadmaps own. The 12 gaps and 47 requests remain explicit; no stage is closed.
 
 | Stage | Planned declarations | Planets |
 |---|---:|---:|
@@ -75,7 +75,7 @@ The rows group the stage briefs and their routed supporting targets. Each link p
 | BG4 | Contraction, escaping action and proper quotient | [Contracting chart action and proper quotient](#contracting-chart-action) |
 | BG4 | Jacobian positivity, chart cover and the GL2 extension control | [Positive tangent criterion for the filtered chart](#chart-jacobian-positivity); [Smooth specialization neighborhoods](#chart-to-bun-g); [Rank-two extension chart](#gl2-extension-chart) |
 
-All seven stages have status planned. For each stage, the packet’s remaining list names every gap reached through its local prerequisite closure. Full geometric signatures remain G08 obligations; a name in the suggested file’s omission register is not a typed declaration.
+All seven stages have status planned. For each stage, the packet’s remaining list names every gap reached through its local prerequisite closure. The geometric signatures are typed over owner-interface parameters; instantiating those parameters with the owners’ carriers at the pins is G08.
 
 ## BG0 — Torsors and isocrystals with reductive structure
 
@@ -115,7 +115,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), After III.1.1 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** typed-category-interface; Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over ExactTensorCat and CurveSite (Tau Ceti finite representations; VB1 curve bundles and pullback; the structure-sheaf functor). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** G-bundle.
 
@@ -135,7 +135,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.1.1 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Theorems19.5.1 and19.5.2, printed178-180. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over CurveSite and the TorsorDescriptions owner interface (R09.3, D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="structure-group-and-tensor-descent"></a>
 
@@ -153,7 +153,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proof19.5.2 printed179-180. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 printed33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over CurveSite; extension of structure group is the real-bodied GBundle.extend. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="g-isocrystals-and-B-of-G"></a>
 
@@ -214,7 +214,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.1 p.89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Definition22.4.1 printed210 (PDF220). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** typed-native-trivialized-frobenius-family; Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over ExactTensorCat, CurveSite.isoc (VB0) and IsocrystalRealization; the native trivialized form RepresentativeTensor is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** G-isocrystal.
 
@@ -271,7 +271,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.1 p.4. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. Also [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionIII.2.1 and TheoremIII.2.2 p.89; §III.2.2 p.90. The tensor-isocrystal classification distinguishes the representative groupoid from its isomorphism classes; the split torus invariant is the integral valuation. The Witt case here uses the pinned rank-one Frobenius-solution theorem.
 
-**Lean formulation.** typed-affine-point-and-tensor-groupoid-interface; The native Hopf-point quotient and representative groupoid now compare by an actual category-equivalence signature with the whole trivialized Frobenius tensor family on finite rational comodules. Its arrows reconstruct the actual conjugator by native Tannaka duality. G_m and Witt-unit controls remain concrete. The untrivialized exact tensor G-isocrystal comparison and actual general local coefficient/Frobenius instantiation remain G08; this does not supply analytic bundle or v-stack signatures. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Kottwitz set.
 
@@ -319,7 +319,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Sections4.3–4.4 pp.268–269. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), 1.2.12 printed14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. Also [FS ExampleIII.4.4 pp.101–102](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf): the centralizer is the unit group of the isocrystal endomorphism algebra; the arithmetic sign is fixed by VB0.
 
-**Lean formulation.** typed-affine-point-functor-and-tensor-automorphisms; The actual group-valued functor on all commutative E-algebras and natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Native tensor automorphisms of the trivialized Frobenius family now identify multiplicatively with the point sigma-stabilizer, with component formulas on every representation. Reductive representation of this functor, Newton-Levi base change and untrivialized exact G-isocrystal comparison remain omitted. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Sigma-centralizer.
 
@@ -339,7 +339,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** typed-natural-point-functor-isomorphism; The native affine point-functor isomorphism now retains naturality on all coefficient E-algebras, in addition to the stabilizer equivalence. The reductive representing-group isomorphism and its tensor automorphism action still require the Newton/descent and concrete isocrystal suppliers. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="decent-representative"></a>
 
@@ -374,7 +374,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Definition2.3 p.819. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 equations and decency p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Finiteness properties of affine Deligne–Lusztig varieties](https://ems.press/content/serial-article-files/26546?nt=1), §1 pp.899–900; Lemma5.2 and proof p.906 (PDF8). The local field may have characteristic zero or p. The decency equation has a positive period, and the lemma gives a representative in every sigma class. The extra building assertion is not a BG target.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Decent representative.
 
@@ -394,7 +394,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Paragraph4 after Definition2.3 p.819. Supplies the p-adic statement and chamber refinement. HV20 Lemma5.2 supplies decent representatives over general local fields.; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Section4.3 printed213-214. Supplies the p-adic statement and chamber refinement. HV20 Lemma5.2 supplies decent representatives over general local fields.; [Finiteness properties of affine Deligne–Lusztig varieties](https://ems.press/content/serial-article-files/26546?nt=1), §1 pp.899–900; Lemma5.2 and proof p.906 (PDF8). The local field may have characteristic zero or p. The decency equation has a positive period, and the lemma gives a representative in every sigma class. The extra building assertion is not a BG target.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="defect"></a>
 
@@ -428,7 +428,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.2 p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="pure-inner-twisting"></a>
 
@@ -446,7 +446,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.1 p.100. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over the GroupSheafTorsors owner interface (R09.3, D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="basic-inner-form-bundle-equivalence"></a>
 
@@ -464,7 +464,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.2 andIII.4.3 pp.100-101. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext and NewtonSpace.InnerTwisting. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="division-algebra-morita"></a>
 
@@ -482,7 +482,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.4 pp.101-102. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, CurveSite's VB0 invariants (isocRank, isocSlope, brauerInv) and Mathlib's right End-module structure on Hom. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="families-of-g-isocrystals"></a>
 
@@ -517,7 +517,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), I.2 pp.10-11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. [Extending torsors on the punctured Spec(A_inf)](https://arxiv.org/pdf/1804.06356v2), Lemma11.3 pp.34–35 and Theorem11.4 pp.35–36. Supplies arc-descent for coefficient-ring G-torsors and their v-local triviality; this is a general scheme tensor-descent input, distinct from relative FF bundle descent.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Families of G-isocrystals.
 
@@ -533,11 +533,11 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Proof/construction.** (1) Use Iva23 Lemma5.9/Proposition5.10 for arc-descent of coefficient vector bundles in both characteristics. Ans22 Lemma11.3 extends this to G-torsors by exact tensor reconstruction: exactness is reflected because the coefficient-ring map meets every maximal ideal (Iva23 Corollary5.6). Descend the Frobenius isomorphism using full faithfulness. Arc-descent implies v-descent independently of κ-local-constancy. (2) Ans22 Theorem11.4 trivializes the underlying coefficient-ring torsor v-locally. Its proof reduces to absolutely integrally closed finite-rank valuation rings, uses Steinberg in rank0, the punctured-period-ring extension theorem in rank1, and valuation-ring excision/induction in higher rank. These are supplier inputs, not consequences of schematic torsor descent alone. The resulting presentation is LG/Ad_σ LG. (3) Only after descent, use Newton semicontinuity and the separately proved family κ-local-constancy to construct the locally closed constant-class loci. The κ argument is not a premise of the descent proof. (4) Cover a constant-class locus in the v-topology by spectra of products of perfect normal valuation rings. Choose the connected smooth affine O_E-model already supplied by RG2.3, as required by HK22 §2.1. Follow HK22 v5 Proposition2.10/Theorem2.11 on each normal piece: separate the least slope by Φ=π^(−r)φ^s and construct an effective lattice. Correct its Lemma2.9 proof bound by choosing a uniform denominator d for Φ on the initial rank-h lattice; the field-level iterated sum is bounded by π^(−d(h−1)), not by the Newton polygon alone (E08). Local freeness over general perfect bases still requires the proper lattice-moduli cover. (5) For an effective local shtuka, HK22 Lemma2.8 represents finite-level fixed sections by affine étale schemes; constant slope-zero multiplicity makes them finite étale. The inverse limit trivializes the étale part on a profinite étale cover. Induct through the least slopes as in Proposition2.10. For G, reconstruct its defining tensor line in a faithful representation. Theorem2.11 then needs local continuous lifting within the actual Aut(V0) orbit of its Frobenius-compatible embeddings; a GL(H) section does not provide this lift (E09). This remains a genuine G04 proof obligation, so this sketch is not a closed proof of the stratum equivalence. (6) After the actual orbit-lifting input is supplied, the normal-chart Isom sheaf is a torsor for the locally profinite J_b(E), and v-descent identifies the stratum with [*/J_b(E)] over any perfect base. The current HK22 theorem requires normality; this route does not claim a profinite étale trivialization over every non-normal perfect base. It gives neither the algebraic classifying stack [*/J_b] nor the positive-kernel automorphism group of a curve bundle.
 
-**Acceptance.** The arc-descent argument is independent of the later family κ-local-constancy argument. Apply current HK22 only over perfect normal charts. An arbitrary-perfect-base profinite étale statement cannot be read off from its v1 version or from v-local isotriviality. The lattice bound includes the initial Frobenius denominator, and the tensor-line lift lies in the actual automorphism group. E08/E09 affect source proofs; neither is recorded as a counterexample to the stated isotriviality theorem. G04 remains open. Restricted Lean controls force the shear coefficient into every stable over-lattice, rule out a bound making that coefficient nonintegral, and distinguish an ambient lift from the diagonal tensor stabilizer. They do not type the family v-stack theorem.
+**Acceptance.** The arc-descent argument is independent of the later family κ-local-constancy argument. Apply current HK22 only over perfect normal charts. An arbitrary-perfect-base profinite étale statement cannot be read off from its v1 version or from v-local isotriviality. The lattice bound includes the initial Frobenius denominator, and the tensor-line lift lies in the actual automorphism group. E08/E09 affect source proofs; neither is recorded as a counterexample to the stated isotriviality theorem. G04 remains open. Restricted Lean controls force the shear coefficient into every stable over-lattice, rule out a bound making that coefficient nonintegral, and distinguish an ambient lift from the diagonal tensor stabilizer. The family v-stack theorem itself is typed as IsocrystalFamilyVDescent over the IsocrystalFamilies owner interface.
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremI.2.1 p.11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. [Arc-descent for the perfect loop functor and p-adic Deligne–Lusztig spaces](https://arxiv.org/pdf/2003.04399v3), Corollary5.6 p.13; Lemmas5.8–5.9 and Proposition5.10 pp.14–15. Coefficient vector-bundle arc-descent, via perfectoid descent and the sousperfectoid comparison, in both characteristics. [Extending torsors on the punctured Spec(A_inf)](https://arxiv.org/pdf/1804.06356v2), Lemmas11.2–11.3 and Theorem11.4 pp.34–36. Exact tensor torsor arc-descent and v-local triviality; the valuation-ring and rank-one extension inputs are retained explicitly. [Point counting on Igusa varieties for function fields](https://arxiv.org/pdf/2208.01069v5), v5 Lemmas2.8–2.9 pp.7–8, Proposition2.10 p.8 and Theorem2.11 p.9; v1 normality comparison in sourceVersions. Current isotriviality and the Isom torsor require perfect normal bases. E08 corrects a proof-level bound; E09 leaves the actual tensor-orbit lifting step open. Normal v-covers do not by themselves close that proof gap or yield arbitrary-base profinite étale triviality. [On the slope filtration](https://www.math.uni-bielefeld.de/~zink/slopes.pdf), Lemma9 and proof, author pp.11–12 (not Duke pagination). The minimal-stable-lattice and Nakayama argument bounds the number of iterates. The denominator-dependent field repair is our deduction; the author lemma concerns a p-divisible-group Dieudonné module.
 
-**Lean formulation.** full-signature-omitted; The full family v-stack signature remains omitted under G08. Three elaborated native Submodule/field-vector controls check E08/E09 only: stable over-lattices contain the shear coefficient, a nonintegral scaled coefficient violates a proposed bound, and an ambient invertible lift need not lie in the smaller tensor stabilizer. No analytic geometry or actual orbit-lifting theorem is supplied. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `GIsocrystalFamily.stack`; their objects are described by API theorems.
 
 <a id="finite-frobenius-norm-centralizer"></a>
 
@@ -555,7 +555,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Section2.1.2 printed29. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="central-newton-on-J"></a>
 
@@ -589,7 +589,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 p.175. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 ## BG1 — Kottwitz and Newton invariants
 
@@ -611,7 +611,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIII.2.8 pp.92-93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition18.3.1 §18.3. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over the IsocrystalFamilies owner interface (VB0 relative isocrystals, D2/D3 perfect-scheme site). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="abelianized-kottwitz-set"></a>
 
@@ -646,7 +646,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 pp.93-94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="slope-protorus"></a>
 
@@ -686,7 +686,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions and1.1.1 p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** typed-diagonalizable-protorus-interface; The native commutative Hopf algebra E[Q], representation weights, finite denominator clearing, split-torus character-map equivalence and coordinate postcomposition are typed. The three tests evaluate or distinguish actual coordinate morphisms. Canonical comparison with arbitrary nonsplit tori and the full Newton morphism remain the reductive/local coefficient supplier contracts; no finite-type diagonalizable group category is incorrectly applied to Q. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="algebraic-fundamental-group"></a>
 
@@ -721,7 +721,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section2.2 p.818. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** imported-upstream-signatures; The upstream suggested file defines the quotient from actual AbsoluteRootData and supplies its Galois action, inertia coinvariants and maps. BG does not restate those definitions. The pinned shared build does not expose this roadmap module as an import; the BG alias and canonical inner-twist comparison signatures remain omitted. This is an import of existing work, not a missing fundamental-group plan. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="newton-orbit-space"></a>
 
@@ -756,7 +756,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.1 pp.5-6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Section2.1 pp.165-166 (PDF14-15). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="galois-average"></a>
 
@@ -791,7 +791,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 pp.7-8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="newton-and-kottwitz-maps"></a>
 
@@ -803,7 +803,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Prerequisites.** [Kottwitz set B(G)](#sigma-conjugacy-quotient); [Newton orbit space and rational dominance](#newton-orbit-space); [Algebraic fundamental group](#algebraic-fundamental-group); [Galois averaging and Hodge invariants](#galois-average); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/670582c502e1d4497d9ccd492b36c67028ef6666/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [Representation.Coinvariants](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Coinvariants.lean); [Representation.Coinvariants.map](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Coinvariants.lean).
 
-**Proof/construction.** (1) Construct the slope morphism using Dieudonné–Manin and tensor compatibility; its general local-field signature remains G08. (2) Import the upstream representative Kottwitz homomorphism on G(L), its surjectivity and naturality. Request its local Frobenius-equivariance signature: the current upstream README states this property but explicitly supplies no Lean target. (3) For c=g b σ(g)⁻¹, compute κ̃(c)=κ̃(b)+κ̃(g)−τκ̃(g). Native integral coinvariants identify κ̃(g) with τκ̃(g), so the quotient universal property descends the representative formula uniquely. (4) For a cyclic ℤ-action, positive powers give telescoping sums in the range of τ−id and negative powers reduce to positive powers using τ⁻¹. Conversely the generator relation is τa−a. This identifies the native relation submodule with that range. For an abelian point group, the same equation gives both directions of the quotient equivalence. (5) Use the native coinvariant map of an integral intertwiner to check naturality on every representative; inherit surjectivity from the supplied homomorphism and quotient projection. Identify successive inertia/Frobenius coinvariants with π_1(G)_Γ using the actual local Galois action, then check the rational Newton compatibility square. Those reductive/local-field comparisons remain G08.
+**Proof/construction.** (1) Construct the slope morphism using Dieudonné–Manin and tensor compatibility; the suggested file takes the representative slope morphism as the LocalDatum field newtonRep and descends it to B(G) as Invariants.newtonRat; instantiating that field at the pins is G08. (2) Import the upstream representative Kottwitz homomorphism on G(L), its surjectivity and naturality. Request its local Frobenius-equivariance signature: the current upstream README states this property but explicitly supplies no Lean target. (3) For c=g b σ(g)⁻¹, compute κ̃(c)=κ̃(b)+κ̃(g)−τκ̃(g). Native integral coinvariants identify κ̃(g) with τκ̃(g), so the quotient universal property descends the representative formula uniquely. (4) For a cyclic ℤ-action, positive powers give telescoping sums in the range of τ−id and negative powers reduce to positive powers using τ⁻¹. Conversely the generator relation is τa−a. This identifies the native relation submodule with that range. For an abelian point group, the same equation gives both directions of the quotient equivalence. (5) Use the native coinvariant map of an integral intertwiner to check naturality on every representative; inherit surjectivity from the supplied homomorphism and quotient projection. Identify successive inertia/Frobenius coinvariants with π_1(G)_Γ using the actual local Galois action, then check the rational Newton compatibility square. Those reductive/local-field comparisons remain G08.
 
 **Import boundary.** [Current upstream RG2.1.5](https://github.com/TauCetiProject/TauCetiRoadmap/blob/8acc80159cfd301db68bde9393a52668efdd8c8c/TauCetiRoadmap/ReductiveGroupsPartII/README.md) supplies the representative construction. Native [Representation.Coinvariants](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Coinvariants.lean) supplies the integral quotient and induced maps. The local Frobenius-equivariance instantiation remains a precise request.
 
@@ -860,7 +860,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 equations1.1.2.1 and1.1.2.3 pp.6-7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Theorem1.15 pp.160–162 (PDF9–11). Supplies the characteristic-zero invariant comparison. The general-field classification route is He16 §2.2/Theorem2.6 and the basic-class comparison is Kot14 §13; this citation alone is not an equal-characteristic proof.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §2.2 p.22 and §2.4, Theorem2.6 pp.25–26. Works over either characteristic and retains both integral κ and the dominant Newton point.; [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), §13.1–13.3 and Proposition13.1 pp.65–66. Relates the general local-field B(G) to its σ-conjugacy presentation and the basic integral invariant.
 
-**Lean formulation.** typed-integral-kottwitz-descent-interface; KottwitzDescent types the actual sigma-class descent of a supplied Frobenius-equivariant homomorphism to native integral cyclic coinvariants, its uniqueness, surjectivity, naturality and abelian quotient equivalence. Identity/sign-action controls retain integral torsion. This consumer interface does not reconstruct upstream π_1 or κ̃. The general-E Newton morphism, local Frobenius-equivariance instantiation, successive inertia/Γ comparison and rational compatibility signatures remain G08; the original GL_n, bundle-sign and norm-one-torus examples are still required. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Newton and Kottwitz invariants.
 
@@ -880,7 +880,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Section2.2.2 p.10, with the σ-straight definitions in Sections2.1.3-2.1.4 pp.7-8. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Straight Weyl classification.
 
@@ -900,7 +900,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section4.13 pp.274-275 (injectivity), Section4.4 pp.268-269 (basic bijection), and Section5.1 pp.278-280. Supplies the stated p-adic specialization; use He16 and Kot14 for the general-field target.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.3 pp.6-7. Supplies the stated p-adic specialization; use He16 and Kot14 for the general-field target.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §2.2 p.22; §2.4, Theorem2.6 pp.25–26. The setup allows either characteristic; Theorem2.6(3) states injectivity of the two invariants.; [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), §13.1–13.3 and Proposition13.1 pp.65–66. Supplies the basic bijection over general nonarchimedean local fields, with the σ-class identification in §13.3.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="basic-class"></a>
 
@@ -935,7 +935,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="partial-order-on-B-of-G"></a>
 
@@ -970,7 +970,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.2 p.89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section4.1 p.7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Newton partial order.
 
@@ -990,7 +990,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), §2.1 and Lemma2.2 pp.165–166; Proposition2.4 and proof pp.166–167. The representation-detection statement assumes characteristic zero in §2.1. The all-characteristic extension is the stated proof plan with an additional G02 supplier contract.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="admissible-pair"></a>
 
@@ -1026,7 +1026,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 conditions1.1.5.1-2 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.3 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Acceptable Newton classes.
 
@@ -1046,7 +1046,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.12 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="ordinary-class"></a>
 
@@ -1082,7 +1082,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.4 and Remark2.2.5 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.3.15 p.20. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Ordinary Newton class.
 
@@ -1102,7 +1102,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [On the acceptable elements](https://arxiv.org/pdf/1408.5836), §§1.1–1.4 pp.2–4, Theorem1.1(1) p.4; §§2.1–2.5 pp.4–8; Appendix A pp.20–22. The root-datum maximum theorem has no field parameter. The p-adic group theorem and Appendix are kept within their stated scope; the general-field transfer and fixed-κ central-torsion argument are explicit deductions in this proof sketch.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §2.2 pp.22–24 and §2.4, Theorem2.6 pp.25–26. Supplies the local Iwahori–Weyl and invariant-preserving class comparison for a general local field. This citation precedes the equal-characteristic-only schematic closure discussion.; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Remark2.2.5 p.10. Supplies the p-adic application and the distinction between a maximum and an ordinary class.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="ordinary-straight-translation"></a>
 
@@ -1120,7 +1120,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemma2.2.6 p.10, using Lemma2.1.7 p.8 and Lemma2.1.9 p.9 (arXiv v2). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="ordinary-derived-isogeny"></a>
 
@@ -1138,7 +1138,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemma2.2.8 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="ordinary-integral-conjugacy"></a>
 
@@ -1156,7 +1156,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Proposition2.3.3 pp.11-12. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="product-and-unramified-norm"></a>
 
@@ -1174,7 +1174,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Remark3.6 and Lemma3.7 p.459. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equations6.5.2-6.5.3 p.288. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="basic-levi-fibre-uniqueness"></a>
 
@@ -1192,7 +1192,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Theorem6.3 footnote and Section6.2 pp.13-14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="gl-minuscule-quasisplit-centralizer"></a>
 
@@ -1210,7 +1210,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Lemma5.5.8 and preceding footnote p.748. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="admissible-finiteness-and-basic"></a>
 
@@ -1228,7 +1228,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.4 and6.6 pp.287-288. Supplies the p-adic specialization; the displayed proof specifies the general-field deduction and its requested inputs.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.6 p.8. Supplies the p-adic specialization; the displayed proof specifies the general-field deduction and its requested inputs.; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Proposition2.4(iii) and proof pp.166–167. Provides the faithful-representation finiteness strategy in characteristic zero. Its all-characteristic adaptation uses the explicitly requested weight-detection interface and native general-E Dieudonné–Manin classification.; [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), §13.1–13.3 and Proposition13.1 pp.65–66. Provides uniqueness and existence of the basic class at the full integral κ in either characteristic.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="rational-newton-witness"></a>
 
@@ -1263,7 +1263,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.3 condition1.1.3.1 p.7. KMPS states the p-adic case. For general E, the quasi-split rational chamber identifies Γ-fixed rational cocharacters with E-defined slope morphisms; a basic central morphism descends without a chamber choice. These are the requested rational-cocharacter descent inputs of the reductive-group owner.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="minuscule-basic-levi-lift"></a>
 
@@ -1281,7 +1281,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Proposition1.1.13 and Corollary1.1.15 pp.10-12. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Corollary1.1.15 p.11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="torus-norm-description"></a>
 
@@ -1299,7 +1299,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.4 p.7. Supplies the p-adic case and its normalized finite splitting-field norm formula; use Kot14 for the general-field statement.; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Sections2.4-2.8 pp.208-210. Supplies the p-adic case and its normalized finite splitting-field norm formula; use Kot14 for the general-field statement.; [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), §12.13 p.63; Lemma12.12 and §13.2 p.65. The torus and norm/Shapiro constructions apply over arbitrary nonarchimedean local fields; §13.2 identifies the integral torus invariant.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="torus-special-pair"></a>
 
@@ -1334,7 +1334,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Definition1.1.7 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="elliptic-torus-basic-image"></a>
 
@@ -1352,7 +1352,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Proposition5.3 printed215. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.8 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="transferred-torus-specialness"></a>
 
@@ -1370,7 +1370,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.16 and Corollary1.1.17 pp.12-13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="abelianization-identification"></a>
 
@@ -1388,7 +1388,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.11 p.94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="rational-kottwitz-surjectivity"></a>
 
@@ -1406,7 +1406,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section7.7 pp.300-301. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Lemma4.6.4 printed93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of parahoric level](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf), Lemma3.4.2 pp.33–34 and Corollary3.4.6 proof p.37. Lemma3.4.2 has the tame Q_p/parahoric hypotheses and gives the rational quotient; the basic-class proof uses its compatibility with J_b.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="component-kottwitz-coset"></a>
 
@@ -1441,7 +1441,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section1.1 equations(1.3)-(1.4) p.807; Section2.2 p.818. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms); the native core recorded in the earlier prototype is retained. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="z-extension-bounded-lifting"></a>
 
@@ -1459,7 +1459,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Lemma3.16 p.829. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equation6.5.1 p.287. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="connected-center-basic-inner-forms"></a>
 
@@ -1477,7 +1477,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), Proposition10.4 printed50-51. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="general-levi-newton-comparison"></a>
 
@@ -1495,7 +1495,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-local-datum; Typed in the suggested file over the LocalDatum owner interface (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope morphisms). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 ## BG2:uniformization — The stack and its cover
 
@@ -1534,7 +1534,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 p.94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="curve-torsion-cohomology"></a>
 
@@ -1552,7 +1552,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(i) pp.94-95. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="bun-g-as-v-stack"></a>
 
@@ -1590,7 +1590,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionIII.1.2 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `Bun.stack`, `Bun.pullback_id`, `Bun.pullback_comp`, `Bun.gaga`; their objects are described by API theorems.
 
 **Atlas planet:** Moduli of G-bundles.
 
@@ -1610,7 +1610,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.1.3 pp.88-89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="points-are-B-of-G"></a>
 
@@ -1628,7 +1628,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.2 pp.89-90. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem3.11 and proof pp.14-16. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Geometric bundle classification.
 
@@ -1648,7 +1648,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.3 and preceding paragraph p.91. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="strictly-disconnected-torsors"></a>
 
@@ -1666,7 +1666,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.2.5 and LemmaIII.2.6 p.92. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, LocallyProfiniteTorsors (D3). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="geometrically-trivial-locus"></a>
 
@@ -1684,7 +1684,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.4 pp.91-92. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Trivial bundle locus.
 
@@ -1704,7 +1704,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(ii), comparison morphism and RemarkIII.2.14 pp.94-97. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, EtaleSites (D2, D6, RF2, ET.0, C1). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="crossed-module-curve-classes"></a>
 
@@ -1722,7 +1722,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.13 p.96. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, CrossedModuleCohomology and CurveCrossedModule (ET.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="grassmannian-point-lifting"></a>
 
@@ -1740,7 +1740,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.2 p.98. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="beauville-laszlo-surjectivity"></a>
 
@@ -1758,7 +1758,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.1 p.98. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem6.5 p.30. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Beauville–Laszlo uniformization.
 
@@ -1778,7 +1778,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.5 p.99. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="central-torus-bundle-surjectivity"></a>
 
@@ -1796,7 +1796,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.10 and proof afterIII.3.5 pp.93,99. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="semicontinuity-and-local-constancy"></a>
 
@@ -1814,7 +1814,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.7 and first proof pp.92-93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Kottwitz local constancy.
 
@@ -1834,7 +1834,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.6(ii)-(iii) pp.99-100. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Proposition1.21 p.427. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="newton-topology-homeomorphism"></a>
 
@@ -1852,7 +1852,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Meromorphic vector bundles on the Fargues–Fontaine curve](https://arxiv.org/pdf/2307.00887v3), §2 and Remark2.1 pp.6–7; Proposition2.17 p.11; Remark3.15/Theorem3.16 pp.16–17; §7.3, Lemma7.17 and Theorem7.18 with rank-one construction pp.50–53. The recorded v3 permits both characteristics and compares schematic/analytic specialization with reversed bundle specialization; identifying this with the κ/ν order also needs the schematic closure theorem.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, Theorem2.12 p.28. The straight-class order is equality of integral κ plus Newton dominance; the schematic closure theorem is used within the equal-characteristic restriction of §2.5.; [On Newton strata in the B_dR^+-Grassmannian](https://arxiv.org/pdf/2101.07510), Theorem1.1 and topology convention p.2. Supplies the mixed-characteristic case, for E a finite extension of Q_p.; [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ConjectureIII.2.15 p.97. Records the original general-field topology assertion; the theorem is supplied by the later sources, not this conjecture.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry. The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Newton topology theorem.
 
@@ -1872,7 +1872,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.3 and Lemma3.5.4 pp.687-689. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="minuscule-modification-image"></a>
 
@@ -1890,7 +1890,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Remark3.5.8 p.689. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="de-rham-quotient-group-class"></a>
 
@@ -1908,7 +1908,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Sources.** [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 and Remark4.1(iii) pp.33-34. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry, GrassmannianInterface (GS0, RF4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 ## BG2:smooth-Artin — The whole smooth Artin stack
 
@@ -1930,7 +1930,7 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIV.1.20 and proof ofIV.1.19 pp.112-113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `BunContext.diagonal`; their objects are described by API theorems.
 
 <a id="bun-g-is-smooth-artin"></a>
 
@@ -1948,7 +1948,7 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIV.1.19 pp.112-113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0) with GrassmannianInterface (GS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Smooth Artin moduli stack.
 
@@ -1968,7 +1968,7 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIV.1.23 and LemmaIV.1.24 pp.113-114. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext and StackGeometry (D0/D4/D5, VS0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Connected components of Bun_G.
 
@@ -2009,7 +2009,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `HNGraded.stack`; their objects are described by API theorems.
 
 **Atlas planet:** HN-graded G-bundles.
 
@@ -2029,7 +2029,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="filtered-automorphism-group-scheme"></a>
 
@@ -2068,7 +2068,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.2 p.105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. [Graded and filtered fiber functors on Tannakian categories](https://arxiv.org/pdf/1111.1981v4), Theorem1.3 p.2; §4.3, Theorems4.14–4.16 pp.24–25 and Proposition4.24/Lemma4.25/Theorem4.26 pp.26–27. Supplies the affine smooth-group splitting and positive filtered vector-quotient argument for Z-filtrations. The finite-generator denominator reduction to Q-filtrations is stated explicitly in the proof outline.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over the native FilteredFibreFunctor over a coefficient ring (Mathlib submodules and linear equivalences). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="full-automorphism-v-group"></a>
 
@@ -2104,7 +2104,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `FullAutomorphism.stack`, `FullAutomorphism.kernelStack`, `FullAutomorphism.projection`, `FullAutomorphism.section`; their objects are described by API theorems.
 
 **Atlas planet:** Full bundle automorphism group.
 
@@ -2124,7 +2124,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="quasi-split-opposite-parabolic"></a>
 
@@ -2142,7 +2142,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.5.1.1 pp.105-106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="semistable-locus-and-basic-strata"></a>
 
@@ -2177,7 +2177,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.4.5 p.102. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `BunContext.substack`; their objects are described by API theorems.
 
 **Atlas planet:** Semistable bundle locus.
 
@@ -2214,7 +2214,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.6 p.102. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `TorusPicard.tensor`; their objects are described by API theorems.
 
 <a id="stratum-is-classifying-stack"></a>
 
@@ -2232,7 +2232,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.3 p.106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Newton stratum classifying stack.
 
@@ -2252,7 +2252,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.5.4 p.106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="stratum-dimension"></a>
 
@@ -2270,7 +2270,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIV.1.22 p.113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Newton stratum dimension.
 
@@ -2308,7 +2308,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Definition3.5.6 pp.689-690. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Flag Newton strata.
 
@@ -2328,7 +2328,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.7 and Corollary3.5.9 pp.689-690. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="unitary-flag-stratum-dimension"></a>
 
@@ -2346,7 +2346,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), Section2.1 pp.11-12 and Theorem2.7.3 p.33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points) and CS24UnitaryDatum (IG.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="unitary-ordinary-flag-locus"></a>
 
@@ -2364,7 +2364,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), AfterTheorem2.7.3 p.33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. [Ordinariness in good reductions of Shimura varieties of PEL-type](https://www.numdam.org/article/ASENS_1999_4_32_5_575_0.pdf), Theorem1.6.3 pp.584–585; §§2.3.1–2.3.2 pp.588–589. Ordinary/reflex-field criterion and the explicit split/balanced unramified unitary cocharacter calculation; no new expansion of the global density proof. [Shimura varieties at level Gamma_1(p^infinity) and Galois representations](https://arxiv.org/pdf/1804.00136v2), arXiv1804.00136v2 Proposition3.3.2 pp.30–31. Ordinary Hodge–Tate preimage via the closed PEL/Siegel flag comparison. The source assumes completely split p; the broader unramified transport is explicitly separate. [On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), Lemma3.3.6 and Remark3.3.7 pp.1006–1007; Lemmas3.3.15/3.3.19 pp.1011/1013. Ambient Siegel ordinary/rational Hodge–Tate criterion, including the direct multiplicative-subgroup argument and the extension to non-rank-one adic points.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over GrassmannianInterface (GS0, flag variety and its geometric points) and CS24UnitaryDatum (IG.0). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 ## BG4 — Local charts and specialization geometry
 
@@ -2404,7 +2404,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionV.3.2 and ExampleV.3.3 pp.173-174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08). Prestack-valued constructions with admitted bodies: `FilteredChart.chartStack`, `FilteredChart.qChart`, `FilteredChart.piChart`, `FilteredChart.chartSection`, `FilteredChart.puncturedFraming`, `FilteredChart.uAction`, `FilteredChart.pullback`; their objects are described by API theorems.
 
 **Atlas planet:** Filtered bundle chart.
 
@@ -2424,7 +2424,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.4 p.174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="chart-over-classifying-stack"></a>
 
@@ -2442,7 +2442,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.5 p.174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Negative Banach–Colmez chart.
 
@@ -2462,7 +2462,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Spatial chart complement.
 
@@ -2482,7 +2482,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="chart-jacobian-positivity"></a>
 
@@ -2500,7 +2500,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof ofTheoremV.3.7 p.177. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 <a id="chart-to-bun-g"></a>
 
@@ -2518,7 +2518,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremV.3.7 p.177. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 **Atlas planet:** Smooth specialization chart.
 
@@ -2538,7 +2538,7 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.1 p.173. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-over-owner-interfaces; Typed in the suggested file over BunContext, StackGeometry and SlopeFiltrations (VB4). The declaration, every API item and every unit test of this node appear under their packet names and elaborate at the pins with admitted proofs; statements involving owner fields are asserted for the owners' instantiations (G08).
 
 ## Exact supplier contracts
 
@@ -2872,9 +2872,9 @@ The ordinary source boundary is narrowed by reading Wed99 Theorem1.6.3 and its s
 
 **Consumers:** [Newton topology theorem in both characteristics](#newton-topology-homeomorphism).
 
-### G08 — Lean formulation boundary
+### G08 — Owner-interface instantiation at the pins
 
-Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. RepresentativeTensor types the actual semilinear Frobenius family on native finite rational comodules, its Tannakian point reconstruction, all tensor arrows and the point sigma-stabilizer comparison. This covers the trivialized presentation. Comparison with the untrivialized exact G-isocrystal category, Steinberg trivialization and represented Newton-Levi descent remain open. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage. The RF suggested file’s DiamondFormulas explicitly leaves the actual perfectoid site, represented base and coefficient sheaves as omitted hypotheses; VS0’s ArtinVStack and VS1’s analytic Jacobian/cohomological signatures likewise remain omission contracts. Generic sheaf carriers do not instantiate these geometric hypotheses. KottwitzDescent types the unique sigma-class descent of a supplied equivariant representative homomorphism to native integral cyclic coinvariants, native naturality, surjectivity and an actual abelian quotient equivalence. Its sign-action controls compare the nonzero order-two quotient with zero fixed points. This narrows only the integral descent boundary; general-E Newton and actual local Galois/Frobenius identification remain open.
+Revision 3 types every node, API item and unit test in the suggested file. Objects owned by other roadmaps enter as named parameters, following the accepted DiamondsAndVStacks suggested file: LocalDatum (upstream RG2.1.5 π₁(G)_I with Frobenius and κ̃, the RG2.4 based root datum of the quasi-split form with Galois action, roots and dominant chamber, VB0 slope morphisms of representatives, split ranks, a Borel and the Newton Levi); ExactTensorCat and CurveSite (D1–D2 perfectoid site, v- and pro-étale topologies, geometric points; RF2/VB1 bundles on X_S with pullback, the structure-sheaf and isocrystal-to-bundle functors; VB0 isocrystal rank, slope and Brauer invariant; VB2/VB4 slopes and degrees); StackGeometry (D0 point, classifying stacks, coproducts, 2-fibre products and quotients; D4 smallness, locally spatial and spatial diamonds and underlying spaces; D3/D5 immersions, separatedness, partial properness, properness, v-surjectivity and representability in locally spatial diamonds; VS0 Artin v-stacks and ℓ-cohomological smoothness of given dimension); SlopeFiltrations (VB4 graded and filtered bundles with semistable pieces); GrassmannianInterface (GS0 affine Grassmannian, Schubert cells, flag varieties; RF4 Beauville–Laszlo map); EtaleSites (D2/D6/RF2 étale sites, ET.0/C1 cohomology); and the torsor interfaces (R09.3, D3). BG’s own notions are defined on top of them with real bodies wherever their definition is not itself a stack-level construction; prestack-valued constructions (Bun.stack, sub-prestacks, HN-split and automorphism stacks, the chart stacks) are typed with admitted bodies and their objects are described by API theorems. What remains is instantiating these parameters with the owners’ carriers once those exist at the pins: VB0’s exported exact E-linear symmetric monoidal isocrystal category, VB1’s relative analytic bundle category, RF/D’s perfectoid site, curve and v-stack structures, VS0/VS1’s Artin and cohomological-smoothness interfaces, and the RG2.1 local Frobenius comparison. Until then, statements involving owner fields are asserted for the owners’ instantiations.
 
 **Consumers:** [Newton topology theorem in both characteristics](#newton-topology-homeomorphism).
 
@@ -2906,15 +2906,15 @@ The current GS0 Schubert-bound node already treats general E and nonsplit bounds
 
 Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled.
 
-The representative groupoid and the Groupoid of these families are linked by RepresentativeTensor.categoryEquivalence. Tensor automorphisms reconstruct all point stabilizers, with the native multiplication convention. Ten controls check semilinearity, the unit, the tensor equation, non-linearity under nontrivial Frobenius, conjugator intertwining, multiplication order, full-family reconstruction, the representative comparison and automorphism stabilizers. These controls supplement the original Witt GL_n and slope tests, whose full signatures still depend on VB0. No target omission or stage is declared closed.
+The representative groupoid and the Groupoid of these families are linked by RepresentativeTensor.categoryEquivalence. Tensor automorphisms reconstruct all point stabilizers, with the native multiplication convention. Ten controls check semilinearity, the unit, the tensor equation, non-linearity under nontrivial Frobenius, conjugator intertwining, multiplication order, full-family reconstruction, the representative comparison and automorphism stabilizers. These controls supplement the GL_n and slope tests, which revision 3 types over the VB0 isocrystal invariants of `CurveSite`. No stage is declared closed.
 
 The native categorical interface uses specified Quillen exact structures and their distinguished conflations. TensorInterface.Data retains an additive E-linear functor, an invertible unit/tensor comparison compatible with symmetry, and native preservation of conflations. TensorInterface.Iso retains monoidal compatibility of a natural isomorphism. Postcomposition has tensor identity and associativity isomorphisms; componentwise equality determines a tensor isomorphism. Six categorical controls check the unit, tensor, exactness and natural-isomorphism contracts. Their hypotheses are actual category structures, not unspecified geometric predicates. Instantiation with relative analytic bundle and general-E isocrystal categories remains the supplier obligation G08; these controls do not replace the roadmap’s geometric reconstruction tests.
 
-The suggested file instantiates SigmaClass at native Hopf-algebra points and at Witt units, and retains every conjugator in a representative groupoid. Native Aut agrees with the sigma-stabilizer. The centralizer functor varies over all commutative E-algebras A, with coefficient algebra A⊗_E L and coefficient maps f⊗id_L; it is not yet represented by a reductive E-group in the prototype. The slope protorus uses the native Hopf algebra E[Q], actual representation weight submodules and coordinate morphisms. Its examples detect half-slope denominator clearing on generators and distinguish it from integral slopes. Untrivialized exact G-isocrystal comparison, nonsplit comparison and full analytic geometry remain named omissions; a register entry is not an elaborated theorem.
+The suggested file instantiates SigmaClass at native Hopf-algebra points and at Witt units, and retains every conjugator in a representative groupoid. Native Aut agrees with the sigma-stabilizer. The centralizer functor varies over all commutative E-algebras A, with coefficient algebra A⊗_E L and coefficient maps f⊗id_L; it is not yet represented by a reductive E-group in the prototype. The slope protorus uses the native Hopf algebra E[Q], actual representation weight submodules and coordinate morphisms. Its examples detect half-slope denominator clearing on generators and distinguish it from integral slopes. Revision 3 types the untrivialized G-isocrystals, the nonsplit comparisons and the analytic geometry over the owner interfaces described below; their instantiation at the pins is G08.
 
 KottwitzDescent reuses native integral coinvariants for the cyclic Frobenius action. Its relation submodule is the range of τ−id. The representative formula descends uniquely to SigmaClass; native intertwining maps supply naturality, and representative surjectivity supplies quotient surjectivity. The abelian quotient equivalence and seven identity/sign controls test the actual quotients, retaining their order-two torsion. Reductive-group and local-field instantiation remains explicit supplier work.
 
-The suggested file elaborates at the recorded pins with 178 admitted-proof warnings and no other warnings or errors. It checks native affine, tensor and integral Kottwitz interfaces and three restricted Submodule/vector controls for E08/E09. Full geometric signatures, valuation-theoretic bounds, slope classification and continuous lifting for the actual isocrystal group remain outside this elaboration. The affine splitting and rational/non-affine controls are omission contracts. The file imports individual Mathlib and Tau Ceti modules; all theorem and example proofs are admitted.
+Revision 3 gives every node, API item and unit test of the packet a typed signature under its packet name. Objects owned by other roadmaps enter as named parameters, following the accepted DiamondsAndVStacks suggested file: LocalDatum (upstream RG2.1.5 π₁(G)_I, its Frobenius and κ̃; the RG2.4 based root datum of the quasi-split form with its Galois action, roots and dominant chamber; VB0 slope morphisms of representatives; split ranks, a Borel and the Newton Levi), ExactTensorCat and CurveSite (D1–D2 perfectoid site, topologies and geometric points; RF2/VB1 curve bundles with pullback, the structure-sheaf and isocrystal-to-bundle functors; VB0 isocrystal invariants; VB2/VB4 slopes and degrees), StackGeometry (D0/D3/D4/D5 stack operations and predicates; VS0 Artin v-stacks and ℓ-cohomological smoothness with dimension), SlopeFiltrations (VB4), GrassmannianInterface (GS0, RF4), EtaleSites (D2/D6/RF2, ET.0, C1) and the torsor interfaces (R09.3, D3). On these parameters BG’s own notions have real bodies: B(G) and its representative groupoid, N(G) with the positive-coroot order, κ and ν on B(G), μ♯ and μ◇, Basic, NewtonOrder, Acceptable, Ordinary, DecentRepresentative, Defect, TorusSpecial, G-bundles, G-isocrystals, pullback of G-bundles, the point classification map and |Bun_G| ≃ B(G), the lower-set Newton topology, S-points of strata, HN-split and filtered charts, and the filtered automorphism subgroups H^{≥λ} over a coefficient ring. Prestack-valued constructions (Bun.stack, sub-prestacks, the HN-split, automorphism and chart stacks) are typed with admitted bodies; their objects are described by API theorems. The file elaborates at the recorded pins (3432 lines) with 435 admitted-proof warnings and no other warnings or errors. Statements involving owner fields are asserted for the owners’ instantiations; G08 records that instantiation.
 
 Mathlib is pinned to 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti to f790474821cf4256814db967cb154e7af3d0c369. The source-checked baseline is:
 
@@ -3424,3 +3424,7 @@ Codex codex-RH698u independently checked every node against its located public s
 The corrected arithmetic targets distinguish characteristic-zero references from the all-field results of He16 §2.2/Theorem2.6 and Kot14 §13. RR96 Theorem1.15 is on pp.160–162, while its representation-detection argument in §2.1/Lemma2.2 assumes characteristic zero. The all-characteristic highest-weight/descent extension is an explicit G02 request. Rational-point invariant surjectivity and bounded z-extension lifting retain the p-adic scope of Kot97 §§6.5/7.7 and GLX Lemma3.16.
 
 The suggested file elaborated at the recorded pins with only `sorry` warnings. Its register still has 88 full-signature omissions, and the remaining ten entries are nine restricted prototypes and one upstream signature import. The independent verdict is **needs_changes** because the actual named definition/API/example and theorem signatures required by PROTOCOL §13 remain absent. This does not reject the honestly recorded open mathematical stages.
+
+### Revision 3
+
+Revision 3 (Claude, session claude-2Fl0Hn, 14 October 2026) answers the §13 objection of the revision-2 review and changes no node statement, prerequisite, source, request or planet. The suggested file now types all 98 nodes, all 191 API items and all 119 unit tests under their packet names, over the owner interfaces described in the suggested-file section above. Each node’s Lean formulation line records the interface it uses. Revision 3 makes two text edits. The Newton-map proof step names the LocalDatum field that carries the representative slope morphism. One acceptance line of the isocrystal-family node now refers to the typed family v-stack theorem. G08 now records the instantiation of the owner interfaces at the pins rather than missing signatures.
