@@ -1,0 +1,1902 @@
+{
+  "roadmapId": "K2SymbolsBrauer",
+  "protocol": "blueprint-v1",
+  "part": "T.2",
+  "status": "complete",
+  "scope": [
+    "K2SymbolsBrauer:T.2"
+  ],
+  "summary": "A target-complete field-presentation follow-up of the accepted T.1 packet: the explicit commutator symbol, homogeneous two-sided Milnor quotient, tensor-square universal property, complete lifted toral relations and faithful coefficient extension give a specified Matsumoto equivalence with naturality. Infinite fields and finite fields have separate proof routes. Predecessor definitions retain their IDs; the graded Quillen comparison remains imported and its exact product-symbol supplier obligation is recorded. Inherited stable group and companion product proof refinements are explicit gaps, so coverage is planned rather than closed. Nothing is formalised.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Units",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "The group of units with its field-value coercion; symbol entries are never zero.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Additive",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "Writes Fˣ as an additive commutative group, hence an ℤ-module.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:TensorProduct.lift",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+        "provides": "Extends a bilinear map to a linear map on the tensor product; read its pure-tensor evaluation and uniqueness statements.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Submodule.span",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "The least submodule containing the Steinberg pure tensors.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+        "provides": "Descends a linear map whose kernel contains the quotient submodule; read liftQ_apply and range_mkQ.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.gradedAlgebra",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/Grading.lean",
+        "provides": "The existing ℕ-grading by powers of the range of ι over a commutative coefficient semiring; no grading is redefined.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.lift",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+        "provides": "Equivalence between ℤ-linear maps U→A and algebra homomorphisms TensorAlgebra ℤ U→A, for possibly noncommutative target algebra.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:TwoSidedIdeal",
+        "module": "Mathlib/RingTheory/TwoSidedIdeal/Basic.lean",
+        "provides": "Wrapper around RingCon; read left/right multiplication closure and the complete lattice in Lattice.lean. There is no guessed TwoSidedIdeal.span citation.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:RingCon.mk'",
+        "module": "Mathlib/RingTheory/Congruence/Defs.lean",
+        "provides": "The surjective ring homomorphism to the congruence quotient, with its Ring structure. It does not supply the homogeneous quotient grading.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:isCyclic_of_injective_ringHom",
+        "module": "Mathlib/RingTheory/IntegralDomain.lean",
+        "provides": "For a finite group G injected by a monoid homomorphism into an integral domain R, G is cyclic; the instance for finite Rˣ uses Units.coeHom.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.transvectionUnit",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
+        "provides": "A GL transvection for a finite index type over CommRing A, with distinct indices. Fields satisfy these hypotheses.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.commutatorElement_transvectionUnit",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
+        "provides": "The forward-chain relation with three pairwise distinct indices and parameter c*d.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.commutatorElement_transvectionUnit_reverse",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
+        "provides": "The reverse-chain relation has parameter -(d*c), with all three index inequalities explicit.",
+        "checked": "Actual declaration statements and hypotheses read at the pins on 2026-10-14."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Weibel-III",
+      "title": "The K-book: an introduction to algebraic K-theory, Chapter III",
+      "authors": "Charles A. Weibel",
+      "edition": "Public author chapter PDF; chapter page numbers coincide with this PDF, not the published whole-book pagination.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "III.5.10–5.10.5, pp. 42–44",
+        "Exercises III.5.8–5.9, p. 46",
+        "III.6.1–6.1.1, p. 48",
+        "III.6.2.1, p. 49",
+        "III.6.3, p. 51 (only a witness for the sign discrepancy)",
+        "III.7.1–7.2(c), p. 61"
+      ]
+    },
+    {
+      "id": "Matsumoto-1969",
+      "title": "Sur les sous-groupes arithmétiques des groupes semi-simples déployés",
+      "authors": "Hideya Matsumoto",
+      "edition": "Annales scientifiques de l’École Normale Supérieure, série 4, tome 2 (1969), pp. 1–62; Numdam scan has a one-page cover offset.",
+      "url": "https://www.numdam.org/article/ASENS_1969_4_2_1_1_0.pdf",
+      "sha256": "4ac51e1290e2ab3c633d5a55378eb078f88d824bb3d28aac3585fce0595db5ca",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§5, pp. 22–31: infinite-field standing hypothesis, root lifts, Bruhat middle component, cocycle conditions, Theorem 5.10 and Corollary 5.11",
+        "§6, pp. 33–43: auxiliary monomial group, torus factor set, Weyl action, permutation construction, Lemmas 6.5–6.11",
+        "§7, pp. 43–47: proof of local action relations in Lemma 6.8",
+        "§9 opening functorial observations, p. 50 only"
+      ]
+    },
+    {
+      "id": "Steinberg-1967",
+      "title": "Lectures on Chevalley Groups",
+      "authors": "Robert Steinberg",
+      "edition": "Yale University lecture notes, 1967; public Utah-hosted scan, printed pagination is seven less than PDF pagination in the cited interval.",
+      "url": "https://www.math.utah.edu/~ptrapa/math-library/steinberg/steinberg-yale-notes.pdf",
+      "sha256": "5943b5571ab9815c45eaba206bcb35ed8b3efb3a7c3c45404ea9a9bbce7dbb50",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§6, Theorem 8 and Lemmas 36–40, pp. 66–72 (PDF pp. 73–79)",
+        "§7, Theorem 10, p. 76: inspected only to confirm its field-size restriction; no universality result imported"
+      ]
+    },
+    {
+      "id": "Rehmann-2007",
+      "title": "Linear Algebraic Groups and K-Theory",
+      "authors": "Ulf Rehmann; notes in collaboration with Hinda Hamraoui",
+      "edition": "Author-hosted notes for six lectures at ICTP, May 2007; publication listed as ICTP Publications 23 (2008), preprint 08127.",
+      "url": "https://www.math.uni-bielefeld.de/~rehmann/Publ/trieste_notes.pdf",
+      "sha256": "b025b18d8e0348d88b151a7b30dff60121995b7b1f2c4acd0b96f1d334f3e1ed",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§1, pp. 1–9, including Theorems 1.1–1.2, as a source lead and convention check; no finite-rank universality imported from it."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K2SymbolsBrauer:T.2/field-pairing",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "definition",
+      "title": "Bilinear Steinberg pairings",
+      "statement": "For an abelian group A written additively, IsSteinbergPairing(c) for c:Fˣ×Fˣ→A means c(ab,d)=c(a,d)+c(b,d), c(a,bd)=c(a,b)+c(a,d), and c(a,b)=0 whenever a+b=1 in F. The last condition uses the field values of two units, so neither zero nor a fake totalised inverse enters the definition.",
+      "hypotheses": [
+        "F is a field and A is an AddCommGroup."
+      ],
+      "prerequisites": [
+        "mathlib:Additive",
+        "mathlib:Units"
+      ],
+      "proofSteps": [
+        "Use a predicate on an actual function with these three equations; do not put derived identities into the definition.",
+        "Convert each multiplicative variable to Additive Fˣ. Additive group homomorphisms are automatically ℤ-linear, supplying the tensor-product universal property.",
+        "Prove closure under postcomposition by additive homomorphisms and under pullback by field homomorphisms."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Lemma 5.6 and bilinear conditions (S°), pp. 27–28 (PDF pp. 28–29)",
+          "match": "Type A uses the bilinear version, specialized to additive coefficients."
+        },
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1, chapter/PDF p. 48",
+          "match": "The two presentation relations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "IsSteinbergPairing",
+          "role": "constructor",
+          "statement": "The three equations in the statement."
+        },
+        {
+          "name": "pairing_postcompose",
+          "role": "functoriality",
+          "statement": "For f:A→+B and a Steinberg pairing c, f∘c is a Steinberg pairing."
+        },
+        {
+          "name": "pairing_pullback",
+          "role": "functoriality",
+          "statement": "For a field homomorphism f:F→E, c(f(a),f(b)) is a Steinberg pairing over F."
+        },
+        {
+          "name": "pairing_one_left",
+          "role": "simp",
+          "statement": "Every Steinberg pairing satisfies c(1,b)=0; likewise c(a,1)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "zero_pairing",
+          "kind": "degenerate",
+          "statement": "The constant zero map is a Steinberg pairing for every F and A."
+        },
+        {
+          "name": "constant_one_rejected",
+          "kind": "non-example",
+          "statement": "The constant function with value 1 in ℤ is not a Steinberg pairing, since its bilinearity at (1,1,1) would give 1=2."
+        },
+        {
+          "name": "sign_pairing_values",
+          "kind": "computation",
+          "statement": "Over ℝ, the pairing to ℤ/2 with value 1 exactly when both arguments are negative has values c(-1,-1)=1, c(-1,1)=0 and c(2,-1)=0; it satisfies the three equations."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/tensor-square-presentation",
+          "how": "Characterizes all maps out of the presentation, without assuming Matsumoto."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-extension",
+          "how": "Supplies the coefficient cocycle used to detect injectivity."
+        }
+      ],
+      "planet": {
+        "name": "Steinberg pairings"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/pairing-identities",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Integral symbol identities",
+      "statement": "Every Steinberg pairing satisfies c(a,-a)=0, c(a,b)=-c(b,a), c(a,a)=c(a,-1), and 2c(a,a)=0. In characteristic two c(a,a)=0. The assertion c(a,a)=0 is false for general integral coefficients.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-pairing"
+      ],
+      "proofSteps": [
+        "Bilinearity implies that the value at a unit 1 is zero and inversion negates either variable.",
+        "If a≠1, both 1-a and 1-a⁻¹ are units and -a=(1-a)/(1-a⁻¹). The two Steinberg relations show c(a,-a)=0. If a=1, use the unit-one equation. This covers F₂ without introducing 1/(1-a).",
+        "Expand c(ab,-ab)=0, splitting -ab once as (-a)b and once as a(-b); the terms c(a,-a) and c(b,-b) vanish, leaving c(a,b)+c(b,a)=0.",
+        "Expand c(a,-a)=c(a,-1)+c(a,a). Since 2c(a,-1)=c(a,(-1)²)=0, negating c(a,-1) has no effect. This gives the stated diagonal formula."
+      ],
+      "acceptance": [
+        "No division by 1-a occurs in the a=1 branch.",
+        "The real sign pairing has c(-1,-1)=1, disproving integral alternation.",
+        "Characteristic-two diagonal vanishing is stated separately from skew-symmetry."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.5.10.2–5.10.4, p. 43; III.6.1, p. 48",
+          "match": "Field specialization of the negative-unit argument; the a=1 case is supplied explicitly."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Proposition 5.7(a),(c), pp. 28–29",
+          "match": "The bilinear cocycle consequences."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/tensor-square-presentation",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Universal degree-two symbol presentation",
+      "statement": "Put U=Additive Fˣ and P₂(F)=(U⊗ℤU)/R₂, where R₂ is the ℤ-submodule spanned by a⊗b for unit pairs with a+b=1. Let p(a,b) be the quotient class of a⊗b. For every abelian A, evaluation on p gives a bijection between additive maps P₂(F)→A and Steinberg pairings Fˣ×Fˣ→A.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-pairing",
+        "mathlib:TensorProduct.lift",
+        "mathlib:Submodule.liftQ",
+        "mathlib:Submodule.span"
+      ],
+      "proofSteps": [
+        "Form the submodule on the indicated set of pure tensors, using the standard ℤ-module structures.",
+        "Lift a pairing by the tensor universal property. Its lift annihilates the generating tensors and therefore the entire span.",
+        "Descend with Submodule.liftQ. Conversely compose any additive homomorphism with the pure-tensor quotient to get a pairing.",
+        "Use generation by pure tensors and surjectivity of the quotient map to prove the two operations are inverse. No injectivity into classical K₂ is used here."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1 and III.7.1, pp. 48, 61",
+          "match": "The tensor-square presentation and its degree-two role; its universal-property proof is expanded using the pinned quotient API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "SymbolPresentation",
+          "role": "constructor",
+          "statement": "The quotient P₂(F) with its AddCommGroup and ℤ-module structures."
+        },
+        {
+          "name": "presentedSymbol",
+          "role": "constructor",
+          "statement": "The class p(a,b) of the pure tensor."
+        },
+        {
+          "name": "presentation_universal",
+          "role": "universal-property",
+          "statement": "For every Steinberg pairing c to A, there is exactly one f:P₂(F)→+A satisfying f(p(a,b))=c(a,b)."
+        },
+        {
+          "name": "presentation_hom_ext",
+          "role": "extensionality",
+          "statement": "Maps P₂(F)→+A agreeing on every p(a,b) agree."
+        },
+        {
+          "name": "presentation_relations",
+          "role": "relation",
+          "statement": "The pairing p is bilinear and p(a,b)=0 if a+b=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "presentation_F2",
+          "kind": "degenerate",
+          "statement": "P₂(F₂)=0 because F₂ˣ is trivial, before using Matsumoto."
+        },
+        {
+          "name": "presentation_half",
+          "kind": "computation",
+          "statement": "p(1/2,1/2)=0 over ℚ because the entries sum to one."
+        },
+        {
+          "name": "presentation_real_nonzero",
+          "kind": "non-example",
+          "statement": "Over ℝ, p(-1,-1) is nonzero because the sign pairing descends and sends it to 1 in ℤ/2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/graded-degree-two",
+          "how": "Identifies the actual degree-two component of the Milnor quotient."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/classical-comparison-map",
+          "how": "Descends the explicit diagonal commutator to a single chosen comparison map."
+        }
+      ],
+      "planet": {
+        "name": "Degree-two symbol presentation"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/homogeneous-steinberg-ideal",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Homogeneity of the two-sided Steinberg ideal",
+      "statement": "In the predecessor’s tensor-algebra Milnor construction, let T=TensorAlgebra ℤ U, T_d its existing homogeneous pieces, and J the least two-sided ideal containing ι(a)ι(b) for a+b=1. Every homogeneous component of every z∈J lies in J. Moreover J∩T₀=J∩T₁=0, and J∩T₂ is exactly the ℤ-span of the Steinberg degree-two products.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "mathlib:TensorAlgebra.gradedAlgebra",
+        "mathlib:TwoSidedIdeal",
+        "mathlib:RingCon.mk'"
+      ],
+      "proofSteps": [
+        "Use TwoSidedIdeal and its complete lattice: J is the intersection of all ideals containing the displayed products. The tensor algebra is noncommutative, so a left-ideal span alone is insufficient.",
+        "Identify J additively with finite sums of sandwiches z·ι(a)ι(b)·w. Closure under left/right multiplication proves this description has the required minimality.",
+        "Decompose z and w into their finite homogeneous sums using the existing direct-sum grading. Every resulting sandwich has degree deg(z)+2+deg(w). Group the finite sum by degree.",
+        "The component of each degree is again a sum of sandwiches, proving homogeneity. Nonnegative grading implies there are no terms of degree zero or one.",
+        "For degree two, the two outer degrees must both be zero. T₀ is ℤ, so these sandwiches are precisely the integer span of the Steinberg products. The converse containment is immediate."
+      ],
+      "acceptance": [
+        "Use the existing TensorAlgebra.gradedAlgebra instance, not a new tensor grading.",
+        "Left and right multiplication by degree-one tensors preserve the ideal and raise the relation degree to three.",
+        "Degree-zero and degree-one embeddings into T/J are injective."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.1, p. 61",
+          "match": "Refinement of the homogeneous quotient claimed by the Milnor definition; the homogeneous-sandwich proof makes its two-sided nature explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "planet": {
+        "name": "Homogeneous Steinberg ideal"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/graded-quotient-components",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Milnor quotient grading and symbol API",
+      "statement": "Refine the imported Milnor ring Kᴹ(F)=T/J by equipping it with the ℕ-grading whose degree-d piece is the image of T_d under the congruence quotient. The direct sum of these pieces maps isomorphically to Kᴹ(F). Define n-symbols as products of the imported degree-one unit classes; they generate degree n, are multilinear and vanish when consecutive entries sum to one.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/homogeneous-steinberg-ideal",
+        "mathlib:RingCon.mk'",
+        "mathlib:TensorAlgebra.gradedAlgebra",
+        "mathlib:TensorAlgebra.lift"
+      ],
+      "proofSteps": [
+        "Apply the quotient ring to the ring congruence of J; this is a Ring, not a commutative-ring quotient of T.",
+        "Define each homogeneous image as an ℤ-submodule. Multiplication sends degree i times degree j to degree i+j since the quotient map is a ring homomorphism.",
+        "For injectivity of the direct-sum reconstruction, lift each summand to T_i. If their sum lies in J, homogeneity puts each lift in J, so every image summand vanishes. Surjectivity follows by decomposing an arbitrary representative.",
+        "Factor finite tensor words through the quotient. A consecutive Steinberg relation is a sandwich of a defining relation, which is zero.",
+        "Identify Kᴹ₀(F) with ℤ and Kᴹ₁(F) with U using the previously established vanishing intersections."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.1, p. 61",
+          "match": "Adds the grading proof and precise symbol API to the predecessor definition, rather than defining a second Milnor theory."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "milnor_gradedAlgebra",
+          "role": "structure",
+          "statement": "The images of T_d form an ℕ-graded ℤ-algebra decomposition of the imported Milnor ring."
+        },
+        {
+          "name": "milnor_symbol_mem_degree",
+          "role": "structure",
+          "statement": "The product {a₁,…,aₙ} lies in degree n; the empty symbol is 1 in degree zero."
+        },
+        {
+          "name": "milnor_symbol_mul",
+          "role": "relation",
+          "statement": "Multiplying an i-symbol and a j-symbol concatenates their lists, in that order."
+        },
+        {
+          "name": "milnor_symbol_multilinear",
+          "role": "relation",
+          "statement": "Multiplication of one unit entry becomes addition of two symbols."
+        },
+        {
+          "name": "milnor_hom_ext",
+          "role": "extensionality",
+          "statement": "Ring homomorphisms out of Kᴹ(F) are determined by the degree-one unit classes."
+        },
+        {
+          "name": "milnor_low_degrees",
+          "role": "equivalence",
+          "statement": "Degrees zero and one are ℤ and Additive Fˣ, with explicit maps and inverses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "milnor_degree_zero",
+          "kind": "compatibility",
+          "statement": "For F₂ the constant 7 survives in degree zero and 1≠0 in Kᴹ(F₂)."
+        },
+        {
+          "name": "milnor_unit_one",
+          "kind": "degenerate",
+          "statement": "The one-entry symbol {1} is zero in degree one, whereas the empty symbol is the ring unit."
+        },
+        {
+          "name": "milnor_sandwich",
+          "kind": "characterisation",
+          "statement": "For units a,b with a+b=1, the degree-four symbol {r,a,b,s} vanishes; imposing only a left-ideal relation would not justify the trailing s."
+        },
+        {
+          "name": "milnor_real_square",
+          "kind": "non-example",
+          "statement": "{-1}²={-1,-1} is nonzero over ℝ, so the graded ring is not an exterior algebra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HigherLocalFieldsAndHigherClassFieldTheory:HL.1",
+          "how": "Imports these same degree pieces and concatenation product; does not reconstruct Milnor theory."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/graded-degree-two",
+          "how": "Makes the phrase degree-two group a proven direct-sum component."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/graded-degree-two",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "comparison",
+      "title": "Degree two equals the tensor-square presentation",
+      "statement": "There is a canonical additive equivalence Kᴹ₂(F)≃P₂(F) taking the two-entry Milnor symbol {a,b} to p(a,b). This is an equivalence of the two specified quotient constructions; it is independent of classical or Quillen K-theory.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation"
+      ],
+      "proofSteps": [
+        "Identify the degree-two tensor-algebra submodule with U⊗ℤU by extending (u,v)↦ι(u)ι(v).",
+        "Construct the inverse by projecting tensor words to degree two: length-two words go to their pure tensor; words of every other length go to zero. The multilinearity relations defining TensorAlgebra respect this projection.",
+        "Use J∩T₂=R₂ to descend both directions. Check the composites on degree-two products, then extend by their additive generation."
+      ],
+      "acceptance": [
+        "The equivalence sends {1/2,1/2} to zero over ℚ.",
+        "Both maps are fixed on symbols; there is no arbitrary chosen isomorphism."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.1 and III.6.1, pp. 61, 48",
+          "match": "Explains the two presentations without using the asserted Matsumoto isomorphism as a premise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/milnor-field-map",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Functorial maps on the Milnor presentation",
+      "statement": "For a field homomorphism f:F→E construct the graded ring map Kᴹ(f) induced by units a↦f(a). Its degree-two map corresponds under the tensor-square equivalences to p(a,b)↦p(f(a),f(b)); identity and composition are strict map equalities.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "K2SymbolsBrauer:T.2/graded-degree-two",
+        "mathlib:TensorAlgebra.lift"
+      ],
+      "proofSteps": [
+        "A field homomorphism is injective and maps units to units. Its induced additive-unit map is ℤ-linear.",
+        "Lift to the tensor algebra. It sends each generating Steinberg product into the target Steinberg ideal because f(a)+f(b)=1. Hence it preserves J and descends to the quotient.",
+        "On n-symbols it sends every entry through f and preserves degree. Prove identity and composition on degree-one generators and use ring-hom extensionality."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.1, p. 61",
+          "match": "Functoriality derived from the presented definition."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§9, functorial observations (a),(b), p. 50",
+          "match": "Symbol pullback and coefficient postcomposition in the central-extension setting, specialized without topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "milnorFieldMap",
+          "role": "constructor",
+          "statement": "A graded ring homomorphism from the imported Milnor ring of F to that of E."
+        },
+        {
+          "name": "milnorFieldMap_symbol",
+          "role": "simp",
+          "statement": "An n-symbol maps to the n-symbol of its images, with unchanged entry order."
+        },
+        {
+          "name": "milnorFieldMap_id",
+          "role": "functoriality",
+          "statement": "The identity field map induces the identity ring map."
+        },
+        {
+          "name": "milnorFieldMap_comp",
+          "role": "functoriality",
+          "statement": "For F→E→L the composite of induced maps equals the map of the composite."
+        },
+        {
+          "name": "milnorFieldMap_degreeTwo",
+          "role": "compatibility",
+          "statement": "The degree-two square with the two tensor-square presentation maps commutes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "map_Q_R",
+          "kind": "computation",
+          "statement": "Under ℚ→ℝ, p(-1,-1) maps to p(-1,-1), detected by the real sign pairing."
+        },
+        {
+          "name": "map_F2_identity",
+          "kind": "degenerate",
+          "statement": "The identity of F₂ is the identity on degree zero ℤ, even though its degree-two group vanishes."
+        },
+        {
+          "name": "map_order",
+          "kind": "compatibility",
+          "statement": "The image of {a,b,c} is {f(a),f(b),f(c)}, not the reversed symbol, which would introduce a permutation sign."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/matsumoto-natural",
+          "how": "Pins the source map of the naturality square."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.3:symbols",
+          "how": "Supplies restriction on symbols before valuations or transfers are introduced."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/field-lift-calculus",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Field Weyl and diagonal lift calculus",
+      "statement": "Use the predecessor’s w_ij(a)=x_ij(a)x_ji(-a⁻¹)x_ij(a) and h_ij(a)=w_ij(a)w_ij(-1). In St_n(F), n≥3, their conjugation on every root subgroup is the signed and rescaled matrix Weyl/torus action. In particular w_ij(a)⁻¹=w_ij(-a), h_ij(a)x_kl(t)h_ij(a)⁻¹=x_kl(d_k t d_l⁻¹), where d_i=a,d_j=a⁻¹ and all other d_k=1.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.2:symbols/diagonal-lift-words",
+        "K2SymbolsBrauer:T.2:symbols/diagonal-lift",
+        "tauceti:TauCeti.transvectionUnit",
+        "tauceti:TauCeti.commutatorElement_transvectionUnit",
+        "tauceti:TauCeti.commutatorElement_transvectionUnit_reverse"
+      ],
+      "proofSteps": [
+        "Reuse the existing lift words; no new presentation of St_n is introduced.",
+        "For non-opposite roots expand the three factors of w and apply the three Steinberg relations, retaining all distinct-index hypotheses.",
+        "For opposite roots use a third index to express x_ij(t)=[x_ik(t),x_kj(1)]. Conjugate both factors by w, using the already checked non-opposite cases; this supplies the rank-one identities without assuming them as relations.",
+        "Compose the Weyl conjugations for w(a)w(-1) to obtain the diagonal rescaling. Read each elementary-image equation against the existing pinned transvection API."
+      ],
+      "acceptance": [
+        "Rank two is excluded.",
+        "At a=-1 the elementary image of h is diag(-1,-1); it is not the identity over ℚ.",
+        "Disjoint root coordinates are fixed; adjacent parameters have the displayed scaling."
+      ],
+      "sources": [
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Lemma 37(a)–(f), pp. 67–68 (PDF pp. 74–75)",
+          "match": "Derivation of the opposite-root relation from a third root, specialized to type A."
+        },
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III, Exercise 5.8(a)–(e), p. 46",
+          "match": "The concrete w-word identities, expanded rather than imported as an unproved exercise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Diagonal commutator equals the toral defect",
+      "statement": "In stable St(F), for distinct i,j,k and units a,b, the chosen classical symbol s(a,b)=[h_ij(a),h_ik(b)] equals c_ij(a,b)=h_ij(a)h_ij(b)h_ij(ab)⁻¹. The positive roots e_i-e_j and e_i-e_k have Cartan pairing +1. The corresponding simple adjacent roots instead have pairing -1; their toral commutator is c(a,b)⁻¹.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-lift-calculus",
+        "K2SymbolsBrauer:T.1/k2-is-centre",
+        "K2SymbolsBrauer:T.2/steinberg-symbol"
+      ],
+      "proofSteps": [
+        "Every defect c_ij(a,b) lies in the stable kernel, hence is central by the imported stable theorem.",
+        "The lift-calculus conjugation gives h_ik(b)h_ij(a)h_ik(b)⁻¹=h_ij(ab)h_ij(b)⁻¹. Therefore its inverse commutator is h_ij(a)h_ij(b)h_ij(ab)⁻¹, exactly s(a,b).",
+        "Transport between positive root pairs by signed permutation words built from w; their conjugations fix central kernel elements. This makes the common positive-root defect independent of i<j, with the reverse-root orientation handled separately.",
+        "For arbitrary roots use the Cartan exponent in [h_α(a),h_β(b)]=c_α(a,b^{⟨β,α∨⟩}). Fix both the +1 overlap and -1 adjacency cases; never switch between them silently."
+      ],
+      "acceptance": [
+        "The normalization is the displayed commutator, not its inverse.",
+        "The matrix image of c_ij is 1, but that fact alone is not used to conclude c_ij=1.",
+        "The comparison agrees with Matsumoto’s cocycle for the +1 root overlap."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Lemma 5.4(a)–(d), p. 26 (PDF p. 27)",
+          "match": "The commutator/cocycle identity with its Cartan exponent; the direct stable calculation also works over finite fields."
+        },
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.5.10.1, p. 43 and Exercise 5.9, p. 46",
+          "match": "Uses the explicit symbol convention; the inverse-defect mismatch in the exercise is recorded as source issue E-T2-2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/field-symbol-pairing",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "The explicit classical symbol is a pairing",
+      "statement": "The predecessor’s symbol s:Fˣ×Fˣ→Additive K₂(F) is a Steinberg pairing. It is independent of stabilizing coordinates and is natural under field homomorphisms. This supplies the field case without appealing to the predecessor’s general-ring Whitehead conjugation gap.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+        "K2SymbolsBrauer:T.2/field-pairing",
+        "K2SymbolsBrauer:T.1/stabilisation"
+      ],
+      "proofSteps": [
+        "The elementary diagonals commute, so their lift commutator lies in K₂. Centrality gives independence of lifts.",
+        "For a product aa′ in either argument, replace h(aa′) by h(a)h(a′) times its central defect. The central factor disappears from the commutator; the commutator product law supplies bilinearity.",
+        "For a+b=1 expand w(a)w(-1)w(b). The identities a-a²=ab, b-b²=ab and a⁻¹+b⁻¹=(ab)⁻¹ reduce this word to w(ab), hence h(a)h(b)=h(ab). Cocycle normalization yields s(a,b)=0.",
+        "Coordinate changes use actual elementary signed permutation words, not arbitrary GL conjugation. Field homomorphisms preserve each of the three w factors and thus h and the commutator."
+      ],
+      "acceptance": [
+        "The Steinberg relation has two unit inputs and does not assert a symbol at zero.",
+        "The case a=1 is addressed by pairing-identities, rather than a nonexistent unit 1-a."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.5.10.1–5.10.2, p. 43",
+          "match": "The complete word calculation for the Steinberg relation."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Lemma 5.4 and Lemma 5.6, pp. 26–28",
+          "match": "Bilinearity for type A and its relation to the bilinear symbol conditions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/lifted-bruhat-generation",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Lifted Bruhat reduction and complete toral relations",
+      "statement": "For n≥3 and any field F, quotient St_n(F) by the normal closure of the defects h_ij(a)h_ij(b)h_ij(ab)⁻¹. The map from this quotient to SL_n(F) is an isomorphism. In the quotient, Bruhat words reduce to u·h·w·v, with ordered positive-root products u,v, simple-coroot diagonal word h, and a chosen signed permutation representative w. An element mapping to the identity reduces to the identity; no uniqueness of both outer unipotent factors is claimed.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-lift-calculus",
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free"
+      ],
+      "proofSteps": [
+        "Gaussian elimination over F identifies E_n(F) with SL_n(F); ordinary Bruhat decomposition and its Weyl combinatorics are imported from their upstream owners.",
+        "Order positive roots by increasing height. Steinberg commutator relations collect their products; inspection of triangular matrix entries proves the collected root-subgroup map injective.",
+        "Use the lift calculus to move diagonal and Weyl words across collected unipotent products. Modulo the defects, h_ij is multiplicative. Rewrite all diagonal words in the simple-coroot coordinates.",
+        "The union of the Bruhat word sets is stable under left multiplication by each generator: positive roots collect directly; simple Weyl generators split into the increasing/decreasing-length cases. For an opposite root with nonzero parameter use the three-factor w identity, whose torus parameter is its inverse.",
+        "If the matrix image is 1, ordinary Bruhat forces w=1; diagonal coordinates then force h=1. The remaining unipotent product is trivial by triangular injectivity. This proves injectivity of the quotient and completeness of the presentation, rather than merely checking its matrix relations."
+      ],
+      "acceptance": [
+        "The result includes n=3 over F₂ and F₃; it does not assert universal centrality in that rank.",
+        "Injectivity is proved through the Bruhat reduction, not from faithfulness of an already defined matrix action."
+      ],
+      "sources": [
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Lemmas 36–38 and Theorem 8(b), pp. 66–70 (PDF pp. 73–77)",
+          "match": "The complete Chevalley presentation specialized to A_{n-1}; ordinary Bruhat is imported, while the lift reduction is planned here."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Lemma 5.3, pp. 24–25",
+          "match": "Distinguishes the unique monomial component from non-unique outer factors; its infinite-field restriction is not used to extend this theorem to finite fields."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "planet": {
+        "name": "Lifted Bruhat reduction"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/field-symbol-generation",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Symbols generate the stable field kernel",
+      "statement": "The additive subgroup generated by s(a,b) is all of K₂(F), for every field F. This is only the field refinement of the predecessor’s semilocal generation target.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/lifted-bruhat-generation",
+        "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1/k2-is-centre"
+      ],
+      "proofSteps": [
+        "Choose a finite Steinberg word representing a stable kernel element. Its elementary image is identity already at a sufficiently large finite rank, since the finite matrix embeddings are injective.",
+        "By complete toral relations, that word is a product of conjugates of toral defects and their inverses.",
+        "In stable St each defect is the chosen symbol and is central. Drop the conjugations to obtain a finite sum of symbols.",
+        "This argument requires the predecessor’s finite-representative/colimit API and stable centrality, retained as inherited proof obligations. It does not prove generation for arbitrary semilocal rings."
+      ],
+      "acceptance": [
+        "Every stable kernel element has a displayed finite sum of symbols.",
+        "No claim about finite-rank universality follows from this stable result."
+      ],
+      "sources": [
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Theorem 8(b), pp. 66, 69–70",
+          "match": "Extracts the kernel generators from the complete presentation."
+        },
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.5.10.5, pp. 43–44",
+          "match": "Closes the field branch of the cited generation theorem using the explicit presentation proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-torus-extension",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Torus extension carrying a prescribed symbol",
+      "statement": "Given a Steinberg pairing c:Fˣ×Fˣ→A and r=n-1≥2, let H₀=(Fˣ)^r with ordered simple coroots α_i=e_i-e_{i+1}. Put β(s,t)=Σ_i c(s_i,t_i)−Σ_{i>j, i=j+1} c(s_i,t_j). Give H_c=A×H₀ the product (a,s)(b,t)=(a+b+β(s,t),st). It is a central extension of the SL_n diagonal torus by A, with h_i(s)h_i(t)h_i(st)⁻¹=c(s,t) and [h_i(s),h_j(t)]=a_{ji}c(s,t), where a_{ii}=2, adjacent a_{ji}=-1 and all other entries are zero.",
+      "hypotheses": [
+        "F is a field, A is an abelian group, c is a Steinberg pairing, n≥3 and r=n-1."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/pairing-identities",
+        "K2SymbolsBrauer:T.1/central-extension"
+      ],
+      "proofSteps": [
+        "Each term of β is biadditive in the multiplicative coordinates, so β(s,t)+β(st,u)=β(s,tu)+β(t,u); β at either identity is zero. This gives associativity and identity on the displayed carrier.",
+        "The inverse is (-a-β(s,s⁻¹),s⁻¹). Projection onto H₀ is onto; inclusion a↦(a,1) is injective and its image is the kernel and is central.",
+        "Compute defects and commutators using the coordinate formula and skew-symmetry. The same-coordinate commutator is 2c(s,t), explaining the diagonal Cartan entry.",
+        "Identify H₀ with diagonal matrices of determinant one by s↦diag(s₁,s₁⁻¹s₂,…,s_{r-1}⁻¹s_r,s_r⁻¹). The inverse reads successive products of diagonal entries."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§6, construction preceding Lemma 6.5, pp. 37–38 (PDF pp. 38–39)",
+          "match": "The torus factor set specialized to simply laced type A and additive coefficients, with its coordinate formula explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "symbolTorusExtension",
+          "role": "constructor",
+          "statement": "The central extension on A×(Fˣ)^r with the displayed β product."
+        },
+        {
+          "name": "symbolTorus_inl_injective",
+          "role": "characterisation",
+          "statement": "The coefficient inclusion a↦(a,1) is injective and identifies A with the projection kernel."
+        },
+        {
+          "name": "symbolTorus_defect",
+          "role": "relation",
+          "statement": "h_i(s)h_i(t)h_i(st)⁻¹=inl(c(s,t))."
+        },
+        {
+          "name": "symbolTorus_commutator",
+          "role": "relation",
+          "statement": "The toral commutator is the Cartan multiple a_{ji}c(s,t)."
+        },
+        {
+          "name": "symbolTorus_map",
+          "role": "functoriality",
+          "statement": "Postcomposing c by A→+B maps (a,t) to (f(a),t) and fixes the quotient torus."
+        }
+      ],
+      "tests": [
+        {
+          "name": "torus_zero",
+          "kind": "degenerate",
+          "statement": "For c=0, H_c is the direct product A×H₀ with the identity inclusions."
+        },
+        {
+          "name": "torus_adjacent",
+          "kind": "computation",
+          "statement": "For r=2, β(s,t)=c(s₁,t₁)+c(s₂,t₂)-c(s₂,t₁). The cross-term is present; for nonadjacent coordinates in r=3 it is zero."
+        },
+        {
+          "name": "torus_real_defect",
+          "kind": "non-example",
+          "statement": "For the real sign pairing, h_i(-1)²=inl(1), although its diagonal matrix has square 1. A product torus would fail this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+          "how": "Supplies the subgroup and Weyl action of the lifted monomial group."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-extension",
+          "how": "Ensures that prescribed symbols remain visible, rather than killed by presentation relations."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/lifted-weyl-square-presentation",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Extended Weyl square-subgroup presentation",
+      "statement": "For the type-A chain with r=n-1≥2 let W̃ be generated by q_i with adjacent length-three braids, nonadjacent commutation, and q_i²q_jq_i⁻²=q_j^{(-1)^{a_{ji}}}. Its square subgroup D generated by d_i=q_i² has the presentation d_i⁻¹d_jd_i=d_j d_i^{1-(-1)^{a_{ji}}}. In particular q_i⁴ is a common nontrivial central element of order two, and W̃/D is S_n. These are square-subgroup relations, not the relation q_i⁴=1.",
+      "hypotheses": [
+        "n≥3, r=n-1 and the Cartan entries are those of A_r. This theorem is independent of the field."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free"
+      ],
+      "proofSteps": [
+        "The defining relations make the fourth powers central; the ordinary signed-Weyl presentation identifies the quotient by them. Collect square words using the displayed conjugation relations. They force d_i⁴=1 and equality of d_i² along the connected type-A chain.",
+        "To prove there are no further square relations, realize the candidate D on (ℤ/2)×(ℤ/2)^r with factor set B(x,y)=Σ_i x_i y_i+Σ_{i=j+1} x_i y_j. Its coordinate generators square to the common central coefficient 1 and have precisely the adjacent/nonadjacent commutators. Collection gives at most 2^(r+1) elements, and this model has exactly that size.",
+        "Define auxiliary θ_i⁻¹(d_j)=d_j d_i^{b_ij}, where b_ij=(1−(-1)^{a_ij})/2: it is 1 for adjacent distinct vertices and 0 otherwise, including i=j. Thus the auxiliary action fixes d_i. Verify θ_i²=Ad(d_i) and the type-A braids. On D×S_n define Λ_i(t,w)=(θ_i(t),s_iw) when length increases, and Λ_i(t,w)=(θ_i(t d_i),s_iw) when length decreases. Their squares translate by d_i, so D acts faithfully; rank-two braid checks give a representation of W̃ preserving the candidate square group.",
+        "This faithful realization proves the displayed square relations exhaustive and the central fourth power nontrivial. Modulo D the Coxeter presentation gives S_n."
+      ],
+      "acceptance": [
+        "For r=2 the square subgroup has eight elements, with both generating squares equal to the nontrivial central coefficient.",
+        "The proof is a lifted presentation calculation; ordinary Coxeter word invariance is imported."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§6, Theorem 6.3(a)–(c) and its proof, pp. 34–36",
+          "match": "Specializes the auxiliary doubled signed-Weyl group to the connected simply laced type-A chain; the mod-two model spells out the square-subgroup realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Lifted monomial extension",
+      "statement": "Extend H_c to a central extension N_c of the determinant-one monomial matrix group N₀. Its simple Weyl lifts q_i project to w_{i,i+1}(-1), satisfy q_i²=h_i(-1), commute for nonadjacent i,j and satisfy q_iq_jq_i=q_jq_iq_j for adjacent i,j. Conjugation by q_i acts by θ_i; θ_i⁻¹ fixes A and sends h_j(t) to h_j(t)h_i(t^{-a_{ij}}). The map H_c→N_c is injective; N_c/H_c is the symmetric group S_n.",
+      "hypotheses": [
+        "F is a field, A is abelian, c is a Steinberg pairing and n≥3."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-torus-extension",
+        "K2SymbolsBrauer:T.2/lifted-weyl-square-presentation",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free"
+      ],
+      "proofSteps": [
+        "Check that the proposed θ_i⁻¹ images preserve every torus defect and commutator relation using bilinearity, c(t,-t)=0 and the diagonal 2-torsion equation.",
+        "Check θ_i²=Ad(h_i(-1)), the adjacent braid relation and the nonadjacent commuting relation. These are explicit type-A computations on the torus generators.",
+        "Introduce the auxiliary group W̃ generated by q_i with the braid relations and q_i²q_jq_i⁻²=q_j^{(-1)^{a_{ji}}}. Its square subgroup maps to H_c by q_i²↦h_i(-1), using the proved lifted-weyl-square-presentation; its adjacent commutator and common central squares map correctly by the torus Cartan formula and 2c(-1,-1)=0.",
+        "Form H_c⋊W̃ and quotient by the graph subgroup identifying these squares. The graph subgroup is normal and meets H_c trivially; prove this intersection before claiming injectivity.",
+        "Using the ordinary Weyl presentation and reduced-word property, collect every element into a torus element times a chosen reduced Weyl lift. Compute the kernel of N_c→N₀ as precisely A. No relation q_i⁴=1 is added: it can erase c(-1,-1)."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§6, Theorem 6.3 and Lemmas 6.5–6.6, pp. 34–40",
+          "match": "The intermediate monomial construction and the injectivity of its torus; restrict to the simply laced A case."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "symbolMonomialExtension",
+          "role": "constructor",
+          "statement": "The extension N_c with its injective torus map and projection to N₀."
+        },
+        {
+          "name": "symbolMonomial_torus",
+          "role": "coercion",
+          "statement": "H_c embeds, with the same coefficient inclusion A→N_c."
+        },
+        {
+          "name": "symbolMonomial_square",
+          "role": "relation",
+          "statement": "q_i²=h_i(-1); its fourth power is inl(c(-1,-1))."
+        },
+        {
+          "name": "symbolMonomial_braid",
+          "role": "relation",
+          "statement": "Adjacent q satisfy the length-three braid relation; nonadjacent q commute."
+        },
+        {
+          "name": "symbolMonomial_kernel",
+          "role": "characterisation",
+          "statement": "The coefficient inclusion is an isomorphism A≃ker(N_c→N₀)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "monomial_zero",
+          "kind": "compatibility",
+          "statement": "For c=0, N_c is A×N₀ over N₀, with the pinned signed matrix Weyl representatives."
+        },
+        {
+          "name": "monomial_square",
+          "kind": "computation",
+          "statement": "q_i projects to a determinant-one signed transposition whose square is diagonal -1 at two coordinates, not generally 1."
+        },
+        {
+          "name": "monomial_real_fourth",
+          "kind": "non-example",
+          "statement": "For the real sign pairing, q_i⁴=inl(1)≠1 and q_i⁸=1. Replacing the lift by an involutive permutation loses the prescribed symbol."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-extension",
+          "how": "Provides fibers over the unique ordinary Bruhat monomial component."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-extension-exact",
+          "how": "Retains coefficient injectivity in the global normal-form argument."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-extension",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "Matsumoto’s permutation construction",
+      "statement": "For an infinite field F and prescribed pairing c, let v:SL_n(F)→N₀ be the unique monomial middle component in U⁺NU⁺. Define S_c={(g,m)∈SL_n(F)×N_c | v(g)=p(m)}. Define E_c as the subgroup of permutations of S_c generated by left torus translations, positive-unipotent translations and simple Weyl transformations. The first coordinate of each generator is the corresponding left matrix translation.",
+      "hypotheses": [
+        "F is an infinite field; A is an abelian group; c is a Steinberg pairing; n≥3."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "K2SymbolsBrauer:T.2/field-lift-calculus"
+      ],
+      "proofSteps": [
+        "The map v is a function picking the unique middle monomial, not either outer unipotent factor. Establish its equivariance under left U⁺ and the torus and its two-branch change under w_i(-1), as the specialization of ordinary Bruhat to root coordinates.",
+        "A torus lift h acts by (g,m)↦(p(h)g,hm); u∈U⁺ acts by (g,m)↦(ug,m).",
+        "For q_i the first coordinate is w_i(-1)g. If v(w_i(-1)g)=w_i(-1)v(g), the second coordinate becomes q_i m. Otherwise there is a unique nonzero root parameter t and v(w_i(-1)g)=h_i(t⁻¹)v(g); the second coordinate becomes h_i(t⁻¹)m.",
+        "Check membership in S_c and bijectivity of each transformation. The Weyl inverse follows from λ_i²=λ(h_i(-1)), with both branches verified.",
+        "A acts faithfully and centrally on the second coordinates. Its orbit set is SL_n(F), so the first-coordinate action defines a surjection E_c→SL_n(F). Exactness of its kernel is the separate theorem below, not assumed in this construction."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Lemma 5.3 and §6, construction of S and E before Lemma 6.7, pp. 24–25, 40–41",
+          "match": "The two-branch transformation construction in the original proof, restricted to its infinite-field domain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "symbolExtensionSpace",
+          "role": "constructor",
+          "statement": "The fiber set S_c over the unique ordinary Bruhat monomial map."
+        },
+        {
+          "name": "symbolExtensionAction",
+          "role": "constructor",
+          "statement": "The subgroup E_c of permutations generated by the displayed transformations."
+        },
+        {
+          "name": "symbolExtension_project",
+          "role": "projection",
+          "statement": "The surjective homomorphism E_c→SL_n(F) induced by first coordinates."
+        },
+        {
+          "name": "symbolExtension_coeff",
+          "role": "coercion",
+          "statement": "A injects into the centre of E_c by second-coordinate translation."
+        },
+        {
+          "name": "symbolExtension_weyl_branch",
+          "role": "relation",
+          "statement": "The two second-coordinate formulas use the actual unique nonzero root parameter only in the decreasing branch."
+        }
+      ],
+      "tests": [
+        {
+          "name": "action_identity_cell",
+          "kind": "computation",
+          "statement": "At (1,1), the simple Weyl transformation sends the pair to (w_i(-1),q_i)."
+        },
+        {
+          "name": "action_square",
+          "kind": "compatibility",
+          "statement": "Applying the simple Weyl transformation twice equals torus translation by h_i(-1), including the second coordinate."
+        },
+        {
+          "name": "action_zero",
+          "kind": "degenerate",
+          "statement": "For c=0 the fiber is SL_n(F)×A, and all root generators fix the A coordinate; coefficient elements translate it."
+        },
+        {
+          "name": "action_coeff_nontrivial",
+          "kind": "non-example",
+          "statement": "For nonzero a∈A, coefficient translation sends (1,1) to (1,inl(a)); it is not the identity permutation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+          "how": "Verifies the local rank-one/rank-two relations without asserting they hold by definition."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/infinite-symbol-injectivity",
+          "how": "A faithful coefficient action will detect each proposed symbol relation."
+        }
+      ],
+      "planet": {
+        "name": "Matsumoto extension construction"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Rank-one and rank-two action relations",
+      "statement": "The root and Weyl transformations in E_c satisfy the type-A Steinberg relations. Each rank-one root subgroup with its torus realizes the prescribed cocycle c. The adjacent simple Weyl transformations satisfy the length-three braid relation, and transformations belonging to disconnected simple roots commute.",
+      "hypotheses": [
+        "F is an infinite field; c is a Steinberg pairing to abelian A; n≥3."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-extension",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free"
+      ],
+      "proofSteps": [
+        "Define inversion on S_c by (g,m)↦(g⁻¹,m⁻¹), and conjugate the left transformation group by it to obtain the right transformation group.",
+        "Torus and positive-root left transformations commute with the right generators. Reduce the remaining left/right Weyl commutation to a rank-one or rank-two root subsystem and its minimal Weyl-coset representative.",
+        "Use orbit representatives (x_α(u)w(σ)x_β(v), lift(w(σ))) and split the three cases σβ≠±α, σβ=α and σβ=-α. In the last case isolate u=0, v=0 or uv=1; when uv(1-uv)≠0 use c(u⁻¹,(v-u⁻¹)⁻¹)=c((u-v⁻¹)⁻¹,v⁻¹). This follows by bilinearity and the Steinberg relation, and is the essential cocycle cancellation.",
+        "Left and right groups are transitive and commute, hence each acts freely: an element fixing one point fixes its orbit under the commuting transitive group. Verify the Weyl braid at (1,1), then use freeness to promote the equality to permutations.",
+        "Restrict the rank-one/rank-two checks to each embedded subsystem and transport to arbitrary cosets. Conjugating the simple root generators gives all roots and their Steinberg commutator formulas."
+      ],
+      "acceptance": [
+        "The exceptional uv=1 branch is checked without an inverse of zero.",
+        "The braid equation is proved as an equality of permutations on the entire fiber set.",
+        "A condition asserting these action relations is not added to the input data."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§6, Lemmas 6.8–6.10, pp. 41–42; §7, Lemmas 7.1–7.2 and proof of Lemma 6.8, pp. 43–47",
+          "match": "The nonroutine local action check, including its Steinberg-cocycle cancellation; no symplectic rank-two theory is needed for type A."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/symbol-extension-exact",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Exact central extension realizing the pairing",
+      "statement": "The projection E_c→SL_n(F) has kernel exactly the embedded coefficient group A, and its root lifts have toral defect c. Thus 1→A→E_c→SL_n(F)→1 is a central extension realizing the prescribed pairing, with A included injectively.",
+      "hypotheses": [
+        "F is an infinite field, A is abelian, c is a Steinberg pairing and n≥3."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+        "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+        "K2SymbolsBrauer:T.2/symbol-extension"
+      ],
+      "proofSteps": [
+        "Embed N_c into E_c using the verified local relations and coefficient/torus translations. Its quotient by the lifted torus is the ordinary Weyl group.",
+        "Show E_c is the union of Ũ⁺H̃ w̃ Ũ⁺: the union contains 1 and is stable under left multiplication by its generating transformations. Increasing-length cases move a root past w̃; decreasing-length cases use the verified rank-one decomposition, with its torus inverse parameter.",
+        "If an element projects to 1, ordinary Bruhat forces the Weyl component to be 1 and then its torus coordinate to be 1. Unipotent injectivity eliminates the outer factors, leaving precisely A.",
+        "The prescribed torus defect is retained under the injective torus embedding. Centrality and injectivity were established in the permutation action, so the identification of the kernel does not erase nonzero coefficients."
+      ],
+      "acceptance": [
+        "At c=p with A=P₂(F), inl(p(-1,-1)) remains nonzero over ℝ.",
+        "Exactness includes both containment directions and surjectivity."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§6, Lemma 6.11(a)–(d), pp. 42–43; Theorem 5.10, pp. 30–31",
+          "match": "Completes the original extension construction through its lifted Bruhat cover, not through an assumed kernel presentation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/finite-classical-vanishing",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Finite-field classical kernel vanishing",
+      "statement": "For a finite field F, every explicit classical symbol s(a,b) vanishes and the stable classical group K₂(F) is zero. The proof works over F₂, F₃ and F₄ and asserts no finite-rank universal-central-extension statement.",
+      "hypotheses": [
+        "F is a finite field."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-symbol-pairing",
+        "K2SymbolsBrauer:T.2/field-symbol-generation",
+        "K2SymbolsBrauer:T.2/finite-milnor-vanishing",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation"
+      ],
+      "proofSteps": [
+        "By the independently proved abstract finite-field tensor-square vanishing, every Steinberg pairing over F is zero. Apply this to the explicit classical pairing.",
+        "The stable kernel is generated by these zero symbols, hence is itself zero. This uses neither infinite-field extension realization nor Matsumoto injectivity.",
+        "Alternatively repeat the cyclic generator, diagonal 2-torsion and nonsquare-pair proof directly on the classical pairing; the same F₂ and characteristic-two branches apply.",
+        "Keep the result at stable K₂. No finite-rank centrality or universality is deduced from it."
+      ],
+      "acceptance": [
+        "K₂(F₂)=K₂(F₃)=K₂(F₄)=0.",
+        "Stable vanishing is established before invoking Matsumoto’s all-field equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1.1, p. 48",
+          "match": "The finite counting/parity argument specialized to the classical symbol after generation, with its two independent prerequisites made explicit."
+        },
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Theorem 9 and SL_n example, p. 72 (PDF p. 79)",
+          "match": "Independent source check that finite-field Steinberg relations impose no nontrivial stable kernel; the stronger finite-rank result is not a target here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/finite-milnor-vanishing",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Finite-field tensor-square vanishing",
+      "statement": "For a finite field F, P₂(F)=0 and Kᴹ₂(F)=0, independently of the classical comparison. Every Steinberg pairing from F to an abelian group is zero.",
+      "hypotheses": [
+        "F is a finite field."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/pairing-identities",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.2/graded-degree-two",
+        "mathlib:isCyclic_of_injective_ringHom"
+      ],
+      "proofSteps": [
+        "Choose a generator g of Fˣ using cyclicity; in F₂ the sole unit is 1. Multilinearity makes P₂(F) cyclic on p(g,g).",
+        "If char F=2, -1=1 and the diagonal identity gives p(g,g)=0.",
+        "If char F≠2, 2p(g,g)=0. There are (q−1)/2 nonsquares but only (q−3)/2 nonzero squares other than 1: the squaring map on units has kernel {1,−1} and fibers of size two. If every nonsquare u had 1−u square, the injection u↦1−u would put the larger set into the smaller one (1−u is neither 0 nor 1). Hence choose nonsquares u=g^m,v=g^n with u+v=1. The exponents m,n are odd, so p(u,v)=mn·p(g,g)=p(g,g), but the Steinberg relation makes this zero.",
+        "Generation proves the whole quotient vanishes; its universal property makes every pairing zero. Transfer this to the actual Milnor degree-two component through its already proved equivalence."
+      ],
+      "acceptance": [
+        "P₂(F₂)=P₂(F₃)=P₂(F₄)=0.",
+        "No assertion that every skew pairing on a cyclic group is zero substitutes for the Steinberg relation."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1.1, p. 48",
+          "match": "Reuses its elementary cyclicity/parity/counting proof in the abstract quotient, without assuming Matsumoto."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/classical-comparison-map",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "The chosen Milnor-to-classical comparison map",
+      "statement": "Define φ_F:Kᴹ₂(F)→Additive K₂(F) as the unique map taking {a,b} to the predecessor’s explicit commutator symbol s(a,b). Construct it via Kᴹ₂(F)≃P₂(F) and the tensor-square universal property. It is surjective by stable symbol generation; its injectivity is proved separately.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-symbol-pairing",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.2/graded-degree-two",
+        "K2SymbolsBrauer:T.2/field-symbol-generation"
+      ],
+      "proofSteps": [
+        "Use the actual diagonal commutator pairing, not an abstract isomorphism chosen from Matsumoto.",
+        "Descend it through the tensor-square quotient and compose with the degree-two equivalence in the specified direction.",
+        "Every symbol is in the image, so generation proves surjectivity.",
+        "Uniqueness on symbols records the exact map for naturality and product comparisons."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1 and III.7.1, pp. 48, 61",
+          "match": "Pins the homomorphism whose bijectivity is Matsumoto’s theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "milnorToClassicalK2",
+          "role": "constructor",
+          "statement": "The map φ_F with the specified domain and additive target."
+        },
+        {
+          "name": "milnorToClassicalK2_symbol",
+          "role": "simp",
+          "statement": "φ_F({a,b}) is [h_12(a),h_13(b)] in the stable kernel, written additively."
+        },
+        {
+          "name": "milnorToClassicalK2_unique",
+          "role": "extensionality",
+          "statement": "Any additive map with that generator equation is φ_F."
+        },
+        {
+          "name": "milnorToClassicalK2_surjective",
+          "role": "characterisation",
+          "statement": "Every element of the classical kernel is the image of an element of the actual Milnor degree-two group."
+        }
+      ],
+      "tests": [
+        {
+          "name": "comparison_half",
+          "kind": "computation",
+          "statement": "φ_ℚ({1/2,1/2})=0 by the explicit w-word Steinberg calculation."
+        },
+        {
+          "name": "comparison_F2",
+          "kind": "degenerate",
+          "statement": "φ_F₂ is the unique map between zero groups after the two independent finite-field arguments."
+        },
+        {
+          "name": "comparison_real_sign",
+          "kind": "non-example",
+          "statement": "The coefficient detector built from the real sign pairing sends φ_ℝ({-1,-1}) to 1, so the map is not the zero map over all fields."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+          "how": "Its inverse is proved for this exact map."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.3:symbols",
+          "how": "Allows field residues to be specified by their values on the chosen classical symbol."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/infinite-symbol-injectivity",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Faithful symbols over infinite fields",
+      "statement": "For an infinite field F, the map P₂(F)→Additive K₂(F) induced by s is injective. A finite additive combination of symbols that is trivial in stable St already vanishes in P₂(F).",
+      "hypotheses": [
+        "F is an infinite field."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.1/stabilisation"
+      ],
+      "proofSteps": [
+        "Take A=P₂(F) and c=p, its universal pairing. A putative relation is a finite product of stable symbol words.",
+        "If that word is 1 in stable St, the predecessor’s finite-representative equality yields a rank n≥3 where the corresponding St_n word is 1.",
+        "At that rank, the verified root lifts in E_p satisfy the Steinberg relations and hence give St_n(F)→E_p via the presented-group universal property. No compatibility between E_p at different ranks is required.",
+        "Each chosen symbol maps to inl(p(a,b)) by the positive-root cocycle normalization. The word maps to the coefficient inclusion of the alleged relation.",
+        "Since A→E_p is injective, the relation vanishes in A. This proves injectivity for the chosen map rather than for a possibly differently oriented presentation."
+      ],
+      "acceptance": [
+        "No stable UCE uniqueness theorem is needed to define the detecting map from St_n.",
+        "The proof uses finite-representative equality, not an unsupported injectivity of all St_n→St_{n+1}."
+      ],
+      "sources": [
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Theorem 5.10 and Corollary 5.11, pp. 30–31; §6, Lemma 6.11(d), p. 43",
+          "match": "The no-further-relations argument, implemented by the faithful coefficient extension."
+        },
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Theorem 8, p. 66",
+          "match": "The root-generator presentation universal property."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Matsumoto’s isomorphism for the chosen symbol map",
+      "statement": "For every field F, the map φ_F:Kᴹ₂(F)→Additive K₂(F) is bijective and therefore defines a specified additive equivalence. Its inverse sends the classical commutator symbol s(a,b) to {a,b}. The inverse is independent of how a classical kernel element is written as a sum of symbols.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/classical-comparison-map",
+        "K2SymbolsBrauer:T.2/infinite-symbol-injectivity",
+        "K2SymbolsBrauer:T.2/finite-classical-vanishing",
+        "K2SymbolsBrauer:T.2/finite-milnor-vanishing"
+      ],
+      "proofSteps": [
+        "Classically split the field into finite and infinite cases, with no characteristic restriction.",
+        "Over an infinite field combine the already established surjectivity with faithful-symbol injectivity. Over a finite field both source and target are independently zero.",
+        "Turn the bijective additive homomorphism into an additive equivalence. Its inverse evaluation on symbols follows from the generator equation and injectivity.",
+        "Use the universal pairing/presentation injectivity to prove that rewriting a kernel element as another sum gives the same inverse. The predecessor’s statement node is refined by this proof route; it is not used as a proof premise."
+      ],
+      "acceptance": [
+        "The inverse generator equation is explicit.",
+        "All K₂ groups here are classical or Milnor; the Quillen product identification remains a separate supplier obligation."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1, p. 48",
+          "match": "The all-field conclusion."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§5, Corollary 5.11, p. 31",
+          "match": "The infinite-field presentation."
+        },
+        {
+          "sourceId": "Steinberg-1967",
+          "locator": "§6, Theorem 9, p. 72 (PDF p. 79)",
+          "match": "The separate finite-field conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "planet": {
+        "name": "Matsumoto’s isomorphism"
+      },
+      "refines": [
+        "K2SymbolsBrauer:T.2/matsumoto"
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/matsumoto-natural",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Naturality of the field presentation",
+      "statement": "For a field homomorphism f:F→E the square with φ_F,φ_E, Kᴹ₂(f) and the imported classical K₂(f) commutes. Both equivalences and their inverses are natural. Different choices of stabilizing coordinates give the same φ, because its generator equation uses the coordinate-independent stable symbol.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+        "K2SymbolsBrauer:T.2/milnor-field-map",
+        "K2SymbolsBrauer:T.2/field-symbol-pairing",
+        "K2SymbolsBrauer:T.1/stabilisation"
+      ],
+      "proofSteps": [
+        "Evaluate both composites on a pure two-symbol. The source map applies f entrywise, and the classical map applies f to each x in the explicit h words. The results agree.",
+        "Use symbol generation/extensionality to deduce the map equality.",
+        "Compose with the specified inverse equivalences to obtain naturality in the reverse direction. The proof does not require injectivity of K₂(F)→K₂(E)."
+      ],
+      "acceptance": [
+        "The identity and composite field-map squares commute.",
+        "Naturality is not promoted to injectivity under arbitrary field extensions."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.1 and III.7.1, pp. 48, 61",
+          "match": "Map-level consequence of the presented theorem."
+        },
+        {
+          "sourceId": "Matsumoto-1969",
+          "locator": "§9, functorial observations (a),(b), p. 50",
+          "match": "The same symbol-level naturality, without the topological extra structure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/real-sign-detector",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "construction",
+      "title": "A real symbol detecting the integral diagonal",
+      "statement": "Define ε:ℝˣ→ℤ/2 to be 1 on negative units and 0 on positive units. The function c∞(a,b)=ε(a)ε(b) is a Steinberg pairing. It descends to P₂(ℝ)→ℤ/2 and therefore detects the nonzero order-two class {-1,-1} in Milnor and classical K₂(ℝ). It also defines a graded map Kᴹ(ℝ)→(ℤ/2)[t] sending the degree-one class of a to ε(a)t.",
+      "hypotheses": [
+        "F=ℝ and the coefficient target is ℤ/2."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/field-pairing",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.2/pairing-identities",
+        "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+        "mathlib:TensorAlgebra.lift"
+      ],
+      "proofSteps": [
+        "The sign of a product gives ε(ab)=ε(a)+ε(b) in ℤ/2. A unit is never zero, so positivity and negativity cover all inputs.",
+        "If a+b=1, the two units cannot both be negative, so their two sign values multiply to zero. This proves the pairing condition without Hilbert symbols or a Brauer-group comparison.",
+        "Descend by the universal property. Its value on p(-1,-1) is 1, while the diagonal identity makes twice that class zero.",
+        "For the graded detector extend the degree-one linear sign map to the tensor algebra. Its Steinberg products vanish, so it factors through the homogeneous quotient and respects degree."
+      ],
+      "acceptance": [
+        "The conclusion holds at the displayed maps, with the stated orientations and hypotheses."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.2.1, p. 49; III.7.2(c), p. 61",
+          "match": "The real sign pairing and its polynomial-valued graded extension; only detection is used, not the full divisible-summand computation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      },
+      "api": [
+        {
+          "name": "realSignPairing",
+          "role": "constructor",
+          "statement": "The ℤ/2-valued function with value 1 exactly when both units are negative."
+        },
+        {
+          "name": "realSignPairing_isSteinberg",
+          "role": "characterisation",
+          "statement": "The displayed function satisfies the pairing predicate."
+        },
+        {
+          "name": "realSignDetector",
+          "role": "universal-property",
+          "statement": "The unique P₂(ℝ)→+ℤ/2 evaluating on symbols as realSignPairing."
+        },
+        {
+          "name": "realGradedSignDetector",
+          "role": "compatibility",
+          "statement": "The map to (ℤ/2)[t] sends {a₁,…,aₙ} to (Π_i ε(a_i))t^n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "sign_negative_negative",
+          "kind": "computation",
+          "statement": "c∞(-1,-1)=1."
+        },
+        {
+          "name": "sign_positive_negative",
+          "kind": "computation",
+          "statement": "c∞(2,-1)=0 and c∞(-1,1)=0."
+        },
+        {
+          "name": "sign_steinberg_pair",
+          "kind": "compatibility",
+          "statement": "c∞(-1,2)=0 since the inputs sum to one."
+        },
+        {
+          "name": "sign_not_alternating",
+          "kind": "non-example",
+          "statement": "Its diagonal at -1 is nonzero, despite skew-symmetry in the additive group ℤ/2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.2/tensor-square-presentation",
+          "how": "A concrete universal-property test rules out the zero presentation."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.2/graded-symbol-signs",
+          "how": "Rules out an exterior-algebra or strictly alternating Milnor definition."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.2/graded-symbol-signs",
+      "parentStageId": "K2SymbolsBrauer:T.2",
+      "realises": [
+        "K2SymbolsBrauer:T.2"
+      ],
+      "kind": "theorem",
+      "title": "Permutation signs without integral alternation",
+      "statement": "In the imported Milnor ring, interchanging adjacent unit entries negates an n-symbol. A permutation π multiplies a symbol by sign(π). A consecutive repeated entry can be replaced by (a,-1); in characteristic two such a consecutive repeat vanishes. The sign rule alone does not make all repeated-entry symbols vanish integrally.",
+      "hypotheses": [
+        "F is a commutative field; coefficients in every symbol group are integral."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "K2SymbolsBrauer:T.2/graded-degree-two",
+        "K2SymbolsBrauer:T.2/pairing-identities",
+        "K2SymbolsBrauer:T.2/real-sign-detector"
+      ],
+      "proofSteps": [
+        "Apply the abstract degree-two identities to p, then transport to the actual Milnor degree-two piece.",
+        "Multiply a degree-two identity on the left and right by the products of the remaining entries; concatenation supplies the adjacent interchange and repeated-entry equations.",
+        "Decompose a permutation into adjacent transpositions. Parity makes the resulting sign independent of the decomposition.",
+        "The real graded sign map sends {-1,…,-1} to t^n, nonzero in every degree. It supplies a counterexample to any inference that repeated entries always vanish."
+      ],
+      "acceptance": [
+        "The degree-two equation is {a,a}={a,-1}, not zero.",
+        "The ℝ symbol {-1,-1,-1} has a nonzero polynomial detector."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.1–7.2(c), p. 61",
+          "match": "Correctly interprets the source’s permutation-sign terminology without imposing integral alternation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/MilnorK/FieldPresentation",
+        "namespace": "TauCeti.MilnorK"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "need": "Ordinary split Bruhat decomposition and the type-A SL_n root-coordinate specialization: U⁺NU⁺ covers SL_n, its monomial middle term is unique, and multiplication by a simple Weyl element has the two root-parameter cases. The supplier owns ordinary structure theory; this packet owns only its lifted extension/presentation arguments."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free",
+      "need": "Reduced-word braid invariance and minimal parabolic-coset representatives, applied to the symmetric-group Weyl system. This is the Coxeter Matsumoto word theorem, distinct from the K₂ presentation theorem."
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.2:graded-map",
+      "need": "Import predecessor graded-map and graded-map-degree-three nodes. To identify its degree-two product map with φ_F, supply the map-level equality [a]·[b]=image(s(a,b)) under the chosen classical-to-Quillen comparison, with exactly the commutator orientation fixed here. Own all graded Quillen product construction here, without duplicating it in the classical lane."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G-T2-stable-imports: inherited stable presentation and centrality",
+      "detail": "The finite-representative equality used by infinite-symbol-injectivity and field-symbol-generation is the predecessor stabilisation node with gap G-colimit. The centrality used by field-cocycle-normalization is the predecessor k2-is-centre node with gap G-centre. Both nodes are imported unchanged; this field follow-up does not close the arbitrary-ring stable-colimit/centre plan. Their absence does not get replaced by an assumed Matsumoto theorem."
+    },
+    {
+      "title": "G-T2-product-symbol: inherited companion comparison",
+      "detail": "The T.2:graded-map owner must verify the chosen Quillen product on unit classes agrees with the image of [h_12(a),h_13(b)] under the actual classical-to-Quillen comparison. The predecessor G-product-symbol remains open; an abstract Matsumoto equivalence alone does not identify that product map. The inherited graded-map nodes cover the target-level construction, with this exact prerequisite."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K2SymbolsBrauer:T.2",
+      "status": "planned",
+      "nodes": [
+        "K2SymbolsBrauer:T.2/field-pairing",
+        "K2SymbolsBrauer:T.2/pairing-identities",
+        "K2SymbolsBrauer:T.2/tensor-square-presentation",
+        "K2SymbolsBrauer:T.2/homogeneous-steinberg-ideal",
+        "K2SymbolsBrauer:T.2/graded-quotient-components",
+        "K2SymbolsBrauer:T.2/graded-degree-two",
+        "K2SymbolsBrauer:T.2/milnor-field-map",
+        "K2SymbolsBrauer:T.2/field-lift-calculus",
+        "K2SymbolsBrauer:T.2/field-cocycle-normalization",
+        "K2SymbolsBrauer:T.2/field-symbol-pairing",
+        "K2SymbolsBrauer:T.2/lifted-bruhat-generation",
+        "K2SymbolsBrauer:T.2/field-symbol-generation",
+        "K2SymbolsBrauer:T.2/symbol-torus-extension",
+        "K2SymbolsBrauer:T.2/lifted-weyl-square-presentation",
+        "K2SymbolsBrauer:T.2/symbol-monomial-extension",
+        "K2SymbolsBrauer:T.2/symbol-extension",
+        "K2SymbolsBrauer:T.2/symbol-extension-local-relations",
+        "K2SymbolsBrauer:T.2/symbol-extension-exact",
+        "K2SymbolsBrauer:T.2/finite-classical-vanishing",
+        "K2SymbolsBrauer:T.2/finite-milnor-vanishing",
+        "K2SymbolsBrauer:T.2/classical-comparison-map",
+        "K2SymbolsBrauer:T.2/infinite-symbol-injectivity",
+        "K2SymbolsBrauer:T.2/matsumoto-equivalence",
+        "K2SymbolsBrauer:T.2/matsumoto-natural",
+        "K2SymbolsBrauer:T.2/real-sign-detector",
+        "K2SymbolsBrauer:T.2/graded-symbol-signs"
+      ],
+      "imports": [
+        "K2SymbolsBrauer:T.2/steinberg-symbol",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2/matsumoto",
+        "K2SymbolsBrauer:T.2/graded-map",
+        "K2SymbolsBrauer:T.2/graded-map-degree-three"
+      ],
+      "note": "All targets of the umbrella T.2 are represented: classical field symbols and Milnor grading are refined here; the separately owned graded Quillen map is imported with its remaining product comparison. General associative-ring, semilocal and arithmetic extensions from the wider predecessor are outside the field-presentation brief.",
+      "remaining": [
+        "G-T2-stable-imports: inherited finite-representative and stable centrality proof closure.",
+        "G-T2-product-symbol: obtain the companion’s exact product-symbol square."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K2SymbolsBrauer/E-T2-1",
+      "sourceId": "Rehmann-2007",
+      "kind": "misprint",
+      "locator": "Author-hosted 2007 notes, §1, printed/PDF p. 7, displayed SL₃ Bruhat decomposition.",
+      "printed": "In my own words: the six-cell list repeats the cell for the transposition (12) and omits the one for (13).",
+      "correction": "Replace the second occurrence of the (12) representative by w₁₃. Retain one cell for each of the six permutations.",
+      "reason": "The adjacent matrix representatives displayed on the same page induce the three distinct transpositions, and ordinary Bruhat cells are indexed by all six elements of S₃. The repeated cell cannot represent the missing permutation.",
+      "affects": "nothing",
+      "known": "No correction found in the accessible author notes or the preprint catalogue; no claim of novelty.",
+      "searched": [
+        "Author-hosted trieste_notes.pdf, retrieved 2026-10-14",
+        "Bielefeld preprint catalogue entry 08127: https://sfb701.math.uni-bielefeld.de/Preprints/view/318",
+        "Web search for author/title/errata, 2026-10-14"
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer/E-T2-2",
+      "sourceId": "Weibel-III",
+      "kind": "misprint",
+      "locator": "Author chapter III PDF, Exercise 5.9, printed/PDF p. 46; commutator convention on p. 1 and symbol in III.5.10, p. 42.",
+      "printed": "In my own words: the exercise identifies the chosen symbol with the inverse of the toral defect h(a)h(b)h(ab)⁻¹.",
+      "correction": "With [x,y]=xyx⁻¹y⁻¹ and the displayed symbol, use h(a)h(b)h(ab)⁻¹. Equivalently its reversed-conjugation expression is h(ab)h(a)⁻¹h(b)⁻¹, with the inverse factors in that order.",
+      "reason": "Conjugation gives h_ik(b)h_ij(a)h_ik(b)⁻¹=h_ij(ab)h_ij(b)⁻¹, so taking the inverse commutator gives the stated positive defect. Matsumoto Lemma 5.4(c), p. 26 agrees for the +1 root overlap. The discrepancy need not vanish: the t-adic pairing on ℚ(t) sends the (t,2) symbol to 2 (Weibel III.6.3, p. 51), distinct from its inverse.",
+      "affects": "the proof",
+      "known": "The author’s errata link was found but returned HTTP 404 on both advertised hosts. Search did not resolve whether a published correction exists; this is a scoped version discrepancy, not a novelty claim.",
+      "searched": [
+        "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html, 2026-10-14",
+        "Advertised errata PDF https://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf returned 404; sites host also returned 404",
+        "Web search for Weibel Exercise III.5.9 correction; Matsumoto §5 Lemma 5.4(c) scan checked, 2026-10-14"
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "note": "Current main Layer 7 already owns ordinary Bruhat/BN-pair structure theory. Imported its precise type-A interface without proposing a second ordinary Bruhat roadmap."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems",
+      "note": "Current main Layer 3 owns the reduced-word Matsumoto theorem. It is imported as a combinatorial input, and never confused with the K₂ presentation theorem."
+    }
+  ],
+  "suggestedFile": {
+    "path": "research/blueprint/suggested/K2SymbolsBrauer--T.2.lean",
+    "policy": "Prototype only on existing pinned carriers. Concrete pairing/tensor-square/sign data have real bodies. Absent classical K₂, graded Milnor components and lifted extension carriers remain fully specified README targets, with their API/test names indexed in comments; no data definition is replaced by an unspecified proposition.",
+    "claimsImplementation": false
+  }
+}
