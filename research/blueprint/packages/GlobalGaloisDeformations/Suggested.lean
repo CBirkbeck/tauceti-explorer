@@ -67,6 +67,7 @@ def Lift.conj (a : strictKernel n π) (ρ : Lift n ρbar π) : Lift n ρbar π w
     ext g : 1
     simp [MulAut.conj_apply, ha]
 
+/-- Strict conjugation acts by the stated matrix conjugation. -/
 theorem Lift.conj_apply (a : strictKernel n π) (ρ : Lift n ρbar π) (g : G) :
     (ρ.conj n ρbar π a).toHom g = (a : GL (Fin n) A) * ρ.toHom g * (a : GL (Fin n) A)⁻¹ := by
   simp [Lift.conj, MulAut.conj_apply]
@@ -99,6 +100,7 @@ def LiftDet (χ : G →* Aˣ) : Set (Lift n ρbar π) :=
   {ρ | ∀ g, Matrix.GeneralLinearGroup.det (ρ.toHom g) = χ g}
 
 omit [IsTopologicalRing A] in
+/-- Membership in the fixed-determinant subfunctor is the pointwise determinant equation. -/
 theorem mem_LiftDet_iff (χ : G →* Aˣ) (ρ : Lift n ρbar π) :
     ρ ∈ LiftDet n ρbar π χ ↔ ∀ g, Matrix.GeneralLinearGroup.det (ρ.toHom g) = χ g :=
   Iff.rfl
@@ -153,17 +155,20 @@ def Lift.map (f : A →+* B) (hf : Continuous f) (hπ : πB.comp f = πA) (ρ : 
     exact ρ.reduce
 
 omit [IsTopologicalRing A] [IsTopologicalRing B] in
+/-- Coefficient pushforward applies the ring map to every matrix entry. -/
 theorem Lift.map_apply (f : A →+* B) (hf : Continuous f) (hπ : πB.comp f = πA)
     (ρ : Lift n ρbar πA) (g : G) :
     (ρ.map n ρbar πA πB f hf hπ).toHom g = Matrix.GeneralLinearGroup.map f (ρ.toHom g) :=
   rfl
 
 omit [IsTopologicalRing A] in
+/-- Pushforward along the identity coefficient map fixes a lift. -/
 theorem Lift.map_id (ρ : Lift n ρbar πA) :
     ρ.map n ρbar πA πA (RingHom.id A) continuous_id (RingHom.comp_id πA) = ρ :=
   Lift.ext <| by simp [Lift.map, Matrix.GeneralLinearGroup.map_id]
 
 omit [IsTopologicalRing A] [IsTopologicalRing B] [IsTopologicalRing C] in
+/-- Successive coefficient pushforwards agree with pushforward along the composite. -/
 theorem Lift.map_comp (f : A →+* B) (hf : Continuous f) (hπf : πB.comp f = πA)
     (g : B →+* C) (hg : Continuous g) (hπg : πC.comp g = πB) (ρ : Lift n ρbar πA) :
     (ρ.map n ρbar πA πB f hf hπf).map n ρbar πB πC g hg hπg =
@@ -186,6 +191,7 @@ def Def.map (f : A →+* B) (hf : Continuous f) (hπ : πB.comp f = πA) :
       rw [Lift.conj_apply, Lift.map_apply, Lift.map_apply, Lift.conj_apply]
       simp [map_mul, map_inv]
 
+/-- Pushforward of a strict class is the class of the pushed-forward lift. -/
 theorem Def.map_mk (f : A →+* B) (hf : Continuous f) (hπ : πB.comp f = πA)
     (ρ : Lift n ρbar πA) :
     Def.map n ρbar πA πB f hf hπ (Def.mk n ρbar πA ρ) =
@@ -209,6 +215,7 @@ def Lift.restrict (ι : H →* G) (hι : Continuous ι) (ρ : Lift n ρbar π) :
   reduce := by rw [← MonoidHom.comp_assoc, ρ.reduce]
 
 omit [IsTopologicalRing A] in
+/-- Restriction evaluates a lift on the image of the group element. -/
 theorem Lift.restrict_apply (ι : H →* G) (hι : Continuous ι) (ρ : Lift n ρbar π) (h : H) :
     (ρ.restrict n ρbar π ι hι).toHom h = ρ.toHom (ι h) :=
   rfl
@@ -482,6 +489,27 @@ example : Module.finrank (ZMod 3) (scalarFrameCokernel (ZMod 3) 0) = 0 := by
   rw [Module.finrank_fin_fun] at hd
   omega
 
+/-- For the mapping fibre of the identity between two-term identity complexes,
+`d⁰(x) = (x,x)` and `d¹(a,b) = a-b`; replacing the minus by a plus fails in characteristic three. -/
+example :
+    let d₀ : ZMod 3 → ZMod 3 × ZMod 3 := fun x ↦ (x, x)
+    let d₁ : ZMod 3 × ZMod 3 → ZMod 3 := fun x ↦ x.1 - x.2
+    d₁ (d₀ 1) = 0 ∧ (d₀ 1).1 + (d₀ 1).2 = 2 := by
+  decide
+
+/-- A nonzero nilpotent direction survives in the coefficient algebra, while every map to a
+reduced coefficient ring kills it (README 6.3). -/
+example :
+    let ε : DualNumber (ZMod 3) := ⟨0, 1⟩
+    ε ≠ 0 ∧ ε ^ 2 = 0 := by
+  change (TrivSqZeroExt.inr (1 : ZMod 3) : DualNumber (ZMod 3)) ≠ 0 ∧
+    (TrivSqZeroExt.inr (1 : ZMod 3) : DualNumber (ZMod 3)) ^ 2 = 0
+  constructor
+  · intro h
+    have hs := congrArg TrivSqZeroExt.snd h
+    exact one_ne_zero hs
+  · rw [pow_two, TrivSqZeroExt.inr_mul_inr]
+
 /-- `R04.4/diagonalizable-groups`, the case `p = 2`, `m = 1`: `(1 + X)² − 1 ∈ (2, X)²`. -/
 example : ((1 + Polynomial.X) ^ 2 - 1 : Polynomial ℤ) ∈
     (Ideal.span {(2 : Polynomial ℤ), Polynomial.X}) ^ 2 := by
@@ -509,6 +537,13 @@ example {R : Type*} [CommRing R] (a : R) :
 example {R : Type*} [CommRing R] (x y : R) :
     !![1, 0; 0, -1] * !![x, 0; 0, y] * !![1, 0; 0, -1] = !![x, 0; 0, y] := by
   ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- The induced self-twist conjugator reduces to the identity modulo two, but is nontrivial
+modulo four; residue characteristic two is essential for a strict self-twist. -/
+example :
+    !![(1 : ZMod 2), 0; 0, -1] = 1 ∧
+    !![(1 : ZMod 4), 0; 0, -1] ≠ 1 := by
+  decide
 
 /-- `R04.5/image-hypotheses`: the `S₃` representation over `𝔽₅` has a nonzero trace-zero sign line
 `k·J` in its adjoint (`J = C − C²`): the three-cycle fixes `J` and the transposition negates it. -/
@@ -584,5 +619,14 @@ example (q n f : ℤ) : -(n ^ 2 * f) + q * n = q * n - n ^ 2 * f := by
   ring
 
 end Examples
+
+/-!
+Definitions specified in the README using the arithmetic and coefficient-category suppliers:
+`ModDef`, `ModDefFramed`, `DetDef`, `PseudoDefRing`, `univLift`, `DeformationProblem`,
+`DeformationType`, `TFramedDef`, `Rloc`, `locToGlobal`, `resRing`, `DiagGroup`, `RdetOnS`,
+`detMap`, `twistAction`, inertia-rigid deformation rings, `TaylorWilesDatum`,
+`IsCyclotomicAbsIrred`, `HasBigImage`, `HasNonsolvableImage`, `KWDeformationData`, `TWSystem`,
+`DyadicPatchingDatum`, `GlobalDeformationProblem`, `PolarizedDeformationProblem`.
+-/
 
 end TauCetiRoadmap.GlobalGaloisDeformations
