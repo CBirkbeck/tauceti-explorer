@@ -220,12 +220,16 @@ berkovich-fatou-julia-properties; berkovich-classical-trace;
 berkovich-finite-grand-orbit; berkovich-julia-good-reduction;
 berkovich-preimage-equidistribution; canonical-support-contained-julia;
 berkovich-blowing-up-minimality; canonical-measure-julia-support;
-berkovich-julia-singleton-dichotomy; complex-julia-blowing-up;
+berkovich-julia-iterate; berkovich-julia-singleton-dichotomy;
+complex-repelling-periodic-density; complex-julia-blowing-up;
 complex-transfer-limit; archimedean-measure-identification;
-complex-topological-entropy; complex-canonical-measure-entropy;
+complex-bowen-net-bound; complex-topological-entropy;
+complex-canonical-measure-entropy;
 complex-maximal-entropy-uniqueness; power-map-julia-measure-comparison;
 zieve-weighted-coefficient-divisibility; zieve-jet-growth;
 zieve-rational-cycle-adapter.
+The density target has an explicit open proof gap; the Berkovich iterate law
+uses canonical-measure support after that comparison is established.
 These need native rational/analytic maps, degree/multiplicity, valued-field
 interfaces, measures or entropy suppliers. They are not expressed as theorems
 about an opaque function carrying its desired conclusion as a hypothesis.

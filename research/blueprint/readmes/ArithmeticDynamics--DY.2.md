@@ -4,9 +4,9 @@ This is the DY.2 follow-up to the [accepted parent plan](../packets/ArithmeticDy
 The parent’s 55 local declarations own the escape rate, local height, cycle multiplier,
 reduction and canonical measures. This document completes the target-level planning pass
 for their Fatou–Julia remainder and supplies source-level refinements of the complex
-measure and Zieve endpoints. It adds 28 targets; it does not replace those 55 declarations.
-DY.2 is **planned**. Five supplier gaps prevent **closed** coverage, and every
-implementation status is unchecked.
+measure and Zieve endpoints. It adds 31 targets; it does not replace those 55 declarations.
+DY.2 is **planned**. Five supplier extensions and the explicit repelling-density proof
+gap prevent **closed** coverage. Every implementation status is unchecked.
 
 The main conclusions are equality of canonical-measure support with the Julia set at
 both kinds of places, and the sharp distinction between classical and Berkovich stability
@@ -73,9 +73,9 @@ Fatou-component classification merely to assert nonemptiness.
 For the complex transfer proof, first work on compact backward-invariant L disjoint from
 E, not on all continuous functions with a claim of equicontinuity at exceptional points.
 The exceptional attracting cycles supply forward-invariant small neighborhoods, so every
-compact K disjoint from E sits in such an L. The almost-periodic splitting yields a
+compact K disjoint from E sits in such an L. The explicitly requested complex Banach almost-periodic splitting yields a
 functional on C(L); its limit evaluated at a common Julia point identifies the measures
-for different L. Native Riesz–Markov represents the functional. The sphere Laplacian
+for different L. Native Riesz–Markov represents the functional. Taking L=J identifies its support with Julia. The sphere Laplacian
 supplier then constructs the already-owned parent measure; balance and dominated
 convergence identify it with this transfer measure.
 
@@ -171,57 +171,44 @@ Target `ArithmeticDynamics:DY.2/classical-fatou-julia` (definition).
 
 On a uniform space X define classicalFatou f={x : ∃open U containing x, UniformEquicontinuousOn (n↦f^n) U}; classicalJulia f is its complement. For P¹(C), use the unique uniformity compatible with the compact sphere topology, equivalently its chordal metric. For P¹(K) nonarchimedean, use the chordal metric topology, not the one-point compactification topology on K. On C the local condition agrees with normality of meromorphic iterates for uniform convergence on compact subsets in the spherical target metric.
 
-Hypotheses: The abstract predicate uses only a self-map and a uniform space. Rational-map conclusions assume degree ≥2 and the indicated valued field.
+Hypotheses:
+
+- The abstract predicate uses only a self-map and a uniform space. Rational-map conclusions assume degree ≥2 and the indicated valued field.
 
 Uses:
 
 - Benedetto Propositions 4.22–4.24, pp.39–40: Distinguishes good reduction, inseparability and multiplier behavior in the classical line.
-
 - Lyubich Theorem 1, pp.358–362: Identifies the support of the transfer-limit measure with the irregular set.
-
-
 
 Construction or proof:
 
 1. Use the native UniformEquicontinuousOn predicate on the whole neighborhood, rather than EquicontinuousAt at its center.
+2. Shrink to relatively compact neighborhoods on the complex sphere. Native Arzelà–Ascoli compares compact-open relative compactness of continuous maps with local uniform equicontinuity. The sphere charts and meromorphic-limit comparison in the normal-family supplier identify these limits with holomorphic sphere maps, including constant infinity; a set equivalence alone supplies none of this analytic structure.
 
-2. Shrink to relatively compact neighborhoods on the complex sphere; Arzelà–Ascoli identifies local equicontinuity and spherical normality. The complex-manifold identification is a separate supplier.
-
-
-
-Direct prerequisites: `mathlib:UniformEquicontinuousOn`, `mathlib:Nat.iterate`, `mathlib:uniformSpaceOfCompactR1`, `mathlib:OnePoint.equivProjectivization`.
+Direct prerequisites: `mathlib:UniformEquicontinuousOn`, `mathlib:Nat.iterate`, `mathlib:uniformSpaceOfCompactR1`, `mathlib:OnePoint.equivProjectivization`, `mathlib:BoundedContinuousFunction.arzela_ascoli₁`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`, `ConformalMappingPartII:V0`.
 
 Sources: Benedetto2010, Definition 4.16 and Remark 4.20, pp.36,38. Defines local uniform equicontinuity and explains why normality is an equivalent complex definition but can fail over non-locally-compact fields. Lyubich1983, §3, pp.354–355. Normality of meromorphic iterates defines the complex regular set.
 
 Named API:
 
 - `mem_classicalFatou` (characterisation): Membership is the displayed open-neighborhood UniformEquicontinuousOn condition.
-
 - `classicalJulia_eq_compl` (simp): classicalJulia f=(classicalFatou f)ᶜ.
-
 - `isOpen_classicalFatou` (structure): classicalFatou f is open for every self-map.
-
 - `isClosed_classicalJulia` (structure): classicalJulia f is closed for every self-map.
-
 - `classicalFatou_uniformConjugate` (functoriality): For a uniform equivalence h, Fatou(h∘f∘h⁻¹)=h(Fatou f), and likewise Julia.
-
 - `classicalFatou_complex_normal` (compatibility): On P¹(C), membership iff iterates are normal on some neighborhood in the compact-open spherical topology. This needs the complex analytic supplier, not only a set equivalence.
-
-
 
 Unit tests:
 
 - `ClassicalFatou.identity` (degenerate): On any uniform space the identity has Fatou=X and Julia=∅.
-
 - `ClassicalFatou.constant` (value): Any constant self-map has Fatou=X: the n=0 identity and constant positive iterates form an equicontinuous family.
-
 - `ClassicalJulia.realDoubling` (non-example): For f(x)=2x on Euclidean R, Julia=R, including 0; fixing the center does not make the family locally uniformly equicontinuous.
-
 - `ClassicalJulia.complexPower` (comparison): For z↦z^d on the complex sphere, Julia={z∈C:|z|=1}, and infinity lies in Fatou.
 
+Checks:
 
-
-Check: Euclidean equicontinuity on affine C alone is not the sphere predicate. A pointwise condition without a neighborhood is rejected.
+- Euclidean equicontinuity on affine C alone is not the sphere predicate.
+- A pointwise condition without a neighborhood is rejected.
 
 ### Berkovich Fatou and Julia sets
 
@@ -291,25 +278,25 @@ Check: Identity on a finite discrete carrier has empty omission Fatou set althou
 
 Target `ArithmeticDynamics:DY.2/exceptional-classification` (theorem).
 
-Over an algebraically closed field, a degree-d≥2 rational map has either at most two classical exceptional points, or characteristic p>0 and a PGL₂ conjugacy to z↦z^(p^r) for r≥1. In the latter case E is the conjugate of P¹(overline(F_p)) and is countably infinite. In particular E is Borel and countable for every valued field here; in characteristic zero it has at most two points.
+Over an algebraically closed field, a degree-d≥2 rational map has either at most two classical exceptional points, or characteristic p>0 and a PGL₂ conjugacy to z↦z^(p^r) for r≥1. In the latter case E is the conjugate of P¹(overline(F_p)) and is countably infinite. In particular E is Borel and countable for every valued field here; in characteristic zero it has at most two points. Every degree-at-least-two map of separable degree one belongs to the Frobenius alternative.
 
-Hypotheses: Algebraically closed field; the absolute value is irrelevant to classification.
+Hypotheses:
+
+- Algebraically closed field; the absolute value is irrelevant to classification.
 
 Construction or proof:
 
-1. A finite grand orbit is permuted bijectively and each point has a singleton inverse fibre for a suitable iterate, forcing total ramification.
+1. Surjectivity permutes every finite backward orbit. If there are three exceptional points, a common iterate fixes all three and each has a singleton inverse fibre. Normalize them to 0,1,∞. Factorization of the zero and pole forms makes that iterate z↦z^D; its singleton fibre above 1 forces z^D−1=(z−1)^D, so D is a power of the characteristic.
+2. Write f as a separable rational map composed with a Frobenius power. Separable degrees multiply under composition, so the preceding iterate forces separable degree one. A degree-d map of separable degree one has d+1 distinct fixed points: its local derivative is zero, so each fixed-point equation has a simple zero. Normalize three fixed points to 0,1,∞. In these coordinates f=M∘Frobenius^r and M fixes 0,1,∞, hence M is the identity.
+3. For Frobenius, a finite backward orbit is equivalent to algebraicity over the finite prime field. Transport by conjugacy. If the three-point alternative fails there are at most two exceptional points. No characteristic-zero critical-point theorem is used.
 
-2. More than two such points forces separable degree one. Normalize three fixed points to 0,1,∞ to identify the map with a Frobenius power.
-
-3. For Frobenius, finite backward orbit is exactly algebraicity over the finite prime field. The non-Frobenius case has at most two exceptional points.
-
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/exceptional-points`, `ArithmeticDynamics:DY.0/critical-points-of-a-rational-map`.
+Direct prerequisites: `ArithmeticDynamics:DY.2/exceptional-points`, `ArithmeticDynamics:DY.0/binary-form-factorisation`, `ArithmeticDynamics:DY.0/homogeneous-lift-comp`, `ArithmeticDynamics:DY.0/conjugacy-of-rational-maps`, `ArithmeticDynamics:DY.0/fixed-points-of-a-rational-map`.
 
 Sources: Benedetto2010, Theorem 1.11(a), pp.6–7. Classifies the case with more than two exceptional points. FRLergodicv3, Definition 2.7 and ensuing classification, p.14. Separates topological degree from total degree and describes the infinite Frobenius exceptional set.
 
-Check: The bound |E|≤2 is never asserted without excluding the pure Frobenius case.
+Checks:
+
+- The bound |E|≤2 is never asserted without excluding the pure Frobenius case.
 
 ### Classical invariance laws
 
@@ -341,23 +328,23 @@ Target `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion` (theorem).
 
 For a family G of rational functions on P¹(K), local chordal uniform equicontinuity at x is equivalent to the existence of a projective disc D containing x such that, for every g∈G, g(D) lies in one residue class. For the family of iterates, x∈F_I iff some sufficiently small disc has this property. Equivalently there is a disc whose forward saturation omits an infinite set of classical points.
 
-Hypotheses: K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
+Hypotheses:
+
+- K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
 
 Construction or proof:
 
-1. Normalize a target residue class; a rational function omitting the Gauss boundary has a bounded analytic expansion on the disc. The ultrametric coefficient bound gives a common Lipschitz constant after shrinking.
+1. Normalize a target residue class. The pole-free rational expansion and ultrametric coefficient bound give a common chordal Lipschitz constant on a smaller disc. Conversely a common small chordal image bound places each image in the residue class of its center (Lemmas 4.18–4.19).
+2. For the converse omitted-value criterion, move two omitted values to a finite point and infinity. Disc images of pole-free expansions are discs; an omitted finite value gives the common Lipschitz bound of Theorem 4.27 and Corollary 4.28. Infinite omission in particular provides two distinct values.
+3. For a stable disc D, no returned image can strictly contain D: the coefficient giving strict expansion would force some further returned image to leave its residue class (Lemma 4.30). If D never meets a positive iterate, shrink to D′⊊D and the saturation omits D∖D′. Otherwise some return image is contained in D, and all forward images lie in finitely many residue classes; a different residue class is omitted. Both complements are uncountable (Theorem 4.29).
 
-2. Conversely a common small chordal image bound puts each image into the residue class of its center.
-
-3. For iterates use the backward-invariant omitted set: either it contains a nonexceptional point, giving infinitely many omitted preimages, or the residue-disc description produces a whole omitted disc.
-
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/exceptional-classification`, `TropicalAndBerkovichArithmetic:TB.1`, `ArithmeticDynamics:DY.2/residue-disc-expansion`.
+Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `TropicalAndBerkovichArithmetic:TB.1`.
 
 Sources: Benedetto2010, Lemmas 4.18–4.19, pp.37–38; Theorem 4.29, pp.41–42. Relates equicontinuity, residue-disc images and infinite omitted sets.
 
-Check: Disc images and coefficient estimates use nonarchimedean analysis; do not import complex Montel for this proof.
+Checks:
+
+- Disc images and coefficient estimates use nonarchimedean analysis; do not import complex Montel for this proof.
 
 ### Periodic points and multipliers
 
@@ -365,23 +352,23 @@ Target `ArithmeticDynamics:DY.2/nonarchimedean-periodic-dichotomy` (theorem).
 
 A classical periodic point a of f over K is in J_I iff its cycle multiplier λ satisfies |λ|>1; it is in F_I iff |λ|≤1. This includes indifferent points. Through the type-I embedding the same alternatives locate a in J_Ber or F_Ber.
 
-Hypotheses: K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
+Hypotheses:
+
+- K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
 
 Construction or proof:
 
 1. Replace f by the return iterate and move a to 0. If |λ|≤1 choose a small invariant disc using the convergent local expansion. Iterates are uniformly Lipschitz there.
-
 2. If |λ|>1, every punctured sufficiently small disc is eventually expanded outside itself; take initial points arbitrarily close to a to contradict local uniform equicontinuity.
-
 3. The Berkovich statement uses the classical-trace comparison, not a multiplier definition on nonclassical points.
 
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `ArithmeticDynamics:DY.2/berkovich-classical-trace`, `ArithmeticDynamics:DY.2/multiplier-of-a-periodic-cycle`, `ArithmeticDynamics:DY.2/residue-disc-expansion`.
+Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `ArithmeticDynamics:DY.2/berkovich-classical-trace`, `ArithmeticDynamics:DY.2/multiplier-of-a-periodic-cycle`, `TropicalAndBerkovichArithmetic:TB.1`.
 
 Sources: Benedetto2010, Proposition 4.24, pp.39–40. Proves both alternatives by invariant and expanding discs.
 
-Check: Over C an indifferent periodic point need not be Fatou; this endpoint is restricted to the nonarchimedean field.
+Checks:
+
+- Over C an indifferent periodic point need not be Fatou; this endpoint is restricted to the nonarchimedean field.
 
 ### Empty classical Julia set at good reduction
 
@@ -435,25 +422,25 @@ Check: This is not a residue-characteristic-zero theorem or a converse to good r
 
 Target `ArithmeticDynamics:DY.2/berkovich-fatou-julia-properties` (theorem).
 
-On P¹,an_K the Fatou/Julia sets are open/closed complements and are completely invariant under f; F(f^m)=F(f), J(f^m)=J(f) for m≥1; PGL₂ conjugacy transports them. Every classical exceptional point is in F_Ber.
+On P¹,an_K the Fatou/Julia sets are open/closed complements and are completely invariant under f. PGL₂ conjugacy transports them. Every classical exceptional point is in F_Ber. The iterate law is proved separately by the canonical-measure comparison below.
 
-Hypotheses: K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
+Hypotheses:
+
+- K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
 
 Construction or proof:
 
-1. Images of open sets are open for the finite rational analytic map; finite fibres preserve infinitude when pulling back an omitted set. This proves forward and backward stability.
+1. Let U be stable and A the infinite complement of its forward saturation S(U). The analytic map is open, so f(U) is open and still omits A. The set A is backward invariant. Finite fibres and surjectivity make f⁻¹(A) infinite; it misses both f⁻¹(U) and S(U), hence the whole saturation of f⁻¹(U). This proves forward and backward stability without an iterate argument.
+2. PGL₂ acts by homeomorphisms on the analytic carrier, so it transports open neighborhoods, saturations and infinite complements.
+3. If E is finite, its cycles have singleton inverse fibres and full local degree, hence zero return multiplier. The nonarchimedean periodic dichotomy and classical-trace comparison put them in F_Ber. In the Frobenius alternative every classical point is stable by the inseparable-map theorem, and the same trace comparison applies.
 
-2. Group iterates into finitely many residue classes modulo m; infinite omitted complement for f^m yields a stable smaller neighborhood for f using finite fibres.
+Direct prerequisites: `ArithmeticDynamics:DY.2/berkovich-fatou-julia`, `ArithmeticDynamics:DY.2/exceptional-classification`, `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `TropicalAndBerkovichArithmetic:TB.0`, `TropicalAndBerkovichArithmetic:TB.1`, `ArithmeticDynamics:DY.2/nonarchimedean-periodic-dichotomy`, `ArithmeticDynamics:DY.2/berkovich-classical-trace`, `ArithmeticDynamics:DY.2/classical-julia-inseparable`.
 
-3. Homeomorphism transport is formal. Classical exceptional cycles are totally ramified and superattracting, giving stable classical discs and then stable Berkovich discs.
+Sources: Benedetto2010, Proposition 6.15(a),(b),(d), p.63; Proposition 6.24(a), p.69. Records invariance and exclusion of classical exceptional points; carrier in 6.15(a) is corrected to the analytic line.
 
+Checks:
 
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/berkovich-fatou-julia`, `ArithmeticDynamics:DY.2/exceptional-classification`, `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `TropicalAndBerkovichArithmetic:TB.0`, `TropicalAndBerkovichArithmetic:TB.1`.
-
-Sources: Benedetto2010, Proposition 6.15, p.63; Proposition 6.24(a), p.69. Records invariance and exclusion of classical exceptional points; carrier in 6.15(a) is corrected to the analytic line.
-
-Check: Do not put type-II finite-grand-orbit points into the classical exceptional set.
+- Do not put type-II finite-grand-orbit points into the classical exceptional set.
 
 ### Classical trace of Berkovich stability
 
@@ -615,25 +602,47 @@ Target `ArithmeticDynamics:DY.2/canonical-measure-julia-support` (theorem).
 
 For every f of degree ≥2 over K, the native measure support of the parent canonical measure is exactly J_Ber: supp μ_f=J_Ber. The support is nonempty and compact, f⁻¹(supp μ_f)=supp μ_f=f(supp μ_f), and μ_f gives the classical exceptional set mass zero.
 
-Hypotheses: K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
+Hypotheses:
+
+- K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
 
 Construction or proof:
 
 1. The previous containment theorem gives supp μ⊆J and nonempty support.
-
 2. Local-degree measure pullback has support f⁻¹(supp μ); balance f*μ=dμ gives backward invariance of support. Closedness comes from the native support theorem; compactness follows from the native compact analytic carrier.
-
 3. The parent canonical-measure-is-probability theorem gives no type-I atoms; E is countable, so μ(E)=0. Conull support then has a point outside E.
-
 4. Apply Julia minimality to S=supp μ for the reverse containment. Pushforward invariance and surjectivity give the image equality.
-
-
 
 Direct prerequisites: `ArithmeticDynamics:DY.2/canonical-support-contained-julia`, `ArithmeticDynamics:DY.2/berkovich-blowing-up-minimality`, `ArithmeticDynamics:DY.2/exceptional-classification`, `ArithmeticDynamics:DY.2/canonical-measure-invariance`, `ArithmeticDynamics:DY.2/canonical-measure-is-probability`, `mathlib:MeasureTheory.Measure.isClosed_support`, `mathlib:MeasureTheory.Measure.support_mem_ae_of_innerRegular`, `TropicalAndBerkovichArithmetic:TB.0`, `TropicalAndBerkovichArithmetic:TB.1`.
 
-Sources: DKYv2, §2.4, p.9. Uses equality of canonical-measure support and the Berkovich Julia set. FRLergodicv3, Theorem A, pp.2–4; §3.2, p.22. Identifies the equilibrium measure support with Julia.
+Sources: DKYv2, §2.4, p.9. Legendre Lattès specialization and local canonical-measure normalization; this consuming family is not a proof of the general rational-map theorem. FRLergodicv3, Theorem A, pp.2–4; §3.2, p.22. Identifies the equilibrium measure support with Julia.
 
-Check: Good reduction yields a type-II Dirac mass, compatible with no type-I atoms.
+Checks:
+
+- Good reduction yields a type-II Dirac mass, compatible with no type-I atoms.
+
+### Berkovich Julia sets under iteration
+
+Target `ArithmeticDynamics:DY.2/berkovich-julia-iterate` (theorem).
+
+For every m≥1, μ_{f^m}=μ_f, J_Ber(f^m)=J_Ber(f) and F_Ber(f^m)=F_Ber(f).
+
+Hypotheses:
+
+- K complete and algebraically closed with a nontrivial nonarchimedean absolute value; f∈K(z), degree d≥2; arbitrary characteristic unless restricted.
+
+Construction or proof:
+
+1. The parent escape-rate-iterate-lift theorem identifies the normalized escape-rate potentials of a lift and its m-fold composition. Applying the already-owned canonical-measure construction gives μ_{f^m}=μ_f.
+2. Apply canonical-measure Julia-support equality to f and f^m. Their native supports agree; taking complements gives the Fatou equality. This uses no unproved implication from finite fibres to iterate stability.
+
+Direct prerequisites: `ArithmeticDynamics:DY.2/escape-rate-iterate-lift`, `ArithmeticDynamics:DY.2/canonical-measure`, `ArithmeticDynamics:DY.2/canonical-measure-julia-support`.
+
+Sources: Benedetto2010, Proposition 6.15(c), p.63. States equality of the Berkovich Fatou and Julia sets for positive iterates. FRLergodicv3, Proposition-Definition 3.1, equations (3.1)–(3.2), pp.20–21; §3.2, p.22. The equilibrium limit for an iterate is the corresponding subsequence of the same normalized pullback construction; its support is Julia.
+
+Checks:
+
+- The proof runs through measure support after support equality, not as a prerequisite of that equality.
 
 ### Singleton and perfect Julia sets
 
@@ -661,31 +670,54 @@ Check: Perfect means closed with no isolated points in the weak topology; no sec
 
 ## Complex support and entropy
 
+### Repelling periodic points are dense in Julia
+
+Target `ArithmeticDynamics:DY.2/complex-repelling-periodic-density` (theorem).
+
+For a rational map on the complex sphere of degree at least two, the closure of its repelling periodic points is exactly the classical Julia set.
+
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+
+Construction or proof:
+
+1. At a repelling periodic point the derivatives of return iterates grow without bound, ruling out a normal neighborhood; hence repelling periodic points lie in Julia.
+2. The reverse inclusion is the density theorem used in Lyubich §3. The cited paper states this classical input without its proof. Record its full dynamical proof as the explicit gap below; do not infer density from Montel alone or use the downstream uniform blowing-up theorem to prove its own input.
+
+Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/multiplier-of-a-periodic-cycle`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`, `ConformalMappingPartII:V0`.
+
+Sources: Lyubich1983, §3, density theorem, p.355; its use in Proposition 1, p.356. States density of repelling periodic points (called sources) and uses it to obtain uniform blowing up.
+
+Checks:
+
+- This is a justified source statement with an explicitly open proof prerequisite; it does not assert closed coverage.
+
 ### Complex blowing up and inverse branches
 
 Target `ArithmeticDynamics:DY.2/complex-julia-blowing-up` (theorem).
 
-For f on P¹(C), J is nonempty, perfect and completely invariant; E has at most two points and lies in F. For every open U meeting J and every compact K⊆P¹(C)\E, there exists N with K⊆f^n(U) for all n≥N. The backward orbit of each a outside E is dense in J. On a disc avoiding critical values, each inverse branch is holomorphic and branches with disjoint images form a spherical normal family; branches approaching J shrink on smaller compact discs.
+For f on P¹(C), J is nonempty, perfect and completely invariant; E has at most two points and lies in F. For every open U meeting J and every compact K⊆P¹(C)∖E, there exists N with K⊆f^n(U) for all n≥N. For each a outside E, J is contained in the closure of its backward orbit (with equality if a∈J). Any family of holomorphic inverse branches of f^m defined on a domain U is spherical normal. If U meets J, their image diameters on every V compactly contained in U tend uniformly to zero as m→∞. Write Z_ℓ=⋃_{j=1}^ℓ f^j(Crit f) and τ=#f(Crit f). On any simply connected U disjoint from Z_ℓ, the number σ_m(U) of inverse branches satisfies σ_m(U)≥d^m(1−2τd^(−ℓ)) for m,ℓ≥1.
 
-Hypotheses: f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
 
 Construction or proof:
 
-1. Import meromorphic Montel for three omitted target values. An open U meeting J cannot have all forward images omitting three distinct values; exceptional classification isolates the permanent omissions.
+1. Meromorphic Montel bounds the permanent omitted values of forward images of a Julia neighborhood by two; backward invariance of this finite omitted set puts it in E. Exceptional cycles are superattracting and lie in F. If J were empty, compactness would give a uniformly convergent subsequence of global iterates. Uniformly close sphere maps are homotopic, contradicting deg(f^n)=d^n. Backward density and E⊂F rule out isolated Julia points.
+2. For uniform blowing up choose a repelling periodic point in U by the density theorem. A small V⊆U satisfies f^p(V)⊃V for its period p. Enlarge K to compact L outside E with f(L)⊃L using invariant exceptional-neighborhood bases. Montel for f^p and equality of exceptional sets under iteration show ⋃_{j≥0}f^{pj}(V) covers L. These open sets increase, so a single one covers L. Applying f(L)⊃L gives the claimed inclusion for every sufficiently large exponent.
+3. For normality of all inverse branches, locally choose a periodic orbit of at least three points avoiding the domain neighborhood. Every inverse branch omits this orbit, since its forward image is outside the orbit. Montel applies; disjointness of branch images is not the omitted-value hypothesis.
+4. If U meets J and an inverse-branch subsequence of increasing order has a nonconstant limit, Hurwitz gives a neighborhood Y of the limiting image of a Julia point with Y contained in each branch image of a smaller domain U′. Complete invariance and closedness put that limiting image in J. Thus f^{m_j}(Y)⊆U′, contradicting uniform blowing up to a nonexceptional point outside U′. Normality then gives uniform shrinking on compact V.
+5. There are d^m branches when m≤ℓ. At each later step at most τ of the mutually disjoint branch images contain a critical value; the rest each admit d further branches. Induction gives d^m−σ_m≤τ∑_{i=1}^{m−ℓ}d^i≤2τd^{m−ℓ}.
 
-2. Use finite holomorphic local degree and critical values to form inverse branches on discs. Their disjoint images omit common values, hence are normal.
+Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/exceptional-classification`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `ConformalMappingPartII:V0`, `mathlib:ArzelaAscoli.isCompact_of_equicontinuous`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`, `ArithmeticDynamics:DY.2/complex-repelling-periodic-density`, `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine`.
 
-3. A nonconstant subsequential inverse-branch limit would give an open image with bounded forward iterates and thus a Fatou neighborhood; this contradicts approach to J. Compactness upgrades the shrinking and covering statements.
+Sources: Lyubich1983, §3, Propositions 1–4, pp.354–358. Proposition 1 uses the separately recorded density theorem for uniform compact blowing up; Propositions 2–3 give normality and shrinking with a Julia point in the domain; Proposition 4 gives the stated branch-count deficit.
 
-4. Nonemptiness follows because globally normal iterates on the compact sphere would have uniformly bounded degree under local normal convergence, while deg(f^n)=d^n. Backward density gives perfection.
+Checks:
 
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/exceptional-classification`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `ConformalMappingPartII:V0`, `mathlib:ArzelaAscoli.isCompact_of_equicontinuous`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`.
-
-Sources: Lyubich1983, §3, Propositions 1–4, pp.354–358. Supplies uniform compact blowing up, normal inverse branches and the inverse-branch counting estimates.
-
-Check: The ConformalMapping L1 bounded holomorphic-family theorem alone is not meromorphic Montel with three omitted sphere values.
+- The ConformalMapping L1 bounded holomorphic-family theorem alone is not meromorphic Montel with three omitted sphere values.
 
 ### Lyubich transfer limit
 
@@ -693,29 +725,26 @@ Target `ArithmeticDynamics:DY.2/complex-transfer-limit` (theorem).
 
 For f on P¹(C) define the native continuous-function operator Aψ(z)=d⁻¹∑_{f(w)=z}deg_w(f)ψ(w). There is a Radon probability ν_f such that A^nψ converges to the constant ∫ψ dν_f uniformly on every compact subset of P¹(C)\E. It is atom-free and balanced and supp ν_f=J. In particular d⁻n(f^n)*δ_a converges weakly to ν_f for a outside E. No new transfer-operator carrier is required; use continuous linear maps on native continuous functions.
 
-Hypotheses: f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
 
 Construction or proof:
 
 1. Finite local-degree branches make Aψ continuous even across critical values and give ||A||≤1, positivity and A1=1.
-
 2. First use a compact L⊆P¹(C)∖E with f⁻¹L⊆L. Inverse-branch counting and normality prove equicontinuity of A_L^nψ. At critical preimages use continuous roots; at a nonexceptional period-r point the return multiplicity t<d^r makes the unresolved branch weight (t/d^r)^k tend to zero. Arzelà–Ascoli gives relatively compact orbits in C(L).
-
 3. Use the almost-periodic Banach contraction splitting of Lyubich §2. Peripheral eigenfunctions must be constant and eigenvalue 1: a modulus maximizer and backward-density force equality on J. The transient part tends to zero.
-
 4. The exceptional cycles have forward-invariant neighborhood bases. Every compact K outside E lies in such a compact backward-invariant L. Julia is contained in each L by backward density. The measures constructed on different L agree by evaluating the same transfer limit at a fixed Julia point, so uniform convergence descends to K.
-
-5. The resulting positive normalized functional is represented by a Radon probability using Riesz–Markov. Duality gives balance and preimage convergence. On Fatou neighborhoods the inverse-branch estimates give zero mass; backward-density gives positive mass to every neighborhood meeting J.
-
-6. A positive maximal atom of a balanced probability forces a finite backward orbit; those points lie in E, outside J. Thus the Julia-supported measure is atom-free.
-
-
+5. The positive normalized limit functional on C(L) is represented by a Radon probability using native Riesz–Markov. Duality gives balance and normalized preimage convergence.
+6. Construct the same limit on L=J, which is compact, backward invariant and disjoint from E. Independence of L gives ν=ν_J, hence supp ν⊆J. Conversely, for nonnegative ψ on J positive at a chosen Julia point, uniform blowing up makes A^Nψ strictly positive everywhere on J; compactness gives a positive minimum. The limit functional is therefore positive on ψ, proving J⊆supp ν. A maximal positive atom of a balanced invariant probability must have full local degree along its forward orbit; the finite critical set then forces a finite grand orbit, so the atom would belong to E, disjoint from J. Thus ν is atom-free.
 
 Direct prerequisites: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `mathlib:ArzelaAscoli.isCompact_of_equicontinuous`, `mathlib:MeasureTheory.ProbabilityMeasure`, `mathlib:RealRMK.rieszMeasure`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`, `mathlib:RealRMK.integral_rieszMeasure`.
 
 Sources: Lyubich1983, Theorem 1 with Lemmas 1–2, pp.358–362; Theorem 2, pp.362–364; §2, pp.352–354. Proves the transfer limit, support and normalized preimage convergence via almost-periodic splitting.
 
-Check: The generic Banach splitting and Radon functional representation are explicit supplier contracts, not hidden in the term convergence.
+Checks:
+
+- The generic Banach splitting and Radon functional representation are explicit supplier contracts, not hidden in the term convergence.
 
 ### Complex canonical measure comparison and support
 
@@ -723,47 +752,72 @@ Target `ArithmeticDynamics:DY.2/archimedean-measure-identification` (comparison)
 
 The parent archimedean measure μ_{f,∞}=Δg_F+ω equals ν_f from the complex transfer limit. Hence its native support is the classical Julia set, and it is the unique atom-free balanced Radon probability. More generally it is the unique balanced Radon probability with zero mass on E, and every nonexceptional point has normalized preimages converging to μ_{f,∞}.
 
-Hypotheses: f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology. The sphere measure-valued Laplacian supplier must first construct the parent measure and establish its positivity, mass one, atomlessness and balance.
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+- The sphere measure-valued Laplacian supplier must first construct the parent measure and establish its positivity, mass one, atomlessness and balance.
 
 Construction or proof:
 
 1. The parent measure is atom-free, hence μ(E)=0 because E is finite. For each continuous ψ, balance says ∫A^nψ dμ=∫ψ dμ.
-
 2. Transfer convergence holds at every point outside E and |A^nψ|≤||ψ||; dominated convergence identifies ∫ψdμ with ∫ψdν. Equality of Radon measures on continuous tests proves μ=ν.
-
 3. The same reasoning proves uniqueness for every exceptional-null balanced probability. Support equality and preimage convergence now transport through the equality.
-
-
 
 Direct prerequisites: `ArithmeticDynamics:DY.2/archimedean-canonical-measure`, `ArithmeticDynamics:DY.2/archimedean-canonical-measure-properties`, `ArithmeticDynamics:DY.2/complex-transfer-limit`, `ArithmeticDynamics:DY.2/exceptional-classification`, `tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory`, `mathlib:MeasureTheory.Measure.support`, `mathlib:MeasureTheory.Measure.ext_of_integral_eq_on_compactlySupported`.
 
-Sources: BakerRumely2004v2, Theorem 2.1, p.4. Lists the atom-free balanced measure and preimage characterization. Lyubich1983, Theorems 1–2, pp.358–364. The transfer limit identifies the balanced exceptional-null measure. DKYv2, §2.4, p.9. Uses the complex canonical measure and Julia support.
+Sources: BakerRumely2004v2, Theorem 2.1, p.4; Proposition 3.36(B), p.18. The potential-theoretic measure is identified with Lyubich’s measure in the archimedean case; balance and the exceptional-null preimage characterization give the comparison. Lyubich1983, Theorems 1–2, pp.358–364. The transfer limit identifies the balanced exceptional-null measure. DKYv2, §2.4, p.9. Legendre Lattès specialization and local canonical-measure normalization; this consuming family is not a proof of the general rational-map theorem.
 
-Check: This is a refinement supplying the parent endpoints, not a second canonical-measure construction.
+Checks:
+
+- This is a refinement supplying the parent endpoints, not a second canonical-measure construction.
+
+### Polynomial-size Bowen nets for rational sphere maps
+
+Target `ArithmeticDynamics:DY.2/complex-bowen-net-bound` (theorem).
+
+For every δ>0 there is a constant C_δ>0 such that, for every integer m≥1, the compact complex sphere has a finite net in the spherical Bowen metric max_{0≤j<m}Δ(f^j x,f^j y), of radius δ and cardinality at most C_δ m⁵d^m. The constant may depend on f and δ, but not on m.
+
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+
+Construction or proof:
+
+1. Fix a finite spherical net X containing the critical points and at least three distinct values. Inverse branches on discs avoiding X_m=⋃_{j=1}^m f^j(X) omit X. Normalize each source disc to the unit disc. The requested spherical Montel theorem gives equicontinuity on a smaller disc, hence a uniform shrink factor k for this fixed omitted net; this replaces the Koebe-based proof of Lyubich Proposition 8 without planning a new distortion theory.
+2. Use the planar annulus-cover estimate of §6 and a finite smooth sphere atlas: outside an ε-neighborhood of a finite set Z there is a variable-radius net of size ≤C|Z|²(log(δ/ε)+A)+R, with radii bounded by k times distance to Z (Proposition 7). For Z=X_m, |X_m|=O(m), and ε_m=δ/(2L^m) for a spherical Lipschitz bound L>1, this gives O(m³) centers.
+3. For each orbit, record the last time outside the critical-net neighborhood, a center at that time, a branch of the preceding iterate, and the next nearby point of X_m. Inverse-branch equicontinuity controls the earlier orbit and the Lipschitz bound controls the later orbit. There are at most C(δ)m⁵d^m such records, hence a spherical Bowen net of that size (Theorem 7).
+
+Direct prerequisites: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ConformalMappingPartII:V0`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence`.
+
+Sources: Lyubich1983, §6, planar covering lemma and Proposition 7, pp.368–372; Proposition 8, pp.372–374; net construction and Theorem 7, pp.374–376. The cover construction gives O(m⁵d^m) full-sphere Bowen nets. The fixed omitted-net branch estimate is derived here from the separately requested spherical Montel theorem.
+
+Checks:
+
+- Use full-sphere nets, including critical and exceptional orbits; estimates only off the postcritical set do not bound global entropy.
+- The variable-radius covering argument is part of this key dynamical estimate; no missing Koebe theorem is assumed.
 
 ### Degree and topological entropy
 
 Target `ArithmeticDynamics:DY.2/complex-topological-entropy` (theorem).
 
-For the sphere map f, Mathlib’s native topological entropy Dynamics.coverEntropy f P¹(C) equals the EReal image of log d.
+For the rational self-map f of the native compact sphere, Dynamics.coverEntropy f Set.univ equals the EReal image of the natural logarithm log d.
 
-Hypotheses: f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
 
 Construction or proof:
 
-1. Use the spherical Bowen metric max_{0≤j<n}Δ(f^j x,f^j y). Inverse-branch counting and a finite critical-disc decomposition give the source bound C(ε)n⁵d^n for maximal separated sets.
+1. Apply the polynomial-size Bowen-net bound. Native covering/net entropy comparison and limsup of logarithmic growth give the upper bound log d, since log(C_δ m⁵)/m tends to zero.
+2. Balance and atomlessness of the transfer probability give uniform weights 1/d on almost every inverse fibre. The generic conditional-entropy inequality gives h_ν(f)≥log d, and the measure-to-topological inequality gives the matching lower bound. This does not use the downstream entropy-equality endpoint.
 
-2. Take limsup of logarithmic covering counts divided by n; native net/cover entropy comparison gives the upper bound log d.
+Direct prerequisites: `ArithmeticDynamics:DY.2/complex-bowen-net-bound`, `ArithmeticDynamics:DY.2/complex-transfer-limit`, `mathlib:Dynamics.coverEntropy`, `ProbabilisticAndMetricNumberTheory:PM.4`.
 
-3. Uniform conditional weights on generic inverse fibres give h_ν(f)≥log d; the generic measure-to-topological entropy inequality then gives the lower bound.
+Sources: Lyubich1983, §6, planar covering lemma and Proposition 7, pp.368–372; Proposition 8, pp.372–374; Theorem 7 and proof, pp.375–376; Theorem 4, p.367. Gives the variable-radius nets and polynomial-times-degree Bowen bound. The fixed-net inverse-branch estimate can instead use spherical Montel as described here; Theorem 4 supplies the fibre-entropy lower bound.
 
+Checks:
 
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ArithmeticDynamics:DY.2/complex-transfer-limit`, `mathlib:Dynamics.coverEntropy`, `ProbabilisticAndMetricNumberTheory:PM.4`.
-
-Sources: Lyubich1983, Theorem 7 and proof, pp.375–376. Bounds separated-set growth by a polynomial factor times d^n; §5, Theorem 4, p.367 supplies the matching measure-entropy lower bound.
-
-Check: The entropy is for the full compact sphere and the logarithm is natural. A polynomial count factor vanishes after division by n.
+- The entropy is for the full compact sphere and the logarithm is natural. A polynomial count factor vanishes after division by n.
 
 ### Entropy of the canonical measure
 
@@ -795,25 +849,25 @@ Target `ArithmeticDynamics:DY.2/complex-maximal-entropy-uniqueness` (theorem).
 
 If η is any f-invariant Borel probability on P¹(C) with h_η(f)=log d, then η=ν_f=μ_{f,∞}. Thus the parent archimedean maximal-entropy endpoint is supplied by the identification, the entropy value and this uniqueness theorem.
 
-Hypotheses: f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology. Invariant means pushforward invariance, not balance; competitors need not be atom-free.
+Hypotheses:
+
+- f∈C(z), algebraic degree d≥2, acting holomorphically on the compact Riemann sphere with spherical topology.
+- Invariant means pushforward invariance, not balance; competitors need not be atom-free.
 
 Construction or proof:
 
 1. For a distinct ergodic η, singularity with ν and local inverse branches produce a positive-η set whose preferred inverse-branch blocks occur with frequency above the uniform 1/N threshold.
-
 2. Apply the existing Birkhoff node to the indicator of this positive-η set. Count branch words with this excessive frequency using binomial estimates/Stirling: their growth rate is θ<N.
-
 3. The critical-disc Bowen-net construction contributes only a polynomial factor. Lyubich’s positive-measure-set entropy lemma, proved using Shannon–McMillan–Breiman, gives hη(f)<log d.
-
 4. For general invariant η use the generic ergodic decomposition and entropy integration theorem; almost every ergodic component of a maximizing η must maximize and thus equal ν.
 
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/complex-canonical-measure-entropy`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4`.
+Direct prerequisites: `ArithmeticDynamics:DY.2/complex-canonical-measure-entropy`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ProbabilisticAndMetricNumberTheory:PM.4/birkhoff-pointwise-ergodic`, `ProbabilisticAndMetricNumberTheory:PM.4`, `ArithmeticDynamics:DY.2/complex-bowen-net-bound`.
 
 Sources: Lyubich1983, §7, Lemma 1 and Theorem 9 with proof, pp.379–384. Uses positive-measure Bowen entropy, excess-frequency branch-word counting and ergodic decomposition for uniqueness.
 
-Check: A uniqueness proof restricted to balanced measures does not prove this theorem.
+Checks:
+
+- A uniqueness proof restricted to balanced measures does not prove this theorem.
 
 ### Power-map acceptance across places
 
@@ -821,23 +875,24 @@ Target `ArithmeticDynamics:DY.2/power-map-julia-measure-comparison` (application
 
 For f(z)=z^d, d≥2, on P¹(C), J is the unit circle and μ is normalized angular probability there; F consists of |z|<1 and |z|>1 including infinity, and E={0,∞}. On P¹(K) the same map has good reduction, J_I=∅, J_Ber={ζ_G}, and μ=δ_{ζ_G}. In characteristic p and d=p^r, the nonarchimedean classical exceptional set is P¹(overline(F_p)), even though the Berkovich Julia set remains the Gauss singleton.
 
-Hypotheses: Separate complex and nonarchimedean specializations of the same power map; d≥2.
+Hypotheses:
+
+- Separate complex and nonarchimedean specializations of the same power map; d≥2.
 
 Construction or proof:
 
 1. The parent escape-rate formula is log max(|z|,1). Its complex normalized Laplacian is angular probability on the unit circle; its nonarchimedean Laplacian is Gauss Dirac minus infinity Dirac.
-
 2. Iterates converge to 0 or infinity off the complex unit circle, while radial perturbations on the circle are eventually separated.
-
 3. Use good reduction for the nonarchimedean conclusions and exceptional classification for the characteristic-p warning.
-
-
 
 Direct prerequisites: `ArithmeticDynamics:DY.6/power-map`, `ArithmeticDynamics:DY.2/escape-rate-of-good-reduction`, `ArithmeticDynamics:DY.2/canonical-measure-of-good-reduction`, `ArithmeticDynamics:DY.2/classical-julia-good-reduction`, `ArithmeticDynamics:DY.2/berkovich-julia-good-reduction`, `ArithmeticDynamics:DY.2/archimedean-measure-identification`, `ArithmeticDynamics:DY.2/exceptional-classification`, `tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory`.
 
-Sources: Benedetto2010, Proposition 4.22, p.39 and Proposition 6.23, p.68. Computes the contrasting classical and Berkovich good-reduction behavior. DKYv2, §2.4, p.9. Sets the canonical local measure normalization.
+Sources: Benedetto2010, Proposition 4.22, p.39 and Proposition 6.23, p.68. Computes the contrasting classical and Berkovich good-reduction behavior. DKYv2, §2.4, p.9. Legendre Lattès specialization and local canonical-measure normalization; this consuming family is not a proof of the general rational-map theorem.
 
-Check: Test total mass one and Δlog⁺|z|=ω−δ∞ on the sphere; using 2π times angular mass fails. This imports the existing power-map object; no new power-map definition is introduced.
+Checks:
+
+- Test total mass one and Δlog⁺|z|=ω−δ∞ on the sphere; using 2π times angular mass fails.
+- This imports the existing power-map object; no new power-map definition is introduced.
 
 ## Sharp period refinement
 
@@ -847,27 +902,26 @@ Target `ArithmeticDynamics:DY.2/zieve-weighted-coefficient-divisibility` (theore
 
 Let p be an odd prime and H=X+∑b_iX^i be the generic polynomial over Z[b_0,…,b_D]. For 0≤β≤p−1, every monomial c∏b_i^α_i with coefficient c not divisible by p in [X^β](H^p−X) satisfies ∑_{i=0}^{p−1}α_i≥p and 2α_0+α_1≥p−1. Every composition monomial has weight ∑(i−1)α_i=β−1. For β=0 the only monomials with α_0=1 are binom(p,l+1)b_0b_1^l; in particular the term p b_0 is distinguished. Here H^p means p-fold composition, not ordinary multiplication.
 
-Hypotheses: Generic finite-degree polynomial; p odd prime.
+Hypotheses:
+
+- Generic finite-degree polynomial; p odd prime.
 
 Construction or proof:
 
 1. Track substitution monomials by weighted degree to obtain ∑(i−1)α_i=β−1 and the β=0 binomial exceptions (Lemma 42).
-
 2. Reduce modulo p; high-index coefficients i≥p cannot occur in the relevant low-degree monomials with α_0<p (Lemma 39).
-
 3. For total low-index degree use the substitution matrix on R[X]/(X^p), with R=F_p[b_0,…,b_{p−1}]/(b_0,…,b_{p−1})^p. The operator is I+N with N^p=0, so its p-th power is I (Lemma 40).
-
 4. For weighted low degree embed b_0=u b_1² modulo b_1^(p−1), invert b_2, and use nilpotent quadratic preparation to find a root δ in the ideal (b_1) after a monic quadratic extension.
-
 5. Translate X by δ: substitution becomes triangular with diagonal 1,(1+ε),…,(1+ε)^(p−1), ε^(p−1)=0. The cyclotomic product gives characteristic polynomial t^p−1; Cayley–Hamilton gives the required identity (Lemma 41). The exact preparation step is retained as an algebra supplier gap.
 
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/p-power-iterate-valuation-recursion`.
+Direct prerequisites: `mathlib:Polynomial.comp`, `mathlib:Polynomial.coeff`, `mathlib:Nat.iterate`.
 
 Sources: Zieve1996, Lemmas 29–30, pp.22–23; Lemmas 39–42 and proofs, pp.28–31. The monomial constraints separate p-divisible terms from terms whose coefficient valuation is controlled by low jets.
 
-Check: Keep p-fold composition distinct from the polynomial power. This node refines the parent valuation recursion rather than reproducing its bound.
+Checks:
+
+- Keep p-fold composition distinct from the polynomial power.
+- This node refines the parent valuation recursion rather than reproducing its bound.
 
 ### Sharp p-power jet growth
 
@@ -875,27 +929,26 @@ Target `ArithmeticDynamics:DY.2/zieve-jet-growth` (theorem).
 
 Let R be a characteristic-zero DVR of residue characteristic p, v(π)=1 and e_K=v(p)≥1. For H∈R[X] with H(0)∈m and H′(0)≡1 mod m, write c_i(j)=[X^i](H^(p^j)−X), C_i(j)=v(c_i(j)), with v(0)=∞. If p is odd and p^(j−1)≤2e_K/(p−1), then C_0(j),C_1(j)≥(p^j+1)/2 and C_i(j)≥(p^j−1)/2 for 2≤i≤p−1. At the first index ℓ with p^ℓ>2e_K/(p−1), any finite C_0(ℓ) remains finite and then increases by exactly e_K per p-fold iteration. If p=2, C_0(j),C_1(j)≥2^j while 2^(j−1)≤e_K; at the first ℓ with 2^ℓ>e_K a finite C_0(ℓ) likewise grows by exactly e_K. Therefore a point in m of exact H-period p^n, n≥1, satisfies p^(n−1)≤2e_K/(p−1), sharpened to 2^(n−1)≤e_K when p=2.
 
-Hypotheses: DVR in mixed characteristic; H is integral and tangent to the identity modulo m; conjugate the selected cycle point to 0.
+Hypotheses:
+
+- DVR in mixed characteristic; H is integral and tangent to the identity modulo m; conjugate the selected cycle point to 0.
 
 Construction or proof:
 
 1. Odd p: apply weighted coefficient divisibility to bound the next jet by the minimum of p-divisible terms and weighted non-p-divisible monomials. Induct on j as in Proposition 31.
-
 2. Past the first threshold, every constant-term summand except p c_0 has valuation strictly greater than e_K+C_0; Proposition 32 gives exact noncancelling linear valuation growth and persistence of the other jet bounds.
-
 3. For p=2 give the short direct argument omitted by the source: if H=X+c_0+c_1X+… then C_0(next)≥min(e_K+C_0,C_0+C_1,2C_0), and C_1(next)≥min(e_K+C_1,2C_1,e_K+C_0,2C_0). The term with i=2 in the derivative carries the factor 2; i≥3 contributes at least 2C_0.
-
 4. Those inequalities double both lower bounds up to the threshold. Once C_0,C_1>e_K, only 2c_0 can have the least constant-term valuation, so C_0(next)=e_K+C_0 and C_1 stays >e_K.
-
 5. A periodic 0 eventually has C_0=∞. Finite noncancelling growth past ℓ contradicts that, forcing its period to divide p^ℓ. Translate ℓ into the displayed inequalities.
 
-
-
-Direct prerequisites: `ArithmeticDynamics:DY.2/zieve-weighted-coefficient-divisibility`, `ArithmeticDynamics:DY.2/residue-disc-expansion`.
+Direct prerequisites: `ArithmeticDynamics:DY.2/zieve-weighted-coefficient-divisibility`.
 
 Sources: Zieve1996, Propositions 31–32, p.24; Theorem 33, p.25; Theorem 8, pp.8,21. Gives the odd-prime induction and sharp bound. The p=2 conclusion is stated with modifications; the displayed two-jet inequalities supply that modification explicitly.
 
-Check: For e_K=1 obtain n=0 for p≥5 and n≤1 for p=2,3. Zieve Example 35, p.26: 3+(5X−X²)/2 has the cycle (0,3,6) over Z_3; a claimed universally stronger e_K/(p−1) bound for odd p fails.
+Checks:
+
+- For e_K=1 obtain n=0 for p≥5 and n≤1 for p=2,3.
+- Zieve Example 35, p.26: 3+(5X−X²)/2 has the cycle (0,3,6) over Z_3; a claimed universally stronger e_K/(p−1) bound for odd p fails.
 
 ### Polynomial realization of a rational cycle
 
@@ -954,9 +1007,9 @@ Consumers: `ArithmeticDynamics:DY.2/berkovich-fatou-julia`, `ArithmeticDynamics:
 
 ### Request to `TropicalAndBerkovichArithmetic:TB.1`
 
-Discs/affinoids map with their type-I traces; separating type-II points, residue components and weak-open Gauss neighborhoods; chordal rational Lipschitz and analytic disc coefficient estimates. Full-degree annulus maps multiply log modulus by full degree; classify singleton inverse-fibre type II/III/IV points and show finite omitted residue directions’ thin annuli fill except at most one point. For the measure argument supply local-degree pullback on Radon measures, supp(f*ρ)=f⁻¹suppρ, integration duality, BDV potentials with Δlog⁺|T|=δ_G−δ∞, harmonic uniqueness, singular-potential Hartogs and weak Laplacian convergence. These are explicit extensions of the parent TB.1 request and exceed the current tree-only target list.
+Discs/affinoids map with their type-I traces; separating type-II points, residue components and weak-open Gauss neighborhoods; chordal rational Lipschitz and analytic disc coefficient estimates. Full-degree annulus maps multiply log modulus by full degree; classify singleton inverse-fibre type II/III/IV points and show finite omitted residue directions’ thin annuli fill except at most one point. For the measure argument supply local-degree pullback on Radon measures, supp(f*ρ)=f⁻¹suppρ, integration duality, BDV potentials with Δlog⁺|T|=δ_G−δ∞, harmonic uniqueness, singular-potential Hartogs and weak Laplacian convergence. These are explicit extensions of the parent TB.1 request and exceed the current tree-only target list. The pole-free convergent local expansion and its small invariant/expanding-disc bounds are required for arbitrary rational maps, without global good reduction.
 
-Consumers: `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `ArithmeticDynamics:DY.2/berkovich-classical-trace`, `ArithmeticDynamics:DY.2/berkovich-finite-grand-orbit`, `ArithmeticDynamics:DY.2/berkovich-julia-good-reduction`, `ArithmeticDynamics:DY.2/berkovich-preimage-equidistribution`, `ArithmeticDynamics:DY.2/canonical-measure-julia-support`.
+Consumers: `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `ArithmeticDynamics:DY.2/nonarchimedean-disc-criterion`, `ArithmeticDynamics:DY.2/nonarchimedean-periodic-dichotomy`, `ArithmeticDynamics:DY.2/classical-julia-good-reduction`, `ArithmeticDynamics:DY.2/classical-julia-inseparable`, `ArithmeticDynamics:DY.2/berkovich-fatou-julia-properties`, `ArithmeticDynamics:DY.2/berkovich-classical-trace`, `ArithmeticDynamics:DY.2/berkovich-finite-grand-orbit`, `ArithmeticDynamics:DY.2/berkovich-julia-good-reduction`, `ArithmeticDynamics:DY.2/berkovich-preimage-equidistribution`, `ArithmeticDynamics:DY.2/canonical-measure-julia-support`.
 
 ### Request to `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`
 
@@ -968,13 +1021,13 @@ Consumers: `ArithmeticDynamics:DY.2/classical-fatou-julia-properties`, `Arithmet
 
 Import the sphere two-chart ChartedSpace/IsManifold instances and the meromorphic-to-holomorphic comparison specified in the current BelyiMaps retained §8.1. Its current owner is successor BelyiAnalyticCovers, absent from this atlas snapshot; route this request to that owner when its stage id is published. Do not implement another sphere atlas or claim the commented former Suggested instances are built.
 
-Consumers: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ArithmeticDynamics:DY.2/complex-transfer-limit`.
+Consumers: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/complex-repelling-periodic-density`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ArithmeticDynamics:DY.2/complex-transfer-limit`, `ArithmeticDynamics:DY.2/complex-bowen-net-bound`.
 
 ### Request to `ConformalMappingPartII:V0`
 
 Extend the value-distribution direction with spherical meromorphic Montel for three omitted fixed values, constant-infinity limits and compact-open normality/equicontinuity comparison. This is an extension proposal and the named gap, not a claim that present V0 includes the theorem.
 
-Consumers: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`.
+Consumers: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/complex-repelling-periodic-density`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ArithmeticDynamics:DY.2/complex-bowen-net-bound`.
 
 ### Request to `tauceti:TauCetiRoadmap/PDE#lane-c-maximum-principles-and-potential-theory`
 
@@ -988,6 +1041,12 @@ Keep PM.4 Birkhoff and conditional-expectation APIs; route the explicit finite-p
 
 Consumers: `ArithmeticDynamics:DY.2/complex-topological-entropy`, `ArithmeticDynamics:DY.2/complex-canonical-measure-entropy`, `ArithmeticDynamics:DY.2/complex-maximal-entropy-uniqueness`.
 
+### Request to `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l0--the-local-mapping-engine`
+
+Import current ConformalMapping L0 Hurwitz and its local open-mapping/degree consequences to pass from a nonconstant locally uniform inverse-branch limit to a common image neighborhood. This is the existing local-mapping owner, not another Hurwitz plan. The registered atlas stage id is retained; in the current README its locator is the L0 bullet under Layers.
+
+Consumers: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`.
+
 ### Sphere Riesz measures and normalized distributional Laplacian
 
 Inherited analytic gap, narrowed to an exact supplier contract. On native OnePoint C with its complex charts, construct Δ on differences of subharmonic functions with Radon Riesz measures; Δlog|z|=δ_0 on C, Δlog⁺|z|=ω−δ∞ on the sphere, total mass zero, local positivity, divisor Poincaré–Lelong, weak continuity under locally uniform potential limits, pullback Δ(u∘f)=f*Δu with local-degree multiplicity, harmonic uniqueness modulo constants and continuous-potential atomlessness. Arbitrary continuous functions do not have measure-valued Laplacians: require differences of subharmonic potentials. Current PDE lane C is C² Euclidean potential theory; propose PDE, Part II rather than claiming that lane already supplies these statements. Existing parent nodes remain authoritative until this extension is planned and reviewed.
@@ -996,13 +1055,13 @@ Needed by: `ArithmeticDynamics:DY.2/archimedean-measure-identification`, `Arithm
 
 ### Spherical meromorphic Montel beyond bounded holomorphic normal families
 
-Require normality in the compact-open spherical topology for meromorphic maps on a plane domain omitting three fixed distinct sphere values, allowing the constant-infinity limit. Current ConformalMapping L1 covers locally bounded holomorphic families. ConformalMappingPartII:V0 is a value-distribution owner but does not currently state this exact theorem. Route the extension there; identify spherical normality with local uniform equicontinuity using compact-domain Arzelà–Ascoli and the already specified sphere charts, not a new Riemann-sphere construction.
+Require normality in the compact-open spherical topology for meromorphic maps on a plane domain omitting three fixed distinct sphere values, allowing the constant-infinity limit. Current ConformalMapping L1 covers locally bounded holomorphic families. ConformalMappingPartII:V0 is a value-distribution owner but does not currently state this exact theorem. Route the extension there; identify spherical normality with local uniform equicontinuity using compact-domain Arzelà–Ascoli and the already specified sphere charts, not a new Riemann-sphere construction. Include closure under locally uniform spherical limits as holomorphic sphere maps via charts and Hurwitz, and compact-subdomain derivative control; import ConformalMapping L0 rather than duplicating it.
 
-Needed by: `ArithmeticDynamics:DY.2/complex-julia-blowing-up`.
+Needed by: `ArithmeticDynamics:DY.2/classical-fatou-julia`, `ArithmeticDynamics:DY.2/complex-repelling-periodic-density`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`, `ArithmeticDynamics:DY.2/complex-bowen-net-bound`.
 
 ### Almost-periodic Banach contraction decomposition
 
-Lyubich §2, pp.352–354 uses the following generic result, not covered by the current Hilbert self-adjoint OperatorTheory family: a linear contraction with every orbit relatively compact splits into the closed span of unimodular eigenvectors and a subspace whose iterates tend to zero. If only the constant eigenvectors at eigenvalue 1 survive, iterates converge to the corresponding projection. The source proof uses a compact abelian closure of operator powers, Haar averaging and characters. This must be supplied as a Banach/Markov extension of OperatorTheory, Part II; the dynamical inverse-branch and eigenfunction steps are planned here. No Hilbert spectral theorem is cited as supplying it.
+Lyubich §2, pp.352–354 uses the following generic result, not covered by the current Hilbert self-adjoint OperatorTheory family: a continuous linear contraction on a complex Banach space with every orbit relatively compact splits into the closed span of unimodular eigenvectors and a subspace whose iterates tend to zero. If only the constant eigenvectors at eigenvalue 1 survive, iterates converge to the corresponding projection. The source proof uses a compact abelian closure of operator powers, Haar averaging and characters. This must be supplied as a Banach/Markov extension of OperatorTheory, Part II; the dynamical inverse-branch and eigenfunction steps are planned here. No Hilbert spectral theorem is cited as supplying it.
 
 Needed by: `ArithmeticDynamics:DY.2/complex-transfer-limit`.
 
@@ -1017,6 +1076,12 @@ Needed by: `ArithmeticDynamics:DY.2/complex-topological-entropy`, `ArithmeticDyn
 Source access to Zieve’s thesis is resolved. The residual algebra step is precise: in S=F_p[u,b_1,…,b_D,b_2⁻¹]/(b_1^(p−1)), b_0=u b_1², factor g(T)=∑b_iT^i by a monic quadratic T²+b′_1T+b′_0 with b′_1∈(b_1), b′_0∈(b_1²), times a unit formal series. After a monic extension adjoin a root δ∈(b_1). Zieve Lemma 41, pp.29–30 invokes Newton polygons for this preparation over a nilpotent coefficient ring. The current AdicSpaces Weierstrass theorem is over complete valued fields and does not supply this ring statement. A finite nilpotent-ideal lifting proof, with injectivity of the embedding and monic root extension, is needed; it is not claimed as a library baseline fact. This replaces the broad inaccessible-source gap with a localized algebra supplier gap.
 
 Needed by: `ArithmeticDynamics:DY.2/zieve-weighted-coefficient-divisibility`, `ArithmeticDynamics:DY.2/zieve-jet-growth`, `ArithmeticDynamics:DY.2/zieve-rational-cycle-adapter`.
+
+### Complex repelling-periodic density proof
+
+Lyubich §3, p.355 states that repelling periodic points are dense in the Julia set and Proposition 1, p.356 uses it. The local derivative-growth inclusion is elementary; the reverse inclusion needs a full classical dynamical density proof and its precise inputs. It is not supplied by the cited section, by bounded holomorphic Montel, or by the downstream blowing-up result. The owner is ArithmeticDynamics DY.2; the next refinement must read a proof, outline any additional key theorem it uses, and import the existing complex-analysis owners. No converse to repelling-implies-Julia is asserted.
+
+Needed by: `ArithmeticDynamics:DY.2/complex-repelling-periodic-density`, `ArithmeticDynamics:DY.2/complex-julia-blowing-up`.
 
 ## Suggested Lean and acceptance boundary
 
@@ -1054,14 +1119,20 @@ because its text encoding is unsuitable for extraction. No text or image from th
 is included here. No cleared private source was needed. Source hashes and exact editions
 are recorded in the packet.
 
-The two findings concern only the standalone Benedetto AWS lecture notes dated
-9 March 2010, rather than the 2019 book:
+Two confirmed findings concern the standalone Benedetto AWS lecture notes dated
+9 March 2010; a third concerns proof headings in the Zieve author thesis PDF:
 
 
 - `ArithmeticDynamics/E801`, Proposition 6.15(a), printed p.63, AWS notes 9 March 2010: The openness and closedness of the Berkovich sets are stated on P¹(K). The ambient carrier is P¹,an_K with its weak topology. Definition 6.14 constructs subsets of the analytic line and includes type-II points. The good-reduction Julia singleton in Proposition 6.23 is not a classical subset.
 
 - `ArithmeticDynamics/E802`, Proposition 6.24(f), printed p.69, AWS notes 9 March 2010: For a polynomial the displayed conclusion is K_φ=∂J_φ,Ber. The intended boundary relation is J_φ,Ber=∂K_φ, with K_φ the Berkovich filled Julia set. The proof discusses ∂K⊆J, indicating the reversal. For z² of good reduction, K is the full closed Berkovich unit disc whereas J is only ζ_G; the boundary of that singleton is itself. This follow-up does not require a filled-Julia node, so none is added.
 
+
+- `ArithmeticDynamics/E803`, Proof headings following Lemma 47, printed p.37, and Theorem 50, printed p.38, author thesis PDF (1996): Both proof headings refer to Lemma 46 instead of the result just stated. The p.37 proof belongs to Lemma 47; the p.38 proof belongs to Theorem 50. The first proof uses the common cycle and Q_G(x) hypotheses of Lemma 47. The second starts with a projective cycle and proves the sharp period bound of Theorem 50. Lemma 46 is the earlier return-polynomial derivative comparison on pp.35–36.
+
+The Zieve author PDF, homepage and publications page were also checked for corrections.
+No correction of those proof headings was located. All three findings are independently
+confirmed in the packet.
 
 The AWS source archive, author homepage and author’s book errata dated 31 August 2026
 were checked for existing corrections. No correction of these lecture-note locators
@@ -1073,11 +1144,11 @@ follow-up; it records a mistake encountered while reading a required source.
 
 - [Robert L. Benedetto, *Non-archimedean dynamics in dimension one: lecture notes*](https://swc-math.github.io/aws/2010/2010BenedettoNotes-09Mar.pdf), AWS lecture notes, 9 March 2010; read 14 October 2026. Read: §1.4, Theorem 1.11, pp.6–7; §4.4, Definition 4.16, Lemmas 4.18–4.19 and Propositions 4.21–4.24, pp.36–40; §4.5, omitted-value and minimality proofs, pp.40–43; §6.4, Definition 6.14, Propositions 6.15–6.20 and 6.23–6.24, Corollary 6.25, pp.62–69.
 
-- [Laura DeMarco, Holly Krieger, Hexi Ye, *Uniform Manin-Mumford for a family of genus 2 curves*](https://arxiv.org/pdf/1901.09945v2), arXiv:1901.09945v2; read 14 October 2026. Read: §2.4, p.9, local canonical measures and Julia support.
+- [Laura DeMarco, Holly Krieger, Hexi Ye, *Uniform Manin-Mumford for a family of genus 2 curves*](https://arxiv.org/pdf/1901.09945v2), arXiv:1901.09945v2; read 14 October 2026. Read: §2.4, p.9, the Legendre Lattès family’s local canonical measures and Julia support; the general rational-map proofs use FRL and Lyubich.
 
 - [Charles Favre, Juan Rivera-Letelier, *Théorie ergodique des fractions rationnelles sur un corps ultramétrique*](https://arxiv.org/pdf/0709.0092v3), arXiv:0709.0092v3; read 14 October 2026. Read: §1.1, Theorem A, pp.2–4; §2.2, Propositions 2.4 and 2.6, pp.12–14; §2.3, Definitions 2.7–2.8 and Propositions 2.9–2.11, pp.14–16; §2.4, potential-theory and Hartogs interfaces, pp.16–19; §3.1, Proposition-Definition 3.1, equations (3.1)–(3.2), Proposition 3.3, pp.20–22; §3.2, proof of Theorem A and Lemma 3.4, pp.22–25.
 
-- [M. Yu. Lyubich, *Entropy properties of rational endomorphisms of the Riemann sphere*](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7326EA7C0A92B304EF4068A39C1D0910/S0143385700002030a.pdf/entropy-properties-of-rational-endomorphisms-of-the-riemann-sphere.pdf), Ergodic Theory and Dynamical Systems 3 (1983), 351–385, publisher PDF; read 14 October 2026. Read: §2, almost-periodic operator splitting, pp.352–354; §3, Propositions 1–4, pp.354–358; §4, Theorems 1–2 and proofs, pp.358–364; §5, Proposition 5 and Theorem 4, pp.366–367; §6, Theorem 7 and proof, pp.375–376; §7, Lemma 1 and Theorem 9 with proof, pp.379–384.
+- [M. Yu. Lyubich, *Entropy properties of rational endomorphisms of the Riemann sphere*](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7326EA7C0A92B304EF4068A39C1D0910/S0143385700002030a.pdf/entropy-properties-of-rational-endomorphisms-of-the-riemann-sphere.pdf), Ergodic Theory and Dynamical Systems 3 (1983), 351–385, publisher PDF; read 14 October 2026. Read: §2, almost-periodic operator splitting, pp.352–354; §3, Propositions 1–4, pp.354–358; §4, Theorems 1–2 and proofs, pp.358–364; §5, Proposition 5 and Theorem 4, pp.366–367; §6, geometric covering and inverse-branch bounds with Theorem 7, pp.368–376; §7, Lemma 1 and Theorem 9 with proof, pp.379–384.
 
 - [Matthew Baker, Robert Rumely, *Equidistribution of small points, rational dynamics, and potential theory*](https://arxiv.org/pdf/math/0407426v2), arXiv:math/0407426v2; read 14 October 2026. Read: Theorem 2.1, p.4; complex dynamical measure comparison; Proposition 3.36, p.18; local measure normalization.
 
