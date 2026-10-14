@@ -1972,19 +1972,19 @@
       ],
       "title": "Invariant orbital integrals and their normalizations",
       "kind": "definition",
-      "statement": "Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). The orbital integral of a semisimple γ ∈ G(F) is owned by AutomorphicSpectralTheory AS.6 (target AS.6.8a of its package, which moved it below this roadmap in the upstream order) and is imported here: for f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean), O_γ(f) = ∫_{G_γ^0(F)\\G(F)} f(g⁻¹γg) dg/dt, with dt a Haar measure on the identity component G_γ^0(F) of the centralizer and the quotient measure (AdelicAlgebraicGroups:AA.2/quotient-measure); it converges for every semisimple γ, and J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ}. This node fixes the conventions under which ET uses it and plans its extensions: (i) following Waldspurger, O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ; (ii) measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (ET.0/semisimple-conjugacy); (iii) for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra), and the Weyl integration formula expresses ∫_{G(F)} f through the integrals of |D^G(t)| O_t(f) over maximal tori; (iv) the Lie-algebra version: for f ∈ C_c^∞(𝔤(F)) and X ∈ 𝔤(F) semisimple, O_X(f) = ∫_{G_X^0(F)\\G(F)} f(Ad(g)⁻¹X) dg/dt and D(X) = det(ad X)|_{𝔤/𝔤_X}; for F p-adic, the orbital integrals of nilpotent orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; (v) semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).",
+      "statement": "Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). The orbital integral of a semisimple γ ∈ G(F) is owned by AutomorphicSpectralTheory AS.6 (target AS.6.9 of its package, which moved it below this roadmap in the upstream order) and is imported here: for f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean), O_γ(f) = ∫_{G_γ^0(F)\\G(F)} f(g⁻¹γg) dg/dt, with dt a Haar measure on the identity component G_γ^0(F) of the centralizer and the quotient measure (AdelicAlgebraicGroups:AA.2/quotient-measure); it converges for every semisimple γ, and J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ}. This node fixes the conventions under which ET uses it and plans its extensions: (i) following Waldspurger, O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ; (ii) measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (ET.0/semisimple-conjugacy); (iii) for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra), and the Weyl integration formula expresses ∫_{G(F)} f through the integrals of |D^G(t)| O_t(f) over maximal tori; (iv) the Lie-algebra version: for f ∈ C_c^∞(𝔤(F)) and X ∈ 𝔤(F) semisimple, O_X(f) = ∫_{G_X^0(F)\\G(F)} f(Ad(g)⁻¹X) dg/dt and D(X) = det(ad X)|_{𝔤/𝔤_X}; for F p-adic, the orbital integrals of nilpotent orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; (v) semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).",
       "hypotheses": [
         "F local of characteristic 0",
         "G connected reductive with fixed Haar measures on G(F) and on the centralizers"
       ],
       "proofSteps": [
-        "The group orbital integral, its quotient measure and its convergence are imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.8a of its package, after Arthur's introduction §18). Quotient measure: AdelicAlgebraicGroups:AA.2/quotient-measure applies since reductive groups are unimodular; Weil's integration formula AA.2/quotient-integral-integrable gives the integral as an iterated integral (Kottwitz, Clay notes §2).",
-        "Convergence for semisimple γ (the argument behind AS.6.8a, used here for the Lie-algebra version): the orbit O_γ is closed, and G_γ^0(F)\\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3).",
+        "The group orbital integral, its quotient measure and its convergence are imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.9 of its package, after Arthur's introduction §18). Quotient measure: AdelicAlgebraicGroups:AA.2/quotient-measure applies since reductive groups are unimodular; Weil's integration formula AA.2/quotient-integral-integrable gives the integral as an iterated integral (Kottwitz, Clay notes §2).",
+        "Convergence for semisimple γ (the argument behind AS.6.9, used here for the Lie-algebra version): the orbit O_γ is closed, and G_γ^0(F)\\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3).",
         "Boundedness and local constancy of normalized orbital integrals near regular elements: Harish-Chandra; the p-adic statements are in Kottwitz's Clay notes §§3, 15–16 (Harish-Chandra's compactness lemma and semisimple descent).",
         "Nilpotent orbital integrals: the invariant measure on a nilpotent orbit extends to a Radon measure on 𝔤(F) (Deligne–Ranga Rao), recalled in Kottwitz's Clay notes §17; the original papers were not read (sourceVersions)."
       ],
       "acceptance": [
-        "O_X(f) = f(X) for central X ∈ 𝔤(F) and for tori (the group statement is AS.6.8a's test).",
+        "O_X(f) = f(X) for central X ∈ 𝔤(F) and for tori (the group statement is AS.6.9's test).",
         "For GL_2 over a p-adic field and γ = diag(a, b) with a, b ∈ 𝒪^× and |a − b| = 1, the orbital integral of 1_{GL_2(𝒪)} is 1 with the standard measures.",
         "Orbital integrals are invariant under conjugation of γ and of f."
       ],
@@ -2020,7 +2020,7 @@
       "uses": [
         {
           "where": "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
-          "how": "AS.6 owns the unweighted group orbital integral (AS.6.8a of its package, moved below this roadmap in the upstream order, which supersedes the single ownership by ET.1 that RT-AREA-automorphic-1/24 had fixed) and adds the weight v_M; ET.1 imports it and owns the conventions and extensions listed here"
+          "how": "AS.6 owns the unweighted group orbital integral (AS.6.9 of its package, moved below this roadmap in the upstream order, which supersedes the single ownership by ET.1 that RT-AREA-automorphic-1/24 had fixed) and adds the weight v_M; ET.1 imports it and owns the conventions and extensions listed here"
         },
         {
           "where": "ET.1/kappa-and-stable-orbital-integrals",
@@ -2066,12 +2066,12 @@
         {
           "name": "TauCeti.orbitalIntegral",
           "role": "compatibility",
-          "statement": "The group orbital integral O_γ(f) for semisimple γ and f ∈ C_c^∞(G(F)) is AutomorphicSpectralTheory's AS.6.8a `orbital_integral`, imported and not redefined; its invariance, linearity and measure-scaling lemmas are AS.6.8a's."
+          "statement": "The group orbital integral O_γ(f) for semisimple γ and f ∈ C_c^∞(G(F)) is AutomorphicSpectralTheory's AS.6.9 `orbital_integral`, imported and not redefined; its invariance, linearity and measure-scaling lemmas are AS.6.9's."
         },
         {
           "name": "TauCeti.normalizedOrbitalIntegral",
           "role": "compatibility",
-          "statement": "J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f), as in AS.6.8a."
+          "statement": "J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f), as in AS.6.9."
         },
         {
           "name": "TauCeti.orbitalIntegralWaldspurger",
@@ -3134,13 +3134,13 @@
       ],
       "title": "Pseudo-coefficients and Euler–Poincaré functions at the real place",
       "kind": "construction",
-      "statement": "Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme; imported from AutomorphicSpectralTheory AS.6, targets AS.6.16a–AS.6.17 of its package, which moved them below this roadmap in the upstream order) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′; AS.6 also supplies a test function with tr π′ = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every finite-length π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G, its Haar measure transported from that of G_γ(ℝ), and q(G_γ) defined like q(G); for regular elliptic γ the sign is 1, and SO_γ(f_ξ) is the sum of these values over the rational classes in the stable class of γ, with the signs of ET.1/kappa-and-stable-orbital-integrals. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).",
+      "statement": "Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme; imported from AutomorphicSpectralTheory AS.6, targets AS.6.18–AS.6.19 of its package, which moved them below this roadmap in the upstream order) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′; AS.6 also supplies a test function with tr π′ = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every finite-length π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G, its Haar measure transported from that of G_γ(ℝ), and q(G_γ) defined like q(G); for regular elliptic γ the sign is 1, and SO_γ(f_ξ) is the sum of these values over the rational classes in the stable class of γ, with the signs of ET.1/kappa-and-stable-orbital-integrals. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).",
       "hypotheses": [
         "G connected reductive over ℝ with discrete series modulo the centre",
         "ξ irreducible algebraic"
       ],
       "proofSteps": [
-        "(a) is imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.16a–AS.6.17 of its package, after Clozel–Delorme 1990 §5.2). Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces; not read, recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24).",
+        "(a) is imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.18–AS.6.19 of its package, after Clozel–Delorme 1990 §5.2). Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces; not read, recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24).",
         "(b) The Euler–Poincaré property follows from Wigner's lemma (AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma) and Vogan–Zuckerman (AF.4/vogan-zuckerman), with q(G) as in AF.4/l0-q0-invariants. Orbital integrals at elliptic elements: for regular elliptic γ with centralizer T, O_γ(φ_π) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ Θ_π(γ⁻¹) (Weyl integration formula and the orthogonality of discrete series characters), and Σ_{π ∈ Π(ξ^∨)} Θ_π(γ⁻¹) = (−1)^{q(G)} tr ξ(γ) on the compact Cartan, so O_γ(f_ξ) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ); at a singular elliptic γ the sign (−1)^{q(G_γ)} of Arthur's global term (24.4) appears, which for central γ is (−1)^{q(G)}, the sign of f_ξ(1) = (−1)^{q(G)} Σ_π d(π) with d(π) the formal degrees; the discrete series characters vanish on non-elliptic tori after summing over the packet (Arthur §24 (24.2)–(24.4); Shin (3.12), (3.14)).",
         "(c) The construction does not use quasi-splitness; the arbitrary-signature case is required by Caraiani–Scholze (compact paper, §5.2, p. 735; extraction item PAPER-CARAIANI-SCHOLZE-17/149)."
       ],
@@ -3184,7 +3184,7 @@
         },
         {
           "where": "AutomorphicSpectralTheory:AS.6/general-euler-poincare",
-          "how": "AS.6 owns pseudo-coefficients and the Euler–Poincaré trace identity (AS.6.16a–AS.6.17 of its package, moved below this roadmap in the upstream order); this node imports them and adds the packet averages, their orbital integrals and the inner-form and twisted versions that endoscopic transfer uses"
+          "how": "AS.6 owns pseudo-coefficients and the Euler–Poincaré trace identity (AS.6.18–AS.6.19 of its package, moved below this roadmap in the upstream order); this node imports them and adds the packet averages, their orbital integrals and the inner-form and twisted versions that endoscopic transfer uses"
         },
         {
           "where": "ET.4 (part 2)",
@@ -3200,7 +3200,7 @@
         {
           "name": "pseudocoefficient_trace",
           "kind": "characterisation",
-          "statement": "tr π(φ_π) = 1 and tr π′(φ_π) = 0 for tempered π′ ≇ π with the same central character (the property of AS.6.16a, checked on the imported functions)."
+          "statement": "tr π(φ_π) = 1 and tr π′(φ_π) = 0 for tempered π′ ≇ π with the same central character (the property of AS.6.18, checked on the imported functions)."
         },
         {
           "name": "eulerPoincare_compact",
@@ -3222,7 +3222,7 @@
         {
           "name": "TauCeti.pseudoCoefficient",
           "role": "compatibility",
-          "statement": "A pseudo-coefficient φ_π of a discrete series π, as constructed in AutomorphicSpectralTheory AS.6 (AS.6.16a), imported; only its traces and orbital integrals are canonical."
+          "statement": "A pseudo-coefficient φ_π of a discrete series π, as constructed in AutomorphicSpectralTheory AS.6 (AS.6.18), imported; only its traces and orbital integrals are canonical."
         },
         {
           "name": "TauCeti.eulerPoincareFunction",
@@ -3232,7 +3232,7 @@
         {
           "name": "TauCeti.trace_pseudoCoefficient",
           "role": "characterisation",
-          "statement": "Trace identities of φ_π on tempered representations (AS.6.16a, imported)."
+          "statement": "Trace identities of φ_π on tempered representations (AS.6.18, imported)."
         },
         {
           "name": "TauCeti.trace_eulerPoincare",
@@ -5097,7 +5097,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.6",
-      "need": "The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.8a of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.16a–AS.6.17). These moved below this roadmap in the upstream order (handoff of PKG-AutomorphicSpectralTheory); ET.1 imports them and keeps the Lie-algebra, descent, packet-average, inner-form and twisted statements.",
+      "need": "The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.9 of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.18–AS.6.19). These moved below this roadmap in the upstream order (handoff of PKG-AutomorphicSpectralTheory); ET.1 imports them and keeps the Lie-algebra, descent, packet-average, inner-form and twisted statements.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1/pseudocoefficients"
@@ -5379,12 +5379,11 @@
       "detail": "Ngô applies the Grothendieck–Lefschetz trace formula and the decomposition theorem to the smooth Deligne–Mumford stack M^ani (Proposition 8.1.13, §6.2, Remarque 7.5.1). The atlas suppliers state them for schemes; requests to SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.7 are recorded. Until they are planned, these two inputs are open. The purity of proper direct images used in ET.2b/kappa-decomposition (a) is also applied to the Deligne–Mumford stack M^ani, while DeligneWeightsAndPurity:DWP.8/proper-direct-image-preserves-purity-6-2-6 is stated for schemes; it belongs to the same open input."
     },
     {
-      "title": "Kottwitz's Tamagawa number formula is planned nowhere",
+      "title": "Kottwitz's Tamagawa number formula: ET.4 owner and primary-proof obligation",
       "neededBy": [
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula"
       ],
-      "detail": "The stable trace formula of part 2 (ET.4–ET.5) uses Tamagawa numbers through ι(G, H) = τ(G)τ(H)^{-1}|Out(H, s, η)|^{-1} (Shin 2010 §7), and Kottwitz's formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)). AdelicAlgebraicGroups AA.2 defines τ(G) but no layer proves the formula; ET.0 supplies its cohomological ingredients (ET.0/kottwitz-duality). Part 2 or AdelicAlgebraicGroups must plan it."
+      "detail": "The formula is a target of EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula, which imports ET.0/kottwitz-duality and the Tamagawa measures of AdelicAlgebraicGroups:AA.2. Its primary proof and the simply connected Tamagawa input remain unresolved in the ET.4 packet (primary-source gap; review status needs_changes). The stable coefficients in ET.4/stable-elliptic-distribution and ET.5/stable-igusa-trace-formula consume that named owner. This is a cross-part ownership reconciliation, not fulfillment of the proof obligation or acceptance of ET.4."
     },
     {
       "title": "Characteristic hypothesis of the Lie-algebra fundamental lemma",
@@ -5467,14 +5466,14 @@
         "EndoscopicTransferAndUnitaryTraceComparison",
         "AutomorphicSpectralTheory"
       ],
-      "detail": "RT-AREA-automorphic-1/24 made ET.1 the single owner of unweighted orbital integrals and AS.6 their consumer. The upstream order puts AutomorphicSpectralTheory in tier 13 and this roadmap in tier 14, so the AutomorphicSpectralTheory package planned the invariant orbital integral (AS.6.8a), the discrete functionals and pseudo-coefficients (AS.6.16a) and the real Euler–Poincaré test functions (AS.6.17) itself and asked this roadmap to import them (PKG-AutomorphicSpectralTheory handoff, \"Upward citations\"). The promoted AutomorphicSpectralTheory packet still requests them from ET.1.",
+      "detail": "RT-AREA-automorphic-1/24 made ET.1 the single owner of unweighted orbital integrals and AS.6 their consumer. The upstream order puts AutomorphicSpectralTheory in tier 13 and this roadmap in tier 14, so the AutomorphicSpectralTheory package planned the invariant orbital integral (AS.6.9), the discrete functionals and pseudo-coefficients (AS.6.18) and the real Euler–Poincaré test functions (AS.6.19) itself and asked this roadmap to import them (PKG-AutomorphicSpectralTheory handoff, \"Upward citations\"). The promoted AutomorphicSpectralTheory packet still requests them from ET.1.",
       "proposal": "Owners: the group orbital integral, its quotient measure and convergence, pseudo-coefficients and the Euler–Poincaré trace identity → AutomorphicSpectralTheory:AS.6 (formerly ET.1); Waldspurger's normalization, transport of centralizer measures, Lie-algebra and nilpotent orbital integrals, semisimple descent, packet averages of pseudo-coefficients with their orbital integrals, and the inner-form and twisted versions → ET.1. Retarget the AutomorphicSpectralTheory packet's requests 12 and 13 (to ET.1) as self-supplied when its package corrections are carried into the packet, and draw the edge AS.6 → ET.1."
     }
   ],
   "redTeamFindings": [
     {
       "finding": "RT-AREA-automorphic-1/24",
-      "handling": "ET.1/orbital-integral was planned as the single owner of invariant (unweighted) orbital integrals, as the finding asked. Under the upstream tier order (research/blueprint/upstream/CaraianiNewton.md: AutomorphicSpectralTheory tier 13, this roadmap tier 14) the AutomorphicSpectralTheory package then moved the group orbital integral and the real pseudo-coefficients below this roadmap (its targets AS.6.8a and AS.6.16a–AS.6.17; PKG-AutomorphicSpectralTheory handoff). ET.1 now imports them from AS.6 (request recorded) and keeps the conventions, the Lie-algebra and nilpotent orbital integrals, semisimple descent, the packet averages and the inner-form and twisted versions. Each piece still has a single owner. The promoted AS packet still requests the unweighted integral and the Euler–Poincaré carriers from ET.1 (AS.6/weighted-orbital-integral, AS.6/general-euler-poincare); those requests lapse when the AS package's plan corrections are carried into the AS packet (restructure proposal)."
+      "handling": "ET.1/orbital-integral was planned as the single owner of invariant (unweighted) orbital integrals, as the finding asked. Under the upstream tier order (research/blueprint/upstream/CaraianiNewton.md: AutomorphicSpectralTheory tier 13, this roadmap tier 14) the AutomorphicSpectralTheory package then moved the group orbital integral and the real pseudo-coefficients below this roadmap (its targets AS.6.9 and AS.6.18–AS.6.19; PKG-AutomorphicSpectralTheory handoff). ET.1 now imports them from AS.6 (request recorded) and keeps the conventions, the Lie-algebra and nilpotent orbital integrals, semisimple descent, the packet averages and the inner-form and twisted versions. Each piece still has a single owner. The promoted AS packet still requests the unweighted integral and the Euler–Poincaré carriers from ET.1 (AS.6/weighted-orbital-integral, AS.6/general-euler-poincare); those requests lapse when the AS package's plan corrections are carried into the AS packet (restructure proposal)."
     },
     {
       "finding": "RT-AREA-langlands-1/12",
