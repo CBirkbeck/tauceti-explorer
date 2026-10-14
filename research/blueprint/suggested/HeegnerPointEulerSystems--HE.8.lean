@@ -10,10 +10,10 @@ HE.8 already has accepted targets in HeegnerPointEulerSystems--HE.7s.lean.
 This refinement states only elementary normalization formulas over carriers
 already present at the pins. It introduces no arithmetic stand-in carrier.
 
-The eight new arithmetic targets, including tracedNormModule and its four API
+The eight new arithmetic targets, including tracedNormModule and its eight API
 items, need ring-class fields, actual compact norm modules, Selmer structures
 and perfect arithmetic complexes. They are fully specified in the README.
-The four tracedNormModule tests are likewise README tests until those carriers
+The five tracedNormModule tests are likewise README tests until those carriers
 exist. In particular, a free scalar module is not declared to be that module.
 
 The formulas below refine the accepted initial-euler-factor and
