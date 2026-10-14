@@ -1,0 +1,316 @@
+{
+  "roadmapId": "PotentialModularityAndCompatibleSystems",
+  "protocol": "blueprint-v1",
+  "part": "R24.4",
+  "scope": [
+    "PotentialModularityAndCompatibleSystems:R24.4"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level import pass for KW I Theorem 4.1. The reviewed R24.3 packet already realises R24.4 with two consumer nodes, so this follow-up reuses their IDs and adds no duplicate nodes. The reader pins the dyadic/odd-prime case contracts, residual witness API, acceptance checks and RT /12 dependency correction. Supplier proof and arithmetic-signature gaps remain; no proof closure or implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup",
+        "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup",
+        "provides": "The automorphism group of the algebraic closure with its Krull topology; it supplies G_ℚ, not local Hodge predicates.",
+        "checked": "2026-10-14: exact declaration read in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "module": "Mathlib/RepresentationTheory/Basic",
+        "provides": "Algebraic representations as monoid homomorphisms to linear endomorphisms; continuity and arithmetic modularity are extra conditions.",
+        "checked": "2026-10-14: exact declaration read in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "module": "Mathlib/RepresentationTheory/Irreducible",
+        "provides": "Simplicity of the subrepresentation order over the given coefficient field; this alone is not absolute irreducibility after scalar extension or cyclotomic restriction.",
+        "checked": "2026-10-14: exact declaration read in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic",
+        "provides": "The determinant of a finite square matrix over a commutative ring, used by the concrete sign checks.",
+        "checked": "2026-10-14: exact declaration read in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "module": "Mathlib/Data/ZMod/Defs",
+        "provides": "Integers modulo n; the sign checks use the actual characteristic-two coefficient ring.",
+        "checked": "2026-10-14: exact declaration read in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "kw-serre-modularity-II",
+      "title": "Serre's modularity conjecture (II)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505–586. Locators give the preprint's page numbers (1–98), which are not the Inventiones pages",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§8.1–§8.2, pp. 69–70 (α and β); §9.2, Theorem 9.7 and proof, pp. 89–90; §10.2 and its Remark, p. 92; boundary with §10.1, pp. 90–92, and §10.3.1, p. 92; bibliography entries [16], [20], [27], [35], [36], [38], pp. 95–96."
+      ]
+    },
+    {
+      "id": "kw-serre-modularity-I",
+      "title": "Serre's modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485–504. Locators give the preprint's page numbers",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§1, p. 2 (S-type, residual modularity and residual weight conventions); §1.5, p. 4 (Galois, local-group and character notation); §4, pp. 6–7, especially Theorem 4.1 and the preceding lift/weight conventions."
+      ]
+    }
+  ],
+  "nodes": [],
+  "reusedNodes": [
+    {
+      "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+      "packet": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+      "kind": "comparison",
+      "use": "Bind the residual-modularity witness adapter owned by R22.5; preserve α only in dyadic residual weight 2 and β in both dyadic residual weights."
+    },
+    {
+      "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+      "packet": "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json",
+      "kind": "comparison",
+      "use": "Bind the full R22.5 odd-prime and R22.6 dyadic exports to a supplied lift, preserving every case guard. This is not an independent lifting proof."
+    }
+  ],
+  "importChecks": [
+    {
+      "target": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+      "supplier": "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+      "statement": "For a modular S-type residual representation over ℚ, normalized to 2≤k(ρ̄)≤p+1 at odd p, the weight/level adapter supplies α and β over an allowable soluble totally real field unramified at p that preserves the residual image conditions. For p=2 it supplies β in residual weights 2 and 4, and α only in residual weight 2. α is witnessed by a cuspidal form of parallel weight k(ρ̄), unramified above p; β by a cuspidal form of parallel weight 2 and local conductor exponent at most one above p. The witnesses may differ.",
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+        "GL2ModularityLifting:R22.5/kw-residual-modularity",
+        "GL2ModularityLifting:R22.5/kw-residual-modularity-beta",
+        "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+        "SerreWeightAndLevelOptimisation:R20.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-II",
+          "locator": "§8.2, p. 70; §10.2, p. 92",
+          "match": "The two residual witness conditions and the passage from modularity over ℚ to those conditions; the dyadic α qualification and the harmless enlargement of prime-to-p level are explicit."
+        }
+      ],
+      "acceptance": [
+        "An unramified weight-two witness with k(ρ̄)=2 witnesses both predicates.",
+        "A weight-two Steinberg witness has local conductor exponent one and witnesses β, but that witness is not an α-witness.",
+        "A weight-two witness of conductor exponent two does not witness β; the existence of another witness is a separate question.",
+        "Dyadic residual weight 4 gives β, with no asserted α-witness.",
+        "A Katz eigenform is not itself the required characteristic-zero automorphic witness; use the supplier’s characteristic-zero lifting step."
+      ]
+    },
+    {
+      "target": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+      "suppliers": [
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic"
+      ],
+      "statement": "Let ρ̄:G_ℚ→GL₂(𝔽) be continuous and modular, with 𝔽 finite of characteristic p, and let ρ:G_ℚ→GL₂(𝒪) be a continuous lift, with 𝒪 the integers of a finite extension of ℚ_p and reduction isomorphic to ρ̄. Assume finite ramification. At p=2 require nonsolvable residual image and det ρ(c)=−1, and assume crystalline weight 2 or semistable weight 2 with k(ρ̄)=4 in the latter branch. At p>2 require absolute irreducibility of ρ̄ restricted to G_{ℚ(μ_p)}, normalized residual weight 2≤k(ρ̄)≤p+1, and assume crystalline weight k with 2≤k≤p+1 or potentially semistable weight 2. Weight k uses Hodge–Tate weights {0,k−1}. Then ρ is modular, meaning it is isomorphic after coefficient extension to the representation of a characteristic-zero cuspidal eigenform. The lift is an input, not an existence conclusion.",
+      "prerequisites": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "§4, pp. 6–7, Theorem 4.1(1)–(2)",
+          "match": "The full modularity conclusion, coefficient/lift and weight conventions, and separate dyadic and odd-prime hypotheses."
+        },
+        {
+          "sourceId": "kw-serre-modularity-II",
+          "locator": "§10.2 and Remark, p. 92; Theorem 9.7 and proof, pp. 89–90",
+          "match": "Theorem 9.7 and cited lifting cases prove the theorem without global finiteness or potential modularity. Its self-contained range does not include the full crystalline endpoint with residual weight 2."
+        }
+      ],
+      "acceptance": [
+        "A modular residual representation of nonsolvable image in characteristic 2 with an odd crystalline weight-two lift is covered.",
+        "The dyadic semistable branch with residual weight 2 cannot be used; the crystalline branch remains a separate sufficient condition.",
+        "An even dyadic lift cannot be accepted from its reduction: the determinant signs coincide modulo 2.",
+        "At odd p, crystalline weight p+2 is outside the claimed crystalline interval.",
+        "The nonordinary crystalline endpoint k=p+1 with k(ρ̄)=2 requires the full R22.5 export, including its Kisin proof leaf.",
+        "General odd-prime potentially semistable weight two cannot be replaced by the narrower Theorem 9.7 local-type statement.",
+        "No step asks for R24.1 finiteness, R24.2 arithmetic points or R24.3 lift existence."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+      "need": "Realise the full Theorem 4.1(2) export already planned by R22.5. Its nonordinary crystalline k=p+1, k(ρ̄)=2 branch retains the unread Kisin Durham input; verify the ordinary R21.4 boundary and the finite-inertia twist reduction for general potentially semistable weight two. Do not substitute the narrower Theorem 9.7 statement.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic",
+      "need": "Realise the existing Theorem 4.1(1) arithmetic signature with a supplied continuous lift, nonsolvable image, characteristic-zero oddness and the distinct crystalline/semistable weight-two guards. Keep the residual nonfinite/weight-four comparison in its owner.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+      "need": "Close the small-prime portions of the existing R22.5 residual adapter: p=2 prime-to-2 level at residual weight 2, weight-two level of 2-adic exponent at most one at residual weights 2 and 4, and the p=3/enlarged-level guards. The consumer needs characteristic-zero cuspidal witnesses via the R15.2/R15.5 exports, not only Katz forms.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
+      ],
+      "status": "open"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PotentialModularityAndCompatibleSystems:R24.4",
+      "status": "planned",
+      "realisedBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+        "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R22.5",
+        "GL2ModularityLifting:R22.6",
+        "SerreWeightAndLevelOptimisation:R20.3",
+        "SerreWeightAndLevelOptimisation:R20.6"
+      ],
+      "remaining": [
+        "Discharge the full odd-prime supplier’s Kisin crystalline endpoint proof leaf and verify its ordinary/potentially-semistable branch adapters.",
+        "Close the requested small-prime residual weight/level witness leaves.",
+        "Realise the arithmetic supplier signatures before adding either full consumer signature to Suggested.lean."
+      ],
+      "notes": "Both targets are already realised by accepted consumer nodes in the R24.3 packet (review 2026-10-08). This follow-up references them without defining them again. The issue’s named R23.1 predecessor has no R24.4 coverage record. The checker resolves existing realisations across the roadmap’s packets."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Inherited nonordinary crystalline endpoint",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
+      ],
+      "detail": "R22.5 explicitly leaves unread Kisin, Modularity of some geometric Galois representations, Durham proceedings [38] in KW II. The source assertion is read in §10.2 p.92, but the endpoint proof k=p+1 and k(ρ̄)=2 is not closed by this consumer pass."
+    },
+    {
+      "title": "Small-prime residual witness suppliers",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
+      ],
+      "detail": "The existing adapter records p=2/p=3 restrictions in its R20.3/R20.4 suppliers and requests the uncovered cases from R20.6. This pass checks the demanded interface against KW II p.92 without claiming those requested proofs or the Katz-to-characteristic-zero bridge are implemented."
+    },
+    {
+      "title": "Arithmetic signatures and remaining lifting branch checks",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+        "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
+      ],
+      "detail": "The baseline supplies algebraic representations and G_ℚ, not the full residual lattice/newform Galois comparison, local Hodge predicates and Serre-weight interfaces needed by these consumer signatures. The ordinary endpoint hypotheses and the unprinted finite-inertia twist reduction stay with the R22.5 supplier. The suggested file lists both full signatures as omissions and checks only concrete determinant matrices."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "citation": "Serre's modularity conjecture (II), Author's preprint (proofs.pdf) of the paper published as Invent. Math. 178 (2009), 505–586. Locators give the preprint's page numbers (1–98), which are not the Inventiones pages",
+      "read": "2026-10-14",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "note": "Locators use printed author-preprint pages; the publisher version was not independently collated in this run."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "citation": "Serre's modularity conjecture (I), Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485–504. Locators give the preprint's page numbers",
+      "read": "2026-10-14",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "note": "Locators use printed author-preprint pages; the publisher version was not independently collated in this run."
+    }
+  ],
+  "libraryAudit": {
+    "file": "data/library-coverage.json",
+    "checked": "2026-10-14",
+    "scopeRecord": "No R24.4 record is present; no verdict for that stage is invented.",
+    "relatedRecords": [
+      "ArithmeticGaloisRepresentations:G7",
+      "AutomorphicGaloisRepresentations:R19.3",
+      "ClassicalSerreModularity:R26.1"
+    ],
+    "decision": "No new mathematical target is planned. Existing consumer nodes and theorem owners are reused."
+  },
+  "overlapCheck": {
+    "date": "2026-10-14",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "result": "Searched current roadmap Suggested.lean/README files, Completed roadmaps and current Tau Ceti for KW/modularity-lifting/Hodge exports. Read relevant LocalGaloisGroups and ProfiniteArithmetic carriers and IntegralHeckeAndGaloisDeterminants witness signatures. Current Tau Ceti has newforms and coefficient fields; these are not redefined. No full KW lifting export was located. This search does not assert that all modular-form carriers are absent."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PotentialModularityAndCompatibleSystems",
+        "GL2ModularityLifting",
+        "SerreWeightAndLevelOptimisation"
+      ],
+      "detail": "RT-AREA-langlands-2/12 and the accepted R24.3 rescope already assign the proof of Theorem 4.1 to R22.5/R22.6.",
+      "proposal": "Keep the existing R24.4 consumer targets. Remove R24.3→R24.4; give R24.4 direct prerequisites R22.5, R22.6 and R20.3 (with R20.6 supplying small-prime cases). Preserve R24.4→R24.5 and add R24.3→R24.5 directly. R22.5 owns Theorem 4.1(2), R22.6 owns (1); neither uses R23 potential modularity or R24.1–R24.3. The R22.5/RS-08 circularity wording is for their owners to remove; this issue edits no supplier or graph files."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/LocalGaloisGroups",
+        "tauceti:TauCetiRoadmap/ProfiniteArithmetic",
+        "tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants"
+      ],
+      "note": "Use their existing local/cyclotomic/topological and determinant-realisation interfaces when implementing the R01/R15/R22 suppliers. The current integral Hecke roadmap already specifies continuous semisimple and absolutely irreducible Frobenius witnesses. R24.4 introduces no competing general representation, residual-modularity or determinant definition."
+    }
+  ],
+  "suggestedCoverage": {
+    "fullSignatures": [
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+        "name": "TauCeti.CompatibleSystems.alpha_beta_from_residual_modularity",
+        "status": "omitted"
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+        "name": "TauCeti.CompatibleSystems.kw_theorem_4_1",
+        "status": "omitted"
+      }
+    ],
+    "examples": [
+      "odd_conjugation_determinant",
+      "dyadic_reduced_determinant",
+      "dyadic_reduced_matrix"
+    ],
+    "reason": "The three example signatures concern actual determinant matrices over ℚ and ZMod 2. They test loss of the sign under reduction, not a surrogate modularity or Hodge predicate. Full arithmetic signatures require supplier carriers."
+  },
+  "completion": {
+    "agent": "Codex",
+    "session": "codex-fSmUts",
+    "date": "2026-10-14",
+    "level": "target",
+    "scopeComplete": true,
+    "proofClosed": false,
+    "newNodes": 0,
+    "reusedComparisonNodes": 2,
+    "newApiItems": 0,
+    "newDefinitionTests": 0,
+    "newPlanets": 0,
+    "findings": [
+      "RT-AREA-langlands-2/12"
+    ],
+    "notes": "No definition or construction is introduced, hence no new definition API or unit-test inventory. The reader exposes the imported α/β APIs and their three tests each. Planets remain with the two R22 theorem owners."
+  }
+}
