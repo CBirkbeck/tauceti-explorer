@@ -12,13 +12,13 @@ Use Mathlib's integer gcd, Bézout identities, arithmetic functions, valuations,
 
 ClassFieldTheory owns cohomological local symbols, local and global Artin maps, archimedean reciprocity, Kronecker–Weber and Hilbert reciprocity (Layers 5–7, 10–11, 13–14). QuadraticFormInvariants 6C owns the quadratic norm-equation Hilbert symbol and its closed local formulas; GlobalQuadraticForms 4 owns its global comparison. NumberFieldArithmetic Layers 1, 3–5 and 7 own field splitting, primitive integral generators and their indices, discriminants, the global–local dictionary and Dirichlet units. LocalFieldsRamification Layers 1–3 own principal units, unramified and tame local extensions. CharacterTheory Layers 3, 4 and 7, InductionRestriction 6, and SemisimpleAlgebras 1–2, 5–6 own virtual characters, character fields, indicators, ordinary Brauer induction and central-simple-algebra structure. ReductiveGroups 6 owns semisimple algebraic groups. EllipticCurves 1 owns the formal group of a Weierstrass equation. IntegralLattices owns integral quadratic lattices, discriminant forms and their binary-form/order dictionary; the lattice certificates here concern integer matrices and number-field ideals rather than a second integral quadratic-lattice carrier.
 
-The current Tau Ceti library supplies `Matrix.exists_smith_normal_form_of_det_ne_zero` and `Matrix.smith_normal_form_unique` in `TauCeti.LinearAlgebra.Matrix.SmithNormalForm`; their square-matrix statements are not new targets. It also supplies the primitive-generator discriminant/index identity, local reciprocity and Kummer cup-product machinery, integral semilocal comparisons, and both the split and exact Grothendieck groups of finite projectives. Their exact restrictions matter: ordinary character induction does not supply field-of-definition induction, and a cohomological symbol needs an invariant-normalised coordinate before its sign can be compared with an Artin definition.
+The current Tau Ceti library supplies `Matrix.exists_smith_normal_form_of_det_ne_zero` and `Matrix.smith_normal_form_unique` in `TauCeti.LinearAlgebra.Matrix.SmithNormalForm`; their square-matrix statements are not new targets. It also supplies the primitive-generator discriminant/index identity, local reciprocity and Kummer cup-product machinery, integral semilocal comparisons, and both the split and exact Grothendieck groups of finite projectives. Their exact restrictions matter: ordinary character induction does not supply field-of-definition induction, and a cohomological symbol needs an invariant-normalised coordinate before its sign can be compared with an Artin definition. The current library also has the primitive character of a fundamental discriminant (TauCeti.Multiquadratic.fundamentalDiscriminantChar, with its quadraticity, its value at −1, its values at odd primes and isPrimitive_fundamentalDiscriminantChar), so these are not targets here; Layer 1 adds the rest of its value table. For a quadratic presentation θ² = d it has the direction from a solution of the negative Pell equation to a unit of norm −1 (NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one), the narrow class of an element of negative norm (NarrowClassGroup.mkPrincipal_eq_mkPrincipal_gen_of_norm_neg) and the injectivity criterion NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one; Layer 5 adds the converse direction through cubing, the triviality criterion for the narrow class of θ and the two-primary form of the comparison. Its tameness predicate TauCeti.IsTamelyRamified is for extensions of nonarchimedean local fields; Layer 7 uses the predicate for extensions of Dedekind domains at every prime, which includes residue separability.
 
-Four lower-layer suppliers are used: AdelicAlgebraicGroups AA.4 for strong approximation; GeometryOfNumbersAndQuadraticArithmetic GN.1–4 for Minkowski, pseudobases, Steinitz classes, Pell automorphisms and the analytic triple product; IntegralHeckeAndGaloisDeterminants IHG.0 for Azumaya determinants and characteristic polynomials; and DiophantineApproximationAndTranscendence DT.0 and DT.2 for heights, house, Mahler measure, Siegel's lemma and existence of recurrence closed forms. The recurrence target here adds uniqueness to that closed-form existence statement.
+Four lower-tier roadmaps supply inputs. TauCetiRoadmap.AdelicAlgebraicGroups supplies the group SL₁(D) (§3.4) and strong approximation (§4.2); TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants supplies the Azumaya reduced-norm determinant and its characteristic polynomial (§§0.5–0.6); TauCetiRoadmap.DiophantineApproximationAndTranscendence supplies primitive minimal polynomials, heights, the house and Mahler measure of an algebraic number and bounded-house finiteness (§§0.1–0.3), the existence of recurrence closed forms (§2.4) and the relative Siegel lemma (§2.8); and GeometryOfNumbersAndQuadraticArithmetic, an open TauCetiRoadmap pull request (#851), supplies the analytic Jacobi triple product (§4.3). Minkowski's convex body theorem is Mathlib's. The recurrence target here adds uniqueness to the closed-form existence statement. Pseudobases and Steinitz classes of lattices over a Dedekind domain, and the proper automorphs of indefinite binary forms, are not stated by GeometryOfNumbersAndQuadraticArithmetic, so they are targets here ([Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0), [Proper automorphs of indefinite binary forms and the Pell equation](#layer-4-topic-0)).
 
 General Catalan–Mihăilescu is outside the elementary exponential-equation scope: the cyclotomic-unit, Stickelberger-ideal and Thaine arguments need a cyclotomic arithmetic development. The powers-of-two/three result here is an elementary special case. Markoff orbit growth and strong-approximation theorems belong to ArithmeticDynamics; this roadmap supplies their carriers, moves, reductions and the surjectivity predicate. ArithmeticStatistics consumes the negative-Pell families; ComputationalNumberTheory consumes the intrinsic certificates; K2SymbolsBrauer and HigherLocalFields consume the degree-n norm-residue symbol; QSeriesPartitionsAndMockModularForms consumes the formal triple product; KTheoryLowDegrees consumes stable equality and scalar-change comparisons; LogarithmicPotentialTheoryAndAlgebraicIntegers consumes the capacity and rationality interfaces. None of these consumers supplies a prerequisite back to this roadmap.
 
-The prime-factorisation equivalence and its residue and ramification formulas are supplied by Mathlib's Dedekind–Kummer API. The characteristic polynomial of an Azumaya reduced-norm law is supplied by the current IntegralHeckeAndGaloisDeterminants §0.2 and §0.6. Their exact specialisations and checks are recorded here as input contracts. AdelicAlgebraicGroups §3.4 already constructs the group SL₁(D) for a central division algebra D over a number field; Layer 7 extends that carrier to matrix components and products and supplies its arithmetic-idele comparison. AdelicAlgebraicGroups §4.6 already supplies quaternion norm images over ℚ; the arithmetic norm-image target here has arbitrary central-simple number-field components.
+The prime-factorisation equivalence and its residue and ramification formulas are supplied by Mathlib's Dedekind–Kummer API. The characteristic polynomial of an Azumaya reduced-norm law is supplied by TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.5 (the characteristic polynomial law of a determinant) and §0.6 (the Azumaya reduced-norm determinant). Their exact specialisations and checks are recorded here as input contracts. TauCetiRoadmap.AdelicAlgebraicGroups §3.4 already constructs the group SL₁(D) for a central division algebra D over a number field; Layer 7 extends that carrier to matrix components and products and supplies its arithmetic-idele comparison. TauCetiRoadmap.AdelicAlgebraicGroups §4.6 already supplies quaternion norm images over ℚ; the arithmetic norm-image target here has arbitrary central-simple number-field components.
 
 <a id="monogenic-prime-factorisation-input"></a>
 
@@ -56,7 +56,7 @@ Apply Mathlib NumberField.Ideal.primesOverSpanEquivMonicFactorsMod with that hyp
 
 ### Reduced-characteristic-polynomial input
 
-For a central simple C/F of degree d, rchar_C(c) is the characteristic polynomial χ(c,T)=Nrd_{C[T]}(T−c) of the IHG.0 Azumaya reduced-norm determinant law; it is the degree-d monic polynomial that becomes det(TI−ρ(c)) in any splitting C⊗E≅M_d(E). For semisimple B use one polynomial in each centre. The constant coefficient is (−1)ᵈ Nrd(c).
+For a central simple C/F of degree d, rchar_C(c) is the characteristic polynomial χ(c,T)=Nrd_{C[T]}(T−c) of the Azumaya reduced-norm determinant law of TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.6; it is the degree-d monic polynomial that becomes det(TI−ρ(c)) in any splitting C⊗E≅M_d(E). For semisimple B use one polynomial in each centre. The constant coefficient is (−1)ᵈ Nrd(c).
 
 The following names specify the required specialisations of the supplier law and its characteristic-polynomial API:
 
@@ -69,7 +69,7 @@ The following names specify the required specialisations of the supplier law and
 
 (Vladimir Platonov, Andrei Rapinchuk and Igor Rapinchuk, [Algebraic Groups and Number Theory, Volume I](#reference-prr), §1.4.1, p.29.) The reduced norm is the determinant after a splitting, which is the constant coefficient up to sign.
 
-To use this input, apply the characteristic polynomial of a determinant law (IHG.0) to the reduced-norm law of each simple component: it is monic of degree d with last coefficient the law itself, and the matrix comparison after a splitting identifies it with the matrix characteristic polynomial. Assemble the components.
+To use this input, apply the characteristic polynomial of a determinant law (TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.5) to the reduced-norm law of each simple component: it is monic of degree d with last coefficient the law itself, and the matrix comparison after a splitting identifies it with the matrix characteristic polynomial. Assemble the components.
 
 **Checks.**
 
@@ -78,7 +78,7 @@ To use this input, apply the characteristic polynomial of a determinant law (IHG
 - For a scalar c in degree d the polynomial is (T−c)ᵈ, not T−c.
 - The constant term agrees with the reduced-norm construction including the parity sign.
 
-*Needs:* [IntegralHeckeAndGaloisDeterminants, `IHG.0/characteristic-polynomial`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/IntegralHeckeAndGaloisDeterminants/README.md); [IntegralHeckeAndGaloisDeterminants, `IHG.0/azumaya-determinant`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/IntegralHeckeAndGaloisDeterminants/README.md); [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10).
+*Needs:* [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §0.5 characteristic polynomial law](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#05-characteristic-coefficients-and-trace-comparisons); [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §0.6 Azumaya reduced-norm determinant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#06-duals-projective-modules-and-reduced-norms); [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10).
 
 ## Conventions
 
@@ -98,23 +98,35 @@ Absolute logarithmic height is `NumberField.absLogHeight₁`, with transcendenta
 
 The signatures use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Each mathematical subsection names the exact declarations it needs. Use the genuine library carriers, including `Polynomial`, `PowerSeries`, `LaurentSeries`, `LinearRecurrence`, `Matrix`, `Module`, `Ideal`, `FractionalIdeal`, `ClassGroup`, `MonoidAlgebra`, `WeierstrassCurve`, `IsNonarchimedeanLocalField` and roots of unity. In particular, symmetric Rouché compares analytic-order sums under strict symmetric boundary domination; it is not an equality-case extension of ordinary strict domination. `SplitK0` is the split group completion of finite projectives. The same library supplies `ExactK0`, `ExactK0.fromSplitEquiv` for the split exact structure, and `finiteProjectiveModulesExactStructure_eq_split`; use these to identify the two groups. Layer 7 adds the stable-free equality criterion and balanced scalar-change comparison, rather than a second construction of either group.
 
-### From [DiophantineApproximationAndTranscendence, `DT.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md)
+### From [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.4 `closedFormRecurrence`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#24-finite-rank-multiplicative-groups-and-recurrences)
 
-closedFormRecurrence, as DiophantineApproximationAndTranscendence's package states it in Layer 2, §2.4 (after Evertse, Diophantine Approximation notes, §8.4, Theorem 8.17): for a linear recurrence E over ℂ (Mathlib's LinearRecurrence ℂ) whose characteristic polynomial has nonzero constant term, every solution u admits polynomials P_θ ∈ ℂ[X], indexed by the distinct roots θ of E.charPoly, with deg P_θ < rootMultiplicity θ E.charPoly and u(n) = Σ_θ P_θ(n)θⁿ for every n ≥ 0 (the order-zero recurrence included). Layer 2 uses that existence contract and adds uniqueness of the coefficient polynomials.
+closedFormRecurrence, as TauCetiRoadmap.DiophantineApproximationAndTranscendence states it in Layer 2, §2.4 (after Evertse, Diophantine Approximation notes, §8.4, Theorem 8.17): for a linear recurrence E over ℂ (Mathlib's LinearRecurrence ℂ) whose characteristic polynomial has nonzero constant term, every solution u admits polynomials P_θ ∈ ℂ[X], indexed by the distinct roots θ of E.charPoly, with deg P_θ < rootMultiplicity θ E.charPoly and u(n) = Σ_θ P_θ(n)θⁿ for every n ≥ 0 (the order-zero recurrence included). Layer 2 uses that existence contract and adds uniqueness of the coefficient polynomials.
 
-### From [GeometryOfNumbersAndQuadraticArithmetic, `GN.3/pell-automorph`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md)
+### From [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §§0.1–0.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#01-primitive-polynomials-and-coefficient-height)
 
-The proper automorph group of a primitive indefinite binary form of nonsquare discriminant D is infinite cyclic, generated by the matrix built from the least solution of t² − Du² = 4 (the result as specified; used for the unit action on X² − (a² − 4)Y² = 4N).
+For an algebraic number x of degree d: the primitive integer minimal polynomial F_x with positive leading coefficient (§0.1); the Mahler measure M(x) of F_x, the field-independent house ⌈x⌉ with ⌈x⌉ = NumberField.house x on a number field, `absMulHeight₁_eq_rpow`, `absMulHeight₁_eq_of_minpoly_eq` and the comparison M(x) = Habs(x)^d (§0.2); bounded-degree Northcott finiteness and the finiteness of the algebraic integers of bounded degree and house (§0.3). The house-form integer Siegel estimate of §0.3 is not used.
 
-### From [GeometryOfNumbersAndQuadraticArithmetic, `GN.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md)
+### From [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#28-auxiliary-polynomials-and-quantitative-subspaces)
 
-Layer 4, §4.3 (the finite coefficient bridge): the analytic Jacobi triple product J(z; q) = (z; q)_∞(q/z; q)_∞(q; q)_∞ = Σ_{k∈ℤ}(−1)^k q^{k(k−1)/2} z^k for complex q, z with 0 < |q| < 1 and z ≠ 0, with absolute convergence of product and series (the intermediate triple product from which the package derives jacobi_product_specialization), stated as a named target so that formal consequences can cite it.
+`siegelRelativeKernelBasis`: for a finite extension F/K of number fields of degree r, K of degree D, and A ∈ F^(M×V) whose equations restricted to K^V have rank R < V, the K-kernel has an integral K-basis x_1, …, x_k (k = V − R) with ∏ Habs(x_j) ≤ |disc K|^(k/(2D)) ∏_i H₂,proj(A_i)^r. It is used with K = ℚ and F = ℚ(α) for Dobrowolski's auxiliary polynomial ([Dobrowolski's auxiliary polynomial](#layer-6-topic-12)).
+
+### From [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §§0.5–0.6](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#05-characteristic-coefficients-and-trace-comparisons)
+
+The characteristic polynomial law of a determinant law (§0.5), and the Azumaya reduced-norm determinant: for an Azumaya algebra R of constant rank d² over A, Nrd_R : R → A is the unique degree-d determinant law that becomes Matrix.det under every faithfully flat matrix splitting (§0.6).
+
+### From [TauCetiRoadmap.AdelicAlgebraicGroups, §4.2](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md#42-strong-approximation-and-arithmetic-closures)
+
+Strong approximation for a connected, absolutely almost simple, simply connected group G over a number field F with respect to a finite set S of places containing the archimedean ones and with G(F_S) noncompact, in the form G(𝔸^S) = G(F)U for every open subgroup U. It is applied to the groups SL₁(C) of [Inner forms meet the strong-approximation hypotheses](#layer-7-topic-44), with S the archimedean places.
+
+### From [GeometryOfNumbersAndQuadraticArithmetic (TauCetiRoadmap pull request #851), §4.3](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/README.md#43-oppenheim-and-duke)
+
+Layer 4, §4.3 (the finite coefficient bridge): the analytic Jacobi triple product J(z; q) = (z; q)_∞(q/z; q)_∞(q; q)_∞ = Σ_{k∈ℤ}(−1)^k q^{k(k−1)/2} z^k for complex q, z with 0 < |q| < 1 and z ≠ 0, with absolute convergence of product and series (the intermediate triple product from which GeometryOfNumbersAndQuadraticArithmetic derives jacobi_product_specialization), stated as a named target so that formal consequences can cite it.
 
 ### From [TauCetiRoadmap.ClassFieldTheory, layer 10 global carriers the brauer sequence and the sum of local invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants)
 
 The archimedean Artin maps infiniteArtinAt with infiniteArtinAt_eq_one_of_isComplex and infiniteArtinAt_eq_one_iff_of_isReal (kernel ℝ_{>0}), which define the norm-residue symbol at the infinite places.
 
-Injectivity of the global Brauer group into the sum of the local ones (Albert–Brauer–Hasse–Noether); prescribed-separable-polynomial applies it over each field factor of a finite étale algebra.
+Injectivity of the global Brauer group into the sum of the local ones (Albert–Brauer–Hasse–Noether); [Local–global realization of separable reduced characteristic polynomials](#layer-7-topic-45) applies it over each field factor of a finite étale algebra.
 
 ### From [TauCetiRoadmap.ClassFieldTheory, layer 11 the global class formation and global artin reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity)
 
@@ -122,7 +134,7 @@ Global Artin reciprocity on principal ideles (globalArtinMap_principal) with loc
 
 ### From [TauCetiRoadmap.ClassFieldTheory, layer 13 norm theorems and class fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-13-norm-theorems-and-class-fields)
 
-Kronecker–Weber supplies the initial cyclotomic embedding for the inherited squarefree-conductor target; Layer 7 supplies only the inertia cut.
+Kronecker–Weber supplies the initial cyclotomic embedding for [A tame abelian number field has odd squarefree cyclotomic level](#layer-7-topic-22); Layer 7 supplies only the inertia cut ([A single tame cyclotomic conductor cut](#layer-7-topic-16)).
 
 kroneckerWeber: every finite abelian extension K/ℚ (a number field K with IsAbelianGalois ℚ K) admits a ℚ-algebra embedding K → CyclotomicField n ℚ for some n ≥ 1.
 
@@ -130,13 +142,13 @@ kroneckerWeber: every finite abelian extension K/ℚ (a number field K with IsAb
 
 The cohomological Hilbert invariants finiteHilbertInvariantAt and infiniteHilbertInvariantAt (ZMod 2-valued, from localSymbol at the completions; zero at complex places, nonzero at a real place exactly for two negative arguments), with which the degree-2 norm-residue symbol at a place is compared in sign form.
 
-ClassFieldTheory.hilbertProductFormula (degree 2), through which Global Quadratic Forms 4.4 obtains the localized product formula that the Hilbert symbol node imports at K = ℚ.
+ClassFieldTheory.hilbertProductFormula (degree 2), through which Global Quadratic Forms 4.4 obtains the localized product formula that [The Hilbert symbol of ℚ at every place, read in Mathlib's residue symbols](#layer-1-topic-10) imports at K = ℚ.
 
 ### From [TauCetiRoadmap.ClassFieldTheory, layer 5 local coefficients the brauer group the local invariant and duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality)
 
 The cohomological Hilbert pairing localSymbol (kummerCupPairing ζ) tr (kummerClass a) (kummerClass b), its symbol–norm criterion localSymbol_eq_zero_iff_mem_normGroup and nondegeneracy localSymbol_kummerClass_eq_zero_iff, and a named invariant coordinate tr : H²(F, μ_n) ≃+ ZMod n, namely the map H²(F, μ_n) → Br F induced by μ_n ⊆ (Fˢ)ˣ followed by n · invMap F (h2MuEquivZMod_mixed asserts only that some such isomorphism exists; the current Tau Ceti library, after the pin, has it as h2MuEquivZMod F with toRatAddCircle_h2MuEquivZMod), for the comparison theorem of the norm-residue symbol with the cohomological symbol (up to the universal sign ε).
 
-The local Brauer group with its invariant and the degree-multiplying restriction square (Layer5; the isomorphism Br(F_v)≅ℚ/ℤ and inv_restrict are stated in Layer6 and §2.7). That a degree-d local field splitting a degree-d division algebra embeds in it is proved inside prescribed-separable-polynomial.
+The local Brauer group with its invariant and the degree-multiplying restriction square (Layer5; the isomorphism Br(F_v)≅ℚ/ℤ and inv_restrict are stated in Layer6 and §2.7). That a degree-d local field splitting a degree-d division algebra embeds in it is proved inside [Local–global realization of separable reduced characteristic polynomials](#layer-7-topic-45).
 
 ### From [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity)
 
@@ -162,7 +174,7 @@ The archimedean value of the norm-equation symbol ((a, b) = -1 at a real place e
 
 ### From [TauCetiRoadmap.LocalFieldsRamification, layer 2 unramified extensions and frobenius](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-2-unramified-extensions-and-frobenius)
 
-Finite unramified extensions, their composita and base change, and surjectivity of the norm on integer units (map_norm_unitFiltration_zero); Teichmüller lifts are Layer1 and the unramified and totally ramified integral bases Layer0. Residue normal bases and the Nakayama step belong to the accepted local-unramified-normal-integral-basis target.
+Finite unramified extensions, their composita and base change, and surjectivity of the norm on integer units (map_norm_unitFiltration_zero); Teichmüller lifts are Layer1 and the unramified and totally ramified integral bases Layer0. Residue normal bases and the Nakayama step belong to [Unramified local extensions have a normal integral basis](#layer-7-topic-51).
 
 For a nonarchimedean local field K containing μ_n with residue characteristic prime to n, and a unit u of K, the extension K(ⁿ√u)/K is unramified (X^n - u is separable modulo the maximal ideal). Layer 2 supplies the unramified extensions K(μ_{q^f−1}); the reduction to them uses Layer 1 (principal units are n-th powers when n is a unit, so u = ω·v^n with ω a root of unity of order prime to the residue characteristic).
 
@@ -170,7 +182,7 @@ For a finite extension L/K of nonarchimedean local fields: the unramified predic
 
 ### From [TauCetiRoadmap.LocalFieldsRamification, layer 3 ramification the tame and wild cases and the filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration)
 
-v_K(N x)=f·v_L(x), norms of uniformizers in totally ramified extensions, the tame Kummer description α^e=π with Galois exactly when μ_e⊆K, ramification towers and the tame character of G_0/G_1. The Hensel step of the uniformizer adjustment uses Layer1, and splitting a tame extension after an unramified base change is proved inside the accepted local-tame-split-extension target.
+v_K(N x)=f·v_L(x), norms of uniformizers in totally ramified extensions, the tame Kummer description α^e=π with Galois exactly when μ_e⊆K, ramification towers and the tame character of G_0/G_1. The Hensel step of the uniformizer adjustment uses Layer1, and splitting a tame extension after an unramified base change is proved in [The split tame extension above a tame local extension](#layer-7-topic-38).
 
 For nonarchimedean local fields: the predicate IsTamelyRamified; a finite totally and tamely ramified L/K of degree e is K(α) with α^e a uniformiser of K; such L/K is Galois exactly when μ_e ⊆ K, and then Gal(L/K) ↪ μ_e by σ ↦ σ(α)/α; an Eisenstein polynomial X^e − π_K defines a totally ramified extension in which its root is a uniformiser; in a totally ramified extension 𝒪_L = 𝒪_K[π_L]; stability of tameness in towers.
 
@@ -180,11 +192,11 @@ Dedekind Galois prime action, decomposition/inertia and residue action, with the
 
 ### From [TauCetiRoadmap.NumberFieldArithmetic, layer 4 the relative discriminant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-4-the-relative-discriminant)
 
-The relative discriminant over a Dedekind base, its tower formula and trace-dual localization. The absolute index–discriminant square formula is Layer3; its relative form, used by integral-compositum-tensor, is Johnston’s generalised-index argument with this discriminant.
+The relative discriminant over a Dedekind base, its tower formula and trace-dual localization. The absolute index–discriminant square formula is Layer3; its relative form, used by [Integral composita under arithmetic disjointness](#layer-7-topic-34), is Johnston’s generalised-index argument with this discriminant.
 
 ### From [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places)
 
-Completions and their valuation rings, the semilocal decomposition K_v⊗L≅∏L_w with its integral form integralSemilocalEquiv, and the conjugation maps between factors (§§5.1–5.7). Lattice patching from local data is built in order-ideles and the accepted sublattice target.
+Completions and their valuation rings, the semilocal decomposition K_v⊗L≅∏L_w with its integral form integralSemilocalEquiv, and the conjugation maps between factors (§§5.1–5.7). Lattice patching from local data is built in [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72) and [Lattices are determined by their completions](#layer-7-topic-55).
 
 For a finite Galois extension L/K of number fields and a nonzero prime v of 𝓞_K: the integral semilocal equivalence v.adicCompletionIntegers K ⊗[𝓞 K] 𝓞 L ≃ Π_{w|v} w.adicCompletionIntegers L with its pure-tensor formula (Layer 5.7), its equivariance for the permutation action of Gal(L/K) on the factors, the identification of the stabiliser of w with Gal(L_w/K_v) through decompositionHom (Layer 5.6), and the equality of the local ramification index with w.asIdeal.ramificationIdx (𝓞 K) (Layer 5.5).
 
@@ -196,7 +208,7 @@ The norm-equation Hilbert symbol hilbertSymbol over a nonarchimedean local field
 
 ### From [TauCetiRoadmap.ReductiveGroups, layer 6 reductive and semisimple groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-6-reductive-and-semisimple-groups)
 
-Reductive and semisimple groups and their simply connected forms, with SL_n among the worked examples. Since semisimplicity and simple connectedness are geometric, eichler-noncompact-adapter passes them to the inner form SL_1(C); Layer6 does not itself state inner-form descent.
+Reductive and semisimple groups and their simply connected forms, with SL_n among the worked examples. Since semisimplicity and simple connectedness are geometric, [Inner forms meet the strong-approximation hypotheses](#layer-7-topic-44) passes them to the inner form SL_1(C); Layer6 does not itself state inner-form descent.
 
 ### From [TauCetiRoadmap.RepresentationTheory/CharacterTheory, layer 3 the character table idempotents completeness second orthogonality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/CharacterTheory/README.md#layer-3-the-character-table-idempotents-completeness-second-orthogonality)
 
@@ -208,7 +220,7 @@ Character values lie in ℚ(ζ_e), and Gal(ℚ(ζ_e)/ℚ) acts on virtual charac
 
 ### From [TauCetiRoadmap.RepresentationTheory/CharacterTheory, layer 7 the frobenius schur indicator and realquaternionic type](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/CharacterTheory/README.md#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type)
 
-The Frobenius–Schur trichotomy and the symplectic (quaternionic) irreducible characters. The odd-order exclusion and the test for totally definite quaternion components are short deductions inside odd-order-eichler.
+The Frobenius–Schur trichotomy and the symplectic (quaternionic) irreducible characters. The odd-order exclusion and the test for totally definite quaternion components are short deductions inside [Odd-order group algebras satisfy Eichler’s condition](#layer-7-topic-31).
 
 The Frobenius–Schur trichotomy for irreducible complex representations of a finite group (indicator −1 exactly when there is a nonzero invariant alternating form: frobeniusSchurIndicatorRep_eq_neg_one_iff), and the count of real-valued irreducible characters by real conjugacy classes, giving that a group of odd order has no irreducible representation of quaternionic (symplectic) type.
 
@@ -218,15 +230,15 @@ The virtual character ring, restriction and induction with the projection formul
 
 ### From [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields)
 
-Simple modules and Artin–Wedderburn with its dimension formula (Layers1–2), Skolem–Noether (Layer5), and Layer6: base change of central simple algebras, finite separable splitting fields, splitting by maximal subfields, and the Brauer groups of finite fields and of ℝ. The étale embedding criterion is proved inside prescribed-separable-polynomial; reduced norms are IntegralHeckeAndGaloisDeterminants IHG.0’s.
+Simple modules and Artin–Wedderburn with its dimension formula (Layers1–2), Skolem–Noether (Layer5), and Layer6: base change of central simple algebras, finite separable splitting fields, splitting by maximal subfields, and the Brauer groups of finite fields and of ℝ. The étale embedding criterion is proved inside [Local–global realization of separable reduced characteristic polynomials](#layer-7-topic-45); reduced norms are those of TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.6.
 
-### From [AdelicAlgebraicGroups, §3.4](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/AdelicAlgebraicGroups/README.md)
+### From [TauCetiRoadmap.AdelicAlgebraicGroups, §3.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md#34-adelic-reduction-and-arithmetic-quotients)
 
 For a central division algebra D over a number field F, the affine group SL₁(D) has the reduced-norm-one units as its points over each commutative F-algebra; its Hopf-group structure and splitting comparison are supplied there. Layer 7 uses this division-algebra carrier in constructing the corresponding group for matrix components, products and restriction of scalars, and proves the arithmetic restricted-product comparison.
 
 ## How to read the build
 
-Read the numbered layers in order. Inside each layer, prerequisite results precede their consumers; definitions also name the later API laws they are designed to support. Layer 0 fixes congruences, Layer 1 fixes reciprocity conventions, Layer 2 develops sequence interfaces, Layer 3 supplies certificates and polynomial arithmetic, Layer 4 gives classical equations, Layer 5 certifies number-field outputs, Layer 6 builds small-height algebraic-number theory, and Layer 7 constructs integral Galois-module obstructions. A source marked **Unverified source input** specifies a proof obligation whose full source argument has not been verified; the surrounding statement is a target, and must not be treated as an available theorem.
+Read the numbered layers in order. Inside each layer, prerequisite results precede their consumers; definitions also name the later API laws they are designed to support. Layer 0 fixes congruences, Layer 1 fixes reciprocity conventions, Layer 2 develops sequence interfaces, Layer 3 supplies certificates and polynomial arithmetic, Layer 4 gives classical equations, Layer 5 certifies number-field outputs, Layer 6 builds small-height algebraic-number theory, and Layer 7 constructs integral Galois-module obstructions. A paragraph marked **Unverified source input** names an input whose proof no source cited here gives; the surrounding statement is a target, and must not be treated as an available theorem.
 
 ## Layer 0: divisibility and congruences
 
@@ -248,7 +260,7 @@ Sufficiency: write g = gcd(m, n) = s m + t n by Bézout over the integers (Int.g
 
 The degenerate moduli are routine: for m = 0 the first congruence forces x = a and the criterion reads a ≡ b (mod n); for m = n = 0 both sides say a = b.
 
-Agreement with the natural-number form: for nonnegative a, b and positive m, n the solution is Nat.chineseRemainder' applied to the hypothesis a ≡ b (mod gcd); this is recorded as the acceptance comparison and is not needed by the proof above.
+Agreement with the natural-number form: for nonnegative a, b and positive m, n the solution is Nat.chineseRemainder' applied to the hypothesis a ≡ b (mod gcd); this comparison is recorded among the Checks and is not needed by the proof above.
 
 The uniqueness statement is Int.modEq_and_modEq_iff_modEq_lcm, cited, not reproved.
 
@@ -439,17 +451,17 @@ Given a unit y modulo m with y ≡ 1 (mod d₁), choose by the Chinese remainder
 
 ### 1.7 The Kronecker character of a fundamental discriminant
 
-For a fundamental discriminant D (Mathlib's Int.IsFundamentalDiscr), kroneckerCharacter D is the Dirichlet character of level |D| with values in ℤ whose value at an integer n is the Kronecker symbol (D / n): it is completely multiplicative, it vanishes exactly at the integers not coprime to D, (D / q) = legendreSym q D for every odd prime q, (D / 2) is 0 if D is even, 1 if D ≡ 1 (mod 8) and -1 if D ≡ 5 (mod 8), and (D / -1) is the sign of D. It is the product of the characters of the prime discriminants in the unique factorisation of D, that is Tau Ceti's genusCharFun on that factorisation, bundled as a MulChar (ZMod |D|) ℤ. Its value at an integer that is not a fundamental discriminant is not specified.
+For a fundamental discriminant D (Mathlib's Int.IsFundamentalDiscr), kroneckerCharacter D denotes the Dirichlet character of level |D| with values in ℤ whose value at an integer n is the Kronecker symbol (D / n). The current Tau Ceti library, after the pin, defines it as TauCeti.Multiquadratic.fundamentalDiscriminantChar D and proves that it is quadratic, that (D / −1) is the sign of D, that (D / q) = legendreSym q D for every odd prime q, and that it is primitive (isPrimitive_fundamentalDiscriminantChar); at the pin it is genusCharFun on the prime-discriminant factorisation of D, bundled as a MulChar (ZMod |D|) ℤ. The target here is the rest of its value table: it vanishes exactly at the integers not coprime to D, (D / 2) is 0 if D is even, 1 if D ≡ 1 (mod 8) and −1 if D ≡ 5 (mod 8), it is jacobiSym D n at odd n, it is multiplicative in coprime discriminants, and it is ZMod.χ₄, ZMod.χ₈ and ZMod.χ₈' at D = −4, 8, −8. Its value at an integer that is not a fundamental discriminant is not specified.
 
 D is a fundamental discriminant: D ≡ 1 (mod 4) squarefree, or D = 4m with m squarefree and m ≡ 2, 3 (mod 4). The Mathlib predicate Int.IsFundamentalDiscr and Tau Ceti's TauCeti.Multiquadratic.IsFundamentalDiscriminant have the same content (compare Int.isFundamentalDiscr_iff_squarefree with the Tau Ceti definition), which the construction records. Values are in ℤ, like ZMod.χ₄ and quadraticChar; complex values are obtained by MulChar.ringHomComp.
 
 The supporting API comprises:
 
-- `kroneckerCharacter`: The Dirichlet character of level |D| attached to a fundamental discriminant D.
-- `kroneckerCharacter_apply_prime`: For an odd prime q, kroneckerCharacter D q = legendreSym q D.
+- `kroneckerCharacter`: The Dirichlet character of level |D| attached to a fundamental discriminant D; Tau Ceti's fundamentalDiscriminantChar after the pin.
+- `kroneckerCharacter_apply_prime`: For an odd prime q, kroneckerCharacter D q = legendreSym q D (Tau Ceti's fundamentalDiscriminantChar_natCast_eq_legendreSym after the pin).
 - `kroneckerCharacter_apply_two`: kroneckerCharacter D 2 is 0 if D is even, 1 if D ≡ 1 (mod 8) and -1 if D ≡ 5 (mod 8).
-- `kroneckerCharacter_apply_neg_one`: kroneckerCharacter D (-1) is the sign of D: the character is even for D > 0 and odd for D < 0.
-- `kroneckerCharacter_isQuadratic`: kroneckerCharacter D is quadratic (values in {0, 1, -1}).
+- `kroneckerCharacter_apply_neg_one`: kroneckerCharacter D (-1) is the sign of D: the character is even for D > 0 and odd for D < 0 (Tau Ceti's fundamentalDiscriminantChar_neg_one after the pin).
+- `kroneckerCharacter_isQuadratic`: kroneckerCharacter D is quadratic (values in {0, 1, -1}) (Tau Ceti's fundamentalDiscriminantChar_isQuadratic after the pin).
 - `kroneckerCharacter_apply_eq_zero_iff`: kroneckerCharacter D n = 0 if and only if n is not coprime to D.
 - `kroneckerCharacter_natCast_eq_jacobiSym`: At an odd natural number n, kroneckerCharacter D n = jacobiSym D n.
 - `kroneckerCharacter_mul`: For coprime fundamental discriminants D₁ and D₂, kroneckerCharacter (D₁ D₂) n = kroneckerCharacter D₁ n · kroneckerCharacter D₂ n.
@@ -531,13 +543,13 @@ Hence χ factors through m (DirichletCharacter.factorsThrough_iff_ker_unitsMap),
 
 ### 1.10 The Hilbert symbol of ℚ at every place, read in Mathlib's residue symbols
 
-For a, b ∈ ℚˣ and a place v of ℚ, (a, b)_v denotes Quadratic Form Invariants 6C's norm-equation symbol hilbertSymbol over the completion ℚ_v (ℚ_[p] for v = p, ℝ for v = ∞): (a, b)_v = 1 if b = x^2 - a y^2 has a solution in ℚ_v and -1 otherwise. This node pins that reading and states its value at an odd prime p in Mathlib's vocabulary: if a = p^α u and b = p^β w with u, w rational p-adic units, then (a, b)_p = (-1)^(αβ(p-1)/2) · (u / p)^β · (w / p)^α, where (u / p) := legendreSym p (num u · den u). The value at ∞ ((a, b)_∞ = -1 exactly when a < 0 and b < 0) and the product formula ∏_v (a, b)_v = 1 are imported from Global Quadratic Forms 4.4 and Class Field Theory 14 and are not re-proved; the value at 2 is the dyadic comparison node.
+For a, b ∈ ℚˣ and a place v of ℚ, (a, b)_v denotes Quadratic Form Invariants 6C's norm-equation symbol hilbertSymbol over the completion ℚ_v (ℚ_[p] for v = p, ℝ for v = ∞): (a, b)_v = 1 if b = x^2 - a y^2 has a solution in ℚ_v and -1 otherwise. This result pins that reading and states its value at an odd prime p in Mathlib's vocabulary: if a = p^α u and b = p^β w with u, w rational p-adic units, then (a, b)_p = (-1)^(αβ(p-1)/2) · (u / p)^β · (w / p)^α, where (u / p) := legendreSym p (num u · den u). The value at ∞ ((a, b)_∞ = -1 exactly when a < 0 and b < 0) and the product formula ∏_v (a, b)_v = 1 are imported from Global Quadratic Forms 4.4 and Class Field Theory 14 and are not re-proved; the value at 2 is [The dyadic Hilbert symbol through χ₄ and χ₈](#layer-1-topic-22).
 
 a and b are nonzero rationals; p is an odd prime and u, w have p-adic valuation 0. The symbol is QFI 6C's hilbertSymbol read over the completion, the same localized reading Global Quadratic Forms 4.4 uses; no second symbol carrier is introduced.
 
 (John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), (12.4.10) (p. 189 of the author's edition).) The target is this formula at F = ℚ_p, q = p, π = p, with the Legendre symbol read through Mathlib's legendreSym on the numerator and denominator of a rational p-adic unit.
 
-(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), (12.4.5) and Proposition 14.2.1 (pp. 188 and 211).) The archimedean value and the product formula over ℚ, both imported (GQF 4.4, CFT 14); Voight notes that the product formula is equivalent to quadratic reciprocity, which is the comparison recorded in the acceptance.
+(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), (12.4.5) and Proposition 14.2.1 (pp. 188 and 211).) The archimedean value and the product formula over ℚ, both imported (GQF 4.4, CFT 14); Voight notes that the product formula is equivalent to quadratic reciprocity, which is the comparison recorded in the Checks.
 
 To prove this, map a and b into ℚ_[p]; there a = p^α u and b = p^β w with u, w in ℤ_pˣ, and QFI 6C item 9 at K = ℚ_p, π = p and χ = legendreSym gives the displayed formula with the residue of u in 𝔽_p.
 
@@ -547,7 +559,7 @@ Record the imported archimedean value (GQF 4.4, 'The archimedean symbol') and th
 
 **Checks.**
 
-- (-1, -1)_p = 1 for odd p, (-1, -1)_∞ = -1, and (-1, -1)_2 = -1 (dyadic node), so the product over all places is 1.
+- (-1, -1)_p = 1 for odd p, (-1, -1)_∞ = -1, and (-1, -1)_2 = -1 ([The dyadic Hilbert symbol through χ₄ and χ₈](#layer-1-topic-22)), so the product over all places is 1.
 - For distinct odd primes p and q, (p, q)_q = legendreSym q p, (p, q)_p = legendreSym p q and (p, q)_ℓ = 1 at every other odd ℓ; with the dyadic value this turns the imported product formula into Mathlib's legendreSym.quadratic_reciprocity, which is the explicit comparison of the two laws (Voight, Proposition 14.2.1).
 - (p, p)_p = (p, -1)_p = legendreSym p (-1) = χ₄(p) for odd p (legendreSym.at_neg_one).
 
@@ -594,7 +606,7 @@ The supporting API comprises:
 
 (Sukumar Das Adhikari, [The Early Reciprocity Laws: From Gauss to Eisenstein](#reference-adhikari-reciprocity-2000), §3 (p. 59).) The target is this definition with its two stated properties, extended to all elements.
 
-(Matias Carl Relyea, [On finite fields and higher reciprocity](#reference-relyea-reciprocity-2024), Lemma 3.16 (p. 37).) The closure API item.
+(Matias Carl Relyea, [On finite fields and higher reciprocity](#reference-relyea-reciprocity-2024), Lemma 3.16 (p. 37).) Source for `IsPrimaryEisenstein.neg_mul`.
 
 To prove this, the coordinate description uses that 1, ω is a ℤ-basis of 𝓞_K, so a + b ω ≡ 2 (mod 3) exactly when 3 divides a - 2 and b.
 
@@ -615,7 +627,7 @@ Closure: if α ≡ β ≡ 2 then -α β ≡ -4 ≡ 2 (mod 3) (Relyea, Lemma 3.16
 
 *Needs:* Mathlib `IsCyclotomicExtension`; Mathlib `IsPrimitiveRoot`; Mathlib `Ideal.span`; Mathlib `Associated`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_gen`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_dim`; Mathlib `IsCyclotomicExtension.Rat.Three.Units.mem`.
 
-The full API additionally uses [The coordinate criterion for primary Eisenstein integers](#layer-1-topic-30); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-39).
+The full API additionally uses [The coordinate criterion for primary Eisenstein integers](#layer-1-topic-29); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-38).
 
 <a id="layer-1-topic-13"></a>
 
@@ -651,7 +663,7 @@ Products and rational integers: immediate from the congruence.
 
 *Needs:* Mathlib `IsCyclotomicExtension`; Mathlib `IsPrimitiveRoot`; Mathlib `Ideal.span`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_gen`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_dim`; Mathlib `IsPrimitiveRoot.zeta_sub_one_prime'`; Mathlib `IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one`; Mathlib `IsCyclotomicExtension.Rat.associated_zeta_sub_one_pow_prime`.
 
-The full API additionally uses [The unique root of unity making a cyclotomic integer primary](#layer-1-topic-31).
+The full API additionally uses [The unique root of unity making a cyclotomic integer primary](#layer-1-topic-30).
 
 <a id="layer-1-topic-14"></a>
 
@@ -671,13 +683,13 @@ The supporting API comprises:
 - `normResidueSymbol_swap`: Skew symmetry: (b, a) = (a, b)⁻¹.
 - `normResidueSymbol_eq_one_iff_mem_normGroup`: (a, b) = 1 if and only if a is a norm from F(β), β^n = b; and if and only if b is a norm from F(α), α^n = a.
 - `normResidueSymbol_eq_one_forall_iff`: (a, b) = 1 for every b ∈ Fˣ if and only if a ∈ (Fˣ)^n: the pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n is perfect.
-- `normResidueSymbol_pairing`: The symbol descends to a bimultiplicative pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n(F) (by bimultiplicativity and (a, c^n) = (a^n, c) = 1); nondegeneracy and the description of norm groups as orthogonals ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-36)) are statements about this pairing.
+- `normResidueSymbol_pairing`: The symbol descends to a bimultiplicative pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n(F) (by bimultiplicativity and (a, c^n) = (a^n, c) = 1); nondegeneracy and the description of norm groups as orthogonals ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-35)) are statements about this pairing.
 - `normResidueSymbol_pow_of_dvd`: If F contains a primitive (nm)-th root of unity then (a, b)_{F,nm}^m = (a, b)_{F,n}.
 - `normResidueSymbol_norm`: For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F} a, b)_{F,n}.
 - `normResidueSymbol_map_ringEquiv`: A continuous field isomorphism e : F ≃ F' carries (a, b)_{F,n} to (e a, e b)_{F',n}.
-- `normResidueSymbol_tame`: If the residue characteristic does not divide n and q is the residue cardinality, (a, b)_{F,n} is the root of unity congruent to ((−1)^{v(a)v(b)} b^{v(a)} a^{−v(b)})^{(q−1)/n} modulo the maximal ideal (the tame formula; its global reading is [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-44)).
+- `normResidueSymbol_tame`: If the residue characteristic does not divide n and q is the residue cardinality, (a, b)_{F,n} is the root of unity congruent to ((−1)^{v(a)v(b)} b^{v(a)} a^{−v(b)})^{(q−1)/n} modulo the maximal ideal (the tame formula; its global reading is [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-43)).
 - `normResidueSymbol_two_eq_hilbertSymbol`: For n = 2, (a, b)_{F,2} = −1 exactly when a is not a norm from F(√b), that is, it is the quadratic norm-equation Hilbert symbol of Quadratic Form Invariants 6C (Tau Ceti's hilbertSymbol, read in ±1).
-- `normResidueSymbol_eq_localSymbol`: Through the coordinate log_ζ = muNRepEquivZMod ζ and the invariant coordinate tr of H²(F, μ_n) (the map H²(F, μ_n) → Br F induced by μ_n ⊆ (Fˢ)ˣ, followed by n · invMap F), log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass a) (kummerClass b) for a sign ε ∈ {1, −1} independent of F, n, ζ, a and b ([The norm-residue symbol and Class Field Theory's cohomological local symbol](#layer-1-topic-45)).
+- `normResidueSymbol_eq_localSymbol`: Through the coordinate log_ζ = muNRepEquivZMod ζ and the invariant coordinate tr of H²(F, μ_n) (the map H²(F, μ_n) → Br F induced by μ_n ⊆ (Fˢ)ˣ, followed by n · invMap F), log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass a) (kummerClass b) for a sign ε ∈ {1, −1} independent of F, n, ζ, a and b ([The norm-residue symbol and Class Field Theory's cohomological local symbol](#layer-1-topic-44)).
 
 (I. B. Fesenko and S. V. Vostokov, [Local Fields and Their Extensions](#reference-fesenko-vostokov-2002), Chapter IV, §5, (5.1), definition and the paragraph after it, p. 143.) Defines the n-th Hilbert (norm-residue) symbol of a local field containing μ_n (with p ∤ n in characteristic p) as γ⁻¹Ψ_F(α)(γ) for γ^n = β, exactly the orientation pinned here, and checks independence of the root γ.
 
@@ -754,7 +766,7 @@ Bimultiplicativity, skew symmetry and the norm criterion follow from these value
 
 Let K = ℚ(i), given as a number field with IsCyclotomicExtension {4} ℚ K, and let i ∈ 𝓞_K be a primitive 4th root of unity, so that 𝓞_K = ℤ[i] with ℤ-basis {1, i}. An element α ∈ 𝓞_K is primary if α ≡ 1 (mod (1 + i)^3), that is, (1 + i)^3 divides α − 1 (the ideal ((1 + i)^3) = (2 + 2i) has norm 8). For α = a + bi with a, b ∈ ℤ this says: a ≡ 1 and b ≡ 0 (mod 4), or a ≡ 3 and b ≡ 2 (mod 4). If N(α) is odd (α prime to 1 + i), exactly one of α, iα, −α, −iα is primary. Primary elements are closed under products and complex conjugation; a rational integer is primary exactly when it is ≡ 1 (mod 4); a primary nonunit is a product of primary primes, which are the elements −q (q a rational prime ≡ 3 mod 4) and the primary elements of prime norm p ≡ 1 (mod 4); and for primary α = a + bi, (N(α) − 1)/4 ≡ (a − 1)/2 (mod 2). The predicate is stated for every element; the unit 1 satisfies it, so the reciprocity statements carry their nonunit hypotheses separately.
 
-K = ℚ(i) with IsCyclotomicExtension {4} ℚ K and i ∈ 𝓞_K a primitive 4th root of unity; the coordinates a, b are those of the basis {1, i} (integralPowerBasisOfPrimePow). Primary is the congruence modulo (1 + i)^3; it implies N(α) odd. Xu's Definition 5.4 adds 'nonunit' to the definition; here it is a hypothesis of the theorems, as for the parent's IsPrimaryEisenstein.
+K = ℚ(i) with IsCyclotomicExtension {4} ℚ K and i ∈ 𝓞_K a primitive 4th root of unity; the coordinates a, b are those of the basis {1, i} (integralPowerBasisOfPrimePow). Primary is the congruence modulo (1 + i)^3; it implies N(α) odd. Xu's Definition 5.4 adds 'nonunit' to the definition; here it is a hypothesis of the theorems, as for `IsPrimaryEisenstein` ([Primary elements of the Eisenstein integers](#layer-1-topic-12)).
 
 The supporting API comprises:
 
@@ -893,30 +905,7 @@ This is the finite-level form of the source's statement that a 2-adic unit is a 
 
 <a id="layer-1-topic-21"></a>
 
-### 1.21 The Kronecker character of a fundamental discriminant is primitive
-
-For every fundamental discriminant D, kroneckerCharacter D is primitive: its conductor is |D|.
-
-D is a fundamental discriminant.
-
-(Michael A. Bennett and Samir Siksek, [A conjecture of Erdős, supersingular primes and short character sums](#reference-bennett-siksek-erdos-2020), §6, Lemma 6.2 (ii) (p. 367).) The existence of a primitive character with these values is the primitivity of the Kronecker character of the fundamental discriminant of the square class of ω λ.
-
-To prove this, the prime-discriminant factors of D have pairwise coprime absolute values, and each factor character is primitive at its level: χ₄, χ₈ and χ₈' by the dyadic lemma and the Legendre characters by the odd-prime lemma.
-
-Induct on the factorisation with the lemma that a product of primitive characters of coprime levels is primitive, identifying the product with kroneckerCharacter D through its values (it suffices to compare the values at every integer, since both are characters of level |D|).
-
-For D = 1 the character is the trivial character of level 1, which is primitive (DirichletCharacter.isPrimitive_one_level_one).
-
-**Checks.**
-
-- The conductor of kroneckerCharacter 12 is 12, not 3 or 4.
-- The conductor of kroneckerCharacter (-3) is 3, while the character of the non-fundamental discriminant -12, restricted to integers prime to 6, has conductor 3, not 12.
-
-*Needs:* [The Kronecker character of a fundamental discriminant](#layer-1-topic-7); [The characters χ₄, χ₈ and χ₈' are primitive](#layer-1-topic-4); [The Legendre character modulo an odd prime is primitive](#layer-1-topic-5); [The product of primitive characters of coprime levels is primitive](#layer-1-topic-6); Mathlib `DirichletCharacter.isPrimitive_one_level_one`.
-
-<a id="layer-1-topic-22"></a>
-
-### 1.22 The odd part of a primitive quadratic conductor is squarefree
+### 1.21 The odd part of a primitive quadratic conductor is squarefree
 
 If χ is a primitive quadratic Dirichlet character of nonzero level N with values in a commutative ring, then the odd part N / 2^(v₂(N)) of N is squarefree.
 
@@ -937,9 +926,9 @@ Hence χ(x) = χ(y)^2 = 1, since χ(y) is a unit of value ±1. So χ factors thr
 
 *Needs:* [Units congruent to one modulo an odd prime are squares modulo its powers](#layer-1-topic-2); Mathlib `DirichletCharacter.factorsThrough_iff_ker_unitsMap`; Mathlib `ZMod.chineseRemainder`; Mathlib `MulChar.IsQuadratic`; Mathlib `DirichletCharacter.IsPrimitive`.
 
-<a id="layer-1-topic-23"></a>
+<a id="layer-1-topic-22"></a>
 
-### 1.23 The dyadic Hilbert symbol through χ₄ and χ₈
+### 1.22 The dyadic Hilbert symbol through χ₄ and χ₈
 
 For odd integers u and w and natural numbers α and β, the Hilbert symbol of ℚ_2 satisfies (2^α u, 2^β w)_2 = s(u, w) · χ₈(w)^α · χ₈(u)^β, where s(u, w) = -1 exactly when χ₄(u) = χ₄(w) = -1 and s(u, w) = 1 otherwise. Equivalently, Serre's two sign functions of QFI 6C item 10 are read off Mathlib's characters: (-1)^ε(u) = χ₄(u) and (-1)^ω(u) = χ₈(u) for odd u.
 
@@ -947,7 +936,7 @@ u and w are odd integers; α and β are natural numbers. The symbol is QFI 6C's 
 
 (John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), (12.4.14) and (12.4.15) (p. 190 of the author's edition).) The two displayed formulas are the cases α = β = 0 and (α, β, w) = (0, 1, 1) of the result; χ₄ and χ₈ are exactly these signs.
 
-(Parvati Shastri, [Reciprocity Laws: Artin–Hilbert](#reference-shastri-reciprocity-2000), §10 (p. 183).) The unit square classes of ℚ_2 are those of -1 and 5, on which s, χ₄ and χ₈ are evaluated; the same values appear in the acceptance.
+(Parvati Shastri, [Reciprocity Laws: Artin–Hilbert](#reference-shastri-reciprocity-2000), §10 (p. 183).) The unit square classes of ℚ_2 are those of -1 and 5, on which s, χ₄ and χ₈ are evaluated; the same values appear in the Checks.
 
 To prove this, qFI 6C item 10 gives (a, b)_2 = (-1)^(ε(u)ε(w) + α ω(w) + β ω(u)), with ε and ω functions of u modulo 8, pinned as serreEps and serreOmega through PadicInt.toZModPow 3.
 
@@ -963,13 +952,13 @@ Multiply out the exponent; QuadraticFormInvariants 6C computes the exponent in Z
 
 *Needs:* Mathlib `ZMod.χ₄`; Mathlib `ZMod.χ₈`; Mathlib `ZMod.χ₄_int_eq_if_mod_four`; Mathlib `ZMod.χ₈_int_eq_if_mod_eight`; Mathlib `legendreSym.at_two`; [The unit group modulo a power of two, with explicit generators](#layer-1-topic-1); [The Hilbert symbol of ℚ at every place, read in Mathlib's residue symbols](#layer-1-topic-10).
 
-<a id="layer-1-topic-24"></a>
+<a id="layer-1-topic-23"></a>
 
-### 1.24 The n-th power residue symbol at a prime not dividing n
+### 1.23 The n-th power residue symbol at a prime not dividing n
 
 Let K be a number field, n ≥ 1, and suppose 𝓞_K has enough n-th roots of unity (HasEnoughRootsOfUnity (𝓞_K) n: a primitive n-th root of unity exists). For a maximal ideal 𝔭 of 𝓞_K with N𝔭 coprime to n, the n-th power residue symbol is the multiplicative character (· / 𝔭)_n of the residue field 𝓞_K/𝔭 with values in 𝓞_K defined by: (x / 𝔭)_n = 0 for x = 0, and for x ≠ 0, (x / 𝔭)_n is the unique n-th root of unity μ of 𝓞_K with μ ≡ x^((N𝔭 - 1)/n) (mod 𝔭). For α ∈ 𝓞_K, (α / 𝔭)_n means the symbol at the residue of α. When N𝔭 is not coprime to n the symbol is, by convention, the trivial character; no formula is claimed for it at such primes.
 
-K is a number field and 𝓞_K contains a primitive n-th root of unity. 𝔭 is maximal; the defining property holds for N𝔭 coprime to n. Primes dividing n are never passed through the formula: the convention there is a junk value, and every API item carries the coprimality hypothesis. Values lie in 𝓞_K, in {0} ∪ μ_n(𝓞_K).
+K is a number field and 𝓞_K contains a primitive n-th root of unity. 𝔭 is maximal; the defining property holds for N𝔭 coprime to n. Primes dividing n are never passed through the formula: the convention there is a junk value, and every API lemma carries the coprimality hypothesis. Values lie in 𝓞_K, in {0} ∪ μ_n(𝓞_K).
 
 The supporting API comprises:
 
@@ -984,9 +973,9 @@ The supporting API comprises:
 
 (Sukumar Das Adhikari, [The Early Reciprocity Laws: From Gauss to Eisenstein](#reference-adhikari-reciprocity-2000), §4 (p. 68).) The target is this definition for any number field containing μ_n, as a character of the residue field.
 
-(J. S. Milne, [Class Field Theory](#reference-milne-cft-2020), Chapter V, §3, 'The reciprocity law and power reciprocity' (p. 166).) Milne's definition through the Artin symbol of K(ⁿ√a)/K; its agreement with the congruence definition is the Frobenius comparison node.
+(J. S. Milne, [Class Field Theory](#reference-milne-cft-2020), Chapter V, §3, 'The reciprocity law and power reciprocity' (p. 166).) Milne's definition through the Artin symbol of K(ⁿ√a)/K; its agreement with the congruence definition is [The Frobenius acts on n-th roots by the power residue symbol](#layer-1-topic-34).
 
-(Parvati Shastri, [Reciprocity Laws: Artin–Hilbert](#reference-shastri-reciprocity-2000), §6 (p. 180).) Shastri's local definition through the Hilbert symbol; its agreement with the congruence definition is the tame formula node.
+(Parvati Shastri, [Reciprocity Laws: Artin–Hilbert](#reference-shastri-reciprocity-2000), §6 (p. 180).) Shastri's local definition through the Hilbert symbol; its agreement with the congruence definition is [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-43).
 
 To prove this, by the norm lemma, n divides N𝔭 - 1 and μ_n(𝓞_K) reduces bijectively onto the n-th roots of unity of the residue field.
 
@@ -1009,9 +998,9 @@ Its order is n: the (N𝔭-1)/n-th power map of the cyclic group (𝓞_K/𝔭)ˣ
 
 *Needs:* [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); [The d-th power criterion in a finite cyclic group](#layer-1-topic-3); Mathlib `Ideal.rootsOfUnityMapQuot_injective`; Mathlib `HasEnoughRootsOfUnity`; Mathlib `MulChar`; Mathlib `FiniteField.pow_card_sub_one_eq_one`; Mathlib `Ideal.absNorm`; Mathlib `rootsOfUnity`.
 
-<a id="layer-1-topic-25"></a>
+<a id="layer-1-topic-24"></a>
 
-### 1.25 The degree-n norm-residue symbol at a place of a number field
+### 1.24 The degree-n norm-residue symbol at a place of a number field
 
 Let K be a number field containing a primitive n-th root of unity ζ. For a place v of K and a, b ∈ Kˣ, (a, b)_v := (a, b)_{K_v,n}, the norm-residue symbol of the completion K_v at the images of a and b: the nonarchimedean symbol at a finite place v (K_v = v.adicCompletion K, which contains ζ) and the archimedean symbol at an infinite place (K_v ≅ ℝ or ℂ; for n ≥ 3 every infinite place is complex because ζ is not real). The value lies in μ_n(K_v) = μ_n(K), identified through ζ.
 
@@ -1022,7 +1011,7 @@ The supporting API comprises:
 - `hilbertSymbolAt`: (a, b)_v for a place v of K and a, b ∈ Kˣ, with values in μ_n(K).
 - `hilbertSymbolAt_finite`: At a finite place it is the local symbol of v.adicCompletion K.
 - `hilbertSymbolAt_infinite`: At an infinite place it is the archimedean symbol; it is 1 when n ≥ 3.
-- `hilbertSymbolAt_tame`: At a finite place not dividing n it is given by the tame formula ([The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-44)).
+- `hilbertSymbolAt_tame`: At a finite place not dividing n it is given by the tame formula ([The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-43)).
 - `hilbertSymbolAt_eq_one_of_unit`: If v ∤ n is finite and a, b are v-adic units then (a, b)_v = 1; hence (a, b)_v = 1 for all but finitely many v.
 - `hilbertSymbolAt_galois`: For σ ∈ Aut(K), σ((a, b)_v) = (σa, σb)_{σv}.
 - `hilbertSymbolAt_two`: For n = 2 it is the quadratic Hilbert symbol (α, β / 𝔭) of FIMR §2 and the sign form of Class Field Theory's finiteHilbertInvariantAt and infiniteHilbertInvariantAt.
@@ -1048,9 +1037,9 @@ At an infinite place, K_v is ℝ or ℂ; apply the archimedean symbol. If n ≥ 
 
 *Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [The norm-residue symbol of ℝ and ℂ](#layer-1-topic-15); Mathlib `IsDedekindDomain.HeightOneSpectrum`; Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletion`; Mathlib `NumberField.InfinitePlace`; Mathlib `NumberField.InfinitePlace.Completion`; [TauCetiRoadmap.ClassFieldTheory, layer 14 hilbert reciprocity and quadratic reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-14-hilbert-reciprocity-and-quadratic-reciprocity).
 
-<a id="layer-1-topic-26"></a>
+<a id="layer-1-topic-25"></a>
 
-### 1.26 Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol
+### 1.25 Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol
 
 Let F be a nonarchimedean local field containing a primitive n-th root of unity. For a, a', b, b' ∈ Fˣ: (a a', b) = (a, b)(a', b) and (a, b b') = (a, b)(a, b'); (1 − a, a) = 1 whenever a ≠ 1; (−a, a) = 1; and (b, a) = (a, b)⁻¹. The same identities hold for the archimedean symbol.
 
@@ -1066,7 +1055,7 @@ To prove this, left multiplicativity: Art_F is a homomorphism and fixes μ_n(F) 
 
 Right multiplicativity: with β₁^n = b, β₂^n = b', the product β₁β₂ is an n-th root of bb', and Art(a)(β₁β₂)/(β₁β₂) = (a, b)(a, b').
 
-Steinberg: factor X^n − a = ∏ f_i into irreducibles over F; every root α_i generates the same field L = F(ⁿ√a) because the roots differ by elements of μ_n ⊆ F, so each f_i has degree [L:F] and 1 − a = ∏ f_i(1) = ∏ N_{L/F}(1 − α_i) is a norm from L. By local reciprocity (Class Field Theory Layer 6: the kernel of the Artin map of the abelian extension L/F is N_{L/F}(Lˣ)), Art_F(1 − a) fixes ⁿ√a, so (1 − a, a) = 1. This is the norm criterion in the first argument, which needs no skew symmetry; the form in the second argument is derived afterwards from skew symmetry ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-36)).
+Steinberg: factor X^n − a = ∏ f_i into irreducibles over F; every root α_i generates the same field L = F(ⁿ√a) because the roots differ by elements of μ_n ⊆ F, so each f_i has degree [L:F] and 1 − a = ∏ f_i(1) = ∏ N_{L/F}(1 − α_i) is a norm from L. By local reciprocity (Class Field Theory Layer 6: the kernel of the Artin map of the abelian extension L/F is N_{L/F}(Lˣ)), Art_F(1 − a) fixes ⁿ√a, so (1 − a, a) = 1. This is the norm criterion in the first argument, which needs no skew symmetry; the form in the second argument is derived afterwards from skew symmetry ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-35)).
 
 (−a, a) = 1: for a ≠ 1, −a = (1 − a)/(1 − a⁻¹), so (−a, a) = (1 − a, a) (1 − a⁻¹, a)⁻¹ = (1 − a, a) (1 − a⁻¹, a⁻¹) = 1 by left multiplicativity and (c, a⁻¹) = (c, a)⁻¹; for a = 1 it is (−1, 1) = 1.
 
@@ -1079,9 +1068,9 @@ Skew symmetry: 1 = (−ab, ab) = (−a, a)(a, b)(b, a)(−b, b) = (a, b)(b, a), 
 
 *Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity).
 
-<a id="layer-1-topic-27"></a>
+<a id="layer-1-topic-26"></a>
 
-### 1.27 Functoriality of the norm-residue symbol in n, in the field and under isomorphisms
+### 1.26 Functoriality of the norm-residue symbol in n, in the field and under isomorphisms
 
 Let F be a nonarchimedean local field containing a primitive n-th root of unity. (i) If F contains a primitive (nm)-th root of unity, then (a, b)_{F,nm}^m = (a, b)_{F,n}. (ii) For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F}(a), b)_{F,n}. (iii) For a continuous isomorphism of fields e : F ≃ F', e((a, b)_{F,n}) = (e a, e b)_{F',n}; in Fesenko–Vostokov's form, for a finite separable extension L/F with μ_n ⊆ L (μ_n ⊆ F not needed) and σ ∈ Gal(Fˢ/F), σ((a, b)_{L,n}) = (σa, σb)_{σL,n}.
 
@@ -1102,9 +1091,9 @@ To prove this, (i): if γ^{nm} = b then γ^m is an n-th root of b, and (Art(a)(�
 
 *Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [TauCetiRoadmap.ClassFieldTheory, layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors).
 
-<a id="layer-1-topic-28"></a>
+<a id="layer-1-topic-27"></a>
 
-### 1.28 The number of n-th roots of an n-th power in a finite field
+### 1.27 The number of n-th roots of an n-th power in a finite field
 
 Let F be a finite field with q elements, n ∈ ℕ and a ∈ Fˣ an n-th power. Then the equation x^n = a has exactly gcd(q − 1, n) solutions x ∈ Fˣ. If n ≥ 1, every solution in F is nonzero, so x^n = a also has exactly gcd(q − 1, n) solutions in F. For n = 0 (where a must be 1) all q elements of F are solutions, one more than the gcd(q − 1, 0) = q − 1 solutions in Fˣ.
 
@@ -1125,17 +1114,17 @@ For n ≥ 1, 0^n = 0 ≠ a, so no solution is zero; for n = 0, x^0 = 1 for every
 
 *Needs:* [The d-th power criterion in a finite cyclic group](#layer-1-topic-3); Mathlib `IsCyclic.card_powMonoidHom_ker`; Mathlib `Nat.card_units`; Mathlib `isCyclic_of_injective_ringHom`.
 
-<a id="layer-1-topic-29"></a>
+<a id="layer-1-topic-28"></a>
 
-### 1.29 The squarefree part is constant on square classes
+### 1.28 The squarefree part is constant on square classes
 
 For nonzero rationals u and t, ratSquarefreePart(u t²) = ratSquarefreePart(u).
 
-u, t ≠ 0; ratSquarefreePart is the parent's definition (the unique squarefree d with u = d c², c ≠ 0).
+u, t ≠ 0; ratSquarefreePart is the squarefree part of [The squarefree part of a rational number](#layer-1-topic-40) (the unique squarefree d with u = d c², c ≠ 0); this result is part of its API.
 
 (Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Exercise 1.30 (b) and (d), printed p. 13.) The valuation calculus behind the invariance under multiplication by squares.
 
-To prove this, write u = d c² with d = ratSquarefreePart u squarefree and c ≠ 0 (Rat.exists_squarefree_int_mul_sq and the parent's characterisation).
+To prove this, write u = d c² with d = ratSquarefreePart u squarefree and c ≠ 0 (Rat.exists_squarefree_int_mul_sq and [Uniqueness of the signed squarefree part of a rational square class](#layer-1-topic-18)).
 
 Then u t² = d (ct)² with ct ≠ 0, so by the signed uniqueness lemma ratSquarefreePart(u t²) = d.
 
@@ -1146,9 +1135,9 @@ Then u t² = d (ct)² with ct ≠ 0, so by the signed uniqueness lemma ratSquare
 
 *Needs:* [Uniqueness of the signed squarefree part of a rational square class](#layer-1-topic-18); Tau Ceti `Rat.exists_squarefree_int_mul_sq`.
 
-<a id="layer-1-topic-30"></a>
+<a id="layer-1-topic-29"></a>
 
-### 1.30 The coordinate criterion for primary Eisenstein integers
+### 1.29 The coordinate criterion for primary Eisenstein integers
 
 Let K be a number field with IsCyclotomicExtension {3} ℚ K and ω ∈ 𝓞_K a primitive cube root of unity. For a, b ∈ ℤ, a + bω is primary (≡ 2 mod 3𝓞_K) if and only if a ≡ 2 (mod 3) and b ≡ 0 (mod 3).
 
@@ -1169,9 +1158,9 @@ Hence 3𝓞_K = 3ℤ ⊕ 3ℤω, and a + bω − 2 ∈ 3𝓞_K exactly when 3 | 
 
 *Needs:* [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow`; Mathlib `IsCyclotomicExtension`; Mathlib `Ideal.span`.
 
-<a id="layer-1-topic-31"></a>
+<a id="layer-1-topic-30"></a>
 
-### 1.31 The unique root of unity making a cyclotomic integer primary
+### 1.30 The unique root of unity making a cyclotomic integer primary
 
 Let l be an odd prime, K = ℚ(ζ_l), ζ = ζ_l ∈ 𝓞_K and λ = 1 − ζ. Then λ𝓞_K is a prime of residue degree 1 with 𝓞_K/λ ≅ 𝔽_l; every α ∈ 𝓞_K satisfies α ≡ a + bλ (mod λ²) for some a, b ∈ ℤ, unique modulo l; ζ^c ≡ 1 − cλ (mod λ²) for c ∈ ℤ; and for α prime to l there is exactly one c ∈ ℤ/l such that ζ^c α is primary (congruent to a rational integer modulo λ²).
 
@@ -1194,9 +1183,9 @@ If λ ∤ α then l ∤ a, so there is exactly one c modulo l with ac ≡ b (mod
 
 *Needs:* [Primary elements of ℤ[ζ_l]](#layer-1-topic-13); Mathlib `IsPrimitiveRoot.zeta_sub_one_prime'`; Mathlib `IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one`; Mathlib `IsCyclotomicExtension`.
 
-<a id="layer-1-topic-32"></a>
+<a id="layer-1-topic-31"></a>
 
-### 1.32 The n-th power residue criterion in a finite field
+### 1.31 The n-th power residue criterion in a finite field
 
 Let F be a finite field with q elements, n a natural number and a a nonzero element of F. Then a is an n-th power in F if and only if a^((q - 1) / gcd(q - 1, n)) = 1. The nonzero n-th powers form the subgroup of index gcd(q - 1, n) of Fˣ, and a nonzero n-th power has exactly gcd(q - 1, n) nonzero n-th roots.
 
@@ -1217,11 +1206,11 @@ Apply the criterion in a finite cyclic group to Fˣ with N = q - 1 and transport
 - For n = 0 the criterion reads a = 1, the only 0-th power.
 - In F_5 with n = 0, a = 1 has four nonzero roots and five field roots; a = 2 has none.
 
-*Needs:* [The d-th power criterion in a finite cyclic group](#layer-1-topic-3); Mathlib `isCyclic_of_injective_ringHom`; Mathlib `Nat.card_units`; Mathlib `IsCyclic.index_powMonoidHom_range`; Mathlib `IsCyclic.card_powMonoidHom_ker`; Mathlib `FiniteField.pow_card_sub_one_eq_one`; Mathlib `FiniteField.isSquare_iff`; [The number of n-th roots of an n-th power in a finite field](#layer-1-topic-28).
+*Needs:* [The d-th power criterion in a finite cyclic group](#layer-1-topic-3); Mathlib `isCyclic_of_injective_ringHom`; Mathlib `Nat.card_units`; Mathlib `IsCyclic.index_powMonoidHom_range`; Mathlib `IsCyclic.card_powMonoidHom_ker`; Mathlib `FiniteField.pow_card_sub_one_eq_one`; Mathlib `FiniteField.isSquare_iff`; [The number of n-th roots of an n-th power in a finite field](#layer-1-topic-27).
 
-<a id="layer-1-topic-33"></a>
+<a id="layer-1-topic-32"></a>
 
-### 1.33 The 2-adic valuation of a primitive quadratic conductor is at most three
+### 1.32 The 2-adic valuation of a primitive quadratic conductor is at most three
 
 If χ is a primitive quadratic Dirichlet character of nonzero level N with values in a commutative ring, then v₂(N) ≤ 3; equivalently N ≤ 8 · N^odd. Together with the two preceding lemmas, v₂(N) ∈ {0, 2, 3} and N^odd is squarefree, which is the shape N = 2^κ N₁ with N₁ squarefree (possibly even) and κ ∈ {0, 1, 2} used by Bennett and Siksek.
 
@@ -1241,11 +1230,11 @@ Hence χ(x) = χ(y)^2 = 1, so χ factors through N/2, contradicting primitivity.
 - The quadratic hypothesis is needed: the characters of order 4 modulo 16 are primitive.
 - Bennett–Siksek, Lemma 7.3: combined with the squarefree odd part, P(N) > 0.94 log N reduces to a check of N ≡ 4 (mod 8) and N ≡ 8 (mod 16).
 
-*Needs:* [The squares among the units modulo a power of two](#layer-1-topic-20); [The unit group modulo a power of two, with explicit generators](#layer-1-topic-1); [A primitive conductor is never twice an odd number](#layer-1-topic-9); [The odd part of a primitive quadratic conductor is squarefree](#layer-1-topic-22); Mathlib `DirichletCharacter.factorsThrough_iff_ker_unitsMap`; Mathlib `ZMod.chineseRemainder`; Mathlib `MulChar.IsQuadratic`; Mathlib `DirichletCharacter.IsPrimitive`; Mathlib `Nat.factorization`.
+*Needs:* [The squares among the units modulo a power of two](#layer-1-topic-20); [The unit group modulo a power of two, with explicit generators](#layer-1-topic-1); [A primitive conductor is never twice an odd number](#layer-1-topic-9); [The odd part of a primitive quadratic conductor is squarefree](#layer-1-topic-21); Mathlib `DirichletCharacter.factorsThrough_iff_ker_unitsMap`; Mathlib `ZMod.chineseRemainder`; Mathlib `MulChar.IsQuadratic`; Mathlib `DirichletCharacter.IsPrimitive`; Mathlib `Nat.factorization`.
 
-<a id="layer-1-topic-34"></a>
+<a id="layer-1-topic-33"></a>
 
-### 1.34 The n-th power residue symbol at an ideal prime to n
+### 1.33 The n-th power residue symbol at an ideal prime to n
 
 Let K and n be as for the power residue symbol. For a nonzero ideal 𝔞 of 𝓞_K with N𝔞 coprime to n and factorisation 𝔞 = 𝔭₁ ⋯ 𝔭ᵣ into maximal ideals (with repetition), and for α ∈ 𝓞_K, the symbol is (α / 𝔞)_n := ∏ᵢ (α / 𝔭ᵢ)_n ∈ 𝓞_K. For β ∈ 𝓞_K nonzero and prime to n, (α / β)_n := (α / β 𝓞_K)_n. The empty product gives (α / 𝓞_K)_n = 1. Its value at an ideal not prime to n is not specified.
 
@@ -1279,11 +1268,11 @@ The symbol is 0 exactly when some prime factor of 𝔞 contains α, that is when
 - At a prime ideal the symbol is the prime symbol.
 - At 𝔭^2 it is the square of the symbol at 𝔭, so for n = 2 a nonresidue modulo 𝔭 has symbol 1 at 𝔭^2: the value 1 does not detect residues at composite ideals, as for the Jacobi symbol.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); Mathlib `UniqueFactorizationMonoid.normalizedFactors`; Mathlib `Ideal.absNorm`; Mathlib `Ideal.absNorm_dvd_absNorm_of_le`; Mathlib `Ideal.span`.
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); Mathlib `UniqueFactorizationMonoid.normalizedFactors`; Mathlib `Ideal.absNorm`; Mathlib `Ideal.absNorm_dvd_absNorm_of_le`; Mathlib `Ideal.span`.
 
-<a id="layer-1-topic-35"></a>
+<a id="layer-1-topic-34"></a>
 
-### 1.35 The Frobenius acts on n-th roots by the power residue symbol
+### 1.34 The Frobenius acts on n-th roots by the power residue symbol
 
 Let L/K be an extension of number fields with 𝓞_K containing a primitive n-th root of unity, 𝔭 a maximal ideal of 𝓞_K with N𝔭 coprime to n, 𝔓 a prime of 𝓞_L lying over 𝔭, and σ an 𝓞_K-algebra automorphism of 𝓞_L that is an arithmetic Frobenius at 𝔓 (Mathlib's IsArithFrobAt: σ(x) ≡ x^(N𝔭) mod 𝔓). If α ∈ 𝓞_K is not in 𝔭 and β ∈ 𝓞_L satisfies β^n = α, then σ(β) = (α / 𝔭)_n · β.
 
@@ -1304,15 +1293,15 @@ Modulo 𝔓, σ(β) ≡ β^(N𝔭) = β · α^((N𝔭 - 1)/n) ≡ β · (α / �
 - For n = 2 and K = ℚ this is Tau Ceti's IsArithFrobAt.smul_sqrt: the Frobenius at an odd prime acts on a square root of d by legendreSym p d.
 - It identifies the congruence definition of the symbol with Milne's definition through the Artin symbol of K(ⁿ√α)/K, which is the reading NumberFieldArithmetic's Frobenius and artinHomAway give at unramified primes.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `IsArithFrobAt`; Mathlib `Ideal.rootsOfUnityMapQuot_injective`; Tau Ceti `IsArithFrobAt.smul_sqrt`.
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `IsArithFrobAt`; Mathlib `Ideal.rootsOfUnityMapQuot_injective`; Tau Ceti `IsArithFrobAt.smul_sqrt`.
 
-<a id="layer-1-topic-36"></a>
+<a id="layer-1-topic-35"></a>
 
-### 1.36 The norm criterion and nondegeneracy of the norm-residue symbol
+### 1.35 The norm criterion and nondegeneracy of the norm-residue symbol
 
 Let F be a nonarchimedean local field containing a primitive n-th root of unity, and a, b ∈ Fˣ. Then (a, b)_{F,n} = 1 if and only if a is a norm from F(β) (β^n = b), if and only if b is a norm from F(α) (α^n = a). Moreover (a, b)_{F,n} = 1 for every b if and only if a ∈ (Fˣ)^n, and (a, b)_{F,n} = 1 for every a if and only if b ∈ (Fˣ)^n; so the symbol induces a perfect pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n(F). For a subgroup A ⊇ (Fˣ)^n of Fˣ with orthogonal B = A^⊥, A is the norm group of F(ⁿ√B).
 
-F nonarchimedean local, μ_n ⊆ F. The second form uses skew symmetry ([Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-26)).
+F nonarchimedean local, μ_n ⊆ F. The second form uses skew symmetry ([Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-25)).
 
 (I. B. Fesenko and S. V. Vostokov, [Local Fields and Their Extensions](#reference-fesenko-vostokov-2002), Chapter IV, §5, (5.1) Proposition (5) and (6), Corollary, and (5.2) Theorem, pp. 143–145.) The norm criterion in both arguments, nondegeneracy, the induced perfect pairing, and the description of norm groups as orthogonals.
 
@@ -1331,11 +1320,11 @@ Both sides being the finite group Fˣ/(Fˣ)^n, the pairing is perfect; the ortho
 - For F = ℚ_p with p odd and n = 2, (p, u) = 1 exactly when u is a square modulo p, i.e. when p is a norm from ℚ_p(√u).
 - In ℚ_7 with n = 3, (7, 2)_3 ≠ 1, so 7 is not a norm from ℚ_7(∛2), and 2 is not a cube in ℚ_7.
 
-*Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-26); [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity).
+*Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-25); [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity).
 
-<a id="layer-1-topic-37"></a>
+<a id="layer-1-topic-36"></a>
 
-### 1.37 The Jacobi sum of the quartic character of a primary prime
+### 1.36 The Jacobi sum of the quartic character of a primary prime
 
 Let π be a primary prime of ℤ[i] of norm p ≡ 1 (mod 4), and χ = (·/π)_4 the quartic residue character of 𝓞_K/π ≅ 𝔽_p, with values in 𝓞_K. Then −χ(−1) J(χ, χ) = π; equivalently J(χ, χ) = −(−1)^{(p−1)/4} π.
 
@@ -1358,11 +1347,11 @@ Divisibility: modulo π, χ(t) ≡ t^k with k = (p − 1)/4, so J ≡ Σ_t t^k (
 - For π = −1 + 2i (p = 5): χ(−1) = −1 and J(χ, χ) = −1 + 2i = π (direct computation).
 - Checked by direct computation for every primary split prime with |a|, |b| ≤ 12.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [Primary Gaussian integers](#layer-1-topic-16); Mathlib `jacobiSum`; Mathlib `jacobiSum_mul_jacobiSum_inv`; Mathlib `FiniteField.sum_pow_lt_card_sub_one`; [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11).
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [Primary Gaussian integers](#layer-1-topic-16); Mathlib `jacobiSum`; Mathlib `jacobiSum_mul_jacobiSum_inv`; Mathlib `FiniteField.sum_pow_lt_card_sub_one`; [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11).
 
-<a id="layer-1-topic-38"></a>
+<a id="layer-1-topic-37"></a>
 
-### 1.38 A prime divides the squarefree part exactly when the valuation is odd
+### 1.37 A prime divides the squarefree part exactly when the valuation is odd
 
 For a nonzero rational u and a prime p, p divides ratSquarefreePart(u) if and only if padicValRat p u is odd.
 
@@ -1379,11 +1368,11 @@ So v_p(u) is odd exactly when v_p(d) = 1, that is, when p divides d.
 - For u = 8/9: v_2 = 3 is odd and 2 | 2; v_3 = −2 is even and 3 ∤ 2.
 - For u = −12: v_3 = 1 is odd and 3 | −3; v_2 = 2 is even and 2 ∤ −3.
 
-*Needs:* [The squarefree part is constant on square classes](#layer-1-topic-29); Mathlib `padicValRat`; Mathlib `padicValRat.mul`; Mathlib `padicValRat.pow`; Mathlib `Squarefree.natFactorization_le_one`; Tau Ceti `Rat.exists_squarefree_int_mul_sq`.
+*Needs:* [The squarefree part is constant on square classes](#layer-1-topic-28); Mathlib `padicValRat`; Mathlib `padicValRat.mul`; Mathlib `padicValRat.pow`; Mathlib `Squarefree.natFactorization_le_one`; Tau Ceti `Rat.exists_squarefree_int_mul_sq`.
 
-<a id="layer-1-topic-39"></a>
+<a id="layer-1-topic-38"></a>
 
-### 1.39 Every Eisenstein prime of norm different from 3 has exactly one primary associate
+### 1.38 Every Eisenstein prime of norm different from 3 has exactly one primary associate
 
 Let K = ℚ(ζ_3) with 𝓞_K = ℤ[ω]. Every prime π of 𝓞_K with N(π) ≠ 3 has exactly one primary associate, among the six associates uπ, u ∈ {±1, ±ω, ±ω²}.
 
@@ -1404,15 +1393,15 @@ Uniqueness: if π and uπ are both ≡ 2 (mod 3), then (u − 1)π ∈ 3𝓞_K; 
 - The primary associate of 3 + ω (norm 7) is (a − b) + aω = 2 + 3ω, the complex conjugate of the primary prime −1 − 3ω.
 - 2 is its own primary associate; 1 − ω (norm 3) has none.
 
-*Needs:* [The coordinate criterion for primary Eisenstein integers](#layer-1-topic-30); Mathlib `IsCyclotomicExtension.Rat.Three.Units.mem`; Mathlib `IsCyclotomicExtension.Rat.three_pid`; [Primary elements of the Eisenstein integers](#layer-1-topic-12).
+*Needs:* [The coordinate criterion for primary Eisenstein integers](#layer-1-topic-29); Mathlib `IsCyclotomicExtension.Rat.Three.Units.mem`; Mathlib `IsCyclotomicExtension.Rat.three_pid`; [Primary elements of the Eisenstein integers](#layer-1-topic-12).
 
-<a id="layer-1-topic-40"></a>
+<a id="layer-1-topic-39"></a>
 
-### 1.40 The cubic Jacobi sum of a primary prime is primary
+### 1.39 The cubic Jacobi sum of a primary prime is primary
 
 Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3) and χ = (·/π)_3. Then J(χ, χ) ≡ 2 (mod 3𝓞_K).
 
-As in the parent's Jacobi sum lemma.
+π is a prime of ℤ[ω], primary, of norm p ≡ 1 (mod 3); χ = (·/π)_3 takes values in 𝓞_K and the Jacobi sum is Mathlib's jacobiSum.
 
 (Nancy Xu, [Reciprocity Laws](#reference-xu-reciprocity-2021), §4, Proposition 4.8 and its proof, p. 12.) Shows J(χ_π, χ_π) ≡ −1 (mod 3) from g^3 = pJ and the congruence g^3 ≡ −1.
 
@@ -1428,11 +1417,11 @@ As p ≡ 1 (mod 3), J ≡ −1 ≡ 2 (mod 3R), and 3R ∩ 𝓞_K = 3𝓞_K (an e
 
 - For π = −1 − 3ω: J = −1 − 3ω ≡ 2 (mod 3).
 
-*Needs:* [The cube of the Gauss sum of a cubic character](#layer-1-topic-19); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `gaussSum_frob`; Mathlib `IsCyclotomicExtension`.
+*Needs:* [The cube of the Gauss sum of a cubic character](#layer-1-topic-19); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `gaussSum_frob`; Mathlib `IsCyclotomicExtension`.
 
-<a id="layer-1-topic-41"></a>
+<a id="layer-1-topic-40"></a>
 
-### 1.41 The squarefree part of a rational number
+### 1.40 The squarefree part of a rational number
 
 For a nonzero rational u, ratSquarefreePart u is the unique squarefree integer d such that u = d · c^2 for some nonzero rational c; its sign is the sign of u, and a prime p divides d exactly when the p-adic valuation of u is odd. By convention ratSquarefreePart 0 = 0. The value depends only on the square class of u.
 
@@ -1472,11 +1461,11 @@ The valuation description: v_p(u) = v_p(d) + 2 v_p(c) with v_p(d) ∈ {0, 1}, so
 - ratSquarefreePart (-12) = -3: the sign is kept.
 - ratSquarefreePart (-1) = -1 ≠ 1, so a definition through |u| fails.
 
-*Needs:* Tau Ceti `Rat.exists_squarefree_int_mul_sq`; Mathlib `padicValRat`; Mathlib `Squarefree`; [Uniqueness of the signed squarefree part of a rational square class](#layer-1-topic-18); [The squarefree part is constant on square classes](#layer-1-topic-29); [A prime divides the squarefree part exactly when the valuation is odd](#layer-1-topic-38).
+*Needs:* Tau Ceti `Rat.exists_squarefree_int_mul_sq`; Mathlib `padicValRat`; Mathlib `Squarefree`; [Uniqueness of the signed squarefree part of a rational square class](#layer-1-topic-18); [The squarefree part is constant on square classes](#layer-1-topic-28); [A prime divides the squarefree part exactly when the valuation is odd](#layer-1-topic-37).
 
-<a id="layer-1-topic-42"></a>
+<a id="layer-1-topic-41"></a>
 
-### 1.42 Euler's criterion for the n-th power residue symbol
+### 1.41 Euler's criterion for the n-th power residue symbol
 
 Let K, n and 𝔭 be as for the power residue symbol, with N𝔭 coprime to n. For a nonzero residue x in 𝓞_K/𝔭, (x / 𝔭)_n = 1 if and only if x is an n-th power in 𝓞_K/𝔭.
 
@@ -1493,11 +1482,11 @@ Since n divides N𝔭 - 1 (norm lemma), gcd(N𝔭 - 1, n) = n, and the power res
 - For n = 2 and K = ℚ this is Euler's criterion, ZMod.euler_criterion.
 - The coprimality is needed: for n = 6 and K = ℚ(ζ₃) (which contains the primitive 6th root of unity -ζ₃) at the prime 𝔭 = (2) of norm 4, N𝔭 is not coprime to 6, so the symbol is the trivial character, (ζ₃ / 𝔭)_6 = 1, but ζ₃ is not a 6th power in 𝔽_4, whose 6th powers are {1}.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The n-th power residue criterion in a finite field](#layer-1-topic-32); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `ZMod.euler_criterion`.
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The n-th power residue criterion in a finite field](#layer-1-topic-31); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `ZMod.euler_criterion`.
 
-<a id="layer-1-topic-43"></a>
+<a id="layer-1-topic-42"></a>
 
-### 1.43 Galois equivariance of the power residue symbol
+### 1.42 Galois equivariance of the power residue symbol
 
 For every ring automorphism σ of 𝓞_K, every nonzero ideal 𝔞 prime to n and every α ∈ 𝓞_K: σ((α / 𝔞)_n) = (σ α / σ 𝔞)_n.
 
@@ -1514,11 +1503,11 @@ To prove this, σ preserves absolute norms and maps the factorisation of 𝔞 to
 - For complex conjugation on ℤ[ζ₃]: the conjugate of (α / π)_3 is (ᾱ / π̄)_3 (Adhikari, Lemma 3.1 (ii)).
 - For a primitive root ζ with σ ζ = ζ^k: σ((ζ / 𝔭)_n) = (ζ^k / σ𝔭)_n, and both sides equal ζ^(k (N𝔭 - 1)/n) because N(σ𝔭) = N𝔭.
 
-*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); Mathlib `Ideal.absNorm`.
+*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); Mathlib `Ideal.absNorm`.
 
-<a id="layer-1-topic-44"></a>
+<a id="layer-1-topic-43"></a>
 
-### 1.44 The degree-n Hilbert symbol at a place not dividing n
+### 1.43 The degree-n Hilbert symbol at a place not dividing n
 
 Let K be a number field containing μ_n, v a finite place of K whose prime 𝔭 = 𝔭_v does not divide n, and (a, b)_v the degree-n Hilbert (norm-residue) symbol of K_v in the orientation (a, b)_v = Art_v(a)(ⁿ√b) / ⁿ√b. For a, b ∈ Kˣ with valuations α = v(a), β = v(b), (a, b)_v = ((-1)^(αβ) b^α / a^β mod 𝔭 / 𝔭)_n, where the element (-1)^(αβ) b^α a^(-β) is a v-adic unit read in the residue field. In particular (u, w)_v = 1 for units u, w, and (π, u)_v = (u / 𝔭)_n for a uniformiser π and a unit u.
 
@@ -1526,7 +1515,7 @@ v is a finite place with 𝔭_v ∤ n; the formula is never applied at places ab
 
 (Parvati Shastri, [Reciprocity Laws: Artin–Hilbert](#reference-shastri-reciprocity-2000), §6 (p. 180).) The target is this computation together with its bimultiplicative extension to all a, b, which the source leaves implicit.
 
-(J. S. Milne, [Class Field Theory](#reference-milne-cft-2020), Chapter III, Theorem 4.4 and Remark 4.5 (pp. 113–114).) Skew-symmetry is used in step 3. Milne's orientation is the opposite of Shastri's: Milne's (a, b) is Shastri's ⟨b, a⟩; the result pins Shastri's orientation, and the Layer 1-owned symbol defined below is defined in that orientation.
+(J. S. Milne, [Class Field Theory](#reference-milne-cft-2020), Chapter III, Theorem 4.4 and Remark 4.5 (pp. 113–114).) Skew-symmetry is used in step 3. Milne's orientation is the opposite of Shastri's: Milne's (a, b) is Shastri's ⟨b, a⟩; the result pins Shastri's orientation, and the symbol of this layer is defined in that orientation.
 
 To prove this, for a unit w, K_v(ⁿ√w)/K_v is unramified because 𝔭 ∤ n: write w = ω u₁ with ω a root of unity of order prime to p (Teichmüller) and u₁ a principal unit; u₁ is an n-th power since n is a unit (LocalFieldsRamification, Layer 1, U(K,1) ⊆ (Kˣ)^n), so K_v(ⁿ√w) = K_v(ⁿ√ω) ⊆ K_v(μ_m) with m coprime to p, which lies in the unramified extension K_v(μ_{q^f−1}) (Layer 2, existence statement 1). Units are norms from an unramified extension (Class Field Theory, Layer 6), so (u, w)_v = 1 for units u.
 
@@ -1538,14 +1527,14 @@ Expand (π^α u, π^β w)_v bimultiplicatively and collect: (-1 / 𝔭)^(αβ) (
 
 **Checks.**
 
-- For K = ℚ and n = 2 at an odd prime p it is the odd-prime formula of the quadratic Hilbert symbol node (Voight (12.4.10)).
+- For K = ℚ and n = 2 at an odd prime p it is the odd-prime formula of [The Hilbert symbol of ℚ at every place, read in Mathlib's residue symbols](#layer-1-topic-10) (Voight (12.4.10)).
 - The formula fails at 2 for n = 2: (-1, -1)_2 = -1 although -1 is a unit at 2.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The Frobenius acts on n-th roots by the power residue symbol](#layer-1-topic-35); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25).
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The Frobenius acts on n-th roots by the power residue symbol](#layer-1-topic-34); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24).
 
-<a id="layer-1-topic-45"></a>
+<a id="layer-1-topic-44"></a>
 
-### 1.45 The norm-residue symbol and Class Field Theory's cohomological local symbol
+### 1.44 The norm-residue symbol and Class Field Theory's cohomological local symbol
 
 Let F be a nonarchimedean local field containing a primitive n-th root of unity ζ, and let tr : H²(F, μ_n) ≃ ℤ/n be the invariant coordinate: the map H²(F, μ_n) → Br F induced by the inclusion μ_n ⊆ (Fˢ)ˣ (injective with image Br(F)[n], by Hilbert 90), followed by n · invMap F with (1/n)ℤ/ℤ read as ℤ/n (Class Field Theory Layer 5's h2MuEquivZMod_mixed asserts only that some isomorphism H²(F, μ_n) ≃ ℤ/n exists, so it does not fix tr; the current Tau Ceti library, after the pin, defines this coordinate as h2MuEquivZMod F with toRatAddCircle_h2MuEquivZMod, whose value k ∈ ℤ/n maps to the Brauer invariant k/n). There is a sign ε ∈ {1, −1}, depending only on the conventions of kummerClass, of the cup product and of tr (not on F, n, ζ, a, b), such that for all a, b ∈ Fˣ: log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass n F a) (kummerClass n F b) in ℤ/n, where log_ζ = muNRepEquivZMod ζ. The sign is fixed by one computation: for F unramified over ℚ_p with residue field of q ≡ 1 (mod n) elements, a uniformiser π and a unit u, the left side is the exponent k with ζ^k ≡ u^{(q−1)/n} (tame formula). For n = 2 the sign is irrelevant and the statement reads: (a, b)_{F,2} = −1 if and only if localSymbol (kummerCupPairing (−1)) tr (kummerClass a) (kummerClass b) = 1, Tau Ceti's localArtinMap_quadratic_eq_hilbertSymbol.
 
@@ -1557,7 +1546,7 @@ F nonarchimedean local, ζ ∈ F a primitive n-th root of unity; tr is the invar
 
 To prove this, milne (III.4, Remark 4.5) shows that the cup-product symbol of Kummer classes, read through the invariant, is the Artin-map symbol with its arguments transposed; by skew symmetry the transposition is the inverse. Class Field Theory's localSymbol differs from Milne's symbol only in the coefficient pairing kummerCupPairing ζ, (x, y) ↦ log_ζ(x)·y, so the two sides agree up to a sign of the coordinate.
 
-Both sides are bimultiplicative and vanish exactly on norms in the same orientation ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-36): (a, b) = 1 iff a is a norm from F(ⁿ√b); Class Field Theory's localSymbol_eq_zero_iff_mem_normGroup: the symbol of (kummerClass a, kummerClass b) vanishes iff a is a norm from F(ⁿ√b)), and the sign is determined by the unramified computation, where the left side is the tame value and the right side is computed from the cyclic-algebra description of the cup of two Kummer classes (Layer 5, step 2 of the duality proof).
+Both sides are bimultiplicative and vanish exactly on norms in the same orientation ([The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-35): (a, b) = 1 iff a is a norm from F(ⁿ√b); Class Field Theory's localSymbol_eq_zero_iff_mem_normGroup: the symbol of (kummerClass a, kummerClass b) vanishes iff a is a norm from F(ⁿ√b)), and the sign is determined by the unramified computation, where the left side is the tame value and the right side is computed from the cyclic-algebra description of the cup of two Kummer classes (Layer 5, step 2 of the duality proof).
 
 For n = 2 both sides are ±1-valued and the equivalence is Class Field Theory Layer 6's localArtinMap_quadratic_eq_hilbertSymbol.
 
@@ -1568,11 +1557,11 @@ For n = 2 both sides are ±1-valued and the equivalence is Class Field Theory La
 
 **Unverified convention comparison.** The coordinate tr must be the Brauer-invariant coordinate, not an arbitrary isomorphism H²(F,μ_n)≃Z/n. With κ(a)∪κ(b) and ζ^i⊗ζ^j↦ζ^(ij), prove that one universal sign ε∈{1,−1} relates the exponent to the Artin-oriented symbol and determine ε from the ℚ₇ cubic witness (7,2)=4, (2,7)=2. Milne III Proposition 3.6 and Remark 4.5 use the transposed argument convention. Setting ε=−1 requires proving that the Kummer and cup-product conventions agree with Milne's; it is not a consequence of the existence of tr alone.
 
-*Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-36); [TauCetiRoadmap.ClassFieldTheory, layer 5 local coefficients the brauer group the local invariant and duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity); [TauCetiRoadmap.QuadraticFormInvariants, 6c the hilbert symbol and the local hasse invariant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md#6c-the-hilbert-symbol-and-the-local-hasse-invariant).
+*Needs:* [The degree-n norm-residue symbol of a nonarchimedean local field](#layer-1-topic-14); [The norm criterion and nondegeneracy of the norm-residue symbol](#layer-1-topic-35); [TauCetiRoadmap.ClassFieldTheory, layer 5 local coefficients the brauer group the local invariant and duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory, layer 6 the local class formation and finite local reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-6-the-local-class-formation-and-finite-local-reciprocity); [TauCetiRoadmap.QuadraticFormInvariants, 6c the hilbert symbol and the local hasse invariant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md#6c-the-hilbert-symbol-and-the-local-hasse-invariant).
 
-<a id="layer-1-topic-46"></a>
+<a id="layer-1-topic-45"></a>
 
-### 1.46 The supplementary laws for i and −1
+### 1.45 The supplementary laws for i and −1
 
 Let K = ℚ(i) and let λ = a + bi be primary with N(λ) odd. Then (i/λ)_4 = i^{−(a−1)/2} and (−1/λ)_4 = (−1)^{b/2} = (−1)^{(a−1)/2}, the symbols being taken at the ideal λ𝓞_K. In particular, for a rational integer n ≡ 1 (mod 4), (i/n)_4 = (−1)^{(n−1)/4} and (−1/n)_4 = 1.
 
@@ -1597,11 +1586,11 @@ For rational n ≡ 1 (mod 4): a = n, b = 0 gives (i/n)_4 = i^{−(n−1)/2} = (�
 - (i/(−3))_4 = i^2 = −1 = (−1)^{(−3−1)/4}; (i/(−1 + 2i))_4 = i, i^{−(−2)/2} = i.
 - Checked by direct computation for every primary prime with |a|, |b| ≤ 12 and for 67 primary composites with |a|, |b| ≤ 30.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Primary Gaussian integers](#layer-1-topic-16); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11).
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Primary Gaussian integers](#layer-1-topic-16); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11).
 
-<a id="layer-1-topic-47"></a>
+<a id="layer-1-topic-46"></a>
 
-### 1.47 The fourth power of the quartic Gauss sum
+### 1.46 The fourth power of the quartic Gauss sum
 
 Let π be a primary prime of ℤ[i] of norm p ≡ 1 (mod 4) and χ = (·/π)_4, pushed along an injective ring homomorphism φ : 𝓞_K → R into an integral domain R, and ψ a primitive additive character of 𝓞_K/π ≅ 𝔽_p with values in R. Then g(χ, ψ)^4 = p · φ(J(χ, χ))^2 = φ(π)^3 φ(π̄).
 
@@ -1622,11 +1611,11 @@ Hence g(χ)^4 = p J(χ, χ)^2, and J(χ, χ)^2 = π² by the Jacobi sum lemma; p
 - |g(χ, ψ)|² = p in ℂ (gaussSum_mul_gaussSum_eq_card), consistent with |π³π̄| = p².
 - For π = −1 + 2i: g^4 = 5(−1 + 2i)^2 = −15 − 20i.
 
-*Needs:* [The Jacobi sum of the quartic character of a primary prime](#layer-1-topic-37); Mathlib `gaussSum`; Mathlib `jacobiSum_mul_nontrivial`; Mathlib `gaussSum_sq`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `MulChar.ringHomComp`; Mathlib `AddChar.IsPrimitive`.
+*Needs:* [The Jacobi sum of the quartic character of a primary prime](#layer-1-topic-36); Mathlib `gaussSum`; Mathlib `jacobiSum_mul_nontrivial`; Mathlib `gaussSum_sq`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `MulChar.ringHomComp`; Mathlib `AddChar.IsPrimitive`.
 
-<a id="layer-1-topic-48"></a>
+<a id="layer-1-topic-47"></a>
 
-### 1.48 The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]
+### 1.47 The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]
 
 Let m ≥ 2, K = ℚ(ζ_m) with ζ_m a primitive m-th root of unity, and P a prime of 𝓞_K = ℤ[ζ_m] not dividing m, lying over the rational prime p, with N(P) = q = p^f. On F = 𝓞_K/P let χ_P(t) = (t/P)_m⁻¹ (the inverse of the m-th power residue character, χ_P(0) = 0) and ψ(t) = ζ_p^{Tr_{F/𝔽_p}(t)}, and let g(P) = g(χ_P, ψ) ∈ ℚ(ζ_m, ζ_p). Then Φ(P) := g(P)^m lies in 𝓞_K. Extend Φ multiplicatively to nonzero ideals A prime to m: Φ(A) = ∏ Φ(P_i) for A = P_1 ⋯ P_r, with Φ(𝓞_K) = 1, and write Φ(α) = Φ(α𝓞_K) for α prime to m.
 
@@ -1641,7 +1630,7 @@ The supporting API comprises:
 - `stickelbergerPhi_norm_sq`: In every complex embedding σ of K, |σ(Φ(A))|² = N(A)^m.
 - `stickelbergerPhi_galois`: σ(Φ(A)) = Φ(σA) for σ ∈ Gal(K/ℚ).
 - `stickelbergerPhi_modEq`: For m = l an odd prime, Φ(P) ≡ −1 (mod l𝓞_K), so Φ(A) ≡ ±1 (mod l𝓞_K).
-- `span_stickelbergerPhi`: The ideal generated by Φ(A) is A^γ, γ = Σ_{1≤t<m, (t,m)=1} t σ_t⁻¹ ([Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-56)).
+- `span_stickelbergerPhi`: The ideal generated by Φ(A) is A^γ, γ = Σ_{1≤t<m, (t,m)=1} t σ_t⁻¹ ([Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-55)).
 
 (Sukumar Das Adhikari, [The Early Reciprocity Laws: From Gauss to Eisenstein](#reference-adhikari-reciprocity-2000), §4, the definitions of χ_P, ψ, g(P), Φ(P) and Proposition 4.2, pp. 70–71; the extension Φ(A) before Proposition 4.4, p. 72.) Defines g(P) with χ_P = (·/P)_m⁻¹ and the trace character, proves Φ(P) ∈ ℚ(ζ_m) by the invariance argument of the second step, and extends Φ multiplicatively to ideals prime to m.
 
@@ -1664,11 +1653,11 @@ Multiplicativity in A by definition, through the factorisation of A in the Dedek
 - For m = 2, K = ℚ and P = (p) with p odd: χ_P is the Legendre character and Φ((p)) = g² = (−1/p) p = (−1)^{(p−1)/2} p.
 - For m = 3 and P = (π) with π = −1 − 3ω primary of norm 7: Φ(P) = 7π̄ = π π̄², whose ideal is P^{1·σ_1⁻¹ + 2·σ_2⁻¹}.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); Mathlib `gaussSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; Mathlib `Algebra.trace`; Mathlib `Ideal.absNorm`; Mathlib `IsCyclotomicExtension`.
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); Mathlib `gaussSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; Mathlib `Algebra.trace`; Mathlib `Ideal.absNorm`; Mathlib `IsCyclotomicExtension`.
 
-<a id="layer-1-topic-49"></a>
+<a id="layer-1-topic-48"></a>
 
-### 1.49 The completed quadratic residue symbol |α/β| of a number field
+### 1.48 The completed quadratic residue symbol |α/β| of a number field
 
 Let K be a number field. For α, β ∈ 𝓞_K with α ≠ 0 and β odd (β𝓞_K prime to 2), put μ_∞(α, β) = ∏_{v | ∞} (α, β)_v and μ₂(α, β) = ∏_{v | 2} (α, β)_v, products of the degree-2 norm-residue symbols at the infinite and the dyadic places, μ(α, β) = μ₂(α, β) μ_∞(α, β), and define the completed quadratic residue symbol |α/β| := μ_∞(α, β) · (α/β), where (α/β) is the quadratic residue symbol at the ideal β𝓞_K (the power residue symbol with n = 2). If α or β is totally positive, or K is totally complex, then |α/β| = (α/β).
 
@@ -1681,17 +1670,17 @@ The supporting API comprises:
 - `dyadicQuadFactor`: μ₂(α, β) = ∏_{v | 2} (α, β)_v ∈ {±1}.
 - `completedQuadSym_of_totallyPositive`: If α or β is totally positive, or K is totally complex, |α/β| = (α/β).
 - `completedQuadSym_mul_left`: |αα'/β| = |α/β| |α'/β|.
-- `completedQuadSym_reciprocity`: For coprime odd α, β: |α/β| = μ(α, β)|β/α| = μ₂(α, β)(β/α) ([Quadratic reciprocity in a number field with dyadic and archimedean factors](#layer-1-topic-67)).
-- `completedQuadSym_periodic`: |α/β| depends only on β modulo 8α ([Periodicity of the completed quadratic residue symbol modulo 8α](#layer-1-topic-71)).
+- `completedQuadSym_reciprocity`: For coprime odd α, β: |α/β| = μ(α, β)|β/α| = μ₂(α, β)(β/α) ([Quadratic reciprocity in a number field with dyadic and archimedean factors](#layer-1-topic-66)).
+- `completedQuadSym_periodic`: |α/β| depends only on β modulo 8α ([Periodicity of the completed quadratic residue symbol modulo 8α](#layer-1-topic-70)).
 - `completedQuadSym_rat`: For K = ℚ and odd b: |a/b| = (−1 if a < 0 and b < 0, else 1) · jacobiSym a |b|.
 
 (John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin, [The spin of prime ideals](#reference-fimr-spin-2013), §2, the definitions of μ₂, μ_∞, μ and (2.1), arXiv v2 pp. 5–6.) Defines the dyadic and archimedean products of quadratic Hilbert symbols and the completed symbol |α/β| = μ_∞(α, β)(α/β), noting that it equals (α/β) when α or β is totally positive.
 
 (Peter Koymans and Djordjo Milovic, [Joint distribution of spins](#reference-koymans-milovic-2021), §2.1, p. 4.) Uses the same μ₂, μ_∞ (after FIMR) and the symbol μ_∞(α, β)(α/β).
 
-To prove this, (α/β) is the parent's power residue symbol of the ideal β𝓞_K with n = 2, valued in {0, ±1}.
+To prove this, (α/β) is the power residue symbol at the ideal β𝓞_K ([The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33)) with n = 2, valued in {0, ±1}.
 
-μ_∞ and μ₂ are finite products of degree-2 norm-residue symbols at places ([The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25)), each ±1.
+μ_∞ and μ₂ are finite products of degree-2 norm-residue symbols at places ([The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24)), each ±1.
 
 If α or β is totally positive, every real factor (α, β)_v is 1 (the archimedean symbol is −1 only when both are negative), and a complex factor is always 1.
 
@@ -1704,13 +1693,13 @@ If α or β is totally positive, every real factor (α, β)_v is 1 (the archimed
 - For K = ℚ: |−1/−3| = μ_∞(−1, −3)(−1/3) = (−1)(−1) = 1, while (−1/−3) = (−1/3) = −1.
 - For K = ℚ and positive b, |a/b| is the Jacobi symbol (a/b).
 
-*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25); [The norm-residue symbol of ℝ and ℂ](#layer-1-topic-15).
+*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24); [The norm-residue symbol of ℝ and ℂ](#layer-1-topic-15).
 
-<a id="layer-1-topic-50"></a>
+<a id="layer-1-topic-49"></a>
 
-### 1.50 Norm compatibility of the power residue symbol in an extension
+### 1.49 Norm compatibility of the power residue symbol in an extension
 
-Let L/K be a finite extension of number fields, n ≥ 1, and suppose 𝓞_K contains a primitive n-th root of unity. For x ∈ 𝓞_K and a nonzero ideal 𝔄 of 𝓞_L with N(𝔄) prime to n, (x/𝔄)_{L,n} = (x/N_{L/K}(𝔄))_{K,n}, where N_{L/K} is the relative norm of ideals (Mathlib's Ideal.relNorm) and both symbols are the parent's power residue symbols of ideals. In particular, for nonzero w ∈ 𝓞_L with N(w) prime to n, (x/w)_{L,n} = (x/N_{L/K}(w))_{K,n}.
+Let L/K be a finite extension of number fields, n ≥ 1, and suppose 𝓞_K contains a primitive n-th root of unity. For x ∈ 𝓞_K and a nonzero ideal 𝔄 of 𝓞_L with N(𝔄) prime to n, (x/𝔄)_{L,n} = (x/N_{L/K}(𝔄))_{K,n}, where N_{L/K} is the relative norm of ideals (Mathlib's Ideal.relNorm) and both symbols are power residue symbols at ideals ([The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33)). In particular, for nonzero w ∈ 𝓞_L with N(w) prime to n, (x/w)_{L,n} = (x/N_{L/K}(w))_{K,n}.
 
 L/K any finite extension (no Galois hypothesis); μ_n ⊆ K, hence μ_n ⊆ L, with the same roots of unity used on both sides. N(𝔄) prime to n, so N_{L/K}(𝔄) is prime to n (Ideal.absNorm_relNorm).
 
@@ -1729,15 +1718,15 @@ If x ∈ 𝔭 both sides are 0. Otherwise, modulo 𝔓, (x/𝔓)_L ≡ x^{(N𝔭
 - K = ℚ, L = ℚ(i), n = 2, x = 3, 𝔄 = (−1 + 2i): (3/(−1 + 2i))_{L,2} = (3/5) = −1.
 - If L/ℚ is Galois of even degree and p splits completely in L, then for a ∈ ℤ prime to p, (a/p𝓞_L)_{L,2} = (a/p)^{[L:ℚ]} = 1, although the Legendre symbol (a/p) may be −1 (FIMR §2, p. 5).
 
-*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `Ideal.relNorm`; Mathlib `Ideal.relNorm_eq_pow_of_isMaximal`; Mathlib `Ideal.spanNorm_singleton`; Mathlib `Ideal.inertiaDeg`; Mathlib `Ideal.absNorm_relNorm`.
+*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `Ideal.relNorm`; Mathlib `Ideal.relNorm_eq_pow_of_isMaximal`; Mathlib `Ideal.spanNorm_singleton`; Mathlib `Ideal.inertiaDeg`; Mathlib `Ideal.absNorm_relNorm`.
 
-<a id="layer-1-topic-51"></a>
+<a id="layer-1-topic-50"></a>
 
-### 1.51 The cubic Jacobi sum has norm p and is divisible by π
+### 1.50 The cubic Jacobi sum has norm p and is divisible by π
 
 Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3) and χ = (·/π)_3. Then J(χ, χ) times its complex conjugate is p, and π divides J(χ, χ) in 𝓞_K. Consequently J(χ, χ) = π.
 
-As in the parent's Jacobi sum lemma; 𝓞_K = ℤ[ω] is a principal ideal domain.
+π is a prime of ℤ[ω], primary, of norm p ≡ 1 (mod 3); χ = (·/π)_3 takes values in 𝓞_K and the Jacobi sum is Mathlib's jacobiSum; 𝓞_K = ℤ[ω] is a principal ideal domain.
 
 (Nancy Xu, [Reciprocity Laws](#reference-xu-reciprocity-2021), §4, Proposition 4.8 and its proof, p. 12.) Shows J J̄ = p and J ≡ 0 (mod π) by the power-sum argument, and concludes J = π from primarity.
 
@@ -1754,11 +1743,11 @@ J has norm p and is divisible by π (norm p), so J is an associate of π (𝓞_K
 - For π = −1 − 3ω: J(χ, χ) = −1 − 3ω, and its conjugate 2 + 3ω satisfies (−1 − 3ω)(2 + 3ω) = 7.
 - The non-primary associate −π gives the same character, so J = π, not −π.
 
-*Needs:* [The cubic Jacobi sum of a primary prime is primary](#layer-1-topic-40); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-39); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); Mathlib `jacobiSum`; Mathlib `jacobiSum_mul_jacobiSum_inv`; Mathlib `FiniteField.sum_pow_lt_card_sub_one`; Mathlib `IsCyclotomicExtension.Rat.three_pid`.
+*Needs:* [The cubic Jacobi sum of a primary prime is primary](#layer-1-topic-39); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-38); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); Mathlib `jacobiSum`; Mathlib `jacobiSum_mul_jacobiSum_inv`; Mathlib `FiniteField.sum_pow_lt_card_sub_one`; Mathlib `IsCyclotomicExtension.Rat.three_pid`.
 
-<a id="layer-1-topic-52"></a>
+<a id="layer-1-topic-51"></a>
 
-### 1.52 The primitive quadratic character of a rational square class
+### 1.51 The primitive quadratic character of a rational square class
 
 For a nonzero rational u, let d = ratSquarefreePart u and let D(u) = d if d ≡ 1 (mod 4) and D(u) = 4d otherwise (squareclassDiscr u, Tau Ceti's fundamentalDiscriminant d). Then D(u) is a fundamental discriminant, and squareclassCharacter u := kroneckerCharacter D(u) is a primitive quadratic Dirichlet character of conductor |D(u)|. It agrees with the Legendre symbol (u / p) := legendreSym p (num u · den u) at every odd prime p with v_p(u) = 0; it depends only on the square class of u; its conductor has squarefree odd part, equal to the product of the odd primes p with v_p(u) odd, and 2-part 1, 4 or 8 according as d ≡ 1 (mod 4), d ≡ 3 (mod 4) or d is even; the odd part is 1 exactly when u ∈ {±1, ±2} · (ℚˣ)²; its value at -1 is the sign of u; and the square class of 1 gives the trivial character of conductor 1. Among primitive Dirichlet characters it is the only one agreeing with (u / p) at all but finitely many primes.
 
@@ -1781,7 +1770,7 @@ The supporting API comprises:
 
 (Michael A. Bennett and Samir Siksek, [A conjecture of Erdős, supersingular primes and short character sums](#reference-bennett-siksek-erdos-2020), §6, Lemma 6.2 (ii) (p. 367).) The construction is this χ for u = ω λ, with its existence, primitivity and uniqueness; the paper uses it without constructing it.
 
-(Michael A. Bennett and Samir Siksek, [A conjecture of Erdős, supersingular primes and short character sums](#reference-bennett-siksek-erdos-2020), §6, proof of Proposition 6.1 for a ∈ A(II) (p. 372).) The API item characterising odd part 1 by the square classes ±1, ±2 is the step the paper uses here.
+(Michael A. Bennett and Samir Siksek, [A conjecture of Erdős, supersingular primes and short character sums](#reference-bennett-siksek-erdos-2020), §6, proof of Proposition 6.1 for a ∈ A(II) (p. 372).) The API lemma characterising odd part 1 by the square classes ±1, ±2 is the step the paper uses here.
 
 To prove this, squareclassDiscr u is fundamental: Tau Ceti's isFundamentalDiscriminant_fundamentalDiscriminant applied to the squarefree part, transported to Int.IsFundamentalDiscr.
 
@@ -1805,11 +1794,11 @@ Uniqueness among primitive characters is the lemma on primitive characters agree
 - For every nonzero u the 2-adic valuation of the conductor is 0, 2 or 3; this is the 2-adic bound in its sharp form for square-class characters.
 - BS Lemma 6.2(ii) and the characters µ_1 to µ_4 of Proposition 6.1 are squareclassCharacter at λ, -λ, 2λ and -2λ.
 
-*Needs:* [The squarefree part of a rational number](#layer-1-topic-41); [The Kronecker character of a fundamental discriminant](#layer-1-topic-7); [The Kronecker character of a fundamental discriminant is primitive](#layer-1-topic-21); [Primitive characters agreeing at almost all primes are equal](#layer-1-topic-8); Tau Ceti `TauCeti.Multiquadratic.fundamentalDiscriminant`; Tau Ceti `TauCeti.Multiquadratic.isFundamentalDiscriminant_fundamentalDiscriminant`; Tau Ceti `TauCeti.legendreSym_mul_sq`; Mathlib `padicValRat`; Mathlib `legendreSym`; Mathlib `Nat.factorization`.
+*Needs:* [The squarefree part of a rational number](#layer-1-topic-40); [The Kronecker character of a fundamental discriminant](#layer-1-topic-7); Tau Ceti `TauCeti.Multiquadratic.isPrimitive_fundamentalDiscriminantChar` (current library, after the pin); [Primitive characters agreeing at almost all primes are equal](#layer-1-topic-8); Tau Ceti `TauCeti.Multiquadratic.fundamentalDiscriminant`; Tau Ceti `TauCeti.Multiquadratic.isFundamentalDiscriminant_fundamentalDiscriminant`; Tau Ceti `TauCeti.legendreSym_mul_sq`; Mathlib `padicValRat`; Mathlib `legendreSym`; Mathlib `Nat.factorization`.
 
-<a id="layer-1-topic-53"></a>
+<a id="layer-1-topic-52"></a>
 
-### 1.53 Hilbert's product formula for the degree-n Hilbert symbol
+### 1.52 Hilbert's product formula for the degree-n Hilbert symbol
 
 Let K be a number field containing μ_n and a, b ∈ Kˣ. The degree-n Hilbert symbol (a, b)_v is 1 at all but finitely many places v of K, and ∏_v (a, b)_v = 1, the product running over all finite and archimedean places. For n ≥ 3 every archimedean place of K is complex and contributes 1; for n = 2 a real place contributes -1 exactly when a and b are both negative there; for n = 1 the symbol is trivial.
 
@@ -1827,14 +1816,14 @@ For n = 2 this is ClassFieldTheory.hilbertProductFormula in sign form; the resul
 
 **Checks.**
 
-- For n = 2 and K = ℚ it is the imported product formula of the quadratic Hilbert symbol node.
+- For n = 2 and K = ℚ it is the imported product formula used in [The Hilbert symbol of ℚ at every place, read in Mathlib's residue symbols](#layer-1-topic-10).
 - For K = ℚ(ζ₃), n = 3, a = ζ₃ and b = 1 - ζ₃ the finitely many nontrivial factors multiply to 1 (only the place above 3 can contribute).
 
-*Needs:* [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-44); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25).
+*Needs:* [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-43); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24).
 
-<a id="layer-1-topic-54"></a>
+<a id="layer-1-topic-53"></a>
 
-### 1.54 The Jacobi sum of the cubic character of a primary prime
+### 1.53 The Jacobi sum of the cubic character of a primary prime
 
 Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3), and χ_π = (· / π)_3 the cubic residue character of the residue field ℤ[ω]/π ≅ 𝔽_p. Then the Jacobi sum J(χ_π, χ_π) = Σ_x χ_π(x) χ_π(1 - x) equals π.
 
@@ -1859,15 +1848,15 @@ Transport along a ring embedding is termwise transport of the finite sums, using
 - For π = -1 - 3ω (norm 7), J(χ_π, χ_π) = -1 - 3ω.
 - The sign normalisation matters: for the non-primary associate -π the value is still π, not -π, because J is attached to the character, which depends only on the ideal.
 
-*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `jacobiSum`; Mathlib `gaussSum_pow_eq_prod_jacobiSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_gen`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_dim`; Mathlib `gaussSum_mulShift_eq`; Mathlib `MulChar.ringHomComp`; Mathlib `star_gaussSum_eq`; Mathlib `jacobiSum_ringHomComp`; [The cubic Jacobi sum of a primary prime is primary](#layer-1-topic-40); [The cubic Jacobi sum has norm p and is divisible by π](#layer-1-topic-51).
+*Needs:* [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `jacobiSum`; Mathlib `gaussSum_pow_eq_prod_jacobiSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_gen`; Mathlib `IsPrimitiveRoot.integralPowerBasisOfPrimePow_dim`; Mathlib `gaussSum_mulShift_eq`; Mathlib `MulChar.ringHomComp`; Mathlib `star_gaussSum_eq`; Mathlib `jacobiSum_ringHomComp`; [The cubic Jacobi sum of a primary prime is primary](#layer-1-topic-39); [The cubic Jacobi sum has norm p and is divisible by π](#layer-1-topic-50).
 
-<a id="layer-1-topic-55"></a>
+<a id="layer-1-topic-54"></a>
 
-### 1.55 The quartic symbol of a rational integer at a coprime rational integer is trivial
+### 1.54 The quartic symbol of a rational integer at a coprime rational integer is trivial
 
 Let K = ℚ(i). For a rational integer a that is odd and not a unit, and a rational integer m coprime to a, the quartic residue symbol at the ideal a𝓞_K is trivial: (m / a)_4 = 1.
 
-a, m ∈ ℤ, a odd with |a| > 1, gcd(a, m) = 1. The symbol is the parent's power residue symbol with n = 4 at the ideal a𝓞_K, which is prime to 2.
+a, m ∈ ℤ, a odd with |a| > 1, gcd(a, m) = 1. The symbol is the power residue symbol ([The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33)) with n = 4 at the ideal a𝓞_K, which is prime to 2.
 
 (Nancy Xu, [Reciprocity Laws](#reference-xu-reciprocity-2021), §5, Proposition 5.10 and its proof, p. 16.) States and proves that χ_a(α) = 1 for coprime rational a, α with a odd and not a unit, by the split and inert cases.
 
@@ -1882,11 +1871,11 @@ If p ≡ 3 (mod 4), p is prime in ℤ[i] with norm p²; (m/p)_4 ≡ m^{(p²−1)
 - (3 / (−1 + 2i))_4 = i and (3 / (−1 − 2i))_4 = −i, whose product (3/5)_4 is 1 (checked by direct computation in 𝔽_5): the factors are not trivial, only their product.
 - (2/3)_4 = 1, since 2^{(9−1)/4} = 4 ≡ 1 (mod 3).
 
-*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime`.
+*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime`.
 
-<a id="layer-1-topic-56"></a>
+<a id="layer-1-topic-55"></a>
 
-### 1.56 Stickelberger's relation: the prime factorisation of Φ(P)
+### 1.55 Stickelberger's relation: the prime factorisation of Φ(P)
 
 Let m ≥ 2, K = ℚ(ζ_m), and P a prime of ℤ[ζ_m] not dividing m. Then the principal ideal generated by Φ(P) = g(P)^m is P^γ, where γ = Σ_{1 ≤ t < m, gcd(t, m) = 1} t σ_t⁻¹ ∈ ℤ[Gal(K/ℚ)], σ_t(ζ_m) = ζ_m^t, and P^{Σ a_σ σ} := ∏ σ(P)^{a_σ}. Consequently (Φ(A)) = A^γ for every ideal A prime to m, and (Φ(α)) = (α^γ) for α prime to m.
 
@@ -1916,11 +1905,11 @@ Multiplicativity gives (Φ(A)) = A^γ; for A = α𝓞_K, A^γ = (α^γ) because 
 - For m = 2 and an odd prime p: (Φ((p))) = (p) = (p)^{1·σ_1⁻¹}, the case of the quadratic Gauss sum.
 - γ has nonintegral counterpart θ = γ/m, the Stickelberger element; the relation says P^{mθ} is principal, generated by g(P)^m.
 
-*Needs:* [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-48); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); Mathlib `Ideal.relNorm_eq_pow_of_isMaximal`; Mathlib `Ideal.absNorm`; Mathlib `gaussSum_ne_zero_of_nontrivial`; Mathlib `IsCyclotomicExtension`.
+*Needs:* [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-47); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); Mathlib `Ideal.relNorm_eq_pow_of_isMaximal`; Mathlib `Ideal.absNorm`; Mathlib `gaussSum_ne_zero_of_nontrivial`; Mathlib `IsCyclotomicExtension`.
 
-<a id="layer-1-topic-57"></a>
+<a id="layer-1-topic-56"></a>
 
-### 1.57 The residue symbol of Φ(P) at a second prime
+### 1.56 The residue symbol of Φ(P) at a second prime
 
 Let m ≥ 2, K = ℚ(ζ_m), and P, P' primes of ℤ[ζ_m] not dividing m with N(P) and N(P') coprime. Then (Φ(P)/P')_m = (N(P')/P)_m.
 
@@ -1942,11 +1931,11 @@ Two m-th roots of unity congruent modulo a prime above p' ∤ m are equal ([The 
 
 - For m = 3, P = (π) with N(π) = 7 and P' = (2): (Φ(P)/2)_3 = (7π̄/2)_3 = (π̄/2)_3 and (N(2)/π)_3 = (4/π)_3 = (2/π)_3²; both equal ω: modulo 2, π̄ = 2 + 3ω ≡ ω and 7 ≡ 1, and the residue symbol at the inert prime 2 is x ↦ x^{(4−1)/3} = x; modulo π, ω ≡ 2 in 𝔽_7 and 4^{(7−1)/3} = 16 ≡ 2.
 
-*Needs:* [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-48); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
+*Needs:* [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-47); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
 
-<a id="layer-1-topic-58"></a>
+<a id="layer-1-topic-57"></a>
 
-### 1.58 The dyadic factor μ₂(α, β) depends only on α and β modulo 8
+### 1.57 The dyadic factor μ₂(α, β) depends only on α and β modulo 8
 
 Let K be a number field and α, β, α', β' ∈ 𝓞_K odd with α ≡ α' and β ≡ β' (mod 8𝓞_K). Then μ₂(α, β) = μ₂(α', β').
 
@@ -1963,11 +1952,11 @@ Write α' = αη with η = α'/α ≡ 1 (mod 8) in 𝓞_{K_v} (α is a v-adic un
 - For K = ℚ: (a, b)_2 for odd a, b depends only on a, b mod 4 (it is (−1)^{((a−1)/2)((b−1)/2)}), a fortiori mod 8.
 - 17 ≡ 1 (mod 8) is a square in ℚ_2, so μ₂(17α, β) = μ₂(α, β).
 
-*Needs:* [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-49); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-26); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25).
+*Needs:* [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-48); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-25); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24).
 
-<a id="layer-1-topic-59"></a>
+<a id="layer-1-topic-58"></a>
 
-### 1.59 The cubic symbol of a rational integer at a rational prime is trivial
+### 1.58 The cubic symbol of a rational integer at a rational prime is trivial
 
 Let q ≡ 2 (mod 3) be a rational prime (inert in ℤ[ω]) and n a rational integer prime to q. Then (n/q)_3 = 1. In particular cubic reciprocity holds trivially for two distinct rational primes q₁, q₂ ≡ 2 (mod 3).
 
@@ -1986,11 +1975,11 @@ For a cube root of unity ζ, conj(ζ) = ζ² ; so (n/q)_3 = (n/q)_3², and (n/q)
 - (2/5)_3 = 1: 5 is inert in ℤ[ω] and 2^{(25−1)/3} = 2^8 = 256 ≡ 1 (mod 5).
 - (7/2)_3 = 1: 7 ≡ 1 (mod 2).
 
-*Needs:* [Galois equivariance of the power residue symbol](#layer-1-topic-43); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24).
+*Needs:* [Galois equivariance of the power residue symbol](#layer-1-topic-42); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23).
 
-<a id="layer-1-topic-60"></a>
+<a id="layer-1-topic-59"></a>
 
-### 1.60 The general power reciprocity law
+### 1.59 The general power reciprocity law
 
 Let K be a number field containing μ_n, and let a, b be nonzero elements of 𝓞_K such that the ideals (a), (b) and (n) are pairwise coprime. Then (a / b)_n · ((b / a)_n)^(-1) = ∏_{v | n∞} (a, b)_v, where (a / b)_n is the power residue symbol at the principal ideal (b) and the product runs over the places above n and the archimedean places. The places above n enter only through Hilbert symbols; no power residue symbol is taken at a prime dividing n.
 
@@ -2009,13 +1998,13 @@ Rearrange: (a / b)_n (b / a)_n^(-1) = ∏_{v | n∞} (a, b)_v.
 **Checks.**
 
 - For K = ℚ, n = 2 and odd positive coprime a, b the right side is (a, b)_2 (a, b)_∞ = (-1)^((a-1)(b-1)/4), which is Mathlib's jacobiSym.quadratic_reciprocity: the explicit comparison with the pinned quadratic law (Shastri §10).
-- For K = ℚ(ζ₃) and n = 3, K is totally complex, so the right side is the Hilbert symbol at the prime above 3 alone; cubic reciprocity is the statement that this factor is 1 for primary arguments, which the cubic reciprocity node proves by Jacobi sums instead.
+- For K = ℚ(ζ₃) and n = 3, K is totally complex, so the right side is the Hilbert symbol at the prime above 3 alone; cubic reciprocity is the statement that this factor is 1 for primary arguments, which [The law of cubic reciprocity](#layer-1-topic-72) proves by Jacobi sums instead.
 
-*Needs:* [Hilbert's product formula for the degree-n Hilbert symbol](#layer-1-topic-53); [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-44); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); Mathlib `jacobiSym.quadratic_reciprocity`; [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25).
+*Needs:* [Hilbert's product formula for the degree-n Hilbert symbol](#layer-1-topic-52); [The degree-n Hilbert symbol at a place not dividing n](#layer-1-topic-43); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); Mathlib `jacobiSym.quadratic_reciprocity`; [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24).
 
-<a id="layer-1-topic-61"></a>
+<a id="layer-1-topic-60"></a>
 
-### 1.61 The cube of the cubic Gauss sum
+### 1.60 The cube of the cubic Gauss sum
 
 Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3), χ_π its cubic residue character on 𝔽_p ≅ ℤ[ω]/π, pushed along an injective ring homomorphism φ of 𝓞_K into an integral domain R (for example ℂ, or the ring of integers of K(ζ_p), which cubic reciprocity needs for its congruences modulo q), and ψ a primitive additive character of 𝔽_p with values in R. Then g(χ_π, ψ)^3 = p · φ(π).
 
@@ -2034,15 +2023,15 @@ Transport along a ring embedding is termwise transport of the finite sums, using
 - |g(χ_π, ψ)|^2 = p (gaussSum_mul_gaussSum_eq_card), consistent with |p φ(π)|^(2/3) = p.
 - For π = -1 - 3ω the cube is 7 φ(-1 - 3ω).
 
-*Needs:* [The Jacobi sum of the cubic character of a primary prime](#layer-1-topic-54); Mathlib `gaussSum`; Mathlib `gaussSum_pow_eq_prod_jacobiSum`; Mathlib `MulChar.ringHomComp`; Mathlib `AddChar.IsPrimitive`; Mathlib `gaussSum_mulShift_eq`; Mathlib `star_gaussSum_eq`; Mathlib `jacobiSum_ringHomComp`; [The cube of the Gauss sum of a cubic character](#layer-1-topic-19).
+*Needs:* [The Jacobi sum of the cubic character of a primary prime](#layer-1-topic-53); Mathlib `gaussSum`; Mathlib `gaussSum_pow_eq_prod_jacobiSum`; Mathlib `MulChar.ringHomComp`; Mathlib `AddChar.IsPrimitive`; Mathlib `gaussSum_mulShift_eq`; Mathlib `star_gaussSum_eq`; Mathlib `jacobiSum_ringHomComp`; [The cube of the Gauss sum of a cubic character](#layer-1-topic-19).
 
-<a id="layer-1-topic-62"></a>
+<a id="layer-1-topic-61"></a>
 
-### 1.62 Quartic reciprocity between a primary element and a rational integer
+### 1.61 Quartic reciprocity between a primary element and a rational integer
 
 Let K = ℚ(i). (a) For an odd rational prime q and a primary prime π of ℤ[i] of norm p ≡ 1 (mod 4) with p ≠ q: ((−1)^{(q−1)/2} q / π)_4 = (π / q)_4. (b) For a rational integer a ≡ 1 (mod 4) and a primary λ ∈ ℤ[i] coprime to a: (a / λ)_4 = (λ / a)_4.
 
-Symbols are the parent's power residue symbols with n = 4 at the principal ideals (π), (q), (λ), (a), all of odd norm. In (b), λ may be composite or rational; a may be negative.
+Symbols are power residue symbols ([The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33)) with n = 4 at the principal ideals (π), (q), (λ), (a), all of odd norm. In (b), λ may be composite or rational; a may be negative.
 
 (Nancy Xu, [Reciprocity Laws](#reference-xu-reciprocity-2021), §5, Propositions 5.11–5.12, pp. 15–16.) States (a) for an odd prime q (deferring the proof to Ireland–Rosen §9.9, which writes g^{q+1}, resp. g^{q+3}, in two ways) and proves (b) from (a) by multiplicativity; the steps here carry out the computation sketched there, as in the cubic case.
 
@@ -2059,11 +2048,11 @@ To prove this, (a), q ≡ 3 (mod 4): q is inert, 𝓞_K/q ≅ 𝔽_{q²} with Fr
 - ((−3)/(−1 + 2i))_4 = ((−1 + 2i)/3)_4 = −i, a direct computation fixing the quotient convention.
 - For q ≡ 1 (mod 4) the sign (−1)^{(q−1)/2} is +1: (5/(3 + 2i))_4 = ((3 + 2i)/5)_4.
 
-*Needs:* [The fourth power of the quartic Gauss sum](#layer-1-topic-47); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-55); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
+*Needs:* [The fourth power of the quartic Gauss sum](#layer-1-topic-46); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-54); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
 
-<a id="layer-1-topic-63"></a>
+<a id="layer-1-topic-62"></a>
 
-### 1.63 The unit Φ(α)/α^γ is a root of unity ±ζ_m^i
+### 1.62 The unit Φ(α)/α^γ is a root of unity ±ζ_m^i
 
 Let m ≥ 2, K = ℚ(ζ_m) and α ∈ 𝓞_K prime to m. Then Φ(α) = ε(α) α^γ for a unit ε(α) of 𝓞_K, and ε(α) = ±ζ_m^i for some i.
 
@@ -2083,11 +2072,11 @@ Galois equivariance (σ(Φ(α)) = Φ(σα)) shows the same for every conjugate o
 
 - For m = 3 and α = π primary of norm 7: Φ(π) = 7π̄ and π^γ = π · σ_2⁻¹(π)² = π π̄², so ε(π) = 7π̄/(ππ̄²) = 1.
 
-*Needs:* [Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-56); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-48); Mathlib `NumberField.Embeddings.pow_eq_one_of_norm_eq_one`; Mathlib `IsCyclotomicExtension.Rat.torsionOrder_eq`.
+*Needs:* [Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-55); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-47); Mathlib `NumberField.Embeddings.pow_eq_one_of_norm_eq_one`; Mathlib `IsCyclotomicExtension.Rat.torsionOrder_eq`.
 
-<a id="layer-1-topic-64"></a>
+<a id="layer-1-topic-63"></a>
 
-### 1.64 Quartic reciprocity for primary elements with coprime coordinates
+### 1.63 Quartic reciprocity for primary elements with coprime coordinates
 
 Let π = a + bi and λ = c + di be coprime primary elements of ℤ[i] with gcd(a, b) = gcd(c, d) = 1. Then (λ/π)_4 = (π/λ)_4 · (−1)^{((a−1)/2)((c−1)/2)}.
 
@@ -2108,11 +2097,11 @@ When a, c or ac + bd is ±1 the corresponding factor is 1 and the same computati
 - For π = −1 + 2i and λ = 3 + 2i: (a − 1)/2 = −1, (c − 1)/2 = 1, so (λ/π)_4 = −(π/λ)_4.
 - For λ = −3 (d = 0, gcd(−3, 0) = 3 ≠ 1) the lemma does not apply directly; the general theorem handles it by the decomposition λ = m(c + di).
 
-*Needs:* [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-62); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-55); [The supplementary laws for i and −1](#layer-1-topic-46); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43).
+*Needs:* [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-61); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-54); [The supplementary laws for i and −1](#layer-1-topic-45); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42).
 
-<a id="layer-1-topic-65"></a>
+<a id="layer-1-topic-64"></a>
 
-### 1.65 The supplementary law for 1 + i
+### 1.64 The supplementary law for 1 + i
 
 Let λ = a + bi ∈ ℤ[i] be primary. Then ((1 + i)/λ)_4 = i^{(a − b − b² − 1)/4}, the symbol being taken at the ideal λ𝓞_K. In particular, for a rational integer n ≡ 1 (mod 4), ((1 + i)/n)_4 = i^{(n−1)/4}.
 
@@ -2133,13 +2122,13 @@ Both sides are multiplicative on primary elements (for the right side, a congrue
 - ((1 + i)/(−3))_4 = i^{(−3−0−0−1)/4} = i^{−1} = −i; ((1 + i)/(−1 + 2i))_4 = i^{(−1−2−4−1)/4} = i^{−2} = −1.
 - Checked by direct computation for every primary prime with |a|, |b| ≤ 12 and for 67 primary composites with |a|, |b| ≤ 30.
 
-**Unverified source input.** For primary λ=a+bi the supplementary formula requires ((1+i)/λ)₄=i^((a−b−b²−1)/4). Integrality of the exponent and multiplicativity are part of the target. The primary congruence and the main quartic reciprocity law do not themselves supply this supplement. The proof route here must be completed or compared with a readable proof of Gauss's second biquadratic memoir, §§68–76; the cited Xu and Relyea expositions do not state a proof of this factor.
+**Unverified source input.** For primary λ=a+bi the supplementary formula requires ((1+i)/λ)₄=i^((a−b−b²−1)/4). Integrality of the exponent and multiplicativity are part of the target. The primary congruence and the main quartic reciprocity law do not themselves supply this supplement. The proof route here must be completed independently or checked against Gauss's second memoir on biquadratic residues, §§68–76; the cited Xu and Relyea expositions do not prove this factor.
 
-*Needs:* [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-62); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-55); [The supplementary laws for i and −1](#layer-1-topic-46); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43).
+*Needs:* [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-61); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-54); [The supplementary laws for i and −1](#layer-1-topic-45); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42).
 
-<a id="layer-1-topic-66"></a>
+<a id="layer-1-topic-65"></a>
 
-### 1.66 For primary α in ℤ[ζ_l], Φ(α) = ±α^γ
+### 1.65 For primary α in ℤ[ζ_l], Φ(α) = ±α^γ
 
 Let l be an odd prime, K = ℚ(ζ_l), and α ∈ ℤ[ζ_l] primary (prime to l and congruent to a rational integer modulo (1 − ζ_l)²). Then ε(α) = ±1, that is Φ(α) = ±α^γ. Moreover Φ(P) ≡ −1 (mod l) for every prime P ∤ l, so Φ(A) ≡ ±1 (mod l) for every ideal A prime to l.
 
@@ -2153,18 +2142,18 @@ To prove this, φ(P) ≡ −1 (mod l): modulo l in ℤ[ζ_l, ζ_p], g(P)^l ≡ �
 
 With λ = 1 − ζ_l and α ≡ x (mod λ²), x ∈ ℤ, every σ(α) ≡ x (mod λ²) because λ²𝓞_K is Galois stable; so α^γ ≡ x^{1 + 2 + ⋯ + (l−1)} = (x^{(l−1)/2})^l ≡ ±1 (mod λ²), using x^{(l−1)/2} ≡ ±1 (mod l) and l ∈ λ².
 
-So ε(α) ≡ ±1 (mod λ²); by the previous lemma ε(α) = ±ζ_l^i, so ζ_l^i ≡ ±1 (mod λ²); the sign is + because ζ_l^i ≡ 1 (mod λ) and 2 ∉ λ, and then ζ_l^i ≡ 1 − iλ (mod λ²) forces l | i (the uniqueness of the normalising power, [The unique root of unity making a cyclotomic integer primary](#layer-1-topic-31)). Hence ε(α) = ±1.
+So ε(α) ≡ ±1 (mod λ²); by the previous lemma ε(α) = ±ζ_l^i, so ζ_l^i ≡ ±1 (mod λ²); the sign is + because ζ_l^i ≡ 1 (mod λ) and 2 ∉ λ, and then ζ_l^i ≡ 1 − iλ (mod λ²) forces l | i (the uniqueness of the normalising power, [The unique root of unity making a cyclotomic integer primary](#layer-1-topic-30)). Hence ε(α) = ±1.
 
 **Checks.**
 
 - For l = 3, (1 − ω)² = −3ω, so an element ≡ 2 (mod 3) such as π = −1 − 3ω (norm 7) is primary in this sense, and ε(π) = 1 by the computation Φ(π) = 7π̄ = π^γ.
 - The primary hypothesis is needed: for α = ζ_l π, Φ(α) = Φ(π) but α^γ = ζ_l^{Σ t·t⁻¹}π^γ = ζ_l^{l−1}π^γ ≠ ±π^γ.
 
-*Needs:* [The unit Φ(α)/α^γ is a root of unity ±ζ_m^i](#layer-1-topic-63); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-48); [Primary elements of ℤ[ζ_l]](#layer-1-topic-13); Mathlib `IsPrimitiveRoot.zeta_sub_one_prime'`.
+*Needs:* [The unit Φ(α)/α^γ is a root of unity ±ζ_m^i](#layer-1-topic-62); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-47); [Primary elements of ℤ[ζ_l]](#layer-1-topic-13); Mathlib `IsPrimitiveRoot.zeta_sub_one_prime'`.
 
-<a id="layer-1-topic-67"></a>
+<a id="layer-1-topic-66"></a>
 
-### 1.67 Quadratic reciprocity in a number field with dyadic and archimedean factors
+### 1.66 Quadratic reciprocity in a number field with dyadic and archimedean factors
 
 Let K be a number field and α, β ∈ 𝓞_K nonzero, odd and coprime. Then (α/β) = μ(α, β) (β/α) with μ = μ₂ μ_∞, the products of the degree-2 norm-residue symbols over the dyadic and the infinite places; equivalently |α/β| = μ(α, β)|β/α| = μ₂(α, β)(β/α).
 
@@ -2185,11 +2174,11 @@ The degree-2 symbol is symmetric ((β, α)_v = (α, β)_v⁻¹ = (α, β)_v), so
 - For K = ℚ and odd positive coprime a, b: μ_∞ = 1 and μ₂(a, b) = (a, b)_2 = (−1)^{((a−1)/2)((b−1)/2)}, which is jacobiSym.quadratic_reciprocity.
 - For K = ℚ, α = −1, β = −3: (−1/−3) = −1, (−3/−1) = 1, μ₂ = (−1, −3)_2 = 1 and μ_∞ = (−1, −3)_∞ = −1, so the law holds with μ = −1.
 
-*Needs:* [The general power reciprocity law](#layer-1-topic-60); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-25); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-26); [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-49); [The dyadic Hilbert symbol through χ₄ and χ₈](#layer-1-topic-23); Mathlib `jacobiSym.quadratic_reciprocity`.
+*Needs:* [The general power reciprocity law](#layer-1-topic-59); [The degree-n norm-residue symbol at a place of a number field](#layer-1-topic-24); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-25); [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-48); [The dyadic Hilbert symbol through χ₄ and χ₈](#layer-1-topic-22); Mathlib `jacobiSym.quadratic_reciprocity`.
 
-<a id="layer-1-topic-68"></a>
+<a id="layer-1-topic-67"></a>
 
-### 1.68 Cubic reciprocity between a rational prime and a complex primary prime
+### 1.67 Cubic reciprocity between a rational prime and a complex primary prime
 
 Let q ≡ 2 (mod 3) be a rational prime and π a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3). Then (q/π)_3 = (π/q)_3.
 
@@ -2207,13 +2196,13 @@ g is invertible modulo q (g ḡ = p), so (π/q)_3 ≡ χ_π(q) (mod q); two cube
 
 **Checks.**
 
-- q = 2, π = −1 − 3ω: (2/π)_3 = ω² = (π/2)_3 (the parent's acceptance example).
+- q = 2, π = −1 − 3ω: (2/π)_3 = ω² = (π/2)_3.
 
-*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-61); [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-59); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
+*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-60); [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-58); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`.
 
-<a id="layer-1-topic-69"></a>
+<a id="layer-1-topic-68"></a>
 
-### 1.69 The law of biquadratic (quartic) reciprocity
+### 1.68 The law of biquadratic (quartic) reciprocity
 
 Let K = ℚ(i) and let λ, π ∈ ℤ[i] be coprime primary elements (in particular of odd norm). Then (λ/π)_4 = (π/λ)_4 · (−1)^{((N(λ)−1)/4)((N(π)−1)/4)}, the symbols being the quartic power residue symbols at the principal ideals (π) and (λ).
 
@@ -2237,11 +2226,11 @@ Finally ((a − 1)/2)((c − 1)/2) ≡ ((N(π) − 1)/4)((N(λ) − 1)/4) (mod 2
 - Checked by direct computation for 266 coprime pairs of primary composites with |a|, |b| ≤ 30.
 - The sign is −1 exactly when N(λ) ≡ N(π) ≡ 5 (mod 8).
 
-*Needs:* [Quartic reciprocity for primary elements with coprime coordinates](#layer-1-topic-64); [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-62); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-55); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34).
+*Needs:* [Quartic reciprocity for primary elements with coprime coordinates](#layer-1-topic-63); [Quartic reciprocity between a primary element and a rational integer](#layer-1-topic-61); [The quartic symbol of a rational integer at a coprime rational integer is trivial](#layer-1-topic-54); [Primary Gaussian integers](#layer-1-topic-16); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33).
 
-<a id="layer-1-topic-70"></a>
+<a id="layer-1-topic-69"></a>
 
-### 1.70 Eisenstein reciprocity at the norm of an ideal
+### 1.69 Eisenstein reciprocity at the norm of an ideal
 
 Let l be an odd prime, K = ℚ(ζ_l), α ∈ ℤ[ζ_l] a primary nonunit, and 𝔅 an ideal of ℤ[ζ_l] prime to l with N(𝔅) prime to α. Then (α/N(𝔅))_l = (N(𝔅)/α)_l, the symbols at the principal ideals N(𝔅)𝓞_K and α𝓞_K.
 
@@ -2263,11 +2252,11 @@ To prove this, reduce by multiplicativity to 𝔅 = P prime.
 
 - For l = 3, α = π = −1 − 3ω (norm 7) and 𝔅 = (2) (N = 4): (π/4)_3 = (4/π)_3, i.e. (π/2)_3² = (2/π)_3², an instance of cubic reciprocity.
 
-*Needs:* [For primary α in ℤ[ζ_l], Φ(α) = ±α^γ](#layer-1-topic-66); [The residue symbol of Φ(P) at a second prime](#layer-1-topic-57); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-48); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43).
+*Needs:* [For primary α in ℤ[ζ_l], Φ(α) = ±α^γ](#layer-1-topic-65); [The residue symbol of Φ(P) at a second prime](#layer-1-topic-56); [The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]](#layer-1-topic-47); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42).
 
-<a id="layer-1-topic-71"></a>
+<a id="layer-1-topic-70"></a>
 
-### 1.71 Periodicity of the completed quadratic residue symbol modulo 8α
+### 1.70 Periodicity of the completed quadratic residue symbol modulo 8α
 
 Let K be a number field and α ∈ 𝓞_K nonzero. For odd β, δ ∈ 𝓞_K with β ≡ δ (mod 8α), |α/β| = |α/δ|. If moreover β and δ are totally positive, (α/β) = (α/δ).
 
@@ -2290,11 +2279,11 @@ For β ≡ δ (mod 8α), μ₂(α, β) = μ₂(α, δ) by the previous lemma, so
 - For K = ℚ, |−1/b| = (−1)^{(b−1)/2} for every odd b, positive or negative: it depends only on b mod 4.
 - Without the archimedean factor periodicity fails: for K = ℚ, −3 ≡ 5 (mod 8), but (−1/−3) = −1 ≠ 1 = (−1/5), while |−1/−3| = 1 = |−1/5|.
 
-*Needs:* [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-49); [Quadratic reciprocity in a number field with dyadic and archimedean factors](#layer-1-topic-67); [The dyadic factor μ₂(α, β) depends only on α and β modulo 8](#layer-1-topic-58); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-26).
+*Needs:* [The completed quadratic residue symbol |α/β| of a number field](#layer-1-topic-48); [Quadratic reciprocity in a number field with dyadic and archimedean factors](#layer-1-topic-66); [The dyadic factor μ₂(α, β) depends only on α and β modulo 8](#layer-1-topic-57); [Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol](#layer-1-topic-25).
 
-<a id="layer-1-topic-72"></a>
+<a id="layer-1-topic-71"></a>
 
-### 1.72 Cubic reciprocity between two complex primary primes
+### 1.71 Cubic reciprocity between two complex primary primes
 
 Let π₁, π₂ be primary primes of ℤ[ω] of norms p₁ ≠ p₂, both ≡ 1 (mod 3). Then (π₂/π₁)_3 = (π₁/π₂)_3.
 
@@ -2314,11 +2303,11 @@ Multiplying them gives uv = 1; substituting v = u⁻¹ in the first gives x² u�
 
 - π₁ = −1 − 3ω (norm 7) and π₂ = −1 + 3ω (norm 13): modulo π₁, ω ≡ 2 and π₂ ≡ 5 with 5² ≡ 4 ≡ ω²; modulo π₂, ω ≡ 9 and π₁ ≡ 11 with 11⁴ ≡ 3 ≡ ω²; both symbols are ω².
 
-*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-61); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-68); [Galois equivariance of the power residue symbol](#layer-1-topic-43); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`.
+*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-60); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-67); [Galois equivariance of the power residue symbol](#layer-1-topic-42); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [The norm of a prime not dividing n is one modulo n](#layer-1-topic-11); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mulShift_eq`.
 
-<a id="layer-1-topic-73"></a>
+<a id="layer-1-topic-72"></a>
 
-### 1.73 The law of cubic reciprocity
+### 1.72 The law of cubic reciprocity
 
 Let π₁ and π₂ be primary primes of ℤ[ω], neither of norm 3, with N(π₁) ≠ N(π₂). Then (π₂ / π₁)_3 = (π₁ / π₂)_3, the symbols being the cubic power residue symbols at the principal ideals (π₁) and (π₂).
 
@@ -2341,11 +2330,11 @@ Transport along a ring embedding is termwise transport of the finite sums, using
 - For q = 2 and π = -1 - 3ω (norm 7): ω ≡ 2 (mod π), so (2 / π)_3 ≡ 2^2 = 4 ≡ ω^2, and π ≡ 1 + ω = -ω^2 ≡ ω^2 (mod 2), so (π / 2)_3 = ω^2 as well; 2 is not a cube modulo 7.
 - Primary is needed: replacing π₂ by its associate ω π₂ multiplies (π₂ / π₁)_3 by (ω / π₁)_3 = ω^((N π₁ - 1)/3), which is nontrivial in general.
 
-*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-61); [The Jacobi sum of the cubic character of a primary prime](#layer-1-topic-54); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; Mathlib `MulChar.ringHomComp`; [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-59); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-68); [Cubic reciprocity between two complex primary primes](#layer-1-topic-72).
+*Needs:* [The cube of the cubic Gauss sum](#layer-1-topic-60); [The Jacobi sum of the cubic character of a primary prime](#layer-1-topic-53); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42); [Primary elements of the Eisenstein integers](#layer-1-topic-12); Mathlib `gaussSum_frob`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; Mathlib `MulChar.ringHomComp`; [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-58); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-67); [Cubic reciprocity between two complex primary primes](#layer-1-topic-71).
 
-<a id="layer-1-topic-74"></a>
+<a id="layer-1-topic-73"></a>
 
-### 1.74 The Eisenstein reciprocity law
+### 1.73 The Eisenstein reciprocity law
 
 Let l be an odd prime, K = ℚ(ζ_l), α ∈ ℤ[ζ_l] a primary nonunit, and a ∈ ℤ with a ≠ ±1, a prime to l and (a) prime to (α). Then (α / a)_l = (a / α)_l, the l-th power residue symbols at the principal ideals (a) and (α).
 
@@ -2367,11 +2356,11 @@ For a rational prime p ≠ l prime to α and P above p with N P = p^f, (α / p)_
 - The primary hypothesis cannot be dropped: replacing α by ζ α leaves (a / α)_l unchanged but multiplies (α / p)_l by (ζ / p)_l = ζ^((p^(l-1) - 1)/l) for a rational prime p ≠ l, which is nontrivial unless p^(l-1) ≡ 1 (mod l^2).
 - The hypothesis a ≠ ±1 is the source's; for a = ±1 both sides are 1 trivially.
 
-*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Galois equivariance of the power residue symbol](#layer-1-topic-43); [Primary elements of ℤ[ζ_l]](#layer-1-topic-13); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); Mathlib `gaussSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; [Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-56); [For primary α in ℤ[ζ_l], Φ(α) = ±α^γ](#layer-1-topic-66); [Eisenstein reciprocity at the norm of an ideal](#layer-1-topic-70).
+*Needs:* [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Galois equivariance of the power residue symbol](#layer-1-topic-42); [Primary elements of ℤ[ζ_l]](#layer-1-topic-13); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); Mathlib `gaussSum`; Mathlib `gaussSum_mul_gaussSum_eq_card`; Mathlib `gaussSum_mulShift_eq`; [Stickelberger's relation: the prime factorisation of Φ(P)](#layer-1-topic-55); [For primary α in ℤ[ζ_l], Φ(α) = ±α^γ](#layer-1-topic-65); [Eisenstein reciprocity at the norm of an ideal](#layer-1-topic-69).
 
-<a id="layer-1-topic-75"></a>
+<a id="layer-1-topic-74"></a>
 
-### 1.75 Cubic reciprocity between a primary prime and a rational integer
+### 1.74 Cubic reciprocity between a primary prime and a rational integer
 
 Let π be a primary prime of ℤ[ω] with N(π) ≠ 3, and A a rational integer prime to 3 and to π. Then (A/π)_3 = (π/A)_3, the right side being the cubic symbol at the ideal A ℤ[ω].
 
@@ -2391,11 +2380,11 @@ Each factor pair agrees by cubic reciprocity: for a rational prime factor q (and
 
 - π = −1 − 3ω, A = 10 = 2·5: (10/π)_3 = (2/π)_3(5/π)_3 and (π/10)_3 = (π/2)_3(π/5)_3.
 
-*Needs:* [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-59); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-68); [Cubic reciprocity between two complex primary primes](#layer-1-topic-72); [The law of cubic reciprocity](#layer-1-topic-73); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [Primary elements of the Eisenstein integers](#layer-1-topic-12); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-39).
+*Needs:* [The cubic symbol of a rational integer at a rational prime is trivial](#layer-1-topic-58); [Cubic reciprocity between a rational prime and a complex primary prime](#layer-1-topic-67); [Cubic reciprocity between two complex primary primes](#layer-1-topic-71); [The law of cubic reciprocity](#layer-1-topic-72); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [Primary elements of the Eisenstein integers](#layer-1-topic-12); [Every Eisenstein prime of norm different from 3 has exactly one primary associate](#layer-1-topic-38).
 
-<a id="layer-1-topic-76"></a>
+<a id="layer-1-topic-75"></a>
 
-### 1.76 Eisenstein's supplement to cubic reciprocity at 1 - ω
+### 1.75 Eisenstein's supplement to cubic reciprocity at 1 - ω
 
 Let π = a + b ω be a primary prime of ℤ[ω] of norm different from 3, and write a = 3m - 1 with m ∈ ℤ. Then ((1 - ω) / π)_3 = ω^(2m). The companion supplements (-1 / π)_3 = 1 and (ω / π)_3 = ω^((N π - 1)/3), that is 1, ω or ω² according as N π ≡ 1, 4 or 7 (mod 9), are the values of the power residue symbol at -1 = (-1)^3 and at a root of unity.
 
@@ -2412,7 +2401,7 @@ Complex π = a + b ω with a = 3m - 1, b = 3n: extend the cubic character to pri
 - For q = 2 (m = 1): ((1 - ω) / 2)_3 = ω^2.
 - For π = -1 - 3ω (a = -1, m = 0): ((1 - ω) / π)_3 = 1.
 
-*Needs:* [The law of cubic reciprocity](#layer-1-topic-73); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-34); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-24); [Primary elements of the Eisenstein integers](#layer-1-topic-12); [Cubic reciprocity between a primary prime and a rational integer](#layer-1-topic-75).
+*Needs:* [The law of cubic reciprocity](#layer-1-topic-72); [The n-th power residue symbol at an ideal prime to n](#layer-1-topic-33); [The n-th power residue symbol at a prime not dividing n](#layer-1-topic-23); [Primary elements of the Eisenstein integers](#layer-1-topic-12); [Cubic reciprocity between a primary prime and a rational integer](#layer-1-topic-74).
 
 ### Examples
 
@@ -2606,11 +2595,11 @@ The supporting API comprises:
 
 (Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 486, the definition of a linearly generated sequence.) The target's predicate `Sequence.IsLinearlyGenerated`; the case k = 0 (the empty recurrence, forcing s = 0) is the result's own choice, since the printed definition does not discuss it. The convention that the zero polynomial counts as a generating polynomial is stated on printed p. 487, just before Theorem 18.1.
 
-(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 487, Theorem 18.1 and the paragraph after it.) The ideal `generatingIdeal`, the monic generator `minPoly` and the API items `minPoly_dvd` and `isLinearlyGenerated_iff`.
+(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 487, Theorem 18.1 and the paragraph after it.) The ideal `generatingIdeal`, the monic generator `minPoly` and the lemmas `minPoly_dvd` and `isLinearlyGenerated_iff`.
 
 (Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 488, Example 18.2.) The compatibility item `minPoly_of_powers`; the result extends it to every F-algebra, using Mathlib's convention that `minpoly` is 0 off the integral elements.
 
-(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 489, Exercise 18.1.) The unit test `Sequence.isGeneratingPoly_one_iff`.
+(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 489, Exercise 18.1.) Source for the Check that 1 generates only the zero sequence.
 
 To prove this, define the pairing g ⋆ s by `Polynomial.sum`; it is additive in g and F-homogeneous (Shoup's two observations in the proof of Theorem 18.1).
 
@@ -2643,7 +2632,7 @@ Compatibility with `minpoly` (Shoup Example 18.2): for α in an F-algebra A, g �
 
 Let K be a field of characteristic 0, E a linear recurrence over K, θ ∈ K and j ≥ 0. If (X − θ)^{j+1} divides E.charPoly, then n ↦ nʲθⁿ is a solution of E. Consequently every n ↦ g(n)θⁿ with deg g < rootMultiplicity θ (E.charPoly) is a solution.
 
-K is a field of characteristic 0, which is the generality the closed-form nodes use. The proof as written (multiplicity test through derivative^[m] and invertibility of factorials) needs characteristic 0; a characteristic-free version would apply `hasseDeriv_mul` directly to (X − θ)^(j+1)·Q. θ = 0 is allowed: n ↦ nʲ0ⁿ is 0 for j ≥ 1 and δ₀ for j = 0, and both solve E when X^{j+1} ∣ E.charPoly.
+K is a field of characteristic 0, which is the generality of the closed-form results of this layer. The proof as written (multiplicity test through derivative^[m] and invertibility of factorials) needs characteristic 0; a characteristic-free version would apply `hasseDeriv_mul` directly to (X − θ)^(j+1)·Q. θ = 0 is allowed: n ↦ nʲ0ⁿ is 0 for j ≥ 1 and δ₀ for j = 0, and both solve E when X^{j+1} ∣ E.charPoly.
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Proof of Theorem 4.1.1, p. 536.) The coefficient sequences n ↦ C(n + j − 1, j − 1)γⁿ of the partial fractions (1 − γx)^{−j} are the solutions this lemma produces (a polynomial of degree j − 1 in n times γⁿ); the recurrence side is the denominator (1 − γx)^j, whose reverse is (X − γ)^j.
 
@@ -2688,7 +2677,7 @@ Equivalently (Stanley's route): the generating functions ∑_n g_θ(n)θⁿxⁿ 
 
 - 2ⁿ + 3ⁿ − 5ⁿ is not identically zero (Evertse's example has u₀ = 1).
 - The statement fails for θ = 0 (nʲ0ⁿ = 0 for j ≥ 1) and in characteristic p, which is why both hypotheses are in the statement.
-- It gives the uniqueness half of Evertse's Theorem 8.17 and 'u = 0 iff all gᵢ = 0' for the Skolem–Mahler–Lech node of DT.2.
+- It gives the uniqueness half of Evertse's Theorem 8.17 and 'u = 0 iff all gᵢ = 0', the uniqueness used in Skolem–Mahler–Lech arguments.
 
 *Needs:* Mathlib `Polynomial.eval`; Mathlib `Polynomial.natDegree`; Mathlib `Polynomial.degree_lt_wf`.
 
@@ -2707,7 +2696,7 @@ The supporting API comprises:
 - `eulerNumber`: The signed Euler numbers of DLMF: (−1)^{n/2}E_n for n even, 0 for n odd.
 - `zigzag_odd_eq_bernoulli`: E_{2n+1} = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) with Mathlib's `bernoulli`.
 
-(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.6.1, p. 54.) The object; the definition is by recursion and the count of alternating permutations is the theorem andre-alternating-permutations.
+(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.6.1, p. 54.) The object; the definition is by recursion and the count of alternating permutations is the theorem [André's theorem: E_n counts alternating permutations](#layer-2-topic-29).
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.6.1, Note after the proof of Proposition 1.6.1, p. 55.) The defining recursion of `zigzag`.
 
@@ -2719,7 +2708,7 @@ To prove this, define zigzag by well-founded recursion on n with the odd-index s
 
 Define the exponential generating series zigzagPowerSeries A = ∑ algebraMap ℚ A (E_n/n!) Xⁿ over a ℚ-algebra A and the signed eulerNumber n = if n even then (−1)^{n/2}E_n else 0.
 
-The API item `zigzag_odd_eq_bernoulli` is proved after secant-plus-tangent-formal-identity, as that node's last proof step, because it uses that the odd part of ∑ E_nXⁿ/n! is tan X; it is listed here as part of the object's API, and this result's own construction does not use it.
+`zigzag_odd_eq_bernoulli` is proved after [The exponential generating function of the Euler numbers, formally](#layer-2-topic-30), as the last step of its proof, because it uses that the odd part of ∑ E_nXⁿ/n! is tan X; it is listed here as part of the object's API, and this result's own construction does not use it.
 
 **Checks.**
 
@@ -2753,7 +2742,7 @@ The supporting API comprises:
 - `eventuallyEq_zero_of_taylorPowerSeries_eq_zero`: If f is analytic at 0 and T f = 0 then f = 0 near 0.
 - `hasSum_taylorPowerSeries`: If f is complex differentiable on the ball of radius r about 0, then ∑ Tₙ zⁿ = f(z) for |z| < r.
 
-(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.1, p. 11.) The formal side; the construction is the bridge to the analytic side, which the stage's acceptance requires to be a separate convergence theorem.
+(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.1, p. 11.) The formal side; the construction is the bridge to the analytic side, which is the separate convergence theorem [Formal identities specialise on a disc of holomorphy](#layer-2-topic-31).
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 1.1, p. 17.) The injectivity on germs recorded in the API (`eventuallyEq_zero_of_taylorPowerSeries_eq_zero`) and the uniqueness used for exp, sin, cos.
 
@@ -2794,7 +2783,7 @@ The supporting API comprises:
 
 (J. S. Milne, [Algebraic Number Theory (course notes)](#reference-milne-ant-2020), Chapter 7, Proposition 7.26, printed p. 116.) The general statement; the result is the case A = ℤ_(p), π = p, S = {0, …, p − 1}, restricted to ℤ_p (no negative powers).
 
-(J. S. Milne, [Algebraic Number Theory (course notes)](#reference-milne-ant-2020), Chapter 7, after Proposition 7.26, printed p. 117.) The API items `sum_digitsEquiv_eq_appr` and `digitsEquiv_apply`.
+(J. S. Milne, [Algebraic Number Theory (course notes)](#reference-milne-ant-2020), Chapter 7, after Proposition 7.26, printed p. 117.) Source for `sum_digitsEquiv_eq_appr` and `digitsEquiv_apply`.
 
 To prove this, digits: dᵢ(x) = (toZModPow (i+1) x).val / pⁱ; equivalently (appr x (i+1) − appr x i)/pⁱ, which is < p by `PadicInt.appr_lt` and `PadicInt.dvd_appr_sub_appr`.
 
@@ -2915,7 +2904,7 @@ a ∈ kernel k a (e = 0, r = 0); the kernel of a kernel element is contained in 
 - The 2-kernel of the Thue–Morse sequence is {t, n ↦ 1 + t n} (in ZMod 2).
 - n ↦ a(2n + 1) belongs to the 2-kernel of a (e = 1, r = 1), while r ≥ k^e is not allowed.
 - The kernel of a constant sequence is a singleton; the 2-kernel of the Thue–Morse sequence is {t, 1 − t}.
-- Finiteness of the kernel is the automaticity criterion (next node).
+- Finiteness of the kernel is the automaticity criterion ([Eilenberg's theorem: automatic iff finite kernel](#layer-2-topic-50)).
 
 *Needs:* Mathlib `Set.Finite`.
 
@@ -2941,7 +2930,7 @@ The supporting API comprises:
 
 (G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Section 6, p. 407.) The source has q = |K| ≥ 2 and r ∈ [q] = {0,…,q−1}. The definition extends to positive q and arbitrary natural r on Laurent series; power-series preservation retains r < q.
 
-(G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Sections 6 and 7, pp. 407 to 408.) The API items `eq_sum_single_mul_cartier_pow` and `cartier_pow_card_mul`.
+(G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Sections 6 and 7, pp. 407 to 408.) Source for `eq_sum_single_mul_cartier_pow` and `cartier_pow_card_mul`.
 
 (Eric Rowland, Manon Stipulanti, Reem Yassawi, [An elementary proof of Bridy's theorem](#reference-rowland-stipulanti-yassawi-bridy-2023), Section 3, Proposition 4 and the display before it, p. 5.) The same identity; the display before it gives the degree bound for polynomials (the sum stops at ⌊N/q⌋).
 
@@ -2988,9 +2977,9 @@ The supporting API comprises:
 
 (Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 21.) The definition.
 
-(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 21.) The API item `mediant_mem_Ioo`.
+(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 21.) Source for `mediant_mem_Ioo`.
 
-(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 26.) The unit test `mediant_third_twothirds`: the mediant of reduced fractions need not be reduced.
+(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 26.) Source for the Check that the mediant of reduced fractions need not be reduced.
 
 To prove this, define mediant x y := (x.num + y.num)/(x.den + y.den) as a rational number.
 
@@ -3198,7 +3187,7 @@ The supporting API comprises:
 
 To prove this, define descentCount σ as the cardinality of the finite set of positions i : Fin n with i + 1 < n and σ(i + 1) < σ(i), and A(n, q) as the cardinality of {σ ∈ Equiv.Perm (Fin n) : descentCount σ = q}.
 
-The basic identities (sum n!, symmetry, recurrence, Worpitzky) are proved in eulerian-basic-identities; this result fixes the object and its conventions.
+The basic identities (sum n!, symmetry, recurrence, Worpitzky) are proved in [Basic identities of Eulerian numbers](#layer-2-topic-39); this result fixes the object and its conventions.
 
 **Checks.**
 
@@ -3369,7 +3358,7 @@ To prove this, the formal group Ê of the Weierstrass equation has coefficients 
 
 The last sentence is the preimage of a subgroup under a homomorphism.
 
-Tau Ceti's EllipticCurves roadmap, Layer 1, plans the elliptic formal group law (milestone (i)), the group Ê(𝔪) over a complete valued field (iii) and the identification Ê(𝔪) ≅ E₁(K) for an integral model (iv); its Layer 4 works from a minimal equation and is not used here. This node adds the finer filtration E_k, k ≥ 1, and its quotients for an arbitrary integral equation (AEC VII, Exercise 7.4, as solved in Streng, Lemma III.2.3).
+Tau Ceti's EllipticCurves roadmap, Layer 1, plans the elliptic formal group law (milestone (i)), the group Ê(𝔪) over a complete valued field (iii) and the identification Ê(𝔪) ≅ E₁(K) for an integral model (iv); its Layer 4 works from a minimal equation and is not used here. This result adds the finer filtration E_k, k ≥ 1, and its quotients for an arbitrary integral equation (AEC VII, Exercise 7.4, as solved in Streng, Lemma III.2.3).
 
 **Checks.**
 
@@ -3416,7 +3405,7 @@ To prove this, (a) Mathlib's hasSum_zeta_nat: Σ_{n≥1} 1/n^{2k} = (−1)^{k+1}
 **Checks.**
 
 - k = 1: |B₂|(2π)²/2! = (1/6)·4π²/2 = π²/3 = 2ζ(2).
-- Together with [The Bernoulli generating function on its disc of convergence](#layer-2-topic-48) this pins the radius at exactly 2π and decides the boundary circle (divergent), which the parent signature not_summable_bernoulli_mul_pow (strict 2π < |z|) leaves open.
+- Together with [The Bernoulli generating function on its disc of convergence](#layer-2-topic-48) this pins the radius at exactly 2π and decides the boundary circle (divergent), which the divergence clause of that theorem (strict 2π < |z|) leaves open.
 
 *Needs:* Mathlib `hasSum_zeta_nat`; Mathlib `bernoulli`; Mathlib `Multipliable.tendsto_atTop_one`.
 
@@ -3439,7 +3428,7 @@ The supporting API comprises:
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 4.1, p. 535, the definition preceding Theorem 4.1.1.) The predicate, with Q(0) ≠ 0 and no degree normalisation; the normalisation deg P < deg Q is a condition of Theorem 4.1.1, not of rationality.
 
-(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 4.1, p. 535.) The API item `PowerSeries.isRational_iff_mem_range` (the image of K(X) in K⸨X⸩ meets K⟦X⟧ exactly in the rational series) and the subring structure.
+(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Section 4.1, p. 535.) Source for `PowerSeries.isRational_iff_mem_range` (the image of K(X) in K⸨X⸩ meets K⟦X⟧ exactly in the rational series) and the subring structure.
 
 To prove this, define `PowerSeries.IsRational f` as ∃ P Q, Q.coeff 0 ≠ 0 ∧ f * Q = P, with polynomials coerced to power series (`Polynomial.coeToPowerSeries.ringHom`).
 
@@ -3449,7 +3438,7 @@ Inverse: if f·Q = P then f⁻¹ = Q·P⁻¹ when P(0) ≠ 0, and Mathlib's f⁻
 
 Laurent-series characterisation: the embedding K⟦X⟧ → K⸨X⸩ (`HahnSeries.ofPowerSeries`) is compatible with the embedding of K(X) (`RatFunc.coe_coe`), so f·Q = P iff f = P/Q in K⸨X⸩.
 
-Coefficient characterisation: if f·Q = P then the coefficient sequence has generating polynomial X^N·reverse(Q) for N ≥ deg P + 1 − deg Q; conversely a nonzero generating polynomial g = X^m h with h(0) ≠ 0 gives Q = reverse(g), with Q(0) = leading coefficient of g ≠ 0, and f·Q a polynomial (uses the minimal-polynomial node).
+Coefficient characterisation: if f·Q = P then the coefficient sequence has generating polynomial X^N·reverse(Q) for N ≥ deg P + 1 − deg Q; conversely a nonzero generating polynomial g = X^m h with h(0) ≠ 0 gives Q = reverse(g), with Q(0) = leading coefficient of g ≠ 0, and f·Q a polynomial (uses [Linearly generated sequences and their minimal polynomial](#layer-2-topic-1)).
 
 **Checks.**
 
@@ -3480,9 +3469,9 @@ The supporting API comprises:
 
 (Jan-Hendrik Evertse, [Diophantine Approximation (Leiden/Mastermath lecture notes), Chapter 8](#reference-evertse-diophantine-2019), Section 8.4, printed p. 172, (8.18) and the definition of the companion polynomial.) The recurrence attached to the monic polynomial f_U; Evertse's coefficient c_i is ofMonic's −p.coeff (k − i). The condition c_k ≠ 0 is the nonzero constant term, which the construction does not impose.
 
-(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 487.) For monic g (a_k = 1) this is exactly ofMonic g, and the API item `isSolution_ofMonic_iff`.
+(Victor Shoup, [A Computational Introduction to Number Theory and Algebra (Version 2)](#reference-shoup-v2), Section 18.1, printed p. 487.) For monic g (a_k = 1) this is exactly ofMonic g, and the source for `isSolution_ofMonic_iff`.
 
-To prove this, define ofMonic p := ⟨p.natDegree, fun i ↦ −p.coeff i⟩; the order is p.natDegree by definition, so the state vectors of the companion-matrix nodes live in Fin p.natDegree → R without a cast.
+To prove this, define ofMonic p := ⟨p.natDegree, fun i ↦ −p.coeff i⟩; the order is p.natDegree by definition, so the state vectors of the companion-matrix results live in Fin p.natDegree → R without a cast.
 
 charPoly (ofMonic p) = X^d + ∑_{i<d} p.coeff i Xⁱ = p for monic p (compare coefficients; `LinearRecurrence.charPoly`).
 
@@ -3504,7 +3493,7 @@ Over a field: (Xⁱ p) ⋆ u = u(i + d) + ∑ p.coeff j u(i + j), so the recurre
 
 ### 2.28 Uniqueness of recurrence closed forms (Evertse, Theorem 8.17; Stanley, Theorem 4.1.1)
 
-Let E be a complex linear recurrence with nonzero constant coefficient in E.charPoly. Write S for the finite set of its characteristic roots and e_θ for their multiplicities. If two families g,g′ : S → ℂ[X] satisfy deg g_θ < e_θ and deg g′_θ < e_θ, and both give u(h)=Σ_(θ∈S) g_θ(h)θʰ=Σ_(θ∈S) g′_θ(h)θʰ for every h≥0, then g=g′. The simple-root specialization gives unique constant coefficients, and u=0 forces every coefficient polynomial to vanish. Existence of a representing family is the supplier contract of DiophantineApproximationAndTranscendence DT.2 §2.4; the added target is uniqueness for any such recurrence, including a nonminimal one.
+Let E be a complex linear recurrence with nonzero constant coefficient in E.charPoly. Write S for the finite set of its characteristic roots and e_θ for their multiplicities. If two families g,g′ : S → ℂ[X] satisfy deg g_θ < e_θ and deg g′_θ < e_θ, and both give u(h)=Σ_(θ∈S) g_θ(h)θʰ=Σ_(θ∈S) g′_θ(h)θʰ for every h≥0, then g=g′. The simple-root specialization gives unique constant coefficients, and u=0 forces every coefficient polynomial to vanish. Existence of a representing family is the supplier contract of TauCetiRoadmap.DiophantineApproximationAndTranscendence §2.4; the added target is uniqueness for any such recurrence, including a nonminimal one.
 
 E.charPoly.coeff 0 ≠ 0 (Evertse's c_k ≠ 0): all θᵢ are nonzero. Without it the statement can fail: for ofMonic X² (θ = 0 with multiplicity 2) the solution δ₁ (u(1) = 1, all other terms 0) is not of the form g(h)·0ʰ with deg g < 2, because g(h)·0ʰ vanishes for every h ≥ 1. (For ofMonic X alone the closed form still holds with 0⁰ = 1, since δ₀ = 1·0ʰ.) The recurrence need not be the minimal one; for a non-minimal recurrence some gᵢ may vanish. The family is indexed by S. Equivalently extend it by zero to ℂ; since the zero polynomial has degree ⊥, the inequality deg g_θ < rootMultiplicity θ E.charPoly forces that extension at nonroots.
 
@@ -3516,9 +3505,9 @@ To prove this, ℂ is algebraically closed (`Complex.isAlgClosed`), so the monic
 
 Existence is imported, not proved again: DiophantineApproximationAndTranscendence Layer 2 owns it as closedFormRecurrence (that roadmap's package, §2.4, after Evertse §8.4): for a complex recurrence whose characteristic polynomial has nonzero constant term, every solution is Σ_θ P_θ(n)θⁿ over the distinct roots θ with deg P_θ < mult θ.
 
-Uniqueness, the part added here: if g and g′ both represent u, then Σ_θ (g θ − g′ θ)(h)θʰ = 0 for every h, and the functions h ↦ hʲθʰ (θ a root, j < mult θ) are linearly independent (exponential-polynomials-are-linearly-independent; θ ≠ 0 by the constant-term hypothesis), so g θ = g′ θ for every root θ; for θ not a root the degree condition forces g θ = g′ θ = 0.
+Uniqueness, the part added here: if g and g′ both represent u, then Σ_θ (g θ − g′ θ)(h)θʰ = 0 for every h, and the functions h ↦ hʲθʰ (θ a root, j < mult θ) are linearly independent ([Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); θ ≠ 0 by the constant-term hypothesis), so g θ = g′ θ for every root θ; for θ not a root the degree condition forces g θ = g′ θ = 0.
 
-Equivalently, by the dimension count (`LinearRecurrence.solSpace_rank`, via `LinearRecurrence.toInit`) the order-many functions h ↦ hʲθʰ, which solve the recurrence (exponential-polynomial-solutions), form a basis of the solution space; this is the comparison that identifies the imported existence statement with the basis expansion, and it is not a second proof plan.
+Equivalently, by the dimension count (`LinearRecurrence.solSpace_rank`, via `LinearRecurrence.toInit`) the order-many functions h ↦ hʲθʰ, which solve the recurrence ([Exponential polynomials solve the recurrence of their characteristic factor](#layer-2-topic-2)), form a basis of the solution space; this is the comparison that identifies the imported existence statement with the basis expansion, and it is not a second proof plan.
 
 **Checks.**
 
@@ -3526,7 +3515,7 @@ Equivalently, by the dimension count (`LinearRecurrence.solSpace_rank`, via `Lin
 - Repeated root: for E.charPoly = (X − 1)², u(h) = a + b h with a, b uniquely determined by u(0), u(1).
 - Fibonacci: F_h = (φʰ − φ̄ʰ)/√5, with constants ±1/√5 as the unique gᵢ.
 
-*Needs:* [Exponential polynomials solve the recurrence of their characteristic factor](#layer-2-topic-2); [Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); Mathlib `LinearRecurrence.solSpace`; Mathlib `LinearRecurrence.solSpace_rank`; Mathlib `LinearRecurrence.toInit`; Mathlib `LinearRecurrence.charPoly_monic`; Mathlib `Polynomial.Splits.eq_prod_roots_of_monic`; Mathlib `IsAlgClosed`; Mathlib `Complex.isAlgClosed`; Mathlib `IsAlgClosed.card_roots_eq_natDegree`; Mathlib `Polynomial.count_roots`; Mathlib `Polynomial.rootMultiplicity`; [DiophantineApproximationAndTranscendence, `DT.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* [Exponential polynomials solve the recurrence of their characteristic factor](#layer-2-topic-2); [Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); Mathlib `LinearRecurrence.solSpace`; Mathlib `LinearRecurrence.solSpace_rank`; Mathlib `LinearRecurrence.toInit`; Mathlib `LinearRecurrence.charPoly_monic`; Mathlib `Polynomial.Splits.eq_prod_roots_of_monic`; Mathlib `IsAlgClosed`; Mathlib `Complex.isAlgClosed`; Mathlib `IsAlgClosed.card_roots_eq_natDegree`; Mathlib `Polynomial.count_roots`; Mathlib `Polynomial.rootMultiplicity`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.4 `closedFormRecurrence`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#24-finite-rank-multiplicative-groups-and-recurrences).
 
 <a id="layer-2-topic-29"></a>
 
@@ -3575,12 +3564,12 @@ tan X = sin X·(cos X)⁻¹ and sec X = (cos X)⁻¹ satisfy tan′ = 1 + tan² 
 
 Map along ℚ → A (`PowerSeries.map`).
 
-Tangent numbers and Bernoulli numbers (API `zigzag_odd_eq_bernoulli` of euler-zigzag-numbers): the odd part O of ∑ E_nXⁿ/n! is tan X by the previous steps; formally X cot X = ∑ (−1)ⁿ2^{2n}B_{2n}X^{2n}/(2n)! (Mathlib's bernoulliPowerSeries rescaled by 2i, then the even part, which has rational coefficients) and tan X = cot X − 2 cot 2X, which gives tan X = ∑ (−1)^{n−1}2^{2n}(2^{2n} − 1)B_{2n}X^{2n−1}/(2n)! (DLMF 4.19.3) and E_{2n+1} = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2).
+Tangent numbers and Bernoulli numbers (API `zigzag_odd_eq_bernoulli` of [The Euler (zigzag) numbers](#layer-2-topic-4)): the odd part O of ∑ E_nXⁿ/n! is tan X by the previous steps; formally X cot X = ∑ (−1)ⁿ2^{2n}B_{2n}X^{2n}/(2n)! (Mathlib's bernoulliPowerSeries rescaled by 2i, then the even part, which has rational coefficients) and tan X = cot X − 2 cot 2X, which gives tan X = ∑ (−1)^{n−1}2^{2n}(2^{2n} − 1)B_{2n}X^{2n−1}/(2n)! (DLMF 4.19.3) and E_{2n+1} = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2).
 
 **Checks.**
 
 - Constant and linear coefficients: E₀ = E₁ = 1; the coefficient of X² of y·cos X is E₂/2 − 1/2 = 0.
-- The identity is formal; its analytic form on |z| < π/2 is the separate theorem secant-plus-tangent-on-its-disc.
+- The identity is formal; its analytic form on |z| < π/2 is the separate theorem [sec + tan on its disc of convergence](#layer-2-topic-49).
 
 *Needs:* [The Euler (zigzag) numbers](#layer-2-topic-4); Mathlib `PowerSeries.cos`; Mathlib `PowerSeries.sin`; Mathlib `PowerSeries.derivative`; Mathlib `PowerSeries.ext`; Mathlib `PowerSeries.coeff_mul`; Mathlib `PowerSeries.map`; Mathlib `bernoulli`; Mathlib `bernoulliPowerSeries`; [Formal derivatives of sine and cosine and the Pythagorean identity](#layer-2-topic-24).
 
@@ -3598,7 +3587,7 @@ g has no zero on the open disc; the radius r is the conclusion's radius of conve
 
 To prove this, h/g is complex differentiable on the disc (quotient rule, g ≠ 0), hence analytic there (`DifferentiableOn.analyticAt`).
 
-T(h/g)·T(g) = T(h) by multiplicativity of T (taylor-series-of-a-complex-function); T(g) has constant coefficient g(0) ≠ 0, so it is a unit (`PowerSeries.isUnit_iff_constantCoeff`) and F = T(h/g).
+T(h/g)·T(g) = T(h) by multiplicativity of T ([The Taylor series at 0 of a complex function](#layer-2-topic-5)); T(g) has constant coefficient g(0) ≠ 0, so it is a unit (`PowerSeries.isUnit_iff_constantCoeff`) and F = T(h/g).
 
 Conclude by convergence of the Taylor series of h/g on the disc (`Complex.hasSum_taylorSeries_on_ball`).
 
@@ -3625,7 +3614,7 @@ Since tail(e) ≤ 1 and dₙ − eₙ ≥ 1, equality forces dₙ − eₙ = 1, 
 
 The converse is the geometric series identity (b − 1)∑_{i>n} b^{−i−1} = b^{−n−1}.
 
-The consequence follows with canonical-real-expansion-is-recovered.
+The consequence follows with [The canonical base-b expansion is recovered from any expansion not ending in b − 1](#layer-2-topic-7).
 
 **Checks.**
 
@@ -3640,7 +3629,7 @@ The consequence follows with canonical-real-expansion-is-recovered.
 
 Let k ≥ 1 (NeZero k). A sequence a : ℕ → Δ is k-automatic if there are a finite type σ and a DFAO M with input alphabet Fin k and states σ such that a(n) = τ(eval((n)_k)) for every n, where (n)_k = Nat.digits k n is the base-k expansion of n read least significant digit first (Mathlib's order; (0)_k is empty), mapped into Fin k.
 
-Reading convention: least significant digit first ('lecture inverse' of Christol–Kamae–Mendès France–Rauzy, 'reverse reading' of Bridy); for k ≥ 2 the other convention gives the same class (automaticity-is-independent-of-reading-direction); for k = 1 the unary digit word is its own reversal. Canonical representations, without padding zeros, as Mathlib's `Nat.digits`; states live in Type (as Mathlib's `Language.IsRegular`). The output alphabet Δ is arbitrary; automaticity forces the range of a to be finite. Base k = 1 extends the sources: Bridy (p. 3), Christol–Kamae–Mendès France–Rauzy (p. 405) and Byszewski–Konieczny (p. 6) all take k ≥ 2. With NeZero k, base 1 reads the unary word Nat.digits_one; only the constructors (constants, eventually periodic sequences) are claimed for it, and every theorem in this layer assumes k ≥ 2.
+Reading convention: least significant digit first ('lecture inverse' of Christol–Kamae–Mendès France–Rauzy, 'reverse reading' of Bridy); for k ≥ 2 the other convention gives the same class ([Automaticity does not depend on the reading direction](#layer-2-topic-51)); for k = 1 the unary digit word is its own reversal. Canonical representations, without padding zeros, as Mathlib's `Nat.digits`; states live in Type (as Mathlib's `Language.IsRegular`). The output alphabet Δ is arbitrary; automaticity forces the range of a to be finite. Base k = 1 extends the sources: Bridy (p. 3), Christol–Kamae–Mendès France–Rauzy (p. 405) and Byszewski–Konieczny (p. 6) all take k ≥ 2. With NeZero k, base 1 reads the unary word Nat.digits_one; only the constructors (constants, eventually periodic sequences) are claimed for it, and every theorem in this layer assumes k ≥ 2.
 
 The supporting API comprises:
 
@@ -3690,7 +3679,7 @@ To prove this, the K(X)-span of f, f^q, f^{q²}, … lies in the finite extensio
 
 Among all nontrivial relations choose one whose least index j with a_j ≠ 0 is minimal, and suppose j ≥ 1. Since a_j = ∑_r X^r(Λ_r a_j)^q, some Λ_r(a_j) ≠ 0.
 
-Apply Λ_r: as f^{qⁱ} = (f^{q^{i−1}})^q, Λ_r(aᵢf^{qⁱ}) = Λ_r(aᵢ)f^{q^{i−1}} (cartier-operators), giving a relation ∑_{i≥j} Λ_r(aᵢ) f^{q^{i−1}} = 0 whose least index is j − 1 with nonzero coefficient, a contradiction; so j = 0.
+Apply Λ_r: as f^{qⁱ} = (f^{q^{i−1}})^q, Λ_r(aᵢf^{qⁱ}) = Λ_r(aᵢ)f^{q^{i−1}} ([The Cartier operators on Laurent series](#layer-2-topic-10)), giving a relation ∑_{i≥j} Λ_r(aᵢ) f^{q^{i−1}} = 0 whose least index is j − 1 with nonzero coefficient, a contradiction; so j = 0.
 
 **Checks.**
 
@@ -3742,7 +3731,7 @@ The supporting API comprises:
 
 (Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, printed p. 21.) The construction: the triangles below the edge from 0/1 to 1/0 form the Stern–Brocot tree, the long edge of a triangle being the pair of bounds.
 
-(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, Corollary 1.2, printed p. 25.) The API item `den_sternBrocot`.
+(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.1, Corollary 1.2, printed p. 25.) Source for `den_sternBrocot`.
 
 To prove this, define sternBrocotBounds w by folding the two update rules over w from ((0, 1), (1, 0)), and sternBrocot w := (a + c)/(b + d) as a rational.
 
@@ -3801,7 +3790,7 @@ To prove this, let I_x be the integer interval with endpoints xB+⌈B/3⌉ and x
 
 Adjacent windows overlap in the integer interval [(x+1)B+⌈B/3⌉,xB+⌊5B/3⌋]. Its cardinality is at least ⌊B/3⌋, which is at least 2⌊B/6⌋ and hence at least p_N+p_(x+1). The existence of a positive period with 6p_x≤B ensures these windows overlap.
 
-Induct over finite unions I_N∪…∪I_z. They are intervals. Apply local-period-gluing at each step to preserve the first period p_N on the growing union.
+Induct over finite unions I_N∪…∪I_z. They are intervals. Apply [Gluing local periods across a long overlap](#layer-2-topic-16) at each step to preserve the first period p_N on the growing union.
 
 For any t≥(N+1)B choose z sufficiently large that both t and t+p_N lie in that finite union. Its left endpoint is at most (N+1)B and its right endpoints are unbounded. The finite-union statement proves the desired equality.
 
@@ -3855,7 +3844,7 @@ p prime; (a) n ≥ m ≥ 0; (b) n ≥ 1, m ≥ 0. The sign (−1)^{m(p−1)} mat
 
 (Hongjie Yu, [Comptage des systèmes locaux ℓ-adiques sur une courbe](#reference-yu-2023), §7.2.2, the two displayed identities before the case distinction in the proof of Théorème 7.2.3, p. 71 (arXiv v5).) States C(np, mp) = C(n, m)f_p(np)/(f_p(mp)f_p((n − m)p)) and C(−np, mp) = (−1)^{m(p−1)}C(−n, m)f_p(np + mp)/(f_p(mp)f_p(np)), used to compare the l- and lp-terms of the Möbius sum.
 
-To prove this, (a) By the factorial split of p-free-factorial, (kp)! = p^k·k!·f_p(kp) for every k; substitute into C(np, mp) = (np)!/((mp)!((n − m)p)!) and cancel p^n = p^m·p^{n−m}.
+To prove this, (a) By the factorial split of [The p-free factorial](#layer-2-topic-20), (kp)! = p^k·k!·f_p(kp) for every k; substitute into C(np, mp) = (np)!/((mp)!((n − m)p)!) and cancel p^n = p^m·p^{n−m}.
 
 (b) By Ring.choose_neg, C(−N, M) = (−1)^M·C(N + M − 1, M) for N ≥ 1; and C(N + M − 1, M) = C(N + M, M)·N/(N + M). Apply this to (N, M) = (np, mp) and to (n, m): the ratio C(−np, mp)/C(−n, m) is (−1)^{mp−m}·C((n + m)p, mp)/C(n + m, m), and (a) with (n + m, m) turns this into (−1)^{m(p−1)}·f_p((n + m)p)/(f_p(mp)f_p(np)).
 
@@ -3879,7 +3868,7 @@ p prime; α ≥ 1; p ≠ 2 or α ≥ 2 for the main congruence; N ∈ ℕ.
 
 (Hongjie Yu, [Comptage des systèmes locaux ℓ-adiques sur une courbe](#reference-yu-2023), §7.2.2, fact (∗) and the case p = 2, p. 71 (arXiv v5).) Quotes the same two congruences as Lemma 3.1 of [LZ16] and uses them in both cases of the proof of Théorème 7.2.3.
 
-(Wei Luo and Shengmao Zhu, [Integrality structures in topological strings I: framed unknot](#reference-luo-zhu-2016-preprint), §4, Lemma 4.6 with its proof, pp. 16–17 (arXiv:1611.06506v1).) The earlier preprint states the same lemma; its expansion carries a misprint (sourceIssues).
+(Wei Luo and Shengmao Zhu, [Integrality structures in topological strings I: framed unknot](#reference-luo-zhu-2016-preprint), §4, Lemma 4.6 with its proof, pp. 16–17 (arXiv:1611.06506v1).) The earlier preprint states the same lemma; its expansion carries a misprint, which is not used here.
 
 To prove this, induction on N; N = 0 is f_p(0) = 1. For the step, f_p(p^αN) = f_p(p^α(N − 1))·∏_{1 ≤ i ≤ p^α, p ∤ i}(p^α(N − 1) + i).
 
@@ -3911,9 +3900,9 @@ K a field, b ≠ 0, c ≠ 0 in K. For the reading mod p, b, c, d ∈ ℤ and the
 
 (Katherine E. Stange, [Integral points on elliptic curves and explicit valuations of division polynomials](#reference-stange-valuations-2014), §2, Proposition 5, p. 7 (arXiv v4).) Vanishing of Ψₙ at P characterises nontrivial n-torsion.
 
-To prove this, by eds-attached-curve, normEDS b c d n = ψₙ(P) on E_{b,c,d} with P nonsingular.
+To prove this, by [The Weierstrass curve of a normalised elliptic divisibility sequence](#layer-2-topic-21), normEDS b c d n = ψₙ(P) on E_{b,c,d} with P nonsingular.
 
-By division-polynomials-at-a-nonsingular-point (a), ψₙ(P) = 0 iff n·P = O, iff the additive order of P divides n (orderOf_dvd_iff_zpow_eq_one in its additive form addOrderOf_dvd_iff_zsmul_eq_zero).
+By [Division polynomials at a nonsingular point](#layer-2-topic-22) (a), ψₙ(P) = 0 iff n·P = O, iff the additive order of P divides n (orderOf_dvd_iff_zpow_eq_one in its additive form addOrderOf_dvd_iff_zsmul_eq_zero).
 
 For p ∤ bc apply this over 𝔽_p to the reduced parameters, using map_normEDS for the reduction ℤ → 𝔽_p.
 
@@ -3938,13 +3927,13 @@ b, c, d ∈ ℤ, bc ≠ 0; p prime, p ∤ bc; Δ(E_{b,c,d}) ≠ 0. No coprimalit
 
 (Katherine E. Stange, [Integral points on elliptic curves and explicit valuations of division polynomials](#reference-stange-valuations-2014), §6, proof of Theorem 14, p. 13 (arXiv v4).) For P of nonzero nonsingular reduction, uses Ayad's theorem to identify v(Ψ_{kn_P}) with the valuation of the formal-group parameter of [kn_P]P.
 
-To prove this, since p ∤ bc, the coefficients a₁ = (d + b⁴)/(bc), a₂ = c/b², a₃ = b of E = E_{b,c,d} lie in ℤ_(p), P = (0, 0) is integral, and P is nonsingular modulo p because a₃ = b is a p-unit. By eds-attached-curve, Wₙ = ψₙ(P), and φₙ(P), ψₙ(P) ∈ ℤ_(p).
+To prove this, since p ∤ bc, the coefficients a₁ = (d + b⁴)/(bc), a₂ = c/b², a₃ = b of E = E_{b,c,d} lie in ℤ_(p), P = (0, 0) is integral, and P is nonsingular modulo p because a₃ = b is a p-unit. By [The Weierstrass curve of a normalised elliptic divisibility sequence](#layer-2-topic-21), Wₙ = ψₙ(P), and φₙ(P), ψₙ(P) ∈ ℤ_(p).
 
-Reduction: the division polynomials have coefficients in ℤ[a₁, …, a₆] (WeierstrassCurve.map_ψ, map_φ), so their values at P reduce to those of the reduced curve at P̃. By division-polynomials-at-a-nonsingular-point (b) over 𝔽_p, p does not divide both φₙ(P) and ψₙ(P).
+Reduction: the division polynomials have coefficients in ℤ[a₁, …, a₆] (WeierstrassCurve.map_ψ, map_φ), so their values at P reduce to those of the reduced curve at P̃. By [Division polynomials at a nonsingular point](#layer-2-topic-22) (b) over 𝔽_p, p does not divide both φₙ(P) and ψₙ(P).
 
-By division-polynomials-at-a-nonsingular-point (c) over ℚ_p, if Wₙ ≠ 0 then x(nP) = φₙ(P)/ψₙ(P)²; so x(nP) is p-integral when p ∤ Wₙ, and v_p(x(nP)) = −2v_p(Wₙ) when p | Wₙ. If Wₙ = 0 then nP = O. Hence for V ≥ 1, p^V | Wₙ iff nP ∈ E_V(ℚ_p).
+By [Division polynomials at a nonsingular point](#layer-2-topic-22) (c) over ℚ_p, if Wₙ ≠ 0 then x(nP) = φₙ(P)/ψₙ(P)²; so x(nP) is p-integral when p ∤ Wₙ, and v_p(x(nP)) = −2v_p(Wₙ) when p | Wₙ. If Wₙ = 0 then nP = O. Hence for V ≥ 1, p^V | Wₙ iff nP ∈ E_V(ℚ_p).
 
-By reduction-filtration-of-an-integral-weierstrass-equation (applied to the ℤ_p-model E), {n : nP ∈ E_V} is a subgroup of ℤ; for V = 0 the set is ℤ.
+By [The filtration E_k(ℚ_p) for an arbitrary integral Weierstrass equation](#layer-2-topic-23) (applied to the ℤ_p-model E), {n : nP ∈ E_V} is a subgroup of ℤ; for V = 0 the set is ℤ.
 
 Bezout and the subgroup property give min(v_p W_m, v_p W_n) ≤ v_p W_{gcd(m,n)}; the reverse inequality is divisibility W_{gcd} | W_m, W_n (Tau Ceti isDvdSequence_normEDS).
 
@@ -3959,7 +3948,7 @@ Bezout and the subgroup property give min(v_p W_m, v_p W_n) ≤ v_p W_{gcd(m,n)}
 
 ### 2.44 The secant-plus-tangent series diverges on and beyond |z| = π/2
 
-Let e : ℕ → ℚ be any sequence whose odd terms are the tangent numbers in their Bernoulli closed form, e(2n + 1) = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) (for the Euler zigzag numbers this is the API item zigzag_odd_eq_bernoulli of [The Euler (zigzag) numbers](#layer-2-topic-4)). Then for z ∈ ℂ with |z| ≥ π/2 the terms e(n)zⁿ/n! do not tend to 0, so Σ_n e(n)zⁿ/n! is not summable.
+Let e : ℕ → ℚ be any sequence whose odd terms are the tangent numbers in their Bernoulli closed form, e(2n + 1) = (−1)ⁿ2^{2n+2}(2^{2n+2} − 1)B_{2n+2}/(2n + 2) (for the Euler zigzag numbers this is `zigzag_odd_eq_bernoulli` of [The Euler (zigzag) numbers](#layer-2-topic-4)). Then for z ∈ ℂ with |z| ≥ π/2 the terms e(n)zⁿ/n! do not tend to 0, so Σ_n e(n)zⁿ/n! is not summable.
 
 |z| ≥ π/2; only the odd terms of e are constrained.
 
@@ -3967,7 +3956,7 @@ Let e : ℕ → ℚ be any sequence whose odd terms are the tangent numbers in t
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), §1.6.1, (1.53)–(1.54), p. 54.) The tangent numbers are the odd-index Euler numbers E_{2n+1}, the coefficients of tan x.
 
-To prove this, with k = n + 1, |e(2k − 1)|/(2k − 1)! = 2^{2k}(2^{2k} − 1)|B_{2k}|/(2k)! = 2(2^{2k} − 1)ζ(2k)/π^{2k} by bernoulli-coefficients-do-not-decay (a).
+To prove this, with k = n + 1, |e(2k − 1)|/(2k − 1)! = 2^{2k}(2^{2k} − 1)|B_{2k}|/(2k)! = 2(2^{2k} − 1)ζ(2k)/π^{2k} by [The Bernoulli series diverges on and beyond |z| = 2π](#layer-2-topic-25) (a).
 
 Hence |e(2k − 1)|(π/2)^{2k−1}/(2k − 1)! = (4/π)(1 − 2^{−2k})ζ(2k) ≥ 3/π for every k ≥ 1, and for |z| ≥ π/2 the odd terms have absolute value at least 3/π; the terms do not tend to 0.
 
@@ -3988,7 +3977,7 @@ No hypothesis on θ = 0 is needed for the solution statement; nonzero θ give Ev
 
 (Jan-Hendrik Evertse, [Diophantine Approximation (Leiden/Mastermath lecture notes), Chapter 8](#reference-evertse-diophantine-2019), Section 8.4, Theorem 8.17 (last sentence), printed p. 172.) The target, with the recurrence named explicitly: the monic polynomial ∏(X − θᵢ)^{eᵢ}.
 
-To prove this, for θ ∈ S and j < e_θ, (X − θ)^{j+1} divides ∏(X − θ')^{e_θ'} = charPoly (ofMonic ∏…) (`LinearRecurrence.charPoly_ofMonic`, the product being monic), so n ↦ nʲθⁿ is a solution (exponential-polynomial-solutions).
+To prove this, for θ ∈ S and j < e_θ, (X − θ)^{j+1} divides ∏(X − θ')^{e_θ'} = charPoly (ofMonic ∏…) (`LinearRecurrence.charPoly_ofMonic`, the product being monic), so n ↦ nʲθⁿ is a solution ([Exponential polynomials solve the recurrence of their characteristic factor](#layer-2-topic-2)).
 
 Expand each g_θ in the monomials and use linearity of the solution space.
 
@@ -4040,7 +4029,7 @@ Over a field, for monic p: minpoly K C(p) = minpoly K (root p), because `Algebra
 - C(1) is the empty matrix and its characteristic polynomial is 1.
 - C(X² + 1) over ℤ is not equal to its transpose: the orientation (last column, not last row) is part of the definition.
 - In rank 2, C(X² − tX + d) is [[0, −d], [1, t]], the body of `TauCeti.companionFinTwo t d`.
-- Its characteristic polynomial is p (next node) and its minimal polynomial over a field is p (companion matrices are non-derogatory).
+- Its characteristic polynomial is p ([The characteristic polynomial of the companion matrix](#layer-2-topic-60)) and its minimal polynomial over a field is p (companion matrices are non-derogatory).
 - The orientation matters: C(X² + 1) = [[0, −1], [1, 0]] is not its own transpose.
 
 *Needs:* [The linear recurrence of a monic polynomial](#layer-2-topic-27); Mathlib `Matrix.of`; Mathlib `Matrix.transpose`; Mathlib `Matrix.toLin'`; Mathlib `LinearRecurrence.tupleSucc`; Mathlib `Algebra.leftMulMatrix`; Mathlib `AdjoinRoot.powerBasis'`; Mathlib `Matrix.minpoly_dvd_charpoly`; Mathlib `Module.End.hasEigenvalue_iff_isRoot_charpoly`; Tau Ceti `TauCeti.companionFinTwo`; Tau Ceti `TauCeti.companionFinTwo_def`; Mathlib `minpoly.algHom_eq`; Mathlib `Algebra.leftMulMatrix_injective`; Mathlib `AdjoinRoot.minpoly_root`.
@@ -4107,9 +4096,9 @@ To prove this, let g(z) = (e^z − 1)/z for z ≠ 0 and g(0) = 1, that is g = ds
 
 g(z) = 0 iff e^z = 1 and z ≠ 0, iff z ∈ 2πiℤ ∖ {0} (`Complex.exp_eq_one_iff`); so g has no zero on |z| < 2π.
 
-X·T(g) = T(z·g) = T(e^z − 1) = exp − 1 formally (taylor-series-of-a-complex-function); Mathlib's bernoulliPowerSeries ℂ · (exp − 1) = X, so bernoulliPowerSeries·X·T(g) = X and, cancelling X in the domain ℂ⟦X⟧, bernoulliPowerSeries·T(g) = 1 = T(1).
+X·T(g) = T(z·g) = T(e^z − 1) = exp − 1 formally ([The Taylor series at 0 of a complex function](#layer-2-topic-5)); Mathlib's bernoulliPowerSeries ℂ · (exp − 1) = X, so bernoulliPowerSeries·X·T(g) = X and, cancelling X in the domain ℂ⟦X⟧, bernoulliPowerSeries·T(g) = 1 = T(1).
 
-Apply formal-identities-specialise-on-a-disc with h = 1 and r = 2π: ∑ B_n zⁿ/n! = 1/g(z).
+Apply [Formal identities specialise on a disc of holomorphy](#layer-2-topic-31) with h = 1 and r = 2π: ∑ B_n zⁿ/n! = 1/g(z).
 
 Exactness of the radius: a power series converging at some |z₀| > 2π would define a holomorphic function on |z| < |z₀| equal to 1/g near 0, hence bounded near 2πi, but 1/g has a pole at 2πi.
 
@@ -4137,9 +4126,9 @@ tan z = sin z / cos z (Mathlib's `Complex.tan`); cos z ≠ 0 on the disc.
 
 To prove this, cos z = 0 iff z = (2k + 1)π/2 (`Complex.cos_eq_zero_iff`), so cos has no zero on |z| < π/2.
 
-The formal identity (∑ E_n Xⁿ/n!)·T(cos) = T(1 + sin) holds by secant-plus-tangent-formal-identity and T(cos) = cos X, T(sin) = sin X (taylor-series-of-a-complex-function).
+The formal identity (∑ E_n Xⁿ/n!)·T(cos) = T(1 + sin) holds by [The exponential generating function of the Euler numbers, formally](#layer-2-topic-30) and T(cos) = cos X, T(sin) = sin X ([The Taylor series at 0 of a complex function](#layer-2-topic-5)).
 
-Apply formal-identities-specialise-on-a-disc with g = cos, h = 1 + sin: the sum is (1 + sin z)/cos z = 1/cos z + tan z (`Complex.tan_eq_sin_div_cos`).
+Apply [Formal identities specialise on a disc of holomorphy](#layer-2-topic-31) with g = cos, h = 1 + sin: the sum is (1 + sin z)/cos z = 1/cos z + tan z (`Complex.tan_eq_sin_div_cos`).
 
 The radius is exact because (1 + sin z)/cos z has a pole at z = π/2, where 1 + sin z = 2 (at z = −π/2 the singularity is removable: (1 + sin z)/cos z = cos z/(1 − sin z) there).
 
@@ -4213,9 +4202,9 @@ The supporting API comprises:
 - `kernel_thueMorse`: The 2-kernel of t is {t, 1 + t}.
 - `thueMorse_algebraic`: (1 + X)³T² + (1 + X)²T + X = 0 in 𝔽₂⟦X⟧ for T = ∑ t(n)Xⁿ.
 
-(Jakub Byszewski, Jakub Konieczny, [Automatic sequences and generalised polynomials](#reference-byszewski-konieczny-automatic-2017), Section 1, p. 6 and p. 8.) The API items `thueMorse_two_mul`, `thueMorse_two_mul_add_one` and `kernel_thueMorse`; the definition is on p. 6 ('t_n = 1 if s₂(n) is odd and t_n = 0 if s₂(n) is even').
+(Jakub Byszewski, Jakub Konieczny, [Automatic sequences and generalised polynomials](#reference-byszewski-konieczny-automatic-2017), Section 1, p. 6 and p. 8.) Source for `thueMorse_two_mul`, `thueMorse_two_mul_add_one` and `kernel_thueMorse`; the definition is on p. 6 ('t_n = 1 if s₂(n) is odd and t_n = 0 if s₂(n) is even').
 
-(G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Section 2, pp. 402 to 403.) The API item `thueMorse_algebraic` (p. 403), the model instance of Christol's theorem; p. 402 also records that a sequence is eventually periodic exactly when its series is rational (algebraic of degree 1), which is the step from the nonperiodicity test to nonrationality.
+(G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Section 2, pp. 402 to 403.) Source for `thueMorse_algebraic` (p. 403), the model instance of Christol's theorem; p. 402 also records that a sequence is eventually periodic exactly when its series is rational (algebraic of degree 1), which is the step from the nonperiodicity test to nonrationality.
 
 To prove this, define t n := (Nat.digits 2 n).sum cast to ZMod 2.
 
@@ -4251,7 +4240,7 @@ Consecutive: no term of F_n lies strictly between them.
 
 To prove this, induct on n. F₁ = {0/1, 1/1}: 1·1 − 0·1 = 1 and 1 + 1 > 1.
 
-Passing from F_n to F_{n+1}: new terms have denominator n + 1 and lie strictly between consecutive a/b < c/d of F_n with bc − ad = 1; by denominators-between-farey-neighbours they have denominator ≥ b + d > n, so a new term exists only if b + d = n + 1 and it is then the mediant, unique.
+Passing from F_n to F_{n+1}: new terms have denominator n + 1 and lie strictly between consecutive a/b < c/d of F_n with bc − ad = 1; by [Fractions between neighbours have denominator at least b + d](#layer-2-topic-35) they have denominator ≥ b + d > n, so a new term exists only if b + d = n + 1 and it is then the mediant, unique.
 
 The new consecutive pairs (a/b, (a + c)/(b + d)) and ((a + c)/(b + d), c/d) have determinant 1 (b(a + c) − a(b + d) = bc − ad) and denominator sums > n + 1; untouched pairs have b + d ≥ n + 2 > n + 1.
 
@@ -4293,15 +4282,15 @@ At U=V, p(b+d)=q(a+c), so the reduced target equals the reduced mediant and the 
 
 ### 2.55 Every eventually periodic sequence is automatic
 
-For any k≥1, a sequence f:ℕ→Δ satisfying f(t+p)=f(t) for all t≥N, with p≥1, is k-automatic in the existing canonical-digit convention. This promotes the existing automatic-sequences API item to a prerequisite node; it introduces no second declaration.
+For any k≥1, a sequence f:ℕ→Δ satisfying f(t+p)=f(t) for all t≥N, with p≥1, is k-automatic in the existing canonical-digit convention. It is the API lemma `isAutomatic_of_eventually_periodic` of [k-automatic sequences](#layer-2-topic-33), stated here as a separate result; it introduces no second definition.
 
 Base 1 uses Mathlib’s unary digit-list convention and is treated separately. No finiteness assumption on Δ is needed.
 
-(Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Theorem 1, p.1; §3, p.2, converse omitted as usual; inherited automatic-sequences API.) The source leaves the converse to the standard argument. This supplies that argument explicitly, also preserving the inherited base-one API.
+(Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Theorem 1, p.1; §3, p.2, converse omitted as usual.) The source leaves the converse to the standard argument. This supplies that argument explicitly, including the base-one case of [k-automatic sequences](#layer-2-topic-33).
 
 To prove this, the sequence is determined by its first N+p values, so its range is finite.
 
-For k ≥ 2 use the direct automaton of automatic-sequences. Its finite state holds the value read so far and the current place value k^L, each cut off at N and also reduced modulo p. A digit d adds d times the place value and multiplies the place value by k; both updates are computable from the stored data. The output is f at the value if it is below N, and otherwise f at the representative in [N, N+p) of its residue. Induction on the least-significant-first digits proves correctness without the finite-kernel theorem, so the declaration stays before Eilenberg's theorem.
+For k ≥ 2 use the direct automaton of [k-automatic sequences](#layer-2-topic-33). Its finite state holds the value read so far and the current place value k^L, each cut off at N and also reduced modulo p. A digit d adds d times the place value and multiplies the place value by k; both updates are computable from the stored data. The output is f at the value if it is below N, and otherwise f at the representative in [N, N+p) of its residue. Induction on the least-significant-first digits proves correctness without the finite-kernel theorem, so the declaration stays before Eilenberg's theorem.
 
 For k=1, Nat.digits 1 t has length t. Mapping into Fin 1 makes every input digit zero. A finite counter with states 0,…,N+p−1 advances through the prefix then cycles through N,…,N+p−1, outputting the corresponding value of f. It computes the unary word of length t exactly.
 
@@ -4327,7 +4316,7 @@ For n ∈ ℕ and q with 2(q + 1) ≤ n − 1: A(n, q) ≤ A(n, q + 1). With the
 
 (Brian Lawrence and Will Sawin, [The Shafarevich conjecture for hypersurfaces in abelian varieties](#reference-lawrence-sawin-2025), Appendix C, proof of Lemma C.4, p. 117.) Uses, without stating it as a lemma, that A(n, r) ≥ A(n, r₀) for r₀ ≤ r ≤ n/2, which is this unimodality.
 
-To prove this, induction on n with the recurrence of eulerian-basic-identities (c): A(n, q + 1) − A(n, q) = (q + 2)A(n − 1, q + 1) + (n − 2q − 2)A(n − 1, q) − (n − q)A(n − 1, q − 1) for 1 ≤ q (and the analogous expression at q = 0).
+To prove this, induction on n with the recurrence of [Basic identities of Eulerian numbers](#layer-2-topic-39) (c): A(n, q + 1) − A(n, q) = (q + 2)A(n − 1, q + 1) + (n − 2q − 2)A(n − 1, q) − (n − q)A(n − 1, q − 1) for 1 ≤ q (and the analogous expression at q = 0).
 
 Under 2(q + 1) ≤ n − 1 the index q + 1 is at most the middle (n − 2)/2 of row n − 1, or equals it up to the symmetric partner when n is odd; by the induction hypothesis and the symmetry, A(n − 1, q + 1) ≥ A(n − 1, q) ≥ A(n − 1, q − 1).
 
@@ -4354,13 +4343,13 @@ n ≥ 1 for the lower bound, as in the source; q ∈ ℕ arbitrary (for q ≥ n 
 
 (Brian Lawrence and Will Sawin, [The Shafarevich conjecture for hypersurfaces in abelian varieties](#reference-lawrence-sawin-2025), Appendix C, Lemma C.2 with its proof, p. 116.) States A(n, q) ≤ n! and derives it from the factorial sum.
 
-To prove this, upper bound: by Worpitzky's identity (eulerian-basic-identities (d)) (q + 1)ⁿ is a sum of nonnegative terms one of which is A(n, q)·C(n, n) = A(n, q). (Lawrence–Sawin's argument: labelling [n] by 1, …, q + 1 and listing each label class in decreasing order gives every permutation with at most q ascents.)
+To prove this, upper bound: by Worpitzky's identity ([Basic identities of Eulerian numbers](#layer-2-topic-39) (d)) (q + 1)ⁿ is a sum of nonnegative terms one of which is A(n, q)·C(n, n) = A(n, q). (Lawrence–Sawin's argument: labelling [n] by 1, …, q + 1 and listing each label class in decreasing order gives every permutation with at most q ascents.)
 
 Lower bound (Lawrence–Sawin's argument): the labellings producing a permutation with fewer than q ascents have two adjacent labels whose classes are separated; recording the position j ∈ {0, …, n} of the cut and merging the labels injects them into (n + 1)·qⁿ data, so the number of permutations with exactly q ascents is at least (q + 1)ⁿ − (n + 1)qⁿ.
 
-A(n, q) ≤ n! from Σ_q A(n, q) = n! (eulerian-basic-identities (a)).
+A(n, q) ≤ n! from Σ_q A(n, q) = n! ([Basic identities of Eulerian numbers](#layer-2-topic-39) (a)).
 
-Ascents and descents give the same numbers (eulerian-basic-identities (f)), so the source's ascent count is A(n, q).
+Ascents and descents give the same numbers ([Basic identities of Eulerian numbers](#layer-2-topic-39) (f)), so the source's ascent count is A(n, q).
 
 **Checks.**
 
@@ -4380,7 +4369,7 @@ b, c, d ∈ ℤ with bc ≠ 0 (nondegenerate: W₂W₃ ≠ 0). The coprimality g
 
 (Joseph H. Silverman and Katherine E. Stange, [Terms in elliptic divisibility sequences divisible by their indices](#reference-silverman-stange-2010), Remark 28, p. 24 (arXiv:1001.5303v1).) Recalls Ward's recursive EDS, normalised by W₁ = 1 and W₂ | W₄, and Ward's association with a curve; the arithmetic theory is attributed to Ward's memoir.
 
-(Joseph H. Silverman, [p-adic properties of elliptic divisibility sequences (lecture slides)](#reference-silverman-icms-2007), slide 1, 'Elliptic Divisibility Sequences As Recursions' (ICMS workshop, Edinburgh, 27 June 2007).) States that an integral EDS with W₂W₃ ≠ 0 and W₂ | W₄ is a strong divisibility sequence; the coprimality of W₃ and W₄ is missing there (sourceIssues).
+(Joseph H. Silverman, [p-adic properties of elliptic divisibility sequences (lecture slides)](#reference-silverman-icms-2007), slide 1, 'Elliptic Divisibility Sequences As Recursions' (ICMS workshop, Edinburgh, 27 June 2007).) States that an integral EDS with W₂W₃ ≠ 0 and W₂ | W₄ is a strong divisibility sequence; the coprimality of W₃ and W₄ is missing there; the Checks show it is necessary.
 
 (Subham Bhakta, Daniel Loughran, Simon L. Rydin Myerson and Masahiro Nakahara, [The elliptic sieve and Brauer groups](#reference-bhakta-loughran-rydin-myerson-nakahara-2023), §3.1, Lemma 3.5 and the remark after it, p. 9 (arXiv:2109.03746).) Strong divisibility of the normalised denominator sequence, with the warning that the division-polynomial sequence need not be strongly divisible when P has bad reduction — the primes this theorem's gap concerns.
 
@@ -4392,7 +4381,7 @@ Necessity: put m = 3, n = 4.
 
 Sufficiency, prime by prime: it suffices that for every prime p, min(v_p W_m, v_p Wₙ) = v_p W_{gcd(m,n)}. The inequality ≥ in the other direction is divisibility (Tau Ceti isDvdSequence_normEDS).
 
-Primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0: eds-strong-divisibility-at-good-primes.
+Primes p ∤ bc with Δ(E_{b,c,d}) ≠ 0: [Strong divisibility of an integral EDS at primes not dividing W₂W₃](#layer-2-topic-43).
 
 Primes p | bc: by the coprimality, p divides exactly one of b, c, and p ∤ d when p | c. At such primes the point P = (0, 0) can have singular reduction on every integral model of E_{b,c,d}, and the valuations v_p(Wₙ) are then not filtration levels of nP (for b = 1, c = 3, d = 1 and p = 3, where 3 ∤ d + b⁴, no integral model carries P as an integral nonsingular point with Wₙ = ψₙ(P) up to a unit, and v₃(Wₙ) is 0 for 3 ∤ n, 1 for n ≡ 3 (mod 6) and 4 + v₃(n/6) for 6 | n, checked to n = 110 — the sets {n : 3^V | Wₙ} are 3ℤ, 6ℤ, 6ℤ, 6ℤ, 18ℤ, … but the jump from 1 to 4 is not a formal-group pattern). The theorem asserts that the sets {n : p^V | Wₙ} are still subgroups; this case and the singular case Δ(E_{b,c,d}) = 0 are the unverified input 'Ward's strong divisibility at primes dividing W₂W₃ and for singular attached curves'.
 
@@ -4421,15 +4410,15 @@ The αᵢ are complex, α_d ≠ 0: Q has degree exactly d and Q(0) = 1. The γ�
 
 (Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Theorem 4.1.1(i), (ii), p. 535.) Conditions (i) and (ii) of the result's TFAE.
 
-(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Proof of Theorem 4.1.1, p. 536.) The dimension count that the proof steps reorganise through the closed-form nodes.
+(Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](#reference-stanley-ec1), Proof of Theorem 4.1.1, p. 536.) The dimension count, which the proof here replaces by the closed-form results of this layer.
 
-To prove this, (i) ⇔ (ii): multiplying ∑ f(n)xⁿ by Q and comparing coefficients, the coefficient of x^{n+d} of Q·∑ f(n)xⁿ is the left side of (ii); it vanishes for all n iff the product is a polynomial of degree < d (`PowerSeries.coeff_mul`; rational-power-series).
+To prove this, (i) ⇔ (ii): multiplying ∑ f(n)xⁿ by Q and comparing coefficients, the coefficient of x^{n+d} of Q·∑ f(n)xⁿ is the left side of (ii); it vanishes for all n iff the product is a polynomial of degree < d (`PowerSeries.coeff_mul`; [The rationality predicate for a formal power series](#layer-2-topic-26)).
 
 (ii) is the recurrence ofMonic (reverse Q), where reverse Q = X^d Q(1/X) = X^d + α₁X^{d−1} + ⋯ + α_d is monic (its leading coefficient is Q(0) = 1) with constant term α_d ≠ 0 and roots exactly the γᵢ with multiplicities dᵢ (`Polynomial.reverse`).
 
-(ii) ⇔ (iii): by closed-form-of-a-complex-linear-recurrence (existence) and closed-forms-satisfy-a-linear-recurrence (converse) applied to the recurrence of reverse(Q).
+(ii) ⇔ (iii): by closed-form-of-a-complex-linear-recurrence (existence) and [Exponential polynomials are linear recurrence sequences](#layer-2-topic-45) (converse) applied to the recurrence of reverse(Q).
 
-Stanley's proof instead compares the four spaces V₁ to V₄ of dimension d, the independence of the partial fractions being exponential-polynomials-are-linearly-independent; both routes use the dimension d of the solution space.
+Stanley's proof instead compares the four spaces V₁ to V₄ of dimension d, the independence of the partial fractions being [Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); both routes use the dimension d of the solution space.
 
 **Checks.**
 
@@ -4437,7 +4426,7 @@ Stanley's proof instead compares the four spaces V₁ to V₄ of dimension d, th
 - Fibonacci (Stanley Example 4.1.2): Q = 1 − x − x², P = x, Fₙ = (φⁿ − φ̄ⁿ)/√5.
 - Stanley Example 4.1.3: f(n) = 2f(n − 1) + f(n − 2), f(0) = 1, f(1) = 3 gives (1 + x)/(1 − 2x − x²) and f(n) = ((1 + √2)^{n+1} + (1 − √2)^{n+1})/2.
 
-*Needs:* [The rationality predicate for a formal power series](#layer-2-topic-26); [The linear recurrence of a monic polynomial](#layer-2-topic-27); [Closed form of complex linear recurrence sequences (Evertse, Theorem 8.17)](#layer-2-topic-28); [Exponential polynomials are linear recurrence sequences](#layer-2-topic-45); [Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); Mathlib `PowerSeries.coeff_mul`; Mathlib `Polynomial.reverse`; Mathlib `Polynomial.roots`; Mathlib `LinearRecurrence.charPoly`.
+*Needs:* [The rationality predicate for a formal power series](#layer-2-topic-26); [The linear recurrence of a monic polynomial](#layer-2-topic-27); [Uniqueness of recurrence closed forms (Evertse, Theorem 8.17; Stanley, Theorem 4.1.1)](#layer-2-topic-28); [Exponential polynomials are linear recurrence sequences](#layer-2-topic-45); [Exponential polynomials in distinct nonzero bases are linearly independent](#layer-2-topic-3); Mathlib `PowerSeries.coeff_mul`; Mathlib `Polynomial.reverse`; Mathlib `Polynomial.roots`; Mathlib `LinearRecurrence.charPoly`.
 
 <a id="layer-2-topic-60"></a>
 
@@ -4510,7 +4499,7 @@ The supporting API comprises:
 - `lucasV_sq_sub`: Vₙ² − (P² − 4Q)Uₙ² = 4Qⁿ.
 - `map_lucasV`: f (Vₙ(P, Q)) = Vₙ(f P, f Q) for a ring homomorphism f.
 
-(R. D. Carmichael, [On the numerical factors of the arithmetic forms αⁿ ± βⁿ](#reference-carmichael-arithmeticforms-1913), Introduction, p. 30, and Section 2, p. 36.) The definition (Carmichael's Sₙ) and the API item `lucasV_sq_sub`, with (α − β)² = P² − 4Q.
+(R. D. Carmichael, [On the numerical factors of the arithmetic forms αⁿ ± βⁿ](#reference-carmichael-arithmeticforms-1913), Introduction, p. 30, and Section 2, p. 36.) The definition (Carmichael's Sₙ) and the lemma `lucasV_sq_sub`, with (α − β)² = P² − 4Q.
 
 To prove this, define lucasV P Q by the recursion.
 
@@ -4611,9 +4600,9 @@ k ≥ 2; the fixed point is encoded by the equations s(kn + r) = φ(s n) r, whic
 
 (G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Section 3, p. 404.) The fixed point of a k-uniform morphism, encoded in the result by s(kn + r) = φ(s n)_r.
 
-To prove this, (⇐) Read the digits of n most significant first: s(n) = δ*(s(0), (n)_k^R) for the automaton with transitions δ(x, r) = φ(x)_r, since s(kn + r) = φ(s n)_r; leading zeros are harmless because φ(s(0))₀ = s(0). Output τ; conclude by automaticity-is-independent-of-reading-direction.
+To prove this, (⇐) Read the digits of n most significant first: s(n) = δ*(s(0), (n)_k^R) for the automaton with transitions δ(x, r) = φ(x)_r, since s(kn + r) = φ(s n)_r; leading zeros are harmless because φ(s(0))₀ = s(0). Output τ; conclude by [Automaticity does not depend on the reading direction](#layer-2-topic-51).
 
-(⇒) Take a most-significant-first automaton (σ, δ, q₀, τ) with δ(q₀, 0) = q₀: the reversal (automaticity-is-independent-of-reading-direction) of the kernel automaton of automatic-iff-finite-kernel has this property, because its initial state is the output map b ↦ b(0) and b(k·0) = b(0). Put Γ = σ, φ(q)_r = δ(q, r) and s(n) = δ*(q₀, (n)_k reversed); then s(kn + r) = φ(s n)_r and a = τ ∘ s.
+(⇒) Take a most-significant-first automaton (σ, δ, q₀, τ) with δ(q₀, 0) = q₀: the reversal ([Automaticity does not depend on the reading direction](#layer-2-topic-51)) of the kernel automaton of [Eilenberg's theorem: automatic iff finite kernel](#layer-2-topic-50) has this property, because its initial state is the output map b ↦ b(0) and b(k·0) = b(0). Put Γ = σ, φ(q)_r = δ(q, r) and s(n) = δ*(q₀, (n)_k reversed); then s(kn + r) = φ(s n)_r and a = τ ∘ s.
 
 **Checks.**
 
@@ -4634,13 +4623,13 @@ K finite, q = |K|.
 
 (G. Christol, T. Kamae, M. Mendès France, G. Rauzy, [Suites algébriques, automates et substitutions](#reference-christol-suitesalgebriques-1980), Section 7, p. 409.) The finite stable set and the conclusion through the kernel.
 
-To prove this, by ore-relation, ∑_{i=0}^k aᵢf^{qⁱ} = 0 with a₀ ≠ 0. Put g = f/a₀ ∈ K⸨X⸩; then g = ∑_{i=1}^k bᵢ g^{qⁱ} with bᵢ = −aᵢa₀^{qⁱ−2} ∈ K[X].
+To prove this, by [Ore relations for algebraic power series over a finite field](#layer-2-topic-34), ∑_{i=0}^k aᵢf^{qⁱ} = 0 with a₀ ≠ 0. Put g = f/a₀ ∈ K⸨X⸩; then g = ∑_{i=1}^k bᵢ g^{qⁱ} with bᵢ = −aᵢa₀^{qⁱ−2} ∈ K[X].
 
 Let N = max(deg a₀, deg bᵢ) and H = {∑_{i=0}^k cᵢg^{qⁱ} : cᵢ ∈ K[X], deg cᵢ ≤ N}, a finite set (K finite). f = a₀g ∈ H.
 
-H is stable under every Λ_r: for h = ∑ cᵢg^{qⁱ}, substituting g = ∑ bᵢg^{qⁱ} in the i = 0 term gives h = ∑_{i≥1}(c₀bᵢ + cᵢ)g^{qⁱ}, so Λ_r(h) = ∑_{i≥1} Λ_r(c₀bᵢ + cᵢ)g^{q^{i−1}} (cartier-operators), with deg Λ_r(c₀bᵢ + cᵢ) ≤ 2N/q ≤ N.
+H is stable under every Λ_r: for h = ∑ cᵢg^{qⁱ}, substituting g = ∑ bᵢg^{qⁱ} in the i = 0 term gives h = ∑_{i≥1}(c₀bᵢ + cᵢ)g^{qⁱ}, so Λ_r(h) = ∑_{i≥1} Λ_r(c₀bᵢ + cᵢ)g^{q^{i−1}} ([The Cartier operators on Laurent series](#layer-2-topic-10)), with deg Λ_r(c₀bᵢ + cᵢ) ≤ 2N/q ≤ N.
 
-Hence the Λ-orbit of f, which is the set of generating series of the q-kernel of (aₙ) (`LaurentSeries.cartier_ofPowerSeries`), is finite; by automatic-iff-finite-kernel, (aₙ) is q-automatic.
+Hence the Λ-orbit of f, which is the set of generating series of the q-kernel of (aₙ) (`LaurentSeries.cartier_ofPowerSeries`), is finite; by [Eilenberg's theorem: automatic iff finite kernel](#layer-2-topic-50), (aₙ) is q-automatic.
 
 **Checks.**
 
@@ -4661,9 +4650,9 @@ K finite, q = |K|.
 
 (Andrew Bridy, [Automatic sequences and curves over finite fields](#reference-bridy-automaticcurves-2016), Section 2.3, proof of Proposition 2.13, p. 7.) The proof steps.
 
-To prove this, let y₁, …, y_m be the generating series of the q-kernel of a (finite by automatic-iff-finite-kernel); it is stable under the Λ_r (`LaurentSeries.cartier_ofPowerSeries`).
+To prove this, let y₁, …, y_m be the generating series of the q-kernel of a (finite by [Eilenberg's theorem: automatic iff finite kernel](#layer-2-topic-50)); it is stable under the Λ_r (`LaurentSeries.cartier_ofPowerSeries`).
 
-By f = ∑_r X^r(Λ_r f)^q (cartier-operators), each yᵢ lies in the K(X)-span of y₁^q, …, y_m^q; raising to q-th powers (a K(X)-semilinear bijection onto its image), y_i^{q^j} lies in the span of the y^{q^{j+1}}, and by induction {yᵢ, yᵢ^q, …, yᵢ^{q^m}} lies in the span of y₁^{q^{m+1}}, …, y_m^{q^{m+1}}, of dimension ≤ m.
+By f = ∑_r X^r(Λ_r f)^q ([The Cartier operators on Laurent series](#layer-2-topic-10)), each yᵢ lies in the K(X)-span of y₁^q, …, y_m^q; raising to q-th powers (a K(X)-semilinear bijection onto its image), y_i^{q^j} lies in the span of the y^{q^{j+1}}, and by induction {yᵢ, yᵢ^q, …, yᵢ^{q^m}} lies in the span of y₁^{q^{m+1}}, …, y_m^{q^{m+1}}, of dimension ≤ m.
 
 So yᵢ, yᵢ^q, …, yᵢ^{q^m} are K(X)-linearly dependent: a nonzero polynomial ∑ cⱼT^{qʲ} over K(X) vanishes at yᵢ, and clearing denominators f = y₁ is algebraic over K[X]; dividing by T when f ≠ 0 bounds the degree by q^m − 1.
 
@@ -4684,9 +4673,9 @@ Three consecutive terms of F_n; the mediant need not be in lowest terms (in F₇
 
 (Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.2, printed p. 31.) The theorem, with edges supplied by the neighbour property.
 
-(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.2, printed p. 28.) The acceptance example.
+(Allen Hatcher, [Topology of Numbers](#reference-hatcher-topologyofnumbers-2024), Section 1.2, printed p. 28.) The worked example of the Checks.
 
-To prove this, by farey-neighbour-property, bc − ad = 1 and de − cf = 1.
+To prove this, by [The neighbour property of Farey sequences](#layer-2-topic-53), bc − ad = 1 and de − cf = 1.
 
 Then c(b + f) − d(a + e) = (bc − ad) − (de − cf) = 0, so (a + e)/(b + f) = c/d as rational numbers: this is the mediant reduced to lowest terms, the cancelled factor being be − af (Hatcher p. 31).
 
@@ -4705,9 +4694,9 @@ Let k≥2, d≥0 and f:ℕ→Δ be k-automatic. There is a finite-state DFAO M o
 
 The existing canonical least-significant-first definition of IsAutomatic is retained. The output alphabet is arbitrary; no independent finiteness assumption is added.
 
-(Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Lemma 5, p.1, normalization step; explicit bounded-carry proof supplied here.) The source cites two books for normalization. The displayed invariant is a self-contained deduction on the inherited kernel.
+(Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Lemma 5, p.1, normalization step; explicit bounded-carry proof supplied here.) The source cites two books for normalization. The displayed invariant is a self-contained deduction on the k-kernel.
 
-To prove this, by automatic-iff-finite-kernel the k-kernel K of f is finite. Use states (g,c) with g∈K and 0≤c≤d, initial state (f,0), output g(c).
+To prove this, by [Eilenberg's theorem: automatic iff finite kernel](#layer-2-topic-50) the k-kernel K of f is finite. Use states (g,c) with g∈K and 0≤c≤d, initial state (f,0), output g(c).
 
 For digit e≤d set r=(c+e) mod k and c′=⌊(c+e)/k⌋, and replace g by g′(n)=g(kn+r). Since c+e≤2d and k≥2, c′≤d. Writing g(n)=f(k^j n+s) shows directly that g′ is again a kernel element, with residue k^j r+s<k^(j+1).
 
@@ -4737,7 +4726,7 @@ n ≥ 2; the hypothesis on q is the real inequality q + 1 < n/(log(n + 1) + 1).
 
 To prove this, from 1/(q + 1) < log((q + 1)/q) for q ≥ 1, ((q + 1)/q)ⁿ > e^{n/(q+1)}; the hypothesis n/(q + 1) > log(n + 1) + 1 gives ((q + 1)/q)ⁿ > e(n + 1), that is (n + 1)qⁿ < (q + 1)ⁿ/e (trivially true at q = 0).
 
-Insert this into the lower bound of eulerian-power-bounds: A(n, q) ≥ (q + 1)ⁿ − (n + 1)qⁿ > (1 − 1/e)(q + 1)ⁿ; the upper bound is the upper half of that node.
+Insert this into the lower bound of [Power and factorial bounds for Eulerian numbers (Lawrence–Sawin, Lemmas C.1–C.2)](#layer-2-topic-57): A(n, q) ≥ (q + 1)ⁿ − (n + 1)qⁿ > (1 − 1/e)(q + 1)ⁿ; the upper bound is the upper half of that result.
 
 **Checks.**
 
@@ -4760,7 +4749,7 @@ p monic, natDegree p ≥ 1.
 
 To prove this, c(p)ᵀ(1, q, …, q^{d−1}) = (q, q², …, q^{d−1}, −∑ p.coeff i qⁱ); this equals q·(1, …, q^{d−1}) iff q^d = −∑ p.coeff i qⁱ, that is p(q) = 0. This is Mathlib's `LinearRecurrence.geom_sol_iff_root_charPoly` read on the first d terms.
 
-Over a field: q is an eigenvalue of the endomorphism iff it is a root of its characteristic polynomial (`Module.End.hasEigenvalue_iff_isRoot_charpoly`), which is `C(p).charpoly` (`Matrix.charpoly_toLin'`) and so p (characteristic-polynomial-of-the-companion-matrix); eigenvalues of C(p) and C(p)ᵀ agree (`Matrix.charpoly_transpose`).
+Over a field: q is an eigenvalue of the endomorphism iff it is a root of its characteristic polynomial (`Module.End.hasEigenvalue_iff_isRoot_charpoly`), which is `C(p).charpoly` (`Matrix.charpoly_toLin'`) and so p ([The characteristic polynomial of the companion matrix](#layer-2-topic-60)); eigenvalues of C(p) and C(p)ᵀ agree (`Matrix.charpoly_transpose`).
 
 **Checks.**
 
@@ -4808,7 +4797,7 @@ P, Q coprime integers, otherwise arbitrary: degenerate cases (α/β a root of un
 
 To prove this, if m = n, or one index is 0, the claim is immediate (U₀ = 0). Assume n > m ≥ 1 and write n = m + k.
 
-By the addition formula, Uₙ = U_{k+1}U_m − Q U_kU_{m−1}, so gcd(Uₙ, U_m) = gcd(Q U_k U_{m−1}, U_m) = gcd(U_k, U_m), removing Q and U_{m−1} by coprimality (coprimality-of-lucas-sequences).
+By the addition formula, Uₙ = U_{k+1}U_m − Q U_kU_{m−1}, so gcd(Uₙ, U_m) = gcd(Q U_k U_{m−1}, U_m) = gcd(U_k, U_m), removing Q and U_{m−1} by coprimality ([Coprimality properties of Lucas sequences](#layer-2-topic-64)).
 
 Hence gcd(U_m, Uₙ) = gcd(U_m, U_{n−m}); run Euclid's algorithm on the indices (strong induction on m + n) to reach gcd(U_{gcd(m,n)}, U₀) = |U_{gcd(m,n)}|.
 
@@ -4837,9 +4826,9 @@ K finite of characteristic p; the automata read base-p (or base-q) digits least 
 
 To prove this, q = p^r (`FiniteField.card`).
 
-Algebraic ⇒ q-automatic: algebraic-series-are-automatic. q-automatic ⇒ algebraic: automatic-series-are-algebraic.
+Algebraic ⇒ q-automatic: [Algebraic power series over 𝔽_q have q-automatic coefficients](#layer-2-topic-67). q-automatic ⇒ algebraic: [Power series over 𝔽_q with q-automatic coefficients are algebraic](#layer-2-topic-68).
 
-q-automatic ⇔ p-automatic: automatic-in-base-a-power with k = p, m = r.
+q-automatic ⇔ p-automatic: [k-automatic iff k^m-automatic](#layer-2-topic-65) with k = p, m = r.
 
 **Checks.**
 
@@ -4859,7 +4848,7 @@ Digits range from 0 through d, so all ordinary digits 0,…,k−1 are present.
 
 (Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Lemma 5 and Definition 4, p.1; initial choice of D_c in §3, p.2.) This proves the finite interval-alphabet case needed by the source, with an explicit normalization proof and the roadmap’s existing reading convention.
 
-To prove this, the forward implication applies automatic-bounded-digit-carry and then dfao-output-reversal. Reverse commutes with mapping digit values, giving the desired most-significant-first evaluation.
+To prove this, the forward implication applies [Finite carries for arbitrary bounded digits](#layer-2-topic-70) and then [Reversing all words of a finite output automaton](#layer-2-topic-37). Reverse commutes with mapping digit values, giving the desired most-significant-first evaluation.
 
 For the reverse implication restrict the transition to Fin k, embedded in Fin(d+1). Apply the all-word hypothesis to the reversed canonical digits of n. The native ofDigits_digits identity gives n, and the reading-direction theorem returns IsAutomatic k f.
 
@@ -4889,9 +4878,9 @@ To prove this, small n: for n ≤ 20 the finitely many cases are checked by comp
 
 Assume n ≥ 21 and r ≤ n/2 (for r > n/2, 3r − 2 ≥ n and the right side vanishes). There is an integer r₀ with √n ≤ r₀ < n/(log(n + 1) + 1), so either r < n/(log(n + 1) + 1) or r ≥ r₀.
 
-If r < n/(log(n + 1) + 1): eulerian-small-descent-bounds gives A(n, r − 1) ≥ (1 − 1/e)rⁿ, and eulerian-power-bounds gives 2A(n, 3r − 2) ≤ 2(3r − 1)ⁿ; and (1 − 1/e)²r^{2n} > 2(3r − 1)ⁿ + (1 − 1/e)rⁿ for r ≥ 3, n ≥ 14.
+If r < n/(log(n + 1) + 1): [Eulerian numbers with few descents (Lawrence–Sawin, Lemma C.3)](#layer-2-topic-71) gives A(n, r − 1) ≥ (1 − 1/e)rⁿ, and [Power and factorial bounds for Eulerian numbers (Lawrence–Sawin, Lemmas C.1–C.2)](#layer-2-topic-57) gives 2A(n, 3r − 2) ≤ 2(3r − 1)ⁿ; and (1 − 1/e)²r^{2n} > 2(3r − 1)ⁿ + (1 − 1/e)rⁿ for r ≥ 3, n ≥ 14.
 
-If r ≥ r₀: by eulerian-unimodal A(n, r − 1) ≥ A(n, r₀ − 1) (r − 1 ≤ n/2 − 1 is in the rising half), and eulerian-small-descent-bounds at r₀ − 1 gives A(n, r₀ − 1)(A(n, r₀ − 1) − 1) > (3/10)r₀^{2n} ≥ (3/10)nⁿ > 2·n! ≥ 2A(n, 3r − 2) by eulerian-power-bounds (A ≤ n!).
+If r ≥ r₀: by eulerian-unimodal A(n, r − 1) ≥ A(n, r₀ − 1) (r − 1 ≤ n/2 − 1 is in the rising half), and [Eulerian numbers with few descents (Lawrence–Sawin, Lemma C.3)](#layer-2-topic-71) at r₀ − 1 gives A(n, r₀ − 1)(A(n, r₀ − 1) − 1) > (3/10)r₀^{2n} ≥ (3/10)nⁿ > 2·n! ≥ 2A(n, 3r − 2) by [Power and factorial bounds for Eulerian numbers (Lawrence–Sawin, Lemmas C.1–C.2)](#layer-2-topic-57) (A ≤ n!).
 
 **Checks.**
 
@@ -4911,7 +4900,7 @@ n ≥ 11.
 
 (Brian Lawrence and Will Sawin, [The Shafarevich conjecture for hypersurfaces in abelian varieties](#reference-lawrence-sawin-2025), Appendix C, Lemma C.5 with its proof, pp. 117–118.) States A(n, 2)/A(n, 1)² < 1/27 for n ≥ 11, proves it for n ≥ 15 from Lemma C.3 and leaves 11 ≤ n ≤ 14 to a direct check; used in the proof of Lemma B.11.
 
-To prove this, eulerian-power-bounds gives A(n, 2) ≤ 3ⁿ, and for n ≥ 6 eulerian-small-descent-bounds at q = 1 gives A(n, 1) ≥ (1 − 1/e)2ⁿ (its hypothesis 1 < n/(log(n + 1) + 1) − 1 holds from n = 6).
+To prove this, [Power and factorial bounds for Eulerian numbers (Lawrence–Sawin, Lemmas C.1–C.2)](#layer-2-topic-57) gives A(n, 2) ≤ 3ⁿ, and for n ≥ 6 [Eulerian numbers with few descents (Lawrence–Sawin, Lemma C.3)](#layer-2-topic-71) at q = 1 gives A(n, 1) ≥ (1 − 1/e)2ⁿ (its hypothesis 1 < n/(log(n + 1) + 1) − 1 holds from n = 6).
 
 Hence 27A(n, 2)/A(n, 1)² ≤ 27(3/4)ⁿ/(1 − 1/e)², which is < 1 for n ≥ 15.
 
@@ -4934,9 +4923,9 @@ The same colouring works for all lengths n and all suffix values z in the double
 
 (Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), §3, p.2, equation (1).) Finite colours are the source’s reached states, expressed as an explicit finite-valued function so that no separate state-language carrier is introduced.
 
-To prove this, use automatic-redundant-digits with d=2k. For each integer x, run its ordinary canonical most-significant-first word in that automaton and colour x by the resulting state, encoded in Fin q. The initial state ensures q is positive.
+To prove this, use [Automaticity with redundant most-significant-first digits](#layer-2-topic-76) with d=2k. For each integer x, run its ordinary canonical most-significant-first word in that automaton and colour x by the resulting state, encoded in Fin q. The initial state ensures q is positive.
 
-By redundant-word-interval choose a suffix of length n and value z. Equal prefix states remain equal after this identical suffix, by the native DFA evaluation-on-append statement applied to the underlying transition and initial state.
+By [Short redundant words cover a doubled radix interval](#layer-2-topic-13) choose a suffix of length n and value z. Equal prefix states remain equal after this identical suffix, by the native DFA evaluation-on-append statement applied to the underlying transition and initial state.
 
 The native ofDigits_append identity, after reversing the concatenation, computes the values of the two extended words as xk^n+z and yk^n+z. All-word correctness gives the asserted equality.
 
@@ -4958,13 +4947,13 @@ The output alphabet Δ is arbitrary. Automaticity already forces its used range 
 
 (Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Theorem 1, p.1, and its complete proof in §3, p.2.) This is the forward direction of the source theorem, with normalization, collision selection and gluing supplied by the preceding declarations.
 
-To prove this, obtain wide prefix colourings C_a and C_b from automatic-wide-prefix-colouring. Apply finite-colour-tail-collisions to get N and ξ, with two uniformly bounded distinct representatives for every tail C_b-colour that agree under C_a.
+To prove this, obtain wide prefix colourings C_a and C_b from [Finite prefix colours control wide radix blocks](#layer-2-topic-79). Apply [Uniform repeated representatives for a finite colouring](#layer-2-topic-15) to get N and ξ, with two uniformly bounded distinct representatives for every tail C_b-colour that agree under C_a.
 
-Apply close-integral-powers with C=6ξ to obtain m,n≥1 and A=a^m,B=b^n with 6ξ|A−B|≤B. Multiplicative independence gives A≠B.
+Apply [Relatively close positive powers of two bases](#layer-2-topic-14) with C=6ξ to obtain m,n≥1 and A=a^m,B=b^n with 6ξ|A−B|≤B. Multiplicative independence gives A≠B.
 
 For each x≥N take its representatives u,v. The C_b comparisons at exponent n supply the two wide B-block equalities, and the C_a comparison at exponent m supplies the A-block equality.
 
-Apply close-scales-local-period to obtain a positive period at most B/6 on each window. Then bounded-window-periods-give-tail-period gives one positive period on the whole tail.
+Apply [A nonzero local period from two close radix scales](#layer-2-topic-17) to obtain a positive period at most B/6 on each window. Then [Overlapping radix windows force a single tail period](#layer-2-topic-38) gives one positive period on the whole tail.
 
 **Checks.**
 
@@ -4985,9 +4974,9 @@ Multiplicative independence means a^m≠b^n for all positive m,n. Use IsAutomati
 
 (Thijmen J. P. Krebs, [A more reasonable proof of Cobham's theorem](#reference-krebs-cobham-2018), Theorem 1, p.1.) This is the complete equivalence of the source, on the automaton carrier fixed here and with the converse exposed as a reusable prerequisite.
 
-To prove this, the forward implication is cobham-eventually-periodic.
+To prove this, the forward implication is [Cobham’s theorem: independent automatic bases force periodicity](#layer-2-topic-80).
 
-For the converse apply eventually-periodic-sequences-are-automatic to each of the two bases, with the same tail and period.
+For the converse apply [Every eventually periodic sequence is automatic](#layer-2-topic-55) to each of the two bases, with the same tail and period.
 
 **Checks.**
 
@@ -5006,7 +4995,7 @@ The Fibonacci rational series has denominator 1−X−X² and numerator X. Repea
 
 The declarations and supplier layers used by this layer are:
 
-- [DiophantineApproximationAndTranscendence, `DT.2`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+- [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.4 `closedFormRecurrence`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#24-finite-rank-multiplicative-groups-and-recurrences).
 - Mathlib `AdjoinRoot.minpoly_root`.
 - Mathlib `AdjoinRoot.powerBasis'`.
 - Mathlib `Algebra.leftMulMatrix`.
@@ -5712,7 +5701,7 @@ Galois case ([Ostrowski's theorem: the Pólya group of a Galois number field](#l
 
 Let A ∈ ℤ[X] be nonzero and let I ∈ ℤ[X] be an irreducible factor of A of degree m ≥ 1. Then ‖I‖₂ ≤ e^{√m} (m + 2√m + 2)^{1+√m} ‖A‖₂^{1+√m}, where ‖·‖₂ is the Euclidean norm of the coefficient vector. This is the form in which Bary-Soroker–Koukoulopoulos–Kozma quote Mignotte (1988), Theorem 1′ and the remarks after it.
 
-A ∈ ℤ[X], A ≠ 0; I ∈ ℤ[X] irreducible, I | A, deg I = m ≥ 1. Whether Mignotte's Theorem 1′ needs further hypotheses (for example on the leading coefficient or on the multiplicity of I in A) has not been checked against the source (see gaps).
+A ∈ ℤ[X], A ≠ 0; I ∈ ℤ[X] irreducible, I | A, deg I = m ≥ 1. Whether Mignotte's Theorem 1′ needs further hypotheses (for example on the leading coefficient or on the multiplicity of I in A) is part of the marked input below.
 
 (Lior Bary-Soroker, Dimitris Koukoulopoulos and Gady Kozma, [Irreducibility of random polynomials: general measures](#reference-bskk-random-polynomials-2023), Proof of Lemma 3.4, p. 20 (arXiv v3).) The proof quotes this inequality for an irreducible integer factor I of degree m of A, citing Mignotte's Theorem 1′ and the remarks below it.
 
@@ -5725,7 +5714,7 @@ What the pinned library gives, and why it does not suffice: write A = I·J with 
 - When A = I is itself irreducible the inequality is immediate, since e^{√m}(m + 2√m + 2)^{1+√m}‖I‖₂^{√m} ≥ 1.
 - The classical consequence ‖I‖₂ ≤ C(2m, m)^{1/2}‖A‖₂ holds for every factor (irreducible or not), e.g. A = (X + 1)^m, I = A: ‖I‖₂² = C(2m, m).
 
-**Unverified source input.** The sharper irreducible-factor L² estimate is attributed to Mignotte, J. Number Theory 30 (1988), 156–166, Theorem 1′ and the remarks following it, DOI 10.1016/0022-314X(88)90014-5. Its exact proof and hypotheses require a readable copy. The bound from Mahler measure with √(binomial(2m,m)) is exponentially weaker and cannot replace the √m-scale estimate needed here.
+**Unverified source input.** The sharper irreducible-factor L² estimate is attributed to Mignotte, J. Number Theory 30 (1988), 156–166, Theorem 1′ and the remarks following it, DOI 10.1016/0022-314X(88)90014-5. No source cited here gives its proof or its exact hypotheses. The bound from Mahler measure with √(binomial(2m,m)) is exponentially weaker and cannot replace the √m-scale estimate needed here.
 
 *Needs:* Mathlib `Polynomial.mahlerMeasure_mul`; Mathlib `Polynomial.mahlerMeasure_le_sqrt_sum_sq_norm_coeff`; Mathlib `Polynomial.norm_coeff_le_choose_mul_mahlerMeasure`.
 
@@ -5775,7 +5764,7 @@ Let f = a_0X^n + a_1X^{n−1} + ⋯ + a_n ∈ ℂ[X] with n ≥ 1 and a_0 ≠ 0,
 
 n ≥ 1, a_0 ≠ 0, λ_k > 0 with Σ 1/λ_k ≤ 1.
 
-(Matsusaburô Fujiwara, [Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung](#reference-fujiwara-rootbound-1916), Formula (1) with its derivation and footnote, printed p. 167.) Derives exactly this bound from the lower estimate |f(x)| ≥ |a_0|ρ^n − Σ|a_k|ρ^{n−k} under Σ1/λ_k ≤ 1; the footnote asserts the strict inequality when Σ1/λ_k < 1 (its degenerate case is recorded in sourceIssues).
+(Matsusaburô Fujiwara, [Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung](#reference-fujiwara-rootbound-1916), Formula (1) with its derivation and footnote, printed p. 167.) Derives exactly this bound from the lower estimate |f(x)| ≥ |a_0|ρ^n − Σ|a_k|ρ^{n−k} under Σ1/λ_k ≤ 1; the footnote asserts the strict inequality when Σ1/λ_k < 1 (it fails in the degenerate case where every a_k with k ≥ 1 vanishes, which the statement here excludes).
 
 (Matsusaburô Fujiwara, [Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung](#reference-fujiwara-rootbound-1916), Formulas (2)–(5), printed p. 168.) The specializations λ_k = n (Cauchy), λ_k = 2^k and the Birkhoff choice.
 
@@ -5828,14 +5817,14 @@ To prove this, μ_r is a minimum over a finite nonempty set (Mathlib Finset.inf'
 
 (f): μ is the minimum of finitely many affine functions of r.
 
-Polynomial case: with y_i = v(a_i) on supp f, μ_r and C_r are those of the sloped valuation and m_r is the slope multiplicity of [The sloped valuation of a polynomial over a valued field](#layer-3-topic-11) and [The Newton polygon, by slope multiplicities](#layer-3-topic-33); those polynomial nodes are the specialization of this one (they cite it), so this result does not depend on them.
+Polynomial case: with y_i = v(a_i) on supp f, μ_r and C_r are those of the sloped valuation and m_r is the slope multiplicity of [The sloped valuation of a polynomial over a valued field](#layer-3-topic-11) and [The Newton polygon, by slope multiplicities](#layer-3-topic-33); those polynomial results are the specialization of this one (they cite it), so this result does not depend on them.
 
 **Checks.**
 
 - For the points (0, 2), (2, 1), (5, 0): m_{1/2} = 2, m_{1/3} = 3, and m_r = 0 for every other r.
 - For I = {i_0}: μ_r = y_{i_0} + r·i_0 and m_r = 0 for every r.
 - For the points (0, 0), (1, −1), (2, 0): C_0 = {1} (width 0), and the sides are r = 1 with C_1 = {0, 1} and r = −1 with C_{−1} = {1, 2}; the chord joining the extreme points is not a side.
-- For f = X² − 2 over ℚ₂ (points (0, 1), (2, 0)): μ_r = min(1, 2r), the only side is r = 1/2 with width 2, equal to v_r(f) and m_r(f) of the Layer 3 polynomial nodes.
+- For f = X² − 2 over ℚ₂ (points (0, 1), (2, 0)): μ_r = min(1, 2r), the only side is r = 1/2 with width 2, equal to v_r(f) and m_r(f) of the Layer 3 polynomial results.
 - The points of X⁵ + 2X² + 4 over ℚ₂, (0, 2), (2, 1), (5, 0): C_{1/2} = {0, 2}, C_{1/3} = {2, 5}, widths 2 and 3, summing to 5 = 5 − 0, and u_{1/2} = 2 ≤ ℓ_{1/3} = 2.
 - Supporting-side certificate as used for φ-adic expansions: a side from (s, u) to (s + ed, u − hd) with slope parameter h/e is exactly the statement that μ_{h/e} = u + (h/e)s with C_{h/e} ⊆ [s, s + ed] containing both endpoints.
 
@@ -5845,7 +5834,7 @@ Polynomial case: with y_i = v(a_i) on supp f, μ_r and C_r are those of the slop
 
 ### 3.19 Gauss–Jordan elimination: the change-of-basis certificate and uniqueness of the reduced form
 
-Let F be a field with decidable equality and A an m × n matrix over F. Tau Ceti's TauCeti.rowReduce (List.ofFn A) is the terminating Gauss–Jordan sweep (structural recursion over the columns): it returns the nonzero rows of the reduced row echelon form of A, each with its pivot column, and Tau Ceti proves that the matrix TauCeti.rowReduceMatrix they form is in reduced row echelon form with those pivots, that its rows span the row space of A, that there are rank A of them, and that it has the same kernel as A. This node adds what a normal form needs beyond that. (a) Certificate: let R be the m × n matrix formed by the rows of TauCeti.rowReduceMatrix (List.ofFn A) followed by m − rank A zero rows, with pivot function ℓ equal to the recorded pivot columns and then ⊤; there is an invertible m × m matrix P, with an explicit inverse P′ (P P′ = P′ P = 1), such that P A = R, both computed by the same sweep. (b) Uniqueness: two matrices in reduced row echelon form that differ by an invertible left factor are equal; so R, its pivot columns and its free columns depend only on the row-equivalence class of A.
+Let F be a field with decidable equality and A an m × n matrix over F. Tau Ceti's TauCeti.rowReduce (List.ofFn A) is the terminating Gauss–Jordan sweep (structural recursion over the columns): it returns the nonzero rows of the reduced row echelon form of A, each with its pivot column, and Tau Ceti proves that the matrix TauCeti.rowReduceMatrix they form is in reduced row echelon form with those pivots, that its rows span the row space of A, that there are rank A of them, and that it has the same kernel as A. This result adds what a normal form needs beyond that. (a) Certificate: let R be the m × n matrix formed by the rows of TauCeti.rowReduceMatrix (List.ofFn A) followed by m − rank A zero rows, with pivot function ℓ equal to the recorded pivot columns and then ⊤; there is an invertible m × m matrix P, with an explicit inverse P′ (P P′ = P′ P = 1), such that P A = R, both computed by the same sweep. (b) Uniqueness: two matrices in reduced row echelon form that differ by an invertible left factor are equal; so R, its pivot columns and its free columns depend only on the row-equivalence class of A.
 
 F a field with decidable equality (for example ZMod p, p prime, or ℚ); A an m × n matrix over F. Tau Ceti's sweep works over a division ring; the rank statements use a field.
 
@@ -5890,7 +5879,7 @@ Rank: R is pivoted by ℓ, so rank R is the number of pivots (Mathlib Matrix.IsP
 
 ### 3.20 The kernel basis of a matrix and of a linear map in chosen bases
 
-Let F be a field with decidable equality. For an m × n matrix A over F, Tau Ceti reads a basis of ker A off TauCeti.rowReduce: for a free column j (TauCeti.IsFreeColumn, a column with no pivot) the kernel vector β_j = TauCeti.kernelVector (List.ofFn A) j has entry 1 at j, 0 at the other free columns and, at the pivot column of each reduced row, the negated entry of that row in column j; the β_j of the free columns form the basis TauCeti.freeColumnBasis A of ker A, the computable list TauCeti.kernelBasis A lists them (sound, spanning, independent, without repetition), and there are n − rank A of them. This node transports that basis to linear maps: for finite-dimensional F-vector spaces V and W with bases b indexed by Fin n and b′ indexed by Fin m, a linear map φ : V → W and A = LinearMap.toMatrix b b′ φ, a vector x lies in ker φ iff A·(b.repr x) = 0, and the vectors Σ_k (β_j)_k b_k, j a free column of A, form a basis of ker φ; so dim ker φ = n − rank A.
+Let F be a field with decidable equality. For an m × n matrix A over F, Tau Ceti reads a basis of ker A off TauCeti.rowReduce: for a free column j (TauCeti.IsFreeColumn, a column with no pivot) the kernel vector β_j = TauCeti.kernelVector (List.ofFn A) j has entry 1 at j, 0 at the other free columns and, at the pivot column of each reduced row, the negated entry of that row in column j; the β_j of the free columns form the basis TauCeti.freeColumnBasis A of ker A, the computable list TauCeti.kernelBasis A lists them (sound, spanning, independent, without repetition), and there are n − rank A of them. This result transports that basis to linear maps: for finite-dimensional F-vector spaces V and W with bases b indexed by Fin n and b′ indexed by Fin m, a linear map φ : V → W and A = LinearMap.toMatrix b b′ φ, a vector x lies in ker φ iff A·(b.repr x) = 0, and the vectors Σ_k (β_j)_k b_k, j a free column of A, form a basis of ker φ; so dim ker φ = n − rank A.
 
 F a field with decidable equality (ZMod p in the main use); V and W finite-dimensional over F with bases indexed by Fin n and Fin m.
 
@@ -6510,7 +6499,7 @@ When the first row and column are cleared, if some entry b of the remaining bloc
 
 Recurse on the (m−1) × (n−1) block (the size decreases). Its entries are all divisible by p, so its invariant factors are multiples of p and the chain p | d_1 | ⋯ holds; embed the transformations of the block into GL_m(ℤ) and GL_n(ℤ) as block-diagonal matrices with a 1 in the corner and compose. Record the inverses of all elementary matrices (each elementary operation is inverted by another elementary operation) to produce P′ and Q′.
 
-Compatibility: in the square nonsingular case the output agrees with Tau Ceti Matrix.exists_smith_normal_form_of_det_ne_zero by the uniqueness node; the product of the invariant factors is |det A| (Matrix.det_mul, det of a diagonal matrix).
+Compatibility: in the square nonsingular case the output agrees with Tau Ceti Matrix.exists_smith_normal_form_of_det_ne_zero by [Uniqueness of the Smith normal form of a rectangular integer matrix](#layer-3-topic-22); the product of the invariant factors is |det A| (Matrix.det_mul, det of a diagonal matrix).
 
 **Checks.**
 
@@ -6969,7 +6958,7 @@ Class number one implies Pólya: every Π_q is principal.
 
 ### 3.56 The rational canonical form of an endomorphism
 
-Let K be a field, V finite-dimensional and T an endomorphism with invariant factors a_1 | ⋯ | a_k. There is a basis of V indexed by the pairs (i, j), 1 ≤ i ≤ k, 0 ≤ j < deg a_i, in which the matrix of T is block diagonal, the i-th block being the companion block C(f) of a monic f of degree d, the d × d matrix of multiplication by X on K[X]/(f) in the basis 1, X, …, X^{d−1}: ones on the subdiagonal, −coeff_i(f) in row i of the last column, zeros elsewhere (for f = a_i); this is the companion matrix C(a_i) of [The companion matrix of a polynomial](#layer-2-topic-46), whose convention it shares, by that node's identification of the matrix of multiplication by the root of AdjoinRoot f with C(f). The basis vectors of block i are v_i, T v_i, …, T^{deg a_i − 1} v_i for a vector v_i generating the i-th cyclic summand. Matrix form: every n × n matrix A over K is similar to the block-diagonal matrix of the companion blocks of its invariant factors.
+Let K be a field, V finite-dimensional and T an endomorphism with invariant factors a_1 | ⋯ | a_k. There is a basis of V indexed by the pairs (i, j), 1 ≤ i ≤ k, 0 ≤ j < deg a_i, in which the matrix of T is block diagonal, the i-th block being the companion block C(f) of a monic f of degree d, the d × d matrix of multiplication by X on K[X]/(f) in the basis 1, X, …, X^{d−1}: ones on the subdiagonal, −coeff_i(f) in row i of the last column, zeros elsewhere (for f = a_i); this is the companion matrix C(a_i) of [The companion matrix of a polynomial](#layer-2-topic-46), whose convention it shares, by that subsection's identification of the matrix of multiplication by the root of AdjoinRoot f with C(f). The basis vectors of block i are v_i, T v_i, …, T^{deg a_i − 1} v_i for a vector v_i generating the i-th cyclic summand. Matrix form: every n × n matrix A over K is similar to the block-diagonal matrix of the companion blocks of its invariant factors.
 
 K is any field; V is finite-dimensional; no algebraic closure or splitting is used (this is what distinguishes the rational form from the Jordan form). Block order: a_1 | a_2 | ⋯ (increasing); convention for C(f): subdiagonal ones and last column −coefficients, the matrix Mathlib writes as Algebra.leftMulMatrix of the power basis of AdjoinRoot f at the root.
 
@@ -7078,7 +7067,7 @@ Conversely, equal invariant factors give the same block-diagonal companion matri
 
 - diag(1, 1) and the matrix with rows (1, 1), (0, 1) have the same characteristic polynomial but invariant factors (X−1, X−1) and ((X−1)²): not similar.
 - Over ℚ the matrices with rows (0, −1), (1, 0) and (0, 1), (−1, 0) are similar (both have invariant factor X² + 1).
-- A matrix is similar to its transpose; the proof needs that A and Aᵀ have the same invariant factors, which this result does not prove (it follows from reading the invariant factors off the Smith form of X·1 − A, whose transpose is X·1 − Aᵀ), so this is a downstream consequence, not an acceptance check of this result.
+- A matrix is similar to its transpose; the proof needs that A and Aᵀ have the same invariant factors, which this result does not prove (it follows from reading the invariant factors off the Smith form of X·1 − A, whose transpose is X·1 − Aᵀ), so this is a downstream consequence, not a Check of this result.
 
 *Needs:* [The rational canonical form of an endomorphism](#layer-3-topic-56); [The invariant factors of an endomorphism](#layer-3-topic-49).
 
@@ -7303,7 +7292,7 @@ Let K = ℚ(√d) with d < 0 squarefree and discriminant D_K (D_K = d if d ≡ 1
 
 d < 0 squarefree, K = ℚ(√d); the primes ramified in K are the primes dividing D_K.
 
-(Paul-Jean Cahen and Jean-Luc Chabert, [What You Should Know About Integer-Valued Polynomials](#reference-cahen-chabert-intvalued-2016), Section 6, Proposition 33 (imaginary case) and Example 34, printed p. 333.) States the imaginary quadratic Pólya fields as ℚ(i), ℚ(√−2) and ℚ(√−p) with p ≡ 3 (mod 4), attributing the classification to Zantema, and gives ℚ(√−23) as an example; the class number printed there is corrected in sourceIssues.
+(Paul-Jean Cahen and Jean-Luc Chabert, [What You Should Know About Integer-Valued Polynomials](#reference-cahen-chabert-intvalued-2016), Section 6, Proposition 33 (imaginary case) and Example 34, printed p. 333.) States the imaginary quadratic Pólya fields as ℚ(i), ℚ(√−2) and ℚ(√−p) with p ≡ 3 (mod 4), attributing the classification to Zantema, and gives ℚ(√−23) as an example; the class number printed there for ℚ(√−23) is misprinted; it is 3.
 
 (Amandine Leriche, [Pólya fields, Pólya groups and Pólya extensions: a question of capitulation](#reference-leriche-polya-2011), Proposition 2.4, pp. 240–241.) Hilbert's count of the Pólya group of a quadratic field: 2^{s−1} elements for imaginary K with s ramified primes, which gives the same classification; the elementary norm argument above is supplied here.
 
@@ -7553,9 +7542,42 @@ Earlier internal inputs are Layer 2. The declarations and supplier layers used b
 - Tau Ceti `TauCeti.span_kernelBasis`.
 - Tau Ceti `TauCeti.span_rowReduce`.
 
-## Layer 4: classical diophantine equations
+## Layer 4: classical Diophantine equations
 
 Use descent, norm factorisation, lattice points and coefficientwise identities to solve the specified classical equations. Keep coefficient-three Markoff triples distinct from coefficient-one level surfaces and from the higher-dimensional Markoff–Hurwitz equation.
+
+<a id="layer-4-topic-0"></a>
+
+### 4.0 Proper automorphs of indefinite binary forms and the Pell equation
+
+Let D > 0 be a nonsquare integer with D ≡ 0 or 1 (mod 4), and write elements of the quadratic order O_D of discriminant D as (X + Y√D)/2 with X, Y ∈ ℤ and X ≡ DY (mod 2), so that their norm is (X² − DY²)/4. (a) The elements of norm one are the (t + u√D)/2 with t² − Du² = 4. Under multiplication they form a group isomorphic to {±1} × ℤ, generated by −1 (t = −2, u = 0) and ε_D = (t₁ + u₁√D)/2 for the solution with t₁, u₁ ≥ 1 and u₁ least. (b) For every integer N, multiplication by these units preserves the set of integer solutions of X² − DY² = 4N; the generator ε_D sends (X, Y) to ((t₁X + Du₁Y)/2, (u₁X + t₁Y)/2). (c) For a primitive integral binary form Q = [a, b, c] of discriminant D = b² − 4ac, the proper automorphs γ ∈ SL₂(ℤ) of Q are the matrices [[(t − bu)/2, −cu], [au, (t + bu)/2]] with t² − Du² = 4, and their image in PSL₂(ℤ) is infinite cyclic, generated by the matrix of (t₁, u₁).
+
+D nonsquare and positive; D ≡ 0, 1 (mod 4), which holds for every D = a² − 4. The group in (a) contains −1, so it is not cyclic; only its image modulo ±1 is. For D = 4m the solutions are (2x, 2y) with x² − my² = 1, Mathlib's Pell.Solution₁ m; for D ≡ 1 (mod 4) solutions with t and u odd occur only when D ≡ 5 (mod 8).
+
+The supporting API comprises:
+
+- `pellFourUnits`: The group {(t, u) ∈ ℤ² : t² − Du² = 4} with the product of (t + u√D)/2.
+- `pellFourUnits_equiv`: pellFourUnits D ≃* ℤˣ × Multiplicative ℤ, sending −1 to (−1, 0) and ε_D to (1, 1).
+- `pellFourUnits_of_pell`: For D = 4m, (x, y) ↦ (2x, 2y) is an isomorphism from Pell.Solution₁ m.
+- `pellFourUnits_smul_mem`: For (t, u) ∈ pellFourUnits D and X² − DY² = 4N, the product ((tX + DuY)/2, (uX + tY)/2) is again an integer solution of X² − DY² = 4N.
+- `properAutomorph_of_pellFour`: For Q = [a, b, c] primitive of discriminant D, (t, u) ↦ [[(t − bu)/2, −cu], [au, (t + bu)/2]] is an isomorphism onto the stabiliser of Q in SL₂(ℤ).
+
+(Keith Conrad, [Pell's equation, I](#reference-conrad-pell-one-2025), Theorem 5.3, p. 6, and §7, Theorem 7.1, p. 10.) The generation of the solutions of a Pell equation by a least positive solution, and the multiplicativity of the norm form, which is the case D = 4m of (a) and the source of the product in (b).
+
+(Keith Conrad, [Pell's equation, II](#reference-conrad-pell-two-2026), §3, p. 4, the paragraph before Example 3.1.) The action of Pell solutions on the solutions of a generalised Pell equation, the form of (b) used here.
+
+(Amit Ghosh and Peter Sarnak, [Integral points on Markoff type cubic surfaces](#reference-ghosh-sarnak-2022-v3), §1, consequence (c) of Theorem 1.1, p. 4.) The use: the unit (a + √(a² − 4))/2 acts on the solutions of X² − (a² − 4)Y² = 4N.
+
+To prove this, for D = 4m, t² − Du² = 4 forces t even and reduces to Pell.Solution₁ m, and Mathlib's Pell.IsFundamental.eq_zpow_or_neg_zpow gives (a). For D ≡ 1 (mod 4), (t + u√D)/2 ∈ O_D has norm one; its cube is (t(t² − 3) + u(t² − 1)√D)/2, whose coordinates are even, so the group contains the Pell group of D with index dividing 3 and is again {±1} × ℤ; the least positive solution generates modulo ±1 because the coordinates of the positive powers increase. For (b), the norm is multiplicative and the displayed coordinates are integers because X ≡ DY and t ≡ Du (mod 2). For (c), a matrix in SL₂(ℤ) fixing Q is determined by its action on a root of Q(x, 1), and the displayed matrix is multiplication by (t + u√D)/2 in the basis attached to that root.
+
+**Checks.**
+
+- D = 5 (a = 3): the least solution of t² − 5u² = 4 is (3, 1), ε_5 = (3 + √5)/2 = φ², and the norm-one units of ℤ[φ] are ±φ^(2k); the unit φ itself has norm −1 and is not in the group.
+- D = 12 (a = 4): the least solution is (4, 1) and ε_12 = 2 + √3, the fundamental solution of x² − 3y² = 1.
+- (−2, 0) ↦ −1 is a nontrivial element of finite order: the group in SL₂(ℤ) is not infinite cyclic, so cyclicity holds only in PSL₂(ℤ).
+- D = 5, N = 1: ε_5 sends (3, 1) to (7, 3), and 7² − 5·3² = 4.
+
+*Needs:* Mathlib `Pell.Solution₁`; Mathlib `Pell.IsFundamental.eq_zpow_or_neg_zpow`; Mathlib `Zsqrtd.norm_mul`; Mathlib `Matrix.SpecialLinearGroup`.
 
 <a id="layer-4-topic-1"></a>
 
@@ -7613,7 +7635,7 @@ If x, y, z are pairwise coprime positive integers with x⁴ − y⁴ = z² and z
 
 x, y, z > 0 and pairwise coprime; z odd.
 
-(Keith Conrad, [Proofs by descent](#reference-conrad-descent-2026), Theorem 3.10, Case 1, printed pp. 7–8.) The lemma is Case 1 of the source's proof up to the comparison x′ < x; the source then concludes by descent, which is the theorem node.
+(Keith Conrad, [Proofs by descent](#reference-conrad-descent-2026), Theorem 3.10, Case 1, printed pp. 7–8.) The lemma is Case 1 of the source's proof up to the comparison x′ < x; the source then concludes by descent, which is [Fermat's right-triangle theorem: x⁴ − y⁴ = z² has no solution in positive integers](#layer-4-topic-21).
 
 (Keith Conrad, [Proofs by descent](#reference-conrad-descent-2026), Theorem 3.10, Case 1, printed p. 8, after (3.8).) The two conclusions z′ odd and x′ < x of the lemma.
 
@@ -7812,7 +7834,7 @@ The supporting API comprises:
 
 (Keith Conrad, [Pell's equation, II](#reference-conrad-pell-two-2026), §3, p. 4, the paragraph before Example 3.1.) The set S(d, n) and the action of the Pell solutions.
 
-(Keith Conrad, [Pell's equation, I](#reference-conrad-pell-one-2025), §7, Theorem 7.1, p. 10.) The multiplicativity API item.
+(Keith Conrad, [Pell's equation, I](#reference-conrad-pell-one-2025), §7, Theorem 7.1, p. 10.) Source for `pellNormSet.mul_mem`.
 
 To prove this, define S(d, n) as the fibre of the multiplicative map Zsqrtd.norm over n.
 
@@ -8208,7 +8230,7 @@ x, y, z positive integers (for the equivalent integral form: x, y, z ∈ ℤ, co
 
 To prove this, reduce to pairwise coprime solutions: a common prime factor p of x and y gives p⁴ ∣ z², so p² ∣ z, and (x/p, y/p, z/p²) is a smaller solution; a common factor of x and z (or y and z) is a common factor of x and y by the equation.
 
-Case z odd: by strong induction on x, using the descent step (fermat-right-triangle-descent-step), which produces a solution with z′ odd and x′ < x; there is no minimal such solution.
+Case z odd: by strong induction on x, using the descent step ([The descent step for x⁴ − y⁴ = z² with z odd](#layer-4-topic-2)), which produces a solution with z′ odd and x′ < x; there is no minimal such solution.
 
 Case z even: y⁴ + z² = x⁴ makes (y², z, x²) a primitive Pythagorean triple with z even, so y² = m² − n², x² = m² + n² with coprime m, n > 0 (Mathlib's PythagoreanTriple.coprime_classification'); multiplying, (xy)² = m⁴ − n⁴ with xy odd and m, n, xy pairwise coprime (a prime dividing m and x divides n by x² = m² + n², a prime dividing m and y divides n by y² = m² − n²; gcd(m, n) = 1 and gcd(n, xy) = 1 likewise), which is a solution of Case z odd.
 
@@ -8217,7 +8239,7 @@ The integral form follows by taking absolute values: a solution with y ≠ 0 and
 **Checks.**
 
 - No positive solution: (1, 1, 0) solves x⁴ − y⁴ = z² only with z = 0, and (5, 4, ?) does not solve it since 625 − 256 = 369 is not a square.
-- The pinned Mathlib theorem not_fermat_42 treats x⁴ + y⁴ = z². This node treats x⁴ − y⁴ = z² and supplies a separate descent; no reduction to the pinned theorem is supplied.
+- The pinned Mathlib theorem not_fermat_42 treats x⁴ + y⁴ = z². This result treats x⁴ − y⁴ = z² and supplies a separate descent; no reduction to the pinned theorem is supplied.
 - Consequence (Conrad, Corollary 3.12): no Pythagorean triple has a leg and the hypotenuse both squares.
 
 *Needs:* [The descent step for x⁴ − y⁴ = z² with z odd](#layer-4-topic-2); Mathlib `PythagoreanTriple.coprime_classification'`.
@@ -8286,7 +8308,7 @@ Evaluation: (R_i x)_i = 3x_{i+1}x_{i+2} − x_i and (R_i x)_j = x_j for j ≠ i;
 
 Naturality: for a ring homomorphism f, f ∘ R_i x = R_i (f ∘ x), because R_i is given by an integer polynomial.
 
-The graph: adjacency is the symmetrisation of y = R_i x on M, which is symmetric already by involutivity (markoff-vieta-involutive); M is preserved by markoff-vieta-preserves-positivity.
+The graph: adjacency is the symmetrisation of y = R_i x on M, which is symmetric already by involutivity ([The Vieta moves are involutions](#layer-4-topic-42)); M is preserved by [The other root is positive: the moves preserve M](#layer-4-topic-63).
 
 **Checks.**
 
@@ -8297,7 +8319,7 @@ The graph: adjacency is the symmetrisation of y = R_i x on M, which is symmetric
 - R₂ commutes with reduction modulo 7 on (2, 5, 29): R₂(2, 5, 29) = (2, 5, 1) in ℤ³, and R₂ applied to (2, 5, 29) reduced modulo 7 is (2, 5, 1) in 𝔽₇³.
 - R₂(1, 1, 1) = (1, 1, 2), R₀(2, 1, 1) = (1, 1, 1), R₂(1, 2, 5) = (1, 2, 1).
 - R_i(0) = 0 in every ring.
-- The graph has no loops, since adjacency requires x ≠ y; that no move fixes a vertex of M is shown in markoff-tree.
+- The graph has no loops, since adjacency requires x ≠ y; that no move fixes a vertex of M is shown in [The positive Markoff graph is a tree rooted at (1, 1, 1)](#layer-4-topic-100).
 
 *Needs:* [The Markoff surface X(R) and its nonzero locus X*(R)](#layer-4-topic-3); Mathlib `Function.update`.
 
@@ -8305,7 +8327,7 @@ The graph: adjacency is the symmetrisation of y = R_i x on M, which is symmetric
 
 ### 4.24 The Minkowski step in Ankeny's proof
 
-Let m and q be as in three-squares-auxiliary-prime. (a) If m ≡ 3 (mod 8), there are integers b (odd) and h with b² − 4qh = −m, and integers R, x, y such that R² + 2v = m for v = qx² + bxy + hy²; moreover 4qv = (2qx + by)² + my². (b) Otherwise there are integers b, h with b² − qh = −m and integers R, x, y such that R² + v = m for v = qx² + 2bxy + hy²; moreover qv = (qx + by)² + my². In both cases v ≥ 0.
+Let m and q be as in [Ankeny's auxiliary prime](#layer-4-topic-6). (a) If m ≡ 3 (mod 8), there are integers b (odd) and h with b² − 4qh = −m, and integers R, x, y such that R² + 2v = m for v = qx² + bxy + hy²; moreover 4qv = (2qx + by)² + my². (b) Otherwise there are integers b, h with b² − qh = −m and integers R, x, y such that R² + v = m for v = qx² + 2bxy + hy²; moreover qv = (qx + by)² + my². In both cases v ≥ 0.
 
 m, q as in the auxiliary prime lemma.
 
@@ -8330,7 +8352,7 @@ So m ∣ R² + 2v (resp. R² + v); this number is positive because the triangula
 - For m = 3, q = 13: b = 7 (odd, 49 + 3 = 52 = 4·13·1, so h = 1) and t = 1 (t² ≡ −1/26 ≡ 1 mod 3); the lattice point (x, y, z) = (0, 1, −2) gives R = 1, v = 13·0 + 7·0 + 1 = 1 and R² + S² + T² = 3 < 6, so R² + 2v = 3 = m.
 - The body has volume (4π/3)2^{3/2} ≈ 11.85 > 8 = 2³, the Minkowski threshold in dimension 3.
 
-*Needs:* [Ankeny's auxiliary prime](#layer-4-topic-6); Mathlib `MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure`; Mathlib `InnerProductSpace.volume_ball`; Mathlib `MeasureTheory.Measure.addHaar_image_linearMap`; Mathlib `ZSpan.isAddFundamentalDomain'`; Mathlib `ZSpan.volume_fundamentalDomain`; [GeometryOfNumbersAndQuadraticArithmetic, `GN.1/minkowski-first-native-interface`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
+*Needs:* [Ankeny's auxiliary prime](#layer-4-topic-6); Mathlib `MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure`; Mathlib `InnerProductSpace.volume_ball`; Mathlib `MeasureTheory.Measure.addHaar_image_linearMap`; Mathlib `ZSpan.isAddFundamentalDomain'`; Mathlib `ZSpan.volume_fundamentalDomain`.
 
 <a id="layer-4-topic-25"></a>
 
@@ -8383,7 +8405,7 @@ If k = 2ℓ were even, x₁ + y₁√d = ±u^ℓ would have norm 1, not −1; so
 
 Then u = (x₁ + y₁√d)²u^{−2ℓ} = (a + b√d)² with a + b√d = (x₁ + y₁√d)u^{−ℓ} of norm −1; 2ab equals the y-coordinate of u, which is positive, so a, b may be taken positive.
 
-If ℓ > 0 then (x₁ + y₁√d)² = u^{2ℓ+1} > u = (a + b√d)² > 1, so x₁ + y₁√d > a + b√d and y₁ > b by negative-pell-solution-ordering, contradicting minimality; hence ℓ = 0 and (x₁ + y₁√d)² = u.
+If ℓ > 0 then (x₁ + y₁√d)² = u^{2ℓ+1} > u = (a + b√d)² > 1, so x₁ + y₁√d > a + b√d and y₁ > b by [Positive solutions of x² − dy² = −1 are ordered by either coordinate](#layer-4-topic-9), contradicting minimality; hence ℓ = 0 and (x₁ + y₁√d)² = u.
 
 **Checks.**
 
@@ -8429,7 +8451,7 @@ d > 1 nonsquare (so that 1 < √d), x, y > 0.
 
 (Keith Conrad, [Pell's equation, II](#reference-conrad-pell-two-2026), §5, Corollary 5.2, p. 11.) The statement, restated in this roadmap’s notation.
 
-To prove this, apply small-norm-solutions-are-convergents with n = ±1 (|n| = 1 < √d).
+To prove this, apply [Solutions of x² − dy² = n with |n| < √d come from convergents of √d](#layer-4-topic-10) with n = ±1 (|n| = 1 < √d).
 
 x² − dy² = ±1 forces gcd(x, y) = 1, so x/y is already in lowest terms and its numerator and denominator are x and y.
 
@@ -8443,7 +8465,7 @@ x² − dy² = ±1 forces gcd(x, y) = 1, so x/y is already in lowest terms and i
 
 ### 4.29 Units and the primes above 2 in ℤ[(1 + √−7)/2]
 
-In R (as in ramanujan-nagell-ring-norm-euclidean): the units are ±1; θθ′ = 2, θ + θ′ = 1 and (θ − θ′)² = −7; θ and θ′ are prime elements of norm 2 and are not associates.
+In R (as in [ℤ[(1 + √−7)/2] is norm-Euclidean](#layer-4-topic-11)): the units are ±1; θθ′ = 2, θ + θ′ = 1 and (θ − θ′)² = −7; θ and θ′ are prime elements of norm 2 and are not associates.
 
 R as above.
 
@@ -8578,9 +8600,9 @@ The supporting API comprises:
 
 (Ji Hoon Chun, [Egyptian fractions, Sylvester's sequence, and the Erdős–Straus conjecture](#reference-chun-egyptian-2011), §1.4.2, p. 3.) The bound k ≤ num(r) (the source's 'x' is a misprint for 'm').
 
-To prove this, use egyptianGreedyAux with fuel r.num.natAbs, as in Suggested.lean. At a positive proper remainder, greedy-egyptian-step strictly reduces its reduced numerator; at zero the list stops. Induct on the fuel to show it cannot expire before the remainder is zero. For r=1 the single step is [1].
+To prove this, define egyptianGreedy through an auxiliary recursion egyptianGreedyAux with fuel r.num.natAbs. At a positive proper remainder, [The greedy step decreases the numerator](#layer-4-topic-16) strictly reduces its reduced numerator; at zero the list stops. Induct on the fuel to show it cannot expire before the remainder is zero. For r=1 the single step is [1].
 
-Termination with at most num(r) terms follows from the strict decrease; the sum is r by telescoping; the denominators increase strictly by greedy-egyptian-step.
+Termination with at most num(r) terms follows from the strict decrease; the sum is r by telescoping; the denominators increase strictly by [The greedy step decreases the numerator](#layer-4-topic-16).
 
 **Checks.**
 
@@ -8589,8 +8611,7 @@ Termination with at most num(r) terms follows from the strict decrease; the sum 
 - egyptianGreedy (1/n) = [n] for n ≥ 1.
 - egyptianGreedy (5/31) has length 5, although 5/31 = 1/7 + 1/62 + 1/434 has three terms.
 - egyptianGreedy (2/7) = [4, 28].
-- egyptianGreedy 2 = [1,1], so sortedness requires r≤1.
-- 5/31 ↦ [7, 55, 3979, 23744683, 1127619917796295] (five terms, the maximum num(r) = 5).
+- egyptianGreedy 2 = [1, 1], so sortedness requires r ≤ 1.
 - 4/13 ↦ [4, 18, 468]; 2/7 ↦ [4, 28]; 1/n ↦ [n].
 - The greedy expansion need not be the shortest: 5/31 = 1/7 + 1/62 + 1/434 has three terms.
 
@@ -8633,7 +8654,7 @@ F homogeneous of degree ≥ 1.
 
 To prove this, well defined: F(x) = 0 is invariant under scaling by homogeneity, so the zero set in ℙⁿ(ℚ) is defined through any representative.
 
-Surjective: a point [ξ] with ξ ∈ ℚ^{n+1} ∖ 0 has a primitive integral representative (exists_isPrimitiveZero_of_rat of primitive-zero-of-a-form).
+Surjective: a point [ξ] with ξ ∈ ℚ^{n+1} ∖ 0 has a primitive integral representative (exists_isPrimitiveZero_of_rat of [Primitive integer zeros of a form](#layer-4-topic-18)).
 
 Fibres: [x] = [y] means y = λx with λ ∈ ℚ^×; primitivity of both forces λ = ±1 (write λ = a/b in lowest terms; a divides every coordinate of y and b every coordinate of x).
 
@@ -8689,7 +8710,7 @@ Conversely a positive solution of x⁴ + y⁴ = z² gives the rational point ((x
 
 **Checks.**
 
-- The analogous statement for y² = x³ − x (points O, (0, 0), (±1, 0)) is the routing of fermat-right-triangle-theorem (Conrad, Corollary 3.19).
+- The analogous statement for y² = x³ − x (points O, (0, 0), (±1, 0)) is the routing of [Fermat's right-triangle theorem: x⁴ − y⁴ = z² has no solution in positive integers](#layer-4-topic-21) (Conrad, Corollary 3.19).
 - This compares a Layer 4 descent statement with Mathlib's Weierstrass-curve points, the carrier used by the elliptic-curve and rational-point owners (Tau Ceti's Mordell–Weil theorem WeierstrassCurve.Affine.fg_point_of_numberField is stated for these points).
 
 Give the denominator step its own named interface `positivePointWeightedCoordinates`. For an affine rational point with x≠0, return integers a,b,c with `a>0`, `b≠0`, `c>0`, `gcd(a,c)=gcd(b,c)=1`, `x=a/c²`, `y=b/c³` and `b²=a³+a*c⁴`; conversely these data define an affine point. Prove `weightedCoordinates_coprime_factors : gcd(a,a²+c⁴)=1`, then apply integer square-factor separation to obtain positive u,v with `a=u²` and `u⁴+c⁴=v²`. State `fermatFourthPoint` on positive integer solutions `(u,c,v)` with c≠0, using `(x,y)=((u/c)²,u*v/c³)`; both denominators are nonzero. These are the exact interfaces connecting primitive integral coordinates to the elliptic-curve equation (Conrad, Corollary 3.8 and Remark 3.9, pp. 6–7).
@@ -8817,7 +8838,7 @@ A purely formal alternative avoiding analysis is Pak's bijective proof of (b) (a
 - Coefficients of x⁰, …, x⁴ in (a): 1, a + a⁻¹, 0, 0, a² + a⁻² (computation of the finite product with n ≤ 3).
 - Consistency with Mathlib's pentagonal number theorem (PowerSeries.WithPiTopology.hasProd_one_sub_X_pow): in (b) the substitution t = x³, s = −x⁻¹ is legitimate coefficientwise (s^k t^{k(k+1)/2} becomes ±x^{k(3k+1)/2}, a nonnegative exponent) and turns the product into ∏(1 − x^{3i})(1 − x^{3i−1})(1 − x^{3i−2}) = ∏(1 − xⁿ) and the sum into Σ(−1)^k x^{k(3k+1)/2}.
 
-*Needs:* [GeometryOfNumbersAndQuadraticArithmetic, `GN.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [Coefficientwise identities of infinite products specialise along ring homomorphisms](#layer-4-topic-20); Mathlib `LaurentPolynomial`; Mathlib `LaurentPolynomial.isUnit_T`; Mathlib `HasFPowerSeriesAt.eq_formalMultilinearSeries`; Mathlib `Polynomial.eq_zero_of_infinite_isRoot`; Mathlib `PowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top`; Mathlib `PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top`.
+*Needs:* [GeometryOfNumbersAndQuadraticArithmetic (TauCetiRoadmap pull request #851), §4.3](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/README.md#43-oppenheim-and-duke); [Coefficientwise identities of infinite products specialise along ring homomorphisms](#layer-4-topic-20); Mathlib `LaurentPolynomial`; Mathlib `LaurentPolynomial.isUnit_T`; Mathlib `HasFPowerSeriesAt.eq_formalMultilinearSeries`; Mathlib `Polynomial.eq_zero_of_infinite_isRoot`; Mathlib `PowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top`; Mathlib `PowerSeries.WithPiTopology.summable_of_tendsto_order_atTop_nhds_top`.
 
 <a id="layer-4-topic-41"></a>
 
@@ -8835,7 +8856,7 @@ To prove this, from gcd(T, V, U) = 1 and the equation, gcd(T, V) = 1 (the hypoth
 
 Square the equation and subtract 4T⁴V⁴: (T⁴ − V⁴)² = (T⁴ + V⁴)² − 4T⁴V⁴ = 4(U⁴ − (TV)⁴). Hence T⁴ − V⁴ is even and W = (T⁴ − V⁴)/2 is an integer with U⁴ − (TV)⁴ = W².
 
-Since U > 0 and TV > 0, the integral form of fermat-right-triangle-theorem gives W = 0.
+Since U > 0 and TV > 0, the integral form of [Fermat's right-triangle theorem: x⁴ − y⁴ = z² has no solution in positive integers](#layer-4-topic-21) gives W = 0.
 
 So T⁴ = V⁴, hence T = V by positivity, hence T = V = 1 by coprimality, and U² = 1 gives U = 1.
 
@@ -8916,9 +8937,9 @@ At the other two coordinates both sides agree with P_σ x.
 
 ### 4.45 The remainder in Ankeny's proof is a sum of two squares
 
-In the situation of three-squares-lattice-point, every odd prime p that divides v to an odd power satisfies p ≡ 1 (mod 4). Hence 2v (case m ≡ 3 mod 8), respectively v (other cases), is a sum of two squares of integers.
+In the situation of [The Minkowski step in Ankeny's proof](#layer-4-topic-24), every odd prime p that divides v to an odd power satisfies p ≡ 1 (mod 4). Hence 2v (case m ≡ 3 mod 8), respectively v (other cases), is a sum of two squares of integers.
 
-m, q, b, h, R, x, y as in three-squares-lattice-point.
+m, q, b, h, R, x, y as in [The Minkowski step in Ankeny's proof](#layer-4-topic-24).
 
 (N. C. Ankeny, [Sums of three squares](#reference-ankeny-three-squares-1957), §1, equations (13)–(16), p. 318.) The first two proof steps.
 
@@ -8945,7 +8966,7 @@ So the exponent of every prime ≡ 3 (mod 4) in v (and in 2v) is even, and Mathl
 
 ### 4.46 The number of associate classes of Gaussian integers of prime-power norm
 
-With ρ as in gaussian-norm-count-multiplicative and k ≥ 0: ρ(2ᵏ) = 1; ρ(pᵏ) = k + 1 for primes p ≡ 1 (mod 4); ρ(qᵏ) = 1 if k is even and 0 if k is odd, for primes q ≡ 3 (mod 4). In every case ρ(pᵏ) = Σ_{j=0}^{k} χ₄(p)ʲ, where χ₄ is the nontrivial character modulo 4 (χ₄(2) = 0).
+With ρ as in [The number of Gaussian integers of norm n, divided by 4, is multiplicative](#layer-4-topic-25) and k ≥ 0: ρ(2ᵏ) = 1; ρ(pᵏ) = k + 1 for primes p ≡ 1 (mod 4); ρ(qᵏ) = 1 if k is even and 0 if k is odd, for primes q ≡ 3 (mod 4). In every case ρ(pᵏ) = Σ_{j=0}^{k} χ₄(p)ʲ, where χ₄ is the nontrivial character modulo 4 (χ₄(2) = 0).
 
 p prime, k ∈ ℕ.
 
@@ -8971,17 +8992,17 @@ Compare with Σ_{j≤k} χ₄(p)ʲ, which is 1 for p = 2, k + 1 for χ₄(p) = 1
 
 Let d > 0 be a nonsquare such that x² − dy² = −1 has a solution in positive integers, and let (x₁, y₁) be the one with least y₁; put ε = x₁ + y₁√d, a unit of ℤ[√d] of norm −1. Then the integer solutions of x² − dy² = ±1 are exactly the x + y√d = ±ε^k with k ∈ ℤ; those of x² − dy² = −1 have k odd and those of x² − dy² = 1 have k even.
 
-d > 0 nonsquare; S(d, −1) contains an element with positive coordinates. (No solvability criterion is asserted: whether S(d, −1) is nonempty is decided by generalised-pell-finite-classes-and-bounded-search, and necessary local conditions are negative-pell-local-obstruction.)
+d > 0 nonsquare; S(d, −1) contains an element with positive coordinates. (No solvability criterion is asserted: whether S(d, −1) is nonempty is decided by [Finitely many classes of solutions, and the complete bounded search](#layer-4-topic-48), and necessary local conditions are [Congruence obstructions to x² − dy² = −1](#layer-4-topic-67).)
 
 (Keith Conrad, [Pell's equation, I](#reference-conrad-pell-one-2025), §7, Theorem 7.5, p. 12.) The theorem in the notation and hypotheses used here.
 
 To prove this, ±ε^k has norm (−1)^k (multiplicativity of the norm).
 
-Every integer solution of norm 1 is ±(ε²)^j for some j ∈ ℤ: ε² is the fundamental solution (negative-pell-least-solution-squares-to-fundamental), and Mathlib's Pell.IsFundamental.eq_zpow_or_neg_zpow covers solutions of every sign. So it is ±ε^{2j}, with j ≥ 1 for positive solutions.
+Every integer solution of norm 1 is ±(ε²)^j for some j ∈ ℤ: ε² is the fundamental solution ([The square of the least negative Pell solution is the fundamental Pell solution](#layer-4-topic-26)), and Mathlib's Pell.IsFundamental.eq_zpow_or_neg_zpow covers solutions of every sign. So it is ±ε^{2j}, with j ≥ 1 for positive solutions.
 
 A positive solution α of norm −1: α² has norm 1 and is ε^{2k}, so α = ε^k by taking positive square roots, and k is odd because the norm is −1.
 
-Solutions of norm −1 that are not positive: by negative-pell-solution-ordering(a), α ∉ (1, ∞), and α ≠ ±1 since its norm is −1. So exactly one of α⁻¹, −α⁻¹, −α lies in (1, ∞). That number has norm −1 and coordinates equal to those of α up to sign, so its coordinates are positive, and by the previous step it is ε^K with K ≥ 1 odd.
+Solutions of norm −1 that are not positive: by [Positive solutions of x² − dy² = −1 are ordered by either coordinate](#layer-4-topic-9)(a), α ∉ (1, ∞), and α ≠ ±1 since its norm is −1. So exactly one of α⁻¹, −α⁻¹, −α lies in (1, ∞). That number has norm −1 and coordinates equal to those of α up to sign, so its coordinates are positive, and by the previous step it is ε^K with K ≥ 1 odd.
 
 **Checks.**
 
@@ -8995,7 +9016,7 @@ Solutions of norm −1 that are not positive: by negative-pell-solution-ordering
 
 ### 4.48 Finitely many classes of solutions, and the complete bounded search
 
-Let d > 0 be a nonsquare, n ≠ 0, and u = a + b√d as in chebyshev-bound-generalised-pell. (a) There is a finite set F ⊆ S(d, n) such that every element of S(d, n) is a Pell multiple ±f·u^k of an element of F; one may take F = S(d, n) ∩ B with B the box |x| ≤ √|n|(√u + 1/√u)/2, |y| ≤ √|n|(√u + 1/√u)/(2√d). (b) Consequently x² − dy² = n has an integer solution if and only if it has one in B, which is a finite check: the generalised Pell equation, and in particular the negative Pell equation, is decidable once a nontrivial Pell solution u is known.
+Let d > 0 be a nonsquare, n ≠ 0, and u = a + b√d as in [Chebyshev's bound for the generalised Pell equation](#layer-4-topic-27). (a) There is a finite set F ⊆ S(d, n) such that every element of S(d, n) is a Pell multiple ±f·u^k of an element of F; one may take F = S(d, n) ∩ B with B the box |x| ≤ √|n|(√u + 1/√u)/2, |y| ≤ √|n|(√u + 1/√u)/(2√d). (b) Consequently x² − dy² = n has an integer solution if and only if it has one in B, which is a finite check: the generalised Pell equation, and in particular the negative Pell equation, is decidable once a nontrivial Pell solution u is known.
 
 d > 0 nonsquare; n ≠ 0; u a Pell solution with positive coordinates.
 
@@ -9003,7 +9024,7 @@ d > 0 nonsquare; n ≠ 0; u a Pell solution with positive coordinates.
 
 (Keith Conrad, [Pell's equation, II](#reference-conrad-pell-two-2026), §3, proof of Corollary 3.5, p. 7.) Part (b): the source uses the same box to prove nonexistence in Examples 4.5–4.7.
 
-To prove this, (a) is chebyshev-bound-generalised-pell together with finiteness of the integer points of B.
+To prove this, (a) is [Chebyshev's bound for the generalised Pell equation](#layer-4-topic-27) together with finiteness of the integer points of B.
 
 (b): a solution outside B is a Pell multiple of one inside B; conversely a solution in B is a solution.
 
@@ -9011,8 +9032,8 @@ Mathlib's Pell.Solution₁.exists_pos_of_not_isSquare provides u with 1 < a and 
 
 **Checks.**
 
-- x² − 194y² = −1 has no solution: the box for n = −1 contains no solution (Conrad, Example 4.6), although 194 = 2·97 passes the congruence test of negative-pell-local-obstruction.
-- The search is complete only because of the proved bound, as the stage's acceptance requires.
+- x² − 194y² = −1 has no solution: the box for n = −1 contains no solution (Conrad, Example 4.6), although 194 = 2·97 passes the congruence test of [Congruence obstructions to x² − dy² = −1](#layer-4-topic-67).
+- The search is complete only because of the proved bound; a terminated search without it proves nothing.
 
 Use an integer bound for the executable interface. For positive nonsquare `d`, nonzero `n`, and a norm-one unit `u=a+b√d` with `a>1,b>0`, define `pellOrbitSearchBound d n a b = (|n|+1)*(a+b*(d+1)+1)` as a natural number B. Define `pellOrbitSearchSet` by filtering the integer square `[-B,B]²` for `x²-dy²=n`, and define `generalisedPellDecision` by whether this finite set is nonempty. Prove `pellOrbitSearchSet_spec`, `pellOrbitSearchSet_complete` (every solution is ±f u^k for f in the set and k∈ℤ), and `generalisedPellDecision_correct`. The real box in Corollary 3.5 lies in this integer square: `√|n|≤|n|+1`, `√u+1/√u≤u+1`, `√d≤d+1` and `√d≥1`. To obtain a total search in d, enumerate pairs `a>1,b>0` until `a²-db²=1`; Pell existence proves termination. This avoids requiring an algorithm to decide equality against irrational box boundaries (Conrad, §3, Corollary 3.5 and proof, p. 7).
 
@@ -9036,9 +9057,9 @@ n odd, n ≥ 5 (so m ≥ 3 odd); x > 0 (x is odd because 2ⁿ − 7 is odd).
 
 To prove this, x² + 7 = 4(k² + k + 2), so αβ = k² + k + 2 = 2^m = (θθ′)^m.
 
-A common prime factor of α and β divides α − β = θ − θ′, of norm 7, and divides 2^m, so it is θ or θ′ (ramanujan-nagell-ring-units-and-primes) of norm 2; 2 ∤ 7, so α and β are coprime.
+A common prime factor of α and β divides α − β = θ − θ′, of norm 7, and divides 2^m, so it is θ or θ′ ([Units and the primes above 2 in ℤ[(1 + √−7)/2]](#layer-4-topic-29)) of norm 2; 2 ∤ 7, so α and β are coprime.
 
-By unique factorisation (ramanujan-nagell-ring-norm-euclidean) and units ±1, α = ±θ^m or α = ±θ′^m.
+By unique factorisation ([ℤ[(1 + √−7)/2] is norm-Euclidean](#layer-4-topic-11)) and units ±1, α = ±θ^m or α = ±θ′^m.
 
 Taking conjugates (θ ↔ θ′) gives β, and subtracting gives θ − θ′ = α − β = ±(θ^m − θ′^m).
 
@@ -9080,7 +9101,7 @@ S numerical, n ∈ S, n > 0.
 
 To prove this, existence: subtract n while the result stays in S; the process stops at an element of Ap(S, n).
 
-Uniqueness: two decompositions give two elements of Ap(S, n) congruent modulo n, which are equal (apery-set).
+Uniqueness: two decompositions give two elements of Ap(S, n) congruent modulo n, which are equal ([The Apéry set of a numerical semigroup](#layer-4-topic-30)).
 
 **Checks.**
 
@@ -9142,7 +9163,7 @@ S numerical.
 
 (Abdallah Assi and Pedro A. García-Sánchez, [Numerical semigroups and applications](#reference-assi-garcia-sanchez-numerical-semigroups-2014), §2, Corollary 44(i), pp. 12–13.) The theorem, part (i).
 
-To prove this, by genus-frobenius-inequality, s ↦ F(S) − s is an injection from {s ∈ S : s ≤ F(S)} into the gaps, and n(S) + g(S) = F(S) + 1.
+To prove this, by [The genus is at least half the conductor](#layer-4-topic-31), s ↦ F(S) − s is an injection from {s ∈ S : s ≤ F(S)} into the gaps, and n(S) + g(S) = F(S) + 1.
 
 S is symmetric iff this injection is onto the gaps (a gap x has F(S) − x ∈ S, and F(S) − x ≤ F(S) as x ≥ 0), iff n(S) = g(S), iff 2g(S) = F(S) + 1.
 
@@ -9183,7 +9204,7 @@ r ∈ ℚ, r > 0.
 
 To prove this, the harmonic series diverges (Mathlib's Real.tendsto_sum_range_one_div_nat_succ_atTop), so there is a largest N ≥ 0 with H_N = Σ_{d=1}^{N} 1/d ≤ r.
 
-If H_N = r, take D = {1, …, N}. Otherwise 0 < s = r − H_N < 1/(N + 1), so the greedy expansion of s (greedy-egyptian-algorithm) has first denominator ⌈1/s⌉ > N + 1 and increasing denominators, all larger than N.
+If H_N = r, take D = {1, …, N}. Otherwise 0 < s = r − H_N < 1/(N + 1), so the greedy expansion of s ([The Fibonacci–Sylvester greedy algorithm](#layer-4-topic-33)) has first denominator ⌈1/s⌉ > N + 1 and increasing denominators, all larger than N.
 
 D = {1, …, N} ∪ egyptianGreedy s is a disjoint union, and its reciprocal sum is r.
 
@@ -9380,9 +9401,9 @@ R commutative; no assumption that the coordinates of x are nonzero.
 
 (Daniel E. Martin, [A new proof of Chen's theorem for Markoff graphs](#reference-martin-markoff-2025), §1, arXiv v1 p. 1 (published version p. 623), the paragraph defining the Markoff graph.) The nonzero locus X*(R) and the edges given by the moves.
 
-To prove this, r_i maps X(R) into X(R) (markoff-vieta-preserves-equation).
+To prove this, r_i maps X(R) into X(R) ([The Vieta moves preserve the Markoff equation](#layer-4-topic-43)).
 
-R_i(0) = 0 and R_i is injective (markoff-vieta-involutive), so R_i x = 0 only for x = 0; hence R_i maps X*(R) into X*(R).
+R_i(0) = 0 and R_i is injective ([The Vieta moves are involutions](#layer-4-topic-42)), so R_i x = 0 only for x = 0; hence R_i maps X*(R) into X*(R).
 
 Involutivity gives the inverse.
 
@@ -9404,7 +9425,7 @@ x ∈ M.
 
 To prove this, the i-th coordinate of R_i x and x_i are the two roots of t² − 3x_{i+1}x_{i+2}t + (x_{i+1}² + x_{i+2}²), so their product is x_{i+1}² + x_{i+2}² by Vieta's formulas (equivalently, by expanding with the equation).
 
-Since x_i > 0 and the product is positive, (R_i x)_i > 0; the other coordinates are unchanged, and R_i x ∈ X(ℤ) by markoff-vieta-preserves-equation.
+Since x_i > 0 and the product is positive, (R_i x)_i > 0; the other coordinates are unchanged, and R_i x ∈ X(ℤ) by [The Vieta moves preserve the Markoff equation](#layer-4-topic-43).
 
 **Checks.**
 
@@ -9423,9 +9444,9 @@ m squarefree, m ≥ 1, m mod 8 ∈ {1, 2, 3, 5, 6}.
 
 (N. C. Ankeny, [Sums of three squares](#reference-ankeny-three-squares-1957), §2, p. 319.) The squarefree case of Theorem 1, assembled from §1 and §2.
 
-To prove this, take q from three-squares-auxiliary-prime, then R, x, y from three-squares-lattice-point, with R² + 2v = m (case m ≡ 3 mod 8) or R² + v = m (otherwise).
+To prove this, take q from [Ankeny's auxiliary prime](#layer-4-topic-6), then R, x, y from [The Minkowski step in Ankeny's proof](#layer-4-topic-24), with R² + 2v = m (case m ≡ 3 mod 8) or R² + v = m (otherwise).
 
-By three-squares-remainder-sum-of-two-squares, 2v (respectively v) = s² + u², so m = R² + s² + u².
+By [The remainder in Ankeny's proof is a sum of two squares](#layer-4-topic-45), 2v (respectively v) = s² + u², so m = R² + s² + u².
 
 **Checks.**
 
@@ -9443,9 +9464,9 @@ n ≥ 1 (for n = 0, r₂(0) = 1).
 
 (Chris Wuthrich, [Further Number Theory G13FNT, Chapter 5: Gaussian integers and sums of squares](#reference-wuthrich-gaussian-integers-2011), Theorem 5.12 (p. 6) and the end of its proof (p. 7).) The conclusion of the source's proof; χ₁ there is χ₄ here.
 
-To prove this, both n ↦ r₂(n)/4 (gaussian-norm-count-multiplicative) and n ↦ Σ_{d∣n} χ₄(d) (a Dirichlet convolution of multiplicative functions, Mathlib's ArithmeticFunction.IsMultiplicative.mul) are multiplicative.
+To prove this, both n ↦ r₂(n)/4 ([The number of Gaussian integers of norm n, divided by 4, is multiplicative](#layer-4-topic-25)) and n ↦ Σ_{d∣n} χ₄(d) (a Dirichlet convolution of multiplicative functions, Mathlib's ArithmeticFunction.IsMultiplicative.mul) are multiplicative.
 
-They agree on prime powers by gaussian-norm-count-prime-power, since Σ_{d∣pᵏ} χ₄(d) = Σ_{j≤k} χ₄(p)ʲ.
+They agree on prime powers by [The number of associate classes of Gaussian integers of prime-power norm](#layer-4-topic-46), since Σ_{d∣pᵏ} χ₄(d) = Σ_{j≤k} χ₄(p)ʲ.
 
 Mathlib's ArithmeticFunction.IsMultiplicative.eq_iff_eq_on_prime_powers concludes.
 
@@ -9508,7 +9529,7 @@ If 4 ∣ d, x² ≡ −1 (mod 4) is impossible because squares are 0 or 1 modulo
 
 Let d > 1 be a nonsquare, 0 < |n| < √d, and u = a + b√d a Pell solution with positive coordinates; let Y = √|n|(√u + 1/√u)/(2√d). Then x² − dy² = n has a solution in positive integers if and only if either n is a perfect square, or there are k, g ∈ ℕ with g ≥ 1, g² ∣ n, g·q_k ≤ Y and p_k² − dq_k² = n/g², where p_k/q_k is the k-th convergent Real.convergent (√d) k in lowest terms. Only the finitely many k with q_k ≤ Y need to be checked, since q_k ≥ F_{k+1} (Fibonacci numbers).
 
-d > 1 nonsquare, 0 < |n| < √d, u as in chebyshev-bound-generalised-pell.
+d > 1 nonsquare, 0 < |n| < √d, u as in [Chebyshev's bound for the generalised Pell equation](#layer-4-topic-27).
 
 (Keith Conrad, [Pell's equation, II](#reference-conrad-pell-two-2026), §5, p. 11, after Example 5.3.) The source's decision procedure uses the periodicity of the continued fraction of √d, which it states without proof; the result replaces periodicity by the proved bound of Theorem 3.3, so that only finitely many convergents are checked.
 
@@ -9516,9 +9537,9 @@ d > 1 nonsquare, 0 < |n| < √d, u as in chebyshev-bound-generalised-pell.
 
 To prove this, if n = g² is a perfect square, (ga, gb) is a positive solution. If k, g are as in the statement, (gp_k, gq_k) is a positive solution (p_k ≥ 1 because √d > 1).
 
-Conversely, let a positive solution exist and n not be a square. By generalised-pell-finite-classes-and-bounded-search there is a solution (x′, y′) in the box B; y′ ≠ 0 because n is not a square, and x′ ≠ 0 because |n| < d; so (|x′|, |y′|) is a positive solution with |y′| ≤ Y.
+Conversely, let a positive solution exist and n not be a square. By [Finitely many classes of solutions, and the complete bounded search](#layer-4-topic-48) there is a solution (x′, y′) in the box B; y′ ≠ 0 because n is not a square, and x′ ≠ 0 because |n| < d; so (|x′|, |y′|) is a positive solution with |y′| ≤ Y.
 
-By small-norm-solutions-are-convergents, |x′|/|y′| = p_k/q_k for some k; with g = gcd(x′, y′), |x′| = gp_k, |y′| = gq_k, g² ∣ n, p_k² − dq_k² = n/g² and gq_k ≤ Y.
+By [Solutions of x² − dy² = n with |n| < √d come from convergents of √d](#layer-4-topic-10), |x′|/|y′| = p_k/q_k for some k; with g = gcd(x′, y′), |x′| = gp_k, |y′| = gq_k, g² ∣ n, p_k² − dq_k² = n/g² and gq_k ≤ Y.
 
 Finiteness: the denominators of the convergents satisfy q_k ≥ F_{k+1} (Mathlib's GenContFract.succ_nth_fib_le_of_nth_den, transported to Real.convergent by Real.convs_eq_convergent, with p_k, q_k coprime by SimpContFract.determinant).
 
@@ -9562,9 +9583,9 @@ a, b ≥ 1, gcd(a, b) = 1 (for a = 1 or b = 1, S = ℕ, F = −1 and g = 0, cons
 
 To prove this, the multiples jb, 0 ≤ j < a, are pairwise incongruent modulo a (gcd(a, b) = 1), and jb − a ∉ S because a representation jb − a = ua + vb with u, v ≥ 0 would force vb < jb, so 0 ≤ v < j < a, together with v ≡ j (mod a), which is impossible. So Ap(S, a) = {jb : 0 ≤ j < a}.
 
-selmer-frobenius-formula gives F(S) = (a − 1)b − a.
+[Selmer's formula for the Frobenius number](#layer-4-topic-52) gives F(S) = (a − 1)b − a.
 
-selmer-genus-formula gives g(S) = (1/a)·b·a(a − 1)/2 − (a − 1)/2 = (a − 1)(b − 1)/2.
+[Selmer's formula for the genus](#layer-4-topic-53) gives g(S) = (1/a)·b·a(a − 1)/2 − (a − 1)/2 = (a − 1)(b − 1)/2.
 
 **Checks.**
 
@@ -9583,7 +9604,7 @@ S numerical, n ∈ S, n > 0.
 
 (Abdallah Assi and Pedro A. García-Sánchez, [Numerical semigroups and applications](#reference-assi-garcia-sanchez-numerical-semigroups-2014), §2, Proposition 47, p. 13.) The theorem; the source's converse goes through pseudo-Frobenius numbers (Propositions 21–22), replaced here by the direct argument of the second proof step.
 
-To prove this, if S is symmetric: F(S) = a_{n−1} − n (selmer-frobenius-formula); a_i − n ∉ S gives a_{n−1} − a_i = F(S) − (a_i − n) ∈ S, and apery-set-summand-closed puts it in Ap(S, n); the map a_i ↦ a_{n−1} − a_i is an order-reversing bijection of Ap(S, n), so it sends a_i to a_{n−1−i}.
+To prove this, if S is symmetric: F(S) = a_{n−1} − n ([Selmer's formula for the Frobenius number](#layer-4-topic-52)); a_i − n ∉ S gives a_{n−1} − a_i = F(S) − (a_i − n) ∈ S, and [Apéry sets are closed under summands](#layer-4-topic-55) puts it in Ap(S, n); the map a_i ↦ a_{n−1} − a_i is an order-reversing bijection of Ap(S, n), so it sends a_i to a_{n−1−i}.
 
 Conversely, if the pairing holds, every w ∈ Ap(S, n) satisfies a_{n−1} − w ∈ S. For a gap x, choose w ∈ Ap(S, n) with w ≡ x (mod n); then x = w − kn with k ≥ 1 and F(S) − x = (a_{n−1} − w) + (k − 1)n ∈ S. So S is symmetric.
 
@@ -9701,8 +9722,8 @@ The supporting API comprises:
 - `markoffFundamentalPlus_eq_empty_of_lt`: k < 54 → markoffFundamentalPlus k = ∅.
 - `markoffClassNumber_eq_zero_iff`: k ≠ 4 → (markoffClassNumber k = 0 ↔ markoffLevelSet ℤ k = ∅).
 - `MarkoffNarrowEquiv`: x ≈ y iff y = g x for g in the narrow subgroup.
-- `sum_card_markoffFundamentalPlus_eq`: For K ≥ 0: Σ_{0 ≤ k ≤ K} |F⁺_k(ℤ)| = R⁺(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ ≤ K}, the lattice-point count of GeometryOfNumbersAndQuadraticArithmetic:GN.4/markoff-fundamental-set-count (Ghosh–Sarnak (1.6), Lemma 7.2).
-- `sum_card_markoffFundamentalMinus_eq`: For K ≥ 0: Σ_{−K ≤ k ≤ −1} |F⁻_k(ℤ)| = R⁻(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, 1 ≤ u₁u₂u₃ − u₁² − u₂² − u₃² ≤ K}, the count of GeometryOfNumbersAndQuadraticArithmetic:GN.4/markoff-fundamental-set-count (Ghosh–Sarnak, Lemma 7.3).
+- `sum_card_markoffFundamentalPlus_eq`: For K ≥ 0: Σ_{0 ≤ k ≤ K} |F⁺_k(ℤ)| = R⁺(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ ≤ K}, the lattice-point count of Ghosh–Sarnak (1.6), Lemma 7.2; the identity is the partition of that count by the level k.
+- `sum_card_markoffFundamentalMinus_eq`: For K ≥ 0: Σ_{−K ≤ k ≤ −1} |F⁻_k(ℤ)| = R⁻(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, 1 ≤ u₁u₂u₃ − u₁² − u₂² − u₃² ≤ K}, the count of Ghosh–Sarnak, Lemma 7.3; the identity is the partition of that count by the level k.
 
 (Amit Ghosh and Peter Sarnak, [Integral points on Markoff type cubic surfaces](#reference-ghosh-sarnak-2022-v3), §1, Theorem 1.1, pp. 3–4, and (d), p. 5.) The class number h_M(k) as the number of Γ-orbits on V_k(ℤ), the compact sets F^±_k and the counts h^±_M(k) = |F^±_k(ℤ)|.
 
@@ -9766,7 +9787,7 @@ To prove this, reduction: for α ≠ 0 the substitution y = αx turns the equati
 
 α = 1: with u = 2x₃ − x₁x₂ the count equals that of 4(x₁² + x₂²) + u² − x₁²x₂² = 4β; detect the equation by orthogonality of ψ and expand with S_p ([The quadratic exponential sum S_p(a) and its comparison with Mathlib's Gauss sums](#layer-4-topic-19)), giving N_p − p² = (1/p)Σ_{a≠0} T_p(a)S_p(a)ψ(−4aβ) with T_p(a) = Σ_{x₁} ψ(4ax₁²)S_p(a(4 − x₁²)).
 
-Split x₁ = ±2 from the other values, use S_p(a(4 − x₁²)) = χ(a(4 − x₁²))S_p(1), sum over a with (v) of the normalisation node and evaluate Σ_x χ(4 − x²) = −χ(−1) by (vi); with S_p(1)² = χ(−1)p this gives p² + 1 + p·χ(β − 4)(3 + χ(β)).
+Split x₁ = ±2 from the other values, use S_p(a(4 − x₁²)) = χ(a(4 − x₁²))S_p(1), sum over a with (v) of [The quadratic exponential sum S_p(a) and its comparison with Mathlib's Gauss sums](#layer-4-topic-19) and evaluate Σ_x χ(4 − x²) = −χ(−1) by (vi); with S_p(1)² = χ(−1)p this gives p² + 1 + p·χ(β − 4)(3 + χ(β)).
 
 α = 0: N_p − p² = (1/p)Σ_{a≠0}ψ(−βa)S_p(a)³ = (S_p(1)³/p)Σ_a χ(a)ψ(−βa) = p·χ(−β).
 
@@ -9887,7 +9908,7 @@ Let 1 ≤ a ≤ b ≤ c be integers with a² + b² + c² = 3abc and (a, b, c) �
 
 (Ying Zhang, [An elementary proof of Markoff conjecture for prime powers](#reference-zhang-markoff-uniqueness-2006), §3, proof of the Markoff Theorem, p. 2.) The source descends on the length x + y + z (z′ < z, ending at (1, 1, 1) via 2z ≤ 3xy); this lemma uses the largest coordinate instead and proves the strict inequalities b < c and c′ ≤ b directly.
 
-To prove this, let q(t) = t² − 3abt + a² + b², whose roots are c and c′ = 3ab − c; c′ > 0 by markoff-vieta-preserves-positivity.
+To prove this, let q(t) = t² − 3abt + a² + b², whose roots are c and c′ = 3ab − c; c′ > 0 by [The other root is positive: the moves preserve M](#layer-4-topic-63).
 
 q(b) = a² + (2 − 3a)b² ≤ a² − b² ≤ 0, with equality iff a = b = 1; in that case c² − 3c + 2 = 0 gives c ∈ {1, 2}, so (a, b, c) = (1, 1, 2), c′ = 1 = b.
 
@@ -9916,9 +9937,9 @@ n ∈ ℕ; squares of integers (equivalently of natural numbers).
 
 (Zhi-Wei Sun, [The three-square theorem and its applications](#reference-sun-three-squares-2017), §1, p. 1.) The statement in the form specified, including n = 0.
 
-To prove this, only if: three-squares-necessary-condition.
+To prove this, only if: [Integers of the form 4ᵃ(8b + 7) are not sums of three squares](#layer-4-topic-4).
 
-If: n = 0 is 0² + 0² + 0²; for n ≥ 1, three-squares-squarefree-reduction reduces to squarefree m with m mod 8 ∈ {1, 2, 3, 5, 6}, which is three-squares-squarefree-case.
+If: n = 0 is 0² + 0² + 0²; for n ≥ 1, [Reduction of the three-square theorem to squarefree m ≢ 7 (mod 8)](#layer-4-topic-5) reduces to squarefree m with m mod 8 ∈ {1, 2, 3, 5, 6}, which is [Squarefree m ≢ 7 (mod 8) is a sum of three squares](#layer-4-topic-64).
 
 **Checks.**
 
@@ -9938,7 +9959,7 @@ Identity of formal power series; x^{j}/(1 + x^{j}) denotes the power series Σ_{
 
 (M. D. Hirschhorn, [A simple proof of Jacobi's four-square theorem](#reference-hirschhorn-four-squares-1987), §2, p. 437.) The substitution step; the product-rule evaluation follows on the same page.
 
-To prove this, split the right side of hirschhorn-sixth-power-identity as ½(Σ_s x^{s²} · (1 + 4x d/dx)Σ_r x^{r²+r} − Σ_r x^{r²+r} · 4x d/dx Σ_s x^{s²}), using (2r + 1)²x^{r²+r} = (1 + 4x d/dx)x^{r²+r} and (2s)²x^{s²} = 4x d/dx x^{s²}.
+To prove this, split the right side of [Hirschhorn's coalescence identity for ∏(1 − xⁿ)⁶](#layer-4-topic-66) as ½(Σ_s x^{s²} · (1 + 4x d/dx)Σ_r x^{r²+r} − Σ_r x^{r²+r} · 4x d/dx Σ_s x^{s²}), using (2r + 1)²x^{r²+r} = (1 + 4x d/dx)x^{r²+r} and (2s)²x^{s²} = 4x d/dx x^{s²}.
 
 Substitute the product forms Σ_s x^{s²} = ∏(1 + x^{2n−1})²(1 − x^{2n}) and Σ_r x^{r²+r} = 2∏(1 + x^{2n})²(1 − x^{2n}) (both specialisations of the Jacobi triple product, [The theta-product specialisations of the triple product](#layer-4-topic-61)).
 
@@ -9986,7 +10007,7 @@ gcd(a, b) = 1.
 
 (Abdallah Assi and Pedro A. García-Sánchez, [Numerical semigroups and applications](#reference-assi-garcia-sanchez-numerical-semigroups-2014), §2, Corollary 45, p. 13.) The lemma (embedding dimension 2 means two minimal generators, necessarily coprime).
 
-To prove this, sylvester-gap-count gives 2g = (a − 1)(b − 1) = F + 1; apply symmetric-iff-genus.
+To prove this, [Sylvester's formulas for two generators](#layer-4-topic-70) gives 2g = (a − 1)(b − 1) = F + 1; apply [Symmetric semigroups are those of least genus](#layer-4-topic-54).
 
 **Checks.**
 
@@ -10200,7 +10221,7 @@ To prove this, strong induction on the largest coordinate max(x).
 
 If x = (1, 1, 1) take the empty word.
 
-Otherwise let i be the position of the unique largest coordinate (markoff-descent-inequality applied to the increasing rearrangement of x); R_i x ∈ M has smaller largest coordinate, so R_i x is a word applied to (1, 1, 1), and x = R_i(R_i x) by markoff-vieta-involutive.
+Otherwise let i be the position of the unique largest coordinate ([The descent inequality for positive Markoff triples](#layer-4-topic-80) applied to the increasing rearrangement of x); R_i x ∈ M has smaller largest coordinate, so R_i x is a word applied to (1, 1, 1), and x = R_i(R_i x) by [The Vieta moves are involutions](#layer-4-topic-42).
 
 **Checks.**
 
@@ -10221,7 +10242,7 @@ Identity of formal power series; nxⁿ/(1 − xⁿ) = Σ_{t≥1} n x^{nt}.
 
 (M. D. Hirschhorn, [A simple proof of Jacobi's four-square theorem](#reference-hirschhorn-four-squares-1987), §2, p. 438.) The statement of the lemma.
 
-To prove this, divide hirschhorn-logarithmic-derivative-identity by ∏(1 + xⁿ)⁴(1 − xⁿ)² = ∏(1 + x^{2n−1})²(1 + x^{2n})²(1 − x^{2n})² to get ∏((1 − xⁿ)/(1 + xⁿ))⁴ = 1 − 8Σ((2n − 1)x^{2n−1}/(1 + x^{2n−1}) − 2nx^{2n}/(1 + x^{2n})).
+To prove this, divide [Hirschhorn's product-rule identity](#layer-4-topic-82) by ∏(1 + xⁿ)⁴(1 − xⁿ)² = ∏(1 + x^{2n−1})²(1 + x^{2n})²(1 − x^{2n})² to get ∏((1 − xⁿ)/(1 + xⁿ))⁴ = 1 − 8Σ((2n − 1)x^{2n−1}/(1 + x^{2n−1}) − 2nx^{2n}/(1 + x^{2n})).
 
 Use Gauss's identity ∏(1 − xⁿ)/(1 + xⁿ) = Σ_{n∈ℤ}(−1)ⁿx^{n²} (a specialisation of the triple product, [The theta-product specialisations of the triple product](#layer-4-topic-61)) and substitute −x for x.
 
@@ -10249,9 +10270,9 @@ x ∈ ℤ, n ∈ ℕ.
 
 To prove this, the listed pairs are solutions (direct computation).
 
-n even: ramanujan-nagell-even-case gives (±3, 4).
+n even: [The Ramanujan–Nagell equation with even exponent](#layer-4-topic-12) gives (±3, 4).
 
-n odd: n ≤ 3 gives only n = 3, x = ±1; for n ≥ 5, ramanujan-nagell-factorisation and ramanujan-nagell-sign give θ^m − θ′^m = −(θ − θ′) with m = n − 2; ramanujan-nagell-residues-mod-42 and ramanujan-nagell-one-per-class leave m ∈ {3, 5, 13}, i.e. n ∈ {5, 7, 15}, with x = ±5, ±11, ±181.
+n odd: n ≤ 3 gives only n = 3, x = ±1; for n ≥ 5, [Factorisation of x² + 7 = 2ⁿ in ℤ[(1 + √−7)/2]](#layer-4-topic-49) and [The sign in θ^m − θ′^m = ±(θ − θ′)](#layer-4-topic-50) give θ^m − θ′^m = −(θ − θ′) with m = n − 2; [The exponent lies in three classes modulo 42](#layer-4-topic-69) and [At most one exponent in each class modulo 42](#layer-4-topic-83) leave m ∈ {3, 5, 13}, i.e. n ∈ {5, 7, 15}, with x = ±5, ±11, ±181.
 
 **Checks.**
 
@@ -10396,11 +10417,11 @@ Vertices are ordered positive triples; the statement is false for the signed non
 
 (Ying Zhang, [An elementary proof of Markoff conjecture for prime powers](#reference-zhang-markoff-uniqueness-2006), §3, p. 2, after the proof of the Markoff Theorem.) The tree up to permutation; the ordered form, with degree 3 at every vertex including the root, is the statement required here.
 
-To prove this, connected: by markoff-root-generation every vertex is joined to (1, 1, 1) by the path of successive words.
+To prove this, connected: by [Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92) every vertex is joined to (1, 1, 1) by the path of successive words.
 
 Degree 3: the three moves change three different coordinates, and no move fixes a vertex of M ((R_i x)_i = x_i would give 2x_i = 3x_{i+1}x_{i+2} and x_i² = x_{i+1}² + x_{i+2}², hence 9x_{i+1}²x_{i+2}² = 4(x_{i+1}² + x_{i+2}²), impossible for positive integers).
 
-Height function h(x) = max(x): along every edge h changes (a move changes one coordinate to a different value and the descent inequality compares the maxima), and every vertex x ≠ (1, 1, 1) has exactly one neighbour with smaller h (markoff-descent-inequality: the move in the unique largest coordinate decreases h, the other two increase it; for the permutations of (1, 1, 2) the descending neighbour is (1, 1, 1)).
+Height function h(x) = max(x): along every edge h changes (a move changes one coordinate to a different value and the descent inequality compares the maxima), and every vertex x ≠ (1, 1, 1) has exactly one neighbour with smaller h ([The descent inequality for positive Markoff triples](#layer-4-topic-80): the move in the unique largest coordinate decreases h, the other two increase it; for the permutations of (1, 1, 2) the descending neighbour is (1, 1, 1)).
 
 Acyclic: in a cycle, a vertex of maximal h has two distinct neighbours on the cycle with smaller h, contradicting uniqueness of the descending neighbour; so the graph is a tree (Mathlib's SimpleGraph.IsTree: connected and acyclic).
 
@@ -10423,7 +10444,7 @@ If (a, b, c) ∈ M then gcd(a, b) = gcd(b, c) = gcd(a, c) = 1.
 
 To prove this, under the third Vieta involution c′ = 3ab − c, gcd(a,c′)=gcd(a,c) and gcd(b,c′)=gcd(b,c), by invariance of gcd under adding a multiple and under negation; gcd(a,b) is unchanged. The other coordinate involutions follow by permutation. Prove this pairwise-gcd preservation as a separate lemma; a prime-support argument alone does not establish equality of gcd exponents.
 
-Induct on the Vieta word supplied by markoff-root-generation. At (1,1,1) all three pairwise gcds are 1, and each move preserves them.
+Induct on the Vieta word supplied by [Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92). At (1,1,1) all three pairwise gcds are 1, and each move preserves them.
 
 **Checks.**
 
@@ -10444,11 +10465,11 @@ n ≥ 1 (r₄(0) = 1).
 
 (Chris Wuthrich, [Further Number Theory G13FNT, Chapter 5: Gaussian integers and sums of squares](#reference-wuthrich-gaussian-integers-2011), Theorem 5.14, p. 7.) The equivalent odd/even form of the formula, stated without proof in this source (for n > 1; the case n = 1 also holds, r₄(1) = 8).
 
-To prove this, the generating function Σ_n r₄(n)xⁿ is θ(x)⁴ with θ(x) = Σ_{m∈ℤ} x^{m²} (sumSquaresCount_add of sum-of-squares-representation-count).
+To prove this, the generating function Σ_n r₄(n)xⁿ is θ(x)⁴ with θ(x) = Σ_{m∈ℤ} x^{m²} (sumSquaresCount_add of [The representation numbers r_k(n)](#layer-4-topic-7)).
 
 The coefficient of xⁿ in Σ_{4∤m} m x^m/(1 − x^m) is Σ_{m∣n, 4∤m} m.
 
-Compare coefficients in theta-fourth-power-lambert-series.
+Compare coefficients in [θ(x)⁴ as a Lambert series](#layer-4-topic-93).
 
 **Checks.**
 
@@ -10466,13 +10487,13 @@ Every integral coefficient-one solution of x₁²+x₂²+x₃²=x₁x₂x₃ has
 
 Coordinates are integers. The coefficient-one Γ includes double sign changes; no assertion over ℤ/3ℤ.
 
-(Amit Ghosh and Peter Sarnak, [Integral points on Markoff type cubic surfaces](#reference-ghosh-sarnak-2022-v3), §3.1, p.12; elementary comparison with existing coefficient-three nodes.) The recalled two-orbit result is imported via the existing root-generation theorem and an explicit integral rescaling; no new general carrier is defined.
+(Amit Ghosh and Peter Sarnak, [Integral points on Markoff type cubic surfaces](#reference-ghosh-sarnak-2022-v3), §3.1, p.12.) The two-orbit statement recalled there follows from Markoff's theorem for coefficient-three triples ([Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92)) through the integral rescaling by 3; no new carrier is defined.
 
 To prove this, modulo 3, if all coordinates are units, the sum of their squares is 0 but their product is nonzero, a contradiction. If one coordinate is 0, the other two squares must sum to 0 and hence both are 0. Thus every coordinate is divisible by 3.
 
 Write x=3y and cancel 9 in ℤ: sum y_i²=3y₁y₂y₃. Conversely multiplication by 3 gives a solution. Direct calculation gives V_i(3y)=3R_i(y); permutations and double sign changes also commute with this map.
 
-A nonzero integer solution has no zero coordinate, and its coordinate product is positive. Double sign changes make all coordinates positive. Apply markoff-root-generation to y, transport the word by the identity above, and obtain (3,3,3). The origin is fixed by every generator.
+A nonzero integer solution has no zero coordinate, and its coordinate product is positive. Double sign changes make all coordinates positive. Apply [Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92) to y, transport the word by the identity above, and obtain (3,3,3). The origin is fixed by every generator.
 
 **Checks.**
 
@@ -10550,9 +10571,9 @@ The supporting API comprises:
 
 (Jean Bourgain, Alexander Gamburd and Peter Sarnak, [Markoff surfaces and strong approximation: 1](#reference-bgs-markoff-2016), §1, pp. 1–2.) Descent of the moves and permutations to the reduction, which is the commutation clause.
 
-To prove this, red_p = (Int.castRingHom (ZMod p)) ∘ −; the first clause is functoriality of X (markoff-triples), the commutation with moves is naturality of R_i (markoff-vieta-involution), and the commutation with permutations is immediate.
+To prove this, red_p = (Int.castRingHom (ZMod p)) ∘ −; the first clause is functoriality of X ([The Markoff surface X(R) and its nonzero locus X*(R)](#layer-4-topic-3)), the commutation with moves is naturality of R_i ([The Vieta moves R₀, R₁, R₂ and the integer Markoff graph](#layer-4-topic-23)), and the commutation with permutations is immediate.
 
-Nonzero image for p prime: by markoff-triple-coordinates-coprime no prime divides all coordinates of x ∈ M, so red_p x ≠ 0; alternatively, by markoff-root-generation x is a word applied to (1, 1, 1), red_p x is the same word applied to (1, 1, 1) ∈ X*(𝔽_p), and the moves preserve X*(𝔽_p) (markoff-vieta-permutes-nonzero-locus).
+Nonzero image for p prime: by [The coordinates of a positive Markoff triple are pairwise coprime](#layer-4-topic-101) no prime divides all coordinates of x ∈ M, so red_p x ≠ 0; alternatively, by [Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92) x is a word applied to (1, 1, 1), red_p x is the same word applied to (1, 1, 1) ∈ X*(𝔽_p), and the moves preserve X*(𝔽_p) ([The Vieta moves permute X*(R)](#layer-4-topic-62)).
 
 Reduction may collapse an edge: distinct neighbours in M can reduce to the same triple, and R_i may fix a triple modulo p.
 
@@ -10706,7 +10727,7 @@ The supporting API comprises:
 
 To prove this, define the predicate as surjectivity of red_p from M onto X*(𝔽_p) (Set.SurjOn).
 
-Equivalent orbit form: by markoff-root-generation and the commutation of red_p with the moves, the image of M is the orbit of (1, 1, 1) under the group generated by the moves acting on X*(𝔽_p); so strong approximation at p holds iff that orbit is all of X*(𝔽_p).
+Equivalent orbit form: by [Markoff's theorem: every positive Markoff triple comes from (1, 1, 1)](#layer-4-topic-92) and the commutation of red_p with the moves, the image of M is the orbit of (1, 1, 1) under the group generated by the moves acting on X*(𝔽_p); so strong approximation at p holds iff that orbit is all of X*(𝔽_p).
 
 **Checks.**
 
@@ -10877,7 +10898,7 @@ Summing over a ≤ |k|^{1/3} gives ≪_ε |k|^{1/3+ε}.
 
 **Unverified counting input.** The uniform N^ε clause needs, for every ε>0, a constant C_ε independent of a≥3 and N≥1 bounding the number of unit orbits of X²−(a²−4)Y²=4N by C_ε N^ε. Prove the representation-to-congruence bound, with the necessary primitive/imprimitive and square-divisor cases, and the divisor estimate τ(N)≪_εN^ε within this layer. No later analytic-number-theory theorem is an input. The unconditional 2|k|^(2/3) bound has no dependence on this additional estimate.
 
-*Needs:* [Ghosh–Sarnak's theorem on fundamental sets (Theorem 1.1)](#layer-4-topic-113); [Descent on V_k(ℤ) for k < 0 (Ghosh–Sarnak, Lemma 2.2)](#layer-4-topic-87); [Markoff class numbers h_M(k) and the fundamental sets F^±_k](#layer-4-topic-74); [GeometryOfNumbersAndQuadraticArithmetic, `GN.3/pell-automorph`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
+*Needs:* [Ghosh–Sarnak's theorem on fundamental sets (Theorem 1.1)](#layer-4-topic-113); [Descent on V_k(ℤ) for k < 0 (Ghosh–Sarnak, Lemma 2.2)](#layer-4-topic-87); [Markoff class numbers h_M(k) and the fundamental sets F^±_k](#layer-4-topic-74); [Proper automorphs of indefinite binary forms and the Pell equation](#layer-4-topic-0).
 
 <a id="layer-4-topic-118"></a>
 
@@ -10928,11 +10949,11 @@ Correctness of the Hasse-failure decision and of h_M(k) = |search| is [Ghosh–S
 
 For every exceptional integer k≥5, h_M(k)≥|F⁺_k(ℤ)|+1, where h_M(k) counts Γ-orbits in V_k(ℤ).
 
-Exceptional means an integral point exists with some absolute coordinate ≤2. The finite orbit and fundamental-set carriers/cardinality are required by the open Layer 4 source requests.
+Exceptional means an integral point exists with some absolute coordinate ≤2. The finite orbit and fundamental-set carriers are those of [Markoff class numbers h_M(k) and the fundamental sets F^±_k](#layer-4-topic-74).
 
 (Amit Ghosh and Peter Sarnak, [Integral points on Markoff type cubic surfaces](#reference-ghosh-sarnak-2022-v3), §1(d), p.5, corrected using §4.1, pp.13–14.) The quoted inequality is false; this result states the corrected direction and strict contribution.
 
-To prove this, use markoff-positive-root-orbits to inject F⁺_k into the orbit set.
+To prove this, use [Positive fundamental roots inject into large-coordinate orbits](#layer-4-topic-107) to inject F⁺_k into the orbit set.
 
 Choose an exceptional small-coordinate point. Its orbit cannot be in the image, since every orbit in the image consists entirely of points with all absolute coordinates ≥3.
 
@@ -10975,9 +10996,7 @@ The tuple (1,1,1) satisfies the coefficient-three equation, while (2,3,5) lies o
 
 Earlier internal inputs are Layer 3. The declarations and supplier layers used by this layer are:
 
-- [GeometryOfNumbersAndQuadraticArithmetic, `GN.1/minkowski-first-native-interface`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
-- [GeometryOfNumbersAndQuadraticArithmetic, `GN.3/pell-automorph`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
-- [GeometryOfNumbersAndQuadraticArithmetic, `GN.4`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
+- [GeometryOfNumbersAndQuadraticArithmetic (TauCetiRoadmap pull request #851), §4.3](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/README.md#43-oppenheim-and-duke).
 - Mathlib `AddChar.sum_mulShift`.
 - Mathlib `ArithmeticFunction.IsMultiplicative`.
 - Mathlib `ArithmeticFunction.IsMultiplicative.eq_iff_eq_on_prime_powers`.
@@ -11346,7 +11365,7 @@ The supporting API comprises:
 - `quadraticUnitAction_parameter`: τ_s=τ_t iff s=t.
 - `quadraticUnitAction_norm`: x+τ_s(x)=(0,s·(x.1 mod 2)), the conjugation norm in additive coordinates.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module).) Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module).) Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
 
 To prove this, use the ordinary integer-to-ZMod cast for a mod 2.
 
@@ -11372,7 +11391,7 @@ Let q:G→H be a surjective homomorphism of commutative groups, and assume x²=1
 
 G,H commutative groups; q surjective; its kernel killed by two.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1].) Koymans and Pagano recall, citing Fouvry–Klüners, that d lies in D⁻ exactly when the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d) coincide. This node is the group-theoretic step that makes 'coincide' precise for the natural forgetful map, whose kernel is killed by two; the paper does not state it.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1].) Koymans and Pagano recall, citing Fouvry–Klüners, that d lies in D⁻ exactly when the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d) coincide. This result is the group-theoretic step that makes 'coincide' precise for the natural forgetful map, whose kernel is killed by two; the paper does not state it.
 
 To prove this, every homomorphism preserves membership in the canonical primary subgroup by mapping the annihilating power.
 
@@ -11702,7 +11721,7 @@ The Smith form of the 3 × 4 matrix is diag(1, 2, 2) padded with a zero column; 
 
 For a number field K, basis, ideal, relation and unit data with the explicit certificates below are interpreted by the comparison theorems of this layer as follows. (1) A family b of n elements of 𝓞_K with a certificate disc(b) = d_K (or disc(b) squarefree) is an integral basis ([The discriminant of a basis of a sublattice of 𝓞_K](#layer-5-topic-5)). (2) A matrix certified to be in Hermite normal form with an 𝓞_K-stable column lattice is the Hermite matrix of a unique ideal, of norm the product of its pivots ([Which Hermite matrices are the matrices of ideals](#layer-5-topic-13), [The norm of an ideal is the product of its Hermite pivots](#layer-5-topic-12)). (3) A family of prime ideals containing all primes of norm ≤ M_K with a relation matrix whose columns span the relation lattice (the completeness hypothesis, which clause (4)'s inequality can certify) determines Cl(K) ≅ ⊕ ℤ/d_i by the Smith form ([The class group from a complete relation matrix](#layer-5-topic-10)); without the completeness certificate it determines only a multiple of h_K ([Found relations bound the class number from above](#layer-5-topic-11)). (4) Let A be as in (3) but only a square matrix of nonzero determinant whose columns are relations. A unit family u with IsMaxRank and a certified bound h* ≤ h_K R_K with |det A| R(u) < 2h* generates 𝓞_K^× together with μ_K, and then the columns of A span the relation lattice ([The class-number–regulator certificate](#layer-5-topic-16)).
 
-Each input has the intrinsic properties stated in its clause. These are Layer 5 criteria available to a later computational producer; no type or algorithm from a higher tier is assumed. Termination alone does not certify completeness.
+Each input has the intrinsic properties stated in its clause. These are criteria for checking the output of any class-group and unit computation; no algorithm is assumed. Termination alone does not certify completeness.
 
 (Jean-François Biasse and Claus Fieker, [Subexponential class group and unit group computation in large degree number fields](#reference-biasse-fieker-classgroup-2014), Section 4.3, printed p. 400.) The certification step of a class group and unit computation; the result lists which intrinsic invariant each certified output determines.
 
@@ -11722,15 +11741,15 @@ A rigorous analytic bound h* with its error control enters only through h* <= h_
 
 ### 5.21 Negative Pell and norm-minus-one units for every squarefree radicand
 
-Under the quadratic presentation hypotheses, there exist integers x,y with x²-dy²=-1 iff there is a unit u of the full ring O_K with N_K/Q(u)=-1. This interface removes the mod-four condition by joining the two existing parent targets.
+Under the quadratic presentation hypotheses, there exist integers x,y with x²-dy²=-1 iff there is a unit u of the full ring O_K with N_K/Q(u)=-1. The direction from an integral solution to a unit of norm −1 is the current Tau Ceti library's NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one, after the pin; the converse is the new content. This removes the mod-four condition by combining [The negative Pell equation and units of norm −1 when d ≡ 1 (mod 4)](#layer-5-topic-15) and [The negative Pell equation and units of norm −1](#layer-5-topic-17).
 
 d>1 is a squarefree integer; K is a number field with θ in O_K. minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 1, equation (1.1), and p. 2, first paragraph (definition of D⁻).) Koymans and Pagano define D⁻ by integral solubility of the negative Pell equation (1.1) and then compare it with class-group and unit conditions in ℚ(√d) (pp. 2–4). Those comparisons need this passage between integral solutions and units of the full ring of integers, which the paper leaves implicit; the result joins the two parent order-to-unit targets.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 1, equation (1.1), and p. 2, first paragraph (definition of D⁻).) Koymans and Pagano define D⁻ by integral solubility of the negative Pell equation (1.1) and then compare it with class-group and unit conditions in ℚ(√d) (pp. 2–4). Those comparisons need this passage between integral solutions and units of the full ring of integers, which the paper leaves implicit; the result combines those two order-to-unit comparisons.
 
-To prove this, use the parent order-to-unit embedding for the forward implication.
+To prove this, use the order-to-unit embedding of [The ring ℤ√d inside the ring of integers of ℚ(√d)](#layer-5-topic-6) for the forward implication.
 
-If d is not 1 modulo 4, O_K=Z[θ], and read the inverse coordinates and norm from the parent comparison.
+If d is not 1 modulo 4, O_K=Z[θ], and read the inverse coordinates and norm from [The ring ℤ√d inside the ring of integers of ℚ(√d)](#layer-5-topic-6).
 
 If d is 1 modulo 4, invoke the half-coordinate unit comparison: d=1 modulo 8 puts any unit in Z[θ]; d=5 modulo 8 puts its cube there. The odd power preserves norm minus one.
 
@@ -11754,7 +11773,7 @@ Let φ:Z^N→Additive Cl(K) be surjective; let A be a square integer matrix with
 
 (Jean-François Biasse and Claus Fieker, [Subexponential class group and unit group computation in large degree number fields](#reference-biasse-fieker-classgroup-2014), Section 4.3, printed pp. 398 and 400, the test h* ≤ h′R′ < 2h*, Lemma 4.4 and Proposition 4.5.) Biasse–Fieker certify a tentative class number and regulator by the test h* ≤ h′R′ < 2h* against a bound h* with h* ≤ hR < 2h* (obtained under GRH, p. 398), computing R′ from fixed-point logarithms (p. 400). This result is the soundness half with explicit two-sided error intervals and without GRH; only R_u ≤ Rhat+ε and a−η ≤ hR are used. Their explicit precision in Proposition 4.5 undercounts the determinant loss ; the result takes ε as a hypothesis and does not depend on it.
 
-To prove this, the parent determinant contract gives |det A|=h·i, where i=[ker φ:range A] is a positive integer.
+To prove this, [Found relations bound the class number from above](#layer-5-topic-11) gives |det A|=h·i, where i=[ker φ:range A] is a positive integer.
 
 Pinned regulator positivity and regOfFamily_div_regulator give R_u=R·j, where j is the positive index of the subgroup generated by units and torsion.
 
@@ -11762,11 +11781,11 @@ The interval hypotheses imply R_u≤Rhat+ε and a-η≤hR. Hence hR·ij=|det A|R
 
 Positive integers i,j therefore both equal one. Apply relative-index-one and index-one to obtain completeness, and substitute back for the numerical equalities.
 
-determinant-entrywise-enclosure supplies ε when Rhat is an absolute determinant of a rigorous weighted log table. An analytic or enumerative producer supplies η independently.
+[A rigorous determinant enclosure from entrywise errors](#layer-5-topic-9) supplies ε when Rhat is an absolute determinant of a rigorous weighted log table. An analytic or enumerative producer supplies η independently.
 
 **Checks.**
 
-- Exact intervals ε=η=0 recover the parent joint certificate.
+- Exact intervals ε=η=0 recover [The class-number–regulator certificate](#layer-5-topic-16).
 - An index-two relation lattice or an index-two unit family makes the left product at least 2hR and cannot pass.
 - Equality at the threshold two is rejected; rounding below two without a rigorous ε is rejected.
 - Rank zero uses the empty determinant one and the torsion subgroup as the full unit group; N=0 is allowed only when φ is surjective onto the trivial class group.
@@ -11777,11 +11796,11 @@ determinant-entrywise-enclosure supplies ε when Rhat is an absolute determinant
 
 ### 5.23 Negative Pell and the narrow principal square-root class
 
-Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff mkPrincipal(θ)=1 in Cl⁺(K). Here θ is read as a unit of the field K, not as an integral unit; θ≠0 by the pinned coe_gen_ne_zero.
+Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff mkPrincipal(θ)=1 in Cl⁺(K). Here θ is read as a unit of the field K, not as an integral unit; θ≠0 by the pinned coe_gen_ne_zero. The current Tau Ceti library, after the pin, identifies the narrow class of any element of negative norm with that of (θ) (NarrowClassGroup.mkPrincipal_eq_mkPrincipal_gen_of_norm_neg); the target is the criterion for this class to be trivial.
 
 d>1 is a squarefree integer; K is a number field with θ in O_K. minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 4, running text after the reflection principle (1.3).) Koymans and Pagano state, without proof, that negative Pell solubility is equivalent to the ideal (√d) being trivial in the narrow class group, which is why they must compute the Artin pairing with d. The target proves it from the pinned positivity lemmas and the all-radicand comparison.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 4, running text after the reflection principle (1.3).) Koymans and Pagano state, without proof, that negative Pell solubility is equivalent to the ideal (√d) being trivial in the narrow class group, which is why they must compute the Artin pairing with d. The target proves it from the pinned positivity lemmas and the all-radicand comparison.
 
 To prove this, (⇐) The all-radicand comparison turns an integral solution into a unit u of O_K with N(u) = −1. Since θ ≠ 0, the pinned exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one gives a unit v with v·θ totally positive, and the pinned mkPrincipal_eq_one_iff makes the narrow class of (θ) trivial.
 
@@ -11801,15 +11820,15 @@ Replacing θ by −θ changes neither the principal ideal nor its narrow class, 
 
 ### 5.24 Negative Pell and the canonical two-primary forgetful map
 
-Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff the natural map q:Cl⁺(K)→Cl(K) restricts bijectively from Cl⁺(K)[2∞] to Cl(K)[2∞]. This is a statement about q, not merely about abstract isomorphism types.
+Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff the natural map q:Cl⁺(K)→Cl(K) restricts bijectively from Cl⁺(K)[2∞] to Cl(K)[2∞]. This is a statement about q, not merely about abstract isomorphism types. The current Tau Ceti library, after the pin, proves that q is injective exactly when 𝓞_K has a unit of norm −1 (NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one); the target is the two-primary form of this comparison, read through integral solubility of the negative Pell equation.
 
 d>1 is a squarefree integer; K is a number field with θ in O_K. minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1].) Koymans and Pagano recall, citing Fouvry–Klüners [18, Lemma 1] without proof, that negative Pell solubility is equivalent to the coincidence of the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d). The target states it for the natural map Cl⁺(K)[2^∞] → Cl(K)[2^∞] and proves it from the pinned forgetful-map lemmas and the group step.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 2, first paragraph (the paragraph defining D and D⁻), citing Fouvry–Klüners [18, Lemma 1].) Koymans and Pagano recall, citing Fouvry–Klüners [18, Lemma 1] without proof, that negative Pell solubility is equivalent to the coincidence of the 2-Sylow subgroups of the ordinary and narrow class groups of ℚ(√d). The target states it for the natural map Cl⁺(K)[2^∞] → Cl(K)[2^∞] and proves it from the pinned forgetful-map lemmas and the group step.
 
-To prove this, the pinned quadratic narrow-class theorem identifies injectivity of q with existence of a norm-minus-one unit; combine it with the parent order bridge.
+To prove this, the pinned quadratic narrow-class theorem identifies injectivity of q with existence of a norm-minus-one unit; combine it with [Negative Pell and norm-minus-one units for every squarefree radicand](#layer-5-topic-21).
 
-The pinned forgetful map is surjective and its kernel is killed by two. Apply two-primary-detects-bijectivity.
+The pinned forgetful map is surjective and its kernel is killed by two. Apply [A square-killed kernel is detected on the two-primary subgroup](#layer-5-topic-8).
 
 The squarefree and d>1 hypotheses enter the order bridge; the group-theoretic detection step itself uses neither number fields nor finiteness.
 
@@ -11825,11 +11844,11 @@ The squarefree and d>1 hypotheses enter the order bridge; the group-theoretic de
 
 ### 5.25 The Galois action on the full quadratic unit group
 
-Under the quadratic presentation hypotheses, there exist s in Z/2 and an additive equivalence F:Additive(O_Kˣ)→Z×Z/2 with F(-1)=(0,1), F(σu)=τ_s(F(u)) for every unit u, and s=1 iff negative Pell is integrally soluble. Here σ is the pinned ring-of-integers quadratic conjugation. Consequently the soluble case has the Galois module in Koymans–Pagano item 9, while the insoluble case has τ_0. Equivalently, negative Pell is soluble iff an additive equivalence carrying -1 to (0,1) intertwines conjugation with τ_1.
+Under the quadratic presentation hypotheses, there exist s in Z/2 and an additive equivalence F:Additive(O_Kˣ)→Z×Z/2 with F(-1)=(0,1), F(σu)=τ_s(F(u)) for every unit u, and s=1 iff negative Pell is integrally soluble. Here σ is the pinned ring-of-integers quadratic conjugation. Consequently the soluble case has the Galois module τ_1 described by Koymans and Pagano (Introduction, p. 3), while the insoluble case has τ_0. Equivalently, negative Pell is soluble iff an additive equivalence carrying -1 to (0,1) intertwines conjugation with τ_1.
 
 d>1 is a squarefree integer; K is a number field with θ in O_K. minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation.
 
-(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-v1), Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module).) Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
+(Peter Koymans and Carlo Pagano, [On Stevenhagen’s conjecture](#reference-koymans-pagano-2022-v1), Introduction, p. 3, second paragraph (the remark after Theorem 1.1 on the unit Galois module).) Koymans and Pagano remark that the Galois module structure of the unit group of a real quadratic field is determined by the solubility of the negative Pell equation, and name the soluble case: ℤ ⊕ ℤ/2ℤ with (1,0) sent to (−1,1) and (0,1) fixed. The insoluble alternative τ_0 and the coordinate statement are derived here from the Dirichlet decomposition and the norm identity; the paper gives no proof.
 
 To prove this, the real quadratic presentation gives two real places, no complex places, and unit rank one. Evaluate a torsion unit at a real embedding: a real root of unity is ±1, and the embedding is injective; hence the torsion is exactly {±1}.
 
@@ -11931,7 +11950,7 @@ Earlier internal inputs are Layer 3, Layer 4. The declarations and supplier laye
 - Tau Ceti `NumberField.ringOfIntegersQuadraticConj`.
 - Tau Ceti `NumberField.unitsMulEquivTorsionProdMultiplicative`.
 
-## Layer 6: special algebraic numbers and mahler measure
+## Layer 6: special algebraic numbers and Mahler measure
 
 Build the conjugate geometry of Pisot and Salem numbers and the analytic inputs for the Smyth, Dobrowolski and Dimitrov bounds. The potential-theory objects have explicit compactness, normalisation and continuation hypotheses.
 
@@ -11955,9 +11974,9 @@ The supporting API comprises:
 
 (Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Section 1, p. 5 (arXiv v3).) Exactly the definition; the source's condition that the number exceed 1 presupposes a real number.
 
-(Varun Srivastava and Sanjay Gollapudi, [Pisot numbers (Euler Circle student paper)](#reference-srivastava-pisot-2018), Section 1, Definition 3 and the Example, p. 1.) Same definition; the Example (the golden ratio) is the unit test IsPisot.test_goldenRatio.
+(Varun Srivastava and Sanjay Gollapudi, [Pisot numbers (Euler Circle student paper)](#reference-srivastava-pisot-2018), Section 1, Definition 3 and the Example, p. 1.) Same definition; the Example (the golden ratio) is the first Check below.
 
-(Varun Srivastava and Sanjay Gollapudi, [Pisot numbers (Euler Circle student paper)](#reference-srivastava-pisot-2018), Section 2, Proposition 5, p. 1.) The pinned degree-one convention (API item isPisot_natCast_iff).
+(Varun Srivastava and Sanjay Gollapudi, [Pisot numbers (Euler Circle student paper)](#reference-srivastava-pisot-2018), Section 2, Proposition 5, p. 1.) The pinned degree-one convention (`isPisot_natCast_iff`).
 
 To prove this, define IsPisot θ as the conjunction of IsIntegral ℤ θ, 1 < θ and the modulus condition on the roots of minpoly ℤ θ in ℂ other than θ.
 
@@ -12005,7 +12024,7 @@ The supporting API comprises:
 
 (Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Lemma 1, p. 2 (arXiv v3).) The hypotheses of Lemma 1 are taken as the definition (the source calls it the usual definition); the source's own definition becomes [Salem's lemma: the conjugates of a Salem number](#layer-6-topic-24).
 
-(Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Section 1, p. 1.) The equivalent form, API items isConjRoot_inv and four_le_natDegree.
+(Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Section 1, p. 1.) The equivalent form, `IsSalem.isConjRoot_inv` and `IsSalem.four_le_natDegree`.
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 8.1, printed p. 335.) Third equivalent description used for the Mahler measure computation M(τ) = τ.
 
@@ -12060,7 +12079,7 @@ Comparing constant terms: the constant term of P* is the leading coefficient 1 o
 
 ### 6.4 M(τ) = house(τ) = τ for Pisot and Salem numbers
 
-Let τ > 1 be a real algebraic integer all of whose other conjugates lie in the closed unit disc (a Pisot or a Salem number, [The classification of Pisot and Salem numbers by conjugate moduli](#layer-6-topic-22)). Then M(τ) = τ and the house of τ (the largest modulus of a conjugate, DT.0/house-of-algebraic-number) equals τ.
+Let τ > 1 be a real algebraic integer all of whose other conjugates lie in the closed unit disc (a Pisot or a Salem number, [The classification of Pisot and Salem numbers by conjugate moduli](#layer-6-topic-22)). Then M(τ) = τ and the house of τ (the largest modulus of a conjugate, TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2) equals τ.
 
 τ algebraic integer, so M(τ) is the Mahler measure of the monic minpoly ℤ τ.
 
@@ -12076,7 +12095,7 @@ Every conjugate has modulus ≤ τ and τ is one of them, so ⌈τ⌉ = τ.
 
 - M(φ) = φ, M(θ₀) = θ₀, M(L) = τ₁₀.
 
-*Needs:* Mathlib `Polynomial.mahlerMeasure`; Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `minpoly.monic`; [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/house-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* Mathlib `Polynomial.mahlerMeasure`; Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `minpoly.monic`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height).
 
 <a id="layer-6-topic-5"></a>
 
@@ -12141,14 +12160,14 @@ Each of the r factors is ≤ ⌈α⌉, so M(α) ≤ ⌈α⌉^r.
 
 M(α) ≥ 1 and r ≤ d give M(α)^{1/d} ≤ M(α)^{1/r}.
 
-For α in a number field K, ⌈α⌉ = NumberField.house α (DiophantineApproximationAndTranscendence:DT.0/house-eq-numberField-house).
+For α in a number field K, ⌈α⌉ = NumberField.house α (TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2).
 
 **Checks.**
 
 - φ: d = 2, r = 1: φ^{1/2} ≤ φ ≤ φ ≤ φ.
 - α = √2 + √3 (d = 4, conjugates ±√2 ± √3 of moduli 3.146, 3.146, 0.318, 0.318, so r = 2): M(α) = 5 + 2√6 = 9.899, M^{1/4} = 1.774 ≤ M^{1/2} = 3.146 = ⌈α⌉ ≤ 9.899.
 
-*Needs:* Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `NumberField.house`; Mathlib `NumberField.house_eq_sup'`; Mathlib `NumberField.Embeddings.range_eval_eq_rootSet_minpoly`; [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/house-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/house-eq-numberField-house`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `NumberField.house`; Mathlib `NumberField.house_eq_sup'`; Mathlib `NumberField.Embeddings.range_eval_eq_rootSet_minpoly`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height).
 
 <a id="layer-6-topic-7"></a>
 
@@ -12156,13 +12175,13 @@ For α in a number field K, ⌈α⌉ = NumberField.house α (DiophantineApproxim
 
 If α is a nonzero algebraic number with M(α) < 2, then α and α⁻¹ are algebraic integers.
 
-M(α) is the Mahler measure of the primitive minimal polynomial (DT.0), equal to absMulHeight₁(α)^{deg α}.
+M(α) is the Mahler measure of the primitive minimal polynomial (TauCetiRoadmap.DiophantineApproximationAndTranscendence §§0.1–0.2), equal to absMulHeight₁(α)^{deg α}.
 
 (O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 2.9, printed p. 6.) Exactly the statement; the proof uses Lemma 2.8 and Corollary 2.6.
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 3, printed p. 324.) Same statement in passing.
 
-To prove this, the leading coefficient a₀ of the primitive minimal polynomial F_α satisfies a₀ ≤ M(α) < 2 (API leadingCoeff_le_mahlerMeasure of DT.0/mahler-measure-of-algebraic-number), so a₀ = 1: F_α ∈ ℤ[X] is monic and vanishes at α (API aeval_primitiveMinpoly of DT.0/primitive-minimal-polynomial), hence α is an algebraic integer (equivalently API isIntegral_leadingCoeff_primitiveMinpoly_smul with a₀ = 1).
+To prove this, the leading coefficient a₀ of the primitive minimal polynomial F_α satisfies a₀ ≤ M(α) < 2 (`leadingCoeff_le_mahlerMeasure` of TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2), so a₀ = 1: F_α ∈ ℤ[X] is monic and vanishes at α (`aeval_primitiveMinpoly` of TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.1), hence α is an algebraic integer (equivalently `isIntegral_leadingCoeff_primitiveMinpoly_smul` with a₀ = 1).
 
 N(α) = ± the product of the conjugates is a nonzero rational integer with |N(α)| ≤ M(α) < 2, so N(α) = ±1.
 
@@ -12172,7 +12191,7 @@ N(α) = ± the product of the conjugates is a nonzero rational integer with |N(�
 
 - M(τ₁₀) = 1.176 < 2 and τ₁₀ is a unit; M(1/2) = 2 and 1/2 is not an algebraic integer.
 
-*Needs:* [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/primitive-minimal-polynomial`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `Algebra.norm_eq_prod_roots`; Mathlib `Algebra.isIntegral_norm`; Mathlib `IsIntegrallyClosed.isIntegral_iff`.
+*Needs:* [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.1 Primitive polynomials and coefficient height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#01-primitive-polynomials-and-coefficient-height); Mathlib `Algebra.norm_eq_prod_roots`; Mathlib `Algebra.isIntegral_norm`; Mathlib `IsIntegrallyClosed.isIntegral_iff`.
 
 <a id="layer-6-topic-8"></a>
 
@@ -12226,7 +12245,7 @@ k, l ≥ 1 distinct.
 
 (O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 2.21 and its proof, printed pp. 9-10.) Exactly the statement (the source follows Dobrowolski 1979).
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Lemma 2.3, p. 5 (arXiv v1).) The alternative height argument.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Lemma 2.3, p. 5 (arXiv v1).) The alternative height argument.
 
 To prove this, work in the normal closure L of ℚ(α); choose σ ∈ Gal(L/ℚ) with σ(α^k) = α^l (IsConjRoot.exists_algEquiv).
 
@@ -12266,7 +12285,7 @@ M(α) > 1 gives some |σ(α)| > 1, so |σ(β)| > 1 and M(β) > 1.
 - α = √2 (degree 2, M(α) = 2): α² = 2 has degree 1; f = X² − 2, r = 2, β = f(0) = −2, and 1 < M(β) = 2 ≤ M(α) = 2.
 - α=i has degree 2 and α²=−1 has degree 1, but M(α)=1; the M(α)>1 hypothesis cannot be omitted.
 
-*Needs:* Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `IntermediateField.adjoin.finrank`; Mathlib `minpoly.dvd`; [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* Mathlib `Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots`; Mathlib `IntermediateField.adjoin.finrank`; Mathlib `minpoly.dvd`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height).
 
 <a id="layer-6-topic-12"></a>
 
@@ -12278,11 +12297,11 @@ Let α be an algebraic integer of degree d, and N, M positive integers with M �
 
 (O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 4.8, printed p. 17.) Exactly the statement, with the bound max |Fi| ≤ N^{2dM²/N}M(α)^{2M} (16); the displayed system (17) has the misprint F_k for F_j .
 
-(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 3.2, printed p. 11.) The product-form Siegel lemma requested from DT.0.
+(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 3.2, printed p. 11.) The product-form Siegel lemma used in the proof below.
 
 To prove this, the conditions F^{(i)}(α)/i! = Σ_j C(j, i) F_j α^{j−i} = 0 for 0 ≤ i ≤ M − 1 are M linear equations over ℚ(α) in the N + 1 integer unknowns F_0, …, F_N, with algebraic-integer coefficients a_ij = C(j, i)α^{j−i} (the row i has the entry a_ii = 1 ≠ 0).
 
-Siegel's lemma over ℚ(α) in product form (requested from DiophantineApproximationAndTranscendence:DT.0) gives a nonzero integer solution with max |F_j| ≤ ((2√2(N+1))^{dM} ∏_k ∏_i max_j |σ_k(a_ij)|)^{1/(N+1−dM)}.
+Siegel's lemma over ℚ(α) in product form (Berrevoets, Lemma 3.2) gives a nonzero integer solution with max |F_j| ≤ ((2√2(N+1))^{dM} ∏_k ∏_i max_j |σ_k(a_ij)|)^{1/(N+1−dM)}. The supplier is TauCetiRoadmap.DiophantineApproximationAndTranscendence §2.8, `siegelRelativeKernelBasis`, applied with F = ℚ(α) over K = ℚ: an algebraic-integer row a_i has H₂,proj(a_i)^d ≤ ∏_k √(N+1)·max_j |σ_k(a_ij)|, and a primitive integer vector has absolute height equal to its sup norm, so the same bound holds with the smaller constant √(N+1) in place of 2√2(N+1). The house-form integer Siegel estimate of that roadmap's §0.3 does not suffice: it would give house(α)^{2dM} in place of M(α)^{2M}.
 
 max_j |C(j,i) σ_k(α)^{j−i}| ≤ N^i max(1, |σ_k α|)^N, and ∏_k ∏_{i<M} gives N^{dM²/2} M(α)^{MN}.
 
@@ -12295,7 +12314,7 @@ The vanishing of F, F′, …, F^{(M−1)} at α gives f_α^M ∣ F in ℚ[X], h
 - α = φ (d = 2, M(φ) = φ), M = 3, N = 13 (dM = 6 < 13/2): F = (X² − X − 1)³ = X⁶ − 3X⁵ + 5X³ − 3X − 1 is divisible by f_φ³, has degree 6 ≤ 13 and largest coefficient 5 ≤ 13^{36/13}·φ⁶ ≈ 2.18·10⁴.
 - The bound is not automatic for obvious multiples: for α = τ₁₀, M = 20, N = 4000 it is 4000²·M(τ₁₀)^{40} ≈ 1.058·10¹⁰, but (Φ₆L)^{20} has largest coefficient ≈ 1.47·10¹² ; the lemma's F comes from Siegel's lemma, not from a product of the minimal polynomial with small factors.
 
-*Needs:* [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `minpoly.dvd`; Mathlib `minpoly.monic`; Mathlib `minpoly.isIntegrallyClosed_dvd`; [DiophantineApproximationAndTranscendence, `DT.0/siegel-lemma-number-field-product`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `minpoly.dvd`; Mathlib `minpoly.monic`; Mathlib `minpoly.isIntegrallyClosed_dvd`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.8 `siegelRelativeKernelBasis`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#28-auxiliary-polynomials-and-quantitative-subspaces).
 
 <a id="layer-6-topic-13"></a>
 
@@ -12319,9 +12338,9 @@ The supporting API comprises:
 - `rootPowPoly_two_comp_X_sq`: P_2(X²) = (−1)^{deg P} P(X) P(−X) (Graeffe's root squaring).
 - `rootPowPoly_two_cyclotomic`: For every N: (Φ_N)_2 = Φ_N when N is odd, Φ_{N/2} when N ≡ 2 (mod 4), and Φ_{N/2}² when 4 ∣ N (both sides are 1 at N = 0). Over ℂ, squaring maps the primitive N-th roots of unity bijectively onto the primitive N-th (N odd) or N/2-th (N ≡ 2 mod 4) roots, and two-to-one onto the primitive N/2-th roots when 4 ∣ N; apply rootPowPoly_eq_prod_roots.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Lemma 2.1, pp. 3-4 (arXiv v1).) Exactly the object; the characteristic-polynomial construction is the intrinsic form that makes P_m ∈ ℤ[X] a definition rather than a claim.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Lemma 2.1, pp. 3-4 (arXiv v1).) Exactly the object; the characteristic-polynomial construction is the intrinsic form that makes P_m ∈ ℤ[X] a definition rather than a claim.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Theorem 1, p. 16 (arXiv v1).) The API item rootPowPoly_eq_minpoly_pow for m = 2.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Theorem 1, p. 16 (arXiv v1).) Source for `rootPowPoly_eq_minpoly_pow` at m = 2.
 
 To prove this, define P_m := charpoly of Algebra.leftMulMatrix of x^m in the power basis of AdjoinRoot P.
 
@@ -12357,7 +12376,7 @@ There is T ∈ ℤ⟦Y⟧ with constant term 1 and T² = 1 + 4Y; explicitly T = 
 
 Power series over ℤ.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Section 2, (3), p. 4 (arXiv v1).) Exactly the statement; the Catalan form is the proof of integrality.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Section 2, (3), p. 4 (arXiv v1).) Exactly the statement; the Catalan form is the proof of integrality.
 
 To prove this, with c(x) = Σ C_k x^k, the Catalan recurrence (catalan_succ) is c = 1 + x c² in ℤ⟦x⟧.
 
@@ -12379,9 +12398,9 @@ No algebraicity hypothesis: for transcendental α and n ≥ 1, αⁿ is transcen
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 12, printed pp. 338-339.) The homogeneity h(α^d) = d h(α) is what makes the canonical height of the power map equal to h.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Lemma 2.3, p. 5 (arXiv v1).) The identity h(αⁿ) = n h(α) as used.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Lemma 2.3, p. 5 (arXiv v1).) The identity h(αⁿ) = n h(α) as used.
 
-To prove this, for algebraic α let K = ℚ(α) (a number field containing αⁿ). By DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow and DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-of-minpoly-eq, absMulHeight₁ x = (mulHeight₁ x computed in K)^{1/[K:ℚ]} for x ∈ K, independently of the subfield ℚ(x) Mathlib uses.
+To prove this, for algebraic α let K = ℚ(α) (a number field containing αⁿ). By `absMulHeight₁_eq_rpow` and `absMulHeight₁_eq_of_minpoly_eq` of TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2, absMulHeight₁ x = (mulHeight₁ x computed in K)^{1/[K:ℚ]} for x ∈ K, independently of the subfield ℚ(x) Mathlib uses.
 
 In K, mulHeight₁(αⁿ) = mulHeight₁(α)ⁿ (Height.mulHeight₁_pow); take logarithms.
 
@@ -12390,7 +12409,7 @@ In K, mulHeight₁(αⁿ) = mulHeight₁(α)ⁿ (Height.mulHeight₁_pow); take 
 - h(2ⁿ) = n log 2 (Mathlib's Rat.logHeight₁_natCast).
 - h(φ⁵) = 5 h(φ) = (5/2) log φ.
 
-*Needs:* [DiophantineApproximationAndTranscendence, `DT.0/abs-mul-height-eq-rpow`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/abs-mul-height-eq-of-minpoly-eq`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `Height.mulHeight₁_pow`; Mathlib `NumberField.absMulHeight₁`; Mathlib `NumberField.absLogHeight₁`.
+*Needs:* [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `Height.mulHeight₁_pow`; Mathlib `NumberField.absMulHeight₁`; Mathlib `NumberField.absLogHeight₁`.
 
 <a id="layer-6-topic-16"></a>
 
@@ -12402,17 +12421,17 @@ An algebraic number α (in a field of characteristic 0) has h(α) = 0 iff α = 0
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 1, printed p. 322.) Kronecker's theorem, transported to h by (5).
 
-(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Remark 2.14, printed p. 7.) The acceptance example distinguishing algebraic numbers from algebraic integers.
+(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Remark 2.14, printed p. 7.) The example distinguishing algebraic numbers from algebraic integers, used in the Checks.
 
-To prove this, h(α) = log M(α)/deg α (DiophantineApproximationAndTranscendence:DT.0/height-comparisons), so h(α) = 0 ⟺ M(α) = 1.
+To prove this, h(α) = log M(α)/deg α (TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2), so h(α) = 0 ⟺ M(α) = 1.
 
-M(α) = 1 ⟺ α = 0 or a root of unity (API mahlerMeasure_eq_one_iff of DiophantineApproximationAndTranscendence:DT.0/mahler-measure-of-algebraic-number, resting on Mathlib's Polynomial.pow_eq_one_of_mahlerMeasure_eq_one and Polynomial.cyclotomic_mahlerMeasure_eq_one).
+M(α) = 1 ⟺ α = 0 or a root of unity (`mahlerMeasure_eq_one_iff` of TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2, resting on Mathlib's Polynomial.pow_eq_one_of_mahlerMeasure_eq_one and Polynomial.cyclotomic_mahlerMeasure_eq_one).
 
 **Checks.**
 
 - h(i) = 0; h(2) = log 2 > 0; h((3 + 4i)/5) = log 5/2 > 0 although |(3 + 4i)/5| = 1 and both conjugates lie on the circle (not an algebraic integer).
 
-*Needs:* [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `Polynomial.pow_eq_one_of_mahlerMeasure_eq_one`; Mathlib `Polynomial.cyclotomic_mahlerMeasure_eq_one`; Mathlib `NumberField.Embeddings.pow_eq_one_of_norm_le_one`; Mathlib `NumberField.absLogHeight₁`.
+*Needs:* [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `Polynomial.pow_eq_one_of_mahlerMeasure_eq_one`; Mathlib `Polynomial.cyclotomic_mahlerMeasure_eq_one`; Mathlib `NumberField.Embeddings.pow_eq_one_of_norm_le_one`; Mathlib `NumberField.absLogHeight₁`.
 
 <a id="layer-6-topic-17"></a>
 
@@ -12794,11 +12813,11 @@ For a nonzero algebraic integer α of degree d, ⌈α⌉ ≥ M(α)^{1/d} = exp(h
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 3, (9), printed p. 325.) Exactly the statement.
 
-(Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 1, (5), printed p. 323.) The normalisation h = log M/d, which DT.0/height-comparisons identifies with Mathlib's absLogHeight₁.
+(Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 1, (5), printed p. 323.) The normalisation h = log M/d, which TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2 identifies with Mathlib's absLogHeight₁.
 
 To prove this, if some conjugate has modulus > 1 use [Mahler measure versus house](#layer-6-topic-6); otherwise M(α) = 1 and ⌈α⌉ ≥ 1 (NumberField.one_le_house_of_isIntegral).
 
-M(α)^{1/d} = absMulHeight₁ α (DiophantineApproximationAndTranscendence:DT.0/height-comparisons), so M(α)^{1/d} = exp(h(α)).
+M(α)^{1/d} = absMulHeight₁ α (TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2), so M(α)^{1/d} = exp(h(α)).
 
 exp(t) ≥ 1 + t (Real.add_one_le_exp).
 
@@ -12806,7 +12825,7 @@ exp(t) ≥ 1 + t (Real.add_one_le_exp).
 
 - α = φ: ⌈φ⌉ = 1.618 ≥ 1 + (log φ)/2 = 1.2406.
 
-*Needs:* [Mahler measure versus house](#layer-6-topic-6); [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `NumberField.one_le_house_of_isIntegral`; Mathlib `NumberField.absLogHeight₁`; Mathlib `Real.add_one_le_exp`.
+*Needs:* [Mahler measure versus house](#layer-6-topic-6); [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `NumberField.one_le_house_of_isIntegral`; Mathlib `NumberField.absLogHeight₁`; Mathlib `Real.add_one_le_exp`.
 
 <a id="layer-6-topic-31"></a>
 
@@ -12889,13 +12908,13 @@ N/d ≥ 13 (the source's justification 'y ≥ 10' is insufficient). α ≠ 0, wh
 
 (O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 4.6, printed p. 16.) Lemma 4.6 is stated for algebraic numbers and omits α ≠ 0; the result adds α ≠ 0 and states the algebraic-integer case that Theorem 4.1 uses (the argument does not need integrality). Same conclusion: a prime p ∈ (x, 2x] with F(α^p) ≠ 0.
 
-(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 4.5, printed p. 16.) The explicit prime-count input, now owned by Layer 6 because AN.2 is a higher tier. The stated attribution is Rosser-Schoenfeld 1962, Corollary 3; that exact source attribution remains unverified.
+(O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Lemma 4.5, printed p. 16.) The explicit prime-count input, stated in this layer as `dyadicPrimeCount`. Berrevoets attributes it to Rosser–Schoenfeld (1962), Corollary 3, which is the marked input below.
 
 To prove this, for distinct primes p, q the numbers α^p, α^q are not conjugate ([If α^k and α^l are conjugate (k ≠ l) then α is 0 or a root of unity](#layer-6-topic-10)), so their minimal polynomials, of degree d each, are distinct and coprime.
 
 If ζ primes p ∈ (x, 2x] have F(α^p) = 0, the product of the ζ minimal polynomials divides F, so dζ ≤ N.
 
-The required explicit dyadic prime count is pi(2x)-pi(x)>3x/(5 log x) for x>=41/2, stated as Berrevoets Lemma 4.5 with a Rosser-Schoenfeld attribution. It is now a Layer 6-owned recorded input, not an AN.2 prerequisite. Here x>=3*13*log 13>100. Its proof remains to be supplied in the local development.
+The required explicit dyadic prime count is pi(2x)-pi(x)>3x/(5 log x) for x>=41/2, stated as Berrevoets Lemma 4.5 with a Rosser-Schoenfeld attribution. Its proof is part of this roadmap (see the source obligation below). Here x>=3*13*log 13>100.
 
 With y = N/d ≥ 13: 3x/(5 log x) = 9y log y/(5 log(3y log y)) > y ⟺ y⁴ > 243 (log y)⁵, true for y ≥ 13 (28561 > 26977.4 at y = 13, and y⁴/(log y)⁵ increases for log y > 5/4). So π(2x) − π(x) > ζ.
 
@@ -12903,7 +12922,7 @@ With y = N/d ≥ 13: 3x/(5 log x) = 9y log y/(5 log(3y log y)) > y ⟺ y⁴ > 24
 
 - y = 13: x = 100.0…, 3x/(5 log x) = 13.03 > 13 = y; at y = 10 the inequality 9.79 > 10 fails.
 
-**Unverified source input.** Name `dyadicPrimeCount` as the exact real inequality `π(2x)-π(x)>3x/(5 log x)` for `x≥41/2`, where `π(t)` counts primes at most t. Its denominator is positive on this domain. Berrevoets’s Lemma 4.5, printed p. 16, attributes it to Rosser–Schoenfeld (1962), Corollary 3; the latter proof has not been verified here. A weaker asymptotic prime-count theorem does not suffice for the numerical threshold. Require the exact bound, and check x=41/2 (five primes in the interval), y=13 in the application, and failure of the application’s final inequality at y=10.
+**Unverified source input.** Name `dyadicPrimeCount` as the exact real inequality `π(2x)-π(x)>3x/(5 log x)` for `x≥41/2`, where `π(t)` counts primes at most t. Its denominator is positive on this domain. Berrevoets’s Lemma 4.5, printed p. 16, attributes it to Rosser–Schoenfeld (1962), Corollary 3; no source cited here gives its proof. A weaker asymptotic prime-count theorem does not suffice for the numerical threshold. Require the exact bound, and check x=41/2 (five primes in the interval), y=13 in the application, and failure of the application’s final inequality at y=10.
 
 *Needs:* [If α^k and α^l are conjugate (k ≠ l) then α is 0 or a root of unity](#layer-6-topic-10); Mathlib `minpoly.dvd`; Mathlib `minpoly.irreducible`; Mathlib `minpoly.isIntegrallyClosed_dvd`.
 
@@ -12915,9 +12934,9 @@ For every monic P ∈ ℤ[X], P₄ − P₂ ∈ 4ℤ[X].
 
 P monic with integer coefficients.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Lemma 2.1, (2), and its proof, p. 4 (arXiv v1).) The Arnold-Smyth congruence. The source calls its subset-product construction a symmetric-power argument; the proof here specifies products indexed by k-element subsets, that is the exterior-power polynomial.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Lemma 2.1, (2), and its proof, p. 4 (arXiv v1).) The Arnold-Smyth congruence. The source calls its subset-product construction a symmetric-power argument; the proof here specifies products indexed by k-element subsets, that is the exterior-power polynomial.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Lemma 2.1, p. 4.) The first step (e₁⁴ ≡ e₁² and 2e₂² ≡ −2e₂ mod 4).
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Lemma 2.1, p. 4.) The first step (e₁⁴ ≡ e₁² and 2e₂² ≡ −2e₂ mod 4).
 
 To prove this, coefficient of X^{n−1}: s₂ = e₁² − 2e₂ and s₄ = e₁⁴ + 2e₂² − 4(e₁²e₂ − e₁e₃ + e₄) (Newton), so s₄ − s₂ ≡ e₁²(e₁² − 1) + 2e₂(e₂ + 1) ≡ 0 (mod 4) for integers eᵢ (e₁²(e₁² − 1) ≡ 0 mod 4 in both parities, e₂(e₂ + 1) is even).
 
@@ -12940,7 +12959,7 @@ Let P ∈ ℤ[X] be monic irreducible of degree n > 1 with P₂ not a perfect sq
 
 P irreducible and P₂ not a square; then P₂ is irreducible (P₂ = (minpoly α²)^{[ℚ(α):ℚ(α²)]} with exponent 1 or 2, API rootPowPoly_eq_minpoly_pow), a step the source leaves implicit . The source odd-level condition is false: P=Φ₆ has P₂=P₄=Φ₃ and P₂ is not a square. Under the standing nonsquare hypothesis the correct cyclotomic levels have 4 ∤ N. This includes odd N and twice an odd N.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Lemma 2.3, p. 5 (arXiv v1).) The equivalence after correcting (i) to cyclotomic of level N with 4∤N; Φ₆ disproves the printed odd-level restriction. The non-square-to-irreducible step uses API rootPowPoly_eq_minpoly_pow and the cyclotomic levels API rootPowPoly_two_cyclotomic of [The polynomial P_m = ∏(X − αᵢ^m)](#layer-6-topic-13).
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Lemma 2.3, p. 5 (arXiv v1).) The equivalence after correcting (i) to cyclotomic of level N with 4∤N; Φ₆ disproves the printed odd-level restriction. The non-square-to-irreducible step uses API rootPowPoly_eq_minpoly_pow and the cyclotomic levels API rootPowPoly_two_cyclotomic of [The polynomial P_m = ∏(X − αᵢ^m)](#layer-6-topic-13).
 
 To prove this, (i) ⇒ (ii): if N is odd then P₂=P₄=Φ_N; if N=2M with M odd then P₂=P₄=Φ_M. Thus the equality holds whenever 4∤N (API rootPowPoly_two_cyclotomic).
 
@@ -12965,7 +12984,7 @@ To prove this, (i) ⇒ (ii): if N is odd then P₂=P₄=Φ_N; if N=2M with M odd
 
 Let d ≥ 2 and f(x) = x^d on P¹. For every α (in a field of characteristic 0), d^{−n} h(f^{∘n}(α)) = h(α) for all n, so Tate's limit defining the canonical height exists and ĥ_f(α) = h(α), which equals log M(α)/deg α for algebraic α (for transcendental α both sides are Mathlib's junk value 0); also ĥ_f(∞) = 0 = h(∞). Consequently, for algebraic α, ĥ_f(α) = 0 iff α is 0 or a root of unity, and ĥ_f(∞) = 0 (these are the preperiodic points of f), and the dynamical Lehmer problem for f is Lehmer's problem.
 
-d ≥ 2; h is Mathlib's absLogHeight₁ on affine points, h(∞) = 0 (the height of [1 : 0]). ĥ_f(α) denotes Tate's limit lim_{n→∞} d^{−n} h(f^{∘n}(α)), whose existence is part of the statement. The general canonical height of a polarised endomorphism of P¹ belongs to the later roadmap ArithmeticDynamics (DY.1), which imports this computation as its power-map instance; nothing from DY.1 is used here.
+d ≥ 2; h is Mathlib's absLogHeight₁ on affine points, h(∞) = 0 (the height of [1 : 0]). ĥ_f(α) denotes Tate's limit lim_{n→∞} d^{−n} h(f^{∘n}(α)), whose existence is part of the statement. The general canonical height of a polarised endomorphism of P¹ belongs to ArithmeticDynamics, which can use this computation as its power-map instance; nothing from that roadmap is used here.
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 12, printed pp. 338-339.) Tate's limit definition of the canonical height, which the result evaluates for the power map.
 
@@ -12975,7 +12994,7 @@ To prove this, f^{∘n}(α) = α^{d^n} and h(α^{d^n}) = dⁿ h(α) ([h(αⁿ) =
 
 Its limit is h(α), so ĥ_f = h on P¹(Q̄), with ĥ_f(∞) = h(∞) = 0. In particular h satisfies ĥ∘f = d·ĥ and ĥ − h = 0, the two properties that characterise the canonical height of a polarised morphism; this is how the later general theory recognises the computation, and it is not an input here.
 
-h(α) = log M(α)/deg α (DiophantineApproximationAndTranscendence:DT.0/height-comparisons).
+h(α) = log M(α)/deg α (TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2).
 
 Zero height: [Kronecker's theorem for the Weil height](#layer-6-topic-16). (The general zero-height criterion for canonical heights rests on Northcott, which for a fixed number field is Mathlib's NumberField.finite_setOfPred_mulHeight₁_le; for the power map Kronecker gives it directly.)
 
@@ -12994,7 +13013,7 @@ Specify the projective carrier and both charts. For a characteristic-zero field 
 - `[2:1]=[4:2]` has height log 2 and its square-map image is `[4:1]`, of height `2 log 2`.
 - `[0:1]` has height zero and is fixed; `[i:1]` is preperiodic, whereas `[2:1]` has positive height and is not preperiodic. The pair `[0:0]` is outside Projectivization.
 
-*Needs:* [h(αⁿ) = n·h(α) for the absolute Weil height](#layer-6-topic-15); [Kronecker's theorem for the Weil height](#layer-6-topic-16); [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `NumberField.absLogHeight₁`; Mathlib `NumberField.finite_setOfPred_mulHeight₁_le`.
+*Needs:* [h(αⁿ) = n·h(α) for the absolute Weil height](#layer-6-topic-15); [Kronecker's theorem for the Weil height](#layer-6-topic-16); [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `NumberField.absLogHeight₁`; Mathlib `NumberField.finite_setOfPred_mulHeight₁_le`.
 
 <a id="layer-6-topic-38"></a>
 
@@ -13181,7 +13200,7 @@ For a sequence a over a field k, PowerSeries.mk a is rational in the sense of [T
 
 k is a field; no characteristic-zero hypothesis is needed for this algebraic criterion.
 
-(Aitor Iribar López, [The Carlson-Pólya theorem on rational functions](#reference-iribar-kronecker), §2, Theorem 1 and proof, pp. 2–3.) Eventual vanishing of all leading Hankel determinants characterizes rational formal series. The proof is used with the sign, index and recurrence corrections recorded under sourceIssues.
+(Aitor Iribar López, [The Carlson-Pólya theorem on rational functions](#reference-iribar-kronecker), §2, Theorem 1 and proof, pp. 2–3.) Eventual vanishing of all leading Hankel determinants characterizes rational formal series. The proof is used with corrections to its signs, indices and recurrence.
 
 (Françoise Bertrandias, [Diamètre transfini dans un corps valué. Application au prolongement analytique](#reference-bertrandias-1964), §2.1, p. 6, and §3.1, proof, p. 12.) Bertrandias calls det(u_(h+k)) the Kronecker determinant (§2.1) and concludes rationality from its eventual vanishing (§3.1) without restating the criterion; the theorem of §2.1 is the non-archimedean growth bound, not this criterion.
 
@@ -13286,9 +13305,9 @@ The supporting API comprises:
 - `plasticNumber_not_isConjRoot_inv`: θ₀ is not conjugate to θ₀⁻¹ (it is nonreciprocal).
 - `mahlerMeasure_plasticNumber`: Mathlib's Mahler measure of X³ − X − 1 mapped to ℂ[X] equals θ₀.
 
-(Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 5.1, (15), printed p. 328.) The definition (the real root of z³ − z − 1) and the nonreciprocity API item.
+(Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 5.1, (15), printed p. 328.) The definition (the real root of z³ − z − 1) and `plasticNumber_not_isConjRoot_inv`.
 
-(Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Section 3.1, p. 7 (arXiv v3).) θ₀ as a Pisot number; the unit test lehmerNumber.test_lt_plasticNumber.
+(Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Section 3.1, p. 7 (arXiv v3).) θ₀ as a Pisot number, and the comparison τ₁₀ < θ₀ of the Checks of [Lehmer's number τ₁₀](#layer-6-topic-5).
 
 To prove this, define θ₀ := sup {x ∈ ℝ : x³ − x − 1 = 0}.
 
@@ -13339,7 +13358,7 @@ p ≠ 1, so α = 0 or a root of unity ([If α^k and α^l are conjugate (k ≠ l)
 - d = 2: every quadratic non-torsion algebraic integer has ⌈α⌉ > 1 + 1/(16e) = 1.0230; e.g. ⌈φ⌉ = 1.618.
 - Lehmer's number (d = 10): 1.176 > 1 + 1/(400e) = 1.00092.
 
-*Needs:* [Power sums of roots: s_{np} ≡ s_n (mod p)](#layer-6-topic-32); [Power sums determine a multiset in characteristic zero](#layer-6-topic-9); [If α^k and α^l are conjugate (k ≠ l) then α is 0 or a root of unity](#layer-6-topic-10); Mathlib `Nat.exists_prime_lt_and_le_two_mul`; Mathlib `Real.add_one_le_exp`; [DiophantineApproximationAndTranscendence, `DT.0/house-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+*Needs:* [Power sums of roots: s_{np} ≡ s_n (mod p)](#layer-6-topic-32); [Power sums determine a multiset in characteristic zero](#layer-6-topic-9); [If α^k and α^l are conjugate (k ≠ l) then α is 0 or a root of unity](#layer-6-topic-10); Mathlib `Nat.exists_prime_lt_and_le_two_mul`; Mathlib `Real.add_one_le_exp`; [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height).
 
 <a id="layer-6-topic-50"></a>
 
@@ -13349,11 +13368,11 @@ Let Q ∈ ℤ[X] with Q(0) = 1 and Q a square modulo 4 (Q = U² + 4V with U, V �
 
 Q(0) = 1.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proposition 2.2 and its proof, p. 4 (arXiv v1).) Exactly the statement.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proposition 2.2 and its proof, p. 4 (arXiv v1).) Exactly the statement.
 
 To prove this, from Q(0)=U(0)²+4V(0)=1, U(0) is odd; it need not equal ±1 (U=3,V=−2,Q=1 is a counterexample). Put k=(1−U(0))/2, U′=U+2k and V′=V−kU−k². Then Q=U′²+4V′, U′(0)=1 and V′(0)=0. Use U′,V′ in the following steps.
 
-U′ is a unit of ℤ⟦X⟧ because U′(0)=1. Put Y=V′/(U′)², whose constant term is zero, and substitute Y into the integral series T of sqrt-one-add-four-integral. Define S=U′·T(Y).
+U′ is a unit of ℤ⟦X⟧ because U′(0)=1. Put Y=V′/(U′)², whose constant term is zero, and substitute Y into the integral series T of [√(1 + 4Y) has integer coefficients](#layer-6-topic-14). Define S=U′·T(Y).
 
 The substitution identity gives S²=(U′)²(1+4V′/(U′)²)=Q; its constant term is U′(0)·T(0)=1.
 
@@ -13384,7 +13403,7 @@ The supporting API comprises:
 
 (C. J. Smyth, [On the Product of the Conjugates outside the unit circle of an Algebraic Integer](#reference-smyth-1971), §3, pp. 171–172, root-product quotient and (3).) The two bounded root products have the same positive constant, the inverse Mahler measure.
 
-(C. J. Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-survey-2008), §5.1, published pp. 328–329.) Smyth’s own outline: F=P(0)P(z)/(z^dP(1/z)) has integer Maclaurin coefficients, is nonconstant for nonreciprocal P, and is a quotient f/g of two functions bounded by 1 on the disc with f(0)=g(0)=M(P)⁻¹, whose coefficients obey Schur’s conditions.
+(C. J. Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), §5.1, published pp. 328–329.) Smyth’s own outline: F=P(0)P(z)/(z^dP(1/z)) has integer Maclaurin coefficients, is nonconstant for nonreciprocal P, and is a quotient f/g of two functions bounded by 1 on the disc with f(0)=g(0)=M(P)⁻¹, whose coefficients obey Schur’s conditions.
 
 To prove this, use b_α for roots α of P inside the disc to form f, and b_(α⁻¹) for roots α of P outside the disc to form g, with multiplicities. Work with the scalar formula (z−α)/(1−conj(α)z) of the pinned disc factor: for |α|<1 its denominator does not vanish on |z|<1/|α|, so hasDerivAt_unitDiscMoebiusFormula gives holomorphy on a neighbourhood of the closed disc, and Complex.hasSum_taylorSeries_on_ball gives the Taylor coefficients of the products.
 
@@ -13433,7 +13452,7 @@ If K⊆ℂ is nonempty compact and P∈ℂ[X] is monic of degree m≥1, then P�
 
 P monic and m≥1; inverse image means P(z)∈K, an existential membership condition.
 
-(Françoise Bertrandias, [Diamètre transfini dans un corps valué. Application au prolongement analytique](#reference-bertrandias-1964), 1.4.5 and its Application, p. 2.) The monic degree-m inverse-image law raises the diameter to the power 1/m; the set-membership quantifier is corrected in sourceIssues.
+(Françoise Bertrandias, [Diamètre transfini dans un corps valué. Application au prolongement analytique](#reference-bertrandias-1964), 1.4.5 and its Application, p. 2.) The monic degree-m inverse-image law raises the diameter to the power 1/m; its set-membership quantifier is misprinted and is corrected here.
 
 (E. B. Saff, [Logarithmic Potential Theory with Applications to Approximation Theory](#reference-saff-2010), exercise after Theorem 1.18, p. 178.) The lemniscate case: a set {|P|≤Rⁿ} with P monic of degree n has capacity R.
 
@@ -13547,7 +13566,7 @@ The supporting API comprises:
 - `hedgehogSqrt_at_infinity`: G tends to 1 as |z| tends to infinity.
 - `hedgehogSqrt_coeff_unique`: The formal square equation and constant coefficient 1 uniquely determine S.
 - `hedgehogSqrt_continuation`: The convergent Laurent germ of G has exactly the coefficients of that formal S.
-- `hedgehogSqrt_integer_import`: When the normalized square equation is supplied by the parent’s integer-series construction, the complex coefficients equal its integer casts.
+- `hedgehogSqrt_integer_import`: When the normalized square equation is supplied by the integer-series construction of [Square roots with integer coefficients (Dimitrov Proposition 2.2)](#layer-6-topic-50), the complex coefficients equal its integer casts.
 
 (Vesselin Dimitrov, [A proof of the Schinzel–Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), §4, proof of Theorem 1, p. 15.) The cuts join 0 to the roots of P₂ and P₄, making the normalized square root single-valued outside their hedgehog.
 
@@ -13603,7 +13622,7 @@ No numerical root finding: the certificate is the table of values of Q(y) = y⁵
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 8.1, printed p. 335.) Same statement, with the Mahler measure.
 
-To prove this, α₁₀ = τ₁₀ + τ₁₀⁻¹ is a root of the monic integer polynomial Q (API item lehmerNumber_add_inv_isRoot); the other four roots of Q lie in (−2, 2) by the sign changes, so every other conjugate of α₁₀ (a root of minpoly ℤ α₁₀, which divides Q) is real in (−2, 2).
+To prove this, α₁₀ = τ₁₀ + τ₁₀⁻¹ is a root of the monic integer polynomial Q (`lehmerNumber_add_inv_isRoot`); the other four roots of Q lie in (−2, 2) by the sign changes, so every other conjugate of α₁₀ (a root of minpoly ℤ α₁₀, which divides Q) is real in (−2, 2).
 
 α₁₀ ∈ (2, 21/10) is not an integer, hence irrational (an algebraic integer that is rational is an integer).
 
@@ -13621,27 +13640,27 @@ minpoly ℤ α₁₀ = Q: Q has no rational root (the candidates ±1, ±3 are no
 
 ### 6.60 Dobrowolski's lower bound for the Mahler measure
 
-Let α be a nonzero algebraic number of degree d ≥ 2 that is not a root of unity. Then M(α) ≥ 1 + (1/11700)·(log log d / log d)³. Here M(α) is the Mahler measure of the primitive minimal polynomial (DT.0), equal to absMulHeight₁(α)^d; equivalently d·h(α) ≥ log(1 + (1/11700)(log log d/log d)³).
+Let α be a nonzero algebraic number of degree d ≥ 2 that is not a root of unity. Then M(α) ≥ 1 + (1/11700)·(log log d / log d)³. Here M(α) is the Mahler measure of the primitive minimal polynomial (TauCetiRoadmap.DiophantineApproximationAndTranscendence §§0.1–0.2), equal to absMulHeight₁(α)^d; equivalently d·h(α) ≥ log(1 + (1/11700)(log log d/log d)³).
 
-d ≥ 2 (for d = 2 the right-hand side is below 1, since log log 2 < 0, and the statement is immediate). The constant 1/11700 is the one the source read proves; Dobrowolski's own constant 1/1200 and Voutier's 1/4 (Smyth's survey, (11) and Section 4.2) are proved in papers not read here and are not targets of this result.
+d ≥ 2 (for d = 2 the right-hand side is below 1, since log log 2 < 0, and the statement is immediate). The constant 1/11700 is the one Berrevoets proves; Dobrowolski's own constant 1/1200 and Voutier's 1/4 (Smyth's survey, (11) and Section 4.2) are stronger and are not targets of this result.
 
 (O. B. Berrevoets, [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](#reference-berrevoets-lehmer-2016), Theorem 4.1, printed p. 15.) The constant and statement agree. The proof sketch supplies degree padding, the N+1 correction in the sum bound, and an independent calculation with the rounded M that still yields 1/11700; it does not assert a proof of the remaining supplier inputs.
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 4.2, (11), printed p. 326.) The original constant, not proved in the sources read.
 
-To prove this, non-integral α: the leading coefficient a₀ ≥ 2 of the primitive minimal polynomial gives M(α) ≥ 2 (DT.0 API leadingCoeff_le_mahlerMeasure) . Assume α integral.
+To prove this, non-integral α: the leading coefficient a₀ ≥ 2 of the primitive minimal polynomial gives M(α) ≥ 2 (`leadingCoeff_le_mahlerMeasure` of TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.2) . Assume α integral.
 
 d ≤ 20: M(α) ≥ ⌈α⌉ > 1 + 1/(4ed²) ≥ 1 + 1/(4e·400) > 1 + (1/11700)(1/e)³ ≥ the bound, since log log x/log x ≤ 1/e ([Dobrowolski's house bound ⌈α⌉ > 1 + 1/(4ed²)](#layer-6-topic-49), [Mahler measure versus house](#layer-6-topic-6)).
 
 If deg αⁿ < d for some n, pass to β of [Reduction when a power of α has smaller degree](#layer-6-topic-11) and use strong induction on d: for deg β ≥ 21 the bound is non-increasing in the degree (log log x/log x decreases for x ≥ e^e), for 2 ≤ deg β ≤ 20 use the previous step, for deg β = 1 M(β) = |β| ≥ 2 . Assume deg αⁿ = d for all n ≥ 1.
 
-d ≥ 21: M := ⌈7 log d/log log d⌉ (≥ 20), N := dM². [Dobrowolski's auxiliary polynomial](#layer-6-topic-12) gives F; [A prime p with F(α^p) ≠ 0 in a dyadic range](#layer-6-topic-34) gives a prime p ∈ (3M² log M², 6M² log M²] with F(α^p) ≠ 0. Replace F by X^(N−natDegree F)·F so its degree is exactly N before invoking exists-prime-power-not-root. Since α≠0, this preserves the zero multiplicity, coefficient maximum, and nonvanishing at each α^p.
+d ≥ 21: M := ⌈7 log d/log log d⌉ (≥ 20), N := dM². [Dobrowolski's auxiliary polynomial](#layer-6-topic-12) gives F; [A prime p with F(α^p) ≠ 0 in a dyadic range](#layer-6-topic-34) gives a prime p ∈ (3M² log M², 6M² log M²] with F(α^p) ≠ 0. Replace F by X^(N−natDegree F)·F so its degree is exactly N before invoking [A prime p with F(α^p) ≠ 0 in a dyadic range](#layer-6-topic-34). Since α≠0, this preserves the zero multiplicity, coefficient maximum, and nonvanishing at each α^p.
 
 Upper bound: |N(F(α^p))| ≤ ‖F‖^d M(α)^{pN} (each |F(σ_k α^p)| ≤ ‖F‖ max(1, |σ_k α|)^{pN}).
 
 Lower bound: F = f_α^M g with g ∈ ℤ[X], so N(F(α^p)) = N(f_α(α^p))^M N(g(α^p)) is a nonzero integer divisible by p^{dM} ([N(f_α(α^p)) is divisible by p^d](#layer-6-topic-33)).
 
-Using ||F||_1 <= (N+1)*max_i|F_i| gives (2M+pM^2)log M(alpha) >= M log p-log(N+1)-2 log N. Put u=log log d and L=log d/u. For d>=21, elementary differentiation shows (d-1)log log d/log d is increasing, while 7 log 21/log log 21<20; hence M=ceil(7L)<=d-1. Also L is increasing on this range and 7 log 21/log log 21>19, so M>=20. Since L>=e, M<=7L+1<=(7+1/e)L. It follows that N+1<=d^3 and log(N+1)+2 log N<=9 log d. The inequality log u<=u/7+log 7-1 gives log M>=log 7+u-log u>=6u/7+1, and 9 log d<=(3/2)M log M. The prime range gives log p>2 log M and p<=12M^2 log M. The numerator is therefore >=(1/2)M log M, and 2M+pM^2<=13M^4 log M. Thus log M(alpha)>=1/(26M^3) >=(u/log d)^3/[26(7+1/e)^3]>(u/log d)^3/11700, because e>2 and 26*(15/2)^3=10968.75<11700. These elementary inequalities discharge the former rounding/constant obligation at target level; the separate prime-count and Siegel inputs remain honestly conditional.
+Using ||F||_1 <= (N+1)*max_i|F_i| gives (2M+pM^2)log M(alpha) >= M log p-log(N+1)-2 log N. Put u=log log d and L=log d/u. For d>=21, elementary differentiation shows (d-1)log log d/log d is increasing, while 7 log 21/log log 21<20; hence M=ceil(7L)<=d-1. Also L is increasing on this range and 7 log 21/log log 21>19, so M>=20. Since L>=e, M<=7L+1<=(7+1/e)L. It follows that N+1<=d^3 and log(N+1)+2 log N<=9 log d. The inequality log u<=u/7+log 7-1 gives log M>=log 7+u-log u>=6u/7+1, and 9 log d<=(3/2)M log M. The prime range gives log p>2 log M and p<=12M^2 log M. The numerator is therefore >=(1/2)M log M, and 2M+pM^2<=13M^4 log M. Thus log M(alpha)>=1/(26M^3) >=(u/log d)^3/[26(7+1/e)^3]>(u/log d)^3/11700, because e>2 and 26*(15/2)^3=10968.75<11700. These elementary inequalities give the constant 1/11700; the prime-count and Siegel inputs are the prerequisites named above.
 
 Finally M(α) ≥ 1 + log M(α).
 
@@ -13650,7 +13669,7 @@ Finally M(α) ≥ 1 + log M(α).
 - d = 10 (Lehmer): the bound 1 + (1/11700)(log log 10/log 10)³ = 1.0000041 is below M(τ₁₀) = 1.176.
 - d = 21: the bound is 1 + (1/11700)(0.3657)³ = 1.0000042; the proof's choice is M = 20, N = 8400.
 
-*Needs:* [Dobrowolski's house bound ⌈α⌉ > 1 + 1/(4ed²)](#layer-6-topic-49); [Mahler measure versus house](#layer-6-topic-6); [Reduction when a power of α has smaller degree](#layer-6-topic-11); [Dobrowolski's auxiliary polynomial](#layer-6-topic-12); [A prime p with F(α^p) ≠ 0 in a dyadic range](#layer-6-topic-34); [N(f_α(α^p)) is divisible by p^d](#layer-6-topic-33); [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `Algebra.norm_eq_prod_roots`; Mathlib `Real.add_one_le_exp`.
+*Needs:* [Dobrowolski's house bound ⌈α⌉ > 1 + 1/(4ed²)](#layer-6-topic-49); [Mahler measure versus house](#layer-6-topic-6); [Reduction when a power of α has smaller degree](#layer-6-topic-11); [Dobrowolski's auxiliary polynomial](#layer-6-topic-12); [A prime p with F(α^p) ≠ 0 in a dyadic range](#layer-6-topic-34); [N(f_α(α^p)) is divisible by p^d](#layer-6-topic-33); [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height); Mathlib `Algebra.norm_eq_prod_roots`; Mathlib `Real.add_one_le_exp`.
 
 <a id="layer-6-topic-61"></a>
 
@@ -13683,9 +13702,9 @@ When l=2k, the inverse quotient has coefficient a_k²−a_(2k)=1−a_(2k). The v
 
 Let f,g be the bounded real-coefficient products in the Schur reduction. Assume 3/4≤c<(√17−1)/4 and k<l<2k. Then 40c⁴−93c²+40≥0. Consequently c³+c²<1 on this interval, equivalently c⁻¹>θ₀.
 
-The strict upper endpoint is the reciprocal of (1+√17)/4. Its arithmetic justification is supplied separately. This node records the exact source-supported target; its weighted three-term multiplier verification is named in gaps.
+The strict upper endpoint is the reciprocal of (1+√17)/4. Its arithmetic justification is supplied separately. The weighted three-term multiplier verification is the source obligation stated below.
 
-(C. J. Smyth, [On the Product of the Conjugates outside the unit circle of an Algebraic Integer](#reference-smyth-1971), §4, pp. 172–174, final quartic condition on p. 173.) The first gap smaller than k forces the stated quartic condition, which excludes the plastic threshold. Intermediate displayed multiplier formulas are not available in a readable displayed form.
+(C. J. Smyth, [On the Product of the Conjugates outside the unit circle of an Algebraic Integer](#reference-smyth-1971), §4, pp. 172–174, final quartic condition on p. 173.) The first gap smaller than k forces the stated quartic condition, which excludes the plastic threshold. The intermediate multiplier formulas of that section are the marked input of this subsection.
 
 To prove this, interchange the quotient and pair to set a_k=1; because l<2k the second coefficient remains a sign and its index remains l.
 
@@ -13741,7 +13760,7 @@ The supporting API comprises:
 - `lemniscateEnclosure_monic_basis`: Q_(qm+s)=P^q X^s is monic of degree qm+s and obeys the common exponential bound.
 - `lemniscateEnclosure_contour_bound`: For continuous G on ∂L there is B with |(2πi)⁻¹∮_(∂L)GQ_iQ_j dz|≤Bρ^(i+j).
 
-(Françoise Bertrandias, [Diamètre transfini dans un corps valué. Application au prolongement analytique](#reference-bertrandias-1964), 1.4.6, p. 2; §2.6, pp. 10–12.) 1.4.6 encloses a bounded set in a polynomial lemniscate of nearly the same diameter (its multiplicative form fails for diameter zero; see sourceIssues), and §2.6 uses such an enclosure and its Chebyshev polynomials in the non-archimedean determinant estimate. The additive formulation here includes capacity-zero sets.
+(Françoise Bertrandias, [Diamètre transfini dans un corps valué. Application au prolongement analytique](#reference-bertrandias-1964), 1.4.6, p. 2; §2.6, pp. 10–12.) 1.4.6 encloses a bounded set in a polynomial lemniscate of nearly the same diameter (its multiplicative form fails for diameter zero; the additive form is used here), and §2.6 uses such an enclosure and its Chebyshev polynomials in the non-archimedean determinant estimate. The additive formulation here includes capacity-zero sets.
 
 (Vesselin Dimitrov, [A proof of the Schinzel–Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), §4, proof of Theorem 4, pp. 13–14.) Chebyshev polynomials on a boundary enclosing the singularity set provide the n²-growth estimate.
 
@@ -13794,7 +13813,7 @@ K generated by a Salem number.
 
 (Chris Smyth, [Seventy years of Salem numbers](#reference-smyth-salem-survey-2015), Proposition 3(iii) and its proof, p. 4 (arXiv v3).) Exactly the statement; the finiteness step is the source's remark that the minimal polynomials can take only finitely many values.
 
-To prove this, the Salem numbers of K below τ are finitely many: they are algebraic integers of degree ≤ [K : ℚ] all of whose conjugates have modulus ≤ τ (Northcott for the house, DiophantineApproximationAndTranscendence:DT.0/finite-algebraic-integers-house-le, or Mathlib's NumberField.Embeddings.finite_of_norm_le in K). Let τ₁ be the smallest.
+To prove this, the Salem numbers of K below τ are finitely many: they are algebraic integers of degree ≤ [K : ℚ] all of whose conjugates have modulus ≤ τ (Northcott for the house, TauCetiRoadmap.DiophantineApproximationAndTranscendence §0.3, or Mathlib's NumberField.Embeddings.finite_of_norm_le in K). Let τ₁ be the smallest.
 
 Powers of τ₁ are Salem numbers in K ([Powers of a Salem number](#layer-6-topic-25)). (Equivalently: a Salem number τ′ ≤ τ has M(τ′) = τ′ ≤ τ and degree ≤ [K : ℚ], and Polynomial.finite_mahlerMeasure_le leaves finitely many minimal polynomials.)
 
@@ -13804,32 +13823,32 @@ For a Salem number τ′ ∈ K we have τ′ ≥ τ₁, so choose r ≥ 1 with �
 
 - For the quartic example τ = 2.1537…, the Salem numbers of ℚ(τ) are the τⁿ, n ≥ 1, τ being the smallest one (Smyth, p. 13); the reciprocal quadratic unit τ + τ⁻¹ = (3 + √5)/2 ∈ ℚ(τ) is not among them.
 
-*Needs:* [Powers of a Salem number](#layer-6-topic-25); [Salem numbers inside ℚ(τ)](#layer-6-topic-58); [DiophantineApproximationAndTranscendence, `DT.0/finite-algebraic-integers-house-le`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md); Mathlib `NumberField.Embeddings.finite_of_norm_le`; Mathlib `Polynomial.finite_mahlerMeasure_le`.
+*Needs:* [Powers of a Salem number](#layer-6-topic-25); [Salem numbers inside ℚ(τ)](#layer-6-topic-58); [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.3 Finiteness and size estimates](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#03-finiteness-and-size-estimates); Mathlib `NumberField.Embeddings.finite_of_norm_le`; Mathlib `Polynomial.finite_mahlerMeasure_le`.
 
 <a id="layer-6-topic-67"></a>
 
 ### 6.67 The analytic input for Smyth’s theorem
 
-Let P∈ℤ[X] be monic irreducible, P(0)=±1, P.reverse≠±P, and M(P)≤4/3. Then M(P)³−M(P)−1≥0. This supplies the missing analytic dependency of [Smyth's theorem: M(α) ≥ θ₀ for nonreciprocal α](#layer-6-topic-70); the parent’s reductions for non-units and the plastic-number certificate remain its arithmetic dependencies.
+Let P∈ℤ[X] be monic irreducible, P(0)=±1, P.reverse≠±P, and M(P)≤4/3. Then M(P)³−M(P)−1≥0. This supplies the missing analytic dependency of [Smyth's theorem: M(α) ≥ θ₀ for nonreciprocal α](#layer-6-topic-70); the reduction for non-units and the plastic-number certificate remain arithmetic steps of that theorem.
 
 Positive degree, irreducibility and nonreciprocity exclude unit-circle roots: conjugation followed by inversion would otherwise make P reciprocal.
 
 (C. J. Smyth, [On the Product of the Conjugates outside the unit circle of an Algebraic Integer](#reference-smyth-1971), Main theorem, p. 169; §§3–5, pp. 171–175.) The integral quotient and the two coefficient cases produce the nonreciprocal lower bound.
 
-(C. J. Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-survey-2008), §5.1, (15), published p. 328, and the outline on pp. 328–329.) States the bound M(α)≥θ₀ for nonreciprocal algebraic integers and outlines its proof through the bounded quotient f/g and Schur’s conditions.
+(C. J. Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), §5.1, (15), published p. 328, and the outline on pp. 328–329.) States the bound M(α)≥θ₀ for nonreciprocal algebraic integers and outlines its proof through the bounded quotient f/g and Schur’s conditions.
 
-To prove this, use the bounded factorization and the integral quotient from the parent. Their common positive constant c=M(P)⁻¹ lies in [3/4,1); if c=1, the positive Schur coefficients vanish and F is constant.
+To prove this, use the bounded factorization and the integral quotient of [Smyth’s bounded holomorphic quotient](#layer-6-topic-51). Their common positive constant c=M(P)⁻¹ lies in [3/4,1); if c=1, the positive Schur coefficients vanish and F is constant.
 
 The first-coefficient reduction and monic Mahler integrality give c<(√17−1)/4.
 
 For k<l<2k use the short-gap quartic condition and its strict comparison with θ₀. For l≥2k use the inverse-series normalization and the long-gap cubic condition.
 
-Translate c³+c²≤1 into M(P)³−M(P)−1≥0. The increasing cubic on [1,∞) gives the parent’s sharp bound. No equality classification or isolated-spectrum theorem is added.
+Translate c³+c²≤1 into M(P)³−M(P)−1≥0. The increasing cubic on [1,∞) gives Smyth's sharp bound. No equality classification or isolated-spectrum theorem is added.
 
 **Checks.**
 
 - The reciprocal polynomial X²−3X+1 is excluded even though its factorization exists.
-- The target inherits the precise short-gap verification gap; it is not marked closed.
+- The result depends on the short-gap inequality of [The quartic condition in Smyth’s short-gap case](#layer-6-topic-62), whose source verification is still open.
 
 **Unverified source input.** The analytic lower bound also requires the multiplier identities of the short-gap condition, with all shifted Schur compressions and the range `3/4≤c<(√17-1)/4`, `k<l<2k`. The survey’s outline does not supply those identities; use the explicit obligation in the short-gap subsection before deriving the endpoint inequality.
 
@@ -13894,7 +13913,7 @@ Let α be a nonzero algebraic integer that is not conjugate to α⁻¹. Then M(�
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 5.1, printed p. 328.) The outline given in the proof steps; the Schur-coefficient analysis is not in the survey.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Theorem 1, p. 15 (arXiv v1).) The house form ⌈α⌉ ≥ θ₀^{1/n}, the consequence via [⌈α⌉ ≥ 1 + h(α)](#layer-6-topic-30).
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Theorem 1, p. 15 (arXiv v1).) The house form ⌈α⌉ ≥ θ₀^{1/n}, the consequence via [⌈α⌉ ≥ 1 + h(α)](#layer-6-topic-30).
 
 To prove this, if α is not a unit, |P(0)| ≥ 2 for P = minpoly ℤ α and M(α) ≥ |P(0)| ≥ 2 > θ₀ (Mahler measure ≥ |product of roots|). Assume P(0) = ±1.
 
@@ -13902,9 +13921,9 @@ F = P(0)P/P* ∈ 1 + Xℤ⟦X⟧ is nonconstant ([Smyth's rational function F = 
 
 Factor F = f/g with f, g holomorphic on |z| < 1 and bounded by 1 there: g is the Blaschke product over the roots αᵢ with |αᵢ| > 1 of the factors (z − 1/ᾱᵢ)/(1 − z/αᵢ) (normalised), f = Fg; then f(0) = g(0) = M(P)⁻¹.
 
-Schur's characterisation of the coefficients of power series bounded by 1 on the disc, combined with the integrality of the coefficients of F = f/g, gives M(P) ≥ θ₀. This analytic step is [The analytic input for Smyth’s theorem](#layer-6-topic-67), through [Schur’s first and doubled-index coefficient conditions](#layer-6-topic-38), [Finite Parseval inequalities for Schur coefficients](#layer-6-topic-39) and the long- and short-gap conditions; the short-gap multipliers of Smyth 1971 (Bull. London Math. Soc. 3, 169-175, not obtained) remain an unverified input.
+Schur's characterisation of the coefficients of power series bounded by 1 on the disc, combined with the integrality of the coefficients of F = f/g, gives M(P) ≥ θ₀. This analytic step is [The analytic input for Smyth’s theorem](#layer-6-topic-67), through [Schur’s first and doubled-index coefficient conditions](#layer-6-topic-38), [Finite Parseval inequalities for Schur coefficients](#layer-6-topic-39) and the long- and short-gap conditions; the short-gap multipliers of Smyth 1971 (Bull. London Math. Soc. 3, 169–175) are a marked input.
 
-Sharpness: M(X³ − X − 1) = θ₀ (API item mahlerMeasure_plasticNumber).
+Sharpness: M(X³ − X − 1) = θ₀ (`mahlerMeasure_plasticNumber`).
 
 **Checks.**
 
@@ -13975,7 +13994,7 @@ Every Pisot number θ satisfies θ ≥ θ₀; θ₀ itself is a Pisot number.
 
 (Varun Srivastava and Sanjay Gollapudi, [Pisot numbers (Euler Circle student paper)](#reference-srivastava-pisot-2018), Section 6, Theorem 12, p. 2.) Same statement (the source's polynomial x³ − x + 1 is a misprint).
 
-To prove this, θ₀ is Pisot (API item isPisot_plasticNumber of [The smallest Pisot number θ₀](#layer-6-topic-48)).
+To prove this, θ₀ is Pisot (`isPisot_plasticNumber` of [The smallest Pisot number θ₀](#layer-6-topic-48)).
 
 If θ is conjugate to θ⁻¹ then θ ≥ (3 + √5)/2 > θ₀ ([Reciprocal Pisot numbers are quadratic units](#layer-6-topic-28)).
 
@@ -13995,21 +14014,21 @@ Degree one: θ = n ≥ 2 > θ₀ (covered by the previous step, n being nonrecip
 
 ### 6.74 The capacity-to-rationality input of Dimitrov’s bound
 
-For n≥1, endpoints β₁,…,β_n, and an integer formal series S with S(0)=1 and S²=∏_i(1−β_i w) after casting to ℂ, if R=max_i|β_i| satisfies R^n<4, then S is rational over ℚ. In the parent Schinzel–Zassenhaus argument use β=(α_i²,α_i⁴), n=2d: if the house H>1 obeys H<2^(1/(4d)), then R≤H⁴ and R^(2d)<4, so this theorem makes the parent’s normalized integral square root rational.
+For n≥1, endpoints β₁,…,β_n, and an integer formal series S with S(0)=1 and S²=∏_i(1−β_i w) after casting to ℂ, if R=max_i|β_i| satisfies R^n<4, then S is rational over ℚ. In the Schinzel–Zassenhaus argument of [Dimitrov's theorem: the Schinzel–Zassenhaus conjecture](#layer-6-topic-75) use β=(α_i²,α_i⁴), n=2d: if the house H>1 obeys H<2^(1/(4d)), then R≤H⁴ and R^(2d)<4, so this theorem makes the normalized integral square root of [Square roots with integer coefficients (Dimitrov Proposition 2.2)](#layer-6-topic-50) rational.
 
-The integer square-root hypothesis is explicit and supplied by the existing parent construction. The displayed house substitution concerns the unit case H>1 used in the parent degree induction.
+The integer square-root hypothesis is explicit and supplied by [Square roots with integer coefficients (Dimitrov Proposition 2.2)](#layer-6-topic-50). The displayed house substitution concerns the unit case H>1 used in the degree induction of [Dimitrov's theorem: the Schinzel–Zassenhaus conjecture](#layer-6-topic-75).
 
 (Vesselin Dimitrov, [A proof of the Schinzel–Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), §4, proof of Theorem 1, pp. 15–16, after Corollary 5.) The strict capacity bound makes the normalized integral square root rational; the algebraic part then forces cyclotomicity or a smaller-degree contradiction.
 
 To prove this, the hedgehog square-root construction gives the exterior development of the integer coefficient casts. Dubinin’s bound and R^n<4 imply d(K)<1. Apply Bertrandias’s rationality criterion.
 
-For a rational square root S of a polynomial, every irreducible factor of that polynomial has even valuation. The normalized reciprocal root product therefore corresponds to a square product P₂P₄ in the parent algebraic argument: P₂*P₄* has degree 2d and constant term 1, so a polynomial S with S²=P₂*P₄* has degree d, and X^dS(1/X) squares to X^(2d)P₂*P₄*(1/X)=P₂P₄; the same reversal goes back.
+For a rational square root S of a polynomial, every irreducible factor of that polynomial has even valuation. The normalized reciprocal root product therefore corresponds to a square product P₂P₄ in the algebraic argument of [Dimitrov's theorem: the Schinzel–Zassenhaus conjecture](#layer-6-topic-75): P₂*P₄* has degree 2d and constant term 1, so a polynomial S with S²=P₂*P₄* has degree d, and X^dS(1/X) squares to X^(2d)P₂*P₄*(1/X)=P₂P₄; the same reversal goes back.
 
-Bind this analytic result to the existing parent degree induction and corrected square-cyclotomic criterion; do not introduce a second Schinzel–Zassenhaus target.
+This analytic result feeds the degree induction of [Dimitrov's theorem: the Schinzel–Zassenhaus conjecture](#layer-6-topic-75) and the corrected square-cyclotomic criterion of [When P₂P₄ is a square (Dimitrov Lemma 2.3)](#layer-6-topic-36); it is not a second Schinzel–Zassenhaus theorem.
 
 **Checks.**
 
-- For d=1 the threshold in the contradiction is H<2^(1/4), and the estimate uses 2d segments, not d. A rational square-root branch does not alone prove cyclotomicity; the parent arithmetic induction is required.
+- For d=1 the threshold in the contradiction is H<2^(1/4), and the estimate uses 2d segments, not d. A rational square-root branch does not alone prove cyclotomicity; the arithmetic induction of [Dimitrov's theorem: the Schinzel–Zassenhaus conjecture](#layer-6-topic-75) is required.
 
 *Needs:* [The square-root branch outside a hedgehog](#layer-6-topic-57); [Dubinin’s radial hedgehog bound](#layer-6-topic-71); [Bertrandias’s integer Laurent rationality criterion](#layer-6-topic-72); [Square roots with integer coefficients (Dimitrov Proposition 2.2)](#layer-6-topic-50); [The polynomial P_m = ∏(X − αᵢ^m)](#layer-6-topic-13); [When P₂P₄ is a square (Dimitrov Lemma 2.3)](#layer-6-topic-36).
 
@@ -14021,9 +14040,9 @@ Let P ∈ ℤ[X] be monic irreducible of degree n > 1 and not cyclotomic. Then P
 
 Cyclotomic means P = Φ_N for some N, i.e. its roots are roots of unity. This settles the Schinzel–Zassenhaus conjecture ⌈α⌉ ≥ 1 + c/d (Smyth's (8)) with c = (log 2)/4 in every degree: 2^{1/(4n)} = exp(log 2/(4n)) > 1 + log 2/(4n) (Real.add_one_le_exp), and in degree 1 a nonzero integer other than ±1 has modulus ≥ 2.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Theorem 1, p. 1 (arXiv v1).) Exactly the statement.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Theorem 1, p. 1 (arXiv v1).) Exactly the statement.
 
-(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-schinzel-zassenhaus-2019), Proof of Theorem 1, pp. 15-16.) The analytic core, whose inputs (Theorem 3 of Dubinin, Corollary 5 of Bertrandias) are the unverified input.
+(Vesselin Dimitrov, [A proof of the Schinzel-Zassenhaus conjecture on polynomials](#reference-dimitrov-2019), Proof of Theorem 1, pp. 15-16.) The analytic core, whose inputs (Theorem 3 of Dubinin, Corollary 5 of Bertrandias) are the unverified input.
 
 (Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 3, (8), printed p. 325.) The conjecture that the theorem settles.
 
@@ -14031,7 +14050,7 @@ To prove this, suppose all roots have modulus < 2^{1/(4n)}. Reverse: P* = ∏(1 
 
 f(1/X) := √(P₂*(1/X) P₄*(1/X)) ∈ ℤ⟦1/X⟧ ([Square roots with integer coefficients (Dimitrov Proposition 2.2)](#layer-6-topic-50)).
 
-f continues analytically to the complement of the hedgehog K = union of the segments [0, αᵢ²], [0, αᵢ⁴], whose transfinite diameter is ≤ (max|αᵢ|^{8n}/4)^{1/(2n)} < 1 by Dubinin's theorem ([Finite Fekete diameters and transfinite diameter](#layer-6-topic-18) and [Dubinin’s radial hedgehog bound](#layer-6-topic-71); the development is [The hedgehog square-root continuation](#layer-6-topic-57) and the rationality [Bertrandias’s integer Laurent rationality criterion](#layer-6-topic-72)).
+f continues analytically to the complement of the hedgehog K = union of the segments [0, αᵢ²], [0, αᵢ⁴], whose transfinite diameter is ≤ (max|αᵢ|^{8n}/4)^{1/(2n)} < 1 by Dubinin's theorem ([Finite Fekete diameters and transfinite diameter](#layer-6-topic-18) and [Dubinin’s radial hedgehog bound](#layer-6-topic-71); the development is [The square-root branch outside a hedgehog](#layer-6-topic-57) and the rationality [Bertrandias’s integer Laurent rationality criterion](#layer-6-topic-72)).
 
 By Bertrandias's rationality theorem (Pólya–Carlson type: an integer power series in 1/X analytic off a compact set of transfinite diameter < 1 is rational; gap) f is rational, so P₂P₄ is a square.
 
@@ -14067,13 +14086,19 @@ For a finite family of nonzero integer polynomials Q_k, positive real weights a_
 - A constant auxiliary polynomial 2 has resultant `2^degree(α)` and a nonnegative logarithmic contribution.
 - With Q=P the resultant is zero and the coprimality hypothesis fails; this is the negative control against silently taking log zero.
 
-*Needs:* the height and algebraic-degree interfaces of DiophantineApproximationAndTranscendence DT.0; Mathlib minimal polynomials, conjugates, algebraic trace and polynomial resultants; the root multiplicity convention of Layer 3. The supremum and resultant comparison are README constructions and theorem targets.
+*Needs:* the height and algebraic-degree interfaces of TauCetiRoadmap.DiophantineApproximationAndTranscendence §§0.1–0.3; Mathlib minimal polynomials, conjugates, algebraic trace and polynomial resultants; the root multiplicity convention of Layer 3. The supremum and resultant comparison are README constructions and theorem targets.
 
 <a id="layer-6-topic-77"></a>
 
 ### 6.77 Asymptotic Dobrowolski bounds and exceptional powering primes
 
-**Unverified source input.** The random-polynomial application needs `asymptoticDobrowolskiBound`: there are absolute constants C≥1 and c≥1 such that each monic irreducible noncyclotomic D∈ℤ[X] with D(0)≠0 and degree m≥1 satisfies `M(D)≥exp(1/L(m))`, where `L(m)=2*(log m/log log m)^3` for m>C and `L(m)=c` for 1≤m≤C. Choose C large enough that both logarithms in the asymptotic expression are positive. The constant `1/11700` in the earlier bound does not imply this strength. The bounded-degree completion uses finiteness of bounded-Mahler-measure integer polynomials and the exclusion of zero and cyclotomic factors. Bary-Soroker–Koukoulopoulos–Kozma, §7, p. 37, invokes Dobrowolski; its printed factor 1/2 in L is corrected here to 2, as required by the asymptotic inequality.
+State `asymptoticDobrowolskiBound`: there are absolute constants C≥1 and c≥1 such that each monic irreducible noncyclotomic D∈ℤ[X] with D(0)≠0 and degree m≥1 satisfies `M(D)≥exp(1/L(m))`, where `L(m)=2*(log m/log log m)^3` for m>C and `L(m)=c` for 1≤m≤C. Choose C large enough that both logarithms in the asymptotic expression are positive. The bounded-degree completion uses finiteness of bounded-Mahler-measure integer polynomials and the exclusion of zero and cyclotomic factors.
+
+(Chris Smyth, [The Mahler measure of algebraic numbers: a survey](#reference-smyth-mahler-survey-2008), Section 4.2, printed p. 326.) Dobrowolski's asymptotic bound M(α) > 1 + (1 − ε)(log log d/log d)³ for d ≥ d₀(ε). With ε = 1/4 and log(1 + y) ≥ y − y²/2 it gives log M(D) ≥ (1/2)(log log m/log m)³ for large m, which is the form above. The explicit constant of [Dobrowolski's lower bound for the Mahler measure](#layer-6-topic-60) does not give this strength.
+
+(Lior Bary-Soroker, Dimitris Koukoulopoulos and Gady Kozma, [Irreducibility of random polynomials: general measures](#reference-bskk-random-polynomials-2023), §7, p. 37 (arXiv v3).) The random-polynomial application, citing Dobrowolski. It states the stronger form with L(m) = (1/2)(log m/log log m)³. That form needs an asymptotic constant above 2, which Louboutin's 9/4 − ε supplies (Smyth's survey, same page). The application only uses that L(m) is a fixed multiple of (log m/log log m)³, so the weaker form stated here suffices.
+
+**Unverified source input.** The asymptotic constant 1 − ε is taken from the survey's statement. Its proof is Dobrowolski's (Acta Arithmetica 34 (1979), 391–401), and no source cited here gives that proof.
 
 For nonzero algebraic α define `degreeDroppingPrimes α = {p : ℕ | p.Prime ∧ degree(α^p)<degree(α)}`. Require `degreeDroppingPrimes_mem_iff`, `degreeDroppingPrimes_finite` and `degreeDroppingPrimes_card_le`: for degree d≥1, the cardinality is at most `log d/log 2`. This counts exceptional primes; constructing one smaller-degree integer does not prove it (Dobrowolski, Lemma 3, used in Bary-Soroker–Koukoulopoulos–Kozma, §7, p. 37).
 
@@ -14084,7 +14109,7 @@ For nonzero algebraic α define `degreeDroppingPrimes α = {p : ℕ | p.Prime �
 - For a primitive eighth root of unity α, the degree is four and the exceptional set is {2}, so the cardinality is one, strictly below `log 4/log 2=2`. Roots of unity remain valid for the exceptional-prime estimate even though the Mahler lower bound excludes them.
 - D=X and cyclotomic D are excluded from the Mahler bound, because their Mahler measure is one. The degree-zero polynomial 1 is also outside it; the piecewise bounded-degree clause prevents evaluating log log at m=1.
 
-*Needs:* Layer 6 Mahler measure, conjugate-power and root-of-unity criteria; DT.0 algebraic-degree and bounded-height interfaces. The asymptotic strength and the prime-cardinality argument remain explicit proof obligations.
+*Needs:* Layer 6 Mahler measure, conjugate-power and root-of-unity criteria; the algebraic-degree and bounded-height interfaces of TauCetiRoadmap.DiophantineApproximationAndTranscendence §§0.1–0.3. The asymptotic strength and the prime-cardinality argument remain explicit proof obligations.
 
 ### Examples
 
@@ -14094,15 +14119,10 @@ The plastic polynomial X³−X−1 and Lehmer polynomial give the Pisot and Sale
 
 Earlier internal inputs are Layer 2. The declarations and supplier layers used by this layer are:
 
-- [DiophantineApproximationAndTranscendence, `DT.0/abs-mul-height-eq-of-minpoly-eq`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/abs-mul-height-eq-rpow`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/finite-algebraic-integers-house-le`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/height-comparisons`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/house-eq-numberField-house`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/house-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/mahler-measure-of-algebraic-number`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/primitive-minimal-polynomial`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
-- [DiophantineApproximationAndTranscendence, `DT.0/siegel-lemma-number-field-product`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/DiophantineApproximationAndTranscendence/README.md).
+- [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.2 Mahler measure, house and absolute height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#02-mahler-measure-house-and-absolute-height).
+- [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.3 Finiteness and size estimates](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#03-finiteness-and-size-estimates).
+- [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §0.1 Primitive polynomials and coefficient height](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#01-primitive-polynomials-and-coefficient-height).
+- [TauCetiRoadmap.DiophantineApproximationAndTranscendence, §2.8 `siegelRelativeKernelBasis`](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md#28-auxiliary-polynomials-and-quantitative-subspaces).
 - Mathlib `AdjoinRoot.powerBasis'`.
 - Mathlib `Algebra.isIntegral_norm`.
 - Mathlib `Algebra.isIntegral_trace`.
@@ -14221,9 +14241,46 @@ Earlier internal inputs are Layer 2. The declarations and supplier layers used b
 - Tau Ceti `TauCeti.norm_deriv_div_one_sub_norm_sq_le`.
 - Tau Ceti `TauCeti.unitDiscMoebius`.
 
-## Layer 7: integral galois modules and arithmetic orders
+## Layer 7: integral Galois modules and arithmetic orders
 
 Connect tame ramification to integral normal bases, local freeness and stable arithmetic classes. Build the noncommutative order, idele, character determinant and Gauss-sum comparisons needed for the Fröhlich–Taylor equality.
+
+<a id="layer-7-topic-0"></a>
+
+### 7.0 Pseudobases and Steinitz classes of lattices over a Dedekind domain
+
+Let A be a Dedekind domain with fraction field K, V an n-dimensional K-vector space and M ⊆ V an A-lattice: a finitely generated A-submodule spanning V (Mathlib's Submodule.IsLattice). (a) For every K-basis y_1, …, y_n of V there are x_1, …, x_n ∈ M and nonzero fractional ideals 𝔞_1, …, 𝔞_n of A with M = 𝔞_1x_1 ⊕ ⋯ ⊕ 𝔞_nx_n and x_j ∈ Ky_1 + ⋯ + Ky_j for every j (a pseudobasis). (b) The class st(M) = [𝔞_1⋯𝔞_n] ∈ Cl(A), the Steinitz class, does not depend on the pseudobasis and depends only on the isomorphism class of M as an A-module; st(M ⊕ N) = st(M)·st(N), and st(M) = 1 for n = 0. (c) For n ≥ 1, dropping the triangularity condition, one may take 𝔞_1 = ⋯ = 𝔞_(n−1) = A, so M ≅ A^(n−1) ⊕ 𝔞 with [𝔞] = st(M); two lattices are isomorphic exactly when they have the same rank and the same Steinitz class. (d) For lattices M, N ⊆ V there is a common pseudobasis, M = ⊕ 𝔞_ix_i and N = ⊕ 𝔟_ix_i, with 𝔡_i = 𝔟_i𝔞_i^(−1) satisfying 𝔡_1 | ⋯ | 𝔡_n, and these invariant factors of N relative to M are unique. Consequently every A-lattice is a finitely generated projective A-module, and it is free exactly when its Steinitz class is trivial.
+
+A is a Dedekind domain; n = 0 is allowed (empty pseudobasis). Fractional ideals are Mathlib's FractionalIdeal A⁰ K and the class group is Mathlib's ClassGroup A, not a narrow or ray class group. The isomorphism criterion in (c) uses the product identity I ⊕ J ≅ A ⊕ IJ, proved below without (c).
+
+The supporting API comprises:
+
+- `Lattice.exists_pseudobasis`: Part (a), for every K-basis of V.
+- `Lattice.steinitzClass`: st(M) ∈ ClassGroup A for an A-lattice M.
+- `Lattice.steinitzClass_congr`: Isomorphic lattices have the same Steinitz class.
+- `Lattice.steinitzClass_prod`: st(M ⊕ N) = st(M)·st(N).
+- `Lattice.nonempty_equiv_pi_prod_ideal`: For n ≥ 1, M ≅ A^(n−1) ⊕ 𝔞 with [𝔞] = st(M).
+- `Lattice.nonempty_equiv_iff`: M ≅ N exactly when rank M = rank N and st(M) = st(N).
+- `Lattice.free_iff_steinitzClass_eq_one`: M is free exactly when st(M) = 1.
+- `Lattice.exists_common_pseudobasis`: Part (d), with the divisibility chain and uniqueness of the invariant factors.
+
+(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), Theorem 9.3.6 with its proof, printed p. 138.) Part (a).
+
+(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), Theorem 9.3.9 and 9.3.10, printed p. 139.) Part (d), the definition of the Steinitz class with its well-definedness (left there as Exercise 9.7), and the decomposition with all coefficient ideals but one equal to A.
+
+(Charles A. Weibel, [The K-book, Chapter I: Projective Modules and Vector Bundles](#reference-w-i), I§3, Propositions 3.4–3.5, pp. 17–18.) The classification of finitely generated projective modules over a Dedekind domain by rank and Steinitz class.
+
+To prove this, (a) is induction on n: with W = Ky_1 + ⋯ + Ky_(n−1) and N = M ∩ W, the image of M in V/W ≅ K is a fractional ideal 𝔞_n, which is projective, so M ≅ N ⊕ 𝔞_nx_n. For (b), two pseudobases differ by a matrix in GL_n(K) carrying one sum of ideals onto the other, so the products of the coefficient ideals differ by the principal ideal of its determinant. The product identity I ⊕ J ≅ A ⊕ IJ follows by replacing I and J by coprime representatives of their classes, so that I + J = A and I ∩ J = IJ, and splitting 0 → IJ → I ⊕ J → A → 0; applying it repeatedly gives (c). Part (d) is the elementary-divisor argument over the semilocal localisations, glued by the local–global correspondence of lattices.
+
+**Checks.**
+
+- A = ℤ: Cl(ℤ) = 1, so every lattice is free; in ℚ², M = 2ℤ ⊕ 3ℤ has the pseudobasis e_1, e_2 with coefficient ideals (2), (3) and st(M) = 1.
+- A = ℤ[√−5] and 𝔭 = (2, 1 + √−5): st(𝔭) = [𝔭] ≠ 1, so 𝔭 is not free, while st(𝔭 ⊕ 𝔭) = [𝔭]² = [(2)] = 1 and 𝔭 ⊕ 𝔭 ≅ A².
+- The zero lattice (n = 0) has Steinitz class 1.
+- Coefficient ideals themselves are not invariants: the lattice 2ℤ ⊆ ℚ has the pseudobases 2·1 with ideal ℤ and 1 with ideal 2ℤ; only their class is well defined.
+- For M = ℤ² and N = ℤ ⊕ 6ℤ in ℚ², the invariant factors of N relative to M are (1), (6); the pair (2), (3) is not a divisibility chain.
+
+*Needs:* Mathlib `Submodule.IsLattice`; Mathlib `FractionalIdeal`; Mathlib `ClassGroup`; Mathlib `Module.Projective`; Mathlib `IsDedekindDomain`.
 
 <a id="layer-7-topic-1"></a>
 
@@ -14280,7 +14337,7 @@ The full API additionally uses [The norm of a projective group-ring module reach
 
 ### 7.2 Tamely ramified extensions of Dedekind domains
 
-Let B/A be an extension of commutative rings and P a prime of B lying over p = P ∩ A. B/A is tamely ramified at P if the residue extension (B/P)/(A/p) is separable and the characteristic of A/p does not divide the ramification index e(P|p) (Mathlib's P.ramificationIdx A). B/A is tamely ramified if it is tamely ramified at every nonzero prime of B. When the residue fields are finite (number fields, nonarchimedean local fields) the separability condition holds automatically and the condition is p ∤ e(P|p) for every P, which is the definition of the sources; the separability clause is the convention of Tau Ceti's NumberFieldArithmetic roadmap, so that the predicate is correct in every characteristic.
+Let B/A be an extension of commutative rings and P a prime of B lying over p = P ∩ A. B/A is tamely ramified at P if the residue extension (B/P)/(A/p) is separable and the characteristic of A/p does not divide the ramification index e(P|p) (Mathlib's P.ramificationIdx A). B/A is tamely ramified if it is tamely ramified at every nonzero prime of B. When the residue fields are finite (number fields, nonarchimedean local fields) the separability condition holds automatically and the condition is p ∤ e(P|p) for every P, which is the definition of the sources; the separability clause is the convention of Tau Ceti's NumberFieldArithmetic roadmap, so that the predicate is correct in every characteristic. Tau Ceti's TauCeti.IsTamelyRamified is the corresponding predicate for a single extension of nonarchimedean local fields, without the separability clause; this one is for extensions of Dedekind domains at every nonzero prime.
 
 The ramification index is the unprimed Mathlib P.ramificationIdx A (prime P of B first, base ring A second). The base prime is P.under A with the LiesOver instance Ideal.over_under. The residue characteristic is ringChar (A ⧸ P.under A).
 
@@ -14431,7 +14488,7 @@ To prove this, use a finite natural-number witness and an actual linear isomorph
 - Over ℤ, ℤ and ℤ are stably equivalent.
 - The zero module is stably equivalent to itself with n=0.
 - Over ℤ, the zero module and ℤ are not stably equivalent: rational ranks differ.
-- For finite projectives, stable equivalence is exactly equality of their existing SplitK0 classes, by split-k0-stable-equality.
+- For finite projectives, stable equivalence is exactly equality of their existing SplitK0 classes, by [Stable equality in the existing split K₀](#layer-7-topic-23).
 
 *Needs:* the existing module and finite-sum language; no additional theorem is assumed.
 
@@ -14447,7 +14504,9 @@ To prove this, use the pinned finite-projective retract f:Rⁿ→P and section g
 
 **Checks.**
 
-- Every finitely generated projective left R-module P has a finitely generated projective complement N with P⊕N≅Rⁿ for some finite n.
+- R = ℤ × ℤ and P = ℤ × 0: N = 0 × ℤ gives P ⊕ N ≅ R¹, although P itself is not free over R.
+- R = ℤ[√−5] and P = 𝔭 = (2, 1 + √−5): N = 𝔭 gives 𝔭 ⊕ 𝔭 ≅ A² (the Steinitz check of [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0)), with n = 2.
+- A free module P = Rⁿ takes N = 0.
 
 *Needs:* Mathlib `Module.Finite.exists_comp_eq_id_of_projective`.
 
@@ -14465,7 +14524,7 @@ The supporting API comprises:
 - `BalancedExtension.identity`: R⊗ᵣP≅P, r⊗p↦rp.
 - `BalancedExtension.composition`: For R→S→T, T⊗ₛ(S⊗ᵣP)≅T⊗ᵣP, t⊗(s⊗p)↦ts⊗p.
 
-(Charles A. Weibel, [The K-book, Chapter I: Projective Modules and Vector Bundles](#reference-w-i), I§2, pp.7–8; W-II II§2.8, p.12.) Scalar extension of left modules uses a right-left balanced tensor and sends finite free modules and their retracts to finite free modules and their retracts.
+(Charles A. Weibel, [The K-book, Chapter I: Projective Modules and Vector Bundles](#reference-w-i), I§2, pp.7–8; Weibel, K-book II, §2.8, p.12.) Scalar extension of left modules uses a right-left balanced tensor and sends finite free modules and their retracts to finite free modules and their retracts.
 
 To prove this, present the additive group by symbols s⊗p with biadditivity and the balancing relation. Verify the left S-action preserves the relations. Descend additive morphisms by the universal property; define identity and composition isomorphisms on pure tensors.
 
@@ -14486,19 +14545,21 @@ For a Dedekind domain A with fraction field K and nonzero invertible fractional 
 
 (Charles A. Weibel, [The K-book, Chapter I: Projective Modules and Vector Bundles](#reference-w-i), I§3, Propositions3.4–3.5, pp.17–18.) Finitely generated projectives over a one-dimensional noetherian ring are classified by rank and determinant, and I⊗J≅IJ for invertible ideals; together these give I⊕J≅A⊕IJ.
 
-To prove this, i⊕J and A⊕IJ are rank-two lattices in K². GeometryOfNumbersAndQuadraticArithmetic GN.2 classifies such lattices by rank and Steinitz class, and its product and fractional-ideal APIs give st(I⊕J)=[I][J]=[IJ]=st(A⊕IJ); hence the two modules are isomorphic. A direct construction is also available: replace I and J by scaled integral representatives with coprime support, using finite prime avoidance; for coprime representatives the map I⊕J→A, (x,y)↦x+y, is onto with kernel {(z,−z):z∈I∩J=IJ}, and the sequence splits because A is free.
+To prove this, i⊕J and A⊕IJ are rank-two lattices in K². [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0) classifies such lattices by rank and Steinitz class, and its product and fractional-ideal API gives st(I⊕J)=[I][J]=[IJ]=st(A⊕IJ); hence the two modules are isomorphic. A direct construction is also available: replace I and J by scaled integral representatives with coprime support, using finite prime avoidance; for coprime representatives the map I⊕J→A, (x,y)↦x+y, is onto with kernel {(z,−z):z∈I∩J=IJ}, and the sequence splits because A is free.
 
 **Checks.**
 
-- For a Dedekind domain A with fraction field K and nonzero invertible fractional ideals I,J, I⊕J≅A⊕IJ as A-modules.
+- A = ℤ[√−5], I = J = 𝔭 = (2, 1 + √−5): 𝔭 ⊕ 𝔭 ≅ A ⊕ 𝔭² = A ⊕ (2) ≅ A², although 𝔭 is not free.
+- J = A: the identity reads I ⊕ A ≅ A ⊕ I.
+- For a principal ideal domain both sides are free of rank two.
 
-*Needs:* [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-steinitz-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); Mathlib `ClassGroup.mk0_eq_mk0_iff_exists_fraction_ring`; Mathlib `FractionalIdeal.mem_inv_iff`.
+*Needs:* [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); Mathlib `ClassGroup.mk0_eq_mk0_iff_exists_fraction_ring`; Mathlib `FractionalIdeal.mem_inv_iff`.
 
 <a id="layer-7-topic-10"></a>
 
 ### 7.10 Reduced norm of a semisimple number-field algebra
 
-Write B=∏i B_i with centres F_i. Each B_i is central simple, hence Azumaya of rank d_i² over F_i, and Nrd_{B_i}:B_i→F_i is the Azumaya reduced-norm determinant law of IntegralHeckeAndGaloisDeterminants IHG.0, the degree-d_i law that becomes the matrix determinant after a splitting. Layer 7 assembles these into Nrd=∏Nrd_{B_i}:B→Z(B), restricts to units and extends placewise to completions and ideles. Degree means the square root of dimension over the centre, not dimension over the original base field.
+Write B=∏i B_i with centres F_i. Each B_i is central simple, hence Azumaya of rank d_i² over F_i, and Nrd_{B_i}:B_i→F_i is the Azumaya reduced-norm determinant law of TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.6, the degree-d_i law that becomes the matrix determinant after a splitting. Layer 7 assembles these into Nrd=∏Nrd_{B_i}:B→Z(B), restricts to units and extends placewise to completions and ideles. Degree means the square root of dimension over the centre, not dimension over the original base field.
 
 The supporting API comprises:
 
@@ -14512,7 +14573,7 @@ The supporting API comprises:
 
 (Vladimir Platonov, Andrei Rapinchuk and Igor Rapinchuk, [Algebraic Groups and Number Theory, Volume I](#reference-prr), §1.4.1, p.29; §1.4.3, p.33.) The reduced norm is the determinant after a splitting, multiplicative and independent of the splitting (p.29); a central division algebra over a local field has full reduced-norm image (§1.4.3).
 
-To prove this, import the Wedderburn decomposition and, on each simple component, the Azumaya reduced-norm determinant of IHG.0: its uniqueness gives independence of the splitting, and its comparison with the matrix determinant gives multiplicativity and the scalar formula. Take the product over the components. A completion is a scalar extension of each component, so the law base-changes to B_v; reduced norms of order units are units of the centre's integers, which gives the placewise map on ideles.
+To prove this, import the Wedderburn decomposition and, on each simple component, the Azumaya reduced-norm determinant of TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants §0.6: its uniqueness gives independence of the splitting, and its comparison with the matrix determinant gives multiplicativity and the scalar formula. Take the product over the components. A completion is a scalar extension of each component, so the law base-changes to B_v; reduced norms of order units are units of the centre's integers, which gives the placewise map on ideles.
 
 **Checks.**
 
@@ -14521,7 +14582,7 @@ To prove this, import the Wedderburn decomposition and, on each simple component
 - On a split matrix algebra it is Mathlib matrix determinant.
 - On Hamilton quaternions Nrd(1+i)=2, whereas the determinant of left multiplication by 1+i on ℍ as a four-dimensional real space is 4=Nrd(1+i)².
 
-*Needs:* [IntegralHeckeAndGaloisDeterminants, `IHG.0/azumaya-determinant`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/IntegralHeckeAndGaloisDeterminants/README.md); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields).
+*Needs:* [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §0.6 Azumaya reduced-norm determinant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#06-duals-projective-modules-and-reduced-norms); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields).
 
 <a id="layer-7-topic-11"></a>
 
@@ -14561,7 +14622,9 @@ To prove this, expand normalized Jacobi sums modulo P using finite-field power s
 
 **Checks.**
 
-- Let q=pᶠ, P be a prime above p in Q(ζ_p,ζ_(q−1)), ω the Teichmüller character for its residue F_q, and ψ(x)=ζ_p^Tr(x). If 0≤a<q−1 has digits a_i, put s=Σa_i and h=∏a_i!. Then h·(−gaussSum(ω⁻ᵃ,ψ))≡(ζ_p−1)ˢ mod Pˢ⁺¹. Thus v_P(gaussSum)=s when v_P(ζ_p−1)=1, and the valuation with v_p(p)=1 is s/(p−1). The trivial-character case a=0 has valuation zero.
+- p = 3, f = 1, a = 1: s = 1, and ω⁻¹ is the quadratic character of 𝔽₃, whose Gauss sum ζ₃ − ζ₃² = √−3 has valuation 1/2 = s/(p − 1) when v(3) = 1.
+- q = 9, a = 4 = 1 + 1·3: s = 2, ω⁻⁴ is the quadratic character of 𝔽₉, its Gauss sum is ±3 (its square is 9 since −1 is a square in 𝔽₉), of valuation 1 = s/(p − 1).
+- a = 0: the trivial character has Gauss sum −1, of valuation 0.
 
 *Needs:* Mathlib `gaussSum`; Mathlib `gaussSum_mul`; Mathlib `gaussSum_one_left`.
 
@@ -14578,9 +14641,9 @@ The supporting API comprises:
 - `TameLocalGaussSum.induction_zero`: τ_F(Ind_E/F θ)=τ_E(θ) for virtual θ of degree zero; arbitrary degree has the local-constant correction.
 - `TameLocalGaussSum.finite_field`: A tame ramified degree-one sum is a finite-field Gauss sum multiplied by the stated χ(c⁻¹) factor.
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §2 (2.10)–(2.16), pp.391–393; Theorem3, p.392.) The one-dimensional local formula, unramified normalization and degree-zero induction determine the Gauss homomorphism.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §2, (2.11)–(2.19), pp.392–393; Theorem 3, p.392.) The local Gauss sum is defined from the local root number, with additivity (2.13), degree-zero induction (2.14), the abelian formula (2.15), the unramified value (2.16) and the global product (2.19); Theorem 3 is the global Galois covariance.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), §3 (3.4), p.46.) Taylor fixes the canonical additive character as the composite of the trace to ℚ_p, ℚ_p/ℤ_p⊂ℚ/ℤ and x↦exp(2πix), and gives the same unramified and genuinely ramified degree-one formulas.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), §3 (3.4), p.46.) Taylor fixes the canonical additive character as the composite of the trace to ℚ_p, ℚ_p/ℤ_p⊂ℚ/ℤ and x↦exp(2πix), and gives the same unramified and genuinely ramified degree-one formulas.
 
 To prove this, for degree one the conductor determines a finite sum independent of lifts; a change of generator is cancelled by character and additive-character reindexing. Import local Artin and conductor carriers. To extend beyond degree one use Brauer induction and the local-constant induction factor, checking all relations rather than choosing a Brauer expression arbitrarily. The relation and induction formulas are the proof obligation stated below.
 
@@ -14588,7 +14651,7 @@ To prove this, for degree one the conductor determines a finite sum independent 
 
 - The zero virtual character has τ=1.
 - For F=Q_p and trivial χ, the different is the unit ideal and τ=1.
-- For a tame nontrivial residue character the valuation agrees with finite-gauss-valuation, with the local normalization converted explicitly.
+- For a tame nontrivial residue character the valuation agrees with [Stickelberger’s finite Gauss-sum valuation](#layer-7-topic-12), with the local normalization converted explicitly.
 - A ramified Gauss sum need not be a p-adic unit; a trivial local Artin character does not have τ=−1.
 
 The one-dimensional conductor sum must extend to a relation-independent local constant on the virtual-character lattice. Required laws are multiplicativity in virtual sums, induction with its degree correction, duality, change of additive character and Galois covariance. **Unverified source input:** Fröhlich (1976), §2, (2.11)–(2.16), pp. 392–393, records local-constant formulas and induction laws; Theorem 3, p. 392, states the resulting global Galois covariance. The relation independence imported from the local-constant formalism remains a proof obligation: the one-dimensional formula alone does not prove that different Brauer decompositions agree.
@@ -14608,7 +14671,7 @@ The supporting API comprises:
 - `AdamsCharacterOperation.degree`: ψᵖ preserves degree.
 - `AdamsCharacterOperation.one_dimensional`: For a degree-one χ, ψᵖχ=χᵖ.
 
-(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [The group logarithm past and present](#reference-logsurvey), §3, Adams operation and logarithm formula, pp.5–6; CPT §3a, pp.12–13.) The character Adams operation evaluates a character on p-th powers and is integral on the virtual ring.
+(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [The group logarithm past and present](#reference-logsurvey), §3, Adams operation and logarithm formula, pp.5–6; Chinburg–Pappas–Taylor, §3a, pp.12–13.) The character Adams operation evaluates a character on p-th powers and is integral on the virtual ring.
 
 To prove this, newton identities express the trace of the p-th power as an integer polynomial in exterior-power characters. Direct-sum identities make the resulting operation additive and multiplicative on virtual characters. Its character function determines it by the imported character-table injectivity.
 
@@ -14627,29 +14690,33 @@ To prove this, newton identities express the trace of the p-th power as an integ
 
 Let A⊆B be finite Dedekind domains and p a nonzero prime of A. For a prime P above p with ramification index e, the P-primary component of B/pB is a finite A/p-vector space with filtration whose e graded pieces are each one copy of B/P. Therefore the A/p-linear trace of multiplication by x on this component is e·Tr_(B/P)/(A/p)(x mod P). Apply ideal CRT to sum the component formulas. No B/P-vector-space structure on the entire nonreduced primary quotient is claimed. For an inseparable residue extension its field trace vanishes; separability is explicit when a nonzero residue trace is needed.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Proposition7.2 proof, equation(5), p.13.) The nilpotent prime-power layers contribute the ramification-index multiplier to the residue trace.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Proposition7.2 proof, equation(5), p.13.) The nilpotent prime-power layers contribute the ramification-index multiplier to the residue trace.
 
 To prove this, use ideal CRT for the pairwise coprime powers P_iᵉ. In each quotient filter by P_iʲ/P_iʲ⁺¹; localization at the DVR identifies each nonzero graded piece with one copy of B/P_i. Multiplication by x is block triangular, so its trace is e times the residue trace. Integral trace commutes with quotient scalar change because B is finite projective over A. The Galois action permutes primes and induces the residue isomorphisms; the imported Dedekind prime-action dictionary supplies that normality.
 
 **Checks.**
 
-- Let A⊆B be finite Dedekind domains and p a nonzero prime of A. For a prime P above p with ramification index e, the P-primary component of B/pB is a finite A/p-vector space with filtration whose e graded pieces are each one copy of B/P. Therefore the A/p-linear trace of multiplication by x on this component is e·Tr_(B/P)/(A/p)(x mod P). Apply ideal CRT to sum the component formulas. No B/P-vector-space structure on the entire nonreduced primary quotient is claimed. For an inseparable residue extension its field trace vanishes; separability is explicit when a nonzero residue trace is needed.
+- ℤ ⊆ ℤ[i], p = 2: one prime with e = 2 and residue field 𝔽₂; multiplication by a + bi on ℤ[i]/2 has trace 2a = 0 in 𝔽₂, which is e·(a + b mod 2) = 0, as the formula predicts.
+- p = 3 (inert, e = 1): the formula is the field trace of 𝔽₉/𝔽₃, (a + bi) + (a + bi)³ = 2a.
+- p = 5 (split): two primes with e = 1, and the trace 2a is the sum of the two residues a + 2b and a − 2b modulo 5 (i ≡ ±2).
 
-*Needs:* [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [TauCetiRoadmap.NumberFieldArithmetic, layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-1-the-splitting-dictionary).
+*Needs:* [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); [TauCetiRoadmap.NumberFieldArithmetic, layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-1-the-splitting-dictionary).
 
 <a id="layer-7-topic-16"></a>
 
 ### 7.16 A single tame cyclotomic conductor cut
 
-Suppose L⊆Q(ζ_m) and L/Q is Galois and tame. For odd pᵃ∥m, wild p-inertia in Gal(Q(ζ_m)/Q) acts trivially on L, so L⊆Q(ζ_(m/pᵃ·p)). For 2ᵃ∥m, all 2-primary cyclotomic inertia acts trivially, so L⊆Q(ζ_(m/2ᵃ)). The fixed-field calculation retains all other conductor factors. Iterating gives the inherited squarefree embedding target once Kronecker–Weber supplies the initial embedding.
+Suppose L⊆Q(ζ_m) and L/Q is Galois and tame. For odd pᵃ∥m, wild p-inertia in Gal(Q(ζ_m)/Q) acts trivially on L, so L⊆Q(ζ_(m/pᵃ·p)). For 2ᵃ∥m, all 2-primary cyclotomic inertia acts trivially, so L⊆Q(ζ_(m/2ᵃ)). The fixed-field calculation retains all other conductor factors. Iterating gives [A tame abelian number field has odd squarefree cyclotomic level](#layer-7-topic-22) once Kronecker–Weber supplies the initial embedding.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Theorem8.4 and proof, p.14.) Tameness eliminates the wild cyclotomic inertia factors and therefore removes all nonsquarefree conductor powers.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Theorem8.4 and proof, p.14.) Tameness eliminates the wild cyclotomic inertia factors and therefore removes all nonsquarefree conductor powers.
 
 To prove this, use the CRT factorization of cyclotomic Galois groups and local cyclotomic ramification to identify inertia at p with the p-primary cyclotomic factor. A tame quotient has inertia order prime to p, so its Sylow p-subgroup dies. At 2 the full cyclotomic inertia is a 2-group, hence dies. The fixed-field identification gives the stated conductor cut, with all other factors retained.
 
 **Checks.**
 
-- Suppose L⊆Q(ζ_m) and L/Q is Galois and tame. For odd pᵃ∥m, wild p-inertia in Gal(Q(ζ_m)/Q) acts trivially on L, so L⊆Q(ζ_(m/pᵃ·p)). For 2ᵃ∥m, all 2-primary cyclotomic inertia acts trivially, so L⊆Q(ζ_(m/2ᵃ)). The fixed-field calculation retains all other conductor factors. Iterating gives the inherited squarefree embedding target once Kronecker–Weber supplies the initial embedding.
+- L = ℚ(√5) ⊆ ℚ(ζ₂₀): tameness at 2 removes the factor 4 and gives L ⊆ ℚ(ζ₅).
+- L = ℚ(√−3) ⊆ ℚ(ζ₉): the cut at 3² gives L ⊆ ℚ(ζ₃).
+- ℚ(i) ⊆ ℚ(ζ₄) is wild at 2, and the 2-cut would put it inside ℚ, so the tameness hypothesis cannot be dropped.
 
 *Needs:* [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places); [TauCetiRoadmap.LocalFieldsRamification, layer 3 ramification the tame and wild cases and the filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration).
 
@@ -14659,7 +14726,7 @@ To prove this, use the CRT factorization of cyclotomic Galois groups and local c
 
 Let L/K be a finite Galois extension of fields with group G. An element θ of L is a normal basis generator if its conjugates (σθ)_{σ∈G} are K-linearly independent, equivalently span L, equivalently form a K-basis of L. For a generator θ the map K[G] → L, x ↦ x·θ, is an isomorphism of left K[G]-modules, sending single σ c to c·σ(θ). Mathlib's IsGalois.normalBasis supplies the canonical generator θ₀ = normalBasis K L 1, and the normal basis map of L/K is the map attached to θ₀. For number fields, A = 𝓞_K and B = 𝓞_L, the map carries the group ring 𝓞_K[G] onto the 𝓞_K-lattice 𝓞_K[G]·θ₀ of L, which in general is not 𝓞_L.
 
-L/K is a finite Galois extension of fields: [FiniteDimensional K L] [IsGalois K L]. The group ring acts on L through the Galois representation of the construction ring-of-integers-as-group-ring-module with A = K and B = L.
+L/K is a finite Galois extension of fields: [FiniteDimensional K L] [IsGalois K L]. The group ring acts on L through the Galois representation of the construction [The ring of integers as a module over the group ring](#layer-7-topic-1) with A = K and B = L.
 
 The supporting API comprises:
 
@@ -14720,7 +14787,7 @@ Mathlib's Algebra.trace_quotient_eq_of_isDedekindDomain identifies the left side
 - For p unramified (e = 1) the formula is the sum of the residue traces.
 - For ℤ[i] and p = 2 (e = 2, g = 1) both sides vanish identically in 𝔽_2.
 
-*Needs:* Mathlib `Algebra.trace_quotient_eq_of_isDedekindDomain`; Mathlib `Ideal.ramificationIdxIn`; Mathlib `Algebra.intTrace`; [Tamely ramified extensions of Dedekind domains](#layer-7-topic-2); Mathlib `IsDedekindDomain.quotientEquivPiOfProdEq`; [Trace through the prime-power filtration](#layer-7-topic-15); [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [TauCetiRoadmap.NumberFieldArithmetic, layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-1-the-splitting-dictionary).
+*Needs:* Mathlib `Algebra.trace_quotient_eq_of_isDedekindDomain`; Mathlib `Ideal.ramificationIdxIn`; Mathlib `Algebra.intTrace`; [Tamely ramified extensions of Dedekind domains](#layer-7-topic-2); Mathlib `IsDedekindDomain.quotientEquivPiOfProdEq`; [Trace through the prime-power filtration](#layer-7-topic-15); [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); [TauCetiRoadmap.NumberFieldArithmetic, layer 1 the splitting dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-1-the-splitting-dictionary).
 
 <a id="layer-7-topic-19"></a>
 
@@ -14860,11 +14927,13 @@ For P,Q in (finiteProjectiveModules R).FullSubcategory, SplitK0.of(P)=SplitK0.of
 
 (Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), II§1 Proposition1.1/Corollary1.3, pp.1–2; II§2, p.5.) The universal group completion identifies two generators after one common summand; projectives have finite free complements.
 
-To prove this, transport through SplitK0.grothendieckAddGroupEquiv. Apply additive-localization equality to isomorphism classes under biproduct. Replace the finite-projective witness T by T⊕T′≅Rᵏ using finite-projective-free-complement. The reverse implication is biproduct additivity and cancellation in the abelian group.
+To prove this, transport through SplitK0.grothendieckAddGroupEquiv. Apply additive-localization equality to isomorphism classes under biproduct. Replace the finite-projective witness T by T⊕T′≅Rᵏ using [Finite projectives have finite free complements](#layer-7-topic-7). The reverse implication is biproduct additivity and cancellation in the abelian group.
 
 **Checks.**
 
-- For P,Q in (finiteProjectiveModules R).FullSubcategory, SplitK0.of(P)=SplitK0.of(Q) iff StableEquivalent(P,Q). In particular [P]=[Rⁿ] iff P⊕Rᵏ≅Rⁿ⁺ᵏ for some k.
+- R = ℤ: [P] = [ℤⁿ] forces P ≅ ℤⁿ, since finitely generated projective ℤ-modules are free.
+- R = ℤ[√−5]: [𝔭 ⊕ 𝔭] = [A²] while [𝔭] ≠ [A], so 𝔭 is not stably free although 𝔭 ⊕ 𝔭 is free.
+- Equality in K₀ is stable equivalence, not isomorphism: the stably free, nonfree ring of integers of a Q₃₂-extension (Cougnard), in the Checks of [Taylor: for groups of odd order the ring of integers is free over ℤΓ](#layer-7-topic-123), has the class of a free module.
 
 *Needs:* [Stable equivalence with a finite free summand](#layer-7-topic-6); [Finite projectives have finite free complements](#layer-7-topic-7); Tau Ceti `TauCeti.SplitK0`; Tau Ceti `TauCeti.finiteProjectiveModules`; Tau Ceti `TauCeti.SplitK0.grothendieckAddGroupEquiv`; Mathlib `Localization.r_iff_exists`; Tau Ceti `TauCeti.SplitK0.of_biprod`.
 
@@ -14874,13 +14943,15 @@ To prove this, transport through SplitK0.grothendieckAddGroupEquiv. Apply additi
 
 Extension along every unital R→S preserves finite projective left modules. Restriction of finite projective S-modules preserves finite projective R-modules if S is finitely generated projective as a left R-module through f; this condition is necessary, by testing P=S.
 
-(Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), II§2.8 and Example2.8.1, pp.12–13; W-I I§2, pp.7–8.) Extension acts on projective K₀ along an arbitrary ring map; restriction requires the target ring to be finite projective over the source.
+(Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), II§2.8 and Example2.8.1, pp.12–13; Weibel, K-book I, §2, pp.7–8.) Extension acts on projective K₀ along an arbitrary ring map; restriction requires the target ring to be finite projective over the source.
 
 To prove this, extend a split finite-free presentation; no flatness is needed for a split sequence. For restriction, a finite projective S-module is a summand of Sⁿ, which is finite projective over R under the stated condition. Necessity tests the regular S-module.
 
 **Checks.**
 
-- Extension along every unital R→S preserves finite projective left modules. Restriction of finite projective S-modules preserves finite projective R-modules if S is finitely generated projective as a left R-module through f; this condition is necessary, by testing P=S.
+- f : ℤ → ℤ[i]: extension sends ℤⁿ to ℤ[i]ⁿ, and restriction sends ℤ[i] to ℤ², finite projective.
+- f : ℤ → ℚ: the finite projective ℚ-module ℚ restricts to a module that is not finitely generated over ℤ, so the hypothesis on S is needed.
+- Extension along the augmentation ℤ[C₂] → ℤ sends ℤ[C₂] to ℤ.
 
 *Needs:* [Balanced extension for noncommutative orders](#layer-7-topic-8); [Finite projectives have finite free complements](#layer-7-topic-7); Mathlib `ModuleCat.restrictScalars`.
 
@@ -14890,15 +14961,17 @@ To prove this, extend a split finite-free presentation; no flatness is needed fo
 
 For a commutative ring A, finite group G and projective left A[G]-module P, the group norm induces an A-linear isomorphism P_G→P^G from coinvariants to invariants. In particular every invariant m is ∑g∈G gx for some x∈P. Restriction to a subgroup preserves projectivity and the same statement. For a Galois integral lattice the norm is the field trace.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), §6 Proposition6.1 and Corollary6.2, pp.10–11.) For a normal integral basis the trace from the integers onto the fixed integers is surjective, by regrouping the coefficients over cosets; the result extends this norm statement from free modules to all projective group-ring modules.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), §6 Proposition6.1 and Corollary6.2, pp.10–11.) For a normal integral basis the trace from the integers onto the fixed integers is surjective, by regrouping the coefficients over cosets; the result extends this norm statement from free modules to all projective group-ring modules.
 
-(S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom), Proposition1.3 and Corollary1.4, p.156.) Tame ambiguous ideals are projective over the group ring by Rim's criterion and hence cohomologically trivial; the result is the degree-zero part of that statement, bijectivity of the norm from coinvariants to invariants for a projective module.
+(S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom-normal-bases-1969), Proposition1.3 and Corollary1.4, p.156.) Tame ambiguous ideals are projective over the group ring by Rim's criterion and hence cohomologically trivial; the result is the degree-zero part of that statement, bijectivity of the norm from coinvariants to invariants for a projective module.
 
 To prove this, for A[G], coinvariants are A by augmentation, and invariants are A times the group norm; the induced norm sends 1 to that basis element, so it is an isomorphism. Extend to arbitrary free modules and then transport the isomorphism to a projective retract, since norm commutes with the splitting maps. Restriction to H preserves projectivity because A[G] is free over A[H]. Identify the Galois norm with the sum defining the integral trace.
 
 **Checks.**
 
-- For a commutative ring A, finite group G and projective left A[G]-module P, the group norm induces an A-linear isomorphism P_G→P^G from coinvariants to invariants. In particular every invariant m is ∑g∈G gx for some x∈P. Restriction to a subgroup preserves projectivity and the same statement. For a Galois integral lattice the norm is the field trace.
+- A = ℤ, G = C₂, P = ℤ[C₂]: coinvariants ℤ, invariants ℤ(1 + σ), and the norm sends the class of 1 to 1 + σ, an isomorphism.
+- The trivial module ℤ over ℤ[C₂] is not projective: its norm is multiplication by 2 from ℤ to ℤ, not onto.
+- For ℚ(ζ_p)/ℚ the trace ℤ[ζ_p] → ℤ is onto: Tr(ζ_p) = −1.
 
 *Needs:* Mathlib `Module.Projective.iff_split`; [The ring of integers as a module over the group ring](#layer-7-topic-1).
 
@@ -14926,7 +14999,7 @@ To prove this, write each central-simple component as M_r(D). Use the division-a
 - For split C it agrees with the determinant-one matrix group from ReductiveGroups.
 - Over ℝ, SL₁(ℍ) is compact; it does not satisfy the archimedean noncompactness needed for strong approximation.
 
-*Needs:* [AdelicAlgebraicGroups, §3.4 norm-one group](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/AdelicAlgebraicGroups/README.md); [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10); [TauCetiRoadmap.ReductiveGroups, layer 6 reductive and semisimple groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-6-reductive-and-semisimple-groups); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields).
+*Needs:* [TauCetiRoadmap.AdelicAlgebraicGroups, §3.4 norm-one group](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md#34-adelic-reduction-and-arithmetic-quotients); [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10); [TauCetiRoadmap.ReductiveGroups, layer 6 reductive and semisimple groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-6-reductive-and-semisimple-groups); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields).
 
 <a id="layer-7-topic-27"></a>
 
@@ -14942,7 +15015,8 @@ To prove this, reduce a unimodular row modulo the Jacobson radical to the produc
 
 **Checks.**
 
-- For a semilocal ring R and n≥1, GL_n(R) is generated by elementary matrices and diagonal matrices with entries in R×. Consequently for a finite-place arithmetic order Λ_v, Nrd(GL_n(Λ_v))=Nrd(Λ_v×). For a semilocal group ring, matrix character-determinant images likewise equal unit character-determinant images.
+- R = ℤ_p (local): GL₂(ℤ_p) is generated by elementary matrices and diag(u, 1), and det GL₂(ℤ_p) = ℤ_p^×.
+- Λ_v = M₂(ℤ_p): Nrd = det, and Nrd(GL_m(Λ_v)) = ℤ_p^× = Nrd(Λ_v^×).
 
 *Needs:* [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10).
 
@@ -14960,7 +15034,7 @@ The supporting API comprises:
 - `DeterminantCharacterHom.norm`: On irreducible centre coordinates Det is the reduced norm after embedding the centre into the splitting field.
 - `DeterminantCharacterHom.induction`: For H≤G and u∈E[H]×, Det_G(u)(χ)=Det_H(u)(Res_H χ).
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix I (I.7)–(I.9), pp.427–428; T81 §1, pp.42–44.) Unit determinants are virtual-character homomorphisms, equivariant over their field of definition and compatible with reduced norm.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix I (I.7)–(I.9), pp.427–428; Taylor (1981), §1, pp.42–44.) Unit determinants are virtual-character homomorphisms, equivariant over their field of definition and compatible with reduced norm.
 
 To prove this, independence of a representation follows from isomorphism invariance and semisimple character classification. Direct sums multiply determinants, giving descent to virtual characters. Galois conjugation acts on the coefficients of the representation, and the reduced-norm splitting identity gives the centre-coordinate interpretation.
 
@@ -14981,15 +15055,17 @@ For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicat
 
 (Keith Conrad, [Gauss and Jacobi sums on finite fields and Z/mZ](#reference-dh), Appendix formula(A.6) and its normalization note, p.19.) The product formula includes the factor χ(n)ⁿ and excludes the trivial-character Gauss sum from the fixed product.
 
-To prove this, reduce ψ to the trace-normalized additive character by the pinned scaling formula; both sides change by the same character value. The ratio R of the two sides has absolute value one at every complex embedding: nontrivial Gauss sums have absolute value √q, the trivial one is −1, and the two sides contain the same number of trivial factors. It is a unit at every prime above p by finite-gauss-valuation, because the digit-sum valuations agree by the fractional-part identity Σ_j{x+j/n}={nx}+(n−1)/2. Gauss sums are divisible only by primes above p, so R is an algebraic unit all of whose conjugates have absolute value one, hence a root of unity by Kronecker’s theorem. This weak form needs no further input.
+To prove this, reduce ψ to the trace-normalized additive character by the pinned scaling formula; both sides change by the same character value. The ratio R of the two sides has absolute value one at every complex embedding: nontrivial Gauss sums have absolute value √q, the trivial one is −1, and the two sides contain the same number of trivial factors. It is a unit at every prime above p by [Stickelberger’s finite Gauss-sum valuation](#layer-7-topic-12), because the digit-sum valuations agree by the fractional-part identity Σ_j{x+j/n}={nx}+(n−1)/2. Gauss sums are divisible only by primes above p, so R is an algebraic unit all of whose conjugates have absolute value one, hence a root of unity by Kronecker’s theorem. This weak form needs no further input.
 
 For the exact form, gaussSum_mulShift_eq shows that ζ_p↦ζ_p^b, for b∈F_p×, multiplies both sides by the same character value, so R lies in ℚ(ζ_(q−1)). Comparing the leading Stickelberger residues with the digit-factorial multiplication gives R≡1 modulo a prime above p. For p odd every root of unity in ℚ(ζ_(q−1)) has order prime to p and is determined by its residue, so R=1. For p=2 the field contains −1, which is ≡1 modulo 2, so the residue does not fix the sign: this residual sign is the boundary [the characteristic-two Gauss-product sign](#layer-7-topic-29).
 
 **Checks.**
 
-- For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicative character λ of exact order n and any multiplicative χ (all extended by zero at zero), write g(θ)=gaussSum(θ,ψ). Then g(χⁿ)·∏_(j=1)^(n−1)g(λʲ)=χ(n)ⁿ·∏_(j=0)^(n−1)g(χλʲ). The trivial multiplicative character has g(1)=−1, so including j=0 in the left product changes the sign. The weak form, equality up to a root of unity, is the form Taylor’s logarithmic computation uses.
+- n = 1: λ is trivial, the left product over j is empty, and both sides are g(χ).
+- q = 5, n = 2, λ quadratic, χ trivial: the left side g(1)g(λ) = −g(λ) equals the right side 1²·g(1)g(λ).
+- q = 5, n = 2, χ of order 4 with χ(2) = i, so χ² = λ: the relation reads g(λ)² = χ(4)·g(χ)g(χ³) = −g(χ)g(χ̄), and both sides are 5, because g(λ)² = λ(−1)·5 = 5 and g(χ)g(χ̄) = χ(−1)·5 = −5.
 
-**Unverified source input.** The sign of the Hasse–Davenport product must be fixed with the same Gauss-sum convention as the Stickelberger congruence. Conrad, Appendix (A.6), p. 19, states the product including `χ(n)^n` and omitting the trivial-character Gauss sum from the fixed product. At p=2, reduction modulo the prime above 2 cannot distinguish +1 from −1. A quotient known only up to a root of unity is insufficient for the exact product identity, although the weaker assertion can be used in the Taylor argument. The source’s proof points to Berndt–Evans–Williams, §11.3, whose full proof has not been read.
+**Unverified source input.** The sign of the Hasse–Davenport product must be fixed with the same Gauss-sum convention as the Stickelberger congruence. Conrad, Appendix (A.6), p. 19, states the product including `χ(n)^n` and omitting the trivial-character Gauss sum from the fixed product. At p=2, reduction modulo the prime above 2 cannot distinguish +1 from −1. A quotient known only up to a root of unity is insufficient for the exact product identity, although the weaker assertion can be used in the Taylor argument. The source’s proof points to Berndt–Evans–Williams, §11.3, which proves it through Stickelberger's congruence; no source cited here gives that proof.
 
 *Needs:* Mathlib `gaussSum`; Mathlib `gaussSum_one_left`; Mathlib `gaussSum_mulShift_eq`; Mathlib `gaussSum_mul_gaussSum_eq_card`; [Stickelberger’s finite Gauss-sum valuation](#layer-7-topic-12).
 
@@ -14997,18 +15073,18 @@ For the exact form, gaussSum_mulShift_eq shows that ζ_p↦ζ_p^b, for b∈F_p×
 
 ### 7.30 Symplectic Artin root signs
 
-For a global actual character χ set W∞(χ)=∏_(v infinite)i^(−n₋(χ,v)), with n₋ the multiplicity of the negative conjugation eigenspace, and define the algebraic root factor W(χ)=(Nfχ)¹ᐟ²/(τ(χ)W∞(χ)), using the positive real square root. This equals the Artin functional-equation root factor by F76 (2.4)–(2.5). Define W_G on irreducibles to be this value on symplectic irreducibles and 1 on all others, and extend multiplicatively to R_G.
+For a global actual character χ set W∞(χ)=∏_(v infinite)i^(−n₋(χ,v)), with n₋ the multiplicity of the negative conjugation eigenspace, and define the algebraic root factor W(χ)=(Nfχ)¹ᐟ²/(τ(χ)W∞(χ)), using the positive real square root. This equals the Artin functional-equation root factor by Fröhlich (1976), (2.4)–(2.5). Define W_G on irreducibles to be this value on symplectic irreducibles and 1 on all others, and extend multiplicatively to R_G.
 
 The supporting API comprises:
 
 - `SymplecticRootSign.irreducible`: On a symplectic irreducible use the normalized root factor; on every other irreducible use 1.
 - `SymplecticRootSign.virtual`: W_G(χ+θ)=W_G(χ)W_G(θ).
 - `SymplecticRootSign.archimedean`: W∞(χ)=∏i^(−n₋); the positive square root is part of the normalization.
-- `SymplecticRootSign.functional_equation`: Under the standard completed Artin equation W(χ) is its root factor, as in F76 (2.4).
+- `SymplecticRootSign.functional_equation`: Under the standard completed Artin equation W(χ) is its root factor, as in Fröhlich (1976), (2.4).
 
 (Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §2 (2.2)–(2.5), p.390; §8 Theorem9, p.410; §9 (9.1), p.412.) The root factor uses the inverse Gauss sum and inverse infinite factor; tame symplectic root numbers are rational signs.
 
-To prove this, import the Frobenius–Schur classification, local conductors and conjugation eigenspaces. The inverse Gauss formula fixes the convention without a complex-conjugation guess. The local/global symplectic duality identities give signs and tame Galois invariance via symplectic-root-sign-law. Comparison with analytic Artin functional equations is the explicit [the comparison with Artin functional equations](#layer-7-topic-30) boundary; the algebraic definition does not depend on having formalized Artin L-functions.
+To prove this, import the Frobenius–Schur classification, local conductors and conjugation eigenspaces. The inverse Gauss formula fixes the convention without a complex-conjugation guess. The local/global symplectic duality identities give signs and tame Galois invariance via [Tame symplectic root factors are equivariant signs](#layer-7-topic-111). Comparison with analytic Artin functional equations is the explicit [the comparison with Artin functional equations](#layer-7-topic-30) boundary; the algebraic definition does not depend on having formalized Artin L-functions.
 
 **Checks.**
 
@@ -15027,13 +15103,15 @@ To prove this, import the Frobenius–Schur classification, local conductors and
 
 For a finite odd-order group G, Q[G] has no totally definite quaternion division simple component and therefore satisfies Eichler’s condition. It also has no symplectic irreducible character.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), Corollary and its proof, pp.41–42, with the real-character input; F76 §8, p.410.) Odd-order groups have no symplectic obstruction and their rational group algebra has the required cancellation property.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Corollary and its proof, pp.41–42, with the real-character input; Fröhlich (1976), §8, p.410.) Odd-order groups have no symplectic obstruction and their rational group algebra has the required cancellation property.
 
 To prove this, the Frobenius–Schur criterion excludes symplectic irreducibles for odd-order groups. A totally definite quaternion division component contributes a symplectic irreducible under the real Wedderburn/character correspondence, so such a component is excluded. Apply the precise matrix-size Eichler predicate.
 
 **Checks.**
 
-- For a finite odd-order group G, Q[G] has no totally definite quaternion division simple component and therefore satisfies Eichler’s condition. It also has no symplectic irreducible character.
+- G = C₃: ℚ[C₃] ≅ ℚ × ℚ(ζ₃) is commutative.
+- G = Q₈ (even order): ℚ[Q₈] has the Hamilton quaternions over ℚ as a totally definite component and fails Eichler's condition.
+- For the nonabelian group of order 21 every nontrivial irreducible character is non-real, so no Frobenius–Schur indicator is −1.
 
 *Needs:* [TauCetiRoadmap.RepresentationTheory/CharacterTheory, layer 7 the frobenius schur indicator and realquaternionic type](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/CharacterTheory/README.md#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields); [Eichler’s condition for semisimple algebras](#layer-7-topic-11).
 
@@ -15049,7 +15127,9 @@ To prove this, present M by a finite free Λ-module and finitely many relations.
 
 **Checks.**
 
-- Let A be commutative noetherian, Λ a finite central A-algebra, M a finitely presented left Λ-module, N any left Λ-module and S a flat commutative A-algebra. The canonical map S⊗ₐHom_Λ(M,N)→Hom_(S⊗ₐΛ)(S⊗ₐM,S⊗ₐN) is an isomorphism, compatible with composition and pure tensors. If S is faithfully flat, projectivity of S⊗M descends to M. For a family of flat central scalar maps jointly detecting A-module exactness, projectivity descends when it holds after every scalar change.
+- A = Λ = ℤ, S = ℚ, M = N = ℤ/2: ℚ ⊗ Hom(ℤ/2, ℤ/2) = 0 = Hom_ℚ(0, 0).
+- A = Λ = ℤ, S = ℤ₂, M = ℤ/4, N = ℤ/2: ℤ₂ ⊗ Hom(ℤ/4, ℤ/2) = ℤ/2 = Hom_ℤ₂(ℤ/4, ℤ/2).
+- Finite presentation is needed: for M = ℤ^(ℕ) and N = ℤ, ℚ ⊗ Hom(M, ℤ) = ℚ ⊗ ∏ℤ consists of sequences with bounded denominators and misses (1, 1/2, 1/3, …) ∈ ∏ℚ = Hom_ℚ(ℚ^(ℕ), ℚ).
 
 *Needs:* [Balanced extension for noncommutative orders](#layer-7-topic-8).
 
@@ -15059,13 +15139,15 @@ To prove this, present M by a finite free Λ-module and finitely many relations.
 
 Let S be a commutative ring, G a finite group, H≤G and M a left S[H]-module. There is a canonical S[G]-linear isomorphism S[G]⊗_(S[H])M with functions f:G→M satisfying f(gh)=h⁻¹f(g), on which G acts by left translation. The tensor g⊗m maps to the function supported on gH with value h⁻¹m at gh. This is independent of coset representatives. For a G-equivariant product of modules indexed by G/H, applying the transport maps identifies this function model with the product.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Theorem10.7, proof, p.20.) The completed global integer module is the decomposition-group induction of the local integer module; the source notes it is imprecise about left and right modules , so the result fixes the left-module tensor order.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Theorem10.7, proof, p.20.) The completed global integer module is the decomposition-group induction of the local integer module; the source notes it is imprecise about left and right modules , so the result fixes the left-module tensor order.
 
-To prove this, the displayed function satisfies the H-equivariance condition. The identity gd⊗m=g⊗dm agrees with its value at gdh. Coset representatives identify both sides with a finite direct sum of copies of M, giving inverse maps; the balancing relation proves independence of the choice. Apply the imported NFA5 product of completed integer rings and its factor transport to obtain the inherited completed-ring induction target.
+To prove this, the displayed function satisfies the H-equivariance condition. The identity gd⊗m=g⊗dm agrees with its value at gdh. Coset representatives identify both sides with a finite direct sum of copies of M, giving inverse maps; the balancing relation proves independence of the choice. Apply the product of completed integer rings of NumberFieldArithmetic Layer 5 and its factor transport to obtain [The completed ring of integers is induced from a decomposition group](#layer-7-topic-39).
 
 **Checks.**
 
-- Let S be a commutative ring, G a finite group, H≤G and M a left S[H]-module. There is a canonical S[G]-linear isomorphism S[G]⊗_(S[H])M with functions f:G→M satisfying f(gh)=h⁻¹f(g), on which G acts by left translation. The tensor g⊗m maps to the function supported on gH with value h⁻¹m at gh. This is independent of coset representatives. For a G-equivariant product of modules indexed by G/H, applying the transport maps identifies this function model with the product.
+- H = G: S[G] ⊗_{S[G]} M ≅ M, and a function f is determined by f(1).
+- H = 1: the module is M^{|G|}, functions G → M with no condition.
+- G = C₂, H = 1, M = S: the module is S[C₂], and σ exchanges the two values of f.
 
 *Needs:* [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places); [Balanced extension for noncommutative orders](#layer-7-topic-8).
 
@@ -15075,13 +15157,15 @@ To prove this, the displayed function satisfies the H-equivariance condition. Th
 
 For finite extensions L/F and K/F of number fields or p-adic fields that are linearly disjoint and have coprime relative discriminant ideals, multiplication induces O_L⊗_(O_F)O_K≅O_(LK). If both are Galois, restriction gives Gal(LK/F)≅Gal(L/F)×Gal(K/F), and tensoring their normal integral bases gives the product normal integral basis. Trivial field intersection alone is not used as linear disjointness unless a Galois hypothesis justifies it.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Theorem5.4 with proof, pp.9–10; Example5.6, p.10; Proposition6.4(ii), p.11.) Coprime discriminants and linear disjointness identify the integral tensor product with the compositum integer ring, and normal integral bases multiply across arithmetically disjoint Galois extensions; the source’s Definition5.1 equates linear disjointness with trivial intersection, which requires a linear-disjointness hypothesis in place of trivial intersection.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Theorem5.4 with proof, pp.9–10; Example5.6, p.10; Proposition6.4(ii), p.11.) Coprime discriminants and linear disjointness identify the integral tensor product with the compositum integer ring, and normal integral bases multiply across arithmetically disjoint Galois extensions; the source’s Definition5.1 equates linear disjointness with trivial intersection, which requires a linear-disjointness hypothesis in place of trivial intersection.
 
 To prove this, field linear disjointness gives the generic tensor isomorphism. Any failure of integral multiplication to be an isomorphism localizes at a prime dividing the index, which must divide both discriminants by the discriminant/index-square formula; coprimality excludes it. For the automorphism product, extend pairs of automorphisms through the tensor field and verify the inverse by restriction. The product group acts regularly on the tensor basis.
 
 **Checks.**
 
-- For finite extensions L/F and K/F of number fields or p-adic fields that are linearly disjoint and have coprime relative discriminant ideals, multiplication induces O_L⊗_(O_F)O_K≅O_(LK). If both are Galois, restriction gives Gal(LK/F)≅Gal(L/F)×Gal(K/F), and tensoring their normal integral bases gives the product normal integral basis. Trivial field intersection alone is not used as linear disjointness unless a Galois hypothesis justifies it.
+- F = ℚ, L = ℚ(i), K = ℚ(√−3): the discriminants −4 and −3 are coprime, and ℤ[i] ⊗ ℤ[ζ₃] ≅ ℤ[ζ₁₂].
+- F = ℚ, L = ℚ(i), K = ℚ(√2): the discriminants −4 and 8 are not coprime, and ℤ[i, √2] has index 2 in ℤ[ζ₈] (ζ₈ = (1 + i)/√2 is not in it).
+- For L = F the statement is O_F ⊗ O_K ≅ O_K.
 
 *Needs:* [TauCetiRoadmap.NumberFieldArithmetic, layer 4 the relative discriminant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-4-the-relative-discriminant); [Balanced extension for noncommutative orders](#layer-7-topic-8).
 
@@ -15162,7 +15246,7 @@ Let B/A be a finite extension of Dedekind domains with a finite Galois group G, 
 
 Galois case: all primes over p have the same ramification index. Tr_{B/A}(B) is an ideal of A.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Proposition 7.2 (printed p. 13).) The target, with "wildly ramified" read as "not tame", which includes the residue-separability clause of the definition node.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Proposition 7.2 (printed p. 13).) The target, with "wildly ramified" read as "not tame", which includes the residue-separability clause of [Tamely ramified extensions of Dedekind domains](#layer-7-topic-2).
 
 (S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom-normal-bases-1969), Corollary 1.2 (printed p. 155).) For 𝔄 = O_K this is the tame direction: the trace of O_K is O_F.
 
@@ -15191,9 +15275,9 @@ A is a complete discrete valuation ring with finite residue field k of cardinali
 
 To prove this, l′/K is Galois as the compositum of L with the unramified (hence Galois) extension L′_0 of K of degree ef (LocalFieldsRamification Layer 2).
 
-e(L′/K) = e and f(L′/K) = ef by multiplicativity in towers; so L′/K is tame (tamely-ramified, tower stability).
+e(L′/K) = e and f(L′/K) = ef by multiplicativity in towers; so L′/K is tame ([Tamely ramified extensions of Dedekind domains](#layer-7-topic-2), tower stability).
 
-With π_L, v from local-tame-uniformiser: (q^{ef} − 1) = (q^f − 1)(q^{f(e−1)} + … + 1) and the second factor is ≡ e ≡ 0 mod e, so e(q^f − 1) | q^{ef} − 1 and v = u^e for a (q^{ef} − 1)-st root of unity u ∈ L′_0.
+With π_L, v from [Normalising a uniformiser of a tame local extension](#layer-7-topic-19): (q^{ef} − 1) = (q^f − 1)(q^{f(e−1)} + … + 1) and the second factor is ≡ e ≡ 0 mod e, so e(q^f − 1) | q^{ef} − 1 and v = u^e for a (q^{ef} − 1)-st root of unity u ∈ L′_0.
 
 π′ = u⁻¹π_L satisfies π′^e = π_K; X^e − π_K is Eisenstein, so K′ = K(π′) is totally ramified of degree e (LocalFieldsRamification Layer 3).
 
@@ -15277,7 +15361,7 @@ To prove this, define the subalgebra by its carrier; closure under products and 
 
 A[G] ⊆ A_{L/K} since B is G-stable.
 
-Order: the normal basis map identifies L with K[G] as K[G]-modules and B with an A-lattice M; A_{L/K} is the left order of M (left-order-of-lattice).
+Order: the normal basis map identifies L with K[G] as K[G]-modules and B with an A-lattice M; A_{L/K} is the left order of M ([The left order of a lattice](#layer-7-topic-20)).
 
 **Checks.**
 
@@ -15285,7 +15369,7 @@ Order: the normal basis map identifies L with K[G] as K[G]-modules and B with an
 - Every group element lies in A_{L/K}.
 - For ℚ(i)/ℚ, ℤ[G] is strictly smaller than A_{L/K}.
 - For L = K, A_{L/K} = A.
-- For ℚ(i)/ℚ, A_{L/K} = ℤe₁ ⊕ ℤe₋₁ ⊋ ℤ[G] (associated-order-of-gaussian-integers).
+- For ℚ(i)/ℚ, A_{L/K} = ℤe₁ ⊕ ℤe₋₁ ⊋ ℤ[G] ([The associated order of ℚ(i)/ℚ](#layer-7-topic-69)).
 
 *Needs:* [The left order of a lattice](#layer-7-topic-20); [The rational normal basis map K[G] ≅ L](#layer-7-topic-17); [The ring of integers as a module over the group ring](#layer-7-topic-1); Mathlib `IsIntegralClosure`.
 
@@ -15304,7 +15388,7 @@ The supporting API comprises:
 
 (Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), II§2.8 and Example2.8.1, pp.12–13.) Additive scalar functors on finite projectives induce the claimed Grothendieck-group maps.
 
-To prove this, restrict the additive module functor to the existing finite-projective subcategory using finite-projective-scalar-change. Apply SplitK0.map. Use the module-functor identity/composition isomorphisms and SplitK0.of_congr.
+To prove this, restrict the additive module functor to the existing finite-projective subcategory using [Scalar change preserves finite projectives under exact hypotheses](#layer-7-topic-24). Apply SplitK0.map. Use the module-functor identity/composition isomorphisms and SplitK0.of_congr.
 
 **Checks.**
 
@@ -15330,7 +15414,7 @@ The supporting API comprises:
 
 (Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), II§2.8 and Example2.8.1, pp.12–13.) Additive scalar functors on finite projectives induce the claimed Grothendieck-group maps.
 
-To prove this, restrict the additive module functor to the existing finite-projective subcategory using finite-projective-scalar-change. Apply SplitK0.map. Use the module-functor identity/composition isomorphisms and SplitK0.of_congr.
+To prove this, restrict the additive module functor to the existing finite-projective subcategory using [Scalar change preserves finite projectives under exact hypotheses](#layer-7-topic-24). Apply SplitK0.map. Use the module-functor identity/composition isomorphisms and SplitK0.of_congr.
 
 **Checks.**
 
@@ -15347,17 +15431,19 @@ To prove this, restrict the additive module functor to the existing finite-proje
 
 For a central simple C/F of degree d>1, SL₁(C) is connected semisimple and simply connected. Its archimedean product is noncompact unless C is itself a totally definite quaternion division algebra. Consequently, if semisimple B satisfies Eichler’s condition, J(B)′=B×′·(J(B)′∩U(Γ)) for every arithmetic order Γ, including every idele-conjugate order. Trivial field factors are omitted.
 
-(Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), §3 VII, Eichler theorem and Lemma1, p.117; J68 §4 Theorem4.1 and Lemma4.2, pp.15–16.) Norm-one strong approximation under Eichler’s condition makes every relevant finite adelic double-coset fibre a singleton.
+(Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), §3 VII, Eichler theorem and Lemma1, p.117; Jacobinski (1968), §4 Theorem4.1 and Lemma4.2, pp.15–16.) Norm-one strong approximation under Eichler’s condition makes every relevant finite adelic double-coset fibre a singleton.
 
 (Vladimir Platonov, Andrei Rapinchuk and Igor Rapinchuk, [Algebraic Groups and Number Theory, Volume I](#reference-prr), §2.3.4 Proposition2.37 and proof, pp.100–101.) The determinant-one group of a central simple algebra is an inner form of SL_d.
 
-To prove this, after a splitting field this is SL_d; descend the connected, semisimple and simply connected properties through the inner form. Inspect C⊗ℝ: SL_d(ℝ), SL_d(ℂ), or quaternionic SL_r; the sole compact nontrivial case is r=1 over ℍ. Apply AdelicAlgebraicGroups AA.4 with S the archimedean places and the compact open intersection with Γ-units. The inner-form identification is PRR Proposition2.37: a splitting trivialization gives an inner cocycle in PGL_d and descent of the determinant-one equations. Geometric connectedness and simple connectedness are preserved by this form. Explicit diagonal one-parameter subgroups prove noncompactness in all allowed real or complex matrix cases.
+To prove this, after a splitting field this is SL_d; descend the connected, semisimple and simply connected properties through the inner form. Inspect C⊗ℝ: SL_d(ℝ), SL_d(ℂ), or quaternionic SL_r; the sole compact nontrivial case is r=1 over ℍ. Apply strong approximation (TauCetiRoadmap.AdelicAlgebraicGroups §4.2) with S the archimedean places and the compact open intersection with Γ-units. The inner-form identification is Platonov–Rapinchuk–Rapinchuk Proposition2.37: a splitting trivialization gives an inner cocycle in PGL_d and descent of the determinant-one equations. Geometric connectedness and simple connectedness are preserved by this form. Explicit diagonal one-parameter subgroups prove noncompactness in all allowed real or complex matrix cases.
 
 **Checks.**
 
-- For a central simple C/F of degree d>1, SL₁(C) is connected semisimple and simply connected. Its archimedean product is noncompact unless C is itself a totally definite quaternion division algebra. Consequently, if semisimple B satisfies Eichler’s condition, J(B)′=B×′·(J(B)′∩U(Γ)) for every arithmetic order Γ, including every idele-conjugate order. Trivial field factors are omitted.
+- C = M₂(ℚ): SL₁(C) = SL₂, noncompact at the real place.
+- C the Hamilton quaternions over ℚ: SL₁(C)(ℝ) = SU(2) is compact, the excluded case.
+- C = M₂(ℍ_ℚ) of degree 4: SL₁(C)(ℝ) = SL₂(ℍ) is noncompact, so Eichler's condition allows matrix algebras over definite quaternions.
 
-*Needs:* [The reduced-norm-one group scheme](#layer-7-topic-26); [Eichler’s condition for semisimple algebras](#layer-7-topic-11); [TauCetiRoadmap.ReductiveGroups, layer 6 reductive and semisimple groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-6-reductive-and-semisimple-groups); [AdelicAlgebraicGroups, `AA.4/strong-approximation-theorem`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/AdelicAlgebraicGroups/README.md).
+*Needs:* [Norm-one groups of semisimple matrix components](#layer-7-topic-26); [Eichler’s condition for semisimple algebras](#layer-7-topic-11); [TauCetiRoadmap.ReductiveGroups, layer 6 reductive and semisimple groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-6-reductive-and-semisimple-groups); [TauCetiRoadmap.AdelicAlgebraicGroups, §4.2 Strong approximation and arithmetic closures](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md#42-strong-approximation-and-arithmetic-closures).
 
 <a id="layer-7-topic-45"></a>
 
@@ -15371,7 +15457,9 @@ To prove this, for a separable algebra E=F[X]/f, its embedding in C with total d
 
 **Checks.**
 
-- Let C/F be central simple of degree d and f∈F[X] monic separable of degree d. There is c∈C with reduced characteristic polynomial f iff every local C_v has such an element; equivalently C splits over F[X]/g for every irreducible factor g of f. For a prescribed nonzero norm a, local witnesses can be chosen regular and their polynomials approximated with the constant coefficient (−1)ᵈa fixed.
+- C = M₂(ℚ), f = X² − 2: the companion matrix of f has reduced characteristic polynomial f.
+- C the Hamilton quaternions over ℚ: f = X² + 1 is realised by i, while f = X² − 2 is not, because its reduced norm −2 is negative and ℚ(√2) does not split C at the real place.
+- f = (X − 1)² is not separable and lies outside the statement.
 
 *Needs:* [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields); [TauCetiRoadmap.ClassFieldTheory, layer 10 global carriers the brauer sequence and the sum of local invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants); [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places); [Reduced characteristic polynomials](#reduced-characteristic-polynomial-input).
 
@@ -15385,13 +15473,13 @@ The supporting API comprises:
 
 - `IntegralGroupLog.identity`: L(1)=0.
 - `IntegralGroupLog.product`: L(uv)=L(u)+L(v) on 1+I.
-- `IntegralGroupLog.character`: χ(L(u))=p log Det(u)(χ)−log Det(F_R(u))(ψᵖχ), with coefficientwise Frobenius before evaluation. Our ν=L/p differs from CPT’s ν by the factor p.
+- `IntegralGroupLog.character`: χ(L(u))=p log Det(u)(χ)−log Det(F_R(u))(ψᵖχ), with coefficientwise Frobenius before evaluation. Our ν=L/p differs from Chinburg–Pappas–Taylor’s ν by the factor p.
 - `IntegralGroupLog.coefficients`: A coefficient map commuting with Frobenius lifts preserves L.
 - `IntegralGroupLog.conjugacy`: The target is the free coefficient module on conjugacy classes, not R[G].
 
-(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §3a equations(3.1)–(3.5), pp.12–13; LOGSURVEY §3, pp.5–6.) The p-scaled logarithm is formed after the conjugacy-class projection and uses a coefficient Frobenius lift.
+(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §3a, (3.1)–(3.2) and the definition of Ψ between them, pp.12–13; Chinburg–Pappas–Taylor, [The group logarithm past and present](#reference-logsurvey), §3, pp.5–6.) The p-scaled logarithm is formed after the conjugacy-class projection and uses a coefficient Frobenius lift.
 
-To prove this, augmentation nilpotence modulo p gives I^N⊆pR[G], hence logarithmic convergence in R[1/p][G]. Project to conjugacy classes so logarithms are additive on products. Frobenius cancels denominators by group-log-integrality. For coefficientwise F_R on R[G], the exact character formula is χ(L(u))=p·log Det(u)(χ)−log Det(F_R(u))(ψᵖχ). F_R acts on coefficients before character evaluation; no extension of F_R fixing character roots is assumed. CPT denotes the map induced by L itself by ν; our normalized ν=L/p has image φ(A), while CPT’s ν has image pφ(A).
+To prove this, augmentation nilpotence modulo p gives I^N⊆pR[G], hence logarithmic convergence in R[1/p][G]. Project to conjugacy classes so logarithms are additive on products. Frobenius cancels denominators by [Integral images of the group logarithm](#layer-7-topic-62). For coefficientwise F_R on R[G], the exact character formula is χ(L(u))=p·log Det(u)(χ)−log Det(F_R(u))(ψᵖχ). F_R acts on coefficients before character evaluation; no extension of F_R fixing character roots is assumed. Chinburg–Pappas–Taylor denotes the map induced by L itself by ν; our normalized ν=L/p has image φ(A), while Chinburg–Pappas–Taylor’s ν has image pφ(A).
 
 **Checks.**
 
@@ -15406,7 +15494,7 @@ To prove this, augmentation nilpotence modulo p gives I^N⊆pR[G], hence logarit
 
 ### 7.47 Integral-character twisting of determinant homomorphisms
 
-For an integral characteristic-zero character θ of a finite free G-stable Z_p-lattice, define (θ⋆f)(χ)=f(θχ). Twisting with the dual lattice preserves the matrix determinant subgroup Det(GL(R[G])) for every coefficient ring R; when R[G] is semilocal it preserves Det(R[G]×) by semilocal elimination. CPT uses the conjugate of the lattice character, so the dual is required for this convention. Restriction and induction satisfy the projection formula.
+For an integral characteristic-zero character θ of a finite free G-stable Z_p-lattice, define (θ⋆f)(χ)=f(θχ). Twisting with the dual lattice preserves the matrix determinant subgroup Det(GL(R[G])) for every coefficient ring R; when R[G] is semilocal it preserves Det(R[G]×) by semilocal elimination. Chinburg–Pappas–Taylor uses the conjugate of the lattice character, so the dual is required for this convention. Restriction and induction satisfy the projection formula.
 
 The supporting API comprises:
 
@@ -15415,16 +15503,16 @@ The supporting API comprises:
 - `IntegralCharacterAction.product`: θ⋆(η⋆f)=(θη)⋆f.
 - `IntegralCharacterAction.projection`: Induction and restriction satisfy the projection formula on determinant images.
 
-(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §5a, Proposition5.2 and Ullom’s formula(5.1), p.27; T81 §1, p.44, and §5, pp.52–53.) Integral lattice characters act on determinant images, with an explicit conjugate-character convention.
+(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §5a, Proposition5.2 and Ullom’s formula(5.1), p.27; Taylor (1981), §1, p.44, and §5, pp.52–53.) Integral lattice characters act on determinant images, with an explicit conjugate-character convention.
 
-To prove this, tensoring with the integral dual lattice gives a representation into finite matrices over R[G]. Taking character determinants proves preservation of the matrix determinant image. Only in the semilocal case apply semilocal-determinant-stability to replace this by a unit determinant. Mackey and Frobenius reciprocity give the projection formula.
+To prove this, tensoring with the integral dual lattice gives a representation into finite matrices over R[G]. Taking character determinants proves preservation of the matrix determinant image. Only in the semilocal case apply [Semilocal elimination preserves the determinant image](#layer-7-topic-27) to replace this by a unit determinant. Mackey and Frobenius reciprocity give the projection formula.
 
 **Checks.**
 
 - The zero character sends every f to the constant-one homomorphism.
 - For a rank-m trivial lattice, θ⋆f=fᵐ.
 - An arbitrary rational virtual character without an integral lattice realization cannot be used as an integral-unit twisting construction.
-- A non-real one-dimensional lattice requires the dual lattice when translating CPT’s conjugate-character action to the stated formula.
+- A non-real one-dimensional lattice requires the dual lattice when translating Chinburg–Pappas–Taylor’s conjugate-character action to the stated formula.
 
 *Needs:* [TauCetiRoadmap.RepresentationTheory/InductionRestriction, layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Determinants indexed by virtual characters](#layer-7-topic-28); [Semilocal elimination preserves the determinant image](#layer-7-topic-27).
 
@@ -15434,13 +15522,15 @@ To prove this, tensoring with the integral dual lattice gives a representation i
 
 For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring v.adicCompletionIntegers F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of finitely generated A-modules and of maps between them; finite sublattice equality and finite-order projectivity descent are applications. For number fields it agrees with the arithmetic completion dictionary of NumberFieldArithmetic Layer5.
 
-(John Voight, [Quaternion Algebras](#reference-voight), §9.4 Lemma9.4.6, p.141; Lemma10.2.10, p.153.) A lattice is the intersection of its localizations, so lattice equality is detected at all localizations; faithfully flat completion transports this test. The adapter itself is assembled here from pinned Mathlib.
+(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), §9.4 Lemma9.4.6, p.141; Lemma10.2.10, p.153.) A lattice is the intersection of its localizations, so lattice equality is detected at all localizations; faithfully flat completion transports this test. The adapter itself is assembled here from pinned Mathlib.
 
 To prove this, the pinned A-algebra structure on Â_v sends a∈A to its image in the completion. Elements outside v have valuation one, so they are units of Â_v and the map factors through A_v. The maximal ideal of A_v maps into the maximal ideal of the valuation subring Â_v, a local ring, so A_v→Â_v is local. Â_v is torsion-free over A by a pinned instance, hence flat over the Dedekind domain A by IsDedekindDomain.flat_iff_torsion_eq_bot, hence flat over A_v. Module.FaithfullyFlat.of_flat_of_isLocalHom makes A_v→Â_v faithfully flat. Localizations at all maximal ideals detect exactness, and every maximal ideal of the nonfield Dedekind domain A is nonzero, so the completions do too. Compatibility with finite lattice scalar change is Â_v⊗_A M=Â_v⊗_(A_v)(A_v⊗_A M).
 
 **Checks.**
 
-- For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring v.adicCompletionIntegers F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of finitely generated A-modules and of maps between them; finite sublattice equality and finite-order projectivity descent are applications. For number fields it agrees with the arithmetic completion dictionary of NumberFieldArithmetic Layer5.
+- A = ℤ, M = ℤ/6: M ⊗ ℤ_p is nonzero exactly at p = 2 and p = 3.
+- 2ℤ ⊆ ℤ: the two lattices differ only after completing at 2.
+- For a field there are no nonzero primes and the family detects nothing, so the nonfield hypothesis is needed.
 
 *Needs:* Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`; Mathlib `IsDedekindDomain.HeightOneSpectrum.algebraMap_adicCompletionIntegers_apply`; Mathlib `IsDedekindDomain.flat_iff_torsion_eq_bot`; Mathlib `ValuationSubring.isLocalRing`; Mathlib `Module.FaithfullyFlat.of_flat_of_isLocalHom`; [Central flat scalar change for finite-order Hom modules](#layer-7-topic-32); [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places).
 
@@ -15450,13 +15540,15 @@ To prove this, the pinned A-algebra structure on Â_v sends a∈A to its image i
 
 Let A be integrally closed noetherian with fraction field F, B finite-dimensional with nondegenerate regular trace pairing, and Λ an A-order. Choose an F-basis e_i inside Λ and r=det(Tr_reg(e_ie_j))≠0. Every overorder Γ⊇Λ is contained in r⁻¹Σ_i A e_i. The bound is independent of Γ; it makes the set of overorders satisfy the ascending-chain condition.
 
-(John Voight, [Quaternion Algebras](#reference-voight), Lemma10.3.7 proof and paragraph10.4.2, p.155; regular-trace variant explained here.) The trace-dual/Cramer bound uses a basis of the starting order and bounds all its overorders simultaneously.
+(John Voight, [Quaternion Algebras](#reference-voight-quaternion-2021), Lemma10.3.7 proof and paragraph10.4.2, p.155; regular-trace variant explained here.) The trace-dual/Cramer bound uses a basis of the starting order and bounds all its overorders simultaneously.
 
 To prove this, every x∈Γ is integral over A by finite-module Cayley–Hamilton. Eigenvalues of left multiplication are roots of a monic integral polynomial; their sum is integral over A and lies in F, hence regular trace lies in A by normality. Apply this to xe_j, since e_j∈Λ⊆Γ. Cramer’s rule in the fixed Gram matrix puts every coordinate in r⁻¹A. A noetherian finite-module bound gives ascending-chain termination.
 
 **Checks.**
 
-- Let A be integrally closed noetherian with fraction field F, B finite-dimensional with nondegenerate regular trace pairing, and Λ an A-order. Choose an F-basis e_i inside Λ and r=det(Tr_reg(e_ie_j))≠0. Every overorder Γ⊇Λ is contained in r⁻¹Σ_i A e_i. The bound is independent of Γ; it makes the set of overorders satisfy the ascending-chain condition.
+- A = ℤ, B = ℚ(i), Λ = ℤ[2i] with basis 1, 2i: r = det [[2, 0], [0, −8]] = −16, and the overorder ℤ[i] lies in (1/16)(ℤ + ℤ·2i).
+- A = ℤ, B = ℚ, Λ = ℤ: r = 1 and ℤ is the only overorder.
+- The overorders of ℤ[2i] in ℚ(i) are ℤ[2i] and ℤ[i], a finite set.
 
 *Needs:* [Orders in finite-dimensional algebras](#layer-7-topic-4); [Maximal orders](#layer-7-topic-21).
 
@@ -15602,7 +15694,7 @@ Group ring form: an Â_v[G]-isomorphism Â_v[G] ≅ Â_v ⊗ B is determined by 
 - A nonzero nonprincipal ideal of a Dedekind domain is locally free of rank one but not free.
 - ℤ[i] is not locally free of rank one over ℤ[Gal(ℚ(i)/ℚ)].
 - A nonprincipal ideal I of a Dedekind domain A is locally free of rank one over Λ = A, but not free: local freeness does not imply freeness.
-- ℤ[i] is not locally free of rank one over ℤ[C_2]: at 2 the completed module has no normal basis (local-noether).
+- ℤ[i] is not locally free of rank one over ℤ[C_2]: at 2 the completed module has no normal basis ([Noether's theorem for local fields](#layer-7-topic-88)).
 
 *Needs:* Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`; Mathlib `LinearMap.baseChange`; Mathlib `Module.Finite`; Mathlib `IsDedekindDomain`; [Dedekind completions jointly detect finite-module equality](#layer-7-topic-48).
 
@@ -15739,11 +15831,13 @@ For each central simple number-field component C/F, Nrd(C×) consists exactly of
 
 (Martin Kneser; notes by P. Jothilingam, [Lectures on Galois Cohomology of Classical Groups](#reference-kne), §5.4, retypeset pp.66–69, original pp.87–91.) The local norm image and its global positive norm realization are proved using separable polynomial realization.
 
-To prove this, reduce each local simple component to M_r(D). Import the local Brauer invariant and its restriction formula: a degree-d extension kills the invariant of a division algebra D of degree d. The splitting/embedding criterion then embeds both the unramified degree-d extension and a degree-d totally ramified Eisenstein extension as maximal subfields. Their integral rings lie in the unique maximal order of D. Import unramified unit-norm surjectivity from LocalFieldsRamification Layer2 and the norm valuation formula from Layer3: the first supplies every unit and a uniformizer of the second supplies valuation one. Morita invariance and conjugacy of maximal orders give the asserted matrix-order unit image. At infinity compute split-real, complex and quaternionic determinants. For the global step, choose local regular elements with prescribed norm, approximate their separable reduced characteristic polynomials while fixing the constant term, and use prescribed-separable-polynomial to realize that polynomial globally. Split places supply companion matrices. This is Kneser’s §5.4 proof using the global Brauer splitting criterion. Openness follows from the reduced trace on sufficiently deep principal units.
+To prove this, reduce each local simple component to M_r(D). Import the local Brauer invariant and its restriction formula: a degree-d extension kills the invariant of a division algebra D of degree d. The splitting/embedding criterion then embeds both the unramified degree-d extension and a degree-d totally ramified Eisenstein extension as maximal subfields. Their integral rings lie in the unique maximal order of D. Import unramified unit-norm surjectivity from LocalFieldsRamification Layer2 and the norm valuation formula from Layer3: the first supplies every unit and a uniformizer of the second supplies valuation one. Morita invariance and conjugacy of maximal orders give the asserted matrix-order unit image. At infinity compute split-real, complex and quaternionic determinants. For the global step, choose local regular elements with prescribed norm, approximate their separable reduced characteristic polynomials while fixing the constant term, and use [Local–global realization of separable reduced characteristic polynomials](#layer-7-topic-45) to realize that polynomial globally. Split places supply companion matrices. This is Kneser’s §5.4 proof using the global Brauer splitting criterion. Openness follows from the reduced trace on sufficiently deep principal units.
 
 **Checks.**
 
-- For each central simple number-field component C/F, Nrd(C×) consists exactly of a∈F× positive at every real place where C_v is a matrix algebra over Hamilton quaternions. At finite v the image is all F_v×; for a maximal O_v-order its unit image is O_v×. At a ramified real place it is ℝ_{>0}, otherwise the full local centre group. For any finite-place order, its norm-unit image is open. These statements apply componentwise to semisimple B.
+- C the Hamilton quaternions over ℚ: Nrd(C^×) is the set of positive rationals, the nonzero sums of four rational squares.
+- C = M₂(ℚ): Nrd = det is onto ℚ^×.
+- At v = 2 for the Hamilton quaternions, the units 1, 1 + i + j, 1 + 2i and 1 + i + j + 2k of the maximal order have reduced norms 1, 3, 5 and 7, one in each square class of ℤ₂^×; squares are reduced norms of scalars, so the unit image is ℤ₂^×.
 
 *Needs:* [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10); [Local–global realization of separable reduced characteristic polynomials](#layer-7-topic-45); [TauCetiRoadmap.RepresentationTheory/SemisimpleAlgebras, layer 6 the brauer group and splitting fields](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras/README.md#layer-6-the-brauer-group-and-splitting-fields); [TauCetiRoadmap.ClassFieldTheory, layer 5 local coefficients the brauer group the local invariant and duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.LocalFieldsRamification, layer 2 unramified extensions and frobenius](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-2-unramified-extensions-and-frobenius); [TauCetiRoadmap.LocalFieldsRamification, layer 3 ramification the tame and wild cases and the filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration).
 
@@ -15759,7 +15853,9 @@ To prove this, after scalar extension to a splitting field the regular multiplic
 
 **Checks.**
 
-- For a finite G-Galois algebra E/F and a∈E, the F[G]-map sending g to g(a) is bijective iff r_G(a)=Σg g(a)g⁻¹ is a unit in E[G]. Over a DVR, an integral resolvent is a unit in O_E[G] iff the integral algebra is étale and a is an integral normal-basis generator; this integral-unit criterion is not asserted for ramified tame extensions.
+- E = ℚ(i), G = C₂, a = 1 + i: r_G(a) = (1 + i) + (1 − i)σ has character values 2 and 2i, both nonzero, so a generates a normal basis.
+- a = 1: r_G(1) = 1 + σ is killed by the sign character and is not a unit.
+- Over ℤ₂, 1 + i is not an integral generator: ℤ₂[i]/ℤ₂ is ramified and 2i is not a unit.
 
 *Needs:* [The rational normal basis map K[G] ≅ L](#layer-7-topic-17); [Normal integral bases](#layer-7-topic-36).
 
@@ -15767,7 +15863,7 @@ To prove this, after scalar extension to a splitting field the regular multiplic
 
 ### 7.62 Integral images of the group logarithm
 
-Under the integral-group-log hypotheses, L(1+I)⊆pφ(I). If A=ker(R[G]→R[G_ab]), then L(1+A)=pφ(A). The second assertion is surjectivity onto the commutator ideal image, not merely a containment.
+Under the [The integral group logarithm](#layer-7-topic-46) hypotheses, L(1+I)⊆pφ(I). If A=ker(R[G]→R[G_ab]), then L(1+A)=pφ(A). The second assertion is surjectivity onto the commutator ideal image, not merely a containment.
 
 (Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), Theorems3.4–3.5 and proofs, pp.13–17.) The logarithm is p-integral, and on the commutator augmentation ideal it has exactly the displayed image.
 
@@ -15775,7 +15871,9 @@ To prove this, use the Frobenius congruence to cancel the denominator at every p
 
 **Checks.**
 
-- Under the integral-group-log hypotheses, L(1+I)⊆pφ(I). If A=ker(R[G]→R[G_ab]), then L(1+A)=pφ(A). The second assertion is surjectivity onto the commutator ideal image, not merely a containment.
+- G = {1}: I = 0 and both sides are 0.
+- G = C₂, R = ℤ₂, F the identity: u = a + bσ in 1 + I has sign-character value w = a − b, a 2-adic unit, and L(u) = 2·φ(log u) − Ψ(φ(log u)) = log(w)·(1 − σ), because Ψ kills 1 − σ; since log ℤ₂^× = 4ℤ₂, L(1 + I) = 4I ⊆ 2I.
+- G abelian: A = 0 and the second assertion reads L(1) = 0 = pφ(0).
 
 *Needs:* [The integral group logarithm](#layer-7-topic-46).
 
@@ -15785,15 +15883,17 @@ To prove this, use the Frobenius congruence to cancel the denominator at every p
 
 Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The field-of-definition refinements of generic Brauer induction — the prime-to-p multiplier identity over Q_p-p-elementary subgroups, the integral identity over Q_p-ℓ-elementary subgroups for all primes ℓ, and their ℚ-rational analogues used by Taylor — are the field-of-definition induction theorem below.
 
-(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §5b Theorem5.4, p.28; proof of Theorem1.2(b), p.35; T81 §5, pp.52–53.) Local rational Brauer induction reduces determinant-image questions to cyclotomic elementary subgroups.
+(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §5b, Theorem 5.4, p.28; proof of Theorem 1.2(b), pp.35–36; Taylor (1981), §5, pp.52–53.) Theorem 5.4 is the representation-ring statement: some integer prime to p times G₀(ℚ_p[G]) is a sum of inductions from ℚ_p-p-elementary subgroups. The proof of Theorem 1.2(b) applies it to determinant images.
 
-To prove this, use the Q_ℓ-rational integral character identity with prime-to-ℓ multiplier. Apply integral-character-action and the projection formula to lift its induced terms. A quotient detected modulo the radical is pro-ℓ, hence multiplication by the prime-to-ℓ integer is invertible. For Taylor’s off-diagonal proof, the Q-elementary reduction and twists are applied before the same ℓ-adic quotient argument.
+To prove this, use the Q_ℓ-rational integral character identity with prime-to-ℓ multiplier. Apply [Integral-character twisting of determinant homomorphisms](#layer-7-topic-47) and the projection formula to lift its induced terms. A quotient detected modulo the radical is pro-ℓ, hence multiplication by the prime-to-ℓ integer is invertible. For Taylor’s off-diagonal proof, the Q-elementary reduction and twists are applied before the same ℓ-adic quotient argument.
 
 **Checks.**
 
-- Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The field-of-definition refinements of generic Brauer induction — the prime-to-p multiplier identity over Q_p-p-elementary subgroups, the integral identity over Q_p-ℓ-elementary subgroups for all primes ℓ, and their ℚ-rational analogues used by Taylor — are the field-of-definition induction theorem below.
+- A p-group G is itself ℚ_p-p-elementary (C = 1).
+- G = C_ℓ with ℓ ≠ p is ℚ_p-p-elementary with P = 1.
+- G = S₃ at p = 2 is ℚ₂-2-elementary: C₂ acts on C₃ by −1, and 2 ≡ −1 (mod 3) lies in the image of the 2-adic cyclotomic Galois group.
 
-**Unverified source input.** Ordinary complex Brauer induction does not give the field-of-definition identity used here. Require Witt–Berman induction with the cyclotomic coefficient-field condition, a prime-to-p multiplier in the p-elementary reduction, and the integral identities at every auxiliary prime needed for descent to ℚ_p and ℚ. Chinburg–Pappas–Taylor, Theorem 5.4, p. 28, and their proof of Theorem 1.2(b), p. 35, specify these requirements; Taylor (1981), §5, pp. 52–53, uses the integral identities. The coefficient field and the multiplier must be retained in each application.
+**Unverified source input.** Ordinary complex Brauer induction does not give the field-of-definition identity used here. Require Witt–Berman induction with the cyclotomic coefficient-field condition, a prime-to-p multiplier in the p-elementary reduction, and the integral identities at every auxiliary prime needed for descent to ℚ_p and ℚ. Chinburg–Pappas–Taylor, Theorem 5.4, p. 28, and their proof of Theorem 1.2(b), pp. 35–36, specify these requirements; Taylor (1981), §5, pp. 52–53, uses the integral identities. The coefficient field and the multiplier must be retained in each application.
 
 *Needs:* [TauCetiRoadmap.RepresentationTheory/InductionRestriction, layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Integral-character twisting of determinant homomorphisms](#layer-7-topic-47); [Semilocal elimination preserves the determinant image](#layer-7-topic-27).
 
@@ -15803,13 +15903,15 @@ To prove this, use the Q_ℓ-rational integral character identity with prime-to-
 
 Let A be integrally closed with fraction field F, L/F finite G-Galois, and B its finite integral closure. If B=A[G]a is a normal integral basis and H≤G, then B^H is free over A with basis {Σh∈H h(g(a)) : Hg∈H\G}. In particular Tr_L/F(a) is an A-basis of A, and the trace B→A is onto. When H is normal this is an A[G/H]-normal integral basis for the fixed extension. The statement covers complete DVRs as well as number-field integer rings.
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Proposition6.1 (stated p.10, proof p.11) and Corollary6.2, pp.10–11.) Tracing a normal integral generator gives an integral normal generator in the fixed Galois extension.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Proposition6.1 (stated p.10, proof p.11) and Corollary6.2, pp.10–11.) Tracing a normal integral generator gives an integral normal generator in the fixed Galois extension.
 
 To prove this, in the permutation basis g(a), H-invariance says precisely that coefficients are constant on left cosets. Their orbit sums form an A-basis of invariants without division by |H|. Integral closedness identifies B^G with A and B^H with the integral closure in L^H. For a normal H the quotient G/H permutes the orbit sums regularly.
 
 **Checks.**
 
-- Let A be integrally closed with fraction field F, L/F finite G-Galois, and B its finite integral closure. If B=A[G]a is a normal integral basis and H≤G, then B^H is free over A with basis {Σh∈H h(g(a)) : Hg∈H\G}. In particular Tr_L/F(a) is an A-basis of A, and the trace B→A is onto. When H is normal this is an A[G/H]-normal integral basis for the fixed extension. The statement covers complete DVRs as well as number-field integer rings.
+- L = ℚ(ζ₁₅), a = ζ₁₅ = ζ₅²ζ₃², H = Gal(L/ℚ(ζ₅)): the H-trace of a is ζ₅²(ζ₃ + ζ₃²) = −ζ₅², which generates a normal integral basis of ℚ(ζ₅)/ℚ.
+- H = G: Tr(a) is a unit; for ℚ(ζ_p), Tr(ζ_p) = −1.
+- ℚ(i) has no normal integral basis, and its trace ℤ[i] → ℤ is not onto.
 
 *Needs:* [Normal integral bases](#layer-7-topic-36); [The ring of integers as a module over the group ring](#layer-7-topic-1); [The norm of a projective group-ring module reaches all invariants](#layer-7-topic-25).
 
@@ -15854,7 +15956,7 @@ Galois case; tame.
 
 To prove this, b is finitely generated and torsion free over the Dedekind domain A, hence flat (IsDedekindDomain.flat_iff_torsion_eq_bot) and finitely presented (A is noetherian), hence A-projective (Module.Flat.projective_of_finitePresentation).
 
-Tameness gives c ∈ B with Tr_{B/A}(c) = 1 (tame-iff-trace-surjective); the trace is Σ_g g (ring-of-integers-as-group-ring-module).
+Tameness gives c ∈ B with Tr_{B/A}(c) = 1 ([Tame ramification is surjectivity of the trace](#layer-7-topic-50)); the trace is Σ_g g ([The ring of integers as a module over the group ring](#layer-7-topic-1)).
 
 Take φ = multiplication by c: Σ_g g(c·g⁻¹(m)) = m·Σ_g g(c) = m.
 
@@ -15865,9 +15967,9 @@ For a subgroup H: A[G] is free as a left A[H]-module on representatives of the r
 **Checks.**
 
 - The class of 𝓞_L in K₀(𝓞_K[G]) is defined for every tame L/K.
-- For ℚ(i)/ℚ the module ℤ[i] is not ℤ[G]-projective (the converse direction, trace-surjective-of-projective).
+- For ℚ(i)/ℚ the module ℤ[i] is not ℤ[G]-projective (the converse direction, [Projectivity over the group ring forces the trace to be surjective](#layer-7-topic-67)).
 
-*Needs:* [Rim's criterion for projectivity over a group ring](#layer-7-topic-3); [Tame ramification is surjectivity of the trace](#layer-7-topic-50); [The ring of integers as a module over the group ring](#layer-7-topic-1); Mathlib `IsDedekindDomain.flat_iff_torsion_eq_bot`; Mathlib `Module.Flat.projective_of_finitePresentation`; Mathlib `Module.finitePresentation_of_finite`; [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [The norm of a projective group-ring module reaches all invariants](#layer-7-topic-25).
+*Needs:* [Rim's criterion for projectivity over a group ring](#layer-7-topic-3); [Tame ramification is surjectivity of the trace](#layer-7-topic-50); [The ring of integers as a module over the group ring](#layer-7-topic-1); Mathlib `IsDedekindDomain.flat_iff_torsion_eq_bot`; Mathlib `Module.Flat.projective_of_finitePresentation`; Mathlib `Module.finitePresentation_of_finite`; [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); [The norm of a projective group-ring module reaches all invariants](#layer-7-topic-25).
 
 <a id="layer-7-topic-67"></a>
 
@@ -15887,12 +15989,12 @@ The equality of invariants and norm image passes to direct sums and direct summa
 
 For B: the invariants are A (IsGaloisGroup) and the image of the norm is Tr(B); so Tr(B) = A.
 
-Conclude tameness by tame-iff-trace-surjective.
+Conclude tameness by [Tame ramification is surjectivity of the trace](#layer-7-topic-50).
 
 **Checks.**
 
 - ℤ[i] is not projective over ℤ[C₂].
-- Together with projective-of-tame this is the projectivity form of Noether's theorem.
+- Together with [Ullom: tame ramification makes the integers projective over the group ring](#layer-7-topic-66) this is the projectivity form of Noether's theorem.
 
 *Needs:* [Tame ramification is surjectivity of the trace](#layer-7-topic-50); [The ring of integers as a module over the group ring](#layer-7-topic-1); Mathlib `Module.Projective`; Mathlib `Algebra.IsInvariant`; [The norm of a projective group-ring module reaches all invariants](#layer-7-topic-25).
 
@@ -15935,9 +16037,9 @@ L = ℚ(i) = ℚ(ζ_4).
 
 To prove this, e₁(a + bi) = a and e₋₁(a + bi) = bi, so both preserve ℤ[i].
 
-ℤe₁ ⊕ ℤe₋₁ is the maximal order of ℚ[C_2] (maximal-order-of-cyclic-group-algebra with p = 2), so it equals A_{L/ℚ}.
+ℤe₁ ⊕ ℤe₋₁ is the maximal order of ℚ[C_2] ([The maximal order of ℚ[C_p]](#layer-7-topic-40) with p = 2), so it equals A_{L/ℚ}.
 
-The computation e₁(1 + i) = 1, e₋₁(1 + i) = i shows ℤ[i] is free over it with basis 1 + i; associated-order-of-free confirms the equality.
+The computation e₁(1 + i) = 1, e₋₁(1 + i) = i shows ℤ[i] is free over it with basis 1 + i; [The only order over which the integers can be free](#layer-7-topic-57) confirms the equality.
 
 **Checks.**
 
@@ -15956,7 +16058,7 @@ n odd squarefree.
 
 (Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Proof of Proposition 6.6, second paragraph (printed p. 12).) The mathematical contract, with the conventions stated here.
 
-To prove this, induct on the number of prime factors; n = 1 is trivial and n = p is prime-cyclotomic-normal-integral-basis.
+To prove this, induct on the number of prime factors; n = 1 is trivial and n = p is [ζ_p generates a normal integral basis of ℚ(ζ_p)](#layer-7-topic-59).
 
 Write n = pm with p ∤ m. ℚ(ζ_p) and ℚ(ζ_m) have coprime discriminants: IsCyclotomicExtension.Rat.natAbs_discr gives |disc ℚ(ζ_k)| as a function of k alone, every prime factor of which divides k, so no prime divides both (no public coprimality lemma exists; derive it from the formula). Their compositum is ℚ(ζ_n) (IntermediateField.isCyclotomicExtension_lcm_sup).
 
@@ -16045,11 +16147,13 @@ For a finite p-group and the stated coefficient R, ker(ν:Det(1+I)→φ(I))=Det(
 
 (Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), Theorems3.14–3.16, pp.19–21; Appendix proof of Theorem3.14, pp.36–38.) The full augmentation determinant kernel is group-element torsion, while the commutator-ideal restriction is an isomorphism.
 
-To prove this, the Appendix torsion theorem identifies all torsion in Det(1+I) with Det(G). The logarithm and determinant character formula identify the same kernel. Restricting to 1+A kills the group-element kernel because degree-one characters detect G_ab, while group-log-integrality gives surjectivity.
+To prove this, the Appendix torsion theorem identifies all torsion in Det(1+I) with Det(G). The logarithm and determinant character formula identify the same kernel. Restricting to 1+A kills the group-element kernel because degree-one characters detect G_ab, while [Integral images of the group logarithm](#layer-7-topic-62) gives surjectivity.
 
 **Checks.**
 
-- For a finite p-group and the stated coefficient R, ker(ν:Det(1+I)→φ(I))=Det(G). On Det(1+A), with A=ker(R[G]→R[G_ab]), ν is an isomorphism onto φ(A). In particular equal logarithms alone imply a ratio in Det(G); they imply equality only after a separate torsion check or inside the commutator-ideal determinant subgroup.
+- G = C₂, R = ℤ₂, F the identity: by the computation in the Checks of [Integral images of the group logarithm](#layer-7-topic-62), L(a + bσ) = log(a − b)·(1 − σ) on 1 + I, which vanishes exactly when a − b = ±1, that is at u = 1 and u = σ; so the kernel is Det(G) = {1, Det σ}.
+- Det σ ≠ 1, since it takes the value −1 at the sign character: equal logarithms do not force equal determinants.
+- G = {1}: both sides are trivial.
 
 *Needs:* [The integral group logarithm](#layer-7-topic-46); [Integral images of the group logarithm](#layer-7-topic-62).
 
@@ -16090,7 +16194,7 @@ n odd squarefree; K ⊆ ℚ(ζ_n).
 
 To prove this, ℚ(ζ_n)/ℚ is abelian, so every subfield is Galois over ℚ.
 
-Apply trace-of-normal-integral-basis-generator to the generator ζ_n of squarefree-cyclotomic-normal-integral-basis.
+Apply [The trace of a normal integral basis generator generates for a Galois subextension](#layer-7-topic-65) to the generator ζ_n of [ζ_n generates a normal integral basis for odd squarefree n](#layer-7-topic-70).
 
 **Checks.**
 
@@ -16128,7 +16232,7 @@ Apply the factorisation; Σ_g χ(g)g(a) = ⟨a | χ̄⟩ and χ ↦ χ̄ permute
 
 ### 7.77 The locally free class group of an order
 
-Let A be a Dedekind domain that is not a field with fraction field K and Λ an A-order in a finite-dimensional semisimple K-algebra (for instance 𝓞_K[G] ⊆ K[G], or ℤ[G] ⊆ ℚ[G]). Let K₀(Λ) be the Grothendieck group of finitely generated projective Λ-modules (Tau Ceti's SplitK0 of the full subcategory (finiteProjectiveModules Λ).FullSubcategory of ModuleCat Λ). The locally free class group Cl(Λ) is the subgroup of K₀(Λ) generated by the classes [M] − n[Λ] of the locally free Λ-lattices M of rank n (projective by locally-free-lattice-is-projective). [M] − n[Λ] = 0 exactly when M is stably free: M ⊕ Λ^k ≅ Λ^{n+k}. For Λ = A, Cl(A) is the ideal class group. For an order Λ′ ⊇ Λ (a maximal order), extension of scalars gives Cl(Λ) → Cl(Λ′), whose kernel is the kernel group D(Λ).
+Let A be a Dedekind domain that is not a field with fraction field K and Λ an A-order in a finite-dimensional semisimple K-algebra (for instance 𝓞_K[G] ⊆ K[G], or ℤ[G] ⊆ ℚ[G]). Let K₀(Λ) be the Grothendieck group of finitely generated projective Λ-modules (Tau Ceti's SplitK0 of the full subcategory (finiteProjectiveModules Λ).FullSubcategory of ModuleCat Λ). The locally free class group Cl(Λ) is the subgroup of K₀(Λ) generated by the classes [M] − n[Λ] of the locally free Λ-lattices M of rank n (projective by [Locally free lattices are projective](#layer-7-topic-68)). [M] − n[Λ] = 0 exactly when M is stably free: M ⊕ Λ^k ≅ Λ^{n+k}. For Λ = A, Cl(A) is the ideal class group. For an order Λ′ ⊇ Λ (a maximal order), extension of scalars gives Cl(Λ) → Cl(Λ′), whose kernel is the kernel group D(Λ).
 
 A Dedekind domain; Λ module-finite over A. K₀ is the split Grothendieck group of finitely generated projective left Λ-modules. A is not a field: height-one-prime completion conditions otherwise become vacuous and do not specify the generic rank. The separate field case must use an actual generic-rank condition, not this predicate.
 
@@ -16156,9 +16260,9 @@ Direct sums: [M ⊕ N] − (n + m)[Λ] is the sum of the two classes (SplitK0 ad
 
 Stable freeness: two classes of SplitK0 of finitely generated projective modules are equal exactly when the modules are stably isomorphic, P ⊕ Λ^k ≅ Q ⊕ Λ^k. This is not packaged in Tau Ceti, but follows from SplitK0.grothendieckAddGroupEquiv (Split.lean:373), the equality criterion of the additive localisation (AddLocalization.r_iff_exists: classes agree iff they agree after adding one object R), and R ⊕ R' ≅ Λ^k for a summand of a finite free module (Voight Remark 20.7.13, citing Curtis–Reiner Prop 38.22).
 
-For an arithmetic order over a number field, every element is the class of a locally free lattice of rank one (Reiner’s theorem, locally-free-class-represented-by-rank-one). This representation is not asserted for an arbitrary Dedekind base.
+For an arithmetic order over a number field, every element is the class of a locally free lattice of rank one (Reiner’s theorem, [Every locally free class is represented by a locally free ideal](#layer-7-topic-105)). This representation is not asserted for an arbitrary Dedekind base.
 
-Λ = A: locally free lattices are the finitely generated projective modules of constant rank, and by Steinitz's theorem (every such module of rank n is A^{n−1} ⊕ I, and I ⊕ J ≅ A ⊕ IJ, [K₀ and the ideal class group of a Dedekind domain](#layer-7-topic-84), on GeometryOfNumbersAndQuadraticArithmetic GN.2's Steinitz class) the rank-zero part of K₀(A) is the ideal class group Cl(A).
+Λ = A: locally free lattices are the finitely generated projective modules of constant rank, and by Steinitz's theorem (every such module of rank n is A^{n−1} ⊕ I, and I ⊕ J ≅ A ⊕ IJ, [K₀ and the ideal class group of a Dedekind domain](#layer-7-topic-84), on the Steinitz class of [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0)) the rank-zero part of K₀(A) is the ideal class group Cl(A).
 
 Extension of scalars along Λ → Λ′ maps locally free lattices to locally free lattices of the same rank, and acts on classes through TauCeti.SplitK0.map applied to the additive functor Λ′ ⊗_Λ −, which preserves finitely generated projective modules.
 
@@ -16182,11 +16286,13 @@ The map α↦I(α) induces a bijection B×\J(B)/U(Λ) with isomorphism classes o
 
 (Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), Theorem1(i), pp.114–115; §5D, p.121.) Local bases identify rank-one lattice isomorphism classes with a noncommutative double-coset set.
 
-To prove this, use order-ideles to glue each local basis. A module isomorphism extends over F and is multiplication by a unit of B; local equality of lattices is right multiplication by order units. Conversely each locally free rank-one lattice has a generic B-basis and compatible local unit bases.
+To prove this, use [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72) to glue each local basis. A module isomorphism extends over F and is multiplication by a unit of B; local equality of lattices is right multiplication by order units. Conversely each locally free rank-one lattice has a generic B-basis and compatible local unit bases.
 
 **Checks.**
 
-- The map α↦I(α) induces a bijection B×\J(B)/U(Λ) with isomorphism classes of locally free rank-one right Λ-lattices. Applied to Λᵒᵖ it gives the left-module version. These are sets of double cosets, not groups.
+- B = ℚ, Λ = ℤ: the double coset space is a point, matching the single isomorphism class of rank-one ℤ-lattices.
+- B = K a number field, Λ = 𝓞_K: the double coset space is the ideal class group and α ↦ I(α) is the idele-to-ideal map.
+- K = ℚ(√−5): two classes, represented by 𝓞_K and 𝔭 = (2, 1 + √−5).
 
 *Needs:* [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72); [Locally free lattices over an order](#layer-7-topic-54).
 
@@ -16205,7 +16311,7 @@ The supporting API comprises:
 
 (Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix I (I.10) and (I.13), pp.428–429.) The locally free class group is represented by character ideles modulo principal character homomorphisms and integral-unit determinants.
 
-To prove this, build equivariant homomorphisms over a sufficiently large finite field, then take the direct limit. The product of the two denominator subgroups is normal because the ambient character-hom group is abelian. Apply determinant-character-hom and central field-of-values coordinates.
+To prove this, build equivariant homomorphisms over a sufficiently large finite field, then take the direct limit. The product of the two denominator subgroups is normal because the ambient character-hom group is abelian. Apply [Determinants indexed by virtual characters](#layer-7-topic-28) and central field-of-values coordinates.
 
 **Checks.**
 
@@ -16228,7 +16334,8 @@ To prove this, for the commutator determinant subgroup use the exact logarithm i
 
 **Checks.**
 
-- Let R⊆S be characteristic-zero integral domains, p-adically complete with Frobenius lifts, with S finite free over R, Frac(S)/Frac(R) Galois with group Δ and S^Δ=R. For a finite p-group G, Det(S[G]×)^Δ=Det(R[G]×). Neither trace surjectivity nor compatibility of the Frobenius lifts is required in this p-group assertion.
+- G = {1}: Det(S^×)^Δ = (S^×)^Δ = R^×.
+- S = R: Δ is trivial and both sides are Det(R[G]^×).
 
 *Needs:* [Integral images of the group logarithm](#layer-7-topic-62); [The logarithm is injective only after controlling determinant torsion](#layer-7-topic-73).
 
@@ -16244,9 +16351,9 @@ Galois case.
 
 (S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom-normal-bases-1969), Introduction (printed p. 153).) The attribution to Speiser.
 
-To prove this, a normal integral basis makes the trace surjective (trace-surjective-of-normal-integral-basis).
+To prove this, a normal integral basis makes the trace surjective ([A normal integral basis forces the trace to be surjective](#layer-7-topic-74)).
 
-Surjectivity of the trace is tameness (tame-iff-trace-surjective).
+Surjectivity of the trace is tameness ([Tame ramification is surjectivity of the trace](#layer-7-topic-50)).
 
 **Checks.**
 
@@ -16294,7 +16401,9 @@ To prove this, use the balanced universal property to commute extension with cen
 
 **Checks.**
 
-- For a compatible homomorphism of arithmetic orders Λ→Γ, extension takes locally free rank-n Λ-lattices to locally free rank-n Γ-lattices and induces Cl(Λ)→Cl(Γ), whenever coefficient completions commute with this scalar change. If Γ itself is a locally free Λ-lattice of fixed rank d, restriction induces Cl(Γ)→Cl(Λ). On a rank-n Γ-lattice P its formula is Res(cΓ(P))=cΛ(Res P)−n·cΛ(Res Γ), with Res P of local rank nd. In particular it equals cΛ(Res P) only when the coefficient-order correction class vanishes. Merely being an overorder does not imply the restriction hypothesis.
+- ℤ → ℤ[i]: extension sends ideal classes to ideal classes, and both class groups are trivial.
+- Restriction along ℤ → ℤ[i] (rank d = 2): a rank-one ℤ[i]-lattice restricts to a rank-two ℤ-lattice, and the correction n·c_ℤ(ℤ[i]) vanishes because ℤ[i] ≅ ℤ².
+- ℤ[2i] ⊆ ℤ[i] is an overorder, but ℤ[i] is not a locally free ℤ[2i]-lattice (its multiplier ring is ℤ[i]), so restriction along it is not covered.
 
 *Needs:* [The extension map on projective K₀](#layer-7-topic-42); [The restriction map on projective K₀](#layer-7-topic-43); [Locally free lattices over an order](#layer-7-topic-54); [The locally free class group of an order](#layer-7-topic-77).
 
@@ -16302,18 +16411,18 @@ To prove this, use the balanced universal property to commute extension with cen
 
 ### 7.84 K₀ and the ideal class group of a Dedekind domain
 
-For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)), with st the Steinitz class of GeometryOfNumbersAndQuadraticArithmetic GN.2 (st(0)=1), induces K₀(A)≅Z⊕Additive(ClassGroup A). Its inverse sends (n,[I]) to n[A]+([I]−[A]). For a nonfield A this identifies inherited Cl(A) with Additive(ClassGroup A); for a field, ClassGroup A and the rank kernel are both zero, without invoking the vacuous completion definition.
+For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)), with st the Steinitz class of [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0) (st(0)=1), induces K₀(A)≅Z⊕Additive(ClassGroup A). Its inverse sends (n,[I]) to n[A]+([I]−[A]). For a nonfield A this identifies the locally free class group Cl(A) of [The locally free class group of an order](#layer-7-topic-77) with Additive(ClassGroup A); for a field, ClassGroup A and the rank kernel are both zero, without invoking the vacuous completion definition.
 
 The supporting API comprises:
 
 - `DedekindK0Comparison.of`: The class [P] maps to (rank P,st(P)).
-- `DedekindK0Comparison.rank_kernel`: For nonfield A, the rank kernel is inherited Cl(A). For a field it is zero and equals Additive(ClassGroup A) by the separate field branch.
+- `DedekindK0Comparison.rank_kernel`: For nonfield A, the rank kernel is the locally free class group Cl(A). For a field it is zero and equals Additive(ClassGroup A) by the separate field branch.
 - `DedekindK0Comparison.ideal_inverse`: An ideal class [I] maps to [I]−[A] in rank zero.
 - `DedekindK0Comparison.free`: [Aⁿ] maps to (n,1).
 
-(Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), W-II II§2 Proposition2.6 and Corollary2.6.3, p.11; W-I I§3 Proposition3.4, p.17.) Rank and determinant identify projective K₀ of a Dedekind domain with the integer rank and the Picard/ideal class group.
+(Charles A. Weibel, [The K-book, Chapter II: The Grothendieck Group K₀](#reference-w-ii), §2 Proposition2.6 and Corollary2.6.3, p.11; Weibel, K-book I, §3 Proposition3.4, p.17.) Rank and determinant identify projective K₀ of a Dedekind domain with the integer rank and the Picard/ideal class group.
 
-To prove this, a nonzero finite projective A-module P is an A-lattice in K⊗P, so GN.2's pseudobasis theorem writes it as Aⁿ⁻¹⊕I, and GN.2's Steinitz class is invariant under isomorphism and multiplicative on direct sums; the invariant therefore descends through SplitK0. The product identity proves independence of the ideal representative and additivity of the inverse. The GN.2 decomposition checks the inverse on all finite projective generators; include zero and field branches.
+To prove this, a nonzero finite projective A-module P is an A-lattice in K⊗P, so the pseudobasis theorem of [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0) writes it as Aⁿ⁻¹⊕I, and the Steinitz class is invariant under isomorphism and multiplicative on direct sums; the invariant therefore descends through SplitK0. The product identity proves independence of the ideal representative and additivity of the inverse. The pseudobasis decomposition checks the inverse on all finite projective generators; include zero and field branches.
 
 **Checks.**
 
@@ -16322,13 +16431,13 @@ To prove this, a nonzero finite projective A-module P is an A-lattice in K⊗P, 
 - The rank-zero class of any invertible ideal maps to its existing ClassGroup.mk class.
 - [I]−[A] for I=(2,1+√−5) over ℤ[√−5] is nonzero despite having rank zero.
 
-*Needs:* [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-steinitz-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [Stable equality in the existing split K₀](#layer-7-topic-23); [The product identity for invertible ideals](#layer-7-topic-9); Tau Ceti `TauCeti.SplitK0`; Mathlib `ClassGroup`; [The locally free class group of an order](#layer-7-topic-77); Mathlib `ClassGroup.mk`.
+*Needs:* [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); [Stable equality in the existing split K₀](#layer-7-topic-23); [The product identity for invertible ideals](#layer-7-topic-9); Tau Ceti `TauCeti.SplitK0`; Mathlib `ClassGroup`; [The locally free class group of an order](#layer-7-topic-77); Mathlib `ClassGroup.mk`.
 
 <a id="layer-7-topic-85"></a>
 
 ### 7.85 Stable idele classification in every semisimple case
 
-For an arithmetic order Λ in semisimple B, its locally free stable class group is J(B)/(J(B)′ B× U(Λ)). For each m≥2, locally free rank-m lattices are classified by this quotient via their GL_m(B) adelic basis matrices and reduced norms. No decomposition into rank-one ideals is assumed in constructing this classification. No Eichler hypothesis on B is needed. The quotient is abelian and identifies with inherited Cl(Λ) inside projective K₀.
+For an arithmetic order Λ in semisimple B, its locally free stable class group is J(B)/(J(B)′ B× U(Λ)). For each m≥2, locally free rank-m lattices are classified by this quotient via their GL_m(B) adelic basis matrices and reduced norms. No decomposition into rank-one ideals is assumed in constructing this classification. No Eichler hypothesis on B is needed. The quotient is abelian and identifies with the locally free class group Cl(Λ) inside projective K₀.
 
 (Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), Theorem1(ii) and II, pp.114–115; §5C–G, pp.120–122.) Matrix stabilization gives the abelian stable quotient even in the definite-quaternion case.
 
@@ -16336,7 +16445,8 @@ To prove this, first classify rank m by GL_m(B)\J(M_m(B))/GL_m(Λ). Semilocal el
 
 **Checks.**
 
-- For an arithmetic order Λ in semisimple B, its locally free stable class group is J(B)/(J(B)′ B× U(Λ)). For each m≥2, locally free rank-m lattices are classified by this quotient via their GL_m(B) adelic basis matrices and reduced norms. No decomposition into rank-one ideals is assumed in constructing this classification. No Eichler hypothesis on B is needed. The quotient is abelian and identifies with inherited Cl(Λ) inside projective K₀.
+- Λ = 𝓞_K: J(K)′ is trivial and the quotient J(K)/(K^× U(𝓞_K)) is the ideal class group.
+- Λ = ℤ[C₂]: the stable class group is trivial.
 
 *Needs:* [Rank-one lattices and idele double cosets](#layer-7-topic-78); [Local and global reduced-norm images](#layer-7-topic-60); [Inner forms meet the strong-approximation hypotheses](#layer-7-topic-44); [Stable equality in the existing split K₀](#layer-7-topic-23); [Finite projectives have finite free complements](#layer-7-topic-7); [The locally free class group of an order](#layer-7-topic-77); [Semilocal elimination preserves the determinant image](#layer-7-topic-27).
 
@@ -16344,17 +16454,18 @@ To prove this, first classify rank m by GL_m(B)\J(M_m(B))/GL_m(Λ). Semilocal el
 
 ### 7.86 Crossed-product descent on elementary subgroups
 
-For a Q_ℓ-ℓ-elementary C⋊P and an ℓ-adic coefficient R satisfying CPT’s normal noetherian domain, completeness and Frobenius hypotheses, decompose R[C] into cyclotomic étale factors R[m]. If H is the kernel of P’s action on a factor and A the image, restriction induces an isomorphism Det(GL(R[m]◦P))≅Det(R[m][H]×)^A. The left matrix determinant image equals the determinant image of units of the crossed product.
+For a Q_ℓ-ℓ-elementary C⋊P and an ℓ-adic coefficient R satisfying Chinburg–Pappas–Taylor’s normal noetherian domain, completeness and Frobenius hypotheses, decompose R[C] into cyclotomic étale factors R[m]. If H is the kernel of P’s action on a factor and A the image, restriction induces an isomorphism Det(GL(R[m]◦P))≅Det(R[m][H]×)^A. The left matrix determinant image equals the determinant image of units of the crossed product.
 
-(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §6a–b Theorem6.2 and its proof, pp.30–32.) Elementary crossed products reduce to invariant determinant units of the p-group kernel.
+(Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §6a, Theorem 6.2 (p.31) and its proof (pp.31–32), with the set-up on pp.29–30.) Elementary crossed products reduce to invariant determinant units of the p-group kernel.
 
-To prove this, use the cyclic-character decomposition and the action on its coefficient factors. The crossed-product matrix description transfers restriction and norm between the subgroup and factor invariants. The p-group fixed-point theorem then identifies invariant determinants. The full matrix-ring identification needed here is [the integral crossed-product matrix comparison](#layer-7-topic-86): CPT cites Wall’s result rather than proving that integral identification.
+To prove this, use the cyclic-character decomposition and the action on its coefficient factors. The crossed-product matrix description transfers restriction and norm between the subgroup and factor invariants. The p-group fixed-point theorem then identifies invariant determinants. The full matrix-ring identification needed here is Wall's structure theorem for crossed products, which Chinburg–Pappas–Taylor cite in the proof of Theorem 6.2 (C. T. C. Wall, Norms of units in group rings, Theorem 8.3): the crossed product of a coefficient factor with P/[H,H] is a matrix ring over the invariants. That integral identification is the marked input below.
 
 **Checks.**
 
-- For a Q_ℓ-ℓ-elementary C⋊P and an ℓ-adic coefficient R satisfying CPT’s normal noetherian domain, completeness and Frobenius hypotheses, decompose R[C] into cyclotomic étale factors R[m]. If H is the kernel of P’s action on a factor and A the image, restriction induces an isomorphism Det(GL(R[m]◦P))≅Det(R[m][H]×)^A. The left matrix determinant image equals the determinant image of units of the crossed product.
+- P = 1: the group C is abelian, A = 1, and the statement compares the matrix and unit determinants of the commutative ring R[m].
+- P acting trivially on a factor: H = P, A = 1, and the crossed product is the group ring R[m][P].
 
-**Unverified source input.** The determinant descent needs an integral coefficient-ring equivalence with the elementary crossed product, including its norm and restriction maps. A matrix splitting after extending to a field does not imply this equivalence. Chinburg–Pappas–Taylor, Theorem 6.2, pp. 31–32, invokes Wall’s integral result; that imported integral equivalence remains to be proved with the stated coefficients.
+**Unverified source input.** The determinant descent needs an integral coefficient-ring equivalence with the elementary crossed product, including its norm and restriction maps. A matrix splitting after extending to a field does not imply this equivalence. Chinburg–Pappas–Taylor, Theorem 6.2, pp. 31–32, imports it from Wall's crossed-product theorem (Wall, Theorem 8.3); with the stated coefficients that identification is a proof obligation of this roadmap.
 
 *Needs:* [Local rational Brauer reduction for determinant quotients](#layer-7-topic-63); [The logarithm is injective only after controlling determinant torsion](#layer-7-topic-73); [Fixed-point descent for p-group determinants](#layer-7-topic-80).
 
@@ -16372,12 +16483,12 @@ L is the cyclotomic field ℚ(ζ_4) = ℚ(i).
 
 To prove this, 1 + i: the conjugates 1 + i, 1 − i are linearly independent over ℚ (their coefficient matrix in the basis {1, i} has determinant −2 ≠ 0, the case a = b = 1 of the formula in the statement).
 
-No normal integral basis: ℚ(i)/ℚ is not tame (tamely-ramified, test tame_test_gaussian_not_tame), so Speiser applies; or directly, Tr(a + bi) = 2a.
+No normal integral basis: ℚ(i)/ℚ is not tame ([Tamely ramified extensions of Dedekind domains](#layer-7-topic-2), whose Checks include this case), so Speiser applies; or directly, Tr(a + bi) = 2a.
 
 **Checks.**
 
-- The acceptance gate of the layer: a rational normal basis need not be integral, and wild ramification is the obstruction.
-- The associated order of ℚ(i)/ℚ is strictly larger than ℤ[G] (associated-order-of-gaussian-integers).
+- A rational normal basis need not be integral, and wild ramification is the obstruction.
+- The associated order of ℚ(i)/ℚ is strictly larger than ℤ[G] ([The associated order of ℚ(i)/ℚ](#layer-7-topic-69)).
 
 *Needs:* [Speiser: a normal integral basis forces tame ramification](#layer-7-topic-81); [The rational normal basis map K[G] ≅ L](#layer-7-topic-17); [Tamely ramified extensions of Dedekind domains](#layer-7-topic-2); Mathlib `IsCyclotomicExtension.Rat.ramificationIdx_eq`.
 
@@ -16395,17 +16506,17 @@ A is a complete discrete valuation ring with finite residue field k of cardinali
 
 (S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom-normal-bases-1969), Introduction (printed p. 153).) The attribution to Noether.
 
-To prove this, if: build L′ ⊇ L as in local-tame-split-extension.
+To prove this, if: build L′ ⊇ L as in [The split tame extension above a tame local extension](#layer-7-topic-38).
 
-L′_0/K is unramified, so has a normal integral basis generator β (local-unramified-normal-integral-basis).
+L′_0/K is unramified, so has a normal integral basis generator β ([Unramified local extensions have a normal integral basis](#layer-7-topic-51)).
 
-L′/L′_0 is totally and tamely ramified Galois of degree e with π′^e = π_K, π′ ∈ K′; α = Σ_{i<e} π′^i ∈ K′ generates a normal integral basis of L′/L′_0 (local-totally-tamely-ramified-normal-integral-basis with u_j = 1).
+L′/L′_0 is totally and tamely ramified Galois of degree e with π′^e = π_K, π′ ∈ K′; α = Σ_{i<e} π′^i ∈ K′ generates a normal integral basis of L′/L′_0 ([Totally and tamely ramified local extensions have a normal integral basis](#layer-7-topic-52) with u_j = 1).
 
-αβ generates a normal integral basis of L′/K (normal-integral-basis-of-split-extension).
+αβ generates a normal integral basis of L′/K ([Normal integral bases multiply across a split extension](#layer-7-topic-53)).
 
-L ⊆ L′ with L/K Galois, so Tr_{L′/L}(αβ) generates a normal integral basis of L/K (trace-of-normal-integral-basis-generator in its local-field case).
+L ⊆ L′ with L/K Galois, so Tr_{L′/L}(αβ) generates a normal integral basis of L/K ([The trace of a normal integral basis generator generates for a Galois subextension](#layer-7-topic-65) in its local-field case).
 
-Only if: Speiser (tame-of-normal-integral-basis).
+Only if: Speiser ([Speiser: a normal integral basis forces tame ramification](#layer-7-topic-81)).
 
 **Checks.**
 
@@ -16426,11 +16537,11 @@ K/ℚ finite abelian (IsAbelianGalois ℚ K).
 
 (Fabio Ferri and Cornelius Greither, [Tame Galois module structure revisited](#reference-ferri-greither-tame-galois-2019), Introduction (p. 1).) The theorem and its failure over larger bases.
 
-To prove this, (iii) ⇒ (i): gauss-period-normal-integral-basis.
+To prove this, (iii) ⇒ (i): [Gauss periods generate normal integral bases](#layer-7-topic-75).
 
-(i) ⇒ (ii): Speiser (tame-of-normal-integral-basis).
+(i) ⇒ (ii): Speiser ([Speiser: a normal integral basis forces tame ramification](#layer-7-topic-81)).
 
-(ii) ⇒ (iii): tame-abelian-field-in-squarefree-cyclotomic-field.
+(ii) ⇒ (iii): [A tame abelian number field has odd squarefree cyclotomic level](#layer-7-topic-22).
 
 **Checks.**
 
@@ -16451,7 +16562,9 @@ To prove this, for m≥2 use local free bases and a generic B-basis of M to obta
 
 **Checks.**
 
-- Every locally free rank-m lattice M over an arithmetic order Λ in a semisimple number-field algebra, with m≥1, is isomorphic to Λᵐ⁻¹⊕I for a locally free rank-one integral one-sided ideal I. For left modules I is a left ideal. The condition m≥1 is essential. This statement does not assume Eichler’s condition.
+- Λ = ℤ: ℤ³ ≅ ℤ² ⊕ ℤ.
+- Λ = 𝓞_K: M ≅ 𝓞_K^(m−1) ⊕ 𝔞 with [𝔞] the Steinitz class of M ([Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0)).
+- m = 0: M = 0 is not of the form Λ^(−1) ⊕ I, so m ≥ 1 is needed.
 
 *Needs:* [Stable idele classification in every semisimple case](#layer-7-topic-85); [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72); [Local and global reduced-norm images](#layer-7-topic-60).
 
@@ -16467,7 +16580,9 @@ To prove this, represent an equal stable class by β with β α⁻¹ in J(B)′ 
 
 **Checks.**
 
-- For a right ideal I(α), the fibre of B×\J(B)/U(Λ)→Cl(Λ) above its class is the subset of B×\J(B)/U(αΛα⁻¹) represented by norm-one ideles. In particular, a norm-one approximation decomposition for every conjugate order makes the map injective.
+- B = ℚ, Λ = ℤ: the double coset space and Cl(ℤ) are both points.
+- B = K a number field, Λ = 𝓞_K: the map is the identity of the class group, so every fibre is a point.
+- Without Eichler's condition a fibre can have several points: for a maximal order Λ in the definite quaternion algebra over ℚ ramified at 11 and ∞, Cl(Λ) is the narrow class group of ℚ, which is trivial, while Eichler's class number formula (11 − 1)/12 + (1/4)(1 − (−4/11)) + (1/3)(1 − (−3/11)) = 5/6 + 1/2 + 2/3 = 2 gives two right ideal classes.
 
 *Needs:* [Stable idele classification in every semisimple case](#layer-7-topic-85); [Rank-one lattices and idele double cosets](#layer-7-topic-78); [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72); [Reduced norm of a semisimple number-field algebra](#layer-7-topic-10).
 
@@ -16477,13 +16592,15 @@ To prove this, represent an equal stable class by β with β α⁻¹ in J(B)′ 
 
 There is an additive equivalence Cl(ℤ[G])≅H_G sending [P]−n[ℤ[G]] to Det of the adelic change-of-basis matrix from a rational basis of ℚ⊗P to local integral bases. More generally the coefficient O_F[G] version uses Ω_F. Rational basis change contributes the principal subgroup; local integral basis change contributes Det U(O_F[G]).
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix I (I.8)–(I.13), pp.427–429; F75 Theorem2, p.118.) The centre reduced-norm quotient is exactly the character Hom quotient, with a concrete adelic module-class representative.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix I (I.8)–(I.13), pp.427–429; Fröhlich (1975), Theorem2, p.118.) The centre reduced-norm quotient is exactly the character Hom quotient, with a concrete adelic module-class representative.
 
-To prove this, identify centre units with equivariant character homomorphisms after a splitting field, using determinant-character-hom and reduced norm. Apply the general stable idele classification and arithmetic-norm-images. Weak approximation adjusts archimedean positivity so that the whole principal character-hom subgroup can occur in this all-place quotient. Check the displayed basis matrix orientation against F76 (I.13); matrix determinant stability makes the result independent of rank and bases.
+To prove this, identify centre units with equivariant character homomorphisms after a splitting field, using [Determinants indexed by virtual characters](#layer-7-topic-28) and reduced norm. Apply the general stable idele classification and [Local and global reduced-norm images](#layer-7-topic-60). Weak approximation adjusts archimedean positivity so that the whole principal character-hom subgroup can occur in this all-place quotient. Check the displayed basis matrix orientation against Fröhlich (1976), (I.13); matrix determinant stability makes the result independent of rank and bases.
 
 **Checks.**
 
-- There is an additive equivalence Cl(ℤ[G])≅H_G sending [P]−n[ℤ[G]] to Det of the adelic change-of-basis matrix from a rational basis of ℚ⊗P to local integral bases. More generally the coefficient O_F[G] version uses Ω_F. Rational basis change contributes the principal subgroup; local integral basis change contributes Det U(O_F[G]).
+- G = {1}: H_G = Cl(ℤ) = 0.
+- G = C₂: Cl(ℤ[C₂]) = 0 and H_G is trivial.
+- P = ℤ[G]ⁿ: the standard basis is rational and integral at every place, the change of basis is the identity, and [P] − n[ℤ[G]] maps to the trivial class.
 
 *Needs:* [The equivariant character-idele quotient](#layer-7-topic-79); [Stable idele classification in every semisimple case](#layer-7-topic-85); [Local and global reduced-norm images](#layer-7-topic-60); [Semilocal elimination preserves the determinant image](#layer-7-topic-27); [The locally free class group of an order](#layer-7-topic-77).
 
@@ -16491,17 +16608,18 @@ To prove this, identify centre units with equivariant character homomorphisms af
 
 ### 7.93 Determinant descent for Q_p-ℓ-elementary groups
 
-Let R⊆S satisfy the hypotheses of determinant-fixed-point: normal noetherian characteristic-zero integral domains, p-adically complete with Frobenius lifts, S finite free over R, Frac(S)/Frac(R) Galois with group Δ, S^Δ=R and Tr_S/R onto R. Let ℓ≠p and let G=(C×C′)⋊L be Q_p-ℓ-elementary, with C a cyclic p-group, C′ cyclic of order prime to pℓ and L an ℓ-group. Then Det(S[G]×)^Δ=Det(R[G]×) and Det(GL(R[G]))=Det(R[G]×).
+Let R⊆S satisfy the hypotheses of [Fixed-point descent for integral determinant units](#layer-7-topic-109): normal noetherian characteristic-zero integral domains, p-adically complete with Frobenius lifts, S finite free over R, Frac(S)/Frac(R) Galois with group Δ, S^Δ=R and Tr_S/R onto R. Let ℓ≠p and let G=(C×C′)⋊L be Q_p-ℓ-elementary, with C a cyclic p-group, C′ cyclic of order prime to pℓ and L an ℓ-group. Then Det(S[G]×)^Δ=Det(R[G]×) and Det(GL(R[G]))=Det(R[G]×).
 
 (Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), §6b, Theorem6.6 with Lemma6.8 and Propositions6.9–6.10, pp.34–35.) For Q_p-ℓ-elementary groups with ℓ≠p, invariant unit determinants descend and matrix determinants are unit determinants; the proof combines the split maximal order of the prime-to-p quotient with Fröhlich’s congruence for characters induced from abelian characters.
 
-To prove this, put G′=G/C, of order prime to p. Then Z_p[G′] is a split maximal Z_p-order, a product of matrix rings over local rings of integers, so Det(GL(R[G′]))=Det(R[G′]×) and Δ-invariant determinants descend there (CPT Proposition6.10). Lift such a determinant through the radical, since the kernel of R[G]→R[G′] lies in the radical. Every irreducible χ of G is induced from an abelian character φ of a subgroup containing C×C′ (CPT Lemma6.8). Write φ=φ′φ_p with φ′ of order prime to p and φ_p of p-power order and put χ′=Ind φ′. Fröhlich’s congruence Det(r)(χ−χ′)≡1 modulo the maximal ideal (CPT Proposition6.9) makes the remaining quotient pro-p, while the p-elementary multiplier argument gives it order prime to p, so it is trivial. For the second equality, the split exact sequence of determinant groups for R[G]→R[G′] reduces to G′. The congruence and the split-maximal-order structure are the boundary [the elementary determinant congruence and maximal-order inputs](#layer-7-topic-93).
+To prove this, put G′=G/C, of order prime to p. Then Z_p[G′] is a split maximal Z_p-order, a product of matrix rings over local rings of integers, so Det(GL(R[G′]))=Det(R[G′]×) and Δ-invariant determinants descend there (Chinburg–Pappas–Taylor, Proposition6.10). Lift such a determinant through the radical, since the kernel of R[G]→R[G′] lies in the radical. Every irreducible χ of G is induced from an abelian character φ of a subgroup containing C×C′ (Chinburg–Pappas–Taylor, Lemma6.8). Write φ=φ′φ_p with φ′ of order prime to p and φ_p of p-power order and put χ′=Ind φ′. Fröhlich’s congruence Det(r)(χ−χ′)≡1 modulo the maximal ideal (Chinburg–Pappas–Taylor, Proposition6.9) makes the remaining quotient pro-p, while the p-elementary multiplier argument gives it order prime to p, so it is trivial. For the second equality, the split exact sequence of determinant groups for R[G]→R[G′] reduces to G′. The congruence and the split-maximal-order structure are the boundary [the elementary determinant congruence and maximal-order inputs](#layer-7-topic-93).
 
 **Checks.**
 
-- Let R⊆S satisfy the hypotheses of determinant-fixed-point: normal noetherian characteristic-zero integral domains, p-adically complete with Frobenius lifts, S finite free over R, Frac(S)/Frac(R) Galois with group Δ, S^Δ=R and Tr_S/R onto R. Let ℓ≠p and let G=(C×C′)⋊L be Q_p-ℓ-elementary, with C a cyclic p-group, C′ cyclic of order prime to pℓ and L an ℓ-group. Then Det(S[G]×)^Δ=Det(R[G]×) and Det(GL(R[G]))=Det(R[G]×).
+- L = 1: G = C × C′ is abelian, and both statements are about units of commutative rings.
+- S = R: Δ is trivial and the first statement reads Det(R[G]^×) = Det(R[G]^×).
 
-**Unverified source input.** For ℓ≠p retain the coefficient descent in Chinburg–Pappas–Taylor, Theorem 6.6, pp. 34–35. Lemma 6.8 supplies its Clifford-theory portion. Proposition 6.9 invokes Fröhlich, *Galois Module Structure of Algebraic Integers*, Theorem 15A, p. 66, and Proposition 6.10 invokes Reiner, *Maximal Orders*, Theorems 41.1 and 41.7; those book arguments have not been read. The elementary determinant descent remains a target until the integral conclusions of both propositions are justified.
+**Unverified source input.** For ℓ≠p retain the coefficient descent in Chinburg–Pappas–Taylor, Theorem 6.6, pp. 34–35. Lemma 6.8 supplies its Clifford-theory portion. Proposition 6.9 invokes Fröhlich, *Galois Module Structure of Algebraic Integers*, Theorem 15A, p. 66, and Proposition 6.10 invokes Reiner, *Maximal Orders*, Theorems 41.1 and 41.7; no source cited here gives either book argument. The elementary determinant descent remains a target until the integral conclusions of both propositions are justified.
 
 *Needs:* [Local rational Brauer reduction for determinant quotients](#layer-7-topic-63); [Crossed-product descent on elementary subgroups](#layer-7-topic-86); [Fixed-point descent for p-group determinants](#layer-7-topic-80); [Semilocal elimination preserves the determinant image](#layer-7-topic-27); [TauCetiRoadmap.RepresentationTheory/InductionRestriction, layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md#layer-6-the-virtual-character-ring-artin-and-brauer-induction).
 
@@ -16511,15 +16629,17 @@ To prove this, put G′=G/C, of order prime to p. Then Z_p[G′] is a split maxi
 
 For A=Z[√−5], I=(2,1+√−5) has quotient A/I≅F₂ and norm 2. It is nonprincipal: a principal generator a+b√−5 would have norm a²+5b²=2, which has no integer solution. Consequently I is locally free of rank one but not free, and [I]−[A] is a nonzero class in K₀(A).
 
-(Henri Johnston, [Notes on Galois Modules](#reference-john), Example3.3(i), p.4; W-I §3 Dedekind discussion, pp.18–19.) A nonprincipal ideal gives the concrete local-free/global-nonfree acceptance test; its norm computation is supplied here.
+(Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Example3.3(i), p.4; Weibel, K-book I, §3 Dedekind discussion, pp.18–19.) A nonprincipal ideal gives the concrete example of a locally free lattice that is not free; its norm computation is supplied here.
 
 To prove this, reduce √−5 to 1 in F₂ and identify the kernel as the displayed ideal. The principal ideal index is the absolute determinant of multiplication by a+b√−5, equal to a²+5b². If b≠0 this is at least5; if b=0 it is a square and cannot equal2. Apply the ideal-product/Steinitz and K₀ comparison.
 
 **Checks.**
 
-- For A=Z[√−5], I=(2,1+√−5) has quotient A/I≅F₂ and norm 2. It is nonprincipal: a principal generator a+b√−5 would have norm a²+5b²=2, which has no integer solution. Consequently I is locally free of rank one but not free, and [I]−[A] is a nonzero class in K₀(A).
+- The norm form a² + 5b² takes the values 0, 1, 4, 5, 6, 9, … and never 2 or 3, so neither (2, 1 + √−5) nor (3, 1 + √−5) is principal.
+- 𝔭² = (2) is principal, so [𝔭] has order 2.
+- A/𝔭 ≅ 𝔽₂: √−5 ≡ 1 modulo 𝔭.
 
-*Needs:* [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-steinitz-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md); [K₀ and the ideal class group of a Dedekind domain](#layer-7-topic-84).
+*Needs:* [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0); [K₀ and the ideal class group of a Dedekind domain](#layer-7-topic-84).
 
 <a id="layer-7-topic-95"></a>
 
@@ -16531,13 +16651,13 @@ L/K finite Galois and tame.
 
 (Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Theorem 10.7 (printed p. 20).) The mathematical contract, with the conventions stated here.
 
-(M. J. Taylor, [On Fröhlich's conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Introduction and Results (printed p. 41).) The theorem as Taylor uses it (over ℤΓ; see ring-of-integers-locally-free-over-integral-group-ring).
+(M. J. Taylor, [On Fröhlich's conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Introduction and Results (printed p. 41).) The theorem as Taylor uses it (over ℤΓ; see [The ring of integers is locally free over ℤ[G]](#layer-7-topic-103)).
 
 To prove this, fix v and w | v. L_w/K_v is Galois with group G_w (NumberFieldArithmetic Layer 5.6) and tamely ramified, since its ramification index is e(w|v) (NumberFieldArithmetic Layer 5.5).
 
 By the local Noether theorem 𝒪_{L_w} = 𝒪̂_v[G_w]·α_w.
 
-By completed-ring-of-integers-is-induced, 𝒪̂_v ⊗ 𝓞_L ≅ 𝒪̂_v[G] ⊗_{𝒪̂_v[G_w]} 𝒪̂_v[G_w] ≅ 𝒪̂_v[G].
+By [The completed ring of integers is induced from a decomposition group](#layer-7-topic-39), 𝒪̂_v ⊗ 𝓞_L ≅ 𝒪̂_v[G] ⊗_{𝒪̂_v[G_w]} 𝒪̂_v[G_w] ≅ 𝒪̂_v[G].
 
 **Checks.**
 
@@ -16564,8 +16684,8 @@ Not free: a free ideal of rank one is principal; I is finitely generated of rank
 
 **Checks.**
 
-- The acceptance gate of the layer: local freeness is separate from global freeness.
-- Its class in Cl(A) = Pic(A) is the ideal class of I, nonzero (locally-free-class-group, classGroup_test_ideal).
+- Local freeness is separate from global freeness.
+- Its class in Cl(A) = Pic(A) is the ideal class of I, nonzero ([The locally free class group of an order](#layer-7-topic-77)).
 
 *Needs:* [Locally free lattices over an order](#layer-7-topic-54); Mathlib `IsDedekindDomain`; Mathlib `ClassGroup`; [The norm-two ideal in Z[√−5] is nonprincipal](#layer-7-topic-94); [K₀ and the ideal class group of a Dedekind domain](#layer-7-topic-84).
 
@@ -16573,7 +16693,7 @@ Not free: a free ideal of rank one is principal; I is finitely generated of rank
 
 ### 7.97 Idele representatives cover the whole locally free class group
 
-Every element x of inherited Cl(Λ), including differences of locally free lattice classes, equals [I]−[Λ] for a locally free integral one-sided ideal I of an arithmetic order Λ in any semisimple number-field algebra. The zero class is represented by Λ. A common stabilization produces Λᵐ⁻¹⊕I only at positive total rank.
+Every element x of the locally free class group Cl(Λ), including differences of locally free lattice classes, equals [I]−[Λ] for a locally free integral one-sided ideal I of an arithmetic order Λ in any semisimple number-field algebra. The zero class is represented by Λ. A common stabilization produces Λᵐ⁻¹⊕I only at positive total rank.
 
 (Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), §2 I–II, p.115; Theorem1, pp.114–115.) Rank-one ideals realize all stable locally free classes, independently of cancellation.
 
@@ -16581,7 +16701,9 @@ To prove this, translate each difference to the product/inverse in the abelian s
 
 **Checks.**
 
-- Every element x of inherited Cl(Λ), including differences of locally free lattice classes, equals [I]−[Λ] for a locally free integral one-sided ideal I of an arithmetic order Λ in any semisimple number-field algebra. The zero class is represented by Λ. A common stabilization produces Λᵐ⁻¹⊕I only at positive total rank.
+- Λ = 𝓞_K: every class is [𝔞] − [𝓞_K] for an ideal 𝔞.
+- The zero class is [Λ] − [Λ].
+- For ℤ[√−5] the nonzero class is [𝔭] − [A].
 
 *Needs:* [Stable idele classification in every semisimple case](#layer-7-topic-85); [Positive-rank locally free lattices split off free summands](#layer-7-topic-90); [Ideles and lattice gluing for an arithmetic order](#layer-7-topic-72); [The locally free class group of an order](#layer-7-topic-77).
 
@@ -16591,13 +16713,14 @@ To prove this, translate each difference to the product/inverse in the abelian s
 
 Let Λ be an arithmetic order in a semisimple number-field algebra satisfying Eichler’s condition. Locally free left Λ-lattices P,Q of the same rank with [P]=[Q] in projective K₀ are isomorphic. Equivalently, P⊕Λᵏ≅Q⊕Λᵏ implies P≅Q. The rank-zero case is zero. In particular a stably free locally free lattice is free of its given local rank.
 
-(Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), §3 VII, p.117; J68 §4 Theorem4.1 and Lemma4.2, pp.15–16.) Eichler’s hypothesis converts stable locally free equivalence into actual isomorphism.
+(Albrecht Fröhlich, [Locally free modules over arithmetic orders](#reference-f75), §3 VII, p.117; Jacobinski (1968), §4 Theorem4.1 and Lemma4.2, pp.15–16.) Eichler’s hypothesis converts stable locally free equivalence into actual isomorphism.
 
-To prove this, stable equality reduces to the stable idele quotient. Use positive-rank-ideal-splitting to reduce to rank-one representatives and reduced-norm-fibres. Strong approximation for every conjugate order makes that fibre a singleton. If the common rank is zero, torsion-freeness and a zero generic fibre imply P=Q=0.
+To prove this, stable equality reduces to the stable idele quotient. Use [Positive-rank locally free lattices split off free summands](#layer-7-topic-90) to reduce to rank-one representatives and [The fibre of stable rank-one classification](#layer-7-topic-91). Strong approximation for every conjugate order makes that fibre a singleton. If the common rank is zero, torsion-freeness and a zero generic fibre imply P=Q=0.
 
 **Checks.**
 
-- Let Λ be an arithmetic order in a semisimple number-field algebra satisfying Eichler’s condition. Locally free left Λ-lattices P,Q of the same rank with [P]=[Q] in projective K₀ are isomorphic. Equivalently, P⊕Λᵏ≅Q⊕Λᵏ implies P≅Q. The rank-zero case is zero. In particular a stably free locally free lattice is free of its given local rank.
+- Λ = 𝓞_K: Eichler's condition holds and cancellation is the Steinitz cancellation of [Pseudobases and Steinitz classes of lattices over a Dedekind domain](#layer-7-topic-0).
+- Without Eichler's condition cancellation can fail: the stably free, nonfree ring of integers of a Q₃₂-extension (Cougnard), in the Checks of [Taylor: for groups of odd order the ring of integers is free over ℤΓ](#layer-7-topic-123).
 
 *Needs:* [Stable equality in the existing split K₀](#layer-7-topic-23); [Positive-rank locally free lattices split off free summands](#layer-7-topic-90); [The fibre of stable rank-one classification](#layer-7-topic-91); [Inner forms meet the strong-approximation hypotheses](#layer-7-topic-44).
 
@@ -16614,7 +16737,7 @@ The supporting API comprises:
 - `PositiveUnitKernel.finite_places`: The all-place and S-place presentations give the same class, with the positive algebraic-unit subgroup retained.
 - `PositiveUnitKernel.maximal_order`: This group is independent of the chosen maximal overorder containing ℤ[G].
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix II (II.1)–(II.2), p.430; T81 (2.1), p.44.) The kernel admits both a positive all-place unit quotient and an S-unit quotient with a positive principal denominator.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix II (II.1)–(II.2), p.430; Taylor (1981), (2.1), p.44.) The kernel admits both a positive all-place unit quotient and an S-unit quotient with a positive principal denominator.
 
 To prove this, use ramified-real norm positivity to identify maximal-order determinant units with positive unit homomorphisms. Intersect the principal denominator with unit ideles: this gives algebraic units, with positive values on symplectic characters. Eliminate the infinite components and the finite places outside S by weak approximation and maximality there, retaining positivity in the diagonal algebraic-unit denominator.
 
@@ -16622,7 +16745,7 @@ To prove this, use ramified-real norm positivity to identify maximal-order deter
 
 - For G={1}, D_H=0.
 - The constant-one representative has the zero class in both presentations.
-- The module-side map is extension-k0-map along the actual inclusion ℤ[G]→Γ; Γ need not equal ℤ[G].
+- The module-side map is [The extension map on projective K₀](#layer-7-topic-42) along the actual inclusion ℤ[G]→Γ; Γ need not equal ℤ[G].
 - In the all-place numerator, a value −1 at an infinite component on a symplectic character fails positivity. In the finite S presentation a sign representative is allowed, but arbitrary principal homomorphisms cannot replace the positive denominator.
 
 *Needs:* [Fröhlich’s Hom-description of stable module classes](#layer-7-topic-92); [Local and global reduced-norm images](#layer-7-topic-60); [TauCetiRoadmap.RepresentationTheory/CharacterTheory, layer 7 the frobenius schur indicator and realquaternionic type](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/CharacterTheory/README.md#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type); [The locally free class group of an order](#layer-7-topic-77); [The extension map on projective K₀](#layer-7-topic-42); [Maximal orders](#layer-7-topic-21).
@@ -16640,7 +16763,7 @@ The supporting API comprises:
 - `NormResolvent.transversal`: Different embedding transversals change the absolute representative by Det of a group element, hence give the same class.
 - `NormResolvent.class`: Local norm-resolvent divided by rational norm-resolvent represents [O_L]−[F:ℚ][ℤ[G]].
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §1 (1.1), Propositions1.3–1.5 and Theorem1, pp.384–388; Appendix VI Propositions1–4, pp.434–436; T81 (2.2), p.44.) Local/rational resolvent ratios describe relative module classes, and the embedding-product norm describes their absolute ℤ[G] classes.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §1 (1.1), Propositions1.3–1.5 and Theorem1, pp.384–388; Appendix VI Propositions1–4, pp.434–436; Taylor (1981), (2.2), p.44.) Local/rational resolvent ratios describe relative module classes, and the embedding-product norm describes their absolute ℤ[G] classes.
 
 To prove this, normal-basis invertibility supplies the resolvent unit. Representation determinants supply character additivity and the twisted Galois rule. Norming the homomorphism over embeddings makes the absolute representative; a transversal change differs by a group determinant, so only its quotient class is canonical. The ratio of local and rational norm resolvents is the adelic basis matrix determinant.
 
@@ -16648,7 +16771,7 @@ To prove this, normal-basis invertibility supplies the resolvent unit. Represent
 
 - For G={1}, the resolvent is a and the absolute norm is the product of its F-embeddings.
 - For a trivial coefficient extension F=ℚ, the embedding product has one factor.
-- On a one-dimensional character the determinant resolvent is the inherited Lagrange resolvent with inverse-group convention.
+- On a one-dimensional character the determinant resolvent is the Lagrange resolvent of [Lagrange resolvents and the resolvend](#layer-7-topic-71) with inverse-group convention.
 - For nonabelian G, scalar field-norming each coefficient is not the character-hom norm; the character must also be transported by each embedding.
 
 *Needs:* [The rational normal basis map K[G] ≅ L](#layer-7-topic-17); [Normal bases and invertible resolvents](#layer-7-topic-61); [Determinants indexed by virtual characters](#layer-7-topic-28); [Fröhlich’s Hom-description of stable module classes](#layer-7-topic-92); [The restriction map on projective K₀](#layer-7-topic-43).
@@ -16661,11 +16784,12 @@ For a normal noetherian characteristic-zero integral domain R, p-torsion-free an
 
 (Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), Theorem1.2, p.3; Theorems6.4 and6.6 and the proof of Theorem1.2(b), pp.33–36.) Finite matrix determinants are represented by single group-ring units under the full coefficient-domain hypotheses.
 
-To prove this, write the trivial character as an integral combination of characters induced from Q_p-ℓ-elementary subgroups, for the various primes ℓ, with Q_p-rational virtual characters (the integral Witt–Berman identity, the field-of-definition induction theorem below). By the character action and its projection formula, Det(r) for r∈GL(R[G]) is the product of the inductions of the twisted restrictions. For a Q_p-p-elementary subgroup apply elementary-crossed-product-descent (CPT Theorem6.4); for a Q_p-ℓ-elementary subgroup with ℓ≠p apply ell-elementary-determinant-descent (CPT Theorem6.6). Induction maps unit determinants to unit determinants.
+To prove this, write the trivial character as an integral combination of characters induced from Q_p-ℓ-elementary subgroups, for the various primes ℓ, with Q_p-rational virtual characters (the integral Witt–Berman identity, the field-of-definition induction theorem below). By the character action and its projection formula, Det(r) for r∈GL(R[G]) is the product of the inductions of the twisted restrictions. For a Q_p-p-elementary subgroup apply [Crossed-product descent on elementary subgroups](#layer-7-topic-86) (Chinburg–Pappas–Taylor, Theorem6.4); for a Q_p-ℓ-elementary subgroup with ℓ≠p apply [Determinant descent for Q_p-ℓ-elementary groups](#layer-7-topic-93) (Chinburg–Pappas–Taylor, Theorem6.6). Induction maps unit determinants to unit determinants.
 
 **Checks.**
 
-- For a normal noetherian characteristic-zero integral domain R, p-torsion-free and p-adically complete, with a lift of Frobenius, and any finite group G, Det(GL(R[G]))=Det(R[G]×). GL denotes the stable union over finite matrix sizes; no semilocality of R is assumed.
+- G = {1}: det GL_n(R) = R^×, the image of diag(u, 1, …, 1).
+- G abelian: R[G] is commutative, and both images are its unit group.
 
 *Needs:* [Local rational Brauer reduction for determinant quotients](#layer-7-topic-63); [Crossed-product descent on elementary subgroups](#layer-7-topic-86); [Fixed-point descent for p-group determinants](#layer-7-topic-80); [Integral-character twisting of determinant homomorphisms](#layer-7-topic-47); [Determinant descent for Q_p-ℓ-elementary groups](#layer-7-topic-93).
 
@@ -16681,18 +16805,18 @@ L/K finite Galois.
 
 (S. Ullom, [Normal bases in Galois extensions of number fields](#reference-ullom-normal-bases-1969), Proposition 1.3 (printed p. 156).) The projectivity form (i) ⇒ (iii).
 
-To prove this, (i) ⇒ (ii): locally-free-of-tame.
+To prove this, (i) ⇒ (ii): [Noether: tame extensions have locally free rings of integers](#layer-7-topic-95).
 
-(ii) ⇒ (iii): use locally-free-lattice-is-projective with A=𝓞_K, which is a nonfield Dedekind domain. This is the number-field theorem; the vacuous height-one-prime predicate over a field cannot justify this step.
+(ii) ⇒ (iii): use [Locally free lattices are projective](#layer-7-topic-68) with A=𝓞_K, which is a nonfield Dedekind domain. This is the number-field theorem; the vacuous height-one-prime predicate over a field cannot justify this step.
 
-(iii) ⇒ (i): trace-surjective-of-projective and tame-iff-trace-surjective.
+(iii) ⇒ (i): [Projectivity over the group ring forces the trace to be surjective](#layer-7-topic-67) and [Tame ramification is surjectivity of the trace](#layer-7-topic-50).
 
-(i) ⇒ (iii) also holds directly: projective-of-tame.
+(i) ⇒ (iii) also holds directly: [Ullom: tame ramification makes the integers projective over the group ring](#layer-7-topic-66).
 
 **Checks.**
 
 - For ℚ(i)/ℚ all three fail.
-- Local freeness does not give freeness: see locally-free-not-free-example and the Fröhlich–Taylor theorems.
+- Local freeness does not give freeness: see [Local freeness is separate from freeness](#layer-7-topic-96) and the Fröhlich–Taylor theorems.
 
 *Needs:* [Noether: tame extensions have locally free rings of integers](#layer-7-topic-95); [Locally free lattices are projective](#layer-7-topic-68); [Projectivity over the group ring forces the trace to be surjective](#layer-7-topic-67); [Tame ramification is surjectivity of the trace](#layer-7-topic-50); [Ullom: tame ramification makes the integers projective over the group ring](#layer-7-topic-66); [Dedekind completions jointly detect finite-module equality](#layer-7-topic-48); [The norm of a projective group-ring module reaches all invariants](#layer-7-topic-25).
 
@@ -16710,13 +16834,13 @@ L/K finite Galois and tame.
 
 To prove this, at a rational prime p: ℤ_p ⊗ 𝓞_L = (ℤ_p ⊗ 𝓞_K) ⊗_{𝓞_K} 𝓞_L = Π_{v|p} 𝒪̂_v ⊗_{𝓞_K} 𝓞_L (NumberFieldArithmetic Layer 5.7 over ℚ).
 
-Each factor is 𝒪̂_v[G] (locally-free-of-tame), so the product is (ℤ_p ⊗ 𝓞_K)[G].
+Each factor is 𝒪̂_v[G] ([Noether: tame extensions have locally free rings of integers](#layer-7-topic-95)), so the product is (ℤ_p ⊗ 𝓞_K)[G].
 
 ℤ_p ⊗ 𝓞_K is free of rank [K : ℚ] over ℤ_p, so the module is ℤ_p[G]^{[K:ℚ]}.
 
 **Checks.**
 
-- For K = ℚ the rank is one and the statement is locally-free-of-tame.
+- For K = ℚ the rank is one and the statement is [Noether: tame extensions have locally free rings of integers](#layer-7-topic-95).
 - The rank is [K : ℚ], not 1: 𝓞_K[G] itself is free of rank [K : ℚ] over ℤ[G].
 
 *Needs:* [Noether: tame extensions have locally free rings of integers](#layer-7-topic-95); [Locally free lattices over an order](#layer-7-topic-54); [The restriction map on projective K₀](#layer-7-topic-43); [TauCetiRoadmap.NumberFieldArithmetic, layer 5 the global local dictionary at finite places](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NumberFieldArithmetic/README.md#layer-5-the-global-local-dictionary-at-finite-places).
@@ -16733,11 +16857,11 @@ L/K finite Galois; number fields or local fields.
 
 (Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Remark 9.11 (printed p. 19).) The global case, which the source asserts without proof; the proof steps supply it.
 
-To prove this, wild ⇒ strict: the trace ideal t = Tr(𝓞_L) is a proper nonzero ideal (tame-iff-trace-surjective); pick a ∈ t⁻¹ ∖ 𝓞_K; then a·Σ_g g maps 𝓞_L into a·t ⊆ 𝓞_K, so lies in A_{L/K} but not in 𝓞_K[G].
+To prove this, wild ⇒ strict: the trace ideal t = Tr(𝓞_L) is a proper nonzero ideal ([Tame ramification is surjectivity of the trace](#layer-7-topic-50)); pick a ∈ t⁻¹ ∖ 𝓞_K; then a·Σ_g g maps 𝓞_L into a·t ⊆ 𝓞_K, so lies in A_{L/K} but not in 𝓞_K[G].
 
-Tame ⇒ equality, local case: 𝒪_L is free over 𝒪_K[G] (local-noether), so A_{L/K} = 𝒪_K[G] (associated-order-of-free).
+Tame ⇒ equality, local case: 𝒪_L is free over 𝒪_K[G] ([Noether's theorem for local fields](#layer-7-topic-88)), so A_{L/K} = 𝒪_K[G] ([The only order over which the integers can be free](#layer-7-topic-57)).
 
-Tame ⇒ equality, global case: at every v the completed module is free over 𝒪̂_v[G] (locally-free-of-tame); the completion of A_{L/K} stabilises it, so lies in 𝒪̂_v[G] by associated-order-of-free; hence 𝓞_K[G] ⊆ A_{L/K} have equal completions everywhere and are equal (sublattice-eq-of-completions). (The proof of associated-order-of-free is used for the order 𝒪̂_v[G] and the K_v[G]-module L ⊗ K_v = K_v[G]·α_v, a product of fields; Â_v ⊗ A_{L/K} → K_v[G] is injective because Â_v is flat and A_{L/K} is torsion free.)
+Tame ⇒ equality, global case: at every v the completed module is free over 𝒪̂_v[G] ([Noether: tame extensions have locally free rings of integers](#layer-7-topic-95)); the completion of A_{L/K} stabilises it, so lies in 𝒪̂_v[G] by [The only order over which the integers can be free](#layer-7-topic-57); hence 𝓞_K[G] ⊆ A_{L/K} have equal completions everywhere and are equal ([Lattices are determined by their completions](#layer-7-topic-55)). (The proof of [The only order over which the integers can be free](#layer-7-topic-57) is used for the order 𝒪̂_v[G] and the K_v[G]-module L ⊗ K_v = K_v[G]·α_v, a product of fields; Â_v ⊗ A_{L/K} → K_v[G] is injective because Â_v is flat and A_{L/K} is torsion free.)
 
 **Checks.**
 
@@ -16772,15 +16896,17 @@ Rank one sums: by weak approximation move one locally free ideal to be locally t
 
 ### 7.106 The Hom quotient is the actual maximal-order kernel
 
-For every maximal overorder Γ⊇ℤ[G] in ℚ[G] with its canonical compatible inclusion, ker(Cl(ℤ[G])→Cl(Γ))≅D_H, through froehlich-hom-description. The result is independent of Γ. Extension, rather than unrestricted restriction of modules, is the scalar functor defining the map.
+For every maximal overorder Γ⊇ℤ[G] in ℚ[G] with its canonical compatible inclusion, ker(Cl(ℤ[G])→Cl(Γ))≅D_H, through [Fröhlich’s Hom-description of stable module classes](#layer-7-topic-92). The result is independent of Γ. Extension, rather than unrestricted restriction of modules, is the scalar functor defining the map.
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix II (II.1)–(II.3), p.430; F75 §4 IX and Theorem2, p.118.) The character-unit quotient is precisely the compatible maximal-order extension kernel, not the kernel of an arbitrary ring map.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Appendix II (II.1)–(II.3), p.430; Fröhlich (1975), §4 IX and Theorem2, p.118.) The character-unit quotient is precisely the compatible maximal-order extension kernel, not the kernel of an arbitrary ring map.
 
-To prove this, the maximal-order norm-unit image at finite places is the full centre unit group, and its real image imposes positivity on the quaternionic/symplectic coordinates. The kernel of the resulting quotient map is represented by positive unit ideles. Intersect principal representatives with that subgroup exactly as in positive-unit-kernel.
+To prove this, the maximal-order norm-unit image at finite places is the full centre unit group, and its real image imposes positivity on the quaternionic/symplectic coordinates. The kernel of the resulting quotient map is represented by positive unit ideles. Intersect principal representatives with that subgroup exactly as in [Positive unit homomorphisms and the kernel group](#layer-7-topic-99).
 
 **Checks.**
 
-- For every maximal overorder Γ⊇ℤ[G] in ℚ[G] with its canonical compatible inclusion, ker(Cl(ℤ[G])→Cl(Γ))≅D_H, through froehlich-hom-description. The result is independent of Γ. Extension, rather than unrestricted restriction of modules, is the scalar functor defining the map.
+- G = {1}: Γ = ℤ and the kernel is 0.
+- G = C₂: Γ = ℤ × ℤ and Cl(ℤ[C₂]) = 0.
+- G = C_p: Cl(ℤ[C_p]) ≅ Cl(ℤ[ζ_p]) and the kernel group D(ℤ[C_p]) is 0 (Rim).
 
 *Needs:* [Positive unit homomorphisms and the kernel group](#layer-7-topic-99); [Scalar maps on locally free arithmetic classes](#layer-7-topic-83); [Fröhlich’s Hom-description of stable module classes](#layer-7-topic-92); [Local and global reduced-norm images](#layer-7-topic-60); [Maximal orders](#layer-7-topic-21).
 
@@ -16796,7 +16922,8 @@ To prove this, in the one-dimensional sum, transport all roots of unity and then
 
 **Checks.**
 
-- For a finite G-Galois extension L/F, the character-hom quotient of a norm resolvent by τ is equivariant under absolute Galois action; the cocycle from conjugating the p-power roots of unity is the determinant of the corresponding local Artin element. Inflation preserves τ, and induction is compatible on degree-zero virtual characters. The statement uses the additive-character and Artin convention fixed above.
+- G = {1}: the resolvent of a is a and τ is 1, so the law is the Galois covariance of the element itself.
+- L = ℚ(√−3), a = (1 + √−3)/2 (a normal integral basis generator, its conjugates being −ζ₃² and −ζ₃), χ the nontrivial character: the resolvent a − ā = √−3 and the Gauss sum τ(χ) = ±(ζ₃ − ζ₃²) = ±√−3 are both negated by complex conjugation, which acts on L as the generator of G with χ = −1 there, so their quotient ±1 is fixed.
 
 *Needs:* [Tame local Galois Gauss sums](#layer-7-topic-13); [Absolute and relative norm resolvents](#layer-7-topic-100); [TauCetiRoadmap.ClassFieldTheory, layer 7 the absolute local artin map its normalizations and conductors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors); [TauCetiRoadmap.RepresentationTheory/InductionRestriction, layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md#layer-6-the-virtual-character-ring-artin-and-brauer-induction).
 
@@ -16808,11 +16935,12 @@ If L/F is a tame G-Galois local extension and a is an integral normal-basis gene
 
 (Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Theorem4, pp.393–394; §6 Theorem8, p.404; §7 (proof of Theorem4), formula(7.9), pp.405–410.) Tame resolvent and Gauss factors have matching local valuations, by Kummer reduction and Stickelberger’s valuation.
 
-To prove this, use degree-zero Brauer induction and twists to reduce to a tame abelian extension after an unramified scalar extension. For a cyclic Kummer extension of inertia degree e, the eigenresolvent valuation is the least nonnegative residue t/e. Compare the residue Gauss valuation using finite-gauss-valuation and its fractional-parts form. Unramified characters have zero valuation; multiplying a normal generator by a group-ring unit leaves these valuations unchanged.
+To prove this, use degree-zero Brauer induction and twists to reduce to a tame abelian extension after an unramified scalar extension. For a cyclic Kummer extension of inertia degree e, the eigenresolvent valuation is the least nonnegative residue t/e. Compare the residue Gauss valuation using [Stickelberger’s finite Gauss-sum valuation](#layer-7-topic-12) and its fractional-parts form. Unramified characters have zero valuation; multiplying a normal generator by a group-ring unit leaves these valuations unchanged.
 
 **Checks.**
 
-- If L/F is a tame G-Galois local extension and a is an integral normal-basis generator, then every character value of the absolute norm resolvent N_F/Q_p(a|χ) has the same p-adic valuation as τ_F(χ). The assertion includes virtual characters and the coefficient-field embedding norm; valuations may be nonzero.
+- L/F unramified with an integral normal basis generator: every resolvent value is a unit ([Normal bases and invertible resolvents](#layer-7-topic-61)), and for F = ℚ_p the unramified τ_F(χ) = χ(D_F/ℚ_p)⁻¹ is 1 ([Tame local Galois Gauss sums](#layer-7-topic-13)); both have valuation 0.
+- ℚ₃(√−3)/ℚ₃ (tame, e = 2) with a = 1 + √−3, whose conjugates span ℤ₃ + ℤ₃√−3 because 2 is a unit: the resolvent at the nontrivial character is 2√−3, and τ(χ) = ±(ζ₃ − ζ₃²) = ±√−3 for the ramified quadratic character; both have valuation 1/2 when v(3) = 1.
 
 *Needs:* [Absolute and relative norm resolvents](#layer-7-topic-100); [Tame local Galois Gauss sums](#layer-7-topic-13); [Stickelberger’s finite Gauss-sum valuation](#layer-7-topic-12); [TauCetiRoadmap.RepresentationTheory/InductionRestriction, layer 6 the virtual character ring artin and brauer induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md#layer-6-the-virtual-character-ring-artin-and-brauer-induction); [Noether's theorem for local fields](#layer-7-topic-88).
 
@@ -16824,13 +16952,14 @@ Let R⊆S be normal noetherian characteristic-zero integral domains, p-torsion-f
 
 (Ted Chinburg, Georgios Pappas and Martin J. Taylor, [K₁ of a p-adic group ring I. The determinantal image](#reference-cpt), Theorem1.5, p.4; p-group Theorem4.1, pp.23–24; §§6a–6b, Theorems6.4–6.7, pp.32–35.) Invariant determinant units descend, with precise coefficient and trace hypotheses.
 
-To prove this, for p-groups use the logarithm on the commutator determinant subgroup and its exact integral image; handle group-element torsion separately. Descend abelian units by taking invariants in the augmentation sequence (p-group-determinant-fixed-point).
+To prove this, for p-groups use the logarithm on the commutator determinant subgroup and its exact integral image; handle group-element torsion separately. Descend abelian units by taking invariants in the augmentation sequence ([Fixed-point descent for p-group determinants](#layer-7-topic-80)).
 
-For Q_p-p-elementary groups use crossed-product descent (CPT Theorem6.4). For an arbitrary G, the prime-to-p multiplier induction over Q_p-p-elementary subgroups shows that every element of Det(GL(S[G]))^Δ/Det(GL(R[G])) has finite order prime to p (CPT Theorem6.5); ell-elementary-determinant-descent shows that its order is prime to every ℓ≠p (CPT Theorems6.6–6.7). Hence the quotient is trivial, and matrix and unit determinant images agree by general-group-determinant-stability. Trace surjectivity is retained for the general coefficient statement; do not extrapolate the abbreviated survey hypothesis list.
+For Q_p-p-elementary groups use crossed-product descent (Chinburg–Pappas–Taylor, Theorem6.4). For an arbitrary G, the prime-to-p multiplier induction over Q_p-p-elementary subgroups shows that every element of Det(GL(S[G]))^Δ/Det(GL(R[G])) has finite order prime to p (Chinburg–Pappas–Taylor, Theorem6.5); [Determinant descent for Q_p-ℓ-elementary groups](#layer-7-topic-93) shows that its order is prime to every ℓ≠p (Chinburg–Pappas–Taylor, Theorems6.6–6.7). Hence the quotient is trivial, and matrix and unit determinant images agree by [Matrix and unit determinant images over complete coefficient domains](#layer-7-topic-101). Trace surjectivity is retained for the general coefficient statement; do not extrapolate the abbreviated survey hypothesis list.
 
 **Checks.**
 
-- Let R⊆S be normal noetherian characteristic-zero integral domains, p-torsion-free and p-adically complete, each with its own lift of Frobenius. Suppose S is finite free over R, Frac(S)/Frac(R) is Galois with finite group Δ, S^Δ=R and Tr_S/R is onto R. For any finite G, Det(S[G]×)^Δ=Det(R[G]×). For a p-group G the fixed-point theorem holds under the domain, completeness, Frobenius, finite-free Galois and invariant hypotheses without the extra normal/noetherian/trace assumptions. The two Frobenius lifts need not commute with the inclusion.
+- G = {1}: (S^×)^Δ = R^×.
+- S = R: Δ is trivial and both sides are Det(R[G]^×).
 
 *Needs:* [Integral images of the group logarithm](#layer-7-topic-62); [The logarithm is injective only after controlling determinant torsion](#layer-7-topic-73); [Local rational Brauer reduction for determinant quotients](#layer-7-topic-63); [Crossed-product descent on elementary subgroups](#layer-7-topic-86); [Fixed-point descent for p-group determinants](#layer-7-topic-80); [Matrix and unit determinant images over complete coefficient domains](#layer-7-topic-101); [Determinant descent for Q_p-ℓ-elementary groups](#layer-7-topic-93).
 
@@ -16854,11 +16983,11 @@ The supporting API comprises:
 
 (Fabio Ferri and Cornelius Greither, [Tame Galois module structure revisited](#reference-ferri-greither-tame-galois-2019), Introduction, McCulloh's theorem (p. 3).) The augmentation map; McCulloh's description R(O_K[G]) = Cl^0(O_K[G])^J places realisable classes in its kernel.
 
-To prove this, define the two classes with classOf applied to locally-free-of-tame and ring-of-integers-locally-free-over-integral-group-ring.
+To prove this, define the two classes with classOf applied to [Noether: tame extensions have locally free rings of integers](#layer-7-topic-95) and [The ring of integers is locally free over ℤ[G]](#layer-7-topic-103).
 
 Normal integral basis: 𝓞_L ≅ 𝓞_K[G], so the class is zero.
 
-Augmentation: 𝓞_K ⊗_{𝓞_K[G]} 𝓞_L is the module of coinvariants of the projective module 𝓞_L. For the free module 𝓞_K[G] the norm map from coinvariants to invariants is the isomorphism 𝓞_K[G]/I_G ≅ 𝓞_K·N (x ↦ ε(x)N), so it is an isomorphism for every direct summand of a free module, in particular for 𝓞_L, whose invariants are 𝓞_K (the same argument as trace-surjective-of-projective); so the image class is [𝓞_K] − [𝓞_K] = 0.
+Augmentation: 𝓞_K ⊗_{𝓞_K[G]} 𝓞_L is the module of coinvariants of the projective module 𝓞_L. For the free module 𝓞_K[G] the norm map from coinvariants to invariants is the isomorphism 𝓞_K[G]/I_G ≅ 𝓞_K·N (x ↦ ε(x)N), so it is an isomorphism for every direct summand of a free module, in particular for 𝓞_L, whose invariants are 𝓞_K (the same argument as [Projectivity over the group ring forces the trace to be surjective](#layer-7-topic-67)); so the image class is [𝓞_K] − [𝓞_K] = 0.
 
 **Checks.**
 
@@ -16879,11 +17008,12 @@ For a tame G-Galois number-field extension and a symplectic character χ, W(χ)�
 
 (Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), §8 Theorem9 and its proof, p.410.) Tame symplectic root numbers are Galois-invariant rational signs.
 
-To prove this, self-duality and the local-constant duality law give W(χ)²=1. Use determinant-one symplectic characters to remove the cyclotomic Galois factor. In the tame case the finite valuation and sign calculations of F76 §8 show that conjugation does not change the resulting sign. These calculations require the exact local-constant formalism boundary already recorded, not just complex absolute values.
+To prove this, self-duality and the local-constant duality law give W(χ)²=1. Use determinant-one symplectic characters to remove the cyclotomic Galois factor. In the tame case the finite valuation and sign calculations of Fröhlich (1976), §8 show that conjugation does not change the resulting sign. These calculations require the exact local-constant formalism boundary already recorded, not just complex absolute values.
 
 **Checks.**
 
-- For a tame G-Galois number-field extension and a symplectic character χ, W(χ)∈{1,−1} and W(χ^ω)=W(χ) for every absolute Galois ω. Thus W_G is an equivariant character homomorphism with W_G²=1. Tameness belongs to the Galois-invariance assertion.
+- Martinet's tame quaternion extension of ℚ (Checks of [Taylor's theorem: the Galois module class has order at most two](#layer-7-topic-121)) has W(χ) = −1 for the two-dimensional character χ of Q₈, since its class t(W) is nonzero; so the value −1 occurs.
+- G of odd order: there is no symplectic character and W_G = 1.
 
 *Needs:* [Symplectic Artin root signs](#layer-7-topic-30); [Gauss sums have the resolvent Galois transformation law](#layer-7-topic-107); [Tame norm resolvents and Gauss sums have equal finite valuations](#layer-7-topic-108); [TauCetiRoadmap.RepresentationTheory/CharacterTheory, layer 7 the frobenius schur indicator and realquaternionic type](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/CharacterTheory/README.md#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type).
 
@@ -16897,12 +17027,12 @@ The supporting API comprises:
 
 - `AdjustedGaussSum.formula`: τ_p*=τ_p y_p⁻¹ Det(c_p).
 - `AdjustedGaussSum.unramified`: For unramified degree-one χ, τ_p*(χ)=−1.
-- `AdjustedGaussSum.symplectic`: The y_p correction is one on symplectic characters, so its root-number-class contribution is zero.
+- `AdjustedGaussSum.symplectic`: The y_p correction is one on symplectic characters, so its [The root-number class in the kernel group](#layer-7-topic-113) contribution is zero.
 - `AdjustedGaussSum.outside_p`: For ℓ≠p the character values of τ_p* are ℓ-adic units.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), §3 definitions(3.1)–(3.9), Proposition3.10 and its proof, pp.46–49.) The adjusted Gauss homomorphism removes unramified factors and has controlled equivariance and modular behavior.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), §3 definitions(3.1)–(3.9), Proposition3.10 and its proof, pp.46–49.) The adjusted Gauss homomorphism removes unramified factors and has controlled equivariance and modular behavior.
 
-To prove this, use Taylor’s unramified correction on each character and the Artin determinant factor. Verify compatibility with degree-zero induction and Galois conjugation using gauss-galois-compatibility. At ℓ≠p the resulting factors are ℓ-adic units; at ℓ=p their valuations are the ordinary Gauss valuations.
+To prove this, use Taylor’s unramified correction on each character and the Artin determinant factor. Verify compatibility with degree-zero induction and Galois conjugation using [Gauss sums have the resolvent Galois transformation law](#layer-7-topic-107). At ℓ≠p the resulting factors are ℓ-adic units; at ℓ=p their valuations are the ordinary Gauss valuations.
 
 **Checks.**
 
@@ -16911,7 +17041,7 @@ To prove this, use Taylor’s unramified correction on each character and the Ar
 - The adjustment is not the ordinary Gauss homomorphism even for unramified characters.
 - Multiplying by Det(c_p) changes no integral-unit determinant quotient whenever c_p is an integral group element.
 
-**Unverified source input.** Taylor’s adjusted Gauss sum and torsion comparison need the unit identities in Fröhlich–Taylor (1980), Theorem 5(ii)–(iii), through Taylor (1981), Propositions 3.6–3.7, p. 47, and Proposition 3.10(v), p. 48, and the local construction of Fröhlich–Taylor (1980), §5.1, through Taylor §9(Ia), p. 66. The proof of the 1980 inputs remains unverified; the finite-field valuation formula does not replace it. Retain all of these local inputs before using Taylor Theorem 4, pp. 59–60.
+**Unverified source input.** Taylor’s adjusted Gauss sum and torsion comparison need the unit identities in Fröhlich–Taylor (1980), Theorem 5(ii)–(iii), through Taylor (1981), Propositions 3.6–3.7, p. 47, and Proposition 3.10(v), p. 48, and the local construction of Fröhlich–Taylor (1980), §5.1, through Taylor §9(Ia), p. 66. No source cited here proves the 1980 inputs; the finite-field valuation formula does not replace it. Retain all of these local inputs before using Taylor Theorem 4, pp. 59–60.
 
 *Needs:* [Tame local Galois Gauss sums](#layer-7-topic-13); [Gauss sums have the resolvent Galois transformation law](#layer-7-topic-107); [Determinants indexed by virtual characters](#layer-7-topic-28).
 
@@ -16928,9 +17058,9 @@ The supporting API comprises:
 - `RootNumberClass.no_symplectic`: If G has no symplectic irreducible, t(W)=0.
 - `RootNumberClass.hom_comparison`: Under the kernel/Hom comparison t(W) is the specified positive-unit class, not the class of a negative infinite representative.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), §§1–2, Theorem1 and quotient(2.1), pp.41–44; F76 Appendix II, p.430.) The symplectic sign homomorphism defines a canonical kernel-group class.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), §§1–2, Theorem1 and quotient(2.1), pp.41–44; Fröhlich (1976), Appendix II, p.430.) The symplectic sign homomorphism defines a canonical kernel-group class.
 
-To prove this, symplectic-root-sign-law gives the required equivariance and finite-unit condition. The positive-unit-kernel equivalence transfers the finite representative to an all-place positive one. Enlarge S only through the canonical quotient comparison.
+To prove this, [Tame symplectic root factors are equivariant signs](#layer-7-topic-111) gives the required equivariance and finite-unit condition. The [Positive unit homomorphisms and the kernel group](#layer-7-topic-99) equivalence transfers the finite representative to an all-place positive one. Enlarge S only through the canonical quotient comparison.
 
 **Checks.**
 
@@ -16947,13 +17077,14 @@ To prove this, symplectic-root-sign-law gives the required equivariance and fini
 
 For tame L/F with finite Galois group G, c=[O_L]−[F:Q][Z[G]] lies in D(Z[G]). Choose a∈O_L generating a normal integral basis at every place of F above S={ℓ:ℓ divides |G|}, and let A be its embedding-product norm resolvend. In the S-place positive-unit quotient, u=Det(A)·W_G·τ⁻¹ represents c. The associated all-place representative uses the archimedean positivity adjustment. This is kernel membership; equality c=t(W) needs the additional determinant theorems.
 
-(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Theorems10–11 and formula(9.4), pp.411–413; T81 (2.2), p.44.) The local integral class is a positive unit Hom class, represented by the Gauss-corrected resolvent.
+(Albrecht Fröhlich, [Arithmetic and Galois module structure for tame extensions](#reference-f76), Theorems10–11 and formula(9.4), pp.411–413; Taylor (1981), (2.2), p.44.) The local integral class is a positive unit Hom class, represented by the Gauss-corrected resolvent.
 
-To prove this, the finite valuations cancel by resolvent-gauss-valuation and the norm-resolvent class formula. At infinite places the symplectic determinant positivity is corrected by the normalized root signs and the infinite factors, using F76 Theorem10. Apply kernel-hom-comparison.
+To prove this, the finite valuations cancel by [Tame norm resolvents and Gauss sums have equal finite valuations](#layer-7-topic-108) and the norm-resolvent class formula. At infinite places the symplectic determinant positivity is corrected by the normalized root signs and the infinite factors, using Fröhlich (1976), Theorem10. Apply [The Hom quotient is the actual maximal-order kernel](#layer-7-topic-106).
 
 **Checks.**
 
-- For tame L/F with finite Galois group G, c=[O_L]−[F:Q][Z[G]] lies in D(Z[G]). Choose a∈O_L generating a normal integral basis at every place of F above S={ℓ:ℓ divides |G|}, and let A be its embedding-product norm resolvend. In the S-place positive-unit quotient, u=Det(A)·W_G·τ⁻¹ represents c. The associated all-place representative uses the archimedean positivity adjustment. This is kernel membership; equality c=t(W) needs the additional determinant theorems.
+- G = {1}: c = [O_F] − [F : ℚ][ℤ] = 0.
+- G abelian: there is no symplectic character, W_G = 1, and the representative is Det(A)·τ⁻¹.
 
 *Needs:* [Absolute and relative norm resolvents](#layer-7-topic-100); [Tame norm resolvents and Gauss sums have equal finite valuations](#layer-7-topic-108); [Tame symplectic root factors are equivariant signs](#layer-7-topic-111); [The Hom quotient is the actual maximal-order kernel](#layer-7-topic-106); [The Galois module class of the ring of integers](#layer-7-topic-110).
 
@@ -16963,13 +17094,13 @@ To prove this, the finite valuations cancel by resolvent-gauss-valuation and the
 
 In Taylor’s cyclic prime-to-ℓ crossed-product reduction, the adjusted Gauss homomorphism f has logarithm in ℓ times the integral conjugacy-class module on inertia. Its restriction to the abelian quotient is the determinant of an integral unit T′. After removing that lift, ν(f) lies in the commutator-ideal image and is ν(Det z) for a unit z∈1+A supported on inertia. This supplies a logarithmic lift; it leaves possible group-element determinant torsion.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), §7 Propositions7.5–7.7, p.57; §8, Proposition8.1, Corollary8.2, (8.3)–(8.4) and Theorem5, pp.62–65.) The Gauss logarithm and its abelianization have integral-unit lifts supported on inertia.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), §7 Propositions7.5–7.7, p.57; §8, Proposition8.1, Corollary8.2, (8.3)–(8.4) and Theorem5, pp.62–65.) The Gauss logarithm and its abelianization have integral-unit lifts supported on inertia.
 
-To prove this, use finite-gauss-product only in its weak form, equality up to a root of unity (Taylor writes ~ at T81 p.64), with the residue Gauss formulas, to obtain Taylor’s inertia coefficient bounds (T81 Theorem5, pp.63–65); roots of unity have zero logarithm, so the boundary [the characteristic-two Gauss-product sign](#layer-7-topic-29) is not used here. Lift the abelianized adjusted Gauss homomorphism by Fourier inversion. Saturation of the conjugacy-class commutator image permits the remaining logarithm to be lifted by group-log-commutator-isomorphism, retaining the inertia support.
+To prove this, use [The Hasse–Davenport product relation](#layer-7-topic-29) only in its weak form, equality up to a root of unity (Taylor writes ~ at Taylor (1981) p.64), with the residue Gauss formulas, to obtain Taylor’s inertia coefficient bounds (Taylor (1981), Theorem5, pp.63–65); roots of unity have zero logarithm, so the boundary [the characteristic-two Gauss-product sign](#layer-7-topic-29) is not used here. Lift the abelianized adjusted Gauss homomorphism by Fourier inversion. Saturation of the conjugacy-class commutator image permits the remaining logarithm to be lifted by [The logarithm is injective only after controlling determinant torsion](#layer-7-topic-73), retaining the inertia support.
 
 **Checks.**
 
-- In Taylor’s cyclic prime-to-ℓ crossed-product reduction, the adjusted Gauss homomorphism f has logarithm in ℓ times the integral conjugacy-class module on inertia. Its restriction to the abelian quotient is the determinant of an integral unit T′. After removing that lift, ν(f) lies in the commutator-ideal image and is ν(Det z) for a unit z∈1+A supported on inertia. This supplies a logarithmic lift; it leaves possible group-element determinant torsion.
+- G abelian: A = 0, so z = 1, and f agrees with Det(T′) up to the torsion in Det(G) treated in [Taylor’s congruences detect the residual determinant torsion](#layer-7-topic-118).
 
 *Needs:* [Adjusted tame Gauss homomorphisms](#layer-7-topic-112); [The Hasse–Davenport product relation](#layer-7-topic-29); [Integral images of the group logarithm](#layer-7-topic-62); [The logarithm is injective only after controlling determinant torsion](#layer-7-topic-73).
 
@@ -16979,13 +17110,13 @@ To prove this, use finite-gauss-product only in its weak form, equality up to a 
 
 For tame L/F with group G, choose a∈O_L that is an integral normal generator at every place over S={ℓ:ℓ divides |G|}; let A be its embedding-product norm resolvend as in Taylor (2.2). For each ℓ∈S there is a finite Galois E/Q such that (y′_ℓ)⁻¹Det(A)∏_(𝔭|ℓ)τ_(G,𝔭)⁻¹ belongs to Det(∏_(𝔮|ℓ)(O_(E_𝔮)^P_𝔮[G])×), with P_𝔮 the wild inertia subgroup of Gal(E_𝔮/Q_ℓ). Here y′_ℓ is Taylor’s product of the local unramified correction factors. The coefficient ring is the ring fixed by wild inertia, hence a tame local coefficient extension; no unspecified inertia-norm modification is part of the statement.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), Theorem2(a), p.45; §11 (proof of Theorem2(a)), (11.1)–(11.10) and Proposition11.6, pp.75–78; F76 Theorem6 and its Corollaries1–2, pp.396–399.) The diagonal factor of the integral embedding norm resolvend is a group-ring determinant over the wild-inertia fixed integer rings.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Theorem2(a), p.45; §11 (proof of Theorem2(a)), (11.1)–(11.10) and Proposition11.6, pp.75–78; Fröhlich (1976), Theorem6 and its Corollaries1–2, pp.396–399.) The diagonal factor of the integral embedding norm resolvend is a group-ring determinant over the wild-inertia fixed integer rings.
 
-To prove this, pass to a tame extension that splits cyclic inertia and contains the required roots of unity. Compare the inertia eigenresolvents with residue Gauss sums; resolvent-gauss-valuation gives unit coefficients. Unramified character twisting identifies the ratios on the cyclic inertia factors. Use the tame norm/base-change compatibility of F76 Theorem6 to reassemble the induced module; Taylor §11 then identifies the resulting unit as an integral group-ring determinant. F76’s valuation proof supplies this valuation comparison; the additional 1980 local unit identities are specified separately below.
+To prove this, pass to a tame extension that splits cyclic inertia and contains the required roots of unity. Compare the inertia eigenresolvents with residue Gauss sums; [Tame norm resolvents and Gauss sums have equal finite valuations](#layer-7-topic-108) gives unit coefficients. Unramified character twisting identifies the ratios on the cyclic inertia factors. Use the tame norm/base-change compatibility of Fröhlich (1976), Theorem6 to reassemble the induced module; Taylor §11 then identifies the resulting unit as an integral group-ring determinant. Fröhlich’s (1976) valuation proof supplies this valuation comparison; the additional 1980 local unit identities are specified separately below.
 
 **Checks.**
 
-- For tame L/F with group G, choose a∈O_L that is an integral normal generator at every place over S={ℓ:ℓ divides |G|}; let A be its embedding-product norm resolvend as in Taylor (2.2). For each ℓ∈S there is a finite Galois E/Q such that (y′_ℓ)⁻¹Det(A)∏_(𝔭|ℓ)τ_(G,𝔭)⁻¹ belongs to Det(∏_(𝔮|ℓ)(O_(E_𝔮)^P_𝔮[G])×), with P_𝔮 the wild inertia subgroup of Gal(E_𝔮/Q_ℓ). Here y′_ℓ is Taylor’s product of the local unramified correction factors. The coefficient ring is the ring fixed by wild inertia, hence a tame local coefficient extension; no unspecified inertia-norm modification is part of the statement.
+- G = {1}: no prime divides |G|, so S is empty and the statement is vacuous.
 
 *Needs:* [Absolute and relative norm resolvents](#layer-7-topic-100); [Adjusted tame Gauss homomorphisms](#layer-7-topic-112); [Tame norm resolvents and Gauss sums have equal finite valuations](#layer-7-topic-108); [Local rational Brauer reduction for determinant quotients](#layer-7-topic-63); [Noether's theorem for local fields](#layer-7-topic-88).
 
@@ -17011,15 +17142,11 @@ To prove this, fröhlich's proof (his paper J. reine angew. Math. 286 (1976) 380
 
 ### 7.118 Taylor’s congruences detect the residual determinant torsion
 
-For the crossed-product Gauss factor f in gauss-log-image, let z and T′ be its commutator and abelian lifts. The quotient f/Det(zT′) lies in Det(G). Taylor’s four integral congruence families force this quotient to be trivial: induced characters of degree greater than two; degree-two characters with semiabelian action; degree-two inversion action; and degree-two semidihedral action. Hence f is an integral-unit determinant, rather than merely having the logarithm of one.
+For the crossed-product Gauss factor f in [The Gauss logarithm lifts through the commutator ideal](#layer-7-topic-115), let z and T′ be its commutator and abelian lifts. The quotient f/Det(zT′) lies in Det(G). Taylor’s four integral congruence families force this quotient to be trivial: induced characters of degree greater than two; degree-two characters with semiabelian action; degree-two inversion action; and degree-two semidihedral action. Hence f is an integral-unit determinant, rather than merely having the logarithm of one.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), §7 Theorem4 and its four branches, pp.59–61; §§9–10, pp.65–75.) Four congruence families remove the torsion ambiguity left by the logarithm comparison.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), §7 Theorem4 and its four branches, pp.59–61; §§9–10, pp.65–75.) Four congruence families remove the torsion ambiguity left by the logarithm comparison.
 
 To prove this, for induced characters compare Gauss factors and determinants against the transfer/cotransfer character at the next index-ℓ subgroup. For degree two the semiabelian branch compares modulo 2 times the radical; the inversion branch compares Gauss factors modulo 4 and determinants modulo 2 times the radical; the semidihedral branch uses the corresponding trace relation modulo 4. Group-element torsion is evaluated on these detecting characters, and the congruences eliminate it by induction on the group. Taylor §§9–10 prove these families, but the crucial degree>2 Gauss congruence invokes Fröhlich–Taylor 1980 §5.1; the required congruence input is stated below. No injectivity of the unrestricted logarithm is used.
-
-**Checks.**
-
-- For the crossed-product Gauss factor f in gauss-log-image, let z and T′ be its commutator and abelian lifts. The quotient f/Det(zT′) lies in Det(G). Taylor’s four integral congruence families force this quotient to be trivial: induced characters of degree greater than two; degree-two characters with semiabelian action; degree-two inversion action; and degree-two semidihedral action. Hence f is an integral-unit determinant, rather than merely having the logarithm of one.
 
 **Unverified source input.** The local adjusted-Gauss and torsion identities needed from Taylor (1981), §§9–10, pp. 65–75, include the Fröhlich–Taylor (1980) inputs specified at adjusted Gauss sums. Their existence is an obligation; the logarithm-image assertion by itself does not supply the torsion calculation.
 
@@ -17031,15 +17158,15 @@ To prove this, for induced characters compare Gauss factors and determinants aga
 
 For a tame local G-Galois extension at a rational prime p and ℓ≠p, put K=Q(ζ_p). Taylor’s off-diagonal factor y_p⁻¹τ_p lies in Det(O_(K,ℓ)[G]×), where O_(K,ℓ) is the product of completed integer rings over ℓ. If p is unramified in the extension, y_p=τ_p=1. The assertion is membership in the integral-unit determinant subgroup, stronger than having unit character values.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), Theorem2(b), p.45; Theorem3, p.49, proved in §§5–10, pp.52–75.) Away from the ramified prime, the Gauss homomorphism modulo its root-of-unity correction is a determinant unit.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Theorem2(b), p.45; Theorem3, p.49, proved in §§5–10, pp.52–75.) Away from the ramified prime, the Gauss homomorphism modulo its root-of-unity correction is a determinant unit.
 
-To prove this, reduce by integral-character twisting and ℚ-elementary induction (T81 §5: an integral identity over ℚ-elementary subgroups, and for ℚ-ℓ-elementary subgroups a multiplier prime to ℓ). For a ℚ-q-elementary subgroup with q≠ℓ the quotient by its q-part has order prime to ℓ, so its group ring is a maximal order, and Taylor’s congruence Proposition3.10(v), resting on his Propositions3.7–3.8, shows that an ℓ-power of the adjusted Gauss factor is a unit determinant (T81 §6, Propositions5.3 and6.1). On the ℚ-ℓ-elementary pieces use gauss-log-image and gauss-torsion-detection, then reassemble the cyclic crossed-product pieces (T81 §§7–10). Det(c_p) is already an integral unit determinant and can be removed. Descent of invariant determinants uses determinant-fixed-point.
+To prove this, reduce by integral-character twisting and ℚ-elementary induction (Taylor (1981), §5: an integral identity over ℚ-elementary subgroups, and for ℚ-ℓ-elementary subgroups a multiplier prime to ℓ). For a ℚ-q-elementary subgroup with q≠ℓ the quotient by its q-part has order prime to ℓ, so its group ring is a maximal order, and Taylor’s congruence Proposition3.10(v), resting on his Propositions3.7–3.8, shows that an ℓ-power of the adjusted Gauss factor is a unit determinant (Taylor (1981), §6, Propositions5.3 and6.1). On the ℚ-ℓ-elementary pieces use [The Gauss logarithm lifts through the commutator ideal](#layer-7-topic-115) and [Taylor’s congruences detect the residual determinant torsion](#layer-7-topic-118), then reassemble the cyclic crossed-product pieces (Taylor (1981), §§7–10). Det(c_p) is already an integral unit determinant and can be removed. Descent of invariant determinants uses [Fixed-point descent for integral determinant units](#layer-7-topic-109).
 
 **Checks.**
 
-- For a tame local G-Galois extension at a rational prime p and ℓ≠p, put K=Q(ζ_p). Taylor’s off-diagonal factor y_p⁻¹τ_p lies in Det(O_(K,ℓ)[G]×), where O_(K,ℓ) is the product of completed integer rings over ℓ. If p is unramified in the extension, y_p=τ_p=1. The assertion is membership in the integral-unit determinant subgroup, stronger than having unit character values.
+- p unramified in the extension: y_p = τ_p = 1, and the factor 1 lies in every determinant subgroup.
 
-**Unverified source input.** The determinant representative requires both the logarithm image and the torsion calculation, including the unread Fröhlich–Taylor (1980) local unit identities. Taylor (1981), Theorem 4, pp. 59–60, and §§9–10, pp. 65–75, are the precise route; no determinant representative is supplied merely by listing those references.
+**Unverified source input.** The determinant representative requires both the logarithm image and the torsion calculation, including the Fröhlich–Taylor (1980) local unit identities, which no source cited here proves. Taylor (1981), Theorem 4, pp. 59–60, and §§9–10, pp. 65–75, give the route.
 
 *Needs:* [Adjusted tame Gauss homomorphisms](#layer-7-topic-112); [The Gauss logarithm lifts through the commutator ideal](#layer-7-topic-115); [Taylor’s congruences detect the residual determinant torsion](#layer-7-topic-118); [Crossed-product descent on elementary subgroups](#layer-7-topic-86); [Fixed-point descent for integral determinant units](#layer-7-topic-109).
 
@@ -17049,13 +17176,15 @@ To prove this, reduce by integral-character twisting and ℚ-elementary inductio
 
 For every tame finite G-Galois extension L/F of number fields, with d=[F:Q], [O_L]−d[Z[G]]=t(W_L/F) in Cl(Z[G]), under the compatible Hom-description and embedding-norm conventions. This is the equality of the full stable module class with the symplectic root-number class, not just a two-torsion assertion.
 
-(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-t81), Theorem1, pp.41–42; reduction(2.1)–(2.2), pp.44–45; §12 Theorem6 and conclusion, pp.78–79.) Taylor identifies the integer-ring stable class with the root-number obstruction through local determinant factors and descent.
+(Martin J. Taylor, [On Fröhlich’s conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Theorem1, pp.41–42; reduction(2.1)–(2.2), pp.44–45; §12 Theorem6 and conclusion, pp.78–79.) Taylor identifies the integer-ring stable class with the root-number obstruction through local determinant factors and descent.
 
-To prove this, represent the class by the norm-resolvent/Gauss homomorphism from froehlich-kernel-membership. At each ℓ separate the diagonal factor supplied by norm-resolvent-determinant and the off-diagonal factors supplied by gauss-determinant. The product differs from W only by integral-unit determinants after a finite tame scalar extension. Taylor §12 descends first through tame inertia of degree prime to ℓ and then through the unramified quotient; retain the exact coefficient hypotheses of determinant-fixed-point on each component. The positive principal denominator absorbs the rational basis choices. The remaining quotient is exactly t(W).
+To prove this, represent the class by the norm-resolvent/Gauss homomorphism from [The tame integer-ring class lies in the maximal-order kernel](#layer-7-topic-114). At each ℓ separate the diagonal factor supplied by [The diagonal tame norm-resolvent factor is a determinant unit](#layer-7-topic-116) and the off-diagonal factors supplied by [The off-diagonal local Gauss factor is an integral determinant](#layer-7-topic-119). The product differs from W only by integral-unit determinants after a finite tame scalar extension. Taylor §12 descends first through tame inertia of degree prime to ℓ and then through the unramified quotient; retain the exact coefficient hypotheses of [Fixed-point descent for integral determinant units](#layer-7-topic-109) on each component. The positive principal denominator absorbs the rational basis choices. The remaining quotient is exactly t(W).
 
 **Checks.**
 
-- For every tame finite G-Galois extension L/F of number fields, with d=[F:Q], [O_L]−d[Z[G]]=t(W_L/F) in Cl(Z[G]), under the compatible Hom-description and embedding-norm conventions. This is the equality of the full stable module class with the symplectic root-number class, not just a two-torsion assertion.
+- G abelian, or of odd order: there is no symplectic character, t(W) = 0, and [O_L] − d[ℤ[G]] = 0.
+- Martinet's tame Q₈-extension of ℚ (Checks of [Taylor's theorem: the Galois module class has order at most two](#layer-7-topic-121)): t(W) ≠ 0, so 𝓞_L is not stably free over ℤ[Q₈] and has no normal integral basis.
+- In particular 2([O_L] − d[ℤ[G]]) = 0, Taylor's theorem ([Taylor's theorem: the Galois module class has order at most two](#layer-7-topic-121)).
 
 *Needs:* [The tame integer-ring class lies in the maximal-order kernel](#layer-7-topic-114); [The root-number class in the kernel group](#layer-7-topic-113); [The diagonal tame norm-resolvent factor is a determinant unit](#layer-7-topic-116); [The off-diagonal local Gauss factor is an integral determinant](#layer-7-topic-119); [Fixed-point descent for integral determinant units](#layer-7-topic-109); [The Hom quotient is the actual maximal-order kernel](#layer-7-topic-106).
 
@@ -17088,7 +17217,7 @@ Let M/N be a tame Galois extension of number fields with group Γ. If Γ has no 
 
 M/N tame Galois; every irreducible character of Γ has Frobenius–Schur indicator 0 or 1.
 
-(M. J. Taylor, [On Fröhlich's conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Theorem 1(b) (printed p. 41).) The target is the case with no symplectic characters.
+(M. J. Taylor, [On Fröhlich's conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Theorem 1(b) (printed p. 41).) Part (b) says the root-number signs of the symplectic characters are the only obstruction; the target is the case with no symplectic characters, where there is none.
 
 (Henri Johnston, [Notes on Galois Modules](#reference-johnston-galois-modules-2016), Section 15.4 (printed p. 29).) The hypothesis.
 
@@ -17115,7 +17244,7 @@ M/N tame Galois; |Γ| odd.
 
 (M. J. Taylor, [On Fröhlich's conjecture for rings of integers of tame extensions](#reference-taylor-froehlich-conjecture-1981), Corollary and its proof (printed pp. 41–42).) The mathematical contract, with the conventions stated here; the rank is [N : ℚ] by local freeness.
 
-To prove this, a group of odd order has no nontrivial real-valued irreducible character (CharacterTheory Layer 7: real characters count real classes, and an odd-order group has only the identity as a real class), hence no symplectic character; so [𝓞_M]_ℤ = 0 (taylor-no-symplectic-stably-free).
+To prove this, a group of odd order has no nontrivial real-valued irreducible character (CharacterTheory Layer 7: real characters count real classes, and an odd-order group has only the identity as a real class), hence no symplectic character; so [𝓞_M]_ℤ = 0 ([Taylor: without symplectic characters the ring of integers is stably free](#layer-7-topic-122)).
 
 ℚΓ satisfies the Eichler condition (no totally definite quaternion component), so ℤΓ has locally free cancellation (Jacobinski's cancellation theorem, [Jacobinski cancellation under Eichler’s condition](#layer-7-topic-98)).
 
@@ -17136,11 +17265,9 @@ The Gaussian integer extension has a rational normal basis and no integral norma
 
 The declarations and supplier layers used by this layer are:
 
-- [AdelicAlgebraicGroups, `AA.4/strong-approximation-theorem`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/AdelicAlgebraicGroups/README.md).
-- [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-pseudobasis`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
-- [GeometryOfNumbersAndQuadraticArithmetic, `GN.2/lattice-steinitz-class`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/GeometryOfNumbersAndQuadraticArithmetic/README.md).
-- [IntegralHeckeAndGaloisDeterminants, `IHG.0/azumaya-determinant`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/IntegralHeckeAndGaloisDeterminants/README.md).
-- [IntegralHeckeAndGaloisDeterminants, `IHG.0/characteristic-polynomial`](https://github.com/CBirkbeck/tauceti-explorer/blob/main/roadmaps/IntegralHeckeAndGaloisDeterminants/README.md).
+- [TauCetiRoadmap.AdelicAlgebraicGroups, §4.2 Strong approximation and arithmetic closures](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md#42-strong-approximation-and-arithmetic-closures).
+- [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §0.6 Azumaya reduced-norm determinant](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#06-duals-projective-modules-and-reduced-norms).
+- [TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants, §0.5 characteristic polynomial law](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants/README.md#05-characteristic-coefficients-and-trace-comparisons).
 - Mathlib `Algebra.IsInvariant`.
 - Mathlib `Algebra.IsSeparable`.
 - Mathlib `Algebra.IsSeparable.trans`.
@@ -17290,10 +17417,6 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 - **Heinz Jacobinski**. [Genera and decompositions of lattices over orders](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6057-11511_2006_Article_BF02391907.pdf). Acta Mathematica 121 (1968), 1–29.
 
-<a id="reference-john"></a>
-
-- **Henri Johnston**. [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf). Author notes, version 18 October 2016.
-
 <a id="reference-kne"></a>
 
 - **Martin Kneser; notes by P. Jothilingam**. [Lectures on Galois Cohomology of Classical Groups](https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr47.pdf). TIFR Lectures on Mathematics 47 (1969), retypeset PDF with original page numbers in margins.
@@ -17304,7 +17427,7 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 <a id="reference-prr"></a>
 
-- **Vladimir Platonov, Andrei Rapinchuk and Igor Rapinchuk**. [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756). Second edition, Cambridge University Press (2023), Chapters1–5; maintainer-cleared reading copy.
+- **Vladimir Platonov, Andrei Rapinchuk and Igor Rapinchuk**. [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756). Second edition, Cambridge University Press (2023), Chapters1–5.
 
 <a id="reference-shoup-v2"></a>
 
@@ -17321,18 +17444,6 @@ Page numbers in the layers refer to the edition or preprint version named below;
 <a id="reference-stick"></a>
 
 - **Keith Conrad**. [Jacobi sums and Stickelberger’s congruence](https://kconrad.math.uconn.edu/articles/jacobistick.pdf). International Mathematics Research Notices (1995), author PDF with pp.1–9.
-
-<a id="reference-t81"></a>
-
-- **Martin J. Taylor**. [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf). Inventiones mathematicae 63 (1981), 41–79.
-
-<a id="reference-ullom"></a>
-
-- **S. Ullom**. [Normal bases in Galois extensions of number fields](https://resolve.cambridge.org/core/services/aop-cambridge-core/content/view/CDAF1160D7312AB5A5E2D32BA8B540FF/S0027763000024521a.pdf/normal-bases-in-galois-extensions-of-number-fields.pdf). Nagoya Mathematical Journal 34 (1969), 153–167; open-access scan on Cambridge Core.
-
-<a id="reference-voight"></a>
-
-- **John Voight**. [Quaternion Algebras](https://jvoight.github.io/quat-book.pdf). Open-access book, author edition; printed pagination.
 
 <a id="reference-w-i"></a>
 
@@ -17388,7 +17499,7 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 <a id="reference-berrevoets-lehmer-2016"></a>
 
-- **O. B. Berrevoets**. [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](https://math.leidenuniv.nl/scripties/BachBerrevoets.pdf). Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited; downloaded 2026-09-24.
+- **O. B. Berrevoets**. [On Lehmer's problem (bachelor thesis, supervisor J.-H. Evertse)](https://math.leidenuniv.nl/scripties/BachBerrevoets.pdf). Mathematical Institute, Leiden University, bachelor exam 24 June 2016; public PDF from the Leiden thesis repository; printed page numbers cited.
 
 <a id="reference-bertrandias-1964"></a>
 
@@ -17506,10 +17617,6 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 - **Vesselin Dimitrov**. [A proof of the Schinzel–Zassenhaus conjecture on polynomials](https://arxiv.org/pdf/1912.12545v1). arXiv:1912.12545v1 (28 December 2019); 27-page preprint.
 
-<a id="reference-dimitrov-schinzel-zassenhaus-2019"></a>
-
-- **Vesselin Dimitrov**. [A proof of the Schinzel-Zassenhaus conjecture on polynomials](https://arxiv.org/abs/1912.12545). arXiv:1912.12545v1 (28 December 2019), the only arXiv version; downloaded 2026-09-24.
-
 <a id="reference-dubinin-1985"></a>
 
 - **V. N. Dubinin**. [On the change in harmonic measure under symmetrization](https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&paperid=2051&what=fullteng). Mathematics of the USSR-Sbornik 52 (1985), no. 1, 267–273; English translation of Mat. Sb. 124(166) (1984), 277–286.
@@ -17576,7 +17683,7 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 <a id="reference-hirschhorn-four-squares-1987"></a>
 
-- **M. D. Hirschhorn**. [A simple proof of Jacobi's four-square theorem](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf). Proceedings of the American Mathematical Society 101 (1987), 436–438; read in the author's TeX version (4 pp.) from his UNSW page; locators give the pages of that version (1–4), since the journal pages 436–438 cannot be read in it.
+- **M. D. Hirschhorn**. [A simple proof of Jacobi's four-square theorem](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf). Proceedings of the American Mathematical Society 101 (1987), 436–438; locators give the pages (1–4) of the author's TeX version on his UNSW page, which does not carry the journal pagination.
 
 <a id="reference-iribar-kronecker"></a>
 
@@ -17609,10 +17716,6 @@ Page numbers in the layers refer to the edition or preprint version named below;
 <a id="reference-koymans-pagano-2022-v1"></a>
 
 - **Peter Koymans and Carlo Pagano**. [On Stevenhagen's conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv:2201.13424v1 (31 January 2022), the only public version (Acta Mathematica, to appear).
-
-<a id="reference-koymans-pagano-v1"></a>
-
-- **Peter Koymans and Carlo Pagano**. [On Stevenhagen’s conjecture](https://arxiv.org/pdf/2201.13424v1). arXiv:2201.13424v1, 31 January 2022; this version alone is the cited edition.
 
 <a id="reference-krebs-cobham-2018"></a>
 
@@ -17732,19 +17835,15 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 <a id="reference-smyth-mahler-survey-2008"></a>
 
-- **Chris Smyth**. [The Mahler measure of algebraic numbers: a survey](https://arxiv.org/abs/math/0701397). arXiv:math/0701397v2 (28 January 2008), the version published in Number Theory and Polynomials, LMS Lecture Note Series 352 (Cambridge University Press, 2008), pp. 322-349, whose printed page numbers it carries; downloaded 2026-09-24.
+- **Chris Smyth**. [The Mahler measure of algebraic numbers: a survey](https://arxiv.org/abs/math/0701397). arXiv:math/0701397v2 (28 January 2008), the version published in Number Theory and Polynomials, LMS Lecture Note Series 352 (Cambridge University Press, 2008), pp. 322-349, whose printed page numbers it carries.
 
 <a id="reference-smyth-salem-survey-2015"></a>
 
-- **Chris Smyth**. [Seventy years of Salem numbers](https://arxiv.org/abs/1408.0195). arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages; downloaded 2026-09-24.
-
-<a id="reference-smyth-survey-2008"></a>
-
-- **C. J. Smyth**. [The Mahler measure of algebraic numbers: a survey](https://arxiv.org/pdf/math/0701397v2). In Number Theory and Polynomials, London Math. Soc. Lecture Note Ser. 352, Cambridge University Press (2008), 322–349; author preprint arXiv:math/0701397v2 (28 January 2008), which prints the published page numbers.
+- **Chris Smyth**. [Seventy years of Salem numbers](https://arxiv.org/abs/1408.0195). arXiv:1408.0195v3 (1 April 2015), survey article published in Bull. London Math. Soc. 47 (2015), 379-395; page numbers cited are the arXiv pages.
 
 <a id="reference-srivastava-pisot-2018"></a>
 
-- **Varun Srivastava and Sanjay Gollapudi**. [Pisot numbers (Euler Circle student paper)](https://simonrs.com/eulercircle/numbertheory/varun-sanjay-pisot.pdf). Euler Circle expository paper dated 9 December 2018, 4 pages; downloaded 2026-09-24.
+- **Varun Srivastava and Sanjay Gollapudi**. [Pisot numbers (Euler Circle student paper)](https://simonrs.com/eulercircle/numbertheory/varun-sanjay-pisot.pdf). Euler Circle expository paper dated 9 December 2018, 4 pages.
 
 <a id="reference-stange-valuations-2014"></a>
 
@@ -17768,7 +17867,7 @@ Page numbers in the layers refer to the edition or preprint version named below;
 
 <a id="reference-taylor-froehlich-conjecture-1981"></a>
 
-- **M. J. Taylor**. [On Fröhlich's conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf). Inventiones Mathematicae 63 (1981), 41–79; the Göttingen Digitisation Centre scan (image PDF, read as rendered pages).
+- **M. J. Taylor**. [On Fröhlich's conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf). Inventiones Mathematicae 63 (1981), 41–79; the Göttingen Digitisation Centre scan.
 
 <a id="reference-ullom-normal-bases-1969"></a>
 

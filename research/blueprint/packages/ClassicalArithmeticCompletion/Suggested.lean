@@ -163,7 +163,7 @@ example (k : ℕ) [NeZero k] (hk : 2 ≤ k) (c : ℤ) :
     IsAutomatic k (fun _ : ℕ => c) := by
   sorry
 
-/-- Binary parity is automatic and has two kernel elements. -/
+/-- The Thue–Morse sequence, the parity of the binary digit sum, is 2-automatic. -/
 example : IsAutomatic 2 (fun n : ℕ => (Nat.digits 2 n).sum % 2) := by
   sorry
 
@@ -393,27 +393,28 @@ example (n : ℕ) (hn : 0 < n) : aperySet ⊤ n = {s | s < n} := by
 example : aperySet (AddSubmonoid.closure ({3, 5} : Set ℕ)) 3 = {0, 5, 10} := by
   sorry
 
-/-- Distinct positive denominator lists represent a positive rational as unit fractions. -/
-def IsEgyptianExpansion (x : ℚ) (ds : List ℕ) : Prop :=
-  ds.Pairwise (· < ·) ∧ (∀ d ∈ ds, 0 < d) ∧
-    (ds.map fun d => (1 : ℚ) / d).sum = x
+/-- A finite set of positive denominators whose unit fractions sum to `r`; being a set, it
+cannot repeat a denominator. -/
+def IsEgyptianExpansion (r : ℚ) (D : Finset ℕ) : Prop :=
+  0 ∉ D ∧ ∑ d ∈ D, (1 : ℚ) / d = r
 
 /-- A classical two-term expansion. -/
-example : IsEgyptianExpansion (2 / 3) [2, 6] := by
+example : IsEgyptianExpansion (5 / 6) {2, 3} := by
   sorry
 
-/-- Repetition is forbidden despite the correct sum. -/
-example : ¬ IsEgyptianExpansion 1 [2, 2] := by
+/-- The repeated sum `1/3 + 1/3` is not available: `{3}` expands `1/3`, not `2/3`. -/
+example : ¬ IsEgyptianExpansion (2 / 3) {3} := by
   sorry
 
-/-- The greedy-algorithm endpoint uses strictly increasing denominators. -/
-theorem exists_egyptianExpansion {x : ℚ} (hx : 0 < x) :
-    ∃ ds : List ℕ, IsEgyptianExpansion x ds := by
+/-- Every positive rational is a finite sum of distinct unit fractions. -/
+theorem exists_egyptianExpansion {r : ℚ} (hr : 0 < r) :
+    ∃ D : Finset ℕ, IsEgyptianExpansion r D := by
   sorry
 
-/-- Ramanujan–Nagell's exact positive-exponent solution list. -/
-theorem ramanujan_nagell {x n : ℕ} :
-    x ^ 2 + 7 = 2 ^ n ↔ (x, n) ∈ [(1, 3), (3, 4), (5, 5), (11, 7), (181, 15)] := by
+/-- Ramanujan–Nagell: the integer solutions of `x² + 7 = 2ⁿ`, up to the sign of `x`. -/
+theorem ramanujan_nagell {x : ℤ} {n : ℕ} :
+    x ^ 2 + 7 = 2 ^ n ↔
+      (x.natAbs, n) ∈ [(1, 3), (3, 4), (5, 5), (11, 7), (181, 15)] := by
   sorry
 
 end Diophantine
