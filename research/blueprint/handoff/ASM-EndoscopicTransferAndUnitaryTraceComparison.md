@@ -1,5 +1,50 @@
 # Assembly checkpoint: Endoscopic transfer and unitary trace comparison
 
+Issue [#226](https://github.com/CBirkbeck/tauceti-explorer/issues/226), job `ASM-EndoscopicTransferAndUnitaryTraceComparison`. Codex (GPT-6), session `codex-gnFnGw`, 2026-10-14. The bot confirmed the winning claim in [comment 6168169916](https://github.com/CBirkbeck/tauceti-explorer/issues/226#issuecomment-6168169916), referring to claim comment 6168165461. Branch: `codex-gnFnGw-endoscopic-assembly`. Starting main: `c30b736bd9f26d767ee6983b0523d48b22cd1e0b`.
+
+**Status: blocked checkpoint; the assembly cannot be completed from its current inputs.** ET.4 remains `partial`, with independent review `needs_changes` from #395/#9717. The accepted ET.0 and ET.6a inputs do not substitute for the required ET.4–ET.6 plan. This run claimed only #226 and changes no review verdict.
+
+## Changes in this continuation
+
+- Reconciled ET.0's obsolete “planned nowhere” Tamagawa gap with the existing exact owner `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`. The gap now names that node and retains its primary-proof and simply connected Tamagawa obligations. It does not certify the unaccepted supplier.
+- Updated ET.0's live AutomorphicSpectralTheory package locators: invariant orbital integrals §6.9, discrete functionals/pseudo-coefficients §6.18 and general Euler–Poincaré functions §6.19. Those three supplier statements were read. The existing obligation for the individual pseudo-coefficient's non-tempered pairing and the packet-average identification is unchanged.
+- Preserved every mathematical target, hypothesis, API item, test, prerequisite, source citation and coverage status except the section-number substitutions and gap bookkeeping just listed. The complete ET.0 `review` object is unchanged, including its historical notes. No reviewed node's mathematics changed.
+- Updated the collected request and gap below to match the revised ET.0 packet and distinguished prerequisite occurrences from distinct dependency edges.
+
+Only the ET.0 packet and this handoff change. ET.0 is permitted by both the issue and queue allowlists. The combined reader from #9722 remains intact. The ET.4/ET.6a packets, part readers, part Suggested files, queue, issue labels and upstream trees are untouched.
+
+## Fresh validation
+
+All three part packets passed `python3 scripts/check_blueprint.py` with **0 errors and 0 warnings**. The edited ET.0 packet was checked again after reconciliation. The inventory and dependency audit found:
+
+| Input | Review | Targets | API items | Tests | Requests | Gaps |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| ET.0 | accepted | 61 | 168 | 103 | 25 | 5 |
+| ET.4 | needs_changes | 69 | 133 | 79 | 11 | 12 |
+| ET.6a | accepted | 50 | 74 | 49 | 18 | 9 |
+
+The combined reader has all **180 target anchors**, all **375 API names** and all **231 test names** in their owning target sections. Seven further anchors belong to source corrections. This continuation checked inventory preservation, not every inherited theorem or every rendered statement against primary sources.
+
+The actual packets contain **516 distinct internal node edges**, including **51 distinct ET.4 → ET.0 dependency references** (52 occurrences), and are acyclic. ET.6a still has **29 internal stage prerequisite occurrences** awaiting the exact replacements tabulated below. Applying those proposed replacements plus the two additional imports in the retained handoff gives **588 distinct internal node edges**, also acyclic. The latter graph is proposed and is not the graph currently recorded in the packets.
+
+Submission validation: `python3 research/blueprint/intake.py check-files` reported **2 files, 0 problems**, and `git diff --check` passed. A fresh origin/main check at `2a707ba1c1f20248d852f0983e2aa96c5a8e97d0` confirmed the same three review statuses; ET.4 is still unaccepted. The intake completeness predicate was checked and remains false.
+
+No Lean file changed and no Lean compilation ran in this continuation. The previous worker's 507-line draft compilation is historical evidence only; the next worker must reconstruct and run `lean-check` on the final combined output. The combined Suggested file remains absent because the assembly intake checks output existence and would otherwise report this blocked job complete.
+
+The current ClassFieldTheory and AdelicAlgebraicGroups introductions, boundaries and pertinent Suggested interfaces were inspected read-only to check the existing foundation handoffs. No library declaration or source-reading claim was added to the baseline, and no theory was replanned.
+
+## Required unblock actions
+
+1. Revise ET.4–ET.6 to satisfy the completed independent review, then obtain an independent accepting review. Its concrete missing inputs include the ET-owned algebraic/Igusa prefix, the actual Igusa trace-correspondence geometry, Drinfeld-level representability/projectivity, the multiplicity-one newvector input and full WD segment-pair factors with monodromy and conductor. The [review handoff](REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md) is the exact worklist; this assembly is not a revision or a replacement independent review.
+2. Align the assembly issue and queue with **all three** inputs and authorize their packet paths together. The issue names ET.0/ET.4; the queue names ET.0/ET.6a, omits the ET.4 review from `after`, and points to an absent prompt. No ET.4 revision round is present in the current queue. Regenerate the revision and assembly dependencies so this still-blocked assembly is not immediately offered to another worker on the same inputs.
+3. In the accepted revision, establish the early Igusa and Jacquet/JL interfaces needed to break the prose proof-order cycle. After input acceptance and scope reconciliation, apply the 29 exact ET.6a replacements and the two extra imports below, preserving the residual supplier gaps. Refresh the stale ET.4 part reader; compare all three parts to the combined reader; join their Lean namespaces and imports; run the packet checks, `lean-check` and `check_sorry_data.py`; then submit the complete assembly.
+
+The remainder retains #9722's detailed request, gap, ownership, source-version and reconstruction records. Source-reading and Lean results there belong to session `codex-vEpuUD`; they are not fresh checks by this continuation. Its collected ET.0 request/gap and dependency-count wording have been updated as specified above.
+
+---
+
+# Previous assembly checkpoint record (#9722)
+
 Issue [#226](https://github.com/CBirkbeck/tauceti-explorer/issues/226), job `ASM-EndoscopicTransferAndUnitaryTraceComparison`. Codex (GPT-6), session `codex-vEpuUD`, 2026-10-14. Claim confirmed in [comment 6166802976](https://github.com/CBirkbeck/tauceti-explorer/issues/226#issuecomment-6166802976). This continues the inventory checkpoint #9701 by `codex-mzqAco`.
 
 **Status: blocked checkpoint; assembly is incomplete.** The required independent ET.4 review finished during this run with verdict **needs_changes** in [#9717](https://github.com/CBirkbeck/tauceti-explorer/pull/9717), merged as `928719edc73a9369f9cbb8e2e45fb8ea510c6e32`. Its missing current-tier algebraic/Igusa foundations and full Weil–Deligne factor proof prevent presenting the parts as an accepted assembly. Read [the independent report](../reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md) and [its handoff](REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md); this worker does not replace that verdict or independently review its own assembly.
@@ -37,7 +82,7 @@ The input filenames are `packets/EndoscopicTransferAndUnitaryTraceComparison--<p
 5. The signed ET.7b identity cannot be recovered from an unsigned finite spectral span. ET.5's central-shift argument extends a fixed finite identity after the exact coefficients are known. It does not create those coefficients. The primary source normalization and the missing early Igusa geometry remain open.
 6. ET.5/transfer-at-p names ET.7b/newton-reduction as the representation-theoretic map while that later construction imports ET.5 transfer. Separate the early geometric transfer from the representation-trace assertion, or supply the normalized Jacquet/JL composite earlier. The declared-node graph is acyclic; this **prose proof-order obligation** is not resolved by that graph check.
 7. The newly merged AutomorphicSpectralTheory package renumbered its supplies: `orbital_integral` is §6.9, pseudo-coefficients §6.18, and `general_euler_poincare` §6.19. The combined reader's former AS.6.8a/AS.6.16a/AS.6.17 mentions now point there. Read these current statements: the pseudo-coefficient's tempered/standard-module trace property and the separate general EP test function do not themselves prove the extra non-tempered pairing or the packet-average identification stated in ET.1/pseudocoefficients. That primary-proof obligation remains explicit. No second construction of the AS supplies is proposed.
-8. Kottwitz's Tamagawa theorem now has a named ET.4 owner. ET.0's gap saying it is planned nowhere is stale; its separate unread-primary-proof requirement remains. Reconcile that wording in the permitted packet after the ET.4 revision is accepted. The combined reader already makes this distinction.
+8. Kottwitz's Tamagawa theorem has a named ET.4 owner. The codex-gnFnGw continuation reconciles the ET.0 gap to that existing target while retaining the unread-primary-proof obligation and the ET.4 needs_changes status. The combined reader already makes this distinction.
 
 The next pass must compare these changes in the combined reader against the reviewed parts. Source-extraction identifiers and processing asides were removed from reader prose, without removing their mathematical corrections, source names or locators. Original part metadata and reviews are unchanged.
 
@@ -80,7 +125,7 @@ The ET.6a packet still contains **29** internal prerequisite occurrences at stag
 | `ET.7/division-inner-form-check` | `ET.6` | `ET.6/local-jacquet-langlands`, `ET.6/badulescu-langlands-jacquet-map`, `ET.6/inner-form-nontransfer` |
 
 
-Two further imports are explicit: `ET.6a/lubin-tate-tower` → `ET.6/drinfeld-level-deformation-spaces`, and `ET.7a/cyclic-automorphic-induction` → `ET.4/cyclic-automorphic-induction`. The ET.4 packet already has 52 exact edges to the ET.0 part. Across the corrected 180 targets, replacing all 29 internal stage occurrences and adding these two imports gives **588 distinct internal edges and no cycles**. This verifies node-level ordering and identifier existence, not the truth or completeness of a supplier contract. External stage requests and the prose transfer/Red obligation above remain.
+Two further imports are explicit: `ET.6a/lubin-tate-tower` → `ET.6/drinfeld-level-deformation-spaces`, and `ET.7a/cyclic-automorphic-induction` → `ET.4/cyclic-automorphic-induction`. The ET.4 packet has 52 cross-part prerequisite occurrences to ET.0, representing 51 distinct edges. Across the corrected 180 targets, replacing all 29 internal stage occurrences and adding these two imports gives **588 distinct internal edges and no cycles**. This verifies node-level ordering and identifier existence, not the truth or completeness of a supplier contract. External stage requests and the prose transfer/Red obligation above remain.
 
 ## Requests collected without claiming fulfillment
 
@@ -113,7 +158,7 @@ Needed by `ET.2b/affine-springer-fibre`.
 
 ### ET.0 request 5: `AutomorphicSpectralTheory:AS.6`
 
-The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.9 of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.18–AS.6.19). ET.1 imports them and keeps the Lie-algebra, descent, packet-average, inner-form and twisted statements.
+The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.9 of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.18–AS.6.19). These moved below this roadmap in the upstream order (handoff of PKG-AutomorphicSpectralTheory); ET.1 imports them and keeps the Lie-algebra, descent, packet-average, inner-form and twisted statements.
 
 Needed by `ET.1/orbital-integral`, `ET.1/pseudocoefficients`.
 
@@ -434,11 +479,11 @@ Ngô applies the Grothendieck–Lefschetz trace formula and the decomposition th
 
 Needed by `ET.2b/kappa-decomposition`, `ET.2b/support-theorem`, `ET.2b/hitchin-point-count`.
 
-### ET.0 gap 4: Kottwitz's Tamagawa number formula is planned nowhere
+### ET.0 gap 4: Kottwitz's Tamagawa number formula: ET.4 owner and primary-proof obligation
 
-Assembly reconciliation: the formula is now planned at ET.4/tamagawa-number-formula. The gap is the unread primary proof and its supplier hypotheses, rather than absence of an owner. The stable trace formula of part 2 (ET.4–ET.5) uses Tamagawa numbers through ι(G, H) = τ(G)τ(H)^{-1}|Out(H, s, η)|^{-1} (Shin 2010 §7), and Kottwitz's formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)). AdelicAlgebraicGroups AA.2 defines τ(G) but no layer proves the formula; ET.0 supplies its cohomological ingredients (ET.0/kottwitz-duality). Part 2 or AdelicAlgebraicGroups must plan it.
+The formula is a target of EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula, which imports ET.0/kottwitz-duality and the Tamagawa measures of AdelicAlgebraicGroups:AA.2. Its primary proof and the simply connected Tamagawa input remain unresolved in the ET.4 packet (primary-source gap; review status needs_changes). The stable coefficients in ET.4/stable-elliptic-distribution and ET.5/stable-igusa-trace-formula consume that named owner. This is a cross-part ownership reconciliation, not fulfillment of the proof obligation or acceptance of ET.4.
 
-Needed by `ET.4`, `ET.5`.
+Needed by `ET.4/tamagawa-number-formula`.
 
 ### ET.0 gap 5: Characteristic hypothesis of the Lie-algebra fundamental lemma
 
