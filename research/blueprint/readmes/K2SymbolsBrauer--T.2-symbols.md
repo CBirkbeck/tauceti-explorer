@@ -55,7 +55,7 @@ The last two arithmetic computations require the Bass–Tate proof, with the exa
 
 The reviewed audit records this stage as not built at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The elementary diagonal identity exists; an integral Milnor or Steinberg field presentation does not occur in the inspected pinned or current library trees.
 
-Consume the actual tensor product and `TensorProduct.lift`, the quotient module and `Submodule.liftQ`, and `TensorAlgebra.gradedAlgebra`. The last declaration already grades the tensor algebra by powers of the range of its degree-one injection. The missing work is the homogeneous relation ideal and the proof that its ring quotient carries the required degree components. A commutative-ring `Ideal` quotient theorem does not apply automatically: a tensor algebra on a general module is noncommutative. The inherited `RingQuot` realization handles its ring quotient, while the component comparison below supplies the grading.
+Consume the actual tensor product and `TensorProduct.lift`, the quotient module and `Submodule.liftQ`, `TensorAlgebra.gradedAlgebra`, and `TensorAlgebra.equivDirectSum`. The canonical direct-sum equivalence identifies the degree-n piece with the n-fold tensor power and sends products of degree-one generators to pure tensors. The last declaration already grades the tensor algebra by powers of the range of its degree-one injection. The missing work is the homogeneous relation ideal and the proof that its ring quotient carries the required degree components. A commutative-ring `Ideal` quotient theorem does not apply automatically: a tensor algebra on a general module is noncommutative. The inherited `RingQuot` realization handles its ring quotient, while the component comparison below supplies the grading.
 
 Finite-unit cyclicity is already a Mathlib theorem: `isCyclic_of_injective_ringHom` in `Mathlib/RingTheory/IntegralDomain.lean` applies to a finite group injecting into an integral domain. Its following instance gives cyclicity of finite groups of units. The finite-field proof should invoke this instead of planning cyclicity again. Tensor right exactness is also present: `rTensor_exact` in `Mathlib/LinearAlgebra/TensorProduct/RightExactness.lean` requires an exact pair and a surjective second map. Those hypotheses are exactly what the multiplication-by-p argument uses.
 
@@ -63,9 +63,9 @@ For fields, the four existing Tau Ceti transvection statements supply additivity
 
 Use `TauCeti.FactorSet` and its existing extension carrier for the torus construction, with trivial action and coefficient group `Multiplicative A`. `TauCeti.FactorSet.inl_range_le_center` proves centrality for that action. General group extension theory and its equivalence/classification machinery belong to the existing T.1 and Tau Ceti development. Here only the factor set depending on a prescribed field symbol, and its type-A realization, are new.
 
-The current upstream **ReductiveGroups, Layer 7: structure theory** owns ordinary Bruhat decomposition, root data, Weyl groups and normalizers. This layer requests its exact SL_m specialization: ordered positive-root coordinates, determinant-one monomial matrices, the unique normalizer coordinate v(g), and its transformation rules. Uniqueness means uniqueness of v(g), not uniqueness of two unrestricted unipotent factors in `u v(g) u′`. The ordinary root presentation `(R1),(R2),(R3)` is also a supplied group-structure target. The symbol-dependent torus and normalizer lifts are distinct objects over those groups.
+The current upstream **ReductiveGroups, Layer 7: structure theory** owns ordinary Bruhat decomposition, root data, Weyl groups and normalizers. This layer requests its exact SL_m specialization: ordered positive-root coordinates, determinant-one monomial matrices, the unique normalizer coordinate v(g), and its transformation rules. Uniqueness means uniqueness of v(g), not uniqueness of two unrestricted unipotent factors in `u v(g) u′`. Layer 7 states Bruhat decomposition and BN-pairs but does not yet state this coordinate API or the complete ordinary root presentation `(R1),(R2),(R3)`. Both are exact requested outputs, with Matsumoto Lemma 5.3 and the presentation on p.23 fixing the contract. The request also includes v(g⁻¹)=v(g)⁻¹ and the length-additive coordinate product and subsystem-orbit compatibility of Matsumoto Lemmas 6.2(c) and 6.9. The symbol-dependent torus and normalizer lifts are distinct objects over those groups.
 
-The current **RepresentationTheory/RootSystems** roadmap owns reduced words, Weyl systems and ordinary Coxeter combinatorics. The current library also contains Coxeter Matsumoto modules. That theorem concerns braid moves between reduced expressions; it is different from the K₂ presentation theorem. Consume its API if a normalizer implementation uses reduced expressions. Do not add a second Weyl or Coxeter Matsumoto plan.
+The current **RepresentationTheory/RootSystems** roadmap owns reduced words, Weyl systems and ordinary Coxeter combinatorics. The current library also contains Coxeter Matsumoto modules. That theorem concerns braid moves between reduced expressions; it is different from the K₂ presentation theorem. Consume `TauCeti.matsumoto` for reduced-word independence and `CoxeterSystem.existsUnique_mem_parabolic_mul` with `length_mul_of_forall_not_isLeftDescent` for length-additive subsystem cosets. These current exports are absent at the recorded Tau Ceti pin, so their RootSystems Layer 3 owner is cited as a direct external prerequisite. The ordinary Bruhat-coordinate compatibility with these cosets remains in the ReductiveGroups request.
 
 The current upstream roadmaps, including the additions absent from the atlas snapshot, were searched along with current Tau Ceti. Matches for symbols occurred in ClassFieldTheory and quaternion/Brauer applications; matches for Matsumoto occurred in Coxeter theory. Those results supply consumers and distinct symbol notions, not the integral object here. The modern GrothendieckEulerForms roadmap is an ownership and quotient-design guide: its categorical K₀ constructions do not define this field-symbol quotient.
 
@@ -109,7 +109,7 @@ Checks:
 - `TauCeti.FieldSymbols.test_one` (degenerate): symbol(1,a)=0 for any field and unit a.
 - `TauCeti.FieldSymbols.test_complement` (characterisation): symbol(a,b)=0 when a+b=1, with both entries units.
 - `TauCeti.FieldSymbols.test_not_exterior` (non-example): symbolℝ(−1,−1)≠0; the presentation is not the exterior square of ℝ×.
-- `TauCeti.FieldSymbols.test_zero_map` (computation): The zero linear map Q₂(F)→ℤ evaluates to zero on every symbol.
+- `TauCeti.FieldSymbols.test_sign_detector` (characterisation): There exists a linear map Q₂(ℝ)→ℤ/2 whose value on symbolℝ(−1,−1) is 1 and whose value on every complementary-unit symbol is 0. A zero or exterior-square presentation fails this check.
 - `TauCeti.FieldSymbols.test_finite` (computation): Q₂(𝔽₃) is trivial.
 - `TauCeti.FieldSymbols.test_char_two` (computation): symbol𝔽₂(a,a)=0 for every unit a.
 
@@ -125,13 +125,13 @@ Source: Weibel.III.public, Definition III.7.1, printed pp.61–62; Theorem III.6
 
 Identifier: `K2SymbolsBrauer:T.2:symbols/field-proof/homogeneous-components`.
 
-In the inherited tensor-algebra definition of K*M(F), let T_n be the degree-n module. Its relation module R_n is the sum, over i+j=n−2, of images of T_i⊗R₂⊗T_j under concatenation; R₀=R₁=0. Construct canonical equivalences K⁽M⁾_n(F)≅T_n/R_n compatible with concatenation and field maps, including K⁽M⁾₂(F)≅Q₂(F). The natural map from the direct sum of these quotients to the ungraded ring quotient is an additive equivalence.
+In the tensor algebra of U with its pinned grading, identify the degree-n module T_n with U⊗ℤ⋯⊗ℤU (n factors) using TensorAlgebra.equivDirectSum. For the inherited ungraded Steinberg ring quotient, its relation module R_n is the sum, over i+j=n−2, of images of T_i⊗R₂⊗T_j under concatenation; R₀=R₁=0. Construct canonical equivalences K⁽M⁾_n(F)≅T_n/R_n compatible with concatenation and field maps, including K⁽M⁾₂(F)≅Q₂(F). The natural map from the direct sum of these quotients to the ungraded ring quotient is an additive equivalence.
 
 Hypotheses: For any commutative field F, use its multiplicative unit group U=F× written additively as Additive Fˣ; all tensors and spans are over ℤ. n is a natural number; the generating relations have degree exactly two.
 
 Proof outline:
 
-1. Consume TensorAlgebra.gradedAlgebra; do not construct the tensor-algebra grading again.
+1. Consume TensorAlgebra.gradedAlgebra and TensorAlgebra.equivDirectSum. The latter sends a product of n degree-one generators to its n-fold pure tensor summand, so the tensor-power realization agrees with the existing grading. Only the underlying ungraded RingQuot presentation is used from the inherited Milnor target; the grading and degree API are outputs of this bridge.
 2. Describe the two-sided ideal as finite sums of words p·(a⊗b)·q, with a+b=1. Decompose p and q into their finitely many homogeneous terms; each summand remains in that ideal and has its computed degree.
 3. This proves degree projection preserves the ideal. Its intersection with T_n is precisely R_n, since each word of total degree n has prefix and suffix degrees summing to n−2.
 4. Each graded quotient has a multiplication induced by concatenation: R_iT_j+T_iR_j⊆R_{i+j}. Prove quotient well-definedness before asserting the grading.
@@ -158,7 +158,7 @@ Uses: K2SymbolsBrauer:T.2/milnor-k-theory: Supplies the component construction w
 
 Acceptance: No positive-degree relation kills an integer in degree zero. The multiplication is associative and unital and respects the grading. The degree-two equivalence sends the inherited Milnor symbol to symbol(a,b), not its inverse.
 
-Direct prerequisites: `mathlib:TensorAlgebra`, `mathlib:TensorAlgebra.gradedAlgebra`, `mathlib:RingQuot`, `K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization`, `K2SymbolsBrauer:T.2/milnor-k-theory`.
+Direct prerequisites: `mathlib:TensorAlgebra`, `mathlib:TensorAlgebra.gradedAlgebra`, `mathlib:TensorAlgebra.equivDirectSum`, `mathlib:RingQuot`, `K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization`.
 
 Source: Weibel.III.public, Definition III.7.1, printed p.61. The source defines a homogeneous ideal quotient and describes each degree by multilinear symbols. The component-intersection proof fills in the grading bridge left unstated there.
 
@@ -181,7 +181,7 @@ Acceptance: No assumption that 1−a is a unit is made when a=1; that case has i
 
 Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization`, `K2SymbolsBrauer:T.2/steinberg-symbol`, `K2SymbolsBrauer:T.2/steinberg-identity`.
 
-Source: Weibel.III.public, Definition III.7.1, printed p.61; Exercise III.6.3, printed pp.58–59; identity preceding III.6.1, printed p.47. Bilinearity and the Steinberg relation imply the field identities. This proof supplies the field restriction of the inherited general-ring consequence nodes. The field calculation is written out independently.
+Source: Weibel.III.public, Discussion following Theorem III.6.1, printed p.48; Definition III.7.1, printed p.61. Bilinearity and the Steinberg relation imply the field identities. This proof supplies the field restriction of the inherited general-ring consequence nodes. The field calculation is written out independently.
 
 ### 4. Weyl conjugation and commutator-symbol normalization
 
@@ -202,7 +202,9 @@ Acceptance: The coefficient −r⁻²s is required in the opposite-root conjugat
 
 Direct prerequisites: `K2SymbolsBrauer:T.1/steinberg-group-finite-rank`, `K2SymbolsBrauer:T.2:symbols/diagonal-lift-words`, `K2SymbolsBrauer:T.2/steinberg-symbol`.
 
-Source: Weibel.III.public, Exercises III.5.8–5.9, printed p.46, with the torus-factor order corrected; Matsumoto Lemma 5.4(c), printed p.26. Root-word conjugation supplies the opposite-root identities and the torus-defect interpretation. The inspected author chapter prints the inverse torus factors in the opposite order in Exercise 5.9; the calculation and independent Matsumoto comparison use the corrected order.
+Source: Weibel.III.public, Exercises III.5.8–5.9, printed p.46, with the torus-factor order corrected. Root-word conjugation supplies the opposite-root identities and the torus-defect interpretation. The inspected author chapter prints the inverse torus factors in the opposite order in Exercise 5.9; the calculation and independent Matsumoto comparison use the corrected order.
+
+Source: Matsumoto.1969, Lemma 5.4(c), printed p.26. The commutator of torus lifts is the root cocycle with the Cartan exponent. For roots e_i−e_j and e_i−e_k the exponent is +1, independently confirming the positive symbol normalization.
 
 ### 5. The type-A torus factor set for a prescribed symbol
 
@@ -240,7 +242,7 @@ Acceptance: For type A₂ the factor is c(t₁,u₁)+c(t₂,u₂)−c(t₂,u₁)
 
 Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/field-calculus`, `tauceti:TauCeti.FactorSet`, `tauceti:TauCeti.FactorSet.inl_range_le_center`.
 
-Source: Matsumoto.1969, §6, construction (2)–(3), printed pp.35–37; Lemma 5.4(c), printed pp.26–27. The ordered torus extension records the prescribed root-symbol cocycles and Cartan corrections. The formula is its additive type-A specialization.
+Source: Matsumoto.1969, §6, torus extension formulas (2)–(3), printed pp.37–38; Lemma 5.4(c), printed p.26. The ordered torus extension records the prescribed root-symbol cocycles and Cartan corrections. The formula is its additive type-A specialization.
 
 ### 6. The symbol-dependent lift of the type-A normalizer
 
@@ -254,8 +256,8 @@ Proof outline:
 
 1. Consume the ordinary normalizer and Weyl group from ReductiveGroups Layer 7; the coefficient-dependent lifting is new work here.
 2. Verify the stated θ_i⁻¹ preserves torus multiplication, using field-calculus for equal, adjacent and nonadjacent indices. Its square is inner by h_i(−1), not generally the identity on the torus extension.
-3. Form the source semidirect construction with the group of simple normalizer words; identify their square generators with the corresponding h_i(−1). Lemma 6.6 proves this quotient keeps H~ embedded.
-4. Use Lemma 6.5 to verify length-two and length-three braids and the resulting projection onto N. The normalizer kernel is the already injected A. No general Tits-system theory is replanned here.
+3. Use the simple normalizer-word group P of Theorem 6.3, with relations (W1),(W2). Its square subgroup has the presentation of part (c); in type A its central fourth-power generator is killed by two. Sending w_i² to h_i(−1) respects that presentation since 2c(−1,−1)=0. In H~⋊P quotient by the graph of this map on the square subgroup. The graph meets H~ only at the identity, so H~ remains injected, as in Lemma 6.6.
+4. Use Lemma 6.5 for the type-A action and braid identities, and the ordinary signed normalizer to identify the quotient projection. The kernel is exactly the already injected A. Reduced-word independence is imported from the RootSystems Coxeter layer, whose current implementation is TauCeti.matsumoto; no word-property proof is planned here.
 
 API:
 
@@ -275,15 +277,15 @@ Uses: Matsumoto Lemma 6.8, pp.41–42 and §7: The normalizer lifts act on the B
 
 Acceptance: The square relation retains h_i(−1), rather than incorrectly setting w_i²=1. The coefficient injection stays faithful after the square identifications.
 
-Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/torus-factor-set`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
+Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/torus-factor-set`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free`.
 
-Source: Matsumoto.1969, Lemmas 6.5–6.6, printed pp.38–40. The Weyl automorphisms and their square and braid identities build an extension of the normalizer preserving the torus extension.
+Source: Matsumoto.1969, Theorem 6.3, printed pp.34–36; Lemmas 6.5–6.6, printed pp.38–40. The Weyl automorphisms and their square and braid identities build an extension of the normalizer preserving the torus extension.
 
 ### 7. The Bruhat fiber set and its lift action
 
 Identifier: `K2SymbolsBrauer:T.2:symbols/field-proof/bruhat-fiber`.
 
-Let v:SL_m(F)→N be the unique normalizer coordinate in its upper-unipotent Bruhat double coset, as in Matsumoto Lemma 5.3. Define S={(g,n~):v(g)=q(n~)}. This is a set, with each fiber an A-torsor, and not a fiber-product group; the simple-lift branches test the sign of σ⁻¹α_i and then the simple root coordinate t. Construct permutations λ(h), λ(u), λ(w_i) lifting left multiplication by h∈H, u∈U⁺ and w_i∈N; let E_c be their generated subgroup of Perm(S).
+Let v:SL_m(F)→N be the unique normalizer coordinate in its upper-unipotent Bruhat double coset, as in Matsumoto Lemma 5.3. Define S={(g,n~):v(g)=q(n~)}. Each fiber is an A-torsor; the simple-lift branches test the sign of σ⁻¹α_i and then the simple root coordinate t. Construct permutations λ(h~) for h~∈H~, λ(u) for u∈U⁺, and λ(w_i) for the chosen simple lifts. Their first-coordinate actions are left multiplication by q(h~), u and the ordinary w_i, respectively. Let E_c be their generated subgroup of Perm(S).
 
 Hypotheses: F infinite; m≥3; the symbol-dependent normalizer and the ordinary Bruhat coordinate v are fixed.
 
@@ -292,8 +294,8 @@ Proof outline:
 1. Use the ordinary Bruhat coordinate uniqueness and its transformation rules from ReductiveGroups Layer 7, requested with the precise SL_m specialization.
 2. For u∈U⁺ set λ(u)(g,n~)=(ug,n~). For h~∈H~ set λ(h~)(g,n~)=(q(h~)g,h~n~). The transformation rules for v prove these remain in S.
 3. Write g=u₀ x_i(t) v(g) u′, with u₀ in the upper subgroup omitting the simple root α_i and Weyl coordinate σ. If σ⁻¹α_i is positive or t=0, λ(w_i)(g,n~)=(w_i g,w_i n~). If σ⁻¹α_i is negative and t≠0, λ(w_i)(g,n~)=(w_i g,h_i(t⁻¹)n~). Lemma 5.3(d) proves these remain in S; the transformation rules are requested from the ordinary Bruhat owner.
-4. Check each formula has an inverse before generating E_c. Projection on the first coordinate defines a homomorphism E_c→SL_m, because each generating permutation lifts that fixed left multiplication.
-5. Define the opposite right permutations through the inversion involution (g,n~)↦(g⁻¹,n~⁻¹); their commutation with left permutations is the next theorem, not an axiom.
+4. The square identity λ(w_i)²=λ(h_i(−1)) from Lemma 6.7(c) gives its inverse; torus and unipotent inverses use h~⁻¹ and u⁻¹. Projection on the first coordinate defines a homomorphism E_c→SL_m. Ordinary Bruhat generation gives a word reaching some point over each g; coefficient translations then reach every point in that fiber, proving transitivity.
+5. Define the opposite permutations through the inversion involution (g,n~)↦(g⁻¹,n~⁻¹), using v(g⁻¹)=v(g)⁻¹. The next theorem proves their commutation in the rank-one and rank-two subsystem constructions, then transfers the resulting relations to E_c.
 
 API:
 
@@ -302,6 +304,9 @@ API:
 - `TauCeti.FieldSymbolExtension.left_torus`: Torus lifts act by (g,n~)↦(q(h~)g,h~n~).
 - `TauCeti.FieldSymbolExtension.left_simple`: A simple Weyl lift acts with second coordinate w_i n~ if σ⁻¹α_i>0 or t=0, and h_i(t⁻¹)n~ if σ⁻¹α_i<0 and t≠0.
 - `TauCeti.FieldSymbolExtension.fiber_translate`: Coefficients act by (g,n~)↦(g,inl(a)n~).
+- `TauCeti.FieldSymbolExtension.fiber_ext`: Two points of S agree exactly when their first coordinates and normalizer lifts agree.
+- `TauCeti.FieldSymbolExtension.fiber_torsor`: For two points over the same g there is a unique a∈A whose coefficient translation carries one to the other.
+- `TauCeti.FieldSymbolExtension.left_simple_square`: λ(w_i)²=λ(h_i(−1)); hence λ(w_i)⁻¹=λ(h_i(−1))⁻¹λ(w_i).
 
 Checks:
 
@@ -309,6 +314,7 @@ Checks:
 - `TauCeti.FieldSymbolExtension.test_fiber_unipotent` (computation): For u∈U⁺, λ(u)(1,1)=(u,1).
 - `TauCeti.FieldSymbolExtension.test_fiber_faithful` (characterisation): If coefficient translation by a fixes (1,1), then a=0.
 - `TauCeti.FieldSymbolExtension.test_fiber_not_group` (non-example): The coordinatewise multiplication formula on SL_m×N~ does not define a group law on S: v is not a homomorphism.
+- `TauCeti.FieldSymbolExtension.test_fiber_opposite_branch` (computation): For t≠0, put g=x_i(t)w_i(−1) and choose n~=w_i. Then v(g)=w_i(−1), σ⁻¹α_i<0 and λ(w_i)(g,w_i)=(w_i(−1)g,h_i(t⁻¹)w_i). For t=0 its second coordinate is w_i²=h_i(−1). This detects an inverted sign test or a missing nonzero branch.
 
 Uses: Matsumoto Lemma 6.8 and §7, pp.41–47: Permutation equalities verify the root relations without assuming a central extension exists. Matsumoto Lemma 6.11, pp.42–43: Bruhat reduction in the generated permutation group identifies its projection kernel.
 
@@ -316,27 +322,27 @@ Acceptance: S is nonempty over every g since q:N~→N is surjective. The simple-
 
 Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/normalizer-lift`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
-Source: Matsumoto.1969, Lemma 5.3, printed pp.24–25; construction before Lemma 6.8, printed pp.40–41; §7, printed pp.44–45. The lifted Bruhat coordinate defines a set carrying explicit permutations. Opposite actions supply the relation checks in the construction of the central extension.
+Source: Matsumoto.1969, Lemma 5.3, printed pp.24–25; construction and Lemma 6.7, printed pp.40–41; §7, printed pp.44–45. The lifted Bruhat coordinate defines a set carrying explicit permutations. Opposite actions supply the relation checks in the construction of the central extension.
 
 ### 8. Rank-one and rank-two verification of the lift action
 
 Identifier: `K2SymbolsBrauer:T.2:symbols/field-proof/rank-two-action`.
 
-In the preceding construction the left and opposite right actions commute. The left lifts obey additive root relations, Weyl conjugation of roots, and all type-A rank-two commutator and braid relations. In particular [x_ij(r),x_jk(s)]=x_ik(rs) and [x_ij(r),x_ki(s)]=x_kj(−sr) for distinct i,j,k. These assertions include the opposite-root conjugation identities used by Bruhat reduction.
+In each rank-one and rank-two subsystem construction, the left and opposite actions commute and are simply transitive. Faithful restriction to those subsystem fibers transfers their relations to the full type-A permutation group E_c. Its left lifts obey additive root relations, Weyl conjugation of roots, and all type-A rank-two commutator and braid relations. In particular [x_ij(r),x_jk(s)]=x_ik(rs) and [x_ij(r),x_ki(s)]=x_kj(−sr) for distinct i,j,k. These include the opposite-root conjugation identities used by Bruhat reduction.
 
 Hypotheses: The infinite-field construction above; type-A root indices and the prescribed c with its complementary-unit relation.
 
 Proof outline:
 
-1. Reduce to simple-root subgroups and rank-two root subsystems using the ordinary positive-root decomposition. Type A requires only A₁×A₁ and A₂ calculations, not the source symplectic C₂ case.
-2. Use the opposite right action and reduce its commutation with each left generator to representatives x_α(u)w_σx_β(v). Split into σβ≠±α, σβ=α and σβ=−α as in §7.
+1. Verify the A₁ and A₂ subsystem constructions, and the product A₁×A₁ case. Type A does not require the source symplectic C₂ calculation. Global group relations will be transferred from these cases after the subsystem restriction is shown faithful.
+2. In these rank-one and rank-two cases, reduce commutation of opposite and left generators to representatives x_α(u)w_σx_β(v). Split into σβ≠±α, σβ=α and σβ=−α as in §7.
 3. The first two branches follow from torus conjugation and ordinary root commutators. In the opposite branch separate uv=0, uv=1 and uv(1−uv)≠0, so all reciprocals carry nonzero witnesses.
 4. In the final branch the discrepancy is a central combination of c evaluated at complementary parameters; the Steinberg relation cancels it. This is the essential use of c(a,1−a)=0 beyond bilinearity.
-5. Transitivity of both actions and their commutation make each simply transitive. Apply Lemma 6.9 on subsystem fibers and Lemma 6.10 to obtain the defining lifted relations globally.
+5. Both actions are transitive on each subsystem fiber set. Their commutation makes each simply transitive there, yielding the rank-one extension and rank-two relations of Lemma 6.8. For Lemma 6.9, consume the RootSystems Coxeter parabolic factorization and length-additivity API, and request the corresponding ordinary Bruhat coordinate compatibility from ReductiveGroups. Transport the subsystem fiber to every subgroup orbit to prove restriction faithful. Lemma 6.10 then transfers the verified relations to E_c without assuming a global extension or globally regular action.
 
-Acceptance: The root coefficient order is rs forward and −sr in reverse chaining. The uv=1 branch is checked independently, not by substituting into a formula with (1−uv)⁻¹. Opposite-root conjugation is proved, rather than inferred solely from Weyl braid relations.
+Acceptance: The root coefficient order is rs forward and −sr in reverse chaining. The uv=1 branch is checked independently, not by substituting into a formula with (1−uv)⁻¹. Opposite-root conjugation is proved, rather than inferred solely from Weyl braid relations. The simply transitive argument is made in rank one and rank two before transferring relations to the full group.
 
-Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/bruhat-fiber`, `K2SymbolsBrauer:T.2:symbols/field-proof/field-calculus`, `tauceti:TauCeti.transvectionUnit_add`, `tauceti:TauCeti.commute_transvectionUnit`, `tauceti:TauCeti.commutatorElement_transvectionUnit`, `tauceti:TauCeti.commutatorElement_transvectionUnit_reverse`, `K2SymbolsBrauer:T.2:symbols/field-proof/root-word-normalization`.
+Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/bruhat-fiber`, `K2SymbolsBrauer:T.2:symbols/field-proof/field-calculus`, `tauceti:TauCeti.transvectionUnit_add`, `tauceti:TauCeti.commute_transvectionUnit`, `tauceti:TauCeti.commutatorElement_transvectionUnit`, `tauceti:TauCeti.commutatorElement_transvectionUnit_reverse`, `K2SymbolsBrauer:T.2:symbols/field-proof/root-word-normalization`, `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free`.
 
 Source: Matsumoto.1969, Lemmas 6.8–6.10, printed pp.41–42; proof in §7, printed pp.44–47. Commuting opposite actions verify the rank-two relations needed for the lifted Bruhat decomposition and the symbol-realizing extension.
 
@@ -350,7 +356,7 @@ Hypotheses: F infinite and m≥3; the type-A ordinary root presentation and Bruh
 
 Proof outline:
 
-1. Use rank-two-action to show the union of lifted Bruhat cells contains the identity and is stable under left multiplication by every root generator; hence it contains the generated group.
+1. The verified square, torus-action and braid identities induce N~→E_c. Its kernel lies in A by ordinary normalizer projection; coefficient translation is injective, so this map is injective. Then use rank-two-action to show the union of lifted Bruhat cells contains the identity and is stable under left multiplication by every root generator; hence it contains the generated group.
 2. Project a normal form to its ordinary Bruhat expression. If the projection is identity, uniqueness removes the Weyl and unipotent coordinates and leaves precisely the coefficient A.
 3. Coefficient translations inject by their action on (1,1). They commute with every left generator, so kernel identification proves central exactness without an assumption of faithfulness.
 4. The verified elementary relations induce St_m(F)→E_c by its presentation universal property. Match the source cocycle h_α(a)h_α(b)h_α(ab)⁻¹ to the commutator definition: α=e_i−e_j, β=e_i−e_k have pairing +1 in Lemma 5.4(c), giving +c(a,b).
@@ -382,7 +388,9 @@ Acceptance: Injectivity is not justified by merely showing symbol relations hold
 
 Direct prerequisites: `K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization`, `K2SymbolsBrauer:T.2:symbols/field-proof/faithful-realization`, `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.2:symbols/field-proof/zero-symbol-splitting`, `K2SymbolsBrauer:T.1/k2-is-centre`, `K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect`.
 
-Source: Matsumoto.1969, Corollary 5.11, printed pp.30–31; Lemma 6.11, printed pp.42–43; Weibel Theorem III.6.1, printed p.48. The original extension proof supplies the completeness direction for infinite fields. Finite-rank witnesses connect it to the stable kernel target already owned by the predecessor.
+Source: Matsumoto.1969, Corollary 5.11, printed pp.30–31; Lemma 6.11, printed pp.42–43. The original extension proof supplies the completeness direction for infinite fields. Finite-rank witnesses connect it to the stable kernel target already owned by the predecessor.
+
+Source: Weibel.III.public, Theorem III.6.1, printed p.48. The theorem states the field presentation target; the infinite-field completeness proof here comes from Matsumoto, while the stable finite-word witness remains an inherited gap.
 
 ### 11. Zero-symbol splitting for finite type-A central extensions
 
@@ -420,7 +428,7 @@ Proof outline:
 3. For the quotient, surjectivity descends from T. If pt∈R, choose r∈R with pr=pt. Injectivity in T implies t=r, so its quotient class is zero.
 4. Iterate the tensor statement for degrees n≥2; the remaining tensor block stays p-divisible. The relation-subgroup calculation is the separate next input.
 
-Acceptance: Divisibility of a quotient alone does not rule out torsion. Q/ℤ is a counterexample if the subgroup hypothesis is dropped from the quotient claim: ℤ is not p-divisible.
+Acceptance: Divisibility of a quotient alone does not rule out torsion. For p>1, Q/ℤ is a counterexample if the subgroup hypothesis is dropped from the quotient claim: ℤ is not p-divisible and Q/ℤ has nonzero p-torsion. For p=1 the multiplication map is always the identity.
 
 Direct prerequisites: `mathlib:TensorProduct.lift`, `mathlib:Submodule.liftQ`, `mathlib:rTensor_exact`.
 
