@@ -227,8 +227,9 @@ They are README targets, not Lean declarations:
 * `RD.7/tuitman-frobenius-structure-algorithm`: `RigidCohomology.Tuitman.Assumption1`,
   `goodCompactification`, `frobeniusLift`, `reduce`, `reduce_unique`, `frobeniusMatrix`,
   `frobeniusMatrix_eq_rigid`, `charpolyRev_eq_weilFactor`, `hyperelliptic`; tests
-  `hyperelliptic_genus_two`, `genus_zero`, `assumption_printed_too_strong`, `lift_independent`
-  (need weakly complete algebras and their de Rham cohomology); and
+  `hyperelliptic_genus_two`, `genus_zero`, `assumption_printed_too_strong`, `lift_independent`,
+  `frobeniusPower_order` (need weakly complete algebras and their de Rham cohomology; the
+  Frobenius matrix is in the row convention, so the `q`-power matrix is `F^{σ^{n−1}} ⋯ F^σ F`); and
   `RD.7/tuitman-precision-certification`, whose numerical part is
   `tuitmanReconstructionPrecision` above.
 * `RD.7/mieda-p-adic-picard-lefschetz`, `RD.7/kloosterman-semistable-realization` and
