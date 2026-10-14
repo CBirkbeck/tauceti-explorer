@@ -110,6 +110,18 @@
         "§3, pp.6–9, actual boundary strata, nilmanifold fibration, Hecke equivariance, Proposition 3.3 and Remark 3.4"
       ],
       "sha256": "1f9ef1c6c0d32235f8e54127233155a07789de13720074c44b40e179743524fe"
+    },
+    {
+      "id": "Chenevier",
+      "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+      "authors": "Gaëtan Chenevier",
+      "edition": "arXiv:0809.0415v2, 18 July 2013; printed preprint pages",
+      "url": "https://arxiv.org/pdf/0809.0415v2",
+      "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Corollary 1.14, p.14, coefficient-subring descent; §3.1, Lemma 3.8 and proof, p.43, residual-kernel factorization"
+      ]
     }
   ],
   "nodes": [
@@ -139,11 +151,11 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 2.1.1, pp. 953–954",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The lemma constructs the projective formal model and ample line from the four section/overlap conditions; the localization formula is a proof detail here, not a printed source error."
         }
       ],
       "acceptance": [
-        "Recompute localization for J′=J: the product is empty and the map is identity.",
+        "On a strict refinement from a chart where a ratio is not already a unit, identify completed localization at the added ratio; for J′=J identify the identity map.",
         "Identify both ring restriction and line-bundle transition on triple overlaps."
       ],
       "implementationStatus": "unchecked",
@@ -165,22 +177,27 @@
           "name": "refinementTransport",
           "role": "functoriality",
           "statement": "A compatible refinement yields the same generic-fibre and reduction maps after common admissible refinement."
+        },
+        {
+          "name": "modelGlueUniversalProperty",
+          "role": "universal-property",
+          "statement": "For a fixed completed chart glue datum, maps from its formal model to a formal scheme Y are exactly compatible families of chart maps; descent is unique and preserves identities and composition. This asserts no uniqueness among unrelated formal models."
         }
       ],
       "tests": [
         {
           "name": "disc",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For X=P¹_K with its two standard bounded charts and L=O(1), recover the projective integral model and coordinate sections."
         },
         {
-          "name": "empty-localization",
-          "kind": "unit",
-          "statement": "For J′=J no coordinate is inverted; an extra product over J would give the wrong restriction."
+          "name": "identity-localization",
+          "kind": "degenerate",
+          "statement": "For J′=J the existing intersection restriction is identity. Ratios already inverted on that intersection are units, so multiplying the localization product by them leaves the localization unchanged; it cannot diagnose a printed error."
         },
         {
           "name": "bad-overlap",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "Changing one overlap section by an element of norm larger than |ϖ| can change its reduction, so no global reduced section is asserted."
         }
       ],
@@ -221,8 +238,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Lemma 2.1.2, p. 954",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Lemma 2.1.2 and proof, pp. 954–955",
+          "match": "The lemma and its proof identify the coherent integral ideal by intersection with each power-bounded ring, using saturation and coherence over the valuation base."
         }
       ],
       "acceptance": [
@@ -248,22 +265,27 @@
           "name": "reductionRestriction",
           "role": "functoriality",
           "statement": "𝔍/ϖ^m restricts using the completed-localization map; compatible refinements preserve this map."
+        },
+        {
+          "name": "maximalBoundedIdeal",
+          "role": "characterisation",
+          "statement": "The ideal lattice on a chart is the largest R_i°-submodule of R_i contained in both I(U_i) and R_i°; these characterisations determine the glued ideal and its inclusion uniquely."
         }
       ],
       "tests": [
         {
           "name": "no-boundary",
-          "kind": "unit",
+          "kind": "degenerate",
           "statement": "I=O_X gives 𝔍=O_𝔛, not the zero ideal."
         },
         {
           "name": "whole-boundary",
-          "kind": "unit",
+          "kind": "degenerate",
           "statement": "I=0 gives 𝔍=0 at every exponent."
         },
         {
           "name": "saturation",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "In R=K⟨T⟩, I=(T) gives J=(T) in O_K⟨T⟩; the unsaturated ideal (ϖT) has the same generic fibre but fails this definition."
         }
       ],
@@ -305,7 +327,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Definition 2.3.8 and following extension assertion, pp. 966–967; Lemmas 2.3.9–2.3.11 and Corollary 2.3.12, pp. 967–970",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The cited good-triple extension results give the scalar assertion; finite free frames give the bounded vector-lattice transport coordinatewise. No arbitrary coherent-vector-bundle extension is claimed."
         }
       ],
       "acceptance": [
@@ -339,14 +361,15 @@
       "prerequisites": [
         "PerfectoidShimuraVarieties:S2/hodge-image-compactified-tower",
         "PerfectoidShimuraVarieties:S2/genuine-to-image-comparison",
-        "PerfectoidQuotients:Q4",
-        "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity"
+        "PerfectoidSpaces:P2/sheaf-theorem-and-almost-acyclicity",
+        "PerfectoidQuotients:Q4/completed-integral-closed-quotient",
+        "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.2.1 proof, pp. 1021–1023; Lemma 2.2.9, pp. 957–958",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof identifies the almost boundary kernel with the support sheaf using the strongly closed boundary; the later corrected quotient notion is imported explicitly."
         }
       ],
       "acceptance": [
@@ -385,8 +408,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Lemma 4.3.2, pp. 1025–1026; Theorem 3.2.23, pp. 995–997",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Lemma 4.3.2, pp. 1025–1026; Corollary 3.2.23, pp. 994–995",
+          "match": "Lemma 4.3.2 preserves integrally closed boundary ideals under trace; Corollary 3.2.23 supplies the displayed shrinking normalized-trace error."
         }
       ],
       "acceptance": [
@@ -423,7 +446,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 3.3.18 and its proof, pp. 1012–1016; Theorem 4.1.1, pp. 1017–1020",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The tautological-bundle comparison, its determinant and the chosen Tate trivialization supply the rational line comparison; integral lattice bounds require the separate bounded-chart transport."
         }
       ],
       "acceptance": [
@@ -449,22 +472,27 @@
           "name": "tameTransport",
           "role": "compatibility",
           "statement": "Integral restrictions and tame correspondence maps commute with the transported rational comparison and recorded denominators."
+        },
+        {
+          "name": "periodFrameChange",
+          "role": "functoriality",
+          "statement": "Changing a Plücker frame by a specified rational unit transports the lattice inclusions using its norm bounds; an integral unit gives equal transported lattices. Identity and successive frame changes agree with direct transport."
         }
       ],
       "tests": [
         {
           "name": "genus-one",
-          "kind": "unit",
+          "kind": "compatibility",
           "statement": "For g=1 the line comparison has twist −1; forgetting it changes the cyclotomic action."
         },
         {
-          "name": "nonlagrangian-chart",
-          "kind": "unit",
-          "statement": "For g=2 the span of e₁,e₃ is not Lagrangian in the standard symplectic basis, so it supplies no chart."
+          "name": "nonlagrangian-coordinate",
+          "kind": "non-example",
+          "statement": "For g=2 the coordinate plane span(e₁,e₃) is not isotropic, but its Plücker chart Fl_{13} is nonempty: span((1,0,0,1),(0,1,1,0)) is isotropic and has p₁₃=p₁₂=1. This nonadmissible chart is excluded from the 2^g orbit charts; it is not an empty chart."
         },
         {
           "name": "rescaled-lattice",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "Replacing a local lattice by p times itself changes the bound; an API asserting equality of all lattices fails."
         }
       ],
@@ -507,7 +535,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1 proof, pp. 1029–1031",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof approximates Plücker sections at fixed precision and constructs formal charts; comparing the induced reduction maps uses a common level and formal refinement, rather than asserting uniqueness of models."
         }
       ],
       "acceptance": [
@@ -533,22 +561,27 @@
           "name": "heckeReductionSquare",
           "role": "functoriality",
           "statement": "For each tame correspondence the pullback and boundary-preserving trace squares commute at fixed m."
+        },
+        {
+          "name": "refinementComposition",
+          "role": "functoriality",
+          "statement": "The fixed-exponent reduction and cusp-localization maps commute with the supplied refinement maps; the identity refinement acts identically, and successive refinements agree with their composite."
         }
       ],
       "tests": [
         {
           "name": "fixed-precision",
-          "kind": "unit",
+          "kind": "compatibility",
           "statement": "Adding p^m times an integral section leaves the reduction unchanged."
         },
         {
           "name": "precision-loss",
-          "kind": "unit",
-          "statement": "An approximation only modulo p^(m−1) need not induce the same p^m map."
+          "kind": "non-example",
+          "statement": "At m≥1 the integral sections 0 and p^(m−1) in a unit frame agree modulo p^(m−1) and differ modulo p^m. Approximation at one fewer digit does not determine the fixed-m reduction map."
         },
         {
           "name": "unit-rescaling",
-          "kind": "unit",
+          "kind": "compatibility",
           "statement": "Rescaling a frame by an integral unit changes coordinates by that unit; the identified section is unchanged after transport, not by treating the coordinates as equal."
         }
       ],
@@ -589,7 +622,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1 proof, pp. 1030–1031",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof writes sections on a distinguished intersection as the colimit of global twists by powers of its product section; a cofinal weight subsequence gives the same localization."
         }
       ],
       "acceptance": [
@@ -629,7 +662,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1 proof, pp. 1030–1031",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof combines the formal projective model, integral Serre vanishing and the finite genuine-to-image comparison to lift reductions of sufficiently large cusp twists."
         }
       ],
       "acceptance": [
@@ -665,7 +698,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1 proof, pp. 1027–1031; Corollary 5.1.11, p. 1038",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof first descends finitely many bounded ideal sections modulo the fixed coefficient exponent and then lifts their large twists to genuine finite-level classical cusp sections."
         }
       ],
       "acceptance": [
@@ -704,8 +737,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Lemma 4.3.3, pp. 1026–1027",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Lemma 4.3.3 and proof, pp. 1026–1028",
+          "match": "The lemma proves an ordinary, not merely almost, ideal-colimit isomorphism; normalized traces and the two divisibility corrections are retained in the proof sketch."
         }
       ],
       "acceptance": [
@@ -748,7 +781,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.2.1, pp. 1021–1023",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Theorem 4.2.1 and its proof compare compact-support completed cohomology with almost integral boundary-ideal cohomology through primitive comparison and the affinoid Čech cover."
         }
       ],
       "acceptance": [
@@ -788,8 +821,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Corollary 4.2.2, p. 1023",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Corollary 4.2.2 and proof, pp. 1023–1024",
+          "match": "Corollary 4.2.2 and its proof give vanishing above the complex dimension; the extension to all finite exponents uses the coefficient exact sequences, while integral passage retains inverse-limit issues."
         }
       ],
       "acceptance": [
@@ -829,7 +862,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Corollary 4.2.3, p. 1024",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Corollary 4.2.3 gives the Borel–Moore vanishing, middle-degree torsion-freeness and codimension inequality, with the corrected minimum and equal-rank range labels."
         }
       ],
       "acceptance": [
@@ -867,7 +900,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1, pp. 1024–1025; Corollary 5.1.11, p. 1038",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Theorem 4.3.1 defines the topology through integral classical actions; Corollary 5.1.11 supplies the weight progression after imposing Proposition 5.1.1’s discrete-series range."
         }
       ],
       "acceptance": [
@@ -893,22 +926,27 @@
           "name": "stepRefinement",
           "role": "functoriality",
           "statement": "A cofinal restriction of weights used in localized approximation transports its neighborhoods only via the proved approximation maps, not by arbitrary equality of topologies."
+        },
+        {
+          "name": "initialTopologyCriterion",
+          "role": "universal-property",
+          "statement": "For a topological ring B and a ring homomorphism f:B→T_cl, f is continuous exactly when every specified classical action composed with f is continuous. This criterion is preserved by identity and composition of ring maps."
         }
       ],
       "tests": [
         {
           "name": "two-actions",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For actions Z→Z/2 and Z→Z/3 the intersection kernel is 6Z, not their union."
         },
         {
           "name": "nonseparated",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "If every classical action annihilates an element t, t lies in every neighborhood; T_cl is not forced Hausdorff."
         },
         {
           "name": "bad-step",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "In the symplectic rank-n application the choice a=n cannot supply the required discrete-series family; it is excluded."
         }
       ],
@@ -950,7 +988,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.3.1, p. 1025; proof pp. 1027–1031",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof uses fixed-exponent chart approximation to show each finite set of cohomology classes is annihilated by a classical zero-neighborhood. It does not lift each torsion class to characteristic zero."
         }
       ],
       "acceptance": [
@@ -993,7 +1031,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Corollary 5.2.6 proof, pp. 1044–1045; §4.2, pp. 1020–1024",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof descends from sufficiently small p-levels by Hochschild–Serre with bounded geometric rows, and treats each coefficient exponent before inverse limits."
         }
       ],
       "acceptance": [
@@ -1026,7 +1064,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.3.4 proof, pp.1048–1049",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The character-twist calculation in Lemma 5.3.4 motivates this light polynomial definition with opposite substitutions; its formula is defined here over the existing polynomial carrier."
         }
       ],
       "acceptance": [
@@ -1048,22 +1086,27 @@
           "name": "weightedProduct_map",
           "role": "functoriality",
           "statement": "Coefficient base change carries the product to the product of the mapped factors and mapped unit."
+        },
+        {
+          "name": "weightedProduct_swap",
+          "role": "compatibility",
+          "statement": "weightedProduct P Q u = weightedProduct Q P u⁻¹. Opposite substitutions are exchanged, rather than twisting both factors in the same direction."
         }
       ],
       "tests": [
         {
           "name": "constant-factors",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For P=2,Q=3 over Z and u=−1 the result is the constant 6."
         },
         {
           "name": "opposite-scaling",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "Over Q with P=1−2X,Q=1−3X,u=2 obtain 1−7X+6X²; scaling both factors by u gives the wrong result."
         },
         {
           "name": "collision",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "At u=1, interchanging 1−2X and 1−3X leaves the product unchanged. Thus separation requires the unit-difference hypotheses and is not built into this definition."
         }
       ],
@@ -1105,12 +1148,13 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.3.4 proof, pp. 1048–1049, abstract coefficient-induction specialization",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The first-differing-coefficient calculation in the lemma abstracts to any commutative ring with unit differences, giving the stated two-factor uniqueness theorem."
         }
       ],
       "acceptance": [
         "No domain or characteristic-zero hypothesis.",
-        "This node has no geometric, automorphic or TC.2 prerequisite."
+        "This node has no geometric, automorphic or TC.2 prerequisite.",
+        "Over Z/9 take u=2, P=1+3X, Q=1, P′=1, Q′=1+3X. Both products coincide and both twisted products equal 1+6X, yet P≠P′; 1−u²=6 is nonzero but is not a unit."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -1143,7 +1187,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.3.10, pp. 1053–1054",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Lemma 5.3.10 gives finite-weight uniqueness and polynomiality; the corrected first order and expansion variable are recorded separately."
         }
       ],
       "acceptance": [
@@ -1180,7 +1224,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemmas 5.3.11–5.3.12, pp. 1054–1056",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Lemmas 5.3.11–5.3.12 construct the natural multiplicative law on formal units and prove polynomiality before evaluation at U=1, including noncommuting inputs."
         }
       ],
       "acceptance": [
@@ -1203,22 +1247,32 @@
           "name": "evaluatedLaw",
           "role": "compatibility",
           "statement": "D^(m)(x)=D₀^(m)(1+U(x−1))|U=1 is natural and multiplicative; its polynomiality is proved before evaluation."
+        },
+        {
+          "name": "unitLawNaturality",
+          "role": "functoriality",
+          "statement": "For every R-algebra map S→S′, coefficient transport commutes with the formal unit law and its polynomial evaluation; identity and composition maps obey the same law."
+        },
+        {
+          "name": "unitLawUniqueness",
+          "role": "extensionality",
+          "statement": "The prescribed characteristic values on every 1−U^a xg determine the natural formal unit law uniquely by finite-order approximation and finite-weight uniqueness."
         }
       ],
       "tests": [
         {
           "name": "rank-one",
-          "kind": "unit",
-          "statement": "For the augmentation character χ and P_g=1−χ(g)X, the evaluated law sends ∑a_g g to ∑a_gχ(g)."
+          "kind": "computation",
+          "statement": "For a rank-one unit character χ:G→Rˣ and P_g=1−χ(g)X, the evaluated law sends ∑a_g g to ∑a_gχ(g). The augmentation is the special case χ=1."
         },
         {
           "name": "degree-zero",
-          "kind": "unit",
+          "kind": "degenerate",
           "statement": "For n_m=0 the unit law and evaluated law are identically 1, including at zero."
         },
         {
           "name": "nilpotent-unit",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "Over S=k[ε]/ε² the law on 1−Uεg is 1−Uεχ(g), retaining ε; reducing to k first loses a required coefficient."
         }
       ],
@@ -1260,7 +1314,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.3.8 and Remark 5.3.9, pp. 1052–1053; proof through p. 1057; Lemma 5.3.13, pp. 1056–1057",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Lemma 5.3.8 is the weighted determinant extraction theorem; Lemma 5.3.13 supplies the homogeneous-component argument, including degree zero and disconnected coefficient rings."
         }
       ],
       "acceptance": [
@@ -1298,7 +1352,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.3.7 proof, pp. 1051–1052",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Lemma 5.3.7 bounds the coefficient ideal by separating finitely many Laurent exponents with suitable spaced substitutions; this is algebraic and needs no cohomology input."
         }
       ],
       "acceptance": [
@@ -1337,7 +1391,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Lemma 5.1.6, pp. 1034–1035; Lemma 5.2.5 and following polynomials, pp. 1042–1043; §5.4 polynomial, p. 1057",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The local Satake calculation and the §5.4 polynomial identify the integral Levi factors and the extra cyclotomic twist. The unitary top coefficient uses the corrected positive sign."
         }
       ],
       "acceptance": [
@@ -1363,22 +1417,27 @@
           "name": "ambientRestriction",
           "role": "compatibility",
           "statement": "The ambient Hecke polynomial restricts to the Sp or CM displayed product under the actual unnormalized Satake map."
+        },
+        {
+          "name": "normalizedReciprocal",
+          "role": "relation",
+          "statement": "If c is the unit top coefficient of the degree-n polynomial P, then Q(X)=X^n P(X⁻¹)/c in the Laurent polynomial ring, hence in the polynomial ring. Taking this normalized reciprocal twice recovers P; coefficient base change preserves the identity."
         }
       ],
       "tests": [
         {
           "name": "rank-one-twist",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For n=1,q=3,U₁=2, P=1−6X, whereas the standard reciprocal is 1−2X; this detects the missing ε⁻¹ twist."
         },
         {
           "name": "rank-two-twist",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For n=2,q=2,U₁=3,U₂=5, P=1−6X+40X², the standard reciprocal evaluated at 2X."
         },
         {
           "name": "unitary-top-sign",
-          "kind": "unit",
+          "kind": "computation",
           "statement": "For n=1 over Q, P=1−aX and Q_c=1−bX give P Q_c(qX)=1−(a+qb)X+qabX², not a negative top term."
         }
       ],
@@ -1425,8 +1484,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Theorems 5.1.1–5.1.4 and Corollary 5.1.7, pp. 1031–1036; Corollaries 5.1.10–5.1.11, pp. 1037–1038; Remark 5.4.6, pp. 1060–1061",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Proposition 5.1.1 and Theorems 5.1.2–5.1.4, pp. 1031–1034; Corollary 5.1.7, pp. 1035–1036; Corollaries 5.1.10–5.1.11, pp. 1037–1038; Remark 5.4.6, pp. 1060–1061",
+          "match": "The discrete-series range, endoscopic constituents and regular polarized Galois inputs give the ambient determinants and their integral interpolation; Remark 5.4.6 restricts the unconditional CM branch."
         }
       ],
       "acceptance": [
@@ -1466,7 +1525,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Definition 5.2.1 and Lemma 5.2.2, pp. 1038–1039; Lemma 5.2.3 and Corollary 5.2.4, p. 1041",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The boundary Leray calculation uses the Siegel stratum, its torus fibre and the unnormalized Satake map to obtain the interior-annihilator containment; it is not a full-boundary direct-summand assertion."
         }
       ],
       "acceptance": [
@@ -1507,7 +1566,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Corollary 5.2.6 and proof, pp. 1044–1045; Corollary 5.2.7, pp. 1045–1046",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The source bounds the error of the ambient cohomology action by two bounded filtrations, hence exponent 2(d+1), before extracting a Levi factor."
         }
       ],
       "acceptance": [
@@ -1544,7 +1603,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 5.3.1 proof, pp. 1046–1047",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The proof realizes odd prime-to-p class-field characters in degree-zero arithmetic cohomology at refined level and cups them with the interior module, with opposite polynomial twists."
         }
       ],
       "acceptance": [
@@ -1567,22 +1626,27 @@
           "name": "twistedPolynomial",
           "role": "compatibility",
           "statement": "Cup product intertwines each tame Hecke action with P_v(X/χ_v) and the corresponding dual/conjugate twist."
+        },
+        {
+          "name": "cupRetraction",
+          "role": "compatibility",
+          "statement": "At the chosen prime-to-p refinement, cup product with the inverse-character degree-zero class retracts the character cup injection on its image; its composite there is the identity, and the retraction intertwines the corresponding inverse Hecke twist."
         }
       ],
       "tests": [
         {
           "name": "trivial-character",
-          "kind": "unit",
+          "kind": "degenerate",
           "statement": "χ=1 recovers the original injection and polynomials."
         },
         {
           "name": "inverse-character",
-          "kind": "unit",
+          "kind": "compatibility",
           "statement": "In rank one P=1−aX twists to 1−aχ⁻¹X, not 1−aχX."
         },
         {
           "name": "p-cover",
-          "kind": "unit",
+          "kind": "non-example",
           "statement": "For a degree-p cover over Z/p the averaging idempotent is undefined, so the split-injection assertion is not supplied."
         }
       ],
@@ -1605,33 +1669,41 @@
       ],
       "kind": "theorem",
       "title": "Cyclotomic factor continuation",
-      "statement": "After a finite Galois extension L₀/F⁺ trivializes residual root data and the CM cyclotomic residue, use the maximal pro-p extension of L₀F(μ_ℓ∞) unramified outside S and an auxiliary odd ℓ. Prime-to-p characters of arbitrarily large order separate a group element outside the cyclotomic kernel: choose χ with χ(g)^(2j)≠1 for 1≤j≤n, making 1−χ(g)^(2j) a Teichmüller unit. Twisted-product separation defines P_g continuously there. Two distinct auxiliary primes, chosen away from the extension degree, fill the omitted cyclotomic kernel and descend the coefficient functions to G_F,S. Because the finite coefficient image has only finitely many ideals, repeatedly choose a common error ideal I₀ across infinitely many characters and auxiliary primes. The resulting P_g are well defined, independent of auxiliary choices and continuous, with I₀^(4(d+1))=0.",
+      "statement": "Choose a finite extension L₀ containing F, Galois over F⁺, trivializing the residual root data and, in the CM case, the residual cyclotomic character. For an auxiliary odd ℓ≠p, let F_ℓ^cycl/F be the cyclotomic Z_ℓ-extension and S_ℓ=S∪{v|ℓ}; use the maximal pro-p extension of L₀F_ℓ^cycl unramified outside S_ℓ. On the finite Artinian coefficient factors, the requested residual-kernel theorem factors each ambient determinant through the quotient retaining this pro-p kernel and the finite residual image. Odd prime-to-p characters of arbitrarily large ℓ-power order separate an element outside the cyclotomic kernel: choose χ with χ(g)^(2j)≠1 for 1≤j≤n, so 1−χ(g)^(2j) is a Teichmüller unit. Twisted-product separation determines the continuous Levi coefficients there. Stabilize a common error ideal I₀ across infinitely many characters and auxiliary primes using finiteness of the coefficient Hecke image. Two distinct primes, chosen away from the finite extension degree, cover the omitted kernels and descend the coefficient functions to G_F,S, removing the extra ramification. The coefficients are independent of auxiliary choices, with I₀^(4(d+1))=0.",
       "hypotheses": [
-        "Use the imported nilpotent kernel theorem to factor ambient determinants through the chosen pro-p quotient.",
-        "The two auxiliary primes and all unramified-outside-S descent conditions are part of the proof."
+        "Use the cyclotomic Z_ℓ-extension, not the entire roots-of-unity extension; include places over ℓ until two-prime descent restores S.",
+        "Factor the determinant over finite Artinian local coefficient rings, not just its residual field determinant. A continuous finite-image coefficient family can be defined over a finite residue field extension before this step."
       ],
       "proofSteps": [
-        "Construct the pro-p quotient and character family, summing the two comparison ideals when comparing determinants.",
+        "Apply Chenevier Lemma 3.8 separately on each finite local coefficient factor to kill the prime-to-p part of the residual kernel; identify the quotient using the maximal pro-p group universal property. Sum the two comparison ideals when comparing character determinants.",
         "Use unit separation to determine the Levi coefficients off the cyclotomic kernel.",
         "Patch with two auxiliary primes and continuity; stabilize the finite ideal choices and descend ramification."
       ],
       "prerequisites": [
         "TorsionCohomologyInfrastructure:TC.3/twisted-product-separation",
         "TorsionCohomologyInfrastructure:TC.3/auxiliary-character-realization",
-        "IntegralHeckeAndGaloisDeterminants:IHG.1/nilpotent-ideal-kernel",
         "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-sum-bound",
-        "tauceti:TauCeti.maximalProPQuotient.lift"
+        "tauceti:TauCeti.maximalProPQuotient.lift",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Lemmas 5.3.2–5.3.4 and Corollary 5.3.5, pp. 1047–1049",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Lemmas 5.3.2–5.3.4 and Corollary 5.3.5 with proof, pp. 1047–1050",
+          "match": "Lemmas 5.3.2–5.3.4 and Corollary 5.3.5 continue the Levi coefficients using cyclotomic Z_l extensions, unit character separation, stabilized finite ideals and two auxiliary primes. The determinant factorization input is Chenevier Lemma 3.8, not a field-only kernel result."
+        },
+        {
+          "sourceId": "Chenevier",
+          "locator": "§3.1, Lemma 3.8 and proof, p.43",
+          "match": "The continuous determinant deformation factors through the quotient with pro-p residual kernel over a profinite local coefficient ring; application to the finite Artinian factors is requested from IHG.1."
         }
       ],
       "acceptance": [
         "Nonvanishing alone is replaced by unit differences.",
-        "Only finitely many ideals is used after passing to the finite coefficient image."
+        "Only finitely many ideals is used after passing to the finite coefficient image.",
+        "The finite quotient retains the residual image; it is not asserted to be a pro-p quotient of the entire Galois group.",
+        "The ℓ-ramification allowed in the construction disappears only after the two-prime descent argument."
       ],
       "implementationStatus": "unchecked"
     },
@@ -1643,32 +1715,34 @@
       ],
       "kind": "theorem",
       "title": "Laurent determinant realization",
-      "statement": "For the continuous finite-image family P_g obtained above, choose a further auxiliary prime ℓ with I₀,ℓ=I₀ and ℓ∤[F̃:F] for the finite extension F̃ killing all coefficient data. Build a determinant on (A₀/I₀)[G][V,V⁻¹] with values in (A₀/I₀)[T,T⁻¹] modulo an error ideal, using the actual twisted characters and their auxiliary covers. Compare against every permitted character by the sum ideal Ĩ_χ=I₁+I_χ. Apply every substitution T↦T^a and the Laurent coefficient ideal theorem to replace the error by a coefficient ideal of exponent 4(d+1). The real case removes the weight-zero factor (1−X); the remaining weights −1,+1 carry P_g and its dual, with the source CM cyclotomic/conjugate factor retained.",
+      "statement": "For the continuous finite-image family P_g, choose an auxiliary prime ℓ retaining I₀,ℓ=I₀ and with ℓ∤[F̃:F] for a finite extension killing all coefficient data. Actual twisted ambient determinants realize character evaluations of a Laurent-valued rank-(2n+1) law in the real case, or rank-2n law in the CM case. Work first after the finite coefficient extension needed for the character values. Comparing each character uses the sum ideal Ĩ_χ=I₁+I_χ. Algebraic characteristic-coefficient subring descent on G×Z, via Amitsur’s formula, constructs the natural law over the Laurent coefficient subring; the Laurent ring is not assumed compact. Apply every T↦T^a substitution and the coefficient-ideal theorem to replace the error by an ideal generated by coefficients with exponent 4(d+1), then contract to the original finite Hecke image A₀ and descend using its characteristic coefficients. In the real case retain the factor (1−X) as weight zero in the full determinant; the weight −1 factor is extracted only in levi-interior-determinant. Weights −1,+1 carry P_g and its dual, with the CM conjugate/cyclotomic factor retained.",
       "hypotheses": [
         "The auxiliary prime retains the stabilized ideal; being merely large is insufficient.",
         "All characteristic identities required by the weighted extraction theorem are verified, including every power V^k."
       ],
       "proofSteps": [
-        "Realize enough finite-order character evaluations through actual finite-level ambient determinants.",
-        "Use IHG coefficient-ring gluing and Amitsur identities to construct the Laurent-valued law.",
-        "Intersect transformed error ideals and pass to the coefficient quotient; compare all characteristics with the prescribed finite weight factors."
+        "Realize the permitted character evaluations through finite-level ambient determinants after the required coefficient extension; all comparisons use the sum ideals.",
+        "Embed the Laurent coefficient ring modulo the common error in the product of character-evaluation quotients. The prescribed characteristic coefficients of every gV^k lie in that subring. Apply IHG.0/determinant-coefficient-subring and Amitsur to descend the product law algebraically; no compact-Laurent argument is used.",
+        "Intersect transformed errors, bound the coefficient ideal, contract it to A₀ and descend the law by its characteristic coefficients. Keep the symplectic weight-zero factor when checking all g and all powers V^k."
       ],
       "prerequisites": [
         "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation",
         "TorsionCohomologyInfrastructure:TC.3/laurent-coefficient-ideal",
-        "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing",
-        "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula"
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coefficient-subring"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
           "locator": "Lemmas 5.3.6–5.3.7, pp. 1050–1052",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Lemmas 5.3.6–5.3.7 realize all character evaluations and descend algebraically to Laurent coefficients, then replace the error by a bounded coefficient ideal. The symplectic weight-zero factor remains until extraction."
         }
       ],
       "acceptance": [
         "Keep Ĩ_χ in every comparison until its powers are bounded.",
-        "The output is a natural determinant law over test algebras, not only a Laurent characteristic function."
+        "The output is a natural determinant law over test algebras, not only a Laurent characteristic function.",
+        "The real characteristic is (1−X)P_g(T⁻ᵏX)Q_g(TᵏX); no division of a determinant law by (1−X) is presumed.",
+        "Laurent coefficient descent is algebraic; compact gluing is reserved for profinite coefficient rings."
       ],
       "implementationStatus": "unchecked"
     },
@@ -1700,7 +1774,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 5.3.1, p. 1046; algebraic conclusion pp. 1052–1057",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Theorem 5.3.1 follows from the Laurent realization and weighted extraction, giving a continuous rank-n interior determinant with the doubled error bound and prescribed Frobenius polynomial."
         }
       ],
       "acceptance": [
@@ -1745,7 +1819,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 5.4.1 proof, pp. 1058–1059; Caraiani–Le Hung §3, Proposition 3.3 and Remark 3.4, author PDF pp. 6–9",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The conclusion uses rank induction on actual boundary strata. The finite-coefficient boundary geometry and Satake action are imported; the integral/CM/lattice filtration is an explicit ALS extension, without assuming the exterior-power formula of CLH Remark 3.1."
         },
         {
           "sourceId": "CLH",
@@ -1776,27 +1850,28 @@
         "Unconditional CM: imaginary quadratic subfield and S pulled back from S_Q containing p and F/Q ramification; otherwise the matching Arthur/Mok input is a hypothesis."
       ],
       "proofSteps": [
-        "For trivial coefficients and neat level combine the interior and boundary image quotients.",
-        "The kernel of A→A!×A∂ has square zero, because an operator killing the submodule and quotient lowers a two-step filtration.",
-        "Use imported characteristic-compatible determinant descent from the product quotient. Then trivialize ξ modulo p^m and descend from a neat normal refinement with uniformly bounded row length."
+        "For neat level and trivial coefficients put B_i=im(H^i→H^i_∂). The exact sequence is 0→H!^i→H^i→B_i→0. Let A! and A_B be the faithful Hecke images on these two factors; A_B is a quotient of the full boundary Hecke image. Thus the map A→A!×A_B is well defined.",
+        "An operator in this map’s kernel kills H!^i and sends H^i into H!^i, so the kernel has square zero. First push the boundary determinant along its quotient map to A_B and glue on the joint product image; pulling the error back multiplies its exponent by at most two.",
+        "Use characteristic-compatible determinant descent on the joint quotient. Trivialize the lattice modulo p^m at a neat normal refinement and descend by Hochschild–Serre with uniformly bounded geometric rows."
       ],
       "prerequisites": [
         "TorsionCohomologyInfrastructure:TC.3/levi-interior-determinant",
         "TorsionCohomologyInfrastructure:TC.4/integral-boundary-induction",
         "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-extension-bound",
         "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing",
-        "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level"
+        "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5/filtered-module-error-bound"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
           "locator": "Theorem 5.4.1, pp. 1057–1059; Remark 5.4.6, pp. 1060–1061",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Theorem 5.4.1 combines the interior module with its actual boundary image, then descends coefficients and level with uniform filtration depth. Remark 5.4.6 fixes the unconditional arithmetic branch."
         }
       ],
       "acceptance": [
         "Uniformity is in K, ξ, i and m with F-degree and n fixed.",
-        "Nilpotent ideals for different exponents need not be compatible before the imported uniform-limit construction."
+        "The boundary factor is its image B_i in the cohomology sequence; annihilation of H^i does not imply annihilation of all H^i_∂. Independent finite-exponent error ideals are permitted by the simultaneous product construction."
       ],
       "implementationStatus": "unchecked"
     },
@@ -1808,34 +1883,35 @@
       ],
       "kind": "theorem",
       "title": "Integral coefficient transport",
-      "statement": "For fixed K,ξ,i write A_m for the finite Hecke images on H^i(X_K,M_ξ/p^m). Let B be the closure of the image of T_F,S in the product ∏_{m≥1}A_m. The product kernel is contained in the kernel of the action on H^i(X_K,M_ξ), hence B surjects onto the integral Hecke image A_Zp. Prove this from the universal-coefficient injection H^i(M_ξ)/p^m↪H^i(M_ξ/p^m) and separated finite integral cohomology. Assemble the uniformly nilpotent finite determinants by IHG compact coefficient gluing, then descend to A_Zp modulo an ideal of the same uniform bound. For varying levels/exponents use joint Hecke action rings on common quotient diagrams; a canonical individual map A_m→A_r is not assumed.",
+      "statement": "For fixed K,ξ,i let A_m be the finite Hecke image on H^i(X_K,M_ξ/p^m), H=H^i(X_K,M_ξ) the finite Z_p-module, and B the closed simultaneous image of T_F,S in ∏_{m≥1}A_m. The UCT injection H/p^m↪H^i(X_K,M_ξ/p^m) makes each action on H/p^m continuous for the B-topology and compatible in m. Taking their inverse limit extends the integral action to B. The integral Hecke image A_Zp⊂End_Zp(H) is a finite Z_p-submodule, hence compact and closed, so density gives a surjection B→A_Zp. Choose any finite-exponent error ideals I_m with their common bound N and set J=B∩∏I_m. The injective simultaneous projections give J^N=0. The compact ring B/J embeds in ∏A_m/I_m and contains the common Hecke coefficients; IHG compact coefficient gluing constructs its continuous degree-n determinant. Push it along B/J→A_Zp/image(J); the uniform exponent N is unchanged. Varying levels uses closed joint action rings and common quotients; individual canonical maps A_m→A_r are not required.",
       "hypotheses": [
         "Use products, not direct sums, for simultaneous coefficient exponents.",
-        "The next cohomology group contributes Tor in the coefficient sequence.",
-        "The imported compact gluing proves the compatible quotient system; do not choose unrelated I_m and declare their limits compatible."
+        "Integral cohomology H is a finite Z_p-module; UCT includes the next-degree Tor term.",
+        "The I_m need not be compatible with reduction. Each is closed because A_m is finite, so J is closed and B/J is compact Hausdorff. Only common Frobenius characteristic coefficients are needed for product gluing."
       ],
       "proofSteps": [
-        "Apply UCT at every exponent; an operator killing all finite groups kills the separated integral group.",
-        "Construct B from the closed simultaneous image; its projection yields the integral surjection.",
-        "Apply IHG uniform-nilpotent-limit and inverse-limit determinant with their actual compact quotient hypotheses, then compare joint level/coefficient action rings."
+        "Use UCT to induce the continuous action of each A_m on H/p^m; its pullbacks to B form a compatible system. Completeness identifies H with lim H/p^m and gives the extended integral action.",
+        "The integral image is closed in End_Zp(H); density of the original Hecke image and compactness of B make its extended image exactly A_Zp, not just a dense subring.",
+        "Bound J by the existing arbitrary-family nilpotence theorem, embed B/J into the product of finite coefficient quotients, apply compact determinant gluing using their common characteristic coefficients, and push the law and ideal to A_Zp."
       ],
       "prerequisites": [
         "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly",
         "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
-        "IntegralHeckeAndGaloisDeterminants:IHG.5/uniform-nilpotent-limit",
-        "IntegralHeckeAndGaloisDeterminants:IHG.4/inverse-limit-determinant",
-        "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing"
+        "IntegralHeckeAndGaloisDeterminants:IHG.4/compact-determinant-gluing",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
           "locator": "Corollary 5.4.2 proof, p. 1060; Remark 5.4.5, p. 1061, with corrected kernel containment and products",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "Corollary 5.4.2 and Remark 5.4.5 give the simultaneous finite-coefficient action, corrected to a product and the UCT kernel direction; compact product gluing supplies the integral quotient."
         }
       ],
       "acceptance": [
         "Check the containment is ∩ker(T→A_m)⊂ker(T→A_Zp).",
-        "The same integer N persists after product gluing; no loss depending on m."
+        "The same integer N persists after product gluing; no loss depending on m.",
+        "Use the arbitrary index family with a common N, as in current upstream IHG Layer 5; its older atlas node states only the finite-family case.",
+        "No transition map between separately chosen I_m is needed."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -1876,7 +1952,7 @@
         {
           "sourceId": "Scholze",
           "locator": "Theorem 4.2.1, pp. 1021–1023; Theorem 4.3.1, pp. 1024–1030; §§5.2–5.4, pp. 1038–1061",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "This is a compatibility target obtained by composing the four cited action and characteristic diagrams on common quotients; the separate almost and nilpotent errors are kept explicit."
         }
       ],
       "acceptance": [
@@ -1896,33 +1972,36 @@
       ],
       "kind": "application",
       "title": "Residual and local specialization",
-      "statement": "A finite-field Hecke eigensystem on the finite torsion module kills the nilpotent ideal, so IHG reconstruction supplies a continuous semisimple degree-n representation over an algebraic closure with characteristic P_v; it is unique up to conjugacy. For an absolutely irreducible residual system over a finite extension k/F_p, the completed local integral Hecke image at that system is a complete henselian finite O-algebra. The supplied determinant and IHG absolutely irreducible reconstruction yield an actual representation over it, with characteristic polynomial expressed using its Hecke-image eigenvalue map. After fixing a residual basis its uniqueness is up to strict conjugacy, not literal equality. Semisimple mod-p existence does not imply an arbitrary reducible integral representation lift.",
+      "statement": "A finite-field Hecke eigensystem on the finite torsion module kills the nilpotent ideal, so IHG reconstruction gives a continuous semisimple degree-n representation over an algebraic closure with characteristic P_v, unique up to conjugacy. For a split absolutely irreducible residual system over a finite field k, localize and complete a Hecke coefficient ring on which that system occurs: a finite torsion action ring, or the integral action ring when the eigensystem is in its support. After the coefficient extension needed to identify k and its residual basis, the determinant lives over the resulting complete henselian local ring Â/Î, with Î^N=0. IHG irreducible reconstruction gives a representation over Â/Î with its local Hecke coefficient map. Uniqueness after fixing the residual basis is up to strict conjugacy. This asserts neither a lift to Â nor an integral action localization at an eigensystem appearing only through torsion in the next cohomology group; such systems use the closed simultaneous torsion action ring.",
       "hypotheses": [
-        "The finite field contains the eigensystem; absolute irreducibility is tested after algebraic closure.",
-        "Use the correct eigenvalue map of the local Hecke image, not the unrelated original field-valued ψ in the source misprint."
+        "The finite field contains the eigensystem and is identified with the residual coefficient field after the required finite extension; absolute irreducibility is tested after algebraic closure.",
+        "The local ring is supported at the chosen system and retains the nilpotent error quotient. Use the local Hecke coefficient map in its characteristic identity, not the original residual-field map ψ."
       ],
       "proofSteps": [
-        "Factor the field-valued map through the nilpotent quotient.",
-        "Invoke existing IHG residual semisimple specialization and characteristic uniqueness.",
-        "In the absolutely irreducible local case invoke the supplied henselian reconstruction and quotient lifting theorem."
+        "Factor the field-valued map through the nilpotent quotient and invoke IHG semisimple reconstruction with finite-image continuity.",
+        "Choose a supported local action ring and apply completion/coefficient change to its determinant and error ideal; record Î^N=0 and the identified residual representation.",
+        "Use henselian absolutely irreducible reconstruction over Â/Î. For each finite coefficient quotient, continuity of the determinant gives an open normal group kernel; its full-matrix Cayley–Hamilton realization factors through the same finite quotient. Hence the reconstructed matrices are continuous in the inverse-limit coefficient topology. Compare by strict conjugacy after fixing the residual basis; no lifting through Î is asserted."
       ],
       "prerequisites": [
         "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly",
         "TorsionCohomologyInfrastructure:TC.4/integral-and-inverse-system-transport",
         "IntegralHeckeAndGaloisDeterminants:IHG.5/residual-semismple-specialization",
         "IntegralHeckeAndGaloisDeterminants:IHG.5/residual-irreducible-quotient-lift",
-        "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction"
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-iff-open-kernel"
       ],
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Corollaries 5.4.3–5.4.4, p. 1060; Remark 5.4.5 and local reconstruction proof, p. 1061",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Corollaries 5.4.3–5.4.4, p. 1060; Remark 5.4.5, pp. 1060–1061; Chenevier Theorem 2.22(i), pp. 34–35 (via IHG)",
+          "match": "Corollaries 5.4.3–5.4.4 reconstruct respectively a semisimple residual representation and an irreducible local representation over a nilpotent quotient. They do not lift the latter to the full integral Hecke algebra."
         }
       ],
       "acceptance": [
         "Keep semisimple field reconstruction separate from henselian local reconstruction.",
-        "Uniqueness is a conjugacy statement."
+        "Uniqueness is a conjugacy statement.",
+        "If Î≠0, the codomain remains GL_n(Â/Î); absolute irreducibility alone does not produce a representation over Â.",
+        "A torsion-only eigensystem uses the simultaneous torsion ring, not an unsupported integral maximal ideal."
       ],
       "implementationStatus": "unchecked"
     },
@@ -1955,7 +2034,7 @@
         {
           "sourceId": "Scholze",
           "locator": "§5.2 Satake calculations, pp. 1040–1044; §5.4 polynomial, p. 1057",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "match": "The §5.4 polynomial is compared explicitly with IHG’s spherical convention in ranks one and two; the arithmetic modular-curve instance remains a supplier-carrier validation."
         }
       ],
       "acceptance": [
@@ -1991,8 +2070,8 @@
       "sources": [
         {
           "sourceId": "Scholze",
-          "locator": "Stack convention, p. 1057; Corollary 5.4.5 proof, p. 1060; arithmetic example deduced from these conventions",
-          "match": "The stated input, specialization or proof construction, with the corrections recorded below."
+          "locator": "Stack convention, p. 1057; Corollary 5.4.2 proof, p. 1060; Remark 5.4.5, pp. 1060–1061; arithmetic example deduced from these conventions",
+          "match": "The source’s stack convention and coefficient exact sequence support the independently computed GL_1/Q example. The group-cohomology calculation and the two-term-complex diagnostic are deductions, not a stated example in Scholze."
         }
       ],
       "acceptance": [
@@ -2010,7 +2089,7 @@
         "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly",
         "TorsionCohomologyInfrastructure:TC.4/residual-and-local-specialization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Finite torsion determinant assembly, Residual and local specialization. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/4",
@@ -2018,7 +2097,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.0/section-model-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral section model. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/5",
@@ -2026,15 +2105,15 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.0/section-model-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral section model. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/6",
-      "locator": "§2.1, Lemma 2.1.2, p. 954",
+      "locator": "§2.1, Lemma 2.1.2 and proof, pp. 954–955",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.0/integral-boundary-ideal"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral boundary ideal. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/18",
@@ -2042,7 +2121,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/19",
@@ -2050,7 +2129,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/perfectoid-hebbarkeitssatz"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/20",
@@ -2058,7 +2137,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/hasse-locus-hebbarkeitssatz"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/21",
@@ -2066,7 +2145,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/hasse-locus-hebbarkeitssatz"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/22",
@@ -2075,7 +2154,7 @@
         "PerfectoidShimuraVarieties:S1/good-triple",
         "TorsionCohomologyInfrastructure:TC.0/bounded-lattice-extension"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Bounded lattice extension. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/23",
@@ -2083,7 +2162,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/good-triple-stability"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/24",
@@ -2091,7 +2170,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/good-triple-stability"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/25",
@@ -2099,7 +2178,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/good-triple-stability"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/36",
@@ -2107,7 +2186,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/hasse-blowup-hartogs"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/49",
@@ -2115,7 +2194,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/hartogs-for-finite-covers-of-anticanonical-tower"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/51",
@@ -2123,7 +2202,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/characteristic-p-base-triples-good"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/53",
@@ -2131,7 +2210,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/gamma1-level-perfectoid"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/54",
@@ -2139,7 +2218,7 @@
       "owners": [
         "PerfectoidShimuraVarieties:S1/full-level-anticanonical-perfectoid"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/67",
@@ -2148,7 +2227,7 @@
         "PerfectoidShimuraVarieties:S3/siegel-tautological-pullback",
         "TorsionCohomologyInfrastructure:TC.1/period-lattice-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Period lattice transport. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/71",
@@ -2157,7 +2236,7 @@
         "PerfectoidShimuraVarieties:S3/hodge-levi-pullback",
         "TorsionCohomologyInfrastructure:TC.1/period-lattice-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Period lattice transport. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/72",
@@ -2166,7 +2245,7 @@
         "TorsionCohomologyInfrastructure:TC.0/integral-boundary-ideal",
         "TorsionCohomologyInfrastructure:TC.0/boundary-support-comparison"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral boundary ideal, Almost boundary support comparison. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/73",
@@ -2174,7 +2253,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/cech-comparison"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Perfectoid compact support comparison. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/74",
@@ -2182,7 +2261,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/geometric-amplitude"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Geometric completed amplitude. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/75",
@@ -2190,7 +2269,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/iwasawa-consequences"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Geometric Iwasawa bounds. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/76",
@@ -2198,7 +2277,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/hecke-continuity"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Classical Hecke continuity. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/77",
@@ -2206,15 +2285,15 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.0/boundary-trace-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary trace transport. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/78",
-      "locator": "§4.3, Lemma 4.3.3, pp. 1026–1027",
+      "locator": "§4.3, Lemma 4.3.3 and proof, pp. 1026–1028",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/boundary-ideal-colimit"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary ideal colimit. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/84",
@@ -2222,7 +2301,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary Satake polynomials. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/85",
@@ -2230,7 +2309,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary Satake polynomials. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/89",
@@ -2239,7 +2318,7 @@
         "IntegralHeckeAndGaloisDeterminants:IHG.4/classical-interpolation",
         "TorsionCohomologyInfrastructure:TC.3/classical-ambient-determinant"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Classical ambient determinant. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/92",
@@ -2247,7 +2326,7 @@
       "owners": [
         "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Imported from the named PSV/ALS supplier node; this packet does not reconstruct its general theorem."
     },
     {
       "item": "PAPER-SCHOLZE-15/93",
@@ -2256,7 +2335,7 @@
         "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
         "TorsionCohomologyInfrastructure:TC.3/siegel-boundary-specialization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Siegel Levi boundary realization. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/94",
@@ -2264,7 +2343,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary Satake polynomials. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/95",
@@ -2272,7 +2351,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary Satake polynomials. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/96",
@@ -2280,7 +2359,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Boundary Satake polynomials. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/97",
@@ -2288,7 +2367,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/ambient-interior-error"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Ambient interior error bound. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/98",
@@ -2296,7 +2375,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/ambient-interior-error"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Ambient interior error bound. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/99",
@@ -2304,7 +2383,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/levi-interior-determinant"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Levi interior determinant. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/100",
@@ -2312,7 +2391,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/auxiliary-character-realization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Auxiliary character realization. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/101",
@@ -2320,16 +2399,16 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Cyclotomic factor continuation. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/102",
-      "locator": "§5.3, Lemma 5.3.4 and Corollary 5.3.5, pp. 1048–1049",
+      "locator": "§5.3, Lemma 5.3.4 and Corollary 5.3.5 with proof, pp. 1048–1050",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation",
         "TorsionCohomologyInfrastructure:TC.3/twisted-product-separation"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Cyclotomic factor continuation, Twisted product separation. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/103",
@@ -2338,7 +2417,7 @@
         "TorsionCohomologyInfrastructure:TC.3/laurent-family-realization",
         "TorsionCohomologyInfrastructure:TC.3/laurent-coefficient-ideal"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Laurent determinant realization, Laurent coefficient ideal bound. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/104",
@@ -2346,15 +2425,15 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/weighted-determinant-factors"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Weighted determinant factors. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/105",
-      "locator": "§5.3, Lemma 5.3.10, p. 1053",
+      "locator": "§5.3, Lemma 5.3.10 and proof, pp. 1053–1054",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/finite-weight-series-factorization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Weight factorization uniqueness. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/106",
@@ -2362,7 +2441,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/weighted-unit-law"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Weighted determinant unit law. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/107",
@@ -2371,7 +2450,7 @@
         "IntegralHeckeAndGaloisDeterminants:IHG.0",
         "TorsionCohomologyInfrastructure:TC.3/weighted-determinant-factors"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Weighted determinant factors. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/109",
@@ -2379,7 +2458,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Finite torsion determinant assembly. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/111",
@@ -2387,7 +2466,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/residual-and-local-specialization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Residual and local specialization. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/112",
@@ -2395,7 +2474,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/residual-and-local-specialization"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Residual and local specialization. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/113",
@@ -2403,7 +2482,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/integral-and-inverse-system-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral coefficient transport. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/114",
@@ -2411,7 +2490,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.3/classical-ambient-determinant"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Classical ambient determinant. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/118",
@@ -2420,15 +2499,15 @@
         "PerfectoidShimuraVarieties:S3/hodge-tate-formal-models",
         "TorsionCohomologyInfrastructure:TC.1/reduction-atlas-transport"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Approximation atlas transport. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/122",
-      "locator": "§5.4, proof of Theorem 5.4.1, p. 1058 ('It is an easy exercise …; cf. [18, §3]', i.e. Caraiani–Le Hung, On the image of complex conjugation in certain Galois representations, §3)",
+      "locator": "§5.4, proof of Theorem 5.4.1, p.1058, boundary-induction step referring to Caraiani–Le Hung §3",
       "owners": [
         "TorsionCohomologyInfrastructure:TC.4/integral-boundary-induction"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Integral GL boundary induction. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     },
     {
       "item": "PAPER-SCHOLZE-15/126",
@@ -2436,7 +2515,7 @@
       "owners": [
         "TorsionCohomologyInfrastructure:TC.2/geometric-amplitude"
       ],
-      "disposition": "Imported at the named supplier or covered by the named concrete transport/extraction target; no duplicate source theorem is introduced."
+      "disposition": "Covered by Geometric completed amplitude. Supplier-owned inputs are imported; exact arithmetic specializations and coefficient distinctions are stated in those targets."
     }
   ],
   "coverage": [
@@ -2447,7 +2526,7 @@
       "remaining": [
         "Discharge the exact request to AdicSpacesPartII:R2.",
         "Discharge the exact request to AdicSpacesPartII:R3.",
-        "Discharge the exact request to PerfectoidQuotients:Q4.",
+        "Discharge the exact request to PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed reduction-sequence extension.",
         "Implement the actual supplier-object comparisons and independently review their stated hypotheses."
       ]
     },
@@ -2479,6 +2558,7 @@
       "note": "Every target has a statement, proof chain and acceptance checks; supplier extensions are precise requests, not proof closure.",
       "remaining": [
         "Discharge the exact request to IntegralHeckeAndGaloisDeterminants:IHG.0.",
+        "Discharge the residual-kernel factorization request to IntegralHeckeAndGaloisDeterminants:IHG.1 (Chenevier Lemma 3.8).",
         "Discharge the exact request to AutomorphicGaloisRepresentationsPartII:AG2.7.",
         "Discharge the exact request to ModularityAndLanglandsExtensions:ML.4.",
         "Discharge the exact request to EndoscopicTransferAndUnitaryTraceComparison:ET.7a.",
@@ -2491,6 +2571,7 @@
       "status": "planned",
       "note": "Every target has a statement, proof chain and acceptance checks; supplier extensions are precise requests, not proof closure.",
       "remaining": [
+        "Import the existing current-upstream arbitrary-family nilpotence theorem through the IHG.5 adapter request.",
         "Discharge the exact request to ArithmeticLocallySymmetricSpaces:ALS.4.",
         "Discharge the exact request to ArithmeticLocallySymmetricSpaces:ALS.0.",
         "Discharge the exact request to ModularCurvesPartII:R14.3.",
@@ -2517,8 +2598,8 @@
       ]
     },
     {
-      "supplier": "PerfectoidQuotients:Q4",
-      "need": "Use the corrected strongly Zariski closed quotient with integral-closure plus ring and almost exact boundary ideal sequence after reduction; no use of the uncorrected Definition 2.2.6.",
+      "supplier": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+      "need": "Extend the existing corrected quotient/strongly-closed API by the boundary reduction sequence on its actual plus-ring kernel: the target plus ring is p-torsion-free and R⁺→R_I⁺ is almost surjective, so reduction gives 0→I⁺/p^m→R⁺/p^m→R_I⁺/p^m→0 in the almost category, natural for compatible boundary pairs and coefficient reductions. Glue this on the actual sheaf carriers. The quotient construction itself is already owned by Q4, not newly requested.",
       "neededBy": [
         "TorsionCohomologyInfrastructure:TC.0/boundary-support-comparison"
       ]
@@ -2607,6 +2688,20 @@
       "neededBy": [
         "TorsionCohomologyInfrastructure:TC.4/normalization-validations"
       ]
+    },
+    {
+      "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "need": "Add in the IHG Part II direction the continuous determinant residual-kernel factorization of Chenevier Lemma 3.8 (arXiv:0809.0415v2, §3.1, p.43). Let G be profinite, k a finite field of characteristic p, ρ̄:G→GL_d(k) a continuous semisimple residual representation, A a commutative profinite local W(k)-algebra with residue field k, and D a continuous determinant deforming detρ̄. If H is the smallest closed normal subgroup of kerρ̄ such that kerρ̄/H is pro-p, prove D factors through A[G/H]. For a finite Artinian local A, pass to the faithful Cayley–Hamilton quotient: its residual radical is nilpotent and 1+rad is a finite p-group; then pass to profinite quotients. State continuity and coefficient-change compatibility and application factorwise to a finite product of local rings. The field-only IHG.1/nilpotent-ideal-kernel theorem and the group-only maximalProPQuotient.lift do not supply this conclusion.",
+      "neededBy": [
+        "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation"
+      ]
+    },
+    {
+      "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+      "need": "Import the arbitrary-family common-exponent theorem already stated in current TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants, Layer 5, Nilpotence in a product of coefficient rings: a jointly injective family f_i:A→B_i with (J.map f_i)^N=0 for all i implies J^N=0, without a finite-index premise. Apply it to the closed simultaneous action ring. This is an adapter to existing upstream work, not a request to plan that theorem again. The older atlas IHG.5/nilpotent-product-bound node states only a finite family and cannot alone justify the infinite product.",
+      "neededBy": [
+        "TorsionCohomologyInfrastructure:TC.4/integral-and-inverse-system-transport"
+      ]
     }
   ],
   "gaps": [],
@@ -2614,7 +2709,7 @@
     {
       "id": "TorsionCohomologyInfrastructure/E1",
       "kind": "misprint",
-      "locator": "Lemma 2.1.1 proof, p.953",
+      "locator": "Alleged localization product in Lemma 2.1.1 proof; published proof is on pp.953–954",
       "printed": "The localization product includes already present indices.",
       "correction": "For J⊂J′ invert the product of ratios indexed by J′\\J.",
       "reason": "For J′=J the restriction must be identity, not a new localization.",
@@ -2624,7 +2719,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: the published proof on p.954 contains no displayed localization product with the alleged wrong indices. Inverting ratios already units would not change the localization anyway. The actual minor reference slip on that page is recorded as E17.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E2",
@@ -2639,22 +2740,34 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with corrected scope: Prisms Theorem 7.4/Remark 7.5 give surjectivity for the closed quotient, contrary to the 2015 caution; diamonds Definition 5.7(ii)/Theorem 5.8 explicitly fix the plus-ring integral-closure condition. These later statements, not the obsolete caution, are used.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E3",
       "kind": "error",
-      "locator": "Coordinate-chart cover in Theorems 3.3.18/4.1.1, pp.1013–1019; §4.3 p.1030",
-      "printed": "The coordinate indexing is stated as if all g-element subsets were admissible.",
+      "locator": "Chart-orbit assertion, p.1008; Theorem 3.3.18(i), pp.1012–1014; Theorem 4.1.1(i), pp.1019–1020; use on p.1030",
+      "printed": "The source treats the bounded Plücker charts for all g-element coordinate subsets as a single GSp_2g(Z_p) orbit and exports affinoid-perfectoid preimages for that indexing.",
       "correction": "Use only Lagrangian coordinate subsets, one of each paired symplectic basis coordinate.",
-      "reason": "The g=2 coordinate plane spanning a symplectic pair is not Lagrangian; the 2^g valid charts still cover because some admissible Plücker coordinate is nonzero.",
-      "affects": "the proof",
+      "reason": "The g=2 nonadmissible chart p₁₃≠0 is nonempty but its reduction cell has p³−p points, whereas an admissible graph cell has p³. An integral symplectic coordinate change would preserve those counts. Thus nonisotropy of the coordinate plane alone is not an emptiness proof.",
+      "affects": "a stated result",
       "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
       "searched": [
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with a replacement witness: arbitrary coordinate g-subsets are not one GSp_2g(Z_p) orbit. For g=2 over F_p, the ordinary Lagrangian graph cell has p³ points, while the cell p₁₃≠0 has p³−p points. That cell is nonempty; use the admissible 2^g charts rather than claiming it empty.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E4",
@@ -2669,7 +2782,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the nonzero spectral-sequence term must have minimal, not maximal, codimension among the violations to isolate the first surviving term.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E5",
@@ -2684,7 +2803,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the Hodge-type equal-rank case has l₀=0, q₀=d; the printed values are exchanged.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E6",
@@ -2693,13 +2818,19 @@
       "printed": "The last segment exponent has an incorrect index.",
       "correction": "The final exponent is (ℓ_i−1)/2 and the constituent is a representation of GL_n_i.",
       "reason": "A segment of length ℓ_i runs from (1−ℓ_i)/2 to (ℓ_i−1)/2 in unit steps.",
-      "affects": "the proof",
+      "affects": "a stated result",
       "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
       "searched": [
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: a length-ℓ_i segment has endpoints (1−ℓ_i)/2 and (ℓ_i−1)/2; its underlying cuspidal constituent is on GL_{n_i}.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E7",
@@ -2714,12 +2845,18 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: taking k=1 in the claimed progression without restricting a can violate Proposition 5.1.1. Choose a>n in the symplectic case and a≥n in the unitary case.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E8",
       "kind": "misprint",
-      "locator": "Unitary ambient polynomial, p.1043",
+      "locator": "Unitary ambient polynomial displays (ii) and (iii), pp.1042–1043",
       "printed": "The displayed top-degree sign is negative in the CM case.",
       "correction": "The coefficient of X^(2n) has positive sign; use P_v(X)Q_vc(q_vX).",
       "reason": "The two degree-n top coefficients have product sign (−1)^(2n)=1.",
@@ -2729,7 +2866,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both unitary displays on pp.1042–1043: multiplying the degree-n leading signs gives (−1)^(2n)=+1.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E9",
@@ -2744,7 +2887,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the subsequent character comparison uses the previously stabilized ideal; selecting ℓ only by largeness and the degree exclusion does not ensure that equality.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E10",
@@ -2759,7 +2908,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the two determinants are available over quotients by different ideals; their common comparison quotient must kill their sum Ĩ_χ.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E11",
@@ -2774,7 +2929,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: if the first difference has X-order r, reduction modulo X^(r+1) isolates it. The printed X^(r+1) start with reduction at that same order cannot do so.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E12",
@@ -2789,7 +2950,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: expanding in X only gives formal X-series coefficients. Expanding in T after the least-weight shift supplies polynomial X-coefficients for the induction.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E13",
@@ -2804,7 +2971,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the inverse of the product of the two noncommuting factors reverses their order. The printed order does not specialize to the identity needed by the kernel argument.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E14",
@@ -2813,13 +2986,19 @@
       "printed": "The characteristic identity uses the earlier field-valued representation symbol.",
       "correction": "Use σ_m and the local Hecke coefficient map.",
       "reason": "Its right-hand side is in the local integral Hecke quotient, not the residual field.",
-      "affects": "the proof",
+      "affects": "a stated result",
       "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
       "searched": [
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the characteristic formula for σ_m must use that representation and its local quotient coefficient map; the printed σ_ψ belongs to the residual field.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E15",
@@ -2834,7 +3013,13 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: UCT injects H^i(M)/p^m into H^i(M/p^m), so simultaneous finite-coefficient annihilation implies integral annihilation. The Tor term gives no reverse implication.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     },
     {
       "id": "TorsionCohomologyInfrastructure/E16",
@@ -2849,7 +3034,55 @@
         "Published Annals passage at this locator",
         "Reviewed PAPER-SCHOLZE-15.result.json sourceIssues catalogue",
         "Current supplier packet at the corresponding owner"
-      ]
+      ],
+      "source": "Scholze",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the unital simultaneous action has an identity component at every exponent, which is not in the direct sum. A product followed by its closed action image has the required topology.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
+    },
+    {
+      "id": "TorsionCohomologyInfrastructure/E17",
+      "source": "Scholze",
+      "kind": "misprint",
+      "locator": "Lemma 2.1.1 proof, p.954, gluing the reductions of the sections",
+      "printed": "The proof attributes agreement of the reduced sections to condition (i) alone.",
+      "correction": "Condition (ii) gives the overlap congruence; condition (i) supplies the unit frame used to divide by it.",
+      "reason": "Condition (i) says only that a distinguished section frames the line. The inequality in (ii) is what makes differences vanish modulo ϖ on overlaps.",
+      "affects": "nothing",
+      "known": "PAPER-SCHOLZE-15/E13 in the reviewed extraction",
+      "searched": [
+        "Published Annals proof, p.954",
+        "Reviewed PAPER-SCHOLZE-15.result.json, E13"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published page: the reference names (i), but agreement modulo ϖ uses the displayed bound in (ii). The four hypotheses already give the intended result.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
+    },
+    {
+      "id": "TorsionCohomologyInfrastructure/E18",
+      "source": "CLH",
+      "kind": "error",
+      "locator": "Author PDF, §3 Remark 3.1, p.8 (finding scoped to this author version)",
+      "printed": "At the stated neat level the nilmanifold-fibre sheaf R^jπ_*F̄_p is identified with the exterior jth power of the unipotent adjoint representation.",
+      "correction": "Use the actual integral/mod-p nilmanifold cochain complex and its Levi/Hecke action. An exterior-power identification needs additional hypotheses and a comparison theorem; it does not follow from neatness.",
+      "reason": "Take GL₃/Q, the full upper unipotent U, principal level 3 and p=5. Its lattice has coordinates a,b,c in 3Z and commutators in the central 9Z. Its abelianization is Z²⊕Z/3, so H¹(U-lattice,F₅) has dimension 2. The displayed exterior first power of Lie(U) has dimension 3. Principal level 3 is neat, hence meets the level hypothesis.",
+      "affects": "a stated result",
+      "known": "No correction found in the searched author/arXiv records; scoped to the readable author PDF, not collated with the inaccessible journal text.",
+      "searched": [
+        "Author Imperial PDF, §3 Remark 3.1, p.8",
+        "Caraiani Bonn author PDF link and paper listing",
+        "arXiv:1409.2158 version record",
+        "Cambridge Compositio article record and corrigendum search (journal text unavailable)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Heisenberg lattice computation supplies a neat-level counterexample at p=5: two, rather than three, degree-one classes. The target already requests actual nilmanifold complexes; no conclusion here relies on the false exterior-power formula.",
+        "by": "REV-TorsionCohomologyInfrastructure"
+      }
     }
   ],
   "restructure": [
@@ -2863,11 +3096,19 @@
         "TorsionCohomologyInfrastructure:TC.3/weighted-determinant-factors",
         "TorsionCohomologyInfrastructure:TC.3/laurent-coefficient-ideal"
       ]
+    },
+    {
+      "proposal": "Read boundary-ideal-colimit as an early TC.2 target immediately after TC.0 and before TC.1/classical-section-approximation.",
+      "reason": "It depends only on TC.0 and PSV, while TC.1 approximation consumes it. The later TC.2 comparison and continuity then consume TC.1 without a node cycle.",
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.2/boundary-ideal-colimit",
+        "TorsionCohomologyInfrastructure:TC.1/classical-section-approximation"
+      ]
     }
   ],
   "auditEvidence": {
     "reviewedAudit": "data/library-coverage.json has no TC.0–TC.4 record; nearby ALS/AutomorphicBundles records are overlap leads, not a reviewed TC baseline.",
-    "pinnedSearch": "Searched both pinned source trees and declaration index for formal schemes, coherent ideals, almost modules, perfectoid spaces, completed support complexes, Borel–Serre and determinant laws. Read actual polynomial-law, polynomial, matrix characteristic and scheme-module connecting declarations. Algebraic carriers exist; the arithmetic comparison types are not supplied by these declarations.",
+    "pinnedSearch": "Pinned source statements were read for polynomial laws, polynomial coefficients/composition/reversal, matrix characteristic polynomials, the pro-p quotient and scheme-module connecting maps. Name searches for formal/perfectoid/Borel–Serre and determinant infrastructure distinguished missing arithmetic comparison types from those existing algebraic carriers. No declaration-index result is asserted by this independent review.",
     "currentTauCeti": "Read-only current TauCeti main a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and current roadmap main inspected. Generic polynomial laws, pro-p quotient and scheme-module cohomology are existing work.",
     "currentRoadmaps": [
       "AlgebraicVectorBundles",
@@ -2890,11 +3131,323 @@
   "upstreamNotes": [
     {
       "owner": "IntegralHeckeAndGaloisDeterminants",
-      "note": "The current roadmap has the general determinant/interpolation/normalization targets already. Request only the Lemma5.3.13 extension in its Part II direction; no existing upstream file is edited."
+      "note": "Current IHG already supplies coefficient-subring descent and arbitrary-family uniform nilpotence (Layer 5); cite those directly. Request only the multiplicative-law homogeneity/finite-weight API and the profinite-local residual-kernel factorization of Chenevier Lemma 3.8 in its Part II direction. No upstream file is edited."
     },
     {
       "owner": "AutomorphicGaloisRepresentationsPartII:AG2.4",
       "note": "Replace any generic factor/interpolation duplicate by TC.3 early algebra nodes and IHG.4; retain its HLTT geometric realization and descent only."
+    },
+    {
+      "owner": "TorsionCohomologyInfrastructure",
+      "note": "The node order must put TC.2/boundary-ideal-colimit before TC.1/classical-section-approximation. The constructionOrder records this early target without a node cycle. The issue excludes the reader from edits; all reader reconciliation required before promotion is enumerated in the independent review report."
     }
-  ]
+  ],
+  "constructionOrder": [
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.0/section-model-transport",
+        "TorsionCohomologyInfrastructure:TC.0/integral-boundary-ideal",
+        "TorsionCohomologyInfrastructure:TC.0/bounded-lattice-extension",
+        "TorsionCohomologyInfrastructure:TC.0/boundary-support-comparison",
+        "TorsionCohomologyInfrastructure:TC.0/boundary-trace-transport"
+      ],
+      "note": "Local geometry and boundary trace transport."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.2/boundary-ideal-colimit"
+      ],
+      "note": "Early TC.2 ideal-colimit input, needed before TC.1 classical-section approximation."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.1/period-lattice-transport",
+        "TorsionCohomologyInfrastructure:TC.1/reduction-atlas-transport",
+        "TorsionCohomologyInfrastructure:TC.1/localized-cuspidal-sections",
+        "TorsionCohomologyInfrastructure:TC.1/formal-cuspidal-lifting",
+        "TorsionCohomologyInfrastructure:TC.1/classical-section-approximation"
+      ],
+      "note": "Period lattices, fixed-exponent formal localization and classical approximation."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.2/cech-comparison",
+        "TorsionCohomologyInfrastructure:TC.2/geometric-amplitude",
+        "TorsionCohomologyInfrastructure:TC.2/iwasawa-consequences",
+        "TorsionCohomologyInfrastructure:TC.2/classical-hecke-topology",
+        "TorsionCohomologyInfrastructure:TC.2/hecke-continuity",
+        "TorsionCohomologyInfrastructure:TC.2/descent-and-coefficient-limits"
+      ],
+      "note": "Čech comparison, amplitude and Hecke continuity."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.3/twisted-polynomial-product",
+        "TorsionCohomologyInfrastructure:TC.3/twisted-product-separation",
+        "TorsionCohomologyInfrastructure:TC.3/finite-weight-series-factorization",
+        "TorsionCohomologyInfrastructure:TC.3/weighted-unit-law",
+        "TorsionCohomologyInfrastructure:TC.3/weighted-determinant-factors",
+        "TorsionCohomologyInfrastructure:TC.3/laurent-coefficient-ideal"
+      ],
+      "note": "Independent early TC.3 polynomial and weighted-law algebra; no arithmetic prerequisite."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials",
+        "TorsionCohomologyInfrastructure:TC.3/classical-ambient-determinant",
+        "TorsionCohomologyInfrastructure:TC.3/siegel-boundary-specialization",
+        "TorsionCohomologyInfrastructure:TC.3/ambient-interior-error",
+        "TorsionCohomologyInfrastructure:TC.3/auxiliary-character-realization",
+        "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation",
+        "TorsionCohomologyInfrastructure:TC.3/laurent-family-realization",
+        "TorsionCohomologyInfrastructure:TC.3/levi-interior-determinant"
+      ],
+      "note": "Arithmetic realization of ambient and Levi determinants."
+    },
+    {
+      "nodes": [
+        "TorsionCohomologyInfrastructure:TC.4/integral-boundary-induction",
+        "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly",
+        "TorsionCohomologyInfrastructure:TC.4/integral-and-inverse-system-transport",
+        "TorsionCohomologyInfrastructure:TC.4/four-route-compatibility",
+        "TorsionCohomologyInfrastructure:TC.4/residual-and-local-specialization",
+        "TorsionCohomologyInfrastructure:TC.4/normalization-validations",
+        "TorsionCohomologyInfrastructure:TC.4/arithmetic-nonlifting-validation"
+      ],
+      "note": "Boundary induction, ordinary/integral transport and validation."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "Scholze",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+      "read": "2026-10-14",
+      "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16"
+    },
+    {
+      "source": "CLH",
+      "kind": "author copy",
+      "url": "https://www.ma.imperial.ac.uk/~acaraian/papers/complexconjugation.pdf",
+      "read": "2026-10-14",
+      "sha256": "1f9ef1c6c0d32235f8e54127233155a07789de13720074c44b40e179743524fe",
+      "note": "The Cambridge article record and a direct publisher-PDF endpoint both returned HTML/access material, not the journal PDF, so E18 is scoped to the identified author PDF; no claim of journal-text collation."
+    },
+    {
+      "source": "Chenevier",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0809.0415v2",
+      "read": "2026-10-14",
+      "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953"
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-TorsionCohomologyInfrastructure",
+    "date": "2026-10-14",
+    "notes": "Every one of the 38 target nodes and 11 pinned baseline citations was checked; clear errors were corrected in the packet. Seventeen precise supplier requests/adapters remain planning obligations, not closed proofs. All 18 source findings have independent verdicts. The only review blocker is the uneditable reader document: it still contradicts the corrected packet about the pro-p/Laurent construction, boundary quotient and irreducible local codomain. Issue #498 excludes that document from its editable files. Reconcile the exact report-listed statements and API/tests before acceptance/promotion; no second job is claimed in this run.",
+    "checked": [
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.0/section-model-transport",
+        "verdict": "corrected",
+        "note": "The lemma constructs the projective formal model and ample line from the four section/overlap conditions; the localization formula is a proof detail here, not a printed source error."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.0/integral-boundary-ideal",
+        "verdict": "corrected",
+        "note": "The lemma and its proof identify the coherent integral ideal by intersection with each power-bounded ring, using saturation and coherence over the valuation base."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.0/bounded-lattice-extension",
+        "verdict": "verified",
+        "note": "The cited good-triple extension results give the scalar assertion; finite free frames give the bounded vector-lattice transport coordinatewise. No arbitrary coherent-vector-bundle extension is claimed."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.0/boundary-support-comparison",
+        "verdict": "corrected",
+        "note": "The proof identifies the almost boundary kernel with the support sheaf using the strongly closed boundary; the later corrected quotient notion is imported explicitly."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.0/boundary-trace-transport",
+        "verdict": "corrected",
+        "note": "Lemma 4.3.2 preserves integrally closed boundary ideals under trace; Corollary 3.2.23 supplies the displayed shrinking normalized-trace error."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.1/period-lattice-transport",
+        "verdict": "corrected",
+        "note": "The tautological-bundle comparison, its determinant and the chosen Tate trivialization supply the rational line comparison; integral lattice bounds require the separate bounded-chart transport."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.1/reduction-atlas-transport",
+        "verdict": "corrected",
+        "note": "The proof approximates Plücker sections at fixed precision and constructs formal charts; comparing the induced reduction maps uses a common level and formal refinement, rather than asserting uniqueness of models."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.1/localized-cuspidal-sections",
+        "verdict": "verified",
+        "note": "The proof writes sections on a distinguished intersection as the colimit of global twists by powers of its product section; a cofinal weight subsequence gives the same localization."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.1/formal-cuspidal-lifting",
+        "verdict": "verified",
+        "note": "The proof combines the formal projective model, integral Serre vanishing and the finite genuine-to-image comparison to lift reductions of sufficiently large cusp twists."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.1/classical-section-approximation",
+        "verdict": "verified",
+        "note": "The proof first descends finitely many bounded ideal sections modulo the fixed coefficient exponent and then lifts their large twists to genuine finite-level classical cusp sections."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/boundary-ideal-colimit",
+        "verdict": "corrected",
+        "note": "The lemma proves an ordinary, not merely almost, ideal-colimit isomorphism; normalized traces and the two divisibility corrections are retained in the proof sketch."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/cech-comparison",
+        "verdict": "verified",
+        "note": "Theorem 4.2.1 and its proof compare compact-support completed cohomology with almost integral boundary-ideal cohomology through primitive comparison and the affinoid Čech cover."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/geometric-amplitude",
+        "verdict": "corrected",
+        "note": "Corollary 4.2.2 and its proof give vanishing above the complex dimension; the extension to all finite exponents uses the coefficient exact sequences, while integral passage retains inverse-limit issues."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/iwasawa-consequences",
+        "verdict": "verified",
+        "note": "Corollary 4.2.3 gives the Borel–Moore vanishing, middle-degree torsion-freeness and codimension inequality, with the corrected minimum and equal-rank range labels."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/classical-hecke-topology",
+        "verdict": "corrected",
+        "note": "Theorem 4.3.1 defines the topology through integral classical actions; Corollary 5.1.11 supplies the weight progression after imposing Proposition 5.1.1’s discrete-series range."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/hecke-continuity",
+        "verdict": "verified",
+        "note": "The proof uses fixed-exponent chart approximation to show each finite set of cohomology classes is annihilated by a classical zero-neighborhood. It does not lift each torsion class to characteristic zero."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.2/descent-and-coefficient-limits",
+        "verdict": "verified",
+        "note": "The proof descends from sufficiently small p-levels by Hochschild–Serre with bounded geometric rows, and treats each coefficient exponent before inverse limits."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/twisted-polynomial-product",
+        "verdict": "corrected",
+        "note": "The character-twist calculation in Lemma 5.3.4 motivates this light polynomial definition with opposite substitutions; its formula is defined here over the existing polynomial carrier."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/twisted-product-separation",
+        "verdict": "corrected",
+        "note": "The first-differing-coefficient calculation in the lemma abstracts to any commutative ring with unit differences, giving the stated two-factor uniqueness theorem."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/finite-weight-series-factorization",
+        "verdict": "verified",
+        "note": "Lemma 5.3.10 gives finite-weight uniqueness and polynomiality; the corrected first order and expansion variable are recorded separately."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/weighted-unit-law",
+        "verdict": "corrected",
+        "note": "Lemmas 5.3.11–5.3.12 construct the natural multiplicative law on formal units and prove polynomiality before evaluation at U=1, including noncommuting inputs."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/weighted-determinant-factors",
+        "verdict": "verified",
+        "note": "Lemma 5.3.8 is the weighted determinant extraction theorem; Lemma 5.3.13 supplies the homogeneous-component argument, including degree zero and disconnected coefficient rings."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/laurent-coefficient-ideal",
+        "verdict": "verified",
+        "note": "Lemma 5.3.7 bounds the coefficient ideal by separating finitely many Laurent exponents with suitable spaced substitutions; this is algebraic and needs no cohomology input."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/satake-ambient-polynomials",
+        "verdict": "corrected",
+        "note": "The local Satake calculation and the §5.4 polynomial identify the integral Levi factors and the extra cyclotomic twist. The unitary top coefficient uses the corrected positive sign."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/classical-ambient-determinant",
+        "verdict": "corrected",
+        "note": "The discrete-series range, endoscopic constituents and regular polarized Galois inputs give the ambient determinants and their integral interpolation; Remark 5.4.6 restricts the unconditional CM branch."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/siegel-boundary-specialization",
+        "verdict": "verified",
+        "note": "The boundary Leray calculation uses the Siegel stratum, its torus fibre and the unnormalized Satake map to obtain the interior-annihilator containment; it is not a full-boundary direct-summand assertion."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/ambient-interior-error",
+        "verdict": "verified",
+        "note": "The source bounds the error of the ambient cohomology action by two bounded filtrations, hence exponent 2(d+1), before extracting a Levi factor."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/auxiliary-character-realization",
+        "verdict": "verified",
+        "note": "The proof realizes odd prime-to-p class-field characters in degree-zero arithmetic cohomology at refined level and cups them with the interior module, with opposite polynomial twists."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/cyclotomic-factor-continuation",
+        "verdict": "corrected",
+        "note": "Lemmas 5.3.2–5.3.4 and Corollary 5.3.5 continue the Levi coefficients using cyclotomic Z_l extensions, unit character separation, stabilized finite ideals and two auxiliary primes. The determinant factorization input is Chenevier Lemma 3.8, not a field-only kernel result."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/laurent-family-realization",
+        "verdict": "corrected",
+        "note": "Lemmas 5.3.6–5.3.7 realize all character evaluations and descend algebraically to Laurent coefficients, then replace the error by a bounded coefficient ideal. The symplectic weight-zero factor remains until extraction."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.3/levi-interior-determinant",
+        "verdict": "verified",
+        "note": "Theorem 5.3.1 follows from the Laurent realization and weighted extraction, giving a continuous rank-n interior determinant with the doubled error bound and prescribed Frobenius polynomial."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/integral-boundary-induction",
+        "verdict": "corrected",
+        "note": "The conclusion uses rank induction on actual boundary strata. The finite-coefficient boundary geometry and Satake action are imported; the integral/CM/lattice filtration is an explicit ALS extension, without assuming the exterior-power formula of CLH Remark 3.1."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/finite-torsion-assembly",
+        "verdict": "corrected",
+        "note": "Theorem 5.4.1 combines the interior module with its actual boundary image, then descends coefficients and level with uniform filtration depth. Remark 5.4.6 fixes the unconditional arithmetic branch."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/integral-and-inverse-system-transport",
+        "verdict": "corrected",
+        "note": "Corollary 5.4.2 and Remark 5.4.5 give the simultaneous finite-coefficient action, corrected to a product and the UCT kernel direction; compact product gluing supplies the integral quotient."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/four-route-compatibility",
+        "verdict": "verified",
+        "note": "This is a compatibility target obtained by composing the four cited action and characteristic diagrams on common quotients; the separate almost and nilpotent errors are kept explicit."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/residual-and-local-specialization",
+        "verdict": "corrected",
+        "note": "Corollaries 5.4.3–5.4.4 reconstruct respectively a semisimple residual representation and an irreducible local representation over a nilpotent quotient. They do not lift the latter to the full integral Hecke algebra."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/normalization-validations",
+        "verdict": "verified",
+        "note": "The §5.4 polynomial is compared explicitly with IHG’s spherical convention in ranks one and two; the arithmetic modular-curve instance remains a supplier-carrier validation."
+      },
+      {
+        "nodeId": "TorsionCohomologyInfrastructure:TC.4/arithmetic-nonlifting-validation",
+        "verdict": "corrected",
+        "note": "The source’s stack convention and coefficient exact sequence support the independently computed GL_1/Q example. The group-cohomology calculation and the two-term-complex diagnostic are deductions, not a stated example in Scholze."
+      }
+    ]
+  },
+  "reviewAudit": {
+    "job": "REV-TorsionCohomologyInfrastructure",
+    "session": "codex-DnNNA5",
+    "independence": "Blueprint author session codex-bMkPh3; this session wrote none of the input work.",
+    "baselineMethod": "All eleven declaration bodies/statements were opened at the two recorded git pins. No declaration index was supplied to the checker; its baseline name validation is supplemented by this source inspection.",
+    "directSuppliers": "Read each directly cited concrete supplier statement and each stage request contract; existing-carrier versus requested-extension distinctions are retained.",
+    "graphCheck": "The listed constructionOrder is topological for all 58 internal edges. Recursive traversal of concrete supplier nodes reaches 2,966 nodes and has no directed cycle; unexpanded stage and library references remain declared boundaries, not closed proofs.",
+    "pureAlgebraCheck": "The six early TC.3 algebra nodes have no reachable TC.2 or AG2 dependency.",
+    "validation": "lean-check exits zero; 13 warnings all concern proof placeholders. The only added Lean statements are weightedProduct_swap and the nonunit Z/9 separation diagnostic; no data definition uses a placeholder.",
+    "readerAgreement": "Blocked pending the exact report-listed reconciliation: the issue authorizes packet, suggested file, report and own handoff, but excludes the reader. Review needs_changes prevents automatic promotion with that contradictory reader."
+  }
 }

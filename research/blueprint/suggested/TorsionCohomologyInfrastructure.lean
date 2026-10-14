@@ -46,6 +46,11 @@ theorem weightedProduct_map (f : R →+* S) (P Q : R[X]) (u : Rˣ) :
       weightedProduct (P.map f) (Q.map f) (Units.map f u) := by
   sorry
 
+/-- API: swapping the factors inverts the character weight. -/
+theorem weightedProduct_swap (P Q : R[X]) (u : Rˣ) :
+    weightedProduct P Q u = weightedProduct Q P u⁻¹ := by
+  sorry
+
 /-- TC.3/twisted-product-separation: valid over any commutative coefficient ring.
 The difference hypotheses are units, rather than mere nonzero elements. -/
 theorem twisted_product_separation
@@ -70,6 +75,16 @@ example : weightedProduct (1 - C (2 : ℚ) * X) (1 - C 3 * X)
 
 example : weightedProduct (1 - C (2 : ℚ) * X) (1 - C 3 * X) 1 =
     weightedProduct (1 - C (3 : ℚ) * X) (1 - C 2 * X) 1 := by
+  sorry
+
+-- A nonzero separation difference can be a nonunit, and uniqueness then fails.
+example :
+    let u : (ZMod 9)ˣ := ⟨2, 5, by decide, by decide⟩
+    (1 - (↑u : ZMod 9) ^ 2 ≠ 0) ∧
+    ¬ IsUnit (1 - (↑u : ZMod 9) ^ 2) ∧
+    weightedProduct (1 + C (3 : ZMod 9) * X) 1 u =
+      weightedProduct 1 (1 + C (3 : ZMod 9) * X) u ∧
+    (1 + C (3 : ZMod 9) * X : (ZMod 9)[X]) ≠ 1 := by
   sorry
 
 -- The zero-dimensional factor is retained, including the zero-ring case.
