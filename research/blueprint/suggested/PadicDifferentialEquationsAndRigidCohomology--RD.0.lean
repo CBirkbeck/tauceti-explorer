@@ -1,5 +1,6 @@
 import Mathlib.Analysis.InnerProductSpace.PiL2
 import Mathlib.Topology.Algebra.Module.FiniteDimension
+import Mathlib.LinearAlgebra.Basis.SMul
 import Mathlib.Algebra.Polynomial.Div
 import Mathlib.NumberTheory.Padics.PadicNumbers
 
@@ -44,17 +45,29 @@ theorem IsValuationBasis.reindex_iff (b : Module.Basis ι K V) (e : ι ≃ ι') 
     IsValuationBasis (b.reindex e) ↔ IsValuationBasis b := by
   sorry
 
--- Empty support must give zero, even for an infinite basis index set.
+-- Rescaling the vectors by units divides the coordinates and keeps the property.
+theorem IsValuationBasis.rescale_iff (b : Module.Basis ι K V) (w : ι → Kˣ) :
+    IsValuationBasis (b.unitsSMul w) ↔ IsValuationBasis b := by
+  sorry
+
+-- Test valuationBasis_zero: empty support gives zero, even for an infinite index set.
 example (b : Module.Basis ι K V) :
     ‖b.repr.symm (0 : ι →₀ K)‖₊ =
       (0 : ι →₀ K).support.sup (fun i => ‖(0 : ι →₀ K) i • b i‖₊) := by
   simp
 
--- The singleton algebraic basis has exactly the expected weighted norm.
+-- Test valuationBasis_singleton: the singleton basis has the expected weighted norm.
 example : IsValuationBasis (Module.Basis.singleton PUnit K) := by
   sorry
 
--- An algebraic basis need not have the valuation property: Euclidean R².
+-- Test valuationBasis_bad_change: under the sup norm, (1,0),(1,π) is not a
+-- valuation basis, since the difference of the two vectors has norm ‖π‖ < 1.
+example (π : K) (hπ0 : 0 < ‖π‖) (hπ1 : ‖π‖ < 1)
+    (b : Module.Basis (Fin 2) K (Fin 2 → K)) (h0 : b 0 = ![1, 0]) (h1 : b 1 = ![1, π]) :
+    ¬ IsValuationBasis b := by
+  sorry
+
+-- Test valuationBasis_archimedean: the Euclidean basis of R² fails at (1,1).
 example : ¬ IsValuationBasis (EuclideanSpace.basisFun (Fin 2) ℝ).toBasis := by
   sorry
 
@@ -94,7 +107,7 @@ theorem padic_integral_denominator_bound (p : ℕ) [Fact p.Prime] (n : ℕ) :
     ‖((n + 1 : ℚ_[p])⁻¹)‖ ≤ (n + 1 : ℝ) := by
   sorry
 
--- Rational integration is not generally integral-valued.
+-- Test integrate_not_integral, numerical core: 1/p is not integral.
 example (p : ℕ) [Fact p.Prime] : ‖((p : ℚ_[p])⁻¹)‖ > 1 := by
   sorry
 
