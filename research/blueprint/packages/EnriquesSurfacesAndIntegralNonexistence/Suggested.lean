@@ -98,25 +98,25 @@ def secondGram : Matrix (Fin 10) (Fin 10) ℤ := !![
   0,0,0,0,0,0,0,0,0,1;
   0,0,0,0,0,0,0,0,1,0]
 
+/-- The first Gram matrix is symmetric. -/
+theorem firstGram_symmetric : firstGram.IsSymm := by
+  apply Matrix.IsSymm.ext
+  intro i j
+  fin_cases i <;> fin_cases j <;> decide
+
+/-- The second Gram matrix is symmetric. -/
+theorem secondGram_symmetric : secondGram.IsSymm := by
+  apply Matrix.IsSymm.ext
+  intro i j
+  fin_cases i <;> fin_cases j <;> decide
+
 /-- Specialize the native Gram-lattice constructor to the first integer matrix. -/
 noncomputable def firstLattice : IntegralLattice (Fin 10 → ℚ) :=
-  IntegralLattice.ofGramMatrix (Pi.basisFun ℚ (Fin 10)) firstGram (by
-    apply Matrix.IsSymm.ext
-    intro i j
-    fin_cases i <;> fin_cases j <;> decide)
+  IntegralLattice.ofGramMatrix (Pi.basisFun ℚ (Fin 10)) firstGram firstGram_symmetric
 
 /-- Specialize the native Gram-lattice constructor to the second integer matrix. -/
 noncomputable def secondLattice : IntegralLattice (Fin 10 → ℚ) :=
-  IntegralLattice.ofGramMatrix (Pi.basisFun ℚ (Fin 10)) secondGram (by
-    apply Matrix.IsSymm.ext
-    intro i j
-    fin_cases i <;> fin_cases j <;> decide)
-
-/-- The first Gram matrix is symmetric. -/
-theorem firstGram_symmetric : firstGram.IsSymm := by sorry
-
-/-- The second Gram matrix is symmetric. -/
-theorem secondGram_symmetric : secondGram.IsSymm := by sorry
+  IntegralLattice.ofGramMatrix (Pi.basisFun ℚ (Fin 10)) secondGram secondGram_symmetric
 
 /-- The signed determinant of the first intersection matrix is negative four. -/
 theorem firstGram_determinant : firstGram.det = -4 := by sorry
@@ -188,10 +188,19 @@ example (x : firstLattice.dualCarrier) :
   exact IntegralLattice.discriminantQuadraticMap_mk _ _ _
 
 /-- A spinor full norm minus two has native quadratic value zero. -/
-example : ((-2 / 2 : ℚ) : AddCircle (1 : ℚ)) = 0 := by sorry
+example : ((-2 / 2 : ℚ) : AddCircle (1 : ℚ)) = 0 := by
+  rw [AddCircle.coe_eq_zero_iff]
+  exact ⟨-1, by norm_num⟩
 
 /-- A vector full norm minus one is not isotropic in the native convention. -/
-example : ((-1 / 2 : ℚ) : AddCircle (1 : ℚ)) ≠ 0 := by sorry
+example : ((-1 / 2 : ℚ) : AddCircle (1 : ℚ)) ≠ 0 := by
+  rw [Ne, AddCircle.coe_eq_zero_iff]
+  rintro ⟨n, hn⟩
+  have h : (2 * n + 1 : ℚ) = 0 := by
+    rw [zsmul_eq_mul, mul_one] at hn
+    linarith
+  have h' : (2 * n + 1 : ℤ) = 0 := by exact_mod_cast h
+  omega
 
 /-- The weighted-degree-two incidence equation for I₄* has fifteen solutions; README 6.11. -/
 theorem i4Star_incidence_count :
