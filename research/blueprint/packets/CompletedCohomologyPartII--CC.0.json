@@ -1,0 +1,1759 @@
+{
+ "roadmapId": "CompletedCohomologyPartII",
+ "protocol": "blueprint-v1",
+ "part": "CC.0",
+ "scope": [
+  "CompletedCohomologyPartII:CC.0",
+  "CompletedCohomologyPartII:CC.1",
+  "CompletedCohomologyPartII:CC.2",
+  "CompletedCohomologyPartII:CC.3",
+  "CompletedCohomologyPartII:CC.4",
+  "CompletedCohomologyPartII:CC.5",
+  "CompletedCohomologyPartII:CC.6",
+  "CompletedCohomologyPartII:CC.7"
+ ],
+ "status": "complete",
+ "title": "Arithmetic locally symmetric spaces and their cohomology, Part II: completed cohomology and homology",
+ "parent": "ArithmeticLocallySymmetricSpaces",
+ "summary": "An import index for stages CC.0–CC.7, with five new nodes. The whole-roadmap packet CompletedCohomologyPartII.json (68 nodes, accepted by independent-review-REV-CompletedCohomologyPartII on 2026-10-13) already plans every target of these stages, the five added sources of this job and the red-team findings handed to it (RT-AREA-automorphic-1/3, /17 and the CC.4 route of /18). To plan them here again would plan them twice, so targetCoverage maps each of the stages' 49 targets to its owning nodes, imports lists the 67 nodes read, routeCoverage maps every added paper item, findingsCoverage every finding and consumerRequests every request other roadmaps make of these stages. Five targets are stated by no owner node and are planned here: Fu's double-limit rational completed homology identified with the owner's completed homology; Nakamura's completed modules at varying tame level and their isomorphism onto a smooth contragredient; and, for the requests of CohomologyComparisons, Pan's control lemma for complete torsion-free complexes and the coefficient interchange of completed cohomology. Nothing is formalised; the owner's gaps and requests remain the owner's.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "tauceti:Representation.averageMap_eq_invOf_card_smul_norm",
+    "kind": "theorem",
+    "module": "TauCeti/RepresentationTheory/Invariants.lean",
+    "provides": "For a finite group G with |G| invertible in k, Mathlib's averaging projection averageMap equals the group sum Representation.norm scaled by ⅟|G|: the finite form of the identity e_K = [K : K']⁻¹ (sum over K/K') on K'-invariants.",
+    "checked": "Statement and hypotheses (CommRing k, Group G, Fintype G, Invertible (Fintype.card G : k)) read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-14; present in the pinned declaration index."
+   },
+   {
+    "ref": "mathlib:Representation.averageMap",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Invariants.lean",
+    "provides": "The averaging projection onto the invariants of a representation of a finite group whose order is invertible in the coefficient ring.",
+    "checked": "Definition and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; present in the pinned declaration index."
+   },
+   {
+    "ref": "mathlib:IsAdicComplete",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "An I-adically Hausdorff and precomplete module; for I = (varpi) this is the completeness of the terms in CC.2/complete-torsion-free-complex-control.",
+    "checked": "Class and its parents IsHausdorff and IsPrecomplete read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; present in the pinned declaration index."
+   },
+   {
+    "ref": "mathlib:Representation.dual",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "The contragredient on the algebraic dual, g acting by the transpose of ρ(g⁻¹); SR.0's smooth contragredient is its smooth part.",
+    "checked": "Definition and dual_apply read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; present in the pinned declaration index."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "CE",
+   "title": "Completed cohomology — a survey",
+   "authors": "Frank Calegari and Matthew Emerton",
+   "edition": "Author survey PDF; printed pp.1–20",
+   "url": "https://math.uchicago.edu/~emerton/pdffiles/survey.pdf",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§1.1, definitions of completed homology and cohomology, p. 2",
+    "Theorem 1.1(1) and (3), pp. 3–4"
+   ],
+   "sha256": "926a5de427c4355da43daf00616fc81e366a52b34f53bb256d24309d2f7d0e08"
+  },
+  {
+   "id": "Fu",
+   "title": "Sharp bounds for multiplicities of Bianchi modular forms",
+   "authors": "Weibo Fu",
+   "edition": "arXiv:2201.11190v2; printed preprint pages; Annals 200 (2024)",
+   "url": "https://arxiv.org/pdf/2201.11190v2",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§1, equation (4), p. 3",
+    "§7, the displayed definition, the two bullets and (38), pp. 23–24"
+   ],
+   "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614"
+  },
+  {
+   "id": "Nakamura",
+   "title": "Zeta morphisms for rank two universal deformations",
+   "authors": "Kentaro Nakamura",
+   "edition": "arXiv:2006.13647, fetched 14 October 2026 (the same file as the owner's record); arXiv pages are cited, and the corresponding pages of the open-access version of record, Inventiones mathematicae 234 (2023), 171–290, SHA-256 47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4, are given in brackets",
+   "url": "https://arxiv.org/pdf/2006.13647",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§2.3.1, arXiv pp. 20–22 (Inventiones pp. 191–192)",
+    "§2.3.2, Lemma 2.4 and its proof, the Hecke normalisation, the projector and the tame-level isomorphism, arXiv pp. 22–24 (Inventiones pp. 192–195)",
+    "§2.3.3 and Corollary 2.5, arXiv pp. 24–25 (Inventiones pp. 195–196), for the use only",
+    "Appendix B.2.4, Definitions B.13–B.15 and Lemma B.16, arXiv pp. 95–96, to place B.16"
+   ],
+   "sha256": "0d8fa462594a20ef96d755d31a13ba23081f1454bfe9809a5fda54fd30311ba7"
+  },
+  {
+   "id": "Pan22",
+   "title": "On locally analytic vectors of the completed cohomology of modular curves",
+   "authors": "Lue Pan",
+   "edition": "Forum of Mathematics, Pi 10 (2022), e7, 1–82, open-access version of record, doi:10.1017/fmp.2022.1; checked against arXiv:2008.07099v3 (8 July 2021), whose Lemma 4.4.4 is on p. 48",
+   "url": "https://doi.org/10.1017/fmp.2022.1",
+   "sha256": "61549f3aa31342994049b2d4780009f722c96b6331d0db6dd5bede0453bc293e",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§4.4, Corollary 4.4.3, Lemma 4.4.4 with its proof and Remark 4.4.5, published pp. 43–44 (arXiv v3 pp. 47–48)"
+   ]
+  },
+  {
+   "id": "PanII",
+   "title": "On locally analytic vectors of the completed cohomology of modular curves II",
+   "authors": "Lue Pan",
+   "edition": "arXiv:2209.06366v1 (14 September 2022), the version CohomologyComparisons and PAPER-PAN-26 cite; published in Annals of Mathematics 203 (2026), not read",
+   "url": "https://arxiv.org/pdf/2209.06366v1",
+   "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§7.2, the construction of the maps g_{k,m}, Lemmas 7.2.5 and 7.2.6 with their proofs, pp. 118–120"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology",
+   "parentStageId": "CompletedCohomologyPartII:CC.3",
+   "realises": [
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "kind": "comparison",
+   "title": "Finite-coefficient model of completed homology",
+   "statement": "Fix the tame level K^p, a compact open K_0 of the p-adic group with a countable basis of open normal subgroups U, and the neat finite-type tower Y_U with the finite free O-local system of CC.3/completed-homology-and-borel-moore. For every n the coefficient-reduction maps induce an O[[K_0]]-linear homeomorphism H̃_n ≅ lim_s H̃_{n,s}, where H̃_{n,s} = lim_U H_n(Y_U, O/varpi^s); likewise H̃_n^{BM} ≅ lim_s lim_U H_n^{BM}(Y_U, O/varpi^s). The isomorphisms commute with the support map H̃_n → H̃_n^{BM}, covering pushforward, conjugation and the transported tame Hecke maps. Consequently the rational completed homology of Fu, (lim_s lim_U H_n(Y_U, Z/p^s)) ⊗_{Z_p} K for a finite extension K/Q_p, is K ⊗_{Z_p} H̃_n for O = Z_p: rationalisation is applied after both limits. It is not the limit lim_U H_n(Y_U, E) of rational finite-level homology: in the tower of connected degree-p covers of a circle the first is 0 and the second is E.",
+   "hypotheses": [
+    "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
+    "Fixed tame level K^p; every Y_U is a neat finite level with the finite cellular model of ALS.1/finite-complex-model (relative cells of the Borel–Serre pair for Borel–Moore homology), so its homology with coefficients in a finite O-module is a finite O-module.",
+    "The coefficient system is the finite free O-local system fixed in CC.3/completed-homology-and-borel-moore; for an algebraic lattice W_0 the integral local actions are those of H_int = Stab_H(W_0).",
+    "Fu's instance: O = Z_p and the rationalisation is ⊗_{Z_p} K for a finite extension K of Q_p."
+   ],
+   "proofSteps": [
+    "At a fixed level U the cellular chain complex C_U is a bounded complex of finite free O-modules (ALS.1/finite-complex-model), and H_n(Y_U, O/varpi^s) = H_n(C_U/varpi^s) is a finite O-module; for Borel–Moore homology use the relative complex of the Borel–Serre pair.",
+    "For fixed n the systems s ↦ Z_n(C_U/varpi^s) and s ↦ B_n(C_U/varpi^s) consist of finite modules, so they are Mittag-Leffler and their lim¹ vanishes (ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one). So lim_s is exact on 0 → B_n → Z_n → H_n → 0 and on 0 → Z_n → C_n → B_{n−1} → 0, and lim_s H_n(C_U/varpi^s) = H_n(lim_s C_U/varpi^s) = H_n(C_U) since C_U is varpi-adically complete.",
+    "Coefficient reduction commutes with covering pushforward, so (U, s) ↦ H_n(Y_U, O/varpi^s) is a functor on a product of two directed sets and its limit may be taken in either order: lim_s lim_U H_n(Y_U, O/varpi^s) ≅ lim_U lim_s H_n(Y_U, O/varpi^s) = lim_U H_n(Y_U, O) = H̃_n.",
+    "Both sides are compact Hausdorff, being limits of finite discrete modules, and the comparison is a continuous bijection, hence a homeomorphism. Deck transformations, supports and the transported Hecke correspondences commute with coefficient reduction, so the map is O[[K_0]]-linear for the action of CC.3/iwasawa-action-on-homology.",
+    "Rationalisation: K ⊗_{Z_p} (−) is applied to the integral limit. In the tower of connected degree-p covers of a circle, pushforward on H_1(−, O) = O is multiplication by p, so H̃_1 = 0, whereas lim(E ← E ← …) along multiplication by p is E because p is invertible in E."
+   ],
+   "acceptance": [
+    "Circle tower of connected degree-p covers: H̃_{1,s} = lim(O/varpi^s ← O/varpi^s ← …) along multiplication by p is 0 for every s, H̃_1 = 0, and the comparison is the zero isomorphism.",
+    "Zero-dimensional regular tower Y_U = K_0/U: H̃_{0,s} = (O/varpi^s)[[K_0]] and its limit over s is O[[K_0]] = H̃_0, the owner's test regular_zero_homology.",
+    "Non-example for commuting limits with rationalisation: in the circle tower E ⊗_O H̃_1 = 0 while lim_U H_1(Y_U, E) = E.",
+    "At s = 1 the composite H̃_n ≅ lim_s H̃_{n,s} → H̃_{n,k} is the reduction map of the Bockstein sequence of CC.3/finite-coefficient-duality-and-bockstein, with cokernel H̃_{n−1}[varpi]; in the circle tower H̃_{0,k} = k and H̃_0 = O, consistent with H̃_{−1} = 0."
+   ],
+   "prerequisites": [
+    "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+    "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
+    "ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one"
+   ],
+   "uses": [
+    {
+     "where": "Fu, §7, before (38), arXiv v2 p. 23",
+     "how": "The finitely generated torsion Iwasawa module and the descent spectral sequence (38) are stated for this rational double-limit model; CC.5/semisimple-homology-torsion and CC.6/homological-hyperTor-descent prove them for H̃_n, and this comparison transports them."
+    },
+    {
+     "where": "CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein",
+     "how": "The fixed-exponent modules H̃_{n,s} are the ones that duality pairs with the fixed-exponent cohomology; this node says how they assemble to H̃_n."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "Fu",
+     "locator": "§1, equation (4), p. 3; §7, the displayed definition before (38), p. 23",
+     "match": "Fu defines completed homology at a fixed tame level as the limit over the exponent s of the limit over p-levels of homology with Z/p^s coefficients, tensored afterwards with a finite extension K of Q_p, and quotes its finite generation over K[[G]] from Emerton and Calegari–Emerton."
+    },
+    {
+     "sourceId": "CE",
+     "locator": "§1.1, p. 2; Theorem 1.1(1), p. 3",
+     "match": "Calegari and Emerton define completed homology as the limit over the tower of homology with Z_p coefficients, assuming each space has the homotopy type of a finite simplicial complex so that all these groups are finitely generated, and state that the projective-limit topology is the canonical one."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/CompletedCohomology/Layer3",
+    "namespace": "TauCeti.CompletedCohomology"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
+   "parentStageId": "CompletedCohomologyPartII:CC.3",
+   "realises": [
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "kind": "construction",
+   "title": "Completed modules at varying tame level",
+   "statement": "Let Σ₀ be a finite set of finite places of F not above p, G_{Σ₀} = ∏_{v∈Σ₀} G(F_v), and fix the level K^Σ at the finite places outside Σ = Σ₀ ∪ {places above p}. For a compact open K_{Σ₀} ⊂ G_{Σ₀} with K_{Σ₀}K^Σ neat, write H̃^n_c(K_{Σ₀}) for the completed compact-support cohomology (CC.2, support c) and H̃_n^{BM}(K_{Σ₀}) for the completed Borel–Moore homology (CC.3) of the p-tower at tame level K_{Σ₀}K^Σ. For K'_{Σ₀} ⊂ K_{Σ₀}, finite-cover pullback gives res: H̃^n_c(K_{Σ₀}) → H̃^n_c(K'_{Σ₀}) and the finite-cover transfer gives tr: H̃_n^{BM}(K_{Σ₀}) → H̃_n^{BM}(K'_{Σ₀}); both commute with the p-level and coefficient transitions. Define H̃^n_{c,Σ} = colim_{K_{Σ₀}} H̃^n_c(K_{Σ₀}) along res and H̃_{n,Σ}^{BM} = colim_{K_{Σ₀}} H̃_n^{BM}(K_{Σ₀}) along tr. Conjugation of tame levels gives each a smooth O-linear action of G_{Σ₀}, commuting with the action of the p-adic group at each tame level and with the tame Hecke operators at places outside Σ. The colimit is taken after completion in s; it is a different construction from the fixed-exponent tame colimit of CC.1/tame-level-variation, and the two are not identified here.",
+   "hypotheses": [
+    "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
+    "Σ₀ is finite and contains no place above p; K^Σ is fixed; every tame level K_{Σ₀}K^Σ used is neat.",
+    "For K'_{Σ₀} normal in K_{Σ₀}, the cover at level K'_{Σ₀}K^Σ over level K_{Σ₀}K^Σ is a finite Galois cover whose group is the effective quotient of K_{Σ₀}/K'_{Σ₀}; its degree divides [K_{Σ₀} : K'_{Σ₀}]. For Shimura quotients with infinite central units the owner verifies the effective deck group (its gap G12).",
+    "The invariants statement requires K_{Σ₀} of pro-order invertible in O (SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order)."
+   ],
+   "proofSteps": [
+    "At each p-level and exponent, pullback and finite-cover transfer between tame levels are the ALS pullback and the finite-cover transfer of the AlgebraicTopology supplier; they commute with p-level pushforward and pullback and with coefficient reduction, so they pass to the completed modules of CC.2/coefficient-limit-completion and CC.3/completed-homology-and-borel-moore.",
+    "Form the two filtered colimits in O-modules. Conjugation by g ∈ G_{Σ₀} carries level K_{Σ₀} to gK_{Σ₀}g⁻¹ and commutes with res and tr, so G_{Σ₀} acts; a class coming from level K_{Σ₀} is fixed by K_{Σ₀}, so the action is smooth (SR.0:abelian-category/smooth-rep-category).",
+    "For K' normal in K of index invertible in O: cor∘res is multiplication by the degree and res∘cor is the group sum over the deck group (CC.1/restriction-corestriction-normalisation, applied at every exponent and passed to the limit). Hence res is injective with image the invariants, and the averaging projector e_K of SR.0 satisfies e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor; the finite form of this identity is Tau Ceti's Representation.averageMap_eq_invOf_card_smul_norm. The Borel–Moore side is the same with tr and pushforward exchanged.",
+    "Invariants commute with filtered colimits of smooth modules when e_K exists, which gives (H̃^n_{c,Σ})^{K} = H̃^n_c(K) and the Borel–Moore analogue."
+   ],
+   "acceptance": [
+    "An element in the image of level K_{Σ₀} is fixed by every g ∈ K_{Σ₀}: conjugation by g maps level K_{Σ₀} to itself and acts there as the identity.",
+    "For a finite group acting with invertible order, the averaging identity of TameCompleted.averaging_comp_ι is Tau Ceti's Representation.averageMap_eq_invOf_card_smul_norm (averageMap = ⅟|G| • norm).",
+    "Pushforward after transfer is multiplication by the degree on the Borel–Moore side, and cor after res is multiplication by the degree on the cohomology side, at every exponent and after completion."
+   ],
+   "prerequisites": [
+    "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+    "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+    "CompletedCohomologyPartII:CC.1/tame-level-variation",
+    "CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector",
+    "tauceti:Representation.averageMap_eq_invOf_card_smul_norm",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+   ],
+   "uses": [
+    {
+     "where": "Nakamura, §2.3.1, arXiv p. 22 (Inventiones 234, p. 192)",
+     "how": "The completed Borel–Moore homology of modular curves at tame level Σ₀ is the colimit of the fixed-tame-level modules along restriction, with its smooth action of G_{Σ₀}; restriction there is the Poincaré dual of the transfer used here."
+    },
+    {
+     "where": "Nakamura, §2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195)",
+     "how": "The compactly supported completed cohomology at tame level Σ₀ has K_{Σ₀}-invariants equal to the fixed-level module, and the projector restricted to a smaller level is the normalised trace."
+    },
+    {
+     "where": "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality",
+     "how": "Both colimits, the invariants identification and the projector formula are the inputs of the tame-level duality."
+    },
+    {
+     "where": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4 (Nakamura, Corollary 2.5, through PAPER-NAKAMURA-23/12)",
+     "how": "The residual-localised Borel–Moore module at tame level Σ₀ is built from this colimit."
+    }
+   ],
+   "api": [
+    {
+     "name": "TameCompleted.ι",
+     "role": "constructor",
+     "statement": "Structure maps H̃^n_c(K_{Σ₀}) → H̃^n_{c,Σ} and H̃_n^{BM}(K_{Σ₀}) → H̃_{n,Σ}^{BM}, compatible with res and tr respectively."
+    },
+    {
+     "name": "TameCompleted.smooth",
+     "role": "characterisation",
+     "statement": "Every element of either colimit is fixed by a compact open subgroup of G_{Σ₀}; an element in the image of level K_{Σ₀} is fixed by K_{Σ₀}."
+    },
+    {
+     "name": "TameCompleted.invariants",
+     "role": "equivalence",
+     "statement": "For K_{Σ₀} of pro-order invertible in O, ι identifies H̃^n_c(K_{Σ₀}) with (H̃^n_{c,Σ})^{K_{Σ₀}} and H̃_n^{BM}(K_{Σ₀}) with (H̃_{n,Σ}^{BM})^{K_{Σ₀}}; in particular ι is injective."
+    },
+    {
+     "name": "TameCompleted.averaging_comp_ι",
+     "role": "compatibility",
+     "statement": "For K' ⊂ K of index invertible in O, e_K ∘ ι_{K'} = ι_K ∘ [K : K']⁻¹ cor on H̃^n_c(K'), with e_K the averaging projector of SR.0."
+    },
+    {
+     "name": "TameCompleted.equivariant",
+     "role": "functoriality",
+     "statement": "The G_{Σ₀}-action commutes with the action of the p-adic group at each tame level and with tame Hecke operators at places outside Σ."
+    },
+    {
+     "name": "TameCompleted.of_empty",
+     "role": "example",
+     "statement": "For Σ₀ = ∅ the structure maps are isomorphisms from the fixed-level modules."
+    }
+   ],
+   "tests": [
+    {
+     "name": "tameCompleted_empty",
+     "kind": "degenerate",
+     "statement": "With Σ₀ empty, H̃^n_{c,Σ} = H̃^n_c(K^p) and H̃_{n,Σ}^{BM} = H̃_n^{BM}(K^p)."
+    },
+    {
+     "name": "tameCompleted_points",
+     "kind": "value",
+     "statement": "For levels Y(K) = K⁰/K of a profinite K⁰ of pro-order invertible in O with trivial p-tower, H̃^0_{c,Σ} = C^∞(K⁰, O) with translation action, and its K-invariants are the functions on K⁰/K; H̃_{0,Σ}^{BM} = colim_K O[K⁰/K] along the maps sending a coset to the sum of the smaller cosets it contains."
+    },
+    {
+     "name": "tameCompleted_p_index",
+     "kind": "non-example",
+     "statement": "For the connected degree-p cover of a circle, pullback on H^1(−, F_p) = F_p is zero; with a p-power index the transition is not injective and level invariants are not recovered."
+    },
+    {
+     "name": "tameCompleted_transfer_not_pushforward",
+     "kind": "characterisation",
+     "statement": "For the connected double cover of a circle with p odd, transfer H_1(S^1, O) → H_1(S^1, O) is an isomorphism and pushforward after transfer is multiplication by 2; the Borel–Moore colimit uses transfer, not pushforward."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "Nakamura",
+     "locator": "§2.3.1, arXiv p. 22 (Inventiones 234, p. 192)",
+     "match": "The completed Borel–Moore homology at tame level Σ₀ is defined as the direct limit over compact opens of G_{Σ₀} of the fixed-level modules along restriction maps, and carries a smooth action of G_{Σ₀}."
+    },
+    {
+     "sourceId": "Nakamura",
+     "locator": "§2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195)",
+     "match": "For a compact open of pro-order prime to p, the projector onto invariants is defined with the normalised Haar measure; the invariants of the tame-level compactly supported completed cohomology are the fixed-level module, and the projector restricted to a smaller level is the corestriction divided by the index."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/CompletedCohomology/Layer3",
+    "namespace": "TauCeti.CompletedCohomology"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality",
+   "parentStageId": "CompletedCohomologyPartII:CC.3",
+   "realises": [
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "kind": "theorem",
+   "title": "Tame-level Borel–Moore duality",
+   "statement": "In the setting of CC.3/tame-level-completed-modules, fix a compact open K⁰_{Σ₀} ⊂ G_{Σ₀} of pro-order invertible in O, the O-valued Haar measure μ on G_{Σ₀} with μ(K⁰_{Σ₀}) = 1, and a degree n. Suppose that H̃^{n+1}_c(K_{Σ₀})[varpi^∞] = 0 for every open K_{Σ₀} ⊂ K⁰_{Σ₀}, so that by the compact-support and Borel–Moore case of CC.3/duality-between-completed-homology-and-completed-cohomology the evaluation map h_{K_{Σ₀}}: H̃_n^{BM}(K_{Σ₀}) → Hom_O(H̃^n_c(K_{Σ₀}), O) is a homeomorphism of compact O-modules. Put V = H̃^n_{c,Σ}. Then the maps μ(K_{Σ₀})·h_{K_{Σ₀}}, followed by the identification Hom_O(V^{K_{Σ₀}}, O) ≅ (Ṽ)^{K_{Σ₀}}, λ ↦ λ∘e_{K_{Σ₀}}, of SR.0, are compatible with the transfer transitions, and induce an O-linear isomorphism H̃_{n,Σ}^{BM} ≅ Ṽ onto the smooth contragredient of V. It restricts at each K_{Σ₀} to a homeomorphism H̃_n^{BM}(K_{Σ₀}) ≅ (Ṽ)^{K_{Σ₀}}, and it is equivariant for G_{Σ₀}, for the p-adic group with the contragredient convention of CC.3/continuous-dual-conventions, and for each tame Hecke correspondence at places outside Σ, which acts on Borel–Moore homology by the transposed correspondence. Without the torsion hypothesis h_{K_{Σ₀}} has kernel Hom_O(H̃^{n+1}_c(K_{Σ₀})[varpi^∞], E/O) and no isomorphism is asserted.",
+   "hypotheses": [
+    "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
+    "The hypotheses of CC.3/tame-level-completed-modules, with K⁰_{Σ₀}K^Σ neat; for GL₂ one may take K⁰_{Σ₀} = ∏_{l∈Σ₀}(1 + l M₂(Z_l)), which is pro-l at each l ∈ Σ₀.",
+    "G_{Σ₀} is unimodular (a product of groups of points of reductive groups), so μ(gKg⁻¹) = μ(K).",
+    "H̃^{n+1}_c(K_{Σ₀})[varpi^∞] = 0 for all open K_{Σ₀} ⊂ K⁰_{Σ₀}. For modular curves and n = 1 this holds because the completed H^2_c vanishes, the result of Emerton that Nakamura cites in the proof of his Lemma 2.4."
+   ],
+   "proofSteps": [
+    "Fixed tame level: the compact-support and Borel–Moore case of the owner's integral duality gives 0 → Hom_O(H̃^{n+1}_c[varpi^∞], E/O) → H̃_n^{BM} → Hom_O(H̃^n_c, O) → 0. Under the hypothesis h_K is a continuous bijection of compact Hausdorff modules, hence a homeomorphism (Nakamura, Lemma 2.4, for the modular curve).",
+    "Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology (ALS.3/level-trace). With e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O) (PAPER-NAKAMURA-23/E3).",
+    "SR.0 smooth-dual (3) identifies Hom_O(V^K, O) with (Ṽ)^K for K of pro-order invertible in O, and TameCompleted.invariants gives V^K = H̃^n_c(K); these identifications are compatible with the inclusions (Ṽ)^K ⊂ (Ṽ)^{K'}.",
+    "Pass to the colimit over the cofinal family of open K ⊂ K⁰: every vector of Ṽ is fixed by some such K, so the union of the (Ṽ)^K is Ṽ, and the colimit of H̃_n^{BM}(K) along transfer is H̃_{n,Σ}^{BM}.",
+    "Equivariance: conjugation by g carries μ(K)h_K to μ(gKg⁻¹)h_{gKg⁻¹} because μ is conjugation invariant; the p-adic group acts through the contragredient convention; a Hecke correspondence acts on homology by its transpose, for which evaluation is invariant (CC.1/tame-hecke-on-colimits). In Nakamura's cohomological model of H̃_1^{BM} through Poincaré duality this transposed action is T'_l = T_l S_l⁻¹, S'_l = S_l⁻¹."
+   ],
+   "acceptance": [
+    "Zero-dimensional example of CC.3/tame-level-completed-modules: the isomorphism sends the coset gK to the functional f ↦ ∫_{gK} f dμ on C^∞(K⁰, O). Without the factor μ(K) the maps fail to commute with transfer by the factor [K : K'].",
+    "Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹_{c,Σ}; its Galois equivariance uses the Galois action transported by the accepted CC.8 adapter.",
+    "If H̃^{n+1}_c(K)[varpi^∞] ≠ 0, the kernel Hom_O(H̃^{n+1}_c(K)[varpi^∞], E/O) of h_K is nonzero.",
+    "With K⁰ = GL₂(Z_l) and p dividing |GL₂(F_l)| the normalisation μ(K) is not defined in O; first pass to a pro-l open subgroup."
+   ],
+   "prerequisites": [
+    "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
+    "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+    "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+    "CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector",
+    "SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure",
+    "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace"
+   ],
+   "uses": [
+    {
+     "where": "Nakamura, §2.3.3 and Corollary 2.5, arXiv p. 25 (Inventiones 234, pp. 195–196)",
+     "how": "The residual-localised completed Borel–Moore homology at tame level Σ₀ is identified with the smooth contragredient of completed cohomology, the starting point of the zeta morphisms; that corollary is routed to CompletedCohomologyAndLocalGlobalCompatibility:R31.4."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "Nakamura",
+     "locator": "§2.3.2, Lemma 2.4 and its proof, arXiv p. 22 (Inventiones 234, p. 193)",
+     "match": "At a fixed tame level the evaluation map from completed Borel–Moore homology to the O-dual of compactly supported completed cohomology is a topological isomorphism, because the Calegari–Emerton sequence has a torsion term that vanishes since the completed H^2_c is zero."
+    },
+    {
+     "sourceId": "Nakamura",
+     "locator": "§2.3.2, arXiv p. 23 (Inventiones 234, p. 193)",
+     "match": "Hecke operators on the Borel–Moore side are normalised as T'_l = T_l S_l⁻¹ and S'_l = S_l⁻¹ so that the duality map is Hecke-linear."
+    },
+    {
+     "sourceId": "Nakamura",
+     "locator": "§2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195)",
+     "match": "With a compact open of pro-order prime to p and the normalised Haar measure, the normalised fixed-level duality maps composed with the projector identification assemble into a Hecke- and group-equivariant topological isomorphism from the tame-level Borel–Moore homology to the smooth contragredient of the tame-level compactly supported completed cohomology."
+    },
+    {
+     "sourceId": "CE",
+     "locator": "Theorem 1.1(3), second sequence, p. 3",
+     "match": "Completed homology maps onto the O-dual of completed cohomology with kernel the E/O-dual of the torsion of the next completed cohomology group, with Borel–Moore and compact-support variants."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/CompletedCohomology/Layer3",
+    "namespace": "TauCeti.CompletedCohomology"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control",
+   "parentStageId": "CompletedCohomologyPartII:CC.2",
+   "realises": [
+    "CompletedCohomologyPartII:CC.2"
+   ],
+   "kind": "theorem",
+   "title": "Control of complete torsion-free complexes",
+   "statement": "Let M^• be a bounded-above complex of varpi-adically complete, varpi-torsion-free O-modules. Then (1) no H^i(M^•) has a nonzero varpi-divisible element: Hom_O(E, H^i(M^•)) = 0, hence its varpi-adic Tate module lim_n H^i(M^•)[varpi^n] (transitions multiplication by varpi) is zero; (2) for every n there is a natural exact sequence 0 → H^i(M^•)/varpi^n → H^i(M^•/varpi^n) → H^{i+1}(M^•)[varpi^n] → 0, and these sequences form an inverse system whose third terms have transition multiplication by varpi; (3) the induced map lim_n H^i(M^•)/varpi^n → lim_n H^i(M^•/varpi^n) is an isomorphism; (4) if moreover lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion for every i, then H^i(M^•) → lim_n H^i(M^•)/varpi^n is also an isomorphism, so H^i(M^•) is varpi-adically complete and separated and equals lim_n H^i(M^•/varpi^n). The statement is for complete and torsion-free terms: for M = E in degree 0 the limit of H^0(M/varpi^n) is 0 while H^0(M) = E.",
+   "hypotheses": [
+    "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
+    "M^• is bounded above; each M^i is varpi-adically complete and separated (IsAdicComplete for the ideal (varpi)) and varpi-torsion-free.",
+    "Clause (4) also assumes that every lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion."
+   ],
+   "proofSteps": [
+    "Divisible elements: if x_n ∈ H^i(M) satisfy varpi x_n = x_{n−1} with x_0 ≠ 0, lift them to cocycles x̃_n and choose y_n with d y_n = x̃_{n−1} − varpi x̃_n; the convergent sum y = Σ varpi^{n−1} y_n satisfies dy = x̃_0, a contradiction. So Hom_O(E, H^i) = 0, and the Tate module, a submodule of Hom_O(E, H^i) by the sequence 0 → O → E → E/O → 0, vanishes.",
+    "Bockstein: M is varpi-torsion-free, so 0 → M → M → M/varpi^n → 0 (multiplication by varpi^n) is exact; its long exact sequence gives (2), and comparing n + 1 with n shows that the transition on the third terms is multiplication by varpi.",
+    "The third terms form a system with zero limit by (1). The first terms H^i/varpi^n have surjective transitions, so their lim¹ vanishes (ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one) and the limit of the exact sequences gives (3).",
+    "Completeness: H^i(M) is a quotient of the complete module of cocycles, so H^i(M) → lim H^i(M)/varpi^n is onto. If its kernel K were nonzero, bounded torsion (varpi^k kills the torsion of the limit) shows varpi K = K, which with (1) forces K = 0."
+   ],
+   "acceptance": [
+    "M = O in degree 0: both limits are O.",
+    "M = [O → O] in degrees 0, 1 with differential multiplication by varpi: H^0 = 0 and H^1 = O/varpi = k. H^0(M/varpi^n) = varpi^{n−1}O/varpi^n ≅ k is nonzero for every n, and the Bockstein sequence identifies it with H^1[varpi^n] = k, whose transitions are multiplication by varpi, hence zero: the limit of the H^0(M/varpi^n) is 0 = H^0(M).",
+    "Completeness is needed: M = E in degree 0 is torsion-free but not complete, and E is varpi-divisible with lim_n E/varpi^n = 0 ≠ E."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+    "mathlib:IsAdicComplete"
+   ],
+   "uses": [
+    {
+     "where": "CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit",
+     "how": "Pan's bounded-torsion inverse-limit argument for A_inf-coefficient cohomology of the perfectoid modular curve applies this lemma to a Čech complex; the request to CC.2 asks for exactly this control."
+    },
+    {
+     "where": "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
+     "how": "Identifies the completed tensor form of completed cohomology with arbitrary complete torsion-free coefficients."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "Pan22",
+     "locator": "§4.4, Lemma 4.4.4 and its proof, Forum Math. Pi 10 (2022), e7, p. 44 (arXiv:2008.07099v3, p. 48)",
+     "match": "For a bounded-above complex of p-adically complete p-torsion-free modules whose mod-p^n cohomologies have limits with bounded torsion, cohomology is the limit of its reductions and the limit of the mod-p^n cohomologies; the proof shows there are no divisible elements, uses the universal-coefficient sequence with multiplication by p on the torsion terms, and concludes by a divisibility argument."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/CompletedCohomology/Layer2",
+    "namespace": "TauCeti.CompletedCohomology"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
+   "parentStageId": "CompletedCohomologyPartII:CC.4",
+   "realises": [
+    "CompletedCohomologyPartII:CC.4"
+   ],
+   "kind": "theorem",
+   "title": "Integral cochain model and completed coefficients",
+   "statement": "For the lifted finite-cell tower of CC.4 at fixed tame level, let S̃^• be its integral admissible cochain model, the termwise continuous O-dual of the completed chain complex 𝒫 (CC.4/perfectness-and-cochain-comparison). Then S̃^• is a bounded complex of varpi-adically complete, varpi-torsion-free O-modules, with natural isomorphisms H^i(S̃) ≅ H̃^i and H^i(S̃/varpi^m) ≅ A^i_m, where A^i_m = colim_U H^i(Y_U, O/varpi^m), compatible with tower transitions, the integral local action and the transported Hecke maps; the same holds for the compact-support and boundary models. For every varpi-adically complete, varpi-torsion-free O-module M, with trivial action on the tower, the completed cohomology with coefficients M, H̃^i(M) = lim_m colim_U H^i(Y_U, M/varpi^m), is naturally isomorphic to lim_m (A^i_m ⊗_O M). If the varpi-power torsion of H̃^{i+1} is bounded, as CC.5/bounded-integral-torsion proves for this tower, H̃^i(M) is moreover the varpi-adic completion of H̃^i ⊗_O M.",
+   "hypotheses": [
+    "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
+    "The hypotheses of CC.4/completed-equivariant-cell-complex and CC.4/perfectness-and-cochain-comparison: a lifted finite-cell regular tower over a compact p-adic analytic K_0, at fixed tame level.",
+    "M is varpi-adically complete, separated and varpi-torsion-free, and the tower acts trivially on it; any further action on M (for example a Galois action on A_inf-type coefficients) is carried along by naturality.",
+    "The completed-tensor clause assumes that varpi^c kills the varpi-power torsion of H̃^{i+1} for some c."
+   ],
+   "proofSteps": [
+    "Terms: 𝒫_i = Λ^{c_i d}, so S̃^i = Hom_cont,O(𝒫_i, O) = C(K_0, O)^{c_i d}, varpi-adically complete and torsion-free (finite projective summands in the descended model).",
+    "Reductions: continuous maps into the discrete O/varpi^m factor through finite levels, so S̃/varpi^m = colim_U Hom_O(𝒫 ⊗_Λ (O/varpi^m)[K_0/U], O/varpi^m) = colim_U C^•(Z_U, O/varpi^m) by CC.4/derived-finite-level-coinvariants (underived, as 𝒫 is finite projective); exactness of filtered colimits (CC.1/fixed-exponent-smooth-colimit) gives H^i(S̃/varpi^m) ≅ A^i_m.",
+    "Integral cohomology: CC.2/integral-admissible-complex-control gives H^i(S̃) ≅ lim_m H^i(S̃/varpi^m) = H̃^i, naturally for the transitions and actions of the owner's CC.4 comparison.",
+    "Coefficients: M/varpi^m is flat over O/varpi^m because M is torsion-free, so colim_U C^•(Z_U, M/varpi^m) = (S̃/varpi^m) ⊗_{O/varpi^m} M/varpi^m and its cohomology is A^i_m ⊗_O M; take the limit over m.",
+    "Completed tensor: tensoring the Bockstein sequences of CC.2/complete-torsion-free-complex-control for S̃ with the flat M/varpi^m gives 0 → (H̃^i ⊗ M)/varpi^m → A^i_m ⊗ M → H̃^{i+1}[varpi^m] ⊗ M → 0. With varpi^c killing the torsion, c consecutive transitions of the third terms vanish, so their limit and lim¹ are zero and the limit of the middle terms is the completion of H̃^i ⊗_O M."
+   ],
+   "acceptance": [
+    "M = O: the coefficient formula is lim_m A^i_m = H̃^i, the owner's definition.",
+    "M = O[[T]] (complete and torsion-free, not finitely generated over O): when H̃^{i+1} has bounded torsion, H̃^i(O[[T]]) is the module H̃^i[[T]] of power series with coefficients in H̃^i.",
+    "Circle tower of connected degree-p covers: A^0_m = O/varpi^m and A^1_m = 0 (pullback is multiplication by p on H^1), so H̃^0(M) = M and H̃^1(M) = 0 for every complete torsion-free M."
+   ],
+   "prerequisites": [
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+    "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+    "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+    "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control",
+    "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
+    "CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control"
+   ],
+   "uses": [
+    {
+     "where": "CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent",
+     "how": "Pan's identification of completed cohomology with A_inf/(ker θ)^k coefficients is the case M = A_inf/(ker θ)^k of the coefficient formula; the request to CC.4 asks for this complex and this interchange."
+    },
+    {
+     "where": "Pan, On locally analytic vectors II, Lemma 7.2.6, arXiv v1 p. 120",
+     "how": "The stronger form for every p-adically complete torsion-free coefficient module."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "PanII",
+     "locator": "§7.2, Lemma 7.2.6(1) and its proof, arXiv:2209.06366v1, p. 120",
+     "match": "Completed cohomology with coefficients in a p-adically complete torsion-free module is the limit over m of the mod-p^m completed cohomology tensored with the module; the proof uses a complex of complete torsion-free modules computing completed cohomology and its reductions (attributed to Emerton), the universal-coefficient sequences and multiplication by p on the torsion terms."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/CompletedCohomology/Layer4",
+    "namespace": "TauCeti.CompletedCohomology"
+   },
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "imports": [
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/arithmetic-level-index",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/non-neat-tower-realisation",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/arithmetic-tower-tests",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "application",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.1/full-local-group-smooth-action",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "application",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.1/tame-level-variation",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/derived-completed-tower",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/completion-and-tate-module",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/qualified-biduality",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/dual-completion-tate-sequence",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/coefficient-module-duality",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/mixed-completed-tensor",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/lifted-cellular-tower",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/stabilizers-and-boundary-replacements",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.4/patched-perfect-model-import",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/bounded-integral-torsion",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/smooth-dual-admissibility",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/banach-admissibility",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/normalized-classical-growth",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/semisimple-homology-torsion",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/uniform-filtration-growth",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/fixed-exponent-descent",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/homological-hyperTor-descent",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "comparison",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/classical-evaluation-map",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "construction",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/lowest-degree-recovery",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.6/analytic-classical-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/completed-homological-support-sequence",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/completed-interior-image",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "definition",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/interior-image-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/completed-iwasawa-poincare-duality",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/boundary-strata-and-completed-induction",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "application",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.7/boundary-vanishing-support-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "application",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.5/classical-middle-rank-and-tate-torsion",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "role": "theorem",
+   "checked": "Statement, hypotheses, prerequisites and sources read on 2026-10-14; accepted with the whole packet by independent-review-REV-CompletedCohomologyPartII on 2026-10-13. Imported, not restated; this is not a formalisation claim."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII--CC.8.json",
+   "role": "theorem",
+   "checked": "Statement read on 2026-10-14; accepted part imported by the whole packet. Cited only where a stage of this part exports to it (localisation compatibility, the LLHLM unitary instance)."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII--CC.8.json",
+   "role": "comparison",
+   "checked": "Statement read on 2026-10-14; accepted part imported by the whole packet. Cited only where a stage of this part exports to it (localisation compatibility, the LLHLM unitary instance)."
+  }
+ ],
+ "targetCoverage": [
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Indexing category of levels, with cofinal normal and pro-p sequences",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/arithmetic-level-index"
+   ],
+   "comparison": "Compact opens of the p-adic group ordered by inclusion, with labelled conjugation arrows and their composition law. A countable normal basis is taken inside a fixed compact open, and it can be chosen pro-p after passing to an open uniform subgroup, which NoncommutativeAndEquivariantIwasawa:NE.0 supplies (RT-AREA-automorphic-1/3)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Finite covering correspondences, their composition identities and the conjugation maps",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
+    "CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence"
+   ],
+   "comparison": "One diagram of ordinary, compact-support and boundary complexes with pullback in the level and reduction in the exponent; trace is a separate reverse system. Identity and composition laws, compatibility with reduction, supports and tame Hecke operators. Same-lattice integral conjugation is restricted to H_int."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Levels with stabilisers: the stack or derived group-cohomology model, with torsion retained",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/non-neat-tower-realisation"
+   ],
+   "comparison": "The ALS groupoid or derived group-cohomology model at a non-neat level, descent from a neat normal refinement by RΓ(Q, −) including Q-torsion. A neat cofinal tower does not remove the stabilisers of a fixed non-neat level."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Compact support through compatible compactifications or the j! model, with trace maps",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
+    "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+    "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison"
+   ],
+   "comparison": "Topologically, compact support is the ALS Borel–Serre model with proper pullback and trace. For Shimura varieties the j! model of a proper algebraic compactification is compared with it, naturally in finite étale level maps, together with the unnormalised trace and the orientation dictionary."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Singular, cellular and étale finite-coefficient models compared under exact hypotheses",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+    "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison",
+    "CompletedCohomologyPartII:CC.4/lifted-cellular-tower"
+   ],
+   "comparison": "Étale–Betti comparison for finite locally constant coefficients on neat characteristic-zero Shimura varieties, with compact support; the cellular–singular comparison is part of the lifted cellular tower of CC.4. Constructible-coefficient and compactification-independence proofs are the owner's gap G10."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "target": "Acceptance tests on actual towers",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.0/arithmetic-tower-tests"
+   ],
+   "comparison": "Neat modular curves through ModularCurvesPartII:R14.3 and an anisotropic compact quotient: pullback, trace (trace after pullback is the degree), conjugation, supports and the cusp incidence diagram."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.1",
+   "target": "Filtered colimit at fixed exponent, in modules and in complexes; independence of cofinal restriction; exactness",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit"
+   ],
+   "comparison": "A^n_{*,s} = colim_K H^n(C^*_{K,s}) for the three supports, the colimit of complexes, and the exact-colimit identification of their cohomology; cofinal restriction through the final-functor comparison."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.1",
+   "target": "Action of the local group by conjugating levels; open stabilisers; smoothness",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.1/full-local-group-smooth-action"
+   ],
+   "comparison": "Left action through the CC.0 conjugation dictionary; every class has an open stabiliser, so the action is smooth. For a fixed algebraic lattice only H_int acts integrally."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.1",
+   "target": "Commuting tame Hecke operators from double correspondences, with explicit normalisation",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits"
+   ],
+   "comparison": "The ALS double-correspondence maps on the colimits and their complexes, commuting with the local action and obeying the convolution law; the completed Hecke algebra is the accepted CC.8 part's."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.1",
+   "target": "Mackey and restriction–corestriction identities with degree factors, never inverted integrally",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation",
+    "CompletedCohomologyPartII:CC.1/tame-level-variation"
+   ],
+   "comparison": "cor∘res is the index and res∘cor is the group sum for a normal subgroup, on the tower, the colimits and the descent diagrams; tame-level variation is a separate diagram whose interchange with completion needs its own comparison (see CC.3/tame-level-completed-modules)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Inverse system in the exponent and its topological limit; topology, separatedness, completeness",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+    "CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions"
+   ],
+   "comparison": "H̃^n_* = lim_s A^n_{*,s} with the projection topology, compared with the varpi-adic topology, separated, complete and with bounded torsion only under the finite-cell admissible model."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Derived inverse limit of complexes and the Milnor sequence, with the lim¹ term displayed",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/derived-completed-tower",
+    "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control"
+   ],
+   "comparison": "Rlim_s as the countable homotopy limit, distinct from H̃^n_*, and the natural sequence 0 → lim¹ A^{n−1} → H^n(Rlim) → H̃^n → 0."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Surjectivity and Mittag-Leffler criteria at each use",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control",
+    "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control"
+   ],
+   "comparison": "Mittag-Leffler of cohomology (not only of terms) removes lim¹; integral admissible complexes give essentially-null kernel and cokernel systems."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Reduction of the completed module against the finite-coefficient module, under explicit torsion and control hypotheses, with counterexample tests",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
+    "CompletedCohomologyPartII:CC.2/completion-and-tate-module",
+    "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
+    "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control"
+   ],
+   "comparison": "The Bockstein sequence 0 → H̃^n/varpi^s → A^n_s → H̃^{n+1}[varpi^s] → 0 after integral control; the completion and Tate module of the integral colimit and the exact sequence relating them, with the counterexamples recorded in the owner's tests."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Unitary Banach module after inverting p",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower"
+   ],
+   "comparison": "Gauge norm of the torsion-free quotient lattice; full-group unitarity needs a stable lattice. The general unitary Banach and Schikhof category is requested from PadicMeasuresIwasawaAlgebras:L1 (RT-AREA-automorphic-1/17)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Continuity of the group and Hecke actions",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions"
+   ],
+   "comparison": "Joint continuity of the integral local action and continuity of the transported Hecke endomorphisms, from smoothness at each exponent and the topology comparison."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "target": "Control of complexes of complete torsion-free modules (Pan 2022, Lemma 4.4.4; requested by CohomologyComparisons for CP.6)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control",
+    "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
+    "CompletedCohomologyPartII:CC.2/completion-and-tate-module"
+   ],
+   "comparison": "No divisible elements in cohomology, the Bockstein sequences with multiplication by varpi on the torsion terms and their vanishing limit, and completeness under bounded torsion; planned by this packet for any bounded-above complex, the owner's nodes giving the tower-specific forms."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Continuous O-linear and Pontryagin duals with their coefficient targets and topologies",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/continuous-dual-conventions"
+   ],
+   "comparison": "D_t into E/O with the discrete or compact topology and D_O into O with the uniform varpi-adic or pointwise compact topology; the transpose action is right-handed and inversion gives the left contragredient."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Dual of the smooth torsion colimit as a projective system; completed homology with its transfer direction",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+    "CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein",
+    "CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology"
+   ],
+   "comparison": "Completed homology and Borel–Moore homology as limits under covering pushforward; at a residue field the duals of the torsion colimits are the finite-coefficient completed homology. This packet adds the comparison of H̃_n with the double limit over exponent and level, which is Fu's model."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Module structure over O[[K_0]]; left modules distinguished from the opposite action of duality",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
+    "CompletedCohomologyPartII:CC.3/continuous-dual-conventions"
+   ],
+   "comparison": "Tau Ceti's completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule (current library) give the left action; duals carry the transpose right action, converted by the inversion anti-isomorphism."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Biduality only in the compact–discrete or admissible category",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/qualified-biduality",
+    "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
+    "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence"
+   ],
+   "comparison": "Biduality for compact modules that are limits of finite varpi-primary modules, for discrete torsion modules, and for torsion-free compact modules and complete torsion-free lattices; nothing for modules with torsion or other topologies."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Compatibility with localisation and completion, without commuting duals with arbitrary base change",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+    "CompletedCohomologyPartII:CC.3/dual-completion-tate-sequence",
+    "CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison",
+    "CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility"
+   ],
+   "comparison": "Integral completed duality and its completion–Tate dual sequence; the mixed tensor duality for finite local coefficient algebras only; localisation at residual ideals in the accepted CC.8 part."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Completed Borel–Moore homology and its duality with compactly supported completed cohomology, at fixed and at varying tame level (Nakamura §2.3)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+    "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+    "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
+    "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality"
+   ],
+   "comparison": "At fixed tame level, the compact-support and Borel–Moore case of the owner's duality (Nakamura, Lemma 2.4, once the torsion term vanishes). The colimit over tame levels and its identification with the smooth contragredient are planned by this packet's two nodes."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Coefficient-module duality and completed tensor products (Nakamura, Appendix B.1)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
+    "CompletedCohomologyPartII:CC.3/coefficient-module-duality",
+    "CompletedCohomologyPartII:CC.3/mixed-completed-tensor",
+    "CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison"
+   ],
+   "comparison": "Definitions B.1–B.4 and Lemmas B.5–B.6 with Emerton's Appendices B–C as proofs."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Admissible complexes and their perfect duals (Boxer–Pilloni §1.4, §5.4)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
+    "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence"
+   ],
+   "comparison": "Terms are finite direct summands of C(K_0, O)^{n_i} for a profinite K_0, free for pro-p K_0; degreewise continuous duality reverses amplitude; the completed tensor product is used; Λ acts by t ↦ [t]; transpose and contragredient structures are kept apart; the Serre adjoint carries the twist t ↦ w₀t⁻¹ (PAPER-BOXER-PILLONI-26/E7, E9, E110)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "target": "Pontryagin and Schikhof duals of the definite degree-zero tower (LLHLM §5.3)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface",
+    "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+    "CompletedCohomologyPartII:CC.3/qualified-biduality",
+    "CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero"
+   ],
+   "comparison": "The completed lattice is the CC.1/CC.2 carrier; its two duals use the CC.3 conventions; the unitary geometry stays in the accepted CC.8 part."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Cellular complexes on finite CW or Borel–Serre models; equivariant lifted cell complexes on a cofinal torsion-free tower",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/lifted-cellular-tower"
+   ],
+   "comparison": "A finite CW pair from the neat ALS Borel–Serre model, lifted cell by cell through a regular covering tower, giving bounded finite free O[K_0/U_r]-complexes with quotient transitions."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Comparison with singular and étale cochains; compatibility of refinement maps",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/lifted-cellular-tower",
+    "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison"
+   ],
+   "comparison": "Homotopy-coherent cellular–singular comparisons compatible with supports, coefficients and Hecke maps; the étale side through the CC.0 comparison."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Bounded complexes of finite free or projective O[[K_0]]-modules, for a finite-cell compact quotient and compact p-adic analytic K_0",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison"
+   ],
+   "comparison": "Terms Λ^{c_i d} with the limit of the attaching matrices; perfect, finite free in the lifted model, finite projective after prime-to-p descent."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "A finite projective complex kept distinct from projectivity of its homology",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison"
+   ],
+   "comparison": "The degree bounds are cell bounds; no projective homology or concentration is asserted."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Replacements for torsion stabilisers and noncompact spaces, with boundary chains preserved",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/stabilizers-and-boundary-replacements"
+   ],
+   "comparison": "Induced derived stabiliser complexes, a finite projective model only under a uniform bound or invertible stabiliser orders; the compact Borel–Serre pair with relative chains for Borel–Moore homology."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Derived finite-level coinvariants recover the finite-level complex",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants"
+   ],
+   "comparison": "(O/varpi^s)[K_0/U] ⊗ᴸ_Λ 𝒫 ≅ C_•(Z_U, O/varpi^s), naturally; underived coinvariants of homology are not a substitute."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Patched perfect model (finite-level perfect-complex route of RT-AREA-automorphic-1/18)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/patched-perfect-model-import"
+   ],
+   "comparison": "Gee–Newton Proposition 3.4.16 imported through DeformationAndDerivedPatchingAlgebra:P8; never used as perfectness of an unpatched tower."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "target": "Integral cochain model and completed coefficients (Pan II, Lemma 7.2.6; requested by CohomologyComparisons for CP.6)",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison"
+   ],
+   "comparison": "The complete torsion-free cochain complex with H^i = H̃^i and mod-varpi^m cohomology A^i_m, and completed cohomology with complete torsion-free coefficients M as lim_m (A^i_m ⊗ M); planned by this packet on the owner's admissible cochain model."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.5",
+   "target": "Finite generation of completed homology over the noetherian completed group algebra",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology"
+   ],
+   "comparison": "Finitely generated left O[[K_0]]-modules with the canonical topology, for compact p-adic analytic K_0, using NE.0's noetherianity (RT-AREA-automorphic-1/3); not freeness or concentration."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.5",
+   "target": "Dual admissibility criterion; admissibility in the torsion and unitary Banach categories",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.5/smooth-dual-admissibility",
+    "CompletedCohomologyPartII:CC.5/banach-admissibility"
+   ],
+   "comparison": "Smooth admissible duals of finitely generated k[[K_0]]-modules; admissible unitary Banach completed cohomology through the general Schneider–Teitelbaum category requested after L1 (RT-AREA-automorphic-1/17)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.5",
+   "target": "Explicit finite-generation, separatedness and finiteness-of-invariants hypotheses",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.5/bounded-integral-torsion",
+    "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology"
+   ],
+   "comparison": "Bounded varpi-power torsion and complete torsion-free quotients for the actual finite-cell tower; no statement for arbitrary profinite groups, towers or coefficient rings."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.5",
+   "target": "Iwasawa dimension, codimension and the torsion theorem for completed homology",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
+    "CompletedCohomologyPartII:CC.5/semisimple-homology-torsion",
+    "CompletedCohomologyPartII:CC.5/normalized-classical-growth",
+    "CompletedCohomologyPartII:CC.5/uniform-filtration-growth",
+    "CompletedCohomologyPartII:CC.5/classical-middle-rank-and-tate-torsion"
+   ],
+   "comparison": "Grade and canonical dimension imported from NE.0 (Venjakob, RT-AREA-automorphic-1/3); torsion of H̃_n without discrete series or outside the middle degree, Fu's first bullet in §7."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "target": "Continuous Hochschild–Serre (descent) spectral sequence with its edge maps",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+    "CompletedCohomologyPartII:CC.6/fixed-exponent-descent"
+   ],
+   "comparison": "H^i_cts(U, H̃^j) ⇒ H^{i+j}(Y_U, O) in the integral admissible category, and the fixed-exponent version; Milnor errors kept for a general tower."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "target": "Derived-invariants formulation and Hecke functoriality",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+    "CompletedCohomologyPartII:CC.6/lowest-degree-recovery"
+   ],
+   "comparison": "Derived descent model, functorial for supports and Hecke maps; edge isomorphism only in the lowest nonvanishing degree."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "target": "Classical comparison maps for algebraic coefficients through finite-level evaluation, with hypotheses and degree ranges",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting",
+    "CompletedCohomologyPartII:CC.6/classical-evaluation-map",
+    "CompletedCohomologyPartII:CC.6/lowest-degree-recovery"
+   ],
+   "comparison": "Untwisting by a K_0-stable lattice, the edge map to invariants of H̃^n(E) ⊗ W, and its kernel and cokernel controlled by the spectral sequence."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "target": "Homological hyper-Tor descent with algebraic coefficients (Fu, (38))",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.6/homological-hyperTor-descent"
+   ],
+   "comparison": "O ⊗ᴸ_{O[[U]]} (𝒫 ⊗ W_0) ≅ C_•(Y_U, W_0) and the completed Tor spectral sequence; Fu's rational form through CC.3/finite-coefficient-model-of-completed-homology."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "target": "Derived locally analytic comparison; locally algebraic vectors only through R31",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.6/analytic-classical-comparison"
+   ],
+   "comparison": "BCGP Theorem 4.8.3 as the derived comparison, with the derived functors from LocallyAnalyticDistributions:L0 (owner's gap G6); no recovery of every classical form from degree-zero invariants."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "The support triangle passed through the derived tower, with exactness and connecting morphisms",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle"
+   ],
+   "comparison": "RΓ̃_c → RΓ̃ → RΓ̃_∂ → RΓ̃_c[1], equivariant for all actions."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "Derived limits against conventional completed cohomology, with lim¹ and torsion errors",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
+    "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control"
+   ],
+   "comparison": "Conventional long exact sequence under strict admissible control or vanishing lim¹; otherwise the derived sequence with its Milnor errors."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "Completed interior cohomology as the specified image, each comparison proved separately",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/completed-interior-image",
+    "CompletedCohomologyPartII:CC.7/interior-image-comparison"
+   ],
+   "comparison": "The image of H̃_c → H̃ and the limit of the finite images, compared through lim¹ of the kernel system."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "Localisation-compatible triangles exported to ALS.6 and TC.2",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
+    "CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility"
+   ],
+   "comparison": "The derived triangle commutes with the local and Hecke actions; residual localisation is the accepted CC.8 part's."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "Boundary vanishing, Igusa concentration and compactification geometry kept as arithmetic inputs",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/boundary-vanishing-support-comparison",
+    "CompletedCohomologyPartII:CC.7/boundary-strata-and-completed-induction"
+   ],
+   "comparison": "Only the implication from a residual projector killing the boundary to a quasi-isomorphism is generic (the interface for BCGP Theorem 4.9.4); the boundary strata keep Levi cohomology and parabolic induction (owner's gap G8)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "target": "Homological support sequence and completed Poincaré duality",
+   "suppliedBy": [
+    "CompletedCohomologyPartII:CC.7/completed-homological-support-sequence",
+    "CompletedCohomologyPartII:CC.7/completed-iwasawa-poincare-duality"
+   ],
+   "comparison": "The relative chain triangle of the compact completed models and the Ext spectral sequence from the chain-level pairing (owner's gap G7)."
+  }
+ ],
+ "routeCoverage": [
+  {
+   "paper": "PAPER-FU-24",
+   "stages": [
+    "CompletedCohomologyPartII:CC.3",
+    "CompletedCohomologyPartII:CC.4",
+    "CompletedCohomologyPartII:CC.5",
+    "CompletedCohomologyPartII:CC.6"
+   ],
+   "owners": {
+    "PAPER-FU-24/completed-homology": [
+     "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+     "CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology"
+    ],
+    "PAPER-FU-24/completed-homology-finite-generation": [
+     "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology"
+    ],
+    "PAPER-FU-24/completed-homology-torsion": [
+     "CompletedCohomologyPartII:CC.5/semisimple-homology-torsion",
+     "CompletedCohomologyPartII:CC.5/normalized-classical-growth",
+     "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem"
+    ],
+    "PAPER-FU-24/completed-descent-spectral-sequence": [
+     "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+     "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+     "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+     "CompletedCohomologyPartII:CC.6/fixed-exponent-descent"
+    ],
+    "PAPER-FU-24/homological-descent-comparison": [
+     "CompletedCohomologyPartII:CC.6/homological-hyperTor-descent"
+    ]
+   },
+   "disposition": "Planned by the owner, except the identification of Fu's double-limit rational model (4) with the owner's completed homology, which this packet plans as CC.3/finite-coefficient-model-of-completed-homology.",
+   "items": [
+    "PAPER-FU-24/completed-homology",
+    "PAPER-FU-24/completed-homology-finite-generation",
+    "PAPER-FU-24/completed-homology-torsion",
+    "PAPER-FU-24/completed-descent-spectral-sequence",
+    "PAPER-FU-24/homological-descent-comparison"
+   ],
+   "destination": "CompletedCohomologyPartII"
+  },
+  {
+   "paper": "PAPER-BOXER-PILLONI-26",
+   "stages": [
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "owners": {
+    "PAPER-BOXER-PILLONI-26/admissible-complex": [
+     "CompletedCohomologyPartII:CC.3/admissible-complex-convention"
+    ],
+    "PAPER-BOXER-PILLONI-26/admissible-perfect-anti-equivalence": [
+     "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence"
+    ],
+    "PAPER-BOXER-PILLONI-26/dual-of-admissible-complex-is-perfect": [
+     "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
+     "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence"
+    ]
+   },
+   "disposition": "Planned by the owner for a profinite K_0 with T′(Z_p) and T(Z_p) as instances: summands of C(K_0, O)^{n_i} for a general profinite group, free terms for pro-p groups, completed tensor, the action t ↦ [t], transpose versus contragredient structures, and the Serre twist t ↦ w₀t⁻¹. The noncommutative completed-tensor verification is the owner's gap G4.",
+   "items": [
+    "PAPER-BOXER-PILLONI-26/admissible-complex",
+    "PAPER-BOXER-PILLONI-26/admissible-perfect-anti-equivalence",
+    "PAPER-BOXER-PILLONI-26/dual-of-admissible-complex-is-perfect"
+   ],
+   "destination": "CompletedCohomologyPartII"
+  },
+  {
+   "paper": "PAPER-NAKAMURA-23",
+   "stages": [
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "owners": {
+    "PAPER-NAKAMURA-23/10": [
+     "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+     "CompletedCohomologyPartII:CC.3/tame-level-completed-modules"
+    ],
+    "PAPER-NAKAMURA-23/11": [
+     "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality"
+    ],
+    "PAPER-NAKAMURA-23/51": [
+     "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
+     "CompletedCohomologyPartII:CC.3/coefficient-module-duality"
+    ],
+    "PAPER-NAKAMURA-23/52": [
+     "CompletedCohomologyPartII:CC.3/mixed-completed-tensor",
+     "CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison"
+    ]
+   },
+   "disposition": "Fixed-level Borel–Moore homology, its compact-support duality and Appendix B.1 are planned by the owner. The tame-level colimit of item 10 and the smooth-contragredient isomorphism of item 11 are planned by this packet. Lemma B.16 in item 52 concerns coadmissible modules (Appendix B.2.4, Definitions B.13–B.15), which PAPER-NAKAMURA-23/53 routes to CompletedCohomologyAndLocalGlobalCompatibility:R31.4 with SmoothRepresentationsOfLocalGroups:SR.5; its only use is Corollary 2.5 (PAPER-NAKAMURA-23/12, also R31.4), so it is not planned in CC.3. The Hecke normalisation T'_l = T_l S_l⁻¹ is part of CC.3/tame-level-borel-moore-duality; its modular-curve instance and the Galois action belong to the accepted CC.8 adapter.",
+   "items": [
+    "PAPER-NAKAMURA-23/10",
+    "PAPER-NAKAMURA-23/11",
+    "PAPER-NAKAMURA-23/51",
+    "PAPER-NAKAMURA-23/52"
+   ],
+   "destination": "CompletedCohomologyPartII"
+  },
+  {
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "stages": [
+    "CompletedCohomologyPartII:CC.1",
+    "CompletedCohomologyPartII:CC.2",
+    "CompletedCohomologyPartII:CC.3"
+   ],
+   "owners": {
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04": [
+     "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
+     "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+     "CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface",
+     "CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero"
+    ],
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/def-pontryagin-dual": [
+     "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+     "CompletedCohomologyPartII:CC.3/qualified-biduality"
+    ],
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/def-schikhof-dual": [
+     "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+     "CompletedCohomologyPartII:CC.3/qualified-biduality",
+     "CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface"
+    ]
+   },
+   "disposition": "Planned by the owner; the CC.8 part of the route (unitary geometry) is the accepted CC.8 packet's.",
+   "items": [
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/P04",
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/def-pontryagin-dual",
+    "PAPER-LE-LEHUNG-LEVIN-ETAL-20/def-schikhof-dual"
+   ],
+   "destination": "CompletedCohomologyPartII"
+  },
+  {
+   "paper": "PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
+   "stages": [
+    "CompletedCohomologyPartII:CC.6",
+    "CompletedCohomologyPartII:CC.7"
+   ],
+   "owners": {
+    "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/4.8.3": [
+     "CompletedCohomologyPartII:CC.6/analytic-classical-comparison"
+    ],
+    "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/4.9.4": [
+     "CompletedCohomologyPartII:CC.7/boundary-vanishing-support-comparison"
+    ]
+   },
+   "disposition": "Planned by the owner as generic interfaces: the derived locally analytic comparison (gap G6, LocallyAnalyticDistributions:L0) and the projector implication. The GSp₄ boundary vanishing and the GSp₄ comparison are the arithmetic consumer's; no GL₂ result is used for GSp₄.",
+   "items": [
+    "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/4.8.3",
+    "PAPER-BOXER-CALEGARI-GEE-PILLONI-25/4.9.4"
+   ],
+   "destination": "CompletedCohomologyPartII"
+  }
+ ],
+ "findingsCoverage": [
+  {
+   "finding": "RT-AREA-automorphic-1/3",
+   "severity": "high",
+   "kind": "missing",
+   "handedBy": "research/blueprint/redteam/RT-AREA-automorphic-1.fixes-5.md (outside-file handoff to this job)",
+   "disposition": "Discharged by the owner. CC.0/arithmetic-level-index cites NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group, and the CC.5 nodes finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology, codimension-iwasawa-dimension-and-the-torsion-theorem and uniform-filtration-growth cite NE.0/iwasawa-noetherian. The owner's requests ask NE.0 for open uniform subgroups and noetherianity of O[[K_0]] and k[[K_0]] for every compact p-adic analytic K_0, Auslander regularity, grade comparison, finite-index invariance and uniform Hilbert growth; its gap G1 records the open proof leaves; its restructure entry proposes widening NE.0. The edge NE.0 → CC.5 is acyclic (NE.0's ancestors are L1 and LI.4).",
+   "owners": [
+    "CompletedCohomologyPartII:CC.0/arithmetic-level-index",
+    "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
+    "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
+    "CompletedCohomologyPartII:CC.5/uniform-filtration-growth"
+   ]
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/17",
+   "severity": "medium",
+   "kind": "missing",
+   "handedBy": "research/blueprint/redteam/RT-AREA-automorphic-1.fixes-5.md (outside-file handoff to this job)",
+   "disposition": "Discharged by the owner. Its request to PadicMeasuresIwasawaAlgebras:L1 asks for the general unitary Banach category with a stable unit ball, Schikhof duality, Schneider–Teitelbaum Theorems 2.3 and 3.5, abelianness for compact p-adic Lie groups and admissibility tested on a compact open subgroup. CC.2/rational-unitary-banach-tower and CC.5/banach-admissibility apply it, and the owner's restructure entry has PadicLocalLanglandsForGL2Qp:R30.2 specialise it to GL₂(Q_p) instead of building a second category.",
+   "owners": [
+    "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower",
+    "CompletedCohomologyPartII:CC.5/banach-admissibility"
+   ]
+  },
+  {
+   "finding": "RT-AREA-automorphic-1/18",
+   "severity": "medium",
+   "kind": "error",
+   "handedBy": "research/blueprint/redteam/RT-AREA-automorphic-1.fixes-5.md (its finite-level perfect-complex route)",
+   "disposition": "Discharged. The finite-level perfect complexes are the owner's CC.4 nodes; the completed Hecke algebra, its semilocal decomposition and residual localisation are nodes of the accepted CC.8 part, with the owner's request to IntegralHeckeAndGaloisDeterminants:IHG.2.",
+   "owners": [
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+    "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+    "CompletedCohomologyPartII:CC.4/patched-perfect-model-import"
+   ]
+  }
+ ],
+ "consumerRequests": [
+  {
+   "from": "CohomologyComparisons",
+   "supplier": "CompletedCohomologyPartII:CC.2",
+   "neededBy": [
+    "CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit"
+   ],
+   "answeredBy": [
+    "CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control",
+    "CompletedCohomologyPartII:CC.2/derived-completed-tower",
+    "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control",
+    "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
+    "CompletedCohomologyPartII:CC.2/completion-and-tate-module"
+   ],
+   "disposition": "Answered. The accepted request asked for derived limits, ML and lim¹ conditions, the multiplication-by-p transition on adjacent torsion with its vanishing limit, and Pan's completeness input (Lemma 4.4.4). Its review found the last two missing. The owner's CC.2 nodes give the first, and CC.2/complete-torsion-free-complex-control gives the rest for any bounded-above complex of complete torsion-free modules, the form Pan applies to Čech complexes."
+  },
+  {
+   "from": "CohomologyComparisons",
+   "supplier": "CompletedCohomologyPartII:CC.4",
+   "neededBy": [
+    "CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent"
+   ],
+   "answeredBy": [
+    "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison"
+   ],
+   "disposition": "Answered by CC.4/completed-coefficient-interchange: the complete torsion-free complex with H^i = H̃^i and mod-p^m cohomology the fixed-exponent groups, natural for transitions and Hecke maps, and the coefficient interchange of Pan II, Lemma 7.2.6. The flag-variety half of the consuming node is not a CC.4 matter."
+  },
+  {
+   "from": "CohomologyComparisons",
+   "supplier": "CompletedCohomologyPartII:CC.8",
+   "neededBy": [
+    "CohomologyComparisons:CP.6/pan-graded-analytic-decompletion",
+    "CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit",
+    "CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent",
+    "CohomologyComparisons:CP.6/pan-truncated-period-isomorphism"
+   ],
+   "answeredBy": [],
+   "disposition": "Outside this part: CC.8 belongs to the accepted CC.8 part and the owner."
+  },
+  {
+   "from": "TorsionCohomologyInfrastructure",
+   "supplier": "CompletedCohomologyPartII:CC.4",
+   "neededBy": [
+    "TorsionCohomologyInfrastructure:TC.2/iwasawa-consequences"
+   ],
+   "answeredBy": [
+    "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+    "CompletedCohomologyPartII:CC.7/completed-iwasawa-poincare-duality",
+    "CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits"
+   ],
+   "disposition": "Answered by the owner: the finite projective completed chain complex at a torsion-free pro-p level, its support versions, the Iwasawa duality comparison with its hypotheses (the arithmetic chain pairing is the owner's gap G7) and the tame action."
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+   "need": "Finite-cover transfer on homology and on Borel–Moore (relative) homology of finite CW pairs, with pushforward after transfer equal to multiplication by the degree, transfer after pushforward equal to the deck-group sum for a Galois cover, and transfer adjoint to the cohomological trace under the evaluation pairing. The owner's request to the same stage already asks for finite-cover transfer and deck-group descent; this records the homological and adjointness clauses used here.",
+   "neededBy": [
+    "CompletedCohomologyPartII:CC.3/tame-level-completed-modules"
+   ]
+  }
+ ],
+ "gaps": [],
+ "coverage": [
+  {
+   "stageId": "CompletedCohomologyPartII:CC.0",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G1 analytic index supplier; G10 finite coefficient support comparison."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 6 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.1",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): Import SR.0 smooth action; the arithmetic conjugation/Hecke checks remain required."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 4 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.2",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G2 integral strict control; R02.1 enhanced Rlim and L1 Banach foundations."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 7 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised. This packet adds CC.2/complete-torsion-free-complex-control, the control lemma that CohomologyComparisons requests from CC.2 (Pan 2022, Lemma 4.4.4)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.3",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G3 continuous integral duality; G4 noncommutative tensor action; P7 coefficient completion extensions."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 9 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised. This packet adds three CC.3 nodes for its added sources: Fu's finite-coefficient model of completed homology, and Nakamura's completed modules and Borel–Moore duality at varying tame level."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.4",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G2/G3 chain/cochain comparison; P7/P8 noncommutative perfect and patched extensions."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 8 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised. This packet adds CC.4/completed-coefficient-interchange, the cochain model and coefficient interchange that CohomologyComparisons requests from CC.4 (Pan II, Lemma 7.2.6)."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.5",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G1 analytic/Auslander foundations; G5 classical multiplicity leaves and regular-filtration leading-rank input."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 4 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.6",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G2 strict descent control; G6 derived analytic comparison; D7 continuous coefficient contract."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 5 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised."
+  },
+  {
+   "stageId": "CompletedCohomologyPartII:CC.7",
+   "status": "planned",
+   "remaining": [
+    "Owner (CompletedCohomologyPartII.json): G7 arithmetic Iwasawa chain pairing; G8 boundary nilpotent calculation; kernel-system control for interior image."
+   ],
+   "note": "Planned by the accepted whole-roadmap packet CompletedCohomologyPartII.json: each of the 6 targets of this stage listed in targetCoverage is a node of that packet (or of the accepted CC.8 part), imported here and not restated. The remaining items are the owner's, quoted from its coverage record. Planned is not closed: nothing is formalised."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "CompletedCohomologyPartII/E5",
+   "sourceId": "Pan22",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Forum Math. Pi 10 (2022), e7, proof of Lemma 4.4.4, p. 44 (arXiv:2008.07099v3, p. 48)",
+   "printed": "After the universal-coefficient sequence, the proof writes the limit over n of H^{i+1}(M^•)[p^n] as Hom_{Z_p}(Q_p/Z_p, H^i(M^•)).",
+   "correction": "The limit of H^{i+1}(M^•)[p^n] along multiplication by p is Hom_{Z_p}(Q_p/Z_p, H^{i+1}(M^•)).",
+   "reason": "The terms H^{i+1}(M^•)[p^n] are submodules of H^{i+1}, and a compatible system for multiplication by p is a homomorphism Q_p/Z_p → H^{i+1}. The proof has just shown Hom(Q_p/Z_p, H^j(M^•)) = 0 for every degree j, so the conclusion is unaffected.",
+   "known": "new",
+   "searched": [
+    "The version of record, Forum of Mathematics, Pi 10 (2022), e7, open-access PDF fetched 14 October 2026: the same text.",
+    "arXiv:2008.07099v3 (8 July 2021): the same text.",
+    "The article page at cambridge.org, 14 October 2026: no correction notice; the errata register of this programme (research/blueprint/errata/) has no entry for this paper."
+   ]
+  }
+ ],
+ "sourceIssueReferences": [
+  {
+   "id": "CompletedCohomologyPartII/E1",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "sourceId": "CE",
+   "locator": "Theorem 1.1(3), p. 3",
+   "correctionUsed": "The first duality sequence takes the E/O-dual of the torsion submodule of H̃_{n−1}; the owner's integral duality node uses the corrected sequence. CC.3/tame-level-borel-moore-duality uses the second sequence, which needs no correction.",
+   "note": "Recorded and confirmed in the owner's packet; cited by identifier, not recorded again."
+  },
+  {
+   "id": "CompletedCohomologyPartII/E2",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "sourceId": "CE",
+   "locator": "Lemma 1.17, proof, p. 14",
+   "correctionUsed": "Used by the imported CC.5 grade node.",
+   "note": "Owner's finding; cited by identifier."
+  },
+  {
+   "id": "CompletedCohomologyPartII/E3",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "sourceId": "CE",
+   "locator": "Theorem 1.18, p. 14",
+   "correctionUsed": "Used by the imported CC.5 growth node: the exponent holds for regular uniform-power filtrations.",
+   "note": "Owner's finding; cited by identifier."
+  },
+  {
+   "id": "CompletedCohomologyPartII/E4",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII.json",
+   "sourceId": "CE",
+   "locator": "§1.3, p. 6",
+   "correctionUsed": "Used by the imported completed Poincaré duality node: unrestricted integral Ext amplitude is dim(U) + 1.",
+   "note": "Owner's finding; cited by identifier."
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26/E9",
+   "packet": "research/blueprint/papers/PAPER-BOXER-PILLONI-26.result.json",
+   "sourceId": "Boxer–Pilloni (owner's source BP)",
+   "locator": "§1.4, display before Proposition 1.4.7, p. 5",
+   "correctionUsed": "The completed tensor product, as in §5.4; CC.3/admissible-perfect-anti-equivalence uses it.",
+   "note": "Confirmed in the paper's extraction; cited by identifier."
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26/E110",
+   "packet": "research/blueprint/papers/PAPER-BOXER-PILLONI-26.result.json",
+   "sourceId": "Boxer–Pilloni (owner's source BP)",
+   "locator": "§5.4, Remark 5.4.3, p. 57",
+   "correctionUsed": "Λ acts through t ↦ [t] in the invariants defining the complexes, with the universal character normalised accordingly; CC.3/admissible-perfect-anti-equivalence fixes this action.",
+   "note": "Confirmed in the paper's extraction; cited by identifier."
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26/E7",
+   "packet": "research/blueprint/papers/PAPER-BOXER-PILLONI-26.result.json",
+   "sourceId": "Boxer–Pilloni (owner's source BP)",
+   "locator": "§1.4, Theorem 1.4.8, p. 5; Theorem 5.5.2, p. 57",
+   "correctionUsed": "The Λ-structure of the second factor of the Serre pairing is twisted by the involution induced by t ↦ w₀t⁻¹; the imported node records this twist.",
+   "note": "Confirmed in the paper's extraction; cited by identifier."
+  },
+  {
+   "id": "PAPER-NAKAMURA-23/E3",
+   "packet": "research/blueprint/papers/PAPER-NAKAMURA-23.result.json",
+   "sourceId": "Nakamura",
+   "locator": "§2.3.2, second commutative diagram, Inventiones p. 195 (arXiv p. 24)",
+   "correctionUsed": "The lower row of the diagram lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O); CC.3/tame-level-borel-moore-duality uses the corrected diagram.",
+   "note": "Confirmed in the paper's extraction (the arXiv version has the same misprint); cited by identifier."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "CompletedCohomologyPartII"
+   ],
+   "detail": "This part job (BP-CompletedCohomologyPartII--CC.0, scope CC.0–CC.7) was queued before the whole roadmap was planned in one job. The whole-roadmap packet CompletedCohomologyPartII.json (BP-CompletedCohomologyPartII, #9407) plans all nine stages, imports the accepted CC.8 part, and was accepted on 2026-10-13. Planning CC.0–CC.7 again here would plan them twice.",
+   "proposal": "Keep the whole-roadmap packet as the plan of CC.0–CC.7; this packet is its import index for the part, plus five nodes the owner does not state (three for added sources, two for requests of CohomologyComparisons). The assembly ASM-CompletedCohomologyPartII should start from the whole-roadmap reader research/blueprint/readmes/CompletedCohomologyPartII.md and add the CC.8 part and these five nodes to it, rather than rebuild that reader from the two parts; its queued outputs are the same paths as the whole-roadmap job's reader and suggested file."
+  }
+ ],
+ "upstreamNotes": [],
+ "implementationStatus": "unchecked"
+}
