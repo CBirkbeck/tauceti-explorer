@@ -14,7 +14,8 @@
     "searches": [
       "Read reviewed AUDIT-25 HE.8c entry: process; its three source-hypothesis targets are covered by H1, H2–H6 and H7–H9 respectively.",
       "Repeated case-insensitive Heegner/Kolyvagin/anticyclotomic/Cornut/Vatsal/Ratner/Tomanov searches of the exact pinned Tau Ceti git tree and pinned Mathlib source; no relevant implementation found (Mathlib has Heegner-number commentary only). No new mathematical declarations are needed by a process audit.",
-      "Read current upstream GlobalNumberFields and ProfiniteArithmetic roadmaps in full, relevant Suggested interfaces, and relevant EllipticCurves ordinary-reduction contracts; searched all current upstream README/Suggested files for the nonvanishing/dynamics names. Current upstream HEAD 0d144d044dacebca17b654695b6f1ad58f159b27 and current Tau Ceti HEAD a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were inspected read-only. No new generic arithmetic, class-field or profinite target is introduced."
+      "Read current upstream GlobalNumberFields and ProfiniteArithmetic roadmaps in full, relevant Suggested interfaces, and relevant EllipticCurves ordinary-reduction contracts; searched all current upstream README/Suggested files for the nonvanishing/dynamics names. Current upstream HEAD 0d144d044dacebca17b654695b6f1ad58f159b27 and current Tau Ceti HEAD a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were inspected read-only. No new generic arithmetic, class-field or profinite target is introduced.",
+      "Independent HE.8c review repeated the pinned Tau Ceti git-tree and pinned Mathlib searches and current-library/current-roadmap screen. Read current GlobalNumberFields Layers 9/11, ClassFieldTheory Layers 12/13 and ringClassField signatures, ProfiniteArithmetic Layers 0/1 and EllipticCurves Layers 2–4 contracts. Distinguished the absolute-quadratic class-field API from HE.0’s relative CM tower construction; no baseline declarations or new mathematical nodes are introduced."
     ]
   },
   "sources": [
@@ -40,7 +41,7 @@
       "accessed": "2026-10-14",
       "readSections": [
         "§1.1 equations (1)–(3), Lemma 1.1, Definition 1.3 and Theorems 1.4–1.5, pp.2–7; Definition 1.6, p.9; Theorems 1.10–1.13, pp.13–15.",
-        "§2.1 Corollary 2.2, p.21; §2.2 and Lemma 2.8, pp.22–23; §4.1 (H1),(H2), Theorems 4.1–4.2, pp.36–37; §4.6 second dynamical proof, Proposition 4.17, pp.48–50; §5.4 Proposition 5.6 through Theorem 5.10 and its proof, pp.55–60."
+        "§2.1 Corollary 2.2, p.21; §2.2 and Lemma 2.8, pp.22–23; §4.1 (H1),(H2), Theorems 4.1–4.2 and Remark 4.3, pp.36–38; §4.6 second dynamical proof, Proposition 4.17, pp.48–50; §5.4 Proposition 5.6 through Theorem 5.10 and its proof, pp.55–60."
       ]
     },
     {
@@ -96,13 +97,25 @@
     {
       "title": "Mazur’s main conjecture at Eisenstein primes",
       "authors": "Francesc Castella, Giada Grossi, Christopher Skinner",
-      "edition": "Author-served copy linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF",
+      "edition": "Author-served copy dated 15 September 2023, linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF",
       "id": "cgs",
       "url": "https://web.math.ucsb.edu/~castella/Mazur.pdf",
       "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
       "accessed": "2026-10-14",
       "readSections": [
         "Introduction Theorem C and subsequent Greenberg reformulation, pp.3–4; the local kernel-character assumptions and absence of the older rank-one (Sel) condition. Supplier interface only, not an independent proof audit."
+      ]
+    },
+    {
+      "id": "cv-dynamics-published",
+      "title": "CM points and quaternion algebras",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Documenta Mathematica 10 (2005),263–309; EMS Press version of record. Published p.290 is one-based PDF p.28.",
+      "url": "https://ems.press/content/serial-article-files/25969?nt=1",
+      "sha256": "47ff862cffc6980c79a63ef041762397dcdf5b71155ce4d7d09d65e16507b109",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§2.7 Definition 2.33 and proof of Corollary 2.34, published p.290 (PDF p.28), collated with the 3 April 2005 manuscript for E11. This is targeted collation, not a full audit of the published paper."
       ]
     }
   ],
@@ -207,7 +220,7 @@
     {
       "id": "H4",
       "title": "Geometric point and period branches",
-      "statement": "Use B/F split by K and at P. In the definite case Ram(B)=S; in the indefinite case Ram(B)=S minus one real place. H is the unit group of a fixed order R, with R_P Eichler (H1), and at every ramified K/F prime Q≠P, B_Q split and R_Q maximal (H2). Good means R_P maximal, or the two maximal-order endpoints at P have distinct intersections with g_P^−1 K_P g_P (equivalently the source conjugation convention). The indefinite quotient is a nonzero, P-new, Pic(O_F)-equivariant rational quotient J→A of the matching character type. For each good CM point of every sufficiently large conductor, a primitive fixed-type character projection is nonzero after tensoring with the character field. The definite version uses a nonzero P-new automorphic vector in a nonexceptional representation, and has nonzero primitive-character period. Neither assertion is a statement about nonzero torsion points.",
+      "statement": "Use B/F split by K and at P. In the definite case Ram(B)=S; in the indefinite case Ram(B)=S minus one real place. H is the unit group of a fixed order R, with R_P Eichler (H1), and at every ramified K/F prime Q≠P, B_Q split and R_Q maximal (H2). Good means R_P maximal, or the two maximal-order endpoints at P have distinct intersections with g_P^−1 K_P g_P (equivalently the source conjugation convention). The indefinite quotient is a nonzero, P-new, Pic(O_F)-equivariant rational quotient J→A with A{omega_A} nonzero and projector torsion type xi_0|G_2=omega_A^epsilon for the fixed Shimura reciprocity sign epsilon. Apply the projection to alpha=q composed with the rational Hodge embedding. In the automorphic specialization epsilon=1 and omega_A=omega; the analytic chi_0 of H2 is the inverse of xi_0, since CV averages with chi and projects to chi-inverse. For each good CM point of every sufficiently large conductor, a primitive fixed-type character projection is nonzero after tensoring with the character field. The definite version uses a nonzero P-new automorphic vector in a nonexceptional representation, and has nonzero primitive-character period. Neither assertion is a statement about nonzero torsion points.",
       "imports": [
         "HeegnerPointEulerSystems:HE.8/indefinite-cm-character-point",
         "HeegnerPointEulerSystems:HE.8/definite-cm-character-period",
@@ -216,8 +229,8 @@
       "sources": [
         {
           "sourceId": "cv",
-          "locator": "Definition 1.6, p.9; Theorem 1.10, p.13; §4 (H1),(H2), Theorems 4.1–4.2, pp.36–37; Theorem 1.13, p.15; Theorem 5.10 and proof, pp.58–60",
-          "match": "Good CM points, new quotients/vectors, the matching central character and nonexceptionality are retained before analytic comparison."
+          "locator": "Definition 1.6, p.9; Theorem 1.10, p.13; §4 (H1),(H2), Theorems 4.1–4.2 and Remark 4.3, pp.36–38; Theorem 1.13, p.15; Theorem 5.10 and proof, pp.58–60",
+          "match": "The quotient character, reciprocity sign and projector torsion type are explicit; Theorem 4.2 fixes the missing subscript in Theorem 4.1 (E12). Good CM points, newness and nonexceptionality precede analytic comparison."
         }
       ],
       "acceptance": [
@@ -252,7 +265,7 @@
     {
       "id": "H6",
       "title": "Dynamical supplier required by both CV branches",
-      "statement": "For the actual simultaneous reduction map Red and norm-component map C, CV dynamics takes auxiliary sets of finite primes away from P, with B_v split, K_v a field and |S_aux|+|Ram_f(B)|+[F:Q] even, and a finite nonempty set of Galois shifts pairwise distinct modulo P-rational elements rec_K(lambda) with lambda_P in K^×F_P^×. Along a P-isogeny class, compact-open Galois averages converge to the invariant probability measures on the allowed component fibres. At finite level, outside a finite exceptional set, Red(Gx)=C^−1(G C(Red(x))). This needs non-Archimedean uniform distribution on products of cocompact SL_2(F_P) quotients, including twisted-diagonal stabilizers and the commensurability criterion. Real Ratner results do not supply it.",
+      "statement": "For the actual simultaneous reduction map Red and norm-component map C, CV dynamics takes auxiliary sets of finite primes away from P, with B_v split, K_v a field and |S_aux|+|Ram_f(B)|+[F:Q] even, and a finite nonempty set of Galois shifts pairwise distinct modulo P-rational elements rec_K(lambda) with lambda_P in K^×F_P^×. Along a P-isogeny class, compact-open Galois averages converge to the invariant probability measures on the allowed component fibres. At finite level, outside a finite exceptional set, Red(Gx)=C^−1(G C(Red(x))). This needs non-Archimedean uniform distribution on products of cocompact SL_2(F_P) quotients, including twisted-diagonal stabilizers and the commensurability criterion. Real Ratner results do not supply it. The U-commensurability criterion compares Gamma with u^−1 Gamma-prime u for some u in U, correcting the omitted prime in Definition 2.33 (E11).",
       "imports": [
         "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
         "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity"
@@ -260,19 +273,25 @@
       "sources": [
         {
           "sourceId": "cv-dynamics",
-          "locator": "§2.2 (S1)–(S3), Definition 2.8, Theorem 2.9, Corollary 2.10, pp.9–12; §2.7 Theorem 2.29, Lemmas 2.30–2.32 and Corollary 2.34, pp.31–33",
+          "locator": "§2.2 (S1)–(S3), Definition 2.8, Theorem 2.9, Corollary 2.10, pp.9–12; §2.7 Theorem 2.29, Lemmas 2.30–2.32, Definition 2.33 and Corollary 2.34, pp.31–33",
           "match": "The fibre restriction and P-irrationality prevent false full-product independence; the source names the local Ratner/Margulis–Tomanov input."
         },
         {
           "sourceId": "cv",
           "locator": "§4.6 Proposition 4.17, p.49; §5.4 Proposition 5.6, p.55",
           "match": "Both orbit-surjectivity applications explicitly reduce to the companion Corollary 2.10."
+        },
+        {
+          "sourceId": "cv-dynamics-published",
+          "locator": "§2.7 Definition 2.33 and proof of Corollary 2.34, published p.290 (PDF p.28)",
+          "match": "The published definition retains the omitted prime; the adjacent proof compares the two distinct conjugated lattices. H6 uses the intended two-subgroup condition."
         }
       ],
       "acceptance": [
         "Keep the component restriction; prohibit a surjectivity claim onto incompatible fibres.",
         "Keep pairwise P-irrationality; identical shifts force a diagonal.",
-        "General finite F_P twisted-diagonal matching is an inherited acquisition gap; the source only directly cites the Q_p case."
+        "General finite F_P twisted-diagonal matching is an inherited acquisition gap; the source only directly cites the Q_p case.",
+        "U-commensurability must depend on both subgroups; a test with u=1 must not make every pair commensurable."
       ],
       "implementationStatus": "unchecked"
     },
@@ -361,7 +380,7 @@
     {
       "id": "H10",
       "title": "Source routes and ordering",
-      "statement": "The additional Khayutin quadratic-order input is owned by HE.0 and MultiquadraticPartII; CGLS integral class construction and rational comparison are HE.8/HE.8b inputs; Gross/Kolyvagin descent is HE.3–HE.7 (with the family application in HE.8). None creates an HE.8c mathematical target. Generic orders, Hecke characters, class fields, elliptic curves and profinite calculus are imported from their existing upstream owners. The legitimate chain is independent dynamics to early HE.8 geometry, then independent main-conjecture suppliers to HE.8b, then unconditional BCGS applications. The process note has no mathematical dependants.",
+      "statement": "The additional Khayutin quadratic-order input is owned by HE.0 and MultiquadraticPartII; CGLS integral class construction and rational comparison are HE.8/HE.8b inputs; Gross/Kolyvagin descent is HE.3–HE.7 (with the family application in HE.8). None creates an HE.8c mathematical target. Generic orders, Hecke characters, class fields, elliptic curves and profinite calculus are imported from their existing upstream owners. The legitimate chain is independent dynamics to early HE.8 geometry, then independent main-conjecture suppliers to HE.8b, then unconditional BCGS applications. The process note has no mathematical dependants. Current ClassFieldTheory Layer 13 ringClassField is restricted to fields quadratic over Q. For general totally real F, HE.0/relative-cm-conductor-tower uses the general Layer 12 global correspondence and its own O_F-order idele quotient; do not apply the absolute-quadratic ringClassField API there.",
       "imports": [
         "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
         "HeegnerPointEulerSystems:HE.8b/split-kolyvagin-nonvanishing-branches"
@@ -482,9 +501,15 @@
       "known": "recorded in accepted HE.7s packet",
       "printed": "The introductory discriminant exclusion uses the negative exception after introducing a positive absolute discriminant.",
       "searched": [
-        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet.",
+        "Independent review checked arXiv submission history https://arxiv.org/abs/2312.09301 (v2 remains latest) and https://web.math.ucsb.edu/~castella/ on 2026-10-14; no correction linked for this paper. The CJM DOI 10.4310/CJM.260514224852 returned HTTP 403, so the findings remain scoped to arXiv v2 and the linked author copy."
       ],
-      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2"
+      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.8c",
+        "reason": "Both served copies introduce a positive absolute discriminant but exclude the negative value; positive 3 therefore passes the printed test. Signed d_K not equal to −3 is the intended restriction."
+      }
     },
     {
       "id": "HeegnerPointEulerSystems/E3",
@@ -497,9 +522,57 @@
       "known": "recorded in accepted HE.7s packet",
       "printed": "The exact-length theorem inherits an odd-prime range wider than the stub lemma invoked in its proof.",
       "searched": [
-        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+        "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet.",
+        "Independent review checked arXiv submission history https://arxiv.org/abs/2312.09301 (v2 remains latest) and https://web.math.ucsb.edu/~castella/ on 2026-10-14; no correction linked for this paper. The CJM DOI 10.4310/CJM.260514224852 returned HTTP 403, so the findings remain scoped to arXiv v2 and the linked author copy."
       ],
-      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2"
+      "inheritedFrom": "HeegnerPointEulerSystems--HE.7s.json; accepted independent-review-REV-HeegnerPointEulerSystems--HE.7s~2",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.8c",
+        "reason": "Both served copies put Theorem 2.2.2 in Proposition 2.2.1’s odd-prime setting, while its two uniform-stub identifications invoke Lemma 2.2.4 with p>3. This is a proof-range gap at p=3, not a counterexample; Theorem B already assumes p>3."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E11",
+      "source": "cv-dynamics-published",
+      "kind": "misprint",
+      "locator": "Definition 2.33 and proof of Corollary 2.34, Documenta Math.10 (2005), p.290 (PDF p.28); same omission in 3 April 2005 manuscript p.33",
+      "printed": "After naming Gamma and Gamma-prime, the conjugate in the U-commensurability condition uses Gamma again, so the second subgroup does not occur.",
+      "correction": "Require Gamma and u^−1 Gamma-prime u to be commensurable for some u in U.",
+      "reason": "With u=1, the printed self-comparison holds for every Gamma and any choice of Gamma-prime, even one not commensurable with Gamma. The proof of Corollary 2.34 instead compares two distinct conjugated lattices and supplies the intended prime.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Cornut’s publication page https://webusers.imj-prg.fr/~christophe.cornut/papers.html and Vatsal’s preprint page https://personal.math.ubc.ca/~vatsal/page.html, checked 2026-10-14; no correction linked for this definition.",
+        "EMS Press article page https://ems.press/journals/dm/articles/8965120 and its served version-of-record PDF, checked 2026-10-14; omission persists. A title-and-erratum search found no correction for this paper."
+      ],
+      "addedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.8c",
+        "reason": "Read the published page image and collated the manuscript and EMS text. The missing prime makes the predicate independent of its second argument; the adjacent proof resolves the intended definition unambiguously."
+      }
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E12",
+      "source": "cv",
+      "kind": "misprint",
+      "locator": "Theorem 4.1, 1 April 2005 manuscript p.37; compare Theorem 4.2 on the same page and Remark 4.3 pp.37–38. The published chapter is not collated.",
+      "printed": "The compatibility clause in the hypothesis refers to Res(chi), although the fixed torsion character is chi_0 and the primitive character chi is selected only in the conclusion.",
+      "correction": "Use Res(chi_0)=omega_A^epsilon in the hypothesis.",
+      "reason": "The asserted equivalent isotypic variant, Theorem 4.2, explicitly restricts chi_0 to omega_A^epsilon on G_2. A condition on an unspecified future primitive character does not state the fixed input type.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The current CV manuscript linked by Vatsal and Cornut’s publication page, checked 2026-10-14; Theorem 4.2 already clarifies the intended condition, but no separate correction is linked.",
+        "Title-and-erratum search on 2026-10-14 found no correction for this index. Finding scoped to the hash-identified manuscript; no publisher wording is certified."
+      ],
+      "addedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-HeegnerPointEulerSystems--HE.8c",
+        "reason": "Read the page image: the hypothesis prints chi without the zero subscript. Theorem 4.2 fixes the same input as chi_0 on G_2, so this is a harmless index slip rather than a new theorem restriction."
+      }
     }
   ],
   "restructure": [
@@ -513,5 +586,121 @@
     }
   ],
   "upstreamNotes": [],
-  "implementationStatus": "unchecked"
+  "implementationStatus": "unchecked",
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf",
+      "read": "2026-10-14",
+      "sha256": "e7915bddc4843d38e6652b013b707e34e43e5df698aec178231376abbd092da9",
+      "citation": "Author manuscript dated 24 October 2001; Invent. Math.148 (2002),495–523. Locators are manuscript pagination."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "read": "2026-10-14",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "citation": "Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf",
+      "read": "2026-10-14",
+      "sha256": "efececf39b157f59d08d5c042808e4527a099d0b328924d546cf67b0e9ed2703",
+      "citation": "Author manuscript, 3 April 2005; Documenta Math.10 (2005),263–309"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "read": "2026-10-14",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "citation": "arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Kolyvagin.pdf",
+      "read": "2026-10-14",
+      "sha256": "c089c054da151c72acc41d1e215a016af2b11e5daccdab6fb03feca669e58ab8",
+      "citation": "Author copy dated 2 January 2026, linked by Castella alongside CJM publication; not certified as the publisher PDF"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2405.00270v2",
+      "read": "2026-10-14",
+      "sha256": "bf87592cdbaabb5c57004bfd44dd5b4d712cb306bbbdc36520a3daf92fa416f3",
+      "citation": "arXiv:2405.00270v2, March 2025; theorem numbering belongs to v2"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Mazur.pdf",
+      "read": "2026-10-14",
+      "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
+      "citation": "Author-served copy dated 15 September 2023, linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF"
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/25969?nt=1",
+      "read": "2026-10-14",
+      "sha256": "47ff862cffc6980c79a63ef041762397dcdf5b71155ce4d7d09d65e16507b109",
+      "citation": "Documenta Mathematica 10 (2005),263–309; EMS Press version of record. Published p.290 is one-based PDF p.28."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.8c",
+    "date": "2026-10-14",
+    "notes": "Independent target-level review by Codex (GPT-6), session codex-Jb8mX3, of the source-hypothesis companion only. Checked all H1–H10 locators/matches, 23 imports, two inherited definition interfaces (eight API items/six tests), the process audit and RT-AREA-iwasawa-1/1. Corrected quotient-character and upstream class-field scope; confirmed inherited E1/E3 and added E11/E12 with version-specific receipts. Zero new mathematical nodes, baseline declarations or planets; four inherited proof gaps and two requests remain. Accepted as a complete source pass, not mathematical closure or certification of imported implementations.",
+    "checked": [
+      {
+        "nodeId": "H1",
+        "verdict": "verified",
+        "note": "Cornut introduction pp.1–3 and Theorem A pp.20–21 retain the finite torsion trace and some-conductor quantifier; ordinary hypotheses are application restrictions."
+      },
+      {
+        "nodeId": "H2",
+        "verdict": "verified",
+        "note": "CV §1.1 pp.3–6, Corollary 2.2 p.21 and Lemma 2.8 p.23 retain exact O_F conductor, finite torsion type and local-degree tower rank."
+      },
+      {
+        "nodeId": "H3",
+        "verdict": "verified",
+        "note": "CV Lemma 1.1/Definition 1.3 pp.5–6 retain all real places, sign stabilization and the separate exceptional-pair exclusion."
+      },
+      {
+        "nodeId": "H4",
+        "verdict": "corrected",
+        "note": "Made the general quotient condition xi_0|G_2=omega_A^epsilon and alpha=q composed with Hodge embedding explicit, and matched the inverse analytic type via Remark 4.3 pp.37–38. Recorded E12; point/period/newness/good-point restrictions verified."
+      },
+      {
+        "nodeId": "H5",
+        "verdict": "verified",
+        "note": "CV Theorems 1.4–1.5 pp.6–7 and 1.11/1.13 p.15 distinguish value and derivative branches; the derivative retains omega=1 and pairwise coprimality."
+      },
+      {
+        "nodeId": "H6",
+        "verdict": "corrected",
+        "note": "CV dynamics Theorem 2.9/Corollary 2.10 pp.9–12 and §2.7 pp.31–34 preserve component fibres, P-irrational shifts and the general-F_P supplier gap. Added the corrected two-subgroup condition and version-of-record collation for E11."
+      },
+      {
+        "nodeId": "H7",
+        "verdict": "verified",
+        "note": "BCGS Theorem A pp.2–3 and full §2.1 proof pp.15–16 need rational lower divisibility and a bound uniform in common rescaling; neither bottom nonvanishing nor analytic rank one is inferred."
+      },
+      {
+        "nodeId": "H8",
+        "verdict": "verified",
+        "note": "BCGS Conjecture 1.2.10/Theorem 1.2.13 pp.14–15, BCS 1.2.2/1.2.4 p.3 and CGS Theorem C/Greenberg reformulation pp.3–4 retain rational/integral strength and separate residual branches. Clarified CGS served-copy date; no independent supplier proof certified."
+      },
+      {
+        "nodeId": "H9",
+        "verdict": "verified",
+        "note": "BCGS Theorem B/footnote 1 p.3 and proof pp.19–20 retain finite coefficient ideals, extended-natural indices, p-optimality over the whole Q-isogeny class and rational-prime Tamagawa counting. E1/E3 independently confirmed."
+      },
+      {
+        "nodeId": "H10",
+        "verdict": "corrected",
+        "note": "All 23 imported IDs exist in the accepted HE.7s owner packet. Corrected the reader’s generic class-field attribution: current CFT13 ringClassField is absolute-quadratic, while the general-F relative tower is HE.0 using CFT12. Dependency order, zero planets and no process prerequisite retained."
+      }
+    ]
+  }
 }
