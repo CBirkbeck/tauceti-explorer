@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T18:18Z",
+ "updated": "2026-10-14T18:34Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -36,7 +36,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "e8c23e4",
+   "head": "19c6313",
    "review": {
     "recommendation": "changes",
     "head": "3c6c215",
@@ -52,7 +52,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "2ec338b",
+   "head": "791e18a",
    "review": {
     "recommendation": "changes",
     "head": "9f5058d",
@@ -68,7 +68,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "94f35b4",
+   "head": "74400cd",
    "review": {
     "recommendation": "approve",
     "head": "c12d484",
@@ -84,7 +84,7 @@
     793
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "51136d8",
+   "head": "3eb09ab",
    "review": {
     "recommendation": "approve",
     "head": "ac1db49",
@@ -113,7 +113,7 @@
    "stage": "pr",
    "pr": 817,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers",
-   "head": "0b0f658",
+   "head": "c37a0c3",
    "review": {
     "recommendation": "changes",
     "head": "2f1f3c6",
@@ -158,11 +158,11 @@
     817
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
-   "head": "000a33a",
+   "head": "85e5bce",
    "review": {
     "recommendation": "approve",
     "head": "000a33a",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "author-requested deep review (GPT-6 Astra) approves the rebased head; folder byte-identical across the rebase"
    }
@@ -174,7 +174,7 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-   "head": "c48f508",
+   "head": "9f751eb",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -237,7 +237,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "0a8d3e0",
+   "head": "cc6f33c",
    "depends_on": [
     779,
     785,
@@ -256,7 +256,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "c451398",
+   "head": "047eb0d",
    "depends_on": [
     792,
     785
@@ -280,11 +280,11 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "head": "5e79ab9",
-    "current": false,
+    "recommendation": "approve",
+    "head": "47e3459",
+    "current": true,
     "date": "2026-10-14",
-    "note": "maintainer fresh review (GPT-6 Astra) at 5e79ab9: further specification changes; repair in progress"
+    "note": "author-requested deep review (GPT-6 Astra) approves after the maintainer round repairs"
    }
   },
   "AlgebraicModuliForArithmeticGeometry": {
@@ -360,7 +360,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "f52e814",
+   "head": "aa997e8",
    "depends_on": [
     779,
     789,
@@ -512,17 +512,17 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "head": "02fe347",
-    "current": false,
+    "recommendation": "changes",
+    "head": "d165903",
+    "current": true,
     "date": "2026-10-14",
-    "note": "author-requested deep re-review (GPT-6 Astra) approves; non-blocking notes applied"
+    "note": "maintainer fresh review (GPT-6 Astra) at d165903: one blocking error in §7b.10 local-obstruction lemma; repair in progress"
    }
   },
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
    "pr": 875,
-   "head": "a7bc290",
+   "head": "b1fed65",
    "depends_on": [
     817,
     813,
@@ -562,11 +562,11 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 841 lines, README 6,532 lines",
    "review": {
-    "recommendation": null,
-    "head": null,
-    "current": false,
-    "date": null,
-    "note": "opened 2026-10-13 16:30Z as a draft; awaiting first review"
+    "recommendation": "changes",
+    "head": "a124119",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "deep re-review (GPT-6 Astra) at a124119: one new blocker plus an ownership overlap; repair in progress"
    }
   },
   "EnhancedDerivedSheaves": {
@@ -584,7 +584,7 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "0491aa8",
+   "head": "7b250c1",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); Lean 449 lines (17 real-bodied definitions, 11 theorems, 39 examples), README 4,536 lines; draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
