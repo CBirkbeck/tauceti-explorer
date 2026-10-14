@@ -16,7 +16,9 @@ remain mathematical signatures and API in the reader: their dynamical carriers a
 not supplied at the pins. No replacement opaque data or proposition package is used.
 
 The following are light, real-bodied rational coordinate functions, numeric genus
-expressions, and milestones stated on existing carriers. The arithmetic point-list
+expressions, and milestones stated on existing carriers. Unit tests whose carriers exist at
+the pins are named theorems with the packet's test names; the packet names whose carriers are
+not at the pins are listed at the end of the file. The arithmetic point-list
 hypothesis below is the exact ED.3 conclusion for Morton's curve; it is not a claim
 that a certificate has already been implemented. The final dynamical theorem is the
 unconditional target obtained once that supplier and the reduction are developed.
@@ -145,31 +147,91 @@ example : quadraticGenusZeroExpression 5 = 2 := by sorry
 example : quadraticGenusZeroExpression 6 = 4 := by sorry
 
 -- Field-degree normalization of the native pinned height, on affine representatives.
+-- An absolute bound B (Mathlib height divided by [K:ℚ]) needs the radius exp([K:ℚ]·B).
 theorem relativeHeightCandidateBound (K : Type*) [Field K] [NumberField K]
     (x : K) (B D : ℝ)
     (hB : Height.logHeight₁ x / (Module.finrank ℚ K : ℝ) ≤ B)
     (hD : Real.exp ((Module.finrank ℚ K : ℝ) * B) ≤ D) :
     Height.mulHeight₁ x ≤ D := by sorry
 
--- Discriminating computed values for the explicit coordinate API.
-example : mortonThreeCycleEquation 0 0 = -2 := by
+-- The inherited preperiodic bound is already native: no factor [K:ℚ] enters its radius.
+theorem nativeHeightCandidateBound (K : Type*) [Field K] [NumberField K]
+    (x : K) (B D : ℝ) (hB : Height.logHeight₁ x ≤ B) (hD : Real.exp B ≤ D) :
+    Height.mulHeight₁ x ≤ D := by sorry
+
+-- Unit tests of `morton-symmetric-three-cycle-curve` (packet names).
+theorem morton_symmetric_three_cycle_curve_1 :
+    mortonThreeCycleEquation 1 1 = 0 ∧ mortonThreeCycleEquation 1 (-1) = 0 ∧
+      mortonThreeCycleEquation (-1) 1 = 0 ∧ mortonThreeCycleEquation (-1) (-1) = 0 := by
   norm_num [mortonThreeCycleEquation]
 
-example : mortonThreeCycleEquation 1 1 = 0 ∧ mortonThreeCycleEquation 1 (-1) = 0 ∧
-    mortonThreeCycleEquation (-1) 1 = 0 ∧ mortonThreeCycleEquation (-1) (-1) = 0 := by
+theorem morton_symmetric_three_cycle_curve_2 : mortonThreeCycleEquation 0 0 = -2 := by
   norm_num [mortonThreeCycleEquation]
 
-example : mortonThreeCycleParameter (-29 / 16) (5 / 4) = 3 ∧
-    mortonThreeCycleParameter (-29 / 16) (-1 / 4) = -3 ∧
-    mortonThreeCycleParameter (-29 / 16) (-7 / 4) = 0 := by
-  norm_num [mortonThreeCycleParameter]
+/-- The cycle `5/4 ↦ -1/4 ↦ -7/4` of `z² - 29/16` has Morton coordinates `3, -3, 0`, all of
+trace `η = 0`. -/
+theorem morton_symmetric_three_cycle_curve_3 :
+    mortonThreeCycleParameter (-29 / 16) (5 / 4) = 3 ∧
+      mortonThreeCycleParameter (-29 / 16) (-1 / 4) = -3 ∧
+      mortonThreeCycleParameter (-29 / 16) (-7 / 4) = 0 ∧
+      mortonCycleTrace 3 = 0 ∧ mortonCycleTrace (-3) = 0 ∧ mortonCycleTrace 0 = 0 := by
+  norm_num [mortonThreeCycleParameter, mortonCycleTrace]
 
-example : mortonCycleTrace 3 = 0 ∧ mortonCycleTrace (-3) = 0 ∧ mortonCycleTrace 0 = 0 := by
-  norm_num [mortonCycleTrace]
-
-example : mortonEllipticCoordinates (-1) (-1) = (0, 0) := by
+-- Unit tests of `morton-elliptic-quotient-map` (packet names).
+theorem morton_elliptic_quotient_map_1 : mortonEllipticCoordinates (-1) (-1) = (0, 0) := by
   norm_num [mortonEllipticCoordinates]
 
-example : (1 : ℚ) + (-1) = 0 := by norm_num
+/-- `(1, -1)` lies on `H = 0` with `ζ = 0`, outside the affine domain. Lean's totalized division
+sends it to `(0, 0)`, the genuine image of `(-1, -1)`: the guard `ζ ≠ 0` cannot be dropped. -/
+theorem morton_elliptic_quotient_map_2 :
+    mortonThreeCycleEquation 1 (-1) = 0 ∧ (1 : ℚ) + (-1) = 0 ∧
+      mortonEllipticCoordinates 1 (-1) = mortonEllipticCoordinates (-1) (-1) := by
+  norm_num [mortonThreeCycleEquation, mortonEllipticCoordinates]
+
+theorem morton_elliptic_quotient_map_3 :
+    (0 : ℚ) + 0 = 0 ∧ mortonThreeCycleEquation 0 0 ≠ 0 := by
+  norm_num [mortonThreeCycleEquation]
+
+/-! ### Packet names not typed at the pins
+
+Their carriers (regular projective models and fixed-field quotients of function fields, binary
+necklaces with the complement involution, rational quadratic differentials with local mass and
+polynomial pushforward, kneading sequences on `ℝ/ℤ`, Böttcher coordinates and external rays) are
+not in Mathlib 082e2d3 or Tau Ceti f790474; the reader states each item exactly.
+
+* `projective-dynatomic-model`: `dynatomicProjectiveModel`, `dynatomicAffineOpen`,
+  `dynatomicParameterMap`, `dynatomicModel_ext`, `dynatomicModel_baseChange`,
+  `dynatomicBoundary`; tests `projective_dynatomic_model_1`, `projective_dynatomic_model_2`,
+  `projective_dynatomic_model_3`.
+* `dynatomic-cycle-quotient`: `dynatomicCycleModel`, `dynatomicRotation`,
+  `dynatomicCycleProjection`, `cycleProjection_factor`, `cycleProjection_fibre`,
+  `cycleModel_baseChange`, `rationalCyclePoint_iff`; tests `dynatomic_cycle_quotient_1`,
+  `dynatomic_cycle_quotient_2`, `dynatomic_cycle_quotient_3`.
+* `quadratic-infinity-necklaces`: `primitiveBinaryWord`, `primitiveNecklace`, `necklace_eq_iff`,
+  `necklaceComplement`, `infinityNecklace`, `infinityNecklace_eq_iff`, `infinityNecklace_card`;
+  tests `quadratic_infinity_necklaces_1`, `quadratic_infinity_necklaces_2`,
+  `quadratic_infinity_necklaces_3`.
+* `rational-quadratic-differentials`: `rationalQuadraticDifferential`, `quadraticDifferential_ext`,
+  `quadraticDifferentialPoleOrder`, `quadraticDifferentialMass`, `quadraticDifferentialMass_zero`,
+  `quadraticDifferentialMass_smul`, `quadraticDifferentialMass_mono`,
+  `quadraticDifferential_pole_change`; tests `rational_quadratic_differentials_1`,
+  `rational_quadratic_differentials_2`, `rational_quadratic_differentials_3`.
+* `polynomial-quadratic-pushforward`: `polynomialQuadraticPushforward`,
+  `quadraticPushforward_regular`, `quadraticPushforward_zero`, `quadraticPushforward_id`,
+  `quadraticPushforward_comp`, `quadraticPushforward_poles`, `unicriticalPushforward_simple`,
+  `unicriticalPushforward_double`; tests `polynomial_quadratic_pushforward_1`,
+  `polynomial_quadratic_pushforward_2`, `polynomial_quadratic_pushforward_3`.
+* `unicritical-kneading-sequence`: `unicriticalKneading`, `kneading_boundary_iff`,
+  `kneading_digit_iff`, `kneading_period`, `cyclicKneadingExpression`, `cyclicExpression_unique`,
+  `maximalAngle_kneading`; tests `unicritical_kneading_sequence_1`,
+  `unicritical_kneading_sequence_2`, `unicritical_kneading_sequence_3`.
+* `unicritical-external-ray-system`: `unicriticalBottcher`, `bottcher_unique`,
+  `bottcher_dynamics`, `unicriticalDynamicRay`, `unicriticalParameterRay`, `externalRay_landing`,
+  `externalRay_dynamics`, `parameterCoordinate_unique`; tests
+  `unicritical_external_ray_system_1`, `unicritical_external_ray_system_2`,
+  `unicritical_external_ray_system_3`.
+* `morton-elliptic-quotient-map`: `mortonElliptic_baseChange` (the coordinates above are typed
+  over `ℚ` only).
+-/
 
 end TauCetiRoadmap.ArithmeticDynamics.DY3
