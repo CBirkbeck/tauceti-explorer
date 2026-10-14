@@ -359,8 +359,9 @@ The API lemmas of `HasLaplace`, `PoleBoundary`, `squaredSinc` and `delangeWeight
 (`HasLaplace.unique`, `HasLaplace.congr_ae`, `HasLaplace.add`, `HasLaplace.const_smul`,
 `HasLaplace.comp_mul_left`, `PoleBoundary.congr`, `PoleBoundary.leading_unique`,
 `PoleBoundary.order_unique`, `PoleBoundary.div_argument`, `PoleBoundary.rescale`,
-`PoleBoundary.mul_regular`, `squaredSinc_nonneg`, `squaredSinc_tail`, `delangeWeight_bound` and
-the others) are stated in the README, with the remaining checks.
+`PoleBoundary.mul_regular`, `PoleBoundary.mul`, `squaredSinc_nonneg`, `squaredSinc_tail`,
+`delangeWeight_bound`, `delangeWeight_shift_uniform` and the others) are stated in the README, with
+the remaining checks.
 -/
 
 end TauCetiRoadmap.ArithmeticDirichletSeriesPartII
