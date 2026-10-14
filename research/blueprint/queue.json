@@ -24346,7 +24346,8 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #394"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
@@ -24371,9 +24372,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9408"
+   "note": "deliverables arrived from an external worker on issue #9408",
+   "finishedAt": "2026-10-14T08:14:25Z"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
@@ -37747,7 +37749,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9274"
   },
   {
    "id": "BP-ArithmeticDynamics--DY.3",
@@ -37818,8 +37821,9 @@
    ],
    "followUpOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics--DY.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9318"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9318",
+   "finishedAt": "2026-10-14T08:14:27Z"
   },
   {
    "id": "REV-ArithmeticDynamics--DY.6",
@@ -41125,7 +41129,8 @@
    ],
    "revisionOf": "BP-FunctionFieldArithmetic",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmetic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9304"
   },
   {
    "priority": 2,
@@ -44312,7 +44317,8 @@
    ],
    "revisionOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9315"
   },
   {
    "priority": 2,
@@ -49005,8 +49011,9 @@
     "PKG-EllipticCurveModularityWild3Adic"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityWild3Adic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9211"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9211",
+   "finishedAt": "2026-10-14T08:14:28Z"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
@@ -50543,8 +50550,9 @@
     "PKG-InductionRestrictionPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7606"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7606",
+   "finishedAt": "2026-10-14T08:14:32Z"
   },
   {
    "id": "PKG-IntegralHeckeAndGaloisDeterminants",
@@ -50683,7 +50691,8 @@
     "PKG-JacobianChallengePartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-JacobianChallengePartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7607"
   },
   {
    "id": "PKG-KatoEulerSystems",
@@ -102557,8 +102566,9 @@
    ],
    "revisionOf": "BP-DrinfeldModulesAndTModules--DM.8",
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9314"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9314",
+   "finishedAt": "2026-10-14T08:14:37Z"
   },
   {
    "priority": 2,
