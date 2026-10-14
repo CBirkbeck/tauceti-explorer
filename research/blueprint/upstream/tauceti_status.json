@@ -1,9 +1,9 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-14T03:13Z",
+  "updated": "2026-10-14T04:50Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
-      "stage": "pr",
+      "stage": "main",
       "pr": 779,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92; AD01–AD02 fixed at c16514b; AE01–AE04 fixed at 42ab8a1",
       "head": "3c50577",
@@ -12,8 +12,10 @@
         "head": "3c50577",
         "current": true,
         "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
-      }
+        "note": "approved and merged by the review bot after the maintainer rounds"
+      },
+      "merged": "2026-10-14T04:47:45Z",
+      "merge_commit": "d23fdaf38"
     },
     "PadicMeasuresIwasawaAlgebras": {
       "stage": "main",
@@ -142,11 +144,11 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
       "head": "d9e2a0d",
       "review": {
-        "recommendation": "changes",
-        "head": "6ac92c6",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 6ac92c6: one finding, repaired at b018ac1 (re-stacked on #813); awaiting re-review | re-stacked on #817 b45e54c at adedb3c"
+        "recommendation": "approve",
+        "head": "d9e2a0d",
+        "current": true,
+        "date": "2026-10-14",
+        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
       }
     },
     "AdicSpacesPartIII": {
@@ -200,7 +202,7 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "b90bd1d",
+      "head": "a3f2832",
       "depends_on": [
         779,
         853
@@ -208,7 +210,7 @@
       "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "approve",
-        "head": "b90bd1d",
+        "head": "a3f2832",
         "current": true,
         "date": "2026-10-14",
         "note": "author-requested deep review (GPT-6 Astra) approves the current head"
@@ -235,7 +237,7 @@
     "InverseGaloisAndArithmeticFundamentalGroups": {
       "stage": "pr",
       "pr": 850,
-      "head": "5ee5153",
+      "head": "976f566",
       "depends_on": [
         779,
         785,
@@ -341,7 +343,7 @@
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "5d38094",
+      "head": "e95c677",
       "depends_on": [
         789,
         785
@@ -384,7 +386,7 @@
     "ArithmeticGaloisDuality": {
       "stage": "pr",
       "pr": 858,
-      "head": "f5fe9b6",
+      "head": "7dce743",
       "depends_on": [
         779,
         856,
@@ -462,7 +464,7 @@
     "ArithmeticLocallySymmetricSpaces": {
       "stage": "pr",
       "pr": 871,
-      "head": "087b8d7",
+      "head": "fa5c087",
       "depends_on": [
         792,
         793,
@@ -520,7 +522,7 @@
     "ClassicalAdicEtaleCohomology": {
       "stage": "pr",
       "pr": 875,
-      "head": "de22949",
+      "head": "224251a",
       "depends_on": [
         817,
         813,
