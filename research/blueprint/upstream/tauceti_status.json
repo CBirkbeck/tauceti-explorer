@@ -84,13 +84,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "65af6aa",
+      "head": "ac1db49",
       "review": {
-        "recommendation": "changes",
-        "head": "cb57586",
-        "current": false,
-        "date": "2026-10-12",
-        "note": "no maintainer findings; head 95fd65d differs only by re-stacks on the parents"
+        "recommendation": "approve",
+        "head": "ac1db49",
+        "current": true,
+        "date": "2026-10-14",
+        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
       }
     },
     "AdicEtaleGeometry": {
@@ -174,13 +174,13 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-      "head": "8867f1c",
+      "head": "36cf6e6",
       "review": {
         "recommendation": "approve",
-        "head": "8867f1c",
+        "head": "36cf6e6",
         "current": true,
         "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
+        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
       }
     },
     "PerfectoidTowers": {
@@ -190,13 +190,13 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-      "head": "c35a9c3",
+      "head": "6c8d2d1",
       "review": {
         "recommendation": "approve",
-        "head": "c35a9c3",
+        "head": "6c8d2d1",
         "current": true,
         "date": "2026-10-14",
-        "note": "author-requested deep review (GPT-6 Astra) approves the current head"
+        "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
       }
     },
     "ComplexComparisonPartII": {
