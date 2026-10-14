@@ -46508,7 +46508,8 @@
    ],
    "revisionOf": "PKG-AbelianVarietiesIsogenousToNoJacobian",
    "prompt": "research/blueprint/prompts/PKG-AbelianVarietiesIsogenousToNoJacobian~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9155"
   },
   {
    "id": "REV-PKG-AbelianVarietiesIsogenousToNoJacobian~2",
@@ -46579,7 +46580,8 @@
     "PKG-AdditiveCombinatorics"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdditiveCombinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9199"
   },
   {
    "id": "PKG-AdelicAlgebraicGroups",
@@ -46832,7 +46834,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticDirichletSeriesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9157"
   },
   {
    "id": "REV-PKG-ArithmeticDirichletSeriesPartII",
@@ -47791,8 +47794,9 @@
    ],
    "revisionOf": "PKG-ColemanIntegration",
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9161"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9161",
+   "finishedAt": "2026-10-14T04:56:55Z"
   },
   {
    "id": "REV-PKG-ColemanIntegration~2",
@@ -48008,7 +48012,8 @@
     "PKG-ComputationalNumberTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComputationalNumberTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9205"
   },
   {
    "id": "PKG-ConformalMappingPartII",
@@ -48076,7 +48081,8 @@
    ],
    "revisionOf": "PKG-ConformalMappingPartII",
    "prompt": "research/blueprint/prompts/PKG-ConformalMappingPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9163"
   },
   {
    "id": "REV-PKG-ConformalMappingPartII~2",
@@ -48940,7 +48946,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityWild3Adic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9167"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityWild3Adic",
@@ -51053,8 +51060,9 @@
     "PKG-ModularSymbolsPadicLFunctions"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9225"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9225",
+   "finishedAt": "2026-10-14T04:56:59Z"
   },
   {
    "id": "PKG-ModularityAndLanglandsExtensions",
@@ -51217,8 +51225,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MultiquadraticPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9183"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9183",
+   "finishedAt": "2026-10-14T04:57:03Z"
   },
   {
    "id": "REV-PKG-MultiquadraticPartII",
@@ -51784,8 +51793,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-QuiverRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9190"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9190",
+   "finishedAt": "2026-10-14T04:57:08Z"
   },
   {
    "id": "REV-PKG-QuiverRepresentationsPartII",
@@ -52094,7 +52104,9 @@
     "PKG-SemisimpleAlgebrasPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SemisimpleAlgebrasPartII~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9238",
+   "finishedAt": "2026-10-14T04:57:13Z"
   },
   {
    "id": "PKG-ShimuraCompactifications",
@@ -88773,8 +88785,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -90899,8 +90911,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5704"
+   "state": "pending",
+   "note": "released on GitHub issue #5704"
   },
   {
    "id": "FIX-RT-AREA-padic-1~4",
