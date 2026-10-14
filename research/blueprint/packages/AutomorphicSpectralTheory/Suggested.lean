@@ -369,7 +369,7 @@ operator_trace, nuclear_lf_space, projective_tensor, vector_schwartz, operator_m
 spectral_cycle_coordinates, compact_cover_transfer, whittaker_w,
 vector_schwartz_entire, locally_convex_integration, vector_phragmen_lindelof.
 
-Layer 1: induced_family, eisenstein_series, convergent_intertwiner, pseudo_eisenstein,
+Layer 1: induced_family, eisenstein_series, convergent_intertwiner, euclidean_paley_wiener, pseudo_eisenstein,
 cuspidal_datum_space, unramified_character_torus, induced_spherical_section,
 induction_normalization_transport, bessel_kloosterman_coefficient, poincare_family,
 poincare_one_form, character_eisenstein, genus_eisenstein.
