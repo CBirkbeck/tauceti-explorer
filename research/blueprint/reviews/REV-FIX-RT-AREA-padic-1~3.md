@@ -1,4 +1,53 @@
-# Current checkpoint: Codex codex-TOTmgG, 14 October 2026
+# Current checkpoint: Codex codex-IHurfC, 14 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `3716acbdf265e87cc6dbda38b92eb7df6f7c8f69`;
+branch `codex-IHurfC-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6160881080)
+confirms claimant comment `6160879077`. This session did none of the author
+fixes or earlier reviews and claimed only this issue.
+
+**Blocked checkpoint.** Fetched and reread #5704 after claim confirmation,
+and independently fetched #6519. Both ordered issued output lists still match
+the historical queue assignments at `c69e5b6c9` and `888f12f5c9`, respectively.
+The current queue and stock completion function reproduce the unresolved gate:
+
+| Job | Issued outputs / packets | Queue outputs / packets | Completion, issued / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 23 / 11 | true / false |
+
+Every queued file exists. The stock `issues.deliverables_complete` still
+checks only the current top-level reviewer, ignoring historical assessments.
+The preserved read-only collision fixture returns `[false, true]`; restoring
+#5704's archived P0 and ASII reviews only in memory returns `[true, false]`.
+Changing those reviews transfers failure to #6519 and still cannot supply the
+20 additional packet assessments outside #5704's issued scope.
+
+All ten preserved assessment-bound history regression cases pass. They also
+confirm that the assigned packets, excluding review metadata, and their
+suggested-file bytes match `331007b5e`. The candidate repair remains
+uninstalled; it does not resolve the source and reader binding policy.
+
+Fresh stock blueprint checks using the configured declaration index report
+**zero errors and zero warnings** for P0 (326 nodes), AdicEtaleGeometry
+(153) and AdicSpacesPartII (537). No link map or restructuring proposal is
+assigned. These are structural checks, not a fresh source or baseline audit.
+No Lean compilation ran; the suggested files are unchanged. Earlier
+mathematical verdicts and qualified elaborations below retain their original
+attribution. This continuation issues no new mathematical verdict.
+
+WORKERS.md limits edits to issue-named files and scratch space. The required
+queue, generator, completion-function and generated-prompt repair paths remain
+outside that scope and fail `intake.ALLOWED`. Only this report and its handoff
+change. Resume after an authorized repair reconciles both issued scopes,
+supports content-bound historical completion alongside current promotion
+reviews, and validates the two jobs together through stable regeneration.
+The runnable fixtures and prior per-finding dispositions remain below.
+
+---
+
+# Archived checkpoint: Codex codex-TOTmgG, 14 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input commit `4bc0469f322b124477c08fef202d76a103bb79bf`;
