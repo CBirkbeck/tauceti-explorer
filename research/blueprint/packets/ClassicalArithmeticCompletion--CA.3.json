@@ -1381,9 +1381,6 @@
     "namespace": "TauCeti.ClassicalArithmetic"
    },
    "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Factorial ideal"
-   },
    "api": [
     {
      "name": "factorialIdeal",
@@ -1703,10 +1700,7 @@
     "module": "TauCeti/NumberTheory/PolyaGroup",
     "namespace": "TauCeti.ClassicalArithmetic"
    },
-   "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Pólya–Ostrowski criterion"
-   }
+   "implementationStatus": "unchecked"
   },
   {
    "id": "ClassicalArithmeticCompletion:CA.3/polya-field",
@@ -1752,9 +1746,6 @@
     "namespace": "TauCeti.ClassicalArithmetic"
    },
    "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Pólya field"
-   },
    "api": [
     {
      "name": "IsPolyaField",
@@ -2457,10 +2448,7 @@
     "module": "TauCeti/Analysis/Polynomial/FactorBounds",
     "namespace": "TauCeti.ClassicalArithmetic"
    },
-   "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Fujiwara's root bound"
-   }
+   "implementationStatus": "unchecked"
   },
   {
    "id": "ClassicalArithmeticCompletion:CA.3/newton-forward-difference-expansion",
@@ -2843,8 +2831,7 @@
    "status": "planned",
    "note": "Together with the CA.3 nodes of ClassicalArithmeticCompletion.json, every target of CA.3 is now a node whose prerequisite chains end in Mathlib, Tau Ceti, other CA nodes, or one recorded gap. This packet plans the four open items of the main packet's coverage record and gives each of its 22 review-frontier ids a named supplier, a new supplying node, or a target-level disposition (continuations). The integer-valued-polynomial theory of number fields, Pólya groups included, is planned from public proofs and is free of gaps; the one gap is the unread proof of Mignotte's 1988 inequality, so the stage is planned but not closed. Gauss–Jordan elimination over a field and the kernel basis read off the reduced form are Tau Ceti's at the pinned commit (TauCeti.rowReduce, TauCeti.kernelBasis); the two linear-algebra nodes plan only what those declarations lack.",
    "remaining": [
-    "Mignotte 1988, Theorem 1′ and the remarks after it (J. Number Theory 30, 156–166): read the proof at its full hypotheses and decompose it, or replace it by a public proof of an inequality of the same shape; CA.3/mignotte-irreducible-factor-l2-bound states the inequality as Bary-Soroker–Koukoulopoulos–Kozma quote it, and CA.3/irreducible-factor-evaluation-bound is planned from it.",
-    "Assembly: add the continuations' additionalPrerequisites to the cited main-packet nodes when the CA.3 parts are joined."
+    "Mignotte 1988, Theorem 1′ and the remarks after it (J. Number Theory 30, 156–166): read the proof at its full hypotheses and decompose it, or replace it by a public proof of an inequality of the same shape; CA.3/mignotte-irreducible-factor-l2-bound states the inequality as Bary-Soroker–Koukoulopoulos–Kozma quote it, and CA.3/irreducible-factor-evaluation-bound is planned from it."
    ]
   }
  ],
@@ -3391,6 +3378,42 @@
     "nodeId": "ClassicalArithmeticCompletion:CA.3/kernel-basis-of-a-reduced-echelon-matrix",
     "verdict": "corrected",
     "note": "Duplicated the pinned Tau Ceti library: TauCeti.kernelVector, freeColumnBasis, kernelBasis with soundness, spanning, independence and the count n − rank A already exist at f790474 (KernelBasis.lean). Rewritten to cite them and to plan only the transport to a linear map in chosen bases (LinearMap.toMatrix_mulVec_repr, Basis.equivFun, Basis.map), which CN.2's request asks for; Frobenius example on F₂[X]/(X²) added."
+   }
+  ]
+ },
+ "assemblyEdits": {
+  "job": "ASM-ClassicalArithmeticCompletion",
+  "date": "2026-10-14",
+  "edits": [
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.3/factorial-ideal",
+    "planet": "Factorial ideal",
+    "reason": "CA.3 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+   },
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.3/polya-ostrowski-criterion",
+    "planet": "Pólya–Ostrowski criterion",
+    "reason": "CA.3 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+   },
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.3/polya-field",
+    "planet": "Pólya field",
+    "reason": "CA.3 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+   },
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.3/fujiwara-root-bound",
+    "planet": "Fujiwara's root bound",
+    "reason": "CA.3 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+   },
+   {
+    "edit": "coverage remaining",
+    "item": "Assembly: add the continuations' additionalPrerequisites to the cited main-packet nodes when the CA.3 parts are joined.",
+    "now": "removed",
+    "reason": "done by the assembly: each additionalPrerequisites list is attached to its first-pass node"
    }
   ]
  }

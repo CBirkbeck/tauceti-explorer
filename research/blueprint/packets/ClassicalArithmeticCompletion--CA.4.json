@@ -547,9 +547,6 @@
           "statement": "(1, 1, 2) ∈ V_{3,3,0}(ℤ) but (−1, 1, 2) ∉ V_{3,3,0}(ℤ): one sign change is not a symmetry."
         }
       ],
-      "planet": {
-        "name": "Markoff–Hurwitz varieties"
-      },
       "api": [
         {
           "name": "markoffHurwitzSet",
@@ -1529,9 +1526,6 @@
           "statement": "markoffClassNumber 3 = 0 (V₃(ℤ) = ∅)."
         }
       ],
-      "planet": {
-        "name": "Markoff class numbers"
-      },
       "api": [
         {
           "name": "markoffOrbits",
@@ -1767,9 +1761,6 @@
         "ClassicalArithmeticCompletion:CA.4/markoff-class-number",
         "ClassicalArithmeticCompletion:CA.4/markoff-level-classification"
       ],
-      "planet": {
-        "name": "Ghosh–Sarnak fundamental sets"
-      },
       "library": {
         "module": "TauCeti/NumberTheory/Diophantine/MarkoffLevelSets",
         "namespace": "TauCeti.ClassicalArithmetic"
@@ -2120,9 +2111,6 @@
         "mathlib:PadicInt",
         "mathlib:PadicInt.toZModPow"
       ],
-      "planet": {
-        "name": "Local solubility of Markoff surfaces"
-      },
       "library": {
         "module": "TauCeti/NumberTheory/Diophantine/MarkoffLevelSets",
         "namespace": "TauCeti.ClassicalArithmetic"
@@ -4532,6 +4520,36 @@
         "nodeId": "ClassicalArithmeticCompletion:CA.4/theta-product-specialisations",
         "verdict": "corrected",
         "note": "Hirschhorn §2 pp. 2–3 of the author's version and Pak §5.5 and §6.1.3 pp. 33–35 read; (ii), (iii), (iv) and Euler's identity checked to degree 40. Hirschhorn match corrected (two theta products and Gauss's identity)."
+      }
+    ]
+  },
+  "assemblyEdits": {
+    "job": "ASM-ClassicalArithmeticCompletion",
+    "date": "2026-10-14",
+    "edits": [
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.4/markoff-hurwitz-variety",
+        "planet": "Markoff–Hurwitz varieties",
+        "reason": "CA.4 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.4/markoff-fundamental-sets",
+        "planet": "Ghosh–Sarnak fundamental sets",
+        "reason": "CA.4 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.4/markoff-local-solubility",
+        "planet": "Local solubility of Markoff surfaces",
+        "reason": "CA.4 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+      },
+      {
+        "edit": "planet removed",
+        "node": "ClassicalArithmeticCompletion:CA.4/markoff-class-number",
+        "planet": "Markoff class numbers",
+        "reason": "CA.4 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
       }
     ]
   }

@@ -1214,9 +1214,6 @@
      "statement": "With Mathlib's Nat.factorial: 6! = 3²·2!·f_3(6) = 9·2·40."
     }
    ],
-   "planet": {
-    "name": "p-free factorial"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/ClassicalArithmetic/CA2",
     "namespace": "TauCeti.ClassicalArithmetic",
@@ -1315,9 +1312,6 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Luo–Zhu congruence"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/ClassicalArithmetic/CA2",
     "namespace": "TauCeti.ClassicalArithmetic",
@@ -2784,6 +2778,24 @@
     "line": 123,
     "verdict": "added",
     "note": "Read: an additive commutative group with a ℚ-module structure is IsAddTorsionFree (a lemma, not an instance). Added by this review as the supplier of the torsion-freeness hypothesis of PowerSeries.derivative.ext."
+   }
+  ]
+ },
+ "assemblyEdits": {
+  "job": "ASM-ClassicalArithmeticCompletion",
+  "date": "2026-10-14",
+  "edits": [
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.2/p-free-factorial",
+    "planet": "p-free factorial",
+    "reason": "CA.2 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
+   },
+   {
+    "edit": "planet removed",
+    "node": "ClassicalArithmeticCompletion:CA.2/luo-zhu-congruence",
+    "planet": "Luo–Zhu congruence",
+    "reason": "CA.2 would show more than six planets once the first-pass and continuation packets are joined; the proposed sub-layers (restructure) can restore it"
    }
   ]
  }

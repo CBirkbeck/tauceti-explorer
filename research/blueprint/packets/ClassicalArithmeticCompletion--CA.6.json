@@ -411,7 +411,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -518,7 +518,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -614,7 +614,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -653,7 +653,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -692,7 +692,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -732,7 +732,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -772,7 +772,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -814,7 +814,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -863,7 +863,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -904,7 +904,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1014,7 +1014,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1131,7 +1131,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1177,7 +1177,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1226,7 +1226,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1314,7 +1314,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1434,7 +1434,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1541,7 +1541,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1643,7 +1643,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1680,7 +1680,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1717,7 +1717,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -1811,7 +1811,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1853,7 +1853,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1899,7 +1899,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -1941,7 +1941,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2048,7 +2048,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2151,7 +2151,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2197,7 +2197,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2241,7 +2241,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     },
     {
@@ -2283,7 +2283,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       },
       "api": [
         {
@@ -2384,7 +2384,7 @@
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
-        "namespace": "TauCeti.MahlerAnalytic"
+        "namespace": "TauCeti.ClassicalArithmetic"
       }
     }
   ],
@@ -2396,8 +2396,7 @@
       "remaining": [
         "Verify Smyth’s exact §4 short-gap multipliers and inequalities from readable pp. 172–173; replace the narrowed gap only after that calculation is checked.",
         "Resolve the inherited trace, stronger Dobrowolski, degree-drop-prime and dyadic-prime contracts at their existing owners.",
-        "Carry the parent’s latest assessments through assembly; resolve genuinely unsupplied mathematical interfaces, including the height point-at-infinity contract, without recreating already corrected findings.",
-        "Bind CA.6/dobrowolski-auxiliary-polynomial to DT.0/siegel-lemma-number-field-product at assembly (the inherited DT.0 request is satisfied by that accepted node)."
+        "Resolve the genuinely unsupplied mathematical interfaces of the first-pass targets (gap “Imported mathematical interfaces outside the analytic continuation scope”), including the height point-at-infinity contract, without recreating already corrected findings."
       ]
     }
   ],
@@ -3184,6 +3183,29 @@
         "nodeId": "requests",
         "verdict": "corrected",
         "note": "The inherited DT.0 request is satisfied by the accepted node DiophantineApproximationAndTranscendence:DT.0/siegel-lemma-number-field-product, whose statement matches it; the request moved to requestResolutions and a consumer binding for CA.6/dobrowolski-auxiliary-polynomial was added."
+      }
+    ]
+  },
+  "assemblyEdits": {
+    "job": "ASM-ClassicalArithmeticCompletion",
+    "date": "2026-10-14",
+    "edits": [
+      {
+        "edit": "library namespace",
+        "nodes": 30,
+        "detail": "library.namespace (and, in CA.5, the leanName prefixes) set to TauCeti.ClassicalArithmetic, the one namespace of the joined suggested file"
+      },
+      {
+        "edit": "coverage remaining",
+        "item": "Bind CA.6/dobrowolski-auxiliary-polynomial to DT.0/siegel-lemma-number-field-product at assembly (the inherited DT.0 request is satisfied by that accepted node).",
+        "now": "removed",
+        "reason": "done by the assembly: the first-pass node cites DT.0/siegel-lemma-number-field-product"
+      },
+      {
+        "edit": "coverage remaining",
+        "item": "Carry the parent’s latest assessments through assembly; resolve genuinely unsupplied mathematical interfaces, including the height point-at-infinity contract, without recreating already corrected findings.",
+        "now": "Resolve the genuinely unsupplied mathematical interfaces of the first-pass targets (gap “Imported mathematical interfaces outside the analytic continuation scope”), including the height point-at-infinity contract, without recreating already corrected findings.",
+        "reason": "the assembly carried the latest assessments into the document; what is left is the open interfaces"
       }
     ]
   }
