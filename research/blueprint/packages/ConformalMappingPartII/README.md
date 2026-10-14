@@ -12,6 +12,8 @@ Reuse [FuchsianOrbifolds](https://github.com/TauCetiProject/TauCetiRoadmap/tree/
 
 Mathlib supplies analytic functions, iterated complex derivatives, meromorphic order, divisors, trailing coefficients, circle averages, proximity and characteristic functions, the ordinary hypergeometric series, Gamma and digamma functions, and elementary special-function identities. Import those interfaces and extend them. In particular, use `MeromorphicOn.divisor`, `Real.circleAverage`, `ValueDistribution.proximity` and `meromorphicTrailingCoeffAt`. Do not replace a meromorphic scalar representative by a projective-valued function without a comparison theorem.
 
+Logarithmic circle integrability is supplied by Mathlib's `MeromorphicOn.circleIntegrable_log_norm` and `MeromorphicOn.circleIntegrable_posLog_norm` in `Analysis.SpecialFunctions.Integrability.LogMeromorphic`; it is not a separate target here. The current Tau Ceti library also supplies generic power descent in `TauCeti.Analysis.Complex.RootsOfUnity.Descent` and the complex Herglotz formula in `TauCeti.Analysis.Complex.Herglotz`. Layer 1 specializes descent to the roots cover, including its derivative and omitted-value properties; Layer 3 constructs the normalized analytic logarithm to which the native Herglotz formula is applied. Neither layer rebuilds those general inputs.
+
 The native disc–half-plane coordinate is C(z)=i(1+z)/(1−z) on |z|<1 and C⁻¹(τ)=(τ−i)/(τ+i) on Im τ>0. These are inverse holomorphic maps, C(0)=i, and z→1 corresponds to the cusp at infinity; no value at the boundary point 1 is part of the interior map.
 
 Its compatibility agreements in this roadmap are:
@@ -64,9 +66,13 @@ From Mathlib, use complex differentiability and `AnalyticAt`/`AnalyticOnNhd` on 
 
 For the disc-local value-distribution interfaces, `MeromorphicOn.divisor f K` uses the native punctured meromorphic order on K. `divisor_restrict`, `divisor_fun_inv` and `divisor_fun_pow` are consumed only under genuine `MeromorphicOn` hypotheses. Compactness of a closed subdisc inside 𝔻 gives the finite divisor support; `divisor_ball_support_finite` supplies the corresponding open-ball statement. `MeromorphicOn.circleAverage_log_norm` is the closed-disc Jensen formula with `meromorphicTrailingCoeffAt`. Its finite nonzero trailing coefficient, rather than the assigned value at a pole or removable singularity, is the centre constant. `Real.circleAverage` and `ValueDistribution.proximity f ⊤ r` use the same probability normalization; `ValueDistribution.proximity_pow_top` supplies m(r,f^n)=n m(r,f) for natural n, leaving the local pole-divisor scaling to Layer 7. The native global `logCounting` and `characteristic` are used only for globally meromorphic comparison tests, not through a fabricated global extension of a disc function.
 
+Already at the pinned Mathlib, `MeromorphicOn.circleIntegrable_log_norm` and `MeromorphicOn.circleIntegrable_posLog_norm` require only meromorphicity on `sphere c |R|` and yield circle integrability at centre c and radius R. Their hypotheses permit zeros, poles, the identically zero function and R=0, using native totalized logarithms. For 0<r<1, restriction of disc meromorphicity to `sphere 0 r` discharges this contract. Changing finitely many circle values preserves the circle averages for r>0.
+
 For special functions, `ordinaryHypergeometric_eq_tsum`, `ordinaryHypergeometric_zero` and `ordinaryHypergeometricSeries_radius_eq_one` supply the native coefficient series, value one at zero and convergence disc when a,b,c avoid nonpositive integers. Termwise differentiation, the Gauss equation, continuation near one and the uniform parameter estimates are targets below. `Complex.digamma_one`, `digamma_one_sub` and `digamma_apply_add_nat` fix the Euler constant, reflection and finite reciprocal-sum conventions, with poles excluded. `Real.Gamma_pos_of_pos`, `Real.Gamma_mul_Gamma_one_sub` and `Real.Gamma_mul_Gamma_add_half` supply positivity, reflection and duplication on their stated domains. `Complex.Gamma_ne_zero_of_re_pos`, `Complex.Gamma_ofReal` and `Real.BohrMollerup.tendsto_log_gamma` are inputs to the locally uniform log-Gamma expansion, not that expansion itself.
 
 From Tau Ceti, `TauCeti.IsAnalyticContinuationAlong` supplies a family of analytic germs transported continuously along a path; ODE continuation existence is proved here. Use `TauCeti.unitDiscMoebius` and `TauCeti.coe_unitDiscMoebius` for the interior Blaschke factor. The boundary-parameter extension in Layer 3 is the additional interface. The Cayley coordinate, lifted cover manifold and native Shimizu inequality have their ownership and compatibility agreements stated above.
+
+From current Tau Ceti, `TauCeti.descendPow` requires a nonzero natural exponent m. `descendPow_pow` gives the factorization at u under invariance by all mth roots of unity at u; `differentiableOn_descendPow` requires an open set s, holomorphy on s and that invariance at every u∈s, and yields holomorphy on `(· ^ m) '' s`. `TauCeti.image_pow_ball` identifies this image with the ball of radius r^m for r≥0. Apply these to f=F_N^N and s=𝔻. The derivative at zero and ramification away from the selected branch are the additional roots-cover assertions. In `TauCeti.Analysis.Complex.Herglotz`, `DiffContOnCl.circleAverage_herglotzRieszKernel_smul_re_add` assumes `DiffContOnCl ℂ L (ball c R)` and w∈ball c R; its conclusion is the boundary-real-part integral plus `(L c).im * I = L w`. For an analytic log L with L(0)=0 the imaginary constant vanishes. These current-library inputs are ownership deferrals; `Suggested.lean` uses only interfaces available at the pins.
 
 From ConformalMapping L2 consume the classification of automorphisms fixing zero as rotations and the equality case of the derivative Schwarz inequality. From L3 consume normalized planar Riemann maps, their holomorphic inverses, and analytic logarithm and root branches on simply connected plane domains. Use the native `TauCeti.IsNormalizedRiemannMapOn φ Ω a` in `TauCeti.Analysis.Complex.Conformal.RiemannMapping.Normalization`: it requires a∈Ω, holomorphy, a bijection Ω→𝔻, φ(a)=0 and positive real φ′(a). Its direction is domain to disc. From L4 consume path monodromy and reflection across analytic circle sides. In particular, a planar Riemann map cannot supply the uniformization theorem for the abstract universal-cover surface in Layer 1.
 
@@ -251,6 +257,7 @@ The required API is:
 * For N=2 the target is ℂ∖{−1,1}.
 * 0 is in the target and its chosen preimage is 0.
 * F_N(1)=1 is a cusp limit and 1 is omitted from all interior values.
+* Precomposing the positively oriented cover with z↦iz gives derivative iF_N′(0), which has the same norm but is not positive real. It fails the orientation required by the inverse-germ formula.
 
 (Source: CDT, p.667; Definition 5.1.1.) *Needs:* Layer 1, hyperbolic uniformization of the cover; the native Cayley coordinate; Layer 1, pointed analytic cover uniqueness; [FuchsianOrbifolds — layer 0 the effective projective möbius action](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/FuchsianOrbifolds/README.md#layer-0-the-effective-projective-möbius-action); [FuchsianOrbifolds — layer 3 cusps and q coordinates](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/FuchsianOrbifolds/README.md#layer-3-cusps-and-q-coordinates).
 
@@ -268,7 +275,7 @@ For N≥2 and ζ^N=1, F_N(ζz)=ζF_N(z) for |z|<1. For the standard left action 
 
 ### 1.9 The descended power map
 
-For N≥2 there is a unique holomorphic G_N:𝔻→ℂ∖{1} with G_N(z^N)=F_N(z)^N. Define it by root descent and remove the apparent root ambiguity using equivariance; G_N(0)=0. It is ramified at the lifts of zero other than the chosen local branch and is not asserted to be a universal covering.
+For N≥2 there is a unique holomorphic G_N:𝔻→ℂ∖{1} with G_N(z^N)=F_N(z)^N. Specialize the native `TauCeti.descendPow` to F_N^N and use equivariance for root independence; unlike generic descent, this target identifies its derivative, omitted value and ramification for the roots cover. G_N(0)=0. It is ramified at the lifts of zero other than the chosen local branch and is not asserted to be a universal covering.
 
 The required API is:
 
@@ -276,14 +283,16 @@ The required API is:
 * `PowerDescent.mapZero`: G_N(0)=0.
 * `PowerDescent.derivative`: G_N′(0)=F_N′(0)^N; consequently |G_N′(0)|=R(ℂ∖μ_N,0)^N.
 * `PowerDescent.rootIndependence`: Any two Nth roots of an input give identical defining values.
+* `PowerDescent.ramification`: At zero, G_N has a simple zero. If 0<|z|<1 and F_N(z)=0, then G_N has zero order N at z^N and G_N′(z^N)=0; the source power map is locally unramified at this z and F_N has a simple zero there.
 
 **Checks.**
 
 * If F_N(z)=az+O(z^(N+1)), then G_N(w)=a^Nw+O(w²).
 * The local inverse exists at 0 because a≠0.
 * For N=2, choosing z or −z gives the same G_2(z²).
+* At a nonzero lift z of the target zero, G_N′(z^N)=0 for N≥2. This rules out treating the descended map as an unramified universal cover.
 
-(Source: CDT, p.671; Definition 5.1.15.) *Needs:* Layer 1, rotation equivariance of the covering.
+(Source: CDT, p.671; Definition 5.1.15.) *Needs:* Layer 1, rotation equivariance of the covering; current Tau Ceti `TauCeti.descendPow`, `descendPow_pow`, `differentiableOn_descendPow` and `image_pow_ball`.
 
 ### 1.10 Derivative of the descended power map
 
@@ -350,6 +359,8 @@ On a sufficiently small simply connected neighbourhood where w′≠0, choose an
 ### 2.5 Hempel’s accessory-parameter formula
 
 Let S={p₀,…,p_N}⊂ℂ consist of distinct finite points, |S|≥3; thus infinity is unpunctured in ℙ¹∖S. For a local inverse τ of its holomorphic universal cover, S(τ)(X)=(1/2)Σ_k(X−p_k)⁻²+Σ_k m_k/(X−p_k) for constants m_k. The branch-independent Schwarzian is rational and has the stated principal parts.
+
+Construct this punctured-sphere cover by moving one p_k to infinity with a Möbius chart and applying Layer 1 to the resulting plane with at least two omitted points. Transport the cover back through that chart. The local cusp expansion supplies the double-pole coefficient 1/2, and Möbius invariance makes the continued Schwarzian single valued; regularity at the unpunctured infinity gives the constraints below. This proof supplies the accessory-parameter input invoked by CDT.
 
 (Source: CDT, proof of Lemma 5.1.8, equations (5.1.12)–(5.1.14), p.670; Hempel [Hem88].) *Needs:* Layer 2, möbius invariance of the schwarzian; Layer 1, hyperbolic uniformization of the cover; [FuchsianOrbifolds — layer 3 cusps and q coordinates](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/FuchsianOrbifolds/README.md#layer-3-cusps-and-q-coordinates).
 
@@ -430,15 +441,15 @@ The required API is:
 
 ### 3.3 Removing zeros with a finite Blaschke product
 
-Let g be holomorphic near the closed unit disc and not identically zero. Form B from all its zeros in the closed disc with their orders. After removal of singularities, G=g/B is holomorphic and zero-free on the open disc and has |G|=|g| on the circle wherever the boundary quotients are interpreted by limits. Boundary zeros of g need not disappear from G, because boundary factors are constants.
+Let g be holomorphic near the closed unit disc with a nonzero analytic germ on the disc. Form B from all its zeros in the closed disc with their orders. After removal of singularities, G=g/B is holomorphic and zero-free on the open disc and has |G|=|g| on the circle wherever the boundary quotients are interpreted by limits. Boundary zeros of g need not disappear from G, because boundary factors are constants.
 
 (Source: CDT, proof of Lemma 2.3.1, p.640 (the finite zero divisor).) *Needs:* Layer 3, finite blaschke products; Mathlib `MeromorphicOn.divisor`; Mathlib `MeromorphicOn.divisor_ball_support_finite`.
 
 ### 3.4 Herglotz representation of a normalized logarithm
 
-For R>0 and g holomorphic and zero-free on a neighbourhood of the closed disc |z|≤R, with g(0)=1, choose the unique analytic log L with L(0)=0. For |z|<R, L(z)=∫_(|w|=R) log|g(w)|(w+z)/(w−z) dμ_Haar(w).
+For R>0 and g holomorphic and zero-free on a neighbourhood of the closed disc |z|≤R, with g(0)=1, construct the unique analytic log L with L(0)=0 and exp L=g. Unlike the native formula for an already given holomorphic L, this target supplies that normalized logarithm and the identity Re L=log|g|. For |z|<R, L(z)=∫_(|w|=R) log|g(w)|(w+z)/(w−z) dμ_Haar(w).
 
-(Source: CDT, proof of Lemma 2.3.1, p.640; equations (6.1.9)–(6.1.10), p.680.) *Needs:* Mathlib `DiffContOnCl.circleAverage_re_herglotzRieszKernel_smul`; [ConformalMapping — milestone l3 / the riemann mapping theorem summit](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ConformalMapping/README.md#milestone-l3--the-riemann-mapping-theorem-summit).
+(Source: CDT, proof of Lemma 2.3.1, p.640; equations (6.1.9)–(6.1.10), p.680.) *Needs:* current Tau Ceti `DiffContOnCl.circleAverage_herglotzRieszKernel_smul_re_add`; Mathlib `DiffContOnCl.circleAverage_re_herglotzRieszKernel_smul`; [ConformalMapping — milestone l3 / the riemann mapping theorem summit](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ConformalMapping/README.md#milestone-l3--the-riemann-mapping-theorem-summit).
 
 ### 3.5 The derivative Herglotz formula
 
@@ -456,13 +467,13 @@ For a zero-free holomorphic G near the closed disc of radius r>0, exp(∫ log|G(
 
 If g is holomorphic near the closed unit disc, the radius-r Blaschke/Herglotz construction for r>1 sufficiently close to 1 gives a multiplier h holomorphic on a neighbourhood of the closed unit disc with h(0)=1. The resulting boundary bounds converge to m(1,g) as r decreases to 1, including boundary zeros by integrable logarithmic control.
 
-(Source: CDT, p.641; Lemma 2.3.1.) *Needs:* Layer 3, removing zeros with a finite blaschke product; Layer 3, the phase in the complex quotient identity; Mathlib `ValueDistribution.proximity`; Mathlib `MeromorphicOn.circleAverage_log_norm`.
+(Source: CDT, proof of Lemma 2.3.1, pp.640–641.) *Needs:* Layer 3, removing zeros with a finite blaschke product; Layer 3, the phase in the complex quotient identity; Mathlib `ValueDistribution.proximity`; Mathlib `MeromorphicOn.circleAverage_log_norm`.
 
 ### 3.8 Nevanlinna’s quotient representation
 
 For ε>0 and g holomorphic near the closed unit disc, there is h holomorphic near that disc with h(0)=1 and max{sup_(|z|=1) log|h(z)|,sup_(|z|=1) log|h(z)g(z)|}≤m(1,g)+ε. The zero function g is handled separately. Use logarithmic suprema, not suprema of |h|.
 
-(Source: CDT, p.641; Lemma 2.3.1.) *Needs:* Layer 3, radial smoothing of the quotient multiplier; Layer 3, the phase in the complex quotient identity; Mathlib `ValueDistribution.proximity`.
+(Source: CDT, Lemma 2.3.1 and its proof, pp.639–641.) *Needs:* Layer 3, radial smoothing of the quotient multiplier; Layer 3, the phase in the complex quotient identity; Mathlib `ValueDistribution.proximity`.
 
 ### 3.9 Optimality of the quotient bound
 
@@ -530,15 +541,15 @@ For the oriented cover with F_N′(0)>0, ψ_N(u)=|F_N′(0)|⁻¹J_N(u) as germs
 
 For positive real a and 0<|x|<1 on a fixed compatible branch of log x, the analytic continuation of ₂F₁(a,a;2a;1−x) equals Γ(2a)/Γ(a)² times Σ_{k≥0}(a)_k² x^k/(k!)²·(−log x+2(ψ(k+1)−ψ(k+a))). This refers to the continued analytic function, not the native series junk value outside its disc. The proof needs only a∈[1/4,3/4]. A more general finite-valued parameter statement must also exclude poles of 2a.
 
-(Source: CDT, p.672; Lemma 5.1.20.) *Needs:* Mathlib `ordinaryHypergeometric`; Mathlib `ordinaryHypergeometric_eq_tsum`; Mathlib `Complex.digamma`.
+(Source: CDT, p.672; Lemma 5.1.20; [DLMF 15.8.10](https://dlmf.nist.gov/15.8.E10), specialized to m=0 and b=a, with the normalization in [15.2.2](https://dlmf.nist.gov/15.2.E2).) *Needs:* Mathlib `ordinaryHypergeometric`; Mathlib `ordinaryHypergeometric_eq_tsum`; Mathlib `Complex.digamma`.
 
-The coefficient at k=0 is −log x−2γ−2ψ(a). Subsequent coefficients use ψ(k+1), without an index shift. Prove convergence on the chosen branch and identify the continued solution with the native series on their common domain.
+The coefficient at k=0 is −log x−2γ−2ψ(a). Subsequent coefficients use ψ(k+1), without an index shift. DLMF's bold hypergeometric function is divided by Γ(2a); restoring the ordinary normalization gives the prefactor above. The principal formula uses |arg x|<π; other compatible logarithmic branches are obtained by continuation of both sides along the same path. Prove convergence on the chosen branch and identify the continued solution with the native series on their common domain.
 
 ### 4.7 Uniform digamma coefficient control
 
 For a∈[1/4,3/4] and k≥1, 0≤ψ(k+1)−ψ(k+a)≤ψ(2)−ψ(5/4), and the difference decreases in both k and a. This uses the coefficient ψ(k+1)−ψ(k+a), not ψ(k)−ψ(k+a).
 
-(Source: CDT, p.676; Lemma 5.2.9.) *Needs:* Mathlib `Complex.digamma`; Mathlib `Complex.digamma_apply_add_nat`.
+(Source: CDT, p.676; Lemma 5.2.9; the reciprocal-series formula [DLMF 5.7.6](https://dlmf.nist.gov/5.7.E6).) *Needs:* Mathlib `Complex.digamma`; Mathlib `Complex.digamma_apply_add_nat`.
 
 ### 4.8 Uniform zero-balanced remainder
 
@@ -606,7 +617,7 @@ For N≥2 and every holomorphic universal cover F_N:𝔻→ℂ∖μ_N with F_N(0
 
 For |z|<1, the analytic branch of log Γ(1+z) vanishing at z=0 is −γz+Σ_{k≥2}(−1)^kζ(k)z^k/k. For real −1<z<1 this is the ordinary log of the positive real Gamma function.
 
-(Source: CDT, p.673; proof of Theorem 5.1.4, reference [AS92, 6.1.33].) *Needs:* Mathlib `Real.Gamma`; Mathlib `Complex.Gamma`; Mathlib `Complex.Gamma_ne_zero_of_re_pos`; Mathlib `Complex.Gamma_ofReal`; Mathlib `Real.BohrMollerup.tendsto_log_gamma`; Mathlib `Complex.digamma`.
+(Source: CDT, p.673; proof of Theorem 5.1.4, reference [AS92, 6.1.33]; [DLMF 5.7.3](https://dlmf.nist.gov/5.7.E3), combined with the log(1+z) Taylor series for |z|<1.) *Needs:* Mathlib `Real.Gamma`; Mathlib `Complex.Gamma`; Mathlib `Complex.Gamma_ne_zero_of_re_pos`; Mathlib `Complex.Gamma_ofReal`; Mathlib `Real.BohrMollerup.tendsto_log_gamma`; Mathlib `Complex.digamma`.
 
 ### 5.7 The odd-zeta radius series
 
@@ -784,43 +795,37 @@ The light test function `scalarSpike z = if z=0 then 2 else 1` makes this distin
 * At every nonzero point it is locally the constant one, and at zero it is meromorphic with order zero in the native punctured-germ convention.
 * For 0<r<1 its pole count is zero, but it is neither continuous nor analytic at zero; omitting continuity from the pointwise analytic criterion would admit this counterexample.
 
-### 7.5 Local logarithmic circle integrability
-
-For r>0 and f meromorphic on a neighbourhood of the closed radius-r disc with a nonzero meromorphic germ at zero, log|f| and log⁺|f| are circle-integrable. Isolated zeros and poles on the circle are interpreted almost everywhere; changes at their finite point set do not alter circle averages.
-
-(Source: CDT, pp.679–680; §6.1.1 and the Poisson–Jensen discussion preceding (6.1.4).) *Needs:* Mathlib `MeromorphicOn.divisor`; Mathlib `MeromorphicOn.divisor_ball_support_finite`; Mathlib `MeromorphicOn.circleAverage_log_norm`; Mathlib `ValueDistribution.proximity`.
-
-### 7.6 The disc-local Jensen identity
+### 7.5 The disc-local Jensen identity
 
 For f meromorphic on 𝔻, with nonzero meromorphic germ at 0, and 0<r<1, ∫ log|f|dμ=N_D(r,1/f)−N_D(r,f)+log|c(f,0)|, where c(f,0) is the native nonzero meromorphic trailing coefficient at 0.
 
-(Source: CDT, p.680; proof of the first main theorem, Poisson–Jensen discussion and (6.1.4).) *Needs:* Layer 7, the disc-local pole-counting function; Layer 7, local logarithmic circle integrability; Mathlib `MeromorphicOn.circleAverage_log_norm`; Mathlib `MeromorphicOn.divisor_fun_inv`.
+(Source: CDT, p.680; proof of the first main theorem, Poisson–Jensen discussion and (6.1.4).) *Needs:* Layer 7, the disc-local pole-counting function; Mathlib `MeromorphicOn.circleIntegrable_log_norm` and `MeromorphicOn.circleIntegrable_posLog_norm`; Mathlib `MeromorphicOn.circleAverage_log_norm`; Mathlib `MeromorphicOn.divisor_fun_inv`.
 
-### 7.7 The local first main inversion identity
+### 7.6 The local first main inversion identity
 
 For f meromorphic on 𝔻 with nonzero germ at 0 and 0<r<1, T_D(r,f)−T_D(r,1/f)=log|c(f,0)|. Neither global meromorphicity nor a regular centre is required; the trailing coefficient must be finite and nonzero.
 
-(Source: CDT, p.680; equation (6.1.4).) *Needs:* Layer 7, the disc-local characteristic; Layer 7, the disc-local jensen identity; Layer 7, local logarithmic circle integrability; Mathlib `ValueDistribution.proximity`; Mathlib `ValueDistribution.characteristic_sub_characteristic_inv_of_ne_zero`.
+(Source: CDT, p.680; equation (6.1.4).) *Needs:* Layer 7, the disc-local characteristic; Layer 7, the disc-local jensen identity; Mathlib `MeromorphicOn.circleIntegrable_log_norm` and `MeromorphicOn.circleIntegrable_posLog_norm`; Mathlib `ValueDistribution.proximity`; Mathlib `ValueDistribution.characteristic_sub_characteristic_inv_of_ne_zero`.
 
-### 7.8 Translation bound for proximity
+### 7.7 Translation bound for proximity
 
 For a∈ℂ and circle-integrable local meromorphic f, |m(r,f−a)−m(r,f)|≤log⁺|a|+log 2. This follows from the pointwise positive-log triangle bound, including zeros via totalized log⁺.
 
-(Source: CDT, equation (6.1.5), p.680.) *Needs:* Mathlib `ValueDistribution.proximity`; Layer 7, local logarithmic circle integrability.
+(Source: CDT, equation (6.1.5), p.680.) *Needs:* Mathlib `ValueDistribution.proximity`; Mathlib `MeromorphicOn.circleIntegrable_log_norm` and `MeromorphicOn.circleIntegrable_posLog_norm`.
 
-### 7.9 The translated local first main theorem
+### 7.8 The translated local first main theorem
 
 For f meromorphic on 𝔻 with f−a having a nonzero germ at 0, and 0<r<1, |T_D(r,f)−T_D(r,1/(f−a))−log|c(f,a)||≤log⁺|a|+log 2. The coefficient is the nonzero leading meromorphic coefficient of f−a; the identically constant f=a case is excluded.
 
 (Source: CDT, p.679; equation (6.1.3), with proof on p.680.) *Needs:* Layer 7, the local first main inversion identity; Layer 7, translation bound for proximity; Layer 7, the disc-local pole-counting function.
 
-### 7.10 The local characteristic power law
+### 7.9 The local characteristic power law
 
 For f meromorphic on 𝔻, n∈ℕ and 0<r<1, T_D(r,f^n)=nT_D(r,f). For n=0 both sides are zero. Pole and zero multiplicities and positive log norms scale by n.
 
 (Source: CDT, p.682; last equality of equation (6.2.3), together with §6.1.1 on p.679.) *Needs:* Layer 7, the disc-local characteristic; Mathlib `MeromorphicOn.divisor_fun_pow`; Mathlib `ValueDistribution.proximity`.
 
-### 7.11 Radial monotonicity of holomorphic proximity
+### 7.10 Radial monotonicity of holomorphic proximity
 
 For holomorphic h on 𝔻 and 0<r≤ρ<1, m(r,h)≤m(ρ,h). The positive log norm is subharmonic; this supplies the small-radius transfer used to remove 1/r from the logarithmic derivative estimate.
 
@@ -1063,3 +1068,5 @@ The conformal-radius formula supplies explicit analytic sizes for arithmetic hol
 **CDT**: Frank Calegari, Vesselin Dimitrov and Yunqing Tang, [*The unbounded denominators conjecture*](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), *Journal of the American Mathematical Society* **38** (2025), 627–702, [DOI 10.1090/jams/1053](https://doi.org/10.1090/jams/1053). Page references below are the printed journal pages. Section 1.1.6 and the proof of Corollary 2.0.5 motivate the ODE interfaces; Lemma 2.3.1 supplies the quotient representation; §§5–6 supply the quantitative covering theory. Where CDT invokes Hempel's accessory parameters, special-function connection formulas or fixed-puncture growth theory, the target includes the proof of that input, with its hypotheses stated here. A citation to that invocation does not identify it as a theorem already present in the libraries.
 
 The original references used by CDT include Hempel [Hem88] for accessory parameters, Abramowitz–Stegun [AS92, 15.3.10, 6.1.33] for hypergeometric continuation and log-Gamma, and Tsuji [Tsu52, Theorem 11] for fixed-puncture growth. Their exact roles are specified at the relevant targets. The effective fixed-level assertion in Layer 9 includes its own proof and small-radius estimates.
+
+**DLMF**: NIST, [*Digital Library of Mathematical Functions*](https://dlmf.nist.gov/), equations 15.8.10 and 15.2.2 for the ordinary zero-balanced continuation after restoring normalization, and 5.7.3 and 5.7.6 for log-Gamma and digamma series. These supply accessible formula locators; the convergence, parameter differentiation and effective estimates specified above remain proof targets.

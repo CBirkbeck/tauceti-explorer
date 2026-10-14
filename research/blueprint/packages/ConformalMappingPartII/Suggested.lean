@@ -166,6 +166,11 @@ example {N : ℕ} (F : RootsCover N) :
     Filter.Tendsto (fun r : ℝ ↦ F.toFun r) (nhdsWithin 1 (Iio 1)) (nhds (1 : ℂ)) ∧
       ∀ z ∈ ball (0 : ℂ) 1, F.toFun z ≠ 1 := by sorry
 
+/-- A quarter-turn keeps the derivative norm but violates positive real orientation. -/
+example {N : ℕ} (F : RootsCover N) :
+    deriv (fun z ↦ F.toFun (I * z)) 0 = I * deriv F.toFun 0 ∧
+      0 < (deriv (fun z ↦ F.toFun (I * z)) 0).im := by sorry
+
 /-! ## Layer 2: Schwarzians and accessory parameters -/
 
 /-- The totalized scalar Schwarzian. Analytic identities require a nonzero first
