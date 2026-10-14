@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticQuantumTopology",
+    "date": "2026-10-14",
+    "notes": "Codex, session codex-GWNbaZ, independently reviewed the package from Claude session claude-gWFnvH (PR #9529). All 106 packet targets were traced into the README; all eight flagged source families and a random sample of 15 other locators were read. Corrected surgery homology prerequisites, Jones inverse-variable normalization, orientation in cusped rigidity, regular-refinement scope, Faddeev domains including unit-circle parameters, local versus tempered distribution products, contraction seminorms, and root/example conventions; removed duplicate hyperbolicity and general Borel-calculus targets and an unsupplied Casson assertion. Suggested.lean elaborates at the pinned build with exit 0 and exactly 19 sorry warnings; proved negative controls elaborate. Needs changes because Polylogarithms P.2 still lacks its ideal-boundary/finite-region geometric supplier and Milnor-volume proof, HabiroNumberFields HB.7 lacks effective global descent extended to the full quadratic finite etale algebra required by section 6.8, and the six atlas supplier roadmaps have no checked upstream packages or assigned admissible bundle/tier order; the Q-series supplier currently has needs_changes. The report and handoff give exact affected sections, retained qualifications and the required cross-package actions. This is a completed review, not a checkpoint or a certification of those suppliers."
+  }
+}
