@@ -511,7 +511,12 @@ cohomology family, filtered affine torsor and Selmer variety; admissible period 
 maps; exact, period-image and closed-image Kim loci; geometric nice correspondences,
 admissible de Rham Tate classes, depth-two height quotient and module, relative-cycle mixed
 extensions and quadratic Chabauty pairs; section classes, the section conjecture, geometric
-Kim dimension and eventual equality conjectures, and strict Selmer-tensor vanishing.
+Kim dimension and eventual equality conjectures, and strict Selmer-tensor vanishing. It also
+specifies the comparison from continuous fundamental-group cohomology to étale cohomology,
+tangential fibre functors, admissible coverings of pointed stable curves, relative Hodge–Tate
+inputs over small logarithmic bases, homogeneous quotients of unipotent groups, the Bloch–Kato
+subgroups, Coleman charts on proper curves, mixed extensions with Nekovář's local and global
+heights, and the action of divisor correspondences on H¹ ⊗ H¹.
 Their sites, comparison functors, completions and representing schemes are constructions of
 the corresponding layers of README.md.
 -/

@@ -12,9 +12,9 @@ Current Tau Ceti supplies all-degree finite-quotient cohomology, classwise killi
 
 TauCetiRoadmap.ProfiniteArithmetic supplies continuous automorphism and outer-automorphism groups and outer actions. The centre-free extension comparison used here is the additional pullback identification, rather than a new outer-automorphism group. TauCetiRoadmap.PeripheralActions supplies generic peripheral power actions; Chen's good and symmetric paths below impose geometric normalization and inversion conditions on tangential paths. TauCetiRoadmap.AlgebraicCurves Layers 4, 7, 9 and 12 supply Riemann–Roch, Hurwitz, complete-DVR differentials and the function-field/scheme dictionary. TauCetiRoadmap.JacobianChallenge Layers A, B, D, E and F supply line bundles, coherent cohomology, Picard and Jacobian schemes, abelian-variety theory and Abel–Jacobi maps. TauCetiRoadmap.AlgebraicVectorBundles Layers 0A and 0B supply coherent and locally free sheaves and their tensor operations.
 
-SchemeAndStackFoundations SF.3 owns Picard torsors, the obstruction from a relative Picard point to a line bundle, and the étale H¹/Tate-module comparison; SF.4 owns stable pointed moduli and their level covers; SF.5 owns Chow groups, Chern classes, intersection, pushforward and pullback. These supply the portions of the reconstruction and correspondence arguments that require no general theory of motives. ArithmeticGaloisDuality R02.1, R02.2 and D7 own compact coefficient limits and arithmetic Hochschild–Serre; its R02.3.2 owns function-field reciprocity. Shared p-adic heights belong to the SelmerIwasawaCohomology direction. The explicit extension contract below isolates the exact interface used here.
+SchemeAndStackFoundations SF.3 owns Picard torsors, the obstruction from a relative Picard point to a line bundle, and the étale H¹/Tate-module comparison; SF.4 owns stable pointed moduli and their level covers; SF.5 owns Chow groups, Chern classes, intersection, pushforward and pullback. These supply the portions of the reconstruction and correspondence arguments that require no general theory of motives. ArithmeticGaloisDuality R02.1, R02.2 and D7 own compact coefficient limits and arithmetic Hochschild–Serre; its R02.3.2 owns function-field reciprocity. Mixed extensions and Nekovář's p-adic heights are planned in Layer 6, in the generality the quadratic Chabauty equations need; a general theory of height pairings on Selmer complexes is not planned here.
 
-Continuous Galois H¹ of a linear algebraic group over a characteristic-zero field (profinite Γ\_k acting on the discrete group G(k̄)), with its functoriality, inner twisting and torsor bijection, is PELModuli §M0.9 (`galoisH1`, `twist_bijection`, `galoisH1_equiv_torsorClasses`); Layer 0 here is the general continuous theory for a topological group acting on a topological coefficient group, needed for the ℚ\_p-unipotent coefficients of Layers 4–7, and on profinite sources with discrete coefficients it agrees with PELModuli §M0.9. TauCetiRoadmap.EllipticCurves names continuous nonabelian H¹ as a prerequisite of its Layer 5 twist classification without stating it; Layer 0 supplies it. The fppf homogeneous quotient sheaf G/N of an affine group by a closed, not necessarily normal, subgroup, with its torsor property, is current Tau Ceti (`CommHopfAlgCat.homogeneousQuotientPresheaf` and the files under `Algebra/AlgebraicGroup/Fppf/Quotient/Homogeneous`); the representability and point formula for split unipotent groups are the additional input of the contract below. The complex-analytic statement that Artin neighbourhoods are K(π,1) is InverseGaloisAndArithmeticFundamentalGroups §IG.3.1; Layer 1 here proves the étale finite-coefficient statement over any field of characteristic zero.
+Continuous Galois H¹ of a linear algebraic group over a characteristic-zero field (profinite Γ\_k acting on the discrete group G(k̄)), with its functoriality, inner twisting and torsor bijection, is PELModuli §M0.9 (`galoisH1`, `twist_bijection`, `galoisH1_equiv_torsorClasses`); Layer 0 here is the general continuous theory for a topological group acting on a topological coefficient group, needed for the ℚ\_p-unipotent coefficients of Layers 4–7, and on profinite sources with discrete coefficients it agrees with PELModuli §M0.9. TauCetiRoadmap.EllipticCurves names continuous nonabelian H¹ as a prerequisite of its Layer 5 twist classification without stating it; Layer 0 supplies it. The fppf homogeneous quotient sheaf G/N of an affine group by a closed, not necessarily normal, subgroup, with its torsor property, is current Tau Ceti (`CommHopfAlgCat.homogeneousQuotientPresheaf` and the files under `Algebra/AlgebraicGroup/Fppf/Quotient/Homogeneous`); representability of U/H and the point formula for unipotent groups in characteristic zero are planned in Layer 4 ([Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients)). The complex-analytic statement that Artin neighbourhoods are K(π,1) is InverseGaloisAndArithmeticFundamentalGroups §IG.3.1; Layer 1 here proves the étale finite-coefficient statement over any field of characteristic zero.
 
 The local logarithm, analytic zero bounds and Mordell–Weil closure comparisons in Layer 5 are owned here. Effective Diophantine methods may use these results. The neutral tensor reconstruction and the character formulas in Layers 2 and 7 require no motive or modular-form theory. General computation of ranks, local height constants or certified root isolation belongs to ComputationalNumberTheory; the equations here specify what those computations must certify.
 
@@ -42,7 +42,7 @@ For algebra-valued unipotent points, the final topology is declared on each fini
 
 ### From Mathlib and Tau Ceti
 
-Use Mathlib `ContinuousMap`, `ContinuousMonoidHom`, `MulDistribMulAction`, `ContinuousSMul`, `IsTopologicalGroup`, `FixedPoints.subgroup`, `MulAction.orbitRel.Quotient`, `QuotientGroup` and `IsQuotientMap` with their topologies. `MonoidHom.ker`, subgroup comaps and cosets remain native. The quotient action requires a normal source subgroup and an action on its fixed coefficient subgroup. A surjective continuous homomorphism alone is not a quotient-topology hypothesis. The fixed-gauge descent assertion does not assume compactness or a discrete coefficient group.
+Use Mathlib `ContinuousMap`, `ContinuousMonoidHom`, `MulDistribMulAction`, `ContinuousSMul`, `IsTopologicalGroup`, `FixedPoints.subgroup`, `MulAction.orbitRel.Quotient`, `QuotientGroup` and `IsQuotientMap` with their topologies. `MonoidHom.ker`, subgroup comaps and cosets are used as they stand. The quotient action requires a normal source subgroup and an action on its fixed coefficient subgroup. A surjective continuous homomorphism alone is not a quotient-topology hypothesis. The fixed-gauge descent assertion does not assume compactness or a discrete coefficient group.
 
 Use `CategoryTheory.Aut`, `Functor.isoWhiskerLeft`, `PreGaloisCategory.autEmbedding_isClosedEmbedding` and `FiniteEtale.fiber` with their arrow directions. `Aut F` is a natural automorphism, not a group of labels. Its topology is the evaluation topology. `TauCeti.AbsoluteGaloisGroup`, `TauCeti.kummerMap` and `TauCeti.kummerMap_eq_kummerCocycleClass` provide the field and finite Kummer interfaces, with the coefficient order invertible in the field. The Abel–Jacobi rational Tate-module comparison below requires more than these finite classes.
 
@@ -50,57 +50,51 @@ Canonical abelian cohomology is `continuousCohomology` of a topological represen
 
 ### From SchemeAndStackFoundations
 
-**SF.0 and SF.1.** Use finite-presentation descent, finite normalization of finite-type curves over a field, excellent/Nagata local rings, scheme dimension and the fibre-dimension formula, fppf quotient sheaves and effective affine descent. The homogeneous quotient contract below is about all coefficient algebras, including nonreduced ones.
+**SF.0 and SF.1.** Use finite-presentation descent, finite normalization of finite-type curves over a field, excellent and Nagata local rings, scheme dimension and the fibre-dimension formula, fppf quotient sheaves and effective affine descent.
 
-**SF.2: finite-cover comparison.** Specialize the generic site and derived-cohomology constructions to the finite étale topos `X_fet≃Bπ` of a connected qcqs X. Construct `ρ:X_et→X_fet` and the finite continuous π-module/finite locally constant abelian sheaf equivalence. Its unit/Leray edge is the canonical `εⁿ:Hⁿ_cts(π,M)→Hⁿ_et(X,F)` in every degree, naturally in coefficient maps, pointed scheme maps and fibre-functor paths. Identify `R^qρ_*F` with the sheafification of `Y↦H^q_et(Y,F|Y)`. The degree-zero invariant comparison and `H¹_et(X,F_p)=Hom_cts(π,F_p)` require no K(π,1) hypothesis. These are the maps used in the effacement criterion (Schmidt–Stix, §2.3, Lemma 2.7(b), printed p. 827; Appendix A.3, pp. 864–866; Stacks 03QQ, Lemmas 59.59.1–2, and 0BQ8, Theorem 58.6.2).
+**SF.2.** Use the étale site of a scheme, étale cohomology with its long exact sequences, the Leray spectral sequence, the field case, Hochschild–Serre for Galois coverings, exactness of finite pushforward and the colimit isomorphism for limits of quasi-compact quasi-separated schemes. The comparison εⁿ between continuous π₁-cohomology and étale cohomology, finite étale pushforward with its base change and descent along k\_s=colim k\_i, and Künneth for prime-field coefficients are Layer 1 targets ([Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison), [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent), [Künneth for prime-field coefficients](#prime-field-kunneth)), proved there from the Stacks Project results they cite. The étale cohomology of curves with μ\_n coefficients is the Layer 1 target [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology), from the Stacks Project.
 
-**SF.2: pushforward and class descent.** For finite étale f:Y→X, preserve finite locally constant coefficients and their prime support under f_* and construct the all-degree isomorphism `μ_f:H^q(X,f_*F)≃H^q(Y,F)` by pullback followed by counit. For a cartesian square, `g′*μ_f(α)=μ_f′(bc_*(g*α))`. The stalk product retains permutation of sheets. No normality, Galois condition or invertibility of deg f is assumed. Supply natural long exact sequences, finite coefficient filtrations by prime-field vector layers, finite common pointed refinements and diagonal trivialization of finite degree-one torsors. For `k_s=colim k_i`, finite covers, sheaves and morphisms descend, and `colim H^q(X_(k_i),F_i)≃H^q(X_(k_s),F_s)` with the same formula on a descended killing cover. Descent of a representative and eventual vanishing are separate consequences (Stacks 03RV; 09YQ, Lemma 59.51.3; 59.51.5; 32.10.1).
-
-**SF.2: curves and products.** For a smooth proper curve over an algebraically closed field, import the Kummer computations `H¹(C,μ_n)≃Pic⁰(C)[n]` and `H²(C,μ_n)≃ℤ/n` via degree, and vanishing above degree two, with n invertible. For a smooth affine curve, import vanishing above degree one. Pullback on H² is multiplication by deg f. For finite-type W,T over an algebraically closed characteristic-zero field and prime p, supply the pullback-natural ordinary étale external-product isomorphism `⊕_(i+j=q)H^i(W,F_p)⊗H^j(T,F_p)≃H^q(W×T,F_p)` without properness. It is the field-coefficient specialization of the derived Künneth map; finite-torsion variants retain their Tor terms (Stacks 03RQ, Lemma 59.69.1; 03RR, Lemma 59.69.3; 0AMB; 59.97.9).
-
-**SF.3–SF.5.** Consume the Picard and Jacobian objects, their n-torsion order n^(2g), degree pullback, genus under characteristic-zero base extension and connected finite étale preservation of smooth, affine and proper curves. A rational Picard point gives a line bundle only after its Brauer obstruction vanishes. Stable pointed moduli, the universal curve, normal-crossing boundary charts and sufficiently fine prime-to-characteristic level covers are the SF.4 stable-moduli specialization. Cycle operations in SF.5 act on `H¹⊗H¹` with swap, cup contraction and polarized trace compatibility; the relative mixed-extension comparison remains a curve-specific target in Layer 6.
+**SF.3–SF.5.** Use the Picard and Jacobian objects, n-torsion of order n^(2g), pullback of degree, the genus under characteristic-zero base extension, and preservation of smooth, affine and proper curves by connected finite étale covers (SF.3); a rational point of the relative Picard functor gives a line bundle only after its Brauer obstruction vanishes (SF.3). Use stable pointed moduli, the universal curve and normal-crossing boundary charts, with fine universal families after a level structure of level ℓ≥3 over ℤ[1/ℓ] (SF.4), and Chow groups, Chern classes, intersection, pushforward and pullback (SF.5). The action of divisor correspondences on H¹⊗H¹ is the Layer 6 target [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
 ### From InverseGaloisAndArithmeticFundamentalGroups
 
-**IG.0 and IG.1.** Consume the category of finite étale covers, its geometric fibre functors and profinite automorphism group, the finite continuous π-set equivalence, pointed connected refinements and the arithmetic exact sequence. Every open subgroup is realized by a connected pointed finite cover. Over algebraically closed characteristic-zero k, the product isomorphism for geometrically connected, geometrically unibranch finite-type varieties respects both projections and gives cofinal product covers. Arithmetic products over a nonclosed field form fibre products. Rational and tame tangential fibre functors use the same cover category and the same restriction to constant covers. Their analytic punctured-germ comparison respects positive inertia and inversion (SGA 1 XIII, Proposition 4.6; Stacks 0BTX, Lemma 58.14.3; Chen, §§4.2–4.3, pp. 362–366).
+**IG.0 and IG.1.** Use the category of finite étale covers, its geometric fibre functors and profinite automorphism group, the finite continuous π-set equivalence, pointed connected refinements, the arithmetic exact sequence (§IG.1.1) and tame tangential fibres at a boundary point (§IG.1.2). InverseGaloisAndArithmeticFundamentalGroups takes the finite étale category, fibre functors, π₁^ét and base points from [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196) Layer 3 of TauCetiRoadmap pull request #196. Fundamental groups of products and the rational tangential fibre functors with their analytic comparison are Layer 1 targets ([Fundamental groups of products](#pi1-products), [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors)).
 
-**IG.3 and IG.5.** Use Riemann existence for punctured curves (§IG.3.1) and, for complex schemes of finite type, [ComplexComparison](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196) Layer 8 of TauCetiRoadmap pull request #196, together with the curve/free or surface-group comparisons. The admissible-cover extension of IG.5 requires invertible *local* marking and node indices, permits non-Galois covers and permits component étale degrees divisible by the residue characteristic. Its carriers include normalization of fibre products and logarithmic node charts. Construct that extension with multiplicity bounds `e≤deg f`, including equality for the identity cover (Mochizuki 1995, §§3.5–3.13). It extends the admissible-cover owner, rather than defining an unrelated cover in the reconstruction argument.
+**IG.3 and IG.5.** Use Riemann existence for punctured curves and complex Artin neighbourhoods (§IG.3.1), and admissible G-covers over ℤ[1/|G|] (§IG.5.4). For complex schemes of finite type use [ComplexComparison](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196) Layer 8 of TauCetiRoadmap pull request #196. The admissible coverings used in reconstruction, which need not be Galois and may have étale component degrees divisible by the residue characteristic, are the Layer 3 target [Admissible coverings of pointed stable curves](#admissible-log-coverings).
 
 ### From arithmetic cohomology and duality
 
-**ArithmeticGaloisDuality R02.1, R02.2 and D7.** Use compact coefficient cochains, derived inverse limits with their lim¹ term, completed coefficient comparisons, compact Hochschild–Serre, rational restriction/corestriction and local/global duality. These replace a new generic completed-cohomology construction. The required five-term maps are inflation and restriction on the canonical carriers. Finiteness and Euler characteristic hypotheses include the ramification set, the coefficient lattice and the real-place correction. Rational H³ vanishes even when p=2 and a real place contributes integral 2-torsion.
+**ArithmeticGaloisDuality R02.1, R02.2 and D7.** Use compact coefficient cochains, derived inverse limits with their lim¹ term, completed coefficient comparisons, compact Hochschild–Serre, rational restriction/corestriction and local/global duality. No separate completed-cohomology construction is made here. The required five-term maps are inflation and restriction on the canonical carriers. Finiteness and Euler characteristic hypotheses include the ramification set, the coefficient lattice and the real-place correction. Rational H³ vanishes even when p=2 and a real place contributes integral 2-torsion.
 
-**ArithmeticGaloisDuality R02.3.2 and R02.4.** Function-field class formation supplies global reciprocity and its norm/existence correspondence. The tame local abelian extension correspondence needed for finite-field tame reconstruction is TauCetiRoadmap.ClassFieldTheory Layer 8 (`localAbelianExistence_primeToResidueCharacteristic`, `localClassFieldCorrespondence_primeToResidueCharacteristic`), stated for every nonarchimedean local field and index prime to the residue characteristic. Mixed-characteristic local duality comes from TauCetiRoadmap.ClassFieldTheory Layer 5. Full equal-characteristic p-primary local existence is outside this contract.
+**ArithmeticGaloisDuality R02.3.2 and R02.4.** Function-field class formation supplies global reciprocity and its norm/existence correspondence. The tame local abelian extension correspondence needed for finite-field tame reconstruction is TauCetiRoadmap.ClassFieldTheory Layer 8 (`localAbelianExistence_primeToResidueCharacteristic`, `localClassFieldCorrespondence_primeToResidueCharacteristic`), stated for every nonarchimedean local field and index prime to the residue characteristic. Mixed-characteristic local duality comes from TauCetiRoadmap.ClassFieldTheory Layer 5. Full equal-characteristic p-primary local existence is not used.
 
-**SelmerIwasawaCohomology L0, L2 and L4.** Import S-unit Kummer, compact/rational global Selmer kernels, unramified conditions, Bloch–Kato finite conditions and rational duality. SelmerIwasawaCohomology states the Kummer/Sha sequence only for elliptic curves (§2.12, §4.26); for abelian varieties use HeightsRationalPointsAndObstructions §§1.3–1.4 (Selmer and Tate–Shafarevich groups of abelian varieties, the descent exact sequence) at each finite level, and pass to the limit over [p^k] for the rational Tate-module form. At depth one the geometric path class is compared to the Jacobian Kummer class by Layer 2. The Selmer group includes the Tate module of Sha unless a vanishing hypothesis is imposed; rank alone never removes it.
+**SelmerIwasawaCohomology L0, L2 and L4.** Import S-unit Kummer, compact/rational global Selmer kernels, unramified conditions, Bloch–Kato finite conditions and rational duality. SelmerIwasawaCohomology states the Kummer/Sha sequence only for elliptic curves (§2.12, §4.26); for abelian varieties use HeightsRationalPointsAndObstructions §§1.3–1.4 (Selmer and Tate–Shafarevich groups of abelian varieties, the descent exact sequence) at each finite level, and pass to the limit over [p^k] for the rational Tate-module form. At depth one the geometric path class is compared to the Jacobian Kummer class by Layer 2. The Selmer group includes the Tate module of Sha unless a vanishing hypothesis is imposed; rank alone never removes it. The subgroup H¹\_g and the inclusions H¹\_e⊆H¹\_f⊆H¹\_g are the Layer 4 target [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
-**Shared height extension of the Selmer direction.** Construct rigidified mixed extensions with graded pieces `(ℚ_p,V,ℚ_p(1))`, their π₁ and π₂ extension classes and their nonabelian classification. For a continuous idele character χ and a splitting of the Hodge filtration, give crystalline local mixed extensions their filtered-φ realization and height `h_p`; give every away-place extension its local height and prove vanishing for potentially unramified classes. Construct the global bilinear height and prove `h=Σ_v h_v` on global mixed extensions, along with equivariance, change-of-splitting and nonzero-character scaling. The Frobenius and Hodge correction order is `γ−βφ(s₁α)−βFil(s₂α)`. These are extensions of the shared local-condition and height owner; the curve-specific quotient and relative-cohomology realization are Layer 6 targets (Balakrishnan–Dogra I, §4, pp. 12–17; II, §§3.2–3.4, author pp. 15–20).
-
-The shared interface includes `MixedExtension.pi1`, `MixedExtension.pi2`, `MixedExtension.classify`, `MixedExtension.dcris`, `localHeight`, `globalHeight`, `globalHeight_eq_sum`, `localHeight_potentiallyUnramified`, `height_change_splitting` and `height_character_smul`. Check the split extension gives zero, changing γ by t changes preheight by t, and changing the order of the two correction terms fails the computed −2 example in Layer 6. A potentially unramified class has zero away-height; arbitrary ramified classes need not. A zero character cannot provide the inverse height coordinate used below.
+**Mixed extensions and p-adic heights.** No lower-tier roadmap states mixed extensions or Nekovář's heights. They are the Layer 6 targets [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions), [Nekovář's local heights](#nekovar-local-heights) and [The global height and its decomposition into local heights](#nekovar-global-height), in the generality the quadratic Chabauty equations need.
 
 ### From periods, rigid cohomology and integration
 
-**PadicHodgeTheory R06.1, R06.2 and R06.5; CohomologyComparisons CP.2 and CP.3.** Use the period functors, exact strict tensor de Rham comparison, fully faithful crystalline/semistable realizations, abelian-scheme comparison and Hodge–Tate decomposition. The relative comparison specialization extends R06.2 to the completed integral logarithmic Faltings setting used in Mochizuki 1999 §2: almost-étale completed bases, relative Hodge–Tate sequence, weight vanishing and functoriality for the specified open group maps. Integral bounds must be independent of cover depth and of the point where the reconstruction uses them. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 supplies the formal p-divisible-group comparison and its bounded integral refinement. A rational C_p comparison does not imply such a bound.
+**PadicHodgeTheory R06.1, R06.2 and R06.5; CohomologyComparisons Layers 2 and 3.** Use the period rings, the period functors D\_HT, D\_dR, D\_cris and D\_st with their exactness, tensor compatibility and full faithfulness on crystalline and semistable representations, the crystalline comparison for a smooth proper model and the Hodge–Tate decomposition, all with rational coefficients (PadicHodgeTheory). CohomologyComparisons Layer 3 is the rational crystalline comparison and Layer 2 the B\_dR⁺ comparison; neither asserts multiplicativity in the presence of a logarithmic boundary. The relative Hodge–Tate inputs of the reconstruction, rational over a small logarithmic base and integral with bounded denominators in good reduction, are the Layer 3 targets [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base) and [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials). The multiplicative comparison of path torsors is the Layer 2 target [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison), with its extension [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison). Crystallinity of H¹ alone does not give crystallinity of the full path module, since extensions of crystalline representations need not be crystalline.
 
-The endpoint enhancement of CP.2/CP.3 is a multiplicative enhanced cochain comparison for a smooth proper integral model, or a smooth proper model with relative normal-crossing boundary, with both endpoint augmentations, Frobenius, Galois action and filtration. The nonlinear construction using it is explicitly a target of Layer 2. Crystallinity of H¹ alone is not an extension-closure argument for the full path module.
+**FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1.** Use Tate's theorems for p-divisible groups over a complete discrete valuation ring of mixed characteristic (§§R07.1.19, R07.1.22).
 
 **CrystallineCohomology CR.5; PadicDifferentialEquationsAndRigidCohomology RD.3–RD.6.** Import fine log structures and Kummer charts, overconvergent isocrystals and connection forms, rigid cohomology and finite-dimensionality, smooth-proper purity and the weight range for affine H¹. Use the log comparison on pairs and nilpotent residues for tangential fibres. Weights on open curves are mixed, so the proper pure-weight dimension argument is applied only to proper curves.
 
-**ColemanIntegration L1 and L2.** Import word algebras, local expansions, Frobenius continuation, uniqueness, Coleman functions and their punctured-line inversion relations. Extend its affine charts to a finite cover of the integral points of a proper good-reduction curve. An auxiliary removed divisor can be finite étale of degree greater than one; no second rational residue disc is required. Local parameters identify the integral chart with the maximal ideal of O_K. The geometric analytic disc is larger than its compact K-point chart. The compact zero bounds and the [Local abelian logarithm](#abelian-logarithm) comparison used here are constructed in Layer 5.
+**ColemanIntegration L1 and L2.** Use word algebras, local expansions, Frobenius continuation, Coleman's uniqueness principle, Coleman functions on a pair (X,D) with D nonempty, and their punctured-line inversion relations. The charts covering the integral points of a proper good-reduction curve are the Layer 5 target [Coleman integration on a proper curve with good reduction](#proper-curve-coleman-charts); the compact zero bounds and the [Local abelian logarithm](#abelian-logarithm) comparison are also constructed in Layer 5.
 
 ### From algebraic groups, moduli, curves and weights
 
-**TauCetiRoadmap.ReductiveGroups Layers 0, 3 and 5 and ReductiveGroupsPartII RG2.0a.** Use functors of points, affine torsor descent, Lie-compatible closed subgroups, represented normal quotients and Weil restriction. The split-unipotent refinement gives polynomial exp/log in characteristic zero, finite nilpotent central quotients and their pronilpotent limits. For split smooth unipotent U and closed split unipotent H, construct the right homogeneous fppf quotient U/H as a smooth geometrically integral affine scheme, even when H is not normal. Vector-group central induction trivializes every H-torsor over every affine K-algebra R, giving `(U/H)(R)=U(R)/H(R)`, including nilpotent R. These are explicit refinements of the quotient and unipotent owner; they are not consequences of a normal group quotient alone.
+**TauCetiRoadmap.ReductiveGroups Layers 0, 3 and 5 and ReductiveGroupsPartII RG2.0a.** Use functors of points, affine torsor descent, closed subgroups and their Lie algebras, represented normal quotients, the unipotent radical, and Weil restriction (§RG2.0a.1). Unipotent groups over a field of characteristic zero, with their homogeneous quotients by non-normal subgroups and the point formula (U/H)(R)=U(R)/H(R), are the Layer 4 target [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
-**AlgebraicModuliForArithmeticGeometry R09.2.** Use relative Hom/Isom representability. Its hyperbolic-curve specialization isolates dominant maps, applies Hurwitz and negative tangent degree to get finite unramified generic loci, and spreads them to finite étale loci after shrinking. Constant maps are excluded. SF.4 supplies the stable-curve stack and, after a level structure of level ℓ ≥ 3 over ℤ[1/ℓ], fine universal families. TauCetiRoadmap.StableReduction supplies stable models, thickness and normalization; NeronModelsAndSemistableAbelianVarieties R11.2–R11.4 supplies component groups, Raynaud extensions, rigid uniformization and integral monodromy pairings.
+**AlgebraicModuliForArithmeticGeometry R09.2.** Use relative Hom and Isom representability. The finiteness and unramifiedness of dominant maps between proper hyperbolic curves is the Layer 3 target [Dominant maps between proper hyperbolic curves](#hyperbolic-hom-schemes). TauCetiRoadmap.StableReduction supplies stable models, thickness and normalization; NeronModelsAndSemistableAbelianVarieties R11.2–R11.4 supplies component groups, Raynaud extensions, rigid uniformization and integral monodromy pairings.
 
-**AbelianSchemesAndArithmeticModuli A2, A3, A4 and A6.** Use NS(A)=Pic(A)/Pic⁰(A), its injection by L↦φ_L into Rosati-symmetric homomorphisms, finite rank, multiplication, Tate modules and injectivity of Hom on Tate modules. Rational descent of the Rosati comparison is needed when a Q-defined class is used. No equality with all geometric Galois-invariant classes is assumed. HeightsRationalPointsAndObstructions RP.1 and RP.6 supplies Mordell–Weil finite generation, rational Kummer classes and curve embeddings in Jacobians.
+**AbelianSchemesAndArithmeticModuli A2, A3, A4 and A6.** Use NS(A)=Pic(A)/Pic⁰(A), its injection L↦φ\_L into symmetric homomorphisms A→A^∨ (§A2.10), finite rank, multiplication, Tate modules, injectivity of Hom on Tate modules, and the identification of NS(A)⊗ℚ with the Rosati-fixed part of End⁰(A) over an algebraically closed field (§A6.15). Its descent to the base field is the Layer 6 target [Rational Rosati descent](#rational-rosati-descent). HeightsRationalPointsAndObstructions supplies Mordell–Weil finite generation, rational Kummer classes, the descent sequence for abelian varieties (§§1.3–1.4) and curve embeddings in Jacobians.
 
-**EtaleDualityAndPerverseSheaves EDC.0, EDC.2 and EDC.3; DeligneWeightsAndPurity DWP.10; WeightsInEtaleCohomology R34.2.** Use Künneth, curve trace, Poincaré duality, Chern classes, localization/Gysin, Frobenius trace and finite-field weights. For an open curve the boundary term is `ker(ℚ_p(−1)^D→ℚ_p(−1))`, with its permutation Galois action. Tensor powers H¹ embed as summands of the product cohomology; induced cohomology from a finite extension embeds in the cohomology of the Weil restriction using the H⁰ units of the other factors. These comparisons preserve Tate twists.
+**EtaleDualityAndPerverseSheaves EDC.0, EDC.2 and EDC.3; DeligneWeightsAndPurity DWP.10; WeightsInEtaleCohomology R34.2.** Use Künneth, curve trace, Poincaré duality, cycle and Chern classes, localization and Gysin sequences, Frobenius trace and finite-field weights. The structure of H¹ of an open curve, tensor powers inside the cohomology of products and the cohomology of Weil restrictions are the Layer 7 target [Étale cohomology of open curves, powers and Weil restrictions](#open-curve-product-cohomology).
 
 ## How to read the build
 
-Layer 0 gives the nonabelian cohomology used by paths. Layer 1 supplies the finite-cover geometric foundation. Layer 2 constructs unipotent realizations independently of curve reconstruction; Layer 3 can then use its two-step quotient. Layers 4 and 5 turn path classes into Selmer varieties, periods and finite loci. Layer 6 adds rational correspondences and heights. Layer 7 records the conjectural endpoints and proves the precise conditional implications. Within each layer, exact prerequisite links point backward in the construction order. Heavy geometric constructions are specified here; Suggested.lean contains only representative signatures over the pinned carriers.
+Layer 0 gives the nonabelian cohomology used by paths. Layer 1 supplies the finite-cover geometric foundation. Layer 2 constructs unipotent realizations independently of curve reconstruction; Layer 3 can then use its two-step quotient. Layers 4 and 5 turn path classes into Selmer varieties, periods and finite loci. Layer 6 opens with mixed extensions and Nekovář's p-adic heights, then adds rational correspondences and the height equations. Layer 7 records the conjectural endpoints and proves the precise conditional implications. Within each layer, the prerequisite links of a target point backward in the construction order. In Layer 0 each definition carries the results about it as a list of named statements, each with its proof sketch and its own anchor; such an entry may use later results of the same layer, which it names. Heavy geometric constructions are specified here; Suggested.lean contains only representative signatures over the pinned carriers.
 
 ## Layer 0: Continuous nonabelian cohomology
 
@@ -165,7 +159,6 @@ Build continuous nonabelian cohomology as a pointed orbit set. Its exact sequenc
 - **(H28)** G is a group with an arbitrary topology. Coefficient groups are topological groups with jointly continuous G-actions by automorphisms; cocycles and H¹ are the continuous objects and gauge-orbit sets. Additional exactness, injectivity, invariant-vanishing, stabilizer-lift and surjectivity hypotheses are precisely those in the individual statement. No compactness, discreteness, closedness, Hausdorffness, quotient-map hypothesis or continuous section is added to the general results.
 
 ### 0.1 Continuous cocycles and H¹
-
 <a id="nc-3-continuous-cocycles"></a>
 
 **Continuous 1-cocycles and invariants with nonabelian coefficients.** Let G be a topological group and U a topological group on which G acts by group automorphisms, continuously (G × U → U continuous). The invariants are H⁰(G, U) := U^G = {u ∈ U : g•u = u for all g}, a subgroup of U (Mathlib FixedPoints.subgroup). The continuous 1-cocycles are Z¹(G, U) := {c : G → U continuous : c(gh) = c(g)·(g•c(h)) for all g, h ∈ G}, with the trivial cocycle 1 (the constant map to the identity) as base point.
@@ -180,8 +173,8 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1`: The type of continuous maps c : G → U with c(gh) = c(g)·g•c(h).
 - `TauCeti.NonabelianCohomology.Z1.mem_iff`: A function f:G→U is the underlying function of a continuous cocycle if and only if f is continuous and f(gh)=f(g)·(g•f(h)) for all g,h.
 - `TauCeti.NonabelianCohomology.Z1.instOne`: The trivial cocycle g ↦ 1, the base point.
-- `TauCeti.NonabelianCohomology.Z1.map_one`: c(1) = 1 for every cocycle.
-- `TauCeti.NonabelianCohomology.Z1.map_inv`: c(g⁻¹) = g⁻¹•(c(g)⁻¹).
+- <a id="nc-3-cocycle-map-one"></a>`TauCeti.NonabelianCohomology.Z1.map_one` (*Identity value of a nonabelian cocycle*): For every continuous nonabelian cocycle c, c(1)=1. Under (H12). *Proof.* Use c(1)=c(1)c(1) from the cocycle identity at(1,1) and cancel the left factor. Source: [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
+- <a id="nc-3-cocycle-map-inverse"></a>`TauCeti.NonabelianCohomology.Z1.map_inv` (*Inverse value of a nonabelian cocycle*): For every c and g, c(g⁻¹)=g⁻¹•c(g)⁻¹. Under (H12). *Proof.* Evaluate the cocycle identity at(g⁻¹,g). Since c(1)=1, c(g⁻¹) is the inverse of g⁻¹•c(g). The automorphism action preserves inverses. Source: [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11. Uses [Identity value of a nonabelian cocycle](#nc-3-cocycle-map-one).
 - `TauCeti.NonabelianCohomology.Z1.coboundary`: For u ∈ U, the cocycle g ↦ u·(g•u)⁻¹.
 - `TauCeti.NonabelianCohomology.Z1.equivContinuousMonoidHomOfTrivial`: If G acts trivially, Z¹(G, U) ≃ (G →ₜ* U), continuous homomorphisms.
 - `TauCeti.NonabelianCohomology.Z1.ext`: Two cocycles are equal iff they agree at every g.
@@ -199,7 +192,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, p. 6; [Minhyong Kim](#reference-kim2005), §1, p. 6; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14, p. 11.
 
 Use `MulDistribMulAction`; `FixedPoints.subgroup`; `ContinuousSMul`; `IsTopologicalGroup`; `ContinuousMap`; `ContinuousMonoidHom`; `groupCohomology.IsMulCocycle₁`.
-
 <a id="nc-3-nonabelian-h1"></a>
 
 **Nonabelian first cohomology as a pointed set.** In the situation of [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles), U acts on Z¹(G, U) by (u·c)(g) := u·c(g)·(g•u)⁻¹. The first cohomology H¹(G, U) is the orbit set of this action (Mathlib MulAction.orbitRel.Quotient U (Z¹ G U)), pointed by the class of the trivial cocycle; two cocycles in one orbit are called cohomologous. The class of c is trivial iff c is a coboundary g ↦ u·(g•u)⁻¹.
@@ -214,11 +206,11 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1`: H¹(G, U) = MulAction.orbitRel.Quotient U (Z¹ G U).
 - `TauCeti.NonabelianCohomology.H1.mk`: The class map Z¹(G, U) → H¹(G, U).
 - `TauCeti.NonabelianCohomology.H1.mk_surjective`: Every class has a representing cocycle.
-- `TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff`: mk c = mk c′ iff c′ = u·c for some u ∈ U.
+- <a id="nc-3-h1-orbit-criterion"></a>`TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff` (*Equality of nonabelian cohomology classes*): For continuous cocycles c,c′, their classes in H¹(G,U) are equal if and only if there is x∈U with x·c=c′, where (x·c)(g)=x c(g)(g•x)⁻¹. The equality criterion uses the genuine gauge action, not multiplication by a coboundary. Hypotheses: G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point. *Proof.* Unfold the orbit-set class map. Quotient equality is the orbit relation; reverse its arguments to match the stated x·c=c′ orientation. Use the orbit-relation membership and orbit witness formulas. Source: [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
 - `TauCeti.NonabelianCohomology.H1.instOne`: The base point, the class of the trivial cocycle.
-- `TauCeti.NonabelianCohomology.H1.mk_eq_one_iff`: mk c = 1 iff there is u ∈ U with c(g) = u·(g•u)⁻¹ for all g.
+- <a id="nc-3-h1-neutral-criterion"></a>`TauCeti.NonabelianCohomology.H1.mk_eq_one_iff` (*Neutral class as a coboundary*): For any continuous cocycle c, [c]=1 if and only if there is x∈U with c(g)=x(g•x)⁻¹ for all g. Under (H4). *Proof.* Apply the genuine orbit criterion with the identity cocycle as source. Evaluate the gauge action on that cocycle and use cocycle extensionality for the converse. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion).
 - `TauCeti.NonabelianCohomology.H1.equivOfTrivial`: For trivial action, H¹(G, U) ≃ (G →ₜ* U) modulo conjugation by U.
-- `TauCeti.NonabelianCohomology.H1.mk_smul`: For every x∈U and cocycle c, [x·c]=[c]. This is separately proved for restriction and inverse-gauge recovery.
+- <a id="nc-3-h1-gauge-class"></a>`TauCeti.NonabelianCohomology.H1.mk_smul` (*Gauge invariance of the cohomology class*): For every x∈U and c∈Z¹(G,U), [x·c]=[c]. Under (H4). *Proof.* The orbit criterion identifies [c] and [x·c] using the witness x; reverse the equality. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion).
 
 **Checks.**
 
@@ -228,13 +220,15 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.tests.h1_abelian`: For G = ℤ/2 acting on U = ℤ/3 (additive, discrete) by negation, H¹ is a single point, agreeing with Tau Ceti's ContCohomology.H1 (the orders are coprime).
 - For trivial action, H¹(G, U) is the set of continuous homomorphisms G → U modulo conjugation by U.
 - Cohomologous means related by the action; for nonabelian U this is not 'c′ = c·b for a coboundary b' (test below).
+- Two gauge-related cocycles have equal classes even if their functions differ. For a trivial action the criterion is conjugacy of homomorphisms.
+- This is invariance under the whole coefficient gauge group, without an abelian quotient law.
+- Neutrality is gauge triviality; it does not require the chosen representing function to equal 1.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, p. 6; [Minhyong Kim](#reference-kim2009), Introduction, p. 4.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `MulAction.orbitRel`; `MulAction.orbitRel.Quotient`.
 
 ### 0.2 Comparison with abelian continuous cohomology
-
 <a id="nc-3-abelian-comparison"></a>
 
 **Comparison with abelian continuous cohomology.** Let M be a commutative topological group written additively, with a continuous action of G by additive automorphisms, and U = Multiplicative M. With the induced action on U (Mathlib has no instance for it, so one is supplied), Z¹(G, U) is Tau Ceti's group of explicit continuous 1-cocycles ContCohomology.Z1 G M (cocycles c(gh) = c(g) + g•c(h), in Mathlib's IsCocycle₁ convention), the action of U on Z¹ is translation by the coboundaries d⁰(m)(g) = g•m − m up to sign, and the class map induces a bijection of pointed sets H¹(G, U) ≅ ContCohomology.H1 G M, sending the base point to 0. Consequently H¹(G, U) inherits a commutative group structure, H⁰(G, U) = ContCohomology.H0 G M, and for discrete G the cocycles are Mathlib's groupCohomology.IsMulCocycle₁ maps (the factor order being immaterial for commutative M).
@@ -260,7 +254,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `TauCeti.ContCohomology.Z1`; `TauCeti.ContCohomology.B1`; `TauCeti.ContCohomology.H1`; `TauCeti.ContCohomology.H1pi`; `TauCeti.ContCohomology.H0`; `TauCeti.ContCohomology.d0`; `TauCeti.ContCohomology.d1`; `TauCeti.ContCohomology.H1EquivOfSmulEqSelf`; `groupCohomology.IsMulCocycle₁`; `Multiplicative`.
 
 ### 0.3 Coefficient maps on cocycles
-
 <a id="nc-3-coefficient-cocycle-map"></a>
 
 **Coefficient map on continuous cocycles.** For a continuous G-equivariant homomorphism f:U→U′, construct the cocycle map c↦f∘c on the continuous cocycle subtypes. Its exact evaluation, neutral cocycle and gauge formulas determine the induced pointed-set map.
@@ -274,9 +267,9 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.map`: For a continuous G-equivariant homomorphism f:U→U′, construct the cocycle map c↦f∘c on the continuous cocycle subtypes. Its exact evaluation, neutral cocycle and gauge formulas determine the induced pointed-set map.
 - `TauCeti.NonabelianCohomology.Z1.map_apply`: The exact cocycle-map value at g is f(c(g)).
 - `TauCeti.NonabelianCohomology.Z1.map_trivial`: The trivial cocycle maps to the trivial cocycle.
-- `TauCeti.NonabelianCohomology.Z1.map_smul`: For every x∈U and cocycle c, mapping the gauge transform x·c equals the gauge transform f(x)·(f∘c).
-- `TauCeti.NonabelianCohomology.Z1.map_id`: The coefficient cocycle map induced by id\_U is the identity function.
-- `TauCeti.NonabelianCohomology.Z1.map_comp`: The cocycle map induced by f′∘f equals the composite of the cocycle maps induced by f and f′, in that order.
+- <a id="nc-3-coefficient-cocycle-gauge"></a>`TauCeti.NonabelianCohomology.Z1.map_smul` (*Gauge compatibility of coefficient cocycle maps*): For every x∈U and cocycle c, mapping the gauge transform x·c equals the gauge transform f(x)·(f∘c). *Proof.* Apply cocycle extensionality, keeping factor order, and expand f(x c(g) (g·x)⁻¹). Use homomorphism multiplication/inverse preservation and G-equivariance. Uses [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-coefficient-cocycle-identity"></a>`TauCeti.NonabelianCohomology.Z1.map_id` (*Identity coefficient map on cocycles*): The coefficient cocycle map induced by id\_U is the identity function. *Proof.* The underlying pointwise function is the identity; the subtype proofs are propositionally irrelevant.
+- <a id="nc-3-coefficient-cocycle-composition"></a>`TauCeti.NonabelianCohomology.Z1.map_comp` (*Composition of coefficient cocycle maps*): The cocycle map induced by f′∘f equals the composite of the cocycle maps induced by f and f′, in that order. *Proof.* Both sides evaluate exactly as f′(f(c(g))). Composition supplies continuity and equivariance of the composite.
 
 **Checks.**
 
@@ -289,39 +282,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `Continuous.comp`; `map_mul`.
 
-<a id="nc-3-coefficient-cocycle-gauge"></a>
-
-**Gauge compatibility of coefficient cocycle maps.** For every x∈U and cocycle c, mapping the gauge transform x·c equals the gauge transform f(x)·(f∘c).
-
-Standing hypotheses (H1).
-
-Apply cocycle extensionality, keeping factor order, and expand f(x c(g) (g·x)⁻¹). Use homomorphism multiplication/inverse preservation and G-equivariance.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `map_inv`.
-
-### 0.4 Equality of cohomology classes
-
-<a id="nc-3-h1-orbit-criterion"></a>
-
-**Equality of nonabelian cohomology classes.** For continuous cocycles c,c′, their classes in H¹(G,U) are equal if and only if there is x∈U with x·c=c′, where (x·c)(g)=x c(g)(g•x)⁻¹. The equality criterion uses the genuine gauge action, not multiplication by a coboundary.
-
-G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point.
-
-Unfold the orbit-set class map. Quotient equality is the orbit relation; reverse its arguments to match the stated x·c=c′ orientation. Use the orbit-relation membership and orbit witness formulas.
-
-**Checks.**
-
-- Two gauge-related cocycles have equal classes even if their functions differ. For a trivial action the criterion is conjugacy of homomorphisms.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
-
-Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `MulAction.orbitRel_apply`; `MulAction.mem_orbit_iff`.
-
-### 0.5 Coefficient maps on H¹ and restriction along the source
-
+### 0.4 Coefficient maps on H¹ and restriction along the source
 <a id="nc-3-coefficient-h1-map"></a>
 
 **Coefficient map on nonabelian cohomology.** The continuous equivariant coefficient homomorphism f induces the map on gauge-orbit H¹, taking [c] to [f∘c]. It preserves the distinguished class and obeys identity and composition; H¹ remains a pointed set. No injectivity is asserted for arbitrary f.
@@ -334,9 +295,9 @@ The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.H1.map`: The continuous equivariant coefficient homomorphism f induces the map on gauge-orbit H¹, taking [c] to [f∘c]. It preserves the distinguished class and obeys identity and composition; H¹ remains a pointed set. No injectivity is asserted for arbitrary f.
 - `TauCeti.NonabelianCohomology.H1.map_mk`: The map takes the class of c to the class of the cocycle f∘c.
-- `TauCeti.NonabelianCohomology.H1.map_one`: The H¹ coefficient map sends the neutral class to the neutral class.
-- `TauCeti.NonabelianCohomology.H1.map_id`: The H¹ map induced by id\_U is the identity of the pointed set.
-- `TauCeti.NonabelianCohomology.H1.map_comp`: The pointed-set map on H¹ induced by f′∘f equals H¹(f′)∘H¹(f).
+- <a id="nc-3-coefficient-h1-one"></a>`TauCeti.NonabelianCohomology.H1.map_one` (*Neutral class under coefficient maps*): The H¹ coefficient map sends the neutral class to the neutral class. *Proof.* The cocycle map sends the constant-one cocycle to itself, because f(1)=1. Take its class.
+- <a id="nc-3-coefficient-h1-identity"></a>`TauCeti.NonabelianCohomology.H1.map_id` (*Identity coefficient map on cohomology*): The H¹ map induced by id\_U is the identity of the pointed set. *Proof.* Use class-map surjectivity and compute on each cocycle representative. Uses [Identity coefficient map on cocycles](#nc-3-coefficient-cocycle-identity).
+- <a id="nc-3-coefficient-h1-composition"></a>`TauCeti.NonabelianCohomology.H1.map_comp` (*Composition of coefficient cohomology maps*): The pointed-set map on H¹ induced by f′∘f equals H¹(f′)∘H¹(f). *Proof.* Use class-map surjectivity and the ordered cocycle composition formula. Uses [Composition of coefficient cocycle maps](#nc-3-coefficient-cocycle-composition).
 
 **Checks.**
 
@@ -348,7 +309,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
 
 Use [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion).
-
 <a id="nc-3-coefficient-invariant-map"></a>
 
 **Coefficient homomorphism on invariant groups.** A G-equivariant group homomorphism f:U→U′ induces the group homomorphism U^G→(U′)^G with value x↦f(x). No topology or continuity condition is needed. It preserves the group operations and obeys identity and composition.
@@ -361,8 +321,8 @@ The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.H0.map`: A G-equivariant group homomorphism f:U→U′ induces the group homomorphism U^G→(U′)^G with value x↦f(x). No topology or continuity condition is needed. It preserves the group operations and obeys identity and composition.
 - `TauCeti.NonabelianCohomology.H0.map_apply`: The underlying invariant-subgroup value is exactly f(x).
-- `TauCeti.NonabelianCohomology.H0.map_id`: The invariant-group homomorphism induced by id\_U is the identity homomorphism.
-- `TauCeti.NonabelianCohomology.H0.map_comp`: The invariant-group homomorphism induced by f′∘f equals the composite of the restricted invariant homomorphisms.
+- <a id="nc-3-coefficient-invariant-identity"></a>`TauCeti.NonabelianCohomology.H0.map_id` (*Identity coefficient homomorphism on invariants*): The invariant-group homomorphism induced by id\_U is the identity homomorphism. *Proof.* The underlying map and fixed-subgroup witnesses agree; proof irrelevance identifies the bundled data.
+- <a id="nc-3-coefficient-invariant-composition"></a>`TauCeti.NonabelianCohomology.H0.map_comp` (*Composition of invariant coefficient homomorphisms*): The invariant-group homomorphism induced by f′∘f equals the composite of the restricted invariant homomorphisms. *Proof.* Compute both underlying homomorphisms as x↦f′(f(x)), using the subgroup carriers.
 
 **Checks.**
 
@@ -375,32 +335,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `FixedPoints.subgroup`; `FixedPoints.mem_subgroup`; `map_one`; `map_mul`.
 
-<a id="nc-3-coefficient-cocycle-composition"></a>
-
-**Composition of coefficient cocycle maps.** The cocycle map induced by f′∘f equals the composite of the cocycle maps induced by f and f′, in that order.
-
-Standing hypotheses (H1).
-
-Both sides evaluate exactly as f′(f(c(g))). Composition supplies continuity and equivariance of the composite.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); `MonoidHom.comp`; `MonoidHom.comp_apply`.
-
-<a id="nc-3-coefficient-h1-composition"></a>
-
-**Composition of coefficient cohomology maps.** The pointed-set map on H¹ induced by f′∘f equals H¹(f′)∘H¹(f).
-
-Standing hypotheses (H1).
-
-Use class-map surjectivity and the ordered cocycle composition formula.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Composition of coefficient cocycle maps](#nc-3-coefficient-cocycle-composition).
-
 <a id="nc-3-source-cocycle-restriction"></a>
 
 **Restriction along a continuous source homomorphism.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. Construct res\_φ:Z¹(G,U)→Z¹(H,U) by c↦c∘φ.
@@ -411,14 +345,14 @@ Compose the continuous function with φ. The homomorphism identity and action co
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.res_apply`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For h∈H, res\_φ(c)(h)=c(φ(h)).
-- `TauCeti.NonabelianCohomology.Z1.res_one`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_φ(1)=1.
-- `TauCeti.NonabelianCohomology.Z1.res_id`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_id is the identity on Z¹(G,U).
-- `TauCeti.NonabelianCohomology.Z1.res_comp`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For continuous ψ:K→H with k·u=ψ(k)·u, res\_(φ∘ψ)=res\_ψ∘res\_φ, using the composite action compatibility.
-- `TauCeti.NonabelianCohomology.Z1.res_injective`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. If φ is surjective, res\_φ is injective on cocycles.
-- `TauCeti.NonabelianCohomology.Z1.res_subgroup`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For every subgroup N≤G with induced topology and action, res along N.subtype equals the Z1.restrict N. No closedness is needed for this cocycle equality.
-- `TauCeti.NonabelianCohomology.Z1.res_smul`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. With jointly continuous actions on topological U, res\_φ(x·c)=x·res\_φ(c) for x∈U.
-- `TauCeti.NonabelianCohomology.Z1.res_map`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For a continuous G-equivariant f:U→V and pulled-back H-actions on U,V, res\_φ∘map\_f=map\_f∘res\_φ on cocycles. The H-equivariance of f follows from G-equivariance and the two action equalities.
+- <a id="nc-3-source-cocycle-value"></a>`TauCeti.NonabelianCohomology.Z1.res_apply` (*Values of source restriction*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For h∈H, res\_φ(c)(h)=c(φ(h)). *Proof.* Evaluate the defining precomposition.
+- <a id="nc-3-source-cocycle-neutral"></a>`TauCeti.NonabelianCohomology.Z1.res_one` (*The neutral restricted cocycle*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_φ(1)=1. *Proof.* Precomposing the constant-one function leaves it constant one.
+- <a id="nc-3-source-cocycle-identity"></a>`TauCeti.NonabelianCohomology.Z1.res_id` (*Identity source restriction on cocycles*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_id is the identity on Z¹(G,U). *Proof.* Function and subtype extensionality reduce to c(id(g))=c(g).
+- <a id="nc-3-source-cocycle-composition"></a>`TauCeti.NonabelianCohomology.Z1.res_comp` (*Contravariant composition on cocycles*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For continuous ψ:K→H with k·u=ψ(k)·u, res\_(φ∘ψ)=res\_ψ∘res\_φ, using the composite action compatibility. *Proof.* Evaluate both functions at k∈K: each has value c(φ(ψ(k))).
+- <a id="nc-3-source-cocycle-surjective-injection"></a>`TauCeti.NonabelianCohomology.Z1.res_injective` (*Surjective sources detect cocycles*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. If φ is surjective, res\_φ is injective on cocycles. *Proof.* Choose an H-preimage of each g∈G and evaluate equality of restricted cocycles there. Uses [Values of source restriction](#nc-3-source-cocycle-value).
+- <a id="nc-3-source-cocycle-subgroup"></a>`TauCeti.NonabelianCohomology.Z1.res_subgroup` (*Agreement with subgroup cocycle restriction*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For every subgroup N≤G with induced topology and action, res along N.subtype equals the Z1.restrict N. No closedness is needed for this cocycle equality. *Proof.* Both maps evaluate c on the underlying element of N. Uses [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction).
+- <a id="nc-3-source-cocycle-gauge"></a>`TauCeti.NonabelianCohomology.Z1.res_smul` (*Gauge compatibility of source restriction*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. With jointly continuous actions on topological U, res\_φ(x·c)=x·res\_φ(c) for x∈U. *Proof.* Expand x c(φ(h)) (φ(h)·x)⁻¹ and replace φ(h)·x by h·x. Uses [Values of source restriction](#nc-3-source-cocycle-value); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-source-coefficient-cocycle-square"></a>`TauCeti.NonabelianCohomology.Z1.res_map` (*Coefficient change commutes with source restriction*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For a continuous G-equivariant f:U→V and pulled-back H-actions on U,V, res\_φ∘map\_f=map\_f∘res\_φ on cocycles. The H-equivariance of f follows from G-equivariance and the two action equalities. *Proof.* Both maps have value f(c(φ(h))) at h; rewrite the action equalities to provide the induced H-equivariance proof. Uses [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
 
 **Checks.**
 
@@ -432,58 +366,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2009), 
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `Continuous.comp`; `map_mul`.
 
-<a id="nc-3-source-cocycle-value"></a>
-
-**Values of source restriction.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For h∈H, res\_φ(c)(h)=c(φ(h)).
-
-Standing hypotheses (H3).
-
-Evaluate the defining precomposition.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction).
-
-<a id="nc-3-source-cocycle-gauge"></a>
-
-**Gauge compatibility of source restriction.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. With jointly continuous actions on topological U, res\_φ(x·c)=x·res\_φ(c) for x∈U.
-
-Standing hypotheses (H3).
-
-Expand x c(φ(h)) (φ(h)·x)⁻¹ and replace φ(h)·x by h·x.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Values of source restriction](#nc-3-source-cocycle-value); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-### 0.6 Gauge invariance of classes
-
-<a id="nc-3-h1-gauge-class"></a>
-
-**Gauge invariance of the cohomology class.** For every x∈U and c∈Z¹(G,U), [x·c]=[c].
-
-Standing hypotheses (H4).
-
-The orbit criterion identifies [c] and [x·c] using the witness x; reverse the equality.
-
-**Checks.**
-
-- This is invariance under the whole coefficient gauge group, without an abelian quotient law.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion).
-
-### 0.7 Restriction on H¹ and invariants; the source–coefficient square
-
+### 0.5 Restriction on H¹ and invariants; the source–coefficient square
 <a id="nc-3-source-h1-restriction"></a>
 
 **Restriction on nonabelian cohomology.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. Construct the pointed-set map res\_φ:H¹(G,U)→H¹(H,U) from cocycle precomposition.
@@ -494,13 +377,13 @@ Use Quotient.lift on gauge orbits. The same coefficient element x witnesses equi
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.res_mk`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ([c])=[c∘φ].
-- `TauCeti.NonabelianCohomology.H1.res_one`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ(1)=1 in H¹(H,U).
-- `TauCeti.NonabelianCohomology.H1.res_id`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_id is the identity on H¹(G,U).
-- `TauCeti.NonabelianCohomology.H1.res_comp`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For continuous ψ:K→H with compatible jointly continuous action, res\_(φ∘ψ)=res\_ψ∘res\_φ.
-- `TauCeti.NonabelianCohomology.H1.res_injective`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. If φ is surjective, res\_φ is injective on H¹(G,U).
-- `TauCeti.NonabelianCohomology.H1.res_subgroup`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For every subgroup N≤G, res along N.subtype equals the H1.restrict N, with induced topology and action.
-- `TauCeti.NonabelianCohomology.H1.res_map`: Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For a continuous G-equivariant f:U→V between topological groups with jointly continuous compatible actions, res\_φ∘map\_f=map\_f∘res\_φ on H¹.
+- <a id="nc-3-source-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.res_mk` (*Restriction on a cocycle class*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ([c])=[c∘φ]. *Proof.* Evaluate the quotient lift on a representative. Uses [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction).
+- <a id="nc-3-source-h1-neutral"></a>`TauCeti.NonabelianCohomology.H1.res_one` (*The neutral restricted class*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ(1)=1 in H¹(H,U). *Proof.* Use the representative of the neutral class and the constant-one cocycle formula. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [The neutral restricted cocycle](#nc-3-source-cocycle-neutral).
+- <a id="nc-3-source-h1-identity"></a>`TauCeti.NonabelianCohomology.H1.res_id` (*Identity restriction on cohomology*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_id is the identity on H¹(G,U). *Proof.* Use class-map surjectivity and the cocycle identity restriction. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [Identity source restriction on cocycles](#nc-3-source-cocycle-identity).
+- <a id="nc-3-source-h1-composition"></a>`TauCeti.NonabelianCohomology.H1.res_comp` (*Contravariant composition on cohomology*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For continuous ψ:K→H with compatible jointly continuous action, res\_(φ∘ψ)=res\_ψ∘res\_φ. *Proof.* Choose a cocycle representative and apply the cocycle composition law. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [Contravariant composition on cocycles](#nc-3-source-cocycle-composition).
+- <a id="nc-3-source-h1-surjective-injection"></a>`TauCeti.NonabelianCohomology.H1.res_injective` (*Surjective sources detect cohomology classes*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. If φ is surjective, res\_φ is injective on H¹(G,U). *Proof.* Choose representative cocycles. Equality after restriction gives a gauge witness x∈U. Gauge compatibility and surjective-source injectivity on cocycles give x·c=d before restriction. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [Surjective sources detect cocycles](#nc-3-source-cocycle-surjective-injection).
+- <a id="nc-3-source-h1-subgroup"></a>`TauCeti.NonabelianCohomology.H1.res_subgroup` (*Agreement with subgroup cohomology restriction*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For every subgroup N≤G, res along N.subtype equals the H1.restrict N, with induced topology and action. *Proof.* Reduce to a cocycle representative; both quotient maps use the same restricted cocycle. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [Agreement with subgroup cocycle restriction](#nc-3-source-cocycle-subgroup); [Restriction of nonabelian cohomology classes](#nc-3-h1-restriction).
+- <a id="nc-3-source-coefficient-h1-square"></a>`TauCeti.NonabelianCohomology.H1.res_map` (*The source and coefficient square on cohomology*): Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For a continuous G-equivariant f:U→V between topological groups with jointly continuous compatible actions, res\_φ∘map\_f=map\_f∘res\_φ on H¹. *Proof.* Choose a cocycle representative and use the commuting cocycle square; quotient lifting preserves equality. Uses [Restriction on a cocycle class](#nc-3-source-h1-representative); [Coefficient change commutes with source restriction](#nc-3-source-coefficient-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
 **Checks.**
 
@@ -515,7 +398,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
 
 Use [Gauge compatibility of source restriction](#nc-3-source-cocycle-gauge); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); `MulDistribMulAction.compHom`; `MulAction.continuousSMul_compHom`.
-
 <a id="nc-3-source-invariant-restriction"></a>
 
 **Restriction of invariant subgroups.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Construct the homomorphism res\_φ:U^G→U^H sending an invariant element to the same element of U.
@@ -526,11 +408,11 @@ The G-fixed element is fixed by φ(h), hence by h. Multiplication and identity a
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H0.res_apply`: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The underlying U-element of res\_φ(x) is x.
-- `TauCeti.NonabelianCohomology.H0.res_id`: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Restriction along id\_G is the identity homomorphism of U^G.
-- `TauCeti.NonabelianCohomology.H0.res_comp`: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For ψ:K→H with compatible action, res\_(φ∘ψ)=res\_ψ∘res\_φ as group homomorphisms.
-- `TauCeti.NonabelianCohomology.H0.res_injective`: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The map res\_φ:U^G→U^H is injective for every φ, without a surjectivity hypothesis.
-- `TauCeti.NonabelianCohomology.H0.res_map`: For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For G-equivariant f:U→V and compatible H-actions, res\_φ∘map\_f=map\_f∘res\_φ as group homomorphisms between fixed subgroups.
+- <a id="nc-3-source-invariant-value"></a>`TauCeti.NonabelianCohomology.H0.res_apply` (*Underlying invariant restriction*): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The underlying U-element of res\_φ(x) is x. *Proof.* Unfold the inclusion between fixed subgroups.
+- <a id="nc-3-source-invariant-identity"></a>`TauCeti.NonabelianCohomology.H0.res_id` (*Identity restriction of invariants*): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Restriction along id\_G is the identity homomorphism of U^G. *Proof.* The underlying function is identity, and proof fields agree by proof irrelevance.
+- <a id="nc-3-source-invariant-composition"></a>`TauCeti.NonabelianCohomology.H0.res_comp` (*Composition of invariant restrictions*): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For ψ:K→H with compatible action, res\_(φ∘ψ)=res\_ψ∘res\_φ as group homomorphisms. *Proof.* Both homomorphisms preserve the underlying element of U.
+- <a id="nc-3-source-invariant-injection"></a>`TauCeti.NonabelianCohomology.H0.res_injective` (*Invariant restriction is injective*): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The map res\_φ:U^G→U^H is injective for every φ, without a surjectivity hypothesis. *Proof.* Take underlying U-values of an equality and apply subtype extensionality. Uses [Underlying invariant restriction](#nc-3-source-invariant-value).
+- <a id="nc-3-source-coefficient-invariant-square"></a>`TauCeti.NonabelianCohomology.H0.res_map` (*The source and coefficient square on invariants*): For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For G-equivariant f:U→V and compatible H-actions, res\_φ∘map\_f=map\_f∘res\_φ as group homomorphisms between fixed subgroups. *Proof.* Both homomorphisms send x to f(x); H-equivariance follows by rewriting the compatible actions. Uses [Coefficient homomorphism on invariant groups](#nc-3-coefficient-invariant-map).
 
 **Checks.**
 
@@ -543,120 +425,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2009), 
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `FixedPoints.subgroup`.
 
-<a id="nc-3-source-h1-representative"></a>
-
-**Restriction on a cocycle class.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ([c])=[c∘φ].
-
-Standing hypotheses (H3).
-
-Evaluate the quotient lift on a representative.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on nonabelian cohomology](#nc-3-source-h1-restriction); [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction).
-
-<a id="nc-3-source-cocycle-composition"></a>
-
-**Contravariant composition on cocycles.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For continuous ψ:K→H with k·u=ψ(k)·u, res\_(φ∘ψ)=res\_ψ∘res\_φ, using the composite action compatibility.
-
-Standing hypotheses (H3).
-
-Evaluate both functions at k∈K: each has value c(φ(ψ(k))).
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); `MonoidHom.comp`; `Continuous.comp`.
-
-<a id="nc-3-source-h1-composition"></a>
-
-**Contravariant composition on cohomology.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For continuous ψ:K→H with compatible jointly continuous action, res\_(φ∘ψ)=res\_ψ∘res\_φ.
-
-Standing hypotheses (H3).
-
-Choose a cocycle representative and apply the cocycle composition law.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [Contravariant composition on cocycles](#nc-3-source-cocycle-composition); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-source-invariant-composition"></a>
-
-**Composition of invariant restrictions.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For ψ:K→H with compatible action, res\_(φ∘ψ)=res\_ψ∘res\_φ as group homomorphisms.
-
-Standing hypotheses (H5).
-
-Both homomorphisms preserve the underlying element of U.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction of invariant subgroups](#nc-3-source-invariant-restriction); `MonoidHom.comp`.
-
-<a id="nc-3-source-coefficient-cocycle-square"></a>
-
-**Coefficient change commutes with source restriction.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For a continuous G-equivariant f:U→V and pulled-back H-actions on U,V, res\_φ∘map\_f=map\_f∘res\_φ on cocycles. The H-equivariance of f follows from G-equivariance and the two action equalities.
-
-Standing hypotheses (H3).
-
-Both maps have value f(c(φ(h))) at h; rewrite the action equalities to provide the induced H-equivariance proof.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-source-coefficient-h1-square"></a>
-
-**The source and coefficient square on cohomology.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For a continuous G-equivariant f:U→V between topological groups with jointly continuous compatible actions, res\_φ∘map\_f=map\_f∘res\_φ on H¹.
-
-Standing hypotheses (H3).
-
-Choose a cocycle representative and use the commuting cocycle square; quotient lifting preserves equality.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [Coefficient change commutes with source restriction](#nc-3-source-coefficient-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-source-coefficient-invariant-square"></a>
-
-**The source and coefficient square on invariants.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. For G-equivariant f:U→V and compatible H-actions, res\_φ∘map\_f=map\_f∘res\_φ as group homomorphisms between fixed subgroups.
-
-Standing hypotheses (H5).
-
-Both homomorphisms send x to f(x); H-equivariance follows by rewriting the compatible actions.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction of invariant subgroups](#nc-3-source-invariant-restriction); [Coefficient homomorphism on invariant groups](#nc-3-coefficient-invariant-map); `MonoidHom.comp`.
-
-### 0.8 Restriction of cocycles
-
+### 0.6 Restriction of cocycles
 <a id="nc-3-cocycle-restriction"></a>
 
 **Restriction of continuous nonabelian cocycles.** Construct res\_N:Z¹(G,U)→Z¹(N,U) by res\_N(c)(n)=c(n), using the subgroup inclusion and restricted action. This keeps continuity and the ordered cocycle law.
@@ -669,7 +438,7 @@ The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.Z1.restrict_apply`: For n∈N, res\_N(c)(n)=c(n) through subgroup inclusion.
 - `TauCeti.NonabelianCohomology.Z1.restrict_one`: Restriction sends the identity cocycle to the identity cocycle.
-- `TauCeti.NonabelianCohomology.Z1.restrict_smul`: Under the stronger joint-continuous action/topological-group hypotheses, restriction commutes with every U-gauge action: res\_N(x·c)=x·res\_N(c).
+- <a id="nc-3-cocycle-restriction-equivariance"></a>`TauCeti.NonabelianCohomology.Z1.restrict_smul` (*Gauge equivariance of cocycle restriction*): For x∈U and c∈Z¹(G,U), res\_N(x·c)=x·res\_N(c). The gauge element belongs to all U, not necessarily U^N. Under (H4). *Proof.* Restricted scalar multiplication evaluates through subgroup inclusion. Both cocycle values are x c(n)(n•x)⁻¹; equality is definitional. Uses [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 **Checks.**
 
@@ -677,63 +446,13 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.restrict.test_subgroup_value`: At any subgroup element n, restriction evaluates to the original c(n).
 - `TauCeti.NonabelianCohomology.Z1.restrict.test_bottom`: Every cocycle restricts to the identity cocycle on N={1}.
 - Restriction is genuine evaluation on the subgroup, not a constant cocycle. The bottom subgroup sees only c(1)=1.
+- A non-N-fixed witness is allowed; imposing fixedness here would change restriction on classes.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `continuous_subtype_val`; `Continuous.comp`.
 
-### 0.9 Agreement with subgroup cocycle restriction
-
-<a id="nc-3-source-cocycle-subgroup"></a>
-
-**Agreement with subgroup cocycle restriction.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For every subgroup N≤G with induced topology and action, res along N.subtype equals the Z1.restrict N. No closedness is needed for this cocycle equality.
-
-Standing hypotheses (H3).
-
-Both maps evaluate c on the underlying element of N.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction); `Subgroup.subtype`.
-
-### 0.10 Restriction of classes and neutral classes
-
-<a id="nc-3-cocycle-restriction-equivariance"></a>
-
-**Gauge equivariance of cocycle restriction.** For x∈U and c∈Z¹(G,U), res\_N(x·c)=x·res\_N(c). The gauge element belongs to all U, not necessarily U^N.
-
-Standing hypotheses (H4).
-
-Restricted scalar multiplication evaluates through subgroup inclusion. Both cocycle values are x c(n)(n•x)⁻¹; equality is definitional.
-
-**Checks.**
-
-- A non-N-fixed witness is allowed; imposing fixedness here would change restriction on classes.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `Subgroup.continuousSMul`.
-
-<a id="nc-3-h1-neutral-criterion"></a>
-
-**Neutral class as a coboundary.** For any continuous cocycle c, [c]=1 if and only if there is x∈U with c(g)=x(g•x)⁻¹ for all g.
-
-Standing hypotheses (H4).
-
-Apply the genuine orbit criterion with the identity cocycle as source. Evaluate the gauge action on that cocycle and use cocycle extensionality for the converse.
-
-**Checks.**
-
-- Neutrality is gauge triviality; it does not require the chosen representing function to equal 1.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion).
-
+### 0.7 Restriction of classes and neutral classes
 <a id="nc-3-h1-restriction"></a>
 
 **Restriction of nonabelian cohomology classes.** Construct the pointed-set map res\_N:H¹(G,U)→H¹(N,U) sending [c] to [res\_N(c)]. It uses the gauge-orbit quotients and the whole U-gauge action on both sides.
@@ -761,90 +480,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction); [Gauge equivariance of cocycle restriction](#nc-3-cocycle-restriction-equivariance); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `Subgroup.continuousSMul`; `MulAction.orbitRel_apply`; `MulAction.mem_orbit_iff`.
 
-### 0.11 Subgroup restriction, surjective sources and invariant restriction
-
-<a id="nc-3-source-h1-subgroup"></a>
-
-**Agreement with subgroup cohomology restriction.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. For every subgroup N≤G, res along N.subtype equals the H1.restrict N, with induced topology and action.
-
-Standing hypotheses (H3).
-
-Reduce to a cocycle representative; both quotient maps use the same restricted cocycle.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [Agreement with subgroup cocycle restriction](#nc-3-source-cocycle-subgroup); [Restriction of nonabelian cohomology classes](#nc-3-h1-restriction).
-
-<a id="nc-3-source-cocycle-surjective-injection"></a>
-
-**Surjective sources detect cocycles.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. If φ is surjective, res\_φ is injective on cocycles.
-
-Standing hypotheses (H3).
-
-Choose an H-preimage of each g∈G and evaluate equality of restricted cocycles there.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Values of source restriction](#nc-3-source-cocycle-value).
-
-<a id="nc-3-source-h1-surjective-injection"></a>
-
-**Surjective sources detect cohomology classes.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. If φ is surjective, res\_φ is injective on H¹(G,U).
-
-Standing hypotheses (H3).
-
-Choose representative cocycles. Equality after restriction gives a gauge witness x∈U. Gauge compatibility and surjective-source injectivity on cocycles give x·c=d before restriction.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [Gauge compatibility of source restriction](#nc-3-source-cocycle-gauge); [Surjective sources detect cocycles](#nc-3-source-cocycle-surjective-injection); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-source-invariant-value"></a>
-
-**Underlying invariant restriction.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The underlying U-element of res\_φ(x) is x.
-
-Standing hypotheses (H5).
-
-Unfold the inclusion between fixed subgroups.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction of invariant subgroups](#nc-3-source-invariant-restriction).
-
-<a id="nc-3-source-invariant-injection"></a>
-
-**Invariant restriction is injective.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. The map res\_φ:U^G→U^H is injective for every φ, without a surjectivity hypothesis.
-
-Standing hypotheses (H5).
-
-Take underlying U-values of an equality and apply subtype extensionality.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Underlying invariant restriction](#nc-3-source-invariant-value).
-
-### 0.12 Twisting by a cocycle
-
+### 0.8 Twisting by a cocycle
 <a id="nc-3-twisting"></a>
 
 **Twisting by a cocycle.** Let c ∈ Z¹(G, U). The twisted group ₍c₎U is U with the action g ⋆ u := c(g)·(g•u)·c(g)⁻¹, again a continuous action by automorphisms. The map τ\_c : Z¹(G, ₍c₎U) → Z¹(G, U), c′ ↦ (g ↦ c′(g)·c(g)), is a bijection carrying the trivial cocycle to c and the twisted-conjugation action of U on the left to that on the right; it induces a bijection of underlying sets H¹(G, ₍c₎U) ≅ H¹(G, U) sending the source base point to [c]; it becomes a pointed equivalence only when the target is repointed at [c]. Twisting is compatible with G-stable subgroups (for cocycles with values in them) and with quotients by normal ones, so that fibres of the maps in [Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence) over [c] become fibres over the base point after twisting.
@@ -862,8 +498,8 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1.twistEquiv`: The induced bijection H¹(G, ₍c₎U) ≃ H¹(G, U).
 - `TauCeti.NonabelianCohomology.H1.twistEquiv_one`: twistEquiv sends the base point to the class of c.
 - `TauCeti.NonabelianCohomology.Twist.self`: Twisting by the trivial cocycle is the original action.
-- `TauCeti.NonabelianCohomology.Twist.toOriginal`: The underlying group identification j\_c:Twist(c)≃*U is MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action.
-- `TauCeti.NonabelianCohomology.Twist.mem_fixed_iff`: For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j\_c(x))=j\_c(x)·c(g) for every g∈G.
+- <a id="nc-3-twist-underlying-group"></a>`TauCeti.NonabelianCohomology.Twist.toOriginal` (*Underlying group of a cocycle twist*): The underlying group identification j\_c:Twist(c)≃*U is MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action. Under (H6). *Proof.* Use the inherited underlying group and topology instances on the type synonym. Specialize MulEquiv.refl; its two inverse identities and multiplicativity are the ones, not stored comparison oracles. The action remains twisted. Source: [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
+- <a id="nc-3-twist-invariant-criterion"></a>`TauCeti.NonabelianCohomology.Twist.mem_fixed_iff` (*Invariants of the twisted action*): For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j\_c(x))=j\_c(x)·c(g) for every g∈G. Under (H6). *Proof.* Apply the underlying group identification to the fixed-point equality g⋆x=x. Multiply on the right by c(g) to obtain the stated commutation equation; conversely divide by c(g) and use the equivalence injectivity. Source: [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7. Uses [Underlying group of a cocycle twist](#nc-3-twist-underlying-group).
 - `TauCeti.NonabelianCohomology.Twist.toOriginal_apply`: For every x∈Twist(c), j\_c(x) is exactly x regarded in U. This is the identity equivalence on the underlying group, not an unspecified automorphism.
 
 **Checks.**
@@ -880,24 +516,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `MulAut.conj`; `MulDistribMulAction.toMulAut`.
 
-### 0.13 Inner twists: source comparison, pullback and the twisting equivalence
-
-<a id="nc-3-twist-underlying-group"></a>
-
-**Underlying group of a cocycle twist.** The underlying group identification j\_c:Twist(c)≃*U is MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action.
-
-Standing hypotheses (H6).
-
-Use the inherited underlying group and topology instances on the type synonym. Specialize MulEquiv.refl; its two inverse identities and multiplicativity are the ones, not stored comparison oracles. The action remains twisted.
-
-**Checks.**
-
-- The underlying group identification j\_c:Twist(c)≃*U is MulEquiv.refl U. It preserves multiplication and the original topology, but need not preserve the original G-action.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Twisting by a cocycle](#nc-3-twisting); `MulEquiv.refl`.
-
+### 0.9 Inner twists: source comparison, pullback and the twisting equivalence
 <a id="nc-3-twisted-source-equivalence"></a>
 
 **Source comparison of inner twists.** Construct e\_φ,c:Twist(c)≃*Twist(res\_φ c) as j\_(res\_φ c)⁻¹∘j\_c. The underlying topological groups coincide; the following semiequivariance lemma compares their source actions.
@@ -908,72 +527,22 @@ Compose the group identifications, using the inverse in the target direction.
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply`: For x∈Twist(c), j\_(res\_φ c)(e\_φ,c(x))=j\_c(x).
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply`: For y∈Twist(res\_φ c), j\_c(e\_φ,c⁻¹(y))=j\_(res\_φ c)(y).
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous`: The function underlying e\_φ,c is continuous for the topologies.
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous`: The inverse function e\_φ,c⁻¹ is continuous. Thus the group equivalence is also a homeomorphism.
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul`: For h∈H and x∈Twist(c), e\_φ,c(φ(h)⋆\_c x)=h⋆\_(res\_φ c)e\_φ,c(x), using the G and H inner actions.
-- `TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge`: For b∈U and x∈Twist(c), j\_(res\_φ(b•c))(e\_φ,b•c(e\_c,b(x)))=j\_(b•res\_φ c)(e\_(res\_φ c),b(e\_φ,c(x))). Ordinary restriction identifies res\_φ(b•c)=b•res\_φ c; the equality is stated under the underlying identifications to retain the exact dependent targets.
+- <a id="nc-3-twisted-source-value"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_apply` (*Value of the source comparison*): For x∈Twist(c), j\_(res\_φ c)(e\_φ,c(x))=j\_c(x). *Proof.* Unfold the composed equivalence.
+- <a id="nc-3-twisted-source-inverse-value"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_apply` (*Inverse source comparison*): For y∈Twist(res\_φ c), j\_c(e\_φ,c⁻¹(y))=j\_(res\_φ c)(y). *Proof.* Unfold the inverse equivalence.
+- <a id="nc-3-twisted-source-continuity"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_continuous` (*Continuity of source comparison*): The function underlying e\_φ,c is continuous for the topologies. *Proof.* Under j\_c and j\_(res\_φ c) the function is the identity on U; use continuity of the identity. Uses [Value of the source comparison](#nc-3-twisted-source-value).
+- <a id="nc-3-twisted-source-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_symm_continuous` (*Continuity of inverse source comparison*): The inverse function e\_φ,c⁻¹ is continuous. Thus the group equivalence is also a homeomorphism. *Proof.* The inverse is the same identity map on the inherited topology. Uses [Inverse source comparison](#nc-3-twisted-source-inverse-value).
+- <a id="nc-3-twisted-source-semilinearity"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_smul` (*Source semiequivariance of inner twists*): For h∈H and x∈Twist(c), e\_φ,c(φ(h)⋆\_c x)=h⋆\_(res\_φ c)e\_φ,c(x), using the G and H inner actions. *Proof.* Apply j\_(res\_φ c) injectively. Both sides contain the same c(φ(h)) and its inverse; replace h•j\_c(x) by φ(h)•j\_c(x) using the explicit action compatibility. Uses [Value of the source comparison](#nc-3-twisted-source-value); [Twisting by a cocycle](#nc-3-twisting); [Values of source restriction](#nc-3-source-cocycle-value).
+- <a id="nc-3-twisted-source-gauge-square"></a>`TauCeti.NonabelianCohomology.Twist.sourceEquiv_gauge` (*Source comparison and gauge conjugation*): For b∈U and x∈Twist(c), j\_(res\_φ(b•c))(e\_φ,b•c(e\_c,b(x)))=j\_(b•res\_φ c)(e\_(res\_φ c),b(e\_φ,c(x))). Ordinary restriction identifies res\_φ(b•c)=b•res\_φ c; the equality is stated under the underlying identifications to retain the exact dependent targets. *Proof.* Both sides are b j\_c(x)b⁻¹. Use the identification formulas and the ordinary cocycle restriction/gauge identity. Uses [Value of the source comparison](#nc-3-twisted-source-value); [Gauge transport value](#nc-3-gauge-value); [Gauge compatibility of source restriction](#nc-3-source-cocycle-gauge).
 
 **Checks.**
 
 - `Twist.sourceEquiv.test_inverse`: For every φ,c,x, the inverse of e\_φ,c applied to e\_φ,c(x) is x.
 - `Twist.sourceEquiv.test_semilinear`: For h∈H and x∈Twist(c), j\_(res\_φ c)(h⋆e\_φ,c(x))=c(φ(h))(φ(h)•j\_c(x))c(φ(h))⁻¹.
 - `Twist.sourceEquiv.test_noncommutative_action`: Give S₂ and S₃ discrete topologies and the trivial original S₂-action on S₃; let c(nonidentity)=(01), φ=id, g=(01)∈S₂ and x=(12)∈Twist(c). Then j\_(res\_id c)(e\_id,c(g⋆x))=(02), which differs from j\_c(x)=(12). This rejects reuse of the raw trivial action on the inner twist.
-- Construct e\_φ,c:Twist(c)≃*Twist(res\_φ c) as j\_(res\_φ c)⁻¹∘j\_c. The underlying topological groups coincide; the following semiequivariance lemma compares their source actions.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
 
 Use [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); `MulEquiv.trans`; `MulEquiv.symm`.
-
-<a id="nc-3-twisted-source-value"></a>
-
-**Value of the source comparison.** For x∈Twist(c), j\_(res\_φ c)(e\_φ,c(x))=j\_c(x).
-
-Standing hypotheses (H7).
-
-Unfold the composed equivalence.
-
-**Checks.**
-
-- For x∈Twist(c), j\_(res\_φ c)(e\_φ,c(x))=j\_c(x).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source comparison of inner twists](#nc-3-twisted-source-equivalence).
-
-<a id="nc-3-twisted-source-continuity"></a>
-
-**Continuity of source comparison.** The function underlying e\_φ,c is continuous for the topologies.
-
-Standing hypotheses (H7).
-
-Under j\_c and j\_(res\_φ c) the function is the identity on U; use continuity of the identity.
-
-**Checks.**
-
-- The function underlying e\_φ,c is continuous for the topologies.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source comparison of inner twists](#nc-3-twisted-source-equivalence); [Value of the source comparison](#nc-3-twisted-source-value).
-
-<a id="nc-3-twisted-source-semilinearity"></a>
-
-**Source semiequivariance of inner twists.** For h∈H and x∈Twist(c), e\_φ,c(φ(h)⋆\_c x)=h⋆\_(res\_φ c)e\_φ,c(x), using the G and H inner actions.
-
-Standing hypotheses (H7).
-
-Apply j\_(res\_φ c) injectively. Both sides contain the same c(φ(h)) and its inverse; replace h•j\_c(x) by φ(h)•j\_c(x) using the explicit action compatibility.
-
-**Checks.**
-
-- For h∈H and x∈Twist(c), e\_φ,c(φ(h)⋆\_c x)=h⋆\_(res\_φ c)e\_φ,c(x), using the G and H inner actions.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Value of the source comparison](#nc-3-twisted-source-value); [Twisting by a cocycle](#nc-3-twisting); [Values of source restriction](#nc-3-source-cocycle-value).
-
 <a id="nc-3-twisted-source-cocycle-map"></a>
 
 **Pullback of twisted cocycles.** Construct R¹\_φ,c:Z¹(G,Twist(c))→Z¹(H,Twist(res\_φ c)) by R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))). This is a directly defined continuous cocycle, prior to proving the translation square.
@@ -984,54 +553,21 @@ Compose continuous maps. Apply the cocycle equation to φ(h)φ(k), use multiplic
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.twistRes_apply`: For every h∈H, R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))).
-- `TauCeti.NonabelianCohomology.Z1.twistRes_one`: R¹\_φ,c sends the constant one cocycle to the constant one cocycle.
-- `TauCeti.NonabelianCohomology.Z1.twistRes_smul`: For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹\_φ,c(x•z)=e\_φ,c(x)•R¹\_φ,c(z). This uses the gauge actions for their distinct inner source actions.
-- `TauCeti.NonabelianCohomology.Z1.twistRes_translation`: For z∈Z¹(G,Twist(c)), τ\_(res\_φ c)(R¹\_φ,c(z))=res\_φ(τ\_c(z)) as continuous cocycles.
-- `TauCeti.NonabelianCohomology.Z1.twistRes_injective`: If φ is surjective as a function, then R¹\_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.
+- <a id="nc-3-twisted-source-cocycle-value"></a>`TauCeti.NonabelianCohomology.Z1.twistRes_apply` (*Value of twisted cocycle pullback*): For every h∈H, R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))). *Proof.* Unfold the directly defined cocycle map.
+- <a id="nc-3-twisted-source-cocycle-neutral"></a>`TauCeti.NonabelianCohomology.Z1.twistRes_one` (*Neutral twisted cocycle pullback*): R¹\_φ,c sends the constant one cocycle to the constant one cocycle. *Proof.* Use cocycle extensionality and multiplicativity of the equivalence at one. Uses [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value).
+- <a id="nc-3-twisted-source-cocycle-gauge"></a>`TauCeti.NonabelianCohomology.Z1.twistRes_smul` (*Gauge compatibility of twisted pullback*): For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹\_φ,c(x•z)=e\_φ,c(x)•R¹\_φ,c(z). This uses the gauge actions for their distinct inner source actions. *Proof.* Evaluate at h. Expand the ordered gauge formula, preserve products/inverses with e\_φ,c, and use its semiequivariance. Uses [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-twisted-source-cocycle-square"></a>`TauCeti.NonabelianCohomology.Z1.twistRes_translation` (*Twisting and source restriction square*): For z∈Z¹(G,Twist(c)), τ\_(res\_φ c)(R¹\_φ,c(z))=res\_φ(τ\_c(z)) as continuous cocycles. *Proof.* Evaluate at h. The left side is j\_c(z(φ(h)))c(φ(h)); this is the right side by ordinary restriction and the inherited translation formula. Uses [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value); [Value of the source comparison](#nc-3-twisted-source-value); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); [Values of source restriction](#nc-3-source-cocycle-value).
+- <a id="nc-3-twisted-source-cocycle-injection"></a>`TauCeti.NonabelianCohomology.Z1.twistRes_injective` (*Surjective source maps detect twisted cocycles*): If φ is surjective as a function, then R¹\_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion. *Proof.* Translate both inputs by τ\_c, apply ordinary source restriction injectivity, and use the proved cocycle translation square and injectivity of τ\_c. Uses [Twisting and source restriction square](#nc-3-twisted-source-cocycle-square); [Surjective sources detect cocycles](#nc-3-source-cocycle-surjective-injection); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence).
 
 **Checks.**
 
 - `Z1.twistRes.test_identity`: For φ=id and every twisted cocycle z and g, j\_(res\_id c)(R¹\_id,c(z)(g))=j\_c(z(g)).
 - `Z1.twistRes.test_gauge_translation`: For x∈Twist(c) and z a twisted cocycle, τ\_(res\_φ c)(R¹\_φ,c(x•z))=j\_c(x)•res\_φ(τ\_c(z)).
 - `Z1.twistRes.test_surjective_detection`: For surjective φ, R¹\_φ,c(z)=1 iff z=1; the cocycle pullback detects the neutral cocycle.
-- Construct R¹\_φ,c:Z¹(G,Twist(c))→Z¹(H,Twist(res\_φ c)) by R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))). This is a directly defined continuous cocycle, prior to proving the translation square.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
 
 Use [Source comparison of inner twists](#nc-3-twisted-source-equivalence); [Continuity of source comparison](#nc-3-twisted-source-continuity); [Source semiequivariance of inner twists](#nc-3-twisted-source-semilinearity); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); `Continuous.comp`; `map_mul`.
-
-<a id="nc-3-twisted-source-cocycle-value"></a>
-
-**Value of twisted cocycle pullback.** For every h∈H, R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))).
-
-Standing hypotheses (H7).
-
-Unfold the directly defined cocycle map.
-
-**Checks.**
-
-- For every h∈H, R¹\_φ,c(z)(h)=e\_φ,c(z(φ(h))).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Pullback of twisted cocycles](#nc-3-twisted-source-cocycle-map).
-
-<a id="nc-3-twisted-source-cocycle-gauge"></a>
-
-**Gauge compatibility of twisted pullback.** For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹\_φ,c(x•z)=e\_φ,c(x)•R¹\_φ,c(z). This uses the gauge actions for their distinct inner source actions.
-
-Standing hypotheses (H7).
-
-Evaluate at h. Expand the ordered gauge formula, preserve products/inverses with e\_φ,c, and use its semiequivariance.
-
-**Checks.**
-
-- For x∈Twist(c) and z∈Z¹(G,Twist(c)), R¹\_φ,c(x•z)=e\_φ,c(x)•R¹\_φ,c(z). This uses the gauge actions for their distinct inner source actions.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value); [Source semiequivariance of inner twists](#nc-3-twisted-source-semilinearity); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `map_mul`; `map_inv`.
 
 <a id="nc-3-twisted-source-h1-map"></a>
 
@@ -1043,13 +579,13 @@ Lift the directly constructed cocycle pullback to the quotient. A gauge witness 
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistRes_mk`: For every twisted cocycle z, R\_φ,c([z])=[R¹\_φ,c(z)].
-- `TauCeti.NonabelianCohomology.H1.twistRes_one`: R\_φ,c(1)=1 in H¹(H,Twist(res\_φ c)). The target neutral point is in the twisted target, while T\_(res\_φ c)(1)=[res\_φ c] in the original coefficient H¹.
-- `TauCeti.NonabelianCohomology.H1.twistRes_translation`: For every a∈H¹(G,Twist(c)), T\_(res\_φ c)(R\_φ,c(a))=res\_φ(T\_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.
-- `TauCeti.NonabelianCohomology.H1.twistRes_injective`: If φ is surjective as a function, then R\_φ,c is injective on the H¹ orbit sets. In particular it reflects their neutral classes.
-- `TauCeti.NonabelianCohomology.H1.twistRes_representative`: If [c]=[d], then R\_φ,d∘C\_c,d=C\_(res\_φ c),(res\_φ d)∘R\_φ,c. The target class equality is res\_φ([c])=res\_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.
-- `TauCeti.NonabelianCohomology.H1.twistRes_identity_translation`: For the identity source map on G, T\_(res\_id c)(R\_id,c(a))=T\_c(a). This states the identity law with the dependent twist targets visible; no arbitrary identification of actions is suppressed.
-- `TauCeti.NonabelianCohomology.H1.twistRes_comp_translation`: For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T\_(res\_ψ(res\_φ c))(R\_ψ,res\_φ c(R\_φ,c(a)))=res\_(φ∘ψ)(T\_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.
+- <a id="nc-3-twisted-source-h1-value"></a>`TauCeti.NonabelianCohomology.H1.twistRes_mk` (*Representative of twisted H¹ restriction*): For every twisted cocycle z, R\_φ,c([z])=[R¹\_φ,c(z)]. *Proof.* Unfold the quotient lift.
+- <a id="nc-3-twisted-source-h1-neutral"></a>`TauCeti.NonabelianCohomology.H1.twistRes_one` (*Pointedness of twisted source restriction*): R\_φ,c(1)=1 in H¹(H,Twist(res\_φ c)). The target neutral point is in the twisted target, while T\_(res\_φ c)(1)=[res\_φ c] in the original coefficient H¹. *Proof.* Use the representative formula and the neutral cocycle pullback. Uses [Representative of twisted H¹ restriction](#nc-3-twisted-source-h1-value); [Neutral twisted cocycle pullback](#nc-3-twisted-source-cocycle-neutral).
+- <a id="nc-3-twisted-source-h1-square"></a>`TauCeti.NonabelianCohomology.H1.twistRes_translation` (*Source naturality of the twisting equivalence*): For every a∈H¹(G,Twist(c)), T\_(res\_φ c)(R\_φ,c(a))=res\_φ(T\_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition. *Proof.* Choose a cocycle representative of a; use quotient evaluation and the cocycle translation square. Uses [Representative of twisted H¹ restriction](#nc-3-twisted-source-h1-value); [Twisting and source restriction square](#nc-3-twisted-source-cocycle-square); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); [Restriction on a cocycle class](#nc-3-source-h1-representative).
+- <a id="nc-3-twisted-source-h1-injection"></a>`TauCeti.NonabelianCohomology.H1.twistRes_injective` (*Surjective source maps detect twisted classes*): If φ is surjective as a function, then R\_φ,c is injective on the H¹ orbit sets. In particular it reflects their neutral classes. *Proof.* Compare after T\_c; ordinary H¹ restriction is injective for a surjective φ. Apply the translation square and cancel T\_c. Uses [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Surjective sources detect cohomology classes](#nc-3-source-h1-surjective-injection); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
+- <a id="nc-3-twisted-source-representative-square"></a>`TauCeti.NonabelianCohomology.H1.twistRes_representative` (*Source naturality of representative comparison*): If [c]=[d], then R\_φ,d∘C\_c,d=C\_(res\_φ c),(res\_φ d)∘R\_φ,c. The target class equality is res\_φ([c])=res\_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen. *Proof.* Apply injectivity of T\_(res\_φ d). The representative square and the two source translation squares identify both sides with res\_φ(T\_c(a)). Uses [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Common translation of representative comparisons](#nc-3-representative-square); [Restriction on a cocycle class](#nc-3-source-h1-representative).
+- <a id="nc-3-twisted-source-identity-square"></a>`TauCeti.NonabelianCohomology.H1.twistRes_identity_translation` (*Identity law under twisting translation*): For the identity source map on G, T\_(res\_id c)(R\_id,c(a))=T\_c(a). This states the identity law with the dependent twist targets visible; no arbitrary identification of actions is suppressed. *Proof.* Use the source translation square and the ordinary H¹ identity law. Uses [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Identity restriction on cohomology](#nc-3-source-h1-identity).
+- <a id="nc-3-twisted-source-composition-square"></a>`TauCeti.NonabelianCohomology.H1.twistRes_comp_translation` (*Composition law under twisting translation*): For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T\_(res\_ψ(res\_φ c))(R\_ψ,res\_φ c(R\_φ,c(a)))=res\_(φ∘ψ)(T\_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit. *Proof.* Apply the two source translation squares successively, then the ordinary H¹ source composition law. Uses [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Contravariant composition on cohomology](#nc-3-source-h1-composition).
 
 **Checks.**
 
@@ -1057,27 +593,10 @@ The interface consists of the following named results.
 - `H1.twistRes.test_gauge_classes`: For x∈Twist(c) and a cocycle z, R\_φ,c([x•z])=R\_φ,c([z]) on the gauge-orbit quotient.
 - `H1.twistRes.test_surjective_reflection`: For surjective φ, R\_φ,c(a)=1 iff a=1 on the twisted H¹ orbit sets.
 - `H1.twistRes.test_nonsurjective_loss`: If φ(h)=1 for every h and [c]≠1 in the original H¹, then a=T\_c⁻¹(1) is nonneutral but R\_φ,c(a)=1. The discrete S₂→S₃ cocycle supplies a consistent nonneutral c, with trivial original actions and the constant homomorphism. This rejects injectivity or neutral reflection without surjectivity.
-- Construct R\_φ,c:H¹(G,Twist(c))→H¹(H,Twist(res\_φ c)) by [z]↦[R¹\_φ,c(z)] on the gauge-orbit quotient.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
 
 Use [Pullback of twisted cocycles](#nc-3-twisted-source-cocycle-map); [Gauge compatibility of twisted pullback](#nc-3-twisted-source-cocycle-gauge); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); `MulAction.orbitRel_apply`.
-
-<a id="nc-3-twisted-source-h1-value"></a>
-
-**Representative of twisted H¹ restriction.** For every twisted cocycle z, R\_φ,c([z])=[R¹\_φ,c(z)].
-
-Standing hypotheses (H7).
-
-Unfold the quotient lift.
-
-**Checks.**
-
-- For every twisted cocycle z, R\_φ,c([z])=[R¹\_φ,c(z)].
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source restriction on twisted orbit sets](#nc-3-twisted-source-h1-map).
 
 <a id="nc-3-twist-cocycle-equivalence"></a>
 
@@ -1089,9 +608,9 @@ The constructed twisted action obeys its unit/product/automorphism laws by the c
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.twistEquiv_apply`: For every d∈Z¹(G,Twist(c)) and g∈G, τ\_c(d)(g)=j\_c(d(g))·c(g).
-- `TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply`: For every e∈Z¹(G,U) and g∈G, τ\_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c).
-- `TauCeti.NonabelianCohomology.Z1.twistEquiv_smul`: For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ\_c(x·d)=j\_c(x)·τ\_c(d). The same underlying gauge witness is used on both sides.
+- <a id="nc-3-twist-cocycle-value"></a>`TauCeti.NonabelianCohomology.Z1.twistEquiv_apply` (*Value of the twisting equivalence*): For every d∈Z¹(G,Twist(c)) and g∈G, τ\_c(d)(g)=j\_c(d(g))·c(g). *Proof.* Evaluate the forward cocycle construction. This fixes the multiplication order in a noncommutative group.
+- <a id="nc-3-twist-cocycle-inverse-value"></a>`TauCeti.NonabelianCohomology.Z1.twistEquiv_symm_apply` (*Value of the inverse twisting equivalence*): For every e∈Z¹(G,U) and g∈G, τ\_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c). *Proof.* Evaluate the inverse cocycle construction; its inverse is on the right.
+- <a id="nc-3-twist-gauge-equivariance"></a>`TauCeti.NonabelianCohomology.Z1.twistEquiv_smul` (*Gauge compatibility of inner twisting*): For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ\_c(x·d)=j\_c(x)·τ\_c(d). The same underlying gauge witness is used on both sides. *Proof.* Expand the twisted and original ordered gauge actions. Use g⋆x=c(g) g(j\_c(x)) c(g)⁻¹ and cancel in U. Both sides equal j\_c(x) j\_c(d(g)) c(g) g(j\_c(x))⁻¹. Uses [Value of the twisting equivalence](#nc-3-twist-cocycle-value); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 **Checks.**
 
@@ -1099,59 +618,10 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.tests.twist_untwist`: For every original continuous cocycle e, τ\_c(τ\_c⁻¹(e))=e as cocycles, with no new representative choice.
 - `TauCeti.NonabelianCohomology.tests.twist_translation_order`: For every twisted continuous cocycle d and g, τ\_c⁻¹(τ\_c(d))(g)=d(g). Division on the right exactly cancels multiplication on the right.
 - `TauCeti.NonabelianCohomology.tests.twist_right_translation_S3`: Take discrete G=U=S₃ with trivial original action, the identity cocycle c, x=(01) in Twist(c), the twisted coboundary d(g)=x·(g⋆x)⁻¹, and g=(12). The forward cocycle equivalence satisfies τ\_c(d)(g)=xgx⁻¹, and this value differs from c(g)·j\_c(d(g)). Thus swapping the forward multiplication order fails on a twisted cocycle.
-- Construct τ\_c:Z¹(G,Twist(c))≃Z¹(G,U) with τ\_c(d)(g)=j\_c(d(g))·c(g), and inverse e(g)·c(g)⁻¹ viewed in Twist(c). Both maps return continuous cocycles.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
 
 Use [Twisting by a cocycle](#nc-3-twisting); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-twisted-source-cocycle-square"></a>
-
-**Twisting and source restriction square.** For z∈Z¹(G,Twist(c)), τ\_(res\_φ c)(R¹\_φ,c(z))=res\_φ(τ\_c(z)) as continuous cocycles.
-
-Standing hypotheses (H7).
-
-Evaluate at h. The left side is j\_c(z(φ(h)))c(φ(h)); this is the right side by ordinary restriction and the inherited translation formula.
-
-**Checks.**
-
-- For z∈Z¹(G,Twist(c)), τ\_(res\_φ c)(R¹\_φ,c(z))=res\_φ(τ\_c(z)) as continuous cocycles.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value); [Value of the source comparison](#nc-3-twisted-source-value); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); [Values of source restriction](#nc-3-source-cocycle-value).
-
-<a id="nc-3-twist-cocycle-value"></a>
-
-**Value of the twisting equivalence.** For every d∈Z¹(G,Twist(c)) and g∈G, τ\_c(d)(g)=j\_c(d(g))·c(g).
-
-Standing hypotheses (H6).
-
-Evaluate the forward cocycle construction. This fixes the multiplication order in a noncommutative group.
-
-**Checks.**
-
-- For every d∈Z¹(G,Twist(c)) and g∈G, τ\_c(d)(g)=j\_c(d(g))·c(g).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence).
-
-<a id="nc-3-twist-gauge-equivariance"></a>
-
-**Gauge compatibility of inner twisting.** For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ\_c(x·d)=j\_c(x)·τ\_c(d). The same underlying gauge witness is used on both sides.
-
-Standing hypotheses (H6).
-
-Expand the twisted and original ordered gauge actions. Use g⋆x=c(g) g(j\_c(x)) c(g)⁻¹ and cancel in U. Both sides equal j\_c(x) j\_c(d(g)) c(g) g(j\_c(x))⁻¹.
-
-**Checks.**
-
-- For every x∈Twist(c) and d∈Z¹(G,Twist(c)), τ\_c(x·d)=j\_c(x)·τ\_c(d). The same underlying gauge witness is used on both sides.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); [Value of the twisting equivalence](#nc-3-twist-cocycle-value); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 <a id="nc-3-twist-h1-equivalence"></a>
 
@@ -1163,8 +633,8 @@ Prove equivalence of the two orbit relations using exactly the same underlying g
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistEquiv_mk`: For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ\_c(d)].
-- `TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff`: For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1.
+- <a id="nc-3-twist-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.twistEquiv_mk` (*Twisting on a H¹ representative*): For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ\_c(d)]. *Proof.* Evaluate the quotient congruence on a representative.
+- <a id="nc-3-twist-h1-neutral-fibre"></a>`TauCeti.NonabelianCohomology.H1.twistEquiv_eq_class_iff` (*Neutral source fibre under twisting*): For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1. *Proof.* The constructed orbit equivalence maps 1 to [c]. Apply its injectivity to compare a with 1. This does not say the equivalence preserves the original target neutral point.
 - `TauCeti.NonabelianCohomology.H1.twistEquiv_one`: The quotient equivalence sends the source neutral class to the class [c].
 
 **Checks.**
@@ -1172,27 +642,10 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.tests.twist_neutral_fibre`: The inverse orbit equivalence sends [c] to the source neutral class.
 - `TauCeti.NonabelianCohomology.tests.twist_class_representative`: For every twisted cocycle d, the quotient equivalence applied to [d] is the class of the cocycle τ\_c(d).
 - `TauCeti.NonabelianCohomology.tests.twist_not_neutral`: Take discrete G=S₂ acting trivially on U=S₃ and c(g)=1 for g=1, otherwise the transposition τ=(01). Then H¹.twistEquiv(c)(1)≠1. A bijection claimed to preserve the original target neutral point fails this example.
-- Construct the quotient equivalence H¹(G,Twist(c))≃H¹(G,U) induced by τ\_c. It is a bijection of underlying sets; it carries the source neutral point to [c].
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
 
 Use [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); [Gauge compatibility of inner twisting](#nc-3-twist-gauge-equivariance); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `Quotient.congr`; `MulAction.orbitRel_apply`.
-
-<a id="nc-3-twisted-source-h1-square"></a>
-
-**Source naturality of the twisting equivalence.** For every a∈H¹(G,Twist(c)), T\_(res\_φ c)(R\_φ,c(a))=res\_φ(T\_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.
-
-Standing hypotheses (H7).
-
-Choose a cocycle representative of a; use quotient evaluation and the cocycle translation square.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), T\_(res\_φ c)(R\_φ,c(a))=res\_φ(T\_c(a)) in the original H¹(H,U). This square is proved for the direct quotient lift, not inserted into its definition.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Representative of twisted H¹ restriction](#nc-3-twisted-source-h1-value); [Twisting and source restriction square](#nc-3-twisted-source-cocycle-square); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); [Restriction on a cocycle class](#nc-3-source-h1-representative).
 
 <a id="nc-3-representative-equivalence"></a>
 
@@ -1204,89 +657,24 @@ Compose the inherited orbit-set equivalences T\_c and T\_d⁻¹ using Equiv comp
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_apply`: For h:[c]=[d] and a∈H¹(G,Twist(c)), C\_c,d(a)=T\_d⁻¹(T\_c(a)).
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_one`: For h:[c]=[d], C\_c,d(1)=1. Equality of the original classes is essential; the raw composite for arbitrary unrelated cocycles need not be pointed.
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_gauge`: For b∈U and h:[c]=[b•c] supplied by the gauge-class lemma, C\_c,b•c equals the H¹ pushforward induced by e\_c,b, as a function on H¹(G,Twist(c)).
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_id`: C\_c,c is the identity equivalence of H¹(G,Twist(c)).
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_comp`: Given h\_cd:[c]=[d] and h\_de:[d]=[e], composing C\_c,d followed by C\_d,e equals C\_c,e for h\_cd.trans(h\_de), as equivalences.
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_symm`: For h:[c]=[d], the inverse of C\_c,d is C\_d,c with the symmetric class equality.
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_twistEquiv`: For h:[c]=[d] and a∈H¹(G,Twist(c)), T\_d(C\_c,d(a))=T\_c(a).
-- `TauCeti.NonabelianCohomology.H1.changeRepresentative_eq_map`: Fix h:[c]=[d]. If f:Twist(c)→*Twist(d) is continuous and G-equivariant and its H¹ pushforward satisfies T\_d(f\_*a)=T\_c(a) for every a, then f\_* equals C\_c,d. The square is an explicit hypothesis for this uniqueness lemma, and is already proved for the concrete gauge maps above.
+- <a id="nc-3-representative-value"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_apply` (*Representative comparison value*): For h:[c]=[d] and a∈H¹(G,Twist(c)), C\_c,d(a)=T\_d⁻¹(T\_c(a)). *Proof.* Evaluate the composite equivalence.
+- <a id="nc-3-representative-neutral"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_one` (*Neutral class under representative comparison*): For h:[c]=[d], C\_c,d(1)=1. Equality of the original classes is essential; the raw composite for arbitrary unrelated cocycles need not be pointed. *Proof.* Apply injectivity of T\_d; its value on the left is T\_c(1)=[c] and its value on the right is [d]. Use h. Uses [Representative comparison value](#nc-3-representative-value).
+- <a id="nc-3-representative-gauge"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_gauge` (*Representative comparison equals gauge pushforward*): For b∈U and h:[c]=[b•c] supplied by the gauge-class lemma, C\_c,b•c equals the H¹ pushforward induced by e\_c,b, as a function on H¹(G,Twist(c)). *Proof.* Apply injectivity of T\_(b•c) to each argument. Both sides become T\_c(a), by cancellation of inverse equivalences and the proved H¹ gauge square. Uses [Representative comparison value](#nc-3-representative-value); [Cohomology translation under gauge transport](#nc-3-gauge-h1-square); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class).
+- <a id="nc-3-representative-identity"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_id` (*Identity representative comparison*): C\_c,c is the identity equivalence of H¹(G,Twist(c)). *Proof.* Use equivalence extensionality and cancel T\_c⁻¹ after T\_c at each point. Uses [Representative comparison value](#nc-3-representative-value).
+- <a id="nc-3-representative-composition"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_comp` (*Composition of representative comparisons*): Given h\_cd:[c]=[d] and h\_de:[d]=[e], composing C\_c,d followed by C\_d,e equals C\_c,e for h\_cd.trans(h\_de), as equivalences. *Proof.* Expand the composites at an arbitrary class and cancel the adjacent T\_d∘T\_d⁻¹. No gauge representatives or group multiplication choices enter. Uses [Representative comparison value](#nc-3-representative-value).
+- <a id="nc-3-representative-inverse"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_symm` (*Inverse representative comparison*): For h:[c]=[d], the inverse of C\_c,d is C\_d,c with the symmetric class equality. *Proof.* Unfold the inverse of the composite equivalence; its two functions are the reversed pair of twisting equivalences.
+- <a id="nc-3-representative-square"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_twistEquiv` (*Common translation of representative comparisons*): For h:[c]=[d] and a∈H¹(G,Twist(c)), T\_d(C\_c,d(a))=T\_c(a). *Proof.* Cancel T\_d after its inverse in the defining formula. Uses [Representative comparison value](#nc-3-representative-value).
+- <a id="nc-3-representative-uniqueness"></a>`TauCeti.NonabelianCohomology.H1.changeRepresentative_eq_map` (*Uniqueness from the twisting comparison square*): Fix h:[c]=[d]. If f:Twist(c)→*Twist(d) is continuous and G-equivariant and its H¹ pushforward satisfies T\_d(f\_*a)=T\_c(a) for every a, then f\_* equals C\_c,d. The square is an explicit hypothesis for this uniqueness lemma, and is already proved for the concrete gauge maps above. *Proof.* At each a, compare C\_c,d(a) and f\_*a by injectivity of T\_d, using the representative square and the given square for f. Uses [Common translation of representative comparisons](#nc-3-representative-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
 **Checks.**
 
 - `H1.changeRepresentative.test_neutral`: For equal original classes [c]=[d], the comparison C\_c,d sends the neutral twisted class to the neutral twisted class.
 - `H1.changeRepresentative.test_nonneutral`: If [c]=[d] is nonneutral, C\_c,d(T\_c⁻¹(1)) is nonneutral in H¹(G,Twist(d)), even though its translation by T\_d is the original neutral class. The comparison cannot be replaced by the constant neutral map.
 - `H1.changeRepresentative.test_class_hypothesis`: If [c] is nonneutral, the raw composite T\_1⁻¹∘T\_c sends the neutral twisted class to a nonneutral class. Dropping equality of the original classes invalidates pointedness.
-- For c,d∈Z¹(G,U) with h:[c]=[d], construct C\_c,d:H¹(G,Twist(c))≃H¹(G,Twist(d)) by T\_d⁻¹∘T\_c. The formula makes no choice of a gauge witness; its pointedness is proved separately using h.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
 
 Use [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); `Equiv.trans`; `Equiv.symm`.
-
-<a id="nc-3-representative-value"></a>
-
-**Representative comparison value.** For h:[c]=[d] and a∈H¹(G,Twist(c)), C\_c,d(a)=T\_d⁻¹(T\_c(a)).
-
-Standing hypotheses (H8).
-
-Evaluate the composite equivalence.
-
-**Checks.**
-
-- For h:[c]=[d] and a∈H¹(G,Twist(c)), C\_c,d(a)=T\_d⁻¹(T\_c(a)).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Canonical comparison for cohomologous representatives](#nc-3-representative-equivalence).
-
-<a id="nc-3-representative-square"></a>
-
-**Common translation of representative comparisons.** For h:[c]=[d] and a∈H¹(G,Twist(c)), T\_d(C\_c,d(a))=T\_c(a).
-
-Standing hypotheses (H8).
-
-Cancel T\_d after its inverse in the defining formula.
-
-**Checks.**
-
-- For h:[c]=[d] and a∈H¹(G,Twist(c)), T\_d(C\_c,d(a))=T\_c(a).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Representative comparison value](#nc-3-representative-value); `Equiv.apply_symm_apply`.
-
-<a id="nc-3-twisted-source-representative-square"></a>
-
-**Source naturality of representative comparison.** If [c]=[d], then R\_φ,d∘C\_c,d=C\_(res\_φ c),(res\_φ d)∘R\_φ,c. The target class equality is res\_φ([c])=res\_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.
-
-Standing hypotheses (H7).
-
-Apply injectivity of T\_(res\_φ d). The representative square and the two source translation squares identify both sides with res\_φ(T\_c(a)).
-
-**Checks.**
-
-- If [c]=[d], then R\_φ,d∘C\_c,d=C\_(res\_φ c),(res\_φ d)∘R\_φ,c. The target class equality is res\_φ([c])=res\_φ([d]); no gauge witness or canonical coefficient-group isomorphism is chosen.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Common translation of representative comparisons](#nc-3-representative-square); [Restriction on a cocycle class](#nc-3-source-h1-representative); `Equiv.injective`.
-
-<a id="nc-3-twisted-source-composition-square"></a>
-
-**Composition law under twisting translation.** For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T\_(res\_ψ(res\_φ c))(R\_ψ,res\_φ c(R\_φ,c(a)))=res\_(φ∘ψ)(T\_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.
-
-Standing hypotheses (H7).
-
-Apply the two source translation squares successively, then the ordinary H¹ source composition law.
-
-**Checks.**
-
-- For ψ:K→*H and φ:H→*G with continuous maps and compatible K,H,G actions, T\_(res\_ψ(res\_φ c))(R\_ψ,res\_φ c(R\_φ,c(a)))=res\_(φ∘ψ)(T\_c(a)). The composite compatibility is k•x=ψ(k)•x=φ(ψ(k))•x. Applying the one-step square to φ∘ψ gives the same translated value; comparisons of dependent twist targets are explicit.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Contravariant composition on cohomology](#nc-3-source-h1-composition).
 
 <a id="nc-3-twist-coefficient-map"></a>
 
@@ -1298,13 +686,13 @@ Use the underlying group/topology synonyms and the mapped cocycle f∘c. Reuse f
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.map_apply`: For every x∈Twist(c), j\_(f∘c)(f\_c(x))=f(j\_c(x)).
-- `TauCeti.NonabelianCohomology.Twist.map_continuous`: The coefficient homomorphism f\_c:Twist(c)→Twist(f∘c) is continuous.
-- `TauCeti.NonabelianCohomology.Twist.map_smul`: For every g∈G and x∈Twist(c), f\_c(g⋆x)=g⋆f\_c(x), with the target action twisted by f∘c.
-- `TauCeti.NonabelianCohomology.Twist.map_id`: For every c, the twisted coefficient map induced by id\_U equals id\_(Twist(c)) as a group homomorphism.
-- `TauCeti.NonabelianCohomology.Twist.map_comp`: For every c, (f′∘f)\_c=(f′)\_(f∘c)∘f\_c as group homomorphisms, with the composite continuity and equivariance proofs.
-- `TauCeti.NonabelianCohomology.Z1.twistEquiv_map`: For every d∈Z¹(G,Twist(c)), τ\_(f∘c)((f\_c)\_*d)=f\_*(τ\_c(d)) as continuous cocycles.
-- `TauCeti.NonabelianCohomology.H1.twistEquiv_map`: For every a∈H¹(G,Twist(c)), T\_(f∘c)((f\_c)\_*a)=f\_*(T\_c(a)).
+- <a id="nc-3-twist-coefficient-value"></a>`TauCeti.NonabelianCohomology.Twist.map_apply` (*Value of a twisted coefficient map*): For every x∈Twist(c), j\_(f∘c)(f\_c(x))=f(j\_c(x)). *Proof.* Evaluate the homomorphism on the underlying synonym; the equality is definitional.
+- <a id="nc-3-twist-coefficient-continuity"></a>`TauCeti.NonabelianCohomology.Twist.map_continuous` (*Continuity of a twisted coefficient map*): The coefficient homomorphism f\_c:Twist(c)→Twist(f∘c) is continuous. *Proof.* Both topologies are the inherited coefficient topologies. The continuity proof is hf.
+- <a id="nc-3-twist-coefficient-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.map_smul` (*Equivariance between the two twisted actions*): For every g∈G and x∈Twist(c), f\_c(g⋆x)=g⋆f\_c(x), with the target action twisted by f∘c. *Proof.* Apply injectivity of j\_(f∘c) to compare values in V. Expand both inner actions, apply map\_mul twice, map\_inv, and original G-equivariance. Do not commute any factors. Uses [Value of a twisted coefficient map](#nc-3-twist-coefficient-value).
+- <a id="nc-3-twist-coefficient-identity"></a>`TauCeti.NonabelianCohomology.Twist.map_id` (*Identity coefficient map under twisting*): For every c, the twisted coefficient map induced by id\_U equals id\_(Twist(c)) as a group homomorphism. *Proof.* The mapped cocycle under the identity and both underlying homomorphisms agree definitionally.
+- <a id="nc-3-twist-coefficient-composition"></a>`TauCeti.NonabelianCohomology.Twist.map_comp` (*Composition of twisted coefficient maps*): For every c, (f′∘f)\_c=(f′)\_(f∘c)∘f\_c as group homomorphisms, with the composite continuity and equivariance proofs. *Proof.* Use the definitional equality of mapped cocycles under composition and the original homomorphism composition. The topology/action proof arguments do not change the underlying homomorphism.
+- <a id="nc-3-twist-coefficient-cocycle-square"></a>`TauCeti.NonabelianCohomology.Z1.twistEquiv_map` (*Coefficient naturality of the cocycle twisting equivalence*): For every d∈Z¹(G,Twist(c)), τ\_(f∘c)((f\_c)\_*d)=f\_*(τ\_c(d)) as continuous cocycles. *Proof.* Apply cocycle extensionality. At g the left side is f(j\_c(d(g)))f(c(g)), while the right side is f(j\_c(d(g))c(g)); map\_mul identifies them in exactly this order. Uses [Continuity of a twisted coefficient map](#nc-3-twist-coefficient-continuity); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence).
+- <a id="nc-3-twist-coefficient-h1-square"></a>`TauCeti.NonabelianCohomology.H1.twistEquiv_map` (*Coefficient naturality on the H¹ orbit quotient*): For every a∈H¹(G,Twist(c)), T\_(f∘c)((f\_c)\_*a)=f\_*(T\_c(a)). *Proof.* Choose a cocycle representative via H1.mk\_surjective. Evaluate both quotient maps on that representative using map\_mk and twistEquiv\_mk; the cocycle square identifies their images. Uses [Coefficient naturality of the cocycle twisting equivalence](#nc-3-twist-coefficient-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
 
 **Checks.**
 
@@ -1313,14 +701,12 @@ The interface consists of the following named results.
 - `twistCoefficientTests.constant`: The constant-one coefficient homomorphism maps every twisted x to 1; no coefficient injectivity can be inferred from the twisting square.
 - `twistCoefficientTests.cocycle_square`: The continuous cocycle coefficient square commutes, with multiplication by c(g) on the right.
 - `twistCoefficientTests.repointed_neutral`: The image of T\_c(1) under the coefficient H¹ map is the gauge class [f∘c].
-- Construct the continuous equivariant group homomorphism f\_c:Twist(c)→*Twist(f∘c) with j\_(f∘c)(f\_c(x))=f(j\_c(x)). Its underlying homomorphism is exactly f.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
 
 Use [Twisting by a cocycle](#nc-3-twisting); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
 
-### 0.14 Kernel membership for a twisted map
-
+### 0.10 Kernel membership for a twisted map
 <a id="nc-3-twisted-kernel-membership"></a>
 
 **Kernel membership for a twisted map.** For F\_c=Twist.map c f, x belongs to its kernel K\_c exactly when f(j\_c(x))=1.
@@ -1331,66 +717,13 @@ Unfold the kernel and the twisted map; their underlying equality is definitional
 
 **Checks.**
 
-- For F\_c=Twist.map c f, x belongs to its kernel K\_c exactly when f(j\_c(x))=1.
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); `MonoidHom.ker`; `MonoidHom.mem_ker`.
 
-### 0.15 Twisted coefficient maps
-
-<a id="nc-3-twist-coefficient-value"></a>
-
-**Value of a twisted coefficient map.** For every x∈Twist(c), j\_(f∘c)(f\_c(x))=f(j\_c(x)).
-
-Standing hypotheses (H9).
-
-Evaluate the homomorphism on the underlying synonym; the equality is definitional.
-
-**Checks.**
-
-- For every x∈Twist(c), j\_(f∘c)(f\_c(x))=f(j\_c(x)).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map).
-
-<a id="nc-3-twist-coefficient-equivariance"></a>
-
-**Equivariance between the two twisted actions.** For every g∈G and x∈Twist(c), f\_c(g⋆x)=g⋆f\_c(x), with the target action twisted by f∘c.
-
-Standing hypotheses (H9).
-
-Apply injectivity of j\_(f∘c) to compare values in V. Expand both inner actions, apply map\_mul twice, map\_inv, and original G-equivariance. Do not commute any factors.
-
-**Checks.**
-
-- For every g∈G and x∈Twist(c), f\_c(g⋆x)=g⋆f\_c(x), with the target action twisted by f∘c.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Value of a twisted coefficient map](#nc-3-twist-coefficient-value).
-
-### 0.16 The twisted kernel and its H¹
-
-<a id="nc-3-twisted-kernel-stability"></a>
-
-**Stability of the twisted kernel.** If x∈K\_c then g⋆\_c x∈K\_c for every g∈G.
-
-Standing hypotheses (H10).
-
-Use the proved equivariance of F\_c and g⋆1=1; retain the conjugated action on the domain, not the original action on U.
-
-**Checks.**
-
-- If x∈K\_c then g⋆\_c x∈K\_c for every g∈G.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Kernel membership for a twisted map](#nc-3-twisted-kernel-membership); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance).
-
+### 0.11 The twisted kernel and its H¹
 <a id="nc-3-twisted-kernel-action"></a>
 
 **Continuous automorphism action on the twisted kernel.** Construct the restricted MulDistribMulAction G K\_c by g⋆(x,hx)=(g⋆\_c x, kernel\_stable hx).
@@ -1401,39 +734,20 @@ Use the twisted automorphism action, lift by kernel stability and discharge all 
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.kernel_stable`: If x∈K\_c then g⋆\_c x∈K\_c for every g∈G.
-- `TauCeti.NonabelianCohomology.Twist.kernelAction_value`: With kernelAction installed, the value of g⋆x in Twist(c) is g⋆\_c x.val.
-- `TauCeti.NonabelianCohomology.Twist.kernelContinuousSMul`: With kernelAction installed, ContinuousSMul G K\_c holds for the subgroup topology.
+- <a id="nc-3-twisted-kernel-stability"></a>`TauCeti.NonabelianCohomology.Twist.kernel_stable` (*Stability of the twisted kernel*): If x∈K\_c then g⋆\_c x∈K\_c for every g∈G. *Proof.* Use the proved equivariance of F\_c and g⋆1=1; retain the conjugated action on the domain, not the original action on U. Uses [Kernel membership for a twisted map](#nc-3-twisted-kernel-membership); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance).
+- <a id="nc-3-twisted-kernel-action-value"></a>`TauCeti.NonabelianCohomology.Twist.kernelAction_value` (*Underlying value of the restricted kernel action*): With kernelAction installed, the value of g⋆x in Twist(c) is g⋆\_c x.val. *Proof.* Unfold the restricted action; the equality is definitional.
+- <a id="nc-3-twisted-kernel-action-continuity"></a>`TauCeti.NonabelianCohomology.Twist.kernelContinuousSMul` (*Joint continuity on the twisted kernel*): With kernelAction installed, ContinuousSMul G K\_c holds for the subgroup topology. *Proof.* Compose the joint twisted action with the product/subtype projections, then lift the continuous map into K\_c. Separate continuity is not substituted for joint continuity.
 
 **Checks.**
 
 - `Twist.kernelAction.test_unit`: Every g fixes the group identity in the twisted kernel.
 - `Twist.kernelAction.test_joint_continuity`: The restricted action map G×K\_c→K\_c is jointly continuous for the product and subgroup topologies.
 - `Twist.kernelAction.test_noncommutative_action`: For discrete S₂ acting trivially on S₃ before twisting, c(nonidentity)=(01), f=1 and x=(12), the restricted twisted action of (01) sends x to (02), different from x. The raw trivial action fails this test.
-- Construct the restricted MulDistribMulAction G K\_c by g⋆(x,hx)=(g⋆\_c x, kernel\_stable hx).
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Stability of the twisted kernel](#nc-3-twisted-kernel-stability).
-
-<a id="nc-3-twisted-kernel-action-continuity"></a>
-
-**Joint continuity on the twisted kernel.** With kernelAction installed, ContinuousSMul G K\_c holds for the subgroup topology.
-
-Standing hypotheses (H10).
-
-Compose the joint twisted action with the product/subtype projections, then lift the continuous map into K\_c. Separate continuity is not substituted for joint continuity.
-
-**Checks.**
-
-- With kernelAction installed, ContinuousSMul G K\_c holds for the subgroup topology.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action).
-
 <a id="nc-3-twisted-kernel-h1-inclusion"></a>
 
 **H¹ map from the twisted kernel.** Construct H¹(G,K\_c)→H¹(G,Twist(c)) as the H1.map of the subgroup inclusion, using kernelAction and its proved joint continuity.
@@ -1444,13 +758,13 @@ The subgroup inclusion is continuous and equivariant by its restricted action. U
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_mk`: The H¹ inclusion sends [d] to [g↦(d(g)).val], using the Z1.map of the subgroup inclusion.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_one`: The twisted-kernel H¹ inclusion sends 1 to 1.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_image`: Every a∈H¹(G,K\_c) maps under H1.map F\_c after twistedKernelInclusion to the neutral class in H¹(G,Twist(f∘c)).
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre`: For every a∈H¹(G,K\_c), H1.map f (T\_c(twistedKernelInclusion a))=[f∘c], where T\_c is the twist H¹ translation. This is one image inclusion, without surjectivity onto the fibre.
-- `TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_map_eq_one`: If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F\_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_range_iff`: For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F\_c)(a)=1. Kernel-H¹ injectivity is not asserted.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre_range_iff`: For surjective f and every a∈H¹(G,U), a lies in the range of b↦T\_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T\_c is the twist translation. The distinguished fibre is over [f∘c], which need not be neutral.
+- <a id="nc-3-twisted-kernel-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_mk` (*Kernel inclusion on cocycle representatives*): The H¹ inclusion sends [d] to [g↦(d(g)).val], using the Z1.map of the subgroup inclusion. *Proof.* Evaluate the orbit quotient lift at a representative; the equality is definitional.
+- <a id="nc-3-twisted-kernel-h1-neutral"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_one` (*Neutral class under kernel inclusion*): The twisted-kernel H¹ inclusion sends 1 to 1. *Proof.* Its coefficient inclusion sends the trivial cocycle to the trivial cocycle, hence its orbit class to the neutral class.
+- <a id="nc-3-twisted-kernel-h1-image"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_image` (*Kernel inclusion maps into the neutral image fibre*): Every a∈H¹(G,K\_c) maps under H1.map F\_c after twistedKernelInclusion to the neutral class in H¹(G,Twist(f∘c)). *Proof.* Choose a cocycle representative. Each of its values belongs to ker(F\_c), so the composite coefficient map gives the trivial cocycle; descend this equality to H¹. Uses [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative).
+- <a id="nc-3-twisted-kernel-h1-repointed-fibre"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre` (*Kernel inclusion maps to the fibre over the image cocycle*): For every a∈H¹(G,K\_c), H1.map f (T\_c(twistedKernelInclusion a))=[f∘c], where T\_c is the twist H¹ translation. This is one image inclusion, without surjectivity onto the fibre. *Proof.* Apply the repointed-fibre equivalence to the proved neutral image. No continuous lift or converse exactness is presumed. Uses [Kernel inclusion maps into the neutral image fibre](#nc-3-twisted-kernel-h1-image); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
+- <a id="nc-3-twisted-kernel-h1-mapped-converse"></a>`TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_map_eq_one` (*Lift from a surjective coefficient-map neutral fibre*): If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F\_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required. Under (H18). *Proof.* Choose a representative d and a gauge witness y in the target inner twist to neutrality of its mapped H¹ class. Lift the one element y along the surjective F\_c. Inverse-gauge normalization makes the mapped cocycle pointwise identity. Construct the continuous kernel cocycle and identify its included class with [d]. Continuity comes from a constant gauge and the subspace restriction, without a continuous section or inverse quotient comparison. Source: [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph. Uses [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Kernel lift followed by the coefficient inclusion](#nc-3-twisted-kernel-cocycle-lift-inclusion); [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Surjectivity of the twisted coefficient map](#nc-3-twisted-map-surjectivity).
+- <a id="nc-3-twisted-kernel-h1-mapped-range"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_range_iff` (*Exact image under a surjective coefficient map*): For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F\_c)(a)=1. Kernel-H¹ injectivity is not asserted. Under (H18). *Proof.* Combine the inherited kernel image inclusion with the mapped neutral-fibre converse. Source: [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph. Uses [Lift from a surjective coefficient-map neutral fibre](#nc-3-twisted-kernel-h1-mapped-converse); [Kernel inclusion maps into the neutral image fibre](#nc-3-twisted-kernel-h1-image).
+- <a id="nc-3-twisted-kernel-h1-original-fibre-range"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_fibre_range_iff` (*Entire repointed fibre of a surjective coefficient map*): For surjective f and every a∈H¹(G,U), a lies in the range of b↦T\_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T\_c is the twist translation. The distinguished fibre is over [f∘c], which need not be neutral. Under (H18). *Proof.* Apply the mapped range criterion to T\_c⁻¹(a). Use the inherited coefficient-map/twist fibre criterion, and transport witnesses through the genuine H¹ equivalence. This gives existence in the correct fibre, without uniqueness or kernel-H¹ injectivity. Source: [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph. Uses [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
 
 **Checks.**
 
@@ -1461,113 +775,14 @@ The interface consists of the following named results.
 - `H1.kernelImage.test_non_neutral_rejected`: A class whose mapped twisted-coefficient H¹ image is non-neutral cannot lie in the kernel-inclusion range, even without surjectivity.
 - `H1.kernelImage.test_shifted_basepoint`: If [f∘c]≠1, the neutral class of H¹(G,U) does not belong to the twist-translated kernel-inclusion range.
 - `H1.kernelImage.test_constant_map`: For the constant-identity coefficient homomorphism into arbitrary V, every class of H¹(G,Twist(c)) lies in the kernel-inclusion range; no surjectivity onto V is assumed.
-- Construct H¹(G,K\_c)→H¹(G,Twist(c)) as the H1.map of the subgroup inclusion, using kernelAction and its proved joint continuity.
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
+- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
-<a id="nc-3-twisted-kernel-h1-representative"></a>
-
-**Kernel inclusion on cocycle representatives.** The H¹ inclusion sends [d] to [g↦(d(g)).val], using the Z1.map of the subgroup inclusion.
-
-Standing hypotheses (H10).
-
-Evaluate the orbit quotient lift at a representative; the equality is definitional.
-
-**Checks.**
-
-- The H¹ inclusion sends [d] to [g↦(d(g)).val], using the Z1.map of the subgroup inclusion.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion).
-
-<a id="nc-3-twisted-kernel-h1-image"></a>
-
-**Kernel inclusion maps into the neutral image fibre.** Every a∈H¹(G,K\_c) maps under H1.map F\_c after twistedKernelInclusion to the neutral class in H¹(G,Twist(f∘c)).
-
-Standing hypotheses (H10).
-
-Choose a cocycle representative. Each of its values belongs to ker(F\_c), so the composite coefficient map gives the trivial cocycle; descend this equality to H¹.
-
-**Checks.**
-
-- Every a∈H¹(G,K\_c) maps under H1.map F\_c after twistedKernelInclusion to the neutral class in H¹(G,Twist(f∘c)).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative).
-
-### 0.17 Coefficient naturality of twisting and neutral fibres
-
-<a id="nc-3-twist-coefficient-continuity"></a>
-
-**Continuity of a twisted coefficient map.** The coefficient homomorphism f\_c:Twist(c)→Twist(f∘c) is continuous.
-
-Standing hypotheses (H9).
-
-Both topologies are the inherited coefficient topologies. The continuity proof is hf.
-
-**Checks.**
-
-- The coefficient homomorphism f\_c:Twist(c)→Twist(f∘c) is continuous.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map).
-
-<a id="nc-3-twist-coefficient-cocycle-square"></a>
-
-**Coefficient naturality of the cocycle twisting equivalence.** For every d∈Z¹(G,Twist(c)), τ\_(f∘c)((f\_c)\_*d)=f\_*(τ\_c(d)) as continuous cocycles.
-
-Standing hypotheses (H9).
-
-Apply cocycle extensionality. At g the left side is f(j\_c(d(g)))f(c(g)), while the right side is f(j\_c(d(g))c(g)); map\_mul identifies them in exactly this order.
-
-**Checks.**
-
-- For every d∈Z¹(G,Twist(c)), τ\_(f∘c)((f\_c)\_*d)=f\_*(τ\_c(d)) as continuous cocycles.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Continuity of a twisted coefficient map](#nc-3-twist-coefficient-continuity); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-twist-coefficient-h1-square"></a>
-
-**Coefficient naturality on the H¹ orbit quotient.** For every a∈H¹(G,Twist(c)), T\_(f∘c)((f\_c)\_*a)=f\_*(T\_c(a)).
-
-Standing hypotheses (H9).
-
-Choose a cocycle representative via H1.mk\_surjective. Evaluate both quotient maps on that representative using map\_mk and twistEquiv\_mk; the cocycle square identifies their images.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), T\_(f∘c)((f\_c)\_*a)=f\_*(T\_c(a)).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient naturality of the cocycle twisting equivalence](#nc-3-twist-coefficient-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-twist-h1-neutral-fibre"></a>
-
-**Neutral source fibre under twisting.** For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1.
-
-Standing hypotheses (H6).
-
-The constructed orbit equivalence maps 1 to [c]. Apply its injectivity to compare a with 1. This does not say the equivalence preserves the original target neutral point.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), H¹.twistEquiv(c)(a)=[c] if and only if a=1.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
+### 0.12 Coefficient naturality of twisting and neutral fibres
 <a id="nc-3-twist-coefficient-repointed-fibre"></a>
 
 **Neutral fibre after coefficient twisting and repointing.** For every a∈H¹(G,Twist(c)), f\_*(T\_c(a))=[f∘c] if and only if (f\_c)\_*(a)=1. This identifies the fibre over the mapped chosen class without asserting injectivity of the coefficient map.
@@ -1576,33 +791,11 @@ Standing hypotheses (H9).
 
 Rewrite f\_*T\_c(a) using the proved coefficient/H¹ square. The equivalence T\_(f∘c) sends exactly the source neutral class to [f∘c], so its neutral-fibre criterion gives the equivalence.
 
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), f\_*(T\_c(a))=[f∘c] if and only if (f\_c)\_*(a)=1. This identifies the fibre over the mapped chosen class without asserting injectivity of the coefficient map.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
 
 Use [Coefficient naturality on the H¹ orbit quotient](#nc-3-twist-coefficient-h1-square); [Neutral source fibre under twisting](#nc-3-twist-h1-neutral-fibre).
 
-### 0.18 Twisted quotients and the quotient comparison
-
-<a id="nc-3-twisted-kernel-h1-repointed-fibre"></a>
-
-**Kernel inclusion maps to the fibre over the image cocycle.** For every a∈H¹(G,K\_c), H1.map f (T\_c(twistedKernelInclusion a))=[f∘c], where T\_c is the twist H¹ translation. This is one image inclusion, without surjectivity onto the fibre.
-
-Standing hypotheses (H10).
-
-Apply the repointed-fibre equivalence to the proved neutral image. No continuous lift or converse exactness is presumed.
-
-**Checks.**
-
-- For every a∈H¹(G,K\_c), H1.map f (T\_c(twistedKernelInclusion a))=[f∘c], where T\_c is the twist H¹ translation. This is one image inclusion, without surjectivity onto the fibre.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Kernel inclusion maps into the neutral image fibre](#nc-3-twisted-kernel-h1-image); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
-
+### 0.13 Twisted quotients and the quotient comparison
 <a id="nc-3-twisted-quotient-action"></a>
 
 **Continuous automorphism action on the twisted quotient.** Construct the quotient Q\_c=Twist(c)/ker(F\_c) with G-action g⋆[x]=[g⋆\_c x], extending Mathlib’s coset action to MulDistribMulAction. The quotient group and quotient topology are unchanged.
@@ -1613,9 +806,9 @@ Use the QuotientAction criterion: for x⁻¹y∈ker(F\_c), the ordered differenc
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.quotientAction_mk`: With the descended action installed, g⋆π\_c(x)=π\_c(g⋆\_c x) for every g and x, where π\_c is the quotient projection.
-- `TauCeti.NonabelianCohomology.Twist.quotientContinuousSMul`: The descended action G×Q\_c→Q\_c is jointly continuous for the product and quotient topologies. This requires no surjectivity or quotient-map assumption on f.
-- `TauCeti.NonabelianCohomology.Twist.quotientEquiv_smul`: If f is surjective, the group equivalence e\_c:Q\_c≃*Twist(f∘c) is G-equivariant for the descended action: e\_c(g⋆q)=g⋆\_{f∘c}e\_c(q).
+- <a id="nc-3-twisted-quotient-projection-action"></a>`TauCeti.NonabelianCohomology.Twist.quotientAction_mk` (*Equivariance of the twisted quotient projection*): With the descended action installed, g⋆π\_c(x)=π\_c(g⋆\_c x) for every g and x, where π\_c is the quotient projection. *Proof.* Use the coset-action evaluation on representatives, with exactly the action constructed above.
+- <a id="nc-3-twisted-quotient-action-continuity"></a>`TauCeti.NonabelianCohomology.Twist.quotientContinuousSMul` (*Joint continuity of the descended inner action*): The descended action G×Q\_c→Q\_c is jointly continuous for the product and quotient topologies. This requires no surjectivity or quotient-map assumption on f. *Proof.* The quotient projection from Twist(c) is open, continuous and surjective because Twist(c) is a topological group; closedness of its kernel is unnecessary. Its product with the identity on G is an open quotient map. The action after this precomposition is π\_c(g⋆\_c x), continuous by the joint twisted action. Apply the open-quotient continuity criterion on this product; the original f need not be a quotient map. Source: [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9. Uses [Twisting by a cocycle](#nc-3-twisting); [Equivariance of the twisted quotient projection](#nc-3-twisted-quotient-projection-action).
+- <a id="nc-3-twisted-quotient-comparison-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_smul` (*Equivariance of the quotient comparison*): If f is surjective, the group equivalence e\_c:Q\_c≃*Twist(f∘c) is G-equivariant for the descended action: e\_c(g⋆q)=g⋆\_{f∘c}e\_c(q). *Proof.* Choose a quotient representative x for q; evaluate both e\_c and the quotient action on its class, then use the equivariance of F\_c. No continuity of the inverse is used. Source: [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9. Uses [Equivariance of the twisted quotient projection](#nc-3-twisted-quotient-projection-action); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance).
 
 **Checks.**
 
@@ -1623,47 +816,11 @@ The interface consists of the following named results.
 - `Twist.quotientAction.test_projection`: The quotient projection is G-equivariant for the inner action: g⋆[x]=[c(g)(g•j\_c(x))c(g)⁻¹].
 - `Twist.quotientAction.test_joint_continuity`: The descended action G×Q\_c→Q\_c is jointly continuous for the quotient topology, even when f is not a quotient map.
 - `Twist.quotientAction.test_nontrivial_twist`: For f=id and any genuine inner-twist value g⋆\_c x≠x, the induced quotient action moves [x]. Replacing the twist by a trivial raw action fails this test; the hypothesis is not asserted for all twists.
-- Construct the quotient Q\_c=Twist(c)/ker(F\_c) with G-action g⋆[x]=[g⋆\_c x], extending Mathlib’s coset action to MulDistribMulAction. The quotient group and quotient topology are unchanged.
 - Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Mathlib contributors](#reference-mathlibnativetwistedquotients-082e2d3), GroupTheory/GroupAction/Quotient.lean: QuotientAction, quotient and smul\_mk, exact pin 082e2d3; Kim continuous coefficient conventions motivate the use.
 
 Use [Stability of the twisted kernel](#nc-3-twisted-kernel-stability); `MulAction.QuotientAction`; `MulAction.quotient`; `QuotientGroup.Quotient.group`.
-
-<a id="nc-3-twisted-quotient-projection-action"></a>
-
-**Equivariance of the twisted quotient projection.** With the descended action installed, g⋆π\_c(x)=π\_c(g⋆\_c x) for every g and x, where π\_c is the quotient projection.
-
-Standing hypotheses (H11).
-
-Use the coset-action evaluation on representatives, with exactly the action constructed above.
-
-**Checks.**
-
-- With the descended action installed, g⋆π\_c(x)=π\_c(g⋆\_c x) for every g and x, where π\_c is the quotient projection.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Mathlib contributors](#reference-mathlibnativetwistedquotients-082e2d3), GroupTheory/GroupAction/Quotient.lean: QuotientAction, quotient and smul\_mk, exact pin 082e2d3; Kim continuous coefficient conventions motivate the use.
-
-Use [Continuous automorphism action on the twisted quotient](#nc-3-twisted-quotient-action); `MulAction.Quotient.smul_mk`.
-
-<a id="nc-3-twisted-quotient-action-continuity"></a>
-
-**Joint continuity of the descended inner action.** The descended action G×Q\_c→Q\_c is jointly continuous for the product and quotient topologies. This requires no surjectivity or quotient-map assumption on f.
-
-Standing hypotheses (H11).
-
-The quotient projection from Twist(c) is open, continuous and surjective because Twist(c) is a topological group; closedness of its kernel is unnecessary. Its product with the identity on G is an open quotient map. The action after this precomposition is π\_c(g⋆\_c x), continuous by the joint twisted action. Apply the open-quotient continuity criterion on this product; the original f need not be a quotient map.
-
-**Checks.**
-
-- The descended action G×Q\_c→Q\_c is jointly continuous for the product and quotient topologies. This requires no surjectivity or quotient-map assumption on f.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Twisting by a cocycle](#nc-3-twisting); [Equivariance of the twisted quotient projection](#nc-3-twisted-quotient-projection-action); `QuotientGroup.isOpenQuotientMap_mk`; `IsOpenQuotientMap.id`; `IsOpenQuotientMap.prodMap`; `IsOpenQuotientMap.continuous_comp_iff`; `QuotientGroup.continuous_mk`.
-
 <a id="nc-3-twisted-quotient-cocycle-map"></a>
 
 **Projection of continuous twisted cocycles.** Construct Z¹(G,Twist(c))→Z¹(G,Q\_c), d↦π\_c∘d, as the Z1.map of Mathlib’s quotient homomorphism. Surjectivity of f is not needed.
@@ -1674,38 +831,20 @@ Use the coefficient-cocycle map for the continuous quotient homomorphism and its
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotient_apply`: At every g∈G, the projected cocycle has value [d(g)] in the quotient Q\_c.
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotient_one`: The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle.
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotient_gauge`: For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the ordered gauge actions and quotient class [x].
+- <a id="nc-3-twisted-quotient-cocycle-value"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotient_apply` (*Value of twisted cocycle projection*): At every g∈G, the projected cocycle has value [d(g)] in the quotient Q\_c. *Proof.* Evaluate the coefficient-cocycle composition and quotient homomorphism.
+- <a id="nc-3-twisted-quotient-cocycle-neutral"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotient_one` (*Neutral cocycle under quotient projection*): The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle. *Proof.* Apply the neutral-cocycle law for coefficient maps.
+- <a id="nc-3-twisted-quotient-cocycle-gauge"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotient_gauge` (*Ordered gauge compatibility of quotient cocycles*): For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the ordered gauge actions and quotient class [x]. *Proof.* Apply the coefficient-map gauge identity to the quotient homomorphism, whose equivariance and continuity were proved; retain multiplication order. Uses [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
 
 **Checks.**
 
 - `Z1.twistedQuotient.test_value`: The projected cocycle at g is the quotient class [d(g)], not a lift or an arbitrary representative.
 - `Z1.twistedQuotient.test_constant_map`: For the constant coefficient homomorphism f=1, its kernel is all of Twist(c), and every projected cocycle is the trivial cocycle on the quotient.
 - `Z1.twistedQuotient.test_gauge`: Ordered gauge change descends exactly by the quotient class of its gauge element; no commutativity of U is assumed.
-- Construct Z¹(G,Twist(c))→Z¹(G,Q\_c), d↦π\_c∘d, as the Z1.map of Mathlib’s quotient homomorphism. Surjectivity of f is not needed.
 - Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
 Use [Equivariance of the twisted quotient projection](#nc-3-twisted-quotient-projection-action); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); `QuotientGroup.mk'`; `QuotientGroup.continuous_mk`.
-
-<a id="nc-3-twisted-quotient-cocycle-gauge"></a>
-
-**Ordered gauge compatibility of quotient cocycles.** For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the ordered gauge actions and quotient class [x].
-
-Standing hypotheses (H11).
-
-Apply the coefficient-map gauge identity to the quotient homomorphism, whose equivariance and continuity were proved; retain multiplication order.
-
-**Checks.**
-
-- For x∈Twist(c) and d∈Z¹(G,Twist(c)), projection(x·d)=[x]·projection(d), with the ordered gauge actions and quotient class [x].
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map); [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
 
 <a id="nc-3-twisted-quotient-h1-map"></a>
 
@@ -1717,10 +856,11 @@ Use the quotient lift of coefficient maps; the projected gauge identity makes it
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistedQuotient_mk`: For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π\_c∘d].
-- `TauCeti.NonabelianCohomology.H1.twistedQuotient_one`: The twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotient_kernel`: Every class in H¹(G,K\_c) maps under the restricted kernel inclusion and the new quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotient_range_iff`: For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f.
+- <a id="nc-3-twisted-quotient-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotient_mk` (*Quotient H¹ on representatives*): For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π\_c∘d]. *Proof.* Evaluate the orbit quotient lift at a cocycle representative. Uses [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map).
+- <a id="nc-3-twisted-quotient-h1-neutral"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotient_one` (*Pointedness of the twisted quotient H¹ map*): The twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f. *Proof.* Use the coefficient H¹ map’s neutral-class law. Uses [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
+- <a id="nc-3-twisted-quotient-h1-kernel-image"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotient_kernel` (*Kernel inclusion is killed by the quotient*): Every class in H¹(G,K\_c) maps under the restricted kernel inclusion and the new quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity. *Proof.* Choose a kernel-valued cocycle representative. Each quotient class of its value is 1 by kernel membership and eq\_one\_iff. The projected cocycle is thus the trivial cocycle; its orbit class is neutral. No whole-function lift is required. Uses [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Value of twisted cocycle projection](#nc-3-twisted-quotient-cocycle-value).
+- <a id="nc-3-twisted-kernel-h1-quotient-range"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotient_range_iff` (*Exact image for the twisted quotient*): For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f. Under (H18). *Proof.* The inherited quotient-kernel image supplies one implication; the single-gauge lifting lemma supplies the converse. Source: [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph. Uses [Lift from the quotient neutral fibre](#nc-3-twisted-kernel-h1-quotient-converse); [Kernel inclusion is killed by the quotient](#nc-3-twisted-quotient-h1-kernel-image).
+- <a id="nc-3-twisted-map-surjectivity"></a>`TauCeti.NonabelianCohomology.Twist.map_surjective` (*Surjectivity of the twisted coefficient map*): Surjectivity of f implies surjectivity of its twisted coefficient map F\_c. The underlying map is f on the identical coefficient carrier. Under (H10). *Proof.* The original-group identifications preserve the underlying f; equivalently transport a preimage through j\_c and the target identification. The proof uses the underlying function. Source: [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7. Uses [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Value of a twisted coefficient map](#nc-3-twist-coefficient-value).
 
 **Checks.**
 
@@ -1728,46 +868,13 @@ The interface consists of the following named results.
 - `H1.twistedQuotient.test_representative`: The quotient H¹ map on a cocycle class is the class of the projected cocycle, so the construction agrees with the H1.map.
 - `H1.twistedQuotient.test_kernel`: Every class from the restricted twisted kernel is killed by the quotient H¹ map; no converse or injectivity of the kernel inclusion is presumed.
 - `H1.kernelImage.test_quotient_neutral`: The neutral class of the ambient inner twist belongs to the kernel-inclusion range.
-- Construct H¹(G,Twist(c))→H¹(G,Q\_c) as the H1.map of π\_c, for the continuous gauge-orbit quotients and the jointly continuous descended action.
 - Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
+- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
+- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
 Use [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Ordered gauge compatibility of quotient cocycles](#nc-3-twisted-quotient-cocycle-gauge); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); `QuotientGroup.mk'`; `QuotientGroup.continuous_mk`.
-
-<a id="nc-3-twisted-quotient-h1-representative"></a>
-
-**Quotient H¹ on representatives.** For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π\_c∘d].
-
-Standing hypotheses (H11).
-
-Evaluate the orbit quotient lift at a cocycle representative.
-
-**Checks.**
-
-- For every d∈Z¹(G,Twist(c)), the quotient H¹ map sends [d] to [π\_c∘d].
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Quotient map on twisted H¹ orbit sets](#nc-3-twisted-quotient-h1-map); [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map).
-
-<a id="nc-3-twisted-map-surjectivity"></a>
-
-**Surjectivity of the twisted coefficient map.** Surjectivity of f implies surjectivity of its twisted coefficient map F\_c. The underlying map is f on the identical coefficient carrier.
-
-Standing hypotheses (H10).
-
-The original-group identifications preserve the underlying f; equivalently transport a preimage through j\_c and the target identification. The proof uses the underlying function.
-
-**Checks.**
-
-- Surjectivity of f implies surjectivity of its twisted coefficient map F\_c. The underlying map is f on the identical coefficient carrier.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Value of a twisted coefficient map](#nc-3-twist-coefficient-value).
 
 <a id="nc-3-twisted-kernel-quotient-equivalence"></a>
 
@@ -1779,107 +886,23 @@ The twisted map has the same underlying function as f and thus is surjective. Im
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.quotientEquiv_mk`: For every x∈Twist(c), quotientEquiv([x])=F\_c(x).
-- `TauCeti.NonabelianCohomology.Twist.quotientEquiv_continuous`: For surjective continuous f, the quotient comparison is continuous for the quotient-group topology.
-- `TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous`: If f is also a quotient map, the inverse quotientEquiv⁻¹ is continuous.
-- `TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous_iff`: For surjective continuous equivariant f, Continuous(quotientEquiv⁻¹) if and only if IsQuotientMap f. Thus surjectivity and continuity alone cannot supply a topological isomorphism.
+- <a id="nc-3-twisted-kernel-quotient-value"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_mk` (*Quotient comparison on representatives*): For every x∈Twist(c), quotientEquiv([x])=F\_c(x). *Proof.* Unfold Mathlib’s quotient-by-kernel equivalence on a quotient representative; evaluation is definitionally F\_c.
+- <a id="nc-3-twisted-kernel-quotient-continuous"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_continuous` (*Continuity of the quotient comparison*): For surjective continuous f, the quotient comparison is continuous for the quotient-group topology. *Proof.* Apply the quotient-map criterion to the group projection; its composite is the continuous F\_c. Uses [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
+- <a id="nc-3-twisted-kernel-quotient-inverse-continuous"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous` (*Continuity of the inverse quotient comparison*): If f is also a quotient map, the inverse quotientEquiv⁻¹ is continuous. *Proof.* Twist preserves the original topologies, so F\_c is a quotient map. The composite quotientEquiv⁻¹∘F\_c is the continuous group projection by inverse cancellation. Uses [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
+- <a id="nc-3-twisted-kernel-quotient-topology-criterion"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_continuous_iff` (*Exact topology criterion for the quotient inverse*): For surjective continuous equivariant f, Continuous(quotientEquiv⁻¹) if and only if IsQuotientMap f. Thus surjectivity and continuity alone cannot supply a topological isomorphism. *Proof.* For the forward implication package the equivalence and assumed inverse continuity into a homeomorphism, then compose its quotient-map property with the group quotient projection to recover IsQuotientMap F\_c=f. The reverse implication is the proved inverse-continuity lemma. Uses [Continuity of the quotient comparison](#nc-3-twisted-kernel-quotient-continuous); [Continuity of the inverse quotient comparison](#nc-3-twisted-kernel-quotient-inverse-continuous).
+- <a id="nc-3-twisted-quotient-inverse-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.quotientEquiv_symm_smul` (*Equivariance of the inverse quotient comparison*): For surjective f, e\_c⁻¹(g⋆\_{f∘c}y)=g⋆e\_c⁻¹(y). This is algebraic equivariance and does not assert inverse continuity. Under (H11). *Proof.* Apply the injective equivalence e\_c to both sides, then use its forward equivariance and inverse identities. Source: [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9. Uses [Equivariance of the quotient comparison](#nc-3-twisted-quotient-comparison-equivariance).
 
 **Checks.**
 
 - `Twist.quotientEquiv.test_native_comparison`: The quotient multiplicative equivalence equals Mathlib’s quotientKerEquivOfSurjective applied to the twisted coefficient map.
 - `Twist.quotientEquiv.test_inverse`: The quotient comparison and inverse cancel on every quotient element.
 - `Twist.quotientEquiv.test_nonsurjective_constant`: For the constant coefficient map and a target value v≠1, the twisted map is not surjective. It cannot satisfy the target-valued quotient equivalence’s hypothesis.
-- If f is surjective, construct Twist(c)/K\_c≃*Twist(f∘c) using Mathlib’s quotientKerEquivOfSurjective F\_c.
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
+- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Surjectivity of the twisted coefficient map](#nc-3-twisted-map-surjectivity); `MonoidHom.ker`; `QuotientGroup.quotientKerEquivOfSurjective`.
-
-<a id="nc-3-twisted-kernel-quotient-value"></a>
-
-**Quotient comparison on representatives.** For every x∈Twist(c), quotientEquiv([x])=F\_c(x).
-
-Standing hypotheses (H10).
-
-Unfold Mathlib’s quotient-by-kernel equivalence on a quotient representative; evaluation is definitionally F\_c.
-
-**Checks.**
-
-- For every x∈Twist(c), quotientEquiv([x])=F\_c(x).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Quotient comparison for a surjective twisted map](#nc-3-twisted-kernel-quotient-equivalence).
-
-<a id="nc-3-twisted-quotient-comparison-equivariance"></a>
-
-**Equivariance of the quotient comparison.** If f is surjective, the group equivalence e\_c:Q\_c≃*Twist(f∘c) is G-equivariant for the descended action: e\_c(g⋆q)=g⋆\_{f∘c}e\_c(q).
-
-Standing hypotheses (H11).
-
-Choose a quotient representative x for q; evaluate both e\_c and the quotient action on its class, then use the equivariance of F\_c. No continuity of the inverse is used.
-
-**Checks.**
-
-- If f is surjective, the group equivalence e\_c:Q\_c≃*Twist(f∘c) is G-equivariant for the descended action: e\_c(g⋆q)=g⋆\_{f∘c}e\_c(q).
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Equivariance of the twisted quotient projection](#nc-3-twisted-quotient-projection-action); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); `QuotientGroup.mk_surjective`.
-
-<a id="nc-3-twisted-quotient-inverse-equivariance"></a>
-
-**Equivariance of the inverse quotient comparison.** For surjective f, e\_c⁻¹(g⋆\_{f∘c}y)=g⋆e\_c⁻¹(y). This is algebraic equivariance and does not assert inverse continuity.
-
-Standing hypotheses (H11).
-
-Apply the injective equivalence e\_c to both sides, then use its forward equivariance and inverse identities.
-
-**Checks.**
-
-- For surjective f, e\_c⁻¹(g⋆\_{f∘c}y)=g⋆e\_c⁻¹(y). This is algebraic equivariance and does not assert inverse continuity.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Equivariance of the quotient comparison](#nc-3-twisted-quotient-comparison-equivariance); [Quotient comparison for a surjective twisted map](#nc-3-twisted-kernel-quotient-equivalence).
-
-<a id="nc-3-twisted-kernel-quotient-continuous"></a>
-
-**Continuity of the quotient comparison.** For surjective continuous f, the quotient comparison is continuous for the quotient-group topology.
-
-Standing hypotheses (H10).
-
-Apply the quotient-map criterion to the group projection; its composite is the continuous F\_c.
-
-**Checks.**
-
-- For surjective continuous f, the quotient comparison is continuous for the quotient-group topology.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value); `QuotientGroup.isQuotientMap_mk`; `Topology.IsQuotientMap.continuous_iff`.
-
-<a id="nc-3-twisted-kernel-quotient-inverse-continuous"></a>
-
-**Continuity of the inverse quotient comparison.** If f is also a quotient map, the inverse quotientEquiv⁻¹ is continuous.
-
-Standing hypotheses (H10).
-
-Twist preserves the original topologies, so F\_c is a quotient map. The composite quotientEquiv⁻¹∘F\_c is the continuous group projection by inverse cancellation.
-
-**Checks.**
-
-- If f is also a quotient map, the inverse quotientEquiv⁻¹ is continuous.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Quotient comparison for a surjective twisted map](#nc-3-twisted-kernel-quotient-equivalence); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value); `QuotientGroup.continuous_mk`; `Topology.IsQuotientMap.continuous_iff`.
 
 <a id="nc-3-twisted-quotient-cocycle-equivalence"></a>
 
@@ -1891,40 +914,22 @@ Forward and inverse equivariance preserve the two cocycle identities; forward co
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_apply`: The cocycle comparison sends d to the cocycle g↦e\_c(d(g)).
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_symm_apply`: Its inverse sends d′ to the continuous cocycle g↦e\_c⁻¹(d′(g)).
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_one`: The equivalence between cocycles on Q\_c and Twist(f∘c) fixes the trivial cocycle.
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_gauge`: For x∈Q\_c, the cocycle equivalence sends x·d to e\_c(x)·e\_c(d). Neither group is assumed abelian.
-- `TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_projection`: For every d∈Z¹(G,Twist(c)), comparing π\_c∘d with the target twist equals the coefficient cocycle map F\_c∘d.
+- <a id="nc-3-twisted-quotient-cocycle-equivalence-value"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_apply` (*Forward cocycle comparison value*): The cocycle comparison sends d to the cocycle g↦e\_c(d(g)). *Proof.* Evaluate the coefficient-cocycle map defining the forward equivalence.
+- <a id="nc-3-twisted-quotient-cocycle-equivalence-inverse-value"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_symm_apply` (*Inverse cocycle comparison value*): Its inverse sends d′ to the continuous cocycle g↦e\_c⁻¹(d′(g)). *Proof.* Evaluate the inverse coefficient-cocycle map; its continuity uses the explicitly retained quotient-map hypothesis.
+- <a id="nc-3-twisted-quotient-cocycle-equivalence-neutral"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_one` (*Pointedness of the quotient-cocycle equivalence*): The equivalence between cocycles on Q\_c and Twist(f∘c) fixes the trivial cocycle. *Proof.* Apply neutral preservation for the coefficient-map definition.
+- <a id="nc-3-twisted-quotient-cocycle-equivalence-gauge"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_gauge` (*Gauge compatibility of the quotient comparison*): For x∈Q\_c, the cocycle equivalence sends x·d to e\_c(x)·e\_c(d). Neither group is assumed abelian. *Proof.* Use the gauge identity for the equivariant e\_c and its continuous coefficient map. Uses [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
+- <a id="nc-3-twisted-quotient-cocycle-projection-triangle"></a>`TauCeti.NonabelianCohomology.Z1.twistedQuotientEquiv_projection` (*Twisted quotient cocycle factorization*): For every d∈Z¹(G,Twist(c)), comparing π\_c∘d with the target twist equals the coefficient cocycle map F\_c∘d. *Proof.* Evaluate at each g: e\_c([d(g)])=F\_c(d(g)) by the quotient comparison. Apply cocycle extensionality. Uses [Forward cocycle comparison value](#nc-3-twisted-quotient-cocycle-equivalence-value); [Value of twisted cocycle projection](#nc-3-twisted-quotient-cocycle-value); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
 
 **Checks.**
 
 - `Z1.twistedQuotientEquiv.test_round_trip`: Forward quotient-cocycle comparison followed by its inverse recovers every continuous quotient cocycle.
 - `Z1.twistedQuotientEquiv.test_projection_triangle`: Comparing the projected cocycle with the target twist equals direct composition with the twisted coefficient homomorphism.
 - `Z1.twistedQuotientEquiv.test_neutral`: The quotient-cocycle comparison fixes the trivial cocycle; the twist translation, not this comparison, sends it to f∘c.
-- If f is surjective and a quotient map, construct Z¹(G,Q\_c)≃Z¹(G,Twist(f∘c)) by composing with the e\_c, with inverse composition by e\_c⁻¹. Both use continuous cocycles.
 - Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
 Use [Equivariance of the quotient comparison](#nc-3-twisted-quotient-comparison-equivariance); [Equivariance of the inverse quotient comparison](#nc-3-twisted-quotient-inverse-equivariance); [Continuity of the quotient comparison](#nc-3-twisted-kernel-quotient-continuous); [Continuity of the inverse quotient comparison](#nc-3-twisted-kernel-quotient-inverse-continuous); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-twisted-quotient-cocycle-equivalence-gauge"></a>
-
-**Gauge compatibility of the quotient comparison.** For x∈Q\_c, the cocycle equivalence sends x·d to e\_c(x)·e\_c(d). Neither group is assumed abelian.
-
-Standing hypotheses (H11).
-
-Use the gauge identity for the equivariant e\_c and its continuous coefficient map.
-
-**Checks.**
-
-- For x∈Q\_c, the cocycle equivalence sends x·d to e\_c(x)·e\_c(d). Neither group is assumed abelian.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence); [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
 
 <a id="nc-3-twisted-quotient-h1-equivalence"></a>
 
@@ -1936,129 +941,25 @@ Use the two H1.map constructions for e\_c and e\_c⁻¹ on orbit quotients. Choo
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_mk`: The forward H¹ equivalence sends [d] to the class of the forward cocycle comparison.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_symm_mk`: The inverse H¹ equivalence sends [d′] to the class of the inverse continuous cocycle comparison.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_one`: The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_projection`: For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F\_c applied to a.
-- `TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_translation`: For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T\_c(a).
-- `TauCeti.NonabelianCohomology.H1.twistedQuotient_fibre`: For a∈H¹(G,Twist(c)), its quotient H¹ image is 1 exactly when H1.map f(T\_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V).
+- <a id="nc-3-twisted-quotient-h1-equivalence-representative"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_mk` (*Forward H¹ comparison on representatives*): The forward H¹ equivalence sends [d] to the class of the forward cocycle comparison. *Proof.* Evaluate the orbit quotient lift on a representative.
+- <a id="nc-3-twisted-quotient-h1-equivalence-inverse-representative"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_symm_mk` (*Inverse H¹ comparison on representatives*): The inverse H¹ equivalence sends [d′] to the class of the inverse continuous cocycle comparison. *Proof.* Evaluate the inverse orbit map; proof irrelevance does not replace the inverse continuity requirement. Uses [Inverse cocycle comparison value](#nc-3-twisted-quotient-cocycle-equivalence-inverse-value).
+- <a id="nc-3-twisted-quotient-h1-equivalence-neutral"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_one` (*Neutral class under quotient-twist comparison*): The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation. *Proof.* Use the neutral-class law of the H1.map e\_c. Uses [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
+- <a id="nc-3-twisted-quotient-h1-projection-triangle"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_projection` (*H¹ factorization through the quotient twist*): For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F\_c applied to a. *Proof.* Choose one cocycle representative for a, apply the representative formulas and the exact cocycle factorization, and descend to classes. Uses [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Forward H¹ comparison on representatives](#nc-3-twisted-quotient-h1-equivalence-representative); [Twisted quotient cocycle factorization](#nc-3-twisted-quotient-cocycle-projection-triangle).
+- <a id="nc-3-twisted-quotient-h1-translation-square"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotientEquiv_translation` (*Quotient comparison and original twisting translation*): For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T\_c(a). *Proof.* Replace the quotient projection/comparison composite by the H1.map F\_c, then apply the coefficient-naturality square for twist translations. Uses [H¹ factorization through the quotient twist](#nc-3-twisted-quotient-h1-projection-triangle); [Coefficient naturality on the H¹ orbit quotient](#nc-3-twist-coefficient-h1-square).
+- <a id="nc-3-twisted-quotient-h1-repointed-fibre"></a>`TauCeti.NonabelianCohomology.H1.twistedQuotient_fibre` (*Quotient neutral fibre and the original image cocycle*): For a∈H¹(G,Twist(c)), its quotient H¹ image is 1 exactly when H1.map f(T\_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V). *Proof.* The quotient H¹ equivalence is injective and pointed, so the quotient image is neutral iff H1.map F\_c(a)=1 by the projection triangle. Apply the repointed-fibre characterization. This does not identify that fibre with the image of the kernel inclusion or assert geometric local-condition compatibility. Uses [H¹ factorization through the quotient twist](#nc-3-twisted-quotient-h1-projection-triangle); [Neutral class under quotient-twist comparison](#nc-3-twisted-quotient-h1-equivalence-neutral); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
 
 **Checks.**
 
 - `H1.twistedQuotientEquiv.test_round_trip`: The H¹ comparison is a bijection on gauge-orbit classes, with inverse returning every quotient class.
 - `H1.twistedQuotientEquiv.test_neutral`: The H¹ equivalence is genuinely pointed between the two twisted coefficient groups; it does not map neutral to the un-repointed class [f∘c].
 - `H1.twistedQuotientEquiv.test_repointed_fibre`: The quotient neutral fibre is exactly the original coefficient-map fibre over [f∘c] after the twist translation; the base point cannot be replaced by 1 in the un-repointed target.
-- If f is surjective and a quotient map, construct the pointed bijection H¹(G,Q\_c)≃H¹(G,Twist(f∘c)) induced by the e\_c. Its inverse is H1.map of e\_c⁻¹ with its proved continuity and equivariance.
 - Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
 
 Use [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence); [Gauge compatibility of the quotient comparison](#nc-3-twisted-quotient-cocycle-equivalence-gauge); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Continuity of the inverse quotient comparison](#nc-3-twisted-kernel-quotient-inverse-continuous).
 
-<a id="nc-3-twisted-quotient-h1-equivalence-representative"></a>
-
-**Forward H¹ comparison on representatives.** The forward H¹ equivalence sends [d] to the class of the forward cocycle comparison.
-
-Standing hypotheses (H11).
-
-Evaluate the orbit quotient lift on a representative.
-
-**Checks.**
-
-- The forward H¹ equivalence sends [d] to the class of the forward cocycle comparison.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Pointed equivalence of quotient-twist H¹](#nc-3-twisted-quotient-h1-equivalence); [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence).
-
-<a id="nc-3-twisted-quotient-cocycle-equivalence-value"></a>
-
-**Forward cocycle comparison value.** The cocycle comparison sends d to the cocycle g↦e\_c(d(g)).
-
-Standing hypotheses (H11).
-
-Evaluate the coefficient-cocycle map defining the forward equivalence.
-
-**Checks.**
-
-- The cocycle comparison sends d to the cocycle g↦e\_c(d(g)).
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence).
-
-<a id="nc-3-twisted-quotient-cocycle-value"></a>
-
-**Value of twisted cocycle projection.** At every g∈G, the projected cocycle has value [d(g)] in the quotient Q\_c.
-
-Standing hypotheses (H11).
-
-Evaluate the coefficient-cocycle composition and quotient homomorphism.
-
-**Checks.**
-
-- At every g∈G, the projected cocycle has value [d(g)] in the quotient Q\_c.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map).
-
-<a id="nc-3-twisted-quotient-cocycle-projection-triangle"></a>
-
-**Twisted quotient cocycle factorization.** For every d∈Z¹(G,Twist(c)), comparing π\_c∘d with the target twist equals the coefficient cocycle map F\_c∘d.
-
-Standing hypotheses (H11).
-
-Evaluate at each g: e\_c([d(g)])=F\_c(d(g)) by the quotient comparison. Apply cocycle extensionality.
-
-**Checks.**
-
-- For every d∈Z¹(G,Twist(c)), comparing π\_c∘d with the target twist equals the coefficient cocycle map F\_c∘d.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Forward cocycle comparison value](#nc-3-twisted-quotient-cocycle-equivalence-value); [Value of twisted cocycle projection](#nc-3-twisted-quotient-cocycle-value); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
-
-<a id="nc-3-twisted-quotient-h1-projection-triangle"></a>
-
-**H¹ factorization through the quotient twist.** For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F\_c applied to a.
-
-Standing hypotheses (H11).
-
-Choose one cocycle representative for a, apply the representative formulas and the exact cocycle factorization, and descend to classes.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), the quotient H¹ map followed by the quotient-twist equivalence is exactly H1.map F\_c applied to a.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Forward H¹ comparison on representatives](#nc-3-twisted-quotient-h1-equivalence-representative); [Twisted quotient cocycle factorization](#nc-3-twisted-quotient-cocycle-projection-triangle).
-
-<a id="nc-3-twisted-quotient-h1-translation-square"></a>
-
-**Quotient comparison and original twisting translation.** For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T\_c(a).
-
-Standing hypotheses (H11).
-
-Replace the quotient projection/comparison composite by the H1.map F\_c, then apply the coefficient-naturality square for twist translations.
-
-**Checks.**
-
-- For a∈H¹(G,Twist(c)), translating the quotient-comparison image to H¹(G,V) equals H1.map f of the original twist translation T\_c(a).
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [H¹ factorization through the quotient twist](#nc-3-twisted-quotient-h1-projection-triangle); [Coefficient naturality on the H¹ orbit quotient](#nc-3-twist-coefficient-h1-square).
-
-### 0.19 Functoriality of nonabelian H⁰ and H¹
-
+### 0.14 Functoriality of nonabelian H⁰ and H¹
 <a id="nc-3-functoriality"></a>
 
 **Functoriality of nonabelian H⁰ and H¹.** (a) A continuous G-equivariant group homomorphism f : U → U′ induces a homomorphism H⁰(G, U) → H⁰(G, U′) and maps Z¹(G, U) → Z¹(G, U′), c ↦ f ∘ c, and H¹(G, U) → H¹(G, U′), preserving base points, compatible with identities and composition, and with f(u·c) = f(u)·(f ∘ c). (b) A continuous group homomorphism φ : G′ → G, with G′ acting on U through φ, induces the restriction maps H⁰(G, U) → H⁰(G′, U) (inclusion) and Z¹(G, U) → Z¹(G′, U), c ↦ c ∘ φ, and H¹(G, U) → H¹(G′, U), base point preserving and functorial; in particular for a closed subgroup H ≤ G there is restriction H¹(G, U) → H¹(H, U). Maps of pointed sets that are compatible in this way are what the exact sequences ([Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence)) are built from.
@@ -2085,8 +986,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2009), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `ContinuousMonoidHom`; [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Coefficient homomorphism on invariant groups](#nc-3-coefficient-invariant-map); [Composition of coefficient cohomology maps](#nc-3-coefficient-h1-composition); [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); [Restriction on nonabelian cohomology](#nc-3-source-h1-restriction); [Restriction of invariant subgroups](#nc-3-source-invariant-restriction); [Contravariant composition on cohomology](#nc-3-source-h1-composition); [Composition of invariant restrictions](#nc-3-source-invariant-composition); [The source and coefficient square on cohomology](#nc-3-source-coefficient-h1-square); [The source and coefficient square on invariants](#nc-3-source-coefficient-invariant-square); [Agreement with subgroup cohomology restriction](#nc-3-source-h1-subgroup); [Surjective sources detect cohomology classes](#nc-3-source-h1-surjective-injection); [Invariant restriction is injective](#nc-3-source-invariant-injection); [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Source naturality of representative comparison](#nc-3-twisted-source-representative-square); [Composition law under twisting translation](#nc-3-twisted-source-composition-square); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion); [Kernel inclusion maps to the fibre over the image cocycle](#nc-3-twisted-kernel-h1-repointed-fibre); [Quotient map on twisted H¹ orbit sets](#nc-3-twisted-quotient-h1-map); [H¹ factorization through the quotient twist](#nc-3-twisted-quotient-h1-projection-triangle); [Quotient comparison and original twisting translation](#nc-3-twisted-quotient-h1-translation-square).
 
-### 0.20 The canonical additive comparison
-
+### 0.15 The canonical additive comparison
 <a id="nc-3-canonical-comparison-naturality"></a>
 
 **Canonical additive comparison.** For a continuous G-action on an additive topological abelian group M, use the parent comparison α: H1(G,Multiplicative M) ≃ ContCohomology.H1 G M induced by c↦toAdd∘c, with α(1)=0. For a compatible pair φ:H→G and continuous additive f:M→N, α\_H,N∘(φ,f)\_*=explicitMap1(φ,f)∘α\_G,M. On cocycles the gauge by m translates by −d0(m); hence the quotient comparison is independent of the sign of the B1 generator. The comparison is the identity on underlying cocycle functions, not an arbitrary bijection.
@@ -2103,8 +1003,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Comparison with abelian continuous cohomology](#nc-3-abelian-comparison); [Functoriality of nonabelian H⁰ and H¹](#nc-3-functoriality); `TauCeti.ContCohomology.Z1`; `TauCeti.ContCohomology.H1`; `TauCeti.ContCohomology.explicitMap1`.
 
-### 0.21 Descent of cocycles to quotients
-
+### 0.16 Descent of cocycles to quotients
 <a id="nc-3-cocycle-right-cosets"></a>
 
 **Trivial restriction gives right-coset constancy.** For any subgroup N on which c is identically 1, c(gn)=c(g) for all n∈N. Normality, compactness and discrete U are not needed.
@@ -2113,14 +1012,9 @@ Standing hypotheses (H12).
 
 Use c(gn)=c(g)(g•c(n)) and c(n)=1. This is the right-coset relation, not a homomorphism property.
 
-**Checks.**
-
-- For any subgroup N on which c is identically 1, c(gn)=c(g) for all n∈N. Normality, compactness and discrete U are not needed.
-
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
 <a id="nc-3-cocycle-left-cosets"></a>
 
 **Normality gives left-coset constancy.** If N is normal and c|N=1, then c(ng)=c(g) for all n∈N.
@@ -2132,7 +1026,6 @@ Normality places g⁻¹ng in N. Rewrite ng=g(g⁻¹ng) and apply right-coset con
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial.test_requires_normal`: Let G=ConjAct(S₃) act on U=S₃ by conjugation, τ=(01), n=τ, g=(12), and c(h)=τ(h•τ)⁻¹. Then c(n)=1 and c(gn)=c(g), but c(ng)≠c(g). The cocycle one-fibre is the nonnormal centralizer of τ. Thus killing a subgroup alone does not imply left-coset constancy.
-- If N is normal and c|N=1, then c(ng)=c(g) for all n∈N.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
@@ -2145,10 +1038,6 @@ Use [Trivial restriction gives right-coset constancy](#nc-3-cocycle-right-cosets
 Standing hypotheses (H12).
 
 The cocycle identity gives c(ng)=n•c(g). Normal left-coset constancy gives c(ng)=c(g). Compare them.
-
-**Checks.**
-
-- If N is normal and c|N=1, then n•c(g)=c(g) for all g∈G and n∈N. This fixes the coefficient target for quotient descent; it does not say N acts trivially on all U.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
@@ -2165,7 +1054,6 @@ Use the imported fixed-subgroup membership criterion; for each n:N, the precedin
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints.test_top_trivial`: The trivial cocycle at any g is 1 and belongs to the U^G even when U^G is proper; the target is not all of U.
-- If N is normal and c|N=1, every c(g) belongs to the FixedPoints.subgroup N U under the restricted subgroup action. This is U^N, which can be a proper subgroup and can be infinite.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
@@ -2182,11 +1070,11 @@ Use the quotient action on the fixed-point subgroup. Send g to the subtype eleme
 The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.Z1.descend_apply`: For every g, inclusion into U sends descended c([g]) to c(g).
-- `TauCeti.NonabelianCohomology.Z1.descend_unique`: Any quotient cocycle with the prescribed included value on every representative equals descent.
+- <a id="nc-3-quotient-cocycle-unique"></a>`TauCeti.NonabelianCohomology.Z1.descend_unique` (*Uniqueness of quotient cocycle descent*): Under the descent hypotheses, any cocycle d:G/N→U^N whose value at [g], included in U, is c(g) for every g equals the constructed descent. Equality is in the cocycle type, not merely equality of classes. *Proof.* Apply cocycle extensionality; lift each quotient element to a representative by quotient induction and apply subtype extensionality to the given value equality.
 - `TauCeti.NonabelianCohomology.Z1.descend_one`: Descending the trivial cocycle gives the trivial quotient cocycle.
 - `TauCeti.NonabelianCohomology.Z1.descend_proof_independent`: The descended cocycle is independent of the proof that c is trivial on N.
-- `TauCeti.NonabelianCohomology.Z1.inflate_descend`: Inflating the descended cocycle recovers c.
-- `TauCeti.NonabelianCohomology.Z1.descend_gauge_iff`: Global gauge witnesses between c and d trivial on N are exactly N-fixed quotient gauge witnesses.
+- <a id="nc-3-inflate-descended-cocycle"></a>`TauCeti.NonabelianCohomology.Z1.inflate_descend` (*Recovery after quotient descent*): For c trivial on normal N, inflating its descent recovers c exactly in Z¹(G,U). *Proof.* Cocycle extensionality and the quotient-lift computation at [g] make the equality pointwise definitional. Uses [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
+- <a id="nc-3-quotient-cocycle-gauge"></a>`TauCeti.NonabelianCohomology.Z1.descend_gauge_iff` (*Exact N-fixed gauge witnesses after descent*): For continuous cocycles c,d both trivial on normal N, there exists x∈U with d(g)=x c(g)(g•x)⁻¹ for all g if and only if there exists x∈U^N with descended d(q)=x descended c(q)(q•x)⁻¹ for every q∈G/N. No refinement of N or H¹ quotient construction is used. *Proof.* The inherited gauge-witness lemma proves any global witness x is N-fixed from triviality of both cocycles. Package x in the fixed subgroup and prove the quotient gauge equation by quotient induction, subtype extensionality and the representative action. Conversely, evaluate the quotient equation at [g] and apply the subgroup inclusion. This establishes the pointwise witness bridge but does not define quotient H¹ inflation. Uses [A same-stage gauge witness is already invariant](#nc-3-gauge-witness-fixed).
 
 **Checks.**
 
@@ -2200,26 +1088,7 @@ The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rat
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Trivial restriction gives right-coset constancy](#nc-3-cocycle-right-cosets); [Values lie in the invariant coefficient subgroup](#nc-3-cocycle-values-invariants); `MulAction.coe_quotient_smul_fixedPoints`; `coe_smul_fixedPoints_of_normal`; `QuotientGroup.leftRel_apply`; `QuotientGroup.isQuotientMap_mk`; `Topology.IsQuotientMap.continuous_iff`; `QuotientGroup.induction_on`; `QuotientGroup.mk_mul`.
 
-### 0.22 The identity value of a cocycle
-
-<a id="nc-3-cocycle-map-one"></a>
-
-**Identity value of a nonabelian cocycle.** For every continuous nonabelian cocycle c, c(1)=1.
-
-Standing hypotheses (H12).
-
-Use c(1)=c(1)c(1) from the cocycle identity at(1,1) and cancel the left factor.
-
-**Checks.**
-
-- For every continuous nonabelian cocycle c, c(1)=1.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
-
-Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-### 0.23 Inflation and the quotient transition maps
-
+### 0.17 Inflation and the quotient transition maps
 <a id="nc-3-quotient-cocycle-inflation"></a>
 
 **Inflation of quotient cocycles.** For any normal N≤G and any continuous cocycle d:G/N→U^N with the quotient action, construct its inflation c:G→U by c(g)=d([g]) included in U. It is continuous, satisfies the ordered cocycle law, and is identically 1 on N. No H¹ pointed-set map is asserted. For an abelian coefficient group written additively it agrees with the pinned Tau Ceti declaration `TauCeti.ContCohomology.explicitInfl1`.
@@ -2232,11 +1101,11 @@ The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.Z1.inflate_apply`: At g the inflated cocycle is inclusion of d([g]) from the fixed subgroup.
 - `TauCeti.NonabelianCohomology.Z1.inflate_trivialOn`: Every inflated cocycle is identically 1 on N.
-- `TauCeti.NonabelianCohomology.Z1.inflate_one`: Inflation sends the quotient trivial cocycle to the G-trivial cocycle.
-- `TauCeti.NonabelianCohomology.Z1.descend_inflate`: Descending inflation recovers every quotient cocycle.
-- `TauCeti.NonabelianCohomology.Z1.inflate_injective`: Inflation is injective on cocycles, using quotient representatives; no H¹ injectivity is asserted.
-- `TauCeti.NonabelianCohomology.Z1.inflate_smul`: Under the topological-group and jointly continuous G-action and [Equivariant subgroup coset action](#nc-3-quotient-action) hypotheses of [Gauge equivariance of cocycle inflation](#nc-3-quotient-inflation-equivariance), for x∈U^N and d∈Z¹(G/N,U^N), inflate\_N(x·d)=x·inflate\_N(d), with x included in U on the right. The products and inverses stay in their printed order.
-- `TauCeti.NonabelianCohomology.Z1.inflate_gauge_iff`: Under the topological-group and jointly continuous G-action and [Equivariant subgroup coset action](#nc-3-quotient-action) hypotheses of [Gauge equivariance of cocycle inflation](#nc-3-quotient-inflation-equivariance), for d,e∈Z¹(G/N,U^N), there is x∈U with x·inflate\_N(d)=inflate\_N(e) if and only if there is x∈U^N with x·d=e. This is the same N on both sides, with no replacement by a smaller subgroup.
+- <a id="nc-3-quotient-cocycle-inflation-one"></a>`TauCeti.NonabelianCohomology.Z1.inflate_one` (*Trivial cocycle under inflation*): Inflation of the constant identity cocycle on G/N with coefficients U^N is the constant identity cocycle on G with coefficients U. Hypotheses: G and U are groups endowed with topologies, G acts on U by group automorphisms, and N is an arbitrary normal subgroup. The quotient action on the subgroup U^N is used. Joint action continuity and continuous group operations are not required for this identity of cocycles. *Proof.* Evaluate at every g; the fixed-subgroup inclusion sends 1 to 1. Apply cocycle extensionality. Source: [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
+- <a id="nc-3-descend-inflated-cocycle"></a>`TauCeti.NonabelianCohomology.Z1.descend_inflate` (*Recovery after cocycle inflation*): For every d∈Z¹(G/N,U^N), descend its inflation using the proved triviality on N; the result equals d in Z¹(G/N,U^N). *Proof.* Use uniqueness of descent and the pointwise inflation formula on every representative. Uses [Uniqueness of quotient cocycle descent](#nc-3-quotient-cocycle-unique).
+- <a id="nc-3-quotient-cocycle-inflation-injective"></a>`TauCeti.NonabelianCohomology.Z1.inflate_injective` (*Injectivity of quotient-cocycle inflation*): For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective. Hypotheses: G and U are groups with topologies, with a G-action on U by group automorphisms. Use the continuous ordered cocycles c(gh)=c(g)(g•c(h)), quotient topologies and fixed coefficient subgroups. N is a normal subgroup of G. No compactness, openness/closedness, discrete coefficients, continuity of the action or commutativity is required for cocycle inflation injectivity. *Proof.* If two cocycles have equal inflations, descend both to N and apply the descend-inflate identity. This gives reflection at the same finite quotient. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12. Uses [Recovery after cocycle inflation](#nc-3-descend-inflated-cocycle).
+- <a id="nc-3-quotient-inflation-equivariance"></a>`TauCeti.NonabelianCohomology.Z1.inflate_smul` (*Gauge equivariance of cocycle inflation*): For x∈U^N and d∈Z¹(G/N,U^N), inflate\_N(x·d)=x·inflate\_N(d), with x included in U on the right. The products and inverses stay in their printed order. Under (H14). *Proof.* Evaluate the cocycles at any g∈G. The quotient representative and fixed-subgroup inclusion formulas identify both gauge expressions. Apply cocycle extensionality. No representative section or coefficient action on all U through G/N is introduced. Source: [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument. Uses [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-quotient-inflation-gauge-reflection"></a>`TauCeti.NonabelianCohomology.Z1.inflate_gauge_iff` (*Same-subgroup reflection of gauge witnesses*): For d,e∈Z¹(G/N,U^N), there is x∈U with x·inflate\_N(d)=inflate\_N(e) if and only if there is x∈U^N with x·d=e. This is the same N on both sides, with no replacement by a smaller subgroup. Under (H14). *Proof.* Evaluate a global gauge equality on each n∈N. Both inflated cocycles take value 1, so the gauge\_witness\_fixed theorem forces that very witness into U^N. Use this genuine subgroup element and quotient representative induction, then subtype/cocycle extensionality, to obtain x·d=e. The converse follows by inflation equivariance and inclusion of the fixed gauge witness. Source: [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument. Uses [A same-stage gauge witness is already invariant](#nc-3-gauge-witness-fixed); [Gauge equivariance of cocycle inflation](#nc-3-quotient-inflation-equivariance); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 **Checks.**
 
@@ -2245,91 +1114,13 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.inflate.test_subgroup`: At any n∈N the inflated cocycle is 1; no arbitrary chosen quotient representative is used.
 - `TauCeti.NonabelianCohomology.Z1.inflate.test_identity_S3_values`: For discrete G=U=S₃ with trivial G-action, N={1}, and d the descent of c(g)=g, inflate\_N(d)((01))=(01)≠1.
 - For any normal N≤G and any continuous cocycle d:G/N→U^N with the quotient action, construct its inflation c:G→U by c(g)=d([g]) included in U. It is continuous, satisfies the ordered cocycle law, and is identically 1 on N. No H¹ pointed-set map is asserted.
+- The identity value is that of the coefficient group, rather than an arbitrary selected cocycle.
+- A nonidentity fixed gauge element gives the same equality; the assertion holds for noncommutative U.
+- The forward implication keeps the original witness, rather than assuming a fixed witness or refining N. Infinite U is allowed.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Identity value of a nonabelian cocycle](#nc-3-cocycle-map-one); `MulAction.coe_quotient_smul_fixedPoints`; `coe_smul_fixedPoints_of_normal`; `QuotientGroup.continuous_mk`; `QuotientGroup.eq_one_iff`; `QuotientGroup.mk_mul`.
-
-<a id="nc-3-inflate-descended-cocycle"></a>
-
-**Recovery after quotient descent.** For c trivial on normal N, inflating its descent recovers c exactly in Z¹(G,U).
-
-Standing hypotheses (H13).
-
-Cocycle extensionality and the quotient-lift computation at [g] make the equality pointwise definitional.
-
-**Checks.**
-
-- For c trivial on normal N, inflating its descent recovers c exactly in Z¹(G,U).
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Descent of a cocycle to the quotient](#nc-3-quotient-cocycle-descent); [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
-
-<a id="nc-3-quotient-cocycle-unique"></a>
-
-**Uniqueness of quotient cocycle descent.** Under the descent hypotheses, any cocycle d:G/N→U^N whose value at [g], included in U, is c(g) for every g equals the constructed descent. Equality is in the cocycle type, not merely equality of classes.
-
-Standing hypotheses (H13).
-
-Apply cocycle extensionality; lift each quotient element to a representative by quotient induction and apply subtype extensionality to the given value equality.
-
-**Checks.**
-
-- Under the descent hypotheses, any cocycle d:G/N→U^N whose value at [g], included in U, is c(g) for every g equals the constructed descent. Equality is in the cocycle type, not merely equality of classes.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Descent of a cocycle to the quotient](#nc-3-quotient-cocycle-descent); `QuotientGroup.induction_on`.
-
-<a id="nc-3-descend-inflated-cocycle"></a>
-
-**Recovery after cocycle inflation.** For every d∈Z¹(G/N,U^N), descend its inflation using the proved triviality on N; the result equals d in Z¹(G/N,U^N).
-
-Standing hypotheses (H13).
-
-Use uniqueness of descent and the pointwise inflation formula on every representative.
-
-**Checks.**
-
-- For every d∈Z¹(G/N,U^N), descend its inflation using the proved triviality on N; the result equals d in Z¹(G/N,U^N).
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Uniqueness of quotient cocycle descent](#nc-3-quotient-cocycle-unique); [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
-
-<a id="nc-3-quotient-cocycle-inflation-injective"></a>
-
-**Injectivity of quotient-cocycle inflation.** For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective.
-
-G and U are groups with topologies, with a G-action on U by group automorphisms. Use the continuous ordered cocycles c(gh)=c(g)(g•c(h)), quotient topologies and fixed coefficient subgroups. N is a normal subgroup of G. No compactness, openness/closedness, discrete coefficients, continuity of the action or commutativity is required for cocycle inflation injectivity.
-
-If two cocycles have equal inflations, descend both to N and apply the descend-inflate identity. This gives reflection at the same finite quotient.
-
-**Checks.**
-
-- For every normal N, inflation Z¹(G/N,U^N)→Z¹(G,U) is injective.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation); [Recovery after cocycle inflation](#nc-3-descend-inflated-cocycle).
-
-<a id="nc-3-quotient-cocycle-inflation-one"></a>
-
-**Trivial cocycle under inflation.** Inflation of the constant identity cocycle on G/N with coefficients U^N is the constant identity cocycle on G with coefficients U.
-
-G and U are groups endowed with topologies, G acts on U by group automorphisms, and N is an arbitrary normal subgroup. The quotient action on the subgroup U^N is used. Joint action continuity and continuous group operations are not required for this identity of cocycles.
-
-Evaluate at every g; the fixed-subgroup inclusion sends 1 to 1. Apply cocycle extensionality.
-
-**Checks.**
-
-- The identity value is that of the coefficient group, rather than an arbitrary selected cocycle.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
-
-Use [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
-
 <a id="nc-3-cocycle-transition"></a>
 
 **Reverse-inclusion transition of quotient cocycles.** For M≤N, construct tᴺ\_M:Z¹(G/N,U^N)→Z¹(G/M,U^M) by descending inflate\_N(d) to M. On representatives its underlying U-value at [g]\_M is d([g]\_N). Thus it combines pullback along G/M→G/N with inclusion U^N→U^M.
@@ -2341,7 +1132,7 @@ inflate\_N(d) is identically 1 on N, hence on M. Apply the descent to M; its rep
 The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.Z1.transition_apply`: The underlying U-value of tᴺ\_M(d) at [g]\_M is d([g]\_N).
-- `TauCeti.NonabelianCohomology.Z1.inflate_transition`: inflate\_M(tᴺ\_M(d))=inflate\_N(d).
+- <a id="nc-3-cocycle-transition-inflation"></a>`TauCeti.NonabelianCohomology.Z1.inflate_transition` (*Inflation commutes with cocycle transition*): For M≤N, inflate\_M(tᴺ\_M(d))=inflate\_N(d). *Proof.* Apply recovery after descent to the inflated N-level cocycle.
 - `TauCeti.NonabelianCohomology.Z1.transition_refl`: tᴺ\_N(d)=d.
 - `TauCeti.NonabelianCohomology.Z1.transition_trans`: For P≤M≤N, tᴹ\_P(tᴺ\_M(d))=tᴺ\_P(d).
 - `TauCeti.NonabelianCohomology.Z1.transition_one`: tᴺ\_M(1)=1.
@@ -2352,43 +1143,10 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.transition.test_one`: The identity quotient cocycle maps to the identity cocycle.
 - `TauCeti.NonabelianCohomology.Z1.transition.test_value`: At the class of each g∈G, the underlying value is exactly d([g]\_N). Reversing the subgroup inclusion or forgetting the fixed coefficient target fails this interface.
 - `TauCeti.NonabelianCohomology.Z1.transition.test_identity`: The self-transition fixes every cocycle, including nonidentity ones.
-- For M≤N, construct tᴺ\_M:Z¹(G/N,U^N)→Z¹(G/M,U^M) by descending inflate\_N(d) to M. On representatives its underlying U-value at [g]\_M is d([g]\_N). Thus it combines pullback along G/M→G/N with inclusion U^N→U^M.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use [Descent of a cocycle to the quotient](#nc-3-quotient-cocycle-descent); [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation); [Recovery after quotient descent](#nc-3-inflate-descended-cocycle); [Recovery after cocycle inflation](#nc-3-descend-inflated-cocycle); [Injectivity of quotient-cocycle inflation](#nc-3-quotient-cocycle-inflation-injective); [Trivial cocycle under inflation](#nc-3-quotient-cocycle-inflation-one).
-
-<a id="nc-3-cocycle-transition-inflation"></a>
-
-**Inflation commutes with cocycle transition.** For M≤N, inflate\_M(tᴺ\_M(d))=inflate\_N(d).
-
-G and U are groups with topologies, with a G-action on U by group automorphisms. Use the continuous ordered cocycles c(gh)=c(g)(g•c(h)), quotient topologies and fixed coefficient subgroups. M≤N are normal subgroups of G. Neither openness/closedness nor compactness, commutativity or discreteness is required for cocycle transitions.
-
-Apply recovery after descent to the inflated N-level cocycle.
-
-**Checks.**
-
-- For M≤N, inflate\_M(tᴺ\_M(d))=inflate\_N(d).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Reverse-inclusion transition of quotient cocycles](#nc-3-cocycle-transition); [Recovery after quotient descent](#nc-3-inflate-descended-cocycle).
-
-<a id="nc-3-quotient-inflation-equivariance"></a>
-
-**Gauge equivariance of cocycle inflation.** For x∈U^N and d∈Z¹(G/N,U^N), inflate\_N(x·d)=x·inflate\_N(d), with x included in U on the right. The products and inverses stay in their printed order.
-
-Standing hypotheses (H14).
-
-Evaluate the cocycles at any g∈G. The quotient representative and fixed-subgroup inclusion formulas identify both gauge expressions. Apply cocycle extensionality. No representative section or coefficient action on all U through G/N is introduced.
-
-**Checks.**
-
-- A nonidentity fixed gauge element gives the same equality; the assertion holds for noncommutative U.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
-
-Use [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `MulAction.coe_quotient_smul_fixedPoints`; `coe_smul_fixedPoints_of_normal`.
 
 <a id="nc-3-h1-inflation"></a>
 
@@ -2401,9 +1159,10 @@ Lift the cocycle-to-class function through the orbit quotient. If the relation s
 The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.H1.inflate_mk`: At the class of d, H¹ inflation is the class of cocycle inflation.
-- `TauCeti.NonabelianCohomology.H1.inflate_one`: Inflation preserves the distinguished class of the identity cocycle.
-- `TauCeti.NonabelianCohomology.H1.inflate_injective`: For this fixed normal subgroup N, inflate\_N:H¹(G/N,U^N)→H¹(G,U) is injective. Equality of inflated classes implies equality of source classes at the same N.
+- <a id="nc-3-h1-inflation-one"></a>`TauCeti.NonabelianCohomology.H1.inflate_one` (*Inflation preserves the distinguished cohomology class*): Inflation sends the distinguished class of H¹(G/N,U^N) to the distinguished class of H¹(G,U). *Proof.* Represent the distinguished class by the identity cocycle. Use the inflation representative API and [Trivial cocycle under inflation](#nc-3-quotient-cocycle-inflation-one), then identify the resulting identity-cocycle class with the distinguished point by definition. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction.
+- <a id="nc-3-h1-inflation-injective"></a>`TauCeti.NonabelianCohomology.H1.inflate_injective` (*Injectivity of nonabelian inflation*): For this fixed normal subgroup N, inflate\_N:H¹(G/N,U^N)→H¹(G,U) is injective. Equality of inflated classes implies equality of source classes at the same N. *Proof.* Apply quotient induction to representatives d,e of the two source classes. The representative computation is definitional. The proved class equality criterion gives a global gauge witness for the inflated cocycles. Same-N gauge reflection gives a genuine U^N witness between d,e, and the same class criterion identifies their source classes. Uses [Same-subgroup reflection of gauge witnesses](#nc-3-quotient-inflation-gauge-reflection).
 - `TauCeti.NonabelianCohomology.H1.inflate_eq_one_iff`: For a∈H¹(G/N,U^N), inflate\_N(a)=1 if and only if a=1. This reflects the neutral point; it does not assert image=neutral restriction fibre.
+- <a id="nc-3-gauge-witness-fixed"></a>`TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed` (*A same-stage gauge witness is already invariant*): Let c,d be continuous cocycles both identically 1 on N. If d(g)=x c(g)(g•x)⁻¹ for a fixed x∈U and every g, then n•x=x for every n∈N. No refinement of N is needed, and no normality, discreteness or compactness is required for this pointwise assertion. This is the witness lemma for same-stage H¹ inflation injectivity; it does not by itself construct inflation or prove quotient pointed-set injectivity. Under (H12). *Proof.* Evaluate the gauge equation at n∈N. It becomes 1=x(n•x)⁻¹. Group cancellation forces n•x=x. The inverse/gauge factor order is retained. Source: [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11. Uses [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
 
 **Checks.**
 
@@ -2412,75 +1171,13 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1.inflate.test_neutral_reflection`: For every source class a, inflate\_N(a)=1 if and only if a=1.
 - `TauCeti.NonabelianCohomology.H1.inflate.test_nonabelian_transposition`: Let G=S₂ and U=S₃ with discrete topologies and trivial G-action, N={1}, and c the homomorphism sending the nonidentity element of S₂ to the transposition(01) of S₃. If d is the quotient descent of c, then inflate\_N([d])≠1. Thus the construction cannot be a constant-basepoint map; the coefficient group is genuinely noncommutative.
 - The map is independent of the quotient cocycle representative. The concrete discrete S₂→S₃ transposition class at N={1} has nonneutral inflation; a constant-basepoint map fails the test.
+- Inflation reflects the neutral point. Neither replacing N by a refinement nor injectivity of the underlying cocycle map alone proves this assertion.
+- The equality concerns the gauge-orbit classes and the same normal subgroup.
+- `TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed.test_full_subgroup`: If1=x(g•x)⁻¹ for every g, then x is a member of FixedPoints.subgroup G U, even for nonabelian U.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
 
 Use [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion); [Gauge equivariance of cocycle inflation](#nc-3-quotient-inflation-equivariance); [Trivial cocycle under inflation](#nc-3-quotient-cocycle-inflation-one); `inv_smul_smul`.
-
-<a id="nc-3-gauge-witness-fixed"></a>
-
-**A same-stage gauge witness is already invariant.** Let c,d be continuous cocycles both identically 1 on N. If d(g)=x c(g)(g•x)⁻¹ for a fixed x∈U and every g, then n•x=x for every n∈N. No refinement of N is needed, and no normality, discreteness or compactness is required for this pointwise assertion. This is the witness lemma for same-stage H¹ inflation injectivity; it does not by itself construct inflation or prove quotient pointed-set injectivity.
-
-Standing hypotheses (H12).
-
-Evaluate the gauge equation at n∈N. It becomes 1=x(n•x)⁻¹. Group cancellation forces n•x=x. The inverse/gauge factor order is retained.
-
-**Checks.**
-
-- `TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed.test_full_subgroup`: If1=x(g•x)⁻¹ for every g, then x is a member of FixedPoints.subgroup G U, even for nonabelian U.
-- Let c,d be continuous cocycles both identically 1 on N. If d(g)=x c(g)(g•x)⁻¹ for a fixed x∈U and every g, then n•x=x for every n∈N. No refinement of N is needed, and no normality, discreteness or compactness is required for this pointwise assertion. This is the witness lemma for same-stage H¹ inflation injectivity; it does not by itself construct inflation or prove quotient pointed-set injectivity.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
-
-Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-quotient-inflation-gauge-reflection"></a>
-
-**Same-subgroup reflection of gauge witnesses.** For d,e∈Z¹(G/N,U^N), there is x∈U with x·inflate\_N(d)=inflate\_N(e) if and only if there is x∈U^N with x·d=e. This is the same N on both sides, with no replacement by a smaller subgroup.
-
-Standing hypotheses (H14).
-
-Evaluate a global gauge equality on each n∈N. Both inflated cocycles take value 1, so the gauge\_witness\_fixed theorem forces that very witness into U^N. Use this genuine subgroup element and quotient representative induction, then subtype/cocycle extensionality, to obtain x·d=e. The converse follows by inflation equivariance and inclusion of the fixed gauge witness.
-
-**Checks.**
-
-- The forward implication keeps the original witness, rather than assuming a fixed witness or refining N. Infinite U is allowed.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
-
-Use [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation); [A same-stage gauge witness is already invariant](#nc-3-gauge-witness-fixed); [Gauge equivariance of cocycle inflation](#nc-3-quotient-inflation-equivariance); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `QuotientGroup.induction_on`.
-
-<a id="nc-3-h1-inflation-injective"></a>
-
-**Injectivity of nonabelian inflation.** For this fixed normal subgroup N, inflate\_N:H¹(G/N,U^N)→H¹(G,U) is injective. Equality of inflated classes implies equality of source classes at the same N.
-
-Standing hypotheses (H14).
-
-Apply quotient induction to representatives d,e of the two source classes. The representative computation is definitional. The proved class equality criterion gives a global gauge witness for the inflated cocycles. Same-N gauge reflection gives a genuine U^N witness between d,e, and the same class criterion identifies their source classes.
-
-**Checks.**
-
-- Inflation reflects the neutral point. Neither replacing N by a refinement nor injectivity of the underlying cocycle map alone proves this assertion.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed p. 6, continuous cocycle and gauge-orbit definitions; derived fixed-normal-subgroup argument.
-
-Use [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion); [Same-subgroup reflection of gauge witnesses](#nc-3-quotient-inflation-gauge-reflection).
-
-<a id="nc-3-h1-inflation-one"></a>
-
-**Inflation preserves the distinguished cohomology class.** Inflation sends the distinguished class of H¹(G/N,U^N) to the distinguished class of H¹(G,U).
-
-Standing hypotheses (H14).
-
-Represent the distinguished class by the identity cocycle. Use the inflation representative API and [Trivial cocycle under inflation](#nc-3-quotient-cocycle-inflation-one), then identify the resulting identity-cocycle class with the distinguished point by definition.
-
-**Checks.**
-
-- The equality concerns the gauge-orbit classes and the same normal subgroup.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction.
-
-Use [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Trivial cocycle under inflation](#nc-3-quotient-cocycle-inflation-one); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 <a id="nc-3-h1-transition"></a>
 
@@ -2493,96 +1190,31 @@ Lift the cocycle transition through the orbit quotient. For gauge-equivalent rep
 The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.H1.transition_mk`: tᴺ\_M([d])=[tᴺ\_M(d)].
-- `TauCeti.NonabelianCohomology.H1.inflate_transition`: inflate\_M(tᴺ\_M(a))=inflate\_N(a).
-- `TauCeti.NonabelianCohomology.H1.transition_refl`: tᴺ\_N(a)=a.
-- `TauCeti.NonabelianCohomology.H1.transition_trans`: For P≤M≤N, tᴹ\_P(tᴺ\_M(a))=tᴺ\_P(a).
+- <a id="nc-3-h1-transition-inflation"></a>`TauCeti.NonabelianCohomology.H1.inflate_transition` (*Inflation commutes with cohomology transition*): For M≤N and every class a, inflate\_M(tᴺ\_M(a))=inflate\_N(a). *Proof.* Choose a representative and apply the cocycle identity, then take its gauge class.
+- <a id="nc-3-h1-transition-identity"></a>`TauCeti.NonabelianCohomology.H1.transition_refl` (*Identity law for quotient cohomology transition*): For every class a at N, tᴺ\_N(a)=a. *Proof.* Both classes have the same N-level inflation by the proved compatibility. Apply its injectivity. Uses [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation).
+- <a id="nc-3-h1-transition-composition"></a>`TauCeti.NonabelianCohomology.H1.transition_trans` (*Composition law for quotient cohomology transition*): For P≤M≤N, tᴹ\_P(tᴺ\_M(a))=tᴺ\_P(a). *Proof.* Inflate both sides from P. Use the proved compatibility twice on the left and once on the right, then same-P injectivity. Uses [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation).
 - `TauCeti.NonabelianCohomology.H1.transition_one`: The distinguished class maps to the distinguished class.
 - `TauCeti.NonabelianCohomology.H1.transition_injective`: Each pointed-set transition is injective.
+- <a id="nc-3-quotient-fixed-action-continuity"></a>`TauCeti.NonabelianCohomology.quotientFixedContinuousSMul` (*Joint continuity of the fixed-subgroup quotient action*): The action (G/N) × U^N → U^N, ([g],u) ↦ g•u, is jointly continuous. Thus the fixed subgroup with its induced topology has ContinuousSMul for G/N, without a separate [Equivariant subgroup coset action](#nc-3-quotient-action) continuity input. Hypotheses: G is a group with a topology and separately continuous multiplication; in particular every topological group satisfies this assumption. U is a group with a topology and a jointly continuous G-action by group automorphisms. N is an arbitrary normal subgroup. Use the quotient topology on G/N and the topology and quotient action on the fixed subgroup U^N. No compactness, open/closed N, discrete/finite coefficients or commutativity is assumed. *Proof.* QuotientGroup.isOpenQuotientMap\_mk and IsOpenQuotientMap.id, followed by IsOpenQuotientMap.prodMap, provide the open quotient map G × U^N → (G/N) × U^N. Apply IsOpenQuotientMap.continuous\_comp\_iff. The native [Equivariant subgroup coset action](#nc-3-quotient-action) coercion law identifies the lifted action included in U with (g,u) ↦ g•u. Use continuous\_induced\_rng for the subgroup topology. Continuous.smul applied to continuous\_fst and continuous\_subtype\_val composed with continuous\_snd proves continuity of this ambient map in both arguments. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction.
 
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.H1.transition.test_one`: tᴺ\_M(1)=1.
 - `TauCeti.NonabelianCohomology.H1.transition.test_gauge`: For every x∈U^N and d, transitioning [x·d] gives [tᴺ\_M(d)].
 - `TauCeti.NonabelianCohomology.H1.transition.test_nonneutral`: For every a≠1, tᴺ\_M(a)≠1. The S₂→S₃ transposition class supplies a nonneutral input; collapsing classes to the basepoint fails.
-- For M≤N, construct the pointed map tᴺ\_M:H¹(G/N,U^N)→H¹(G/M,U^M) sending [d] to [tᴺ\_M(d)]. These are gauge-orbit sets; no group law on H¹ is imposed.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Reverse-inclusion transition of quotient cocycles](#nc-3-cocycle-transition); [Inflation commutes with cocycle transition](#nc-3-cocycle-transition-inflation); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion); [Inflation preserves the distinguished cohomology class](#nc-3-h1-inflation-one).
-
-<a id="nc-3-h1-transition-inflation"></a>
-
-**Inflation commutes with cohomology transition.** For M≤N and every class a, inflate\_M(tᴺ\_M(a))=inflate\_N(a).
-
-Standing hypotheses (H15).
-
-Choose a representative and apply the cocycle identity, then take its gauge class.
-
-**Checks.**
-
-- For M≤N and every class a, inflate\_M(tᴺ\_M(a))=inflate\_N(a).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Reverse-inclusion transition on nonabelian cohomology](#nc-3-h1-transition); [Inflation commutes with cocycle transition](#nc-3-cocycle-transition-inflation); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation).
-
-<a id="nc-3-h1-transition-identity"></a>
-
-**Identity law for quotient cohomology transition.** For every class a at N, tᴺ\_N(a)=a.
-
-Standing hypotheses (H15).
-
-Both classes have the same N-level inflation by the proved compatibility. Apply its injectivity.
-
-**Checks.**
-
-- For every class a at N, tᴺ\_N(a)=a.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective).
-
-<a id="nc-3-h1-transition-composition"></a>
-
-**Composition law for quotient cohomology transition.** For P≤M≤N, tᴹ\_P(tᴺ\_M(a))=tᴺ\_P(a).
-
-Standing hypotheses (H15).
-
-Inflate both sides from P. Use the proved compatibility twice on the left and once on the right, then same-P injectivity.
-
-**Checks.**
-
-- For P≤M≤N, tᴹ\_P(tᴺ\_M(a))=tᴺ\_P(a).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective).
-
-<a id="nc-3-quotient-fixed-action-continuity"></a>
-
-**Joint continuity of the fixed-subgroup quotient action.** The action (G/N) × U^N → U^N, ([g],u) ↦ g•u, is jointly continuous. Thus the fixed subgroup with its induced topology has ContinuousSMul for G/N, without a separate [Equivariant subgroup coset action](#nc-3-quotient-action) continuity input.
-
-G is a group with a topology and separately continuous multiplication; in particular every topological group satisfies this assumption. U is a group with a topology and a jointly continuous G-action by group automorphisms. N is an arbitrary normal subgroup. Use the quotient topology on G/N and the topology and quotient action on the fixed subgroup U^N. No compactness, open/closed N, discrete/finite coefficients or commutativity is assumed.
-
-QuotientGroup.isOpenQuotientMap\_mk and IsOpenQuotientMap.id, followed by IsOpenQuotientMap.prodMap, provide the open quotient map G × U^N → (G/N) × U^N. Apply IsOpenQuotientMap.continuous\_comp\_iff. The native [Equivariant subgroup coset action](#nc-3-quotient-action) coercion law identifies the lifted action included in U with (g,u) ↦ g•u. Use continuous\_induced\_rng for the subgroup topology. Continuous.smul applied to continuous\_fst and continuous\_subtype\_val composed with continuous\_snd proves continuity of this ambient map in both arguments.
-
-**Checks.**
-
 - `TauCeti.NonabelianCohomology.quotientFixedContinuousSMul.test_joint`: Under the stated hypotheses the map (G/N) × U^N → U^N sending (q,u) to q•u is continuous in the product topology.
 - N need not be closed; no Hausdorffness of G/N is asserted.
 - No topology on U is changed to the discrete topology; continuity is joint, not just fixed-vector continuity.
 
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction.
+The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
-Use `FixedPoints.subgroup`; `MulAction.coe_quotient_smul_fixedPoints`; `ContinuousSMul`; `continuous_subtype_val`; `Continuous.comp`; `QuotientGroup.isOpenQuotientMap_mk`; `IsOpenQuotientMap.prodMap`; `IsOpenQuotientMap.id`; `IsOpenQuotientMap.continuous_comp_iff`; `continuous_induced_rng`; `Continuous.smul`; `continuous_fst`; `continuous_snd`.
+Use [Reverse-inclusion transition of quotient cocycles](#nc-3-cocycle-transition); [Inflation commutes with cocycle transition](#nc-3-cocycle-transition-inflation); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective); [Equality of nonabelian cohomology classes](#nc-3-h1-orbit-criterion); [Inflation preserves the distinguished cohomology class](#nc-3-h1-inflation-one).
 
 <a id="nc-3-h1-quotient-diagram"></a>
 
 **The reverse-inclusion quotient cohomology diagram.** Construct the functor F from the order dual of OpenNormalSubgroup G to types, with F(N)=H¹(G/N,U^N) and F(N→M)=tᴺ\_M. Identity and composition are the proved transition laws.
 
 G is a group with a topology and separately continuous multiplication. U is a topological group with a jointly continuous G-action by automorphisms. Index by the order dual of open normal subgroups: an arrow N→M means M≤N. At N use H¹(G/N,U^N), not coefficients U unless N acts trivially. No compactness or discreteness is required for the diagram or inflation cocone.
-
-Use the preorder category on the order dual. Its arrow N→M is exactly M≤N. Supply [Equivariant subgroup coset action](#nc-3-quotient-action) continuity locally from the lemma. Set object and map fields to the H¹ carrier and transition; fill the functor laws from their proved declarations.
 
 The interface consists of the following named results.
 
@@ -2595,7 +1227,6 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1.quotientDiagram.test_identity`: The identity arrow acts as the identity on every quotient class.
 - `TauCeti.NonabelianCohomology.H1.quotientDiagram.test_composition`: On every class, F(f≫g)=F(g)∘F(f).
 - `TauCeti.NonabelianCohomology.H1.quotientDiagram.test_coefficients`: The object at N is exactly H¹(G/N,U^N), with the fixed subgroup, not H¹(G/N,U) with an assumed action.
-- Construct the functor F from the order dual of OpenNormalSubgroup G to types, with F(N)=H¹(G/N,U^N) and F(N→M)=tᴺ\_M. Identity and composition are the proved transition laws.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
@@ -2620,32 +1251,12 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1.inflationCocone.test_representative`: At [d], the cocone leg is the class [inflate\_N(d)].
 - `TauCeti.NonabelianCohomology.H1.inflationCocone.test_one`: Every leg sends the distinguished quotient class to the distinguished ambient class.
 - `TauCeti.NonabelianCohomology.H1.inflationCocone.test_commutes`: Every transition followed by its target leg equals its source leg on every input class.
-- Construct a cocone on F with apex H¹(G,U) whose leg at N is exactly inflate\_N. Its naturality is inflate\_M∘tᴺ\_M=inflate\_N.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use [The reverse-inclusion quotient cohomology diagram](#nc-3-h1-quotient-diagram); [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation).
 
-### 0.24 The inverse value of a cocycle
-
-<a id="nc-3-cocycle-map-inverse"></a>
-
-**Inverse value of a nonabelian cocycle.** For every c and g, c(g⁻¹)=g⁻¹•c(g)⁻¹.
-
-Standing hypotheses (H12).
-
-Evaluate the cocycle identity at(g⁻¹,g). Since c(1)=1, c(g⁻¹) is the inverse of g⁻¹•c(g). The automorphism action preserves inverses.
-
-**Checks.**
-
-- For every c and g, c(g⁻¹)=g⁻¹•c(g)⁻¹.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
-
-Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Identity value of a nonabelian cocycle](#nc-3-cocycle-map-one).
-
-### 0.25 Compact sources, discrete coefficients and the finite-quotient colimit
-
+### 0.18 Compact sources, discrete coefficients and the finite-quotient colimit
 <a id="nc-3-cocycle-one-fibre"></a>
 
 **One-fibre subgroup of a nonabelian cocycle.** Construct K\_c={g∈G:c(g)=1} as a Subgroup G. This is a cocycle-specific subgroup on the carrier; it is not a kernel of a homomorphism unless a homomorphism has been identified. No normality is part of the construction.
@@ -2659,35 +1270,17 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.mem_oneFibre`: g∈K\_c iff c(g)=1.
 - `TauCeti.NonabelianCohomology.Z1.oneFibre_eq_ker`: If a homomorphism f:G→U has c(g)=f(g) for all g, K\_c=f.ker.
 - `TauCeti.NonabelianCohomology.Z1.oneFibre_eq_top`: If c is identically 1, its one-fibre is all G.
-- `TauCeti.NonabelianCohomology.Z1.oneFibre_isClopen`: With discrete U, the subgroup carrier is clopen in G.
+- <a id="nc-3-cocycle-one-fibre-clopen"></a>`TauCeti.NonabelianCohomology.Z1.oneFibre_isClopen` (*Discrete cocycle one-fibres are clopen*): If U has the discrete topology, the one-fibre K\_c is clopen in G; compactness and finiteness of U are not needed. *Proof.* The singleton{1} is clopen in discrete U. Pull it back through the continuous cocycle map; the preimage is the exact subgroup carrier.
 
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.Z1.oneFibre.test_trivial`: The trivial cocycle has one-fibre⊤.
 - `TauCeti.NonabelianCohomology.Z1.oneFibre.test_native_kernel`: Under a trivial action, the continuous homomorphism cocycle has one-fibre its kernel, using the given continuous f.
 - `TauCeti.NonabelianCohomology.Z1.oneFibre.test_nonnormal`: For S₃ acting on itself by the ConjAct conjugation action and τ=(01), the cocycle c(g)=τ(g•τ)⁻¹ has one-fibre containingτ but missing its conjugate by(12). Hence its subgroup is not normal. The two permutation values distinguish the cocycle convention.
-- Construct K\_c={g∈G:c(g)=1} as a Subgroup G. This is a cocycle-specific subgroup on the carrier; it is not a kernel of a homomorphism unless a homomorphism has been identified. No normality is part of the construction.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Identity value of a nonabelian cocycle](#nc-3-cocycle-map-one); [Inverse value of a nonabelian cocycle](#nc-3-cocycle-map-inverse); `Subgroup`; `ConjAct`; `ConjAct.toConjAct`; `ConjAct.toConjAct_smul`.
-
-<a id="nc-3-cocycle-one-fibre-clopen"></a>
-
-**Discrete cocycle one-fibres are clopen.** If U has the discrete topology, the one-fibre K\_c is clopen in G; compactness and finiteness of U are not needed.
-
-Standing hypotheses (H12).
-
-The singleton{1} is clopen in discrete U. Pull it back through the continuous cocycle map; the preimage is the exact subgroup carrier.
-
-**Checks.**
-
-- If U has the discrete topology, the one-fibre K\_c is clopen in G; compactness and finiteness of U are not needed.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
-
-Use [One-fibre subgroup of a nonabelian cocycle](#nc-3-cocycle-one-fibre); `isClopen_discrete`; `IsClopen.preimage`.
-
 <a id="nc-3-discrete-normal-killing"></a>
 
 **An open normal subgroup kills a discrete cocycle.** If G is compact and U is discrete, there exists an OpenNormalSubgroup N of G on which c is identically 1. Its quotient G/N is finite by the imported open-subgroup theorem. Neither total disconnectedness of G nor finiteness of U is required. For an abelian coefficient group written additively it agrees with the pinned Tau Ceti declaration `TauCeti.ContCohomology.exists_openNormalSubgroup_apply_eq_zero`.
@@ -2729,10 +1322,6 @@ G is a group with a topology; no continuity, compactness or coefficient group is
 
 The top subgroup is an open normal subgroup, so the indexing type is nonempty. Its infimum gives N∩M and the two reverse-inclusion arrows. Parallel arrows in a preorder agree. Apply the semilattice-sup filteredness instance to the order dual; do not construct a competing category.
 
-**Checks.**
-
-- The preorder category on the order dual of OpenNormalSubgroup G is filtered.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use `OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup`; `CategoryTheory.IsFiltered`.
@@ -2753,8 +1342,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [The inflation cocone](#nc-3-h1-inflation-cocone); [Every compact-discrete class comes from a finite quotient](#nc-3-h1-finite-quotient-surjectivity); [Filteredness of reverse-inclusion open normal subgroups](#nc-3-h1-quotient-index-filtered); [Inflation commutes with cohomology transition](#nc-3-h1-transition-inflation); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective); `CategoryTheory.Limits.Types.FilteredColimit.isColimitOf`; `OpenNormalSubgroup.instSemilatticeInfOpenNormalSubgroup`.
 
-### 0.26 Abelian finite-quotient transport and the central H² bridge
-
+### 0.19 Abelian finite-quotient transport and the central H² bridge
 <a id="nc-3-finite-quotient-comparison"></a>
 
 **Abelian finite-quotient transport.** For profinite G (compact Hausdorff and totally disconnected) and discrete additive M with continuous G-action, the canonical comparisons identify parent nonabelian descent, inflation and reverse-inclusion transition H1(G/U,(Multiplicative M)^U)→H1(G/V,(Multiplicative M)^V), V≤U, with Tau Ceti descendZ1, explicitInfl1 and explicitFiniteQuotientTransition1, after the canonical invariant-coefficient identification. They induce the comparison of the Set-colimit with the underlying set of the apex of explicitFiniteQuotientCocone1, namely Tau Ceti H1 G M. The declaration explicitFiniteQuotientColimit1 is the IsColimit certificate for this named cocone. Descent requires a representative pointwise neutral on U; neutral restriction of its class alone first requires a gauge correction.
@@ -2770,7 +1358,6 @@ Identify invariant coefficients by unchanged underlying values and their induced
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), Section 1, cochain conventions, printed pp. 4–6.
 
 Use [Canonical additive comparison](#nc-3-canonical-comparison-naturality); [Reverse-inclusion transition on nonabelian cohomology](#nc-3-h1-transition); [Nonabelian finite-quotient colimit theorem](#nc-3-h1-inflation-colimit); `TauCeti.ContCohomology.descendZ1`; `TauCeti.ContCohomology.explicitInfl1`; `TauCeti.ContCohomology.explicitFiniteQuotientTransition1`; `TauCeti.ContCohomology.explicitFiniteQuotientCocone1`; `TauCeti.ContCohomology.explicitFiniteQuotientColimit1`.
-
 <a id="nc-3-positive-defect"></a>
 
 **Positive central defect.** For topological groups G,B with continuous G-action by automorphisms and a function b:G→B define D\_b(g,h)=b(g)·g(b(h))·b(gh)−1 in that order. It is continuous if b is continuous. If q:B→C is an equivariant homomorphism and q∘b is a cocycle then D\_b takes values in ker(q).
@@ -2830,8 +1417,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Continuous central H2 bridge](#nc-3-continuous-central-obstruction); `TauCeti.ContCohomology.H2pi_eq_zero_iff`; `TauCeti.ContCohomology.mem_B2_iff`.
 
-### 0.27 Connecting cocycles of invariant coset lifts
-
+### 0.20 Connecting cocycles of invariant coset lifts
 <a id="nc-3-connecting-cocycle"></a>
 
 **Connecting cocycle of an invariant coset lift.** For b ∈ B with b⁻¹(g•b) ∈ i(A) for every g ∈ G, construct the continuous A-valued cocycle c\_b uniquely specified by i(c\_b(g)) = b⁻¹(g•b). The membership condition expresses that the left coset b i(A) is G-invariant. No normality of i(A), quotient group structure or continuous quotient section is assumed.
@@ -2858,7 +1444,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (cocycle and orbit conventions), p. 9 (subgroup exactness).
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `Topology.IsEmbedding.continuous_iff`.
-
 <a id="nc-3-connecting-cocycle-image"></a>
 
 **Image of the connecting cocycle.** Under the [Connecting cocycle of an invariant coset lift](#nc-3-connecting-cocycle) hypotheses, i(c\_b(g)) = b⁻¹(g•b) for every g.
@@ -2907,24 +1492,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
 
-### 0.28 Gauge transport between inner twists
-
-<a id="nc-3-representative-neutral"></a>
-
-**Neutral class under representative comparison.** For h:[c]=[d], C\_c,d(1)=1. Equality of the original classes is essential; the raw composite for arbitrary unrelated cocycles need not be pointed.
-
-Standing hypotheses (H8).
-
-Apply injectivity of T\_d; its value on the left is T\_c(1)=[c] and its value on the right is [d]. Use h.
-
-**Checks.**
-
-- For h:[c]=[d], C\_c,d(1)=1. Equality of the original classes is essential; the raw composite for arbitrary unrelated cocycles need not be pointed.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Representative comparison value](#nc-3-representative-value); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); `Equiv.injective`; `Equiv.apply_symm_apply`.
-
+### 0.21 Gauge transport between inner twists
 <a id="nc-3-gauge-equivalence"></a>
 
 **Continuous gauge transport between inner twists.** For c∈Z¹(G,U) and b∈U, construct the group equivalence e\_c,b:Twist(c)≃*Twist(b•c) whose underlying map is x↦b j\_c(x)b⁻¹. Its inverse is conjugation by b⁻¹; the following API proves continuity and G-equivariance.
@@ -2935,157 +1503,27 @@ Reuse MulAut.conj b on the twist synonyms; their group structures and topologies
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_apply`: For x∈Twist(c), j\_(b•c)(e\_c,b(x))=b j\_c(x)b⁻¹.
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_apply`: For y∈Twist(b•c), j\_c(e\_c,b⁻¹(y))=b⁻¹ j\_(b•c)(y)b, where e\_c,b⁻¹ denotes the inverse equivalence, not transport to an unspecified twist.
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_continuous`: The monoid homomorphism underlying e\_c,b is continuous for the topologies.
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_continuous`: The inverse function of e\_c,b is continuous for the topologies. Thus the group equivalence is a homeomorphism as well as an algebraic isomorphism.
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_smul`: For every g∈G and x∈Twist(c), e\_c,b(g⋆\_c x)=g⋆\_(b•c)e\_c,b(x). Both sides use their actual, generally different, inner actions.
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_one`: Under the underlying identifications, e\_c,1 is the identity: j\_(1•c)(e\_c,1(x))=j\_c(x).
-- `TauCeti.NonabelianCohomology.Twist.gaugeEquiv_comp`: For a,b∈U and x∈Twist(c), j\_(a•(b•c))(e\_(b•c),a(e\_c,b(x)))=j\_((ab)•c)(e\_c,ab(x)). The resulting gauge element is ab; the cocycle targets agree by the gauge action law.
-- `TauCeti.NonabelianCohomology.Z1.twistEquiv_gaugeMap`: For z∈Z¹(G,Twist(c)), τ\_(b•c)((e\_c,b)\_*z)=b•τ\_c(z), where the pushforward is the continuous equivariant coefficient map on cocycles. This is equality of cocycles, with the ordered products unchanged.
-- `TauCeti.NonabelianCohomology.H1.twistEquiv_gaugeMap`: For every a∈H¹(G,Twist(c)), T\_(b•c)((e\_c,b)\_*a)=T\_c(a), with the pushforward supplied by the coefficient map on H¹.
+- <a id="nc-3-gauge-value"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_apply` (*Gauge transport value*): For x∈Twist(c), j\_(b•c)(e\_c,b(x))=b j\_c(x)b⁻¹. *Proof.* Evaluate the conjugation map and the inherited underlying identifications.
+- <a id="nc-3-gauge-inverse-value"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_apply` (*Inverse gauge transport value*): For y∈Twist(b•c), j\_c(e\_c,b⁻¹(y))=b⁻¹ j\_(b•c)(y)b, where e\_c,b⁻¹ denotes the inverse equivalence, not transport to an unspecified twist. *Proof.* Evaluate the inverse function of the same MulAut.conj equivalence.
+- <a id="nc-3-gauge-continuity"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_continuous` (*Continuity of gauge transport*): The monoid homomorphism underlying e\_c,b is continuous for the topologies. *Proof.* Use continuity of multiplication with the two constant factors b,b⁻¹ and the identity function. Uses [Gauge transport value](#nc-3-gauge-value).
+- <a id="nc-3-gauge-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_symm_continuous` (*Continuity of inverse gauge transport*): The inverse function of e\_c,b is continuous for the topologies. Thus the group equivalence is a homeomorphism as well as an algebraic isomorphism. *Proof.* Use the explicit inverse formula and continuity of multiplication by the constants b⁻¹ and b. Uses [Inverse gauge transport value](#nc-3-gauge-inverse-value).
+- <a id="nc-3-gauge-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_smul` (*Equivariance of gauge transport*): For every g∈G and x∈Twist(c), e\_c,b(g⋆\_c x)=g⋆\_(b•c)e\_c,b(x). Both sides use their actual, generally different, inner actions. *Proof.* Expand both inner actions and (b•c)(g)=b c(g)g(b)⁻¹. Distribute g over products/inverses, then cancel adjacent inverse pairs without commuting factors. Uses [Gauge transport value](#nc-3-gauge-value); [Twisting by a cocycle](#nc-3-twisting); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
+- <a id="nc-3-gauge-identity"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_one` (*Identity gauge transport*): Under the underlying identifications, e\_c,1 is the identity: j\_(1•c)(e\_c,1(x))=j\_c(x). *Proof.* Evaluate the conjugation formula at the group identity. Uses [Gauge transport value](#nc-3-gauge-value).
+- <a id="nc-3-gauge-composition"></a>`TauCeti.NonabelianCohomology.Twist.gaugeEquiv_comp` (*Ordered composition of gauge transports*): For a,b∈U and x∈Twist(c), j\_(a•(b•c))(e\_(b•c),a(e\_c,b(x)))=j\_((ab)•c)(e\_c,ab(x)). The resulting gauge element is ab; the cocycle targets agree by the gauge action law. *Proof.* Expand both conjugations and cancel the middle b⁻¹a⁻¹ against the inverse of ab in the prescribed order. Compare through the underlying identifications to avoid an implicit choice of dependent transport. Uses [Gauge transport value](#nc-3-gauge-value); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
+- <a id="nc-3-gauge-cocycle-square"></a>`TauCeti.NonabelianCohomology.Z1.twistEquiv_gaugeMap` (*Cocycle translation under gauge transport*): For z∈Z¹(G,Twist(c)), τ\_(b•c)((e\_c,b)\_*z)=b•τ\_c(z), where the pushforward is the continuous equivariant coefficient map on cocycles. This is equality of cocycles, with the ordered products unchanged. *Proof.* Apply cocycle extensionality; expand the coefficient map, τ and the gauge formula. The adjacent b⁻¹b cancels, leaving b(j\_c(z(g))c(g))g(b)⁻¹. Uses [Equivariance of gauge transport](#nc-3-gauge-equivariance); [Continuity of gauge transport](#nc-3-gauge-continuity); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Value of the twisting equivalence](#nc-3-twist-cocycle-value); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
+- <a id="nc-3-gauge-h1-square"></a>`TauCeti.NonabelianCohomology.H1.twistEquiv_gaugeMap` (*Cohomology translation under gauge transport*): For every a∈H¹(G,Twist(c)), T\_(b•c)((e\_c,b)\_*a)=T\_c(a), with the pushforward supplied by the coefficient map on H¹. *Proof.* Choose a cocycle representative, apply the cocycle square and use that a gauge translate has the same original H¹ class. Uses [Cocycle translation under gauge transport](#nc-3-gauge-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Twisting on a H¹ representative](#nc-3-twist-h1-representative); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class).
 
 **Checks.**
 
 - `Twist.gaugeEquiv.test_inverse`: For any c,b,x, the inverse of e\_c,b applied to e\_c,b(x) is x.
 - `Twist.gaugeEquiv.test_identity`: For b=1, gauge transport is the identity under the underlying group identifications.
 - `Twist.gaugeEquiv.test_noncommutative_direction`: Give S₂ and S₃ discrete topologies and the trivial original S₂-action on S₃. Let c send the nonidentity element to (01), and let b=(01)(12). Then e\_c,b sends (01) to (12), whereas b⁻¹(01)b is not (12). This rejects conjugation in the reverse direction.
-- For c∈Z¹(G,U) and b∈U, construct the group equivalence e\_c,b:Twist(c)≃*Twist(b•c) whose underlying map is x↦b j\_c(x)b⁻¹. Its inverse is conjugation by b⁻¹; the following API proves continuity and G-equivariance.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
 
 Use [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); `MulAut.conj`.
 
-<a id="nc-3-gauge-value"></a>
-
-**Gauge transport value.** For x∈Twist(c), j\_(b•c)(e\_c,b(x))=b j\_c(x)b⁻¹.
-
-Standing hypotheses (H8).
-
-Evaluate the conjugation map and the inherited underlying identifications.
-
-**Checks.**
-
-- For x∈Twist(c), j\_(b•c)(e\_c,b(x))=b j\_c(x)b⁻¹.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Continuous gauge transport between inner twists](#nc-3-gauge-equivalence).
-
-<a id="nc-3-gauge-equivariance"></a>
-
-**Equivariance of gauge transport.** For every g∈G and x∈Twist(c), e\_c,b(g⋆\_c x)=g⋆\_(b•c)e\_c,b(x). Both sides use their actual, generally different, inner actions.
-
-Standing hypotheses (H8).
-
-Expand both inner actions and (b•c)(g)=b c(g)g(b)⁻¹. Distribute g over products/inverses, then cancel adjacent inverse pairs without commuting factors.
-
-**Checks.**
-
-- For every g∈G and x∈Twist(c), e\_c,b(g⋆\_c x)=g⋆\_(b•c)e\_c,b(x). Both sides use their actual, generally different, inner actions.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Gauge transport value](#nc-3-gauge-value); [Twisting by a cocycle](#nc-3-twisting); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-gauge-continuity"></a>
-
-**Continuity of gauge transport.** The monoid homomorphism underlying e\_c,b is continuous for the topologies.
-
-Standing hypotheses (H8).
-
-Use continuity of multiplication with the two constant factors b,b⁻¹ and the identity function.
-
-**Checks.**
-
-- The monoid homomorphism underlying e\_c,b is continuous for the topologies.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Gauge transport value](#nc-3-gauge-value).
-
-<a id="nc-3-gauge-cocycle-square"></a>
-
-**Cocycle translation under gauge transport.** For z∈Z¹(G,Twist(c)), τ\_(b•c)((e\_c,b)\_*z)=b•τ\_c(z), where the pushforward is the continuous equivariant coefficient map on cocycles. This is equality of cocycles, with the ordered products unchanged.
-
-Standing hypotheses (H8).
-
-Apply cocycle extensionality; expand the coefficient map, τ and the gauge formula. The adjacent b⁻¹b cancels, leaving b(j\_c(z(g))c(g))g(b)⁻¹.
-
-**Checks.**
-
-- For z∈Z¹(G,Twist(c)), τ\_(b•c)((e\_c,b)\_*z)=b•τ\_c(z), where the pushforward is the continuous equivariant coefficient map on cocycles. This is equality of cocycles, with the ordered products unchanged.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Equivariance of gauge transport](#nc-3-gauge-equivariance); [Continuity of gauge transport](#nc-3-gauge-continuity); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Value of the twisting equivalence](#nc-3-twist-cocycle-value); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-twist-h1-representative"></a>
-
-**Twisting on a H¹ representative.** For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ\_c(d)].
-
-Standing hypotheses (H6).
-
-Evaluate the quotient congruence on a representative.
-
-**Checks.**
-
-- For every d∈Z¹(G,Twist(c)), H¹.twistEquiv(c)([d])=[τ\_c(d)].
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-gauge-h1-square"></a>
-
-**Cohomology translation under gauge transport.** For every a∈H¹(G,Twist(c)), T\_(b•c)((e\_c,b)\_*a)=T\_c(a), with the pushforward supplied by the coefficient map on H¹.
-
-Standing hypotheses (H8).
-
-Choose a cocycle representative, apply the cocycle square and use that a gauge translate has the same original H¹ class.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), T\_(b•c)((e\_c,b)\_*a)=T\_c(a), with the pushforward supplied by the coefficient map on H¹.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Cocycle translation under gauge transport](#nc-3-gauge-cocycle-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Twisting on a H¹ representative](#nc-3-twist-h1-representative); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class).
-
-<a id="nc-3-representative-gauge"></a>
-
-**Representative comparison equals gauge pushforward.** For b∈U and h:[c]=[b•c] supplied by the gauge-class lemma, C\_c,b•c equals the H¹ pushforward induced by e\_c,b, as a function on H¹(G,Twist(c)).
-
-Standing hypotheses (H8).
-
-Apply injectivity of T\_(b•c) to each argument. Both sides become T\_c(a), by cancellation of inverse equivalences and the proved H¹ gauge square.
-
-**Checks.**
-
-- For b∈U and h:[c]=[b•c] supplied by the gauge-class lemma, C\_c,b•c equals the H¹ pushforward induced by e\_c,b, as a function on H¹(G,Twist(c)).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Representative comparison value](#nc-3-representative-value); [Cohomology translation under gauge transport](#nc-3-gauge-h1-square); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); `Equiv.injective`; `Equiv.apply_symm_apply`.
-
-<a id="nc-3-representative-composition"></a>
-
-**Composition of representative comparisons.** Given h\_cd:[c]=[d] and h\_de:[d]=[e], composing C\_c,d followed by C\_d,e equals C\_c,e for h\_cd.trans(h\_de), as equivalences.
-
-Standing hypotheses (H8).
-
-Expand the composites at an arbitrary class and cancel the adjacent T\_d∘T\_d⁻¹. No gauge representatives or group multiplication choices enter.
-
-**Checks.**
-
-- Given h\_cd:[c]=[d] and h\_de:[d]=[e], composing C\_c,d followed by C\_d,e equals C\_c,e for h\_cd.trans(h\_de), as equivalences.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Representative comparison value](#nc-3-representative-value); `Equiv.apply_symm_apply`.
-
-### 0.29 The kernel of an inclusion on H¹
-
+### 0.22 The kernel of an inclusion on H¹
 <a id="nc-3-exact-sequence"></a>
 
 **Kernel of inclusion in nonabelian cohomology.** For an equivariant closed embedding i:A → B of topological G-groups and x ∈ H¹(G,A), i\_*(x)=1 if and only if there exist b ∈ B and c ∈ Z¹(G,A) such that x=[c] and i(c(g))=b⁻¹(g•b) for every g. Equivalently, the classes killed by inclusion are exactly the connecting classes of invariant left cosets. Normality and a continuous quotient section are not required.
@@ -3103,8 +1541,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Functoriality of nonabelian H⁰ and H¹](#nc-3-functoriality); [Image of the connecting cocycle](#nc-3-connecting-cocycle-image); [Change of lift for a connecting cocycle](#nc-3-connecting-change-lift); [Fibres of the connecting class](#nc-3-connecting-fixed-orbits); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre); [Neutral class under representative comparison](#nc-3-representative-neutral); [Representative comparison equals gauge pushforward](#nc-3-representative-gauge); [Composition of representative comparisons](#nc-3-representative-composition).
 
-### 0.30 Kernel cocycle lifts and exact images
-
+### 0.23 Kernel cocycle lifts and exact images
 <a id="nc-3-mapped-inverse-gauge-normalization"></a>
 
 **Inverse gauge after a lifted coboundary.** For a continuous equivariant coefficient homomorphism f:U→V, a continuous cocycle d, and x∈U with f(d(g))=f(x)(g•f(x))⁻¹ for all g, mapping the inverse gauge x⁻¹•d gives the neutral cocycle.
@@ -3115,13 +1552,11 @@ Apply equivariance of the cocycle map to the inverse gauge. Evaluate at g, use f
 
 **Checks.**
 
-- For a continuous equivariant coefficient homomorphism f:U→V, a continuous cocycle d, and x∈U with f(d(g))=f(x)(g•f(x))⁻¹ for all g, mapping the inverse gauge x⁻¹•d gives the neutral cocycle.
 - The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
 
 Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Gauge compatibility of coefficient cocycle maps](#nc-3-coefficient-cocycle-gauge).
-
 <a id="nc-3-twisted-kernel-cocycle-lift"></a>
 
 **Cocycle valued in the twisted kernel.** Given d∈Z¹(G,Twist(c)) and F\_c(d(g))=1 for every g, construct its unique value-preserving cocycle k∈Z¹(G,K\_c), where F\_c=Twist.map(c,f), K\_c=ker(F\_c), and K\_c has its restricted inner action and subspace topology.
@@ -3132,11 +1567,12 @@ Take the subtype-valued function g↦⟨d(g),F\_c(d(g))=1⟩. Continuous.subtype
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.twistedKernelLift_apply`: For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g).
-- `TauCeti.NonabelianCohomology.Z1.twistedKernelLift_inclusion`: Mapping twistedKernelLift(c,f,d) by the K\_c→Twist(c) inclusion returns the exact cocycle d.
-- `TauCeti.NonabelianCohomology.Z1.twistedKernelLift_one`: The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K\_c.
-- `TauCeti.NonabelianCohomology.Z1.twistedKernelLift_gauge`: For x∈K\_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as K\_c-valued continuous cocycles.
-- `TauCeti.NonabelianCohomology.Z1.twistedKernelLift_injective`: For two cocycles d,e with specified pointwise kernel witnesses, their K\_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹.
+- <a id="nc-3-twisted-kernel-cocycle-lift-value"></a>`TauCeti.NonabelianCohomology.Z1.twistedKernelLift_apply` (*Value of the kernel cocycle lift*): For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g). *Proof.* Unfold the subtype-valued lift and project its underlying value.
+- <a id="nc-3-twisted-kernel-cocycle-lift-inclusion"></a>`TauCeti.NonabelianCohomology.Z1.twistedKernelLift_inclusion` (*Kernel lift followed by the coefficient inclusion*): Mapping twistedKernelLift(c,f,d) by the K\_c→Twist(c) inclusion returns the exact cocycle d. *Proof.* Use continuous-cocycle extensionality. Each value is d(g) by the value formula; the inclusion is the continuous subtype inclusion. Uses [Value of the kernel cocycle lift](#nc-3-twisted-kernel-cocycle-lift-value); [Underlying value of the restricted kernel action](#nc-3-twisted-kernel-action-value).
+- <a id="nc-3-twisted-kernel-cocycle-lift-neutral"></a>`TauCeti.NonabelianCohomology.Z1.twistedKernelLift_one` (*Neutral kernel cocycle lift*): The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K\_c. *Proof.* Use cocycle extensionality and equality of the subtype values.
+- <a id="nc-3-twisted-kernel-cocycle-lift-gauge"></a>`TauCeti.NonabelianCohomology.Z1.twistedKernelLift_gauge` (*Kernel-valued gauges of the cocycle lift*): For x∈K\_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as K\_c-valued continuous cocycles. *Proof.* Use cocycle extensionality and the injective subtype inclusion. The two ordered gauge expressions have identical underlying values, with the restricted inner action. Uses [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity).
+- <a id="nc-3-twisted-kernel-cocycle-lift-detection"></a>`TauCeti.NonabelianCohomology.Z1.twistedKernelLift_injective` (*Equality detected by the kernel cocycle lift*): For two cocycles d,e with specified pointwise kernel witnesses, their K\_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹. *Proof.* Project equality at each g through the subtype inclusion; conversely substitute equal cocycles and use proof irrelevance for membership witnesses. Uses [Value of the kernel cocycle lift](#nc-3-twisted-kernel-cocycle-lift-value).
+- <a id="nc-3-twisted-kernel-h1-quotient-converse"></a>`TauCeti.NonabelianCohomology.H1.exists_twistedKernelInclusion_of_quotient_eq_one` (*Lift from the quotient neutral fibre*): Every a∈H¹(G,Twist(c)) killed by the quotient map Twist(c)→Twist(c)/K\_c lies in the image of H¹(G,K\_c)→H¹(G,Twist(c)). This needs neither surjectivity nor a quotient-map hypothesis on f. *Proof.* Choose a continuous representative d and a quotient gauge witness y to the neutrality of its mapped class. Lift the single y using quotient-projection surjectivity. Normalize d by the inverse gauge of that lift. QuotientGroup.eq\_one\_iff identifies each normalized value with K\_c. Construct its continuous kernel cocycle with twistedKernelLift. The inclusion returns the normalized cocycle, whose class is [d] by gauge invariance. No continuous lifting function is chosen. Uses [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Kernel lift followed by the coefficient inclusion](#nc-3-twisted-kernel-cocycle-lift-inclusion); [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map); [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity).
 
 **Checks.**
 
@@ -3147,165 +1583,11 @@ The interface consists of the following named results.
 - `Z1.twistedKernelLift.test_gauge`: A kernel-valued gauge agrees before and after the cocycle lift.
 - `Z1.twistedKernelLift.test_non_kernel_rejected`: If F\_c(d(g))≠1 at one g, no K\_c-valued cocycle can have every underlying value equal to d.
 - `Z1.kernelImage.test_inverse_gauge_order`: For G=ConjAct(S₃), U=S₃ with the conjugation action and discrete topologies, x=(01)(12) and d=x•1, the inverse gauge x⁻¹•d equals 1, whereas x•d does not equal 1.
-- Given d∈Z¹(G,Twist(c)) and F\_c(d(g))=1 for every g, construct its unique value-preserving cocycle k∈Z¹(G,K\_c), where F\_c=Twist.map(c,f), K\_c=ker(F\_c), and K\_c has its restricted inner action and subspace topology.
 - The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); `Continuous.subtype_mk`.
-
-<a id="nc-3-twisted-kernel-cocycle-lift-value"></a>
-
-**Value of the kernel cocycle lift.** For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g).
-
-Standing hypotheses (H18).
-
-Unfold the subtype-valued lift and project its underlying value.
-
-**Checks.**
-
-- For every g, the underlying value of twistedKernelLift(c,f,d) at g is exactly d(g).
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Cocycle valued in the twisted kernel](#nc-3-twisted-kernel-cocycle-lift).
-
-<a id="nc-3-twisted-kernel-action-value"></a>
-
-**Underlying value of the restricted kernel action.** With kernelAction installed, the value of g⋆x in Twist(c) is g⋆\_c x.val.
-
-Standing hypotheses (H10).
-
-Unfold the restricted action; the equality is definitional.
-
-**Checks.**
-
-- With kernelAction installed, the value of g⋆x in Twist(c) is g⋆\_c x.val.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action).
-
-<a id="nc-3-twisted-kernel-cocycle-lift-inclusion"></a>
-
-**Kernel lift followed by the coefficient inclusion.** Mapping twistedKernelLift(c,f,d) by the K\_c→Twist(c) inclusion returns the exact cocycle d.
-
-Standing hypotheses (H18).
-
-Use continuous-cocycle extensionality. Each value is d(g) by the value formula; the inclusion is the continuous subtype inclusion.
-
-**Checks.**
-
-- Mapping twistedKernelLift(c,f,d) by the K\_c→Twist(c) inclusion returns the exact cocycle d.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Value of the kernel cocycle lift](#nc-3-twisted-kernel-cocycle-lift-value); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Underlying value of the restricted kernel action](#nc-3-twisted-kernel-action-value).
-
-<a id="nc-3-twisted-kernel-h1-quotient-converse"></a>
-
-**Lift from the quotient neutral fibre.** Every a∈H¹(G,Twist(c)) killed by the quotient map Twist(c)→Twist(c)/K\_c lies in the image of H¹(G,K\_c)→H¹(G,Twist(c)). This needs neither surjectivity nor a quotient-map hypothesis on f.
-
-Standing hypotheses (H18).
-
-Choose a continuous representative d and a quotient gauge witness y to the neutrality of its mapped class. Lift the single y using quotient-projection surjectivity. Normalize d by the inverse gauge of that lift. QuotientGroup.eq\_one\_iff identifies each normalized value with K\_c. Construct its continuous kernel cocycle with twistedKernelLift. The inclusion returns the normalized cocycle, whose class is [d] by gauge invariance. No continuous lifting function is chosen.
-
-**Checks.**
-
-- Every a∈H¹(G,Twist(c)) killed by the quotient map Twist(c)→Twist(c)/K\_c lies in the image of H¹(G,K\_c)→H¹(G,Twist(c)). This needs neither surjectivity nor a quotient-map hypothesis on f.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Kernel lift followed by the coefficient inclusion](#nc-3-twisted-kernel-cocycle-lift-inclusion); [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map); [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); `QuotientGroup.mk_surjective`; `QuotientGroup.eq_one_iff`.
-
-<a id="nc-3-twisted-quotient-h1-kernel-image"></a>
-
-**Kernel inclusion is killed by the quotient.** Every class in H¹(G,K\_c) maps under the restricted kernel inclusion and the new quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity.
-
-Standing hypotheses (H11).
-
-Choose a kernel-valued cocycle representative. Each quotient class of its value is 1 by kernel membership and eq\_one\_iff. The projected cocycle is thus the trivial cocycle; its orbit class is neutral. No whole-function lift is required.
-
-**Checks.**
-
-- Every class in H¹(G,K\_c) maps under the restricted kernel inclusion and the new quotient H¹ map to 1. This is one image inclusion, not its converse or injectivity.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Quotient H¹ on representatives](#nc-3-twisted-quotient-h1-representative); [Value of twisted cocycle projection](#nc-3-twisted-quotient-cocycle-value); `QuotientGroup.eq_one_iff`.
-
-<a id="nc-3-twisted-kernel-h1-quotient-range"></a>
-
-**Exact image for the twisted quotient.** For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f.
-
-Standing hypotheses (H18).
-
-The inherited quotient-kernel image supplies one implication; the single-gauge lifting lemma supplies the converse.
-
-**Checks.**
-
-- For every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if twistedQuotient(a)=1, without assumptions of surjectivity or quotient topology on f.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Lift from the quotient neutral fibre](#nc-3-twisted-kernel-h1-quotient-converse); [Kernel inclusion is killed by the quotient](#nc-3-twisted-quotient-h1-kernel-image).
-
-<a id="nc-3-twisted-kernel-h1-mapped-converse"></a>
-
-**Lift from a surjective coefficient-map neutral fibre.** If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F\_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required.
-
-Standing hypotheses (H18).
-
-Choose a representative d and a gauge witness y in the target inner twist to neutrality of its mapped H¹ class. Lift the one element y along the surjective F\_c. Inverse-gauge normalization makes the mapped cocycle pointwise identity. Construct the continuous kernel cocycle and identify its included class with [d]. Continuity comes from a constant gauge and the subspace restriction, without a continuous section or inverse quotient comparison.
-
-**Checks.**
-
-- If f is surjective, every a∈H¹(G,Twist(c)) killed by the mapped twisted coefficient homomorphism F\_c lies in the image of twistedKernelInclusion. No quotient-map, openness or continuous-section hypothesis on f is required.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Kernel lift followed by the coefficient inclusion](#nc-3-twisted-kernel-cocycle-lift-inclusion); [Kernel inclusion on cocycle representatives](#nc-3-twisted-kernel-h1-representative); [Surjectivity of the twisted coefficient map](#nc-3-twisted-map-surjectivity); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
-
-<a id="nc-3-twisted-kernel-h1-mapped-range"></a>
-
-**Exact image under a surjective coefficient map.** For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F\_c)(a)=1. Kernel-H¹ injectivity is not asserted.
-
-Standing hypotheses (H18).
-
-Combine the inherited kernel image inclusion with the mapped neutral-fibre converse.
-
-**Checks.**
-
-- For surjective f and every a∈H¹(G,Twist(c)), a lies in the range of twistedKernelInclusion if and only if H1.map(F\_c)(a)=1. Kernel-H¹ injectivity is not asserted.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Lift from a surjective coefficient-map neutral fibre](#nc-3-twisted-kernel-h1-mapped-converse); [Kernel inclusion maps into the neutral image fibre](#nc-3-twisted-kernel-h1-image).
-
-<a id="nc-3-twisted-kernel-h1-original-fibre-range"></a>
-
-**Entire repointed fibre of a surjective coefficient map.** For surjective f and every a∈H¹(G,U), a lies in the range of b↦T\_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T\_c is the twist translation. The distinguished fibre is over [f∘c], which need not be neutral.
-
-Standing hypotheses (H18).
-
-Apply the mapped range criterion to T\_c⁻¹(a). Use the inherited coefficient-map/twist fibre criterion, and transport witnesses through the genuine H¹ equivalence. This gives existence in the correct fibre, without uniqueness or kernel-H¹ injectivity.
-
-**Checks.**
-
-- For surjective f and every a∈H¹(G,U), a lies in the range of b↦T\_c(twistedKernelInclusion(b)) if and only if H1.map(f)(a)=[f∘c], where T\_c is the twist translation. The distinguished fibre is over [f∘c], which need not be neutral.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
 
 <a id="nc-3-twisted-kernel-equivalence"></a>
 
@@ -3317,24 +1599,22 @@ Apply kernel membership in each direction; inherited multiplication and both inv
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.kernelEquiv_value`: The underlying U-value of kernelEquiv(x) is j\_c(x).
-- `TauCeti.NonabelianCohomology.Twist.kernelEquiv_continuous`: The map K\_c→ker(f) underlying kernelEquiv is continuous for the subgroup topologies.
-- `TauCeti.NonabelianCohomology.Twist.kernelEquiv_symm_continuous`: The inverse ker(f)→K\_c is continuous for the subgroup topologies.
+- <a id="nc-3-twisted-kernel-equivalence-value"></a>`TauCeti.NonabelianCohomology.Twist.kernelEquiv_value` (*Value of the kernel comparison*): The underlying U-value of kernelEquiv(x) is j\_c(x). *Proof.* Unfold the subtype map; its value is the original-group identification.
+- <a id="nc-3-twisted-kernel-equivalence-continuous"></a>`TauCeti.NonabelianCohomology.Twist.kernelEquiv_continuous` (*Continuity of the kernel comparison*): The map K\_c→ker(f) underlying kernelEquiv is continuous for the subgroup topologies. *Proof.* Use continuity of the subtype projection and lift into the target subtype; Twist(c) has exactly the topology of U.
+- <a id="nc-3-twisted-kernel-equivalence-inverse-continuous"></a>`TauCeti.NonabelianCohomology.Twist.kernelEquiv_symm_continuous` (*Continuity of the inverse kernel comparison*): The inverse ker(f)→K\_c is continuous for the subgroup topologies. *Proof.* Use the same subtype continuity argument in the inverse direction.
 
 **Checks.**
 
 - `Twist.kernelEquiv.test_inverse`: The kernel comparison and its inverse cancel on every kernel element.
 - `Twist.kernelEquiv.test_identity_kernel`: For the identity coefficient homomorphism, the underlying value of every element of the twisted kernel is 1.
 - `Twist.kernelEquiv.test_constant_kernel`: For the constant identity-valued coefficient map, every x in Twist(c) lies in its kernel and kernelEquiv retains the value j\_c(x).
-- Construct K\_c≃*ker(f) by x↦j\_c(x), with inverse j\_c⁻¹ on the same subgroup. This compares underlying groups and subspace topologies, not their G-actions.
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Kernel membership for a twisted map](#nc-3-twisted-kernel-membership); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group).
 
-### 0.31 Named kernels
-
+### 0.24 Named kernels
 <a id="nc-3-named-kernel-equivalence"></a>
 
 **Named subgroup identified with the twisted kernel.** Construct the multiplicative equivalence e:S≃K\_c, K\_c=ker(F\_c), by the unchanged underlying value, where F\_c:Twist(c)→Twist(f∘c) is the equivariant coefficient map. The two subgroups carry their subspace topologies.
@@ -3345,22 +1625,20 @@ Use the exact membership witness hS to form the two subtype maps. Their values a
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_apply`: For x∈S, applying e then the underlying twist identification gives exactly x.val.
-- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_apply`: For k∈K\_c, the value of e⁻¹(k) is the original underlying value of k.
-- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_continuous`: The forward map e:S→K\_c is continuous in the induced topologies.
-- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_continuous`: The inverse map e⁻¹:K\_c→S is continuous in the induced topologies.
+- <a id="nc-3-named-kernel-equivalence-value"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_apply` (*Underlying value of the named kernel identification*): For x∈S, applying e then the underlying twist identification gives exactly x.val. *Proof.* Evaluate the forward subtype map.
+- <a id="nc-3-named-kernel-equivalence-inverse-value"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_apply` (*Underlying value of the inverse identification*): For k∈K\_c, the value of e⁻¹(k) is the original underlying value of k. *Proof.* Evaluate the inverse subtype map.
+- <a id="nc-3-named-kernel-equivalence-continuity"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_continuous` (*Continuity of the named kernel identification*): The forward map e:S→K\_c is continuous in the induced topologies. *Proof.* Restrict the continuous subtype inclusion using the exact pointwise kernel witness.
+- <a id="nc-3-named-kernel-equivalence-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_symm_continuous` (*Continuity of the inverse kernel identification*): The inverse map e⁻¹:K\_c→S is continuous in the induced topologies. *Proof.* Restrict the continuous subtype inclusion in the other direction using hS.
 
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_constant_top`: For the constant identity-valued homomorphism f:U→V, take S=⊤ and the canonical membership witness; the kernel identification sends every x∈U to a twisted-kernel element with exactly underlying value x.
 - `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_identity_bot`: For the identity homomorphism U→U, take S=⊥; every identified twisted-kernel value is 1.
 - `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv.test_wrong_subgroup_rejected`: If some x∈S satisfies f(x)≠1, then the exact kernel-membership witness ∀y,y∈S iff f(y)=1 is impossible.
-- Construct the multiplicative equivalence e:S≃K\_c, K\_c=ker(F\_c), by the unchanged underlying value, where F\_c:Twist(c)→Twist(f∘c) is the equivariant coefficient map. The two subgroups carry their subspace topologies.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
 
 Use [Underlying group comparison for twisted kernels](#nc-3-twisted-kernel-equivalence); [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); `MulEquiv`; `Subgroup.subtype`.
-
 <a id="nc-3-named-kernel-inner-action"></a>
 
 **Inner action on a named coefficient kernel.** Transport the restricted G-action on K\_c through e to obtain a MulDistribMulAction G S. Its value is c(g)(g•x)c(g)⁻¹ in U.
@@ -3371,9 +1649,9 @@ Define g•x=e⁻¹(g•e(x)). Check identity, composition, identity element and
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.namedKernelAction_value`: For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order.
-- `TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_smul`: For the transported S-action and restricted K\_c-action, e(g•x)=g•e(x).
-- `TauCeti.NonabelianCohomology.Twist.namedKernelContinuousSMul`: The transported G-action on S is jointly continuous for the subspace topology.
+- <a id="nc-3-named-kernel-inner-action-value"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelAction_value` (*Conjugated value of the named kernel action*): For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order. *Proof.* Evaluate the transport and the inherited restricted inner action; no commuting of factors. Uses [Underlying value of the restricted kernel action](#nc-3-twisted-kernel-action-value).
+- <a id="nc-3-named-kernel-equivalence-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelEquiv_smul` (*Equivariance of the kernel identification*): For the transported S-action and restricted K\_c-action, e(g•x)=g•e(x). *Proof.* Cancel e with its inverse in the transported action formula.
+- <a id="nc-3-named-kernel-inner-action-continuity"></a>`TauCeti.NonabelianCohomology.Twist.namedKernelContinuousSMul` (*Joint continuity on the named kernel*): The transported G-action on S is jointly continuous for the subspace topology. *Proof.* Compose c with the first projection, multiply with the continuous original action and inverse c-value, then restrict into S using pointwise membership. Uses [Conjugated value of the named kernel action](#nc-3-named-kernel-inner-action-value).
 
 **Checks.**
 
@@ -3381,91 +1659,10 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_multiplication`: For x,y∈S and g∈G, the underlying value of g•(xy) equals (g•x).val(g•y).val, so the transported action really acts by group automorphisms.
 - `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_noncommutative_inner_action`: If c(g)(g•x.val)c(g)⁻¹ differs from g•x.val, the named-kernel action on x differs from the original action. The following S₃ witness makes this hypothesis concrete.
 - `TauCeti.NonabelianCohomology.Twist.namedKernelAction.test_inner_action_witness`: For U=S₃ and G=ConjAct(U), both discrete, c the coboundary of (01), g=(12) and x=(01), c(g)(g•x)c(g)⁻¹ differs from g•x. Together with the preceding subtype example this rejects an unchanged original action.
-- Transport the restricted G-action on K\_c through e to obtain a MulDistribMulAction G S. Its value is c(g)(g•x)c(g)⁻¹ in U.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
 
 Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action).
-
-<a id="nc-3-named-kernel-equivalence-continuity"></a>
-
-**Continuity of the named kernel identification.** The forward map e:S→K\_c is continuous in the induced topologies.
-
-Standing hypotheses (H19).
-
-Restrict the continuous subtype inclusion using the exact pointwise kernel witness.
-
-**Checks.**
-
-- The forward map e:S→K\_c is continuous in the induced topologies.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence); `continuous_subtype_val`; `Continuous.subtype_mk`.
-
-<a id="nc-3-named-kernel-equivalence-inverse-continuity"></a>
-
-**Continuity of the inverse kernel identification.** The inverse map e⁻¹:K\_c→S is continuous in the induced topologies.
-
-Standing hypotheses (H19).
-
-Restrict the continuous subtype inclusion in the other direction using hS.
-
-**Checks.**
-
-- The inverse map e⁻¹:K\_c→S is continuous in the induced topologies.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence); `continuous_subtype_val`; `Continuous.subtype_mk`.
-
-<a id="nc-3-named-kernel-equivalence-equivariance"></a>
-
-**Equivariance of the kernel identification.** For the transported S-action and restricted K\_c-action, e(g•x)=g•e(x).
-
-Standing hypotheses (H20).
-
-Cancel e with its inverse in the transported action formula.
-
-**Checks.**
-
-- For the transported S-action and restricted K\_c-action, e(g•x)=g•e(x).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Inner action on a named coefficient kernel](#nc-3-named-kernel-inner-action); [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence).
-
-<a id="nc-3-named-kernel-inner-action-value"></a>
-
-**Conjugated value of the named kernel action.** For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order.
-
-Standing hypotheses (H20).
-
-Evaluate the transport and the inherited restricted inner action; no commuting of factors.
-
-**Checks.**
-
-- For g∈G and x∈S, the underlying value of the transported action is c(g)(g•x.val)c(g)⁻¹, in this order.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Inner action on a named coefficient kernel](#nc-3-named-kernel-inner-action); [Underlying value of the restricted kernel action](#nc-3-twisted-kernel-action-value).
-
-<a id="nc-3-named-kernel-inner-action-continuity"></a>
-
-**Joint continuity on the named kernel.** The transported G-action on S is jointly continuous for the subspace topology.
-
-Standing hypotheses (H20).
-
-Compose c with the first projection, multiply with the continuous original action and inverse c-value, then restrict into S using pointwise membership.
-
-**Checks.**
-
-- The transported G-action on S is jointly continuous for the subspace topology.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Inner action on a named coefficient kernel](#nc-3-named-kernel-inner-action); [Conjugated value of the named kernel action](#nc-3-named-kernel-inner-action-value); `Continuous.subtype_mk`.
 
 <a id="nc-3-named-kernel-h1-equivalence"></a>
 
@@ -3477,120 +1674,26 @@ Map cocycles and their gauge-orbit classes through e and e⁻¹. Derive inverse 
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_mk`: For d∈Z¹(G,S), E([d])=[e∘d] as continuous gauge classes.
-- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_symm_mk`: For d∈Z¹(G,K\_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance.
-- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_one`: E sends the neutral H¹ class in S to the neutral H¹ class in K\_c.
-- `TauCeti.NonabelianCohomology.H1.namedKernelEquiv_inclusion`: For a∈H¹(G,S), inclusion\_*(E(a))=i\_*(a), where i:S→Twist(c) is the S-subtype homomorphism, with its target viewed as the twist synonym. This compares H¹ maps, not merely their cardinalities.
+- <a id="nc-3-named-kernel-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_mk` (*Forward H¹ representative comparison*): For d∈Z¹(G,S), E([d])=[e∘d] as continuous gauge classes. *Proof.* Evaluate the induced quotient map on a representative. Uses [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
+- <a id="nc-3-named-kernel-h1-inverse-representative"></a>`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_symm_mk` (*Inverse H¹ representative comparison*): For d∈Z¹(G,K\_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance. *Proof.* Evaluate the inverse quotient map with its equivariance proof.
+- <a id="nc-3-named-kernel-h1-neutral"></a>`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_one` (*Neutral class preserved by the kernel comparison*): E sends the neutral H¹ class in S to the neutral H¹ class in K\_c. *Proof.* Use the neutral-class law for a continuous equivariant coefficient homomorphism.
+- <a id="nc-3-named-kernel-h1-inclusion-triangle"></a>`TauCeti.NonabelianCohomology.H1.namedKernelEquiv_inclusion` (*Comparison with the ambient inclusion*): For a∈H¹(G,S), inclusion\_*(E(a))=i\_*(a), where i:S→Twist(c) is the S-subtype homomorphism, with its target viewed as the twist synonym. This compares H¹ maps, not merely their cardinalities. *Proof.* Choose a cocycle representative. Both compositions have the same underlying subtype values, hence the identical mapped cocycle and gauge class. Uses [Forward H¹ representative comparison](#nc-3-named-kernel-h1-representative); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion).
+- <a id="nc-3-named-kernel-h1-inclusion-range"></a>`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_range` (*Exact range of the named kernel inclusion*): The set-theoretic range of i\_*:H¹(G,S)→H¹(G,Twist(c)) equals the range of the inherited K\_c inclusion, for arbitrary f. *Proof.* Transport each range witness through E or E⁻¹ and use the inclusion triangle. No uniqueness of ambient preimages is deduced. Uses [Comparison with the ambient inclusion](#nc-3-named-kernel-h1-inclusion-triangle).
+- <a id="nc-3-named-kernel-h1-quotient-range"></a>`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_quotient_range_iff` (*Named kernel image is the quotient neutral fibre*): For arbitrary f, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff its image in the quotient H¹(G,Twist(c)/K\_c) is neutral. *Proof.* Rewrite the named inclusion range by the kernel range and apply the inherited quotient neutral-fibre equivalence. Uses [Exact range of the named kernel inclusion](#nc-3-named-kernel-h1-inclusion-range); [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range).
+- <a id="nc-3-named-kernel-h1-mapped-range"></a>`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_mapped_range_iff` (*Named kernel image under a surjective coefficient map*): If f is surjective, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff H¹.map(F\_c)(a)=1. No topological quotient-map or continuous section is required. Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is a Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses. *Proof.* Rewrite the named inclusion range, then apply the mapped-target range equivalence under the explicit surjectivity witness. Uses [Exact range of the named kernel inclusion](#nc-3-named-kernel-h1-inclusion-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range).
+- <a id="nc-3-named-kernel-h1-original-fibre-range"></a>`TauCeti.NonabelianCohomology.H1.namedKernelInclusion_fibre_range_iff` (*Named kernel realizes the entire repointed fibre*): If f is surjective, a∈H¹(G,U) lies in the range of b↦T\_c(i\_*(b)) iff H¹.map(f)(a)=[f∘c]. This distinguished target class need not be neutral. Hypotheses: G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is a Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses. *Proof.* Transport the original translated range witnesses through the genuine comparison E and its inverse, then apply the inherited repointed range criterion. Uses [Comparison with the ambient inclusion](#nc-3-named-kernel-h1-inclusion-triangle); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range).
 
 **Checks.**
 
 - `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_neutral_class`: The class of the neutral S-valued cocycle maps to the neutral K\_c gauge class.
 - `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_inverse_on_classes`: For every gauge class a∈H¹(G,S), applying E followed by E⁻¹ returns a; the comparison is bijective at the quotient level.
 - `TauCeti.NonabelianCohomology.H1.namedKernelEquiv.test_repointed_non_neutral`: For surjective f and [f∘c]≠1, the neutral class of H¹(G,U) is excluded from the translated named-kernel inclusion range; the original fibre is not silently replaced by the neutral fibre.
-- Construct a genuine pointed-set equivalence E:H¹(G,S with transported inner action)≃H¹(G,K\_c) from e and e⁻¹. Both maps are induced by continuous equivariant homomorphisms on continuous cocycles.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
 
 Use [Inner action on a named coefficient kernel](#nc-3-named-kernel-inner-action); [Continuity of the named kernel identification](#nc-3-named-kernel-equivalence-continuity); [Continuity of the inverse kernel identification](#nc-3-named-kernel-equivalence-inverse-continuity); [Equivariance of the kernel identification](#nc-3-named-kernel-equivalence-equivariance); [Joint continuity on the named kernel](#nc-3-named-kernel-inner-action-continuity); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
-<a id="nc-3-named-kernel-h1-representative"></a>
-
-**Forward H¹ representative comparison.** For d∈Z¹(G,S), E([d])=[e∘d] as continuous gauge classes.
-
-Standing hypotheses (H20).
-
-Evaluate the induced quotient map on a representative.
-
-**Checks.**
-
-- For d∈Z¹(G,S), E([d])=[e∘d] as continuous gauge classes.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-named-kernel-h1-inclusion-triangle"></a>
-
-**Comparison with the ambient inclusion.** For a∈H¹(G,S), inclusion\_*(E(a))=i\_*(a), where i:S→Twist(c) is the S-subtype homomorphism, with its target viewed as the twist synonym. This compares H¹ maps, not merely their cardinalities.
-
-Standing hypotheses (H20).
-
-Choose a cocycle representative. Both compositions have the same underlying subtype values, hence the identical mapped cocycle and gauge class.
-
-**Checks.**
-
-- For a∈H¹(G,S), inclusion\_*(E(a))=i\_*(a), where i:S→Twist(c) is the S-subtype homomorphism, with its target viewed as the twist synonym. This compares H¹ maps, not merely their cardinalities.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Forward H¹ representative comparison](#nc-3-named-kernel-h1-representative); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion); `Subgroup.subtype`.
-
-<a id="nc-3-named-kernel-h1-inclusion-range"></a>
-
-**Exact range of the named kernel inclusion.** The set-theoretic range of i\_*:H¹(G,S)→H¹(G,Twist(c)) equals the range of the inherited K\_c inclusion, for arbitrary f.
-
-Standing hypotheses (H20).
-
-Transport each range witness through E or E⁻¹ and use the inclusion triangle. No uniqueness of ambient preimages is deduced.
-
-**Checks.**
-
-- The set-theoretic range of i\_*:H¹(G,S)→H¹(G,Twist(c)) equals the range of the inherited K\_c inclusion, for arbitrary f.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Comparison with the ambient inclusion](#nc-3-named-kernel-h1-inclusion-triangle); [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence).
-
-<a id="nc-3-named-kernel-h1-quotient-range"></a>
-
-**Named kernel image is the quotient neutral fibre.** For arbitrary f, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff its image in the quotient H¹(G,Twist(c)/K\_c) is neutral.
-
-Standing hypotheses (H20).
-
-Rewrite the named inclusion range by the kernel range and apply the inherited quotient neutral-fibre equivalence.
-
-**Checks.**
-
-- For arbitrary f, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff its image in the quotient H¹(G,Twist(c)/K\_c) is neutral.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Exact range of the named kernel inclusion](#nc-3-named-kernel-h1-inclusion-range); [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range).
-
-<a id="nc-3-named-kernel-h1-mapped-range"></a>
-
-**Named kernel image under a surjective coefficient map.** If f is surjective, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff H¹.map(F\_c)(a)=1. No topological quotient-map or continuous section is required.
-
-G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is a Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses.
-
-Rewrite the named inclusion range, then apply the mapped-target range equivalence under the explicit surjectivity witness.
-
-**Checks.**
-
-- If f is surjective, a∈H¹(G,Twist(c)) belongs to range(i\_*) iff H¹.map(F\_c)(a)=1. No topological quotient-map or continuous section is required.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Exact range of the named kernel inclusion](#nc-3-named-kernel-h1-inclusion-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range).
-
-<a id="nc-3-named-kernel-h1-original-fibre-range"></a>
-
-**Named kernel realizes the entire repointed fibre.** If f is surjective, a∈H¹(G,U) lies in the range of b↦T\_c(i\_*(b)) iff H¹.map(f)(a)=[f∘c]. This distinguished target class need not be neutral.
-
-G is a group with an arbitrary topology; U and V are groups with topologies and G-actions by automorphisms. c is a continuous cocycle. f:U→V is a continuous equivariant homomorphism. S is a Subgroup U with its induced subspace topology and an explicit witness hS: for every x∈U, x∈S iff f(x)=1. This is stronger than arbitrary G-stability; the construction is not an adapter for an arbitrary abstract embedded group A. For transported actions and H¹: U and V are topological groups and their G-actions are jointly continuous. G need not be a topological group. S need not be closed, and no compactness, discreteness, commutativity, quotient-map, openness or continuous-section hypothesis is imposed. All H¹ objects are continuous cocycle gauge-orbit pointed sets. The named-subgroup/native-kernel comparison is bijective. Its inclusion into ambient H¹ is not asserted injective. f is surjective as a function; this witness is used for the mapped-target and original-fibre converses.
-
-Transport the original translated range witnesses through the genuine comparison E and its inverse, then apply the inherited repointed range criterion.
-
-**Checks.**
-
-- If f is surjective, a∈H¹(G,U) lies in the range of b↦T\_c(i\_*(b)) iff H¹.map(f)(a)=[f∘c]. This distinguished target class need not be neutral.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Comparison with the ambient inclusion](#nc-3-named-kernel-h1-inclusion-triangle); [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range).
-
-### 0.32 Exactness for a normal coefficient subgroup
-
+### 0.25 Exactness for a normal coefficient subgroup
 <a id="nc-3-normal-h1-kernel"></a>
 
 **Exactness for a normal coefficient subgroup.** Let π:B → C be a continuous open surjective equivariant homomorphism to a topological G-group C, with ker π=i(A). For y ∈ H¹(G,B), π\_*(y)=1 if and only if y lies in the image of i\_*:H¹(G,A) → H¹(G,B). No continuous section of π is required.
@@ -3607,8 +1710,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Functoriality of nonabelian H⁰ and H¹](#nc-3-functoriality); `Topology.IsEmbedding.continuous_iff`; `QuotientGroup.continuous_mk`; `QuotientGroup.isOpenMap_coe`; [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range); [Named kernel image is the quotient neutral fibre](#nc-3-named-kernel-h1-quotient-range); [Named kernel image under a surjective coefficient map](#nc-3-named-kernel-h1-mapped-range); [Named kernel realizes the entire repointed fibre](#nc-3-named-kernel-h1-original-fibre-range).
 
-### 0.33 Topology of the twisted quotient comparison
-
+### 0.26 Topology of the twisted quotient comparison
 <a id="nc-3-twisted-kernel-quotient-homeomorphism"></a>
 
 **Topological quotient comparison for twisted coefficients.** For surjective f with IsQuotientMap f, construct the homeomorphism Twist(c)/K\_c≃ₜTwist(f∘c), retaining the multiplicative equivalence as its underlying bijection.
@@ -3619,41 +1721,22 @@ Package the quotient multiplicative equivalence with the two proved continuity s
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mk`: For every x, quotientHomeomorph([x])=F\_c(x).
-- `TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_toEquiv`: The underlying Equiv of quotientHomeomorph equals the toEquiv of quotientEquiv.
-- `TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mul`: For x,y in the group quotient, quotientHomeomorph(xy)=quotientHomeomorph(x)quotientHomeomorph(y).
+- <a id="nc-3-twisted-kernel-quotient-homeomorphism-value"></a>`TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mk` (*Homeomorphism on a quotient representative*): For every x, quotientHomeomorph([x])=F\_c(x). *Proof.* The homeomorphism has exactly the quotient equivalence as its function. Uses [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
+- <a id="nc-3-twisted-kernel-quotient-homeomorphism-comparison"></a>`TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_toEquiv` (*Homeomorphism agrees with the quotient bijection*): The underlying Equiv of quotientHomeomorph equals the toEquiv of quotientEquiv. *Proof.* Unfold the Homeomorph constructor; its underlying bijection is the multiplicative equivalence.
+- <a id="nc-3-twisted-kernel-quotient-homeomorphism-multiplication"></a>`TauCeti.NonabelianCohomology.Twist.quotientHomeomorph_mul` (*Multiplication under the quotient homeomorphism*): For x,y in the group quotient, quotientHomeomorph(xy)=quotientHomeomorph(x)quotientHomeomorph(y). *Proof.* Use the multiplicativity of the unchanged quotient equivalence, rather than assuming a bare homeomorphism preserves multiplication. Uses [Homeomorphism agrees with the quotient bijection](#nc-3-twisted-kernel-quotient-homeomorphism-comparison).
 
 **Checks.**
 
 - `Twist.quotientHomeomorph.test_native_value`: On [x], the homeomorphism has original target-group value f(j\_c(x)).
 - `Twist.quotientHomeomorph.test_inverse`: The homeomorphism and inverse cancel on every quotient element.
 - `Twist.quotientHomeomorph.test_quotient_topology_required`: If continuous surjective equivariant f fails IsQuotientMap, the quotient equivalence’s inverse is not continuous. This checks the exact missing topology hypothesis conditionally; no concrete topology counterexample is claimed.
-- For surjective f with IsQuotientMap f, construct the homeomorphism Twist(c)/K\_c≃ₜTwist(f∘c), retaining the multiplicative equivalence as its underlying bijection.
 - Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
 
 Use [Continuity of the quotient comparison](#nc-3-twisted-kernel-quotient-continuous); [Continuity of the inverse quotient comparison](#nc-3-twisted-kernel-quotient-inverse-continuous).
 
-<a id="nc-3-twisted-kernel-quotient-topology-criterion"></a>
-
-**Exact topology criterion for the quotient inverse.** For surjective continuous equivariant f, Continuous(quotientEquiv⁻¹) if and only if IsQuotientMap f. Thus surjectivity and continuity alone cannot supply a topological isomorphism.
-
-Standing hypotheses (H10).
-
-For the forward implication package the equivalence and assumed inverse continuity into a homeomorphism, then compose its quotient-map property with the group quotient projection to recover IsQuotientMap F\_c=f. The reverse implication is the proved inverse-continuity lemma.
-
-**Checks.**
-
-- For surjective continuous equivariant f, Continuous(quotientEquiv⁻¹) if and only if IsQuotientMap f. Thus surjectivity and continuity alone cannot supply a topological isomorphism.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Continuity of the quotient comparison](#nc-3-twisted-kernel-quotient-continuous); [Continuity of the inverse quotient comparison](#nc-3-twisted-kernel-quotient-inverse-continuous); `Homeomorph.isQuotientMap`; `Topology.IsQuotientMap.comp`.
-
-### 0.34 Central extensions and the connecting map to H²
-
+### 0.27 Central extensions and the connecting map to H²
 <a id="nc-3-central-extension"></a>
 
 **Central extensions: the action of H¹(G, Z) and the connecting map to H².** Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) ([Comparison with abelian continuous cohomology](#nc-3-abelian-comparison)) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c ([Twisting by a cocycle](#nc-3-twisting)) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z). The convention in (b) is the positive defect matching Tau Ceti's additive d¹. Kim arXiv v1, printed p.5, defines dc(g,h)=c(gh)(g•c(h))⁻¹c(g)⁻¹, its inverse. Thus δ² here is the negative of Kim's printed connecting class under the additive identification of the central coefficient; their zero loci agree.
@@ -3673,8 +1756,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Comparison with abelian continuous cohomology](#nc-3-abelian-comparison); [Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence); [Exactness for a normal coefficient subgroup](#nc-3-normal-h1-kernel); [Twisting by a cocycle](#nc-3-twisting); `TauCeti.ContCohomology.H2`; `TauCeti.ContCohomology.H2pi`; `TauCeti.ContCohomology.Z2`; `TauCeti.ContCohomology.B2`; `Subgroup.center`; [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity); [Underlying group comparison for twisted kernels](#nc-3-twisted-kernel-equivalence); [Topological quotient comparison for twisted coefficients](#nc-3-twisted-kernel-quotient-homeomorphism); [Exact topology criterion for the quotient inverse](#nc-3-twisted-kernel-quotient-topology-criterion); [Continuous automorphism action on the twisted quotient](#nc-3-twisted-quotient-action); [Joint continuity of the descended inner action](#nc-3-twisted-quotient-action-continuity); [Pointed equivalence of quotient-twist H¹](#nc-3-twisted-quotient-h1-equivalence); [Kernel inclusion is killed by the quotient](#nc-3-twisted-quotient-h1-kernel-image); [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range).
 
-### 0.35 The obstruction on gauge classes
-
+### 0.28 The obstruction on gauge classes
 <a id="nc-3-central-obstruction-descent"></a>
 
 **Obstruction on gauge classes.** For a central G-equivariant exact sequence 1→Multiplicative M→B→C→1 with the kernel identification a homeomorphism, q surjective and a continuous set section, D\_{s∘c} defines δ:H1(G,C)→ContCohomology.H2 G M. It is independent of the section and of the cocycle representative. Its zero fibre is the image of H1(G,B), and δ is natural for continuous equivariant morphisms of such central sequences. The inverse source convention changes δ to −δ without changing the zero fibre.
@@ -3691,8 +1773,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Continuous lift exactness](#nc-3-central-lift-exactness); [Central extensions: the action of H¹(G, Z) and the connecting map to H²](#nc-3-central-extension); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
-### 0.36 Kernel gauges and the invariant action on kernel classes
-
+### 0.29 Kernel gauges and the invariant action on kernel classes
 <a id="nc-3-kernel-invariant-gauge"></a>
 
 **Gauge cocycles within the kernel.** For K≤U with u∈K iff f(u)=1 and a supplied continuous G-action compatible with its inclusion, f equivariant, u∈U and f(u)∈H⁰(G,V), construct the continuous K-valued cocycle g↦u c(g)(g•u)⁻¹ from c∈Z¹(G,K).
@@ -3703,12 +1784,12 @@ Gauge the ambient inclusion of c by u. Apply f to prove every value lies in K, u
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.kernelGauge_apply`: The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹.
-- `TauCeti.NonabelianCohomology.Z1.kernelGauge_one`: The gauge construction for u=1 equals the original K-valued cocycle.
-- `TauCeti.NonabelianCohomology.Z1.kernelGauge_mul`: For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c)).
-- `TauCeti.NonabelianCohomology.Z1.kernelGauge_gauge`: kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f.
-- `TauCeti.NonabelianCohomology.Z1.kernelGauge_inclusion`: The inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles.
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift_independent`: If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles.
+- <a id="nc-3-kernel-invariant-gauge-value"></a>`TauCeti.NonabelianCohomology.Z1.kernelGauge_apply` (*Kernel gauge value*): The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹. *Proof.* Evaluate the subtype map.
+- <a id="nc-3-kernel-invariant-gauge-unit"></a>`TauCeti.NonabelianCohomology.Z1.kernelGauge_one` (*Identity kernel gauge*): The gauge construction for u=1 equals the original K-valued cocycle. *Proof.* Reflect equality pointwise through the subgroup inclusion and cancel the identity factors. Uses [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
+- <a id="nc-3-kernel-invariant-gauge-product"></a>`TauCeti.NonabelianCohomology.Z1.kernelGauge_mul` (*Ordered product of kernel gauges*): For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c)). *Proof.* Expand pointwise, use the automorphism multiplication identity, and cancel adjacent factors in the noncommutative order. Uses [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
+- <a id="nc-3-kernel-invariant-gauge-equivariance"></a>`TauCeti.NonabelianCohomology.Z1.kernelGauge_gauge` (*Kernel gauge respects gauge equivalence*): kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f. *Proof.* Prove membership of the conjugate in K, then expand both ordered gauge expressions and cancel. This produces a real gauge witness, not an assumed quotient equality. Uses [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
+- <a id="nc-3-kernel-invariant-gauge-inclusion"></a>`TauCeti.NonabelianCohomology.Z1.kernelGauge_inclusion` (*Kernel gauge and ambient inclusion*): The inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles. *Proof.* Reflect cocycle equality pointwise; the underlying maps are identical.
+- <a id="nc-3-kernel-invariant-lift-independence"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift_independent` (*Lift independence on cohomology classes*): If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles. *Proof.* The kernel element w u⁻¹ gauges the first cocycle to the second. Verify membership by applying f and the gauge identity by ordered cancellation. Uses [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
 
 **Checks.**
 
@@ -3719,59 +1800,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
 
 Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-kernel-invariant-gauge-value"></a>
-
-**Kernel gauge value.** The underlying U-value of kernelGauge(u,c)(g) is u c(g)(g•u)⁻¹.
-
-Standing hypotheses (H21).
-
-Evaluate the subtype map.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Gauge cocycles within the kernel](#nc-3-kernel-invariant-gauge).
-
-<a id="nc-3-kernel-invariant-gauge-equivariance"></a>
-
-**Kernel gauge respects gauge equivalence.** kernelGauge(u,a•c)=(u a u⁻¹)•kernelGauge(u,c) for a∈K. The conjugate lies in K by applying f.
-
-Standing hypotheses (H21).
-
-Prove membership of the conjugate in K, then expand both ordered gauge expressions and cancel. This produces a real gauge witness, not an assumed quotient equality.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
-
-<a id="nc-3-kernel-invariant-gauge-unit"></a>
-
-**Identity kernel gauge.** The gauge construction for u=1 equals the original K-valued cocycle.
-
-Standing hypotheses (H21).
-
-Reflect equality pointwise through the subgroup inclusion and cancel the identity factors.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
-
-<a id="nc-3-kernel-invariant-gauge-product"></a>
-
-**Ordered product of kernel gauges.** For f(u),f(v) fixed, kernelGauge(uv,c)=kernelGauge(u,kernelGauge(v,c)).
-
-Standing hypotheses (H21).
-
-Expand pointwise, use the automorphism multiplication identity, and cancel adjacent factors in the noncommutative order.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
-
 <a id="nc-3-kernel-preimage-class-action"></a>
 
 **Preimage invariants act on kernel classes.** Construct the MulAction of E=f⁻¹(H⁰(G,V)) on H¹(G,K) by u•[c]=[kernelGauge(u,c)].
@@ -3782,9 +1810,9 @@ Use Quotient.lift on the gauge-orbit set, with the conjugate gauge witness. The 
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.kernelPreimageAction_mk`: For u∈E, u•[c]=[kernelGauge(u,c)] under the constructed action.
-- `TauCeti.NonabelianCohomology.H1.kernelPreimageAction_kernel`: If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K).
-- `TauCeti.NonabelianCohomology.H1.kernelPreimageAction_perm_kernel`: For the E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K))).
+- <a id="nc-3-kernel-preimage-class-value"></a>`TauCeti.NonabelianCohomology.H1.kernelPreimageAction_mk` (*Preimage action on a representative*): For u∈E, u•[c]=[kernelGauge(u,c)] under the constructed action. *Proof.* Evaluate the quotient lift.
+- <a id="nc-3-kernel-preimage-class-kernel"></a>`TauCeti.NonabelianCohomology.H1.kernelPreimageAction_kernel` (*Kernel elements act trivially on classes*): If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K). *Proof.* Represent a by a continuous cocycle. Identify kernelGauge(u,c) with the ordinary gauge by the element u∈K; its inverse is the gauge witness for class equality. Uses [Preimage action on a representative](#nc-3-kernel-preimage-class-value); [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
+- <a id="nc-3-kernel-preimage-permutation-kernel"></a>`TauCeti.NonabelianCohomology.H1.kernelPreimageAction_perm_kernel` (*Permutation action kills the projection kernel*): For the E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K))). *Proof.* Reflect permutation equality pointwise and apply triviality of the kernel-element action. Uses [Kernel elements act trivially on classes](#nc-3-kernel-preimage-class-kernel); [Project preimage invariants](#nc-3-invariant-preimage-projection).
 
 **Checks.**
 
@@ -3806,9 +1834,9 @@ Restrict the original homomorphism to the two subgroups. Membership and group la
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H0.preimageProjection_apply`: The V-value of the projection at u∈E equals f(u).
-- `TauCeti.NonabelianCohomology.H0.preimageProjection_mem_ker`: For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K.
-- `TauCeti.NonabelianCohomology.H0.preimageProjection_surjective`: If the original f:U→*V is surjective, the projection E→*H⁰(G,V) is surjective. No fixed lift in U is required.
+- <a id="nc-3-invariant-preimage-projection-value"></a>`TauCeti.NonabelianCohomology.H0.preimageProjection_apply` (*Invariant projection value*): The V-value of the projection at u∈E equals f(u). *Proof.* Evaluate the subtype construction.
+- <a id="nc-3-invariant-preimage-projection-kernel"></a>`TauCeti.NonabelianCohomology.H0.preimageProjection_mem_ker` (*Exact invariant projection kernel*): For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K. *Proof.* Use the homomorphism kernel membership theorem and subtype equality.
+- <a id="nc-3-invariant-preimage-projection-surjective"></a>`TauCeti.NonabelianCohomology.H0.preimageProjection_surjective` (*Surjective invariant projection*): If the original f:U→*V is surjective, the projection E→*H⁰(G,V) is surjective. No fixed lift in U is required. *Proof.* Lift the underlying V-value using f-surjectivity. Its image fixedness places the lift in E; subtype equality proves the required projection equation.
 
 **Checks.**
 
@@ -3820,58 +1848,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
 
-<a id="nc-3-invariant-preimage-projection-surjective"></a>
-
-**Surjective invariant projection.** If the original f:U→*V is surjective, the projection E→*H⁰(G,V) is surjective. No fixed lift in U is required.
-
-Standing hypotheses (H21).
-
-Lift the underlying V-value using f-surjectivity. Its image fixedness places the lift in E; subtype equality proves the required projection equation.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Project preimage invariants](#nc-3-invariant-preimage-projection).
-
-<a id="nc-3-kernel-preimage-class-value"></a>
-
-**Preimage action on a representative.** For u∈E, u•[c]=[kernelGauge(u,c)] under the constructed action.
-
-Standing hypotheses (H21).
-
-Evaluate the quotient lift.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Preimage invariants act on kernel classes](#nc-3-kernel-preimage-class-action).
-
-<a id="nc-3-kernel-preimage-class-kernel"></a>
-
-**Kernel elements act trivially on classes.** If u∈E and f(u)=1, then u•a=a for every a∈H¹(G,K).
-
-Standing hypotheses (H21).
-
-Represent a by a continuous cocycle. Identify kernelGauge(u,c) with the ordinary gauge by the element u∈K; its inverse is the gauge witness for class equality.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Preimage action on a representative](#nc-3-kernel-preimage-class-value); [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
-
-<a id="nc-3-kernel-preimage-permutation-kernel"></a>
-
-**Permutation action kills the projection kernel.** For the E-action on H¹(G,K), ker(E→H⁰(G,V)) lies in ker(E→*Perm(H¹(G,K))).
-
-Standing hypotheses (H21).
-
-Reflect permutation equality pointwise and apply triviality of the kernel-element action.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Kernel elements act trivially on classes](#nc-3-kernel-preimage-class-kernel); [Project preimage invariants](#nc-3-invariant-preimage-projection); `MulAction.toPermHom`.
-
 <a id="nc-3-kernel-invariant-class-action"></a>
 
 **Quotient invariants act on kernel classes.** If f is surjective, construct a MulAction of H⁰(G,V) on H¹(G,K) descending the E-action. For a lift u of v, it sends [c] to [g↦u c(g)(g•u)⁻¹]. This is a set action; it need not preserve the neutral class.
@@ -3882,10 +1858,10 @@ Represent the E-action by Mathlib’s homomorphism to the group of permutations.
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift`: The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a.
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_mk`: For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)].
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_inclusion`: The inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action.
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_fibre_iff`: For surjective equivariant f and the subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required.
+- <a id="nc-3-kernel-invariant-class-lift"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_lift` (*Invariant action agrees with each preimage lift*): The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a. *Proof.* Apply the liftOfRightInverse composition identity to the permutation homomorphism, then evaluate at a.
+- <a id="nc-3-kernel-invariant-class-value"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_mk` (*Invariant action on a cocycle*): For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)]. *Proof.* Put u in the preimage subgroup, compare its projection with v, then apply the action-lift and quotient evaluation lemmas. Uses [Invariant action agrees with each preimage lift](#nc-3-kernel-invariant-class-lift); [Preimage action on a representative](#nc-3-kernel-preimage-class-value).
+- <a id="nc-3-kernel-invariant-ambient-constant"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_inclusion` (*Ambient image is invariant under the action*): The inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action. *Proof.* Represent a kernel class, choose one lift of the fixed quotient element, and identify its included cocycle with an ordinary ambient gauge. The inverse lift gives the quotient witness. Uses [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value); [Kernel gauge and ambient inclusion](#nc-3-kernel-invariant-gauge-inclusion); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
+- <a id="nc-3-kernel-invariant-fibre-orbit"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_fibre_iff` (*Ambient fibres are exactly invariant orbits*): For surjective equivariant f and the subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required. *Proof.* Represent a,b by cocycles. An ambient gauge u between their included cocycles projects under f to a fixed element, by applying f and cancelling the kernel values. Its kernel gauge is the second cocycle, so the lifted action gives the orbit witness. Conversely apply constancy of the ambient image on the orbit. Uses [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value); [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
 **Checks.**
 
@@ -3907,10 +1883,10 @@ Instantiate the kernel invariant action with the continuous equivariant f\_c and
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_mk`: For v∈A\_c, any u∈U\_c with f\_c(u)=v and every continuous K\_c-valued cocycle d, v·[d] equals the class of the kernelGauge cocycle g↦u d(g)(g⋆\_c u)⁻¹. No continuous family of lifts is required.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_inclusion`: For every v∈A\_c and a∈H¹(G,K\_c), j\_c(v·a)=j\_c(a) in H¹(G,U\_c), where j\_c is the twisted-kernel inclusion. Thus T\_c∘j\_c is constant on these invariant orbits.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_fibre_iff`: For a,b∈H¹(G,K\_c), T\_c(j\_c(a))=T\_c(j\_c(b)) if and only if some v∈A\_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff`: The translated kernel-class map T\_c∘j\_c is injective exactly when the entire A\_c-action on H¹(G,K\_c) is trivial: v·a=a for every v and a. Triviality of A\_c is sufficient but not necessary, and no unconditional unique kernel class is asserted.
+- <a id="nc-3-twisted-kernel-invariant-action-value"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_mk` (*Invariant action on representatives*): For v∈A\_c, any u∈U\_c with f\_c(u)=v and every continuous K\_c-valued cocycle d, v·[d] equals the class of the kernelGauge cocycle g↦u d(g)(g⋆\_c u)⁻¹. No continuous family of lifts is required. *Proof.* Apply the representative formula to f\_c and its kernel; invariance of v supplies the kernelGauge membership witness. Uses [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value).
+- <a id="nc-3-twisted-kernel-invariant-inclusion"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_inclusion` (*Invariant action preserves inclusion*): For every v∈A\_c and a∈H¹(G,K\_c), j\_c(v·a)=j\_c(a) in H¹(G,U\_c), where j\_c is the twisted-kernel inclusion. Thus T\_c∘j\_c is constant on these invariant orbits. *Proof.* Specialize the invariant-action inclusion identity, then apply the T\_c when the translated equality is needed. Uses [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion).
+- <a id="nc-3-twisted-kernel-invariant-fibre-orbit"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_fibre_iff` (*Twisted inclusion fibres are invariant orbits*): For a,b∈H¹(G,K\_c), T\_c(j\_c(a))=T\_c(j\_c(b)) if and only if some v∈A\_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes. *Proof.* Reflect the translated equality through injectivity of T\_c and specialize the kernel fibre-orbit criterion to f\_c. Uses [Ambient fibres are exactly invariant orbits](#nc-3-kernel-invariant-fibre-orbit); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
+- <a id="nc-3-twisted-kernel-invariant-injectivity-iff"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInvariantAction_injective_iff` (*Twisted kernel injectivity criterion*): The translated kernel-class map T\_c∘j\_c is injective exactly when the entire A\_c-action on H¹(G,K\_c) is trivial: v·a=a for every v and a. Triviality of A\_c is sufficient but not necessary, and no unconditional unique kernel class is asserted. *Proof.* Injectivity of T\_c reflects and preserves injectivity of j\_c. Apply the necessary-and-sufficient trivial-action criterion to f\_c. Uses [Kernel injectivity and the invariant action](#nc-3-kernel-invariant-injectivity-characterisation); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
 
 **Checks.**
 
@@ -3922,71 +1898,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Quotient invariants act on kernel classes](#nc-3-kernel-invariant-class-action); [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity); [Surjectivity of the twisted coefficient map](#nc-3-twisted-map-surjectivity).
 
-<a id="nc-3-kernel-invariant-class-lift"></a>
-
-**Invariant action agrees with each preimage lift.** The action of the projection of u∈E on a∈H¹(G,K) equals the preimage action of u, for every such u and a.
-
-Standing hypotheses (H21).
-
-Apply the liftOfRightInverse composition identity to the permutation homomorphism, then evaluate at a.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Quotient invariants act on kernel classes](#nc-3-kernel-invariant-class-action); [Permutation action kills the projection kernel](#nc-3-kernel-preimage-permutation-kernel); `MonoidHom.liftOfRightInverse_comp_apply`.
-
-<a id="nc-3-kernel-invariant-class-value"></a>
-
-**Invariant action on a cocycle.** For v∈H⁰(G,V), u∈U with f(u)=v and c∈Z¹(G,K), v•[c]=[kernelGauge(u,c)].
-
-Standing hypotheses (H21).
-
-Put u in the preimage subgroup, compare its projection with v, then apply the action-lift and quotient evaluation lemmas.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Invariant action agrees with each preimage lift](#nc-3-kernel-invariant-class-lift); [Preimage action on a representative](#nc-3-kernel-preimage-class-value).
-
-<a id="nc-3-kernel-invariant-gauge-inclusion"></a>
-
-**Kernel gauge and ambient inclusion.** The inclusion of kernelGauge(u,c) equals u•(inclusion of c) as U-valued continuous cocycles.
-
-Standing hypotheses (H21).
-
-Reflect cocycle equality pointwise; the underlying maps are identical.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Gauge cocycles within the kernel](#nc-3-kernel-invariant-gauge).
-
-<a id="nc-3-kernel-invariant-ambient-constant"></a>
-
-**Ambient image is invariant under the action.** The inclusion H¹(G,K)→H¹(G,U) is constant on every orbit of the H⁰(G,V)-action.
-
-Standing hypotheses (H21).
-
-Represent a kernel class, choose one lift of the fixed quotient element, and identify its included cocycle with an ordinary ambient gauge. The inverse lift gives the quotient witness.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value); [Kernel gauge and ambient inclusion](#nc-3-kernel-invariant-gauge-inclusion); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
-
-<a id="nc-3-kernel-invariant-fibre-orbit"></a>
-
-**Ambient fibres are exactly invariant orbits.** For surjective equivariant f and the subgroup K=ker(f) with its compatible continuous G-action, two classes a,b∈H¹(G,K) have equal images in H¹(G,U) exactly when there exists v∈H⁰(G,V) with v•a=b. No centrality, trivial invariants, quotient-map hypothesis or continuous section is required.
-
-Standing hypotheses (H21).
-
-Represent a,b by cocycles. An ambient gauge u between their included cocycles projects under f to a fixed element, by applying f and cancelling the kernel values. Its kernel gauge is the second cocycle, so the lifted action gives the orbit witness. Conversely apply constancy of the ambient image on the orbit.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value); [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
-
 <a id="nc-3-kernel-orbit-image-equivalence"></a>
 
 **Kernel orbits and the inclusion image.** For surjective equivariant f:U→V and K=ker(f), construct the equivalence H¹(G,K)/H⁰(G,V) ≃ image(j), where j:H¹(G,K)→H¹(G,U) is the inclusion map and the quotient is by the previously constructed invariant action. Its forward map sends the orbit of a to j(a), with its range witness.
@@ -3997,11 +1908,12 @@ Descend j to the action-orbit quotient using orbit constancy. Reflect equal quot
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_mk`: The underlying ambient class of the orbit of a under the image equivalence is exactly j(a).
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_mk`: The inverse image equivalence sends j(a), equipped with its range witness a, to the invariant orbit of a.
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_projection`: For every range element z, applying the equivalence after its inverse has underlying ambient value z.
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_choice_independent`: If j(a)=j(b), the invariant orbits of a and b are equal. Thus the inverse determines an orbit independently of a chosen range witness, without claiming a=b.
-- `TauCeti.NonabelianCohomology.H1.kernelInvariantAction_injective_iff`: For surjective f, j is injective exactly when every invariant v∈H⁰(G,V) fixes every class in H¹(G,K). This requires triviality of the action, not triviality of its acting group.
+- <a id="nc-3-kernel-orbit-image-value"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_mk` (*Orbit image evaluation*): The underlying ambient class of the orbit of a under the image equivalence is exactly j(a). *Proof.* Evaluate the quotient lift and equivalence forward map.
+- <a id="nc-3-kernel-orbit-image-inverse-witness"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_mk` (*Image inverse on a range witness*): The inverse image equivalence sends j(a), equipped with its range witness a, to the invariant orbit of a. *Proof.* Apply the equivalence left inverse to the orbit of a.
+- <a id="nc-3-kernel-orbit-image-inverse-projection"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_symm_projection` (*Projection after the image inverse*): For every range element z, applying the equivalence after its inverse has underlying ambient value z. *Proof.* Apply the right inverse and project the subtype value.
+- <a id="nc-3-kernel-orbit-image-choice-independence"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitImageEquiv_choice_independent` (*Independence of kernel-class witnesses*): If j(a)=j(b), the invariant orbits of a and b are equal. Thus the inverse determines an orbit independently of a chosen range witness, without claiming a=b. *Proof.* Apply injectivity of the image equivalence to the equality of the two subtype values.
+- <a id="nc-3-kernel-invariant-injectivity-characterisation"></a>`TauCeti.NonabelianCohomology.H1.kernelInvariantAction_injective_iff` (*Kernel injectivity and the invariant action*): For surjective f, j is injective exactly when every invariant v∈H⁰(G,V) fixes every class in H¹(G,K). This requires triviality of the action, not triviality of its acting group. *Proof.* Injectivity and orbit constancy force every action value to equal its input. Conversely, the fibre/orbit criterion supplies an invariant carrying a to b; trivial action then gives a=b.
+- <a id="nc-3-kernel-inclusion-neutral-range"></a>`TauCeti.NonabelianCohomology.H1.kernelInclusion_range_iff` (*Kernel image equals the neutral coefficient fibre*): For continuous surjective equivariant f between topological groups with jointly continuous actions, a∈H¹(G,U) belongs to image(j) exactly when f₁(a)=1 in H¹(G,V), where f₁ is the continuous coefficient map. *Proof.* Kernel-valued representatives map to the constant identity cocycle. Conversely represent a, extract its image coboundary witness y, choose x with f(x)=y, and apply the already proved inverse-gauge normalization. Restrict the normalized continuous cocycle to K, reflecting the cocycle identity through its compatible inclusion; its included class equals a by gauge equivalence. Uses [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class).
 
 **Checks.**
 
@@ -4014,19 +1926,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Quotient invariants act on kernel classes](#nc-3-kernel-invariant-class-action); [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [Ambient fibres are exactly invariant orbits](#nc-3-kernel-invariant-fibre-orbit); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); `Equiv.ofBijective`; `MulAction.orbitRel`; `MulAction.orbitRel_apply`.
 
-<a id="nc-3-kernel-inclusion-neutral-range"></a>
-
-**Kernel image equals the neutral coefficient fibre.** For continuous surjective equivariant f between topological groups with jointly continuous actions, a∈H¹(G,U) belongs to image(j) exactly when f₁(a)=1 in H¹(G,V), where f₁ is the continuous coefficient map.
-
-Standing hypotheses (H23).
-
-Kernel-valued representatives map to the constant identity cocycle. Conversely represent a, extract its image coboundary witness y, choose x with f(x)=y, and apply the already proved inverse-gauge normalization. Restrict the normalized continuous cocycle to K, reflecting the cocycle identity through its compatible inclusion; its included class equals a by gauge equivalence.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Inverse gauge after a lifted coboundary](#nc-3-mapped-inverse-gauge-normalization); [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class).
-
 <a id="nc-3-kernel-orbit-neutral-fibre-equivalence"></a>
 
 **Kernel orbits and the neutral fibre.** For continuous surjective equivariant f, construct H¹(G,K)/H⁰(G,V) ≃ {a∈H¹(G,U) : f₁(a)=1}. Compose the orbit/image equivalence with the equality of the inclusion image and the neutral fibre. The source base point is the orbit of the neutral kernel class; no action-fixedness of that class is assumed.
@@ -4037,10 +1936,10 @@ Identify the two subsets using the exact kernel-range criterion and compose with
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_mk`: The underlying ambient value of the neutral-fibre equivalence on the orbit of a is j(a).
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_symm_mk`: The inverse neutral-fibre equivalence sends j(a), with its proved neutral-fibre membership, to the invariant orbit of a.
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_one`: The equivalence sends the orbit of the neutral kernel class to the neutral ambient class. This is a statement about the quotient base point, not a claim that each invariant fixes the neutral kernel class.
-- `TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_inverse`: For every neutral-fibre element a, mapping its inverse orbit forward returns the identical subtype element a, including the cohomology value.
+- <a id="nc-3-kernel-orbit-neutral-value"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_mk` (*Neutral-fibre orbit evaluation*): The underlying ambient value of the neutral-fibre equivalence on the orbit of a is j(a). *Proof.* Evaluate the composite; the equal-set subtype equivalence preserves the underlying element.
+- <a id="nc-3-kernel-orbit-neutral-inverse-witness"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_symm_mk` (*Neutral-fibre inverse on a kernel image*): The inverse neutral-fibre equivalence sends j(a), with its proved neutral-fibre membership, to the invariant orbit of a. *Proof.* Apply the composite equivalence left inverse to the orbit.
+- <a id="nc-3-kernel-orbit-neutral-basepoint"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_one` (*Neutral-fibre base point*): The equivalence sends the orbit of the neutral kernel class to the neutral ambient class. This is a statement about the quotient base point, not a claim that each invariant fixes the neutral kernel class. *Proof.* The forward map is inclusion, and the coefficient inclusion preserves the neutral class. Uses [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
+- <a id="nc-3-kernel-orbit-neutral-inverse"></a>`TauCeti.NonabelianCohomology.H1.kernelOrbitNeutralFibreEquiv_inverse` (*Complete neutral-fibre inverse law*): For every neutral-fibre element a, mapping its inverse orbit forward returns the identical subtype element a, including the cohomology value. *Proof.* Apply the equivalence right inverse, with proof irrelevance for fibre membership.
 
 **Checks.**
 
@@ -4062,9 +1961,9 @@ Apply the subtype-equivalence constructor to the T\_c and the proved coefficient
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_apply`: For every element z of the twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T\_c(z).
-- `TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_symm_apply`: For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T\_c⁻¹(z).
-- `TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_basepoint`: Translation sends the neutral twisted class, with its neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1.
+- <a id="nc-3-twist-neutral-fibre-value"></a>`TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_apply` (*Fibre translation evaluation*): For every element z of the twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T\_c(z). *Proof.* Evaluate the restricted equivalence forward map.
+- <a id="nc-3-twist-neutral-fibre-inverse-value"></a>`TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_symm_apply` (*Inverse fibre translation evaluation*): For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T\_c⁻¹(z). *Proof.* Evaluate the restricted equivalence inverse map.
+- <a id="nc-3-twist-neutral-fibre-basepoint"></a>`TauCeti.NonabelianCohomology.H1.twistNeutralFibreEquiv_basepoint` (*The translated fibre base point*): Translation sends the neutral twisted class, with its neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1. *Proof.* Evaluate T\_c at the source neutral class using the twisting base-point identity.
 
 **Checks.**
 
@@ -4086,12 +1985,12 @@ Apply the kernel-orbit neutral-fibre equivalence to f\_c with its kernel, then c
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_mk`: For every b∈H¹(G,K\_c), the underlying value of its invariant orbit under the original-fibre equivalence is T\_c(j\_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_symm_mk`: The inverse original-fibre equivalence sends T\_c(j\_c(b)), with its fibre-membership proof, to the invariant orbit of b. It does not select b uniquely.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_left_inv`: For every invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_right_inv`: For every original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_basepoint`: The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A\_c fixes the neutral kernel class or that [c] is neutral.
-- `TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_choice_independent`: If T\_c(j\_c(a))=T\_c(j\_c(b)), the invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different.
+- <a id="nc-3-twisted-kernel-orbit-fibre-value"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_mk` (*Original-fibre orbit evaluation*): For every b∈H¹(G,K\_c), the underlying value of its invariant orbit under the original-fibre equivalence is T\_c(j\_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order. *Proof.* Evaluate the composite quotient map, inclusion and twist translation.
+- <a id="nc-3-twisted-kernel-orbit-fibre-inverse-value"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_symm_mk` (*Inverse on a translated kernel image*): The inverse original-fibre equivalence sends T\_c(j\_c(b)), with its fibre-membership proof, to the invariant orbit of b. It does not select b uniquely. *Proof.* Apply the composite equivalence left inverse to the orbit of b; fibre-proof irrelevance identifies the subtype argument. Uses [Kernel inclusion maps to the fibre over the image cocycle](#nc-3-twisted-kernel-h1-repointed-fibre).
+- <a id="nc-3-twisted-kernel-orbit-fibre-left-inverse"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_left_inv` (*Complete orbit inverse law*): For every invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q. *Proof.* Apply the composite equivalence left inverse to arbitrary q.
+- <a id="nc-3-twisted-kernel-orbit-fibre-right-inverse"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_right_inv` (*Complete original-fibre inverse law*): For every original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value. *Proof.* Apply the composite equivalence right inverse.
+- <a id="nc-3-twisted-kernel-orbit-fibre-basepoint"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_basepoint` (*The original-fibre orbit base point*): The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A\_c fixes the neutral kernel class or that [c] is neutral. *Proof.* Use the orbit evaluation, the inclusion neutral identity and the T\_c neutral-to-[c] identity. Uses [Original-fibre orbit evaluation](#nc-3-twisted-kernel-orbit-fibre-value); [Neutral class under kernel inclusion](#nc-3-twisted-kernel-h1-neutral); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
+- <a id="nc-3-twisted-kernel-orbit-fibre-choice-independent"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelOrbitFibreEquiv_choice_independent` (*Independence of original-fibre witnesses*): If T\_c(j\_c(a))=T\_c(j\_c(b)), the invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different. *Proof.* Apply injectivity of the constructed orbit equivalence to equality of the subtype values and use its evaluation identity. Uses [Original-fibre orbit evaluation](#nc-3-twisted-kernel-orbit-fibre-value).
 
 **Checks.**
 
@@ -4106,8 +2005,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Kernel orbits and the neutral fibre](#nc-3-kernel-orbit-neutral-fibre-equivalence); [Translation of the neutral coefficient fibre](#nc-3-twist-neutral-fibre-equivalence); [Continuity of a twisted coefficient map](#nc-3-twist-coefficient-continuity); [Surjectivity of the twisted coefficient map](#nc-3-twisted-map-surjectivity).
 
-### 0.37 Abstract embedded kernels
-
+### 0.30 Abstract embedded kernels
 <a id="nc-3-embedded-kernel-equivalence"></a>
 
 **Abstract embedded kernel equivalence.** Construct e:A≃*K\_c, where K\_c=ker(F\_c) in Twist(c), by composing Mathlib’s injective-homomorphism range equivalence with the previously constructed named-kernel equivalence. Its underlying value at a is i(a).
@@ -4118,10 +2016,10 @@ Use MonoidHom.ofInjective for i:A→U and hi.injective. Apply the exact image wi
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_apply`: For a∈A, the original U-value of e(a) is i(a).
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_symm_apply`: For k∈K\_c, i(e⁻¹(k)) is the original U-value of k.
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_continuous`: The forward map e:A→K\_c is continuous for the given topology on A and subspace topology on K\_c.
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_symm_continuous`: The inverse e⁻¹:K\_c→A is continuous for the supplied topology on A.
+- <a id="nc-3-embedded-kernel-value"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_apply` (*Embedded kernel forward value*): For a∈A, the original U-value of e(a) is i(a). *Proof.* Unfold the composition only far enough to evaluate the range inclusion; the value is definitionally i(a).
+- <a id="nc-3-embedded-kernel-inverse-value"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_symm_apply` (*Embedded kernel inverse value*): For k∈K\_c, i(e⁻¹(k)) is the original U-value of k. *Proof.* Apply the original-value map to e(e⁻¹(k))=k. This determines the chosen inverse uniquely because i is injective. Uses [Embedded kernel forward value](#nc-3-embedded-kernel-value).
+- <a id="nc-3-embedded-kernel-continuity"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_continuous` (*Continuous embedded kernel equivalence*): The forward map e:A→K\_c is continuous for the given topology on A and subspace topology on K\_c. *Proof.* The forward value is i, continuous by the topological embedding hypothesis. Restrict its codomain to the subtype using membership.
+- <a id="nc-3-embedded-kernel-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_symm_continuous` (*Continuous inverse on the abstract kernel*): The inverse e⁻¹:K\_c→A is continuous for the supplied topology on A. *Proof.* Use IsEmbedding.continuous\_iff to test inverse continuity after composition with i. The inverse-value formula identifies this composite with the continuous kernel inclusion. Injectivity and continuity alone would not justify this step. Uses [Embedded kernel inverse value](#nc-3-embedded-kernel-inverse-value).
 
 **Checks.**
 
@@ -4130,81 +2028,11 @@ The interface consists of the following named results.
 - `embedded_kernel_inverse_topology`: If a multiplicative equivalence A≃U has a discontinuous inverse, its underlying forward map cannot satisfy the topological embedding hypothesis, even if it is algebraically bijective.
 - `embedded_kernel_constant_nonsurjective`: For f:U→V constant at 1 and i=id, any v≠1 proves f is not surjective, but the embedded-kernel equivalence is still defined and has original value x for every x∈U.
 - `embedded_kernel_inverse_coordinate`: For a commutative topological group C, i(x)=x⁻¹ and f:C→C constant at 1, if x⁻¹≠x then the forward kernel-equivalence value differs from x. An implementation silently replacing i by identity fails.
-- Construct e:A≃*K\_c, where K\_c=ker(F\_c) in Twist(c), by composing Mathlib’s injective-homomorphism range equivalence with the previously constructed named-kernel equivalence. Its underlying value at a is i(a).
 - With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
 
 Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence); [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); `MonoidHom.ofInjective`.
-
-<a id="nc-3-embedded-kernel-continuity"></a>
-
-**Continuous embedded kernel equivalence.** The forward map e:A→K\_c is continuous for the given topology on A and subspace topology on K\_c.
-
-Standing hypotheses (H24).
-
-The forward value is i, continuous by the topological embedding hypothesis. Restrict its codomain to the subtype using membership.
-
-**Checks.**
-
-- The forward map e:A→K\_c is continuous for the given topology on A and subspace topology on K\_c.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Abstract embedded kernel equivalence](#nc-3-embedded-kernel-equivalence); `Topology.IsEmbedding.continuous`; `Continuous.subtype_mk`.
-
-<a id="nc-3-embedded-kernel-value"></a>
-
-**Embedded kernel forward value.** For a∈A, the original U-value of e(a) is i(a).
-
-Standing hypotheses (H24).
-
-Unfold the composition only far enough to evaluate the range inclusion; the value is definitionally i(a).
-
-**Checks.**
-
-- For a∈A, the original U-value of e(a) is i(a).
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Abstract embedded kernel equivalence](#nc-3-embedded-kernel-equivalence).
-
-<a id="nc-3-embedded-kernel-inverse-value"></a>
-
-**Embedded kernel inverse value.** For k∈K\_c, i(e⁻¹(k)) is the original U-value of k.
-
-Standing hypotheses (H24).
-
-Apply the original-value map to e(e⁻¹(k))=k. This determines the chosen inverse uniquely because i is injective.
-
-**Checks.**
-
-- For k∈K\_c, i(e⁻¹(k)) is the original U-value of k.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Abstract embedded kernel equivalence](#nc-3-embedded-kernel-equivalence); [Embedded kernel forward value](#nc-3-embedded-kernel-value).
-
-<a id="nc-3-embedded-kernel-inverse-continuity"></a>
-
-**Continuous inverse on the abstract kernel.** The inverse e⁻¹:K\_c→A is continuous for the supplied topology on A.
-
-Standing hypotheses (H24).
-
-Use IsEmbedding.continuous\_iff to test inverse continuity after composition with i. The inverse-value formula identifies this composite with the continuous kernel inclusion. Injectivity and continuity alone would not justify this step.
-
-**Checks.**
-
-- The inverse e⁻¹:K\_c→A is continuous for the supplied topology on A.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Embedded kernel inverse value](#nc-3-embedded-kernel-inverse-value); `Topology.IsEmbedding.continuous_iff`.
-
 <a id="nc-3-embedded-kernel-inner-action"></a>
 
 **Inner action on the abstract kernel.** Equip the group A with g⋆a=e⁻¹(g⋆e(a)), where the target action is the restricted inner action on K\_c. This is an action by group automorphisms preserving A’s original multiplication.
@@ -4215,72 +2043,20 @@ Transport the kernel action through the multiplicative equivalence. Prove the id
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelAction_value`: For every g∈G and a∈A, i(g⋆a)=c(g)·(g•i(a))·c(g)⁻¹, in that order.
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_smul`: The multiplicative equivalence satisfies e(g⋆a)=g⋆e(a).
-- `TauCeti.NonabelianCohomology.Twist.embeddedKernelContinuousSMul`: The action G×A→A is jointly continuous in the given topology on A.
+- <a id="nc-3-embedded-kernel-action-value"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelAction_value` (*Embedded inner action formula*): For every g∈G and a∈A, i(g⋆a)=c(g)·(g•i(a))·c(g)⁻¹, in that order. *Proof.* Evaluate the inverse map on g⋆e(a); apply its inverse-value formula and the kernel action formula. Uses [Embedded kernel inverse value](#nc-3-embedded-kernel-inverse-value).
+- <a id="nc-3-embedded-kernel-equivariance"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelEquiv_smul` (*Equivariant abstract kernel comparison*): The multiplicative equivalence satisfies e(g⋆a)=g⋆e(a). *Proof.* Expand the transported action and use e(e⁻¹(x))=x.
+- <a id="nc-3-embedded-kernel-action-continuity"></a>`TauCeti.NonabelianCohomology.Twist.embeddedKernelContinuousSMul` (*Joint continuity of the transported action*): The action G×A→A is jointly continuous in the given topology on A. *Proof.* Test continuity after the inducing map i. The value formula is the product of continuous c, the jointly continuous ambient action composed with i, and inverse c. This does not require G’s multiplication to be continuous. Uses [Embedded inner action formula](#nc-3-embedded-kernel-action-value).
 
 **Checks.**
 
 - `embedded_kernel_neutral_action`: For c=1 the transported action satisfies i(g⋆a)=g•i(a), with the original action on the ambient U.
 - `embedded_kernel_inner_action_order`: If c(g)(g•i(a))c(g)⁻¹ differs from g•i(a), then i(g⋆a) also differs from g•i(a); dropping conjugation is rejected.
 - `embedded_kernel_action_multiplication`: For g∈G and x,y∈A, i(g⋆(xy))=i(g⋆x)i(g⋆y), using A’s original multiplication.
-- Equip the group A with g⋆a=e⁻¹(g⋆e(a)), where the target action is the restricted inner action on K\_c. This is an action by group automorphisms preserving A’s original multiplication.
 - With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
 
 Use [Abstract embedded kernel equivalence](#nc-3-embedded-kernel-equivalence); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action).
-
-<a id="nc-3-embedded-kernel-equivariance"></a>
-
-**Equivariant abstract kernel comparison.** The multiplicative equivalence satisfies e(g⋆a)=g⋆e(a).
-
-Standing hypotheses (H25).
-
-Expand the transported action and use e(e⁻¹(x))=x.
-
-**Checks.**
-
-- The multiplicative equivalence satisfies e(g⋆a)=g⋆e(a).
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Inner action on the abstract kernel](#nc-3-embedded-kernel-inner-action).
-
-<a id="nc-3-embedded-kernel-action-value"></a>
-
-**Embedded inner action formula.** For every g∈G and a∈A, i(g⋆a)=c(g)·(g•i(a))·c(g)⁻¹, in that order.
-
-Standing hypotheses (H25).
-
-Evaluate the inverse map on g⋆e(a); apply its inverse-value formula and the kernel action formula.
-
-**Checks.**
-
-- For every g∈G and a∈A, i(g⋆a)=c(g)·(g•i(a))·c(g)⁻¹, in that order.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Inner action on the abstract kernel](#nc-3-embedded-kernel-inner-action); [Embedded kernel inverse value](#nc-3-embedded-kernel-inverse-value).
-
-<a id="nc-3-embedded-kernel-action-continuity"></a>
-
-**Joint continuity of the transported action.** The action G×A→A is jointly continuous in the given topology on A.
-
-Standing hypotheses (H25).
-
-Test continuity after the inducing map i. The value formula is the product of continuous c, the jointly continuous ambient action composed with i, and inverse c. This does not require G’s multiplication to be continuous.
-
-**Checks.**
-
-- The action G×A→A is jointly continuous in the given topology on A.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Embedded inner action formula](#nc-3-embedded-kernel-action-value); `Topology.IsEmbedding.continuous_iff`.
 
 <a id="nc-3-embedded-kernel-h1-equivalence"></a>
 
@@ -4292,16 +2068,15 @@ Use the H¹ coefficient map in both directions. Derive inverse equivariance by a
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_one`: E sends the neutral continuous H¹ class to the neutral class of the kernel.
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_mk`: For a continuous cocycle d:G→A\_c, E([d])=[e∘d], using the continuous equivariant coefficient pushforward.
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_inclusion`: For every a∈H¹(G,A\_c), j\_native(E(a))=j(a), with both inclusion maps into H¹(G,Twist(c)).
+- <a id="nc-3-embedded-kernel-h1-one"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_one` (*Abstract kernel neutral class*): E sends the neutral continuous H¹ class to the neutral class of the kernel. *Proof.* Apply the coefficient H¹ map’s neutral-class law.
+- <a id="nc-3-embedded-kernel-h1-representative"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_mk` (*Abstract kernel comparison on cocycles*): For a continuous cocycle d:G→A\_c, E([d])=[e∘d], using the continuous equivariant coefficient pushforward. *Proof.* Evaluate the quotient lift on a represented class; its representative is the coefficient-map cocycle.
+- <a id="nc-3-embedded-kernel-h1-inclusion-comparison"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelEquiv_inclusion` (*Comparison of the two H¹ inclusions*): For every a∈H¹(G,A\_c), j\_native(E(a))=j(a), with both inclusion maps into H¹(G,Twist(c)). *Proof.* Choose a cocycle representing a; both inclusions have the same pointwise value i(d(g)), hence equal gauge classes. Uses [Abstract kernel inclusion on H¹](#nc-3-embedded-kernel-h1-inclusion); [Embedded kernel forward value](#nc-3-embedded-kernel-value).
 
 **Checks.**
 
 - `embedded_kernel_h1_inverse`: For every a∈H¹(G,A\_c), E⁻¹(E(a))=a on the gauge quotient.
 - `embedded_kernel_h1_neutral`: The class represented by the constant identity cocycle on A\_c maps to the neutral class of the kernel.
 - `embedded_kernel_h1_forward_inverse`: For every k∈H¹(G,K\_c), E(E⁻¹(k))=k; the comparison covers every kernel class.
-- Construct the pointed bijection E:H¹(G,A\_c)≃H¹(G,K\_c) on continuous cocycle gauge-orbit sets, induced by e and e⁻¹.
 - With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
@@ -4318,43 +2093,24 @@ Retype i’s target as the inner twist. Its multiplication and topology are unch
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_mk`: For a continuous cocycle d:G→A\_c, j([d])=[i∘d] in H¹(G,Twist(c)).
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_range`: The range of j equals the range of the twisted-kernel inclusion.
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_quotient_range_iff`: For every continuous equivariant f, a∈H¹(G,Twist(c)) lies in range(j) exactly when its image in H¹(G,Twist(c)/K\_c) is neutral.
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_mapped_range_iff`: If f is surjective, a∈H¹(G,Twist(c)) lies in range(j) exactly when F\_c*(a)=1 in H¹(G,Twist(f∘c)).
-- `TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_fibre_range_iff`: If f is surjective, a∈H¹(G,U) lies in the range of b↦twistEquiv(c)(j(b)) exactly when f*(a)=[f∘c].
+- <a id="nc-3-embedded-kernel-inclusion-representative"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_mk` (*Abstract inclusion on cocycles*): For a continuous cocycle d:G→A\_c, j([d])=[i∘d] in H¹(G,Twist(c)). *Proof.* Evaluate the coefficient quotient lift on the representative; no choice of a class representative enters the map definition.
+- <a id="nc-3-embedded-kernel-inclusion-range"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_range` (*Equality of abstract and kernel images*): The range of j equals the range of the twisted-kernel inclusion. *Proof.* For an abstract class use E as the image witness. For a class use surjectivity of E. This gives image equality, not injectivity of either ambient inclusion. Uses [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison).
+- <a id="nc-3-embedded-kernel-quotient-range"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_quotient_range_iff` (*Abstract kernel image in the quotient neutral fibre*): For every continuous equivariant f, a∈H¹(G,Twist(c)) lies in range(j) exactly when its image in H¹(G,Twist(c)/K\_c) is neutral. *Proof.* Rewrite to the image and use quotient exactness. The quotient projection is surjective regardless of f; no surjectivity assumption on f is inserted. Uses [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range).
+- <a id="nc-3-embedded-kernel-mapped-range"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_mapped_range_iff` (*Abstract kernel image in the mapped neutral fibre*): If f is surjective, a∈H¹(G,Twist(c)) lies in range(j) exactly when F\_c*(a)=1 in H¹(G,Twist(f∘c)). Hypotheses: G is a group with any topology; U,V are groups with topologies and actions of G by automorphisms. c:G→U is a continuous cocycle and f:U→V is a continuous equivariant homomorphism. A is an independently supplied group with its given topology. i:A→U is a group homomorphism which is a topological embedding (inducing and injective). Exactness is the pointwise witness x∈range(i) iff f(x)=1. Neither a chosen inverse nor a homeomorphism is assumed as an input. For the transported-action and H¹ declarations U,V are topological groups with jointly continuous G-actions. For H¹, A is also a topological group; this is automatic from i being inducing (Mathlib `Topology.IsInducing.isTopologicalGroup`). No closedness, Hausdorffness, compactness, discreteness, commutativity, openness, quotient-map condition or continuous section is assumed. The action on A is the new transported inner action; no unrelated pre-A-action is used. H¹ is a pointed set of continuous gauge classes, with no ambient-inclusion injectivity assertion. f:U→V is surjective. This assumption is absent from the quotient neutral-fibre criterion. *Proof.* Rewrite the image as the kernel image and apply the surjective coefficient-map exactness theorem. Only a single gauge element is lifted, so no continuous section or quotient-map hypothesis on f is used. Uses [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range).
+- <a id="nc-3-embedded-kernel-repointed-range"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_fibre_range_iff` (*Abstract kernel image in the original repointed fibre*): If f is surjective, a∈H¹(G,U) lies in the range of b↦twistEquiv(c)(j(b)) exactly when f*(a)=[f∘c]. Hypotheses: G is a group with any topology; U,V are groups with topologies and actions of G by automorphisms. c:G→U is a continuous cocycle and f:U→V is a continuous equivariant homomorphism. A is an independently supplied group with its given topology. i:A→U is a group homomorphism which is a topological embedding (inducing and injective). Exactness is the pointwise witness x∈range(i) iff f(x)=1. Neither a chosen inverse nor a homeomorphism is assumed as an input. For the transported-action and H¹ declarations U,V are topological groups with jointly continuous G-actions. For H¹, A is also a topological group; this is automatic from i being inducing (Mathlib `Topology.IsInducing.isTopologicalGroup`). No closedness, Hausdorffness, compactness, discreteness, commutativity, openness, quotient-map condition or continuous section is assumed. The action on A is the new transported inner action; no unrelated pre-A-action is used. H¹ is a pointed set of continuous gauge classes, with no ambient-inclusion injectivity assertion. f:U→V is surjective. This assumption is absent from the quotient neutral-fibre criterion. *Proof.* Transport the inclusion-image equality through the H¹ twist equivalence and use the original-fibre theorem. The target point is [f∘c], which need not be neutral. Uses [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range).
 
 **Checks.**
 
 - `embedded_kernel_repointed_non_neutral`: For surjective f with [f∘c] nonneutral, the neutral class of H¹(G,U) is outside the translated embedded-kernel inclusion image.
 - `embedded_kernel_inclusion_neutral`: The inclusion sends the class of the identity cocycle on A\_c to the neutral class in H¹(G,Twist(c)).
 - `embedded_kernel_inclusion_killed`: Every embedded-kernel H¹ class maps to the neutral class under the quotient projection, without assuming f surjective.
-- Construct j:H¹(G,A\_c)→H¹(G,Twist(c)) by the monoid homomorphism i, its embedding continuity and the inner-action value formula.
 - With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
 
 Use [Embedded inner action formula](#nc-3-embedded-kernel-action-value); [Joint continuity of the transported action](#nc-3-embedded-kernel-action-continuity); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
-<a id="nc-3-embedded-kernel-h1-inclusion-comparison"></a>
-
-**Comparison of the two H¹ inclusions.** For every a∈H¹(G,A\_c), j\_native(E(a))=j(a), with both inclusion maps into H¹(G,Twist(c)).
-
-Standing hypotheses (H25).
-
-Choose a cocycle representing a; both inclusions have the same pointwise value i(d(g)), hence equal gauge classes.
-
-**Checks.**
-
-- For every a∈H¹(G,A\_c), j\_native(E(a))=j(a), with both inclusion maps into H¹(G,Twist(c)).
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Abstract kernel inclusion on H¹](#nc-3-embedded-kernel-h1-inclusion); [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence); [Embedded kernel forward value](#nc-3-embedded-kernel-value).
-
-### 0.38 Invariant orbit transport
-
+### 0.31 Invariant orbit transport
 <a id="nc-3-invariant-orbit-transport"></a>
 
 **Invariant orbit transport.** For a surjective continuous equivariant f:U→V and c∈Z1(G,U), let K\_c be the kernel in the inner twist and A\_c=H0(G,V\_{f∘c}). Transport the parent A\_c-action along its named-kernel or embedded-kernel H1 equivalence E, defining v·a=E−1(v·E(a)). E is orbit-equivariant and induces an equivalence of orbit quotients with the fibre f\_*−1([f∘c]); its representative maps to [g↦i(d(g))c(g)]. Inclusion squares, stabilizers and conjugate actions under change of c commute. No equality of kernel classes is claimed when only invariant orbits agree.
@@ -4371,8 +2127,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence); [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Comparison with the ambient inclusion](#nc-3-named-kernel-h1-inclusion-triangle); [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence); [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison).
 
-### 0.39 Trivial connecting classes
-
+### 0.32 Trivial connecting classes
 <a id="nc-3-connecting-class-zero"></a>
 
 **Trivial connecting class and fixed lifts.** For an admissible b and any c ∈ Z¹(G,A) with i(c(g))=b⁻¹(g•b), [c]=1 if and only if there is a ∈ A for which b i(a) is G-fixed.
@@ -4389,8 +2144,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
-### 0.40 Equivariant torsors and their classification
-
+### 0.33 Equivariant torsors and their classification
 <a id="nc-3-equivariant-topological-torsors"></a>
 
 **Equivariant topological torsors and their isomorphisms.** For topological groups G and U with a jointly continuous G-action by automorphisms on U, a (G,U)-torsor is a NONEMPTY topological space P with a continuous right U-action, every orbit map u↦p·u a homeomorphism, and a jointly continuous left G-action satisfying g(p·u)=(gp)·(gu). An isomorphism P≅Q is a homeomorphism commuting with both actions. Existence of such an isomorphism defines an equivalence relation on torsors. A point p defines the continuous cocycle c\_p by gp=p·c\_p(g). A continuous cocycle c gives the torsor model U with right multiplication and g⋆u=c(g)·g(u), up to the harmless universe lift represented by its specified homeomorphism U≅P\_c. Package the underlying right-action torsor as Torsor Uᵐᵒᵖ P with IsTopologicalTorsor P; only the compatible continuous G-action and its semilinearity are new data.
@@ -4434,7 +2188,6 @@ The interface consists of the following named results.
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, Proposition 1 and its proof, printed pp. 5–7 (arXiv v1).
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `Homeomorph`; `Torsor`; `IsTopologicalTorsor`; `Homeomorph.smulConst`; `MulOpposite.opHomeomorph`.
-
 <a id="nc-3-torsor-classification"></a>
 
 **Torsors under U with compatible G-action are classified by H¹(G, U).** A (G, U)-torsor is a nonempty topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c\_p(g) ∈ U be the unique element with g•p = p·c\_p(g). Then c\_p ∈ Z¹(G, U), c\_{p·u} = u⁻¹·c\_p under the twisted-conjugation action, so [P] := [c\_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).
@@ -4463,8 +2216,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Equivariant topological torsors and their isomorphisms](#nc-3-equivariant-topological-torsors).
 
-### 0.41 Invariant cosets and the exact sequence of pointed sets
-
+### 0.34 Invariant cosets and the exact sequence of pointed sets
 <a id="nc-3-quotient-action"></a>
 
 **Equivariant subgroup coset action.** Equivariance of i makes the G-action on B descend to Mathlib’s left coset set B/i(A), by supplying MulAction.QuotientAction G i(A). Its action on representatives is g·[b]=[g·b]. This quotient is a set even when i(A) is nonnormal.
@@ -4480,7 +2232,6 @@ If b⁻¹b′=i(a), then (g·b)⁻¹(g·b′)=g·(b⁻¹b′)=i(g·a). This is e
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness).
 
 Use `MulDistribMulAction`; `MulAction.QuotientAction`; `MulAction.quotient`; `QuotientGroup.leftRel_apply`.
-
 <a id="nc-3-fixed-coset-criterion"></a>
 
 **Invariant coset membership criterion.** With the descended action, [b] belongs to the fixed-point set (B/i(A))^G if and only if b⁻¹(g·b) lies in i(A) for every g. This identifies the genuine invariant-coset carrier with the membership hypothesis of connectingCocycle.
@@ -4507,7 +2258,7 @@ The quotient class of b is fixed because every g fixes b. Package the class and 
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.invariantCoset_apply`: The underlying coset of π⁰(b) is exactly [b]. This is the content of [Underlying invariant coset projection](#nc-3-invariant-coset-image).
+- <a id="nc-3-invariant-coset-image"></a>`TauCeti.NonabelianCohomology.invariantCoset_apply` (*Underlying invariant coset projection*): For b∈B^G, the underlying coset of π⁰(b) equals [b] in B/i(A). *Proof.* Unfold the subtype packaging of invariantCoset. The underlying value is the canonical quotient class.
 - `TauCeti.NonabelianCohomology.invariantCoset_one`: The underlying coset of π⁰(1) is [1], specifying the distinguished point without assuming a quotient group.
 - `TauCeti.NonabelianCohomology.invariantCoset_mul_image`: For b∈B^G and a∈A^G, π⁰(b·i(a))=π⁰(b).
 
@@ -4517,26 +2268,11 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.tests.invariantCoset_trivial_subgroup`: If i(A) is the trivial subgroup, π⁰:B^G → (B/i(A))^G is injective. A constant projection fails whenever B^G has two elements.
 - `TauCeti.NonabelianCohomology.tests.invariantCoset_nonnormal`: For discrete G=C₂ acting trivially on B=S₃ and A the subgroup {1,(01)}, the invariant-coset type has cardinality three. The subgroup is nonnormal; a quotient-group requirement is invalid.
 - The construction accepts a nonnormal subgroup. π⁰ is a pointed-set map, not claimed to be a homomorphism on a nonexistent quotient group.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness).
-
-Use [Equivariant subgroup coset action](#nc-3-quotient-action); [Invariant coset membership criterion](#nc-3-fixed-coset-criterion); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Functoriality of nonabelian H⁰ and H¹](#nc-3-functoriality); `FixedPoints.subgroup`; `QuotientGroup.eq`.
-
-<a id="nc-3-invariant-coset-image"></a>
-
-**Underlying invariant coset projection.** For b∈B^G, the underlying coset of π⁰(b) equals [b] in B/i(A).
-
-Standing hypotheses (H26).
-
-Unfold the subtype packaging of invariantCoset. The underlying value is the canonical quotient class.
-
-**Checks.**
-
 - The identity representative gives the distinguished coset [1].
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness).
 
-Use [Projection of invariant elements to cosets](#nc-3-invariant-coset-projection).
+Use [Equivariant subgroup coset action](#nc-3-quotient-action); [Invariant coset membership criterion](#nc-3-fixed-coset-criterion); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Functoriality of nonabelian H⁰ and H¹](#nc-3-functoriality); `FixedPoints.subgroup`; `QuotientGroup.eq`.
 
 <a id="nc-3-connecting-map"></a>
 
@@ -4548,7 +2284,7 @@ Choose b as the quotient representative q.out. QuotientGroup.out\_eq′ and [Inv
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.connecting_mk`: For an admissible representative b of q, δ(q)=[c\_b]. This is the content of [Representative formula for the connecting map](#nc-3-connecting-map-lift).
+- <a id="nc-3-connecting-map-lift"></a>`TauCeti.NonabelianCohomology.connecting_mk` (*Representative formula for the connecting map*): If q∈(B/i(A))^G is represented by b and b⁻¹(g·b)∈i(A) for every g, then δ(q)=[c\_b] with the previously constructed continuous connecting cocycle. This holds for every proof of membership and every representative. *Proof.* Compare the chosen representative q.out with b using equality of their left cosets. The coset equality criterion provides a∈A with q.out=b·i(a). The connectingCocycle\_change\_lift identifies the two cocycles by the gauge a⁻¹; the H¹ orbit quotient gives equality of classes. Proof irrelevance and uniqueness of the lifted cocycle dispose of membership witnesses.
 - `TauCeti.NonabelianCohomology.connecting_invariantCoset`: For b∈B^G, δ(π⁰(b))=1. In particular δ preserves the distinguished point.
 - `TauCeti.NonabelianCohomology.connecting_change_representative`: If q and q′ have representatives b and b·i(a), then δ(q′)=δ(q). This compares coset inputs, not only their lift cocycles.
 
@@ -4558,26 +2294,11 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.tests.connecting_coset_identity`: For i=id\_B, δ(q)=1 for every invariant coset q, agreeing with c\_b=coboundary(b⁻¹).
 - `TauCeti.NonabelianCohomology.tests.connecting_coset_nontrivial`: For discrete G=C₂, A=C₂ with trivial action, B=C₄ with negation action, and i(a)=2a (doubling natural representatives modulo 4), the invariant odd coset q=[1] has δ(q)≠1. Its cocycle sends the nonidentity of G to the nonidentity of A; A-coboundaries are trivial. No fixed lift of q exists.
 - The negation action on C₄ gives a nontrivial boundary on its odd invariant coset modulo {0,2}. A constant boundary map fails this test.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness).
-
-Use [Invariant coset membership criterion](#nc-3-fixed-coset-criterion); [Connecting cocycle of an invariant coset lift](#nc-3-connecting-cocycle); [Change of lift for a connecting cocycle](#nc-3-connecting-change-lift); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `QuotientGroup.out_eq'`; `QuotientGroup.mk_out_eq_mul`.
-
-<a id="nc-3-connecting-map-lift"></a>
-
-**Representative formula for the connecting map.** If q∈(B/i(A))^G is represented by b and b⁻¹(g·b)∈i(A) for every g, then δ(q)=[c\_b] with the previously constructed continuous connecting cocycle. This holds for every proof of membership and every representative.
-
-Standing hypotheses (H26).
-
-Compare the chosen representative q.out with b using equality of their left cosets. The coset equality criterion provides a∈A with q.out=b·i(a). The connectingCocycle\_change\_lift identifies the two cocycles by the gauge a⁻¹; the H¹ orbit quotient gives equality of classes. Proof irrelevance and uniqueness of the lifted cocycle dispose of membership witnesses.
-
-**Checks.**
-
 - Both even lifts represent the even coset of C₄/{0,2}, and both odd lifts represent the odd coset. The class remains unchanged within each pair.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6 (continuous cocycle and gauge conventions) and p. 9 (subgroup exactness).
 
-Use [Connecting map on invariant cosets](#nc-3-connecting-map); [Change of lift for a connecting cocycle](#nc-3-connecting-change-lift); `QuotientGroup.eq`; `QuotientGroup.out_eq'`.
+Use [Invariant coset membership criterion](#nc-3-fixed-coset-criterion); [Connecting cocycle of an invariant coset lift](#nc-3-connecting-cocycle); [Change of lift for a connecting cocycle](#nc-3-connecting-change-lift); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `QuotientGroup.out_eq'`; `QuotientGroup.mk_out_eq_mul`.
 
 <a id="nc-3-invariants-injection"></a>
 
@@ -4659,8 +2380,7 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Representative formula for the connecting map](#nc-3-connecting-map-lift); [Fibres of the connecting class](#nc-3-connecting-fixed-orbits); `QuotientGroup.eq`; `MulAction.left_quotientAction`.
 
-### 0.42 Inflation–restriction exactness and the finite-quotient equivalence
-
+### 0.35 Inflation–restriction exactness and the finite-quotient equivalence
 <a id="nc-3-finite-family-normal-killing"></a>
 
 **Simultaneous killing for finite discrete cocycle families.** Let G be compact. For a finite index type I, discrete groups U\_i with automorphism actions and continuous cocycles c\_i∈Z¹(G,U\_i), there is one open normal N with c\_i(n)=1 for all i and n∈N. Groups and actions may vary with i, and U\_i need not be finite. The empty family is included. Infinite families and nondiscrete coefficients do not satisfy this conclusion in general.
@@ -4673,12 +2393,10 @@ Intersect the finitely many clopen one-fibre carriers; finite-intersection topol
 
 - `TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_empty`: For I=Fin0 the class-killing condition is vacuous and an open normal subgroup exists.
 - `TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_single`: Specializing the varying-coefficient family theorem to Fin1 and one c gives its pointwise normal-open killing conclusion.
-- Let G be compact. For a finite index type I, discrete groups U\_i with automorphism actions and continuous cocycles c\_i∈Z¹(G,U\_i), there is one open normal N with c\_i(n)=1 for all i and n∈N. Groups and actions may vary with i, and U\_i need not be finite. The empty family is included. Infinite families and nondiscrete coefficients do not satisfy this conclusion in general.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and opening proof of Proposition 1.3.15, printed p. 11.
 
 Use [Discrete cocycle one-fibres are clopen](#nc-3-cocycle-one-fibre-clopen); [Identity value of a nonabelian cocycle](#nc-3-cocycle-map-one); `isClopen_iInter_of_finite`; `IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one`.
-
 <a id="nc-3-quotient-cocycle-equivalence"></a>
 
 **Equivalence of cocycle spaces.** For any normal N≤G, the subtype of continuous G-cocycles trivial on N is equivalent to Z¹(G/N,U^N). Forward map is descent and inverse is inflation together with its proved triviality on N; both inverse identities hold. This is a cocycle-level equivalence, not a full H¹ equivalence.
@@ -4694,6 +2412,10 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv_left_inv`: The inverse after forward is equality in the genuine subtype of cocycles trivial on N.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv_right_inv`: Forward after inverse is equality in the quotient cocycle type.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv_one`: The equivalence sends the trivial cocycle with its triviality proof to the quotient trivial cocycle.
+- <a id="nc-3-cocycle-inverse-gauge-normalization"></a>`TauCeti.NonabelianCohomology.Z1.normalize_trivialOn` (*Inverse-gauge normalization on a subgroup*): If c(n)=x(n•x)⁻¹ for every n∈N, then (x⁻¹·c)(n)=1 for every n∈N. This constructs a representative identically 1 on the same N. Under (H4). *Proof.* Evaluate the gauge formula at n and substitute the given coboundary formula: x⁻¹ x (n•x)⁻¹ (n•x⁻¹)⁻¹=1. Automorphisms preserve inverses; cancel in the given factor order. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-cocycle-restriction-inflation"></a>`TauCeti.NonabelianCohomology.Z1.restrict_inflate` (*Restriction of an inflated cocycle*): For d∈Z¹(G/N,U^N), res\_N(inflate\_N(d)) is the identity cocycle on N. Hypotheses: G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its subtype topology and restricted action. N is normal; use the quotient action and topology. Joint continuity of the quotient action is unnecessary for this cocycle identity. *Proof.* Evaluate at each n∈N. The inflate\_trivialOn API gives value 1. Apply cocycle extensionality. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction); [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
+- <a id="nc-3-h1-restriction-inflation"></a>`TauCeti.NonabelianCohomology.H1.restrict_inflate` (*Neutrality of restriction after inflation*): For every a∈H¹(G/N,U^N), res\_N(inflate\_N(a))=1 in H¹(N,U). Under (H27). *Proof.* Induct on an orbit representative. Apply the representative APIs of inflation and restriction, then the proved cocycle identity. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Restriction of nonabelian cohomology classes](#nc-3-h1-restriction); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Restriction of an inflated cocycle](#nc-3-cocycle-restriction-inflation).
+- <a id="nc-3-h1-inflation-unique-preimage"></a>`TauCeti.NonabelianCohomology.H1.existsUnique_inflate_of_restrict_eq_one` (*Unique inflated class in the neutral fibre*): If res\_N(a)=1, there is a unique b∈H¹(G/N,U^N) with inflate\_N(b)=a, for this same normal subgroup N. Under (H27). *Proof.* The image theorem supplies a source class. If another class has the same inflation, use the same-N injectivity. Source: [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction. Uses [Nonabelian inflation–restriction exactness](#nc-3-h1-inflation-restriction-image); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective).
 
 **Checks.**
 
@@ -4701,76 +2423,15 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv.test_right_inverse`: Every quotient cocycle d is recovered by forward after inverse.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv.test_proof_irrelevance`: For one cocycle and two triviality proofs, the forward equivalence gives the identical descended cocycle.
 - `TauCeti.NonabelianCohomology.Z1.descendEquiv.test_identity_S3_values`: For discrete G=U=S₃ with trivial G-action and N={1}, the forward descent equivalence on the identity homomorphism cocycle takes [(01)] to (01) and [(12)] to (12) in U. Unlike inverse laws alone, this fails for the descent followed by conjugation by (12).
-- For any normal N≤G, the subtype of continuous G-cocycles trivial on N is equivalent to Z¹(G/N,U^N). Forward map is descent and inverse is inflation together with its proved triviality on N; both inverse identities hold. This is a cocycle-level equivalence, not a full H¹ equivalence.
+- `TauCeti.NonabelianCohomology.Z1.normalize_trivialOn.test_inverse_gauge`: For discrete U=S₃ and G=ConjAct(U), let x=(01)(12) and c=x·1. Then x⁻¹·c=1 and x·c≠1; evaluating at the conjugating transposition(01) detects the latter.
+- The inverse of x is essential. For G=ConjAct(S₃), U=S₃, both discrete, x=(01)(12) and c=x·1, the cocycle x⁻¹·c is 1 but x·c is not 1. No commutativity or order-two simplification is used.
+- The triviality is literal at the cocycle level and holds for the same normal subgroup.
+- This gives the forward image-in-neutral-fibre inclusion without assuming the reverse inclusion.
+- Uniqueness is of the quotient cohomology class; a normalizing gauge element or a cocycle representative need not be unique.
 
 The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use [Recovery after quotient descent](#nc-3-inflate-descended-cocycle); [Recovery after cocycle inflation](#nc-3-descend-inflated-cocycle).
-
-<a id="nc-3-quotient-cocycle-gauge"></a>
-
-**Exact N-fixed gauge witnesses after descent.** For continuous cocycles c,d both trivial on normal N, there exists x∈U with d(g)=x c(g)(g•x)⁻¹ for all g if and only if there exists x∈U^N with descended d(q)=x descended c(q)(q•x)⁻¹ for every q∈G/N. No refinement of N or H¹ quotient construction is used.
-
-Standing hypotheses (H13).
-
-The inherited gauge-witness lemma proves any global witness x is N-fixed from triviality of both cocycles. Package x in the fixed subgroup and prove the quotient gauge equation by quotient induction, subtype extensionality and the representative action. Conversely, evaluate the quotient equation at [g] and apply the subgroup inclusion. This establishes the pointwise witness bridge but does not define quotient H¹ inflation.
-
-**Checks.**
-
-- For continuous cocycles c,d both trivial on normal N, there exists x∈U with d(g)=x c(g)(g•x)⁻¹ for all g if and only if there exists x∈U^N with descended d(q)=x descended c(q)(q•x)⁻¹ for every q∈G/N. No refinement of N or H¹ quotient construction is used.
-
-The construction and its conventions follow [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and full Proposition 1.3.15 proof, printed pp. 11–12.
-
-Use [Descent of a cocycle to the quotient](#nc-3-quotient-cocycle-descent); [A same-stage gauge witness is already invariant](#nc-3-gauge-witness-fixed); `FixedPoints.mem_subgroup`; `MulAction.coe_quotient_smul_fixedPoints`; `coe_smul_fixedPoints_of_normal`; `QuotientGroup.induction_on`.
-
-<a id="nc-3-cocycle-inverse-gauge-normalization"></a>
-
-**Inverse-gauge normalization on a subgroup.** If c(n)=x(n•x)⁻¹ for every n∈N, then (x⁻¹·c)(n)=1 for every n∈N. This constructs a representative identically 1 on the same N.
-
-Standing hypotheses (H4).
-
-Evaluate the gauge formula at n and substitute the given coboundary formula: x⁻¹ x (n•x)⁻¹ (n•x⁻¹)⁻¹=1. Automorphisms preserve inverses; cancel in the given factor order.
-
-**Checks.**
-
-- `TauCeti.NonabelianCohomology.Z1.normalize_trivialOn.test_inverse_gauge`: For discrete U=S₃ and G=ConjAct(U), let x=(01)(12) and c=x·1. Then x⁻¹·c=1 and x·c≠1; evaluating at the conjugating transposition(01) detects the latter.
-- The inverse of x is essential. For G=ConjAct(S₃), U=S₃, both discrete, x=(01)(12) and c=x·1, the cocycle x⁻¹·c is 1 but x·c is not 1. No commutativity or order-two simplification is used.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-cocycle-restriction-inflation"></a>
-
-**Restriction of an inflated cocycle.** For d∈Z¹(G/N,U^N), res\_N(inflate\_N(d)) is the identity cocycle on N.
-
-G is a group endowed with a topology; U is a group endowed with a topology and G acts on U by group automorphisms. N is an arbitrary subgroup with its subtype topology and restricted action. N is normal; use the quotient action and topology. Joint continuity of the quotient action is unnecessary for this cocycle identity.
-
-Evaluate at each n∈N. The inflate\_trivialOn API gives value 1. Apply cocycle extensionality.
-
-**Checks.**
-
-- The triviality is literal at the cocycle level and holds for the same normal subgroup.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Restriction of continuous nonabelian cocycles](#nc-3-cocycle-restriction); [Inflation of quotient cocycles](#nc-3-quotient-cocycle-inflation).
-
-<a id="nc-3-h1-restriction-inflation"></a>
-
-**Neutrality of restriction after inflation.** For every a∈H¹(G/N,U^N), res\_N(inflate\_N(a))=1 in H¹(N,U).
-
-Standing hypotheses (H27).
-
-Induct on an orbit representative. Apply the representative APIs of inflation and restriction, then the proved cocycle identity.
-
-**Checks.**
-
-- This gives the forward image-in-neutral-fibre inclusion without assuming the reverse inclusion.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Restriction of nonabelian cohomology classes](#nc-3-h1-restriction); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation); [Restriction of an inflated cocycle](#nc-3-cocycle-restriction-inflation).
 
 <a id="nc-3-h1-inflation-restriction-image"></a>
 
@@ -4787,22 +2448,6 @@ An inflated class has neutral restriction by the preceding lemma. For the revers
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
 
 Use [Neutrality of restriction after inflation](#nc-3-h1-restriction-inflation); [Neutral class as a coboundary](#nc-3-h1-neutral-criterion); [Inverse-gauge normalization on a subgroup](#nc-3-cocycle-inverse-gauge-normalization); [Gauge invariance of the cohomology class](#nc-3-h1-gauge-class); [Descent of a cocycle to the quotient](#nc-3-quotient-cocycle-descent); [Recovery after quotient descent](#nc-3-inflate-descended-cocycle); [Restriction of nonabelian cohomology classes](#nc-3-h1-restriction); [Inflation of nonabelian cohomology classes](#nc-3-h1-inflation).
-
-<a id="nc-3-h1-inflation-unique-preimage"></a>
-
-**Unique inflated class in the neutral fibre.** If res\_N(a)=1, there is a unique b∈H¹(G/N,U^N) with inflate\_N(b)=a, for this same normal subgroup N.
-
-Standing hypotheses (H27).
-
-The image theorem supplies a source class. If another class has the same inflation, use the same-N injectivity.
-
-**Checks.**
-
-- Uniqueness is of the quotient cohomology class; a normalizing gauge element or a cocycle representative need not be unique.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–6, continuous cocycle and gauge definitions; authored inflation–restriction deduction.
-
-Use [Nonabelian inflation–restriction exactness](#nc-3-h1-inflation-restriction-image); [Injectivity of nonabelian inflation](#nc-3-h1-inflation-injective).
 
 <a id="nc-3-h1-inflation-neutral-equivalence"></a>
 
@@ -4839,8 +2484,6 @@ Use [Joint continuity of the fixed-subgroup quotient action](#nc-3-quotient-fixe
 
 Standing hypotheses (H16).
 
-Use the library-generated colimit dual of limit uniqueness to compare the chosen colimit with the inflation cocone. Convert that type isomorphism to an equivalence with Iso.toEquiv. The generated cocone-leg compatibility fixes the forward map at every ι\_N(a). Apply the equivalence inverse law to get the inverse formula. Basepoint preservation follows from [Inflation preserves the distinguished cohomology class](#nc-3-h1-inflation-one). Apply the colimit universal property and cocone-point uniqueness to the inflation-and-gauge cocone. Its leg compatibility identifies the comparison with the class map.
-
 The interface consists of the following named results.
 
 - `TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv_ι`: E(ι\_N(a))=inflate\_N(a).
@@ -4854,225 +2497,12 @@ The interface consists of the following named results.
 - `TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_inflated_inverse`: The inverse at an inflated class is exactly its colimit inclusion.
 - `TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_nonneutral`: For a≠1 at any quotient level, E(ι\_N(a))≠1.
 - `TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_transposition`: Give S₂ and S₃ discrete topologies and let S₂ act trivially on S₃. The cocycle sending the nonidentity element of S₂ to (01)∈S₃ defines a class c≠1. In the colimit E⁻¹([c])≠E⁻¹(1), as checked by evaluating a hypothetical coboundary at the transposition.
-- Construct E:colim\_N H¹(G/N,U^N) ≃ H¹(G,U) from the colimit and the proved inflation cocone. Specify E(ι\_N(a))=inflate\_N(a), E⁻¹(inflate\_N(a))=ι\_N(a), and E(ι\_N(1))=1 for every N.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, printed pp. 5–7, continuous cocycle and gauge definitions; [Bjorn Poonen](#reference-poonen-rational-points), §1.3.5, Definition 1.3.14 and Proposition 1.3.15 proof, printed pp. 11–12.
 
 Use [Nonabelian finite-quotient colimit theorem](#nc-3-h1-inflation-colimit); [Inflation preserves the distinguished cohomology class](#nc-3-h1-inflation-one); `CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso`; `CategoryTheory.Limits.IsLimit.conePointUniqueUpToIso_inv_comp`; `CategoryTheory.Limits.limit.isLimit`; `CategoryTheory.Iso.toEquiv`; `Equiv.symm_apply_apply`; `Equiv.apply_symm_apply`.
 
-### 0.43 Identity and composition laws
-
-<a id="nc-3-coefficient-cocycle-identity"></a>
-
-**Identity coefficient map on cocycles.** The coefficient cocycle map induced by id\_U is the identity function.
-
-Standing hypotheses (H1).
-
-The underlying pointwise function is the identity; the subtype proofs are propositionally irrelevant.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); `MonoidHom.id`.
-
-<a id="nc-3-coefficient-h1-one"></a>
-
-**Neutral class under coefficient maps.** The H¹ coefficient map sends the neutral class to the neutral class.
-
-Standing hypotheses (H1).
-
-The cocycle map sends the constant-one cocycle to itself, because f(1)=1. Take its class.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); `map_one`.
-
-<a id="nc-3-coefficient-h1-identity"></a>
-
-**Identity coefficient map on cohomology.** The H¹ map induced by id\_U is the identity of the pointed set.
-
-Standing hypotheses (H1).
-
-Use class-map surjectivity and compute on each cocycle representative.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); [Identity coefficient map on cocycles](#nc-3-coefficient-cocycle-identity).
-
-<a id="nc-3-coefficient-invariant-identity"></a>
-
-**Identity coefficient homomorphism on invariants.** The invariant-group homomorphism induced by id\_U is the identity homomorphism.
-
-Standing hypotheses (H2).
-
-The underlying map and fixed-subgroup witnesses agree; proof irrelevance identifies the bundled data.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient homomorphism on invariant groups](#nc-3-coefficient-invariant-map); `MonoidHom.id`.
-
-<a id="nc-3-coefficient-invariant-composition"></a>
-
-**Composition of invariant coefficient homomorphisms.** The invariant-group homomorphism induced by f′∘f equals the composite of the restricted invariant homomorphisms.
-
-Standing hypotheses (H2).
-
-Compute both underlying homomorphisms as x↦f′(f(x)), using the subgroup carriers.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycles and gauge orbits, printed pp. 5–6; coefficient-functor paragraph after Proposition 1, printed p. 7.
-
-Use [Coefficient homomorphism on invariant groups](#nc-3-coefficient-invariant-map); `MonoidHom.comp`.
-
-<a id="nc-3-source-cocycle-neutral"></a>
-
-**The neutral restricted cocycle.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_φ(1)=1.
-
-Standing hypotheses (H3).
-
-Precomposing the constant-one function leaves it constant one.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction).
-
-<a id="nc-3-source-cocycle-identity"></a>
-
-**Identity source restriction on cocycles.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. res\_id is the identity on Z¹(G,U).
-
-Standing hypotheses (H3).
-
-Function and subtype extensionality reduce to c(id(g))=c(g).
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction along a continuous source homomorphism](#nc-3-source-cocycle-restriction); `MonoidHom.id`.
-
-<a id="nc-3-source-h1-neutral"></a>
-
-**The neutral restricted class.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_φ(1)=1 in H¹(H,U).
-
-Standing hypotheses (H3).
-
-Use the representative of the neutral class and the constant-one cocycle formula.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [The neutral restricted cocycle](#nc-3-source-cocycle-neutral).
-
-<a id="nc-3-source-h1-identity"></a>
-
-**Identity restriction on cohomology.** Let G,H,K be groups with topologies, U a group with a topology and actions by automorphisms, φ:H→G a continuous homomorphism, and h·u=φ(h)·u. Write res\_φ for precomposition on continuous cocycles. For H¹, require U to be a topological group and the actions jointly continuous; H¹ is the gauge-orbit pointed set, not a group. res\_id is the identity on H¹(G,U).
-
-Standing hypotheses (H3).
-
-Use class-map surjectivity and the cocycle identity restriction.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction on a cocycle class](#nc-3-source-h1-representative); [Identity source restriction on cocycles](#nc-3-source-cocycle-identity); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-source-invariant-identity"></a>
-
-**Identity restriction of invariants.** For H⁰, only groups and automorphism actions are needed, with h·u=φ(h)·u; no topology or continuity is required. Restriction along id\_G is the identity homomorphism of U^G.
-
-Standing hypotheses (H5).
-
-The underlying function is identity, and proof fields agree by proof irrelevance.
-
-**Checks.**
-
-- No local unramified/crystalline condition, geometric torsor comparison or representability result follows from this abstract topological calculation.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, restriction paragraph, p. 127.
-
-Use [Restriction of invariant subgroups](#nc-3-source-invariant-restriction); `MonoidHom.id`.
-
-### 0.44 Inverse twisting, laws of gauge transport and twisted source maps
-
-<a id="nc-3-twist-cocycle-inverse-value"></a>
-
-**Value of the inverse twisting equivalence.** For every e∈Z¹(G,U) and g∈G, τ\_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c).
-
-Standing hypotheses (H6).
-
-Evaluate the inverse cocycle construction; its inverse is on the right.
-
-**Checks.**
-
-- For every e∈Z¹(G,U) and g∈G, τ\_c⁻¹(e)(g) is e(g)·c(g)⁻¹, viewed in Twist(c).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence).
-
-<a id="nc-3-twist-invariant-criterion"></a>
-
-**Invariants of the twisted action.** For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j\_c(x))=j\_c(x)·c(g) for every g∈G.
-
-Standing hypotheses (H6).
-
-Apply the underlying group identification to the fixed-point equality g⋆x=x. Multiply on the right by c(g) to obtain the stated commutation equation; conversely divide by c(g) and use the equivalence injectivity.
-
-**Checks.**
-
-- For x∈Twist(c), x belongs to H⁰(G,Twist(c)) if and only if c(g)·g(j\_c(x))=j\_c(x)·c(g) for every g∈G.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and Proposition 1 proof, pp. 5–7.
-
-Use [Twisting by a cocycle](#nc-3-twisting); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); `FixedPoints.subgroup`.
-
-<a id="nc-3-twist-coefficient-identity"></a>
-
-**Identity coefficient map under twisting.** For every c, the twisted coefficient map induced by id\_U equals id\_(Twist(c)) as a group homomorphism.
-
-Standing hypotheses (H9).
-
-The mapped cocycle under the identity and both underlying homomorphisms agree definitionally.
-
-**Checks.**
-
-- For every c, the twisted coefficient map induced by id\_U equals id\_(Twist(c)) as a group homomorphism.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map).
-
-<a id="nc-3-twist-coefficient-composition"></a>
-
-**Composition of twisted coefficient maps.** For every c, (f′∘f)\_c=(f′)\_(f∘c)∘f\_c as group homomorphisms, with the composite continuity and equivariance proofs.
-
-Standing hypotheses (H9).
-
-Use the definitional equality of mapped cocycles under composition and the original homomorphism composition. The topology/action proof arguments do not change the underlying homomorphism.
-
-**Checks.**
-
-- For every c, (f′∘f)\_c=(f′)\_(f∘c)∘f\_c as group homomorphisms, with the composite continuity and equivariance proofs.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
-
-Use [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map).
-
+### 0.36 Inverse twisting, laws of gauge transport and twisted source maps
 <a id="nc-3-twist-coefficient-inverse-cocycle-square"></a>
 
 **Coefficient naturality of inverse cocycle twisting.** For every e∈Z¹(G,U), τ\_(f∘c)⁻¹(f\_*e)=(f\_c)\_*(τ\_c⁻¹(e)) as continuous cocycles.
@@ -5081,14 +2511,9 @@ Standing hypotheses (H9).
 
 Apply injectivity of the equivalence τ\_(f∘c), then use the forward square and both inverse identities. No injectivity of f is used.
 
-**Checks.**
-
-- For every e∈Z¹(G,U), τ\_(f∘c)⁻¹(f\_*e)=(f\_c)\_*(τ\_c⁻¹(e)) as continuous cocycles.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
 
 Use [Coefficient naturality of the cocycle twisting equivalence](#nc-3-twist-coefficient-cocycle-square).
-
 <a id="nc-3-twist-coefficient-inverse-h1-square"></a>
 
 **Coefficient naturality of inverse H¹ twisting.** For every a∈H¹(G,U), T\_(f∘c)⁻¹(f\_*a)=(f\_c)\_*(T\_c⁻¹(a)).
@@ -5096,10 +2521,6 @@ Use [Coefficient naturality of the cocycle twisting equivalence](#nc-3-twist-coe
 Standing hypotheses (H9).
 
 Apply injectivity of the orbit equivalence T\_(f∘c), use the forward H¹ square and its inverse identities.
-
-**Checks.**
-
-- For every a∈H¹(G,U), T\_(f∘c)⁻¹(f\_*a)=(f\_c)\_*(T\_c⁻¹(a)).
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
 
@@ -5113,732 +2534,11 @@ Standing hypotheses (H9).
 
 Use T\_c(1)=[c] and the coefficient quotient map on the representative c.
 
-**Checks.**
-
-- For every c and f, f\_*(T\_c(1))=[f∘c]. The image is the mapped chosen class, not necessarily the original target neutral point.
-
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 ordered continuous cocycle/gauge formulas and coefficient functor, pp. 5–7.
 
 Use [Coefficient naturality on the H¹ orbit quotient](#nc-3-twist-coefficient-h1-square); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
 
-<a id="nc-3-gauge-inverse-value"></a>
-
-**Inverse gauge transport value.** For y∈Twist(b•c), j\_c(e\_c,b⁻¹(y))=b⁻¹ j\_(b•c)(y)b, where e\_c,b⁻¹ denotes the inverse equivalence, not transport to an unspecified twist.
-
-Standing hypotheses (H8).
-
-Evaluate the inverse function of the same MulAut.conj equivalence.
-
-**Checks.**
-
-- For y∈Twist(b•c), j\_c(e\_c,b⁻¹(y))=b⁻¹ j\_(b•c)(y)b, where e\_c,b⁻¹ denotes the inverse equivalence, not transport to an unspecified twist.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Continuous gauge transport between inner twists](#nc-3-gauge-equivalence).
-
-<a id="nc-3-gauge-inverse-continuity"></a>
-
-**Continuity of inverse gauge transport.** The inverse function of e\_c,b is continuous for the topologies. Thus the group equivalence is a homeomorphism as well as an algebraic isomorphism.
-
-Standing hypotheses (H8).
-
-Use the explicit inverse formula and continuity of multiplication by the constants b⁻¹ and b.
-
-**Checks.**
-
-- The inverse function of e\_c,b is continuous for the topologies. Thus the group equivalence is a homeomorphism as well as an algebraic isomorphism.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Inverse gauge transport value](#nc-3-gauge-inverse-value).
-
-<a id="nc-3-gauge-identity"></a>
-
-**Identity gauge transport.** Under the underlying identifications, e\_c,1 is the identity: j\_(1•c)(e\_c,1(x))=j\_c(x).
-
-Standing hypotheses (H8).
-
-Evaluate the conjugation formula at the group identity.
-
-**Checks.**
-
-- Under the underlying identifications, e\_c,1 is the identity: j\_(1•c)(e\_c,1(x))=j\_c(x).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Gauge transport value](#nc-3-gauge-value).
-
-<a id="nc-3-gauge-composition"></a>
-
-**Ordered composition of gauge transports.** For a,b∈U and x∈Twist(c), j\_(a•(b•c))(e\_(b•c),a(e\_c,b(x)))=j\_((ab)•c)(e\_c,ab(x)). The resulting gauge element is ab; the cocycle targets agree by the gauge action law.
-
-Standing hypotheses (H8).
-
-Expand both conjugations and cancel the middle b⁻¹a⁻¹ against the inverse of ab in the prescribed order. Compare through the underlying identifications to avoid an implicit choice of dependent transport.
-
-**Checks.**
-
-- For a,b∈U and x∈Twist(c), j\_(a•(b•c))(e\_(b•c),a(e\_c,b(x)))=j\_((ab)•c)(e\_c,ab(x)). The resulting gauge element is ab; the cocycle targets agree by the gauge action law.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Gauge transport value](#nc-3-gauge-value); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-representative-identity"></a>
-
-**Identity representative comparison.** C\_c,c is the identity equivalence of H¹(G,Twist(c)).
-
-Standing hypotheses (H8).
-
-Use equivalence extensionality and cancel T\_c⁻¹ after T\_c at each point.
-
-**Checks.**
-
-- C\_c,c is the identity equivalence of H¹(G,Twist(c)).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Representative comparison value](#nc-3-representative-value); `Equiv.symm_apply_apply`.
-
-<a id="nc-3-representative-inverse"></a>
-
-**Inverse representative comparison.** For h:[c]=[d], the inverse of C\_c,d is C\_d,c with the symmetric class equality.
-
-Standing hypotheses (H8).
-
-Unfold the inverse of the composite equivalence; its two functions are the reversed pair of twisting equivalences.
-
-**Checks.**
-
-- For h:[c]=[d], the inverse of C\_c,d is C\_d,c with the symmetric class equality.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Canonical comparison for cohomologous representatives](#nc-3-representative-equivalence); `Equiv.symm`.
-
-<a id="nc-3-representative-uniqueness"></a>
-
-**Uniqueness from the twisting comparison square.** Fix h:[c]=[d]. If f:Twist(c)→*Twist(d) is continuous and G-equivariant and its H¹ pushforward satisfies T\_d(f\_*a)=T\_c(a) for every a, then f\_* equals C\_c,d. The square is an explicit hypothesis for this uniqueness lemma, and is already proved for the concrete gauge maps above.
-
-Standing hypotheses (H8).
-
-At each a, compare C\_c,d(a) and f\_*a by injectivity of T\_d, using the representative square and the given square for f.
-
-**Checks.**
-
-- Fix h:[c]=[d]. If f:Twist(c)→*Twist(d) is continuous and G-equivariant and its H¹ pushforward satisfies T\_d(f\_*a)=T\_c(a) for every a, then f\_* equals C\_c,d. The square is an explicit hypothesis for this uniqueness lemma, and is already proved for the concrete gauge maps above.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions and Proposition 1 and its proof, printed pp. 5–7; final representative-change sentence on p. 7.
-
-Use [Common translation of representative comparisons](#nc-3-representative-square); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); `Equiv.injective`.
-
-<a id="nc-3-twisted-source-inverse-value"></a>
-
-**Inverse source comparison.** For y∈Twist(res\_φ c), j\_c(e\_φ,c⁻¹(y))=j\_(res\_φ c)(y).
-
-Standing hypotheses (H7).
-
-Unfold the inverse equivalence.
-
-**Checks.**
-
-- For y∈Twist(res\_φ c), j\_c(e\_φ,c⁻¹(y))=j\_(res\_φ c)(y).
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source comparison of inner twists](#nc-3-twisted-source-equivalence).
-
-<a id="nc-3-twisted-source-inverse-continuity"></a>
-
-**Continuity of inverse source comparison.** The inverse function e\_φ,c⁻¹ is continuous. Thus the group equivalence is also a homeomorphism.
-
-Standing hypotheses (H7).
-
-The inverse is the same identity map on the inherited topology.
-
-**Checks.**
-
-- The inverse function e\_φ,c⁻¹ is continuous. Thus the group equivalence is also a homeomorphism.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source comparison of inner twists](#nc-3-twisted-source-equivalence); [Inverse source comparison](#nc-3-twisted-source-inverse-value).
-
-<a id="nc-3-twisted-source-cocycle-neutral"></a>
-
-**Neutral twisted cocycle pullback.** R¹\_φ,c sends the constant one cocycle to the constant one cocycle.
-
-Standing hypotheses (H7).
-
-Use cocycle extensionality and multiplicativity of the equivalence at one.
-
-**Checks.**
-
-- R¹\_φ,c sends the constant one cocycle to the constant one cocycle.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Value of twisted cocycle pullback](#nc-3-twisted-source-cocycle-value).
-
-<a id="nc-3-twisted-source-h1-neutral"></a>
-
-**Pointedness of twisted source restriction.** R\_φ,c(1)=1 in H¹(H,Twist(res\_φ c)). The target neutral point is in the twisted target, while T\_(res\_φ c)(1)=[res\_φ c] in the original coefficient H¹.
-
-Standing hypotheses (H7).
-
-Use the representative formula and the neutral cocycle pullback.
-
-**Checks.**
-
-- R\_φ,c(1)=1 in H¹(H,Twist(res\_φ c)). The target neutral point is in the twisted target, while T\_(res\_φ c)(1)=[res\_φ c] in the original coefficient H¹.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Representative of twisted H¹ restriction](#nc-3-twisted-source-h1-value); [Neutral twisted cocycle pullback](#nc-3-twisted-source-cocycle-neutral).
-
-<a id="nc-3-twisted-source-gauge-square"></a>
-
-**Source comparison and gauge conjugation.** For b∈U and x∈Twist(c), j\_(res\_φ(b•c))(e\_φ,b•c(e\_c,b(x)))=j\_(b•res\_φ c)(e\_(res\_φ c),b(e\_φ,c(x))). Ordinary restriction identifies res\_φ(b•c)=b•res\_φ c; the equality is stated under the underlying identifications to retain the exact dependent targets.
-
-Standing hypotheses (H7).
-
-Both sides are b j\_c(x)b⁻¹. Use the identification formulas and the ordinary cocycle restriction/gauge identity.
-
-**Checks.**
-
-- For b∈U and x∈Twist(c), j\_(res\_φ(b•c))(e\_φ,b•c(e\_c,b(x)))=j\_(b•res\_φ c)(e\_(res\_φ c),b(e\_φ,c(x))). Ordinary restriction identifies res\_φ(b•c)=b•res\_φ c; the equality is stated under the underlying identifications to retain the exact dependent targets.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Value of the source comparison](#nc-3-twisted-source-value); [Gauge transport value](#nc-3-gauge-value); [Gauge compatibility of source restriction](#nc-3-source-cocycle-gauge).
-
-<a id="nc-3-twisted-source-cocycle-injection"></a>
-
-**Surjective source maps detect twisted cocycles.** If φ is surjective as a function, then R¹\_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.
-
-Standing hypotheses (H7).
-
-Translate both inputs by τ\_c, apply ordinary source restriction injectivity, and use the proved cocycle translation square and injectivity of τ\_c.
-
-**Checks.**
-
-- If φ is surjective as a function, then R¹\_φ,c is injective. Neither continuity nor group-homomorphism structure alone implies this conclusion.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Twisting and source restriction square](#nc-3-twisted-source-cocycle-square); [Surjective sources detect cocycles](#nc-3-source-cocycle-surjective-injection); [Continuous cocycles under inner twisting](#nc-3-twist-cocycle-equivalence); `Equiv.injective`.
-
-<a id="nc-3-twisted-source-h1-injection"></a>
-
-**Surjective source maps detect twisted classes.** If φ is surjective as a function, then R\_φ,c is injective on the H¹ orbit sets. In particular it reflects their neutral classes.
-
-Standing hypotheses (H7).
-
-Compare after T\_c; ordinary H¹ restriction is injective for a surjective φ. Apply the translation square and cancel T\_c.
-
-**Checks.**
-
-- If φ is surjective as a function, then R\_φ,c is injective on the H¹ orbit sets. In particular it reflects their neutral classes.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Surjective sources detect cohomology classes](#nc-3-source-h1-surjective-injection); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence); `Equiv.injective`.
-
-<a id="nc-3-twisted-source-identity-square"></a>
-
-**Identity law under twisting translation.** For the identity source map on G, T\_(res\_id c)(R\_id,c(a))=T\_c(a). This states the identity law with the dependent twist targets visible; no arbitrary identification of actions is suppressed.
-
-Standing hypotheses (H7).
-
-Use the source translation square and the ordinary H¹ identity law.
-
-**Checks.**
-
-- For the identity source map on G, T\_(res\_id c)(R\_id,c(a))=T\_c(a). This states the identity law with the dependent twist targets visible; no arbitrary identification of actions is suppressed.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, cocycle and gauge definitions and Proposition 1 proof, printed pp. 5–7; representative-change sentence on p. 7.
-
-Use [Source naturality of the twisting equivalence](#nc-3-twisted-source-h1-square); [Identity restriction on cohomology](#nc-3-source-h1-identity).
-
-### 0.45 Kernel and quotient comparisons on representatives
-
-<a id="nc-3-twisted-kernel-equivalence-value"></a>
-
-**Value of the kernel comparison.** The underlying U-value of kernelEquiv(x) is j\_c(x).
-
-Standing hypotheses (H10).
-
-Unfold the subtype map; its value is the original-group identification.
-
-**Checks.**
-
-- The underlying U-value of kernelEquiv(x) is j\_c(x).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Underlying group comparison for twisted kernels](#nc-3-twisted-kernel-equivalence).
-
-<a id="nc-3-twisted-kernel-equivalence-continuous"></a>
-
-**Continuity of the kernel comparison.** The map K\_c→ker(f) underlying kernelEquiv is continuous for the subgroup topologies.
-
-Standing hypotheses (H10).
-
-Use continuity of the subtype projection and lift into the target subtype; Twist(c) has exactly the topology of U.
-
-**Checks.**
-
-- The map K\_c→ker(f) underlying kernelEquiv is continuous for the subgroup topologies.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Underlying group comparison for twisted kernels](#nc-3-twisted-kernel-equivalence).
-
-<a id="nc-3-twisted-kernel-equivalence-inverse-continuous"></a>
-
-**Continuity of the inverse kernel comparison.** The inverse ker(f)→K\_c is continuous for the subgroup topologies.
-
-Standing hypotheses (H10).
-
-Use the same subtype continuity argument in the inverse direction.
-
-**Checks.**
-
-- The inverse ker(f)→K\_c is continuous for the subgroup topologies.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Underlying group comparison for twisted kernels](#nc-3-twisted-kernel-equivalence).
-
-<a id="nc-3-twisted-kernel-h1-neutral"></a>
-
-**Neutral class under kernel inclusion.** The twisted-kernel H¹ inclusion sends 1 to 1.
-
-Standing hypotheses (H10).
-
-Its coefficient inclusion sends the trivial cocycle to the trivial cocycle, hence its orbit class to the neutral class.
-
-**Checks.**
-
-- The twisted-kernel H¹ inclusion sends 1 to 1.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion).
-
-<a id="nc-3-twisted-kernel-quotient-homeomorphism-value"></a>
-
-**Homeomorphism on a quotient representative.** For every x, quotientHomeomorph([x])=F\_c(x).
-
-Standing hypotheses (H10).
-
-The homeomorphism has exactly the quotient equivalence as its function.
-
-**Checks.**
-
-- For every x, quotientHomeomorph([x])=F\_c(x).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Topological quotient comparison for twisted coefficients](#nc-3-twisted-kernel-quotient-homeomorphism); [Quotient comparison on representatives](#nc-3-twisted-kernel-quotient-value).
-
-<a id="nc-3-twisted-kernel-quotient-homeomorphism-comparison"></a>
-
-**Homeomorphism agrees with the quotient bijection.** The underlying Equiv of quotientHomeomorph equals the toEquiv of quotientEquiv.
-
-Standing hypotheses (H10).
-
-Unfold the Homeomorph constructor; its underlying bijection is the multiplicative equivalence.
-
-**Checks.**
-
-- The underlying Equiv of quotientHomeomorph equals the toEquiv of quotientEquiv.
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Topological quotient comparison for twisted coefficients](#nc-3-twisted-kernel-quotient-homeomorphism).
-
-<a id="nc-3-twisted-kernel-quotient-homeomorphism-multiplication"></a>
-
-**Multiplication under the quotient homeomorphism.** For x,y in the group quotient, quotientHomeomorph(xy)=quotientHomeomorph(x)quotientHomeomorph(y).
-
-Standing hypotheses (H10).
-
-Use the multiplicativity of the unchanged quotient equivalence, rather than assuming a bare homeomorphism preserves multiplication.
-
-**Checks.**
-
-- For x,y in the group quotient, quotientHomeomorph(xy)=quotientHomeomorph(x)quotientHomeomorph(y).
-- Match the exact native/admitted signature and retain every explicit continuity, equivariance and surjectivity parameter.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 and its proof, coefficient functor and central-quotient paragraph; pp. 5–7.
-
-Use [Homeomorphism agrees with the quotient bijection](#nc-3-twisted-kernel-quotient-homeomorphism-comparison).
-
-<a id="nc-3-twisted-quotient-cocycle-neutral"></a>
-
-**Neutral cocycle under quotient projection.** The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle.
-
-Standing hypotheses (H11).
-
-Apply the neutral-cocycle law for coefficient maps.
-
-**Checks.**
-
-- The twisted quotient cocycle projection sends the trivial cocycle to the trivial cocycle.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Projection of continuous twisted cocycles](#nc-3-twisted-quotient-cocycle-map); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-twisted-quotient-h1-neutral"></a>
-
-**Pointedness of the twisted quotient H¹ map.** The twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f.
-
-Standing hypotheses (H11).
-
-Use the coefficient H¹ map’s neutral-class law.
-
-**Checks.**
-
-- The twisted quotient H¹ map sends the neutral class to the neutral class, without surjectivity of f.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Quotient map on twisted H¹ orbit sets](#nc-3-twisted-quotient-h1-map); [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
-
-<a id="nc-3-twisted-quotient-cocycle-equivalence-inverse-value"></a>
-
-**Inverse cocycle comparison value.** Its inverse sends d′ to the continuous cocycle g↦e\_c⁻¹(d′(g)).
-
-Standing hypotheses (H11).
-
-Evaluate the inverse coefficient-cocycle map; its continuity uses the explicitly retained quotient-map hypothesis.
-
-**Checks.**
-
-- Its inverse sends d′ to the continuous cocycle g↦e\_c⁻¹(d′(g)).
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence).
-
-<a id="nc-3-twisted-quotient-cocycle-equivalence-neutral"></a>
-
-**Pointedness of the quotient-cocycle equivalence.** The equivalence between cocycles on Q\_c and Twist(f∘c) fixes the trivial cocycle.
-
-Standing hypotheses (H11).
-
-Apply neutral preservation for the coefficient-map definition.
-
-**Checks.**
-
-- The equivalence between cocycles on Q\_c and Twist(f∘c) fixes the trivial cocycle.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Continuous cocycle equivalence for quotient twists](#nc-3-twisted-quotient-cocycle-equivalence); [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map).
-
-<a id="nc-3-twisted-quotient-h1-equivalence-inverse-representative"></a>
-
-**Inverse H¹ comparison on representatives.** The inverse H¹ equivalence sends [d′] to the class of the inverse continuous cocycle comparison.
-
-Standing hypotheses (H11).
-
-Evaluate the inverse orbit map; proof irrelevance does not replace the inverse continuity requirement.
-
-**Checks.**
-
-- The inverse H¹ equivalence sends [d′] to the class of the inverse continuous cocycle comparison.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Pointed equivalence of quotient-twist H¹](#nc-3-twisted-quotient-h1-equivalence); [Inverse cocycle comparison value](#nc-3-twisted-quotient-cocycle-equivalence-inverse-value).
-
-<a id="nc-3-twisted-quotient-h1-equivalence-neutral"></a>
-
-**Neutral class under quotient-twist comparison.** The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation.
-
-Standing hypotheses (H11).
-
-Use the neutral-class law of the H1.map e\_c.
-
-**Checks.**
-
-- The quotient-twist H¹ equivalence sends 1 to 1. This is a pointed map between twisted coefficient groups, before any repointing translation.
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [Pointed equivalence of quotient-twist H¹](#nc-3-twisted-quotient-h1-equivalence); [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
-
-<a id="nc-3-twisted-quotient-h1-repointed-fibre"></a>
-
-**Quotient neutral fibre and the original image cocycle.** For a∈H¹(G,Twist(c)), its quotient H¹ image is 1 exactly when H1.map f(T\_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V).
-
-Standing hypotheses (H11).
-
-The quotient H¹ equivalence is injective and pointed, so the quotient image is neutral iff H1.map F\_c(a)=1 by the projection triangle. Apply the repointed-fibre characterization. This does not identify that fibre with the image of the kernel inclusion or assert geometric local-condition compatibility.
-
-**Checks.**
-
-- For a∈H¹(G,Twist(c)), its quotient H¹ image is 1 exactly when H1.map f(T\_c(a))=[f∘c]. Surjectivity and quotient-map assumptions on f are retained for this comparison; [f∘c] need not be neutral in H¹(G,V).
-- Retain exactly the real quotient carriers and the hypotheses in the suggested signature; no automatic lift or inverse-continuity claim.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, continuous cocycle/gauge definitions, Proposition 1 proof and coefficient-functor/central-quotient paragraphs, printed pp. 5–7; motivation in Proposition 2 central extension, printed pp. 8–9.
-
-Use [H¹ factorization through the quotient twist](#nc-3-twisted-quotient-h1-projection-triangle); [Neutral class under quotient-twist comparison](#nc-3-twisted-quotient-h1-equivalence-neutral); [Neutral fibre after coefficient twisting and repointing](#nc-3-twist-coefficient-repointed-fibre).
-
-<a id="nc-3-twisted-kernel-cocycle-lift-neutral"></a>
-
-**Neutral kernel cocycle lift.** The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K\_c.
-
-Standing hypotheses (H18).
-
-Use cocycle extensionality and equality of the subtype values.
-
-**Checks.**
-
-- The kernel lift of the neutral cocycle with its canonical identity-value witness is the neutral cocycle in K\_c.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Cocycle valued in the twisted kernel](#nc-3-twisted-kernel-cocycle-lift).
-
-<a id="nc-3-twisted-kernel-cocycle-lift-gauge"></a>
-
-**Kernel-valued gauges of the cocycle lift.** For x∈K\_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as K\_c-valued continuous cocycles.
-
-Standing hypotheses (H18).
-
-Use cocycle extensionality and the injective subtype inclusion. The two ordered gauge expressions have identical underlying values, with the restricted inner action.
-
-**Checks.**
-
-- For x∈K\_c, whenever d and x.val•d have their specified pointwise kernel witnesses, lifting x.val•d gives x•twistedKernelLift(c,f,d) as K\_c-valued continuous cocycles.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Cocycle valued in the twisted kernel](#nc-3-twisted-kernel-cocycle-lift); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-<a id="nc-3-twisted-kernel-cocycle-lift-detection"></a>
-
-**Equality detected by the kernel cocycle lift.** For two cocycles d,e with specified pointwise kernel witnesses, their K\_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹.
-
-Standing hypotheses (H18).
-
-Project equality at each g through the subtype inclusion; conversely substitute equal cocycles and use proof irrelevance for membership witnesses.
-
-**Checks.**
-
-- For two cocycles d,e with specified pointwise kernel witnesses, their K\_c-valued lifts agree if and only if d=e. This is equality of cocycles, not injectivity on H¹.
-- The twelve typed examples include inverse-gauge order in S₃, non-kernel rejection, non-neutral-image rejection and the genuinely repointed fibre.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9, continuous cocycle and ordered gauge definitions, coefficient functor and subgroup exactness paragraph.
-
-Use [Value of the kernel cocycle lift](#nc-3-twisted-kernel-cocycle-lift-value); [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles).
-
-### 0.46 Named and abstract kernel images
-
-<a id="nc-3-named-kernel-equivalence-value"></a>
-
-**Underlying value of the named kernel identification.** For x∈S, applying e then the underlying twist identification gives exactly x.val.
-
-Standing hypotheses (H19).
-
-Evaluate the forward subtype map.
-
-**Checks.**
-
-- For x∈S, applying e then the underlying twist identification gives exactly x.val.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence).
-
-<a id="nc-3-named-kernel-equivalence-inverse-value"></a>
-
-**Underlying value of the inverse identification.** For k∈K\_c, the value of e⁻¹(k) is the original underlying value of k.
-
-Standing hypotheses (H19).
-
-Evaluate the inverse subtype map.
-
-**Checks.**
-
-- For k∈K\_c, the value of e⁻¹(k) is the original underlying value of k.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Named subgroup identified with the twisted kernel](#nc-3-named-kernel-equivalence).
-
-<a id="nc-3-named-kernel-h1-inverse-representative"></a>
-
-**Inverse H¹ representative comparison.** For d∈Z¹(G,K\_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance.
-
-Standing hypotheses (H20).
-
-Evaluate the inverse quotient map with its equivariance proof.
-
-**Checks.**
-
-- For d∈Z¹(G,K\_c), E⁻¹([d])=[e⁻¹∘d], with inverse continuity and equivariance.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Continuity of the inverse kernel identification](#nc-3-named-kernel-equivalence-inverse-continuity); [Equivariance of the kernel identification](#nc-3-named-kernel-equivalence-equivariance).
-
-<a id="nc-3-named-kernel-h1-neutral"></a>
-
-**Neutral class preserved by the kernel comparison.** E sends the neutral H¹ class in S to the neutral H¹ class in K\_c.
-
-Standing hypotheses (H20).
-
-Use the neutral-class law for a continuous equivariant coefficient homomorphism.
-
-**Checks.**
-
-- E sends the neutral H¹ class in S to the neutral H¹ class in K\_c.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions and subgroup exactness paragraph, printed pp. 5–9.
-
-Use [Continuous H¹ comparison for the named kernel](#nc-3-named-kernel-h1-equivalence); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
-
-<a id="nc-3-embedded-kernel-h1-one"></a>
-
-**Abstract kernel neutral class.** E sends the neutral continuous H¹ class to the neutral class of the kernel.
-
-Standing hypotheses (H25).
-
-Apply the coefficient H¹ map’s neutral-class law.
-
-**Checks.**
-
-- E sends the neutral continuous H¹ class to the neutral class of the kernel.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence).
-
-<a id="nc-3-embedded-kernel-inclusion-range"></a>
-
-**Equality of abstract and kernel images.** The range of j equals the range of the twisted-kernel inclusion.
-
-Standing hypotheses (H25).
-
-For an abstract class use E as the image witness. For a class use surjectivity of E. This gives image equality, not injectivity of either ambient inclusion.
-
-**Checks.**
-
-- The range of j equals the range of the twisted-kernel inclusion.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison).
-
-<a id="nc-3-embedded-kernel-mapped-range"></a>
-
-**Abstract kernel image in the mapped neutral fibre.** If f is surjective, a∈H¹(G,Twist(c)) lies in range(j) exactly when F\_c*(a)=1 in H¹(G,Twist(f∘c)).
-
-G is a group with any topology; U,V are groups with topologies and actions of G by automorphisms. c:G→U is a continuous cocycle and f:U→V is a continuous equivariant homomorphism. A is an independently supplied group with its given topology. i:A→U is a group homomorphism which is a topological embedding (inducing and injective). Exactness is the pointwise witness x∈range(i) iff f(x)=1. Neither a chosen inverse nor a homeomorphism is assumed as an input. For the transported-action and H¹ declarations U,V are topological groups with jointly continuous G-actions. For H¹, A is also a topological group; this is automatic from i being inducing (Mathlib `Topology.IsInducing.isTopologicalGroup`). No closedness, Hausdorffness, compactness, discreteness, commutativity, openness, quotient-map condition or continuous section is assumed. The action on A is the new transported inner action; no unrelated pre-A-action is used. H¹ is a pointed set of continuous gauge classes, with no ambient-inclusion injectivity assertion. f:U→V is surjective. This assumption is absent from the quotient neutral-fibre criterion.
-
-Rewrite the image as the kernel image and apply the surjective coefficient-map exactness theorem. Only a single gauge element is lifted, so no continuous section or quotient-map hypothesis on f is used.
-
-**Checks.**
-
-- If f is surjective, a∈H¹(G,Twist(c)) lies in range(j) exactly when F\_c*(a)=1 in H¹(G,Twist(f∘c)).
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Exact image under a surjective coefficient map](#nc-3-twisted-kernel-h1-mapped-range).
-
-<a id="nc-3-embedded-kernel-repointed-range"></a>
-
-**Abstract kernel image in the original repointed fibre.** If f is surjective, a∈H¹(G,U) lies in the range of b↦twistEquiv(c)(j(b)) exactly when f*(a)=[f∘c].
-
-G is a group with any topology; U,V are groups with topologies and actions of G by automorphisms. c:G→U is a continuous cocycle and f:U→V is a continuous equivariant homomorphism. A is an independently supplied group with its given topology. i:A→U is a group homomorphism which is a topological embedding (inducing and injective). Exactness is the pointwise witness x∈range(i) iff f(x)=1. Neither a chosen inverse nor a homeomorphism is assumed as an input. For the transported-action and H¹ declarations U,V are topological groups with jointly continuous G-actions. For H¹, A is also a topological group; this is automatic from i being inducing (Mathlib `Topology.IsInducing.isTopologicalGroup`). No closedness, Hausdorffness, compactness, discreteness, commutativity, openness, quotient-map condition or continuous section is assumed. The action on A is the new transported inner action; no unrelated pre-A-action is used. H¹ is a pointed set of continuous gauge classes, with no ambient-inclusion injectivity assertion. f:U→V is surjective. This assumption is absent from the quotient neutral-fibre criterion.
-
-Transport the inclusion-image equality through the H¹ twist equivalence and use the original-fibre theorem. The target point is [f∘c], which need not be neutral.
-
-**Checks.**
-
-- If f is surjective, a∈H¹(G,U) lies in the range of b↦twistEquiv(c)(j(b)) exactly when f*(a)=[f∘c].
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison); [Entire repointed fibre of a surjective coefficient map](#nc-3-twisted-kernel-h1-original-fibre-range).
-
-<a id="nc-3-embedded-kernel-h1-representative"></a>
-
-**Abstract kernel comparison on cocycles.** For a continuous cocycle d:G→A\_c, E([d])=[e∘d], using the continuous equivariant coefficient pushforward.
-
-Standing hypotheses (H25).
-
-Evaluate the quotient lift on a represented class; its representative is the coefficient-map cocycle.
-
-**Checks.**
-
-- For a continuous cocycle d:G→A\_c, E([d])=[e∘d], using the continuous equivariant coefficient pushforward.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence).
-
-<a id="nc-3-embedded-kernel-inclusion-representative"></a>
-
-**Abstract inclusion on cocycles.** For a continuous cocycle d:G→A\_c, j([d])=[i∘d] in H¹(G,Twist(c)).
-
-Standing hypotheses (H25).
-
-Evaluate the coefficient quotient lift on the representative; no choice of a class representative enters the map definition.
-
-**Checks.**
-
-- For a continuous cocycle d:G→A\_c, j([d])=[i∘d] in H¹(G,Twist(c)).
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Abstract kernel inclusion on H¹](#nc-3-embedded-kernel-h1-inclusion).
-
-<a id="nc-3-embedded-kernel-quotient-range"></a>
-
-**Abstract kernel image in the quotient neutral fibre.** For every continuous equivariant f, a∈H¹(G,Twist(c)) lies in range(j) exactly when its image in H¹(G,Twist(c)/K\_c) is neutral.
-
-Standing hypotheses (H25).
-
-Rewrite to the image and use quotient exactness. The quotient projection is surjective regardless of f; no surjectivity assumption on f is inserted.
-
-**Checks.**
-
-- For every continuous equivariant f, a∈H¹(G,Twist(c)) lies in range(j) exactly when its image in H¹(G,Twist(c)/K\_c) is neutral.
-- With trivial source G, U=S₃, V=C₂, f the sign and A=A₃, the kernel identification fixes (012) and its inverse; neither is collapsed to the identity.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge definitions and coefficient maps, printed pp. 5–7; Proposition 2 and subgroup paragraph, pp. 7–9.
-
-Use [Equality of abstract and kernel images](#nc-3-embedded-kernel-inclusion-range); [Exact image for the twisted quotient](#nc-3-twisted-kernel-h1-quotient-range).
-
-### 0.47 Gauge stabilizers, gauge witnesses and kernel injectivity
-
+### 0.37 Gauge stabilizers, gauge witnesses and kernel injectivity
 <a id="nc-3-gauge-stabilizer-fixed"></a>
 
 **Gauge stabilizers are twisted invariants.** For a continuous cocycle c and x∈U, x belongs to the gauge stabilizer Stab\_U(c) exactly when its underlying element in Twist(c) is G-fixed. No topology on the space of cocycles is required.
@@ -5854,7 +2554,6 @@ Expand the ordered gauge equation x c(g)(g•x)⁻¹=c(g). Multiply on the right
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
 
 Use [Continuous 1-cocycles and invariants with nonabelian coefficients](#nc-3-continuous-cocycles); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); [Invariants of the twisted action](#nc-3-twist-invariant-criterion); `MulAction.stabilizer`; `MulAction.mem_stabilizer_iff`.
-
 <a id="nc-3-invariant-stabilizer-equivalence"></a>
 
 **Twisted invariants and the gauge stabilizer.** Construct the multiplicative equivalence H⁰(G,Twist(c))≃*Stab\_U(c), taking a fixed element to its unchanged underlying U-value. Both groups carry their subgroup topologies.
@@ -5865,10 +2564,11 @@ Restrict the underlying multiplicative equivalence of the inner twist to the fix
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply`: The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s).
-- `TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply`: The underlying twisted value of the inverse image of s∈Stab\_U(c) is toOriginal(c)⁻¹(s).
-- `TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous`: The fixed-point-to-stabilizer map is continuous for the two subgroup topologies.
-- `TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous`: The stabilizer-to-fixed-point inverse is continuous for the same topologies.
+- <a id="nc-3-invariant-stabilizer-value"></a>`TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_apply` (*Fixed-element stabilizer value*): The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s). *Proof.* Evaluate the subtype construction.
+- <a id="nc-3-invariant-stabilizer-inverse-value"></a>`TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_apply` (*Stabilizer inverse value*): The underlying twisted value of the inverse image of s∈Stab\_U(c) is toOriginal(c)⁻¹(s). *Proof.* Evaluate the inverse restriction.
+- <a id="nc-3-invariant-stabilizer-continuity"></a>`TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_continuous` (*Continuous invariant-stabilizer comparison*): The fixed-point-to-stabilizer map is continuous for the two subgroup topologies. *Proof.* Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the stabilizer subtype.
+- <a id="nc-3-invariant-stabilizer-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Twist.invariantStabilizerEquiv_symm_continuous` (*Continuous stabilizer inverse*): The stabilizer-to-fixed-point inverse is continuous for the same topologies. *Proof.* Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced.
+- <a id="nc-3-gauge-transporter-characterisation"></a>`TauCeti.NonabelianCohomology.Z1.gauge_transporter_iff` (*Gauge witnesses differ by a right stabilizer*): Given x•c=d, another y satisfies y•c=d exactly when x⁻¹y∈Stab\_U(c). The witnesses form the left translate x Stab\_U(c); the correction is on the right of x. *Proof.* Act on the gauge equality by x⁻¹ for the forward direction. For the reverse direction multiply the stabilizing action by x and cancel x x⁻¹. Uses [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
 
 **Checks.**
 
@@ -5882,86 +2582,6 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 
 Use [Gauge stabilizers are twisted invariants](#nc-3-gauge-stabilizer-fixed); [Underlying group of a cocycle twist](#nc-3-twist-underlying-group); `MulAction.stabilizer`.
 
-<a id="nc-3-invariant-stabilizer-value"></a>
-
-**Fixed-element stabilizer value.** The U-value of the image of s∈H⁰(G,Twist(c)) is toOriginal(c)(s).
-
-Standing hypotheses (H28).
-
-Evaluate the subtype construction.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Twisted invariants and the gauge stabilizer](#nc-3-invariant-stabilizer-equivalence).
-
-<a id="nc-3-invariant-stabilizer-inverse-value"></a>
-
-**Stabilizer inverse value.** The underlying twisted value of the inverse image of s∈Stab\_U(c) is toOriginal(c)⁻¹(s).
-
-Standing hypotheses (H28).
-
-Evaluate the inverse restriction.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Twisted invariants and the gauge stabilizer](#nc-3-invariant-stabilizer-equivalence).
-
-<a id="nc-3-invariant-stabilizer-continuity"></a>
-
-**Continuous invariant-stabilizer comparison.** The fixed-point-to-stabilizer map is continuous for the two subgroup topologies.
-
-Standing hypotheses (H28).
-
-Its underlying map is the continuous subtype inclusion on the unchanged topological group; restrict the codomain to the stabilizer subtype.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Twisted invariants and the gauge stabilizer](#nc-3-invariant-stabilizer-equivalence).
-
-<a id="nc-3-invariant-stabilizer-inverse-continuity"></a>
-
-**Continuous stabilizer inverse.** The stabilizer-to-fixed-point inverse is continuous for the same topologies.
-
-Standing hypotheses (H28).
-
-Use the continuous underlying subtype map and its fixed-point membership. No topology on H¹ or Z¹ is introduced.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Twisted invariants and the gauge stabilizer](#nc-3-invariant-stabilizer-equivalence).
-
-<a id="nc-3-gauge-transporter-characterisation"></a>
-
-**Gauge witnesses differ by a right stabilizer.** Given x•c=d, another y satisfies y•c=d exactly when x⁻¹y∈Stab\_U(c). The witnesses form the left translate x Stab\_U(c); the correction is on the right of x.
-
-Standing hypotheses (H28).
-
-Act on the gauge equality by x⁻¹ for the forward direction. For the reverse direction multiply the stabilizing action by x and cancel x x⁻¹.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1); `MulAction.stabilizer`.
-
 <a id="nc-3-gauge-transporter-equivalence"></a>
 
 **The space of gauge witnesses.** Given a specified witness x•c=d, construct Stab\_U(c)≃{y∈U | y•c=d} by s↦x s, with inverse y↦x⁻¹y. The target is a subtype of U with its inherited topology, not a chosen witness field or a cocycle quotient.
@@ -5972,11 +2592,17 @@ Use the stabilizer action to construct the forward witness and the transporter i
 
 The interface consists of the following named results.
 
-- `TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply`: The underlying U-value of the transporter image of s is x s.
-- `TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply`: The underlying U-value of the transporter inverse at y is x⁻¹y.
-- `TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous`: The stabilizer-to-transporter equivalence is continuous.
-- `TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous`: The transporter-to-stabilizer inverse is continuous.
-- `TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff`: If x•c=d, all witnesses y•c=d equal x exactly when Stab\_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹.
+- <a id="nc-3-gauge-transporter-value"></a>`TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_apply` (*Gauge transporter forward formula*): The underlying U-value of the transporter image of s is x s. *Proof.* Evaluate the forward subtype map.
+- <a id="nc-3-gauge-transporter-inverse-value"></a>`TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_apply` (*Gauge transporter inverse formula*): The underlying U-value of the transporter inverse at y is x⁻¹y. *Proof.* Evaluate the inverse subtype map.
+- <a id="nc-3-gauge-transporter-continuity"></a>`TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_continuous` (*Continuous gauge transporter*): The stabilizer-to-transporter equivalence is continuous. *Proof.* Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain.
+- <a id="nc-3-gauge-transporter-inverse-continuity"></a>`TauCeti.NonabelianCohomology.Z1.gaugeTransporterEquiv_symm_continuous` (*Continuous inverse transporter*): The transporter-to-stabilizer inverse is continuous. *Proof.* Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain.
+- <a id="nc-3-gauge-witness-uniqueness"></a>`TauCeti.NonabelianCohomology.Z1.gauge_witness_unique_iff` (*Uniqueness of a gauge witness*): If x•c=d, all witnesses y•c=d equal x exactly when Stab\_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹. *Proof.* If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x.
+- <a id="nc-3-kernel-gauge-fixed-projection"></a>`TauCeti.NonabelianCohomology.Z1.kernel_gauge_projects_fixed` (*Kernel gauge witnesses project to invariants*): Let i:A→U be continuous and equivariant, f:U→V continuous and equivariant, and f∘i=1 pointwise. For c,d∈Z¹(G,A), an ambient gauge x carrying i∘c to i∘d has f(x)∈H⁰(G,V). No injectivity or surjectivity is needed for this lemma. *Proof.* Apply f pointwise to the gauge equality. Both cocycle values map to 1, so f(x)(g•f(x))⁻¹=1 for every g. Cancel to obtain invariance. Uses [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
+- <a id="nc-3-kernel-injectivity-stabilizer-lifts"></a>`TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_stabilizer_lifts` (*Kernel H¹ injectivity from stabilizer lifts*): Let i:A→U be continuous, equivariant and injective, with range(i)=ker(f) for a continuous equivariant f:U→V. Suppose for every c∈Z¹(G,A) and every v∈H⁰(G,V), there is t∈Stab\_U(i∘c) with f(t)=v. Then the inclusion map H¹(G,A)→H¹(G,U) is injective. Neither f-surjectivity nor a continuous section is assumed. *Proof.* Represent two equal ambient classes by c,d and a gauge x. Its projection is fixed. Lift f(x) to t stabilizing i∘c. The corrected gauge x t⁻¹ lies in ker(f), still carries i∘c to i∘d, and therefore comes from y∈A. Injectivity of i reflects the pointwise gauge equality, proving equality of the two original classes. Uses [Kernel gauge witnesses project to invariants](#nc-3-kernel-gauge-fixed-projection); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map).
+- <a id="nc-3-kernel-injectivity-fixed-trivial"></a>`TauCeti.NonabelianCohomology.H1.kernelMap_injective_of_fixed_trivial` (*Kernel H¹ injectivity for trivial quotient invariants*): Under the same continuous equivariant injection and exact-image hypotheses, H⁰(G,V)=1 implies injectivity of H¹(G,A)→H¹(G,U). This is a sufficient hypothesis, not a necessary characterization of injectivity. *Proof.* Every fixed v equals 1; choose the identity element of the stabilizer as its lift and apply the stabilizer-lift criterion. Uses [Kernel H¹ injectivity from stabilizer lifts](#nc-3-kernel-injectivity-stabilizer-lifts).
+- <a id="nc-3-twisted-kernel-inclusion-injectivity"></a>`TauCeti.NonabelianCohomology.H1.twistedKernelInclusion_injective` (*Injective inclusion of the twisted kernel*): For c∈Z¹(G,U) and continuous equivariant f:U→V, if H⁰(G,Twist(f∘c))=1 then the already constructed twisted-kernel H¹ inclusion into H¹(G,Twist(c)) is injective. The invariant condition belongs to the target inner twist, not automatically to the original V-action. *Proof.* Apply the general kernel criterion to the subtype inclusion of ker(F\_c), the continuous equivariant twisted map F\_c and its exact kernel. The inherited action is the restricted inner action. Uses [Kernel H¹ injectivity for trivial quotient invariants](#nc-3-kernel-injectivity-fixed-trivial); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion); [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Continuity of a twisted coefficient map](#nc-3-twist-coefficient-continuity); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity).
+- <a id="nc-3-embedded-kernel-inclusion-injectivity"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernelInclusion_injective` (*Injective H¹ of an abstract embedded kernel*): For a supplied topological embedding i:A→U exactly onto ker(f), with its transported inner action, H⁰(G,Twist(f∘c))=1 makes the embedded-kernel inclusion on H¹ injective. The topology and multiplication on A are retained. *Proof.* Compare the two inclusions using the already specified pointed H¹ equivalence E. Apply native-kernel injectivity and then injectivity of E. Uses [Injective inclusion of the twisted kernel](#nc-3-twisted-kernel-inclusion-injectivity); [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence); [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison).
+- <a id="nc-3-embedded-kernel-fibre-unique"></a>`TauCeti.NonabelianCohomology.H1.embeddedKernel_fibre_existsUnique` (*Unique embedded-kernel class in a repointed fibre*): If additionally f is surjective, then for a∈H¹(G,U) there exists exactly one b∈H¹(G,A\_c) with twistEquiv(c)(j(b))=a exactly when f*(a)=[f∘c], provided H⁰(G,Twist(f∘c))=1. Uniqueness concerns a gauge class; it does not select or uniquely determine a cocycle or gauge element. *Proof.* Use the surjective-map image criterion to obtain a kernel class in the original repointed fibre. The twist equivalence and the new inclusion injectivity give uniqueness. Conversely any preimage lies in the specified fibre. Uses [Injective H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-inclusion-injectivity); [Abstract kernel image in the original repointed fibre](#nc-3-embedded-kernel-repointed-range); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
 
 **Checks.**
 
@@ -5986,514 +2612,13 @@ The interface consists of the following named results.
 - `gauge_witness_nonunique`: A nonidentity stabilizer element s supplies a second witness x s≠x for the same cocycle gauge equality.
 - `gauge_witness_unique`: If the stabilizer is trivial, every second gauge witness y equals the specified witness x.
 - For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
+- `injective_coefficients_noninjective_h1`: With discrete trivial actions, the injective homomorphism C₃→S₃ sending a generator to p=(01)(12) maps the distinct H¹ classes of identity and inversion C₃→C₃ to the same S₃-valued H¹ class: conjugation by (01) interchanges p and p⁻¹. Injectivity of a coefficient embedding alone is insufficient.
+- `kernel_neutral_reflection`: Under the exact-image, coefficient-injectivity and trivial-quotient-invariants hypotheses, the inclusion sends a class to the neutral class exactly when the original class is neutral.
+- `trivial_action_fixed_obstruction`: For a trivial G-action on V and a specified v≠1, H⁰(G,V) is not the trivial subgroup. The injectivity hypothesis cannot be silently discharged by naming an exact sequence.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
 
 Use [Gauge witnesses differ by a right stabilizer](#nc-3-gauge-transporter-characterisation); `MulAction.stabilizer`.
-
-<a id="nc-3-gauge-transporter-value"></a>
-
-**Gauge transporter forward formula.** The underlying U-value of the transporter image of s is x s.
-
-Standing hypotheses (H28).
-
-Evaluate the forward subtype map.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [The space of gauge witnesses](#nc-3-gauge-transporter-equivalence).
-
-<a id="nc-3-gauge-transporter-inverse-value"></a>
-
-**Gauge transporter inverse formula.** The underlying U-value of the transporter inverse at y is x⁻¹y.
-
-Standing hypotheses (H28).
-
-Evaluate the inverse subtype map.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [The space of gauge witnesses](#nc-3-gauge-transporter-equivalence).
-
-<a id="nc-3-gauge-transporter-continuity"></a>
-
-**Continuous gauge transporter.** The stabilizer-to-transporter equivalence is continuous.
-
-Standing hypotheses (H28).
-
-Multiply the continuous subtype inclusion by the constant x on the left and restrict its codomain.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [The space of gauge witnesses](#nc-3-gauge-transporter-equivalence).
-
-<a id="nc-3-gauge-transporter-inverse-continuity"></a>
-
-**Continuous inverse transporter.** The transporter-to-stabilizer inverse is continuous.
-
-Standing hypotheses (H28).
-
-Multiply the continuous subtype inclusion by the constant x⁻¹ and restrict its codomain.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [The space of gauge witnesses](#nc-3-gauge-transporter-equivalence).
-
-<a id="nc-3-gauge-witness-uniqueness"></a>
-
-**Uniqueness of a gauge witness.** If x•c=d, all witnesses y•c=d equal x exactly when Stab\_U(c) is the trivial subgroup. This is uniqueness of a group element, distinct from uniqueness of a class in kernel H¹.
-
-Standing hypotheses (H28).
-
-If witnesses are unique, apply uniqueness to x s for each stabilizer element s and cancel x. Conversely the transporter iff puts x⁻¹y in the trivial subgroup, forcing y=x.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Gauge witnesses differ by a right stabilizer](#nc-3-gauge-transporter-characterisation); [The space of gauge witnesses](#nc-3-gauge-transporter-equivalence); `MulAction.stabilizer`.
-
-<a id="nc-3-kernel-gauge-fixed-projection"></a>
-
-**Kernel gauge witnesses project to invariants.** Let i:A→U be continuous and equivariant, f:U→V continuous and equivariant, and f∘i=1 pointwise. For c,d∈Z¹(G,A), an ambient gauge x carrying i∘c to i∘d has f(x)∈H⁰(G,V). No injectivity or surjectivity is needed for this lemma.
-
-Standing hypotheses (H28).
-
-Apply f pointwise to the gauge equality. Both cocycle values map to 1, so f(x)(g•f(x))⁻¹=1 for every g. Cancel to obtain invariance.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Coefficient map on continuous cocycles](#nc-3-coefficient-cocycle-map); [Nonabelian first cohomology as a pointed set](#nc-3-nonabelian-h1).
-
-<a id="nc-3-kernel-injectivity-stabilizer-lifts"></a>
-
-**Kernel H¹ injectivity from stabilizer lifts.** Let i:A→U be continuous, equivariant and injective, with range(i)=ker(f) for a continuous equivariant f:U→V. Suppose for every c∈Z¹(G,A) and every v∈H⁰(G,V), there is t∈Stab\_U(i∘c) with f(t)=v. Then the inclusion map H¹(G,A)→H¹(G,U) is injective. Neither f-surjectivity nor a continuous section is assumed.
-
-Standing hypotheses (H28).
-
-Represent two equal ambient classes by c,d and a gauge x. Its projection is fixed. Lift f(x) to t stabilizing i∘c. The corrected gauge x t⁻¹ lies in ker(f), still carries i∘c to i∘d, and therefore comes from y∈A. Injectivity of i reflects the pointwise gauge equality, proving equality of the two original classes.
-
-**Checks.**
-
-- `injective_coefficients_noninjective_h1`: With discrete trivial actions, the injective homomorphism C₃→S₃ sending a generator to p=(01)(12) maps the distinct H¹ classes of identity and inversion C₃→C₃ to the same S₃-valued H¹ class: conjugation by (01) interchanges p and p⁻¹. Injectivity of a coefficient embedding alone is insufficient.
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Kernel gauge witnesses project to invariants](#nc-3-kernel-gauge-fixed-projection); [Coefficient map on nonabelian cohomology](#nc-3-coefficient-h1-map); `MulAction.stabilizer`.
-
-<a id="nc-3-kernel-injectivity-fixed-trivial"></a>
-
-**Kernel H¹ injectivity for trivial quotient invariants.** Under the same continuous equivariant injection and exact-image hypotheses, H⁰(G,V)=1 implies injectivity of H¹(G,A)→H¹(G,U). This is a sufficient hypothesis, not a necessary characterization of injectivity.
-
-Standing hypotheses (H28).
-
-Every fixed v equals 1; choose the identity element of the stabilizer as its lift and apply the stabilizer-lift criterion.
-
-**Checks.**
-
-- `kernel_neutral_reflection`: Under the exact-image, coefficient-injectivity and trivial-quotient-invariants hypotheses, the inclusion sends a class to the neutral class exactly when the original class is neutral.
-- `trivial_action_fixed_obstruction`: For a trivial G-action on V and a specified v≠1, H⁰(G,V) is not the trivial subgroup. The injectivity hypothesis cannot be silently discharged by naming an exact sequence.
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Kernel H¹ injectivity from stabilizer lifts](#nc-3-kernel-injectivity-stabilizer-lifts).
-
-<a id="nc-3-twisted-kernel-inclusion-injectivity"></a>
-
-**Injective inclusion of the twisted kernel.** For c∈Z¹(G,U) and continuous equivariant f:U→V, if H⁰(G,Twist(f∘c))=1 then the already constructed twisted-kernel H¹ inclusion into H¹(G,Twist(c)) is injective. The invariant condition belongs to the target inner twist, not automatically to the original V-action.
-
-Standing hypotheses (H28).
-
-Apply the general kernel criterion to the subtype inclusion of ker(F\_c), the continuous equivariant twisted map F\_c and its exact kernel. The inherited action is the restricted inner action.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Kernel H¹ injectivity for trivial quotient invariants](#nc-3-kernel-injectivity-fixed-trivial); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion); [Coefficient homomorphism between inner twists](#nc-3-twist-coefficient-map); [Continuity of a twisted coefficient map](#nc-3-twist-coefficient-continuity); [Equivariance between the two twisted actions](#nc-3-twist-coefficient-equivariance); [Continuous automorphism action on the twisted kernel](#nc-3-twisted-kernel-action); [Joint continuity on the twisted kernel](#nc-3-twisted-kernel-action-continuity).
-
-<a id="nc-3-embedded-kernel-inclusion-injectivity"></a>
-
-**Injective H¹ of an abstract embedded kernel.** For a supplied topological embedding i:A→U exactly onto ker(f), with its transported inner action, H⁰(G,Twist(f∘c))=1 makes the embedded-kernel inclusion on H¹ injective. The topology and multiplication on A are retained.
-
-Standing hypotheses (H28).
-
-Compare the two inclusions using the already specified pointed H¹ equivalence E. Apply native-kernel injectivity and then injectivity of E.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Injective inclusion of the twisted kernel](#nc-3-twisted-kernel-inclusion-injectivity); [Continuous H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-h1-equivalence); [Comparison of the two H¹ inclusions](#nc-3-embedded-kernel-h1-inclusion-comparison).
-
-<a id="nc-3-embedded-kernel-fibre-unique"></a>
-
-**Unique embedded-kernel class in a repointed fibre.** If additionally f is surjective, then for a∈H¹(G,U) there exists exactly one b∈H¹(G,A\_c) with twistEquiv(c)(j(b))=a exactly when f*(a)=[f∘c], provided H⁰(G,Twist(f∘c))=1. Uniqueness concerns a gauge class; it does not select or uniquely determine a cocycle or gauge element.
-
-Standing hypotheses (H28).
-
-Use the surjective-map image criterion to obtain a kernel class in the original repointed fibre. The twist equivalence and the new inclusion injectivity give uniqueness. Conversely any preimage lies in the specified fibre.
-
-**Checks.**
-
-- For the neutral cocycle and trivial action on S₃, both (01) and (12) fix the cocycle; the stabilizer is all S₃, while their two product orders differ.
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle/gauge conventions, pp. 5–6; Proposition 2 freeness claim and complete proof, pp. 8–9.
-
-Use [Injective H¹ of an abstract embedded kernel](#nc-3-embedded-kernel-inclusion-injectivity); [Abstract kernel image in the original repointed fibre](#nc-3-embedded-kernel-repointed-range); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-invariant-preimage-projection-value"></a>
-
-**Invariant projection value.** The V-value of the projection at u∈E equals f(u).
-
-Standing hypotheses (H21).
-
-Evaluate the subtype construction.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Project preimage invariants](#nc-3-invariant-preimage-projection).
-
-<a id="nc-3-invariant-preimage-projection-kernel"></a>
-
-**Exact invariant projection kernel.** For u∈E, u belongs to the projection kernel exactly when f(u)=1. Under the specified exact-image condition this is equivalent to u∈K.
-
-Standing hypotheses (H21).
-
-Use the homomorphism kernel membership theorem and subtype equality.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Project preimage invariants](#nc-3-invariant-preimage-projection).
-
-<a id="nc-3-kernel-invariant-lift-independence"></a>
-
-**Lift independence on cohomology classes.** If f(u)=f(w) is fixed, the classes of kernelGauge(u,c) and kernelGauge(w,c) agree, whether or not f is surjective. This does not assert equality of cocycles.
-
-Standing hypotheses (H21).
-
-The kernel element w u⁻¹ gauges the first cocycle to the second. Verify membership by applying f and the gauge identity by ordered cancellation.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 continuous cocycle and gauge conventions, printed pp. 5–6; Proposition 2 invariant projection in the freeness proof, pp. 8–9.
-
-Use [Kernel gauge value](#nc-3-kernel-invariant-gauge-value).
-
-<a id="nc-3-kernel-orbit-image-value"></a>
-
-**Orbit image evaluation.** The underlying ambient class of the orbit of a under the image equivalence is exactly j(a).
-
-Standing hypotheses (H23).
-
-Evaluate the quotient lift and equivalence forward map.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the inclusion image](#nc-3-kernel-orbit-image-equivalence).
-
-<a id="nc-3-kernel-orbit-image-inverse-witness"></a>
-
-**Image inverse on a range witness.** The inverse image equivalence sends j(a), equipped with its range witness a, to the invariant orbit of a.
-
-Standing hypotheses (H23).
-
-Apply the equivalence left inverse to the orbit of a.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the inclusion image](#nc-3-kernel-orbit-image-equivalence).
-
-<a id="nc-3-kernel-orbit-image-inverse-projection"></a>
-
-**Projection after the image inverse.** For every range element z, applying the equivalence after its inverse has underlying ambient value z.
-
-Standing hypotheses (H23).
-
-Apply the right inverse and project the subtype value.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the inclusion image](#nc-3-kernel-orbit-image-equivalence).
-
-<a id="nc-3-kernel-orbit-image-choice-independence"></a>
-
-**Independence of kernel-class witnesses.** If j(a)=j(b), the invariant orbits of a and b are equal. Thus the inverse determines an orbit independently of a chosen range witness, without claiming a=b.
-
-Standing hypotheses (H23).
-
-Apply injectivity of the image equivalence to the equality of the two subtype values.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the inclusion image](#nc-3-kernel-orbit-image-equivalence).
-
-<a id="nc-3-kernel-invariant-injectivity-characterisation"></a>
-
-**Kernel injectivity and the invariant action.** For surjective f, j is injective exactly when every invariant v∈H⁰(G,V) fixes every class in H¹(G,K). This requires triviality of the action, not triviality of its acting group.
-
-Standing hypotheses (H23).
-
-Injectivity and orbit constancy force every action value to equal its input. Conversely, the fibre/orbit criterion supplies an invariant carrying a to b; trivial action then gives a=b.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [Ambient fibres are exactly invariant orbits](#nc-3-kernel-invariant-fibre-orbit).
-
-<a id="nc-3-kernel-orbit-neutral-value"></a>
-
-**Neutral-fibre orbit evaluation.** The underlying ambient value of the neutral-fibre equivalence on the orbit of a is j(a).
-
-Standing hypotheses (H23).
-
-Evaluate the composite; the equal-set subtype equivalence preserves the underlying element.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the neutral fibre](#nc-3-kernel-orbit-neutral-fibre-equivalence).
-
-<a id="nc-3-kernel-orbit-neutral-inverse-witness"></a>
-
-**Neutral-fibre inverse on a kernel image.** The inverse neutral-fibre equivalence sends j(a), with its proved neutral-fibre membership, to the invariant orbit of a.
-
-Standing hypotheses (H23).
-
-Apply the composite equivalence left inverse to the orbit.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the neutral fibre](#nc-3-kernel-orbit-neutral-fibre-equivalence); [Kernel image equals the neutral coefficient fibre](#nc-3-kernel-inclusion-neutral-range).
-
-<a id="nc-3-kernel-orbit-neutral-basepoint"></a>
-
-**Neutral-fibre base point.** The equivalence sends the orbit of the neutral kernel class to the neutral ambient class. This is a statement about the quotient base point, not a claim that each invariant fixes the neutral kernel class.
-
-Standing hypotheses (H23).
-
-The forward map is inclusion, and the coefficient inclusion preserves the neutral class.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the neutral fibre](#nc-3-kernel-orbit-neutral-fibre-equivalence); [Neutral class under coefficient maps](#nc-3-coefficient-h1-one).
-
-<a id="nc-3-kernel-orbit-neutral-inverse"></a>
-
-**Complete neutral-fibre inverse law.** For every neutral-fibre element a, mapping its inverse orbit forward returns the identical subtype element a, including the cohomology value.
-
-Standing hypotheses (H23).
-
-Apply the equivalence right inverse, with proof irrelevance for fibre membership.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1 printed pp. 5–6 cocycle/gauge definitions and Proposition 1; pp. 7–9 Proposition 2 proof, invariant projection and orbit classification.
-
-Use [Kernel orbits and the neutral fibre](#nc-3-kernel-orbit-neutral-fibre-equivalence).
-
-<a id="nc-3-twist-neutral-fibre-value"></a>
-
-**Fibre translation evaluation.** For every element z of the twisted neutral coefficient fibre, the underlying original cohomology class of its translation is T\_c(z).
-
-Standing hypotheses (H22).
-
-Evaluate the restricted equivalence forward map.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Translation of the neutral coefficient fibre](#nc-3-twist-neutral-fibre-equivalence).
-
-<a id="nc-3-twist-neutral-fibre-inverse-value"></a>
-
-**Inverse fibre translation evaluation.** For every z in the original fibre over [f∘c], the underlying twisted cohomology class of the inverse translation is T\_c⁻¹(z).
-
-Standing hypotheses (H22).
-
-Evaluate the restricted equivalence inverse map.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Translation of the neutral coefficient fibre](#nc-3-twist-neutral-fibre-equivalence).
-
-<a id="nc-3-twist-neutral-fibre-basepoint"></a>
-
-**The translated fibre base point.** Translation sends the neutral twisted class, with its neutral coefficient-image proof, to [c] in the original fibre. It does not send it to the original neutral class unless [c]=1.
-
-Standing hypotheses (H22).
-
-Evaluate T\_c at the source neutral class using the twisting base-point identity.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Translation of the neutral coefficient fibre](#nc-3-twist-neutral-fibre-equivalence); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-twisted-kernel-invariant-action-value"></a>
-
-**Invariant action on representatives.** For v∈A\_c, any u∈U\_c with f\_c(u)=v and every continuous K\_c-valued cocycle d, v·[d] equals the class of the kernelGauge cocycle g↦u d(g)(g⋆\_c u)⁻¹. No continuous family of lifts is required.
-
-Standing hypotheses (H22).
-
-Apply the representative formula to f\_c and its kernel; invariance of v supplies the kernelGauge membership witness.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Invariant action on a cocycle](#nc-3-kernel-invariant-class-value).
-
-<a id="nc-3-twisted-kernel-invariant-inclusion"></a>
-
-**Invariant action preserves inclusion.** For every v∈A\_c and a∈H¹(G,K\_c), j\_c(v·a)=j\_c(a) in H¹(G,U\_c), where j\_c is the twisted-kernel inclusion. Thus T\_c∘j\_c is constant on these invariant orbits.
-
-Standing hypotheses (H22).
-
-Specialize the invariant-action inclusion identity, then apply the T\_c when the translated equality is needed.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Ambient image is invariant under the action](#nc-3-kernel-invariant-ambient-constant); [H¹ map from the twisted kernel](#nc-3-twisted-kernel-h1-inclusion).
-
-<a id="nc-3-twisted-kernel-invariant-fibre-orbit"></a>
-
-**Twisted inclusion fibres are invariant orbits.** For a,b∈H¹(G,K\_c), T\_c(j\_c(a))=T\_c(j\_c(b)) if and only if some v∈A\_c satisfies v·a=b. This is an orbit criterion, not equality of kernel classes.
-
-Standing hypotheses (H22).
-
-Reflect the translated equality through injectivity of T\_c and specialize the kernel fibre-orbit criterion to f\_c.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Ambient fibres are exactly invariant orbits](#nc-3-kernel-invariant-fibre-orbit); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-value"></a>
-
-**Original-fibre orbit evaluation.** For every b∈H¹(G,K\_c), the underlying value of its invariant orbit under the original-fibre equivalence is T\_c(j\_c(b)). For a cocycle d this is represented by g↦d(g)c(g), with inclusion into U understood, in this order.
-
-Standing hypotheses (H22).
-
-Evaluate the composite quotient map, inclusion and twist translation.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-inverse-value"></a>
-
-**Inverse on a translated kernel image.** The inverse original-fibre equivalence sends T\_c(j\_c(b)), with its fibre-membership proof, to the invariant orbit of b. It does not select b uniquely.
-
-Standing hypotheses (H22).
-
-Apply the composite equivalence left inverse to the orbit of b; fibre-proof irrelevance identifies the subtype argument.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence); [Kernel inclusion maps to the fibre over the image cocycle](#nc-3-twisted-kernel-h1-repointed-fibre).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-left-inverse"></a>
-
-**Complete orbit inverse law.** For every invariant orbit q, the inverse original-fibre equivalence applied after its forward map returns q.
-
-Standing hypotheses (H22).
-
-Apply the composite equivalence left inverse to arbitrary q.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-right-inverse"></a>
-
-**Complete original-fibre inverse law.** For every original coefficient-fibre element z over [f∘c], mapping its inverse orbit forward returns exactly z as a subtype element, with the same cohomology value.
-
-Standing hypotheses (H22).
-
-Apply the composite equivalence right inverse.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-basepoint"></a>
-
-**The original-fibre orbit base point.** The orbit of the neutral kernel class maps to [c]. This is a statement about the quotient base point, not a claim that every v∈A\_c fixes the neutral kernel class or that [c] is neutral.
-
-Standing hypotheses (H22).
-
-Use the orbit evaluation, the inclusion neutral identity and the T\_c neutral-to-[c] identity.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Original-fibre orbit evaluation](#nc-3-twisted-kernel-orbit-fibre-value); [Neutral class under kernel inclusion](#nc-3-twisted-kernel-h1-neutral); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
-
-<a id="nc-3-twisted-kernel-orbit-fibre-choice-independent"></a>
-
-**Independence of original-fibre witnesses.** If T\_c(j\_c(a))=T\_c(j\_c(b)), the invariant orbits of a and b are equal. Consequently the inverse original-fibre classification does not depend on a chosen kernel-class witness, although a and b may be different.
-
-Standing hypotheses (H22).
-
-Apply injectivity of the constructed orbit equivalence to equality of the subtype values and use its evaluation identity.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel orbits and the original fibre](#nc-3-twisted-kernel-orbit-fibre-equivalence); [Original-fibre orbit evaluation](#nc-3-twisted-kernel-orbit-fibre-value).
-
-<a id="nc-3-twisted-kernel-invariant-injectivity-iff"></a>
-
-**Twisted kernel injectivity criterion.** The translated kernel-class map T\_c∘j\_c is injective exactly when the entire A\_c-action on H¹(G,K\_c) is trivial: v·a=a for every v and a. Triviality of A\_c is sufficient but not necessary, and no unconditional unique kernel class is asserted.
-
-Standing hypotheses (H22).
-
-Injectivity of T\_c reflects and preserves injectivity of j\_c. Apply the necessary-and-sufficient trivial-action criterion to f\_c.
-
-
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, pp. 5–9; cocycle/gauge conventions and both complete Proposition proofs.
-
-Use [Twisted kernel invariant action](#nc-3-twisted-kernel-invariant-action); [Kernel injectivity and the invariant action](#nc-3-kernel-invariant-injectivity-characterisation); [Gauge-orbit bijection under twisting](#nc-3-twist-h1-equivalence).
 
 ### Examples
 
@@ -6522,6 +2647,35 @@ This layer uses `MulDistribMulAction`; `FixedPoints.subgroup`; `ContinuousSMul`;
 Connect the finite-cover category to continuous cohomology, prove the finite-cover effacement criterion and its geometric applications, and give arithmetic paths the semilinear action required by the first layer. Tangential specialization keeps its local inertia orientation.
 
 ### 1.1 Arithmetic paths and endpoint sections
+
+<a id="tangential-fibre-functors"></a>
+
+**Tangential fibre functors and their analytic comparison.** Let k be a field of characteristic zero, C a smooth geometrically connected curve over k, x∈C(k), U=C∖{x}, and t a nonzero k-rational tangent vector at x. Define the tangential fibre functor F\_t on finite étale covers of U as the composite of the restriction functor R\_x, from finite étale covers of U to finite étale covers of the punctured tangent space T°\_x=T\_x∖{0} (at each point y above x, pass to the associated graded rings of the valuation filtrations, so that the cover becomes a finite étale cover of T°\_x≅𝔾\_m), with the fibre functor of T°\_x at the point t. Over an algebraically closed k it is a fibre functor of the Galois category of U, and the choice of a compatible system ζ=(ζ\_n) of roots of unity gives a canonical inertia generator γ\_t∈π₁(U,F\_t), acting on the fibre of the cover z↦zⁿ of T°\_x through z↦ζ\_n z. Over a non-closed k, F\_t has a continuous Gal(k̄/k)-action and the restriction of F\_t to the constant covers Spec(k′)×U is the standard fibre functor of Spec k. In characteristic zero every finite étale cover of the punctured formal disc is tame, so the rational (Puiseux) and tame tangential fibre functors agree on the one category of finite étale covers of U. For k=ℂ, F\_t is identified with the topological fibre functor at a point of a small punctured disc in the direction t, and γ\_t with the positively oriented loop around x when ζ\_n=exp(2πi/n). The involution ι(z)=1/z of P¹∖{0,1,∞} carries the functor at t₀ to the functor at ι\*t₀ and γ\_0 to γ\_∞.
+
+k of characteristic zero; C smooth, geometrically connected; x a k-point and t≠0 a k-rational tangent vector. For the analytic comparison, k=ℂ; an algebraically closed field of characteristic zero is reduced to ℂ by the invariance of the fundamental group under extension of algebraically closed fields of characteristic zero, as in Chen's Remark 4.2.4. The zero tangent vector is excluded.
+
+R\_x is exact and preserves finite limits and coproducts, so the composite with a fibre functor of T°\_x is a fibre functor. The canonical generator is defined on the cofinal system z↦zⁿ and is compatible with n | m because ζ\_m^(m/n)=ζ\_n. The Galois action comes from the k-rationality of t. Tameness in characteristic zero is the Puiseux theorem: every finite extension of k̄((z)) is k̄((z^(1/n))). For the analytic comparison, a local coordinate identifies a punctured disc around x with a punctured disc of T\_x; GAGA identifies analytic and algebraic finite covers; the positive loop acts on the n-th root as multiplication by exp(2πi/n). For ι, compute ι on the cover z↦zⁿ near 0 and ∞.
+
+The interface consists of the following named results.
+
+- `TauCeti.Anabelian.tangentialFiber`: The functor F\_t on finite étale covers of U.
+- `TauCeti.Anabelian.tangentialFiber.isFiberFunctor`: Over algebraically closed k, F\_t is a fibre functor of the Galois category of U.
+- `TauCeti.Anabelian.tangentialFiber.inertiaGenerator`: The canonical γ\_t determined by t and ζ.
+- `TauCeti.Anabelian.tangentialFiber.galoisAction`: Over a non-closed k, the continuous Gal(k̄/k)-action on F\_t, trivial on the identification for constant covers.
+- `TauCeti.Anabelian.tangentialFiber.tame_eq`: The rational and tame tangential functors coincide in characteristic zero.
+- `TauCeti.Anabelian.tangentialFiber.analyticIso`: For k=ℂ, the identification with the fibre at a nearby point in direction t, carrying γ\_t to the positive loop.
+- `TauCeti.Anabelian.tangentialFiber.inversion`: ι\* identifies the functors at t₀ and ι\*t₀ and sends γ\_0 to γ\_∞.
+
+**Checks.**
+
+- For U=𝔾\_m=P¹∖{0,∞}, x=0, t=d/dz and the cover z↦zⁿ, F\_t is the set of n-th roots of 1 in the tangent line, of size n, and γ\_t acts as multiplication by ζ\_n; for t′=λ·t the fibre is the set of n-th roots of λ, so the two functors are isomorphic but not equal.
+- Replacing ζ by ζ⁻¹ replaces γ\_t by γ\_t⁻¹: over ℂ with ζ\_n=exp(−2πi/n) the comparison sends γ\_t to the negatively oriented loop, so the orientation clause is not automatic.
+- In characteristic p>0 the Artin–Schreier cover y^p−y=1/z of the punctured disc is wild, so the tame functor sees fewer covers than the rational one; the equality clause is restricted to characteristic zero.
+- The constant cover Spec(k(√2))×U over k=ℚ has fibre the two embeddings of ℚ(√2) in k̄ under F\_t, with Galois acting by swapping them: the restriction to constant covers is the fibre functor of Spec k.
+
+The construction and its conventions follow [William Y. Chen](#reference-chen2024), §4.2, the functor R\_x and Definitions 4.2.1–4.2.2, pp. 363–364, Proposition 4.2.3, pp. 364–365, and Remarks 4.2.4–4.2.5, p. 365; §4.3, the involution ι and Definition 4.3.1, pp. 365–366. Chen works over an algebraically closed field; the Galois action for a k-rational tangent vector is Deligne's (Le groupe fondamental de la droite projective moins trois points, 1989, §15), which Chen cites in Remark 4.2.4.
+
+Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.3.1 (Riemann existence for punctured curves); `CategoryTheory.PreGaloisCategory.FiberFunctor`.
 
 <a id="nc-0-arithmetic-geometric-paths"></a>
 
@@ -6555,7 +2709,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Theorem 58.6.2 (0BQ8); Lemma 58.14.3 (0BTX); [Minhyong Kim](#reference-kim2008), Published article, pp. 637–642 (PDF pp. 5–10); collated with arXiv:0804.1008v1, PDF pp. 4–9.
 
-Use [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [Equivariant topological torsors and their isomorphisms](#nc-3-equivariant-topological-torsors); `CategoryTheory.Aut`; `CategoryTheory.Functor.isoWhiskerLeft`; `CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding`; `TauCeti.AbsoluteGaloisGroup`.
+Use [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [Equivariant topological torsors and their isomorphisms](#nc-3-equivariant-topological-torsors); `CategoryTheory.Aut`; `CategoryTheory.Functor.isoWhiskerLeft`; `CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding`; `TauCeti.AbsoluteGaloisGroup`; [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors).
 
 <a id="nc-0-transferred-endpoint-section"></a>
 
@@ -6676,7 +2830,7 @@ Use IG.1 normalized tame tangent fibre on the finite Kummer covers y^n=z and y^n
 
 The construction and its conventions follow [William Y. Chen](#reference-chen2024), Section 4.2, pp. 362–365; [Minhyong Kim](#reference-kim2005), Section 1, Proposition 1 and proof, PDF pp. 5–7.
 
-Use [Functoriality of arithmetic path classes](#nc-0-arithmetic-path-functoriality); [Neutral path classes and conjugate sections](#nc-0-path-section-comparison); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.0.1 (fundamental groups of a field and of the multiplicative group); `TauCeti.kummerMap`; `TauCeti.kummerMap_eq_kummerCocycleClass`; `TauCeti.kummerMap_eq_one_iff`.
+Use [Functoriality of arithmetic path classes](#nc-0-arithmetic-path-functoriality); [Neutral path classes and conjugate sections](#nc-0-path-section-comparison); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.0.1 (fundamental groups of a field and of the multiplicative group); `TauCeti.kummerMap`; `TauCeti.kummerMap_eq_kummerCocycleClass`; `TauCeti.kummerMap_eq_one_iff`; [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors).
 
 ### 1.2 Tangential specialization and good paths
 
@@ -6725,7 +2879,7 @@ Import normalization finiteness and regular-curve/DVR geometry from SF.0/SF.3. G
 
 The construction and its conventions follow [William Y. Chen](#reference-chen2024), Section 4.2 construction; Definition 4.2.1 and Proposition 4.2.3(b), pp. 362–365.
 
-Use [Local inertia orbits on branches](#nc-0-local-inertia-orbit-model); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.0 §6 (finiteness of normalization over a Nagata base); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.3 (curves, divisors and Picard objects).
+Use [Local inertia orbits on branches](#nc-0-local-inertia-orbit-model); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.0 §6 (finiteness of normalization over a Nagata base); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.3 (curves, divisors and Picard objects); [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors).
 
 <a id="nc-0-chen-good-path"></a>
 
@@ -6752,7 +2906,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [William Y. Chen](#reference-chen2024), Definition 4.3.1, p. 366.
 
-Use [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); `CategoryTheory.Aut`; `CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding`; `Subgroup.topologicalClosure`.
+Use [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); `CategoryTheory.Aut`; `CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding`; `Subgroup.topologicalClosure`; [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors).
 
 <a id="nc-0-chen-symmetric-path"></a>
 
@@ -6786,7 +2940,7 @@ Use [Good path between tangential basepoints](#nc-0-chen-good-path); `CategoryTh
 
 Algebraically closed characteristic-zero k; tInfinity is exactly the inversion image of t0. All three tame inertia generators use the same compatible roots; source conventions for the analytic positive generator must be respected.
 
-Over C choose tangent-germ connectors and the detoured path. The elementary punctured-sphere presentation proves topological generation and the ordered relation; inversion reverses the detour with integer turns at the two endpoints. Use BelyiMaps Layer 12 profinite Riemann existence for finite covers, together with the IG.1 extension contract identifying tangential fibres with analytic germs, to transport the path and all equalities to the finite-étale fibre functors. For general k take the algebraic closure in k of a finitely generated field containing the tangent coefficients, together with the algebraic cyclotomic data. Choose its embedding into C carrying the entire compatible primitive-root system to the standard analytic system: the corresponding embedding of the cyclotomic extension extends to an algebraic closure and then across a transcendence basis. Compare through algebraically closed characteristic-zero extensions using IG.1. This preserves the fibres, paths, inertia and both predicates; tangent connectors are chosen compatibly at the inversion-paired endpoints.
+Over C choose tangent-germ connectors and the detoured path. The elementary punctured-sphere presentation proves topological generation and the ordered relation; inversion reverses the detour with integer turns at the two endpoints. Use BelyiMaps Layer 12 profinite Riemann existence for finite covers, together with [Tangential fibre functors and their analytic comparison](#tangential-fibre-functors), which identifies tangential fibres with analytic germs, to transport the path and all equalities to the finite-étale fibre functors. For general k take the algebraic closure in k of a finitely generated field containing the tangent coefficients, together with the algebraic cyclotomic data. Choose its embedding into C carrying the entire compatible primitive-root system to the standard analytic system: the corresponding embedding of the cyclotomic extension extends to an algebraic closure and then across a transcendence basis. Compare through algebraically closed characteristic-zero extensions using IG.1. This preserves the fibres, paths, inertia and both predicates; tangent connectors are chosen compatibly at the inversion-paired endpoints.
 
 **Checks.**
 
@@ -6799,13 +2953,40 @@ Use [Good path between tangential basepoints](#nc-0-chen-good-path); [Symmetric 
 
 ### 1.3 Étale K(π,1) for a class of coefficients
 
+<a id="pi1-etale-comparison"></a>
+
+**Comparison of continuous π₁-cohomology with étale cohomology.** Let X be a connected quasi-compact quasi-separated scheme with geometric point x and π=π₁(X,x). The inclusion of finite étale X-schemes into all étale X-schemes induces a morphism of topoi ρ:X\_et→X\_fet, and the fibre functor at x identifies X\_fet with the classifying topos Bπ of continuous π-sets. For a finite discrete π-module M let L\_x(M)=ρ\*M, the finite locally constant abelian sheaf corresponding to M. Define εⁿ\_M:Hⁿ\_cont(π,M)=Hⁿ(X\_fet,M)→Hⁿ(X\_et,L\_x(M)) as the edge map of the Leray spectral sequence of ρ (pullback followed by the counit). Then εⁿ\_M is natural in π-equivariant maps of M, in pointed morphisms of schemes and in paths between geometric points. ε⁰ and ε¹ are isomorphisms for every X. Rᵠρ\_\*L\_x(M) is the sheaf on X\_fet associated to (Y→X)↦Hᵠ\_et(Y,L\_x(M)|Y), so every εⁿ\_M is an isomorphism exactly when these sheaves vanish for q>0.
+
+X connected, quasi-compact and quasi-separated; M finite discrete with continuous π-action. No hypothesis on the order of M is needed for the construction or for degrees 0 and 1.
+
+The equivalence between finite locally constant abelian sheaves and finite continuous π-modules (Stacks, Tag 0DV5) identifies L\_x with ρ\*. The cohomology of Bπ with coefficients in a discrete module is continuous group cohomology, computed as the colimit over open normal subgroups N of Hⁿ(π/N,M^N). The edge maps of the Leray spectral sequence are pullback followed by the counit and are natural for commutative squares of topoi (Achinger, 2.3–2.4). In degree 0 both sides are M^π. In degree 1 the Leray sequence gives 0→H¹(X\_fet,M)→H¹(X\_et,L)→H⁰(X\_fet,R¹ρ\_\*L), and R¹ρ\_\*L=0 because a torsor under a finite locally constant sheaf is representable by a finite étale cover (Stacks, Tag 03RV), which kills its own class. The description of Rᵠρ\_\* is the definition of higher direct images for the topology of finite étale covers.
+
+The interface consists of the following named results.
+
+- `TauCeti.EtaleKPiOne.edge`: The comparison εⁿ\_M.
+- `TauCeti.EtaleKPiOne.edge_natural_coeff`: Naturality in equivariant coefficient maps.
+- `TauCeti.EtaleKPiOne.edge_natural_pointed`: Naturality for a pointed morphism (X′,x′)→(X,x), through the induced map on π₁.
+- `TauCeti.EtaleKPiOne.edge_path`: For a path between geometric points, the induced isomorphism of fundamental groups commutes with ε.
+- `TauCeti.EtaleKPiOne.edge_zero_iso` and `TauCeti.EtaleKPiOne.edge_one_iso`: ε⁰ and ε¹ are isomorphisms.
+- `TauCeti.EtaleKPiOne.higherDirectImage_eq`: The description of Rᵠρ\_\*L\_x(M) as a sheafified presheaf on finite étale covers.
+
+**Checks.**
+
+- For X=Spec K, K a field, ρ is an equivalence and εⁿ\_M is the identity of Galois cohomology in every degree.
+- For X=P¹ over an algebraically closed field and M=ℤ/ℓ, ℓ invertible, π=1 and ε²\_M:0→H²(P¹,ℤ/ℓ)≅ℤ/ℓ is not surjective, while ε⁰ and ε¹ are isomorphisms; this is the degree-two failure the K(π,1) property rules out.
+- Naturality for the pointed cover Spec ℂ→Spec ℝ: the induced map on π₁ is the inclusion 1→Gal(ℂ/ℝ), and the nonzero class of H¹(Gal(ℂ/ℝ),ℤ/2)≅ℤ/2 restricts to 0 on both sides of ε¹; a comparison that ignored the base point map would not commute with this restriction.
+
+The construction and its conventions follow [Piotr Achinger](#reference-achinger-effacement-2014-v1), §1.3, p. 2; §2.3–2.4, pp. 5–6; §3.2, Definition 3.3 and the proof of Proposition 3.4(a), pp. 7–8; [Alexander Schmidt and Jakob Stix](#reference-schmidt-stix-2016), §2.3, pp. 826–827; [The Stacks Project Authors](#reference-stacks), Tag 0DV5 (Lemma 59.65.1) and Tag 03RV (Lemma 59.64.4).
+
+Use `continuousCohomology`; `CategoryTheory.PreGaloisCategory.IsFundamentalGroup`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
+
 <a id="key-etale-k-pi-1"></a>
 
 **Étale K(π,1) for a specified finite coefficient class.** Let X be a connected locally noetherian scheme with geometric point x. Put π = π₁ᵉᵗ(X,x), the profinite SGA fundamental group. Let C specify an isomorphism-invariant class of finite discrete abelian groups with continuous π-action, transported along pointed fundamental-group isomorphisms. Define Is(X,x;C) to mean that, for every M in C and every integer n ≥ 0, the canonical comparison εⁿ\_M : Hⁿ\_cont(π,M) → Hⁿ\_et(X,L\_x(M)) is an isomorphism of abelian groups. L\_x(M) is the finite locally constant étale sheaf corresponding to M, not an arbitrary constructible sheaf. The default full property uses all finite continuous π-modules. The p-primary property uses those whose underlying finite group has p-power order, with p prime; the constant-Fₚ comparison is a separately named specialization, not the definition of either full property. None of these coefficient restrictions changes π to its maximal pro-p quotient.
 
 Connected locally noetherian X; a geometric point x and profinite finite-étale fibre-functor fundamental group. C is invariant under coefficient isomorphisms and transported by fundamental-group isomorphisms. No invertibility assumption on coefficient orders in this definition.
 
-Import the non-affine finite-étale category, geometric-point fibre functor and profinite π from IG.0, building on the abstract Galois-category API and affine finite-étale fibres. Import the exact finite continuous π-module / finite locally constant sheaf dictionary and its natural canonical cohomology comparison from SF.2, with the π-action from IG.0. ContinuousCohomology already supplies all cochain degrees; its agreement with derived discrete continuous cohomology for these coefficients is the comparison in the supplier contract, not a new cohomology definition. Quantify over every allowed coefficient and every nonnegative degree; take isomorphism of the canonical map, not existence of an unrelated group isomorphism. Restriction of C is a logical implication. Geometric and base-point transports have their separate comparison formulas. The cohomological predicate makes sense on all connected locally noetherian schemes. Identification with Schmidt–Stix's raw pro-homotopy definition is the separately scoped [Comparison with raw étale K(π,1)](#nc-0-raw-homotopy-comparison); no such identification is asserted outside its stated hypotheses.
+Import the non-affine finite-étale category, geometric-point fibre functor and profinite π from IG.0, building on the abstract Galois-category API and affine finite-étale fibres. Use the finite continuous π-module / finite locally constant sheaf dictionary and the canonical comparison εⁿ of [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison), with the π-action from IG.0. ContinuousCohomology already supplies all cochain degrees; εⁿ compares it with étale cohomology and is not a new cohomology definition. Quantify over every allowed coefficient and every nonnegative degree; take isomorphism of the canonical map, not existence of an unrelated group isomorphism. Restriction of C is a logical implication. Geometric and base-point transports have their separate comparison formulas. The cohomological predicate makes sense on all connected locally noetherian schemes. Identification with Schmidt–Stix's raw pro-homotopy definition is the separately scoped [Comparison with raw étale K(π,1)](#nc-0-raw-homotopy-comparison); no such identification is asserted outside its stated hypotheses.
 
 The interface consists of the following named results.
 
@@ -6891,13 +3072,31 @@ Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1)
 
 ### 1.4 The finite-cover effacement criterion
 
+<a id="finite-etale-pushforward-descent"></a>
+
+**Finite étale pushforward and limit descent of finite coefficients.** (a) Let f:Y→X be finite étale. For every abelian sheaf F on Y\_et, f\_\* is exact, (f\_\*F)\_x̄ is the product of the stalks F\_ȳ over the geometric points ȳ above x̄ (permuted by the monodromy of the sheets), and the map μ\_f:Hᵠ(X,f\_\*F)→Hᵠ(Y,F), pullback followed by the counit f\*f\_\*F→F, is an isomorphism in every degree. If F is finite locally constant with stalks of order supported on a set of primes P, so is f\_\*F. For a cartesian square with g:X′→X and f′:Y′→X′, the base change map g⁻¹f\_\*F→f′\_\*g′⁻¹F is an isomorphism and g′\*∘μ\_f=μ\_f′∘(base change)∘g\*. No normality, Galois condition or invertibility of deg f is assumed. (b) Every finite locally constant abelian sheaf F with stalks of order supported on P has a finite filtration by finite locally constant subsheaves whose graded pieces are locally constant sheaves of 𝔽\_p-vector spaces, p∈P. (c) Let k be a field with separable closure k\_s=colim k\_i over finite subextensions, and X a quasi-compact quasi-separated k-scheme. Finite étale covers of X\_(k\_s), finite locally constant sheaves on it and morphisms between them descend to some X\_(k\_i), and colim\_i Hᵠ(X\_(k\_i),F\_i)≅Hᵠ(X\_(k\_s),F\_s). In particular a class on X\_(k\_s) killed by a finite étale cover is the image of a class on some X\_(k\_i) killed by a descended cover.
+
+(a) f finite étale; (b) X connected, F finite locally constant; (c) X quasi-compact and quasi-separated over k, F\_i a compatible system with colimit F\_s.
+
+(a) For finite f, the stalk formula and exactness are Stacks, Proposition 59.55.2; the higher direct images vanish, so the Leray spectral sequence degenerates and μ\_f is its edge map. Finite base change is Stacks, Lemma 59.55.3. Étale locally on X, Y is a disjoint union of copies of X, so f\_\* of a finite locally constant sheaf is finite locally constant with the same primes. (b) Under the equivalence with finite π₁-modules (Stacks, Tag 0DV5), take the filtration of the finite module by p-primary parts and then by the subgroups pʲM, each π₁-stable. (c) Schemes and morphisms of finite presentation descend along the limit of schemes with affine transition maps (Stacks, Lemma 32.10.1, Tag 01ZM), and being finite étale descends to a finite level (Stacks, Section 32.8, descending properties of morphisms). The cohomology statement is Stacks, Theorem 59.51.3 (Tag 09YQ). Descent of a killing cover follows by descending the cover and the vanishing of the pulled-back class at a finite level.
+
+**Checks.**
+
+- For the degree-2 cover f:𝔾\_m→𝔾\_m, z↦z², over an algebraically closed field of characteristic ≠2 and F=ℤ/2 on the source, f\_\*ℤ/2 corresponds to the permutation module 𝔽₂[C₂] of π₁(𝔾\_m)=ℤ̂, a non-split extension of 𝔽₂ by 𝔽₂, not the constant sheaf (ℤ/2)²; and H⁰(X,f\_\*F)=H⁰(Y,ℤ/2)=ℤ/2, not (ℤ/2)².
+- For f=id, μ\_f is the identity; for f:Y=X⊔X→X, μ\_f identifies Hᵠ(X,F⊕F) with Hᵠ(X,F)²: the product formula, not a sum over one sheet.
+- For k=ℝ and X=Spec ℝ, H²(X,ℤ/2)≅ℤ/2 but H²(X\_ℂ,ℤ/2)=0: the colimit formula concerns the classes on X\_(k\_s), and is not a claim that restriction from X to X\_(k\_s) is injective.
+
+The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Proposition 59.55.2 and Lemma 59.55.3 (Section 59.55, Tag 03QN); Tag 0DV5 (Lemma 59.65.1); Theorem 59.51.3 (Tag 09YQ); Lemma 32.10.1 (Tag 01ZM) and Section 32.8; [Piotr Achinger](#reference-achinger-effacement-2014-v1), proof of Proposition 3.4(b)–(c), pp. 7–8.
+
+Use [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
+
 <a id="nc-0-effacement-finite-cover-transfer"></a>
 
 **Transport of class effacement to finite covers.** Assume every positive-degree étale cohomology class on X with every allowed coefficient can be killed by some finite étale surjective cover of X. For a finite étale map f:Y→X, any allowed coefficient F on Y, q&gt;0 and α∈H^q\_et(Y,F), there exists a finite étale surjective g:X′→X such that its base change g′:Y×\_X X′→Y kills α. Y need not be connected and f need not be normal or surjective. The specified equality is g′* μ\_f(α′)=μ\_f′(bc\_*(g*α′)), where μ\_f:H^q\_et(X,f\_*F)→H^q\_et(Y,F) is the pullback/counit isomorphism and α′=μ\_f⁻¹(α).
 
 X is a connected noetherian scheme with a geometric point x; π is its full profinite finite-étale fundamental group. P is any set of primes. Allowed coefficients are finite locally constant abelian étale sheaves whose stalk orders have prime factors in P. No invertibility hypothesis on those primes is imposed.
 
-Import from SF.2 exact finite-étale direct image, preservation of finite locally constant coefficients, the base-change isomorphism bc:g*f\_*F≅f′\_*g′*F and the pullback/counit cohomology map μ\_f. Locally f is a finite disjoint union of copies of X, so exact finite products supply R^j f\_*F=0 for j&gt;0; these are generic sheaf-theoretic inputs, not local NC definitions. The stalk of f\_*F at x is a finite product over the sheets, with sheet-permutation monodromy. Prime support is preserved under finite products. Apply the hypothesis to α′=μ\_f⁻¹(α); choose g killing α′. Use SF.2’s (2.4.2) square: g′* μ\_f(α′)=μ\_f′(bc\_*(g*α′)). Its proof factors through cohomological pullback, base change and the adjunction counit; the last square is the triangle identity, not an arbitrary isomorphism of cohomology groups. The right side is zero by the choice of g. Finite étaleness and surjectivity survive base change, so g′ is the required cover of Y. For the empty Y the class is already zero.
+Use the exact finite-étale direct image, preservation of finite locally constant coefficients, the base-change isomorphism bc:g*f\_*F≅f′\_*g′*F and the pullback/counit cohomology map μ\_f of [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent)(a). Locally f is a finite disjoint union of copies of X, so exact finite products supply R^j f\_*F=0 for j&gt;0; these are generic sheaf-theoretic inputs, not local NC definitions. The stalk of f\_*F at x is a finite product over the sheets, with sheet-permutation monodromy. Prime support is preserved under finite products. Apply the hypothesis to α′=μ\_f⁻¹(α); choose g killing α′. Use SF.2’s (2.4.2) square: g′* μ\_f(α′)=μ\_f′(bc\_*(g*α′)). Its proof factors through cohomological pullback, base change and the adjunction counit; the last square is the triangle identity, not an arbitrary isomorphism of cohomology groups. The right side is zero by the choice of g. Finite étaleness and surjectivity survive base change, so g′ is the required cover of Y. For the empty Y the class is already zero.
 
 **Checks.**
 
@@ -6915,7 +3114,7 @@ Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF
 
 X is a connected noetherian scheme with a geometric point x; π is its full profinite finite-étale fundamental group. P is any set of primes. Allowed coefficients are finite locally constant abelian étale sheaves whose stalk orders have prime factors in P. No invertibility hypothesis on those primes is imposed.
 
-For the forward direction use ProfiniteCohomology Layer 10’s canonical all-degree finite-quotient colimit and natural restriction/inflation. Any class is inflated from a finite quotient π/N with coefficients M^N. On restriction to N its class factors through positive cohomology of the trivial group, which vanishes. For finite M one may refine N by its open action kernel. IG.0 identifies N with a pointed finite étale cover, and naturality of ε kills the corresponding étale class. For the reverse direction apply [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer) to every object Y of the finite-étale site. This gives killing of all allowed classes on every such object, including coefficients not descended from X. For disconnected Y treat its finitely many components and combine their covers. Import ρ:X\_et→X\_fet and the SF.2 description of R^qρ\_*F as the sheafification of (Y→X)↦H^q\_et(Y,F|Y). Finite-cover effacement at every site object makes this sheaf zero for q&gt;0. The unit is an isomorphism in degree zero by the finite-coefficient/sheaf dictionary. Leray for ρ now identifies the comparison from H^q(X\_fet,M) to H^q(X\_et,L(M)) with ε^q. Under X\_fet≃Bπ and the canonical continuous-cohomology comparison it is an isomorphism. Generic sites, derived direct image, Leray and the group-cohomology package are exact supplier inputs; no raw Artin–Mazur homotopy theorem is used.
+For the forward direction use ProfiniteCohomology Layer 10’s canonical all-degree finite-quotient colimit and natural restriction/inflation. Any class is inflated from a finite quotient π/N with coefficients M^N. On restriction to N its class factors through positive cohomology of the trivial group, which vanishes. For finite M one may refine N by its open action kernel. IG.0 identifies N with a pointed finite étale cover, and naturality of ε kills the corresponding étale class. For the reverse direction apply [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer) to every object Y of the finite-étale site. This gives killing of all allowed classes on every such object, including coefficients not descended from X. For disconnected Y treat its finitely many components and combine their covers. Use ρ:X\_et→X\_fet and the description in [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison) of R^qρ\_*F as the sheafification of (Y→X)↦H^q\_et(Y,F|Y). Finite-cover effacement at every site object makes this sheaf zero for q&gt;0. The unit is an isomorphism in degree zero by the finite-coefficient/sheaf dictionary. Leray for ρ now identifies the comparison from H^q(X\_fet,M) to H^q(X\_et,L(M)) with ε^q. Under X\_fet≃Bπ and the canonical continuous-cohomology comparison it is an isomorphism. Generic sites, derived direct image and the Leray spectral sequence come from SchemeAndStackFoundations SF.2, and the comparison εⁿ from [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison); no raw Artin–Mazur homotopy theorem is used.
 
 **Checks.**
 
@@ -6925,7 +3124,7 @@ For the forward direction use ProfiniteCohomology Layer 10’s canonical all-deg
 
 The construction and its conventions follow [Piotr Achinger](#reference-achinger-effacement-2014-v1), Definition 3.3; Proposition 3.4(a), pp. 7–8; [Piotr Achinger](#reference-achinger-all-primes-2017), Definition 4.1; Proposition 4.2(a); Lemma 4.3.
 
-Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees).
+Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison); [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent).
 
 <a id="nc-0-finite-etale-invariance"></a>
 
@@ -6943,7 +3142,7 @@ Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) t
 
 The construction and its conventions follow [Piotr Achinger](#reference-achinger-effacement-2014-v1), Proposition 3.4(b), statement and proof, pp. 7–8; [Piotr Achinger](#reference-achinger-all-primes-2017), Proposition 4.2(b).
 
-Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer); [Change of geometric base point](#nc-0-basepoint-transport); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0.
+Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); [Transport of class effacement to finite covers](#nc-0-effacement-finite-cover-transfer); [Change of geometric base point](#nc-0-basepoint-transport); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent).
 
 <a id="nc-0-effacement-extension"></a>
 
@@ -7043,13 +3242,31 @@ The construction and its conventions follow [The Stacks Project Authors](#refere
 
 Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Restriction of the allowed finite coefficients](#nc-0-coefficient-restriction); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
 
+<a id="curve-kummer-cohomology"></a>
+
+**Étale cohomology of curves with μ\_n coefficients.** Let k be an algebraically closed field and n≥1 invertible in k. (a) For a smooth projective connected curve X of genus g, there are canonical identifications H⁰(X,μ\_n)=μ\_n(k), H¹(X,μ\_n)=Pic⁰(X)[n]≅(ℤ/n)^(2g), H²(X,μ\_n)=ℤ/n through the degree, and Hᵠ(X,μ\_n)=0 for q≥3. (b) For a nonconstant morphism π:X→Y of smooth projective curves, π\*:H²(Y,μ\_n)→H²(X,μ\_n) is multiplication by deg π under these identifications. (c) For a smooth affine curve X whose smooth compactification has genus g and r≥1 points at infinity, H¹(X,μ\_n)≅(ℤ/n)^(2g+r−1) and Hᵠ(X,μ\_n)=0 for q≥2. Choosing a primitive n-th root of unity gives the same statements for the constant sheaf ℤ/n.
+
+k algebraically closed; n invertible in k; X, Y smooth connected curves, projective in (a)–(b), affine in (c).
+
+Use the Kummer sequence 0→μ\_n→𝔾\_m→𝔾\_m→0 on the étale site, H¹(X,𝔾\_m)=Pic(X), and the vanishing of H^q(X,𝔾\_m) for q≥2 on a smooth curve over an algebraically closed field; the n-torsion of Pic⁰(X) has order n^(2g), and Pic(X)/n=ℤ/n through the degree. For (b), compute on the class of a line bundle of degree one: its pullback has degree deg π. For (c), Pic(X) is a quotient of Pic(X̄) by the classes of the r points at infinity, so Pic(X)/n=0 and H¹ is the n-torsion of the generalized Jacobian, of order n^(2g+r−1).
+
+**Checks.**
+
+- For X=P¹ (g=0), H¹(P¹,μ\_n)=0 and H²(P¹,μ\_n)=ℤ/n≠0, although π₁(P¹)=1: the degree-two class is the obstruction to the K(π,1) property.
+- For an elliptic curve E and multiplication by m, of degree m², π\* acts on H²(E,μ\_n) as multiplication by m², not by m.
+- For X=𝔾\_m (g=0, r=2), H¹(𝔾\_m,μ\_n)≅ℤ/n and H²=0.
+
+The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Lemma 59.69.1 (Tag 03RQ), Lemma 59.69.2 (Tag 0AMB) and Lemma 59.69.3 (Tag 03RR).
+
+Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.3 (curves, divisors and Picard objects).
+
 <a id="nc-0-projective-line-obstruction"></a>
 
 **The degree-two obstruction on the projective line.** For algebraically closed k and prime ℓ invertible in k, P¹\_k does not have the full finite-coefficient property, and does not have the ℓ-primary property. For M=Z/ℓ with trivial action, ε²\_M has source zero and target isomorphic to Z/ℓ; it is not an isomorphism.
 
 Algebraically closed k; prime ℓ distinct from char k, so ℓ ≥ 2 and its constant coefficient is nonzero.
 
-Import the geometric finite-étale fundamental-group computation π₁(P¹\_k)=1 from IG.0. Import SF.2's canonical smooth projective curve computation H²\_et(P¹\_k,μ\_ℓ) ≅ Z/ℓ (Stacks 03RQ); a choice of primitive ℓth root gives the corresponding noncanonical identification for the constant Z/ℓ sheaf. The continuous cohomology of the trivial group in degree two is zero by the native/derived comparison and trivial-group calculation. The target is nonzero, so ε² cannot be an isomorphism; its coefficient belongs to both classes.
+Import the geometric finite-étale fundamental-group computation π₁(P¹\_k)=1 from IG.0. Use the computation H²\_et(P¹\_k,μ\_ℓ)≅Z/ℓ of [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology); a choice of primitive ℓth root gives the corresponding noncanonical identification for the constant Z/ℓ sheaf. The continuous cohomology of the trivial group in degree two is zero by the native/derived comparison and trivial-group calculation. The target is nonzero, so ε² cannot be an isomorphism; its coefficient belongs to both classes.
 
 **Checks.**
 
@@ -7067,7 +3284,7 @@ Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1)
 
 X is a connected noetherian scheme with a geometric point x; π is its full profinite finite-étale fundamental group. P is any set of primes. Allowed coefficients are finite locally constant abelian étale sheaves whose stalk orders have prime factors in P. No invertibility hypothesis on those primes is imposed.
 
-For necessity use [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance) and [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on Y with its constant F\_p sheaf. For sufficiency, on every finite étale Y→X trivialize a finite locally constant coefficient F by a further finite étale cover. On its connected components the finite abelian coefficient group has a finite filtration with factors finite F\_p-vector spaces for p∈P. Import the finite-group filtration through the coefficient supplier interface; it is not an invented filtration by trivial representations before monodromy is killed. Cohomology of constant finite vector coefficients is the finite direct sum of F\_p cohomologies. Kill the finitely many component classes by taking a finite common refinement of their covers. Apply [Two-cover dévissage of coefficients](#nc-0-effacement-extension) along the filtration; its end-coefficient assumptions hold at every finite cover because the hypothesis quantifies them all. Degree-one classes die on finite étale torsors; the degree-zero comparison is invariants. Compose the trivializing and killing covers, apply [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on X, and keep the canonical ε maps.
+For necessity use [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance) and [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on Y with its constant F\_p sheaf. For sufficiency, on every finite étale Y→X trivialize a finite locally constant coefficient F by a further finite étale cover. On its connected components the finite abelian coefficient group has a finite filtration with factors finite F\_p-vector spaces for p∈P. Use the prime-field filtration of [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent)(b); it is not an invented filtration by trivial representations before monodromy is killed. Cohomology of constant finite vector coefficients is the finite direct sum of F\_p cohomologies. Kill the finitely many component classes by taking a finite common refinement of their covers. Apply [Two-cover dévissage of coefficients](#nc-0-effacement-extension) along the filtration; its end-coefficient assumptions hold at every finite cover because the hypothesis quantifies them all. Degree-one classes die on finite étale torsors; the degree-zero comparison is invariants. Compose the trivializing and killing covers, apply [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on X, and keep the canonical ε maps.
 
 **Checks.**
 
@@ -7087,7 +3304,7 @@ Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); 
 
 k is algebraically closed of characteristic zero; C is a connected smooth projective k-curve of genus g≥1. p is a prime number, so p is invertible in k. The fundamental group is the full profinite π₁ᵉᵗ(C,x).
 
-Import the natural Kummer calculation H¹\_et(C,μ\_p)≅Pic⁰(C)[p] and the Jacobian p-torsion order p^(2g) from SF.2/SF.3. Choose a primitive pth root in k only to identify μ\_p with the constant F\_p sheaf. Since p≥2 and g≥1, this H¹ group has a nonzero class. Import the degree-one canonical comparison for any connected scheme, H¹\_et(C,F\_p)≅Hom\_cont(π,F\_p) for trivial action, from SF.2/IG.0. This is not an invocation of the all-degree K(π,1) property. Let χ be the nonzero character corresponding to the chosen class. The image of χ is a nonzero additive subgroup of F\_p and therefore all of F\_p, using the prime-order simple additive group of ZMod p. Under IG.0's finite continuous π-set classification, the translation action g·a=χ(g)+a is transitive and has p elements. Its associated finite étale cover D is connected of degree p and surjective. Translation by F\_p commutes with π and is simply transitive on every fibre, giving the indicated torsor. A zero character gives p disconnected copies of C and must not be used.
+Use the Kummer calculation H¹\_et(C,μ\_p)≅Pic⁰(C)[p] of [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology) and the Jacobian p-torsion order p^(2g) from SF.3. Choose a primitive pth root in k only to identify μ\_p with the constant F\_p sheaf. Since p≥2 and g≥1, this H¹ group has a nonzero class. Use the degree-one comparison H¹\_et(C,F\_p)≅Hom\_cont(π,F\_p) for trivial action, valid for any connected scheme, from [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison) and IG.0. This is not an invocation of the all-degree K(π,1) property. Let χ be the nonzero character corresponding to the chosen class. The image of χ is a nonzero additive subgroup of F\_p and therefore all of F\_p, using the prime-order simple additive group of ZMod p. Under IG.0's finite continuous π-set classification, the translation action g·a=χ(g)+a is transitive and has p elements. Its associated finite étale cover D is connected of degree p and surjective. Translation by F\_p commutes with π and is simply transitive on every fibre, giving the indicated torsor. A zero character gives p disconnected copies of C and must not be used.
 
 **Checks.**
 
@@ -7104,7 +3321,7 @@ Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF
 
 Both curves are connected, smooth and projective over the same algebraically closed characteristic-zero field. f is finite étale surjective of degree p, p prime; the same coefficient identification is pulled back to D.
 
-Import SF.2's canonical Kummer-degree isomorphisms d\_C:H²(C,μ\_p)≅Z/p and d\_D, and their natural degree-pullback identity d\_D(f*α)=deg(f)·d\_C(α). These are the generic curve computations of Stacks 03RQ and 0AMB, not a second Picard or cohomology definition in Layer 1. Since deg(f)=p and p=0 in ZMod p, the right side vanishes for every α. Injectivity of d\_D gives f*α=0. The map being zero, not merely its source and target having equal order, is the assertion. Pull back the single chosen μ\_p≅F\_p coefficient isomorphism to D. Naturality conjugates the zero μ\_p map into the constant-F\_p zero map; no independent roots of unity or transfer divided by p are used.
+Use the Kummer-degree isomorphisms d\_C:H²(C,μ\_p)≅Z/p and d\_D and the degree-pullback identity d\_D(f*α)=deg(f)·d\_C(α) of [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology). These are the generic curve computations of Stacks 03RQ and 0AMB, not a second Picard or cohomology definition in Layer 1. Since deg(f)=p and p=0 in ZMod p, the right side vanishes for every α. Injectivity of d\_D gives f*α=0. The map being zero, not merely its source and target having equal order, is the assertion. Pull back the single chosen μ\_p≅F\_p coefficient isomorphism to D. Naturality conjugates the zero μ\_p map into the constant-F\_p zero map; no independent roots of unity or transfer divided by p are used.
 
 **Checks.**
 
@@ -7121,7 +3338,7 @@ Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF
 
 k algebraically closed, characteristic zero; C connected smooth separated finite-type of dimension one. C affine or its smooth projective compactification has positive genus; genus-zero projective C is excluded.
 
-Use SF.3's dichotomy: a nonproper smooth separated curve is affine, so the positive-genus nonaffine case is projective. For every connected finite étale Y→C, the affine case stays affine. In the projective case Y is smooth projective and unramified Riemann–Hurwitz gives g(Y)=1+deg(Y/C)(g(C)−1)≥1. Import constant-coefficient curve cohomology from SF.2: for affine Y, H^q(Y,F\_p)=0 for q≥2 (Stacks 03RR); for projective Y, H^q(Y,F\_p)=0 for q≥3 and H²(Y,μ\_p)≅Z/p (03RQ). Use one root-of-unity identification for the constant F\_p statements. Only q=2 on projective positive-genus Y remains. Obtain a connected degree-p cover Z→Y by [A connected prime-degree étale cover](#nc-0-connected-prime-degree-cover); [Prime-degree covers kill degree-two prime torsion](#nc-0-prime-cover-degree-two-killing) kills the specified class. No use of the desired K(π,1) theorem is hidden in obtaining this cover. The quantifier covers every Y and every prime p, not just C and one p. Apply [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement) with P all primes to reach the canonical all-degree full finite-coefficient predicate. Basepoint-transport gives the statement at any geometric point. The raw pro-homotopy comparison is not a prerequisite.
+Use SF.3's dichotomy: a nonproper smooth separated curve is affine, so the positive-genus nonaffine case is projective. For every connected finite étale Y→C, the affine case stays affine. In the projective case Y is smooth projective and unramified Riemann–Hurwitz gives g(Y)=1+deg(Y/C)(g(C)−1)≥1. Use the curve cohomology of [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology): for affine Y, H^q(Y,F\_p)=0 for q≥2; for projective Y, H^q(Y,F\_p)=0 for q≥3 and H²(Y,μ\_p)≅Z/p (03RQ). Use one root-of-unity identification for the constant F\_p statements. Only q=2 on projective positive-genus Y remains. Obtain a connected degree-p cover Z→Y by [A connected prime-degree étale cover](#nc-0-connected-prime-degree-cover); [Prime-degree covers kill degree-two prime torsion](#nc-0-prime-cover-degree-two-killing) kills the specified class. No use of the desired K(π,1) theorem is hidden in obtaining this cover. The quantifier covers every Y and every prime p, not just C and one p. Apply [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement) with P all primes to reach the canonical all-degree full finite-coefficient predicate. Basepoint-transport gives the statement at any geometric point. The raw pro-homotopy comparison is not a prerequisite.
 
 **Checks.**
 
@@ -7139,7 +3356,7 @@ Use [Constant prime-field tests on all finite covers](#nc-0-prime-field-effaceme
 
 X separated of finite type over a characteristic-zero field; in particular X is quasi-compact and quasi-separated. F finite locally constant and α a fixed positive-degree class; a genuine finite étale surjective killing cover over k\_s is given.
 
-Write k\_s as the filtered union of its finite separable k-subextensions. Import the SF.2 finite-presentation descent interface: the finite étale cover Z\_s and its morphism descend to some X\_(k₀). Finite étale and surjectivity persist or descend after enlarging k₀; do not assume that descending equations alone proves these properties. The descended Z₀ is quasi-compact and quasi-separated. Apply SF.2's canonical continuity isomorphism colim\_(k′/k₀ finite) H^q\_et(Z₀×\_(k₀)k′,h₀*F\_(k′))≅H^q\_et(Z\_s,h\_s*F\_(k\_s)), natural in pullback. The image of h₀*α\_(k₀) is zero. A representative mapping to zero in a filtered colimit of abelian groups becomes zero at some later finite stage. Enlarge to that k′ and base change Z₀. This second enlargement is necessary: descent of h\_s alone does not make h₀*α vanish. Since Spec k′→Spec k is finite étale surjective, X\_(k′)→X and the composite Z′→X are finite étale surjective. Pullback composition proves that the composite kills α. No injectivity of restriction to k\_s, proper base change or arbitrary field-extension invariance is used.
+Write k\_s as the filtered union of its finite separable k-subextensions. By [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent)(c), the finite étale cover Z\_s and its morphism descend to some X\_(k₀). Finite étale and surjectivity persist or descend after enlarging k₀; do not assume that descending equations alone proves these properties. The descended Z₀ is quasi-compact and quasi-separated. Apply SF.2's canonical continuity isomorphism colim\_(k′/k₀ finite) H^q\_et(Z₀×\_(k₀)k′,h₀*F\_(k′))≅H^q\_et(Z\_s,h\_s*F\_(k\_s)), natural in pullback. The image of h₀*α\_(k₀) is zero. A representative mapping to zero in a filtered colimit of abelian groups becomes zero at some later finite stage. Enlarge to that k′ and base change Z₀. This second enlargement is necessary: descent of h\_s alone does not make h₀*α vanish. Since Spec k′→Spec k is finite étale surjective, X\_(k′)→X and the composite Z′→X are finite étale surjective. Pullback composition proves that the composite kills α. No injectivity of restriction to k\_s, proper base change or arbitrary field-extension invariance is used.
 
 **Checks.**
 
@@ -7149,7 +3366,7 @@ Write k\_s as the filtered union of its finite separable k-subextensions. Import
 
 The construction and its conventions follow [Piotr Achinger](#reference-achinger-effacement-2014-v1), Proposition 3.4(c), finite-separable and separable-closure proof paragraph, p. 8; [The Stacks Project Authors](#reference-stacks), 09YQ Theorem 59.51.3; 03RV Lemma 59.64.4; 07RR Lemma 32.8.15.
 
-Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0.
+Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent).
 
 <a id="nc-0-separable-base-change"></a>
 
@@ -7157,7 +3374,7 @@ Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF
 
 X geometrically connected, separated and finite type over a characteristic-zero field; chosen separable closure and geometric point. The coefficient class is all finite locally constant abelian coefficients, not an arbitrary unstable class.
 
-For descent, take F,q&gt;0,α on X. If the geometric property holds, [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) supplies a finite étale cover of X\_(k\_s) killing α\_(k\_s). Apply [A geometric killing cover descends to a finite extension](#nc-0-separable-killing-descent) and then [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on X. For ascent, let F\_s,q&gt;0,β\_s be geometric coefficient/class data. SF.2's finite coefficient descent, including its addition/zero/inverse maps, gives F₀ on X\_(k₀) for a finite separable k₀/k. Its canonical cohomology continuity supplies a class β₁ at a possibly larger finite k₁ representing β\_s. X\_(k₁) is connected by geometric connectedness; [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance) transfers the property of X to X\_(k₁). Apply [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) to β₁, then base change its finite étale surjective killing cover to k\_s. Naturality kills β\_s. Apply the all-coefficient criterion on X\_(k\_s) and preserve its canonical comparison. The proof never replaces π by its geometric subgroup or pro-p quotient; nor does it identify H^q(X,F) with H^q(X\_(k\_s),F\_s).
+For descent, take F,q&gt;0,α on X. If the geometric property holds, [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) supplies a finite étale cover of X\_(k\_s) killing α\_(k\_s). Apply [A geometric killing cover descends to a finite extension](#nc-0-separable-killing-descent) and then [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) on X. For ascent, let F\_s,q&gt;0,β\_s be geometric coefficient/class data. The descent of finite locally constant sheaves in [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent)(c), including their addition, zero and inverse maps, gives F₀ on X\_(k₀) for a finite separable k₀/k. Its canonical cohomology continuity supplies a class β₁ at a possibly larger finite k₁ representing β\_s. X\_(k₁) is connected by geometric connectedness; [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance) transfers the property of X to X\_(k₁). Apply [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) to β₁, then base change its finite étale surjective killing cover to k\_s. Naturality kills β\_s. Apply the all-coefficient criterion on X\_(k\_s) and preserve its canonical comparison. The proof never replaces π by its geometric subgroup or pro-p quotient; nor does it identify H^q(X,F) with H^q(X\_(k\_s),F\_s).
 
 **Checks.**
 
@@ -7167,7 +3384,7 @@ For descent, take F,q&gt;0,α on X. If the geometric property holds, [All-coeffi
 
 The construction and its conventions follow [Piotr Achinger](#reference-achinger-effacement-2014-v1), Proposition 3.4(c), separable-closure case, p. 8.
 
-Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance); [A geometric killing cover descends to a finite extension](#nc-0-separable-killing-descent); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0.
+Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance); [A geometric killing cover descends to a finite extension](#nc-0-separable-killing-descent); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [Finite étale pushforward and limit descent of finite coefficients](#finite-etale-pushforward-descent).
 
 <a id="nc-0-smooth-curve"></a>
 
@@ -7191,7 +3408,7 @@ Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1)
 
 The full canonical finite-coefficient property of W; I is finite and every q\_i&gt;0. A lift of the geometric point is selected on each cover. No uniform cover for all classes or degrees is asserted.
 
-Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) with each constant finite F\_{p\_i} sheaf to choose one finite étale surjective cover killing a\_i. This criterion covers every q\_i&gt;0, including degree one; the prime-field criterion stated only in degrees at least two cannot replace it here. Use IG.0's pointed finite-cover dictionary and connected-component/refinement contract: take the finite fibre product of the chosen covers over W and its connected component through the tuple of chosen geometric lifts. That component is finite étale surjective over connected noetherian W and maps to every chosen cover. Use SF.2's canonical pullback composition and zero-preservation: each class remains zero after refinement. For I empty choose id\_W. The connected component is selected using the chosen point, not a normality assumption.
+Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement) with each constant finite F\_{p\_i} sheaf to choose one finite étale surjective cover killing a\_i. This criterion covers every q\_i&gt;0, including degree one; the prime-field criterion stated only in degrees at least two cannot replace it here. Use IG.0's pointed finite-cover dictionary: take the finite fibre product of the chosen covers over W and its connected component through the tuple of chosen geometric lifts. That component is finite étale surjective over connected noetherian W and maps to every chosen cover. Use SF.2's canonical pullback composition and zero-preservation: each class remains zero after refinement. For I empty choose id\_W. The connected component is selected using the chosen point, not a normality assumption.
 
 **Checks.**
 
@@ -7203,13 +3420,48 @@ The construction and its conventions follow [Alexander Schmidt and Jakob Stix](#
 
 Use [All-coefficient finite-cover criterion](#nc-0-all-coefficient-effacement); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
 
+<a id="prime-field-kunneth"></a>
+
+**Künneth for prime-field coefficients.** Let k be a separably closed field, W and T schemes of finite type over k, and p a prime invertible in k. The external product ⊕\_(i+j=q)Hⁱ(W,𝔽\_p)⊗Hʲ(T,𝔽\_p)→Hᵠ(W×\_kT,𝔽\_p) is an isomorphism for every q, natural for pullback along morphisms of pairs. No properness or smoothness is assumed.
+
+k separably closed; W, T of finite type; p invertible in k. In the applications k is algebraically closed of characteristic zero.
+
+Stacks, Lemma 59.97.9 gives RΓ(W×\_kT,pr₁⁻¹E⊗ᴸpr₂⁻¹K)=RΓ(W,E)⊗ᴸRΓ(T,K) for E,K in the derived categories of ℤ/n-modules with n invertible. Take n=p and E=K=𝔽\_p; over the field 𝔽\_p the derived tensor product is the ordinary one and the Künneth decomposition of cohomology of a tensor product of complexes of 𝔽\_p-vector spaces has no Tor terms. Naturality is that of the external cup product.
+
+**Checks.**
+
+- For W=T=𝔾\_m over ℂ and p=2, H¹(𝔾\_m,𝔽\_2)=𝔽\_2 and H¹(𝔾\_m×𝔾\_m,𝔽\_2)=𝔽\_2², H²=𝔽\_2: the formula gives dimensions 1,2,1 although neither factor is proper.
+- With ℤ/4 coefficients the Künneth map has Tor terms, so the clean sum formula is stated for prime-field coefficients only.
+
+The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Lemma 59.97.9 (Section 59.97, Tag 0F13).
+
+Use [Comparison of continuous π₁-cohomology with étale cohomology](#pi1-etale-comparison).
+
+<a id="pi1-products"></a>
+
+**Fundamental groups of products.** Let k be an algebraically closed field of characteristic zero and X, Y connected k-schemes, X of finite type, with geometric points a, b and c over them. The projections induce an isomorphism π₁(X×\_kY,c)≅π₁(X,a)×π₁(Y,b). Consequently connected finite étale covers of the form X′×\_kY′ are cofinal among connected finite étale covers of X×\_kY. Over a field k of characteristic zero with algebraic closure k̄, for geometrically connected X, Y with X of finite type and Y quasi-compact and quasi-separated, the arithmetic group is the fibre product π₁(X×\_kY)≅π₁(X)×\_(Gal(k̄/k))π₁(Y), compatibly with the projections.
+
+k of characteristic zero (algebraically closed for the first statement); X connected of finite type, Y connected; for the arithmetic statement X, Y geometrically connected, X of finite type and Y quasi-compact and quasi-separated.
+
+The geometric statement is SGA 1, Exposé XIII, Proposition 4.6 (the Künneth formula for π₁), in characteristic zero where every prime is different from p and resolution of singularities supplies the strong desingularisation hypothesis; for X proper it is already SGA 1, Exposé X, Corollaire 1.7. Open subgroups of a product of profinite groups contain products of open subgroups, which gives cofinality. For the arithmetic statement, compare the homotopy exact sequences 1→π₁(Z\_k̄)→π₁(Z)→Gal(k̄/k)→1 for Z=X, Y, X×\_kY (Stacks, Lemma 58.14.3) and apply the geometric isomorphism to the kernels.
+
+**Checks.**
+
+- For X=Y=𝔾\_m over ℂ, π₁(𝔾\_m²)=ℤ̂² and the degree-n² cover (z,w)↦(zⁿ,wⁿ) is a product cover, as is every cover of 𝔾\_m² up to refinement.
+- Over k=ℚ with X=Y=Spec ℚ(i), X×\_ℚY is disconnected (two copies of Spec ℚ(i)); geometric connectedness is needed for the fibre-product formula.
+- The arithmetic group of X×\_kY is the fibre product over Gal(k̄/k), not π₁(X)×π₁(Y): for X=Y=Spec k this would give Gal×Gal instead of Gal.
+
+The construction and its conventions follow [SGA 1](#reference-sga1), Exposé XIII, Proposition 4.6, p. 310; Exposé X, Corollaire 1.7, pp. 203–204; [The Stacks Project Authors](#reference-stacks), Lemma 58.14.3 (Tag 0BTX).
+
+Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0.
+
 <a id="nc-0-product-cover-effacement"></a>
 
 **Prime-field effacement on every cover of a product.** Let X,Y be geometrically connected geometrically unibranch varieties over an algebraically closed characteristic-zero field k, each with the full finite-coefficient étale K(π,1) property. For a pointed connected finite étale cover Z→X×\_kY, a prime p, q&gt;0 and c∈H^q\_et(Z,F\_p), there are pointed connected finite étale covers X″→X and Y″→Y and a finite étale surjective map h:X″×\_kY″→Z over X×\_kY such that h*c=0. The two covers may depend on Z,p,q,c; Z itself need not be a product or a Galois cover.
 
 Algebraically closed k of characteristic zero; separated finite-type geometrically connected geometrically unibranch X and Y; their full canonical finite-coefficient properties; constant F\_p with p prime and q&gt;0.
 
-IG.0 supplies the projection-compatible geometric π₁ product isomorphism and pointed covers/finite-continuous-set dictionary. If K is the open subgroup for Z in G×H, take U=i\_G⁻¹K and V=i\_H⁻¹K with i\_G(g)=(g,1), i\_H(h)=(1,h). Use OpenSubgroup.comap/prod, Subgroup.prod\_le\_iff and map\_le\_iff\_le\_comap to obtain U×V≤K, maximal among such rectangles. Compactness makes both coset sets finite without requiring K normal. The same IG.0 dictionary realizes U,V as connected covers X′,Y′, and the equivariant surjection (G×H)/(U×V)→(G×H)/K as a finite étale surjective map X′×Y′→Z. This realizes a domination, not an isomorphism with Z. Pull c back to X′×Y′. SF.2 supplies the canonical, pullback-natural external-product isomorphism ⊕\_{i+j=q} H^i\_et(X′,F\_p)⊗\_{F\_p}H^j\_et(Y′,F\_p)→H^q\_et(X′×Y′,F\_p). It is the constant-prime-field specialization of Stacks 59.97.9 followed by the generic complexes-over-a-field comparison. Every tensor and the direct sum have finite support; no choice of cohomology basis or finite-dimensionality is needed. Write the pulled-back class as a finite sum of a\_s×b\_s. For each summand choose a\_s if its degree is positive, and otherwise b\_s, whose degree is then q&gt;0. Finite-etale-invariance gives the full property of X′ and Y′. Apply [One cover kills a finite family of positive-degree classes](#nc-0-positive-family-effacement) to the two finite designated families to get X″→X′ and Y″→Y′. Degree one, including an H¹⊗H¹ summand in degree two, must be included. Naturality and bilinearity of the external product make every pulled-back summand zero, hence kill c. Compose the refinement with X′×Y′→Z. Product/base-change/composition preservation of finite étaleness and surjectivity are imported from IG.0/SF.2, as are connectedness and geometric-unibranch stability.
+The projection-compatible product isomorphism is [Fundamental groups of products](#pi1-products); IG.0 supplies the dictionary between pointed covers and finite continuous sets. If K is the open subgroup for Z in G×H, take U=i\_G⁻¹K and V=i\_H⁻¹K with i\_G(g)=(g,1), i\_H(h)=(1,h). Use OpenSubgroup.comap/prod, Subgroup.prod\_le\_iff and map\_le\_iff\_le\_comap to obtain U×V≤K, maximal among such rectangles. Compactness makes both coset sets finite without requiring K normal. The same IG.0 dictionary realizes U,V as connected covers X′,Y′, and the equivariant surjection (G×H)/(U×V)→(G×H)/K as a finite étale surjective map X′×Y′→Z. This realizes a domination, not an isomorphism with Z. Pull c back to X′×Y′. Use the canonical, pullback-natural external-product isomorphism ⊕\_{i+j=q} H^i\_et(X′,F\_p)⊗\_{F\_p}H^j\_et(Y′,F\_p)→H^q\_et(X′×Y′,F\_p) of [Künneth for prime-field coefficients](#prime-field-kunneth). Every tensor and the direct sum have finite support; no choice of cohomology basis or finite-dimensionality is needed. Write the pulled-back class as a finite sum of a\_s×b\_s. For each summand choose a\_s if its degree is positive, and otherwise b\_s, whose degree is then q&gt;0. Finite-etale-invariance gives the full property of X′ and Y′. Apply [One cover kills a finite family of positive-degree classes](#nc-0-positive-family-effacement) to the two finite designated families to get X″→X′ and Y″→Y′. Degree one, including an H¹⊗H¹ summand in degree two, must be included. Naturality and bilinearity of the external product make every pulled-back summand zero, hence kill c. Compose the refinement with X′×Y′→Z. Product/base-change/composition preservation of finite étaleness and surjectivity are imported from IG.0/SF.2, as are connectedness and geometric-unibranch stability.
 
 **Checks.**
 
@@ -7221,7 +3473,7 @@ IG.0 supplies the projection-compatible geometric π₁ product isomorphism and 
 
 The construction and its conventions follow [Alexander Schmidt and Jakob Stix](#reference-schmidt-stix-2016), Lemma 2.7 and its proof, p. 827; [The Stacks Project Authors](#reference-stacks), Section 59.97, Lemma 59.97.9 and printed proof; canonical map in 59.97.8.
 
-Use [One cover kills a finite family of positive-degree classes](#nc-0-positive-family-effacement); [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); `Subgroup.prod`; `Subgroup.prod_le_iff`; `Subgroup.map_le_iff_le_comap`; `OpenSubgroup.comap`; `OpenSubgroup.prod`; `Subgroup.quotient_finite_of_isOpen`.
+Use [One cover kills a finite family of positive-degree classes](#nc-0-positive-family-effacement); [Finite étale invariance of étale K(π,1)](#nc-0-finite-etale-invariance); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); `Subgroup.prod`; `Subgroup.prod_le_iff`; `Subgroup.map_le_iff_le_comap`; `OpenSubgroup.comap`; `OpenSubgroup.prod`; `Subgroup.quotient_finite_of_isOpen`; [Fundamental groups of products](#pi1-products); [Künneth for prime-field coefficients](#prime-field-kunneth).
 
 <a id="nc-0-geometric-product"></a>
 
@@ -7229,7 +3481,7 @@ Use [One cover kills a finite family of positive-degree classes](#nc-0-positive-
 
 Both factors are separated finite-type geometrically connected geometrically unibranch k-varieties; k algebraically closed of characteristic zero; all finite coefficients.
 
-Use the imported product-stability contracts to ensure the product is connected noetherian and geometrically unibranch. For every connected finite étale Z→X×Y, every prime p and q≥2, [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement) supplies a finite étale surjective refinement killing each constant-F\_p class. Apply the already owned [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement) criterion with P the set of all primes. Its coefficient trivialization and dévissage recover every finite continuous coefficient module, not merely constant F\_p. Preserve the canonical comparison and the full fundamental group.
+The product is connected and noetherian, its connected finite étale covers are dominated by products of covers of the factors by [Fundamental groups of products](#pi1-products), and it is geometrically unibranch because the factors are and k is algebraically closed. For every connected finite étale Z→X×Y, every prime p and q≥2, [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement) supplies a finite étale surjective refinement killing each constant-F\_p class. Apply the already owned [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement) criterion with P the set of all primes. Its coefficient trivialization and dévissage recover every finite continuous coefficient module, not merely constant F\_p. Preserve the canonical comparison and the full fundamental group.
 
 **Checks.**
 
@@ -7238,7 +3490,7 @@ Use the imported product-stability contracts to ensure the product is connected 
 
 The construction and its conventions follow [Alexander Schmidt and Jakob Stix](#reference-schmidt-stix-2016), Lemma 2.7 and its proof, p. 827.
 
-Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement); [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
+Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement); [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [Künneth for prime-field coefficients](#prime-field-kunneth).
 
 <a id="nc-0-products"></a>
 
@@ -7256,7 +3508,7 @@ Use the already owned [Separable-closure invariance of finite-coefficient K(π,1
 
 The construction and its conventions follow [Alexander Schmidt and Jakob Stix](#reference-schmidt-stix-2016), Lemma 2.7(b) and proof, p. 827.
 
-Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Binary geometric products preserve the full property](#nc-0-geometric-product); [Separable-closure invariance of finite-coefficient K(π,1)](#nc-0-separable-base-change); [Fields are étale K(π,1)](#nc-0-field); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.1 (arithmetic fundamental groups, inertia and specialization); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology).
+Use [Étale K(π,1) for a specified finite coefficient class](#key-etale-k-pi-1); [Binary geometric products preserve the full property](#nc-0-geometric-product); [Separable-closure invariance of finite-coefficient K(π,1)](#nc-0-separable-base-change); [Fields are étale K(π,1)](#nc-0-field); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.0; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.1 (arithmetic fundamental groups, inertia and specialization); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.2 (sites and scheme cohomology); [Fundamental groups of products](#pi1-products).
 
 ### 1.10 Homotopy fibres of elementary fibrations
 
@@ -7322,7 +3574,7 @@ Use [Fields are étale K(π,1)](#nc-0-field); [Elementary curve fibrations prese
 
 k is algebraically closed of characteristic zero; C is a connected smooth projective k-curve of genus g≥1. p is a prime number, so p is invertible in k. The fundamental group is the full profinite π₁ᵉᵗ(C,x). a is a natural number, including zero; no common witness for all a is claimed.
 
-For a=0 choose C itself. For the induction step apply [A connected prime-degree étale cover](#nc-0-connected-prime-degree-cover) to the current curve. SF.3's finite-étale Riemann–Hurwitz formula g(D)=1+p(g(C)−1) guarantees genus≥1, so the induction can be repeated. Use the supplier's composition and degree-multiplicativity of finite étale covers. A tower of a degree-p covers is connected and its composite has degree p^a; connectedness of each chosen source is retained. Do not assert that successive Galois covers have a Galois composite. Apply the generic Kummer-degree pullback formula from SF.2 with n=p^a≥1. Multiplication by p^a in Z/(p^a) is zero, so the map kills every class at once. A single degree-p cover only multiplies H²(μ\_(p^a)) by p and does not suffice when a&gt;1. With a primitive p^a-th root chosen on k the same conclusion holds for constant Z/(p^a) coefficients. Higher coefficient dévissage of arbitrary monodromy is a different step, supplied by [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement).
+For a=0 choose C itself. For the induction step apply [A connected prime-degree étale cover](#nc-0-connected-prime-degree-cover) to the current curve. SF.3's finite-étale Riemann–Hurwitz formula g(D)=1+p(g(C)−1) guarantees genus≥1, so the induction can be repeated. Finite étale covers compose, and their degrees multiply. A tower of a degree-p covers is connected and its composite has degree p^a; connectedness of each chosen source is retained. Do not assert that successive Galois covers have a Galois composite. Apply the degree-pullback formula of [Étale cohomology of curves with μ\_n coefficients](#curve-kummer-cohomology) with n=p^a≥1. Multiplication by p^a in Z/(p^a) is zero, so the map kills every class at once. A single degree-p cover only multiplies H²(μ\_(p^a)) by p and does not suffice when a&gt;1. With a primitive p^a-th root chosen on k the same conclusion holds for constant Z/(p^a) coefficients. Higher coefficient dévissage of arbitrary monodromy is a different step, supplied by [Constant prime-field tests on all finite covers](#nc-0-prime-field-effacement).
 
 **Checks.**
 
@@ -7490,7 +3742,7 @@ Use [Unipotent length](#nc-2-unipotent-length); [Neutral tensor category and Hop
 
 Finite-rank objects; geometric connectedness makes endomorphisms of the unit equal to the coefficient field. For C\_rig, a smooth good-reduction pair with finite étale boundary, possibly empty, and an integral endpoint. Only rational endpoints are constructed in this part; tame tangential endpoints need a separate logarithmic fibre construction.
 
-Apply [Unipotent length](#nc-2-unipotent-length) in the three imported geometric categories. Prove subquotient closure by the invariant-vector filtration, and exact faithful evaluation using connectedness and horizontal/local-system uniqueness. Identify extensions of unit by unit with H^1 using the connection Čech–de Rham cocycle, the local-system cocycle, or the rigid de Rham complex. For rigid H^1, apply RD.5 finiteness to the constant unit with its canonical Frobenius structure; this does not assume a Frobenius structure on every unipotent object. CLS Remark 2.3.4(iii) also proves finite cohomology of successive unit extensions by induction. Algebraic and étale curve H^1 finiteness, with exact coefficient conventions, remains the supplier contract below; neither RD.4 alone nor the restricted Coleman scalar H^1 datum proves all three instances. Build tensor/dual/pullback and basepoint evaluation from the suppliers; check symmetry and unit compatibility, rather than assuming an arbitrary tensor category is neutral.
+Apply [Unipotent length](#nc-2-unipotent-length) in the three imported geometric categories. Prove subquotient closure by the invariant-vector filtration, and exact faithful evaluation using connectedness and horizontal/local-system uniqueness. Identify extensions of unit by unit with H^1 using the connection Čech–de Rham cocycle, the local-system cocycle, or the rigid de Rham complex. For rigid H^1, apply RD.5 finiteness to the constant unit with its canonical Frobenius structure; this does not assume a Frobenius structure on every unipotent object. CLS Remark 2.3.4(iii) also proves finite cohomology of successive unit extensions by induction. Finiteness of algebraic de Rham H¹ of a smooth curve and of its étale H¹ (Stacks, Lemmas 59.69.1 and 59.69.3, at each finite level) is standard; neither RD.4 alone nor the restricted Coleman scalar H^1 datum proves all three instances. Build tensor/dual/pullback and basepoint evaluation in each of the three realization categories; check symmetry and unit compatibility, rather than assuming an arbitrary tensor category is neutral.
 
 The interface consists of the following named results.
 
@@ -8032,11 +4284,36 @@ Use [Composition in affine word coordinates](#nc-2-affine-composition); [Canonic
 
 ### 2.6 Pointed crystalline comparison
 
+<a id="olsson-unipotent-comparison"></a>
+
+**Olsson's nonabelian crystalline comparison in the unipotent case.** Let k be a perfect field of characteristic p, V=W(k), K=Frac V, 𝒳 smooth and proper over V and 𝒟⊂𝒳 a divisor with normal crossings relative to V, with 𝒳°=𝒳∖𝒟. Let C\_et be the category of unipotent smooth ℚ\_p-sheaves on 𝒳°\_K̄ and C\_dR the category of unipotent modules with integrable connection on 𝒳°\_K with logarithmic poles along 𝒟 and nilpotent residues, with its Frobenius structure from the log-crystalline realization. For integral points x,y∈𝒳°(V), let P^et\_(x,y)=Isom^⊗(ω^et\_x,ω^et\_y) and P^dR\_(x,y)=Isom^⊗(ω^dR\_x,ω^dR\_y). Then: (i) there is an isomorphism of Hopf algebras O(π₁(C\_dR,x))⊗\_K B\_cris≅O(π₁(C\_et,x̄))⊗\_(ℚ\_p) B\_cris compatible with Frobenius and the Galois action; (ii) the Galois representation O(P^et\_(x,y)) is ind-crystalline, and D\_cris(O(P^et\_(x,y))) is canonically isomorphic to O(P^dR\_(x,y)) with its Frobenius, compatibly with the torsor structures under the groups of (i) and with composition of paths; (iii) Lie(π₁(C\_et,x̄)) is a pro-object of crystalline representations with D\_cris equal to Lie(π₁(C\_dR,x)); (iv) for a point b of 𝒟(V) at which the log structure satisfies Olsson's Assumption 9.2 (true after an étale extension of V), the same comparison holds at the tangential base point at b, and it is compatible with the local monodromy group at b.
+
+k perfect of characteristic p; V=W(k) unramified; 𝒳/V smooth proper; 𝒟 a relative normal-crossings divisor; x,y∈𝒳°(V) integral points, or a boundary point b as in (iv). In the unipotent case the reductivity Assumption 1.6 holds trivially (the reductive quotients are trivial) and the unit isocrystal has zero, hence nilpotent, residues. Olsson remarks that the arguments extend to 𝒳 defined over a finite, possibly ramified, extension of W(k), but gives the proofs over W(k) only; the ramified case is the separate target [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison).
+
+Olsson compares the pointed de Rham and étale stacks over the localisation B̃\_cris of B\_cris by carrying out Faltings' construction on equivariant differential graded algebras (Thom–Sullivan cochains) rather than on cohomology (Theorem 1.7). The Hopf algebra isomorphism over B̃\_cris (7.17.2) descends to B\_cris by Appendix D, Theorem D.3 (B̃\_cris-admissible implies crystalline), giving (7.17.3) and Theorem 1.8; Lemma 7.18 then gives Theorem 1.10, which is (iii). The path statement (ii) is Theorem 1.11, proved in §§8.27–8.32 with the base-point-free version of §8. The tangential statement (iv) is Theorem 9.28 with Theorem 9.46. Specialising C\_et and C\_dR to the unipotent categories gives the statements above; Frobenius on C\_dR is the one of the log-crystalline realization.
+
+The interface consists of the following named results.
+
+- `TauCeti.Anabelian.olssonHopfComparison`: Statement (i).
+- `TauCeti.Anabelian.olssonPathComparison`: Statement (ii), with compatibility with torsor actions and path composition.
+- `TauCeti.Anabelian.olssonLieComparison`: Statement (iii).
+- `TauCeti.Anabelian.olssonTangentialComparison`: Statement (iv).
+
+**Checks.**
+
+- At x=y, (ii) is the Hopf algebra comparison (i) applied to the coordinate ring of the group, with the identity path corresponding to the counit on both sides.
+- On the abelianisation, (iii) recovers the crystalline comparison for H¹\_et(𝒳°\_K̄,ℚ\_p)^∨ and H¹\_dR(𝒳°\_K)^∨, including for 𝒟≠∅ the boundary classes.
+- Crystallinity of each graded piece of the lower central series does not imply that O(P^et\_(x,y)) is crystalline, since extensions of crystalline representations need not be crystalline; (ii) is a statement about the whole ind-representation.
+
+The construction and its conventions follow [Martin C. Olsson](#reference-olsson), §1.1, pp. 1–2; §1.5 and Assumption 1.6, p. 4; Theorems 1.7–1.11, pp. 4–5; §1.14 and its closing remark on ramified bases, pp. 6–7; (7.17.2)–(7.17.3) and Lemma 7.18, p. 69; §§8.27–8.32, p. 83; §9.1, Assumption 9.2, p. 85; Theorem 9.28, p. 96; Theorem 9.46, p. 104; Appendix D, Theorem D.3, p. 132.
+
+Use [Neutral tensor category and Hopf reconstruction](#neutral-tensor-reconstruction); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.1 (period rings); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
+
 <a id="pointed-multiplicative-comparison"></a>
 
 **Two-augmentation multiplicative comparison.** For a smooth proper pair (𝒳,𝒟) over the Witt vectors of a finite field, construct the enhanced rational logarithmic crystalline, de Rham and geometric étale cochain algebras with augmentations at two integral sections of 𝒳−𝒟. Produce a multiplicative comparison over B\_cris compatible with both augmentations, Frobenius and Galois; its de Rham extension is strict for the Hodge filtration. Apply the reduced two-sided bar construction to obtain the coordinate algebra of the tensor path torsor, retaining coproduct, endpoint composition and coordinate coactions. Prove that finite path-coordinate subspaces are captured by finite-dimensional Galois-stable crystalline subspaces. This is an enhancement of degreewise comparison, not an inference from crystalline H¹.
 
-The unramified base is K₀=Frac W(F\_q). The boundary is relative normal crossings; the unit local system has nilpotent boundary monodromy.
+The unramified base is K₀=Frac W(F\_q). The boundary is relative normal crossings; the unit local system has nilpotent boundary monodromy. The comparison itself is [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison), statements (i) at equal endpoints and (ii) for two integral endpoints; what remains here is the bar-construction description of the path coordinate ring with its coproduct, endpoint composition and coactions.
 
 The interface consists of the following named results.
 
@@ -8053,11 +4330,11 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Martin C. Olsson](#reference-olsson), §§5–6; Theorems 1.7–1.11, pp. 3–5; §7, Lemma 7.18 and Sub-Lemma 7.19, pp. 69–70; §8.27–8.32, pp. 83–85; Appendix D, Theorem D.3, pp. 130–136.
 
-Use [Neutral tensor category and Hopf reconstruction](#neutral-tensor-reconstruction); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 2 (infinitesimal B_dR⁺ cohomology); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
+Use [Neutral tensor category and Hopf reconstruction](#neutral-tensor-reconstruction); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 2 (infinitesimal B_dR⁺ cohomology); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility); [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison).
 
 <a id="ramified-endpoint-comparison"></a>
 
-**Good-reduction comparison over ramified p-adic fields.** Extend the endpoint-compatible unipotent comparison to a smooth proper good-reduction pair over O\_K for every finite K/Q\_p and integral endpoints. Construct it from the multiplicative logarithmic semistable comparison on the integral pair, identify the crystalline realization over the maximal unramified subfield K₀, and extend it to the filtered de Rham realization over K. Prove that monodromy is zero for the good-reduction model and that the coordinate algebra and finite path modules are crystalline. Descent from an unramified model is a separate compatible case; a ramified base change does not make an arbitrary O\_K-model descend to W(k).
+**Good-reduction comparison over ramified p-adic fields.** Extend the endpoint-compatible unipotent comparison to a smooth proper good-reduction pair over O\_K for every finite K/Q\_p and integral endpoints. Olsson remarks that his arguments apply to a model over a finite, possibly ramified, extension of W(k), but writes the proofs over W(k) only ([Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison)); the target is to carry this out. Construct it from the multiplicative logarithmic comparison on the integral pair over O\_K, identify the crystalline realization over the maximal unramified subfield K₀, and extend it to the filtered de Rham realization over K. Prove that monodromy is zero for the good-reduction model and that the coordinate algebra and finite path modules are crystalline. Descent from an unramified model is a separate compatible case; a ramified base change does not make an arbitrary O\_K-model descend to W(k).
 
 The integral pair is smooth proper with relative normal-crossing boundary. The comparison includes both endpoint augmentations and the nilpotent local-system boundary condition.
 
@@ -8075,7 +4352,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §1, published pp. 101–106, crystalline path realizations; [Martin C. Olsson](#reference-olsson), Theorems 1.7–1.11, pp. 4–5; ramified-base extension stated in the closing paragraph of §1.14, p. 7; Appendix D.1–D.3, pp. 130–132.
 
-Use [Two-augmentation multiplicative comparison](#pointed-multiplicative-comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 2 (infinitesimal B_dR⁺ cohomology); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
+Use [Two-augmentation multiplicative comparison](#pointed-multiplicative-comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 2 (infinitesimal B_dR⁺ cohomology); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility); [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison).
 
 ### 2.7 Crystalline path comparisons
 
@@ -8094,7 +4371,7 @@ Apply the unit specialization of Olsson’s pointed schematic comparison, obtain
 
 The construction and its conventions follow [Martin C. Olsson](#reference-olsson), Author manuscript of 24 March 2008, §§1.5–1.11, pp. 4–6; §§8.27–8.32, pp. 83–85; Sub-Lemma 7.19, pp. 69–70; Appendix D, Theorem D.3, p. 132; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), Lemma 6.1 and proof, §6.2, p. 29 of the author manuscript; [Minhyong Kim](#reference-kim2009), Section 2, pp. 116–119.
 
-Use [Galois structure and completion](#nc-2-etale-galois); [Tensor paths](#nc-2-tensor-paths); [Nonabelian Berthelot–Ogus comparison](#nc-2-berthelot-ogus); [Frobenius on de Rham paths](#nc-2-path-frobenius); [Hodge filtered path fibres](#nc-2-filtered-path); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (the period functors D_HT, D_dR, D_cris, D_st); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (D_st is exact, tensor and fully faithful); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (crystalline comparison for a smooth proper model); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [Two-augmentation multiplicative comparison](#pointed-multiplicative-comparison); [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison).
+Use [Galois structure and completion](#nc-2-etale-galois); [Tensor paths](#nc-2-tensor-paths); [Nonabelian Berthelot–Ogus comparison](#nc-2-berthelot-ogus); [Frobenius on de Rham paths](#nc-2-path-frobenius); [Hodge filtered path fibres](#nc-2-filtered-path); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (the period functors D_HT, D_dR, D_cris, D_st); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (D_st is exact, tensor and fully faithful); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (crystalline comparison for a smooth proper model); [CohomologyComparisons](../CohomologyComparisons/README.md) Layer 3 (rational crystalline comparison); [Two-augmentation multiplicative comparison](#pointed-multiplicative-comparison); [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison); [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison).
 
 <a id="nc-2-finite-path-comparison"></a>
 
@@ -8222,7 +4499,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Martin C. Olsson](#reference-olsson), §9.1–9.11, pp. 85–89; §9.17–9.23, pp. 90–94; Theorem 9.46 and §§9.47–9.58, pp. 104–110; [Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers](#reference-bdckw-2018v4), §2, pp. 3–5.
 
-Use [Neutral tensor category and Hopf reconstruction](#neutral-tensor-reconstruction); [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point).
+Use [Neutral tensor category and Hopf reconstruction](#neutral-tensor-reconstruction); [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame tangential fibres at a boundary point); [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison).
 
 ### 2.12 Unramified arithmetic path realizations
 
@@ -8375,13 +4652,40 @@ Use `TauCeti.proPKernel`; `TauCeti.map_proPKernel_eq`; `TauCeti.proPKernel_le_co
 
 ### 3.2 Admissible log-cover systems and decomposition groups
 
+<a id="admissible-log-coverings"></a>
+
+**Admissible coverings of pointed stable curves.** Let f^log:C^log→S^log and h^log:D^log→S^log be symmetrically pointed stable log curves over a fine log scheme S^log, with marked divisors μ\_f and μ\_h. A morphism π^log:C^log→D^log is a log admissible covering of degree d if π^log is log étale and the induced map on characteristic monoids sends Γ\_D into ⋃\_(i≤d)(1/i)Γ\_C; π is finite and of degree d on a dense open subset of every fibre of h; μ\_f⊆π⁻¹(μ\_h)⊆d·μ\_f; and f is smooth at c exactly when h is smooth at π(c). A morphism π:C→D of the underlying pointed stable curves is an admissible covering if, étale locally on S, it underlies a log admissible covering for some fine log structure on S. Then: (a) every admissible covering carries a canonical log structure on S for which it is log admissible, and admissible coverings agree with the Harris–Mumford ones defined by local equations at the nodes; (b) at a node, in the local chart xy=sⁱ upstairs over uv=s^(ie) downstairs, the covering is u=xᵉ, v=yᵉ with the same index e on both branches, e is invertible on S, and e≤d; (c) over a strictly henselian discrete valuation ring A with n invertible, the punctured spectrum of the strict henselisation of A[x,y]/(xy−sⁿ) has π₁≅ℤ/n with universal cover given by the chart of index 1; (d) over the spectrum of a discrete valuation ring with generic point η, an admissible covering of the generic fibres has at most one extension; if d! is invertible in A it extends after a tamely ramified extension of A, the extension being the normalisation of D in the function field of C\_η. Galois conditions are not imposed, and the étale degree on a component may be divisible by the residue characteristic, since log étaleness only constrains the local indices at nodes and marked points.
+
+S^log fine; the curves symmetrically pointed stable; for (c)–(d), A strictly henselian, n or d! invertible as stated.
+
+(a) Compare log structures at the nodes: the log étale condition at a node is exactly the existence of the local equations, and Kato's criterion for log étaleness forces the index to be invertible; conversely, given Harris–Mumford equations, send log u to e·log x and log v to e·log y, which respects log u+log v=log s and descends because the construction is canonical (Lemmas of §§3.7–3.8). (b) is the local computation in the chart. (c) The index-1 chart is regular, so its punctured spectrum is simply connected, and the index-n map is finite étale of degree n on punctured spectra. (d) Uniqueness: the generic fibre is schematically dense. Existence: take the normalisation, apply Abhyankar's lemma at the generic points of the special fibre and at the marked points (tame since d! is invertible), purity of the branch locus elsewhere, and (c) at the nodes.
+
+The interface consists of the following named results.
+
+- `TauCeti.Anabelian.IsLogAdmissibleCovering`: The five conditions on π^log.
+- `TauCeti.Anabelian.IsAdmissibleCovering`: Existence of a log admissible lift étale locally on S.
+- `TauCeti.Anabelian.IsAdmissibleCovering.canonicalLogStructure`: The canonical log structure on S and the equivalence with the Harris–Mumford definition.
+- `TauCeti.Anabelian.IsAdmissibleCovering.nodeIndex_le`: The local index at a node is invertible and at most d.
+- `TauCeti.Anabelian.IsAdmissibleCovering.extend_unique` and `TauCeti.Anabelian.IsAdmissibleCovering.extend_exists`: Statement (d).
+
+**Checks.**
+
+- The identity of a smooth pointed curve is an admissible covering of degree 1 with every node index e=1, the equality case of e≤d.
+- Over 𝔽̄\_p, an étale cover of degree p of a smooth component (an Artin–Schreier cover of an elliptic curve, say) is admissible away from the nodes, so a component degree divisible by p is allowed; but a node with local index e=p fails log étaleness, because Kato's criterion needs the index invertible.
+- The map z↦z² from (P¹;0,∞,1,−1) to (P¹;0,∞,1), both stable, satisfies μ\_f⊆π⁻¹(μ\_h)⊆2μ\_f, since π⁻¹(μ\_h)=2[0]+2[∞]+[1]+[−1]; if −1 is not marked upstairs, π⁻¹(μ\_h) contains −1 outside μ\_f and the second inclusion fails.
+- In (d), without the hypothesis that d! be invertible a wildly ramified generic covering need not extend; the existence clause is stated only under it.
+
+The construction and its conventions follow [Shinichi Mochizuki](#reference-m95), §3.5 and its Definition and observations, pp. 19–20; §3.6, p. 20; §§3.7–3.11, pp. 21–24; §3.12, Lemma, p. 24; §3.13, Lemma, pp. 24–25.
+
+Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.5.4 (admissible G-covers); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.4 (stable pointed curves and their moduli).
+
 <a id="nc-1-log-admissible-system"></a>
 
 **Admissible stable log-cover system.** A stable log curve is a stable pointed curve with the log structure pulled back from the boundary log structure on its stable-curve moduli family, over a standard log point. A finite generically étale cover is pre-admissible if its stable extension is multi-admissible; it is potentially pre-admissible if this holds after a finite tame base extension. The admissible arithmetic group is Π modulo the intersection of the co-admissible open subgroups. Its base quotient is the tame log-point Galois group Γ^t. Multi-admissible means a disjoint union of admissible connected covers. The imported admissibility predicate requires a finite map of fibrewise generic degree d, preservation of the smooth/node loci, marked-divisor bounds μ\_C≤π*μ\_D≤dμ\_C, étaleness off nodes and markings, tame marking ramification, and strict-henselian node charts xy=a, uv=a^e, u=x^e, v=y^e with 1≤e≤d invertible on the base. Equivalently it has the source’s log-étale lift and characteristic-generator multiplicity bound. Total cover degree need not be invertible.
 
 Residue characteristic p&gt;0; stable log curve of hyperbolic type; pointed branches included.
 
-Use genuine étale sheaves of monoids and charts from CR.5 and stable models from StableReduction. Import generic admissible covers from IG.5, using its extension contract for étale p-degree components; Layer 3 owns their cofinal arithmetic reconstruction system. Form the cofiltered family of potentially pre-admissible pointed covers, with cofinal orderly Galois covers. Take the quotient characterized by this family; record geometric kernel and tame base quotient, rather than substituting ordinary étale π₁.
+Use genuine étale sheaves of monoids and charts from CR.5 and stable models from StableReduction. Use the admissible coverings of [Admissible coverings of pointed stable curves](#admissible-log-coverings), which allow étale components of degree divisible by p, together with the admissible G-covers of IG.5; Layer 3 owns their cofinal arithmetic reconstruction system. Form the cofiltered family of potentially pre-admissible pointed covers, with cofinal orderly Galois covers. Take the quotient characterized by this family; record geometric kernel and tame base quotient, rather than substituting ordinary étale π₁.
 
 The interface consists of the following named results.
 
@@ -8427,7 +4731,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m96), Proposition 4.1, pp. 589–590; Proposition 5.2, pp. 594–595.
 
-Use `MulAction.stabilizer`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [Admissible stable log-cover system](#nc-1-log-admissible-system).
+Use `MulAction.stabilizer`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [Admissible stable log-cover system](#nc-1-log-admissible-system); [Admissible coverings of pointed stable curves](#admissible-log-coverings).
 
 ### 3.3 Finite-field points, functions and addition
 
@@ -8621,7 +4925,7 @@ A G\_(K^ur)-equivariant map from Jacobian p-Tate data to Z\_p factors through it
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m96), Lemmas 8.1–8.3 and Proposition 8.4, pp. 610–613.
 
-Use [Admissible stable log-cover system](#nc-1-log-admissible-system); [Cofinal sturdy orderly covers](#nc-1-sturdy-cover); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.13 (the Raynaud extension); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) §R07.1.22 (Tate's theorem on p-divisible groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-7-semistable-reduction).
+Use [Admissible stable log-cover system](#nc-1-log-admissible-system); [Cofinal sturdy orderly covers](#nc-1-sturdy-cover); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.13 (the Raynaud extension); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) §R07.1.22 (Tate's theorem on p-divisible groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-7-semistable-reduction); [Admissible coverings of pointed stable curves](#admissible-log-coverings).
 
 <a id="nc-1-degree-normalization"></a>
 
@@ -8637,7 +4941,7 @@ First pass to a finite extension and an étale generic cover with singular stabl
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m96), Lemma 9.1 and the independent cover reduction in the proof of Theorem 9.2, pp. 613–619.
 
-Use [Recover admissible reduction from the generic group](#nc-1-local-admissible-recovery); [Cyclotomic calibration and reconstruction degree](#nc-1-cyclotomic-degree); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.14 (polarised uniformisation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §4.3 (the integral monodromy pairing); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-1-nodes-normalization-and-dual-graphs); [Cofinal sturdy orderly covers](#nc-1-sturdy-cover); [Recover nodes and marked branches](#nc-1-node-branch-recovery); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings).
+Use [Recover admissible reduction from the generic group](#nc-1-local-admissible-recovery); [Cyclotomic calibration and reconstruction degree](#nc-1-cyclotomic-degree); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.14 (polarised uniformisation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §4.3 (the integral monodromy pairing); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-1-nodes-normalization-and-dual-graphs); [Cofinal sturdy orderly covers](#nc-1-sturdy-cover); [Recover nodes and marked branches](#nc-1-node-branch-recovery); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings); [Admissible coverings of pointed stable curves](#admissible-log-coverings).
 
 <a id="nc-1-local-special-isom"></a>
 
@@ -8753,6 +5057,42 @@ Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticF
 
 ### 3.7 Geometric sections and arithmetic line bundles
 
+<a id="relative-hodge-tate-small-base"></a>
+
+**Relative Hodge–Tate theory over a small logarithmic base.** Let K be a p-adic field with perfect residue field, S=Spec R→Spec O\_K geometrically connected and smooth, and D⊆S a relative normal-crossings divisor, with S small: étale over O\_K[X₁,…,X\_d] with D the inverse image of X₁⋯X\_d=0. Let R̄ be the normalisation of R in the maximal extension of R⊗K̄ étale outside D, Γ\_R its Galois group over R\_K, Δ\_R the kernel of Γ\_R→Γ\_K, and let hats denote p-adic completion and subscripts K tensoring with K. Then for every j∈ℤ: (1) H⁰(Δ\_R,R̂̄\_K(j))=R̂\_K̄(j) and H¹(Δ\_R,R̂̄\_K(j))=Ω\_(S^log/O\_K)⊗\_R R̂\_K̄(j−1); (2) H⁰(Γ\_K,R̂\_K̄)=R̂\_K, H¹(Γ\_K,R̂\_K̄)=R̂\_K, and Hⁿ(Γ\_K,R̂\_K̄(j))=0 for j≠0 and n=0,1; (3) Hⁿ(Γ\_R,R̂̄\_K)=R̂\_K and Hⁿ(Γ\_R,R̂̄\_K(−1))=0 for n=0,1. (4) For an r-pointed stable log curve f^log:X^log→S^log of genus g with 2g−2+r≥1, let H be the ℤ\_p-dual of the relative first étale cohomology of X over U\_K=(S∖D)\_K, a free ℤ\_p-module of rank 2g (r=0) or 2g+r−1 (r>0) with Γ\_R-action, H₀=(R¹f\_\*O\_X)^∨ and H₁=(f\_\*ω\_(X^log/S^log))^∨. There is a natural Γ\_R-equivariant exact sequence 0→H₁⊗\_R R̂̄\_K(1)→H⊗\_(ℤ\_p)R̂̄\_K→H₀⊗\_R R̂̄\_K→0.
+
+K p-adic with perfect residue field; (S,D) small; the curve stable with log structure pulled back from the moduli stack; all statements are rational (after ⊗K), not integral.
+
+(1) is Faltings' computation of almost étale Galois cohomology (Faltings 1988, §I, Theorem 4.4(i) for H⁰ and (iv) for H¹, tensored with K(j)). (2) is Tate's computation for R=O\_K, extended to O\_K-flat R by the same argument. (3) follows from (1) and (2) by the Hochschild–Serre spectral sequence for 1→Δ\_R→Γ\_R→Γ\_K→1. (4) is the Hodge–Tate part of Faltings' comparison theorem in the relative logarithmic setting; only the Hodge–Tate statement is needed, not the crystalline one, and a logarithmic version of Hyodo's relative Hodge–Tate decomposition gives an alternative proof.
+
+**Checks.**
+
+- For S=Spec O\_K and D=∅ (d=0), Ω\_(S^log/O\_K)=0, so (1) says H¹(Δ\_R,·)=0 and (2) is Tate's theorem: H⁰(Γ\_K,ℂ\_p(j))=0 and H¹(Γ\_K,ℂ\_p(j))=0 for j≠0, while both are K for j=0.
+- For P¹ minus three points (g=0, r=3), H₀=0 and H₁ has rank g+r−1=2, so (4) says H⊗R̂̄\_K≅H₁⊗R̂̄\_K(1): the boundary classes go to the H₁ term with the twist (1), and H, of rank 2g+r−1=2, is ℤ\_p(1)² as the dual of the boundary part of H¹.
+- The statements are about R̂̄\_K, not the integral R̂̄; integral bounds are the subject of the next target, in good reduction only.
+
+The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), §2, opening setup, p. 19; Lemmas 2.1–2.3, p. 20; Proposition 2.4 and its proof, p. 21; [Gerd Faltings](#reference-faltings1988), §I, Theorem 4.4, pp. 270–271.
+
+Use [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.1 (period rings); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (the period functors D\_HT, D\_dR, D\_cris, D\_st); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [CrystallineCohomology](../CrystallineCohomology/README.md) Layers CR.5:log-algebra and CR.5 (logarithmic structures and logarithmic crystalline cohomology).
+
+<a id="integral-hodge-tate-differentials"></a>
+
+**Integral Hodge–Tate bounds for differentials in good reduction.** Let K be a p-adic local field and n₀″ an integer with v\_p(𝔇\_(K/ℚ\_p))≤v\_p(p^(n₀″)); put n₀′=n₀″+ord\_p(g!) and n₀=n₀′+2. Let 𝒢→Spec O\_K be a semi-abelian scheme of relative dimension g, an extension of an abelian scheme by a torus, so that 𝒢 has a smooth compactification with normal-crossings boundary. Let L⊇K be a p-adic field whose residue field is a function field in one variable over the residue field k of K, with k algebraically closed in it and m\_K O\_L=m\_L, and Γ\_(L/K)=ker(Γ\_L→Γ\_K). Then: (1) the Γ\_K-module H¹(𝒢\_K̄,K̄^∧) is Hodge–Tate; if H^Ω\_𝒢 denotes the quotient of H¹(𝒢\_K̄,Ô\_K̄(1)) by its weight-one part and Ω^inv\_𝒢 the invariant differentials, there is a natural Γ\_K-equivariant map Ω^inv\_𝒢⊗\_(O\_K)(p^(n₀)O\_K̄/p^(n₀+n)O\_K̄)→H^Ω\_𝒢⊗ℤ/pⁿ with an inverse up to the factor p^(n₀), for every n≥1. (2) The quotient H^Ω\_L of H¹(Γ\_(L/K),Ô\_L(1)) by its torsion is p-adically separated, and there is a natural Γ\_K-equivariant map Ω\_(O\_L/O\_K)⊗(p^(n₀)O\_K̄/p^(n₀+n)O\_K̄)→H^Ω\_L⊗ℤ/pⁿ with an inverse up to p^(n₀). (3) These maps are compatible with a morphism Spec O\_L→𝒢: differentiating it on the left corresponds to the map on H¹ on the right. The constant n₀ depends only on K and g, not on n, on L, or on the morphism.
+
+K/ℚ\_p finite; 𝒢 semi-abelian over O\_K (good reduction for the compactified group); L as stated. The bad-reduction version of Faltings' argument has gaps and gives only rational results, so it is not used.
+
+Faltings 1988, §II, Theorems 2.4 and 3.1 give (1) for a smooth O\_K-scheme with normal-crossings compactification, with the denominator g!·ρ, where ρ is controlled by the different of K and by the tame ramification allowed; the extra 2 in n₀ absorbs 1/(p−1)≤1 and (e−1)/e<1. Faltings 1988, §I, Theorem 4.2 gives (2) for the one-dimensional relative situation O\_L/O\_K, and separatedness is its torsion-free quotient statement. (3) is the functoriality of Faltings' construction for the morphism Spec O\_L→𝒢. Apply these to the semi-abelian group attached to the Jacobian (whose p-adic completion agrees with that of the Jacobian's semi-abelian model) as in the convergence argument for nondegenerate sections.
+
+**Checks.**
+
+- For K=ℚ\_p (n₀″=0) and g=1, n₀=ord\_p(1)+2=2: the inverse loses at most p², independently of n; a bound growing with n would not give the convergence statement (∗)ind.
+- For p≤g, ord\_p(g!)>0 and the loss increases; for g<p it does not depend on g.
+- Replacing 𝒢 by the Jacobian of a curve with bad reduction is excluded: only rational statements are available there.
+
+The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), §9, the Remark and consequences (1)–(3) of Faltings' theory, p. 51, and their use in proving (∗)ind, pp. 49–52; [Gerd Faltings](#reference-faltings1988), §I, Theorem 4.2, pp. 268–269; §II, Theorem 2.4, p. 283, and Theorem 3.1, p. 288.
+
+Use [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) Layer R11.2 (semi-abelian reduction and Raynaud extensions); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) Layer R07 (integral p-adic Hodge theory of p-divisible groups).
+
 <a id="nc-1-weight-zero-quotient"></a>
 
 **Weight-zero two-step quotient.** For a proper hyperbolic curve over a p-adic field or its smooth relative family, let M be the two-step Q\_p Malcev Lie algebra of its geometric pro-p group, H=M^ab and H\_0 its weight-zero Hodge–Tate quotient. Push the commutator part to Λ²H\_0, obtaining U\_X. Its inverse image B\_X of the weight-one part of H has a unique equivariant projection onto Λ²H\_0. Quotient U\_X by that projection’s kernel to obtain 0→Λ²H\_0→Z\_X→H\_0→0. This is the specific Layer 3 quotient, not a new general unipotent fundamental group.
@@ -8777,7 +5117,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Lemma 3.1, Definitions 3.2 and 3.4, author-copy pp. 22–27.
 
-Use Layer 2, unipotent fundamental groups and their realizations; [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract; [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings); [Two-step geometric Malcev quotient](#two-step-malcev).
+Use Layer 2, unipotent fundamental groups and their realizations; [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings); [Two-step geometric Malcev quotient](#two-step-malcev).
 
 <a id="nc-1-j-geometric-section"></a>
 
@@ -8804,7 +5144,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), §4, Lemma 4.1 and Definition 4.3, author-copy pp. 27–31; Proposition 5.4, p. 34, applies Definition 4.3 to a target curve without the §4 point hypothesis (see E104).
 
-Use [Weight-zero two-step quotient](#nc-1-weight-zero-quotient); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: Picard torsors of fixed degree; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: the Brauer obstruction to representing a relative Picard point by a line bundle; [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-9-the-galois-interface-hilbert-90-and-kummer-theory); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract.
+Use [Weight-zero two-step quotient](#nc-1-weight-zero-quotient); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: Picard torsors of fixed degree; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: the Brauer obstruction to representing a relative Picard point by a line bundle; [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-9-the-galois-interface-hilbert-90-and-kummer-theory); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials).
 
 <a id="nc-1-geometric-splitting"></a>
 
@@ -8820,7 +5160,7 @@ Prove splitting in the universal family by dense ordinary reduction and the ordi
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Propositions 3.3 and 3.5 and Proposition 4.4, author-copy pp. 23–32.
 
-Use [Weight-zero two-step quotient](#nc-1-weight-zero-quotient); [Jacobian-geometric section test](#nc-1-j-geometric-section); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract; [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (level-structure covers): prime-to-characteristic fine level covers on the smooth locus, with the normal algebraic-space extension at the boundary.
+Use [Weight-zero two-step quotient](#nc-1-weight-zero-quotient); [Jacobian-geometric section test](#nc-1-j-geometric-section); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (level-structure covers): prime-to-characteristic fine level covers on the smooth locus, with the normal algebraic-space extension at the boundary.
 
 <a id="nc-1-open-map-j-geometric"></a>
 
@@ -8836,7 +5176,7 @@ Use relative Hodge–Tate weight vanishing to kill weight-one inertia in the wei
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Lemma 5.2 and Proposition 5.4, author-copy pp. 32–34.
 
-Use [Geometric sections split the weight-zero extension](#nc-1-geometric-splitting); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups).
+Use [Geometric sections split the weight-zero extension](#nc-1-geometric-splitting); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups).
 
 <a id="nc-1-fi-geometric-section"></a>
 
@@ -8954,7 +5294,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), §9, condition (*)non, author-copy p. 47; Lemmas 9.1–9.2, pp. 48–52.
 
-Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-6-change-of-groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract; [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation).
+Use [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-6-change-of-groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation).
 
 <a id="nc-1-compatible-tower-point"></a>
 
@@ -9004,7 +5344,7 @@ If a transported relation were nonzero, choose a stable marked blowup and a gene
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Proposition 12.1, Lemmas 13.1–13.3 and Corollary 13.4, author-copy pp. 62–69.
 
-Use [Canonical relations with section multiplication](#nc-1-canonical-relations); [Completed toric differential comparison](#nc-1-completed-differential-comparison); [Prime-to-p divisor effectivity from sections](#nc-1-prime-to-p-line-bundle); [Prime-to-p line bundles yield tame points](#nc-1-tame-point-existence); [Canonical covers descend the tower point](#nc-1-canonical-cover-descent); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-9-marked-stabilization-and-stable-pointed-reduction); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract.
+Use [Canonical relations with section multiplication](#nc-1-canonical-relations); [Completed toric differential comparison](#nc-1-completed-differential-comparison); [Prime-to-p divisor effectivity from sections](#nc-1-prime-to-p-line-bundle); [Prime-to-p line bundles yield tame points](#nc-1-tame-point-existence); [Canonical covers descend the tower point](#nc-1-canonical-cover-descent); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-9-marked-stabilization-and-stable-pointed-reduction); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials).
 
 <a id="nc-1-inertia-and-regularity"></a>
 
@@ -9020,7 +5360,7 @@ A nonzero residue at x forces nontrivial image of its inertia. Choose a finite t
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Theorem 14.1 proof, author-copy pp. 69–72; Lemma 15.2, pp. 74–76.
 
-Use [Arithmetic maps preserve all canonical relations](#nc-1-canonical-relation-vanishing); [Canonical covers descend the tower point](#nc-1-canonical-cover-descent); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract.
+Use [Arithmetic maps preserve all canonical relations](#nc-1-canonical-relation-vanishing); [Canonical covers descend the tower point](#nc-1-canonical-cover-descent); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials).
 
 <a id="nc-1-canonical-effectivity"></a>
 
@@ -9039,6 +5379,24 @@ The construction and its conventions follow [Shinichi Mochizuki](#reference-m99)
 Use [Annihilate inertia and recover regular differentials](#nc-1-inertia-and-regularity); [Canonical covers descend the tower point](#nc-1-canonical-cover-descent); [Canonical relations with section multiplication](#nc-1-canonical-relations); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-4-repartitions-weil-differentials-and-riemannroch); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-2-coherent-curve-theory-duality-and-positivity); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [Local Galois centre-freeness](#nc-1-local-galois-centre-free).
 
 ### 3.9 Hom and Isom theorems over p-adic and number fields
+
+<a id="hyperbolic-hom-schemes"></a>
+
+**Dominant maps between proper hyperbolic curves.** Let M be a noetherian integral scheme over ℚ and X→M, Y→M proper smooth curves with geometrically connected fibres of genus at least two. The functor of M-morphisms X→Y is represented by a scheme Hom\_M(X,Y) locally of finite type over M. Its open and closed subscheme H\_M=Hom^dom\_M(X,Y) of fibrewise nonconstant morphisms is finite and unramified over M. Consequently, after shrinking M to a dense open subscheme, H\_M is finite étale over M, and a nonconstant morphism on one fibre over the shrunken M lifts to a morphism X\_L→Y\_L over a finite extension L of the function field. The constant morphisms form the separate component Y, which is not finite over M and is excluded.
+
+M noetherian, integral, of characteristic zero; X, Y proper smooth with geometrically connected fibres of genus ≥2 (proper hyperbolic). The open-curve variant needs the logarithmic tangent bundle and is not stated here.
+
+Representability: the graph of a morphism is a closed subscheme of X×\_MY, so Hom is an open subscheme of the Hilbert scheme of X×\_MY. Unramified: the tangent space of Hom at a nonconstant f:X\_m→Y\_m is H⁰(X\_m,f\*T\_(Y\_m)), which vanishes because f\*T\_(Y\_m) has degree (2−2g\_Y)·deg f<0. Quasi-finite: the Riemann–Hurwitz formula bounds deg f by (2g\_X−2)/(2g\_Y−2), which bounds the Hilbert polynomial of the graph. Proper: the valuative criterion, using that a finite étale cover of the generic fibre of a stable curve over a discrete valuation ring extends to a proper surjective morphism of the stable models. In characteristic zero a finite unramified morphism is étale over a dense open subscheme.
+
+**Checks.**
+
+- For X=Y a curve of genus 2 over an algebraically closed field of characteristic zero, Riemann–Hurwitz gives deg f≤1, so H=Aut(X), a finite reduced scheme (of order at least 2, the hyperelliptic involution).
+- For a constant map f, f\*T\_Y is trivial and H⁰ is one-dimensional: constant maps are not unramified points, which is why they are excluded.
+- For an elliptic curve E (genus 1, not hyperbolic) the translations give a positive-dimensional Hom^dom(E,E); the genus hypothesis cannot be dropped.
+
+The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), the paragraph after Lemma 15.2, author-copy p. 76; [Shinichi Mochizuki](#reference-m96), Lemma 8.3 and its proof, pp. 610–611.
+
+Use [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2 (Hom and Isom representability); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md) Layer 7 (Hurwitz formula); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md) (stable models).
 
 <a id="nc-1-local-pro-p-hom"></a>
 
@@ -9070,7 +5428,7 @@ Spread to a smooth model; Frattini/H¹ tests preserve surjectivity on a dense co
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Lemmas 15.1–15.2 and Corollary 15.3, author-copy pp. 73–77.
 
-Use [Local relative pro-p Hom theorem](#nc-1-local-pro-p-hom); [Annihilate inertia and recover regular differentials](#nc-1-inertia-and-regularity); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-7-the-different-and-the-hurwitz-genus-formula); [Local Galois centre-freeness](#nc-1-local-galois-centre-free).
+Use [Local relative pro-p Hom theorem](#nc-1-local-pro-p-hom); [Annihilate inertia and recover regular differentials](#nc-1-inertia-and-regularity); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-7-the-different-and-the-hurwitz-genus-formula); [Local Galois centre-freeness](#nc-1-local-galois-centre-free); [Dominant maps between proper hyperbolic curves](#hyperbolic-hom-schemes).
 
 <a id="nc-1-punctured-elliptic-isom"></a>
 
@@ -9120,7 +5478,7 @@ Spread the curves and their finite unramified Isom scheme over a localization of
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m96), Theorems 10.1–10.2 and §10 proof, pp. 624–626.
 
-Use [Relative outer isomorphisms](#nc-1-relative-outer-isom); [Reconstruct the local stable log special fibre](#nc-1-local-special-isom); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction).
+Use [Relative outer isomorphisms](#nc-1-relative-outer-isom); [Reconstruct the local stable log special fibre](#nc-1-local-special-isom); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [Dominant maps between proper hyperbolic curves](#hyperbolic-hom-schemes).
 
 ### 3.10 Relative extension comparison
 
@@ -9179,7 +5537,7 @@ Restrict the relative group map to G\_L and reconstruct an L-morphism using the 
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Definition 15.4 and Corollary 15.5, author-copy pp. 77–79.
 
-Use [Hom reconstruction over finitely generated p-adic fields](#nc-1-finitely-generated-hom); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free).
+Use [Hom reconstruction over finitely generated p-adic fields](#nc-1-finitely-generated-hom); [Faithfulness of hyperbolic maps on Tate data](#nc-1-curve-map-rigidity); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free); [Dominant maps between proper hyperbolic curves](#hyperbolic-hom-schemes).
 
 <a id="nc-1-full-profinite-hom"></a>
 
@@ -9196,7 +5554,7 @@ Descend the full relative homomorphism to its geometric pro-p quotient and use s
 
 The construction and its conventions follow [Shinichi Mochizuki](#reference-m99), Theorem 16.5 and its full-profinite remark, author-copy pp. 85–87, restricted here to proper one-dimensional curves.
 
-Use [Sub-p-adic relative pro-p Hom theorem](#nc-1-sub-p-adic-hom); [Relative outer open homomorphisms](#nc-1-relative-outer-hom); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p).
+Use [Sub-p-adic relative pro-p Hom theorem](#nc-1-sub-p-adic-hom); [Relative outer open homomorphisms](#nc-1-relative-outer-hom); [Centre-freeness needed for geometric conjugacy](#nc-1-galois-centre-free); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [Geometrically pro-p arithmetic quotient](#nc-1-relative-pro-p); [Dominant maps between proper hyperbolic curves](#hyperbolic-hom-schemes).
 
 ### Examples
 
@@ -9217,13 +5575,43 @@ For a supplied continuous quotient q, `RelativeMaps.over_identity` says that a r
 
 ### Dependencies
 
-This layer uses `ContinuousMonoidHom`; `ContinuousMonoidHom.comp`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); `ContinuousMulEquiv`; `TauCeti.proPKernel`; `TauCeti.map_proPKernel_eq`; `TauCeti.proPKernel_le_comap`; `TauCeti.maximalProPQuotient`; `QuotientGroup.lift`; [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.1 (log structures); [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.1 (log charts); [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.2 (Kummer morphisms of log schemes); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-9-marked-stabilization-and-stable-pointed-reduction); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame and prime-to-p quotients); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.5.4 (admissible G-covers of marked curves); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.5 (configuration spaces and Hurwitz moduli); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (the stable-curve stack): the universal pointed stable family; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (versal deformation of nodes and smoothness of the stable-curve stack): independent node-smoothing parameters and boundary charts in stable moduli; `MulAction.stabilizer`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-9-the-galois-interface-hilbert-90-and-kummer-theory); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-f-abeljacobi-and-the-universal-property); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-7-the-different-and-the-hurwitz-genus-formula); [WeightsInEtaleCohomology](../WeightsInEtaleCohomology/README.md) Layer R34.2 (curves, abelian varieties and good reduction); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-4-repartitions-weil-differentials-and-riemannroch); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-d-the-relative-picard-functor-and-the-jacobian-scheme); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md), R02.3.2: function-field class formation, global reciprocity, norm and existence; TauCetiRoadmap.ClassFieldTheory Layer 8: prime-to-residue-characteristic local abelian existence and the local correspondence (`localAbelianExistence_primeToResidueCharacteristic`, `localClassFieldCorrespondence_primeToResidueCharacteristic`); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-1-nodes-normalization-and-dual-graphs); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A4.1 (the integral Tate module); [TauCetiRoadmap.LocalFieldsRamification](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-4-the-tame-quotient-of-the-absolute-galois-group); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.13 (the Raynaud extension); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) §R07.1.22 (Tate's theorem on p-divisible groups); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-7-semistable-reduction); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.14 (polarised uniformisation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §4.3 (the integral monodromy pairing); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A6.2 (faithfulness on Tate modules); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-7-demushkin-groups-their-invariants-and-the-orientation); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (invariance under algebraically closed base extension in characteristic zero); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.3.1 (Riemann existence for punctured curves); [Artin towers give étale K(π,1) examples](#nc-0-artin-neighbourhood); Layer 1, étale k(π,1) schemes and arithmetic paths; [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [Cofinal hyperbolic Artin neighbourhoods](#cofinal-artin-neighbourhoods); `LinearMap.ker`; [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-2-coherent-curve-theory-duality-and-positivity); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) Layer R07.1 (finite flat group schemes and p-divisible groups); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); Layer 2, unipotent fundamental groups and their realizations; [PadicHodgeTheory](../PadicHodgeTheory/README.md), R06.2: the completed integral logarithmic relative comparison, weight vanishing and uniform bounded refinements stated in the supplier contract; [Two-step geometric Malcev quotient](#two-step-malcev); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: Picard torsors of fixed degree; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: the Brauer obstruction to representing a relative Picard point by a line bundle; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (level-structure covers): prime-to-characteristic fine level covers on the smooth locus, with the normal algebraic-space extension at the boundary; [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-a-line-bundles-divisors-picard-group-degree); [Geometric pro-p and arithmetic p-power comparison](#pro-p-curve-comparison); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-6-change-of-groups); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §2.2 (the component group); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [TauCetiRoadmap.ProfiniteArithmetic](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.1 (arithmetic fundamental groups, inertia and specialization).
+This layer uses `ContinuousMonoidHom`; `ContinuousMonoidHom.comp`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (the arithmetic exact sequence); [ConstructibleEtale](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), Layer 3 (finite étale Galois category, paths and monodromy); `ContinuousMulEquiv`; `TauCeti.proPKernel`; `TauCeti.map_proPKernel_eq`; `TauCeti.proPKernel_le_comap`; `TauCeti.maximalProPQuotient`; `QuotientGroup.lift`; [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.1 (log structures); [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.1 (log charts); [CrystallineCohomology](../CrystallineCohomology/README.md) §CR.5:log-algebra.2 (Kummer morphisms of log schemes); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-8-canonical-contraction-and-unpointed-stable-reduction); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-9-marked-stabilization-and-stable-pointed-reduction); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (tame and prime-to-p quotients); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.5.4 (admissible G-covers of marked curves); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.5 (configuration spaces and Hurwitz moduli); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (the stable-curve stack): the universal pointed stable family; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (versal deformation of nodes and smoothness of the stable-curve stack): independent node-smoothing parameters and boundary charts in stable moduli; `MulAction.stabilizer`; [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.2 (decomposition and inertia groups); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-9-the-galois-interface-hilbert-90-and-kummer-theory); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-f-abeljacobi-and-the-universal-property); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-7-the-different-and-the-hurwitz-genus-formula); [WeightsInEtaleCohomology](../WeightsInEtaleCohomology/README.md) Layer R34.2 (curves, abelian varieties and good reduction); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-4-repartitions-weil-differentials-and-riemannroch); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-d-the-relative-picard-functor-and-the-jacobian-scheme); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md), R02.3.2: function-field class formation, global reciprocity, norm and existence; TauCetiRoadmap.ClassFieldTheory Layer 8: prime-to-residue-characteristic local abelian existence and the local correspondence (`localAbelianExistence_primeToResidueCharacteristic`, `localClassFieldCorrespondence_primeToResidueCharacteristic`); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-1-nodes-normalization-and-dual-graphs); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-10-continuous-cohomology-in-all-degrees); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A4.1 (the integral Tate module); [TauCetiRoadmap.LocalFieldsRamification](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-4-the-tame-quotient-of-the-absolute-galois-group); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.13 (the Raynaud extension); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) §R07.1.22 (Tate's theorem on p-divisible groups); [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-7-semistable-reduction); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §3.14 (polarised uniformisation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §4.3 (the integral monodromy pairing); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-12-the-graded-cup-product-in-all-degrees); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (pairings); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A6.2 (faithfulness on Tate modules); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-7-demushkin-groups-their-invariants-and-the-orientation); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.1.1 (invariance under algebraically closed base extension in characteristic zero); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.3.1 (Riemann existence for punctured curves); [Artin towers give étale K(π,1) examples](#nc-0-artin-neighbourhood); Layer 1, étale k(π,1) schemes and arithmetic paths; [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [Cofinal hyperbolic Artin neighbourhoods](#cofinal-artin-neighbourhoods); `LinearMap.ker`; [TauCetiRoadmap.StableReduction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StableReduction/README.md#layer-2-coherent-curve-theory-duality-and-positivity); [FiniteFlatGroupsAndIntegralPadicHodgeTheory](../FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) Layer R07.1 (finite flat group schemes and p-divisible groups); [TauCetiRoadmap.AlgebraicCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicCurves/README.md#layer-9-kähler-differentials-residues-and-the-comparison); Layer 2, unipotent fundamental groups and their realizations; [Relative Hodge–Tate theory over a small logarithmic base](#relative-hodge-tate-small-base); [Integral Hodge–Tate bounds for differentials in good reduction](#integral-hodge-tate-differentials); [Two-step geometric Malcev quotient](#two-step-malcev); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: Picard torsors of fixed degree; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.3: the Brauer obstruction to representing a relative Picard point by a line bundle; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.4 (level-structure covers): prime-to-characteristic fine level covers on the smooth locus, with the normal algebraic-space extension at the boundary; [Prime-field effacement on every cover of a product](#nc-0-product-cover-effacement); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-a-line-bundles-divisors-picard-group-degree); [Geometric pro-p and arithmetic p-power comparison](#pro-p-curve-comparison); [TauCetiRoadmap.ProfiniteCohomology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteCohomology/README.md#layer-6-change-of-groups); [TauCetiRoadmap.ProfiniteProPGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation); [NeronModelsAndSemistableAbelianVarieties](../NeronModelsAndSemistableAbelianVarieties/README.md) §2.2 (the component group); [AlgebraicModuliForArithmeticGeometry](../AlgebraicModuliForArithmeticGeometry/README.md) Layer 2, §2.1 (Hom and Isom schemes); [TauCetiRoadmap.ProfiniteArithmetic](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) Layer IG.1 (arithmetic fundamental groups, inertia and specialization).
 
 ## Layer 4: Cohomology varieties and Selmer conditions
 
 Pass from individual topological coefficient groups to algebra-valued unipotent points, effective filtered torsors and finite-type cohomology varieties. Form crystalline and unramified local conditions on every coefficient algebra before constructing global Selmer varieties.
 
 ### 4.1 Galois coefficient families
+
+<a id="split-unipotent-quotients"></a>
+
+**Unipotent groups and their homogeneous quotients in characteristic zero.** Let k be a field of characteristic zero. (a) For a unipotent algebraic group U over k the exponential map exp:Lie(U)\_a→U is an isomorphism of schemes, with group law given by the Baker–Campbell–Hausdorff series, and U↦Lie(U) is an equivalence between unipotent algebraic groups and finite-dimensional nilpotent Lie algebras; every unipotent group is split (has a subnormal series with quotients 𝔾\_a) and is isomorphic as a variety to affine space. Central quotients and the lower central series correspond to those of the Lie algebra, and a pro-unipotent group is the limit of its finite-dimensional unipotent quotients along surjections. (b) For a closed subgroup H⊆U, not necessarily normal, the fppf quotient sheaf U/H of right cosets is represented by a smooth affine variety isomorphic to 𝔸^(dim U−dim H), and U→U/H is a trivial right H-torsor: there is a section, so U≅(U/H)×H as schemes with right H-action. (c) For every k-algebra R, including non-reduced ones, every fppf H-torsor over Spec R is trivial, and (U/H)(R)=U(R)/H(R). (d) For a pro-unipotent U=lim U\_n and a compatible system of closed subgroups H\_n⊆U\_n with surjective transition maps, (lim U\_n/H\_n)(R)=U(R)/H(R) for every R.
+
+k of characteristic zero; U unipotent (hence split and smooth); H a closed subgroup; R any k-algebra.
+
+(a) is the characteristic-zero theory of unipotent groups: exp is an isomorphism of schemes, Baker–Campbell–Hausdorff gives the group law, and Lie is an equivalence. In characteristic zero 𝔾\_a has no proper nontrivial subgroups, so every unipotent group is split, and a split unipotent group is an affine space as a variety. (b) The quotient U/H exists as a separated scheme of finite type and is quasi-affine. Prove it is affine space by induction on dim U: choose a central subgroup Z≅𝔾\_a of U. If Z⊆H, then U/H=(U/Z)/(H/Z). Otherwise Z∩H=1, ZH is a closed subgroup, and U/H→U/ZH is a torsor under Z acting by translation, trivial over the affine base U/ZH, so U/H≅(U/ZH)×𝔸¹. (c) H is split, so H¹(Spec R,H)=0 by dévissage to H¹(Spec R,𝔾\_a)=H¹(Spec R,O)=0; the long exact sequence of pointed sets for 1→H→U→U/H→1 then gives (U/H)(R)=U(R)/H(R). (d) Take limits of the exact sequences 1→H\_n(R)→U\_n(R)→(U\_n/H\_n)(R)→1. The transition maps H\_(n+1)(R)→H\_n(R) are surjective by (c) applied to the unipotent kernel, so the lim¹ term vanishes.
+
+The interface consists of the following named results.
+
+- `TauCeti.Unipotent.exp_isIso`: exp:Lie(U)\_a→U is an isomorphism of schemes, with BCH multiplication.
+- `TauCeti.Unipotent.lieEquiv`: The equivalence between unipotent groups and nilpotent Lie algebras.
+- `TauCeti.Unipotent.isSplit`: Every unipotent group over a field of characteristic zero is split.
+- `TauCeti.Unipotent.homogeneousQuotient_isAffineSpace`: U/H≅𝔸^(dim U−dim H) for every closed H.
+- `TauCeti.Unipotent.quotient_section`: U→U/H has a section; U≅(U/H)×H.
+- `TauCeti.Unipotent.torsor_trivial`: Every H-torsor over an affine scheme is trivial.
+- `TauCeti.Unipotent.quotient_points`: (U/H)(R)=U(R)/H(R) for every k-algebra R.
+- `TauCeti.Unipotent.proQuotient_points`: The pro-unipotent version (d).
+
+**Checks.**
+
+- U=𝔾\_a², H the diagonal 𝔾\_a: U/H≅𝔸¹ by (x,y)↦x−y, and (U/H)(R)=R²/R for every R.
+- U the Heisenberg group of unitriangular 3×3 matrices with entries a (position 1,2), b (2,3) and c (1,3), and H the subgroup with b=c=0: right multiplication by H changes only a, so U/H≅𝔸² by (a,b,c)↦(b,c), while conjugating an element of H with entry s by an element with b≠0 creates the (1,3) entry −sb, so H is not normal; (U/H)(R)=U(R)/H(R) holds for every R, including R=k[ε]/(ε²).
+- In characteristic p>0, H=α\_p⊂U=𝔾\_a has quotient 𝔾\_a/α\_p≅𝔾\_a through Frobenius x↦x^p; for R=k[t], H(R)=0 and the map U(R)/H(R)=R→(U/H)(R)=R is r↦r^p, which misses t. The characteristic-zero hypothesis is used.
+- A torus is not unipotent: 𝔾\_m-torsors over Spec R (line bundles) need not be trivial, so (c) fails for H=𝔾\_m.
+
+The construction and its conventions follow [J. S. Milne](#reference-milne-iag), 3.28, p. 61; Theorem 9.28, p. 146; Proposition 15.28, p. 257; Proposition 15.31, p. 258; Proposition 15.35, p. 260; Theorem 15.36, p. 261; 15.55–15.56, p. 266; Theorem 19.25 (Kostant–Rosenlicht), p. 342; §22.j, the vanishing of H¹(S,U) for affine S and split U, p. 405.
+
+Use [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components); `TauCeti.SmoothUnipotentAffineGroupSchemeCat`; `CommHopfAlgCat.homogeneousQuotientPresheaf`; [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.1 (descent, algebraic spaces and stacks).
 
 <a id="nc-3-galois-coefficient-family"></a>
 
@@ -9282,7 +5670,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, Lemmas 1–4, preprint pp. 2–3; compact factorization uses the closed-discrete argument stated here in place of a subsequence argument.
 
-Use [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical).
+Use [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical); [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="compact-coefficient-cohomology"></a>
 
@@ -9390,7 +5778,7 @@ The interface consists of the following named results.
 **Checks.**
 
 - The trivial cocycle gives the group torsor with its standard coaction.
-- A rank drop in a filtered piece fails the locally free contract.
+- A rank drop in a filtered piece fails the locally free condition.
 - Check scalar extension to E[ε]/(ε²), rather than checking fields only.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §1, Proposition 1 and its proof, printed pp. 5–7.
@@ -9401,11 +5789,11 @@ Use [Finite-dimensional final topology on unipotent points](#unipotent-final-top
 
 <a id="nc-3-filtered-affine-torsor-comparison"></a>
 
-**Filtered affine torsor comparison.** For filtered finite-type unipotent U\_n over B⊗\_K R, classify equivariant affine right U\_n-torsors whose coordinate rings have an exhaustive filtration by finite-rank locally free pieces of the same ranks as the corresponding pieces of the group coordinate ring. Require the filtration inclusions to be locally split and universally injective, the torsor coaction to preserve the filtration, and the semilinear G-action on each finite piece to be continuous. Isomorphisms are equivariant filtered affine torsor isomorphisms. Under the supplier theorem that split-unipotent fppf torsors over this affine coefficient base have a point and admit a strict filtered trivialization, evaluation at a point gives a natural bijection of their isomorphism classes with H1(G,U\_n(B⊗R)). Coefficient-base descent and the reconstruction by a cocycle must be effective in this filtered affine category; a nonempty topological torsor bijection alone does not establish these facts.
+**Filtered affine torsor comparison.** For filtered finite-type unipotent U\_n over B⊗\_K R, classify equivariant affine right U\_n-torsors whose coordinate rings have an exhaustive filtration by finite-rank locally free pieces of the same ranks as the corresponding pieces of the group coordinate ring. Require the filtration inclusions to be locally split and universally injective, the torsor coaction to preserve the filtration, and the semilinear G-action on each finite piece to be continuous. Isomorphisms are equivariant filtered affine torsor isomorphisms. Every such torsor has a point, since fppf torsors under a split unipotent group over an affine base are trivial ([Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients)(c)); the category consists of the torsors for which translation by some point is a strict filtered isomorphism U\_n≅P. Evaluation at such a point gives a natural bijection of their isomorphism classes with H1(G,U\_n(B⊗R)). Coefficient-base descent and the reconstruction by a cocycle must be effective in this filtered affine category; a nonempty topological torsor bijection alone does not establish these facts.
 
-Characteristic zero smooth split unipotent finite-depth group affine coefficient base Exhaustive locally free finite-rank filtration pieces, locally split universally injective inclusions, and filtration-compatible torsor coaction. supplied affine torsor triviality, compatible filtered trivialization and effective descent.
+Characteristic zero; a smooth split unipotent group of finite depth; an affine coefficient base; exhaustive filtrations by locally free finite-rank pieces with locally split, universally injective inclusions; a filtration-compatible torsor coaction; torsors admitting a point at which translation is a strict filtered isomorphism; effective descent along the coefficient base.
 
-Apply supplier affine unipotent torsor triviality, obtained by induction through vector groups and vanishing of affine quasi-coherent H1. Use a point to identify the underlying affine right torsor with U\_n and verify strict filtration. Construct the cocycle from the semilinear G-action using [Continuous unipotent points](#nc-3-unipotent-point-topology); reconstruct the filtered affine torsor by twisting the Hopf coaction. Compare the affine construction on points with the accepted parent torsor classification and verify descent of algebra morphisms.
+Apply torsor triviality over affine bases ([Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients)(c)), obtained by induction through vector groups and the vanishing of affine quasi-coherent H¹. Use a point to identify the underlying affine right torsor with U\_n and verify strict filtration. Construct the cocycle from the semilinear G-action using [Continuous unipotent points](#nc-3-unipotent-point-topology); reconstruct the filtered affine torsor by twisting the Hopf coaction. Compare the affine construction on points with the accepted parent torsor classification and verify descent of algebra morphisms.
 
 **Checks.**
 
@@ -9429,7 +5817,7 @@ At depth one use [Canonical additive comparison](#nc-3-canonical-comparison-natu
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2005), Section 1, Proposition 2 and its induction, printed pp. 7–9.
 
-Use [Obstruction on gauge classes](#nc-3-central-obstruction-descent); [Nonabelian cohomology functor](#nc-3-cohomology-functor); [Cochain scalar extension](#nc-3-cochain-scalar-extension); [Filtered affine torsor comparison](#nc-3-filtered-affine-torsor-comparison); [Central extensions: the action of H¹(G, Z) and the connecting map to H²](#nc-3-central-extension); `CategoryTheory.coyoneda`; [Lower central depth](#nc-2-central-quotients); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality).
+Use [Obstruction on gauge classes](#nc-3-central-obstruction-descent); [Nonabelian cohomology functor](#nc-3-cohomology-functor); [Cochain scalar extension](#nc-3-cochain-scalar-extension); [Filtered affine torsor comparison](#nc-3-filtered-affine-torsor-comparison); [Central extensions: the action of H¹(G, Z) and the connecting map to H²](#nc-3-central-extension); `CategoryTheory.coyoneda`; [Lower central depth](#nc-2-central-quotients); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="nc-3-invariant-coset-representability"></a>
 
@@ -9448,6 +5836,24 @@ The construction and its conventions follow [Minhyong Kim](#reference-kim2005), 
 Use [Cochain scalar extension](#nc-3-cochain-scalar-extension); [Finite-level representability](#nc-3-finite-level-representability); [Connecting map on invariant cosets](#nc-3-connecting-map); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-0-the-functor-of-points-and-the-three-way-dictionary); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components).
 
 ### 4.6 Local neutral loci
+
+<a id="bloch-kato-subgroups"></a>
+
+**The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g.** Let K be a finite extension of ℚ\_p and V a finite-dimensional continuous ℚ\_p-representation of G\_K. Define H¹\_e(K,V)=ker(H¹(K,V)→H¹(K,V⊗B\_cris^(φ=1))), H¹\_f(K,V)=ker(H¹(K,V)→H¹(K,V⊗B\_cris)) and H¹\_g(K,V)=ker(H¹(K,V)→H¹(K,V⊗B\_dR)). Then H¹\_e⊆H¹\_f⊆H¹\_g, the three are functorial in V, and when V is de Rham (respectively crystalline) a class lies in H¹\_g (respectively H¹\_f) exactly when the corresponding extension 0→V→E→ℚ\_p→0 is de Rham (respectively crystalline). For an extension of global representations, the global subgroup H¹\_g(G\_F,V) is the set of classes unramified at almost all places and in H¹\_g at every place above p. For a unipotent coefficient group the same definitions with torsors give the De Rham and crystalline torsor classes, and H¹\_f(G\_v,U)⊆H¹\_g(G\_v,U).
+
+K/ℚ\_p finite; V finite-dimensional continuous; the period rings B\_cris⊆B\_dR with their Galois actions.
+
+The inclusions come from ℚ\_p⊆B\_cris^(φ=1)⊆B\_cris⊆B\_dR: a class dying in H¹(K,V⊗B) dies in H¹(K,V⊗B′) for B⊆B′. Functoriality is that of H¹. The extension description: E⊗B splits as a Galois module exactly when the class dies in H¹(K,V⊗B), and for B=B\_dR or B\_cris (with V de Rham, respectively crystalline) this is equivalent to E being de Rham, respectively crystalline, by dimension count of D\_B(E). For unipotent coefficients, a torsor P is De Rham when D(P)⊗B\_dR≅P⊗B\_dR compatibly with all structures, and the crystalline condition with B\_cris implies the De Rham one.
+
+**Checks.**
+
+- For V=ℚ\_p(1) and K=ℚ\_p, H¹(ℚ\_p,ℚ\_p(1))=ℚ\_p^×⊗ℚ\_p is 2-dimensional, H¹\_f=H¹\_e is the 1-dimensional image of ℤ\_p^×, and H¹\_g is all of H¹; so the inclusion H¹\_f⊆H¹\_g can be strict, and a definition using B\_dR for H¹\_f would be wrong.
+- For V=ℚ\_p (trivial), H¹(ℚ\_p,ℚ\_p)=Hom(G\_(ℚ\_p),ℚ\_p) is 2-dimensional, H¹\_f is the 1-dimensional unramified line and H¹\_e=0, so H¹\_e⊆H¹\_f can be strict.
+- If V is crystalline with D\_cris(V)^(φ=1)=0 and D\_cris(V^\*(1))^(φ=1)=0, then H¹\_e=H¹\_f=H¹\_g; this applies to V\_pE for an elliptic curve E with good reduction, recovering the equality used for elliptic curves.
+
+The construction and its conventions follow [Minhyong Kim](#reference-kim2005), §3, De Rham torsors, arXiv v1 p. 15; [Minhyong Kim](#reference-kim2009), §2, the inclusion H¹\_f⊆H¹\_g for unipotent torsors, p. 118; [Laurent Berger](#reference-berger2002), Proposition II.5 and the remark identifying H¹\_g as the kernel of the dual exponential map, p. 13. The definitions are those of Bloch and Kato (The Grothendieck Festschrift I, 1990, §3).
+
+Use [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.1 (period rings); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition).
 
 <a id="nc-3-local-neutral-locus"></a>
 
@@ -9478,7 +5884,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), Section 2, de Rham/crystalline torsors and local H1\_g,H1\_f, printed pp. 116–119.
 
-Use [Nonabelian cohomology functor](#nc-3-cohomology-functor); `CommAlgCat`.
+Use [Nonabelian cohomology functor](#nc-3-cohomology-functor); `CommAlgCat`; [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
 ### 4.7 Local invariant lifting
 
@@ -9521,7 +5927,7 @@ Form [Local neutral locus](#nc-3-local-neutral-locus) with the inertia/period ma
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), Section 2, Lemma 5 and crystalline boundary, printed pp. 118–119; section 4, revised unramified induction and fixed potential conditions, printed pp. 127–128.
 
-Use [Local neutral locus](#nc-3-local-neutral-locus); [Invariant coset representability](#nc-3-invariant-coset-representability); [Filtered affine torsor comparison](#nc-3-filtered-affine-torsor-comparison); [Finite-level representability](#nc-3-finite-level-representability); [Galois structure and completion](#nc-2-etale-galois); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §2.7 (the unramified condition); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.1 (period rings); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [All-algebra local invariant lifting and differences](#central-local-invariant-lifts).
+Use [Local neutral locus](#nc-3-local-neutral-locus); [Invariant coset representability](#nc-3-invariant-coset-representability); [Filtered affine torsor comparison](#nc-3-filtered-affine-torsor-comparison); [Finite-level representability](#nc-3-finite-level-representability); [Galois structure and completion](#nc-2-etale-galois); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §2.7 (the unramified condition); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.1 (period rings); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [All-algebra local invariant lifting and differences](#central-local-invariant-lifts); [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
 <a id="nc-3-selmer-functor"></a>
 
@@ -9591,7 +5997,7 @@ Use [Selmer representability](#nc-3-selmer-representability); [Obstruction on ga
 
 Central vector sequence and represented finite-type Selmer schemes and depth morphism. The global central H1 action, orbit classification and vanishing twisted invariants hold over every coefficient algebra and remain valid after field extension. Local addition and difference conditions agree exactly with linear Selmer conditions on all those algebras. Invariant crystalline lifting for every relevant B\_cris⊗R and fixed H\_v, and the analogous fixed unramified difference theorem. Sel\_T(V) is the finite-dimensional vector Selmer functor, with scalar extension to the geometric residue fields.
 
-The parent central extension identifies global fibres as H1(V)-orbits; vanishing twisted invariants makes the action free. For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline. Its invariant realization is crystalline U\_cr over the absolutely unramified field; U\_DR is obtained after scalar extension, with the scalar extension specified in the comparison contract. At fixed unramified places use the inertia restriction; for trivial inertia action neutral means the vector cocycle is zero. Addition by a linear Selmer class preserves the local conditions. After a point of a geometric fibre is chosen, the all-algebra action/difference identities give inverse natural maps between that fibre functor and the vector Selmer functor. Yoneda makes this a scheme isomorphism; a bijection merely on field-valued points would not suffice. Apply the finite-type scheme fibre-dimension inequality, not a dimension field stored as an assumption.
+The parent central extension identifies global fibres as H1(V)-orbits; vanishing twisted invariants makes the action free. For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline. Its invariant realization is crystalline U\_cr over the absolutely unramified field; U\_DR is obtained after scalar extension, with the scalar extension of [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison). At fixed unramified places use the inertia restriction; for trivial inertia action neutral means the vector cocycle is zero. Addition by a linear Selmer class preserves the local conditions. After a point of a geometric fibre is chosen, the all-algebra action/difference identities give inverse natural maps between that fibre functor and the vector Selmer functor. Yoneda makes this a scheme isomorphism; a bijection merely on field-valued points would not suffice. Apply the finite-type scheme fibre-dimension inequality, not a dimension field stored as an assumption.
 
 **Checks.**
 
@@ -9627,9 +6033,9 @@ Use bilinearity for associativity, inverse and central kernel; the projection to
 
 **Checks.**
 
-- The cup order is a(g) paired with g·b(h); swapping source sign negates its H2 class but preserves nonliftability; the Galois example requires the previously constructed rational p-adic duality supplier and the continuous cup-convention comparison.
+- The cup order is a(g) paired with g·b(h); swapping source sign negates its H2 class but preserves nonliftability; the Galois example uses rational local duality ([ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5) and the continuous cup-convention comparison.
 
-The construction and its conventions follow [Minhyong Kim](#reference-kim2005), Section 1, central obstruction and exactness, printed pp. 5, 7–9; [Minhyong Kim](#reference-kim2009), Section 4, central quotient and Selmer induction, printed pp. 128–129; the Heisenberg cup computation is derived here using the cited continuous duality supplier.
+The construction and its conventions follow [Minhyong Kim](#reference-kim2005), Section 1, central obstruction and exactness, printed pp. 5, 7–9; [Minhyong Kim](#reference-kim2009), Section 4, central quotient and Selmer induction, printed pp. 128–129; the Heisenberg cup computation is derived here using rational local duality ([ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5).
 
 Use [Continuous lift exactness](#nc-3-central-lift-exactness); [Continuous central H2 bridge](#nc-3-continuous-central-obstruction); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality over finite and coefficient fields); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.4 (the local invariant map); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.1.2 (continuous cochains into inverse limits).
 
@@ -9709,7 +6115,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §1, Lemma 1 and the definition preceding Proposition 1, pp. 104–105.
 
-Use [Hodge filtered path fibres](#nc-2-filtered-path); [Canonical Frobenius path](#nc-2-canonical-frobenius-path); [Unipotent Frobenius Lang theorem](#nc-2-frobenius-lang); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.1b (quotient sheaves); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components); `Torsor`; `QuotientGroup.leftRel`; [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical).
+Use [Hodge filtered path fibres](#nc-2-filtered-path); [Canonical Frobenius path](#nc-2-canonical-frobenius-path); [Unipotent Frobenius Lang theorem](#nc-2-frobenius-lang); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.1b (quotient sheaves); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components); `Torsor`; `QuotientGroup.leftRel`; [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical); [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="nc-4-admissible-classification"></a>
 
@@ -9726,7 +6132,7 @@ An isomorphism preserves p\_φ by its uniqueness and maps Hodge points to Hodge 
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §1, Proposition 1 and its proof, pp. 105–106.
 
-Use [The period of an admissible path torsor](#nc-4-admissible-period); [Hadian’s universal Hodge filtration](#nc-2-hadian-filtration); [Unipotent Frobenius Lang theorem](#nc-2-frobenius-lang); [Lower central depth](#nc-2-central-quotients); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical).
+Use [The period of an admissible path torsor](#nc-4-admissible-period); [Hadian’s universal Hodge filtration](#nc-2-hadian-filtration); [Unipotent Frobenius Lang theorem](#nc-2-frobenius-lang); [Lower central depth](#nc-2-central-quotients); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-3-subgroups-quotients-components); [TauCetiRoadmap.ReductiveGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-5-solvable-and-unipotent-groups-the-unipotent-radical); [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="nc-4-local-albanese"></a>
 
@@ -9775,6 +6181,25 @@ Use [The finite-depth de Rham Albanese map](#nc-4-local-albanese); [Word coordin
 
 ### 5.2 Density on residue subdiscs
 
+<a id="proper-curve-coleman-charts"></a>
+
+**Coleman integration on a proper curve with good reduction.** Let K/ℚ\_p be finite with residue field κ, and 𝒳 a smooth proper curve over O\_K with geometrically connected fibres. (a) For any two distinct closed points y₁,y₂ of the special fibre 𝒳\_κ, choose lifts to relative effective divisors 𝒟₁,𝒟₂⊂𝒳, finite étale over O\_K of degrees [κ(y₁):κ] and [κ(y₂):κ] (Hensel's lemma); then 𝒴ᵢ=𝒳∖𝒟ᵢ are affine, every residue disc of 𝒳(O\_K) lies in 𝒴₁(O\_K) or 𝒴₂(O\_K), and the two charts cover 𝒳(O\_K). The divisors need not consist of K-rational points. (b) Coleman functions on the tubes of 𝒴₁, 𝒴₂ (the theory of ColemanIntegration for each pair (𝒳,𝒟ᵢ)) glue uniquely on the overlap, because Coleman functions form a sheaf for the Zariski topology on the special fibre and are determined by their restriction to any nonempty open (Coleman's uniqueness principle). Hence iterated Coleman integrals of algebraic differentials on 𝒳\_K are well-defined functions on 𝒳(O\_K), independent of the charts. (c) On each residue disc, a local parameter t reducing to a uniformiser at the reduction point identifies the disc with the maximal ideal m\_K of O\_K, and each iterated integral is given by a power series in t converging on the open unit disc of ℂ\_p; the K-points of the disc form the compact set m\_K, which is strictly smaller than the geometric disc.
+
+K/ℚ\_p finite; 𝒳 smooth proper over O\_K with geometrically connected fibres; 𝒳\_κ has at least two closed points (always true, since 𝒳\_κ is a curve over a finite field).
+
+(a) A closed point y of 𝒳\_κ has residue field κ(y) finite over κ, hence separable; 𝒳 is smooth, so y lifts to an O\_(K(y))-point with K(y) the unramified extension of degree [κ(y):κ], whose image is a finite étale relative divisor. The complement of a nonempty relatively ample effective divisor in a proper curve is affine. A residue disc reduces to a single closed point x, and x differs from y₁ or y₂. (b) Besser's Tannakian theory defines Coleman functions on any rigid triple, in particular on (𝒳\_κ̄,𝒳\_κ̄,𝒳^), and proves the sheaf property; his comparison theorem identifies them on each affine chart with Coleman's functions, which are those of ColemanIntegration. Galois equivariance descends from the completed maximal unramified extension to K. (c) Expand the horizontal sections of the unipotent connection in the local parameter; convergence on the open disc is the Dwork-type estimate already used for affine charts.
+
+**Checks.**
+
+- If 𝒳\_κ(κ) has exactly one point y, a chart removing a rational point covers every disc except ]y[, and the second chart must use a closed point of degree at least two; the construction does not need two rational residue discs.
+- For 𝒳=P¹ over ℤ\_p with y₁ the reduction of 0 and y₂ that of ∞, the charts are P¹∖{0} and P¹∖{∞}: the disc of 0 lies only in the second chart, the disc of ∞ only in the first, and every other disc in both, so a single chart would miss a disc.
+- By the uniqueness principle two Coleman functions on 𝒴₁ that agree on one nonempty residue subdisc agree everywhere; hence the gluing in (b) only needs agreement on one disc of the overlap, and a function defined chart by chart with mismatched constants of integration on the overlap does not glue.
+- For K ramified of index e, the K-points of a residue disc form m\_K≅t-values of valuation ≥1/e, which is larger than the ℚ\_p-points pℤ\_p but still compact; the analytic zero bounds are applied on these compact sets, not on the whole open disc.
+
+The construction and its conventions follow [Amnon Besser](#reference-besser), §1 (rigid triples), p. 2; Proposition 4.21, p. 16; §5 (comparison with Coleman's theory), pp. 16–19; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §4.1, the affine open Y=X∖D, p. 909; §5.5, p. 925; §§6.4–6.6, the two affine charts and the remaining disc, pp. 930–934.
+
+Use [ColemanIntegration](../ColemanIntegration/README.md) Layer L1 (Frobenius continuation and Coleman functions); [ColemanIntegration](../ColemanIntegration/README.md) §L1.18 (Coleman's uniqueness principle); [ColemanIntegration](../ColemanIntegration/README.md) §L1.3 (residue discs and ends); [Iterated integrals as Albanese coordinates](#nc-4-iterated-coordinates).
+
 <a id="every-subdisc-density"></a>
 
 **Density on every open residue subdisc.** For a finite-depth unipotent de Rham Albanese map of a hyperbolic good-reduction curve, prove that the image of every nonempty open p-adic subdisc of an ordinary residue disc is Zariski dense in the homogeneous quotient target. Show that a regular function vanishing on that image has a Coleman pullback zero on the subdisc, hence on the connected residue disc by analytic identity and on the required Coleman domain by uniqueness. Apply the unipotent density theorem to conclude the original regular function is zero. The assertion concerns the same base-point-normalized map and includes the integral tangential base-point case.
@@ -9795,7 +6220,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, Theorem 1 and proof, pp. 115–121; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Theorem 1.1 and its application, pp. 889–893.
 
-Use [ColemanIntegration](../ColemanIntegration/README.md) §L1.18 (Coleman's uniqueness principle); [Integral tangential realization and comparison](#integral-tangential-realizations).
+Use [ColemanIntegration](../ColemanIntegration/README.md) §L1.18 (Coleman's uniqueness principle); [Integral tangential realization and comparison](#integral-tangential-realizations); [Coleman integration on a proper curve with good reduction](#proper-curve-coleman-charts).
 
 ### 5.3 Kim density on residue discs
 
@@ -9805,7 +6230,7 @@ Use [ColemanIntegration](../ColemanIntegration/README.md) §L1.18 (Coleman's uni
 
 All good-reduction and integrality hypotheses of [The finite-depth de Rham Albanese map](#nc-4-local-albanese). n≥1 in our indexing, corresponding to Kim n+1≥2; hyperbolicity means 2g−2+deg D&gt;0.
 
-Kim Lemma 4 proves the affine forward horizontal word coefficients independent over algebraic functions via complex monodromy and induction on word length. For the group-like shuffle series, inversion sends a length-r word coefficient to (−1)^r times the reversed-word coefficient. Thus the inverse coefficients retain this independence. Right multiplication by the algebraic Hodge factor γ is unitriangular in word length, with γ\_empty=1. Hence the corrected representative I⁻¹γ is dense in the affine group and its image in Q\_n is dense. Use the surjective proper extending quotient to pass from an auxiliary affine curve to the proper curve. Choose a finite étale boundary divisor avoiding the chosen disc; it need not be a K-rational point in a different disc. The integral chart interface uses the ColemanIntegration L1 extension contract, including the higher-degree auxiliary divisor. On another nonempty disc choose an integral lift c. Canonical path composition gives I(b,x)=I(c,x)I(b,c); multiplication by the constant group-like factor, inversion and the algebraic Hodge correction preserve the triangular independence argument. This proves density for the original base point on every disc, rather than inferring it merely from global density.
+Kim Lemma 4 proves the affine forward horizontal word coefficients independent over algebraic functions via complex monodromy and induction on word length. For the group-like shuffle series, inversion sends a length-r word coefficient to (−1)^r times the reversed-word coefficient. Thus the inverse coefficients retain this independence. Right multiplication by the algebraic Hodge factor γ is unitriangular in word length, with γ\_empty=1. Hence the corrected representative I⁻¹γ is dense in the affine group and its image in Q\_n is dense. Use the surjective proper extending quotient to pass from an auxiliary affine curve to the proper curve. Choose a finite étale boundary divisor avoiding the chosen disc; it need not be a K-rational point in a different disc. The integral charts are those of [Coleman integration on a proper curve with good reduction](#proper-curve-coleman-charts), whose auxiliary divisor may have degree greater than one. On another nonempty disc choose an integral lift c. Canonical path composition gives I(b,x)=I(c,x)I(b,c); multiplication by the constant group-like factor, inversion and the algebraic Hodge correction preserve the triangular independence argument. This proves density for the original base point on every disc, rather than inferring it merely from global density.
 
 **Checks.**
 
@@ -9820,7 +6245,7 @@ Use [Iterated integrals as Albanese coordinates](#nc-4-iterated-coordinates); [K
 
 <a id="nc-4-crystalline-period"></a>
 
-**The represented crystalline period map.** Let K/ℚ\_p be finite and let L\_n=H¹\_f(G\_K,U\_n^et) be the represented finite-depth crystalline torsor functor of Layer 4. The Layer 2 filtered, Frobenius and multiplicative period comparisons send a crystalline torsor T over a ℚ\_p-algebra R to an admissible de Rham U\_n-torsor over K⊗\_{ℚ\_p}R. Compose with [Admissible torsors and the Hodge quotient](#nc-4-admissible-classification) to obtain a natural transformation D\_n(R):L\_n(R)→Q\_n(K⊗R), and hence a morphism of ℚ\_p-schemes crystallinePeriodMap\_n:L\_n→Res\_{K/ℚ\_p}Q\_n. On ℚ\_p-points the target is Q\_n(K). The neutral torsor maps to [1]. No inverse of D\_n is asserted. Affine reduction takes the resulting pullback d*:O(Res Q\_n)→O(L\_n) and sends an R-point c to c∘d*; deriving d* from crystalline torsors remains part of the nonlinear supplier interface.
+**The represented crystalline period map.** Let K/ℚ\_p be finite and let L\_n=H¹\_f(G\_K,U\_n^et) be the represented finite-depth crystalline torsor functor of Layer 4. The Layer 2 filtered, Frobenius and multiplicative period comparisons send a crystalline torsor T over a ℚ\_p-algebra R to an admissible de Rham U\_n-torsor over K⊗\_{ℚ\_p}R. Compose with [Admissible torsors and the Hodge quotient](#nc-4-admissible-classification) to obtain a natural transformation D\_n(R):L\_n(R)→Q\_n(K⊗R), and hence a morphism of ℚ\_p-schemes crystallinePeriodMap\_n:L\_n→Res\_{K/ℚ\_p}Q\_n. On ℚ\_p-points the target is Q\_n(K). The neutral torsor maps to [1]. No inverse of D\_n is asserted. Affine reduction takes the resulting pullback d*:O(Res Q\_n)→O(L\_n) and sends an R-point c to c∘d*; d* is derived from crystalline torsors through [Olsson's nonabelian crystalline comparison in the unipotent case](#olsson-unipotent-comparison) and [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison).
 
 Representability over all ℚ\_p-algebras and coefficient-compatible crystalline conditions, as in Layer 4. The nonlinear comparison respects multiplication, both path augmentations, torsor coactions, Hodge filtration and Frobenius; linear H¹ comparison alone is insufficient. For K≠ℚ\_p the represented target is the Weil restriction, not Q\_n as a ℚ\_p-scheme by omission of its field. For an arbitrary ramified K/ℚ\_p, assume the endpoint-compatible rigid/de Rham and crystalline geometric comparisons for this model and these endpoints. The Layer 2 targets [Nonabelian Berthelot–Ogus comparison](#nc-2-berthelot-ogus) and [Crystalline coordinate path comparison](#nc-2-crystalline-path-coordinates) cover unramified models; [Finite crystalline path comparison](#nc-2-finite-path-comparison) extends only models and endpoints descending to that setup. The [ramified endpoint comparison](#ramified-endpoint-comparison) supplies this model and endpoint enhancement; scalar extension alone does not supply it.
 
@@ -9844,7 +6269,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §2, crystalline torsors and the functor D, pp. 118–119; introduction p. 95.
 
-Use [Admissible torsors and the Hodge quotient](#nc-4-admissible-classification); [Crystalline coordinate path comparison](#nc-2-crystalline-path-coordinates); [Finite crystalline path comparison](#nc-2-finite-path-comparison); [Local condition geometry](#nc-3-local-condition-geometry); [ReductiveGroupsPartII](../ReductiveGroupsPartII/README.md) §RG2.0a.1 (Weil restriction and its adjunction); `AlgHom.comp`; Layer 2, unipotent fundamental groups and their realizations; Layer 0, continuous nonabelian cohomology; [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison); [Good-model inertia and arithmetic factorization](#good-model-unramified-paths).
+Use [Admissible torsors and the Hodge quotient](#nc-4-admissible-classification); [Crystalline coordinate path comparison](#nc-2-crystalline-path-coordinates); [Finite crystalline path comparison](#nc-2-finite-path-comparison); [Local condition geometry](#nc-3-local-condition-geometry); [ReductiveGroupsPartII](../ReductiveGroupsPartII/README.md) §RG2.0a.1 (Weil restriction and its adjunction); `AlgHom.comp`; Layer 2, unipotent fundamental groups and their realizations; Layer 0, continuous nonabelian cohomology; [Good-reduction comparison over ramified p-adic fields](#ramified-endpoint-comparison); [Good-model inertia and arithmetic factorization](#good-model-unramified-paths); [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="nc-4-local-etale-albanese"></a>
 
@@ -9879,7 +6304,7 @@ Use [Galois structure and completion](#nc-2-etale-galois); [Lower central depth]
 
 Integral global base point and chosen good place v∉S with completion K. T is finite. At each finite place outside T, inertia acts trivially on U\_n^et and on every permitted geometric path torsor, giving continuous G\_{F,T}-actions. Layer 2 [Galois structure and completion](#nc-2-etale-galois) supplies G\_F-actions but does not prove this factorization; the [good-model inertia and arithmetic factorization](#good-model-unramified-paths) theorem supplies this in Layer 2. Every imposed local condition is coefficient-stable and contains the geometric local classes relevant to 𝒳(R); Selmer representability is an additional input when the scheme is used.
 
-Take the geometric path with its continuous G\_F-action and use the explicit inertia-triviality/factorization input to descend the group and torsor actions to G\_{F,T}. Good-model factorization is a separate supplier theorem, not a consequence of [Galois structure and completion](#nc-2-etale-galois) alone. Use the torsor comparison of Layer 0 to form the nonabelian cohomology class. Verify membership at all imposed local conditions; then factor through the Selmer functor. For a proper curve apply the valuative criterion at the places outside S to identify the global domain.
+Take the geometric path with its continuous G\_F-action and use the explicit inertia-triviality/factorization input to descend the group and torsor actions to G\_{F,T}. Good-model factorization is [Good-model inertia and arithmetic factorization](#good-model-unramified-paths), not a consequence of [Galois structure and completion](#nc-2-etale-galois) alone. Use the torsor comparison of Layer 0 to form the nonabelian cohomology class. Verify membership at all imposed local conditions; then factor through the Selmer functor. For a proper curve apply the valuative criterion at the places outside S to identify the global domain.
 
 The interface consists of the following named results.
 
@@ -9927,7 +6352,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), Introduction, diagram p. 95; §2, finite-level diagram p. 120.
 
-Use [The represented crystalline period map](#nc-4-crystalline-period); [Localization and depth functoriality](#nc-3-selmer-localization-naturality); [ReductiveGroupsPartII](../ReductiveGroupsPartII/README.md) §RG2.0a.1 (Weil restriction and its adjunction); `CategoryTheory.Over.mk`; Layer 0, continuous nonabelian cohomology.
+Use [The represented crystalline period map](#nc-4-crystalline-period); [Localization and depth functoriality](#nc-3-selmer-localization-naturality); [ReductiveGroupsPartII](../ReductiveGroupsPartII/README.md) §RG2.0a.1 (Weil restriction and its adjunction); `CategoryTheory.Over.mk`; Layer 0, continuous nonabelian cohomology; [Unipotent groups and their homogeneous quotients in characteristic zero](#split-unipotent-quotients).
 
 <a id="nc-4-fundamental-diagram"></a>
 
@@ -10081,7 +6506,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, proof of Theorem 1, pp. 119–121; compact-chart specialization of its zero argument.
 
-Use [ColemanIntegration](../ColemanIntegration/README.md) §L1.3 (residue discs and ends); `AnalyticAt`.
+Use [ColemanIntegration](../ColemanIntegration/README.md) §L1.3 (residue discs and ends); `AnalyticAt`; [Coleman integration on a proper curve with good reduction](#proper-curve-coleman-charts).
 
 ### 5.7 Chabauty–Kim finiteness
 
@@ -10142,7 +6567,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, pp. 115–117; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.1 and §5.1, pp. 901–905 and 917–919.
 
-Use [HeightsRationalPointsAndObstructions](../HeightsRationalPointsAndObstructions/README.md) Layer 1 (Kummer descent and Mordell–Weil); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-e-abelian-varieties); [ColemanIntegration](../ColemanIntegration/README.md) Layer L1 (Frobenius continuation and Coleman functions).
+Use [HeightsRationalPointsAndObstructions](../HeightsRationalPointsAndObstructions/README.md) Layer 1 (Kummer descent and Mordell–Weil); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-e-abelian-varieties); [ColemanIntegration](../ColemanIntegration/README.md) Layer L1 (Frobenius continuation and Coleman functions); [Coleman integration on a proper curve with good reduction](#proper-curve-coleman-charts).
 
 <a id="coleman-abelian-comparison"></a>
 
@@ -10236,7 +6661,7 @@ Use [The exact, period-image and closed-image loci](#nc-4-kim-loci); [The depth-
 
 <a id="finite-away-kummer-image"></a>
 
-**Finite away-place Kummer images.** For a proper smooth curve over a finite extension L/Q\_l with l≠p, and a chosen rational base point, prove that its finite-depth Q\_p-unipotent Kummer map on X(L) has finite image. Use a regular proper model and its smooth reduction points; points with the same reduction have identical prime-to-l nilpotent path class, and the Q\_p-unipotent quotient factors through that path system. Construct the finite image as the set of classes, independent of the regular model. Integral affine variants use the specified integral domain. Under a fixed potential-good extension, all these paths become unramified; vanishing height then uses its separate local-height contract.
+**Finite away-place Kummer images.** For a proper smooth curve over a finite extension L/Q\_l with l≠p, and a chosen rational base point, prove that its finite-depth Q\_p-unipotent Kummer map on X(L) has finite image. Use a regular proper model and its smooth reduction points; points with the same reduction have identical prime-to-l nilpotent path class, and the Q\_p-unipotent quotient factors through that path system. Construct the finite image as the set of classes, independent of the regular model. Integral affine variants use the specified integral domain. Under a fixed potential-good extension, all these paths become unramified; the vanishing of their local heights is proved in Layer 6, in [Vanishing for potentially unramified extensions](#nc-5-away-height-vanishes).
 
 The coefficient prime p differs from the local residue characteristic l. Properness gives the finite cover of all local points.
 
@@ -10325,7 +6750,128 @@ This layer uses [Hodge filtered path fibres](#nc-2-filtered-path); [Canonical Fr
 
 Turn rational divisor correspondences into depth-two quotients and mixed extensions. The local height equation keeps every bad-place correction and compares it with a global bilinear height; determinants and equivariant features give usable equations.
 
-### 6.1 Rational classes and the rank obstruction
+### 6.1 Mixed extensions and Nekovář's p-adic heights
+
+<a id="mixed-extensions"></a>
+
+**Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1).** Let G be a profinite group (G\_T for a finite set of places T, or a decomposition group G\_v) and W₀,…,W\_n continuous finite-dimensional ℚ\_p-representations with Hom\_G(Wᵢ,Wⱼ)=0 for i<j. A mixed extension with graded pieces W₀,…,W\_n is a representation M with a filtration M=M₀⊃M₁⊃…⊃M\_(n+1)=0 and isomorphisms αᵢ:Mᵢ/Mᵢ₊₁≅Wᵢ; morphisms are filtered isomorphisms compatible with the αᵢ. Let U(W₀,…,W\_n) be the unipotent group of block upper unitriangular automorphisms of ⊕Wᵢ, with the induced continuous G-action. Sending M to the G-equivariant U-torsor Φ(M) of filtered isomorphisms M≅⊕Wᵢ inducing the αᵢ defines a bijection Φ from isomorphism classes of mixed extensions to H¹(G,U(W₀,…,W\_n)), which identifies crystalline (respectively semistable) mixed extensions at v|p with H¹\_f (respectively H¹\_st). For (W₀,W₁,W₂)=(ℚ\_p,V,ℚ\_p(1)), U is a central extension 1→ℚ\_p(1)→U→V⊕Hom(V,ℚ\_p(1))→1, π₁(M)=φ₀,₁(M) and π₂(M)=φ₁,₂(M) are the two adjacent extension classes, and M↦M\*(1) is an involution. Partial Baer sums M+₁,ₙ₋₁N (when φ₁,ₙ₋₁ agree) and M+₂,ₙN (when φ₂,ₙ agree) are defined, and a function is bi-additive when it is additive for both.
+
+G profinite; the Wᵢ continuous and finite-dimensional with Hom\_G(Wᵢ,Wⱼ)=0 for i<j, which forces mixed extensions to have no nontrivial automorphisms and H⁰(G,U)=1.
+
+Φ(M) is a torsor because two filtered isomorphisms inducing the αᵢ differ by an element of U; the G-action is by conjugation. The inverse twists ⊕Wᵢ by a torsor. The central extension description is the block structure for n=2. The vanishing of Hom\_G(Wᵢ,Wⱼ) for i<j kills automorphisms and makes H¹(G,U) represented by an affine scheme of finite type when G=G\_T.
+
+The interface consists of the following named results.
+
+- `MixedExtension`: Mixed extensions with given graded pieces and their isomorphism classes.
+- `MixedExtension.classify`: The bijection Φ with H¹(G,U(W₀,…,W\_n)), compatible with the crystalline and semistable conditions.
+- `MixedExtension.pi1` and `MixedExtension.pi2`: The adjacent extension classes in H¹(G,V) and H¹(G,Hom(V,ℚ\_p(1))).
+- `MixedExtension.dual`: The involution M↦M\*(1).
+- `MixedExtension.baerSum₁` and `MixedExtension.baerSum₂`: The partial Baer sums.
+- `MixedExtension.dcris`: For v|p and crystalline M, the mixed extension D\_cris(M) of filtered φ-modules with graded pieces ℚ\_p, V\_dR=D\_cris(V), D\_cris(ℚ\_p(1)).
+
+**Checks.**
+
+- For n=1, mixed extensions of W₀ by W₁ are Ext¹(W₀,W₁)=H¹(G,Hom(W₀,W₁)), and U=Hom(W₀,W₁) is a vector group.
+- The split extension ℚ\_p⊕V⊕ℚ\_p(1) corresponds to the trivial class of H¹(G,U), and π₁, π₂ of it vanish.
+- With W₀=W₁=ℚ\_p (Hom≠0) the split extension has the nontrivial automorphisms (x,y)↦(x,y+λx); the hypothesis Hom\_G(Wᵢ,Wⱼ)=0 is needed for Φ to be a bijection of sets rather than of groupoids.
+- For G=G\_v with v∤p and V=V\_pJ, H¹(G\_v,V)=0, so every mixed extension is V⊕N with N an extension of ℚ\_p by ℚ\_p(1), and Φ identifies classes with H¹(G\_v,ℚ\_p(1)).
+
+The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.1, Definitions 4.1, 4.2 and 4.4 and Remark 4.3, p. 13; §4.2, Definitions 4.5–4.6 and Lemma 4.7, p. 14; §4.3, p. 14; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.3, Definitions 3.3–3.4, p. 904; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.1, author pp. 10–12.
+
+Use [Torsors under U with compatible G-action are classified by H¹(G, U)](#nc-3-torsor-classification); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
+
+<a id="nekovar-local-heights"></a>
+
+**Nekovář's local heights.** Let X/ℚ be a smooth projective curve with good reduction at p, V=V\_pJ (equivalently H¹\_et(X\_ℚ̄,ℚ\_p)^∨), and fix a continuous idèle class character χ:𝔸^×\_ℚ/ℚ^×→ℚ\_p and a splitting s:V\_dR/Fil⁰→V\_dR of the Hodge filtration with isotropic kernel. For v≠p, H⁰(G\_v,V)=0=H¹(G\_v,V), so a mixed extension M of ℚ\_p,V,ℚ\_p(1) over G\_v splits as V⊕N with N an extension of ℚ\_p by ℚ\_p(1); define h\_v(M)=χ\_v([N]), where χ\_v:H¹(G\_v,ℚ\_p(1))≅ℚ\_v^×⊗ℚ\_p→ℚ\_p is induced by the local component of χ through Kummer theory. For v=p and M crystalline, with D\_cris(M)=M₀⊃M₁⊃M₂ as a mixed extension of filtered φ-modules, the extension class of D\_cris(M) in Ext¹(ℚ\_p,M₁) is an element of M₁/Fil⁰; lift it to M₁ by s and project to M₂≅D\_cris(ℚ\_p(1)) by the canonical φ-equivariant splitting of M₂⊂M₁, which exists for weight reasons. The result c lies in D\_cris(ℚ\_p(1))≅H¹\_f(G\_p,ℚ\_p(1)), and h\_p(M)=χ\_p(c). Then: each h\_v is continuous, bi-additive and symmetric (h\_v(M)=h\_v(M\*(1))); h\_p is an algebraic function on H¹\_f(G\_p,U); h\_v(M)=0 when v≠p and M is unramified, and more generally when M is potentially unramified; changing s changes h\_p by a bilinear function of (π₁(M),π₂(M)) on V\_dR/Fil⁰; and h\_v is linear in χ.
+
+X/ℚ smooth projective of genus g≥1 with good reduction at p; χ continuous with χ\_p ramified (so that χ\_p is nonzero on H¹\_f(G\_p,ℚ\_p(1))); s with isotropic kernel for the symmetry statement.
+
+For v≠p, H⁰(G\_v,V)=0 because J(ℚ\_v)[p^∞] is finite, H²(G\_v,V)=H⁰(G\_v,V\*(1))^∨=0 by local duality and V\*(1)≅V, and the local Euler characteristic is zero, so H¹=0; the splitting then follows. For v=p, Ext¹ of ℚ\_p by a filtered φ-module W with W^(φ=1)=0 is W/Fil⁰W, computed by comparing a φ-splitting with a filtered one. Algebraicity: the construction is a polynomial function on U\_dR/F⁰. Potentially unramified vanishing: over a finite Galois extension trivialising the inertia action, the class of N restricts to zero, and restriction is injective on H¹(G\_v,ℚ\_p(1)) because ℚ\_p(1) has no invariants under the open subgroup. Change of splitting: the difference of two splittings is a linear map V\_dR/Fil⁰→Fil⁰V\_dR, and the difference of heights is the corresponding bilinear form.
+
+The interface consists of the following named results.
+
+- `localHeight`: The local height h\_v for v≠p and h\_p on crystalline mixed extensions.
+- `localHeight_biadditive` and `localHeight_symm`: Bi-additivity and symmetry for isotropic s.
+- `localHeight_algebraic`: h\_p is algebraic on H¹\_f(G\_p,U).
+- `localHeight_potentiallyUnramified`: h\_v(M)=0 for v≠p and M potentially unramified.
+- `height_change_splitting`: Changing s changes h\_p by a bilinear form in (π₁,π₂).
+- `height_character_smul`: h\_v is linear in χ; the zero character gives the zero height.
+
+**Checks.**
+
+- The split mixed extension has height 0 at every v.
+- For v≠p and M=V⊕N with N the Kummer extension of an element u∈ℚ\_v^× of valuation 1, h\_v(M)=χ\_v(u)=the value of χ\_v on a uniformiser; for u a unit it is 0, the unramified case.
+- At a place v=ℓ≠p of good reduction, M=V⊕N with N the Kummer class of ℓ has unramified graded pieces but is ramified, and h\_v(M)=χ\_v(ℓ), which is nonzero for a suitable χ; the vanishing statement needs M itself potentially unramified, not only its graded pieces.
+- For χ=0 every height vanishes, so a nonzero character is needed to use h\_p as a coordinate.
+
+The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3, pp. 14–15; §4.3.1, p. 15; §4.3.2, Lemma 4.8 and Remark 4.9, pp. 15–16; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.1, p. 901; §3.2 and Lemma 3.2, p. 903; §3.3, (12) and Definition 3.4, p. 904; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.4, author pp. 15–18. The underlying construction is Nekovář's (On p-adic height pairings, Séminaire de Théorie des Nombres, Paris 1990–91, §§2–4), as recalled in these sources.
+
+Use [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality over finite and coefficient fields); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.4 (the local invariant map); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0 (S-unit Kummer theory); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (period functors and admissibility).
+
+<a id="nekovar-global-height"></a>
+
+**The global height and its decomposition into local heights.** With the data of [Nekovář's local heights](#nekovar-local-heights) and T the set of bad places together with p, define h on H¹\_st(G\_T,U(ℚ\_p,V,ℚ\_p(1))) (classes semistable at p) by h(M)=Σ\_(v∈T)h\_v(loc\_v M). Then h is invariant under the action of H¹\_st(G\_T,ℚ\_p(1)), because h\_v(c+d)=h\_v(c)+loc\_v(χ∪d) and the sum of the local invariants of a global class is zero. Hence h factors through H¹\_f(G\_T,V)×H¹\_f(G\_T,V) via M↦(π₁(M),π₂(M)\*(1)), and the factored map is bilinear; it is Nekovář's global p-adic height pairing h:H¹\_f(G\_T,V)×H¹\_f(G\_T,V\*(1))→ℚ\_p for (χ,s). It is symmetric when s is isotropic, and changing s or scaling χ changes it as for the local heights.
+
+As for [Nekovář's local heights](#nekovar-local-heights); T finite containing p and the bad places; H¹\_st(G\_T,V)=H¹\_f(G\_T,V) for V=V\_pJ.
+
+Additivity: the central ℚ\_p(1) acts on each local term by adding the cup product with χ\_v; summing over v and applying global reciprocity (the sum of local invariants of a global class in H²(G\_T,ℚ\_p(1)) vanishes) gives invariance. Bi-additivity and continuity give bilinearity after factoring through the quotient by H¹\_st(G\_T,ℚ\_p(1)), which is H¹\_f(G\_T,V)⊕H¹\_f(G\_T,V\*(1)). Symmetry follows from the local symmetry.
+
+**Checks.**
+
+- If π₁(M)=0, h(M) depends only on the class of M modulo ℚ\_p(1)-translation, and is 0 when also π₂(M)=0.
+- For a global class M and d∈H¹\_st(G\_T,ℚ\_p(1)), the local heights at individual places change by loc\_v(χ∪d), which can be nonzero, while the sum does not change: the local heights are not themselves globally bilinear.
+- Changing the sign of χ changes the sign of h.
+
+The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3.3, pp. 16–17; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.1, equation (11) and the decomposition into local heights, p. 901; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.5, author pp. 18–19.
+
+Use [Nekovář's local heights](#nekovar-local-heights); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) Layer D7 (derived continuous cohomology and compact arithmetic duality); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions).
+
+### 6.2 Rational classes and the rank obstruction
+
+<a id="rational-rosati-descent"></a>
+
+**Rational Rosati descent.** Let A be an abelian variety over a field k of characteristic zero with a polarization λ:A→A^∨ defined over k, and † the Rosati involution α↦λ⁻¹α^∨λ of End⁰(A)=End(A)⊗ℚ. The map L↦λ⁻¹∘φ\_L induces an isomorphism from NS(A)⊗ℚ, where NS(A)=Pic(A)/Pic⁰(A) is formed over k, onto the †-fixed subspace of End⁰(A). In particular, for a Jacobian with its principal polarization, symmetric correspondences defined over k give Néron–Severi classes defined over k, without using geometric Galois-invariant classes.
+
+k of characteristic zero (perfect suffices); A an abelian variety over k; λ a polarization defined over k.
+
+Injectivity: Pic(A)→Pic(A\_k̄)^(Gal) is injective by Hilbert 90 because O(A\_k̄)^×=k̄^×, so NS(A)→NS(A\_k̄) is injective, and L↦φ\_L is injective on NS(A\_k̄). Image in the fixed part: φ\_L is defined over k, and over k̄ the element λ⁻¹φ\_L is †-fixed. Surjectivity: if α∈End⁰(A) is †-fixed, choose n with ψ=nλα a homomorphism A→A^∨ over k; it is symmetric (ψ^∨=ψ). The line bundle L=(1,ψ)\*P\_A, with P\_A the Poincaré bundle, is defined over k, and φ\_L=ψ+ψ^∨=2ψ, as one checks after base change to k̄ by the theorem of the square; so α=(2n)⁻¹λ⁻¹φ\_L.
+
+**Checks.**
+
+- For A=E an elliptic curve over ℚ without CM, End⁰(E)=ℚ, every element is †-fixed and NS(E)⊗ℚ=ℚ (generated by a point), so both sides are 1-dimensional.
+- For A=E×E with E without CM, End⁰(A)=M₂(ℚ) with † the transpose for the product polarization; the fixed part is the 3-dimensional space of symmetric matrices, matching NS(E×E)⊗ℚ of rank 3 (the two fibres and the diagonal).
+- For A=E×E′ with E′ the quadratic twist of a non-CM elliptic curve E/ℚ by ℚ(√d), over ℚ, Hom(E,E′)=0 and both sides have dimension 2; over ℚ(√d) the graph of E≅E′ appears and both sides have dimension 3. Using End⁰(A\_k̄) without Galois invariants would give 3 over ℚ, which is wrong.
+
+The construction and its conventions follow [J. S. Milne](#reference-milne-av), §8, the Poincaré sheaf, p. 37; §10, the Néron–Severi group and Corollary 10.18, p. 50; §14, Proposition 14.2, p. 61; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), proof of Lemma 2.4, p. 900.
+
+Use [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2 (dual abelian varieties and polarizations); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A6 (endomorphisms and the Rosati involution); [TauCetiRoadmap.JacobianChallenge](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/JacobianChallenge/README.md#layer-e-abelian-varieties).
+
+<a id="correspondence-cycle-classes"></a>
+
+**Divisor correspondences acting on H¹⊗H¹.** Let X be a smooth projective geometrically connected curve of genus g over a field F of characteristic zero, H¹ a Weil cohomology of X with coefficient field L of characteristic zero (étale ℚ\_p, or de Rham), τ the swap of X×X and π₁,π₂ the projections. For Z∈Pic(X×X)⊗ℚ let ξ\_Z be the Künneth component of its cycle class in H¹⊗H¹(1)≅End(H¹) (Poincaré duality). Then: ξ\_(τ\*Z) is the adjoint of ξ\_Z for the cup-product pairing (with the Koszul sign fixed together with the Künneth isomorphism), so that for a Jacobian it corresponds to the Rosati involution; pullbacks π₁\*Z₁ and π₂\*Z₂ have zero H¹⊗H¹-component; the trace of ξ\_Z as an endomorphism of H¹ equals the image of ξ\_Z under the cup product H¹⊗H¹(1)→H²(1)≅L; and if J is absolutely simple and Z is symmetric (τ\*Z=Z+π₁\*Z₁+π₂\*Z₂), ξ\_Z lies in ∧²H¹(1). The map Z↦ξ\_Z is compatible with base change of F and with the comparison isomorphisms between étale and de Rham realizations.
+
+X smooth projective geometrically connected over F of characteristic zero; L of characteristic zero; for the ∧² statement J absolutely simple.
+
+Take cycle classes of divisors on X×X and project by the Künneth decomposition. τ\* exchanges the two tensor factors, which is the adjoint under Poincaré duality; a pullback from one factor lies in H²⊗H⁰ or H⁰⊗H². The trace identity is the definition of the trace of an endomorphism given by an element of H¹⊗H¹(1)≅H¹⊗(H¹)^∨ through the Poincaré pairing. For the ∧² statement, a symmetric correspondence induces a Rosati-symmetric element of End(J)⊗ℚ, which lies in the image of NS(J)⊗ℚ by [Rational Rosati descent](#rational-rosati-descent), and the class of a divisor on J lies in H²(J)(1)=∧²H¹(1).
+
+The interface consists of the following named results.
+
+- `correspondenceClass`: Z↦ξ\_Z∈H¹⊗H¹(1).
+- `correspondenceClass_swap`: ξ\_(τ\*Z) is the adjoint of ξ\_Z.
+- `correspondenceClass_pullback`: Pullbacks from either factor have ξ=0.
+- `correspondenceClass_trace`: tr(ξ\_Z)=cup(ξ\_Z) under H²(1)≅L.
+- `correspondenceClass_symmetric_mem_wedge`: Symmetric Z with J absolutely simple gives ξ\_Z∈∧²H¹(1).
+- `correspondenceClass_comparison`: Compatibility with base change and with the étale–de Rham comparison.
+
+**Checks.**
+
+- The diagonal Δ has ξ\_Δ=±identity of H¹ (the sign fixed by the Künneth convention), with trace ±2g; the symmetric correspondence Δ−X×{P}−{P}×X has the same ξ, so its trace is ±2g≠0 and it is not nice.
+- The graph of an automorphism σ of X has ξ equal to σ\* (up to the same sign), and its swap has ξ equal to (σ⁻¹)\*.
+- For a pullback π₁\*Z₁, ξ=0 although the class in H²(X×X) is nonzero: the Künneth projection, not the whole cycle class, is used.
+
+The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §2.3, the definitions of symmetric and nice correspondences, Lemma 2.4 and its proof, p. 900; Remark 2.5, p. 901; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §6.2, the cycle class cl\_Z through Künneth projectors, p. 25.
+
+Use [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (cycle and Chern classes); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [Künneth for prime-field coefficients](#prime-field-kunneth); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) SF.5 (Chow groups and intersection theory).
 
 <a id="nc-5-nice-correspondence"></a>
 
@@ -10351,7 +6897,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §2.3, definition before Lemma 2.4, p. 900.
 
-Use [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class; `LinearMap.ker`.
+Use [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class; `LinearMap.ker`; [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes); [Rational Rosati descent](#rational-rosati-descent).
 
 <a id="nc-5-nice-trace-criterion"></a>
 
@@ -10368,7 +6914,7 @@ Import the rational NS-to-Rosati-symmetric-Hom identification from A2; the alter
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Lemma 2.4 and proof, p. 900.
 
-Use [Nice rational correspondence](#nc-5-nice-correspondence); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class.
+Use [Nice rational correspondence](#nc-5-nice-correspondence); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class; [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes); [Rational Rosati descent](#rational-rosati-descent).
 
 <a id="nc-5-depth-two-quotient"></a>
 
@@ -10396,7 +6942,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §2.3, pp. 900–901 and exact sequence(10), p. 897; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §3, Lemma 3.2, pp. 11–12.
 
-Use [Nice rational correspondence](#nc-5-nice-correspondence); [Lower central depth](#nc-2-central-quotients); [Central extensions: the action of H¹(G, Z) and the connecting map to H²](#nc-3-central-extension); `LinearMap.quotKerEquivOfSurjective`.
+Use [Nice rational correspondence](#nc-5-nice-correspondence); [Lower central depth](#nc-2-central-quotients); [Central extensions: the action of H¹(G, Z) and the connecting map to H²](#nc-3-central-extension); `LinearMap.quotKerEquivOfSurjective`; [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
 <a id="nc-5-rank-picard-criterion"></a>
 
@@ -10414,7 +6960,7 @@ From A2/A6 import rational NS and its symmetric-Hom injection and finite rank. P
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §2.3 and Remark 2.3, p. 9; §3, Lemma 3.2 and proof, pp. 11–12; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Theorem 2.3, p. 899.
 
-Use [Depth-two height quotient](#nc-5-depth-two-quotient); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A6.16 (finiteness of the Néron–Severi group); Layer 5, albanese maps and chabauty–kim finiteness; [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [HeightsRationalPointsAndObstructions](../HeightsRationalPointsAndObstructions/README.md) Layer 1 (Kummer descent and Mordell–Weil); [Proper-curve Mordell–Weil Selmer cut](#mordell-weil-selmer-cut).
+Use [Depth-two height quotient](#nc-5-depth-two-quotient); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A6.16 (finiteness of the Néron–Severi group); Layer 5, albanese maps and chabauty–kim finiteness; [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [HeightsRationalPointsAndObstructions](../HeightsRationalPointsAndObstructions/README.md) Layer 1 (Kummer descent and Mordell–Weil); [Proper-curve Mordell–Weil Selmer cut](#mordell-weil-selmer-cut); [Rational Rosati descent](#rational-rosati-descent).
 
 <a id="nc-5-admissible-tate-class"></a>
 
@@ -10459,9 +7005,9 @@ A rational divisor cycle has the required Frobenius eigenvalue and Hodge filtrat
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §4.4, forward cycle-class paragraph before Lemma 4.7, p. 913; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv23), Remark 3.17, p. 16.
 
-Use [Admissible de Rham Tate class](#nc-5-admissible-tate-class); [Primitive class and trace criterion](#nc-5-nice-trace-criterion); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (crystalline comparison for a smooth proper model); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class.
+Use [Admissible de Rham Tate class](#nc-5-admissible-tate-class); [Primitive class and trace criterion](#nc-5-nice-trace-criterion); [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A2.10 (the Néron–Severi group); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (crystalline comparison for a smooth proper model); [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md), SF.5: rational cycles, intersections, push-pull and the first Chern class; [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
-### 6.2 The height representation
+### 6.3 The height representation
 
 <a id="nc-5-height-module"></a>
 
@@ -10518,15 +7064,15 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.4, definition of A\_Z(b,x), pp. 906–907; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.1, pp. 12–14.
 
-Use [Depth-two height module](#nc-5-height-module); [Torsors under U with compatible G-action are classified by H¹(G, U)](#nc-3-torsor-classification); [Twisting by a cocycle](#nc-3-twisting); [Tensor paths](#nc-2-tensor-paths).
+Use [Depth-two height module](#nc-5-height-module); [Torsors under U with compatible G-action are classified by H¹(G, U)](#nc-3-torsor-classification); [Twisting by a cocycle](#nc-3-twisting); [Tensor paths](#nc-2-tensor-paths); [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions).
 
-### 6.3 Correspondences and relative cohomology
+### 6.4 Correspondences and relative cohomology
 
 <a id="relative-cycle-mixed-extension"></a>
 
 **Relative cycle and Chow–Heegner comparison.** For a proper pointed curve X/Q and a rational divisor correspondence Z on X×X satisfying the stated primitive and symmetry conditions, construct the relative étale and de Rham cohomology extensions of the pair obtained by removing the diagonal and the base-point fibres. Apply the correspondence, project to the primitive H¹⊗H¹ component and identify the resulting rigidified three-step mixed extension with the depth-two path height module. Identify its two extension classes with the Abel–Jacobi class and the Chow–Heegner divisor class. Preserve the endpoints, Galois action, Tate twist and strict de Rham filtration; the central grade is Q\_p(1), with no extra twist on A\_Z.
 
-Use rational divisors and intersection/push-pull operations on the stated pair. The shared generic mixed-extension and height theory is supplied separately.
+Use rational divisors and intersection/push-pull operations on the stated pair. Mixed extensions and heights are those of [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions) and [Nekovář's local heights](#nekovar-local-heights).
 
 The interface consists of the following named results.
 
@@ -10544,9 +7090,9 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §§3–4 and §6, Theorem 6.3, arXiv v2 pp. 9–17 and 25–28; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §§3–4, author pp. 10–22; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §4, pp. 906–917.
 
-Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.5 (intersection theory); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions); [Jacobian differential and rational Kummer comparison](#jacobian-differential-kummer).
+Use [SchemeAndStackFoundations](../SchemeAndStackFoundations/README.md) Layer SF.5 (intersection theory); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) Layer 4 (finite conditions); [Jacobian differential and rational Kummer comparison](#jacobian-differential-kummer); [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
-### 6.4 Local realization of the height module
+### 6.5 Local realization of the height module
 
 <a id="nc-5-height-module-comparison"></a>
 
@@ -10614,7 +7160,7 @@ Translate a fibre of H1(U\_Z)→H1(Aut\_gr(A\_Z)) to the neutral fibre by the im
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4, Lemma 4.2 and proof, pp. 21–22; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §5.1, pp. 18–20.
 
-Use [Twisted height module](#nc-5-height-module-twist); [Twisting by a cocycle](#nc-3-twisting); [Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence).
+Use [Twisted height module](#nc-5-height-module-twist); [Twisting by a cocycle](#nc-3-twisting); [Kernel of inclusion in nonabelian cohomology](#nc-3-exact-sequence); [Mixed extensions with graded pieces ℚ\_p, V, ℚ\_p(1)](#mixed-extensions).
 
 <a id="nc-5-height-prevalue"></a>
 
@@ -10642,7 +7188,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §3.3, equations(16)–(17), pp. 905–906; Lemma 5.5, p. 924.
 
-Use [Crystalline comparison for the height module](#nc-5-height-module-comparison); `Module.Dual`.
+Use [Crystalline comparison for the height module](#nc-5-height-module-comparison); `Module.Dual`; [Nekovář's local heights](#nekovar-local-heights).
 
 <a id="nc-5-local-height-coordinates"></a>
 
@@ -10658,15 +7204,15 @@ Classify the crystalline central fibre as a torsor for H1\_f(G\_p,Qp(1))≅Qp. T
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.3, Lemmas3.6–3.7, p. 18; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), §4.3.2, Lemma 4.8, p. 16; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Lemma 3.7 proof, pp. 907–908.
 
-Use [Specialized local height formula](#nc-5-height-prevalue); [Injectivity of the specialized twisting map](#nc-5-twist-injective); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition).
+Use [Specialized local height formula](#nc-5-height-prevalue); [Injectivity of the specialized twisting map](#nc-5-twist-injective); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.9 (the Bloch–Kato local condition); [Nekovář's local heights](#nekovar-local-heights).
 
-### 6.5 Local terms and the height pair
+### 6.6 Local terms and the height pair
 
 <a id="nc-5-away-height-vanishes"></a>
 
 **Vanishing for potentially unramified extensions.** For v≠p, a mixed extension M of Qp,V,Qp(1) which becomes unramified over a finite local extension satisfies h\_v(M)=0. The hypothesis is on the whole mixed extension, not merely its graded pieces. In particular, proper path modules and their height pushouts at places of potential good reduction satisfy it by the imported path theorem after good-reduction base change.
 
-Use the shared generic away-from-p height and its functorial splitting/extraction. The finite local extension may be chosen Galois.
+This is `localHeight_potentiallyUnramified` of [Nekovář's local heights](#nekovar-local-heights), applied to path modules; the splitting M≅V⊕N is the one used there to define h\_v. The finite local extension may be chosen Galois.
 
 Invoke the generic vanishing theorem; its proof splits the V extensions away from p and reduces to a Tate-line extension. The Tate-line class becomes zero over the unramified extension. Inflation–restriction and zero local Tate invariants make restriction injective, so it was zero already. Apply to the path twist using proper potential-good reduction, not to an arbitrarily manufactured unramified semisimplification.
 
@@ -10682,7 +7228,7 @@ Use [Twisted height module](#nc-5-height-module-twist); Layer 5, albanese maps a
 
 **Finitely many bad-place heights.** For every finite place v≠p, the proper depth-two local Kummer map j2,v:X(Qv)→H1(G\_v,U2) has finite image. Projecting to U\_Z, twisting by A\_Z and applying h\_v therefore gives a finite set Gamma\_v. At good places Gamma\_v={0}. Thus only finitely many bad places enter the correction set, and all of them must be retained. Finiteness supplies no algorithm for computing Gamma\_v.
 
-X is a proper smooth curve over Q; for an affine integral variant the corresponding local domain and boundary hypotheses must be supplied separately. Use the p-adic unipotent quotient of the local path fundamental group with v≠p.
+X is a proper smooth curve over Q; an affine integral variant needs its own local domain and boundary hypotheses, which are not stated here. Use the p-adic unipotent quotient of the local path fundamental group with v≠p.
 
 Import the local finite-image theorem from Layer 5, where the general Kim–Tamagawa specialization belongs. Take the image through the quotient, twist and height maps; a function on a finite image still has finite image. Use generic good-place vanishing outside a finite set. No bad contribution is discarded on grounds of finiteness alone.
 
@@ -10692,7 +7238,7 @@ Import the local finite-image theorem from Layer 5, where the general Kim–Tama
 
 The construction and its conventions follow [Minhyong Kim and Akio Tamagawa](#reference-kt), Corollary 0.2, p. 1; §2, p. 6; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Theorem 3.6 and equation(19), p. 907.
 
-Use Layer 5, albanese maps and chabauty–kim finiteness; [Twisted height module](#nc-5-height-module-twist); [Vanishing for potentially unramified extensions](#nc-5-away-height-vanishes); `Set.Finite.image`; [Finite away-place Kummer images](#finite-away-kummer-image).
+Use Layer 5, albanese maps and chabauty–kim finiteness; [Twisted height module](#nc-5-height-module-twist); [Vanishing for potentially unramified extensions](#nc-5-away-height-vanishes); `Set.Finite.image`; [Finite away-place Kummer images](#finite-away-kummer-image); [Nekovář's local heights](#nekovar-local-heights).
 
 <a id="nc-5-away-height-constants"></a>
 
@@ -10721,7 +7267,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), Theorem 1.2(ii), p. 4 and Proposition 5.5, p. 21; [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), equations(18)–(19), Lemma 3.7, pp. 907–908.
 
-Use [Finitely many bad-place heights](#nc-5-finite-bad-height-image); `Set.Finite.image`.
+Use [Finitely many bad-place heights](#nc-5-finite-bad-height-image); `Set.Finite.image`; [The global height and its decomposition into local heights](#nekovar-global-height).
 
 <a id="nc-5-quadratic-chabauty-pair"></a>
 
@@ -10751,11 +7297,11 @@ Use `AnalyticOnNhd`; `Padic`; `MvPolynomial.eval`.
 
 <a id="nc-5-pair-of-heights"></a>
 
-**Quadratic Chabauty pair from heights.** Assume the good-reduction proper-curve hypotheses, a nonzero rational nice correspondence, r=g and an isomorphism J(Q)⊗Qp→W induced by the p-adic logarithm (equivalently the required finite-index closure hypothesis together with r=g). Choose the nonzero idele character and Hodge splitting of the shared height theory. Set theta(x)=h\_p(A\_Z(b,x)), Upsilon to the negative sum of all away-place image sets, E=E\_Z, c=c\_Z, and B to the global bilinear height restricted to the Mordell–Weil image and transported to W. These data form a quadratic Chabauty pair. No assertion that the entire global H1\_f equals this image is needed.
+**Quadratic Chabauty pair from heights.** Assume the good-reduction proper-curve hypotheses, a nonzero rational nice correspondence, r=g and an isomorphism J(Q)⊗Qp→W induced by the p-adic logarithm (equivalently the required finite-index closure hypothesis together with r=g). Choose a nonzero idèle class character and an isotropic Hodge splitting as in [Nekovář's local heights](#nekovar-local-heights). Set theta(x)=h\_p(A\_Z(b,x)), Upsilon to the negative sum of all away-place image sets, E=E\_Z, c=c\_Z, and B to the global bilinear height restricted to the Mordell–Weil image and transported to W. These data form a quadratic Chabauty pair. No assertion that the entire global H1\_f equals this image is needed.
 
-The two adjacent extension classes lie in the Mordell–Weil image by [Adjacent extension classes of the twist](#nc-5-twist-two-classes), including the rational Chow–Heegner constant. The nonzero local character gives the height-coordinate isomorphism. The splitting is any allowed shared-height splitting; ordinary reduction or Panchishkin conditions are not added to this selected proper-curve theorem. For the selected [Nice rational correspondence](#nc-5-nice-correspondence) source chain, J is absolutely simple. An extension to nonsimple J needs a separately verified correspondence-to-alternating comparison; the general rank/Picard theorem is already nonsimple.
+The two adjacent extension classes lie in the Mordell–Weil image by [Adjacent extension classes of the twist](#nc-5-twist-two-classes), including the rational Chow–Heegner constant. The nonzero local character gives the height-coordinate isomorphism. The splitting is any isotropic splitting allowed in [Nekovář's local heights](#nekovar-local-heights); ordinary reduction or Panchishkin conditions are not added to this selected proper-curve theorem. For the selected [Nice rational correspondence](#nc-5-nice-correspondence) source chain, J is absolutely simple. An extension to nonsimple J needs a separately verified correspondence-to-alternating comparison; the general rank/Picard theorem is already nonsimple.
 
-Use [Height and first extension as local coordinates](#nc-5-local-height-coordinates) and Layer 5 subdisc unipotent Albanese density to obtain the required joint density. Import Coleman/Layer 2 power-series descriptions for analyticity. Restrict the shared global bilinear pairing to the two Mordell–Weil classes and transport it along the logarithm isomorphism. Apply the global sum of local heights: theta−B=−sum\_away h\_v, so the corrected Upsilon gives containment. Use [Finitely many bad-place heights](#nc-5-finite-bad-height-image) for finiteness of Upsilon.
+Use [Height and first extension as local coordinates](#nc-5-local-height-coordinates) and Layer 5 subdisc unipotent Albanese density to obtain the required joint density. Import Coleman/Layer 2 power-series descriptions for analyticity. Restrict the global bilinear pairing of [The global height and its decomposition into local heights](#nekovar-global-height) to the two Mordell–Weil classes and transport it along the logarithm isomorphism. Apply the global sum of local heights: theta−B=−sum\_away h\_v, so the corrected Upsilon gives containment. Use [Finitely many bad-place heights](#nc-5-finite-bad-height-image) for finiteness of Upsilon.
 
 **Checks.**
 
@@ -10783,7 +7329,7 @@ The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dog
 
 Use [Quadratic Chabauty pair](#nc-5-quadratic-chabauty-pair); Layer 5, albanese maps and chabauty–kim finiteness; `Set.Finite.image`; [Proper-curve Mordell–Weil Selmer cut](#mordell-weil-selmer-cut).
 
-### 6.6 Determinants and equivariant features
+### 6.7 Determinants and equivariant features
 
 <a id="nc-5-height-determinant"></a>
 
@@ -10842,9 +7388,9 @@ Import tensor-product universal properties and the shared equivariant splitting 
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), §1.7, pp. 894–895; Remark 3.9, p. 908; §6.4.1, p. 932; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §4.1, Lemma 4.3, p. 23; §5, Lemma 5.2(1), p. 24 and Lemma 5.3, p. 25.
 
-Use [Specialized local height formula](#nc-5-height-prevalue); `TensorProduct`; `TensorProduct.lift`; [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A3.9 (the Rosati involution).
+Use [Specialized local height formula](#nc-5-height-prevalue); `TensorProduct`; `TensorProduct.lift`; [AbelianSchemesAndArithmeticModuli](../AbelianSchemesAndArithmeticModuli/README.md) §A3.9 (the Rosati involution); [Rational Rosati descent](#rational-rosati-descent).
 
-### 6.7 Potentially good reduction and independence of choices
+### 6.8 Potentially good reduction and independence of choices
 
 <a id="nc-5-potential-good-pair"></a>
 
@@ -10866,7 +7412,7 @@ Use [Quadratic Chabauty pair from heights](#nc-5-pair-of-heights); [Vanishing fo
 
 **Independence of height choices.** Changing the allowed Hodge splitting changes theta and the transported global bilinear pairing by the same bilinear expression D(AJ\_b(x),E AJ\_b(x)+c), so their residual and its height locus agree. Rescaling the idele character by a nonzero scalar a changes theta,B and every local image set by a; Upsilon becomes a*Upsilon and the residual-membership locus agrees. The zero character is excluded. Arbitrary unrelated characters are not identified by this scaling argument.
 
-Use the shared generic height variation theorem, restricted to the two Mordell–Weil classes. Use a single global character with its compatible local components; in the selected Q setting the stated nonzero rescaling is the comparison.
+Use `height_change_splitting` and `height_character_smul` of [Nekovář's local heights](#nekovar-local-heights) and [The global height and its decomposition into local heights](#nekovar-global-height), restricted to the two Mordell–Weil classes. Use a single global character with its compatible local components; in the selected Q setting the stated nonzero rescaling is the comparison.
 
 Apply the generic splitting-change formula to the local height and the global pairing; cancel identical bilinear changes. All away-place height values scale with the character. The signed correction set scales likewise. Multiplication by a nonzero scalar is injective, giving equivalence of memberships. A zero scalar destroys the obstruction.
 
@@ -10877,7 +7423,7 @@ Apply the generic splitting-change formula to the local height and the global pa
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk](#reference-bdmtv), Remark 3.12, pp. 908–909; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bd1), Remark 4.9, p. 16; [Jennifer S. Balakrishnan and Netan Dogra](#reference-bdii), §3.4, after Lemma 3.8, p. 19.
 
-Use [Quadratic Chabauty pair from heights](#nc-5-pair-of-heights); [Signed away-place correction set](#nc-5-away-height-constants).
+Use [Quadratic Chabauty pair from heights](#nc-5-pair-of-heights); [Signed away-place correction set](#nc-5-away-height-constants); [Divisor correspondences acting on H¹⊗H¹](#correspondence-cycle-classes).
 
 ### Examples
 
@@ -11077,6 +7623,24 @@ Use [Selmer functor](#nc-3-selmer-functor); [Finite-level representability](#nc-
 
 ### 7.3 Free Lie and surface-group characters
 
+<a id="open-curve-product-cohomology"></a>
+
+**Étale cohomology of open curves, powers and Weil restrictions.** Let F be a field of characteristic zero, X̄ a smooth projective geometrically connected curve over F of genus g, D⊂X̄ a reduced divisor, finite étale over F with s=#D(F̄)≥1 geometric points, and X=X̄∖D. (a) There is a G\_F-equivariant exact sequence 0→H¹(X̄\_F̄,ℚ\_p)→H¹(X\_F̄,ℚ\_p)→ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)→0, where G\_F permutes the factors of ℚ\_p(−1)^(D(F̄)) through its action on D(F̄) and the last map is the sum; so H¹(X\_F̄) is an extension of the boundary part ker(ℚ\_p(−1)^(D(F̄))→ℚ\_p(−1)), of dimension s−1, by H¹(X̄\_F̄), and dim H¹(X\_F̄)=2g+s−1. (b) For every n≥1, H¹(X\_F̄,ℚ\_p)^⊗n is a G\_F-stable direct summand of Hⁿ(Xⁿ\_F̄,ℚ\_p), and likewise with twists. (c) For a finite extension F′/F and a smooth projective variety V′ over F′, Ind\_(G\_F′)^(G\_F)Hⁱ(V′\_F̄,ℚ\_p) is a G\_F-stable direct summand of Hⁱ((Res\_(F′/F)V′)\_F̄,ℚ\_p), so by Shapiro's lemma Hᵐ(G\_(F′,T′),Hⁱ(V′\_F̄)(r))≅Hᵐ(G\_(F,T),Ind Hⁱ(V′\_F̄)(r)) embeds as a summand of Hᵐ(G\_(F,T),Hⁱ((Res V′)\_F̄)(r)), for T′ the places above T.
+
+F of characteristic zero; D finite étale over F and nonempty; for (c), V′ smooth projective and T a finite set of places with T′ above it.
+
+(a) Localisation (Gysin) for the closed immersion D\_F̄→X̄\_F̄ with purity H²\_D(X̄,ℚ\_p)=ℚ\_p(−1)^(D(F̄)), and H²(X\_F̄)=0 since X\_F̄ is affine; the map to H²(X̄\_F̄)=ℚ\_p(−1) is the sum of the Gysin classes, each of which is the point class. The dimension count agrees with the affine-curve computation. (b) Künneth gives Hⁿ(Xⁿ)=⊕\_(i₁+…+iₙ=n)⊗Hⁱʲ(X), whose summand with all iⱼ=1 is H¹^⊗n; the projector is algebraic (built from the Künneth decomposition) and Galois-equivariant. (c) Over F̄, Res\_(F′/F)V′ becomes the product of the conjugates V′\_σ over embeddings σ:F′→F̄, permuted by G\_F; Künneth gives the summand ⊕\_σ Hⁱ(V′\_σ)⊗H⁰(others)=⊕\_σHⁱ(V′\_σ), which is the induced representation. Shapiro's lemma identifies the cohomology of the induced module.
+
+**Checks.**
+
+- For X=P¹∖{0,1,∞} over ℚ, g=0 and s=3, so H¹(X\_ℚ̄)=ker(ℚ\_p(−1)³→ℚ\_p(−1))≅ℚ\_p(−1)² with trivial permutation action since the three points are rational.
+- For X̄=P¹ and D={±√2}, s=2 and the boundary part ker(ℚ\_p(−1)²→ℚ\_p(−1)) is ℚ\_p(−1)⊗ε, with ε the quadratic character of ℚ(√2): the permutation action is visible and is not trivial.
+- For n=2 and X a proper curve of genus g, H²(X²) has dimension 1+4g²+1 and the summand H¹⊗H¹ has dimension 4g²: the other two summands H²⊗H⁰ and H⁰⊗H² are not part of H¹^⊗2.
+
+The construction and its conventions follow [The Stacks Project Authors](#reference-stacks), Lemma 59.69.3 (Tag 03RR) and Lemma 59.97.9 (Tag 0F13).
+
+Use [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (cycle and Chern classes); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.2 (trace and purity); [Künneth for prime-field coefficients](#prime-field-kunneth); [ReductiveGroupsPartII](../ReductiveGroupsPartII/README.md) §RG2.0a.1 (Weil restriction and its adjunction).
+
 <a id="free-lie-character"></a>
 
 **Witt character and the surface relation.** For a finite-dimensional characteristic-zero vector space H with an endomorphism τ, construct the degree-n free Lie functor L\_n(H) and prove the Witt character formula tr(τ|L\_n(H))=(1/n)Σ\_(d|n)μ(d) tr(τ^d|H)^(n/d). For a proper genus-g surface relation, identify the enveloping-algebra Hilbert series 1/(1−2g t+t²), and derive the Labute dimensions by logarithmic derivative and Möbius inversion. Identify these with the graded Lie dimensions of the geometric unipotent curve group. For complex conjugation c, the open-curve character uses the proper and boundary eigenspaces; it is not forced to be zero in odd degree.
@@ -11098,7 +7662,7 @@ The interface consists of the following named results.
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §§1 and 3, pp. 99–101 and 121–126; [John P. Labute](#reference-labute1967), Théorème 2 and its specialization, printed pp. 142–144.
 
-Use [Lower central depth](#nc-2-central-quotients); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.3.1 (Riemann existence for punctured curves).
+Use [Lower central depth](#nc-2-central-quotients); [InverseGaloisAndArithmeticFundamentalGroups](../InverseGaloisAndArithmeticFundamentalGroups/README.md) §IG.3.1 (Riemann existence for punctured curves); [Étale cohomology of open curves, powers and Weil restrictions](#open-curve-product-cohomology).
 
 ### 7.4 Conditional routes to the dimension conjecture
 
@@ -11165,7 +7729,7 @@ H² is right exact on Q\_p-representations of G\_T: for finite p-primary M, H³(
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, Lemma 6 and proof, pp. 124–125.
 
-Use [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture); [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (cohomological dimension); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.6 (Poitou–Tate for lattices and rational coefficients); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality over finite and coefficient fields); [DeligneWeightsAndPurity](../DeligneWeightsAndPurity/README.md) §DWP.10.3 (weights of semistable curves with finite residue field); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (proper smooth de Rham comparison); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (de Rham representations are Hodge–Tate); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (the Hodge–Tate decomposition); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes).
+Use [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture); [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (cohomological dimension); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.6 (Poitou–Tate for lattices and rational coefficients); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §D7.5 (local duality over finite and coefficient fields); [DeligneWeightsAndPurity](../DeligneWeightsAndPurity/README.md) §DWP.10.3 (weights of semistable curves with finite residue field); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (proper smooth de Rham comparison); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (de Rham representations are Hodge–Tate); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.2 (the Hodge–Tate decomposition); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes); [Étale cohomology of open curves, powers and Weil restrictions](#open-curve-product-cohomology).
 
 <a id="nc-6-vanishing-implies-dimension"></a>
 
@@ -11199,7 +7763,7 @@ By Künneth, V\_n = H¹(X\_{F̄}, Q\_p)^{⊗n}(1) is a G\_F-stable direct summan
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, Observation 1 and the paragraph before it, pp. 121–122.
 
-Use [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md), L2 and L4: rational finite conditions and Bloch–Kato subgroups; [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md), EDC.3: finite étale Chern classes, product cohomology and regulator classes; [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.0 (foundations).
+Use [Vanishing of the strict Selmer groups of tensor powers](#nc-6-selmer-vanishing-conjecture); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md), L2 and L4: rational finite conditions and Bloch–Kato subgroups; [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md), EDC.3: finite étale Chern classes, product cohomology and regulator classes; [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.0 (foundations); [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups); [Étale cohomology of open curves, powers and Weil restrictions](#open-curve-product-cohomology).
 
 <a id="nc-6-weight-splitting-implies-vanishing"></a>
 
@@ -11233,7 +7797,7 @@ Pass to the finite extension F′ over which all boundary points are rational; F
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §3, statement of the weak Jannsen conjecture, Observation 3 and its proof, pp. 125–126.
 
-Use [Kim's dimension conjecture](#nc-6-kim-dimension-conjecture); [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [Selmer vanishing implies the dimension conjecture](#nc-6-vanishing-implies-dimension); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (Tate's global Euler characteristic formula); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (cohomological dimension); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (Weil-pairing duality and Tate twists); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.0 (foundations); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes).
+Use [Kim's dimension conjecture](#nc-6-kim-dimension-conjecture); [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [Selmer vanishing implies the dimension conjecture](#nc-6-vanishing-implies-dimension); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (Tate's global Euler characteristic formula); [ArithmeticGaloisDuality](../ArithmeticGaloisDuality/README.md) §R02.4.4 (cohomological dimension); [PadicHodgeTheory](../PadicHodgeTheory/README.md) layer R06.5 (Weil-pairing duality and Tate twists); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.0 (foundations); [EtaleDualityAndPerverseSheaves](../EtaleDualityAndPerverseSheaves/README.md) layer EDC.3 (purity, Gysin maps, cycle classes and Chern classes); [Étale cohomology of open curves, powers and Weil restrictions](#open-curve-product-cohomology).
 
 <a id="nc-6-cm-rank-one-finiteness"></a>
 
@@ -11250,7 +7814,7 @@ Depth-two graded piece: gr\_2 U = Λ²H₁ ≅ Q\_p(1) ([Dimensions of the lower
 
 The construction and its conventions follow [Minhyong Kim](#reference-kim2009), §4, pp. 127–129.
 
-Use [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [Kim's dimension conjecture](#nc-6-kim-dimension-conjecture); [Central Selmer dimension bound](#nc-3-central-selmer-dimension); [Local condition geometry](#nc-3-local-condition-geometry); [Depth projection and change of conditions for the loci](#nc-4-locus-compatibilities); [Conditional Chabauty–Kim finiteness](#nc-4-dimension-finiteness); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.26 (elliptic Bloch–Kato and classical Selmer groups); [Depth one and the Jacobian](#nc-2-depth-one-jacobian).
+Use [Dimensions of the lower central quotients](#nc-6-graded-central-dimensions); [Kim's dimension conjecture](#nc-6-kim-dimension-conjecture); [Central Selmer dimension bound](#nc-3-central-selmer-dimension); [Local condition geometry](#nc-3-local-condition-geometry); [Depth projection and change of conditions for the loci](#nc-4-locus-compatibilities); [Conditional Chabauty–Kim finiteness](#nc-4-dimension-finiteness); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §4.26 (elliptic Bloch–Kato and classical Selmer groups); [Depth one and the Jacobian](#nc-2-depth-one-jacobian); [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
 <a id="nc-6-pseudo-null-implies-dimension"></a>
 
@@ -11367,7 +7931,7 @@ p odd; 𝒳(Z) = ∅ because z and 1 − z cannot both be units of Z. The depth-
 
 The construction and its conventions follow [Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers](#reference-bdckw-2018v4), §6.1–6.3, pp. 43–45; §1.14, p. 7.
 
-Use [Kim's conjecture on eventual equality](#nc-6-kim-conjecture); [Depth-one Kummer and Selmer comparison](#nc-3-depth-one-selmer-comparison); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [Iterated integrals as Albanese coordinates](#nc-4-iterated-coordinates); [ColemanIntegration](../ColemanIntegration/README.md) §L1.30 (Coleman functions on the punctured line); [ColemanIntegration](../ColemanIntegration/README.md) §L2.9 (the inversion relation); [Tangential Albanese and period maps](#tangential-albanese); [Tangential global Selmer conditions](#tangential-selmer-conditions).
+Use [Kim's conjecture on eventual equality](#nc-6-kim-conjecture); [Depth-one Kummer and Selmer comparison](#nc-3-depth-one-selmer-comparison); [SelmerIwasawaCohomology](../SelmerIwasawaCohomology/README.md) §0.9 (the Kummer identification for S-units); [Iterated integrals as Albanese coordinates](#nc-4-iterated-coordinates); [ColemanIntegration](../ColemanIntegration/README.md) §L1.30 (Coleman functions on the punctured line); [ColemanIntegration](../ColemanIntegration/README.md) §L2.9 (the inversion relation); [Tangential Albanese and period maps](#tangential-albanese); [Tangential global Selmer conditions](#tangential-selmer-conditions); [The Bloch–Kato subgroups H¹\_e⊆H¹\_f⊆H¹\_g](#bloch-kato-subgroups).
 
 ### Examples
 
@@ -11515,3 +8079,23 @@ An equation is an upper bound on rational points until the local image, correcti
 <a id="reference-stix-2008v1"></a>
 
 **Jakob Stix.** On cuspidal sections of algebraic fundamental groups. arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563. Locators use the arXiv v1 pagination. [Source](https://arxiv.org/pdf/0809.0017v1).
+
+<a id="reference-sga1"></a>
+
+**Alexander Grothendieck and Michèle Raynaud.** Revêtements étales et groupe fondamental (SGA 1). Lecture Notes in Mathematics 224, Springer 1971; updated edition, Documents Mathématiques 3, Société Mathématique de France 2003, arXiv:math/0206203; locators use the arXiv edition's printed pages. [Source](https://arxiv.org/pdf/math/0206203).
+
+<a id="reference-faltings1988"></a>
+
+**Gerd Faltings.** p-adic Hodge theory. Journal of the American Mathematical Society 1 (1988), 255–299; version of record. [Source](https://www.ams.org/journals/jams/1988-01-01/S0894-0347-1988-0924705-1/S0894-0347-1988-0924705-1.pdf).
+
+<a id="reference-milne-iag"></a>
+
+**J. S. Milne.** Algebraic Groups: The theory of group schemes of finite type over a field. Course notes, version 2.00 (2015), author-hosted; the published book (Cambridge Studies in Advanced Mathematics 170, 2017) has different pagination. [Source](https://www.jmilne.org/math/CourseNotes/iAG200.pdf).
+
+<a id="reference-milne-av"></a>
+
+**J. S. Milne.** Abelian Varieties. Course notes, version 2.00 (2008), author-hosted; locators use the notes' printed pages. [Source](https://www.jmilne.org/math/CourseNotes/AV.pdf).
+
+<a id="reference-berger2002"></a>
+
+**Laurent Berger.** Bloch and Kato's exponential map: three explicit formulas. arXiv:math/0209283v1 (2002); published in Documenta Mathematica, Extra Volume: Kazuya Kato's Fiftieth Birthday (2003), 99–129; locators use the arXiv pagination. [Source](https://arxiv.org/pdf/math/0209283v1).
