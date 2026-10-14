@@ -15,169 +15,197 @@
         "ref": "mathlib:GroupExtension",
         "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
         "provides": "Marked extension with injective kernel inclusion, surjective quotient map and range equal to kernel; Section and Splitting are different notions.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 74."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 74.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:GroupExtension.inl_conjAct_comm",
         "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
         "provides": "The included conjugation action evaluates to e i(a) e inverse.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 148."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 148.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:Subgroup.mem_center_iff",
         "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
         "provides": "Membership in the centre is commutation with every element.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 58."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 58.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.conjAct_eq_one_of_le_center",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Central kernel implies its conjugation action is the identity automorphism.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 119."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 119.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.InducesAction",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Compatibility of conjugation with the chosen G-action on the kernel, for every element of the total group.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 131."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 131.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.inducesAction_iff_smul_eq_self",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Given centrality already, InducesAction is equivalent to triviality of the chosen action. It does not prove centrality from action triviality.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.normalizeSection",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Normalizes a set section without asserting it is a group homomorphism.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 318."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 318.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.normalizeSection_one",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "The normalized section sends identity to identity.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 323."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 323.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.factorSet",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Normalized section and InducesAction give the actual normalized factor set.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 258."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 258.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.factorSetToGroupExtensionEquiv",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Its factor-set extension is equivalent to the original extension, preserving kernel and quotient markings.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 298."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 298.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.factorSet_canonicalSection",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Reconstructing the factor set using its canonical section returns the original factor set.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 366."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 366.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.cohomologyClass_factorSet_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Changing a normalized section preserves the cohomology class.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 289."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 289.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "For extensions inducing one fixed action, a marked equivalence exists exactly when their normalized-section classes agree.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Every class of actual H2 of Rep.ofMulDistribMulAction has a factor-set representative.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 187."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 187.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.cohomologyClassEquiv",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Cohomologous-factor-set quotient is equivalent to actual group cohomology H2.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 226."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 226.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "A factor-set extension splits exactly when its actual cohomology class is zero.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 245."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 245.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.groupExtension",
         "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
         "provides": "The marked extension on the actual twisted-product group of a factor set.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 257."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 257.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.inl_range_le_center",
         "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
         "provides": "The factor-set extension is central if the specified coefficient action is trivial.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:DirectLimit",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Directed quotient by equality at a common later stage; its group structure is already supplied by Algebra/Colimit/DirectLimit.lean.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 113."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 113.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:DirectLimit.exists_eq_mk",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Every colimit element has a representative at a finite stage.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 130."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 130.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:DirectLimit.lift",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Compatible stage maps descend through the directed quotient.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 175."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 175.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:DirectLimit.lift_def",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "The descended map evaluates to its stage map on representatives.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 180."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 180.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:DirectLimit.lift_mul",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "For multiplicative compatible stage maps, the descended map preserves multiplication.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:Group.IsPerfect",
         "module": "Mathlib/GroupTheory/IsPerfect.lean",
         "provides": "The commutator subgroup is the whole group.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 41."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 41.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:Rep.trivial",
         "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
         "provides": "The actual trivial integral representation used in every homology invariant here.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 286."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 286.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:Rep.ofMulDistribMulAction",
         "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
         "provides": "An action on the multiplicative commutative coefficient group gives the integral representation on its additive type tag.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 377."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 377.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:groupHomology.H1",
         "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
         "provides": "Degree-one homology of the specified representation, as a module object.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 916."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 916.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       },
       {
         "ref": "mathlib:groupHomology.H2",
         "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
         "provides": "Degree-two homology of the specified representation, as a module object.",
-        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 1063."
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 1063.",
+        "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical"
       }
     ]
   },
@@ -492,7 +520,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.1 and III.5.1.1, printed p.217 / PDF p.225",
+          "locator": "Definition III.5.1, relations (5.1.2)–(5.1.3) and following elementary-image paragraph, printed p.217 / PDF p.225",
           "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
         }
       ],
@@ -529,7 +557,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.1.2, printed p.217 / PDF p.225",
+          "locator": "Stabilization paragraphs following Definition III.5.1, printed p.217 / PDF p.225",
           "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
         }
       ],
@@ -555,7 +583,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.1.1, printed p.217 / PDF p.225",
+          "locator": "Elementary-image paragraph following Definition III.5.1, printed p.217 / PDF p.225",
           "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
         }
       ],
@@ -623,7 +651,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.3, printed pp.218–219 / PDF pp.226–227; Löh Theorem 1.5.10, printed pp.33–37 / PDF pp.41–45",
+          "locator": "III.5.3, printed pp.218–219 / PDF pp.226–227",
           "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
         },
         {
@@ -702,9 +730,169 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/central-extension",
+      "reason": "Correct the inherited carrier arity and distinguish a set section from a homomorphic splitting; keep the marked equivalence convention.",
+      "statement": "For groups A,E,G, a marked extension is the actual GroupExtension A E G: an injective inclusion i:A→E, a surjective projection p:E→G, and range(i)=ker(p). It is central when range(i)≤Z(E), which forces A to be commutative. A central extension splits when it has a homomorphic right inverse, equivalently when it is equivalent to A↪A×G→G by an isomorphism preserving both i and p. A set-theoretic right inverse alone is not a splitting.",
+      "proofSteps": [
+        "Use the existing GroupExtension carrier and its exactness fields; define centrality by containment of the included kernel in the centre.",
+        "A homomorphic splitting s gives (a,g)↦i(a)s(g). Centrality makes this multiplicative; exactness gives its inverse. Conversely transport g↦(1,g) across a marked product equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.3, central-extension and split-extension definitions, printed p.218 / PDF p.226",
+          "match": "Centrality and splitting with both kernel and quotient markings; the actual GroupExtension arity comes from the pinned declaration."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/k2-definition",
+      "reason": "Keep the kernel definition independent of the longer exact sequence and replace an implementation admonition by discriminating mathematical tests.",
+      "proofSteps": [
+        "Take ker(φ:St(R)→E(R)) with its subgroup inclusion. Stable surjectivity is supplied by stabilisation.",
+        "For a unital ring map, the commuting φ-square sends kernels into kernels. Equality on underlying Steinberg elements proves identity, composition and extensionality.",
+        "The longer exact sequence is the separate inherited k2-k1-exact node. Commutativity follows from k2-is-centre rather than entering the definition."
+      ],
+      "acceptance": [
+        "The included image is exactly ker φ and the inclusion is injective.",
+        "For the zero ring the group is trivial; identity and composition of ring maps give the corresponding maps on kernels.",
+        "Over Z, x_12(1) is outside the kernel. The global computations K2(Z)≅C2 and K2 of a finite field trivial remain external arithmetic/symbol-stage acceptance checks."
+      ],
+      "tests": [
+        {
+          "name": "zero_ring",
+          "kind": "degenerate",
+          "statement": "K2 of the zero ring is trivial: all root parameters and hence all presentation generators vanish."
+        },
+        {
+          "name": "map_identity",
+          "kind": "compatibility",
+          "statement": "K2.map of the identity unital ring homomorphism is the identity on every kernel element."
+        },
+        {
+          "name": "map_composition",
+          "kind": "compatibility",
+          "statement": "For unital ring maps f:R→S and g:S→T, K2.map(g∘f)=K2.map(g)∘K2.map(f)."
+        },
+        {
+          "name": "root_outside_kernel",
+          "kind": "non-example",
+          "statement": "The stable root x_12(1) over Z is outside K2(Z), because its elementary image has a nonzero off-diagonal entry."
+        },
+        {
+          "name": "integers",
+          "kind": "computation",
+          "statement": "K2(Z)≅C2 is the external arithmetic-stage computation, not a prerequisite of the kernel definition."
+        },
+        {
+          "name": "finite_field",
+          "kind": "computation",
+          "statement": "K2 of a finite field is trivial by the external symbol/Matsumoto-stage computation, not by the kernel definition alone."
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Definition III.5.2, printed p.217 / PDF p.225; Example III.5.2.2, printed p.218 / PDF p.226",
+          "match": "The kernel definition and the separate integer computation; no new proof of that computation is claimed here."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1:classical/k2-k1-exact",
+      "reason": "Replace broad U.1/U.2 prerequisites by the exact accepted subgroup and quotient suppliers already imported in this supplement.",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "KTheoryLowDegrees:U.1/stable-elementary-subgroup",
+        "KTheoryLowDegrees:U.1/stable-elementary-normal",
+        "KTheoryLowDegrees:U.2/K1"
+      ],
+      "proofSteps": [
+        "Compose the surjection St -> E with the imported subgroup inclusion.",
+        "Injectivity of E -> GL identifies the composite kernel with K2.",
+        "The image is E, which is the kernel of the imported K1 quotient; that quotient is onto."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Definition III.5.2 and its displayed exact sequence, printed p.217 / PDF p.225",
+          "match": "Exactness uses the stable elementary image and the imported K1 quotient, rather than an unrelated result of either supplier stage."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/hopf-formula",
+      "reason": "Remove the obsolete G-Hopf proof-gap sentence: the accepted quotient-bar five-term construction and free-group specialization supply this input.",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/central-extension",
+        "mathlib:groupHomology.H2",
+        "mathlib:groupHomology",
+        "mathlib:Rep.trivial",
+        "K2SymbolsBrauer:T.1:classical/relation-central-extension",
+        "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
+        "K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence"
+      ],
+      "proofSteps": [
+        "Form the separate relation central extension F/[S, F] → G and its restricted commutator extension (relation-central-extension, commutator-central-extension).",
+        "Apply the four-term exact sequence 0 → H_2(G, Z) → S/[F, S] → F_ab → G_ab → 0 (hopf-four-term-sequence): exactness at S/[F, S] identifies H_2(G, Z) with the kernel of S/[F, S] → F/[F, F], which is (S ∩ [F, F])/[S, F].",
+        "For a perfect G the restricted extension is onto G and its kernel is this intersection quotient, which is how uce-kernel-h2 uses the formula.",
+        "The four-term input is supplied by the inherited quotient-bar-kernel, quotient-bar-kernel-h1, hochschild-serre-integral-five-term and free-group-higher-homology nodes. Their fixed positive connecting map and actual homology-map naturality give the Hopf comparison used here; no unread homological-algebra book is an additional prerequisite."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.3.4 and III.5.3.5 (PDF p. 227)",
+          "match": "Hopf's formula and the two extensions, as displayed."
+        },
+        {
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 3.2.18 (printed p. 129; PDF p. 137)",
+          "match": "The route from the four-term sequence to the formula, followed in the proof steps."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1:classical/free-group-higher-homology",
+      "reason": "Correct the inherited resolution locator: Proposition 1.6.21 begins on printed p.54, not p.56.",
+      "sources": [
+        {
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Proposition 1.6.21 and proof, printed pp.54–56 / PDF pp.62–64; Corollary 1.6.23 and proof, printed pp.56–57 / PDF pp.64–65",
+          "match": "The explicit length-one free resolution and its higher-homology vanishing. The proof uses its reduced-word support argument, not a spectral-sequence construction."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-hom",
+      "reason": "State all ambient groups and correct Definition III.5.3.1 to its actual page; no fixed kernel group is required for maps over G.",
+      "hypotheses": [
+        "X, Y and G are groups; p:X→G and q:Y→G are central extensions, with possibly different kernels."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Definition III.5.3.1, printed p.219 / PDF p.227",
+          "match": "Maps over G in the universal property; the chosen kernel markings are not part of this morphism condition."
+        }
+      ],
+      "reviewedBy": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+      "implementationStatus": "unchecked"
     }
   ],
-  "assemblyContract": "Keep every imported id and statement. Apply the explicitly keyed classical proof/prerequisite refinements in this supplement when assembling T.1:classical; do not rewrite the parent file, copy its nodes into this packet, or remove gaps of other stages. A refinement replaces only the old classical proof input it names. The new column node and trivial-action criterion are the only new targets.",
+  "assemblyContract": "Preserve every imported node id and every field not explicitly replaced by an inheritedRefinements entry. Apply the keyed fields in this supplement, including the corrected central-extension statement, K2 proof/acceptance/tests, exact supplier prerequisites, Hopf proof-gap removal and source locators, when assembling T.1:classical. Do not rewrite the parent file, copy its nodes into this packet, or remove gaps of other stages. The column node and trivial-action criterion remain the only new targets.",
   "coverage": [
     {
       "stageId": "K2SymbolsBrauer:T.1:classical",
@@ -787,6 +975,21 @@
       "refinedNodes": [
         "K2SymbolsBrauer:T.1/finite-rank-splitting",
         "K2SymbolsBrauer:T.1/steinberg-is-uce"
+      ]
+    },
+    {
+      "title": "G-Hopf: inherited integral quotient-bar construction",
+      "scope": "The accepted classical five-term and free-presentation specialization already supply this input. Remove only the stale gap sentence in hopf-formula; retain the parent source-gap history and all nonclassical gaps.",
+      "providedBy": [
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term",
+        "K2SymbolsBrauer:T.1:classical/free-group-higher-homology",
+        "K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-five-term-natural"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/hopf-formula"
       ]
     }
   ],
@@ -917,7 +1120,13 @@
       "searched": [
         "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
         "The immediately following III.5.3 text on printed p.219 uses A coefficients."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "date": "2026-10-14",
+        "by": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+        "reason": "Independently read the specified author-copy pages. A=1 and G=C2 distinguishes the two coefficient groups; the following page corrects the coefficient."
+      }
     },
     {
       "id": "K2SymbolsBrauer/E-classical-column-exercise",
@@ -932,7 +1141,13 @@
       "searched": [
         "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
         "Comparison with the elementary-matrix convention in III.1.2 and the column subgroup in the proof of III.5.2.1."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "date": "2026-10-14",
+        "by": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+        "reason": "Independently read Exercise III.5.2 and the elementary-matrix convention. There are n−1 coordinates; e_12(1) is upper triangular."
+      }
     },
     {
       "id": "K2SymbolsBrauer/E-classical-central-composition",
@@ -943,11 +1158,17 @@
       "correction": "The assertion used here requires the intermediate group X to be perfect. The exercise’s subsequent universal-source application meets that hypothesis. Retain the existing parent central-extension-comp statement with this condition.",
       "reason": "Let Y be the upper-unitriangular 3-by-3 group over F3, rho:Y→X=F3² forget the central coordinate, and pi:X→G=F3 project onto the first coordinate. Both maps are surjective with central kernels. But b=(0,1,0) is in the composite kernel and does not commute with a=(1,0,0): their commutator is (0,0,1). Thus the composite kernel is not central.",
       "affects": "a stated result",
-      "known": "No published correction was verified; no novelty is claimed. The parent blueprint already supplies the needed perfect-intermediate hypothesis, and this supplement records the source error explicitly.",
+      "known": "No published correction was verified; no novelty is claimed. The parent blueprint already supplies the needed perfect-intermediate hypothesis, and this supplement records the source error explicitly. The parent central-extension-comp source record also points to the earlier K3BlochGroups/E2 finding of this same missing hypothesis.",
       "searched": [
         "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
         "The parent central-extension-comp node and the adjacent Recognition application: the corrected perfectness hypothesis is explicit in the former and follows from universality in the latter."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "date": "2026-10-14",
+        "by": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+        "reason": "Independently read Exercise III.5.7. Exact enumeration of the 27-element Heisenberg group verifies both central kernels and the noncentral composite kernel. Perfectness of the intermediate group repairs the application."
+      }
     }
   ],
   "sourceVersions": [
@@ -977,7 +1198,8 @@
     "alreadyBuilt": "InductionRestriction Layer 7 supplies factor sets and marked fixed-action extension classification, including the k× projective-representation specialization. Cite the actual pinned declarations instead of planning that theory again.",
     "boundary": "ProfiniteCohomology concerns continuous/cohomological interfaces; this supplement is discrete group theory. Current-library coefficient-map additions are not imported at the older pin.",
     "externalScreen": "Open Mathlib PR searches for Steinberg and central extension found no competing ring Steinberg/UCE implementation. singerng/steinberg-formalization concerns a B3-large Chevalley-style graded-unipotent root system, not the stable arbitrary-ring construction; no code is reused.",
-    "libraryAudit": "The accepted AUDIT-29 entry for K2SymbolsBrauer:T.1:classical was read in data/library-coverage.json. All six ring-Steinberg targets are absent at the pins; existing generic group colimits, homology and fixed-action factor sets are used rather than re-planned."
+    "libraryAudit": "The accepted AUDIT-29 entry for K2SymbolsBrauer:T.1:classical was read in data/library-coverage.json. All six ring-Steinberg targets are absent at the pins; existing generic group colimits, homology and fixed-action factor sets are used rather than re-planned.",
+    "independentCheck": "Read both listed upstream documents, searched current roadmaps and library read-only, and checked AUDIT-29. Reuse the pinned factor-set implementations and their classification. No stable arbitrary-ring Steinberg/UCE target was found upstream; no upstream build was run."
   },
   "targetCoverage": [
     {
@@ -1027,5 +1249,335 @@
       "id": "K2SymbolsBrauer/E2",
       "handling": "Retain the independently confirmed missing finite-centrality input. The finite splitting theorem is unconditional for n≥5, while its finite UCE consequence is conditional on centrality. The stable theorem is proved separately by the column and compatible-colimit arguments."
     }
-  ]
+  ],
+  "sourceReview": {
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+    "date": "2026-10-14",
+    "freshReadings": [
+      {
+        "sourceId": "Kbook.2013",
+        "pages": "Printed pp.180,217–221,228–229,264,274 / PDF pp.188,225–229,236–237,272,282",
+        "sections": "III.1.2; III.5.1–III.5.5.2; Exercises III.5.2–III.5.3 and III.5.7; IV.1.7 and Exercise IV.1.9"
+      },
+      {
+        "sourceId": "Loeh.GroupCohomology.2019",
+        "pages": "Printed pp.20,23,30–37,54–57,123–125,129–132 / PDF pp.28,31,38–45,62–65,131–133,137–140",
+        "sections": "Theorem 1.4.1 and Corollary 1.4.6; 1.5.1 and 1.5.6–1.5.11; 1.6.21–1.6.23; 3.2.12–3.2.14 and Theorem 3.2.18"
+      }
+    ],
+    "versions": "Fresh downloads match both recorded SHA-256 values. Findings refer to those author copies; no published-version comparison is claimed."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.1-classical",
+    "date": "2026-10-14",
+    "notes": "Accepted closed classical assembly after ten existing-target corrections; two new nodes and 43 parent imports, 16 exact supplier exports, all seven original and six added keyed refinements checked. Three author-copy source findings confirmed; finite UCE remains conditional on finite centrality. No implementation claim; consumer-edge application remains an assembly action. Suggested-file elaboration is recorded in the review and handoff.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "verdict": "verified",
+        "note": "Verified the general-ring presentation, omitted opposite-root case, negative reverse coefficient, generator universal property, API and discriminating tests at n≥3."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+        "verdict": "corrected",
+        "note": "Corrected Definition III.5.1/equation/paragraph locator; general-ring calculus is supplied by the exact U.1 owners."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/stabilisation",
+        "verdict": "corrected",
+        "note": "Corrected unnumbered stabilization-paragraph locator; verified the pinned group colimit and noninjective-transition argument."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/k2-definition",
+        "verdict": "corrected",
+        "note": "Separated kernel/functoriality from longer exactness and replaced the nonmathematical admonition by identity, composition and nonkernel-root controls; arithmetic computations remain external tests."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/k2-is-centre",
+        "verdict": "verified",
+        "note": "Verified the replaced fresh-index argument: normalized column/row commutators vanish by their particular stable injectivity; the reverse inclusion uses the exact U.1 stable centralizer theorem."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/central-extension",
+        "verdict": "corrected",
+        "note": "Corrected GroupExtension A E G arity and the homomorphic-splitting requirement; marked C9 and nonsplit C4 tests distinguish the conventions."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/universal-central-extension",
+        "verdict": "verified",
+        "note": "Verified universality over varying kernels, the maps-over-G interface, and uniqueness of the isomorphism over G by its two composites."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/uce-perfect",
+        "verdict": "verified",
+        "note": "Verified the two maps to G×X_ab force source abelianization to vanish, and surjectivity then forces perfectness of G."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/hopf-formula",
+        "verdict": "corrected",
+        "note": "Removed the stale G-Hopf sentence using the already accepted direct quotient-bar five-term input, free-resolution vanishing and fixed map naturality."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/recognition-theorem",
+        "verdict": "verified",
+        "note": "Verified all four implications via perfectness, splitting, Q/Z character separation and the free-presentation model; Type and trivial-integral-coefficient conventions are explicit."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "verdict": "verified",
+        "note": "Verified the replaced compatible cofinal splitting proof and natural kernel-H2 consequence. This uses stable centrality and no injectivity of finite Steinberg transitions."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/finite-rank-splitting",
+        "verdict": "verified",
+        "note": "Verified the replaced lifted-root calculation: fifth-index commutation, the special four-index identity, auxiliary-index independence, additivity and both chaining signs. Finite universality explicitly requires additional finite centrality."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/finite-rank-caveat",
+        "verdict": "verified",
+        "note": "Verified that kernel-only injectivity under stabilization kills each finite kernel commutator; the hypothesis is conditional and not asserted for arbitrary rings or ranks."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "verdict": "corrected",
+        "note": "Corrected unnumbered elementary-image paragraph locator; finite surjectivity follows by subgroup generation."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/k2-k1-exact",
+        "verdict": "corrected",
+        "note": "Replaced broad U.1/U.2 prerequisites with exact subgroup, normality and quotient exports."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-hom",
+        "verdict": "corrected",
+        "note": "Corrected the ambient groups and Definition III.5.3.1 to printed p.219/PDF p.227; varying-kernel maps over G retain the three projection-square controls."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-classification",
+        "verdict": "corrected",
+        "note": "Separated the Löh citation from the K-book source record; checked normalized-section independence, marked equivalence, realization and split class against actual pinned fixed-action declarations."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+        "verdict": "verified",
+        "note": "Verified that the central pointwise difference of two maps is an abelian-valued homomorphism and is trivial on a perfect source."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/relation-central-extension",
+        "verdict": "verified",
+        "note": "Verified normality and containment of the mixed commutator subgroup, the quotient projection and its central kernel N/[N,E]; no freeness hypothesis is used."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
+        "verdict": "verified",
+        "note": "Verified the restricted projection onto [G,G], the intersection kernel and the perfect-base specialization."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-pullback",
+        "verdict": "verified",
+        "note": "Verified the equalizer subgroup, surjective first projection, central kernel, both projections, universal property, API and three tests."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-comp",
+        "verdict": "verified",
+        "note": "Verified the perfect-intermediate hypothesis using Y=[Y,Y]ker(rho). The Heisenberg counterexample confirms why the unrestricted source assertion is false."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/uce-extensions-split",
+        "verdict": "verified",
+        "note": "Verified that composition is central after source perfectness, and universal uniqueness makes the resulting lift an actual section."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2",
+        "verdict": "verified",
+        "note": "Verified extension of cycle characters to bar chains with Q/Z coefficients, factor-set realization and splitting, and character separation. Its A5 test uses a pushout to the required Q/Z kernel."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/h1-trivial-perfect",
+        "verdict": "verified",
+        "note": "Verified the trivial-integral H1/abelianization identification, its generator calculation and actual homology-map naturality; perfectness is equivalent to vanishing."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/superperfect",
+        "verdict": "verified",
+        "note": "Verified the actual trivial-integral H1 and H2 carrier convention, subsingleton predicate, isomorphism invariance, API and three tests."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/hopf-extension-perfect",
+        "verdict": "verified",
+        "note": "Verified F=[F,F]R for a perfect quotient and commutator reduction modulo [R,F], which makes the Hopf extension source perfect without circular use of universality."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/perfect-uce-exists",
+        "verdict": "verified",
+        "note": "Verified free-generator lifts into an arbitrary central extension, descent modulo [R,F] and perfect-source uniqueness; the canonical free presentation remains in the same universe."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/free-group-higher-homology",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 1.6.21 to its actual starting page and read the full resolution proof and Corollary 1.6.23."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence",
+        "verdict": "verified",
+        "note": "Verified that the five-term input and free-source H2 vanishing give the injection, and that the middle and final maps are inclusion and quotient. The pinned tail alone is not used to infer that injection."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/uce-kernel-h2",
+        "verdict": "verified",
+        "note": "Verified restriction of the unique over-G isomorphism to the Hopf model and the Hopf kernel identification; presentation independence has its own naturality supplier."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/uce-source-superperfect",
+        "verdict": "verified",
+        "note": "Verified the perfectness and splitting route to both vanishing groups, the A5 non-example and the exact algebraic interface exported to V.1."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/superperfect-extensions-split",
+        "verdict": "verified",
+        "note": "Verified that vanishing H2 makes the Hopf cover an isomorphism and hence the identity universal, giving sections into every central extension."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/split-central-extension-universal",
+        "verdict": "verified",
+        "note": "Verified existence by pullback and splitting, uniqueness by perfect-source rigidity, with no homology or plus-construction premise."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "verdict": "verified",
+        "note": "Verified the pullback construction for arbitrary base homomorphisms, uniqueness, identity/composition and induced kernel map; a surjectivity assumption on the base map is not needed."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/hopf-formula-natural",
+        "verdict": "verified",
+        "note": "Verified the presentation quotient map and fixed-sign transgression square; the H2 component is the actual homology map, so independence of a free lift follows from injectivity."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "verdict": "verified",
+        "note": "Verified reduction to canonical free presentations and uniqueness of the universal lifts, followed by Hopf naturality. This exports maps rather than just abstract group isomorphisms."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+        "verdict": "verified",
+        "note": "Verified the third-index commutator expression for each root at n≥3 and generation of the whole finite group."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect",
+        "verdict": "verified",
+        "note": "Verified that finite-stage root commutators generate the stable group; finite representatives suffice without injective transitions."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+        "verdict": "verified",
+        "note": "Verified degreewise surjectivity of the tuple pushforward, categorical kernel evaluation, fibre-difference generators, the short exact chain sequence and degree-zero vanishing."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+        "verdict": "verified",
+        "note": "Verified both explicit inverse formulas and the mixed commutator quotient using the unnormalized bar boundaries; the S3→C2 test rejects abelianizing N alone."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term",
+        "verdict": "verified",
+        "note": "Verified the direct kernel-complex derivation, positive connecting formula, well-definedness under both lift changes and boundaries, and all actual outside homology maps."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/hochschild-serre-five-term-natural",
+        "verdict": "verified",
+        "note": "Verified induced kernel chain maps and the connecting-map square with its fixed sign; H2 components are the pinned homologyMap of chainsMap, not arbitrarily chosen isomorphisms."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-matrix",
+        "verdict": "verified",
+        "note": "Checked the actual general-ring unit, inverse and additive law; commutative transvections provide only the compatibility specialization. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "verdict": "verified",
+        "note": "Checked the three distinct indices and forward coefficient rs over an associative unital ring. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-commute",
+        "verdict": "verified",
+        "note": "Checked both nonchaining inequalities and the identical-root case; opposite roots are excluded. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-commutator-reverse",
+        "verdict": "verified",
+        "note": "Checked the reverse coefficient −sr and its distinct-index hypotheses, including noncommutative matrix coefficients. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/general-linear-map",
+        "verdict": "verified",
+        "note": "Checked entrywise unital ring maps, finite GL multiplicativity and their effect on elementary roots. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stabilisation-map",
+        "verdict": "verified",
+        "note": "Checked injective block-diagonal finite GL transitions and compatibility with elementary roots and ring maps. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-general-linear-group",
+        "verdict": "verified",
+        "note": "Checked the existing-group colimit construction, stage evaluation and injective finite GL maps needed for stable column injectivity. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/finite-representatives",
+        "verdict": "verified",
+        "note": "Checked finite representatives and simultaneous common ranks for finitely many elements and elementary words. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-equality-criterion",
+        "verdict": "verified",
+        "note": "Checked common-later-stage equality and its distinction from injectivity of unspecified Steinberg transitions. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "verdict": "verified",
+        "note": "Checked generation by all elementary units and the generator induction used for finite Steinberg surjectivity. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-elementary-subgroup",
+        "verdict": "verified",
+        "note": "Checked the finite elementary-word characterization and the stable E-to-GL inclusion. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-elementary-perfect",
+        "verdict": "verified",
+        "note": "Checked the spare-index elementary commutator argument supplying perfectness of the base E(R). Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-elementary-normal",
+        "verdict": "verified",
+        "note": "Checked normality in stable GL, as required for the K1 quotient and exact sequence. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/elementary-centraliser",
+        "verdict": "verified",
+        "note": "Checked the finite matrix-entry centralizer calculation used in the stable theorem; no finite-centre triviality is inferred. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.1/stable-elementary-centre",
+        "verdict": "verified",
+        "note": "Checked that a stable GL element centralizing every elementary generator is identity, supplying the reverse Steinberg-centre inclusion. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.2/K1",
+        "verdict": "verified",
+        "note": "Checked the GL(R)/E(R) quotient, quotient surjectivity and kernel equal to the stable elementary subgroup. Full supplier source/baseline certification remains with independent-review-REV-KTheoryLowDegrees--U.1~3; this is acceptance of the needed interface."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/central-trivial-action-criterion",
+        "verdict": "verified",
+        "note": "Verified both directions using actual conjugation and the specified trivial action, and checked product, nonsplit C4 and noncentral S3 cases."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1:classical/column-embedding",
+        "verdict": "verified",
+        "note": "Verified additive column/row normal forms, matrix-entry and stable injectivity, coefficient order, excluded opposite roots, all nine API contracts and six tests."
+      }
+    ]
+  }
 }
