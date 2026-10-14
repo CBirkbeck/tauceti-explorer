@@ -1,434 +1,771 @@
-# Induction, restriction, and Mackey theory for finite groups, Part II: reduced Schur covers and marked extensions
-
-Ordinary Schur covers encode projective representations. Arithmetic applications require an additional quotient: commuting pairs involving specified inertia classes must have commuting lifts. This roadmap builds that quotient and the marked universal extension that makes it independent of a presentation. It then develops the finite power action, its fixed fibers, square-class obstructions, compatible covers for coprime semidirect products, and finite certificates for the reduced multipliers occurring in quadratic-field statistics.
-
-The starting point is [InductionRestriction, Layer 7](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier): ordinary projective representations, factor sets, central extensions and representation groups. The integral multiplier uses Mathlib's group homology, while the parent uses second cohomology for factor-set classes. The two carriers are related through the oriented homological class map; they are not interchangeable definitions.
-
-Suggested home: `TauCeti/GroupTheory/ReducedSchur/`, with namespace `TauCeti.ReducedSchur`.
-
-## Scope and neighbouring developments
-
-The six layers own the reduced multiplier, marked presentation and comparison, discrete action, fixed-fiber obstruction, semidirect-product compatibility, and certification of finite reductions. Induction, restriction, Mackey theory and ordinary Schur-cover existence stay in the parent. Existing factor-set classification and splitting criteria are consumed from Tau Ceti.
-
-RS.6 constructs concrete marked groups and their reduced-cover certificates. [Arithmetic statistics, ST.3](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/readmes/ArithmeticStatistics.md) identifies these models with the selected embedded arithmetic types and supplies their arithmetic interpretation. Its ST.5 consumes the finite fiber and parity data for component counts and limits. The inverse-Galois and arithmetic-fundamental-group layers IG.3–IG.5 consume the marking, lifting and power interfaces for branch-cycle and Frobenius constructions. Those arithmetic and geometric conclusions do not enter as assumptions on the reduced multiplier. Finite linear algebra and weight enumerators here make no assertion about a moment or asymptotic limit.
-
-## Standing conventions
-
-* A group is finite exactly where stated. A central extension is Mathlib's `GroupExtension A E G`, together with the explicit condition that its injected kernel commutes with every element of E. An ordinary Schur cover includes a surjective central projection, the stem condition, and a compatible identification of its kernel with integral second homology.
-* Write M(G)=H₂(G,ℤ), the carrier of `groupHomology.H2 (Rep.trivial ℤ G ℤ)`. Use additive notation in this carrier. `TauCeti.schurMultiplier k G` is H²(G,kˣ) and retains its different coefficient and variance conventions.
-* The commutator is XYX⁻¹Y⁻¹. The commuting-pair class is the image of [x|y]−[y|x] with integral coefficient 1. The ordered basis of ℤ² gives the positive orientation. Reversing the inputs negates the homological class and inverts the kernel commutator.
-* The set c is conjugacy-invariant. Generation of G by c is required for the universal central surjection and its marked comparison. Closure under invertible powers is required for the discrete power action. In the involution layers, every element of c has order exactly 2. A one-class normalization additionally specifies a chosen c₀∈c.
-* Put D=c/G, implemented by the subtype of Mathlib's `ConjClasses G` whose classes meet c. Put L=D→₀ℤ; for finite D it is the integer coordinate lattice ℤ^D. The map δ:L→Additive(G^ab) sends e_[x] to the abelianized class of x. Degree coordinates are integers; inverse generators have negative degree.
-* The canonical reduced multiplier is M(G,c)=M(G)/Q_c. The chosen reduced cover S_c=S/τ_S(Q_c) retains the ordinary cover S and its oriented kernel identification τ_S. Distinct choices need not give isomorphic reduced extensions.
-* In cover coordinates, the marked universal object is P=S_c×_{G^ab}Multiplicative L, with membership [π_c(h)]=δ(m). Its central kernel is M(G,c)×kerδ. It usually has an infinite free factor and is not the finite reduced multiplier.
-* Unit powers of a nonabelian group are set permutations, not group homomorphisms. The power action permutes the class-degree coordinates: m^α(d^α)=m(d). It never scales integer degrees by α. Its restriction to the central kernel is a group action by automorphisms.
-* Finite-group computations specify multiplication, inverses, projections, embedded marked subsets and cover maximality. Abstract group names and SmallGroups indices identify the intended examples, but do not replace the marked data or their proofs.
-
-## Existing library interfaces
-
-Use `GroupExtension` and `GroupExtension.Splitting` for extensions and homomorphic sections. `TauCeti.FactorSet.cohomologyClassEquiv` classifies factor sets, while `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero` supplies the splitting criterion. `TauCeti.GroupExtension.factorSet` converts a normalized section into the corresponding factor set.
-
-For integral homology use `groupHomology.cycles₂`, `groupHomology.H2π`, `groupHomology.H2`, `groupHomology.map` and `groupHomology.map_comp`. For group quotients and presentations use `Abelianization`, `Abelianization.of`, `Abelianization.lift`, `PresentedGroup` and `PresentedGroup.toGroup`. These interfaces fix the carriers and universal properties; there is no second private theory of H₂ or abelianization.
-
-The first integral homology identification also comes from Mathlib: specialize `groupHomology.H1AddEquivOfIsTrivial` to `Rep.trivial ℤ G ℤ`, then compose with the additive equivalence underlying `TensorProduct.rid ℤ`. The resulting map sends the class of the chain `single g 1` to `Additive.ofMul (Abelianization.of g)`, by `groupHomology.H1AddEquivOfIsTrivial_single`. Check its group-map compatibility on these generating classes using `groupHomology.H1π_comp_map`. Reuse this identification in the Ext term and the five-term sequence.
-
-The integral homology map uses the identity on the trivial integral coefficient representation together with the specified group homomorphism. A chosen cover is retained through its projection and oriented kernel isomorphism. Its relation subgroup is the image of Q_c under that isomorphism and the kernel inclusion; centrality supplies the normality needed by `QuotientGroup`. Quotient and comparison maps preserve these specified maps, rather than merely asserting that suitable abstract groups are isomorphic.
-
-Coordinate permutations use `Finsupp.domCongr` on L. A twist is a bundled equivariant map `T →[B] X`, with `Torsor B T` providing the simply transitive source action. Evaluation at a chosen torsor point identifies the twist with X; changing the point acts on X. The finite-level power action takes values in `Equiv.Perm P`; its kernel restriction takes values in `MulAut` of the actual projection kernel.
-
-For square classes use `TauCeti.ElementaryTwoQuotient`, `TauCeti.elementaryTwoQuotientMk_eq_zero_iff`, `TauCeti.elementaryTwoQuotientMk_mul`, and `TauCeti.elementaryTwoQuotientMap`. Finite primary decomposition comes from `AddCommGroup.equiv_directSum_zmod_of_finite`; freeness of the integer-lattice subgroup comes from `Submodule.basisOfPid`. `powMonoidHom` and `MonoidHom.fiberEquivKer` supply the power kernel and the count of a nonempty power fiber. `LinearMap.finrank_range_add_finrank_ker` and `Module.card_eq_pow_finrank` supply the finite binary counts. Schur–Zassenhaus complement existence is `Subgroup.exists_right_complement'_of_coprime`; conjugacy of complements is the distinct cyclic-complement contract below.
-
-## Homological input contracts
-
-The reduced-cover comparison requires the natural integral degree-two universal coefficient sequence for every abelian kernel A with trivial G-action, including infinite A. Its class map τ_E:M(G)→A evaluates [x|y]−[y|x] as the commutator of lifts in E. The evaluation map H²(G,A)→Hom(M(G),A) has kernel the image of Ext¹(G^ab,A); when G^ab is free abelian, this Ext term vanishes. The class map must be natural for maps of central extensions with specified kernel maps. The finite-kernel specialization alone does not suffice for the universal marked extension.
-
-The homological five-term sequence for a central extension supplies exactness at M(G) between H₂(E,ℤ)→M(G) and its transgression into A. For an ordinary stem cover, the transgression is the oriented kernel isomorphism. This exactness is what gives equality of the reduced-cover homology image with Q_c; the vanishing composite is strictly less information.
-
-Finite positive-degree integral homology must be finite and killed by the group order through transfer. The coprime degree-two Lyndon–Hochschild–Serre reduction must include the incoming d₃ differential, not merely its E² terms. The cyclic-complement application additionally requires that any complement to H in H⋊C, for finite coprime H,C with C cyclic, is H-conjugate to the standard complement.
-
-### Native UCT evaluation
-
-Write A additively in this interface; no finiteness assumption is imposed on G or A. The evaluation map `integral_uct_evaluation` has domain `groupCohomology.H2 (Rep.trivial ℤ G A)` and codomain Hom(M(G),A). For an integral bar cycle z=∑n_(g,h)[g|h] and an A-valued cocycle φ, its value is ∑n_(g,h)φ(g,h). Pairing a cocycle with a boundary is zero, and pairing a coboundary with a cycle is zero. Thus this formula descends through both existing homology quotients, rather than choosing a new H₂ carrier.
-
-Use `TauCeti.ChainComplex.kronecker` for the generic evaluation on a chain complex and its linear dual into A. Its `kronecker_homologyπ` gives evaluation on representatives, and `kronecker_naturality` gives the chain-map variance. These declarations in [Algebra/Homology/Kronecker.lean](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Homology/Kronecker.lean#L98) require no injectivity of A. The group interface must compare the integral bar complex and its linear dual with the native group homology and trivial-action cohomology complexes, preserving their quotient maps. This comparison supplies the displayed cycle formula and group-map law; coefficient-map compatibility follows by postcomposition. The Ext injection and arbitrary-coefficient exactness require the free-chain UCT in addition to this evaluation map. `kronecker_bijective` assumes an injective coefficient object, so it does not supply that UCT.
-
-Required API:
-
-- `integral_uct_evaluation_cycle`: evaluation of H2π(φ) on H2π(z) is the displayed finite sum.
-- `integral_uct_evaluation_group_map`: for f:G→H, evaluation of f*α on z equals evaluation of α on f_*z. Cohomology is contravariant and homology is covariant in the group.
-- `integral_uct_evaluation_coefficient_map`: for μ:A→B, evaluation of μ_*α on z is μ applied to evaluation of α on z.
-- `integral_uct_evaluation_exact`: evaluation is onto and has kernel the canonical image of Ext¹_ℤ(Additive(G^ab),A). The Ext carrier is Mathlib's derived `Ext ℤ (ModuleCat ℤ) 1`, evaluated at the indicated modules; the injection is natural. No natural splitting of the short exact sequence is asserted.
-- `integral_uct_evaluation_free`: if Additive(G^ab) is a free ℤ-module, evaluation is bijective for every A. The direct splitting argument below proves this specialization using module projectivity. Alternatively, once the general UCT is supplied, use `ModuleCat.projective_of_free` and `isZero_Ext_succ_of_projective` for its vanishing Ext term.
-
-Specify this canonical injection as `integral_uct_ext_inclusion` from Ext¹_ℤ(Additive(G^ab),A) into H²(G,A). Let Cᵢ be the native integral bar chain modules, Zᵢ=ker(dᵢ), and Bᵢ=im(dᵢ₊₁). Form K=Hom(B₁,A)/im(Hom(Z₁,A)→Hom(B₁,A)), where the arrow is restriction. For ψ:B₁→A, the composite of ψ with d₂ corestricted to B₁ is a two-cocycle. Changing ψ by a restriction from Z₁ changes this cocycle by a coboundary: extend the map on Z₁ to C₁ using the splitting of C₁→B₀. Conversely, a cocycle whose evaluation is zero vanishes on Z₂ and factors uniquely through C₂/Z₂≃B₁. A coboundary gives a restriction from Z₁. These constructions identify K with the evaluation kernel. To prove evaluation onto, lift a map H₂→A to Z₂, then extend to C₂ using the splitting of C₂→B₁. Splittings enter these proofs of existence; the injection and evaluation are defined by the displayed maps and quotients.
-
-Use the short exact sequence 0→B₁→Z₁→H₁→0 in `ModuleCat ℤ`. Its middle term is projective because Z₁ is free. Current Tau Ceti's `TauCeti.homCokernelEquivExt`, [Algebra/Homology/Ext/Presentation.lean](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Homology/Ext/Presentation.lean#L86), identifies K with categorical Ext¹(H₁,A); its inverse followed by the preceding cocycle map and the native H₁–abelianization identification constructs the required injection. `homCokernelEquivExt_mk` fixes the comparison on representatives as the pushout extension class; `homCokernelEquivExt_naturality` supplies coefficient naturality. For a group map, compare the induced maps of the B₁–Z₁–H₁ short exact sequences and use the representative formula with naturality of their extension classes. This last comparison must be proved for the native bar maps; coefficient naturality alone does not give group naturality. Finally compare categorical Ext with the Mathlib derived `Ext ℤ (ModuleCat ℤ) 1` bifunctor used in the signature. This is a projective-presentation comparison, with no need to build another general resolution-comparison theory. The two naturality identities below refer to this same injection; no natural splitting of evaluation is chosen.
-
-In this trivial-action integral specialization, reuse Mathlib's `groupHomology.d₁₀_eq_zero_of_isTrivial` and `groupHomology.cycles₁IsoOfIsTrivial`: Z₁≃C₁ and B₀=0, even for infinite G. Thus the projective middle term and extension of maps from Z₁ to C₁ require no new subgroup-freeness theorem. Surjectivity of evaluation still uses projectivity of B₁, a subgroup of the possibly infinite-rank free abelian module C₁. At the pinned Mathlib commit, `Submodule.basisOfPid` requires a finite basis index, so it proves this freeness for finite G but does not discharge the unrestricted B₁ contract. Without a projectivity hypothesis on H₁, an arbitrary-rank subgroup-freeness or equivalent projectivity input belongs to the free-chain UCT prerequisite and must support the infinite-group tests below. The current Ext presentation comparison is reuse evidence beyond the older Tau Ceti pin; it is not imported into the pinned suggested file.
-
-For `integral_uct_evaluation_free`, there is a direct proof that also covers infinite G and A. Let q:C₁→H₁ be the native homology quotient, whose kernel is B₁, and use the preceding identification H₁≃Additive(G^ab). Free H₁ is projective by `Module.Projective.of_free`. Choose a linear section s of q using `LinearMap.exists_rightInverse_of_surjective`; r₁(c)=c−s(q(c)) retracts C₁ onto B₁. Hence B₁ is projective by `Module.Projective.of_split`, since C₁ is free. The surjection d₂:C₂→B₁ then has a linear section t; r₂(c)=c−t(d₂(c)) retracts C₂ onto Z₂. If a two-cocycle F has zero evaluation, it vanishes on Z₂. Thus F=ψ∘d₂ for ψ=F∘t, and the one-cochain ψ∘r₁ has coboundary F. Conversely, for h:H₂→A, let λ:Z₂→A be h composed with the homology quotient. The cochain λ∘r₂ is a cocycle: r₂ fixes the image B₂ of d₃, and λ kills B₂. Its evaluation is h. These arguments prove both injectivity and surjectivity without constructing the Ext injection or invoking an unrestricted subgroup-freeness theorem. The sections are proof choices only; evaluation and its naturality remain the canonical maps already specified. This is the projective-quotient specialization of the cycle/boundary argument in Hatcher §3.1, printed pp.193–195, combined with the stated Mathlib lifting and direct-summand results.
-
-Its API is `integral_uct_ext_inclusion_injective` and `integral_uct_ext_inclusion_range`, stating injectivity and equality of its image with the evaluation kernel; `integral_uct_ext_inclusion_group_map`, stating that pullback along f:G→H agrees with the contravariant Ext map induced by f^ab; and `integral_uct_ext_inclusion_coefficient_map`, stating that pushforward along μ:A→B agrees with the covariant Ext map. The Ext maps use the existing bifunctor, whose first variable is opposite. These identities retain both group and coefficient variance and require no finiteness or injectivity hypotheses.
-
-Three tests cover a nonzero integral Ext class, a vanishing Ext summand, and a torsion-coefficient Ext class:
-
-- `integral_uct_ext_inclusion_test_1`: for G=C₂ and A=ℤ the injection is bijective and has a nonzero value. Both Ext¹(C₂,ℤ) and H²(C₂,ℤ) are C₂, while M(C₂)=0.
-- `integral_uct_ext_inclusion_test_2`: for G=ℤ² and every abelian A the injection is zero, since its source vanishes. This retains the infinite-group case without confusing the zero Ext summand with the nonzero Hom summand.
-- `integral_uct_ext_inclusion_test_3`: for G=C₄ and A=C₂ there is a nonzero Ext class with nonzero image and zero evaluation. Thus a nonzero torsion-coefficient extension class can lie entirely in the evaluation kernel.
-
-Unit tests:
-
-- `integral_uct_evaluation_test_1`: for G=C₂ and A=ℤ, H²(G,A)=C₂ has a nonzero class whose evaluation is zero, since M(C₂)=0. Evaluation cannot be an isomorphism without the hypothesis on G^ab.
-- `integral_uct_evaluation_test_2`: for G=ℤ² and A=ℤ, take φ((a,b),(c,d))=ad. It evaluates to 1 on the commuting cycle of the ordered basis and to −1 on its negative. This tests orientation with an infinite coefficient group.
-- `integral_uct_evaluation_test_3`: for G=C₂² and A=C₂, the same coordinate cocycle evaluates to 1 on the two basis elements' commuting cycle. Evaluation must retain torsion coefficients.
-
-Needs: Mathlib's native `groupHomology.cycles₂`, `groupHomology.H2π`, `groupCohomology.cocycles₂`, `groupCohomology.H2π` and their functorial maps; Tau Ceti's generic Kronecker evaluation and chain-map naturality; the arbitrary-coefficient integral UCT contract. The bar groups are free ℤ-modules. Their ℤ-linear dual into a trivial coefficient representation identifies with the inhomogeneous cochain complex, so the UCT applies without a classifying-space construction. The singular UCT and topological transfer remain in AlgebraicTopology, Stages 6 and 5; these native group interfaces specify the required adapter.
-
-Source: Hatcher, *Algebraic Topology*, [author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1, the cycle/boundary construction printed pp.191–193, Lemma 3.1 pp.194–195, Theorem 3.2 p.195, and the naturality discussion p.196, applied to the free integral bar complex. The same section gives Ext¹(ℤ/n,A)=A/nA and Ext¹(F,A)=0 for free F. Löh, *Group Cohomology* (30 July 2019), [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf), Theorem 1.4.1 pp.20–22 supplies the natural abelianization identification and Corollary 1.6.9 p.47 supplies resolution comparison. Current Tau Ceti's projective-presentation comparison supplies the categorical Ext step described above; Mathlib's `CategoryTheory.ProjectiveResolution.isoExt` provides the general derived-carrier comparison when using a projective resolution. The cycle formula and its variance are the explicit bar-complex adapter; the three injection tests follow from the displayed Ext computations and M(Cₙ)=0.
-
-### Extension classes and the five-term map
-
-For a central extension S with arbitrary abelian kernel A, choose a normalized section σ and read its factor set through `TauCeti.GroupExtension.factorSet`. Centrality identifies the induced action with the trivial action. In additive notation the resulting cocycle satisfies
-inl(φ(g,h))=σ(g)σ(h)σ(gh)⁻¹. Define τ_S=`extension_class_map` by applying the preceding evaluation map to this cocycle's cohomology class. The class is independent of the section by `TauCeti.GroupExtension.cohomologyClass_factorSet_eq`.
-
-Required API:
-
-- `extension_class_map_section`: the class map agrees with evaluation of every section cocycle satisfying this formula, through the native H2π.
-- `homological_commutator_central_extension`: τ_S(⟨x,y⟩) is Additive.ofMul(κ_S(x,y)). Indeed φ(x,y)−φ(y,x) is the kernel commutator when xy=yx. This fixes the transgression sign.
-- `extension_class_map_natural`: for a map of extensions with kernel map a, total-group map e and quotient map f, satisfying e∘inl=inl′∘a and π′∘e=f∘π, one has τ_S′∘f_*=a∘τ_S. The specified maps are retained.
-- `extension_class_map_five_term`: im(H₂(E,ℤ)→M(G))=kerτ_S. More fully, the sequence H₂(E,ℤ)→M(G)→A→Additive(E^ab)→Additive(G^ab)→0 is exact, with the third arrow induced by inl. It applies to infinite kernels and infinite total groups as well.
-- `extension_class_map_exact_at_kernel`: imτ_S=ker(inl^ab), where inl^ab is `(Abelianization.of.comp S.inl).toAdditive`. Thus τ_S records exactly the kernel elements that become trivial in the total-group abelianization.
-- `extension_class_map_exact_at_abelianization`: im(inl^ab)=ker(π^ab), where π^ab is `(Abelianization.map S.rightHom).toAdditive`. `extension_class_map_abelianization_surjective` states that π^ab is onto. These last two conclusions need only the group extension and an abelian kernel; centrality is unnecessary. The existing abelianization carrier supplies the H₁ identifications.
-- `extension_class_map_split`: a homomorphic section forces τ_S=0. The converse additionally requires the vanishing of the UCT Ext term, for example free abelian G^ab.
-
-Unit tests:
-
-- `extension_class_map_test_1`: every split extension, including one with infinite kernel, has zero class map.
-- `extension_class_map_test_2`: C₄→C₂ with kernel C₂ has zero class map but has no homomorphic section. Its nonzero extension class lies in the Ext term.
-- `extension_class_map_test_3`: the specified D₈→C₂² extension sends the oriented commuting class of the two basis elements to the nonidentity central element.
-
-Four further tests distinguish the remaining arrows:
-
-- `extension_five_term_test_1`: for every split central extension, inl^ab is injective and π^ab is onto, including for infinite kernels. A splitting and centrality identify the total group with A×G, whose abelianization is A×G^ab.
-- `extension_five_term_test_2`: for every extension C₂→C₄→C₂, inl^ab is injective and ker(π^ab) has order two, so π^ab is not injective. The total group is already abelian. Thus an injective kernel arrow does not imply a homomorphic section, and the projection need not be an isomorphism when τ_S is zero.
-- `extension_five_term_test_3`: for the specified D₈→C₂² extension, inl^ab is zero, π^ab is bijective, and τ_S is onto. Its order-two kernel is the commutator subgroup. This detects an incorrect injectivity assertion for the kernel arrow, or a proposed class map that discards the nontrivial multiplier class.
-- `extension_five_term_test_4`: for C₃⋊C₂ with the nonidentity element of C₂ acting by inversion, the canonical extension C₃→C₃⋊C₂→C₂ splits, its kernel is noncentral, inl^ab is zero and not injective, and π^ab is bijective. If a generates C₃ and t is the standard involution, then [t,a]=a⁻²=a. Hence the commutator subgroup is exactly C₃: it contains a, and the abelian quotient C₂ gives the reverse inclusion. This checks the two tail conclusions without centrality and shows why the injectivity assertion in `extension_five_term_test_1` needs centrality as well as a splitting. There is no central-extension class map τ_S in this example.
-
-Needs: the preceding native UCT evaluation, Mathlib's `GroupExtension`, and Tau Ceti's factor-set and splitting interfaces; the central-extension five-term contract. Its construction uses the low-degree filtration of the homological extension spectral sequence. Identify H₁(A,ℤ) with Additive A, and its quotient-group action as trivial by centrality. Compare the low-degree connecting map with the displayed section formula. Exactness gives the full kernel, rather than only a vanishing composite. For the chosen reduced cover this map is the quotient M(G)→M(G,c), giving `homology_image`.
-
-Source: Wood (2021), §2.1 p.2 and Lemma 2.2 p.3, for the oriented class-map comparison and vanishing composite; Löh (2019), Theorem 3.2.12 pp.123–124 and Remark 3.2.14 p.125, for the natural homological extension spectral sequence, and Theorem 1.4.1 pp.20–22 for H₁ as abelianization. The five-term sequence is deduced from its low-degree edge filtration; the section computation identifies its connecting map up to the pinned sign. Löh's proof of Theorem 3.2.18 pp.129–131 illustrates this filtration argument for a free total group, rather than asserting that extra hypothesis here. The four tail tests follow from the displayed group abelianizations and the specified D₈ class-map computation; the noncentral semidirect-product calculation also agrees with Example 1.4.4 p.22. Its native extension and section are Mathlib's `SemidirectProduct.toGroupExtension` and `SemidirectProduct.inr_splitting`.
-
-### Finite homology and the coprime edge
-
-For finite G and n>0, H_n(G,ℤ) is finite and |G| annihilates it. For annihilation, reuse `TauCeti.groupHomology.transfer_comp_map_subtype_id` from `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`, applied to the trivial subgroup, and Mathlib's `groupHomology.isZero_groupHomology_succ_of_subsingleton`. For finiteness, the integral bar groups are finitely generated in each degree, so their homology is finitely generated over ℤ; combine this with the annihilator. A separate construction of homological transfer is unnecessary.
-
-The finite-generation step reuses `CategoryTheory.ShortComplex.finite_homology` from [Algebra/Homology/ShortComplex/ModuleCat.lean](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Homology/ShortComplex/ModuleCat.lean#L35). Its hypothesis is that the middle module is noetherian over the coefficient ring; its conclusion is `Module.Finite`, not finiteness of the underlying set. Apply it to the short complex defining degree-n homology of `groupHomology.inhomogeneousChains (Rep.trivial ℤ G ℤ)`. The middle module is `(Fin n → G) →₀ ℤ`, a finite free ℤ-module when G is finite, hence noetherian. Mathlib defines `groupHomology` as the homology of this complex, so this step needs no comparison with singular homology. It also works in degree zero, where finite generation holds but the underlying group is infinite. Positive-degree order annihilation supplies the additional input needed for set finiteness.
-
-The two required consequences use the existing carrier `groupHomology (Rep.trivial ℤ G ℤ) (n + 1)`. The successor degree excludes H₀, which is ℤ even for finite G. `integral_homology_finite` supplies finiteness of this carrier; `integral_homology_card_smul` states `(Nat.card G) • z = 0` for every element z. Neither conclusion identifies H_n with a coefficient-dependent Schur multiplier. An annihilator alone does not imply finiteness: finite generation from the integral bar chains is a separate input.
-
-Unit tests:
-
-- `finite_integral_homology_test_1`: a trivial group has subsingleton integral homology in every positive degree. This also tests the order-one annihilator.
-- `finite_integral_homology_test_2`: for C₂, H_(2n+1)(C₂,ℤ) has cardinality two, while H_(2n+2)(C₂,ℤ) is zero. This detects a degree shift or a proposed vanishing theorem for all finite groups. Reuse Mathlib's `Rep.FiniteCyclicGroup.groupHomologyIsoOdd` and `groupHomologyIsoEven`, rather than constructing a second cyclic resolution.
-- `finite_integral_homology_test_3`: H₀(C₂,ℤ) is infinite, and twice the class of 1 is nonzero. Mathlib's `groupHomology.H0IsoOfIsTrivial` identifies that class with 1∈ℤ. This detects either finiteness or order annihilation asserted in degree zero.
-
-For finite coprime H,Γ and φ:Γ→Aut(H), let ρ be the Γ-action on M(H) with ρ(γ)=M(φ(γ)). The required `coprime_degree_two_edge` identifies the actual kernel of M(H⋊Γ)→M(Γ) with Mathlib's `Representation.Coinvariants ρ`. The induced inclusion from M(H) sends z to its coinvariant class under this identification. The standard Γ-section splits the quotient edge, hence
-M(H⋊Γ)≅M(H)_Γ⊕M(Γ), with these specified inclusions and projection.
-
-Proof route: use E²_(p,q)=H_p(Γ,H_q(H,ℤ)). For p,q>0 these groups vanish: |H| annihilates the coefficient group and is coprime to |Γ|, so averaging is invertible. In total degree two the remaining terms are H₂(H,ℤ)_Γ and H₂(Γ,ℤ). The possible incoming d₃ to E³_(0,2) originates in H₃(Γ,ℤ). The source is killed by |Γ| and the target by |H|, so every such homomorphism is zero by Bézout. The outgoing d₂ from E²_(2,0) likewise has target killed by |H|. Other incoming or outgoing differentials meet zero terms or leave the first quadrant. The section splits the surviving edge filtration. This supplies the primary-kernel and odd-index-two reductions without assuming a collapse solely from the E² terms.
-
-Unit tests:
-
-- `coprime_degree_two_edge_test_1`: with trivial Γ, the actual multiplier map induced by H→H⋊Γ is bijective. This tests the inclusion in the edge contract, rather than merely an abstract equality of cardinalities.
-- `coprime_degree_two_edge_test_2`: take H=C₃² and Γ=C₂ acting by inversion. On M(H)=Λ²H≅C₃ the action is the identity: inversion on both basis vectors has determinant +1. The inclusion induces a bijection onto M(H⋊Γ), of cardinality three, because M(C₂)=0. Replacing the induced multiplier action by inversion would incorrectly kill this coinvariant group.
-- `coprime_degree_two_edge_test_3`: with trivial action on C₂×C₂, both factor multipliers vanish but the total multiplier and the projection kernel have cardinality two. The inclusion from the first factor is not surjective. Its missing class is the tensor product of the two H₁ generators. This detects an edge theorem asserted without coprimality.
-
-The last two tests use the integral product formula: H₂(A×B,ℤ)≅H₂(A,ℤ)⊕H₂(B,ℤ)⊕(H₁(A,ℤ)⊗H₁(B,ℤ)). Thus C₃² has multiplier C₃, and C₂² has multiplier C₂. The exterior-square identification for an abelian group gives the induced automorphism used in the inversion test. These are acceptance calculations for the displayed native maps, not implementations of the general spectral-sequence contract.
-
-Needs: the native degree-two extension-spectral-sequence contract; the existing transfer formula; native coinvariants; Mathlib's finite abelian primary decomposition. Source: Löh (2019), Corollary 1.6.13 p.49 for the cyclic calculations, Theorem 1.7.15 p.64 for transfer, Theorem 3.2.12 pp.123–124, Proposition 3.2.13 pp.124–125 and Remark 3.2.14 p.125 for the extension spectral sequence, and §3.2.5, Theorem 3.2.22 p.135 and Corollary 3.2.23 pp.136–137 for the product formula. The finite-generation, exterior-square and coprime-differential conclusions are the displayed deductions from these interfaces.
-
-### Cyclic complement conjugacy
-
-The required `cyclic_coprime_complement_conjugacy` assumes finite H,C, coprime orders, C cyclic, an action φ:C→Aut(H), and a subgroup K≤H⋊C on which the native projection is bijective. It concludes that one h∈H conjugates every element of the standard C-complement to its corresponding element of K. Projection bijectivity expresses the actual complement condition, rather than an abstract isomorphism K≅C.
-
-An elementary proof uses induction on |H⋊C|. If C is trivial the assertion follows from projection injectivity. Otherwise choose a prime p dividing |C|. The unique Sylow p-subgroups of the two cyclic complements are Sylow subgroups of the whole group, since |H| is coprime to |C|. Sylow conjugacy aligns them by an H-conjugator: remove the standard C-part of a conjugator, which normalizes its own Sylow subgroup. Both complements then lie in the normalizer of the aligned subgroup P. If this normalizer is proper, it has the form (H∩N(P))C, and induction applies to its smaller normal Hall kernel. If P is normal in the whole group, normality of H and P and their trivial intersection imply that H centralizes P; cyclicity makes C centralize P too. Thus P is central. Quotient by P and apply induction, then lift the H-conjugator. Both complements contain P, so equality of their quotient images implies equality of the complements themselves. No solvability hypothesis on H is used.
-
-Apply the theorem with C=⟨ρ(g)⟩. If g has the same order as ρ(g), then ⟨g⟩ maps bijectively onto C and is a complement in H⋊C. Equality of the quotient images of corresponding generators gives g=h(1,ρ(g))h⁻¹. This is the exact input of `admissible_inertia_cyclic_conjugacy` and the class bijection; finite admissibility is used subsequently for generation.
-
-Unit tests:
-
-- `cyclic_complement_conjugacy_test_1`: if C is trivial and the projection K→C is bijective, then K is the bottom subgroup. This checks the induction base using the native projection, even when H is nontrivial.
-- `cyclic_complement_conjugacy_test_2`: in C₃⋊C₂ with inversion action, write a for the generator of C₃ and t for the generator of C₂. The subgroup K=⟨(a,t)⟩ projects bijectively to C₂. Conjugation by a⁻¹ carries each standard-complement element to its corresponding element of K: a⁻¹(1,t)a=(a,t), whereas a(1,t)a⁻¹=(a²,t) differs from (a,t). The test retains both the uniform subgroup assertion and this failed opposite orientation.
-- `cyclic_complement_conjugacy_test_3`: with trivial action on C₂×C₂, the diagonal K=⟨(a,a)⟩ projects bijectively onto the second C₂ but no element of the first C₂ conjugates the standard complement to K. Every conjugation in this abelian total group is the identity. This checks that cyclicity and projection bijectivity do not replace the coprime-order hypothesis.
-
-These finite calculations use the native semidirect-product multiplication (h,c)(h′,c′)=(hφ(c)(h′),cc′). They test the stated conjugacy contract; they do not assert it for general coprime kernels.
-
-Needs: Mathlib's Sylow conjugacy, subgroup normalizers, native quotients and semidirect products; the cyclic-complement conjugacy contract. Source: Conrad, [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf), Remark 5 p.4 for the conjugacy conclusion. The Sylow induction above is the proof route for the cyclic-quotient specialization. Conrad's Example 2 p.1 proves existence in the cyclic case; existence alone does not give this conjugacy statement.
-
-## Layers and dependencies
-
-| Layer | Objects and milestones | Inputs |
+# Roadmap: reduced Schur covers and marked central extensions (induction, restriction, and Mackey theory for finite groups, part II)
+
+**Summary.** Ordinary Schur covers linearise projective representations. Arithmetic counting
+problems need a finer object: for a finite group G and a conjugacy-invariant set c of "inertia"
+elements, a central extension in which every element of c commutes with every lift of its
+centraliser. This roadmap builds that object and the theory around it. It defines the oriented
+commuting-pair classes ⟨x, y⟩ in the integral Schur multiplier M(G) = H₂(G, ℤ), the *reduced
+multiplier* M(G, c) = M(G)/Q_c, where Q_c is generated by the classes ⟨x, y⟩ with x ∈ c, and the
+reduced Schur cover S_c of a chosen Schur cover. It constructs the *universal marked central
+extension* U(G, c) twice — as a presentation and as a fiber product of S_c with the integer lattice
+of c-classes — proves the two agree, and computes its kernel M(G, c) × ker δ. It defines the
+discrete power action of the units of the profinite integers on U(G, c), counts the fixed points of
+a power q in every fiber in terms of a square-class obstruction and a two-adic threshold, and turns
+the counts into finite linear algebra over F₂ (affine kernel cosets, rank formulas and weight
+enumerators). It compares reduced multipliers along coprime semidirect products, and ends with the
+reduced multipliers of the thirty-one marked groups of Wood's Table 2, nineteen of which follow from
+a closed formula. A first layer supplies the integral homology the rest needs and that the libraries
+lack: evaluation of degree-two classes on integral cycles and its universal-coefficient description,
+the class map and five-term exact sequence of a central extension, Schur covers with an oriented
+kernel identification, finiteness and annihilation of the homology of a finite group, the Hall
+decomposition of the multiplier of a coprime semidirect product, and conjugacy of cyclic
+complements.
+
+The end results are the universal property and kernel of the marked extension
+(`universal_marked_property`, `presentation_comparison`, `universal_kernel`, Layer RS.2), the
+fixed-fiber count and its two-adic survival criterion (`all_fixed_fibers`, `two_adic_survival`,
+`surviving_parities`, `rank_parity_count`, Layer RS.4), the compatibility of reduced multipliers
+with coprime semidirect products (`reduced_kernel_primary`, Layer RS.5) and the table of reduced
+multipliers (`antidiagonal_reduced_multiplier`, `table_row_k`, Layer RS.6). They are the
+group-theoretic inputs of the nonabelian Cohen–Lenstra moments of Wood, the lifting invariant of
+Ellenberg–Venkatesh–Westerland in Wood's algebraic form, and the predicted distribution of
+Liu–Wood–Zureick-Brown.
+
+| Layer | Title | Headline targets |
 | --- | --- | --- |
-| RS.1 | Commuting-pair classes, reduced multipliers, reduced covers and lifted markings | Parent Layer 7; integral group homology and its input contracts |
-| RS.2 | Universal marked presentation, degree lattice, fiber product and full central kernel | RS.1; arbitrary-kernel UCT; freeness of the integer lattice |
-| RS.3 | Power permutations, corrections, twists and degree orbits | RS.1–RS.2; finite multiplier exponent bound |
-| RS.4 | Fixed-fiber solvability, torsion images, obstruction thresholds and parity counts | RS.3; elementary-2 quotient and finite linear algebra |
-| RS.5 | Compatible covers and reduced multipliers of coprime semidirect products | RS.1 and RS.3; transfer and cyclic-complement conjugacy |
-| RS.6 | Reduction certificates, parity algorithm and marked finite examples | RS.1, RS.4; degree-two homology reduction; ST.3 marked types |
-
-Every definition below has its API and three discriminating unit tests. The required theorems retain the hypotheses in their mathematical statements. Source citations distinguish the published articles from preprint-only constructions.
-
-## RS.1: Commuting-pair classes and reduced Schur covers
-
-Construct the integral quotient before choosing a cover. Then compare its generators with central lift commutators. Surjectivity of lifted centralizers is the reason the marking is independent of the conjugator. The stronger homology-image equality uses the five-term input contract.
-
-### Commutator of lifts
-
-**Target `lift_commutator`.** For a central GroupExtension A E G, commuting x,y∈G, and arbitrary lifts X,Y∈E, define κ_E(x,y)∈A by inl(κ_E(x,y))=XYX⁻¹Y⁻¹. Surjectivity supplies lifts, exactness gives kernel membership, and injectivity supplies a unique preimage. Centrality means inl(A)⊆Z(E).
-
-Construction and proof route: Use exactness to extract a kernel element; differences between lifts lie in the central kernel.
-
-Needs: `GroupExtension` (Mathlib).
-
-Required API:
-
-- `lift_commutator_inl` (projection): inl(κ_E(x,y))=XYX⁻¹Y⁻¹ for any lifts X,Y.
-- `lift_commutator_independent` (characterisation): Changing either lift by any kernel element leaves κ_E(x,y) unchanged.
-- `lift_commutator_swap` (relation): κ_E(y,x)=κ_E(x,y)⁻¹.
-- `lift_commutator_map` (functoriality): A map of central extensions sends κ_E(x,y) to κ_E′(f(x),f(y)) through its specified kernel map.
-
-Unit tests:
-
-- `lift_commutator_test_1` (degenerate): κ_E(1,y)=1.
-- `lift_commutator_test_2` (compatibility): In the split direct-product extension A×G→G, κ_E(x,y)=1 for every commuting pair.
-- `lift_commutator_test_3` (computation): For either D₈→C₂² or Q₈→C₂², lifts of two independent basis elements have commutator equal to the nonidentity central element.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2.
-
-### The oriented commuting-pair cycle
-
-**Target `commuting_pair_cycle`.** For xy=yx, [x|y]−[y|x] with integral coefficient 1 belongs to groupHomology.cycles₂ (Rep.trivial ℤ G ℤ). The orientation is x followed by y.
-
-Construction and proof route: The existing d₂₁ sends [x|y] to [y]−[xy]+[x]; subtract the reversed formula and use xy=yx.
-
-Needs: `Rep.trivial` (Mathlib); `groupHomology.cycles₂` (Mathlib).
-
-Checks: Reversing the pair negates the cycle; the coefficient is 1, not 0.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2.
-
-### Universal homological commutator
-
-**Target `homological_commutator`.** For commuting x,y∈G define ⟨x,y⟩ as H2π applied to the oriented cycle [x|y]−[y|x], in M(G)=H₂(G,ℤ). Equivalently it is the image of the oriented generator of H₂(ℤ²,ℤ) under (a,b)↦xᵃyᵇ.
-
-Construction and proof route: Use the existing cycle quotient. Compare with the ℤ² generator and the oriented UCT evaluation through the homological input contracts.
-
-Needs: RS.1, the oriented commuting-pair cycle; `groupHomology.H2π` (Mathlib); `groupHomology.H2` (Mathlib); `groupHomology.map` (Mathlib). The central-extension compatibility API also needs [native UCT evaluation](#native-uct-evaluation) and the oriented [extension class map](#extension-classes-and-the-five-term-map).
-
-Required API:
-
-- `homological_commutator_cycle` (compatibility): ⟨x,y⟩=H2π([x|y]−[y|x]).
-- `homological_commutator_swap` (relation): ⟨y,x⟩=−⟨x,y⟩.
-- `homological_commutator_map` (functoriality): For any f:G→H, f_*(⟨x,y⟩)=⟨f(x),f(y)⟩.
-- `homological_commutator_central_extension` (compatibility): The UCT class map τ_E sends ⟨x,y⟩ to κ_E(x,y), using the XYX⁻¹Y⁻¹ convention.
-
-Unit tests:
-
-- `homological_commutator_test_1` (degenerate): ⟨1,y⟩=0, since the displayed cycle is a boundary.
-- `homological_commutator_test_2` (computation): For G=C₂² and independent x,y, ⟨x,y⟩ is the nonzero element of M(G)≅C₂.
-- `homological_commutator_test_3` (non-example): For G=ℤ² the ordered basis gives the positive generator; swapping gives its negative, not the same integer.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2.
-
-### Schur commutator relations
-
-**Target `schur_relations`.** For conjugacy-invariant c⊆G set Q_c to the additive subgroup of M(G) generated by ⟨x,y⟩ with x∈c and y∈C_G(x). No generation or rationality hypothesis on c is needed for this quotient.
-
-Construction and proof route: Take the subgroup closure of exactly the specified commuting-pair classes.
-
-Needs: RS.1, universal homological commutator.
-
-Required API:
-
-- `schur_relations_mem` (constructor): x∈c and xy=yx imply ⟨x,y⟩∈Q_c.
-- `schur_relations_le` (universal-property): Q_c≤B iff every specified commuting-pair class lies in B.
-- `schur_relations_mono` (functoriality): c⊆d implies Q_c≤Q_d.
-- `schur_relations_map` (functoriality): f(c)⊆d implies f_*(Q_c)⊆Q_d.
-
-Unit tests:
-
-- `schur_relations_test_1` (degenerate): Q_∅=0.
-- `schur_relations_test_2` (computation): For C₂² and c={x} with x nonzero, Q_c=M(C₂²).
-- `schur_relations_test_3` (non-example): For c=∅ in C₂² the quotient retains C₂; it must not be forced trivial by relations from x outside c.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
-
-### Reduced Schur multiplier
-
-**Target `reduced_multiplier`.** Define M(G,c)=H₂(G,c)=M(G)/Q_c as the additive group quotient of the existing integral H₂ carrier. It depends functorially on (G,c) under f(c)⊆d and is independent of a Schur-cover choice.
-
-Construction and proof route: Use the additive quotient by Q_c; induce maps using its universal property.
-
-Needs: RS.1, schur commutator relations; `groupHomology.H2` (Mathlib).
-
-Required API:
-
-- `reduced_multiplier_mk` (projection): The quotient map M(G)→M(G,c) is onto with kernel Q_c.
-- `reduced_multiplier_lift` (universal-property): Maps M(G,c)→B correspond to additive maps M(G)→B vanishing on Q_c.
-- `reduced_multiplier_map` (functoriality): An f with f(c)⊆d gives M(G,c)→M(H,d), with identity and composition laws.
-- `reduced_multiplier_empty` (compatibility): M(G,∅)≅M(G), through the quotient by the zero subgroup.
-
-Unit tests:
-
-- `reduced_multiplier_test_1` (degenerate): M(1,c)=0 for either allowed c.
-- `reduced_multiplier_test_2` (computation): For finite cyclic G and any c, M(G,c)=0.
-- `reduced_multiplier_test_3` (computation): M(C₂²,∅)≅C₂ but M(C₂²,{x})=0 for x≠1.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
-
-### Reduced Schur cover
-
-**Target `reduced_cover`.** Given a chosen ordinary Schur cover π:S→G and its oriented class isomorphism τ_S:M(G)≅kerπ, define S_c=S/τ_S(Q_c). Retain π, τ_S and the cover choice as parameters. The descended π_c:S_c→G is a central surjection with kernel canonically identified with M(G,c) for these data.
-
-Construction and proof route: Quotient by the central image of Q_c; descend the projection and use exactness to identify its kernel.
-
-Needs: RS.1, reduced schur multiplier; RS.1, commutator of lifts; InductionRestriction, Layer 7.
-
-Required API:
-
-- `reduced_cover_projection` (projection): π_c∘quotient=π.
-- `reduced_cover_kernel` (equivalence): The induced τ_c:M(G,c)≅kerπ_c commutes with the quotient from M(G).
-- `reduced_cover_commute` (relation): Lifts of x∈c and y∈C_G(x) commute in S_c.
-- `reduced_cover_stem` (compatibility): The map S_c^ab→G^ab is an isomorphism, inherited from the ordinary stem cover.
-
-Unit tests:
-
-- `reduced_cover_test_1` (degenerate): For c=∅ the quotient is the chosen S itself.
-- `reduced_cover_test_2` (computation): For G=C₂² and c all nonidentity elements, either D₈ or Q₈ reduces to G.
-- `reduced_cover_test_3` (non-example): For c=∅ the two reduced covers D₈ and Q₈ of C₂² are nonisomorphic: there is no canonical reduced extension determined by G,c.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
-
-### Centralizers lift commutatively
-
-**Target `centralizer_lifts`.** In a reduced cover S_c→G, if x∈c and y∈C_G(x), any lifts X,Y commute. Consequently C_{S_c}(X)→C_G(x) is surjective.
-
-Construction and proof route: The lift commutator is a generator of τ_S(Q_c), killed by the quotient.
-
-Needs: RS.1, reduced schur cover; RS.1, commutator of lifts.
-
-Checks: For c=∅ this conclusion is unavailable; independent basis lifts in D₈ provide a counterexample.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
-
-### Conjugacy classes lift bijectively
-
-**Target `conjugacy_bijection`.** Every conjugacy class in S_c with image contained in c∪{1} maps bijectively to its image conjugacy class in G. No uniqueness is asserted for which class above a class of c is chosen.
-
-Construction and proof route: Surjectivity follows by lifting conjugators; two conjugators with equal image on x differ by a centralizer lift, which fixes X. Kernel elements are central singletons.
-
-Needs: RS.1, centralizers lift commutatively.
-
-Checks: Several classes above one class can exist, each individually mapping bijectively.
-
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4 p.390 (PDF pp.12,14).
-
-### Conjugacy-equivariant lifted marking
-
-**Target `class_compatible_marking`.** For one representative x_d in each d∈D=c/G, choose a lift X_d∈S_c. Define x̂ for x=gx_dg⁻¹ by a lifted conjugator g̃X_dg̃⁻¹. This is independent of g and g̃ but retains the initial representative-lift choices.
-
-Construction and proof route: Independence uses centrality for g̃ and centralizer-lift commutation for g; conjugate the resulting lift for equivariance.
-
-Needs: RS.1, conjugacy classes lift bijectively.
-
-Required API:
-
-- `class_compatible_marking_over` (projection): π_c(x̂)=x.
-- `class_compatible_marking_conj` (functoriality): The lift of gxg⁻¹ equals g̃x̂g̃⁻¹ for any lift g̃.
-- `class_compatible_marking_rep` (simp): The marking takes x_d to the chosen X_d.
-- `class_compatible_marking_change` (compatibility): Changing X_d by a_d∈M(G,c) changes every marked lift in d by the same central a_d.
-- `class_compatible_marking_ext` (extensionality): Two conjugacy-equivariant markings agree if they agree at every chosen class representative.
-
-Unit tests:
-
-- `class_compatible_marking_test_1` (degenerate): If c=∅, the marking is the unique empty function.
-- `class_compatible_marking_test_2` (computation): For a cyclic group with its identity reduced cover, marking is the inclusion on c.
-- `class_compatible_marking_test_3` (non-example): For nonempty c and nontrivial reduced kernel A, multiplying the chosen lift of one class by a nonidentity a∈A gives a different marking; the class-compatible construction does not erase this choice.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
-
-### Local class normalization
-
-**Target `local_class_normalization`.** Assume c is one conjugacy class, choose c₀∈c, and let E=S_c. For e with π_c(e)∈c∪{1}, define z(e) to be the unique element in its conjugacy class mapping to c₀ if π_c(e)∈c, and e itself if π_c(e)=1.
-
-Construction and proof route: Apply the individual-class bijection; no arithmetic lift or global product is constructed here.
-
-Needs: RS.1, conjugacy classes lift bijectively.
-
-Required API:
-
-- `local_class_normalization_image` (projection): π_c(z(e)) is c₀ or 1 according to the branch.
-- `local_class_normalization_conj` (characterisation): z(e) lies in the conjugacy class of e and is invariant under conjugating e.
-- `local_class_normalization_fixed` (simp): If π_c(e)∈{1,c₀}, z(e)=e.
-- `local_class_normalization_mul_kernel` (compatibility): For a∈kerπ_c and allowed e, z(ae)=a·z(e); central multiplication transports the unique conjugate over c₀.
-
-Unit tests:
-
-- `local_class_normalization_test_1` (degenerate): For a kernel element a, z(a)=a.
-- `local_class_normalization_test_2` (computation): For S₃ with c the transpositions and c₀=(12), z((23))=(12) in its identity reduced cover.
-- `local_class_normalization_test_3` (non-example): For several conjugacy classes c, one c₀ cannot normalize elements from all classes; the single-class hypothesis is essential.
-
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4 p.390 (PDF pp.12,14).
-
-### Local normalized factors commute
-
-**Target `local_factors_commute`.** Any two elements of a central extension mapping to {1,c₀} commute. In particular all z(e) in the preceding single-class construction commute.
-
-Construction and proof route: Kernel factors are central; two elements above c₀ differ by a central kernel factor.
-
-Needs: RS.1, local class normalization; `GroupExtension` (Mathlib).
-
-Checks: This is the algebraic input to the global product in IG.4, not its local/global arithmetic existence theorem.
-
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4 p.390 (PDF pp.12,14).
-
-### Reduced-cover homology image
-
-**Target `homology_image`.** For π_c:S_c→G, im(H₂(S_c,ℤ)→M(G))=Q_c. Thus the composite H₂(S_c,ℤ)→M(G)→M(G,c) is zero. The equality uses the central-extension homological five-term exact sequence; the zero composite alone also follows by UCT naturality and the diagonal splitting.
-
-Construction and proof route: The five-term transgression is the quotient M(G)→M(G,c); exactness identifies its kernel Q_c.
-
-Needs: RS.1, reduced schur cover; `groupHomology.map` (Mathlib); [extension-class-map five-term exactness](#extension-classes-and-the-five-term-map). Functoriality alone gives no equality between the homology image and the Schur relation subgroup.
-
-Checks: The equality is stronger than Wood Lemma 2.2, and is not inferred from the zero composite alone.
-
-Source: Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §7.3, paragraph after the definition, arXiv v1 PDF p.34.
-
-### Reduced-cover homology composite vanishes
-
-**Target `homology_composite_zero`.** The composite H₂(S_c,ℤ)→M(G)→M(G,c) is zero.
-
-Construction and proof route: Compose the image equality with the quotient map.
-
-Needs: RS.1, reduced-cover homology image.
-
-Checks: For c=∅ this says a Schur-cover homology map to M(G) is zero.
-
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Lemma 2.2 and proof, author PDF p.3.
-
-### Commuting-pair classes respect orders
-
-**Target `commutator_order`.** For commuting x,y, the homological commutator is additive in each commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩. In particular if x is an involution then 2⟨x,y⟩=0.
-
-Construction and proof route: Work directly in Mathlib's integral inhomogeneous bar chains. Write z(a,y)=[a|y]−[y|a] and put
+| RS.0 | Integral degree-two homology of groups and central extensions | `integralEvaluation`, `extensionClassMap`, `extensionClassMap_exact_left`, `IsSchurCover`, `multiplier_hallPart`, `cyclic_coprime_complement_conjugacy` |
+| RS.1 | Commuting-pair classes and reduced Schur covers | `liftCommutator`, `homologicalCommutator`, `schurRelations`, `ReducedMultiplier`, `ReducedCover`, `classCompatibleMarking` |
+| RS.2 | Universal marked extensions and degree | `MarkedExtension`, `UniversalMarked`, `classDegreeMap`, `markedFiberProduct`, `presentation_comparison`, `universalKernel` |
+| RS.3 | Discrete powers, twists and degree orbits | `finitePower`, `degreePermutation`, `centralPowerCorrection`, `discreteAction`, `CyclotomicTwist`, `DegreeOrbitSet` |
+| RS.4 | Fixed fibers, square obstructions and parity | `squareObstruction`, `all_fixed_fibers`, `torsionImageFiltration`, `two_adic_survival`, `jointParityMap`, `parityWeightEnumerator` |
+| RS.5 | Coprime semidirect products and compatible covers | `compatibleCovers`, `multiplier_kernel_primary`, `admissible_inertia_classes`, `reduced_kernel_primary` |
+| RS.6 | Certified finite examples | `odd_index_two_reduction`, `ReductionCertificate`, `order96Type`, `antidiagonal_reduced_multiplier`, `table_row_k` |
+
+The layer labels RS.0–RS.6 are the labels other roadmaps cite.
+
+Suggested home: `TauCeti/GroupTheory/ReducedSchur/`, namespace `TauCeti.ReducedSchur`, one file per
+layer; the integral homology of Layer RS.0 belongs next to Tau Ceti's group homology, in
+`TauCeti/RepresentationTheory/Homological/GroupHomology/`. `Suggested.lean` states the light
+definitions and the statements that can be made at the pins in the namespace
+`TauCetiRoadmap.InductionRestrictionPartII`.
+
+## Scope and ownership
+
+**Owned here.**
+
+- Layer RS.0: the evaluation of degree-two cohomology classes with trivial coefficients on integral
+  2-cycles; its universal-coefficient description for finite groups, for groups with free
+  abelianization and for divisible coefficients; the class map τ_S of a central extension, with its
+  commutator formula and naturality; the five-term exact sequence of a central extension and its
+  consequences for stem extensions; Schur covers with oriented kernel identification and their
+  existence; finiteness and order-annihilation of positive-degree integral homology of a finite
+  group; the primary decomposition of the multiplier of a group with a normal Hall subgroup; and
+  conjugacy of complements of a normal Hall subgroup with cyclic quotient.
+- Layers RS.1–RS.6: everything listed in the table above.
+
+**Left to other roadmaps and to the libraries.**
+
+- InductionRestriction (TauCetiRoadmap, `RepresentationTheory/InductionRestriction`), Layer 7:
+  projective representations, factor sets, the group `H²(G, kˣ)` and the *representation group* of a
+  finite group — a finite central extension with kernel in the commutator subgroup through which
+  every projective representation lifts. That layer leaves the integral multiplier `H₂(G, ℤ)` to be
+  stated separately; Layer RS.0 does so and identifies the kernel of a representation group with it.
+  Induction, restriction and Mackey theory themselves are not used.
+- Tau Ceti (pinned): extensions with abelian kernel and their factor-set classes
+  (`TauCeti.GroupExtension.factorSet`, `TauCeti.FactorSet.cohomologyClass`, the classification and
+  splitting criterion), and the maximal elementary-2 quotient `TauCeti.ElementaryTwoQuotient`.
+- Tau Ceti (current library, newer than the pin): the homological transfer with
+  `cor ∘ tr = [G : S]`, the Kronecker evaluation of a chain complex against its dual, and the
+  projective-presentation description of `Ext¹`. They are cited in Layer RS.0 and reused as they
+  stand; nothing here re-plans them.
+- AlgebraicTopology (TauCetiRoadmap) plans the universal coefficient theorem for singular cohomology
+  of spaces. It is not used: Layer RS.0 works with the algebraic bar complex of a group.
+- ArithmeticStatistics, ST.3, identifies the marked groups of Layer RS.6 with the embedded
+  arithmetic types of the source tables and enumerates those types; its ST.5 turns the fixed-fiber
+  and parity counts into moments and limits. InverseGaloisAndArithmeticFundamentalGroups, IG.3–IG.5,
+  uses the marking, lifting and power interfaces in branch-cycle and Frobenius arguments. No
+  arithmetic statement enters this roadmap as a hypothesis, and nothing here asserts a moment, a
+  limit or an asymptotic.
+
+## Conventions
+
+- A *central extension* is Mathlib's `GroupExtension A E G` (fields `inl`, `rightHom`, exactness
+  `range_inl_eq_ker_rightHom`) together with the hypothesis `S.inl.range ≤ Subgroup.center E`. It is
+  *stem* if moreover `S.inl.range ≤ commutator E`. Finiteness is assumed exactly where stated.
+- M(G) = H₂(G, ℤ) is the carrier `groupHomology.H2 (Rep.trivial ℤ G ℤ)`, written additively.
+  `TauCeti.schurMultiplier k G` is the different group `H²(G, kˣ)`.
+- Commutators are `XYX⁻¹Y⁻¹`. The *oriented commuting-pair class* of commuting x, y is the class ⟨x,
+  y⟩ of the integral 2-cycle [x|y] − [y|x]; reversing the pair negates it. Mathlib's differentials
+  with trivial coefficients are `d[g|h] = [h] − [gh] + [g]` and
+  `d[g|h|k] = [h|k] − [gh|k] + [g|hk] − [g|h]`.
+- The factor set of a normalized section σ of an extension satisfies `inl(φ(g,h)) = σ(g)σ(h)σ(gh)⁻¹`
+  (Tau Ceti's convention). The class map τ_S evaluates φ on integral cycles and sends ⟨x, y⟩ to the
+  commutator of lifts of x and y.
+- c ⊆ G is conjugacy-invariant. Generation of G by c is assumed for the universal marked extension
+  and everything built on it; closure under invertible powers is assumed for the power action; in
+  Layer RS.4 and the parity statements every element of c has order two.
+- D = c/G is the set of conjugacy classes contained in c (the subtype of `ConjClasses G` of classes
+  meeting c), L = D →₀ ℤ the integer lattice of class degrees, with basis vectors e_d, and δ : L →
+  Additive Gᵃᵇ the map with δ(e_[x]) = [x]. Degrees are integers; inverse generators have negative
+  degree.
+- The reduced multiplier M(G, c) = M(G)/Q_c is canonical. A reduced cover S_c = S/τ_S(Q_c) depends
+  on the chosen Schur cover S; different choices need not give isomorphic groups (D₈ and Q₈ over C₂
+  × C₂).
+- The units of the prime-to-p profinite integers act on a finite group by g ↦ g^α, through any
+  common exponent. On a nonabelian group this is a permutation of the underlying set, not a
+  homomorphism. On the class lattice the action permutes coordinates, m^α(d^α) = m(d); it never
+  multiplies a degree by α.
+- In Layer RS.4, A = M(G, c) is the kernel of the reduced cover, B = A/A² is
+  `TauCeti.ElementaryTwoQuotient` of `Multiplicative A`, and v₂ is the 2-adic valuation.
+- Explicit finite groups are given by their multiplication and their marked embedding; an abstract
+  group name or a SmallGroups number names an example but does not replace these data.
+
+## Exact supplier contracts
+
+### From Mathlib (pinned 082e2d3)
+
+- `GroupExtension`, `GroupExtension.Section`, `GroupExtension.Splitting`
+  (`Mathlib/GroupTheory/GroupExtension/Defs.lean`): an injective `inl`, a surjective `rightHom` and
+  exactness; centrality is not part of the structure and is always a separate hypothesis.
+- `Rep.trivial`, `groupHomology.cycles₂`, `groupHomology.boundaries₂`, `groupHomology.H2`,
+  `groupHomology.H2π`, `groupHomology.H2π_eq_iff`, `groupHomology.d₂₁_single`,
+  `groupHomology.d₃₂_single`
+  (`Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean`): the integral 2-cycles
+  as a submodule of `G × G →₀ ℤ`, their quotient H₂ and its kernel. `groupHomology.map` and
+  `groupHomology.map_comp` (`.../GroupHomology/Functoriality.lean`) give functoriality along a group
+  homomorphism together with a compatible coefficient map; with trivial integral coefficients the
+  identity serves.
+- `groupHomology.H1AddEquivOfIsTrivial` and `groupHomology.H1AddEquivOfIsTrivial_single`:
+  `H₁(G, A) ≃+ Gᵃᵇ ⊗ A` for trivial A, sending the class of `single g a` to `[g] ⊗ a`;
+  `groupHomology.d₁₀_eq_zero_of_isTrivial`, `groupHomology.cycles₁IsoOfIsTrivial`,
+  `groupHomology.isZero_groupHomology_succ_of_subsingleton`, `groupHomology.H0IsoOfIsTrivial`,
+  `Rep.FiniteCyclicGroup.groupHomologyIsoEven` and `groupHomologyIsoOdd`.
+- `groupCohomology.cocycles₂`, `groupCohomology.H2`, `groupCohomology.H2π`,
+  `groupCohomology.H2π_eq_iff`, `groupCohomology.map`
+  (`Mathlib/RepresentationTheory/Homological/GroupCohomology/`).
+- `Abelianization`, `Abelianization.of`, `Abelianization.lift`, `Abelianization.map`, `commutator`,
+  `ConjClasses`, `IsConj`, `Subgroup.centralizer`, `Subgroup.center`, `QuotientGroup`,
+  `MonoidHom.eqLocus`, `PresentedGroup`, `PresentedGroup.of`, `PresentedGroup.toGroup` (with
+  `toGroup.of` and `toGroup.unique`), `SemidirectProduct` (with `inl`, `inr`, `rightHom`,
+  `toGroupExtension`), `MulEquiv.prodComm`, `alternatingGroup`, `DihedralGroup`,
+  `Matrix.SpecialLinearGroup`, `Matrix.GeneralLinearGroup`.
+- `Subgroup.exists_right_complement'_of_coprime` (`Mathlib/GroupTheory/SchurZassenhaus.lean`):
+  existence of a complement to a normal subgroup of coprime order and index. It says nothing about
+  conjugacy of complements.
+- Sylow theory (`Sylow`, conjugacy of Sylow subgroups), `Subgroup.normalizer`.
+- `Finsupp.domCongr`, `Finsupp.liftAddHom`, `MulActionHom` (`T →[B] X`), `AddTorsor`/
+  `MulAction.IsPretransitive`, `MulAction.orbitRel`.
+- `powMonoidHom`, `MonoidHom.fiberEquivKer`, `AddCommGroup.equiv_directSum_zmod_of_finite`,
+  `AddCommGroup.primaryComponent`, `Submodule.basisOfPid` (finite index only), `Module.Projective`,
+  `Module.Projective.of_free`, `Module.Projective.of_split`,
+  `LinearMap.exists_rightInverse_of_surjective`, `LinearMap.finrank_range_add_finrank_ker`,
+  `Module.card_eq_pow_finrank`, `CategoryTheory.Abelian.Ext`.
+
+### From Tau Ceti (pinned f790474)
+
+- `TauCeti.GroupExtension.factorSet`, `TauCeti.GroupExtension.inl_factorSet`
+  (`TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean`): the factor set of a normalized
+  section of an extension whose conjugation action on its abelian kernel is the ambient one, with
+  `inl(φ(g,h)) = σ(g)σ(h)σ(gh)⁻¹`.
+- `TauCeti.FactorSet.cohomologyClass`, `TauCeti.GroupExtension.cohomologyClass_factorSet_eq`
+  (independence of the section), `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`
+  (`TauCeti/GroupTheory/GroupExtension/Cohomology.lean`).
+- `TauCeti.ElementaryTwoQuotient G` for a commutative group G (the `ZMod 2`-module
+  `ModN (Additive G) 2`), `TauCeti.elementaryTwoQuotientMk`, `TauCeti.elementaryTwoQuotientMk_mul`,
+  `TauCeti.elementaryTwoQuotientMk_eq_iff`, `TauCeti.elementaryTwoQuotientMap`
+  (`TauCeti/Algebra/Group/ElementaryTwoQuotient/Basic.lean`).
+
+### From the current Tau Ceti library (after the pin)
+
+These declarations are in Tau Ceti a91d3aaf and are cited, not re-planned; the pinned Lean file does
+not import them.
+
+- `TauCeti.groupHomology.transfer` and `TauCeti.groupHomology.transfer_comp_map_subtype_id`
+  (`TauCeti/RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`): the transfer to a
+  finite-index subgroup S and the identity `cor ∘ tr = [G : S] • 𝟙` in every degree.
+- `TauCeti.ChainComplex.kronecker`, `kronecker_homologyπ`, `kronecker_naturality`
+  (`TauCeti/Algebra/Homology/Kronecker.lean`): evaluation of the homology of a complex against the
+  cohomology of its dual, with no hypothesis on the coefficient object (`kronecker_bijective`
+  assumes an injective coefficient object and is not used for arbitrary A).
+- `TauCeti.homCokernelEquivExt` (`TauCeti/Algebra/Homology/Ext/Presentation.lean`): `Ext¹(M, A)`
+  from a projective presentation of M.
+
+### From TauCetiRoadmap.RepresentationTheory.InductionRestriction
+
+- Layer 7, representation groups: for a finite group G, a finite central extension
+  `1 → A → Ĝ → G → 1` with A in the commutator subgroup of Ĝ and |A| = |H²(G, ℂˣ)|. Layer RS.0.5
+  uses exactly this (stem, central, order of the kernel) and proves that its class map identifies A
+  with M(G).
+
+## How to read the build
+
+Layer RS.0 is the integral homology toolkit: once the class map of a central extension and its
+five-term sequence exist, every comparison between a central extension and M(G) is a naturality
+statement. Layer RS.1 defines the commuting-pair classes, the reduced multiplier and reduced covers,
+and shows that lifted markings of c are canonical up to central factors. Layer RS.2 builds the
+universal marked extension as a presentation and as a fiber product and identifies them; the
+identification is where the free-abelianization case of the universal coefficient sequence enters.
+Layer RS.3 puts the power action on the fiber-product model. Layer RS.4 solves the fixed-point
+equation fiber by fiber and reduces survival to linear algebra over F₂. Layer RS.5 compares coprime
+semidirect products with their quotients, and Layer RS.6 computes examples. Within each layer
+nothing is used before it is stated.
+
+```text
+RS.0 evaluation ─> RS.0 class map ─> RS.0 five-term ─> RS.0 Schur covers ──┐
+RS.0 finite homology ─> RS.0 Hall decomposition;  RS.0 complement conjugacy  │
+RS.1 ⟨x,y⟩ ─> Q_c ─> M(G,c) ─> S_c (needs Schur covers) ─> markings ─────────┤
+RS.2 U(G,c) (presentation) ─┐                                               │
+RS.2 P = S_c ×_{Gᵃᵇ} L ─────┴─> splitting (RS.0 free case) ─> U ≅ P ─> K = M(G,c) × ker δ
+RS.3 power action on P ─> RS.4 fixed fibers ─> two-adic threshold ─> F₂ cosets, ranks, enumerators
+RS.0 Hall decomposition + complement conjugacy ─> RS.5 compatible covers and reduced multipliers
+RS.0, RS.1, RS.4 ─> RS.6 index-two reduction, certificates, anti-diagonal formula, Table 2
+```
+
+## Layer RS.0: Integral degree-two homology of groups and central extensions
+
+Everything later in the roadmap compares central extensions with integral second homology
+`M(G) = H₂(G, ℤ)`. Mathlib has the carrier (`groupHomology.H2 (Rep.trivial ℤ G ℤ)` with its cycle
+quotient `groupHomology.H2π`), the degree-two cohomology carrier and the functorial maps, and Tau
+Ceti classifies extensions with abelian kernel by factor-set classes. What neither library has is
+the bridge between the two: the evaluation of a degree-two class on an integral cycle, the
+universal-coefficient description of that evaluation, the class map of a central extension and its
+five-term exact sequence, Schur covers whose kernel is identified with `M(G)` compatibly with
+commutators, the finiteness and order-annihilation of the homology of a finite group, the Hall
+decomposition of the multiplier of a coprime semidirect product, and conjugacy of cyclic complements
+of coprime order. This layer states them once, in the generality the later layers use. Only the
+representation group itself (a stem central extension of a finite group whose kernel has the order
+of `H²(G, ℂˣ)`) is taken from InductionRestriction, Layer 7.
+
+### RS.0.1 Evaluating degree-two classes on integral cycles
+
+**`integralEvaluation`.** Let `G` be any group and `A` any abelian group, written additively, with
+trivial `G`-action. Define the evaluation
+
+```text
+integralEvaluation : H²(G, A) →+ (M(G) →+ A),
+   [φ] ↦ ( [Σ n_(g,h) [g|h]] ↦ Σ n_(g,h) φ(g, h) ),
+```
+
+where `H²(G, A)` is `groupCohomology.H2 (Rep.trivial ℤ G A)`, `φ` is an inhomogeneous 2-cocycle
+`G × G → A`, and `Σ n_(g,h)[g|h]` is an integral 2-cycle in `groupHomology.cycles₂`. With trivial
+action Mathlib's differentials are `d[g|h] = [h] − [gh] + [g]` on chains and
+`(dψ)(g, h) = ψ(h) − ψ(gh) + ψ(g)` on 1-cochains, and likewise one degree up, so the pairing of a
+cochain with the differential of a chain equals the pairing of its coboundary with that chain. Hence
+a cocycle pairs to zero with every boundary and a coboundary pairs to zero with every cycle, and the
+formula descends through both quotients. No finiteness of `G` or `A` is assumed.
+
+The API:
+
+- `integralEvaluation_mk`: on representatives, `integralEvaluation (H2π φ) (H2π z)` is the finite
+  sum `Σ n_(g,h) φ(g, h)`.
+- `integralEvaluation_map_group`: for `f : G →* H`, evaluating the pullback `f^*α` on `z` equals
+  evaluating `α` on `f_* z` (cohomology contravariant, homology covariant in the group).
+- `integralEvaluation_map_coeff`: for `μ : A →+ B`, evaluating `μ_* α` on `z` is `μ` of evaluating
+  `α` on `z`.
+
+In the Lean file the chain-level pairing is `cyclePairing φ z = Σ z(g,h) • φ(g,h)`, and its two
+descent properties are `cyclePairing_boundary` (a cocycle pairs to zero with a boundary) and
+`cyclePairing_coboundary` (a coboundary pairs to zero with a cycle); `Multiplier G` abbreviates the
+carrier of M(G) and `multiplierMap f` the induced map.
+
+*Construction.* The pairing is the restriction of the bilinear map `(G × G → A) × (G × G →₀ ℤ) → A`,
+`(φ, z) ↦ Σ z(g,h) • φ(g,h)`, to cocycles and cycles; the two descents use
+`groupCohomology.H2π_eq_iff` and `groupHomology.H2π_eq_iff`. The current Tau Ceti library has the
+general form of this construction for a chain complex and its dual
+(`TauCeti.ChainComplex.kronecker`, with `kronecker_homologyπ` and `kronecker_naturality`, in
+`TauCeti/Algebra/Homology/Kronecker.lean`); that file postdates the pinned Tau Ceti and assumes
+nothing about the coefficient object. *Needs:* Mathlib `groupHomology.cycles₂`, `groupHomology.H2π`,
+`groupHomology.H2π_eq_iff`, `groupCohomology.cocycles₂`, `groupCohomology.H2π`,
+`groupCohomology.H2π_eq_iff`, `groupHomology.map`, `groupCohomology.map`.
+
+*Source.* Hatcher, *Algebraic Topology*, §3.1, the evaluation map `H^n(C; G) → Hom(H_n(C), G)` built
+from cycles and boundaries, pp. 190–191, applied to the integral inhomogeneous chain complex of `G`
+(whose chain groups are free abelian); Löh, *Group Cohomology* (lecture notes, version of 30 July
+2019), §1.2, pp. 11–17, for the bar complex as the defining complex of group (co)homology.
+
+**Checks.**
+
+- `integralEvaluation_test_1` (orientation, infinite group): for `G = ℤ²`, `A = ℤ` and the bilinear
+  cocycle `φ((a,b),(c,d)) = ad`, the class of `[e₁|e₂] − [e₂|e₁]` evaluates to `1` and the class of
+  `[e₂|e₁] − [e₁|e₂]` to `−1`. A pairing that symmetrises or ignores order fails.
+- `integralEvaluation_test_2` (torsion coefficients): for `G = C₂ × C₂`, `A = ZMod 2` and the same
+  coordinate cocycle `φ((a,b),(c,d)) = ad`, the commuting cycle of the two basis vectors evaluates
+  to `1`. A construction valid only for torsion-free `A` fails.
+- `integralEvaluation_test_3` (degenerate): for `G` trivial, `M(G) = 0` and evaluation is the zero
+  map for every `A`.
+
+### RS.0.2 The universal coefficient sequence in degree two
+
+Prove that evaluation is described by the universal coefficient sequence in the two cases the
+roadmap needs.
+
+- `integralEvaluation_surjective`: for finite `G` and any abelian `A`, `integralEvaluation` is onto.
+- `integralEvaluation_ker`: for finite `G` and any abelian `A`, the kernel of `integralEvaluation`
+  is the image of a natural injection `integralExtInclusion : Ext¹_ℤ(Gᵃᵇ, A) → H²(G, A)`, where
+  `Gᵃᵇ` is identified with `H₁(G, ℤ)` by `groupHomology.H1AddEquivOfIsTrivial`. The injection is
+  natural for group homomorphisms (contravariant through `Gᵃᵇ`) and for coefficient maps; no natural
+  splitting of the sequence is asserted.
+- `integralEvaluation_bijective_of_free`: for any group `G` (finite or not) whose abelianization
+  `Additive Gᵃᵇ` is a free `ℤ`-module, and any abelian `A`, `integralEvaluation` is bijective.
+- `integralEvaluation_bijective_of_divisible`: for finite `G` and divisible `A` (every element is an
+  `n`-th multiple for every `n ≥ 1`), `integralEvaluation` is bijective. In particular
+  `H²(G, ℂˣ) ≅ Hom(M(G), ℂˣ)`, and for finite `G` the two groups have the same order.
+
+*Proof sketch.* Write `Cᵢ` for the integral bar chain groups, `Zᵢ` for cycles and `Bᵢ` for
+boundaries. With trivial action `d₁ = 0` (`groupHomology.d₁₀_eq_zero_of_isTrivial`), so `Z₁ = C₁`
+and `H₁ = C₁/B₁`. Surjectivity: lift `h : M(G) → A` to `Z₂ → A`; it extends to `C₂` as soon as `Z₂`
+is a direct summand of `C₂`, which holds when `B₁ ≅ C₂/Z₂` is projective. For finite `G`, `B₁` is a
+submodule of the finite free `ℤ`-module `C₁ = ℤ[G]`, hence free (`Submodule.basisOfPid`). Kernel: a
+cocycle with zero evaluation vanishes on `Z₂`, so factors through `C₂/Z₂ ≅ B₁` as some `ψ : B₁ → A`;
+changing `ψ` by a restriction of a map `C₁ → A` changes the cocycle by a coboundary, and
+`Hom(B₁, A)/Hom(C₁, A) ≅ Ext¹(C₁/B₁, A)` is the projective-presentation description of `Ext¹` (the
+current Tau Ceti library has it as `TauCeti.homCokernelEquivExt`, in
+`TauCeti/Algebra/Homology/Ext/Presentation.lean`; it postdates the pin). Free case: if `H₁` is free,
+the quotient `C₁ → H₁` splits (`LinearMap.exists_rightInverse_of_surjective`), so `B₁` is a direct
+summand of the free `C₁` and projective (`Module.Projective.of_split`); then `C₂ → B₁` splits too,
+and both directions of the bijection are the explicit retraction arguments above — no
+subgroup-freeness theorem of arbitrary rank is needed, so this case covers infinite `G` such as the
+marked fiber product of Layer RS.2. Divisible case: a divisible abelian group is an injective
+`ℤ`-module, so `Ext¹(Gᵃᵇ, A) = 0`; for finite `M(G)` (RS.0.6) the group `Hom(M(G), ℂˣ)` has the
+order of `M(G)`, because `ℂˣ` contains a cyclic group of every finite order. *Needs:* RS.0.1;
+Mathlib `groupHomology.H1AddEquivOfIsTrivial`, `groupHomology.d₁₀_eq_zero_of_isTrivial`,
+`groupHomology.cycles₁IsoOfIsTrivial`, `Submodule.basisOfPid`, `Module.Projective.of_free`,
+`Module.Projective.of_split`, `LinearMap.exists_rightInverse_of_surjective`,
+`CategoryTheory.Abelian.Ext` (the carrier `Ext ℤ (ModuleCat ℤ) 1`); RS.0.6 for the finiteness used
+in the divisible case.
+
+*Source.* Hatcher, *Algebraic Topology*, §3.1: Lemma 3.1, p. 194, and Theorem 3.2 (the universal
+coefficient theorem for cohomology of a chain complex of free abelian groups), p. 195, with the
+computations `Ext(ℤ/n, A) = A/nA` and `Ext(F, A) = 0` for free `F` on p. 195 and the naturality
+discussion on p. 196; Löh, *Group Cohomology*, Corollary 3.2.20 (algebraic universal coefficient
+theorem), p. 133.
+
+**Checks.**
+
+- `integralExtInclusion_test_1` (nonzero Ext class): `G = C₂`, `A = ℤ`. Here `M(C₂) = 0`, while
+  `H²(C₂, ℤ) ≅ Ext¹(C₂, ℤ) ≅ C₂`; the injection is a bijection with a nonzero value, so evaluation
+  has a nonzero kernel and is not injective without a hypothesis on `Gᵃᵇ`.
+- `integralExtInclusion_test_2` (vanishing Ext, infinite group): `G = ℤ²`. Its abelianization is
+  free, so evaluation is bijective for every `A`, and `H²(ℤ², ℤ) ≅ Hom(M(ℤ²), ℤ) ≅ ℤ`.
+- `integralExtInclusion_test_3` (torsion coefficients): `G = C₄`, `A = ZMod 2`. Then `M(C₄) = 0` but
+  `Ext¹(C₄, C₂) ≅ C₂/4C₂ = C₂`, so `H²(C₄, C₂) ≅ C₂` lies entirely in the kernel of evaluation; its
+  nonzero element is the class of the central extension `C₂ → C₈ → C₄`.
+- `integralEvaluation_bijective_of_divisible_test` (orders): for `G = C₂ × C₂`,
+  `|H²(G, ℂˣ)| = |M(G)| = 2`; for `G = C₆`, both are `1`.
+
+### RS.0.3 The class map of a central extension
+
+**`extensionClassMap`.** Let `S : GroupExtension A E G` (Mathlib) be central:
+`S.inl.range ≤ Subgroup.center E` (the predicate `IsCentralExtension S`; `IsStemExtension S` adds
+`S.inl.range ≤ commutator E`). Then `A` is commutative. Choose a normalized set-theoretic section
+`σ` of `S.rightHom` and let `φ = TauCeti.GroupExtension.factorSet σ` be its factor set, so
+`S.inl (φ(g, h)) = σ(g) σ(h) σ(gh)⁻¹`. Centrality makes the induced conjugation action of `G` on `A`
+trivial, so `φ` is a 2-cocycle with trivial action. Define
+
+```text
+τ_S = extensionClassMap S : M(G) →+ Additive A,     τ_S = integralEvaluation [φ].
+```
+
+By `TauCeti.GroupExtension.cohomologyClass_factorSet_eq` the class `[φ]` does not depend on `σ`, so
+neither does `τ_S`.
+
+The API:
+
+- `extensionClassMap_apply`: `τ_S (H2π z) = Σ n_(g,h) φ(g, h)` for every normalized section `σ`.
+- `extensionClassMap_commutator`: for commuting `x, y ∈ G` and any lifts `X, Y ∈ E`,
+  `τ_S (H2π([x|y] − [y|x])) = Additive.ofMul a` where `S.inl a = X Y X⁻¹ Y⁻¹`. This fixes the sign:
+  the oriented commuting cycle goes to the commutator `XYX⁻¹Y⁻¹`, not its inverse. (Indeed
+  `φ(x,y) − φ(y,x)` is that commutator when `xy = yx`.)
+- `extensionClassMap_natural`: for a map of central extensions — `a : A →* A'`, `e : E →* E'`,
+  `f : G →* G'` with `e ∘ S.inl = S'.inl ∘ a` and `S'.rightHom ∘ e = f ∘ S.rightHom` — one has
+  `τ_{S'} ∘ f_* = a ∘ τ_S`. All three maps are retained; nothing is assumed about kernels being
+  identified.
+- `extensionClassMap_eq_zero_of_splitting`: a homomorphic section (`S.Splitting`) forces `τ_S = 0`.
+  The converse holds when the Ext term vanishes (RS.0.2), for example when `Gᵃᵇ` is free; then
+  `τ_S = 0` gives a splitting through
+  `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`.
+
+*Construction.* Compose the factor-set class with RS.0.1. Naturality: pull back the section of `S'`
+along `f` and compare it with `e ∘ σ`; their difference is a 1-cochain, so the classes agree.
+*Needs:* RS.0.1, RS.0.2; Mathlib `GroupExtension`, `GroupExtension.Section`,
+`GroupExtension.Splitting`; Tau Ceti `TauCeti.GroupExtension.factorSet`,
+`TauCeti.GroupExtension.inl_factorSet`, `TauCeti.GroupExtension.cohomologyClass_factorSet_eq`,
+`TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`
+(`TauCeti/GroupTheory/GroupExtension/Cohomology.lean`, `FactorSetOfSection.lean`).
+
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+§2.1, author copy p. 2, for the class map of a central extension and its value on commuting pairs;
+Löh, *Group Cohomology*, §1.5.2, pp. 32–40, for extensions with abelian kernel and their
+second-cohomology classes.
+
+**Checks.**
+
+- `extensionClassMap_test_1` (split, infinite kernel): for the direct product `ℤ × G → G`, every
+  section can be taken homomorphic, so `τ = 0`.
+- `extensionClassMap_test_2` (nonsplit but zero): for `C₂ → C₄ → C₂`, `τ = 0` because `M(C₂) = 0`,
+  yet there is no homomorphic section; the extension class lies in the Ext term.
+- `extensionClassMap_test_3` (value): for the dihedral extension `C₂ → D₈ → C₂ × C₂`, `τ` sends the
+  class of the commuting cycle of the two basis vectors to the nonidentity element of the centre;
+  the same holds for the quaternion extension `C₂ → Q₈ → C₂ × C₂`.
+
+### RS.0.4 The five-term exact sequence of a central extension
+
+Prove `extensionClassMap_exact`: for a central extension `S : GroupExtension A E G` (no finiteness
+assumed) the sequence
+
+```text
+M(E) --π_*--> M(G) --τ_S--> Additive A --(inl)ᵃᵇ--> Additive Eᵃᵇ --(π)ᵃᵇ--> Additive Gᵃᵇ --> 0
+```
+
+is exact, where `π_* = groupHomology.map S.rightHom` on trivial integral coefficients,
+`(inl)ᵃᵇ = (Abelianization.of.comp S.inl).toAdditive` and
+`(π)ᵃᵇ = (Abelianization.map S.rightHom).toAdditive`. The four exactness statements are separate
+theorems:
+
+- `extensionClassMap_exact_left`: `range π_* = ker τ_S`;
+- `extensionClassMap_exact_mid`: `range τ_S = ker (inl)ᵃᵇ`, the kernel elements that become trivial
+  in `Eᵃᵇ`;
+- `abelianization_exact_of_extension`: `range (inl)ᵃᵇ = ker (π)ᵃᵇ`;
+- `abelianization_map_surjective`: `(π)ᵃᵇ` is onto.
+
+The last two need only a group extension with abelian kernel; centrality is used for the first two.
+
+Two corollaries for **stem** extensions (`S.inl.range ≤ commutator E`):
+
+- `extensionClassMap_surjective_of_stem`: `τ_S` is onto;
+- `abelianization_map_bijective_of_stem`: `(π)ᵃᵇ` is an isomorphism `Eᵃᵇ ≃ Gᵃᵇ`.
+
+*Proof sketch.* The Hochschild–Serre spectral sequence of the extension with trivial integral
+coefficients has `E²_(p,q) = H_p(G, H_q(A, ℤ))`; centrality makes the action of `G` on `H_q(A, ℤ)`
+trivial and `H₁(A, ℤ) = A`. Its low-degree terms give the five-term sequence, with the differential
+`d² : E²_(2,0) = M(G) → E²_(0,1) = A` as the middle map. Identify that differential with `τ_S` by
+computing it on the section cocycle (both are the transgression of the factor set); this fixes the
+sign as in `extensionClassMap_commutator`. The tail `A → Eᵃᵇ → Gᵃᵇ → 0` is the elementary statement
+that `Eᵃᵇ/(image of A) = (E/A)ᵃᵇ`. A route avoiding spectral sequences applies Hopf's formula to a
+free presentation `F → E` and its composite with `E → G`: with `R ⊆ T ⊆ F` the kernels,
+`M(G) = (T ∩ [F,F])/[F,T]`, `M(E) = (R ∩ [F,F])/[F,R]`, `A = T/R`, and the map `M(G) → A` is induced
+by the inclusion `T ∩ [F,F] ⊆ T`; its kernel is `((R ∩ [F,F])[F,T])/[F,T]` because `[F,T] ⊆ R` by
+centrality. *Needs:* RS.0.3; Mathlib `groupHomology.map`, `Abelianization`, `Abelianization.map`,
+`commutator`.
+
+*Source.* Löh, *Group Cohomology*, Theorem 3.2.12 (Hochschild–Serre spectral sequence), p. 123,
+Proposition 3.2.13, p. 124, and Remark 3.2.14 (naturality), p. 125; the low-degree argument is the
+one of the proof of Theorem 3.2.18 (Hopf's formula), pp. 129–131; Hopf's formula itself is Theorem
+1.5.1, p. 30, and `H₁` is the abelianization by Theorem 1.4.1, p. 20. The identification of the
+middle map with the commutator class is Wood (2021), §2.1, p. 2.
+
+**Checks.**
+
+- `extensionFiveTerm_test_1` (split central): for `A × G → G`, `(inl)ᵃᵇ` is injective and `(π)ᵃᵇ` is
+  onto, including for infinite `A`.
+- `extensionFiveTerm_test_2` (abelian total group): for `C₂ → C₄ → C₂`, `(inl)ᵃᵇ` is injective and
+  `ker (π)ᵃᵇ` has order two; `τ = 0` does not force a splitting.
+- `extensionFiveTerm_test_3` (stem): for `C₂ → D₈ → C₂ × C₂`, `(inl)ᵃᵇ = 0`, `τ` is onto and `(π)ᵃᵇ`
+  is bijective. A statement claiming injectivity of `(inl)ᵃᵇ` in general fails here.
+- `extensionFiveTerm_test_4` (centrality needed for the middle terms): for `C₃ → C₃ ⋊ C₂ → C₂` with
+  inversion (the symmetric group `S₃`), the kernel is not central, `(inl)ᵃᵇ = 0` because
+  `[t, a] = a⁻² = a` generates `C₃`, and `(π)ᵃᵇ` is bijective; the tail exactness holds without
+  centrality, and no class map is defined.
+
+### RS.0.5 Schur covers with an oriented kernel identification
+
+**`IsSchurCover`.** For a finite group `G`, a central extension `S : GroupExtension A E G` is a
+*Schur cover* if it is stem (`S.inl.range ≤ commutator E`) and `τ_S : M(G) → Additive A` is
+bijective. Write `τ_S` also for the resulting additive isomorphism `M(G) ≃+ Additive A`; it is the
+oriented kernel identification used throughout: a commuting pair `(x, y)` goes to the commutator of
+its lifts.
+
+The API:
+
+- `IsSchurCover.stem`, `IsSchurCover.bijective`: the two fields.
+- `IsSchurCover.card_ker`: `|A| = |M(G)|`.
+- `IsSchurCover.abelianizationEquiv`: `Eᵃᵇ ≃* Gᵃᵇ` through `S.rightHom` (from
+  `abelianization_map_bijective_of_stem`).
+- `IsSchurCover.equiv_of_mulEquiv`: transport along an isomorphism of extensions over `G`.
+
+Prove:
+
+- `isSchurCover_of_stem_card`: a stem central extension of a finite group with `|A| = |M(G)|` is a
+  Schur cover (`τ_S` is onto by RS.0.4, and the orders agree).
+- `isSchurCover_of_representationGroup`: the representation group of InductionRestriction, Layer 7
+  (a finite stem central extension whose kernel has the order of `H²(G, ℂˣ)`) is a Schur cover, by
+  `integralEvaluation_bijective_of_divisible`.
+- `exists_isSchurCover`: every finite group has a Schur cover with finite total group.
+
+*Proof sketch.* `isSchurCover_of_stem_card` is a counting argument on RS.0.4. For the representation
+group, `|A| = |H²(G, ℂˣ)| = |Hom(M(G), ℂˣ)| = |M(G)|` (RS.0.2, divisible case) and the stem property
+gives surjectivity. Existence is then the existence of a representation group. *Needs:* RS.0.2,
+RS.0.4, RS.0.6; InductionRestriction, Layer 7 (representation groups).
+
+*Source.* Wood (2021), §2.1, p. 2, for the use of a Schur cover with kernel identified with
+`H₂(G, ℤ)` through commutators of lifts; Löh, *Group Cohomology*, Outlook 1.5.15, p. 40, for the
+universal central extension and the Schur multiplier.
+
+**Checks.**
+
+- `IsSchurCover_test_1` (degenerate): for `G` trivial, the identity extension of the trivial group
+  is a Schur cover.
+- `IsSchurCover_test_2` (two covers): both `D₈ → C₂ × C₂` and `Q₈ → C₂ × C₂` are Schur covers, and
+  `D₈` and `Q₈` are not isomorphic: Schur covers are not unique.
+- `IsSchurCover_test_3` (non-example): `C₄ → C₂` is central with kernel of order two but is not a
+  Schur cover, since `M(C₂) = 0` and the kernel is not in `[C₄, C₄] = 1`.
+
+### RS.0.6 Finite integral homology
+
+Prove, for a finite group `G` and `n ≥ 1`, on the carrier `groupHomology (Rep.trivial ℤ G ℤ) n`:
+
+- `integralHomology_finite`: the group is finite;
+- `integralHomology_card_smul`: `Nat.card G • z = 0` for every element `z`.
+
+In particular `M(G)` is finite of exponent dividing `|G|`. Degree zero is excluded: `H₀(G, ℤ) = ℤ`.
+
+*Proof sketch.* Annihilation: apply corestriction after transfer to the trivial subgroup; the
+composite is multiplication by `[G : 1] = |G|` and factors through the homology of the trivial
+group, which vanishes in positive degrees
+(`groupHomology.isZero_groupHomology_succ_of_subsingleton`). The current Tau Ceti library has the
+transfer and this composite as `TauCeti.groupHomology.transfer` and
+`TauCeti.groupHomology.transfer_comp_map_subtype_id`
+(`TauCeti/RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`; it postdates the
+pin). Finiteness: the chain module `(Fin n → G) →₀ ℤ` is finite free, so its homology is a finitely
+generated abelian group, and a finitely generated abelian group of finite exponent is finite.
+*Needs:* Mathlib `groupHomology`, `groupHomology.isZero_groupHomology_succ_of_subsingleton`,
+`groupHomology.inhomogeneousChains`.
+
+*Source.* Löh, *Group Cohomology*, Theorem 1.7.15 (transfer), p. 64, and its application to the
+trivial subgroup in the proof of Corollary 1.7.16, pp. 64–65.
+
+**Checks.**
+
+- `integralHomology_test_1` (degenerate): the trivial group has zero homology in every positive
+  degree.
+- `integralHomology_test_2` (cyclic): `H_(2k+1)(C₂, ℤ) ≅ C₂` and `H_(2k+2)(C₂, ℤ) = 0` for `k ≥ 0`
+  (Mathlib's `Rep.FiniteCyclicGroup.groupHomologyIsoOdd`, `groupHomologyIsoEven`); this rejects a
+  degree shift and a claim that all positive-degree homology of a finite group vanishes.
+- `integralHomology_test_3` (degree zero excluded): `H₀(C₂, ℤ) ≅ ℤ` is infinite and `2 • [1] ≠ 0`
+  there (`groupHomology.H0IsoOfIsTrivial`).
+
+### RS.0.7 The multiplier of a coprime semidirect product
+
+Let `H` be a normal subgroup of a finite group `G` with `gcd(|H|, [G : H]) = 1` (a normal Hall
+subgroup). For a set of primes `ϖ`, write `M(G)_ϖ` for the `ϖ`-primary part of the finite abelian
+group `M(G)`, and `M(H)_G` for the coinvariants of the conjugation action of `G` on `M(H)`
+(`Representation.Coinvariants`; inner automorphisms of `G` act trivially on `M(G)` and conjugation
+by `H` acts trivially on `M(H)`, so the action factors through `G/H`).
+
+Prove:
+
+- `multiplier_primaryDecomposition`: `M(G) = M(G)_ϖ ⊕ M(G)_ϖ'`, where `ϖ` is the set of primes
+  dividing `|H|` and `ϖ'` its complement, as internal direct sum of the two primary parts.
+- `multiplier_hallPart`: corestriction (`groupHomology.map H.subtype`) induces an isomorphism
+  `M(H)_G ≃+ M(G)_ϖ`.
+- `multiplier_complementPart`: if moreover `G = H ⋊ Γ` with projection `ρ : G → Γ`, then
+  `ρ_* : M(G) → M(Γ)` is onto, restricts to an isomorphism `M(G)_ϖ' ≃+ M(Γ)`, and has kernel exactly
+  `M(G)_ϖ`. Hence `M(H ⋊ Γ) ≅ M(H)_Γ ⊕ M(Γ)` with the displayed maps.
+
+*Proof sketch.* `M(G)` is finite of exponent dividing `|G|` (RS.0.6), so it splits into its primary
+parts (Mathlib's finite abelian primary decomposition). Write `m = [G : H]`. Corestriction after
+transfer is `m` (current Tau Ceti `transfer_comp_map_subtype_id`); transfer after corestriction on
+`M(H)` is the norm `Σ_(gH ∈ G/H) (c_g)_*` (the chain-level formula for the transfer, Löh §1.7.3, pp.
+63–64, with `H` normal), which induces multiplication by `m` on the coinvariants. As `m` is
+invertible on the `ϖ`-groups `M(H)_G` and `M(G)_ϖ`, corestriction is injective on `M(H)_G` and onto
+`M(G)_ϖ`. For the complement part: `ρ` has a section `Γ → G`, so `ρ_*` is onto (functoriality);
+`M(Γ)` is killed by `|Γ|`, coprime to `|H|`, so `ρ_*` kills `M(G)_ϖ`; and if `x ∈ M(G)_ϖ'` has
+`ρ_* x = 0`, then with `ι : Γ → G` the section, `|H| · x = ι_*(tr x)` (corestriction after transfer
+to `ι(Γ)`, of index `|H|`) and `tr x = ρ_* ι_* tr x = |H| · ρ_* x = 0`, so `x = 0` because `|H|` is
+invertible on `M(G)_ϖ'`. The Hochschild–Serre spectral sequence gives the same result: for coprime
+orders every `E²_(p,q)` with `p, q > 0` vanishes, and the possible differential `d³` from a
+subquotient of `H₃(Γ, ℤ)` (killed by `|Γ|`) into `M(H)_Γ` (killed by `|H|`) is zero. *Needs:*
+RS.0.6; Mathlib `groupHomology.map`, `groupHomology.map_comp`, `Representation.Coinvariants`,
+`SemidirectProduct`, `AddCommGroup.equiv_directSum_zmod_of_finite`; current Tau Ceti
+`TauCeti.groupHomology.transfer`, `TauCeti.groupHomology.transfer_comp_map_subtype_id`.
+
+*Source.* Löh, *Group Cohomology*, Theorem 1.7.15, p. 64, and the chain-level description of the
+transfer, pp. 63–64; for the spectral-sequence route, Theorem 3.2.12, p. 123, and Proposition
+3.2.13, p. 124. The use in the source papers is Liu–Wood–Zureick-Brown, Lemma 12.10 and its proof
+(published version pp. 62–63), and Ellenberg–Venkatesh–Westerland, Example 9.3.2 (arXiv v1, p. 57).
+
+**Checks.**
+
+- `multiplier_hallPart_test_1` (trivial complement): for `Γ = 1` the inclusion `H → H ⋊ 1` induces a
+  bijection on multipliers; the map, not only the orders, is tested.
+- `multiplier_hallPart_test_2` (action on the multiplier): `H = C₃ × C₃` with `Γ = C₂` acting by
+  inversion. Then `M(H) ≅ Λ²H ≅ C₃` and inversion acts on `Λ²H` by `(−1)² = 1`, so the coinvariants
+  are `C₃` and `M(H ⋊ C₂) ≅ C₃`. Replacing the induced action on `M(H)` by inversion would wrongly
+  give `0`.
+- `multiplier_hallPart_test_3` (coprimality needed): with trivial action on `C₂ × C₂`, both factor
+  multipliers vanish but `M(C₂ × C₂) ≅ C₂`; the inclusion of the first factor is not onto the kernel
+  of the projection to the second, so the statement fails without coprime orders.
+
+### RS.0.8 Conjugacy of cyclic complements of coprime order
+
+Prove `complement_conj_of_cyclic_quotient`: let `G` be a finite group, `H` a normal subgroup with
+`gcd(|H|, [G : H]) = 1` and `G/H` cyclic, and `C`, `K` two complements of `H`
+(`Subgroup.IsComplement'`). Then `K = h C h⁻¹` for some `h ∈ H`.
+
+Prove the semidirect form `cyclic_coprime_complement_conjugacy`: let `H` and `C` be finite groups of
+coprime orders with `C` cyclic, `φ : C →* MulAut H`, and `K ≤ H ⋊[φ] C` a subgroup on which the
+projection `SemidirectProduct.rightHom` is bijective. Then there is `h ∈ H` such that, for every
+`c ∈ C`, `inl h * inr c * (inl h)⁻¹` is the unique element of `K` over `c`.
+
+Prove the consequence `cyclic_subgroup_conj_to_complement` used in Layer RS.5: if `g ∈ H ⋊ Γ`
+(finite, coprime orders, arbitrary `Γ`) has the same order as `ρ(g)`, then `g = h · inr(ρ(g)) · h⁻¹`
+for some `h ∈ H`; apply the theorem inside the preimage of `⟨ρ(g)⟩`, to which `⟨g⟩` is a complement.
+
+*Proof sketch.* Induct on `|G|`, with `G = HC`. If `C = 1`, `K = 1`. Otherwise let `p` divide `|C|`,
+and let `P ≤ C`, `P' ≤ K` be the Sylow `p`-subgroups of these cyclic groups; both are Sylow in the
+whole group because `p ∤ |H|`. Sylow's theorem gives `P' = g P g⁻¹`, and writing `g = h c` with
+`c ∈ C` normalising `P` we may take `g = h ∈ H`; replace `K` by `h⁻¹ K h`, so `P ≤ K ∩ C`. Both `K`
+and `C` normalise `P`, so lie in `N = N(P)`. If `N` is proper, `N = (H ∩ N) C` with `H ∩ N` normal
+in `N`, and induction applies inside `N`. If `P` is normal, then `H` and `P` are normal with trivial
+intersection, so they commute, and `C` (abelian) centralises `P`; so `P` is central, and induction
+in `G/P` (with normal subgroup `HP/P ≅ H`) produces `h` with `h C h⁻¹ P = K P`, whence `h C h⁻¹ = K`
+as both contain `P`. No solvability hypothesis on `H` is needed. *Needs:* Mathlib
+`SemidirectProduct`, `Sylow`, `Sylow.exists_eq_conj` style conjugacy (`Sylow.isPretransitive`),
+`Subgroup.normalizer`, `QuotientGroup`, `Subgroup.exists_right_complement'_of_coprime` (existence
+only; it does not give conjugacy).
+
+*Source.* Conrad, *The Schur–Zassenhaus theorem* (expository note), Remark 5, p. 4, for the
+conjugacy part of the theorem, and the second proof of Theorem 1, pp. 3–4, for the Sylow-normaliser
+induction used above; Example 2, p. 1, treats a cyclic quotient for existence only.
+
+**Checks.**
+
+- `cyclicComplement_test_1` (base case): if `C` is trivial and the projection is bijective on `K`,
+  then `K = ⊥`, even when `H` is nontrivial.
+- `cyclicComplement_test_2` (orientation): in `C₃ ⋊ C₂` with inversion, writing `a` for a generator
+  of `C₃` and `t` for that of `C₂`, `K = ⟨(a, t)⟩` projects bijectively onto `C₂`, and
+  `a⁻¹ (1, t) a = (a, t)` while `a (1, t) a⁻¹ = (a², t) ≠ (a, t)`: the conjugating element is `a⁻¹`,
+  not `a`.
+- `cyclicComplement_test_3` (coprimality needed): with trivial action on `C₂ × C₂`, the diagonal
+  `K = ⟨(a, a)⟩` projects bijectively onto the second factor, but conjugation is trivial in this
+  abelian group, so no element conjugates `inr(C₂)` to `K`.
+
+### Examples
+
+- For `G = C₂ × C₂`: `M(G) ≅ C₂`, evaluation is bijective for every `A` with `Ext¹(G, A) = 0`, the
+  two Schur covers are `D₈` and `Q₈`, and in both the class map sends the commuting class of the
+  basis to the central involution.
+- For `G = S₃ = C₃ ⋊ C₂`: `M(C₃) = M(C₂) = 0`, so `M(S₃) = 0` by RS.0.7, and the identity extension
+  `S₃ → S₃` is a Schur cover (it is stem with trivial kernel).
+
+### Dependencies
+
+Mathlib (group homology and cohomology in low degrees, abelianization, presentations, semidirect
+products, Sylow theory, projective modules, `Ext`); Tau Ceti (factor sets and their classes,
+splitting criterion); InductionRestriction, Layer 7 (representation groups). The current Tau Ceti
+library's transfer, Kronecker evaluation and projective-presentation `Ext` are reused once the pin
+moves past them.
+
+## Layer RS.1: Commuting-pair classes and reduced Schur covers
+
+The reduced multiplier is defined on the integral homology carrier before any cover is chosen;
+covers enter only through the oriented kernel identification of Layer RS.0. The key consequence is
+that, in a reduced cover, every lift of an element of c commutes with every lift of its centraliser,
+so conjugacy classes over c lift bijectively and lifted markings are canonical up to one central
+factor per class.
+
+### RS.1.1 Commutator of lifts
+
+**`liftCommutator`.** For a central GroupExtension A E G, commuting x,y∈G, and arbitrary lifts
+X,Y∈E, define κ_E(x,y)∈A by inl(κ_E(x,y))=XYX⁻¹Y⁻¹. Surjectivity supplies lifts, exactness gives
+kernel membership, and injectivity supplies a unique preimage. Centrality means inl(A)⊆Z(E).
+
+*Construction.* Use exactness to extract a kernel element; differences between lifts lie in the
+central kernel. In the Lean file `liftCommutatorElem S x y` is the commutator of the chosen lifts
+(`Function.surjInv` of the projection) and `liftCommutator` is its preimage in A.
+
+The API:
+
+- `liftCommutator_inl`: inl(κ_E(x,y))=XYX⁻¹Y⁻¹ for any lifts X,Y.
+- `liftCommutator_independent`: Changing either lift by any kernel element leaves κ_E(x,y)
+  unchanged.
+- `liftCommutator_swap`: κ_E(y,x)=κ_E(x,y)⁻¹.
+- `liftCommutator_map`: A map of central extensions sends κ_E(x,y) to κ_E′(f(x),f(y)) through its
+  specified kernel map.
+
+*Needs:* `GroupExtension` (Mathlib).
+
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2.1, author PDF p.2.
+
+**Checks.**
+
+- `liftCommutator_test_1` (degenerate): κ_E(1,y)=1.
+- `liftCommutator_test_2` (compatibility): In the split direct-product extension A×G→G, κ_E(x,y)=1
+  for every commuting pair.
+- `liftCommutator_test_3` (computation): For either D₈→C₂² or Q₈→C₂², lifts of two independent basis
+  elements have commutator equal to the nonidentity central element.
+
+### RS.1.2 The oriented commuting-pair cycle
+
+Prove `commuting_pair_cycle`: For xy=yx, [x|y]−[y|x] with integral coefficient 1 belongs to
+groupHomology.cycles₂ (Rep.trivial ℤ G ℤ). The orientation is x followed by y.
+
+*Proof sketch.* The existing d₂₁ sends [x|y] to [y]−[xy]+[x]; subtract the reversed formula and use
+xy=yx. The chain is `commutingPairCycle x y` and the membership is `commutingPairCycle_mem`.
+
+*Needs:* `Rep.trivial` (Mathlib); `groupHomology.cycles₂` (Mathlib).
+
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2.1, author PDF p.2.
+
+**Checks.**
+
+- Reversing the pair negates the cycle; the coefficient is 1, not 0.
+
+### RS.1.3 Universal homological commutator
+
+**`homologicalCommutator`.** For commuting x,y∈G define ⟨x,y⟩ as H2π applied to the oriented cycle
+[x|y]−[y|x], in M(G)=H₂(G,ℤ). Equivalently it is the image of the oriented generator of H₂(ℤ²,ℤ)
+under (a,b)↦xᵃyᵇ.
+
+*Construction.* Apply `groupHomology.H2π` to the cycle of RS.1.2. The second description is
+`homologicalCommutator_map` applied to the homomorphism ℤ² → G, (a,b) ↦ xᵃyᵇ, and the class of
+`[e₁|e₂] − [e₂|e₁]` in M(ℤ²) ≅ ℤ. The value under a class map is `extensionClassMap_commutator`
+(RS.0.3).
+
+The API:
+
+- `homologicalCommutator_cycle`: ⟨x,y⟩=H2π([x|y]−[y|x]).
+- `homologicalCommutator_swap`: ⟨y,x⟩=−⟨x,y⟩.
+- `homologicalCommutator_map`: For any f:G→H, f_\*(⟨x,y⟩)=⟨f(x),f(y)⟩.
+- `homologicalCommutator_central_extension`: The UCT class map τ_E sends ⟨x,y⟩ to κ_E(x,y), using
+  the XYX⁻¹Y⁻¹ convention.
+
+*Needs:* RS.1.2; `groupHomology.H2π` (Mathlib); `groupHomology.H2` (Mathlib); `groupHomology.map`
+(Mathlib). The central-extension compatibility API also needs RS.0.1 and the oriented class map
+RS.0.3.
+
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2.1, author PDF p.2.
+
+**Checks.**
+
+- `homologicalCommutator_test_1` (degenerate): ⟨1,y⟩=0, since the displayed cycle is a boundary.
+- `homologicalCommutator_test_2` (computation): For G=C₂² and independent x,y, ⟨x,y⟩ is the nonzero
+  element of M(G)≅C₂.
+- `homologicalCommutator_test_3` (non-example): For G=ℤ² the ordered basis gives the positive
+  generator; swapping gives its negative, not the same integer.
+
+### RS.1.4 Commuting-pair classes respect orders
+
+Prove `commutator_order`: For commuting x,y, the homological commutator is additive in each
+commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩. In particular if x is an involution then 2⟨x,y⟩=0.
+
+*Proof sketch.* Work directly in Mathlib's integral inhomogeneous bar chains. Write
+z(a,y)=[a|y]−[y|a] and put
 
 T(a,b;y)=[a|b|y]−[a|y|b]+[y|a|b].
 
-If a and b each commute with y, expand the existing differential `groupHomology.d₃₂_single`. Its four terms on [a|b|y] are [b|y]−[ab|y]+[a|by]−[a|b]. Combining the three differentials and cancelling by=yb and ay=ya gives
+If a and b each commute with y, expand the existing differential `groupHomology.d₃₂_single`. Its
+four terms on [a|b|y] are [b|y]−[ab|y]+[a|by]−[a|b]. Combining the three differentials and
+cancelling by=yb and ay=ya gives
 
 d₃T(a,b;y)=z(a,y)+z(b,y)−z(ab,y).
 
-The assumptions concern only commuting with y; the calculation does not require a and b to commute with each other. Taking a=b=1 gives d₃T(1,1;y)=z(1,y), so the unit cycle is a boundary even in the unnormalized chain model. For n≥0 define the finite chain
+The assumptions concern only commuting with y; the calculation does not require a and b to commute
+with each other. Taking a=b=1 gives d₃T(1,1;y)=z(1,y), so the unit cycle is a boundary even in the
+unnormalized chain model. For n≥0 define the finite chain
 
 Bₙ(x,y)=Σ_(0≤k<n) T(xᵏ,x;y)−T(1,1;y).
 
@@ -436,1252 +773,2254 @@ Each xᵏ commutes with y. The consecutive product terms telescope, yielding
 
 d₃Bₙ(x,y)=n z(x,y)−z(xⁿ,y).
 
-By `groupHomology.boundaries₂`, this difference lies in the image of the native differential. Apply `groupHomology.H2π_eq_iff` to the two cycles, using linearity of H2π, to obtain the stated power law. If x²=1, specialize to n=2 and use the unit-cycle boundary. Swapping the variables and negating z gives the power law in the second variable. This proof uses no finiteness hypothesis, chosen cover, universal coefficient sequence or calculation of the homology of a torus.
+By `groupHomology.boundaries₂`, this difference lies in the image of the native differential. Apply
+`groupHomology.H2π_eq_iff` to the two cycles, using linearity of H2π, to obtain the stated power
+law. If x²=1, specialize to n=2 and use the unit-cycle boundary. Swapping the variables and negating
+z gives the power law in the second variable. This proof uses no finiteness hypothesis, chosen
+cover, universal coefficient sequence or calculation of the homology of a torus.
 
-Needs: RS.1, universal homological commutator and its cycle formula; Mathlib's `groupHomology.d₃₂_single`, `groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` in `RepresentationTheory/Homological/GroupHomology/LowDegree.lean`. The same file's `groupHomology.d₂₁_single` verifies that z(x,y) is a cycle when xy=yx. Subtraction, finite sums and the cycle quotient use the existing ℤ-linear APIs.
+*Needs:* RS.1, universal homological commutator and its cycle formula; Mathlib's
+`groupHomology.d₃₂_single`, `groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` in
+`RepresentationTheory/Homological/GroupHomology/LowDegree.lean`. The same file's
+`groupHomology.d₂₁_single` verifies that z(x,y) is a cycle when xy=yx. Subtraction, finite sums and
+the cycle quotient use the existing ℤ-linear APIs.
 
-Checks: At n=0, B₀=−T(1,1;y) has boundary −z(1,y), so the formula includes the unit case. At n=1 the displayed boundary is zero. At n=2 with x²=1 it shows that 2⟨x,y⟩ vanishes; ⟨x,y⟩ itself can remain nonzero. Reversing the ordered pair changes the sign of its cycle. No class is asserted for a pair that fails the commuting hypothesis.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2.1, author PDF p.2, fixes the oriented cycle representing ⟨x,y⟩. The boundary
+calculation above is a direct deduction from that cycle and Mathlib's stated differential, rather
+than an additional result attributed to Wood.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2, fixes the oriented cycle representing ⟨x,y⟩. The boundary calculation above is a direct deduction from that cycle and Mathlib's stated differential, rather than an additional result attributed to Wood.
+**Checks.**
 
-## RS.2: Universal marked extensions and degree
+- At n=0, B₀=−T(1,1;y) has boundary −z(1,y), so the formula includes the unit case. At n=1 the
+  displayed boundary is zero. At n=2 with x²=1 it shows that 2⟨x,y⟩ vanishes; ⟨x,y⟩ itself can
+  remain nonzero. Reversing the ordered pair changes the sign of its cycle. No class is asserted for
+  a pair that fails the commuting hypothesis.
 
-The presentation and the fiber product have distinct roles. The presentation fixes the canonical marked object; the fiber product exposes its finite and free coordinates. Prove both abelianization calculations before splitting a marked pullback. Correct a splitting by the inverse of its discrepancy on the degree basis; this sign is detected by a C₃ test.
+### RS.1.5 Schur commutator relations
 
-### Marked central extension
+**`schurRelations`.** For conjugacy-invariant c⊆G set Q_c to the additive subgroup of M(G) generated
+by ⟨x,y⟩ with x∈c and y∈C_G(x). No generation or rationality hypothesis on c is needed for this
+quotient.
 
-**Target `marked_extension`.** For conjugacy-invariant generating c⊆G, a c-marked central extension is a GroupExtension A E G with central kernel and a section s:c→E such that s(gxg⁻¹)=e s(x)e⁻¹ whenever π(e)=g. Its marked subset s(c) maps bijectively to c. A morphism is a group homomorphism over G preserving s; a kernel identification need not be fixed.
+*Construction.* Take the subgroup closure of exactly the specified commuting-pair classes.
 
-Construction and proof route: Bundle an existing extension together with marking data and genuine centrality/equivariance conditions.
+The API:
 
-Needs: `GroupExtension` (Mathlib); RS.1, conjugacy-equivariant lifted marking.
+- `schurRelations_mem`: x∈c and xy=yx imply ⟨x,y⟩∈Q_c.
+- `schurRelations_le`: Q_c≤B iff every specified commuting-pair class lies in B.
+- `schurRelations_mono`: c⊆d implies Q_c≤Q_d.
+- `schurRelations_map`: f(c)⊆d implies f_\*(Q_c)⊆Q_d.
 
-Required API:
+*Needs:* RS.1.3.
 
-- `marked_extension_section` (projection): π(s(x))=x for x∈c.
-- `marked_extension_conjugation` (relation): Any e over g conjugates s(x) to s(gxg⁻¹).
-- `marked_extension_hom` (characterisation): A marked morphism f satisfies π′∘f=π and f(s(x))=s′(x).
-- `marked_extension_subset` (compatibility): The section formulation is equivalent to a conjugacy-invariant marked subset mapping bijectively to c.
-- `marked_extension_hom_ext` (extensionality): Marked morphisms out of an extension generated by its marked subset are equal if their values agree on that subset; generation is essential.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
 
-Unit tests:
+**Checks.**
 
-- `marked_extension_test_1` (degenerate): For G=1,c=∅, any central extension A→A→1 has the empty marking.
-- `marked_extension_test_2` (computation): The identity extension G→G has its inclusion marking.
-- `marked_extension_test_3` (non-example): The quotient C₄→C₂ is marked on its nontrivial class using a lift of order 4; the marking is a set-section, not a splitting homomorphism.
+- `schurRelations_test_1` (degenerate): Q_∅=0.
+- `schurRelations_test_2` (computation): For C₂² and c={x} with x nonzero, Q_c=M(C₂²).
+- `schurRelations_test_3` (non-example): For c=∅ in C₂² the quotient retains C₂; it must not be
+  forced trivial by relations from x outside c.
 
-Source: Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1 PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
+### RS.1.6 Reduced Schur multiplier
 
-### Universal marked presentation
+**`ReducedMultiplier`.** Define M(G,c)=H₂(G,c)=M(G)/Q_c as the additive group quotient of the
+existing integral H₂ carrier. It depends functorially on (G,c) under f(c)⊆d and is independent of a
+Schur-cover choice.
 
-**Target `universal_presentation`.** For conjugacy-invariant generating c⊆G, U(G,c) is PresentedGroup on the subtype c, with relation words [x][y][x]⁻¹[xyx⁻¹]⁻¹ for x,y∈c. Write [x] for the canonical generator. The map π_U:U→G sends [x] to x.
+*Construction.* Use the additive quotient by Q_c; induce maps using its universal property.
 
-Construction and proof route: Use Mathlib’s normal-closure presentation; conjugacy invariance types the last generator. Construct the projection by evaluating each relation.
+The API:
 
-Needs: `PresentedGroup` (Mathlib); `PresentedGroup.toGroup` (Mathlib).
+- `reducedMultiplier_mk`: The quotient map M(G)→M(G,c) is onto with kernel Q_c.
+- `reducedMultiplier_lift`: Maps M(G,c)→B correspond to additive maps M(G)→B vanishing on Q_c.
+- `reducedMultiplier_map`: An f with f(c)⊆d gives M(G,c)→M(H,d), with identity and composition laws.
+- `reducedMultiplier_empty`: M(G,∅)≅M(G), through the quotient by the zero subgroup.
 
-Required API:
+*Needs:* RS.1.5; `groupHomology.H2` (Mathlib).
 
-- `universal_presentation_gen` (constructor): For x∈c, [x] is the image of its FreeGroup generator.
-- `universal_presentation_relation` (relation): [x][y][x]⁻¹=[xyx⁻¹].
-- `universal_presentation_projection` (projection): π_U([x])=x.
-- `universal_presentation_lift` (universal-property): A generator map into E satisfying the conjugation relations extends uniquely to a homomorphism U→E.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
 
-Unit tests:
+**Checks.**
 
-- `universal_presentation_test_1` (degenerate): U(1,∅)=1, the group on no generators.
-- `universal_presentation_test_2` (computation): For C₂ and its nonidentity singleton c, U≅ℤ and π_U is reduction modulo 2.
-- `universal_presentation_test_3` (non-example): Do not impose [x]^ord(x)=1: that would turn this C₂ example into C₂ rather than ℤ.
+- `reducedMultiplier_test_1` (degenerate): M(1,c)=0 for either allowed c.
+- `reducedMultiplier_test_2` (computation): For finite cyclic G and any c, M(G,c)=0.
+- `reducedMultiplier_test_3` (computation): M(C₂²,∅)≅C₂ but M(C₂²,{x})=0 for x≠1.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+### RS.1.7 Reduced Schur cover
 
-### The class degree homomorphism
+**`ReducedCover`.** Given a chosen ordinary Schur cover π:S→G and its oriented class isomorphism
+τ_S:M(G)≅kerπ, define S_c=S/τ_S(Q_c). Retain π, τ_S and the cover choice as parameters. The
+descended π_c:S_c→G is a central surjection with kernel canonically identified with M(G,c) for these
+data.
 
-**Target `class_degree_map`.** Let D=c/G and L=D→₀ℤ. Define δ:L→Additive(G^ab) by δ(e_d)=Additive.ofMul(Abelianization.of(x_d)); conjugate representatives give the same value. It is onto when c generates G.
+*Construction.* The image τ_S(Q_c) (in the Lean file `reducedCoverRelations S τ_S c`) lies in the
+central kernel, so it is normal; take the quotient group, descend the projection through
+`QuotientGroup.lift`, and identify the kernel of the descended map with ker π / τ_S(Q_c) ≅ M(G)/Q_c.
 
-Construction and proof route: Extend on the free integral module, and check degree is unchanged by the conjugation relation.
+The API:
 
-Needs: RS.2, universal marked presentation; `Abelianization.of` (Mathlib).
+- `reducedCover_projection`: π_c∘quotient=π.
+- `reducedCover_kernel`: The induced τ_c:M(G,c)≅kerπ_c commutes with the quotient from M(G).
+- `reducedCover_commute`: Lifts of x∈c and y∈C_G(x) commute in S_c.
+- `reducedCover_stem`: The map S_c^ab→G^ab is an isomorphism, inherited from the ordinary stem
+  cover.
 
-Required API:
+*Needs:* RS.1.6; RS.1.1; RS.0.5 (Schur covers and their oriented kernel isomorphism τ_S); RS.0.4
+(`abelianization_map_bijective_of_stem`) for `reducedCover_stem`; Mathlib `QuotientGroup`.
 
-- `class_degree_map_basis` (simp): δ(e_[x])=Additive.ofMul(Abelianization.of(x)).
-- `class_degree_map_surjective` (characterisation): δ is onto when c generates G.
-- `class_degree_map_compatible` (compatibility): The relation δ(deg(u))=Additive.ofMul(Abelianization.of(π_U(u))) is supplied by the separate universal-degree node.
-- `class_degree_map_integer` (data): δ accepts arbitrary integer coefficients; δ(−e_[x]) is the negative of the abelianized image of x.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
 
-Unit tests:
+**Checks.**
 
-- `class_degree_map_test_1` (computation): For C₂ with one nonidentity class, δ:ℤ→C₂ is reduction mod 2.
-- `class_degree_map_test_2` (degenerate): For c=∅, L=0 and δ is the zero map.
-- `class_degree_map_test_3` (non-example): δ(−e_[x]) is defined even though −e_[x] lies outside the nonnegative degree cone.
+- `reducedCover_test_1` (degenerate): For c=∅ the quotient is the chosen S itself.
+- `reducedCover_test_2` (computation): For G=C₂² and c all nonidentity elements, either D₈ or Q₈
+  reduces to G.
+- `reducedCover_test_3` (non-example): For c=∅ the two reduced covers D₈ and Q₈ of C₂² are
+  nonisomorphic: there is no canonical reduced extension determined by G,c.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+### RS.1.8 Centralizers lift commutatively
 
-### The marked fiber product
+Prove `centralizer_lifts`: In a reduced cover S_c→G, if x∈c and y∈C_G(x), any lifts X,Y commute.
+Consequently C_{S_c}(X)→C_G(x) is surjective.
 
-**Target `marked_fiber_product`.** For a chosen reduced cover S_c→G, define P=S_c×_{G^ab}Multiplicative(ℤ^D), the subgroup of S_c×Multiplicative L of pairs (h,m) with [π_c(h)]=δ(m). Give it the marking x↦(x̂,e_[x]) from the class-compatible lifts.
+*Proof sketch.* In S the commutator of lifts is τ_S(⟨x,y⟩) (`extensionClassMap_commutator`), a
+generator of τ_S(Q_c), so it is killed in S_c. A lift of any y ∈ C_G(x) therefore centralises X.
 
-Construction and proof route: Form the native subgroup fiber product; the marking is typed by its abelianization equality.
+*Needs:* RS.1.7; RS.1.1; RS.0.3.
 
-Needs: RS.1, reduced schur cover; RS.2, the class degree homomorphism; RS.1, conjugacy-equivariant lifted marking.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
 
-Required API:
+**Checks.**
 
-- `marked_fiber_product_first` (projection): P→S_c is a surjective group homomorphism when c generates G.
-- `marked_fiber_product_degree` (projection): P→Multiplicative L sends (h,m) to m.
-- `marked_fiber_product_mark` (constructor): For x∈c, the marked point is (x̂,e_[x]).
-- `marked_fiber_product_membership` (characterisation): A pair belongs precisely when [π_c(h)]=δ(m).
+- For c=∅ this conclusion is unavailable; independent basis lifts in D₈ provide a counterexample.
 
-Unit tests:
+### RS.1.9 Conjugacy classes lift bijectively
 
-- `marked_fiber_product_test_1` (computation): For C₂ and singleton c, P={(g,n):g=n mod 2}≅ℤ.
-- `marked_fiber_product_test_2` (degenerate): For G=1,c=∅ and the trivial Schur cover, P=1.
-- `marked_fiber_product_test_3` (non-example): For C₂ the pair (nonidentity,0) is absent, so P is not the full direct product C₂×ℤ.
+Prove `conjugacy_bijection`: Every conjugacy class in S_c with image contained in c∪{1} maps
+bijectively to its image conjugacy class in G. No uniqueness is asserted for which class above a
+class of c is chosen.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+*Proof sketch.* Surjectivity follows by lifting conjugators; two conjugators with equal image on x
+differ by a centralizer lift, which fixes X. Kernel elements are central singletons.
 
-### Commutators of the marked fiber product
+*Needs:* RS.1.8.
 
-**Target `fiber_product_commutator`.** If c generates G, then [P,P]=[S_c,S_c]×{0}, as a subgroup of S_c×Multiplicative L. More generally, this calculation applies to the pullback of any π:S→G along δ when δ is surjective; π need not be surjective.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4
+p.390 (PDF pp.12,14).
 
-Construction and proof route: Every commutator of pairs has this form; lift both entries of any S_c commutator using surjectivity of δ.
+**Checks.**
 
-Needs: RS.2, the marked fiber product.
+- Several classes above one class can exist, each individually mapping bijectively.
 
-Checks: The integer degree vanishes on every commutator. Generation cannot be omitted: for G=S₃, π=id and c=∅, the pullback P is A₃, so [P,P]=1 while [S₃,S₃]×{0} has order three.
+### RS.1.10 Conjugacy-equivariant lifted marking
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+**`classCompatibleMarking`.** For one representative x_d in each d∈D=c/G, choose a lift X_d∈S_c.
+Define x̂ for x=gx_dg⁻¹ by a lifted conjugator g̃X_dg̃⁻¹. This is independent of g and g̃ but
+retains the initial representative-lift choices.
 
-### Abelianization of the marked fiber product
+*Construction.* Independence uses centrality for g̃ and centralizer-lift commutation for g;
+conjugate the resulting lift for equivariance.
 
-**Target `fiber_product_abelianization`.** If c generates G and the chosen reduced-cover projection induces S_c^ab≅G^ab, then the degree projection induces P^ab≅Multiplicative(ℤ^D), taking the class of (x̂,e_[x]) to e_[x]. The reduced cover inherits this abelianization isomorphism from the parent's ordinary stem cover.
+The API:
 
-Construction and proof route: Quotient the commutator subgroup, then use S_c^ab≅G^ab to identify the remaining pullback with L.
+- `classCompatibleMarking_over`: π_c(x̂)=x.
+- `classCompatibleMarking_conj`: The lift of gxg⁻¹ equals g̃x̂g̃⁻¹ for any lift g̃.
+- `classCompatibleMarking_rep`: The marking takes x_d to the chosen X_d.
+- `classCompatibleMarking_change`: Changing X_d by a_d∈M(G,c) changes every marked lift in d by the
+  same central a_d.
+- `classCompatibleMarking_ext`: Two conjugacy-equivariant markings agree if they agree at every
+  chosen class representative.
 
-Needs: RS.2, commutators of the marked fiber product; RS.1, reduced schur cover; `Abelianization.lift` (Mathlib).
+*Needs:* RS.1.9.
 
-Checks: For G=S₃, π=id and c=∅, P^ab≅C₃ while L=0. This rejects the formula without generation, even when the map on abelianizations is an isomorphism.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Definition of H₂(G,c), followed by Lemma 2.3, author PDF p.3.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+**Checks.**
 
-### Split the marked pullback extension
+- `classCompatibleMarking_test_1` (degenerate): If c=∅, the marking is the unique empty function.
+- `classCompatibleMarking_test_2` (computation): For a cyclic group with its identity reduced cover,
+  marking is the inclusion on c.
+- `classCompatibleMarking_test_3` (non-example): For nonempty c and nontrivial reduced kernel A,
+  multiplying the chosen lift of one class by a nonidentity a∈A gives a different marking; the
+  class-compatible construction does not erase this choice.
 
-**Target `marked_pullback_split`.** For a marked central extension E→G, its pullback along P→G has a group-homomorphic splitting. This statement allows arbitrary abelian kernel A, including the infinite kernel of U→G.
+### RS.1.11 Local class normalization
 
-Construction and proof route: The class map of E kills Q_c. The homological map out of P factors through S_c and is zero after reduction. Since P^ab is free, the pullback class has zero evaluation under the injective map `integral_uct_evaluation_free`, so it vanishes. The direct projective-quotient proof of that specialization applies to this possibly infinite P and to every abelian A.
+**`localClassNormalization`.** Assume c is one conjugacy class, choose c₀∈c, and let E=S_c. For e
+with π_c(e)∈c∪{1}, define z(e) to be the unique element in its conjugacy class mapping to c₀ if
+π_c(e)∈c, and e itself if π_c(e)=1.
 
-Needs: RS.1, reduced-cover homology composite vanishes; RS.2, abelianization of the marked fiber product; RS.2, marked central extension; `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero` (Tau Ceti); [native evaluation and its free-abelianization injectivity](#native-uct-evaluation) for the possibly infinite central kernel. This splitting step uses the canonical evaluation and its native cohomology comparison, but does not need the general Ext injection or arbitrary-rank subgroup-freeness.
+*Construction.* Apply the individual-class bijection; no arithmetic lift or global product is
+constructed here.
 
-Checks: A UCT only for finite A is insufficient here.
+The API:
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+- `localClassNormalization_image`: π_c(z(e)) is c₀ or 1 according to the branch.
+- `localClassNormalization_conj`: z(e) lies in the conjugacy class of e and is invariant under
+  conjugating e.
+- `localClassNormalization_fixed`: If π_c(e)∈{1,c₀}, z(e)=e.
+- `localClassNormalization_mul_kernel`: For a∈kerπ_c and allowed e, z(ae)=a·z(e); central
+  multiplication transports the unique conjugate over c₀.
 
-### Marking-preserving splitting correction
+*Needs:* RS.1.9.
 
-**Target `marking_correction`.** Suppose φ:P→E is a homomorphism over G and φ(x̂,e_[x])=s(x)k_x with k_x∈A. The discrepancy depends only on [x]. Let ψ:P→A be the homomorphism factoring through deg:P→ℤ^D with ψ(e_[x])=k_x. Define φ_corr(p)=φ(p) inl(ψ(p))⁻¹.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4
+p.390 (PDF pp.12,14).
 
-Construction and proof route: Centrality makes the product a homomorphism; the free-degree universal property constructs ψ; cancel the discrepancy with its inverse.
+**Checks.**
 
-Needs: RS.2, split the marked pullback extension; RS.2, abelianization of the marked fiber product.
+- `localClassNormalization_test_1` (degenerate): For a kernel element a, z(a)=a.
+- `localClassNormalization_test_2` (computation): For S₃ with c the transpositions and c₀=(12),
+  z((23))=(12) in its identity reduced cover.
+- `localClassNormalization_test_3` (non-example): For several conjugacy classes c, one c₀ cannot
+  normalize elements from all classes; the single-class hypothesis is essential.
 
-Required API:
+### RS.1.12 Local normalized factors commute
 
-- `marking_correction_over` (projection): φ_corr has the same projection to G as φ.
-- `marking_correction_mark` (simp): φ_corr(x̂,e_[x])=s(x).
-- `marking_correction_hom` (structure): φ_corr(pq)=φ_corr(p)φ_corr(q).
-- `marking_correction_sign` (compatibility): The correcting factor is ψ⁻¹ when the recorded discrepancy is φ(mark)=s·ψ.
+Prove `local_factors_commute`: Any two elements of a central extension mapping to {1,c₀} commute. In
+particular all z(e) in the preceding single-class construction commute.
 
-Unit tests:
+*Proof sketch.* Kernel factors are central; two elements above c₀ differ by a central kernel factor.
 
-- `marking_correction_test_1` (degenerate): If all k_x=1 then φ_corr=φ.
-- `marking_correction_test_2` (computation): Take P=A=E=Multiplicative(C₃), with φ, inl and ψ all the identity homomorphism and target marking 1. Evaluating φ_corr at the additive generator 1 gives the multiplicative identity, whereas multiplying the two uncorrected factors gives the additive class 2. The test evaluates the correction itself; the numerical identity 1−1=0 alone would not detect a wrong definition.
-- `marking_correction_test_3` (non-example): With the same identity homomorphisms, every nonidentity k∈Multiplicative(C₃) satisfies φ_corr(k)=1 and k²≠φ_corr(k). Thus the wrong-sign product fails at the specified marked point rather than merely satisfying an unrelated arithmetic inequality.
+*Needs:* RS.1.11; `GroupExtension` (Mathlib).
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 and Lemmas 3.3–3.4
+p.390 (PDF pp.12,14).
 
-### Degree of a marked word
+**Checks.**
 
-**Target `universal_degree`.** Define deg:U(G,c)→Multiplicative(ℤ^D) by deg([x])=e_[x]. It is a group homomorphism with δ(deg(u)) the abelianized image of π_U(u).
+- In D₈ → C₂², two lifts of the same element commute (they differ by a central factor), while lifts
+  of the two basis elements do not; the hypothesis that both factors lie over {1, c₀} cannot be
+  weakened to lying over c.
 
-Construction and proof route: Each conjugation relator has degree zero, so the free generator degree descends.
+### RS.1.13 Reduced-cover homology image
 
-Needs: RS.2, universal marked presentation; RS.2, the class degree homomorphism.
+Prove `homology_image`: for the reduced cover π_c : S_c → G of a Schur cover, im(H₂(S_c,ℤ) → M(G)) =
+Q_c. In particular the composite H₂(S_c,ℤ) → M(G) → M(G,c) is zero.
 
-Required API:
+*Proof sketch.* The quotient S → S_c is a map of central extensions over the identity of G whose
+kernel map is the quotient ker π → ker π_c, so by naturality (RS.0.3) the class map of S_c is the
+quotient M(G) → M(G,c) read through τ_c. Exactness at M(G) of the five-term sequence (RS.0.4)
+identifies the image of H₂(S_c,ℤ) with its kernel Q_c. Functoriality alone gives only the inclusion
+of the image in Q_c.
 
-- `universal_degree_generator` (simp): deg([x])=e_[x].
-- `universal_degree_inverse` (simp): deg([x]⁻¹)=−e_[x].
-- `universal_degree_abelianization` (compatibility): δ∘deg is the additive spelling of the abelianized projection.
-- `universal_degree_hom` (structure): deg(uv)=deg(u)+deg(v) in additive lattice notation.
+*Needs:* RS.1.7; RS.0.3; RS.0.4 (`extensionClassMap_exact_left`); `groupHomology.map` (Mathlib).
 
-Unit tests:
+*Source.* Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the
+Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §7.3, paragraph after
+the definition, arXiv v1 PDF p.34.
 
-- `universal_degree_test_1` (computation): For the one-class C₂ example, deg identifies U=ℤ with ℤ.
-- `universal_degree_test_2` (degenerate): deg(1)=0.
-- `universal_degree_test_3` (non-example): deg([x]⁻¹)=−e_[x] is not a nonnegative degree.
+**Checks.**
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+- The equality is stronger than Wood Lemma 2.2, and is not inferred from the zero composite alone.
 
-### Conjugation by a marked word
+### RS.1.14 Reduced-cover homology composite vanishes
 
-**Target `word_conjugation`.** For w=[g₁]^a₁⋯[g_k]^a_k and x∈c, w[x]w⁻¹=[π_U(w)xπ_U(w)⁻¹]. The inverse word is [g_k]^−a_k⋯[g₁]^−a₁.
+Prove `homology_composite_zero`: The composite H₂(S_c,ℤ)→M(G)→M(G,c) is zero.
 
-Construction and proof route: Induct on a free word, using the defining relation and its inverse form; then descend the quotient.
+*Proof sketch.* Compose the image equality with the quotient map.
 
-Needs: RS.2, universal marked presentation; RS.2, degree of a marked word.
+*Needs:* RS.1.13.
 
-Checks: The word with one exponent −1 verifies that inverse conjugators use negative exponents.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Lemma 2.2 and proof, author PDF p.3.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+**Checks.**
 
-### The presentation is a central extension
+- For c=∅ this says a Schur-cover homology map to M(G) is zero.
 
-**Target `universal_central`.** If c generates G, π_U is onto and kerπ_U⊆Z(U); x↦[x] is a conjugacy-equivariant section on c.
+### Examples
 
-Construction and proof route: Generation proves surjectivity. A kernel word fixes every generator by word conjugation, hence commutes with all U.
+- G = C₂ × C₂, c = ∅: Q_c = 0, M(G,c) = M(G) ≅ C₂, and the reduced covers are the Schur covers D₈
+  and Q₈ themselves. With c all three nonidentity elements, Q_c = M(G) and S_c = G.
+- G = S₃, c the transpositions: M(S₃) = 0, so M(G,c) = 0, the identity is the (unique) reduced
+  cover, and the marking is the inclusion of c.
+- The power law ⟨xⁿ, y⟩ = n⟨x, y⟩ with x an involution shows that every class ⟨x, y⟩ with x ∈ c has
+  order at most two when c consists of involutions; this is what makes Q_c vanish in odd-order
+  multipliers (RS.6.1).
 
-Needs: RS.2, conjugation by a marked word; RS.2, universal marked presentation; RS.2, degree of a marked word.
+### Dependencies
 
-Checks: If c does not generate G, the projection need not be onto.
+Layer RS.0 (class maps, five-term sequence, Schur covers); Mathlib group homology in degree two.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+## Layer RS.2: Universal marked extensions and degree
 
-### Universal marked central extension
+The universal marked extension has two models with different roles: the presentation U(G,c) is
+choice-free and has the universal property by construction; the fiber product P = S_c ×_{Gᵃᵇ} L
+exposes the finite reduced multiplier and the free degree lattice. Their comparison runs through a
+splitting of a pulled-back extension, which needs the universal coefficient sequence for the
+infinite group P. From RS.2.6 on, c generates G.
 
-**Target `universal_marked_property`.** For every c-marked central extension E→G there is exactly one marked morphism U(G,c)→E. Therefore any two universal marked extensions are uniquely isomorphic through their markings.
+### RS.2.1 Marked central extension
 
-Construction and proof route: Its section satisfies the defining relation. Extend and use the generator universal property for uniqueness.
+**`MarkedExtension`.** For conjugacy-invariant generating c⊆G, a c-marked central extension is a
+GroupExtension A E G with central kernel and a section s:c→E such that s(gxg⁻¹)=e s(x)e⁻¹ whenever
+π(e)=g. Its marked subset s(c) maps bijectively to c. A morphism is a group homomorphism over G
+preserving s; a kernel identification need not be fixed.
 
-Needs: RS.2, the presentation is a central extension; RS.2, marked central extension; `PresentedGroup.toGroup` (Mathlib).
+*Construction.* Bundle an existing extension together with marking data and genuine
+centrality/equivariance conditions. Marked morphisms are the structure `MarkedHom`; conjugation
+invariance of c is the predicate `ConjInvariant c`.
 
-Checks: Uniqueness is for marked maps; ordinary unmarked central extensions do not have this initial object.
+The API:
 
-Source: Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1 PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
+- `markedExtension_section`: π(s(x))=x for x∈c.
+- `markedExtension_conjugation`: Any e over g conjugates s(x) to s(gxg⁻¹).
+- `markedExtension_hom`: A marked morphism f satisfies π′∘f=π and f(s(x))=s′(x).
+- `markedExtension_subset`: The section formulation is equivalent to a conjugacy-invariant marked
+  subset mapping bijectively to c.
+- `markedExtension_hom_ext`: Marked morphisms out of an extension generated by its marked subset are
+  equal if their values agree on that subset; generation is essential.
 
-### Abelianization of the presentation
+*Needs:* `GroupExtension` (Mathlib); RS.1.10.
 
-**Target `presentation_abelianization`.** The degree map identifies U(G,c)^ab with Multiplicative(ℤ^D).
+*Source.* Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the
+Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1
+PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
 
-Construction and proof route: After abelianization the defining relations identify generators in a conjugacy class, with no additional additive relation.
+**Checks.**
 
-Needs: RS.2, universal marked presentation; RS.2, the class degree homomorphism; `Abelianization.lift` (Mathlib); RS.2, degree of a marked word.
+- `markedExtension_test_1` (degenerate): For G=1,c=∅, any central extension A→A→1 has the empty
+  marking.
+- `markedExtension_test_2` (computation): The identity extension G→G has its inclusion marking.
+- `markedExtension_test_3` (non-example): The quotient C₄→C₂ is marked on its nontrivial class using
+  a lift of order 4; the marking is a set-section, not a splitting homomorphism.
 
-Checks: The single C₂ class gives a free ℤ, not C₂.
+### RS.2.2 Universal marked presentation
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+**`UniversalMarked`.** For conjugacy-invariant generating c⊆G, U(G,c) is PresentedGroup on the
+subtype c, with relation words [x][y][x]⁻¹[xyx⁻¹]⁻¹ for x,y∈c. Write [x] for the canonical
+generator. The map π_U:U→G sends [x] to x.
 
-### The fiber product is universal marked
+*Construction.* Use Mathlib’s normal-closure presentation on the relators `markedRelators c hc`;
+conjugacy invariance types the last generator. The projection `universalProjection` evaluates each
+relator (`markedRelators_eval`).
 
-**Target `fiber_product_universal`.** For every marked E→G there is a unique marked morphism P→E.
+The API:
 
-Construction and proof route: Existence uses the corrected splitting. The ratio of two maps over G is a homomorphism to the central kernel, factors through P^ab≅ℤ^D, and vanishes on its marked basis.
+- `universalMarked_gen`: For x∈c, [x] is the image of its FreeGroup generator.
+- `universalMarked_relation`: [x][y][x]⁻¹=[xyx⁻¹].
+- `universalMarked_projection`: π_U([x])=x.
+- `universalMarked_lift`: A generator map into E satisfying the conjugation relations extends
+  uniquely to a homomorphism U→E.
 
-Needs: RS.2, marking-preserving splitting correction; RS.2, abelianization of the marked fiber product; RS.2, degree of a marked word.
+*Needs:* `PresentedGroup` (Mathlib); `PresentedGroup.toGroup` (Mathlib).
 
-Checks: Uniqueness uses the degree basis rather than an unproved claim that marked lifts generate P.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Source: Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1 PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
+**Checks.**
 
-### Presentation and fiber-product comparison
+- `universalMarked_test_1` (degenerate): U(1,∅)=1, the group on no generators.
+- `universalMarked_test_2` (computation): For C₂ and its nonidentity singleton c, U≅ℤ and π_U is
+  reduction modulo 2.
+- `universalMarked_test_3` (non-example): Do not impose [x]^ord(x)=1: that would turn this C₂
+  example into C₂ rather than ℤ.
 
-**Target `presentation_comparison`.** There is a unique marked isomorphism U(G,c)≅P sending [x] to (x̂,e_[x]), compatible with projections and degree. It transports changes of cover and marking choice through the presentation; no canonical isomorphism S_c≅S′_c is asserted.
+### RS.2.3 The class degree homomorphism
 
-Construction and proof route: Initiality yields maps in both directions; uniqueness gives inverse composites.
+**`classDegreeMap`.** Let D=c/G and L=D→₀ℤ. Define δ:L→Additive(G^ab) by
+δ(e_d)=Additive.ofMul(Abelianization.of(x_d)); conjugate representatives give the same value. It is
+onto when c generates G.
 
-Needs: RS.2, the fiber product is universal marked; RS.2, universal marked central extension; RS.2, degree of a marked word.
+*Construction.* Extend on the free integral module `ClassIndex c →₀ ℤ`, where `ClassIndex c` is the
+subtype of conjugacy classes meeting c, using any representative of each class; conjugate
+representatives have the same image in Gᵃᵇ.
 
-Checks: The isomorphism depends on the fiber-product marking but U is the choice-free presentation.
+The API:
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+- `classDegreeMap_basis`: δ(e_[x])=Additive.ofMul(Abelianization.of(x)).
+- `classDegreeMap_surjective`: δ is onto when c generates G.
+- `classDegreeMap_compatible`: δ(deg(u)) = Additive.ofMul(Abelianization.of(π_U(u))) for u ∈ U(G,c);
+  this is `universalDegree_abelianization` of RS.2.4, recorded here as the compatibility of δ with
+  the projection.
+- `classDegreeMap_integer`: δ accepts arbitrary integer coefficients; δ(−e_[x]) is the negative of
+  the abelianized image of x.
 
-### Kernel of the universal marked extension
+*Needs:* RS.2.2; `Abelianization.of` (Mathlib).
 
-**Target `universal_kernel`.** Define K(G,c)=ker(π_U:U→G), using the existing kernel subgroup. Under U≅P it is M(G,c)×ker(δ:L→G^ab). It is central and commutative, even though U generally is not. There is an exact sequence 0→M(G,c)→K→kerδ→0.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Construction and proof route: Restrict the isomorphism to kernels. A pair above 1 has h in the reduced-cover kernel and δ(m)=0.
+**Checks.**
 
-Needs: RS.2, the presentation is a central extension; RS.2, presentation and fiber-product comparison; RS.2, degree of a marked word; `Submodule.basisOfPid` (Mathlib).
+- `classDegreeMap_test_1` (computation): For C₂ with one nonidentity class, δ:ℤ→C₂ is reduction mod 2.
+- `classDegreeMap_test_2` (degenerate): For c=∅, L=0 and δ is the zero map.
+- `classDegreeMap_test_3` (non-example): δ(−e_[x]) is defined even though −e_[x] lies outside the
+  nonnegative degree cone.
 
-Required API:
+### RS.2.4 Degree of a marked word
 
-- `universal_kernel_inclusion` (projection): K→U is the native subgroup inclusion; all its elements commute with U.
-- `universal_kernel_degree` (projection): The degree image of K is exactly kerδ.
-- `universal_kernel_torsion` (characterisation): The torsion subgroup of K is M(G,c), since kerδ is free abelian.
-- `universal_kernel_product` (equivalence): In chosen cover coordinates K≅M(G,c)×kerδ, without a preferred basis for kerδ.
+**`universalDegree`.** Define deg:U(G,c)→Multiplicative(ℤ^D) by deg([x])=e_[x]. It is a group
+homomorphism with δ(deg(u)) the abelianized image of π_U(u).
 
-Unit tests:
+*Construction.* Each conjugation relator has degree zero (`markedRelators_degree`), so the free
+generator degree descends.
 
-- `universal_kernel_test_1` (computation): For G=C₂,c={nonidentity}, K=2ℤ inside U=ℤ.
-- `universal_kernel_test_2` (degenerate): For G=1,c=∅, K=1.
-- `universal_kernel_test_3` (non-example): K is not the finite reduced multiplier in the C₂ example: it is infinite even though M(C₂,c)=0.
+The API:
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
+- `universalDegree_generator`: deg([x])=e_[x].
+- `universalDegree_inverse`: deg([x]⁻¹)=−e_[x].
+- `universalDegree_abelianization`: δ∘deg is the additive spelling of the abelianized projection.
+- `universalDegree_hom`: deg(uv)=deg(u)+deg(v) in additive lattice notation.
 
-## RS.3: Discrete powers, twists and degree orbits
+*Needs:* RS.2.2; RS.2.3.
 
-Keep the finite residue level explicit. The correction takes values in the central reduced multiplier and is a lattice homomorphism, while the resulting action on the universal object is generally only a set action. Field-specific generator torsors are inputs to the equivariant-map construction; evaluation depends on the chosen generator.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-### Finite power action
+**Checks.**
 
-**Target `finite_power`.** Let G be finite, p prime with p∤|G| (or characteristic zero). A unit α of the prime-to-p profinite integers acts on the underlying set of G by g↦g^a, where a is its coordinate modulo ord(g). This is independent of the integer representative and factors through units modulo any positive common exponent of G.
+- `universalDegree_test_1` (computation): For the one-class C₂ example, deg identifies U=ℤ with ℤ.
+- `universalDegree_test_2` (degenerate): deg(1)=0.
+- `universalDegree_test_3` (non-example): deg([x]⁻¹)=−e_[x] is not a nonnegative degree.
 
-Construction and proof route: Integer powers depend only on order; invertible residues supply inverse permutations. Centrality is not needed for the set permutation, but multiplicativity requires an abelian target.
+### RS.2.5 Conjugation by a marked word
 
-Needs: `GroupExtension` (Mathlib).
+Prove `word_conjugation`: For w=[g₁]^a₁⋯[g_k]^a_k and x∈c, w[x]w⁻¹=[π_U(w)xπ_U(w)⁻¹]. The inverse
+word is [g_k]^−a_k⋯[g₁]^−a₁.
 
-Required API:
+*Proof sketch.* Induct on a free word, using the defining relation and its inverse form; then
+descend the quotient.
 
-- `finite_power_residue` (characterisation): Congruent exponents modulo ord(g) give the same value.
-- `finite_power_one` (simp): The unit 1 fixes g and every unit fixes 1_G.
-- `finite_power_compose` (structure): α*(β*g)=(αβ)*g for the finite power action.
-- `finite_power_commutative` (compatibility): On an abelian finite G, each unit acts by a group automorphism; no such law is asserted on general G.
+*Needs:* RS.2.2; RS.2.4.
 
-Unit tests:
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-- `finite_power_test_1` (computation): On C₃, the residue 2 interchanges the two nonidentity elements.
-- `finite_power_test_2` (degenerate): The trivial group has the trivial action.
-- `finite_power_test_3` (non-example): In S₃, inversion (residue −1) fixes the transpositions (12),(23) but reverses their 3-cycle product, so it is not a group homomorphism.
+**Checks.**
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4, powering-action definition, author PDF p.6.
+- The word with one exponent −1 verifies that inverse conjugators use negative exponents.
 
-### Power permutation of class degrees
+### RS.2.6 The presentation is a central extension
 
-**Target `degree_permutation`.** Assume c is also closed under invertible powers. Powering induces a permutation d↦d^α of D=c/G. Define m^α on L=ℤ^D by m^α(d^α)=m(d); it is a coordinate permutation, not multiplication of each integer coordinate by α.
+Prove `universal_central`: if c generates G, then π_U is onto and ker π_U ⊆ Z(U); thus U(G,c) → G is
+a central extension and x ↦ [x] is a conjugacy-equivariant marking on c, making it a c-marked
+central extension (RS.2.1).
 
-Construction and proof route: Powering commutes with conjugation and its inverse does too; extend the resulting basis permutation integrally.
+*Proof sketch.* Generation proves surjectivity. A kernel word fixes every generator by word
+conjugation, hence commutes with all U.
 
-Needs: RS.3, finite power action; RS.2, the class degree homomorphism.
+*Needs:* RS.2.5; RS.2.2; RS.2.4.
 
-Required API:
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-- `degree_permutation_basis` (simp): (e_d)^α=e_{d^α}.
-- `degree_permutation_sum` (compatibility): Σ_d m^α(d)=Σ_d m(d).
-- `degree_permutation_lower_bound` (characterisation): All coordinates ≥M before permutation iff they are ≥M afterwards.
-- `degree_permutation_abelianization` (compatibility): δ(m^α)=δ(m)^α in the multiplicative abelianized notation.
+**Checks.**
 
-Unit tests:
+- If c does not generate G, the projection need not be onto.
 
-- `degree_permutation_test_1` (degenerate): For m=0, m^α=0.
-- `degree_permutation_test_2` (computation): For c the two nonidentity elements in C₃, α=2 swaps coordinates (1,4) to (4,1).
-- `degree_permutation_test_3` (non-example): For an involution singleton class, every unit fixes degree 1; integer scalar multiplication by an odd α=3 would instead give 3.
+### RS.2.7 Universal marked central extension
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
+Prove `universal_marked_property`: For every c-marked central extension E→G there is exactly one
+marked morphism U(G,c)→E. Therefore any two universal marked extensions are uniquely isomorphic
+through their markings.
 
-### Central power correction
+*Proof sketch.* Its section satisfies the defining relation. Extend and use the generator universal
+property for uniqueness.
 
-**Target `central_power_correction`.** Fix class-compatible marked lifts x̂ in S_c. For a class d with representative x_d define z_d(α)=x̂_d^−α · widehat(x_d^α)∈A=M(G,c). Extend to W_α:L→A by W_α(m)=∏_d z_d(α)^m(d). Powers of finite-cover elements are read at a finite residue level, whereas m(d) remains an integer.
+*Needs:* RS.2.6; RS.2.1; `PresentedGroup.toGroup` (Mathlib).
 
-Construction and proof route: The projection of each correction is 1. Equivariance and centrality make it independent of the representative within a class. The integral free-module universal property gives W_α.
+*Source.* Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the
+Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1
+PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
 
-Needs: RS.3, power permutation of class degrees; RS.1, conjugacy-equivariant lifted marking; RS.1, reduced schur cover.
+**Checks.**
 
-Required API:
+- Uniqueness is for marked maps; ordinary unmarked central extensions do not have this initial
+  object.
 
-- `central_power_correction_basis` (simp): W_α(e_d)=z_d(α).
-- `central_power_correction_add` (structure): W_α(m+n)=W_α(m)W_α(n).
-- `central_power_correction_identity` (simp): W_1(m)=1.
-- `central_power_correction_choice` (compatibility): For marking change x̂_d′=x̂_d a_d, z_d′(α)=a_d^−α z_d(α) a_{d^α}; corresponding fiber-product coordinates transport the action.
+### RS.2.8 Abelianization of the presentation
 
-Unit tests:
+Prove `presentation_abelianization`: The degree map identifies U(G,c)^ab with Multiplicative(ℤ^D).
 
-- `central_power_correction_test_1` (degenerate): W_α(0)=1.
-- `central_power_correction_test_2` (computation): For α=1 every correction equals 1.
-- `central_power_correction_test_3` (non-example): For an involution x with chosen lift X and X²≠1, its correction at α=−1 equals X²≠1; the formula must not discard central lift squares.
+*Proof sketch.* After abelianization the defining relations identify generators in a conjugacy
+class, with no additional additive relation.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
+*Needs:* RS.2.2; RS.2.3; `Abelianization.lift` (Mathlib); RS.2.4.
 
-### Composition law for central corrections
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-**Target `correction_cocycle`.** W_{αβ}(m)=W_β(m)^α W_α(m^β) for all m∈L.
+**Checks.**
 
-Construction and proof route: Verify on basis vectors using widehat(x^β)=x̂^β z_[x](β), then cancel the commuting powers; extend multiplicatively on L.
+- The single C₂ class gives a free ℤ, not C₂.
 
-Needs: RS.3, central power correction; RS.3, power permutation of class degrees.
+### RS.2.9 The marked fiber product
 
-Checks: The second correction is evaluated on the permuted degree, not on m itself.
+**`markedFiberProduct`.** For a chosen reduced cover S_c→G, define P=S_c×_{G^ab}Multiplicative(ℤ^D),
+the subgroup of S_c×Multiplicative L of pairs (h,m) with [π_c(h)]=δ(m). Give it the marking
+x↦(x̂,e_[x]) from the class-compatible lifts.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
+*Construction.* Form the native subgroup fiber product; the marking is typed by its abelianization
+equality.
 
-### Discrete cyclotomic action
+The API:
 
-**Target `discrete_action`.** For P=S_c×_{G^ab}L define α*(h,m)=(h^α W_α(m),m^α). This defines a group action on the underlying set P, and hence on U through the marked comparison. Its projection to G is the ordinary power permutation and its degree projection is the class-degree permutation.
+- `markedFiberProduct_first`: P→S_c is a surjective group homomorphism when c generates G.
+- `markedFiberProduct_degree`: P→Multiplicative L sends (h,m) to m.
+- `markedFiberProduct_mark`: For x∈c, the marked point is (x̂,e_[x]).
+- `markedFiberProduct_membership`: A pair belongs precisely when [π_c(h)]=δ(m).
 
-Construction and proof route: Check the fiber-product equality using δ compatibility; centrality permits raising h times a correction to a power. The correction cocycle proves identity and composition. If the lifts change by central factors a_d, the comparison sends (h,m) to (h∏_d a_d^{m(d)},m); it intertwines the two actions. An isomorphism of marked covers gives the analogous comparison by applying its isomorphism to the first coordinate.
+*Needs:* RS.1.7; RS.2.3; RS.1.10.
 
-Needs: RS.3, composition law for central corrections; RS.2, the marked fiber product; RS.2, presentation and fiber-product comparison.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Required API:
+**Checks.**
 
-- `discrete_action_formula` (data): The two coordinates are h^α W_α(m) and m^α.
-- `discrete_action_projection` (compatibility): π_U(α*u)=π_U(u)^α.
-- `discrete_action_degree` (compatibility): deg(α*u)=deg(u)^α.
-- `discrete_action_choice` (functoriality): The unique marked comparison between chosen models intertwines their discrete set actions.
+- `markedFiberProduct_test_1` (computation): For C₂ and singleton c, P={(g,n):g=n mod 2}≅ℤ.
+- `markedFiberProduct_test_2` (degenerate): For G=1,c=∅ and the trivial Schur cover, P=1.
+- `markedFiberProduct_test_3` (non-example): For C₂ the pair (nonidentity,0) is absent, so P is not
+  the full direct product C₂×ℤ.
 
-Unit tests:
+### RS.2.10 Commutators of the marked fiber product
 
-- `discrete_action_test_1` (degenerate): The identity unit acts identically and all units fix 1_U.
-- `discrete_action_test_2` (computation): For U(C₂,c)≅ℤ, the action is trivial because its generator and its unique class are fixed after correction.
-- `discrete_action_test_3` (non-example): For S₃ and all transpositions, α=−1 is not multiplicative on U: its projection fixes both marked transpositions but inverts their 3-cycle product.
+Prove `fiber_product_commutator`: If c generates G, then [P,P]=[S_c,S_c]×{0}, as a subgroup of
+S_c×Multiplicative L. More generally, this calculation applies to the pullback of any π:S→G along δ
+when δ is surjective; π need not be surjective.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
+*Proof sketch.* Every commutator of pairs has this form; lift both entries of any S_c commutator
+using surjectivity of δ.
 
-### The restricted kernel action is multiplicative
+*Needs:* RS.2.9.
 
-**Target `kernel_action_aut`.** Each unit acts by a group automorphism on K(G,c). In cover coordinates h lies in the commutative central A, so α*(hh′,m+m′)=α*(h,m)α*(h′,m′). This statement does not extend to all U.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Construction and proof route: Use centrality of h,h′, the homomorphism law for W_α and additivity of the degree permutation. The inverse unit supplies the inverse homomorphism.
+**Checks.**
 
-Needs: RS.3, discrete cyclotomic action; RS.2, kernel of the universal marked extension; RS.3, central power correction.
+- The integer degree vanishes on every commutator. Generation cannot be omitted: for G=S₃, π=id and
+  c=∅, the pullback P is A₃, so [P,P]=1 while [S₃,S₃]×{0} has order three.
 
-Checks: Prove multiplicativity on the central kernel and retain the set action on the whole extension.
+### RS.2.11 Abelianization of the marked fiber product
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+Prove `fiber_product_abelianization`: If c generates G and the chosen reduced-cover projection
+induces S_c^ab≅G^ab, then the degree projection induces P^ab≅Multiplicative(ℤ^D), taking the class
+of (x̂,e_[x]) to e_[x]. The reduced cover inherits this abelianization isomorphism from the parent's
+ordinary stem cover.
 
-### A finite level determines the discrete action
+*Proof sketch.* Quotient the commutator subgroup, then use S_c^ab≅G^ab to identify the remaining
+pullback with L.
 
-**Target `finite_level_action`.** For a finite G, α≡β modulo |G|² implies α* and β* agree on every element of U(G,c). The same holds for K and its degree lattice.
+*Needs:* RS.2.10; RS.1.7; `Abelianization.lift` (Mathlib).
 
-Construction and proof route: The exponent of M(G) divides |G|, so the exponent of S_c divides |G|². Power residues and class permutations are determined at that level; apply the coordinate formula. For a general marked central model, assume explicitly that every element of its kernel is killed by |G|. This gives the same exponent bound for its cover. The reduced-multiplier case requires the integral transfer annihilation input.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Needs: RS.3, discrete cyclotomic action; [positive-degree integral homology annihilated by the group order](#finite-homology-and-the-coprime-edge). For the reduced-cover specialization this supplies the kernel exponent bound used in the proof.
+**Checks.**
 
-Checks: This is a bound on the finite-cover coordinate, not a claim that U is finite.
+- For G=S₃, π=id and c=∅, P^ab≅C₃ while L=0. This rejects the formula without generation, even when
+  the map on abelianizations is an isomorphism.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, Remark 4.1, author PDF p.8.
+### RS.2.12 Split the marked pullback extension
 
-### Cyclotomic twist of a set
+Prove `marked_pullback_split`: For a marked central extension E→G, its pullback along P→G has a
+group-homomorphic splitting. This statement allows arbitrary abelian kernel A, including the
+infinite kernel of U→G.
 
-**Target `cyclotomic_twist`.** For a unit group B, a nonempty simply transitive B-set T and a B-set X, define X⟨−1⟩=Map_B(T,X), the set of equivariant functions. Evaluation at a chosen t₀∈T is a bijection to X; this bijection depends on t₀. For the papers T is the torsor of topological generators of prime-to-characteristic roots of unity.
+*Proof sketch.* The class map τ_E kills Q_c: for x ∈ c and y ∈ C_G(x), any lift Y of y conjugates
+s(x) to s(yxy⁻¹) = s(x), so the commutator of the lifts is trivial and
+`extensionClassMap_commutator` gives τ_E(⟨x,y⟩) = 0. By naturality (RS.0.3) the class map of the
+pullback extension is τ_E composed with M(P) → M(S_c) → M(G), which vanishes by RS.1.14 once τ_E
+factors through M(G,c). Since P^ab ≅ ℤ^D is free (RS.2.11), evaluation is injective on H²(P, A)
+(`integralEvaluation_bijective_of_free`, RS.0.2), so the extension class of the pullback is zero and
+the pullback splits (`TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`). This
+argument applies to the infinite group P and to every abelian A.
 
-Construction and proof route: Use the existing equivariant-map notion for a torsor. Its inverse sends b·t₀ to b·x; simple transitivity makes it well-defined. The field-specific roots-of-unity realization is supplied by the arithmetic consumer.
+*Needs:* RS.1.14; RS.2.11; RS.2.1; RS.0.2 (`integralEvaluation_bijective_of_free`); RS.0.3
+(`extensionClassMap_commutator`, `extensionClassMap_natural`); Tau Ceti
+`TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`. The general Ext description of
+RS.0.2 is not needed here.
 
-Needs: RS.3, discrete cyclotomic action.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Required API:
+**Checks.**
 
-- `cyclotomic_twist_evaluation` (equivalence): Evaluation at t₀ gives X⟨−1⟩≅X.
-- `cyclotomic_twist_change` (compatibility): Changing t₀ to b·t₀ changes the evaluated value by b acting on X.
-- `cyclotomic_twist_map` (functoriality): An equivariant map X→Y induces X⟨−1⟩→Y⟨−1⟩ by composition.
+- For G = C₂ with c its nonidentity element and E = C₄ → C₂ marked by a generator of C₄: here P ≅ ℤ,
+  and the pullback of C₄ → C₂ to ℤ splits (send 1 to the marked generator), although C₄ → C₂ itself
+  does not split. The kernel of the universal extension U → G is infinite, so the statement must
+  allow infinite A.
 
-Unit tests:
+### RS.2.13 Marking-preserving splitting correction
 
-- `cyclotomic_twist_test_1` (degenerate): For singleton X, the twist is singleton.
-- `cyclotomic_twist_test_2` (computation): For B=C₂ acting regularly on X=C₂ and T=C₂, there are two equivariant functions.
-- `cyclotomic_twist_test_3` (non-example): Replacing equivariant maps by arbitrary maps gives four maps in that C₂ example; replacing them by fixed points gives none.
+**`markingCorrection`.** Suppose φ:P→E is a homomorphism over G and φ(x̂,e_[x])=s(x)k_x with k_x∈A.
+The discrepancy depends only on [x]. Let ψ:P→A be the homomorphism factoring through deg:P→ℤ^D with
+ψ(e_[x])=k_x. Define φ_corr(p)=φ(p) inl(ψ(p))⁻¹.
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §4, equation (2), author PDF p.6.
+*Construction.* Centrality makes the product a homomorphism; the free-degree universal property
+constructs ψ; cancel the discrepancy with its inverse.
 
-### Bounded total-degree slice
+The API:
 
-**Target `bounded_degree_slice`.** For finite D, n∈ℕ and M∈ℕ define L_{n,≥M}={m∈ℤ^D: every m(d)≥M and Σ m(d)=n}. Define K_{n,≥M} as its degree preimage and the twisted slice as equivariant functions valued in this invariant subset. For the notation of LWZB M is positive; M=0 is also allowed for component tuples.
+- `markingCorrection_over`: φ_corr has the same projection to G as φ.
+- `markingCorrection_mark`: φ_corr(x̂,e_[x])=s(x).
+- `markingCorrection_hom`: φ_corr(pq)=φ_corr(p)φ_corr(q).
+- `markingCorrection_sign`: The correcting factor is ψ⁻¹ when the recorded discrepancy is
+  φ(mark)=s·ψ.
 
-Construction and proof route: Use a subset of the integer lattice, not a subgroup; degree permutation preserves its inequalities and sum. Restrict the action to the actual projection kernel and bundle its degree projection as an equivariant map. The twisted slice is the inverse image of the lattice slice under the induced map of equivariant functions. Evaluation at one torsor point detects membership because the lattice slice is invariant.
+*Needs:* RS.2.12; RS.2.11.
 
-Needs: RS.3, power permutation of class degrees; RS.2, kernel of the universal marked extension; RS.3, cyclotomic twist of a set.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-Required API:
+**Checks.**
 
-- `bounded_degree_slice_mem` (characterisation): Membership means both the coordinate lower bound and exact total sum.
-- `bounded_degree_slice_invariant` (structure): Each power permutation preserves the slice.
-- `bounded_degree_slice_preimage` (compatibility): K_{n,≥M}⟨−1⟩ is the preimage under the twisted degree map.
+- `markingCorrection_test_1` (degenerate): If all k_x=1 then φ_corr=φ.
+- `markingCorrection_test_2` (computation, sign): in the bare formula take G trivial and P = A = E =
+  C₃ written multiplicatively with generator g, φ = inl = ψ = id, and target marking 1 at the point
+  g (so the discrepancy is k = g). Then φ_corr(g) = g · g⁻¹ = 1, as required.
+- `markingCorrection_test_3` (non-example): in the same data the opposite-sign correction p ↦ φ(p)
+  inl(ψ(p)) sends g to g² ≠ 1; in general it sends a marked point to s(x)k_x², which differs from
+  s(x) whenever k_x has order 3.
 
-Unit tests:
+### RS.2.14 The fiber product is universal marked
 
-- `bounded_degree_slice_test_1` (degenerate): For D empty, the slice is singleton at n=0 and empty at n>0.
-- `bounded_degree_slice_test_2` (computation): For |D|=2,n=3,M=1, the slice consists of (1,2),(2,1).
-- `bounded_degree_slice_test_3` (non-example): For nonempty D,n=0,M=1, the slice is empty; it is never declared a group containing zero.
+Prove `fiber_product_universal`: For every marked E→G there is a unique marked morphism P→E.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+*Proof sketch.* Existence uses the corrected splitting. The ratio of two maps over G is a
+homomorphism to the central kernel, factors through P^ab≅ℤ^D, and vanishes on its marked basis.
 
-### Power-fixed degree lattice
+*Needs:* RS.2.13; RS.2.11; RS.2.4.
 
-**Target `power_fixed_degree`.** For q prime to |G| define L_{≡q}={m∈ℤ^D:m(d^q)=m(d) for all d}. Its n,≥M slice adds the lower-bound and exact total-degree conditions.
+*Source.* Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the
+Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, §§7.4–7.5, arXiv v1
+PDF pp.34–37; compare Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4.
 
-Construction and proof route: Use the fixed subgroup of the permutation, and the ordinary action orbit quotient. Rationality of c as a set does not imply each conjugacy class is fixed.
+**Checks.**
 
-Needs: RS.3, power permutation of class degrees; RS.3, bounded total-degree slice.
+- Uniqueness uses the degree basis rather than an unproved claim that marked lifts generate P.
 
-Required API:
+### RS.2.15 Presentation and fiber-product comparison
 
-- `power_fixed_degree_fixed` (characterisation): L_{≡q} consists precisely of q-fixed degree vectors.
-- `power_fixed_degree_orbits` (equivalence): Identify fixed vectors with integer-valued functions on the native orbit quotient D/⟨q⟩; evaluation at an orbit represented by d gives m(d).
-- `power_fixed_degree_weighted_sum` (compatibility): Under this identification, total degree is Σ_O |O|m_O, not the unweighted sum.
+Prove `presentation_comparison`: There is a unique marked isomorphism U(G,c)≅P sending [x] to
+(x̂,e_[x]), compatible with projections and degree. It transports changes of cover and marking
+choice through the presentation; no canonical isomorphism S_c≅S′_c is asserted.
 
-Unit tests:
+*Proof sketch.* Initiality yields maps in both directions; uniqueness gives inverse composites.
 
-- `power_fixed_degree_test_1` (degenerate): At q≡1 modulo the exponent of G, L_{≡q}=L.
-- `power_fixed_degree_test_2` (computation): For the two nontrivial classes of C₃ and q=2, L_{≡q}={(a,a):a∈ℤ}; total degree is 2a.
-- `power_fixed_degree_test_3` (non-example): For this C₃ example, a total-degree-1 fixed slice is empty despite a nonempty unconstrained slice.
+*Needs:* RS.2.14; RS.2.7; RS.2.4.
 
-Source: Liu–Wood–Zureick-Brown (2022 preprint), §12, paragraph before Proposition 12.7, arXiv v2 PDF p.50.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-### Orbit set of class degrees
+**Checks.**
 
-**Target `degree_orbit_set`.** Define 𝔖^{c,G} as the orbit quotient of the integer lattice L under the unit-power coordinate permutation. Its n,≥M subset is the image of L_{n,≥M}. Choice of a roots-of-unity generator changes a degree vector within this orbit.
+- The isomorphism depends on the fiber-product marking but U is the choice-free presentation.
 
-Construction and proof route: Take the existing action-orbit equivalence relation, then its quotient. Bundle the unit-power permutations as a homomorphism into the class permutation group and act on the integer lattice by `Finsupp.domCongr`. Evaluation of an equivariant twist at any two torsor points gives the same orbit class.
+### RS.2.16 Kernel of the universal marked extension
 
-Needs: RS.3, power permutation of class degrees; RS.3, bounded total-degree slice; RS.3, cyclotomic twist of a set.
+**`universalKernel`.** Define K(G,c)=ker(π_U:U→G), using the existing kernel subgroup. Under U≅P it
+is M(G,c)×ker(δ:L→G^ab). It is central and commutative, even though U generally is not. There is an
+exact sequence 0→M(G,c)→K→kerδ→0.
 
-Required API:
+*Construction.* Restrict the isomorphism to kernels. A pair above 1 has h in the reduced-cover
+kernel and δ(m)=0.
 
-- `degree_orbit_set_mk` (projection): Every degree vector has a class in 𝔖^{c,G}.
-- `degree_orbit_set_eq` (characterisation): Two orbit classes are equal iff the vectors differ by a unit-power permutation.
-- `degree_orbit_set_slice` (compatibility): The n,≥M image is independent of the choice of torsor generator.
+The API:
 
-Unit tests:
+- `universalKernel_inclusion`: K→U is the native subgroup inclusion; all its elements commute with
+  U.
+- `universalKernel_degree`: The degree image of K is exactly kerδ.
+- `universalKernel_torsion`: The torsion subgroup of K is M(G,c), since kerδ is free abelian.
+- `universalKernel_product`: In chosen cover coordinates K≅M(G,c)×kerδ, without a preferred basis
+  for kerδ.
 
-- `degree_orbit_set_test_1` (degenerate): For D empty, the orbit set is singleton.
-- `degree_orbit_set_test_2` (computation): For C₃ nonidentity classes, (1,4) and (4,1) have the same orbit class.
-- `degree_orbit_set_test_3` (non-example): For the same two-class set, (1,4) and (2,3) have different orbit classes despite equal total degree.
+*Needs:* RS.2.6; RS.2.15; RS.2.4; `Submodule.basisOfPid` (Mathlib).
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
-## RS.4: Fixed fibers, square obstructions and parity
+**Checks.**
 
-Check the abelianization compatibility δ(m)=[g] before solving a fixed-fiber equation. For odd q put r=(q−1)/2. A nonempty fiber is a torsor under A[q−1]; its existence is controlled by whether the obstruction lies in the image of 2r-th powers. Linearize the lift-square columns on the free binary coordinate space, rather than linearizing a nonabelian squaring operation.
+- `universalKernel_test_1` (computation): For G=C₂,c={nonidentity}, K=2ℤ inside U=ℤ.
+- `universalKernel_test_2` (degenerate): For G=1,c=∅, K=1.
+- `universalKernel_test_3` (non-example): K is not the finite reduced multiplier in the C₂ example:
+  it is infinite even though M(C₂,c)=0.
 
-### Lift squares are central
+### Examples
 
-**Target `involution_square_central`.** Assume c consists of involutions. For x∈c every lift X∈S_c has X²∈A=M(G,c), hence X² commutes with S_c.
+- G = C₂, c its nonidentity element: U(G,c) ≅ ℤ with π_U reduction mod 2, L = ℤ, δ reduction mod 2,
+  P = {(g, n) : g ≡ n mod 2} ≅ ℤ, and K = 2ℤ = 0 × ker δ, as M(C₂, c) = 0.
+- G = S₃, c the transpositions: D has one element, L = ℤ, δ is reduction mod 2 onto S₃ᵃᵇ = C₂, the
+  reduced cover is S₃ (M(S₃) = 0), and U(S₃, c) ≅ P = {(h, n) ∈ S₃ × ℤ : sign h = (−1)ⁿ}, with K =
+  2ℤ.
 
-Construction and proof route: Project X² to x²=1; apply centrality of the kernel.
+### Dependencies
 
-Needs: RS.1, reduced schur cover.
+Layers RS.0 (RS.0.2 free case, RS.0.3) and RS.1; Mathlib presentations, abelianization and
+`Submodule.basisOfPid`; Tau Ceti's splitting criterion for factor-set classes.
 
-Checks: No squaring homomorphism S_c→A is asserted on the nonabelian cover.
+## Layer RS.3: Discrete powers, twists and degree orbits
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+The power action is defined on the fiber-product model, with a central correction that makes the
+marked points equivariant. It is a set action on U and an action by automorphisms only on the
+central kernel. The finite residue level is kept explicit, and the cyclotomic twist by a torsor of
+generators is a plain set-theoretic construction; its field-theoretic realisation belongs to the
+arithmetic consumers.
 
-### Square-class obstruction of a fiber
+### RS.3.1 Finite power action
 
-**Target `square_obstruction`.** Assume finite G is generated by involution classes c_i, A=M(G,c), chosen class lifts X_i, and g∈c∪{1} with lift Y (Y=1 for g=1). For an integer degree m with Σ_i m_i[c_i]=[g] in G^ab, define b(g,m)=Y²∏_i(X_i²)^−m_i∈A and β(g,m) as its class in TauCeti.ElementaryTwoQuotient A. Lift changes multiply b by a square; β depends only on the parity of m.
+**`finitePower`.** Let G be finite, p prime with p∤|G| (or characteristic zero). A unit α of the
+prime-to-p profinite integers acts on the underlying set of G by g↦g^a, where a is its coordinate
+modulo ord(g). This is independent of the integer representative and factors through units modulo
+any positive common exponent of G.
 
-Construction and proof route: All squared factors lie in A. Replacing Y or X_i by central kernel factors inserts squares. Modulo squares, exponents reduce mod 2.
+*Construction.* Integer powers depend only on order; invertible residues supply inverse
+permutations. Centrality is not needed for the set permutation, but multiplicativity requires an
+abelian target.
 
-Needs: RS.4, lift squares are central; RS.2, the class degree homomorphism; `TauCeti.ElementaryTwoQuotient` (Tau Ceti); `TauCeti.elementaryTwoQuotientMk_mul` (Tau Ceti).
+The API:
 
-Required API:
+- `finitePower_residue`: Congruent exponents modulo ord(g) give the same value.
+- `finitePower_one`: The unit 1 fixes g and every unit fixes 1_G.
+- `finitePower_compose`: α\*(β\*g)=(αβ)\*g for the finite power action.
+- `finitePower_commutative`: On an abelian finite G, each unit acts by a group automorphism; no such
+  law is asserted on general G.
 
-- `square_obstruction_representative` (data): b(g,m)=Y²∏_i(X_i²)^−m_i.
-- `square_obstruction_choice` (characterisation): β is independent of lift choices; b generally is not.
-- `square_obstruction_parity` (simp): Changing each m_i by an even integer leaves β unchanged.
-- `square_obstruction_compatibility` (compatibility): The domain first requires δ(m)=[g]; incompatible fibers are empty before this obstruction is considered.
+*Needs:* Mathlib `orderOf`, `pow_mod_orderOf`, `Monoid.exponent`, `ZMod`, `ZMod.unitsMap`.
 
-Unit tests:
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4, powering-action definition, author PDF p.6.
 
-- `square_obstruction_test_1` (degenerate): For g=1 and m=0, β=0.
-- `square_obstruction_test_2` (computation): For g∈c_k and m=e_k, β=0.
-- `square_obstruction_test_3` (non-example): A degree incompatible with [g] cannot acquire a nonempty fiber merely because the formal square product is a square.
+**Checks.**
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+- `finitePower_test_1` (computation): On C₃, the residue 2 interchanges the two nonidentity
+  elements.
+- `finitePower_test_2` (degenerate): The trivial group has the trivial action.
+- `finitePower_test_3` (non-example): In S₃, inversion (residue −1) fixes the transpositions
+  (12),(23) but reverses their 3-cycle product, so it is not a group homomorphism.
 
-### The fixed-fiber power equation
+### RS.3.2 Power permutation of class degrees
 
-**Target `fixed_fiber_equation`.** For the hypotheses of square-obstruction and odd q coprime to |G|, let r=(q−1)/2. Writing a fiber point as (Yh,m), the q-fixed equation is h^{q−1}=b(g,m)^{−r}. Since the power subgroup is closed under inversion, solvability is equivalent to b(g,m)^r∈A^{2r}.
+**`degreePermutation`.** Assume c is also closed under invertible powers. Powering induces a
+permutation d↦d^α of D=c/G. Define m^α on L=ℤ^D by m^α(d^α)=m(d); it is a coordinate permutation,
+not multiplication of each integer coordinate by α.
 
-Construction and proof route: Insert the coordinate action and c_i involutions in Wood equation (6); all correction factors are powers of central X_i². The Lean fiber consists of elements of the actual pullback with projection g and degree m, rather than formal solutions to the displayed power equation. Require that each chosen class representative represents its indexed inertia class. A q-unit is obtained from coprimality with the chosen common exponent of the cover and base.
+*Construction.* Powering commutes with conjugation and its inverse does too; extend the resulting
+basis permutation integrally.
 
-Needs: RS.4, square-class obstruction of a fiber; RS.3, discrete cyclotomic action; `powMonoidHom` (Mathlib).
+The API:
 
-Checks: Keep the inverse sign in the equation for h even though it does not change membership in the power subgroup.
+- `degreePermutation_basis`: (e_d)^α=e_{d^α}.
+- `degreePermutation_sum`: Σ_d m^α(d)=Σ_d m(d).
+- `degreePermutation_lower_bound`: All coordinates ≥M before permutation iff they are ≥M afterwards.
+- `degreePermutation_abelianization`: δ(m^α)=δ(m)^α in the multiplicative abelianized notation.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+*Needs:* RS.3.1; RS.2.3.
 
-### All fixed fibers and their torsion count
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
 
-**Target `all_fixed_fibers`.** For odd q>1 prime to |G|, the fiber over (g,m) has |A[q−1]| fixed points if δ(m)=[g] and b(g,m)^r∈A^{2r}, and zero otherwise. The q and q⁻¹ actions have the same fixed points. No nonnegativity of m is needed for this group-theoretic statement.
+**Checks.**
 
-Construction and proof route: Apply the existing nonempty power-fiber equivalence to its kernel; a permutation and its inverse have the same fixed set. For an arbitrary finite central marked model, retain the finite-kernel hypothesis and count the fixed subset of the actual (g,m) fiber. Its cardinality is zero when degree compatibility or power-image membership fails.
+- `degreePermutation_test_1` (degenerate): For m=0, m^α=0.
+- `degreePermutation_test_2` (computation): For c the two nonidentity elements in C₃, α=2 swaps
+  coordinates (1,4) to (4,1).
+- `degreePermutation_test_3` (non-example): For an involution singleton class, every unit fixes
+  degree 1; integer scalar multiplication by an odd α=3 would instead give 3.
 
-Needs: RS.4, the fixed-fiber power equation; `MonoidHom.fiberEquivKer` (Mathlib).
+### RS.3.3 Central power correction
 
-Checks: An empty fiber must not be assigned the positive torsion count.
+**`centralPowerCorrection`.** Fix class-compatible marked lifts x̂ in S_c. For a class d with
+representative x_d define z_d(α)=x̂_d^−α · widehat(x_d^α)∈A=M(G,c). Extend to W_α:L→A by W_α(m)=∏_d
+z_d(α)^m(d). Powers of finite-cover elements are read at a finite residue level, whereas m(d)
+remains an integer.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+*Construction.* The projection of each correction is 1. Equivariance and centrality make it
+independent of the representative within a class. The integral free-module universal property gives
+W_α.
 
-### Odd-parity fixed-point fiber
+The API:
 
-**Target `odd_parity_fiber`.** If g∈c_k, m_k is odd and all other m_i are even, then the fiber is compatible and its fixed count is |A[q−1]|.
+- `centralPowerCorrection_basis`: W_α(e_d)=z_d(α).
+- `centralPowerCorrection_add`: W_α(m+n)=W_α(m)W_α(n).
+- `centralPowerCorrection_identity`: W_1(m)=1.
+- `centralPowerCorrection_choice`: For marking change x̂_d′=x̂_d a_d, z_d′(α)=a_d^−α z_d(α) a_{d^α};
+  corresponding fiber-product coordinates transport the action.
 
-Construction and proof route: The abelianized involution classes give compatibility. The displayed b is a square, so b^r is a 2r-th power.
+*Needs:* RS.3.2; RS.1.10; RS.1.7.
 
-Needs: RS.4, all fixed fibers and their torsion count; RS.4, square-class obstruction of a fiber.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
 
-Checks: This proves nonemptiness, rather than assuming it from a torsor count.
+**Checks.**
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+- `centralPowerCorrection_test_1` (degenerate): W_α(0)=1.
+- `centralPowerCorrection_test_2` (computation): For α=1 every correction equals 1.
+- `centralPowerCorrection_test_3` (non-example): For an involution x with chosen lift X and X²≠1,
+  its correction at α=−1 equals X²≠1; the formula must not discard central lift squares.
 
-### Even-parity fixed-point fiber
+### RS.3.4 Composition law for central corrections
 
-**Target `even_parity_fiber`.** If g=1 and every m_i is even, then the compatible fiber has exactly |A[q−1]| fixed points.
+Prove `correction_cocycle`: W_{αβ}(m)=W_β(m)^α W_α(m^β) for all m∈L.
 
-Construction and proof route: The degree maps to 1 in G^ab and b is a product of even powers.
+*Proof sketch.* Verify on basis vectors using widehat(x^β)=x̂^β z_[x](β), then cancel the commuting
+powers; extend multiplicatively on L.
 
-Needs: RS.4, all fixed fibers and their torsion count; RS.4, square-class obstruction of a fiber.
+*Needs:* RS.3.3; RS.3.2.
 
-Checks: Negative even degrees are permitted in U; Hurwitz tuple counts restrict them separately.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+**Checks.**
 
-### Square-times-torsion solvability
+- The second correction is evaluated on the permuted degree, not on m itself.
 
-**Target `square_torsion_solvability`.** For a commutative group A, b∈A and r≥1, b^r∈A^{2r} iff b∈A²·A[r].
+### RS.3.5 Discrete cyclotomic action
 
-Construction and proof route: If b^r=h^{2r}, then bh⁻²∈A[r]; the converse is obtained by raising a square times r-torsion element to r.
+**`discreteAction`.** For P=S_c×_{G^ab}L define α\*(h,m)=(h^α W_α(m),m^α). This defines a group
+action on the underlying set P, and hence on U through the marked comparison. Its projection to G is
+the ordinary power permutation and its degree projection is the class-degree permutation.
 
-Needs: `powMonoidHom` (Mathlib).
+*Construction.* Check the fiber-product equality using δ compatibility; centrality permits raising h
+times a correction to a power. The correction cocycle proves identity and composition. If the lifts
+change by central factors a_d, the comparison sends (h,m) to (h∏_d a_d^{m(d)},m); it intertwines the
+two actions. An isomorphism of marked covers gives the analogous comparison by applying its
+isomorphism to the first coordinate.
 
-Checks: For A=C₈,r=2 and an odd generator b, both conditions fail; for r=8 both hold.
+The API:
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+- `discreteAction_formula`: The two coordinates are h^α W_α(m) and m^α.
+- `discreteAction_projection`: π_U(α\*u)=π_U(u)^α.
+- `discreteAction_degree`: deg(α\*u)=deg(u)^α.
+- `discreteAction_choice`: The unique marked comparison between chosen models intertwines their
+  discrete set actions.
 
-### Torsion-image filtration
+*Needs:* RS.3.4; RS.2.9; RS.2.15.
 
-**Target `torsion_image_filtration`.** For a finite abelian A let B=TauCeti.ElementaryTwoQuotient A. Define B_t to be the image in B of A[2^t]=ker(powMonoidHom(2^t)), regarded as a ZMod 2 subspace. B_0=0; the filtration is increasing and B_e=B when the 2-primary exponent is 2^e.
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4 and §4.1, equation (4), author PDF pp.6–8.
 
-Construction and proof route: Restrict the square-class map to the specified torsion subgroup; its additive image is a submodule. Finite abelian primary decomposition proves exhaustion.
+**Checks.**
 
-Needs: `powMonoidHom` (Mathlib); `TauCeti.ElementaryTwoQuotient` (Tau Ceti); `TauCeti.elementaryTwoQuotientMap` (Tau Ceti); `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib).
+- `discreteAction_test_1` (degenerate): The identity unit acts identically and all units fix 1_U.
+- `discreteAction_test_2` (computation): For U(C₂,c)≅ℤ, the action is trivial because its generator
+  and its unique class are fixed after correction.
+- `discreteAction_test_3` (non-example): For S₃ and all transpositions, α=−1 is not multiplicative
+  on U: its projection fixes both marked transpositions but inverts their 3-cycle product.
 
-Required API:
+### RS.3.6 The restricted kernel action is multiplicative
 
-- `torsion_image_filtration_zero` (simp): B_0=0, since A[1]={1}.
-- `torsion_image_filtration_mono` (structure): t≤u implies B_t≤B_u.
-- `torsion_image_filtration_exhaustive` (characterisation): B_e=B for 2-primary exponent 2^e.
-- `torsion_image_filtration_cyclic` (compatibility): For A=C_{2^e}, B_t=0 for t<e and B_t=B for t≥e.
+Prove `kernel_action_aut`: Each unit acts by a group automorphism on K(G,c). In cover coordinates h
+lies in the commutative central A, so α\*(hh′,m+m′)=α\*(h,m)α\*(h′,m′). This statement does not extend
+to all U.
 
-Unit tests:
+*Proof sketch.* Use centrality of h,h′, the homomorphism law for W_α and additivity of the degree
+permutation. The inverse unit supplies the inverse homomorphism.
 
-- `torsion_image_filtration_test_1` (degenerate): For A of odd order, B_t=0=B for every t.
-- `torsion_image_filtration_test_2` (computation): For A=C₈, the filtration is zero at t=0,1,2 and all C₂ at t=3.
-- `torsion_image_filtration_test_3` (non-example): In C₈, the nontrivial 2-torsion element is a square, so its image in B_1 is zero; the quotient is not the torsion subgroup.
+*Needs:* RS.3.5; RS.2.16; RS.3.3.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
 
-### Two-primary obstruction threshold
+**Checks.**
 
-**Target `obstruction_threshold`.** For b∈finite abelian A with 2-primary exponent 2^e define t_A(b)=min{t≥0: the class of b belongs to B_t}. It lies between 0 and e. It depends only on the square class, and equals max{e_j : b has odd coordinate in a cyclic factor C_{2^{e_j}}} (empty maximum 0).
+- For G = S₃ with c the transpositions, the unit −1 acts on K(G,c) by an automorphism, while on
+  U(G,c) it is not multiplicative (`discreteAction_test_3`): the statement must be restricted to the
+  kernel.
 
-Construction and proof route: Exhaustion ensures the minimum exists. Compute the torsion image separately in each cyclic factor; the odd-primary part is uniquely 2-divisible.
+### RS.3.7 A finite level determines the discrete action
 
-Needs: RS.4, torsion-image filtration; RS.4, square-times-torsion solvability; `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib).
+Prove `finite_level_action`: For a finite G, α≡β modulo |G|² implies α\* and β\* agree on every
+element of U(G,c). The same holds for K and its degree lattice.
 
-Required API:
+*Proof sketch.* The exponent of M(G) divides |G|, so the exponent of S_c divides |G|². Power
+residues and class permutations are determined at that level; apply the coordinate formula. For a
+general marked central model, assume explicitly that every element of its kernel is killed by |G|.
+This gives the same exponent bound for its cover. The reduced-multiplier case requires the integral
+transfer annihilation input.
 
-- `obstruction_threshold_zero` (characterisation): t_A(b)=0 iff b is a square.
-- `obstruction_threshold_class` (compatibility): Equal square classes have equal thresholds.
-- `obstruction_threshold_bound` (data): 0≤t_A(b)≤e.
-- `obstruction_threshold_cyclic` (simp): For a generator of C_{2^e}, e>0, t_A(b)=e.
+*Needs:* RS.3.5; RS.0.6 (positive-degree integral homology is killed by the group order). For the
+reduced-cover specialization this supplies the kernel exponent bound used in the proof.
 
-Unit tests:
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, Remark 4.1, author PDF p.8.
 
-- `obstruction_threshold_test_1` (degenerate): t_A(1)=0.
-- `obstruction_threshold_test_2` (computation): For b=(generator,1) in C₄×C₈, the threshold is 2.
-- `obstruction_threshold_test_3` (non-example): For a generator in C₈ the threshold is 3, not 1 despite its nonzero image in a one-dimensional square quotient.
+**Checks.**
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+- For G = C₃ with c its two nonidentity elements, the units 2 and 11 (congruent modulo 9 = |G|²) act
+  identically on the infinite group U(G,c); the bound concerns the finite cover coordinate and the
+  class permutation, not finiteness of U.
 
-### Two-adic criterion for fiber survival
+### RS.3.8 Cyclotomic twist of a set
 
-**Target `two_adic_survival`.** For odd q>1 prime to |G| and compatible degree m, the fixed fiber is nonempty iff v₂(q−1)≥t_A(b(g,m))+1.
+**`CyclotomicTwist`.** For a unit group B, a nonempty simply transitive B-set T and a B-set X,
+define X⟨−1⟩=Map_B(T,X), the set of equivariant functions. Evaluation at a chosen t₀∈T is a
+bijection to X; this bijection depends on t₀. For the papers T is the torsor of topological
+generators of prime-to-characteristic roots of unity.
 
-Construction and proof route: Put r=(q−1)/2; its odd part contributes no new square classes, so the image of A[r] is B_{v₂(r)}.
+*Construction.* Use the existing equivariant-map notion for a torsor. Its inverse sends b·t₀ to b·x;
+simple transitivity makes it well-defined. The field-specific roots-of-unity realization is supplied
+by the arithmetic consumer.
 
-Needs: RS.4, all fixed fibers and their torsion count; RS.4, two-primary obstruction threshold; RS.4, square-times-torsion solvability.
+The API:
 
-Checks: The Proposition 4.1 parities have threshold 0 and survive every allowed odd q.
+- `cyclotomicTwist_evaluation`: Evaluation at t₀ gives X⟨−1⟩≅X.
+- `cyclotomicTwist_change`: Changing t₀ to b·t₀ changes the evaluated value by b acting on X.
+- `cyclotomicTwist_map`: An equivariant map X→Y induces X⟨−1⟩→Y⟨−1⟩ by composition.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+*Needs:* RS.3.5.
 
-### Involution classes span the abelianization
+*Source.* Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021),
+author copy, §4, equation (2), author PDF p.6.
 
-**Target `involution_abelianization`.** If c consists of N generating involution classes, G^ab is an elementary abelian 2-group. There is a surjective F₂-linear map a:F₂^N→Additive(G^ab), a(e_i)=[c_i].
+**Checks.**
 
-Construction and proof route: Every abelianized generator has order dividing 2; extend on the free F₂-vector space and use generation.
+- `cyclotomicTwist_test_1` (degenerate): For singleton X, the twist is singleton.
+- `cyclotomicTwist_test_2` (computation): For B=C₂ acting regularly on X=C₂ and T=C₂, there are two
+  equivariant functions.
+- `cyclotomicTwist_test_3` (non-example): Replacing equivariant maps by arbitrary maps gives four
+  maps in that C₂ example; replacing them by fixed points gives none.
 
-Use `AddCommGroup.zmodModule` with the proved identity 2·u=0 to give the existing carrier Additive(G^ab) its F₂-module structure. The class map on binary coordinates retains the basis values of δ; this construction preserves the existing group operations.
+### RS.3.9 Bounded total-degree slice
 
-Needs: RS.2, the class degree homomorphism; `Abelianization` (Mathlib).
+**`boundedDegreeSlice`.** For finite D, n∈ℕ and M∈ℕ define L_{n,≥M}={m∈ℤ^D: every m(d)≥M and Σ
+m(d)=n}. Define K_{n,≥M} as its degree preimage and the twisted slice as equivariant functions
+valued in this invariant subset. For the notation of LWZB M is positive; M=0 is also allowed for
+component tuples.
 
-Checks: Distinct conjugacy classes need not give linearly independent abelianized images.
+*Construction.* Use a subset of the integer lattice, not a subgroup; degree permutation preserves
+its inequalities and sum. Restrict the action to the actual projection kernel and bundle its degree
+projection as an equivariant map. The twisted slice is the inverse image of the lattice slice under
+the induced map of equivariant functions. Evaluation at one torsor point detects membership because
+the lattice slice is invariant.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+The API:
 
-### Lift-square class columns
+- `boundedDegreeSlice_mem`: Membership means both the coordinate lower bound and exact total sum.
+- `boundedDegreeSlice_invariant`: Each power permutation preserves the slice.
+- `boundedDegreeSlice_preimage`: K_{n,≥M}⟨−1⟩ is the preimage under the twisted degree map.
 
-**Target `lift_square_columns`.** For each involution class c_i, the class s_i of X_i² in B=A/A² is independent of both the lift and the representative in c_i.
+*Needs:* RS.3.2; RS.2.16; RS.3.8.
 
-Construction and proof route: Lift changes insert squares of central factors; conjugation fixes the central lift square.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
 
-Needs: RS.4, lift squares are central; `TauCeti.elementaryTwoQuotientMk_mul` (Tau Ceti).
+**Checks.**
 
-Checks: Only class columns are defined; squaring all nonabelian cover elements is not a homomorphism.
+- `boundedDegreeSlice_test_1` (degenerate): For D empty, the slice is singleton at n=0 and empty at
+  n>0.
+- `boundedDegreeSlice_test_2` (computation): For |D|=2,n=3,M=1, the slice consists of (1,2),(2,1).
+- `boundedDegreeSlice_test_3` (non-example): For nonempty D,n=0,M=1, the slice is empty; it is never
+  declared a group containing zero.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+### RS.3.10 Power-fixed degree lattice
 
-### The parity and lift-square maps
+**`powerFixedDegree`.** For q prime to |G| define L_{≡q}={m∈ℤ^D:m(d^q)=m(d) for all d}. Its n,≥M
+slice adds the lower-bound and exact total-degree conditions.
 
-**Target `parity_square_map`.** With V=F₂^N, the already constructed a:V→Additive(G^ab), and B=TauCeti.ElementaryTwoQuotient A, define s:V→B by the lift-square columns s(e_i)=s_i. Extend only on the free vector space, not on G or S_c.
+*Construction.* Use the fixed subgroup of the permutation, and the ordinary action orbit quotient.
+Rationality of c as a set does not imply each conjugacy class is fixed.
 
-Construction and proof route: Specify basis values and use the free-vector-space universal property.
+The API:
 
-Extract X_i² in the injected kernel using `GroupExtension` exactness before taking its image in `TauCeti.ElementaryTwoQuotient A`. On the finite coordinate space, s(v)=Σ_i v_i·class(X_i²). This formula supplies the adapter from the extension's chosen marked lifts to the binary linear map.
+- `powerFixedDegree_fixed`: L_{≡q} consists precisely of q-fixed degree vectors.
+- `powerFixedDegree_orbits`: Identify fixed vectors with integer-valued functions on the native
+  orbit quotient D/⟨q⟩; evaluation at an orbit represented by d gives m(d).
+- `powerFixedDegree_weighted_sum`: Under this identification, total degree is Σ_O |O|m_O, not the
+  unweighted sum.
 
-Needs: RS.4, involution classes span the abelianization; RS.4, lift-square class columns.
+*Needs:* RS.3.2; RS.3.9.
 
-Required API:
+*Source.* Liu–Wood–Zureick-Brown (2022 preprint), §12, paragraph before Proposition 12.7, arXiv v2
+PDF p.50.
 
-- `parity_square_map_basis_s` (simp): s(e_i)=class(X_i²).
-- `parity_square_map_linear` (structure): Both maps preserve addition and F₂ scalar multiplication.
-- `parity_square_map_quotient` (compatibility): s uses the existing TauCeti elementary-2 quotient of A.
+**Checks.**
 
-Unit tests:
+- `powerFixedDegree_test_1` (degenerate): At q≡1 modulo the exponent of G, L_{≡q}=L.
+- `powerFixedDegree_test_2` (computation): For the two nontrivial classes of C₃ and q=2,
+  L_{≡q}={(a,a):a∈ℤ}; total degree is 2a.
+- `powerFixedDegree_test_3` (non-example): For this C₃ example with M = 0, the fixed slice of total
+  degree 1 is empty (2a = 1 has no solution), while the unconstrained slice contains (1,0) and
+  (0,1).
 
-- `parity_square_map_test_1` (degenerate): a(0)=0 and s(0)=0.
-- `parity_square_map_test_2` (computation): For S₃ transpositions and its identity reduced cover, V=U=F₂, a=id, B=0 and s=0.
-- `parity_square_map_test_3` (non-example): For distinct classes with the same abelianized image, a(e₁+e₂)=0 even though e₁+e₂≠0. In S₆ the class of a transposition and the class of three disjoint transpositions give an explicit example: their cycle types differ and both have odd sign.
+### RS.3.11 Orbit set of class degrees
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+**`DegreeOrbitSet`.** Define 𝔖^{c,G} as the orbit quotient of the integer lattice L under the
+unit-power coordinate permutation. Its n,≥M subset is the image of L_{n,≥M}. Choice of a
+roots-of-unity generator changes a degree vector within this orbit.
 
-### Compatible parities and their obstruction
+*Construction.* Take the existing action-orbit equivalence relation, then its quotient. Bundle the
+unit-power permutations as a homomorphism into the class permutation group and act on the integer
+lattice by `Finsupp.domCongr`. Evaluation of an equivariant twist at any two torsor points gives the
+same orbit class.
 
-**Target `affine_compatible_parities`.** For g=1 set v_g=0; for g∈c_k set v_g=e_k. Compatible ε are exactly v_g+ker a, and β(g,ε)=s(v_g+ε).
+The API:
 
-Construction and proof route: The abelianization condition is a(ε)=a(v_g). Over F₂ subtraction equals addition, and the central-square product gives the displayed s value.
+- `degreeOrbitSet_mk`: Every degree vector has a class in 𝔖^{c,G}.
+- `degreeOrbitSet_eq`: Two orbit classes are equal iff the vectors differ by a unit-power
+  permutation.
+- `degreeOrbitSet_slice`: The n,≥M image is independent of the choice of torsor generator.
 
-Needs: RS.4, the parity and lift-square maps; RS.4, square-class obstruction of a fiber.
+*Needs:* RS.3.2; RS.3.9; RS.3.8.
 
-A signature includes either the identity with lift 1, or an actual x∈c with its marked lift. Write v_g=0 in the first case and v_g=e_[x] in the second. For an integer degree m, let ε(m)_d be m_d reduced modulo 2. The signature square is the kernel element extracted from the square of this chosen lift. The equivalence with ε(m)+v_g∈ker a uses the actual degree-to-abelianization map, and the square-obstruction identity uses the actual extension's marked square columns. Each chosen representative x_d must belong to its indexed conjugacy class.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), §12, published PDF pp.56–57; arXiv v2 pp.47–48.
 
-Checks: Use a signature translate; ker a alone only describes the g=1 case.
+**Checks.**
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+- `degreeOrbitSet_test_1` (degenerate): For D empty, the orbit set is singleton.
+- `degreeOrbitSet_test_2` (computation): For C₃ nonidentity classes, (1,4) and (4,1) have the same
+  orbit class.
+- `degreeOrbitSet_test_3` (non-example): For the same two-class set, (1,4) and (2,3) have different
+  orbit classes despite equal total degree.
 
-### Joint parity constraint map
+### Examples
 
-**Target `joint_parity_map`.** Put U_ab=Additive(G^ab), with its elementary-2 vector-space structure. For t≥0 define the linear map L_t:V→U_ab⊕(B/B_t), v↦(a(v),s(v) mod B_t). Its kernel consists of degree parities compatible with the identity and with square obstruction in B_t.
+- G = C₃, c its two nonidentity elements: the unit 2 swaps the two classes, so it acts on L = ℤ² by
+  (m₁, m₂) ↦ (m₂, m₁); the power-fixed lattice for q = 2 is {(a, a)}, of total degree 2a.
+- G = S₃, c the transpositions: every odd unit fixes the single class; the action on U ≅ {(h, n) :
+  sign h = (−1)ⁿ} is (h, n) ↦ (h^α, n), a permutation that is not a homomorphism for α = −1.
 
-Construction and proof route: Compose s with the quotient linear map and pair with a using existing product linear maps.
+### Dependencies
 
-Needs: RS.4, the parity and lift-square maps; RS.4, torsion-image filtration.
+Layers RS.1 and RS.2; RS.0.6 for the finite level; Mathlib `ZMod`, `Finsupp.domCongr`,
+`MulActionHom`, orbit relations.
 
-Required API:
+## Layer RS.4: Fixed fibers, square obstructions and parity
 
-- `joint_parity_map_apply` (data): L_t(v)=(a(v),class(s(v)) in B/B_t).
-- `joint_parity_map_kernel` (characterisation): v∈kerL_t iff a(v)=0 and s(v)∈B_t.
-- `joint_parity_map_mono_kernel` (functoriality): t≤u implies kerL_t⊆kerL_u.
-- `joint_parity_map_last` (compatibility): At t=e, kerL_e=ker a.
+Here c is a union of classes of involutions. For an odd q the fixed points of q in each fiber of P
+over (g, m) are the solutions of a power equation in the finite abelian group A = M(G,c);
+solvability is governed by the square class of an explicit element b(g,m) and by v₂(q − 1). The
+second half turns the dependence on the parities of m into linear algebra over F₂.
 
-Unit tests:
+### RS.4.1 Lift squares are central
 
-- `joint_parity_map_test_1` (degenerate): L_t(0)=0.
-- `joint_parity_map_test_2` (computation): For a=0,s=id on F₂ and B_t=0, kerL_t=0; when B_t=B, kerL_t=F₂.
-- `joint_parity_map_test_3` (non-example): Using only a misses the obstruction in the first of those cases.
+Prove `involution_square_central`: Assume c consists of involutions. For x∈c every lift X∈S_c has
+X²∈A=M(G,c), hence X² commutes with S_c.
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+*Proof sketch.* Project X² to x²=1; apply centrality of the kernel.
 
-### Surviving parities form an affine kernel coset
+*Needs:* RS.1.7.
 
-**Target `surviving_parities`.** If v₂(q−1)=t+1, the parities giving nonempty fixed fibers are C_t^g=v_g+kerL_t. Each corresponding compatible integer-degree fiber has |A[q−1]| fixed points.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Construction and proof route: Membership combines a compatibility equation and the quotient obstruction equation. Translate by v_g.
+**Checks.**
 
-Needs: RS.4, joint parity constraint map; RS.4, compatible parities and their obstruction; RS.4, two-adic criterion for fiber survival.
+- Take G = C₂ × C₂ and c = ∅ (so A = M(G) ≅ C₂ and S_c = S). In the cover Q₈ every lift of a
+  nonidentity element squares to the central −1; in the cover D₈ the lifts of the rotation class
+  square to the central element and the lifts of the two reflection classes square to 1. So X² ∈ A
+  depends on the class, and squaring is not a homomorphism S_c → A.
 
-Instantiate L_t with the existing involution abelianization map and the lift-square map of the marked extension. For every integer degree m, the actual fixed subset of the pullback over (g,m) is nonempty exactly when ε(m)+v_g∈ker L_t. The fixed subset then has cardinality |ker(a↦a^{q−1})|. This specializes to the reduced-cover model, where A is the reduced multiplier; it also holds for any finite central marked model. The conditions are q>1, q odd, and q coprime to a positive common exponent n of the cover and G. No upper bound q<n is required.
+### RS.4.2 Square-class obstruction of a fiber
 
-Checks: Lower bounds on coordinates and an exact total degree enter the subsequent integer-degree count. They are not hypotheses of the fixed-fiber criterion itself.
+**`squareObstruction`.** Assume finite G is generated by involution classes c_i, A=M(G,c), chosen
+class lifts X_i, and g∈c∪{1} with lift Y (Y=1 for g=1). For an integer degree m with Σ_i
+m_i[c_i]=[g] in G^ab, define b(g,m)=Y²∏_i(X_i²)^−m_i∈A and β(g,m) as its class in
+TauCeti.ElementaryTwoQuotient A. Lift changes multiply b by a square; β depends only on the parity
+of m.
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+*Construction.* All squared factors lie in A. Replacing Y or X_i by central kernel factors inserts
+squares. Modulo squares, exponents reduce mod 2.
 
-### Ranks count surviving parities
+The API:
 
-**Target `rank_parity_count`.** |C_t^g|=2^{N−rankL_t}. For K_t=2^{N−rankL_t} and K_{−1}=0, the number of compatible parities with exact threshold t is K_t−K_{t−1}. Real and imaginary signatures have equal parity cardinalities, without an asserted equality of weights.
+- `squareObstruction_representative`: b(g,m)=Y²∏_i(X_i²)^−m_i.
+- `squareObstruction_choice`: β is independent of lift choices; b generally is not.
+- `squareObstruction_parity`: Changing each m_i by an even integer leaves β unchanged.
+- `squareObstruction_compatibility`: The domain first requires δ(m)=[g]; incompatible fibers are
+  empty before this obstruction is considered.
 
-Construction and proof route: Translation preserves cardinality; use rank-nullity and finite-vector-space cardinality. Increasing kernels give the histogram difference.
+*Needs:* RS.4.1; RS.2.3; `TauCeti.ElementaryTwoQuotient` (Tau Ceti);
+`TauCeti.elementaryTwoQuotientMk_mul` (Tau Ceti).
 
-Needs: RS.4, surviving parities form an affine kernel coset; `LinearMap.finrank_range_add_finrank_ker` (Mathlib); `Module.card_eq_pow_finrank` (Mathlib).
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-For t=0 the exact-threshold set is the entire translated kernel of L_0. For t>0 it is the translated kernel of L_t with the translated kernel of L_{t−1} removed. On a compatible actual degree fiber this condition is equivalent to threshold β(g,m)=t. The kernels are nested because B_{t−1}⊆B_t, so ordinary natural-number subtraction gives the stated histogram. Translation identifies the parity counts for any two signatures, independently of the chosen representative lifts.
+**Checks.**
 
-Checks: A translated coset can have a different weight enumerator despite equal cardinality.
+- `squareObstruction_test_1` (degenerate): For g=1 and m=0, β=0.
+- `squareObstruction_test_2` (computation): For g∈c_k and m=e_k, β=0.
+- `squareObstruction_test_3` (non-example): A degree incompatible with [g] cannot acquire a nonempty
+  fiber merely because the formal square product is a square.
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+### RS.4.3 The fixed-fiber power equation
 
-### Weight enumerator of a surviving parity coset
+Prove `fixed_fiber_equation`: For the hypotheses of square-obstruction and odd q coprime to |G|, let
+r=(q−1)/2. Writing a fiber point as (Yh,m), the q-fixed equation is h^{q−1}=b(g,m)^{−r}. Since the
+power subgroup is closed under inversion, solvability is equivalent to b(g,m)^r∈A^{2r}.
 
-**Target `parity_weight_enumerator`.** For C_t^g⊆F₂^N and lower bound N₀≥0, set δ=N₀ mod 2 and W_t^g(X)=Σ_{ε∈C_t^g} X^{wt(ε+δ·1)}∈ℕ[X]. The exponent is the excess above the coordinate lower bound of the least nonnegative degree of parity ε.
+*Proof sketch.* Insert the coordinate action and c_i involutions in Wood equation (6); all
+correction factors are powers of central X_i². The fiber is the set of elements of the pullback with
+projection g and degree m, not the set of formal solutions of the displayed equation. Require that
+each chosen class representative represents its indexed inertia class. A q-unit is obtained from
+coprimality with the chosen common exponent of the cover and base.
 
-Construction and proof route: Take a finite polynomial sum. The associated counting-series interface is X^{NN₀}W(X)/(1−X²)^N, but no Tauberian theorem or asymptotic limit is built here.
+*Needs:* RS.4.2; RS.3.5; `powMonoidHom` (Mathlib).
 
-Needs: RS.4, surviving parities form an affine kernel coset.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Required API:
+**Checks.**
 
-- `parity_weight_enumerator_coefficient` (characterisation): The coefficient of X^j is the number of ε with wt(ε+δ·1)=j.
-- `parity_weight_enumerator_at_one` (simp): W(1)=|C_t^g|.
-- `parity_weight_enumerator_translation` (compatibility): Changing the lower-bound parity translates the weight argument, not the surviving affine coset.
+- For q = 3 (r = 1) and an involution class with X² = a, the correction is W_3(e_i) = X_i^{−2} =
+  a⁻¹, so the equation reads h² = b⁻¹; the sign matters for the solutions h, though not for
+  solvability.
 
-Unit tests:
+### RS.4.4 Square-times-torsion solvability
 
-- `parity_weight_enumerator_test_1` (degenerate): For N=0 and the singleton parity, W=1.
-- `parity_weight_enumerator_test_2` (computation): For N=1,N₀=0, C={0} gives 1 and C={1} gives X.
-- `parity_weight_enumerator_test_3` (non-example): Those two cosets have equal cardinality but unequal polynomials; signature counts cannot be identified by cardinality alone.
+Prove `square_torsion_solvability`: For a commutative group A, b∈A and r≥1, b^r∈A^{2r} iff
+b∈A²·A[r].
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+*Proof sketch.* If b^r=h^{2r}, then bh⁻²∈A[r]; the converse is obtained by raising a square times
+r-torsion element to r.
 
-### Independent class images eliminate the obstruction
+*Needs:* `powMonoidHom` (Mathlib).
 
-**Target `independent_classes`.** If the N class images in G^ab are linearly independent, then a is an isomorphism. Each g-signature has the sole compatible parity v_g, β=0, and a nonempty fixed fiber for every allowed q.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Construction and proof route: Surjectivity and basis independence give an isomorphism; its kernel is zero, and s(0)=0.
+**Checks.**
 
-Needs: RS.4, the parity and lift-square maps; RS.4, compatible parities and their obstruction; RS.4, surviving parities form an affine kernel coset.
+- For A=C₈,r=2 and an odd generator b, both conditions fail; for r=8 both hold.
 
-State independence on the actual elements [x_d] in Additive(G^ab), using the elementary-2 module structure supplied by generation by involutions. The bijectivity of a identifies degree compatibility with ε(m)=v_g. The square-obstruction class is then zero, and for every allowed q the actual fixed fiber is nonempty with |A[q−1]| elements. Generation, valid class representatives, finiteness of A, and the common exponent hypotheses remain explicit; independence does not replace any of them.
+### RS.4.5 All fixed fibers and their torsion count
 
-Checks: No condition on the size of the reduced multiplier is needed.
+Prove `all_fixed_fibers`: For odd q>1 prime to |G|, the fiber over (g,m) has |A[q−1]| fixed points
+if δ(m)=[g] and b(g,m)^r∈A^{2r}, and zero otherwise. The q and q⁻¹ actions have the same fixed
+points. No nonnegativity of m is needed for this group-theoretic statement.
 
-Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
+*Proof sketch.* Apply the existing nonempty power-fiber equivalence to its kernel; a permutation and
+its inverse have the same fixed set. For an arbitrary finite central marked model, retain the
+finite-kernel hypothesis and count the fixed subset of the actual (g,m) fiber. Its cardinality is
+zero when degree compatibility or power-image membership fails.
 
-## RS.5: Coprime semidirect products and compatible covers
+*Needs:* RS.4.3; `MonoidHom.fiberEquivKer` (Mathlib).
 
-Let G=H⋊Γ with H and Γ finite and coprime in order. The cover construction uses these hypotheses; admissibility is additionally needed for the inertia-class and abelianization statements. Distinguish the H-primary kernel before reduction from its quotient after reduction. Its order being prime to |Γ| does not imply it is prime to an arbitrary power exponent.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-### Split projections induce homology surjections
+**Checks.**
 
-**Target `split_homology_surjection`.** For finite G=H⋊Γ, the projection ρ:G→Γ has a section, hence ρ_*:M(G)→M(Γ) is onto.
+- Take A = C₄ (written additively), b = 1 and q = 3 (r = 1): b is not in 2A + A[1] = 2A, so the
+  fiber has no fixed point, although |A[q−1]| = |A[2]| = 2; an incompatible or obstructed fiber must
+  not be given the torsion count.
 
-Construction and proof route: Apply homology functoriality to the projection-section composite.
+### RS.4.6 Odd-parity fixed-point fiber
 
-Needs: `groupHomology.map` (Mathlib); `groupHomology.map_comp` (Mathlib).
+Prove `odd_parity_fiber`: If g∈c_k, m_k is odd and all other m_i are even, then the fiber is
+compatible and its fixed count is |A[q−1]|.
 
-Checks: For H=1 this is the identity of M(Γ).
+*Proof sketch.* The abelianized involution classes give compatibility. The displayed b is a square,
+so b^r is a 2r-th power.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+*Needs:* RS.4.5; RS.4.2.
 
-### Primary parts of a coprime semidirect multiplier
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-**Target `multiplier_primary_support`.** For finite H,Γ with coprime orders and G=H⋊Γ, M(G) is finite of exponent dividing |G|. Its canonical primary decomposition M_H×M_Γ uses primes dividing |H| and primes dividing |Γ|.
+**Checks.**
 
-Construction and proof route: Import the transfer bound on positive-degree integral homology and finite abelian primary decomposition; no assertion that the whole multiplier has exponent 2 is made.
+- For G = S₃ with c the transpositions, A = 0, so every compatible fiber has exactly one fixed point
+  for every allowed q.
 
-The two parts can be represented by Mathlib's `AddCommGroup.primaryComponent` with parameters |H| and |Γ|, respectively. For a composite parameter n this subgroup consists of elements annihilated by a power of n. The isomorphism to their product must reconstruct each original class by adding its two components; the product cardinality alone does not specify the projections.
+### RS.4.7 Even-parity fixed-point fiber
 
-Needs: RS.5, split projections induce homology surjections; `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib); [finite positive-degree integral homology and its order annihilator](#finite-homology-and-the-coprime-edge).
+Prove `even_parity_fiber`: If g=1 and every m_i is even, then the compatible fiber has exactly |A[q−1]|
+fixed points.
 
-Checks: For Γ=1 the Γ-primary part is trivial; for H=1 the H-primary part is trivial.
+*Proof sketch.* The degree maps to 1 in G^ab and b is a product of even powers.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+*Needs:* RS.4.5; RS.4.2.
 
-### The coprime central splitting is unique
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-**Target `central_coprime_splitting`.** For the chosen Schur cover S→H⋊Γ, write S′ as the preimage of H. The central extension 1→M_Γ→S′/M_H→H→1 has a unique splitting and is isomorphic to M_Γ×H.
+**Checks.**
 
-Construction and proof route: Schur–Zassenhaus gives a complement and thus a splitting. The difference of two splittings is a homomorphism H→M_Γ, trivial by coprime cardinalities.
+- The degree m = −2e_i is allowed: the statement is about the group U, and nonnegativity is imposed
+  only later by the counting slices of RS.3.9.
 
-Use the native `GroupExtension.Splitting` for the section. The reusable central-extension statement assumes finite kernel and quotient, their coprime cardinalities, and explicit centrality, and concludes both existence and uniqueness of the splitting. Its product isomorphism sends (a,h) to inl(a)s(h). This uniqueness concerns a central extension; the inertia application below requires the separate conjugacy theorem for complements in a possibly noncentral semidirect product.
+### RS.4.8 Torsion-image filtration
 
-Needs: RS.5, primary parts of a coprime semidirect multiplier; InductionRestriction, Layer 7; `Subgroup.exists_right_complement'_of_coprime` (Mathlib); `GroupExtension.Splitting` (Mathlib).
+**`torsionImageFiltration`.** For a finite abelian A let B=TauCeti.ElementaryTwoQuotient A. Define
+B_t to be the image in B of A[2^t]=ker(powMonoidHom(2^t)), regarded as a ZMod 2 subspace. B_0=0; the
+filtration is increasing and B_e=B when the 2-primary exponent is 2^e.
 
-Checks: Centrality is essential for the homomorphic difference and the direct-product conclusion.
+*Construction.* Restrict the square-class map to the specified torsion subgroup; its additive image
+is a submodule. Finite abelian primary decomposition proves exhaustion.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+The API:
 
-### The Hall preimage is normal in the cover
+- `torsionImageFiltration_zero`: B_0=0, since A[1]={1}.
+- `torsionImageFiltration_mono`: t≤u implies B_t≤B_u.
+- `torsionImageFiltration_exhaustive`: B_e=B for 2-primary exponent 2^e.
+- `torsionImageFiltration_cyclic`: For A=C_{2^e}, B_t=0 for t<e and B_t=B for t≥e.
 
-**Target `hall_preimage_normal`.** Let φ:S′/M_H→M_Γ be the projection obtained from the unique splitting, and D its kernel preimage in S′. Then D is characteristic in S′, normal in S, and |D|=|H||M_H|.
+*Needs:* `powMonoidHom` (Mathlib); `TauCeti.ElementaryTwoQuotient` (Tau Ceti);
+`TauCeti.elementaryTwoQuotientMap` (Tau Ceti); `AddCommGroup.equiv_directSum_zmod_of_finite`
+(Mathlib).
 
-Construction and proof route: The subgroup D is normal in S′ as a kernel preimage, and its order |H||M_H| is coprime to its index |M_Γ|. Any subgroup of S′ of order |D| has trivial image in S′/D by coprimality, so is contained in D and equals D. Thus D is the unique Hall subgroup of this order and is characteristic. Since S′ is normal in S, D is normal in S.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-The subgroup-level interface retains the normal inclusion S′⊆S and the actual surjection θ:S′→M_Γ. It identifies D with kerθ mapped into S, proves kerθ characteristic in S′, and preserves its cardinality under that inclusion. The cardinality formula |S′|=|kerθ||M_Γ| uses surjectivity of θ.
+**Checks.**
 
-Needs: RS.5, the coprime central splitting is unique.
+- `torsionImageFiltration_test_1` (degenerate): For A of odd order, B_t=0=B for every t.
+- `torsionImageFiltration_test_2` (computation): For A=C₈, the filtration is zero at t=0,1,2 and all
+  C₂ at t=3.
+- `torsionImageFiltration_test_3` (non-example): In C₈, the nontrivial 2-torsion element is a
+  square, so its image in B_1 is zero; the quotient is not the torsion subgroup.
 
-Checks: Being merely a chosen complement would not establish normality in S.
+### RS.4.9 Two-primary obstruction threshold
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+**`obstructionThreshold`.** For b∈finite abelian A with 2-primary exponent 2^e define
+t_A(b)=min{t≥0: the class of b belongs to B_t}. It lies between 0 and e. It depends only on the
+square class, and equals max{e_j : b has odd coordinate in a cyclic factor C_{2^{e_j}}} (empty
+maximum 0).
 
-### Compatible Schur covers
+*Construction.* Exhaustion ensures the minimum exists. Compute the torsion image separately in each
+cyclic factor; the odd-primary part is uniquely 2-divisible.
 
-**Target `compatible_covers`.** For finite H,Γ of coprime orders and G=H⋊Γ, choose a Schur cover S→G and let S_Γ=S/D with D from the preceding construction. The quotient S→S_Γ covers G→Γ. The lower central extension has kernel M_Γ and is an ordinary Schur cover of Γ.
+The API:
 
-Construction and proof route: The quotient S/D→Γ is a central extension with kernel M_Γ. Naturality gives τ_lower∘ρ=pr_Γ∘τ_S, where τ_S is an isomorphism. The map ρ is onto because G→Γ splits. Its target M(Γ) is Γ-primary, hence ρ kills M_H. On M_Γ, the displayed composite is the identity, so ρ restricted to M_Γ is injective and τ_lower is onto. Surjectivity of ρ, together with ρ(M_H)=0, makes that restriction onto M(Γ), hence an isomorphism. Therefore τ_lower is its inverse, S/D is a Schur cover, and kerρ=M_H. This proves the primary-kernel claim before using it.
+- `obstructionThreshold_zero`: t_A(b)=0 iff b is a square.
+- `obstructionThreshold_class`: Equal square classes have equal thresholds.
+- `obstructionThreshold_bound`: 0≤t_A(b)≤e.
+- `obstructionThreshold_cyclic`: For a generator of C_{2^e}, e>0, t_A(b)=e.
 
-A compatible-cover diagram records D with its normality, the projection S/D→Γ, centrality and the stem condition, and the lower integral kernel isomorphism. The upper and lower isomorphisms are the extension-class evaluation maps. An arbitrary abstract isomorphism from homology to the kernel is insufficient for the naturality square. For every z∈M(G), quotienting τ_S(z) in S gives τ_lower(ρ_*(z)) in S/D; this equation also controls the descended reduced-cover maps.
+*Needs:* RS.4.8; RS.4.4; `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib).
 
-Needs: RS.5, the hall preimage is normal in the cover; RS.5, split projections induce homology surjections; InductionRestriction, Layer 7; [naturality of the extension class map](#extension-classes-and-the-five-term-map), using the specified maps on the two cover kernels.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Required API:
+**Checks.**
 
-- `compatible_covers_square` (compatibility): The diagram S→G, S_Γ→Γ, S→S_Γ, G→Γ commutes.
-- `compatible_covers_kernel` (projection): The cover-kernel map is M_H×M_Γ→M_Γ.
-- `compatible_covers_schur` (characterisation): The lower class map τ_{S_Γ}:M(Γ)≅M_Γ is an isomorphism.
-- `compatible_covers_choice` (data): These covers are compatible choices, not canonical covers functorial for every group map.
+- `obstructionThreshold_test_1` (degenerate): t_A(1)=0.
+- `obstructionThreshold_test_2` (computation): For b = (generator, identity) in C₄ × C₈, the
+  threshold is 2; for b = (identity, generator) it is 3.
+- `obstructionThreshold_test_3` (non-example): For a generator in C₈ the threshold is 3, not 1
+  despite its nonzero image in a one-dimensional square quotient.
 
-Unit tests:
+### RS.4.10 Two-adic criterion for fiber survival
 
-- `compatible_covers_test_1` (degenerate): For H=1 take S=S_Γ and the identity cover map.
-- `compatible_covers_test_2` (degenerate): For Γ=1 take the lower cover to be trivial, with upper cover mapping to it.
-- `compatible_covers_test_3` (computation): For H=C₃ with inversion by Γ=C₂, G=S₃ and both ordinary multipliers are trivial, so the identity covers are compatible.
+Prove `two_adic_survival`: For odd q>1 prime to |G| and compatible degree m, the fixed fiber is
+nonempty iff v₂(q−1)≥t_A(b(g,m))+1.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+*Proof sketch.* Put r=(q−1)/2; its odd part contributes no new square classes, so the image of A[r]
+is B_{v₂(r)}. Combined with RS.4.3–RS.4.4 this is a statement about the finite abelian group A
+alone: the equation h^{q−1} = b^r has a solution iff v₂(q−1) ≥ t_A(b) + 1; the Lean file states it
+in this form.
 
-### The multiplier-map kernel is H-primary
+*Needs:* RS.4.5; RS.4.9; RS.4.4.
 
-**Target `multiplier_kernel_primary`.** For these finite coprime semidirect products, ker(M(G)→M(Γ))≅M_H and its order is prime to |Γ|. The paper states admissibility too; the inspected cover proof uses only finiteness and coprime orders.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Construction and proof route: Use the natural UCT class-map diagram and the projection onto M_Γ.
+**Checks.**
 
-Needs: RS.5, compatible schur covers; RS.5, primary parts of a coprime semidirect multiplier.
+- For A = C₈ and b a generator, t_A(b) = 3, so the fixed fiber is nonempty exactly when 16 ∣ q − 1
+  (q = 17 is the first prime that works); the parities of `odd_parity_fiber` and `even_parity_fiber`
+  have threshold 0 and survive every allowed q.
 
-Checks: Prime to |Γ| alone does not imply prime to an arbitrary q−1.
+### RS.4.11 Involution classes span the abelianization
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv v2 pp.53–54.
+Prove `involution_abelianization`: If c consists of N generating involution classes, G^ab is an
+elementary abelian 2-group. There is a surjective F₂-linear map a:F₂^N→Additive(G^ab), a(e_i)=[c_i].
 
-### Admissible equal-order inertia classes
+*Proof sketch.* Every abelianized generator has order dividing 2; extend on the free F₂-vector space
+and use generation.
 
-**Target `admissible_inertia_classes`.** Let H and Γ be finite groups of coprime orders, with an action of Γ on H. Assume H is generated by h⁻¹γ(h) for h∈H,γ∈Γ (finite admissibility). In G=H⋊Γ let c consist of nonidentity elements having the same order as their image in Γ. Then c generates G, is conjugacy- and invertible-power-stable, and c/G→(Γ∖{1})/Γ is a bijection.
+Use `AddCommGroup.zmodModule` with the proved identity 2·u=0 to give the existing carrier
+Additive(G^ab) its F₂-module structure. The class map on binary coordinates retains the basis values
+of δ; this construction preserves the existing group operations.
 
-Construction and proof route: Apply the cyclic-complement conjugacy contract above to ⟨γ⟩ and the equal-order lift. Its H-conjugacy conclusion supplies the class bijection. The admissible generators and embedded Γ generate G.
+*Needs:* RS.2.3; `Abelianization` (Mathlib).
 
-Retain the action Γ→Aut(H) and the native semidirect-product projection. The generating subset of H is exactly the set of h⁻¹γ(h), and c excludes the identity before imposing equality of orders. The conjugacy input asserts that an equal-order g is h(1,ρ(g))h⁻¹ for some h∈H. The class-lattice map sends e_[g] to e_[ρ(g)] and intertwines δ with the induced map on abelianizations. The abelianization comparison itself only needs the admissible generating condition; its proof does not use complement conjugacy.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Needs: `GroupExtension` (Mathlib); [cyclic coprime complement conjugacy](#cyclic-complement-conjugacy). `Subgroup.exists_right_complement'_of_coprime` supplies complement existence; the class bijection additionally uses conjugacy of the chosen cyclic complements.
+**Checks.**
 
-Checks: Exclude 1 explicitly; equality of orders alone would include it.
+- For S₃ with c the transpositions, N = 1 and a : F₂ → C₂ is the identity; for S₆ with c the
+  transpositions and the triple transpositions, N = 2 and a(e₁ + e₂) = 0, so a is onto but not
+  injective.
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+### RS.4.12 Lift-square class columns
 
-### Admissible semidirect abelianization
+Prove `lift_square_columns`: For each involution class c_i, the class s_i of X_i² in B=A/A² is
+independent of both the lift and the representative in c_i.
 
-**Target `admissible_abelianization`.** For such admissible H, projection G^ab→Γ^ab is an isomorphism, and the class-lattice maps δ correspond under the bijection c/G≅(Γ∖{1})/Γ.
+*Proof sketch.* Lift changes insert squares of central factors; conjugation fixes the central lift
+square.
 
-Construction and proof route: Each h⁻¹γ(h) is a commutator in G; admissibility kills all H in the abelianization, while the section supplies the inverse.
+*Needs:* RS.4.1; `TauCeti.elementaryTwoQuotientMk_mul` (Tau Ceti).
 
-Needs: RS.5, admissible equal-order inertia classes; `Abelianization.lift` (Mathlib).
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Checks: For H=C₃ and trivial Γ-action, admissibility fails and H survives in G^ab.
+**Checks.**
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+- Changing X_i to X_i·k with k ∈ A changes X_i² to X_i² k², which has the same class in B; the
+  column depends only on the class c_i.
 
-### The Schur relation map is surjective
+### RS.4.13 The parity and lift-square maps
 
-**Target `relations_surjection`.** For the c above and d=Γ∖{1}, the split projection sends Q_c onto Q_d.
+**`paritySquareMap`.** With V=F₂^N, the already constructed a:V→Additive(G^ab), and
+B=TauCeti.ElementaryTwoQuotient A, define s:V→B by the lift-square columns s(e_i)=s_i. Extend only
+on the free vector space, not on G or S_c.
 
-Construction and proof route: All commuting-pair classes map into Q_d; conversely each generator in Γ lifts through the embedded Γ to a commuting pair with its first element in c.
+*Construction.* Specify basis values and use the free-vector-space universal property.
 
-Needs: RS.5, admissible equal-order inertia classes; RS.1, universal homological commutator; RS.1, schur commutator relations.
+Extract X_i² in the injected kernel using `GroupExtension` exactness before taking its image in
+`TauCeti.ElementaryTwoQuotient A`. On the finite coordinate space, s(v)=Σ_i v_i·class(X_i²). This
+formula supplies the adapter from the extension's chosen marked lifts to the binary linear map.
 
-Checks: The reverse inclusion uses the splitting, not merely surjectivity of G→Γ.
+The API:
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+- `paritySquareMap_basis_s`: s(e_i)=class(X_i²).
+- `paritySquareMap_linear`: Both maps preserve addition and F₂ scalar multiplication.
+- `paritySquareMap_quotient`: s uses the existing TauCeti elementary-2 quotient of A.
 
-### Compatible reduced multipliers
+*Needs:* RS.4.11; RS.4.12.
 
-**Target `reduced_kernel_primary`.** The induced M(G,c)→M(Γ,d) is surjective with H-primary kernel, so its kernel order is prime to |Γ|. The compatible cover map descends to S_c→(S_Γ)_d and commutes with the reduced-kernel isomorphisms.
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6),
+Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
-Construction and proof route: For a surjection M(G)→M(Γ) carrying Q_c onto Q_d, the new kernel is a quotient of its H-primary kernel. Descend the cover map via the same relation images.
+**Checks.**
 
-Specify that quotient through a surjection from M_H to the kernel of the reduced-multiplier map, sending z to its class modulo Q_c. The descended cover homomorphism sends the class of s in S_c to the class of sD in (S/D)_d. Its projection square and kernel square must use the actual quotient maps and the reduced kernel isomorphisms.
+- `paritySquareMap_test_1` (degenerate): a(0)=0 and s(0)=0.
+- `paritySquareMap_test_2` (computation): For S₃ transpositions and its identity reduced cover,
+  V=U=F₂, a=id, B=0 and s=0.
+- `paritySquareMap_test_3` (non-example): For distinct classes with the same abelianized image,
+  a(e₁+e₂)=0 even though e₁+e₂≠0. In S₆ the class of a transposition and the class of three disjoint
+  transpositions give an explicit example: their cycle types differ and both have odd sign.
 
-Needs: RS.5, the schur relation map is surjective; RS.5, the multiplier-map kernel is h-primary; RS.1, reduced schur cover.
+### RS.4.14 Compatible parities and their obstruction
 
-Checks: Quotienting can shrink the primary kernel; it is not asserted equal to the unreduced M_H.
+Prove `affine_compatible_parities`: For g=1 set v_g=0; for g∈c_k set v_g=e_k. Compatible ε are
+exactly v_g+ker a, and β(g,ε)=s(v_g+ε).
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+*Proof sketch.* The abelianization condition is a(ε)=a(v_g). Over F₂ subtraction equals addition,
+and the central-square product gives the displayed s value.
 
-### Compatibility of power corrections
+A signature includes either the identity with lift 1, or an actual x∈c with its marked lift. Write
+v_g=0 in the first case and v_g=e_[x] in the second. For an integer degree m, let ε(m)_d be m_d
+reduced modulo 2. The signature square is the kernel element extracted from the square of this
+chosen lift. The equivalence with ε(m)+v_g∈ker a uses the actual degree-to-abelianization map, and
+the square-obstruction identity uses the actual extension's marked square columns. Each chosen
+representative x_d must belong to its indexed conjugacy class.
 
-**Target `compatible_correction`.** Choose class representatives and marked lifts compatible with S_c→(S_Γ)_d. For every unit α, its reduced-kernel map f satisfies f(W^G_α(m))=W^Γ_α(classMap(m)). The marked U and K maps intertwine the discrete actions.
+*Needs:* RS.4.13; RS.4.2.
 
-Construction and proof route: Apply the cover map to the defining lift-power products; homomorphisms commute with finite powers.
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-For central marked extensions M,N, retain the kernel, cover and base homomorphisms a,e,ρ, their injection and projection squares, and e(x̂)=widehat(ρ(x)). The induced class map gives a homomorphism of integer lattices by sending each class basis vector to its image basis vector. With a positive common exponent for both covers and base groups, the correction identity induces a homomorphism of their marked fiber products and intertwines the discrete set actions. Restriction to the actual projection kernels gives the kernel-action comparison.
+**Checks.**
 
-Needs: RS.5, compatible reduced multipliers; RS.3, central power correction; RS.5, admissible semidirect abelianization.
+- For G = S₃, c the transpositions and g a transposition, v_g = e₁ and the compatible parities are
+  {e₁} = v_g + ker a, not ker a = {0}.
 
-Checks: A root-count comparison additionally requires the kernel order prime to q−1; that extra hypothesis belongs to its arithmetic-statistics consumer.
+### RS.4.15 Joint parity constraint map
 
-Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+**`jointParityMap`.** Put U_ab=Additive(G^ab), with its elementary-2 vector-space structure. For t≥0
+define the linear map L_t:V→U_ab⊕(B/B_t), v↦(a(v),s(v) mod B_t). Its kernel consists of degree
+parities compatible with the identity and with square obstruction in B_t.
 
-## RS.6: Certified finite examples
+*Construction.* Compose s with the quotient linear map and pair with a using existing product linear
+maps.
 
-A finite central surjection becomes a computational input only with a proved Schur-cover certificate. Compute the relation subgroup from centralizer generators, then take the kernel quotient and its square-class filtration. Embedded type enumeration belongs to ST.3. Each row below is a certification target for the specified marked type, not a substitute for its executable data.
+The API:
 
-### Odd-index-two homology reduction
+- `jointParityMap_apply`: L_t(v)=(a(v),class(s(v)) in B/B_t).
+- `jointParityMap_kernel`: v∈kerL_t iff a(v)=0 and s(v)∈B_t.
+- `jointParityMap_mono_kernel`: t≤u implies kerL_t⊆kerL_u.
+- `jointParityMap_last`: At t=e, kerL_e=ker a.
 
-**Target `odd_index_two_reduction`.** For finite H normal in G with |H| odd and G/H=C₂, M(G)≅M(H)_{C₂} and M(G) has odd order. For any union c of involution classes, Q_c=0 and M(G,c)=M(G).
+*Needs:* RS.4.13; RS.4.8.
 
-Construction and proof route: In the integral homological LHS spectral sequence, positive C₂-homology of the odd-order positive-degree H-homology modules vanishes. The (2,0) term is H₂(C₂,ℤ)=0. The only possible remaining incoming differential to (0,2) is d₃ from a subquotient of H₃(C₂,ℤ), which is 2-primary; its odd-order target forces it to vanish. Thus the edge map identifies H₂(G,ℤ) with the C₂-coinvariants of H₂(H,ℤ).  Commuting-pair classes with an involution entry are killed by 2 and therefore vanish in this odd-order multiplier.
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-Use `Representation.Coinvariants` for the integral homology representation induced by conjugation on the normal subgroup H. Inner conjugation by H acts trivially, so the G-action factors through G/H. The edge isomorphism sends the inclusion-induced image of z∈M(H) to the native coinvariant class of z. This identifies the map as well as the two abstract groups. The vanishing relation conclusion also permits any subset whose elements square to the identity.
+**Checks.**
 
-Needs: RS.1, universal homological commutator; RS.1, reduced schur multiplier; RS.1, commuting-pair classes respect orders; the [coprime degree-two edge](#finite-homology-and-the-coprime-edge), including its inclusion-map formula and incoming d₃ check; Mathlib's cyclic second-homology calculation.
+- `jointParityMap_test_1` (degenerate): L_t(0)=0.
+- `jointParityMap_test_2` (computation): For a=0,s=id on F₂ and B_t=0, kerL_t=0; when B_t=B,
+  kerL_t=F₂.
+- `jointParityMap_test_3` (non-example): Using only a misses the obstruction in the first of those
+  cases.
 
-Checks: This does not extend to even-order H.
+### RS.4.16 Surviving parities form an affine kernel coset
 
-Source: Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, Example 9.3.2, arXiv v1 PDF p.57.
+Prove `surviving_parities`: If v₂(q−1)=t+1, the parities giving nonempty fixed fibers are
+C_t^g=v_g+kerL_t. Each corresponding compatible integer-degree fiber has |A[q−1]| fixed points.
 
-### The order-96 A₄ arithmetic type
+*Proof sketch.* Membership combines a compatibility equation and the quotient obstruction equation.
+Translate by v_g.
 
-**Target `order96_type`.** Let ab:A₄→C₃ be its abelianization map. Put K=ker((a,b)↦ab(a)+ab(b)) inside A₄², and F=K⋊C₂ with the involution swapping the two A₄ factors. Then |K|=48 and |F|=96. Use the explicit embedding F⊆A₄≀C₂ and c its outside order-2 elements for the reduced multiplier, rather than an unmarked abstract SmallGroups label.
+Instantiate L_t with the existing involution abelianization map and the lift-square map of the
+marked extension. For every integer degree m, the actual fixed subset of the pullback over (g,m) is
+nonempty exactly when ε(m)+v_g∈ker L_t. The fixed subset then has cardinality |ker(a↦a^{q−1})|. This
+specializes to the reduced-cover model, where A is the reduced multiplier; it also holds for any
+finite central marked model. The conditions are q>1, q odd, and q coprime to a positive common
+exponent n of the cover and G. No upper bound q<n is required.
 
-Construction and proof route: The sum map A₄²→C₃ is onto and preserved by swap; form its kernel and restricted semidirect product. The finite embedded-type enumeration belongs to ST.3.
+*Needs:* RS.4.15; RS.4.14; RS.4.10.
 
-The abelianization fixture is a surjection A₄→C₃ with kernel [A₄,A₄], used consistently on both coordinates. The multiplicative form of the kernel condition is ab(a)ab(b)=1. Swapping coordinates defines an automorphism of this actual kernel and hence the C₂-action. The homomorphism into (A₄×A₄)⋊C₂ retains both coordinates and the swap coordinate and is injective. The outside-involution set uses that projection, not a cardinality test or a chosen abstract group identifier.
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-Needs: `GroupExtension` (Mathlib); `Abelianization.of` (Mathlib).
+**Checks.**
 
-Required API:
+- With a = 0, s = id on V = F₂ and B = F₂ (so B_0 = 0 and B_1 = B): for t = 0 (q ≡ 3 mod 4) the
+  surviving parities for g = 1 are {0}, and for t = 1 (q ≡ 5 mod 8) they are all of F₂. Lower bounds
+  and total degree are not hypotheses here; they enter the counts of RS.4.17–RS.4.18.
 
-- `order96_type_kernel` (characterisation): K consists exactly of pairs with ab(a)+ab(b)=0.
-- `order96_type_swap` (structure): Swap preserves K and squares to the identity.
-- `order96_type_order` (example): |K|=48 and |F|=96.
-- `order96_type_outside` (projection): The quotient F→C₂ is the swap coordinate; c is its outside involution set.
+### RS.4.17 Ranks count surviving parities
 
-Unit tests:
+Prove `rank_parity_count`: |C_t^g|=2^{N−rankL_t}. For K_t=2^{N−rankL_t} and K_{−1}=0, the number of
+compatible parities with exact threshold t is K_t−K_{t−1}. Real and imaginary signatures have equal
+parity cardinalities, without an asserted equality of weights.
 
-- `order96_type_test_1` (computation): A pair of 3-cycles with abelianized values 1,2 belongs to K.
-- `order96_type_test_2` (non-example): A pair with values 1,1 does not belong to K; using the difference instead of the sum builds another specified kernel.
-- `order96_type_test_3` (compatibility): The outside element ((1,1),swap) has order 2 and projects nontrivially.
+*Proof sketch.* Translation preserves cardinality; use rank-nullity and finite-vector-space
+cardinality. Increasing kernels give the histogram difference.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), Appendix opening, printed p.420 (PDF p.44).
+For t=0 the exact-threshold set is the entire translated kernel of L_0. For t>0 it is the translated
+kernel of L_t with the translated kernel of L_{t−1} removed. On a compatible actual degree fiber
+this condition is equivalent to threshold β(g,m)=t. The kernels are nested because B_{t−1}⊆B_t, so
+ordinary natural-number subtraction gives the stated histogram. Translation identifies the parity
+counts for any two signatures, independently of the chosen representative lifts.
 
-### Commutators define a centralizer homomorphism
+*Needs:* RS.4.16; `LinearMap.finrank_range_add_finrank_ker` (Mathlib); `Module.card_eq_pow_finrank`
+(Mathlib).
 
-**Target `centralizer_commutator_hom`.** For fixed x∈c in a central extension E→G, the lift-commutator function κ_E(x,−):C_G(x)→A is a group homomorphism.
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-Construction and proof route: Choose product lifts and expand [X,YZ]; the two kernel commutators are central, so conjugation terms disappear.
+**Checks.**
 
-Needs: RS.1, commutator of lifts.
+- With N = 2, ker L_t = {0, e₁ + e₂}: for g = 1 the coset {0, e₁+e₂} and for v_g = e₁ the coset {e₁,
+  e₂} both have 2 = 2^{2−1} elements, but (with N₀ = 0) weight enumerators 1 + X² and 2X.
 
-Checks: Its domain is the centralizer, not all of G.
+### RS.4.18 Weight enumerator of a surviving parity coset
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix opening p.420 (PDF pp.11,43–44).
+**`parityWeightEnumerator`.** For C_t^g⊆F₂^N and lower bound N₀≥0, set δ=N₀ mod 2 and
+W_t^g(X)=Σ_{ε∈C_t^g} X^{wt(ε+δ·1)}∈ℕ[X]. The exponent is the excess above the coordinate lower bound
+of the least nonnegative degree of parity ε.
 
-### Centralizer generators suffice for reduction
+*Construction.* Take a finite polynomial sum. The associated counting-series interface is
+X^{NN₀}W(X)/(1−X²)^N, but no Tauberian theorem or asymptotic limit is built here.
 
-**Target `centralizer_generator_relations`.** For a central extension E→G, the subgroup generated by all κ_E(x,y) with x∈c,y∈C_G(x) equals that generated using one representative per class in c and any group-generating set of its centralizer.
+The API:
 
-Construction and proof route: At fixed x the commutator-of-lifts map C_G(x)→A is a homomorphism because its values are central. Conjugating both arguments preserves the central result.
+- `parityWeightEnumerator_coefficient`: The coefficient of X^j is the number of ε with wt(ε+δ·1)=j.
+- `parityWeightEnumerator_at_one`: W(1)=|C_t^g|.
+- `parityWeightEnumerator_translation`: Changing the lower-bound parity translates the weight
+  argument, not the surviving affine coset.
 
-Needs: RS.1, commutator of lifts; RS.1, conjugacy-equivariant lifted marking; RS.6, commutators define a centralizer homomorphism.
+*Needs:* RS.4.16.
 
-Checks: Do not use arbitrary generators of G; they need not belong to the relevant centralizer.
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix opening p.420 (PDF pp.11,43–44).
+**Checks.**
 
-### Finite reduced-cover certificate
+- `parityWeightEnumerator_test_1` (degenerate): For N=0 and the singleton parity, W=1.
+- `parityWeightEnumerator_test_2` (computation): For N=1,N₀=0, C={0} gives 1 and C={1} gives X.
+- `parityWeightEnumerator_test_3` (non-example): Those two cosets have equal cardinality but unequal
+  polynomials; signature counts cannot be identified by cardinality alone.
 
-**Target `reduction_certificate`.** A certificate for explicit finite groups E,G and π:E→G contains executable multiplication/inverse tables, a surjective homomorphism π, centrality of its kernel, an independently checked ordinary Schur-cover certificate (stem plus maximal kernel/class-map isomorphism), class representatives for c, generating sets for their centralizers, and the subgroup R generated by their lift commutators. Its conclusion identifies A=kerπ/R with M(G,c). The computational data include proofs of the cover properties and of the marked subgroup identifications.
+### RS.4.19 Independent class images eliminate the obstruction
 
-Construction and proof route: Check finite tables, maps, centrality, generating sets, subgroup closure and quotient cardinality; invoke the separately certified cover maximality before identifying the kernel with homology.
+Prove `independent_classes`: If the N class images in G^ab are linearly independent, then a is an
+isomorphism. Each g-signature has the sole compatible parity v_g, β=0, and a nonempty fixed fiber
+for every allowed q.
 
-Fix enumerations E≃Fin |E| and G≃Fin |G|. Multiplication, inverse and projection tables are transported from these native groups through the enumerations, with their laws proved. The certificate's oriented class isomorphism evaluates every commuting pair as XYX⁻¹Y⁻¹. For each class representative, its selected finite centralizer generators generate the actual centralizer subgroup. The closure of their lift commutators in kerπ is then the image of Q_c. On an integral class z, the quotient equivalence sends its reduced class to the quotient class of τ_E(z).
+*Proof sketch.* Surjectivity and basis independence give an isomorphism; its kernel is zero, and
+s(0)=0.
 
-Transport along group isomorphisms must preserve π and c; transport to an arithmetic type also retains its ambient embedding from ST.3. Conjugacy-equivariant markings in the reduced cover retain the selected representative lifts. These choices provide the lift-square columns used by the parity computation.
+State independence on the actual elements [x_d] in Additive(G^ab), using the elementary-2 module
+structure supplied by generation by involutions. The bijectivity of a identifies degree
+compatibility with ε(m)=v_g. The square-obstruction class is then zero, and for every allowed q the
+actual fixed fiber is nonempty with |A[q−1]| elements. Generation, valid class representatives,
+finiteness of A, and the common exponent hypotheses remain explicit; independence does not replace
+any of them.
 
-Needs: RS.6, centralizer generators suffice for reduction; RS.1, reduced schur cover; InductionRestriction, Layer 7.
+*Needs:* RS.4.13; RS.4.14; RS.4.16.
 
-Required API:
+*Source.* Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and
+finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences
+developed here, rather than separately numbered results in that paper.
 
-- `reduction_certificate_tables` (data): Group operations and π are finite executable data, with checked associativity and map laws.
-- `reduction_certificate_relations` (projection): The checked subgroup R is exactly the image of Q_c in kerπ.
-- `reduction_certificate_quotient` (equivalence): A≅M(G,c) only after the independent Schur-cover certification.
-- `reduction_certificate_transport` (compatibility): An explicit marked isomorphism transports the certificate to the selected embedded arithmetic type.
+**Checks.**
 
-Unit tests:
+- For G = C₂ × C₂ with c all three nonidentity elements, the class images are dependent (three
+  vectors in F₂²), so this criterion does not apply; for G = C₂ with c its nonidentity element it
+  applies with N = 1, whatever A is.
 
-- `reduction_certificate_test_1` (degenerate): For G=E=1 and c empty, R and A are trivial.
-- `reduction_certificate_test_2` (computation): For D₈→C₂² with c all nonidentity elements, one nontrivial central commutator generates kerπ and A=1.
-- `reduction_certificate_test_3` (non-example): The central surjection C₄→C₂ has a kernel of order 2 but is not a Schur cover of C₂; a checker must reject the identification A=M(C₂,c).
+### Examples
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix opening p.420 (PDF pp.11,43–44).
+- For G = S₃ (one involution class, A = 0) every compatible fiber has exactly one fixed point for
+  every odd q prime to 6, and the surviving parities are v_g + ker a = {v_g}.
+- For a reduced multiplier A = C₈ with one column s₁ = class of a generator (an algebraic fixture),
+  the threshold is 3: the odd-parity obstruction survives exactly for q ≡ 1 mod 16.
 
-### Finite reduced-cover parity algorithm
+### Dependencies
 
-**Target `finite_parity_algorithm`.** Given a checked reduction certificate, a generating involution c, a homomorphism π₀:G→C₂ and a chosen τ∈c with π₀(τ)≠1, compute the class columns a,s, the torsion-image spaces B_t, both cosets C_t^1 and C_t^τ, their ranks, exact-threshold histograms and lower-bound weight enumerators. The algorithm is finite and exact conditional on the certified ordinary cover and explicit marked embedding.
+Layers RS.1–RS.3; Tau Ceti `TauCeti.ElementaryTwoQuotient`; Mathlib finite abelian groups and
+finite-dimensional linear algebra over `ZMod 2`.
 
-Construction and proof route: Construct the reduced quotient group, then use finite linear algebra over F₂ and finite polynomial enumeration. The theorem-level rank identities provide independent cross-checks.
+## Layer RS.5: Coprime semidirect products and compatible covers
 
-For each threshold t and signature g, enumerate the finite parity space and retain exactly those v with L_t(v+v_g)=0. Obtain the class and square columns from the certified reduced marked model. The resulting membership test is equivalent to degree compatibility together with the actual square obstruction lying in B_t. The histogram at t=0 is the first coset cardinality; at positive t it subtracts the preceding coset cardinality. For lower bound N₀, the weight polynomial counts each surviving v with exponent equal to the number of nonzero coordinates of v+(N₀ mod 2). An executable implementation supplies decidable table representations of the quotients and filtration, as well as the logical finite-enumeration specification.
+For G = H ⋊ Γ with coprime orders, the multiplier of G splits into an H-part and a Γ-part, a Schur
+cover of G maps onto a Schur cover of Γ compatibly with the class maps, and for the equal-order
+inertia classes c of an admissible H the reduced multiplier of G maps onto that of Γ with H-primary
+kernel. The inputs are the Hall decomposition RS.0.7 and complement conjugacy RS.0.8.
 
-Needs: RS.6, finite reduced-cover certificate; RS.4, joint parity constraint map; RS.4, ranks count surviving parities; RS.4, weight enumerator of a surviving parity coset.
+### RS.5.1 Split projections induce homology surjections
 
-Required API:
+Prove `split_homology_surjection`: For finite G=H⋊Γ, the projection ρ:G→Γ has a section, hence
+ρ_\*:M(G)→M(Γ) is onto.
 
-- `finite_parity_algorithm_obstruction` (compatibility): The computed column map equals the lift-square map in the existing elementary-2 quotient.
-- `finite_parity_algorithm_cosets` (characterisation): Computed surviving parities are precisely v_g+kerL_t.
-- `finite_parity_algorithm_counts` (compatibility): Computed cardinalities equal 2^{N−rankL_t} and histogram differences.
-- `finite_parity_algorithm_weights` (projection): The output polynomial is the exact finite weight sum, not an asymptotic estimate.
+*Proof sketch.* Apply homology functoriality to the projection-section composite.
 
-Unit tests:
+*Needs:* `groupHomology.map` (Mathlib); `groupHomology.map_comp` (Mathlib).
 
-- `finite_parity_algorithm_test_1` (computation): For S₃ transpositions, a=id on F₂, A=0, each signature has one parity and threshold 0.
-- `finite_parity_algorithm_test_2` (degenerate): For trivial A every compatible parity survives all odd q.
-- `finite_parity_algorithm_test_3` (non-example): For the algebraic fixture A=C₈ with one odd square column, survival first occurs at v₂(q−1)=4; do not label this an admissible arithmetic-type counterexample.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-Source: The parity algorithm is derived from Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6) and Remark 4.2, printed pp.400–401 (PDF pp.24–25), together with the finite linear algebra in RS.4. Its certified-cover input uses §2.3 p.387; its marked examples use Table 2 p.419 and the Appendix opening p.420.
+**Checks.**
 
-### Reduced multiplier of the order-96 type
+- For H=1 this is the identity of M(Γ).
 
-**Target `order96_reduced_multiplier`.** For the embedded order-96 type F with outside-involution c, prove M(F,c)≅C₂. Build an explicit ordinary cover with its oriented kernel identification, compute the generated reduction subgroup, and certify the quotient. The C₂³ kernel and order-4 relation subgroup are computational data that require verification in this construction.
+### RS.5.2 Primary parts of a coprime semidirect multiplier
 
-Construction and proof route: A complete certificate must establish the cover-kernel class isomorphism, the outside c and its centralizer-generated relations, then show the quotient kernel is cyclic of order 2.
+Prove `multiplier_primary_support`: For finite H,Γ with coprime orders and G=H⋊Γ, M(G) is finite of
+exponent dividing |G|. Its canonical primary decomposition M_H×M_Γ uses primes dividing |H| and
+primes dividing |Γ|.
 
-Needs: RS.6, the order-96 a₄ arithmetic type; RS.6, finite reduced-cover certificate.
+*Proof sketch.* M(G) is finite of exponent dividing |G| (RS.0.6), and its primes divide |H| or |Γ|;
+split it into the two primary parts (`multiplier_primaryDecomposition`, RS.0.7). Nothing is asserted
+about the exponent of either part beyond this.
 
-Checks: No moment limit or type enumeration follows from this multiplier value.
+The two parts can be represented by Mathlib's `AddCommGroup.primaryComponent` with parameters |H|
+and |Γ|, respectively. For a composite parameter n this subgroup consists of elements annihilated by
+a power of n. The isomorphism to their product must reconstruct each original class by adding its
+two components; the product cardinality alone does not specify the projections.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix opening p.420 (PDF pp.11,43–44).
+*Needs:* RS.5.1; RS.0.6; RS.0.7; `AddCommGroup.equiv_directSum_zmod_of_finite`,
+`AddCommGroup.primaryComponent` (Mathlib).
 
-### Marked-group certification targets
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-For every row, c is the set of involutions outside the index-two kernel in the specified good admissible embedding F⊆G≀C₂, and c has one F-conjugacy class. Construct the marked embedding, its outside-involution subset, a certified cover, centralizer generators, the relation subgroup and the quotient isomorphism. Different embeddings of the same abstract group must be transported as marked embeddings. The bracketed number is the SmallGroups identifier within the order context stated in the row.
+**Checks.**
 
-Needs: RS.6 reduction certificate and the ST.3 embedded type. Source: Wood (2019), §8.2, Table 2, p.419; the A₄ embedding is specified at the beginning of the Appendix, p.420.
+- For Γ=1 the Γ-primary part is trivial; for H=1 the H-primary part is trivial.
 
-| Target | Group G and marked group F | Reduced multiplier |
-| --- | --- | --- |
-| `table_row_01` | G=C_3, F=S_3. | 1 |
-| `table_row_02` | G=C_5, F=D_{10}. | 1 |
-| `table_row_03` | G=C_7, F=D_{14}. | 1 |
-| `table_row_04` | G=C_9, F=D_{18}. | 1 |
-| `table_row_05` | G=C_3^2 , F=(C_3^2) ⋊ C_2 [4]. Order context order(F)=18. | C_3 |
-| `table_row_06` | G=C_{11}, F=D_{22}. | 1 |
-| `table_row_07` | G=A_4, F=S_4. | 1 |
-| `table_row_08` | G=A_4, F=((C_2^4) ⋊ C_3) ⋊ C_2 [227]. Order context order(F)=96. | C_2 |
-| `table_row_09` | G=C_{13}, F=D_{26}. | 1 |
-| `table_row_10` | G=C_{15}, F=D_{30}. | 1 |
-| `table_row_11` | G=C_{17}, F=D_{34}. | 1 |
-| `table_row_12` | G=C_{19}, F=D_{38}. | 1 |
-| `table_row_13` | G=C_7 ⋊ C_3 [1], F=((C_7^2 ) ⋊ C_3) ⋊ C_2 [7]. Order context order(G)=21, order(F)=294. | 1 |
-| `table_row_14` | G=C_{21}, F=D_{42}. | 1 |
-| `table_row_15` | G=C_{23}, F=D_{46}. | 1 |
-| `table_row_16` | G=SL(2,3), F=GL(2,3). | 1 |
-| `table_row_17` | G=SL(2,3), F=((Q_8^2) ⋊ C_3) ⋊ C_2 [18130]. Order context order(F)=384. | 1 |
-| `table_row_18` | G=C_{25}, F=D_{50}. | 1 |
-| `table_row_19` | G=C_5^2 , F=(C_5^2) ⋊ C_2 [4]. Order context order(F)=50. | C_5 |
-| `table_row_20` | G=C_{27}, F=D_{54}. | 1 |
-| `table_row_21` | G=C_9 × C_3, F=(C_9 × C_3) ⋊ C_2 [7]. Order context order(F)=54. | C_3 |
-| `table_row_22` | G=(C_3^2) ⋊ C_3 [3], F=((C_3^2) ⋊ C_3) ⋊ C_2 [8]. Order context order(G)=27, order(F)=54. | 1 |
-| `table_row_23` | G=(C_3^2) ⋊ C_3 [3], F=(C_3 × ((C_3^2) ⋊ C_3)) ⋊ C_2 [46]. Order context order(G)=27, order(F)=162. | C_3^2 |
-| `table_row_24` | G=C_9 ⋊ C_3 [4], F=((C_9 × C_3) ⋊ C_3) ⋊ C_2 [17]. Order context order(G)=27, order(F)=162. | 1 |
-| `table_row_25` | G=C_3^3, F=(C_3^3) ⋊ C_2 [14]. Order context order(F)=54. | C_3^3 |
-| `table_row_26` | G=C_{29}, F=D_{58}. | 1 |
-| `table_row_27` | G=C_{31}, F=D_{62}. | 1 |
-| `table_row_28` | G=A_5, F=S_5. | 1 |
-| `table_row_29` | G=A_5, F=A_5≀ C_2. | C_2 |
-| `table_row_30` | G=PSL(3,2), F=PSL(3,2)⋊ C_2 [208]. Order context order(F)=336. | 1 |
-| `table_row_31` | G=PSL(3,2), F=PSL(3,2)≀ C_2. | C_2 |
+### RS.5.3 The coprime central splitting is unique
 
-### Native marked models for the odd abelian rows
+Prove `central_coprime_splitting`: For the chosen Schur cover S→H⋊Γ, write S′ as the preimage of H.
+The central extension 1→M_Γ→S′/M_H→H→1 has a unique splitting and is isomorphic to M_Γ×H.
 
-For rows 01–06, 09–12, 14–15, 18–21 and 25–27 whose base is abelian, use a single explicit ambient construction. For an abelian group A, let W(A)=(A×A)⋊C₂, where the nonidentity element of C₂ swaps the two factors. Let F(A) be the subgroup consisting of ((a,a⁻¹),t), with a∈A and t∈C₂. This specifies an embedded group, rather than only an abstract group of order 2|A|. Its injection into W(A) is the subgroup inclusion. Its quotient map ρ:F(A)→C₂ is the restriction of the native semidirect-product projection. Its marking is exactly c(A)={x∈F(A):ρ(x)≠1 and order(x)=2}.
+*Proof sketch.* Schur–Zassenhaus gives a complement and thus a splitting. The difference of two
+splittings is a homomorphism H→M_Γ, trivial by coprime cardinalities.
 
-The coordinate bijection F(A)≃A×C₂ has multiplication
-(a,t)(b,u)=(a·b,t·u) when t=1 and (a·b⁻¹,t·u) when t≠1. Thus the action on the anti-diagonal subgroup is inversion, although the action on the ambient A×A is factor swap. This distinction matters: taking inversion on each ambient factor would specify a different embedding. The first-factor map kerρ→A is a surjection. The pure swap lies in F(A), and every element outside kerρ is an involution. For finite A of odd order, c(A) generates F(A), has a single conjugacy class, and is conjugacy-invariant. These supply admissibility and goodness with the actual embedded data. ST.3 owns the arithmetic classification of these embedded types; this construction supplies the concrete groups on which their reduced-cover certificates are stated.
+Use the native `GroupExtension.Splitting` for the section. The reusable central-extension statement
+assumes finite kernel and quotient, their coprime cardinalities, and explicit centrality, and
+concludes both existence and uniqueness of the splitting. Its product isomorphism sends (a,h) to
+inl(a)s(h). This uniqueness concerns a central extension; the inertia application below requires the
+separate conjugacy theorem for complements in a possibly noncentral semidirect product.
 
-Required interfaces are `table_factor_swap` with its identity and factor-swap formulas; `table_antidiagonal` with membership b=a⁻¹; `table_embedding`; `table_projection` with surjectivity; `table_coordinates` with its multiplication formula; `table_kernel_first` with its first-coordinate formula and surjectivity; and `table_outside` with the exact order-two and projection conditions. `abelian_table_marking` retains the odd-order hypothesis. `abelian_table_card` gives |F(A)|=2|A|. For A=C_n, `abelian_table_dihedral` identifies F(A) with Mathlib's `DihedralGroup n`, of order 2n, and carries c(A) onto the reflection set {sr(i):i∈ℤ/nℤ}. Its pointwise API sends the coordinate (i,1) to r(i) and (i,t), t≠1, to sr(−i), in Mathlib's convention sr(i)=s·r(i). In row 01 this is the dihedral group of order six, hence S₃.
+*Needs:* RS.5.2; RS.0.5 (the chosen Schur cover and τ_S);
+`Subgroup.exists_right_complement'_of_coprime` (Mathlib); `GroupExtension.Splitting` (Mathlib).
 
-The following checks distinguish these conventions:
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-- The factor-swap action fixes each pair at 1, interchanges its coordinates at the nonidentity element of C₂, and applying that element twice is the identity.
-- The pure swap ((1,1),t) with t≠1 belongs to F(A). In W(C₃), ((a,a),1) with a the additive residue 1 does not belong to F(C₃), since a≠a⁻¹. This rejects the diagonal subgroup.
-- In W(C₃), ((a,a⁻¹),1) belongs to F(C₃). In F(C₂), the outside involutions generate a proper subgroup. This rejects dropping oddness from the generation theorem.
-- The identity does not belong to c(A); membership in c(A) is equivalent to ρ(x)≠1 because every outside element has order two. For A=C₃, every marked element has order two and projects to the nonidentity element of C₂.
+**Checks.**
 
-The coordinate, embedding and projection checks use three elements of F(C₃): the identity, the point with coordinates (1,0) in additive residue notation, and the point (1,1). Their embedded first-factor pairs are respectively (0,0), (1,2) and (1,2); their C₂ projections are 0, 0 and 1, and the last point belongs to c(C₃). For the first-factor kernel map, test the identity and the elements with first coordinates 1 and 2 in C₃; their images are respectively 0, 1 and 2 in additive notation. This rejects both inversion of the selected coordinate and a constant map. The dihedral equivalence tests send the identity to r(0), the rotation coordinate (1,0) to r(1), and the outside coordinate (1,1) to sr(2) in `DihedralGroup 3`. Together these check each map on identity, nontrivial kernel and outside data.
+- Without centrality uniqueness fails: S₃ is an extension of C₂ by the noncentral C₃ of coprime
+  order, and its three reflections give three different splittings.
 
-For each displayed abelian row, `table_row_certificate` specifies the full output on F(A),c(A). It consists of a natural number m, a group law on Fin m, a projection π:Fin m→F(A), an oriented `reduction_certificate` for π and c(A), an isomorphism kerπ/R≃Multiplicative B, and an additive isomorphism M(F(A),c(A))≃B. Here R is the actual subgroup generated from the certificate's centralizer commutators. The two isomorphisms must agree on every integral class z: the kernel quotient of τ_π(z) maps to the multiplicative image of the reduced class of z in B. No assumption on the computed value of M(F(A),c(A)) is used as an input. Cover maximality and the orientation are supplied by the retained certificate laws. Fin m fixes the finite enumeration; implementations must supply the operations and proofs before executing a table calculation.
+### RS.5.4 The Hall preimage is normal in the cover
 
-Its unit tests are: the trivial group with empty marking admits the trivial output B=ℤ/1ℤ; C₂² with empty marking cannot have trivial output because its multiplier is C₂; and the marked F(C₃) cannot have B=ℤ/3ℤ because the row's multiplier is trivial. The last two checks reject an arbitrary central cover or a quotient with the wrong marked relations. Prerequisites are the RS.1 oriented quotient interfaces, the RS.6 reduction-certificate interfaces and odd-index-two reduction, and ST.3's identification of the selected arithmetic type.
+Prove `hall_preimage_normal`: Let φ:S′/M_H→M_Γ be the projection obtained from the unique splitting,
+and D its kernel preimage in S′. Then D is characteristic in S′, normal in S, and |D|=|H||M_H|.
 
-The nineteen native row signatures use A=C₃,C₅,C₇,C₉,C₁₁,C₁₃,C₁₅,C₁₇,C₁₉,C₂₁,C₂₃,C₂₅,C₂₇,C₂₉,C₃₁ for the cyclic rows, each with B=ℤ/1ℤ. The four other abelian rows use (A,B)=(C₃²,C₃), (C₅²,C₅), (C₉×C₃,C₃), and (C₃³,C₃³). Their signatures assert existence of the specified certificate outputs on these actual carriers. The noncyclic output retains the group structure, rather than only its cardinality. The finite certificate proofs are part of the targets.
+*Proof sketch.* The subgroup D is normal in S′ as a kernel preimage, and its order |H||M_H| is
+coprime to its index |M_Γ|. Any subgroup of S′ of order |D| has trivial image in S′/D by
+coprimality, so is contained in D and equals D. Thus D is the unique Hall subgroup of this order and
+is characteristic. Since S′ is normal in S, D is normal in S.
 
-### Native nonabelian marked models
+The subgroup-level interface retains the normal inclusion S′⊆S and the actual surjection θ:S′→M_Γ.
+It identifies D with kerθ mapped into S, proves kerθ characteristic in S′, and preserves its
+cardinality under that inclusion. The cardinality formula |S′|=|kerθ||M_Γ| uses surjectivity of θ.
 
-Rows 07, 08, 28 and 29 use the specified nonabelian groups with their quotient maps and embeddings. Their source is Wood, *Nonabelian Cohen–Lenstra moments* (2019), §8.2, Table 2, p.419. The outside-involution convention and the generation and first-factor conditions are those of the introduction, pp.378–379. The order-96 sum-kernel embedding is stated in the Appendix opening, p.420. ST.3 supplies the identification with the selected arithmetic types; the constructions here give concrete carriers for the certificate targets. Their prerequisites are Mathlib's permutation and alternating groups and semidirect products, together with RS.1's integral quotient and RS.6's oriented reduction certificates.
+*Needs:* RS.5.3.
 
-For an arbitrary group G, define `nonabelian_table_swap` as the C₂-action on G×G that fixes a pair at the identity and interchanges its two factors at the nonidentity element. No commutativity of G is required. Write `FullTableWreath G` for the native semidirect product W(G)=(G×G)⋊C₂. Define `full_table_outside` to consist exactly of the elements whose right coordinate is nonidentity and whose order is two. Its membership API identifies these elements as ((a,a⁻¹),t), t≠1. This is a set of marked elements; for nonabelian G it is not being used as the carrier of a subgroup. The subgroup it generates is the relevant object.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-The action has its pointwise identity, swap and involutivity laws. The marking has the exact membership criterion, conjugation invariance and a one-conjugacy-class theorem. Every outside involution is conjugate to the pure swap, including when G is nonabelian. `full_table_kernel_first` is the homomorphism from the actual kernel of W(G)→C₂ to G that takes the first coordinate. Its API gives that formula and surjectivity. `full_table_marking_generates` asserts that the marked set generates all of W(G) when G is perfect, expressed as commutator(G)=G. The hypothesis is essential: for G=C₃ the generated subgroup is the proper inversion model of order six in a wreath product of order eighteen. The theorem specifies an admissible full wreath type for A₅; the classification of admissible embedded types remains in ST.3.
+**Checks.**
 
-Test the swap action at the identity, at the nonidentity element and after applying that element twice. For the marking, test exclusion of the identity, inclusion of the pure swap, and exclusion of ((a,b),t) with t≠1 and b≠a⁻¹. For the first-coordinate map on the projection kernel of W(C₃), test the identity and the points with factor pairs (a,1) and (1,a), where a is additive residue 1 in C₃. Their images must be 1,a,1 respectively. These distinguish the first-coordinate map from the second-coordinate map and from a constant map. The proper-generation example for C₃ rejects dropping the perfectness hypothesis.
+- For Γ = 1, S′ = S, M_Γ = 0 and D = S; for H = 1, S′ = A = M_Γ and D = 1. A complement that is not
+  the unique Hall subgroup of its order need not be normal in S.
 
-For the symmetric rows, fix S=Sym(Fin(n+2)), A=Alt(Fin(n+2)), and the distinguished transposition τ=(0 1). The three tests for `symmetric_table_transposition` assert τ²=1, sign(τ)=−1, and τ(0)=1. The even part `symmetric_even_part` of σ∈S is a=σ when sign(σ)=1 and a=στ otherwise, as an element of A. Define `symmetric_table_projection` by the sign character, sending even permutations to 1∈C₂ and odd permutations to its nonidentity element. Its kernel is precisely A.
+### RS.5.5 Compatible Schur covers
 
-The homomorphism `symmetric_table_embedding` sends σ=aτ^ε to ((a,τaτ⁻¹),ε)∈W(A). Its API pins both factor coordinates and the C₂-coordinate, proves injectivity, and identifies its quotient map with `symmetric_table_projection`. The fixed order of the factors matters: the chosen decomposition uses right multiplication by τ to obtain a. Define `symmetric_table_outside` as the odd order-two permutations. Embedding preserves this marking exactly. Transpositions generate S, so the marking generates S. For n=2 or n=3, this marked set has one conjugacy class: in S₄ and S₅ every odd order-two permutation is a single transposition. The one-class theorem carries this restriction explicitly.
+**`compatibleCovers`.** For finite H,Γ of coprime orders and G=H⋊Γ, choose a Schur cover S→G and let
+S_Γ=S/D with D from the preceding construction. The quotient S→S_Γ covers G→Γ. The lower central
+extension has kernel M_Γ and is an ordinary Schur cover of Γ.
 
-The even-part tests give a(1)=1, a(τ)=1, and, in S₄, a((1 2))=(1 2)(0 1)≠(0 1)(1 2). The last example distinguishes right multiplication from left multiplication. The embedding and projection tests use the identity, an arbitrary even a∈A₄, and τ: their images are respectively the identity, ((a,τaτ⁻¹),1), and the pure swap. The marking tests exclude the identity, include (0 1), and exclude every permutation of order four. The exact quotient coordinate prevents even involutions from entering the marking.
+*Construction.* The quotient S/D→Γ is a central extension with kernel M_Γ. Naturality gives
+τ_lower∘ρ=pr_Γ∘τ_S, where τ_S is an isomorphism. The map ρ is onto because G→Γ splits. Its target
+M(Γ) is Γ-primary, hence ρ kills M_H. On M_Γ, the displayed composite is the identity, so ρ
+restricted to M_Γ is injective and τ_lower is onto. Surjectivity of ρ, together with ρ(M_H)=0, makes
+that restriction onto M(Γ), hence an isomorphism. Therefore τ_lower is its inverse, S/D is a Schur
+cover, and kerρ=M_H. This proves the primary-kernel claim before using it.
 
-`table_row_07` and `table_row_28` require a `table_row_certificate` for these actual S₄ and S₅ markings, with output B=ℤ/1ℤ. `table_row_29` requires a certificate for the full W(A₅) and its outside involutions, with output B=ℤ/2ℤ. The retained certificate laws establish the central, stem and oriented homological properties of an ordinary cover and compute the centralizer-generated relation subgroup. A cardinality assertion alone does not meet these targets.
+A compatible-cover diagram records D with its normality, the projection S/D→Γ, centrality and the
+stem condition, and the lower integral kernel isomorphism. The upper and lower isomorphisms are the
+extension-class evaluation maps. An arbitrary abstract isomorphism from homology to the kernel is
+insufficient for the naturality square. For every z∈M(G), quotienting τ_S(z) in S gives
+τ_lower(ρ_\*(z)) in S/D; this equation also controls the descended reduced-cover maps.
 
-`table_row_08` requires the corresponding certificate with B=ℤ/2ℤ on the order-96 sum-kernel model already defined above. `order96_cover_certificate` exposes the intermediate data of this target: a group law on Fin 768, a surjective projection to the specified order-96 group, its oriented reduction certificate, a group isomorphism kerπ≃C₂³, and the actual relation subgroup of order four. The quotient kerπ/R has order two and the certificate identifies it with the reduced multiplier. These are output obligations. The C₂³ kernel and order-four relation subgroup are the finite computations to certify on the way to the source's C₂ value; they are not additional claims stated in Wood's Table 2. In particular, an unmarked group of order 96 or a central extension with the asserted kernel order cannot replace the specified embedded group and ordinary-cover certificate.
+The API:
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), introduction, printed pp.378–379, for the admissibility conditions and the inversion model for abelian A; §8.2, Table 2, p.419, for each of the nineteen multiplier values. The anti-diagonal coordinate and embedding formulas are the explicit realization of that model. The certificate interface refines the RS.6 certification target, grounded in §2.3 p.387 and Table 2 p.419.
+- `compatibleCovers_square`: The diagram S→G, S_Γ→Γ, S→S_Γ, G→Γ commutes.
+- `compatibleCovers_kernel`: The cover-kernel map is M_H×M_Γ→M_Γ.
+- `compatibleCovers_schur`: The lower class map τ_{S_Γ}:M(Γ)≅M_Γ is an isomorphism.
+- `compatibleCovers_choice`: These covers are compatible choices, not canonical covers functorial
+  for every group map.
 
-Each certificate must recover the displayed multiplier and transport it under marked-group isomorphism. For odd-order index-two kernels the homological reduction above supplies an independent check. For the order-96 A₄ type, additionally check |ker(F→C₂)|=48 and that the involution swaps the two A₄ factors; the condition is ab(a)+ab(b)=0, not a difference relation.
+*Needs:* RS.5.4; RS.5.1; RS.0.5 (Schur covers); naturality of the class map (RS.0.3), using the
+specified maps on the two cover kernels; RS.0.7.
 
-### Sum-kernel models and graph models
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-Two explicit constructions supply the remaining nonabelian marked carriers. They retain the ambient embedding, the C₂ projection and the outside-involution marking. They are concrete realizations of the certification targets above; ST.3 supplies the identification and arithmetic classification of embedded types. A Schur-cover certificate is an output of the target, rather than a hypothesis inferred from the order or a SmallGroups identifier.
+**Checks.**
 
-**Sum-kernel construction.** For any group G, put W(G)=(G×G)⋊C₂ with factor swap, as in `FullTableWreath`. Define `table_sum_map`:W(G)→G^ab by ((a,b),t)↦[a][b]. This is a homomorphism because the target is abelian, so exchanging the two coordinates does not change their product. Put `SumTableType G`=ker(`table_sum_map`). Thus ((a,b),t) lies in this subgroup exactly when [b]=[a]⁻¹. This condition is on abelianized coordinates; it does not assert b=a⁻¹ inside G. Its injection `sum_table_embedding` is the actual subgroup inclusion into W(G). Its surjective map `sum_table_projection` is the restriction of W(G)→C₂. Define `sum_table_outside` by nonidentity projection and order exactly two.
+- `compatibleCovers_test_1` (degenerate): For H=1 take S=S_Γ and the identity cover map.
+- `compatibleCovers_test_2` (degenerate): For Γ=1 take the lower cover to be trivial, with upper
+  cover mapping to it.
+- `compatibleCovers_test_3` (computation): For H=C₃ with inversion by Γ=C₂, G=S₃ and both ordinary
+  multipliers are trivial, so the identity covers are compatible.
 
-The API gives the pointwise sum-map formula, subgroup membership, injectivity of the embedding and surjectivity of the projection. The marking membership theorem strengthens the abelianized membership condition to b=a⁻¹, together with t≠1. For finite G, `sum_table_card` gives |SumTableType G|=2|G||[G,G]|. The outside marking generates the subgroup for every G. For finite G with |G^ab| odd, it is a single conjugacy class; carry that hypothesis in `sum_table_one_class`. The marking is invariant under conjugation. Unlike the full wreath product, its generation theorem needs no perfectness hypothesis. The two constructions agree when G is perfect, since the sum map then has trivial target.
+### RS.5.6 The multiplier-map kernel is H-primary
 
-Construction route: the anti-diagonal outside points ((a,a⁻¹),t) and the pure swap generate the kernel of the abelianized sum. Their products generate inverse pairs in G×G; their commutators also generate the independent commutator-subgroup coordinates. For one-class conjugacy, the adjustment of a conjugator in G^ab reduces to division by two, which is possible when that finite group has odd order. For the cardinality, the sum map on G×G is surjective, with fibers of size |G||[G,G]|, and either quotient coordinate is allowed. These are group-theoretic constructions for the table carriers, derived from the wreath-product conventions; they do not compute a multiplier.
+Prove `multiplier_kernel_primary`: for finite H, Γ of coprime orders and G = H ⋊ Γ, ker(M(G) → M(Γ)) =
+M_H, so its order is prime to |Γ|. Admissibility, which the source assumes, is not needed.
 
-Required discrimination checks for the sum map are: it sends the identity to the identity; on W(C₃) it kills the pair with additive residues (1,2); and it does not kill the pair (1,1). The latter distinguishes the sum map from the difference map. For the subgroup inclusion, check its first two coordinates, its quotient coordinate, and that equal images imply equal subgroup points. For its projection, check the identity, any point with quotient coordinate 1, and a point with quotient coordinate the nonidentity element of C₂. For its marking, reject the identity, accept an outside inverse pair, and reject an outside pair whose second coordinate is not the inverse of its first. The even-order boundary is `SumTableType C₂`: its outside involutions generate, but are not all conjugate. This rejects removing oddness from the one-class theorem. These tests check the new constructions at their actual ambient coordinates.
+*Proof sketch.* This is `multiplier_complementPart` of RS.0.7. Equivalently, read it off the
+compatible covers of RS.5.5: under τ_S and τ_lower the map M(G) → M(Γ) becomes the projection M_H ×
+M_Γ → M_Γ.
 
-**Graph construction.** Given an involutive automorphism θ of G, define `graph_table_action`:C₂→Aut(G) by the identity at 1 and θ at the nonidentity element. Let `GraphTableType θ`=G⋊C₂ for this action. The map `graph_table_embedding` sends (g,t) to ((g,θ(g)),t) in W(G). Involutivity makes this a homomorphism: swapping the graph exchanges g and θ(g), while applying θ a second time restores g. It is injective, has the native C₂ quotient coordinate, and for finite G its domain has cardinality 2|G|. Define `graph_table_outside` by t≠1 and order exactly two. Its membership formula is t≠1 and θ(g)=g⁻¹. A graph construction alone does not imply that this marking generates or forms one class; the row-specific theorems below prove those properties for the chosen automorphisms.
+*Needs:* RS.0.7; RS.5.5; RS.5.2.
 
-The API specifies the action at both quotient elements, the two coordinates of the embedding, its injectivity, the cardinality formula, and the exact marking membership criterion. Action tests fix the identity action, the nonidentity action θ and the identity after applying that action twice. Embedding tests fix its value at 1, the pair (g,θ(g)) at an injected kernel point, and the nonidentity quotient coordinate at the pure swap. Marking tests reject 1, accept the pure swap and reject (g,t) when θ(g)≠g⁻¹. These formulas distinguish the graph from the anti-diagonal, and a genuine involutive automorphism from an inversion operation on a nonabelian group.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Lemma 12.10 and proof, published PDF pp.62–63; proof of Theorem 10.4 p.64; arXiv
+v2 pp.53–54.
 
-Needs: Mathlib's `Abelianization.of`, `Subgroup.closure`, native subgroup and kernel inclusions, `MulAut`, `SemidirectProduct`, and RS.6's factor-swap wreath and finite certificate interfaces. Source: Wood (2019), §8.2, Table 2 p.419 and the embedding discussion p.420; the coordinate constructions and their displayed algebraic arguments specify the marked realizations of the listed targets.
+**Checks.**
 
-### Affine and matrix realizations of the remaining rows
+- For G = (C₃ × C₃) ⋊ C₂ with inversion, M(C₂) = 0 and the kernel is all of M(G) ≅ C₃ (RS.0.7,
+  `multiplier_hallPart_test_2`), of order prime to 2.
 
-**Rows 13 and 24: affine permutation bases.** Define `table_affine u b` as the permutation x↦ux+b of ℤ/nℤ, for a specified unit u. Its inverse is x↦u⁻¹(x−b). Pin composition as p(q(x)), so `(u,b)(v,c)=(uv,b+uc)`. Define `Affine21` as the subgroup of permutations of ℤ/7ℤ generated by translation x↦x+1 and dilation x↦2x. The dilation has order three, since its powers have residues 1,2,4. This is the nonabelian C₇⋊C₃. Its commutator subgroup is the translation C₇. Define `Affine27` in permutations of ℤ/9ℤ using translation x↦x+1 and dilation x↦4x; the dilation has order three, with residues 1,4,7. This is C₉⋊C₃, and its commutator subgroup consists of translations by multiples of three, of order three.
+### RS.5.7 Admissible equal-order inertia classes
 
-For each affine base the API pins the affine evaluation and product formulas, the generated subgroup, the base and commutator orders, and the one-class generating marking of its sum-kernel group. `table_row_13` asks for a `table_row_certificate` on `sum_table_outside Affine21` with trivial output. Its marked group has order 294; its kernel has shape C₇²⋊C₃, with the generator of C₃ acting by multiplication by 2 on one translation coordinate and by 4 on the other. Swapping the coordinates inverts that C₃ coordinate. `table_row_24` asks for the same certificate with trivial output on `sum_table_outside Affine27`, whose group has order 162. Here the two translation residues must sum to zero modulo three, and the dilation coordinates must sum to zero modulo three. The resulting kernel has shape (C₉×C₃)⋊C₃, with the outer C₂ supplied by swap.
+Prove `admissible_inertia_classes` (the set c is `equalOrderInertia φ` in the Lean file): Let H and
+Γ be finite groups of coprime orders, with an action of Γ on H. Assume H is generated by h⁻¹γ(h) for
+h∈H,γ∈Γ (finite admissibility). In G=H⋊Γ let c consist of nonidentity elements having the same order
+as their image in Γ. Then c generates G, is conjugacy- and invertible-power-stable, and
+c/G→(Γ∖{1})/Γ is a bijection.
 
-Tests for `table_affine` are: (1,0) is the identity; translation by one sends 6 to 0 modulo seven; and dilation by two sends 3 to 6. Tests for the explicit dilation units give order three for both permutations, and dilation by four sends 2 to 8 modulo nine. Tests for `Affine21` give translation order seven, the conjugation identity d·r·d⁻¹=r², and the strict inequality |SumTableType Affine21|≠2|Affine21|. Tests for `Affine27` give translation order nine, d·r·d⁻¹=r⁴ and an element of order nine. The order-nine test distinguishes it from the exponent-three group used in rows 22 and 23. These are tests of the actual permutations, not a group selected by cardinality.
+*Proof sketch.* For g ∈ c with ρ(g) = γ, the equality of orders makes ⟨g⟩ a complement of H in H ⋊
+⟨γ⟩, so `cyclic_subgroup_conj_to_complement` (RS.0.8) gives g = h(1,γ)h⁻¹ with h ∈ H; this gives
+injectivity of the class map, and (1,γ) ∈ c gives surjectivity. Conjugating (1,γ) by (h,1) and
+dividing by (1,γ) produces (h·γ(h)⁻¹, 1), so ⟨c⟩ contains the admissible generators of H as well as
+the embedded Γ, hence all of G.
 
-**Rows 16 and 17: SL₂(𝔽₃).** Use Mathlib's `Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)` as `SL23`. The automorphism `sl23_involution` is conjugation by diag(−1,1) in GL₂(𝔽₃). Entrywise it sends (a b; c d) to (a −b; −c d). Define the corresponding graph group `GL23Graph`. Its specified isomorphism `gl23_graph_equiv` with Mathlib's GL₂(𝔽₃) sends (g,t) to g·diag(−1,1)^ε, where ε=0 for t=1 and ε=1 otherwise. The order of multiplication is part of the convention. The determinant equals 1 on the kernel and −1 on the outside coset. The ambient embedding into SL₂(𝔽₃)≀C₂ is the graph map, so this identification does not discard the marked embedding.
+Retain the action Γ→Aut(H) and the native semidirect-product projection. The generating subset of H
+is exactly the set of h⁻¹γ(h), and c excludes the identity before imposing equality of orders. The
+conjugacy input asserts that an equal-order g is h(1,ρ(g))h⁻¹ for some h∈H. The class-lattice map
+sends e_[g] to e_[ρ(g)] and intertwines δ with the induced map on abelianizations. The
+abelianization comparison itself only needs the admissible generating condition; its proof does not
+use complement conjugacy.
 
-The native base has order 24 and quaternion commutator subgroup of order eight. The graph group has order 48 and its outside involutions form a generating class of size 12. `table_row_16` asks for the certificate with trivial output on this graph marking. For row 17 use `SumTableType SL23`, of order 384, with its actual outside-involution class of size 24. Its kernel has shape Q₈²⋊C₃: the C₃ quotient actions in the two SL₂ coordinates are opposite. `table_row_17` asks for the certificate with trivial output on that sum-kernel marking.
+*Needs:* RS.0.8; `SemidirectProduct`, `orderOf` (Mathlib). Mathlib's
+`Subgroup.exists_right_complement'_of_coprime` gives only existence of complements; the class
+bijection needs their conjugacy.
 
-The API pins the entrywise involution, its involutivity, the diagonal matrix, the pointwise GL isomorphism, the base/commutator/marked-group orders, and generation and one-class properties for both markings. Tests for the involution give its value on 1, negation of the upper-right entry, and its square. Tests for the diagonal give square 1, determinant −1 and inequality with 1. Tests for the graph-to-GL isomorphism give its value on 1, the standard SL embedding at an injected kernel element, and diag(−1,1) at the pure swap. Each row then retains an actual finite cover enumeration, projection, oriented integral kernel map, centralizer generators and reduced quotient isomorphism through its `table_row_certificate` output.
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
 
-**Rows 22 and 23: the exponent-three group of order 27.** Define `heisenberg_table_subgroup` as the upper unitriangular subgroup of Mathlib's SL₃(𝔽₃). Its elements have unique coordinates
+**Checks.**
 
+- Exclude 1 explicitly; equality of orders alone would include it.
+
+### RS.5.8 Admissible semidirect abelianization
+
+Prove `admissible_abelianization`: For such admissible H, projection G^ab→Γ^ab is an isomorphism,
+and the class-lattice maps δ correspond under the bijection c/G≅(Γ∖{1})/Γ.
+
+*Proof sketch.* Each h⁻¹γ(h) is a commutator in G; admissibility kills all H in the abelianization,
+while the section supplies the inverse.
+
+*Needs:* RS.5.7; `Abelianization.lift` (Mathlib).
+
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+
+**Checks.**
+
+- For H=C₃ and trivial Γ-action, admissibility fails and H survives in G^ab.
+
+### RS.5.9 The Schur relation map is surjective
+
+Prove `relations_surjection`: For the c above and d=Γ∖{1}, the split projection sends Q_c onto Q_d.
+
+*Proof sketch.* All commuting-pair classes map into Q_d; conversely each generator in Γ lifts
+through the embedded Γ to a commuting pair with its first element in c.
+
+*Needs:* RS.5.7; RS.1.3; RS.1.5.
+
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+
+**Checks.**
+
+- The reverse inclusion uses the splitting, not merely surjectivity of G→Γ.
+
+### RS.5.10 Compatible reduced multipliers
+
+Prove `reduced_kernel_primary`: The induced M(G,c)→M(Γ,d) is surjective with H-primary kernel, so
+its kernel order is prime to |Γ|. The compatible cover map descends to S_c→(S_Γ)_d and commutes with
+the reduced-kernel isomorphisms.
+
+*Proof sketch.* For a surjection M(G)→M(Γ) carrying Q_c onto Q_d, the new kernel is a quotient of
+its H-primary kernel. Descend the cover map via the same relation images.
+
+Specify that quotient through a surjection from M_H to the kernel of the reduced-multiplier map,
+sending z to its class modulo Q_c. The descended cover homomorphism sends the class of s in S_c to
+the class of sD in (S/D)_d. Its projection square and kernel square must use the actual quotient
+maps and the reduced kernel isomorphisms.
+
+*Needs:* RS.5.9; RS.5.6; RS.1.7.
+
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+
+**Checks.**
+
+- Quotienting can shrink the primary kernel; it is not asserted equal to the unreduced M_H.
+
+### RS.5.11 Compatibility of power corrections
+
+Prove `compatible_correction`: Choose class representatives and marked lifts compatible with
+S_c→(S_Γ)_d. For every unit α, its reduced-kernel map f satisfies f(W^G_α(m))=W^Γ_α(classMap(m)).
+The marked U and K maps intertwine the discrete actions.
+
+*Proof sketch.* Apply the cover map to the defining lift-power products; homomorphisms commute with
+finite powers.
+
+For central marked extensions M,N, retain the kernel, cover and base homomorphisms a,e,ρ, their
+injection and projection squares, and e(x̂)=widehat(ρ(x)). The induced class map gives a
+homomorphism of integer lattices by sending each class basis vector to its image basis vector. With
+a positive common exponent for both covers and base groups, the correction identity induces a
+homomorphism of their marked fiber products and intertwines the discrete set actions. Restriction to
+the actual projection kernels gives the kernel-action comparison.
+
+*Needs:* RS.5.10; RS.3.3; RS.5.8.
+
+*Source.* Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified
+extensions* (2024), Proof of Theorem 10.4, published PDF p.64; arXiv v2 p.54.
+
+**Checks.**
+
+- A root-count comparison additionally requires the kernel order prime to q−1; that extra hypothesis
+  belongs to its arithmetic-statistics consumer.
+
+### Examples
+
+- H = C₃ with Γ = C₂ acting by inversion: G = S₃, M(G) = M(Γ) = 0, the identity covers are
+  compatible, and c (the transpositions) maps bijectively onto Γ ∖ {1}.
+- H = C₃ × C₃ with Γ = C₂ acting by inversion: H is admissible (h⁻¹γ(h) = h⁻² runs over H), M(G) ≅
+  C₃ = M_H, M(Γ) = 0, and M(G, c) → M(Γ, d) = 0 has kernel M(G,c) ≅ C₃.
+
+### Dependencies
+
+Layers RS.0 (RS.0.5, RS.0.7, RS.0.8), RS.1 and RS.3; Mathlib semidirect products and
+`Subgroup.exists_right_complement'_of_coprime`.
+
+## Layer RS.6: Certified finite examples
+
+A finite central surjection gives a reduced multiplier only together with a proof that it is a Schur
+cover; the certificate of RS.6.4 records exactly the data needed. The layer proves an index-two
+reduction and a closed formula for the anti-diagonal models, which together settle nineteen of the
+thirty-one rows of Wood's Table 2, and states the remaining rows as certification targets on
+explicit marked groups.
+
+### RS.6.1 Odd-index-two homology reduction
+
+Prove `odd_index_two_reduction`: For finite H normal in G with |H| odd and G/H=C₂, M(G)≅M(H)_{C₂}
+and M(G) has odd order. For any union c of involution classes, Q_c=0 and M(G,c)=M(G).
+
+*Proof sketch.* H is a normal Hall subgroup with quotient C₂, and an involution outside H spans a
+complement. By RS.0.7, corestriction gives M(H)_{C₂} ≅ M(G)_odd and the projection identifies M(G)_2
+with M(C₂) = 0, so M(G) = M(H)_{C₂} has odd order. (The Hochschild–Serre argument of the source
+gives the same: positive C₂-homology of the odd-order modules H_q(H,ℤ) vanishes, H₂(C₂,ℤ) = 0, and
+the only possible d³ into the (0,2) term starts from a 2-primary group.) If x is an involution and y
+commutes with x, then 2⟨x,y⟩ = ⟨x²,y⟩ = 0 (`commutator_order`), so ⟨x,y⟩ = 0 in the odd-order group
+M(G); hence Q_c = 0.
+
+Use `Representation.Coinvariants` for the integral homology representation induced by conjugation on
+the normal subgroup H. Inner conjugation by H acts trivially, so the G-action factors through G/H.
+The edge isomorphism sends the inclusion-induced image of z∈M(H) to the native coinvariant class of
+z. This identifies the map as well as the two abstract groups. The vanishing relation conclusion
+also permits any subset whose elements square to the identity.
+
+*Needs:* RS.1.3; RS.1.6; RS.1.4; RS.0.7 (`multiplier_hallPart`, `multiplier_complementPart`); M(C₂) =
+0 (Mathlib `Rep.FiniteCyclicGroup.groupHomologyIsoEven`).
+
+*Source.* Ellenberg–Venkatesh–Westerland, *Homological stability for Hurwitz spaces and the
+Cohen–Lenstra conjecture over function fields, II* (2012), withdrawn preprint, Example 9.3.2, arXiv
+v1 PDF p.57.
+
+**Checks.**
+
+- For G = C₂ × C₂ and H = C₂ (even order) the conclusion fails: M(G) ≅ C₂, and for c all nonidentity
+  elements Q_c = M(G) ≠ 0.
+
+### RS.6.2 Commutators define a centralizer homomorphism
+
+Prove `centralizer_commutator_hom`: For fixed x∈c in a central extension E→G, the lift-commutator
+function κ_E(x,−):C_G(x)→A is a group homomorphism.
+
+*Proof sketch.* Choose product lifts and expand [X,YZ]; the two kernel commutators are central, so
+conjugation terms disappear.
+
+*Needs:* RS.1.1.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix
+opening p.420 (PDF pp.11,43–44).
+
+**Checks.**
+
+- For D₈ → C₂ × C₂ and x the image of the rotation, κ(x, −) is the homomorphism C₂ × C₂ → C₂ that
+  kills x and is nonzero on the other two nonidentity elements. For noncommuting x, y the commutator
+  of lifts is not in the kernel, so κ(x, −) is defined only on the centraliser.
+
+### RS.6.3 Centralizer generators suffice for reduction
+
+Prove `centralizer_generator_relations`: For a central extension E→G, the subgroup generated by all
+κ_E(x,y) with x∈c,y∈C_G(x) equals that generated using one representative per class in c and any
+group-generating set of its centralizer.
+
+*Proof sketch.* At fixed x the commutator-of-lifts map C_G(x)→A is a homomorphism because its values
+are central. Conjugating both arguments preserves the central result.
+
+*Needs:* RS.1.1; RS.1.10; RS.6.2.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix
+opening p.420 (PDF pp.11,43–44).
+
+**Checks.**
+
+- Do not use arbitrary generators of G; they need not belong to the relevant centralizer.
+
+### RS.6.4 Finite reduced-cover certificate
+
+**`ReductionCertificate`.** A certificate for explicit finite groups E,G and π:E→G contains
+executable multiplication/inverse tables, a surjective homomorphism π, centrality of its kernel, an
+independently checked ordinary Schur-cover certificate (stem plus maximal kernel/class-map
+isomorphism), class representatives for c, generating sets for their centralizers, and the subgroup
+R generated by their lift commutators. Its conclusion identifies A=kerπ/R with M(G,c). The
+computational data include proofs of the cover properties and of the marked subgroup
+identifications.
+
+*Construction.* Check finite tables, maps, centrality, generating sets, subgroup closure and
+quotient cardinality; invoke the separately certified cover maximality before identifying the kernel
+with homology.
+
+Fix enumerations E≃Fin |E| and G≃Fin |G|. Multiplication, inverse and projection tables are
+transported from these native groups through the enumerations, with their laws proved. The
+certificate's oriented class isomorphism evaluates every commuting pair as XYX⁻¹Y⁻¹. For each class
+representative, its selected finite centralizer generators generate the actual centralizer subgroup.
+The closure of their lift commutators in kerπ is then the image of Q_c. On an integral class z, the
+quotient equivalence sends its reduced class to the quotient class of τ_E(z).
+
+Transport along group isomorphisms must preserve π and c; transport to an arithmetic type also
+retains its ambient embedding, which the arithmetic statistics roadmap (ArithmeticStatistics, ST.3)
+supplies. Conjugacy-equivariant markings in the reduced cover retain the selected representative
+lifts. These choices provide the lift-square columns used by the parity computation.
+
+The API:
+
+- `reductionCertificate_tables`: Group operations and π are finite executable data, with checked
+  associativity and map laws.
+- `reductionCertificate_relations`: The checked subgroup R is exactly the image of Q_c in kerπ.
+- `reductionCertificate_quotient`: A≅M(G,c) only after the independent Schur-cover certification.
+- `reductionCertificate_transport`: An explicit marked isomorphism transports the certificate to the
+  selected embedded arithmetic type.
+
+*Needs:* RS.6.3; RS.1.7; RS.0.5 (the Schur-cover property being certified).
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix
+opening p.420 (PDF pp.11,43–44).
+
+**Checks.**
+
+- `reductionCertificate_test_1` (degenerate): For G=E=1 and c empty, R and A are trivial.
+- `reductionCertificate_test_2` (computation): For D₈→C₂² with c all nonidentity elements, one
+  nontrivial central commutator generates kerπ and A=1.
+- `reductionCertificate_test_3` (non-example): The central surjection C₄→C₂ has a kernel of order 2
+  but is not a Schur cover of C₂; a checker must reject the identification A=M(C₂,c).
+
+### RS.6.5 Finite reduced-cover parity algorithm
+
+**`finiteParityAlgorithm`.** Given a checked reduction certificate, a generating involution c, a
+homomorphism π₀:G→C₂ and a chosen τ∈c with π₀(τ)≠1, compute the class columns a,s, the torsion-image
+spaces B_t, both cosets C_t^1 and C_t^τ, their ranks, exact-threshold histograms and lower-bound
+weight enumerators. The algorithm is finite and exact conditional on the certified ordinary cover
+and explicit marked embedding.
+
+*Construction.* Construct the reduced quotient group, then use finite linear algebra over F₂ and
+finite polynomial enumeration. The theorem-level rank identities provide independent cross-checks.
+
+For each threshold t and signature g, enumerate the finite parity space and retain exactly those v
+with L_t(v+v_g)=0. Obtain the class and square columns from the certified reduced marked model. The
+resulting membership test is equivalent to degree compatibility together with the actual square
+obstruction lying in B_t. The histogram at t=0 is the first coset cardinality; at positive t it
+subtracts the preceding coset cardinality. For lower bound N₀, the weight polynomial counts each
+surviving v with exponent equal to the number of nonzero coordinates of v+(N₀ mod 2). An executable
+implementation supplies decidable table representations of the quotients and filtration, as well as
+the logical finite-enumeration specification.
+
+The API:
+
+- `finiteParityAlgorithm_obstruction`: The computed column map equals the lift-square map in the
+  existing elementary-2 quotient.
+- `finiteParityAlgorithm_cosets`: Computed surviving parities are precisely v_g+kerL_t.
+- `finiteParityAlgorithm_counts`: Computed cardinalities equal 2^{N−rankL_t} and histogram
+  differences.
+- `finiteParityAlgorithm_weights`: The output polynomial is the exact finite weight sum, not an
+  asymptotic estimate.
+
+*Needs:* RS.6.4; RS.4.15; RS.4.17; RS.4.18.
+
+*Source.* The parity algorithm is derived from Wood, *Nonabelian Cohen–Lenstra moments* (2019),
+§4.1, Proposition 4.1, equation (6) and Remark 4.2, printed pp.400–401 (PDF pp.24–25), together with
+the finite linear algebra in RS.4. Its certified-cover input uses §2.3 p.387; its marked examples
+use Table 2 p.419 and the Appendix opening p.420.
+
+**Checks.**
+
+- `finiteParityAlgorithm_test_1` (computation): For S₃ transpositions, a=id on F₂, A=0, each
+  signature has one parity and threshold 0.
+- `finiteParityAlgorithm_test_2` (degenerate): For trivial A every compatible parity survives all
+  odd q.
+- `finiteParityAlgorithm_test_3` (non-example): For the algebraic fixture A=C₈ with one odd square
+  column, survival first occurs at v₂(q−1)=4; do not label this an admissible arithmetic-type
+  counterexample.
+
+### RS.6.6 The order-96 A₄ arithmetic type
+
+**`order96Type`.** Let ab:A₄→C₃ be its abelianization map. Put K=ker((a,b)↦ab(a)+ab(b)) inside A₄²,
+and F=K⋊C₂ with the involution swapping the two A₄ factors. Then |K|=48 and |F|=96. Use the explicit
+embedding F⊆A₄≀C₂ and c its outside order-2 elements for the reduced multiplier, rather than an
+unmarked abstract SmallGroups label.
+
+*Construction.* The sum map A₄²→C₃ is onto and preserved by swap; form its kernel and restricted
+semidirect product. The enumeration of embedded types is made in ArithmeticStatistics, ST.3.
+
+The abelianization fixture is a surjection A₄→C₃ with kernel [A₄,A₄], used consistently on both
+coordinates. The multiplicative form of the kernel condition is ab(a)ab(b)=1. Swapping coordinates
+defines an automorphism of this actual kernel and hence the C₂-action. The homomorphism into
+(A₄×A₄)⋊C₂ retains both coordinates and the swap coordinate and is injective. The outside-involution
+set uses that projection, not a cardinality test or a chosen abstract group identifier.
+
+The API:
+
+- `order96Type_kernel`: K consists exactly of pairs with ab(a)+ab(b)=0.
+- `order96Type_swap`: Swap preserves K and squares to the identity.
+- `order96Type_order`: |K|=48 and |F|=96.
+- `order96Type_outside`: The quotient F→C₂ is the swap coordinate; c is its outside involution set.
+
+*Needs:* Mathlib `alternatingGroup`, `Abelianization`, `SemidirectProduct`, `MulEquiv.prodComm`.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), Appendix opening, printed p.420 (PDF
+p.44).
+
+**Checks.**
+
+- `order96Type_test_1` (computation): A pair of 3-cycles with abelianized values 1,2 belongs to K.
+- `order96Type_test_2` (non-example): A pair with values 1,1 does not belong to K; using the
+  difference instead of the sum builds another specified kernel.
+- `order96Type_test_3` (compatibility): The outside element ((1,1),swap) has order 2 and projects
+  nontrivially.
+
+### RS.6.7 Reduced multiplier of the order-96 type
+
+Prove `order96_reduced_multiplier`: for the order-96 type F of RS.6.6 with c its outside
+involutions, M(F,c) ≅ C₂, the value of Wood's Table 2, row 8. The proof builds an explicit Schur
+cover with its oriented kernel identification, computes the relation subgroup from centralizer
+generators (RS.6.3) and certifies the quotient (RS.6.4). An unverified machine computation suggests
+M(F) ≅ C₂³ with a relation subgroup of order 4; certifying both is part of the target.
+
+*Proof sketch.* A complete certificate must establish the cover-kernel class isomorphism, the
+outside c and its centralizer-generated relations, then show the quotient kernel is cyclic of order 2.
+
+*Needs:* RS.6.6; RS.6.4.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §2.3 p.387; Table 2 p.419; Appendix
+opening p.420 (PDF pp.11,43–44).
+
+**Checks.**
+
+- No moment limit or type enumeration follows from this multiplier value.
+
+### RS.6.8 The anti-diagonal model for abelian base groups
+
+**`antidiagonalModel`.** For an abelian group G let W(G) = (G × G) ⋊ C₂, the nonidentity element of
+C₂ swapping the two factors, and let F(G) ≤ W(G) be the subgroup of elements ((a, a⁻¹), t) with a ∈
+G and t ∈ C₂. Its quotient map ρ : F(G) → C₂ is the restriction of the projection of W(G), and its
+marking is c(G) = {x ∈ F(G) : ρ(x) ≠ 1}. Every element of c(G) is an involution: ((a,a⁻¹),t)² =
+((a,a⁻¹)(a⁻¹,a), 1) = 1. The coordinate map (a, t) ↦ ((a,a⁻¹), t) identifies F(G) with G ⋊ C₂, the
+nonidentity element acting by inversion on G (not by the swap), so for G = C_n it is the dihedral
+group of order 2n.
+
+The API:
+
+- `antidiagonalModel_mem`: ((a,b),t) ∈ F(G) iff b = a⁻¹.
+- `antidiagonalModel_card`: |F(G)| = 2|G| for finite G.
+- `antidiagonalModel_outside`: x ∈ c(G) iff ρ(x) ≠ 1, and then x² = 1.
+- `antidiagonalModel_dihedral`: for G = ZMod n, an isomorphism F(G) ≃\* DihedralGroup n carrying c(G)
+  onto the reflections.
+
+*Construction.* Define the swap action `swapAction G : C₂ →* MulAut (G × G)` through
+`MulEquiv.prodComm`, form `SwapWreath G = (G × G) ⋊ C₂`, and take F(G) to be the kernel of ((a,b),t)
+↦ ab, a homomorphism because G is commutative. This is the sum-kernel model of RS.6.9 for abelian G,
+and the Lean file states it as `sumKernelModel G`; the marking is `outsideInvolutions`. *Needs:*
+Mathlib `SemidirectProduct`, `MulEquiv.prodComm`, `DihedralGroup`, `MonoidHom.range`.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), introduction, printed pp. 378–379, for
+the admissibility conditions and this model for abelian groups; §8.2, Table 2, p. 419.
+
+**Checks.**
+
+- `antidiagonalModel_test_1` (membership): in W(C₃), ((1,2),t) ∈ F(C₃) for both t (additive
+  residues), but the diagonal pair ((1,1),1) is not in F(C₃).
+- `antidiagonalModel_test_2` (marking): the pure swap ((0,0),t) with t ≠ 1 lies in c(G), and the
+  identity does not.
+- `antidiagonalModel_test_3` (dihedral): F(C₃) is the dihedral group of order 6 (≅ S₃), with c the
+  three reflections.
+
+Prove `antidiagonal_marking`: for every abelian G, c(G) generates F(G) (the product of two outside
+elements ((a,a⁻¹),t)((b,b⁻¹),t) is ((ab⁻¹,(ab⁻¹)⁻¹),1)), and for finite G of odd order c(G) is a
+single conjugacy class: conjugating ((a,a⁻¹),t) by ((b,b⁻¹),1) gives ((ab²,(ab²)⁻¹),t), and squaring
+is bijective on G. For G = C₂ the one-class statement fails: F(C₂) ≅ C₂ × C₂ is abelian and c(C₂)
+consists of two classes.
+
+Prove `antidiagonal_reduced_multiplier`: for finite abelian G of odd order,
+
+```text
+M(F(G), c(G)) = M(F(G)) ≅ M(G) ≅ Λ²G,
 ```
-(1 a z)
-(0 1 b)
-(0 0 1),    a,b,z ∈ 𝔽₃.
-```
 
-The constructor `heisenberg_table_element a b z` uses this actual matrix. Multiplication is `(a,b,z)(a′,b′,z′)=(a+a′,b+b′,z+z′+ab′)`. This fixes `Heisenberg27`, its cardinality 27, commutator subgroup of order three, and exponent three. The center and commutator subgroup consist of the z-coordinate matrices. Its automorphism `heisenberg_table_involution` negates a and b and fixes z, equivalently conjugation by diag(−1,1,−1). It is an involutive automorphism, rather than inversion, which would reverse multiplication.
+where Λ²G is the exterior square of the ℤ-module G. Concretely, for G = ⊕ᵢ C_{nᵢ} the multiplier is
+⊕_{i<j} C_{gcd(nᵢ,nⱼ)}.
 
-For row 22 use the graph group, of order 54. Its marked points outside the kernel have 2z=ab, hence z=2ab in 𝔽₃. They form a generating conjugacy class of size nine. `table_row_22` asks for a certificate with trivial output on this exact marking. For row 23 use the sum-kernel group, of order 162, whose outside marking has 27 elements and is one generating class. Its two Heisenberg coordinates have opposite (a,b) values but independent central z coordinates; the kernel is isomorphic to C₃×Heisenberg27. `table_row_23` asks for a certificate whose output is `Fin 2 → ZMod 3`, the two-dimensional C₃² group. Specifying this carrier retains the group structure, rather than merely an output of cardinality nine.
+*Proof sketch.* The kernel of ρ is G, of odd order, so RS.6.1 gives M(F,c) = M(F) ≅ M(G)_{C₂}, where
+C₂ acts through inversion on G. The Künneth formula gives M(A × B) ≅ M(A) ⊕ M(B) ⊕ (A ⊗ B) for
+abelian A, B, and M(C_n) = 0, so M(G) ≅ Λ²G naturally in G; inversion acts on Λ²G by (−1)·(−1) = 1,
+so the coinvariants are all of M(G). *Needs:* RS.6.1; RS.0.7; Mathlib
+`Rep.FiniteCyclicGroup.groupHomologyIsoEven` (M(C_n) = 0); the degree-two Künneth formula M(A × B) ≅
+M(A) ⊕ M(B) ⊕ (A ⊗ B), which Mathlib lacks at the pin and which is proved as part of this target.
 
-The API gives subgroup membership by the displayed matrix, the constructor's matrix, its bijection from 𝔽₃³, its multiplication formula, the involution's coordinate formula and square, the order/exponent/commutator theorem and the two marking theorems. Subgroup tests accept the identity and force the lower-left entry to zero and the middle diagonal entry to one. Constructor tests give (0,0,0)=1, `(1,0,0)(0,1,0)=(1,1,1)` and the reversed product `(0,1,0)(1,0,0)=(1,1,0)`. The two products detect omission or reversal of the cross term. Involution tests send the first two coordinate generators to their negatives and fix (0,0,1). Graph-marking tests accept the outside point (1,1,2), reject (1,1,0), and give graph order 54. These distinguish the central correction from a coordinatewise inversion model.
+*Source.* Löh, *Group Cohomology*, Corollary 3.2.23 (Künneth theorem for group homology), p. 136,
+and Corollary 1.6.13 (homology of finite cyclic groups), p. 49; Ellenberg–Venkatesh–Westerland,
+Example 9.3.2 (arXiv v1, p. 57), for the index-two reduction in this setting.
 
-**Rows 30 and 31: PSL₃(𝔽₂).** Use Mathlib's `Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)` as `SL32`. Its center is trivial, so its quotient defining PSL₃(𝔽₂) is canonically the same group. Pin the native base's order 168, perfectness and trivial center. Define `sl32_graph_involution` by g↦(g⁻¹)ᵀ, and prove its involutivity. Transpose alone reverses multiplication; inverse transpose is the automorphism needed for the graph model. The row-30 graph group has order 336; its 28 outside involutions form a generating conjugacy class. `table_row_30` asks for the certificate with trivial output on this graph marking. The row-31 group is the full native wreath product, of order 56,448, with its outside-involution marking of size 168. Perfectness supplies generation in the full wreath construction. `table_row_31` asks for its certificate with output C₂.
+**Checks.**
 
-The API gives the entrywise inverse-transpose formula, involutivity, the base order/perfectness/center theorem and the graph-marking theorem. Tests give the automorphism's value on 1, its square at arbitrary g, and preservation of the product order on g·h. The last check rejects transpose without inversion. Carrier tests give graph order 336, full-wreath order 56,448 and generation by the full-wreath marking. The two rows retain separate carriers and markings throughout; a certificate for the graph row cannot be reused as a certificate for the full-wreath row.
+- `antidiagonal_reduced_multiplier_test_1` (cyclic): for G = C_n with n odd, M(F,c) = 0; this is
+  rows 1–4, 6, 9–12, 14–15, 18, 20 and 26–27 of Wood's Table 2.
+- `antidiagonal_reduced_multiplier_test_2` (rank two): for G = C₃², C₅², C₉ × C₃ the values are C₃,
+  C₅, C₃ (rows 5, 19, 21).
+- `antidiagonal_reduced_multiplier_test_3` (rank three): for G = C₃³ the value is C₃³ (row 25); a
+  formula using M(G) ⊗ ℤ/2 or the coinvariants of the inversion action on G itself would give 0.
 
-Needs for the affine realizations: the earlier sum-kernel construction, Mathlib's finite permutations of `ZMod`, units, subgroup closure, and RS.6 finite certificates. Needs for the matrix realizations: the earlier graph/sum/full-wreath constructions, Mathlib's native `Matrix.SpecialLinearGroup`, `Matrix.GeneralLinearGroup`, `Matrix.SpecialLinearGroup.toGL`, their matrix operations and finite instances, and RS.6 finite certificates. Sources for all eight multiplier outputs: Wood (2019), §8.2, Table 2 p.419 and the embedding discussion continuing p.420. The displayed coordinate constructions specify representatives of these targets; ST.3 retains the classification of embedded types. The target is to build and verify each oriented cover and its relations, rather than treat the published table computation as a proof certificate.
+### RS.6.9 Sum-kernel, graph and full wreath models
+
+These constructions realise the nonabelian rows. For any group G, W(G) = (G × G) ⋊ C₂ with the swap
+action as in RS.6.8.
+
+**`sumKernelModel`.** The map W(G) → Gᵃᵇ, ((a,b),t) ↦ [a][b], is a homomorphism (the target is
+commutative, so the swap does not change [a][b]). Its kernel is `sumKernelModel G`, with quotient
+map to C₂ the restriction of the projection of W(G), and marking its outside involutions. For finite
+G, |sumKernelModel G| = 2|G||[G,G]|, because the map is onto with fibres of size |G|²/|Gᵃᵇ|.
+Membership is [b] = [a]⁻¹ in Gᵃᵇ; an outside element ((a,b),t) is an involution iff b = a⁻¹ in G.
+When G is perfect, `sumKernelModel G` is all of W(G) (the *full wreath model*).
+
+**`graphModel`.** For an involutive automorphism θ of G, let G ⋊_θ C₂ act through θ, and embed it in
+W(G) by (g, t) ↦ ((g, θ(g)), t); involutivity makes this a homomorphism, and it is injective. Its
+outside involutions are the elements (g, t) with t ≠ 1 and θ(g) = g⁻¹. For finite G it has order
+2|G|.
+
+The API:
+
+- `sumKernelModel_mem`, `sumKernelModel_card`, `sumKernelModel_outside`,
+  `sumKernelModel_eq_top_of_perfect` (G = [G,G] gives the whole of W(G));
+- `graphModel_embedding_apply`, `graphModel_embedding_injective`, `graphModel_card`,
+  `graphModel_outside`.
+
+*Needs:* Mathlib `SemidirectProduct`, `SemidirectProduct.lift`, `Abelianization`, `commutator`,
+`MulAut`, `MonoidHom.ker`. In the Lean file the map W(G) → Gᵃᵇ is built from `abelianizedSum G`.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), Appendix opening, p. 420 (the sum
+condition), and §8.2, Table 2, p. 419.
+
+**Checks.**
+
+- `sumKernelModel_test_1` (sum, not difference): in W(C₃) the pair ((1,2),1) (additive residues)
+  lies in the sum kernel and ((1,1),1) does not.
+- `sumKernelModel_test_2` (orders): |sumKernelModel A₄| = 2·12·4 = 96 (row 8, equal to the type of
+  RS.6.6), |sumKernelModel SL₂(𝔽₃)| = 2·24·8 = 384 (row 17), and for G = C₇ ⋊ C₃ the order is 2·21·7 =
+  294 (row 13).
+- `sumKernelModel_test_3` (perfect): for G = A₅ the sum kernel is all of W(A₅), of order 7200 (row
+  29).
+- `graphModel_test_1` (symmetric groups): for G = A_n (n = 4, 5) and θ conjugation by a
+  transposition τ, G ⋊_θ C₂ ≅ S_n through (a, t) ↦ aτ^t, and the outside involutions are the
+  transpositions (rows 7 and 28).
+- `graphModel_test_2` (GL₂(𝔽₃)): for G = SL₂(𝔽₃) and θ conjugation by diag(−1,1), the graph model is
+  GL₂(𝔽₃), of order 48, and its outside involutions are the 12 conjugates of diag(−1,1) (row 16).
+- `graphModel_test_3` (inverse transpose): for G = SL₃(𝔽₂) and θ(g) = (g⁻¹)ᵀ, the graph model has
+  order 336 (row 30); transpose alone reverses products and is not an automorphism.
+
+### RS.6.10 The table of reduced multipliers
+
+For each row k of Wood's Table 2 (§8.2, p. 419), prove `table_row_k`: for the marked group (F_k,
+c_k) listed below, with c_k its outside involutions, M(F_k, c_k) is the listed group. The abelian
+rows follow from RS.6.8; each other row is proved by a certificate (RS.6.4) for the listed model, or
+for the odd rows 13, 22–24 also through RS.6.1. That the listed model is the embedded type selected
+in the source is checked where the types are enumerated (ArithmeticStatistics, ST.3).
+
+| Row | G | Marked group F | M(F, c) |
+| --- | --- | --- | --- |
+| 1, 2, 3, 4 | C₃, C₅, C₇, C₉ | F(G) (RS.6.8): D₆, D₁₀, D₁₄, D₁₈ | 1 |
+| 5 | C₃² | F(C₃²) | C₃ |
+| 6, 9, 10, 11, 12 | C₁₁, C₁₃, C₁₅, C₁₇, C₁₉ | F(G): D₂₂, D₂₆, D₃₀, D₃₄, D₃₈ | 1 |
+| 7 | A₄ | graph model, ≅ S₄ | 1 |
+| 8 | A₄ | sum-kernel model, order 96 (RS.6.6) | C₂ |
+| 13 | C₇ ⋊ C₃ | sum-kernel model, order 294 | 1 |
+| 14, 15 | C₂₁, C₂₃ | F(G): D₄₂, D₄₆ | 1 |
+| 16 | SL₂(𝔽₃) | graph model, ≅ GL₂(𝔽₃) | 1 |
+| 17 | SL₂(𝔽₃) | sum-kernel model, order 384 | 1 |
+| 18 | C₂₅ | F(C₂₅) = D₅₀ | 1 |
+| 19 | C₅² | F(C₅²) | C₅ |
+| 20 | C₂₇ | F(C₂₇) = D₅₄ | 1 |
+| 21 | C₉ × C₃ | F(C₉ × C₃) | C₃ |
+| 22 | Heisenberg group of order 27 | graph model for (a,b,z) ↦ (−a,−b,z), order 54 | 1 |
+| 23 | Heisenberg group of order 27 | sum-kernel model, order 162 | C₃² |
+| 24 | C₉ ⋊ C₃ | sum-kernel model, order 162 | 1 |
+| 25 | C₃³ | F(C₃³) | C₃³ |
+| 26, 27 | C₂₉, C₃₁ | F(G): D₅₈, D₆₂ | 1 |
+| 28 | A₅ | graph model, ≅ S₅ | 1 |
+| 29 | A₅ | full wreath model A₅ ≀ C₂ | C₂ |
+| 30 | SL₃(𝔽₂) ≅ PSL₃(𝔽₂) | graph model for inverse transpose, order 336 | 1 |
+| 31 | SL₃(𝔽₂) | full wreath model, order 56 448 | C₂ |
+
+Here D_{2n} denotes the dihedral group of order 2n, the Heisenberg group is the upper unitriangular
+subgroup of SL₃(𝔽₃) with coordinates (a, b, z) and product (a,b,z)(a′,b′,z′) = (a+a′, b+b′,
+z+z′+ab′), and C₇ ⋊ C₃, C₉ ⋊ C₃ are the nonabelian groups of orders 21 and 27 with a cyclic normal
+subgroup of index three (generated by x ↦ x+1 and x ↦ 2x on ℤ/7, respectively x ↦ x+1 and x ↦ 4x on
+ℤ/9).
+
+*Needs:* RS.6.4, RS.6.6–RS.6.9; for rows 13 and 22–24 also RS.6.1.
+
+*Source.* Wood, *Nonabelian Cohen–Lenstra moments* (2019), §8.2, Table 2, p. 419, and the Appendix
+opening, p. 420.
+
+**Checks.**
+
+- The values for the abelian rows agree with RS.6.8 (`antidiagonal_reduced_multiplier_test_1` to
+  `_3`): a certificate that disagrees with Λ²G for these rows is wrong.
+- Row 8 agrees with RS.6.7.
+- The values of rows 29 and 31 (C₂) are nonzero although the bases are perfect: a rule "perfect base
+  ⇒ trivial reduced multiplier" is false.
+
+### Examples
+
+- For the symmetric group S₃ with c the transpositions (row 1), M(S₃) = 0, the identity is a Schur
+  cover, the reduced cover is S₃ itself, the parity map is the identity of F₂, and every compatible
+  fiber has one fixed point for every odd q prime to 6.
+- For G = C₃² ⋊ C₂ (row 5), M(G,c) = M(G) ≅ C₃ by RS.6.1 and RS.6.8, so A = C₃ has odd order, B = 0,
+  and every compatible parity survives every allowed q, with |A[q−1]| = 3 or 1 fixed points
+  according as 3 divides q − 1 or not.
+
+### Dependencies
+
+Layers RS.0, RS.1 and RS.4; RS.6.1 uses RS.0.7. The identification of the marked models with the
+embedded arithmetic types is made in ArithmeticStatistics, ST.3, which consumes this layer.
+
+## Downstream consumers
+
+- ArithmeticStatistics, ST.3 and ST.5: the reduced multipliers and markings of Layers RS.1–RS.2, the
+  slices and orbit sets of Layer RS.3, the fixed-fiber counts and parity statistics of Layer RS.4,
+  and the table of Layer RS.6, with the embedded arithmetic types identified there.
+- InverseGaloisAndArithmeticFundamentalGroups, IG.3–IG.5: lifted markings and local normalisation
+  (RS.1.10–RS.1.12), the universal marked extension (RS.2) and the power action (RS.3) in
+  branch-cycle and Frobenius arguments.
+- Any roadmap that needs the class map or the five-term sequence of a central extension, or the
+  identification of a Schur cover's kernel with H₂(G, ℤ), can take them from Layer RS.0.
 
 ## References
 
-- Melanie Matchett Wood. [Nonabelian Cohen–Lenstra moments](https://par.nsf.gov/servlets/purl/10152050). Duke Math. J. 168(3) (2019), 377–427. Relevant locations: §2.3 p.387; Definition 3.1 p.388; Lemmas 3.3–3.4 p.390; §4.1 pp.399–401, Proposition 4.1, equations (5)–(6), Remark 4.2; §8.2, Table 2 p.419.
-- Melanie Matchett Wood. [An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland](https://par.nsf.gov/servlets/purl/10253245). 13-page author copy of Research in the Mathematical Sciences 8 (2021), Article 21. Relevant locations: §2, Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4; §4, author pp.6–8, equation (4) and Remark 4.1.
-- Jordan S. Ellenberg; Akshay Venkatesh; Craig Westerland. [Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II](https://arxiv.org/pdf/1212.0923v1). arXiv:1212.0923v1, 5 December 2012; withdrawn preprint. Relevant locations: §§7.2–7.5 pp.32–37; Example 9.3.2 p.57; used only for the stated group-homology reduction.
-- Yuan Liu; Melanie Matchett Wood; David Zureick-Brown. [A predicted distribution for Galois groups of maximal unramified extensions](https://arxiv.org/pdf/1907.05002v2). arXiv:1907.05002v2, 21 July 2022. Relevant locations: Notation 10.1 p.39; §12 definitions pp.46–48; invariant degrees p.50; Lemma 12.10 p.53 and compatible reduced-cover maps p.54.
-- Yuan Liu; Melanie Matchett Wood; David Zureick-Brown. [A predicted distribution for Galois groups of maximal unramified extensions](https://par.nsf.gov/servlets/purl/10509628). Invent. Math. 237 (2024), 49–116; NSF published PDF, 68 pages. Relevant locations: §12 definitions, PDF pp.56–57; Lemma 12.10 and proof, PDF pp.62–63; reduced-cover comparison PDF p.64.
+- Melanie Matchett Wood, *Nonabelian Cohen–Lenstra moments*, Duke Math. J. 168 (2019), no. 3,
+  377–427 ([NSF public access copy](https://par.nsf.gov/servlets/purl/10152050)): §2.3, p. 387;
+  Definition 3.1, p. 388; Lemmas 3.3–3.4, p. 390; §4.1, Proposition 4.1, equations (5)–(6), Remark
+  4.2, pp. 399–401; introduction, pp. 378–379; §8.2, Table 2, p. 419; Appendix opening, p. 420.
+- Melanie Matchett Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland*,
+  Research in the Mathematical Sciences 8 (2021), Article 21 ([author
+  copy](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf)): §2.1, p. 2; §2, Lemmas
+  2.1–2.4 and Theorem 2.5, pp. 2–4; §4, equations (2) and (4) and Remark 4.1, pp. 6–8.
+- Jordan S. Ellenberg, Akshay Venkatesh, Craig Westerland, *Homological stability for Hurwitz spaces
+  and the Cohen–Lenstra conjecture over function fields, II*,
+  [arXiv:1212.0923v1](https://arxiv.org/abs/1212.0923v1) (2012, withdrawn): §§7.2–7.5, pp. 32–37;
+  Example 9.3.2, p. 57.
+- Yuan Liu, Melanie Matchett Wood, David Zureick-Brown, *A predicted distribution for Galois groups
+  of maximal unramified extensions*, Invent. Math. 237 (2024), 49–116 ([NSF public access
+  copy](https://par.nsf.gov/servlets/purl/10509628); preprint
+  [arXiv:1907.05002v2](https://arxiv.org/abs/1907.05002v2)): §12, pp. 56–57 of the published copy
+  (arXiv v2 pp. 46–48, invariant degrees p. 50); Lemma 12.10 and its proof, pp. 62–63 (arXiv v2 p.
+  53); proof of Theorem 10.4, p. 64 (arXiv v2 p. 54).
+- Clara Löh, *Group Cohomology*, lecture notes, version of 30 July 2019 ([author
+  copy](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf)): §1.2, pp. 11–17; Theorem
+  1.4.1, p. 20; Theorem 1.5.1, p. 30; §1.5.2, pp. 32–40; Outlook 1.5.15, p. 40; Corollary 1.6.13, p.
+  49; §1.7.3 and Theorem 1.7.15, pp. 63–64; Corollary 1.7.16, pp. 64–65; Theorem 3.2.12, p. 123;
+  Proposition 3.2.13, p. 124; Remark 3.2.14, p. 125; Theorem 3.2.18, pp. 129–131; Corollary 3.2.20,
+  p. 133; Corollary 3.2.23, p. 136.
+- Allen Hatcher, *Algebraic Topology*, Cambridge University Press, 2002 ([author
+  copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf)): §3.1, pp. 190–196, in particular Lemma
+  3.1, p. 194, and Theorem 3.2, p. 195.
+- Keith Conrad, *The Schur–Zassenhaus theorem*, expository note ([author
+  copy](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf)): Example 2, p. 1; second
+  proof of Theorem 1, pp. 3–4; Remark 5, p. 4.
