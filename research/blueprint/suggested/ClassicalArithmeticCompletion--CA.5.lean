@@ -82,14 +82,15 @@ theorem negativePell_iff_norm_neg_one
       ∃ u : (𝓞 K)ˣ, Algebra.norm ℚ ((u : 𝓞 K) : K) = -1 := by
   sorry
 
-/- New target: the narrow principal class of the chosen square root. -/
+/- New target: the narrow principal class of the chosen square root. The pinned
+`exists_unit_isTotallyPositive_smul_of_norm_eq_neg_one` and
+`norm_eq_neg_one_of_isTotallyPositive_smul_gen` are its two unit-level halves. -/
 theorem negativePell_iff_narrowPrincipal
     (hd : 1 < d) (hsq : Squarefree d)
     (hmin : minpoly ℤ θ = X ^ 2 - C d)
-    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤)
-    (hθ : (θ : K) ≠ 0) :
+    (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤) :
     (∃ x y : ℤ, x ^ 2 - d * y ^ 2 = -1) ↔
-      NarrowClassGroup.mkPrincipal (Units.mk0 (θ : K) hθ) = 1 := by
+      NarrowClassGroup.mkPrincipal (Units.mk0 (θ : K) (coe_gen_ne_zero hmin)) = 1 := by
   sorry
 
 /- New target: the natural restriction, rather than an abstract group isomorphism. -/
@@ -143,6 +144,12 @@ theorem determinant_entrywise_error {r : ℕ} (E Ê : Matrix (Fin r) (Fin r) ℝ
 example (E Ê : Matrix (Fin 0) (Fin 0) ℝ) : |Ê.det - E.det| = 0 := by sorry
 example (E Ê : Matrix (Fin 1) (Fin 1) ℝ) (δ : ℝ)
     (h : |Ê 0 0 - E 0 0| ≤ δ) : |Ê.det - E.det| ≤ δ := by sorry
+-- The Hadamard check: B = 1, δ = 1/2, difference 65 ≤ 162, while the printed bound of
+-- Biasse–Fieker Lemma 4.4 would be 64 (ClassicalArithmeticCompletion/E1501).
+example :
+    let E : Matrix (Fin 4) (Fin 4) ℝ :=
+      !![1, 1, 1, 1; 1, -1, 1, -1; 1, 1, -1, -1; 1, -1, -1, 1]
+    |((3 / 2 : ℝ) • E).det - E.det| = 65 := by sorry
 
 section Certificates
 
@@ -176,7 +183,9 @@ theorem multiplication_witnesses_iff_ideal {n : ℕ}
       Ideal.absNorm I = H.det.natAbs := by
   sorry
 
--- Parent: class-number-divides-relation-determinant and its equality corollary.
+-- Parent: class-number-divides-relation-determinant and its equality corollary, for any
+-- surjection φ; the parent file's `natAbs_det_eq_classNumber_iff` is the case of the
+-- presentation map of an ideal family, so a package keeps one of the two forms.
 theorem relationDet_eq_classNumber_iff {N : ℕ}
     (φ : (Fin N → ℤ) →+ Additive (ClassGroup (𝓞 K)))
     (hφ : Function.Surjective φ) (A : Matrix (Fin N) (Fin N) ℤ)
