@@ -8,7 +8,7 @@
  "status": "complete",
  "title": "Modular forms — Hecke theory, newforms, and L-functions, Part II: GL₂ automorphic representations and transfer",
  "extends": "tauceti:TauCetiRoadmap/ModularForms",
- "summary": "Follow-up plan for layer R17.4 (cyclic, solvable and cubic base change), continuing the R17.3 packet, whose fifteen R17.4 nodes (prime-cyclic and solvable base change and descent, cuspidality, the adjoint lift, cyclic cubic induction, GL₃ recognition and a weak non-normal cubic transfer) are cited, not repeated. This packet plans what that pass and the confirmed red-team findings RT-AREA-automorphic-1/1 and RT-AREA-langlands-2/4 left open: non-normal cubic base change at every place, with the local lift compared with restriction of the Weil–Deligne parameter. Local base change is defined by restricting the rank-two Langlands parameter along any finite extension. For a cubic étale algebra its twisted factors are the GL₂ × GL₃ Rankin–Selberg factors of π against the local GL₃ induction, up to the square of Langlands' λ-constant (BH 30.4). By the GL₂ local converse theorem (BH 27.1) this is the factor description of the Jacquet–Piatetski-Shapiro–Shalika lift, so that lift corresponds to restriction for every type, Carayol's extraordinary case included. Globally, GL₃ induction from a non-normal cubic field (JPSS 1979, Theorem 14.2), the GL₂ × GL₃ Rankin–Selberg theory of AL.3, the product formula for λ² and the GL₂ converse theorem over K (R16.5) give the twisted L-functions of the restricted tensor product of the local lifts and make it cuspidal automorphic. The exceptional case, twists of the S₃ dihedral representation of the Galois closure, is computed through quadratic base change to the resolvent field and gives the cuspidality criterion. The packet also exports local invariants used by modularity lifting (conductors along unramified extensions, tame principal series, Steinberg root numbers, archimedean weights) and types the Frobenius splitting rule for Satake powers on Tau Ceti's fullCycleType. It adds no planets, because R17.4 already has six.",
+ "summary": "Follow-up plan for layer R17.4 (cyclic, solvable and cubic base change), continuing the R17.3 packet, whose fifteen R17.4 nodes (prime-cyclic and solvable base change and descent, cuspidality, the adjoint lift, cyclic cubic induction, GL₃ recognition and a weak non-normal cubic transfer) are cited, not repeated. This packet plans what that pass and the confirmed red-team findings RT-AREA-automorphic-1/1 and RT-AREA-langlands-2/4 left open: non-normal cubic base change at every place, with the local lift compared with restriction of the Weil–Deligne parameter. Local base change is defined by restricting the rank-two Langlands parameter along any finite extension. For a cubic étale algebra and a character family that is a common real norm twist of unitary data, its twisted factors are the GL₂ × GL₃ Rankin–Selberg factors of π against the local GL₃ induction, up to the square of Langlands' λ-constant (BH 30.4). By the GL₂ local converse theorem (BH 27.1) this is the factor description of the Jacquet–Piatetski-Shapiro–Shalika lift, so that lift corresponds to restriction for every type, Carayol's extraordinary case included. Globally, GL₃ induction from a non-normal cubic field (JPSS 1979, Theorem 14.2), the GL₂ × GL₃ Rankin–Selberg theory of AL.3, the product formula for λ² and the GL₂ converse theorem over K (R16.5) give the twisted L-functions of the restricted tensor product of the local lifts and make it cuspidal automorphic. The exceptional case, twists of the S₃ dihedral representation of the Galois closure, is computed through quadratic base change to the resolvent field and gives the cuspidality criterion. The packet also exports local invariants used by modularity lifting (conductors along unramified extensions, tame principal series, Steinberg root numbers, archimedean weights) and types the Frobenius splitting rule for Satake powers on Tau Ceti's fullCycleType. It adds no planets, because R17.4 already has six. The global Weil-group and Artin-functional-equation infrastructure of the JPSS GL₃ route remains an explicit lower-tier extension request and gap; the current finite global Artin map does not supply it. This is a complete planning pass with R17.4 planned, not closed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -89,19 +89,33 @@
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "The determinant GL(n, R) →* Rˣ for a commutative ring R.",
     "checked": "statement read at the pinned commit, Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean line 94, on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:Rep.mackeyDecomposition",
+    "kind": "def",
+    "module": "TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean",
+    "provides": "For arbitrary subgroups H,K of an arbitrary group G over a commutative ring k, the natural isomorphism Res_K Ind_H A ≅ ⨁_{K\\G/H} Ind of the restricted conjugate representation. No finite-group assumption. Weil subgroups of finite index give finitely many summands; use the open-subgroup function-model adapter for continuity.",
+    "checked": "Independently read at the pinned commit, TauCeti/RepresentationTheory/Induction/Mackey/Decomposition.lean line 390, on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Rep.indResAdjunction",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Induced.lean",
+    "provides": "For any group homomorphism φ, Rep.indFunctor k φ is left adjoint to Rep.resFunctor φ, with hom equivalence Hom(Ind A,B) ≃ Hom(A,Res B). Frobenius reciprocity applies to the underlying Weil-group representations.",
+    "checked": "Independently read at the pinned commit, Mathlib/RepresentationTheory/Induced.lean line 155, on 2026-10-14"
    }
   ]
  },
  "baselineAudit": {
   "audit": "data/library-coverage.json, reviewed AUDIT14 R16/R17 entries",
-  "conclusion": "Cyclic, solvable and non-normal cubic base change, local GL₃ induction and the λ-constants are not built at the pins. The Tau Ceti cycle-type API (fullCycleType) and Mathlib's general linear group are imported for the typed Frobenius splitting rule."
+  "conclusion": "Cyclic, solvable and non-normal cubic base change, local GL₃ induction and the λ-constants are not built at the pins. The Tau Ceti cycle-type API (fullCycleType) and Mathlib's general linear group are imported for the typed Frobenius splitting rule. Arbitrary-group Mackey decomposition and induction–restriction adjunction are already available and replace the finite-group roadmap request. The current read-only Tau Ceti library and LocalGaloisGroups roadmap were also checked; no local Langlands or automorphic base-change construction was found there."
  },
  "sources": [
   {
    "id": "bh06",
    "title": "The Local Langlands Conjecture for GL(2)",
    "authors": "Colin J. Bushnell and Guy Henniart",
-   "edition": "Grundlehren der mathematischen Wissenschaften 335, Springer, 2006; read in the copy the maintainer cleared for the atlas workers (book page = PDF page − 6)",
+   "edition": "Grundlehren der mathematischen Wissenschaften 335, Springer, 2006; read in the copy the maintainer cleared for the atlas workers; use the printed page labels: the scan offset changes later in the book",
    "url": "https://link.springer.com/book/10.1007/3-540-31511-X",
    "sha256": "f0f1f094b188b43f8ad0492bf7525c8e4e34cc2ce0f830c896d0a6d1e33c89ee",
    "accessDate": "2026-10-14",
@@ -110,7 +124,8 @@
     "§27.1–27.4 and §27.7–27.8, book pp. 170–176 (Converse Theorem and its proof)",
     "§30.4, (30.4.1)–(30.4.3), book pp. 194–195 (Langlands constant)",
     "§33.4 Theorem and Exercise, book p. 214",
-    "§34.1 Theorem and Lemma, book pp. 214–215"
+    "§34.1 Theorem and Lemma, book p. 215",
+    "§23.4–23.5, book pp. 142–144; §24.2–24.3, book pp. 148–150; §26.6–26.8, book pp. 168–169 (independent epsilon-normalization check)"
    ]
   },
   {
@@ -173,20 +188,21 @@
    ],
    "title": "Local base change by restriction of the Langlands parameter",
    "kind": "definition",
-   "statement": "Let F be a local field of characteristic zero (a finite extension of Q_p, or R, or C) and E a finite separable extension of F inside a fixed algebraic closure, so that W_E is an open subgroup of finite index of the Weil group W_F. For an irreducible admissible representation π of GL₂(F), let rec_F(π) = (r, N) be its Frobenius-semisimple Weil–Deligne parameter in the R16.3 arithmetic normalisation (at an archimedean F, the AF.1 Langlands parameter, with N = 0). The local base change of π to E is the irreducible admissible representation of GL₂(E) whose parameter is the restriction of (r, N) to W_E: BC_{E/F}(π) := rec_E^{-1}((r|_{W_E}, N)). For an étale F-algebra E = ∏_w E_w (the completion at v of a global extension), BC_{E/F}(π) is the family (BC_{E_w/F}(π))_w. The monodromy operator is restricted, not discarded, so twists of Steinberg go to twists of Steinberg. The definition applies to every finite separable E/F, Galois or not; for a cyclic extension of prime degree it is the Langlands–Shintani local lift of R17.4/local-compatibility, and for a non-Galois cubic extension it is the lift that the non-normal cubic transfer has at every place.",
+   "statement": "Let F be a local field of characteristic zero (a finite extension of Q_p, or R, or C) and E a finite separable extension of F inside a fixed algebraic closure, so that W_E is an open subgroup of finite index of the Weil group W_F. For an irreducible admissible representation π of GL₂(F), let rec_F(π) = (r, N) be its Frobenius-semisimple Weil–Deligne parameter in the R16.3 unitary normalisation with geometric Artin reciprocity (at an archimedean F, the AF.1 Langlands parameter, with N = 0). The local base change of π to E is the irreducible admissible representation of GL₂(E) whose parameter is the restriction of (r, N) to W_E: BC_{E/F}(π) := rec_E^{-1}((r|_{W_E}, N)). For an étale F-algebra E = ∏_w E_w (the completion at v of a global extension), BC_{E/F}(π) is the family (BC_{E_w/F}(π))_w. The monodromy operator is restricted, not discarded, so twists of Steinberg go to twists of Steinberg. The definition applies to every finite separable E/F, Galois or not; for a cyclic extension of prime degree it is the Langlands–Shintani local lift of R17.4/local-compatibility, and for a non-Galois cubic extension it is the lift that the non-normal cubic transfer has at every place.",
    "hypotheses": [
     "F is a local field of characteristic zero and E/F a finite separable extension inside a fixed algebraic closure; W_E ⊂ W_F is open of finite index (Tau Ceti ClassFieldTheory Layer 9, the Weil-group transfer for finite extensions).",
     "rec_F and rec_E are the rank-two local Langlands correspondences of R16.3 (nonarchimedean, imported from ET.6, a bijection between irreducible admissible representations and Frobenius-semisimple two-dimensional Weil–Deligne representations) and of AF.1 (archimedean).",
-    "Arithmetic normalisation of R16.3; the unitary/Tate half-twist commutes with restriction because |·|_F∘N_{E/F} = |·|_E.",
+    "Unitary normalisation of R16.3, Art_F(ϖ) = geometric Frobenius; the unitary/Tate half-twist commutes with restriction because |·|_F∘N_{E/F} = |·|_E.",
     "For a non-trivial étale algebra the output is a family indexed by the factors E_w; nothing is asserted about representations of GL₂ of a non-field algebra beyond this product.",
-    "For GL_n, Boxer–Calegari–Gee–Pilloni §2.3 use the same definition from rec_K; the atlas routes that use to ET.6, which constructs rec but plans no base-change node. This node is the rank-two definition with the API that base change needs."
+    "For GL_n, Boxer–Calegari–Gee–Pilloni §2.3 use the same definition from rec_K; the atlas routes that use to ET.6, which constructs rec but plans no base-change node. This node is the rank-two definition with the API that base change needs.",
+    "The current ClassFieldTheory Artin maps use arithmetic Frobenius. Use their inverse for the geometric R16.3 convention; inversion preserves the norm and tower compatibility diagrams. Satake classes are evaluated on geometric Frobenius, while the arithmetic degree map in the WD relation is unchanged."
    ],
    "proofSteps": [
-    "Restriction preserves the Weil–Deligne conditions: r|_{W_E} has open kernel on I_E = I_F ∩ W_E; on W_E one has deg_F = f·deg_E and q_E = q_F^f, so r(w)Nr(w)^{-1} = q_E^{deg_E(w)}N; restriction of a Frobenius-semisimple representation to a finite-index subgroup is Frobenius-semisimple (a power of a semisimple element is semisimple). Use the restriction operation of the R01.2 Weil–Deligne carrier.",
+    "Restriction preserves the Weil–Deligne conditions: r|_{W_E} has open kernel on I_E = I_F ∩ W_E; the arithmetic degree maps satisfy deg_F = f·deg_E and q_E = q_F^f, giving r(w)Nr(w)^{-1} = q_E^{deg_E(w)}N. For Frobenius semisimplicity, the finite inertia image is normalized by a Frobenius lift; a power centralizes that image. Every lift of positive degree has a power equal to a power of that semisimple Frobenius times a commuting finite-order inertia element, hence is semisimple in characteristic zero. This applies to Frobenius lifts in W_E, which need not literally be powers of the chosen lift in W_F. Use the restriction operation of the R01.2 Weil–Deligne carrier.",
     "Apply the bijection rec_E^{-1}. Isomorphic π give isomorphic outputs, so BC_{E/F} is defined on isomorphism classes.",
     "Unramified case: on the unramified quotient Frob_E = Frob_F^f, so an unramified π with Satake class A goes to the unramified representation with Satake class A^f (R17.4/unramified-base-change).",
     "Cyclic prime degree: R17.4/local-compatibility identifies the Langlands–Shintani lift (character identities, Langlands §2) with this restriction at every place, so the two definitions agree there.",
-    "Principal series, Steinberg twists and dihedral parameters: restrict the explicit R16.3 parameters (principal-series-parameter, steinberg-monodromy, supercuspidal-parameter); for an induced parameter use the Mackey formula (Tau Ceti InductionRestriction Layer 3, for a finite-index subgroup)."
+    "Principal series, Steinberg twists and dihedral parameters: restrict the explicit R16.3 parameters; for induction use the arbitrary-group isomorphism tauceti:Rep.mackeyDecomposition and the Mathlib induction–restriction adjunction. For open finite-index Weil subgroups the sum has finitely many double cosets. The finite-coset function model identifies this algebraic induction with Weil induction; each block map is continuous because the subgroup is open and the original action is continuous. This is an adapter of existing induction, not a new Mackey theorem."
    ],
    "acceptance": [
     "For E = F the map is the identity.",
@@ -204,7 +220,8 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/unramified-base-change",
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-compatibility",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula"
+    "tauceti:Rep.mackeyDecomposition",
+    "mathlib:Rep.indResAdjunction"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -224,7 +241,7 @@
     {
      "sourceId": "bh06",
      "locator": "§33.4, Theorem and Exercise (a), book p. 214",
-     "match": "The rank-two correspondence is characterised by the ε-factors of all character twists and commutes with twisting by characters; the node restricts the parameter that this correspondence attaches to π."
+     "match": "BH §33.4 characterises the correspondence between irreducible two-dimensional Weil representations and cuspidal GL₂ representations by all twisted epsilon factors; Exercise (a) gives twisting. This supplies the supercuspidal case. The principal-series, Steinberg and one-dimensional extensions come from the separately cited R16.3 nodes; §33.4 alone does not assert that extension."
     }
    ],
    "implementationStatus": "unchecked",
@@ -310,7 +327,12 @@
     {
      "name": "TauCeti.GL2Transfer.localBaseChange_generic",
      "role": "other",
-     "statement": "If π is unitary and infinite-dimensional, BC_{E/F}(π) is infinite-dimensional (generic): unitary principal series have unitary exponents, complementary series have exponent of absolute value below 1/2, which restriction preserves since |·|_F∘N = |·|_E, and Steinberg twists stay Steinberg twists."
+     "statement": "If π is unitary and infinite-dimensional, BC_{E/F}(π) is infinite-dimensional (generic). In the unitary principal and complementary series the real exponents stay respectively zero or strictly between −1/2 and 1/2 under norm pullback; Steinberg twists retain N. A unitary supercuspidal has bounded Weil parameter, whose restriction is bounded: its irreducible constituents give a tempered, hence generic, output. The archimedean claim follows from AF.1 and the unitary rank-two classification. Arbitrary nonunitary generic inputs need not retain genericity."
+    },
+    {
+     "name": "TauCeti.GL2Transfer.localBaseChange_parameter",
+     "role": "characterisation",
+     "statement": "rec_E(BC_{E/F}(π)) ≅ Res_{W_E}^{W_F} rec_F(π), including N. For an irreducible admissible Π of GL₂(E), Π ≅ BC_{E/F}(π) if and only if rec_E(Π) has this restricted parameter. This criterion lets parameter comparisons identify the output without unfolding the inverse correspondence."
     }
    ],
    "tests": [
@@ -343,6 +365,11 @@
      "name": "TauCeti.GL2Transfer.localBaseChange_s3_test",
      "kind": "computation",
      "statement": "Let K/F be a non-Galois cubic extension of p-adic fields with Galois closure L (Gal(L/F) ≅ S₃) and quadratic subfield M ⊂ L, and let τ = Ind_{W_M}^{W_F} ξ for a character ξ of M^× of order three trivial on N_{L/M}L^× (the two-dimensional irreducible representation of S₃). Then BC_{K/F}(π(τ)) = π(1, η_{L/K}), with η_{L/K} the quadratic character of K^× attached to L/K."
+    },
+    {
+     "name": "TauCeti.GL2Transfer.localBaseChange_nonunitary_test",
+     "kind": "non-example",
+     "statement": "Let F = Q₃, E = Q₃(√3), κ the ramified quadratic character cutting out E/F, and ν = |·|_F. The principal series π(κν^{1/2},ν^{−1/2}) is irreducible and generic, since the ratio is κν. Its base change has N = 0 and parameter |·|_E^{1/2} ⊕ |·|_E^{−1/2}, so it is the trivial one-dimensional Langlands quotient. Thus genericity preservation requires the unitary hypothesis."
     }
    ]
   },
@@ -416,7 +443,7 @@
     "Independence of s and the inductivity formula in dimension n are BH (30.4.1), 30.4 Corollary and (30.4.2): induction is inductive in degree zero (R01.2/local-epsilon-factor, API epsilonWeil_induced) applied to V − n·1_E.",
     "Weil–Deligne case: by Deligne's formula ε(V, N) = ε(V)·det(−F | V^I/(ker N)^I), and the correction term is inductive, by the inertia invariants of an induced representation (R01.2/inertia-invariants-of-an-induced-representation) and the determinant of a cyclic block endomorphism (R01.2/determinant-of-a-cyclic-block-endomorphism).",
     "λ² = κ(−1) is BH (30.4.3), from the functional equation ε(V, s, ψ)ε(V^∨, 1−s, ψ) = det V(−1) applied to V = Ind 1_E and V = 1_E. Archimedean: ε(1_ℝ, ψ_ℝ) = 1, ε(sgn, ψ_ℝ) = i and ε(1_ℂ, ψ_ℂ) = 1 in R16.3/archimedean-factor-comparison, and Ind_{ℂ/ℝ} 1 = 1 ⊕ sgn, so λ = i.",
-    "Global: Ind_{W_K}^{W_F} 1 restricted to W_{F_v} is ⊕_{w|v} Ind_{W_{K_w}}^{W_{F_v}} 1 (Mackey), so κ_{K/F} has local components κ_{K_v/F_v}, and ∏_v κ_{K_v/F_v}(−1) = κ_{K/F}(−1) = 1 because a Hecke character is trivial on F^× ∋ −1.",
+    "Global: use the ordinary finite permutation representation Ind_{G_K}^{G_F} 1 of Gal(L/F), where L is the normal closure. Its restriction to a local decomposition group is the sum of the permutation representations belonging to K_w/F_v. Hence its determinant has local components κ_{K_v/F_v}. Global Artin reciprocity identifies that determinant with the discriminant Hecke character κ_{K/F}; therefore ∏_v κ_{K_v/F_v}(−1) = κ_{K/F}(−1) = 1. This argument requires no global Weil group for infinite-order Hecke characters.",
     "For a two-dimensional family, (a) gives ε(Ind V_v) = λ(K_v/F_v)² ∏_{w|v} ε(V_w) at every place, with λ = 1 almost everywhere (unramified K_v/F_v and ψ_v of conductor O_v), and the product of the λ² is 1."
    ],
    "acceptance": [
@@ -432,7 +459,8 @@
     "AutomorphicLFunctionsAndLocalFactors:AL.1/local-epsilon-gamma-factors",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula"
+    "tauceti:Rep.mackeyDecomposition",
+    "mathlib:Rep.indResAdjunction"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -456,18 +484,18 @@
    ],
    "title": "Local automorphic induction to GL₃ from a cubic étale algebra",
    "kind": "definition",
-   "statement": "Let F be a local field of characteristic zero, K an étale F-algebra of degree three (a product of fields K_w) and χ = (χ_w) a family of characters of the K_w^×, viewed as characters of W_{K_w} by local reciprocity. Define I_{K/F}(χ) := rec_{F,3}^{-1}(⊕_w Ind_{W_{K_w}}^{W_F} χ_w), the irreducible admissible representation of GL₃(F) whose Frobenius-semisimple parameter (with N = 0) is the induced three-dimensional representation. If χ is unitary, I_{K/F}(χ) is tempered and generic, its central character is (χ restricted to F^×)·κ_{K/F}, and for every character η of F^× its twisted factors are L(s, I_{K/F}(χ) ⊗ η) = ∏_w L(s, χ_w·(η∘N_{K_w/F})) and ε(s, I_{K/F}(χ) ⊗ η, ψ) = λ(K/F, ψ)·∏_w ε(s, χ_w·(η∘N_{K_w/F}), ψ∘Tr). By splitting type: for K = F³ it is the principal series χ₁ ⊞ χ₂ ⊞ χ₃; for K = F × E with E a quadratic field it is χ₁ ⊞ π(Ind_{W_E}^{W_F} χ₂); for K a field it is supercuspidal exactly when Ind χ is irreducible, that is, when χ ≠ χ^σ (K/F cyclic) or when χ is not of the form μ∘N_{K/F} (K/F non-Galois).",
+   "statement": "Let F be a local field of characteristic zero, K an étale F-algebra of degree three (a product of fields K_w) and χ = (χ_w) a family of characters of the K_w^×, viewed as characters of W_{K_w} by local reciprocity. Define I_{K/F}(χ) := rec_{F,3}^{-1}(⊕_w Ind_{W_{K_w}}^{W_F} χ_w), the irreducible admissible representation of GL₃(F) whose Frobenius-semisimple parameter (with N = 0) is the induced three-dimensional representation. If χ is unitary, I_{K/F}(χ) is tempered and generic, its central character is (χ restricted to F^×)·κ_{K/F}, and for every character η of F^× its twisted factors are L(s, I_{K/F}(χ) ⊗ η) = ∏_w L(s, χ_w·(η∘N_{K_w/F})) and ε(s, I_{K/F}(χ) ⊗ η, ψ) = λ(K/F, ψ)·∏_w ε(s, χ_w·(η∘N_{K_w/F}), ψ∘Tr). For nonunitary data, ⊞ in the following shapes denotes the irreducible Langlands quotient attached to the direct-sum parameter; it need not be an irreducible induced principal series. By splitting type: for K = F³ it is χ₁ ⊞ χ₂ ⊞ χ₃, an irreducible principal series for unitary data; for K = F × E with E a quadratic field it is χ₁ ⊞ π(Ind_{W_E}^{W_F} χ₂); for K a field it is supercuspidal exactly when Ind χ is irreducible, that is, when χ ≠ χ^σ (K/F cyclic) or when χ is not of the form μ∘N_{K/F} (K/F non-Galois).",
    "hypotheses": [
     "F a local field of characteristic zero; K an étale cubic F-algebra; χ a family of characters of the factors.",
     "rec_{F,3}: the local Langlands correspondence for GL₃ (ET.6 at finite places, AF.1 at archimedean places), compatible with twists, central characters and the L- and ε-factors of pairs.",
     "λ(K/F, ψ) and κ_{K/F} are those of R17.4/lambda-square-product.",
-    "Unitary χ for the temperedness and genericity clauses; a quasi-character is reduced to this by a twist by |·|^t."
+    "Unitary χ means every χ_w is unitary. More generally a common twist χ_w = χ_{w,0}|·|_{K_w}^t of unitary characters gives an essentially tempered, generic output. An arbitrary family of quasicharacters on a product may have different real exponents, and cannot be reduced to unitary data by one twist; no genericity assertion is made for that family."
    ],
    "proofSteps": [
     "Define the parameter as the direct sum of inductions and apply rec_{F,3}^{-1} (ET.6/AF.1).",
-    "Factors: L is inductive (R01.2/local-factor-of-induced-representation), and ε of a one-dimensional induction is λ times ε of the character (R17.4/lambda-square-product with n = 1); the LLC for GL₃ preserves twisted L- and ε-factors (ET.6).",
+    "Factors: L is inductive (R01.2/local-factor-of-induced-representation), and ε of a one-dimensional induction is λ times ε of the character (R17.4/lambda-square-product with n = 1); the LLC for GL₃ preserves twisted L- and ε-factors (ET.6). Apply the same calculation to χ^{-1} and the dual induced parameter for the contragredient L-functions. The diagonal restriction χ|_{F^×} means the product of the restrictions of all χ_w.",
     "Central character: det Ind_{W_K}^{W_F} χ = (χ∘transfer)·det Ind 1 = χ|_{F^×}·κ_{K/F} (transfer corresponds to restriction to F^× under reciprocity).",
-    "Shape: the split and (1,2) cases are direct sums of inductions; for K a field, Ind χ is irreducible if and only if it has no one-dimensional constituent μ (a three-dimensional representation that splits has a one-dimensional summand), and by Frobenius reciprocity μ ⊂ Ind χ if and only if χ = μ|_{W_K} = μ∘N_{K/F}; for cyclic K this is χ = χ^σ by Hilbert 90 (Tau Ceti ClassFieldTheory Layer 8 for the norm description)."
+    "Shape: the split and (1,2) cases are direct sums of inductions; for K a field, Ind χ is irreducible if and only if it has no one-dimensional constituent μ (a three-dimensional representation that splits has a one-dimensional summand), and by Frobenius reciprocity μ ⊂ Ind χ if and only if χ = μ|_{W_K} = μ∘N_{K/F}; for cyclic K this is χ = χ^σ by Hilbert 90 (Tau Ceti ClassFieldTheory Layer 8 for the norm description). For a cubic local field every quasicharacter is a real norm twist of a unitary one; the induced representation is therefore a common twist of a unitary, completely reducible representation. This justifies the summand argument for nonunitary field characters too."
    ],
    "acceptance": [
     "The pair identity L(s, π × I_{K/F}(χ)) = ∏_w L(s, BC_{K_w/F}(π) ⊗ χ_w) for π on GL₂(F) is the theorem R17.4/local-cubic-factor-identity."
@@ -480,7 +508,8 @@
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/lambda-square-product",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula"
+    "tauceti:Rep.mackeyDecomposition",
+    "mathlib:Rep.indResAdjunction"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -490,12 +519,12 @@
     {
      "sourceId": "jpss79",
      "locator": "Theorem (14.2)(1) and the cases (14.2.4)–(14.2.5), printed pp. 253–254",
-     "match": "For a unitary three-dimensional σ of the Weil group of a local field, the representation π(σ) of GL₃ is the unique irreducible unitary representation with central character det σ whose GL₁-twisted L- and ε-factors are those of σ; when σ is a sum of characters, or a character plus an irreducible two-dimensional τ, π(σ) is the corresponding induced representation. The node takes σ = Ind χ and obtains π(σ) from the modern correspondence."
+     "match": "Theorem (14.2)(1) describes the local components of a global irreducible unitary three-dimensional Weil representation satisfying its analytic hypotheses. The characterization uses the twisted L-functions of both π and π∨, and the twisted epsilon factors, with fixed central character. Equations (14.2.4)–(14.2.5) identify the sum-of-characters and character-plus-rank-two cases. It is not a standalone existence theorem for every local parameter. Here ET.6/AF.1 constructs the local representation; the source characterization is used only in the global application below."
     },
     {
      "sourceId": "jpss79",
      "locator": "remark after the proof of (14.2.2), printed p. 255",
-     "match": "For a separable cubic K/F and a character of K^×, the induced three-dimensional representation; when K/F is not normal it is irreducible or the sum of a character and a two-dimensional monomial representation."
+     "match": "The monomial remark concerns induction of a global Weil character from a separable cubic extension of number fields. For a nonnormal extension the induced representation is irreducible or a character plus a two-dimensional monomial summand. The local shape and local norm criterion in this node are the finite-index induction calculation, rather than additional assertions of that remark."
     }
    ],
    "implementationStatus": "unchecked",
@@ -532,7 +561,7 @@
     {
      "name": "TauCeti.GL2Transfer.localCubicInduction_factors",
      "role": "characterisation",
-     "statement": "For unitary χ, I_{K/F}(χ) is the unique irreducible unitary representation of GL₃(F) with central character χ|_{F^×}·κ_{K/F} whose twisted L- and ε-factors are ∏_w L(s, χ_w(η∘N)) and λ(K/F, ψ)∏_w ε(s, χ_w(η∘N), ψ∘Tr) for all η (uniqueness: Jacquet–Piatetski-Shapiro–Shalika (14.2)(1))."
+     "statement": "For unitary χ, put V = ⊕_w Ind χ_w. The representation I_{K/F}(χ) has central character χ|_{F^×}κ_{K/F}. For every character η its twisted L-function is ∏_w L(s,χ_w(η∘N)), the twisted L-function of its contragredient is ∏_w L(s,χ_w^{-1}(η∘N)), and its twisted epsilon factor is λ(K/F,ψ)∏_w ε(s,χ_w(η∘N),ψ∘Tr). When V is a local component of the global σ in JPSS Theorem (14.2), these three families and the central character characterize I uniquely among irreducible unitary representations, by (14.2)(1). For arbitrary local data the definition uses the bijective ET.6/AF.1 correspondence; no additional local converse theorem is inferred from the global source."
     },
     {
      "name": "TauCeti.GL2Transfer.localCubicInduction_central",
@@ -547,12 +576,22 @@
     {
      "name": "TauCeti.GL2Transfer.localCubicInduction_supercuspidal_iff",
      "role": "characterisation",
-     "statement": "For K/F a non-Galois cubic field, I_{K/F}(χ) is supercuspidal if and only if χ is not of the form μ∘N_{K/F}; in that case I_{K/F}(μ∘N) = μ ⊞ (μ ⊗ π(τ_K)), with τ_K the two-dimensional irreducible representation of Gal(L/F) ≅ S₃ for the Galois closure L."
+     "statement": "For K/F a non-Galois cubic field, I_{K/F}(χ) is supercuspidal if and only if χ is not of the form μ∘N_{K/F}; if χ = μ∘N instead I_{K/F}(μ∘N) = μ ⊞ (μ ⊗ π(τ_K)), with τ_K the two-dimensional irreducible representation of Gal(L/F) ≅ S₃ for the Galois closure L."
     },
     {
      "name": "TauCeti.GL2Transfer.localCubicInduction_unramified",
      "role": "simp",
      "statement": "For K/F an unramified cubic field and χ unramified with χ(ϖ_K) = c, I_{K/F}(χ) is unramified and its Satake parameters are the three cube roots of c (the Frobenius matrix of Ind χ is the companion matrix of X³ − c)."
+    },
+    {
+     "name": "TauCeti.GL2Transfer.localCubicInduction_contragredient",
+     "role": "compatibility",
+     "statement": "I_{K/F}(χ)^∨ = I_{K/F}(χ^{-1}), by duality of finite-index induction and the local correspondence. This supplies the dual factors required by the global converse theorem."
+    },
+    {
+     "name": "TauCeti.GL2Transfer.localCubicInduction_parameter",
+     "role": "characterisation",
+     "statement": "rec_{F,3}(I_{K/F}(χ)) ≅ ⊕_w Ind_{W_{K_w}}^{W_F} χ_w with N = 0. An irreducible admissible GL₃(F) representation equals I_{K/F}(χ) if and only if it has this parameter; this follows from the bijectivity of ET.6/AF.1."
     }
    ],
    "tests": [
@@ -575,6 +614,11 @@
      "name": "TauCeti.GL2Transfer.localCubicInduction_reducible_test",
      "kind": "characterisation",
      "statement": "For K/F a non-Galois cubic field and χ = μ∘N_{K/F}, I_{K/F}(χ) = μ ⊞ (μ ⊗ π(τ_K)) is not supercuspidal."
+    },
+    {
+     "name": "TauCeti.GL2Transfer.localCubicInduction_nonunitary_test",
+     "kind": "non-example",
+     "statement": "For a p-adic F, K = F³ and χ = (|·|_F,1,|·|_F^{−1}), I_{K/F}(χ) is the trivial representation of GL₃(F), with N = 0 and Satake parameters (q^{-1},1,q). It is nongeneric, and the three characters cannot be made unitary by one common real norm twist. This excludes an unconditional principal-series or genericity claim for arbitrary split quasicharacters."
     }
    ]
   },
@@ -586,9 +630,9 @@
    ],
    "title": "Twisted factors of the cubic local lift",
    "kind": "theorem",
-   "statement": "Let F be a local field of characteristic zero, K an étale cubic F-algebra with factors K_w, ψ ≠ 1 an additive character of F, π an irreducible generic representation of GL₂(F), and χ = (χ_w) characters of the K_w^×. Then ∏_w L(s, BC_{K_w/F}(π) ⊗ χ_w) = L(s, π × I_{K/F}(χ)) and ∏_w ε(s, BC_{K_w/F}(π) ⊗ χ_w, ψ∘Tr_{K_w/F}) = λ(K/F, ψ)^{−2}·ε(s, π × I_{K/F}(χ), ψ), with the GL₂ × GL₃ Rankin–Selberg factors of AL.3, and likewise for the contragredients. Consequently, when K = K_w is a cubic field (Galois or not) and F is nonarchimedean, BC_{K/F}(π) is the unique irreducible representation Π of GL₂(K) with central character ω_π∘N_{K/F} and L(s, Π ⊗ χ) = L(s, π × I_{K/F}(χ)), ε(s, Π ⊗ χ, ψ∘Tr) = λ(K/F, ψ)^{−2} ε(s, π × I_{K/F}(χ), ψ) for every character χ of K^×. This is the description of the local lift through L- and ε-factors that Jacquet–Piatetski-Shapiro–Shalika use (Carayol §12.2.1(a)); hence their lift corresponds to restriction of the Weil–Deligne parameter for every generic π: principal series, special, ordinary cuspidal and extraordinary cuspidal. The extraordinary case is the content of Carayol's Proposition 12.2.2.",
+   "statement": "Let F be a local field of characteristic zero, K an étale cubic F-algebra with factors K_w, ψ ≠ 1 an additive character of F, π an irreducible generic representation of GL₂(F), and χ_w = χ_{w,0}|·|_{K_w}^t for unitary χ_{w,0} and one common real t. Thus I_{K/F}(χ) is generic. Then ∏_w L(s, BC_{K_w/F}(π) ⊗ χ_w) = L(s, π × I_{K/F}(χ)) and ∏_w ε(s, BC_{K_w/F}(π) ⊗ χ_w, ψ∘Tr_{K_w/F}) = λ(K/F, ψ)^{−2}·ε(s, π × I_{K/F}(χ), ψ), with the GL₂ × GL₃ Rankin–Selberg factors of AL.3, and likewise for the contragredients. Consequently, when K = K_w is a cubic field (Galois or not) and F is nonarchimedean, BC_{K/F}(π) is the unique irreducible representation Π of GL₂(K) with central character ω_π∘N_{K/F} and L(s, Π ⊗ χ) = L(s, π × I_{K/F}(χ)), ε(s, Π ⊗ χ, ψ∘Tr) = λ(K/F, ψ)^{−2} ε(s, π × I_{K/F}(χ), ψ) for every character χ of K^×. This is the description of the local lift through L- and ε-factors that Jacquet–Piatetski-Shapiro–Shalika use (Carayol §12.2.1(a)); hence their lift corresponds to restriction of the Weil–Deligne parameter for every generic π: principal series, special, ordinary cuspidal and extraordinary cuspidal. The extraordinary case is the content of Carayol's Proposition 12.2.2.",
    "hypotheses": [
-    "F of characteristic zero; π irreducible generic (infinite-dimensional); K étale cubic; χ arbitrary characters (not necessarily unitary).",
+    "F of characteristic zero; π irreducible generic; K étale cubic; χ a family of unitary characters with one common real norm twist. This is automatic for a character of a cubic local field and holds for the local components of any global Hecke character. Arbitrary split families with unequal real exponents are excluded because AL.3 supplies pair factors for generic inputs.",
     "The GL₂ × GL₃ factors are those of AL.3 (Jacquet–Piatetski-Shapiro–Shalika); the local correspondences for GL₂ (R16.3, AF.1) and GL₃ (ET.6, AF.1) preserve the L- and ε-factors of pairs.",
     "λ(K/F, ψ) is the λ-constant of the étale algebra (R17.4/lambda-square-product); the exponent −2 is the dimension of the parameter of π.",
     "The uniqueness clause uses the GL₂ local converse theorem over K and is stated only at nonarchimedean F; at archimedean F every factor K_w is ℝ or ℂ and K_w/F is cyclic."
@@ -683,7 +727,8 @@
     "GL2AutomorphicRepresentationsAndTransfer:R16.3/supercuspidal-parameter",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula"
+    "tauceti:Rep.mackeyDecomposition",
+    "mathlib:Rep.indResAdjunction"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -698,7 +743,7 @@
     {
      "sourceId": "bh06",
      "locator": "§34.1 Lemma, book p. 215",
-     "match": "For a quadratic E/F and an admissible pair, the twist of the induced representation by the character κ_{E/F} attached to E is isomorphic to it, and the restriction of Ind θ to W_E is θ ⊕ θ^σ: the quadratic Mackey computation used in (iv)."
+     "match": "For a quadratic E/F and an admissible pair, the twist of the induced representation by the character κ_{E/F} attached to E is isomorphic to it, and the restriction of Ind θ to W_E is θ ⊕ θ^σ: the quadratic Mackey computation used in (iv). BH §34.1 treats admissible quadratic pairs in its tame range; the general restriction formula used here is the Mackey calculation on the R16.3 parameter, including the dyadic cases, not an extension of the source theorem beyond that range."
     }
    ],
    "implementationStatus": "unchecked",
@@ -712,22 +757,23 @@
    ],
    "title": "Local invariants under base change",
    "kind": "theorem",
-   "statement": "Let E/F be a finite extension of local fields of characteristic zero and π an irreducible generic representation of GL₂(F); BC = BC_{E/F} as in R17.4/local-base-change. (a) Unramified extensions: if F is p-adic and E/F is unramified, the conductor exponent is unchanged, c(BC(π)) = c(π); if moreover π is unramified with Satake class A, BC(π) is unramified with Satake class A^f, f = [E:F]. (b) Tame principal series: if E/F is totally ramified of degree e and π = π(μ,ν) with μ and ν trivial on 1 + p_F and of order dividing e on O_F^×, then BC(π) is an unramified principal series. (c) Steinberg twists: BC(St ⊗ μ) = St_E ⊗ (μ∘N); for E/F quadratic and μ ∈ {1, ξ}, ξ the unramified quadratic character, the root number ε(1/2, BC(St ⊗ μ)) is −1 if E/F is unramified, and −μ(ϖ_F) if E/F is ramified: −1 for St, +1 for St ⊗ ξ. (d) Archimedean places: if E = F the component is unchanged; if F = ℝ and E = ℂ, the discrete series D_k (parameter Ind_{W_ℂ}^{W_ℝ}(z/|z|)^{k−1}, central character fixed) goes to the principal series of GL₂(ℂ) with parameter (z/|z|)^{k−1} ⊕ (z/|z|)^{1−k}. Hence for E/F a totally real extension of number fields the archimedean components (weights) of a global base change are those of π at the places below.",
+   "statement": "Let E/F be a finite extension of local fields of characteristic zero and π an irreducible generic representation of GL₂(F); BC = BC_{E/F} as in R17.4/local-base-change. (a) Unramified extensions: if F is p-adic and E/F is unramified, the conductor exponent is unchanged, c(BC(π)) = c(π); if moreover π is unramified with Satake class A, BC(π) is unramified with Satake class A^f, f = [E:F]. (b) Tame principal series: if E/F is totally ramified of degree e and π = π(μ,ν) with μ and ν trivial on 1 + p_F and of order dividing e on O_F^×, then BC(π) is the unramified irreducible representation with parameter (μ∘N) ⊕ (ν∘N), N = 0. It is an irreducible principal series when (μ/ν)∘N ≠ |·|_E^{±1}; at those reducibility ratios it is the spherical one-dimensional Langlands quotient. If π is unitary, the principal-series conclusion holds. (c) Steinberg twists: BC(St ⊗ μ) = St_E ⊗ (μ∘N); for E/F quadratic and μ ∈ {1, ξ}, ξ the unramified quadratic character, the root number ε(1/2, BC(St ⊗ μ)) is −1 if E/F is unramified, and −μ(ϖ_F) if E/F is ramified: −1 for St, +1 for St ⊗ ξ. (d) Archimedean places: if E = F the component is unchanged; if F = ℝ and E = ℂ, the discrete series D_k with k ≥ 2 (parameter Ind_{W_ℂ}^{W_ℝ}(z/|z|)^{k−1}, central character fixed) goes to the principal series of GL₂(ℂ) with parameter (z/|z|)^{k−1} ⊕ (z/|z|)^{1−k}. Hence for E/F a totally real extension of number fields the archimedean components (weights) of a global base change are those of π at the places below.",
    "hypotheses": [
     "(a): F p-adic, E/F unramified; c(·) the conductor exponent of R16.3/conductor-epsilon-comparison (c(π) = a(rec π)).",
-    "(b): E/F totally ramified of degree e; μ and ν trivial on 1 + p_F (tamely ramified), with μ|_{O_F^×} and ν|_{O_F^×} of order dividing e.",
+    "(b): E/F totally ramified of degree e; μ and ν trivial on 1 + p_F (tamely ramified), with μ|_{O_F^×} and ν|_{O_F^×} of order dividing e. For the irreducible principal-series conclusion additionally require (μ/ν)∘N ≠ |·|_E^{±1}, as holds for unitary π; otherwise only spherical unramifiedness is asserted.",
     "(c): ψ with central character factor trivial: the root number of St ⊗ μ with μ quadratic or trivial does not depend on ψ since the central character μ² is trivial.",
-    "(d): normalisations of R16.3/archimedean-factor-comparison and AF.1."
+    "(d): normalisations of R16.3/archimedean-factor-comparison and AF.1. D_k is a discrete series only for k ≥ 2; k = 1 is not covered by that name."
    ],
    "proofSteps": [
     "(a) The Artin conductor of a Weil–Deligne representation depends only on its restriction to inertia (with N) and the upper-numbering filtration (R01.3/conductor-of-a-weil-deligne-representation); for unramified E/F, I_E = I_F with the same filtration (the Herbrand function is the identity; Tau Ceti LocalFieldsRamification Layers 2–3). The Satake part is R17.4/unramified-base-change.",
-    "(b) For E/F totally ramified the residue fields agree and N_{E/F}(u) ≡ ū^e for units, while N(1 + p_E) ⊂ 1 + p_F; so μ∘N is trivial on O_E^× when the order of μ|_{O_F^×} divides e, and likewise for ν (Tau Ceti LocalFieldsRamification Layers 2–3: residue fields and the unit filtration under norms).",
-    "(c) Restriction of the Steinberg parameter keeps N. BH 26.1 gives ε(s, φ St, ψ) = −ε(s, φ, ψ) for φ unramified; for φ ∈ {1, ξ_E} and ψ of conductor O the value at 1/2 is −φ(ϖ). Now ξ∘N_{E/F} is trivial for E/F unramified (N ϖ = ϖ²) and equals ξ_E for E/F ramified (N ϖ_E = ϖ_F·unit).",
+    "(b) For E/F totally ramified the residue fields agree and N_{E/F}(u) ≡ ū^e for units, while N(1 + p_E) ⊂ 1 + p_F; so μ∘N is trivial on O_E^× when the order of μ|_{O_F^×} divides e, and likewise for ν (Tau Ceti LocalFieldsRamification Layers 2–3: residue fields and the unit filtration under norms). The parameter is therefore unramified with N = 0. Apply R16.2/local-classification to distinguish irreducible principal series from the spherical quotient at the reducibility ratios; the unitary rank-two classification excludes these ratios for the base change of a unitary principal series.",
+    "(c) Restriction keeps the Steinberg monodromy. With ψ of conductor O_E, AL.1/explicit-epsilon-factors gives epsilon 1 for the two unramified characters in r. The WD correction is det(−q_E^{−s}r(Frob_geom) on V^I/(ker N)^I), so ε(s,St_E⊗φ,ψ) = −φ(ϖ_E)q_E^{1/2−s}. At s = 1/2 this is −φ(ϖ_E). Changing ψ multiplies it by φ(a)^2|a|^{2s−1}, so the quadratic cases are independent of ψ. Norms give ξ∘N = 1 in an unramified quadratic extension and ξ_E in a ramified one. The unrestricted formula in BH (26.1.2) needs correction: see source issue E19; it agrees with this calculation for ψ of BH level one, not for arbitrary ψ.",
     "(d) Restrict the archimedean Weil parameters (R16.3/archimedean-factor-comparison): (z/|z|)^m induced from W_ℂ restricts to W_ℂ as (z/|z|)^m ⊕ (z̄/|z|)^m."
    ],
    "acceptance": [
     "Skinner's table (Ann. of Math. 191 (2020) §2.1): St at an inert or ramified ℓ gives −1; St ⊗ ξ gives −1 at inert and +1 at ramified ℓ.",
-    "For F = ℚ_p and E/F totally ramified of degree e = p − 1, a principal series with tame characters of order dividing p − 1 becomes unramified (Khare–Wintenberger II §7.6.2 use)."
+    "For F = ℚ_p and E/F totally ramified of degree e = p − 1, a principal series with tame characters of order dividing p − 1 becomes unramified (Khare–Wintenberger II §7.6.2 use).",
+    "The nonunitary Q₃(√3)/Q₃ example in localBaseChange_nonunitary_test kills tame ramification but gives the spherical one-dimensional quotient. It would refute the former unconditional irreducible principal-series claim in (b)."
    ],
    "prerequisites": [
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-base-change",
@@ -748,8 +794,8 @@
    "sources": [
     {
      "sourceId": "bh06",
-     "locator": "§26.1 Theorem, (26.1.2), book p. 162",
-     "match": "For a twist φ·St of the Steinberg representation by an unramified character, L(π, s) = L(φ, s + 1/2) and ε(π, s, ψ) = −ε(φ, s, ψ): the source of the sign in (c)."
+     "locator": "§26.1 Theorem, (26.1.2), book p. 162; §26.8 Proposition p. 169; §23.5 Proposition p. 143 and §24.3 Proposition p. 150",
+     "match": "The Steinberg L-factor is L(s+1/2,φ) in (26.1.2). Its epsilon formula, also printed in §26.8 Proposition p. 169, is correct for BH level-one ψ but not for the arbitrary ψ allowed in §26.1; see E19. The root number here is computed from the separately cited WD correction and Tate factors, with conductor-O ψ, then extended to every ψ by the trivial central character."
     },
     {
      "sourceId": "carayol86",
@@ -772,10 +818,11 @@
    "hypotheses": [
     "g a permutation of a three-element set; fullCycleType is invariant under conjugation, so the multiset depends only on the Frobenius class.",
     "A ∈ GL₂(R) for a commutative ring R (ℂ in the application); A^0 does not occur because every orbit length is at least one.",
-    "Arithmetic reading: v unramified in L, Frobenius acting on the three embeddings; R16.3 arithmetic Satake normalisation."
+    "Arithmetic reading: v unramified in L, Frobenius acting on the three embeddings; R16.3 arithmetic Satake normalisation.",
+    "A is the Satake class in the geometric R16.3 convention. Arithmetic and geometric Frobenius permutations are inverse and have the same full cycle type, so the splitting formula does not depend on that choice."
    ],
    "proofSteps": [
-    "Map f ↦ A^f over Tau Ceti's fullCycleType g; the splitting-type facts are Tau Ceti lemmas (sum, conjugation, identity, transposition, cycle, sign).",
+    "Map f ↦ A^f over Tau Ceti's fullCycleType g; the splitting-type facts are Tau Ceti lemmas (sum, conjugation, identity, transposition, cycle, sign). At an arbitrary v unramified in L, the decomposition group is cyclic, generated by Frobenius; its orbits on the three embeddings are the places of K above v, and orbit lengths are residue degrees. Milne’s polynomial version applies when a chosen integral generator has squarefree reduction, rather than automatically for every global generator.",
     "Dedekind–Frobenius: for v unramified in L, the degrees of the factors of the minimal polynomial of a primitive element of K over F_v (equivalently the residue degrees of the places w | v, Tau Ceti NumberFieldArithmetic Layer 5) are the cycle lengths of Frobenius (Milne, Theorem 8.23 with Corollary 8.22 and Theorem 3.41).",
     "Satake powers: R17.4/local-base-change API localBaseChange_unramified at each w, with f = f(w/v).",
     "Resolvent: Tau Ceti's sign_of_parts_partition gives sign(g) = (−1)^(3 + number of parts), so g is even exactly when the number of places is odd; the sign is the action of Frobenius on √disc, so v splits in M exactly then."
@@ -807,7 +854,7 @@
     {
      "sourceId": "milne-ant",
      "locator": "Theorem 8.23 (Dedekind) and Corollary 8.22, printed p. 145; Theorem 3.41, printed p. 62",
-     "match": "For a place not dividing the discriminant, the degrees of the irreducible factors of the polynomial modulo the prime are the cycle lengths of Frobenius acting on its roots, and the factorisation of the polynomial gives the factorisation of the prime with these residue degrees."
+     "match": "For a place not dividing the discriminant, the degrees of the irreducible factors of the polynomial modulo the prime are the cycle lengths of Frobenius acting on its roots, and the factorisation of the polynomial gives the factorisation of the prime with these residue degrees. Theorem 3.41 assumes a monogenic integral algebra, and Theorem 8.23 assumes squarefree reduction of the chosen polynomial. For the assertion at every place unramified in the normal closure, use the decomposition-group orbit description of places, or choose an integral generator of the unramified local étale algebra at that place; do not assume a fixed global generator has good reduction at every such place."
     },
     {
      "sourceId": "carayol86",
@@ -908,13 +955,14 @@
    "hypotheses": [
     "K/F non-Galois cubic (Galois closure with group S₃); χ unitary; a quasi-character reduces to this by a twist by |·|^t.",
     "Global reciprocity identifies characters of W_K with Hecke characters of K, restriction from W_F with composition with N_{K/F}, and the transfer W_F^{ab} → W_K^{ab} with the inclusion A_F^× ⊂ A_K^×.",
-    "The input is Jacquet–Piatetski-Shapiro–Shalika's Theorem (14.2), whose proof is the GL₃ converse theorem with GL₁ twists (AL.3/gln-converse-reduced-rank at n = 3)."
+    "The input is Jacquet–Piatetski-Shapiro–Shalika's Theorem (14.2), whose proof is the GL₃ converse theorem with GL₁ twists (AL.3/gln-converse-reduced-rank at n = 3).",
+    "This proof is conditional on the explicitly requested global Weil-group construction, all-place localization of induction, and global Artin functional equation. The current finite global Artin map does not provide these contracts for infinite-order Hecke characters."
    ],
    "proofSteps": [
-    "Irreducibility: a reducible three-dimensional σ has a one-dimensional constituent μ; by Frobenius reciprocity χ = μ|_{W_K}, which is μ∘N_{K/F} under reciprocity. Conversely Ind(μ∘N) = μ ⊗ Ind 1 = μ ⊕ μ ⊗ τ_K (the permutation representation of S₃ on three points is the trivial plus the two-dimensional representation).",
+    "Irreducibility: a reducible unitary three-dimensional σ is completely reducible and has a one-dimensional constituent μ; by Frobenius reciprocity χ = μ|_{W_K}, which is μ∘N_{K/F} under reciprocity. Conversely Ind(μ∘N) = μ ⊗ Ind 1 = μ ⊕ μ ⊗ τ_K (the permutation representation of S₃ on three points is the trivial plus the two-dimensional representation).",
     "Analytic hypotheses of (14.2): for every unitary Hecke character η of F, L(s, σ ⊗ η) = L_K(s, χ·(η∘N_{K/F})) by inductivity of Artin factors at every place (R01.2/local-factor-of-induced-representation; archimedean factors by AF.1). This Hecke L-function is entire, because χ(η∘N) = |·|_K^{iu} = (|·|_F^{iu})∘N would put χ in norm form (AL.1/hecke-l-functional-equation), and bounded in vertical strips by Tate's integral representation (AL.1/tate-global-functional-equation).",
-    "Apply Theorem (14.2) with the remark on monomial representations: ⊗_v π_v is automorphic cuspidal, with π_v at finite v the unique irreducible unitary representation with central character det σ_v and the GL₁-twisted factors of σ_v (and generic), and π_v = π(σ_v) at infinite v.",
-    "Identify π_v with I_{K_v/F_v}(χ_v): the latter has the same central character and twisted factors (R17.4/local-cubic-induction API localCubicInduction_factors), so the uniqueness in (14.2)(1) gives equality; at infinite places use AF.1.",
+    "Apply Theorem (14.2) with the monomial remark: ⊗_v π_v is cuspidal automorphic. At finite v the source characterizes π_v by det σ_v, the twisted L-functions of both π_v and π_v∨, and its twisted epsilon factors; at infinity use AF.1. Its global Weil-group and character-induction infrastructure is an explicit unresolved supplier contract below, not something CFT Layer 11 already constructs.",
+    "Identify π_v with I_{K_v/F_v}(χ_v). The local definition has the same central character, original and contragredient twisted L-functions, and epsilon factors by localCubicInduction_factors and localCubicInduction_contragredient. Since σ_v is a local component of this global σ, the characterization in (14.2)(1) applies. At infinity use AF.1.",
     "Central character: det σ = χ|_{A_F^×}·det Ind 1 = χ|_{A_F^×}·η_{M/F}."
    ],
    "acceptance": [
@@ -933,7 +981,8 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
     "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
     "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula"
+    "tauceti:Rep.mackeyDecomposition",
+    "mathlib:Rep.indResAdjunction"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/Automorphic/GL2/Transfer",
@@ -1036,13 +1085,13 @@
    "kind": "theorem",
    "statement": "Let K/F be a non-Galois cubic extension of number fields, with L, M, ξ as in R17.4/nonnormal-cubic-twisted-l-functions. For every isobaric automorphic representation π of GL₂(A_F) there is a unique isobaric automorphic representation BC_{K/F}(π) of GL₂(A_K) with BC_{K/F}(π)_w ≅ BC_{K_w/F_v}(π_v) at every place w | v, archimedean or not. Explicitly: (i) if π is cuspidal and not K-exceptional, BC_{K/F}(π) = ⊗′_w BC_{K_w/F_v}(π_v) and it is cuspidal; (ii) if π is cuspidal and K-exceptional, BC_{M/F}(π) ≅ (ν∘N_{M/F})ξ ⊞ (ν∘N_{M/F})ξ^{−1}, then ω_π = ν²η_{M/F} and BC_{K/F}(π) = (ν∘N_{K/F}) ⊞ (ν∘N_{K/F})η_{L/K}; (iii) if π = χ₁ ⊞ χ₂, BC_{K/F}(π) = (χ₁∘N_{K/F}) ⊞ (χ₂∘N_{K/F}). In all cases the central character is ω_π∘N_{K/F}, BC_{K/F}(π ⊗ χ) = BC_{K/F}(π) ⊗ (χ∘N_{K/F}), BC_{K/F}(π^∨) = BC_{K/F}(π)^∨, the Satake classes above an unramified v form cubicBaseChangeSatake(A_v, Frob_v), and BC_{K/F}(π) is the weak transfer of R17.4/nonnormal-cubic-base-change. Finally BC_{L/K}(BC_{K/F}(π)) = BC_{L/M}(BC_{M/F}(π)), both being the restriction of parameters to W_L at every place.",
    "hypotheses": [
-    "K/F non-Galois cubic of number fields; π isobaric (cuspidal, or a sum of two Hecke characters); unitary normalisation, a general π being a twist by |det|^t of a unitary one.",
+    "K/F non-Galois cubic of number fields; π isobaric (cuspidal, or a sum of two Hecke characters); unitary normalisation, a general cuspidal π being a twist by |det|^t of a unitary one. An arbitrary isobaric sum of two characters can have unequal real exponents and is handled directly by (iii), without a common unitarizing twist.",
     "K-exceptional: π cuspidal with BC_{M/F}(π) ≅ (ν∘N)ξ ⊞ (ν∘N)ξ^{−1} for a Hecke character ν of F; on the Galois side these are the twists of the S₃ representation τ_K.",
     "The local lifts are the restriction lifts of R17.4/local-base-change; their identification with the factor-defined lift of Jacquet–Piatetski-Shapiro–Shalika is R17.4/local-cubic-factor-identity.",
     "No input from Artin automorphy (R17.5), from Carayol's globalisation, or from the trace formula is used."
    ],
    "proofSteps": [
-    "(i) By R17.4/nonnormal-cubic-twisted-l-functions every Λ(s, Π ⊗ χ) is entire, bounded in vertical strips and satisfies the functional equation with the product of local ε-factors. Π is generic with central character ω_π∘N trivial on K^×, and the uniform exponent bound at unramified places passes to powers. The GL₂ converse theorem over K (R16.5/full-gl2-converse, the n = 2 case of AL.3/gln-converse-full-rank) makes Π cuspidal automorphic.",
+    "(i) For unitary cuspidal π, localBaseChange_generic supplies genericity at every place and the central character is ω_π∘N, trivial on K^×. The twisted-L-function node applies to every unitary Hecke character; arbitrary quasicharacters are its real norm shifts. Apply it also to π∨ and χ^{-1}; contragredient base change gives the entire, bounded dual completed L-function and the exact functional equation required by R16.5/full-gl2-converse. At an unramified place of residue degree f ≤ 3, a common bound |α_i,v| ≤ q_v^r passes to |α_i,v^f| ≤ q_w^r because q_w = q_v^f. Both Euler products therefore converge far to the right. The full GL₂ converse makes Π cuspidal automorphic. A nonunitary cuspidal π is a real norm twist of a unitary one, so shift s and use localBaseChange_twist. Treat general isobaric sums directly in (iii).",
     "(ii) Central character: π ≅ π ⊗ η_{M/F} (R17.4/cyclic-descent-fibers). At an unramified v inert in M, π_v ≅ π_v ⊗ η_v forces Satake parameters {α, −α}, and BC_{M/F} gives α² = ν(ϖ_v)², so det = −ν(ϖ_v)² = (ν²η_M)(ϖ_v); at an unramified v split in M, the components of θ ⊞ θ^σ give det = ν(ϖ_v)²ξ|_{F_v^×}(ϖ_v) = ν(ϖ_v)², since ξ is trivial on A_F^× (ξ^σ = ξ^{−1} and ξ³ = 1). So ω_π = ν²η_M almost everywhere, hence everywhere (strong multiplicity one for GL₁, AL.3/strong-multiplicity-one).",
     "(ii) Local components: for w | v and a place x of L above w, rec(π_v)|_{W_{M_u}} = θ_u ⊕ θ_u^σ (R17.4/local-compatibility), so rec(π_v)|_{W_{L_x}} = ν′ ⊕ ν′ with ν′ = ν∘N_{L_x/F_v} (ξ is trivial on norms from L) and N = 0. Hence R := rec(π_v)|_{W_{K_w}} ⊗ (ν∘N_{K_w/F_v})^{−1} factors through W_{K_w}/W_{L_x}, of order at most two, and is a sum of two characters from {1, η_{L_x/K_w}}. Its determinant is η_{M_v}∘N_{K_w/F_v} = η_{L_x/K_w} (local reciprocity is compatible with norms), so R = 1 ⊕ η_{L_x/K_w}, the component of (ν∘N) ⊞ (ν∘N)η_{L/K} at w.",
     "(iii) Restrict characters at every place (R17.4/local-base-change API localBaseChange_principalSeries).",
@@ -1137,7 +1186,7 @@
     {
      "sourceId": "jpss79",
      "locator": "remark after the proof of (14.2.2), printed p. 255",
-     "match": "Galois-side analogue: an induced representation from a non-normal cubic field is irreducible or a character plus a two-dimensional monomial representation; restriction to W_K of an irreducible two-dimensional ρ is reducible exactly when ρ is a twist of that two-dimensional summand."
+     "match": "Galois-side analogue: an induced representation from a non-normal cubic field is irreducible or a character plus a two-dimensional monomial representation; restriction to W_K of an irreducible two-dimensional ρ is reducible exactly when ρ is a twist of that two-dimensional summand. The rank-two restriction criterion is this packet’s deduction through quadratic base change and strong multiplicity one; the monomial remark itself discusses induced rank-three representations, not this criterion."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1147,7 +1196,7 @@
  "requests": [
   {
    "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-   "need": "The characteristic-zero local Langlands correspondence for GL₃ over finite extensions of Q_p (and its GL₁ and GL₂ cases, which R16.3 specialises), as a bijection onto Frobenius-semisimple Weil–Deligne representations that (1) preserves the L- and ε-factors of twists by characters, (2) sends bounded (unitary) parameters to tempered, hence generic, representations, and (3) preserves the Rankin–Selberg factors of pairs: L(s, π × π′) = L(s, rec π ⊗ rec π′) and ε(s, π × π′, ψ) = ε(s, rec π ⊗ rec π′, ψ) for π on GL₂ and π′ on GL₃, with the AL.3 factors on the left (Harris–Taylor, Henniart). Only the GL₂ × GL₃ case and GL₁ twists are needed here.",
+   "need": "The characteristic-zero local Langlands correspondence for GL₃ over finite extensions of Q_p (and its GL₁ and GL₂ cases, which R16.3 specialises), as a bijection onto Frobenius-semisimple Weil–Deligne representations that (1) preserves the L- and ε-factors of twists by characters, (2) sends bounded (unitary) parameters to tempered, hence generic, representations, and (3) preserves the Rankin–Selberg factors of pairs: L(s, π × π′) = L(s, rec π ⊗ rec π′) and ε(s, π × π′, ψ) = ε(s, rec π ⊗ rec π′, ψ) for π on GL₂ and π′ on GL₃, with the AL.3 factors on the left (Harris–Taylor, Henniart). Only the GL₂ × GL₃ case and GL₁ twists are needed here. Also require determinant/central-character compatibility, compatibility with twisting and contragredients, and the unramified Satake dictionary. These are used by the construction APIs and by the dual completed L-functions in the converse argument.",
    "neededBy": [
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-base-change",
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-induction",
@@ -1176,7 +1225,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-   "need": "Global Artin reciprocity for the Weil group of a number field: Hecke characters of K are characters of W_K, restriction from W_F corresponds to composition with N_{K/F}, transfer to the inclusion A_F^× ⊂ A_K^×, and η_{M/F}∘N_{K/F} = η_{KM/K}; local-global compatibility of these identifications at every place.",
+   "need": "Global Artin reciprocity and local–global compatibility for the finite permutation character κ_{K/F} = det Ind 1, identified with the quadratic resolvent character. Norm pullback of quadratic and cubic class-field characters and compatibility with towers are the existing Layer 11 contract. ADDITIONAL requested extension, absent from the current roadmap: global Weil groups W_F and open finite-index W_K, W_F^{ab} ≃ C_F, arbitrary unitary Hecke characters as continuous Weil characters, finite-index induction and its local decomposition at every place. This extension is needed by the JPSS Theorem 14.2 route and must be assigned to ClassFieldTheory Part II (or a named lower-tier owner); it is not supplied by the finite global Artin map alone. See the global-Weil gap. Include the global Artin functional equation used in JPSS Theorem 14.2, or its monomial form proved from Tate’s functional equation and the global induction epsilon normalization. The λ-square product alone proves the rank-two transfer’s cancellation, and does not prove the unsquared normalization needed for a rank-one induction to GL₃.",
    "neededBy": [
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/lambda-square-product",
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction",
@@ -1198,17 +1247,6 @@
    "neededBy": [
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction",
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-strong-base-change"
-   ]
-  },
-  {
-   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula",
-   "need": "The Mackey decomposition for the restriction of an induced representation along a subgroup of finite index (here open subgroups of finite index of Weil groups), and Frobenius reciprocity, used for Res_{W_K} Ind_{W_E}^{W_F}, for Ind_K^F 1 = 1 ⊕ τ_K and for the irreducibility criterion of Ind χ.",
-   "neededBy": [
-    "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-base-change",
-    "GL2AutomorphicRepresentationsAndTransfer:R17.4/lambda-square-product",
-    "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-induction",
-    "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-explicit-lifts",
-    "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction"
    ]
   },
   {
@@ -1239,6 +1277,7 @@
    "status": "planned",
    "remaining": [
     "EndoscopicTransferAndUnitaryTraceComparison ET.6 has no packet: the GL₃ local Langlands correspondence with GL₁-twist and GL₂ × GL₃ pair compatibility is the requested external contract of the non-normal cubic route (request to ET.6). Until it is planned, local-cubic-induction and local-cubic-factor-identity rest on that stage.",
+    "The current Tau Ceti ClassFieldTheory Layer 11 constructs finite global Artin reciprocity on idele classes, not the global Weil group. JPSS Theorem 14.2 is applied to σ = Ind_{W_K}^{W_F}χ for arbitrary unitary Hecke χ, including infinite-order characters. Before implementing this route a lower-tier owner must construct W_F, its abelianization C_F, finite-extension embeddings, induction and the all-place localization formula, or provide a proved equivalent direct automorphic-induction theorem with the same local factors. The existing request now distinguishes this extension from the supplied finite reciprocity. Finite-image Galois induction does not substitute for arbitrary Hecke characters. Its supplier contract must also include the global Artin functional equation used by JPSS, or the monomial version with the unsquared global induction epsilon normalization; the local ε supplier and this packet’s λ-square identity alone do not provide that GL₃ analytic input.",
     "The proof route of nonnormal-cubic-twisted-l-functions and nonnormal-cubic-strong-base-change is this packet's assembly; the original Jacquet–Piatetski-Shapiro–Shalika note (C. R. Acad. Sci. Paris 292 (1981), 567–571) and Mao–Rallis (Canad. J. Math. 52 (2000), 172–196) were not available. Reading either would confirm the route or supply an alternative (gap 'Non-normal cubic transfer: published proof not read').",
     "Inherited from the R17.3 packet's R17.4 nodes and not changed here: the highly ramified T-twist GL₃ converse variant for adjoint-lift, the MetaplecticAutomorphicForms MP.5 input of adjoint-lift (a roadmap outside the Caraiani–Newton order, to be moved down or stated as a named input at package time), and the omitted suggested signature of gl3-recognition.",
     "Below target level, not required for this pass: the decomposition of prime-cyclic transfer, descent and tower independence, which waits for R17.2 and ET.4 to be decomposed (R17.3 packet coverage)."
@@ -1254,6 +1293,13 @@
     "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-cuspidality"
    ],
    "detail": "The plan proves non-normal cubic base change at every place from supplier contracts: restriction lifts at every place, their factor identity with GL₂ × GL₃ Rankin–Selberg factors (pair-compatible LLC from ET.6), GL₃ induction from the cubic field (Jacquet–Piatetski-Shapiro–Shalika 1979, Theorem 14.2 and its monomial remark), the λ-square product formula and the GL₂ converse theorem over K (R16.5); the K-exceptional case is computed through the quadratic resolvent. Carayol §12.2.1 and Cogdell's survey (application (iv)) confirm the statement and that the original proof goes through the converse theorem and GL(3) theory, but no read source writes this route out. The original note, Jacquet–Piatetski-Shapiro–Shalika, Relèvement cubique non normal, C. R. Acad. Sci. Paris Sér. I 292 (1981), 567–571, is not freely available, and Mao–Rallis, Cubic base change for GL(2), Canad. J. Math. 52 (2000), 172–196 (a relative trace formula proof), is behind a paywall. A reviewer should check the route; obtaining either source would confirm it. This gap replaces, for the R17.4 nodes, the R17.3 packet's gap 'Original JPSS nonnormal cubic transfer proof': the all-place statement and the local correspondence for principal series, special and ordinary cuspidal representations are now planned (local-cubic-explicit-lifts, local-cubic-factor-identity, nonnormal-cubic-strong-base-change)."
+  },
+  {
+   "title": "Global Weil-group infrastructure for the GL₃ induction route",
+   "neededBy": [
+    "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction"
+   ],
+   "detail": "The current Tau Ceti ClassFieldTheory Layer 11 constructs finite global Artin reciprocity on idele classes, not the global Weil group. JPSS Theorem 14.2 is applied to σ = Ind_{W_K}^{W_F}χ for arbitrary unitary Hecke χ, including infinite-order characters. Before implementing this route a lower-tier owner must construct W_F, its abelianization C_F, finite-extension embeddings, induction and the all-place localization formula, or provide a proved equivalent direct automorphic-induction theorem with the same local factors. The existing request now distinguishes this extension from the supplied finite reciprocity. Finite-image Galois induction does not substitute for arbitrary Hecke characters. Its supplier contract must also include the global Artin functional equation used by JPSS, or the monomial version with the unsquared global induction epsilon normalization; the local ε supplier and this packet’s λ-square identity alone do not provide that GL₃ analytic input."
   }
  ],
  "restructure": [
@@ -1318,7 +1364,29 @@
    "boundary": "Root numbers of the quadratic base change of St and St ⊗ ξ here; the global sign ε(f, K) there."
   }
  ],
- "sourceIssues": [],
+ "sourceIssues": [
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E19",
+   "source": "bh06",
+   "kind": "error",
+   "locator": "2006 published edition, §26.1 Theorem (26.1.2), p. 162; same displayed epsilon formula in §26.8 Proposition, p. 169",
+   "printed": "For unramified φ the formula ε(s,φ St,ψ) = −ε(s,φ,ψ) is stated under the arbitrary nontrivial ψ quantifier of §26.1.",
+   "correction": "The displayed equality holds for ψ of BH level one. For arbitrary ψ with self-dual measures, ε(s,φ St,ψ) = −φ(ϖ)q^{1/2−s} ε(s,φ,ψ)^2. In particular conductor-O ψ gives ε(1/2,φ St,ψ) = −φ(ϖ).",
+   "reason": "BH §23.5 p. 143 gives ε(s,φ,ψ) = φ(ϖ)^{-1}q^{s−1/2} for level-one ψ, so the corrected formula reduces to the printed one there. Under ψ↦ψ_a the GL₁ factor scales by φ(a)|a|^{s−1/2} (§23.5 Lemma 1), whereas the GL₂ factor scales by φ(a)^2|a|^{2s−1} (§24.3 Proposition p. 150). Thus the printed equality cannot hold for arbitrary ψ. For φ=1 and conductor-O ψ, the WD Steinberg parameter gives −q^{1/2−s}, while the printed right side is −1. The correction follows from the WD determinant term and the two unramified Tate factors.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Springer DOI book record https://link.springer.com/book/10.1007/3-540-31511-X on 2026-10-14: no linked correction found.",
+    "Web searches on 2026-10-14 for Bushnell Henniart GL2 errata, 26.1.2 corrections and 26.8 Steinberg, including Springer and author-domain searches: no correction located.",
+    "Atlas source-issue records for this roadmap and the errata register: no existing entry for this formula found."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.4",
+    "reason": "Independent comparison of the two additive-character scaling laws and the conductor-O Steinberg WD calculation. Scoped to the maintainer-cleared published 2006 text; no other edition was read."
+   }
+  }
+ ],
  "sourceVersions": [
   {
    "kind": "published",
@@ -1349,6 +1417,84 @@
    "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
    "read": "2026-10-14",
    "sha256": "24b83c789a89f25aebffb3cbe4ae5ca29edd0075acc072de093d140770630847"
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.4",
+  "date": "2026-10-14",
+  "notes": "Independent review of all twelve nodes, every source locator, thirteen baseline declarations, resolved supplier-node statements, the three definition APIs/tests, Lean/reader consistency and both handed red-team findings. Ten nodes corrected, two verified; no nodes or planets added. Added three API items, two non-examples and source issue E19. Replaced a finite-group roadmap request with existing arbitrary-group induction, and exposed the global-Weil/Artin-functional-equation supplier gap. Accepted as a complete target-level pass with R17.4 planned, not closed: two exact gaps and nine supplier requests remain; no formalization is claimed.",
+  "checked": [
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-base-change",
+    "verdict": "corrected",
+    "note": "Confirmed the restriction definition against Carayol §12.2.2 p. 457 and the explicit R16.3 supplier. Corrected the geometric-Artin normalization label, gave the finite-inertia semisimplicity argument and arbitrary-group induction adapter, completed the unitary supercuspidal genericity argument, added a parameter characterization and a nonunitary Q₃ counterexample. BH §33.4 is scoped to supercuspidal LLC."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/gl2-local-converse",
+    "verdict": "verified",
+    "note": "Read BH §27.1–27.4 pp. 170–171 and §27.7–27.8 pp. 174–176. The statement covers irreducible smooth GL₂ representations with all twisted Godement–Jacquet L- and epsilon factors, and retains the precise cuspidal criteria and fixed-additive-character assertion."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/lambda-square-product",
+    "verdict": "corrected",
+    "note": "Read BH §30.4 pp. 194–195 and the WD induction suppliers. Confirmed λ² = κ(−1), the dimension-two cancellation and archimedean λ = i. Replaced the global Weil-group permutation argument by ordinary finite Galois induction and global reciprocity, so this result has no global-Weil gap."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-induction",
+    "verdict": "corrected",
+    "note": "JPSS (14.2) pp. 253–255 is a global theorem, not unrestricted local existence. Added the contragredient L-data and duality/parameter APIs, limited the source characterization to its global local-component setting, distinguished Langlands quotients for arbitrary split data, justified semisimplicity for field characters, and added the nongeneric (ν,1,ν⁻¹) test."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-factor-identity",
+    "verdict": "corrected",
+    "note": "Projection formula plus WD inductivity gives the L-identity and λ⁻² epsilon identity, with N retained. AL.3 pair factors require generic inputs, so χ must be a common real norm twist of unitary components. All characters of a cubic field, and all components of a global Hecke character, satisfy this condition. GL₂ local converse supplies uniqueness; ET.6 pair compatibility remains an exact supplier request."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-explicit-lifts",
+    "verdict": "corrected",
+    "note": "Checked Carayol §12.2.2–12.2.3 pp. 457–458 and BH §34.1 p. 215. Non-Galois cubic norm surjectivity preserves principal-series irreducibility; Mackey gives the two dihedral cases. The S₃ exception is exactly θ/θ^σ = ξ^{±1}. Scoped BH’s admissible-pair theorem to its tame setting; the general formula uses the imported LLC parameter and existing induction."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/local-base-change-invariants",
+    "verdict": "corrected",
+    "note": "Conductor invariance uses the R01.3 WD conductor and unchanged unramified ramification filtrations. Replaced the false unconditional tame irreducible-principal-series conclusion by spherical unramifiedness plus the exact ratio condition; the Q₃ test refutes the former claim. Specified k≥2 for D_k. Corrected the Steinberg epsilon derivation using the WD determinant, and recorded the published-source normalization error E19."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/cubic-splitting-satake",
+    "verdict": "corrected",
+    "note": "All seven API statements and five examples follow from the pinned fullCycleType and GL₂ determinant APIs. Milne 3.41 and 8.23 require a suitable generator and squarefree reduction; the all-unramified-place claim instead uses decomposition-group orbits. Arithmetic/geometric Frobenius inversion preserves orbit lengths."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction",
+    "verdict": "corrected",
+    "note": "Read JPSS Theorem (14.2) and its monomial remark pp. 253–255. Unitarity gives complete reducibility, so Frobenius reciprocity proves the norm criterion. Restored dual twisted L-data in the all-place identification. The global Weil-group/Artin-functional-equation construction is an explicit conditional supplier contract and gap, not an assertion that current CFT Layer 11 already supplies it."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-twisted-l-functions",
+    "verdict": "verified",
+    "note": "Checked the GL₂×GL₃ entire/bounded/functional-equation supplier contracts, both duals, and the quadratic-base-change character branch. The nonnorm branch has unequal ranks; the norm branch can have a Hecke pole exactly for the stated S₃ exception. λ(K/F)⁻² and λ(M/F)² cancel globally. This node depends on the explicit GL₃-induction supplier gap."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-strong-base-change",
+    "verdict": "corrected",
+    "note": "Expanded the full GL₂ converse step to include original and dual completed L-functions, arbitrary real norm shifts, a uniform right-half-plane Satake bound and the central-character condition. Only a cuspidal input is reduced to unitary by one twist; unequal-exponent isobaric character sums are handled directly. The exceptional all-place output follows from restriction and its determinant."
+   },
+   {
+    "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-cuspidality",
+    "verdict": "corrected",
+    "note": "The criterion follows from the strong lift, the quadratic resolvent and isobaric strong multiplicity one. Clarified that JPSS’s monomial remark concerns rank-three induction; the rank-two restriction/Satake criterion is this packet’s deduction, not a separate theorem in that remark."
+   }
+  ]
+ },
+ "upstreamNotes": [
+  {
+   "roadmap": "ClassFieldTheory",
+   "note": "At current TauCetiRoadmap revision 0d144d044dacebca17b654695b6f1ad58f159b27, Layer 11 supplies finite global Artin reciprocity. The JPSS global-Weil route here needs a Part II extension (or a named lower-tier alternative owner) for arbitrary Hecke-character induction and its global functional equation. No upstream files are edited."
+  },
+  {
+   "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+   "note": "The older R17.3 packet uses an arithmetic-normalization label in some R17.4 prose. The exact R16.3 supplier uses geometric Artin reciprocity and unitary LLC. This part explicitly inverts the arithmetic CFT map and keeps the arithmetic WD degree relation; reconcile the older label at its next authorized edit."
   }
  ]
 }
