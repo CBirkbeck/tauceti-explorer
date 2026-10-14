@@ -2,7 +2,7 @@
 
 Arithmetic of a one-variable function field over its finite exact constant field: projective adeles and ideles, residue Fourier analysis, Artin–Schreier–Witt extensions, equal-characteristic class field theory, curve zeta functions and degree-sensitive Chebotarev, reductive automorphic forms and the unitary Siegel–Eisenstein coefficients. Existing curve geometry, generic restricted products, local representation theory and Hermitian densities are imported. Certified arithmetic consumes finite-field factorization and point-count certificates.
 
-This is the complete target-level planning pass for FA.0–FA.7. All eight layers are **planned**, and none is closed. The 48 targets have exact mathematical contracts and prerequisite chains ending in audited library declarations, existing roadmap inputs, requested supplier interfaces or the four recorded gaps. Every implementation status is unchecked. The mathematical statements below are definitive; elaboration of the accompanying suggested signatures establishes their compatibility with the pinned types, without establishing their proofs or the conditions that their supplier interfaces cannot yet express.
+This is the complete target-level planning pass for FA.0–FA.7. All eight layers are **planned**, and none is closed. The 48 targets have exact mathematical contracts and prerequisite chains ending in audited library declarations, existing roadmap inputs, requested supplier interfaces or the five recorded gaps. Every implementation status is unchecked. The mathematical statements below are definitive. The compact suggested file covers only definitions and statements expressible at the pinned types; its elaboration checks those signatures, without proving them or supplying the missing interfaces.
 
 The base is AlgebraicCurves. Its normalization, smooth-projective curve dictionary, divisors, Riemann–Roch, local completions, residue theory, separable ramification, different and Hurwitz theorems are imported. Generic restricted products and Haar products belong to Completed/RestrictedProducts and AdelicAlgebraicGroups AA.0. Ordinary Picard schemes and vector-bundle duality belong to SchemeAndStackFoundations SF.3 and the current AlgebraicVectorBundles roadmap. This part supplies the additional arithmetic of finite exact constants.
 
@@ -39,15 +39,15 @@ The planning baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and M
 | mathlib:Valuation.integer | The subring of elements with valuation at most one, with its natural algebra embedding. |
 | mathlib:TruncatedWittVector | Length-n Witt coordinates with the Witt ring law for prime p, not coordinatewise addition. |
 | mathlib:WittVector.frobenius | Witt Frobenius is a ring homomorphism; on a characteristic-p base its coefficients are the pth powers, so it descends through length-n truncation. |
-| mathlib:AlgHom.convGroup | For a commutative Hopf algebra H, its algebra-valued points carry the convolution group structure WithConv (H →ₐ[K] R). |
+| tauceti:TauCeti.AlgHom.instGroup | For a Hopf algebra H over R and any commutative R-algebra A, the convolution points WithConv (H →ₐ[R] A) form a group. Unlike Mathlib AlgHom.convGroup at this pin, no Bialgebra R A on the value algebra is required. |
 | tauceti:TauCeti.ReductiveAffineGroupSchemeCat | Native finite-type reductive affine group schemes and their smooth/geometrically connected Hopf presentations. |
 | tauceti:TauCeti.CommHopfAlgCat.schemePointsAlgΓMulEquiv | Scheme-valued affine Hopf points are multiplicatively equivalent to convolution points in relative global sections. |
 | mathlib:FormalGroup | One-dimensional power-series formal group law; commutativity is the separate FormalGroup.IsComm hypothesis. Local-field evaluation is not provided by the formal-series Point type. |
-| mathlib:LaurentSeries.ratfuncAdicComplRingEquiv | The X-adic completion of RatFunc k is uniformly and algebraically equivalent to LaurentSeries k; use this existing result in the rational-function completion test, not a new general completion theorem. |
+| mathlib:LaurentSeries.ratfuncAdicComplRingEquiv | Ring equivalence from the X-adic completion of RatFunc k to LaurentSeries k; its underlying map is the existing uniform equivalence LaurentSeries.comparePkg. The separate valuation_compare theorem fixes the valuation comparison. Reuse these in the rational-function completion test. |
 | mathlib:LaurentSeries.coe_range_dense | The canonical rational-function embedding has dense range for the native X-adic Laurent-series topology. |
 | mathlib:LaurentSeries.valuation_compare | LaurentSeriesRingEquiv compares the extended valuation on the X-adic completion to the native Laurent-series valuation. |
 
-The current read-only TauCetiRoadmap checkout was also read at 81207c7f16d5abf770f13a7d2bdcdb465c030787, and current Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Current Place.Completion and repartitionToFiniteAdeles are imported additions to the pinned affine completion comparison. Completed/RestrictedProducts already supplies the generic topology. AlgebraicVectorBundles supplies the current finite locally free carriers; SF.3 supplies the degree and Serre-duality contracts. IntegralLattices concerns quadratic lattices over Z and does not replace GN.2–GN.3 Hermitian local density data. Current SR.4 owns the integral local Hecke algebra and Satake transform; IntegralHeckeAndGaloisDeterminants IHG.0 concerns polynomial laws. None of these inputs is reconstructed here.
+The current read-only TauCetiRoadmap checkout was rechecked for this revision at 0d144d044dacebca17b654695b6f1ad58f159b27, and current Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Current Place.Completion and repartitionToFiniteAdeles are imported additions to the pinned affine completion comparison. Completed/RestrictedProducts already supplies the generic topology. AlgebraicVectorBundles supplies the current finite locally free carriers; SF.3 supplies the degree and Serre-duality contracts. IntegralLattices concerns quadratic lattices over Z and does not replace GN.2–GN.3 Hermitian local density data. Current SR.4 owns the integral local Hecke algebra and Satake transform; IntegralHeckeAndGaloisDeterminants IHG.0 concerns polynomial laws. None of these inputs is reconstructed here.
 
 ## Layers and targets
 
@@ -70,7 +70,9 @@ Let k be finite and K/k a one-variable function field. The finite relative algeb
 
 **Direct inputs.** tauceti:TauCeti.IsFunctionField; tauceti:TauCeti.IsFunctionField.exists_intermediateField_isIntegrallyClosedIn; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts.
 
-**Sources.** [yu](#source-yu) — §2.2, pp.7–8.
+**Sources.**
+
+- [yu](#source-yu) — §2.2, pp.7–8. Yu fixes a smooth projective geometrically connected curve over its full finite constant field. The normalization and exact-constant reduction are supplied by the native function-field declarations and AC.12, rather than proved in this introductory passage.
 
 **Acceptance.**
 
@@ -92,7 +94,9 @@ For finite exact k=Fq and K=k(X), write d_v=[κ(v):k] and ord_v(π_v)=1. Divisor
 
 **Direct inputs.** tauceti:TauCeti.Divisor.degree; tauceti:TauCeti.Place.ordAddMonoidHom; tauceti:TauCeti.Divisor.degree_principal.
 
-**Sources.** [yu](#source-yu) — §§2.2–2.3, pp.7–11.
+**Sources.**
+
+- [yu](#source-yu) — §§2.2–2.3, pp.7–11. Yu defines the idele degree as log_q of the multiplicative norm, the negative of weighted valuation degree. The packet explicitly converts this sign and uses arithmetic Artin Frobenius; it does not infer an Artin convention from Yu.
 
 **Acceptance.**
 
@@ -121,7 +125,10 @@ For a smooth projective geometrically connected X/Fq with K=Fq(X), rational divi
 
 **Direct inputs.** tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts; tauceti:TauCeti.Divisor.degreeClass; tauceti:TauCeti.Divisor.finite_ker_degreeClass; SchemeAndStackFoundations:SF.3/picard-scheme-without-point; SchemeAndStackFoundations:SF.3/picard-brauer-sequence.
 
-**Sources.** [adt](#source-adt) — Appendix A, proof of A.7, pp.131–132; Conrad §2, pp.2–3.
+**Sources.**
+
+- [adt](#source-adt) — Appendix A, proof of A.7, pp.131–132. Milne uses the divisor-class/Picard comparison over finite fields in proving A.7. The no-rational-point comparison here follows from the separately imported Picard–Brauer sequence and Br(k)=0; no rational base point is assumed.
+- [conrad](#source-conrad) — §2, Examples 2.1–2.2, pp.2–3. The generalized Picard description supplies the comparison context; rational-point-free descent is handled by the imported Picard–Brauer sequence.
 
 **Acceptance.**
 
@@ -144,7 +151,9 @@ For finite exact k and a divisor D of K/k, an RR basis certificate is a finite f
 
 **Direct inputs.** tauceti:TauCeti.riemannRochSpace; tauceti:TauCeti.finiteDimensional_riemannRochSpace; tauceti:TauCeti.riemannRochSpace_zero_of_isIntegrallyClosedIn; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch.
 
-**Sources.** [yu](#source-yu) — §2.2, pp.7–8 (divisor conventions); native AC.3–AC.4 Riemann–Roch inputs.
+**Sources.**
+
+- [yu](#source-yu) — §2.2, pp.7–8 (divisor conventions); native AC.3–AC.4 Riemann–Roch inputs. Yu supplies weighted divisor conventions, not a basis algorithm. The certificate is our proof-bearing basis interface for native L(D); dimensions and principal-divisor transport follow from the listed native and AC inputs.
 
 **Consumers.** FA.7 and algebraic coding theory: Certify bases and evaluation matrices using the existing L(D), not an algorithm-dependent subspace.
 
@@ -180,7 +189,9 @@ Input consists of a finite-field encoding, a separating presentation K=k(t)[y]/(
 
 **Direct inputs.** FunctionFieldArithmetic:FA.1/riemann-roch-basis-certificate; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields; FiniteFieldsAndCharacterSums:FF.3.
 
-**Sources.** [hess](#source-hess) — §§4–6: Lemma 1, Corollaries 3–4, Theorem 7, Proposition 9(iii), Algorithm 13, pp.4–10.
+**Sources.**
+
+- [hess](#source-hess) — §§4–6: Lemma 1, Corollaries 3–4, Theorem 7, Proposition 9(iii), Algorithm 13, pp.4–10. Hess proves reduced-basis computation for divisor spaces using integral bases, degree bounds and polynomial matrix reduction. Algorithm 13 and its preceding reductions justify the proposed certificate-producing algorithm, conditional on certified normalization and factorization.
 
 **Consumers.** FA.7 ray classes and coding-theory consumers: Compute complete bases with certified normalization at every place.
 
@@ -221,7 +232,9 @@ For finite exact k and K/k, A_K=∏′_{v∈Place(k,K)} K_v relative to O_v is t
 
 **Direct inputs.** tauceti:TauCeti.Place; mathlib:Valuation.Completion; mathlib:Valuation.integer; mathlib:RestrictedProduct; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components; tauceti:TauCeti.Divisor.principal.
 
-**Sources.** [parshin](#source-parshin) — §1, pp.3–5; §2.1, pp.6–7.
+**Sources.**
+
+- [parshin](#source-parshin) — §1, pp.3–5; §2.1, pp.6–7. Parshin defines the restricted product over every closed point of the projective curve. This includes infinity and differs from both an affine finite-adele ring and the native K-valued repartition module.
 
 **Consumers.** FA.4 and ET.3 globalization: Full adelic domain for reciprocity and arithmetic globalization. FA.6 and ES7: Arithmetic restricted products without duplicating generic topology or Haar theory.
 
@@ -256,7 +269,10 @@ Define I_K=∏′ K_v× relative to O_v× with the restricted-product group topo
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-adeles; mathlib:RestrictedProduct.unitsEquiv; tauceti:TauCeti.Place.ordAddMonoidHom; tauceti:TauCeti.Divisor.degree; tauceti:TauCeti.Divisor.degree_principal.
 
-**Sources.** [parshin](#source-parshin) — §2.5, pp.14–15; Yu §§2.2–2.3, pp.7–11.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.5, pp.14–15. Parshin uses the multiplicative restricted product and weighted divisor map. Native restricted-product units provide the carrier; the idele topology uses integral units and is not the subspace topology of additive adeles.
+- [yu](#source-yu) — §§2.2–2.3, pp.7–11. Yu fixes the finite-function-field idele norm and the sign of its degree.
 
 **Consumers.** FA.4 local-to-global Artin map: Multiply local reciprocity symbols on finite quotient extensions. Yu §2.2 and FYZ §2.1: Fix idele norms, central degree lattices and character restriction conventions.
 
@@ -291,7 +307,9 @@ For finite exact k and K/k, div_I:I_K→Div(K) is onto, has kernel ∏_v O_v×, 
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-ideles; tauceti:TauCeti.Divisor.degreeClass; tauceti:TauCeti.Divisor.finite_ker_degreeClass; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components.
 
-**Sources.** [parshin](#source-parshin) — §2.5, pp.14–15.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.5, pp.14–15. Parshin identifies the integral-unit kernel and divisor-class quotient. Surjectivity is obtained by finite-support choices of local uniformizers; finiteness of degree-zero classes is imported from the pinned library.
 
 **Acceptance.**
 
@@ -313,7 +331,9 @@ For finite exact k and K/k, the diagonal image of K in A_K is discrete and cocom
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-adeles; tauceti:TauCeti.riemannRochSpace; tauceti:TauCeti.Divisor.finite_setOf_isEffective_degree_le; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components.
 
-**Sources.** [parshin](#source-parshin) — §§1–2.1, pp.3–7.
+**Sources.**
+
+- [parshin](#source-parshin) — §§1–2.1, pp.3–7. Parshin describes the discrete diagonal and compact adelic quotient, together with divisor lattices. The packet obtains these arithmetic comparisons from local approximation and imported Riemann–Roch, rather than identifying completed adeles with repartitions.
 
 **Acceptance.**
 
@@ -335,7 +355,10 @@ For finite exact k and a nonzero rational differential ω, extend each native lo
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-adeles; tauceti:TauCeti.weilDifferentialSpace; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components.
 
-**Sources.** [parshin](#source-parshin) — §2.1, pp.6–7; Yu §5.3.1, p.37.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.1, pp.6–7. Parshin uses local differential residues and their global sum. AC.9 supplies parameter independence and the residue theorem; FA.2 extends to completed places and takes the residue-field trace to the exact constants.
+- [yu](#source-yu) — §5.3.1, p.37. Yu uses the trace-residue global additive character and its placewise differential conductor.
 
 **Consumers.** FA.2 Poisson and FYZ §2.3: Construct the actual residue character and its exact local conductor.
 
@@ -370,7 +393,10 @@ Choose a nontrivial additive character ψ_p:Fp→C× and define ψ_k=ψ_p∘Tr_{
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/completed-residue-functional; FunctionFieldArithmetic:FA.2/additive-diagonal-lattice; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch.
 
-**Sources.** [parshin](#source-parshin) — §2.1, pp.6–7 (corrected notation, source issues E1–E2); Yu §5.3.1, p.37.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.2, pp.8–9 (pairing corrected by source issues E1–E2). The residue character is Parshin’s adelic pairing with the two corrections E1–E2: multiply local character values and use a nontrivial trace character. Finite-field trace pairing proves nondegeneracy without requiring an injective scalar character.
+- [yu](#source-yu) — §5.3.1, p.37. The additive character and differential-conductor convention agree after the explicit finite-field trace choice.
 
 **Consumers.** FA.2 and FYZ Lemma 2.7: Pin Fourier transforms to the residue character, including conductor shifts.
 
@@ -405,7 +431,9 @@ For the character ψ_ω above, choose local self-dual additive Haar measure μ_v
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/differential-additive-character; FunctionFieldArithmetic:FA.2/additive-diagonal-lattice; tauceti:TauCeti.degree_weilDifferentialDivisor; tauceti:TauCeti.Divisor.degree_principal; AdelicAlgebraicGroups:AA.0/restricted-haar-product.
 
-**Sources.** [parshin](#source-parshin) — §2.2, pp.8–9.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.2, pp.8–9. Parshin fixes differential-dependent self-dual local measures and gives the global integral-lattice volume. The packet derives q^(deg D+1−g) from local conductor exponents and the native canonical divisor degree, keeping local and global changes of differential distinct.
 
 **Consumers.** FA.6 and FYZ §2.3: Convert local unipotent integral volume one to global residue self-dual normalization.
 
@@ -440,7 +468,9 @@ For finite exact k, a nonzero ω and every locally constant compactly supported 
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/differential-additive-character; FunctionFieldArithmetic:FA.2/differential-self-dual-haar; FunctionFieldArithmetic:FA.2/additive-diagonal-lattice.
 
-**Sources.** [parshin](#source-parshin) — §2.2, pp.8–9 (translated test functions, source issue E3).
+**Sources.**
+
+- [parshin](#source-parshin) — §2.2, pp.8–9 (translated test functions, source issue E3). Parshin states adelic Fourier inversion and Poisson summation. The proof here corrects E3 by spanning the test space with translated compact-open indicators and uses the diagonal annihilator and quotient-volume normalization.
 
 **Acceptance.**
 
@@ -468,7 +498,9 @@ For finite separable L/K use AC.6–AC.8 for normalized valuations, integral clo
 
 **Direct inputs.** FunctionFieldArithmetic:FA.0/finite-exact-base; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration.
 
-**Sources.** [kw](#source-kw) — §3.2, pp.8–10; §4.4, pp.22–23 (wild extension input).
+**Sources.**
+
+- [kw](#source-kw) — §3.2, pp.8–10; §4.5, pp.21–23 (wild extension input). Kosters–Wan uses ramification and conductors of finite ASW extensions. General different, separability, Hurwitz and upper/lower numbering are existing AC/LFR inputs; this node records their use rather than planning their general theory again.
 
 **Acceptance.**
 
@@ -490,7 +522,9 @@ For any field F of characteristic p and n≥0, use native length-n p-typical Wit
 
 **Direct inputs.** mathlib:TruncatedWittVector; mathlib:WittVector.frobenius; FunctionFieldArithmetic:FA.3/ramification-import-contract; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers.
 
-**Sources.** [kw](#source-kw) — §3.1, Theorem 3.2 and proof, pp.6–8.
+**Sources.**
+
+- [kw](#source-kw) — §3.1, Theorem 3.2 and proof, pp.6–8. Theorem 3.2 identifies ASW classes with continuous cyclic p-power characters using Witt Frobenius minus identity. Orders of classes determine extension degrees, and cyclic subgroups, rather than individual generators, determine the same cyclic field.
 
 **Consumers.** FA.3 and FA.4: Separate cyclic extensions from chosen characters and compare their completed local classes.
 
@@ -526,7 +560,9 @@ Let F=k((T)) with finite k of characteristic p, choose α∈k with nonzero trace
 
 **Direct inputs.** FunctionFieldArithmetic:FA.3/artin-schreier-witt-quotient; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration.
 
-**Sources.** [kw](#source-kw) — Proposition 4.3, pp.15–16; Proposition 4.14 and proof, pp.22–23.
+**Sources.**
+
+- [kw](#source-kw) — Proposition 4.3, pp.15–16; Proposition 4.14 and proof, pp.22–23. Proposition 4.3 gives the reduced constant-plus-prime-to-p-pole form, with p-adically vanishing coefficients. Proposition 4.14 computes finite-layer conductors; truncation leaves only finitely many effective coefficients.
 
 **Consumers.** FA.4 ray conductors and FA.7 certificates: Finite reduced data allow a checkable wild conductor rather than an unspecified ramification label.
 
@@ -561,7 +597,9 @@ Over k(t), k finite of characteristic p, the cover y^p−y=t^(−m), m>0 and p�
 
 **Direct inputs.** FunctionFieldArithmetic:FA.3/reduced-witt-laurent-data; FunctionFieldArithmetic:FA.3/ramification-import-contract; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula.
 
-**Sources.** [kw](#source-kw) — Proposition 4.14, pp.22–23; Theorem 3.2, pp.7–8.
+**Sources.**
+
+- [kw](#source-kw) — Proposition 4.14, pp.22–23; Theorem 3.2, pp.7–8. The length-one specialization of Proposition 4.14 gives conductor m+1 for the single prime-to-p pole. Imported ramification and Hurwitz then give different exponent (p−1)(m+1) and genus (p−1)(m−1)/2; the source is not claimed to enumerate the global curve.
 
 **Acceptance.**
 
@@ -589,7 +627,9 @@ For a complete discretely valued field F of characteristic p with residue F_Q, u
 
 **Direct inputs.** mathlib:FormalGroup; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality.
 
-**Sources.** [yoshida](#source-yoshida) — §§3.1–4.2, Lemma 3.4, Proposition 3.5, Corollary 3.7, Proposition 4.4, pp.415–421; Appendix II, Proposition 8.1, pp.436–437.
+**Sources.**
+
+- [yoshida](#source-yoshida) — §§3.1–4.2, Lemma 3.4, Proposition 3.5, Corollary 3.7, Proposition 4.4, pp.415–421; Appendix II, Proposition 8.1, pp.436–437. Yoshida’s formal-module construction and Proposition 4.4 apply to equal characteristic as well as mixed characteristic. Specializing to f=πX+X^Q yields torsion degree (Q−1)Q^(m−1), including the nontrivial wild higher levels.
 
 **Consumers.** FA.4 full local existence: An independent published proof of the missing equal-characteristic norm-existence input.
 
@@ -624,7 +664,9 @@ For a complete discretely valued field F of characteristic p with finite residue
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/equal-characteristic-lubin-tate; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors.
 
-**Sources.** [yoshida](#source-yoshida) — Proposition 5.10, Theorem 5.15, Corollary 5.16(iv), pp.424–428; Theorem 6.15, pp.431–433.
+**Sources.**
+
+- [yoshida](#source-yoshida) — Proposition 5.10, Theorem 5.15 and §5.3(iv) existence theorem, pp.425–428; Theorem 6.15, pp.432–433. Yoshida computes relative Lubin–Tate norm subgroups and proves the open finite-index existence theorem, then identifies all finite abelian extensions using Hasse–Arf. His geometric Frobenius convention is inverted to the packet’s arithmetic convention.
 
 **Acceptance.**
 
@@ -635,23 +677,26 @@ For a complete discretely valued field F of characteristic p with finite residue
 
 **Target:** FunctionFieldArithmetic:FA.4/schmid-witt-artin-comparison. **Named declaration:** FunctionFieldArithmetic.schmid_witt_artin_comparison.
 
-On F=k((T)), pair Q_n(F) with F× by the action of the arithmetic local Artin map on solutions of wp_n(y)=a. It equals the truncation modulo p^n of Tr_{W(k)/Z_p} Res(ã dlog b̃), using Kosters–Wan’s characteristic-zero lifts of reduced Witt Laurent data and unit factors. This is a perfect continuous pairing between the discrete ASW character group and the pro-p completion of F×. For a finite subgroup of Q_n(F), the compositum of its ASW extensions has norm subgroup equal to the common annihilator. The symbol is compared after local existence, never used in a circular proof of it.
+On F=k((T)) with k finite and n≥1, pair Q_n(F) with F× by the action of the arithmetic local Artin map on solutions of wp_n(y)=a. It equals the truncation modulo p^n of Tr_{W(k)/Z_p} Res(ã dlog b̃), using Kosters–Wan’s characteristic-zero lifts of reduced Witt Laurent data and unit factors. The pairing kills (F×)^(p^n) and induces a perfect continuous pairing of the discrete group Q_n(F) with F×/(F×)^(p^n), carrying the quotient of the local-field topology. At a fixed n it is not perfect against the whole pro-p completion: nonzero p^n multiples in its valuation coordinate annihilate every Q_n character. The compatible infinite-length symbol uses the inverse-limit Witt quotient and pro-p completion with the topologies specified in Kosters–Wan §4.1. For a finite subgroup of Q_n(F), the compositum of its ASW extensions has norm subgroup equal to the common annihilator. The symbol is compared after local existence, never used in a circular proof of it.
 
-**Hypotheses.** Residue and dlog computed in the specified characteristic-zero lift ring; Witt trace, not ghost-coordinate division in characteristic p.
+**Hypotheses.** k is a finite field of characteristic p and n≥1; finite-length and inverse-limit pairings have distinct multiplicative domains and topologies. Residue and dlog computed in the specified characteristic-zero lift ring; Witt trace, not ghost-coordinate division in characteristic p.
 
 **Construction or proof.**
 
 1. Import local Artin from the existing class formation and the full existence theorem just proved.
-2. Check the explicit lifted-residue formula on a constant, a Teichmüller pole, a uniformizer and a principal unit; use bilinearity and the reduced expansion. Apply the norm-kernel theorem on each finite ASW layer and intersection under composita.
+2. At fixed length use Theorem 3.4 and Remark 4.1 to descend to F×/(F×)^(p^n). Check Theorem 4.7’s lifted-residue formula on a constant, a Teichmüller pole, a uniformizer and a principal unit; use bilinearity and the reduced expansion. Apply the norm-kernel theorem on each finite ASW layer and intersection under composita.
 
 **Direct inputs.** FunctionFieldArithmetic:FA.3/artin-schreier-witt-quotient; FunctionFieldArithmetic:FA.3/reduced-witt-laurent-data; FunctionFieldArithmetic:FA.4/local-abelian-existence; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity.
 
-**Sources.** [kw](#source-kw) — Proposition 3.10, p.12; §§4.2–4.3, Theorem 4.12 and proof, pp.17–22.
+**Sources.**
+
+- [kw](#source-kw) — Theorem 3.4, p.8; §4.1, Remark 4.1, pp.14–15; Proposition 4.2, p.15; §4.4, Theorem 4.7 and proof, pp.18–19. Theorem 3.4 and Remark 4.1 give the finite-length pairing with F×/(F×)^(p^n). Theorem 4.7 supplies the characteristic-zero lifted-residue formula. The infinite pro-p completion belongs to the compatible infinite-length symbol, not a perfect pairing with one fixed Q_n.
 
 **Acceptance.**
 
 - Constant classes pair with the valuation of b and are trivial on units.
 - A reduced pole gives the conductor in FA.3; naive characteristic-p ghost division is excluded.
+- At n=1 a uniformizer raised to p pairs trivially with every class but has nonzero valuation coordinate p in the pro-p completion; perfectness requires the pth-power quotient.
 
 ### The global function-field class formation
 
@@ -668,7 +713,9 @@ For finite exact k and K=k(X), specialize the imported Tate class-formation mach
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-ideles; FunctionFieldArithmetic:FA.1/rational-picard-comparison; SchemeAndStackFoundations:SF.3; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-2-class-formations-and-fundamental-classes; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map.
 
-**Sources.** [adt](#source-adt) — Appendix A, A.7–A.9 with proofs, pp.131–134.
+**Sources.**
+
+- [adt](#source-adt) — Appendix A, A.7–A.9 with proofs, pp.131–134. Milne proves the finite-function-field class formation in A.7–A.9 using Picard, Lang and Tsen inputs. These are requested explicitly from SF.3; no abelian existence theorem is used to establish the formation.
 
 **Acceptance.**
 
@@ -690,7 +737,9 @@ For finite abelian L/K, the product of local arithmetic Artin maps defines a con
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/function-field-class-formation; FunctionFieldArithmetic:FA.4/local-abelian-existence; FunctionFieldArithmetic:FA.0/degree-conventions; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map.
 
-**Sources.** [adt](#source-adt) — Appendix A, A.10–A.11, pp.134–136; A.5, pp.129–130.
+**Sources.**
+
+- [adt](#source-adt) — Appendix A, A.10–A.11, pp.134–136; A.5, pp.129–130. A.10–A.11 derive finite norm quotients and reciprocity from the formation. The packet retains the abelian-extension hypothesis and separates this norm theorem from geometric existence.
 
 **Acceptance.**
 
@@ -712,7 +761,9 @@ For an effective modulus m=Σ_v m_v[v], define U_m⊆I_K by O_v× for m_v=0 and 
 
 **Direct inputs.** FunctionFieldArithmetic:FA.2/projective-ideles; FunctionFieldArithmetic:FA.1/rational-picard-comparison; FunctionFieldArithmetic:FA.5/schmidt-degree-one; SchemeAndStackFoundations:SF.3; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components.
 
-**Sources.** [conrad](#source-conrad) — §2, Examples 2.1–2.2 and §3, pp.2–4.
+**Sources.**
+
+- [conrad](#source-conrad) — §2, Examples 2.1–2.2 and §3, pp.2–4. Conrad defines generalized Jacobians for a modulus and states their class-field relation. The arithmetic idele/divisor comparison includes local units at depth zero and a separate infinite degree direction; the generalized Picard construction remains an SF.3 input.
 
 **Consumers.** FA.4 global existence and FA.7 characters: Define the exact ray topology and distinguish finite class-field quotients from the infinite full ray group.
 
@@ -748,7 +799,9 @@ For every open finite-index H⊆C_K there is a unique finite abelian subextensio
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard; FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism; SchemeAndStackFoundations:SF.3; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map.
 
-**Sources.** [conrad](#source-conrad) — §3, Theorems 3.1–3.2, pp.3–4; ADT Appendix A explicitly omits existence.
+**Sources.**
+
+- [conrad](#source-conrad) — §3, Theorems 3.1–3.2, pp.3–4; ADT Appendix A explicitly omits existence. Conrad states the exact ray-cover and classification theorems. The packet honestly records that this handout does not verify the full Rosenlicht/Lang-torsor proof; GEO-RAY remains a closure boundary.
 
 **Acceptance.**
 
@@ -770,7 +823,10 @@ The compatible finite Artin maps give a continuous dense-image map C_K→Gal(K^a
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/global-abelian-existence; FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism; FunctionFieldArithmetic:FA.2/idele-divisor-exact-sequence; FunctionFieldArithmetic:FA.5/schmidt-degree-one.
 
-**Sources.** [adt](#source-adt) — Appendix A, A.10–A.11, pp.134–136 (finite quotients); Conrad Theorem 3.2, p.4 (existence input).
+**Sources.**
+
+- [adt](#source-adt) — Appendix A, A.10–A.11, pp.134–136 (finite quotients). Milne supplies the finite norm quotients; existence supplies their cofinality. Taking finite quotients yields profinite reciprocity, with degree completed from Z to Z-hat rather than a false isomorphism of the uncompleted idele class group.
+- [conrad](#source-conrad) — §3, Theorem 3.2, p.4. The stated existence theorem supplies cofinality of finite norm quotients; its full proof remains GEO-RAY.
 
 **Acceptance.**
 
@@ -798,7 +854,9 @@ For a smooth projective geometrically connected curve X/Fq, gcd{deg v : v a clos
 
 **Direct inputs.** WeilConjectures:WC.5; FunctionFieldArithmetic:FA.0/finite-exact-base; FunctionFieldArithmetic:FA.2/idele-divisor-exact-sequence.
 
-**Sources.** [roquette](#source-roquette) — §4.3.3, pp.25–28 (Schmidt context); WC.5 supplies the independent all-extension Weil estimate.
+**Sources.**
+
+- [roquette](#source-roquette) — §4.3.3, pp.25–28 (Schmidt context); WC.5 supplies the independent all-extension Weil estimate. Roquette supplies historical context for Schmidt, not the proof adopted here. The independent all-extension Weil estimate forces closed-point degree gcd one; a Bezout combination gives a degree-one divisor, without requiring a rational point or FA.4 existence.
 
 **Acceptance.**
 
@@ -820,7 +878,10 @@ For finite exact k=Fq, define Z_X(T) in Z[[T]] by its effective-divisor coeffici
 
 **Direct inputs.** tauceti:TauCeti.Divisor.finite_setOf_isEffective_degree_le; FunctionFieldArithmetic:FA.0/finite-exact-base; FunctionFieldArithmetic:FA.0/degree-conventions.
 
-**Sources.** [roquette](#source-roquette) — §4.3.3, pp.25–28; Parshin §2.5, pp.14–15.
+**Sources.**
+
+- [roquette](#source-roquette) — §4.3.3, pp.25–28. Roquette discusses the effective-divisor Euler product and its relation to finite-extension point counts. The formal logarithmic/Newton identities here are the stated arithmetic deduction, with residue degrees retained.
+- [parshin](#source-parshin) — §2.5, pp.14–15. The multiplicative adelic zeta formula agrees with the divisor Euler-product normalization.
 
 **Consumers.** FA.5 and FA.7: Define the independently checkable L-polynomial from complete extension-field counts.
 
@@ -855,7 +916,10 @@ There is a unique P_X(T)∈Z[T] with P_X(0)=1, degree 2g, leading coefficient q^
 
 **Direct inputs.** FunctionFieldArithmetic:FA.5/curve-zeta-series; FunctionFieldArithmetic:FA.5/schmidt-degree-one; FunctionFieldArithmetic:FA.1/rational-picard-comparison; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch; tauceti:TauCeti.Divisor.finite_ker_degreeClass; WeilConjectures:WC.5.
 
-**Sources.** [roquette](#source-roquette) — §4.3.3, pp.25–28 (RR rationality); Parshin §2.5, pp.14–15 (functional equation normalization).
+**Sources.**
+
+- [roquette](#source-roquette) — §4.3.3, pp.25–28 (RR rationality). Roquette explains rationality and the functional equation from Riemann–Roch. The packet imports the Weil inverse-root bound independently from WC.5 and does not claim that Riemann–Roch proves that bound.
+- [parshin](#source-parshin) — §2.5, pp.14–15. The adelic Fourier argument checks the functional-equation convention; translated test functions are used as corrected in E3.
 
 **Acceptance.**
 
@@ -877,7 +941,9 @@ For a continuous finite-image representation ρ of Gal(K^sep/K) on a finite-dime
 
 **Direct inputs.** FunctionFieldArithmetic:FA.3/ramification-import-contract; FunctionFieldArithmetic:FA.0/degree-conventions.
 
-**Sources.** [av](#source-av) — §3.2, equation (3.1), pp.26–27.
+**Sources.**
+
+- [av](#source-av) — §3.2, equation (3.1), pp.26–27. Equation (3.1) uses geometric Frobenius acting on actual inertia invariants. This also applies to the stated finite coefficient field with ℓ≠p; no averaging projector is imposed when ℓ divides the finite monodromy order.
 
 **Consumers.** Abdurrahman–Venkatesh §3.2: Provide the exact torsion-coefficient Euler factors used in the symplectic L-function.
 
@@ -903,16 +969,19 @@ For a continuous finite-image representation ρ of Gal(K^sep/K) on a finite-dime
 
 For an everywhere unramified finite-dimensional A-local system ρ on proper X, A a finite field of characteristic ℓ≠p, its degree-weighted Euler product equals ∏_{i=0}² det(1−T Fr_q|H^i_et(X̄,ρ))^{(−1)^{i+1}}. This is the torsion coefficient contract used by AV, not an assertion that ρ lifts to an ℓ-adic representation. For a representation ramified on X minus U, the analogous proper formula uses j_*ρ and its inertia stalks; compact-support cohomology of U instead gives the Euler product with omitted boundary factors.
 
-**Hypotheses.** Proper smooth X; geometric Frobenius; finite étale cohomology and trace formula supplied with these coefficients.
+**Hypotheses.** Proper smooth X; geometric Frobenius; finite étale cohomology and trace formula supplied with these coefficients. EDC.8 is an import receipt for its explicitly named PR196 TraceFormula owner. No second trace construction is assigned to EDC.8; the finite coefficient-field determinant enhancement remains TORSION-DETERMINANT.
 
 **Construction or proof.**
 
 1. Import the torsion Grothendieck trace formula and determinant expansion from the étale/cohomology supplier.
 2. Check that the j_* stalk is V^{I_v}; separate the open compact-support and proper direct-image formulas before adding ramified local factors.
+3. Import the finite-coefficient curve trace theorem and perfect-complex determinants from the TraceFormula owner, together with the explicit finite-field Euler-product/determinant enhancement requested there. In characteristic ℓ, equality of all power traces alone does not determine the determinant: for example, the identity on an ℓ-dimensional space has every power trace zero but determinant (1−T)^ℓ=1−T^ℓ. Do not infer the finite-coefficient determinant formula by division in a formal exponential or by a characteristic-zero lift of the representation.
 
-**Direct inputs.** FunctionFieldArithmetic:FA.5/artin-inertia-factor; DeligneWeightsAndPurity:DWP.1; EtaleDualityAndPerverseSheaves:EDC.8.
+**Direct inputs.** FunctionFieldArithmetic:FA.5/artin-inertia-factor; EtaleDualityAndPerverseSheaves:EDC.8.
 
-**Sources.** [av](#source-av) — §3.2, equations (3.1)–(3.2), pp.26–27.
+**Sources.**
+
+- [av](#source-av) — §3.2, equations (3.1)–(3.2), pp.26–27. Equation (3.2) expresses the torsion Euler product through all cohomological determinants on the proper curve. The packet distinguishes j_* inertia stalks from j_! extension by zero and requests the coefficient-accurate trace formula.
 
 **Acceptance.**
 
@@ -934,7 +1003,9 @@ Let M/K be finite Galois, G its group, k_M=F_{q^h} its exact constants and N=Gal
 
 **Direct inputs.** FunctionFieldArithmetic:FA.3/ramification-import-contract; FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality; WeilConjectures:WC.5.
 
-**Sources.** [kcheb](#source-kcheb) — Theorem 1.1, Corollary 1.2 and Lemmas 1.3–1.4 with proofs, pp.1–5; the displayed r-bound is the stated base-change deduction.
+**Sources.**
+
+- [kcheb](#source-kcheb) — Theorem 1.1, Corollary 1.2 and Lemmas 1.3–1.4 with proofs, pp.1–5; the displayed r-bound is the stated base-change deduction. Kosters proves finite-field twist counting with Weil error. The displayed degree-r prime-count bound is the packet’s deduction after constant-field compatibility, base change, ramified-point exclusion and removal of lower-degree divisors; it is not quoted as his theorem.
 
 **Acceptance.**
 
@@ -954,9 +1025,11 @@ For two continuous finite-dimensional semisimple ℓ-adic representations of the
 1. Apply the finite-quotient Chebotarev theorem to every open conjugacy-invariant neighborhood, retaining constant-degree restrictions.
 2. Pass equality of continuous character/characteristic-polynomial functions through the dense Frobenius set, then apply Brauer–Nesbitt.
 
-**Direct inputs.** FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev; DeligneWeightsAndPurity:DWP.1.
+**Direct inputs.** FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev; DeligneWeightsAndPurity:DWP.0.
 
-**Sources.** [dad](#source-dad) — Proof of Theorem 5.3.3, p.27 (Chebotarev and Brauer–Nesbitt step only).
+**Sources.**
+
+- [dad](#source-dad) — Proof of Theorem 5.3.3, p.27 (Chebotarev and Brauer–Nesbitt step only). The proof of Theorem 5.3.3 uses Chebotarev density and Brauer–Nesbitt for determination by Frobenius. Only that step is imported; continuous characteristic-zero semisimplicity is retained, without claiming the source’s broader coefficient-object theorem here.
 
 **Acceptance.**
 
@@ -981,9 +1054,12 @@ Let G be a connected reductive K-group, U⊆G(A_K) compact open, Xi a discrete c
 1. Import RG2 rational-point topology, local integral models and double-coset structure, AA restricted products and FA.2 arithmetic adeles.
 2. Define the module as a submodule of functions with the stated invariance/equivariance equations. Compare Hopf convolution points and the native affine group-scheme points, then impose the center quotient.
 
-**Direct inputs.** FunctionFieldArithmetic:FA.2/projective-adeles; FunctionFieldArithmetic:FA.4/profinite-reciprocity; tauceti:TauCeti.ReductiveAffineGroupSchemeCat; mathlib:AlgHom.convGroup; tauceti:TauCeti.CommHopfAlgCat.schemePointsAlgΓMulEquiv; ReductiveGroupsPartII:RG2.4.
+**Direct inputs.** FunctionFieldArithmetic:FA.2/projective-adeles; FunctionFieldArithmetic:FA.4/profinite-reciprocity; tauceti:TauCeti.ReductiveAffineGroupSchemeCat; tauceti:TauCeti.AlgHom.instGroup; tauceti:TauCeti.CommHopfAlgCat.schemePointsAlgΓMulEquiv; ReductiveGroupsPartII:RG2.4.
 
-**Sources.** [yu](#source-yu) — §§2.2–2.3, pp.7–11; Harder §1.1, pp.252–253.
+**Sources.**
+
+- [yu](#source-yu) — §§2.2–2.3, pp.7–11. Yu fixes the global adelic quotient, levels and central character in the finite-function-field setting. Generic reductive points are imported; the packet bounds or quotients every central degree direction before making finiteness claims.
+- [harder](#source-harder) — §1.1, pp.252–253. Harder formulates arithmetic reduction on the function-field adelic quotient; central degree directions must be controlled.
 
 **Consumers.** FA.6, GS.0/GS.6 and ES7: Arithmetic coefficient module at a specified level, center quotient and character.
 
@@ -1018,7 +1094,10 @@ For each proper K-parabolic P=MN, N(K)∖N(A_K) is compact. Normalize its measur
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/automorphic-function-space; FunctionFieldArithmetic:FA.2/additive-diagonal-lattice; ReductiveGroupsPartII:RG2.4.
 
-**Sources.** [bhkt](#source-bhkt) — §8.1, equation (8.1), Proposition 8.2 and proof, pp.34–35; Ciubotaru–Harris §3, pp.8–9.
+**Sources.**
+
+- [bhkt](#source-bhkt) — §8.1, equation (8.1), Proposition 8.2 and proof, pp.34–35. BHKT defines cuspidality by every proper rational parabolic and proves finite-level finiteness. The integral construction uses finite p-power averages with p invertible and common support; torus cuspidality alone does not remove its infinite degree direction.
+- [ch](#source-ch) — §3, Proposition 3.1 and Lemma 3.2, pp.8–9. The fixed-level cusp module over Noetherian coefficients and its complex comparison agree with the integral specialization.
 
 **Consumers.** BHKT Proposition 8.2 and Ciubotaru–Harris Lemma 3.2: Construct coefficient modules and justify flat extension, with p inverted.
 
@@ -1053,7 +1132,9 @@ At fixed compact level for a split semisimple Chevalley group over K, all cuspid
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/cuspidal-constant-terms; ReductiveGroupsPartII:RG2.4; FunctionFieldArithmetic:FA.2/idele-divisor-exact-sequence.
 
-**Sources.** [harder](#source-harder) — §1.2, Theorem 1.2.1 and Corollary 1.2.3, pp.254–256.
+**Sources.**
+
+- [harder](#source-harder) — §1.2, Theorem 1.2.1 and Corollary 1.2.3, pp.254–256. Harder proves common support bounds and compactness for split Chevalley groups. The packet preserves this proved scope and explicitly conditions the nonsplit connected-reductive extension on RG2.4.
 
 **Acceptance.**
 
@@ -1071,11 +1152,14 @@ For split semisimple G and R a Noetherian Z[1/p]-algebra embedded in C, the fixe
 **Construction or proof.**
 
 1. Use the finite support theorem and finitely many finite-average cusp equations to obtain the Noetherian submodule.
-2. Use Ciubotaru–Harris Lemma 3.2’s complex scalar comparison; for eigenvalue algebraicity apply the integral Hecke action on the finite Z[1/p] model and Cayley–Hamilton after passing to a finite-dimensional Q-space.
+2. Use Ciubotaru–Harris Lemma 3.2’s complex scalar comparison; for eigenvalue algebraicity apply the integral Hecke action on the finite Z[1/p] model and Cayley–Hamilton after passing to a finite-dimensional Q-space. For R⊆C, flatness follows by factoring scalar extension through Frac(R), then extending between fields.
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/harder-cuspidal-support; FunctionFieldArithmetic:FA.6/cuspidal-constant-terms; SmoothRepresentationsOfLocalGroups:SR.4.
 
-**Sources.** [ch](#source-ch) — §3, Proposition 3.1 and Lemma 3.2, pp.8–9; BHKT Proposition 8.2, pp.34–35.
+**Sources.**
+
+- [ch](#source-ch) — §3, Proposition 3.1 and Lemma 3.2, pp.8–9. Ciubotaru–Harris proves fixed-level cusp finiteness and the complex scalar comparison over Noetherian coefficient subrings of C. Such an embedding is flat via the fraction field. Hecke eigenvalue algebraicity is restricted to arithmetic coefficient models, not arbitrary transcendental characters.
+- [bhkt](#source-bhkt) — §8.1, Proposition 8.2, pp.34–35. BHKT gives fixed-level cusp finiteness in the integral automorphic setting; the common support requirement is kept explicit.
 
 **Acceptance.**
 
@@ -1095,9 +1179,12 @@ At an unramified place v and hyperspecial U_v, specialize the imported integral 
 1. Import local convolution and Satake, then prove the arithmetic global action preserves all constant-term kernels.
 2. Compare the GL₁ action with the reciprocity quotient and invert Frobenius exactly once in translating to the Artin Euler factor.
 
-**Direct inputs.** FunctionFieldArithmetic:FA.6/cuspidal-constant-terms; FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism; FunctionFieldArithmetic:FA.5/artin-inertia-factor; SmoothRepresentationsOfLocalGroups:SR.4; SmoothRepresentationsOfLocalGroups:SR.4; ReductiveGroupsPartII:RG2.4.
+**Direct inputs.** FunctionFieldArithmetic:FA.6/cuspidal-constant-terms; FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism; FunctionFieldArithmetic:FA.5/artin-inertia-factor; SmoothRepresentationsOfLocalGroups:SR.4; ReductiveGroupsPartII:RG2.4.
 
-**Sources.** [bhkt](#source-bhkt) — §8.1, pp.34–35; Yu §§2.2–2.3, pp.7–11.
+**Sources.**
+
+- [bhkt](#source-bhkt) — §8.1, pp.34–35. BHKT’s integral unramified Hecke setup fixes the needed coefficients and Satake normalization. The generic local Hecke/Satake construction is imported from SR.4; FA.6 supplies the global fixed-level action.
+- [yu](#source-yu) — §§2.2–2.3, pp.7–11. Yu’s spherical Hecke action supplies the global arithmetic specialization, while the local algebra belongs to SR.4.
 
 **Acceptance.**
 
@@ -1119,7 +1206,9 @@ Let π be an irreducible cuspidal automorphic representation of GL_n(A_K), n≥1
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/cuspidal-constant-terms; FunctionFieldArithmetic:FA.5/schmidt-degree-one; FunctionFieldArithmetic:FA.2/differential-additive-character; tauceti:TauCeti.degree_weilDifferentialDivisor; AutomorphicLFunctionsAndLocalFactors:AL.3/gln-fourier-expansion; AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization; AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-conductor-shift.
 
-**Sources.** [yu](#source-yu) — §5.3.1, Lemma 5.3.3 and complete proof, pp.36–38.
+**Sources.**
+
+- [yu](#source-yu) — §5.3.1, Lemma 5.3.3 and complete proof, pp.36–38. Yu’s Lemma 5.3.3 and proof give spherical degree-zero nonvanishing through Whittaker reconstruction. The packet requires a nonzero vector and corrects the determinant-degree and scalar-power signs recorded in E4–E5.
 
 **Acceptance.**
 
@@ -1141,7 +1230,9 @@ For an étale quadratic cover X′/X over finite k of odd characteristic, includ
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/profinite-reciprocity; FunctionFieldArithmetic:FA.1/rational-picard-comparison; EtaleDualityAndPerverseSheaves:EDC.2.
 
-**Sources.** [fyz](#source-fyz) — §2.1, Remark 2.1, pp.8–9.
+**Sources.**
+
+- [fyz](#source-fyz) — §2.1, Remark 2.1, pp.8–9. FYZ Remark 2.1 gives the unramified character extension with the stated restriction to F×. Its modulo-two argument uses alternating cup product, requested through integral Z_2 cohomology rather than inferred from graded commutativity over F_2.
 
 **Acceptance.**
 
@@ -1163,7 +1254,9 @@ Let F=k(X), p≠2, F′/F the quadratic étale algebra of an unramified double c
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/automorphic-function-space; FunctionFieldArithmetic:FA.6/unitary-unramified-inducing-character; ReductiveGroupsPartII:RG2.4; SmoothRepresentationsOfLocalGroups:SR.4; AutomorphicSpectralTheory:AS.1/eisenstein-convergence; AutomorphicSpectralTheory:AS.2/eisenstein-continuation.
 
-**Sources.** [fyz](#source-fyz) — §2.1, pp.8–9.
+**Sources.**
+
+- [fyz](#source-fyz) — §2.1, pp.8–9. FYZ fixes the quasi-split skew-Hermitian unitary group, spherical section and unnormalized exponent s+n/2. Convergence and continuation are separately imported with explicit function-field enhancement requests to AS.1 and AS.2.
 
 **Consumers.** FYZ Theorem 2.8: Provide the exact analytic Siegel–Eisenstein series whose regular Fourier coefficients enter the higher Siegel–Weil formula.
 
@@ -1198,7 +1291,9 @@ Identify the additive dual of N_n(A)=Herm_n(A) with Herm_n(A,ω_F), the Hermitia
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/unitary-siegel-eisenstein-series; FunctionFieldArithmetic:FA.2/differential-additive-character; FunctionFieldArithmetic:FA.2/differential-self-dual-haar; FunctionFieldArithmetic:FA.2/adelic-poisson; ReductiveGroupsPartII:RG2.4.
 
-**Sources.** [fyz](#source-fyz) — §2.2, equations (2.1)–(2.4), pp.9–10.
+**Sources.**
+
+- [fyz](#source-fyz) — §2.2, equations (2.1)–(2.4), pp.9–10. FYZ defines the residue character on the Hermitian unipotent, the global quotient measure and the local integral-volume-one Fourier coefficients. Their differential-dependent prefactor and Levi transformation law are retained without mixing the two measure conventions.
 
 **Consumers.** FYZ Lemma 2.7 and Theorem 2.8: Match Fourier coefficients to local density polynomials with the canonical-line and Haar conventions.
 
@@ -1233,7 +1328,10 @@ At an unramified quadratic local algebra F′_v/F_v, inert or split, import the 
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/unitary-residue-fourier-coefficient; GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density; GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial; GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-weight; GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula; MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure.
 
-**Sources.** [fyz](#source-fyz) — §§2.3–2.5, Theorem 2.3 and Lemma 2.7 with proof, pp.10–14; Li–Zhang Theorem 3.5.1, pp.17–18 (inert supplier).
+**Sources.**
+
+- [fyz](#source-fyz) — §§2.3–2.5, Theorem 2.3 and Lemma 2.7 with proof, pp.10–14. FYZ proves the unramified inert and split density polynomials and compares them with local Whittaker integrals. Existing GN.3 inert data are reused; split density and the source-rank n+2j Siegel–Weil normalization are explicit supplier enhancements.
+- [lz](#source-lz) — §3.5, Theorem 3.5.1, pp.17–18. Li–Zhang provides the inert Cho–Yamauchi input used by GN.3; it does not establish the split variant.
 
 **Acceptance.**
 
@@ -1255,7 +1353,9 @@ Let E be a rank-n vector bundle on X′ and a:E→σ*E∨ an injective Hermitian
 
 **Direct inputs.** FunctionFieldArithmetic:FA.6/unitary-whittaker-density-comparison; FunctionFieldArithmetic:FA.6/unitary-residue-fourier-coefficient; FunctionFieldArithmetic:FA.0/degree-conventions; SchemeAndStackFoundations:SF.3/vector-bundle-degree; SchemeAndStackFoundations:SF.3/curve-serre-duality.
 
-**Sources.** [fyz](#source-fyz) — §2.6, equation (2.10), Theorem 2.8 and proof, pp.14–15.
+**Sources.**
+
+- [fyz](#source-fyz) — §2.6, equations (2.10)–(2.12), Theorem 2.8 and proof, pp.14–15. FYZ’s Theorem 2.8 gives the regular injective Hermitian bundle coefficient, including the determinant character, degree exponent and Euler normalization. Serre duality uses the canonical line, and the packet retains weighted total degree for split or constant covers.
 
 **Acceptance.**
 
@@ -1284,7 +1384,9 @@ For a verified separating presentation K/k(t) and its normalized finite/infinite
 
 **Direct inputs.** FunctionFieldArithmetic:FA.1/certified-riemann-roch-computation; tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields; FiniteFieldsAndCharacterSums:FF.3/factorization-certificate; tauceti:TauCeti.Place; tauceti:TauCeti.Divisor.degree.
 
-**Sources.** [hess](#source-hess) — §3.2, pp.3–4; Proposition 9(i)–(ii), p.7; §6, p.9.
+**Sources.**
+
+- [hess](#source-hess) — §3.2, pp.3–4; Proposition 9(i)–(ii), p.7; §6, p.9. Hess uses finite-prime factorization and integral normalization to access places. FA.7’s new contract assembles native normalized branches, infinity and degree-bounded completeness; factorization remains imported from FF.3.
 
 **Consumers.** FA.7 and certified RR/ray computations: Supply normalized place and residue-degree data without duplicating finite-field factorization.
 
@@ -1319,7 +1421,9 @@ For a genus-g curve over Fq, an L-polynomial certificate contains certified coun
 
 **Direct inputs.** FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality; FunctionFieldArithmetic:FA.5/curve-zeta-series; FiniteFieldsAndCharacterSums:FF.3.
 
-**Sources.** [roquette](#source-roquette) — §4.3.3, pp.25–28 (zeta identities); own certified Newton/functional-equation deduction.
+**Sources.**
+
+- [roquette](#source-roquette) — §4.3.3, pp.25–28 (zeta identities); own certified Newton/functional-equation deduction. Roquette supplies zeta identities. The proof-bearing certificate is our Newton and functional-equation deduction from independently certified complete counts through genus g; Weil-shaped coefficients alone are insufficient.
 
 **Consumers.** FA.7 and curve arithmetic consumers: Verify the L-polynomial from independently certified finite-field point counts.
 
@@ -1343,9 +1447,9 @@ For a genus-g curve over Fq, an L-polynomial certificate contains certified coun
 
 **Target:** FunctionFieldArithmetic:FA.7/ray-character-conductor-certificate. **Named declaration:** FunctionFieldArithmetic.RayCharacterCertificate.
 
-A finite ray-character certificate specifies a modulus m, a chosen finite degree quotient of C_m, its verified finite abelian-group presentation, a character into specified roots of unity, and local restrictions. Its conductor is the least effective m′≤m for which each local character is trivial on 1+𝔭_v^{m′_v}; an unramified character has m′_v=0. Wild cyclic p-parts are verified using ReducedWittData and the Artin symbol; prime-to-p parts use imported tame reciprocity. The value on the selected degree-one class separately records the constant-field character.
+A finite ray-character certificate specifies a modulus m, a chosen finite degree quotient of C_m, its verified finite abelian-group presentation, a character into specified roots of unity, and local restrictions. Its conductor is the least effective m′≤m for which each local character is trivial on U_v^(m′_v), where U_v^(0)=O_v× and U_v^(r)=1+𝔭_v^r for r≥1; an unramified character has m′_v=0. Wild cyclic p-parts are verified using ReducedWittData and the Artin symbol; prime-to-p parts use imported tame reciprocity. The value on the selected degree-one class separately records the constant-field character.
 
-**Hypotheses.** Finite-index degree quotient is specified; a full infinite ray class group is not encoded as a finite group. Character-order and root-of-unity encodings are checked.
+**Hypotheses.** Finite-index degree quotient is specified; a full infinite ray class group is not encoded as a finite group. Character-order and root-of-unity encodings are checked. Degree one means valuation degree +1, equivalently Yu degree −1, consistently with FA.0.
 
 **Construction or proof.**
 
@@ -1354,7 +1458,10 @@ A finite ray-character certificate specifies a modulus m, a chosen finite degree
 
 **Direct inputs.** FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard; FunctionFieldArithmetic:FA.4/schmid-witt-artin-comparison; FunctionFieldArithmetic:FA.7/certified-place-enumeration; FunctionFieldArithmetic:FA.1/certified-riemann-roch-computation.
 
-**Sources.** [kw](#source-kw) — Theorem 4.12 and Proposition 4.14, pp.21–23; Conrad §3, p.4.
+**Sources.**
+
+- [kw](#source-kw) — Theorem 4.12 and Proposition 4.14, pp.21–23. Kosters–Wan computes the wild local conductor. Combining this with Conrad’s ray-class contract gives the proposed finite presentation certificate. Depth zero means O_v×, and the finite degree quotient and degree-one value are specified separately.
+- [conrad](#source-conrad) — §3, Theorems 3.1–3.2, pp.3–4. The ray existence contract supplies arithmetic interpretation of certified finite characters, subject to GEO-RAY.
 
 **Consumers.** FA.7 and Drinfeld/class-field consumers: Machine-checkable conductors and finite ray characters retaining the constant direction.
 
@@ -1373,6 +1480,7 @@ A finite ray-character certificate specifies a modulus m, a chosen finite degree
 **Acceptance.**
 
 - A character factoring through a larger modulus need not have that modulus as its conductor.
+- Depth zero tests all integral units; 1+O_v is not a multiplicative subgroup and cannot define unramified conductor zero.
 
 ### Normalized completion certificates
 
@@ -1389,7 +1497,10 @@ A completion certificate selects an actual native place v, its finite residue fi
 
 **Direct inputs.** tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components; FunctionFieldArithmetic:FA.2/completed-residue-functional; FunctionFieldArithmetic:FA.2/differential-self-dual-haar; FunctionFieldArithmetic:FA.7/certified-place-enumeration; mathlib:LaurentSeries.ratfuncAdicComplRingEquiv; mathlib:LaurentSeries.coe_range_dense; mathlib:LaurentSeries.valuation_compare.
 
-**Sources.** [parshin](#source-parshin) — §2.1, p.7; Yoshida §2.2 and Appendix I, pp.413–415, 433–436.
+**Sources.**
+
+- [parshin](#source-parshin) — §2.1, p.7. Parshin identifies local curve fields as Laurent series. Yoshida explains uniformizer expansions in a complete DVR; together with the AC.5 coefficient-field and completion interfaces these justify the normalized local certificate, not an identification of the global field with its completion.
+- [yoshida](#source-yoshida) — §2.2 and Appendix I, pp.413–415, 433–436. Uniformizer expansion in a complete DVR supplies the series construction; the coefficient-field algebra structure is chosen separately.
 
 **Consumers.** Fargues–Scholze local-field interfaces and FA.7: Pass a chosen completed global place to equal-characteristic local theory without conflating global and local fields.
 
@@ -1424,7 +1535,10 @@ Fix a finite-field encoding by a monic irreducible polynomial over Fp, count bot
 
 **Direct inputs.** FunctionFieldArithmetic:FA.7/certified-place-enumeration; FunctionFieldArithmetic:FA.7/l-polynomial-certificate; FunctionFieldArithmetic:FA.7/ray-character-conductor-certificate; FunctionFieldArithmetic:FA.7/normalized-completion-certificate; FunctionFieldArithmetic:FA.3/wild-cover-example.
 
-**Sources.** [hess](#source-hess) — §3.2, pp.3–4; §6, Algorithm 13 and Remark 14, pp.9–10; Kosters–Wan Proposition 4.14, pp.22–23.
+**Sources.**
+
+- [hess](#source-hess) — §3.2, pp.3–4. Hess separates integral-basis, factorization and degree/height reduction costs. The global ASW example’s local conductor comes from Kosters–Wan. Exhaustive extension-field point counts are finite verification tasks, not a polynomial-in-log(q) counting claim.
+- [kw](#source-kw) — §4.5, Proposition 4.14, pp.22–23. The reduced single-pole specialization certifies the wild conductor used in the explicit global example.
 
 **Acceptance.**
 
@@ -1433,15 +1547,11 @@ Fix a finite-field encoding by a monic irreducible polynomial over Fp, count bot
 
 ## Precision of the suggested signatures
 
-The named definitions, API items and tests all have counterparts in the suggested file. Genuine basis, polynomial and completion certificates carry their stated verifiable conditions. Native objects are used for divisor classes, restricted products, Witt vectors, formal groups, matrices, measures and function submodules. At a missing supplier interface, the file states the available carrier or formula and identifies the omitted condition beside it. Consequently, some formula signatures are stronger than valid unconditional theorems and are meaningful only under the full conditions in this document. The following boundaries must be discharged before implementation:
+The Suggested file is a compact, nonexhaustive companion. It keeps native finite-constant and divisor statements, proof-bearing Riemann–Roch and L-polynomial certificates, projective restricted products, effective-divisor zeta coefficients, matrix determinant factors, an intersection-of-kernels cusp module and a valuation-normalized completion certificate. Every retained data definition has a real body. The retained theorem hypotheses are expressible at the pins; there are no unconditional substitutes for the missing geometric or arithmetic conditions.
 
-- FA.0–FA.1: the curve dictionary, rational Picard interpretation, Brauer descent and algorithm input encodings are mathematical supplier conditions. The native RR certificate's membership, independence and spanning conditions are already expressible. The computation signature specifies its output certificate without encoding a terminating implementation.
-- FA.2: the arithmetic and topological interpretations of the diagonal lattice, differential orders, conductors, self-dual measures and Pontryagin comparison require the imported interfaces. The completed residue's restriction uses the actual native Weil-differential local component. Its displayed diagonal vanishing uses finite support. Generic residue characters must be specialized to the stated nontrivial prime-field character and trace. Compactly supported locally constant functions are actual carriers.
-- FA.3: the ASW quotient uses native Witt addition and Frobenius. Its field/cohomology comparison, reduced-representative algorithm, p-adic coefficient depth and trace-nonzero choice require their suppliers. The conductor formula retains those conditions. The wild count is expressed in the polynomial model x=1/t, interchanging the zero and infinity fibers of the original t-model.
-- FA.4: the formal law, subextensions, unit quotients and norm-subgroup carriers are actual objects. Formal-point evaluation, arithmetic norm formation, subgroup openness, geometric ray-Picard identification and inverse-limit compatibility require supplier interfaces. The selected degree-one divisor is indispensable. Finite-index conditions alone do not replace openness.
-- FA.5: the effective-divisor zeta coefficients and matrix determinant factors are actual expressions. The truncated Euler product's executable construction is not supplied. A matrix input is identified with geometric Frobenius on the inertia-invariant subspace only under the representation adapter. The unramified determinant identity is its formula-level specialization, and lift independence assumes equality of the induced invariant matrices. The trace formula and coarse Chebotarev expression omit the geometric identifications of the supplied matrices, counts and genera; their full hypotheses above are required. Frobenius determination requires continuity, characteristic-zero semisimplicity and the genuine dense Frobenius set.
-- FA.6: automorphic functions are an actual submodule cut out by invariance equations, and the cusp module is an intersection of kernels of linear constant-term maps. The arithmetic group identification, parabolic indexing, central lattice and normalized finite averages require their suppliers. The suggested flat comparison uses a finite indexing family; the full contract permits the Noetherian finite-support argument. Its incompatible-character criterion uses a unit difference, sufficient over a field; a general coefficient ring needs injective action of that difference. Harder support and the Hecke action require the specified arithmetic spaces. The Eisenstein sum indexes the rational group modulo its rational parabolic, inside the adelic group. Its section, convergence and continuation conditions, and the geometric interpretation of the Hermitian coefficient and density formulas, remain explicit supplier boundaries.
-- FA.7: the finite enumeration and ray-character signatures omit executable finite encodings. The divisor-arithmetic prototype displays finite-list addition; normalized principal-divisor production is the full adapter contract above. A ray character must have the specified finite image and verified finite quotient. The completion certificate expresses a valuation-normalized ring equivalence; its coefficient-field algebra and topology comparisons require the local interface. L-polynomial soundness assumes certified curve counts and a certified genus; the constant-extension formula requires the actual curve count sequence.
+The full definitions, 64 API contracts and 63 unit-test contracts remain in this reader. Picard/ray schemes, completed residues, normalized Fourier theory, ASW cohomology and reciprocal symbols, norm formations, reductive automorphic and Eisenstein spaces, and executable arithmetic algorithms await their named supplier interfaces. They remain mathematical targets here rather than admitted Lean constructions. The finite-character power example tests a necessary fixed-length Schmid–Witt property without defining the symbol. The cusp module takes actual linear maps as inputs; identifying those maps with normalized rational-parabolic constant terms is the FA.6 contract, not a conclusion about arbitrary maps.
+
+The completion certificate states the ring and valuation comparison; its coefficient-field algebra, continuous inverse and coefficient-section conditions are still the full FA.7 target. The L-polynomial certificate verifies Newton and reciprocal identities. Its soundness theorem uses the native function field, exact constants, genus and actual all-extension point-count sequence. A formal first-count example supplies neither an arbitrary continuation of that count sequence nor a constant-extension certificate. Matrix factors use geometric Frobenius on the inertia-invariant space only after the representation adapter is supplied. The characteristic-three example distinguishes equal power traces from equal determinants.
 
 The file elaborated at the pinned build with admitted-proof warnings only. This is a signature check, and every implementation status remains unchecked.
 
@@ -1483,21 +1593,21 @@ The accepted factorization target is adequate. The accepted point-count target i
 
 **Supplier:** EtaleDualityAndPerverseSheaves:EDC.8. **Status:** open.
 
-Grothendieck Euler-product/determinant trace formula for finite coefficient fields of characteristic ℓ≠p, with j_* inertia stalks for ramification and distinct j_! compact-support formula.
+Expose the finite-coefficient trace and perfect-complex determinants imported by EDC.8 from PR196 TraceFormula Layers 0–4 and 9–11. Forward to that upstream owner the finite coefficient-field Euler-product/determinant enhancement for proper j_* inertia stalks, separately from j_! compact support; current TraceFormula Layers 14–15 state the characteristic-zero adic theorem. Do not construct ordinary Frobenius trace again in EDC.8.
 
-AV equation (3.2) is a torsion contract. No characteristic-zero lift is assumed; request the coefficient-accurate enhancement from the trace-formula owner.
+EDC.8 explicitly imports ordinary Frobenius trace from TraceFormula and must not duplicate that upstream construction. PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0 was read. The finite-coefficient determinant enhancement remains a maintainer-facing upstream note; traces alone do not prove it in characteristic ℓ. The atlas has no registered stage ID for those PR196 layers, so EDC.8 is the existing import receipt, with the exact upstream URL and commit recorded in upstreamNotes and the coefficient gap.
 
 **Required by:** FunctionFieldArithmetic:FA.5/torsion-trace-comparison.
 
 ### FunctionFieldArithmetic/request-weights-density
 
-**Supplier:** DeligneWeightsAndPurity:DWP.1. **Status:** open.
+**Supplier:** DeligneWeightsAndPurity:DWP.0. **Status:** open.
 
-Curve cohomological determinant comparison with geometric Frobenius, and characteristic-zero Brauer–Nesbitt interface for continuous semisimple representations.
+Characteristic-zero Brauer–Nesbitt comparison for finite-dimensional semisimple representations, usable after equality of continuous traces on a dense set.
 
-Only these generic cohomological inputs are imported; FA.5 owns the finite function-field Chebotarev theorem and its profinite density deduction.
+DWP.0 owns the reusable functorial linear-algebra direction; DWP.1 owns initial curve/abelian Weil estimates and does not state Brauer–Nesbitt. The cohomological determinant request belongs to TraceFormula instead. FA.5 retains arithmetic Chebotarev density and its representation-theoretic specialization.
 
-**Required by:** FunctionFieldArithmetic:FA.5/torsion-trace-comparison; FunctionFieldArithmetic:FA.5/frobenius-semisimple-determination.
+**Required by:** FunctionFieldArithmetic:FA.5/frobenius-semisimple-determination.
 
 ### FunctionFieldArithmetic/request-curve-cup-product
 
@@ -1741,10 +1851,11 @@ This is a dependency receipt, not a request to replan a Tau Ceti roadmap. The ac
 
 ### Recorded gaps
 
-- **LEAN-INTERFACES: omitted supplier conditions.** At the pinned baseline the external scheme Picard/ray, étale trace, automorphic parabolic/induction and norm-formation interfaces are not importable as implementation declarations. Suggested.lean prototypes actual native carriers and records each omitted condition next to its signature; it never replaces those conditions by placeholder logical fields or axioms that stand for an unstated condition. The reader and packet retain the complete mathematical hypotheses. Prototype elaboration does not certify the omitted interfaces or any result.
+- **LEAN-INTERFACES: omitted supplier conditions.** At the pinned baseline the external scheme Picard/ray, étale trace, automorphic parabolic/induction and norm-formation interfaces are not importable as implementation declarations. The reader and packet retain their complete mathematical hypotheses. The nonexhaustive Suggested.lean keeps only light real-bodied definitions over native carriers and statements whose hypotheses are expressible at the pins. Targets requiring the missing interfaces remain in the reader; they are not rendered as unconditional formula theorems, admitted data definitions or placeholder logical fields. Elaboration does not discharge these supplier interfaces or prove the statements.
 - **GEO-RAY proof boundary.** Conrad Theorems 3.1–3.2 give the exact geometric ray-cover/classification contract but not its complete proof. Before closure, verify the generalized-Jacobian Rosenlicht construction, connectedness of the pulled-back Lang ray torsor and conductor/Artin comparison, using the named SF.3 supplier and a cleared proof source. ADT Appendix A explicitly excludes existence and does not fill this boundary.
 - **RG-RED nonsplit reduction boundary.** Harder Theorem 1.2.1 and Corollary 1.2.3 read here prove split Chevalley support/compactness. The arbitrary connected-reductive assertion is conditional on the exact RG2.4 request, including full central-degree bounds; no unrestricted reductive finiteness is claimed.
 - **GENERAL-POINT-COUNT certificate supplier.** FF.3 currently certifies an odd-characteristic elliptic model only. General curve/hyperelliptic count certificates over all required finite extensions remain the FF.3 request; FA.7 assembly alone cannot certify those input counts.
+- **TORSION-DETERMINANT coefficient boundary.** PR196 TraceFormula provides finite-coefficient curve trace and perfect-complex determinant algebra, but its Layers 14–15 state the sheaf L-function determinant theorem in characteristic-zero adic coefficients. The finite coefficient-field Euler-product identity in AV (3.2) needs the explicit TraceFormula enhancement in request-torsion-trace. All-power trace equality in characteristic ℓ does not suffice and no characteristic-zero lift of the given finite-field representation is assumed.
 
 ## Public source reading and version boundaries
 
@@ -1986,4 +2097,4 @@ Five findings are retained with their precise version scope. The descriptions pa
 
 ## Review and completion obligations
 
-Independent review must verify the mathematical contracts, the exact supplier scope and the source corrections. Closure requires discharging GEO-RAY, RG-RED and GENERAL-POINT-COUNT, and replacing the omitted supplier conditions in the prototypes by their actual interfaces. The generalized Picard/Lang/Tsen, all-extension Weil, finite-coefficient trace, integral cup product, local Siegel–Weil and equal-characteristic analytic inputs are requested from their owners. The maintainer must apply the four cross-roadmap ownership corrections recorded above. No stage is reported as formally implemented or closed.
+Independent review must verify the mathematical contracts, the exact supplier scope and the source corrections. Closure requires discharging GEO-RAY, RG-RED, GENERAL-POINT-COUNT and TORSION-DETERMINANT, and supplying the interfaces recorded in LEAN-INTERFACES. The compact Suggested file leaves those targets in the reader until their full hypotheses can be stated at the pins. The generalized Picard/Lang/Tsen, all-extension Weil, finite-coefficient trace, integral cup product, local Siegel–Weil and equal-characteristic analytic inputs are requested from their owners. The maintainer must apply the four cross-roadmap ownership corrections recorded above. No stage is reported as formally implemented or closed.

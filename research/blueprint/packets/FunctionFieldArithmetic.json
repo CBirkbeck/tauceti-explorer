@@ -3862,7 +3862,7 @@
         "FunctionFieldArithmetic:FA.7/normalized-completion-certificate",
         "FunctionFieldArithmetic:FA.7/explicit-cost-and-examples"
       ],
-      "detail": "At the pinned baseline the external scheme Picard/ray, étale trace, automorphic parabolic/induction and norm-formation interfaces are not importable as implementation declarations. Suggested.lean prototypes actual native carriers and records each omitted condition next to its signature; it never replaces those conditions by placeholder logical fields or axioms that stand for an unstated condition. The reader and packet retain the complete mathematical hypotheses. Prototype elaboration does not certify the omitted interfaces or any result."
+      "detail": "At the pinned baseline the external scheme Picard/ray, étale trace, automorphic parabolic/induction and norm-formation interfaces are not importable as implementation declarations. The reader and packet retain their complete mathematical hypotheses. The nonexhaustive Suggested.lean keeps only light real-bodied definitions over native carriers and statements whose hypotheses are expressible at the pins. Targets requiring the missing interfaces remain in the reader; they are not rendered as unconditional formula theorems, admitted data definitions or placeholder logical fields. Elaboration does not discharge these supplier interfaces or prove the statements."
     },
     {
       "title": "GEO-RAY proof boundary",
@@ -4033,6 +4033,18 @@
       "commit": "4bd72379658126cbe9be935656396f0c9dac4de0",
       "checked": "2026-10-11",
       "detail": "Read README finite-coefficient conventions, Layers 0–4, 9–11 and 14–15, plus the corresponding Suggested.lean. Reuse the finite-coefficient trace and perfect determinant algebra. Ordinary trace is not owned by EDC.8. Ask the maintainer for the finite coefficient-field Euler-product determinant enhancement: current Layer 14 is characteristic-zero adic. This note does not edit or replan the upstream roadmap."
+    },
+    {
+      "roadmap": "TauCetiRoadmap",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "checked": "2026-10-14",
+      "detail": "Revision rechecked the current read-only inventory: AlgebraicCurves and AdelicAlgebraicGroups import boundaries, AlgebraicVectorBundles finite locally free carriers, Completed/RestrictedProducts generic topology, IntegralLattices quadratic-Z scope, SR.4 integral Satake and ClassFieldTheory Layer 8 prime-to-p equal-characteristic scope. Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already has Place.Completion and repartitionToFiniteAdeles; those are imported, not replanned. All 28 baseline declarations were reread, and all 13 Tau Ceti source modules used by the receipts agree byte-for-byte between the pinned commit and the shared Lean build."
+    },
+    {
+      "roadmap": "CohomologicalPointCounting/TraceFormula",
+      "commit": "4bd72379658126cbe9be935656396f0c9dac4de0",
+      "checked": "2026-10-14",
+      "detail": "Rechecked upstream PR #196: still open at the reviewed head. Read its finite-coefficient conventions and Layers 0–4, 9–11, 14–15. The finite-coefficient trace/perfect-complex determinant algebra is reused; Layers 14–15 give the sheaf Euler-product determinant identity in characteristic-zero adic coefficients. The finite coefficient-field enhancement remains TORSION-DETERMINANT, forwarded by request-torsion-trace through the registered EDC.8 import receipt."
     }
   ],
   "sourceVersions": [
