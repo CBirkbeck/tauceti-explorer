@@ -1,0 +1,177 @@
+{
+ "id": "FreeGroupsFirstOrderTheory",
+ "title": "The first-order theory of free groups",
+ "area": "grouptheory",
+ "parent": "FreeGroupsAndLimitGroups",
+ "summary": "Tarski's problems for free groups as a library roadmap on top of FreeGroupsAndLimitGroups: the alternating normal form and free lifting of sentences, the parametrization theorem for arbitrary NTQ systems, induced and tight enveloping NTQ systems, MAX-equivalence and algebraic solutions, the ∀∃-decision tree, the parametric elimination of ∃∀∃-formulas and the outer quantifier-elimination procedure, ending with the decidability of the elementary theory of a nonabelian free group with constants, the elementary equivalence of all nonabelian free groups of finite rank, the elementary embeddings F_k ≤ F_ℓ, and the classification of finitely generated groups elementarily equivalent to a free group as hyperbolic towers.",
+ "readme": "The definitive document is research/blueprint/readmes/FreeGroupsFirstOrderTheory.md.\n\n**Purpose.** Plan the proofs of Tarski's theorems for free groups: decidability of the elementary theory of a nonabelian free group of finite rank (with constants), elementary equivalence of all nonabelian free groups of finite rank, and their consequences. The endpoints are theorems about Mathlib's first-order syntax (FirstOrder.Language), FreeGroup and computability (Computable, ComputablePred).\n\n**Scope.** Everything FreeGroupsAndLimitGroups plans (free-group algorithms, Stallings graphs, effective first-order syntax for groups, Bass–Serre theory, equations and coordinate groups, surface groups, generalized equations and the solver, positive theory and Merzljakov's theorem, limit groups and NTQ systems, length functions, effective JSJ decompositions and Makanin–Razborov diagrams, regular implicit function theorems) is consumed by stage id and never restated. This roadmap plans what that roadmap excludes: the non-regular implicit function theorems, the machinery of the decision procedure, the quantifier elimination and Tarski's theorems.\n\n**Conventions.** F = F(A) with A finite, |A| ≥ 2; formulas of the language of groups with coefficients carried by free variables (FreeGroupsAndLimitGroups FG3); equivalence over F(A) means equality of defined sets with constants interpreted by FreeGroup.of; algorithms are computable functions on Primcodable codes with correctness of both answers.\n\n**Sources.** Kharlampovich–Myasnikov (Elementary theory of free non-abelian groups, 2006; Quantifier elimination algorithm, arXiv:1207.1900; Decidability of the elementary theory of a torsion-free hyperbolic group, arXiv:1303.0760; Implicit function theorem over free groups), Sela (Diophantine geometry over groups VI), Louder–Perin–Sklinos, and the Sela/Kharlampovich–Myasnikov exchange of 2014.\n\n**Layers.** FO1 formulas and normal forms; FO2 parametrization and fundamental sequences; FO4 MAX-equivalence and algebraic solutions; FO3 induced NTQ systems, tight envelopes and configurations; FO5 ∀∃ decision trees; FO6 the outer elimination; FO7 Tarski's theorems (build order).\n\n**Non-goals.** Executable implementations, complexity bounds and certificates; the elementary theory of hyperbolic groups, free products or partially commutative groups (only the free case is planned).",
+ "prerequisites": [
+  "FreeGroupsAndLimitGroups"
+ ],
+ "stages": [
+  {
+   "key": "FO1",
+   "title": "Formulas over free groups and the two-block normal form",
+   "description": "Boolean combinations of ∀∃-sentences; the reduction of an arbitrary sentence of the language of groups (with constants from the free group) to a Boolean combination of two-block (∀∃) sentences; the general and the positive case; the statement that quantifier elimination down to ∀∃ is the target, with the precise sense in which equivalence over a free group is meant. Planned targets: the syntactic classes of ∀∃- and ∃∀-formulas and their Boolean combinations on Mathlib's bounded formulas; equivalence of formulas over a group (and over F(A) with constants); the computable alternating standard form ∀X₁∃Y₁…∀X_k∃Y_k ⋁(S = 1 ∧ T ≠ 1); free lifts and the free lifting theorem (every sentence true in F is freely lifted, Kharlampovich–Myasnikov's generalization of Merzljakov's theorem); rank independence of positive sentences; the target property of (effective) ∀∃-quantifier elimination.",
+   "requires": [
+    "FreeGroupsAndLimitGroups:FG3",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG7"
+   ]
+  },
+  {
+   "key": "FO2",
+   "title": "Non-regular implicit function theorems and the parametrisation theorem",
+   "description": "Implicit function theorems for non-regular NTQ systems; the parametrisation theorem for arbitrary NTQ systems with correcting embeddings; lifts of ∀∃-formulas over arbitrary (not necessarily regular) systems. Consumes FG11 for the regular case and FG8 for NTQ towers. Planned targets: strict and well-aligned fundamental sequences (first and second restrictions), canonical NTQ systems of strict sequences and the canonical embedding tree; generic families of solutions of arbitrary NTQ systems and the lifts they force; normalization and correcting extensions of NTQ systems; the parametrization theorem (IFT Theorem 12) and its effective forms for arbitrary NTQ systems and arbitrary systems (IFT Theorems 13–14); groups without sufficient splitting modulo a subgroup and fundamental sequences modulo subgroups.",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO1",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG10",
+    "FreeGroupsAndLimitGroups:FG11"
+   ]
+  },
+  {
+   "key": "FO3",
+   "title": "Induced NTQ systems, tight envelopes, projective images and configurations",
+   "description": "Induced NTQ systems and their enlargement; tight envelopes; projective images and the configuration machinery used to control solutions of ∀∃-sentences along a tower; the finiteness statements these constructions provide. Planned targets: the complexity of fundamental sequences (Kurosh rank, regular size, abelian size); induced NTQ systems and the termination of their enlargement; projective images of a subgroup along a tower and the properness of the terminal image; tight enveloping NTQ groups and the non-increase of complexity; certificates and configuration groups with their finiteness and computability. Configurations use the algebraic solutions and MAX-equivalence of FO4.",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO2",
+    "FreeGroupsFirstOrderTheory:FO4",
+    "FreeGroupsAndLimitGroups:FG2",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG10"
+   ]
+  },
+  {
+   "key": "FO4",
+   "title": "MAX-equivalence, algebraic-solution bounds and complete reducing systems",
+   "description": "MAX-equivalence of solutions, the bounds on algebraic solutions, and the complete reducing systems specific to the decision procedure; the finiteness and effectivity statements for each. Planned targets: reducing quotients and special homomorphisms; fractional Dehn twists and MAX-equivalence; complete reducing systems and their effective construction; algebraic solutions; the ∃∀-definability of the number of MAX-classes; the uniform bound N(K, H). The computation of N(K, H), which needs the ∀∃ decider, is planned in FO5.",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO1",
+    "FreeGroupsFirstOrderTheory:FO2",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG10"
+   ]
+  },
+  {
+   "key": "FO5",
+   "title": "Existential–universal decision trees",
+   "description": "The decision trees for ∃∀- and ∀∃-sentences: their construction from the Makanin–Razborov diagram (FG10) and the implicit function theorems, their finiteness, and the decidability of the ∀∃-theory of a nonabelian free group. Planned targets: the first step (free lift and exceptional system), block-NTQ groups and the minimality restriction, the ∀∃-tree with its cases, its finiteness and the correctness of both answers, the ∀∃ decider and the decidability theorem, Sacerdote's rank independence of the ∀∃-theory, and the computable bound on algebraic solutions.",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO1",
+    "FreeGroupsFirstOrderTheory:FO2",
+    "FreeGroupsFirstOrderTheory:FO3",
+    "FreeGroupsFirstOrderTheory:FO4",
+    "FreeGroupsAndLimitGroups:FG3",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG7",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG10",
+    "FreeGroupsAndLimitGroups:FG11"
+   ]
+  },
+  {
+   "key": "FO6",
+   "title": "The outer quantifier-elimination procedure and its termination",
+   "description": "The procedure that lowers quantifier complexity of an arbitrary sentence using FO1–FO5; the well-founded measure proving its termination; correctness of positive and negative answers. Planned targets: the parametric ∀∃-tree of an ∃∀∃-formula, the sets True(Θ)_m and their ∃∀-descriptions at level 1, level 2 and all levels, the elimination of ∃∀∃-formulas, the block-count measure, the outer procedure with its termination and correctness: effective ∀∃-quantifier elimination over F(A).",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO1",
+    "FreeGroupsFirstOrderTheory:FO2",
+    "FreeGroupsFirstOrderTheory:FO3",
+    "FreeGroupsFirstOrderTheory:FO4",
+    "FreeGroupsFirstOrderTheory:FO5",
+    "FreeGroupsAndLimitGroups:FG3",
+    "FreeGroupsAndLimitGroups:FG5"
+   ]
+  },
+  {
+   "key": "FO7",
+   "title": "Tarski's theorems",
+   "description": "The elementary theory of a nonabelian free group of finite rank is decidable; nonabelian free groups of finite rank are elementarily equivalent (Sela; Kharlampovich–Myasnikov); the consequences the sources state, as separate targets with their own hypotheses. Planned targets: the decision procedure and the decidability of Th(F(A)) with constants; uniform coefficient-free elimination; elementary equivalence F_k ≡ F_ℓ (k, ℓ ≥ 2); the elementary embeddings F_k ≤ F_ℓ; extended hyperbolic towers and the classification of finitely generated models; closed surface groups of Euler characteristic ≤ −2; necessary conditions and negative controls (the non-orientable genus-3 surface group, doubles of F₂, groups containing ℤ²).",
+   "requires": [
+    "FreeGroupsFirstOrderTheory:FO1",
+    "FreeGroupsFirstOrderTheory:FO5",
+    "FreeGroupsFirstOrderTheory:FO6",
+    "FreeGroupsAndLimitGroups:FG3",
+    "FreeGroupsAndLimitGroups:FG4",
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG6",
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG10"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "KM06",
+   "title": "Elementary theory of free non-abelian groups",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 302 (2006), 451–552",
+   "url": "https://doi.org/10.1016/j.jalgebra.2006.03.033",
+   "readSections": [
+    "cited through QE-FREE, HYP and KM-RESPONSE (not read directly)"
+   ]
+  },
+  {
+   "id": "QE-FREE",
+   "title": "Quantifier elimination algorithm to boolean combination of ∃∀-formulas in the theory of a free group",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "arXiv:1207.1900v4 (2019)",
+   "url": "https://arxiv.org/abs/1207.1900",
+   "readSections": [
+    "§§1–5"
+   ]
+  },
+  {
+   "id": "HYP",
+   "title": "Decidability of the elementary theory of a torsion-free hyperbolic group",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "arXiv:1303.0760v8 (2016)",
+   "url": "https://arxiv.org/abs/1303.0760",
+   "readSections": [
+    "§§1, 3–6"
+   ]
+  },
+  {
+   "id": "IFT",
+   "title": "Implicit function theorem over free groups",
+   "authors": "Olga Kharlampovich, Alexei Myasnikov",
+   "edition": "J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2",
+   "url": "https://arxiv.org/abs/math/0312509",
+   "readSections": [
+    "§§2.3, 3.1, 4.4, 7.6"
+   ]
+  },
+  {
+   "id": "SELA-VI",
+   "title": "Diophantine geometry over groups VI: the elementary theory of a free group",
+   "authors": "Zlil Sela",
+   "edition": "GAFA 16 (2006), 707–730; author's copy",
+   "url": "https://math.huji.ac.il/~zlil/diophantine6.pdf",
+   "readSections": [
+    "pp. 1–10"
+   ]
+  },
+  {
+   "id": "LPS",
+   "title": "Hyperbolic towers and independent generic sets in the theory of free groups",
+   "authors": "Larsen Louder, Chloé Perin, Rizos Sklinos",
+   "edition": "Notre Dame J. Formal Logic 54 (2013); arXiv:1208.2858",
+   "url": "https://arxiv.org/abs/1208.2858",
+   "readSections": [
+    "§3, §4"
+   ]
+  }
+ ],
+ "status": "draft"
+}
