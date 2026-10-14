@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AdditiveCombinatorics",
+    "date": "2026-10-14",
+    "notes": "Independent review of all 100 packet nodes and 101 README subsections, 15 reproducibly sampled public-source locators, current-library/current-roadmap duplication, definition tests and 15 Lean signatures. Fixed the false order-zero interval modulus comparison, the two-term one-sided interval von Neumann claim, erased Lean nilmanifold Lie/model hypotheses, positive endpoint dimensions, periodicity and smoothness conventions, Cramer congruence scope, local-factor interfaces and source locators; replaced the qualitative fixed-modulus PNT supplier with current Tau Ceti. lean-check exits 0 with sorry as its only warning; packet/sorry-data/intake checks pass. Not ready upstream: AdditiveCombinatorics has no certified tier/bundle for its geometry-of-numbers and analytic/sieve/exponential-sum/finite-field suppliers; seven inherited proof-gap groups remain, including the primary Rahman numerical proof, quantitative Bohr/lattice and nilsequence/inverse interfaces, relative-counting/smooth-analysis and sharp-tail contracts, and ideal Type I/II plus convex-cutoff/module counting. The README and review report identify each remaining obligation precisely."
+  }
+}

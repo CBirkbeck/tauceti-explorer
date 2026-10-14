@@ -199,6 +199,20 @@ example : measureEntropy (ProbabilityTheory.uniformOn (Set.univ : Set Bool)) = R
 /-- A point mass has entropy `0`. -/
 example (s : S) [MeasurableSingletonClass S] : measureEntropy (Measure.dirac s) = 0 := sorry
 
+/-- A uniform bit has entropy `log 2`; revealing it removes its conditional entropy. -/
+example : entropy (id : Bool → Bool) (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 ∧
+    condEntropy (id : Bool → Bool) id (ProbabilityTheory.uniformOn Set.univ) = 0 := sorry
+
+/-- A constant condition leaves the bit's entropy unchanged. -/
+example : condEntropy (id : Bool → Bool) (fun _ ↦ false)
+    (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 := sorry
+
+/-- Conditioning on the bit itself kills its self-information; a constant condition does not. -/
+example : condMutualInfo (id : Bool → Bool) id id
+      (ProbabilityTheory.uniformOn Set.univ) = 0 ∧
+    condMutualInfo (id : Bool → Bool) id (fun _ ↦ false)
+      (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 := sorry
+
 variable {G : Type*} [AddCommGroup G] [Fintype G] [MeasurableSpace G]
 
 /-- The entropic Ruzsa distance `d[μ ; ν] = H[X' - Y'] - H[X']/2 - H[Y']/2` for independent
@@ -237,6 +251,23 @@ example [MeasurableSingletonClass G] : rdist (Measure.dirac (0 : G)) (Measure.di
 example [MeasurableSingletonClass G] (H : AddSubgroup G) (a b : G) :
     rdist (ProbabilityTheory.uniformOn (a +ᵥ (H : Set G)))
       (ProbabilityTheory.uniformOn (b +ᵥ (H : Set G))) = 0 := sorry
+
+/-- Revealing just one uniform variable leaves half the entropy as conditional Ruzsa distance. -/
+example [MeasurableSingletonClass G] :
+    condRdist (id : G → G) (fun _ ↦ (0 : G))
+      (ProbabilityTheory.uniformOn Set.univ) id id (ProbabilityTheory.uniformOn Set.univ) =
+        Real.log (Fintype.card G) / 2 := sorry
+
+/-- Two uniform laws with point-mass references have exactly the two penalty terms. -/
+example [MeasurableSingletonClass G] (η : ℝ) :
+    tau η (Measure.dirac (0 : G)) (Measure.dirac 0)
+      (ProbabilityTheory.uniformOn Set.univ) (ProbabilityTheory.uniformOn Set.univ) =
+        η * Real.log (Fintype.card G) := sorry
+
+/-- With nonnegative penalties and point-mass references, any two point masses minimise `τ`. -/
+example [MeasurableSingletonClass G] (η : ℝ) (hη : 0 ≤ η) (a b : G) :
+    IsTauMinimizer η (Measure.dirac (0 : G)) (Measure.dirac 0)
+      (Measure.dirac a) (Measure.dirac b) := sorry
 
 /-- A minimiser of `τ` has distance zero, for `η = 1/9` in characteristic two
 (Proposition 2.1; AC.1.16). -/
@@ -301,6 +332,12 @@ example : (1 : ZMod 4) ∉ phaseBohrSet ({AddChar.zmodAddEquiv 1} : Finset (AddC
 
 /-- A character's large spectrum at the threshold `1` is itself. -/
 example (ψ : AddChar G ℂ) : largeSpectrum (fun x ↦ ψ x) 1 = {ψ} := sorry
+
+/-- A stable scale and a jump scale distinguish regularity from mere nonemptiness. -/
+example : IsRegularPhaseBohr ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
+      (fun _ ↦ 1 / 8) ∧
+    ¬ IsRegularPhaseBohr ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
+      (fun _ ↦ 1 / 4) := sorry
 
 /-- Bogolyubov's lemma in spectral form (Tao, Notes 2, §6; AC.1.21). -/
 theorem bohrSet_largeSpectrum_subset_double_sub_double [DecidableEq G] {A : Finset G}
@@ -393,6 +430,11 @@ def cubeVertex {d : ℕ} (ω : Fin d → Bool) (h : Fin d → G) : G :=
 def parityConj {d : ℕ} (ω : Fin d → Bool) (z : ℂ) : ℂ :=
   if Even (univ.filter fun i ↦ ω i = true).card then z else conj z
 
+/-- Vertex addition and parity are pinned by the two directions `1,2`. -/
+example : cubeVertex (fun _ : Fin 2 ↦ true) (![1, 2] : Fin 2 → ZMod 5) = 3 ∧
+    parityConj (fun _ : Fin 1 ↦ true) (1 + Complex.I) = 1 - Complex.I ∧
+    parityConj (fun _ : Fin 2 ↦ true) (1 + Complex.I) = 1 + Complex.I := sorry
+
 /-- The complex Gowers cube `𝔼_{x,h} ∏_ω C^{|ω|} f_ω (x + ω · h)` (AC.3.1). -/
 def gowersInnerProduct (d : ℕ) (f : (Fin d → Bool) → G → ℂ) : ℂ :=
   univ.expect fun x : G ↦ univ.expect fun h : Fin d → G ↦
@@ -435,6 +477,10 @@ example : gowersNorm 1 (fun x : ZMod 2 ↦ if x = 0 then (1 : ℂ) else -1) = 0 
 /-- The interval `[N] = {1, …, N}` as a predicate on residues modulo `2 ^ d * N + 1`. -/
 def inInterval (d N : ℕ) (x : ZMod (2 ^ d * N + 1)) : Prop := 1 ≤ x.val ∧ x.val ≤ N
 
+/-- `[2]` means representatives `1,2`, excluding `0` and `3`. -/
+example : inInterval 2 2 (1 : ZMod 9) ∧ inInterval 2 2 (2 : ZMod 9) ∧
+    ¬ inInterval 2 2 (0 : ZMod 9) ∧ ¬ inInterval 2 2 (3 : ZMod 9) := sorry
+
 /-- The interval norm `U^d[N](f)`: the `U^d` norm of the zero extension of `f` from `[N]` into
 `ZMod (2 ^ d * N + 1)`, divided by that of the indicator of `[N]`; `0` for the empty interval
 (AC.3.6). -/
@@ -451,12 +497,17 @@ example (d : ℕ) : intervalGowersNorm d 0 (fun _ ↦ 1) = 0 := sorry
 example (d : ℕ) (hd : 1 ≤ d) : intervalGowersNorm d 1 (fun _ ↦ 2 * Complex.I) = 2 := sorry
 
 /-- The ratio does not depend on the admissible modulus. -/
-theorem intervalGowersNorm_independent_modulus (d N M : ℕ) [NeZero M] (hM : 2 ^ d * N ≤ M)
-    (hN : 1 ≤ N) (f : ℤ → ℂ) :
+theorem intervalGowersNorm_independent_modulus (d N M : ℕ) [NeZero M] (hd : 1 ≤ d)
+    (hM : 2 ^ d * N ≤ M) (hN : 1 ≤ N) (f : ℤ → ℂ) :
     open Classical in
     intervalGowersNorm d N f =
       gowersNorm d (fun x : ZMod M ↦ if 1 ≤ x.val ∧ x.val ≤ N then f x.val else 0) /
         gowersNorm d (fun x : ZMod M ↦ if 1 ≤ x.val ∧ x.val ≤ N then 1 else 0) := sorry
+
+/-- Order zero cannot be included in the modulus comparison: modulo `1`, `[1]` loses its point. -/
+example : intervalGowersNorm 0 1 (fun _ ↦ 1) = 1 ∧
+    (gowersNorm 0 (fun x : ZMod 1 ↦ if 1 ≤ x.val ∧ x.val ≤ 1 then 1 else 0) /
+      gowersNorm 0 (fun x : ZMod 1 ↦ if 1 ≤ x.val ∧ x.val ≤ 1 then 1 else 0)) = 0 := sorry
 
 end Gowers
 
@@ -547,16 +598,28 @@ example : IsRationalElement (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 :
     ¬ IsRationalElement (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 2
       (Multiplicative.ofAdd (1 / 3 : ℝ)) := sorry
 
+/-- Quotient period one does not make the constant `1/3` sequence `1`-rational. -/
+example : IsRationalPeriodicSequence
+      (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 3
+      (fun _ ↦ Multiplicative.ofAdd (1 / 3 : ℝ)) ∧
+    ¬ IsRationalPeriodicSequence
+      (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 1
+      (fun _ ↦ Multiplicative.ofAdd (1 / 3 : ℝ)) := sorry
+
 section Nilmanifold
 
 variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
   {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
-  (N : Type*) [Group N] [TopologicalSpace N] [ChartedSpace H N] [LieGroup I ⊤ N]
+  (N : Type*) [Group N] [TopologicalSpace N] [T2Space N] [ChartedSpace H N]
+  [LieGroup I ⊤ N]
 
 /-- A degree-`s` filtered nilmanifold: a connected, simply connected nilpotent Lie group with a
 degree-`s` filtration by closed connected subgroups and a discrete cocompact subgroup `Γ` that
 meets every `G_i` cocompactly; `Γ` need not be normal (AC.3.11). -/
-structure FilteredNilmanifold (s : ℕ) where
+structure FilteredNilmanifold {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    [FiniteDimensional ℝ E] {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
+    (N : Type*) [Group N] [TopologicalSpace N] [T2Space N] [ChartedSpace H N]
+    [LieGroup I ⊤ N] (s : ℕ) where
   /-- The filtration. -/
   filtration : DegreeFiltration N s
   /-- The lattice. -/
@@ -568,6 +631,9 @@ structure FilteredNilmanifold (s : ℕ) where
   lattice_discrete : DiscreteTopology lattice
   lattice_cocompact : CompactSpace (N ⧸ lattice)
   level_cocompact : ∀ i, CompactSpace (filtration.level i ⧸ lattice.subgroupOf (filtration.level i))
+
+/-- A degree-zero filtered nilmanifold has a trivial ambient group. -/
+example (M : FilteredNilmanifold I N 0) : Subsingleton N := sorry
 
 end Nilmanifold
 
@@ -595,6 +661,11 @@ example : cyclicProgressionAverage 5 3 (fun _ ↦ Pi.single 0 1) = 1 / 25 := sor
 
 /-- The indicator of `[2]`, three terms: only `x = 1, 2` with `r = 0` count, giving `2/9`. -/
 example : intervalProgressionAverage 2 3 (fun _ _ ↦ 1) = 2 / 9 := sorry
+
+/-- A one-sided two-term interval average need not vanish when an input has mean zero. -/
+example : intervalProgressionAverage 2 2
+      (fun i n ↦ if i = 0 then (if n = 1 then 1 else -1) else 1) = 1 / 9 ∧
+    Gowers.intervalGowersNorm 1 2 (fun n ↦ if n = 1 then 1 else -1) = 0 := sorry
 
 /-- The dense generalised von Neumann inequality on `ZMod p` (AC.2.2). -/
 theorem dense_generalised_von_neumann (p k : ℕ) [Fact p.Prime] (hk : 2 ≤ k) (hpk : k < p)
@@ -676,7 +747,7 @@ def apLinearFormsError (ν : ZMod N → ℝ) : ℝ :=
     univ.expect fun x₁ : Fin k → ZMod N ↦
       ∏ p ∈ S, ν (apLinearForm k N p.1.1 fun i ↦ if p.1.2 i then x₁ i else x₀ i)) - 1|
 
-/-- The `ε`-linear-forms condition for progressions (Conlon–Fox–Zhao, Definition 4.1). -/
+/-- The `ε`-linear-forms condition for progressions (Conlon–Fox–Zhao, Definition 4.2, p. 8). -/
 def APLinearFormsCondition (ε : ℝ) (ν : ZMod N → ℝ) : Prop :=
   (∀ x, 0 ≤ ν x) ∧ apLinearFormsError k N ν ≤ ε
 
@@ -685,6 +756,14 @@ example : Fintype.card (APFormIndex 3) = 12 := sorry
 
 /-- The constant weight `1` has error `0`, and the constant weight `2` does not. -/
 example : apLinearFormsError 3 N (fun _ ↦ 1) = 0 ∧ 1 ≤ apLinearFormsError 3 N (fun _ ↦ 2) := sorry
+
+/-- The signs in the arithmetic forms: `(1,2,4)` gives `(10,3,7)` modulo eleven. -/
+example : (fun j : Fin 3 ↦ apLinearForm 3 11 j ![1,2,4]) = ![10,3,7] := sorry
+
+/-- Nonnegativity belongs to the condition as well as the moment bound. -/
+example : APLinearFormsCondition 3 N 0 (fun _ ↦ 1) ∧
+    ¬ APLinearFormsCondition 3 N (1 / 2) (fun _ ↦ 2) ∧
+    ¬ APLinearFormsCondition 3 N 0 (fun _ ↦ -1) := sorry
 
 /-- The cut discrepancy of `f` and `g` along `ψ_j`, against products of `[0, 1]`-valued tests,
 the `i`-th test not depending on `x_i` (AC.4.7). -/
@@ -702,6 +781,10 @@ def IsDiscrepancyPair (ε : ℝ) (f g : ZMod N → ℝ) : Prop :=
 example (j : Fin 3) (c d : ℝ) :
     arithmeticDiscrepancy 3 N j (fun _ ↦ c) (fun _ ↦ d) = |c - d| := sorry
 
+/-- The tolerance includes its endpoint: constants `0,1` need error at least one. -/
+example : IsDiscrepancyPair 3 N 1 (fun _ ↦ 0) (fun _ ↦ 1) ∧
+    ¬ IsDiscrepancyPair 3 N (1 / 2) (fun _ ↦ 0) (fun _ ↦ 1) := sorry
+
 /-- The dense model theorem (Conlon–Fox–Zhao, Theorem 5.1; AC.4.8). -/
 theorem arithmetic_dense_model (hk : 3 ≤ k) (ε : ℝ) (hε : 0 < ε) :
     ∃ η > (0 : ℝ), ∀ (N : ℕ) [NeZero N], N.Coprime (k - 1).factorial →
@@ -709,7 +792,7 @@ theorem arithmetic_dense_model (hk : 3 ≤ k) (ε : ℝ) (hε : 0 < ε) :
       (∀ x, 0 ≤ f x ∧ f x ≤ ν x) → univ.expect f ≤ 1 →
       ∃ g : ZMod N → ℝ, (∀ x, 0 ≤ g x ∧ g x ≤ 1) ∧ IsDiscrepancyPair k N ε f g := sorry
 
-/-- Relative counting (Conlon–Fox–Zhao, Theorem 6.1; AC.4.9). -/
+/-- Relative counting (Conlon–Fox–Zhao, Theorem 6.5, pp. 15–16; AC.4.9). -/
 theorem relative_progression_counting (hk : 3 ≤ k) (γ : ℝ) (hγ : 0 < γ) :
     ∃ ε > (0 : ℝ), ∃ η > (0 : ℝ), ∀ (N : ℕ) [NeZero N], N.Coprime (k - 1).factorial →
       ∀ (ν : ZMod N → ℝ) (f g : Fin k → ZMod N → ℝ), APLinearFormsCondition k N η ν →
@@ -718,7 +801,7 @@ theorem relative_progression_counting (hk : 3 ≤ k) (γ : ℝ) (hγ : 0 < γ) :
       ‖cyclicProgressionAverage N k (fun j x ↦ (f j x : ℂ)) -
           cyclicProgressionAverage N k (fun j x ↦ (g j x : ℂ))‖ ≤ γ := sorry
 
-/-- The linear-forms relative Szemerédi theorem (Conlon–Fox–Zhao, Theorem 7.1; AC.4.10). -/
+/-- The linear-forms relative Szemerédi theorem (Conlon–Fox–Zhao, Theorem 4.3, p. 8; AC.4.10). -/
 theorem linear_forms_relative_szemeredi (hk : 3 ≤ k) (δ : ℝ) (hδ : 0 < δ) (hδ₁ : δ ≤ 1) :
     ∃ c > (0 : ℝ), ∀ γ > (0 : ℝ), ∃ η > (0 : ℝ), ∀ (N : ℕ) [NeZero N],
       N.Coprime (k - 1).factorial → ∀ ν f : ZMod N → ℝ, APLinearFormsCondition k N η ν →
@@ -776,6 +859,13 @@ example : modifiedPrimeWeight 6 1 1 ≠ 0 ∧ modifiedPrimeWeight 6 1 4 = 0 := s
 example (k : ℕ) (χ : ℝ → ℝ) (cχ : ℝ) (w b N n : ℕ) (hn : 2 * n < N) :
     smoothMajorant k χ cχ w b N n = 1 := sorry
 
+/-- The divisor-one term has coefficient `μ(1)=1` in both cutoffs. -/
+example (χ : ℝ → ℝ) (hχ : χ 0 = 1) (R : ℝ) (hR : 1 < R) :
+    smoothDivisorSum χ R 1 = Real.log R ∧ truncatedDivisorSum R 1 = Real.log R := sorry
+
+/-- The prime normalization includes `φ(6)/6=1/3`. -/
+example : modifiedPrimeWeight 6 1 1 = Real.log 7 / 3 := sorry
+
 /-- At a prime `p > R` the smooth divisor sum is `log R`. -/
 theorem smoothDivisorSum_large_prime (χ : ℝ → ℝ) (hχ0 : χ 0 = 1) (hχ : ∀ t, 1 < |t| → χ t = 0)
     (R : ℝ) (hR : 1 < R) (p : ℕ) (hp : p.Prime) (hpR : R < p) :
@@ -820,6 +910,10 @@ def threeAP : AffineSystem 3 2 := ⟨fun i j ↦ if j = 0 then 1 else (i : ℤ),
 /-- The twin system `x, x + 2`. -/
 def twins : AffineSystem 2 1 := ⟨fun _ _ ↦ 1, fun i ↦ 2 * (i : ℤ)⟩
 
+/-- Affine evaluation retains the offsets and the direction of the common difference. -/
+example : (fun i : Fin 3 ↦ threeAP.eval i ![2,3]) = ![2,5,8] ∧
+    (fun i : Fin 2 ↦ twins.eval i ![5]) = ![5,7] := sorry
+
 /-- Three-term progressions have complexity `1` and not `0`. -/
 example : threeAP.HasCSComplexity 1 ∧ ¬ threeAP.HasCSComplexity 0 := sorry
 
@@ -847,7 +941,8 @@ end AffineSystem
 open AffineSystem in
 /-- Finite-complexity linear equations in primes (Green–Tao, Main Theorem; Leng, Theorem 5;
 AC.5.14). The slopes are nonzero and pairwise linearly independent over `ℚ`. -/
-theorem linear_equations_in_primes (d t : ℕ) (L A : ℝ) (hL : 0 < L) (hA : 0 < A) :
+theorem linear_equations_in_primes (d t : ℕ) (hd : 0 < d) (ht : 0 < t)
+    (L A : ℝ) (hL : 0 < L) (hA : 0 < A) :
     ∃ C : ℝ, ∀ N : ℕ, 2 ≤ N → ∀ Ψ : AffineSystem t d,
       (∀ i, (fun j ↦ (Ψ.slope i j : ℚ)) ≠ 0) →
       (∀ i i', i ≠ i' → LinearIndependent ℚ
@@ -882,6 +977,15 @@ the moment estimates of the smooth majorant and its linear-forms condition, the 
 complexity and the vector-valued von Neumann theorem; Kai's quadratic Hecke uniformity, number-
 field prime-model uniformity, number-field and localised local factors, and the number-field and
 localised prime-pattern theorems.
+
+The README-only definitions are `boxGowersNorm`, `RationalMalcevBasis`, `malcevMetric`, `malcevGroupDistance`, `malcevQuotientDistance`,
+`BoundedNilsequence`, `HorizontalCharacter`, `IsEquidistributed`, `IsTotallyEquidistributed`,
+`HasVerticalFrequency`, `IsRationalSequence`, `IsSmoothSequence`, `IsRationalSubgroup`,
+`MinimizerSetup`, `NilsequenceFactor`, `factorAverage`, `IsRegularResolution`, `IsMeasureFamily`,
+`LinearFormsCondition`, `CorrelationCondition`, `IsKPseudorandom`, `wTrickModulus`,
+`modifiedVonMangoldt`, `AffineSystem.size`, `integerSingularProduct`, `HasModuleCSComplexity`, `HasTorsionCokernel`, `numberFieldLocalFactor`
+and `localizedLocalFactor`. The interval estimate `interval_dense_generalised_von_neumann`
+is also stated only there.
 -/
 
 end TauCetiRoadmap.AdditiveCombinatorics
