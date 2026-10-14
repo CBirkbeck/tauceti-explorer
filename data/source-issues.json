@@ -230932,6 +230932,258 @@
    "reviewReason": "Direct zero-vector check and version comparison. GeneralizedCMType/rank-one-type in the scaffold already uses the corrected nonnegative convention."
   },
   {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E301",
+   "kind": "misprint",
+   "locator": "KX arXiv v4 Lemma 2.3.2 proof, p. 23",
+   "printed": "The proof points to its own lemma for the intersection result.",
+   "correction": "Use Lemma 2.3.1.",
+   "reason": "Lemma 2.3.1 is the preceding finite-locally-free intersection statement needed on End(M).",
+   "affects": "nothing",
+   "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+   "searched": [
+    "KX v4 and full published 2010 erratum; the erratum addresses §2.7 only."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E302",
+   "kind": "misprint",
+   "locator": "KX arXiv v4 Theorem 2.6.1 proof, pp. 32–33",
+   "printed": "The annular break-splitting step is assigned to the disc theorem 2.5.2.",
+   "correction": "Use Theorem 2.5.1 for the boundary annulus.",
+   "reason": "A neighbourhood of the outer Robba boundary excludes t=0; Theorem 2.5.1 is precisely the affine-gap annular statement.",
+   "affects": "nothing",
+   "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+   "searched": [
+    "KX v4 and full published 2010 erratum."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E303",
+   "kind": "misprint",
+   "locator": "D’Addezio arXiv v4 Theorem 4.2.6(2), p. 14",
+   "printed": "The completed i-th reverse grade is indexed by m−i and m−i−1.",
+   "correction": "Use S_(m+1−i)/S_(m−i), 1≤i≤m.",
+   "reason": "At i=m the printed expression reaches a negative index; the last reverse grade is the lowest ascending grade S₁/S₀.",
+   "affects": "a stated result",
+   "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+   "searched": [
+    "D’Addezio v4 theorem and proof; accepted main source-issue list; no separate author erratum checked."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E304",
+   "kind": "misprint",
+   "locator": "Hartl–Pink published §10.17, p. 712",
+   "printed": "The root-difference absolute value is bounded above by a negative expression.",
+   "correction": "The left side must be log|w−w_i|.",
+   "reason": "The preceding root-lifting estimate is logarithmic; absolute values are nonnegative.",
+   "affects": "nothing",
+   "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+   "searched": [
+    "Published SigmaBd.pdf §§10.15–10.17; no separate erratum located in the source."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E305",
+   "kind": "misprint",
+   "locator": "Hartl–Pink published §10.16, p. 712",
+   "printed": "The displayed terminal logarithmic bound has the wrong sign on cn.",
+   "correction": "Use log|w|=−ρ≤−cn.",
+   "reason": "Lemma 10.12 chooses ρ≥cn, and §10.3 requires log|w|≤−cn.",
+   "affects": "nothing",
+   "known": "Recorded here; not a claim of exhaustive novelty. No correction found in the versions searched.",
+   "searched": [
+    "Published SigmaBd.pdf §§10.3,10.12,10.16; no separate erratum located in the source."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E306",
+   "kind": "misprint",
+   "locator": "Monodromy published Lemma 4.12 proof, p. 150",
+   "printed": "The target of the dense-image and surjectivity sentence is labelled U_f(t).",
+   "correction": "Use U_h(t).",
+   "reason": "h(t) is the uniform lower valuation bound; f depends on two additional indices and cannot label that module.",
+   "affects": "nothing",
+   "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+   "searched": [
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E307",
+   "kind": "misprint",
+   "locator": "Monodromy published Lemma 4.12 proof, p. 150, bilateral series estimate",
+   "printed": "The w_s estimate mixes a second radius variable r on its right side.",
+   "correction": "Use l v_p(π)+s q^(−l)t throughout.",
+   "reason": "The residue contribution to w_s is multiplied by the same radius s as on its left side.",
+   "affects": "nothing",
+   "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+   "searched": [
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E308",
+   "kind": "misprint",
+   "locator": "Monodromy published Proposition 5.11 proof, p. 165",
+   "printed": "The exterior-power reduction calls the selected determinant line the lowest slope submodule.",
+   "correction": "It is the highest slope line in the d-th exterior power.",
+   "reason": "M₁ was selected as the highest-slope rank-d block; summing its d slopes maximises the exterior-power slope.",
+   "affects": "nothing",
+   "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+   "searched": [
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E309",
+   "kind": "misprint",
+   "locator": "Monodromy published Proposition 5.11 proof, p. 165, coefficient induction base",
+   "printed": "The base case claims all coordinates cᵢ vanish modulo π.",
+   "correction": "The coordinates reduce to δᵢ₁; normalise wᵢ≡vᵢ modulo π.",
+   "reason": "v₁ has coordinate one in the first vector and zero in the other vectors in a nearby basis. The first coordinate is a unit, and the displayed bound still follows.",
+   "affects": "nothing",
+   "known": "Recorded here; no exhaustive novelty claim or separate published correction located.",
+   "searched": [
+    "Published Annals paper at the cited locator; corresponding arXiv v4 proof; author publication-list version note."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.1.json",
+   "citation": "Sources of the blueprint of PadicDifferentialEquationsAndRigidCohomology",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E701",
+   "kind": "error",
+   "locator": "item for the journal's page 331, line 8, p. 1 of the errata note (13 October 2003); read against Lemma 3 of arXiv v2, p. 5",
+   "printed": "The errata replaces 2m + 1 by d(m + 1) − 2 (d = 2g + 1) in the bound of Lemma 3, whose form ω = A(x)y^{2m+1}dx has odd exponent 2m + 1.",
+   "correction": "With Lemma 3's own m the multiplier must be p^{⌊log_p(d(2m + 3) − 2)⌋}, i.e. p^{⌊log_p((2g + 1)(e + 2) − 2)⌋} for F(x)y^e dx with e odd (Harvey §3; Edixhoven Lemma 4.3.5 with even exponent m' = 2m + 2 in the form a·y^{m'}dx/y). The errata formula d(m + 1) − 2 is right only if m is read as Edixhoven's even exponent.",
+   "reason": "For Q = x^3 + x + 1, p = 5 (good reduction, discriminant −31) and m = 0, the reduction of y dx = Q dx/y is (2/5)x dx/y + (3/5) dx/y + d((2/5)xy), computed exactly; it needs the factor 5 = 5^{⌊log_5 7⌋}, while d(m + 1) − 2 = 1 gives 5^0 = 1.",
+   "affects": "the proof",
+   "known": "new as a reading of the errata in the arXiv numbering; the journal's own indexing of Lemma 3 (page 331) was not available to check whether it uses the even exponent, and Edixhoven's Lemma 4.3.5 and Harvey §3 state the correct bound",
+   "searched": [
+    "Kedlaya's errata note (kskedlaya.org/papers/hyperell-errata.pdf)",
+    "Edixhoven's course notes, Lemma 4.3.5",
+    "Harvey, arXiv math/0610973v2, §3",
+    "arXiv versions of Kedlaya's paper (v2 read)"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "K. S. Kedlaya, Comments/errata for 'Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology', author's note dated 13 October 2003 (2 pp.)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E702",
+   "kind": "misprint",
+   "locator": "paragraph on the integral basis, p. 1 of the errata note",
+   "printed": "The note describes the Frobenius-stable lattice inside the Z_q-span of x^i dx/y for i = 1, …, 2g − 1.",
+   "correction": "The span is over 0 ≤ i ≤ 2g − 1 (2g forms, a basis of H^1(A; K)^−), as in Edixhoven's Proposition 5.3.1.",
+   "reason": "H^1(A; K)^− has dimension 2g; the printed index range has only 2g − 1 elements and would miss dx/y, the invariant differential of an elliptic curve when g = 1.",
+   "affects": "nothing",
+   "known": "new; Edixhoven, Proposition 5.3.1 (pp. 18–19), states the lattice with the correct range",
+   "searched": [
+    "Kedlaya's errata note",
+    "Edixhoven's course notes §5.3"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "K. S. Kedlaya, Comments/errata for 'Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology', author's note dated 13 October 2003 (2 pp.)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E703",
+   "kind": "misprint",
+   "locator": "proof of Lemma 4.3.5, p. 14 (version of 25 October 2006)",
+   "printed": "The proof gives the valuations at infinity as v_∞(x) = −2 and v_∞(y) = −2.",
+   "correction": "v_∞(y) = −d (d = deg Q = 2g + 1), since y^2 = Q and v_∞(x) = −2.",
+   "reason": "2v_∞(y) = v_∞(Q) = d·v_∞(x) = −2d; the next values in the proof, v_∞(dx/y) = d − 3 and v_∞(f) ≥ −md − d + 2, use v_∞(y) = −d, so the bound is unaffected.",
+   "affects": "nothing",
+   "known": "new; no later version of the notes was found",
+   "searched": [
+    "the Leiden course page of the notes (version of 25 October 2006)"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "B. Edixhoven, Point counting after Kedlaya (EIDMA-Stieltjes Graduate course, Leiden, 22–26 September 2003), course notes, version of 25 October 2006 (23 pp.)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E704",
+   "kind": "error",
+   "locator": "Assumption 1, condition (3), p. 3 (arXiv v2 and the journal version)",
+   "printed": "Condition (3) requires the discriminants of the finite Z_q-algebras R^0/(r(x)) and R^∞/(1/x) to be units.",
+   "correction": "Require unit discriminants only for their reduced parts (quotients by the nilradical).",
+   "reason": "The printed condition is sufficient but excludes every ramified map x, for example every hyperelliptic model y^2 = f(x): R^0/(r) = (Z_q[x]/(f))[y]/(y^2) is not reduced, so its discriminant is 0.",
+   "affects": "a stated result",
+   "known": "Tuitman's erratum of June 2020 (jtuitman.github.io/erratum.pdf), crediting F. Vermeulen and W. Castryck",
+   "searched": [
+    "the author's erratum page",
+    "arXiv:1412.7217 versions"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.7.json",
+   "citation": "J. Tuitman, Counting points on curves using a map to P^1, II, Finite Fields Appl. 45 (2017), 301–322; arXiv:1412.7217v2 read here",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E1",
    "kind": "misprint",
    "locator": "Proposition 4.6.3(b), p. 52 (arXiv v4)",
