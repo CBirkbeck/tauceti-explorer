@@ -1,6 +1,6 @@
 # Roadmap: endoscopic transfer and unitary trace comparison
 
-**Assembly checkpoint.** ET.4–ET.6 has an independent `needs_changes` verdict. This combined draft carries its corrected targets, including three additions, while the required revision remains outstanding. ET.0–ET.3 and ET.6a–ET.7 retain their separately accepted planning inputs. The foundational and primary-proof obligations below remain open.
+**Status.** This document joins the three planning parts of the roadmap. ET.0–ET.3 and ET.6a–ET.7 are planned in independently accepted packets. ET.4–ET.6 carries the statements as corrected by its independent review, whose verdict is `needs_changes`, including the three targets that review added. That review left two kinds of open work, both stated in this document. First, primary proofs that were not read: each affected target carries a paragraph *Open after the independent review*. Second, inputs that must still be planned in this roadmap at its own tier: the algebraic σ-conjugacy, J_b and early Igusa prefix of ET.5 with the geometry of the Igusa trace correspondences, representability and projectivity at Drinfeld level, the multiplicity-one newvector input of Scholze's integrality step, and the segment-pair L- and ε-factors with monodromy and conductor. The roadmap is complete when a revision of ET.4–ET.6 supplies them and an independent review accepts it; the section *Remaining supplier and proof obligations* collects them.
 
 **Summary.** Build stable conjugacy and transfer from reductive groups and Galois cohomology; prove the fundamental lemma through the Hitchin fibration; then compare stable, twisted and Igusa trace formulas for unitary groups. The local branch constructs the full Weil–Deligne correspondence for general linear groups and its inner forms, compares the Lubin–Tate and Drinfeld towers, and isolates their actual supercuspidal cohomology. The global branch supplies cyclic base change, automorphic induction, unitary packet transfer and rational alternating Igusa traces. The final exports keep geometric tower duality, equivariant cohomology, pure automorphic transfer and signed virtual trace identities as distinct theorems with explicit normalization comparisons.
 
@@ -332,7 +332,7 @@ This contract is used by `ET.7a/speh-representation`.
 
 ET.0 supplies the cohomological and conjugacy foundation. ET.1's local analysis and ET.2b's Hitchin geometry are parallel branches that meet in ET.3's fundamental lemma and transfer. ET.4 builds stable and twisted trace formulas and the cyclic transfer prefix needed before ET.6. ET.5's Igusa stabilization and ET.6's local correspondence are then separate branches. ET.6a adds geometric towers, equivariant cohomology and actual supercuspidal realization; ET.7a consumes the earlier pure transfer and spectral inputs; ET.7b combines the early rational Igusa object with stabilization and pure spectral results. ET.7 compares the exports through worked normalization checks.
 
-Each subsection states a mathematical target, the exact assumptions, its source locator and proof route, and the interfaces consumed by later targets. Definitions retain their named API and discriminating Checks. The assembled Suggested file, withheld until the reviewed-input blocker is resolved, will record only the light signatures expressible over existing carriers in the namespace `TauCetiRoadmap.EndoscopicTransferAndUnitaryTraceComparison`; intended future `TauCeti` names in the prose are APIs to implement, not assertions that those declarations already exist. The finite models retain the distinctions between abstract cocycles and continuous cohomology, segment combinatorics and representations, and finite signed sums and automorphic traces.
+Each subsection states a mathematical target, the exact assumptions, its source locator and proof route, and the interfaces consumed by subsequent targets. Definitions retain their named API and discriminating Checks. The Suggested file records only the light signatures expressible over existing Mathlib carriers, in the namespace `TauCetiRoadmap.EndoscopicTransferAndUnitaryTraceComparison`; intended future `TauCeti` names in the prose are APIs to implement, not assertions that those declarations already exist. The finite models retain the distinctions between abstract cocycles and continuous cohomology, segment combinatorics and representations, and finite signed sums and automorphic traces.
 
 The ordering of shared interfaces is substantive. The cyclic correspondences described in ET.4 are the suppliers of the ET.7a applications. The finite deformation spaces described in ET.6 are the suppliers of the ET.6a framed tower; the tower adds quasi-isogeny components and actions. The rational Igusa construction described in ET.7b must be available as an early ET.5a interface before ET.5's fixed-point theorem. The local formal-module classification likewise needs an early finite-flat supplier. The independent ET.4 review requires the algebraic and Igusa prefix to be planned in ET at its current tier. These requirements remain explicit ownership obligations until their suppliers provide the stated interfaces; later concentration or Galois realization results cannot be substituted as prerequisites.
 
@@ -2450,7 +2450,7 @@ Chebotarev for the auxiliary split place: upstream Chebotarev Layer 10.
 
 ## Layer ET.4: Stable and twisted unitary trace comparison
 
-This layer retains the independently corrected statements. Its primary proofs and supplier gaps are listed below; the independent verdict is needs_changes.
+The targets are the trace-formula inputs for unitary groups and the cyclic transfers built from them. Harish-Chandra's p-adic characters and the twisted characters of θ-stable representations come first, with Kottwitz's Tamagawa formula, the stable elliptic distribution ST^H_e with its coefficient ι(G,H), and Kottwitz's stabilization of the elliptic terms. The base-change groups, their unramified transfers, the transfer of test functions at every place, small-level transfers and the archimedean Euler–Poincaré and twisted Lefschetz functions feed the invariant twisted trace formula; the absence of proper cuspidal Levi subsets when [F⁺:ℚ] ≥ 2 simplifies its geometric and spectral sides, which gives the stable–twisted identity, and the division-algebra unitary groups get their own simple trace formula. The second half applies the comparison: Arthur–Clozel local and global cyclic base change and cyclic automorphic induction for GL_n, Scholze's division-datum descent between unitary groups and GL_n, the generic endoscopic classification of unitary groups, and the transfer between GSp₄ and GL₄. The cyclic correspondences are placed here, before ET.6, because the classical local correspondence uses them.
 
 <a id="et-4-padic-character-distributions"></a>
 
@@ -2475,6 +2475,8 @@ The proof proceeds through these steps.
 - For G = GL_1, θ_χ = χ for a character χ, and the Weyl integration formula is the identity ∫_{F^×} f = ∫_{F^×} f.
 - For the Steinberg representation of GL_2(F), θ_St = −1 on the regular elliptic set (a computation used in ET.6/acceptance-examples).
 - Θ_π is nonzero on C_c^∞(G(F)_rs) for every irreducible π (linear independence of characters).
+
+**Open after the independent review.** The primary proofs of Harish-Chandra's character theorem and of its twisted analogue have not been checked.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/fourier-transform-orbital-integrals`, `SmoothRepresentationsOfLocalGroups:SR.3a/admissibility-of-irreducibles`, `SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction`, `mathlib:MeasureTheory.Measure.IsHaarMeasure`.
 
@@ -2508,6 +2510,8 @@ The proof proceeds through these steps.
 - If Π is not σ-stable no twisted character is defined; the statement requires Π ≅ Π∘σ.
 - Changing I_σ by an ℓ-th root of unity ζ multiplies Θ_{Π,σ} by ζ.
 
+**Open after the independent review.** The primary proof of the general twisted-character input has not been checked independently.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/norm-correspondence`, `ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction`.
 
 The source statements fix the scope of this target.
@@ -2539,6 +2543,8 @@ The proof proceeds through these steps.
 - τ(𝔾_m) = 1 and τ(R_{F_0/ℚ}𝔾_m) = 1.
 - τ(U(1)) = 2 for the norm-one torus of an imaginary quadratic F_0 (π_0 of (ℂ^×)^Γ = {±1}, ker^1 trivial).
 - For n⃗ = (1) and [F^+:ℚ] odd, |π_0(Z(Ĝ_{(1)})^Γ)| = 2^{r−1} = 1 and ker^1 is trivial, so τ(G_{(1)}) = 1 (Shin 2011 Remark 3.2).
+
+**Open after the independent review.** The primary proof of Kottwitz's formula, with Weil's conjecture for the simply connected groups, has not been checked.
 
 *Needs:* `AdelicAlgebraicGroups:AA.2/tamagawa-number`, `AdelicAlgebraicGroups:AA.2/tamagawa-measure`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data`, `ReductiveGroupsPartII:RG2.1/z-extension-existence`, `ReductiveGroupsPartII:RG2.5/langlands-dual-group`.
 
@@ -2626,6 +2632,8 @@ The proof proceeds through these steps.
 - For G anisotropic with only the trivial elliptic endoscopic triple, T_e(f) = ST^G_e(f^G) with f^G = f.
 - For G = 𝔾_m every class is stable and the identity is tautological.
 - For a unitary similitude group G_N the sum runs over (G_N,1,id) and the (G_{n_1,n_2}, s, η) of ET.0/unitary-elliptic-endoscopic-data.
+
+**Open after the independent review.** The primary proof of Kottwitz's stabilization of the elliptic terms has not been checked.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/fundamental-lemma-almost-all-places`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/archimedean-pseudocoefficient-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`.
 
@@ -2832,6 +2840,8 @@ Use this interface as follows.
 - For the trivial triple the coefficient is (−1)^{q(G)}.
 - On a compact real quotient choose ξ and a coefficient Ξ′ whose restriction along the base-change embedding has a different highest weight and no ξ-constituent. Schur orthogonality distinguishes their traces and prevents matching; mere inequality Ξ′≠ξ⊗ξ is insufficient.
 
+**Open after the independent review.** The primary proof for the twisted Lefschetz functions and the signature-dependent packet calculations have not been checked.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.1/pseudocoefficients`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/archimedean-pseudocoefficient-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.1/real-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `AutomorphicSpectralTheory:AS.6/general-euler-poincare`.
 
 The source statements fix the scope of this target.
@@ -2864,6 +2874,8 @@ The proof proceeds through these steps.
 - For θ trivial (no twist) the statement reduces to AutomorphicSpectralTheory:AS.6/invariant-trace-formula.
 - If 𝒢θ(ℚ)\𝒢(𝔸)^1 were compact the formula would reduce to the twisted Selberg trace formula.
 - For f cuspidal at ∞ with [F^+:ℚ] ≥ 2, the geometric side reduces to elliptic terms (ET.4/twisted-geometric-side).
+
+**Open after the independent review.** The invariant twisted trace formula needs its own primary source: the untwisted formula of AutomorphicSpectralTheory AS.6 does not supply it.
 
 *Needs:* `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`, `AutomorphicSpectralTheory:AS.6/coarse-trace-identity`, `AutomorphicSpectralTheory:AS.6/fine-geometric-expansion`, `AutomorphicSpectralTheory:AS.6/fine-spectral-expansion`, `AutomorphicSpectralTheory:AS.6/invariant-recursion`, `AutomorphicSpectralTheory:AS.6/weighted-orbital-integral`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters`.
 
@@ -2915,6 +2927,8 @@ Use this interface as follows.
 - A unitary group U(a,b) over ℚ relative to an imaginary quadratic field is cuspidal.
 - The trivial group is cuspidal; a Levi subgroup is never required to contain a non-trivial torus.
 
+**Open after the independent review.** The primary proof of the simplification of the twisted geometric side has not been checked.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `AdelicAlgebraicGroups:AA.2/tamagawa-measure`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
 The source statements fix the scope of this target.
@@ -2942,6 +2956,8 @@ The proof proceeds through these steps.
 - For [F^+:ℚ] = 2 and n⃗ = (2), the Levi R_{F_0/ℚ}𝔾_m × R_{F/ℚ}(GL_1 × GL_1) is not cuspidal.
 - For F^+ = ℚ, (R_{F/ℚ}𝔾_m)^s × G_{N−2s} ⊂ G_N is a proper cuspidal Levi subgroup (non-example of the hypothesis).
 - The lemma is used only with test functions cuspidal at ∞.
+
+**Open after the independent review.** The primary proof of the simplification of the twisted geometric side has not been checked.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/cuspidal-levi-subsets`.
 
@@ -2975,6 +2991,8 @@ The proof proceeds through these steps.
 - For n⃗ = (1) the identity reduces to a statement about the elliptic part of the twisted trace formula of a torus.
 - Dropping [F^+:ℚ] ≥ 2 (F imaginary quadratic) makes the identity false in general: extra cuspidal-Levi terms appear (Caraiani–Scholze non-compact Remark 5.5.4).
 - Both sides vanish when f^n⃗_v = 0 at one place.
+
+**Open after the independent review.** The primary proof of the simplification of the twisted geometric side has not been checked.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/no-proper-cuspidal-subsets`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`.
 
@@ -3010,6 +3028,8 @@ The proof proceeds through these steps.
 - The coefficient |det(Φ^{-1}θ − 1)|^{-1} equals 1 when 𝔞^{𝒢θ}_M = 0.
 - Non-θ-stable discrete Π_M contribute zero.
 
+**Open after the independent review.** The primary proof of the spectral simplification and the coefficients of the residual terms have not been checked.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `AutomorphicSpectralTheory:AS.6/fine-spectral-expansion`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters`, `SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction`.
 
 The source statements fix the scope of this target.
@@ -3044,6 +3064,8 @@ The proof proceeds through these steps.
 - For N = 1 the identity is the base-change identity for the torus G_1.
 - For n_1 = n_2 = N/2 the coefficient carries the factor ½ seen as ε_n⃗ in Caraiani–Scholze non-compact Theorem 5.6.1.
 - The identity fails for F^+ = ℚ (Remark 5.5.4).
+
+**Open after the independent review.** It depends on the geometric and spectral simplifications whose primary proofs have not been checked.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-geometric-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`.
 
@@ -3211,6 +3233,8 @@ The proof proceeds through these steps.
 - A Π with no square-integrable component at x is outside Theorem 10.5.
 - The rank-one U(1) map z↦z/z̄ is not the whole similitude-group construction.
 
+**Open after the independent review.** The statement is narrowed to Scholze's Theorem 10.5; its proof in Harris–Taylor and the broader transfer first proposed here are not established.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/global-cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/inner-form-transfer`.
 
 The source statements fix the scope of this target.
@@ -3239,6 +3263,8 @@ The proof proceeds through these steps.
 - For N = 1 the classification is the description of automorphic characters of U(1) through base change.
 - At a place split in F, U(F^+_v) ≅ GL_N(F_v) and the packet is a singleton given by ψ_v.
 - For a simple generic global parameter, the allowed packet members satisfy the global pairing condition; each such occurring member has multiplicity one. The formula does not assert every local packet choice occurs.
+
+**Open after the independent review.** The generic scope for pure inner forms was checked; the non-tempered local construction and the full stabilization chain were not.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer`.
 
@@ -3270,6 +3296,8 @@ The proof proceeds through these steps.
 - For a non-CM holomorphic cuspidal GL₂ form of weight at least two whose symmetric cube is cuspidal, Sym³ of its two-dimensional parameter preserves an alternating form up to det³, giving the symplectic case.
 - If Π is an isobaric sum the representation is not of general type.
 - The orthogonal alternative is not a GSp_4 representation: it goes through GSpin_4.
+
+**Open after the independent review.** The forward algebraicity statement was repaired; the primary chain behind the classification for GSp₄ has not been checked.
 
 *Needs:* `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification`.
 
@@ -3307,7 +3335,7 @@ The source statements fix the scope of this target.
 
 ## Layer ET.5: Rational Igusa counting and stabilization
 
-This layer retains the independently corrected statements. Its primary proofs and supplier gaps are listed below; the independent verdict is needs_changes.
+The targets are Shin's stable trace formula for Igusa varieties. Acceptable elements of J_b(ℚ_p) and acceptable test functions come first. The fixed-point formula for Frobenius-twisted Igusa correspondences, Kottwitz triples for Igusa varieties, p-adic types and Honda–Tate theory with endomorphism structure describe the fixed points, which effective triples count, giving Shin's counting formula. It is stabilized away from p and ∞, then at p through the endoscopy of J_b via its Levi M_b and the transfer at p; the endoscopic test functions φ^H give the stable Igusa trace formula, acceptable functions determine virtual representations, and the formula is specialized to unitary similitude groups of every rank and signature. The algebraic σ-conjugacy, J_b and early Igusa geometry these targets use are among the inputs still to be planned at this tier.
 
 <a id="et-5-acceptable-test-functions"></a>
 
@@ -3356,6 +3384,8 @@ Use this interface as follows.
 - For decreasing slopes λ_i, the cocharacter ν_i=−λ_i yields the large negative Frobenius shift fr^(−sN), which is acceptable; the positive shift reverses the inequality.
 - 1_{U^p} ⊗ 1_{J_b(ℤ_p)} is not acceptable when r > 1, because 1 ∈ J_b is not acceptable.
 
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
+
 *Needs:* .
 
 The source statements fix the scope of this target.
@@ -3392,6 +3422,8 @@ The proof proceeds through these steps.
 - For g = 1 and N large, the fixed points of (Fr^s)^N are the 𝔽_{p^{sN}}-points of the model, and the formula is the Grothendieck–Lefschetz trace formula for the open variety with compact supports.
 - Small powers are outside the theorem’s guaranteed range. The source does not prove a failure example for every small N.
 - The bound M′ does not depend on ξ.
+
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
 
 *Needs:* `EtaleDualityAndPerverseSheaves:EDC.8/fujiwara-varshavsky-trace-formula`, `EtaleDualityAndPerverseSheaves:EDC.8/frobenius-twist-contracting`, `EtaleDualityAndPerverseSheaves:EDC.8/contracting-correspondence`, `EtaleDualityAndPerverseSheaves:EDC.8/cohomological-correspondence-lifting`, `EtaleDualityAndPerverseSheaves:EDC.5`, `EtaleDualityAndPerverseSheaves:EDC.6`, `LefschetzPencilsAndVanishingCycles:LPV.6`.
 
@@ -3446,6 +3478,8 @@ Use this interface as follows.
 - (γ_0;γ,δ) with δ not acceptable is excluded; including it would break the transfer at p (ET.5/transfer-at-p).
 - If 𝔎(I_0/ℚ) = 1 then KT_b^eff = KT_b over γ_0.
 - Even for basic b these are ordinary conjugacy triples with δ∈J_b(ℚ_p). Kottwitz 1992 uses a σ-conjugacy variable over an unramified extension; Shin 2009 Remark 13.3 p. 42 warns that no explicit identification of the two indexing sets is supplied.
+
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/inner-twist`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions`.
 
@@ -3556,6 +3590,8 @@ The proof proceeds through these steps.
 - For a CM point (b basic, I_0 a torus) the fibre over a triple is a single I_φ(ℚ)-orbit.
 - If α(γ_0;γ,δ) ≠ 0 the triple has no abelian variety over it.
 - The count is independent of the choice of Σ_b in its isogeny class.
+
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-adic-types`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-kottwitz-triples`, `PELModuli:M3/ker1-classification`, `PELModuli:M3/hasse-principle-cases`.
 
@@ -3674,6 +3710,8 @@ Use this interface as follows.
 - Under the explicit hypothesis J_b≅M_b, the effective inner-form and quasi-split sets agree. Do not infer this solely from an undefined μ-ordinary label in general PEL data.
 - For an endoscopic H whose tori do not transfer to J_b (e.g. a split torus and J_b anisotropic modulo centre), E^eff_p(J_b,G;H) is empty.
 - For H = G the set has one element.
+
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.0/endoscopic-datum`, `ReductiveGroupsPartII:RG2.5/l-group-levi-embedding`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/inner-twist`.
 
@@ -3859,6 +3897,8 @@ The proof proceeds through these steps.
 - For n_1 = n_2 the coefficient carries |Out| = 2.
 - The excluded odd–odd–odd pairs contribute nothing.
 
+**Open after the independent review.** The algebraic σ-conjugacy, J_b and early Igusa inputs of this target must be planned in this roadmap at its own tier; the review removed the citations of higher-tier roadmaps that had stood in for them.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-igusa-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`.
 
 The source statements fix the scope of this target.
@@ -3895,7 +3935,7 @@ The source statements fix the scope of this target.
 
 ## Layer ET.6: Classical local Langlands and Jacquet–Langlands
 
-This layer retains the independently corrected statements. Its primary proofs and supplier gaps are listed below; the independent verdict is needs_changes.
+The targets are the classical local Langlands correspondence for GL_n over a p-adic field with full Weil–Deligne parameters, and the Jacquet–Langlands correspondence for the inner forms of GL_n. The segment calculus comes first: cuspidal segments and their linking, the Zelevinsky, Steinberg and Speh representations, the Zelevinsky and Langlands classifications, truncation and ladders, Tadić's unitary dual, and the Weil–Deligne parameters of segments. Henniart's characterization fixes the correspondence. Scholze's proof constructs it from deformation spaces with Drinfeld level structure, his test functions φ_{τ,h} with their norm maps, descent and comparison with (O,D′)-groups, the division-algebra Shimura varieties with their point count, and the Galois representations in their cohomology; the Lubin–Tate comparison, bijectivity on supercuspidals, Harris's non-Galois automorphic induction and the L- and ε-factors of pairs complete it, and the full Weil–Deligne correspondence follows. The inner-form branch gives the Langlands quotient map Q, semisimple parameters for inner forms of Levi subgroups, the local Jacquet–Langlands correspondence, Badulescu's Langlands–Jacquet map, the non-transfer of generic principal series and the explicit level-zero case.
 
 <a id="et-6-cuspidal-segment"></a>
 
@@ -4029,6 +4069,8 @@ The proof proceeds through these steps.
 - For n = 2 and ρ = 1: the multisegments of degree 2 supported on {ν^{-1/2}, ν^{1/2}} are {[ν^{-1/2},ν^{1/2}]} and {[ν^{-1/2}],[ν^{1/2}]}; Z gives the trivial and the Steinberg representation respectively (for the second, order the segments as [ν^{1/2}], [ν^{-1/2}] so that no segment precedes one listed after it), while L gives Steinberg and the trivial representation.
 - (b) for two characters χ_1, χ_2 of GL_1: χ_1 × χ_2 is irreducible iff χ_1χ_2^{-1} ≠ ν^{±1}.
 - The involution # exchanges trivial and Steinberg for GL_2.
+
+**Open after the independent review.** A primary proof of the algorithm computing the Zelevinsky involution is not supplied.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-representations`, `SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification`, `SmoothRepresentationsOfLocalGroups:SR.5/mirabolic-derivatives`, `SmoothRepresentationsOfLocalGroups:SR.2/geometric-lemma`, `SmoothRepresentationsOfLocalGroups:SR.3/cuspidal-support`, `SmoothRepresentationsOfLocalGroups:SR.2/whittaker-functionals`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`.
 
@@ -4307,6 +4349,8 @@ Use this interface as follows.
 - For n=1, q>2 and m=1, the Lubin–Tate torsion extension has ramification degree q−1>1; its integral cover is not étale. The blanket claim for all m≥1 would fail when q=2,m=1.
 - R_β has Krull dimension n, i.e. relative dimension n − 1 over O_r, the dimension of the Lubin–Tate space.
 
+**Open after the independent review.** The comparison of formal and algebraic nearby cycles and the deformation theory with Drinfeld level structure have no supplier yet.
+
 *Needs:* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.6`.
 
 The source statements fix the scope of this target.
@@ -4498,6 +4542,8 @@ Use this interface as follows.
 - For n = 1 the completed local rings are the Lubin–Tate rings of ET.6/drinfeld-level-deformation-spaces.
 - Replacing D by a split algebra leaves the hypotheses of this construction. Division proves properness here; splitting alone does not prove every other unitary Shimura datum nonproper.
 
+**Open after the independent review.** The available suppliers give an algebraic space and properness at good level; they do not prove representability by a projective scheme at Drinfeld level.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-level-deformation-spaces`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/comparison-of-two-functions`, `PELModuli:M2/representability`, `PELModuli:M2/properness-when-division`, `PELModuli:M4/canonical-model-identification`, `LefschetzPencilsAndVanishingCycles:LPV.6`.
 
 The source statements fix the scope of this target.
@@ -4530,6 +4576,8 @@ The proof proceeds through these steps.
 - For m = 0 and h = 1, φ_{τ,h} is Kottwitz's φ_j and the identity is Kottwitz's point count at good reduction.
 - The normalising factor on the left side of Corollary 9.4 is Scholze's; a consumer takes it from there and does not set it to 1.
 - Without the vanishing of the Kottwitz invariant, a triple contributes no points.
+
+**Open after the independent review.** The ordinary Kottwitz weights and the suppliers for applying the trace formula are not yet in place.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/division-algebra-shimura-varieties`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/comparison-of-two-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/norm-maps-and-base-change-identities`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity`, `EtaleDualityAndPerverseSheaves:EDC.8/fujiwara-varshavsky-trace-formula`, `AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate`, `AbelianSchemesAndArithmeticModuliPartII:F0/tate-hom`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction`.
 
@@ -4619,6 +4667,8 @@ The proof proceeds through these steps.
 - For n = 2 and ρ trivial on D^×, JL(ρ) is the Steinberg representation (not supercuspidal), so (c) does not apply.
 - The sign (−1)^{n−1} is the Kottwitz sign of D^×.
 
+**Open after the independent review.** The multiplicity-one newvector statement used for integrality has no supplier yet.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-level-deformation-spaces`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `ClassicalAdicEtaleCohomology:H1:formal-adic-comparison`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/global-galois-input`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/norm-maps-and-base-change-identities`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/local-cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters`.
 
 The source statements fix the scope of this target.
@@ -4703,6 +4753,8 @@ The proof proceeds through these steps.
 - For F^3_0 = F^2_0 Galois over F^1_0, the result reduces to cyclic or solvable automorphic induction.
 - A non-algebraic Hecke character has no ℓ-adic realisation, so (a) needs regular L-algebraicity.
 
+**Open after the independent review.** The archimedean dictionary and the realizations of algebraic Hecke characters have no supplier yet.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/global-cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/cyclic-automorphic-induction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/scholze-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/post-correspondence-global-galois`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/supercuspidal-bijection`.
 
 The source statements fix the scope of this target.
@@ -4761,6 +4813,8 @@ The proof proceeds through these steps.
 - rec_F(trivial of GL_2) = |·|^{-1/2} ⊕ |·|^{1/2} (N = 0) and rec_F(St_2) = |·|^{-1/2} ⊗ Sp_2 with N ≠ 0: the two differ only by N.
 - For n = 1, rec_F is local class field theory.
 - rec_F(π^∨) = rec_F(π)^∨ on a supercuspidal π of GL_2 with non-trivial central character.
+
+**Open after the independent review.** The extension of the pair factors to all representations, with monodromy and conductor, has a genuine proof gap.
 
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/supercuspidal-bijection`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-parameter`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/zelevinsky-classification`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/l-epsilon-of-pairs`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/scholze-local-langlands`, `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation`, `SmoothRepresentationsOfLocalGroups:SR.4/spherical-parameter`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor`.
 
@@ -4890,6 +4944,8 @@ The proof proceeds through these steps.
 - For d = 1 (D = F) JL is the identity.
 - A principal series of GL_2 is not in the image of JL.
 
+**Open after the independent review.** The statement for all GL_r(D) is recorded from Badulescu; the primary proof of the classical correspondence has not been checked.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.3/inner-form-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-representations`.
 
 The source statements fix the scope of this target.
@@ -5009,6 +5065,8 @@ The proof proceeds through these steps.
 - The trivial representation of D^× corresponds to Steinberg, which is not of level-zero supercuspidal type: the formula is about supercuspidal level-zero representations of GL_n(F) and the non-trivial-character part of D^×.
 - A character of D^× trivial on O_D^× corresponds to an unramified twist of Steinberg.
 
+**Open after the independent review.** Only the component assertion of Newton–Thorne was checked; the general Bushnell–Henniart rectifier formula has not been read.
+
 *Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`.
 
 The source statements fix the scope of this target.
@@ -5042,6 +5100,8 @@ The source statements fix the scope of this target.
 [M. Tadić, Classification of unitary representations in irreducible representations of general linear group (non-Archimedean case)](https://www.numdam.org/item/ASENS_1986_4_19_3_335_0.pdf), Theorem 7.5, p. 370. gives the complementary-series range used in check (5).
 
 ## Layer ET.6a: Classical towers and actual cohomological realization
+
+The targets are the classical Lubin–Tate and Drinfeld towers and their actual cohomology. After the tower datum and its action conventions come the formal O_E-module tower, whose finite levels are ET.6's deformation spaces, and the special O_D-module tower; period maps, commuting actions with effective Weil descent, the universal-cover moduli at infinite level, preperfectoid limits and infinite-level duality follow. The equivariant compact-support complex and its comparison, the central-quotient sectors, the basic minuscule modification functor and the comparison with the basic Hecke fibre lead to the raw compact-unitary PEL cohomology, its nearby-cycle decomposition, the global extraction and the supercuspidal sector in Dat's conventions, with the normalization contract for the two Fargues–Scholze Hecke orientations. The rank-two central quotient, perfectoid Stein covers, Gross–Hopkins coordinates and locally analytic duality close the layer.
 
 <a id="et-6a-tower-conventions"></a>
 
@@ -5088,7 +5148,7 @@ This interface is used as follows.
 - Arithmetic Frobenius acts on Λ(1) by q; geometric Frobenius acts by q^(−1).
 - Changing left/right actions also changes which contragredient an isotypic notation selects.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/llc-characterizing-properties`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/llc-characterizing-properties`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-parameter`.
 
 The source statements fix the scope of these targets.
 
@@ -5908,7 +5968,7 @@ Construct the objects and prove the result through the following steps.
 - The two-leg output is σ⊗ρ_π⊗ρ_π∨, with independently specified W_E actions.
 - A formula obtained by just replacing rec(π∨) in the Dat formula is rejected.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre-comparison`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/semisimple-langlands-parameter`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre-comparison`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/semisimple-langlands-parameter`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-parameter`.
 
 The source statements fix the scope of these targets.
 
@@ -6065,6 +6125,8 @@ The source statements fix the scope of these targets.
    series, period exchange, analytic-vector equality and operator comparison.
 
 ## Layer ET.7a: Pure automorphic transfer
+
+The targets are the pure automorphic transfers. Cyclic base change and automorphic induction, owned by ET.4, are applied before classical LLC; the global Speh datum and the full discrete spectrum of GL_m, the twisted unitary spectral coefficients, weak unitary base change and pure cohomological transfer, the local unitary Langlands-quotient compatibility, relevant packet multiplicity one, definite–indefinite switches, transferable levels and oldform dimensions follow, with the automorphic inputs to GSp₄ solvable descent and the induction of quadratic Hecke characters. None of them uses Igusa concentration.
 
 <a id="et-7a-cyclic-base-change"></a>
 
@@ -6267,7 +6329,7 @@ Construct the objects and prove the result through the following steps.
    coefficient is 1/4.
 - Absorbing the normalization operator into an unnamed scalar fails the target.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
 
 The source statements fix the scope of these targets.
 
@@ -6329,7 +6391,7 @@ This interface is used as follows.
 - Changing a ramified unitary local factor cannot be ruled out by the weak definition alone.
 - Residual Speh possibilities remain until cuspidality is separately established.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `ShimuraVarieties:V6/abelian-canonical`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification`, `ShimuraVarieties:V6/abelian-canonical`.
 
 The source statements fix the scope of these targets.
 
@@ -6372,7 +6434,7 @@ Construct the objects and prove the result through the following steps.
 - The proof has no prerequisite in ET.7b or IG.5.
 - The theorem makes good-place and infinity assertions, not all-place packet matching.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-gl-base-change-descent`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`.
 
 The source statements fix the scope of these targets.
 
@@ -6550,7 +6612,7 @@ This interface is used as follows.
 - At split places any compact open is transferable.
 - At good inert places the hyperspecial transfer is the GL_N hyperspecial characteristic function.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/group-fundamental-lemma`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/group-fundamental-lemma`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`.
 
 The source statements fix the scope of these targets.
 
@@ -6593,7 +6655,7 @@ Construct the objects and prove the result through the following steps.
 - If some c_v=0 both specified eigenspaces vanish.
 - For N=2 and all local factors one, the indefinite dimension is twice the definite dimension.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `AutomorphicFormsOnReductiveGroups:AF.5`, `AutomorphicFormsOnReductiveGroups:AF.4`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `AutomorphicFormsOnReductiveGroups:AF.5`, `AutomorphicFormsOnReductiveGroups:AF.4`.
 
 The source statements fix the scope of these targets.
 
@@ -6675,6 +6737,8 @@ The source statements fix the scope of these targets.
 - [BCGP] Lemma 10.2.4, p. 213 (arXiv copy): The quadratic Hecke-character induction client.
 
 ## Layer ET.7b: Rational Igusa comparison
+
+The targets are the rational Igusa comparison of Caraiani–Scholze: the early rational Igusa trace object, the test-function package, normalized Newton reduction to the inner form and its trace duality with test transfer, the signed source Igusa trace identity, finite spectral factorization with virtual coefficients, the separation of unramified Hecke characters and the export of the rational result without a concentration statement.
 
 <a id="et-7b-rational-igusa-object"></a>
 
@@ -6789,7 +6853,7 @@ This interface is used as follows.
 - All three finite parts and the infinity test function are present.
 - The case φ_p=0 is admissible and every trace vanishes.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`.
 
 The source statements fix the scope of these targets.
 
@@ -6852,7 +6916,7 @@ This interface is used as follows.
 - For the full endoscopic group the effective set is a singleton, but the inner-form sign remains.
 - For a proper endoscopic group all allowed Levi contributions are retained.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.5/jb-endoscopic-levi-data`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`, `SmoothRepresentationsOfLocalGroups:SR.2`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.5/jb-endoscopic-levi-data`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`, `SmoothRepresentationsOfLocalGroups:SR.2`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/badulescu-langlands-jacquet-map`.
 
 The source statements fix the scope of these targets.
 
@@ -6892,7 +6956,7 @@ Construct the objects and prove the result through the following steps.
 - The equality is tested on a nontrivial inner form and a proper endoscopic datum.
 - An extension by simply declaring all φ_p acceptable fails.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine`.
 
 The source statements fix the scope of these targets.
 
@@ -6930,7 +6994,7 @@ Construct the objects and prove the result through the following steps.
 - For the balanced proper datum the coefficient is 1/2, not 1.
 - The zero φ_p boundary case gives zero on both sides.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-igusa-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-igusa-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`.
 
 The source statements fix the scope of these targets.
 
@@ -7059,6 +7123,8 @@ The source statements fix the scope of these targets.
 
 ## Layer ET.7: Coherent exports and worked normalization checks
 
+The targets are the coherent exports and their normalization checks: the finite signed coefficient ledger, torus transfer with measure conversion, the unramified GL₂ Satake check, proper unitary endoscopy with its coefficient, division-algebra transfer with its sign, and the coherent automorphic and Igusa exports.
+
 <a id="et-7-finite-coefficient-ledger"></a>
 
 ### ET.7.1 A finite signed coefficient ledger
@@ -7141,7 +7207,7 @@ Construct the objects and prove the result through the following steps.
 - At vol(K)=3 the trivial character trace of 1_K is 3, not 1.
 - A nontrivial character on K integrates to zero.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`.
 
 The source statements fix the scope of these targets.
 
@@ -7178,7 +7244,7 @@ Construct the objects and prove the result through the following steps.
 - For α=2, β=3 the normalized polynomial is X²−5X+6.
 - For r=2 it becomes X²−13X+36 at the parameter level.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer`.
 
 The source statements fix the scope of these targets.
 
@@ -7213,7 +7279,7 @@ Construct the objects and prove the result through the following steps.
    factors.
 - Dropping one effective Levi term can change the virtual local coefficient.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity`.
 
 The source statements fix the scope of these targets.
 
@@ -7248,7 +7314,7 @@ Construct the objects and prove the result through the following steps.
 - At rank two the elliptic sign is −1.
 - At rank one D=E and the corresponding sign is +1.
 
-*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/badulescu-langlands-jacquet-map`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/inner-form-nontransfer`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger`.
+*Needs:* `EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6/badulescu-langlands-jacquet-map`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality`, `EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger`.
 
 The source statements fix the scope of these targets.
 
@@ -7305,6 +7371,15 @@ HeckeStacksAndLocalShtukas and ExcursionOperatorsAndLocalLanglands consume the c
 ## Remaining supplier and proof obligations
 
 The contracts above specify required mathematics. A target becomes usable under precisely its listed hypotheses; a stage name alone does not supply a more general comparison. The following obligations remain part of the build.
+
+### Inputs still to be planned in ET.4–ET.6
+
+The independent review of ET.4–ET.6 found four inputs that this roadmap must plan at its own tier before those layers are complete.
+
+1. The algebraic σ-conjugacy, B(G), J_b, Newton and decency prefix and the early Igusa geometry (central leaves, liftable torsors, perfect tower, rational Euler class) used by ET.5/acceptable-test-functions, ET.5/igusa-fixed-point-formula, ET.5/igusa-kottwitz-triples, ET.5/fixed-points-and-effective-triples, ET.5/jb-endoscopic-levi-data and ET.5/unitary-igusa-trace-formula, together with the geometry of the Igusa trace correspondences: the boundary and correspondence-leg conditions under which the trace theorem of EtaleDualityAndPerverseSheaves EDC.8 applies.
+2. Representability by a projective scheme at Drinfeld level for the Shimura varieties of ET.6/division-algebra-shimura-varieties; PELModuli M2 gives an algebraic space and properness at good level only. The deformation theory with Drinfeld level structure and the comparison of formal and algebraic nearby cycles used by ET.6/drinfeld-level-deformation-spaces are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2, ClassicalAdicEtaleCohomology H1 and LefschetzPencilsAndVanishingCycles LPV.6.
+3. The multiplicity-one newvector statement for supercuspidal representations that gives the integrality step of ET.6/lubin-tate-comparison (Scholze, Corollary 11.5, p. 30); the mirabolic-derivative interface of SmoothRepresentationsOfLocalGroups SR.5 does not supply it.
+4. The L- and ε-factors of pairs of essentially square-integrable segments, with monodromy and the conductor correction, and their extension across Langlands blocks, needed by ET.6/full-wd-local-langlands; ET.6/l-epsilon-of-pairs proves only the supercuspidal case, and the Rankin–Selberg factor of AutomorphicLFunctionsAndLocalFactors AL.3 is stated for generic representations only.
 
 ### Exact unitary comparisons
 
