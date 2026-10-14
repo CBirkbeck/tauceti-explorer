@@ -1,6 +1,6 @@
 # Integral Galois modules and orders: CA.7 continuation
 
-This roadmap continues the accepted CA.7 plan. It supplies the stable module interfaces, the semisimple ideal and cancellation arguments, and the character-determinant machinery used in the Fröhlich–Taylor obstruction theorem. The accepted packet remains the owner of its 55 target IDs. This document retains their exact contracts and adds 71 direct supplier targets; it does not reconstruct their carriers or rename their IDs.
+This roadmap continues the accepted CA.7 plan. It supplies the stable module interfaces, the semisimple ideal and cancellation arguments, and the character-determinant machinery used in the Fröhlich–Taylor obstruction theorem. The accepted packet remains the owner of its 55 target IDs. This document retains their exact contracts and adds 69 direct supplier targets; it does not reconstruct their carriers or rename their IDs, and it imports what lower-tier plans already own.
 
 The main result is the equality
 
@@ -10,7 +10,7 @@ The main result is the equality
 
 for a tame finite Galois extension L/F of number fields with group G. The right side is built from symplectic root signs. Squaring it gives the order-two corollary; absence of symplectic characters gives stable freeness. For odd-order G, Eichler cancellation converts stable freeness into freeness of rank [F:Q]. Neither stable freeness nor local freeness alone asserts a normal integral basis over the relative coefficient order.
 
-Coverage is **planned**, with eight precise boundaries listed below. This is a completed target-level planning pass, not a claim of proof closure or implementation. Every definition and construction has an API, checks and consuming targets. Every prerequisite chain ends in the pinned libraries, a retained/new target, an exact existing-roadmap contract or a recorded boundary.
+Coverage is **planned**, with seven precise boundaries listed below. This is a completed target-level planning pass, not a claim of proof closure or implementation. Every definition and construction has an API, checks and consuming targets. Every prerequisite chain ends in the pinned libraries, a retained/new target, a node of a lower-tier accepted plan, an exact existing-roadmap contract or a recorded boundary.
 
 ## Conventions and scope
 
@@ -54,40 +54,44 @@ The audited pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau 
 - `mathlib:gaussSum_mul_gaussSum_eq_card` in `Mathlib/NumberTheory/GaussSum.lean`: The product with both inverse characters is the finite-field cardinality under nontriviality and additive primitivity Actual pinned Lean statement read on 2026-10-14, lines188–190.
 - `mathlib:gaussSum_mul` in `Mathlib/NumberTheory/GaussSum.lean`: A reindexed double-sum identity for the product of two Gauss sums Actual pinned Lean statement read on 2026-10-14, lines149–152.
 - `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom` in `Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean`: A flat local algebra map of local rings is faithfully flat. Actual pinned Lean statement read on 2026-10-14, lines60–61.
+- `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers` in `Mathlib/RingTheory/DedekindDomain/AdicValuation.lean`: The valuation subring of the v-adic completion of the fraction field of a Dedekind domain; the same file gives it an algebra structure over the Dedekind domain and a torsion-free module instance. Pinned statement read by the independent review on 2026-10-14, line806; Algebra instance line900 and Module.IsTorsionFree instance line965.
+- `mathlib:IsDedekindDomain.HeightOneSpectrum.algebraMap_adicCompletionIntegers_apply` in `Mathlib/RingTheory/DedekindDomain/AdicValuation.lean`: The algebra map from the Dedekind domain to the completed valuation ring is the image of the element in the completion. Pinned statement read by the independent review on 2026-10-14, line926.
+- `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot` in `Mathlib/RingTheory/Flat/TorsionFree.lean`: Over a Dedekind domain a module is flat iff its torsion submodule is zero; the file also registers torsion-free modules over a Dedekind domain as flat. Pinned statement read by the independent review on 2026-10-14, line138; the flat instance is line143.
+- `mathlib:ValuationSubring.isLocalRing` in `Mathlib/RingTheory/Valuation/ValuationSubring.lean`: Every valuation subring is a local ring. Pinned statement read by the independent review on 2026-10-14, line148.
 
-The accepted targets also retain their accepted baseline declarations. Current G₀ restriction acts on finite modules and does not supply the required projective-K₀ restriction. Current ring-equivalence functoriality does not supply arbitrary ring-hom scalar extension. The existing local normal-basis orbit lattice is distinct from a full tame integer-ring normal integral basis. Generic semisimple reduced norm, reduced characteristic polynomial, the Steinitz/K₀ comparison and the integral group logarithm were not found at the pins or in the current library.
+The accepted targets also retain their accepted baseline declarations. Current G₀ restriction acts on finite modules and does not supply the required projective-K₀ restriction. Current ring-equivalence functoriality does not supply arbitrary ring-hom scalar extension. The existing local normal-basis orbit lattice is distinct from a full tame integer-ring normal integral basis. Generic semisimple reduced norm, reduced characteristic polynomial, the Steinitz/K₀ comparison and the integral group logarithm were not found at the pins or in the current library. Two lower-tier accepted plans own part of this ground and are imported: GeometryOfNumbersAndQuadraticArithmetic GN.2 owns pseudobases of Dedekind lattices and the Steinitz class (`GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-steinitz-class`), and IntegralHeckeAndGaloisDeterminants IHG.0 owns the Azumaya reduced-norm determinant and the characteristic polynomial of a determinant law (`IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`, `IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial`). The completed valuation ring of a Dedekind domain is pinned with its algebra structure, torsion-freeness and flatness, so the completion adapter is assembled from these declarations.
 
 ## Imported mathematical contracts
 
 These are dependencies on existing upstream targets. Their declarations are not new CA.7 targets.
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`: The local Brauer invariant isomorphism and the finite-extension restriction formula inv_E(Res[C])=[E:F] inv_F([C]); combined with SemisimpleAlgebras splitting/embedding, a degree-d local extension embeds as a maximal subfield of a degree-d division algebra.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields`: Wedderburn decomposition, simple-module dimensions, splitting-field descent and the Brauer/finite étale embedding criterion for central simple algebras. Current roadmap Layer6 read; reduced norms themselves are new CA.7 targets.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`: Character classification and full-character-table injectivity/orthogonality, including the virtual character evaluation used in the determinant and Adams constructions.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values`: Fields of character values and the absolute Galois action on irreducible characters and their coefficient embeddings.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type`: Frobenius–Schur trichotomy, symplectic characters and the odd-order exclusion; the real Wedderburn correspondence detecting definite quaternion division components.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`: The virtual character ring, restriction/induction projection formula and generic integral Artin/Brauer induction. Q_p-rational elementary induction is an extra CA.7 supplier recorded in G-LOCALBRAUER.
-- `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`: Finite-place completion algebras and valuation rings, the integral tensor/product dictionary and Galois transport of factors; finite integral bases and arithmetic lattice patching.
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`: The local Brauer group with its invariant and the degree-multiplying restriction square (Layer5; the isomorphism Br(F_v)≅ℚ/ℤ and inv_restrict are stated in Layer6 and §2.7). That a degree-d local field splitting a degree-d division algebra embeds in it is proved inside prescribed-separable-polynomial.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields`: Simple modules and Artin–Wedderburn with its dimension formula (Layers1–2), Skolem–Noether (Layer5), and Layer6: base change of central simple algebras, finite separable splitting fields, splitting by maximal subfields, and the Brauer groups of finite fields and of ℝ. The étale embedding criterion is proved inside prescribed-separable-polynomial; reduced norms are IntegralHeckeAndGaloisDeterminants IHG.0’s.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`: The irreducible characters as an orthonormal basis of class functions, second orthogonality and the virtual-character lattice. Determinant and Adams evaluations of virtual characters are CA.7 constructions.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-4-the-arithmetic-of-character-values`: Character values lie in ℚ(ζ_e), and Gal(ℚ(ζ_e)/ℚ) acts on virtual characters with the field of values as fixed field; the absolute Galois action used in CA.7 factors through this cyclotomic action.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-7-the-frobenius-schur-indicator-and-realquaternionic-type`: The Frobenius–Schur trichotomy and the symplectic (quaternionic) irreducible characters. The odd-order exclusion and the test for totally definite quaternion components are short deductions inside odd-order-eichler.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`: The virtual character ring, restriction and induction with the projection formula, and Artin and Brauer induction over ℂ. The field-of-definition (Witt–Berman) refinements are recorded in G-LOCALBRAUER.
+- `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`: Completions and their valuation rings, the semilocal decomposition K_v⊗L≅∏L_w with its integral form integralSemilocalEquiv, and the conjugation maps between factors (§§5.1–5.7). Lattice patching from local data is planned in order-ideles and the accepted sublattice target.
 - `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary`: Dedekind Galois prime action, decomposition/inertia and residue action, with the inseparable residue case retained; no unconditional inertia-index=e assertion.
-- `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant`: Relative discriminant and integral trace/index-square compatibility for finite separable extensions over a Dedekind base.
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`: Normalized local Artin reciprocity and Artin conductors for finite-order characters, with the convention made explicit in the local Gauss sum.
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`: Injectivity of the global Brauer class map into all local Brauer invariants, applied over every field factor of a finite étale splitting algebra.
+- `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant`: The relative discriminant over a Dedekind base, its tower formula and trace-dual localization. The absolute index–discriminant square formula is Layer3; its relative form, used by integral-compositum-tensor, is Johnston’s generalised-index argument with this discriminant.
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`: The normalised local Artin map and the conductor exponents and ideals of finite-order characters. The additive-character convention of the local Gauss sum is CA.7’s own, as in Taylor (3.4).
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`: Injectivity of the global Brauer group into the sum of the local ones (Albert–Brauer–Hasse–Noether); prescribed-separable-polynomial applies it over each field factor of a finite étale algebra.
 - `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`: Kronecker–Weber supplies the initial cyclotomic embedding for the inherited squarefree-conductor target; CA.7 supplies only the inertia cut.
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`: Split determinant-one matrix group, geometric semisimplicity and simple connectedness and their descent under inner forms.
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`: Finite unramified extensions and surjectivity of their field norm on integer-ring units, residue normal bases, Teichmüller lifts, Nakayama independence and the completion integral-basis dictionary.
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`: The field-norm valuation formula v_F(N x)=f(E/F)v_E(x), including totally ramified Eisenstein extensions; tame uniformizer adjustment by Hensel, roots of unity, ramification towers, inertia quotients and splitting a tame extension after the stated unramified scalar extension.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`: Reductive and semisimple groups and their simply connected forms, with SL_n among the worked examples. Since semisimplicity and simple connectedness are geometric, eichler-noncompact-adapter passes them to the inner form SL_1(C); Layer6 does not itself state inner-form descent.
+- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`: Finite unramified extensions, their composita and base change, and surjectivity of the norm on integer units (map_norm_unitFiltration_zero); Teichmüller lifts are Layer1 and the unramified and totally ramified integral bases Layer0. Residue normal bases and the Nakayama step belong to the accepted local-unramified-normal-integral-basis target.
+- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`: v_K(N x)=f·v_L(x), norms of uniformizers in totally ramified extensions, the tame Kummer description α^e=π with Galois exactly when μ_e⊆K, ramification towers and the tame character of G_0/G_1. The Hensel step of the uniformizer adjustment uses Layer1, and splitting a tame extension after an unramified base change is proved inside the accepted local-tame-split-extension target.
 
-The exact lower-tier node `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem` supplies strong approximation for connected simply connected semisimple groups, with a noncompact factor in each almost-simple component. CA.7 proves the inner-form and archimedean noncompactness adapter. General K-theory, FiniteFieldsAndCharacterSums and analytic Artin L-function roadmaps are not upward dependencies.
+The lower-tier accepted nodes of GN.2 and IHG.0 named above are cited directly. The exact lower-tier node `AdelicAlgebraicGroups:AA.4/strong-approximation-theorem` supplies strong approximation for connected simply connected semisimple groups, with a noncompact factor in each almost-simple component. CA.7 proves the inner-form and archimedean noncompactness adapter. General K-theory, FiniteFieldsAndCharacterSums and analytic Artin L-function roadmaps are not upward dependencies.
 
 ## The proof architecture
 
-The finite-projective group completion criterion first turns equality of classes into a common free stabilization. Steinitz identifies its rank-zero Dedekind part with the existing ideal class group. Balanced scalar extension supplies the actual maximal-overorder map.
+The finite-projective group completion criterion first turns equality of classes into a common free stabilization. The Steinitz class of GeometryOfNumbersAndQuadraticArithmetic GN.2 identifies its rank-zero Dedekind part with the existing ideal class group. Balanced scalar extension supplies the actual maximal-overorder map.
 
-For arithmetic orders, local bases give idele double cosets. Reduced norms and matrix strong approximation classify rank at least two without assuming a prior rank-one splitting. Local norm lifts then produce the rank-one ideal representative. Eichler strong approximation makes the rank-one stable fibre a singleton and gives Jacobinski cancellation. Matrix algebras over a definite quaternion division algebra are allowed; only the division algebra itself is excluded.
+For arithmetic orders, local bases give idele double cosets. Reduced norms, assembled from the Azumaya reduced norm of IntegralHeckeAndGaloisDeterminants IHG.0, and matrix strong approximation classify rank at least two without assuming a prior rank-one splitting. Local norm lifts then produce the rank-one ideal representative. Eichler strong approximation makes the rank-one stable fibre a singleton and gives Jacobinski cancellation. Matrix algebras over a definite quaternion division algebra are allowed; only the division algebra itself is excluded.
 
 For Z[G], character determinants identify the stable class with a Hom quotient. The positive-unit kernel quotient receives the tame integer-ring class. Its symplectic sign representative defines t(W). The integral norm resolvend and finite Gauss homomorphisms give the local factors in Taylor’s proof.
 
-The logarithm proves a commutator-image statement and identifies an explicit torsion kernel. Integral character twisting, elementary crossed-product reduction and fixed-point descent handle general groups. Taylor’s detecting congruences eliminate the remaining group-element determinant torsion. Diagonal and off-diagonal integral determinant factors then give the full obstruction equality. Equal valuations or equal logarithms alone never replace these determinant assertions.
+The logarithm proves a commutator-image statement and identifies an explicit torsion kernel. Integral character twisting, elementary crossed-product reduction, the descent for Q_p-ℓ-elementary groups with ℓ≠p, and fixed-point descent handle general groups. Taylor’s detecting congruences eliminate the remaining group-element determinant torsion. Diagonal and off-diagonal integral determinant factors then give the full obstruction equality. Equal valuations or equal logarithms alone never replace these determinant assertions.
 
 ## Stable modules and the Dedekind comparison
 
@@ -105,11 +109,11 @@ For left R-modules P,Q over a unital ring R, StableEquivalent(P,Q) means that P�
 
 **API.**
 
-- `StableEquivalence.refl` (constructor): P is stably equivalent to itself, with n=0.
-- `StableEquivalence.symm` (relation): StableEquivalent(P,Q) implies StableEquivalent(Q,P).
-- `StableEquivalence.trans` (relation): StableEquivalent(P,Q) and StableEquivalent(Q,T) imply StableEquivalent(P,T).
-- `StableEquivalence.of_equiv` (constructor): An R-linear isomorphism P≅Q gives stable equivalence with n=0.
-- `StableEquivalence.prod` (compatibility): Stable equivalences are preserved by finite direct sums.
+- `StableEquivalent.refl` (constructor): P is stably equivalent to itself, with n=0.
+- `StableEquivalent.symm` (relation): StableEquivalent(P,Q) implies StableEquivalent(Q,P).
+- `StableEquivalent.trans` (relation): StableEquivalent(P,Q) and StableEquivalent(Q,T) imply StableEquivalent(P,T).
+- `StableEquivalent.of_equiv` (constructor): An R-linear isomorphism P≅Q gives stable equivalence with n=0.
+- `StableEquivalent.prod` (compatibility): Stable equivalences are preserved by finite direct sums.
 
 **Checks.**
 
@@ -246,15 +250,15 @@ Every unital f:R→S induces fₗ:K₀(R)→K₀(S), [P]↦[S⊗ᵣP]. Here K₀
 
 - `ExtensionK0Map.of` (simp): The map sends an object class to the class of its extension.
 - `ExtensionK0Map.identity` (functoriality): The identity ring map induces identity.
-- `ExtensionK0Map.composition` (functoriality): Composition of ring maps induces composition of K₀ maps, in the covariant direction for extension and the contravariant direction for restriction.
-- `ExtensionK0Map.free` (compatibility): Extension sends [Rⁿ] to [Sⁿ]; restriction sends [Sⁿ] to n[S] as an R-module.
+- `ExtensionK0Map.composition` (functoriality): For unital ring maps R→S→T the extension map of the composite is the composite of the two extension maps; extension is covariant.
+- `ExtensionK0Map.free` (compatibility): Extension sends [Rⁿ] to [Sⁿ].
 
 **Checks.**
 
-- `extension_k0_map_1` (computation): For ℤ→ℤ[i], extension sends [ℤ] to [ℤ[i]], whereas restriction sends [ℤ[i]] to 2[ℤ].
+- `extension_k0_map_1` (computation): For ℤ→ℤ[i], extension sends [ℤ] to [ℤ[i]] and [ℤ²] to 2[ℤ[i]].
 - `extension_k0_map_2` (degenerate): The zero class maps to zero.
 - `extension_k0_map_3` (compatibility): Along a ring identity, the map is SplitK0.map of the identity functor.
-- `extension_k0_map_4` (non-example): Restriction along ℤ→ℚ has no finite-projective K₀ functor: the regular ℚ-module is not finitely generated over ℤ.
+- `extension_k0_map_4` (non-example): Along the augmentation ℤ[C₂]→ℤ, extension sends [ℤ[C₂]] to [ℤ], not to 2[ℤ]: the class is not computed from the underlying abelian group.
 
 **Proof route.**
 
@@ -285,12 +289,12 @@ If S is finite projective over R through f:R→S, restriction induces f*:K₀(S)
 
 - `RestrictionK0Map.of` (simp): The map sends an object class to the class of its restriction.
 - `RestrictionK0Map.identity` (functoriality): The identity ring map induces identity.
-- `RestrictionK0Map.composition` (functoriality): Composition of ring maps induces composition of K₀ maps, in the covariant direction for extension and the contravariant direction for restriction.
-- `RestrictionK0Map.free` (compatibility): Extension sends [Rⁿ] to [Sⁿ]; restriction sends [Sⁿ] to n[S] as an R-module.
+- `RestrictionK0Map.composition` (functoriality): For R→S→T with S finite projective over R and T finite projective over S, restriction along the composite is the composite of the two restriction maps, taken in the contravariant order.
+- `RestrictionK0Map.free` (compatibility): Restriction sends [Sⁿ] to n[S], with S regarded as a finite projective R-module.
 
 **Checks.**
 
-- `restriction_k0_map_1` (computation): For ℤ→ℤ[i], extension sends [ℤ] to [ℤ[i]], whereas restriction sends [ℤ[i]] to 2[ℤ].
+- `restriction_k0_map_1` (computation): For ℤ→ℤ[i], restriction sends [ℤ[i]] to 2[ℤ], since ℤ[i] is free of rank two over ℤ.
 - `restriction_k0_map_2` (degenerate): The zero class maps to zero.
 - `restriction_k0_map_3` (compatibility): Along a ring identity, the map is SplitK0.map of the identity functor.
 - `restriction_k0_map_4` (non-example): Restriction along ℤ→ℚ has no finite-projective K₀ functor: the regular ℚ-module is not finitely generated over ℤ.
@@ -344,94 +348,15 @@ For a Dedekind domain A with fraction field K and nonzero invertible fractional 
 
 **Proof route.**
 
-1. Replace I and J by scaled integral representatives with coprime support, using finite prime avoidance. For coprime representatives, the map I⊕J→A, (x,y)↦x+y, is onto with kernel {(z,−z):z∈I∩J=IJ}. Split the sequence because A is free. Transport back through the scaling isomorphisms.
+1. I⊕J and A⊕IJ are rank-two lattices in K². GeometryOfNumbersAndQuadraticArithmetic GN.2 classifies such lattices by rank and Steinitz class, and its product and fractional-ideal APIs give st(I⊕J)=[I][J]=[IJ]=st(A⊕IJ); hence the two modules are isomorphic. A direct construction is also available: replace I and J by scaled integral representatives with coprime support, using finite prime avoidance; for coprime representatives the map I⊕J→A, (x,y)↦x+y, is onto with kernel {(z,−z):z∈I∩J=IJ}, and the sequence splits because A is free.
 
-**Dependencies:** `mathlib:ClassGroup.mk0_eq_mk0_iff_exists_fraction_ring`, `mathlib:FractionalIdeal.mem_inv_iff`.
+**Dependencies:** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-steinitz-class`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, `mathlib:ClassGroup.mk0_eq_mk0_iff_exists_fraction_ring`, `mathlib:FractionalIdeal.mem_inv_iff`.
 
 **Sources.**
 
-- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§3, pp.16–19, ideal-class and Dedekind module discussion. Direct sums of invertible ideals are classified by their product class; the ideal-product identity supplies the constructive step.
+- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§3, Propositions3.4–3.5, pp.17–18. Finitely generated projectives over a one-dimensional noetherian ring are classified by rank and determinant, and I⊗J≅IJ for invertible ideals; together these give I⊕J≅A⊕IJ.
 
 **Acceptance:** For a Dedekind domain A with fraction field K and nonzero invertible fractional ideals I,J, I⊕J≅A⊕IJ as A-modules.
-
-<a id="target-dedekind-projective-steinitz"></a>
-
-### Steinitz decomposition over a Dedekind domain
-
-**Target:** `ClassicalArithmeticCompletion:CA.7/continuation/dedekind-projective-steinitz` (theorem).
-
-A nonzero finitely generated torsion-free module M over a Dedekind domain A of fraction-field rank n is isomorphic to Aⁿ⁻¹⊕I for a nonzero invertible fractional ideal I. Two such modules are isomorphic iff their ranks and ideal classes agree. The rank-zero case is M=0. Fields are handled separately by a vector-space basis.
-
-**Proof route.**
-
-1. Embed M in K⊗M. Choose a nonzero coordinate projection; its image is a fractional ideal. Invertibility supplies a dual basis and hence projectivity of that image, so the projection splits. Induct on rank to decompose M into ideals. Apply steinitz-ideal-product repeatedly. For uniqueness use the top exterior power and the existing principal-scaling class criterion.
-
-**Dependencies:** [steinitz-ideal-product](#target-steinitz-ideal-product), `mathlib:ClassGroup.mk`, `mathlib:FractionalIdeal.mem_inv_iff`.
-
-**Sources.**
-
-- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§3, Proposition3.4 and Dedekind discussion, pp.16–19; JOHN Theorem4.4, p.7. Finite torsion-free Dedekind modules have ideal summands and are classified by rank and determinant class.
-
-**Acceptance:** A nonzero finitely generated torsion-free module M over a Dedekind domain A of fraction-field rank n is isomorphic to Aⁿ⁻¹⊕I for a nonzero invertible fractional ideal I. Two such modules are isomorphic iff their ranks and ideal classes agree. The rank-zero case is M=0. Fields are handled separately by a vector-space basis.
-
-<a id="target-finite-dedekind-torsionfree-projective"></a>
-
-### Finite torsion-free Dedekind modules are projective
-
-**Target:** `ClassicalArithmeticCompletion:CA.7/continuation/finite-dedekind-torsionfree-projective` (theorem).
-
-Every finitely generated torsion-free module over a Dedekind domain is projective; in particular the integral lattice underlying each number-field Galois module is projective over the coefficient ring.
-
-**Proof route.**
-
-1. Use the ideal decomposition in dedekind-projective-steinitz, whose coordinate splitting is independent of assuming projectivity of M. For an invertible ideal, a finite expression of 1 in II⁻¹ gives the dual-basis criterion. Finite direct sums of projectives are projective.
-
-**Dependencies:** [dedekind-projective-steinitz](#target-dedekind-projective-steinitz), `mathlib:FractionalIdeal.mem_inv_iff`.
-
-**Sources.**
-
-- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§3, pp.18–19; JOHN Theorem4.4(i)–(ii), p.7. The Dedekind ideal decomposition makes every finite torsion-free module projective.
-
-**Acceptance:** Every finitely generated torsion-free module over a Dedekind domain is projective; in particular the integral lattice underlying each number-field Galois module is projective over the coefficient ring.
-
-<a id="target-steinitz-class"></a>
-
-### The Steinitz class on the existing ideal-class carrier
-
-**Target:** `ClassicalArithmeticCompletion:CA.7/continuation/steinitz-class` (construction).
-
-For a finitely generated torsion-free A-module M over a Dedekind domain, st(M)∈ClassGroup A is the class of I in its positive-rank Steinitz decomposition; st(0)=1. It is independent of the fraction field and decomposition.
-
-**API.**
-
-- `SteinitzClass.ideal` (compatibility): st(I)=ClassGroup.mk(I) for every invertible fractional ideal.
-- `SteinitzClass.sum` (compatibility): st(M⊕N)=st(M)st(N), including zero modules.
-- `SteinitzClass.free` (simp): st(Aⁿ)=1 for every n, including n=0.
-- `SteinitzClass.iso` (extensionality): Isomorphic modules have the same Steinitz class.
-- `SteinitzClass.scalar` (functoriality): For an injective map of Dedekind domains A→B, st(B⊗ₐM) is the extended ideal class of st(M).
-
-**Checks.**
-
-- `steinitz_class_1` (computation): For A=ℤ[√−5], I=(2,1+√−5) has nontrivial Steinitz class: norm2 would force a²+5b²=2, which has no integer solution.
-- `steinitz_class_2` (degenerate): st(0)=1, with rank zero retained separately.
-- `steinitz_class_3` (compatibility): For a nonzero ideal the answer is the existing ClassGroup.mk0 class.
-- `steinitz_class_4` (non-example): The ideal I above and A both have rank one but different Steinitz classes, so rank alone does not classify modules.
-
-**Proof route.**
-
-1. Use uniqueness of the ideal class in dedekind-projective-steinitz. Treat zero separately rather than choosing a nonexistent rank-one ideal for rank zero. Identify this class with the top exterior-power line at positive rank.
-
-**Dependencies:** [dedekind-projective-steinitz](#target-dedekind-projective-steinitz), `mathlib:ClassGroup`, `mathlib:ClassGroup.mk`.
-
-**Consumers.**
-
-- [dedekind-k0-comparison](#target-dedekind-k0-comparison): Identify the rank-zero K₀ subgroup with the existing ideal class group.
-
-**Sources.**
-
-- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§3, Proposition3.4, pp.16–18; JOHN Theorem4.4(iii)–(v), p.7. The determinant ideal class is invariant under isomorphism, multiplicative under direct sum, and classifies a fixed positive rank.
-
-**Acceptance:** Check every API law and all discriminating tests below.
 
 <a id="target-dedekind-k0-comparison"></a>
 
@@ -439,7 +364,7 @@ For a finitely generated torsion-free A-module M over a Dedekind domain, st(M)�
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/dedekind-k0-comparison` (construction).
 
-For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)) induces K₀(A)≅Z⊕Additive(ClassGroup A). Its inverse sends (n,[I]) to n[A]+([I]−[A]). For a nonfield A this identifies inherited Cl(A) with Additive(ClassGroup A); for a field, ClassGroup A and the rank kernel are both zero, without invoking the vacuous completion definition.
+For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)), with st the Steinitz class of GeometryOfNumbersAndQuadraticArithmetic GN.2 (st(0)=1), induces K₀(A)≅Z⊕Additive(ClassGroup A). Its inverse sends (n,[I]) to n[A]+([I]−[A]). For a nonfield A this identifies inherited Cl(A) with Additive(ClassGroup A); for a field, ClassGroup A and the rank kernel are both zero, without invoking the vacuous completion definition.
 
 **API.**
 
@@ -457,9 +382,9 @@ For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)) induces K₀
 
 **Proof route.**
 
-1. Use steinitz-class additivity to descend through SplitK0. The product identity proves independence of the ideal representative and additivity of the inverse. Steinitz decomposition checks the inverse on all finite projective generators; include zero and field branches.
+1. A nonzero finite projective A-module P is an A-lattice in K⊗P, so GN.2's pseudobasis theorem writes it as Aⁿ⁻¹⊕I, and GN.2's Steinitz class is invariant under isomorphism and multiplicative on direct sums; the invariant therefore descends through SplitK0. The product identity proves independence of the ideal representative and additivity of the inverse. The GN.2 decomposition checks the inverse on all finite projective generators; include zero and field branches.
 
-**Dependencies:** [steinitz-class](#target-steinitz-class), [split-k0-stable-equality](#target-split-k0-stable-equality), [steinitz-ideal-product](#target-steinitz-ideal-product), `tauceti:TauCeti.SplitK0`, `mathlib:ClassGroup`, [locally-free-class-group](#target-locally-free-class-group).
+**Dependencies:** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-steinitz-class`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, [split-k0-stable-equality](#target-split-k0-stable-equality), [steinitz-ideal-product](#target-steinitz-ideal-product), `tauceti:TauCeti.SplitK0`, `mathlib:ClassGroup`, [locally-free-class-group](#target-locally-free-class-group), `mathlib:ClassGroup.mk`.
 
 **Dependency facet:** [locally-free-class-group](#target-locally-free-class-group): Only the definition of Cl as the subgroup generated by [M]−n[Λ] inside the existing finite-projective SplitK0. The stable criterion, rank-one representation and comparison APIs are conclusions consuming this continuation, not hypotheses.
 
@@ -470,7 +395,7 @@ For a Dedekind domain A, the additive invariant P↦(rank(P),st(P)) induces K₀
 
 **Sources.**
 
-- [The K-book, Chapter II: The Grothendieck Group K₀](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf), W-II II§2 Proposition2.6 and Corollary2.6.3, pp.11–12; W-I I§3 Proposition3.4, pp.17–18. Rank and determinant identify projective K₀ of a Dedekind domain with the integer rank and the Picard/ideal class group.
+- [The K-book, Chapter II: The Grothendieck Group K₀](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf), W-II II§2 Proposition2.6 and Corollary2.6.3, p.11; W-I I§3 Proposition3.4, p.17. Rank and determinant identify projective K₀ of a Dedekind domain with the integer rank and the Picard/ideal class group.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -490,7 +415,8 @@ For a commutative ring A, finite group G and projective left A[G]-module P, the 
 
 **Sources.**
 
-- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), §15.1, pp.28–29, projectivity and trace discussion; §6 Corollary6.2, p.11; MART I, pp.17-01–17-02. The group norm on a projective module is onto its fixed module, explaining the projective-to-trace direction.
+- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), §6 Proposition6.1 and Corollary6.2, pp.10–11. For a normal integral basis the trace from the integers onto the fixed integers is surjective, by regrouping the coefficients over cosets; the node extends this norm statement from free modules to all projective group-ring modules.
+- [Normal bases in Galois extensions of number fields](https://resolve.cambridge.org/core/services/aop-cambridge-core/content/view/CDAF1160D7312AB5A5E2D32BA8B540FF/S0027763000024521a.pdf/normal-bases-in-galois-extensions-of-number-fields.pdf), Proposition1.3 and Corollary1.4, p.156. Tame ambiguous ideals are projective over the group ring by Rim's criterion and hence cohomologically trivial; the node is the degree-zero part of that statement, bijectivity of the norm from coinvariants to invariants for a projective module.
 
 **Acceptance:** For a commutative ring A, finite group G and projective left A[G]-module P, the group norm induces an A-linear isomorphism P_G→P^G from coinvariants to invariants. In particular every invariant m is ∑g∈G gx for some x∈P. Restriction to a subgroup preserves projectivity and the same statement. For a Galois integral lattice the norm is the field trace.
 
@@ -545,7 +471,7 @@ For a finite-dimensional semisimple algebra B over a number field F, an O_F-orde
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/reduced-norm` (construction).
 
-Write B=∏i B_i with centres F_i. For a central simple component of degree d_i, Nrd:B_i→F_i is the polynomial whose scalar extension to a splitting field is the determinant on M_{d_i}; product these polynomials to obtain Nrd:B→Z(B). Restrict to units and extend placewise to ideles. Degree means the square root of dimension over the centre, not dimension over the original base field.
+Write B=∏i B_i with centres F_i. Each B_i is central simple, hence Azumaya of rank d_i² over F_i, and Nrd_{B_i}:B_i→F_i is the Azumaya reduced-norm determinant law of IntegralHeckeAndGaloisDeterminants IHG.0, the degree-d_i law that becomes the matrix determinant after a splitting. CA.7 assembles these into Nrd=∏Nrd_{B_i}:B→Z(B), restricts to units and extends placewise to completions and ideles. Degree means the square root of dimension over the centre, not dimension over the original base field.
 
 **API.**
 
@@ -560,13 +486,13 @@ Write B=∏i B_i with centres F_i. For a central simple component of degree d_i,
 - `reduced_norm_1` (computation): On M₂(ℚ), Nrd(diag(2,3))=6 and Nrd(2·1)=4.
 - `reduced_norm_2` (degenerate): For a field component, Nrd is identity.
 - `reduced_norm_3` (compatibility): On a split matrix algebra it is Mathlib matrix determinant.
-- `reduced_norm_4` (non-example): On Hamilton quaternions the norm of i is 1, whereas the regular real-linear determinant is its norm squared.
+- `reduced_norm_4` (non-example): On Hamilton quaternions Nrd(1+i)=2, whereas the determinant of left multiplication by 1+i on ℍ as a four-dimensional real space is 4=Nrd(1+i)².
 
 **Proof route.**
 
-1. Import Wedderburn and splitting of central simple algebras. Determinant is invariant under changing the splitting isomorphism by an inner automorphism; Galois descent gives central coefficients. Polynomial multiplicativity descends from matrix determinant.
+1. Import the Wedderburn decomposition and, on each simple component, the Azumaya reduced-norm determinant of IHG.0: its uniqueness gives independence of the splitting, and its comparison with the matrix determinant gives multiplicativity and the scalar formula. Take the product over the components. A completion is a scalar extension of each component, so the law base-changes to B_v; reduced norms of order units are units of the centre's integers, which gives the placewise map on ideles.
 
-**Dependencies:** `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields`.
+**Dependencies:** `IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`, `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields`.
 
 **Consumers.**
 
@@ -576,7 +502,7 @@ Write B=∏i B_i with centres F_i. For a central simple component of degree d_i,
 **Sources.**
 
 - [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §2, (2.1) and reduced-norm paragraph, p.114; §4, p.118. The component reduced norms combine into the norm to the product centre and extend to all completions and ideles.
-- [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756), §1.4.1–1.4.3, pp.29–33. Splitting determinant and reduced characteristic polynomial descend to the centre.
+- [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756), §1.4.1, p.29; §1.4.3, p.33. The reduced norm is the determinant after a splitting, multiplicative and independent of the splitting (p.29); a central division algebra over a local field has full reduced-norm image (§1.4.3).
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -596,7 +522,7 @@ For each central simple number-field component C/F, Nrd(C×) consists exactly of
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §4 Theorem2, p.118; §5A–B, pp.120–121. The norm image is locally surjective at finite places, globally governed by ramified-real positivity, and maximal-order unit norms are full finite units.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §4 Theorem2, p.118; §5A–B, p.120. The norm image is locally surjective at finite places, globally governed by ramified-real positivity, and maximal-order unit norms are full finite units.
 - [Lectures on Galois Cohomology of Classical Groups](https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr47.pdf), §5.4, retypeset pp.66–69, original pp.87–91. The local norm image and its global positive norm realization are proved using separable polynomial realization.
 
 **Acceptance:** For each central simple number-field component C/F, Nrd(C×) consists exactly of a∈F× positive at every real place where C_v is a matrix algebra over Hamilton quaternions. At finite v the image is all F_v×; for a maximal O_v-order its unit image is O_v×. At a ramified real place it is ℝ_{>0}, otherwise the full local centre group. For any finite-place order, its norm-unit image is open. These statements apply componentwise to semisimple B.
@@ -694,7 +620,7 @@ For a central simple C/F of degree d>1, SL₁(C) is connected semisimple and sim
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §3 VII, Eichler theorem and Lemma1, p.117; J68 Theorem4.1, pp.17–18. Norm-one strong approximation under Eichler’s condition makes every relevant finite adelic double-coset fibre a singleton.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §3 VII, Eichler theorem and Lemma1, p.117; J68 §4 Theorem4.1 and Lemma4.2, pp.15–16. Norm-one strong approximation under Eichler’s condition makes every relevant finite adelic double-coset fibre a singleton.
 - [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756), §2.3.4 Proposition2.37 and proof, pp.100–101. The determinant-one group of a central simple algebra is an inner form of SL_d.
 
 **Acceptance:** For a central simple C/F of degree d>1, SL₁(C) is connected semisimple and simply connected. Its archimedean product is noncompact unless C is itself a totally definite quaternion division algebra. Consequently, if semisimple B satisfies Eichler’s condition, J(B)′=B×′·(J(B)′∩U(Γ)) for every arithmetic order Γ, including every idele-conjugate order. Trivial field factors are omitted.
@@ -715,7 +641,7 @@ The map α↦I(α) induces a bijection B×\J(B)/U(Λ) with isomorphism classes o
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), Theorem1(a), pp.114–115; §5D, p.121. Local bases identify rank-one lattice isomorphism classes with a noncommutative double-coset set.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), Theorem1(i), pp.114–115; §5D, p.121. Local bases identify rank-one lattice isomorphism classes with a noncommutative double-coset set.
 
 **Acceptance:** The map α↦I(α) induces a bijection B×\J(B)/U(Λ) with isomorphism classes of locally free rank-one right Λ-lattices. Applied to Λᵒᵖ it gives the left-module version. These are sets of double cosets, not groups.
 
@@ -737,7 +663,7 @@ For an arithmetic order Λ in semisimple B, its locally free stable class group 
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), Theorem1(b), pp.114–115; §2 II, p.115; §5C–G, pp.121–122. Matrix stabilization gives the abelian stable quotient even in the definite-quaternion case.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), Theorem1(ii) and II, pp.114–115; §5C–G, pp.120–122. Matrix stabilization gives the abelian stable quotient even in the definite-quaternion case.
 
 **Acceptance:** For an arithmetic order Λ in semisimple B, its locally free stable class group is J(B)/(J(B)′ B× U(Λ)). For each m≥2, locally free rank-m lattices are classified by this quotient via their GL_m(B) adelic basis matrices and reduced norms. No decomposition into rank-one ideals is assumed in constructing this classification. No Eichler hypothesis on B is needed. The quotient is abelian and identifies with inherited Cl(Λ) inside projective K₀.
 
@@ -819,7 +745,7 @@ Let Λ be an arithmetic order in a semisimple number-field algebra satisfying Ei
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §3 VII, p.117; J68 Theorem4.1 and Lemma4.2, pp.17–19. Eichler’s hypothesis converts stable locally free equivalence into actual isomorphism.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §3 VII, p.117; J68 §4 Theorem4.1 and Lemma4.2, pp.15–16. Eichler’s hypothesis converts stable locally free equivalence into actual isomorphism.
 
 **Acceptance:** Let Λ be an arithmetic order in a semisimple number-field algebra satisfying Eichler’s condition. Locally free left Λ-lattices P,Q of the same rank with [P]=[Q] in projective K₀ are isomorphic. Equivalently, P⊕Λᵏ≅Q⊕Λᵏ implies P≅Q. The rank-zero case is zero. In particular a stably free locally free lattice is free of its given local rank.
 
@@ -861,7 +787,8 @@ For a semilocal ring R and n≥1, GL_n(R) is generated by elementary matrices an
 
 **Sources.**
 
-- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), F75 §5C, p.121; semilocal elimination argument. Semilocal matrix determinants have the same image as units, which is the stabilization input to the class description.
+- [Locally free modules over arithmetic orders](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0274_0275/LOG_0014.pdf), §5C, stated p.120, proof p.121. Semilocal matrix determinants have the same image as units, which is the stabilization input to the class description.
+- [Genera and decompositions of lattices over orders](https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6057-11511_2006_Article_BF02391907.pdf), §4, proof of Lemma4.2, p.16. Over an artinian quotient of an order the stable range is one, so GL_s is generated by the diagonal units and elementary matrices, and elementary matrices have reduced norm one.
 
 **Acceptance:** For a semilocal ring R and n≥1, GL_n(R) is generated by elementary matrices and diagonal matrices with entries in R×. Consequently for a finite-place arithmetic order Λ_v, Nrd(GL_n(Λ_v))=Nrd(Λ_v×). For a semilocal group ring, matrix character-determinant images likewise equal unit character-determinant images.
 
@@ -1074,7 +1001,7 @@ For a G-Galois number-field extension L/F and normal generator a, form r_G(a)=�
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/reduced-characteristic-polynomial` (construction).
 
-For a central simple C/F of degree d, rchar_C(c) is the degree-d monic polynomial that becomes det(TI−ρ(c)) in any splitting representation C⊗E≅M_d(E). For semisimple B use one polynomial in each centre. The constant coefficient is (−1)ᵈ Nrd(c).
+For a central simple C/F of degree d, rchar_C(c) is the characteristic polynomial χ(c,T)=Nrd_{C[T]}(T−c) of the IHG.0 Azumaya reduced-norm determinant law; it is the degree-d monic polynomial that becomes det(TI−ρ(c)) in any splitting C⊗E≅M_d(E). For semisimple B use one polynomial in each centre. The constant coefficient is (−1)ᵈ Nrd(c).
 
 **API.**
 
@@ -1092,9 +1019,9 @@ For a central simple C/F of degree d, rchar_C(c) is the degree-d monic polynomia
 
 **Proof route.**
 
-1. The determinant polynomial is invariant under inner change of a splitting representation and Galois descent, so its coefficients lie in the centre. Descent and faithful extension give independence of the splitting field.
+1. Apply the characteristic polynomial of a determinant law (IHG.0) to the reduced-norm law of each simple component: it is monic of degree d with last coefficient the law itself, and the matrix comparison after a splitting identifies it with the matrix characteristic polynomial. Assemble the components.
 
-**Dependencies:** `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields`, [reduced-norm](#target-reduced-norm).
+**Dependencies:** `IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial`, `IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`, [reduced-norm](#target-reduced-norm).
 
 **Consumers.**
 
@@ -1102,7 +1029,8 @@ For a central simple C/F of degree d, rchar_C(c) is the degree-d monic polynomia
 
 **Sources.**
 
-- [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756), §1.4.1, reduced norm and reduced characteristic polynomial, pp.29–30. Splitting matrix characteristic polynomials descend to the centre and recover the reduced norm.
+- [Lectures on Galois Cohomology of Classical Groups](https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr47.pdf), §5.4, principal polynomial paragraph, retypeset p.67, original p.88. The principal polynomial of an element is its characteristic polynomial after a splitting; its coefficients lie in the centre and do not depend on the splitting field or isomorphism.
+- [Algebraic Groups and Number Theory, Volume I](https://doi.org/10.1017/9781139017756), §1.4.1, p.29. The reduced norm is the determinant after a splitting, which is the constant coefficient up to sign.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -1152,19 +1080,20 @@ Let q=pᶠ, P be a prime above p in Q(ζ_p,ζ_(q−1)), ω the Teichmüller char
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/finite-gauss-product` (theorem).
 
-For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicative character λ of exact order n and any multiplicative χ (all extended by zero at zero), write g(θ)=gaussSum(θ,ψ). Then g(χⁿ)·∏_(j=1)^(n−1)g(λʲ)=χ(n)ⁿ·∏_(j=0)^(n−1)g(χλʲ). The trivial multiplicative character has g(1)=−1, so including j=0 in the left product changes the sign.
+For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicative character λ of exact order n and any multiplicative χ (all extended by zero at zero), write g(θ)=gaussSum(θ,ψ). Then g(χⁿ)·∏_(j=1)^(n−1)g(λʲ)=χ(n)ⁿ·∏_(j=0)^(n−1)g(χλʲ). The trivial multiplicative character has g(1)=−1, so including j=0 in the left product changes the sign. The weak form, equality up to a root of unity, is the form Taylor’s logarithmic computation uses.
 
 **Proof route.**
 
-1. Reduce ψ to the trace-normalized additive character by the pinned scaling formula. Compare valuations and leading residues by finite-gauss-valuation and digit-factorial multiplication. The ratio has unit valuations and all complex conjugates of absolute value one, hence is a root of unity. Its leading residue fixes its prime-to-p part. The remaining p-power root-of-unity ambiguity must also be removed: this is the exact unread proof boundary G-DH, not an inference from valuations alone.
+1. Reduce ψ to the trace-normalized additive character by the pinned scaling formula; both sides change by the same character value. The ratio R of the two sides has absolute value one at every complex embedding: nontrivial Gauss sums have absolute value √q, the trivial one is −1, and the two sides contain the same number of trivial factors. It is a unit at every prime above p by finite-gauss-valuation, because the digit-sum valuations agree by the fractional-part identity Σ_j{x+j/n}={nx}+(n−1)/2. Gauss sums are divisible only by primes above p, so R is an algebraic unit all of whose conjugates have absolute value one, hence a root of unity by Kronecker’s theorem. This weak form needs no further input.
+2. For the exact form, gaussSum_mulShift_eq shows that ζ_p↦ζ_p^b, for b∈F_p×, multiplies both sides by the same character value, so R lies in ℚ(ζ_(q−1)). Comparing the leading Stickelberger residues with the digit-factorial multiplication gives R≡1 modulo a prime above p. For p odd every root of unity in ℚ(ζ_(q−1)) has order prime to p and is determined by its residue, so R=1. For p=2 the field contains −1, which is ≡1 modulo 2, so the residue does not fix the sign: this residual sign is the boundary G-DH.
 
-**Dependencies:** `mathlib:gaussSum`, `mathlib:gaussSum_one_left`, `mathlib:gaussSum_mulShift_eq`, [finite-gauss-valuation](#target-finite-gauss-valuation).
+**Dependencies:** `mathlib:gaussSum`, `mathlib:gaussSum_one_left`, `mathlib:gaussSum_mulShift_eq`, `mathlib:gaussSum_mul_gaussSum_eq_card`, [finite-gauss-valuation](#target-finite-gauss-valuation).
 
 **Sources.**
 
 - [Gauss and Jacobi sums on finite fields and Z/mZ](https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf), Appendix formula(A.6) and its normalization note, p.19. The product formula includes the factor χ(n)ⁿ and excludes the trivial-character Gauss sum from the fixed product.
 
-**Acceptance:** For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicative character λ of exact order n and any multiplicative χ (all extended by zero at zero), write g(θ)=gaussSum(θ,ψ). Then g(χⁿ)·∏_(j=1)^(n−1)g(λʲ)=χ(n)ⁿ·∏_(j=0)^(n−1)g(χλʲ). The trivial multiplicative character has g(1)=−1, so including j=0 in the left product changes the sign.
+**Acceptance:** For F_q, a nontrivial additive character ψ, n≥1 dividing q−1, a multiplicative character λ of exact order n and any multiplicative χ (all extended by zero at zero), write g(θ)=gaussSum(θ,ψ). Then g(χⁿ)·∏_(j=1)^(n−1)g(λʲ)=χ(n)ⁿ·∏_(j=0)^(n−1)g(χλʲ). The trivial multiplicative character has g(1)=−1, so including j=0 in the left product changes the sign. The weak form, equality up to a root of unity, is the form Taylor’s logarithmic computation uses.
 
 <a id="target-tame-local-gauss-sum"></a>
 
@@ -1203,6 +1132,7 @@ Fix a finite extension F/Q_p, ψ_F=exp(2πi·Tr_F/Q_p(−)) with the usual ratio
 **Sources.**
 
 - [Arithmetic and Galois module structure for tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0286_0287/LOG_0033.pdf), §2 (2.10)–(2.16), pp.391–393; Theorem3, p.392. The one-dimensional local formula, unramified normalization and degree-zero induction determine the Gauss homomorphism.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), §3 (3.4), p.46. Taylor fixes the canonical additive character as the composite of the trace to ℚ_p, ℚ_p/ℤ_p⊂ℚ/ℤ and x↦exp(2πix), and gives the same unramified and genuinely ramified degree-one formulas.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -1242,7 +1172,7 @@ If L/F is a tame G-Galois local extension and a is an integral normal-basis gene
 
 **Sources.**
 
-- [Arithmetic and Galois module structure for tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0286_0287/LOG_0033.pdf), Theorem4, pp.393–394; §§6–7, Theorem8 and formula(7.9), pp.401–409. Tame resolvent and Gauss factors have matching local valuations, by Kummer reduction and Stickelberger’s valuation.
+- [Arithmetic and Galois module structure for tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0286_0287/LOG_0033.pdf), Theorem4, pp.393–394; §6 Theorem8, p.404; §7 (proof of Theorem4), formula(7.9), pp.405–410. Tame resolvent and Gauss factors have matching local valuations, by Kummer reduction and Stickelberger’s valuation.
 
 **Acceptance:** If L/F is a tame G-Galois local extension and a is an integral normal-basis generator, then every character value of the absolute norm resolvent N_F/Q_p(a|χ) has the same p-adic valuation as τ_F(χ). The assertion includes virtual characters and the coefficient-field embedding norm; valuations may be nonzero.
 
@@ -1281,7 +1211,7 @@ For a global actual character χ set W∞(χ)=∏_(v infinite)i^(−n₋(χ,v)),
 
 **Sources.**
 
-- [Arithmetic and Galois module structure for tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0286_0287/LOG_0033.pdf), §2 (2.4)–(2.5), p.390; §8 Theorem9, p.410. The root factor uses the inverse Gauss sum and inverse infinite factor; tame symplectic root numbers are rational signs.
+- [Arithmetic and Galois module structure for tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0286_0287/LOG_0033.pdf), §2 (2.2)–(2.5), p.390; §8 Theorem9, p.410; §9 (9.1), p.412. The root factor uses the inverse Gauss sum and inverse infinite factor; tame symplectic root numbers are rational signs.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -1403,7 +1333,7 @@ For a tame local G-extension at p, choose the root-of-unity homomorphism y_p on 
 
 **Sources.**
 
-- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), §3 definitions(3.1)–(3.9), Proposition3.10, pp.45–50. The adjusted Gauss homomorphism removes unramified factors and has controlled equivariance and modular behavior.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), §3 definitions(3.1)–(3.9), Proposition3.10 and its proof, pp.46–49. The adjusted Gauss homomorphism removes unramified factors and has controlled equivariance and modular behavior.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -1560,7 +1490,7 @@ For an integral characteristic-zero character θ of a finite free G-stable Z_p-l
 
 **Sources.**
 
-- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), §5 equations(5.1)–(5.6) and Theorem5.5, pp.27–30; T81 §5, pp.52–53. Integral lattice characters act on determinant images, with an explicit conjugate-character convention.
+- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), §5a, Proposition5.2 and Ullom’s formula(5.1), p.27; T81 §1, p.44, and §5, pp.52–53. Integral lattice characters act on determinant images, with an explicit conjugate-character convention.
 
 **Acceptance:** Check every API law and all discriminating tests below.
 
@@ -1570,7 +1500,7 @@ For an integral characteristic-zero character θ of a finite free G-stable Z_p-l
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/p-elementary-determinant-reduction` (theorem).
 
-Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The Q_p-rational refinement of generic Brauer induction is G-LOCALBRAUER.
+Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The field-of-definition refinements of generic Brauer induction — the prime-to-p multiplier identity over Q_p-p-elementary subgroups, the integral identity over Q_p-ℓ-elementary subgroups for all primes ℓ, and their ℚ-rational analogues used by Taylor — are G-LOCALBRAUER.
 
 **Proof route.**
 
@@ -1580,9 +1510,9 @@ Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free
 
 **Sources.**
 
-- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), Theorems5.4–5.5, pp.29–30; T81 §5, pp.52–53. Local rational Brauer induction reduces determinant-image questions to cyclotomic elementary subgroups.
+- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), §5b Theorem5.4, p.28; proof of Theorem1.2(b), p.35; T81 §5, pp.52–53. Local rational Brauer induction reduces determinant-image questions to cyclotomic elementary subgroups.
 
-**Acceptance:** Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The Q_p-rational refinement of generic Brauer induction is G-LOCALBRAUER.
+**Acceptance:** Let R be a normal noetherian characteristic-zero integral domain, p-torsion-free and p-adically complete with a Frobenius lift. For a finite G, the determinant-quotient test reduces to Q_p-p-elementary subgroups C⋊P, with P a p-group and C cyclic of order prime to p, whose conjugation action is the Q_p cyclotomic Galois action. Restriction and integral-character twisting are initially operations on matrix determinant images. The local rational induction identity has multiplier prime to p, invertible on the pro-p quotient after radical reduction. For semilocal group rings matrix and unit conditions agree. The field-of-definition refinements of generic Brauer induction — the prime-to-p multiplier identity over Q_p-p-elementary subgroups, the integral identity over Q_p-ℓ-elementary subgroups for all primes ℓ, and their ℚ-rational analogues used by Taylor — are G-LOCALBRAUER.
 
 <a id="target-elementary-crossed-product-descent"></a>
 
@@ -1614,13 +1544,14 @@ Let R⊆S be normal noetherian characteristic-zero integral domains, p-torsion-f
 
 **Proof route.**
 
-1. For p-groups use the logarithm on the commutator determinant subgroup and its exact integral image; handle group-element torsion separately. Descend abelian units by taking invariants in the augmentation sequence. For arbitrary G, use local rational Brauer reduction and crossed-product descent. Trace surjectivity is retained for the general coefficient statement; do not extrapolate the abbreviated survey hypothesis list.
+1. For p-groups use the logarithm on the commutator determinant subgroup and its exact integral image; handle group-element torsion separately. Descend abelian units by taking invariants in the augmentation sequence (p-group-determinant-fixed-point).
+2. For Q_p-p-elementary groups use crossed-product descent (CPT Theorem6.4). For an arbitrary G, the prime-to-p multiplier induction over Q_p-p-elementary subgroups shows that every element of Det(GL(S[G]))^Δ/Det(GL(R[G])) has finite order prime to p (CPT Theorem6.5); ell-elementary-determinant-descent shows that its order is prime to every ℓ≠p (CPT Theorems6.6–6.7). Hence the quotient is trivial, and matrix and unit determinant images agree by general-group-determinant-stability. Trace surjectivity is retained for the general coefficient statement; do not extrapolate the abbreviated survey hypothesis list.
 
-**Dependencies:** [group-log-integrality](#target-group-log-integrality), [group-log-commutator-isomorphism](#target-group-log-commutator-isomorphism), [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [p-group-determinant-fixed-point](#target-p-group-determinant-fixed-point), [general-group-determinant-stability](#target-general-group-determinant-stability).
+**Dependencies:** [group-log-integrality](#target-group-log-integrality), [group-log-commutator-isomorphism](#target-group-log-commutator-isomorphism), [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [p-group-determinant-fixed-point](#target-p-group-determinant-fixed-point), [general-group-determinant-stability](#target-general-group-determinant-stability), [ell-elementary-determinant-descent](#target-ell-elementary-determinant-descent).
 
 **Sources.**
 
-- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), Theorem1.5, p.4; p-group Theorem4.1, pp.23–24; §6c, pp.33–36. Invariant determinant units descend, with precise coefficient and trace hypotheses.
+- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), Theorem1.5, p.4; p-group Theorem4.1, pp.23–24; §§6a–6b, Theorems6.4–6.7, pp.32–35. Invariant determinant units descend, with precise coefficient and trace hypotheses.
 
 **Acceptance:** Let R⊆S be normal noetherian characteristic-zero integral domains, p-torsion-free and p-adically complete, each with its own lift of Frobenius. Suppose S is finite free over R, Frac(S)/Frac(R) is Galois with finite group Δ, S^Δ=R and Tr_S/R is onto R. For any finite G, Det(S[G]×)^Δ=Det(R[G]×). For a p-group G the fixed-point theorem holds under the domain, completeness, Frobenius, finite-free Galois and invariant hypotheses without the extra normal/noetherian/trace assumptions. The two Frobenius lifts need not commute with the inclusion.
 
@@ -1634,13 +1565,13 @@ In Taylor’s cyclic prime-to-ℓ crossed-product reduction, the adjusted Gauss 
 
 **Proof route.**
 
-1. Use finite-gauss-product and the residue Gauss formulas to obtain Taylor’s inertia coefficient bounds. Lift the abelianized adjusted Gauss homomorphism by Fourier inversion. Saturation of the conjugacy-class commutator image permits the remaining logarithm to be lifted by group-log-commutator-isomorphism, retaining the inertia support.
+1. Use finite-gauss-product only in its weak form, equality up to a root of unity (Taylor writes ~ at T81 p.64), with the residue Gauss formulas, to obtain Taylor’s inertia coefficient bounds (T81 Theorem5, pp.63–65); roots of unity have zero logarithm, so the boundary G-DH is not used here. Lift the abelianized adjusted Gauss homomorphism by Fourier inversion. Saturation of the conjugacy-class commutator image permits the remaining logarithm to be lifted by group-log-commutator-isomorphism, retaining the inertia support.
 
 **Dependencies:** [adjusted-gauss-sum](#target-adjusted-gauss-sum), [finite-gauss-product](#target-finite-gauss-product), [group-log-integrality](#target-group-log-integrality), [group-log-commutator-isomorphism](#target-group-log-commutator-isomorphism).
 
 **Sources.**
 
-- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), §7 Propositions7.5–7.7, pp.57–59; §8 formulas(8.1)–(8.8), pp.62–65. The Gauss logarithm and its abelianization have integral-unit lifts supported on inertia.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), §7 Propositions7.5–7.7, p.57; §8, Proposition8.1, Corollary8.2, (8.3)–(8.4) and Theorem5, pp.62–65. The Gauss logarithm and its abelianization have integral-unit lifts supported on inertia.
 
 **Acceptance:** In Taylor’s cyclic prime-to-ℓ crossed-product reduction, the adjusted Gauss homomorphism f has logarithm in ℓ times the integral conjugacy-class module on inertia. Its restriction to the abelian quotient is the determinant of an integral unit T′. After removing that lift, ν(f) lies in the commutator-ideal image and is ν(Det z) for a unit z∈1+A supported on inertia. This supplies a logarithmic lift; it leaves possible group-element determinant torsion.
 
@@ -1674,13 +1605,13 @@ For a tame local G-Galois extension at a rational prime p and ℓ≠p, put K=Q(�
 
 **Proof route.**
 
-1. Reduce by integral-character twisting and elementary induction. On the p-group factors use gauss-log-image and gauss-torsion-detection, then reassemble the cyclic crossed-product pieces. Det(c_p) is already an integral unit determinant and can be removed. Descent of invariant determinants uses determinant-fixed-point.
+1. Reduce by integral-character twisting and ℚ-elementary induction (T81 §5: an integral identity over ℚ-elementary subgroups, and for ℚ-ℓ-elementary subgroups a multiplier prime to ℓ). For a ℚ-q-elementary subgroup with q≠ℓ the quotient by its q-part has order prime to ℓ, so its group ring is a maximal order, and Taylor’s congruence Proposition3.10(v), resting on his Propositions3.7–3.8, shows that an ℓ-power of the adjusted Gauss factor is a unit determinant (T81 §6, Propositions5.3 and6.1). On the ℚ-ℓ-elementary pieces use gauss-log-image and gauss-torsion-detection, then reassemble the cyclic crossed-product pieces (T81 §§7–10). Det(c_p) is already an integral unit determinant and can be removed. Descent of invariant determinants uses determinant-fixed-point.
 
 **Dependencies:** [adjusted-gauss-sum](#target-adjusted-gauss-sum), [gauss-log-image](#target-gauss-log-image), [gauss-torsion-detection](#target-gauss-torsion-detection), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [determinant-fixed-point](#target-determinant-fixed-point).
 
 **Sources.**
 
-- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Theorem2(b), p.45; §7 Theorem3, pp.54–61. Away from the ramified prime, the Gauss homomorphism modulo its root-of-unity correction is a determinant unit.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Theorem2(b), p.45; Theorem3, p.49, proved in §§5–10, pp.52–75. Away from the ramified prime, the Gauss homomorphism modulo its root-of-unity correction is a determinant unit.
 
 **Acceptance:** For a tame local G-Galois extension at a rational prime p and ℓ≠p, put K=Q(ζ_p). Taylor’s off-diagonal factor y_p⁻¹τ_p lies in Det(O_(K,ℓ)[G]×), where O_(K,ℓ) is the product of completed integer rings over ℓ. If p is unramified in the extension, y_p=τ_p=1. The assertion is membership in the integral-unit determinant subgroup, stronger than having unit character values.
 
@@ -1700,7 +1631,7 @@ For tame L/F with group G, choose a∈O_L that is an integral normal generator a
 
 **Sources.**
 
-- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Theorem2(a), p.45; §11 Theorem5 and proof, pp.75–78; F76 Theorem6, pp.397–400. The diagonal factor of the integral embedding norm resolvend is a group-ring determinant over the wild-inertia fixed integer rings.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Theorem2(a), p.45; §11 (proof of Theorem2(a)), (11.1)–(11.10) and Proposition11.6, pp.75–78; F76 Theorem6 and its Corollaries1–2, pp.396–399. The diagonal factor of the integral embedding norm resolvend is a group-ring determinant over the wild-inertia fixed integer rings.
 
 **Acceptance:** For tame L/F with group G, choose a∈O_L that is an integral normal generator at every place over S={ℓ:ℓ divides |G|}; let A be its embedding-product norm resolvend as in Taylor (2.2). For each ℓ∈S there is a finite Galois E/Q such that (y′_ℓ)⁻¹Det(A)∏_(𝔭|ℓ)τ_(G,𝔭)⁻¹ belongs to Det(∏_(𝔮|ℓ)(O_(E_𝔮)^P_𝔮[G])×), with P_𝔮 the wild inertia subgroup of Gal(E_𝔮/Q_ℓ). Here y′_ℓ is Taylor’s product of the local unramified correction factors. The coefficient ring is the ring fixed by wild inertia, hence a tame local coefficient extension; no unspecified inertia-norm modification is part of the statement.
 
@@ -1742,7 +1673,7 @@ For a finite odd-order group G, Q[G] has no totally definite quaternion division
 
 **Sources.**
 
-- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Corollary(c), p.42, with the real-character input; F76 §8, p.410. Odd-order groups have no symplectic obstruction and their rational group algebra has the required cancellation property.
+- [On Fröhlich’s conjecture for rings of integers of tame extensions](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0063/LOG_0010.pdf), Corollary and its proof, pp.41–42, with the real-character input; F76 §8, p.410. Odd-order groups have no symplectic obstruction and their rational group algebra has the required cancellation property.
 
 **Acceptance:** For a finite odd-order group G, Q[G] has no totally definite quaternion division simple component and therefore satisfies Eichler’s condition. It also has no symplectic irreducible character.
 
@@ -1776,15 +1707,35 @@ For a normal noetherian characteristic-zero integral domain R, p-torsion-free an
 
 **Proof route.**
 
-1. Use local rational Brauer reduction on matrix determinant classes. For each cyclotomic elementary subgroup apply elementary-crossed-product-descent, including its p-group fixed-point input, to identify the restriction image with unit determinants. Reassemble by the integral lattice-character action on matrix determinants. The prime-to-p induction multiplier is removed in the pro-p quotient.
+1. Write the trivial character as an integral combination of characters induced from Q_p-ℓ-elementary subgroups, for the various primes ℓ, with Q_p-rational virtual characters (the integral Witt–Berman identity, G-LOCALBRAUER). By the character action and its projection formula, Det(r) for r∈GL(R[G]) is the product of the inductions of the twisted restrictions. For a Q_p-p-elementary subgroup apply elementary-crossed-product-descent (CPT Theorem6.4); for a Q_p-ℓ-elementary subgroup with ℓ≠p apply ell-elementary-determinant-descent (CPT Theorem6.6). Induction maps unit determinants to unit determinants.
 
-**Dependencies:** [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [p-group-determinant-fixed-point](#target-p-group-determinant-fixed-point).
+**Dependencies:** [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [p-group-determinant-fixed-point](#target-p-group-determinant-fixed-point), [integral-character-action](#target-integral-character-action), [ell-elementary-determinant-descent](#target-ell-elementary-determinant-descent).
 
 **Sources.**
 
-- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), Theorem1.2, p.3; §6b, Theorems6.2–6.3 and proof, pp.31–33. Finite matrix determinants are represented by single group-ring units under the full coefficient-domain hypotheses.
+- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), Theorem1.2, p.3; Theorems6.4 and6.6 and the proof of Theorem1.2(b), pp.33–36. Finite matrix determinants are represented by single group-ring units under the full coefficient-domain hypotheses.
 
 **Acceptance:** For a normal noetherian characteristic-zero integral domain R, p-torsion-free and p-adically complete, with a lift of Frobenius, and any finite group G, Det(GL(R[G]))=Det(R[G]×). GL denotes the stable union over finite matrix sizes; no semilocality of R is assumed.
+
+<a id="target-ell-elementary-determinant-descent"></a>
+
+### Determinant descent for Q_p-ℓ-elementary groups
+
+**Target:** `ClassicalArithmeticCompletion:CA.7/continuation/ell-elementary-determinant-descent` (theorem).
+
+Let R⊆S satisfy the hypotheses of determinant-fixed-point: normal noetherian characteristic-zero integral domains, p-adically complete with Frobenius lifts, S finite free over R, Frac(S)/Frac(R) Galois with group Δ, S^Δ=R and Tr_S/R onto R. Let ℓ≠p and let G=(C×C′)⋊L be Q_p-ℓ-elementary, with C a cyclic p-group, C′ cyclic of order prime to pℓ and L an ℓ-group. Then Det(S[G]×)^Δ=Det(R[G]×) and Det(GL(R[G]))=Det(R[G]×).
+
+**Proof route.**
+
+1. Put G′=G/C, of order prime to p. Then Z_p[G′] is a split maximal Z_p-order, a product of matrix rings over local rings of integers, so Det(GL(R[G′]))=Det(R[G′]×) and Δ-invariant determinants descend there (CPT Proposition6.10). Lift such a determinant through the radical, since the kernel of R[G]→R[G′] lies in the radical. Every irreducible χ of G is induced from an abelian character φ of a subgroup containing C×C′ (CPT Lemma6.8). Write φ=φ′φ_p with φ′ of order prime to p and φ_p of p-power order and put χ′=Ind φ′. Fröhlich’s congruence Det(r)(χ−χ′)≡1 modulo the maximal ideal (CPT Proposition6.9) makes the remaining quotient pro-p, while the p-elementary multiplier argument gives it order prime to p, so it is trivial. For the second equality, the split exact sequence of determinant groups for R[G]→R[G′] reduces to G′. The congruence and the split-maximal-order structure are the boundary G-ELLELEMENTARY.
+
+**Dependencies:** [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [elementary-crossed-product-descent](#target-elementary-crossed-product-descent), [p-group-determinant-fixed-point](#target-p-group-determinant-fixed-point), [semilocal-determinant-stability](#target-semilocal-determinant-stability), `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`.
+
+**Sources.**
+
+- [K₁ of a p-adic group ring I. The determinantal image](https://arxiv.org/pdf/0904.2563v1), §6b, Theorem6.6 with Lemma6.8 and Propositions6.9–6.10, pp.34–35. For Q_p-ℓ-elementary groups with ℓ≠p, invariant unit determinants descend and matrix determinants are unit determinants; the proof combines the split maximal order of the prime-to-p quotient with Fröhlich’s congruence for characters induced from abelian characters.
+
+**Acceptance:** Let R⊆S satisfy the hypotheses of determinant-fixed-point: normal noetherian characteristic-zero integral domains, p-adically complete with Frobenius lifts, S finite free over R, Frac(S)/Frac(R) Galois with group Δ, S^Δ=R and Tr_S/R onto R. Let ℓ≠p and let G=(C×C′)⋊L be Q_p-ℓ-elementary, with C a cyclic p-group, C′ cyclic of order prime to pℓ and L an ℓ-group. Then Det(S[G]×)^Δ=Det(R[G]×) and Det(GL(R[G]))=Det(R[G]×).
 
 <a id="target-residue-trace-filtration"></a>
 
@@ -1798,7 +1749,7 @@ Let A⊆B be finite Dedekind domains and p a nonzero prime of A. For a prime P a
 
 1. Use ideal CRT for the pairwise coprime powers P_iᵉ. In each quotient filter by P_iʲ/P_iʲ⁺¹; localization at the DVR identifies each nonzero graded piece with one copy of B/P_i. Multiplication by x is block triangular, so its trace is e times the residue trace. Integral trace commutes with quotient scalar change because B is finite projective over A. The Galois action permutes primes and induces the residue isomorphisms; the imported Dedekind prime-action dictionary supplies that normality.
 
-**Dependencies:** [finite-dedekind-torsionfree-projective](#target-finite-dedekind-torsionfree-projective), `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary`.
+**Dependencies:** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary`.
 
 **Sources.**
 
@@ -1822,7 +1773,7 @@ Let A be integrally closed with fraction field F, L/F finite G-Galois, and B its
 
 **Sources.**
 
-- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Proposition6.1 and Corollary6.2, p.11. Tracing a normal integral generator gives an integral normal generator in the fixed Galois extension.
+- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Proposition6.1 (stated p.10, proof p.11) and Corollary6.2, pp.10–11. Tracing a normal integral generator gives an integral normal generator in the fixed Galois extension.
 
 **Acceptance:** Let A be integrally closed with fraction field F, L/F finite G-Galois, and B its finite integral closure. If B=A[G]a is a normal integral basis and H≤G, then B^H is free over A with basis {Σh∈H h(g(a)) : Hg∈H\G}. In particular Tr_L/F(a) is an A-basis of A, and the trace B→A is onto. When H is normal this is an A[G/H]-normal integral basis for the fixed extension. The statement covers complete DVRs as well as number-field integer rings.
 
@@ -1842,7 +1793,7 @@ Let A be commutative noetherian, Λ a finite central A-algebra, M a finitely pre
 
 **Sources.**
 
-- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§2 finite-projective and local criteria, pp.6–8, with the finite-presentation Hom-kernel proof given here. Finite presentations permit central flat Hom base change and projectivity descent over an order.
+- [The K-book, Chapter I: Projective Modules and Vector Bundles](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), I§2, Locally Free Modules2.4 and its proof, pp.10–11. Over a commutative ring a finitely presented module is projective when its localizations are, because surjectivity of the Hom map out of a finite presentation is a local property; the node runs the same Hom argument for central flat scalar change over a finite A-algebra.
 
 **Acceptance:** Let A be commutative noetherian, Λ a finite central A-algebra, M a finitely presented left Λ-module, N any left Λ-module and S a flat commutative A-algebra. The canonical map S⊗ₐHom_Λ(M,N)→Hom_(S⊗ₐΛ)(S⊗ₐM,S⊗ₐN) is an isomorphism, compatible with composition and pure tensors. If S is faithfully flat, projectivity of S⊗M descends to M. For a family of flat central scalar maps jointly detecting A-module exactness, projectivity descends when it holds after every scalar change.
 
@@ -1852,19 +1803,19 @@ Let A be commutative noetherian, Λ a finite central A-algebra, M a finitely pre
 
 **Target:** `ClassicalArithmeticCompletion:CA.7/continuation/dedekind-completion-detection` (theorem).
 
-For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring of v.adicCompletion F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of A-modules; finite sublattice equality and finite-order projectivity descent are applications. For number fields the arithmetic completion dictionary is imported. The generic valuation-ring/localization adapter, including the local-map proof, is G-COMPLETION.
+For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring v.adicCompletionIntegers F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of finitely generated A-modules and of maps between them; finite sublattice equality and finite-order projectivity descent are applications. For number fields it agrees with the arithmetic completion dictionary of NumberFieldArithmetic Layer5.
 
 **Proof route.**
 
-1. Construct A_v→Â_v by mapping denominators outside v to valuation units. The valuation identifies its maximal ideal and proves it is local. The completed valuation ring is torsion-free over the DVR A_v, hence flat. Its maximal ideal remains proper, so a flat local map is faithfully flat. A family over all maximal ideals detects exactness, because A is a nonfield Dedekind domain and every maximal ideal is nonzero. The canonical generic adapter and its local-map proof remain the exact formal supplier boundary G-COMPLETION.
+1. The pinned A-algebra structure on Â_v sends a∈A to its image in the completion. Elements outside v have valuation one, so they are units of Â_v and the map factors through A_v. The maximal ideal of A_v maps into the maximal ideal of the valuation subring Â_v, a local ring, so A_v→Â_v is local. Â_v is torsion-free over A by a pinned instance, hence flat over the Dedekind domain A by IsDedekindDomain.flat_iff_torsion_eq_bot, hence flat over A_v. Module.FaithfullyFlat.of_flat_of_isLocalHom makes A_v→Â_v faithfully flat. Localizations at all maximal ideals detect exactness, and every maximal ideal of the nonfield Dedekind domain A is nonzero, so the completions do too. Compatibility with finite lattice scalar change is Â_v⊗_A M=Â_v⊗_(A_v)(A_v⊗_A M).
 
-**Dependencies:** `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`, [finite-order-flat-hom](#target-finite-order-flat-hom), `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`.
+**Dependencies:** `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`, `mathlib:IsDedekindDomain.HeightOneSpectrum.algebraMap_adicCompletionIntegers_apply`, `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot`, `mathlib:ValuationSubring.isLocalRing`, `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`, [finite-order-flat-hom](#target-finite-order-flat-hom), `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`.
 
 **Sources.**
 
-- [Quaternion Algebras](https://jvoight.github.io/quat-book.pdf), §9.4 local-global lattice principle, as used by Lemma10.2.10, p.153; construction/proof supplied in this target. Lattice equality is detected at all localizations; faithful-flat completion transports this test.
+- [Quaternion Algebras](https://jvoight.github.io/quat-book.pdf), §9.4 Lemma9.4.6, p.141; Lemma10.2.10, p.153. A lattice is the intersection of its localizations, so lattice equality is detected at all localizations; faithfully flat completion transports this test. The adapter itself is assembled here from pinned Mathlib.
 
-**Acceptance:** For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring of v.adicCompletion F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of A-modules; finite sublattice equality and finite-order projectivity descent are applications. For number fields the arithmetic completion dictionary is imported. The generic valuation-ring/localization adapter, including the local-map proof, is G-COMPLETION.
+**Acceptance:** For a nonfield Dedekind domain A with fraction field F and a nonzero prime v, let Â_v be the valuation ring v.adicCompletionIntegers F. The canonical map A_v→Â_v is a flat local homomorphism and hence faithfully flat. The family A→Â_v therefore detects exactness of finitely generated A-modules and of maps between them; finite sublattice equality and finite-order projectivity descent are applications. For number fields it agrees with the arithmetic completion dictionary of NumberFieldArithmetic Layer5.
 
 <a id="target-semilocal-induction-comparison"></a>
 
@@ -1882,7 +1833,7 @@ Let S be a commutative ring, G a finite group, H≤G and M a left S[H]-module. T
 
 **Sources.**
 
-- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Proposition10.7 proof, p.20. The completed global integer module is the decomposition-group induction of the local integer module, with the left-module tensor order fixed.
+- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Theorem10.7, proof, p.20. The completed global integer module is the decomposition-group induction of the local integer module; the source notes it is imprecise about left and right modules (E803 of the accepted packet), so the node fixes the left-module tensor order.
 
 **Acceptance:** Let S be a commutative ring, G a finite group, H≤G and M a left S[H]-module. There is a canonical S[G]-linear isomorphism S[G]⊗_(S[H])M with functions f:G→M satisfying f(gh)=h⁻¹f(g), on which G acts by left translation. The tensor g⊗m maps to the function supported on gH with value h⁻¹m at gh. This is independent of coset representatives. For a G-equivariant product of modules indexed by G/H, applying the transport maps identifies this function model with the product.
 
@@ -1922,7 +1873,7 @@ For finite extensions L/F and K/F of number fields or p-adic fields that are lin
 
 **Sources.**
 
-- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Theorem5.4 and Corollary5.6, pp.9–10. Coprime discriminants and linear disjointness identify the integral tensor product with the compositum integer ring.
+- [Notes on Galois Modules](https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf), Theorem5.4 with proof, pp.9–10; Example5.6, p.10; Proposition6.4(ii), p.11. Coprime discriminants and linear disjointness identify the integral tensor product with the compositum integer ring, and normal integral bases multiply across arithmetically disjoint Galois extensions; the source’s Definition5.1 equates linear disjointness with trivial intersection, which E801 of the accepted packet corrects.
 
 **Acceptance:** For finite extensions L/F and K/F of number fields or p-adic fields that are linearly disjoint and have coprime relative discriminant ideals, multiplication induces O_L⊗_(O_F)O_K≅O_(LK). If both are Galois, restriction gives Gal(LK/F)≅Gal(L/F)×Gal(K/F), and tensoring their normal integral bases gives the product normal integral basis. Trivial field intersection alone is not used as linear disjointness unless a Galois hypothesis justifies it.
 
@@ -1958,7 +1909,7 @@ For A=Z[√−5], I=(2,1+√−5) has quotient A/I≅F₂ and norm 2. It is nonp
 
 1. Reduce √−5 to 1 in F₂ and identify the kernel as the displayed ideal. The principal ideal index is the absolute determinant of multiplication by a+b√−5, equal to a²+5b². If b≠0 this is at least5; if b=0 it is a square and cannot equal2. Apply the ideal-product/Steinitz and K₀ comparison.
 
-**Dependencies:** [dedekind-projective-steinitz](#target-dedekind-projective-steinitz), [dedekind-k0-comparison](#target-dedekind-k0-comparison).
+**Dependencies:** `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-steinitz-class`, [dedekind-k0-comparison](#target-dedekind-k0-comparison).
 
 **Sources.**
 
@@ -1968,7 +1919,7 @@ For A=Z[√−5], I=(2,1+√−5) has quotient A/I≅F₂ and norm 2. It is nonp
 
 ## Retained targets and the 49-item review frontier
 
-The following targets keep the accepted packet’s IDs, statements, APIs and checks. Their proof routes now name the direct continuation suppliers. Smaller proof constructions remain inside their target at the current target-level granularity. Definition facets precede their theorem APIs: define the retained Cl subgroup and class maps first, then prove the stable, scalar, Steinitz and Hom APIs from the continuation. Additional suppliers attach to the named theorem/API obligation, not to the definition of its own carrier. A review request to split every auxiliary map is assessed at the current target-level granularity. The eight boundaries are explicitly propagated to the affected contracts.
+The following targets keep the accepted packet’s IDs, statements, APIs and checks. Their proof routes now name the direct continuation suppliers. Smaller proof constructions remain inside their target at the current target-level granularity. Definition facets precede their theorem APIs: define the retained Cl subgroup and class maps first, then prove the stable, scalar, Steinitz and Hom APIs from the continuation. Additional suppliers attach to the named theorem/API obligation, not to the definition of its own carrier. A review request to split every auxiliary map is assessed at the current target-level granularity. The seven boundaries are explicitly propagated to the affected contracts.
 
 <a id="target-ring-of-integers-as-group-ring-module"></a>
 
@@ -2284,7 +2235,7 @@ Let B/A be a finite extension of Dedekind domains with a finite Galois group G (
 
 1. The new target proves the nonroutine prime-power multiplier; the accepted ideal CRT and finite-projective scalar trace finish the displayed sum. The whole primary quotient is an A/p-vector space, not a B/P-vector space.
 
-**Dependencies:** `mathlib:Algebra.trace_quotient_eq_of_isDedekindDomain`, `mathlib:Ideal.ramificationIdxIn`, `mathlib:Algebra.intTrace`, [tamely-ramified](#target-tamely-ramified), `mathlib:IsDedekindDomain.quotientEquivPiOfProdEq`, [residue-trace-filtration](#target-residue-trace-filtration), [finite-dedekind-torsionfree-projective](#target-finite-dedekind-torsionfree-projective), `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary`.
+**Dependencies:** `mathlib:Algebra.trace_quotient_eq_of_isDedekindDomain`, `mathlib:Ideal.ramificationIdxIn`, `mathlib:Algebra.intTrace`, [tamely-ramified](#target-tamely-ramified), `mathlib:IsDedekindDomain.quotientEquivPiOfProdEq`, [residue-trace-filtration](#target-residue-trace-filtration), `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary`.
 
 **Inherited review contract:** Supply the primary filtration trace after CRT.
 
@@ -2441,7 +2392,7 @@ Let B/A be a finite extension of Dedekind domains with finite Galois group G. If
 
 1. Finite torsion-free Dedekind modules are projective by the constructive Steinitz argument. Trace-one multiplication satisfies Rim’s condition. Restrict a projective A[G]-module to A[H], since the larger ring is finite free on cosets.
 
-**Dependencies:** [rim-projectivity-criterion](#target-rim-projectivity-criterion), [tame-iff-trace-surjective](#target-tame-iff-trace-surjective), [ring-of-integers-as-group-ring-module](#target-ring-of-integers-as-group-ring-module), `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot`, `mathlib:Module.Flat.projective_of_finitePresentation`, `mathlib:Module.finitePresentation_of_finite`, [finite-dedekind-torsionfree-projective](#target-finite-dedekind-torsionfree-projective), [projective-group-norm-surjectivity](#target-projective-group-norm-surjectivity).
+**Dependencies:** [rim-projectivity-criterion](#target-rim-projectivity-criterion), [tame-iff-trace-surjective](#target-tame-iff-trace-surjective), [ring-of-integers-as-group-ring-module](#target-ring-of-integers-as-group-ring-module), `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot`, `mathlib:Module.Flat.projective_of_finitePresentation`, `mathlib:Module.finitePresentation_of_finite`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis`, [projective-group-norm-surjectivity](#target-projective-group-norm-surjectivity).
 
 **Inherited review contract:** Supply coefficient projectivity and subgroup restrictions.
 
@@ -2683,13 +2634,13 @@ Let A be a Dedekind domain that is not a field with fraction field K and Λ an A
 
 **Proof route.**
 
-1. The height-one completion predicate is vacuous over a field. Retain A nonfield in all rank/projectivity consequences; for a field define rank by an actual generic B-module isomorphism. Finite generation, torsion-freeness and a fixed local rank remain explicit.
+1. The height-one completion predicate is vacuous over a field. Retain A nonfield in all rank/projectivity consequences; for a field define rank by an actual generic B-module isomorphism. Finite generation, torsion-freeness and a fixed local rank remain explicit. The completion adapter is planned in dedekind-completion-detection from pinned Mathlib.
 
 **Dependencies:** `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`, `mathlib:LinearMap.baseChange`, `mathlib:Module.Finite`, `mathlib:IsDedekindDomain`, [dedekind-completion-detection](#target-dedekind-completion-detection).
 
 **Inherited review contract:** Preserve nonfield, finite and generic-rank requirements.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Consumers.**
 
@@ -2719,13 +2670,13 @@ Let A be a Dedekind domain that is not a field and Λ an A-algebra finitely gene
 
 **Proof route.**
 
-1. For a finite order over noetherian A, finite generation gives a finite presentation. Central flat Hom base change plus joint exactness detection descends projectivity. The generic completion adapter remains explicit; number-field completions use NFA5.
+1. For a finite order over noetherian A, finite generation gives a finite presentation. Central flat Hom base change plus joint exactness detection descends projectivity. dedekind-completion-detection assembles the completion adapter from pinned Mathlib; number-field completions agree with NFA5.
 
 **Dependencies:** [locally-free-lattice](#target-locally-free-lattice), `mathlib:Module.Projective`, `mathlib:Module.FaithfullyFlat`, `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`, `mathlib:Module.FinitePresentation`, `mathlib:Module.projective_of_localization_maximal`, `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot`, [finite-order-flat-hom](#target-finite-order-flat-hom), [dedekind-completion-detection](#target-dedekind-completion-detection).
 
 **Inherited review contract:** Supply noncommutative central Hom descent.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -2747,13 +2698,13 @@ Let A be a Dedekind domain that is not a field, V an A-module, and N ⊆ P two A
 
 **Proof route.**
 
-1. Apply completion exactness detection to the quotient of the two finite sublattices. The field counterexample is excluded by A nonfield. The local flat-map theorem is already pinned Mathlib; only the generic completion adapter is missing.
+1. Apply completion exactness detection to the quotient of the two finite sublattices. The field counterexample is excluded by A nonfield. Flatness of the completed valuation ring and the local flat-map theorem are pinned Mathlib; dedekind-completion-detection assembles them.
 
 **Dependencies:** `mathlib:Submodule.eq_of_localization_maximal`, `mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom`, `mathlib:LinearMap.baseChange`, `mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot`, [dedekind-completion-detection](#target-dedekind-completion-detection).
 
 **Inherited review contract:** Expose faithful flatness and the nonfield case.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -2806,7 +2757,7 @@ Let L/K be a finite tamely ramified Galois extension of number fields with group
 
 **Inherited review contract:** Connect local bases, induction and completion.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -2833,7 +2784,7 @@ Let L/K be a finite Galois extension of number fields with group G. The followin
 
 **Inherited review contract:** Keep the number-field/nonfield branch visible.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -3183,7 +3134,7 @@ Let L/K be a finite Galois extension of number fields (or of nonarchimedean loca
 
 **Inherited review contract:** Respect the number/local-field scope.
 
-**Boundary:** G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -3535,13 +3486,13 @@ Let A be a Dedekind domain that is not a field with fraction field K and Λ an A
 
 **Proof route.**
 
-1. Use pinned SplitK0 of finiteProjectiveModules. Equality is common finite-free stabilization via the projective free complement. Define the existing subgroup by its locally free generators; use the new scalar maps and the Steinitz comparison. All finite/nonfield hypotheses remain.
+1. Use pinned SplitK0 of finiteProjectiveModules. Equality is common finite-free stabilization via the projective free complement. Define the existing subgroup by its locally free generators; use the new scalar maps and the K₀ comparison built on GN.2’s Steinitz class. All finite/nonfield hypotheses remain. Review decision: the API item that every class is represented by a rank-one lattice is restricted to arithmetic orders (O_F-orders in semisimple F-algebras, F a number field).
 
 **Dependencies:** [locally-free-lattice](#target-locally-free-lattice), [locally-free-lattice-is-projective](#target-locally-free-lattice-is-projective), `tauceti:TauCeti.SplitK0`, `tauceti:TauCeti.SplitK0.of`, `tauceti:TauCeti.SplitK0.of_biprod`, `tauceti:TauCeti.SplitK0.map`, `tauceti:TauCeti.finiteProjectiveModules`, `mathlib:ClassGroup`, [split-k0-stable-equality](#target-split-k0-stable-equality), [extension-k0-map](#target-extension-k0-map), [locally-free-scalar-compatibility](#target-locally-free-scalar-compatibility), [dedekind-k0-comparison](#target-dedekind-k0-comparison), [semisimple-rank-one-class-supplier](#target-semisimple-rank-one-class-supplier).
 
 **Inherited review contract:** Supply genuine K₀, scalar and Steinitz interfaces.
 
-**Boundary:** G-GENERALIDEAL, G-COMPLETION.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Consumers.**
 
@@ -3571,13 +3522,13 @@ Let Λ be an A-order in a finite-dimensional semisimple K-algebra, A a Dedekind 
 
 **Proof route.**
 
-1. For arithmetic orders use the stable idele quotient, local norm lifts and matrix strong approximation. Zero is represented by Λ; differences use idele products/inverses. Positive total rank alone permits Λ^(m−1)⊕I. The broader inherited Dedekind scope remains an explicit boundary.
+1. For arithmetic orders use the stable idele quotient, local norm lifts and matrix strong approximation. Zero is represented by Λ; differences use idele products/inverses. Positive total rank alone permits Λ^(m−1)⊕I. Review decision: this contract is restricted to arithmetic orders, O_F-orders in finite-dimensional semisimple F-algebras with F a number field; Fröhlich 1975 (p.113) develops the method only over rings of algebraic integers, and every consumer (ℤ[G], O_F[G]) is arithmetic.
 
 **Dependencies:** [locally-free-class-group](#target-locally-free-class-group), [locally-free-lattice](#target-locally-free-lattice), [positive-rank-ideal-splitting](#target-positive-rank-ideal-splitting), [semisimple-rank-one-class-supplier](#target-semisimple-rank-one-class-supplier).
 
 **Inherited review contract:** Cover differences and positive-rank splitting in semisimple algebras.
 
-**Boundary:** G-GENERALIDEAL.
+**Boundary:** Retained with the direct suppliers and current target-level API stated above..
 
 **Sources.**
 
@@ -3671,13 +3622,13 @@ Let M/N be a tame Galois extension of number fields with group Γ. Then 2·[𝓞
 
 **Proof route.**
 
-1. Use [O_L]−d[Z[G]]=t(W), not a two-torsion shortcut. W²=1 gives 2c=0. The local constant, product, induction, crossed-product and torsion-congruence proof boundaries are explicit.
+1. Use [O_L]−d[Z[G]]=t(W), not a two-torsion shortcut. W²=1 gives 2c=0. The local-constant, rational-induction, crossed-product, ℓ-elementary-congruence and torsion-congruence boundaries are explicit; the Hasse–Davenport sign boundary is not on this chain, because Taylor uses the product relation only up to roots of unity.
 
 **Dependencies:** [ring-of-integers-class](#target-ring-of-integers-class), [locally-free-class-group](#target-locally-free-class-group), [froehlich-taylor-equality](#target-froehlich-taylor-equality), [root-number-class](#target-root-number-class).
 
 **Inherited review contract:** Supply the full obstruction equality and then square it.
 
-**Boundary:** G-LOCALCONSTANTS, G-DH, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE.
+**Boundary:** G-LOCALCONSTANTS, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE, G-ELLELEMENTARY.
 
 **Sources.**
 
@@ -3704,7 +3655,7 @@ Let M/N be a tame Galois extension of number fields with group Γ. If Γ has no 
 
 **Inherited review contract:** Compute the obstruction, not just its order.
 
-**Boundary:** G-LOCALCONSTANTS, G-DH, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE.
+**Boundary:** G-LOCALCONSTANTS, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE, G-ELLELEMENTARY.
 
 **Sources.**
 
@@ -3731,7 +3682,7 @@ Let M/N be a tame Galois extension of number fields with group Γ of odd order. 
 
 **Inherited review contract:** Add precise Eichler cancellation and absolute rank.
 
-**Boundary:** G-LOCALCONSTANTS, G-DH, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE.
+**Boundary:** G-LOCALCONSTANTS, G-LOCALBRAUER, G-CROSSEDPRODUCT, G-FTCONGRUENCE, G-ELLELEMENTARY.
 
 **Sources.**
 
@@ -3761,17 +3712,17 @@ The algebraic inverse-Gauss expression is specified and F76 equations(2.4)–(2.
 
 **Direct consumers:** [symplectic-root-sign](#target-symplectic-root-sign).
 
-### G-DH: The residual p-power ambiguity in Hasse–Davenport
+### G-DH: The sign in the Hasse–Davenport product relation for p=2
 
-DH Appendix(A.6), p.19 states the exact product relation and refers its proof to an uncleared book. Digit-sum valuations and leading residues leave a p-power root-of-unity ambiguity; supply a full proof eliminating it. The formula is a target, not a conclusion inferred from equal valuations.
+DH Appendix (A.6), p.19, states the exact product relation and refers its proof to Berndt–Evans–Williams §11.3, which is not cleared. The plan proves the weak form (equality up to a root of unity) from Stickelberger valuations and absolute values, and for odd p closes the exact form: the ratio is fixed by ζ_p↦ζ_p^b, so it is a root of unity of ℚ(ζ_(q−1)) of order prime to p, determined by its leading residue. For p=2 the ratio is ±1 and −1≡1 modulo every prime above 2, so the residue does not determine it. Supply the sign for p=2. Taylor’s logarithmic use needs only the weak form and does not depend on this boundary.
 
-**Direct consumers:** [finite-gauss-product](#target-finite-gauss-product), [gauss-log-image](#target-gauss-log-image).
+**Direct consumers:** [finite-gauss-product](#target-finite-gauss-product).
 
-### G-LOCALBRAUER: Q_p-rational elementary induction
+### G-LOCALBRAUER: Rational elementary induction (Witt–Berman) and its multiplier form
 
-CPT Theorem5.4, p.29 cites Serre’s uncleared representation book for the Q_p-p-elementary refinement. The existing InductionRestriction Layer6 owns generic Brauer induction but not this refinement. Supply the exact prime-to-p multiplier identity in integral lattice characters with its cyclotomic-action condition.
+CPT Theorem5.4, p.28, cites Serre’s representation book (§12.6) for an integer l prime to p with l·1 a combination of characters induced from Q_p-p-elementary subgroups with Q_p-rational virtual characters. The proof of CPT Theorem1.2(b), p.35, and Taylor §5, pp.52–53, use the integral form, the trivial character as an integral combination of characters induced from K-elementary subgroups with K-rational virtual characters for K=Q_p and K=ℚ, and Taylor also uses the multiplier form for ℚ-ℓ-elementary subgroups. InductionRestriction Layer6 owns Brauer’s induction over ℂ but no field-of-definition refinement. Supply these identities with their cyclotomic-action conditions.
 
-**Direct consumers:** [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction).
+**Direct consumers:** [p-elementary-determinant-reduction](#target-p-elementary-determinant-reduction), [general-group-determinant-stability](#target-general-group-determinant-stability), [gauss-determinant](#target-gauss-determinant).
 
 ### G-CROSSEDPRODUCT: The elementary crossed-product matrix identification
 
@@ -3781,25 +3732,21 @@ CPT Theorem6.2, pp.31–32 relies on Wall’s matrix-ring identification for a c
 
 ### G-FTCONGRUENCE: The Gauss congruence supplier used in Taylor’s torsion test
 
-Taylor Theorem4, pp.59–61 and its proof in §§9–10, pp.65–75 give four detecting congruence branches. The degree>2 Gauss congruence at §9 Ia invokes Fröhlich–Taylor 1980 §5.1; the adjusted Gauss equivariance input also invokes its Propositions3.6–3.7. The publisher refused the full text (DOI10.1098/rsta.1980.0242), and no cleared/public full copy was found. Read and prove these exact congruences before closing the determinant assertion.
+Taylor Theorem4, pp.59–60, and its proof in §§9–10, pp.65–75, give four detecting congruence branches; branch Ia (p.66) is argued as in §5.1 of Fröhlich–Taylor 1980. Taylor’s Propositions3.6–3.7 (p.47), on the unramified correction y and its congruence modulo 𝔏_l, cite Theorem5(ii)–(iii) of that paper, and Proposition3.7 feeds the congruence Proposition3.10(v) used in the ℚ-q-elementary step of §6. The publisher refused the full text (DOI10.1098/rsta.1980.0242), and no cleared or public full copy was found. Read and prove these exact congruences before closing the determinant assertion.
 
-**Direct consumers:** [adjusted-gauss-sum](#target-adjusted-gauss-sum), [gauss-torsion-detection](#target-gauss-torsion-detection).
+**Direct consumers:** [adjusted-gauss-sum](#target-adjusted-gauss-sum), [gauss-torsion-detection](#target-gauss-torsion-detection), [gauss-determinant](#target-gauss-determinant).
 
-### G-COMPLETION: Generic Dedekind localization-to-valuation-completion adapter
+### G-ELLELEMENTARY: Fröhlich’s congruence and split maximal orders for Q_p-ℓ-elementary groups
 
-Construct the canonical A_v→valuationRing(v.adicCompletion(Frac A)) for a nonfield Dedekind domain; prove injectivity, localness and torsion-freeness over the DVR, then apply the pinned faithfully-flat local-map theorem. Current NumberFieldArithmetic Layer5 owns the number-field version, not this generic Dedekind adapter. Supply the compatibility with finite lattice scalar change needed for projectivity descent and sublattice equality.
+CPT Theorem6.6, pp.34–35, the determinant descent for Q_p-ℓ-elementary groups with ℓ≠p, rests on Fröhlich’s congruence Det(r)(χ−χ′)≡1 modulo the maximal ideal (CPT Proposition6.9, citing Fröhlich’s Galois Module Structure of Algebraic Integers, Theorem15A, p.66) and on the split maximal order structure of Z_p[G/C] (CPT Proposition6.10, citing Reiner’s Maximal Orders, Theorems41.1 and41.7); neither book is cleared. Lemma6.8 (characters induced from abelian characters, Serre §8.2) follows from Clifford theory. Supply proofs of the congruence and of the splitting of the maximal order Z_p[G′] for |G′| prime to p.
 
-**Direct consumers:** [dedekind-completion-detection](#target-dedekind-completion-detection).
-
-### G-GENERALIDEAL: The inherited rank-one statement beyond arithmetic orders
-
-F75 proves stable idele classification and rank-one realization for arithmetic orders in semisimple number-field algebras. The inherited rank-one target is stated for a nonfield Dedekind base without consistently restricting it to that arithmetic setting. Keep its ID and record the broader Dedekind statement as a scope/proof boundary: supply a general order decomposition theorem at that contract, or have the independent reviewer approve restricting that contract to arithmetic orders. No general theorem is inferred from the number-field strong-approximation proof.
-
-**Direct consumers:** [semisimple-rank-one-class-supplier](#target-semisimple-rank-one-class-supplier).
+**Direct consumers:** [ell-elementary-determinant-descent](#target-ell-elementary-determinant-descent).
 
 ## Source correction and reading record
 
-- `ClassicalArithmeticCompletion/E901`, arXiv:0904.2563v1, Corollary3.3, p.13; finding scoped to this preprint: The zero logarithm implication ends with L(1+x)=1, although L takes values in an additive class module. The conclusion is L(1+x)=0. The determinant value is the multiplicative identity; the logarithm value is the additive identity. L=(p−Ψ)φlog and the preceding hypothesis gives φlog=0, so applying the additive operator gives 0. In particular x=0 has L(1)=0. The proof immediately below also uses zero. The mathematical conclusion is unchanged. The finding is scoped to the arXiv preprint; publisher full text was refused.
+- `ClassicalArithmeticCompletion/E1701` (formerly E901, renumbered because CA.3 uses E901), arXiv:0904.2563v1, Corollary3.3, p.13: the zero-logarithm implication ends with L(1+x)=1, although L takes values in an additive class module; it should read L(1+x)=0, as the proof directly below shows (L=(p−Ψ)φlog and φlog(1+x)=0). Confirmed by the independent review. The mathematical conclusion is unchanged; the finding is scoped to the arXiv preprint.
+- `ClassicalArithmeticCompletion/E1702`, arXiv:0904.2563v1, §3b, p.19: the text sends the reader to an appendix in Section6 for the proof of Theorem3.14; the appendix is Section7, p.36. Found and confirmed by the independent review.
+- `ClassicalArithmeticCompletion/E1703`, arXiv:0904.2563v1, proof of Theorem3.4(b), p.14: the last sentence concludes L(1+I²)⊆I², while the argument gives, and part (b) states, L(1+I²)⊆pI². Found and confirmed by the independent review.
 
 The accepted packet’s existing Johnston corrections are retained, including the intersection/linear-disjointness distinction, the discriminant index orientation, the residue-degree exponent and the maximal-unramified base. They are not new findings of this continuation.
 
@@ -3818,24 +3765,24 @@ The accepted packet’s existing Johnston corrections are retained, including th
 - **STICK**: [Jacobi sums and Stickelberger’s congruence](https://kconrad.math.uconn.edu/articles/jacobistick.pdf), Keith Conrad. International Mathematics Research Notices (1995), author PDF with pp.1–9. Read 2026-10-14: Theorems1–2 and their proofs, pp.1–5; pp.6–9 not used. SHA-256: `6aca7f746318bd051d64e31fd5c82e4ef2087af5bbdb8f229eceb05cbcf20f18`.
 - **DH**: [Gauss and Jacobi sums on finite fields and Z/mZ](https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf), Keith Conrad. Author notes, PDF pp.1–19. Read 2026-10-14: Appendix, formula(A.6), p.19; its proof reference is not treated as a read proof. SHA-256: `546796c67f82b251c416dcfd10a20602e77efe3c63f0df8749d1e22831d163b7`.
 - **VOIGHT**: [Quaternion Algebras](https://jvoight.github.io/quat-book.pdf), John Voight. Open-access book, author edition; printed pagination. Read 2026-10-14: §9.4, pp.139–142, localization and lattice gluing; Chapter10 §§10.2–10.4, pp.152–155, especially Lemmas10.2.7 and10.3.7 and paragraph10.4.2. SHA-256: `a9316b834dbd500c52cd3a981c3205c9f4145b217042b213d23f696aee84b0f0`.
+- **ULLOM**: [Normal bases in Galois extensions of number fields](https://resolve.cambridge.org/core/services/aop-cambridge-core/content/view/CDAF1160D7312AB5A5E2D32BA8B540FF/S0027763000024521a.pdf/normal-bases-in-galois-extensions-of-number-fields.pdf), S. Ullom. Nagoya Mathematical Journal 34 (1969), 153–167; open-access scan on Cambridge Core, fetched 2026-10-14 (the download watermark changes, so the checksum identifies only these bytes). Read 2026-10-14: Chapter I, Propositions1.1–1.4, pp.154–156. SHA-256: `17a4cc50f4a1c174f17443ed2ef2d2a9e1b68cb0d4d9d64d87d89542f5203837`.
 
 The reader is organized by mathematical targets, not by a source’s sections. Source locators identify the supporting theorem or proof; the text states results in the roadmap’s own words.
 
 ## Structure, planets and assembly
 
 - **Stable equality in K₀**: [split-k0-stable-equality](#target-split-k0-stable-equality).
-- **Steinitz decomposition**: [dedekind-projective-steinitz](#target-dedekind-projective-steinitz).
 - **Rank-one ideal representatives**: [semisimple-rank-one-class-supplier](#target-semisimple-rank-one-class-supplier).
 - **Jacobinski cancellation**: [jacobinski-cancellation](#target-jacobinski-cancellation).
 - **Fröhlich Hom-description**: [character-idele-quotient](#target-character-idele-quotient).
 - **Fröhlich–Taylor theorem**: [froehlich-taylor-equality](#target-froehlich-taylor-equality).
 
-The continuation has six markers, the maximum for its current stage. They must be reconciled with the six inherited markers during assembly rather than appended to make twelve. The proposed three-block split and combined unsplit palette are specified in the packet’s restructure records. CA.7 remains unchanged until the manager acts on that proposal.
+The continuation has five markers. They must be reconciled with the six inherited markers during assembly rather than appended. The Steinitz decomposition is GN.2’s and is not a CA.7 marker. The proposed three-block split and combined unsplit palette are specified in the packet’s restructure records. CA.7 remains unchanged until the manager acts on that proposal.
 
-KTheoryLowDegrees Z.1 and Z.4 import the moved-down stable/scalar/Steinitz inputs. FiniteFieldsAndCharacterSums FF.1 imports the two finite Gauss targets while retaining its wider character-sum programme. Neither upstream owner is edited by this job.
+KTheoryLowDegrees Z.1 and Z.4 import the moved-down stable and scalar inputs and the K₀ comparison from CA.7, and the Steinitz class from GN.2. FiniteFieldsAndCharacterSums FF.1 imports the two finite Gauss targets while retaining its wider character-sum programme. Neither upstream owner is edited by this job.
 
 ## Suggested statements and validation
 
-The paired suggested file uses the actual finite-projective category and SplitK0 carrier, a light finite-free stable-equivalence predicate, and statable scalar-restriction, Steinitz, projective-norm and finite-Gauss signatures. Balanced tensor carriers over arbitrary rings, arithmetic orders/ideles, virtual-character Hom quotients and group logarithms are specified fully here because their carriers are absent at the pins. There are no substitute uninterpreted types or data constructions in the file.
+The paired suggested file uses the actual finite-projective category and SplitK0 carrier, a light finite-free stable-equivalence predicate, and statable scalar-restriction, ideal-product, projective-norm and finite-Gauss signatures. Pseudobases and the Steinitz class are GN.2’s and are not restated. Balanced tensor carriers over arbitrary rings, arithmetic orders/ideles, virtual-character Hom quotients and group logarithms are specified fully here because their carriers are absent at the pins. There are no substitute uninterpreted types or data constructions in the file.
 
-Validation checks packet closure boundaries and references, exact inherited-ID coverage, the 49-item frontier, API/check coverage for every definition, the six-planet cap and elaboration at the pins. The handoff records the completed command results and source-access limits.
+Validation checks packet closure boundaries and references, exact inherited-ID coverage, the 49-item frontier, API/check coverage for every definition, the planet cap and elaboration at the pins. The handoff records the completed command results and source-access limits.
