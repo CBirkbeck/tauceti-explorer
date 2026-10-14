@@ -20,6 +20,8 @@ import Mathlib.RingTheory.Localization.Basic
 import Mathlib.RingTheory.Polynomial.Content
 import Mathlib.RingTheory.Polynomial.GaussLemma
 import Mathlib.RingTheory.Polynomial.Resultant.Basic
+import TauCeti.LinearAlgebra.Matrix.Echelon.KernelBasis
+import TauCeti.RingTheory.Polynomial.BinomialBasis
 
 /-!
 # Classical arithmetic, layer CA.3 (continuation): suggested Lean forms
@@ -36,7 +38,10 @@ the two files are elaborated separately, the two declarations it needs from ther
 are assembled they are the same declarations.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Tau Ceti
-f790474821cf4256814db967cb154e7af3d0c369. The file imports only Mathlib.
+f790474821cf4256814db967cb154e7af3d0c369. Besides Mathlib, the file imports two Tau Ceti modules
+that it builds on rather than restates: the computable Gauss–Jordan elimination and kernel basis
+(`TauCeti.rowReduce`, `TauCeti.kernelBasis`) and the binomial basis of `K[X]`
+(`TauCeti.binomialPolynomialBasis`).
 
 Conventions pinned here (and in the document):
 * `Int(D)` is the `D`-subalgebra of `K[X]` of polynomials mapping `D` into `D`, for `K` the
@@ -379,6 +384,11 @@ theorem mul_characteristicIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields 
       characteristicIdeal D K n = 1 := by
   sorry
 
+/-- `n!_D` is a nonzero ideal, so it has a class in the class group. -/
+theorem ne_bot (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (n : ℕ) :
+    factorialIdeal D n ≠ ⊥ := by
+  sorry
+
 theorem zero_eq_top : factorialIdeal D 0 = ⊤ := by
   sorry
 
@@ -417,6 +427,11 @@ theorem count_polyaIdeal (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D
     (v : HeightOneSpectrum D) (q : ℕ) :
     FractionalIdeal.count K v (polyaIdeal D q : FractionalIdeal (nonZeroDivisors D) K) =
       if residueCard D v = q then 1 else 0 := by
+  sorry
+
+/-- `Π_q(D)` is a nonzero ideal. -/
+theorem ne_bot (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (q : ℕ) :
+    polyaIdeal D q ≠ ⊥ := by
   sorry
 
 theorem eq_top_iff (hD : ¬ IsField D) (hfin : FiniteResidueFields (D := D)) (q : ℕ) :
@@ -675,10 +690,11 @@ theorem l2Norm_le_sqrt_choose_mul_of_dvd {A I : ℤ[X]} (hA : A ≠ 0) (hdvd : I
   sorry
 
 /-- **Size of an irreducible factor at an integer point** (CA.3/irreducible-factor-evaluation-bound;
-Bary-Soroker–Koukoulopoulos–Kozma, Lemma 3.4). -/
+Bary-Soroker–Koukoulopoulos–Kozma, Lemma 3.4). Any irreducible `I` of `ℤ[X]`, including a prime
+constant (degree `0`). -/
 theorem abs_eval_le_of_irreducible_dvd {A I : ℤ[X]} {H : ℝ} (hH : 1 ≤ H)
     (hcoeff : ∀ i, |(A.coeff i : ℝ)| ≤ H) (hn : 1 ≤ A.natDegree) (hI : Irreducible I)
-    (hdvd : I ∣ A) (hm : 1 ≤ I.natDegree) {N : ℤ} (hN : 2 ≤ N) :
+    (hdvd : I ∣ A) {N : ℤ} (hN : 2 ≤ N) :
     |((I.eval N : ℤ) : ℝ)| ≤ (N : ℝ) ^ I.natDegree *
       Real.exp (4 * (1 + Real.sqrt I.natDegree) *
         Real.log (14 * Real.sqrt A.natDegree * H)) := by
@@ -713,7 +729,10 @@ theorem leadingCoeff_pos (s : Finset ℤ[X]) (hs : s.Nonempty) (h0 : (0 : ℤ[X]
 theorem dvd (s : Finset ℤ[X]) {Q : ℤ[X]} (hQ : Q ∈ s) : primitiveGcd s ∣ Q := by
   sorry
 
-theorem dvd_primitiveGcd (s : Finset ℤ[X]) {H : ℤ[X]} (hH : H.IsPrimitive)
+/-- The family must be nonempty and free of `0`: for `s = ∅` or `s = {0}` the primitive gcd is `1`
+while every primitive `H` satisfies the hypothesis. -/
+theorem dvd_primitiveGcd (s : Finset ℤ[X]) (hs : s.Nonempty) (h0 : (0 : ℤ[X]) ∉ s) {H : ℤ[X]}
+    (hH : H.IsPrimitive)
     (h : ∀ Q ∈ s, H.map (Int.castRingHom ℚ) ∣ Q.map (Int.castRingHom ℚ)) : H ∣ primitiveGcd s := by
   sorry
 
@@ -747,11 +766,13 @@ example : primitiveGcd {-6 * X - 4} = 3 * X + 2 := by
   sorry
 
 /-- **A bounded squarefree integral combination** (CA.3/squarefree-integral-combination; Smith,
-Lemma 2.10). The polynomials are `Q 0, …, Q k`, with `Q 0` taking the coefficient `1`. -/
+Lemma 2.10). The polynomials are `Q 0, …, Q k`, with `Q 0` taking the coefficient `1`. The sum of
+the coefficients is at most `2d − 1` in `ℕ` (so `0` when `d = 0`), which gives Smith's bound `2d` on
+each. -/
 theorem exists_squarefree_combination {k n : ℕ} (Q : Fin (k + 1) → ℤ[X]) (hQ : ∀ i, Q i ≠ 0)
     (hdeg : ∀ i, (Q i).natDegree ≤ n) (hn : ∃ i, (Q i).natDegree = n) :
     ∃ b : Fin k → ℕ,
-      (∑ j, b j ≤ 2 * (n - (primitiveGcd (Finset.univ.image Q)).natDegree)) ∧
+      (∑ j, b j ≤ 2 * (n - (primitiveGcd (Finset.univ.image Q)).natDegree) - 1) ∧
       ∃ R : ℤ[X], Q 0 + ∑ j : Fin k, (b j : ℤ[X]) * Q j.succ = primitiveGcd (Finset.univ.image Q) * R ∧
         R.natDegree = n - (primitiveGcd (Finset.univ.image Q)).natDegree ∧
         Squarefree (R.map (Int.castRingHom ℚ)) := by
@@ -799,6 +820,12 @@ example : (2 : ℝ) ≤ 2 * ‖((4 : ℂ) / 2)‖ ^ ((2 : ℝ)⁻¹) ∧ ‖((4 
 theorem eq_sum_fwdDiff_mul_choose (f : ℚ[X]) {N : ℕ} (hN : f.natDegree ≤ N) :
     f = ∑ k ∈ Finset.range (N + 1),
       C ((fwdDiff 1)^[k] (fun x : ℚ => f.eval x) 0) * Ring.choose (X : ℚ[X]) k := by
+  sorry
+
+/-- Compatibility with Tau Ceti: the Gregory–Newton coefficients are the coordinates in
+`TauCeti.binomialPolynomialBasis`. -/
+theorem binomialPolynomialBasis_repr_eq_fwdDiff (f : ℚ[X]) (k : ℕ) :
+    (TauCeti.binomialPolynomialBasis ℚ).repr f k = (fwdDiff 1)^[k] (fun x : ℚ => f.eval x) 0 := by
   sorry
 
 /-- Unit test from the acceptance list: `X² = (X choose 1) + 2 (X choose 2)`. -/
@@ -892,13 +919,22 @@ example :
     newtonContact {0, 1, 2} (by simp) (fun i => if i = 1 then -1 else 0) 1 = {0, 1} := by
   sorry
 
-/-! ## Gauss–Jordan elimination and kernel bases -/
+/-! ## Gauss–Jordan elimination and kernel bases
+
+Tau Ceti already provides the elimination and the kernel basis, and they are not restated here:
+`TauCeti.rowReduce` (terminating Gauss–Jordan elimination over a division ring with decidable
+equality) with `TauCeti.isReducedRowEchelon_rowReduceMatrix`, `TauCeti.isPivotedBy_rowReduceMatrix`,
+`TauCeti.span_rowReduce` and `TauCeti.length_rowReduce_ofFn`; and `TauCeti.kernelBasis`,
+`TauCeti.freeColumnBasis` and `TauCeti.finrank_ker_mulVecLin`. This section adds the change-of-basis
+certificate, the uniqueness of the reduced form and the transport of the kernel basis to a linear
+map in chosen bases. -/
 
 section GaussJordan
 
 variable {F : Type*} [Field F] [DecidableEq F] {m n : ℕ}
 
-/-- The output of Gauss–Jordan elimination (CA.3/gauss-jordan-reduced-echelon-form). -/
+/-- The output of Gauss–Jordan elimination with its certificate
+(CA.3/gauss-jordan-reduced-echelon-form). -/
 structure GaussJordanResult (A : Matrix (Fin m) (Fin n) F) where
   /-- The row transformation. -/
   P : Matrix (Fin m) (Fin m) F
@@ -914,15 +950,25 @@ structure GaussJordanResult (A : Matrix (Fin m) (Fin n) F) where
   isReducedRowEchelon : R.IsReducedRowEchelon
   isPivotedBy : R.IsPivotedBy pivot
 
-/-- Existence of a Gauss–Jordan result; the roadmap asks for it as a terminating computation by
-recursion on the columns. -/
+/-- Existence of the certificate; the roadmap computes it by running `TauCeti.rowReduce` on the
+augmented matrices `[A | 1]` and `[P | 1]`. -/
 theorem nonempty_gaussJordanResult (A : Matrix (Fin m) (Fin n) F) :
     Nonempty (GaussJordanResult A) := by
   sorry
 
-/-- **Gauss–Jordan elimination**. -/
+/-- **Gauss–Jordan elimination with its certificate**. -/
 def gaussJordan (A : Matrix (Fin m) (Fin n) F) : GaussJordanResult A :=
   Classical.choice (nonempty_gaussJordanResult A)
+
+/-- The reduced form is Tau Ceti's: its first `rank A` rows and pivots are those of
+`TauCeti.rowReduceMatrix (List.ofFn A)`, and the remaining rows are zero with pivot `⊤`. -/
+theorem GaussJordanResult.R_eq_rowReduceMatrix {A : Matrix (Fin m) (Fin n) F}
+    (r : GaussJordanResult A) (i : Fin m) :
+    (∀ h : (i : ℕ) < (TauCeti.rowReduce (List.ofFn A)).length,
+        r.R i = TauCeti.rowReduceMatrix (List.ofFn A) ⟨i, h⟩ ∧
+          r.pivot i = TauCeti.rowReducePivot (List.ofFn A) ⟨i, h⟩) ∧
+      ((TauCeti.rowReduce (List.ofFn A)).length ≤ i → r.R i = 0 ∧ r.pivot i = ⊤) := by
+  sorry
 
 /-- Uniqueness of the reduced row echelon form. -/
 theorem IsReducedRowEchelon.eq_of_mul {R₁ R₂ : Matrix (Fin m) (Fin n) F}
@@ -938,30 +984,38 @@ theorem ker_toLin'_gaussJordan (A : Matrix (Fin m) (Fin n) F) :
     LinearMap.ker (Matrix.toLin' A) = LinearMap.ker (Matrix.toLin' (gaussJordan A).R) := by
   sorry
 
-/-- The kernel vector attached to a free column `j` of a reduced echelon form `R` with pivot
-function `pivot`: `1` at `j`, `0` at the other free columns, `-R i j` at the pivot of row `i`. -/
-def kernelVector (R : Matrix (Fin m) (Fin n) F) (pivot : Fin m → WithTop (Fin n)) (j : Fin n) :
-    Fin n → F := fun c =>
-  if c = j then 1
-  else if h : ∃ i, pivot i = (c : WithTop (Fin n)) then -R (Classical.choose h) j else 0
+variable {V W : Type*} [AddCommGroup V] [Module F V] [AddCommGroup W] [Module F W]
 
-/-- **The kernel basis read off a reduced row echelon form**
-(CA.3/kernel-basis-of-a-reduced-echelon-matrix). -/
-theorem exists_basis_ker_of_isPivotedBy {R : Matrix (Fin m) (Fin n) F}
-    {pivot : Fin m → WithTop (Fin n)} (hR : R.IsReducedRowEchelon) (hp : R.IsPivotedBy pivot) :
-    ∃ b : Module.Basis {j : Fin n // ∀ i, pivot i ≠ (j : WithTop (Fin n))} F
-        (LinearMap.ker (Matrix.toLin' R)),
-      ∀ j, (b j : Fin n → F) = kernelVector R pivot j := by
+/-- **The kernel of a linear map in chosen bases** (CA.3/kernel-basis-of-a-reduced-echelon-matrix):
+a vector lies in `ker φ` iff its coordinates lie in the kernel of the matrix of `φ`. -/
+theorem mem_ker_iff_toMatrix_mulVec_repr (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) (x : V) :
+    x ∈ LinearMap.ker φ ↔ Matrix.mulVec (LinearMap.toMatrix b b' φ) (b.repr x) = 0 := by
   sorry
 
-theorem finrank_ker_toLin' (A : Matrix (Fin m) (Fin n) F) :
-    Module.finrank F (LinearMap.ker (Matrix.toLin' A)) = n - A.rank := by
+/-- **The kernel basis of a linear map in chosen bases**: Tau Ceti's kernel vectors of the matrix
+of `φ`, read in the basis `b`, form a basis of `ker φ` indexed by the free columns. -/
+theorem exists_basis_ker_of_toMatrix (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) :
+    ∃ β : Module.Basis {j : Fin n // TauCeti.IsFreeColumn (List.ofFn (LinearMap.toMatrix b b' φ)) j}
+        F (LinearMap.ker φ),
+      ∀ j, (β j : V) =
+        ∑ k, TauCeti.kernelVector (List.ofFn (LinearMap.toMatrix b b' φ)) j.1 k • b k := by
+  sorry
+
+/-- The dimension of the kernel of a linear map is `n` minus the rank of its matrix. -/
+theorem finrank_ker_eq_sub_rank_toMatrix (b : Module.Basis (Fin n) F V)
+    (b' : Module.Basis (Fin m) F W) (φ : V →ₗ[F] W) :
+    Module.finrank F (LinearMap.ker φ) = n - (LinearMap.toMatrix b b' φ).rank := by
   sorry
 
 end GaussJordan
 
-/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_example_rat`. -/
-example : (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).R = !![1, 2, 0; 0, 0, 1] := by
+/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_example_rat`; `A` has full row rank, so the
+certificate is unique. -/
+example : (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).R = !![1, 2, 0; 0, 0, 1] ∧
+    (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).P = !![0, 1 / 2; 1, -1 / 2] ∧
+    (gaussJordan !![(1 : ℚ), 2, 1; 2, 4, 0]).P' = !![1, 1; 2, 0] := by
   sorry
 
 /-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_zero`. -/
@@ -969,8 +1023,10 @@ example : (gaussJordan (0 : Matrix (Fin 2) (Fin 3) ℚ)).R = 0 ∧
     ∀ i, (gaussJordan (0 : Matrix (Fin 2) (Fin 3) ℚ)).pivot i = ⊤ := by
   sorry
 
-/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_zmod_two_rank`. -/
+/-- Unit test `TauCeti.ClassicalArithmetic.gaussJordan_zmod_two_rank`: the nonzero row of `R` is the
+single row Tau Ceti's sweep returns. -/
 example : (gaussJordan !![(1 : ZMod 2), 1; 1, 1]).R = !![1, 1; 0, 0] ∧
+    (TauCeti.rowReduce (List.ofFn !![(1 : ZMod 2), 1; 1, 1])).map Prod.snd = [![1, 1]] ∧
     (!![(1 : ZMod 2), 1; 1, 1]).rank = 1 := by
   sorry
 
@@ -978,8 +1034,14 @@ example : (gaussJordan !![(1 : ZMod 2), 1; 1, 1]).R = !![1, 1; 0, 0] ∧
 example : (!![(1 : ℚ), 2; 0, 1]).IsRowEchelon ∧ ¬ (!![(1 : ℚ), 2; 0, 1]).IsReducedRowEchelon := by
   sorry
 
-/-- Acceptance example: the kernel of `[[1, 2, 1], [2, 4, 0]]` over `ℚ` is spanned by `(-2, 1, 0)`. -/
-example : Matrix.toLin' !![(1 : ℚ), 2, 1; 2, 4, 0] ![-2, 1, 0] = 0 := by
+/-- Acceptance example: Tau Ceti's kernel basis of `[[1, 2, 1], [2, 4, 0]]` over `ℚ` is
+`(-2, 1, 0)`, and that vector is in the kernel. -/
+example : TauCeti.kernelBasis !![(1 : ℚ), 2, 1; 2, 4, 0] = [![-2, 1, 0]] ∧
+    Matrix.toLin' !![(1 : ℚ), 2, 1; 2, 4, 0] ![-2, 1, 0] = 0 := by
+  sorry
+
+/-- Acceptance example: over `ZMod 2` the kernel basis of `[[1, 1], [1, 1]]` is `(1, 1)`. -/
+example : TauCeti.kernelBasis !![(1 : ZMod 2), 1; 1, 1] = [![1, 1]] := by
   sorry
 
 end TauCeti.ClassicalArithmetic

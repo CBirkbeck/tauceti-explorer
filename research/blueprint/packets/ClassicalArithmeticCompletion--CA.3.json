@@ -6,7 +6,7 @@
  "scope": [
   "ClassicalArithmeticCompletion:CA.3"
  ],
- "summary": "Continuation of CA.3 (polynomial and matrix arithmetic) after the accepted main packet ClassicalArithmeticCompletion.json, whose CA.3 nodes it cites by id and does not repeat. It plans what that packet left open. (1) Integer-valued polynomials over Dedekind domains: the localization of Int(D) and of its characteristic ideals for Noetherian D; Newton sequences and generalized binomial bases; the Legendre exponent w_q(n); the explicit v-ordering of a discrete valuation ring with finite residue field and the resulting regular basis of Int(V); the local formula I_n(D) = ∏ 𝔪^{−w_{N(𝔪)}(n)}; factorial ideals; the ideals Π_q; the theorem that factorial ideals and the Π_q generate the same free group; the Pólya–Ostrowski criterion (Cahen–Chabert, Proposition 31); Pólya fields and the Pólya group; Ostrowski's theorem for Galois fields; the imaginary quadratic Pólya fields; and Zantema's theorem that cyclotomic fields are Pólya fields — all from public sources with proofs (Cahen–Chabert, Chabert's survey, Leriche), with the short missing proofs supplied. (2) Factor bounds for Bary-Soroker–Koukoulopoulos–Kozma: Mignotte's √m-exponent inequality (stated as quoted; Mignotte 1988 itself could not be read, a recorded gap) and the evaluation bound of their Lemma 3.4 with the corrected ‖A‖₂ ≤ H√(n+1). (3) Smith's bounded squarefree combination (Lemma 2.10) with the primitive gcd it needs, answering LogarithmicPotentialTheoryAndAlgebraicIntegers request R3. (4) Fujiwara's weighted root bound and its monic form (the accepted Bhargava–Shankar–Wang route). (5) Suppliers for the main packet's 22 review-frontier nodes: a ledger of named library declarations, and three new nodes — the Gregory–Newton expansion, a generic lower Newton polygon of a finite point family (answering ComputationalNumberTheory's CN.2 request for convex-hull, supporting-line and slope-ordering contracts), and Gauss–Jordan elimination with the kernel basis read off a reduced echelon form (answering CN.2's request for a finite-field kernel basis).",
+ "summary": "Continuation of CA.3 (polynomial and matrix arithmetic) after the accepted main packet ClassicalArithmeticCompletion.json, whose CA.3 nodes it cites by id and does not repeat. It plans what that packet left open. (1) Integer-valued polynomials over Dedekind domains: the localization of Int(D) and of its characteristic ideals for Noetherian D; Newton sequences and generalized binomial bases; the Legendre exponent w_q(n); the explicit v-ordering of a discrete valuation ring with finite residue field and the resulting regular basis of Int(V); the local formula I_n(D) = ∏ 𝔪^{−w_{N(𝔪)}(n)}; factorial ideals; the ideals Π_q; the theorem that factorial ideals and the Π_q generate the same free group; the Pólya–Ostrowski criterion (Cahen–Chabert, Proposition 31); Pólya fields and the Pólya group; Ostrowski's theorem for Galois fields; the imaginary quadratic Pólya fields; and Zantema's theorem that cyclotomic fields are Pólya fields — all from public sources with proofs (Cahen–Chabert, Chabert's survey, Leriche), with the short missing proofs supplied. (2) Factor bounds for Bary-Soroker–Koukoulopoulos–Kozma: Mignotte's √m-exponent inequality (stated as quoted; Mignotte 1988 itself could not be read, a recorded gap) and the evaluation bound of their Lemma 3.4 with the corrected ‖A‖₂ ≤ H√(n+1). (3) Smith's bounded squarefree combination (Lemma 2.10) with the primitive gcd it needs, answering LogarithmicPotentialTheoryAndAlgebraicIntegers request R3. (4) Fujiwara's weighted root bound and its monic form (the accepted Bhargava–Shankar–Wang route). (5) Suppliers for the main packet's 22 review-frontier nodes: a ledger of named library declarations, and three new nodes — the Gregory–Newton expansion, a generic lower Newton polygon of a finite point family (answering ComputationalNumberTheory's CN.2 request for convex-hull, supporting-line and slope-ordering contracts), and, for CN.2's request for a finite-field kernel basis, Tau Ceti's existing computable Gauss–Jordan elimination and kernel basis (TauCeti.rowReduce, TauCeti.kernelBasis) cited, with the change-of-basis certificate and uniqueness of the reduced form and the transport of the kernel basis to a linear map in chosen bases planned on top of them.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -201,11 +201,11 @@
     "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
    },
    {
-    "ref": "mathlib:Ideal.absNorm_eq_pow_inertiaDeg",
-    "kind": "lemma",
-    "module": "Mathlib/NumberTheory/RamificationInertia/Inertia.lean",
-    "provides": "The absolute norm of a prime P above p is p to the inertia degree of P",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
+    "ref": "mathlib:Ideal.natAbs_pow_inertiaDeg",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
+    "provides": "For a prime P of a Dedekind domain R finite over ℤ lying over (p): |p|^(P.inertiaDeg ℤ) = absNorm P. Replaces Ideal.absNorm_eq_pow_inertiaDeg, which is deprecated at the pinned commit and stated with the deprecated inertiaDeg′",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
    },
    {
     "ref": "mathlib:Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count",
@@ -453,20 +453,6 @@
     "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
    },
    {
-    "ref": "mathlib:Echelon.Decomposition",
-    "kind": "structure",
-    "module": "Mathlib/LinearAlgebra/Matrix/Echelon/Decomposition.lean",
-    "provides": "A certificate L·(row permutation of A) in echelon form with L lower triangular with nonzero diagonal",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
-   },
-   {
-    "ref": "mathlib:Echelon.Decomposition.rank_eq",
-    "kind": "theorem",
-    "module": "Mathlib/LinearAlgebra/Matrix/Echelon/Decomposition.lean",
-    "provides": "The rank of A is the pivot count of any echelon decomposition certificate",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
-   },
-   {
     "ref": "mathlib:Matrix.rank_mul_eq_left_of_isUnit_det",
     "kind": "lemma",
     "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean",
@@ -481,31 +467,10 @@
     "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
    },
    {
-    "ref": "mathlib:Matrix.GeneralLinearGroup",
-    "kind": "abbrev",
-    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
-    "provides": "Invertible matrices",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
-   },
-   {
-    "ref": "mathlib:Matrix.toLin'",
-    "kind": "def",
-    "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
-    "provides": "The linear map F^n → F^m of a matrix",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
-   },
-   {
     "ref": "mathlib:LinearMap.toMatrix",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
     "provides": "The matrix of a linear map in chosen bases",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
-   },
-   {
-    "ref": "mathlib:Matrix.toLin_toMatrix",
-    "kind": "theorem",
-    "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
-    "provides": "toLin and toMatrix are inverse",
     "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
    },
    {
@@ -591,6 +556,188 @@
     "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
     "provides": "Precomposing with a surjective map does not change the range",
     "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:FractionalIdeal.count_mul",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/DedekindDomain/Factorization.lean",
+    "provides": "count v (I * I′) = count v I + count v I′ for nonzero fractional ideals I, I′",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:FractionalIdeal.count_self",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/DedekindDomain/Factorization.lean",
+    "provides": "count v v = 1: a maximal ideal has exponent 1 at itself",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:FractionalIdeal.count_maximal_coprime",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/DedekindDomain/Factorization.lean",
+    "provides": "count v w = 0 for maximal ideals w ≠ v",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.rowReduce",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "Computable Gauss–Jordan elimination over a division ring with decidable equality, by structural recursion over the columns: the reduced row echelon form of a list of rows, as the list of (pivot column, reduced row) pairs",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.rowReduceMatrix",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "The reduced rows of TauCeti.rowReduce read as a matrix (one row per pivot)",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.rowReducePivot",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "The pivot map of TauCeti.rowReduceMatrix (never ⊤)",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.isReducedRowEchelon_rowReduceMatrix",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "The output of the sweep is in reduced row echelon form (Mathlib Matrix.IsReducedRowEchelon)",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.isPivotedBy_rowReduceMatrix",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "Its pivots are the recorded columns (Mathlib Matrix.IsPivotedBy)",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.span_rowReduce",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "Elimination preserves the row space: the reduced rows span exactly what the input rows span",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.length_rowReduce_ofFn",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean",
+    "provides": "For a matrix A over a field, the number of reduced rows (pivots) of List.ofFn A is A.rank",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.mulVec_eq_zero_iff_rowReduceMatrix",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "A *ᵥ v = 0 iff every reduced row of A annihilates v: elimination does not change the kernel",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.IsFreeColumn",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "A column at which elimination records no pivot",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.kernelVector",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "The kernel vector of a column: 1 there, 0 at the other non-pivot columns, minus the entry of the reduced row at each pivot column",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.freeColumnBasis",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "The kernel vectors of the free columns as a Module.Basis of LinearMap.ker A.mulVecLin, indexed by the free columns",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.coe_freeColumnBasis_apply",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "freeColumnBasis A j = kernelVector (List.ofFn A) j",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.kernelBasis",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "The computable list of kernel vectors of the free columns, in increasing column order",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.mulVec_eq_zero_of_mem_kernelBasis",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "Soundness: every vector of kernelBasis A lies in the kernel of A",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.span_kernelBasis",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "Completeness: kernelBasis A spans LinearMap.ker A.mulVecLin",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.linearIndepOn_kernelBasis",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "The vectors of kernelBasis A are linearly independent",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.nodup_kernelBasis",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "kernelBasis A has no repeated vector",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.length_kernelBasis",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "kernelBasis A has n − A.rank vectors",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.finrank_ker_mulVecLin",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis.lean",
+    "provides": "finrank of LinearMap.ker A.mulVecLin is n − A.rank",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:LinearMap.toMatrix_mulVec_repr",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+    "provides": "LinearMap.toMatrix v₁ v₂ f *ᵥ v₁.repr x = v₂.repr (f x)",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Module.Basis.equivFun",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+    "provides": "The coordinate linear equivalence M ≃ₗ[R] (ι → R) of a basis with finite index type",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Module.Basis.map",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+    "provides": "Transport of a basis along a linear equivalence",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
+   },
+   {
+    "ref": "tauceti:TauCeti.binomialPolynomialBasis",
+    "kind": "def",
+    "module": "TauCeti/RingTheory/Polynomial/BinomialBasis.lean",
+    "provides": "The binomial polynomials (X choose n) as a basis of K[X] over a nontrivial ℚ-algebra K",
+    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) by REV-ClassicalArithmeticCompletion--CA.3 on 2026-10-14"
    }
   ]
  },
@@ -605,8 +752,8 @@
    "accessed": "2026-10-14",
    "readSections": [
     "Section 1, formulas (1)–(3) (printed pp. 311–312)",
-    "Section 5: characteristic ideals, Propositions 19–20 with the proof of Proposition 20 (printed p. 322)",
-    "Section 6: Lemma 28 with its proof sketch, Proposition 29, Remark 4 (printed pp. 328–329)",
+    "Section 5: characteristic ideals, Propositions 19–20 with the proof of Proposition 20 (printed pp. 322–323)",
+    "Section 6: Lemma 28 with its proof sketch, Proposition 29, Remark 4 (printed p. 329)",
     "Section 6: v-orderings, formulas (13)–(15), Remark 6, Proposition 31, Pólya groups and Pólya fields, Propositions 32–33, Example 34 (printed pp. 330–333)"
    ]
   },
@@ -753,7 +900,7 @@
    "sources": [
     {
      "sourceId": "cahen-chabert-intvalued-2016",
-     "locator": "Section 6, Lemma 28 with its proof sketch and Proposition 29, printed pp. 328–329",
+     "locator": "Section 6, Lemma 28 with its proof sketch and Proposition 29, printed p. 329",
      "match": "Lemma 28 is part (i), proved by the same degree induction; Proposition 29 is part (ii) for a prime, stated without proof and attributed to the authors' book (Theorem I.2.3). The Noetherian finite-generation argument of step 3 is supplied here."
     },
     {
@@ -802,7 +949,7 @@
    "sources": [
     {
      "sourceId": "cahen-chabert-intvalued-2016",
-     "locator": "Section 5, Proposition 20 with its proof, printed p. 322",
+     "locator": "Section 5, Proposition 20 (statement begins printed p. 322) with its proof (printed p. 323)",
      "match": "Proposition 20 is this equivalence for a subset E of D (here E = D), proved by the triangular expansion used in the first steps."
     },
     {
@@ -1137,7 +1284,7 @@
     "Finiteness: for any n + 1 distinct elements a_0, …, a_n of D, every maximal ideal of norm at most n contains d = ∏_{i<j}(a_j − a_i) ≠ 0 (two of the a_i are congruent modulo it), so only finitely many have norm ≤ n.",
     "Localization (CA.3/int-valued-localization (iii), D Noetherian): I_n(D)_𝔪 = I_n(D_𝔪).",
     "D_𝔪 is a discrete valuation ring with residue field D/𝔪 (Mathlib IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain), so I_n(D_𝔪) = 𝔪^{−w_{N(𝔪)}(n)} D_𝔪 by CA.3/local-regular-basis-of-int-dvr.",
-    "A nonzero fractional ideal of a Dedekind domain is the product of the maximal ideals to the exponents read off in the localizations (Mathlib FractionalIdeal.count and finprod_heightOneSpectrum_factorization')."
+    "Exponents from localizations: for a nonzero fractional ideal J and a maximal ideal 𝔪, FractionalIdeal.count 𝔪 J is the 𝔪-adic valuation of a generator of the principal fractional ideal J D_𝔪, because count is additive on products (FractionalIdeal.count_mul), equals 1 on 𝔪 (count_self) and 0 on every other maximal ideal (count_maximal_coprime), and those other maximal ideals become the unit ideal in D_𝔪. Hence count 𝔪 I_n(D) = −w_{N(𝔪)}(n) by the previous step, and FractionalIdeal.finprod_heightOneSpectrum_factorization' writes I_n(D) as the product of the maximal ideals to these exponents."
    ],
    "acceptance": [
     "D = ℤ: I_n(ℤ) = ∏_p p^{−v_p(n!)} ℤ = (1/n!) ℤ, agreeing with CA.3/characteristic-ideals-of-int.",
@@ -1153,7 +1300,10 @@
     "mathlib:IsLocalization.AtPrime.isDiscreteValuationRing_of_dedekind_domain",
     "mathlib:FractionalIdeal.count",
     "mathlib:FractionalIdeal.finprod_heightOneSpectrum_factorization'",
-    "mathlib:Ideal.absNorm"
+    "mathlib:Ideal.absNorm",
+    "mathlib:FractionalIdeal.count_mul",
+    "mathlib:FractionalIdeal.count_self",
+    "mathlib:FractionalIdeal.count_maximal_coprime"
    ],
    "sources": [
     {
@@ -1279,6 +1429,11 @@
      "name": "FactorialIdeal.succ",
      "role": "relation",
      "statement": "(n + 1)!_D = n!_D · ∏_{2 ≤ q ≤ n+1} Π_q(D)^{v_q(n+1)}."
+    },
+    {
+     "name": "FactorialIdeal.ne_bot",
+     "role": "structure",
+     "statement": "If D is not a field and its residue fields are finite, n!_D ≠ ⊥ (a finite product of nonzero maximal ideals), so n!_D ∈ (Ideal D)⁰ and has a class ClassGroup.mk0 in the class group."
     }
    ],
    "uses": [
@@ -1401,6 +1556,11 @@
      "name": "polyaIdeal_pow_ramificationIdxIn",
      "role": "relation",
      "statement": "For K/ℚ Galois and p with residue degree f and ramification index e: Π_{p^f}(𝓞_K)^e = p𝓞_K, and Π_{p^j}(𝓞_K) = ⊤ for j ≠ f."
+    },
+    {
+     "name": "PolyaIdeal.ne_bot",
+     "role": "structure",
+     "statement": "If D is not a field and its residue fields are finite, Π_q(D) ≠ ⊥, so its class in the class group is defined."
     }
    ],
    "uses": [
@@ -1476,7 +1636,7 @@
     },
     {
      "sourceId": "cahen-chabert-intvalued-2016",
-     "locator": "Section 6, Pólya groups and Pólya fields, printed p. 332",
+     "locator": "Section 6, Pólya groups and Pólya fields, printed p. 333",
      "match": "States that the Pólya group is also generated by the classes of the Π_q, citing the book (Proposition II.3.9)."
     },
     {
@@ -1755,7 +1915,7 @@
     {
      "name": "card_polyaGroup_dvd_prod_ramificationIdxIn",
      "role": "relation",
-     "statement": "For K/ℚ Galois, Po(K) is generated by the classes of Π_{p^{f_p}}(𝓞_K) for the ramified primes p, each of order dividing e_p (CA.3/polya-group-of-a-galois-field)."
+     "statement": "For K/ℚ Galois: Nat.card Po(K) divides ∏_{p ramified} e_p, the product of the ramification indices of the primes dividing the discriminant; Po(K) is generated by the classes of the Π_{p^{f_p}}(𝓞_K), p ramified, each of order dividing e_p (CA.3/polya-group-of-a-galois-field)."
     },
     {
      "name": "PolyaGroup.rat",
@@ -1813,7 +1973,7 @@
     "K/ℚ finite Galois."
    ],
    "proofSteps": [
-    "All primes 𝔓 above p have the same ramification index and residue degree (Mathlib Ideal.ramificationIdx_eq_of_isGaloisGroup and Ideal.inertiaDeg_eq_of_isGaloisGroup), so they all have norm p^{f_p} (Ideal.absNorm_eq_pow_inertiaDeg), and no other prime of 𝓞_K has a norm that is a power of p.",
+    "All primes 𝔓 above p have the same ramification index and residue degree (Mathlib Ideal.ramificationIdx_eq_of_isGaloisGroup and Ideal.inertiaDeg_eq_of_isGaloisGroup), so they all have norm p^{f_p} (Mathlib Ideal.natAbs_pow_inertiaDeg, stated with the same inertia degree as the Galois lemma), and no other prime of 𝓞_K has a norm that is a power of p.",
     "p𝓞_K = ∏_{𝔓 | p} 𝔓^{e_p} (Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count with Ideal.prod_normalizedFactors_eq_self) = Π_{p^{f_p}}(𝓞_K)^{e_p}.",
     "For unramified p (e_p = 1), Π_{p^{f_p}} = p𝓞_K is principal. By CA.3/polya-group, Po(K) is generated by the classes [Π_q]; only q = p^{f_p} with p ramified can contribute, and [Π_{p^{f_p}}]^{e_p} = [p𝓞_K] = 1.",
     "A finite abelian group generated by elements whose orders divide e_{p_1}, …, e_{p_s} has order dividing ∏ e_{p_i}.",
@@ -1830,7 +1990,7 @@
     "ClassicalArithmeticCompletion:CA.3/factorial-group-basis",
     "mathlib:Ideal.ramificationIdx_eq_of_isGaloisGroup",
     "mathlib:Ideal.inertiaDeg_eq_of_isGaloisGroup",
-    "mathlib:Ideal.absNorm_eq_pow_inertiaDeg",
+    "mathlib:Ideal.natAbs_pow_inertiaDeg",
     "mathlib:Ideal.IsDedekindDomain.ramificationIdx_eq_normalizedFactors_count",
     "mathlib:Ideal.prod_normalizedFactors_eq_self",
     "mathlib:NumberField.classNumber"
@@ -2010,11 +2170,12 @@
    ],
    "title": "Size of an irreducible factor at an integer point",
    "kind": "theorem",
-   "statement": "Let A ∈ ℤ[X] have degree n ≥ 1 with every coefficient in [−H, H] for some H ≥ 1, and let I ∈ ℤ[X] be irreducible of degree m ≥ 1 with I | A. Then for every integer N ≥ 2, |I(N)| ≤ N^m · exp(4(1 + √m) log(14√n H)).",
+   "statement": "Let A ∈ ℤ[X] have degree n ≥ 1 with every coefficient in [−H, H] for some H ≥ 1, and let I ∈ ℤ[X] be irreducible in ℤ[X] of degree m ≥ 0 with I | A (for m = 0, I = ±p for a prime p). Then for every integer N ≥ 2, |I(N)| ≤ N^m · exp(4(1 + √m) log(14√n H)).",
    "hypotheses": [
-    "A ∈ ℤ[X] of degree n ≥ 1 with all coefficients bounded by H ≥ 1; I ∈ ℤ[X] irreducible, I | A, deg I = m ≥ 1 (so m ≤ n); N ≥ 2 an integer."
+    "A ∈ ℤ[X] of degree n ≥ 1 with all coefficients bounded by H ≥ 1; I an irreducible element of ℤ[X] dividing A, of degree m ≥ 0 (so m ≤ n; the source allows any irreducible polynomial over ℤ, which includes the prime constants); N ≥ 2 an integer."
    ],
    "proofSteps": [
+    "m = 0: I = ±p for a prime p dividing every coefficient of A; the leading coefficient of A is nonzero, so p ≤ H ≤ (14√n H)⁴ = exp(4 log(14√n H)), which is the bound with N⁰ = 1. The remaining steps treat m ≥ 1.",
     "‖A‖₂ ≤ H√(n + 1), since A has n + 1 coefficients (the source prints H√n; the correction is recorded as PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E15 and does not affect the conclusion).",
     "Cauchy–Schwarz (Mathlib Finset.sum_mul_sq_le_sq_mul_sq) applied to I(N) = Σ_{i≤m} c_i N^i: |I(N)| ≤ (Σ_{i≤m} N^{2i})^{1/2} ‖I‖₂ ≤ N^m (N²/(N² − 1))^{1/2} ‖I‖₂ ≤ (2/√3) N^m ‖I‖₂.",
     "CA.3/mignotte-irreducible-factor-l2-bound: ‖I‖₂ ≤ e^{√m}(m + 2√m + 2)^{1+√m}(H√(n + 1))^{1+√m}.",
@@ -2023,7 +2184,8 @@
    "acceptance": [
     "The bound is used with a prime p > p_0 dividing A(N): p divides some irreducible factor's value, forcing that factor to have degree > (1 − θ)n (Bary-Soroker–Koukoulopoulos–Kozma, proof of Lemma 3.3, p. 21).",
     "With the corrected ‖A‖₂ ≤ H√(n + 1) the printed final inequality still holds, with room to spare.",
-    "Small case: A = I = X + 1, n = m = 1, H = 1, N = 2: |I(2)| = 3 ≤ 2·14⁸."
+    "Small case: A = I = X + 1, n = m = 1, H = 1, N = 2: |I(2)| = 3 ≤ 2·14⁸.",
+    "Constant factor: A = 2X + 2, I = 2 (irreducible in ℤ[X]), n = 1, H = 2, m = 0: |I(N)| = 2 ≤ (14·2)⁴."
    ],
    "prerequisites": [
     "ClassicalArithmeticCompletion:CA.3/mignotte-irreducible-factor-l2-bound",
@@ -2034,7 +2196,7 @@
     {
      "sourceId": "bskk-random-polynomials-2023",
      "locator": "Lemma 3.4 and its proof, p. 20 (arXiv v3)",
-     "match": "The statement is Lemma 3.4; the proof combines the quoted Mignotte inequality with the Cauchy–Schwarz estimate for |I(N)| as above."
+     "match": "The statement is Lemma 3.4; the proof combines the quoted Mignotte inequality with the Cauchy–Schwarz estimate for |I(N)| as above. The lemma is stated for any irreducible I over ℤ; the constant case m = 0, which the proof does not mention, is the first step above."
     }
    ],
    "library": {
@@ -2320,7 +2482,8 @@
    ],
    "acceptance": [
     "f = X²: (Δf)(0) = 1, (Δ²f)(0) = 2, so X² = (X choose 1) + 2·(X choose 2).",
-    "f = X(X − 1)/2: the coefficients are 0, 0, 1."
+    "f = X(X − 1)/2: the coefficients are 0, 0, 1.",
+    "Compatibility: the coefficients (Δ^k f)(0) are the coordinates of f in Tau Ceti's basis TauCeti.binomialPolynomialBasis of K[X] (a field of characteristic 0 is a ℚ-algebra), which also gives their uniqueness."
    ],
    "prerequisites": [
     "ClassicalArithmeticCompletion:CA.3/integer-valued-polynomials",
@@ -2328,7 +2491,8 @@
     "mathlib:fwdDiff_iter_eq_sum_shift",
     "mathlib:Polynomial.eq_of_infinite_eval_eq",
     "mathlib:Ring.choose",
-    "mathlib:Ring.choose_natCast"
+    "mathlib:Ring.choose_natCast",
+    "tauceti:TauCeti.binomialPolynomialBasis"
    ],
    "sources": [
     {
@@ -2482,49 +2646,53 @@
    "realises": [
     "ClassicalArithmeticCompletion:CA.3"
    ],
-   "title": "Gauss–Jordan elimination to the reduced row echelon form",
+   "title": "Gauss–Jordan elimination: the change-of-basis certificate and uniqueness of the reduced form",
    "kind": "construction",
-   "statement": "Let F be a field with decidable equality and A an m × n matrix over F. Gauss–Jordan elimination is a terminating procedure that returns an invertible m × m matrix P together with an explicit inverse P′ (P P′ = P′ P = 1), a matrix R with P A = R in reduced row echelon form (Mathlib Matrix.IsReducedRowEchelon), and its pivot function ℓ : rows → WithTop columns (Mathlib Matrix.IsPivotedBy R ℓ). The reduced row echelon form is unique: any two matrices in reduced row echelon form that are row-equivalent to A are equal; consequently the pivot columns (and the free columns) depend only on A, the number of pivots is rank A, and ker A = ker R.",
+   "statement": "Let F be a field with decidable equality and A an m × n matrix over F. Tau Ceti's TauCeti.rowReduce (List.ofFn A) is the terminating Gauss–Jordan sweep (structural recursion over the columns): it returns the nonzero rows of the reduced row echelon form of A, each with its pivot column, and Tau Ceti proves that the matrix TauCeti.rowReduceMatrix they form is in reduced row echelon form with those pivots, that its rows span the row space of A, that there are rank A of them, and that it has the same kernel as A. This node adds what a normal form needs beyond that. (a) Certificate: let R be the m × n matrix formed by the rows of TauCeti.rowReduceMatrix (List.ofFn A) followed by m − rank A zero rows, with pivot function ℓ equal to the recorded pivot columns and then ⊤; there is an invertible m × m matrix P, with an explicit inverse P′ (P P′ = P′ P = 1), such that P A = R, both computed by the same sweep. (b) Uniqueness: two matrices in reduced row echelon form that differ by an invertible left factor are equal; so R, its pivot columns and its free columns depend only on the row-equivalence class of A.",
    "hypotheses": [
-    "F a field with decidable equality (for example ZMod p, p prime, or ℚ); A an m × n matrix over F."
+    "F a field with decidable equality (for example ZMod p, p prime, or ℚ); A an m × n matrix over F. Tau Ceti's sweep works over a division ring; the rank statements use a field."
    ],
    "proofSteps": [
-    "Procedure (Hefferon, Gauss's Method and Gauss–Jordan reduction): scan the columns from left to right with a current row index; in the current column find a row at or below the current row with a nonzero entry, swap it up, scale it to make the pivot 1, and eliminate every other entry of the column (above and below); then advance both indices. A zero column advances the column index only. Each step is an elementary row operation, recorded together with its inverse operation, so P and P′ are products of elementary matrices in opposite orders.",
-    "Termination: the column index strictly increases at every stage, so there are at most n stages, each a bounded number of row operations.",
-    "Invariants: after processing column j the first j columns are in reduced row echelon form; row operations are reversible (Hefferon, Lemma One.III.1.5) and preserve the solution set of A x = 0 (Theorem One.I.1.5), so ker A = ker R.",
-    "Uniqueness: Hefferon, Theorem One.III.2.6 (Yuster's induction on the number of columns, using that row-equivalent matrices have the same homogeneous solution sets).",
-    "Rank: R is pivoted by ℓ, so rank R = number of pivots (Mathlib Matrix.IsPivotedBy.rank_eq), and rank A = rank R because P is invertible (Matrix.rank_mul_eq_right_of_isUnit_det).",
-    "Comparison with Mathlib's echelon certificates: the forward phase of the elimination (before the entries above the pivots are cleared) yields a row permutation σ and a lower-triangular L with nonzero diagonal such that L·(σA) is in echelon form — exactly the data of Mathlib's Echelon.Decomposition, whose rank_eq certifies the rank independently."
+    "Sweep, reduced form, pivots, row space, rank and kernel: Tau Ceti TauCeti.rowReduce with isReducedRowEchelon_rowReduceMatrix, isPivotedBy_rowReduceMatrix, span_rowReduce, length_rowReduce_ofFn and mulVec_eq_zero_iff_rowReduceMatrix. Appending zero rows below keeps the reduced row echelon form, with pivot ⊤ on the new rows.",
+    "Certificate: apply the sweep to the m × (n + m) augmented matrix [A | 1_m], of rank m. Its m reduced rows span its row space (span_rowReduce), so the reduced matrix is E·[A | 1_m] = [E A | E] for some m × m matrix E, and E has rank m (length_rowReduce_ofFn), hence is invertible. Put P = E.",
+    "The left block E A is in reduced row echelon form: the rows whose pivot lies among the first n columns come first and keep the reduced pattern there, and every other row is zero on the first n columns because its leading entry lies to the right of them. By uniqueness (next step) E A = R. The inverse P′ is read off in the same way from the reduced form of [P | 1_m], which is [1_m | P⁻¹].",
+    "Uniqueness: if R₁ and R₂ = Q R₁ are in reduced row echelon form with Q invertible, they are row equivalent, and Hefferon, Theorem One.III.2.6 (Yuster's induction on the number of columns, using that row-equivalent matrices have the same homogeneous solution sets, Theorem One.I.1.5 and Lemma One.III.1.5) gives R₁ = R₂.",
+    "Rank: R is pivoted by ℓ, so rank R is the number of pivots (Mathlib Matrix.IsPivotedBy.rank_eq); it is rank A by Tau Ceti length_rowReduce_ofFn, and also by Mathlib Matrix.rank_mul_eq_right_of_isUnit_det since P is invertible. Kernel: ker A = ker R because P is invertible, as Tau Ceti mulVec_eq_zero_iff_rowReduceMatrix also shows."
    ],
    "acceptance": [
-    "Over ℚ: [[1, 2, 1], [2, 4, 0]] reduces to [[1, 2, 0], [0, 0, 1]] with pivot columns 0 and 2 and rank 2.",
-    "Over ZMod 2: [[1, 1], [1, 1]] reduces to [[1, 1], [0, 0]], rank 1.",
-    "An invertible square A reduces to the identity with P = A⁻¹."
+    "Over ℚ: [[1, 2, 1], [2, 4, 0]] reduces to R = [[1, 2, 0], [0, 0, 1]] with pivot columns 0 and 2 and rank 2; as A has full row rank the certificate is unique: P = [[0, 1/2], [1, −1/2]] and P′ = [[1, 1], [2, 0]], and P′ R = A.",
+    "Over ZMod 2: [[1, 1], [1, 1]] reduces to [[1, 1], [0, 0]], rank 1: TauCeti.rowReduce returns the single row (1, 1) with pivot 0, and R appends one zero row.",
+    "An invertible square A reduces to the identity with P = A⁻¹; A = 0 gives R = 0, no pivots and P = 1."
    ],
    "prerequisites": [
+    "tauceti:TauCeti.rowReduce",
+    "tauceti:TauCeti.rowReduceMatrix",
+    "tauceti:TauCeti.rowReducePivot",
+    "tauceti:TauCeti.isReducedRowEchelon_rowReduceMatrix",
+    "tauceti:TauCeti.isPivotedBy_rowReduceMatrix",
+    "tauceti:TauCeti.span_rowReduce",
+    "tauceti:TauCeti.length_rowReduce_ofFn",
+    "tauceti:TauCeti.mulVec_eq_zero_iff_rowReduceMatrix",
     "mathlib:Matrix.IsRowEchelon",
     "mathlib:Matrix.IsReducedRowEchelon",
     "mathlib:Matrix.IsPivotedBy",
     "mathlib:Matrix.IsPivotedBy.rank_eq",
-    "mathlib:Echelon.Decomposition",
-    "mathlib:Echelon.Decomposition.rank_eq",
-    "mathlib:Matrix.rank_mul_eq_right_of_isUnit_det",
-    "mathlib:Matrix.GeneralLinearGroup"
+    "mathlib:Matrix.rank_mul_eq_right_of_isUnit_det"
    ],
    "sources": [
     {
      "sourceId": "hefferon-linearalgebra-2020",
      "locator": "Chapter One, Section III, Definition 1.3 (printed p. 51), Lemmas 1.5–1.6 (pp. 52–53), Theorem 2.6 with proof (pp. 59–60), Corollary 2.7 (p. 60)",
-     "match": "Gauss–Jordan reduction and the definition of reduced echelon form; row operations are reversible; every matrix is row equivalent to a unique reduced echelon form matrix, so the free variables are independent of the reduction. The book works over ℝ; the arguments are field-independent."
+     "match": "Definition 1.3 defines the reduced echelon form; Lemmas 1.5–1.6 say row operations are reversible and row equivalence is an equivalence relation; Theorem 2.6 (with Yuster's proof) says every matrix is row equivalent to a unique reduced echelon form matrix, and Corollary 2.7 that the free variables do not depend on the reduction. These give uniqueness (b); the sweep itself is Tau Ceti's. The book works over ℝ; the arguments are field-independent."
     },
     {
      "sourceId": "hefferon-linearalgebra-2020",
      "locator": "Chapter One, Section I, Theorem 1.5 (Gauss's Method), printed p. 4",
-     "match": "Elementary row operations do not change the solution set of a linear system."
+     "match": "Elementary row operations do not change the solution set of a linear system (used in the uniqueness proof)."
     }
    ],
    "library": {
-    "module": "TauCeti/LinearAlgebra/Matrix/GaussJordan",
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/Certificate",
     "namespace": "TauCeti.ClassicalArithmetic"
    },
    "implementationStatus": "unchecked",
@@ -2532,7 +2700,7 @@
     {
      "name": "gaussJordan",
      "role": "constructor",
-     "statement": "For A : Matrix (Fin m) (Fin n) F, a GaussJordanResult A: fields P, P′ : Matrix (Fin m) (Fin m) F, R : Matrix (Fin m) (Fin n) F and pivot : Fin m → WithTop (Fin n), computed by the terminating procedure (the suggested file fixes the interface through nonempty_gaussJordanResult)."
+     "statement": "For A : Matrix (Fin m) (Fin n) F, a GaussJordanResult A with fields P, P′ : Matrix (Fin m) (Fin m) F, R : Matrix (Fin m) (Fin n) F and pivot : Fin m → WithTop (Fin n): R is the reduced form of A (the rows of TauCeti.rowReduce (List.ofFn A), then zero rows) and P, P′ come from the reduced forms of [A | 1_m] and [P | 1_m]."
     },
     {
      "name": "GaussJordanResult.mul_eq",
@@ -2550,6 +2718,11 @@
      "statement": "R.IsReducedRowEchelon and R.IsPivotedBy ℓ."
     },
     {
+     "name": "GaussJordanResult.R_eq_rowReduceMatrix",
+     "role": "compatibility",
+     "statement": "For i < rank A, row i of R is row i of TauCeti.rowReduceMatrix (List.ofFn A) and pivot i is TauCeti.rowReducePivot at i; the rows of index ≥ rank A are zero with pivot ⊤."
+    },
+    {
      "name": "IsReducedRowEchelon.eq_of_mul",
      "role": "extensionality",
      "statement": "If R₁, R₂ are in reduced row echelon form and R₂ = Q R₁ for an invertible Q, then R₁ = R₂."
@@ -2557,43 +2730,43 @@
     {
      "name": "card_pivots_gaussJordan",
      "role": "compatibility",
-     "statement": "The number of rows with ℓ i ≠ ⊤ equals A.rank (Mathlib Matrix.IsPivotedBy.rank_eq)."
+     "statement": "The number of rows with pivot i ≠ ⊤ equals A.rank (Mathlib Matrix.IsPivotedBy.rank_eq; Tau Ceti TauCeti.length_rowReduce_ofFn)."
     },
     {
      "name": "ker_toLin'_gaussJordan",
      "role": "relation",
-     "statement": "LinearMap.ker (Matrix.toLin' A) = LinearMap.ker (Matrix.toLin' R)."
+     "statement": "LinearMap.ker (Matrix.toLin' A) = LinearMap.ker (Matrix.toLin' R) (P is invertible; compare Tau Ceti TauCeti.mulVec_eq_zero_iff_rowReduceMatrix)."
     }
    ],
    "uses": [
     {
-     "where": "ComputationalNumberTheory:CN.2/finite-algebra-frobenius-nilradical",
-     "how": "the nilradical is the kernel of an iterated Frobenius, computed as the kernel of its matrix over ZMod p in a supplied basis (request of that packet)"
+     "where": "ClassicalArithmeticCompletion:CA.3, stage acceptance",
+     "how": "a normal-form algorithm returns invertible change-of-basis matrices and a reconstruction equation; over a field the reduced row echelon form is the normal form for row equivalence and (P, P′, P A = R) is its certificate, as for the Smith and Hermite forms"
     },
     {
      "where": "ClassicalArithmeticCompletion:CA.3/kernel-basis-of-a-reduced-echelon-matrix",
-     "how": "the free columns of R give the kernel basis"
+     "how": "uniqueness makes the free columns that index the kernel basis invariants of A"
     },
     {
-     "where": "Hefferon, Chapter One, Section III",
-     "how": "solving linear systems by reading off the reduced echelon form"
+     "where": "Hefferon, Chapter One, Section III, Corollary 2.7",
+     "how": "the free variables of a linear system do not depend on how it is reduced"
     }
    ],
    "tests": [
     {
      "name": "TauCeti.ClassicalArithmetic.gaussJordan_example_rat",
      "kind": "computation",
-     "statement": "Over ℚ, gaussJordan [[1, 2, 1], [2, 4, 0]] has R = [[1, 2, 0], [0, 0, 1]] and pivot columns 0 and 2."
+     "statement": "Over ℚ, gaussJordan [[1, 2, 1], [2, 4, 0]] has R = [[1, 2, 0], [0, 0, 1]], pivot columns 0 and 2, P = [[0, 1/2], [1, −1/2]] and P′ = [[1, 1], [2, 0]]."
     },
     {
      "name": "TauCeti.ClassicalArithmetic.gaussJordan_zero",
      "kind": "degenerate",
-     "statement": "gaussJordan 0 has R = 0, P = 1 and no pivots; for invertible square A, R = 1 and P = A⁻¹."
+     "statement": "gaussJordan 0 has R = 0 and no pivots (and P = 1); for invertible square A, R = 1 and P = A⁻¹."
     },
     {
      "name": "TauCeti.ClassicalArithmetic.gaussJordan_zmod_two_rank",
      "kind": "compatibility",
-     "statement": "Over ZMod 2, gaussJordan [[1, 1], [1, 1]] has R = [[1, 1], [0, 0]], and its pivot count 1 equals Matrix.rank [[1, 1], [1, 1]]."
+     "statement": "Over ZMod 2, gaussJordan [[1, 1], [1, 1]] has R = [[1, 1], [0, 0]], whose nonzero row is the single row of TauCeti.rowReduce, and its pivot count 1 equals Matrix.rank [[1, 1], [1, 1]]."
     },
     {
      "name": "TauCeti.ClassicalArithmetic.not_isReducedRowEchelon_example",
@@ -2608,37 +2781,47 @@
    "realises": [
     "ClassicalArithmeticCompletion:CA.3"
    ],
-   "title": "The kernel basis read off a reduced row echelon form",
+   "title": "The kernel basis of a matrix and of a linear map in chosen bases",
    "kind": "theorem",
-   "statement": "Let R be an m × n matrix over a field F in reduced row echelon form, with pivot columns c_1 < ⋯ < c_r (row i has its leading 1 in column c_i) and free columns J = {0, …, n − 1} ∖ {c_1, …, c_r}. For j ∈ J let β_j ∈ F^n have entry 1 at j, entry 0 at the other free columns and entry −R_{i j} at c_i. Then (β_j)_{j∈J} is a basis of ker R = {x : R x = 0}, so dim ker R = n − r. Combined with CA.3/gauss-jordan-reduced-echelon-form: for any matrix A the β_j computed from its reduced echelon form are a basis of ker A (soundness: A β_j = 0; completeness: every x with A x = 0 equals Σ_{j∈J} x_j β_j; independence), with |J| = n − rank A. For a linear map φ : V → W of finite-dimensional F-spaces with bases b, b′ and A = LinearMap.toMatrix b b′ φ, the vectors Σ_k (β_j)_k b_k form a basis of ker φ.",
+   "statement": "Let F be a field with decidable equality. For an m × n matrix A over F, Tau Ceti reads a basis of ker A off TauCeti.rowReduce: for a free column j (TauCeti.IsFreeColumn, a column with no pivot) the kernel vector β_j = TauCeti.kernelVector (List.ofFn A) j has entry 1 at j, 0 at the other free columns and, at the pivot column of each reduced row, the negated entry of that row in column j; the β_j of the free columns form the basis TauCeti.freeColumnBasis A of ker A, the computable list TauCeti.kernelBasis A lists them (sound, spanning, independent, without repetition), and there are n − rank A of them. This node transports that basis to linear maps: for finite-dimensional F-vector spaces V and W with bases b indexed by Fin n and b′ indexed by Fin m, a linear map φ : V → W and A = LinearMap.toMatrix b b′ φ, a vector x lies in ker φ iff A·(b.repr x) = 0, and the vectors Σ_k (β_j)_k b_k, j a free column of A, form a basis of ker φ; so dim ker φ = n − rank A.",
    "hypotheses": [
-    "F a field; R in reduced row echelon form (Mathlib Matrix.IsReducedRowEchelon) with its pivot function."
+    "F a field with decidable equality (ZMod p in the main use); V and W finite-dimensional over F with bases indexed by Fin n and Fin m."
    ],
    "proofSteps": [
-    "Soundness: row i of R β_j is R_{i c_i}(β_j)_{c_i} + Σ_{j′∈J} R_{i j′}(β_j)_{j′} = −R_{i j} + R_{i j} = 0, because row i vanishes at the other pivot columns (reducedness) and R_{i c_i} = 1; zero rows give 0.",
-    "Completeness: for x ∈ ker R, y = x − Σ_{j∈J} x_j β_j lies in ker R and vanishes at every free column; row i of R y = 0 then reads y_{c_i} = 0, so y = 0.",
-    "Independence: the coordinates of Σ c_j β_j at the free columns are the c_j.",
-    "For A: ker A = ker R (CA.3/gauss-jordan-reduced-echelon-form) and r = rank A; rank–nullity (Mathlib LinearMap.finrank_range_add_finrank_ker) is consistent with |J| = n − r.",
-    "For φ: Matrix.toLin_toMatrix identifies φ with the matrix in the bases, so the coordinate vectors of ker φ in b are ker A."
+    "Matrix case: Tau Ceti TauCeti.freeColumnBasis with coe_freeColumnBasis_apply, and for the list TauCeti.kernelBasis the theorems mulVec_eq_zero_of_mem_kernelBasis (soundness), span_kernelBasis (completeness), linearIndepOn_kernelBasis and nodup_kernelBasis (independence) and length_kernelBasis and finrank_ker_mulVecLin (the count n − rank A). Their proofs are the classical ones: a reduced row is 1 at its own pivot column and 0 at the others, so it annihilates each β_j; a kernel vector x equals Σ_j x_j β_j over the free columns, because the difference vanishes at the free columns and therefore at the pivot columns; and the β_j restrict to the standard basis on the free columns.",
+    "Coordinates: Mathlib LinearMap.toMatrix_mulVec_repr gives A·(b.repr x) = b′.repr (φ x), and b′.repr is injective, so x ∈ ker φ iff b.repr x ∈ ker A.",
+    "Transport: the coordinate isomorphism Module.Basis.equivFun b : V ≃ F^n therefore restricts to an isomorphism from ker φ onto LinearMap.ker A.mulVecLin; its inverse sends β_j to Σ_k (β_j)_k b_k (Basis.equivFun_symm_apply), and the image of TauCeti.freeColumnBasis A under it (Module.Basis.map) is the asserted basis of ker φ.",
+    "Dimension: n − rank A by finrank_ker_mulVecLin; with Mathlib LinearMap.finrank_range_add_finrank_ker, rank A is the dimension of the range of φ."
    ],
    "acceptance": [
-    "A = [[1, 2, 1], [2, 4, 0]] over ℚ: R = [[1, 2, 0], [0, 0, 1]], J = {1}, β_1 = (−2, 1, 0), and A β_1 = 0.",
-    "Over ZMod 2: [[1, 1], [1, 1]] has R = [[1, 1], [0, 0]], J = {1}, β_1 = (1, 1) (−1 = 1).",
-    "R = 0: the β_j are the standard basis; R = 1 (square, full rank): J is empty and the kernel is 0."
+    "A = [[1, 2, 1], [2, 4, 0]] over ℚ: the only free column is 1, TauCeti.kernelBasis A = [(−2, 1, 0)], and A·(−2, 1, 0) = 0.",
+    "Over ZMod 2: TauCeti.kernelBasis [[1, 1], [1, 1]] = [(1, 1)] (−1 = 1).",
+    "Linear map: on the F₂-algebra F₂[X]/(X²) with basis (1, X), Frobenius x ↦ x² is F₂-linear with matrix [[1, 0], [0, 0]]; its one kernel vector (0, 1) transports to X, which spans the kernel of Frobenius, here the nilradical.",
+    "A = 0: every column is free and the β_j are the standard basis vectors; A invertible: no column is free and ker A = 0."
    ],
    "prerequisites": [
-    "ClassicalArithmeticCompletion:CA.3/gauss-jordan-reduced-echelon-form",
-    "mathlib:Matrix.IsReducedRowEchelon",
-    "mathlib:Matrix.toLin'",
+    "tauceti:TauCeti.IsFreeColumn",
+    "tauceti:TauCeti.kernelVector",
+    "tauceti:TauCeti.freeColumnBasis",
+    "tauceti:TauCeti.coe_freeColumnBasis_apply",
+    "tauceti:TauCeti.kernelBasis",
+    "tauceti:TauCeti.mulVec_eq_zero_of_mem_kernelBasis",
+    "tauceti:TauCeti.span_kernelBasis",
+    "tauceti:TauCeti.linearIndepOn_kernelBasis",
+    "tauceti:TauCeti.nodup_kernelBasis",
+    "tauceti:TauCeti.length_kernelBasis",
+    "tauceti:TauCeti.finrank_ker_mulVecLin",
     "mathlib:LinearMap.toMatrix",
-    "mathlib:Matrix.toLin_toMatrix",
+    "mathlib:LinearMap.toMatrix_mulVec_repr",
+    "mathlib:Module.Basis.equivFun",
+    "mathlib:Module.Basis.map",
     "mathlib:LinearMap.finrank_range_add_finrank_ker"
    ],
    "sources": [
     {
      "sourceId": "hefferon-linearalgebra-2020",
      "locator": "Chapter One, Section I, Lemma 3.6 with its proof, printed pp. 25–27",
-     "match": "The solution set of a homogeneous system is the set of combinations of vectors β_1, …, β_k, one for each free variable of an echelon form, obtained by back-substitution; with the reduced form the back-substitution is the read-off above."
+     "match": "The solution set of a homogeneous system is the set of combinations of vectors β_1, …, β_k, one for each free variable of an echelon form, obtained by back-substitution; with the reduced form the back-substitution is the read-off that Tau Ceti's kernelVector performs."
     },
     {
      "sourceId": "hefferon-linearalgebra-2020",
@@ -2647,8 +2830,8 @@
     }
    ],
    "library": {
-    "module": "TauCeti/LinearAlgebra/Matrix/GaussJordan",
-    "namespace": "TauCeti.ClassicalArithmetic"
+    "module": "TauCeti/LinearAlgebra/Matrix/Echelon/KernelBasis",
+    "namespace": "TauCeti"
    },
    "implementationStatus": "unchecked"
   }
@@ -2658,7 +2841,7 @@
   {
    "stageId": "ClassicalArithmeticCompletion:CA.3",
    "status": "planned",
-   "note": "Together with the CA.3 nodes of ClassicalArithmeticCompletion.json, every target of CA.3 is now a node whose prerequisite chains end in Mathlib, Tau Ceti, other CA nodes, or one recorded gap. This packet plans the four open items of the main packet's coverage record and gives each of its 22 review-frontier ids a named supplier, a new supplying node, or a target-level disposition (continuations). The integer-valued-polynomial theory of number fields, Pólya groups included, is planned from public proofs and is free of gaps; the one gap is the unread proof of Mignotte's 1988 inequality, so the stage is planned but not closed.",
+   "note": "Together with the CA.3 nodes of ClassicalArithmeticCompletion.json, every target of CA.3 is now a node whose prerequisite chains end in Mathlib, Tau Ceti, other CA nodes, or one recorded gap. This packet plans the four open items of the main packet's coverage record and gives each of its 22 review-frontier ids a named supplier, a new supplying node, or a target-level disposition (continuations). The integer-valued-polynomial theory of number fields, Pólya groups included, is planned from public proofs and is free of gaps; the one gap is the unread proof of Mignotte's 1988 inequality, so the stage is planned but not closed. Gauss–Jordan elimination over a field and the kernel basis read off the reduced form are Tau Ceti's at the pinned commit (TauCeti.rowReduce, TauCeti.kernelBasis); the two linear-algebra nodes plan only what those declarations lack.",
    "remaining": [
     "Mignotte 1988, Theorem 1′ and the remarks after it (J. Number Theory 30, 156–166): read the proof at its full hypotheses and decompose it, or replace it by a public proof of an inequality of the same shape; CA.3/mignotte-irreducible-factor-l2-bound states the inequality as Bary-Soroker–Koukoulopoulos–Kozma quote it, and CA.3/irreducible-factor-evaluation-bound is planned from it.",
     "Assembly: add the continuations' additionalPrerequisites to the cited main-packet nodes when the CA.3 parts are joined."
@@ -2893,10 +3076,10 @@
    "request": "ComputationalNumberTheory requests to CA.3: exact finite-field matrix kernel basis with soundness, spanning, termination and comparison with the native basis-to-matrix map (needed by CN.2/finite-algebra-frobenius-nilradical)",
    "supplier": "ClassicalArithmeticCompletion:CA.3",
    "answer": [
-    "ClassicalArithmeticCompletion:CA.3/gauss-jordan-reduced-echelon-form",
-    "ClassicalArithmeticCompletion:CA.3/kernel-basis-of-a-reduced-echelon-matrix"
+    "ClassicalArithmeticCompletion:CA.3/kernel-basis-of-a-reduced-echelon-matrix",
+    "ClassicalArithmeticCompletion:CA.3/gauss-jordan-reduced-echelon-form"
    ],
-   "detail": "Over any field with decidable equality (ZMod p in particular): terminating Gauss–Jordan elimination with explicit inverse and Mathlib's IsReducedRowEchelon/IsPivotedBy predicates, uniqueness of the reduced form, and the free-column kernel basis with soundness, completeness and independence, including the transport to a linear map through LinearMap.toMatrix."
+   "detail": "Tau Ceti already contains the requested algorithm at the pinned commit (f790474), as Layer 6 of its CharacterTheory roadmap (RepresentationTheory/CharacterTheory) asks: TauCeti.rowReduce is terminating Gauss–Jordan elimination over a division ring with decidable equality (structural recursion over the columns, so ZMod p is covered), and TauCeti.kernelBasis and TauCeti.freeColumnBasis give the kernel basis with soundness (mulVec_eq_zero_of_mem_kernelBasis), spanning (span_kernelBasis), independence (linearIndepOn_kernelBasis, nodup_kernelBasis) and the count n − rank A (length_kernelBasis). CN.2 should cite those tauceti: declarations directly. CA.3/kernel-basis-of-a-reduced-echelon-matrix adds the comparison with LinearMap.toMatrix (a basis of ker φ from the kernel basis of the matrix of φ in chosen bases), and CA.3/gauss-jordan-reduced-echelon-form the change-of-basis certificate and the uniqueness of the reduced form."
   }
  ],
  "planetPolicy": {
@@ -2928,7 +3111,12 @@
     "Crossref record of doi:10.4169/amer.math.monthly.123.4.311 (2026-10-14): no update-to, updated-by or relation entries",
     "Web search for an erratum or corrigendum to the article (2026-10-14): none found; the HAL record (hal-03621215) and the MAA table of contents list no correction",
     "Leriche 2011, p. 236, which gives the correct class number for the same field (a later paper, not a correction of this one)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at printed p. 333 of the publisher PDF (sha256 a763fe4a…): Example 34 gives class number 4 for ℚ(√−23). The reduced forms of discriminant −23 are (1, 1, 6), (2, 1, 3) and (2, −1, 3), so the class number is 3, as Leriche states on p. 236. Crossref (checked again 2026-10-14) lists no correction.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.3"
+   }
   },
   {
    "id": "ClassicalArithmeticCompletion/E901",
@@ -2944,7 +3132,12 @@
     "Crossref record of doi:10.4169/amer.math.monthly.123.4.311 (2026-10-14): no correction relation",
     "Web search for an erratum to the article (2026-10-14): none found",
     "Chabert's survey (author PDF, p. 13) only attributes the classification to Zantema without listing it; Leriche 2011, Proposition 2.4, gives the order of the Pólya group from which the correction follows"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at printed p. 333: the real case of Proposition 33 admits ℚ(√(pq)) for any primes p, q when the fundamental unit has norm 1. Checked ℚ(√15): discriminant 60, so 2, 3 and 5 ramify; 4 + √15 has norm 1; x² − 15y² = ±2 has no solution modulo 5, so the prime above 2 is not principal, and by Hilbert's count (Leriche, Proposition 2.4, p. 241: 2^{s−2} elements for s ramified primes and a unit of norm +1) the Pólya group has order 2. The corrected family (exactly two ramified primes and norm +1, i.e. d = 2q or d = pq ≡ 1 mod 4) is what Proposition 2.4 gives.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.3"
+   }
   },
   {
    "id": "ClassicalArithmeticCompletion/E902",
@@ -2959,7 +3152,32 @@
    "searched": [
     "J-STAGE record of Tôhoku Math. J. 10 (1916), 167–171 (2026-10-14): no correction attached",
     "Bhargava–Shankar–Wang (arXiv:1611.09806v3, p. 27) use the non-strict form and do not revisit the strict one"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read on the page images of the J-STAGE scan (pp. 167–168): the footnote to (1) claims strict inequality whenever Σ1/λ_k < 1, and (3) is printed with <. For f = a_0Xⁿ the bound is 0 and the root 0 attains it, so both strict claims need some a_k ≠ 0 (k ≥ 1); with that proviso the proof of (1) gives strictness.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.3"
+   }
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E903",
+   "source": "cahen-chabert-intvalued-2016",
+   "kind": "misprint",
+   "locator": "Section 6, Localization, the definition of S⁻¹D just before Lemma 28, printed p. 329 (publisher PDF of the Monthly article)",
+   "printed": "The set S⁻¹D is described as the fractions a/s with s ∈ S and a in a ring called A, which is not defined in the article.",
+   "correction": "The numerators range over D: S⁻¹D = {a/s ∈ K : a ∈ D, s ∈ S}.",
+   "reason": "The surrounding text, Lemma 28 and the notation S⁻¹D all concern the domain D; no ring A is introduced anywhere in Section 6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4169/amer.math.monthly.123.4.311 (2026-10-14): no update-to, updated-by or relation entries",
+    "The publisher PDF read for this review (the same file the packet cites)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by this review at printed p. 329; it is a slip in a definition the node restates correctly.",
+    "by": "REV-ClassicalArithmeticCompletion--CA.3"
+   }
   }
  ],
  "sourceVersions": [
@@ -3042,5 +3260,138 @@
   "agent": "Claude (session claude-OsVbBo)",
   "date": "2026-10-14",
   "followUpOf": "BP-ClassicalArithmeticCompletion (accepted by REV-ClassicalArithmeticCompletion~3)"
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-ClassicalArithmeticCompletion--CA.3",
+  "date": "2026-10-14",
+  "notes": "Independent review by Claude (session claude-iS7Ymj, issue #9676) of the CA.3 continuation written by session claude-OsVbBo, at target level. All 25 nodes were checked against their sources at the locators (all nine sources re-fetched; every sha256 matches; the Fujiwara scan read from page images), the pinned libraries and the suggested file: 11 verified and 14 corrected, none added. Main finding: the two linear-algebra nodes planned Gauss–Jordan elimination and the kernel basis, which the pinned Tau Ceti library already contains (TauCeti.rowReduce, TauCeti.kernelBasis, TauCeti.freeColumnBasis and their theorems); they now cite those declarations and plan only the change-of-basis certificate, the uniqueness of the reduced form and the transport to linear maps, and the CN.2 request response points CN.2 at the Tau Ceti declarations. Other corrections: a deprecated Mathlib citation replaced (Ideal.absNorm_eq_pow_inertiaDeg → Ideal.natAbs_pow_inertiaDeg); a missing supplier for reading exponents of fractional ideals off localizations (FractionalIdeal.count_mul, count_self, count_maximal_coprime); Lemma 3.4 of Bary-Soroker–Koukoulopoulos–Kozma widened to prime-constant factors as in the source; three Cahen–Chabert locators (PDF page k is printed page 309 + k); two API items for nonvanishing of factorial and Pólya ideals; one API statement made to match its name; a Tau Ceti compatibility for the Gregory–Newton expansion; two suggested-file statements (one false for an empty family, one weaker than the node). Baseline: all 83 original declarations read at their modules at Mathlib 082e2d3 (and the Tau Ceti files at f790474): 82 confirmed, 1 deprecated one replaced; 5 that no longer had a citing node removed, 26 added (20 Tau Ceti, 6 Mathlib); 104 now. Source findings: E900–E902 confirmed; E903 (a misprint in Cahen–Chabert's definition of S⁻¹D, p. 329) added and confirmed. The Mignotte gap stands: the paper is still refused to automated access and no other copy exists. check_blueprint: 0 errors, 0 warnings; lean-check of the suggested file: exit 0, only the 135 warnings for admitted proofs. The reader was re-rendered node by node from the corrected packet (the renderer reproduces all 25 sections of the original reader exactly) and its introduction, boundaries, sources, dependencies and corrections were updated. Stage CA.3 stays planned, not closed, because of the one gap.",
+  "checked": [
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/int-valued-localization",
+    "verdict": "corrected",
+    "note": "Math checked (degree induction for (i), Noetherian finite generation of the value module for (ii), leading coefficients for (iii)). Cahen–Chabert locator corrected: Lemma 28 and Proposition 29 are on printed p. 329 (PDF page k is printed page 309 + k), not pp. 328–329. Chabert survey (17)–(19) on pp. 6–7 confirmed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/newton-sequence-criterion",
+    "verdict": "corrected",
+    "note": "Triangular expansion and all four implications checked against Cahen–Chabert Proposition 20; the statement starts on printed p. 322 and (iii) with the proof is on p. 323 (locator corrected). Chabert Propositions 11 and 16 confirmed at pp. 8 and 10–11."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/legendre-exponent",
+    "verdict": "verified",
+    "note": "Counting identity, succ, superadditivity and all tests recomputed (w_5(26) = 6, w_4(8) = 2 vs v_2(8!) = 7). Cahen–Chabert pp. 331–332 and Leriche p. 239 confirmed. Lean definition and tests agree."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/v-ordering-of-a-dvr",
+    "verdict": "verified",
+    "note": "(a)–(d) re-proved (first differing digit; blocks of q^h consecutive indices). Tests recomputed: a_2 = π, a_3 = 1 + π, a_4 = π² for r = (0, 1); in ℤ[i]_(3) the sequence n ↦ n has v(3·2·1) = 1 ≠ w_9(3) = 0. Cahen–Chabert (13)–(14) p. 331, Remark 6 p. 332; Chabert Proposition 10 and Examples 1–2 pp. 7–8."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/local-regular-basis-of-int-dvr",
+    "verdict": "verified",
+    "note": "Integer-valuedness from (c)–(d), shifted sequences for consecutive terms, Lagrange interpolation with unit Vandermonde for an infinite residue field. Examples recomputed (I_4 = π^{−3}V in ℤ[i]_(1+i), v_π(24) = 6)."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/characteristic-ideals-of-a-dedekind-domain",
+    "verdict": "corrected",
+    "note": "Pigeonhole finiteness and localization step checked. The last step identified FractionalIdeal.count with valuations in the localizations without a supplier; added the bridge (count_mul, count_self, count_maximal_coprime, all read at the pin) as prerequisites and in the proof sketch. Mathlib FractionalIdeal.finprod_heightOneSpectrum_factorization' confirmed at line 559 of Factorization.lean."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/factorial-ideal",
+    "verdict": "corrected",
+    "note": "Definition, divisibility, product formula and examples checked (4!_{ℤ[i]} = (1+i)³ of norm 8; 2!_{𝓞_K} = (2, 1+√−5) in ℚ(√−5)). Added API item FactorialIdeal.ne_bot: the Pólya group takes classes ClassGroup.mk0 of these ideals, which needs them nonzero. Lean stub added."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/polya-ideal",
+    "verdict": "corrected",
+    "note": "Definition and tests checked (Π_9 = (3), Π_3 = ⊤ in ℤ[i]; Π_6 = ⊤). Added API item PolyaIdeal.ne_bot (needed for the classes in the Pólya group). Leriche p. 239 definition confirmed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/factorial-group-basis",
+    "verdict": "corrected",
+    "note": "Inversion formula re-derived: v_{p^j}(p^f) = ⌊f/j⌋, so q!/(q−1)! = ∏_{j≤f} Π_{p^j}^{⌊f/j⌋}; freeness by disjoint prime supports. Leriche Proposition 2.2 p. 239 confirmed. Cahen–Chabert locator corrected to printed p. 333, where the generation by the Π_q is stated."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/polya-ostrowski-criterion",
+    "verdict": "verified",
+    "note": "Equivalences checked; Cahen–Chabert Proposition 31 (p. 332), Leriche Proposition 2.3 (p. 240) and Chabert Proposition 19 and Corollary 4 (pp. 12–13) confirmed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/polya-field",
+    "verdict": "verified",
+    "note": "Definition matches Leriche Definitions 1.2–1.3 (p. 236) and Cahen–Chabert p. 332; tests checked (ℚ(√−23) Pólya with class number 3)."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/polya-group",
+    "verdict": "corrected",
+    "note": "Definition via Subgroup.closure of ClassGroup.mk0 classes checked; the API item card_polyaGroup_dvd_prod_ramificationIdxIn stated a generation property under a divisibility name — restated as the divisibility |Po(K)| | ∏ e_p (Leriche Corollary 3.1) with the generation as its reason."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/polya-group-of-a-galois-field",
+    "verdict": "corrected",
+    "note": "Argument checked (all primes over p have norm p^{f_p}; pO_K = Π^{e_p}; orders divide e_p; coprime-degree corollary). The cited Mathlib Ideal.absNorm_eq_pow_inertiaDeg is deprecated at the pin and stated with the deprecated inertiaDeg′; replaced by Ideal.natAbs_pow_inertiaDeg, which uses the same inertiaDeg as Ideal.inertiaDeg_eq_of_isGaloisGroup. Leriche Section 3 (pp. 241–242) confirmed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/imaginary-quadratic-polya-fields",
+    "verdict": "verified",
+    "note": "Norm argument re-checked in both discriminant cases (p_1 < |D_K|/4 when two primes ramify); examples ℚ(√−15) (3 < 15/4) and ℚ(√−6) checked. Cahen–Chabert Proposition 33 imaginary case and Example 34 (p. 333), Leriche Proposition 2.4 (pp. 240–241). Cross-part prerequisite CA.5/index-of-the-order-z-sqrt-d exists and supplies the ring of integers."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/cyclotomic-fields-are-polya",
+    "verdict": "verified",
+    "note": "Ramification and residue degrees in ℚ(ζ_n) and the unique-factorization step ((1 − ζ)𝓞_K)^{e} = Π^{e} ⇒ equality checked; Mathlib IsCyclotomicExtension.Rat lemmas read at the pin with their section hypotheses. Leriche Example 1 (p. 240) confirmed."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/mignotte-irreducible-factor-l2-bound",
+    "verdict": "verified",
+    "note": "Statement agrees with the inequality quoted in Bary-Soroker–Koukoulopoulos–Kozma, proof of Lemma 3.4, p. 20 (arXiv v3, sha256 matches). Mignotte 1988 still unreadable: ScienceDirect returned HTTP 403 on 2026-10-14 and Unpaywall and Semantic Scholar list only that copy; the gap stands. The classical C(2m, m)^{1/2} bound from the Mahler-measure lemmas re-derived."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/irreducible-factor-evaluation-bound",
+    "verdict": "corrected",
+    "note": "Arithmetic re-done ((2/√3)·5√2·e ≈ 22.2 < 23 < 14⁴; n^{3/2}H ≤ n²H⁴). The source's Lemma 3.4 allows any irreducible I over ℤ, including prime constants; the node required m ≥ 1. Widened to m ≥ 0 with the constant case (p ≤ H) as a proof step and an example; the Lean statement drops the degree hypothesis."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/primitive-polynomial-gcd",
+    "verdict": "corrected",
+    "note": "Definition and tests checked against Smith Definition 2.9 (pp. 8–9). Packet text verified; the suggested file's dvd_primitiveGcd was false for an empty family or one containing 0 (primitiveGcd is then 1, while X satisfies the hypothesis), so nonemptiness and h0 were added there."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/squarefree-integral-combination",
+    "verdict": "corrected",
+    "note": "Proof checked against Smith Lemma 2.10 (p. 9): x-linearity gives irreducibility, the Sylvester determinant with formal degrees (d, d − 1) has total degree ≤ 2d − 1, resultant_map_map / resultant_eq_zero_of_lt_lt / resultant_eq_zero_iff (default degrees, which agree over ℚ(x)) and the Combinatorial Nullstellensatz statement read at the pin. Packet verified; the suggested file's bound was weakened to 2d and is now 2d − 1 as in the node."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/fujiwara-weighted-root-bound",
+    "verdict": "verified",
+    "note": "Proof and strict-case proviso checked against the page images of the J-STAGE scan, formula (1) and footnote p. 167, (2)–(5) p. 168."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/fujiwara-root-bound",
+    "verdict": "verified",
+    "note": "Weights 2^k (k < n), 2^{n−1} sum to 1; n = 1 case and X² − 4 example checked. BSW p. 27 prints the bound without the factor 2 (their E11)."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/newton-forward-difference-expansion",
+    "verdict": "corrected",
+    "note": "Proof via shift_eq_sum_fwdDiff_iter and eq_of_infinite_eval_eq checked; Cahen–Chabert (1)–(2) p. 311, (3) p. 312. Tau Ceti already has the binomial basis of K[X] (TauCeti.binomialPolynomialBasis, read at f790474) but not this formula; added it as a prerequisite and a compatibility check (the coefficients are its coordinates), with a Lean statement."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/newton-polygon-of-a-point-family",
+    "verdict": "verified",
+    "note": "(a)–(f) re-proved; tests recomputed ((0,2),(2,1),(5,0): widths 2 at r = 1/2 and 3 at r = 1/3; (0,0),(1,−1),(2,0): C_0 = {1}, C_1 = {0,1}, C_{−1} = {1,2}). Answers CN.2's request (orientation pinned). Kedlaya pp. 1–2 confirmed. Not in Mathlib or Tau Ceti at the pins."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/gauss-jordan-reduced-echelon-form",
+    "verdict": "corrected",
+    "note": "Duplicated the pinned Tau Ceti library: TauCeti.rowReduce (computable Gauss–Jordan sweep) with isReducedRowEchelon_rowReduceMatrix, isPivotedBy_rowReduceMatrix, span_rowReduce, length_rowReduce_ofFn and mulVec_eq_zero_iff_rowReduceMatrix already exist at f790474 (TauCeti/LinearAlgebra/Matrix/Echelon/RowReduce.lean, built for Layer 6 of the Tau Ceti CharacterTheory roadmap). Rewritten to cite them and to plan only what they lack: the certificate P, P′ with P A = R (read off the reduced form of [A | 1]) and the uniqueness of the reduced form (Hefferon Theorem One.III.2.6, pp. 59–60). The unproved comparison with Mathlib Echelon.Decomposition was dropped; certificate example computed (P = [[0, 1/2], [1, −1/2]], P′ = [[1, 1], [2, 0]])."
+   },
+   {
+    "nodeId": "ClassicalArithmeticCompletion:CA.3/kernel-basis-of-a-reduced-echelon-matrix",
+    "verdict": "corrected",
+    "note": "Duplicated the pinned Tau Ceti library: TauCeti.kernelVector, freeColumnBasis, kernelBasis with soundness, spanning, independence and the count n − rank A already exist at f790474 (KernelBasis.lean). Rewritten to cite them and to plan only the transport to a linear map in chosen bases (LinearMap.toMatrix_mulVec_repr, Basis.equivFun, Basis.map), which CN.2's request asks for; Frobenius example on F₂[X]/(X²) added."
+   }
+  ]
  }
 }
