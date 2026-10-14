@@ -1,0 +1,1031 @@
+{
+  "roadmapId": "K2SymbolsBrauer",
+  "protocol": "blueprint-v1",
+  "part": "T.1-classical",
+  "status": "complete",
+  "scope": [
+    "K2SymbolsBrauer:T.1:classical"
+  ],
+  "summary": "Classical-stage supplement to the accepted T.1 packet. Imports its 43 classical nodes and the exact U.1 matrix/elementary owners, adds the trivial-action criterion and an injective column/row API, and supplies seven scoped proof refinements closing the old classical matrix, colimit, centre, classification and lifted-relation inputs. Recognition, Hopf and the integral quotient-bar package retain their existing owner ids. Six existing planets are retained, with no new planet. All implementation status is unchecked; this pass awaits independent review.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:GroupExtension",
+        "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+        "provides": "Marked extension with injective kernel inclusion, surjective quotient map and range equal to kernel; Section and Splitting are different notions.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 74."
+      },
+      {
+        "ref": "mathlib:GroupExtension.inl_conjAct_comm",
+        "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
+        "provides": "The included conjugation action evaluates to e i(a) e inverse.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 148."
+      },
+      {
+        "ref": "mathlib:Subgroup.mem_center_iff",
+        "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+        "provides": "Membership in the centre is commutation with every element.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 58."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.conjAct_eq_one_of_le_center",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Central kernel implies its conjugation action is the identity automorphism.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 119."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.InducesAction",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Compatibility of conjugation with the chosen G-action on the kernel, for every element of the total group.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 131."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.inducesAction_iff_smul_eq_self",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Given centrality already, InducesAction is equivalent to triviality of the chosen action. It does not prove centrality from action triviality.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.normalizeSection",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Normalizes a set section without asserting it is a group homomorphism.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 318."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.normalizeSection_one",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "The normalized section sends identity to identity.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 323."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.factorSet",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Normalized section and InducesAction give the actual normalized factor set.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 258."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.factorSetToGroupExtensionEquiv",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Its factor-set extension is equivalent to the original extension, preserving kernel and quotient markings.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 298."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.factorSet_canonicalSection",
+        "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
+        "provides": "Reconstructing the factor set using its canonical section returns the original factor set.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 366."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.cohomologyClass_factorSet_eq",
+        "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+        "provides": "Changing a normalized section preserves the cohomology class.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 289."
+      },
+      {
+        "ref": "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+        "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+        "provides": "For extensions inducing one fixed action, a marked equivalence exists exactly when their normalized-section classes agree.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
+        "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+        "provides": "Every class of actual H2 of Rep.ofMulDistribMulAction has a factor-set representative.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 187."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.cohomologyClassEquiv",
+        "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+        "provides": "Cohomologous-factor-set quotient is equivalent to actual group cohomology H2.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 226."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
+        "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
+        "provides": "A factor-set extension splits exactly when its actual cohomology class is zero.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 245."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.groupExtension",
+        "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+        "provides": "The marked extension on the actual twisted-product group of a factor set.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 257."
+      },
+      {
+        "ref": "tauceti:TauCeti.FactorSet.inl_range_le_center",
+        "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
+        "provides": "The factor-set extension is central if the specified coefficient action is trivial.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 304."
+      },
+      {
+        "ref": "mathlib:DirectLimit",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "Directed quotient by equality at a common later stage; its group structure is already supplied by Algebra/Colimit/DirectLimit.lean.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 113."
+      },
+      {
+        "ref": "mathlib:DirectLimit.exists_eq_mk",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "Every colimit element has a representative at a finite stage.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 130."
+      },
+      {
+        "ref": "mathlib:DirectLimit.lift",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "Compatible stage maps descend through the directed quotient.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 175."
+      },
+      {
+        "ref": "mathlib:DirectLimit.lift_def",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "The descended map evaluates to its stage map on representatives.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 180."
+      },
+      {
+        "ref": "mathlib:DirectLimit.lift_mul",
+        "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
+        "provides": "For multiplicative compatible stage maps, the descended map preserves multiplication.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 137."
+      },
+      {
+        "ref": "mathlib:Group.IsPerfect",
+        "module": "Mathlib/GroupTheory/IsPerfect.lean",
+        "provides": "The commutator subgroup is the whole group.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 41."
+      },
+      {
+        "ref": "mathlib:Rep.trivial",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "The actual trivial integral representation used in every homology invariant here.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 286."
+      },
+      {
+        "ref": "mathlib:Rep.ofMulDistribMulAction",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "An action on the multiplicative commutative coefficient group gives the integral representation on its additive type tag.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 377."
+      },
+      {
+        "ref": "mathlib:groupHomology.H1",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+        "provides": "Degree-one homology of the specified representation, as a module object.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 916."
+      },
+      {
+        "ref": "mathlib:groupHomology.H2",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+        "provides": "Degree-two homology of the specified representation, as a module object.",
+        "checked": "Statement and relevant source implementation read at the pinned commit on 2026-10-14; declaration starts at line 1063."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft dated 29 August 2013; findings and pagination refer only to this author copy.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "III.1.2, printed p.180 / PDF p.188",
+        "III.5.1–5.5.1, printed pp.217–220 / PDF pp.225–228",
+        "Exercises III.5.2–5.3 and III.5.7, printed pp.228–229 / PDF pp.236–237"
+      ]
+    },
+    {
+      "id": "Loeh.GroupCohomology.2019",
+      "title": "Group Cohomology",
+      "authors": "Clara Löh",
+      "edition": "Summer semester 2019 author lecture notes; printed pagination is PDF pagination minus eight.",
+      "url": "https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf",
+      "sha256": "d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Theorem 1.5.1, printed pp.30–31 / PDF pp.38–39",
+        "Definitions 1.5.6 and 1.5.9, Remark 1.5.7, Examples 1.5.8, Theorem 1.5.10 and Remark 1.5.11, printed pp.32–37 / PDF pp.40–45"
+      ],
+      "inheritedSourceChecks": "The accepted parent package owns its previously reviewed readings of 1.6.21–1.6.23 and 3.2.12–3.2.18. They are inherited evidence, not fresh source readings by this supplement."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/central-trivial-action-criterion",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "Centrality and a specified trivial coefficient action",
+      "kind": "theorem",
+      "statement": "Let S be a marked extension 1 → A → E → G → 1, with A commutative. Fix a multiplicative distributive G-action on A and assume g • a = a for every g,a. Then the range of S.inl lies in the centre of E if and only if TauCeti.GroupExtension.InducesAction S holds. This is a statement about the actual conjugation action of S, not just an arbitrarily chosen trivial ambient action.",
+      "hypotheses": [
+        "G and E are groups and A is a commutative group.",
+        "S is the actual pinned GroupExtension A E G.",
+        "The specified ambient G-action on A is trivial, for every g,a."
+      ],
+      "proofSteps": [
+        "For the forward implication, conjAct_eq_one_of_le_center makes conjugation on A the identity. Together with triviality of the specified action this is exactly InducesAction.",
+        "For the reverse implication, InducesAction and triviality imply S.conjAct e a = a. The pinned inl_conjAct_comm identifies e S.inl(a) e inverse with S.inl(a). Multiply on the right by e and apply mem_center_iff.",
+        "No splitting or section is used. The existing inducesAction_iff_smul_eq_self assumes centrality and cannot alone provide the reverse implication."
+      ],
+      "acceptance": [
+        "The product extension A × G → G satisfies the criterion for the trivial action.",
+        "The nonsplit central extension C4 → C2 satisfies the criterion too; trivial induced action does not imply splitting.",
+        "For C3 ↪ S3 → C2, conjugation inverts C3. With an ambient trivial action the extension fails InducesAction and fails centrality."
+      ],
+      "prerequisites": [
+        "mathlib:GroupExtension",
+        "mathlib:GroupExtension.inl_conjAct_comm",
+        "mathlib:Subgroup.mem_center_iff",
+        "tauceti:TauCeti.GroupExtension.InducesAction",
+        "tauceti:TauCeti.GroupExtension.conjAct_eq_one_of_le_center"
+      ],
+      "sources": [
+        {
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Definition 1.5.6 and Remark 1.5.7, printed pp.32–33 / PDF pp.40–41",
+          "match": "The action associated with an extension is conjugation through lifts. Centrality is its trivial-action case. The precise pinned InducesAction equivalence is derived here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:classical/column-embedding",
+      "parentStageId": "K2SymbolsBrauer:T.1:classical",
+      "realises": [
+        "K2SymbolsBrauer:T.1:classical"
+      ],
+      "title": "Injective column and row normal forms in Steinberg groups",
+      "kind": "construction",
+      "statement": "For an associative unital ring R, n ≥ 3 and an index t, define rho_t from the additive group of vectors (v_i) indexed by i ≠ t to St_n(R) by the product of x_it(v_i). These roots commute, so the order is immaterial and rho_t is an injective additive-to-multiplicative homomorphism. Its matrix image is I + sum_i E_it(v_i). Its composite into St(R) is also injective. The row analogue eta_t(v) = product_i x_ti(v_i) has the same assertions. For a,b distinct and both different from t, conjugation by x_ab(c) replaces column coordinate v_a by v_a + c v_b, and row coordinate v_b by v_b − v_a c. These are left and right multiplications in the displayed order.",
+      "hypotheses": [
+        "R is an associative unital ring; neither commutativity nor nontriviality is assumed.",
+        "n ≥ 3; vectors have exactly n−1 coordinates, omitting t.",
+        "For the normalization formulas a ≠ b, a ≠ t and b ≠ t. Opposite roots are excluded."
+      ],
+      "proofSteps": [
+        "Use the nonchaining Steinberg relation to commute all column roots, and additivity to obtain rho_t(v+w)=rho_t(v)rho_t(w). The same-root case is included. Define its finite image subgroup by its range.",
+        "The imported elementary-matrix product has all cross terms zero, since t differs from every row index. Thus the matrix image is I + sum_i E_it(v_i). Reading entry (i,t) recovers v_i, proving injectivity in finite rank. The row proof reads (t,i).",
+        "Stable injectivity of these particular subgroups follows by composing with St(R) → E(R) ≤ GL(R): U.1 supplies injective finite GL transition maps and its injective stage-to-stable embeddings. Do not infer injectivity of the entire St_n(R) → St(R).",
+        "Conjugate each column root using the nonchaining or forward-chaining relation. Only x_bt(v_b) changes, by the additional commuting factor x_at(c v_b). For rows use the reverse-chaining relation on x_ta(v_a), producing x_tb(−v_a c). Other row roots commute.",
+        "These formulas show that a word using indices different from t normalizes both image subgroups. Ring maps act coordinatewise. Stabilization extends vectors by zero and preserves t and these formulas."
+      ],
+      "acceptance": [
+        "Coordinate recovery, including over noncommutative rings, proves finite and stable injectivity without a stable Steinberg embedding hypothesis.",
+        "Both normalization identities retain the stated index conditions and coefficient order.",
+        "A kernel word whose indices omit t has commutators with column and row roots in these injective subgroups; this is the input to the inherited centre theorem."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-commute",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "KTheoryLowDegrees:U.1/elementary-commutator-reverse",
+        "KTheoryLowDegrees:U.1/stabilisation-map",
+        "KTheoryLowDegrees:U.1/stable-general-linear-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise III.5.2, printed p.228 / PDF p.236; proof of Theorem III.5.2.1, printed pp.217–218 / PDF pp.225–226",
+          "match": "The exercise asks for the column embedding used by the centre proof. The finite matrix-coordinate argument and row formula are supplied explicitly here; they use the corrected n−1-dimensional domain and do not assume ring commutativity."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.2, printed p.180 / PDF p.188",
+          "match": "The convention e_ij(r)=I+rE_ij fixes the positions and coefficient order of the coordinate checks."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Steinberg.column",
+          "role": "constructor",
+          "statement": "rho_t(v)=product over i≠t of x_it(v_i), with commuting factors and fixed finite index type."
+        },
+        {
+          "name": "Steinberg.row",
+          "role": "constructor",
+          "statement": "eta_t(v)=product over i≠t of x_ti(v_i), with commuting factors."
+        },
+        {
+          "name": "Steinberg.column_add",
+          "role": "relation",
+          "statement": "rho_t(v+w)=rho_t(v)rho_t(w); the identical row law also holds."
+        },
+        {
+          "name": "Steinberg.column_basis",
+          "role": "simp",
+          "statement": "rho_t of the vector supported at i with value r is x_it(r); row basis evaluates to x_ti(r)."
+        },
+        {
+          "name": "Steinberg.phi_column",
+          "role": "compatibility",
+          "statement": "The image under phi_n is I+sum_i E_it(v_i); row image is I+sum_i E_ti(v_i)."
+        },
+        {
+          "name": "Steinberg.column_injective",
+          "role": "characterisation",
+          "statement": "rho_t and eta_t are injective, and remain injective after mapping to stable St(R)."
+        },
+        {
+          "name": "Steinberg.column_conj",
+          "role": "relation",
+          "statement": "For a,b≠t and a≠b, x_ab(c)rho_t(v)x_ab(c) inverse equals rho_t(v with v_a increased by c v_b)."
+        },
+        {
+          "name": "Steinberg.row_conj",
+          "role": "relation",
+          "statement": "Under the same hypotheses conjugation increases row coordinate v_b by −v_a c."
+        },
+        {
+          "name": "Steinberg.column_map",
+          "role": "functoriality",
+          "statement": "Ring maps act on every vector entry; index stabilization adds zero entries. Row maps satisfy the same laws."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.1/k2-is-centre",
+          "how": "Normalization places the kernel commutators in column and row subgroups, where matrix-coordinate injectivity forces them to be trivial."
+        },
+        {
+          "where": "Kbook III.5.2.1 proof",
+          "how": "A fresh column and row let every old root be expressed as a commutator through a new index."
+        }
+      ],
+      "tests": [
+        {
+          "name": "column_zero",
+          "kind": "degenerate",
+          "statement": "For any n,t, rho_t(0)=1 and eta_t(0)=1; over the zero ring both image groups are trivial."
+        },
+        {
+          "name": "column_integer_coordinates",
+          "kind": "computation",
+          "statement": "In rank three over Z, with t=3 and vector (2,3), phi_3(rho_3(v))=I+2E13+3E23. Thus rho_3(v) is not identity."
+        },
+        {
+          "name": "column_noncommutative_order",
+          "kind": "computation",
+          "statement": "Over R=M2(Z), for the outer rank-three column t=3, take c=E12 and v_2=E21. Conjugation by x_12(c) adds E11 to v_1, not E22."
+        },
+        {
+          "name": "row_noncommutative_order",
+          "kind": "computation",
+          "statement": "Over R=M2(Z), take row t=3, c=E12 and v_1=E21. Conjugation by x_12(c) adds −E22 to v_2, not −E11."
+        },
+        {
+          "name": "column_stable_nonzero",
+          "kind": "compatibility",
+          "statement": "Over Z, the stable image of rho_3(1,0)=x_13(1) has matrix entry (1,3)=1 and is nonidentity."
+        },
+        {
+          "name": "column_opposite_root_exclusion",
+          "kind": "non-example",
+          "statement": "Over Z, conjugating e_13(1) by e_31(1) gives a matrix with a nonzero (3,1) entry and changed diagonal entries. It is not in the column subgroup; the normalizer formula cannot include a=t or b=t."
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "packet": "K2SymbolsBrauer--T.1.json",
+      "nodes": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1/k2-is-centre",
+        "K2SymbolsBrauer:T.1/central-extension",
+        "K2SymbolsBrauer:T.1/universal-central-extension",
+        "K2SymbolsBrauer:T.1/uce-perfect",
+        "K2SymbolsBrauer:T.1/hopf-formula",
+        "K2SymbolsBrauer:T.1/recognition-theorem",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1/finite-rank-splitting",
+        "K2SymbolsBrauer:T.1/finite-rank-caveat",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "K2SymbolsBrauer:T.1:classical/k2-k1-exact",
+        "K2SymbolsBrauer:T.1:classical/central-extension-hom",
+        "K2SymbolsBrauer:T.1:classical/central-extension-classification",
+        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+        "K2SymbolsBrauer:T.1:classical/relation-central-extension",
+        "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
+        "K2SymbolsBrauer:T.1:classical/central-extension-pullback",
+        "K2SymbolsBrauer:T.1:classical/central-extension-comp",
+        "K2SymbolsBrauer:T.1:classical/uce-extensions-split",
+        "K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2",
+        "K2SymbolsBrauer:T.1:classical/h1-trivial-perfect",
+        "K2SymbolsBrauer:T.1:classical/superperfect",
+        "K2SymbolsBrauer:T.1:classical/hopf-extension-perfect",
+        "K2SymbolsBrauer:T.1:classical/perfect-uce-exists",
+        "K2SymbolsBrauer:T.1:classical/free-group-higher-homology",
+        "K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2",
+        "K2SymbolsBrauer:T.1:classical/uce-source-superperfect",
+        "K2SymbolsBrauer:T.1:classical/superperfect-extensions-split",
+        "K2SymbolsBrauer:T.1:classical/split-central-extension-universal",
+        "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "K2SymbolsBrauer:T.1:classical/hopf-formula-natural",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel",
+        "K2SymbolsBrauer:T.1:classical/quotient-bar-kernel-h1",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-integral-five-term",
+        "K2SymbolsBrauer:T.1:classical/hochschild-serre-five-term-natural"
+      ],
+      "review": "Accepted scoped review independent-review-REV-FIX-RT-AREA-ktheory-1~2, 2026-10-10. The old global packet remains partial; only the classical gaps addressed below are resolved."
+    },
+    {
+      "packet": "KTheoryLowDegrees--U.1.json",
+      "nodes": [
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "KTheoryLowDegrees:U.1/elementary-commute",
+        "KTheoryLowDegrees:U.1/elementary-commutator-reverse",
+        "KTheoryLowDegrees:U.1/general-linear-map",
+        "KTheoryLowDegrees:U.1/stabilisation-map",
+        "KTheoryLowDegrees:U.1/stable-general-linear-group",
+        "KTheoryLowDegrees:U.1/finite-representatives",
+        "KTheoryLowDegrees:U.1/stable-equality-criterion",
+        "KTheoryLowDegrees:U.1/elementary-subgroup",
+        "KTheoryLowDegrees:U.1/stable-elementary-subgroup",
+        "KTheoryLowDegrees:U.1/stable-elementary-perfect",
+        "KTheoryLowDegrees:U.1/stable-elementary-normal",
+        "KTheoryLowDegrees:U.1/elementary-centraliser",
+        "KTheoryLowDegrees:U.1/stable-elementary-centre"
+      ],
+      "use": "General-ring elementary units, their relations, finite/stable GL and E, finite representatives, perfectness and trivial stable elementary centre."
+    },
+    {
+      "packet": "KTheoryLowDegrees--U.1.json",
+      "nodes": [
+        "KTheoryLowDegrees:U.2/K1"
+      ],
+      "use": "Only the inherited extended K2/K1 exact sequence uses the existing quotient GL(R)/E(R)."
+    }
+  ],
+  "inheritedRefinements": [
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+      "prerequisites": [
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-commute",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "KTheoryLowDegrees:U.1/elementary-commutator-reverse"
+      ],
+      "proofSteps": [
+        "Import the four exact U.1 nodes, which hold for associative unital rings, including additivity, same-root commutation, forward product rs and reverse product −sr.",
+        "Use their CommRing comparison only for agreement with the old pinned transvection declarations, not as a proof for general rings."
+      ],
+      "acceptance": [
+        "For M2(Z), forward and reverse products distinguish E11 from E22.",
+        "No opposite-root relation is imposed."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.1 and III.5.1.1, printed p.217 / PDF p.225",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/stabilisation",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "KTheoryLowDegrees:U.1/stabilisation-map",
+        "KTheoryLowDegrees:U.1/stable-general-linear-group",
+        "KTheoryLowDegrees:U.1/stable-elementary-subgroup",
+        "KTheoryLowDegrees:U.1/finite-representatives",
+        "KTheoryLowDegrees:U.1/stable-equality-criterion",
+        "mathlib:DirectLimit",
+        "mathlib:DirectLimit.exists_eq_mk",
+        "mathlib:DirectLimit.lift",
+        "mathlib:DirectLimit.lift_def",
+        "mathlib:DirectLimit.lift_mul"
+      ],
+      "proofSteps": [
+        "Use ranks m+3 indexed by natural numbers and the presentation map on index inclusions. Verify identity and composition on generators.",
+        "Use the already pinned DirectLimit group instance in Mathlib/Algebra/Colimit/DirectLimit.lean. The setoid in Order/DirectedInverseSystem.lean equates representatives exactly when they agree at a common later stage. This does not assume transition maps injective.",
+        "For finitely many representatives, choose a common rank. Products, inverse, group laws and compatible homomorphism lifts are supplied by the pinned group colimit; lift_mul and lift_def give the homomorphism law and evaluation.",
+        "Finite Steinberg maps commute with the imported elementary embeddings on generators. DirectLimit.lift descends them. Every stable elementary element is a finite elementary word by U.1; lift that word generator by generator.",
+        "Agreeing on every finite generator implies agreeing on each finite group by presentation extensionality, and then on the colimit by finite representatives. The subsystem n≥5 is cofinal: move any representative to a rank at least five."
+      ],
+      "acceptance": [
+        "Finite words have a common-rank representative.",
+        "Equality is witnessed at a common later stage; no finite Steinberg injectivity is inferred.",
+        "The stable Steinberg map onto E(R) is surjective."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.1.2, printed p.217 / PDF p.225",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1:classical/to-elementary",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-subgroup"
+      ],
+      "proofSteps": [
+        "Use the presentation universal property with the imported elementary generators.",
+        "The image contains each elementary generator, and inverses are generators with negated parameters. Subgroup-generation induction proves surjectivity onto the imported finite elementary subgroup.",
+        "Prove ring-map and index-stabilization compatibility by equality on every generator."
+      ],
+      "acceptance": [
+        "The codomain is E_n(R), not all of GL_n(R).",
+        "The n=3 noncommutative forward and reverse relations are preserved."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.1.1, printed p.217 / PDF p.225",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/k2-is-centre",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1:classical/column-embedding",
+        "KTheoryLowDegrees:U.1/stable-elementary-centre"
+      ],
+      "proofSteps": [
+        "Let y in the stable kernel and fix any generator x_kl(r). Choose a representative word for y and a common rank containing the word and k,l, and then a fresh index t. No occurrence of t is needed in the word.",
+        "By the column conjugation formula, that word normalizes the column subgroup P_t. Hence [y,x_kt(r)] lies in P_t. Its stable matrix image is identity because y is in the kernel. Stable column injectivity forces the commutator to be identity.",
+        "The row argument gives [y,x_tl(1)]=1. Since x_kl(r)=[x_kt(r),x_tl(1)], y commutes with the tested generator. All stable generators generate, so the kernel is central.",
+        "Conversely a central Steinberg element maps into the centre of E(R) by surjectivity. The exact U.1 stable-elementary-centre node says that even a stable GL element commuting with all E(R) is identity. Thus the centre lies in the kernel.",
+        "A subgroup of the centre is commutative; give the kernel its inherited commutative group structure."
+      ],
+      "acceptance": [
+        "The fresh index lies beyond both a chosen word and the tested root.",
+        "The only injectivity used is the imported finite GL embedding and the proved column/row embedding.",
+        "No general finite-rank centrality claim follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Theorem III.5.2.1 and proof, printed pp.217–218 / PDF pp.225–226; Exercise III.5.2, printed p.228 / PDF p.236",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-classification",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/central-extension",
+        "K2SymbolsBrauer:T.1:classical/central-trivial-action-criterion",
+        "tauceti:TauCeti.GroupExtension.normalizeSection",
+        "tauceti:TauCeti.GroupExtension.normalizeSection_one",
+        "tauceti:TauCeti.GroupExtension.factorSet",
+        "tauceti:TauCeti.GroupExtension.factorSetToGroupExtensionEquiv",
+        "tauceti:TauCeti.GroupExtension.cohomologyClass_factorSet_eq",
+        "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+        "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
+        "tauceti:TauCeti.FactorSet.cohomologyClassEquiv",
+        "tauceti:TauCeti.FactorSet.inl_range_le_center",
+        "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
+        "mathlib:Rep.ofMulDistribMulAction"
+      ],
+      "proofSteps": [
+        "Fix G and a commutative kernel A, including its identity marking. Supply an explicitly trivial ambient G-action. The new criterion identifies central marked extensions with the extensions inducing this fixed action.",
+        "Choose a set section using surjectivity and normalize it with the pinned normalizeSection. Construct the actual pinned factorSet and its cohomology class in H2(Rep.ofMulDistribMulAction G A). Section independence is the pinned cohomologyClass_factorSet_eq.",
+        "The pinned marked-equivalence theorem identifies equal classes exactly with Nonempty(S.Equiv S prime). Both the quotient and kernel markings are retained.",
+        "For every actual cohomology class use exists_cohomologyClass_eq to obtain a factor set. Its actual groupExtension is central by inl_range_le_center. factorSetToGroupExtensionEquiv and canonical-section recovery identify the inverse. The existing factor-set quotient cohomologyClassEquiv is a set-sized model of this classification; there is no need to form a quotient over every possible total-group carrier.",
+        "Transport splitting through factorSetToGroupExtensionEquiv and apply nonempty_splitting_iff_cohomologyClass_eq_zero. Thus the zero class is precisely the marked product/split extension.",
+        "The pinned comparison here uses G,A : Type. Keep that prototype universe explicit; no arbitrary-universe cohomology theorem is claimed."
+      ],
+      "acceptance": [
+        "C4 → C2 gives the nonzero central class with fixed kernel C2; C2 × C2 → C2 gives the zero class.",
+        "The C3 kernel of S3 → C2 is excluded from trivial-action classification.",
+        "Changing a normalized section changes the factor set but not its actual cohomology class."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.3, printed pp.218–219 / PDF pp.226–227; Löh Theorem 1.5.10, printed pp.33–37 / PDF pp.41–45",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        },
+        {
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 1.5.10 and its proof, printed pp.33–37 / PDF pp.41–45; Remark 1.5.11, printed p.37 / PDF p.45",
+          "match": "Classifies extensions for a fixed action and identifies the split class. The normalized-section implementation and quotient model are the actual pinned Tau Ceti declarations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/finite-rank-splitting",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/split-central-extension-universal"
+      ],
+      "proofSteps": [
+        "Let q:Y→St_n(R) be central and surjective, n≥5. Lifts of any one root differ by a central element, so their commutator with another lift is independent of the lift choices.",
+        "First prove exact commutation of lifted nonchaining roots. If u lifts x_ij(a), z lifts x_kl(b), j≠k and i≠l, choose t outside {i,j,k,l}. Choose v over x_it(1) and w over x_tj(a). The commutators [v,z] and [w,z] lie in the central kernel. Conjugation by z therefore fixes [v,w]. Since u differs from [v,w] centrally, [u,z]=1. This uses at most five indices.",
+        "For four distinct indices i,k,l,j, choose u over x_ik(a), v over x_kl(b), w over x_lj(c). Put C=[u,v], D=[v,w], e=[C,w], f=[u,D]. The first step gives [u,w]=[C,D]=1. The elements e and f both lie over x_ij(abc), and each commutes with u,v,w,C,D by the same step. Reordering uvw in two ways gives C D w v u and f e inverse C D w v u; cancellation gives e=f. Thus [[u,v],w]=[u,[v,w]] in precisely this root configuration. No unqualified metabelian Jacobi identity is assumed.",
+        "Define c_ij(a)=[lift(x_ik(1)),lift(x_kj(a))] with k≠i,j. Central lift independence is immediate. To replace k by another auxiliary l, use the preceding identity on lifts of x_il(1), x_lk(1), x_kj(a). Its two sides are exactly the two definitions, since their intermediate commutators differ from any chosen lift only centrally.",
+        "For additivity, choose u over x_ik(1), v over x_kj(a), w over x_kj(b). The first step gives [v,w]=1 and says v commutes with [u,w], whose image has root (i,j). Then [u,vw]=[u,v] v[u,w]v inverse=c_ij(a)c_ij(b). The left side is c_ij(a+b). Setting a=b=0 gives c_ij(0)=1.",
+        "For the forward relation on distinct i,j,l, choose a fourth k. Apply the four-index identity to lifts of x_ik(1),x_kj(a),x_jl(b). Its left side is [c_ij(a),c_jl(b)] and its right side is c_il(ab). Swapping the roots gives the reverse relation c_kj(−ba), using [x,y] inverse=[y,x] and c_kj(r) inverse=c_kj(−r). All nonchaining relations follow from the first step.",
+        "All presentation relations now hold exactly in Y. The presentation lift sends x_ij(a) to c_ij(a), and its composite with q is identity on generators, hence is a homomorphic section. Finite perfectness is separate and holds already for n≥3.",
+        "Only if phi_n:St_n(R)→E_n(R) is separately central may the inherited perfect-and-splitting recognition lemma turn this into a finite universal central extension."
+      ],
+      "acceptance": [
+        "All three commutator index cases and additivity are checked, including a fourth-index choice and the fifth-index commutation argument.",
+        "The noncommutative reverse coefficient is −ba.",
+        "The theorem is splitting over St_n(R), not unconditional finite centrality of phi_n."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Proposition III.5.5.1 and proof, printed p.220 / PDF p.228; Exercise III.5.3, printed p.228 / PDF p.236",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/steinberg-is-uce",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/k2-is-centre",
+        "K2SymbolsBrauer:T.1/finite-rank-splitting",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect",
+        "K2SymbolsBrauer:T.1:classical/central-extension-pullback",
+        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+        "K2SymbolsBrauer:T.1:classical/split-central-extension-universal",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "KTheoryLowDegrees:U.1/stable-elementary-perfect"
+      ],
+      "proofSteps": [
+        "The Steinberg generators are commutators through a third index, so finite St_n and stable St are perfect. The stable map is central and surjective by the refined centre and stabilization arguments.",
+        "Given any central extension q:Y→St(R), pull it back along each stage map St_n(R)→St(R), n≥5. Each pullback is central and surjective even if the stage map is not injective, and finite-rank splitting gives a section.",
+        "View the sections as maps St_n(R)→Y over the stage map. The next-stage section composed with stabilization and the current section give two sections of the same pullback over St_n(R). Finite perfectness and perfect-extension-rigidity make them equal.",
+        "Use the cofinal n≥5 subsystem and the pinned homomorphism colimit lift to produce St(R)→Y. Its composite with q is identity on all stage generators. Thus every central extension of St(R) splits.",
+        "Apply split-central-extension-universal. The imported uce-kernel-h2 gives K2(R)≅H2(E(R);Z); imported uce-lift and uce-kernel-h2-natural give naturality in every unital ring homomorphism.",
+        "Recognition gives superperfectness of St(R), the output consumed by V.1. No plus construction or Hurewicz argument enters this algebraic proof."
+      ],
+      "acceptance": [
+        "Pullback surjectivity, compatible sections and colimit evaluation are all accounted for.",
+        "The statement holds for every associative unital ring.",
+        "Ring maps on K2 agree with the actual H2 map under the chosen canonical comparison."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Theorem III.5.5, printed p.220 / PDF p.228",
+          "match": "The inherited statement is unchanged. These additional proof steps close the specifically identified classical input; they are worker derivations when the source leaves the calculation to an exercise."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "assemblyContract": "Keep every imported id and statement. Apply the explicitly keyed classical proof/prerequisite refinements in this supplement when assembling T.1:classical; do not rewrite the parent file, copy its nodes into this packet, or remove gaps of other stages. A refinement replaces only the old classical proof input it names. The new column node and trivial-action criterion are the only new targets.",
+  "coverage": [
+    {
+      "stageId": "K2SymbolsBrauer:T.1:classical",
+      "status": "closed",
+      "note": "All six stated classical targets are inherited and supplied with closed scoped prerequisite plans, including recursively needed classical inputs. This is closure of the plan, not implementation or an independent-review verdict. The parent packet as a whole remains partial.",
+      "remaining": []
+    }
+  ],
+  "gaps": [],
+  "requests": [],
+  "restructure": [],
+  "gapResolutions": [
+    {
+      "title": "G-matrix: associative-ring elementary calculus",
+      "scope": "Classical relation checks only. The symbol and diagonal-word portions remain with T.2.",
+      "providedBy": [
+        "KTheoryLowDegrees:U.1/elementary-matrix",
+        "KTheoryLowDegrees:U.1/elementary-commute",
+        "KTheoryLowDegrees:U.1/elementary-commutator-chain",
+        "KTheoryLowDegrees:U.1/elementary-commutator-reverse"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+        "K2SymbolsBrauer:T.1:classical/to-elementary"
+      ]
+    },
+    {
+      "title": "G-colimit: group colimit and finite representatives",
+      "scope": "The pinned DirectLimit group instance already exists. The refinement records its compatible homomorphism API, common-stage equality and finite-word surjectivity.",
+      "providedBy": [
+        "mathlib:DirectLimit",
+        "mathlib:DirectLimit.lift_mul",
+        "KTheoryLowDegrees:U.1/finite-representatives",
+        "KTheoryLowDegrees:U.1/stable-equality-criterion"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce"
+      ]
+    },
+    {
+      "title": "G-centre: stable elementary centre and column injectivity",
+      "scope": "Import the stable elementary centralizer theorem, prove the finite and stable column/row embedding, and spell out the fresh-index kernel argument.",
+      "providedBy": [
+        "KTheoryLowDegrees:U.1/stable-elementary-centre",
+        "K2SymbolsBrauer:T.1:classical/column-embedding"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/k2-is-centre"
+      ]
+    },
+    {
+      "title": "Two statements are used exactly as the K-book gives them",
+      "scope": "Only the column-injectivity part belongs to this stage and is resolved. The semilocal symbol-generation part remains outside this packet.",
+      "providedBy": [
+        "K2SymbolsBrauer:T.1:classical/column-embedding"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/k2-is-centre"
+      ]
+    },
+    {
+      "title": "G-classification: trivial-action comparison",
+      "scope": "Centrality iff compatibility with an explicitly trivial action, normalized-section independence, every-class realization and zero iff split, preserving both markings.",
+      "providedBy": [
+        "K2SymbolsBrauer:T.1:classical/central-trivial-action-criterion",
+        "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
+        "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1:classical/central-extension-classification"
+      ]
+    },
+    {
+      "title": "G-lifted-relations: finite splitting details",
+      "scope": "Fifth-index commutation, exact four-index identity, auxiliary-index independence, additivity and all root commutator relations. Finite centrality remains an explicit hypothesis when applying universality.",
+      "providedBy": [
+        "K2SymbolsBrauer:T.1/finite-rank-splitting"
+      ],
+      "refinedNodes": [
+        "K2SymbolsBrauer:T.1/finite-rank-splitting",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce"
+      ]
+    }
+  ],
+  "consumerContracts": [
+    {
+      "consumer": "K3BlochGroups:V.1",
+      "imports": [
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1:classical/uce-source-superperfect"
+      ],
+      "output": "The already constructed stable Steinberg group is superperfect by Recognition. V.1 owns the plus construction of BSt, Hurewicz and the degree-three bar-cycle comparison.",
+      "finding": "RT-AREA-ktheory-1/29"
+    },
+    {
+      "consumer": "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+      "imports": [
+        "K2SymbolsBrauer:T.1/recognition-theorem",
+        "K2SymbolsBrauer:T.1:classical/perfect-uce-exists",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural"
+      ],
+      "output": "The purely algebraic existence, recognition and natural kernel-H2 comparison are imported. The consumer owns the topology identifying the fibre extension.",
+      "finding": "RT-AREA-ktheory-1/30"
+    },
+    {
+      "consumer": "K2SymbolsBrauer:T.1:plus",
+      "imports": [
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural"
+      ],
+      "output": "K2(R) is naturally H2(E(R);Z). The cover, plus and Hurewicz steps remain the plus-stage responsibility."
+    }
+  ],
+  "stageEdges": [
+    {
+      "source": "K2SymbolsBrauer:T.1:classical",
+      "target": "K3BlochGroups:V.1",
+      "reason": "Supplies St(R) and superperfectness via the universal extension and Recognition, so V.1 imports these algebraic inputs.",
+      "confidence": "inferred",
+      "finding": "RT-AREA-ktheory-1/29",
+      "evidence": [
+        {
+          "stageId": "K2SymbolsBrauer:T.1:classical",
+          "nodeIds": [
+            "K2SymbolsBrauer:T.1/stabilisation",
+            "K2SymbolsBrauer:T.1/steinberg-is-uce",
+            "K2SymbolsBrauer:T.1:classical/uce-source-superperfect"
+          ],
+          "statement": "The classical stage constructs stable St and proves its universal central extension property; the parent Recognition corollary gives H1(St;Z)=H2(St;Z)=0."
+        },
+        {
+          "stageId": "K3BlochGroups:V.1",
+          "locator": "Stage description, first paragraph",
+          "statement": "The consumer needs the stable Steinberg group and its superperfectness before its plus/Hurewicz comparison."
+        }
+      ]
+    },
+    {
+      "source": "K2SymbolsBrauer:T.1:classical",
+      "target": "StableHomotopyKTheory:H.3",
+      "reason": "Supplies the algebraic recognition theorem used by H.3/plus-pi2-universal-central-extension, with Hopf existence and natural kernel-H2 identification.",
+      "confidence": "inferred",
+      "finding": "RT-AREA-ktheory-1/30",
+      "evidence": [
+        {
+          "stageId": "K2SymbolsBrauer:T.1:classical",
+          "nodeIds": [
+            "K2SymbolsBrauer:T.1/recognition-theorem",
+            "K2SymbolsBrauer:T.1:classical/perfect-uce-exists",
+            "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural"
+          ],
+          "statement": "Recognition and Hopf comparison are owned by the inherited classical algebraic package."
+        },
+        {
+          "stageId": "StableHomotopyKTheory:H.3",
+          "nodeIds": [
+            "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension"
+          ],
+          "locator": "Integrated decomposition, source and proof of the named node",
+          "statement": "The consumer currently uses Weibel III.5.4 as the algebraic recognition input; this contract replaces that unread source dependency by its exact owner."
+        }
+      ]
+    }
+  ],
+  "planets": [
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+      "name": "Steinberg group",
+      "inherited": true
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/stabilisation",
+      "name": "Stable Steinberg group",
+      "inherited": true
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/k2-definition",
+      "name": "Classical K2",
+      "inherited": true
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/k2-is-centre",
+      "name": "K2 is the centre of St",
+      "inherited": true
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/recognition-theorem",
+      "name": "Recognition Theorem",
+      "inherited": true
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.1/steinberg-is-uce",
+      "name": "St(R) is the universal central extension",
+      "inherited": true
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K2SymbolsBrauer/E-classical-coefficient",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Opening of III.5.3, printed p.218 / PDF p.226, author combined draft dated 29 August 2013",
+      "printed": "The general classification discussion initially uses integral cohomology while allowing an arbitrary abelian kernel A.",
+      "correction": "For a fixed marked kernel A, use H2 cohomology of G with trivial A coefficients; integral coefficients apply only when the marked kernel is Z.",
+      "reason": "The factor-set construction has values in A. For G=C2 and A the trivial group there is one marked central-extension class, whereas H2 cohomology of C2 with Z coefficients has two elements. The following printed page uses the correct A coefficient group.",
+      "affects": "nothing",
+      "known": "No published correction was verified; no novelty is claimed. The next page of this author copy already gives the correct coefficient.",
+      "searched": [
+        "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
+        "The immediately following III.5.3 text on printed p.219 uses A coefficients."
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer/E-classical-column-exercise",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Exercise III.5.2, printed p.228 / PDF p.236, author combined draft dated 29 August 2013",
+      "printed": "After defining a column map on R^(n−1), the exercise labels its image using R^n. It also labels the triangular subgroup generated by roots i<j as lower triangular.",
+      "correction": "The column subgroup is the image of R^(n−1), omitting the chosen column index. Under e_ij(r)=I+rE_ij, the i<j roots generate upper unitriangular matrices.",
+      "reason": "There are exactly n−1 indices i≠n. In rank three, e_12(1) over Z has a nonzero entry above the diagonal, contradicting the lower-triangular description. The full triangular-subgroup development is not used by this stage.",
+      "affects": "nothing",
+      "known": "No published correction was verified; no novelty is claimed.",
+      "searched": [
+        "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
+        "Comparison with the elementary-matrix convention in III.1.2 and the column subgroup in the proof of III.5.2.1."
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer/E-classical-central-composition",
+      "source": "Kbook.2013",
+      "kind": "error",
+      "locator": "Exercise III.5.7, printed p.229 / PDF p.237, author combined draft dated 29 August 2013, first assertion",
+      "printed": "The exercise asserts that the composite of two central extensions is a central extension without a perfectness hypothesis on the intermediate group.",
+      "correction": "The assertion used here requires the intermediate group X to be perfect. The exercise’s subsequent universal-source application meets that hypothesis. Retain the existing parent central-extension-comp statement with this condition.",
+      "reason": "Let Y be the upper-unitriangular 3-by-3 group over F3, rho:Y→X=F3² forget the central coordinate, and pi:X→G=F3 project onto the first coordinate. Both maps are surjective with central kernels. But b=(0,1,0) is in the composite kernel and does not commute with a=(1,0,0): their commutator is (0,0,1). Thus the composite kernel is not central.",
+      "affects": "a stated result",
+      "known": "No published correction was verified; no novelty is claimed. The parent blueprint already supplies the needed perfect-intermediate hypothesis, and this supplement records the source error explicitly.",
+      "searched": [
+        "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
+        "The parent central-extension-comp node and the adjacent Recognition application: the corrected perfectness hypothesis is explicit in the former and follows from universality in the latter."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "Kbook.2013",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-14",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "scope": "Findings refer only to this 2013 combined author draft. No version-of-record collation is claimed."
+    },
+    {
+      "source": "Loeh.GroupCohomology.2019",
+      "kind": "author copy",
+      "url": "https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf",
+      "read": "2026-10-14",
+      "sha256": "d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76"
+    }
+  ],
+  "upstreamAudit": {
+    "date": "2026-10-14",
+    "checked": "Read-only current TauCetiRoadmap main and current Tau Ceti sources were searched in addition to the pins. No ring Steinberg/UCE roadmap was found in the nine post-snapshot roadmaps.",
+    "nearbyReadings": [
+      "RepresentationTheory/InductionRestriction/README.md",
+      "RepresentationTheory/README.md"
+    ],
+    "alreadyBuilt": "InductionRestriction Layer 7 supplies factor sets and marked fixed-action extension classification, including the k× projective-representation specialization. Cite the actual pinned declarations instead of planning that theory again.",
+    "boundary": "ProfiniteCohomology concerns continuous/cohomological interfaces; this supplement is discrete group theory. Current-library coefficient-map additions are not imported at the older pin.",
+    "externalScreen": "Open Mathlib PR searches for Steinberg and central extension found no competing ring Steinberg/UCE implementation. singerng/steinberg-formalization concerns a B3-large Chevalley-style graded-unipotent root system, not the stable arbitrary-ring construction; no code is reused.",
+    "libraryAudit": "The accepted AUDIT-29 entry for K2SymbolsBrauer:T.1:classical was read in data/library-coverage.json. All six ring-Steinberg targets are absent at the pins; existing generic group colimits, homology and fixed-action factor sets are used rather than re-planned."
+  },
+  "targetCoverage": [
+    {
+      "target": "Finite Steinberg presentation",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1/steinberg-group-finite-rank"
+      ]
+    },
+    {
+      "target": "Stabilization and stable Steinberg group",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1/stabilisation"
+      ]
+    },
+    {
+      "target": "Finite and stable surjection onto E",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "K2SymbolsBrauer:T.1/stabilisation"
+      ]
+    },
+    {
+      "target": "Stable kernel centrality and centre identification",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1/k2-is-centre",
+        "K2SymbolsBrauer:T.1:classical/column-embedding"
+      ]
+    },
+    {
+      "target": "Stable universal-central-extension property",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1/recognition-theorem"
+      ]
+    },
+    {
+      "target": "Classical K2 and ring-map naturality",
+      "suppliedBy": [
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural"
+      ]
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "packet": "K2SymbolsBrauer--T.1.json",
+      "id": "K2SymbolsBrauer/E2",
+      "handling": "Retain the independently confirmed missing finite-centrality input. The finite splitting theorem is unconditional for n≥5, while its finite UCE consequence is conditional on centrality. The stable theorem is proved separately by the column and compatible-colimit arguments."
+    }
+  ]
+}
