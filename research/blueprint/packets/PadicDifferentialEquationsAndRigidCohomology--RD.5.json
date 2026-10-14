@@ -16,28 +16,28 @@
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
         "provides": "Sheaves on a site with values in a category; the overconvergent site is a site and its modules are sheaves on it",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; the declaration and its hypotheses provide the stated carrier only."
       },
       {
         "ref": "mathlib:TensorProduct",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
         "provides": "Tensor products of modules, for the Künneth maps of complexes of K-vector spaces",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; the declaration and its hypotheses provide the stated carrier only."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Schemes, the carriers of the varieties in Kedlaya's projection theorem",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; the declaration and its hypotheses provide the stated carrier only."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsSeparated",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
         "provides": "Separated morphisms of schemes",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14; the declaration and its hypotheses provide the stated carrier only."
       }
     ]
   },
@@ -68,7 +68,8 @@
       "readSections": [
         "§1 (Theorem 1.1, Remarks 1.2–1.3, §1.4), pp. 1–2",
         "§3 (Definition 3.12, Theorems 3.16–3.17, Corollary 3.18, Remark 3.9), pp. 4–10",
-        "§5 (Theorem 5.9 through the proof of Theorem 1.1 (ii)), pp. 16–24"
+        "§5 (Theorem 5.9 through the proof of Theorem 1.1 (ii)), pp. 16–24",
+        "§4, pp. 11–16 (ringed realisations and geometric-realisation hypotheses)"
       ]
     },
     {
@@ -83,7 +84,8 @@
         "Definitions 2.2.1, 2.3.7, 2.4.1, 2.4.11, 2.5.13, Proposition 2.5.14 (pp. 15–41)",
         "Definitions 3.3.4, 3.3.7, Proposition 3.3.8 (pp. 52–54)",
         "Theorem 3.5.9, Proposition 3.5.11 (pp. 67–68)",
-        "Theorem 4.6.7, Corollary 4.6.8 (p. 91)"
+        "Theorem 4.6.7, Corollary 4.6.8 (p. 91)",
+        "Proposition 3.3.1, p. 52; Propositions 3.3.5–3.3.6, pp. 53–54 (ringed pullbacks and module transitions)"
       ]
     },
     {
@@ -170,7 +172,8 @@
         "Lemma 2.3.8–Definition 2.3.10, p. 15",
         "§2.4 (Definition 2.4.1–Remark 2.4.5), pp. 15–17",
         "Lemma 3.5.1 (Dwork modules), p. 29",
-        "Definition 5.1.9 (Artin–Schreier alterations), p. 47"
+        "Definition 5.1.9 (Artin–Schreier alterations), p. 47",
+        "Lemma 3.1.8, p. 25 (tame power pullback of generic radii)"
       ]
     },
     {
@@ -258,7 +261,8 @@
       "sha256": "f1c1d52d4e1f01d2e55476a3ac2bd96c82f94546186a147141a0ac15873ca665",
       "accessed": "2026-10-14",
       "readSections": [
-        "Theorem 2.36 and Corollaries 2.37–2.38, p. 31 (statements and the proof of 2.36)"
+        "Theorem 2.36 and Corollaries 2.37–2.38, p. 31 (statements and the proof of 2.36)",
+        "Conventions and diagram (1.1), pp. 3–5; Theorem 1.16, statement p. 9 and proof pp. 9–11"
       ]
     },
     {
@@ -296,7 +300,7 @@
       ],
       "title": "Le Stum's overconvergent site of a variety",
       "kind": "definition",
-      "statement": "Fix a complete discretely valued field K of characteristic 0 with ring of integers V and residue field k. An overconvergent variety over V is a triple (X ⊂ P ← V) of a k-variety X, a locally closed immersion of X into the special fibre of a formal V-scheme P (locally topologically of finite presentation) and a morphism λ: V → P_K of strictly K-analytic varieties; its tube is ]X[_V = λ^{-1}(sp^{-1}(X)). The category An†(V) is the localisation of the category of such triples (with formal morphisms) at strict neighbourhoods, i.e. morphisms are germs of analytic maps defined on a neighbourhood of the tube; it carries the analytic topology induced from coverings of the tubes. For a k-variety X (over an overconvergent base (C, O)), the overconvergent site An†(X/O) is the slice category of overconvergent varieties (Y ⊂ Q ← W) together with a morphism Y → X over C, with the induced topology; its good version An†_g(X/O) uses good analytic varieties. It is ringed by the sheaf O† of overconvergent functions, (Y, W) ↦ Γ(]Y[_W, i^{-1}O_W). An overconvergent crystal is an O†-module whose transition maps along all morphisms are isomorphisms; Mod†_{g,fp}(X/O) denotes the finitely presented O†-modules on the good site.",
+      "statement": "Fix a complete discretely valued field K of characteristic 0 with ring of integers V and residue field k. An overconvergent variety over V is a triple (X ⊂ P ← V) of a k-variety X, a locally closed immersion of X into the special fibre of a formal V-scheme P (locally topologically of finite presentation) and a morphism λ: V → P_K of strictly K-analytic varieties; its tube is ]X[_V = λ^{-1}(sp^{-1}(X)). The category An†(V) is the localisation of the category of such triples (with formal morphisms) at strict neighbourhoods, i.e. morphisms are germs of analytic maps defined on a neighbourhood of the tube; it carries the analytic topology induced from coverings of the tubes. For a k-variety X (over an overconvergent base (C, O)), the overconvergent site An†(X/O) is the slice category of overconvergent varieties (Y ⊂ Q ← W) together with a morphism Y → X over C, with the induced topology; its good version An†_g(X/O) requires each point of the tube to have an affinoid neighbourhood in the ambient analytic variety (one may shrink to a good neighbourhood). It is ringed by the sheaf O† of overconvergent functions, (Y, W) ↦ Γ(]Y[_W, i^{-1}O_W). An overconvergent crystal is an O†-module whose ringed transition maps h^†E_{Y,W} → E_{Y′,W′} are isomorphisms and satisfy identity and composition, where h: ]Y′[_W′ → ]Y[_W and h^†E = i_{Y′}^{−1}O_{W′} ⊗_{h^{−1}i_Y^{−1}O_W} h^{−1}E; Mod†_{g,fp}(X/O) denotes the finitely presented O†-modules on the good site.",
       "hypotheses": [
         "K of characteristic 0 (needed for the comparison with connections, Le Stum Theorem 3.5.9).",
         "Analytic varieties are strictly K-analytic in Berkovich's sense; Le Stum's comparison theorem (RD.5/overconvergent-site-comparison) identifies the cohomology with Berthelot's rigid cohomology of RD.4, so the Berkovich formalism is not exported beyond this layer."
@@ -305,7 +309,7 @@
         "Formal embeddings and tubes: Le Stum §2.1 (Definition 2.1.2, Proposition 2.1.6: the tube functor is left exact).",
         "Overconvergent varieties and the localisation at strict neighbourhoods: Definitions 2.2.1 and 2.3.7; the analytic topology: Definition 2.4.1.",
         "The site of X: Definition 2.4.11 (X/O := j_!(X) as an overconvergent sheaf); good sites: Definition 2.5.13; a geometric realisation (X, V) of X over (C, O) is a covering of X/O (Proposition 2.5.14).",
-        "The ring O†: Definition 3.3.4; crystals: Definition 3.3.7; on a single overconvergent variety crystals are the i^{-1}O_V-modules on the tube (Proposition 3.3.8)."
+        "The ring O†: Definition 3.3.4; crystals: Definition 3.3.7; on a single overconvergent variety crystals are the i^{-1}O_V-modules on the tube (Proposition 3.3.8). Module transitions are extension-of-scalars pullbacks, as in Proposition 3.3.1 and Propositions 3.3.5–3.3.6."
       ],
       "acceptance": [
         "For X = Spec k and P = Spf V, An†(X/V) has the final object (Spec k ⊂ Spf V ← M(K)) and O† on it is K.",
@@ -339,6 +343,11 @@
           "sourceId": "zureick-brown-descent",
           "locator": "Section 4, pp. 10–16",
           "match": "Recalls the overconvergent site and its realisations as the setting for cohomological descent."
+        },
+        {
+          "sourceId": "lestum-overconvergent-site",
+          "locator": "Proposition 3.3.1, p. 52; Propositions 3.3.5–3.3.6, pp. 53–54",
+          "match": "Realisation of module pullback includes tensoring with the structure sheaf; module transitions satisfy a cocycle, and these maps characterise the crystal condition."
         }
       ],
       "uses": [
@@ -364,7 +373,7 @@
         {
           "name": "OverconvergentSite.realization",
           "role": "projection",
-          "statement": "For an object (Y, W) of the site and a sheaf E, the realisation E_{Y,W} is a sheaf on the tube ]Y[_W; morphisms (f, u) give transition maps ]u[^{-1}E_{Y,W} → E_{Y',W'}."
+          "statement": "For a sheaf E its realisation E_{Y,W} is a sheaf on ]Y[_W. A morphism induces an inverse-image transition map for sheaves; for O†-modules the O-linear transition is h^†E_{Y,W} → E_{Y′,W′}, with h^† the ringed pullback i_{Y′}^{−1}O_{W′} ⊗_{h^{−1}i_Y^{−1}O_W} h^{−1}(−)."
         },
         {
           "name": "OverconvergentSite.functorial",
@@ -374,7 +383,7 @@
         {
           "name": "OverconvergentSite.crystal_iff_realisations",
           "role": "characterisation",
-          "statement": "An O†-module is a crystal iff its realisations on a covering family are crystals (transition maps isomorphisms)."
+          "statement": "An O†-module is a crystal iff every ringed transition h^†E_{Y,W} → E_{Y′,W′} is an isomorphism; this can be checked after a covering, with the identity and cocycle compatibilities."
         },
         {
           "name": "OverconvergentSite.crystals_on_variety",
@@ -385,6 +394,21 @@
           "name": "OverconvergentSite.restriction_closed",
           "role": "functoriality",
           "statement": "For a locally closed immersion α: U → X the restriction α_{An†} is the localisation of the topos at U/O, and α^{-1} preserves crystals."
+        },
+        {
+          "name": "OverconvergentSite.crystal_pullback_id_comp",
+          "role": "simp",
+          "statement": "Ringed pullback on crystals has canonical id^†E ≅ E and (h ∘ g)^†E ≅ g^†h^†E; transition isomorphisms respect these identifications."
+        },
+        {
+          "name": "OverconvergentSite.crystal_tensor_dual",
+          "role": "structure",
+          "statement": "For finitely presented locally free crystals, tensor unit O†, tensor products and duals are computed on realisations; ringed pullback preserves them."
+        },
+        {
+          "name": "OverconvergentSite.realization_ext",
+          "role": "extensionality",
+          "statement": "Morphisms of crystals are equal if their realisations agree on a covering family; constructing a morphism from realisations requires compatibility with the ringed transition maps."
         }
       ],
       "tests": [
@@ -406,7 +430,12 @@
         {
           "name": "overconvergentSite_realisation_covers",
           "kind": "characterisation",
-          "statement": "A geometric realisation (X, V) of X (formal embedding smooth near X, V a neighbourhood of the tube) is a covering of the final object X/O of the good site."
+          "statement": "A geometric realisation (X,V) of X over (C,O), whose formal morphism is proper at X and smooth near X and whose analytic domain contains the tube, covers X/O on the good site (Zureick-Brown Definition 4.20 and Proposition 4.23, pp. 15–16). Smoothness alone is not the geometric-realisation hypothesis."
+        },
+        {
+          "name": "overconvergentSite_ringed_pullback",
+          "kind": "computation",
+          "statement": "For A^1 → Spec k, ringed pullback of the unit crystal K realises as i^{−1}O on ]A^1[, with sections K⟨t⟩† on the projective realisation. Plain inverse image of the constant sheaf K would miss these functions."
         }
       ],
       "planet": {
@@ -531,7 +560,7 @@
         "Remark: the modification in Step 1 is needed: a monogenic map can homogenise to a non-flat map (Zureick-Brown Remark 5.20)."
       ],
       "acceptance": [
-        "A purely inseparable extension k ⊂ k^{1/p} gives a monogenic finite flat covering Spec k^{1/p} → Spec k of cohomological descent, compatible with the invariance of rigid cohomology under nilpotent thickenings used in RD.5/smooth-proper-hypercovering.",
+        "For a ∈ k \\ k^p, the simple radicial extension k′ = k(a^{1/p}) gives a monogenic finite flat covering Spec k′ → Spec k of degree p, hence cohomological descent. The entire extension k^{1/p}/k need not be finite or monogenic.",
         "The Kummer covering t ↦ t^ℓ of G_m (ℓ prime to p) is finite flat; descent recovers H^*_rig(G_m) from the Čech complex of the covering."
       ],
       "prerequisites": [
@@ -705,18 +734,19 @@
       ],
       "title": "Berthelot's trace morphism on top-degree compact-support rigid cohomology",
       "kind": "construction",
-      "statement": "For every separated k-scheme X of finite type and pure dimension n there is a K-linear trace Tr_X: H^{2n}_{c,rig}(X/K) → K, characterised as follows. If X is affine, smooth and geometrically connected, choose a smooth affine W-scheme X' lifting X and a projective compactification X̄' with structure map h: X̄'_K → Spec K; then Tr_X is induced by the composite H^n_{]X[}(X̄'^{an}_K, Ω^n) → H^0_{]X[}(X̄'^{an}_K, ω^{an}) → H^0(X̄'^{an}_K, ω^{an}) ≅ H^0(X̄'_K, ω) → K of the class map for the dualising complex ω = h^!K (equal to Ω^n[n] on the smooth locus X'_K), the forget-supports map, rigid GAGA and Grothendieck's trace; this composite kills the image of H^n_{]X[}(Ω^{n−1}), so it factors through H^{2n}_{c,rig}(X) = H^{2n}_{]X[}(X̄'^{an}_K, Ω^•), the quotient of H^n_{]X[}(Ω^n) by that image. In general Tr_X is obtained after a finite extension of k from an affine smooth geometrically connected open dense U with dim(X \\ U) < n, using that H^{2n}_{c,rig}(U) → H^{2n}_{c,rig}(X) is surjective, and descended by the trace of the finite extension of K. Tr_X is independent of all choices, is Frobenius-equivariant as a map H^{2n}_{c,rig}(X/K) → K(−n), and is the trace Tr_X used by RD.5/trace-map.",
+      "statement": "For every separated k-scheme X of finite type and pure dimension n there is a K-linear trace Tr_X: H^{2n}_{c,rig}(X/K) → K, characterised as follows. If X is affine, smooth and geometrically connected, choose a smooth affine W-scheme X' lifting X and a projective compactification X̄' with structure map h: X̄'_K → Spec K; then Tr_X is induced by the composite H^n_{]X[}(X̄'^{an}_K, Ω^n) → H^0_{]X[}(X̄'^{an}_K, ω^{an}) → H^0(X̄'^{an}_K, ω^{an}) ≅ H^0(X̄'_K, ω) → K of the class map for the dualising complex ω = h^!K (equal to Ω^n[n] on the smooth locus X'_K), the forget-supports map, rigid GAGA and Grothendieck's trace; this composite kills the image of H^n_{]X[}(Ω^{n−1}), so it factors through H^{2n}_{c,rig}(X) = H^{2n}_{]X[}(X̄'^{an}_K, Ω^•), the quotient of H^n_{]X[}(Ω^n) by that image. In general Tr_X is obtained after a finite extension of k from a disjoint union U = ⊔_a U_a of smooth affine geometrically connected opens in the n-dimensional components of the reduced base change, avoiding their intersections, with dim(X_{k′} \\ U) < n. Excision identifies H^{2n}_{c,rig}(U) with H^{2n}_{c,rig}(X_{k′}); sum the component traces. Descend to K using finite scalar base change and the normalised coefficient trace [K′:K]^{−1}Tr_{K′/K} on v ⊗ 1 (equivalently, the unique K-linear map whose extension is this trace). Tr_X is independent of all choices, is Frobenius-equivariant as a map H^{2n}_{c,rig}(X/K) → K(−n), and is the trace Tr_X used by RD.5/trace-map.",
       "hypotheses": [
         "Pure dimension n; for n = 0 the trace of a finite étale k-scheme is the sum of the field traces.",
         "Constant coefficients; traces with coefficients are obtained by composing the cup product with the evaluation E ⊗ E^∨ → O (RD.5/poincare-pairing).",
         "A Cohen ring W of k with fraction field K (for perfect k the Witt vectors), as in Berthelot's note."
       ],
       "proofSteps": [
-        "Vanishing: H^d_{c,rig}(X) = 0 for d > 2n (RD.5/compact-support-vanishing-above-twice-dimension), so excision shows H^{2n}_{c,rig}(U) → H^{2n}_{c,rig}(X) is surjective for U open with dim(X \\ U) < n (RD.4/excision-sequence).",
+        "Vanishing above twice the dimension and excision give an isomorphism H^{2n}_{c,rig}(U) → H^{2n}_{c,rig}(X_{k′}), because both H^{2n−1}_{c,rig}(X_{k′} \\ U) and H^{2n}_{c,rig}(X_{k′} \\ U) vanish. Use the reduction invariance and finite base change of RD.4; choose component opens and sum their traces.",
         "Affine smooth case: the analytification X'^{an}_K of the affine lift is a strict neighbourhood of the tube of X in X̄'^{an}_K, and the compact-support complex of X is computed by RΓ_{]X[} of the de Rham complex (RD.4/compactly-supported-rigid-cohomology); compose with the class map of Ω^n[n] → ω, the GAGA isomorphism for the coherent complex ω, and Grothendieck's trace for the proper K-scheme X̄'_K.",
         "The composite vanishes on the image of H^n_{]X[}(Ω^{n−1}): the trace kills exact top forms (Berthelot 1.2); hence the factorisation through H^{2n}_{c,rig}.",
         "Independence of the compactification and invariance under shrinking X with fixed X̄' are immediate from the construction (Berthelot 1.2); independence of the lift X': by RD.5/top-degree-dimension-one the space H^{2n}_{c,rig}(X) is a line, and by RD.5/compact-support-gysin-and-trace the Gysin map of a W-section, which only depends on the formal completion, is inverse to the trace of each lift (Berthelot Proposition 1.6); independence of U follows by comparing two opens with their intersection.",
-        "Frobenius: the trace of a Frobenius lift multiplies the residue class of the top form by q^n (RD.4/frobenius-on-rigid-cohomology), so Tr is equivariant into K(−n) (RD.4/tate-twist)."
+        "Frobenius: the trace of a Frobenius lift multiplies the residue class of the top form by q^n (RD.4/frobenius-on-rigid-cohomology), so Tr is equivariant into K(−n) (RD.4/tate-twist).",
+        "Finite scalar descent is normalised: for a K-valued trace after scalar extension, [K′:K]^{−1}Tr_{K′/K}(Tr_{X_{k′}}(v ⊗ 1)) = Tr_X(v). The unnormalised field trace would multiply the point trace by [K′:K]."
       ],
       "acceptance": [
         "For X = Spec k, Tr_X is the identity of K.",
@@ -734,7 +764,9 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/top-degree-dimension-one",
         "SchemeAndStackFoundations:SF.2/trace",
         "AdicSpacesPartII:R3/proper-gaga",
-        "AdicSpacesPartII:F1/mw-type-dagger-algebra"
+        "AdicSpacesPartII:F1/mw-type-dagger-algebra",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+        "CrystallineCohomology:CR.3:duality/trace"
       ],
       "sources": [
         {
@@ -801,7 +833,7 @@
         {
           "name": "rigidTrace_crystalline",
           "role": "compatibility",
-          "statement": "For X proper and smooth, under H^{2n}_{c,rig}(X) = H^{2n}_{rig}(X) ≅ H^{2n}_{crys}(X/W) ⊗ K, Tr_X is the crystalline trace."
+          "statement": "For k perfect and X proper smooth, the existing RD.7/rigid-crystalline-comparison identifies Tr_X with the rational crystalline trace of CR.3:duality/trace. Move that comparison before RD.5 at assembly; the imperfect-residue-field comparison is a recorded gap."
         },
         {
           "name": "rigidTrace_baseChange",
@@ -838,7 +870,12 @@
         {
           "name": "rigidTrace_proper_crystalline",
           "kind": "compatibility",
-          "statement": "For X = P^1_k, Tr_X agrees with the crystalline trace H^2_crys(P^1/W) ⊗ K → K under the comparison isomorphism."
+          "statement": "For perfect k and X = P^1_k, the trace agrees with the rational crystalline trace under RD.7/rigid-crystalline-comparison; it sends the hyperplane class to 1."
+        },
+        {
+          "name": "rigidTrace_finiteScalar_normalisation",
+          "kind": "computation",
+          "statement": "For X = Spec k and a finite coefficient extension K′/K of degree d, scalar descent sends 1 to d^{−1}Tr_{K′/K}(1) = 1, not d."
         }
       ],
       "implementationStatus": "unchecked"
@@ -982,16 +1019,17 @@
       ],
       "title": "The duality morphism ψ_{Z,X} and its morphism of distinguished triangles",
       "kind": "construction",
-      "statement": "Let X be a separated k-scheme of finite type of pure dimension n, Z ⊂ X closed with complement U, and E ∈ F-Isoc†(X/K). The cup product RΓ_{Z,rig}(X, E) ⊗_K RΓ_{c,rig}(Z, E^∨) → RΓ_{c,rig}(X, O), built on a frame from RD.5/overconvergent-germ-hom-lemma and a multiplicative injective resolution of the de Rham complex, composed with the trace RD.5/rigid-trace-morphism, gives the duality morphism ψ_{Z,X}: RΓ_{Z,rig}(X, E) → RHom_K(RΓ_{c,rig}(Z, E^∨), K)[−2n] (ψ_X when Z = X). The triple (ψ_{Z,X}, ψ_X, ψ_U) is a morphism from the localisation triangle RΓ_{Z,rig}(X) → RΓ_rig(X) → RΓ_rig(U) → to the K-dual of the excision triangle RΓ_{c,rig}(U) → RΓ_{c,rig}(X) → RΓ_{c,rig}(Z) →, shifted by −2n. It is independent of the choices and satisfies: (i) for X proper smooth, ψ_X is crystalline Poincaré duality; (ii) for f: Y → X finite étale between smooth affines, ψ_X ∘ Tr_f = (f^*)^∨ ∘ ψ_Y and ψ_Y ∘ f^* = (Tr_{f,c})^∨ ∘ ψ_X; (iii) under the hypotheses of RD.5/compact-support-gysin-and-trace, ψ_{Z,X} ∘ G_{Z'/X'} = ψ_Z.",
+      "statement": "Let X be a separated k-scheme of finite type of pure dimension n, Z ⊂ X closed with complement U, and E ∈ F-Isoc†(X/K). The cup product RΓ_{Z,rig}(X, E) ⊗_K RΓ_{c,rig}(Z, E^∨) → RΓ_{c,rig}(X, O), built on a frame from RD.5/overconvergent-germ-hom-lemma and a multiplicative injective resolution of the de Rham complex, composed with the trace RD.5/rigid-trace-morphism, gives the duality morphism ψ_{Z,X}: RΓ_{Z,rig}(X, E) → RHom_K(RΓ_{c,rig}(Z, E^∨), K(−n))[−2n] (ψ_X when Z = X). The triple (ψ_{Z,X}, ψ_X, ψ_U) is a morphism from the localisation triangle RΓ_{Z,rig}(X) → RΓ_rig(X) → RΓ_rig(U) → to the K-dual of the excision triangle RΓ_{c,rig}(U) → RΓ_{c,rig}(X) → RΓ_{c,rig}(Z) →, shifted by −2n. It is independent of the choices and satisfies: (i) for perfect k, proper smooth X and E obtained from a locally free crystalline coefficient, ψ_X agrees with rational crystalline Poincaré duality; (ii) for f: Y → X finite étale between smooth affines, ψ_X ∘ Tr_f = (f_c^*)^∨ ∘ ψ_Y and ψ_Y ∘ f^* = (Tr_{f,c})^∨ ∘ ψ_X; (iii) under the hypotheses of RD.5/compact-support-gysin-and-trace, the Gysin map of codimension r is adjoint to compact-support restriction: ⟨Gα,β⟩_X = ⟨α,i^*β⟩_Z, with its degree shift 2r and twist (−r). On underlying K-complexes this is ψ_{Z,X} ∘ G[−2r] = ψ_Z[−2r], where G[−2r]: RΓ_rig(Z,E|_Z)[−2r] → RΓ_{Z,rig}(X,E).",
       "hypotheses": [
         "Pure dimension n (the shift −2n and the trace need it).",
-        "Coefficients: E ∈ F-Isoc†(X/K) with dual E^∨; Berthelot treats E = O, and the construction is the same for any locally free coefficient since only the pairing E ⊗ E^∨ → O is added (Kedlaya, Section 8.2)."
+        "Coefficients: E ∈ F-Isoc†(X/K) with dual E^∨; Berthelot treats E = O, and the construction is the same for any locally free coefficient since only the pairing E ⊗ E^∨ → O is added (Kedlaya, Section 8.2).",
+        "Here f_c^* denotes compact-support pullback for the proper finite étale map f. Crystalline compatibility assumes perfect k and an available locally free crystalline coefficient; the general duality construction does not require an integral crystalline lattice."
       ],
       "proofSteps": [
         "On a frame (X, X̄, P): RΓ_{Z,rig}(X) is computed by the simple complex of j†_X(Ω) → j†_U(Ω), and RΓ_{c,rig}(Z) by Γ_{]Z[} of an injective resolution; RD.5/overconvergent-germ-hom-lemma turns the multiplication of a multiplicative resolution into the pairing into Γ_{]X[} (Berthelot 2.1–2.2).",
         "Compose with Tr_X on H^{2n}_{c,rig}(X) (RD.5/rigid-trace-morphism); vanishing above 2n (RD.5/compact-support-vanishing-above-twice-dimension) makes the composite a map into the shifted dual.",
         "The morphism of triangles comes from the compatibility of the pairing with the maps j†_X → j†_U and Γ_{]U[} → Γ_{]X[} at the level of complexes (Berthelot (2.2.2)).",
-        "(i) via the crystalline comparison for proper smooth X (RD.7 owns that comparison; here only the identification of traces from RD.5/rigid-trace-morphism API rigidTrace_crystalline is used); (ii) from RD.5/finite-etale-trace-projector and the projection formula; (iii) from RD.5/compact-support-gysin-and-trace (a)."
+        "(i) Use RD.7/rigid-crystalline-comparison, moved before RD.5 at assembly, CR.3:duality/poincare-pairing and compatibility of traces, for perfect k and locally free crystalline coefficients. (ii) The projection formula uses f_c^* in the dual compact-support variable. (iii) The Gysin–restriction adjunction includes degree 2r and twist (−r)."
       ],
       "acceptance": [
         "For Z = X = A^1 and E = O, ψ_X in degree 1 identifies H^1_rig(A^1) = 0 with the dual of H^1_{c,rig}(A^1) = 0, and in degree 0 K with the dual of H^2_{c,rig}(A^1) via the trace.",
@@ -1007,7 +1045,9 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.4/compactly-supported-rigid-cohomology",
         "PadicDifferentialEquationsAndRigidCohomology:RD.4/localisation-sequence",
         "PadicDifferentialEquationsAndRigidCohomology:RD.4/excision-sequence",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4/overconvergent-de-rham-complex"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/overconvergent-de-rham-complex",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+        "CrystallineCohomology:CR.3:duality/poincare-pairing"
       ],
       "sources": [
         {
@@ -1044,7 +1084,7 @@
         {
           "name": "dualityMorphism",
           "role": "data",
-          "statement": "ψ_{Z,X}: RΓ_{Z,rig}(X, E) → RHom_K(RΓ_{c,rig}(Z, E^∨), K)[−2n]."
+          "statement": "ψ_{Z,X}: RΓ_{Z,rig}(X,E) → RHom_K(RΓ_{c,rig}(Z,E^∨), K(−n))[−2n]. Forgetting Frobenius identifies the Tate line with K."
         },
         {
           "name": "dualityMorphism_triangle",
@@ -1054,12 +1094,12 @@
         {
           "name": "dualityMorphism_finiteEtale",
           "role": "functoriality",
-          "statement": "ψ_X ∘ Tr_f = (f^*)^∨ ∘ ψ_Y and ψ_Y ∘ f^* = (Tr_{f,c})^∨ ∘ ψ_X for f finite étale between smooth affines."
+          "statement": "For a finite étale map f between smooth affines, ψ_X ∘ Tr_f = (f_c^*)^∨ ∘ ψ_Y and ψ_Y ∘ f^* = (Tr_{f,c})^∨ ∘ ψ_X. Ordinary and compact-support pullbacks have different source complexes."
         },
         {
           "name": "dualityMorphism_gysin",
           "role": "compatibility",
-          "statement": "ψ_{Z,X} ∘ G_{Z'/X'} = ψ_Z for a liftable closed immersion of smooth schemes."
+          "statement": "For a liftable smooth immersion Z → X of codimension r, ⟨Gα,β⟩_X = ⟨α,i^*β⟩_Z; on underlying K-complexes ψ_{Z,X} ∘ G[−2r] = ψ_Z[−2r]. Include the Gysin twist (−r) for Frobenius."
         },
         {
           "name": "gysin_dual_of_restriction",
@@ -1069,7 +1109,7 @@
         {
           "name": "dualityMorphism_crystalline",
           "role": "compatibility",
-          "statement": "For X proper smooth, ψ_X is crystalline Poincaré duality under the rigid–crystalline comparison."
+          "statement": "For perfect k, proper smooth X and coefficients arising from a locally free crystalline coefficient, ψ_X agrees with rational crystalline Poincaré duality under the existing RD.7 comparison."
         },
         {
           "name": "dualityMorphism_frobenius",
@@ -1114,15 +1154,15 @@
       ],
       "title": "Künneth pairings on product tubes and the Künneth morphisms with supports",
       "kind": "construction",
-      "statement": "For i = 1, 2 let X_i be separated k-schemes of finite type with closed Z_i ⊂ X_i, compactifications X̄_i, closed immersions X̄_i ⊂ P_i into formal W-schemes smooth near X_i, projections p_i: ]X̄_1 × X̄_2[ → ]X̄_i[, and sheaves E_i of K-vector spaces on ]X̄_i[. There are canonical pairings p_1^{-1}Γ†_{]Z_1[}(E_1) ⊗_K p_2^{-1}Γ†_{]Z_2[}(E_2) → Γ†_{]Z_1×Z_2[}(p_1^{-1}E_1 ⊗ p_2^{-1}E_2) and p_1^{-1}Γ_{]X_1[}(E_1) ⊗_K p_2^{-1}Γ_{]X_2[}(E_2) → Γ_{]X_1×X_2[}(p_1^{-1}E_1 ⊗ p_2^{-1}E_2). Applied to the de Rham complexes of E_i ∈ F-Isoc†(X_i/K) and the external wedge product, they induce the Künneth morphisms RΓ_{Z_1,rig}(X_1, E_1) ⊗_K RΓ_{Z_2,rig}(X_2, E_2) → RΓ_{Z_1×Z_2,rig}(X_1 × X_2, E_1 ⊠ E_2) and RΓ_{c,rig}(X_1, E_1) ⊗_K RΓ_{c,rig}(X_2, E_2) → RΓ_{c,rig}(X_1 × X_2, E_1 ⊠ E_2), compatible with functoriality and Frobenius, and for fixed X_2 they are morphisms of triangles from (localisation triangle of (X_1, Z_1)) ⊗ RΓ_rig(X_2) to the localisation triangle of (X_1 × X_2, Z_1 × X_2), and likewise for excision triangles with compact supports. Properties: (i) for proper smooth X_i and Z_i = X_i they are the crystalline Künneth maps; (ii) they commute with Tr_{f_1} ⊗ Tr_{f_2} = Tr_{f_1×f_2} (and the compact-support traces) for finite étale covers of smooth affines; (iii) they commute with Gysin maps G_{Z'_1/X'_1} ⊗ G_{Z'_2/X'_2} = G_{Z'_1×Z'_2/X'_1×X'_2}.",
+      "statement": "For i = 1, 2 let X_i be separated k-schemes of finite type with closed Z_i ⊂ X_i, compactifications X̄_i, closed immersions X̄_i ⊂ P_i into formal W-schemes smooth near X_i, projections p_i: ]X̄_1 × X̄_2[ → ]X̄_i[, and sheaves E_i of K-vector spaces on ]X̄_i[. There are canonical pairings p_1^{-1}Γ†_{]Z_1[}(E_1) ⊗_K p_2^{-1}Γ†_{]Z_2[}(E_2) → Γ†_{]Z_1×Z_2[}(p_1^{-1}E_1 ⊗ p_2^{-1}E_2) and p_1^{-1}Γ_{]X_1[}(E_1) ⊗_K p_2^{-1}Γ_{]X_2[}(E_2) → Γ_{]X_1×X_2[}(p_1^{-1}E_1 ⊗ p_2^{-1}E_2). Applied to the de Rham complexes of E_i ∈ F-Isoc†(X_i/K) and the external wedge product, they induce the Künneth morphisms RΓ_{Z_1,rig}(X_1, E_1) ⊗_K RΓ_{Z_2,rig}(X_2, E_2) → RΓ_{Z_1×Z_2,rig}(X_1 × X_2, E_1 ⊠ E_2) and RΓ_{c,rig}(X_1, E_1) ⊗_K RΓ_{c,rig}(X_2, E_2) → RΓ_{c,rig}(X_1 × X_2, E_1 ⊠ E_2), compatible with functoriality and Frobenius, and for fixed X_2 they are morphisms of triangles from (localisation triangle of (X_1, Z_1)) ⊗ RΓ_rig(X_2) to the localisation triangle of (X_1 × X_2, Z_1 × X_2), and likewise for excision triangles with compact supports. Properties: (i) for perfect k, proper smooth X_i, Z_i = X_i and coefficients arising from locally free crystalline coefficients, they agree with the rational crystalline Künneth maps under the existing RD.7 comparison; (ii) they commute with Tr_{f_1} ⊗ Tr_{f_2} = Tr_{f_1×f_2} (and the compact-support traces) for finite étale covers of smooth affines; (iii) they commute with Gysin maps G_{Z'_1/X'_1} ⊗ G_{Z'_2/X'_2} = G_{Z'_1×Z'_2/X'_1×X'_2}.",
       "hypotheses": [
-        "Products of frames: ]X̄_1 × X̄_2[ = ]X̄_1[ × ]X̄_2[ and products of strict neighbourhoods are cofinal (RD.3/strict-neighbourhood); Γ†_{]Z[} denotes the kernel of j†_X → j†_U."
+        "Products of frames use analytic fibre products over K: ]X̄_1 ×_k X̄_2[ ≅ ]X̄_1[ ×_K ]X̄_2[. This is not the Cartesian product of sets of Berkovich points. The strict-neighbourhood product/cofinality calculation is part of this construction (Berthelot 3.1), using the RD.3 frame and neighbourhood definitions; Γ†_{]Z[} is the kernel of j†_X → j†_U."
       ],
       "proofSteps": [
         "The pairings on sheaves: for germs of sections of E_i on strict neighbourhoods, the external product is a germ on the product neighbourhood; supports multiply because ]Z_1 × Z_2[ = ]Z_1[ × ]Z_2[ (Berthelot 3.1).",
         "Apply to multiplicative resolutions of the de Rham complexes and take global sections; the Künneth map of tensor products of complexes of K-vector spaces gives the morphisms (Berthelot (3.1.1)–(3.1.2)).",
         "Compatibility with triangles (Berthelot (3.1.3)–(3.1.4)) is compatibility at the level of complexes with j†_{X_1} → j†_{U_1} and Γ_{]U_1[} → Γ_{]X_1[}.",
-        "(i)–(iii): Berthelot 3.3, from RD.5/finite-etale-trace-projector, RD.5/compact-support-gysin-and-trace and the crystalline comparison of traces."
+        "(i) Use the existing RD.7 proper rigid–crystalline comparison and CR.3/kunneth for perfect k and locally free crystalline coefficients. (ii)–(iii) are Berthelot 3.3, from the finite étale trace and Gysin compatibilities; the local verifications remain the recorded Berthelot gap."
       ],
       "acceptance": [
         "For X_1 = X_2 = A^1 with E_i = O, the compact-support Künneth map sends Tr-dual generators of H^2_{c,rig}(A^1) ⊗ H^2_{c,rig}(A^1) to the generator of H^4_{c,rig}(A^2).",
@@ -1140,7 +1180,9 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.4/frobenius-on-rigid-cohomology",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/finite-etale-trace-projector",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/compact-support-gysin-and-trace",
-        "mathlib:TensorProduct"
+        "mathlib:TensorProduct",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+        "CrystallineCohomology:CR.3/kunneth"
       ],
       "sources": [
         {
@@ -1254,7 +1296,7 @@
       ],
       "proofSteps": [
         "Double induction on dimension exactly as for duality and Künneth (Berthelot Remarque after 3.4): (a)_n for smooth X of dimension ≤ n, (b)_n for cohomology with supports in Z of dimension ≤ n inside smooth X, using the localisation and excision triangles (RD.4/localisation-sequence, RD.4/excision-sequence), Gysin maps for liftable smooth pairs (RD.4/gysin-isomorphism), the proper smooth case through the crystalline comparison, and de Jong's alterations with the finite étale trace projector to pass from opens of proper smooth schemes to general smooth X (RD.5/finite-etale-trace-projector, SchemeAndStackFoundations:SF.4/de-jong-alteration-theorem).",
-        "Proper smooth case: crystalline cohomology commutes with flat base change of the Cohen ring.",
+        "Proper smooth case: use CR.3/derived-base-change (the Noetherian p-complete PD-base form) and CR.3/proper-perfectness for the compatible Cohen-ring PD map W → W′. The present RD.7 comparison supplies the perfect-residue-field case only. Comparison for arbitrary imperfect k is a separate recorded gap, not a consequence of finite-flat base change.",
         "Compact supports from the result for H_rig by Poincaré duality on smooth strata and excision."
       ],
       "acceptance": [
@@ -1270,7 +1312,10 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/finiteness-of-rigid-cohomology",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/finiteness-of-compactly-supported-rigid-cohomology",
         "SchemeAndStackFoundations:SF.4/de-jong-alteration-theorem",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4/finite-flat-base-change"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/finite-flat-base-change",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7/rigid-crystalline-comparison",
+        "CrystallineCohomology:CR.3/derived-base-change",
+        "CrystallineCohomology:CR.3/proper-perfectness"
       ],
       "sources": [
         {
@@ -1294,10 +1339,11 @@
       ],
       "title": "Lifting a smooth projective curve with its boundary points, and the algebraic generic fibre",
       "kind": "lemma",
-      "statement": "Let K be complete discretely valued of characteristic 0 with ring of integers O and residue field k, X̄ a smooth projective geometrically irreducible curve over k of genus g, and D = {x_1, …, x_m} ⊂ X̄ a reduced divisor whose points have residue fields k_i separable over k; X = X̄ \\ D. Then there are a smooth projective O-curve 𝒳̄ with special fibre X̄ and closed subschemes 𝒟_i ≅ Spec O_{K_i} (K_i/K unramified with residue field k_i) lifting x_i. Moreover: (a) 𝒳 = 𝒳̄ \\ ∪𝒟_i is a smooth affine O-scheme lifting X, and its weak completion tensored with K is a dagger algebra A of Monsky–Washnitzer type with special fibre X, unique up to non-canonical isomorphism; (b) the generic fibre C = 𝒳̄_K is a smooth projective geometrically connected K-curve of genus g, so dim_K H^0(C, O) = 1, dim_K H^1(C, O) = g, dim_K H^0(C, Ω^1) = g, dim_K H^1(C, Ω^1) = 1; (c) the analytification C^an is a proper rigid curve containing the tube ]X[ as the complement of the residue discs ]x_i[, each an open disc over K_i.",
+      "statement": "Let K be complete discretely valued of characteristic 0 with ring of integers O and residue field k, X̄ a smooth projective geometrically irreducible curve over k of genus g, and D = {x_1, …, x_m} ⊂ X̄ a nonempty reduced divisor (m ≥ 1) whose points have residue fields k_i separable over k; X = X̄ \\ D. Then there are a smooth projective O-curve 𝒳̄ with special fibre X̄ and closed subschemes 𝒟_i ≅ Spec O_{K_i} (K_i/K unramified with residue field k_i) lifting x_i. Moreover: (a) 𝒳 = 𝒳̄ \\ ∪𝒟_i is a smooth affine O-scheme lifting X, and its weak completion tensored with K is a dagger algebra A of Monsky–Washnitzer type with special fibre X, unique up to non-canonical isomorphism; (b) the generic fibre C = 𝒳̄_K is a smooth projective geometrically connected K-curve of genus g, so dim_K H^0(C, O) = 1, dim_K H^1(C, O) = g, dim_K H^0(C, Ω^1) = g, dim_K H^1(C, Ω^1) = 1; (c) the analytification C^an is a proper rigid curve containing the tube ]X[ as the complement of the residue discs ]x_i[, each an open disc over K_i.",
       "hypotheses": [
         "Separability of the residue fields of the boundary points (Kedlaya's Hypothesis 6.2.1); otherwise first pass to a finite extension of k, which is harmless for dimensions (RD.4/finite-flat-base-change).",
-        "Characteristic 0 for K; O need not be the Witt vectors when k is imperfect (a Cohen ring suffices)."
+        "Characteristic 0 for K; O need not be the Witt vectors when k is imperfect (a Cohen ring suffices).",
+        "D is nonempty; removing the empty divisor would leave a proper curve and would not give the affine dagger model used here."
       ],
       "proofSteps": [
         "Formal lift: obstructions to lifting a smooth curve over O/π^n to O/π^{n+1} lie in H^2(X̄, T_X̄) = 0, and the points lift by smoothness of the curve at x_i (SchemeAndStackFoundations:SF.4/deformations-of-smooth-schemes).",
@@ -1347,15 +1393,15 @@
       ],
       "title": "Mayer–Vietoris sequences for a dagger curve and its boundary discs",
       "kind": "lemma",
-      "statement": "In the situation of RD.5/curve-lift-with-boundary, let A(x_i) be the local algebra (Robba ring over K_i in a parameter t_i at x_i) and A(x_i)^+ its subring of functions on the open disc ]x_i[. For every locally free coherent sheaf 𝓛 on C, with L† = colim_V Γ(V, 𝓛^an) over strict neighbourhoods V of ]X[, there is an exact sequence 0 → H^0(C, 𝓛) → L† ⊕ ⊕_i Γ(]x_i[, 𝓛^an) → ⊕_i L† ⊗ A(x_i) → H^1(C, 𝓛) → 0. In particular, writing ρ: A → ⊕_i A(x_i)/A(x_i)^+ and dρ: Ω^1_A → ⊕_i Ω^1_{A(x_i)}/Ω^1_{A(x_i)^+} for the principal-part maps, there are exact sequences 0 → H^0(C, O) → A → ⊕_i A(x_i)/A(x_i)^+ → H^1(C, O) → 0 and 0 → H^0(C, Ω^1) → Ω^1_A → ⊕_i Ω^1_{A(x_i)}/Ω^1_{A(x_i)^+} → H^1(C, Ω^1) → 0.",
+      "statement": "In the situation of RD.5/curve-lift-with-boundary, let A(x_i) be the local algebra (Robba ring over K_i in a parameter t_i at x_i) and A(x_i)^+ its subring of functions on the open disc ]x_i[. For every locally free coherent sheaf 𝓛 on C, with L† = colim_V Γ(V, 𝓛^an) over strict neighbourhoods V of ]X[, there is an exact sequence 0 → H^0(C, 𝓛) → L† ⊕ ⊕_i Γ(]x_i[, 𝓛^an) → ⊕_i L† ⊗_A A(x_i) → H^1(C, 𝓛) → 0. In particular, writing ρ: A → ⊕_i A(x_i)/A(x_i)^+ and dρ: Ω^1_A → ⊕_i Ω^1_{A(x_i)}/Ω^1_{A(x_i)^+} for the principal-part maps, there are exact sequences 0 → H^0(C, O) → A → ⊕_i A(x_i)/A(x_i)^+ → H^1(C, O) → 0 and 0 → H^0(C, Ω^1) → Ω^1_A → ⊕_i Ω^1_{A(x_i)}/Ω^1_{A(x_i)^+} → H^1(C, Ω^1) → 0.",
       "hypotheses": [
         "Locally free coherent 𝓛 on the algebraic curve C (algebraisation via proper GAGA).",
         "Strict neighbourhoods V_r = C^an \\ ∪_i {|t_i| < r} for r → 1^−, r ∈ √|K^×|."
       ],
       "proofSteps": [
-        "For r close to 1, {V_r, [D]_r} with [D]_r = ∪_i{|t_i| < r'} (r < r' < 1, closed discs) is an admissible affinoid covering of C^an, so the Čech complex Γ(V_r) ⊕ Γ([D]_r) → Γ(V_r ∩ [D]_r) computes H^*(C^an, 𝓛^an) (Tate acyclicity, AdicSpacesPartII:R3/tate-kiehl-affinoid; Crew, proof of Theorem 7.5).",
+        "For r close to 1, {V_r, [D]_r} with [D]_r = ∪_i{|t_i| ≤ r'} (r < r' < 1, closed discs) is an admissible affinoid covering of C^an, so the Čech complex Γ(V_r) ⊕ Γ([D]_r) → Γ(V_r ∩ [D]_r) computes H^*(C^an, 𝓛^an) (Tate acyclicity, AdicSpacesPartII:R3/tate-kiehl-affinoid; Crew, proof of Theorem 7.5).",
         "H^*(C^an, 𝓛^an) = H^*(C, 𝓛) by proper GAGA (AdicSpacesPartII:R3/proper-gaga).",
-        "Pass to the limit r' → 1 (Mittag-Leffler: the transition maps have dense image, AdicSpacesPartII:R3/quasi-stein-dense-restriction) to replace the closed discs by the open discs ]x_i[, then the direct limit over strict neighbourhoods (exact); the intersections become the local algebras (Crew (7.3.3)).",
+        "Pass first to the inverse limit of sections on increasing closed discs r′ → 1. Dense restriction alone is not algebraic Mittag–Leffler: use the nonarchimedean Fréchet inverse-limit exactness used in Crew’s argument (requested from L0) together with R3/quasi-stein-dense-restriction. Then take the exact direct limit over strict neighbourhoods. The intersections give the Robba local algebras (Crew (7.3.3)).",
         "For 𝓛 = O and 𝓛 = Ω^1, eliminating the disc terms gives the four-term sequences, the kernel of ρ being A ∩ ⊕A(x_i)^+ = H^0(C, O)."
       ],
       "acceptance": [
@@ -1368,7 +1414,8 @@
         "AdicSpacesPartII:R3/tate-kiehl-affinoid",
         "AdicSpacesPartII:R3/proper-gaga",
         "AdicSpacesPartII:R3/quasi-stein-dense-restriction",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/robba-ring",
+        "LocallyAnalyticDistributions:L0"
       ],
       "sources": [
         {
@@ -1457,7 +1504,7 @@
         "Lemma 3: n + 1 sections of an ample bundle without common zero define a finite map to P^n (fibres are both affine and proper).",
         "Lemma 4: for l sufficiently divisible there is a section of L^l vanishing on D but not at any point of a given finite subscheme Z (complement of a section is affine).",
         "Lemma 5: inductively choose sections s_1, …, s_n vanishing on S (and along D_i) whose zero loci cut D in the expected codimension, so that they have no common zero on D.",
-        "Lemma 6: with α a section with zero locus D and functions f_i = β_i/α^{j_i} giving a map unramified at S, the sections δ_i = β_i α^{l−2j_i} + γ_i^2, with γ_i vanishing on S, define a finite map unramified at S, since the squares have zero differential along S.",
+        "Lemma 6 (correcting the line-bundle powers in arXiv v3, p. 4): if f_i = β_i/α^{j_i}, β_i ∈ Γ(L^{j_i}) and γ_i ∈ Γ(L^l) vanishes on S, take δ_i = β_i α^{2l−j_i} + γ_i^2 ∈ Γ(L^{2l}), for l sufficiently divisible and 2l ≥ j_i. Then δ_i/α^{2l} = f_i + (γ_i/α^l)^2 has the same differential as f_i on S, in every characteristic; this produces a finite map unramified at S. See source issue E501.",
         "Theorem 1: let g be the finite map from s^m, s_1, …, s_n given by Lemma 6, unramified at S, and E the closed locus of X \\ D where g ramifies; choose t vanishing on E but not on S (Lemma 4) and t_1, …, t_n without common zero on the zero locus Z of t (Lemma 5), and put u_0 = t^{pl}, u_i = s_i s^{m(pr−1)} t^{p(l−1)} + t_i^p. In characteristic p the p-th powers t_i^p have zero differential, so off Z the differentials of u_i/u_0 are those of s_i/s^m times the unit (s^{rm}/t)^p; hence the finite map f = (u_0 : … : u_n) (Lemma 3) is étale off the hyperplane u_0 = 0, which contains f(D) and misses f(S).",
         "Theorem 2: replace X by a projective compactification of an affine neighbourhood of x, blow up away from x so that all intersections of the D_i are irreducible, and run the proof of Theorem 1 with S = {x} and s_i, t_i vanishing along D_i; restrict to the preimage of A^n = P^n \\ H."
       ],
@@ -1561,19 +1608,21 @@
       ],
       "title": "Acceptance: finite-level Igusa rigid cohomology with Sym^k coefficients is finite dimensional",
       "kind": "application",
-      "statement": "For k ≥ 0, n ≥ 0 and tame level K^p, the space H^1_rig(Ig(K^pΓ(p^n)), Sym^k) of Pan, Definition 5.1.6 (the cokernel of θ^{k+1}: M†_{−k} → M†_{k+2} ⊗ D_0^{−k−1} at level K^pΓ(p^n)), once identified at RD.4 with the log-rigid cohomology of the ordinary locus of the compactified Igusa curves at that level, with log poles at the cusps and coefficients Sym^k of the log-F-isocrystal H^1 of the universal generalised elliptic curve, is finite dimensional.",
+      "statement": "For k ≥ 0, n ≥ 0 and tame level K^p, the space H^1_rig(Ig(K^pΓ(p^n)), Sym^k) of Pan, Definition 5.1.6 (the cokernel of θ^{k+1}: M†_{−k} → M†_{k+2} ⊗ D_0^{−k−1} at level K^pΓ(p^n)), once identified at RD.4 with the log-rigid cohomology of the ordinary locus of the compactified Igusa curves at that level, with log poles at the cusps and coefficients Sym^k of the log-F-isocrystal H^1 of the universal generalised elliptic curve, is finite dimensional. The finite dimension is over Pan’s coefficient field C = C_p; the K-valued rigid complex is extended algebraically to C.",
       "hypotheses": [
         "The identification of the theta-cokernel with log-rigid cohomology is an RD.4 target (Pan Definition 5.1.6, after Coleman); this node only proves finiteness.",
         "The overconvergence of R^1f_*O of the universal ordinary elliptic curve along the supersingular points and its unipotent (Tate curve) monodromy at the cusps are RD.3 inputs (Étesse's overconvergence of abelian-scheme direct images).",
-        "Igusa curves at level K^pΓ(p^n) in characteristic p are the Igusa components of ModularCurvesPartII:R13.5/igusa-components."
+        "Igusa curves at level K^pΓ(p^n) in characteristic p are the Igusa components of ModularCurvesPartII:R13.5/igusa-components.",
+        "Fix both n and K^p. The field C is not a discretely valued coefficient field; use algebraic scalar extension of the finite-dimensional K-cohomology, rather than applying the arbitrary-Cohen-field theorem to C."
       ],
       "proofSteps": [
         "Sym^k H^1 is an overconvergent F-isocrystal on the ordinary locus minus the cusps with unipotent monodromy at the cusps, hence log-extendable with nilpotent residues (RD.5/log-extension-of-unipotent-isocrystal).",
-        "By RD.5/log-rigid-comparison-for-curves the log-rigid cohomology is H^1_rig of the ordinary locus minus the cusps, a smooth affine curve, which is finite dimensional (RD.5/finiteness-for-affine-curves)."
+        "By RD.5/log-rigid-comparison-for-curves the log-rigid cohomology is H^1_rig of the ordinary locus minus the cusps, a smooth affine curve, which is finite dimensional (RD.5/finiteness-for-affine-curves).",
+        "After the RD.4 identification, extend the finite-dimensional K-cohomology algebraically to C (flat scalar extension). This yields the C-finiteness of Pan Proposition 5.1.7; it makes no claim about the dimension of the colimit over n."
       ],
       "acceptance": [
         "For k = 0 the space is H^1_rig of the ordinary locus minus the cusps; on a geometrically connected component of genus g with s supersingular and c cuspidal geometric points its dimension is 2g + s + c − 1 (RD.5/dimension-of-h1-of-affine-curve).",
-        "The colimit over n is not finite dimensional (Pan Proposition 5.1.8 uses it with a smooth Borel action), so finiteness is a finite-level statement."
+        "The conclusion is levelwise. Pan Proposition 5.1.8 describes a smooth Borel action on the colimit over n; it supplies neither a uniform dimension bound nor a finiteness/nonfiniteness conclusion for that colimit."
       ],
       "prerequisites": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/log-rigid-comparison-for-curves",
@@ -1644,7 +1693,7 @@
       ],
       "title": "Strictness of a linear map and of its transpose",
       "kind": "lemma",
-      "statement": "Let K be discretely valued and f: V → W a continuous linear map of separated locally convex K-spaces. (a) f is strict iff the image of its transpose f': W' → V' is closed for the weak topology and every equicontinuous subset of im f' is the image of an equicontinuous subset of W'; then ker f' = (im f)^⊥, im f' = (ker f)^⊥, and coker f' ≅ (ker f)' and ker f' ≅ (coker f)' as vector spaces. (b) The transpose of a strict exact sequence is exact. (c) For semi-complete V, W, f' is strict for the linearly-compact dual topologies iff f(V) is closed and every bounded convex linearly compact subset of W is the image of one of V. (d) If V, W are Fréchet, f is strict iff f' is strict for the linearly-compact dual topology; if moreover V, W are Montel (the case of the local algebras), f is strict iff f': W'_b → V'_b is strict.",
+      "statement": "Let K be discretely valued and f: V → W a continuous linear map of separated locally convex K-spaces. (a) f is strict iff the image of its transpose f': W' → V' is closed for the weak topology and every equicontinuous subset of im f' is the image of an equicontinuous subset of W'; then ker f' = (im f)^⊥, im f' = (ker f)^⊥, and coker f' ≅ (ker f)' and ker f' ≅ (coker f)' as vector spaces. (b) The transpose of a strict exact sequence is exact. (c) For semi-complete V, W, f' is strict for the linearly-compact dual topologies iff f(V) is closed and every bounded convex linearly compact subset C ⊂ f(V) (with the topology induced from W) is the image of one of V. (d) If V, W are Fréchet, f is strict iff f' is strict for the linearly-compact dual topology; if moreover V, W are Montel (the case of the local algebras), f is strict iff f': W'_b → V'_b is strict.",
       "hypotheses": [
         "Equicontinuous may be replaced by bounded for LF-spaces (barrelled).",
         "Spherical completeness of K enters through Hahn–Banach and the bipolar theorem."
@@ -1652,12 +1701,13 @@
       "proofSteps": [
         "(a) The nonarchimedean form of Bourbaki EVT IV §4 no. 1 Prop. 2: the bipolar theorem (LocallyAnalyticDistributions:L0/pseudo-polar-duality) identifies closures with bipolars, and Hahn–Banach (LocallyAnalyticDistributions:L0/nonarchimedean-hahn-banach (b)) extends forms from closed subspaces (Crew 3.8).",
         "(b) A strict exact sequence stays strict exact for the weak topologies; its transpose is exact, the injective case being Hahn–Banach (Crew 3.9).",
-        "(c) Mackey: V = (V'_c)' for semi-complete V, and convex equicontinuous subsets of the dual are the relatively linearly compact convex sets (Crew 3.10).",
+        "(c) Mackey: V = (V'_c)' for semi-complete V, and convex equicontinuous subsets of the dual are the relatively linearly compact convex sets (Crew 3.10). The bounded-set lifting condition tests subsets of f(V), not all subsets of W; this is also the image in which Crew 3.11 lifts null sequences. See source issue E502.",
         "(d) In a Fréchet space every balanced convex closed bounded linearly compact set lies in the closed convex hull of a null sequence (Crew 2.9); lift null sequences along a strict map of metrisable spaces (Crew 3.11); for Montel spaces linearly compact and strong duals agree (Crew 3.12)."
       ],
       "acceptance": [
         "An isomorphism of Fréchet spaces is strict and so is its transpose.",
-        "The inclusion K⟨t⟩† → K⟨t⟩ of overconvergent into convergent functions is continuous but not strict: the topology induced by the Gauss norm on K⟨t⟩† is strictly coarser than its LF (fringe) topology; its image is dense and not closed."
+        "The inclusion K⟨t⟩† → K⟨t⟩ of overconvergent into convergent functions is continuous but not strict: the topology induced by the Gauss norm on K⟨t⟩† is strictly coarser than its LF (fringe) topology; its image is dense and not closed.",
+        "The strict inclusion f: K → K², x ↦ (x,0), has strict transpose K² → K. A bounded linearly compact segment C = O_K·(0,1) cannot lift through f, so the lifting criterion must restrict to C ⊂ f(V). Inside the image, O_K·(1,0) lifts to O_K."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L0/pseudo-polar-duality",
@@ -1813,13 +1863,14 @@
       ],
       "title": "Relative convergent cohomology equals rational relative crystalline cohomology, and is perfect",
       "kind": "lemma",
-      "statement": "Let f: (X, M_X) → (Y, M_Y) be a proper log smooth integral morphism of fine log schemes over k, with (Y, M_Y) → (𝒴, M_𝒴) an exact closed immersion into a p-adic formal log scheme defined by p, and E a locally free isocrystal on the relative log convergent site (X/𝒴)^log_conv with associated crystal Φ(E) on the relative log crystalline site. Then the natural map Rf_{X/𝒴,conv*}E → Rf_{X/𝒴,crys*}Φ(E) ⊗ Q is a quasi-isomorphism, and Rf_{X/𝒴,conv*}E is a perfect complex of Q ⊗ O_𝒴-modules. For trivial log structures and a point base this recovers Ogus's comparison of convergent and rational crystalline cohomology.",
+      "statement": "Let W be a Cohen ring of k, K = W[1/p], and (B,M_B) a p-adic fine log formal scheme separated and topologically of finite type over Spf W. Work in Shiho’s category of separated topologically finite-type fine log (formal) B-schemes. Let f: (X,M_X) → (Y,M_Y) be a proper, log smooth and integral morphism of fine log B_1-schemes, where B_1 = B ⊗ Z/pZ; let Y → (𝒴,M_𝒴) be an exact closed immersion defined by pO_𝒴 with its canonical PD structure, and let E be a locally free isocrystal on (X/𝒴)^log_conv. If Φ(E) is its associated locally free log crystalline isocrystal, there is a natural quasi-isomorphism Rf_{X/𝒴,conv*}E ≅ Rf_{X/𝒴,crys*}Φ(E), and the convergent complex is perfect over Q ⊗ O_𝒴. For trivial logs and a point base this recovers convergent–rational-crystalline comparison. If an integral crystal F with F[1/p] ≅ Φ(E) is separately given, the right side can be written Rf_crys*F[1/p]; such a lattice is not part of the hypothesis.",
       "hypotheses": [
-        "Proper log smooth integral f; locally free coefficients (crystals in perfect complexes reduce to these by a finite filtration, Guo–Reinecke footnote 13)."
+        "Proper log smooth integral f, locally free isocrystal coefficients and the Noetherian p-adic fine-log base just specified (Shiho conventions, pp. 3–5).",
+        "A locally free crystalline isocrystal need not arise from a locally free integral crystal (Shiho §1, p. 4); use isocrystal perfectness, not only integral-crystal perfectness. The relative sites and log perfectness are the explicit gap/request below."
       ],
       "proofSteps": [
         "Shiho Theorem 2.36: with an embedding into a log smooth formal scheme, both sides are computed by de Rham complexes of the same module, on the log tube and on the p-adically completed log PD envelope; the map is the specialisation map, an isomorphism after reduction to the case where the embedding is an isomorphism; in general use embedding systems.",
-        "Perfectness: Shiho Corollary 2.37 from Theorem 2.36 and perfectness of log crystalline cohomology of proper log smooth morphisms (CrystallineCohomology:CR.3/proper-perfectness in the non-log case)."
+        "Perfectness follows from Shiho Corollary 2.37 and the log crystalline isocrystal perfectness of Theorem 1.16. CR.3/proper-perfectness supplies the trivial-log integral case only; request the general log isocrystal theorem from CR.5."
       ],
       "acceptance": [
         "For f the identity, both sides are E.",
@@ -1830,7 +1881,8 @@
         "CrystallineCohomology:CR.2/crystalline-cohomology",
         "CrystallineCohomology:CR.5/log-crystal",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-log-isocrystal",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent",
+        "CrystallineCohomology:CR.5"
       ],
       "sources": [
         {
@@ -1842,6 +1894,11 @@
           "sourceId": "guo-reinecke-arxiv-v3",
           "locator": "Proof of Theorem 6.13, p. 61",
           "match": "Uses Shiho's Theorem 2.36 and Corollary 2.37 (with Ogus's Theorem 0.7.7 over a point) for perfectness and for the comparison on p-torsion-free PD thickenings."
+        },
+        {
+          "sourceId": "shiho-relative-I",
+          "locator": "Conventions, pp. 3–4; diagram (1.1), p. 5; Theorem 1.16, p. 9 (proof ends p. 11)",
+          "match": "Specifies the Noetherian fine-log bases and the canonical PD immersion; proves proper log crystalline perfectness for locally free isocrystals, without requiring an integral locally free crystal."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1917,7 +1974,8 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/relative-convergent-crystalline-comparison",
         "CrystallineCohomology:CR.3/proper-perfectness",
         "CrystallineCohomology:CR.1/crystal",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent",
+        "CrystallineCohomology:CR.5"
       ],
       "sources": [
         {
@@ -2038,7 +2096,7 @@
         {
           "name": "Docile.rankOne_unramified",
           "role": "example",
-          "statement": "A docile rank-one overconvergent isocrystal has zero residues along each component of D (D'Addezio, proof of Corollary 4.4.8)."
+          "statement": "A docile rank-one overconvergent isocrystal has zero residues in its canonical nilpotent-residue logarithmic extension (D’Addezio, proof of Corollary 4.4.8). Other logarithmic lattices can shift residues by integers."
         }
       ],
       "tests": [
@@ -2055,7 +2113,7 @@
         {
           "name": "docile_kummer_pullback",
           "kind": "computation",
-          "statement": "The pullback of ∇ = d + (1/2)dt/t along the cover s ↦ t = s^2 is (O, d + ds/s), in which s^{−1} times the basis vector is horizontal; so the pullback is isomorphic to O_{G_m} and docile."
+          "statement": "The pullback of ∇ = d + (1/2)dt/t along the cover s ↦ t = s^2 is (O, d + ds/s), in which s^{−1} times the basis vector is horizontal; so the pullback is isomorphic to O_{G_m} and docile. Assume p is odd; the resulting zero residues refer to the canonical logarithmic extension after the horizontal gauge transformation."
         },
         {
           "name": "docile_dwork_nonexample",
@@ -2092,8 +2150,8 @@
         "(c) Kedlaya Proposition 5.3.3: constant monodromy along a codimension-two locus is automatic."
       ],
       "acceptance": [
-        "For U = G_m ⊂ X = A^1 ⊂ Y = P^1 and E = (O, d + a dt/t): E extends to A^1 overconvergently along ∞ iff a ∈ ℤ.",
-        "Non-example for singular X (Kedlaya Remark 5.3.4): on the cone z^2 = xy minus its vertex, the connection with ∇v = v ⊗ dx/(2x) does not extend across the vertex though the vertex has codimension two."
+        "For U = G_m ⊂ X = A^1 ⊂ Y = P^1 and the overconvergent rank-one connection d + a dt/t with a ∈ Z_p ⊂ K, extension to A^1 overconvergently along ∞ occurs iff a ∈ Z. The overconvergence assumption is essential.",
+        "For p odd, on the cone z² = xy minus its vertex, glue rank-one modules on D(x) and D(y) by v_y = (z/x)v_x, with ∇v_x = v_x dx/(2x) and ∇v_y = v_y dy/(2y). These connections agree on the overlap since 2dz/z = dx/x + dy/y. This is Kedlaya’s nonextendable isocrystal of Remark 5.3.4; the bundle is not presented by one global basis. The vertex has codimension two, so smoothness is needed for purity."
       ],
       "prerequisites": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/unipotent-monodromy-along-boundary",
@@ -2132,10 +2190,10 @@
       "proofSteps": [
         "(ii) Full faithfulness and closure under subobjects from RD.5/extension-across-boundary (a), (b), applied to E and to Frobenius pullbacks (Frobenius structures extend by full faithfulness); quotients by duality.",
         "(iii) Kedlaya, Semistable reduction II, Theorem 4.2.1: reduce to Hom(O, E), i.e. Frobenius-invariant horizontal sections; for a smooth pair (X, X \\ U) this is Kedlaya's full-faithfulness argument made unconditional by the local full faithfulness RD.3/local-full-faithfulness; in general choose a quasi-resolution f: X_1 → X (an alteration making (U_1, X_1) a smooth pair, SchemeAndStackFoundations:SF.4/de-jong-alteration-theorem), lift a section on U_1, descend it over the finite étale locus U' ⊂ U by adjunction for finite étale pushforward (RD.3/finite-etale-pushforward-of-isocrystals), and extend from U' to U by RD.5/extension-across-boundary, checking Frobenius compatibility on U'.",
-        "(i) Combine (iii) for U ⊂ X with the overconvergent-to-convergent full faithfulness RD.3/full-faithfulness-overconvergent-to-convergent: a morphism of convergent F-isocrystals on U between restrictions from X is a morphism of partially overconvergent objects, which extends (D'Addezio, proof of Theorem 4.1.6, citing Drinfeld–Kedlaya Theorem 2.2.3)."
+        "(i) The restrictions of convergent F-isocrystals on X are naturally partially overconvergent along X \\ U. By (iii), a convergent Frobenius-compatible morphism on U is a morphism of these partially overconvergent objects; it extends to X by RD.5/extension-across-boundary and the constant monodromy supplied by the existing convergent extensions. Absolute overconvergent-to-convergent full faithfulness alone would not give this relative assertion (D’Addezio, proof of Theorem 4.1.6)."
       ],
       "acceptance": [
-        "For X = A^1, U = G_m and E = O: Hom(O, O) = K on X and on U, in both categories.",
+        "For X = A^1, U = G_m and the unit object, underlying isocrystal endomorphisms are K on both opens; endomorphisms respecting σ-semilinear Frobenius are the fixed field K^σ. Both restriction maps are isomorphisms.",
         "On the ordinary locus U of the Legendre family B, R^1f_*O has a unit-root convergent subcrystal on U that is not overconvergent, so the subquotient closure in (ii) fails for the convergent category (Kedlaya, Semistable reduction I, Remark 5.3.2)."
       ],
       "prerequisites": [
@@ -2186,7 +2244,7 @@
       ],
       "acceptance": [
         "For Z = ∅, convergent log-isocrystals are convergent isocrystals.",
-        "For (A^1, {0}), the log-∇-module (O, d + a dt/t) on the closed unit disc with a ∈ K is a convergent log-isocrystal with residue a."
+        "For (A^1,{0}), (O,d + a dt/t) with a ∈ Z_p ⊂ K is a convergent log-isocrystal with residue a: its logarithmic Taylor series is (1+u)^a, convergent for |u| < 1. An arbitrary a ∈ K need not be log-convergent."
       ],
       "prerequisites": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.3/tube",
@@ -2252,6 +2310,21 @@
           "name": "ConvergentLogIsocrystal.nilpotentResidues",
           "role": "other",
           "statement": "The full subcategory with nilpotent residues is an abelian tensor subcategory; a convergent log-F-isocrystal automatically has nilpotent residues."
+        },
+        {
+          "name": "ConvergentLogIsocrystal.pullback_id_comp",
+          "role": "functoriality",
+          "statement": "Pullback along morphisms of smooth log pairs preserves the logarithmic stratification; identity and composition agree via canonical isomorphisms, and commute with restriction to the complement."
+        },
+        {
+          "name": "ConvergentLogIsocrystal.tensor_unit_dual",
+          "role": "structure",
+          "statement": "The unit has zero connection and residues. Tensor products add residues; duals negate their transposes. These operations preserve convergence and nilpotent residues; morphism equality is detected after forgetting to the coherent module on a covering of tubes."
+        },
+        {
+          "name": "ConvergentLogIsocrystal.ofStratification",
+          "role": "constructor",
+          "statement": "A coherent module on a covering of log tubes with a convergent log-stratification, identity on the diagonal and cocycle on the triple log tube defines a log-isocrystal; compatible morphisms glue uniquely. The log Taylor equivalence constructs this from a convergent integrable log connection."
         }
       ],
       "tests": [
@@ -2263,17 +2336,22 @@
         {
           "name": "convergentLogIsocrystal_residue_computation",
           "kind": "computation",
-          "statement": "On (A^1, {0}) the module (O, d + a dt/t) has residue a at 0; for a = 0 it is O."
+          "statement": "On (A^1,{0}), for a ∈ Z_p ⊂ K, (O,d + a dt/t) is log-convergent and has residue a; a = 0 gives the unit object. For p odd, a = 1/2 gives a nonzero rank-one residue without Frobenius."
         },
         {
           "name": "convergentLogFIsocrystal_nilpotent",
           "kind": "characterisation",
-          "statement": "A convergent log-F-isocrystal on (A^1, {0}) has nilpotent residue: Frobenius pullback along t ↦ t^q multiplies the residue by q, and the Frobenius isomorphism makes res conjugate to q·res, so all eigenvalues are 0."
+          "statement": "A log-F-isocrystal has nilpotent residues: for q-power Frobenius with coefficient action σ, NΦ = qΦσ(N). The characteristic-polynomial coefficients satisfy c_j = q^jσ(c_j); σ is isometric and |q| < 1, so c_j = 0 for j > 0. Linear conjugacy to qN is the special case σ = id."
         },
         {
           "name": "convergentLogIsocrystal_not_overconvergent_nonexample",
           "kind": "non-example",
-          "statement": "The restriction of a convergent log-isocrystal to X \\ Z need not have unipotent monodromy unless the residues are nilpotent: (O, d + (1/2)dt/t) restricts to a non-docile Kummer isocrystal on G_m."
+          "statement": "The restriction of a convergent log-isocrystal to X \\ Z need not have unipotent monodromy unless the residues are nilpotent: (O, d + (1/2)dt/t) restricts to a non-docile Kummer isocrystal on G_m. Here p is odd, so 1/2 ∈ Z_p and the log-convergence hypothesis is satisfied."
+        },
+        {
+          "name": "convergentLogIsocrystal_integrable_not_convergent",
+          "kind": "non-example",
+          "statement": "The integral log connection d + (1/p)dt/t is not a convergent log-isocrystal: in (1+u)^{1/p}, the n-th coefficient has valuation −n−v_p(n!), so the convergence radius is p^{−1−1/(p−1)} < 1. Integrability alone is insufficient."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2336,7 +2414,7 @@
       ],
       "title": "Kedlaya's semistable reduction theorem for overconvergent F-isocrystals",
       "kind": "theorem",
-      "statement": "Let Z ⊂ X be a closed immersion of k-varieties with X \\ Z smooth, and E an F-isocrystal on X \\ Z overconvergent along Z. Then, after replacing k by k^{q^{−n}} for some n ≥ 0, there is an alteration f: X_1 → X (separable when k is perfect) such that, with Z_1 = f^{−1}(Z), (X_1, Z_1) is a smooth pair and f^*E extends to a convergent log-F-isocrystal with nilpotent residues on (X_1, Z_1); equivalently f^*E has unipotent monodromy along Z_1. In particular, for X smooth and E ∈ F-Isoc†(X), there is a generically finite alteration X_1 → X from an open X_1 of a smooth proper variety Ȳ_1 with SNC boundary along which f^*E is docile.",
+      "statement": "Let Z ⊂ X be a closed immersion of k-varieties with X \\ Z smooth, and E an F-isocrystal on X \\ Z overconvergent along Z. Then, after replacing k by k^{q^{−n}} for some n ≥ 0, there is an alteration f: X_1 → X (separable when k is perfect) such that, with Z_1 = (f^{−1}(Z))_red, (X_1, Z_1) is a smooth pair and f^*E extends to a convergent log-F-isocrystal with nilpotent residues on (X_1, Z_1); equivalently f^*E has unipotent monodromy along Z_1. In particular, for X smooth and E ∈ F-Isoc†(X), there is a generically finite alteration X_1 → X from an open X_1 of a smooth proper variety Ȳ_1 with SNC boundary along which f^*E is docile.",
       "hypotheses": [
         "Frobenius structure on E (as in the p-adic local monodromy theorem, of which this is the higher-dimensional form).",
         "Alterations in de Jong's sense (proper, surjective, generically finite) from SchemeAndStackFoundations:SF.4; the alteration depends on E."
@@ -2389,14 +2467,14 @@
       ],
       "title": "Acceptance: docility of the Kummer and Dwork isocrystals and their semistable reduction",
       "kind": "application",
-      "statement": "(1) On G_m ⊂ P^1 over F_q, the Kummer F-isocrystal K_a = (O, d + a dt/t) with a ∈ (q − 1)^{−1}ℤ is docile along {0, ∞} iff a ∈ ℤ; its pullback along the Kummer cover s ↦ s^{q−1} = t is constant, hence docile, and its log extension to (P^1, {0, ∞}) after pullback has zero residues. (2) On A^1 ⊂ P^1, the Dwork F-isocrystal L_π is not docile along ∞ (Swan conductor 1), and no tame (Kummer) alteration makes it docile; its pullback along the Artin–Schreier cover y^p − y = t is constant. (3) The restriction to G_m of any docile F-isocrystal on A^1 ⊂ P^1 (docile along ∞) is docile along {0, ∞}, and restriction is fully faithful (RD.5/dense-open-restriction-fully-faithful).",
+      "statement": "(1) On G_m ⊂ P^1 over F_q, the Kummer F-isocrystal K_a = (O, d + a dt/t) with a ∈ (q − 1)^{−1}ℤ is docile along {0, ∞} iff a ∈ ℤ; its pullback along the Kummer cover s ↦ s^{q−1} = t is constant, hence docile, and its canonical nilpotent-residue log extension to (P^1, {0, ∞}) after pullback has zero residues. (2) On A^1 ⊂ P^1, the Dwork F-isocrystal L_π is not docile along ∞ (Swan conductor 1), and no tame power cover t = s^m with p ∤ m makes it docile; its pullback along the Artin–Schreier cover y^p − y = t is constant. (3) The restriction to G_m of any docile F-isocrystal on A^1 ⊂ P^1 (docile along ∞) is docile along {0, ∞}, and restriction is fully faithful (RD.5/dense-open-restriction-fully-faithful).",
       "hypotheses": [
         "Conventions for L_π as in RD.1/dwork-exponential-module (π^{p−1} = −p).",
         "q = p^f; the Kummer twist uses a ∈ (q − 1)^{−1}ℤ so that a Frobenius structure exists."
       ],
       "proofSteps": [
         "(1) Residues: K_a has residue a at 0 and −a at ∞; unipotent rank one means constant, i.e. residue in ℤ after gauge transformation by t^n (RD.2/unipotent-iff-nilpotent-residue); pullback along s^{q−1} multiplies the residue by q − 1.",
-        "(2) RD.1/dwork-exponential-module gives highest break 1 at ∞; unipotent modules have break 0; a Kummer pullback multiplies breaks by the tame degree, so they stay positive; the Artin–Schreier trivialisation is RD.2/dwork-exponential-artin-schreier-example.",
+        "(2) The Dwork module has highest break 1 at ∞. For a tame power cover x = y^m in a local parameter at ∞, Kedlaya Semistable reduction IV, Lemma 3.1.8 gives f_i(F,s/m)−s/m = f_i(E,s)−s. For a positive break this rescales its slope by m, so the pullback remains nonunipotent. This checks tame power covers specifically; Artin–Schreier trivialisation is RD.2/dwork-exponential-artin-schreier-example.",
         "(3) Unipotence along ∞ is unaffected by removing 0 where the isocrystal is overconvergent and regular (constant monodromy), and RD.5/dense-open-restriction-fully-faithful gives full faithfulness."
       ],
       "acceptance": [
@@ -2427,6 +2505,11 @@
           "sourceId": "kedlaya-ssr4",
           "locator": "Lemma 3.5.1 and Definition 5.1.9, pp. 29, 47",
           "match": "Computes the generic radius of Dwork-type rank-one modules ∇v = πr v ⊗ dx, and lists Artin–Schreier alterations x̃^p − g^{p−1}x̃ = x + ⋯ beside tame m-th power maps among the operations used for local semistable reduction."
+        },
+        {
+          "sourceId": "kedlaya-ssr4",
+          "locator": "Lemma 3.1.8, p. 25; Lemma 3.5.1, p. 29",
+          "match": "The generic-radius formula under a tame power pullback preserves a positive Dwork break; the Dwork module has positive break at infinity."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2451,10 +2534,19 @@
     },
     {
       "supplier": "LocallyAnalyticDistributions:L0",
-      "need": "Over a discretely valued (spherically complete) K: (a) Mackey's theorem for semi-complete locally convex spaces V = (V'_c)', with the convex equicontinuous subsets of the dual being the relatively linearly compact convex sets; (b) in a Fréchet space every balanced convex closed bounded linearly compact set lies in the closed convex hull of a null sequence (Crew 2.9); (c) an infinite-dimensional K-Banach space is not reflexive; (d) Montel spaces: for Fréchet–Montel spaces the strong and linearly compact duals coincide. These complete L0/nonarchimedean-hahn-banach, L0/pseudo-polar-duality and L0/barrelled-banach-steinhaus for Crew's strictness criteria; the first pass's restructure proposal moves RD.5's strict-map, Fréchet–Montel transpose and finite-cokernel lemmas to L0 as well.",
+      "need": "Over a discretely valued (spherically complete) K: (a) Mackey's theorem for semi-complete locally convex spaces V = (V'_c)', with the convex equicontinuous subsets of the dual being the relatively linearly compact convex sets; (b) in a Fréchet space every balanced convex closed bounded linearly compact set lies in the closed convex hull of a null sequence (Crew 2.9); (c) an infinite-dimensional K-Banach space is not reflexive; (d) Montel spaces: for Fréchet–Montel spaces the strong and linearly compact duals coincide. These complete L0/nonarchimedean-hahn-banach, L0/pseudo-polar-duality and L0/barrelled-banach-steinhaus for Crew's strictness criteria; the first pass's restructure proposal moves RD.5's strict-map, Fréchet–Montel transpose and finite-cokernel lemmas to L0 as well. (e) Exactness of the inverse-limit Čech sequence for increasing closed discs with Fréchet section spaces and dense restriction maps (the nonarchimedean analytic Mittag–Leffler argument in Crew, proof of Theorem 7.5, pp. 743–744); dense maps alone do not give the algebraic surjective-transition criterion.",
       "neededBy": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/frechet-and-dual-frechet-finite",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.5/strictness-transpose-criteria"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/strictness-transpose-criteria",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/dagger-curve-mayer-vietoris"
+      ]
+    },
+    {
+      "supplier": "CrystallineCohomology:CR.5",
+      "need": "Relative log crystalline cohomology with locally free ISOCrystal coefficients on Shiho’s Noetherian p-adic fine-log bases: if f is proper log smooth and either integral or has regular base Y, Rf_crys*E is a perfect Q ⊗ O_𝒴-complex (Shiho, arXiv:0707.1742v2, Theorem 1.16, p. 9; proof pp. 9–11). Do not assume E arises from a locally free integral crystal. CR.5/log-crystal supplies the finite-level integral definition, and CR.3/proper-perfectness the non-log case, but neither states this general result. Include the relative locally free isocrystal category and realisation on the log PD embedding system.",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/relative-convergent-crystalline-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-perfect-complexes"
       ]
     }
   ],
@@ -2462,14 +2554,17 @@
     {
       "stageId": "PadicDifferentialEquationsAndRigidCohomology:RD.5",
       "status": "planned",
-      "note": "Planned together with the first-pass packet (73 RD.5 nodes there, 35 here). Every target of the stage text — finiteness of H^i and H^i_c for overconvergent F-isocrystals, the relative local monodromy input, curves, dévissage, alterations and descent, the perfect compact-support duality with its twist, and Künneth with the exact smoothness and support conditions — is realised by a node whose prerequisite chains end in the pinned libraries, in other roadmaps' nodes, in requested stages, in same-roadmap stages RD.0, RD.3 and RD.4, or in the recorded gaps. The first pass's RD.5 gaps 4–8 (Tsuzuki 2003 and 1999, Berthelot's trace and Lemme 2.1, the lattice index argument, Crew Part I and Schneider 9.4) are closed by the nodes listed in closesGaps; the docility, semistable-reduction, Igusa, dagger-model and smooth-proper direct-image targets of its remaining list are planned here. The dagger–Berthelot comparison itself (Grosse-Klönne Theorem 5.1) and the Igusa theta-cokernel identification are RD.4 targets, and Étesse's overconvergence of abelian-scheme direct images is an RD.3 target; this packet cites those stages and plans only the finiteness consequences.",
+      "note": "Planned together with the first-pass packet (73 RD.5 nodes there, 35 here). Every target of the stage text — finiteness of H^i and H^i_c for overconvergent F-isocrystals, the relative local monodromy input, curves, dévissage, alterations and descent, the perfect compact-support duality with its twist, and Künneth with the exact smoothness and support conditions — is realised by a node whose prerequisite chains end in the pinned libraries, in other roadmaps' nodes, in requested stages, in same-roadmap stages RD.0, RD.3 and RD.4, or in the recorded gaps. The first pass's RD.5 gaps 4–8 (Tsuzuki 2003 and 1999, Berthelot's trace and Lemme 2.1, the lattice index argument, Crew Part I and Schneider 9.4) have source access or target coverage supplied by the nodes listed in closesGaps; this is not mathematical proof closure; the docility, semistable-reduction, Igusa, dagger-model and smooth-proper direct-image targets of its remaining list are planned here. The dagger–Berthelot comparison itself (Grosse-Klönne Theorem 5.1) and the Igusa theta-cokernel identification are RD.4 targets, and Étesse's overconvergence of abelian-scheme direct images is an RD.3 target; this packet cites those stages and plans only the finiteness consequences.",
       "remaining": [
         "Proof interiors of Kedlaya's semistable reduction (Semistable reduction II, Propositions 3.3.4 and 3.4.5; III, Theorem 6.3.1; IV, Theorem 5.0.1) are cited at statement level in RD.5/global-semistable-reduction (gap).",
         "Berkovich's coherent descent inputs used by Zureick-Brown (Berkovich 1993, Corollary 4.3.2 and Proposition 4.1.2) are cited, not decomposed (gap).",
         "Xu's Frobenius descent (arXiv v1, Theorem 1.5 (6.6)) and Ogus's comparison of convergent and rational crystalline cohomology over a point (Ogus 1990, Theorem 0.7.7) are cited at statement level (gap); Shiho's Theorem 2.36 is read with its short proof.",
         "Berthelot's note sketches the verifications behind 1.3 (Gysin–trace compatibility through residues), 1.4 (finite étale maps of strict neighbourhoods) and 3.3 (Künneth compatibilities); their details are recorded as a gap at the three nodes that use them.",
         "The nonflat strengthening of unipotent relative local base change (first-pass gap 47, Kedlaya Finiteness Proposition 7.2.1) is not addressed here; RD.5/relative-local-cohomology-base-change keeps its flatness hypothesis.",
-        "Assembly: apply consumerRetargets to the first-pass nodes, drop RD.5/nonarchimedean-hahn-banach in favour of LocallyAnalyticDistributions:L0/nonarchimedean-hahn-banach, and adopt the sub-layer proposal in restructure (five sub-layers, so that the joined layer shows at most six planets in each)."
+        "Assembly: apply consumerRetargets, drop the duplicate Hahn–Banach node, place the existing proper comparison before its RD.5 uses, and produce an acyclic sublayer order. The five groups in restructure are reader groups, not an established stage order.",
+        "Berkovich analytic foundations of the overconvergent site: Le Stum’s site uses strict K-analytic Berkovich spaces, their analytic domains, good neighbourhoods, formal generic fibres and specialisation, and ringed tube pullbacks (Le Stum §§2.1–2.5 and §§3.1–3.3; Zureick-Brown §4). AdicSpaces and AdicSpacesPartII supply Huber/classical rigid/dagger foundations, not this category or its comparison. No such owner was found in current Tau Ceti or the additional current upstream roadmaps. NEXT ACTION: supply a Berkovich-foundations extension to the analytic owner and its rigid comparison, or rewrite the descent proof entirely in an already supplied analytic category. The site is a valid target, not yet a closed construction.",
+        "Relative log convergent sites and the crystalline realisation functor: RD.5/convergent-log-isocrystal treats a smooth pair with a normal-crossings embedding. Shiho Theorem 2.36 instead uses relative log convergent sites over general Noetherian p-adic fine-log formal bases and the functor Φ to log crystalline isocrystals. CR.5/log-crystal and the absolute RD.3 restriction-to-convergent do not define this relative site. NEXT ACTION: extend the RD.3 coefficient-site owner with Shiho §2.1 (relative enlargements and isocrystals) and Φ in §2.3, retaining rational coefficients without an integral lattice; request log perfectness from CR.5 separately.",
+        "Proper rigid–crystalline comparison over imperfect residue fields: The existing RD.7/rigid-crystalline-comparison is stated over perfect k, and its embedding/descent proof already has a first-pass gap. Moving that target earlier does not extend its scope. In particular, the arbitrary Cohen-field base-change theorem here needs proper smooth comparison for imperfect k as well as compatible PD-base change. CR.3/derived-base-change has the required Noetherian PD-base form, but does not supply this comparison. NEXT ACTION: finish the existing comparison proof, extend it to Cohen rings over imperfect k, and verify compatibility with coefficient/base change and traces; keep the stable owner and id rather than duplicating it."
       ]
     }
   ],
@@ -2504,7 +2599,35 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/finite-etale-trace-projector",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/kunneth-pairing-on-tubes"
       ],
-      "detail": "Berthelot's Dualité note is a four-page announcement: the compatibility of the compact-support Gysin map with traces (1.3) is reduced to the residue formalism of Hartshorne's Residues and Duality, the extension of a finite étale map of dagger algebras to strict neighbourhoods (1.4) and the Künneth compatibilities (3.3) are asserted with indications only. The nodes give the indicated routes. NEXT ACTION: write the residue computation for a smooth pair in local coordinates and the strict-neighbourhood extension (Berthelot, Finitude, §3.6) in detail."
+      "detail": "Berthelot's Dualité note is a six-page author copy (two-page English account and four-page French announcement): the compatibility of the compact-support Gysin map with traces (1.3) is reduced to the residue formalism of Hartshorne's Residues and Duality, the extension of a finite étale map of dagger algebras to strict neighbourhoods (1.4) and the Künneth compatibilities (3.3) are asserted with indications only. The nodes give the indicated routes. NEXT ACTION: write the residue computation for a smooth pair in local coordinates and the strict-neighbourhood extension (Berthelot, Finitude, §3.6) in detail."
+    },
+    {
+      "title": "Berkovich analytic foundations of the overconvergent site",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/overconvergent-site",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/overconvergent-site-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/fppf-cohomological-descent"
+      ],
+      "detail": "Le Stum’s site uses strict K-analytic Berkovich spaces, their analytic domains, good neighbourhoods, formal generic fibres and specialisation, and ringed tube pullbacks (Le Stum §§2.1–2.5 and §§3.1–3.3; Zureick-Brown §4). AdicSpaces and AdicSpacesPartII supply Huber/classical rigid/dagger foundations, not this category or its comparison. No such owner was found in current Tau Ceti or the additional current upstream roadmaps. NEXT ACTION: supply a Berkovich-foundations extension to the analytic owner and its rigid comparison, or rewrite the descent proof entirely in an already supplied analytic category. The site is a valid target, not yet a closed construction."
+    },
+    {
+      "title": "Relative log convergent sites and the crystalline realisation functor",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/relative-convergent-crystalline-comparison",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-smooth-proper",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-perfect-complexes"
+      ],
+      "detail": "RD.5/convergent-log-isocrystal treats a smooth pair with a normal-crossings embedding. Shiho Theorem 2.36 instead uses relative log convergent sites over general Noetherian p-adic fine-log formal bases and the functor Φ to log crystalline isocrystals. CR.5/log-crystal and the absolute RD.3 restriction-to-convergent do not define this relative site. NEXT ACTION: extend the RD.3 coefficient-site owner with Shiho §2.1 (relative enlargements and isocrystals) and Φ in §2.3, retaining rational coefficients without an integral lattice; request log perfectness from CR.5 separately."
+    },
+    {
+      "title": "Proper rigid–crystalline comparison over imperfect residue fields",
+      "neededBy": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/rigid-trace-morphism",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/supported-duality-morphism",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/kunneth-pairing-on-tubes",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/rigid-cohomology-base-field-extension"
+      ],
+      "detail": "The existing RD.7/rigid-crystalline-comparison is stated over perfect k, and its embedding/descent proof already has a first-pass gap. Moving that target earlier does not extend its scope. In particular, the arbitrary Cohen-field base-change theorem here needs proper smooth comparison for imperfect k as well as compatible PD-base change. CR.3/derived-base-change has the required Noetherian PD-base form, but does not supply this comparison. NEXT ACTION: finish the existing comparison proof, extend it to Cohen rings over imperfect k, and verify compatibility with coefficient/base change and traces; keep the stable owner and id rather than duplicating it."
     }
   ],
   "restructure": [
@@ -2514,9 +2637,9 @@
       "roadmaps": [
         "PadicDifferentialEquationsAndRigidCohomology"
       ],
-      "title": "Sub-layers of RD.5 for the atlas, extending the first pass's proposal",
-      "detail": "With this follow-up RD.5 has 108 target nodes in five blocks. The first pass proposed RD.5a–RD.5d; the full-faithfulness, docility and semistable-reduction targets form a fifth block, and the new descent and duality nodes join RD.5d and RD.5c.",
-      "proposal": "RD.5a Relative local monodromy and generic pushforwards (as in the first pass). RD.5b Curves: the first pass's curve nodes with curve-lift-with-boundary, dagger-curve-mayer-vietoris, principal-parts-index-computation, log-rigid-comparison-for-curves and igusa-theta-cokernel-finite. RD.5c Topology, trace and duality: the first pass's strict-map … poincare-duality with frechet-and-dual-frechet-finite, strictness-transpose-criteria, robba-topological-residue-duality, robba-plus-minus-duality, overconvergent-germ-hom-lemma, rigid-trace-morphism, compact-support-gysin-and-trace, top-degree-dimension-one, finite-etale-trace-projector, supported-duality-morphism, kunneth-pairing-on-tubes and rigid-cohomology-base-field-extension. RD.5d Dévissage, descent and the main theorems: the first pass's main-theorem nodes with RD.3/etale-cover-of-affine-space, projection-etale-off-hyperplane, overconvergent-site, overconvergent-site-comparison, modification-cohomological-descent, fppf-cohomological-descent, proper-surjection-cohomological-descent, proper-hypercover-descent-spectral-sequence, finiteness-for-smooth-quasi-projective-models, relative-convergent-crystalline-comparison, convergent-direct-image-smooth-proper and convergent-direct-image-perfect-complexes. RD.5e Full faithfulness, docility and semistable reduction (new): the seven RD.3-prefixed mixed full-faithfulness nodes with unipotent-monodromy-along-boundary, extension-across-boundary, dense-open-restriction-fully-faithful, convergent-log-isocrystal, log-extension-of-unipotent-isocrystal, global-semistable-reduction and docility-acceptance. Order: RD.5a, RD.5b, RD.5c precede RD.5d; RD.5e uses RD.5a–RD.5b only through the local monodromy theorem and precedes RD.5b's log-rigid comparison."
+      "title": "Display groups of RD.5; stage ordering deferred to assembly",
+      "detail": "The first pass plus this follow-up has 108 target nodes. The five named groups below are useful reader groups, not an established ordered sublayer decomposition: functional analysis precedes curve duality, whereas final duality and arbitrary base change use descent and finiteness.",
+      "proposal": "RD.5a Relative local monodromy and generic pushforwards (as in the first pass). RD.5b Curves: the first pass's curve nodes with curve-lift-with-boundary, dagger-curve-mayer-vietoris, principal-parts-index-computation, log-rigid-comparison-for-curves and igusa-theta-cokernel-finite. RD.5c Topology, trace and duality: the first pass's strict-map … poincare-duality with frechet-and-dual-frechet-finite, strictness-transpose-criteria, robba-topological-residue-duality, robba-plus-minus-duality, overconvergent-germ-hom-lemma, rigid-trace-morphism, compact-support-gysin-and-trace, top-degree-dimension-one, finite-etale-trace-projector, supported-duality-morphism, kunneth-pairing-on-tubes and rigid-cohomology-base-field-extension. RD.5d Dévissage, descent and the main theorems: the first pass's main-theorem nodes with RD.3/etale-cover-of-affine-space, projection-etale-off-hyperplane, overconvergent-site, overconvergent-site-comparison, modification-cohomological-descent, fppf-cohomological-descent, proper-surjection-cohomological-descent, proper-hypercover-descent-spectral-sequence, finiteness-for-smooth-quasi-projective-models, relative-convergent-crystalline-comparison, convergent-direct-image-smooth-proper and convergent-direct-image-perfect-complexes. RD.5e Full faithfulness, docility and semistable reduction (new): the seven RD.3-prefixed mixed full-faithfulness nodes with unipotent-monodromy-along-boundary, extension-across-boundary, dense-open-restriction-fully-faithful, convergent-log-isocrystal, log-extension-of-unipotent-isocrystal, global-semistable-reduction and docility-acceptance. These are display groups only. At assembly split the early functional-analysis inputs from final Poincaré duality, Künneth and arbitrary base change, and separate finite-level Igusa applications from the curve input they consume. Construct an acyclic sublayer order from the full target dependency graph; do not impose edges between these five groups wholesale. Preserve at most six planets per actual sublayer and preserve target ids. This proposal is not ready to apply as five ordered layers."
     },
     {
       "kind": "ownership",
@@ -2539,9 +2662,62 @@
       "title": "CR.6's request to RD.5 points upward",
       "detail": "CrystallineCohomology (tier 9) requests from RD.5 (tier 12) strict Fréchet and ind-Fréchet derived cohomology interfaces for semistable Stein exhaustions and finite-dimensional log rigid pieces (CR.6/stein-hk, stein-hk-comparison, tower-hk). Under the upstream tier rule a tier-9 plan cannot cite RD.5; RD.5's finiteness theorems are for k-varieties, not for Stein exhaustions of rigid curves.",
       "proposal": "CR.6 plans the Stein-exhaustion interfaces itself (the notion moves down), importing AdicSpacesPartII:F1 dagger finiteness and duality (tier 3) and LocallyAnalyticDistributions:L0; RD.5 does not serve the request."
+    },
+    {
+      "kind": "ownership",
+      "action": "rescope",
+      "roadmaps": [
+        "PadicDifferentialEquationsAndRigidCohomology"
+      ],
+      "title": "Place the existing proper rigid–crystalline comparison before RD.5",
+      "detail": "Trace, supported duality, Künneth compatibility and the proper-smooth step of arbitrary base change use the existing RD.7/rigid-crystalline-comparison, which itself has no RD.5 prerequisite. Leaving its construction until RD.7 hides an internal upward dependency.",
+      "proposal": "Move the existing constant-coefficient RD.7/rigid-crystalline-comparison and RD.7/tube-to-envelope-comparison-map plus RD.7/comparison-map-quasi-isomorphism to the RD.4 comparison block at assembly, preserving stable ids or recording aliases. Preserve their recorded proof gaps. Keep the later q-linear Frobenius normalisation with RD.6–RD.7; do not move the whole RD.7 coefficient/Frobenius block and create a cycle. Locally free crystalline coefficients must be covered before using the corresponding compatibility; imperfect Cohen-field comparison remains the explicit gap in this packet."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E501",
+      "source": "kedlaya-etale-covers",
+      "kind": "misprint",
+      "locator": "Lemma 6, proof, p. 4, arXiv:math/0303382v3; published version not inspected",
+      "printed": "With β_i in L^{j_i} and γ_i in L^l, the numerator is written β_i α^{l−2j_i} + γ_i², while the denominator and target power are L^{2l}.",
+      "correction": "Use δ_i = β_i α^{2l−j_i} + γ_i² ∈ Γ(L^{2l}); then δ_i/α^{2l} = f_i + (γ_i/α^l)².",
+      "reason": "The two printed summands have degrees l−j_i and 2l and cannot be added as sections of the stated bundle. The corrected powers give degree 2l in both terms and preserve the differential on S because γ_i vanishes there.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/math/0303382 (latest is v3; version history checked)",
+        "https://kskedlaya.org/papers/ (entry for More étale covers; no linked correction found)",
+        "https://doi.org/10.1090/S1056-3911-04-00381-8 (publisher access refused; published formula unverified)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked both line-bundle degrees and the corrected quotient/differential identity in the inspected preprint. No claim is made about the inaccessible published formula.",
+        "by": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5"
+      }
+    },
+    {
+      "id": "PadicDifferentialEquationsAndRigidCohomology/E502",
+      "source": "crew-finiteness-curves",
+      "kind": "error",
+      "locator": "Proposition 3.10, printed p. 726, published Numdam article; compare proof of Proposition 3.11, p. 727",
+      "printed": "The lifting criterion for strictness of the transpose tests every bounded convex linearly compact subset of the entire codomain W.",
+      "correction": "Test only bounded convex linearly compact subsets C of f(V), with the topology induced from W.",
+      "reason": "The inclusion K → K², x ↦ (x,0), is strict and has strict transpose (a,b) ↦ a. The bounded linearly compact set O_K·(0,1) in W has no inverse image under f. The condition on subsets of f(V) passes this example and is the image in which the subsequent proof lifts null sequences.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "https://www.numdam.org/item/ASENS_1998_4_31_6_717_0/ (published article and item metadata; no linked corrigendum found)",
+        "https://people.clas.ufl.edu/rcrew/ (author page; no linked correction found)",
+        "Web search for Crew Finiteness theorems Proposition 3.10 strictness erratum; no existing correction located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published criterion and its subsequent use; the finite-dimensional strict inclusion gives a direct counterexample to the unrestricted codomain condition.",
+        "by": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5"
+      }
+    }
+  ],
   "sourceVersions": [
     {
       "source": "berthelot-dualite",
@@ -2613,6 +2789,14 @@
       "url": "http://www.numdam.org/item/ASENS_1998_4_31_6_717_0/",
       "read": "2026-10-14",
       "sha256": "52e2391a3bfd0264a3ef71f9ed57f4f24b16011b7ff455e7da3c7cf7a7d1c62c"
+    },
+    {
+      "source": "kedlaya-etale-covers",
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0303382v3",
+      "read": "2026-10-14",
+      "sha256": "23ac7240e15b87fb6a1a90f17f9539e30380c3bac3cc6c61b8440e6916399664",
+      "note": "arXiv v3 is the text inspected for E501. The AMS version-of-record endpoint refused access (HTTP 403); the finding is scoped to this preprint, not asserted against the published article."
     }
   ],
   "closesGaps": [
@@ -2626,7 +2810,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/proper-surjection-cohomological-descent",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/proper-hypercover-descent-spectral-sequence"
       ],
-      "note": "Tsuzuki 2003 remains unread; the theorem is planned through Le Stum's site and Zureick-Brown's proof, which are public."
+      "note": "Tsuzuki 2003 remains unread; the theorem is planned through Le Stum's site and Zureick-Brown's proof, which are public. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Tsuzuki, 'On the Gysin isomorphism of rigid cohomology' (Hiroshima Math. J. 29 (1999)) not accessible",
@@ -2634,7 +2818,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/supported-duality-morphism",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/kunneth-pairing-on-tubes"
       ],
-      "note": "Only its RD.5 uses are closed (functoriality of the Poincaré pairing, Section 6.2, and the Künneth construction, Section 6.3), from Berthelot's Dualité; its RD.4 uses (Gysin isomorphism, compact-support excision, finite étale pushforward) stay with RD.4."
+      "note": "Only its RD.5 uses are closed (functoriality of the Poincaré pairing, Section 6.2, and the Künneth construction, Section 6.3), from Berthelot's Dualité; its RD.4 uses (Gysin isomorphism, compact-support excision, finite étale pushforward) stay with RD.4. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Berthelot's Finitude (Invent. Math. 128) and Dualité (C. R. Acad. Sci. 325) not public",
@@ -2644,7 +2828,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/compact-support-gysin-and-trace",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/top-degree-dimension-one"
       ],
-      "note": "The Dualité note is read from the author's copy (Dualité 1.2, Lemme 2.1, Propositions 1.5–1.6); the Finitude parts (Propositions 1.8, 1.10, 2.5) needed at RD.4 are not addressed here."
+      "note": "The Dualité note is read from the author's copy (Dualité 1.2, Lemme 2.1, Propositions 1.5–1.6); the Finitude parts (Propositions 1.8, 1.10, 2.5) needed at RD.4 are not addressed here. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Index transfer from the special fibre in the dimension formula for H^1 of an affine curve",
@@ -2653,7 +2837,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/dagger-curve-mayer-vietoris",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/principal-parts-index-computation"
       ],
-      "note": "The index is computed on the lifted generic fibre through Crew's Čech argument and GAGA, not by a lattice argument; van der Put, Proposition 6.1, states the same formula."
+      "note": "The index is computed on the lifted generic fibre through Crew's Čech argument and GAGA, not by a lattice argument; van der Put, Proposition 6.1, states the same formula. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Crew's p-adic functional analysis (Part I and Section 5) and Schneider's Hahn–Banach read at statement level",
@@ -2664,7 +2848,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/robba-plus-minus-duality",
         "LocallyAnalyticDistributions:L0/nonarchimedean-hahn-banach"
       ],
-      "note": "Crew 2.8, 2.9, 3.8–3.12 and 5.1–5.5 are read with their proofs; Mackey's theorem and non-reflexivity of Banach spaces are requested from LocallyAnalyticDistributions:L0."
+      "note": "Crew 2.8, 2.9, 3.8–3.12 and 5.1–5.5 are read with their proofs; Mackey's theorem and non-reflexivity of Banach spaces are requested from LocallyAnalyticDistributions:L0. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Mixed full faithfulness, docility and semistable reduction at RD.5",
@@ -2677,14 +2861,14 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/global-semistable-reduction",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/docility-acceptance"
       ],
-      "note": "Semistable reduction's proof interiors remain a gap in this packet."
+      "note": "Semistable reduction's proof interiors remain a gap in this packet. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Dagger–Berthelot rigid comparison for the ordinary-locus consumer",
       "by": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/finiteness-for-smooth-quasi-projective-models"
       ],
-      "note": "Only the RD.5 part (finiteness for smooth quasi-projective models and boundary strata) is closed; the comparison theorem itself is an RD.4 target."
+      "note": "Only the RD.5 part (finiteness for smooth quasi-projective models and boundary strata) is closed; the comparison theorem itself is an RD.4 target. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Igusa theta-cokernel construction and separate finiteness",
@@ -2692,7 +2876,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/log-rigid-comparison-for-curves",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/igusa-theta-cokernel-finite"
       ],
-      "note": "Only the RD.5 finiteness half; the theta-cokernel identification is an RD.4 target."
+      "note": "Only the RD.5 finiteness half; the theta-cokernel identification is an RD.4 target. Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     },
     {
       "gap": "Smooth proper direct images of convergent Frobenius coefficients",
@@ -2701,7 +2885,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-smooth-proper",
         "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-perfect-complexes"
       ],
-      "note": "Xu's and Ogus's proofs remain cited at statement level (gap)."
+      "note": "Xu's and Ogus's proofs remain cited at statement level (gap). Here closure means source access or target-level planning coverage only; it does not remove the remaining proof gaps or supplier requests."
     }
   ],
   "consumerRetargets": [
@@ -2844,5 +3028,188 @@
     "issue": 9747,
     "worker": "Claude (claude-eC9wQT)",
     "date": "2026-10-14"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+    "date": "2026-10-14",
+    "notes": "Independent target-level review of all 35 nodes, all four pinned baseline declarations, every direct supplier statement, every API/test and all five planets. Corrected source statements, examples, type/shift conventions and closure claims in place. Two source findings are independently confirmed. Seven explicit proof/foundation gaps and four precise supplier requests remain; complete is a finished planning pass, not mathematical closure. Reader and suggested signatures are brought into agreement. No new mathematical node or duplicate owner is introduced. See the review report for validation and assembly actions.",
+    "checked": [
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/overconvergent-site",
+        "verdict": "corrected",
+        "note": "Corrected ringed crystal pullback; added module descent/extensionality API, a scalar-extension test and exact geometric-realisation hypotheses. Recorded missing Berkovich foundations."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/overconvergent-site-comparison",
+        "verdict": "verified",
+        "note": "Verified Le Stum 3.5.9, 3.5.11 and 4.6.7–8; the analytic foundations are explicitly a gap."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/modification-cohomological-descent",
+        "verdict": "verified",
+        "note": "Verified Zureick-Brown 5.9 and reduction to flattening/modification suppliers; descent calculus remains requested."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/fppf-cohomological-descent",
+        "verdict": "corrected",
+        "note": "Verified finite-flat/fppf descent and corrected the nonfinite p-root example. Coherent Berkovich descent and its foundations remain explicit gaps."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/proper-surjection-cohomological-descent",
+        "verdict": "verified",
+        "note": "Verified the proper-surjection reduction and exact geometric suppliers; no étale-descent-only replacement."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/proper-hypercover-descent-spectral-sequence",
+        "verdict": "verified",
+        "note": "Verified the proper hypercover spectral sequence via site descent; historical Chiarellotto–Tsuzuki hypotheses kept distinct."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/overconvergent-germ-hom-lemma",
+        "verdict": "verified",
+        "note": "Verified Berthelot Lemme 2.1, including module support and germ hypotheses."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/rigid-trace-morphism",
+        "verdict": "corrected",
+        "note": "Corrected component opens, top excision and normalised scalar descent; scoped crystalline compatibility and added the actual comparison/trace suppliers."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/compact-support-gysin-and-trace",
+        "verdict": "verified",
+        "note": "Verified the lift-dependent compact-support Gysin construction, shifts and traces; source leaves local checks as the recorded gap."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/top-degree-dimension-one",
+        "verdict": "verified",
+        "note": "Verified geometrically irreducible top-degree dimension via Berthelot 1.5 and Kedlaya 9.3.2, with finite-extension and affine-duality inputs."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/finite-etale-trace-projector",
+        "verdict": "verified",
+        "note": "Verified averaging projector identities and ordinary/compact-support trace distinctions; neighbourhood extension remains the recorded gap."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/supported-duality-morphism",
+        "verdict": "corrected",
+        "note": "Corrected the compact-support pullback, Gysin shift and Tate line; scoped crystalline coefficients and added comparison/duality suppliers."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/kunneth-pairing-on-tubes",
+        "verdict": "corrected",
+        "note": "Corrected analytic fibre-product convention and scoped crystalline compatibility; added the existing comparison and CR.3 Künneth suppliers."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/rigid-cohomology-base-field-extension",
+        "verdict": "corrected",
+        "note": "Added exact crystalline PD-base-change/perfectness suppliers; recorded missing imperfect Cohen-field comparison instead of claiming finite-flat base change suffices."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/curve-lift-with-boundary",
+        "verdict": "corrected",
+        "note": "Added nonempty boundary, which is necessary for the claimed affine lift; checked deformation/algebraisation suppliers and genus computation."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/dagger-curve-mayer-vietoris",
+        "verdict": "corrected",
+        "note": "Corrected closed-disc inequality and tensor base; made the analytic inverse-limit exactness input an explicit L0 request."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/principal-parts-index-computation",
+        "verdict": "verified",
+        "note": "Verified the two principal-part indices, local derivative index and 2g+d−1 computation; read cleared van der Put 6.1 without copying it."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/projection-etale-off-hyperplane",
+        "verdict": "corrected",
+        "note": "Corrected the homogeneous numerator in the inspected preprint, recorded E501 and retained the pure-dimension and finite-field hypotheses."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/log-rigid-comparison-for-curves",
+        "verdict": "verified",
+        "note": "Verified logarithmic comparison for curves with nilpotent residues via the annular/logarithmic extension route."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/igusa-theta-cokernel-finite",
+        "verdict": "corrected",
+        "note": "Specified C-valued finite-level dimension and scalar extension; removed the unsupported colimit nonfiniteness assertion."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/frechet-and-dual-frechet-finite",
+        "verdict": "verified",
+        "note": "Verified Crew 2.8 and the requested functional-analysis hypotheses, with no duplicate Hahn–Banach ownership."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/strictness-transpose-criteria",
+        "verdict": "corrected",
+        "note": "Corrected the published image condition (E502), with the strict inclusion counterexample; checked Crew 3.8–3.12."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/robba-topological-residue-duality",
+        "verdict": "verified",
+        "note": "Verified coefficient-ring topological residue duality and its distinction from differential-module cohomological duality."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/robba-plus-minus-duality",
+        "verdict": "verified",
+        "note": "Verified the plus/minus differential conventions and topological duality; no extra residue twist introduced."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/finiteness-for-smooth-quasi-projective-models",
+        "verdict": "verified",
+        "note": "Verified HLTT 6.7–6.9 and 6.19–6.24 plus Grosse-Klönne 5.1; the comparison is owned by RD.4, not duplicated."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/relative-convergent-crystalline-comparison",
+        "verdict": "corrected",
+        "note": "Corrected rational crystalline coefficients and relative fine-log base hypotheses; added the exact log perfectness request and relative-site gap."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-smooth-proper",
+        "verdict": "verified",
+        "note": "Verified Xu 1.9/9.3 and Guo–Reinecke’s use; relative-site and Frobenius-descent proof interiors remain honest gaps."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-direct-image-perfect-complexes",
+        "verdict": "corrected",
+        "note": "Verified Guo–Reinecke 6.13 and the perfect-complex/thickening hypotheses; linked the missing relative log input precisely."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/unipotent-monodromy-along-boundary",
+        "verdict": "corrected",
+        "note": "Specified canonical nilpotent residues and the odd-p Kummer example; verified the local/global monodromy definition and tensor/subquotient uses."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/extension-across-boundary",
+        "verdict": "corrected",
+        "note": "Clarified the overconvergence hypothesis in the rank-one test and the nontrivial bundle gluing in the singular cone counterexample."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/dense-open-restriction-fully-faithful",
+        "verdict": "corrected",
+        "note": "Corrected Frobenius-fixed Hom and the relative full-faithfulness proof; absolute full faithfulness does not replace the relative theorem."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/convergent-log-isocrystal",
+        "verdict": "corrected",
+        "note": "Corrected log convergence and semilinear Frobenius; added pullback/tensor/extensionality API and the integrable-but-nonconvergent counterexample."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/log-extension-of-unipotent-isocrystal",
+        "verdict": "verified",
+        "note": "Verified unique nilpotent logarithmic extension and full faithfulness under the smooth-pair hypothesis."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/global-semistable-reduction",
+        "verdict": "corrected",
+        "note": "Specified reduced inverse-image boundary; the global/local statements are checked and Parts II–IV proof interiors remain a gap."
+      },
+      {
+        "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.5/docility-acceptance",
+        "verdict": "corrected",
+        "note": "Restricted the tame claim to power covers with the exact radius locator, and specified the canonical log extension after Kummer pullback."
+      }
+    ]
   }
 }

@@ -119,8 +119,8 @@ end LocalPairing
 
 section Residues
 
-/-- A rank-one log connection `d + a dt/t` has unipotent (hence constant) monodromy at `0`
-exactly when its residue is an integer. -/
+/-- The arithmetic residue criterion for a rank-one overconvergent log connection.
+The README imposes convergence; this rational predicate alone does not supply it. -/
 def RankOneResidueUnipotent (a : ℚ) : Prop := ∃ n : ℤ, a = n
 
 example : RankOneResidueUnipotent 0 := ⟨0, by simp⟩
@@ -138,8 +138,8 @@ theorem rankOneResidueUnipotent_pullback (a : ℚ) (m : ℕ) (hm : 0 < m)
 variable {K V : Type*} [Field K] [CharZero K] [AddCommGroup V] [Module K V]
   [FiniteDimensional K V]
 
-/-- A residue conjugate to `q` times itself, with `q ≥ 2`, is nilpotent: this is why a
-convergent log-F-isocrystal has nilpotent residues. -/
+/-- A residue conjugate to `q` times itself, with `q ≥ 2`, is nilpotent. This is the
+linear Frobenius special case; the README gives the isometric semilinear argument. -/
 theorem isNilpotent_of_conj_eq_smul (q : ℕ) (hq : 2 ≤ q) (N : Module.End K V)
     (e : V ≃ₗ[K] V) (h : e.conj N = (q : K) • N) : IsNilpotent N := by
   sorry
@@ -189,6 +189,11 @@ end
 /-!
 ## Roadmap targets requiring additional carriers
 
+This accepted target-level pass retains the seven gaps and four supplier requests in the README.
+Shiho comparison uses crystalline isocrystals without an assumed integral lattice. Pan finiteness
+is C-valued and levelwise. The source issues E501 and E502 are recorded in the packet/reader;
+no statement in this file depends on the uncorrected source formulas.
+
 The following definitions and constructions of this part live in the roadmap, with their full
 statements, API outlines and checks. Their carriers (rigid cohomology, overconvergent and
 convergent (log-)isocrystals, Le Stum's overconvergent site, tubes and dagger spaces) are not at
@@ -198,21 +203,27 @@ the roadmap uses.
 * Le Stum's overconvergent site of a variety (RD.5/overconvergent-site).
   API: OverconvergentSite, OverconvergentSite.realization, OverconvergentSite.functorial,
   OverconvergentSite.crystal_iff_realisations, OverconvergentSite.crystals_on_variety,
-  OverconvergentSite.restriction_closed.
+  OverconvergentSite.restriction_closed, OverconvergentSite.crystal_pullback_id_comp,
+  OverconvergentSite.crystal_tensor_dual, OverconvergentSite.realization_ext.
+  Module transition maps use ringed pullback with extension of scalars.
   Checks: overconvergentSite_point_sections, overconvergentSite_affineLine_sections,
-  overconvergentSite_not_etale_site, overconvergentSite_realisation_covers.
+  overconvergentSite_not_etale_site, overconvergentSite_realisation_covers,
+  overconvergentSite_ringed_pullback.
 * Berthelot's trace morphism on top-degree compact-support rigid cohomology
 (RD.5/rigid-trace-morphism).
   API: rigidTrace, rigidTrace_frobenius, rigidTrace_openImmersion, rigidTrace_finiteEtale,
   rigidTrace_gysin, rigidTrace_crystalline, rigidTrace_baseChange,
   rigidTrace_isIso_of_geomIrreducible.
   Checks: rigidTrace_point, rigidTrace_affineLine, rigidTrace_twoPoints,
-  rigidTrace_untwisted_nonexample, rigidTrace_proper_crystalline.
+  rigidTrace_untwisted_nonexample, rigidTrace_proper_crystalline,
+  rigidTrace_finiteScalar_normalisation.
+  Scalar descent uses normalised field trace; crystalline compatibility assumes perfect k.
 * The duality morphism ψ_{Z,X} and its morphism of distinguished triangles
 (RD.5/supported-duality-morphism).
   API: dualityMorphism, dualityMorphism_triangle, dualityMorphism_finiteEtale,
   dualityMorphism_gysin, gysin_dual_of_restriction, dualityMorphism_crystalline,
   dualityMorphism_frobenius, dualityMorphism_cupProduct.
+  Finite etale adjunction uses compact-support pullback; Gysin uses shift 2r and twist (-r).
   Checks: dualityMorphism_point, dualityMorphism_affineLine_degree0,
   dualityMorphism_gm_triangle, dualityMorphism_no_shift_nonexample.
 * Künneth pairings on product tubes and the Künneth morphisms with supports
@@ -233,9 +244,13 @@ the roadmap uses.
 * Convergent log-isocrystals on a smooth pair (RD.5/convergent-log-isocrystal).
   API: ConvergentLogIsocrystal, ConvergentLogIsocrystal.toLogNablaModule,
   ConvergentLogIsocrystal.residue, ConvergentLogIsocrystal.restrict,
-  ConvergentLogIsocrystal.noBoundary, ConvergentLogIsocrystal.nilpotentResidues.
+  ConvergentLogIsocrystal.noBoundary, ConvergentLogIsocrystal.nilpotentResidues,
+  ConvergentLogIsocrystal.pullback_id_comp, ConvergentLogIsocrystal.tensor_unit_dual,
+  ConvergentLogIsocrystal.ofStratification.
   Checks: convergentLogIsocrystal_empty_boundary, convergentLogIsocrystal_residue_computation,
-  convergentLogFIsocrystal_nilpotent, convergentLogIsocrystal_not_overconvergent_nonexample.
+  convergentLogFIsocrystal_nilpotent, convergentLogIsocrystal_not_overconvergent_nonexample,
+  convergentLogIsocrystal_integrable_not_convergent.
+  Rank-one log convergence is checked for residues in Z_p; integrability alone is insufficient.
 
 The theorems of this part, stated in the roadmap and not expressible at the pins:
 
