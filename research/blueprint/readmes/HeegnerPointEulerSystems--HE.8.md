@@ -39,17 +39,17 @@ The new `broader-tower-descent-verification` instead isolates the weak-torsion a
 
 ## Geometric nonvanishing and the dynamics boundary
 
-Joint distribution is on compatible norm-component fibres of simultaneous CM reduction, not on an unrestricted product of class sets. For each allowed reduction set S, the primes exclude P, B is split there, K is nonsplit there, and |S|+|Ram_f(B)|+[F:ℚ] is even. A finite collection of such sets and a finite set R of shifts distinct modulo the P-rational reciprocity subgroup specify the product. The Galois averaging subgroup is compact open. The accepted `joint-cm-equidistribution` gives Haar-probability averages of continuous functions as conductor tends to infinity in a fixed P-isogeny class. At finite level this yields `joint-cm-orbit-surjectivity` onto the compatible component fibre. These are CV, Theorem 2.9 and Corollary 2.10: the companion published dynamics paper, printed pp.273–274.
+Joint distribution is on compatible norm-component fibres of simultaneous CM reduction, not on an unrestricted product of class sets. For each allowed reduction set S, the primes exclude P, B is split there, K is nonsplit there, and |S|+|Ram_f(B)|+[F:ℚ] is even. A finite collection of such sets and a finite set R of shifts distinct modulo the P-rational reciprocity subgroup specify the product. The Galois averaging subgroup is compact open. The accepted `joint-cm-equidistribution` gives Haar-probability averages of continuous functions as conductor tends to infinity in a fixed P-isogeny class. At finite level this yields `joint-cm-orbit-surjectivity` onto the compatible component fibre. These are CV, Theorem 2.9 and Corollary 2.10: the companion published dynamics paper, printed p.272.
 
-Two new proof interfaces expose what this import needs. `adelic-fibre-and-isogeny-annulus` identifies the fixed fibres as finite unions of cocompact local SL₂(F_P)-lattice quotients, tracks their commensurators, and parametrizes the CM toric trajectories as expanding annuli. The original torus parameter is a multiplicative compact open subgroup of F_P^×; its scaled annuli are integrated with additive Haar measure on F_P. It reuses current AdelicAlgebraicGroups compactness and strong approximation and the R18 supersingular model. The exact locators are CV-CM, Propositions 2.12 and 2.28 and Lemmas 2.19–2.20, printed pp.275–276,280–282,287–289.
+Two new proof interfaces expose what this import needs. `adelic-fibre-and-isogeny-annulus` fixes a norm component and a compact open norm-one level away from P before identifying its single cocompact local SL₂(F_P)-lattice quotient. The joint space at a compatible away-P level is a product of these quotients. The raw adelic fibre is their inverse limit; the full finite-level class-set fibre also quotients at P. The target tracks the arithmetic commensurators and parametrizes the CM toric trajectories as expanding annuli. The original torus parameter is a multiplicative compact open subgroup of F_P^×; its scaled annuli are integrated with additive Haar measure on F_P. It reuses current AdelicAlgebraicGroups compactness and strong approximation and the R18 supersingular model. The exact locators are CV-CM, Propositions 2.12 and 2.28 and Lemmas 2.19–2.20, printed pp.275–276,281–282,287–288.
 
-`p-adic-orbit-density-application` is the arithmetic joining step. Orbit closure and the twisted-diagonal stabilizer force every proper joining into the commensurability/partition alternatives. Distinct P-rational shifts exclude them outside a countable Haar-null union of Gal_K^(P-rat)-cosets in Gal_K^ab (Proposition 2.24, printed pp.284–286). Density of each coordinate separately would not prove this product statement. Its proof is CV-CM, Proposition 2.22 and Lemmas 2.30–2.32 through Proposition 2.35, printed pp.282–283,289–292.
+`p-adic-orbit-density-application` is the arithmetic joining step. Orbit closure and the twisted-diagonal stabilizer force every proper joining into the commensurability/partition alternatives. Distinct P-rational shifts exclude them outside a countable Haar-null union of Gal_K^(P-rat)-cosets in Gal_K^ab (Proposition 2.24, printed pp.284–286). Density of each coordinate separately would not prove this product statement. At each away-P quotient its proof is CV-CM, Proposition 2.22 and Lemmas 2.30–2.32 through Proposition 2.35, printed pp.282–283,289–291. Lemma 2.25, p.286, passes back to the full fibre through a countable cofinal family of levels.
 
 Generic p-adic dynamics has a single owner, GN.4 or its homogeneous-dynamics Part II. The requested contract specifies orbit closure, normalized invariant measure, averages over scaled positive-measure compact subsets of the additive local field, and the twisted-diagonal stabilizer/commensurability consequences. CV-CM’s Theorem 2.29 and Lemma 2.30, printed p.289, are the read boundary. The general finite-extension stabilizer input still requires original-source verification; the paper distinguishes that boundary from its ℚ_p citation. Real Ratner or an André–Oort assertion does not supply this contract. This is the existing RT-AREA-iwasawa-1/1 gap, refined rather than assigned a second owner.
 
 The new fixed-torsion trace theorem is deliberately weaker in hypotheses than the accepted primitive-character point theorem. In CV Theorem 4.10, preprint p.41, the rational Pic(O_F)-equivariant quotient π:J↠A has A=A{ω}≠0. A character χ on G0 must restrict to ω^ε on G2≅Pic(O_F). Assume H2: away from P, every prime ramified in K has B split and the local order maximal. Then all but finitely many CM points have nonzero χ-weighted G0-projection in A⊗_{ℤ{ω}}ℂ. H1 and P-newness are not needed in this branch. The denominator |G0| is used in characteristic zero, not declared an integral p-adic unit. With the modular quotient and trivial torsion type this gives the higher-conductor non-torsion trace needed by Howard.
 
-The proof combines the H2 degeneracy maps, a finite tower-torsion bound, joint reduction surjectivity and a reduction prime at which every relevant supersingular fibre exceeds the degree-times-torsion bound. The quantitative fibre-growth and quotient-transport interfaces belong to R18.3–R18.4. CV Lemmas 4.14–4.16 and Proposition 4.17, preprint pp.44–50, provide the read proof. This route needs no main conjecture.
+The proof combines the H2 degeneracy maps, a finite tower-torsion bound, joint reduction surjectivity and a reduction prime at which every relevant supersingular fibre exceeds the degree-times-torsion bound. The quantitative fibre-growth and quotient-transport interfaces belong to R18.3–R18.4. CV Lemmas 4.14–4.15, Remark 4.16 and Proposition 4.17, preprint pp.44–50, provide the read proof. The nonconstant quotient map and its fixed degree bound need the explicit quaternionic extension; HE.1 supplies the modular normalization only. This route needs no main conjecture.
 
 The stronger primitive-character statement keeps H1, P-newness, good CM type I or II and sufficiently large exact conductor. For each large conductor it asserts existence of a nonzero primitive-character component, not nonvanishing for every character. The definite branch retains its nonexceptionality condition and its period/L-value comparison. The generic root-number matrix separates the even definite L-value sign from the odd indefinite derivative sign. These endpoints and their arithmetic Gross–Zagier/Waldspurger suppliers remain the accepted HE.7s nodes; the fixed-torsion refinement does not replace them.
 
@@ -57,7 +57,7 @@ The stronger primitive-character statement keeps H1, P-newness, good CM type I o
 
 The accepted Λ-derivative class combines the point derivative, the correct coset sum, Kummer and integral restriction descent. Its ordinary local membership and finite–singular relation use the actual self-dual Heegner local conditions. The inherited global χ localization-square gap remains open: a local matrix is not automatically a G_K-linear global coefficient map. At an inert auxiliary prime, infinite decomposition is unavailable, so SI.L3’s universal-norm unramified theorem with that hypothesis is not a shortcut.
 
-The new `howard-specialization-hypotheses` verifies the arithmetic inputs to ES.8’s existing abstract self-dual bound: torsion-freeness, controlled normalized height-one specializations, the specialized H0–H5 checks and the arithmetic ι-functional equation. Local finite errors are retained. The accepted clean endpoint makes S free of rank one and X pseudo-isomorphic to Λ⊕M⊕M with char(M) invariant under ι and dividing the bottom-class index ideal. Howard’s Proposition 2.1.3, Lemma 2.2.7 through Lemma 2.2.9 and Theorem 2.3.1 proof, PDF pp.23–28, are the arithmetic verification locators. The broad CGLS endpoint permits the d(k) construction but only gives divisibility in Λ[1/p,1/(γ−1)], with the stated corank-one hypothesis allowing removal of the augmentation localization. Neither endpoint is replanned here.
+The new `howard-specialization-hypotheses` verifies the arithmetic inputs to ES.8’s existing abstract self-dual bound: torsion-freeness, controlled normalized height-one specializations, the specialized H0–H5 checks and the arithmetic ι-functional equation. Local finite errors are retained. The accepted clean endpoint makes S Λ-torsion-free of rank one and X pseudo-isomorphic to Λ⊕M⊕M with char(M) invariant under ι and dividing the bottom-class index ideal. Howard’s Proposition 2.1.3, Lemma 2.2.7 through Lemma 2.2.9 and the proof of Theorem 2.2.10, PDF pp.23–28, are the arithmetic verification locators. The broad CGLS endpoint permits the d(k) construction but only gives divisibility in Λ[1/p,1/(γ−1)], with the stated corank-one hypothesis allowing removal of the augmentation localization. Neither endpoint is replanned here.
 
 For α≡1 modulo p^m and I_n=(p^M(n)), reduction of the finite class modulo p^m requires M(n)≥m, equivalently I_n⊂p^mℤ_p. The accepted specialization target multiplies the finite Heegner class by F_p=(p+1−a_p)² when p splits and by F_p=(p+1)²−a_p² when p is inert. This factor can be a nonunit. The reversed membership in CS Lemma 3.1.1, p.13, is the already independently confirmed source issue E2. The current arXiv and author versions were rechecked; this job does not create another erratum ID.
 
@@ -75,7 +75,7 @@ The new `perfect-character-base-change` checks perfectness and arbitrary suffici
 
 Under nonzero sufficiently near-identity specialization, the accepted determinant lattice comparison has scalar L_p²·Tam_E²·#Sha_prop in the tensor lattice, up to a p-adic unit. Here Tam_E=∏_(ℓ|N)c_ℓ is the rational product, and L_p=∏_(v|p)#Ẽ(k_v). Thus L_p is (p+1−a_p)² in the split case and (p+1)²−a_p² in the inert case. The finite quotient is that of the propagated Selmer group; at a general twist it is not simply identified with Bloch–Kato Sha. Both local squares and the involuted twist are retained. CS Proposition 3.3.2 and Corollary 3.3.4, PDF pp.14–16, supply the precise comparison.
 
-The final new target, `integral-heegner-determinant-containment`, isolates the lower integral bound needed for the converse refined-index implication. Under CS’s p>3 residual-surjective ordinary unramified hypotheses and the Manin-unit normalization, it requires containment of the distinguished element in det^−1C without p∤h_K. CS §3.4, PDF p.17, invokes Howard Theorem B for this step. Howard’s clean statement has the class-number hypothesis; the broader CGLS bound only holds after localization. The packet therefore records an open broadened integral A–D application contract, including the pΛ and augmentation primes. The clean verification is a comparison case, not a theorem applied outside its hypotheses. No counterexample or source erratum is asserted.
+The final new target, `integral-heegner-determinant-containment`, isolates the lower integral bound needed for the converse refined-index implication. Under CS’s p>3 residual-surjective ordinary unramified hypotheses and the Manin-unit normalization, it requires containment of the distinguished element in det^−1C without p∤h_K. CS §3.4, PDF p.17, invokes Howard Theorem 2.2.10 for this step. That abstract bound has A–D hypotheses and no class-number assumption. Howard’s clean arithmetic comparison, Theorem B (PDF p.2), has the class-number hypothesis; the broader CGLS bound only holds after localization. The missing step is arithmetic verification of A–D in the broader tower. The packet therefore records an open broadened integral A–D application contract, including the pΛ and augmentation primes. The clean verification is a comparison case, not a theorem applied outside its hypotheses. No counterexample or source erratum is asserted.
 
 Integral containment is independent of the main-conjecture equality. Once it is known, a basis specialization and the appropriate local unit criterion lift the distinguished integral element to a Λ-basis. Assuming the desired equality to prove containment would make the converse circular. The conditional integral equivalence and the inert conjectural branch stay at their accepted IDs; an unconditional proof of the requisite main conjecture remains HE.8b work.
 
@@ -83,9 +83,9 @@ Integral containment is independent of the main-conjecture equality. Once it is 
 
 The early family, geometric nonvanishing and clean Howard exports precede BSD.7a and the downstream HE.8b main-conjecture discharge. Conditional specialization conclusions carry mathematical hypotheses rather than reverse dependencies on their proofs. If the atlas requires stage-wide edges, the proposed early HE.8e and late HE.8s split separates those interfaces. HE.8 and HE.8b must be extracted separately from the roadmap anchors, lines 102–108 and 110–116. The HE.8c bookkeeping edges are removed only through the maintainer’s accepted restructuring process. The existing six planet choices are reused: the anticyclotomic class, joint distribution, Howard divisibility, BCGS nonvanishing, refined divisibility and CS equivalence. This refinement adds none.
 
-The packet’s proposed refinement edges attach the new inputs to the corresponding accepted consumers; existing packets and atlas data are not edited. All chains end in existing nodes, requested stages or explicit gaps. GN.4 owns generic dynamics; AA owns measures/compactness/strong approximation; R18 owns the quaternionic reduction and degeneracy interfaces; PMIA owns the norm-module algebra; SI owns compact cohomology, duality and derived specialization; ES owns the abstract bound. The weak-torsion auxiliary descent remains HE.4’s extension. Main-conjecture proofs are not imported into geometric nonvanishing.
+The packet’s proposed refinement edges attach the new inputs to the corresponding accepted consumers. The traced rank-one generator theorem supplies only the clean branch of the broader bottom-class target; it must not become an unconditional prerequisite imposing p∤h_K there. Assembly retains the separate CGLS route; existing packets and atlas data are not edited. All chains end in existing nodes, requested stages or explicit gaps. GN.4 owns generic dynamics; AA owns measures/compactness/strong approximation; R18 owns the quaternionic reduction and degeneracy interfaces; PMIA owns the norm-module algebra; SI owns compact cohomology, duality and derived specialization; ES owns the abstract bound. The weak-torsion auxiliary descent remains HE.4’s extension. Main-conjecture proofs are not imported into geometric nonvanishing.
 
-Acceptance includes discriminating numerical initial-factor examples, separate raw versus full-trace recurrences, the nonunit augmentation lattice, inability to divide by p-primary |G0|, character coefficient containment, and the distinction between integral and localized bounds. Each new construction’s API and four tests appear in the refinement catalogue. The imported constructions’ API and tests remain listed in the imported catalogue with their accepted IDs. Their arithmetic carriers are not invented for the Suggested file. Elaborating its elementary signatures establishes only syntactic compatibility with the pinned libraries, not any arithmetic proof.
+Acceptance includes discriminating numerical initial-factor examples, separate raw versus full-trace recurrences, the nonunit augmentation lattice, inability to divide by p-primary |G0|, character coefficient containment, and the distinction between integral and localized bounds. Each new construction’s API and five tests appear in the refinement catalogue. The imported constructions’ API and tests remain listed in the imported catalogue with their accepted IDs. Their arithmetic carriers are not invented for the Suggested file. Elaborating its elementary signatures establishes only syntactic compatibility with the pinned libraries, not any arithmetic proof.
 
 ## New construction and proof-interface catalogue
 
@@ -115,10 +115,14 @@ Check:
 
 API, derived from the uses in Howard’s norm-module proof and the accepted bottom-class comparison:
 
-- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_level` (projection): Projection pr_k:H→H_k is Λ-linear and satisfies cor_k∘pr_(k+1)=pr_k with the actual restricted point traces.
+- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_level` (projection): The compact Hausdorff inverse-limit Λ-module H has continuous Λ-linear projections pr_k:H→H_k with cor_k∘pr_(k+1)=pr_k. Its topology is the subspace topology on the compatible tuples in ∏_k H_k.
 - `TauCeti.Heegner.Anticyclotomic.tracedNormModule_trace` (compatibility): The Norm_G map H[1]→H is the map induced by the levelwise field traces; it carries the chosen Q[1] to κ̃₁ and commutes with Kummer.
 - `TauCeti.Heegner.Anticyclotomic.tracedNormModule_generator` (characterisation): Under the clean hypotheses the map Λ→H, a↦aκ̃₁, is a Λ-linear isomorphism.
 - `TauCeti.Heegner.Anticyclotomic.tracedNormModule_augmentation` (characterisation): For the traced free presentation, the bottom projection gives H̃^G/(γ−1)H̃^G≅aug(Φ)H̃^G_0 and sends y^G to aug(Φ)x^G. This comparison is for the presentation, not an asserted description of the arithmetic H_0.
+- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_mk` (constructor): A tuple (h_k) with h_k∈H_k and cor_k(h_(k+1))=h_k for every k defines mk(h)∈H, with pr_k(mk(h))=h_k. No surjectivity of individual corestrictions is assumed.
+- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_ext` (extensionality): For x,y∈H, x=y if and only if pr_k(x)=pr_k(y) for every k. In particular, mk(pr_k(x))=x.
+- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_lift` (universal-property): For a topological Λ-module M and compatible continuous Λ-linear maps f_k:M→H_k, there is a unique continuous Λ-linear map lift(f):M→H with pr_k∘lift(f)=f_k. Identity and composition of such maps agree levelwise.
+- `TauCeti.Heegner.Anticyclotomic.tracedNormModule_kummer` (compatibility): The levelwise point Kummer maps induce an injective Λ-linear map H→lim_k H¹(K_k,T_pE). Via inverse-action Iwasawa Shapiro this maps κ̃₁ to the accepted bottom class; comparison with Howard’s direct-action convention uses the explicit ι-semilinear coefficient identification.
 
 Unit tests:
 
@@ -126,48 +130,51 @@ Unit tests:
 - `tracedNormModule_trace_scale` (compatibility): For p=5 and a trivial-action free ℤ_5 module with G cyclic of order 2, Norm_G sends x to 2x. Replacing this trace by the identity loses the normalization even though both generate the same line.
 - `tracedNormModule_nonunit_augmentation` (non-example): For the free presentation with inert p=5,a_p=1, aug(Φ)=35. The image lattice is 35ℤ_5 x^G, not ℤ_5 x^G; a generator of this image does not make 35 a unit.
 - `tracedNormModule_bad_class_number` (non-example): For G cyclic of order 5 over ℤ_5, the normalized average Norm_G/5 is not an integral group-ring operator; the clean invariant-exactness argument cannot be invoked.
+- `tracedNormModule_incompatible_tuple` (non-example): In the identity-trace tower H_k=ℤ_5, the tuple h_0=0 and h_k=1 for k≥1 fails cor_0(h_1)=h_0 and cannot be passed to mk. A definition using the unrestricted product would admit it.
 
 ### Adelic norm fibres and expanding P-isogeny annuli
 
 `HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus` — theorem.
 
-Fix the actual CV data: F totally real, K/F CM, a prime P of F, a quaternion algebra B split at P and with K embedded, a compact open level H, the relative ring-class tower, a nonempty finite collection 𝒮 of allowed reduction sets S, and a finite set R of shifts distinct modulo Gal_K^(P-rat). For each S, exclude P, require B split and K nonsplit at its primes and |S|+|Ram_f(B)|+[F:ℚ] even. Retain the central norm-component spaces in the accepted joint-CM reduction target. Their fixed norm-component fibres are finite unions of compact quotients Γ_(S,g)\SL₂(F_P), with arithmetic lattices and commensurators identified. For each compact open Galois averaging subgroup G and compact open level H, a fixed P-isogeny class has the parametrization of CV Propositions 2.12 and 2.28: finitely many x_i and one-parameter unipotent groups u_i, and a compact open multiplicative subgroup κ⊂F_P^×, such that its G/level saturation is the union over i and n≥0 of G·x_i·u_i(ϖ^(−n)κ)·H. For fixed i,n this set is the single double orbit G·x_i u_i(ϖ^(−n))·H. The sets ϖ^(−n)κ⊂F_P are expanding annuli, carrying the additive Haar measure used in the subsequent integration. CM conductor tending to infinity escapes compact subsets of that isogeny class. The torus subgroup is not replaced by an arbitrary additive ball.
+Fix the actual CV data: F totally real, K/F CM, a prime P of F, a quaternion algebra B split at P and with K embedded, a compact open level H, the relative ring-class tower, a nonempty finite collection 𝒮 of allowed reduction sets S, and a finite set R of shifts distinct modulo Gal_K^(P-rat). For each S, exclude P, require B split and K nonsplit at its primes and |S|+|Ram_f(B)|+[F:ℚ] even. Retain the central norm-component spaces in the accepted joint-CM reduction target. For a fixed norm component z and a compact open reduced-norm-one level U_S^P away from P, the quotient c_S⁻¹(z)/U_S^P is equivariantly homeomorphic to the single compact quotient Γ_(S,g)\SL₂(F_P). The stabilizer Γ_(S,g) is discrete and cocompact; before conjugation by g_P its commensurator in B_(S,P)^× is F_P^×B_S^×. A compatible common away-P level gives the product of these quotients in the joint reduction space. The unquotiented adelic fibre is recovered through all away-P levels; it is not asserted to be one local lattice quotient. Quotienting also at P gives the finite-level class-set fibre. For each compact open Galois averaging subgroup G and compact open level H, a fixed P-isogeny class has the parametrization of CV Propositions 2.12 and 2.28: finitely many x_i and one-parameter unipotent groups u_i, and a compact open multiplicative subgroup κ⊂F_P^×, such that its G/level saturation is the union over i and n≥0 of G·x_i·u_i(ϖ^(−n)κ)·H. For fixed i,n this set is the single double orbit G·x_i u_i(ϖ^(−n))·H. The sets ϖ^(−n)κ⊂F_P are expanding annuli, carrying the additive Haar measure used in the subsequent integration. CM conductor tending to infinity escapes compact subsets of that isogeny class. The torus subgroup is not replaced by an arbitrary additive ball.
 
 Proof route:
 
-- Import the existing AdelicAlgebraicGroups strong-approximation and anisotropic quotient contracts.
-- Identify local stabilizers and commensurators through the quaternion order.
+- Import the existing AdelicAlgebraicGroups anisotropic compactness, S-arithmetic lattice and simply connected strong-approximation targets. Apply them to the totally definite norm-one group B_S¹ with P split; the S-factor including P is noncompact.
+- Fix the norm component and quotient by a compact open reduced-norm-one level away from P. Use transitivity to identify its single local quotient and its discrete cocompact stabilizer. Verify the quaternionic commensurator comparison, then pass through compatible away-P levels for the joint adelic fibre.
 - Parametrize the toric orbit by the finite unipotent charts, with κ⊂F_P^× and the single-double-orbit identity. Verify conductor escape and the additive Haar normalization on these annuli.
 
-Inputs: `HeegnerPointEulerSystems:HE.8/cm-character-stratum`, `HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower`, `AdelicAlgebraicGroups:AA.3`, `AdelicAlgebraicGroups:AA.4`, `HilbertModularVarietiesAndShimuraCurves:R18.2`.
+Inputs: `HeegnerPointEulerSystems:HE.8/cm-character-stratum`, `HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower`, `AdelicAlgebraicGroups:AA.4`, `HilbertModularVarietiesAndShimuraCurves:R18.2`, `AdelicAlgebraicGroups:AA.3/compactness-anisotropic`, `AdelicAlgebraicGroups:AA.3/s-arithmetic-lattice`, `AdelicAlgebraicGroups:AA.4/strong-approximation-sufficiency`.
 
-Sources: cv-cm: Proposition2.12 pp.275–276; Lemmas2.19–2.20 pp.280–282; Proposition2.28 pp.287–289.
+Sources: cv-cm: Proposition 2.12, printed pp.275–276; Lemmas 2.19–2.20, pp.281–282; Proposition 2.28, pp.287–288.
 
 Check:
 
 - κ is multiplicative in F_P^×; its scaled annuli are then integrated with additive Haar measure on F_P. It is not a subgroup of K_P^× or an arbitrary additive ball.
 - The norm component is fixed before applying Haar distribution.
+- The away-P quotient is explicit. The unquotiented adelic fibre and the full finite-level class set have different carriers from Γ\SL₂(F_P).
 
 ### Noncommensurable CM joining and dense unipotent orbit
 
 `HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application` — theorem.
 
-In a component fibre of the simultaneous CV reduction space, pairwise distinct shifts modulo Gal^{P-rat}_{K} exclude the proper pairwise commensurable joinings. After the source’s local torus parametrization, for almost every averaging parameter the diagonal unipotent orbit is dense in the product of the cocompact SL₂(F_P)-lattice quotients. The exceptional Galois averaging parameters lie in a countable union of cosets of Gal_K^(P-rat) in Gal_K^ab, negligible for Haar measure as in CV Proposition 2.24. These cosets arise from countably many F_P^×-cosets in K_P^× in the local calculation. Use the exact p-adic orbit-closure/stabilizer classification and partition-diagonal argument, rather than real Ratner or independent density of each coordinate.
+Fix a component fibre of the simultaneous CV reduction space and any compatible compact open norm-one level away from P as in adelic-fibre-and-isogeny-annulus. Then pairwise distinct shifts modulo Gal^{P-rat}_{K} exclude the proper pairwise commensurable joinings. After the source’s local torus parametrization, for almost every averaging parameter the diagonal unipotent orbit is dense in the resulting product of cocompact SL₂(F_P)-lattice quotients. Passing through a countable cofinal family of away-P levels gives density in the full component fibre, as in Lemma 2.25. The exceptional Galois averaging parameters lie in a countable union of cosets of Gal_K^(P-rat) in Gal_K^ab, negligible for Haar measure as in CV Proposition 2.24. These cosets arise from countably many F_P^×-cosets in K_P^× in the local calculation. Use the exact p-adic orbit-closure/stabilizer classification and partition-diagonal argument, rather than real Ratner or independent density of each coordinate.
 
 Proof route:
 
 - Import the requested p-adic orbit-classification statement and twisted-diagonal stabilizer consequence.
-- Use partition-diagonal subgroups and closed-orbit commensurability to identify every proper joining.
+- Use partition-diagonal subgroups and closed-orbit commensurability at each away-P level. Distinct reduction sets have quaternion algebras with different ramification, ruling out inter-set commensurability; within one reduction set the shift comparison identifies the proper joining obstruction.
 - Use the P-rational distinctness of shifts and Proposition 2.24’s countable Haar-null Gal_K^(P-rat)-cosets to exclude these joinings almost everywhere.
 
 Inputs: `HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus`, `GeometryOfNumbersAndQuadraticArithmetic:GN.4`.
 
-Sources: cv-cm: Propositions 2.22 and 2.24, printed pp.282–286; Lemmas 2.30–2.32 and Corollary 2.34/Proposition 2.35, printed pp.289–292, §2.5/§2.7.
+Sources: cv-cm: Propositions 2.22 and 2.24 and Lemma 2.25, printed pp.282–286; Lemmas 2.30–2.32, Corollary 2.34 and Proposition 2.35, pp.289–291, §§2.5/2.7.
 
 Check:
 
 - Marginal density alone is insufficient for a product joining.
 - The finite-extension F_P version is an explicit supplier obligation, not inferred from a Q_p-only citation.
+- Density is checked after each away-P quotient and then in the full fibre; the quotient level is not silently dropped.
 
 ### Cornut–Vatsal nonzero fixed-torsion CM trace
 
@@ -177,14 +184,14 @@ In the indefinite quaternionic CV setting assume H2: at each Q≠P ramified in K
 
 Proof route:
 
-- Use H2 degeneracy maps to remove the G1/G2 contribution without losing surjectivity; import their quaternionic Hecke realization.
+- Use H2 degeneracy maps to remove the G1/G2 contribution without losing Pic(O_F)-equivariance or quotient surjectivity. The resulting nonzero quotient of the Jacobian induces a nonconstant map α₁ on each relevant smooth proper curve component; bound its finite fibres by a fixed degree d before reduction. This is the quaternionic R18.4 extension, distinct from the modular normalization supplied by HE.1.
 - For the remaining G0/G1 shifts use eventual independent reduction on compatible components.
 - Choose an inert auxiliary reduction prime with supersingular fibres larger than the fixed map-degree times the finite torsion bound, via the requested quantitative class-set growth.
 - Conclude the assumed torsion projection cannot vanish for all sufficiently high CM points.
 
 Inputs: `HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite`, `HeegnerPointEulerSystems:HE.8/cm-character-stratum`, `HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity`, `HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree`, `HilbertModularVarietiesAndShimuraCurves:R18.3`, `HilbertModularVarietiesAndShimuraCurves:R18.4`.
 
-Sources: cv: Theorem4.10 p.41; Lemmas4.14–4.16 pp.44–48; Proposition4.17 and end of proof pp.49–50.
+Sources: cv: Theorem 4.10, PDF p.41; Lemmas 4.14–4.15 and Remark 4.16, pp.44–48; Proposition 4.17 and the end of the proof, pp.49–50.
 
 Check:
 
@@ -203,7 +210,7 @@ Proof route:
 - Track finite G0 and the actual inclusions K_k⊂K[p^d(k)] in the point traces. Prove the common free-presentation finite constraints with those maps, not with the clean tower’s k+1 indexing.
 - Check the ordinary local descent using the semilocal norm comparison at p; its finite residue torsion term is retained. Supply these verification data to the already accepted family and restriction APIs.
 
-Inputs: `HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients`, `HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence`, `HeegnerPointEulerSystems:HE.4`, `SelmerIwasawaCohomology:L3/iwasawa-shapiro`, `HeegnerPointEulerSystems:HE.8/initial-euler-factor`.
+Inputs: `HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients`, `HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence`, `HeegnerPointEulerSystems:HE.4`, `SelmerIwasawaCohomology:L3/iwasawa-shapiro`, `HeegnerPointEulerSystems:HE.8/initial-euler-factor`, `SelmerIwasawaCohomology:L3`.
 
 Sources: cgls: Theorem 4.1.1, §4.1, published pp.566–568; d(k), equations (4.1)–(4.3) and restriction comparison on p.567.
 
@@ -226,7 +233,7 @@ Proof route:
 
 Inputs: `HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions`, `HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion`, `HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2`, `HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5`, `EulerSystemsAndKolyvaginSystems:ES.8/specialization-control`, `EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization`, `SelmerIwasawaCohomology:L3/iwasawa-selmer-duality`, `SelmerIwasawaCohomology:L3`.
 
-Sources: howard: Proposition2.1.3 pp.23–24; Lemma2.2.7/Proposition2.2.8/Lemma2.2.9 pp.25–26; proof of Theorem2.3.1 pp.27–28.
+Sources: howard: Proposition 2.1.3, PDF pp.23–24; Lemma 2.2.7, Proposition 2.2.8 and Lemma 2.2.9, pp.25–26; proof of Theorem 2.2.10, pp.26–28.
 
 Check:
 
@@ -271,7 +278,7 @@ Proof route:
 
 Inputs: `HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification`, `HeegnerPointEulerSystems:HE.8/determinant-characteristic-ideal-comparison`, `EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound`, `EulerSystemsAndKolyvaginSystems:ES.8`, `SelmerIwasawaCohomology:L3`.
 
-Sources: cs: Proof of Theorem C, §3.4 p.17, invoking Howard Theorem B; compare Howard Theorem B p.3 and CGLS Theorem4.1.2 p.568.
+Sources: cs: Proof of Theorem C, CS §3.4, PDF p.17, invoking Howard Theorem 2.2.10 (pp.26–28); compare Howard Theorem B (p.2) and CGLS Theorems 3.4.1/4.1.2 (printed pp.564–565/568).
 
 Check:
 
@@ -283,6 +290,20 @@ Check:
 ## Imported HE.8 specification catalogue
 
 These specifications are references to the accepted HE.7s nodes, not additional nodes or API counts in this packet. The common elliptic-curve conventions are those above; the quoted IDs identify the exact coefficient and local-condition interfaces to reuse. Each entry retains every additional branch hypothesis. Its accepted source locator is given as recorded there; author-manuscript PDF locators are not converted to published pages by guessing. The new sources and their pagination are listed separately below.
+
+
+The imported catalogue uses the following source versions, independently of the refinement-source keys below. In particular, its `cgls` PDF pp.27–28 refer to `Eisenstein.pdf`, not the published `Eisenstein-print.pdf` used by this refinement.
+
+| Imported key | Source and pagination |
+| --- | --- |
+| `howard` | [The Heegner point Kolyvagin system](https://arxiv.org/pdf/1202.6340); arXiv:1202.6340v1, 28 February 2012; Compositio Math.140 (2004),1439–1472. |
+| `cornut` | [Mazur’s conjecture on higher Heegner points](https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf); Invent. Math.148 (2002),495–523; author manuscript. |
+| `cv` | [Nontriviality of Rankin–Selberg L-functions and CM points](https://personal.math.ubc.ca/~vatsal/research/part1.pdf); Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186. |
+| `cv-dynamics` | [CM points and quaternion algebras](https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf); Author manuscript, 3 April 2005; Documenta Math.10 (2005),263–309. |
+| `bcgs` | [Non-vanishing of Kolyvagin systems and Iwasawa theory](https://arxiv.org/pdf/2312.09301v2); arXiv:2312.09301v2, January 2026; published CJM14(2) (2026),285–348. |
+| `cgls` | [On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes](https://web.math.ucsb.edu/~castella/Eisenstein.pdf); Invent. Math.227 (2022),517–580; author copy. |
+| `cs` | [On refined nonvanishing conjectures by Kurihara and Kolyvagin](https://web.math.ucsb.edu/~castella/Kurihara.pdf); Author manuscript dated 20 January 2026, arXiv:2601.14504v1. |
+| `wuthrich` | [On the integrality of modular symbols and Kato’s Euler system for elliptic curves](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-19/12.pdf); Documenta Math.19 (2014),381–402, published PDF. |
 
 ### Heegner initial Euler factor (import)
 
@@ -1005,17 +1026,13 @@ Accepted source locators: howard: Lemmas2.3.2–2.3.3; PDF pp.29–30; cgls: The
 
 ## Requests and remaining inputs
 
-These ten contracts refine existing supplier requests. Their statements specify the exact missing interface rather than a new general theory. Other accepted HE.7s requests and gaps remain in force through the imported target nodes.
+These nine contracts refine existing supplier requests. Their statements specify the exact missing interface rather than a new general theory. Other accepted HE.7s requests and gaps remain in force through the imported target nodes.
 
 **GeometryOfNumbersAndQuadraticArithmetic:GN.4**. Homogeneous-dynamics Part II contract: for L a finite extension of Q_p, G=SL₂(L), X=∏_{i=1}^r Γ_i\G with cocompact arithmetic lattices, V={v(t)} a one-parameter L-unipotent subgroup of G^r, each orbit closure is xH for a closed H⊃V and has its normalized H-invariant probability θ_x. For continuous f and every compact κ⊂L of positive additive Haar measure, |s|→∞ gives λ(sκ)^{-1}∫_{sκ}f(xv(t))dλ(t)→∫f dθ_x. For V=ΔU the measure stabilizer contains cΔG c^{-1} with c∈U^r. Export the pairwise-commensurability/partition-diagonal joining consequence. This is CV-CM Theorem2.29/Lemma2.30, p.289; the Q_p case cites Ratner Duke Math.J.77(1995), Corollary4 of Theorem6; the S-arithmetic/finite-extension supplier must verify the precise Ratner and Margulis–Tomanov Invent.Math.116(1994) hypotheses. Existing GN.4 is real-only and does not yet supply it.
 
 Consumers: `HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application`.
 
-**AdelicAlgebraicGroups:AA.3**. Reuse the existing anisotropic compact quotient theorem for B_S and identify the finite union of cocompact local SL₂(F_P)-lattice quotients in CV-CM Lemmas2.19–2.20, pp.280–282.
-
-Consumers: `HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus`.
-
-**AdelicAlgebraicGroups:AA.4**. Reuse current upstream simply connected strong approximation with noncompact factor outside S to obtain the exact quaternionic fibre and commensurator description of CV-CM Lemmas2.19–2.20. Keep the central reduced-norm component; do not re-plan strong approximation.
+**AdelicAlgebraicGroups:AA.4**. Reuse the exact compactness/S-arithmetic lattice/strong-approximation nodes cited by adelic-fibre-and-isogeny-annulus. Supply the remaining general-F quaternionic reduced-norm and arithmetic commensurator comparison of CV-CM Lemmas 2.19–2.20, printed pp.281–282: at compact open norm-one level away from P, the stabilizer is the projection of the conjugated S-arithmetic norm-one subgroup, and its commensurator before g_P-conjugation is F_P^×B_S^×. This extends the current rational-field norm export; it does not re-plan strong approximation or identify the raw adelic fibre with a local quotient.
 
 Consumers: `HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus`.
 
@@ -1027,7 +1044,7 @@ Consumers: `HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus`.
 
 Consumers: `HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing`.
 
-**HilbertModularVarietiesAndShimuraCurves:R18.4**. H2 ramified-prime degeneracy maps preserving Pic(O_F)-equivariance and the nonzero/surjective quotient in CV Lemmas 4.14–4.16, preprint pp.44–48. Only the fixed-torsion Theorem 4.10 branch is a new consumer here; P-new/type-I/II primitive-character interfaces remain in HE.7s.
+**HilbertModularVarietiesAndShimuraCurves:R18.4**. H2 ramified-prime degeneracy maps preserving Pic(O_F)-equivariance and the nonzero/surjective quotient in CV Lemmas 4.14–4.15 and Remark 4.16, PDF pp.44–48. Supply the resulting nonconstant componentwise curve-to-abelian-variety map, its fixed finite-fibre degree bound and good-reduction transport used on pp.49–50. Existing split-prime cohomological degeneracy or modular HE.1 normalization does not by itself provide this contract. Only the fixed-torsion Theorem 4.10 branch is a new consumer here; the P-new/type-I/II primitive-character interfaces remain in HE.7s.
 
 Consumers: `HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing`.
 
@@ -1043,13 +1060,13 @@ Consumers: `HeegnerPointEulerSystems:HE.8/perfect-character-base-change`, `Heegn
 
 Consumers: `HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification`.
 
-**EulerSystemsAndKolyvaginSystems:ES.8**. The self-dual-lambda-adic-kolyvagin-bound node is reused. Supply its exact integral application contract for CS §3.4 under residual surjectivity and d(k), without a p∤h_K hypothesis: verify A–D at all height-one primes using the actual propagated ordinary Heegner strong system. This is the explicit gap between clean Howard Theorem B (PDF p.3) and CGLS’s localized Theorem 4.1.2 (published p.568); do not replace integral containment by that localization.
+**EulerSystemsAndKolyvaginSystems:ES.8**. Reuse self-dual-lambda-adic-kolyvagin-bound as the exact abstract integral contract of Howard Theorem 2.2.10, PDF pp.26–28. Specify its specialization hypotheses and the perturbation argument controlling every height-one valuation, including pΛ and augmentation. HE.8 owns the arithmetic A–D verification for CS §3.4 under residual surjectivity and the d(k) tower, without p∤h_K; SI.L3 owns the local control/functional equation comparison. Clean Howard Theorem B (p.2) is a comparison case. CGLS localized Theorems 3.4.1/4.1.2 (printed pp.564–565/568) do not discharge integral containment.
 
 Consumers: `HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment`.
 
 **Gap: Exact p-adic dynamics and joining supplier.** The generic GN.4 extension is already requested by HE.7s. Its finite-extension F_P orbit/measure/stabilizer contract remains unverified in original sources; CV-CM Lemma 2.30, printed p.289, qualifies the general local-field extension. The new node records the arithmetic joining application only.
 
-**Gap: Quaternionic fibre and quantitative reduction growth.** The adelic/S-arithmetic fibre model, H2 degeneracy compatibility and arbitrarily large supersingular norm fibres require the exact R18 and AA requests. These inputs are not supplied by a complex CM double-coset description or by marginal density.
+**Gap: Quaternionic fibre and quantitative reduction growth.** The away-P quaternionic fibre and commensurator model, H2 degeneracy/nonconstant-map compatibility and arbitrarily large supersingular norm fibres require the exact R18 and remaining AA.4 requests. Existing anisotropic compactness, S-arithmetic lattice and strong approximation nodes are reused directly. Neither a complex CM double-coset model nor marginal density supplies these stronger interfaces.
 
 **Gap: Traced universal-norm rank and presentation comparison.** Howard’s proof of Theorem 2.3.7 was read, but its cited Perrin–Riou rank comparison was not independently read; PMIA L5 remains not_read in its accepted packet. The exact traced norm-module/presentation interface is requested there, preserving finite G and the nonunit augmentation lattice.
 
@@ -1057,11 +1074,11 @@ Consumers: `HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containme
 
 **Gap: Arithmetic integral control and arbitrary character base change.** Existing SI.L3 nodes cover inverse Shapiro, finite-layer derived control and duality with error cones. Exact perfect character base change, ordinary/inertia map compatibility and Howard’s arithmetic functional equation remain stronger requested interfaces. Nekovář 8.10.1 is cited through the read CS proof, not represented as independently acquired/read.
 
-**Gap: Integral containment beyond the clean class-number condition.** CS §3.4 invokes Howard’s integral bound without imposing p∤h_K. The broadened integral A–D verification, including the p and augmentation primes and the ordinary lattice comparison, is therefore a distinct required input. CGLS gives only localized divisibility. This is an open application/supplier gap, not a claimed counterexample or source erratum.
+**Gap: Integral containment beyond the clean class-number condition.** CS §3.4 explicitly applies Howard Theorem 2.2.10, an abstract integral bound with A–D hypotheses and no class-number assumption. Its application to the broader d(k) tower without p∤h_K still requires arithmetic verification of A–D, including the p and augmentation valuations and the ordinary lattice comparison. Howard Theorem B states the clean comparison case, while CGLS gives only localized divisibility. This is an application/supplier gap, not a claimed counterexample or source erratum.
 
 ## Source and baseline record
 
-The source readings support the target-specific statements above, not a section-by-section extraction. No source passage is reproduced. Published and preprint page numbers are deliberately distinguished. Sources cited indirectly through Howard or CS are not claimed as independent readings.
+The source readings below record the planning pass. The packet also records the independent review’s precise readings, which checked the eight refinement targets and the inherited E2/E3 findings; the imported targets retain their earlier accepted review. These readings support the target-specific statements above, not a section-by-section extraction. No source passage is reproduced. Published and preprint page numbers are deliberately distinguished. Sources cited indirectly through Howard or CS are not claimed as independent readings.
 
 - **howard**: Benjamin Howard, [The Heegner point Kolyvagin system](https://arxiv.org/pdf/1202.6340v1). arXiv:1202.6340v1; original Compositio Math.140 (2004),1439–1472. Locators below use preprint PDF pages. Read: Introduction pp.2–3; Chapter2 pp.22–35 in full, including arithmetic hypotheses, specialization, norm modules and proof of Theorem B. Chapter1 is imported through HE.0 and ES.5, not claimed as a fresh full reading. Accessed 2026-10-14.
 
@@ -1080,3 +1097,5 @@ The source readings support the target-specific statements above, not a section-
 The packet records source SHA-256 digests and version identities. E2 is reused from the accepted packet: the CS coefficient-ideal reversal was checked again in both acquired current copies. E3 is also inherited: the exact rigidity route remains p>3. This job adds no source-issue IDs.
 
 The Lean baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. `Module` and `LinearMap` were read at that exact Mathlib commit. They supply the genuine carriers for the elementary linear trace statement; they do not supply compact arithmetic Selmer objects. Current read-only TauCetiRoadmap and Tau Ceti were also screened, including the newer roadmap additions, so current ordinary elliptic reduction, profinite cohomology and adelic group plans are reused. No lake command was run in those read-only trees.
+
+Independent review accepted this target-level pass on 2026-10-14 after correcting the away-P quotient, completing the traced-module constructor/extensionality API and separating the clean comparison edge from the broader nonvanishing route. The six gaps remain open. The corrected Suggested file elaborated at the pinned Mathlib with exactly seven admitted-proof warnings; the blueprint check reported no errors or warnings.
