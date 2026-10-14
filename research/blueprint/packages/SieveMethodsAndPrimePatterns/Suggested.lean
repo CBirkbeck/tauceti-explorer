@@ -421,8 +421,9 @@ example : primeCountAP 5 1 0 = 3 := by sorry
 example : primeCountAP 10 2 0 = 1 := by sorry
 /-- Modulus one has zero prime-count discrepancy. -/
 example (x : ℝ) : discrepancy x 1 = 0 := by sorry
-/-- At x=10 the two reduced classes modulo three differ by 1/2 from π(x)/φ(3). -/
-example : discrepancy 10 3 = 1/2 := by sorry
+/-- At x=10 the reduced classes modulo three hold one prime (7) and two primes (2, 5),
+against the mean π(10)/φ(3) = 2, so the maximal deviation is one. -/
+example : discrepancy 10 3 = 1 := by sorry
 /-- Every nonpositive level has only the trivial modulus eventually. -/
 example : PrimesHaveLevel 0 := by sorry
 /-- A level above one fails; fixed coprime primes obstruct the too-large modulus range. -/
