@@ -201203,6 +201203,27 @@
    "reviewReason": "Checked by direct computation of Satake classes at places inert in E; repaired by the central-character identity from the Lemma."
   },
   {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E19",
+   "kind": "error",
+   "locator": "2006 published edition, §26.1 Theorem (26.1.2), p. 162; same displayed epsilon formula in §26.8 Proposition, p. 169",
+   "printed": "For unramified φ the formula ε(s,φ St,ψ) = −ε(s,φ,ψ) is stated under the arbitrary nontrivial ψ quantifier of §26.1.",
+   "correction": "The displayed equality holds for ψ of BH level one. For arbitrary ψ with self-dual measures, ε(s,φ St,ψ) = −φ(ϖ)q^{1/2−s} ε(s,φ,ψ)^2. In particular conductor-O ψ gives ε(1/2,φ St,ψ) = −φ(ϖ).",
+   "reason": "BH §23.5 p. 143 gives ε(s,φ,ψ) = φ(ϖ)^{-1}q^{s−1/2} for level-one ψ, so the corrected formula reduces to the printed one there. Under ψ↦ψ_a the GL₁ factor scales by φ(a)|a|^{s−1/2} (§23.5 Lemma 1), whereas the GL₂ factor scales by φ(a)^2|a|^{2s−1} (§24.3 Proposition p. 150). Thus the printed equality cannot hold for arbitrary ψ. For φ=1 and conductor-O ψ, the WD Steinberg parameter gives −q^{1/2−s}, while the printed right side is −1. The correction follows from the WD determinant term and the two unramified Tate factors.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Springer DOI book record https://link.springer.com/book/10.1007/3-540-31511-X on 2026-10-14: no linked correction found.",
+    "Web searches on 2026-10-14 for Bushnell Henniart GL2 errata, 26.1.2 corrections and 26.8 Steinberg, including Springer and author-domain searches: no correction located.",
+    "Atlas source-issue records for this roadmap and the errata register: no existing entry for this formula found."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.4.json",
+   "citation": "Colin J. Bushnell and Guy Henniart, The Local Langlands Conjecture for GL(2), Grundlehren der mathematischen Wissenschaften 335, Springer, 2006; read in the copy the maintainer cleared for the atlas workers; use the printed page labels: the scan offset changes later in the book",
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.4",
+   "reviewReason": "Independent comparison of the two additive-character scaling laws and the conductor-O Steinberg WD calculation. Scoped to the maintainer-cleared published 2006 text; no other edition was read."
+  },
+  {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E16",
    "kind": "gap",
    "locator": "Proposition 10.1.3, proof, second paragraph (solvable case), printed p. 474 of the published IHÉS version",
@@ -201218,9 +201239,9 @@
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular, Publications mathématiques de l'IHÉS 134 (2021), 153–501; published version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
+   "reviewReason": "The printed argument invokes the subgroup classification together with Tate, not Tate alone. A reduction-compatible finite lift needs explanation, but the packet has not ruled out that combined standard argument. Fong–Swan supplies a reusable proof expansion; this does not establish an error or genuine gap in the published proposition. The asserted implication from Tate alone is too weak, but is not what the source claims."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E17",
@@ -201237,9 +201258,9 @@
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Luis Dieulefait and Ariel Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
+   "reviewReason": "The proof asserts an odd complex lift of the residual representation itself; it does not replace it by an arbitrary projective lift and does not cite Tate for this step. In this context lift includes compatibility with reduction. Supplying Fong–Swan expands a standard input, rather than contradicting the source."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E18",
@@ -201257,9 +201278,9 @@
    "owner": "GL2AutomorphicRepresentationsAndTransfer",
    "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
    "citation": "Peter Webb, A Course in Finite Group Representation Theory, Cambridge Studies in Advanced Mathematics 161 (2016); the author's prepublication version of 23 February 2016, which he states has the same mathematical content (printed page = PDF page − 7)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
+   "reviewReason": "The cited prepublication remarks and the residue-root paragraph omit the prime-to-p qualification: in characteristic p no root has order divisible by p. The cyclic p-group is a direct counterexample to requiring primitive roots of the full exponent. This confirms the remarks error only, not a false Theorem 9.2.7; its characteristic-p hypothesis may be vacuous. The finite splitting-field proof here uses 9.2.6 instead of assuming a corrected theorem. The published edition was not collated."
   },
   {
    "id": "GL2ModularityLifting/E1",
@@ -216531,9 +216552,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.1-2.json",
    "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author-hosted combined draft, 29 August 2013, corresponding to GSM 145 (2013). Printed draft page numbers below; PDF page = printed page + 8.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.1-2",
+   "reviewReason": "Independently confirmed on rendered combined-draft PDF p. 236 (printed p. 228), and separate chapter III PDF p. 45. The map has precisely n−1 coordinates; no nth coordinate occurs in its formula."
   },
   {
    "id": "K2SymbolsBrauer/E-triangular-orientation",
@@ -216553,9 +216574,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.1-2.json",
    "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author-hosted combined draft, 29 August 2013, corresponding to GSM 145 (2013). Printed draft page numbers below; PDF page = printed page + 8.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.1-2",
+   "reviewReason": "Independently confirmed at the same exercise and III.1.2 (printed p. 180/PDF p. 188): x_12(1) over Z has an above-diagonal entry, and every generated matrix has diagonal 1. The intended image is upper unitriangular. No claim is made about the unread published edition or unavailable official errata."
   },
   {
    "id": "K2SymbolsBrauer/E-classical-coefficient",
@@ -216616,6 +216637,26 @@
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauer/E-plus-factorisation-strict",
+   "kind": "misprint",
+   "locator": "Chapter IV, Theorem 1.5(2), p. IV.5, in the author's chapter file Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
+   "printed": "For a plus construction f : X → Y relative to P and a map g : X → Z killing P, the theorem asserts a map h : Y → Z, unique up to homotopy, with g equal to the composite h ∘ f on the nose.",
+   "correction": "The factorisation holds up to homotopy: there is h with h ∘ f homotopic to g, and any two such h are homotopic. Part (3) and Functoriality 1.1.2 use it only in this form.",
+   "reason": "Take X = [0,1] and f : X → point. Its homotopy fibre is X, which is contractible, so f is acyclic with trivial kernel on π₁: a plus construction relative to P = 1 (Definition 1.4.1). For Z = X and g = id_X, every composite h ∘ f is constant, so no h gives g = h ∘ f; the homotopy h ∘ f ≃ g holds for every h. The same happens for the map of Example 1.4.2 from an acyclic space X to a point, with g the inclusion of X into its cone.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's list of corrections to the published K-book (GSM 145), Wayback copy https://web.archive.org/web/20191110143141id_/https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (SHA-256 ef7ed6d0…): no entry for Chapter IV, §1",
+    "The sourceIssues of the StableHomotopyKTheory packet and the K2SymbolsBrauer packets, which cite this chapter file, and research/errata/REGISTER.md: no entry for Theorem IV.1.5"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.1-plus.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of Higher K-Theory, Author-hosted chapter PDF, accessed 2026-10-14; chapter-local printed pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.1-plus",
+   "reviewReason": "Added by the review. The counterexample was checked against Definitions 1.4 and 1.4.1 on pp. IV.4–5. The packet uses the theorem only up to homotopy, for maps under BGL(A) in comparison-model-independence, so no node changes."
   },
   {
    "id": "K2SymbolsBrauer/E1",
@@ -216692,14 +216733,36 @@
    "known": "No accessible correction established; this record is scoped to the combined author copy, with no claim about the published edition.",
    "searched": [
     "Weibel’s author K-book page and linked Kbook.errata.pdf on 2026-10-14; both www.math and sites.math errata links returned HTTP 404.",
-    "The author directory index and web search for Kbook III.5.12 tensor-rank corrections; no accessible matching correction located."
+    "The author directory index and web search for Kbook III.5.12 tensor-rank corrections; no accessible matching correction located.",
+    "Reviewer, 2026-10-14: the live errata link again returned HTTP 404; the Wayback Machine snapshot of Kbook.errata.pdf dated 2014-12-02 (corrections to the AMS edition, two pages) was read and has no entry for III.5.12."
    ],
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.2-graded-map.json",
    "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; locators refer to this copy, not to the AMS published pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2-graded-map",
+   "reviewReason": "Read at printed p.227 / PDF p.235 of the checksummed author copy: the introduction to Definition 5.12 identifies R^m ⊗ R^n with R^{m+n} and E with M_{m+n}(R), and the proof of Lemma 5.12.1 speaks of automorphisms of R^{m+n}. The free module R^m ⊗ R^n has rank mn; with m = n = 1 the printed rank 2 contradicts the source's own remark that E = R in that case. The intended argument is unaffected."
+  },
+  {
+   "id": "K2SymbolsBrauer/E-product-sign",
+   "kind": "gap",
+   "locator": "Combined author draft, Theorem IV.1.10 and Example IV.1.10.1, printed p.266 / PDF p.274, with Corollary IV.1.7.1, printed p.265 / PDF p.273.",
+   "printed": "The theorem says that the degree-(1,1) plus-construction product coincides with the matrix symbol product of III.5.12, and the example that the product of two unit classes is the Steinberg symbol of III.5.10; the identification of K₂ with π₂BGL⁺ used for this is given only as an isomorphism through H₂(E), with no sign convention.",
+   "correction": "The equality holds once the identification of K₂ with π₂BGL⁺ is normalized; under Loday's identification through the connecting map of the Steinberg extension, the product of the classes of a and b is the inverse of the commutator symbol. The convention should be stated, or the sign inserted.",
+   "reason": "Loday's Proposition 2.2.3 (printed pp.337–338), the result cited for the theorem, proves agreement only up to sign and computes the inverse commutator under its connecting-map identification. Loday's commutator of lifts of diag(a, a⁻¹, 1) and diag(b, 1, b⁻¹) is exactly Weibel's {a,b} by III.5.10–5.10.1, since these matrices are the images of h₁₂(a) and h₁₃(b), and for central commutators the two commutator conventions agree.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's K-book page, 2026-10-14: the errata link returns HTTP 404.",
+    "Wayback Machine snapshot of Kbook.errata.pdf dated 2014-12-02 (corrections to the AMS edition): no entry for IV.1.7 or IV.1.10.",
+    "Loday 1976, §2.2, which states the sign explicitly."
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.2-graded-map.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013; locators refer to this copy, not to the AMS published pagination.",
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2-graded-map",
+   "reviewReason": "Checked at both locators and against the rendered pages 337–338 of Loday's published paper. The statement is true for a suitable normalization, so nothing built on it changes, but a formalisation must fix the sign, as T.2/unit-loop-product-symbol does."
   },
   {
    "id": "K2SymbolsBrauer/E-field-symbol-factor-order",
@@ -216721,6 +216784,48 @@
    "status": "confirmed",
    "reviewedBy": "REV-K2SymbolsBrauer--T.2-symbols",
    "reviewReason": "Independently inspected the rendered author-copy p.46 and its Exercise III.5.8 conjugations. Conjugating h_ij(s) by h_ik(r) gives h_ij(rs)h_ij(r)⁻¹, so taking its commutator with h_ij(s) yields the inverse factors in order r then s. Matsumoto Lemma 5.4(c), printed p.26, agrees because the two roots have Cartan pairing +1. The source tame detector at Weibel Lemma III.6.3, p.51, distinguishes this class from its inverse. The verdict is confined to the identified author chapter, not an unread edition."
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T2-1",
+   "kind": "misprint",
+   "locator": "Author-hosted 2007 notes, §1, printed/PDF p. 7, displayed SL₃ Bruhat decomposition.",
+   "printed": "In my own words: the six-cell list repeats the cell for the transposition (12) and omits the one for (13).",
+   "correction": "Replace the second occurrence of the (12) representative by w₁₃. Retain one cell for each of the six permutations.",
+   "reason": "The adjacent matrix representatives displayed on the same page induce the three distinct transpositions, and ordinary Bruhat cells are indexed by all six elements of S₃. The repeated cell cannot represent the missing permutation.",
+   "affects": "nothing",
+   "known": "No correction found in the accessible author notes or the preprint catalogue; no claim of novelty.",
+   "searched": [
+    "Author-hosted trieste_notes.pdf, retrieved 2026-10-14",
+    "Bielefeld preprint catalogue entry 08127: https://sfb701.math.uni-bielefeld.de/Preprints/view/318",
+    "Web search for author/title/errata, 2026-10-14"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.2.json",
+   "citation": "Sources of the blueprint of K2SymbolsBrauer",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T2-2",
+   "kind": "misprint",
+   "locator": "Author chapter III PDF, Exercise 5.9, printed/PDF p. 46; commutator convention on p. 1 and symbol in III.5.10, p. 42.",
+   "printed": "In my own words: the exercise identifies the chosen symbol with the inverse of the toral defect h(a)h(b)h(ab)⁻¹.",
+   "correction": "With [x,y]=xyx⁻¹y⁻¹ and the displayed symbol, use h(a)h(b)h(ab)⁻¹. Equivalently its reversed-conjugation expression is h(ab)h(a)⁻¹h(b)⁻¹, with the inverse factors in that order.",
+   "reason": "Conjugation gives h_ik(b)h_ij(a)h_ik(b)⁻¹=h_ij(ab)h_ij(b)⁻¹, so taking the inverse commutator gives the stated positive defect. Matsumoto Lemma 5.4(c), p. 26 agrees for the +1 root overlap. The discrepancy need not vanish: the t-adic pairing on ℚ(t) sends the (t,2) symbol to 2 (Weibel III.6.3, p. 51), distinct from its inverse.",
+   "affects": "the proof",
+   "known": "The author’s errata link was found but returned HTTP 404 on both advertised hosts. Search did not resolve whether a published correction exists; this is a scoped version discrepancy, not a novelty claim.",
+   "searched": [
+    "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html, 2026-10-14",
+    "Advertised errata PDF https://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf returned 404; sites host also returned 404",
+    "Web search for Weibel Exercise III.5.9 correction; Matsumoto §5 Lemma 5.4(c) scan checked, 2026-10-14"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.2.json",
+   "citation": "Sources of the blueprint of K2SymbolsBrauer",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "K2SymbolsBrauer/E1",
@@ -233294,7 +233399,7 @@
    "kind": "error",
    "locator": "Lemma 4.6.20, last sentence of proof, arXiv v1 p. 96; authors’ March 2025 manuscript p. 99",
    "printed": "The source asserts that necessarily k′′ = k′′′ = 1.",
-   "correction": "Replace the claimed separate vanishing by a cancellation/conjugation argument controlling the Levi image. Record this repair in the flag-dynamics supplier obligation; the lemma is not disproved.",
+   "correction": "Replace the claimed separate vanishing by cancellation. With the factorisations H = (H ∩ P_μ)(H ∩ Ū_P) = (H ∩ Ū_P)(H ∩ P_μ) of H = wK_pG¹_{m,n}w⁻¹ and t′ = wtw⁻¹, write k = k_P k_Ū and k′ = k′_Ū k′_P; then k t′ k′ ∈ P_μ forces k′_Ū = t′⁻¹k_Ū⁻¹t′, so k t′ k′ = k_P t′ k′_P and the stated Levi image follows. The repaired proof is written in PerfectoidShimuraVarieties:S6/toroidal-hecke-correspondences; the lemma is not disproved.",
    "reason": "Take t=1, w=1 and a nonidentity sufficiently small element u of the indicated opposite root subgroup, lying in both required open subgroups. Set k′′=u and k′′′=u⁻¹. Their product is 1∈P_μ but neither is 1. This contradicts the displayed proof step, not the Levi-image equality.",
    "affects": "the proof",
    "known": "Not corrected in the authors’ revised March 2025 manuscript.",
