@@ -6,7 +6,7 @@ This layer constructs residual modularity witnesses for absolutely irreducible t
 
 The boundary is the accepted RS-21 narrowing, reviewed in REV-FIX-RT-RS-21 on 7 October 2026. Residual modularity witnesses, Katz forms, Hasse invariants and Deligne–Serre lifting are imported from AlgebraicModularFormsAndSerreWeights. Generic Galois representations, quadratic induction, conductors and recognition are imported from ArithmeticGaloisRepresentations. Solvable transfer itself is R17.4. Carayol’s extraordinary dyadic cubic comparison belongs to the later arithmetic local-compatibility layer and is outside this stage.
 
-The target-level pass is **complete** and R17.6 is **planned**. Two geometric proof gaps are specified below; the Katz supplier contracts still need their owner’s implementation. This is a plan, and every target has implementation status unchecked.
+The target-level pass is **complete** and R17.6 is **planned**. Two geometric proof gaps and an auxiliary-level removal gap are specified below; the Katz supplier contracts still need their owner’s implementation. This is a plan, and every target has implementation status unchecked.
 
 ## Conventions and reusable inputs
 
@@ -102,6 +102,10 @@ For a normalized primitive cuspidal eigenform f of integer weight k≥2, exact l
 
 - `ClassicalEigencomponent.weight_two` (compatibility): For k=2, comparison with the λ-factor of V₂(A_f) intertwines the chosen Albanese Hecke action and arithmetic Galois action.
 
+- `ClassicalEigencomponent.projector` (constructor): On the descended rational primitive parabolic realization in the chosen arithmetic dual convention, construct the f-projector e_f with e_f²=e_f, commuting with Galois and the compared Hecke action. Its range is V_{f,λ}; its inclusion ι and projection π satisfy πι=id and ιπ=e_f. This is a rational splitting, not an integral idempotent.
+
+- `ClassicalEigencomponent.map_ext` (extensionality): For linear maps u,v:V_{f,λ}→W, u=v iff u∘π=v∘π on the rational ambient realization. Maps w from the ambient realization satisfying w∘e_f=w factor uniquely through π. The same factorization respects Hecke/Galois actions when w does.
+
 The construction is used as follows:
 
 - `GL2AutomorphicRepresentationsAndTransfer:R17.6/classical-galois-realization`: Gives an actual two-dimensional module rather than assuming the desired Galois representation.
@@ -119,6 +123,8 @@ The construction is used as follows:
 - **coefficient_extension**: A quadratic extension of K_{f,λ} keeps dimension two over the extended field; restricting scalars gives dimension four over the original field.
 
 - **frobenius_duality**: At a weight-two good prime with polynomial X²−a_qX+χ(q)q, the arithmetic realization has determinant χ(q)q; using geometric Frobenius on that same representation gives reciprocal roots, and cannot be silently substituted.
+
+- **projector_splitting**: On the selected component πι is identity, while e_f kills any different primitive Hecke eigensummand present in the ambient realization. An identity projector on the whole cohomology fails this check.
 
 ### Galois representations of classical newforms
 
@@ -271,6 +277,8 @@ For finite-image r̄ in characteristic two, det r̄ has odd finite order and has
 **Source.** [David E. Rohrlich; Jerrold B. Tunnell, *An elementary case of Serre’s conjecture*](https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf), §2 p.307, dihedral image hypothesis. Normalization needed to apply the source’s linear-dihedral theorem.
 
 **Source.** [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Introduction p.124 and Lemmas 2–3 pp.125–127. The broader projective-dihedral lift allows a scalar twist; its coefficients/prime must be tracked.
+
+**Source.** [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Proof of Theorem 10, p.131. The odd-order square root of the determinant is unramified at 2 by Kronecker–Weber; this local character argument is used without importing the general weight/level-lowering theorem.
 
 ### Teichmüller lift and the four dyadic conductor cases
 
@@ -465,7 +473,7 @@ Here det J=2 and g₁∥₂J=±g₁. If g₁²=Σc₁(n)q^n, the weight-four twi
 
 \[
  h_1=\sum c_1(2n)q^n+2\sum c_1(n)q^n,
- \qquad \overline h_1=\sum\overline{b_1(n)}^{,2}q^n.
+ \qquad \overline h_1=\sum\overline{b_1(n)}^2q^n.
 \]
 
 Apply inverse Frobenius to the coefficients, not to the q-exponents. It recovers the desired away-two eigenpacket over the actual residue field. These formulas are the integral computational acceptance contract of the technical lemma, rather than a new trace-map definition. Their source is Rohrlich–Tunnell pp.303–306.
@@ -510,7 +518,7 @@ Every continuous absolutely irreducible projective-dihedral mod-2 representation
 
 Identifier: `GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz`. Imported canonical target; use the replacement fields in this follow-up.
 
-For a continuous absolutely irreducible projective-dihedral r̄:G_Q→GL₂(F̄₂) unramified at 2, there exists a normalized cuspidal full-Hecke eigenform in the Katz space of weight one, exact level N=N(r̄) odd, and character det r̄ (with its prime-to-two Dirichlet interpretation). It has the good-prime residual characteristic polynomials of r̄. A finite coefficient-field extension is allowed. Scalar or nonsemisimple Frobenius at 2 is included. A characteristic-zero weight-one form at that same level is not asserted.
+For a continuous absolutely irreducible projective-dihedral r̄:G_Q→GL₂(F̄₂) unramified at 2, there exists a normalized cuspidal full-Hecke eigenform in the Katz space of weight one, level N=N(r̄) odd, and character det r̄ (with its prime-to-two Dirichlet interpretation). It has the good-prime residual characteristic polynomials of r̄. A finite coefficient-field extension is allowed. Scalar or nonsemisimple Frobenius at 2 is included. A characteristic-zero weight-one form at that same level is not asserted.
 
 **Hypotheses and conventions.**
 
@@ -520,15 +528,17 @@ For a continuous absolutely irreducible projective-dihedral r̄:G_Q→GL₂(F̄�
 
 - The two requested R15.2 oldform and independence/descent contracts are prerequisites.
 
+- Level N names the Katz carrier at the residual conductor; this node asserts no separate Katz primitivity/minimality predicate.
+
 **Proof route.**
 
 1. Apply wiese-odd-lift. If its odd lift has conductor N, use quadratic-induction weight-one modularity and reduction. Otherwise, for infinitely many ℓ, obtain lifts at Nℓ.
 
 2. Use Wiese Proposition 4/Corollary 5 to raise two powers and impose U_ℓ=0 at Nℓ³; the companion matrix works also with repeated roots. After reduction, coefficients at indices divisible by ℓ vanish.
 
-3. Use a common finite residual coefficient field and finite-dimensional Hecke algebra to choose infinitely many ℓ with the same remaining eigenpacket, including the finitely many choices at 2. For distinct auxiliary primes, q-expansion comparison shows equality at a common level.
+3. Use the fixed finite group of the characteristic-zero monomial lifts to bound the possibilities at the finitely many primes dividing N, in a common finite residual coefficient field. The good-prime polynomials, including q=2, are fixed by r̄. Select distinct ℓ₁,ℓ₂ with matching prime coefficients. This gives agreement at primes only, not equality of all q-expansion coefficients.
 
-4. Use Proposition 7/Corollary 8 to descend independence from each auxiliary structure, retaining cusp conditions and the full commuting Hecke eigenpacket. The resulting form has level N, and the conductor comparison supplies exactness in the asserted sense.
+4. The published comparison fails at ℓ₁²: U_{ℓ₁}g₁=0 gives a_{ℓ₁²}(g₁)=0, whereas g₂ is good at ℓ₁ with a_{ℓ₁}(g₂)=0 and determinant/character 1, hence a_{ℓ₁²}(g₂)=0²−1=1 in characteristic two. Proposition 7 pullback preserves these coefficients. Gap G3 requires a valid auxiliary-level removal argument before Proposition 7/Corollary 8 can descend an independent form to N, retaining cusps, character and the required full eigenpacket. Stabilizing both primes alone does not establish independence.
 
 **Checks.**
 
@@ -538,9 +548,13 @@ For a continuous absolutely irreducible projective-dihedral r̄:G_Q→GL₂(F̄�
 
 - No same-level characteristic-zero weight-one lift is substituted for Katz weight one.
 
-**Direct prerequisites.** `GL2AutomorphicRepresentationsAndTransfer:R17.6/wiese-odd-lift`; `GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one`; `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`; `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`; `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`; `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`; `AlgebraicModularFormsAndSerreWeights:R15.2`; `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`; `AlgebraicModularFormsAndSerreWeights:R15.6/modularity-formulations-and-determinant`.
+- Agreement of every prime coefficient does not imply agreement at auxiliary prime powers; explicitly test the ℓ₁² discrepancy 0≠1.
 
-**Source.** [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Theorem 9 and proof, pp.130–131; Definition 6 and Proposition 7/Corollary 8, pp.129–130. Exact Katz conclusion, auxiliary eigenvalue killing, and descent including exceptional Frobenius.
+- The G3 replacement must include scalar and nonsemisimple Frobenius at 2 and must not assume auxiliary-level independence from zero U-eigenvalues.
+
+**Direct prerequisites.** `GL2AutomorphicRepresentationsAndTransfer:R17.6/wiese-odd-lift`; `GL2AutomorphicRepresentationsAndTransfer:R17.5/q-weight-one`; `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`; `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`; `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`; `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`; `AlgebraicModularFormsAndSerreWeights:R15.3/frobenius-verschiebung-on-expansions`; `AlgebraicModularFormsAndSerreWeights:R15.2`; `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`.
+
+**Source.** [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Theorem 9 and proof, pp.130–131; Definition 6 and Proposition 7/Corollary 8, pp.129–130. Theorem 9 states the Katz conclusion, including exceptional Frobenius. Its pp.130–131 auxiliary-level proof has the failed q-expansion comparison E23/G3. Proposition 7/Corollary 8 give valid descent contracts only after independence is established.
 
 ### Characteristic-two solvable residual modularity
 
@@ -578,7 +592,7 @@ Every continuous absolutely irreducible mod-2 representation of G_Q with solvabl
 
 These are additions to R15.2’s existing Katz/integral Hecke interfaces. The characteristic-zero oldform theory remains the existing ModularForms Layer 4. The contracts below describe comparisons on those carriers, never another modular-form definition.
 
-**Contract 1: `AlgebraicModularFormsAndSerreWeights:R15.2`.** Add the Katz comparison of Wiese Proposition 4/Corollary 5 (pp.127–128) to the existing integral Hecke/q-expansion interface, importing the characteristic-zero oldform theorem from ModularForms Layer 4. On V_ℓ^i f=f(q^{ℓ^i}), i=0,…,r, r≥1, U_ℓ has companion matrix with first row (a_ℓ,1,0,…), second row (−δℓ^{k−1}ε(ℓ),0,1,…), subsequent superdiagonal ones, and characteristic polynomial X^{r−1}(X²−a_ℓX+δℓ^{k−1}ε(ℓ)). δ=1 if ℓ∤N and 0 otherwise. Two additional level powers give a full eigenform with U_ℓ=0 and the same away-ℓ packet, including repeated-root cases. Do not average over a group whose order is zero in the coefficient field.
+**Contract 1: `AlgebraicModularFormsAndSerreWeights:R15.2`.** Add the Katz comparison of Wiese Proposition 4/Corollary 5 (pp.127–128) to the existing integral Hecke/q-expansion interface, importing the characteristic-zero oldform theorem from ModularForms Layer 4. On V_ℓ^i f=f(q^{ℓ^i}), i=0,…,r, r≥1, U_ℓ has companion matrix with first row (a_ℓ,1,0,…), second row (−δℓ^{k−1}ε(ℓ),0,1,…), subsequent superdiagonal ones, and characteristic polynomial X^{r−1}(X²−a_ℓX+δℓ^{k−1}ε(ℓ)). δ=1 if ℓ∤N and 0 otherwise. Two additional level powers give a full eigenform with U_ℓ=0 and the same away-ℓ packet, including repeated-root cases. Do not average over a group whose order is zero in the coefficient field. Include the geometric weight-one T₂ action on the prime-to-two Katz spaces at the levels used, with the q-expansion formula U+⟨2⟩V from R15.3; a formal-series formula alone does not construct the operator on these spaces.
 
 API required by the consuming proof:
 
@@ -596,7 +610,7 @@ Tests the supplier interface must pass:
 
 - **missing_middle_oldform**: For r=1, the basis must include f(q^ℓ); skipping it leaves only one vector and cannot have the displayed 2×2 companion matrix.
 
-**Contract 2: `AlgebraicModularFormsAndSerreWeights:R15.2`.** Wiese Definition 6, Proposition 7 and Corollary 8 (pp.129–130): for gcd(N,m)=1, Nm invertible in R and the indicated roots of unity in R, a Katz cusp form at Nm is independent of m iff its evaluation on (E,α_N,α_m) does not depend on α_m; equivalently it is the pullback of a unique Katz cusp form at N. The q-expansion at infinity agrees. Include base extension, identity m=1, composition for coprime auxiliary levels, preservation of cusps and away-m Hecke action; Corollary 8 gives a full eigenform at N with the same required eigenpacket using the finite commutative Hecke algebra. This is finite-level descent of the existing form carrier, not a second Katz definition.
+**Contract 2: `AlgebraicModularFormsAndSerreWeights:R15.2`.** Wiese Definition 6, Proposition 7 and Corollary 8 (pp.129–130): for gcd(N,m)=1, Nm invertible in R and the indicated roots of unity in R, a Katz cusp form at Nm is independent of m iff its evaluation on (E,α_N,α_m) does not depend on α_m; equivalently it is the pullback of a unique Katz cusp form at N. The q-expansion at infinity agrees. Include base extension, identity m=1, composition for coprime auxiliary levels, preservation of cusps and away-m Hecke action; Corollary 8 gives a full eigenform at N with the same required eigenpacket using the finite commutative Hecke algebra. This is finite-level descent of the existing form carrier, not a second Katz definition. This conditional theorem does not assert independence of the forms produced in Theorem 9: that application requires G3.
 
 API required by the consuming proof:
 
@@ -623,7 +637,7 @@ For three consecutive oldforms f(q), f(q^ℓ), f(q^{ℓ²}), write a=a_ℓ(f), b
  \det(XI-U_\ell)=X(X^2-aX+b).
 \]
 
-Even when the quadratic factor has a double root in characteristic two, this polynomial has a zero root. Simultaneous eigenspaces are selected through the commutative finite Hecke algebra; diagonalizability is not required. The printed oldform list’s omitted middle entry is recorded as E12. The map’s sum over consecutive powers and the displayed matrix determine the correction.
+Even when the quadratic factor has a double root in characteristic two, this polynomial has a zero root. Simultaneous eigenspaces are selected through the commutative finite Hecke algebra; diagonalizability is not required. The printed oldform list’s omitted middle entry is recorded as E20. The map’s sum over consecutive powers and the displayed matrix determine the correction.
 
 ## The weight-at-least-two witness
 
@@ -897,7 +911,7 @@ Current TauCetiRoadmap main `0d144d0` and Tau Ceti main `a91d3aa` were separatel
 
 ## Suggested statements and checks
 
-The suggested file is 127 lines and elaborates at the two pins with only proof-placeholder warnings. It states seven end results over actual matrix groups, unit characters, existing representations and FDRep induction, together with eight substantive examples. It introduces no replacement Galois, Katz, geometric cohomology or compatible-family carriers.
+The suggested file is 139 lines and elaborates at the two pins with only proof-placeholder warnings. It states seven end results over actual matrix groups, unit characters, existing representations and FDRep induction, together with ten substantive examples. It introduces no replacement Galois, Katz, geometric cohomology or compatible-family carriers.
 
 | Reader target | Suggested declaration or reason for omission |
 | --- | --- |
@@ -905,7 +919,7 @@ The suggested file is 127 lines and elaborates at the two pins with only proof-p
 | Disjoint irreducibility | irreducible_restriction_of_range, using the concrete equal-image conclusion of the Galois restriction argument |
 | Quadratic restriction | simple_quadratic_induction over the existing FDRep induction carrier, with index exactly two and characteristic two explicit |
 | Base-change polynomial check | Matrix diagonal powers, trace 13, determinant 36 and failure of trace-power substitution |
-| Auxiliary oldforms | The 3×3 companion characteristic polynomial and nonzero nilpotent example |
+| Auxiliary oldforms | The 3×3 companion characteristic polynomial and nilpotency-index-three examples |
 | Dyadic reflection | Its square is one and it is not one over ZMod 2 |
 | Classical eigencomponent and attached representation | Actual geometric f-component and its Galois/coefficient interfaces are reader targets; G1 retains their proof |
 | Classical conductor bound | Geometric local comparison and its full monodromy carrier are reader targets; G2 retains their proof |
@@ -920,11 +934,13 @@ The seven algebraic signatures are consequences or applications of the existing 
 
 **G2: Odd-prime classical geometric local comparison proof.** The source contract at odd q is Carayol §0.7–§0.8 and §§11.1–11.4: principal series, special with nonzero monodromy, and ordinary cuspidal quadratic induction. Establish the Q-case comparison from the lower geometric cohomology and semistable Tate inputs, with the exact dual/reciprocity normalization. Equality only after semisimplifying the special representation does not prove its conductor. The R16.3 conductor-preserving LLC theorem is a separate supplier contract, not the geometric comparison itself. The extraordinary dyadic cubic proof remains out of scope.
 
-The three classical input targets move the necessary notions down from R19 under the binding upstream tier rule. The later owner imports the rank-two classical realization and odd residual conductor bound, retaining its additional compatible-system, p-adic Hodge and extraordinary dyadic targets. Its broad weight-k and classical conductor nodes must be reconciled at assembly. R15.6’s explanatory citation for the attachment of a classical weight≥2 representation should also point to the new lower owner. No other packet is edited by this job.
+**G3: Auxiliary-level removal for the unramified Katz route.** Replace the failed q-expansion equality in Wiese Theorem 9, pp.130–131 (E23), by an argument that removes the two distinct auxiliary primes from the real-quadratic odd lifts. The prime coefficients agree but their ℓ₁² coefficients are 0 and 1, so Proposition 7 cannot identify the pullbacks. Prove the required independence or give a different valid level-removal construction, preserving cusp conditions at every cusp, character det r̄ and the full required good-prime polynomials/Hecke packet, including T₂ and scalar or nonsemisimple dyadic Frobenius. Zero-U stabilization at both primes repairs coefficient agreement only; it does not prove independence. The R15.2 descent request remains a conditional supplier theorem, not a solution of this application gap.
 
-The ten request records are the three open R15.2 contracts and seven already-supplied upstream-layer import contracts. The open requests are the oldform/Katz comparison, auxiliary-level independence/descent, and the qualified Γ₁(N) cusp-sheaf base-change input. The exact Casselman and conductor/normalization nodes replace the earlier broad R16 stage requests.
+The three classical input targets move the necessary notions down from R19 under the binding upstream tier rule. The later owner imports the rank-two classical realization and odd residual conductor bound, retaining its additional compatible-system, p-adic Hodge and extraordinary dyadic targets. Its broad weight-k and classical conductor nodes must be reconciled at assembly. R15.6’s residual-modularity-witness and modularity-formulations-and-determinant nodes still carry explicit R19 attachment dependencies. Their owner must make the witness constructor consume a supplied representation and lattice, and repoint the weight≥2 attachment applications here and the already-given weight-one induced Artin application to R17.5. This reconciliation must avoid a definition-level R15.6↔R17.6 cycle; the present direct effective-node graph is not a claim of closed transitive dependencies. No other packet is edited by this job.
 
-A follow-up completes G1 and G2 at their actual geometric carriers, obtains the R15.2 contracts, applies these same-id refinements in assembly and then rechecks the combined dependency graph. It must not infer the omitted theorems from the compact suggested file or restart already-owned definitions. The stage is not closed.
+The ten request records are the three open R15.2 contracts and seven already-supplied upstream-layer import contracts. The open requests are the oldform/Katz comparison (including geometric weight-one T₂ with its U+⟨2⟩V q-expansion formula), conditional auxiliary-level independence/descent, and the qualified Γ₁(N) cusp-sheaf base-change input. The conditional descent contract does not resolve G3. The exact Casselman and conductor/normalization nodes replace the earlier broad R16 stage requests.
+
+A follow-up completes G1 and G2 at their actual geometric carriers and resolves G3 with a valid auxiliary-level removal argument, obtains the R15.2 contracts, applies these same-id refinements in assembly and then rechecks the combined dependency graph. It must not infer the omitted theorems from the compact suggested file or restart already-owned definitions. The stage is not closed.
 
 ## Source ledger and findings
 
@@ -935,9 +951,9 @@ All source statements and proof routes above are in the roadmap’s own words. N
 
 | [David E. Rohrlich; Jerrold B. Tunnell, *An elementary case of Serre’s conjecture*](https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf) | Pacific Journal of Mathematics 181, special issue (1997), pp.299–309; published MSP PDF; §1 pp.299–306, including all three cases of the technical lemma; §2 pp.307–309: conductor cases, theorem and signature-changing argument |
 
-| [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf) | Documenta Mathematica 9 (2004), pp.123–133; published EMIS PDF; Introduction pp.123–125 and Lemmas 2–3 pp.125–127; Proposition 4 and Corollary 5 pp.127–128; Definition 6, Proposition 7 and Corollary 8 pp.129–130; Theorem 9 and proof pp.130–131; Theorem 10 and Lemma 11 p.132 checked for the scope boundary |
+| [Gabor Wiese, *Dihedral Galois representations and Katz modular forms*](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf) | Documenta Mathematica 9 (2004), pp.123–133; published EMIS PDF; Introduction pp.123–125 and Lemmas 2–3 pp.125–127; Proposition 4 and Corollary 5 pp.127–128; Definition 6, Proposition 7 and Corollary 8 pp.129–130; Theorem 9 and proof pp.130–131; Theorem 10 and its determinant-character argument p.131; Lemma 11 p.132 checked for the scope boundary |
 
-| [Gabor Wiese, *Modular Forms of Weight One Over Finite Fields*](https://math.uni.lu/wiese/thesis/Thesis.pdf) | Leiden PhD thesis (2005), author PDF; Chapter I only used; Chapter I introduction pp.1–3, footnotes 1 and 3; Chapter I §1.3, Proposition 1.3.1 pp.5–6; comparison of the skipped oldform index |
+| [Gabor Wiese, *Modular Forms of Weight One Over Finite Fields*](https://math.uni.lu/wiese/thesis/Thesis.pdf) | Leiden PhD thesis (2005), author PDF; Chapter I only used; Chapter I introduction pp.1–3, footnotes 1 and 3; Chapter I §1.3, Proposition 1.3.1 pp.5–6; comparison of the skipped oldform index; Chapter I §1.4, proof of Theorem 1.4.1 p.9, for the auxiliary-level comparison |
 
 | [Pierre Deligne; Jean-Pierre Serre, *Formes modulaires de poids 1*](https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf) | Annales scientifiques de l’École Normale Supérieure (4) 7 (1974), pp.507–530; NUMDAM published scan; Introduction p.507 (status of the higher-weight input); §6 pp.520–523, Theorems 6.1 and 6.7, §§6.8–6.12 and Lemmas 6.11 and 6.13 |
 
@@ -955,10 +971,12 @@ Wiese’s [2005 thesis errata](https://math.uni.lu/wiese/thesis/Errata.pdf) were
 
 Inherited findings remain registered once in the canonical packet: E1 corrects RT’s fourth dyadic case label; E3 concerns D₂ in Wiese’s odd-characteristic convention; E6 adds the conjugate character modulus to the auxiliary-prime argument; E7 qualifies Γ₁(N) classicality by N≥5. Their earlier independent verdicts are not replaced by self-review.
 
-**E12 (misprint).** Published Documenta PDF, Proposition 4, p.127 (PDF page 5), oldform list immediately before the companion matrix; compared with thesis Proposition 1.3.1, pp.5–6. Paraphrase: the list begins with f(q) and then f(q^{ℓ²}), omitting the term indexed by i=1, while the displayed defining map uses every index from 0 to r. Use the consecutive list f(q), f(q^ℓ), …, f(q^{ℓ^r}), with r+1 entries. For r=1 the defining map has two input copies, but the printed list would lack its second vector. The first two columns of the displayed U_ℓ matrix act on f(q) and f(q^ℓ); the q-expansion coefficient recurrence directly verifies this. The mathematical map and matrix are unchanged. Not corrected in the versions checked. It remains in thesis Proposition 1.3.1; the author’s 31 August 2005 thesis errata do not list this index. It changes no stated result.
+**E20 (misprint).** Published Documenta PDF, Proposition 4, p.127 (PDF page 5), oldform list immediately before the companion matrix; compared with thesis Proposition 1.3.1, pp.5–6. Paraphrase: the list begins with f(q) and then f(q^{ℓ²}), omitting the term indexed by i=1, while the displayed defining map uses every index from 0 to r. Use the consecutive list f(q), f(q^ℓ), …, f(q^{ℓ^r}), with r+1 entries. For r=1 the defining map has two input copies, but the printed list would lack its second vector. The first two columns of the displayed U_ℓ matrix act on f(q) and f(q^ℓ); the q-expansion coefficient recurrence directly verifies this. The mathematical map and matrix are unchanged. Not corrected in the versions checked. It remains in thesis Proposition 1.3.1; the author’s 31 August 2005 thesis errata do not list this index. It changes no stated result.
 
-**E13 (misprint).** Author PDF, §4.2.2 and §4.2.3, p.9; compare Theorem 1.2.4 p.2 and §1.4.2 p.4. Paraphrase: the proof points to parts (i) and (ii) of 1.4.2 when establishing the newform Frobenius and crystalline assertions. The references are to Theorem 1.2.4(i) and 1.2.4(ii). Theorem 1.2.4 has exactly those two newform assertions. Section 1.4.2 instead concerns an analogous absolute-Hodge cohomology sequence, so it cannot be the intended theorem. No mathematical claim changes. The author correction note acknowledges confusing misprints in general but does not enumerate this reference. The finding is restricted to the author version read. It changes no stated result.
+**E21 (misprint).** Author PDF, §4.2.2 and §4.2.3, p.9; compare Theorem 1.2.4 p.2 and §1.4.2 p.4. Paraphrase: the proof points to parts (i) and (ii) of 1.4.2 when establishing the newform Frobenius and crystalline assertions. The references are to Theorem 1.2.4(i) and 1.2.4(ii). Theorem 1.2.4 has exactly those two newform assertions. Section 1.4.2 instead concerns an analogous absolute-Hodge cohomology sequence, so it cannot be the intended theorem. No mathematical claim changes. The author correction note acknowledges confusing misprints in general but does not enumerate this reference. The finding is restricted to the author version read. It changes no stated result.
 
-**E14 (misprint).** Author PDF, Theorem 1.2.4, p.2, coefficient-field sentence; compare §1.2.3 and §4.2.0. Paraphrase: the theorem introduces the coefficient field L from the Fourier coefficients, then gives the motive coefficients in an undefined field E. Use the introduced field L as the coefficient field. The λ-adic realization in the theorem uses primes of L; §4.2.0 constructs the Hecke component after tensoring with L. There is no separate E introduced for that statement. The author correction note acknowledges misprints without enumerating this letter. This is a finding about the author PDF, not a claim about the final journal version. It changes no stated result.
+**E22 (misprint).** Author PDF, Theorem 1.2.4, p.2, coefficient-field sentence; compare §1.2.3 and §4.2.0. Paraphrase: the theorem introduces the coefficient field L from the Fourier coefficients, then gives the motive coefficients in an undefined field E. Use the introduced field L as the coefficient field. The λ-adic realization in the theorem uses primes of L; §4.2.0 constructs the Hecke component after tensoring with L. There is no separate E introduced for that statement. The author correction note acknowledges misprints without enumerating this letter. This is a finding about the author PDF, not a claim about the final journal version. It changes no stated result.
+
+**E23 (proof error, confirmed).** Published Documenta PDF, proof of Theorem 9, pp.130–131, comparison after Proposition 7 pullback; also thesis Chapter I §1.4, proof of Theorem 1.4.1, p.9. The auxiliary forms g₁ at Nℓ₁³ and g₂ at Nℓ₂³ are treated as having identical q-expansions because their coefficients at primes agree. For distinct auxiliary primes, both normalized forms have a₁=1 and a_{ℓ₁}=0. The zero U_{ℓ₁} eigenvalue on g₁ forces a_{ℓ₁²}(g₁)=0. The good-prime weight-one recurrence on g₂ gives a_{ℓ₁²}(g₂)=a_{ℓ₁}(g₂)²−ε(ℓ₁)=1 in characteristic two, since r̄(Frob_{ℓ₁})=Id has determinant ε(ℓ₁)=1. Proposition 7 pullback preserves q-expansions, so the images cannot coincide. That identity is false. Supply an alternative auxiliary-level removal argument (G3) before invoking the conditional independence/descent theorem. This finding does not refute the stated Theorem 9. Not corrected in the published PDF or the thesis passage checked; no correction of this comparison was found in the author publication list or the 31 August 2005 thesis errata.
 
 The manager-added Newton–Thorne, Dospinescu–Le Bras, Calegari–Geraghty, Colmez–Dospinescu–Nizioł, Atobe–Kondo–Yasuda, BCGP and Pan source assignments in the issue belong to R16.2–R16.4, R17.1, R17.3 or R17.5. This stage imports their owners where needed and does not move their unrelated targets into R17.6. Wiese’s general ramified weight/level-lowering Theorem 10, full motivic categories and Carayol’s extraordinary dyadic cubic comparison are outside the accepted scope.

@@ -7,6 +7,11 @@ import TauCeti.RepresentationTheory.Induction.Mackey.LinearCharacter
 /-!
 # Characteristic-two soluble cases and transfer interfaces
 
+This file is not the roadmap and is not exhaustive. The definitive specification
+is the reader document, including its checks and open proof inputs.
+
+Contributors: Codex (codex-PrYXzU); independent review by Codex (codex-oIRXsf).
+
 Target statements over carriers at Mathlib 082e2d3 and Tau Ceti f790474.
 The reader document owns all modular-form, integral cohomology, Katz and
 compatible-system targets: their required carriers are not at these pins.
@@ -121,6 +126,13 @@ example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 2)) ≠ 1 := by
 
 /-- A nonzero nilpotent companion operator still has a zero eigenvector. -/
 example : ( !![0, 1, 0; 0, 0, 1; 0, 0, 0] : Matrix (Fin 3) (Fin 3) (ZMod 2)) ≠ 0 := by
+  sorry
+
+/-- The companion operator has nilpotency index exactly three. -/
+example : ( !![0, 1, 0; 0, 0, 1; 0, 0, 0] : Matrix (Fin 3) (Fin 3) (ZMod 2)) ^ 3 = 0 := by
+  sorry
+
+example : ( !![0, 1, 0; 0, 0, 1; 0, 0, 0] : Matrix (Fin 3) (Fin 3) (ZMod 2)) ^ 2 ≠ 0 := by
   sorry
 
 end MatrixChecks
