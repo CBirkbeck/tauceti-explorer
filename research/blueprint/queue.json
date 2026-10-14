@@ -42980,7 +42980,8 @@
     "BP-TorsionCohomologyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/REV-TorsionCohomologyInfrastructure~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9779"
   },
   {
    "kind": "blueprint",
@@ -44466,7 +44467,8 @@
     "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9767"
   },
   {
    "kind": "blueprint",
@@ -45731,7 +45733,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9741"
   },
   {
    "id": "ASM-PotentialModularityAndCompatibleSystems",
@@ -47515,7 +47518,8 @@
     "PKG-AnabelianGeometryAndNonabelianChabauty"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9771"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
