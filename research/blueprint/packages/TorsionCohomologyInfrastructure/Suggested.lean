@@ -213,6 +213,10 @@ example (a k : ℤ) :
 example (k : ℤ) : laurentSubst 0 (LaurentPolynomial.T k : LaurentPolynomial R) = 1 := by
   sorry
 
+/-- The zero ideal has zero coefficient ideal. -/
+example : laurentCoeffIdeal (⊥ : Ideal (LaurentPolynomial R)) = ⊥ := by
+  sorry
+
 end LaurentCoefficientIdeal
 
 /-! ## Layer 3b: arithmetic Levi realisation -/
@@ -248,6 +252,12 @@ theorem normalizedReciprocal_coeff_zero (n : ℕ) (P : R[X]) (c : Rˣ) (hc : P.c
 /-- Taking the normalised reciprocal twice returns the polynomial. -/
 theorem normalizedReciprocal_normalizedReciprocal (n : ℕ) (P : R[X]) (c : Rˣ) :
     normalizedReciprocal n (normalizedReciprocal n P c) c⁻¹ = P := by
+  sorry
+
+/-- The dual of the rank-one Levi polynomial `1 - 6X` (top coefficient `c = -6`) is
+`1 - X/6 = 1 - q⁻¹U₁⁻¹X` for `q = 3`, `U₁ = 2`. -/
+example : normalizedReciprocal 1 (1 - C (6 : ℚ) * X) (Units.mk0 (-6) (by norm_num)) =
+    1 - C (1 / 6 : ℚ) * X := by
   sorry
 
 /-- Rank one: `n = 1`, `q = 3`, `U₁ = 2` gives `1 - 6X`, not the standard reciprocal `1 - 2X`. -/
