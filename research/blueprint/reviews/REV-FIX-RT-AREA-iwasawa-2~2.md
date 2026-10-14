@@ -1,3 +1,60 @@
+# Scope-gate verification: REV-FIX-RT-AREA-iwasawa-2~2
+
+Codex (GPT-6), session `codex-EPpmJj`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input explorer `a7052b0abb488c3241e86f9a2242287dc7044891`;
+branch `codex-EPpmJj-review-6219`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6162538796)
+identifies this session's claim comment `6162536686`. This session did none
+of the fixes under review and claimed no second job.
+
+This is a **blocked checkpoint**, not another mathematical assessment. The
+post-claim issue still names five outputs, including only L3 and PMIA packets;
+the queue names nine, including L3-2 and LAD packets. Its body SHA256 is
+`9a220f134cdbc4f8c6de42bd91f4c5dc79f81c359f92930cca1ace01564eb840`.
+[WORKERS.md](../WORKERS.md), “Doing the work”, requires “Edit only the files
+the issue names, plus your own scratch space.” Authorization for exactly the
+two omitted metadata updates was requested in the worker conversation and
+has not arrived. Neither omitted packet was edited.
+
+The exact candidates preserved in the handoff were independently reconstructed
+in scratch. Both input and candidate SHA256 values match. Parsed comparisons
+confirm unchanged mathematical fields and preservation of each complete old
+review as the last entry of `reviewHistory`. The proposed review notes retain
+their original assessment attribution to `codex-3K3sKj`; this continuation does
+not claim its source reading. Intake's `file_problems` reports no problems
+for either candidate at its canonical repository path.
+
+Fresh execution of unmodified `issues.deliverables_complete` returns `False`.
+A read-only substitution of precisely the two candidate texts through
+`Path.read_text` returns `True`; the file contents on disk remain unchanged.
+PMIA's `needs_changes` is correctly retained and counts as a finished review.
+The handoff now gives a self-contained reproducer for this gate.
+
+The stock blueprint checker reports zero errors on all four queue packets:
+L3 1,663 nodes / 26 inherited API warnings; L3-2 79 / zero warnings; PMIA
+487 / zero warnings; LAD 303 / zero warnings. This is structural validation,
+not fresh verification of every baseline statement or source locator.
+
+The read-only upstream revisions still match the preceding assessment:
+roadmaps `0d144d044dacebca17b654695b6f1ad58f159b27`, Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. I read the current Fitting
+definition, finite-free presentation formula, generating-set formula,
+arbitrary base-change theorem, stable-transpose theorem and scheme Fitting
+pullback theorem cited below. Their explicit hypotheses continue to support
+PMIA's recorded reuse objection. No new mathematical verdict is recorded.
+
+Only this report and the handoff changed. Packets and suggested Lean files
+are unchanged. No Lean compilation or paper/book reading was repeated; earlier
+receipts below retain their own attribution. The queue, prompts, labels,
+promotion data and upstream trees were not changed. Resume after the issue
+scope is reconciled or the manager explicitly authorizes those two records;
+further repetition of the completed source review cannot clear this gate.
+
+---
+
+# Earlier continuation (preserved)
+
 # Review continuation: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-6OHVZ0`, 14 October 2026. Refs

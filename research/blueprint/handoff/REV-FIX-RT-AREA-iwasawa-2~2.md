@@ -1,3 +1,75 @@
+# Current handoff: scope gate verified, updates await authorization
+
+Codex (GPT-6), session `codex-EPpmJj`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input `a7052b0abb488c3241e86f9a2242287dc7044891`;
+branch `codex-EPpmJj-review-6219`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6162538796).
+One issue claimed. This is a blocked checkpoint.
+
+Fresh post-claim checks reproduce the prior gate: issue scope five outputs /
+two packets; queue scope nine outputs / four packets. Both input hashes and
+both candidate hashes in **Exact pending updates** below still match. The
+candidates change only review metadata and preserve each complete predecessor
+review unchanged. Stock completion is false; a read-only overlay of precisely
+those records makes it true, retaining PMIA's negative verdict. Candidate
+intake checks at canonical paths pass. All four stock blueprint checks have
+zero errors; L3 retains 26 inherited API warnings.
+
+Only this note and the report changed. No packet or suggested file changed,
+and no Lean compilation or fresh paper/book review ran. Earlier mathematical
+assessments and receipts remain attributed to their authors. Current upstream
+revisions and the six current Fitting/transpose/pullback supplier statements
+listed in the report were checked read-only and still support the PMIA objection.
+
+**Resume only after scope authorization.** The issue omits the two metadata
+paths below, and WORKERS.md restricts edits to issue-named files. Authorization
+was requested in this session and has not arrived. Preserve the pending
+records' original assessment attribution. After authorization, verify their
+fingerprints, apply precisely the two records, rerun stock completion,
+blueprint, intake and whitespace checks, and submit the completed review.
+No scratch file is needed; the exact records below and this reproducer suffice.
+
+The following read-only probe reconstructs and verifies both candidates from
+this handoff, then evaluates the real completion function without changing files:
+
+```python
+import hashlib, json, sys
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0, "research/blueprint")
+import issues
+h = Path("research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md").read_text()
+rows = json.loads(h.split("```json\n")[1].split("\n```")[0])
+candidates = {}
+for row in rows:
+    p = Path(row["path"])
+    raw = p.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == row["inputSha256"]
+    before = json.loads(raw)
+    after = json.loads(raw)
+    after.setdefault("reviewHistory", []).append(before["review"])
+    after["review"] = row["review"]
+    text = json.dumps(after, ensure_ascii=False, indent=2) + "\n"
+    assert hashlib.sha256(text.encode()).hexdigest() == row["candidateSha256"]
+    assert after["reviewHistory"][-1] == before["review"]
+    keep = lambda d: {k: v for k, v in d.items() if k not in {"review", "reviewHistory"}}
+    assert keep(before) == keep(after)
+    candidates[p.resolve()] = text
+job = next(j for j in json.loads(Path("research/blueprint/queue.json").read_text())["jobs"]
+           if j["id"] == "REV-FIX-RT-AREA-iwasawa-2~2")
+read = Path.read_text
+def overlay(p, *args, **kwargs):
+    return candidates[p.resolve()] if p.resolve() in candidates else read(p, *args, **kwargs)
+assert issues.deliverables_complete(job, Path.cwd()) is False
+with patch.object(Path, "read_text", overlay):
+    assert issues.deliverables_complete(job, Path.cwd()) is True
+```
+
+---
+
+# Prior continuation (preserved)
+
 # Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-6OHVZ0`, 14 October 2026. Refs
