@@ -10,12 +10,16 @@ category, isocrystal, quotient-cohomology or Frobenius-bundle carrier is invente
 here. The predicate CyclicFor is only an adapter for the existing main packet's
 cyclicity target. The natural-number basis input lets the finite candidate be
 written without dependent indexing; the theorem pins its first n entries to a
-finite basis.
+finite basis. IsRationalType states Kedlaya–Xiao's rational-type condition on a
+normed field with a derivation, both of which exist at the pins.
 -/
 import Mathlib.RingTheory.Derivation.Basic
 import Mathlib.LinearAlgebra.Basis.Defs
 import Mathlib.Data.Nat.Choose.Basic
 import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.Topology.MetricSpace.Ultra.Basic
+import Mathlib.Algebra.Algebra.Rat
 
 noncomputable section
 
@@ -84,4 +88,28 @@ theorem cyclic_rescaling
   sorry
 
 end CharacteristicZero
+
+section RationalType
+
+variable {F : Type*} [NormedField F] [IsUltrametricDist F] [CharZero F]
+
+/-- Kedlaya–Xiao rational type (Definition 1.4.1), in an equivalent form: `∂u = 1` and
+`‖∂ⁿx / n!‖ ≤ ‖u‖⁻ⁿ ‖x‖` for `n ≥ 1`. With `∂u = 1`, the case `n = 1` gives `‖∂‖ = ‖u‖⁻¹`.
+The intrinsic radii built on it need spectral norms of modules and stay README targets. -/
+def IsRationalType (D : Derivation ℚ F F) (u : F) : Prop :=
+  D u = 1 ∧ ∀ n : ℕ, 1 ≤ n → ∀ x : F,
+    ‖(D^[n] x) / (Nat.factorial n : F)‖ ≤ ‖u‖⁻¹ ^ n * ‖x‖
+
+/-- A rational parameter is nonzero, since a derivation kills `0`. -/
+example (D : Derivation ℚ F F) (u : F) (h : IsRationalType D u) : u ≠ 0 := by
+  sorry
+
+/-- Moving the parameter by a constant of no larger norm keeps rational type
+(Kedlaya–Xiao, Remark 1.4.3). -/
+theorem IsRationalType.add_const (D : Derivation ℚ F F) (u c : F)
+    (h : IsRationalType D u) (hc : D c = 0) (hcu : ‖c‖ ≤ ‖u‖) :
+    IsRationalType D (u + c) := by
+  sorry
+
+end RationalType
 end TauCetiRoadmap.PadicDifferentialEquationsAndRigidCohomology.RD1
