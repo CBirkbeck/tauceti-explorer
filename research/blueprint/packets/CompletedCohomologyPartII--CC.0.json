@@ -15,7 +15,7 @@
  "status": "complete",
  "title": "Arithmetic locally symmetric spaces and their cohomology, Part II: completed cohomology and homology",
  "parent": "ArithmeticLocallySymmetricSpaces",
- "summary": "An import index for stages CC.0–CC.7, with five new nodes. The whole-roadmap packet CompletedCohomologyPartII.json (68 nodes, accepted by independent-review-REV-CompletedCohomologyPartII on 2026-10-13) already plans every target of these stages, the five added sources of this job and the red-team findings handed to it (RT-AREA-automorphic-1/3, /17 and the CC.4 route of /18). To plan them here again would plan them twice, so targetCoverage maps each of the stages' 49 targets to its owning nodes, imports lists the 67 nodes read, routeCoverage maps every added paper item, findingsCoverage every finding and consumerRequests every request other roadmaps make of these stages. Five targets are stated by no owner node and are planned here: Fu's double-limit rational completed homology identified with the owner's completed homology; Nakamura's completed modules at varying tame level and their isomorphism onto a smooth contragredient; and, for the requests of CohomologyComparisons, Pan's control lemma for complete torsion-free complexes and the coefficient interchange of completed cohomology. Nothing is formalised; the owner's gaps and requests remain the owner's.",
+ "summary": "An import index for stages CC.0–CC.7, with five new nodes. The whole-roadmap packet CompletedCohomologyPartII.json (68 nodes, accepted by independent-review-REV-CompletedCohomologyPartII on 2026-10-13) already plans every target of these stages, the five added sources of this job and the red-team findings handed to it (RT-AREA-automorphic-1/3, /17 and the CC.4 route of /18). To plan them here again would plan them twice, so targetCoverage maps each of the stages' 49 targets to its owning nodes, imports lists the 68 nodes read, routeCoverage maps every added paper item, findingsCoverage every finding and consumerRequests every request other roadmaps make of these stages. Five targets are stated by no owner node and are planned here: Fu's double-limit rational completed homology identified with the owner's completed homology; Nakamura's completed modules at varying tame level and their isomorphism onto a smooth contragredient; and, for the requests of CohomologyComparisons, Pan's control lemma for complete torsion-free complexes and the coefficient interchange of completed cohomology. Nothing is formalised; the owner's gaps and requests remain the owner's.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -101,7 +101,7 @@
    "sha256": "61549f3aa31342994049b2d4780009f722c96b6331d0db6dd5bede0453bc293e",
    "accessed": "2026-10-14",
    "readSections": [
-    "§4.4, Corollary 4.4.3, Lemma 4.4.4 with its proof and Remark 4.4.5, published pp. 43–44 (arXiv v3 pp. 47–48)"
+    "§4.4, Corollary 4.4.3, Lemma 4.4.4 with its proof and Remark 4.4.5, published pp. 43–45 (arXiv v3 pp. 47–48)"
    ]
   },
   {
@@ -242,6 +242,16 @@
      "statement": "Structure maps H̃^n_c(K_{Σ₀}) → H̃^n_{c,Σ} and H̃_n^{BM}(K_{Σ₀}) → H̃_{n,Σ}^{BM}, compatible with res and tr respectively."
     },
     {
+     "name": "TameCompleted.exists_ι",
+     "role": "characterisation",
+     "statement": "Every element of either colimit is ι_K x for some open K_{Σ₀} inside a fixed compact open K⁰_{Σ₀}, and ι_K x = ι_K y exactly when x and y agree after res (respectively tr) to some open K′ ⊂ K; the open subgroups of K⁰_{Σ₀} are cofinal, so restricting to them gives the same colimit."
+    },
+    {
+     "name": "TameCompleted.desc",
+     "role": "universal-property",
+     "statement": "A family of O-linear maps f_K : H̃^n_c(K_{Σ₀}) → W with f_{K′} ∘ res = f_K for K′ ⊂ K induces a unique O-linear map H̃^n_{c,Σ} → W with desc ∘ ι_K = f_K, and likewise along tr on the Borel–Moore side; it is G_{Σ₀}-equivariant when W is a G_{Σ₀}-module and g ∘ f_K = f_{gKg⁻¹} ∘ g for the conjugation maps."
+    },
+    {
      "name": "TameCompleted.smooth",
      "role": "characterisation",
      "statement": "Every element of either colimit is fixed by a compact open subgroup of G_{Σ₀}; an element in the image of level K_{Σ₀} is fixed by K_{Σ₀}."
@@ -275,7 +285,7 @@
     },
     {
      "name": "tameCompleted_points",
-     "kind": "value",
+     "kind": "computation",
      "statement": "For levels Y(K) = K⁰/K of a profinite K⁰ of pro-order invertible in O with trivial p-tower, H̃^0_{c,Σ} = C^∞(K⁰, O) with translation action, and its K-invariants are the functions on K⁰/K; H̃_{0,Σ}^{BM} = colim_K O[K⁰/K] along the maps sending a coset to the sum of the smaller cosets it contains."
     },
     {
@@ -324,14 +334,14 @@
    ],
    "proofSteps": [
     "Fixed tame level: the compact-support and Borel–Moore case of the owner's integral duality gives 0 → Hom_O(H̃^{n+1}_c[varpi^∞], E/O) → H̃_n^{BM} → Hom_O(H̃^n_c, O) → 0. Under the hypothesis h_K is a continuous bijection of compact Hausdorff modules, hence a homeomorphism (Nakamura, Lemma 2.4, for the modular curve).",
-    "Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology (ALS.3/level-trace). With e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O) (PAPER-NAKAMURA-23/E3).",
+    "Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology: both are the finite-cover transfer of the AlgebraicTopology Stage 5 supplier on relative chains of the Borel–Serre pair, with the adjointness this packet requests there, and ALS.3/level-trace identifies that trace with the level trace. With e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O) (PAPER-NAKAMURA-23/E3).",
     "SR.0 smooth-dual (3) identifies Hom_O(V^K, O) with (Ṽ)^K for K of pro-order invertible in O, and TameCompleted.invariants gives V^K = H̃^n_c(K); these identifications are compatible with the inclusions (Ṽ)^K ⊂ (Ṽ)^{K'}.",
     "Pass to the colimit over the cofinal family of open K ⊂ K⁰: every vector of Ṽ is fixed by some such K, so the union of the (Ṽ)^K is Ṽ, and the colimit of H̃_n^{BM}(K) along transfer is H̃_{n,Σ}^{BM}.",
     "Equivariance: conjugation by g carries μ(K)h_K to μ(gKg⁻¹)h_{gKg⁻¹} because μ is conjugation invariant; the p-adic group acts through the contragredient convention; a Hecke correspondence acts on homology by its transpose, for which evaluation is invariant (CC.1/tame-hecke-on-colimits). In Nakamura's cohomological model of H̃_1^{BM} through Poincaré duality this transposed action is T'_l = T_l S_l⁻¹, S'_l = S_l⁻¹."
    ],
    "acceptance": [
     "Zero-dimensional example of CC.3/tame-level-completed-modules: the isomorphism sends the coset gK to the functional f ↦ ∫_{gK} f dμ on C^∞(K⁰, O). Without the factor μ(K) the maps fail to commute with transfer by the factor [K : K'].",
-    "Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹_{c,Σ}; its Galois equivariance uses the Galois action transported by the accepted CC.8 adapter.",
+    "Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹_{c,Σ}; its Galois equivariance uses the Galois action transported by the accepted CC.8 adapter. Nakamura writes Ĥ¹_c, the varpi-adic completion of the integral level colimit; here it is the H̃¹_c of this node, because every finite-level H²_c(Y_K, O) is torsion-free, so the Tate-module term of the owner's CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting vanishes.",
     "If H̃^{n+1}_c(K)[varpi^∞] ≠ 0, the kernel Hom_O(H̃^{n+1}_c(K)[varpi^∞], E/O) of h_K is nonzero.",
     "With K⁰ = GL₂(Z_l) and p dividing |GL₂(F_l)| the normalisation μ(K) is not defined in O; first pass to a pro-l open subgroup."
    ],
@@ -343,7 +353,8 @@
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual",
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector",
     "SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure",
-    "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace"
+    "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
    ],
    "uses": [
     {
@@ -369,7 +380,7 @@
     },
     {
      "sourceId": "CE",
-     "locator": "Theorem 1.1(3), second sequence, p. 3",
+     "locator": "Theorem 1.1(3), second sequence, p. 3, and its Borel–Moore and compact-support variants, p. 4",
      "match": "Completed homology maps onto the O-dual of completed cohomology with kernel the E/O-dual of the torsion of the next completed cohomology group, with Borel–Moore and compact-support variants."
     }
    ],
@@ -387,7 +398,7 @@
    ],
    "kind": "theorem",
    "title": "Control of complete torsion-free complexes",
-   "statement": "Let M^• be a bounded-above complex of varpi-adically complete, varpi-torsion-free O-modules. Then (1) no H^i(M^•) has a nonzero varpi-divisible element: Hom_O(E, H^i(M^•)) = 0, hence its varpi-adic Tate module lim_n H^i(M^•)[varpi^n] (transitions multiplication by varpi) is zero; (2) for every n there is a natural exact sequence 0 → H^i(M^•)/varpi^n → H^i(M^•/varpi^n) → H^{i+1}(M^•)[varpi^n] → 0, and these sequences form an inverse system whose third terms have transition multiplication by varpi; (3) the induced map lim_n H^i(M^•)/varpi^n → lim_n H^i(M^•/varpi^n) is an isomorphism; (4) if moreover lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion for every i, then H^i(M^•) → lim_n H^i(M^•)/varpi^n is also an isomorphism, so H^i(M^•) is varpi-adically complete and separated and equals lim_n H^i(M^•/varpi^n). The statement is for complete and torsion-free terms: for M = E in degree 0 the limit of H^0(M/varpi^n) is 0 while H^0(M) = E.",
+   "statement": "Let M^• be a bounded-above complex of varpi-adically complete, varpi-torsion-free O-modules. Then (1) no nonzero element of H^i(M^•) has a compatible system of varpi-power roots (x_0 = x and varpi x_n = x_{n−1}): Hom_O(E, H^i(M^•)) = 0, hence its varpi-adic Tate module lim_n H^i(M^•)[varpi^n] (transitions multiplication by varpi) is zero. This does not say that H^i(M^•) has no nonzero varpi-divisible element (one lying in varpi^n H^i(M^•) for every n); without the hypothesis of (4) such elements can exist; (2) for every n there is a natural exact sequence 0 → H^i(M^•)/varpi^n → H^i(M^•/varpi^n) → H^{i+1}(M^•)[varpi^n] → 0, and these sequences form an inverse system whose third terms have transition multiplication by varpi; (3) the induced map lim_n H^i(M^•)/varpi^n → lim_n H^i(M^•/varpi^n) is an isomorphism; (4) if moreover lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion for every i, then H^i(M^•) → lim_n H^i(M^•)/varpi^n is also an isomorphism, so H^i(M^•) is varpi-adically complete and separated and equals lim_n H^i(M^•/varpi^n). The statement is for complete and torsion-free terms: for M = E in degree 0 the limit of H^0(M/varpi^n) is 0 while H^0(M) = E.",
    "hypotheses": [
     "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
     "M^• is bounded above; each M^i is varpi-adically complete and separated (IsAdicComplete for the ideal (varpi)) and varpi-torsion-free.",
@@ -402,7 +413,8 @@
    "acceptance": [
     "M = O in degree 0: both limits are O.",
     "M = [O → O] in degrees 0, 1 with differential multiplication by varpi: H^0 = 0 and H^1 = O/varpi = k. H^0(M/varpi^n) = varpi^{n−1}O/varpi^n ≅ k is nonzero for every n, and the Bockstein sequence identifies it with H^1[varpi^n] = k, whose transitions are multiplication by varpi, hence zero: the limit of the H^0(M/varpi^n) is 0 = H^0(M).",
-    "Completeness is needed: M = E in degree 0 is torsion-free but not complete, and E is varpi-divisible with lim_n E/varpi^n = 0 ≠ E."
+    "Completeness is needed: M = E in degree 0 is torsion-free but not complete, and E is varpi-divisible with lim_n E/varpi^n = 0 ≠ E.",
+    "Divisible elements need not vanish without the hypothesis of (4): let M^0 = M^1 be the varpi-adic completion of the free O-module on e_1, e_2, … (the null sequences in O) and d(e_n) = varpi^n e_n. The class of w = Σ varpi^n e_n in H^1 is nonzero, since a preimage would have to be Σ e_n, which is not a null sequence, yet w − d(e_1 + … + e_{k−1}) lies in varpi^k M^1 for every k, so the class lies in every varpi^k H^1. Here lim_m H^1/varpi^m is the completion of the direct sum of the O/varpi^n, whose varpi-power torsion is unbounded, and Hom_O(E, H^1) = 0 still holds."
    ],
    "prerequisites": [
     "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
@@ -421,8 +433,8 @@
    "sources": [
     {
      "sourceId": "Pan22",
-     "locator": "§4.4, Lemma 4.4.4 and its proof, Forum Math. Pi 10 (2022), e7, p. 44 (arXiv:2008.07099v3, p. 48)",
-     "match": "For a bounded-above complex of p-adically complete p-torsion-free modules whose mod-p^n cohomologies have limits with bounded torsion, cohomology is the limit of its reductions and the limit of the mod-p^n cohomologies; the proof shows there are no divisible elements, uses the universal-coefficient sequence with multiplication by p on the torsion terms, and concludes by a divisibility argument."
+     "locator": "§4.4, Lemma 4.4.4, Forum Math. Pi 10 (2022), e7, statement p. 44, proof p. 45 (arXiv:2008.07099v3, p. 48)",
+     "match": "For a bounded-above complex of p-adically complete p-torsion-free modules whose mod-p^n cohomologies have limits with bounded torsion, cohomology is the limit of its reductions and the limit of the mod-p^n cohomologies; the proof shows that no cohomology module receives a nonzero map from Q_p, uses the universal-coefficient sequence with multiplication by p on the torsion terms, and concludes by a divisibility argument."
     }
    ],
    "library": {
@@ -455,7 +467,7 @@
    ],
    "acceptance": [
     "M = O: the coefficient formula is lim_m A^i_m = H̃^i, the owner's definition.",
-    "M = O[[T]] (complete and torsion-free, not finitely generated over O): when H̃^{i+1} has bounded torsion, H̃^i(O[[T]]) is the module H̃^i[[T]] of power series with coefficients in H̃^i.",
+    "M = O[[T]] (complete and torsion-free, not finitely generated over O): H̃^i(O[[T]]) = lim_m (A^i_m ⊗_O O[[T]]) is the submodule of H̃^i[[T]] of the series Σ_j a_j T^j such that, for every m, the images of the a_j in A^i_m generate a finitely generated O-module; it is not H̃^i[[T]] in general. In the zero-dimensional tower Y_U = K_0/U with K_0 = Z_p, H̃^0(M) = C(Z_p, M) for the varpi-adic topology of M, and Σ_j 1_{p^j Z_p} T^j lies in C(Z_p, O)[[T]] = H̃^0[[T]] but not in H̃^0(O[[T]]): the indicator functions are linearly independent in A^0_1 = C^∞(Z_p, k).",
     "Circle tower of connected degree-p covers: A^0_m = O/varpi^m and A^1_m = 0 (pullback is multiplication by p on H^1), so H̃^0(M) = M and H̃^1(M) = 0 for every complete torsion-free M."
    ],
    "prerequisites": [
@@ -892,6 +904,12 @@
    "packet": "research/blueprint/packets/CompletedCohomologyPartII--CC.8.json",
    "role": "comparison",
    "checked": "Statement read on 2026-10-14; accepted part imported by the whole packet. Cited only where a stage of this part exports to it (localisation compatibility, the LLHLM unitary instance)."
+  },
+  {
+   "nodeId": "CompletedCohomologyPartII:CC.8/transported-arithmetic-actions",
+   "packet": "research/blueprint/packets/CompletedCohomologyPartII--CC.8.json",
+   "role": "construction",
+   "checked": "Statement read on 2026-10-14 by REV-CompletedCohomologyPartII--CC.0; accepted with the CC.8 part by independent-review-REV-CompletedCohomologyPartII--CC.8. Cited only for the Galois clause of the CohomologyComparisons request to CC.4; imported, not restated; this is not a formalisation claim."
   }
  ],
  "targetCoverage": [
@@ -1043,7 +1061,7 @@
     "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
     "CompletedCohomologyPartII:CC.2/completion-and-tate-module"
    ],
-   "comparison": "No divisible elements in cohomology, the Bockstein sequences with multiplication by varpi on the torsion terms and their vanishing limit, and completeness under bounded torsion; planned by this packet for any bounded-above complex, the owner's nodes giving the tower-specific forms."
+   "comparison": "No element of cohomology with a compatible system of varpi-power roots (Hom_O(E, H^i) = 0), the Bockstein sequences with multiplication by varpi on the torsion terms and their vanishing limit, and completeness under bounded torsion; planned by this packet for any bounded-above complex, the owner's nodes giving the tower-specific forms."
   },
   {
    "stageId": "CompletedCohomologyPartII:CC.3",
@@ -1254,9 +1272,11 @@
    "target": "Derived-invariants formulation and Hecke functoriality",
    "suppliedBy": [
     "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
-    "CompletedCohomologyPartII:CC.6/lowest-degree-recovery"
+    "CompletedCohomologyPartII:CC.6/lowest-degree-recovery",
+    "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+    "CompletedCohomologyPartII:CC.6/classical-evaluation-map"
    ],
-   "comparison": "Derived descent model, functorial for supports and Hecke maps; edge isomorphism only in the lowest nonvanishing degree."
+   "comparison": "Derived descent model, functorial in the completed model and for supports. Hecke functoriality is not named in the owner's descent statement: it follows because the tame correspondences act on the completed model compatibly with the finite-level identification (CC.4/derived-finite-level-coinvariants is natural for tame correspondences) and the descent spectral sequence is functorial in that model, and the owner states it for the classical edge (classicalEval_hecke of CC.6/classical-evaluation-map). Edge isomorphism only in the lowest nonvanishing degree."
   },
   {
    "stageId": "CompletedCohomologyPartII:CC.6",
@@ -1553,9 +1573,10 @@
    ],
    "answeredBy": [
     "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
-    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison"
+    "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+    "CompletedCohomologyPartII:CC.8/transported-arithmetic-actions"
    ],
-   "disposition": "Answered by CC.4/completed-coefficient-interchange: the complete torsion-free complex with H^i = H̃^i and mod-p^m cohomology the fixed-exponent groups, natural for transitions and Hecke maps, and the coefficient interchange of Pan II, Lemma 7.2.6. The flag-variety half of the consuming node is not a CC.4 matter."
+   "disposition": "Answered by CC.4/completed-coefficient-interchange: the complete torsion-free complex with H^i = H̃^i and mod-p^m cohomology the fixed-exponent groups, natural for transitions and Hecke maps, and the coefficient interchange of Pan II, Lemma 7.2.6. The flag-variety half of the consuming node is not a CC.4 matter. The request also names Galois maps. S̃ is a Betti model and carries no Galois action; the Galois action on A^i_m and H̃^i is the one the accepted CC.8 part transports from étale cohomology (CC.8/transported-arithmetic-actions). The coefficient isomorphism is equivariant for it, acting diagonally with a continuous Galois action on M, because at each finite level it is the étale universal-coefficient isomorphism H^i(O/varpi^m) ⊗ M/varpi^m ≅ H^i(M/varpi^m), which is Galois-equivariant. CC.4/completed-coefficient-interchange does not take CC.8, a later layer, as a prerequisite."
   },
   {
    "from": "CohomologyComparisons",
@@ -1587,9 +1608,10 @@
  "requests": [
   {
    "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-   "need": "Finite-cover transfer on homology and on Borel–Moore (relative) homology of finite CW pairs, with pushforward after transfer equal to multiplication by the degree, transfer after pushforward equal to the deck-group sum for a Galois cover, and transfer adjoint to the cohomological trace under the evaluation pairing. The owner's request to the same stage already asks for finite-cover transfer and deck-group descent; this records the homological and adjointness clauses used here.",
+   "need": "Stage 5, item 3 already constructs transfer on singular chains of a finite covering, with pushforward after transfer equal to multiplication by the degree, and transfer after pushforward equal to the sum over the deck group for a regular covering. This packet needs in addition: (a) the same transfer, with both identities, on relative chains of a finite covering of finite CW pairs whose subcomplex is the preimage of the base subcomplex, which computes the Borel–Moore homology of a Borel–Serre pair; (b) under the evaluation pairing of Stage 6, item 1 (cochains as Hom of chains), the cohomological transfer, the dual of chain transfer, is adjoint to homology transfer, and pullback is adjoint to pushforward, in the absolute and the relative case. The owner's request to the same stage asks for transfer, chain comparison and deck-group descent; this records the relative and adjointness clauses.",
    "neededBy": [
-    "CompletedCohomologyPartII:CC.3/tame-level-completed-modules"
+    "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
+    "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality"
    ]
   }
  ],
@@ -1666,7 +1688,7 @@
    "sourceId": "Pan22",
    "kind": "misprint",
    "affects": "nothing",
-   "locator": "Forum Math. Pi 10 (2022), e7, proof of Lemma 4.4.4, p. 44 (arXiv:2008.07099v3, p. 48)",
+   "locator": "Forum Math. Pi 10 (2022), e7, proof of Lemma 4.4.4 (stated on p. 44), p. 45 (arXiv:2008.07099v3, p. 48)",
    "printed": "After the universal-coefficient sequence, the proof writes the limit over n of H^{i+1}(M^•)[p^n] as Hom_{Z_p}(Q_p/Z_p, H^i(M^•)).",
    "correction": "The limit of H^{i+1}(M^•)[p^n] along multiplication by p is Hom_{Z_p}(Q_p/Z_p, H^{i+1}(M^•)).",
    "reason": "The terms H^{i+1}(M^•)[p^n] are submodules of H^{i+1}, and a compatible system for multiplication by p is a homomorphism Q_p/Z_p → H^{i+1}. The proof has just shown Hom(Q_p/Z_p, H^j(M^•)) = 0 for every degree j, so the conclusion is unaffected.",
@@ -1675,7 +1697,12 @@
     "The version of record, Forum of Mathematics, Pi 10 (2022), e7, open-access PDF fetched 14 October 2026: the same text.",
     "arXiv:2008.07099v3 (8 July 2021): the same text.",
     "The article page at cambridge.org, 14 October 2026: no correction notice; the errata register of this programme (research/blueprint/errata/) has no entry for this paper."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read at the locator in the open-access version of record (SHA-256 61549f3a…, proof on p. 45) and in arXiv:2008.07099v3 (p. 48): after the universal-coefficient sequence the proof identifies the limit over n of H^{i+1}[p^n] with Hom(Q_p/Z_p, H^i). The terms are submodules of H^{i+1}, so the limit is Hom(Q_p/Z_p, H^{i+1}); the proof has shown the vanishing in every degree, so nothing is affected. arXiv lists no later version, and the Cambridge article page shows no correction notice. The locator is corrected from p. 44 to p. 45: the lemma is stated on p. 44 and proved on p. 45.",
+    "by": "REV-CompletedCohomologyPartII--CC.0"
+   }
   }
  ],
  "sourceIssueReferences": [
@@ -1755,5 +1782,38 @@
   }
  ],
  "upstreamNotes": [],
- "implementationStatus": "unchecked"
+ "implementationStatus": "unchecked",
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-CompletedCohomologyPartII--CC.0",
+  "date": "2026-10-14",
+  "notes": "Independent target-level review by Claude — claude-xpveIp (issue #376); the plan was written by Claude — claude-u0XBo5 (#701), and this reviewer wrote none of it. Re-fetched the five sources (all five SHA-256 values match the packet; Pan (2022) also read in arXiv v3) and read every locator of the five new nodes: CE §1.1 and Theorem 1.1, Fu (4) and §7, Nakamura §2.3.1–2.3.3, Pan (2022) §4.4, Pan II §7.2. Nakamura was read in the arXiv version only: the publisher refused the download, so the bracketed Inventiones pages were not re-checked. Read the four baseline declarations at the pins (Tau Ceti Representation.averageMap_eq_invOf_card_smul_norm; Mathlib Representation.averageMap, Representation.dual, IsAdicComplete): all exist with the stated content, none removed. Checked by script that the 67 imports of the plan name existing nodes of the stated packets with the stated kinds, that they are exactly the 65 owner nodes of CC.0–CC.7 plus two CC.8 nodes, that every node id the packet mentions resolves, that the 49 targetCoverage entries follow the eight stage descriptions, and that the 153 owner-reader section pointers of the reader match the owner reader; the summaries were compared with the owner statements. Read every cross-roadmap supplier statement (SR.0 smooth category, unit pro-order, averaging projector and smooth dual; SR.1 A-valued Haar measure; ALS.1 finite complex model; ALS.3 level trace; R02.1 Mittag-Leffler) and Stage 5 of the Tau Ceti AlgebraicTopology roadmap; the findings RT-AREA-automorphic-1/3, /17 and /18 are discharged as the packet says. Corrections: (1) clause (1) of the CC.2 control lemma claimed that cohomology has no nonzero divisible element; only Hom_O(E, H^i) = 0 holds, and a completed free complex with d(e_n) = varpi^n e_n has a nonzero divisible class; the statement is corrected and the example added as a test; (2) the CC.4 test claiming H̃^i(O[[T]]) = H̃^i[[T]] is false when H̃^i is not finitely generated (tensor products do not commute with products); replaced by the correct description and a zero-dimensional counterexample; (3) Pan (2022) Lemma 4.4.4 is proved on p. 45 of the version of record, not p. 44 (node locator, source pages and E5 locator); E5 confirmed; (4) the duality node now lists the AlgebraicTopology Stage 5 transfer it uses, the request to that stage names what Stage 5 item 3 already gives and asks only for the relative and adjointness clauses, the CE locator covers p. 4, and the modular-curve test records why Nakamura's completion equals the completed cohomology used here; (5) two API items (representatives and the universal property of the colimit) added to the tame-level construction, and a test kind outside the protocol renamed to computation; (6) the CC.6 target on Hecke functoriality of descent cited owner nodes whose statements do not name Hecke maps; its summary now says how it follows from the owner's nodes (the assembly should name it in the descent statement), and the Galois clause of the CohomologyComparisons request to CC.4 is answered through the accepted CC.8 transported actions, imported here; (7) reader brought in line; the suggested file now states clause (1) of the control lemma at the pins (lean-check: one proof-placeholder warning, nothing else). Nothing is formalised; every stage stays planned with the owner's remaining items.",
+  "checked": [
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology",
+    "verdict": "verified",
+    "note": "Fu (4) p. 3 and §7 p. 23 define the rational double-limit model; CE §1.1 p. 2 and Theorem 1.1(1) p. 3 the integral one. The finite-module Mittag-Leffler argument, the interchange of the two limits and the circle-tower and zero-dimensional tests were rechecked by hand."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
+    "verdict": "corrected",
+    "note": "Nakamura §2.3.1 (arXiv pp. 20–22) defines the tame-level Borel–Moore module as a colimit along restriction, which is homology transfer under Poincaré duality, and §2.1.1 (arXiv p. 16) takes the tame colimit after completion, as here; §2.3.2 (arXiv p. 24) gives the invariants and the normalised-trace formula. Added TameCompleted.exists_ι and TameCompleted.desc; test kind value renamed computation."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality",
+    "verdict": "corrected",
+    "note": "Nakamura Lemma 2.4 (arXiv p. 22), the Hecke normalisation (p. 23) and the projector diagrams and tame-level isomorphism (p. 24, with the misprint PAPER-NAKAMURA-23/E3) match; the integration test was recomputed. Added the AlgebraicTopology Stage 5 prerequisite for the transfer and its adjointness, CE locator pp. 3–4, and the identification of Nakamura's completed H¹_c with H̃¹_c for modular curves."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control",
+    "verdict": "corrected",
+    "note": "Pan (2022) Lemma 4.4.4 is stated on p. 44 and proved on p. 45 (arXiv v3 p. 48). Clause (1) restated as the absence of compatible systems of roots, which is what the proof shows; added the completed free complex with d(e_n) = varpi^n e_n, whose divisible class shows that clause (4) needs its hypothesis. Clauses (2)–(4) and the other tests verified."
+   },
+   {
+    "nodeId": "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange",
+    "verdict": "corrected",
+    "note": "Pan II Lemma 7.2.6(1) and its proof (arXiv v1 p. 120) match the coefficient interchange; the completed-tensor clause needs the bounded torsion of H̃^{i+1}, as stated. Replaced the false O[[T]] test by the correct description and a counterexample in the zero-dimensional tower over Z_p."
+   }
+  ]
+ }
 }
