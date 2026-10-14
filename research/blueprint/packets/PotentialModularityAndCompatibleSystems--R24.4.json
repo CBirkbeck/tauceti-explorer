@@ -6,7 +6,7 @@
     "PotentialModularityAndCompatibleSystems:R24.4"
   ],
   "status": "complete",
-  "summary": "Complete target-level import pass for KW I Theorem 4.1. The reviewed R24.3 packet already realises R24.4 with two consumer nodes, so this follow-up reuses their IDs and adds no duplicate nodes. The reader pins the dyadic/odd-prime case contracts, residual witness API, acceptance checks and RT /12 dependency correction. Supplier proof and arithmetic-signature gaps remain; no proof closure or implementation is claimed.",
+  "summary": "Complete independently reviewed target-level import pass for KW I Theorem 4.1. Reuse the two R24.4 consumer IDs in the reviewed R24.3 packet, without duplicate nodes. Preserve the dyadic/odd-prime case contracts and RT /12 dependency correction. The residual adapter must provide characteristic-zero witnesses at the specified weights and levels; its conditional reduction-image and small-prime proof obligations remain explicit. Supplier proof and arithmetic-signature gaps remain; no proof closure or implementation is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -53,7 +53,7 @@
       "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
       "accessDate": "2026-10-14",
       "readSections": [
-        "§8.1–§8.2, pp. 69–70 (α and β); §9.2, Theorem 9.7 and proof, pp. 89–90; §10.2 and its Remark, p. 92; boundary with §10.1, pp. 90–92, and §10.3.1, p. 92; bibliography entries [16], [20], [27], [35], [36], [38], pp. 95–96."
+        "§8.1–§8.2, pp. 69–70 (Lemma 8.1 allowable fields, α and β); §9.2, Theorem 9.7 and proof, pp. 89–90; §10.2 and its Remark, p. 92; boundary with §10.1, pp. 90–92, and §10.3.1, p. 92; bibliography entries [16], [20], [27], [35], [36], [38], pp. 95–96."
       ]
     },
     {
@@ -94,7 +94,9 @@
         "GL2ModularityLifting:R22.5/kw-residual-modularity",
         "GL2ModularityLifting:R22.5/kw-residual-modularity-beta",
         "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
-        "SerreWeightAndLevelOptimisation:R20.6"
+        "SerreWeightAndLevelOptimisation:R20.6",
+        "AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image",
+        "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform"
       ],
       "sources": [
         {
@@ -108,8 +110,10 @@
         "A weight-two Steinberg witness has local conductor exponent one and witnesses β, but that witness is not an α-witness.",
         "A weight-two witness of conductor exponent two does not witness β; the existence of another witness is a separate question.",
         "Dyadic residual weight 4 gives β, with no asserted α-witness.",
-        "A Katz eigenform is not itself the required characteristic-zero automorphic witness; use the supplier’s characteristic-zero lifting step."
-      ]
+        "A Katz eigenform alone is not the required characteristic-zero witness. The adapter must supply a residual eigenvector in the appropriate integral cusp-lattice reduction at the required weight, level and character, or an independently justified characteristic-zero witness. A Hasse-power weight shift does not establish the prescribed α/β weight.",
+        "The R20.6 case table is a manifest, not a small-prime proof export. Its rows invoking later R27 Serre modularity cannot close an input to Theorem 4.1 without a separate acyclic argument."
+      ],
+      "proofBoundary": "The R15.2 reduction-image construction and R15.5 lifting theorem were read in their accepted owner packet. Same-weight lifting is conditional on an actual integral reduction eigenvector; holomorphic fine-level base change is not an unrestricted cusp/character theorem. Their invertible-level hypotheses do not automatically cover the β level Np. These are obligations of the R22.5 residual adapter, not added assumptions on the source Theorem 4.1."
     },
     {
       "target": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
@@ -165,7 +169,15 @@
     },
     {
       "supplier": "SerreWeightAndLevelOptimisation:R20.6",
-      "need": "Close the small-prime portions of the existing R22.5 residual adapter: p=2 prime-to-2 level at residual weight 2, weight-two level of 2-adic exponent at most one at residual weights 2 and 4, and the p=3/enlarged-level guards. The consumer needs characteristic-zero cuspidal witnesses via the R15.2/R15.5 exports, not only Katz forms.",
+      "need": "Close the small-prime portions of the existing R22.5 residual adapter: p=2 prime-to-2 level at residual weight 2, weight-two level of 2-adic exponent at most one at residual weights 2 and 4, and p=3/enlarged-level guards. Supply characteristic-zero cuspidal witnesses. R20.6/strong-form-case-table is a manifest: its R27 rows do not constitute proof exports and cannot be used here if they depend on Theorem 4.1. Supply the weaker, nonoptimal-level witness result needed by KW II §10.2 p.92 through a lower-tier, acyclic proof.",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+      "need": "Justify the passage to characteristic-zero cuspidal witnesses of precisely weight k(ρ̄), prime-to-p level for α, and weight 2, level dividing Np for β, including the character and specified Hecke operators. If using the accepted R15.2/R15.5 interfaces, supply an actual integral reduction eigenvector or the cusp/character base-change criterion at the required weight and level; their invertible-level theorem is not by itself the β level-Np bridge. Alternatively supply a direct classical witness argument. Arbitrary Hasse weight shifts or a Katz eigenform alone do not discharge this request.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
       ],
@@ -189,6 +201,7 @@
       "remaining": [
         "Discharge the full odd-prime supplier’s Kisin crystalline endpoint proof leaf and verify its ordinary/potentially-semistable branch adapters.",
         "Close the requested small-prime residual weight/level witness leaves.",
+        "Justify the characteristic-zero residual witnesses at their exact weights and levels, respecting the R15 reduction-image, cusp/character and invertible-level guards.",
         "Realise the arithmetic supplier signatures before adding either full consumer signature to Suggested.lean."
       ],
       "notes": "Both targets are already realised by accepted consumer nodes in the R24.3 packet (review 2026-10-08). This follow-up references them without defining them again. The issue’s named R23.1 predecessor has no R24.4 coverage record. The checker resolves existing realisations across the roadmap’s packets."
@@ -207,7 +220,14 @@
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
       ],
-      "detail": "The existing adapter records p=2/p=3 restrictions in its R20.3/R20.4 suppliers and requests the uncovered cases from R20.6. This pass checks the demanded interface against KW II p.92 without claiming those requested proofs or the Katz-to-characteristic-zero bridge are implemented."
+      "detail": "R20.3/R20.4 retain p=2/p=3 restrictions. R20.6/strong-form-case-table is a manifest, with some rows naming R27 Serre modularity rather than providing a lower-tier proof. Those rows cannot silently close the residual adapter feeding Theorem 4.1. The open request needs the weaker witness result of KW II §10.2 p.92 with an acyclic proof; no optimal-level theorem is required."
+    },
+    {
+      "title": "Same-weight characteristic-zero residual witnesses",
+      "neededBy": [
+        "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity"
+      ],
+      "detail": "The accepted R15.2/integral-lattice-and-reduction-image and R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform supply only conditional lifting from an actual integral reduction eigenvector. Fine-level holomorphic base change does not automatically prove the required cusp/character result, and their invertible-level hypotheses do not directly cover β at level Np. A weight-shifted Katz form need not have α weight k(ρ̄) or β weight 2. The R22.5 adapter must establish the exact classical witnesses (or the appropriate reduction-image criterion), at every prime where it uses this bridge. This is a supplier proof gap, not a claimed error in KW Theorem 4.1."
     },
     {
       "title": "Arithmetic signatures and remaining lifting branch checks",
@@ -263,7 +283,7 @@
         "SerreWeightAndLevelOptimisation"
       ],
       "detail": "RT-AREA-langlands-2/12 and the accepted R24.3 rescope already assign the proof of Theorem 4.1 to R22.5/R22.6.",
-      "proposal": "Keep the existing R24.4 consumer targets. Remove R24.3→R24.4; give R24.4 direct prerequisites R22.5, R22.6 and R20.3 (with R20.6 supplying small-prime cases). Preserve R24.4→R24.5 and add R24.3→R24.5 directly. R22.5 owns Theorem 4.1(2), R22.6 owns (1); neither uses R23 potential modularity or R24.1–R24.3. The R22.5/RS-08 circularity wording is for their owners to remove; this issue edits no supplier or graph files."
+      "proposal": "Keep the existing R24.4 consumer targets. Remove R24.3→R24.4; give R24.4 direct prerequisites R22.5, R22.6 and R20.3 (with R20.6 supplying small-prime cases). Preserve R24.4→R24.5 and add R24.3→R24.5 directly. R22.5 owns Theorem 4.1(2), R22.6 owns (1); neither uses R23.3–R23.6 potential modularity or R24.1–R24.3. Elementary allowable-field selection via R23.1 remains an admissible transitive prerequisite; it is not potential modularity. The R22.5/RS-08 circularity wording is for their owners to remove; this issue edits no supplier or graph files."
     }
   ],
   "upstreamNotes": [
@@ -312,5 +332,50 @@
       "RT-AREA-langlands-2/12"
     ],
     "notes": "No definition or construction is introduced, hence no new definition API or unit-test inventory. The reader exposes the imported α/β APIs and their three tests each. Planets remain with the two R22 theorem owners."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R24.4",
+    "date": "2026-10-14",
+    "notes": "Accepted as a complete target-level import pass, with coverage planned and proofClosed false. Independently read both reused consumer nodes, exact R15/R20/R22 supplier statements, all five pinned baseline declarations and the KW source locators. Corrected the residual witness proof boundary to retain same-weight reduction-image, cusp/character and level guards; added its exact R22.5 request and gap. Clarified that R20.6 is a case manifest, not an acyclic proof of all small-prime cases, and distinguished R23.1 elementary field selection from potential modularity. This verdict does not accept the needs_changes R22 owner packet or close its proofs. No source error, duplicate node, new API item, definition test or planet was introduced.",
+    "checked": [
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
+        "verdict": "corrected",
+        "note": "Consumer statement agrees with KW II §8.2 p.70 and §10.2 p.92, including dyadic α only at residual weight 2 and β at weights 2 and 4. Its imported proof route now records the conditional R15 reduction-image and level boundary, with a precise R22.5 request, and excludes circular use of the R20.6 manifest’s R27 rows. The reused supplier-owned node is not duplicated or edited."
+      },
+      {
+        "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
+        "verdict": "verified",
+        "note": "Checked supplied-lift, image, oddness, ramification, weight and local-type guards against KW I Theorem 4.1 pp.6–7. Read KW II Theorem 9.7 pp.89–90 and §10.2 with Remark p.92: full endpoint and potentially-semistable ranges need the named supplier inputs. Existing explicit proof gaps remain; neither global finiteness nor potential modularity nor lift existence is used."
+      }
+    ],
+    "baselineChecks": [
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup",
+        "verdict": "verified",
+        "note": "Exact declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; shared-build file agrees byte for byte with the pinned GitHub file. Supplies only the carrier or operation described in baseline, not an arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "verdict": "verified",
+        "note": "Exact declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; shared-build file agrees byte for byte with the pinned GitHub file. Supplies only the carrier or operation described in baseline, not an arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "verdict": "verified",
+        "note": "Exact declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; shared-build file agrees byte for byte with the pinned GitHub file. Supplies only the carrier or operation described in baseline, not an arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "verdict": "verified",
+        "note": "Exact declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; shared-build file agrees byte for byte with the pinned GitHub file. Supplies only the carrier or operation described in baseline, not an arithmetic theorem."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "verdict": "verified",
+        "note": "Exact declaration and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; shared-build file agrees byte for byte with the pinned GitHub file. Supplies only the carrier or operation described in baseline, not an arithmetic theorem."
+      }
+    ]
   }
 }
