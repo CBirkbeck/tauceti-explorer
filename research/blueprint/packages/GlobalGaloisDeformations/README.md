@@ -37,8 +37,8 @@ one to another by notation.
 | G8 | Variable-determinant global problems | `GlobalDeformationProblem`, representability and framing, the presentation, fixed against variable determinant |
 | G7 | Polarized problems and arbitrary-rank Taylor–Wiles data | `PolarizedDeformationProblem`, representability, tangent and obstruction spaces, the presentation, rank-`n` Taylor–Wiles places, enormous-image primes, the ACC presentation |
 
-The layer labels are the stage labels other roadmaps cite, and every target keeps the anchor other
-roadmaps link to. They are built in the order R04.1, R04.2, R04.3, R04.4, R04.5, R04.6, G8, G7.
+The build proceeds through R04.1–R04.6, then G8 and G7: the fixed-determinant rank-two constructions
+precede the variable-determinant and polarized branches.
 
 ## Scope and ownership
 
@@ -72,11 +72,16 @@ It does not own, and cites instead:
   `TauCeti.IsProP.topologicalGeneratorRank_eq_rank_continuousZModDual`. These are the ingredients of
   the characterisation of `Φ_p` in target 2.1; only the predicate `Φ_p` and the two assembled
   statements are targets here.
+- **Ordinary diagonalizable groups** (current Tau Ceti library):
+  `TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.Basic`,
+  `TauCeti.DiagonalizableGroup.pointEquiv` and `pointsMulEquiv` identify the points of
+  `Spec 𝒪[a]` with all unit-valued characters of `a`. Target 4.5 keeps the formal completion
+  at the identity, whose characters take values in `1 + 𝔪_A`, and its truncation comparison.
 - **Tau Ceti roadmaps.** `ClassFieldTheory`, Layer 5 (local Tate duality and the local Euler
   characteristic) and Layer 12 (the global correspondence, used to make the auxiliary twisting group
   finite); `Chebotarev`, Layer 10 (Dirichlet density of a Frobenius class) and 11.3(2) (the
   negligible contribution of primes of residue degree greater than one); `LocalGaloisGroups`, Layer 3
-  (topological finite generation of `G_K(p)` for every finite extension `K/ℚ_ℓ`); `ModularCurves`,
+  (topological finite generation of `G_K(p)` for every finite extension `K/ℚ_p`); `ModularCurves`,
   Layer 0C (affine quotients by finite groups and finite locally free group schemes, and their
   torsors); `IntegralHeckeAndGaloisDeterminants`, Layers 0–1 (Chenevier determinants, characteristic
   polynomials, Cayley–Hamilton quotients, henselian reconstruction
@@ -239,7 +244,10 @@ with representation deformations are built here (1.9, 1.10, 2.8).
 
 ### From TauCetiRoadmap.ClassFieldTheory, Chebotarev, LocalGaloisGroups and ModularCurves
 
-As listed under *Scope and ownership*. The selection theorem 5.7 uses Chebotarev's density theorem
+ClassFieldTheory Layer 5 also supplies `finite_H`: for a characteristic-zero nonarchimedean local
+field and any finite smooth discrete Galois module, cohomology in degrees zero through two is finite. In particular it
+applies to the trivial module `𝔽_p`, including residue characteristic different from `p`, and to
+every finite extension of the local field. The selection theorem 5.7 uses Chebotarev's density theorem
 and its discard of primes of higher residue degree; it does not develop a second density theory.
 Target 4.6 completes the affine quotients of `ModularCurves` 0C at the given local points; the
 quotient construction itself is not rebuilt.
@@ -375,8 +383,8 @@ The API:
 
 - `moddef_residue`: `ModDef(k)` is a singleton, the class of `(V̄, id)`.
 - `moddef_rank_one`: for `n = 1` and `ρ̄ = χ̄`, `ModDef(A) = {χ̃ψ : ψ ∈ Hom_cont(G, 1 + 𝔪_A)}` for a
-  fixed lift `χ̃`; a definition forgetting `ι` would collapse twists by `1 + 𝔪_A`-valued scalars that
-  are isomorphic as modules.
+  fixed lift `χ̃`. Distinct rank-one characters are nonisomorphic as `G`-modules, so here forgetting
+  `ι` makes no further identifications; the rank-two check below detects that omission.
 - `moddef_needs_iota`: for `ρ̄ = 1 ⊕ 1`, `A = k[ε]` and a nonzero continuous additive character
   `x : G → k`, the lifts `diag(1 + εx, 1)` and `diag(1, 1 + εx)` are isomorphic `G`-modules by
   swapping the basis vectors, but they are distinct deformations, because the swap does not reduce
@@ -460,7 +468,7 @@ the integral `S₃` generators, their integral centralizer and the normalisation
   the two lifts are conjugate but not strictly conjugate over the nonlocal ring `ℤ`. Over the local
   ring `ℤ/25` the unit `13` lifts `2⁻¹` and `13·a` is a strict conjugator: locality is needed.
 - `isSchur_absIrred`: an absolutely irreducible `ρ̄` is Schur, while `ρ̄ = 1 ⊕ 1` is not (its
-  centralizer is all diagonal matrices).
+  centralizer is all of `M₂(k)`, including non-diagonal matrices).
 
 <a id="restriction-of-deformations"></a>
 
@@ -482,7 +490,8 @@ groups (Gee, §§3.20–3.21, p. 15).
 
 - `restrict_id`: restriction along the identity is the identity on `Lift`.
 - `framed_restrict_invariant`: `(βα)⁻¹(βρ(ι h)β⁻¹)(βα) = α⁻¹ρ(ι h)α` in any group; the version without
-  the frame, `ρ ∘ ι`, changes under `β` and is not well defined on classes.
+  the frame, `ρ ∘ ι`, changes as a matrix-valued lift under `β`. Its strict class is nevertheless
+  well defined; a frame is needed to select an invariant lift, not to define restriction of classes.
 - `restrict_not_injective`: for `ι` the inclusion of the trivial group, restriction sends every lift
   to the unique lift of the trivial group; it is not an inclusion of functors.
 
@@ -584,9 +593,11 @@ The API:
 **The map δ.** Extend a lift `ρ` `A`-linearly to `A[G]` and compose with the matrix determinant law.
 Invariance under conjugation gives a natural map `δ : Def_ρ̄ → DetDef_D̄`, compatible with coefficient
 change and with restriction to subgroups. Without absolute irreducibility `δ` need not be injective:
-take a nonsplit extension of `χ₂` by `χ₁` with `dim Ext¹(χ₂, χ₁) ≥ 2`, and vary its extension cocycle
-over `k[ε]` in a direction not absorbed by a strict change of basis; the determinant law stays
-constant. The isomorphism under absolute irreducibility is 2.8 (Kisin, Lecture 1, (1.5) Exercise 3,
+take distinct characters `χ₁`, `χ₂` and a nonsplit extension class `e ∈ Ext¹(χ₂, χ₁)` with
+`dim Ext¹(χ₂, χ₁) ≥ 2`. Vary `e` over `k[ε]` to `e + εf` with `f` independent of `e`. Strict basis
+changes alter the extension by a coboundary and a scalar multiple of `e`, so these strict classes
+are distinct; the determinant law is unchanged. Such a nonsplit extension of distinct characters
+is Schur. The isomorphism under absolute irreducibility is 2.8 (Kisin, Lecture 1, (1.5) Exercise 3,
 p. 4; Chenevier, §3.1, Example 3.4, p. 42).
 
 *Needs:* [1.3](#strict-deformation-functor); [1.9](#determinant-deformation-functor);
@@ -606,7 +617,8 @@ p. 4; Chenevier, §3.1, Example 3.4, p. 42).
   point `χ_A`.
 - Over `k[ε]` with `ρ̄ = 1 ⊕ 1`, the two lifts `diag(1 + εx, 1)` and `diag(1, 1 + εx)` show at once
   that module isomorphism forgets `ι` (1.2), that strict and full conjugacy differ for non-Schur `ρ̄`
-  (1.3, 1.5), and that the determinant map forgets extension data (1.10).
+  (1.3, 1.5), and that the determinant law forgets which marked diagonal line carries the nonzero
+  character `x`. The nonsplit example of 1.10 separately detects loss of extension data.
 
 ### Dependencies
 
@@ -676,11 +688,14 @@ group satisfies `Φ_p`.
 holds, where the maximal extension unramified outside `S` may ramify at the infinite places: apply
 the finiteness of `H¹(G_{K,S}, 𝔽_p)` from ArithmeticGaloisDuality R02.3 to the finite extension `K`
 attached to each open subgroup. For a finite extension `K/ℚ_ℓ`, with `ℓ` arbitrary including `p`,
-`Φ_p(G_K)` holds: `LocalGaloisGroups` Layer 3 gives topological finite generation of `G_L(p)` for
-every finite extension `L/K`, and the open subgroups of `G_K` are the `G_L` (Gee, §3.1, p. 12; Kisin,
+`Φ_p(G_K)` holds by ClassFieldTheory Layer 5 `finite_H`, applied to `H¹(G_L, 𝔽_p)` for every finite
+extension `L/K`; open subgroups of `G_K` are exactly these `G_L`. When `ℓ = p`,
+`LocalGaloisGroups` Layer 3 alternatively gives topological finite generation of `G_L(p)` (Gee,
+§3.1, p. 12; Kisin,
 Lecture 1, (1.2), p. 2).
 
-*Needs:* [2.1](#phi-p-condition); ArithmeticGaloisDuality R02.3; `LocalGaloisGroups` Layer 3.
+*Needs:* [2.1](#phi-p-condition); ArithmeticGaloisDuality R02.3; ClassFieldTheory Layer 5
+`finite_H`; `LocalGaloisGroups` Layer 3 for the `ℓ = p` alternative.
 
 **Checks.**
 
@@ -771,9 +786,14 @@ scalars `1 + 𝔪_A`, which surject along small extensions (1.5).
 **Checks.**
 
 - `univDefRing_rank_one`: for `n = 1`, `R_ρ̄ = R^□_ρ̄ = 𝒪⟦G^{ab,(p)}⟧`.
-- `univDefRing_hull_only`: for `ρ̄ = 1 ⊕ 1` the functor `Def_ρ̄` has a hull but is not
-  pro-representable (DeformationAndDerivedPatchingAlgebra R03.2, the explicit hull example); a
-  statement dropping Schur would assert a universal ring here.
+- `univDefRing_hull_only`: for the trivial rank-two representation of `G = ℤ_p`, a hull exists
+  but pro-representability fails. Put `A = k[t]/(t³)`, `B = k[t]/(t²)` and `M = I + tE₁₂`. In
+  `A ×_B A`, the pairs `(M, M)` and `(M, I + (t + t²)E₁₂)` give distinct strict classes, but their
+  projections to `Def(A) ×_{Def(B)} Def(A)` agree: conjugation by `I + tE₁₁` changes the second
+  component as stated. A conjugator in the fibre product would have the same first-order matrix
+  in both components, whose commutator with `E₁₂` would have to be both zero and `E₁₂`. Thus
+  Schlessinger H4 fails. For the trivial group itself the functor is a point and is represented
+  by `𝒪`, despite the same non-Schur residual representation.
 - `univDefRing_tangent`: `Hom(R_ρ̄, k[ε]) = H¹(G, ad ρ̄)`, of dimension `h¹(G, ad ρ̄)`, which differs
   from the framed count by `n² − h⁰ = n² − 1` for Schur `ρ̄`.
 
@@ -811,16 +831,17 @@ DeformationAndDerivedPatchingAlgebra R03.2; Mathlib `MvPowerSeries`, `Algebra.Fo
 generated over `𝒪` by the traces `tr ρ^univ(g)` for `g` in any dense subset of `G`; equivalently the
 closed `𝒪`-subalgebra generated by these traces is all of `R_ρ̄`. The same holds for the
 fixed-determinant ring and, for a framing set `T`, the closed subring of `R^{□}` generated by traces
-is the image of `R_ρ̄` (Kisin, Lecture 1, Theorem (1.4.1) and its proof, pp. 3–4; Gee, Lemma 3.7,
-pp. 12–13).
+is the image of `R_ρ̄` (Gee, Exercise 3.8, p. 13, using Lemma 3.7, pp. 12–13; Kisin, Lecture 1,
+Theorem (1.4.1) and its proof, pp. 3–4).
 
-*Proof sketch.* Let `S ⊆ R_ρ̄` be the closed subring generated by the traces; it is a complete
-Noetherian local ring with `𝔪_S = S ∩ 𝔪_R` and residue field `k`. By coefficient descent
-(`IntegralHeckeAndGaloisDeterminants.coefficient_descent`) `ρ^univ` is strictly conjugate to a lift
-over `S`, which is classified by a map `R_ρ̄ → S`; composing with `S ⊆ R_ρ̄` gives an endomorphism of
-`R_ρ̄` classifying a lift strictly conjugate to `ρ^univ`, hence the identity, so `S = R_ρ̄`. Uniqueness
-of the classifying map uses strict conjugacy from traces (ArithmeticGaloisRepresentations §5.10) and
-Schur's lemma over a local ring (§7.2).
+*Proof sketch.* Traces separate deformations over `k[ε]` by Carayol's lemma and the Schur
+normalisation of a conjugator. Hence their first-order coefficients separate the tangent space,
+so the centred traces span the finite relative cotangent space
+`𝔪_R/(𝔪_R² + λR)`. Choose finitely many giving a basis, subtract lifts of their residues in `𝒪`,
+and apply complete Nakayama to obtain a surjection from a finite power-series ring over `𝒪` to
+`R_ρ̄`. Thus these traces generate topologically. This avoids assuming that an arbitrary closed
+subring of a Noetherian ring is Noetherian. The fixed-determinant case follows by quotienting, and
+the framed assertion follows from 2.6. Continuity allows the traces to be taken on any dense subset.
 
 *Needs:* [2.5](#universal-deformation-ring); [1.3](#strict-deformation-functor);
 ArithmeticGaloisRepresentations §5.10 (`GaloisRep.carayol_conj_of_trace_eq`) and §7.2
@@ -938,10 +959,11 @@ Lemma 3.2, Proposition 3.3 and Remark 3.5, pp. 41–42; Proposition 3.7, Example
 p. 43).
 
 *Proof sketch.* Representability: take the Roby algebra `Γⁿ_𝒪(𝒪[G])^{ab}` with its universal
-multiplicative law (`IntegralHeckeAndGaloisDeterminants` Layer 0) and complete it along the open ideals
-contained in the kernel of the residual point. Noetherianity: by Lemma 3.8 a deformation factors through
-`G/H`, which is topologically finitely generated when `G` satisfies `Φ_p`, and then the tangent space is
-finite.
+multiplicative law (`IntegralHeckeAndGaloisDeterminants` Layer 0). Take the inverse limit of its
+finite local quotients with the specified residual point for which the universal determinant is
+continuous; this continuity condition is part of the indexing system. Noetherianity: by Lemma 3.8
+a deformation factors through `G/H`, which is topologically finitely generated under `Φ_p`;
+Corollary 2.39 then gives the finite cotangent space used in Proposition 3.7.
 
 The API:
 
@@ -959,25 +981,25 @@ DeformationAndDerivedPatchingAlgebra R03.1.
 
 - `pseudoDef_rank_one`: for `n = 1`, determinants are characters and `R^ps_D̄ = 𝒪⟦G^{ab,(p)}⟧`, the
   universal deformation ring of the character.
-- `pseudoDef_reducible`: for `ρ̄` a nonsplit extension of `χ₂` by `χ₁` with `dim Ext¹(χ₂, χ₁) ≥ 2`, the map
-  `δ : Def_ρ̄ → DetDef_D̄` is not injective (1.10), so the ring map `R^ps_D̄ → R_ρ̄` is not surjective:
-  the pseudodeformation ring of a residually reducible determinant is not a representation deformation
-  ring.
+- `pseudoDef_reducible`: assume `Φ_p`, distinct `χ₁`, `χ₂`, and a nonsplit residual extension
+  with `dim Ext¹(χ₂, χ₁) ≥ 2`. It is Schur, so `R_ρ̄` exists by 2.5. The noninjectivity of
+  `δ : Def_ρ̄ → DetDef_D̄` in 1.10 shows that the natural ring map `R^ps_D̄ → R_ρ̄` is not
+  surjective: this comparison is not a closed immersion, even though both rings exist.
 - `pseudoDef_not_noetherian`: for `G = ∏_ℕ ℤ/p`, which fails `Φ_p`, and `n = 1` with trivial `D̄`, `R^ps_D̄`
   is the completed group algebra of `G`, whose tangent space is infinite-dimensional: it is profinite
   but not Noetherian.
 
 ### Examples
 
-- For `G = ℤ_p` and `n = 1`, every ring of this layer is `𝒪⟦T⟧`: framed and unframed agree, the
-  universal lift is `1 ↦ 1 + T`, and the fixed-determinant ring is `𝒪`.
+- For `G = ℤ_p`, `n = 1` and trivial residual character, the framed, unframed and pseudodeformation
+  rings are `𝒪⟦T⟧`; the universal lift is `1 ↦ 1 + T`, and the fixed-determinant ring is `𝒪`.
 - For `G = ℤ_p` and `ρ̄ = 1 ⊕ 1`, the framed ring exists while the unframed functor has only a hull;
   the two lifts `diag(1 + T, 1)` and `diag(1, 1 + T)` have equal traces.
 
 ### Dependencies
 
 Layer R04.1; DeformationAndDerivedPatchingAlgebra R03.1–R03.2; ArithmeticGaloisDuality R02.3;
-`LocalGaloisGroups` Layer 3; `IntegralHeckeAndGaloisDeterminants` Layers 0–1 (including the Roby
+ClassFieldTheory Layer 5; `LocalGaloisGroups` Layer 3; `IntegralHeckeAndGaloisDeterminants` Layers 0–1 (including the Roby
 algebra);
 ArithmeticGaloisRepresentations §5.10 and §7.2; Tau Ceti profinite generation; Mathlib
 `MvPowerSeries`, `IsAdicComplete`, `Algebra.FormallySmooth`.
@@ -1085,7 +1107,7 @@ which the type conditions are imposed, and it is not `TFramedDef`.
 - `tframed_empty_T`: for `T = ∅` the functor is the unframed deformation functor of type `𝒮`.
 - `tframed_residue`: the functor is a point on `k`.
 - `tframed_localLift_invariant`: `localLift` is constant on equivalence classes; the unframed
-  restriction `ρ|_{G_v}` is not.
+  matrix restriction `ρ|_{G_v}` changes by conjugation. Its unframed strict class is invariant.
 
 <a id="global-framed-ring"></a>
 
@@ -1135,9 +1157,13 @@ DeformationAndDerivedPatchingAlgebra R03.1.
 **Checks.**
 
 - `rloc_empty`: `R^loc_{𝒮,∅} = 𝒪`.
-- `locToGlobal_forget`: composing with the map to the unframed ring forgets the `α_v`.
-- `rloc_wrong_restriction`: using `ρ^{□T}|_{G_v}` without `α_v` is not well defined on classes, so it
-  defines no map from the local ring.
+- `locToGlobal_forget`: forgetting the frames gives a natural transformation from the framed
+  global functor to the unframed global functor, hence a ring map `R^univ_𝒮 → R^{□T}_𝒮`. The
+  strict class of `α_v⁻¹ρ|_{G_v}α_v` agrees with that of the underlying restriction. A ring map
+  in the reverse direction requires a choice of universal frames.
+- `rloc_wrong_restriction`: using `ρ^{□T}|_{G_v}` without `α_v` does not give an invariant
+  matrix-valued local lift on global classes, so it cannot canonically classify a map from the
+  local framed ring. Restriction to local unframed classes is still well defined.
 
 <a id="relative-tangent-space"></a>
 
@@ -1183,7 +1209,8 @@ h¹_rel = |T| − 1 − Σ_{v|∞} h⁰(G_v, M₀) + Σ_{v∈S∖T} (dim L_v −
 [tangent spaces](#tangent-spaces); ArithmeticGaloisDuality R02.4, R02.5, R02.6 and D8
 (*Selmer and deformation tangent comparison*); SelmerIwasawaCohomology Layer 2.
 
-*Lean:* `scalarFrameCokernel` and its three dimension `example`s.
+*Lean:* `scalarFrameCokernel`, its three dimension `example`s, and the two-term differential
+`example` over `ZMod 3`.
 
 **Checks.**
 
@@ -1191,6 +1218,9 @@ h¹_rel = |T| − 1 − Σ_{v|∞} h⁰(G_v, M₀) + Σ_{v∈S∖T} (dim L_v −
   `k²/diag(k)` of dimension one; with one framing the cokernel is zero; with no framings all scalars
   remain in `H⁰`. A complex using trace-zero adjoints in degree zero would lose these terms, and in
   rank one would have no degree-zero terms at all.
+- `relTangent_sign`: for the identity map between two-term complexes `k → k` with identity
+  differentials, the mapping fibre has `d⁰(x) = (x, x)` and `d¹(a, b) = a − b`. Over `𝔽₃`,
+  `d¹d⁰(1) = 0`; replacing the minus sign by a plus gives `2 ≠ 0`.
 - `relTangent_count_rank_one`: for `n = 1`, `M₀ = 0`, so `h¹_rel = |T| − 1` for nonempty `T`, the
   scalar frame directions only.
 - `relTangent_T_empty`: for `T = ∅` the constant `|T| − 1 = −1` would be wrong; the correct statement
@@ -1221,7 +1251,8 @@ R02.6 and D8; DeformationAndDerivedPatchingAlgebra R03.2.
 
 **Checks.**
 
-- `presentation_rank_one`: for `n = 1` with fixed determinant every lift is `χ_A`, so each local ring
+- `presentation_rank_one`: for `n = 1` with fixed determinant and unrestricted local conditions,
+  every lift is `χ_A`, so each local ring
   is `𝒪`, `R^loc = 𝒪`, and for `T = S` nonempty `R^{□T}_𝒮 = 𝒪⟦x₁, …, x_{|T|−1}⟧` (frames modulo the
   common scalar): the presentation has `g = |T| − 1` generators and no relations, matching 3.6.
 - `presentation_needs_liftability`: a problem represented by `𝒪⟦x⟧/(x²)` is not liftable: the point
@@ -1328,11 +1359,15 @@ source. This applies to restriction to finite extensions of number fields. Finit
 conclusion; no flatness or injectivity is part of it (Gee, Proposition 3.26, p. 18; BLGGT,
 Lemma 1.2.3(1) and its proof, pp. 16–17).
 
-*Proof sketch.* The quotient `R^univ_ρ̄/𝔪_Σ R^univ_ρ̄` by the maximal ideal of the source classifies
-lifts of `ρ̄` whose restriction to `Σ` is strictly conjugate to the constant lift `ρ̄|Σ`. Such a lift is
-determined by its values on a finite set of coset representatives of the open subgroup `Σ`, and by
-2.7 its traces generate, so the quotient is finite over `k`; Nakayama's lemma for complete local rings
-gives finiteness (the open-subgroup argument of BLGGT Lemma 1.2.3, specialised to `GLₙ`).
+*Proof sketch.* Put `B = R^univ_ρ̄/𝔪_Σ R^univ_ρ̄`. Its universal representation restricts on `Σ`
+to a conjugate of the constant residual representation. Its kernel therefore contains the open
+subgroup `ker(ρ̄|Σ)` and its normal core, so it factors through a finite group `Q`. Put `m = |Q|`.
+Each image matrix satisfies `Mᵐ = 1`. For fixed `n,m` its trace is annihilated by a power of the
+monic polynomial whose roots are sums of `n` `m`-th roots of unity: this follows by applying the
+relation to the finite-type universal matrix algebra and then its reduced quotient. Thus each
+of the finitely many traces is integral over `k`. They topologically generate `B` by 2.7, so the
+finite-dimensional algebra they generate is already closed and equals `B`. Complete Nakayama
+now gives module finiteness, as in BLGGT Lemma 1.2.3.
 
 *Needs:* [4.1](#restriction-ring-map); [2.7](#carayol-trace-theorem);
 [2.5](#universal-deformation-ring).
@@ -1342,9 +1377,11 @@ gives finiteness (the open-subgroup argument of BLGGT Lemma 1.2.3, specialised t
 - `resFinite_index_one`: for `Σ = Γ` the map is the identity.
 - `resFinite_not_flat`: the example `resRing_not_flat` of 4.1 is finite and not flat, so flatness is
   not part of the conclusion.
-- `resFinite_needs_absIrred`: for `ρ̄ = Ind_Σ^Γ θ` with `θ ≠ θ^c`, absolutely irreducible on `Γ` but
-  equal to `θ ⊕ θ^c` on `Σ`, the restriction is not Schur and its deformation functor has only a hull,
-  so there is no unframed source ring; the hypothesis on `Σ` is needed.
+- `resFinite_needs_absIrred`: for `ρ̄ = Ind_Σ^Γ θ` with `θ ≠ θ^c`, the restriction `θ ⊕ θ^c` is
+  not Schur, so 2.5 does not supply its unframed ring. This alone does not prove failure of
+  representability. The trivial rank-two representation of `Γ = Σ = ℤ_p` in 2.5 gives an
+  explicit failure, showing why a source ring cannot be assumed without a representability
+  hypothesis.
 
 <a id="enlarging-ramification"></a>
 
@@ -1415,7 +1452,9 @@ The API:
 - `DiagGroup.torus`: the formal torus `Ĝ_mᵗ = (ℤᵗ)*`.
 - `DiagGroup.truncation_iso`: `T[pᵐ] → T` is an isomorphism after truncation at level `m + 1`.
 
-*Needs:* [2.3](#universal-lifting-ring).
+*Needs:* [2.3](#universal-lifting-ring); Tau Ceti
+`TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.Basic`, `DiagonalizableGroup.pointsMulEquiv`
+for the ordinary character functor before completion at the identity.
 
 **Checks.**
 
@@ -1435,7 +1474,7 @@ The API:
 affine functor `X = Sp A`, freeness meaning that `(g, x) ↦ (x, gx)` is a closed immersion. Then the
 orbit functor is represented by the coaction invariants `A^𝒢`, `X → Sp A^𝒢` is formally smooth, and
 `X` is a trivial `𝒢`-torsor after choosing a local section; its tangent space is `t_X/t_𝒢` and
-`dim A = dim A^𝒢 + dim 𝒢`. For a possibly finite formal diagonalizable group construct the invariant
+`dim A = dim A^𝒢 + d`, where `d = dim_k Lie(𝒢)` is the relative dimension over `𝒪`. For a possibly finite formal diagonalizable group construct the invariant
 quotient and its torsor, compatibly with quotienting the character group in stages. The finite
 locally free affine quotient is `ModularCurves` Layer 0C; completion, the smooth part and the passage
 through the torsion and free filtration are the constructions here (KW final, §2.4, p. 10;
@@ -1448,7 +1487,9 @@ Proposition 2.5 and its proof, pp. 11–12; Proposition 2.6, pp. 12–13).
 
 - `freeQuot_trivial_group`: for the trivial group the quotient is `X` itself.
 - `freeQuot_torus_on_itself`: `Ĝ_mᵗ` acting on itself by translation has quotient a point and
-  `dim = t`, matching `dim A = dim A^𝒢 + dim 𝒢`.
+  `A = 𝒪⟦x₁, …, x_t⟧`, `A^𝒢 = 𝒪` and relative dimension `d = t`, so the Krull dimensions
+  satisfy `t + 1 = 1 + t`. Adding the Krull dimension `t + 1` of the group's coordinate ring
+  instead would count the base dimension twice.
 - `freeQuot_not_free`: `μ_p = D̂(ℤ/p)` acting on `Sp 𝒪⟦x⟧` with `x` of weight one fixes the origin;
   the invariants `𝒪⟦x^p⟧` exist, but `𝒪⟦x⟧` is not a `μ_p`-torsor over them, so freeness is needed.
 
@@ -1457,9 +1498,12 @@ Proposition 2.5 and its proof, pp. 11–12; Proposition 2.6, pp. 12–13).
 ### 4.7 Free actions assembled from truncated actions
 
 **Theorem.** For `m ≥ 1`, use coefficient rings with `𝔪_Aᵐ = 0` and truncate products and group axioms
-at that level. Given compatible action chunks of a representable group on a system `A_m`, with the
-specified coefficient surjections and inverse limit `A_∞`, there is a unique limiting action, free if
-each chunk is free. The truncation isomorphisms of 4.5 give chunks of `Ĝ_mᵗ` from actions of its
+at that level. Let `A_m` be such truncated coefficient rings, with compatible surjections
+`A_{m+1} → A_m`, and assume there is one `C ∈ C_𝒪` with compatible surjections `C ↠ A_m`.
+Then `A_∞ = lim A_m` is a Noetherian coefficient object. Given compatible action chunks of a
+representable group on the `Sp A_m`, there is a unique limiting action on `Sp A_∞`, free if
+each chunk is free. The common Noetherian source is part of the hypotheses, rather than a
+consequence of an arbitrary inverse system. The truncation isomorphisms of 4.5 give chunks of `Ĝ_mᵗ` from actions of its
 sufficiently deep `p`-power torsion. This is the passage used for the dyadic patched limit; no
 untruncated torus action on a finite-level fixed-determinant ring is inferred (KW final, §2.6,
 Proposition 2.7 and its proof, pp. 13–14; proof of Proposition 9.3, pp. 86–87).
@@ -1468,11 +1512,16 @@ Proposition 2.7 and its proof, pp. 13–14; proof of Proposition 9.3, pp. 86–8
 
 **Checks.**
 
-- `chunks_constant_system`: a constant system with a genuine action gives that action in the limit.
-- `chunks_need_compatibility`: chunks not compatible with the transition maps have no limiting
-  action.
-- `chunks_not_untruncated`: a finite-level fixed-determinant ring carries only a `T[2^m]`-action, and
-  a statement giving it a `T`-action would contradict 4.11's torsor description.
+- `chunks_constant_system`: a complete coefficient algebra `A` with a genuine action gives
+  compatible chunks on `A/𝔪_A^m`; their limit recovers the action on `A`.
+- `chunks_need_compatibility`: on `𝔽₃[x]/(x²)` the involution `x ↦ −x` reduces to itself. It cannot
+  be the reduction of a specified identity action at the next level: the value on `x` would be
+  both `x` and `−x`, which differ. Compatibility is essential.
+- `chunks_not_untruncated`: in 4.11 take `X′ = T = Ĝ_m` with translation and `d(t) = t²`.
+  The fixed-determinant fibre is `T[2]`, preserved by `T[2]`; a general element of `T` moves it
+  to another determinant fibre. Thus chunks do not give an unrestricted torus action on that
+  fixed-determinant fibre. In rank two the preserving subgroup is `T[2]`, independently of the
+  deeper `2`-power torsion used to approximate the torus.
 
 <a id="determinant-fixed-on-S"></a>
 
@@ -1556,15 +1605,18 @@ nonzero character direction, using the nonsolvability of the residual image.
 *Needs:* [4.9](#twisting-action); [4.6](#free-action-quotient); [1.3](#strict-deformation-functor);
 ArithmeticGaloisRepresentations Layer 4.
 
-*Lean:* the two `example`s conjugating by `diag(1, −1)`.
+*Lean:* the two `example`s conjugating by `diag(1, −1)` and its reductions modulo two and four.
 
 **Checks.**
 
 - `twistFree_trivial`: the trivial character fixes everything.
-- `twistFree_dihedral_fails`: for `ρ = Ind θ` from an index-two subgroup `H`, conjugation by
-  `diag(1, −1)` in the induced basis fixes the diagonal image of `H` and negates the antidiagonal image
-  of `G ∖ H`, so `ρ ⊗ ε_H ≅ ρ` for the quadratic character `ε_H`: the action is not free without the
-  nonsolvability hypothesis.
+- `twistFree_dihedral_fails`: over characteristic-zero dyadic `𝒪`, let `ρ = Ind θ` from an
+  index-two subgroup `H`, with its nontrivial quadratic character `ε_H` factoring through the
+  allowed twisting quotient `G_V`. Conjugation by `diag(1, −1)` fixes the diagonal image of `H`
+  and negates the antidiagonal image of `G ∖ H`. Since `−1 ≡ 1` in residue characteristic two,
+  this conjugator is strict and `ε_H` is residually trivial, while `ε_H ≠ 1`. Thus this is an
+  actual stabilizer of the specified strict-class action. Over odd residue characteristic the
+  same conjugator is not strict, so that version would not be a counterexample.
 - `twistFree_trace_step`: `tr(χ ⊗ ρ)(g) = χ(g) tr ρ(g)`.
 
 <a id="determinant-twist-torsor"></a>
@@ -1668,7 +1720,8 @@ The API:
 - `twDatum_split_iff`: for `v ∤ p`, `Nv ≡ 1 (mod pᴺ)` if and only if `v` splits completely in
   `F(ζ_{pᴺ})`.
 - `twDatum_scalar_excluded`: if `ρ̄(Frob_v)` is scalar, `v` is not a Taylor–Wiles place: `ad⁰ρ̄(Frob_v)`
-  has only the eigenvalue `1`, and no eigenline can be selected.
+  has only the eigenvalue `1`. There are many eigenlines in the original two-dimensional space,
+  but none is distinguished by a choice between distinct eigenvalues, as the datum requires.
 
 <a id="image-hypotheses"></a>
 
@@ -2011,14 +2064,22 @@ pp. 80–81; Definition 2.4, p. 10).
 *Needs:* [6.2](#trace-subring-universal-representation); [6.1](#kw-deformation-data);
 [5.5](#taylor-wiles-inertia-action); [4.9](#twisting-action).
 
+*Lean:* the `example` exhibiting a nonzero square-zero element in `DualNumber (ZMod 3)`.
+
 **Checks.**
 
 - `factor_A_O`: for `A = 𝒪` the statement is the point criterion of the local conditions
   (LocalGaloisDeformationRings 8.2, `KWCondition.points`).
-- `factor_needs_reduced`: for `A = 𝒪[ε]/(ε²)`, which is not reduced, the specializations to `𝒪′` forget
-  the `ε`-direction and cannot detect a nonreduced local equation; the reducedness hypothesis is needed.
-- `factor_needs_flat`: for `A = k` (not `𝒪`-flat) there are no specializations to characteristic zero,
-  and the hypothesis would be vacuous while the conclusion can fail.
+- `factor_needs_reduced`: take the reduced flat quotient `R = 𝒪⟦x⟧ ↠ R̄ = 𝒪`, `x ↦ 0`, and
+  the finite flat nonreduced algebra `A = 𝒪[ε]/(ε²)`. The map `x ↦ ε` does not factor through
+  `R̄`, although every specialization to `𝒪′` kills `ε` and factors through `R̄`. Reducedness
+  cannot be omitted from the point-detection argument.
+- `factor_residue`: for `A = k` there are no characteristic-zero specializations, but the
+  residual point does factor through every local quotient with residue field `k`. Thus `k`
+  itself is not a counterexample to factorization.
+- `factor_torsion_thickening`: with the same `R ↠ R̄`, take `A = k[ε]/(ε²)` and `x ↦ ε`. There
+  are no characteristic-zero specializations and this map does not factor. This example
+  violates both flatness and reducedness; it does not claim their independent necessity.
 
 <a id="taylor-wiles-deformation-system"></a>
 
@@ -2244,17 +2305,24 @@ pp. 135–136).
 
 **Checks.**
 
-- `fixedVar_rank_one`: for `n = 1`, `R_{𝒮_χ} = 𝒪` and `R_𝒮 = 𝒪⟦G_{F,S}^{ab,(p)}⟧`.
+- `fixedVar_rank_one`: for `n = 1`, all `Λ_v = 𝒪` and unrestricted local conditions,
+  `R_{𝒮_χ} = 𝒪` and `R_𝒮 = 𝒪⟦G_{F,S}^{ab,(p)}⟧`. Restrictive local conditions can instead
+  cut the fixed-character ring down to a quotient of `𝒪`.
 - `fixedVar_p_divides_n`: in characteristic `3` with `ε² = 0`, `(1 + aε)³ = 1`, so `1 + ε` has no cube root
   of the form `1 + aε`; the splitting needs `p ∤ n`.
-- `fixedVar_torsion`: if `G_{F,S}^{ab,(p)}` has torsion (for example when some `F_v`, `v | p`, contains
-  `μ_p`, or the class group has `p`-torsion), the completed group algebra is not a power-series ring and
-  the extension is not formally smooth.
+- `fixedVar_torsion`: take `F = ℚ`, `p = 3`, `S = {3, 7}`, rank one and unrestricted local
+  conditions. The global abelian correspondence identifies the maximal abelian pro-`3` quotient
+  with `ℤ₃ × ℤ/3`: the first factor is cyclotomic at `3`, and the second is the order-three
+  quotient of `(ℤ/7)ˣ`. The ring is
+  `𝒪⟦X, Y⟧/((1 + Y)³ − 1)`; its special fibre has the relation `Y³ = 0`, so it is not
+  formally smooth. Local roots of unity or class-group torsion alone do not identify torsion
+  in this global quotient, because global relations and nonsplit extensions must be accounted for.
 
 ### Examples
 
-- Rank one: the variable-determinant ring is the completed group algebra of the maximal abelian
-  pro-`p` quotient, and the fixed-determinant ring is `𝒪`.
+- Rank one with all `Λ_v = 𝒪` and unrestricted local conditions: the variable-determinant ring
+  is the completed group algebra of the maximal abelian pro-`p` quotient, and the fixed-determinant
+  ring is `𝒪`.
 
 ### Dependencies
 
@@ -2330,8 +2398,12 @@ pp. 22–24).
 
 ### 8.3 Tangent and obstruction spaces of polarized problems
 
-**Theorem.** For Schur polarized data, a small extension with kernel `I` has its obstruction in
-`H²_{𝒮,T}(G_{F⁺,S}, ad r̄) ⊗_k I`. Prove the long exact sequence and the arithmetic comparisons: `Hⁱ_rel`
+**Theorem.** For Schur polarized data and a small extension with kernel `I`, choose lifts of the
+local representations in their prescribed problems at every place in `S`, including the prescribed
+framed local lifts at `T`. The obstruction to a compatible global lift then lies in
+`H²_{𝒮,T}(G_{F⁺,S}, ad r̄) ⊗_k I`, and vanishes exactly when such a global lift exists. Without
+chosen local lifts this obstruction is not asserted; liftability outside `T` supplies them for the
+relation bound in 8.4. Prove the long exact sequence and the arithmetic comparisons: `Hⁱ_rel`
 vanishes above degree `3`; `H⁰_rel` is the global `H⁰` when `T` is empty and zero otherwise;
 `h³_rel = h⁰(ad r̄(1))`; `h²_rel` is the ordinary dual Selmer dimension. With `χ(c_v) = ±1`, the Euler
 characteristic `Σ(−1)ⁱhⁱ_rel` is `Σ_{v|∞} n(n + χ(c_v))/2 + Σ_{v∈S∖T} (h⁰(G_{F_ṽ}, ad r̄) − dim L_v)`. The global
@@ -2352,6 +2424,9 @@ outside the split set `S`. If `p ∤ n`, the adjoint splits as its trace kernel 
   `0` for Schur `r̄` and odd `p`.
 - `polarized_p_divides_n`: for `p = n = 3`, `tr(1) = 0` in `M₃(𝔽₃)`, so the scalars lie in the trace kernel
   and the splitting fails.
+- `polarized_obstruction_needs_local_lifts`: the local problem represented by
+  `𝒪⟦x⟧/(x²)` has the point `x ↦ t` over `k[t]/(t²)` and no lift to `k[t]/(t³)`.
+  A global obstruction calculation conditional on local lifts cannot supply this missing lift.
 
 <a id="polarized-presentation"></a>
 
@@ -2442,8 +2517,8 @@ D8.
   extra primes.
 - `enormous_zeta_p`: if `ζ_p ∈ F`, the scalar summand `k(1) = k` of `ad ρ̄(1)` has `H⁰ ≠ 0`, the Kummer
   argument fails and the theorem is not claimed.
-- `enormous_not_adequate`: adequacy alone does not give the regular semisimple detectors with eigenvalue
-  `1` required on each simple submodule; the hypothesis is the enormous one.
+- `enormous_not_adequate`: adequacy alone does not give the regular semisimple trace-projection
+  detectors required on each simple adjoint submodule; the hypothesis is the enormous one.
 
 <a id="enormous-taylor-wiles-presentation"></a>
 
