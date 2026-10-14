@@ -126,19 +126,21 @@ From `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-m
 
 From `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`: Global finite-order characters with controlled conductors from local data, retaining the global extension condition and any additional ramification; used for residually trivial twists and KW determinant alignment.
 
-From `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`: Use the current relative oldspace from the two level-M degeneracies and its characteristic-zero q-new quotient at Mq; compare via the adjoint pairing, without identifying it with the globally new cuspFormsNew at all level primes. Use the current trace target at Γ1(N)∩Γ0(ℓ) to produce level-N forms with Tr(F)=F+ε(ℓ)^{-1}ℓ^{1−w/2}F|W|U_ℓ under the source’s partial-W convention (Ribet94 Step 4, p. 6).
+From `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`: Import the Petersson pairing, degeneracy maps, fixed-character global old/new theory and the bad-prime trace/adjoint milestones. Layer 2.2 here identifies the quotient relative to just the two level-M degeneracies at Mq; it is not the globally new cuspFormsNew at all level primes. Layer 4.6 here proves the Γ1(N)∩Γ0(ℓ) trace specialization Tr(F)=F+ε(ℓ)^{-1}ℓ^{1−w/2}F|W|U_ℓ in Ribet’s partial-W convention (Ribet94 Step 4, p. 6). Neither specialization is an explicitly stated target of the current supplier.
 
-From `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`: Use the current primitive Eisenstein-series/q-expansion targets to supply G of type (i,ω^{-i}), constant c=L(1−i,ω^{-i})/2, and the Kummer/von Staudt special valuation v_λ(c)<0 needed for E=c^{-1}G≡1 (Ribet94 Step 2, author p. 5). Also supply the integral level-one E_{ℓ−1}≡1 for ℓ>3 and E4 at ℓ=3 used in Step 4.
+From `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`: Import primitive Eisenstein series, character transport, generalized-Bernoulli constant terms, twisted divisor sums and the exceptional-weight corrections. Layer 4.4 here specializes these to G of type (i,ω^{-i}) and proves the Kummer/von Staudt valuation v_λ(L(1−i,ω^{-i})/2)<0 needed for E≡1 (Ribet94 Step 2, author p. 5). Choose i≥3 in its residue class; if ω^{-i} is imprimitive, retain its missing Euler factor instead of substituting the primitive L-value. Layer 4.6 here proves the integral level-one E_{ℓ−1}≡1 for ℓ>3 and E4≡1 at ℓ=3. The supplier’s series construction does not itself assert these residual valuation congruences.
 
-From `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`: For r>1, the normalized U_ℓ maps forms on Γ0(ℓ^r)∩Γ1(N) to the preceding Γ0 depth in the power construction (σ^{-1}f)^ℓ|U_ℓ of Ribet94 Step 3, p. 5, with explicit character and q-expansion conventions.
+From `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`: Import the Hecke correspondence and the coefficient-extraction formula for U_ℓ at bad primes. Layer 4.5 here proves that, for r>1, this correspondence maps (σ^{-1}f)^ℓ on Γ0(ℓ^r)∩Γ1(N) to the preceding Γ0 depth, with its weight and character (Ribet94 Step 3, p. 5). The same-level U_ℓ API alone is not this level-decreasing statement.
 
-From `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`: Use current partial Atkin–Lehner targets with W²=ε(ℓ) and G|W=ℓ^{w/2}ε(ℓ)G|V_ℓ for level-N G. Include the multiplicative weight normalization and the valuation calculation g|W divisible by ℓ^{1+a/2}, for g=E−ℓ^aE|V_ℓ, in Ribet94 Step 4.
+From `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`: Import the partial Atkin–Lehner slash operators and character transport. Layer 4.6 here compares the supplier’s arithmetic normalization to Ribet’s W, proves W²=ε(ℓ) and G|W=ℓ^{w/2}ε(ℓ)G|V_ℓ for level-N G, and checks multiplication across weights. Its calculation v_ℓ(g|W)≥1+a/2 for g=E−ℓ^aE|V_ℓ belongs to this residual application (Ribet94 Step 4, p. 6), rather than to the supplier’s sign theory.
 
-From `tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality`: Import the current coefficient-Galois stability of algebraic cusp/eigenforms at the same weight and level with conjugate character. In Ribet94 Step 3 choose σ in the λ-decomposition group inducing a↦a^ℓ. This is characteristic-zero Galois stability; it is not supplied by a characteristic-p V operator.
+From `tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality`: Import the current Galois stability of normalized newforms and their coefficient fields, together with the degeneracy/newform decomposition from layers 3–5. Layer 4.5 here extends this to the algebraic cusp form used in Ribet94 Step 3 by decomposing it into degeneracy images of newforms and conjugating the algebraic coefficients; it proves independence of this expansion and the resulting conjugate character at the same weight and level. Choose σ in the λ-decomposition group inducing a↦a^ℓ. This characteristic-zero extension is not the supplier’s newform-only statement and is not supplied by a characteristic-p V operator.
 
 ### Full odd-characteristic descent and its proof requirement
 
-The general-character descent uses Diamond’s refined Serre theorem, Theorem 1.1, *The refined conjecture of Serre*, Hong Kong proceedings (1995), pp. 22–37, as identified by Wiese 2004 Theorem 10(a), pp. 131–132. Ribet’s report supplies the weight-two trivial-character lowering argument; it does not supply the full general-character theorem. Establish the Diamond input with its precise character, conductor-exponent and characteristic-three hypotheses before applying the full conductor-level export. In particular, arbitrary character, higher conductor exponents and characteristic three require this additional proof input. The minimal weight-one, finite-flat weight-two and large-good-prime elliptic exports retain that dependency. The separately stated trivial-character theorem has its own proof.
+The general-character descent uses Diamond’s refined Serre theorem, Theorem 1.1, *The refined conjecture of Serre*, Hong Kong proceedings (1995), pp. 22–37, as identified by Wiese 2004 Theorem 10 (odd-characteristic case), pp. 131–132. Ribet’s report supplies the weight-two trivial-character lowering argument; it does not supply the full general-character theorem. Establish the Diamond input with its precise character, conductor-exponent and characteristic-three hypotheses before applying the full conductor-level export. In particular, arbitrary character, higher conductor exponents and characteristic three require this additional proof input. The minimal weight-one, finite-flat weight-two and large-good-prime elliptic exports retain that dependency. The separately stated trivial-character theorem has its own proof.
+
+**Source-access gap.** Wiese’s public theorem supplies the full conditional statement and identifies Diamond’s input, but an accessible complete primary proof of Diamond Theorem 1.1 has not been established here. The general-character, higher-exponent and characteristic-three proof branches remain dependent on that input; they are not justified by Ribet’s trivial-character argument.
 
 ## How to read the build
 
@@ -278,7 +280,7 @@ Lowering is an induction on conductor-exponent defects. Its easy geometric branc
 
 ### 2.1 Prime-to-ℓ conductor interface
 
-Use R01.3’s prime-to-ℓ Artin conductor N(ρ)=∏_{q≠ℓ}q^{n_q(ρ)}. For a finite quotient with lower ramification groups G_i, n_q=∑_{i≥0}(|G_i|/|G_0|)codim(V^{G_i}); the i≥1 terms are the Swan conductor. For an irreducible residual modular representation at prime-to-ℓ level M, N(ρ) divides M. Scalar extension does not change N. Apply this conductor and its vanishing tests with the full exponents. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §1, (1.1); §4, (4.1)–(4.2), author pp. 1, 8–10. Full conductor with wild part and the inequality between residual and automorphic exponents.)
+Use R01.3’s prime-to-ℓ Artin conductor N(ρ)=∏_{q≠ℓ}q^{n_q(ρ)}. For a finite quotient with lower ramification groups G_i, n_q=∑_{i≥0}(|G_i|/|G_0|)codim(V^{G_i}); the i≥1 terms are the Swan conductor. For an irreducible residual modular representation at prime-to-ℓ level M, N(ρ) divides M. Scalar extension does not change N. Apply this conductor and its vanishing tests with the full exponents. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §2, conductor definition preceding Theorem 2.1, author p. 4; §4, Theorem 4.2, author pp. 8–9. Full conductor with wild part and the inequality between residual and automorphic exponents.)
 
 Continuous finite-image representation; q≠ℓ. Local compatibility and conductor comparison for the modular witness are supplied by R17.6/R01.3.
 
@@ -298,11 +300,11 @@ Import the conductor and coefficient-extension invariance. Apply local compatibi
 
 ### 2.2 Integral q-new support interface
 
-Import the analytic single-prime q-new factor from current ModularForms layer 3: it is relative to the two level-M degeneracies at Mq, and need not be globally new at primes dividing M. Under R20.1’s precise integral hypotheses, q-new residual support means support on its finite free quotient Q. A character on Q/πQ lifts to a characteristic-zero q-new eigensystem by the supplied eigenvalue-lifting lemma. Reduction of a complex orthogonal complement alone does not define this support. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §5, (5.3), author pp. 14–16. Old/new support on the integral quotient that enters Diamond’s criterion.)
+Using current ModularForms layer 3’s pairing and degeneracies, identify the characteristic-zero quotient by the two level-M images with their Petersson-orthogonal complement at Mq. This relative q-new factor need not be globally new at primes dividing M; the single-prime comparison is the specialization owned here. Under R20.1’s precise integral hypotheses, q-new residual support means support on its finite free quotient Q. A character on Q/πQ lifts to a characteristic-zero q-new eigensystem by the supplied eigenvalue-lifting lemma. Reduction of a complex orthogonal complement alone does not define this support. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §5, (5.3), author pp. 14–16. Old/new support on the integral quotient that enters Diamond’s criterion.)
 
 q∤Mℓ, exact integral sequence and pairing from R20.1. Use a coefficient DVR and a fixed compatible character.
 
-Compare Q_K to the imported analytic new factor. Localise and reduce the actual integral quotient. Apply the finite-free eigenvalue lifting contract only to a nonzero residual support space.
+Compare Q_K to the relative analytic factor by the adjoint pairing and finite-dimensional orthogonal decomposition, not by the global-new definition. Localise and reduce the actual integral quotient. Apply the finite-free eigenvalue lifting contract only to a nonzero residual support space.
 
 *Needs:* [Localised integral degeneracy sequence](#integral-old-new-exact-sequence), [Residual support and eigenvalue descent](#eigensystem-level-descent), `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`.
 
@@ -430,7 +432,7 @@ Import the toric character functor and identify each geometric fibre. Check the 
 
 ### 2.7 Ribet’s two character-group sequences
 
-With the previous notation there are integral Hecke-compatible exact sequences 0→Y_q→L_p→X_p→0 and 0→Y_p→L_q→X_q→0. Their good-prime Hecke actions agree with the discriminant-pq quaternionic action; T_p and T_q on the quaternionic side are involutions. After localisation at the specified non-Eisenstein maximal ideal the finite exceptional geometric terms vanish, and these exact sequences provide the residue-space comparisons in Ribet’s §7. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), (6.2)–(6.3), author pp. 18–19; (7.2)–(7.3), author pp. 22–23. Both sequences with the correct swapped Y subscripts and the localized residue consequences.)
+With the previous notation there are integral Hecke-compatible exact sequences 0→Y_q→L_p→X_p→0 and 0→Y_p→L_q→X_q→0. Their good-prime Hecke actions agree with the discriminant-pq quaternionic action; T_p and T_q on the quaternionic side are involutions. After localisation at the specified non-Eisenstein maximal ideal the finite exceptional geometric terms vanish, and these exact sequences provide the residue-space comparisons in Ribet’s §7. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), (6.2)–(6.3), author pp. 18–19; (7.2)–(7.3), author p. 24. Both sequences with the correct swapped Y subscripts and the localized residue consequences.)
 
 p≠q, p∤M and q∤M; exact integral character modules of the named Jacobians. Non-Eisenstein residual ideal only for subsequent localization and residue statements.
 
@@ -550,7 +552,7 @@ Separate the invariant-dimension defect from the common wild term. Dispatch one 
 
 ### 2.13 Conditional descent to the full Serre level
 
-For every odd prime ℓ and every continuous odd irreducible already modular ρ:G_Q→GL2(F̄_ℓ), there is a modular witness of prime-to-ℓ level exactly N(ρ), with some weight. Once weight optimisation has been applied the witness has Serre weight as well. For ℓ≥5 its character can be chosen as the canonical prime-to-ℓ lift of det ρ·χ_ℓ^{1−k}. At ℓ=3 no unconditional prescribed characteristic-zero nebentypus is claimed. The descent removes exponent defects to the full conductor, including nonsquarefree conductors. ([Gabor Wiese](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Theorem 10(a) and proof, pp. 131–132. A precise restatement of the full odd-characteristic level/weight result, explicitly citing Diamond Theorem 1.1 for level.) ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §4 and §7, author pp. 8–11, 22–27. The proved local cases and weight-two core; these are not misrepresented as the entire general-character proof.)
+For every odd prime ℓ and every continuous odd irreducible already modular ρ:G_Q→GL2(F̄_ℓ), there is a modular witness of prime-to-ℓ level exactly N(ρ), with some weight. Once weight optimisation has been applied the witness has Serre weight as well. For ℓ≥5 its character can be chosen as the canonical prime-to-ℓ lift of det ρ·χ_ℓ^{1−k}. At ℓ=3 no unconditional prescribed characteristic-zero nebentypus is claimed. The descent removes exponent defects to the full conductor, including nonsquarefree conductors. ([Gabor Wiese](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf), Theorem 10 (odd-characteristic case) and proof, pp. 131–132. A precise restatement of the full odd-characteristic level/weight result, explicitly citing Diamond Theorem 1.1 for level.) ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §4 and §7, author pp. 8–11, 22–27. The proved local cases and weight-two core; these are not misrepresented as the entire general-character proof.)
 
 Already modular; conductor and weight recipe imported. The general-character argument requires Diamond 1995 Theorem 1.1, with the low-characteristic and nonsquarefree hypotheses retained; the weight-two trivial-character argument alone is insufficient.
 
@@ -728,7 +730,7 @@ Reduce filtration using R15’s theta-cycle and Hasse interfaces while retaining
 
 ### 3.8 Twisting to small weight
 
-For an already modular residual representation in characteristic ℓ≥3, some cyclotomic twist χ_ℓ^iρ occurs in weight k with 2≤k≤ℓ+1 and prime-to-ℓ level. Untwisting preserves its prime-to-ℓ conductor because χ_ℓ is unramified away from ℓ, but the Serre weight must be recomputed using the imported twisting recipe. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), Lemma 3.2, author p. 8. A small-weight modular twist, not a weight-preserving operation on ρ itself.)
+For an already modular residual representation in characteristic ℓ≥3, some cyclotomic twist χ_ℓ^iρ occurs in weight k with 2≤k≤ℓ+1 and prime-to-ℓ level. Untwisting preserves its prime-to-ℓ conductor because χ_ℓ is unramified away from ℓ, but the Serre weight must be recomputed using the imported twisting recipe. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), Corollary 3.2, author p. 8. A small-weight modular twist, not a weight-preserving operation on ρ itself.)
 
 Modularity witness and the coefficient-prime stripping theorem. Track the twist exponent modulo ℓ−1 and all good-prime eigenvalues.
 
@@ -924,7 +926,7 @@ Removal of coefficient-prime level preserves the residual representation while c
 
 ### 4.1 Congruent nebentypus at fixed level
 
-Let ℓ≥5 and f be a normalized cuspidal eigenform of weight k and level Γ1(N), with irreducible residual representation at λ. If ε′ is a characteristic-zero character modulo N congruent to ε modulo λ and with ε′(−1)=(−1)^k, then a weight-k eigenform of the same level and character ε′ gives the same residual representation after coefficient extension. In particular one can replace ℓ-primary character factors by their canonical prime-to-ℓ lift in this range. The fixed-level fixed-character conclusion is not extended to ℓ=2 or 3. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §1, Carayol character theorem preceding 1.5, author pp. 2–3. The fixed weight/level character replacement and its ℓ≥5 restriction.) ([Benedict H. Gross](https://www.math.purdue.edu/~tongliu/seminar/Mlift/Gross.pdf), Proposition 9.3 and following remarks, pp. 478–479. The low-characteristic lifting/character obstruction.)
+Let ℓ≥5 and f be a normalized cuspidal eigenform of weight k and level Γ1(N), with irreducible residual representation at λ. If ε′ is a characteristic-zero character modulo N congruent to ε modulo λ and with ε′(−1)=(−1)^k, then a weight-k eigenform of the same level and character ε′ gives the same residual representation after coefficient extension. In particular one can replace ℓ-primary character factors by their canonical prime-to-ℓ lift in this range. The fixed-level fixed-character conclusion is not extended to ℓ=2 or 3. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), §1, Theorem 1.3, author pp. 2–3. The fixed weight/level character replacement and its ℓ≥5 restriction.) ([Benedict H. Gross](https://www.math.purdue.edu/~tongliu/seminar/Mlift/Gross.pdf), Proposition 9.3 and following remarks, pp. 478–479. The low-characteristic lifting/character obstruction.)
 
 ℓ≥5, irreducible residual representation, compatible parity and congruent characters. Coefficient fields and λ are retained throughout; characters of ℓ-power order are not themselves trivial in characteristic zero.
 
@@ -984,17 +986,19 @@ For a character θ of odd ℓ-power order, multiplication by two is invertible o
 
 ### 4.4 Teichmüller character removal
 
-Choose a positive exponent i representing the Teichmüller character. The Eisenstein form G of type (i,ω^{-i}) at Γ0(ℓ) has constant term c=L(1−i,ω^{-i})/2 with negative λ-valuation. Kummer congruences and the von Staudt calculation give this valuation, while the positive coefficients are integral. Thus E=c^{-1}G is integral and E≡1 modulo λ. Multiplication by E removes ω^i and preserves the residual q-expansion at Γ0(ℓ^{r′})∩Γ1(N), in increased weight. Lift the resulting good-prime residual eigencharacter; the product need not be a characteristic-zero eigenform. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), Proof of Theorem 2.1, Step 2, author p. 5. The indicated operation and its coefficient and level conditions.)
+Choose an exponent i≥3 representing the Teichmüller character, increasing it by a multiple of ℓ−1 if necessary. The Eisenstein form G of type (i,ω^{-i}) at Γ0(ℓ) has constant term c=L(1−i,ω^{-i})/2 with negative λ-valuation. Kummer congruences and the von Staudt calculation give this valuation, while the positive coefficients are integral. Thus E=c^{-1}G is integral and E≡1 modulo λ. Multiplication by E removes ω^i and preserves the residual q-expansion at Γ0(ℓ^{r′})∩Γ1(N), in increased weight. Lift the resulting good-prime residual eigencharacter; the product need not be a characteristic-zero eigenform. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), Proof of Theorem 2.1, Step 2, author p. 5. The indicated operation and its coefficient and level conditions.)
 
 Compatible parity and the Eisenstein congruence of Ribet’s proof.
 
-Use the supplied primitive Eisenstein-series normalization and the special L-value valuation congruence to construct E≡1. Use the q-expansion principle to identify the product’s residual good-prime Hecke support. Apply the finite-free eigenvalue-lifting contract, allowing coefficients and weight to change.
+Specialize the supplied Eisenstein-series normalization, including the Euler factor for an imprimitive ω^{-i}, and prove the special L-value valuation congruence by the Kummer/von Staudt argument cited in Ribet’s Step 2. Negative valuation implies c≠0 and makes every positive coefficient of c^{-1}G vanish modulo λ. Use the q-expansion principle to identify the product’s residual good-prime Hecke support. Apply the finite-free eigenvalue-lifting contract, allowing coefficients and weight to change.
 
 *Needs:* [First character normalization](#strip-ell-step1), `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
 **Checks.**
 
 - Multiplication changes the weight.
+
+- At ℓ=3 and trivial ω^{-i}, choose i=4 rather than the exceptional weight two. The constant uses L(1−i,1 modulo 3)=(1−3^{i−1})ζ(1−i); losing this Euler factor changes the normalization.
 
 - Congruence of q-expansions is not an automatic assertion about all bad-prime Hecke operators.
 
@@ -1004,9 +1008,9 @@ Use the supplied primitive Eisenstein-series normalization and the special L-val
 
 For r′>1, take a finite Galois coefficient field K and σ in its λ-decomposition group inducing residue Frobenius a↦a^ℓ. The characteristic-zero form σ^{-1}f is of the same weight and level, with its character conjugated. Then g=(σ^{-1}f)^ℓ|U_ℓ is a cusp form on Γ0(ℓ^{r′−1})∩Γ1(N); modulo λ its q-expansion equals that of f. Iterate to depth one, retaining the original residue embedding and good-prime eigencharacter. ([Kenneth A. Ribet](https://math.berkeley.edu/~ribet/Articles/motives.pdf), Proof of Theorem 2.1, Step 3, author p. 5. The indicated operation and its coefficient and level conditions.)
 
-A finite Galois coefficient field containing f’s coefficients and a Frobenius lift in the decomposition group at λ. Characteristic-zero coefficient Galois stability from current ModularForms layer 8G. The source’s level-depth U_ℓ property at r′>1; a characteristic-p V operator alone does not supply it.
+A finite Galois coefficient field containing f’s coefficients and a Frobenius lift in the decomposition group at λ. Use current ModularForms layer 8G’s newform stability and the algebraic newform/degeneracy expansion to prove coefficient conjugation for this f. Prove the source’s level-depth U_ℓ property at r′>1 from its correspondence; a characteristic-p V operator alone does not supply it.
 
-Apply coefficient Galois stability to σ^{-1}f. Raise that actual form to the ℓth power, then use the U_ℓ correspondence to decrease the Γ0 depth. In the residue q-expansion use characteristic-ℓ Frobenius and U_ℓ extraction; σ^{-1} cancels coefficient Frobenius. Lift residual Hecke support when selecting the next eigenform.
+Expand f in degeneracy images of normalized newforms, conjugate its algebraic coefficients and those newforms, and use q-expansion injectivity to make σ^{-1}f independent of the expansion. Raise that actual form to the ℓth power. Compute the U_ℓ correspondence’s transformation law to prove descent from Γ0(ℓ^{r′}) to Γ0(ℓ^{r′−1}); same-level Hecke stability is insufficient. In the residue q-expansion use characteristic-ℓ Frobenius and U_ℓ extraction; σ^{-1} cancels coefficient Frobenius. Lift residual Hecke support when selecting the next eigenform.
 
 *Needs:* [Teichmüller character removal](#strip-ell-step2), `tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality`, `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`, `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`.
 
@@ -1024,11 +1028,13 @@ At depth one and tame character ε, use the partial Atkin–Lehner operator W wi
 
 The source’s partial W at Γ1(N)∩Γ0(ℓ), with tame character ε, W²=ε(ℓ), and the normalized V/U operators. Integral q-expansions and bounded denominators of f|W; choose i so 1−(k+ia)/2+v_ℓ(f|W)+i(1+a/2)>0.
 
-Import the normalized partial Atkin–Lehner and trace formulas from current ModularForms layers 3 and 6. Construct g using layer 0 Eisenstein forms and compute its positive W-valuation. The displayed exponent tends to infinity with i, so the nonidentity trace term vanishes modulo λ. Use the q-expansion principle and eigenvalue lifting on the level-N cusp lattice.
+Use current ModularForms layers 3 and 6’s slash and trace constructions to prove the displayed formulas with Ribet’s matrix W=[[ℓx,y],[Nℓz,ℓ]], where ℓx−Nyz=1. Compare its normalization across weights before multiplying forms. Construct g using layer 0 Eisenstein forms, prove E≡1 by the level-one constant-term congruence, and compute its positive W-valuation. Here v_ℓ is normalized by v_ℓ(ℓ)=1, including in a ramified coefficient DVR; extend the coefficient field for the slash scalars when necessary. The displayed exponent tends to infinity with i, so the nonidentity trace term vanishes modulo λ. Use the q-expansion principle and eigenvalue lifting on the level-N cusp lattice.
 
 *Needs:* [Reducing coefficient-prime depth](#strip-ell-step3), `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/ModularForms#layer-3-the-petersson-inner-product-adjoints-oldforms-and-newforms`, `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`.
 
 **Checks.**
+
+- At ℓ=5, a=4 and E=E₄, the q coefficient of g is 240 and that of g|W=25(E(q⁵)−E(q)) is −6000. Their 5-adic valuations are one and three; the latter equals 1+a/2 and fixes the sign and scaling of W.
 
 - Choosing i too small can leave a nonzero Fricke contribution.
 
