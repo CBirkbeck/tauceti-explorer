@@ -3,9 +3,14 @@ import Mathlib
 /-!
 # GrossZagierAndArithmeticHeights: representative target signatures
 
-The README specifies the arithmetic objects, hypotheses, comparisons and source
-locators. This file states the light algebraic interfaces whose carriers exist
-at Mathlib 082e2d3 and Tau Ceti f790474. It is not exhaustive. A finite representation
+The roadmap is `README.md`: it specifies the arithmetic objects, hypotheses,
+comparisons and source locators. This file records the light algebraic interfaces
+and milestone signatures whose carriers already exist in Mathlib and Tau Ceti; it
+is not exhaustive. Design choices made explicit here: characters act through the
+inverse-character eigenspace (`chiIsotypic`), finite CM sums are weighted by the
+character (`heegnerFinite`) and averaged with the inverse group order
+(`heegnerAverage`), and the central-value function is a normalization unit times
+the square of a supplied linear root (`bdpLFunction`). A finite representation
 does not construct a CM orbit, and a power series does not construct its CM
 moment measure. The geometric height and kernel milestones stay in the README.
 -/
@@ -26,6 +31,8 @@ example (K : Type*) [Field K] [NumberField K]
     (h : NumberField.Units.torsionOrder K = 6) : unitIndex K = 3 := by sorry
 example (K : Type*) [Field K] [NumberField K]
     (h : NumberField.Units.torsionOrder K = 4) : unitIndex K = 2 := by sorry
+example (K : Type*) [Field K] [NumberField K] :
+    2 * unitIndex K = (NumberField.Units.torsionOrder K : ℚ) := by sorry
 
 /-- Differentiating the completed weight-two function at a central zero. -/
 theorem completed_derivative_at_central_zero (N : ℝ) (hN : 0 < N)
@@ -99,6 +106,8 @@ example (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) :
         (PowerSeries.constantCoeff root) ^ 2 := by sorry
 example (root : PowerSeries R) (normalization : (PowerSeries R)ˣ) :
     bdpLFunction (2 * root) normalization = 4 * bdpLFunction root normalization := by sorry
+example : bdpLFunction (1 + PowerSeries.X : PowerSeries ℤ) 1 =
+    1 + 2 * PowerSeries.X + PowerSeries.X ^ 2 := by sorry
 
 /-- The imprimitive series obtained by multiplying finitely many supplied local factors. -/
 def bdpIncomplete (centralValue : PowerSeries R) {ι : Type*}
@@ -125,9 +134,11 @@ def bdpEulerFactor (p a : ℚ) : ℚ := (1 + p - a) / p
 example : bdpEulerFactor 5 1 = 1 := by sorry
 example : bdpEulerFactor 5 (-4) = 2 := by sorry
 
-/-- The Hasse bound forces the good-prime Euler numerator to be positive for p greater than one. -/
-theorem bdpEulerFactor_ne_zero (p a : ℝ) (hp : 1 < p)
-    (ha : |a| ≤ 2 * Real.sqrt p) : (1 + p - a) / p ≠ 0 := by sorry
+/-- Under the Hasse bound `|a| ≤ 2√p` the good-prime Euler factor is nonzero for `p > 1`,
+since `1 + p - a ≥ (√p - 1)² > 0`. At `p = 1, a = 2` the numerator vanishes, so `1 < p` is
+needed. -/
+theorem bdpEulerFactor_ne_zero (p a : ℚ) (hp : 1 < p)
+    (ha : |(a : ℝ)| ≤ 2 * Real.sqrt (p : ℝ)) : bdpEulerFactor p a ≠ 0 := by sorry
 
 end TauCetiRoadmap.GrossZagierAndArithmeticHeights
 
@@ -146,7 +157,7 @@ end TauCetiRoadmap.GrossZagierAndArithmeticHeights
 -- colmezTestFunction, normShell, modifiedSelfIntersection.
 -- regularizedCmGreen, cmLocalMultiplicity, residueAdjunctionLine.
 -- twoSplitDegeneracy, archDerivativeKernel, partialRankin.
--- classicalComplexHeight, classicalResolvent, markedModularGreen.
+-- classicalComplexHeight, markedModularGreen.
 -- heckeGreen, cmKernelInvariant, cmArchimedeanHeightSum.
 -- cmTangentHeight, etaCMTangent, diagonalHeckeGreen.
 -- inertOrderModel, halfHomCount, newCMHom.
