@@ -63,10 +63,10 @@ for Faltings heights of CM abelian varieties, the polynomial lower bound for Gal
 points and the finiteness of CM points of bounded discriminant (Layer 1); o-minimal structures and
 R_an,exp, the algebraic part and definable blocks, Pila's uniform block counting, the definability
 of the uniformizations on fundamental sets, Ax–Lindemann for j and for A_g, weakly special
-subvarieties and their dichotomy through Hodge-generic points (Layer 2). Each is a theorem of the
-cited literature; its proof is outlined at the level of its source, and the general theory behind it
-(the auxiliary-section method, cell decomposition and reparametrization, arithmetic intersection
-theory on orthogonal Shimura varieties) is not planned here. The external theorems used inside
+subvarieties and their dichotomy through Hodge-generic points (Layer 2). The cited papers establish these statements. The auxiliary-section method,
+o-minimal cell decomposition and reparametrization, and arithmetic intersection theory used in
+their proofs require further prerequisite targets; the gaps are stated at the affected subsections.
+The displayed end theorems do not by themselves supply these inputs. The external theorems used inside
 single proofs (Cadoret's open adelic image, Pink's comparison, Serre's open image theorem, Deligne's
 monodromy lemma, Masser's specialization theorem, Igusa's estimates, Grushevsky's genus-four
 Schottky theorem, Remmert–Stein and Chow in Demailly's form) are likewise stated as targets of the
@@ -81,8 +81,8 @@ comparison for arithmetic quotients come from ShimuraVarieties. Automorphy facto
 come from AutomorphicBundles. The Faltings height, the isogeny height formula, the Tate conjecture
 and finiteness of isogeny classes come from FaltingsFinitenessAndIsogenyTheorems. Tate modules come
 from ArithmeticGaloisRepresentations, Hilbert irreducibility and the integral thin-set count from
-InverseGaloisAndArithmeticFundamentalGroups, and successive minima from
-GeometryOfNumbersAndQuadraticArithmetic. Dimension and generic projections come from
+InverseGaloisAndArithmeticFundamentalGroups, and the integral-lattice covolume and
+squared successive-minimum theorems from TauCetiRoadmap IntegralLattices, Layer 2D–2F. Dimension and generic projections come from
 SchemeAndStackFoundations; analytic spaces, Remmert–Stein and Chow from
 AlgebraicModuliForArithmeticGeometry and ComplexComparisonPartII. Lattice uniformization of elliptic
 curves and modular polynomials come from ModularCurvesPartII and the normalized j from ModularForms;
@@ -180,6 +180,31 @@ arithmetic fine-level comparison needed for the sixteen-torsion problem, are not
 | --- | --- |
 | `TauCeti.cholesky`, `TauCeti.continuous_cholesky` | The positive-diagonal lower-triangular factor of a positive-definite real symmetric matrix and its continuity; continuity suffices for the successive tolerances of §11.6, and no Lipschitz estimate is used. |
 
+### From the current Tau Ceti library
+
+These interfaces are present at Tau Ceti a91d3aaf and are consumed when the roadmap is
+implemented against that library; they are not additional imports of the pinned suggested file.
+
+- `TauCeti.Geometry.RealAlgebraic.Semialgebraic.Basic:TauCeti.IsSemialgebraic` and
+  `TauCeti.Geometry.RealAlgebraic.Semialgebraic.Function:TauCeti.IsSemialgebraicOn`,
+  `TauCeti.IsSemialgebraicMap` give the semialgebraic set and graph predicates over an ordered
+  commutative ring. The image/composition API in `Semialgebraic.Image`, including
+  `TauCeti.IsSemialgebraic.image_comp_inr` and
+  `TauCeti.IsSemialgebraicOn.isSemialgebraic_image`, assumes projection closure `hproj`.
+  `Semialgebraic.QuantifierElimination:TauCeti.exists_isQF_realize_iff` also assumes `hproj`;
+  these declarations do not supply unconditional Tarski–Seidenberg over R. The remaining
+  projection theorem, dimension and degree contracts belong to RealAlgebraicGeometry.
+- `TauCeti.LinearAlgebra.IntegralLattice.PosDef.Covolume:TauCeti.IntegralLattice.covolume_range_sq_eq_determinant`
+  and `TauCeti.IntegralLattice.covolume_range_eq_sqrt_discriminant` identify covolume squared
+  with determinant and covolume with the square root of the discriminant, for a nondegenerate
+  integral lattice realized isometrically in a real inner-product space with full real span.
+  The successive-minimum bound and independent witnesses remain the IntegralLattices Layer 2F
+  contract below.
+- `TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`
+  is finite surjectivity of the underlying scheme map, with identity, composition and base-change
+  interfaces. The polarization, geometric Hom, degree and analytic comparison contracts below
+  extend this library predicate; no second basic isogeny predicate is defined here.
+
 ### From TauCetiRoadmap roadmaps
 
 - **ModularForms**, Layer 0: the normalized level-one j=E₄³/Δ with its q-expansion and modular
@@ -192,6 +217,11 @@ arithmetic fine-level comparison needed for the sixteen-torsion problem, are not
   (§0.6); the classical domain for Sp_{2g}(Z) on ℋ_g is specialized here.
 - **DiophantineApproximationAndTranscendence**, §0.2: `finite_setOf_mahlerMeasure_le`, finiteness of
   algebraic numbers of bounded degree and Mahler measure (§1.9).
+
+- **IntegralLattices**, Layer 2D: covolume(L)²=det L for a positive-definite integral
+  lattice. Layer 2F: for rank r≥1 the squared minima λ_i are attained by independent integral
+  vectors and satisfy ∏λ_i≤γ_r^r det L. Taking square roots gives the length product bound
+  ∏ℓ_i≤γ_r^{r/2}√det L used below. No claim that the witnesses form a Z-basis is imported.
 
 ### From the roadmaps of the atlas
 
@@ -228,9 +258,6 @@ arithmetic fine-level comparison needed for the sixteen-torsion problem, are not
   count #{a∈E∩Z^r:|a_i|≤N}≤C_E N^{r−1/2}log N for thin E⊆Q^r). The count concerns thin subsets of
   Q^r, which is the case used: the parameters of §6.8 are integral points of the affine space over
   Q.
-- **GeometryOfNumbersAndQuadraticArithmetic.** §1.2 `exists_successiveMin_witnesses` and §1.5
-  `minkowski_second_upper` (successive minima are attained by independent lattice vectors, and
-  ∏λ_i·vol K≤2^d covol L); squared minima are converted to lengths before use in §5.9.
 - **SchemeAndStackFoundations.** Nodes `SF.0/algebraic-scheme-dimension` (dimension theory of
   schemes of finite type over a field) and `SF.4/generic-projection` (generic linear projections).
 - **AlgebraicModuliForArithmeticGeometry.** §7.10.1 `ComplexAnalyticSpace` (complex analytic spaces
@@ -314,6 +341,10 @@ node `D5/siegel-datum`.
 
 *Lean:* `SiegelSpace`.
 
+The predicate API includes `SiegelSpace.mem_iff` (transpose symmetry and positive-definite
+imaginary part), `SiegelSpace.imaginaryIdentity` and `SiegelSpace.fromBlocks` (membership
+for a block diagonal is equivalent to membership for both blocks).
+
 **Checks.**
 
 - `siegelUniformization.genusOne`: For g=1, J(τ)=J(τ+1)=J(−1/τ), and J(i) is the elliptic curve with
@@ -323,6 +354,15 @@ node `D5/siegel-datum`.
   torsors.
 - `siegelUniformization.blockDiagonal`: For τ=diag(τ₁,τ₂) with τ_i∈ℋ_1, J(τ) is the product of the
   elliptic curves J(τ₁), J(τ₂) with the product principal polarization.
+
+**Checks for the Siegel-space predicate.**
+
+- `SiegelSpace.imaginaryIdentity`: iI_g is symmetric with imaginary part I_g, so it belongs
+  to ℋ_g, including the empty matrix in genus zero.
+- `SiegelSpace.zeroBoundary`: The zero matrix is outside ℋ_1; semidefiniteness cannot replace
+  positive definiteness.
+- `SiegelSpace.symmetryRequired`: [[i,1],[0,i]] has positive-definite imaginary part but
+  is not symmetric and is outside ℋ_2.
 
 ### 0.2 The smooth Torelli locus
 
@@ -384,9 +424,16 @@ components; non-compact-type generalized Jacobians have toric parts and are not 
 
 *Proof sketch.* Extend the Torelli morphism over the compact-type locus of the stack of stable
 curves, where the relative Picard scheme of degree zero is an abelian scheme carrying the product of
-the canonical polarizations of the components. The stack of stable curves is proper, so the extended
-image is closed; a curve not of compact type has a generalized Jacobian with a nontrivial toric
-part, hence no point of A_g, which identifies the image with closure(T_g).
+the canonical polarizations of the components. To obtain a closed image inside A_g, use an
+extension of the Torelli map from the entire proper stack of stable curves to the Satake
+compactification, whose inverse image of A_g is exactly the compact-type locus. Properness
+after base change to A_g, together with density of smooth curves, identifies the image with
+closure(T_g). Properness of the stable-curve stack alone does not imply properness of its open
+compact-type locus.
+
+**Gap.** The listed suppliers do not state this Satake extension, its boundary characterization,
+or the principally polarized relative Picard construction for compact-type families. These are
+required inputs to this argument; the smooth-family relative Jacobian does not supply them.
 
 *Needs:* §0.2; StableReductionPartII node `MC.2/pointed-dm-theorem` (the stack of stable curves).
 
@@ -454,12 +501,28 @@ The API:
 
 *Lean:* `IsMinkowskiReduced`, `minkowskiDomain`.
 
+The light predicate `IsMinkowskiReduced` requires y positive definite, y_kk≤h^t y h
+for every integer h whose coordinates from k onward have gcd 1, and nonnegative
+adjacent entries y_{i,i+1}. Its API is `IsMinkowskiReduced.mem_iff` for these clauses,
+`IsMinkowskiReduced.posDef`, and `IsMinkowskiReduced.diagonalOrder`; the last follows
+by testing the appropriate coordinate vectors. This is the classical ordered form
+used for Siegel reduction, including its adjacent-sign convention.
+
 **Checks.**
 
 - `minkowskiDomain.i`: τ=i lies in F_1 and has y=1.
 - `minkowskiDomain.smallImaginary`: τ=i/2 is in ℋ_1 but not in F_1.
 - `minkowskiDomain.diagonalOrder`: The block product diag(2i,i) need not lie in F_2 because its
   imaginary diagonal is not ordered.
+
+**Checks for Minkowski reduction.**
+
+- `IsMinkowskiReduced.orderedDiagonal`: diag(1,2) is reduced; diag(2,1) fails the first
+  primitive-vector inequality at h=(0,1).
+- `IsMinkowskiReduced.adjacentSign`: [[1,−1/4],[−1/4,1]] is positive definite and fails
+  the adjacent-entry sign condition. Positivity alone is insufficient.
+- `IsMinkowskiReduced.zeroBoundary`: The zero form in rank one is not reduced because
+  positive definiteness is part of the predicate.
 
 ### 0.7 Igusa diagonal comparison
 
@@ -476,6 +539,20 @@ semidefinite difference.
 *Needs:* §0.6.
 
 *Lean:* `DiagonalComparison`, `igusaDiagonalComparison`.
+
+Define `DiagonalComparison δ τ` by δD_y≤y≤δ⁻¹D_y, D_y≥δI, and
+|Re τ_ij|≤δ⁻¹; no diagonal ordering is built into it. The comparison theorems use
+0<δ≤1 and τ∈ℋ_g. Its API is `DiagonalComparison.mem_iff`, the projections
+`lower`, `upper`, `diagonalLower`, `realPart`, and block-diagonal compatibility (§0.8).
+
+**Checks for the diagonal-comparison predicate.**
+
+- `DiagonalComparison.identity`: For δ=1 and τ=iI_g all three matrix differences vanish
+  and the real-entry bound holds.
+- `DiagonalComparison.smallImaginary`: At δ=1, τ=i/2 fails D_y≥I although its imaginary
+  part is positive definite.
+- `DiagonalComparison.offDiagonal`: At δ=1, τ=[[i,i/2],[i/2,i]] has positive-definite
+  imaginary part but y−D_y has eigenvalues ±1/2, so it fails the lower comparison.
 
 ### 0.8 The enlarged product domain
 
@@ -555,7 +632,7 @@ Define `LambdaForm`. Let g≥2, let Λ be a normal subgroup of finite index in �
 be an integer. A Λ-form of weight k is a holomorphic function ϕ on ℋ_g with ϕ(λτ)=Δ(λ,τ)^kϕ(τ) for
 every λ=(a,b;c,d)∈Λ, where Δ(λ,τ)=det(cτ+d). Because the translations by integral symmetric matrices
 form a free abelian group of rank G=g(g+1)/2 and Λ meets it in a subgroup of finite index, there is
-an integer d≥1 such that ϕ(τ+ds)=ϕ(τ) for all integral symmetric s, and ϕ has a unique expansion
+an integer d≥1 such that ϕ(τ+2ds)=ϕ(τ) for all integral symmetric s, and ϕ has a unique expansion
 ϕ(τ)=∑_M a(M)exp(πi tr(Mτ)), normally convergent on compact sets, over symmetric rational M with dM
 half-integral (integral diagonal, half-integral off-diagonal entries). Since g≥2, a(M)=0 unless M is
 positive semidefinite (Koecher principle). A Γ-form is a cusp form when a(M)=0 for every M that is
@@ -565,9 +642,11 @@ not positive definite.
 arXiv:math/0605346v1, §4, Definition 4.1 and Theorems 4.3–4.4, pp.9–10.)
 
 *Construction.* The translation subgroup of Λ has finite index in the lattice of integral symmetric
-matrices, so it contains d times that lattice; ϕ is then periodic and holomorphic in each entry, and
-its Fourier expansion with the stated support follows from the description of the dual lattice under
-the pairing (M,s)↦tr(Ms)/2. Uniqueness of coefficients is the uniqueness of Fourier series on the
+matrices, so it contains 2d times that lattice for some d≥1. The function is then periodic and
+holomorphic in each entry. Under the exponential convention exp(πi tr(Mτ)), the condition on
+the frequency is d tr(Ms)∈Z for every integral symmetric s: equivalently dM is half-integral.
+For a translation period t not written as 2d, the corresponding condition is that (t/2)M be
+half-integral. This factor of two fixes the frequency convention used in all later order bounds. Uniqueness of coefficients is the uniqueness of Fourier series on the
 compact torus of real parts. For the Koecher principle the argument of van der Geer, Theorem 4.3,
 applies to Λ: the unimodular transformations τ↦uτu^t that lie in Λ (a finite-index subgroup of
 GL_g(Z)) relate a(M) and a(u^tMu), and a non-semidefinite M produces coefficients that would force
@@ -575,8 +654,9 @@ the series to diverge.
 
 The API:
 
-- `LambdaForm.fourierCoeff`: a(M) is the integral of ϕ(τ)exp(−πi tr(Mτ)) over a period box of the
-  real part, independent of the imaginary part.
+- `LambdaForm.fourierCoeff`: For dM half-integral, a(M) is the integral of
+  ϕ(τ)exp(−πi tr(Mτ)) over a real period box of side 2d in the independent symmetric entries,
+  using normalized Haar measure. It is independent of the imaginary part.
 - `LambdaForm.hasSum_fourier`: The expansion converges normally on compact subsets of ℋ_g to ϕ.
 - `LambdaForm.fourierCoeff_eq_zero_of_not_posSemidef`: For g≥2, a(M)=0 unless M is positive
   semidefinite.
@@ -650,6 +730,13 @@ lemma, and a matrix lemma bounding the smallest nonzero period norms ρ(A_σ,L_�
 height. The second statement follows by applying the first to A_ω, whose minima at σ₀ are bounded by
 ‖ω‖_{L,σ₀}.
 
+**Gap.** The prerequisites below supply polarized abelian varieties and their heights, but not
+adelic Hermitian vector bundles with Arakelov slopes, cubist metrics and their height comparison,
+or the quantitative auxiliary-section and interpolation estimates. GR14 §3.2, pp.358–360, and
+§6.1–6.8, pp.368–380, use these inputs in proving the period bound. They need named targets
+with the numerical hypotheses retained; a polarization and a Faltings height do not provide
+that theory.
+
 The API:
 
 - `periodTheorem.matrixLemma`: With ρ(A_σ,L_σ) the least nonzero norm of a period, (1/[k:Q])Σ_σ
@@ -657,7 +744,9 @@ The API:
   (GR14 Théorème 1.1, p.345).
 - `periodTheorem.minimalSubvariety`: The Masser–Wüstholz form for A_ω stated above.
 - `periodTheorem.ellipticCase`: For an elliptic curve the only proper abelian subvariety is 0, so
-  δ=ρ and the period theorem is the matrix lemma.
+  δ=ρ. With the principal polarization, deg_L E=1 and the left side is the matrix-lemma
+  left side. The constants 50 and 14 in the two displayed bounds are different; an arbitrary
+  polarization contributes its degree on the period-theorem left side.
 
 *Needs:* AbelianSchemesAndArithmeticModuli §A2.5 `Polarization`, §A5.1 `AbelianLattice` and §A5.2
 (Riemann forms); FaltingsFinitenessAndIsogenyTheorems §R28.1.5 `modularHeight`.
@@ -729,6 +818,12 @@ by the period theorem applied to a canonical period (Théorème 1.8; §1.1), and
 The finiteness of the isogeny class used in the construction is Faltings' theorem. The polynomial
 form follows from max(1,log[k:Q],h_F(A))≤max(h_F(A),[k:Q]), since log x≤x and [k:Q]≥1, so that
 Ξ(A)²≤((7g)^{8g²}[k:Q]max(h_F(A),[k:Q]))^{4g²}.
+
+**Gap.** The canonical representative and endomorphism-order constructions of GR23 Théorèmes
+1.3–1.5, pp.12–13, and the discriminant/period bound of Théorème 1.8, p.15, are not targets
+in this roadmap or in the stated supplier contracts. Finiteness of an isogeny class and
+freeness of Hom do not provide these effective constructions. Their prerequisite chain,
+including descent to extensions L/K, is required before the displayed bound has a closed plan.
 
 The API:
 
@@ -844,6 +939,13 @@ Green function computations, and deduce the formula; Yuan and Zhang use Gross–
 on Shimura curves over totally real fields. The independence of h_Falt(A) from A within the CM type
 is Colmez's theorem.
 
+**Gap.** The orthogonal Shimura integral models, big CM cycle, special arithmetic divisors
+and arithmetic intersection formula used in this proof are not supplied by CM types,
+reciprocity and Faltings heights. In AGHMP this formula is Theorem B, p.395, or Theorem 6.4.2,
+p.474; its Green-function input is Theorem 6.3.1, p.473. These require exact prerequisite targets,
+including the removal of the bad-prime error in the final averaged formula. An orthogonal
+Shimura datum by itself would not supply them.
+
 The API:
 
 - `averagedColmez.colmezIndependence`: h_Falt(A) depends only on (E,Φ) for A with CM by O_E of type
@@ -920,13 +1022,21 @@ passage from the field of moduli to the Galois orbit of x and the reduction of t
 point to the primitive case go through the reflex reciprocity description of the orbit and
 Ullmo–Yafaev's reduction (Tsimerman 2018, pp.385–386, citing Ullmo–Yafaev, Theorem 7.1).
 
+**Gap.** The primitive-type proof must keep track of the field of moduli used for a CM
+class and for a polarized pair. The rigidification argument applies to the polarized pair;
+its extension bound cannot simply be transferred to an unpolarized field of moduli. The
+necessary comparison, and the reduction from primitive maximal-order CM data to all special
+points cited from Ullmo–Yafaev in Tsimerman 2018 pp.385–386, are not targets in the stated
+CM supplier. They need exact statements rather than an implicit appeal to the final orbit bound.
+
 The API:
 
 - `cmGaloisOrbitLowerBound.primitiveType`: [Q(A):Q]≫|Disc E|^{δ_g} for A with CM by O_E of primitive
   type (Tsimerman 2018, Theorem 4.2).
-- `cmGaloisOrbitLowerBound.moduliFieldExtension`: For any abelian variety A there is a field
-  containing Q(A), of degree at most 2·3^{4g²} over it, over which all endomorphisms and
-  polarizations of A are defined (Tsimerman 2018, Lemma 4.1).
+- `cmGaloisOrbitLowerBound.moduliFieldExtension`: For a principally polarized pair (A,λ) there
+  is a field containing its polarized field of moduli Q(A,λ), of degree at most 2·3^{4g²}
+  over it, over which the pair, its endomorphisms and its polarizations are defined
+  (Tsimerman 2018, Lemma 4.1, p.384). Full level 3 rigidifies the polarized pair.
 - `cmGaloisOrbitLowerBound.orbitBound`: The displayed inequality for all special points.
 
 *Needs:* §1.3; §1.7; ComplexMultiplicationAndExplicitReciprocity §CM.2 `relativeCMModuliOrbit` and
@@ -940,6 +1050,9 @@ The API:
   R_x=O_K and Disc(R_x)=disc O_K.
 - `cmGaloisOrbitLowerBound.ineffective`: No explicit value of the implied constant is claimed: the
   Brauer–Siegel input is ineffective.
+- `cmGaloisOrbitLowerBound.polarizedRigidity`: On E² the unpolarized automorphism
+  [[1,3],[0,1]] fixes every 3-torsion point and is not the identity. It does not preserve the
+  product principal polarization. Full level 3 alone cannot rigidify unpolarized automorphisms.
 
 ### 1.9 Finitely many CM points of bounded discriminant
 
@@ -949,8 +1062,12 @@ with |Disc(R_x)|<B, where R_x is the centre of End(A_x).
 (Pila–Tsimerman 2014, Lemma 7.4, p.675; Pila–Tsimerman 2013, Theorem 3.1 (arXiv:1106.4023v1, p.3).)
 
 *Proof sketch.* Lift x to the Siegel fundamental domain (§0.6). The entries of the lift Z are
-algebraic of degree at most 2g, and the height of Z is polynomially bounded in |Disc(R_x)|
-(Pila–Tsimerman 2013, Theorem 3.1). Northcott's finiteness for algebraic numbers of bounded degree
+algebraic of degree bounded by a constant depending only on g, and the height of Z is
+polynomially bounded in |Disc(R_x)| (Pila–Tsimerman 2013, Theorem 3.1, proof pp.3–8). A safe
+degree bound is (2g)!: in the CM lattice description the entries lie in a common normal closure
+of the CM fields in the centre of End⁰(A). Its Galois group acts faithfully on at most 2g
+embeddings, and rational symplectic changes of basis keep the entries in that field. This
+argument also covers products; no degree-2g common field is assumed. Northcott's finiteness for algebraic numbers of bounded degree
 and height leaves finitely many Z, hence finitely many x.
 
 The API:
@@ -958,8 +1075,9 @@ The API:
 - `cmBoundedDiscriminantFinite.preSpecialHeight`: For a special point x with lift Z in the
   fundamental domain, H(Z) is polynomially bounded in |Disc(R_x)| (Pila–Tsimerman 2013,
   Theorem 3.1).
-- `cmBoundedDiscriminantFinite.algebraicEntries`: The entries of Z are algebraic of degree at most
-  2g.
+- `cmBoundedDiscriminantFinite.algebraicEntries`: The entries of Z are algebraic of degree at
+  most (2g)!, uniformly in x. This is sufficient for Northcott and does not require the
+  sharper bound 2g (the simple-case construction in the cited 2013 version uses 4g on p.6).
 
 *Needs:* §0.6; §0.1; DiophantineApproximationAndTranscendence §0.2 `finite_setOf_mahlerMeasure_le`
 (Northcott finiteness in bounded degree).
@@ -970,6 +1088,9 @@ The API:
   and j=1728 (disc −4): exactly two.
 - `cmBoundedDiscriminantFinite.productDiscriminant`: For x=E₀×E₁₇₂₈ in A_2 with End(E₀)=Z[ζ₃],
   End(E₁₇₂₈)=Z[i], the centre is Z[ζ₃]×Z[i] and |Disc(R_x)|=3·4=12.
+- `cmBoundedDiscriminantFinite.degreeBound`: In genus one (2g)!=2, agreeing with quadratic
+  CM periods. In genus three three distinct imaginary quadratic factors may have common
+  normal closure of degree 8; the uniform bound 6!=720 accommodates this compositum.
 - `cmBoundedDiscriminantFinite.notIsogenyInvariant`: R_x is not an isogeny invariant: the curves
   with CM by the orders of conductor f in Q(i) are all isogenous, with |Disc|=4f² unbounded, so
   finiteness needs the bound on Disc(R_x), not on the CM field.
@@ -1050,6 +1171,11 @@ p.665.)
 obtained by van den Dries and Miller, building on Wilkie's model completeness of the real
 exponential field and on Gabrielov's theorem of the complement for subanalytic sets.
 
+**Gap.** The definition of the structure is elementary, but its o-minimality proof needs
+model completeness and the restricted-analytic/exponential theory used by van den Dries,
+Macintyre and Marker. None of these key inputs is in §2.1 or in the semialgebraic supplier.
+The cited account identifies the theorem but does not supply a prerequisite plan for it.
+
 The API:
 
 - `RanExp.exp_mem`: The graph of exp:R→R is definable.
@@ -1076,8 +1202,8 @@ at every point. A definable block family of dimension w and degree d is a defina
 whose nonempty fibres are definable blocks of dimension w and degree at most d. A point is a block
 of dimension 0, and a block of positive dimension contained in Z lies in Z^alg. Prove
 `DefinableBlock.image`: if B⊆R^κ is semialgebraic and φ:B→R^ν is semialgebraic, the image of a
-definable block is a finite union of definable blocks, and the image of a definable block family is
-a finite union of definable block families.
+definable block W, meaning φ(W∩B), is a finite union of definable blocks; the analogous
+fibrewise image of a definable block family is a finite union of definable block families.
 
 (Pila 2011, Definition 3.1, p.1792, Definition 3.4 and the remark following it, p.1794, and
 Lemma 3.5, p.1795; these blocks are the basic blocks of Pila 2009.)
@@ -1108,6 +1234,23 @@ The API:
 - `algebraicPart.expGraph`: For Z the graph of exp on R, Z^alg=∅, since the graph contains no
   semialgebraic arc; for Z=R×{0}, Z^alg=Z.
 
+**Checks for the algebraic part.**
+
+- `algebraicPart.point`: The algebraic part of a singleton is empty; zero-dimensional
+  semialgebraic subsets are excluded.
+- `algebraicPart.line`: For Z=R×{0}, its connected semialgebraic line gives Z^alg=Z.
+- `algebraicPart.exponential`: For the graph of exp, Z^alg is empty: a semialgebraic
+  arc would force a polynomial relation for exp on an interval.
+
+**Checks for block families.**
+
+- `DefinableBlockFamily.intervals`: W={(x,t):t>0, 0<x<t} is a family of degree-one
+  one-dimensional blocks; fibres at t≤0 are empty and permitted.
+- `DefinableBlockFamily.disconnectedFibre`: The constant fibre {0,1} is not a block
+  family of dimension zero, since each nonempty fibre must be connected.
+- `DefinableBlockFamily.dimensionJump`: Fibres {0} at t=0 and (0,1) at t≠0 cannot
+  form one block family of fixed dimension, although every fibre separately is a block.
+
 ### 2.4 Uniform counting of rational points in definable blocks
 
 Prove `uniformBlockCounting`. Let Z⊆R^n×R^m be a definable family and ε>0. There are finitely many
@@ -1127,6 +1270,12 @@ definable sets by maps with bounded derivatives with the Bombieri–Pila determi
 in families. Pila 2009 refines it so that the rational points are covered by few basic blocks from
 finitely many families; Pila 2011 adds degrees and passes to images under semialgebraic maps by
 §2.3.
+
+**Gap.** The rational-point case used here still depends on the block-counting theorem
+behind Pila 2011 Theorem 3.6. Its proof on pp.1796–1797 invokes Pila 2009 Theorem 3.5; it
+does not derive that case from the definitions of blocks. The uniform C^r reparametrization
+and determinant estimate needed for the counting argument require targets and exact
+family-uniform constants. The supplied semialgebraic projection theory alone is insufficient.
 
 The API:
 
@@ -1185,8 +1334,14 @@ ModularForms Layer 0 (the normalized `j`).
   structure: {τ:j(τ)=1728} is the SL_2(Z)-orbit of i, an infinite discrete set.
 - `definableUniformization.needsExp`: j|_F is not definable in R_an: j(iy) grows like e^{2πy},
   faster than any polynomial, and R_an is polynomially bounded.
-- `definableUniformization.compactPiece`: On a compact subset of ℋ_1 the function j is real
-  analytic, so its restriction is definable already in R_an.
+- `definableUniformization.compactPiece`: On a compact semialgebraic subset K⊆ℋ_1, j is real
+  analytic on a neighbourhood of K. A finite cover by boxes inside ℋ_1 expresses j|_K as
+  finitely many restrictions of restricted analytic functions, so it is definable in R_an.
+- `definableUniformization.cantorDomain`: Let C be the middle-thirds Cantor set in [0,1].
+  The compact domain K={x+i:x∈C} is not definable in an o-minimal structure. A definable
+  graph of j|_K would have definable projection K, and hence define C, contradicting
+  o-minimality. Analyticity of j does not make restrictions to arbitrary compact domains
+  definable.
 
 ### 2.6 Ax–Lindemann for the j-function on C²
 
@@ -1381,6 +1536,19 @@ choices of generators as distinct subgroups.
 *Needs:* Mathlib `AddSubgroup`, `AddCircle` and `Nat.card`.
 
 *Lean:* `finiteSubgroupCount`, `finiteSubgroupCount_genusOne`.
+
+For the scalar sums define `dedekindPsi m=m∏_{p|m}(1+1/p)` for m≥1, and set
+ψ(0)=0. This is the cyclic correspondence degree of the imported modular polynomial,
+not the count of all subgroups of order m. The API `dedekindPsi_le_sigma`,
+`sum_dedekindPsi_le` and `sum_dedekindPsi_sq_le` bounds ψ(m) by σ(m),
+Σ_{1≤m≤M}ψ(m) by M², and Σ_{1≤m≤M}ψ(m)² by CM³ log M for M≥2 and an absolute C.
+(MZ20 §2, p.644, and §3.2, p.647.)
+
+**Checks for ψ.**
+
+- `dedekindPsi.zero`: ψ(0)=0 and ψ(1)=1, so the positive-degree convention is explicit.
+- `dedekindPsi.squarePrime`: ψ(4)=6 whereas σ(4)=7; noncyclic kernels are not counted by ψ.
+- `dedekindPsi.squarefree`: ψ(6)=12=σ(6), and ψ(p)=p+1 for a prime p.
 
 ### 3.3 Many elliptic isogeny classes
 
@@ -1660,6 +1828,38 @@ AbelianSchemesAndArithmeticModuli §A6.14 `rosatiPositivity`; AbelianSchemesAndA
 
 *Lean:* `epsilon`, `periodRow`, `IsAnalyticRep`, `rosatiSq`, `rationalAnalyticTrace`.
 
+The light matrix definitions pin ε=(0,−I;I,0), the row (I,τ), compatibility
+κ(I,τ)=(I,τ)ρ, and the square length tr(ρ ε ρ^t ε^t). The analytic comparison theorem
+is asserted only under that compatibility and τ∈ℋ_g.
+
+Their APIs are `epsilon_eq_J`, `epsilon_sq` and `epsilon_transpose` for the alternating
+matrix; `periodRow.leftBlock` and `periodRow.rightBlock` for the row's two blocks;
+`IsAnalyticRep.mem_iff`, `IsAnalyticRep.zero`, `IsAnalyticRep.scalar` and
+`IsAnalyticRep.mul` for compatibility; and `rosatiSq.zero`, `rosatiSq.scalar` and
+`rationalAnalyticTrace` for square length. Positivity of square length requires
+compatibility at a Siegel point; it is not asserted for arbitrary real matrices.
+
+**Checks for the alternating matrix and period row.**
+
+- `epsilon.genusOne`: ε=[[0,−1],[1,0]], with ε²=−I₂ and ε^t=−ε.
+- `epsilon.libraryConvention`: On Fin g⊕Fin g, ε is Mathlib's `Matrix.J (Fin g) R`;
+  its upper-right block is −I, distinguishing the opposite alternating convention.
+- `epsilon.empty`: At g=0, ε is the unique empty matrix and its determinant is 1.
+- `periodRow.ellipticI`: At τ=i the row is [1,i], rather than [i,1].
+- `periodRow.zero`: At the zero genus-one matrix the row is [1,0], rather than zero.
+- `periodRow.empty`: At g=0 the row has no entries; no scalar first column is added.
+
+**Checks for the rational trace and compatibility.**
+
+- `rationalAnalyticTrace.identity`: In genus one, τ=i, ρ=I₂ and κ=1 satisfy
+  compatibility; the rational square length is 2 and the analytic trace is 1.
+- `rationalAnalyticTrace.zero`: With ρ=0 and κ=0, compatibility holds and both
+  expressions vanish.
+- `IsAnalyticRep.nonExample`: At τ=i, κ=0 and ρ=I₂ fail compatibility since the
+  first column of κ(I,i) is zero and that of (I,i)ρ is 1.
+- `epsilon.sign`: In genus one ε=[[0,−1],[1,0]], ε²=−I₂ and ε⁻¹=ε^t=−ε.
+  Substituting ε for ε⁻¹ gives square length −2 at ρ=I₂ and fails positivity.
+
 ### 5.2 Submultiplicativity and integrality of the Rosati length
 
 Prove `rosatiLength_mul_le`. For endomorphisms v, w of a principally polarized complex abelian
@@ -1819,12 +2019,13 @@ has ℓ≥1, hence max_iℓ(v_i)≤C_g√D.
 (MZ20 §4 (29) p.656.)
 
 *Proof sketch.* Use the Rosati form to identify the endomorphism lattice with a full Euclidean
-lattice of covolume √D. Apply the exact successive-minimum witnesses and product inequality to the
-unit ball; exploit the uniform rank bound.
+integral lattice with determinant D. For its squared minima λ_i, the imported independent
+witnesses have ℓ(v_i)=√λ_i. Taking square roots of ∏λ_i≤γ_r^r D gives the required product;
+the finitely many ranks 1≤r≤16g² give a constant depending only on g.
 
-*Needs:* §5.1; AbelianSchemesAndArithmeticModuli §A6.7 `homFreeFinite`;
-GeometryOfNumbersAndQuadraticArithmetic §1.2 `exists_successiveMin_witnesses` and §1.5
-`minkowski_second_upper`.
+*Needs:* §5.1; AbelianSchemesAndArithmeticModuli §A6.7 `homFreeFinite`; the
+positive-definite integral-lattice covolume and squared-minimum contracts stated under
+prerequisites and boundaries.
 
 ### 5.10 A controlled-length off-diagonal isogeny
 
@@ -1887,7 +2088,7 @@ right by the nonsingular inverse.
 ### Dependencies
 
 Earlier layers: Layer 0, Layer 1. Other roadmaps: AbelianSchemesAndArithmeticModuli,
-GeometryOfNumbersAndQuadraticArithmetic, FaltingsFinitenessAndIsogenyTheorems.
+FaltingsFinitenessAndIsogenyTheorems; the integral-lattice contracts stated above.
 
 ## Layer 6: Galois genericity and arithmetic specialization
 
@@ -1940,6 +2141,11 @@ absolute-Hodge theorem for abelian varieties; End(A)=Z alone is not a substitute
 *Proof sketch.* Compare absolute Hodge tensors with invariant tensors of the ℓ-adic representation
 using Deligne’s absolute-Hodge theorem. A full generic Galois group excludes additional defining
 tensors of a proper Mumford–Tate subgroup; use Pink’s exact argument and the Siegel dictionary.
+
+**Gap.** The listed ShimuraData targets define Mumford–Tate groups and genericity, but do not
+supply Deligne's absolute-Hodge theorem for abelian varieties or its comparison with Galois
+invariant tensors. This key theorem and its comparison hypotheses need an exact owner contract
+before the implication has a closed prerequisite chain.
 
 *Needs:* §6.2; ShimuraData nodes `D1/mumford-tate-group` and `D1/hodge-generic`; ShimuraData node
 `D5/siegel-datum`.
@@ -2076,7 +2282,8 @@ x ∈ A_g(Q̄) and field of moduli Q(x), there is a field of definition K̃ ⊇ 
 ≤ c(g): lift x to the fine moduli space A_{g,3} of principally polarized abelian varieties with full
 level-3 structure and take the residue field of the lift.
 
-(MZ20 §5.1, p.663.)
+(Tsimerman 2018, Lemma 4.1, p.384, for polarized level-3 rigidification;
+MZ20 §5.1, p.663, for the use of bounded model/moduli degree in counting.)
 
 *Proof sketch.* Lift the coarse moduli point to a full level-3 cover and choose a geometric point
 above it. Track the fixed-pairing cyclotomic component or use a similitude level over Q; bound the
@@ -2240,6 +2447,20 @@ ShimuraVarieties §2.8 `TauCeti.Shimura.koecher`; §0.11.
 - `fourierOrder.cutoffEquality`: If the first nonzero trace is W, the assertion that every
   coefficient with trace≤W vanishes is false.
 
+The light predicate `IsHalfIntegral M` means integral diagonal entries and
+integral entries of 2M; symmetry is required separately by the Fourier-index theorems.
+Its API is the diagonal and doubled-entry characterizations, closure under addition,
+and `IsHalfIntegral.intCast` for every integral matrix.
+
+**Checks for half-integrality.**
+
+- `IsHalfIntegral.identity`: I_g and the zero matrix are half-integral.
+- `IsHalfIntegral.offDiagonal`: [[1,1/2],[1/2,1]] is half-integral; requiring all
+  entries integral would reject this index.
+- `IsHalfIntegral.diagonalFails`: diag(1/2,1) fails even though all entries of 2M
+  are integral; both clauses are needed.
+- `IsHalfIntegral.quarterFails`: [[1,1/4],[1/4,1]] fails the doubled-entry condition.
+
 ### 8.2 Superadditivity of Fourier order
 
 Prove `orderSuperadditive`. For nonzero compatible Λ-forms ϕ_1,ϕ_2, ord(ϕ_1ϕ_2)≥ord(ϕ_1)+ord(ϕ_2).
@@ -2299,6 +2520,17 @@ Minkowski-constant upper bound and retain every numerical factor.
 
 *Needs:* §8.1; AutomorphicBundles §B4.3 `AutomorphyFactor` and §B4.4
 `slashActionOfAutomorphyFactor`; §0.11; §0.7.
+
+The numerical helper `minkowskiConstantBound g` is the displayed upper bound for c_g,
+not the optimal Minkowski constant. Its formula, positivity for g≥1, and evaluation
+at small g form its API; the order theorem uses g≥2.
+
+**Checks for the numerical bound.**
+
+- `minkowskiConstantBound.one`: At g=1, Γ(1)=1 and the value is 4/π.
+- `minkowskiConstantBound.two`: At g=2, Γ(3/2)=√π/2 and the value is again 4/π.
+- `minkowskiConstantBound.three`: At g=3, Γ(2)=1 and the factor (3/2)² gives
+  144/π³. Omitting that factor gives the wrong value.
 
 ### 8.5 Finite-level order bound
 
@@ -2821,6 +3053,22 @@ p.670).
 
 *Lean:* `halfChar`, `schottkyU`, `schottkyV`, `schottkyForm`,
 `schottkyForm_eq_zero_of_card_le_three`.
+
+The light helper `halfChar` sends the Fin 2 labels 0 and 1 to 0 and 1/2
+coordinatewise. Its API identifies these representatives, their membership in
+(1/2)Z/Z, and compatibility with splitting coordinates.
+
+**Checks for half-characteristics and the theta sums.**
+
+- `halfChar.zero`: The all-zero label gives the zero characteristic.
+- `halfChar.one`: The label 1 in genus one gives 1/2, rather than 1.
+- `halfChar.empty`: In genus zero there is exactly one empty characteristic;
+  the empty theta series is 1, so U_0=V_0=1 and F_0=0.
+- `schottkySums.ellipticI`: Put b=θ_{1/2,0}(i)=θ_{0,1/2}(i)>0. Jacobi
+  gives θ_{0,0}(i)^4=2b^4 and θ_{1/2,1/2}(i)=0. Hence U_1(i)=18b^{16},
+  V_1(i)=6b^8, and 2U_1−V_1²=0. This fixes both exponents and the factor 2.
+- `schottkySums.productI`: At diag(i,i), block factorization gives
+  U_2=324b^{32}, V_2=36b^{16}, and 4U_2−V_2²=0. The coefficient is 4 in genus two.
 
 ### 10.11 Factorization of theta sums on products
 

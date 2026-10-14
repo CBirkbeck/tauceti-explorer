@@ -16,8 +16,8 @@ Design choices made explicit here:
   and `Sp_{2g}(ℤ)` is Mathlib's `Matrix.symplecticGroup` on `Fin g ⊕ Fin g`.
 * The rational representation of an endomorphism enters only through the compatibility
   `κ · (1 τ) = (1 τ) · ρ` with an analytic representation `κ` (MZ20, (21)); no abelian variety,
-  moduli space, height or definability notion is encoded by a stand-in carrier. Everything
-  that needs them is stated in the README only.
+  moduli space, height or definability notion is defined here. The geometric objects and their
+  targets are stated in the README only.
 * The rational Rosati square length is `tr(ρ ε ρᵀ εᵀ)` with `ε = fromBlocks 0 (-1) 1 0`, which
   equals twice the real part of the analytic trace (README 5.1).
 * Signs follow MZ20: the rational representation has blocks `(a, -b; -c, d)`.
@@ -50,6 +50,14 @@ matrices of products live in the same carrier. -/
 def SiegelSpace (n : Type*) [Fintype n] : Set (Matrix n n ℂ) :=
   {τ | τᵀ = τ ∧ (τ.map Complex.im).PosDef}
 
+/-- The zero imaginary part is a boundary point, not a point of the Siegel space. -/
+example : (0 : CMat 1) ∉ SiegelSpace (Fin 1) := by
+  sorry
+
+/-- Positive-definite imaginary part alone does not replace transpose symmetry. -/
+example : (!![Complex.I, 1; 0, Complex.I] : CMat 2) ∉ SiegelSpace (Fin 2) := by
+  sorry
+
 /-- Minkowski reduction of a real symmetric matrix `y` (README 0.6): positive definite,
 `hᵀ y h ≥ y_kk` for every integer vector `h` whose entries from index `k` on are coprime, and
 nonnegative entries next to the diagonal. -/
@@ -58,6 +66,15 @@ def IsMinkowskiReduced {g : ℕ} (y : RMat g) : Prop :=
   (∀ (k : Fin g) (h : Fin g → ℤ), (Finset.univ.filter (fun i => k ≤ i)).gcd h = 1 →
       y k k ≤ ∑ i, ∑ j, (h i : ℝ) * y i j * (h j : ℝ)) ∧
   ∀ i j : Fin g, (j : ℕ) = i + 1 → 0 ≤ y i j
+
+/-- The primitive-vector inequalities retain the ordering of the diagonal. -/
+example : IsMinkowskiReduced (!![1, 0; 0, 2] : RMat 2) ∧
+    ¬ IsMinkowskiReduced (!![2, 0; 0, 1] : RMat 2) := by
+  sorry
+
+/-- A positive form with a negative adjacent entry fails the chosen reduction convention. -/
+example : ¬ IsMinkowskiReduced (!![1, -(1 / 4); -(1 / 4), 1] : RMat 2) := by
+  sorry
 
 /-- The classical Siegel fundamental domain `F_g` (README 0.6): `τ` in the Siegel space with
 Minkowski-reduced imaginary part, real entries bounded by `1/2`, and `|det(cτ+d)| ≥ 1` for every
@@ -259,6 +276,15 @@ example (g : ℕ) (τ : CMat g) (n : ℤ) :
 example (g : ℕ) (n : ℤ) : rosatiSq ((n : ℝ) • (1 : RBig g)) = 2 * g * (n : ℝ) ^ 2 := by
   sorry
 
+/-- In genus one the inverse of the alternating matrix is its transpose, not itself. -/
+example : epsilon 1 * epsilon 1 = -(1 : RBig 1) ∧
+    rosatiSq (1 : RBig 1) = 2 := by
+  sorry
+
+/-- The zero analytic matrix cannot represent the identity rational matrix at `τ = i`. -/
+example : ¬ IsAnalyticRep (Complex.I • (1 : CMat 1)) (1 : RBig 1) 0 := by
+  sorry
+
 /-- README 5.1: the rational Rosati trace is twice the real part of the analytic one,
 `tr(ρ ε ρᵀ ε⁻¹) = 2 Re tr(κ y κᴴ y⁻¹)` with `y = Im τ`. -/
 theorem rationalAnalyticTrace {g : ℕ} {τ : CMat g} (hτ : τ ∈ SiegelSpace (Fin g))
@@ -366,7 +392,7 @@ def thetaLevel (g : ℕ) (e : ℤ) : Set (ZBig g) :=
 example (g : ℕ) (e : ℤ) : (1 : ZBig g) ∈ thetaLevel g e := by
   sorry
 
-/-- Test `thetaLevel.ellipticShear`: for `g = 1` and even `e ≠ 0` the shear `(1, e; 0, 1)` lies in
+/-- Test `thetaLevel.ellipticShear`: for `g = 1` and `e ≠ 0` the shear `(1, e; 0, 1)` lies in
 `Γ(e)` but not in `Γ(e, 2e)`. -/
 example (e : ℤ) (he : e ≠ 0) :
     (fromBlocks 1 (Matrix.of fun _ _ => e) 0 1 : ZBig 1) ∉ thetaLevel 1 e := by
@@ -553,7 +579,8 @@ analytic spaces. They are listed by layer.
 * Layer 1: `periodTheorem`, `ellipticIsogenyEstimate`, `isogenyEstimate`, `endomorphismEstimate`,
   `cuspValueLowerBound`, `averagedColmez`, `cmFaltingsHeightBound`, `cmGaloisOrbitLowerBound`,
   `cmBoundedDiscriminantFinite`.
-* Layer 2: `OMinimalStructure`, `RanExp`, `DefinableBlock`, `uniformBlockCounting`,
+* Layer 2: `OMinimalStructure`, `RanExp`, `algebraicPart`, `DefinableBlock`,
+  `DefinableBlockFamily`, `uniformBlockCounting`,
   `definableUniformization`, `ellipticAxLindemann`, `WeaklySpecial`, `axLindemannAg`,
   `weaklySpecial_hodgeGeneric`.
 * Layer 3: `ellipticManyClasses`.
