@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HeightsRationalPointsAndObstructions",
+    "date": "2026-10-14",
+    "notes": "Completed independent fixing review of all 147 input targets: 139 numbered targets plus eight imports after removing current ReductiveGroupsPartII duplicates. Corrected quaternion domains, positive matrix rank, additive Brauer notation, smooth-kernel Kummer scope, source locators, boundary ownership and discriminating Checks. Checked the 15-node source sample, all flagged access limits, every target adversarially, current roadmaps/library and 11 Lean signature groups. lean-check exited 0 with 29 sorry warnings only; packet checker returned 0 errors/0 warnings. Not ready for the upstream draft: deep finiteness, arbitrary-dimensional adelic intersections/equidistribution, descent/type/auxiliary-place proofs and general geometric/formal-chart adapters remain unowned proof prerequisites. The report gives exact affected targets and dispositions of all 17 input gaps. Compact completion integers are supplied by current Tau Ceti; finite prime-to-characteristic function-field cohomology is supplied by ArithmeticGaloisDuality R02.4.5. No packet was edited."
+  }
+}

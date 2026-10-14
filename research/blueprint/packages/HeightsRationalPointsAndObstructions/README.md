@@ -9,6 +9,7 @@ This roadmap owns height classes on arbitrary point sets; relative geometric Wei
 The following foundations are consumed at their existing owners. Each boundary includes the compatibility checks needed here.
 
 - **Mathlib** owns admissible absolute values, tuple and fixed-field projective heights, scalar Northcott, quotient modules, abstract height descent and restricted products. **DiophantineApproximationAndTranscendence**, §§0.2–0.3, owns absolute scalar and tuple heights and Northcott with bounded degree while the field varies. The projectivized and generalized-global-field variants here specify their scaling and coordinate-field conditions.
+- **TauCetiRoadmap.ReductiveGroupsPartII**, §§RG2.0.1 and RG2.0.3, owns the evaluation topology on arbitrary algebra-map point sets, presentation embeddings, coefficient-ring functoriality and local scheme-point topology. Write `Points_R(A,B)=A →ₐ[R] B` with this topology. Its hypotheses include T1 coefficients for closed solution sets, finite type for open coefficient-ring embeddings, and local coefficient rings with open units and continuous inversion for scheme charts. These interfaces apply to arbitrary affine algebras, not only group schemes. The finite-type affine point space is locally compact over Hausdorff locally compact coefficients. Its integral-point theorem makes X₀(O_v) compact and open for affine finite-type models over a compact-open valuation ring; the model-spanning and almost-all-place comparison below are additional arithmetic assertions. Their checks give ℤ[X]-points over ℝ the topology of ℝ, give the zero algebra no point over a nonzero field, and give Laurent-polynomial points over the adeles the units topology with both the value and its inverse, rather than the adele subspace topology.
 - **TauCetiRoadmap.EllipticCurves**, Layers 5–7, owns pointed twists, elliptic canonical heights, explicit elliptic two-descent, elliptic Mordell–Weil and the general discrete-module Selmer-structure interface. The abelian variants here specify their Kummer local conditions. On an elliptic curve the height of the divisor `(O)` is the native `canonicalHeight`, obtained from one half of the naive x-height. The unhalved polarization here is twice the native `neronTatePairing`.
 - **SchemeAndStackFoundations**, §2.22, owns Azumaya base change, the scheme Brauer group and its pullback. The affine evaluation used here is that pullback followed by `brauer_field`, rather than a second evaluation construction. A matrix algebra evaluates to zero; the scalar algebra has degree one; the Hamilton quaternion algebra over ℝ gives the nonzero order-two class, which becomes zero over ℂ. Tensor product adds classes, opposite algebra negates them, constant classes restrict from the ground field, and evaluation commutes with field extension and scheme pullback. These checks apply equally on affine and non-affine schemes.
 - The same §2.22 owns henselian-local Brauer specialization. Over a complete DVR with finite residue field, `Br(O)=Br(κ)=0`; an Azumaya algebra splits as `End_O(P)`, and the projective module P is free of positive finite rank. Thus its generic-fibre class is zero. For `O=ℤₚ`, matrices give the split case. The finite-residue-field hypothesis matters: the constant Hamilton algebra over `ℝ[[t]]` remains nonsplit. Base-changing an Azumaya algebra along `ℤ→ℤₚ` preserves the native criterion; the zero-rank algebra over a field fails its faithfulness condition.
@@ -47,7 +48,7 @@ Use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821c
 - `Height.AdmissibleAbsValues`, `Height.logHeight`, `logHeight₁`, `totalWeight`, `Projectivization.logHeight`: finite support and the product formula, scalar and tuple height laws, and invariance under projective scaling. `Height.logHeight₁_add_le` has the additive error `log 2 * totalWeight K`; dividing by the positive total weight gives `log 2` for the absolute height.
 - `NumberField.absLogHeight₁` is an absolute scalar height. `NumberField.finite_setOfPred_mulHeight₁_le` supplies scalar Northcott inside a fixed number field. Homogeneous-polynomial upper and lower height inequalities supply the fixed-field morphism estimates; the general line-bundle height machine remains a target here.
 - `Northcott` and `Filter.TendstoCofinite`, together with `AddCommGroup.fg_of_descent'` and the additive form of `Monoid.finite_set_isOfFiniteOrder_of_descent`, supply the abstract finite-index/height descent step. They require their growth and finiteness hypotheses, rather than a height name alone.
-- Mathlib `RestrictedProduct` and its topology provide the restricted-product carrier. Tau Ceti's discrete, closed number-field diagonal and Mathlib's number-field adele ring supply the arithmetic ambient space. For the local-compactness refinement, current Tau Ceti supplies `NumberField.AdeleRing.instLocallyCompactSpace` in `TauCeti/NumberTheory/NumberField/Global/Adeles/LocallyCompact.lean`, assuming Dedekind integers, fraction-field structure and finite residue fields. Its finite-adele module supplies compact-open completion integers. At the earlier pin the Lean statement carries the ambient `LocallyCompactSpace` hypothesis explicitly.
+- Mathlib `RestrictedProduct` and its topology provide the restricted-product carrier. Tau Ceti's discrete, closed number-field diagonal and Mathlib's number-field adele ring supply the arithmetic ambient space. Current Tau Ceti supplies `NumberField.AdeleRing.instLocallyCompactSpace` in `TauCeti/NumberTheory/NumberField/Global/Adeles/LocallyCompact.lean`, assuming Dedekind integers, fraction-field structure and finite residue fields. Its finite-adele module supplies compact-open completion integers. General finite-type point-space local compactness is the ReductiveGroupsPartII boundary above.
 - Tau Ceti `AlgebraicGeometry.AbelianVariety`, its native point groups and native `LineBundleClass`, and Mathlib's scalar extension, tensor products and finite-dimensional rational vector spaces supply the existing carriers. The Lean `AbelianVariety.Points` abbreviation is a native over-category hom-set; it is not a new rational-point construction.
 - Native `IsAzumaya` includes finite generation, projectivity and faithfulness, with the bijectivity of `AlgHom.mulLeftRight`. Mathlib `BrauerGroup` is a field carrier. Tau Ceti supplies its group structure, `BrauerGroup.mk`, `BrauerGroup.baseChange`, finite-field vanishing and real quaternion classification. For rings and schemes use SchemeAndStackFoundations §2.22, not the field carrier with its field hypothesis removed.
 - Tau Ceti `WeierstrassCurve.Affine.Point.canonicalHeight`, its torsion kernel and `neronTatePairing` supply the elliptic normalization checks; they are not general abelian canonical heights.
@@ -81,21 +82,21 @@ Use the following specific interfaces of [SchemeAndStackFoundations](https://git
 
 [StableReductionAndModuliOfCurves](../StableReductionAndModuliOfCurves/README.md), Layer 2, supplies ampleness and relative curve cohomology: smooth proper geometrically connected families have locally constant genus, and geometric Riemann–Roch/vanishing computes the Abel fibres. Its ample-line-bundle interface is used for projective presentations, while SchemeAndStackFoundations supplies geometric cycles and projections.
 
-[DiophantineApproximationAndTranscendence](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DiophantineApproximationAndTranscendence/README.md), §§0.2–0.3, supplies bounded-degree scalar Northcott; §2.8 supplies `absoluteSubspaceTheoremForSystems` for number-field, place-dependent independent linear forms with its local weights and determinant normalization. The rational p-adic and S-unit specializations in §2.3 alone are insufficient for Siegel over an arbitrary number field.
+[DiophantineApproximationAndTranscendence](../DiophantineApproximationAndTranscendence/README.md), §§0.2–0.3, supplies bounded-degree scalar Northcott; §2.8 supplies `absoluteSubspaceTheoremForSystems` for number-field, place-dependent independent linear forms with its local weights and determinant normalization. The rational p-adic and S-unit specializations in §2.3 alone are insufficient for Siegel over an arbitrary number field.
 
 ### Additional contracts for the geometric and arithmetic routes
 
-The following are required inputs to the indicated routes. Their hypotheses and strength are part of the build; the narrower foundation cited above does not imply them.
+The following are required inputs to the indicated routes. Their hypotheses and strength are part of the build; the narrower foundation cited above does not imply them. **Unresolved prerequisites:** except where an earlier target or a precise supplier is identified, these paragraphs specify obligations whose proof targets and owners remain missing. In particular they do not certify a complete route to Mordell, equidistribution, finite-rank Mordell–Lang or genus-one Brauer sufficiency.
 
 For **positive-dimensional quotients and stabilizers**, represent G/H as a separated finite-type scheme for a finite-type group G over a field and a closed subgroup H, with faithfully flat projection, `G×H≃G×_{G/H}G`, invariant-map universal property and base-change law. If H is normal give its group structure. For an abelian subvariety B⊆A, prove A/B smooth, proper and geometrically connected with kernel B. For a closed subscheme X⊆A, represent the functor `T↦{a:t_a(X_T)=X_T}` as a closed subgroup with base change; in characteristic zero its identity component is an abelian subvariety and X descends to A/Stab⁰(X). Algebraic-space representability and finite-subgroup quotients do not by themselves supply these scheme assertions (Conrad, *K/k-trace*, §3, Theorem 3.7, p.6; Gao–Ge–Kühne, §2 and §7, pp.8–11,43–44).
 
 For **projective presentations and metrics**, every line bundle L on a projective variety must admit `L=M⊗N⁻¹` with M,N globally generated by finite ground-field families. Compare presentations on patches where one generator has maximal absolute value using no-common-zero polynomial relations with finitely many coefficients. Those relations must give uniform geometric local log-ratio bounds with a summable weighted family; a global height bound alone does not give the local estimates. Ample bundles have very ample powers, finite pullback preserves ampleness, and top ample intersection degrees of nonempty integral subvarieties are positive. For an abelian scheme over a normal integral locally noetherian base S, a bundle generically trivial must be pulled back from S; reduced-base seesaw without this generic-trivial descent hypothesis is insufficient (de Jong, §14, pp.7–9; Dimitrov–Gao–Habegger, Remark 3.2 and Appendix A, pp.14,36–40).
 
-For **Brauer comparison and purity**, an ample line bundle on X gives the Gabber–de Jong isomorphism `Br_Az(X)≃H²_ét(X,𝔾_m)_tors`; apply it to regular quasi-projective varieties, with naturality. For regular integral noetherian X require injectivity into Br(k(X)) and equality with the intersection over codimension-one local rings, with residue and specialization maps. In characteristic zero require arbitrary-dimensional smooth proper compactification and comparison of two such compactifications to identify all-valuations unramified classes. Require geometric étale simple connectedness, Picard and `H²(μ_n)` Lefschetz for smooth complete intersections of dimension at least three, compatibly with Kummer, and Brauer reciprocity on a proper curve: evaluation/corestriction annihilates a principal divisor. The geometric Chow projection formula does not supply the last assertion (Poonen, Corollary 6.6.19, p.194; §6.7 and §8.2; Česnavičius, Theorems 1.1–1.2, pp.1–2).
+For **Brauer comparison and purity**, an ample line bundle on X gives the Gabber–de Jong isomorphism `Br_Az(X)≃H²_ét(X,𝔾_m)_tors`; apply it to regular quasi-projective varieties, with naturality. For regular integral noetherian X require injectivity into Br(k(X)) and equality with the intersection over codimension-one local rings, with residue and specialization maps. In characteristic zero require arbitrary-dimensional smooth proper compactification and comparison of two such compactifications to identify all-valuations unramified classes. Require geometric étale simple connectedness, Picard and `H²(μ_n)` Lefschetz for smooth complete intersections of dimension at least three, compatibly with Kummer, and Brauer reciprocity on a proper curve: evaluation/corestriction annihilates a principal divisor. The geometric Chow projection formula does not supply the last assertion (Poonen, Corollary 6.6.19, p.192; §6.7 and §8.2; Česnavičius, Theorems 1.1–1.2, pp.1–2).
 
 For **local analytic points**, the smooth commutative group model over a complete DVR must have a g-dimensional integral formal group at its identity and a topological, functorial identification of its maximal-ideal points with the reduction kernel. Deep ideal balls are open in the local point group. Apply this to the smooth Néron model even at bad reduction. For good-reduction Jacobians require compatibility of divisor and Abel–Jacobi specialization. Local constancy of evaluation of a fixed Brauer class on a local-field variety requires the analytic/étale lifting comparison as well as henselian Brauer specialization (Katz, Appendix, Lemma′ and proof, pp.501–502; Poonen, Proposition 8.2.9, pp.230–231).
 
-For **Lang–Néron and global function fields**, require bounded-degree Hom/Albanese components modulo constant trace, and prime-to-characteristic finite étale H¹ finiteness on a smooth curve, before any positive-definiteness or height-kernel argument. For a global function field require the analogue of the model-based adelic direct limit and the unramified finite-cohomology argument for a proper torsor. The characteristic-dividing case retains fppf cohomology and needs its own finiteness input. Number-field Hermite alone does not establish these statements (Conrad, Theorem 7.1 and proof, pp.23–26; Poonen, Theorems 6.5.13 and 8.4.6, pp.183–184,241–242).
+For **Lang–Néron and global function fields**, require bounded-degree Hom/Albanese components modulo constant trace, and prime-to-characteristic finite étale H¹ finiteness on a smooth curve, before any positive-definiteness or height-kernel argument. ArithmeticGaloisDuality §R02.4.5 supplies restricted-ramification H¹ finiteness for finite prime-to-characteristic modules over a global function field with a nonempty finite ramification set. The model-based adelic direct limit and the reduction of a proper smooth-affine-group torsor to this finite-module input still require targets. The characteristic-dividing case retains fppf cohomology and needs its own finiteness input. Number-field Hermite alone does not establish these stronger statements (Conrad, Theorem 7.1 and proof, pp.23–26; Poonen, Theorems 6.5.13 and 8.4.6, pp.183–184,241–242).
 
 For **Siegel's number-field adapter**, let K be a number field, S a finite set of normalized places, and for each v∈S let L_{1,v},…,L_{n,v} be independent K-linear forms. For ε>0, the K-rational projective solutions of the normalized product inequality `∏_{v∈S}∏_i |L_{i,v}(x)|_v/‖x‖_v < H_abs(x)^(−n−ε)` lie in finitely many proper K-subspaces; weights absorb the normalized local degrees. Partition the product exponents into finitely many systems, retain determinant factors and use §2.8's absolute systems theorem. For K-rational x no extra conjugate-point condition is needed after scalar transport. This is the number-field corollary used in Corvaja–Zannier, pp.268–270; it is not the rational-only product theorem.
 
@@ -121,7 +122,8 @@ R, S commutative; 𝒜 Azumaya over R. For the field statement, L is a field.
 
 **Checks.**
 
-- The matrix algebra M_n(R) is Azumaya (IsAzumaya.matrix) and its base change is M_n(S).
+- For n ≥ 1, the matrix algebra M_n(R) is Azumaya (IsAzumaya.matrix) and its base change is M_n(S).
+- Over a nonzero field, M₀ is the zero algebra and is not Azumaya: its underlying module is not faithful.
 - The Hamilton quaternions over ℤ[1/2] form an Azumaya algebra; their base change to ℝ is ℍ, central simple and not split.
 
 ### Evaluating an Azumaya algebra at a point at its supplier
@@ -146,10 +148,11 @@ K, L fields, L a K-algebra; A commutative; 𝒜 Azumaya over A. All types in one
 - `TauCeti.BrauerManin.tests.trivial`: eval A x = 0 for the Azumaya algebra A itself and every point x.
 - `TauCeti.BrauerManin.tests.matrix`: eval (Matrix (Fin n) (Fin n) A) x = 0 for n ≥ 1.
 - `TauCeti.BrauerManin.tests.hamilton_real`: For K = ℚ, A = ℚ and 𝒜 the rational Hamilton quaternions, eval 𝒜 at the embedding ℚ → ℝ is the nontrivial element of Br(ℝ) (Tau Ceti Quaternion.brauerGroupMulEquiv sends it to the generator of ℤ/2).
-- `TauCeti.BrauerManin.tests.depends_on_point`: For A = ℚ[t, 1/t] and 𝒜 = (−1, t)_A, the evaluations at the real points t = 0 and t = −1 differ (0 and the class of ℍ); evaluation is not constant on X(ℝ), which has two components.
+- `TauCeti.BrauerManin.tests.depends_on_point`: For A = ℚ[t, 1/t] and 𝒜 = (−1, t)_A, the evaluations at the real points t = 1 and t = −1 differ (0 and the class of ℍ); evaluation is not constant on X(ℝ), which has two components.
 - `TauCeti.BrauerManin.tests.alg_closed`: If L is algebraically closed, eval 𝒜 x = 0 for every 𝒜 and x (Tau Ceti baseChange_eq_one_of_isAlgClosed applied through naturality, or directly since Br(L) is trivial).
 - The trivial algebra 𝒜 = A and matrix algebras evaluate to 0 at every point.
-- Evaluation genuinely depends on the point: for K = ℚ, A = ℚ[t, 1/t] and the quaternion algebra 𝒜 = (−1, t)_A, 𝒜 evaluated at t = 0 in ℝ is split, and at t = −1 in ℝ it is the class of ℍ, the nontrivial element of Br(ℝ).
+- There is no point with t=0 on Spec ℚ[t,1/t]: an algebra map must send t to a unit. The two admissible points t=1 and t=−1 distinguish split and nonsplit evaluations.
+- Evaluation genuinely depends on the point: for K = ℚ, A = ℚ[t, 1/t] and the quaternion algebra 𝒜 = (−1, t)_A, 𝒜 evaluated at t = 1 in ℝ is split, and at t = −1 in ℝ it is the class of ℍ, the nontrivial element of Br(ℝ).
 
 ### Azumaya algebras over the integers of a nonarchimedean local field are split at its supplier
 
@@ -167,14 +170,14 @@ O_v is a complete discrete valuation ring with finite residue field.
 
 ### Evaluation of scheme Brauer classes at points at its supplier
 
-SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field. Let X be a scheme and α ∈ Br_Az(X) (SchemeAndStackFoundations §2.22). For a field L and x ∈ X(L) put α(x) = x*α ∈ Br_Az(Spec L), identified with Mathlib's Brauer group of central simple L-algebras (Tau Ceti TauCeti.BrauerGroup). α(x) is a group homomorphism in α, natural in L, compatible with pullback along morphisms of schemes, and on affine X = Spec R it agrees with the evaluation of SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field for Azumaya R-algebras. For x ∈ X(K_v) over a local field it lands in Br(K_v).
+SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field. Let X be a scheme and α ∈ Br_Az(X) (SchemeAndStackFoundations §2.22). For a field L and x ∈ X(L) put α(x) = x*α ∈ Br_Az(Spec L), identified with the additive form of Mathlib's Brauer group of central simple L-algebras (Additive (TauCeti.BrauerGroup L)). α(x) is a group homomorphism in α, natural in L, compatible with pullback along morphisms of schemes, and on affine X = Spec R it agrees with the evaluation of SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field for Azumaya R-algebras. For x ∈ X(K_v) over a local field it lands in Br(K_v).
 
 X any scheme; L a field.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.1, definition of evaluation before Proposition 8.2.1, p. 229.)
 
-- `TauCeti.SchemeBrauer.eval`: α(x) ∈ TauCeti.BrauerGroup L for x : Spec L ⟶ X.
-- `TauCeti.SchemeBrauer.eval_mul`: (αβ)(x) = α(x)β(x).
+- `TauCeti.SchemeBrauer.eval`: α(x) ∈ Additive (TauCeti.BrauerGroup L) for x : Spec L ⟶ X.
+- `TauCeti.SchemeBrauer.eval_add`: (α+β)(x) = α(x)+β(x), after transporting the supplier's tensor-product law to additive notation.
 - `TauCeti.SchemeBrauer.eval_pullback`: (f*α)(x) = α(f∘x).
 - `TauCeti.SchemeBrauer.eval_baseChange`: For L → L', α(x_{L'}) = baseChange α(x).
 - `TauCeti.SchemeBrauer.eval_affine`: On Spec R it agrees with SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field.
@@ -182,7 +185,7 @@ X any scheme; L a field.
 
 **Checks.**
 
-- `SchemeBrauer.eval.test_trivial`: The class of O_X evaluates to 1 everywhere.
+- `SchemeBrauer.eval.test_trivial`: The class of O_X evaluates to 0 everywhere.
 - `SchemeBrauer.eval.test_quaternion`: On U : y² + z² = (3 − x²)(x² − 2) over ℚ, the class (3 − x², −1) evaluates to the nontrivial element of Br(ℚ₂) at every 2-adic point and to 0 at every real point (Poonen Proposition 8.2.15).
 - `SchemeBrauer.eval.test_field`: For X = Spec K, eval is the identity of Mathlib's Brauer group.
 - `SchemeBrauer.eval.test_not_constant`: Evaluation of a nonconstant class need not be constant on X(K_v): on 𝔾_m over ℚ the class (t, −1) is nontrivial at t = −1 ∈ ℝ^× and trivial at t = 1.
@@ -481,7 +484,7 @@ Its interface consists of the following operations and laws.
 - `ofPolarization.test_unweighted_fails`: On ℙ² with f = q/x² (q a smooth conic) the unweighted orders violate the product formula; the deg_N weights repair it.
 - For V = ℙ²_k, N = O(1) and f = q/x² with q a smooth conic, the weighted orders are 2·1 − 1·2 = 0 while the unweighted orders sum to −1.
 
-*Needs:* §0.9 (Generalized global fields); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.9 (Generalized global fields); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.11 The normalised projective height
@@ -620,7 +623,7 @@ Lower bounds: the Nullstellensatz on X writes powers of the sections of one fami
 
 - The Veronese map ℙ¹ → ℙ², [x:y] ↦ [x²:xy:y²], has h∘v = 2h exactly.
 
-*Needs:* §0.11 (The normalised projective height); §0.15 (Linear changes of coordinates change heights boundedly); Mathlib `Height.logHeight_eval_le`; Mathlib `Height.logHeight_eval_ge`; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.11 (The normalised projective height); §0.15 (Linear changes of coordinates change heights boundedly); Mathlib `Height.logHeight_eval_le`; Mathlib `Height.logHeight_eval_ge`; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.17 Weil's height machine
@@ -649,7 +652,6 @@ Its interface consists of the following operations and laws.
 - `TauCeti.weilHeight_baseChange`: [K':K]·h_{K,L} = h_{K',L_{K'}}.
 - `TauCeti.weilHeight_le_of_ample`: For L ample there is c > 0 with |h_{K,M}| ≤ c·h_{K,L} + O(1).
 - `TauCeti.weilHeight_unique`: Any homomorphism Pic(X) → HeightClass(X(K̄)) agreeing with h_{K,n}∘ι_L on very ample L is h_{K,•}.
-- `TauCeti.weilHeight_baseChange`: For finite K'/K with extended places and a projective K-variety X, h_{K',L_{K'}} = [K':K]·h_{K,L} as height classes. Absolute normalization makes these classes equal. Prove after the height machine using projective extension invariance.
 
 **Checks.**
 
@@ -661,7 +663,7 @@ Its interface consists of the following operations and laws.
 - On X = ℙⁿ, h_{K,O(d)} = d·h_{K,n}.
 - Over K = ℚ and X a conic embedded in ℙ², the restriction of h to X(ℚ̄) represents h_{O(1)|X} and twice h_{O_X(P)} for any point P (O(1)|X ≅ O_X(2P) on X ≅ ℙ¹ over ℚ̄).
 
-*Needs:* §0.11 (The normalised projective height); §0.16 (Heights along morphisms to projective space); §0.12 (Heights under finite extension of the base field); §0.2 (Heights modulo bounded functions); §0.4 (Pullback of height classes); Mathlib `Height.logHeight_fun_mul_eq`; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below; SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts.
+*Needs:* §0.11 (The normalised projective height); §0.16 (Heights along morphisms to projective space); §0.12 (Heights under finite extension of the base field); §0.2 (Heights modulo bounded functions); §0.4 (Pullback of height classes); Mathlib `Height.logHeight_fun_mul_eq`; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above; SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts.
 
 
 ### 0.18 Heights are bounded below off the base locus
@@ -868,7 +870,7 @@ Its interface consists of the following operations and laws.
 - `PointHeightMetricFamily.test_constants`: Rescale the trivial norm at the real place of ℚ by exp(1) and leave the finite places fixed: the family is admissible but its point height is −1, not zero. Rescaling by exp(1) at every prime fails summability and is not admissible.
 - For a nonzero rational section s and P outside its divisor, Σ_v n_v(−log m_v(s(P))) converges absolutely and gives a representative of h_{K,L}. Compare first with the sup-metric reference and then with the summable bounds.
 
-*Needs:* §0.11 (The normalised projective height); §0.12 (Heights under finite extension of the base field); §0.16 (Heights along morphisms to projective space); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.11 (The normalised projective height); §0.12 (Heights under finite extension of the base field); §0.16 (Heights along morphisms to projective space); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.25 Canonical point metrics by contraction
@@ -1009,7 +1011,7 @@ Compare heights on the resolution with h_{S̄} by the Height Machine on the proj
 
 Prove `TauCeti.AbelianScheme.fibreNeronTate_indep`. Let π : 𝒜 → S be an abelian scheme over a normal integral locally noetherian base and L, L' line bundles on 𝒜 whose restrictions to the generic fibre are both isomorphic to L₀^{⊗l}. Then L' ⊗ L^{-1} is the pullback of a line bundle on S, so L|_{𝒜_s} ≅ L'|_{𝒜_s} for every s and the fibrewise Néron–Tate heights agree; ĥ_{𝒜,L₀} depends only on L₀.
 
-S irreducible (normal for the descent of line bundles); l ≥ 1. Normal integral locally noetherian base, and the generic-trivial descent theorem for invertible sheaves in this abelian-scheme setting (DGH Remark 3.2 and Appendix A, invoking EGA IV₄ 21.4.13). This theorem is an generic-trivial descent contract above; reduced-base seesaw alone is not a substitute.
+S irreducible (normal for the descent of line bundles); l ≥ 1. Normal integral locally noetherian base, and the generic-trivial descent theorem for invertible sheaves in this abelian-scheme setting (DGH Remark 3.2 and Appendix A, invoking EGA IV₄ 21.4.13). This theorem is a generic-trivial descent contract above; reduced-base seesaw alone is not a substitute.
 
 ([Uniformity in Mordell–Lang for curves](https://arxiv.org/abs/2001.10276v3), Remark 3.2, p. 14.)
 
@@ -1021,7 +1023,7 @@ A line bundle on 𝒜 trivial on the generic fibre is a pullback from S (EGA IV 
 
 - Twisting L by π*M for M on S does not change any fibrewise height.
 
-*Needs:* §0.21 (The Néron–Tate canonical height); AbelianSchemesAndArithmeticModuli §A1.4, relativeSeesaw; additionally generic-trivial bundle descent below.
+*Needs:* §0.21 (The Néron–Tate canonical height); AbelianSchemesAndArithmeticModuli §A1.4, relativeSeesaw; additionally generic-trivial bundle descent above.
 
 
 ### 0.31 Silverman's height limit theorem
@@ -1032,7 +1034,7 @@ S a smooth projective curve over ℚ̄; the abelian scheme over a dense open sub
 
 ([Heights in families of abelian varieties and the Geometric Bogomolov Conjecture](https://arxiv.org/abs/1801.05762v3), Theorem 11.1, (11.1)–(11.2) and proof, pp. 52–53.)
 
-Silverman's Theorem B (Crelle 342) as presented by Gao–Habegger Theorem 11.1, using Bombieri–Gubler Corollary 9.3.10 and Conrad Remark 9.2 for the base change of function-field heights.
+Silverman's Theorem B (Crelle 342) as presented by Gao–Habegger Theorem 11.1, with Conrad Remark 9.2 for the base change of function-field heights. Bombieri–Gubler Corollary 9.3.10 is an unverified bibliographic cross-reference; it supplies no additional hypothesis or proof step here.
 
 **Checks.**
 
@@ -1090,7 +1092,7 @@ Its interface consists of the following operations and laws.
 - `canonicalSubvarietyHeight.test_naive_not_canonical`: The naive height of a translate x + B by a non-torsion x of positive height can be nonzero while ĥ_L(B) = 0; the naive height is not translation invariant.
 - When trdeg K/k = 1, S is the unique smooth projective model and M plays no role.
 
-*Needs:* §0.10 (Polarized function fields as generalized global fields); §0.21 (The Néron–Tate canonical height); §0.20 (Tate's limit); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.10 (Polarized function fields as generalized global fields); §0.21 (The Néron–Tate canonical height); §0.20 (Tate's limit); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.34 Laws for function-field canonical heights
@@ -1113,7 +1115,7 @@ Keep normalized heights separate from arithmetic intersection degrees: for gener
 
 - For φ = [n], ĥ_{[n]*L} = n²ĥ_L for symmetric L.
 
-*Needs:* §0.33 (Heights of subvarieties over polarized function fields); §0.21 (The Néron–Tate canonical height); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.33 (Heights of subvarieties over polarized function fields); §0.21 (The Néron–Tate canonical height); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.35 Function-field heights under finite and constant field extensions
@@ -1134,7 +1136,7 @@ Constant extension: intersection numbers are invariant under flat base change of
 
 - Distinguish: enlarging only the field of definition of x inside one normalised height does not change ĥ; recomputing with S' multiplies by [K':K].
 
-*Needs:* §0.33 (Heights of subvarieties over polarized function fields); §0.10 (Polarized function fields as generalized global fields); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §0.33 (Heights of subvarieties over polarized function fields); §0.10 (Polarized function fields as generalized global fields); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 0.36 Model heights are M_K-field heights
@@ -1225,7 +1227,7 @@ Its interface consists of the following operations and laws.
 - `kummer.test_not_surjective`: δ_{[2]} for E/ℚ is not surjective: H¹(ℚ, E[2]) is infinite while E(ℚ)/2E(ℚ) is finite.
 - For E : y² = x³ − x over ℚ and φ = [2], δ(0,0) is the class of the finite E[2]-torsor of halves of (0,0), nonzero since (0,0) ∉ 2E(ℚ).
 
-*Needs:* AbelianSchemesAndArithmeticModuli §A3.1, isogenies and finite-flat kernels; AbelianSchemesAndArithmeticModuli §A3.2, multiplication maps and prime-to-characteristic torsion; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-7-selmer-groups-and-sha-aec-x4).
+*Needs:* AbelianSchemesAndArithmeticModuli §A3.1, isogenies and finite-flat kernels; AbelianSchemesAndArithmeticModuli §A3.2, multiplication maps and prime-to-characteristic torsion; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-7-selmer-groups-and-sha-aec-x4).
 
 
 ### 1.2 Local Kummer images at places of good reduction
@@ -1276,7 +1278,9 @@ Its interface consists of the following operations and laws.
 - `selmerGroup.test_congruent_one`: Sel²(E/ℚ) ≅ (ℤ/2)² for E : y² = x³ − x.
 - `selmerGroup.test_elliptic`: For an elliptic curve, the group agrees with the EllipticCurves Layer 7 Selmer group.
 - `selmerGroup.test_selmer_not_rank`: #Sel² can exceed #E(ℚ)/2E(ℚ): for a genus-one curve C : y² = f(x) (deg f = 4) that is everywhere locally soluble with C(ℚ) = ∅ (a positive proportion, Bhargava–Gross–Wang Theorem 10 with g = 1), the class W[2] lies in Sel²(Jac C/ℚ) but not in the Kummer image.
-- For E : y² = x³ − x over ℚ, Sel²(E/ℚ) ≅ (ℤ/2)², equal to the image of E(ℚ)/2E(ℚ) = E[2](ℚ).
+- `sha.test_zero_variety`: For the zero-dimensional trivial abelian variety, H¹(K,A)=0 and Ш(A/K)=0.
+- `sha.test_locally_trivial_nonzero`: The everywhere locally soluble genus-one torsors in Bhargava–Gross–Wang Theorem 10 (g=1) give nonzero elements of Ш, so locally trivial does not mean globally trivial.
+- `sha.test_real_failure`: The smooth genus-one curve y²=−(x⁴+1) over ℚ has no real point. Its class under its Jacobian is nontrivial in H¹(ℚ,E) and remains nontrivial over ℝ, hence is excluded from Ш; omitting archimedean localization gives the wrong membership test.
 
 *Needs:* §1.1 (Kummer maps of isogenies of abelian varieties); §1.2 (Local Kummer images at places of good reduction); [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-7-selmer-groups-and-sha-aec-x4).
 
@@ -1410,7 +1414,7 @@ Its interface consists of the following operations and laws.
 - `trace.test_isotrivial_nonconstant`: The quadratic twist of a constant elliptic curve E₀ ⊗ K by t ∈ K^× with K(√t)/K not obtained from an extension of constants has trace 0, although it becomes constant over K(√t) (the example of Conrad Remark 4.6).
 - For A = A₀ ⊗_k K constant, Tr_{K/k}(A) = A₀ and τ = id.
 
-*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; AbelianSchemesAndArithmeticModuli §§A6.3–A6.5, abelian images and Poincaré complements; Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`.
+*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; AbelianSchemesAndArithmeticModuli §§A6.3–A6.5, abelian images and Poincaré complements; Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`.
 
 
 ### 1.10 The Lang–Néron theorem
@@ -1450,7 +1454,7 @@ Combine with Lang–Néron and finite extensions (Conrad Lemma 9.16, Corollary 9
 
 **Checks.**
 
-- The kernel is τ(Tr(k̄)) + torsion, not (Tr ⊗ K̄)(K̄) + torsion: the latter is the source misprint PAPER-GAO-HABEGGER-19/E18 (Gao–Habegger §1, p.2).
+- The kernel is τ(Tr(k̄)) + torsion, not (Tr ⊗ K̄)(K̄) + torsion: the latter is the incorrect larger kernel displayed in Gao–Habegger §1, p.2.
 - A nonconstant quadratic isotrivial twist of a constant Jacobian can have zero original trace but nonzero geometric trace. Its zero-height constant points after the splitting extension distinguish the two hypotheses.
 
 *Needs:* §1.10 (The Lang–Néron theorem); §1.9 (Chow's K/k-trace); §0.21 (The Néron–Tate canonical height); §0.10 (Polarized function fields as generalized global fields).
@@ -1485,7 +1489,7 @@ Its interface consists of the following operations and laws.
 - `TwoCovering.test_fibre_dimension`: For an elliptic curve, [2]⁻¹(a) has dimension zero and degree four over k; the two-covering J→J has dimension one. The fibre alone is not a J-torsor.
 - If I = J (trivial torsor), [2] : J → J is a two-covering of class 0.
 
-*Needs:* §1.1 (Kummer maps of isogenies of abelian varieties); SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §3.6, Picard torsors; AbelianSchemesAndArithmeticModuli §A3.2, prime-to-characteristic two-torsion.
+*Needs:* §1.1 (Kummer maps of isogenies of abelian varieties); SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §3.6, Picard torsors; AbelianSchemesAndArithmeticModuli §A3.2, prime-to-characteristic two-torsion.
 
 
 ### 1.13 W[2] and odd factorisations
@@ -1561,7 +1565,7 @@ Prove `TauCeti.formalLogarithm_smallIdeal_equiv`. Let F/ℚ_p be finite, O its i
 
 The formal law has integral coefficients and is commutative; F has characteristic zero; use ord_F(π)=1 and r∈ℕ with r>e/(p−1). A smooth group model at the identity supplies its formal law and comparison with the kernel of reduction; that comparison is a separate NeronModels supplier contract. For an abelian variety without good reduction one still uses the smooth Néron model near the identity.
 
-([Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf), Appendix, Lemma′ and its proof, printed p.502 (the Appendix begins on p.501); [Abelian varieties over p-adic ground fields](https://www.jstor.org/stable/2007101), §13, Theorem 7 and proof, pp.114–117; §14(2), p.118.)
+([Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf), Appendix, Lemma′ and its proof, printed p.502 (the Appendix begins on p.501); [Abelian varieties over p-adic ground fields](https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf), §13, Theorem 7 and proof, pp.114–117; §14(2), p.118.)
 
 The inverse Jacobian in the second variables at Y=0 gives the g invariant differential forms with integral coefficients and identity constant matrix. Commutativity makes them closed. Integrate their homogeneous degree-(n−1) parts over F to obtain the degree-n part of log, whose denominators divide n. Translation invariance gives log(FG(X,Y))=log(X)+log(Y); derivative identity determines uniqueness in characteristic zero.
 
@@ -1584,9 +1588,9 @@ Prove `TauCeti.AbelianVariety.card_quotient_two_padic`. Let A be an abelian vari
 
 A abelian of dimension g over a local field of characteristic 0.
 
-([Abelian varieties over p-adic ground fields](https://www.jstor.org/stable/2007101), §13, Theorem 7 and proof, printed pp.114–117; §14(2), p.118; [Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf), Appendix, proof of Lemma′, printed p.502.)
+([Abelian varieties over p-adic ground fields](https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf), §13, Theorem 7 and proof, printed pp.114–117; §14(2), p.118; [Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf), Appendix, proof of Lemma′, printed p.502.)
 
-Let 𝒩 be the Néron model of A over O_F, so that A(F)=𝒩(O_F). For an integer r>e/(p−1) let U be the kernel of 𝒩(O_F)→𝒩(O_F/𝔪^r). The smooth formal identity-chart contract above identifies U with the 𝔪^r-points of the g-dimensional formal group of 𝒩 along its identity section, and §1.16 (Formal logarithms on a sufficiently small ideal) identifies these with ((𝔪^r)^g,+)≅(O_F^g,+). U is open, and it has finite index because 𝒩(O_F/𝔪^r) is finite. Katz (Appendix, proof of Lemma′, p.502) uses the same identification of the reduction kernel with formal-group points at r=1. Mattuck §13 Theorem 7 is the classical analytic form of this open additive subgroup and is cited bibliographically only.
+Let 𝒩 be the Néron model of A over O_F, so that A(F)=𝒩(O_F). For an integer r>e/(p−1) let U be the kernel of 𝒩(O_F)→𝒩(O_F/𝔪^r). The smooth formal identity-chart contract above identifies U with the 𝔪^r-points of the g-dimensional formal group of 𝒩 along its identity section, and §1.16 (Formal logarithms on a sufficiently small ideal) identifies these with ((𝔪^r)^g,+)≅(O_F^g,+). U is open, and it has finite index because 𝒩(O_F/𝔪^r) is finite. Katz (Appendix, proof of Lemma′, p.502) uses the same identification of the reduction kernel with formal-group points at r=1. Mattuck §13, Theorem 7 and proof, pp.114–117, gives the classical analytic open subgroup; §14(2), p.118, gives uniqueness up to a linear coordinate change. The smooth-model formal-chart comparison remains an additional prerequisite.
 
 Let G=A(F), C=G/U. Since U is torsion-free, multiplication by two in 0→U→G→C→0 gives 0→G[2]→C[2]→U/2U→G/2G→C/2C→0. Both C groups are finite with equal order. Taking alternating cardinalities gives #G/2G=#G[2]·#U/2U, without assuming this group extension splits. For U≃O_F^g the last factor is q_F^(g ord_F(2))=|2|_F^(−g).
 
@@ -1666,116 +1670,12 @@ Layer 0; AbelianSchemesAndArithmeticModuli §§A3.1–A3.2, A5.1 and A6.3–A6.7
 
 ## Layer 2: adelic points and the Brauer–Manin pairing
 
-Start with the evaluation topology on algebra maps. Finite presentations identify affine point spaces with closed solution sets in finite powers of a local field. Integral models produce the restricted adelic condition, while the model direct limit gives separated finite-type schemes. Pull back the supplier's Brauer classes to local points; spreading and henselian-local splitting give finite support. Local constancy then yields closed orthogonality sets and finite constraints for explicitly given classes.
+Integral models produce the restricted adelic condition, while the model direct limit gives separated finite-type schemes. Pull back the supplier's Brauer classes to local points; spreading and henselian-local splitting give finite support. Local constancy then yields closed orthogonality sets and finite constraints for explicitly given classes.
 
 
-### 2.1 The topology on points with values in a topological algebra
+### 2.1 Adelic points of an affine variety
 
-Define `TauCeti.Points`. Let R be a commutative ring, A a commutative R-algebra and B a commutative topological ring which is an R-algebra. The B-valued points of Spec A are Points_R(A, B) := A →ₐ[R] B. The points topology on Points_R(A, B) is the topology induced by the injection Points_R(A, B) → B^A, φ ↦ (φ(a))_{a ∈ A}, where B^A = (A → B) carries the product topology; equivalently, it is the coarsest topology for which every evaluation φ ↦ φ(a), a ∈ A, is continuous. Use the names `TauCeti.Points R A B`, a type synonym of `A →ₐ[R] B` carrying this topology as an instance; no topology instance is put on `A →ₐ[R] B` itself, so no existing instance is overridden.
-
-R and A commutative; B a commutative topological ring with an R-algebra structure. No finiteness of A and no separation axiom on B is assumed in the definition; the separation, closedness and local-compactness statements of §2.2 (Presentations compute the points topology) assume them.
-
-([Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, Proposition 2.1, p. 2; [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §3, pp. 3–4.)
-
-Define the topology as TopologicalSpace.induced along the coercion Points_R(A, B) → (A → B), with Pi.topologicalSpace on the target. The coercion is injective (algebra maps are determined by their values), so this is the subspace topology of the image.
-
-Continuity into Points: a map f from a topological space Z is continuous iff every z ↦ f(z)(a) is continuous (induced topology and product topology universal properties).
-
-Functoriality: for g : A′ →ₐ[R] A, φ ↦ φ ∘ g is continuous, because each evaluation of the composite at a′ is the evaluation at g(a′). For a continuous R-algebra map h : B → B′, φ ↦ h ∘ φ is continuous, because each evaluation of the composite is h composed with an evaluation.
-
-Products: Algebra.TensorProduct.liftEquiv identifies Points_R(A ⊗_R A′, B) with pairs (φ, φ′) (the commutation condition is automatic since B is commutative). The map φ ↦ (φ ∘ includeLeft, φ ∘ includeRight) is continuous by functoriality, and its inverse is continuous because each element of A ⊗_R A′ is a finite sum of products a ⊗ a′, whose value (φ(a)φ′(a′) summed) is a continuous function of (φ, φ′) as B is a topological ring.
-
-Examples: for A = R[X], Polynomial.aeval identifies Points_R(R[X], B) with B through φ ↦ φ(X), a homeomorphism since every evaluation is a polynomial function of φ(X). For A = R[X, Y]/(XY − 1), φ ↦ φ(X) is a bijection onto Bˣ, and the points topology corresponds to Mathlib's topology on units (induced by u ↦ (u, u⁻¹), Units.embedProduct), because the points topology is induced by the two evaluations at X and Y = X⁻¹.
-
-Its interface consists of the following operations and laws.
-
-- `TauCeti.Points.continuous_eval`: For every a ∈ A the evaluation φ ↦ φ(a) is continuous on Points_R(A, B).
-- `TauCeti.Points.continuous_iff`: A map f : Z → Points_R(A, B) from a topological space is continuous iff z ↦ f(z)(a) is continuous for every a ∈ A.
-- `TauCeti.Points.isEmbedding_coe`: The coercion Points_R(A, B) → (A → B) is a topological embedding for the product topology.
-- `TauCeti.Points.precomp`: An R-algebra map g : A′ → A induces a continuous map Points_R(A, B) → Points_R(A′, B), φ ↦ φ ∘ g, compatible with identities and composition.
-- `TauCeti.Points.postcomp`: A continuous R-algebra map h : B → B′ induces a continuous map Points_R(A, B) → Points_R(A, B′), φ ↦ h ∘ φ, compatible with identities and composition.
-- `TauCeti.Points.tensorHomeomorph`: Points_R(A ⊗_R A′, B) ≃ₜ Points_R(A, B) × Points_R(A′, B), φ ↦ (φ ∘ includeLeft, φ ∘ includeRight).
-- `TauCeti.Points.polynomialHomeomorph`: Points_R(R[X], B) ≃ₜ B, φ ↦ φ(X).
-- `TauCeti.Points.unitsHomeomorph`: Points_R(R[X, Y]/(XY − 1), B) ≃ₜ Bˣ with Mathlib's topology on units, φ ↦ the unit with value φ(X) and inverse φ(Y).
-
-**Checks.**
-
-- `TauCeti.Points.tests.base`: Points_R(R, B) has exactly one element, Algebra.ofId, and hence the only topology.
-- `TauCeti.Points.tests.zero_ring`: If A is the zero ring and B is nontrivial, Points_R(A, B) is empty.
-- `TauCeti.Points.tests.polynomial_real`: For R = ℤ, A = ℤ[X] and B = ℝ, φ ↦ φ(X) is a homeomorphism onto ℝ; in particular Points is connected and not discrete.
-- `TauCeti.Points.tests.units_real`: For R = ℤ, A = ℤ[X, Y]/(XY − 1) and B = ℝ, the space is homeomorphic to ℝ ∖ {0} with the subspace topology (inversion is continuous on ℝ ∖ {0}, so the units topology is the subspace topology).
-- `TauCeti.Points.tests.not_discrete`: For B = ℚ_p and A = ℤ[X], the points φ_n with φ_n(X) = pⁿ converge to the point with value 0; so the points topology is not the discrete topology.
-- Every evaluation map is continuous, and a map into Points is continuous iff all its evaluations are.
-- For A = R[X, Y]/(XY − 1) and B = 𝔸_ℚ, the space is 𝔸_ℚˣ with the topology in which u and u⁻¹ both vary continuously; it is not the subspace topology from 𝔸_ℚ (Conrad §3). A definition through the embedding of Spec A in the affine line would get this wrong.
-- No presentation of A enters the definition; that any presentation gives the same topology is a lemma (§2.2 (Presentations compute the points topology)).
-
-*Needs:* Mathlib `TopologicalSpace.induced`; Mathlib `Pi.topologicalSpace`; Mathlib `AlgHom`; Mathlib `Algebra.TensorProduct.liftEquiv`; Mathlib `Polynomial.aeval`; Mathlib `Units.embedProduct`.
-
-
-### 2.2 Presentations compute the points topology
-
-Prove `TauCeti.Points.isEmbedding_generators`. Let R, A, B be as in §2.1 (The topology on points with values in a topological algebra), n ∈ ℕ and π : R[X₁, …, X_n] → A a surjective R-algebra map (MvPolynomial (Fin n) R), with aᵢ := π(Xᵢ). Then φ ↦ (φ(a₁), …, φ(a_n)) is a topological embedding Points_R(A, B) → Bⁿ whose image is Z(ker π) := {b ∈ Bⁿ : aeval b f = 0 for all f ∈ ker π}. If B is T1, Z(ker π) is closed, so the embedding is closed and Points_R(A, B) is T1; if B is Hausdorff, Points_R(A, B) is Hausdorff; if B is locally compact Hausdorff, Points_R(A, B) is locally compact.
-
-π surjective; for the closedness statements B is T1 (resp. Hausdorff, locally compact Hausdorff).
-
-([Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, proof of Proposition 2.1, p. 2; [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, proof of Proposition 2.1, p. 2.)
-
-Bijection onto Z(ker π): an R-algebra map out of the quotient A ≅ R[X]/ker π is determined by the images of the Xᵢ, and b ∈ Bⁿ is the image of such a map iff MvPolynomial.aeval b kills ker π.
-
-Embedding: the map is continuous (n evaluations). Conversely every a ∈ A is π(f) for a polynomial f, and φ(a) = aeval (φ(a₁), …, φ(a_n)) f is a polynomial function of the coordinates, continuous because B is a topological ring; so each evaluation factors continuously through the image, and the points topology is induced from Bⁿ.
-
-Closedness: Z(ker π) = ⋂_{f ∈ ker π} (b ↦ aeval b f)⁻¹{0}, an intersection of closed sets when {0} is closed.
-
-Separation and local compactness pass to subspaces, and closed subspaces of locally compact Hausdorff spaces are locally compact.
-
-Its interface consists of the following operations and laws.
-
-- `TauCeti.Points.isEmbedding_generators`: For a surjection π from MvPolynomial (Fin n) R onto A, the evaluation at π(X₁), …, π(X_n) is a topological embedding Points_R(A, B) → Fin n → B.
-- `TauCeti.Points.range_generators`: Its range is the common zero set of ker π.
-- `TauCeti.Points.isClosedEmbedding_generators`: If B is T1 the embedding is closed.
-- `TauCeti.Points.t2Space`: If B is Hausdorff, Points_R(A, B) is Hausdorff (for every A, since the coercion to A → B is injective).
-- `TauCeti.Points.locallyCompactSpace`: If A is finitely generated and B is locally compact Hausdorff, Points_R(A, B) is locally compact.
-
-**Checks.**
-
-- For A = R[X]/(X² − 2) and B = ℝ, the image is {±√2} ⊂ ℝ, a closed two-point set.
-- Two presentations of A give homeomorphic zero sets; the homeomorphism is given by polynomial maps in both directions.
-
-*Needs:* §2.1 (The topology on points with values in a topological algebra); Mathlib `MvPolynomial.aeval`; Mathlib `Topology.IsEmbedding`; Mathlib `Topology.IsClosedEmbedding`.
-
-
-### 2.3 Changing the value ring
-
-Prove `TauCeti.Points.isEmbedding_postcomp`. Let A be a finitely generated R-algebra and h : B → B′ a continuous R-algebra map of commutative topological R-algebras. Then postcomposition Points_R(A, B) → Points_R(A, B′) is continuous. If h is a topological embedding, so is the induced map; if h is moreover a closed (resp. open) embedding, so is the induced map; and if h(B) is discrete in B′, the image of Points_R(A, B) is discrete in Points_R(A, B′).
-
-A finitely generated; h continuous. The source's closed/open clause is stated with the roles of the two rings exchanged (Conrad’s corrected orientation); the statement here uses the corrected orientation.
-
-([Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, Example 2.2, p. 3; [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, Example 2.2, p. 3.)
-
-Choose a presentation π : R[X₁, …, X_n] → A (A finitely generated). By §2.2 (Presentations compute the points topology) both Points spaces embed in Bⁿ and B′ⁿ as the zero sets of ker π, and the induced map is the restriction of hⁿ : Bⁿ → B′ⁿ, since h is an algebra map.
-
-If h is an embedding (resp. closed, open embedding), so is hⁿ, and Points_R(A, B) = hⁿ⁻¹(Points_R(A, B′)) inside Bⁿ, because a tuple satisfies the equations of ker π in B iff its image does in B′ (h injective). Restrictions of (closed, open) embeddings to preimages are (closed, open) embeddings.
-
-Discreteness: hⁿ(Bⁿ) is discrete in B′ⁿ when h(B) is discrete in B′ (finite products of discrete subspaces), and the image of Points_R(A, B) is a subset of it.
-
-Its interface consists of the following operations and laws.
-
-- `TauCeti.Points.isEmbedding_postcomp`: For A finitely generated and h a topological embedding, postcomposition with h is a topological embedding.
-- `TauCeti.Points.isClosedEmbedding_postcomp`: The same for closed embeddings.
-- `TauCeti.Points.isOpenEmbedding_postcomp`: The same for open embeddings.
-- `TauCeti.Points.discrete_range_postcomp`: If h(B) is discrete in B′, the image of Points_R(A, B) in Points_R(A, B′) is discrete.
-
-**Checks.**
-
-- The inclusion K → 𝔸_K of a number field into its adele ring gives a discrete embedding of the K-points of any affine K-variety into its adelic points (§2.9 (Rational points are discrete and closed in adelic points)).
-- The inclusion of the valuation ring O_v into K_v is an open and closed embedding, so the integral points of an O_v-model are open and closed in the K_v-points.
-
-*Needs:* §2.2 (Presentations compute the points topology); Mathlib `Topology.IsEmbedding`; Mathlib `Topology.IsClosedEmbedding`; Mathlib `DiscreteTopology`.
-
-
-### 2.4 Adelic points of an affine variety
-
-Define `TauCeti.AdelicPoints`. Let K be a number field, 𝔸_K = NumberField.AdeleRing (𝓞 K) K its adele ring (the product of the infinite adele ring and the finite adele ring), and A a finitely generated commutative K-algebra, the coordinate ring of the affine K-variety X = Spec A. The adelic points of X are X(𝔸_K) := Points_K(A, 𝔸_K) with the points topology (§2.1 (The topology on points with values in a topological algebra)). They come with: the diagonal ι : X(K) = Points_K(A, K) → X(𝔸_K), postcomposition with the algebra map K → 𝔸_K; for each finite place v (a height-one prime of 𝓞 K) the local projection X(𝔸_K) → X(K_v), K_v = v.adicCompletion K, postcomposition with the projection of the finite adeles to their v-component; and for each infinite place w the local projection X(𝔸_K) → X(K_w), K_w = w.Completion. All of these are continuous. Use the names `TauCeti.AdelicPoints K A`, with `diagonal`, `finiteProj v` and `infiniteProj w`.
+Define `TauCeti.AdelicPoints`. Let K be a number field, 𝔸_K = NumberField.AdeleRing (𝓞 K) K its adele ring (the product of the infinite adele ring and the finite adele ring), and A a finitely generated commutative K-algebra, the coordinate ring of the affine K-variety X = Spec A. The adelic points of X are X(𝔸_K) := Points_K(A, 𝔸_K) with the points topology (ReductiveGroupsPartII §RG2.0.1). They come with: the diagonal ι : X(K) = Points_K(A, K) → X(𝔸_K), postcomposition with the algebra map K → 𝔸_K; for each finite place v (a height-one prime of 𝓞 K) the local projection X(𝔸_K) → X(K_v), K_v = v.adicCompletion K, postcomposition with the projection of the finite adeles to their v-component; and for each infinite place w the local projection X(𝔸_K) → X(K_w), K_w = w.Completion. All of these are continuous. Use the names `TauCeti.AdelicPoints K A`, with `diagonal`, `finiteProj v` and `infiniteProj w`.
 
 K a number field; A a finitely generated commutative K-algebra (so X is an affine K-scheme of finite type). Non-affine varieties are not covered by this node.
 
@@ -1783,11 +1683,9 @@ K a number field; A a finitely generated commutative K-algebra (so X is an affin
 
 Definition: Points_K(A, 𝔸_K). The adele ring is a topological K-algebra (NumberField.AdeleRing is a topological ring with Algebra K).
 
-Diagonal and projections: the algebra map K → 𝔸_K and the projections 𝔸_K → K_v are continuous K-algebra maps (the projection of the finite adeles to a component is RestrictedProduct.evalRingHom, continuous for the restricted-product topology; the infinite part is a product of the K_w). Postcomposition is continuous by §2.1 (The topology on points with values in a topological algebra).
+Diagonal and projections: the algebra map K → 𝔸_K and the projections 𝔸_K → K_v are continuous K-algebra maps (the projection of the finite adeles to a component is RestrictedProduct.evalRingHom, continuous for the restricted-product topology; the infinite part is a product of the K_w). Postcomposition is continuous by ReductiveGroupsPartII §RG2.0.1.
 
 Product decomposition: since 𝔸_K = K_∞ × 𝔸_K^f, Points_K(A, 𝔸_K) ≃ₜ Points_K(A, K_∞) × Points_K(A, 𝔸_K^f) and Points_K(A, K_∞) ≃ₜ ∏_w X(K_w) (algebra maps into a product are families of algebra maps into the factors; the topologies agree because both are induced by the evaluations).
-
-Hausdorff: 𝔸_K is Hausdorff (Tau Ceti NumberField.AdeleRing.instT2Space), so §2.2 (Presentations compute the points topology) makes X(𝔸_K) Hausdorff. Local compactness: the infinite adeles are locally compact (NumberField.InfiniteAdeleRing.locallyCompactSpace), and the finite adeles are locally compact by RestrictedProduct.locallyCompactSpace_of_group once each O_v is compact; compactness of O_v for a number field is not in the pinned libraries, so the local-compactness API item waits for it.
 
 Its interface consists of the following operations and laws.
 
@@ -1798,8 +1696,6 @@ Its interface consists of the following operations and laws.
 - `TauCeti.AdelicPoints.diagonal_injective`: The diagonal is injective (K → 𝔸_K is injective).
 - `TauCeti.AdelicPoints.finiteProj_diagonal`: The local projection of the diagonal image of x is x followed by K → K_v, and similarly at infinite places.
 - `TauCeti.AdelicPoints.map`: A K-algebra map A′ → A induces a continuous map X(𝔸_K) → X′(𝔸_K) compatible with the diagonal and the local projections.
-- `TauCeti.AdelicPoints.t2Space`: X(𝔸_K) is Hausdorff.
-- `TauCeti.AdelicPoints.locallyCompactSpace`: X(𝔸_K) is locally compact (uses the native compact-open completion integers).
 
 **Checks.**
 
@@ -1807,13 +1703,13 @@ Its interface consists of the following operations and laws.
 - `TauCeti.AdelicPoints.tests.affine_line`: For A = K[X], evaluation at X is a homeomorphism X(𝔸_K) ≃ₜ 𝔸_K, and the diagonal is the inclusion K → 𝔸_K; it is not surjective.
 - `TauCeti.AdelicPoints.tests.multiplicative_group`: For A = K[X, Y]/(XY − 1), X(𝔸_K) is homeomorphic to the unit group 𝔸_Kˣ with Mathlib's topology on units (the idele topology).
 - `TauCeti.AdelicPoints.tests.no_real_point`: For K = ℚ and A = ℚ[X]/(X² + 1), X(𝔸_ℚ) is empty, while X(ℚ₅) is not.
-- X(𝔸_K) is Hausdorff, and X(K) sits in it as a discrete closed subset (§2.9 (Rational points are discrete and closed in adelic points)).
+- X(𝔸_K) is Hausdorff, and X(K) sits in it as a discrete closed subset (§2.6 (Rational points are discrete and closed in adelic points)).
 - For K = ℚ and A = ℚ[X]/(X² + 1), X(𝔸_ℚ) is empty although X(ℚ_p) is nonempty for every p ≡ 1 mod 4, because X(ℝ) is empty.
 
-*Needs:* §2.1 (The topology on points with values in a topological algebra); §2.2 (Presentations compute the points topology); Mathlib `NumberField.AdeleRing`; Mathlib `IsDedekindDomain.FiniteAdeleRing`; Mathlib `NumberField.InfiniteAdeleRing`; Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletion`; Mathlib `NumberField.InfinitePlace.Completion`; Mathlib `RestrictedProduct.evalRingHom`; Tau Ceti `NumberField.AdeleRing.instT2Space`; Mathlib `NumberField.InfiniteAdeleRing.locallyCompactSpace`; Mathlib `RestrictedProduct.locallyCompactSpace_of_group`; Mathlib `Algebra.FiniteType`.
+*Needs:* ReductiveGroupsPartII §RG2.0.1; Mathlib `NumberField.AdeleRing`; Mathlib `IsDedekindDomain.FiniteAdeleRing`; Mathlib `NumberField.InfiniteAdeleRing`; Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletion`; Mathlib `NumberField.InfinitePlace.Completion`; Mathlib `RestrictedProduct.evalRingHom`; Tau Ceti `NumberField.AdeleRing.instT2Space`; Mathlib `NumberField.InfiniteAdeleRing.locallyCompactSpace`; Mathlib `RestrictedProduct.locallyCompactSpace_of_group`; Mathlib `Algebra.FiniteType`.
 
 
-### 2.5 Integral models and their integral local points
+### 2.2 Integral models and their integral local points
 
 Define `TauCeti.AdelicPoints.IntegralModel`. Let K be a number field and A a finitely generated commutative K-algebra. An integral model of A is a finitely generated 𝓞_K-subalgebra A₀ ⊆ A such that K·A₀ = A (equivalently, the K-subalgebra generated by A₀ is A; then A₀ ⊗_{𝓞_K} K ≅ A). For a finite place v, its integral points at v are X₀(O_v) := {x ∈ X(K_v) : x(A₀) ⊆ O_v}, where O_v = v.adicCompletionIntegers K; for an infinite place w, X₀(O_w) := X(K_w). Use the names `TauCeti.AdelicPoints.IntegralModel K A` (a structure holding A₀, finite generation and the spanning condition) with `IntegralModel.integralPoints`.
 
@@ -1827,14 +1723,10 @@ A K-algebra map x : A → K_v is determined by its restriction to A₀, and x �
 
 If a₁, …, a_n generate A₀ over 𝓞_K, then X₀(O_v) = {x : x(aᵢ) ∈ O_v for all i}, because O_v is a subring containing the image of 𝓞_K.
 
-For an arbitrary affine finite-type scheme, prove compactness of integral points through a finite presentation as a closed locus in O_v^n. RestrictedProduct.locallyCompactSpace_of_group supplies the ambient adelic group only; X(K_v) is generally not a group.
-
 Its interface consists of the following operations and laws.
 
 - `TauCeti.AdelicPoints.IntegralModel.integralPoints`: The set X₀(O_v) ⊆ X(K_v) of points integral on A₀, for a finite place v.
 - `TauCeti.AdelicPoints.IntegralModel.mem_integralPoints_iff`: x ∈ X₀(O_v) iff x(aᵢ) ∈ O_v for a chosen finite family of 𝓞_K-algebra generators aᵢ of A₀.
-- `TauCeti.AdelicPoints.IntegralModel.isOpen_integralPoints`: X₀(O_v) is open in X(K_v).
-- `TauCeti.AdelicPoints.IntegralModel.isCompact_integralPoints`: X₀(O_v) is compact, using the native compactness of completion integers: it is closed in the compact set of points with all generator values in O_v.
 - `TauCeti.AdelicPoints.IntegralModel.ofGenerators`: The 𝓞_K-subalgebra generated by any finite family of K-algebra generators of A is an integral model.
 
 **Checks.**
@@ -1844,14 +1736,14 @@ Its interface consists of the following operations and laws.
 - `TauCeti.AdelicPoints.IntegralModel.tests.rescaled`: For A = ℚ[X], the models ℤ[X] and ℤ[X/2] have different integral points at 2 (ℤ₂ versus 2ℤ₂), so the integral points depend on the model at finitely many places.
 - `TauCeti.AdelicPoints.IntegralModel.tests.no_integral_point`: For A = ℚ[X]/(3X − 1) and A₀ = ℤ[X]/(3X − 1) ≅ ℤ[1/3], the unique point 1/3 lies in X(ℚ₃) but X₀(ℤ₃) is empty, while X₀(ℤ_p) = X(ℚ_p) for every p ≠ 3.
 - For A = ℚ[X] and A₀ = ℤ[X], X₀(ℤ_p) is ℤ_p inside ℚ_p.
-- Different models may differ at finitely many places: for A = ℚ[X], A₀ = ℤ[X] and A₀′ = ℤ[X/2] have X₀(ℤ₂) = ℤ₂ ≠ 2ℤ₂ = X₀′(ℤ₂), and agree at every odd p (§2.6 (Integral models exist and agree at almost all places)).
+- Different models may differ at finitely many places: for A = ℚ[X], A₀ = ℤ[X] and A₀′ = ℤ[X/2] have X₀(ℤ₂) = ℤ₂ ≠ 2ℤ₂ = X₀′(ℤ₂), and agree at every odd p (§2.3 (Integral models exist and agree at almost all places)).
 
-*Needs:* §2.4 (Adelic points of an affine variety); Mathlib `Algebra.adjoin`; Mathlib `Algebra.FiniteType`; Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`.
+*Needs:* §2.1 (Adelic points of an affine variety); ReductiveGroupsPartII §RG2.0.3; Mathlib `Algebra.adjoin`; Mathlib `Algebra.FiniteType`; Mathlib `IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers`.
 
 
-### 2.6 Integral models exist and agree at almost all places
+### 2.3 Integral models exist and agree at almost all places
 
-Prove `TauCeti.AdelicPoints.IntegralModel.eventually_integralPoints_eq`. Let K be a number field and A a finitely generated commutative K-algebra. (a) The 𝓞_K-subalgebra generated by any finite family of K-algebra generators of A is an integral model (§2.5 (Integral models and their integral local points)). (b) For two integral models A₀, A₀′ there is a nonzero N ∈ 𝓞_K with A₀[1/N] = A₀′[1/N] inside A; consequently X₀(O_v) = X₀′(O_v) for every finite place v not dividing N, i.e. for all but finitely many v.
+Prove `TauCeti.AdelicPoints.IntegralModel.eventually_integralPoints_eq`. Let K be a number field and A a finitely generated commutative K-algebra. (a) The 𝓞_K-subalgebra generated by any finite family of K-algebra generators of A is an integral model (§2.2 (Integral models and their integral local points)). (b) For two integral models A₀, A₀′ there is a nonzero N ∈ 𝓞_K with A₀[1/N] = A₀′[1/N] inside A; consequently X₀(O_v) = X₀′(O_v) for every finite place v not dividing N, i.e. for all but finitely many v.
 
 A finitely generated over K; A₀, A₀′ finitely generated 𝓞_K-subalgebras spanning A over K.
 
@@ -1869,24 +1761,24 @@ Only finitely many height-one primes contain N ≠ 0 (a nonzero element of a Ded
 
 - The models ℤ[X] and ℤ[X/2] of ℚ[X] satisfy (b) with N = 2.
 
-*Needs:* §2.5 (Integral models and their integral local points); Mathlib `IsLocalization.Away`; Mathlib `IsDedekindDomain.HeightOneSpectrum`.
+*Needs:* §2.2 (Integral models and their integral local points); Mathlib `IsLocalization.Away`; Mathlib `IsDedekindDomain.HeightOneSpectrum`.
 
 
-### 2.7 Adelic points as a restricted product
+### 2.4 Adelic points as a restricted product
 
-Prove `TauCeti.AdelicPoints.restrictedProductHomeomorph`. Let K be a number field, A a finitely generated commutative K-algebra and A₀ an integral model (§2.5 (Integral models and their integral local points)). Then the local projections give a homeomorphism X(𝔸_K) ≃ₜ (∏_{w infinite} X(K_w)) × Πʳ_{v finite} [X(K_v), X₀(O_v)], where the second factor is Mathlib's restricted product of the X(K_v) with respect to the subsets X₀(O_v) (RestrictedProduct, with its restricted-product topology). In particular an element of X(𝔸_K) is exactly a family (x_v) of local points with x_v ∈ X₀(O_v) for all but finitely many finite v, and the restricted product does not depend on the model (§2.6 (Integral models exist and agree at almost all places)).
+Prove `TauCeti.AdelicPoints.restrictedProductHomeomorph`. Let K be a number field, A a finitely generated commutative K-algebra and A₀ an integral model (§2.2 (Integral models and their integral local points)). Then the local projections give a homeomorphism X(𝔸_K) ≃ₜ (∏_{w infinite} X(K_w)) × Πʳ_{v finite} [X(K_v), X₀(O_v)], where the second factor is Mathlib's restricted product of the X(K_v) with respect to the subsets X₀(O_v) (RestrictedProduct, with its restricted-product topology). In particular an element of X(𝔸_K) is exactly a family (x_v) of local points with x_v ∈ X₀(O_v) for all but finitely many finite v, and the restricted product does not depend on the model (§2.3 (Integral models exist and agree at almost all places)).
 
 K a number field; A finitely generated; A₀ an integral model. The infinite places are finitely many, so their factor is an ordinary product.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §2.6.3, p. 50; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), Exercise 3.4(c), p. 95; [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §3, Theorem 3.6, p. 6.)
 
-Product decomposition: §2.4 (Adelic points of an affine variety) reduces the statement to the finite adeles 𝔸_K^f = Πʳ_v [K_v, O_v].
+Product decomposition: §2.1 (Adelic points of an affine variety) reduces the statement to the finite adeles 𝔸_K^f = Πʳ_v [K_v, O_v].
 
 Bijection: let a₁, …, a_n generate A₀ over 𝓞_K (they then generate A over K). For a K-algebra map φ : A → 𝔸_K^f, each φ(aᵢ) is a finite adele, so it lies in O_v for all v outside a finite set Tᵢ (RestrictedProduct.eventually); for v outside T = ⋃ Tᵢ the v-component x_v of φ sends every aᵢ, hence A₀, into O_v. Conversely a family (x_v) with x_v(A₀) ⊆ O_v for almost all v defines a family of adeles (x_v(a))_v for each a ∈ A (a = b/m with b ∈ A₀, and m is a unit at almost all v), and a K-algebra map into the restricted product, because ring operations in the restricted product are componentwise.
 
-Topology: by §2.2 (Presentations compute the points topology) both sides embed as the zero set of the same ideal, the left side in (𝔸_K^f)ⁿ and the right side in Πʳ_v [K_vⁿ, O_vⁿ], through the values at a₁, …, a_n; and (𝔸_K^f)ⁿ = Πʳ_v [K_vⁿ, O_vⁿ] as topological rings (a finite product of restricted products is the restricted product of the products; open O_v). Under this identification the two embeddings agree, so the bijection is a homeomorphism.
+Topology: by ReductiveGroupsPartII §RG2.0.1 both sides embed as the zero set of the same ideal, the left side in (𝔸_K^f)ⁿ and the right side in Πʳ_v [K_vⁿ, O_vⁿ], through the values at a₁, …, a_n; and (𝔸_K^f)ⁿ = Πʳ_v [K_vⁿ, O_vⁿ] as topological rings (a finite product of restricted products is the restricted product of the products; open O_v). Under this identification the two embeddings agree, so the bijection is a homeomorphism.
 
-Openness of the X₀(O_v): they are cut out by the open conditions x(aᵢ) ∈ O_v (§2.5 (Integral models and their integral local points)), which is what makes the restricted-product topology the right one (RestrictedProduct.isOpen_forall_mem).
+Openness of the X₀(O_v): they are cut out by the open conditions x(aᵢ) ∈ O_v (§2.2 (Integral models and their integral local points)), which is what makes the restricted-product topology the right one (RestrictedProduct.isOpen_forall_mem).
 
 Model independence: two models have the same integral points at almost all v, and a restricted product only depends on the subsets at almost all indices.
 
@@ -1899,33 +1791,34 @@ Its interface consists of the following operations and laws.
 **Checks.**
 
 - For A = K[X], the theorem is Mathlib's definition of the finite adele ring as Πʳ_v [K_v, O_v] (with the model 𝓞_K[X]).
+- For A=K with model 𝓞_K every factor and the restricted product are singletons. In contrast A=ℚ[X]/(X²+1) has an empty real factor, so its full adelic space is empty even though the factors at primes p≡1 mod 4 are nonempty.
 - For A = K[X, Y]/(XY − 1) with model 𝓞_K[X, Y]/(XY − 1), it describes the idele group as the restricted product of the K_vˣ with respect to the O_vˣ, as groups and topologically; this agrees with Mathlib's unitsEquiv as groups.
 
-*Needs:* §2.4 (Adelic points of an affine variety); §2.5 (Integral models and their integral local points); §2.6 (Integral models exist and agree at almost all places); §2.2 (Presentations compute the points topology); Mathlib `RestrictedProduct`; Mathlib `RestrictedProduct.topologicalSpace`; Mathlib `RestrictedProduct.eventually`; Mathlib `RestrictedProduct.isOpen_forall_mem`.
+*Needs:* §2.1 (Adelic points of an affine variety); §2.2 (Integral models and their integral local points); §2.3 (Integral models exist and agree at almost all places); ReductiveGroupsPartII §RG2.0.1; Mathlib `RestrictedProduct`; Mathlib `RestrictedProduct.topologicalSpace`; Mathlib `RestrictedProduct.eventually`; Mathlib `RestrictedProduct.isOpen_forall_mem`.
 
 
-### 2.8 Adelic points exist iff local points exist and are integral almost everywhere
+### 2.5 Adelic points exist iff local points exist and are integral almost everywhere
 
 Prove `TauCeti.AdelicPoints.nonempty_iff`. Let K be a number field, A a finitely generated commutative K-algebra and A₀ an integral model. Then X(𝔸_K) is nonempty iff X(K_w) is nonempty for every infinite place w, X(K_v) is nonempty for every finite place v, and X₀(O_v) is nonempty for all but finitely many finite v. In particular X(K) ≠ ∅ implies X(𝔸_K) ≠ ∅ (through the diagonal), and X(𝔸_K) = ∅ as soon as X has no point over a single completion.
 
-As in §2.7 (Adelic points as a restricted product).
+As in §2.4 (Adelic points as a restricted product).
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.1.1, p. 228.)
 
-By §2.7 (Adelic points as a restricted product), an adelic point is a family of local points integral at almost all v; such a family exists iff every local set is nonempty and the integral subsets are nonempty at almost all v (choose integral points there and arbitrary points at the finitely many remaining places).
+By §2.4 (Adelic points as a restricted product), an adelic point is a family of local points integral at almost all v; such a family exists iff every local set is nonempty and the integral subsets are nonempty at almost all v (choose integral points there and arbitrary points at the finitely many remaining places).
 
-The diagonal image of a K-point is an adelic point (§2.4 (Adelic points of an affine variety)).
+The diagonal image of a K-point is an adelic point (§2.1 (Adelic points of an affine variety)).
 
 **Checks.**
 
 - For A = ℚ[X]/(X² + 1): X(ℝ) = ∅, so X(𝔸_ℚ) = ∅.
 - Local points must exist at every place: for A = ℚ[X]/(X² − 2), X(ℚ_p) is empty for every p ≡ ±3 mod 8, so X(𝔸_ℚ) = ∅ although X(ℝ) ≠ ∅.
-- The lemma says nothing about X(K): the Brauer–Manin set (§2.12 (The Brauer–Manin pairing and the Brauer–Manin set)) refines this necessary condition.
+- The lemma says nothing about X(K): the Brauer–Manin set (§2.9 (The Brauer–Manin pairing and the Brauer–Manin set)) refines this necessary condition.
 
-*Needs:* §2.7 (Adelic points as a restricted product); §2.4 (Adelic points of an affine variety).
+*Needs:* §2.4 (Adelic points as a restricted product); §2.1 (Adelic points of an affine variety).
 
 
-### 2.9 Rational points are discrete and closed in adelic points
+### 2.6 Rational points are discrete and closed in adelic points
 
 Prove `TauCeti.AdelicPoints.isClosed_range_diagonal`. Let K be a number field and A a finitely generated commutative K-algebra. The diagonal ι : X(K) → X(𝔸_K) is injective, and its image is a discrete closed subset of X(𝔸_K).
 
@@ -1933,22 +1826,22 @@ K a number field; A finitely generated.
 
 ([Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §2, Example 2.3, p. 3.)
 
-Choose a presentation of A. By §2.2 (Presentations compute the points topology), X(𝔸_K) embeds as a closed subset of 𝔸_Kⁿ, compatibly with the embedding X(K) ⊆ Kⁿ, and ι is the restriction of the diagonal Kⁿ → 𝔸_Kⁿ.
+Choose a presentation of A. By ReductiveGroupsPartII §RG2.0.1, X(𝔸_K) embeds as a closed subset of 𝔸_Kⁿ, compatibly with the embedding X(K) ⊆ Kⁿ, and ι is the restriction of the diagonal Kⁿ → 𝔸_Kⁿ.
 
 K is discrete and closed in 𝔸_K (Tau Ceti discreteTopology_principalSubgroup, isClosed_principalSubgroup), so Kⁿ is discrete and closed in 𝔸_Kⁿ, and its intersection with X(𝔸_K) is the image of ι (a tuple in Kⁿ satisfies the equations in 𝔸_K iff it satisfies them in K, since K → 𝔸_K is injective).
 
-Discreteness also follows from §2.3 (Changing the value ring).
+Discreteness also follows from ReductiveGroupsPartII §RG2.0.1.
 
 **Checks.**
 
 - For A = K[X], the image of ι is the principal subgroup K ⊆ 𝔸_K.
 
-*Needs:* §2.4 (Adelic points of an affine variety); §2.2 (Presentations compute the points topology); §2.3 (Changing the value ring); Tau Ceti `TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup`; Tau Ceti `TauCeti.GlobalNumberFields.isClosed_principalSubgroup`; Mathlib `NumberField.AdeleRing.principalSubgroup`.
+*Needs:* §2.1 (Adelic points of an affine variety); ReductiveGroupsPartII §RG2.0.1; Tau Ceti `TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup`; Tau Ceti `TauCeti.GlobalNumberFields.isClosed_principalSubgroup`; Mathlib `NumberField.AdeleRing.principalSubgroup`.
 
 
-### 2.10 Spreading out an Azumaya algebra over an integral model
+### 2.7 Spreading out an Azumaya algebra over an integral model
 
-Prove `TauCeti.BrauerManin.exists_azumaya_model`. Let K be a number field, A a finitely generated commutative K-algebra with integral model A₀ (§2.5 (Integral models and their integral local points)), and 𝒜 an Azumaya A-algebra. Then there are a nonzero N ∈ 𝓞_K and an Azumaya A₀[1/N]-algebra 𝒜₀ with A ⊗_{A₀[1/N]} 𝒜₀ ≅ 𝒜 as A-algebras.
+Prove `TauCeti.BrauerManin.exists_azumaya_model`. Let K be a number field, A a finitely generated commutative K-algebra with integral model A₀ (§2.2 (Integral models and their integral local points)), and 𝒜 an Azumaya A-algebra. Then there are a nonzero N ∈ 𝓞_K and an Azumaya A₀[1/N]-algebra 𝒜₀ with A ⊗_{A₀[1/N]} 𝒜₀ ≅ 𝒜 as A-algebras.
 
 A = A₀ ⊗_{𝓞_K} K is the filtered colimit of the rings A₀[1/N], N ∈ 𝓞_K ∖ {0}.
 
@@ -1966,20 +1859,20 @@ This is the Azumaya form of Poonen's Corollary 6.6.11 (spreading out a Brauer cl
 
 - A constant algebra A ⊗_K D with D central simple over K spreads out over A₀[1/N] as A₀[1/N] ⊗ D₀ for any 𝓞_K[1/N]-order D₀ of D which is Azumaya over 𝓞_K[1/N] (N divisible by the ramified primes of D).
 
-*Needs:* §2.5 (Integral models and their integral local points); SchemeAndStackFoundations §2.22, Azumaya.pullback and azumaya_affine_iff; Mathlib `IsAzumaya`; Mathlib `IsLocalization.Away`; Mathlib `Module.Projective`.
+*Needs:* §2.2 (Integral models and their integral local points); SchemeAndStackFoundations §2.22, Azumaya.pullback and azumaya_affine_iff; Mathlib `IsAzumaya`; Mathlib `IsLocalization.Away`; Mathlib `Module.Projective`.
 
 
-### 2.11 Brauer evaluation is trivial at almost all places
+### 2.8 Brauer evaluation is trivial at almost all places
 
-Prove `TauCeti.BrauerManin.finite_eval_ne_zero`. Let K be a number field, A a finitely generated commutative K-algebra, 𝒜 an Azumaya A-algebra and x ∈ X(𝔸_K) an adelic point (§2.4 (Adelic points of an affine variety)). Then 𝒜(x_v) = 0 in Br(K_v) for all but finitely many finite places v, where x_v is the local projection of x (SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field).
+Prove `TauCeti.BrauerManin.finite_eval_ne_zero`. Let K be a number field, A a finitely generated commutative K-algebra, 𝒜 an Azumaya A-algebra and x ∈ X(𝔸_K) an adelic point (§2.1 (Adelic points of an affine variety)). Then 𝒜(x_v) = 0 in Br(K_v) for all but finitely many finite places v, where x_v is the local projection of x (SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field).
 
 K a number field; A finitely generated; 𝒜 Azumaya over A.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.2, Proposition 8.2.1, p. 229; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.2, proof of Proposition 8.2.1, p. 229.)
 
-Choose an integral model A₀ (§2.6 (Integral models exist and agree at almost all places) (a)) and spread 𝒜 out to an Azumaya A₀[1/N]-algebra 𝒜₀ (§2.10 (Spreading out an Azumaya algebra over an integral model)).
+Choose an integral model A₀ (§2.3 (Integral models exist and agree at almost all places) (a)) and spread 𝒜 out to an Azumaya A₀[1/N]-algebra 𝒜₀ (§2.7 (Spreading out an Azumaya algebra over an integral model)).
 
-By §2.7 (Adelic points as a restricted product), x_v ∈ X₀(O_v) for all but finitely many v; discard also the finitely many v dividing N. For the remaining v, x_v restricts to an 𝓞_K-algebra map A₀[1/N] → O_v (N is a unit in O_v).
+By §2.4 (Adelic points as a restricted product), x_v ∈ X₀(O_v) for all but finitely many v; discard also the finitely many v dividing N. For the remaining v, x_v restricts to an 𝓞_K-algebra map A₀[1/N] → O_v (N is a unit in O_v).
 
 Then K_v ⊗_{A, x_v} 𝒜 ≅ K_v ⊗_{O_v} (O_v ⊗_{A₀[1/N]} 𝒜₀), and O_v ⊗ 𝒜₀ is Azumaya over O_v (SchemeAndStackFoundations §2.22, Azumaya.pullback and azumaya_affine_iff), hence split (SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing); so 𝒜(x_v) = 0.
 
@@ -1988,22 +1881,22 @@ Then K_v ⊗_{A, x_v} 𝒜 ≅ K_v ⊗_{O_v} (O_v ⊗_{A₀[1/N]} 𝒜₀), and 
 - For a constant algebra A ⊗_K D, the exceptional places are among the places where D ramifies, whatever the adelic point.
 - The finite set depends on x: for A = ℚ[t, 1/t] and 𝒜 = (−1, t)_A, a point with t = p at the place p gives the local class of (−1, p) over ℚ_p, which is nontrivial for p ≡ 3 mod 4.
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.10 (Spreading out an Azumaya algebra over an integral model); SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing; §2.7 (Adelic points as a restricted product); §2.6 (Integral models exist and agree at almost all places).
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.7 (Spreading out an Azumaya algebra over an integral model); SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing; §2.4 (Adelic points as a restricted product); §2.3 (Integral models exist and agree at almost all places).
 
 
-### 2.12 The Brauer–Manin pairing and the Brauer–Manin set
+### 2.9 The Brauer–Manin pairing and the Brauer–Manin set
 
-Define `TauCeti.BrauerManin.pairing`. Let K be a number field and A a finitely generated commutative K-algebra. For each place v let inv_v : Br(K_v) → ℚ/ℤ be the local invariant (finite places: the invariant map of local class field theory, supplied by ClassFieldTheory Layer 5; real places: Br(ℝ) ≅ ½ℤ/ℤ; complex places: 0). For an Azumaya A-algebra 𝒜 and x ∈ X(𝔸_K), the Brauer–Manin pairing is ⟨𝒜, x⟩ := Σ_v inv_v(𝒜(x_v)) ∈ ℚ/ℤ, a finite sum by §2.11 (Brauer evaluation is trivial at almost all places) (only finitely many terms are nonzero, and there are finitely many infinite places). The Brauer–Manin set of 𝒜 is X(𝔸_K)^𝒜 := {x : ⟨𝒜, x⟩ = 0}, and X(𝔸_K)^Br := ⋂_𝒜 X(𝔸_K)^𝒜 over all Azumaya A-algebras. There is a Brauer–Manin obstruction to the local-global principle for X if X(𝔸_K) ≠ ∅ and X(𝔸_K)^Br = ∅. Use the names `TauCeti.BrauerManin.pairing`, `brauerSet`, `brauerManinSet`, with ℚ/ℤ as AddCircle (1 : ℚ).
+Define `TauCeti.BrauerManin.pairing`. Let K be a number field and A a finitely generated commutative K-algebra. For each place v let inv_v : Br(K_v) → ℚ/ℤ be the local invariant (finite places: the invariant map of local class field theory, supplied by ClassFieldTheory Layer 5; real places: Br(ℝ) ≅ ½ℤ/ℤ; complex places: 0). For an Azumaya A-algebra 𝒜 and x ∈ X(𝔸_K), the Brauer–Manin pairing is ⟨𝒜, x⟩ := Σ_v inv_v(𝒜(x_v)) ∈ ℚ/ℤ, a finite sum by §2.8 (Brauer evaluation is trivial at almost all places) (only finitely many terms are nonzero, and there are finitely many infinite places). The Brauer–Manin set of 𝒜 is X(𝔸_K)^𝒜 := {x : ⟨𝒜, x⟩ = 0}, and X(𝔸_K)^Br := ⋂_𝒜 X(𝔸_K)^𝒜 over all Azumaya A-algebras. There is a Brauer–Manin obstruction to the local-global principle for X if X(𝔸_K) ≠ ∅ and X(𝔸_K)^Br = ∅. Use the names `TauCeti.BrauerManin.pairing`, `brauerSet`, `brauerManinSet`, with ℚ/ℤ as AddCircle (1 : ℚ).
 
 K a number field; A finitely generated; the local invariant maps are the ClassFieldTheory Layer 5 declarations, used as given homomorphisms Br(K_v) → ℚ/ℤ. Br here is the Azumaya Brauer group of the affine scheme; the comparison with Poonen's cohomological Br X is an additional required contract.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.2, Definition 8.2.5, p. 230; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.3, Definition 8.2.7, p. 230.)
 
-Finite support: §2.11 (Brauer evaluation is trivial at almost all places) at the finite places; the infinite places are finite in number.
+Finite support: §2.8 (Brauer evaluation is trivial at almost all places) at the finite places; the infinite places are finite in number.
 
 The pairing is additive in 𝒜 (SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field (b) and additivity of each inv_v) and depends only on the Azumaya class; isomorphic algebras give the same sets.
 
-X(𝔸_K)^𝒜 = X(𝔸_K) when 𝒜 is split (End_A(P)): every evaluation is 1.
+X(𝔸_K)^𝒜 = X(𝔸_K) when 𝒜 is split (End_A(P)): every evaluation is 0.
 
 Its interface consists of the following operations and laws.
 
@@ -2025,14 +1918,14 @@ Its interface consists of the following operations and laws.
 - If X(𝔸_K) = ∅ there is no Brauer–Manin obstruction in this sense: the definition requires adelic points.
 - A nonempty Brauer–Manin set does not by itself give a rational point (Poonen §8.6); the set is only an upper bound for the closure of X(K).
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.11 (Brauer evaluation is trivial at almost all places); §2.4 (Adelic points of an affine variety); Tau Ceti `TauCeti.Quaternion.brauerGroupMulEquiv`; Mathlib `AddCircle`.
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.8 (Brauer evaluation is trivial at almost all places); §2.1 (Adelic points of an affine variety); Tau Ceti `TauCeti.Quaternion.brauerGroupMulEquiv`; Mathlib `AddCircle`.
 
 
-### 2.13 Rational points lie in the Brauer–Manin set
+### 2.10 Rational points lie in the Brauer–Manin set
 
 Prove `TauCeti.BrauerManin.diagonal_mem_brauerManinSet`. Let K be a number field and A a finitely generated commutative K-algebra. For every K-point x ∈ X(K) and every Azumaya A-algebra 𝒜, ⟨𝒜, ι(x)⟩ = 0. Hence ι(X(K)) ⊆ X(𝔸_K)^Br, and a Brauer–Manin obstruction (X(𝔸_K) ≠ ∅, X(𝔸_K)^Br = ∅) implies X(K) = ∅.
 
-As in §2.12 (The Brauer–Manin pairing and the Brauer–Manin set); the reciprocity law Σ_v inv_v(res_v β) = 0 for β ∈ Br(K) is the ClassFieldTheory Layer 10 theorem.
+As in §2.9 (The Brauer–Manin pairing and the Brauer–Manin set); the reciprocity law Σ_v inv_v(res_v β) = 0 for β ∈ Br(K) is the ClassFieldTheory Layer 10 theorem.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.2, Proposition 8.2.2, p. 230; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.2, Corollary 8.2.6, p. 230.)
 
@@ -2046,10 +1939,10 @@ The inclusion in X(𝔸_K)^Br follows for all 𝒜 at once, and the obstruction 
 
 - For the constant algebra A ⊗ D of a central simple K-algebra D, the pairing vanishes on every adelic point whose local components come from K-points, and more generally ⟨A ⊗ D, x⟩ = Σ_v inv_v(D_v) = 0 for every adelic point (constant algebras give no obstruction).
 
-*Needs:* §2.12 (The Brauer–Manin pairing and the Brauer–Manin set); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.4 (Adelic points of an affine variety).
+*Needs:* §2.9 (The Brauer–Manin pairing and the Brauer–Manin set); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.1 (Adelic points of an affine variety).
 
 
-### 2.14 Adelic points of separated schemes of finite type
+### 2.11 Adelic points of separated schemes of finite type
 
 For a separated finite-type K-scheme X over a number field, choose a model 𝒳 over O_{K,S}. Define X(𝔸_K) as the union over finite T⊇S of Π_{v∈T}X(K_v)×Π_{v∉T}𝒳(O_v), equipped with the direct-limit topology. The topology is independent of the model and recovers the affine restricted product. Rational points map diagonally and morphisms induce continuous maps. For proper X the model is proper outside a finite set, and the adelic space is the product of all local spaces. A finite affine cover of X does not in general cover its adelic points: different places may require different charts. A global open immersion induces a continuous injection, generally not a topological embedding.
 
@@ -2057,7 +1950,7 @@ X separated of finite type over a number field K; places include the archimedean
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §2.6.3, pp. 49–50, and Exercise 3.4, p. 95; [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf), §3, Proposition 3.1, Theorem 3.6 and its proof, pp. 5–8.)
 
-Conrad §3 gives the §2.5 (Integral models and their integral local points) direct-limit construction and its model independence; compare with the affine case using finite presentation.
+Conrad §3 gives the §2.2 (Integral models and their integral local points) direct-limit construction and its model independence; compare with the affine case using finite presentation.
 
 Extend each morphism to models after enlarging S. On every finite T-stage the induced map is continuous, hence continuous for the direct-limit topology.
 
@@ -2083,16 +1976,16 @@ Its interface consists of the following operations and laws.
 - For X = ℙ¹, X(𝔸_ℚ) = Π_v ℙ¹(ℚ_v), compact.
 - For X = 𝔾_m = Spec ℚ[t, 1/t], X(𝔸_ℚ) is the idele group with its idelic topology.
 
-*Needs:* §2.4 (Adelic points of an affine variety); §2.7 (Adelic points as a restricted product); §2.6 (Integral models exist and agree at almost all places); §2.1 (The topology on points with values in a topological algebra).
+*Needs:* §2.1 (Adelic points of an affine variety); §2.4 (Adelic points as a restricted product); §2.3 (Integral models exist and agree at almost all places); ReductiveGroupsPartII §RG2.0.1.
 
 
-### 2.15 Local constancy of Brauer evaluation
+### 2.12 Local constancy of Brauer evaluation
 
 Prove `TauCeti.SchemeBrauer.eval_locallyConstant`. Let k be a local field and X a k-variety. For α ∈ Br X, the map X(k) → Br k, x ↦ α(x), is locally constant for the analytic topology on X(k). If k is nonarchimedean with ring of integers O, 𝒳 is a finite-type O-model and α extends to Br 𝒳, then x ↦ α(x) is constant on 𝒳(O) and equal to 0 when Br O = 0.
 
 k a local field; X of finite type over k.
 
-([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.3, Proposition 8.2.9 and proof, Remark 8.2.10, pp. 231–232.)
+([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.3, Proposition 8.2.9 and proof, Remark 8.2.10, pp. 230–231.)
 
 Near x the class extends over the henselisation of the local ring at the point; Brauer classes of henselian local rings are determined by the residue field (SchemeAndStackFoundations Layer 2/brauer-henselian-local), and nearby points factor through a common henselian neighbourhood (Poonen Proposition 8.2.9 and its proof).
 
@@ -2102,18 +1995,18 @@ For O-points of a model: the class extends over Spec O, and Br O = 0 for complet
 
 - For the Brauer class (t,−1) on 𝔾_m,ℝ, the evaluation is constant on each sign component of ℝ× and the two values differ. The class is ramified at 0 and ∞, so it is not a class on ℙ¹_ℝ.
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts below; SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing; §2.14 (Adelic points of separated schemes of finite type).
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts above; SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing; §2.11 (Adelic points of separated schemes of finite type).
 
 
-### 2.16 The Brauer–Manin pairing and set for varieties
+### 2.13 The Brauer–Manin pairing and set for varieties
 
-For a variety X over a number field K, the Brauer–Manin pairing X(𝔸_K) × Br X → ℚ/ℤ, ((x_v), α) ↦ Σ_v inv_v α(x_v), is well defined (α(x_v) = 0 for almost all v), additive in α, continuous and locally constant in (x_v) for each fixed α. For a subgroup B ⊆ Br X, X(𝔸_K)^B is the set of adelic points orthogonal to B, and X(𝔸_K)^{Br} = X(𝔸_K)^{Br X}. Rational points are orthogonal to Br X: X(K) ⊆ X(𝔸_K)^{Br}. There is a Brauer–Manin obstruction to the local-global principle when X(𝔸_K) ≠ ∅ but X(𝔸_K)^{Br} = ∅. On affine X with Azumaya classes this is §2.12 (The Brauer–Manin pairing and the Brauer–Manin set).
+For a variety X over a number field K, the Brauer–Manin pairing X(𝔸_K) × Br X → ℚ/ℤ, ((x_v), α) ↦ Σ_v inv_v α(x_v), is well defined (α(x_v) = 0 for almost all v), additive in α, continuous and locally constant in (x_v) for each fixed α. For a subgroup B ⊆ Br X, X(𝔸_K)^B is the set of adelic points orthogonal to B, and X(𝔸_K)^{Br} = X(𝔸_K)^{Br X}. Rational points are orthogonal to Br X: X(K) ⊆ X(𝔸_K)^{Br}. There is a Brauer–Manin obstruction to the local-global principle when X(𝔸_K) ≠ ∅ but X(𝔸_K)^{Br} = ∅. On affine X with Azumaya classes this is §2.9 (The Brauer–Manin pairing and the Brauer–Manin set).
 
 K a number field; X separated of finite type over K; Br X is the Azumaya Brauer group of SchemeAndStackFoundations §2.22. inv_v is the local invariant of ClassFieldTheory Layer 5 (inv_∞ ∈ ½ℤ/ℤ at real places, 0 at complex places).
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.1–8.2.2, Proposition 8.2.1, Proposition 8.2.2, Corollary 8.2.6, pp. 229–231.)
 
-Finite support: spread X and α out to O_{K,S}; for v ∉ S, x_v ∈ 𝒳(O_v) and α(x_v) ∈ Br O_v = 0 (Poonen Proposition 8.2.1; §2.11 (Brauer evaluation is trivial at almost all places) for the affine case).
+Finite support: spread X and α out to O_{K,S}; for v ∉ S, x_v ∈ 𝒳(O_v) and α(x_v) ∈ Br O_v = 0 (Poonen Proposition 8.2.1; §2.8 (Brauer evaluation is trivial at almost all places) for the affine case).
 
 Orthogonality of rational points: α(x) ∈ Br K and Σ_v inv_v = 0 (ClassFieldTheory Layer 10; Poonen Proposition 8.2.2, Corollary 8.2.6).
 
@@ -2125,20 +2018,20 @@ Its interface consists of the following operations and laws.
 - `TauCeti.brauerManinPairing_constant`: Constant classes pair to 0 with every adelic point.
 - `TauCeti.brauerManinSet_antitone`: B ⊆ B' ⇒ X(𝔸)^{B'} ⊆ X(𝔸)^B.
 - `TauCeti.brauerManinPairing_continuous`: For each fixed α∈Br X, the scalar-valued function x↦⟨x,α⟩ is locally constant and continuous. No assertion is made that the map into the entire discrete Hom(Br X,ℚ/ℤ) is locally constant when Br X is infinite.
-- `TauCeti.brauerManinSet_affine`: On affine X it is the set of §2.12 (The Brauer–Manin pairing and the Brauer–Manin set).
+- `TauCeti.brauerManinSet_affine`: On affine X it is the set of §2.9 (The Brauer–Manin pairing and the Brauer–Manin set).
 
 **Checks.**
 
 - `brauerManinSet.test_conic`: For a smooth conic X over ℚ, X(𝔸)^{Br} = X(𝔸) (Br X = Br_0 X since X_ℚ̄ ≅ ℙ¹).
 - `brauerManinSet.test_empty_B`: X(𝔸)^{0} = X(𝔸).
-- `brauerManinSet.test_affine`: On affine X with Azumaya classes it agrees with §2.12 (The Brauer–Manin pairing and the Brauer–Manin set).
+- `brauerManinSet.test_affine`: On affine X with Azumaya classes it agrees with §2.9 (The Brauer–Manin pairing and the Brauer–Manin set).
 - `brauerManinSet.test_nonempty_no_point`: X(𝔸)^{Br} ≠ ∅ does not imply X(K) ≠ ∅ (Skorobogatov's bielliptic surface, §3.21 (Insufficiency of the Brauer–Manin and descent obstructions)).
 - For constant α = π*β, β ∈ Br K, the pairing is Σ_v inv_v β = 0 for every adelic point.
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.14 (Adelic points of separated schemes of finite type); §2.12 (The Brauer–Manin pairing and the Brauer–Manin set); §2.11 (Brauer evaluation is trivial at almost all places); §2.13 (Rational points lie in the Brauer–Manin set); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.11 (Adelic points of separated schemes of finite type); §2.9 (The Brauer–Manin pairing and the Brauer–Manin set); §2.8 (Brauer evaluation is trivial at almost all places); §2.10 (Rational points lie in the Brauer–Manin set); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
 
 
-### 2.17 Topology of Brauer–Manin sets
+### 2.14 Topology of Brauer–Manin sets
 
 Prove `TauCeti.isClosed_brauerManinSet`. For X a variety over a number field K and B ⊆ Br X: X(𝔸)^B is closed in X(𝔸); for B finite (or finitely generated) it is open and closed; the closure of X(K) in X(𝔸) lies in X(𝔸)^{Br}. Hence for X proper, if X(𝔸)^{Br} ≠ X(𝔸) then X does not satisfy weak approximation.
 
@@ -2146,20 +2039,20 @@ K a number field.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.2.3, Corollary 8.2.11, p. 232.)
 
-Each α ↦ pairing is locally constant (§2.15 (Local constancy of Brauer evaluation) plus finite support), so X(𝔸)^{α} is open and closed; intersect over α ∈ B.
+Each α ↦ pairing is locally constant (§2.12 (Local constancy of Brauer evaluation) plus finite support), so X(𝔸)^{α} is open and closed; intersect over α ∈ B.
 
 X(K) ⊆ X(𝔸)^{Br} and closedness give the closure statement (Poonen Corollary 8.2.11).
 
-For a fixed α and an adelic point, spread α and choose an §2.5 (Integral models and their integral local points) neighborhood on which all evaluations outside one finite S vanish uniformly. Pointwise finite support alone does not prove local constancy of the sum.
+For a fixed α and an adelic point, spread α and choose an §2.2 (Integral models and their integral local points) neighborhood on which all evaluations outside one finite S vanish uniformly. Pointwise finite support alone does not prove local constancy of the sum.
 
 **Checks.**
 
 - The Iskovskikh surface has X(𝔸) ≠ ∅ = X(𝔸)^{Br}, so X(ℚ) = ∅.
 
-*Needs:* §2.16 (The Brauer–Manin pairing and set for varieties); §2.15 (Local constancy of Brauer evaluation).
+*Needs:* §2.13 (The Brauer–Manin pairing and set for varieties); §2.12 (Local constancy of Brauer evaluation).
 
 
-### 2.18 Functoriality of Brauer–Manin sets
+### 2.15 Functoriality of Brauer–Manin sets
 
 Prove `TauCeti.brauerManinSet_map`. For a morphism π : X' → X of K-varieties and B ⊆ Br X, π(X'(𝔸)^{π*B}) ⊆ X(𝔸)^B; in particular π(X'(𝔸)^{Br}) ⊆ X(𝔸)^{Br}, so X ↦ X(𝔸)^{Br} is functorial, and if X(𝔸)^{Br} = ∅ then X'(𝔸)^{Br} = ∅ for every X' mapping to X.
 
@@ -2173,16 +2066,16 @@ Naturality of evaluation: (π*α)(x') = α(π x') (SchemeAndStackFoundations §2
 
 - Any variety mapping to the Iskovskikh surface has empty Brauer–Manin set.
 
-*Needs:* §2.16 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field.
+*Needs:* §2.13 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field.
 
 
-### 2.19 Constant and algebraic Brauer groups
+### 2.16 Constant and algebraic Brauer groups
 
 For a variety X over a field k with separable closure k^s: Br₀(X) = image of Br k → Br X (the image, which need not be injective); Br₁(X) = ker(Br X → Br X_{k^s}); Br₀ ⊆ Br₁. If X is smooth geometrically integral with k^s[X]^× = k^{s×}, the Hochschild–Serre spectral sequence gives an exact sequence Br k → Br₁ X → H¹(k, Pic X_{k^s}) → H³(k, 𝔾_m), so Br₁ X/Br₀ X ≅ H¹(k, Pic X_{k^s}) over number fields (H³(k, 𝔾_m) = 0). The Brauer–Manin pairing restricted to Br₀ is zero, so it factors through Br X/Br₀ X.
 
-X a k-variety; Br is the Azumaya Brauer group of SchemeAndStackFoundations §2.22 (equal to the cohomological one for smooth quasi-projective X). The Hochschild–Serre statement is naturally for the cohomological Brauer group. To identify it with the Azumaya group used here, assume the Gabber comparison hypotheses (in particular regular quasi-projective X over a field), or carry the comparison map explicitly.
+X a k-variety; Br is the Azumaya Brauer group of SchemeAndStackFoundations §2.22. For smooth quasi-projective X, its equality with the cohomological group uses the additional Gabber comparison contract above. The Hochschild–Serre statement is naturally for the cohomological Brauer group. To identify it with the Azumaya group used here, assume the Gabber comparison hypotheses (in particular regular quasi-projective X over a field), or carry the comparison map explicitly.
 
-([Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), §1.1, p. 6; [The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf), §2 p. 8; §3, display (3.1), pp. 8–9; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §6.7 (Hochschild–Serre spectral sequence), pp. 192–195.)
+([Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), Notations, p. 6; [The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf), §2 p. 8; §3, display (3.1), pp. 8–9; [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §6.7.2, Theorem 6.7.5 and Corollary 6.7.8, pp. 195–196.)
 
 Definitions are images and kernels of pullback maps (Layer 2/pullback).
 
@@ -2205,16 +2098,16 @@ Its interface consists of the following operations and laws.
 - `brauerOne.test_transcendental`: Br₁ ≠ Br in general: transcendental classes (nonzero image in Br X_{k^s}) exist on some K3 surfaces, so testing Br₁ alone can miss an obstruction.
 - If X(k) ≠ ∅, Br k → Br X is injective (split by a point).
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field; SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts below; §2.16 (The Brauer–Manin pairing and set for varieties); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field; SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts above; §2.13 (The Brauer–Manin pairing and set for varieties); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
 
 
-### 2.20 The unramified Brauer group
+### 2.17 The unramified Brauer group
 
 For a smooth geometrically integral variety V over a field k of characteristic 0, Br_nr(V) is the image of Br(V^c) → Br(V) for a smooth proper compactification V ⊆ V^c; it does not depend on V^c and equals the subgroup of Br V of classes unramified at every discrete valuation of k(V) trivial on k. Br_{1,nr}(V) = Br_nr(V) ∩ Br₁(V). For V proper, Br_nr(V) = Br V.
 
 char k = 0 (resolution of singularities provides V^c; purity for the Brauer group gives the valuation description). The smooth-compactification proof is asserted here in characteristic zero. In positive characteristic, the all-valuations definition and appropriate purity statements require a separate proof and do not follow from resolution for curves.
 
-([The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf), §2, pp. 6–7; [Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), §1.1, p. 6; [Purity for the Brauer group](https://arxiv.org/abs/1711.06456v4), Theorem 1.2 (arXiv:1711.06456).)
+([The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf), §2, pp. 6–7; [Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), Notations, p. 6; [Purity for the Brauer group](https://arxiv.org/abs/1711.06456v4), Theorem 1.2 (arXiv:1711.06456).)
 
 Independence of V^c: two compactifications are dominated by a third and Br of smooth proper varieties is a birational invariant (purity; Česnavičius).
 
@@ -2238,10 +2131,10 @@ Its interface consists of the following operations and laws.
 - `unramifiedBrauer.test_not_algebraic`: Br_nr(V) need not equal Br_{1,nr}(V).
 - For V = 𝔾_m over ℚ, the class (t, −1) is ramified at t = 0 and t = ∞, so it is not in Br_nr(𝔾_m) = Br ℚ.
 
-*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts below; §2.19 (Constant and algebraic Brauer groups).
+*Needs:* SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field; SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts above; §2.16 (Constant and algebraic Brauer groups).
 
 
-### 2.21 The unramified pairing on the full product of local points
+### 2.18 The unramified pairing on the full product of local points
 
 Prove `TauCeti.unramifiedPairing_finiteSupport`. For a smooth geometrically integral variety V over a number field K, the pairing Π_v V(K_v) × Br_nr(V) → ℚ/ℤ, ((x_v), α) ↦ Σ_v inv_v α(x_v), has finite support even on the full product (not only on V(𝔸_K)); it is additive in α, locally constant, and the diagonal image of V(K) is orthogonal to Br_nr(V).
 
@@ -2255,10 +2148,10 @@ Extend α to a smooth proper compactification V^c and spread out over O_{K,S}; f
 
 - Constant classes pair to 0 with every element of the product.
 
-*Needs:* §2.20 (The unramified Brauer group); §2.16 (The Brauer–Manin pairing and set for varieties); §2.14 (Adelic points of separated schemes of finite type).
+*Needs:* §2.17 (The unramified Brauer group); §2.13 (The Brauer–Manin pairing and set for varieties); §2.11 (Adelic points of separated schemes of finite type).
 
 
-### 2.22 Almost-everywhere locally trivial algebraic Brauer classes
+### 2.19 Almost-everywhere locally trivial algebraic Brauer classes
 
 For a smooth geometrically integral variety V over a number field K, B_ω(V) ⊆ Br₁(V)/Br₀(V) is the subgroup of classes whose image in Br₁(V_{K_v})/Br₀(V_{K_v}) vanishes for all but finitely many places v. Under the Hochschild–Serre identification Br₁/Br₀ ≅ H¹(K, Pic V_{K̄}) these are the classes locally trivial at almost all places. At every place outside its finite exceptional set a class of B_ω evaluates constantly on V(K_v), so its pairing with V(𝔸_K) depends only on finitely many local components; classes trivial at every place (Ш¹(K, Pic V_{K̄})) pair constantly.
 
@@ -2283,16 +2176,16 @@ Its interface consists of the following operations and laws.
 - `brauerOmega.test_weaker`: Almost-everywhere local triviality is weaker than local triviality at every place: B_ω can be strictly larger than Ш¹(K, Pic V̄).
 - Constant classes (zero in Br₁/Br₀) lie in B_ω.
 
-*Needs:* §2.19 (Constant and algebraic Brauer groups); §2.16 (The Brauer–Manin pairing and set for varieties).
+*Needs:* §2.16 (Constant and algebraic Brauer groups); §2.13 (The Brauer–Manin pairing and set for varieties).
 
 
-### 2.23 The Brauer–Manin pairing on zero-cycles
+### 2.20 The Brauer–Manin pairing on zero-cycles
 
 For a smooth proper variety X over a number field K and a closed point P of X_{K_v}, put α(P) = cor_{K_v(P)/K_v}(α restricted to P) ∈ Br K_v. Extending linearly gives ⟨,⟩ : Z₀(X_{𝔸}) × Br X → ℚ/ℤ, (Σ_v z_v, α) ↦ Σ_v inv_v α(z_v), on families of local zero-cycles (z_v)_v; it vanishes on principal divisors, on norms from ℂ at archimedean places, and on the diagonal image of global zero-cycles. For a rational point it is the ordinary pairing.
 
 X smooth proper over a number field; zero-cycles of any degree.
 
-([Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), §1.2, pp. 6–7.)
+([Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), §1, complex (1.1), pp.2–3, and Notations et terminologie, p.6.)
 
 Corestriction is compatible with local invariants (inv_v ∘ cor = inv_w; ClassFieldTheory Layer 5).
 
@@ -2315,12 +2208,12 @@ Its interface consists of the following operations and laws.
 - `ZeroCycle.brauerPairing.test_complex_norm`: A real place and the cycle of a complex point (a norm from ℂ) pair to 0.
 - `ZeroCycle.brauerPairing.test_zero`: The zero cycle pairs to 0.
 - `ZeroCycle.brauerPairing.test_not_degree_one`: A degree-two global point pairs to 0 although it is not a rational point; orthogonality does not produce rational points.
-- A rational point gives the pairing of §2.16 (The Brauer–Manin pairing and set for varieties).
+- A rational point gives the pairing of §2.13 (The Brauer–Manin pairing and set for varieties).
 
-*Needs:* §2.16 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §2.13 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
-### 2.24 Harari's formal lemma
+### 2.21 Harari's formal lemma
 
 Prove `TauCeti.formal_lemma`. Let X be a smooth proper rationally connected variety over a number field K, V ⊆ X a dense open subset and A ⊆ Br(V) a subgroup with A/(A ∩ Br X) finite. Then V(𝔸_K)^A is dense in X(𝔸_K)^{A ∩ Br X}.
 
@@ -2328,16 +2221,16 @@ The finiteness of the quotient A/(A ∩ Br X) (not of Br V) is the hypothesis us
 
 ([Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf), proof of Corollary 2.2, p. 8, citing Colliot-Thélène–Skorobogatov 2000 Proposition 1.1.)
 
-Colliot-Thélène–Skorobogatov 2000 Proposition 1.1 (as used by Harpaz–Wittenberg 2020, proof of Corollary 2.2): ramified classes can be compensated at auxiliary places by choosing local points near the boundary divisors.
+**Unresolved prerequisite.** Colliot-Thélène–Skorobogatov 2000 Proposition 1.1 (as used by Harpaz–Wittenberg 2020, proof of Corollary 2.2): ramified classes can be compensated at auxiliary places by choosing local points near the boundary divisors.
 
 **Checks.**
 
 - For A ⊆ Br X the statement is the density of V(𝔸)^A in X(𝔸)^A (V(K_v) is dense in X(K_v)).
 
-*Needs:* §2.17 (Topology of Brauer–Manin sets); §2.20 (The unramified Brauer group); §2.15 (Local constancy of Brauer evaluation).
+*Needs:* §2.14 (Topology of Brauer–Manin sets); §2.17 (The unramified Brauer group); §2.12 (Local constancy of Brauer evaluation); the auxiliary-place residue and compensation contract above, which is not yet decomposed into owned proof targets.
 
 
-### 2.25 Cyclic algebras and the local invariant matrix
+### 2.22 Cyclic algebras and the local invariant matrix
 
 Let L/K be a cyclic extension of number fields of degree r with a character χ : Gal(K̄/K) → ℤ/r cutting out L. For a ∈ K_v^× the cyclic algebra (χ, a) has class in Br(K_v)[r], zero iff a is a norm from L ⊗ K_v. For polynomials P₁, …, P_n ∈ K[t] and local inputs t_v, the local invariant matrix is b_{v,i} = inv_v(χ, P_i(t_v)) ∈ (1/r)ℤ/ℤ. The value is written in the additive wrapper of the native field Brauer group; its class at parameter 1 is zero.
 
@@ -2367,7 +2260,7 @@ Its interface consists of the following operations and laws.
 *Needs:* [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality); Tau Ceti `TauCeti.BrauerGroup.mk`.
 
 
-### 2.26 The cyclic norm principle with one omitted place
+### 2.23 The cyclic norm principle with one omitted place
 
 Prove `TauCeti.isNorm_of_local_norm_off_one_place`. Let L/K be cyclic and a ∈ K^×. If a is a local norm from L at every place except possibly one, then a is a norm from L^×.
 
@@ -2381,10 +2274,10 @@ All local invariants of (χ, a) but one vanish; the sum of invariants is 0 (Clas
 
 - For L = ℚ(i): if a is a sum of two squares in ℚ_p for every p ≠ 3 and in ℝ, it is a sum of two rational squares.
 
-*Needs:* §2.25 (Cyclic algebras and the local invariant matrix); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-13-norm-theorems-and-class-fields).
+*Needs:* §2.22 (Cyclic algebras and the local invariant matrix); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-13-norm-theorems-and-class-fields).
 
 
-### 2.27 Assembling a global norm from a local invariant matrix
+### 2.24 Assembling a global norm from a local invariant matrix
 
 Prove `TauCeti.isNorm_prod_of_invariantMatrix`. Let L/K be cyclic and q₁,…,qₙ∈K×. Choose a finite set S of places and pairwise distinct exceptional places e_i outside S such that the invariant of (χ,q_i) vanishes outside S∪{e_i}. Put b_{v,i}=inv_v(χ,q_i) for v∈S. Require both the column conditions Σ_{v∈S}b_{v,i}=0 for every i and the row conditions Σ_i b_{v,i}=0 for every v∈S. Reciprocity kills the invariant at e_i separately for each factor; this does not kill its individual invariants at S. Distinctness makes the product invariant at each e_i equal to that now-zero single-factor invariant, while the row conditions kill the product at S. Thus the product is everywhere locally, and hence globally, a norm. Neither condition can be dropped.
 
@@ -2398,13 +2291,13 @@ At e_i every other factor has zero invariant by distinctness. At S additivity gi
 
 **Checks.**
 
-- With n = 1 this is §2.26 (The cyclic norm principle with one omitted place) for a = q₁.
+- With n = 1 this is §2.23 (The cyclic norm principle with one omitted place) for a = q₁.
 - For K=ℚ, L=ℚ(i), q₁=3, q₂=7 and S={2,∞}, the exceptional places are 3 and 7. At 2 both entries are 1/2 and at ∞ both are zero, so all row sums vanish, but the product 21 is not a local norm at 3 or 7. Columns are necessary. Conversely q₁=−1, S={2,∞}, e₁=3 has column sum 1/2+1/2=0 and no invariant at 3, but its row sums are nonzero and −1 is not a real norm. Columns cannot replace rows.
 
-*Needs:* §2.26 (The cyclic norm principle with one omitted place); §2.25 (Cyclic algebras and the local invariant matrix); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
+*Needs:* §2.23 (The cyclic norm principle with one omitted place); §2.22 (Cyclic algebras and the local invariant matrix); [TauCetiRoadmap.ClassFieldTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants).
 
 
-### 2.28 Brauer groups of high-dimensional complete intersections
+### 2.25 Brauer groups of high-dimensional complete intersections
 
 Prove `TauCeti.brauer_completeIntersection`. Let k be a field of characteristic 0 and X ⊆ ℙⁿ_k a smooth complete intersection with dim X ≥ 3. Then Br k → Br X is an isomorphism. Consequently, over a number field, X(𝔸_K)^{Br} = X(𝔸_K) (and X(𝔸)^{descent} = X(𝔸)): the Brauer–Manin and descent obstructions are vacuous. This does not prove that X has a rational point.
 
@@ -2414,16 +2307,16 @@ char k = 0; dim X ≥ 3; X a smooth complete intersection. For the §3.5 (Descen
 
 Use Lefschetz to identify Pic X_{k̄}=ℤ·O(1) and H²(X_{k̄},μ_n) with the corresponding projective-space group for every n. The Kummer sequence then gives Br X_{k̄}[n]=0; torsion gives Br X_{k̄}=0. The hyperplane bundle descends, H¹(k,ℤ)=0, and Hochschild–Serre gives Br X=Br₀ X. H³(k,𝔾_m)=0 is the number-field spectral-sequence input, not a substitute for the geometric H²/Kummer calculation.
 
-Vacuity: constant classes pair trivially (§2.16 (The Brauer–Manin pairing and set for varieties)); descent: X_{k̄} is algebraically simply connected and Theorem 8.5.4 (§3.8 (Étale–Brauer equals descent)).
+Vacuity: constant classes pair trivially (§2.13 (The Brauer–Manin pairing and set for varieties)); descent: X_{k̄} is algebraically simply connected and Theorem 8.5.4 (§3.8 (Étale–Brauer equals descent)).
 
 **Checks.**
 
 - Smooth cubic threefolds and quartic threefolds in ℙ⁴ have no Brauer–Manin obstruction.
 
-*Needs:* §2.19 (Constant and algebraic Brauer groups); §2.16 (The Brauer–Manin pairing and set for varieties).
+*Needs:* §2.16 (Constant and algebraic Brauer groups); §2.13 (The Brauer–Manin pairing and set for varieties).
 
 
-### 2.29 Conics: Brauer–Manin set and the Hasse principle
+### 2.26 Conics: Brauer–Manin set and the Hasse principle
 
 Prove `TauCeti.conic_hassePrinciple`. Let C ⊆ ℙ²_K be a smooth conic over a number field K. Then Br C = Br₀ C, so C(𝔸_K)^{Br} = C(𝔸_K); C satisfies the Hasse principle (C(𝔸_K) ≠ ∅ ⇒ C(K) ≠ ∅) and weak approximation once C(K) ≠ ∅. For C : x² + y² = 3z² over ℚ, C(ℚ₃) = ∅, so C(𝔸_ℚ) = ∅.
 
@@ -2439,10 +2332,10 @@ Hasse principle: Hasse–Minkowski for ternary forms (TauCetiRoadmap GlobalQuadr
 
 - x² + y² = 3z² has no ℚ₃-point (sums of two squares are not 3 times a unit square modulo 9 with the valuation count).
 
-*Needs:* §2.19 (Constant and algebraic Brauer groups); §2.16 (The Brauer–Manin pairing and set for varieties); [TauCetiRoadmap.GlobalQuadraticForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalQuadraticForms/README.md#layer-5-hasseminkowski-isotropy).
+*Needs:* §2.16 (Constant and algebraic Brauer groups); §2.13 (The Brauer–Manin pairing and set for varieties); [TauCetiRoadmap.GlobalQuadraticForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalQuadraticForms/README.md#layer-5-hasseminkowski-isotropy).
 
 
-### 2.30 Iskovskikh's conic bundle surface
+### 2.27 Iskovskikh's conic bundle surface
 
 Prove `TauCeti.iskovskikh_brauerManin`. Let X be the smooth proper model of the affine surface y² + z² = (3 − x²)(x² − 2) over ℚ (a Châtelet surface). Then X(𝔸_ℚ) ≠ ∅ but X(𝔸_ℚ)^{𝒜} = ∅ for the quaternion class 𝒜 = (3 − x², −1) ∈ Br X; hence X(ℚ) = ∅ and the failure of the Hasse principle is explained by the Brauer–Manin obstruction.
 
@@ -2458,10 +2351,10 @@ Local invariants: inv_p 𝒜(P) = 0 for p ∉ {2, ∞} (units, Br ℤ_p = 0); in
 
 - The pairing of 𝒜 with every adelic point is 1/2.
 
-*Needs:* §2.16 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.15 (Local constancy of Brauer evaluation); SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing.
+*Needs:* §2.13 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §2.22, SchemeBrauerGroup.pullback and brauer_field; §2.12 (Local constancy of Brauer evaluation); SchemeAndStackFoundations §2.22, brauer_henselian_local and mk_eq_zero_iff; Tau Ceti finite-field Brauer vanishing.
 
 
-### 2.31 Finite local partitions for a finite Brauer test; effective computation requires extra input
+### 2.28 Finite local partitions for a finite Brauer test; effective computation requires extra input
 
 Prove `TauCeti.brauerManinSet_finite_description`. For a proper variety X over a number field and a finite list of Brauer classes, there is a finite set T of places and, at each v∈T, a finite partition of the compact space X(K_v) by clopen evaluation fibres. The orthogonality condition is therefore a finite constraint on these fibres. This is an existence theorem: local constancy and compactness alone do not compute T, the nonempty fibres, or a terminating local solver. An effective algorithm additionally needs certified spreading data, local solution enumeration and explicit evaluation formulae. The Iskovskikh example supplies those extra data in that particular case.
 
@@ -2477,7 +2370,7 @@ For each v∈T use local constancy and compactness to obtain finitely many evalu
 
 - For the Iskovskikh surface, T = {2, ∞} and the computation is Proposition 8.2.15.
 
-*Needs:* §2.15 (Local constancy of Brauer evaluation); §2.11 (Brauer evaluation is trivial at almost all places); §2.17 (Topology of Brauer–Manin sets); §2.30 (Iskovskikh's conic bundle surface).
+*Needs:* §2.12 (Local constancy of Brauer evaluation); §2.8 (Brauer evaluation is trivial at almost all places); §2.14 (Topology of Brauer–Manin sets); §2.27 (Iskovskikh's conic bundle surface).
 
 
 ### Examples
@@ -2486,7 +2379,7 @@ For ℝ[T]/(T²−1), the real point space consists of evaluations at ±1, a dis
 
 For affine one-space the adelic points are the native adele ring and the rational diagonal is closed and discrete. For ℙ¹ the proper adelic space is the full local product: choose [0:1] at one place and [1:0] at another. This adelic point need not lie in the adelic points of any one chart from a fixed two-chart affine cover. An affine-chart cover of the scheme does not create a cover of its adelic points.
 
-The conic x²+y²=3z² has no ℚ₃-point: a primitive integral solution would force all coordinates divisible by 3. Its adelic space is empty, so it does not furnish an obstruction with a nonempty adelic space. On the smooth proper Châtelet model of `y²+z²=(3−x²)(x²−2)`, local points exist everywhere. The class `(3−x²,−1)` has invariant 1/2 at 2 and zero at every other place on every local point, so the global sum is 1/2 and the Brauer–Manin set is empty (Poonen, Proposition 8.2.14, pp.230–232).
+The conic x²+y²=3z² has no ℚ₃-point: a primitive integral solution would force all coordinates divisible by 3. Its adelic space is empty, so it does not furnish an obstruction with a nonempty adelic space. On the smooth proper Châtelet model of `y²+z²=(3−x²)(x²−2)`, local points exist everywhere. The class `(3−x²,−1)` has invariant 1/2 at 2 and zero at every other place on every local point, so the global sum is 1/2 and the Brauer–Manin set is empty (Poonen, Propositions 8.2.14–8.2.15, pp.233–235).
 
 
 
@@ -2526,11 +2419,11 @@ Its interface consists of the following operations and laws.
 
 - `Torsor.twist.test_trivial`: Twisting by the trivial class returns Z → X.
 - `Torsor.twist.test_inverse`: For commutative G, twisting by τ then by −τ returns Z.
-- `Torsor.eval.test_kummer`: For [n] : A → A, eval is the Kummer map of §1.1 (Kummer maps of isogenies of abelian varieties).
+- `Torsor.eval.test_kummer`: For [n] : A → A with n positive and prime to the field characteristic, eval is the Kummer map of §1.1 (Kummer maps of isogenies of abelian varieties); the smooth-kernel hypothesis of this torsor interface then holds.
 - `Torsor.eval.test_point_not_lift`: ζ(x) ≠ 0 means x has no preimage in Z(k) although Z_x may have points over an extension.
-- For the torsor [2] : A → A under A[2], evaluation at a ∈ A(k) is the Kummer class δ(a) (§1.1 (Kummer maps of isogenies of abelian varieties)).
+- For the torsor [2] : A → A under A[2] in characteristic different from two, evaluation at a ∈ A(k) is the Kummer class δ(a) (§1.1 (Kummer maps of isogenies of abelian varieties)). In characteristic two the non-smooth kernel needs the fppf interface of §1.1, beyond the smooth-group twisting interface here.
 
-*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below.
+*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above.
 
 
 ### 3.2 The descent partition of rational points
@@ -2554,7 +2447,7 @@ x ∈ f^τ(Z^τ(k)) iff the fibre of Z^τ at x is trivial iff Z_x ≅ T as G-tor
 
 For a global field k and a G-torsor f : Z → X, Sel_Z(k, G) = {τ ∈ H¹(k, G) : τ_v ∈ image of X(k_v) → H¹(k_v, G) for all places v} = {τ : Z^τ(k_v) ≠ ∅ for all v}. Then X(k) = ⨆_{τ ∈ Sel_Z(k,G)} f^τ(Z^τ(k)). If X is proper, Sel_Z(k, G) is finite, and there is a finite separable extension k'/k with X(k) ⊆ f(Z(k')).
 
-k a global field; finiteness needs X proper. For the trivial-torsor identification with Ш¹(k,G), assume X(𝔸_k)≠∅. For global function fields use the global-field adelic and finite-cohomology contracts, not merely the number-field constructions of Layer 2.
+k a global field; G smooth affine; finiteness needs X proper. For the trivial-torsor identification with Ш¹(k,G), assume X(𝔸_k)≠∅. For global function fields use the global-field adelic and finite-cohomology contracts, not merely the number-field constructions of Layer 2.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.4.4, Definition 8.4.4, Remark 8.4.5, Theorem 8.4.6, Corollary 8.4.8, pp. 241–242.)
 
@@ -2597,7 +2490,7 @@ In characteristic 0, H¹(k, F) is finite (Poonen Theorem 5.12.24(a)).
 
 - For X = ℙ¹ over ℚ_p and any F-torsor, the image is finite.
 
-*Needs:* §3.1 (Evaluation of torsors and twisted torsors); §2.14 (Adelic points of separated schemes of finite type).
+*Needs:* §3.1 (Evaluation of torsors and twisted torsors); §2.11 (Adelic points of separated schemes of finite type).
 
 
 ### 3.5 Descent obstruction sets
@@ -2629,7 +2522,7 @@ Its interface consists of the following operations and laws.
 - `descentSet.test_nonempty_no_point`: X(𝔸)^{descent} ≠ ∅ does not imply X(k) ≠ ∅ (Poonen's threefold, §3.21 (Insufficiency of the Brauer–Manin and descent obstructions)).
 - For the trivial torsor Z = X × G, X(𝔸)^f = X(𝔸).
 
-*Needs:* §3.1 (Evaluation of torsors and twisted torsors); §3.3 (The Selmer set of a torsor); §2.14 (Adelic points of separated schemes of finite type).
+*Needs:* §3.1 (Evaluation of torsors and twisted torsors); §3.3 (The Selmer set of a torsor); §2.11 (Adelic points of separated schemes of finite type).
 
 
 ### 3.6 Descent is at least as strong as Brauer–Manin
@@ -2648,7 +2541,7 @@ Every class of Br X is represented by an Azumaya algebra for X regular quasi-pro
 
 - For the Iskovskikh surface the PGL₂-torsor of the quaternion algebra already obstructs.
 
-*Needs:* §3.5 (Descent obstruction sets); §2.16 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts below; SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field.
+*Needs:* §3.5 (Descent obstruction sets); §2.13 (The Brauer–Manin pairing and set for varieties); SchemeAndStackFoundations §§2.3, 2.11, 2.15 and 2.22, with the Brauer comparison/purity contracts above; SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field.
 
 
 ### 3.7 The étale–Brauer set
@@ -2659,7 +2552,7 @@ k a number field; X a variety.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.5.2, definitions of X(𝔸)^{ét,Br} and X(𝔸)^{ét,descent}, pp. 246–247.)
 
-Rational points: each x ∈ X(k) lifts to some Z^τ(k) (§3.2 (The descent partition of rational points)), which lies in Z^τ(𝔸)^{Br} (§2.16 (The Brauer–Manin pairing and set for varieties)).
+Rational points: each x ∈ X(k) lifts to some Z^τ(k) (§3.2 (The descent partition of rational points)), which lies in Z^τ(𝔸)^{Br} (§2.13 (The Brauer–Manin pairing and set for varieties)).
 
 Inclusions from §3.6 (Descent is at least as strong as Brauer–Manin) applied to the covers Z^τ and from the trivial torsor.
 
@@ -2735,7 +2628,7 @@ Its interface consists of the following operations and laws.
 - `UniversalTorsor.test_type_matters`: A 𝔾_m-torsor over ℙ¹ of type 2 (from O(2)) is not universal.
 - For X = ℙⁿ, Pic X_{k̄} = ℤ, T = 𝔾_m and the universal torsor is 𝔸^{n+1} ∖ {0} → ℙⁿ.
 
-*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; §3.1 (Evaluation of torsors and twisted torsors); SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts.
+*Needs:* SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; §3.1 (Evaluation of torsors and twisted torsors); SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts.
 
 
 ### 3.10 Descent under tori and the algebraic Brauer group
@@ -2754,7 +2647,7 @@ Harpaz–Wittenberg 2020 Proposition 2.5 states the case used there.
 
 - For X = ℙⁿ both sides are X(𝔸).
 
-*Needs:* §3.9 (Universal torsors and torsors of a given type); §3.5 (Descent obstruction sets); §2.19 (Constant and algebraic Brauer groups); §2.16 (The Brauer–Manin pairing and set for varieties); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
+*Needs:* §3.9 (Universal torsors and torsors of a given type); §3.5 (Descent obstruction sets); §2.16 (Constant and algebraic Brauer groups); §2.13 (The Brauer–Manin pairing and set for varieties); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
 
 
 ### 3.11 The relative algebraic Brauer group of a torus torsor
@@ -2787,7 +2680,7 @@ Its interface consists of the following operations and laws.
 - `relativeBrauerOne.test_last_term`: The target of δ_σ is H³(X, 𝔾_m), which can be nonzero for number fields although H³(k, 𝔾_m) = 0.
 - For Y = X × T (trivial torsor), Br₁(Y/X) ⊇ pr₁*Br X + pr₂*Br₁ T.
 
-*Needs:* §2.19 (Constant and algebraic Brauer groups); §2.20 (The unramified Brauer group); §3.1 (Evaluation of torsors and twisted torsors); SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field.
+*Needs:* §2.16 (Constant and algebraic Brauer groups); §2.17 (The unramified Brauer group); §3.1 (Evaluation of torsors and twisted torsors); SchemeAndStackFoundations §2.22, SchemeBrauerGroup and brauer_field.
 
 
 ### 3.12 Twist independence of the relative Brauer edge maps
@@ -2859,7 +2752,7 @@ With ε_σ = 0, extend the evaluation functional through the edge image to H²(k
 
 - For T = 1 the statement is X(𝔸)^{Br_nr} ⊆ X(𝔸)^{Br_nr}.
 
-*Needs:* §3.10 (Descent under tori and the algebraic Brauer group); §3.13 (The residual Tate–Shafarevich functional); §3.12 (Twist independence of the relative Brauer edge maps); §2.21 (The unramified pairing on the full product of local points); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
+*Needs:* §3.10 (Descent under tori and the algebraic Brauer group); §3.13 (The residual Tate–Shafarevich functional); §3.12 (Twist independence of the relative Brauer edge maps); §2.18 (The unramified pairing on the full product of local points); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
 
 
 ### 3.15 Descent from a torus torsor over a dense open subset
@@ -2872,13 +2765,13 @@ X smooth proper rationally connected; V dense open; W → V a torus torsor.
 
 Finite quotient A/Br X (Colliot-Thélène–Skorobogatov 2000, proof of Lemma 3.1, as invoked by Harpaz–Wittenberg).
 
-Harari's formal lemma (§2.24 (Harari's formal lemma)) gives density of V(𝔸)^A in X(𝔸)^{A ∩ Br X} ⊇ X(𝔸)^{Br X}; apply §3.14 (Unramified descent for torus torsors) on V (Harpaz–Wittenberg Corollary 2.2).
+Harari's formal lemma (§2.21 (Harari's formal lemma)) gives density of V(𝔸)^A in X(𝔸)^{A ∩ Br X} ⊇ X(𝔸)^{Br X}; apply §3.14 (Unramified descent for torus torsors) on V (Harpaz–Wittenberg Corollary 2.2).
 
 **Checks.**
 
 - For V=𝔸ⁿ⊂ℙⁿ and the trivial torus torsor V×𝔾_mⁿ→V, the conclusion specializes to density of the affine open in the proper adelic space. The coordinatewise inclusion 𝔾_mⁿ→𝔸ⁿ is not a torsor over 𝔸ⁿ.
 
-*Needs:* §3.14 (Unramified descent for torus torsors); §2.24 (Harari's formal lemma); §2.20 (The unramified Brauer group).
+*Needs:* §3.14 (Unramified descent for torus torsors); §2.21 (Harari's formal lemma); §2.17 (The unramified Brauer group).
 
 
 ### 3.16 Brauer–Manin points give universal torsors
@@ -2895,7 +2788,7 @@ The existence obstruction of a torsor of type λ lies in H²(k, T') and pairs wi
 
 - If X(k) ≠ ∅ the conclusion holds trivially.
 
-*Needs:* §3.9 (Universal torsors and torsors of a given type); §2.19 (Constant and algebraic Brauer groups); §2.16 (The Brauer–Manin pairing and set for varieties); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
+*Needs:* §3.9 (Universal torsors and torsors of a given type); §2.16 (Constant and algebraic Brauer groups); §2.13 (The Brauer–Manin pairing and set for varieties); ArithmeticGaloisDuality Layer R02.4, the perfect Poitou–Tate pairing Ш²(K,T̂)×Ш¹(K,T)→ℚ/ℤ.
 
 
 ### 3.17 Genus-one curves as torsors and the Weil–Châtelet group
@@ -2916,7 +2809,7 @@ Comparison with Layer 5: the forgetful map from pointed twists to curves lands i
 
 - The genus-one curve 2w² = x⁴ + 1 of Poonen §8.3 has the point (1, 1), so it is the trivial torsor under its Jacobian.
 
-*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-5-twists-aec-x2-x5); [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-7-selmer-groups-and-sha-aec-x4); §3.1 (Evaluation of torsors and twisted torsors).
+*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-5-twists-aec-x2-x5); [TauCetiRoadmap.EllipticCurves](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/EllipticCurves/README.md#layer-7-selmer-groups-and-sha-aec-x4); §3.1 (Evaluation of torsors and twisted torsors).
 
 
 ### 3.18 Hasse principle failures for J¹ and Sym^k C with Brauer–Manin obstruction
@@ -2973,7 +2866,7 @@ Spread out over O_{k,S}; integral points have fibres of bounded degree and ramif
 
 - 𝔾_m over ℚ with the squaring cover fails strong approximation off ∞.
 
-*Needs:* §3.3 (The Selmer set of a torsor); §2.14 (Adelic points of separated schemes of finite type).
+*Needs:* §3.3 (The Selmer set of a torsor); §2.11 (Adelic points of separated schemes of finite type).
 
 
 ### 3.21 Insufficiency of the Brauer–Manin and descent obstructions
@@ -2992,12 +2885,12 @@ Explicit constructions over ℚ; the statements are existence theorems.
 
 - Both examples are compatible with X(ℚ) ⊆ X(𝔸)^{ét,Br}.
 
-*Needs:* §3.7 (The étale–Brauer set); §3.8 (Étale–Brauer equals descent); §2.16 (The Brauer–Manin pairing and set for varieties).
+*Needs:* §3.7 (The étale–Brauer set); §3.8 (Étale–Brauer equals descent); §2.13 (The Brauer–Manin pairing and set for varieties).
 
 
 ### Examples
 
-For X:y²=(x²+1)(x⁴+1), normalize the covers specified generically by `c w²=x⁴+1`. The relevant everywhere locally soluble square classes are c=1,2. They map to the genus-one quartics `w²=x⁴+1` and `2w²=x⁴+1`, birational to the rank-zero curves `y²=x³−4x` and `y²=x³−x`. Their rational-point calculations give the six affine points `(0,±1),(±1,±2)` and the two points at infinity on X. Each point belongs to exactly one inverse twist; naive equations at a branch zero do not give the étale torsor without normalization (Poonen, §8.4.3, pp.239–240).
+For X:y²=(x²+1)(x⁴+1), normalize the covers specified generically by `c w²=x⁴+1`. The relevant everywhere locally soluble square classes are c=1,2. They map to the genus-one quartics `w²=x⁴+1` and `2w²=x⁴+1`, birational to the rank-zero curves `y²=x³−4x` and `y²=x³−x`. Their rational-point calculations give the six affine points `(0,±1),(±1,±2)` and the two points at infinity on X. Each point belongs to exactly one inverse twist; naive equations at a branch zero do not give the étale torsor without normalization (Poonen, §8.3, pp.236–238).
 
 A μ₂-fibre u²=a has evaluation class [a]; the c-twist is `c w²=a`, so a=c has the point w=1. For a torus residual pairing of order three, choosing τ with `⟨a,τ⟩=−ε₀(a)` makes the new functional zero. The parameter in the cited Harpaz–Wittenberg proof is the opposite of this τ.
 
@@ -3042,7 +2935,7 @@ Its interface consists of the following operations and laws.
 - `HasGoodReductionOutside.test_bad_at_two`: y² = x³ − x over ℚ has good reduction outside {2, ∞} but not outside {∞}: it lies in Sh(ℚ, {2, ∞}, 1) and not in Sh(ℚ, {∞}, 1).
 - ℙ¹_K has good reduction everywhere; an elliptic curve has good reduction outside the primes dividing its minimal discriminant.
 
-*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §4.13 for curves; arbitrary-dimensional compactification is the additional contract below; NeronModelsAndSemistableAbelianVarieties §6.5 for elliptic equations only; SchemeAndStackFoundations §§3.1–3.3 and StableReductionAndModuliOfCurves Layer 2 for general curves.
+*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; SchemeAndStackFoundations §4.13 for curves; arbitrary-dimensional compactification is the additional contract above; NeronModelsAndSemistableAbelianVarieties §6.5 for elliptic equations only; SchemeAndStackFoundations §§3.1–3.3 and StableReductionAndModuliOfCurves Layer 2 for general curves.
 
 
 ### 4.2 The Chevalley–Weil theorem
@@ -3165,7 +3058,7 @@ X affine; the model is affine of finite type over O_{K,S}.
 
 ([La conjecture de Mordell (d'après G. Faltings)](http://www.numdam.org/item/SB_1983-1984__26__83_0.pdf), §1, statement of Siegel's theorem and the description of integral points as sections, p. 84.)
 
-Models exist by spreading out and agree over O_{K,T} for T ⊇ S large (§2.6 (Integral models exist and agree at almost all places)).
+Models exist by spreading out and agree over O_{K,T} for T ⊇ S large (§2.3 (Integral models exist and agree at almost all places)).
 
 Its interface consists of the following operations and laws.
 
@@ -3182,7 +3075,7 @@ Its interface consists of the following operations and laws.
 - `IntegralPoints.test_gm_infinite`: 𝔾_m(ℤ[1/2]) is infinite: two points at infinity are not enough for Siegel finiteness.
 - For X = 𝔾_m = 𝔸¹ ∖ {0} with model Spec O_{K,S}[t, 1/t], the S-integral points are the S-units O_{K,S}^×.
 
-*Needs:* §2.5 (Integral models and their integral local points); §2.6 (Integral models exist and agree at almost all places).
+*Needs:* §2.2 (Integral models and their integral local points); §2.3 (Integral models exist and agree at almost all places).
 
 
 ### 4.8 Siegel's theorem on integral points
@@ -3203,7 +3096,7 @@ Genus 0 with three boundary points is the S-unit equation (DiophantineApproximat
 
 - The S-unit equation u + v = 1 in units of ℤ[1/2] has exactly the three solutions (2, −1), (−1, 2), (1/2, 1/2).
 
-*Needs:* §4.7 (S-integral points on affine curves); §4.2 (The Chevalley–Weil theorem); DiophantineApproximationAndTranscendence §2.3 for the rational specialization; DiophantineApproximationAndTranscendence §2.3 for rational S-unit equations; §4.4 (The Kodaira–Parshin construction); DiophantineApproximationAndTranscendence §2.8, absoluteSubspaceTheoremForSystems, with the number-field product-form adapter below.
+*Needs:* §4.7 (S-integral points on affine curves); §4.2 (The Chevalley–Weil theorem); DiophantineApproximationAndTranscendence §2.3 for the rational specialization; DiophantineApproximationAndTranscendence §2.3 for rational S-unit equations; §4.4 (The Kodaira–Parshin construction); DiophantineApproximationAndTranscendence §2.8, absoluteSubspaceTheoremForSystems, with the number-field product-form adapter above.
 
 
 ### 4.9 The Mordell conjecture over function fields
@@ -3244,7 +3137,7 @@ Using the supplier's abelian-subvariety carrier, construct quotients, translatio
 
 ### 5.1 Abelian subvarieties, cosets and quotients
 
-Use the native §5.1 (Abelian subvarieties, cosets and quotients) carrier of AbelianSchemesAndArithmeticModuli §A6.3. For B⊆A construct the quotient abelian variety A/B, allowing B to have positive dimension, and its quotient homomorphism q with kernel B. Define a coset a+B as the closed translate of B, with its scheme structure; a torsion coset is a+B with a torsion modulo B (equivalently, over an algebraically closed field, admitting a torsion representative). The quotient identifies its fibres with these cosets. This extends the finite-kernel quotient contract of §A3.3 by permitting positive-dimensional B.
+Use the abelian-subvariety carrier supplied by AbelianSchemesAndArithmeticModuli §A6.3. For B⊆A construct the quotient abelian variety A/B, allowing B to have positive dimension, and its quotient homomorphism q with kernel B. Define a coset a+B as the closed translate of B, with its scheme structure; a torsion coset is a+B with a torsion modulo B (equivalently, over an algebraically closed field, admitting a torsion representative). The quotient identifies its fibres with these cosets. This extends the finite-kernel quotient contract of §A3.3 by permitting positive-dimensional B.
 
 k any field; cosets are taken over k̄ unless stated.
 
@@ -3256,10 +3149,8 @@ Complements: Poincaré complete reducibility (AbelianSchemesAndArithmeticModuli 
 
 Its interface consists of the following operations and laws.
 
-- `TauCeti.AbelianVariety.AbelianSubvariety`: A closed subgroup scheme which is an abelian variety.
 - `TauCeti.AbelianVariety.quotient`: A ⧸ B as an abelian variety with the projection A → A/B.
 - `TauCeti.AbelianVariety.quotient_ker`: The kernel of A → A/B is B.
-- `TauCeti.AbelianVariety.exists_complement`: There is B' with B + B' = A and B ∩ B' finite.
 - `TauCeti.AbelianVariety.IsCoset`: X = x + B for an abelian subvariety B.
 - `TauCeti.AbelianVariety.IsTorsionCoset`: A coset x + B with x torsion.
 - `TauCeti.AbelianVariety.IsTorsionSubvariety`: A finite union of torsion cosets.
@@ -3270,9 +3161,13 @@ Its interface consists of the following operations and laws.
 - `AbelianSubvariety.test_zero`: {0} and A are abelian subvarieties; A/A = 0 and A/{0} = A.
 - `AbelianSubvariety.test_torsion_not_abelian`: For dim A>0, A[2] is not an abelian subvariety: in characteristic≠2 it is a nontrivial disconnected finite étale group scheme; in characteristic 2 it can be connected but is not smooth. Connectedness alone does not certify an abelian subvariety.
 - `IsTorsionCoset.test_point`: A torsion point {t} is a torsion coset with B = 0; a non-torsion point is a coset but not a torsion coset.
+- `IsCoset.test_curve`: A genus-at-least-two Abel–Jacobi curve is not an abelian coset, whereas a point of any order and a translate x+B are cosets.
+- `IsTorsionCoset.test_whole`: A itself and {0} are torsion cosets; a singleton of infinite order is not.
+- `IsTorsionSubvariety.test_empty`: The empty closed set is the union of zero torsion cosets and is a torsion subvariety, although it is not a torsion coset.
+- `IsTorsionSubvariety.test_two_points`: In an elliptic curve over an algebraically closed field of characteristic zero, {0,t} for a nonzero torsion point t is a torsion subvariety; it is not a single coset of an abelian subvariety. Replacing t by a point of infinite order makes it fail to be a torsion subvariety.
 - In A = E × E, the diagonal and the antidiagonal are abelian subvarieties meeting in E[2].
 
-*Needs:* Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; AbelianSchemesAndArithmeticModuli §§A6.3–A6.5, abelian images and Poincaré complements; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below.
+*Needs:* Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; AbelianSchemesAndArithmeticModuli §§A6.3–A6.5, abelian images and Poincaré complements; SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above.
 
 
 ### 5.2 Stabilizers of subvarieties
@@ -3303,7 +3198,7 @@ Its interface consists of the following operations and laws.
 - `stab.test_not_reduced_union`: Stab(X) need not be connected: for X = B ∪ (t + B) with t ∈ A[2] ∖ B, Stab(X) ⊇ B ∪ (t + B).
 - Stab(A) = A; Stab({x}) = {0}; for X = x + B, Stab⁰(X) = B.
 
-*Needs:* §5.1 (Abelian subvarieties, cosets and quotients); SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts below; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §5.1 (Abelian subvarieties, cosets and quotients); SchemeAndStackFoundations §§1.13–1.17 and 2.3, with the positive-dimensional quotient and subscheme-stabilizer contracts above; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 5.3 The abelian subvariety generated by X − X
@@ -3336,7 +3231,7 @@ Its interface consists of the following operations and laws.
 - `Generates.test_translate`: A subvariety X contained in a translate x + B of a proper abelian subvariety B does not generate A (its A' is contained in B), even when x ∉ B, so that X lies in no proper abelian subvariety.
 - For a curve C of genus ≥ 1 embedded in its Jacobian J, C − C generates J (AbelianSchemesAndArithmeticModuli §A6.3, abelian images, specialized by the generated-subvariety construction here).
 
-*Needs:* §5.1 (Abelian subvarieties, cosets and quotients); AbelianSchemesAndArithmeticModuli §A6.3, abelian images; the generated-subvariety construction is in Layer 5; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §5.1 (Abelian subvarieties, cosets and quotients); AbelianSchemesAndArithmeticModuli §A6.3, abelian images; the generated-subvariety construction is in Layer 5; SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### 5.4 The Ueno locus
@@ -3425,7 +3320,7 @@ Prove `TauCeti.AbelianVariety.manin_mumford_trivialTrace`. In characteristic p>0
 
 Characteristic p>0; trivial geometric K̄/k-trace; k algebraically closed. The trace is the geometric trace of A_{K̄} over the algebraically closed constant field k, as specified by Xie–Yuan §1.1; zero original K/k-trace is not enough.
 
-([Geometric Bogomolov conjecture in arbitrary characteristics](https://arxiv.org/abs/2108.09722v1), §5, Theorem 5.1 and proof, pp. 22–23; [Positive characteristic Manin–Mumford theorem](https://arxiv.org/abs/math/0303340), Theorem 2.2 (arXiv:math/0303340).)
+([Geometric Bogomolov conjecture in arbitrary characteristics](https://arxiv.org/abs/2108.09722v1), §5, Theorem 5.1 and proof, pp. 22–23; [Positive characteristic Manin–Mumford theorem](https://arxiv.org/abs/math/0303340), Theorem 2.2, p.2 (arXiv:math/0303340).)
 
 Scanlon's positive-characteristic Manin–Mumford theorem (Theorem 2.2): the closure of X ∩ G_tors is a finite union of special subvarieties a + h^{-1}(X₀) with h : G → G₀ and X₀ defined over 𝔽̄_p (Pink–Roessler 2004 for the full torsion).
 
@@ -3447,7 +3342,7 @@ Characteristic 0; Y irreducible closed in V × A.
 
 ([Heights in families of abelian varieties and the Geometric Bogomolov Conjecture](https://arxiv.org/abs/1801.05762v3), Theorem 3.2 and proof, p. 13.)
 
-Scanlon's automatic uniformity (2004 Theorem 2.4) via the model theory of algebraically closed fields with a generic automorphism (Hrushovski), as cited by Gao–Habegger Theorem 3.2 (statement misprint PAPER-GAO-HABEGGER-19/E1 corrected).
+Scanlon's automatic uniformity (2004 Theorem 2.4) via the model theory of algebraically closed fields with a generic automorphism (Hrushovski), as cited by Gao–Habegger Theorem 3.2; the translates in the closure are by torsion points, rather than arbitrary points.
 
 **Checks.**
 
@@ -3479,7 +3374,7 @@ Finiteness of X°∩Γ is a consequence of the full coset decomposition, not a s
 
 ### 5.10 Vojta's inequality
 
-Prove `TauCeti.Curve.vojta_inequality`. Let C be a smooth projective curve of genus g≥2 over a number field k, embedded in J using a degree-one divisor class after a finite extension if needed, with the theta Néron–Tate norm. Bombieri §10 Thm.1 gives an effectively determined γ(C)>1 such that if z,w∈C(k), ‖z‖≥γ(C) and ‖w‖≥γ(C)‖z‖, then ⟨z,w⟩≤(3/4)‖z‖‖w‖. Use the same normalization for the threshold and norm ratio; an arbitrary rescaling changes the threshold. The proof needs the product/Roth lemma in §§6–9, a separate product/Roth input described below.
+Prove `TauCeti.Curve.vojta_inequality`. Let C be a smooth projective curve of genus g≥2 over a number field k, embedded in J using a degree-one divisor class after a finite extension if needed, with the theta Néron–Tate norm. Bombieri §10 Thm.1 gives an effectively determined γ(C)>1 such that if z,w∈C(k), ‖z‖≥γ(C) and ‖w‖≥γ(C)‖z‖, then ⟨z,w⟩≤(3/4)‖z‖‖w‖. Use the same normalization for the threshold and norm ratio; an arbitrary rescaling changes the threshold. The proof needs the product/Roth lemma in §§6–9, a separate product/Roth input described above.
 
 C of genus ≥ 2; k a number field; heights normalised as Néron–Tate heights for the theta divisor.
 
@@ -3662,7 +3557,7 @@ Prove `TauCeti.AbelianVariety.bogomolov`. Let A be an abelian variety over a num
 
 K a number field (characteristic 0); X not a torsion coset.
 
-([Positivité et discrétion des points algébriques des courbes](https://arxiv.org/abs/alg-geom/9606017), §1, Théorème 1.1, p. 1 (arXiv alg-geom/9606017); [The Uniform Mordell–Lang Conjecture](https://arxiv.org/abs/2105.15085v4), §5.1, reduction steps, arXiv:2105.15085v4 pp.28–30; [The Bogomolov conjecture for totally degenerate abelian varieties](https://arxiv.org/abs/math/0609387v2), §5, Theorem 5.5 and proof, arXiv v2 pp.13–16.)
+([Positivité et discrétion des points algébriques des courbes](https://arxiv.org/abs/alg-geom/9606017), §1, Théorème 1.1, p. 1 (arXiv alg-geom/9606017); [The Uniform Mordell–Lang Conjecture](https://arxiv.org/abs/2105.15085v4), §5.1, reduction steps, arXiv:2105.15085v4 pp.28–30; [The Bogomolov conjecture for totally degenerate abelian varieties](https://arxiv.org/abs/math/0609387v2), §5, Theorem 5.5 and proof, arXiv v2 pp.13–16, for the tropical equidistribution analogue; Theorem 1.1, p.1, and its proof in §6, pp.17–18, for the totally degenerate function-field Bogomolov theorem, not the number-field generality stated here.)
 
 Reduce to X with finite stabilizer that generates A (quotient by Stab⁰(X), §5.16 (The minimal torsion subvariety containing X)).
 
@@ -3712,7 +3607,7 @@ Bogomolov's finiteness of maximal cosets reduces to finitely many B (§5.4 (The 
 
 - For g=1, every form not identically zero on A gives a finite section; forms identically zero on A give the whole elliptic curve and lie outside U. In particular U is not the entire vector space of forms.
 
-*Needs:* §5.4 (The Ueno locus); §5.1 (Abelian subvarieties, cosets and quotients); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts below.
+*Needs:* §5.4 (The Ueno locus); §5.1 (Abelian subvarieties, cosets and quotients); SchemeAndStackFoundations §§5.1–5.6 and 5.12; StableReductionAndModuliOfCurves Layer 2 for ampleness, with the presentation and Lefschetz contracts above.
 
 
 ### Examples
@@ -3744,9 +3639,9 @@ K a number field; X separated of finite type.
 
 ([Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf), §8.4.7 (definition of the local-global principle), p. 245; §2.6.3, pp. 49–50.)
 
-For proper X, X(𝔸_K) = Π_v X(K_v) (§2.14 (Adelic points of separated schemes of finite type)).
+For proper X, X(𝔸_K) = Π_v X(K_v) (§2.11 (Adelic points of separated schemes of finite type)).
 
-In general use §2.8 (Adelic points exist iff local points exist and are integral almost everywhere) (integral points almost everywhere, from Lang–Weil and Hensel for smooth geometrically integral fibres).
+In general use §2.5 (Adelic points exist iff local points exist and are integral almost everywhere) (integral points almost everywhere, from Lang–Weil and Hensel for smooth geometrically integral fibres).
 
 Its interface consists of the following operations and laws.
 
@@ -3760,11 +3655,11 @@ Its interface consists of the following operations and laws.
 
 - `IsLocallySoluble.test_conic`: x² + y² = 3z² over ℚ is not locally soluble (no ℚ₃-point).
 - `IsLocallySoluble.test_point`: Spec K is locally soluble and satisfies the Hasse principle.
-- `SatisfiesHassePrinciple.test_conic`: Smooth conics satisfy the Hasse principle (GlobalQuadraticForms Layer 5; §2.29 (Conics: Brauer–Manin set and the Hasse principle)).
-- `SatisfiesHassePrinciple.test_iskovskikh`: Iskovskikh's surface is locally soluble without rational points (§2.30 (Iskovskikh's conic bundle surface)).
+- `SatisfiesHassePrinciple.test_conic`: Smooth conics satisfy the Hasse principle (GlobalQuadraticForms Layer 5; §2.26 (Conics: Brauer–Manin set and the Hasse principle)).
+- `SatisfiesHassePrinciple.test_iskovskikh`: Iskovskikh's surface is locally soluble without rational points (§2.27 (Iskovskikh's conic bundle surface)).
 - x² + y² = 3z² is not locally soluble at 3.
 
-*Needs:* §2.14 (Adelic points of separated schemes of finite type); §2.8 (Adelic points exist iff local points exist and are integral almost everywhere).
+*Needs:* §2.11 (Adelic points of separated schemes of finite type); §2.5 (Adelic points exist iff local points exist and are integral almost everywhere).
 
 
 ### 6.2 Rational points on genus-zero curves
@@ -3777,13 +3672,13 @@ K a number field; genus 0.
 
 Anticanonical embedding as a conic (SchemeAndStackFoundations Layer 3/projective-line-characterization); Hasse–Minkowski for ternary forms (GlobalQuadraticForms Layer 5); a point gives ℙ¹ by projection.
 
-Brauer–Manin is vacuous on conics (§2.29 (Conics: Brauer–Manin set and the Hasse principle)).
+Brauer–Manin is vacuous on conics (§2.26 (Conics: Brauer–Manin set and the Hasse principle)).
 
 **Checks.**
 
 - x² + y² = z² ≅ ℙ¹_ℚ; x² + y² = 3z² has no rational point.
 
-*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; [TauCetiRoadmap.GlobalQuadraticForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalQuadraticForms/README.md#layer-5-hasseminkowski-isotropy); §2.29 (Conics: Brauer–Manin set and the Hasse principle); §6.1 (Local solubility and the local-global principle).
+*Needs:* SchemeAndStackFoundations §§3.1–3.7, with the stated Picard and curve contracts; [TauCetiRoadmap.GlobalQuadraticForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalQuadraticForms/README.md#layer-5-hasseminkowski-isotropy); §2.26 (Conics: Brauer–Manin set and the Hasse principle); §6.1 (Local solubility and the local-global principle).
 
 
 ### 6.3 Rational points on genus-one curves
@@ -3804,7 +3699,7 @@ Manin's theorem: the Cassels–Tate pairing on Ш(E/K) is computed by the Brauer
 
 - The curves 2w² = x⁴ + 1 and w² = x⁴ + 1 have rational points and are elliptic curves of rank 0 (Poonen §8.3).
 
-*Needs:* §3.17 (Genus-one curves as torsors and the Weil–Châtelet group); §1.7 (The Mordell–Weil theorem); §1.3 (Selmer groups and Tate–Shafarevich groups of abelian varieties); §3.18 (Hasse principle failures for J¹ and Sym^k C with Brauer–Manin obstruction); §2.16 (The Brauer–Manin pairing and set for varieties).
+*Needs:* §3.17 (Genus-one curves as torsors and the Weil–Châtelet group); §1.7 (The Mordell–Weil theorem); §1.3 (Selmer groups and Tate–Shafarevich groups of abelian varieties); §3.18 (Hasse principle failures for J¹ and Sym^k C with Brauer–Manin obstruction); §2.13 (The Brauer–Manin pairing and set for varieties).
 
 
 ### 6.4 Rational points on curves of genus at least two
@@ -3846,11 +3741,19 @@ Its interface consists of the following operations and laws.
 
 - `BombieriLangConjecture.test_curves`: Restricted to curves of genus ≥ 2, (a) is equivalent to §4.6 (The Mordell conjecture (Faltings' theorem)).
 - `BombieriLangConjecture.test_dim_zero`: The hypothesis dim X > 0 excludes points, for which the statement would be false (a rational point is Zariski dense in itself).
-- `BrauerManinOnlyObstructionConjecture.test_conic`: For conics (c) holds (§2.29 (Conics: Brauer–Manin set and the Hasse principle)).
+- `BrauerManinOnlyObstructionConjecture.test_conic`: For conics (c) holds (§2.26 (Conics: Brauer–Manin set and the Hasse principle)).
 - `BrauerManinOnlyObstructionConjecture.test_not_general_type`: (c) is false without rational connectedness: Skorobogatov's bielliptic surface (§3.21 (Insufficiency of the Brauer–Manin and descent obstructions)) has X(𝔸)^{Br} ≠ ∅ = X(ℚ).
+- `BombieriLangConjecture.test_genus_one`: A positive-rank elliptic curve has Zariski-dense rational points but is not of general type, so it lies outside the quantified class.
+- `VojtaConjecture.test_projective_line`: For X=ℙ¹, D=0 and A=O(1), choose h_{K_X}=−2h_A. Then the inequality holds with zero additive constant for the standard nonnegative height; a sign reversal of K_X would fail on unbounded-height points when ε<2.
+- `VojtaConjecture.test_boundary`: For X=ℙ¹ and D={0,∞}, the points 0 and ∞ are excluded because their local Weil functions are singular, whereas x=1 has zero proximity for the standard metrics.
+- `VojtaConjecture.test_uniformity`: On ℙ¹ with D={0,∞}, S={∞,2} and x=2^m (m≥0), the standard proximity is 2m log 2, while h_{K_X}=−2m log 2; their sum is zero. The constant is one fixed constant for all m, rather than a separate choice after seeing x.
+- `BrauerManinOnlyObstructionConjecture.test_point`: For X=Spec K, both the rational and adelic sets are singletons and density holds.
+- `ShaFinitenessConjecture.test_zero`: The trivial abelian variety has Ш=0, a finite group.
+- `ShaFinitenessConjecture.test_nonzero_finite`: The predicate is finiteness, not vanishing: applied to an abstract group ℤ/2 it is true despite the nonzero element.
+- `ShaFinitenessConjecture.test_bounded_exponent`: Applied to the abstract group ⊕_{n∈ℕ} ℤ/2, finiteness is false although every element is killed by 2. This tests the predicate; it does not assert that this group occurs as an arithmetic Ш.
 - For curves, (a) is Faltings' theorem (§6.4 (Rational points on curves of genus at least two)).
 
-*Needs:* §0.17 (Weil's height machine); §0.26 (Local Weil functions and Néron functions); §2.16 (The Brauer–Manin pairing and set for varieties); §1.3 (Selmer groups and Tate–Shafarevich groups of abelian varieties).
+*Needs:* §0.17 (Weil's height machine); §0.26 (Local Weil functions and Néron functions); §2.13 (The Brauer–Manin pairing and set for varieties); §1.3 (Selmer groups and Tate–Shafarevich groups of abelian varieties).
 
 
 ### Examples
@@ -3873,37 +3776,37 @@ EffectiveDiophantineMethods uses explicit heights, Kummer local conditions, fini
 
 ## References
 
-- Aise Johan de Jong, [Notes on Heights](https://www.math.columbia.edu/~dejong/courses/heights.pdf). .
-- Bjorn Poonen, [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf). .
-- Brian Conrad, [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf). .
-- B. Conrad, [Chow's K/k-image and K/k-trace, and the Lang–Néron theorem](https://math.stanford.edu/~conrad/papers/Kktrace.pdf). .
-- J. S. Milne, [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf). .
-- L. Szpiro, [La conjecture de Mordell (d'après G. Faltings)](http://www.numdam.org/item/SB_1983-1984__26__83_0.pdf). .
-- E. Bombieri, [The Mordell conjecture revisited](http://www.numdam.org/item/ASNSP_1990_4_17_4_615_0.pdf). .
-- W. Gubler, [The Bogomolov conjecture for totally degenerate abelian varieties](https://arxiv.org/abs/math/0609387v2). .
-- E. Ullmo, [Positivité et discrétion des points algébriques des courbes](https://arxiv.org/abs/alg-geom/9606017). .
-- Z. Gao, P. Habegger, [Heights in families of abelian varieties and the Geometric Bogomolov Conjecture](https://arxiv.org/abs/1801.05762v3). .
-- V. Dimitrov, Z. Gao, P. Habegger, [Uniformity in Mordell–Lang for curves](https://arxiv.org/abs/2001.10276v3). .
-- Z. Gao, T. Ge, L. Kühne, [The Uniform Mordell–Lang Conjecture](https://arxiv.org/abs/2105.15085v4). .
-- J. Xie, X. Yuan, [Geometric Bogomolov conjecture in arbitrary characteristics](https://arxiv.org/abs/2108.09722v1). .
-- Y. Harpaz, O. Wittenberg, [Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf). .
-- Y. Harpaz, O. Wittenberg, [The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf). .
-- M. Bhargava, B. H. Gross, X. Wang, [A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension](https://arxiv.org/abs/1310.7692v2). .
-- T. Scanlon, [Positive characteristic Manin–Mumford theorem](https://arxiv.org/abs/math/0303340). .
-- K. Česnavičius, [Purity for the Brauer group](https://arxiv.org/abs/1711.06456v4). .
-- Tau Ceti roadmap authors, [EllipticCurves roadmap, Layer 6: the Mordell–Weil theorem](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/EllipticCurves). .
-- Tau Ceti roadmap authors, [EllipticCurves roadmap, Layer 7: Selmer groups and Sha](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/EllipticCurves). .
+- Aise Johan de Jong, [Notes on Heights](https://www.math.columbia.edu/~dejong/courses/heights.pdf).
+- Bjorn Poonen, [Rational points on varieties](https://math.mit.edu/~poonen/papers/Qpoints.pdf).
+- Brian Conrad, [Weil and Grothendieck approaches to adelic points](https://math.stanford.edu/~conrad/papers/adelictop.pdf).
+- B. Conrad, [Chow's K/k-image and K/k-trace, and the Lang–Néron theorem](https://math.stanford.edu/~conrad/papers/Kktrace.pdf).
+- J. S. Milne, [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf).
+- L. Szpiro, [La conjecture de Mordell (d'après G. Faltings)](http://www.numdam.org/item/SB_1983-1984__26__83_0.pdf).
+- E. Bombieri, [The Mordell conjecture revisited](http://www.numdam.org/item/ASNSP_1990_4_17_4_615_0.pdf).
+- W. Gubler, [The Bogomolov conjecture for totally degenerate abelian varieties](https://arxiv.org/abs/math/0609387v2).
+- E. Ullmo, [Positivité et discrétion des points algébriques des courbes](https://arxiv.org/abs/alg-geom/9606017).
+- Z. Gao, P. Habegger, [Heights in families of abelian varieties and the Geometric Bogomolov Conjecture](https://arxiv.org/abs/1801.05762v3).
+- V. Dimitrov, Z. Gao, P. Habegger, [Uniformity in Mordell–Lang for curves](https://arxiv.org/abs/2001.10276v3).
+- Z. Gao, T. Ge, L. Kühne, [The Uniform Mordell–Lang Conjecture](https://arxiv.org/abs/2105.15085v4).
+- J. Xie, X. Yuan, [Geometric Bogomolov conjecture in arbitrary characteristics](https://arxiv.org/abs/2108.09722v1).
+- Y. Harpaz, O. Wittenberg, [Zéro-cycles sur les espaces homogènes et problème de Galois inverse](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf).
+- Y. Harpaz, O. Wittenberg, [The Massey vanishing conjecture for number fields](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf).
+- M. Bhargava, B. H. Gross, X. Wang, [A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension](https://arxiv.org/abs/1310.7692v2).
+- T. Scanlon, [Positive characteristic Manin–Mumford theorem](https://arxiv.org/abs/math/0303340).
+- K. Česnavičius, [Purity for the Brauer group](https://arxiv.org/abs/1711.06456v4).
+- Tau Ceti roadmap authors, [EllipticCurves roadmap, Layer 6: the Mordell–Weil theorem](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/EllipticCurves).
+- Tau Ceti roadmap authors, [EllipticCurves roadmap, Layer 7: Selmer groups and Sha](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/EllipticCurves).
 - Xinyi Yuan, [Arithmetic bigness and a uniform Bogomolov-type result](https://arxiv.org/abs/2108.05625v4). arXiv:2108.05625v4, 30 April 2024; manuscript dated 1 May 2024.
-- J. Tsimerman, [The André–Oort conjecture for A_g](https://annals.math.princeton.edu/2018/187-2/p02). .
-- A. N. Skorobogatov, E. Sofos, [Schinzel Hypothesis on average and rational points](https://eprints.gla.ac.uk/292484/1/292484.pdf). .
-- T. Browning, P. Le Boudec, W. Sawin, [The Hasse principle for random Fano hypersurfaces](https://arxiv.org/abs/2006.02356). .
-- E. Bombieri, W. Gubler, Heights in Diophantine Geometry. .
-- P. Corvaja, U. Zannier, [A subspace theorem approach to integral points on curves](https://www.numdam.org/item/CRMATH_2002__334_4_267_0.pdf). .
-- A. Mattuck, [Abelian varieties over p-adic ground fields](https://www.jstor.org/stable/2007101). .
-- S. Lang (article); N. Katz (Appendix), [Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf). .
-- Jan Steffen Müller and Michael Stoll, [Computing canonical heights on elliptic curves in quasi-linear time](https://www.mathe2.uni-bayreuth.de/stoll/papers/ellheights-arXiv-v2.pdf). .
-- Paul Vojta, [Diophantine Approximation and Nevanlinna Theory](https://math.berkeley.edu/~vojta/cime/cime.pdf). .
-- Yonatan Harpaz and Olivier Wittenberg, [Supersolvable descent for rational points](https://msp.org/ant/2024/18-4/ant-v18-n4-p05-s.pdf). .
-- W. Gubler, [Basic Properties of Heights of Subvarieties](https://gubler.app.uni-regensburg.de/Publikationen/habi%2B.pdf). .
+- J. Tsimerman, [The André–Oort conjecture for A_g](https://annals.math.princeton.edu/2018/187-2/p02).
+- A. N. Skorobogatov, E. Sofos, [Schinzel Hypothesis on average and rational points](https://eprints.gla.ac.uk/292484/1/292484.pdf).
+- T. Browning, P. Le Boudec, W. Sawin, [The Hasse principle for random Fano hypersurfaces](https://arxiv.org/abs/2006.02356).
+- E. Bombieri, W. Gubler, Heights in Diophantine Geometry.
+- P. Corvaja, U. Zannier, [A subspace theorem approach to integral points on curves](https://www.numdam.org/item/CRMATH_2002__334_4_267_0.pdf).
+- A. Mattuck, [Abelian varieties over p-adic ground fields](https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf).
+- S. Lang (article); N. Katz (Appendix), [Galois properties of torsion points on abelian varieties (Appendix by N. Katz)](https://web.math.princeton.edu/~nmk/old/galoisprop.pdf).
+- Jan Steffen Müller and Michael Stoll, [Computing canonical heights on elliptic curves in quasi-linear time](https://www.mathe2.uni-bayreuth.de/stoll/papers/ellheights-arXiv-v2.pdf).
+- Paul Vojta, [Diophantine Approximation and Nevanlinna Theory](https://math.berkeley.edu/~vojta/cime/cime.pdf).
+- Yonatan Harpaz and Olivier Wittenberg, [Supersolvable descent for rational points](https://msp.org/ant/2024/18-4/ant-v18-n4-p05-s.pdf).
+- W. Gubler, [Basic Properties of Heights of Subvarieties](https://gubler.app.uni-regensburg.de/Publikationen/habi%2B.pdf).
 - Xinyi Yuan and Shou-Wu Zhang, [Adelic Line Bundles on Quasi-projective Varieties](https://arxiv.org/abs/2105.13587v9). arXiv v9, 14 June 2025; Theorem A.6.3, pp.248–249.
 - Michael Stoll, [Finite descent obstructions and rational points on curves](https://mathe2.uni-bayreuth.de/stoll/papers/covers8.pdf). Author manuscript; Corollary 7.4 and Lemma 7.5, pp.30–31.

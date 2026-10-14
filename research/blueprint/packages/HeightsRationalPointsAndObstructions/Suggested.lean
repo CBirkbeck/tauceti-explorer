@@ -142,44 +142,7 @@ example (L : Type u) [Field L] [Algebra K L] : torsion A 0 L = ⊤ := by sorry
 
 end AbelianVariety
 
-/-! ## Layer 2: affine and adelic point topology -/
-
-/-- Affine points as algebra maps, on a type synonym supporting the evaluation topology. -/
-def Points (R : Type u) (A : Type v) (B : Type w)
-    [CommRing R] [CommRing A] [Algebra R A] [CommRing B] [Algebra R B] :
-    Type (max v w) := A →ₐ[R] B
-
-namespace Points
-variable {R : Type u} {A : Type v} {B : Type w}
-  [CommRing R] [CommRing A] [Algebra R A] [CommRing B] [Algebra R B]
-
-/-- Evaluation of an affine point. -/
-instance : FunLike (Points R A B) A B := inferInstanceAs (FunLike (A →ₐ[R] B) A B)
-
-/-- The algebra laws on affine points are the native algebra-map laws. -/
-instance : AlgHomClass (Points R A B) R A B :=
-  inferInstanceAs (AlgHomClass (A →ₐ[R] B) R A B)
-
-/-- Pointwise evaluation induces the affine point topology. -/
-instance topologicalSpace [TopologicalSpace B] : TopologicalSpace (Points R A B) :=
-  TopologicalSpace.induced (fun φ : Points R A B => (φ : A → B)) inferInstance
-
-/-- A finite presentation realizes points as a closed solution set in a finite power. -/
-theorem isClosedEmbedding_generators [TopologicalSpace B] [IsTopologicalRing B] [T1Space B]
-    {n : ℕ} (π : MvPolynomial (Fin n) R →ₐ[R] A) (hπ : Function.Surjective π) :
-    Topology.IsClosedEmbedding
-      (fun φ : Points R A B => fun i => φ (π (MvPolynomial.X i))) := by sorry
-
-/-- Affine finite-type points over a locally compact Hausdorff topological ring are locally compact. -/
-theorem locallyCompactSpace [TopologicalSpace B] [IsTopologicalRing B] [T2Space B]
-    [LocallyCompactSpace B] [Algebra.FiniteType R A] :
-    LocallyCompactSpace (Points R A B) := by sorry
-
-end Points
-
-example : Nonempty (Points ℤ (Polynomial ℤ) ℝ ≃ₜ ℝ) := by sorry
-example (R B : Type) [CommRing R] [CommRing B] [Algebra R B] [Nontrivial B] :
-    IsEmpty (Points R PUnit B) := by sorry
+/-! ## Layer 2: adelic points -/
 
 section Adelic
 open NumberField IsDedekindDomain
@@ -187,18 +150,19 @@ variable (K : Type) [Field K] [NumberField K]
   (A : Type) [CommRing A] [Algebra K A]
 
 /-- Affine adelic points, using the native number-field adele algebra. -/
-abbrev AdelicPoints := Points K A (AdeleRing (𝓞 K) K)
+def AdelicPoints := A →ₐ[K] AdeleRing (𝓞 K) K
+
+/-- The imported evaluation topology specialized to the adelic point carrier. -/
+instance : TopologicalSpace (AdelicPoints K A) :=
+  TopologicalSpace.induced (fun x : AdelicPoints K A => (x : A →ₐ[K] AdeleRing (𝓞 K) K))
+    (TopologicalSpace.induced (fun x : A →ₐ[K] AdeleRing (𝓞 K) K => (⇑x : A → AdeleRing (𝓞 K) K))
+      inferInstance)
 
 /-- The affine number-field diagonal is discrete and closed. -/
 theorem discrete_closed_diagonal [Algebra.FiniteType K A] :
-    let diag : Points K A K → AdelicPoints K A :=
-      fun x => (Algebra.ofId K (AdeleRing (𝓞 K) K)).comp (x : A →ₐ[K] K)
+    let diag : (A →ₐ[K] K) → AdelicPoints K A :=
+      fun x => (Algebra.ofId K (AdeleRing (𝓞 K) K)).comp x
     IsClosed (Set.range diag) ∧ DiscreteTopology (Set.range diag) := by sorry
-
-/-- Local compactness at the pins states its ambient hypothesis explicitly. -/
-theorem locallyCompact_adelicPoints [Algebra.FiniteType K A]
-    [LocallyCompactSpace (AdeleRing (𝓞 K) K)] :
-    LocallyCompactSpace (AdelicPoints K A) := by sorry
 
 end Adelic
 
