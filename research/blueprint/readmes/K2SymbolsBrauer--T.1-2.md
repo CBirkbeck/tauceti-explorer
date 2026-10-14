@@ -1,6 +1,6 @@
 # Stable Steinberg groups and the classical K₂ comparison
 
-This is Part T.1-2 of **Explicit K₂: symbols, residues and reciprocity**. It completes the target-level pass for `K2SymbolsBrauer:T.1`, building on the [accepted T.1 packet](../packets/K2SymbolsBrauer--T.1.json) and [its reader](K2SymbolsBrauer--T.1.md). It adds the missing fresh-root and lifted-relation arguments, and fixes the exact supplier interfaces of the low-degree comparison. The predecessor’s identities are retained; its file is unchanged. Its independent review was accepted on 10 October 2026. This document is a new plan requiring its own independent review.
+This is Part T.1-2 of **Explicit K₂: symbols, residues and reciprocity**. It completes the target-level pass for `K2SymbolsBrauer:T.1`, building on the [accepted T.1 packet](../packets/K2SymbolsBrauer--T.1.json) and [its reader](K2SymbolsBrauer--T.1.md). It adds the missing fresh-root and lifted-relation arguments, and fixes the exact supplier interfaces of the low-degree comparison. The predecessor’s identities are retained; its file is unchanged. Its independent review was accepted on 10 October 2026. This follow-up was independently accepted by `REV-K2SymbolsBrauer--T.1-2` on 14 October 2026; acceptance certifies the plan under its stated supplier contracts.
 
 The specification is the reader together with the imported contracts identified below. The [suggested file](../suggested/K2SymbolsBrauer--T.1-2.lean) gives a compact set of signatures over carriers at the pins. Steinberg presentations, canonical lift families, plus spaces and their comparison constructions remain reader targets, since those carriers are absent at the pins. The signatures do not implement the theory.
 
@@ -140,6 +140,8 @@ For n≥3, c=n−1, define ρ^row_n(v)=∏_{i<c} x_ci(v_i). This is an injective
 
 - `Steinberg.rowRoot` (constructor): ρ^row_n is the homomorphism on the multiplicative type tag of the additive parameter group.
 - `Steinberg.rowRoot_add` (relation): ρ^row_n(v+w)=ρ^row_n(v)ρ^row_n(w).
+- `Steinberg.rowRoot_zero` (simp): ρ^row_n(0)=1.
+- `Steinberg.rowRoot_neg` (simp): ρ^row_n(−v)=ρ^row_n(v)⁻¹.
 - `Steinberg.rowRoot_matrix` (compatibility): φ_nρ^row_n(v)=1+∑ E_ci(v_i).
 - `Steinberg.rowRoot_injective` (characterisation): The finite map and its stable composite are injective.
 - `Steinberg.rowRoot_conjugate` (relation): Conjugation by x_ij(a), i,j<c distinct, replaces v_j by v_j−v_i a.
@@ -255,7 +257,7 @@ Every surjective central extension q:Y→St(R) has a unique section. Consequentl
 **Construction or proof.**
 
 1. For each n≥5 pull q back along St_n→St. The pullback consists of pairs (a,y) with the same stable image; it is surjective over St_n with central kernel even if St_n→St is not injective.
-2. Apply finite-splitting-relations to obtain a homomorphism σ_n:St_n→Y whose composite with q is the stable inclusion. For m≤n the two lifts σ_m and σ_n∘stabilise are equal by perfect-extension-rigidity, since St_m is perfect and q is central.
+2. Apply finite-splitting-relations to obtain a homomorphism σ_n:St_n→Y whose composite with q is the stable inclusion. For 5≤m≤n compare σ_m and σ_n∘stabilise as sections of the pullback extension Y×_St St_m→St_m. The identity St_m→St_m is a surjective central extension with perfect source, so perfect-extension-rigidity gives equality of these sections and hence of their Y-components. This does not require St_m→St to be surjective or injective.
 3. Ranks n≥5 form a cofinal tail. The compatible family induces σ:St→Y by the existing DirectLimit lift; lift_mul packages its homomorphism structure and lift_def checks qσ=id. The universal property and perfectness give uniqueness.
 4. Import split-central-extension-universal: a central extension with perfect source for which every central extension of the source splits is universal. Apply it to φ_R using stable-centre-completion and stable-steinberg-perfect. E is perfect by U.1. This route does not invoke any unproved finite-rank kernel centrality.
 
@@ -269,7 +271,7 @@ Every surjective central extension q:Y→St(R) has a unique section. Consequentl
 
 Owner: `K2SymbolsBrauer:T.1/chosen-k2-comparisons`. Kind: construction.
 
-For an associative unital ring R in Type, let α_R:K₂(R)≃H₂(E(R);Z) be the kernel equivalence of the unique isomorphism over E(R) from St(R) to the canonical Hopf universal extension, followed by Hopf’s formula. Put B_R=BGL(R)⁺ with its canonical based vertex, j_R:BE(R)→BE(R)⁺ and p_R:BE(R)⁺→B_R the universal-cover model supplied by H.3. Define β_R=p_R,* ∘ hur_R⁻¹ ∘ H₂(j_R) ∘ α_R, where hur_R:π₂(BE(R)⁺)≃H₂(BE(R)⁺;Z) is absolute Hurewicz. Then β_R:K₂(R)≃π₂(B_R), and, under the early K-space zero-component equivalence, β_R identifies classical with homotopy K₂. Both maps are natural for unital ring homomorphisms; H₂ has trivial integral coefficients and group-valued carriers use the appropriate additive/multiplicative type tags.
+For an associative unital ring R in Type, let α_R:K₂(R)≃H₂^grp(E(R);Z) be the kernel equivalence of the unique isomorphism over E(R) from St(R) to the canonical Hopf universal extension, followed by Hopf’s formula. Put B_R=BGL(R)⁺ with its canonical based vertex, j_R:BE(R)→BE(R)⁺ and p_R:BE(R)⁺→B_R the universal-cover model supplied by H.3. Let γ_R:H₂^grp(E(R);Z)≃H₂^top(BE(R);Z) be the natural group/classifying-space comparison supplied by H.1, oriented from group homology to space homology. Define β_R=p_R,* ∘ hur_R⁻¹ ∘ H₂^top(j_R) ∘ γ_R ∘ α_R, where hur_R:π₂(BE(R)⁺)≃H₂^top(BE(R)⁺;Z) is absolute Hurewicz. Then β_R:K₂(R)≃π₂(B_R), and, under the early K-space zero-component equivalence, β_R identifies classical with homotopy K₂. Both maps are natural for unital ring homomorphisms; H₂ has trivial integral coefficients and group-valued carriers use the appropriate additive/multiplicative type tags.
 
 **Hypotheses.** R is an associative unital ring; commutativity is not assumed. Groups are in Type, matching the pinned integral group-homology API; larger universes use compatible universe lifts. The early K-space supplier supplies a based zero-component equivalence with B_R and its ring-map compatibility. Plus comparison homotopies are based; free-homotopy comparisons instead require the trivial action of target π₁ on π₂, supplied for the ring K-space by its H-space structure.
 
@@ -277,18 +279,18 @@ For an associative unital ring R in Type, let α_R:K₂(R)≃H₂(E(R);Z) be the
 
 1. Stable-splitting-completion makes St→E a universal central extension. Import uce-kernel-h2 and its naturality from the predecessor, giving α with the chosen canonical Hopf presentation, not an arbitrary unspecified isomorphism.
 2. E is perfect normal in GL by U.1. Import H.3/plus-universal-cover only in the H=P=E special case: BE⁺ is simply connected and has CW type, and p induces isomorphisms on π_n for n≥2. The general H/P nonabelian-target gap in H.3 is not used.
-3. Import H.3/plus-integral-homology and the group/classifying-space integral homology identification from H.1; H₂(j_R) is an isomorphism. Consume the absolute degree-two Hurewicz theorem and its induced-map compatibility from the existing Tau Ceti AlgebraicTopology stage 8. Invert it and then apply p_R,* to define β.
-4. For a ring map f, St(f) sends x_ij(a) to x_ij(f(a)), so it is a map of universal extensions over E(f). The predecessor uce-lift uniqueness and uce-kernel-h2-natural give α_S K₂(f)=H₂(E(f);Z)α_R.
-5. For β, use based plus functoriality, lift the induced map to the simply connected cover at the chosen vertex, and apply naturality of Hurewicz and integral homology. Covering-map and fibre-sequence naturality give the commuting square. H.3/plus-pi2-natural supplies an independent fibre description of this natural identification. Retain the basepoint hypothesis, or use the trivial π₁-action furnished by the requested H-space structure.
+3. Import H.3/plus-integral-homology: H₂^top(j_R) is an isomorphism. From H.1/bar-complex-comparison take the constant integral coefficient specialization, and invert its space-to-group orientation to obtain γ_R. Only ordinary integral homology is used, not the supplier’s unresolved general local-coefficient comparison. Consume the absolute degree-two Hurewicz theorem and its induced-map compatibility from existing Tau Ceti AlgebraicTopology stage 8. Compose α_R, γ_R, H₂^top(j_R), inverse Hurewicz and p_R,* in that order to define β.
+4. For a ring map f, St(f) sends x_ij(a) to x_ij(f(a)), so it is a map of universal extensions over E(f). The predecessor uce-lift uniqueness and uce-kernel-h2-natural give α_S K₂(f)=H₂^grp(E(f);Z)α_R.
+5. For β, consume the early K.2:plus request’s basepoint-compatible ring-map comparisons; H.3’s free-homotopy functoriality alone does not provide based induced maps on BGL⁺. Lift the induced map to the simply connected cover at the chosen vertex, and apply naturality of γ_R, Hurewicz and integral homology. Covering-map and fibre-sequence naturality give the commuting square. H.3/plus-pi2-natural supplies an independent fibre description of this natural identification. Retain the basepoint hypothesis, or use the trivial π₁-action furnished by the requested H-space structure.
 6. Import only GeneralAlgebraicKTheory:K.2:plus for the K-space carrier and component map. Its later low-degree-comparisons stage consumes this result and is not a prerequisite.
 
 **API.** Proposed names are interface suggestions; the mathematics above is normative.
 
 - `K2.classicalHomologyEquiv` (equivalence): α_R is the kernel restriction of the unique Hopf universal-extension equivalence.
 - `K2.classicalPlusEquiv` (equivalence): β_R is the displayed cover/Hurewicz/integral-homology composite.
-- `K2.classicalHomologyEquiv_natural` (functoriality): α_S∘K₂(f)=H₂(E(f);Z)∘α_R for any unital ring map f.
+- `K2.classicalHomologyEquiv_natural` (functoriality): α_S∘K₂(f)=H₂^grp(E(f);Z)∘α_R for any unital ring map f.
 - `K2.classicalPlusEquiv_natural` (functoriality): β_S∘K₂(f)=π₂(BGL(f)⁺)∘β_R, with the stated basepoint or trivial-action condition.
-- `K2.classicalPlusEquiv_cover` (compatibility): hur_R∘p_R,*⁻¹∘β_R=H₂(j_R)∘α_R.
+- `K2.classicalPlusEquiv_cover` (compatibility): hur_R∘p_R,*⁻¹∘β_R=H₂^top(j_R)∘γ_R∘α_R.
 - `K2.classicalPlusEquiv_transport` (compatibility): Changing the plus/cover model by a based equivalence compatible under BE and BGL carries β to the new β; changing the Hopf presentation carries α by the canonical equivalence.
 - `K2.classicalPlusEquiv_KSpace` (compatibility): Transport β along the based equivalence between BGL⁺ and the zero component of the supplier’s ring K-space.
 
@@ -299,7 +301,7 @@ For an associative unital ring R in Type, let α_R:K₂(R)≃H₂(E(R);Z) be the
 - `comparison_zero_ring` (degenerate): For the zero ring, St=E=1 and both comparisons are the unique maps between trivial groups.
 - `comparison_inverse` (characterisation): For z∈K₂(R), α_R⁻¹α_R(z)=z and β_R⁻¹β_R(z)=z; neither comparison is merely a map factoring through the trivial group.
 - `comparison_identity_composition` (characterisation): For identity and composable unital ring maps the two naturality squares compose to the identity and composite squares with the actual induced maps.
-- `comparison_cover_hurewicz` (compatibility): For every z, hur_R(p_R,*⁻¹β_R(z))=H₂(j_R)(α_R(z)); this detects reversal of the Hurewicz isomorphism.
+- `comparison_cover_hurewicz` (compatibility): For every z, hur_R(p_R,*⁻¹β_R(z))=H₂^top(j_R)(γ_R(α_R(z))); the intermediate value γ_R(α_R(z)) lies in space homology of BE, not group homology of E. This checks carrier alignment and the direction of Hurewicz.
 - `comparison_quotient_map` (non-example): The square applies to the unital quotient map Z→Z/2; injectivity or invertibility of the ring map is not a hypothesis.
 
 **Acceptance.** Naturality uses the actual K₂, E, homology and based homotopy maps, rather than an equivalence of one group with itself. The case H=P uses only simply connected plus uniqueness.
@@ -316,11 +318,11 @@ For the order tests over M₂(ℤ), set a=E₁₂ and b=E₂₁. Then ab=E₁₁
 
 In the identity extension of St₅, every normalized lift is the original root generator. In the direct-product central extension A×St₅→St₅ for abelian A, arbitrary preimages have arbitrary A-coordinates, but their commutator has A-coordinate 1. Thus the canonical normalized section is g↦(1,g), independently of the chosen set section. This tests lift-choice independence without selecting a section which already satisfies the presentation.
 
-For the zero ring, every Steinberg parameter is zero, so all generators equal 1; E and K₂ are trivial. Its BGL plus space and degree-two homology are trivial as well. For a general R, the cover/Hurewicz test instead fixes the direction of the maps: apply the inverse of p on π₂ to β(z), then apply Hurewicz, and recover the image of α(z) under the plus homology isomorphism. An abstract unnamed equivalence alone does not pass that test.
+For the zero ring, every Steinberg parameter is zero, so all generators equal 1; E and K₂ are trivial. Its BGL plus space and degree-two homology are trivial as well. For a general R, the cover/Hurewicz test instead fixes the direction of the maps: apply the inverse of p on π₂ to β(z), then apply Hurewicz, and recover H₂^top(j)(γ(α(z))) after first transporting group homology into the space homology of BE. An abstract unnamed equivalence alone does not pass that test.
 
 ## Boundaries, acceptance and handoff
 
-The packet is a **complete target-level pass**, with T.1 **planned**. Its eight nodes have 26 API items, 19 unit tests and three new planets. There are no unresolved proof gaps internal to these eight refinements. There are two explicit stage-level supplier contracts: the existing upstream absolute Hurewicz interface and the early K-space/component/functoriality interface. The layer is not closed and no mathematical object is claimed implemented.
+The packet is a **complete target-level pass**, with T.1 **planned**. Its eight nodes have 28 API items, 19 unit tests and three new planets. There are no unresolved proof gaps internal to these eight refinements. There are two explicit stage-level supplier contracts: the existing upstream absolute Hurewicz interface and the early K-space/component/functoriality interface. The layer is not closed and no mathematical object is claimed implemented.
 
 The predecessor’s column-injectivity, associative-matrix, colimit, stable-centre, lifted-relations and classification boundaries have identified proofs or exact suppliers. Its semilocal symbol-generation and Milnor computations concern T.2 and are untouched. The finite-rank centrality warning in its source finding E2 is retained: splitting extensions of Stₙ is not a proof that Stₙ→Eₙ has central kernel.
 

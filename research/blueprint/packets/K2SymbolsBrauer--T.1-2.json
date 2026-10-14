@@ -15,151 +15,151 @@
         "ref": "mathlib:DirectLimit",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Directed type quotient; the additional algebraic module supplies its Group instance for a nonempty directed system of groups and homomorphisms.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.setoid",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Equality iff representatives agree in some common upper stage; requires directedness, not injectivity.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.exists_eq_mk",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Every colimit element has a finite-stage representative.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.exists_eq_mk₂",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Two elements admit representatives in a common stage.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.eq_of_le",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Compatibility with a transition to a later stage.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.lift",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Function lift of compatible maps, used with lift_mul to package a group homomorphism.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.lift_def",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "The lift evaluates on each representative as the corresponding component map.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.map",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "A compatible system of functions gives a map of direct limits.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.mk_injective",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "Injectivity of a component map only when all transitions are injective; applied to GL, never asserted for St.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, DirectLimit namespace; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.mul_def",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "Multiplication of representatives at a common upper stage.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.lift_mul",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "A compatible family of multiplicative maps has a multiplicative lift.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.lift_one",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "The lift of a family of homomorphisms preserves the identity.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:DirectLimit.inv_def",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "Inversion of a representative is represented by its inverse.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, group instance at lines 257–267 and associated operation/lift lemmas; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:commutatorElement",
         "module": "Mathlib/Algebra/Group/Commutator.lean",
         "provides": "Commutator xyx⁻¹y⁻¹, fixing every sign and order convention.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:commutatorElement_mul_right_eq_mul_conj",
         "module": "Mathlib/GroupTheory/Commutator/Basic.lean",
         "provides": "[a,bc]=[a,b] b[a,c]b⁻¹; used for additivity of normalized lifts.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "mathlib:commutatorElement_inv",
         "module": "Mathlib/GroupTheory/Commutator/Basic.lean",
         "provides": "[a,b]⁻¹=[b,a]; used for the reverse root relation.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, definition and commutator identities; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.inducesAction_iff_smul_eq_self",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "If the kernel image of S is central, S induces the specified action iff that action is trivial; this discharges the predecessor centrality-to-fixed-action bridge.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.normalizeSection",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Corrects any right section at the identity to a normalized section.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.normalizeSection_one",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "The normalized section sends the identity to the identity.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.factorSetToGroupExtensionEquiv",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "With abelian kernel, a normalized section and InducesAction, the factor-set extension is equivalent to S with the same kernel and quotient identifications.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.exists_factorSet",
         "module": "TauCeti/GroupTheory/GroupExtension/FactorSetOfSection.lean",
         "provides": "Every extension with abelian kernel inducing the fixed action arises from a factor set.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 137, 313–323, 298 and 344 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.cohomologyClass_factorSet_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Class independent of normalized section for a fixed induced action.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Equivalence of fixed-kernel/fixed-quotient extensions iff the classes of their normalized sections agree; requires both extensions to induce the same ambient action.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Every H² class of the fixed coefficient action has a factor-set representative.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, lines 289, 304 and 187 respectively; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.inl_range_le_center",
         "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
         "provides": "The extension of a factor set is central when the specified action is trivial.",
-        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, line 304; 2026-10-14."
+        "checked": "Actual statement and enclosing hypotheses read at the pinned commit, line 304; 2026-10-14. Independently reconfirmed, including surrounding typeclasses, by REV-K2SymbolsBrauer--T.1-2."
       }
     ]
   },
@@ -400,6 +400,16 @@
           "name": "Steinberg.rowRoot_add",
           "role": "relation",
           "statement": "ρ^row_n(v+w)=ρ^row_n(v)ρ^row_n(w)."
+        },
+        {
+          "name": "Steinberg.rowRoot_zero",
+          "role": "simp",
+          "statement": "ρ^row_n(0)=1."
+        },
+        {
+          "name": "Steinberg.rowRoot_neg",
+          "role": "simp",
+          "statement": "ρ^row_n(−v)=ρ^row_n(v)⁻¹."
         },
         {
           "name": "Steinberg.rowRoot_matrix",
@@ -668,7 +678,7 @@
       ],
       "proofSteps": [
         "For each n≥5 pull q back along St_n→St. The pullback consists of pairs (a,y) with the same stable image; it is surjective over St_n with central kernel even if St_n→St is not injective.",
-        "Apply finite-splitting-relations to obtain a homomorphism σ_n:St_n→Y whose composite with q is the stable inclusion. For m≤n the two lifts σ_m and σ_n∘stabilise are equal by perfect-extension-rigidity, since St_m is perfect and q is central.",
+        "Apply finite-splitting-relations to obtain a homomorphism σ_n:St_n→Y whose composite with q is the stable inclusion. For 5≤m≤n compare σ_m and σ_n∘stabilise as sections of the pullback extension Y×_St St_m→St_m. The identity St_m→St_m is a surjective central extension with perfect source, so perfect-extension-rigidity gives equality of these sections and hence of their Y-components. This does not require St_m→St to be surjective or injective.",
         "Ranks n≥5 form a cofinal tail. The compatible family induces σ:St→Y by the existing DirectLimit lift; lift_mul packages its homomorphism structure and lift_def checks qσ=id. The universal property and perfectness give uniqueness.",
         "Import split-central-extension-universal: a central extension with perfect source for which every central extension of the source splits is universal. Apply it to φ_R using stable-centre-completion and stable-steinberg-perfect. E is perfect by U.1. This route does not invoke any unproved finite-rank kernel centrality."
       ],
@@ -711,7 +721,7 @@
       ],
       "title": "Chosen classical and homotopy K₂ comparisons",
       "kind": "construction",
-      "statement": "For an associative unital ring R in Type, let α_R:K₂(R)≃H₂(E(R);Z) be the kernel equivalence of the unique isomorphism over E(R) from St(R) to the canonical Hopf universal extension, followed by Hopf’s formula. Put B_R=BGL(R)⁺ with its canonical based vertex, j_R:BE(R)→BE(R)⁺ and p_R:BE(R)⁺→B_R the universal-cover model supplied by H.3. Define β_R=p_R,* ∘ hur_R⁻¹ ∘ H₂(j_R) ∘ α_R, where hur_R:π₂(BE(R)⁺)≃H₂(BE(R)⁺;Z) is absolute Hurewicz. Then β_R:K₂(R)≃π₂(B_R), and, under the early K-space zero-component equivalence, β_R identifies classical with homotopy K₂. Both maps are natural for unital ring homomorphisms; H₂ has trivial integral coefficients and group-valued carriers use the appropriate additive/multiplicative type tags.",
+      "statement": "For an associative unital ring R in Type, let α_R:K₂(R)≃H₂^grp(E(R);Z) be the kernel equivalence of the unique isomorphism over E(R) from St(R) to the canonical Hopf universal extension, followed by Hopf’s formula. Put B_R=BGL(R)⁺ with its canonical based vertex, j_R:BE(R)→BE(R)⁺ and p_R:BE(R)⁺→B_R the universal-cover model supplied by H.3. Let γ_R:H₂^grp(E(R);Z)≃H₂^top(BE(R);Z) be the natural group/classifying-space comparison supplied by H.1, oriented from group homology to space homology. Define β_R=p_R,* ∘ hur_R⁻¹ ∘ H₂^top(j_R) ∘ γ_R ∘ α_R, where hur_R:π₂(BE(R)⁺)≃H₂^top(BE(R)⁺;Z) is absolute Hurewicz. Then β_R:K₂(R)≃π₂(B_R), and, under the early K-space zero-component equivalence, β_R identifies classical with homotopy K₂. Both maps are natural for unital ring homomorphisms; H₂ has trivial integral coefficients and group-valued carriers use the appropriate additive/multiplicative type tags.",
       "hypotheses": [
         "R is an associative unital ring; commutativity is not assumed.",
         "Groups are in Type, matching the pinned integral group-homology API; larger universes use compatible universe lifts.",
@@ -721,9 +731,9 @@
       "proofSteps": [
         "Stable-splitting-completion makes St→E a universal central extension. Import uce-kernel-h2 and its naturality from the predecessor, giving α with the chosen canonical Hopf presentation, not an arbitrary unspecified isomorphism.",
         "E is perfect normal in GL by U.1. Import H.3/plus-universal-cover only in the H=P=E special case: BE⁺ is simply connected and has CW type, and p induces isomorphisms on π_n for n≥2. The general H/P nonabelian-target gap in H.3 is not used.",
-        "Import H.3/plus-integral-homology and the group/classifying-space integral homology identification from H.1; H₂(j_R) is an isomorphism. Consume the absolute degree-two Hurewicz theorem and its induced-map compatibility from the existing Tau Ceti AlgebraicTopology stage 8. Invert it and then apply p_R,* to define β.",
-        "For a ring map f, St(f) sends x_ij(a) to x_ij(f(a)), so it is a map of universal extensions over E(f). The predecessor uce-lift uniqueness and uce-kernel-h2-natural give α_S K₂(f)=H₂(E(f);Z)α_R.",
-        "For β, use based plus functoriality, lift the induced map to the simply connected cover at the chosen vertex, and apply naturality of Hurewicz and integral homology. Covering-map and fibre-sequence naturality give the commuting square. H.3/plus-pi2-natural supplies an independent fibre description of this natural identification. Retain the basepoint hypothesis, or use the trivial π₁-action furnished by the requested H-space structure.",
+        "Import H.3/plus-integral-homology: H₂^top(j_R) is an isomorphism. From H.1/bar-complex-comparison take the constant integral coefficient specialization, and invert its space-to-group orientation to obtain γ_R. Only ordinary integral homology is used, not the supplier’s unresolved general local-coefficient comparison. Consume the absolute degree-two Hurewicz theorem and its induced-map compatibility from existing Tau Ceti AlgebraicTopology stage 8. Compose α_R, γ_R, H₂^top(j_R), inverse Hurewicz and p_R,* in that order to define β.",
+        "For a ring map f, St(f) sends x_ij(a) to x_ij(f(a)), so it is a map of universal extensions over E(f). The predecessor uce-lift uniqueness and uce-kernel-h2-natural give α_S K₂(f)=H₂^grp(E(f);Z)α_R.",
+        "For β, consume the early K.2:plus request’s basepoint-compatible ring-map comparisons; H.3’s free-homotopy functoriality alone does not provide based induced maps on BGL⁺. Lift the induced map to the simply connected cover at the chosen vertex, and apply naturality of γ_R, Hurewicz and integral homology. Covering-map and fibre-sequence naturality give the commuting square. H.3/plus-pi2-natural supplies an independent fibre description of this natural identification. Retain the basepoint hypothesis, or use the trivial π₁-action furnished by the requested H-space structure.",
         "Import only GeneralAlgebraicKTheory:K.2:plus for the K-space carrier and component map. Its later low-degree-comparisons stage consumes this result and is not a prerequisite."
       ],
       "prerequisites": [
@@ -768,7 +778,7 @@
         {
           "name": "K2.classicalHomologyEquiv_natural",
           "role": "functoriality",
-          "statement": "α_S∘K₂(f)=H₂(E(f);Z)∘α_R for any unital ring map f."
+          "statement": "α_S∘K₂(f)=H₂^grp(E(f);Z)∘α_R for any unital ring map f."
         },
         {
           "name": "K2.classicalPlusEquiv_natural",
@@ -778,7 +788,7 @@
         {
           "name": "K2.classicalPlusEquiv_cover",
           "role": "compatibility",
-          "statement": "hur_R∘p_R,*⁻¹∘β_R=H₂(j_R)∘α_R."
+          "statement": "hur_R∘p_R,*⁻¹∘β_R=H₂^top(j_R)∘γ_R∘α_R."
         },
         {
           "name": "K2.classicalPlusEquiv_transport",
@@ -824,7 +834,7 @@
         {
           "name": "comparison_cover_hurewicz",
           "kind": "compatibility",
-          "statement": "For every z, hur_R(p_R,*⁻¹β_R(z))=H₂(j_R)(α_R(z)); this detects reversal of the Hurewicz isomorphism."
+          "statement": "For every z, hur_R(p_R,*⁻¹β_R(z))=H₂^top(j_R)(γ_R(α_R(z))); the intermediate value γ_R(α_R(z)) lies in space homology of BE, not group homology of E. This checks carrier alignment and the direction of Hurewicz."
         },
         {
           "name": "comparison_quotient_map",
@@ -885,7 +895,12 @@
         "Author separate chapter III https://www.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf, Exercise III.5.2 at PDF p. 45, has the same two slips.",
         "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its official Kbook.errata.pdf link; www and sites hosts returned HTTP 404 on 2026-10-14. A search-engine entry for the errata exists but its exercise correction could not be read.",
         "Searches for Weibel K-book errata Exercise 5.2 and triangular matrices on 2026-10-14 located no readable correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently confirmed on rendered combined-draft PDF p. 236 (printed p. 228), and separate chapter III PDF p. 45. The map has precisely n−1 coordinates; no nth coordinate occurs in its formula.",
+        "by": "REV-K2SymbolsBrauer--T.1-2"
+      }
     },
     {
       "id": "K2SymbolsBrauer/E-triangular-orientation",
@@ -902,7 +917,12 @@
         "Author separate chapter III https://www.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf, Exercise III.5.2 at PDF p. 45, has the same two slips.",
         "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its official Kbook.errata.pdf link; www and sites hosts returned HTTP 404 on 2026-10-14. A search-engine entry for the errata exists but its exercise correction could not be read.",
         "Searches for Weibel K-book errata Exercise 5.2 and triangular matrices on 2026-10-14 located no readable correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently confirmed at the same exercise and III.1.2 (printed p. 180/PDF p. 188): x_12(1) over Z has an above-diagonal entry, and every generated matrix has diagonal 1. The intended image is upper unitriangular. No claim is made about the unread published edition or unavailable official errata.",
+        "by": "REV-K2SymbolsBrauer--T.1-2"
+      }
     }
   ],
   "restructure": [],
@@ -1045,5 +1065,53 @@
     "currentRoadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
     "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "checked": "All nine newly listed upstream roadmaps and the four Completed roadmaps screened in README/Suggested files; relevant existing AlgebraicTopology stage 8 read. Current Tau Ceti Steinberg searches found representations/Lie maps, not this presentation. Current extension APIs agree with the verified pin."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.1-2",
+    "date": "2026-10-14",
+    "notes": "All eight nodes, 25 pinned baseline declarations, public source locators, imported supplier contracts, target coverage, APIs, tests, planets and current upstream/library ownership checked independently. Corrected three nodes in place (row simp API, pullback section comparison, explicit group-to-space homology and based maps); no new node, removed/replaced baseline, gap or supplier request. Both source issues independently confirmed. The two existing precise supplier requests remain honest planning contracts; acceptance is not an implementation claim. Suggested Lean elaborates at the pins with only seven placeholder-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/stable-elementary-surjection",
+        "verdict": "verified",
+        "note": "Verified the presentation-to-matrix relations and compatible colimit surjection. Common finite representatives suffice; no Steinberg transition injectivity is asserted."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/column-root-embedding",
+        "verdict": "verified",
+        "note": "Verified matrix-entry recovery, additive structure, designated-column stabilization and left product order av_j over noncommutative rings; five tests distinguish the intended embedding."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/row-root-embedding",
+        "verdict": "corrected",
+        "note": "Verified reverse relation −v_i a and faithful finite/stable row recovery. Added zero and negation simp API entries; four tests distinguish row orientation and multiplication order."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/stable-centre-completion",
+        "verdict": "verified",
+        "note": "Verified fresh-index normalization, faithful root images and the commutator factorization of every root. The converse uses surjectivity and the imported trivial stable elementary centre."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/normalised-root-lift",
+        "verdict": "verified",
+        "note": "Verified central-twist independence, exact commuting lifts using a spare fifth index, the special four-root word identity and intermediate-index independence. No unrestricted Jacobi identity or finite centrality is assumed."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/finite-splitting-relations",
+        "verdict": "verified",
+        "note": "Verified additivity, disjoint-root commutation, forward and reverse relations, presentation descent and perfect-source uniqueness for n≥5. Finite universality remains conditional on centrality of St_n→E_n."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/stable-splitting-completion",
+        "verdict": "corrected",
+        "note": "Corrected compatibility: compare sections inside the central pullback over St_m and apply rigidity from its identity extension. The non-surjective finite-to-stable map is not the source extension. Cofinal-tail lift and stable UCE recognition then follow."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.1/chosen-k2-comparisons",
+        "verdict": "corrected",
+        "note": "Made the natural group-to-space homology equivalence γ explicit in the definition, proof, cover API and test. Clarified constant coefficients and the early K-space supplier’s based functoriality contract; audited the H=P cover case, Hurewicz direction and noncircular ownership."
+      }
+    ]
   }
 }
