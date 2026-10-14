@@ -196003,6 +196003,27 @@
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E2",
    "kind": "misprint",
+   "locator": "§5.5, definition of 𝒢^+_n⃗, p. 72 (arXiv:1909.01898v2)",
+   "printed": "The source defines θ by θ(λ, g)θ^{-1} = (λ^c, λ^c g^♯) with g^♯ = Φ_n⃗ ᵗg^c Φ_n⃗^{-1}, i.e. without an inverse.",
+   "correction": "g^♯ = Φ_n⃗ ᵗ(g^c)^{-1} Φ_n⃗^{-1}, as in Shin 2011 §4.1 before (4.2), where the map is g ↦ Φ_n⃗ ᵗg^{−c} Φ_n⃗^{-1}.",
+   "reason": "θ must be an automorphism of order 2 whose fixed points are the unitary similitude group G_n⃗; without the inverse, g ↦ Φ ᵗg^c Φ^{-1} is an anti-automorphism (it reverses products), so θ would not be a group automorphism.",
+   "affects": "nothing",
+   "known": "The same slip in Caraiani–Scholze 2017 §5.3 p. 736 is recorded as erratum E69 of the accepted extraction PAPER-CARAIANI-SCHOLZE-17; for the non-compact sequel it is new here.",
+   "searched": [
+    "arXiv:1909.01898 versions v1–v2",
+    "the accepted extraction PAPER-CARAIANI-SCHOLZE-17 (E69)",
+    "the ET.0 packet's sourceIssues (E1 only)"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
+   "citation": "A. Caraiani and P. Scholze, On the generic part of the cohomology of non-compact unitary Shimura varieties, arXiv:1909.01898v2 (22 November 2023), 90 pp.; printed page = PDF page; published Ann. of Math. 199 (2024). Read 2026-10-14.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E2",
+   "kind": "misprint",
    "locator": "§3.2.2, p. 18, and §3.2.3, p. 19 (author PDF of Invent. Math. 169 (2007))",
    "printed": "The Lubin–Tate deformation functor is written as a union of height components indexed by the natural numbers (h∈N, and once by an undefined index set H), and the level-zero space as the union over h∈N.",
    "correction": "The height h of the framing quasi-isogeny ranges over Z, and the unions are over h∈Z.",
@@ -202561,9 +202582,9 @@
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--RS.2.json",
    "citation": "Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2; Appendix B, printed pp.52–54",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--RS.2",
+   "reviewReason": "Read in arXiv:math/0603151v2 (SHA-256 c2889c56…, matching the packet), Appendix B.2, p.53: condition (3) of the triple writes the section power with an exponent symbol that is bound nowhere, while (2) identifies the dth tensor power. Only the root exponent d makes the condition well formed; nothing else in B.2 changes."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E1",
@@ -232111,6 +232132,65 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E12",
+   "kind": "gap",
+   "locator": "§3.2.3, Proposition 3.6 and its proof, pp. 27–28 (arXiv v1)",
+   "printed": "Proposition 3.6 asserts a Hecke-equivariant isomorphism between modular symbols with values in V_k and the spaces of modular forms of weight k + 2 and level Γ, split by the involution into two injections whose images contain the cusp forms, with the boundary symbols corresponding to Eisenstein series; the proof states that the author could not find a complete proof in the literature and admits it.",
+   "correction": "The cuspidal part is the Eichler–Shimura isomorphism of ModularSymbolsPadicLFunctions L0 (eichler-shimura-isomorphism, with symbols-mod-eisenstein and boundary-symbols for the boundary part); the Eisenstein part is needed only for the evil-Eisenstein and sign statements (§3.2.4) and for Proposition 3.18's comparison including Eisenstein points.",
+   "reason": "The proof is explicitly omitted at the locator; Corollary 3.7 and Proposition 3.18 depend on it.",
+   "affects": "the proof",
+   "known": "stated by the author in the proof of Proposition 3.6",
+   "searched": [
+    "the published version (Invent. Math. 189, 2012) was not read; arXiv v1 only",
+    "arXiv listing of 0912.2925 (one version)"
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E13",
+   "kind": "gap",
+   "locator": "§2, standing hypothesis, p. 7, as applied to Λ = ℤ_p[[ℤ_p^×]] in Parts III–IV",
+   "printed": "Section 2 assumes the coefficient ring complete, local and noetherian with finite residue field, but the ordinary projectors are later taken over the weight algebra ℤ_p[[ℤ_p^×]], which for odd p is semi-local with p − 1 factors.",
+   "correction": "Apply §2 factor by factor over the complete local factors of the semi-local ring, reading 'perfect' as 'bounded complex of finite projective modules' (L0a/semilocal-ordinary-projector).",
+   "reason": "The decomposition of ℤ_p[[ℤ_p^×]] by the characters of μ_{p−1} makes it a product of p − 1 complete local rings; a finite projective module over the product need not be free when its ranks on the factors differ.",
+   "affects": "the proof",
+   "known": "PAPER-PILLONI-20/E5 (the reviewed extraction of the paper records the same issue with the same correction)",
+   "searched": [
+    "the author's copy in the maintainer's cleared library",
+    "the extraction PAPER-PILLONI-20 and its review"
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Duke Math. J. 169 (2020), no. 9, 1647–1807; author's copy from the maintainer's cleared library (cite as: Pilloni, Duke Math. J. 169, 2020; author's copy), page numbers of that copy.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E14",
+   "kind": "error",
+   "locator": "§3.2.1, the isomorphism (10) and the sentence after it, p. 25; used in the proof of Proposition 3.3(i) and (iii), p. 26 (arXiv v1)",
+   "printed": "Modular symbols Symb_Γ(A) are identified with a finite direct sum ⊕_i A^{Γ_i} over representatives δ_i of Δ₀/Γ whose stabilisers Γ_i are said to be finite, and it is deduced that the formation of Symb_Γ commutes with every base change in characteristic zero.",
+   "correction": "Δ₀ is not a permutation ℤ[Γ]-module and Δ₀/Γ is not finite; the finite description is a presentation of Δ₀ by Manin relations, exhibiting Symb_Γ(A) as the kernel of an A-linear map A^a → A^b. This gives (Pr) and compatibility with flat base change; compatibility with the specialisation R → ℚ_p at a weight needs the universal-coefficients comparison for compactly supported cohomology, with Tor terms.",
+   "reason": "Γ preserves the coefficients of a divisor, so the divisors n({0} − {∞}), n ≥ 1, lie in pairwise different Γ-orbits and Δ₀/Γ is infinite; moreover a modular symbol is additive, Φ(nδ) = nΦ(δ), so the values at orbit representatives are not independent and Φ ↦ (Φ(δ_i))_i is not onto a direct sum of invariants. The conclusions Bellaïche draws need the presentation of Δ₀ by Manin relations instead.",
+   "affects": "the proof",
+   "known": "new: not checked against the published version (Invent. Math. 189, 2012) or Bellaïche's book The Eigenbook (2021)",
+   "searched": [
+    "arXiv:0912.2925 (one version)"
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
